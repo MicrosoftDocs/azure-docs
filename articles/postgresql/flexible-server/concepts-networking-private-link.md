@@ -12,7 +12,7 @@ ms.topic: conceptual
 
 # Azure Database for PostgreSQL Flexible Server Networking with Private Link - Preview
 
-*Azure Private Link** allows you to create private endpoints for Azure Database for PostgreSQL - Flexible server to bring it inside your Virtual Network (VNet). That functionality is introduced **in addition** to already [existing networking capabilities provided by VNET Integration](./concepts-networking-private.md), which is currently in general availability with Azure Database for PostgreSQL - Flexible Server. With **Private Link**, traffic between your virtual network and the service travels the Microsoft backbone network. Exposing your service to the public internet is no longer necessary. You can create your own private link service in your virtual network and deliver it to your customers. Setup and consumption using Azure Private Link is consistent across Azure PaaS, customer-owned, and shared partner services.
+**Azure Private Link** allows you to create private endpoints for Azure Database for PostgreSQL - Flexible server to bring it inside your Virtual Network (VNET). That functionality is introduced **in addition** to already [existing networking capabilities provided by VNET Integration](./concepts-networking-private.md), which is currently in general availability with Azure Database for PostgreSQL - Flexible Server. With **Private Link**, traffic between your virtual network and the service travels the Microsoft backbone network. Exposing your service to the public internet is no longer necessary. You can create your own private link service in your virtual network and deliver it to your customers. Setup and consumption using Azure Private Link is consistent across Azure PaaS, customer-owned, and shared partner services.
 
 > [!NOTE]
 > Azure Database for PostgreSQL - Flexible Server supports Private Link based networking in Preview.
@@ -31,7 +31,7 @@ The same public service instance can be referenced by multiple private endpoints
 
 ## Key Benefits of Azure Private Link
 
-Azure Private Link provides the following benefits:
+**Azure Private Link** provides the following benefits:
 
 - **Privately access services on the Azure platform:** Connect your virtual network using private endpoints to all services that can be used as application components in Azure. Service providers can render their services in their own virtual network and consumers can access those services in their local virtual network. The Private Link platform handles the connectivity between the consumer and services over the Azure backbone network.
 
@@ -61,17 +61,17 @@ Cross Feature Availability Matrix for preview of Private Endpoint in Azure Datab
 | Point in Time Restore (PITR) | Yes |Works as designed |
 | Allowing also public/internet access with firewall rules | Yes | Works as designed|
 | Major Version Upgrade (MVU) | Yes | Works as designed |
-| Azure Active Directory Authentication (AAD Auth) | Yes | Works as designed |
+| Microsoft Entra Authentication (Entra Auth) | Yes | Works as designed |
 | Connection pooling with PGBouncer | Yes | Works as designed |
 | Private Endpoint DNS | Yes | Works as designed and [documented](../../private-link/private-endpoint-dns.md) |
 
 There are also **following edge case limitations** that are currently not supported in Public Preview:
-- Restore from PITR backup is not supported with PE enabled servers.
-- Private Endpoint Connection description property isn't populated. The description field shown in the PG/Networking blade is empty for the connections. Providing connection description isn't supported and if updated while connection is moved from rejected state to pending, the operation may be blocked
-- Provisioned PE capable servers are not to be publicly accessible outside of PE connections.
-- Currently we have an issue for private endpoint capable servers where there is an A record can't be reused when a server is dropped. This translates into a problem that will **prevent recreating the server with the same name**. This issue is expected to be fixed as soon as possible.
+- Restore from PITR backup isn't supported with PE enabled servers.
+- Private Endpoint Connection description property isn't populated. The description field shown in the PG/Networking blade is empty for the connections. Providing connection description isn't supported and if updated while connection is moved from rejected state to pending, the operation can be  blocked
+- Provisioned PE capable servers aren't to be publicly accessible outside of PE connections.
+- Currently we have an issue for private endpoint capable servers where there's an A record can't be reused when a server is dropped. This translates into a problem that will **prevent recreating the server with the same name**. This issue is expected to be fixed as soon as possible.
 
-### Connect from an Azure VM in Peered Virtual Network (VNet)
+### Connect from an Azure VM in Peered Virtual Network 
 
 Configure [VNet peering](../../virtual-network/tutorial-connect-virtual-networks-powershell.md) to establish connectivity to the Azure Database for PostgreSQL - Flexible server from an Azure VM in a peered VNet.
 
@@ -88,7 +88,7 @@ To establish connectivity from an on-premises environment to the Azure Database 
 
 ## Network Security and Private Link
 
-When you use private endpoints, traffic is secured to a **private-link resource**. The platform validates network connections, allowing only those that reach the specified private-link resource. To access more sub-resources within the same Azure service, more private endpoints with corresponding targets are required. In the case of Azure Storage, for instance, you would need separate private endpoints to access the file and blob sub-resources.
+When you use private endpoints, traffic is secured to a **private-link resource**. The platform validates network connections, allowing only those that reach the specified private-link resource. To access more subresources within the same Azure service, more private endpoints with corresponding targets are required. In the case of Azure Storage, for instance, you would need separate private endpoints to access the file and blob subresources.
 
 **Private endpoints** provide a privately accessible IP address for the Azure service, but don't necessarily restrict public network access to it. All other Azure services require another [access controls](../../event-hubs/event-hubs-ip-filtering.md), however. These controls provide an extra network security layer to your resources, providing protection that helps prevent access to the Azure service associated with the private-link resource.
 
@@ -111,7 +111,7 @@ Network policies can be enabled either for Network Security Groups only, for Use
 Limitations to Network Security Groups (NSG) and Private Endpoints are listed [here](../../private-link/private-endpoint-overview.md)
 
  > [!IMPORTANT]
- > High availability and other Features of Azure Database for PostgreSQL - Flexible Server require ability to send\receive traffic to **destination port 5432** within Azure virtual network subnet where Azure Database for PostgreSQL - Flexible Server is deployed , as well as to **Azure storage** for log archival. If you create **[Network Security Groups (NSG)](../../virtual-network/network-security-groups-overview.md)** to deny traffic flow to or from your Azure Database for PostgreSQL - Flexible Server within the subnet where its deployed, please **make sure to allow traffic to  destination port 5432** within the subnet, and also to Azure storage by using **[service tag](../../virtual-network/service-tags-overview.md) Azure Storage** as a destination. Also, if you elect to use [Microsoft Entra authentication](concepts-azure-ad-authentication.md) to authenticate logins to your Azure Database for PostgreSQL - Flexible Server please allow outbound traffic to Microsoft Entra ID using Microsoft Entra [service tag](../../virtual-network/service-tags-overview.md).
+ > High availability and other Features of Azure Database for PostgreSQL - Flexible Server require ability to send\receive traffic to **destination port 5432** within Azure virtual network subnet where Azure Database for PostgreSQL - Flexible Server is deployed , as well as to **Azure storage** for log archival. If you create **[Network Security Groups (NSG)](../../virtual-network/network-security-groups-overview.md)** to deny traffic flow to or from your Azure Database for PostgreSQL - Flexible Server within the subnet where it's deployed, please **make sure to allow traffic to  destination port 5432** within the subnet, and also to Azure storage by using **[service tag](../../virtual-network/service-tags-overview.md) Azure Storage** as a destination. Also, if you elect to use [Microsoft Entra authentication](concepts-azure-ad-authentication.md) to authenticate logins to your Azure Database for PostgreSQL - Flexible Server please allow outbound traffic to Microsoft Entra ID using Microsoft Entra [service tag](../../virtual-network/service-tags-overview.md).
   > When setting up [Read Replicas across Azure regions](./concepts-read-replicas.md) , Azure Database for PostgreSQL - Flexible Server requires ability to send\receive traffic to **destination port 5432** for both primary and replica, as well as to **[Azure storage](../../virtual-network/service-tags-overview.md#available-service-tags)** in primary and replica regions from both primary and replica servers. 
 
 ## Private Link combined with firewall rules
