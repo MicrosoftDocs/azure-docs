@@ -39,16 +39,17 @@ To perform packet capture using the command line, you must:
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Navigate to the **Packet Core Control Pane** overview page of the site you want to run a packet capture in.
 1. Select **Packet Capture** under the **Help** section on the left side. This will open a **Packet Capture** view.
-1. Enter the **Storage account blob URL** that was configured for diagnostics storage and append the file name that you want to give the packet capture. For example:  
-    `https://storageaccountname.blob.core.windows.net/diagscontainername/packetcapturename.zip`  
-    > [!TIP]
-    > The **Storage account blob URL** should have been noted during creation. If it wasn't:
-    >
-    >    1. Navigate to your **Storage account**.
-    >    1. Select the **...** symbol on the right side of the container blob that you want to use for packet capture.
-    >    1. Select **Container properties** in the context menu.
-    >    1. Copy the contents of the **URL** field in the **Container properties** view.
-
+1. If this is the first time you've taken a packet capture using the portal, you will see an error message prompting you to configure a storage account. If so:
+    1. Follow the link in the error message.
+    1. Enter the **Storage account container URL** that was configured for diagnostics storage and select **Modify**.
+        > [!TIP]
+        > If you don't have the URL for your storage account container:
+        >
+        >    1. Navigate to your **Storage account**.
+        >    1. Select the **...** symbol on the right side of the container that you want to use for packet capture.
+        >    1. Select **Container properties** in the context menu.
+        >    1. Copy the contents of the **URL** field.
+    1. Return to the **Packet Capture** view.
 1. Select **Start packet capture**.
 1. Fill in the details on the **Start packet capture** pane and select **Create**.
 1. The page will refresh every few seconds until the packet capture has completed. You can also use the **Refresh** button to refresh the page. If you want to stop the packet capture early, select **Stop packet capture**.
