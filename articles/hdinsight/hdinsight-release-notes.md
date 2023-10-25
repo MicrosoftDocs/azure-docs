@@ -16,6 +16,8 @@ This article provides information about the **most recent** Azure HDInsight rele
 Azure HDInsight is one of the most popular services among enterprise customers for open-source analytics on Azure.
 Subscribe to the [HDInsight Release Notes](./subscribe-to-hdi-release-notes-repo.md) for up-to-date information on HDInsight and all HDInsight versions.
 
+In this release HDI 5.1 version is moved to General Availability (GA) stage.
+
 To subscribe, click the “watch” button in the banner and watch out for [HDInsight Releases](https://github.com/Azure/HDInsight/releases).
 
 ## Release date:  October 26, 2023
@@ -37,10 +39,17 @@ For workload specific versions, see
 
 ## What's new
 
+* HDI team announced the availability of new version of HDInsight, 5.1 in General Availability (GA) state from October 26, 2023 which contains all the latest versions of supported software. This comes with all the improvements made in open-source versions and the integrations from Microsoft. 
+ * Latest Version – HDInsight 5.1 comes with the latest stable open-source version available. Customers can benefit from all latest features, improvements, and Bug fixes. 
+ * Secure – The new versions come with more secure controls and fixes. Open-source security fixes are part of this release as well the improvements in security by Microsoft. 
+ * Lower TCO – new version is better in performance. Customers can leverage performance improvements to reduce the operating cost.
+   
 * Cluster permissions for secure storage  
-  * Customers can specify (during cluster creation) whether a secure channel should be used for HDInsight cluster nodes to connect the storage account. 
+  * Customers can specify (during cluster creation) whether a secure channel should be used for HDInsight cluster nodes to connect the storage account.
+    
 * HDInsight Cluster Creation with Custom VNets.
   * To improve the overall security posture of the HDInsight clusters, HDInsight clusters using custom VNETs need to ensure that the user needs to have permission for `Microsoft Network/virtualNetworks/subnets/join/action` to perform create operations. Customer can face creation failures if this check is not enabled.
+    
  * Non-ESP ABFS clusters [Cluster Permissions for Word Readable] 
   * Non-ESP ABFS clusters restrict non-Hadoop group users from executing Hadoop commands for storage operations. This change improves cluster security posture. 
 
