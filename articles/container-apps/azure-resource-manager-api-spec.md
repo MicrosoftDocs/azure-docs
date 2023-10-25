@@ -472,8 +472,6 @@ A resource's `properties.template` object includes the following properties:
 | `containers` | Configuration object that defines what container images are included in the container app. | object |
 | `scale` | Configuration object that defines scale rules for the container app. | object |
 
-Changes made to the `template` section are [revision-scope changes](revisions.md#revision-scope-changes), which triggers a new revision.
-
 ### <a name="job-examples"></a>Examples
 
 # [ARM template](#tab/arm-template)
