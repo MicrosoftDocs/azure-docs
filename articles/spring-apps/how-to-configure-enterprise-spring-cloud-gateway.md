@@ -460,7 +460,7 @@ For other supported environment variables, see the following sources:
 
 #### Configure APM integration on the service instance level (recommended)
 
-To enable APM monitoring in your Spring Cloud Gateway, you can create APM configuration on the service instance level and bind to Spring Cloud Gateway.
+To enable APM monitoring in your Spring Cloud Gateway, you can create APM configuration on the service instance level and bind to Spring Cloud Gateway. In this way, you can conveniently configure once and bind the same APM to Spring Cloud Gateway here and your apps.
 
 ##### [Azure portal](#tab/Azure-portal)
 
