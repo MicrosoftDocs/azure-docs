@@ -13,7 +13,6 @@ This article lists recent features added for Microsoft Sentinel, and new feature
 
 The listed features were released in the last three months. For information about earlier features delivered, see our [Tech Community blogs](https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog/label-name/What's%20New).
 
-See these [important announcements](#announcements) about recent changes to features and services.
 
 > [!TIP]
 > Get notified when this page is updated by copying and pasting the following URL into your feed reader:
@@ -23,7 +22,7 @@ See these [important announcements](#announcements) about recent changes to feat
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 ## October 2023
 
-- [Changes to the documentation table of contents](#changes-in-the-table-of-contents)
+- [Changes to the documentation table of contents](#changes-to-the-documentation-table-of-contents)
 
 ### Changes to the documentation table of contents
 
@@ -64,7 +63,7 @@ Also generally available are the similar incidents widget and the ability to add
 
 ### Updated MISP2Sentinel solution
 
-The open source threat intelligence sharing platform, MISP, has an updated solution to push indicators to Microsoft Sentinel. This notable solution utilizes the new [upload indicators API](#connect-threat-intelligence-with-the-upload-indicators-api) to take advantage of workspace granularity and align the MISP ingested TI to STIX-based properties.
+The open source threat intelligence sharing platform, MISP, has an updated solution to push indicators to Microsoft Sentinel. This notable solution utilizes the new upload indicators API to take advantage of workspace granularity and align the MISP ingested TI to STIX-based properties.
 
 Learn more about the implementation details from the [MISP blog entry for MISP2Sentinel](https://www.misp-project.org/2023/08/26/MISP-Sentinel-UploadIndicatorsAPI.html/).
 
@@ -75,55 +74,6 @@ Microsoft Sentinel now provides you enhanced and enriched entity pages and panel
 - Read more about these changes in this blog post: [Taking Entity Investigation to the Next Level: Microsoft Sentinel’s Upgraded Entity Pages](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/taking-entity-investigation-to-the-next-level-microsoft-sentinel/ba-p/3878382).
 
 - Learn more about [entities in Microsoft Sentinel](entities.md).
-
-## July 2023
-
-- [Higher limits for entities in alerts and entity mappings in analytics rules](#higher-limits-for-entities-in-alerts-and-entity-mappings-in-analytics-rules)
-- Announcement: [Changes to Microsoft Defender for Office 365 connector alerts that apply when disconnecting and reconnecting](#changes-to-microsoft-defender-for-office-365-connector-alerts-that-apply-when-disconnecting-and-reconnecting)
-- [Content Hub generally available and centralization changes released](#content-hub-generally-available-and-centralization-changes-released)
-- [Deploy incident response playbooks for SAP](#deploy-incident-response-playbooks-for-sap)
-- [Microsoft Sentinel solution for Dynamics 365 Finance and Operations (Preview)](#microsoft-sentinel-solution-for-dynamics-365-finance-and-operations-preview)
-- [Simplified pricing tiers](#simplified-pricing-tiers) in [Announcements](#announcements) section below
-- [Monitor and optimize the execution of your scheduled analytics rules (Preview)](#monitor-and-optimize-the-execution-of-your-scheduled-analytics-rules-preview)
-
-### Higher limits for entities in alerts and entity mappings in analytics rules
-
-The following limits on entities in alerts and entity mappings in analytics rules have been raised:
-- You can now define **up to ten entity mappings** in an analytics rule (up from five).
-- A single alert can now contain **up to 500 identified entities** in total, divided equally amongst the mapped entities.
-- The *Entities* field in the alert has a **size limit of 64 KB**. (This size limit previously applied to the entire alert record.)
-
-Learn more about entity mapping, and see a full description of these limits, in [Map data fields to entities in Microsoft Sentinel](map-data-fields-to-entities.md).
-
-Learn about other [service limits in Microsoft Sentinel](sentinel-service-limits.md).
-
-### Content Hub generally available and centralization changes released
-
-Content hub is now generally available (GA)! The [content hub centralization changes announced in February](#out-of-the-box-content-centralization-changes) have also been released. For more information on these changes and their impact, including more details about the tool provided to reinstate **IN USE** gallery templates, see [Out-of-the-box (OOTB) content centralization changes](sentinel-content-centralize.md). 
-
-As part of the deployment for GA, the default view of the content hub is now the **List view**. The install process is streamlined as well. When selecting **Install** or **Install/Update**, the experience behaves like bulk installation. See our featured [blog post](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/what-s-new-microsoft-sentinel-content-hub-ga-and-ootb-content/ba-p/3854807) for more information.
-
-### Deploy incident response playbooks for SAP
-
-Take advantage of Microsoft Sentinel's security orchestration, automation, and response (SOAR) capabilities in conjunction with SAP. Microsoft Sentinel presents purpose-built playbooks included in the [Microsoft Sentinel solution for SAP® applications](sap/solution-overview.md). You can use these playbooks to respond automatically to suspicious user activity in SAP systems, automating remedial actions in SAP RISE, SAP ERP, SAP Business Technology Platform (BTP) as well as in Azure Active Directory.
-
-Learn more about [Microsoft Sentinel incident response playbooks for SAP](sap/sap-incident-response-playbooks.md).
-
-### Microsoft Sentinel solution for Dynamics 365 Finance and Operations (Preview)
-
-The Microsoft Sentinel Solution for Dynamics 365 Finance and Operations monitors and protects your Dynamics 365 Finance and Operations system: It collects audits and activity logs from the Dynamics 365 Finance and Operations environment, and detects threats, suspicious activities, illegitimate activities, and more. 
-
-The solution includes the **Dynamics 365 Finance and Operations** connector and [built-in analytics rules](dynamics-365/dynamics-365-finance-operations-security-content.md#built-in-analytics-rules) to detect suspicious activity in your Dynamics 365 Finance and Operations environment.
-
-[Learn more about the solution](dynamics-365/dynamics-365-finance-operations-solution-overview.md).
-
-### Monitor and optimize the execution of your scheduled analytics rules (Preview)
-
-To ensure that Microsoft Sentinel's threat detection provides complete coverage in your environment, take advantage of its execution management tools. These tools consist of [insights](monitor-optimize-analytics-rule-execution.md#view-analytics-rule-insights) on your [scheduled analytics rules'](detect-threats-built-in.md#scheduled) execution, based on Microsoft Sentinel's [health and audit data](monitor-analytics-rule-integrity.md), and a facility to [manually rerun previous executions of rules](monitor-optimize-analytics-rule-execution.md#rerun-analytics-rules) on specific time windows, for testing and optimization purposes.
-
-[Learn more about monitoring and optimizing analytics rules](monitor-optimize-analytics-rule-execution.md).
-
-
 
 ## Next steps
 
