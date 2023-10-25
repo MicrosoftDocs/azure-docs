@@ -37,7 +37,7 @@ Currently, soft stop operation can be initiated using Azure PowerShell, CLI and 
 
 To soft stop an SAP system represented as a *Virtual Instance for SAP solutions* resource:
 
-Using powerShell
+### Soft stop system in PowerShell
 Use the [Stop-AzWorkloadsSapVirtualInstance](/powershell/module/az.workloads/Stop-AzWorkloadsSapVirtualInstance) command:
 
 ```powershell
