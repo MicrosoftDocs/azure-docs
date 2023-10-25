@@ -32,18 +32,7 @@ landingContent:
   # Card (optional)
   - title: Monitor protection
     linkLists:
-      - linkListType: how-to
+      - linkListType: how-to-guide
         links:
           - text: Monitor protection summary
             url: tutorial-monitor-protection-summary.md
-          
-
-  # Card
-  - title: Learn about the latest features in Azure Backup
-    linkLists:
-      - linkListType: security
-        links:
-          - text:  Overview on Security levels
-            url: security-levels-concept.md
-
-  

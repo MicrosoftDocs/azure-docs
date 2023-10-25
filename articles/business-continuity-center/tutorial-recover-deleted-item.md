@@ -5,6 +5,7 @@ ms.topic: article
 ms.date: 10/30/2023
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
+ms.service: backup
 ---
 
 # Recover deleted item

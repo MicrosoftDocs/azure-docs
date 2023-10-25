@@ -1,7 +1,7 @@
 ---
 title: Review security posture
 description: Learn how to review security posture
-ms.topic: tutotial
+ms.topic: tutorial
 ms.service: backup
 ms.date: 10/30/2023
 author: AbhishekMallick-MS
