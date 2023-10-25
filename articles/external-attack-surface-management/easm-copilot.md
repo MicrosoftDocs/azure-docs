@@ -1,14 +1,13 @@
 ---
 # required metadata
 
-title: Security Copilot and Defender EASM
+title: Security Copilot (preview) and Defender EASM
 description: You can use Security Copilot to get information about your EASM data.
 author: dandennis
 ms.author: dandennis
 ms.date: 10/25/2023
 ms.topic: conceptual
 ms.service: defender-easm
-ms.subservice: fundamentals
 ms.localizationpriority: high
 
 ---
@@ -22,9 +21,7 @@ Security Copilot is a cloud-based AI platform that provides a natural language c
 
 **Security Copilot integrates with Defender EASM**.
 
-If you use Microsoft Defender External Attack Surface Management in the same tenant as Security Copilot, then you can use Security Copilot to get information about your attack surface in the Copilot platform.
-
-Specifically, Security Copilot gets insights from your Defender EASM data. You can use the system features built into Security Copilot, and use prompts to get more information. This information can help you understand your security posture and mitigate vulnerabilities.
+Security Copilot can surface insights from Defender EASM about an organization's attack surface. You can use the system features built into Security Copilot, and use prompts to get more information. This information can help you understand your security posture and mitigate vulnerabilities.
 
 This article introduces you to Security Copilot and includes sample prompts that can help Defender EASM users.
 
@@ -76,6 +73,7 @@ To view the list of built-in system capabilities for Defender EASM, use the foll
     - Get attack surface summary.
     - Get attack surface insights.
     - Get assets affected by CVEs by priority or CVE ID.
+    - Get assets by CVSS score.
     - Get expired domains.
     - Get expired SSL certificates.
     - Get SHA1 certificates. 
