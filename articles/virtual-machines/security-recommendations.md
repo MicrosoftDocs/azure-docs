@@ -63,4 +63,4 @@ For general information about Microsoft Defender for Cloud, see [What is Microso
 
 ## Next steps
 
-Check with your application provider to learn about additional security requirements. For more information about developing secure applications, see [Secure-development documentation](https://azure.microsoft.com/resources/develop-secure-applications-on-azure/).
+Check with your application provider to learn about additional security requirements.

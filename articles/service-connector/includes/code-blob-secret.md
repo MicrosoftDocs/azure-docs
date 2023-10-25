@@ -2,7 +2,7 @@
 author: yungezz
 ms.service: service-connector
 ms.topic: include
-ms.date: 09/11/2023
+ms.date: 10/20/2023
 ms.author: yungezz
 ---
 
@@ -38,7 +38,7 @@ var blobServiceClient = new BlobServiceClient(connectionString);
         <artifactId>azure-storage-blob</artifactId>
     </dependency>
     ```
-1. Get the connection string from the environment variable, and add the plugin name to connect to the blob storage:
+1. Get the connection string from the environment variable to connect to the blob storage:
 
     ```java
     String connectionStr = System.getenv("AZURE_STORAGEBLOB_CONNECTIONSTRING");
@@ -113,7 +113,5 @@ var blobServiceClient = new BlobServiceClient(connectionString);
    const blobServiceClient = BlobServiceClient.fromConnectionString(connection_str);
    ```
 
-
-
-### [Others](#tab/others)
+### [Other](#tab/other)
 For other languages, you can use the blob storage account url and other properties that Service Connector set to the environment variables to connect the blob storage. For environment variable details, see [Integrate Azure Blob Storage with Service Connector](../how-to-integrate-storage-blob.md).

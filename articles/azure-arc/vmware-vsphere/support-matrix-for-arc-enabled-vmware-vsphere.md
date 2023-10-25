@@ -23,7 +23,7 @@ The following requirements must be met in order to use Azure Arc-enabled VMware 
 Azure Arc-enabled VMware vSphere (preview) works with vCenter Server versions 6.7, 7 and 8.
 
 > [!NOTE]
-> Azure Arc-enabled VMware vSphere (preview) currently supports vCenters with a maximum of 9500 VMs. If your vCenter has more than 9500 VMs, it is not recommended to use Arc-enabled VMware vSphere with it at this point.
+> Azure Arc-enabled VMware vSphere (preview) currently supports vCenters with a maximum of 9500 VMs. If your vCenter has more than 9500 VMs, it's not recommended to use Arc-enabled VMware vSphere with it at this point.
 
 ### Required vSphere account privileges
 
@@ -88,7 +88,7 @@ Additionally, be sure that the requirements below are met in order to enable gue
 
 ### Supported operating systems
 
-Make sure you are using a version of the Windows or Linux [operating systems that are officially supported for the Azure Connected Machine agent](../servers/prerequisites.md#supported-operating-systems). Only x86-64 (64-bit) architectures are supported. x86 (32-bit) and ARM-based architectures, including x86-64 emulation on arm64, aren't supported operating environments.
+Make sure you're using a version of the Windows or Linux [operating systems that are officially supported for the Azure Connected Machine agent](../servers/prerequisites.md#supported-operating-systems). Only x86-64 (64-bit) architectures are supported. x86 (32-bit) and ARM-based architectures, including x86-64 emulation on arm64, aren't supported operating environments.
 
 ### Software requirements
 
