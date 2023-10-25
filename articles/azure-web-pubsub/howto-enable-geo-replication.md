@@ -56,10 +56,11 @@ After creation, you would be able to view/edit your replica on the portal by cli
 
 
 # [CLI](#tab/CLI)
+[Update **webpubsub** extension](https://learn.microsoft.com/en-us/cli/azure/azure-cli-extensions-overview#how-to-update-extensions) to the latest version, then run
    ```azurecli
-  az signalr replica create --sku Premium_P1 -l eastus --replica-name MyReplica --signalr-name MySignalR -g MyResourceGroup
+  az webpubsub replica create --sku Premium_P1 -l eastus --replica-name MyReplica --name MyWebPubSub -g MyResourceGroup
    ```
-
+For more details ,refer to [az webpubsub replica create](https://learn.microsoft.com/en-us/cli/azure/webpubsub/replica?view=azure-cli-latest#az-webpubsub-replica-create)
 # [Bicep](#tab/Bicep)
 
 Use Visual Studio Code or your favorite editor to create a file with the following content and name it main.bicep:
@@ -133,9 +134,12 @@ To delete a replica in the Azure portal:
 1. Navigate to your Web PubSub resource, and select **Replicas** blade. Click the replica you want to delete.
 2. Click Delete button on the replica overview blade.
 # [CLI](#tab/CLI)
+[Update **webpubsub** extension](https://learn.microsoft.com/en-us/cli/azure/azure-cli-extensions-overview#how-to-update-extensions) to the latest version, then run
    ```azurecli
-    az signalr replica delete --replica-name MyReplica --signalr-name MySignalR -g MyResourceGroup
+    az webpubsub replica delete --replica-name MyReplica --name MyWebPubSub -g MyResourceGroup
    ```
+For more details ,refer to [az webpubsub replica delete](https://learn.microsoft.com/en-us/cli/azure/webpubsub/replica?view=azure-cli-latest#az-webpubsub-replica-delete)
+   
 
 ## Understand how the geo-replication feature works
 
