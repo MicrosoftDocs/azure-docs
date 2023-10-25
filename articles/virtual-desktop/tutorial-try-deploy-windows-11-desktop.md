@@ -33,7 +33,7 @@ You'll need:
 
    | Resource type | RBAC role(s) |
    |--|--|
-   | Host pool<br />Workspace<br />Application group | [Desktop Virtualization Contributor](rbac.md#desktop-virtualization-contributor) |
+   | Host pool<br />Workspace<br />Application group | <br />[Desktop Virtualization Contributor](rbac.md#desktop-virtualization-contributor) |
    | Session hosts | [Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#virtual-machine-contributor) |
 
    Alternatively if you already have the [Contributor](../role-based-access-control/built-in-roles.md#contributor) or [Owner](../role-based-access-control/built-in-roles.md#owner) RBAC role, you're already able to create all of these resource types.

@@ -14,7 +14,7 @@ This article shows you how to deploy Azure Virtual Desktop by using the Azure po
 The process covered in this article is an in-depth and adaptable approach to deploying Azure Virtual Desktop. If you want a more simple approach to deploy a sample Windows 11 desktop in Azure Virtual Desktop, see [Tutorial: Try Azure Virtual Desktop with Windows 11](tutorial-try-azure-virtual-desktop-windows-11
 .md) or use the [getting started feature](getting-started-feature.md).
 
-For more information on the terminology used in this article, see [Azure Virtual Desktop terminology](environment-setup.md), and to learn about the service architecture and resilience of the Azure Virtual Desktop service, see [Azure Virtual Desktop service architecture and resilience](service-architecture-resilience).
+For more information on the terminology used in this article, see [Azure Virtual Desktop terminology](environment-setup.md), and to learn about the service architecture and resilience of the Azure Virtual Desktop service, see [Azure Virtual Desktop service architecture and resilience](service-architecture-resilience.md).
 
 ## Prerequisites
 
@@ -67,7 +67,7 @@ In addition, you'll need:
 
    | Resource type | RBAC role(s) |
    |--|--|
-   | Host pool<br />Workspace<br />Application group | [Desktop Virtualization Contributor](rbac.md#desktop-virtualization-contributor) |
+   | Host pool<br />Workspace<br />Application group | <br />[Desktop Virtualization Contributor](rbac.md#desktop-virtualization-contributor) |
    | Session hosts | [Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#virtual-machine-contributor) |
 
    Alternatively you can assign the [Contributor](../role-based-access-control/built-in-roles.md#contributor) RBAC role to create all of these resource types.
