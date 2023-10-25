@@ -28,7 +28,7 @@ monikerRange: '<=doc-intel-4.0.0'
 > * There are no breaking changes to application programming interfaces (APIs) or SDKs.
 > * Some platforms are still awaiting the renaming update. All mention of Form Recognizer or Document Intelligence in our documentation refers to the same Azure service.
 
-::: moniker range=">=doc-intel-3.0.0"
+::: moniker range="<=doc-intel-4.0.0"
  [!INCLUDE [applies to v4.0 v3.1 v3.0 v2.1](includes/applies-to-v40-v31-v30-v21.md)]
 ::: moniker-end
 

@@ -12,8 +12,7 @@ monikerRange: '>=doc-intel-3.0.0'
 ---
 
 
-
-
+ [!INCLUDE [applies to v4.0 v3.1 v3.0](includes/applies-to-v40-v31-v30.md)]
 
 # Which model should I choose?
 
@@ -41,7 +40,8 @@ The following decision charts highlight the features of each **Document Intellig
 |**US W-2 tax form**|You want to extract key information such as salary, wages, and taxes withheld.|[**US tax W-2 model**](concept-tax-document.md)|
 |**US Tax 1098 form**|You want to extract mortgage interest details such as principal, points, and tax.|[**US tax 1098 model**](concept-tax-document.md)|
 |**US Tax 1098-E form**|You want to extract student loan interest details such as lender and interest amount.|[**US tax 1098-E model**](concept-tax-document.md)|
-|**US Tax 1098T form**|You want to extract qualified tuition details such as scholarship adjustments, student status, and lender information..|[**US tax 1098-T mode**l](concept-tax-document.md)|
+|**US Tax 1098T form**|You want to extract qualified tuition details such as scholarship adjustments, student status, and lender information.|[**US tax 1098-T model**](concept-tax-document.md)|
+|**Contract** (legal agreement between parties).|You want to extract contract agreement details such as parties, dates, and intervals.|[**Contract model**](concept-contract.md)|
 |**Health insurance card** or health insurance ID.| You want to extract key information such as insurer, member ID, prescription coverage, and group number.|[**Health insurance card model**](./concept-health-insurance-card.md)|
 |**Invoice** or billing statement.|You want to extract key information such as customer name, billing address, and amount due.|[**Invoice model**](concept-invoice.md)
  |**Receipt**, voucher, or single-page hotel receipt. |You want to extract key information such as merchant name, transaction date, and transaction total.|[**Receipt model**](concept-receipt.md)|

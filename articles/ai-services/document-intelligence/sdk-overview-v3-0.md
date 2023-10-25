@@ -9,7 +9,7 @@ ms.custom: devx-track-python
 ms.topic: conceptual
 ms.date: 11/15/2023
 ms.author: lajanuar
-monikerRange: '<=doc-intel-4.0.0'
+monikerRange: 'doc-intel-3.0.0'
 ---
 
 

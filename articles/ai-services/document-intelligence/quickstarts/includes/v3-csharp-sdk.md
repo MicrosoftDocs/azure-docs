@@ -8,7 +8,7 @@ ms.service: azure-ai-document-intelligence
 ms.topic: include
 ms.date: 08/16/2023
 ms.author: lajanuar
-monikerRange: '>=doc-intel-3.0.0'
+monikerRange: 'doc-intel-3.1.0 || doc-intel-3.0.0'
 ---
 
 <!-- markdownlint-disable MD025 -->

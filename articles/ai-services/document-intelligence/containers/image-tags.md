@@ -8,7 +8,6 @@ ms.service: azure-ai-document-intelligence
 ms.topic: reference
 ms.date: 11/15/2023
 ms.author: lajanuar
-monikerRange: '<=doc-intel-4.0.0'
 ---
 
 # Document Intelligence container tags

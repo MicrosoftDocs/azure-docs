@@ -9,7 +9,6 @@ ms.topic: whats-new
 ms.date: 11/15/2023
 ms.author: lajanuar
 ms.custom: references_regions
-monikerRange: '<=doc-intel-4.0.0'
 ---
 
 <!-- markdownlint-disable MD024 -->

@@ -8,7 +8,6 @@ ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
 ms.date: 11/15/2023
 ms.author: lajanuar
-monikerRange: '<=doc-intel-4.0.0'
 ---
 
 
@@ -157,7 +156,7 @@ The US tax document models analyze and extract key fields and line items from a 
 
 :::image type="icon" source="media/overview/icon-contract.png":::
 
- The contract model analyzes and extracts key fields and line items from contract agreements including parties, jurisdictions, contract ID, and title. The model currently supports English-language contract documents.
+ The contract model analyzes and extracts key fields and line items from contractual agreements including parties, jurisdictions, contract ID, and title. The model currently supports English-language contract documents.
 
 ***Sample contract processed using [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=contract)***:
 

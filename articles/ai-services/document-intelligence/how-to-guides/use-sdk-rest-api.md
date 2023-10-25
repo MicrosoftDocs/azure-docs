@@ -36,6 +36,8 @@ Choose from the following Document Intelligence models to analyze and extract da
 >
 > - The [prebuilt-document](../concept-general-document.md) model extracts key-value pairs, tables, and selection marks from documents. You can use this model as an alternative to training a custom model without labels.
 >
+> - The [prebuilt-contract](../concept-contract.md) model extracts key information from contractual agreements.
+>
 > - The [prebuilt-healthInsuranceCard.us](../concept-health-insurance-card.md) model extracts key information from US health insurance cards.
 >
 > - The [prebuilt-tax.us.w2](../concept-tax-document.md) model extracts information reported on US Internal Revenue Service (IRS) tax forms.

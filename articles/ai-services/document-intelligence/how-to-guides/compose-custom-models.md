@@ -280,10 +280,6 @@ Try one of our Document Intelligence quickstarts:
 :::moniker-end
 
 ::: moniker range="doc-intel-2.1.0"
-[!INCLUDE [applies to v2.1](../includes/applies-to-v21.md)]
-::: moniker-end
-
-::: moniker range="doc-intel-2.1.0"
 
 Document Intelligence uses advanced machine-learning technology to detect and extract information from document images and return the extracted data in a structured JSON output. With Document Intelligence, you can train standalone custom models or combine custom models to create composed models.
 
