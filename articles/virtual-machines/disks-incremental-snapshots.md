@@ -152,7 +152,7 @@ Incremental snapshots of Premium SSD v2 or Ultra Disks can't be used to create n
 You can use either the [CLI](#cli) or [PowerShell](#powershell) sections to check the status of the background copy from a disk to a snapshot.
 
 > [!IMPORTANT]
-> You can't use the following sections to get the status of the background copy process for disk types other than Ultra Disk or Premium SSD v2. Other disk types will always report 100%.
+> You can't use the following sections to get the status of the background copy process for disk types other than Ultra Disk or Premium SSD v2. Snapshots of other disk types always report 100%.
 
 ### CLI
 
