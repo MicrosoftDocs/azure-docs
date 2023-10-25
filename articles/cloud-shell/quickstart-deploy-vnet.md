@@ -45,11 +45,10 @@ To see all resource providers, and the registration status for your subscription
 1. In the search box, enter `cloudshell` to search for the resource provider.
 1. Select the **Microsoft.CloudShell** resource provider register from the provider list.
 1. Select **Register** to change the status from **unregistered** to **Registered**.
-
-   [![Screenshot of selecting resource providers in the Azure portal.][98]][98a]
-
 1. Repeat the previous steps for the **Microsoft.ContainerInstances** and **Microsoft.Relay**
    resource providers.
+
+   [![Screenshot of selecting resource providers in the Azure portal.][98]][98a]
 
 ## 2. Collect the required information
 
