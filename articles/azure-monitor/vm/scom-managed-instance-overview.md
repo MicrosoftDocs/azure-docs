@@ -1,6 +1,6 @@
 ---
 title: Azure Monitor SCOM Managed Instance overview
-description: Azure Monitor SCOM Managed Instance allows you maintain your investment in your existing System Center Operations Manager (SCOM) environment while moving your monitoring infrastructure into the Azure cloud.
+description: Azure Monitor SCOM Managed Instance allows you to maintain your investment in your existing System Center Operations Manager (SCOM) environment while moving your monitoring infrastructure into the Azure cloud.
 ms.service: azure-monitor
 ms.topic: conceptual
 author: bwren
@@ -15,9 +15,9 @@ ms.date: 09/28/2023
 
 ## Overview
 
-While Azure Monitor can use the [Azure Monitor agent](../agents/agents-overview.md) to collect telemetry from a virtual machine, it isn't able to replicate the extensive monitoring provided by management packs written for SCOM, including any management packs that you may have written for your custom applications. 
+While Azure Monitor can use the [Azure Monitor agent](../agents/agents-overview.md) to collect telemetry from a virtual machine, it isn't able to replicate the extensive monitoring provided by management packs written for SCOM, including any management packs that you might have written for your custom applications. 
 
-You may have an eventual goal to move your monitoring completely to Azure Monitor, but you must maintain SCOM functionality until you no longer rely on management packs for monitoring your virtual machine workloads. SCOM Managed Instance (preview) is compatible with all existing management packs and provides migration from your existing on-premises SCOM infrastructure.
+You might have an eventual goal to move your monitoring completely to Azure Monitor, but you must maintain SCOM functionality until you no longer rely on management packs for monitoring your virtual machine workloads. SCOM Managed Instance (preview) is compatible with all existing management packs and provides migration from your existing on-premises SCOM infrastructure.
 
 SCOM Managed Instance (preview) allows you to take a step toward an eventual migration to Azure Monitor. You can move your backend SCOM infrastructure into the cloud saving you the complexity of maintaining these components. Then you can manage the configuration in the Azure portal along with the rest of your Azure Monitor configuration and monitoring tasks.
 

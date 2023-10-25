@@ -30,7 +30,7 @@ To ensure the security of data in transit to Azure Monitor, we strongly encourag
 
 The [PCI Security Standards Council](https://www.pcisecuritystandards.org/) has set a [deadline of June 30, 2018](https://www.pcisecuritystandards.org/pdfs/PCI_SSC_Migrating_from_SSL_and_Early_TLS_Resource_Guide.pdf) to disable older versions of TLS/SSL and upgrade to more secure protocols. Once Azure drops legacy support, if your agents can't communicate over at least TLS 1.2 you won't be able to send data to Azure Monitor Logs. 
 
-We recommend you do NOT explicit set your agent to only use TLS 1.2 unless necessary. Allowing the agent to automatically detect, negotiate, and take advantage of future security standards is preferable. Otherwise you may miss the added security of the newer standards and possibly experience problems if TLS 1.2 is ever deprecated in favor of those newer standards.    
+We recommend you do NOT explicit set your agent to only use TLS 1.2 unless necessary. Allowing the agent to automatically detect, negotiate, and take advantage of future security standards is preferable. Otherwise you might miss the added security of the newer standards and possibly experience problems if TLS 1.2 is ever deprecated in favor of those newer standards.    
 
 ### Platform-specific guidance
 
@@ -79,9 +79,9 @@ Azure Monitor has an incident management process that all Microsoft services adh
 * Use a shared responsibility model where a portion of security responsibility belongs to Microsoft and a portion belongs to the customer
 * Manage Azure security incidents:
   * Start an investigation upon detection of an incident
-  * Assess the impact and severity of an incident by an on-call incident response team member. Based on evidence, the assessment may or may not result in further escalation to the security response team.
-  * Diagnose an incident by security response experts to conduct the technical or forensic investigation, identify containment, mitigation, and work around strategies. If the security team believes that customer data may have become exposed to an unlawful or unauthorized individual, parallel execution of the Customer Incident Notification process begins in parallel.  
-  * Stabilize and recover from the incident. The incident response team creates a recovery plan to mitigate the issue. Crisis containment steps such as quarantining impacted systems may occur immediately and in parallel with diagnosis. Longer term mitigations may be planned which occur after the immediate risk has passed.  
+  * Assess the impact and severity of an incident by an on-call incident response team member. Based on evidence, the assessment might or might not result in further escalation to the security response team.
+  * Diagnose an incident by security response experts to conduct the technical or forensic investigation, identify containment, mitigation, and work around strategies. If the security team believes that customer data could have become exposed to an unlawful or unauthorized individual, parallel execution of the Customer Incident Notification process begins in parallel.  
+  * Stabilize and recover from the incident. The incident response team creates a recovery plan to mitigate the issue. Crisis containment steps such as quarantining impacted systems can occur immediately and in parallel with diagnosis. Longer term mitigations can be planned which occur after the immediate risk has passed.  
   * Close the incident and conduct a post-mortem. The incident response team creates a post-mortem that outlines the details of the incident, with the intention to revise policies, procedures, and processes to prevent a recurrence of the event.
 * Notify customers of security incidents:
   * Determine the scope of impacted customers and to provide anybody who is impacted as detailed a notice as possible
