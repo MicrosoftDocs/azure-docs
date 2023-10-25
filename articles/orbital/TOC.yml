@@ -5,6 +5,8 @@ items:
   items:
   - name: Why use Azure Orbital Ground Station?
     href: overview.md
+  - name: About Microsoft and partner ground stations
+    href: about-ground-stations.md
     
 - name: Quickstart
   items:
@@ -24,6 +26,8 @@ items:
     
 - name: How-to guides
   items:
+  - name: Initiate ground station licensing
+    href: initiate-licensing.md
   - name: Register a spacecraft
     href: register-spacecraft.md
   - name: Configure a contact profile
@@ -42,8 +46,6 @@ items:
     href: receive-real-time-telemetry.md
   - name: Use Azure Resource Graph Queries
     href: resource-graph-samples.md
-  - name: Cancel a contact
-    href: delete-contact.md
     
 - name: Tutorials
   items:

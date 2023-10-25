@@ -17,11 +17,11 @@ Here are a couple of scenarios where dead lettering would happen.
 The dead-lettered events are stored in Azure Blob Storage in the CloudEvents JSON format, both structured content and binary content modes. 
 
 ## Use cases
-Here are a few use cases where you may want to use the dead-letter feature in your applications. 
+Here are a few use cases where you might want to use the dead-letter feature in your applications. 
 
-1. You may want to rehydrate events that can't be processed or delivered so that the expected processing on those events can be done. Rehydrate means to flow the events back into Event Grid in a way that dead-letter events are now delivered as originally intended or as you now see fit. For example, you may decide that some of the dead-letter events may not be critical business-wise to be put back into the data pipeline and hence those events aren't rehydrated.
-1. You may want to archive events so that they can be read and analyzed later for audit purposes.
-1. You may want to send dead-letter events to data stores or specialized tools that provide a simpler user interface to analyze dead-letter events more quickly.
+1. You might want to rehydrate events that can't be processed or delivered so that the expected processing on those events can be done. Rehydrate means to flow the events back into Event Grid in a way that dead-letter events are now delivered as originally intended or as you now see fit. For example, you might decide that some of the dead-letter events might not be critical business-wise to be put back into the data pipeline and hence those events aren't rehydrated.
+1. You might want to archive events so that they can be read and analyzed later for audit purposes.
+1. You might want to send dead-letter events to data stores or specialized tools that provide a simpler user interface to analyze dead-letter events more quickly.
 
 ## Dead-letter format
 
@@ -33,7 +33,7 @@ The format used when storing dead-letter events is the [CloudEvents JSON format]
     - `deliveryresult` - The last result during the last time the service attempted to deliver the event.
     - `publishutc` - The UTC time at which the event was persisted and accepted (HTTP 200 OK, for example) by Event Grid.
     - `deliveryattemptutc` - The UTC time of the last delivery attempt.
-- `customDeliveryProperties` - Headers (custom push delivery properties) configured on the event subscription to go with every outgoing HTTP push delivery request. One or more of these custom properties may be present in the persisted dead-letter JSON. Custom properties identified as secrets aren't stored. This metadata are described using a separate object whose key name is `customDeliveryProperties`. The property key names inside that object and their values are exactly the same as the ones set in the event subscription. Here's an exmaple: 
+- `customDeliveryProperties` - Headers (custom push delivery properties) configured on the event subscription to go with every outgoing HTTP push delivery request. One or more of these custom properties might be present in the persisted dead-letter JSON. Custom properties identified as secrets aren't stored. This metadata are described using a separate object whose key name is `customDeliveryProperties`. The property key names inside that object and their values are exactly the same as the ones set in the event subscription. Here's an exmaple: 
 
     ```
     Custom-Header-1: value1
@@ -206,7 +206,7 @@ The folder structure is as follows: `<container_name>/<namespace_name>/<topic_na
 
 
 ## Dead-letter retry logic
-You may want to have access to dead-letter events soon after an Azure Storage outage so that you can act on those dead-letters as soon as possible. The retry schedule follows a simple logic and it's not configurable by you. 
+You might want to have access to dead-letter events soon after an Azure Storage outage so that you can act on those dead-letters as soon as possible. The retry schedule follows a simple logic and it's not configurable by you. 
 
 - 10 seconds
 - 1 minute
@@ -214,7 +214,7 @@ You may want to have access to dead-letter events soon after an Azure Storage ou
 
 After the first 5 minutes retry, the service keeps on retrying every 5 minutes up to the maximum retry period. The maximum retry period is 2 days and it's configurable in the event subscriptions property `deliveryRetryPeriodInDays` in event subscription, whichever is met first. If the event isn't successfully stored on the blob after the maximum retry period, the event is dropped and reported as failed dead letter event.
 
-In case the dead-letter retry logic starts before the configured time to live event retention in the event subscription and the remaining time to live is less than the retry period configured (say, there are just 4 hours remaining for the event and there are 2 days configured as `deliverRetryPeriod` for the dead-letter), the broker will keep the event to honor the retry logic up to the maximum configured dead-letter’s delivery retry period.
+In case the dead-letter retry logic starts before the configured time to live event retention in the event subscription and the remaining time to live is less than the retry period configured (say, there are just 4 hours remaining for the event and there are 2 days configured as `deliverRetryPeriod` for the dead-letter), the broker keeps the event to honor the retry logic up to the maximum configured dead-letter’s delivery retry period.
 
 ## Configure dead-letter
 

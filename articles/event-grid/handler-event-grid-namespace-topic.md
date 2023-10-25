@@ -9,15 +9,15 @@ ms.author: robece
 
 # How to send events from Event Grid basic to Event Grid namespace topics
 
-This article describes how to forward events from event subscriptions created in resources like topics, system topics, domains, partner topics to Event Grid namespaces.
+This article describes how to forward events from event subscriptions created in resources like custom topics, system topics, domains, and partner topics to Event Grid namespaces.
 
 ## Overview
 
-Namespace topic as a destination in Event Grid basic event subscriptions will help you to transition to Event Grid namespaces without modifying your existing workflow.
+Namespace topic as a destination in Event Grid basic event subscriptions that helps you to transition to Event Grid namespaces without modifying your existing workflow.
 
-:::image type="content" source="media/handler-event-grid-namespace-topic/namespace-topic-handler-destination.png" alt-text="Forward events from Event Grid basic to Event Grid namespace topic" border="false" lightbox="media/handler-event-grid-namespace-topic/namespace-topic-handler-destination.png":::
+:::image type="content" source="media/handler-event-grid-namespace-topic/namespace-topic-handler-destination.png" alt-text="Image that shows events forwarded from Event Grid basic to Event Grid namespace topic." border="false" lightbox="media/handler-event-grid-namespace-topic/namespace-topic-handler-destination.png":::
 
-Event Grid namespaces provides new, and interesting capabilities that you might be interested to use in your solutions. If you're currently using Event Grid basic resources like topics, system topics, domains, and partner topics you'll only need to create a new event subscription in your current topic and select Event Grid namespace topic as a handler destination.
+Event Grid namespaces provides new, and interesting capabilities that you might be interested to use in your solutions. If you're currently using Event Grid basic resources like topics, system topics, domains, and partner topics you only need to create a new event subscription in your current topic and select Event Grid namespace topic as a handler destination.
 
 ## How to forward events to a new Event Grid namespace
 
@@ -32,16 +32,14 @@ Scenario: Subscribe to a storage account system topic and forward storage events
 
 ### Create and configure the event subscription
 
-:::image type="content" source="media/handler-event-grid-namespace-topic/namespace-topic-subscription.png" alt-text="Subscription to forward events from Event Grid basic to Event Grid namespace topic" border="false" lightbox="media/handler-event-grid-namespace-topic/namespace-topic-subscription.png":::
+:::image type="content" source="media/handler-event-grid-namespace-topic/namespace-topic-subscription.png" alt-text="Screenshot that shows how to create a subscription to forward events from Event Grid basic to Event Grid namespace topic." border="false" lightbox="media/handler-event-grid-namespace-topic/namespace-topic-subscription.png":::
 
 > [!NOTE]
-> For **Event Schema**, select the event schema as **Cloud Events Schema v1.0**. It's the only schema type that's supported for Event Grid Namespace Topic destination).
+> For **Event Schema**, select the event schema as **Cloud Events Schema v1.0**. It's the only schema type that the Event Grid Namespace Topic destination supports.
 
 Once the subscription is configured with the basic information, select the **Event Grid Namespace Topic** endpoint type in the endpoint details section and select **Configure an endpoint** to configure the endpoint.
 
 You might want to use this article as a reference to explore how to [subscribe to the blob storage](blob-event-quickstart-portal.md#subscribe-to-the-blob-storage).
-
-:::image type="content" source="media/handler-event-grid-namespace-topic/namespace-topic-endpoint-configuration.png" alt-text="Endpoint configuration to forward events from Event Grid basic to Event Grid namespace topic" border="false" lightbox="media/handler-event-grid-namespace-topic/namespace-topic-endpoint-configuration.png":::
 
 Steps to configure the endpoint:
 
@@ -51,6 +49,8 @@ Steps to configure the endpoint:
     1. Select the **Event Grid namespace** resource previously created.
     1. Select the **Event Grid namespace topic** where you want to forward the events.
     1. Select **Confirm Selection**.
+
+        :::image type="content" source="media/handler-event-grid-namespace-topic/namespace-topic-endpoint-configuration.png" alt-text="Screenshot that shows the Select Event Grid Namespace topic page to configure the endpoint to forward events from Event Grid basic to Event Grid namespace topic." border="false" lightbox="media/handler-event-grid-namespace-topic/namespace-topic-endpoint-configuration.png":::
 1. Now, on the **Create Event Subscription** page, select **Create** to create the event subscription.
 
 ## Next steps

@@ -6,7 +6,7 @@ ms.subservice: single-server
 author: SudheeshGH
 ms.author: sunaray
 ms.topic: troubleshooting
-ms.date: 06/20/2022
+ms.date: 10/20/2023
 ---
 
 # Troubleshoot high CPU utilization in Azure Database for MySQL
@@ -17,13 +17,14 @@ ms.date: 06/20/2022
 
 Azure Database for MySQL provides a range of metrics that you can use to identify resource bottlenecks and performance issues on the server. To determine whether your server is experiencing high CPU utilization, monitor metrics such as “Host CPU percent”, “Total Connections”, “Host Memory Percent”, and “IO Percent”. At times, viewing a combination of these metrics will provide insights into what might be causing the increased CPU utilization on your Azure Database for MySQL server.
 
-For example, consider a sudden surge in connections that initiates surge of database queries that cause CPU utilization to shoot up. 
+For example, consider a sudden surge in connections that initiates surge of database queries that cause CPU utilization to shoot up.
 
 Besides capturing metrics, it’s important to also trace the workload to understand if one or more queries are causing the spike in CPU utilization.
 
 ## Capturing details of the current workload
 
 The SHOW (FULL) PROCESSLIST command displays a list of all user sessions currently connected to the Azure Database for MySQL server. It also provides details about the current state and activity of each session.
+
 This command only produces a snapshot of the current session status and doesn't provide information about historical session activity.
 
 Let’s take a look at sample output from running this command.
@@ -47,7 +48,7 @@ Notice that there are two sessions owned by customer owned user “adminuser”,
 * Session 24835 has been executing a SELECT statement for the last seven seconds.
 * Session 24837 is executing “show full processlist” statement.
 
-When necessary, it may be required to terminate a query, such as a reporting or HTAP query that has caused your production workload CPU usage to spike. However, always consider the potential consequences of terminating a query before taking the action in an attempt to reduce CPU utilization. Other times if there are any long running queries identified that are leading to CPU spikes, tune these queries so the resources are optimally utilized.
+When necessary, it might be required to terminate a query, such as a reporting or HTAP query that has caused your production workload CPU usage to spike. However, always consider the potential consequences of terminating a query before taking the action in an attempt to reduce CPU utilization. Other times if there are any long running queries identified that are leading to CPU spikes, tune these queries so the resources are optimally utilized.
 
 ## Detailed current workload analysis
 
@@ -58,13 +59,13 @@ You need to use at least two sources of information to obtain accurate informati
 
 With information from only one of these sources, it’s impossible to describe the connection and transaction state. For example, the process list doesn’t inform you whether there’s an open transaction associated with any of the sessions. On the other hand, the transaction metadata doesn’t show session state and time spent in that state.
 
-An example query that combines process list information with some of the important pieces of InnoDB transaction metadata is shown below:
+The following example query that combines process list information with some of the important pieces of InnoDB transaction metadata:
 
 ```
 mysql> select    p.id as session_id, p.user, p.host, p.db, p.command, p.time, p.state,    substring(p.info, 1, 50) as info,    t.trx_started, unix_timestamp(now()) - unix_timestamp(t.trx_started) as trx_age_seconds, t.trx_rows_modified, t.trx_isolation_level   from information_schema.processlist p    left join information_schema.innodb_trx t    on p.id = t.trx_mysql_thread_id \G
 ```
 
-An example of the output from this query is shown below:
+The following example shows the output from this query below:
 
 ```
 *************************** 1. row *************************** 
@@ -104,6 +105,14 @@ An analysis of this information, by session, is listed in the following table.
 
 Note that if a session is reported as idle, it’s no longer executing any statements. At this point, the session has completed any prior work and is waiting for new statements from the client. However, idle sessions are still responsible for some CPU consumption and memory usage.
 
+## Listing open transactions
+
+The output from the following query provides a list of all the transactions currently running against the database server in order of transaction start time so that you can easily identify if there are any long running and blocking transactions exceeding their expected runtime.
+
+```
+SELECT trx_id, trx_mysql_thread_id, trx_state, Unix_timestamp() - ( To_seconds(trx_started) - To_seconds('1970-01-01 00:00:00') ) AS trx_age_seconds, trx_weight, trx_query, trx_tables_in_use, trx_tables_locked, trx_lock_structs, trx_rows_locked, trx_rows_modified, trx_isolation_level, trx_unique_checks, trx_is_read_only FROM information_schema.innodb_trx ORDER BY trx_started ASC;
+```
+
 ## Understanding thread states
 
 Transactions that contribute to higher CPU utilization during execution can have threads in various states, as described in the following sections. Use this information to better understand the query lifecycle and various thread states.
@@ -122,11 +131,11 @@ This state usually means that the thread is performing a write operation. Check 
 
 ### Waiting for <lock_type> lock
 
-This state indicates that the thread is waiting for a second lock. In most cases, it may be a metadata lock. You should review all other threads and see who is taking the lock.
+This state indicates that the thread is waiting for a second lock. In most cases, it might be a metadata lock. You should review all other threads and see who is taking the lock.
 
 ## Understanding and analyzing wait events
 
-It’s important to understand the underlying wait events in MySQL engine, because long waits or a large number of waits in a database can lead to increased CPU utilization. The following shows the appropriate command and sample output.
+It’s important to understand the underlying wait events in MySQL engine, because long waits or a large number of waits in a database can lead to increased CPU utilization. The following example shows the appropriate command and sample output.
 
 ```
 SELECT event_name AS wait_event,
@@ -160,7 +169,7 @@ If you don’t know about the execution cost and execution time for database ope
 
 ## Recommendations
 
-* Ensure that your database has enough resources allocated to run your queries. At times, you may need to scale up the instance size to get more CPU cores to accommodate your workload.
+* Ensure that your database has enough resources allocated to run your queries. At times, you might need to scale up the instance size to get more CPU cores to accommodate your workload.
 * Avoid large or long-running transactions by breaking them into smaller transactions.
 * Run SELECT statements on read replica servers when possible.
 * Use alerts on “Host CPU Percent” so that you get notifications if the system exceeds any of the specified thresholds.
