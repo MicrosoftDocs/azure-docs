@@ -45,7 +45,7 @@ There are three deployment options that you can select for your infrastructure, 
 
 ## Supported software
 
-Azure Center for SAP solutions supports the following SAP software versions: S/4HANA 1909 SPS 03, S/4HANA 2020 SPS 03, and S/4HANA 2021 ISS 00.
+Azure Center for SAP solutions supports the following SAP software versions: S/4HANA 1909 SPS 03, S/4HANA 2020 SPS 03, S/4HANA 2021 ISS 00 and S/4HANA ISS 00.
 
 The following operating system (OS) software versions are compatible with these SAP software versions:
 
@@ -71,7 +71,7 @@ The following operating system (OS) software versions are compatible with these 
     $offerName="RHEL-SAP-HA"
     $skuName="82sapha-gen2"
     ```
-  
+- Azure Center for SAP Solutions now support custom images along with the Azure Marketplace images for Operating System. For deployment using custom OS images, follow the steps [here](#using-custom-operating-system-image).
 ## Create deployment
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -106,11 +106,17 @@ The following operating system (OS) software versions are compatible with these 
 
     1. For **Application subnet** and **Database subnet**, map the IP address ranges as required. It's recommended to use a different subnet for each deployment. The names including AzureFirewallSubnet, AzureFirewallManagementSubnet, AzureBastionSubnet and GatewaySubnet are reserved names within Azure. Please do not use these as the subnet names.
 
-1. Under **Operating systems**, enter the OS details.
+1. Under **Operating systems**, select the source of the image,
+    1. In case of marketplace OS image,
 
-    1. For **Application OS image**, select the OS image for the application server.
+        1. For **Application OS image**, select the OS image for the application server.
 
-    1. For **Database OS image**, select the OS image for the database server.
+        1. For **Database OS image**, select the OS image for the database server.
+    1. In case of custom OS images,
+        
+        1. For **Application OS image**, select the Image Version from the Azure Compute Gallery.
+
+        1. For **Database OS image**, select the Image Version from the Azure Compute Gallery.
 
 1. Under **Administrator account**, enter your administrator account details.
 
@@ -210,6 +216,36 @@ The following operating system (OS) software versions are compatible with these 
 
 1. Wait for the infrastructure deployment to complete. Numerous resources are deployed and configured. This process takes approximately 7 minutes.
 
+## Using Custom Operating System Image
+In this section of how to guides, you will learn how to use custom images for deployment in Azure Center for SAP Solutions. You can now use a marketplace image as well as a custom OS image for Application and Database Virtual Machine.
+### Prerequisites 
+
+- Check the [list of supported OS image](#deployment-types) versions in ACSS. BYOI is supported on the OS version supported by ACSS. While creating an image from Azure Marketplace for customization, ensure the base image selected is supported for SAP “For SAP”. In case you have an image version not supported by ACSS, the deployment will fail. 
+
+- Refer to SAP installation documentation to ensure the operating system prerequisites are met for the deployment to be successful. 
+
+- Ensure the User Assigned Managed Identity has the **Reader role** on the gallery of the custom OS image, otherwise the deployment will fail.  
+
+- Create a Virtual Machine and upload it to a gallery in **Azure Compute Gallery**. [Learn more](/articles/virtual-machines/capture-image-portal.md#capture-a-vm-in-the-portal)  
+
+- Before beginning the deployment, ensure the availability of the Image in the Azure Compute Gallery. 
+
+- Ensure the image is in same Subscription as the deployment. 
+
+- Ensure the image VM has **“Standard”** Security Type. 
+
+- Please ensure the prerequisites for [deployment](#prerequisites), [downloading SAP media](/articles/sap/center-sap-solutions/get-sap-installation-media.md#prerequisites), and [installation](/articles/sap/center-sap-solutions/install-software.md#prerequisites) are met for a successful deployment of the SAP system.
+
+### Deploying using Custom Operating System Image
+- Select **“Use a custom image”** option during deployment. Choose the image to be used for OS image for Application and Database OS.  
+
+- Azure Center for SAP Solutions validates the operating system version selected while creating the OS Image is available in the supportability matrix in Azure Center for SAP Solutions. If the versions are unsupported, the deployment fails with the following error, 
+
+  *The resource ID provided consists of an OS image which is not supported in ACSS. Please ensure that the OS image version is supported in ACSS for a successful installation.* 
+
+- In case of such an error, please delete the infrastructure created (failed VIS) and retry using an operating system that is supported.  
+
+- For successful installation of SAP Software, ensure the image version is compatible with the SAP Software version. [Learn more](#deployment-types) 
 ## Confirm deployment
 
 To confirm a deployment is successful:
