@@ -10,7 +10,7 @@ ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.reviewer: lagayhar
-ms.date: 09/12/2023
+ms.date: 10/25/2023
 ---
 
 # Deploy a flow to online endpoint for real-time inference with CLI (preview)
@@ -59,7 +59,10 @@ az configure --defaults workspace=<Azure Machine Learning workspace name> group=
 
 In the online deployment, you can either refer to a registered model, or specify the model path (where to upload the model files from) inline. It's recommended to register the model and specify the model name and version in the deployment definition. Use the form `model:<model_name>:<version>`.
 
-Following is a model definition example.
+Following is a model definition example for a chat flow.
+
+> [!NOTE]
+> If your flow is not a chat flow, then you don't need to add these `properties`.
 
 ```yaml
 $schema: https://azuremlschemas.azureedge.net/latest/model.schema.json
@@ -91,7 +94,7 @@ Optionally, you can add a description and tags to your endpoint.
 - Optionally, you can add a description and tags to your endpoint.
 - If you want to deploy to a Kubernetes cluster (AKS or Arc enabled cluster)  which is attaching to your workspace, you can deploy the flow to be a **Kubernetes online endpoint**.
 
-Following is an endpoint definition example.
+Following is an endpoint definition example which by default uses system-assigned identity.
 
 # [Managed online endpoint](#tab/managed)
 
@@ -119,6 +122,14 @@ auth_mode: key
 | `name` | The name of the endpoint. |
 | `auth_mode` | Use `key` for key-based authentication. Use `aml_token` for Azure Machine Learning token-based authentication. To get the most recent token, use the `az ml online-endpoint get-credentials` command. |
 
+If you want to use user-assigned identity, you can specify the following additional attributes:
+
+```yaml
+identity:
+  type: user_assigned
+  user_assigned_identities:
+    - resource_id: user_identity_ARM_id_place_holder
+```
 
 If you create a Kubernetes online endpoint, you need to specify the following additional attributes:
 
@@ -231,7 +242,7 @@ environment_variables:
 | Environment | The environment to host the model and code. It contains: <br>    - `image`<br>      - `inference_config`: is used to build a serving container for online deployments, including `liveness route`, `readiness_route`, and `scoring_route` . |
 | Instance type | The VM size to use for the deployment. For the list of supported sizes, see [Managed online endpoints SKU list](../reference-managed-online-endpoints-vm-sku-list.md). |
 | Instance count | The number of instances to use for the deployment. Base the value on the workload you expect. For high availability, we recommend that you set the value to at least `3`. We reserve an extra 20% for performing upgrades. For more information, see [managed online endpoint quotas](../how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints). |
-| Environment variables | Following environment variables need to be set for endpoints deployed from a flow: <br> - (required) `PROMPTFLOW_RUN_MODE: serving`: specify the mode to serving <br> - (required) `PRT_CONFIG_OVERRIDE`: for pulling connections from workspace <br> - (optional) `PROMPTFLOW_RESPONSE_INCLUDED_FIELDS:`: When there are multiple fields in the response, using this env variable will filter the fields to expose in the response. <br> For example, if there are two flow outputs: "answer", "context", and if you only want to have "answer" in the endpoint response, you can set this env variable to '["answer"]'. <br> - <br> |
+| Environment variables | Following environment variables need to be set for endpoints deployed from a flow: <br> - (required) `PROMPTFLOW_RUN_MODE: serving`: specify the mode to serving <br> - (required) `PRT_CONFIG_OVERRIDE`: for pulling connections from workspace <br> - (optional) `PROMPTFLOW_RESPONSE_INCLUDED_FIELDS:`: When there are multiple fields in the response, using this env variable will filter the fields to expose in the response. <br> For example, if there are two flow outputs: "answer", "context", and if you only want to have "answer" in the endpoint response, you can set this env variable to '["answer"]'. <br> - if you want to use user-assigned identity, you need to specify `UAI_CLIENT_ID: "uai_client_id_place_holder"`<br> |
 
 If you create a Kubernetes online deployment, you need to specify the following additional attributes:
 
@@ -254,12 +265,19 @@ To create the deployment named `blue` under the endpoint, run the following code
 az ml online-deployment create --file blue-deployment.yml --all-traffic
 ```
 
-This deployment might take up to 20 minutes, depending on whether the underlying environment or image is being built for the first time. Subsequent deployments that use the same environment will finish processing more quickly.
-You need to give the following permissions to the system-assigned identity after the endpoint is created:
+> [!NOTE]
+>
+> This deployment might take more than 15 minutes. 
+
+> [!IMPORTANT]
+>
+> You need to give the following permissions to the system-assigned identity after the endpoint is created:
 
 - AzureML Data Scientist role or a customized role with "Microsoft.MachineLearningServices/workspaces/connections/listsecrets/action" permission to workspace
 - Storage Blob Data Contributor permission, and Storage Table Data Contributor to the default storage of the workspace
  
+
+
 
 > [!TIP]
 >
@@ -308,6 +326,10 @@ curl --request POST "$ENDPOINT_URI" --header "Authorization: Bearer $ENDPOINT_KE
 ```
 
 Note that you can get your endpoint key and your endpoint URI from the AzureML workspace in **Endpoints** > **Consume** > **Basic consumption info**.
+
+## Advanced settings
+
+
 
 ## Next steps
 
