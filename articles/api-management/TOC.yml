@@ -622,35 +622,7 @@
             - name: Self-hosted gateway v0/v1 retirements (October 2023)
               href: breaking-changes/self-hosted-gateway-v0-v1-retirement-oct-2023.md
             - name: Deprecated (legacy) developer portal (October 2023)
-              items:
-                - name: Deprecated portal - customize the portal
-                  href: api-management-customize-styles.md
-                - name: Deprecated portal - modify pages and layouts
-                  href: api-management-modify-content-layout.md
-                - name: Deprecated portal - customize with templates
-                  href: api-management-developer-portal-templates.md
-                - name: Deprecated portal templates
-                  items:
-                    - name: Data model reference
-                      href: api-management-template-data-model-reference.md
-                    - name: Page controls
-                      href: api-management-page-controls.md
-                    - name: Templates
-                      href: api-management-developer-portal-templates-reference.md
-                    - name: APIs
-                      href: api-management-api-templates.md
-                    - name: Products
-                      href: api-management-product-templates.md
-                    - name: Applications
-                      href: api-management-application-templates.md
-                    - name: Issues
-                      href: api-management-issue-templates.md
-                    - name: User profile
-                      href: api-management-user-profile-templates.md
-                    - name: Pages
-                      href: api-management-page-templates.md
-                    - name: Template resources
-                      href: api-management-template-resources.md
+              href: breaking-changes/legacy-portal-retirement-oct-2023.md
             - name: stv1 compute platform retirement (August 2024)
               href: breaking-changes/stv1-platform-retirement-august-2024.md
             - name: ADAL-based identity provider retirement (September 2025)
