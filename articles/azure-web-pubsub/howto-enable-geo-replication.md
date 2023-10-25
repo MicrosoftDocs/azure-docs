@@ -115,7 +115,7 @@ Deploy the Bicep file using Azure CLI
    ```azurecli
   az webpubsub replica create --sku Premium_P1 -l eastus --replica-name MyReplica --name MyWebPubSub -g MyResourceGroup
    ```
-For more details ,refer to [az webpubsub replica create](https://learn.microsoft.com/en-us/cli/azure/webpubsub/replica?view=azure-cli-latest#az-webpubsub-replica-create)
+For more details, refer to [az webpubsub replica create](https://learn.microsoft.com/en-us/cli/azure/webpubsub/replica?view=azure-cli-latest#az-webpubsub-replica-create)
 ## Pricing and resource unit
 Each replica has its **own** `unit` and `autoscale settings`.
 
@@ -136,7 +136,7 @@ To delete a replica in the Azure portal:
    ```azurecli
     az webpubsub replica delete --replica-name MyReplica --name MyWebPubSub -g MyResourceGroup
    ```
-For more details ,refer to [az webpubsub replica delete](https://learn.microsoft.com/en-us/cli/azure/webpubsub/replica?view=azure-cli-latest#az-webpubsub-replica-delete)
+For more details, refer to [az webpubsub replica delete](https://learn.microsoft.com/en-us/cli/azure/webpubsub/replica?view=azure-cli-latest#az-webpubsub-replica-delete)
    
 
 ## Understand how the geo-replication feature works
