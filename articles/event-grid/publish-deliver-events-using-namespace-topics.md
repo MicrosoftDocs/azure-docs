@@ -34,9 +34,6 @@ The article provides step-by-step instructions to publish events to Azure Event 
 
 - This article requires version 2.0.70 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
-> [!IMPORTANT]
-> Commands provided in this article are ready to run in a PowerShell terminal using Azure CLI. Make sure you are not using a Bash terminal during the execution of the commands.
-
 ## Install Event Grid preview extension
 
 By installing the Event Grid preview extension you will get access to the latest features, this step is required in some features that are still in preview.
@@ -66,11 +63,11 @@ The general steps to use Cloud Shell to run commands are:
 1. Declare a variable to hold the name of an Azure resource group. Specify a name for the resource group by replacing `<your-resource-group-name>` with a value you like.
 
     ```console
-    $resource_group="<your-resource-group-name>"
+    resource_group="<your-resource-group-name>"
     ```
 
     ```console
-    $location="<your-resource-group-location>"
+    location="<your-resource-group-location>"
     ```
 
 2. Create a resource group. Change the location as you see fit.
@@ -91,7 +88,7 @@ An Event Grid namespace provides a user-defined endpoint to which you post your 
 1. Declare a variable to hold the name for your Event Grid namespace. Specify a name for the namespace by replacing `<your-namespace-name>` with a value you like.
 
     ```console
-    $namespace="<your-namespace-name>"
+    namespace="<your-namespace-name>"
     ```
 
 2. Create a namespace. You might want to change the location where it's deployed.
@@ -107,7 +104,7 @@ Create a topic that's used to hold all events published to the namespace endpoin
 1. Declare a variable to hold the name for your namespace topic. Specify a name for the namespace topic by replacing `<your-topic-name>` with a value you like.
 
     ```console
-    $topic="<your-topic-name>"
+    topic="<your-topic-name>"
     ```
 
 2. Create your namespace topic:
@@ -129,11 +126,11 @@ az eventgrid namespace update --resource-group $resource_group --name $namespace
 Create an Event Hubs resource that will be used as the handler destination for the namespace topic push delivery subscription.
 
 ```console
-$eventHubsNamespace="<your-event-hubs-namespace-name>"
+eventHubsNamespace="<your-event-hubs-namespace-name>"
 ```
 
 ```console
-$eventHubsEventHub="<your-event-hub-name>"
+eventHubsEventHub="<your-event-hub-name>"
 ```
 
 ```console
@@ -145,13 +142,13 @@ az eventhubs eventhub create --resource-group $resourceGroup --namespace-name $e
 Get Event Grid namespace system managed identity principal ID.
 
 ```console
-$principalId=(az eventgrid namespace show --resource-group $resource_group --name $namespace --query identity.principalId -o tsv)
+principalId=(az eventgrid namespace show --resource-group $resource_group --name $namespace --query identity.principalId -o tsv)
 ```
 
 Get Event Hubs event hub resource ID.
 
 ```console
-$eventHubResourceId=(az eventhubs eventhub show --resource-group $resource_group --namespace-name $eventHubsNamespace --name $eventHubsEventHub --query id -o tsv)
+eventHubResourceId=(az eventhubs eventhub show --resource-group $resource_group --namespace-name $eventHubsNamespace --name $eventHubsEventHub --query id -o tsv)
 ```
 
 Add role assignment in Event Hubs for the Event Grid system managed identity.
@@ -165,7 +162,7 @@ az role assignment create --role "Azure Event Hubs Data Sender" --assignee $prin
 1. Create a new push delivery event subscription.
 
     ```console
-    $event_subscription="<your_event_subscription_name>"
+    event_subscription="<your_event_subscription_name>"
     ```
 
     ```console
@@ -181,13 +178,13 @@ Now, send a sample event to the namespace topic by following steps in this secti
 1. Get the access keys associated with the namespace you created. You use one of them to authenticate when publishing events. To list your keys, you need the full namespace resource ID first. Get it by running the following command:
 
     ```console
-    $namespace_resource_id=$(az resource show --resource-group $resource_group --namespace Microsoft.EventGrid --resource-type namespaces --name $namespace --query "id" --output tsv)
+    namespace_resource_id=$(az resource show --resource-group $resource_group --namespace Microsoft.EventGrid --resource-type namespaces --name $namespace --query "id" --output tsv)
     ```
 
 2. Get the first key from the namespace:
 
     ```console
-    $key=$(az resource invoke-action --action listKeys --ids $namespace_resource_id --query "key1" --output tsv)
+    key=$(az resource invoke-action --action listKeys --ids $namespace_resource_id --query "key1" --output tsv)
     ```
 
 ### Publish an event
@@ -195,13 +192,13 @@ Now, send a sample event to the namespace topic by following steps in this secti
 1. Retrieve the namespace hostname. You use it to compose the namespace HTTP endpoint to which events are sent. The following operations were first available with API version `2023-06-01-preview`.
 
     ```console
-    $publish_operation_uri="https://"$(az resource show --resource-group $resource_group --namespace Microsoft.EventGrid --resource-type namespaces --name $namespace --query "properties.topicsConfiguration.hostname" --output tsv)"/topics/"$topic:publish?api-version=2023-06-01-preview
+    publish_operation_uri="https://"$(az resource show --resource-group $resource_group --namespace Microsoft.EventGrid --resource-type namespaces --name $namespace --query "properties.topicsConfiguration.hostname" --output tsv)"/topics/"$topic:publish?api-version=2023-06-01-preview
     ```
 
 2. Create a sample [CloudEvents](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/formats/json-format.md) compliant event:
 
     ```console
-    $event=' { "specversion": "1.0", "id": "'"$RANDOM"'", "type": "com.yourcompany.order.ordercreatedV2", "source" : "/mycontext", "subject": "orders/O-234595", "time": "'`date +%Y-%m-%dT%H:%M:%SZ`'", "datacontenttype" : "application/json", "data":{ "orderId": "O-234595", "url": "https://yourcompany.com/orders/o-234595"}} '
+    event=' { "specversion": "1.0", "id": "'"$RANDOM"'", "type": "com.yourcompany.order.ordercreatedV2", "source" : "/mycontext", "subject": "orders/O-234595", "time": "'`date +%Y-%m-%dT%H:%M:%SZ`'", "datacontenttype" : "application/json", "data":{ "orderId": "O-234595", "url": "https://yourcompany.com/orders/o-234595"}} '
     ```
 
     The `data` element is the payload of your event. Any well-formed JSON can go in this field. For more information on properties (also known as context attributes) that can go in an event, see the [CloudEvents](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md) specifications.
