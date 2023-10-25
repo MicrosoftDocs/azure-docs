@@ -28,7 +28,7 @@ Follow these steps to use Azure Business Continuity center to view all your exis
     In this view you can see a list of all the vaults across subscription, resource groups, location, type, and more, along with their properties. 
     :::image type="content" source="./media/manage-vault/view-vaults.png" alt-text="Screenshot showing vaults page." lightbox="./media/manage-vault/view-vaults.png":::
 
-3.	Azure Backup provides security features to help protect backed up data in a vault. These settings can be configured at a vault level. You can find the configured [security settings](./guidance-best-practices.md#security-considerations) for each vault within Azure Backup solution under the [**Security level**](./backup-encryption.md) displayed beside each vault.
+3.	Azure Backup provides security features to help protect backed up data in a vault. These settings can be configured at a vault level. You can find the configured [security settings](../backup/guidance-best-practices.md#security-considerations) for each vault within Azure Backup solution under the [**Security level**](../backup/backup-encryption.md) displayed beside each vault.
     :::image type="content" source="./media/manage-vault/security-level.png" alt-text="Screenshot showing security level page." lightbox="./media/manage-vault/security-level.png":::
  
 1.	You can select the vault name or the ellipsis (`...`) icon to view the action menu for the vault and navigate to view further details of the vault. See the support matrix for a detailed list of supported and unsupported scenarios for actions on vaults.
@@ -50,7 +50,7 @@ Follow these steps to modify the security level for a vault using Azure Business
 1.	On the **Vaults** pane, select the security level value for a vault.
     :::image type="content" source="./media/manage-vault/security-level-option.png" alt-text="Screenshot showing the security level option." lightbox="./media/manage-vault/security-level-option.png":::
  
-2.	On the vault properties page, modify the [security settings](./backup-azure-enhanced-soft-delete-about.md) as required. It can take a while to get the security levels updated in Azure Business Continuity center.  
+2.	On the vault properties page, modify the [security settings](../backup/backup-azure-enhanced-soft-delete-about.md) as required. It can take a while to get the security levels updated in Azure Business Continuity center.  
     :::image type="content" source="./media/manage-vault/modify-settings.png" alt-text="Screenshot showing vaults settings page." lightbox="./media/manage-vault/modify-settings.png":::
     > [!NOTE]
     > When you modify the security settings for a vault, Azure Backup applies the changes to all the protected datasources in that vault.
