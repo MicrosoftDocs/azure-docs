@@ -11,7 +11,7 @@ ms.author: kesheth
 
 # Bulk Delete operation
 
-[!INCLUDE [public preview disclaimer](../includes/fhir-bulk-delete-operation.md)]
+[!INCLUDE [bulk-delete operation details](../includes/fhir-bulk-delete-operation.md)]
 
 ## Next steps
 
