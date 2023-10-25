@@ -22,7 +22,7 @@ Follow these steps to monitor jobs:
 
     Alternatively, you can select the more icon (`...`) beside any job to open the action menu. You can also select any value under the **Operation** column to view details of the Job.  
    
-    :::image type="content" source="./media/tutorial-govern-monitor-compliance/job-homepage.png" alt-text="Screenshot showing the Jobs homepage.":::
+    :::image type="content" source="./media/tutorial-monitor-operate/job-homepage.png" alt-text="Screenshot showing the Jobs homepage.":::
 
 1. To change the scope for **Jobs** view from the scope-picker, select the required options: 
        :::image type="content" source="./media/tutorial-monitor-operate/scope-picker.png" alt-text="Screenshot showing the scope picker option.":::

@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Configure protection for data sources 
-description: In this tutorial, learn how to configure protection for your data sources which are currently not protected by any solution using Azure Business Continuity center. 
+description: Learn how to configure protection for your data sources which are currently not protected by any solution using Azure Business Continuity center. 
 ms.topic: tutorial
 ms.date: 10/19/2023
 ms.service: backup
@@ -57,7 +57,7 @@ This tutorial uses option 1 shown in the getting started section to initiate con
     :::image type="content" source="./media/tutorial-configure-protection-datasource/configure-protection.png" alt-text="Screenshot showing **Configure protection** page." lightbox="./media/tutorial-configure-protection-datasource/configure-protection.png":::
 
 > [!NOTE]
-> Ensure you have a *Recovery services* vault created to proceed with the flow for [Azure Backup](./backup-overview.md) or [Azure Site recovery](../site-recovery/site-recovery-overview.md). You can create a vault from Vaults view in ABC center: <br>
+> Ensure you have a *Recovery services* vault created to proceed with the flow for [Azure Backup](../backup/backup-overview.md) or [Azure Site recovery](../site-recovery/site-recovery-overview.md). You can create a vault from Vaults view in ABC center: <br>
 >     :::image type="content" source="./media/tutorial-configure-protection-datasource/create-vault.png" alt-text="Screenshot showing the create vault option." lightbox="./media/tutorial-configure-protection-datasource/create-vault.png":::
 
  
