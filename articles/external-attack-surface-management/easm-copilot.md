@@ -106,7 +106,7 @@ Get details on **CVEs that are applicable to your inventory**.
 
 ### Domain and SSL certificate posture
 
-Get information about **domain and SSL certificate posture**, like expire domains and usage of SHA1 certificates.
+Get information about **domain and SSL certificate posture**, like expired domains and usage of SHA1 certificates.
 
 **Sample prompts**:
 
