@@ -1,9 +1,9 @@
-- name: Azure Cognitive Search Documentation
+- name: Azure AI Search Documentation
   href: index.yml
 - name: Overview
   expanded: true
   items:
-  - name: What's Cognitive Search?
+  - name: What's AI Search?
     href: search-what-is-azure-search.md
   - name: New in Search
     href: whats-new.md
@@ -17,7 +17,7 @@
     href: search-get-started-text.md
   - name: Semantic ranking
     href: search-get-started-semantic.md
-  - name: Vector search (preview)
+  - name: Vector search
     href: search-get-started-vector.md
   - name: Portal
     items:
@@ -482,7 +482,7 @@
       href: performance-benchmarks.md
     - name: Tips for better performance
       href: search-performance-tips.md
-    - name: Monitoring Cognitive Search
+    - name: Monitoring Azure AI Search
       href: monitor-azure-cognitive-search.md
     - name: Visualize resource logs
       href: search-monitor-logs-powerbi.md
