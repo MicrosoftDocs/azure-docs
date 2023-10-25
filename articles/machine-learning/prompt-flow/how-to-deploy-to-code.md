@@ -10,7 +10,7 @@ ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.reviewer: lagayhar
-ms.date: 09/12/2023
+ms.date: 10/24/2023
 ---
 
 # Deploy a flow to online endpoint for real-time inference with CLI (preview)
@@ -85,7 +85,7 @@ Use `az ml model create --file model.yaml` to register the model to your workspa
 
 To define an endpoint, you need to specify:
 
-- **Endpoint name**: The name of the endpoint. It must be unique in the Azure region. For more information on the naming rules, see [managed online endpoint limits](../how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints).
+- **Endpoint name**: The name of the endpoint. It must be unique in the Azure region. For more information on the naming rules, see [endpoint limits](../how-to-manage-quotas.md#azure-machine-learning-online-endpoints-and-batch-endpoints).
 - **Authentication mode**: The authentication method for the endpoint. Choose between key-based authentication and Azure Machine Learning token-based authentication. A key doesn't expire, but a token does expire. For more information on authenticating, see [Authenticate to an online endpoint](../how-to-authenticate-online-endpoint.md).
 Optionally, you can add a description and tags to your endpoint.
 - Optionally, you can add a description and tags to your endpoint.
@@ -230,7 +230,7 @@ environment_variables:
 | Model | The model to use for the deployment. This value can be either a reference to an existing versioned model in the workspace or an inline model specification. |
 | Environment | The environment to host the model and code. It contains: <br>    - `image`<br>      - `inference_config`: is used to build a serving container for online deployments, including `liveness route`, `readiness_route`, and `scoring_route` . |
 | Instance type | The VM size to use for the deployment. For the list of supported sizes, see [Managed online endpoints SKU list](../reference-managed-online-endpoints-vm-sku-list.md). |
-| Instance count | The number of instances to use for the deployment. Base the value on the workload you expect. For high availability, we recommend that you set the value to at least `3`. We reserve an extra 20% for performing upgrades. For more information, see [managed online endpoint quotas](../how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints). |
+| Instance count | The number of instances to use for the deployment. Base the value on the workload you expect. For high availability, we recommend that you set the value to at least `3`. We reserve an extra 20% for performing upgrades. For more information, see [limits that apply to managed online endpoint](../how-to-manage-quotas.md#limits-that-apply-to-managed-online-endpoints). |
 | Environment variables | Following environment variables need to be set for endpoints deployed from a flow: <br> - (required) `PROMPTFLOW_RUN_MODE: serving`: specify the mode to serving <br> - (required) `PRT_CONFIG_OVERRIDE`: for pulling connections from workspace <br> - (optional) `PROMPTFLOW_RESPONSE_INCLUDED_FIELDS:`: When there are multiple fields in the response, using this env variable will filter the fields to expose in the response. <br> For example, if there are two flow outputs: "answer", "context", and if you only want to have "answer" in the endpoint response, you can set this env variable to '["answer"]'. <br> - <br> |
 
 If you create a Kubernetes online deployment, you need to specify the following additional attributes:

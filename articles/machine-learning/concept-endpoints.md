@@ -11,7 +11,7 @@ ms.author: sehan
 ms.reviewer: mopeakande
 reviewer: msakande
 ms.custom: devplatv2
-ms.date: 07/12/2023
+ms.date: 10/24/2023
 #Customer intent: As an MLOps administrator, I want to understand what a managed endpoint is and why I need it.
 ---
 
@@ -140,4 +140,4 @@ You can create and manage batch and online endpoints with multiple developer too
 - [How to deploy pipelines with batch endpoints (preview)](how-to-use-batch-pipeline-deployments.md)
 - [How to use online endpoints with the studio](how-to-use-managed-online-endpoint-studio.md)
 - [How to monitor managed online endpoints](how-to-monitor-online-endpoints.md)
-- [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints)
+- [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-online-endpoints-and-batch-endpoints)

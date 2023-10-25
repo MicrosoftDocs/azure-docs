@@ -10,7 +10,7 @@ ms.custom: cliv2, event-tier1-build-2022
 
 author: dem108
 ms.author: sehan
-ms.date: 04/26/2022
+ms.date: 10/24/2023
 ms.reviewer: larryfr
 ---
 
@@ -30,7 +30,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | Key | Type | Description | Allowed values | Default value |
 | --- | ---- | ----------- | -------------- | ------------- |
 | `$schema` | string | The YAML schema. If you use the Azure Machine Learning VS Code extension to author the YAML file, including `$schema` at the top of your file enables you to invoke schema and resource completions. | | |
-| `name` | string | **Required.** Name of the endpoint. Needs to be unique at the Azure region level. <br><br> Naming rules are defined under [managed online endpoint limits](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints).| | |
+| `name` | string | **Required.** Name of the endpoint. Needs to be unique at the Azure region level. <br><br> Naming rules are defined under [endpoint limits](how-to-manage-quotas.md#azure-machine-learning-online-endpoints-and-batch-endpoints).| | |
 | `description` | string | Description of the endpoint. | | |
 | `tags` | object | Dictionary of tags for the endpoint. | | |
 | `auth_mode` | string | The authentication method for the endpoint. Key-based authentication and Azure Machine Learning token-based authentication are supported. Key-based authentication doesn't expire but Azure Machine Learning token-based authentication does. | `key`, `aml_token` | `key` |

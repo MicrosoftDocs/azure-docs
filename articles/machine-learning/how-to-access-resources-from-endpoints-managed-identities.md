@@ -8,7 +8,7 @@ ms.subservice: inferencing
 author: dem108
 ms.author: sehan
 ms.reviewer: mopeakande
-ms.date: 04/07/2022
+ms.date: 10/24/2023
 ms.topic: how-to
 ms.custom: devplatv2, cliv2, event-tier1-build-2022, ignite-2022
 #Customer intent: As a data scientist, I want to securely access Azure resources for my machine learning model deployment with an online endpoint and managed identity.
@@ -779,5 +779,5 @@ Delete the User-assigned managed identity:
 * To see which compute resources you can use, see [Managed online endpoints SKU list](reference-managed-online-endpoints-vm-sku-list.md).
 * For more on costs, see [View costs for an Azure Machine Learning managed online endpoint](how-to-view-online-endpoints-costs.md).
 * For information on monitoring endpoints, see [Monitor managed online endpoints](how-to-monitor-online-endpoints.md).
-* For limitations for managed endpoints, see [Manage and increase quotas for resources with Azure Machine Learning-managed online endpoint](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints).
-* For limitations for Kubernetes endpoints, see [Manage and increase quotas for resources with Azure Machine Learning-kubernetes online endpoint](how-to-manage-quotas.md#azure-machine-learning-kubernetes-online-endpoints).
+* For limitations for managed online endpoints, see [limits that apply to managed online endpoints](how-to-manage-quotas.md#limits-that-apply-to-managed-online-endpoints).
+* For limitations for Kubernetes endpoints, see [limits that apply to kubernetes online endpoints](how-to-manage-quotas.md#limits-that-apply-to-kubernetes-online-endpoints).

@@ -9,7 +9,7 @@ ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.reviewer: lagayhar
-ms.date: 09/12/2023
+ms.date: 10/24/2023
 ---
 
 
@@ -139,7 +139,7 @@ In this step, you can select the virtual machine size and instance count for you
 > [!NOTE]
 > For **Virtual machine**, to ensure that your endpoint can serve smoothly, it's better to select a virtual machine SKU with more than 8GB of memory.  For the list of supported sizes, see [Managed online endpoints SKU list](../reference-managed-online-endpoints-vm-sku-list.md).
 >
-> For **Instance count**, Base the value on the workload you expect. For high availability, we recommend that you set the value to at least 3. We reserve an extra 20% for performing upgrades. For more information, see [managed online endpoints quotas](../how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints)
+> For **Instance count**, Base the value on the workload you expect. For high availability, we recommend that you set the value to at least 3. We reserve an extra 20% for performing upgrades. For more information, see [virtual machine quota allocation for deployment](../how-to-deploy-online-endpoints.md#virtual-machine-quota-allocation-for-deployment).
 
 Once you configured and reviewed all the steps above, you can select **Create** to finish the creation.
 

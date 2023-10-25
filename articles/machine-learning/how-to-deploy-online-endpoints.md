@@ -8,7 +8,7 @@ ms.subservice: inferencing
 author: dem108
 ms.author: sehan
 ms.reviewer: mopeakande
-ms.date: 10/18/2023
+ms.date: 10/24/2023
 reviewer: msakande
 ms.topic: how-to
 ms.custom: how-to, devplatv2, ignite-fall-2021, cliv2, event-tier1-build-2022, sdkv2
@@ -235,7 +235,7 @@ cd azureml-examples
 
 To define an endpoint, you need to specify:
 
-* Endpoint name: The name of the endpoint. It must be unique in the Azure region. For more information on the naming rules, see [managed online endpoint limits](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints).
+* Endpoint name: The name of the endpoint. It must be unique in the Azure region. For more information on the naming rules, see [endpoint limits](how-to-manage-quotas.md#azure-machine-learning-online-endpoints-and-batch-endpoints).
 * Authentication mode: The authentication method for the endpoint. Choose between key-based authentication and Azure Machine Learning token-based authentication. A key doesn't expire, but a token does expire. For more information on authenticating, see [Authenticate to an online endpoint](how-to-authenticate-online-endpoint.md).
 * Optionally, you can add a description and tags to your endpoint.
 
@@ -255,7 +255,7 @@ The following snippet shows the *endpoints/online/managed/sample/endpoint.yml* f
 
 :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/sample/endpoint.yml":::
 
-The reference for the endpoint YAML format is described in the following table. To learn how to specify these attributes, see the [online endpoint YAML reference](reference-yaml-endpoint-online.md). For information about limits related to managed endpoints, see [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints).
+The reference for the endpoint YAML format is described in the following table. To learn how to specify these attributes, see the [online endpoint YAML reference](reference-yaml-endpoint-online.md). For information about limits related to managed endpoints, see [limits that apply to managed online endpoints](how-to-manage-quotas.md#limits-that-apply-to-managed-online-endpoints).
 
 | Key         | Description                                                                                                                                                                                                                                                 |
 | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -330,7 +330,7 @@ The following table describes the key attributes of a deployment:
 | Scoring script | The relative path to the scoring file in the source code directory. This Python code must have an `init()` function and a `run()` function. The `init()` function will be called after the model is created or updated (you can use it to cache the model in memory, for example). The `run()` function is called at every invocation of the endpoint to do the actual scoring and prediction. |
 | Environment    | The environment to host the model and code. This value can be either a reference to an existing versioned environment in the workspace or an inline environment specification.                                                                                                                                                                                                                 |
 | Instance type  | The VM size to use for the deployment. For the list of supported sizes, see [Managed online endpoints SKU list](reference-managed-online-endpoints-vm-sku-list.md).                                                                                                                                                                                                                            |
-| Instance count | The number of instances to use for the deployment. Base the value on the workload you expect. For high availability, we recommend that you set the value to at least `3`. We reserve an extra 20% for performing upgrades. For more information, see [managed online endpoint quotas](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints).                                |
+| Instance count | The number of instances to use for the deployment. Base the value on the workload you expect. For high availability, we recommend that you set the value to at least `3`. We reserve an extra 20% for performing upgrades. For more information, see [virtual machine quota allocation for deployments](how-to-deploy-online-endpoints.md#virtual-machine-quota-allocation-for-deployment).                                |
 
 > [!NOTE]
 > - The model and container image (as defined in Environment) can be referenced again at any time by the deployment when the instances behind the deployment go through security patches and/or other recovery operations. If you used a registered model or container image in Azure Container Registry for deployment and removed the model or the container image, the deployments relying on these assets can fail when reimaging happens. If you removed the model or the container image, ensure the dependent deployments are re-created or updated with alternative model or container image.
@@ -814,7 +814,7 @@ One way to create a managed online endpoint in the studio is from the **Models**
 1. Enter an __Endpoint name__.
 
     > [!NOTE]
-    > * Endpoint name: The name of the endpoint. It must be unique in the Azure region. For more information on the naming rules, see [managed online endpoint limits](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints).
+    > * Endpoint name: The name of the endpoint. It must be unique in the Azure region. For more information on the naming rules, see [endpoint limits](how-to-manage-quotas.md#azure-machine-learning-online-endpoints-and-batch-endpoints).
     > * Authentication type: The authentication method for the endpoint. Choose between key-based authentication and Azure Machine Learning token-based authentication. A `key` doesn't expire, but a token does expire. For more information on authenticating, see [Authenticate to an online endpoint](how-to-authenticate-online-endpoint.md).
     > * Optionally, you can add a description and tags to your endpoint.
 
@@ -1184,5 +1184,5 @@ If you aren't going use the deployment, you should delete it by running the foll
 - [Troubleshoot online endpoints deployment](how-to-troubleshoot-online-endpoints.md)
 - [Enable network isolation with managed online endpoints](how-to-secure-online-endpoint.md)
 - [View costs for an Azure Machine Learning managed online endpoint](how-to-view-online-endpoints-costs.md)
-- [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints)
+- [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-online-endpoints-and-batch-endpoints)
 - [Use batch endpoints for batch scoring](batch-inference/how-to-use-batch-endpoint.md)

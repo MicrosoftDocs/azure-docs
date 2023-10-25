@@ -8,7 +8,7 @@ ms.subservice: inferencing
 author: dem108
 ms.author: sehan
 ms.reviewer: mopeakande
-ms.date: 10/13/2022
+ms.date: 10/24/2023
 ms.topic: how-to
 ms.custom: deploy, devplatv2, devx-track-azurecli, cliv2, event-tier1-build-2022, sdkv2
 ms.devlang: azurecli
@@ -161,7 +161,7 @@ For more information, see [Deploy machine learning models to managed online endp
 ### Configure online endpoint
 
 > [!TIP]
-> * `name`: The name of the endpoint. It must be unique in the Azure region. The name for an endpoint must start with an upper- or lowercase letter and only consist of '-'s and alphanumeric characters. For more information on the naming rules, see [managed online endpoint limits](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints).
+> * `name`: The name of the endpoint. It must be unique in the Azure region. The name for an endpoint must start with an upper- or lowercase letter and only consist of '-'s and alphanumeric characters. For more information on the naming rules, see [endpoint limits](how-to-manage-quotas.md#azure-machine-learning-online-endpoints-and-batch-endpoints).
 > * `auth_mode` : Use `key` for key-based authentication. Use `aml_token` for Azure Machine Learning token-based authentication. A `key` doesn't expire, but `aml_token` does expire. For more information on authenticating, see [Authenticate to an online endpoint](how-to-authenticate-online-endpoint.md).
 
 Optionally, you can add description, tags to your endpoint.

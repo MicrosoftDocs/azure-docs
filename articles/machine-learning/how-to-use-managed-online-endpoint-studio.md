@@ -10,7 +10,7 @@ ms.custom: how-to, managed online endpoints, devplatv2, studio, event-tier1-buil
 author: dem108
 ms.author: sehan
 ms.reviewer: mopeakande
-ms.date: 09/07/2022
+ms.date: 10/24/2023
 ---
 
 # Create and use managed online endpoints in the studio
@@ -212,4 +212,4 @@ In this article, you learned how to use Azure Machine Learning managed online en
 - [How to monitor managed online endpoints](how-to-monitor-online-endpoints.md)
 - [Troubleshooting managed online endpoints deployment and scoring](./how-to-troubleshoot-online-endpoints.md)
 - [View costs for an Azure Machine Learning managed online endpoint](how-to-view-online-endpoints-costs.md)
-- [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints)
+- [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-online-endpoints-and-batch-endpoints)
