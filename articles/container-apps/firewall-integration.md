@@ -26,10 +26,10 @@ The following tables describe how to configure a collection of NSG allow rules. 
 
 ### Inbound
 
->[!Note]
-> Inbound NSG rules only apply for traffic going through your virtual network. If your container apps are set to accept traffic from the public internet, incoming traffic will go through the public endpoint instead of the virtual network.
-
 # [Workload profiles environment](#tab/workload-profiles-env)
+
+>[!Note]
+> When using workload profiles, inbound NSG rules only apply for traffic going through your virtual network. If your container apps are set to accept traffic from the public internet, incoming traffic will go through the public endpoint instead of the virtual network.
 
 | Protocol | Source | Source Ports | Destination | Destination Ports | Description |
 |--|--|--|--|--|--|
