@@ -3,7 +3,7 @@ title: Open-source components and versions - Azure HDInsight 5.x
 description: Learn about the open-source components and versions in Azure HDInsight 5.x.
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/19/2023
+ms.date: 10/26/2023
 ---
 
 # HDInsight 5.x component versions
@@ -32,16 +32,6 @@ The following table lists the versions of open-source components that are associ
 
 > [!NOTE]
 > We have discontinued Sqoop and Pig add-ons from HDInsight 5.1 version.
-
-### Spark versions supported in Azure HDInsight
-
-Azure HDInsight supports the following Apache Spark versions.
-
-|Apache Spark version on HDInsight|Release date|Release stage|End-of-life announcement date|End of standard support|End of basic support|
-|--|--|--|--|--|--|
-|2.4|July 8, 2019|End of life announced (EOLA)| February 10, 2023| August 10, 2023|February 10, 2024|
-|3.1|March 11, 2022|General availability |-|-|-|
-|3.3|October 28, 2023|General availability|-|-|-|
 
 ### Guide for migrating from Apache Spark 2.4 to Spark 3.x
 
