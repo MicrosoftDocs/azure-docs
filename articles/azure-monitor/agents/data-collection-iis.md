@@ -60,8 +60,6 @@ To create the data collection rule in the Azure portal:
         > [!IMPORTANT]
         > The portal enables system-assigned managed identity on the target resources, along with existing user-assigned identities, if there are any. For existing applications, unless you specify the user-assigned identity in the request, the machine defaults to using system-assigned identity instead.
     
-        If you need network isolation using private links, select existing endpoints from the same region for the respective resources or [create a new endpoint](../essentials/data-collection-endpoint-overview.md).
-
     1. Select **Enable Data Collection Endpoints**.
     1. Select a data collection endpoint for each of the virtual machines associate to the data collection rule. 
     
