@@ -36,23 +36,24 @@ For workload specific versions, see
 * [HDInsight 4.x component versions](./hdinsight-40-component-versioning.md)
 
 ## What's new
+
 * Cluster permissions for secure storage  
-  * Customers can specify (during cluster creation) whether a secure channel should be used for HDInsight cluster nodes to contact the storage account.
+  * Customers can specify (during cluster creation) whether a secure channel should be used for HDInsight cluster nodes to connect the storage account. 
 * HDInsight Cluster Creation with Custom VNets.
-  * To improve the overall security posture of the HDInsight clusters, HDInsight clusters using custom VNETs need to ensure that the user needs to have permission for `Microsoft Network/virtualNetworks/subnets/join/action` to perform create operations. Customers would need to plan accordingly as this change would be a mandatory check to avoid cluster creation failures before September 30, 2023.
+  * To improve the overall security posture of the HDInsight clusters, HDInsight clusters using custom VNETs need to ensure that the user needs to have permission for `Microsoft Network/virtualNetworks/subnets/join/action` to perform create operations. Customers will face creation failures if this check is not enabled.
  * Non-ESP ABFS clusters [Cluster Permissions for Word Readable] 
-  * Plan to introduce a change in non-ESP ABFS clusters, which restricts non-Hadoop group users from executing Hadoop commands for storage operations. This change to improve cluster security posture. Customers need to plan for the updates before September 30, 2023. 
+  * Non-ESP ABFS clusters will restrict non-Hadoop group users from executing Hadoop commands for storage operations. This change improves cluster security posture. 
 
 ## ![Icon showing coming soon.](./media/hdinsight-release-notes/clock.svg) Coming soon
 
-* The max length of cluster name will be changed to 45 from 59 characters, to improve the security posture of clusters. This change will be implemented by September 30, 2023.
+* The max length of cluster name will be changed to 45 from 59 characters, to improve the security posture of clusters. This change will be implemented by September 30, 2023 and change is being rolled out to all regions.
 
 * In-line quota update.
    * Request quotas increase directly from the My Quota page, which will be a direct API call, which is faster. If the APdI call fails, then customers need to create a new support request for quota increase.
 
 * Basic and Standard A-series VMs Retirement.
-   * On August 31, 2024, we'll retire Basic and Standard A-series VMs. Before that date, you need to migrate your workloads to Av2-series VMs, which provide more memory per vCPU and faster storage on solid-state drives (SSDs). To avoid service disruptions, [migrate your workloads](https://aka.ms/Av1retirement) from Basic and Standard A-series VMs to Av2-series VMs before August 31, 2024.
-
+   * On August 31, 2024, we'll retire Basic and Standard A-series VMs. Before that date, you need to migrate your workloads to Av2-series VMs, which provides more memory per vCPU and faster storage on solid-state drives (SSDs).
+   * To avoid service disruptions, [migrate your workloads](https://aka.ms/Av1retirement) from Basic and Standard A-series VMs to Av2-series VMs before August 31, 2024.
 
 If you have any more questions, contact [Azure Support](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview).
 
@@ -61,12 +62,12 @@ You can always ask us about HDInsight on [Azure HDInsight - Microsoft Q&A](/answ
 You’re welcome to add more proposals and ideas and other topics here and vote for them - [HDInsight Community (azure.com)](https://feedback.azure.com/d365community/search/?q=HDInsight).
 
 > [!NOTE]
-> This release addresses the following CVEs released by [MSRC](https://msrc.microsoft.com/update-guide/vulnerability) on October 26, 2023. The action is to update to the latest image **2310140056**. Customers are advised to plan accordingly. 
+> This release addresses the following CVEs released by [MSRC](https://msrc.microsoft.com/update-guide/vulnerability) on September 12, 2023. The action is to update to the latest image 2308221128 or 2310140056. Customers are advised to plan accordingly. 
 
 |CVE | Severity| CVE Title| Remark |
 |-|-|-|-|
-|[CVE-2023-38156](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-38156)|	Important | Azure HDInsight Apache Ambari Elevation of Privilege Vulnerability |Included on 2308221128 image |
-|[CVE-2023-36419](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-36419) | Important | Azure HDInsight Apache Oozie Workflow Scheduler Elevation of Privilege Vulnerability | Apply [Script action](https://hdiconfigactions2.blob.core.windows.net/msrc-script/script_action.sh) on your clusters |
+|[CVE-2023-38156](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-38156)|	Important | Azure HDInsight Apache Ambari Elevation of Privilege Vulnerability |Included on image 2308221128 or 2310140056 |
+|[CVE-2023-36419](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-36419) | Important | Azure HDInsight Apache Oozie Workflow Scheduler Elevation of Privilege Vulnerability | Apply [Script action](https://hdiconfigactions2.blob.core.windows.net/msrc-script/script_action.sh) on your clusters, or update to 2310140056 image |
 
  > [!NOTE]
  > We advise customers to use to latest versions of HDInsight [Images](./view-hindsight-cluster-image-version.md) as they bring in the best of open source updates,  Azure updates and security fixes. For more information, see [Best practices](./hdinsight-overview-before-you-start.md).
