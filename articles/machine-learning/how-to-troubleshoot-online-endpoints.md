@@ -284,9 +284,7 @@ When you're creating a managed online endpoint, role assignment is required for 
 
 #### Endpoint quota
 
-Try to delete some unused endpoints in this subscription. If all of your endpoints are actively in use, you can try [requesting an endpoint quota increase](how-to-manage-quotas.md#endpoint-quota-increases).
-
-For Kubernetes online endpoints, there's the endpoint quota boundary at the cluster level as well, you can check the [Kubernetes online endpoint quota](how-to-manage-quotas.md#azure-machine-learning-kubernetes-online-endpoints) section for more details. 
+Try to delete some unused endpoints in this subscription. If all of your endpoints are actively in use, you can try [requesting an endpoint quota increase](how-to-manage-quotas.md#endpoint-quota-increases). To learn more about the endpoint quota, see [Endpoint quota with Azure Machine Learning online endpoints and batch endpoints](how-to-manage-quotas.md#azure-machine-learning-online-endpoints-and-batch-endpoints).  
 
 #### Kubernetes quota
 

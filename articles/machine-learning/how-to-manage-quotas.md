@@ -129,7 +129,10 @@ Use of the shared quota pool is available for running Spark jobs and for testing
 
 ### Azure Machine Learning online endpoints and batch endpoints
 
-Azure Machine Learning online endpoints and batch endpoints have limits described in the following table. These limits are _regional_, meaning that you can use up to these limits per each region you're using.
+Azure Machine Learning online endpoints and batch endpoints have limits described in the following table.
+
+> [!IMPORTANT]
+> These limits are _regional_, meaning that you can use up to these limits per each region you're using.
 
 To determine the current usage for an endpoint, [view the metrics](how-to-monitor-online-endpoints.md#metrics). 
 
@@ -145,9 +148,11 @@ To request an exception from the Azure Machine Learning product team, use the st
 | Number of deployments per subscription | 500 | Yes |
 | Number of deployments per endpoint | 20 | Yes |
 
-For example, the sum of managed online endpoints, kubernetes online endpoint and batch endpoint under each subscription can't exceed 100 per region. Similarly, the sum of managed online deployments, Kubernetes online deployments and batch deployments under each subscription can't exceed 500 per region.
-
 <sup>1</sup> Single dashes like, `my-endpoint-name`, are accepted in endpoint and deployment names.
+
+> [!NOTE]
+> - Note that endpoints and deployments can be of different types, but limits apply to the sum of all types. For example, the sum of managed online endpoints, Kubernetes online endpoint and batch endpoint under each subscription can't exceed 100 per region by default. Similarly, the sum of managed online deployments, Kubernetes online deployments and batch deployments under each subscription can't exceed 500 per region by default.
+> - Because this is a regional limit, you can deploy 100 endpoints in each region by default. For example, you can deploy 100 endpoints in the East US region and 100 endpoints in the West US region in a single subscription. 
 
 #### Limits that apply to managed online endpoints
 
