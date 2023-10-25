@@ -153,7 +153,7 @@ For example, the sum of managed online endpoints, kubernetes online endpoint and
 
 | **Resource** | **Limit** | **Allows exception** |
 | --- | --- | --- |
-| Number of instances per deployment | 100 <sup>1</sup> | Yes |
+| Number of instances per deployment | 50 <sup>1</sup> | Yes |
 | Max request time-out at endpoint level  | 180 seconds | - |
 | Total requests per second at endpoint level for all deployments  | 500 <sup>2</sup> | Yes |
 | Total connections per second at endpoint level for all deployments  | 500 <sup>2</sup> | Yes |
