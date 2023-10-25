@@ -11,9 +11,9 @@ ms.author: sehan
 ms.reviewer: mopeakande
 reviewer: msakande
 ms.custom: devplatv2
-ms.date: 09/13/2023
+ms.date: 10/24/2023
 
-#Customer intent: As an MLOps administrator, I want to understand what a managed endpoint is and why I need it.
+#Customer intent: As an ML pro, I want to understand what an online endpoint is and why I need it.
 ---
 
 # Online endpoints and deployments for real-time inference
@@ -249,7 +249,10 @@ For more information on monitoring, see [Monitor online endpoints](how-to-monito
 
 ### Secret injection in online deployments
 
-Add notes here ...
+Secret injection in the context of online deployment is a process of retrieving secrets from secret stores and injecting secrets into user container that runs inside the online deployment. Secrets will be eventually accessible via environment variables, so Inference Server that runs your scoring script or inferencing stack that you bring with BYOC (bring your own container) approach can consume the secrets in a secured way.
+
+There are two ways to inject secrets. Inject secrets yourself using managed identities, or use secret injection feature. To learn more, see [Secret injection](concept-secret-injection.md).
+
 
 ## Next steps
 
