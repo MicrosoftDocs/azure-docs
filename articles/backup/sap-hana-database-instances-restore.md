@@ -51,6 +51,10 @@ After the restore is completed, you can revoke these permissions.
 
 Learn about the [SAP HANA instance snapshot restore architecture](azure-backup-architecture-for-sap-hana-backup.md#backup-architecture-for-database-instance-snapshot).
 
+### Establish network connectivity
+
+[Learn about](backup-azure-sap-hana-database.md#establish-network-connectivity) the network configurations required for HANA instance snapshot.
+
 ## Restore the entire system to a snapshot restore point
 
 [!INCLUDE [How to restore the entire SAP HANA system to a snapshot restore point.](../../includes/backup-azure-restore-entire-sap-hana-system-to-snapshot-restore-point.md)]

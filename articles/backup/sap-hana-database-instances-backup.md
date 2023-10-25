@@ -11,18 +11,9 @@ ms.author: v-abhmallick
 
 # Back up SAP HANA database instance snapshots on Azure VMs
 
-Azure Backup now performs an SAP HANA storage snapshot-based backup of an entire database instance. Backup combines an Azure managed disk full or incremental snapshot with HANA snapshot commands to provide instant HANA backup and restore.
-
 This article describes how to back up SAP HANA database instances that are running on Azure VMs to an Azure Backup Recovery Services vault.
 
-In this article, you'll learn how to:
-
->[!div class="checklist"]
->- Create and configure a Recovery Services vault.
->- Create a policy.
->- Discover database instances.
->- Configure backups.
->- Track a backup job.
+Azure Backup now performs an SAP HANA storage snapshot-based backup of an entire database instance. Backup combines an Azure managed disk full or incremental snapshot with HANA snapshot commands to provide instant HANA backup and restore.
 
 For more information about the supported configurations and scenarios, see [SAP HANA backup support matrix](sap-hana-backup-support-matrix.md). 
 
@@ -65,6 +56,10 @@ When you're assigning permissions, consider the following:
 - We recommend that you *not* change the resource groups after they're given or assigned to Azure Backup, because it makes it easier to handle the permissions.
 
 Learn about the [permissions required for snapshot restore](sap-hana-database-instances-restore.md#permissions-required-for-the-snapshot-restore) and the [SAP HANA instance snapshot backup architecture](azure-backup-architecture-for-sap-hana-backup.md#backup-architecture-for-database-instance-snapshot).
+
+### Establish network connectivity
+
+[Learn about](backup-azure-sap-hana-database.md#establish-network-connectivity) the network configurations required for HANA instance snapshot.
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
