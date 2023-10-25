@@ -77,7 +77,7 @@ az communication rooms create --presenter-participants "<participantId>" --consu
 ```
 
 - Use `<participantId>` optionally to specify the type of participant as presenter-participants, consumer-participants, or attendee-participants. If you do not specify a value, the default is empty. 
-- Replace `<connection-string>` with your ACS connection string. 
+- Replace `<connection-string>` with your Azure Communication Services connection string. 
 - Use `<valid-from>` optionally to specify the timestamp when the room is open for joining, in ISO8601 format, ex: 2022-07-14T10:21. 
 - Use `<valid-until>` optionally to specify the timestamp when the room can no longer be joined, in ISO8601 format, ex: 2022-07-14T10:21. 
 
@@ -110,7 +110,7 @@ az communication rooms update --valid-from "<valid-from>" --valid-until "<valid-
   
 ### List all active rooms
 
-The `rooms list` command returns all active rooms belonging to your ACS resource.
+The `rooms list` command returns all active rooms belonging to your Azure Communication Services resource.
 
 ```azurecli-interactive
 az communication rooms list
