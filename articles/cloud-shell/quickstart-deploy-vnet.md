@@ -34,7 +34,7 @@ resource providers. The following resource providers must be registered in your 
 - **Microsoft.ContainerInstances**
 - **Microsoft.Relay**
 
-Depending when your tenant was created, some of these providers may already be registered.
+Depending when your tenant was created, some of these providers might already be registered.
 
 To see all resource providers, and the registration status for your subscription:
 
@@ -49,7 +49,7 @@ To see all resource providers, and the registration status for your subscription
 
    [![Screenshot of selecting resource providers in the Azure portal.][98]][98a]
 
-1. Repat the previous steps for the **Microsoft.ContainerInstances** and **Microsoft.Relay**
+1. Repeat the previous steps for the **Microsoft.ContainerInstances** and **Microsoft.Relay**
    resource providers.
 
 ## 2. Collect the required information
@@ -116,7 +116,7 @@ the [quickstart templates][07] to configure virtual network for Cloud Shell.
 ## 3. Create the virtual network using the ARM template
 
 Use the [Azure Cloud Shell - VNet][08] template to create Cloud Shell resources in a virtual
-network. The template creates three subnets under the virtual network created earlier. You may
+network. The template creates three subnets under the virtual network created earlier. You might
 choose to change the supplied names of the subnets or use the defaults. The virtual network, along
 with the subnets, require valid IP address assignments. You need at least one IP address for the
 Relay subnet and enough IP addresses in the container subnet to support the number of concurrent
