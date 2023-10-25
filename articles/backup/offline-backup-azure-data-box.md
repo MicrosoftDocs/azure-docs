@@ -34,6 +34,7 @@ The process to seed data from the MARS Agent by using Azure Data Box is supporte
 | Windows 8 64 bit                      | Enterprise, Pro                                             |
 | Windows 7 64 bit                      | Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter |
 | **Server**                             |                                                              |
+| Windows Server 2022 64 bit            | Standard, Datacenter, Essentials                            |
 | Windows Server 2019 64 bit            | Standard, Datacenter, Essentials                            |
 | Windows Server 2016 64 bit            | Standard, Datacenter, Essentials                            |
 | Windows Server 2012 R2 64 bit         | Standard, Datacenter, Foundation                            |
