@@ -27,7 +27,7 @@ To add a flexible server to the  virtual network using Private Link, you need:
 - A [Virtual Network](../../virtual-network/quick-create-portal.md#create-a-virtual-network). The virtual network and subnet should be in the same region and subscription as your flexible server.The virtual network should not have any resource lock set at the VNET or subnet level, as locks may interfere with operations on the network and DNS.  Make sure to remove any lock (**Delete** or **Read only**) from your VNET and all subnets before adding  server to a virtual network, and you can set it back after server creation.
    
 
-## Create an Azure Database for PostgreSQL - Flexible Server with Private Endpoint\
+## Create an Azure Database for PostgreSQL - Flexible Server with Private Endpoint
 
 To create an Azure Database for PostgreSQL server, take the following steps:
 
