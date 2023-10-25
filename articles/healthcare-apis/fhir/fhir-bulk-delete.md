@@ -20,9 +20,12 @@ ms.author: kesheth
     ```http
       DELETE /<Resource Type>/$bulkDelete
     ```
-
 > [!NOTE]
-> Bulk delete is a an operation to be used with caution. Resources in FHIR service once deleted cannot be reverted. 
+> Bulk delete is a an operation to be used with caution. Resources in FHIR service once deleted cannot be reverted.
+
+Bulk delete operation is currently in public preview. Review disclaimer below for details.
+[!INCLUDE [public preview disclaimer](../includes/common-publicpreview-disclaimer.md)]
+
 
 ## Headers
 Bulk-Delete operation requires two header parameters  
