@@ -31,13 +31,13 @@ Azure AI Document Intelligence models support many languages. Our language suppo
 
 Model | Description |
 | --- | --- |
-|:::image type="icon" source="media/overview/icon-business-card.png" link="concept-business-card.md#supported-languages-and-locales"::: [**Business card**](concept-business-card.|md#supported-languages-and-locales)| Extract business contact details.|
-:::image type="icon" source="media/overview/icon-contract.png" link="concept-contract.md#supported-languages-and-locales"::: [**Contract**](concept-contract.md)|
+|:::image type="icon" source="media/overview/icon-business-card.png" link="concept-business-card.md#supported-languages-and-locales"::: [**Business card**](concept-business-card.md#supported-languages-and-locales)| Extract business contact details.|
+:::image type="icon" source="media/overview/icon-contract.png" link="concept-contract.md#supported-languages-and-locales"::: [**Contract**](concept-contract.md)| Extract party and time period details.
 |:::image type="icon" source="media/overview/icon-insurance-card.png" link="concept-health-insurance-card.md#supported-languages-and-locales"::: [**Health insurance**](concept-health-insurance-card.md#supported-languages-and-locales)| Extract health insurance details.|
 |:::image type="icon" source="media/overview/icon-id-document.png" link="concept-id-document.md#supported-document-types"::: [**ID document**](concept-id-document.md#supported-document-types)| Extract identification and verification details.|
 |:::image type="icon" source="media/overview/icon-invoice.png" link="concept-invoice.md#supported-languages-and-locales"::: [**Invoice**](concept-invoice.md#supported-languages-and-locales)| Extract customer and vendor details.|
 |:::image type="icon" source="media/overview/icon-receipt.png" link="concept-receipt.md#supported-languages-and-locales"::: [**Receipt**](concept-receipt.md#supported-languages-and-locales)| Extract sales transaction details.|
-|:::image type="icon" source="media/overview/icon-w2.png" link="concept-tax-document.md#supported-languages-and-locales":::  [**Tax document models**](concept-tax-document.|md#supported-languages-and-locales)| Extract taxable form details.|
+|:::image type="icon" source="media/overview/icon-w2.png" link="concept-tax-document.md#supported-languages-and-locales":::  [**Tax document models**](concept-tax-document.md#supported-languages-and-locales)| Extract taxable form details.|
 
 ## Custom models and containers
 
