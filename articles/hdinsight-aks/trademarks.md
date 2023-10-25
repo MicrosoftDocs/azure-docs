@@ -15,5 +15,4 @@ In the Azure HDInsight on AKS learn pages, you may find product names, other nam
 - Apache, Apache Kafka, Kafka and the Kafka logo are trademarks of the [Apache Software Foundation](https://www.apache.org/) (ASF).
 - Apache, Apache Flink, Flink and the Flink logo are trademarks of the [Apache Software Foundation](https://www.apache.org/) (ASF).
 - Apache HBase, HBase and the HBase logo are trademarks of the [Apache Software Foundation](https://www.apache.org/) (ASF).
-- Apache®, Apache Spark™, Apache HBase®, Apache Kafka®, and Apache Flink® are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.
-
+- Apache®, Apache Spark™, Apache HBase®, Apache Kafka®, and Apache Flink® are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. The use of these marks does not imply endorsement by The Apache Software Foundation.
