@@ -15,22 +15,26 @@ An Azure Orbital Ground station emits telemetry events that can be used to analy
 
 ## Configure Event Hubs
 
-1. In your subscription, go to Resource Provider settings and register Microsoft.Orbital as a provider
-2. Create an Azure Event Hubs in your subscription.
+1. In your subscription, go to **resource providers** in settings.  Search for **Microsoft.Orbital** and register it as a provider.
+2. [Create an Azure Event Hubs namespace](../azure/event-hubs/event-hubs-create.md#create-an-event-hubs-namespace) and an [event hub](azure/event-hubs/event-hubs-create.md#create-an-event-hub) in your subscription.
 
 > [!Note]
 > Choose Public access for connectivity access to the Eventhubs. Private access or service endpoints is not supported.
 
-3. From the left menu, select Access Control (IAM). Under Grant Access to this Resource, select Add Role Assignment
-4. Select Azure Event Hubs Data Sender.
-5. Assign access to 'User, group, or service principal'
-6. Click '+ Select members'
-7. Search for 'Azure Orbital Resource Provider' and press Select
-8. Press Review + Assign. This action will grant Azure Orbital the rights to send telemetry into your event hub.
-9. To confirm the newly added role assignment, go back to the Access Control (IAM) page and select View access to this resource.
-Congrats! Orbital can now communicate with your hub.
+3. From the left menu, select **Access control (IAM)**. Under 'Grant access to this resource,' select **Add role assignment**.
 
-## Enable telemetry for a contact profile in the Azure portal
+> [!Note]
+> To assign Azure roles, you must have:
+> `Microsoft.Authorization/roleAssignments/write` permissions, such as [User Access Administrator](../../articles/role-based-access-control/built-in-roles.md#user-access-administrator) or [Owner](../../articles/role-based-access-control/built-in-roles.md#owner)
+
+4. Under the **Role** tab, search for and select **Azure Event Hubs Data Sender**. Click **Next**.
+5. Under the **Members** tab, assign access to **User, group, or service principal**.
+6. Click **+ Select members**.
+7. Search for **Azure Orbital Resource Provider** and press **Select**.
+8. Select **Review + assign**. This action will grant Azure Orbital Ground Station the rights to send telemetry into your event hub.
+9. To confirm the newly added role assignment, go back to the Access Control (IAM) page and select **View access to this resource**. Azure Orbital Resource Provider should be under **Azure Event Hubs Data Sender**.
+
+## Enable telemetry for a contact profile
 
 Ensure the contact profile is configured as follows:
 
@@ -39,7 +43,7 @@ Ensure the contact profile is configured as follows:
 
 ## Schedule a contact
 
-Schedule a contact using the Contact Profile that you previously configured for Telemetry.
+Schedule a contact using the contact profile that you previously configured for Telemetry.
 
 Once the contact begins, you should begin seeing data in your Event Hubs soon after.
 
