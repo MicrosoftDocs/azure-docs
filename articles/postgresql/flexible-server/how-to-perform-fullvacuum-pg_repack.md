@@ -44,9 +44,21 @@ pg_repack has some limitations that you should be aware of before using it:
      full table repack.
 
 ## Setup 
-Using the extension requires a client with psql and pg_repack installed. All examples in this document are using a ubuntu VM with Postgres 11 to 15.
+
+### Prerequisites
+
+To enable pg_repack extension follow the steps below: 
+
+1. Add pg_repack extension under azure extensions as shown below from the server parameters blade on Flexible server portal
+
+   :::image type="content" source="./media/how-to-perform-fullvacuum-pg_repack/portal.png" alt-text="Screenshot of server parameters blade with azure extensions parameter":::
+
+> [!NOTE]
+> Please note that making this change will not require a server restart. 
+
 
 ### Install the packages for Ubuntu virtual machine: 
+Using the extension requires a client with psql and pg_repack installed. All examples in this document are using a ubuntu VM with Postgres 11 to 15.
 
 Run the following packages on ubuntu machine to install the pg_repack client 1.4.7
 
