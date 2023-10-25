@@ -23,6 +23,16 @@ This table lists the versions of HDInsight that are available in the Azure porta
 
 **Retirement** means that existing clusters of an HDInsight version continue to run as is. You can't create new clusters of this version through any means, which includes the CLI and SDKs. Other control plane features, such as manual scaling and autoscaling, not guaranteed to work after retirement date. Support isn't available for retired versions.
 
+### Spark versions supported in Azure HDInsight
+
+Azure HDInsight supports the following Apache Spark versions.
+
+| HDInsight versions | Release date | Release stage |End-of-life announcement date|End of standard support|End of basic support|
+| -- |--|--|--|--|--|
+| 4.0 | July 8, 2019 | End of life announced (EOLA)| February 10, 2023| August 10, 2023 | February 10, 2024 |
+| 5.0 |  March 11, 2022 | General availability |-|-|-|
+| 5.1 |   October 26, 2023 | General availability |-|-|-|
+
 ## Support options for HDInsight versions
 
 Support defined as a time period that an HDInsight version supported by Microsoft Customer Service and Support. HDInsight offers two types of support: 
