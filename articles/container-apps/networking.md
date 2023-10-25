@@ -133,7 +133,7 @@ If you're using the Azure CLI with a Consumption only environment and the [platf
 
 Different environment types have different subnet requirements:
 
-### Workload profiles environment
+# Workload profiles environment
 
 - `/27` is the minimum subnet size required for virtual network integration.
 
@@ -145,15 +145,17 @@ Different environment types have different subnet requirements:
 
   - When you're using the [Dedicated workload profile](workload-profiles-overview.md#profile-types) for your container app, each node has one IP address assigned.
 
-  - When you're using the [Consumption workload profile](workload-profiles-overview.md#profile-types), the IP address assignment behaves the same as when running on the [Consumption only environment](environment.md#types). As your app scales, a new IP address is allocated for each new replica.
+  - When you're using the [Consumption workload profile](workload-profiles-overview.md#profile-types), the IP address assignment behaves the same as when running on the [Consumption only environment](environment.md#types). As your app scales, each IP address will be assigned to at least 1 replica. When determining how many IP addresses are required for your app, account for 1 IP address per replica.
 
-### Consumption only environment
+# Consumption only environment
 
 - `/23` is the minimum subnet size required for virtual network integration.
 
 - The Container Apps runtime reserves a minimum of 60 IPs for infrastructure in your VNet. The reserved amount may increase up to 256 addresses as apps in your environment scale.
 
 - As your apps scale, a new IP address is allocated for each new replica.
+
+---
 
 ### Subnet address range restrictions
 
