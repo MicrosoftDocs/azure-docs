@@ -35,7 +35,6 @@ Currently, you can initiate a soft stop operation from the Azure PowerShell, Azu
 > [!NOTE]
 > When attempting to soft stop an SAP system or applicaton server instance using Azure Center for SAP solutions, soft stop timeout value must be greater than 0 and less than 82800 seconds. 
 
-To soft stop an SAP system represented as a *Virtual Instance for SAP solutions* resource:
 
 ### Soft stop system in PowerShell
 Use the [Stop-AzWorkloadsSapVirtualInstance](/powershell/module/az.workloads/Stop-AzWorkloadsSapVirtualInstance) command:
