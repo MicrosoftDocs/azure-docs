@@ -17,7 +17,7 @@ In this how-to guide, you'll learn to start and stop your SAP systems through th
 Through the Azure portal, [Azure PowerShell](/powershell/module/az.workloads), [CLI](/cli/azure/workloads/sap-virtual-instance) and [REST API](/rest/api/workloads) interfaces, you can start and stop:
 
 - Entire SAP Application tier in one go, which include ABAP SAP Central Services (ASCS) and Application Server instances.
-- Individual SAP instances, which include Central Services and Application server instances.
+- Specific SAP instance, such as the application server instance.
 - HANA Database
 - You can start and stop instances and HANA database in the following types of deployments:
     - Single-Server
