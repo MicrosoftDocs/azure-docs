@@ -28,13 +28,6 @@ Don't create multiple identical managed disks from a VHD file in small amount of
 [!code-powershell[main](../../../powershell_scripts/virtual-machine/create-managed-disks-from-vhd-in-different-subscription/create-managed-disks-from-vhd-in-different-subscription.ps1 "Create managed disk from VHD")]
 
 
-## Check disk status
-
-When you create a managed disk from a snapshot, it starts a background copy process. You can attach a disk to a VM while this process is running but you will experience read performance impact. For Ultra Disks and Premium SSD v2, you can check the status of the background copy process with the [Azure CLI](create-managed-disk-from-snapshot.md#check-disk-status). This isn't currently supported with the Azure PowerShell module.
-
-> [!IMPORTANT]
-> You can't use the following sections to get the status of the background copy process for disk types other than Ultra Disk or Premium SSD v2. Other disk types will always report 100%.
-
 ## Script explanation
 
 This script uses following commands to create a managed disk from a VHD in different subscription. Each command in the table links to command specific documentation.
