@@ -20,7 +20,7 @@ The Speech SDK integrates Microsoft Audio Stack (MAS), allowing any application 
 In this article, you learn how to use the Microsoft Audio Stack (MAS) with the Speech SDK.
 
 > [!IMPORTANT]
-> For Speech SDK v1.33.0 and newer, the `Microsoft.CognitiveServices.Speech.Extension.MAS` package must be installed to use the Microsoft Audio Stack on Windows for C++ and C#.
+> On Speech SDK for C++ and C# v1.33.0 and newer, the `Microsoft.CognitiveServices.Speech.Extension.MAS` package must be installed to use the Microsoft Audio Stack on Windows, and on Linux if you install the Speech SDK using NuGet.
 
 ## Default options
 
