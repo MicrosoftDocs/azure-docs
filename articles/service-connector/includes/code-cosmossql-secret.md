@@ -2,13 +2,13 @@
 author: wchigit
 ms.service: service-connector
 ms.topic: include
-ms.date: 10/24/2023
+ms.date: 10/25/2023
 ms.author: wchi
 ---
 
 ### [.NET](#tab/dotnet)
 
-1. Install dependencies
+1. Install dependencies.
     ```bash
     dotnet add package Microsoft.Azure.Cosmos
     ```
@@ -55,7 +55,7 @@ ms.author: wchi
 Refer to [Spring Data Azure Cosmos DB v3 examples](/azure/cosmos-db/nosql/samples-java-spring-data) and [Build a Spring Data Azure Cosmos DB v3 app to manage Azure Cosmos DB for NoSQL data](/azure/cosmos-db/nosql/quickstart-java-spring-data?tabs=password%2Csign-in-azure-cli) to set up your Spring application. The configuration properties are added to Spring Apps by Service Connector. Two sets of configuration properties are provided according to the version of Spring Cloud Azure (below 4.0 and above 4.0). For more information about library changes of Spring Cloud Azure, refer to [Spring Cloud Azure Migration Guide](https://microsoft.github.io/spring-cloud-azure/current/reference/html/appendix.html#configuration-spring-cloud-azure-starter-data-cosmos). It is recommended to use Spring Cloud Azure version 4.0 and above. The configurations in the format of "azure.cosmos.*" from Spring Cloud Azure 3.x will no longer be supported after 1st July, 2024. 
 
 ### [Python](#tab/python)
-1. Install dependencies
+1. Install dependencies.
     ```bash
     pip install azure-cosmos
     ```
@@ -70,7 +70,7 @@ Refer to [Spring Data Azure Cosmos DB v3 examples](/azure/cosmos-db/nosql/sample
     ```
 
 ### [NodeJS](#tab/nodejs)
-1. Install dependencies
+1. Install dependencies.
     ```bash
     npm install @azure/cosmos
     ```
@@ -85,4 +85,4 @@ Refer to [Spring Data Azure Cosmos DB v3 examples](/azure/cosmos-db/nosql/sample
 
 
 ### [Other](#tab/other)
-For other languages, you can use the blob storage account url and other properties that Service Connector set to the environment variables to connect the blob storage. For environment variable details, see [Integrate Azure Blob Storage with Service Connector](../how-to-integrate-storage-blob.md).
+For other languages, you can use the blob storage account URL and other properties that Service Connector set to the environment variables to connect the blob storage. For environment variable details, see [Integrate Azure Blob Storage with Service Connector](../how-to-integrate-storage-blob.md).

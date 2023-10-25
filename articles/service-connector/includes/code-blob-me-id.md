@@ -2,14 +2,14 @@
 author: yungezz
 ms.service: service-connector
 ms.topic: include
-ms.date: 10/20/2023
+ms.date: 10/25/2023
 ms.author: yungezz
 ---
 
 
 ### [.NET](#tab/dotnet)
 
-You can use [`azure-identity`](https://www.nuget.org/packages/Azure.Identity/) to authenticate via managed identity or service principal. Get blob storage endpoint url from the environment variable added by Service Connector. **Uncomment the corresponding part of the code snippet according to the authentication type.**
+You can use [`azure-identity`](https://www.nuget.org/packages/Azure.Identity/) to authenticate via managed identity or service principal. Get blob storage endpoint url from the environment variable added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
 
 Install dependencies
 ```bash
@@ -62,7 +62,7 @@ var blobServiceClient = new BlobServiceClient(
         <version>1.1.5</version>
     </dependency>
     ```
-1. Authenticate via `azure-identity`. Get the endpoint url from the environment variable added by Service Connector. **Uncomment the corresponding part of the code snippet according to the authentication type.**
+1. Authenticate using `azure-identity` and get the endpoint URL from the environment variable added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
 
     ```java
     String url = System.getenv("AZURE_STORAGEBLOB_RESOURCEENDPOINT");  
@@ -95,7 +95,7 @@ var blobServiceClient = new BlobServiceClient(
    pip install azure-identity
    pip install azure-storage-blob
    ```
-1. Authenticate via `azure-identity` library. Get blob storage endpoint url from the environment variable added by Service Connector. **Uncomment the corresponding part of the code snippet according to the authentication type.**
+1. Authenticate using `azure-identity` library and get the endpoint URL from the environment variable added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
 
    ```python
    from azure.identity import ManagedIdentityCredential, ClientSecretCredential
@@ -127,7 +127,7 @@ var blobServiceClient = new BlobServiceClient(
    pip install azure-identity
    pip install django-storages[azure]
    ```
-1. Authenticate via `azure-identity` library. **Uncomment the corresponding part of the code snippet according to the authentication type.**
+1. Authenticate via `azure-identity` library. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
    
 
    ```python
@@ -165,7 +165,7 @@ var blobServiceClient = new BlobServiceClient(
    go get "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
    go get "github.com/Azure/azure-sdk-for-go/sdk/storage/azblob"
    ```
-2. In code, authenticate via `azidentity` library. Get blob storage endpoint url from the environment variable added by Service Connector. **Uncomment the corresponding part of the code snippet according to the authentication type.**
+2. In code, authenticate via `azidentity` library. Get blob storage endpoint url from the environment variable added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
 
       ```go
       import (
@@ -210,7 +210,7 @@ var blobServiceClient = new BlobServiceClient(
    npm install --save @azure/identity
    npm install @azure/storage-blob
    ```
-2. Get blob storage endpoint url from the environment variable added by Service Connector. Authenticate via `@azure/identity` library. **Uncomment the corresponding part of the code snippet according to the authentication type.**
+2. Get blob storage endpoint url from the environment variable added by Service Connector. Authenticate via `@azure/identity` library. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
 
    ```javascript
    import { DefaultAzureCredential,ClientSecretCredential } from "@azure/identity";

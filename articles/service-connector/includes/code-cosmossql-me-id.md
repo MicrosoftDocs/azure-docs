@@ -2,19 +2,19 @@
 author: wchigit
 ms.service: service-connector
 ms.topic: include
-ms.date: 10/24/2023
+ms.date: 10/25/2023
 ms.author: wchi
 ---
 
 ### [.NET](#tab/dotnet)
 
-1. Install dependencies
+1. Install dependencies.
     ```bash
     dotnet add package Microsoft.Azure.Cosmos
     dotnet add package Azure.Identity
     ```
 
-2. Authenticate using `Azure.Identity` NuGet package. Get the endpoint url from the environment variable added by Service Connector. **Uncomment the corresponding part of the code snippet according to the authentication type.**
+2. Authenticate using `Azure.Identity` NuGet package and get the endpoint URL from the environment variable added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
     ```csharp
     using Microsoft.Azure.Cosmos;
     using Azure.Core;
@@ -64,7 +64,7 @@ ms.author: wchi
         <version>1.1.5</version>
     </dependency>
     ```
-1. Authenticate via `azure-identity`. Get the endpoint url from the environment variable added by Service Connector. **Uncomment the corresponding part of the code snippet according to the authentication type.**
+1. Authenticate via `azure-identity` and get the endpoint URL from the environment variable added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
 
     ```java
     import com.azure.cosmos.CosmosClient;
@@ -72,9 +72,9 @@ ms.author: wchi
     
     // Uncomment the following lines according to the authentication type.
     // For system-assigned identity
-    DefaultAzureCredential credential = new DefaultAzureCredentialBuilder().build();
+    // DefaultAzureCredential credential = new DefaultAzureCredentialBuilder().build();
     
-    // for user assigned managed identity
+    // for user-assigned managed identity
     // DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
     //     .managedIdentityClientId(System.getenv("AZURE_COSMOS_CLIENTID"))
     //     .build();
@@ -99,21 +99,21 @@ ms.author: wchi
 Refer to [Build a Spring Data Azure Cosmos DB v3 app to manage Azure Cosmos DB for NoSQL data](/azure/cosmos-db/nosql/quickstart-java-spring-data?tabs=passwordless%2Csign-in-azure-cli) to set up your Spring application. The configuration properties are added to Spring Apps by Service Connector. Managed identity support for Cosmos DB is only available for Spring Cloud Azure version 4.0 and above. For more information, refer to [Spring Cloud Azure - Reference Documentation](https://microsoft.github.io/spring-cloud-azure/current/reference/html/index.html#authentication).
  
 ### [Python](#tab/python)
-1. Install dependencies
+1. Install dependencies.
    ```bash
    pip install azure-cosmos
    ```
-1. Authenticate via `azure-identity` library. Get the endpoint url from the environment variable added by Service Connector. **Uncomment the corresponding part of the code snippet according to the authentication type.**
+1. Authenticate via `azure-identity` library and get the endpoint URL from the environment variable added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
    ```python
    import os
    from azure.cosmos import CosmosClient
    from azure.identity import DefaultAzureCredential
    
    # Uncomment the following lines according to the authentication type.
-   # system assigned managed identity
+   # system-assigned managed identity
    # cred = ManagedIdentityCredential()
 
-   # user assigned managed identity
+   # user-assigned managed identity
    # managed_identity_client_id = os.getenv('AZURE_COSMOS_CLIENTID')
    # cred = ManagedIdentityCredential(client_id=managed_identity_client_id)
 
@@ -129,22 +129,22 @@ Refer to [Build a Spring Data Azure Cosmos DB v3 app to manage Azure Cosmos DB f
    ```
 
 ### [NodeJS](#tab/nodejs)
-1. Install dependencies
+1. Install dependencies.
     ```bash
     npm install @azure/identity
     npm install @azure/cosmos
     ```
-1. Authenticate using `@azure/identity` npm package. Get the endpoint url from the environment variable added by Service Connector. **Uncomment the corresponding part of the code snippet according to the authentication type.**
+1. Authenticate using `@azure/identity` npm package and get the endpoint URL from the environment variable added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
    
     ```javascript
     import { CosmosClient } from "@azure/cosmos";
     const { DefaultAzureCredential } = require("@azure/identity");
     
     // Uncomment the following lines according to the authentication type.
-    // For system-assigned identity.
+    // For system-assigned managed identity.
     // const credential = new DefaultAzureCredential();
 
-    // For user-assigned identity.
+    // For user-assigned managed identity.
     // const credential = new DefaultAzureCredential({
     //     managedIdentityClientId: process.env.AZURE_COSMOS_CLIENTID
     // });
