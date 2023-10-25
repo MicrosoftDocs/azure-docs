@@ -18,7 +18,7 @@ zone_pivot_groups: programming-languages-speech-sdk
 In this article, you learn how to evaluate pronunciation with speech to text through the Speech SDK. To [get pronunciation assessment results](#get-pronunciation-assessment-results), you apply the `PronunciationAssessmentConfig` settings to a `SpeechRecognizer` object.
 
 > [!NOTE]
-> Usage of pronunciation assessment costs the same as standard Speech to text, whether pay-as-you-go or commitment tier [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services). If you [purchase a commitment tier](../commitment-tier.md) for standard Speech to text, the spend for pronunciation assessment goes towards meeting the commitment. Speech to text add-on features with Pronunciation Assessment are available to users for an additional $0.3/hour, utilizing all features including Prosody, Grammar, Vocabulary, Topic, and Unscripted. The existing features (Accuracy, Fluency, Completeness, Miscue) remain unchanged with the standard STT price of $1/hour.
+> Usage of pronunciation assessment costs the same as standard Speech to text, whether pay-as-you-go or commitment tier [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services). If you [purchase a commitment tier](../commitment-tier.md) for standard Speech to text, the spend for pronunciation assessment goes towards meeting the commitment. 
 
 You can get pronunciation assessment scores for:
 
