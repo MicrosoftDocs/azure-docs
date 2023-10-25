@@ -14,7 +14,7 @@ ms.topic: conceptual
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-A common use case for our customers today is need to be able to import\export between Azure Blob Storage and Microsoft Database for PostgreSQL – Flexible Server DB instance. To simplify this use case, we introduced new **Azure Storage Extension** (azure_storage) in Azure Database for PostgreSQL - Flexible Server, currently available in **Preview**
+A common use case for our customers today is need to be able to import\export between Azure Blob Storage and Microsoft Database for PostgreSQL – Flexible Server DB instance. To simplify this use case, we introduced new **Azure Storage Extension** (azure_storage) in Azure Database for PostgreSQL - Flexible Server, currently available in **Preview**.
 
 ## Azure Blob Storage
 
@@ -169,7 +169,7 @@ SELECT path, size, last_modified, etag FROM azure_storage.blob_list('mystorageac
 
 By default, only [azure_pg_admin](./concepts-security.md#access-management) administrative role can add an account key and access the storage account in Postgres Flexible Server.
 Granting the permissions to access data in Azure Storage to nonadministrative PostgreSQL Flexible server user can be done in two ways depending on permission granularity:
-- Assign **azure_storage_admin** to the non-administrative user. This role is added with installation of Azure Data Storage Extension. Example below grants this role to non-administrative user called *support*
+- Assign **azure_storage_admin** to the nonadministrative user. This role is added with installation of Azure Data Storage Extension. Example below grants this role to nonadministrative user called *support*
 ```sql
 -- Allow adding/list/removing storage accounts
 GRANT azure_storage_admin TO support;
