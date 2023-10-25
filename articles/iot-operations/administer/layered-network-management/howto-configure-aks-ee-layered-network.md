@@ -16,9 +16,9 @@ ms.date: 10/24/2023
 
 You can Arc-enable AKS Edge Essentials clusters in a *ISA-95 network environment* using the **Layered Network Management** service. In this article, you deploy an example level 4 cluster that can:
 - Directly access the internet
-- A dual network interface card (NIC) host that allows the level 4 cluster be visible to the level 3 local network. 
+- A dual network interface card (NIC) host that allows the level 4 cluster to be visible to the level 3 local network. 
 - A custom DNS that resolves the DNS server in the local network
-- The level 3 Azure KS EE connects to the Layered Network Management service as a proxy for all the Azure Arc related traffic.
+- The level 3 Azure AKS Edge Essentials cluster connects to the Layered Network Management service as a proxy for all the Azure Arc related traffic.
 
 ![Diagram showing a level 4 and level 3 AKS Edge Essentials network](./media/howto-configure-aks-ee-layered-network/arc-enabled-aks-edge-essentials-cluster.png)
 
@@ -34,29 +34,28 @@ address=/.login.microsoft.com/<local network IP of the level 4 machine>
 
 ## Configure level 4 AKS Edge Essentials and Layered Network Management
 
-Complete the steps in [Configure IoT Layered Network Management Level 4 Cluster](./howto-configure-l4-cluster-layered-network.md).
-- Setup the level 4 AKS EE.
-- Proceed with the steps in the same document to deploy the Layered Network Management service.
+Complete the steps in [Configure IoT Layered Network Management Level 4 Cluster](./howto-configure-l4-cluster-layered-network.md). When following the steps in the document, you need to:
+- Configure the level 4 AKS Edge Essentials
+- Complete the steps to deploy the Layered Network Management service.
 
-After you complete the steps above, the Layered Network Management service shall be up and running, ready for forwarding network traffic from level 3.
+After you complete the steps, the Layered Network Management service should be configured and running. The service is ready for forwarding network traffic from level 3.
 
-## Setup and Arc-enable Level 3 AKS EE
-Follow the instruction in [Setup Level 3 Cluster and Connect to Arc](/docs/e4in/setup-l3-cluster/)
-- Please follow the AKS EE path for Kubernetes setup.
-- For the DNS server setting, provide the local network IP of the DNS server that you setup in the earlier step.
-- Proceed the steps to connect the AKS EE cluster to Arc.
+## Configure and Arc enable level 3 AKS Edge Essentials
+
+Complete the steps in [Configure IoT Layered Network Management Level 3 Cluster](./howto-configure-l3-cluster-layered-network.md). When following the steps in the document, you need to:
+- Complete the AKS EE path for Kubernetes setup.
+- For the DNS server setting, provide the local network IP of the DNS server that you configured in the earlier step.
+- Complete the steps to connect the AKS Edge Essentials cluster to Azure Arc.
 
 ## Verification
-Once the Arc enablement of the level 3 cluster is done, open the Azure portal. Navigate to your resource group. 
-- You should see a **"Kubernetes - Azure Arc"** resource with the name you specified.
-- Open the resource. In the overview page, the "status" of this cluster should be "online"
-- You can also try [Access Kubernetes resources from Azure portal](https://learn.microsoft.com/en-us/azure/azure-arc/kubernetes/kubernetes-resource-view)
+
+Once the Azure Arc enablement of the level 3 cluster is complete, Navigate to your resource group in the Azure portal.- You should see a **Kubernetes - Azure Arc** resource with the name you specified.
+
+1. Open the resource overview page. 
+1. Verify **status** of the cluster is **online**.
+
+For more information, see [Access Kubernetes resources from Azure portal](/azure/azure-arc/kubernetes/kubernetes-resource-view)
 
 ## Related content
 
-TODO: Add your next step link(s)
-
-
-<!--
-Remove all the comments in this template before you sign-off or merge to the main branch.
--->
+[Configure Azure IoT MQ in an Isolated Network](howto-configure-mq-layered-network.md)
