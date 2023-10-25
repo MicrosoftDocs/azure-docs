@@ -18,7 +18,7 @@ The Prompt flow Open Source LLM tool enables you to utilize various Open Source 
 
 Here's how it looks in action on the Visual Studio Code Prompt flow extension. In this example, the tool is being used to call a LlaMa-2 chat endpoint and asking "What is CI?".
 
-:::image type="content" source="../media/tool-reference/open-source-llm-tool/open-source-llm-on-vscode-prompt-flow.png" alt-text="Screenshot of the Open Source Llm On vsCode PromptFlow extension." lightbox = "../media/tool-reference/open-source-llm-tool/open-source-llm-on-vscode-prompt-flow.png":::
+:::image type="content" source="./media/open-source-llm-tool/open-source-llm-on-vscode-prompt-flow.png" alt-text="Screenshot of the Open Source LLm On VS Code PromptFlow extension." lightbox = "./media/open-source-llm-tool/open-source-llm-on-vscode-prompt-flow.png":::
 
 This Prompt flow supports two different LLM API types:
 

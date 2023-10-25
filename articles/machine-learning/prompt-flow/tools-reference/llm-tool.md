@@ -54,7 +54,7 @@ Set up connections to provisioned resources in Prompt flow.
 
 | Name                   | Type        | Description                                                                             | Required |
 |------------------------|-------------|-----------------------------------------------------------------------------------------|----------|
-| prompt                 | string      | text prompt that the language model will complete                                       | Yes      |
+| prompt                 | string      | text prompt for the language model.                                     | Yes      |
 | model, deployment_name | string      | the language model to use                                                               | Yes      |
 | max\_tokens            | integer     | the maximum number of tokens to generate in the completion. Default is 16.              | No       |
 | temperature            | float       | the randomness of the generated text. Default is 1.                                     | No       |
