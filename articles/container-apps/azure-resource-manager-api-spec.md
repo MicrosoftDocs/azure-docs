@@ -469,8 +469,8 @@ A resource's `properties.template` object includes the following properties:
 
 | Property | Description | Data type |
 |---|---|---|
-| `containers` | Configuration object that defines what container images are included in the container app. | object |
-| `scale` | Configuration object that defines scale rules for the container app. | object |
+| `containers` | Configuration object that defines what container images are included in the job. | object |
+| `scale` | Configuration object that defines scale rules for the job. | object |
 
 ### <a name="job-examples"></a>Examples
 
