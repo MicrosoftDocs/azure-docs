@@ -27,8 +27,8 @@ Parameters are case-sensitive.
 |--------------------|-------------|
 | `textSplitMode`    | Either `pages` or `sentences` | 
 | `maximumPageLength` | Only applies if `textSplitMode` is set to `pages`. This parameter refers to the maximum page length in characters as measured by `String.Length`. The minimum value is 300, the maximum is 50000, and the default value is 5000.  The algorithm does its best to break the text on sentence boundaries, so the size of each chunk might be slightly less than `maximumPageLength`. | 
-| `pageOverlapLength` | Only applies if `textSplitMode` is set to `pages`. Each page starts with this number of characters from the end of the previous page. If this parameter is set to 0, there is no overlapping text on successive pages. This parameter is supported in [2023-10-01-Preview](/rest/api/searchservice/2023-10-01-preview/skillsets/create-or-update#splitskill) REST API and in Azure SDK beta packages that have been updated to support integrated vectorization. |
-| `maximumPagesToTake` | Only applies if `textSplitMode` is set to `pages`. Number of pages to return. The default is 0, which means return all pages. You should set this value if only a subset of pages are needed. This parameter is supported in [2023-10-01-Preview](/rest/api/searchservice/2023-10-01-preview/skillsets/create-or-update#splitskill) REST API and in Azure SDK beta packages that have been updated to support integrated vectorization.|
+| `pageOverlapLength` | Only applies if `textSplitMode` is set to `pages`. Each page starts with this number of characters from the end of the previous page. If this parameter is set to 0, there's no overlapping text on successive pages. This parameter is supported in [2023-10-01-Preview](/rest/api/searchservice/2023-10-01-preview/skillsets/create-or-update#splitskill) REST API and in Azure SDK beta packages that have been updated to support integrated vectorization. |
+| `maximumPagesToTake` | Only applies if `textSplitMode` is set to `pages`. Number of pages to return. The default is 0, which means to return all pages. You should set this value if only a subset of pages are needed. This parameter is supported in [2023-10-01-Preview](/rest/api/searchservice/2023-10-01-preview/skillsets/create-or-update#splitskill) REST API and in Azure SDK beta packages that have been updated to support integrated vectorization.|
 | `defaultLanguageCode`	| (optional) One of the following language codes: `am, bs, cs, da, de, en, es, et, fr, he, hi, hr, hu, fi, id, is, it, ja, ko, lv, no, nl, pl, pt-PT, pt-BR, ru, sk, sl, sr, sv, tr, ur, zh-Hans`. Default is English (en). A few things to consider: <ul><li>Providing a language code is useful to avoid cutting a word in half for nonwhitespace languages such as Chinese, Japanese, and Korean.</li><li>If you don't know the language  in advance (for example, if you're using the [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) to detect language), we recommend the `en` default. </li></ul>  |
 
 ## Skill Inputs
@@ -36,7 +36,7 @@ Parameters are case-sensitive.
 | Parameter name	   | Description      |
 |----------------------|------------------|
 | `text`	| The text to split into substring. |
-| `languageCode`	| (Optional) Language code for the document. If you don't know the language of the text inputs (for example, if you're using [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) to detect the language), you can omit this parameter. If you set `languageCode` to a language isn't in the supported list for the `defaultLanguageCode`, a warning is emitted and the text won't be split.  |
+| `languageCode`	| (Optional) Language code for the document. If you don't know the language of the text inputs (for example, if you're using [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) to detect the language), you can omit this parameter. If you set `languageCode` to a language isn't in the supported list for the `defaultLanguageCode`, a warning is emitted and the text isn't split.  |
 
 ## Skill Outputs 
 
@@ -154,7 +154,7 @@ This example is for integrated vectorization, currently in preview. It adds prev
 }
 ```
 
-### Sample input (same as above)
+### Sample input (same as previous example)
 
 ```json
 {
@@ -208,7 +208,7 @@ Within each "textItems" array, trailing text from the first item is copied into 
 
 ## Error cases
 
-If a language is not supported, a warning is generated.
+If a language isn't supported, a warning is generated.
 
 ## See also
 
