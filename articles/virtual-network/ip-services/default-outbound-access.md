@@ -64,8 +64,6 @@ There are multiple ways to turn off default outbound access:
     * Associate a NAT gateway to the subnet of your virtual machine.
 
     * Associate a standard load balancer configured with outbound rules.
-
-    * Associate a Basic public IP to the virtual machine's network interface (if there's only one network interface).
     
     * Associate a Standard public IP to any of the virtual machine's network interfaces (if there are multiple network interfaces, having a single NIC with a standard public IP prevents default outbound access for the virtual machine).
 

@@ -24,7 +24,7 @@ Each table uses the following icons to indicate support level:
 
 This table describes the impact of **enabling** the capability and not the specific use of that capability. For example, if you enable the Network File System (NFS) 3.0 protocol but never use the NFS 3.0 protocol to upload a blob, a check mark in the **NFS 3.0 enabled** column indicates that feature support is not negatively impacted by merely enabling NFS 3.0 support.
 
-Even though a feature is not be negatively impacted, it might not be compatible when used with a specific capability. For example, enabling NFS 3.0 has no impact on Azure Active Directory (Azure AD) authorization. However, you can't use Azure AD to authorize an NFS 3.0 request. See any of these articles for information about known limitations:
+Even though a feature is not be negatively impacted, it might not be compatible when used with a specific capability. For example, enabling NFS 3.0 has no impact on Microsoft Entra authorization. However, you can't use Microsoft Entra ID to authorize an NFS 3.0 request. See any of these articles for information about known limitations:
 
 - [Known issues: Hierarchical namespace capability](data-lake-storage-known-issues.md)
 
@@ -42,7 +42,7 @@ The following table describes whether a feature is supported in a standard gener
 | Storage feature | Default | HNS   | NFS  | SFTP |
 |---------------|-------------------|---|---|--|
 | [Access tiers (hot, cool, cold, and archive)](access-tiers-overview.md) | &#x2705; | &#x2705;<sup>3</sup> | &#x2705;<sup>3</sup> | &#x2705;<sup>3</sup> |
-| [Azure Active Directory security](authorize-access-azure-active-directory.md) | &#x2705; | &#x2705; | &#x2705;<sup>1</sup>  | &#x2705;<sup>1</sup>  |
+| [Microsoft Entra security](authorize-access-azure-active-directory.md) | &#x2705; | &#x2705; | &#x2705;<sup>1</sup>  | &#x2705;<sup>1</sup>  |
 | [Azure DNS Zone endpoints (preview)](../common/storage-account-overview.md?toc=/azure/storage/blobs/toc.json#storage-account-endpoints) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Blob inventory](blob-inventory.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Blob index tags](storage-manage-find-blobs.md) | &#x2705; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
@@ -76,7 +76,7 @@ The following table describes whether a feature is supported in a standard gener
 | [Storage Analytics logs (classic)](../common/storage-analytics-logging.md?toc=/azure/storage/blobs/toc.json) | &#x2705; | &#x2705;   | &nbsp;&#x2B24; | &#x2705; |
 | [Storage Analytics metrics (classic)](../common/storage-analytics-metrics.md?toc=/azure/storage/blobs/toc.json) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 
-<sup>1</sup>    Requests that clients make by using NFS 3.0 or SFTP can't be authorized by using Azure Active Directory (AD) security.
+<sup>1</sup>    Requests that clients make by using NFS 3.0 or SFTP can't be authorized by using Microsoft Entra security.
 
 <sup>2</sup>    Only locally redundant storage (LRS) and zone-redundant storage (ZRS) are supported.
 
@@ -92,7 +92,7 @@ The following table describes whether a feature is supported in a premium block 
 | Storage feature | Default | HNS   | NFS  | SFTP |
 |---------------|-------------------|---|---|--|
 | [Access tiers (hot, cool, cold, and archive)](access-tiers-overview.md)  | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
-| [Azure Active Directory security](authorize-access-azure-active-directory.md) | &#x2705; | &#x2705; | &#x2705;<sup>1</sup>  | &#x2705;<sup>1</sup> |
+| [Microsoft Entra security](authorize-access-azure-active-directory.md) | &#x2705; | &#x2705; | &#x2705;<sup>1</sup>  | &#x2705;<sup>1</sup> |
 | [Azure DNS Zone endpoints (preview)](../common/storage-account-overview.md?toc=/azure/storage/blobs/toc.json#storage-account-endpoints) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Blob inventory](blob-inventory.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Blob index tags](storage-manage-find-blobs.md) | &#x2705; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
@@ -126,7 +126,7 @@ The following table describes whether a feature is supported in a premium block 
 | [Storage Analytics logs (classic)](../common/storage-analytics-logging.md?toc=/azure/storage/blobs/toc.json) | &#x2705; | &#x1F7E6;   | &nbsp;&#x2B24;| &#x2705; |
 | [Storage Analytics metrics (classic)](../common/storage-analytics-metrics.md?toc=/azure/storage/blobs/toc.json) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 
-<sup>1</sup>    Requests that clients make by using NFS 3.0 or SFTP can't be authorized by using Azure Active Directory (AD) security.
+<sup>1</sup>    Requests that clients make by using NFS 3.0 or SFTP can't be authorized by using Microsoft Entra security.
 
 <sup>2</sup>    Only locally redundant storage (LRS) and zone-redundant storage (ZRS) are supported.
 

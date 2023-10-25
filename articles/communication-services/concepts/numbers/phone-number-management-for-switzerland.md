@@ -46,10 +46,30 @@ More details on eligible subscription types are as follows:
 | Country/Region |
 | :---------- |
 |Switzerland|
-|United States*|
+|United States|
+|Canada|
+|United Kingdom|
 
-\* Alphanumeric Sender ID
-
+## Azure subscription billing locations where Switzerland alphanumeric sender IDs are available
+| Country/Region |
+| :---------- |
+| Australia |
+| Austria |
+| Denmark |
+| France |
+| Germany |
+| India |
+| Ireland |
+| Italy |
+| Netherlands |
+| Poland |
+| Portugal |
+| Puerto Rico |
+| Spain |
+| Sweden |
+| Switzerland |
+| United Kingdom |
+| United States |
 
 ## Find information about other countries/regions
 

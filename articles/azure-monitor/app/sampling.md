@@ -2,7 +2,7 @@
 title: Telemetry sampling in Azure Application Insights | Microsoft Docs
 description: How to keep the volume of telemetry under control.
 ms.topic: conceptual
-ms.date: 08/11/2023
+ms.date: 10/11/2023
 ms.custom: fasttrack-edit
 ms.reviewer: mmcc
 ---
@@ -219,6 +219,8 @@ builder.Services.Configure<TelemetryConfiguration>(telemetryConfiguration =>
 
    // Alternately, the following configures adaptive sampling with 5 items per second, and also excludes DependencyTelemetry from being subject to sampling:
    // telemetryProcessorChainBuilder.UseAdaptiveSampling(maxTelemetryItemsPerSecond:5, excludedTypes: "Dependency");
+
+   telemetryProcessorChainBuilder.Build();
 });
 
 builder.Services.AddApplicationInsightsTelemetry(new ApplicationInsightsServiceOptions
@@ -333,6 +335,7 @@ In Metrics Explorer, rates such as request and exception counts are multiplied b
         // Using fixed rate sampling
         double fixedSamplingPercentage = 10;
         builder.UseSampling(fixedSamplingPercentage);
+        builder.Build();
     });
     
     builder.Services.AddApplicationInsightsTelemetry(new ApplicationInsightsServiceOptions
@@ -455,7 +458,7 @@ Ingestion sampling doesn't operate while adaptive or fixed-rate sampling is in o
 
 **Use fixed-rate sampling if:**
 
-* You want synchronized sampling between client and server so that, when you're investigating events in [Search](./diagnostic-search.md), you can navigate between related events on the client and server, such as page views and HTTP requests.
+* You want synchronized sampling between client and server so that, when you're investigating events in [Search](./search-and-transaction-diagnostics.md?tabs=transaction-search), you can navigate between related events on the client and server, such as page views and HTTP requests.
 * You're confident of the appropriate sampling percentage for your app. It should be high enough to get accurate metrics, but below the rate that exceeds your pricing quota and the throttling limits.
 
 **Use adaptive sampling:**

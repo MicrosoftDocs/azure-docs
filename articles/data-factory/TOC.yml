@@ -3,8 +3,6 @@ items:
   href: index.yml
 - name: Switch to Data Factory in Microsoft Fabric documentation
   href: /fabric/data-factory
-- name: Switch to version 1 documentation
-  href: v1/data-factory-introduction.md
 - name: Overview
   items:
   - name: Introduction to Data Factory
@@ -14,8 +12,6 @@ items:
     href: whats-new.md
   - name: What's new (archived months)
     href: whats-new-archive.md
-  - name: Compare current version to version 1
-    href: compare-versions.md
     displayName: timeout
 - name: Quickstarts
   expanded: true
@@ -1007,7 +1003,7 @@ items:
     - name: Configure Self-Hosted IR as a proxy for Azure-SSIS IR
       href: self-hosted-integration-runtime-proxy-ssis.md
       displayName: self hosted
-    - name: Enable Azure AD authentication for Azure-SSIS IR
+    - name: Enable Microsoft Entra authentication for Azure-SSIS IR
       href: enable-aad-authentication-azure-ssis-ir.md
       displayName: active directory
     - name: Connect to data with Windows Authentication
@@ -1338,6 +1334,8 @@ items:
       href: airflow-sync-github-repository.md
     - name: Diagnostic logs and metrics
       href: how-to-diagnostic-logs-and-metrics-for-managed-airflow.md
+    - name: CI/CD Patterns with Managed Airflow
+      href: ci-cd-pattern-with-airflow.md
   - name: Pricing
     href: airflow-pricing.md
 - name: Reference
