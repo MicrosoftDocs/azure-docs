@@ -164,7 +164,7 @@ adminClient.CreateOrUpdateIndex(definition);
 
 ## 3 - Avoid features that bypass relevance scoring
 
-Several query capabilities in Cognitive Search bypass relevance scoring. If your query logic includes the following features, you won't get BM25 relevance scores or semantic ranking on your results:
+Several query capabilities in Cognitive Search bypass relevance scoring. If your query logic includes the following features, you won't get primary or secondary ranking over your results:
 
 + Filters, fuzzy search queries, and regular expressions iterate over untokenized text, scanning for verbatim matches in the content. Search scores for all of the above query forms are a uniform 1.0, and won't provide meaningful input for semantic ranking because there's no way to select the top 50 matches.
 
@@ -314,5 +314,6 @@ Recall that semantic ranking and responses are built over an initial result set.
 
 + [Analyzers for text processing](search-analyzers.md)
 + [Configure BM25 relevance scoring](index-similarity-and-scoring.md)
++ [Relevance scoring in hybrid search using Reciprocal Rank Fusion (RRF)](hybrid-search-ranking.md)
 + [Add scoring profiles](index-add-scoring-profiles.md)
 + [Semantic ranking overview](semantic-search-overview.md)
