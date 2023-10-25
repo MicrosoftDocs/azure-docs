@@ -38,11 +38,17 @@ This article shows you how to create a static public IP address and assign it to
 
 ## Create a static IP address
 
-1. Create a static public IP address using the [`az network public ip create`][az-network-public-ip-create] command.
+1. Get the name of the node resource group using the [`az aks show`][az-aks-show] command and query for the `nodeResourceGroup` property.
+
+    ```azurecli-interactive
+    az aks show --name myAKSCluster --resource-group myNetworkResourceGroup --query nodeResourceGroup -o tsv
+    ```
+
+2. Create a static public IP address in the node resource group using the [`az network public ip create`][az-network-public-ip-create] command.
 
     ```azurecli-interactive
     az network public-ip create \
-        --resource-group myNetworkResourceGroup \
+        --resource-group <node resource group name> \
         --name myAKSPublicIP \
         --sku Standard \
         --allocation-method static

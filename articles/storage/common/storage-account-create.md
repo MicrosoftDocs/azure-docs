@@ -40,7 +40,7 @@ You can sign in to Azure and run Azure CLI commands in one of two ways:
 
 ### Use Azure Cloud Shell
 
-Azure Cloud Shell is a free Bash shell that you can run directly within the Azure portal. The Azure CLI is pre-installed and configured to use with your account. Click the **Cloud Shell** button on the menu in the upper-right section of the Azure portal:
+Azure Cloud Shell is a free Bash shell that you can run directly within the Azure portal. The Azure CLI is preinstalled and configured to use with your account. Select the **Cloud Shell** button on the menu in the upper-right section of the Azure portal:
 
 [![Cloud Shell](./media/storage-quickstart-create-account/cloud-shell-menu.png)](https://portal.azure.com)
 
@@ -48,7 +48,7 @@ The button launches an interactive shell that you can use to run the steps outli
 
 [![Screenshot showing the Cloud Shell window in the portal](./media/storage-quickstart-create-account/cloud-shell.png)](https://portal.azure.com)
 
-### Install the CLI locally
+### Install the Azure CLI locally
 
 You can also install and use the Azure CLI locally. If you plan to use Azure CLI locally, make sure you have installed the latest version of the Azure CLI. See [Install the Azure CLI](/cli/azure/install-azure-cli).
 
@@ -60,7 +60,19 @@ None.
 
 None.
 
+# [Azure Developer CLI](#tab/azure-developer-cli)
+
+[The Azure Developer CLI](/azure/developer/azure-developer-cli/overview) (`azd`) is an open-source, command-line tool that streamlines provisioning and deploying resources to Azure using a template system. `azd` is available for several development [environments](/azure/developer/azure-developer-cli/supported-languages-environments#supported-development-environments), including the following:
+
+- Locally via CLI by [installing azd](/azure/developer/azure-developer-cli/overview).
+- [GitHub Codespaces](https://github.com/features/codespaces) environments.
+- The Azure portal using [Cloud Shell](/azure/cloud-shell/overview)
+    
+    > [!NOTE]
+    > The `azd` template includes a `.devcontainer` that already has `azd` installed, therefore you can skip the installation step if you plan to use a `devcontainer` either locally or in an environment like Codespaces.
+
 ---
+
 Next, sign in to Azure.
 
 # [Portal](#tab/azure-portal)
@@ -79,7 +91,7 @@ Connect-AzAccount
 
 To launch Azure Cloud Shell, sign in to the [Azure portal](https://portal.azure.com).
 
-To log into your local installation of the CLI, run the [az login](/cli/azure/reference-index#az-login) command:
+To log into your local installation of the CLI, run the [az sign-in](/cli/azure/reference-index#az-login) command:
 
 ```azurecli-interactive
 az login
@@ -93,6 +105,24 @@ N/A
 
 N/A
 
+
+# [Azure Developer CLI](#tab/azure-developer-cli)
+
+If you plan to use `azd` via Cloud Shell:
+
+  * Sign-in to the [Azure portal](https://portal.azure.com) 
+  * Launch Cloud Shell by clicking on the corresponding icon. `azd` is automatically available in Cloud Shell and will authenticate via the account you used to sign-in to the Azure portal.
+  
+    :::image type="content" source="media/storage-account-create/azure-developer-cli-cloudshell.png" alt-text="A screenshot showing how to access Azure Developer CLI from Cloud Shell.":::    
+    
+To sign-in to a local installation of `azd` or Codespaces environment, run the [azd auth sign-in](/azure/developer/azure-developer-cli/reference#azd-auth-login) command:
+
+```azurecli-interactive
+    azd auth login
+```
+
+`azd` will launch a browser window that you can use to sign-in to Azure.
+
 ---
 ## Create a storage account
 
@@ -102,7 +132,7 @@ Every Resource Manager resource, including an Azure storage account, must belong
 
 ### Storage account type parameters
 
-When you create a storage account using PowerShell, the Azure CLI, Bicep, or Azure Templates, the storage account type is specified by the `kind` parameter (for example, `StorageV2`). The performance tier and redundancy configuration are specified together by the `sku` or `SkuName` parameter (for example, `Standard_GRS`). The following table shows which values to use for the `kind` parameter and the `sku` or `SkuName` parameter to create a particular type of storage account with the desired redundancy configuration.
+When you create a storage account using PowerShell, the Azure CLI, Bicep, Azure Templates, or the Azure Developer CLI, the storage account type is specified by the `kind` parameter (for example, `StorageV2`). The performance tier and redundancy configuration are specified together by the `sku` or `SkuName` parameter (for example, `Standard_GRS`). The following table shows which values to use for the `kind` parameter and the `sku` or `SkuName` parameter to create a particular type of storage account with the desired redundancy configuration.
 
 | Type of storage account | Supported redundancy configurations | Supported values for the kind parameter | Supported values for the sku or SkuName parameter | Supports hierarchical namespace |
 |--|--|--|--|--|
@@ -137,7 +167,7 @@ The following table describes the fields on the **Basics** tab.
 |--|--|--|--|
 | Project details | Subscription | Required | Select the subscription for the new storage account. |
 | Project details | Resource group | Required | Create a new resource group for this storage account, or select an existing one. For more information, see [Resource groups](../../azure-resource-manager/management/overview.md#resource-groups). |
-| Instance details | Storage account name | Required | Choose a unique name for your storage account. Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only. |
+| Instance details | Storage account name | Required | Choose a unique name for your storage account. Storage account names must be between 3 and 24 characters in length and might contain numbers and lowercase letters only. |
 | Instance details | Region | Required | Select the appropriate region for your storage account. For more information, see [Regions and Availability Zones in Azure](../../availability-zones/az-overview.md).<br /><br />Not all regions are supported for all types of storage accounts or redundancy configurations. For more information, see [Azure Storage redundancy](storage-redundancy.md).<br /><br />The choice of region can have a billing impact. For more information, see [Storage account billing](storage-account-overview.md#storage-account-billing).<br /><br />If your subscription supports Azure public multi-access edge zones (Azure MEC), you can deploy your storage account to an edge zone. For more information about edge zones, see [What is Azure public MEC?](../../public-multi-access-edge-compute-mec/overview.md). |
 | Instance details | Performance | Required | Select **Standard** performance for general-purpose v2 storage accounts (default). This type of account is recommended by Microsoft for most scenarios. For more information, see [Types of storage accounts](storage-account-overview.md#types-of-storage-accounts).<br /><br />Select **Premium** for scenarios requiring low latency. After selecting **Premium**, select the type of premium storage account to create. The following types of premium storage accounts are available: <ul><li>[Block blobs](./storage-account-overview.md)</li><li>[File shares](../files/storage-files-planning.md#management-concepts)</li><li>[Page blobs](../blobs/storage-blob-pageblob-overview.md)</li></ul>
 | Instance details | Redundancy | Required | Select your desired redundancy configuration. Not all redundancy options are available for all types of storage accounts in all regions. For more information about redundancy configurations, see [Azure Storage redundancy](storage-redundancy.md).<br /><br />If you select a geo-redundant configuration (GRS or GZRS), your data is replicated to a data center in a different region. For read access to data in the secondary region, select **Make read access to data available in the event of regional unavailability**. |
@@ -181,7 +211,7 @@ The following table describes the fields on the **Networking** tab.
 |--|--|--|--|
 | Network connectivity | Network access | Required | By default, incoming network traffic is routed to the public endpoint for your storage account. You can specify that traffic must be routed to the public endpoint through an Azure virtual network. You can also configure private endpoints for your storage account. For more information, see [Use private endpoints for Azure Storage](storage-private-endpoints.md). |
 | Network connectivity | Endpoint type | Required | Azure Storage supports two types of endpoints: [standard endpoints](storage-account-overview.md#standard-endpoints) (the default) and [Azure DNS zone endpoints](storage-account-overview.md#azure-dns-zone-endpoints-preview) (preview). Within a given subscription, you can create up to 250<sup>1</sup> accounts with standard endpoints per region, and up to 5000 accounts with Azure DNS zone endpoints per region, for a total of 5250 storage accounts. To register for the preview, see [About the preview](storage-account-overview.md#about-the-preview). |
-| Network routing | Routing preference | Required | The network routing preference specifies how network traffic is routed to the public endpoint of your storage account from clients over the internet. By default, a new storage account uses Microsoft network routing. You can also choose to route network traffic through the POP closest to the storage account, which may lower networking costs. For more information, see [Network routing preference for Azure Storage](network-routing-preference.md). |
+| Network routing | Routing preference | Required | The network routing preference specifies how network traffic is routed to the public endpoint of your storage account from clients over the internet. By default, a new storage account uses Microsoft network routing. You can also choose to route network traffic through the POP closest to the storage account, which might lower networking costs. For more information, see [Network routing preference for Azure Storage](network-routing-preference.md). |
 
 <sup>1</sup>With a quota increase, you can create up to 500 storage accounts with standard endpoints per region in a given subscription, for a total of 5500 storage accounts per region. For more information, see [Increase Azure Storage account quotas](../../quotas/storage-account-quota-requests.md).
 
@@ -201,7 +231,7 @@ The following table describes the fields on the **Data protection** tab.
 
 | Section | Field | Required or optional | Description |
 |--|--|--|--|
-| Recovery | Enable point-in-time restore for containers | Optional | Point-in-time restore provides protection against accidental deletion or corruption by enabling you to restore block blob data to an earlier state. For more information, see [Point-in-time restore for block blobs](../blobs/point-in-time-restore-overview.md).<br /><br />Enabling point-in-time restore also enables blob versioning, blob soft delete, and blob change feed. These prerequisite features may have a cost impact. For more information, see [Pricing and billing](../blobs/point-in-time-restore-overview.md#pricing-and-billing) for point-in-time restore. |
+| Recovery | Enable point-in-time restore for containers | Optional | Point-in-time restore provides protection against accidental deletion or corruption by enabling you to restore block blob data to an earlier state. For more information, see [Point-in-time restore for block blobs](../blobs/point-in-time-restore-overview.md).<br /><br />Enabling point-in-time restore also enables blob versioning, blob soft delete, and blob change feed. These prerequisite features might have a cost impact. For more information, see [Pricing and billing](../blobs/point-in-time-restore-overview.md#pricing-and-billing) for point-in-time restore. |
 | Recovery | Enable soft delete for blobs | Optional | Blob soft delete protects an individual blob, snapshot, or version from accidental deletes or overwrites by maintaining the deleted data in the system for a specified retention period. During the retention period, you can restore a soft-deleted object to its state at the time it was deleted. For more information, see [Soft delete for blobs](../blobs/soft-delete-blob-overview.md).<br /><br />Microsoft recommends enabling blob soft delete for your storage accounts and setting a minimum retention period of seven days. |
 | Recovery | Enable soft delete for containers | Optional | Container soft delete protects a container and its contents from accidental deletes by maintaining the deleted data in the system for a specified retention period. During the retention period, you can restore a soft-deleted container to its state at the time it was deleted. For more information, see [Soft delete for containers](../blobs/soft-delete-container-overview.md).<br /><br />Microsoft recommends enabling container soft delete for your storage accounts and setting a minimum retention period of seven days. |
 | Recovery | Enable soft delete for file shares | Optional | Soft delete for file shares protects a file share and its contents from accidental deletes by maintaining the deleted data in the system for a specified retention period. During the retention period, you can restore a soft-deleted file share to its state at the time it was deleted. For more information, see [Prevent accidental deletion of Azure file shares](../files/storage-files-prevent-file-share-deletion.md).<br /><br />Microsoft recommends enabling soft delete for file shares for Azure Files workloads and setting a minimum retention period of seven days. |
@@ -286,7 +316,7 @@ To create an account with Azure DNS zone endpoints (preview), follow these steps
 
 1. Close and reopen the PowerShell console.
 
-1. Install version [4.4.2-preview](https://www.powershellgallery.com/packages/Az.Storage/4.4.2-preview) or later of the Az.Storage PowerShell module. You may need to uninstall other versions of the PowerShell module. For more information about installing Azure PowerShell, see [Install Azure PowerShell with PowerShellGet](/powershell/azure/install-azure-powershell).
+1. Install version [4.4.2-preview](https://www.powershellgallery.com/packages/Az.Storage/4.4.2-preview) or later of the Az.Storage PowerShell module. You might need to uninstall other versions of the PowerShell module. For more information about installing Azure PowerShell, see [Install Azure PowerShell with PowerShellGet](/powershell/azure/install-azure-powershell).
 
     ```azurepowershell
     Install-Module Az.Storage -Repository PsGallery -RequiredVersion 4.4.2-preview -AllowClobber -AllowPrerelease -Force
@@ -431,14 +461,54 @@ To learn how to modify this template or create new ones, see:
 - [Storage account template reference](/azure/templates/microsoft.storage/allversions).
 - [Additional storage account template samples](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Storage).
 
+# [Azure Developer CLI](#tab/azure-developer-cli)
+
+The Azure Developer CLI (`azd`) is designed around [`azd` templates](/azure/developer/azure-developer-cli/make-azd-compatible?pivots=azd-convert). These templates leverage Bicep files, basic configurations and automation tasks to provision and deploy resources to Azure. You can also view the source code for the template in the [create a storage account quickstart]() repository.
+
+Initialize and run the template for this quickstart using the following steps:
+
+1. Run the `azd init` command in a local terminal or CloudShell:
+
+    ```azurecli-interactive
+    azd init --template https://github.com/azure-samples/azd-create-storage-account
+    ```
+
+1. `azd` will prompt you for an environment name, which will determine the naming of provisioned resources in Azure.  Enter the name `azdstorage` and press enter.
+
+    :::image type="content" source="media/storage-account-create/azure-developer-cli-init.png" alt-text="A screenshot showing the Azure Developer CLI init command.":::
+
+1. Next, run the `azd up` command to begin the template provisioning and deployment process.
+
+    ```azurecli-interactive
+    azd up
+    ```
+
+1. If you are not already authenticated to Azure, `azd` will output a message instructing you to sign-in to Azure using the `azd auth login` command.
+
+    ```azurecli-interactive
+    azd auth login
+    ```
+
+1. Once you are authenticated, `azd` will prompt you for the Azure location to provision the storage account to from a list of regions. Select your desired location from the list and press enter.
+
+1. `azd` will also prompt you for a storage account type. The type is a custom parameter that was added to the azd template to add flexibility to the storage account provisioning. Choose `Standard_LRS` or whatever type you would like, and then press enter.
+
+1. `azd` will begin provisioning the storage account. The command output will provide a link to the deployment in Azure  and status details until the command finishes.
+
+    :::image type="content" source="media/storage-account-create/azure-developer-cli-up.png" alt-text="A screenshot showing the output of the azd up command.":::
+
+1. When the command finishes, click the link to open the Azure portal to the provisioned resource group and storage account.
+
+    :::image type="content" source="media/storage-account-create/azure-developer-cli-resource-group.png" alt-text="A screenshot showing the deployed resource group and storage account.":::
+
 ---
 ## Delete a storage account
 
 Deleting a storage account deletes the entire account, including all data in the account. Be sure to back up any data you want to save before you delete the account.
 
-Under certain circumstances, a deleted storage account may be recovered, but recovery is not guaranteed. For more information, see [Recover a deleted storage account](storage-account-recover.md).
+Under certain circumstances, a deleted storage account might be recovered, but recovery is not guaranteed. For more information, see [Recover a deleted storage account](storage-account-recover.md).
 
-If you try to delete a storage account associated with an Azure virtual machine, you may get an error about the storage account still being in use. For help troubleshooting this error, see [Troubleshoot errors when you delete storage accounts](/troubleshoot/azure/virtual-machines/storage-resource-deletion-errors).
+If you try to delete a storage account associated with an Azure virtual machine, you might get an error about the storage account still being in use. For help troubleshooting this error, see [Troubleshoot errors when you delete storage accounts](/troubleshoot/azure/virtual-machines/storage-resource-deletion-errors).
 
 # [Portal](#tab/azure-portal)
 
@@ -495,6 +565,14 @@ read resourceGroupName &&
 echo "Enter the storage account name:" &&
 read storageAccountName &&
 az storage account delete --name storageAccountName --resource-group resourceGroupName
+```
+
+# [Azure Developer CLI](#tab/azure-developer-cli)
+
+To delete the resource group and storage account created by `azd`, use the `azd down` command:
+
+```azurecli-interactive
+azd down
 ```
 
 ---
