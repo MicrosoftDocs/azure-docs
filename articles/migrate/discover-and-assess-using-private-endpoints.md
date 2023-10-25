@@ -103,8 +103,8 @@ After the script has executed successfully, the appliance configuration manager 
 
 ## Enabling DNS Resolution to Private Endpoints
 
-1. The DNS records required for the private endpoints can be downloaded from the Azure Migrate project. Instructions on how to download the DNS entries is [here](https://learn.microsoft.com/en-us/azure/migrate/troubleshoot-network-connectivity#verify-dns-resolution)
-2. Add these DNS records to your DNS server on-premises using our [Private Endpoint Connectivity documentation](https://learn.microsoft.com/en-us/azure/private-link/private-endpoint-dns) or add these DNS records to the local host file in the Azure Migrate appliance.
+1. The DNS records required for the private endpoints can be downloaded from the Azure Migrate project. Instructions on how to download the DNS entries is [here](https://learn.microsoft.com/azure/migrate/troubleshoot-network-connectivity#verify-dns-resolution)
+2. Add these DNS records to your DNS server on-premises using our [Private Endpoint Connectivity documentation](https://learn.microsoft.com/azure/private-link/private-endpoint-dns) or add these DNS records to the local host file in the Azure Migrate appliance.
 
 ## Configure the appliance and start continuous discovery
 
