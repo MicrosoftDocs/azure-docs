@@ -2,7 +2,7 @@
 title: Connect to Azure Kubernetes Service - Azure Database for MySQL
 description: Learn about connecting Azure Kubernetes Service with Azure Database for MySQL
 ms.service: mysql
-ms.subservice: single-server
+ms.subservice: flexible-server
 ms.topic: conceptual
 author: SudheeshGH
 ms.author: sunaray
@@ -11,7 +11,7 @@ ms.date: 06/20/2022
 
 # Best practices for Azure Kubernetes Service and Azure Database for MySQL
 
-[!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
+[!INCLUDE[applies-to-mysql-single-flexible-server](../includes/applies-to-mysql-single-flexible-server.md)]
 
 [!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
