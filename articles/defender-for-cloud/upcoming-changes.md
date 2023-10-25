@@ -33,6 +33,7 @@ If you're looking for the latest release notes, you can find them in the [What's
 | [DevOps Resource Deduplication for Defender for DevOps](#devops-resource-deduplication-for-defender-for-devops) |  | November 2023 |
 | [Changes to Attack Path's Azure Resource Graph table scheme](#changes-to-attack-paths-azure-resource-graph-table-scheme) |  | November 2023 |
 | [Deprecating two security incidents](#deprecating-two-security-incidents) |  | November 2023 |
+| [Changes to how Microsoft Defender for Cloud's costs are presented in Microsoft Cost Management](#changes-to-mdc-costs-representation) |  | December 2023 |
 | [Defender for Cloud plan and strategy for the Log Analytics agent deprecation](#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation) |  | August 2024 |
 
 ## Four alerts are set to be deprecated
@@ -141,6 +142,16 @@ Customers will have until November 14, 2023 to resolve this issue. After this da
 **Estimated date for change: November 2023**
 
 The Attack Path's Azure Resource Graph (ARG) table scheme will be updated. The `attackPathType` property will be removed and additional properties will be added.
+
+## Changes to how Microsoft Defender for Cloud's costs are presented in Microsoft Cost Management
+
+**Estimated date for change: December 2023**
+
+In December, there will be a change as to how Microsoft Defender for Cloud's costs are presented in Cost Management and in Subscriptions invoices. 
+ 
+Costs will be presented for each protected resource instead of as an aggregation of all resources on the subscription. 
+ 
+If a resource has a tag applied, which are often used by organizations to perform financial chargeback processes, will be added to the appropriate billing line(s). 
 
 ## Defender for Cloud plan and strategy for the Log Analytics agent deprecation
 
