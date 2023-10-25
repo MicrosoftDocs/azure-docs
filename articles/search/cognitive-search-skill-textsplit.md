@@ -103,8 +103,8 @@ Parameters are case-sensitive.
             "recordId": "1",
             "data": {
                 "textItems": [
-                    "This is the loan…",
-                    "On the second page we…"
+                    "This is the loan...",
+                    "In the next section, we continue..."
                 ]
             }
         },
@@ -113,7 +113,7 @@ Parameters are case-sensitive.
             "data": {
                 "textItems": [
                     "This is the second document...",
-                    "On the second page of the second doc…"
+                    "In the next section of the second doc..."
                 ]
             }
         }
@@ -131,7 +131,9 @@ This example is for integrated vectorization, currently in preview. It adds prev
 
 ### Sample definition
 
-This definition adds `pageOverlapLength` and `maximumPagesToTake`.
+This definition adds `pageOverlapLength` of 100 characters and `maximumPagesToTake` of one. 
+
+Assuming the `maximumPageLength` is 5000 characters (the default), then `"maximumPagesToTake": 1` processes the first 5000 characters of each source document. 
 
 ```json
 {
@@ -175,7 +177,7 @@ This definition adds `pageOverlapLength` and `maximumPagesToTake`.
         {
             "recordId": "2",
             "data": {
-                "text": "This is the second document, which will be broken into several pages...",
+                "text": "This is the second document, which will be broken into several sections...",
                 "languageCode": "en"
             }
         }
@@ -195,7 +197,7 @@ Within each "textItems" array, trailing text from the first item is copied into 
             "data": {
                 "textItems": [
                     "This is the loan...Here is the overlap part",
-                    "Here is the overlap part...On the second page we..."
+                    "Here is the overlap part...In the next section, we continue..."
                 ]
             }
         },
@@ -204,7 +206,7 @@ Within each "textItems" array, trailing text from the first item is copied into 
             "data": {
                 "textItems": [
                     "This is the second document...Here is the overlap part...",
-                    "Here is the overlap part...On the second page of the second doc..."
+                    "Here is the overlap part...In the next section of the second doc..."
                 ]
             }
         }
