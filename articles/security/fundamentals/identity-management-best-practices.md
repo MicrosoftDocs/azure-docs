@@ -153,7 +153,7 @@ If you have multiple tenants or you want to enable users to [reset their own pas
 
 We recommend that you require two-step verification for all of your users. This includes administrators and others in your organization who can have a significant impact if their account is compromised (for example, financial officers).
 
-There are multiple options for requiring two-step verification. The best option for you depends on your goals, the Microsoft Entra edition you’re running, and your licensing program. See [How to require two-step verification for a user](../../active-directory/authentication/howto-mfa-userstates.md) to determine the best option for you. See the [Microsoft Entra ID](https://azure.microsoft.com/pricing/details/active-directory/) and [Microsoft Entra multifactor Authentication](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) pricing pages for more information about licenses and pricing.
+There are multiple options for requiring two-step verification. The best option for you depends on your goals, the Microsoft Entra edition you’re running, and your licensing program. See [How to require two-step verification for a user](../../active-directory/authentication/howto-mfa-userstates.md) to determine the best option for you. See the [Microsoft Entra ID](https://azure.microsoft.com/pricing/details/active-directory/) and [Microsoft Entra multifactor authentication](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) pricing pages for more information about licenses and pricing.
 
 Following are options and benefits for enabling two-step verification:
 
