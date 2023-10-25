@@ -196,7 +196,7 @@ For more information, see [HDInsight 5.1.0 version](./hdinsight-51-component-ver
 
 ![Icon showing end of support with text.](media/hdinsight-release-notes/new-icon-for-end-of-support.png)
 
-End of support for Azure HDInsight clusters on Spark 2.4 February 10, 2024. For more information, see [Spark versions supported in Azure HDInsight](./hdinsight-40-component-versioning.md#spark-versions-supported-in-azure-hdinsight)
+End of support for Azure HDInsight clusters on Spark 2.4 February 10, 2024. For more information, see [Spark versions supported in Azure HDInsight](./hdinsight-40-component-versioning.md)
 
 ## What's next
 
