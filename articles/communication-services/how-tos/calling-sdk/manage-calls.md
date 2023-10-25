@@ -11,7 +11,7 @@ ms.date: 08/10/2021
 ms.custom: template-how-to
 zone_pivot_groups: acs-plat-web-ios-android-windows
 
-#Customer intent: As a developer, I want to manage calls with the acs sdks so that I can create a calling application that manages calls.
+#Customer intent: As a developer, I want to manage calls with the Azure Communication Services sdks so that I can create a calling application that manages calls.
 ---
 
 # Manage calls
