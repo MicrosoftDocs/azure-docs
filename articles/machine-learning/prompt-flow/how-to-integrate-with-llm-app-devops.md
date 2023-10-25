@@ -52,7 +52,7 @@ Overview of the flow folder structure and the key files it contains:
 - **Source code files (.py, .jinja2)**: The flow folder also includes user-managed source code files, which are referred to by the tools/nodes in the flow.
     - Files in Python (.py) format can be referenced by the python tool for defining custom python logic.
     - Files in Jinja2 (.jinja2) format can be referenced by the prompt tool or LLM tool for defining prompt context.
-- **Non-source files**: The flow folder may also contain non-source files such as utility files and data files that can be included in the source files.
+- **Non-source files**: The flow folder can also contain non-source files such as utility files and data files that can be included in the source files.
 
 Once the flow is created, you can navigate to the Flow Authoring Page to view and operate the flow files in the right file explorer. This allows you to view, edit, and manage your files. Any modifications made to the files will be directly reflected in the file share storage.
 
@@ -321,7 +321,7 @@ pf.get_metrics("evaluation_run_name")
 
 ### Local development and testing
 
-During iterative development, as you refine and fine-tune your flow or prompts, you may find it beneficial to carry out multiple iterations locally within your code repository. The community version, **Prompt flow VS Code extension** and **Prompt flow local SDK & CLI** is provided to facilitate pure local development and testing without Azure binding.
+During iterative development, as you refine and fine-tune your flow or prompts, it could be beneficial to carry out multiple iterations locally within your code repository. The community version, **Prompt flow VS Code extension** and **Prompt flow local SDK & CLI** is provided to facilitate pure local development and testing without Azure binding.
 
 #### Prompt flow VS Code extension
 
