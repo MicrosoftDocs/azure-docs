@@ -39,7 +39,7 @@ To connect to TAXII threat intelligence feeds, follow the instructions to [conne
 ### ESET
 
 - [Learn about ESET's threat intelligence offering](https://www.eset.com/int/business/services/threat-intelligence/).
-- To connect the ESET TAXII server to Microsoft Sentinel, obtain the API root URL, Collection ID, Username and Password from your ESET account. Then follow the [general instructions](connect-threat-intelligence-taxii.md) and [ESET's knowledge base article](https://support.eset.com/en/kb8314-eset-threat-intelligence-with-ms-azure-sentinel).
+- To connect Microsoft Sentinel to the ESET TAXII server, obtain the API root URL, Collection ID, Username and Password from your ESET account. Then follow the [general instructions](connect-threat-intelligence-taxii.md) and [ESET's knowledge base article](https://support.eset.com/en/kb8314-eset-threat-intelligence-with-ms-azure-sentinel).
 
 ### Financial Services Information Sharing and Analysis Center (FS-ISAC)
 
