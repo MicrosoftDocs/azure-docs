@@ -128,7 +128,7 @@ When using PostgreSQL for a busy database with a large number of concurrent conn
    
 ### Restoring a server
 
-- When using the Point-in-time-Restore feature, the new server is created with the same compute and storage configurations as the server isn't based on.
+- When using the Point-in-time-Restore feature, the new server is created with the same compute and storage configurations as the server it is based on.
 - VNET based database servers are restored into the same VNET when you restore from a backup.
 - The new server created during a restore doesn't have the firewall rules that existed on the original server. Firewall rules need to be created separately for the new server.
 - Restoring a deleted server isn't supported.
