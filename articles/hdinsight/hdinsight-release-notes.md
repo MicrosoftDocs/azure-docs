@@ -39,10 +39,10 @@ For workload specific versions, see
 
 ## What's new
 
-* HDI team announced the availability of new version of HDInsight, 5.1 in General Availability (GA) state from October 26, 2023 which contains all the latest versions of [supported software](./open-source-software.md). This comes with all the improvements made in [open-source versions](./hdinsight-component-versioning.md) and the integrations from Microsoft. 
-    * Latest Version – [HDInsight 5.1](./hdinsight-5x-component-versioning.md) comes with the latest stable [open-source version](./hdinsight-component-versioning.md) available. Customers can benefit from all latest features, improvements, and Bug fixes. 
-    * Secure – The new versions come with more secure controls and fixes. Open-source security fixes are part of this release as well the improvements in security by Microsoft. 
-    * Lower TCO – new version is better in performance. Customers can leverage performance improvements to reduce the operating cost.
+* HDInsight announces the General availability of HDInsight 5.1 starting October 26, 2023. This release brings in a full stack refresh to the [open source components](.//hdinsight-5x-component-versioning.md) and the integrations from Microsoft. 
+    * Latest Open Source Versions – [HDInsight 5.1](./hdinsight-5x-component-versioning.md) comes with the latest stable [open-source version](./hdinsight-component-versioning.md) available. Customers can benefit from all latest open source features, Microsoft performance improvements, and Bug fixes. 
+    * Secure – The latest versions come with the most recent security fixes, both open-source security fixes and security improvements by Microsoft. 
+    * Lower TCO – With performance enhancements customers can lower the operating cost, along with [enhanced autoscale](https://techcommunity.microsoft.com/t5/analytics-on-azure-blog/enhanced-autoscale-capabilities-in-hdinsight-clusters/ba-p/3811271).
    
 * Cluster permissions for secure storage  
   * Customers can specify (during cluster creation) whether a secure channel should be used for HDInsight cluster nodes to connect the storage account.
@@ -55,7 +55,7 @@ For workload specific versions, see
 
 ## ![Icon showing coming soon.](./media/hdinsight-release-notes/clock.svg) Coming soon
 
-* The max length of cluster name will be changed to 45 from 59 characters, to improve the security posture of clusters. This change will be implemented by September 30, 2023 and change is being rolled out to all regions.
+* The max length of cluster name will be changed to 45 from 59 characters, to improve the security posture of clusters. This change will be rolled out to all regions starting upcoming release.
 
 * In-line quota update.
    * Request quotas increase directly from the My Quota page, which will be a direct API call, which is faster. If the APdI call fails, then customers need to create a new support request for quota increase.
