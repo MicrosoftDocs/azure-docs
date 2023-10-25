@@ -16,7 +16,7 @@ monikerRange: '<=doc-intel-4.0.0'
 
 :::moniker range=">=doc-intel-3.0.0"
 
-[!INCLUDE [applies to v4.0 v3.1 v3.0](../includes/applies-to-v40-v31-v30.md)]
+[!INCLUDE [applies to v4.0 v3.1 v3.0](../includes/applies-to-v40-v31-v30.md)] ![blue-checkmark](../media/versions-icon.png) **Earlier version:** [v2.1](?view=doc-intel-2.1.0&preserve-view=true)
 
 Document Intelligence models require as few as five training documents to get started. If you have at least five documents, you can get started training a custom model. You can train either a [custom template model (custom form)](../concept-custom-template.md) or a [custom neural model (custom document)](../concept-custom-neural.md). The training process is identical for both models and this document walks you through the process of training either model.
 
