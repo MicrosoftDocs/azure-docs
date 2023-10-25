@@ -49,7 +49,7 @@ For details on Incremental Import, visit [Import Documentation](./../healthcare-
 
 Batch bundles are executed serially in FHIR service by default. To improve throughput with bundle calls, we're enabling parallel processing of batch bundles.For details, visit [Batch Bundle Parellization](./../healthcare-apis/fhir/fhir-rest-api-capabilities.md)
 
-Batch-bundle parallelization capability is in public preview. Please review disclaimer below for more details. 
+Batch-bundle parallelization capability is in public preview. Review disclaimer for more details. 
 [!INCLUDE [public preview disclaimer](./../healthcare-apis/includes/common-publicpreview-disclaimer.md)]
 
 **Decimal value precision in FHIR service is updated per FHIR specification**
