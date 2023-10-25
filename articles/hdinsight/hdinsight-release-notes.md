@@ -40,7 +40,7 @@ For workload specific versions, see
 * Cluster permissions for secure storage  
   * Customers can specify (during cluster creation) whether a secure channel should be used for HDInsight cluster nodes to connect the storage account. 
 * HDInsight Cluster Creation with Custom VNets.
-  * To improve the overall security posture of the HDInsight clusters, HDInsight clusters using custom VNETs need to ensure that the user needs to have permission for `Microsoft Network/virtualNetworks/subnets/join/action` to perform create operations. Customers will face creation failures if this check is not enabled.
+  * To improve the overall security posture of the HDInsight clusters, HDInsight clusters using custom VNETs need to ensure that the user needs to have permission for `Microsoft Network/virtualNetworks/subnets/join/action` to perform create operations. Customer can face creation failures if this check is not enabled.
  * Non-ESP ABFS clusters [Cluster Permissions for Word Readable] 
   * Non-ESP ABFS clusters will restrict non-Hadoop group users from executing Hadoop commands for storage operations. This change improves cluster security posture. 
 
