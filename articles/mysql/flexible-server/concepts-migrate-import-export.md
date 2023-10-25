@@ -25,7 +25,7 @@ For other migration scenarios, see the [Database Migration Guide](/data-migratio
 
 Before you begin migrating your MySQL database, you need to:
 
-- Create an [Azure Database for MySQL server by using the Azure portal](quickstart-create-mysql-server-database-using-azure-portal.md).
+- Create an [Azure Database for MySQL server by using the Azure portal](../single-server/quickstart-create-mysql-server-database-using-azure-portal.md).
 - Download and install [MySQL Workbench](https://dev.mysql.com/downloads/workbench/) or another third-party MySQL tool for importing and exporting.
 
 ## Create a database on the Azure Database for MySQL server

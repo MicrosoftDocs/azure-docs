@@ -37,7 +37,7 @@ We recommend that you resolve corruption problems by using a *dump and restore* 
 
 > [!Important]
 >
-> - Make sure you have configured a firewall rule to access the server from your client machine. For more information, see [configure a firewall rule on Single Server](how-to-manage-firewall-using-portal.md) and [configure a firewall rule on Flexible Server](../flexible-server/how-to-connect-tls-ssl.md).
+> - Make sure you have configured a firewall rule to access the server from your client machine. For more information, see [configure a firewall rule on Single Server](../single-server/how-to-manage-firewall-using-portal.md) and [configure a firewall rule on Flexible Server](how-to-connect-tls-ssl.md).
 > - Use SSL option `--ssl-cert` for mysqldump if you have SSL enabled.
 
 Create a backup file from the command line by using mysqldump. Use this command:
@@ -88,8 +88,8 @@ $ mysql --ssl-cert=</path/to/pem> -h mydemoserver.mysql.database.azure.com -u my
 
 ## Next steps
 If the preceding steps don't resolve the problem, you can always restore the entire server:
-- [Restore server in Azure Database for MySQL - Single Server](how-to-restore-server-portal.md)
-- [Restore server in Azure Database for MySQL - Flexible Server](../flexible-server/how-to-restore-server-portal.md)
+- [Restore server in Azure Database for MySQL - Single Server](../single-server/how-to-restore-server-portal.md)
+- [Restore server in Azure Database for MySQL - Flexible Server](how-to-restore-server-portal.md)
 
 
 
