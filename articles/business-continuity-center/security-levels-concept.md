@@ -11,7 +11,7 @@ ms.author: v-abhmallick
 
 This article describes the levels of Security available in Azure Business Continuity center (preview).
 
-Concerns about security issues, such as malware, ransomware, and intrusion, are increasing. These issues poses threats to both money and data. The Security level indicates how well the security settings are configured to guard against such attacks.
+Concerns about security issues, such as malware, ransomware, and intrusion, are increasing. These issues pose threats to both money and data. The Security level indicates how well the security settings are configured to guard against such attacks.
 
 Azure Business Continuity center allows you to assess how secure your resources are, based on the security level.
 

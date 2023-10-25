@@ -30,7 +30,7 @@ Some of the key benefits you get with Azure Business Continuity center (preview)
 
 Azure Business Continuity center allows you to manage data sources protected across the solutions. You can manage these resources from different environments, such as Azure and on-premises.  Learn about the [supported scenarios and limitations]().
 
-## Getting started
+## Get started
 
 
 

@@ -28,14 +28,14 @@ Refer to the support matrix for a detailed list of supported and unsupported
 To view all the Azure Policies that are available for protection, select the **Azure Policies for protection** menu item. This displays all the built-in and custom Azure Policy definitions for backup and Azure Site Recovery that are available for assignment to your subscriptions and resource groups. 
 
 Selecting any of the definitions allows you to assign the policy to a scope. 
-   :::image type="content" source="./media/tutorial-govern-monitor-compliance/protection-policy.png" alt-text="Screenshot shows protection policy for backup.":::
+   :::image type="content" source="./media/tutorial-govern-monitor-compliance/protection-policy.png" alt-text="Screenshot shows protection policy for backup." lightbox="./media/tutorial-govern-monitor-compliance/protection-policy.png":::
 
 
-## Protection Compliance 
+## Protection compliance 
 
 Selecting the **Protection compliance** option helps you view the compliance of your resources based on the various built-in policies that you've assigned to your Azure environment. You can view the percentage of resources that are compliant on all policies, as well as the policies that have one or more non-compliant resources. 
 
-   :::image type="content" source="./media/tutorial-govern-monitor-compliance/protection-compliance.png" alt-text="Screenshot shows protection compliance page for backup.":::
+   :::image type="content" source="./media/tutorial-govern-monitor-compliance/protection-compliance.png" alt-text="Screenshot shows protection compliance page for backup."  lightbox="./media/tutorial-govern-monitor-compliance/protection-compliance.png":::
 
 Selecting the **Protectable resource** option allows you to view all your resources that haven't been configured for backup and replication.  
 

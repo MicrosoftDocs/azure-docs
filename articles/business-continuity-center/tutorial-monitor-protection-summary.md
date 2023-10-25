@@ -30,7 +30,7 @@ Before you start this tutorial:
 
 Follow these steps:
 
-1. In the Azure Business Continuity center, select **Overview**. This opens a overview pane with a consolidated view of information  related to protection of your resources across solutions in a single location. 
+1. In the Azure Business Continuity center, select **Overview**. This opens an overview pane with a consolidated view of information  related to protection of your resources across solutions in a single location. 
     :::image type="content" source="./media/tutorial-monitor-protection-summary/summary-page.png" alt-text="Screenshot showing the overview summary page." lightbox="./media/tutorial-monitor-protection-summary/summary-page.png":::
  
 2. To look for specific information, you can use various filters, such as subscriptions, resource groups, location, and resource type, and more.

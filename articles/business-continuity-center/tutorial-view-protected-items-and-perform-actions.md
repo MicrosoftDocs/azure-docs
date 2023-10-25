@@ -121,7 +121,7 @@ For a specific protected item when you want to see additional details follow the
     - **Alert details** - alerts fired details for protected items
     - **Health details** - health details for protected items 
 
-## Perform Actions
+## Perform actions
 
 With the protected items view, you can choose to perform actions from:
 
@@ -146,4 +146,4 @@ With the protected items view, you can choose to perform actions from:
 
 ## Next steps
 
-Monitor progress of actions [Add link]().
+For more information about Azure Business Continuity center and how it works, check out [Configure protection from ABC center](./tutorial-configure-protection-datasource.md).

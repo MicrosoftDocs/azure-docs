@@ -27,7 +27,7 @@ To determine how often to back up data and where to store backups, you consider 
 - **Recovery Point Objective (RPO)**: The amount of data the organization can afford to lose. This helps to determine how frequently you must back up your data to avoid losing more.
 - **Recovery Time Objective (RTO)**:  The maximum amount of time the business can afford to be without access to the data or application i.e., being offline or how quickly you must recover the data and application. This helps in developing your recovery strategy.
 
-RTOs and RPOs may vary depending on the business and the individual applications data. Mission-critical applications mostly require microscopic RTOs and RPOs since, downtime could cost millions per minute.
+RTOs and RPOs might vary depending on the business and the individual applications data. Mission-critical applications mostly require microscopic RTOs and RPOs since, downtime could cost millions per minute.
 
 A datasource is an Azure resource or an item hosted in Azure resource (e.g. SQL database in Azure VM, SAP Hana database in Azure Virtual Machine, and etc.). A datasource belonging to a critical business application should be recoverable in both primary and secondary region in case of any malicious attack or operational disruptions. 
 
@@ -35,7 +35,7 @@ A datasource is an Azure resource or an item hosted in Azure resource (e.g. SQL 
 - **Secondary region**: Paired or target region in which datasource can be recovered in case primary region is not accessible.
 
 
-## Getting started
+## Get started
 
 Azure Business Continuity center helps you configure protection, enabling backup or replication of the datasources from various views and options like overview, protectable resources, protected items, and more options. You can choose from the following options to configure protection:
 
@@ -48,7 +48,7 @@ Azure Business Continuity center helps you configure protection, enabling backup
 
 ## Configure protection
 
-This tutorial uses option 1 shown in the getting started section to initiate configure protection for Azure Virtual machine.
+This tutorial uses option 1 shown in the Getting started section to initiate the configure protection for Azure Virtual Machines.
 
 1. Go to one of the views from Overview, Protectable resources, Protected items etc. and click on “Configure Protection” from the menu available on the top of the view.
     :::image type="content" source="./media/tutorial-configure-protection-datasource/configure-multiple-resources.png" alt-text="Screenshot showing **Configure protection** option." lightbox="./media/tutorial-configure-protection-datasource/configure-multiple-resources.png":::
