@@ -185,7 +185,7 @@ items:
           href: quickstarts/email/send-email-advanced/use-email-object-model-for-payload.md
     - name: Add multiple sender addresses
       href: quickstarts/email/add-multiple-senders.md
-    - name: Add multiple sender addresses with ACS Management SDKs
+    - name: Add multiple sender addresses with Azure Communication Services Management SDKs
       href: quickstarts/email/add-multiple-senders-mgmt-sdks.md
   - name: Job Router
     items: 
@@ -211,7 +211,7 @@ items:
           href: quickstarts/advanced-messaging/whatsapp/whatsapp-sandbox-quickstart.md
   - name: Managed Identity
     items:
-    - name: Enable Managed Identity on ACS resources
+    - name: Enable Managed Identity on Azure Communication Services resources
       href: how-tos/managed-identity.md
 - name: Tutorials
   items:
