@@ -2,7 +2,6 @@
 title: Set up an indexer connection to Azure Cosmos DB via a managed identity
 titleSuffix: Azure Cognitive Search
 description: Learn how to set up an indexer connection to an Azure Cosmos DB account via a managed identity
-
 author: gmndrg
 ms.author: gimondra
 manager: liamca
@@ -10,24 +9,44 @@ manager: liamca
 ms.service: cognitive-search
 ms.topic: how-to
 ms.date: 09/19/2022
-ms.custom: subject-rbac-steps, ignite-2022
+ms.custom: subject-rbac-steps, 
 ---
 
 # Set up an indexer connection to Azure Cosmos DB via a managed identity
 
 This article explains how to set up an indexer connection to an Azure Cosmos DB database using a managed identity instead of providing credentials in the connection string.'
 
-You can use a system-assigned managed identity or a user-assigned managed identity (preview). Managed identities are Azure Active Directory logins and require Azure role assignments to access data in Azure Cosmos DB. 
+You can use a system-assigned managed identity or a user-assigned managed identity (preview). Managed identities are Microsoft Entra logins and require Azure role assignments to access data in Azure Cosmos DB. 
 
 ## Prerequisites
 
 * [Create a managed identity](search-howto-managed-identities-data-sources.md) for your search service.
 
-* [Assign a role](search-howto-managed-identities-data-sources.md#assign-a-role) in Azure Cosmos DB.
+* Assign the **Cosmos DB Account Reader** role to the search service managed identity. This role grants the ability to read Azure Cosmos DB account data. For more information about role assignments in Cosmos DB, see [Configure role-based access control to data](search-howto-managed-identities-data-sources.md#assign-a-role).
 
-  For data reader access, you'll need the **Cosmos DB Account Reader** role and the identity used to make the request. This role works for all Azure Cosmos DB APIs supported by Cognitive Search. This is a control plane RBAC role. 
+* Data Plane Role assignment: Follow [Data plane Role assignment](../cosmos-db/how-to-setup-rbac.md)
+to know more.
 
-  At this time, Cognitive Search obtains keys with the identity and uses those keys to connect to the Azure Cosmos DB account. This means that [enforcing RBAC as the only authentication method in Azure Cosmos DB](../cosmos-db/how-to-setup-rbac.md#disable-local-auth) isn't supported when using Search with managed identities to connect to Azure Cosmos DB.
+* Example for a read-only data plane role assignment:
+```azurepowershell
+$cosmosdb_acc_name = <cosmos db account name>
+$resource_group = <resource group name>
+$subsciption = <subscription id>
+$system_assigned_principal = <principal id for system assigned identity>
+$readOnlyRoleDefinitionId = "00000000-0000-0000-0000-000000000001"
+$scope=$(az cosmosdb show --name $cosmosdbname --resource-group $resourcegroup --query id --output tsv)
+```
+
+Role assignment for system-assigned identity:
+
+```azurepowershell
+az cosmosdb sql role assignment create --account-name $cosmosdbname --resource-group $resourcegroup --role-definition-id $readOnlyRoleDefinitionId --principal-id $sys_principal --scope $scope
+```
+* For Cosmos DB for NoSQL, you can optionally [Enforcing RBAC as the only authentication method](../cosmos-db/how-to-setup-rbac.md#disable-local-auth)
+for data connections by setting `disableLocalAuth` to `true` for your Cosmos DB account.
+
+* *For Gremlin and MongoDB Collections*: 
+   Indexer support is currently in preview. At this time, a preview limitation exists that requires Cognitive Search to connect using keys. You can still set up a managed identity and role assignment, but Cognitive Search will only use the role assignment to get keys for the connection. This limitation means that you can't configure an [RBAC-only approach](../cosmos-db/how-to-setup-rbac.md#disable-local-auth) if your indexers are connecting to Gremlin or MongoDB using Search with managed identities to connect to Azure Cosmos DB.
 
 * You should be familiar with [indexer concepts](search-indexer-overview.md) and [configuration](search-howto-index-cosmosdb.md).
 
@@ -42,6 +61,7 @@ The [REST API](/rest/api/searchservice/create-data-source), Azure portal, and th
 When you're connecting with a system-assigned managed identity, the only change to the data source definition is the format of the "credentials" property. You'll provide the database name and a ResourceId that has no account key or password. The ResourceId must include the subscription ID of Azure Cosmos DB, the resource group, and the Azure Cosmos DB account name.
 
 * For SQL collections, the connection string doesn't require "ApiKind". 
+* For SQL collections add "IdentityAuthType=AccessToken" if RBAC is enforced as the only authentication method. It is not applicable for MongoDB and Gremlin collections.
 * For MongoDB collections, add "ApiKind=MongoDb" to the connection string and use a preview REST API.
 * For Gremlin graphs, add "ApiKind=Gremlin" to the connection string and use a preview REST API.
 
@@ -56,7 +76,7 @@ api-key: [Search service admin key]
     "name": "[my-cosmosdb-ds]",
     "type": "cosmosdb",
     "credentials": {
-        "connectionString": "ResourceId=/subscriptions/[subscription-id]/resourceGroups/[rg-name]/providers/Microsoft.DocumentDB/databaseAccounts/[cosmos-account-name];Database=[cosmos-database];ApiKind=[SQL | Gremlin | MongoDB];"
+        "connectionString": "ResourceId=/subscriptions/[subscription-id]/resourceGroups/[rg-name]/providers/Microsoft.DocumentDB/databaseAccounts/[cosmos-account-name];Database=[cosmos-database];ApiKind=[SQL | Gremlin | MongoDB];IdentityAuthType=[AccessToken | AccountKey]"
     },
     "container": { "name": "[my-cosmos-collection]", "query": null },
     "dataChangeDetectionPolicy": null
@@ -72,6 +92,7 @@ The 2021-04-30-preview REST API supports connections based on a user-assigned ma
 * First, the format of the "credentials" property is the database name and a ResourceId that has no account key or password. The ResourceId must include the subscription ID of Azure Cosmos DB, the resource group, and the Azure Cosmos DB account name.
 
   * For SQL collections, the connection string doesn't require "ApiKind". 
+  * For SQL collections add "IdentityAuthType=AccessToken" if RBAC is enforced as the only authentication method. It is not applicable for MongoDB and Gremlin collections.
   * For MongoDB collections, add "ApiKind=MongoDb" to the connection string
   * For Gremlin graphs, add "ApiKind=Gremlin" to the connection string.
 
@@ -89,7 +110,7 @@ api-key: [Search service admin key]
     "name": "[my-cosmosdb-ds]",
     "type": "cosmosdb",
     "credentials": {
-        "connectionString": "ResourceId=/subscriptions/[subscription-id]/resourceGroups/[rg-name]/providers/Microsoft.DocumentDB/databaseAccounts/[cosmos-account-name];Database=[cosmos-database];ApiKind=[SQL | Gremlin | MongoDB];"
+        "connectionString": "ResourceId=/subscriptions/[subscription-id]/resourceGroups/[rg-name]/providers/Microsoft.DocumentDB/databaseAccounts/[cosmos-account-name];Database=[cosmos-database];ApiKind=[SQL | Gremlin | MongoDB];IdentityAuthType=[AccessToken | AccountKey]"
     },
     "container": { 
         "name": "[my-cosmos-collection]", "query": null 
@@ -148,6 +169,6 @@ Check to see if the Azure Cosmos DB account has its access restricted to select 
 
 ## See also
 
-* [Indexing via Azure Cosmos DB for NoSQL](search-howto-index-cosmosdb.md)
-* [Indexing via Azure Cosmos DB for MongoDB](search-howto-index-cosmosdb-mongodb.md)
-* [Indexing via Azure Cosmos DB for Apache Gremlin](search-howto-index-cosmosdb-gremlin.md)
+* [Indexing via an Azure Cosmos DB for NoSQL](search-howto-index-cosmosdb.md)
+* [Indexing via an Azure Cosmos DB for MongoDB](search-howto-index-cosmosdb-mongodb.md)
+* [Indexing via an Azure Cosmos DB for Apache Gremlin](search-howto-index-cosmosdb-gremlin.md)

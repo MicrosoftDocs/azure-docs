@@ -7,7 +7,7 @@ ms.topic: conceptual
 author: lrtoyou1223
 ms.author: lle
 ms.custom: seo-lt-2019
-ms.date: 10/23/2022
+ms.date: 10/20/2023
 ---
 
 # Self-hosted integration runtime auto-update and expire notification
@@ -34,7 +34,7 @@ You can check the last update datetime in your self-hosted integration runtime c
 
 :::image type="content" source="media/create-self-hosted-integration-runtime/shir-auto-update-2.png" alt-text="Screenshot of checking the update time":::
 
-You can use this [PowerShell command](/powershell/module/az.datafactory/get-azdatafactoryv2integrationruntime?view=azps-6.1.0&preserve-view=true#example-5--get-self-hosted-integration-runtime-with-detail-status) to get the auto-update version. 
+You can use this [PowerShell command](/powershell/module/az.datafactory/get-azdatafactoryv2integrationruntime#example-5--get-self-hosted-integration-runtime-with-detail-status) to get the auto-update version. 
 
 > [!NOTE]
 > If you have multiple self-hosted integration runtime nodes, there is no downtime during auto-update. The auto-update happens in one node first while others are working on tasks. When the first node finishes the update, it will take over the remain tasks when other nodes are updating. If you only have one self-hosted integration runtime, then it has some downtime during the auto-update.

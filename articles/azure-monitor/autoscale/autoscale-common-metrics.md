@@ -1,29 +1,37 @@
 ---
 title: Autoscale common metrics
 description: Learn which metrics are commonly used for autoscaling your cloud services, virtual machines, and web apps.
+author: EdB-MSFT
+ms.author: edbaynash
 ms.topic: conceptual
-ms.date: 04/22/2022
+ms.date: 04/17/2023
 ms.subservice: autoscale 
-ms.custom: devx-track-azurepowershell
-ms.reviewer: riroloff
-
+ms.reviewer: akkumari
 ---
 
 # Azure Monitor autoscaling common metrics
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+Azure Monitor autoscaling allows you to scale the number of running instances in or out, based on telemetry data or metrics. Scaling can be based on any metric, even metrics from a different resource. For example, scale a Virtual Machine Scale Set based on the amount of traffic on a firewall.
 
-Azure Monitor autoscaling allows you to scale the number of running instances up or down, based on telemetry data, also known as metrics. This article describes common metrics that you might want to use. In the Azure portal, you can choose the metric of the resource to scale by. You can also choose any metric from a different resource to scale by.
+This article describes metrics that are commonly used to trigger scale events. 
 
-Azure Monitor autoscale applies only to [Azure Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Azure Cloud Services](https://azure.microsoft.com/services/cloud-services/), [Azure App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/), and [Azure API Management](../../api-management/api-management-key-concepts.md). Other Azure services use different scaling methods.
+Azure autoscale supports many resource types. For more information about supported resources, see [autoscale supported resources](./autoscale-overview.md#supported-services-for-autoscale).
+
+For all resources, you can get a list of the available metrics using the PowerShell or Azure CLI
+
+```azurepowershell
+Get-AzMetricDefinition -ResourceId <resource_id> 
+```
+
+```azurecli
+az monitor metrics list-definitions --resource <resource_id>
+```
 
 ## Compute metrics for Resource Manager-based VMs
 
-By default, Azure Resource Manager-based virtual machines and virtual machine scale sets emit basic (host-level) metrics. In addition, when you configure diagnostics data collection for an Azure VM and virtual machine scale sets, the Azure Diagnostics extension also emits guest-OS performance counters. These counters are commonly known as "guest-OS metrics." You use all these metrics in autoscale rules.
+By default, Azure Resource Manager-based virtual machines and Virtual Machine Scale Sets emit basic (host-level) metrics. In addition, when you configure diagnostics data collection for an Azure VM and Virtual Machine Scale Sets, the Azure Diagnostics extension also emits guest-OS performance counters. These counters are commonly known as "guest-OS metrics." You use all these metrics in autoscale rules.
 
-You can use the `Get MetricDefinitions` API/PoSH/CLI to view the metrics available for your Virtual Machine Scale Sets resource.
-
-If you're using virtual machine scale sets and you don't see a particular metric listed, it's likely *disabled* in your Diagnostics extension.
+If you're using Virtual Machine Scale Sets and you don't see a particular metric listed, it's likely *disabled* in your Diagnostics extension.
 
 If a particular metric isn't being sampled or transferred at the frequency you want, you can update the diagnostics configuration.
 
@@ -31,20 +39,14 @@ If either preceding case is true, see [Use PowerShell to enable Azure Diagnostic
 
 ### Host metrics for Resource Manager-based Windows and Linux VMs
 
-The following host-level metrics are emitted by default for Azure VM and virtual machine scale sets in both Windows and Linux instances. These metrics describe your Azure VM but are collected from the Azure VM host rather than via agent installed on the guest VM. You can use these metrics in autoscaling rules.
+The following host-level metrics are emitted by default for Azure VM and Virtual Machine Scale Sets in both Windows and Linux instances. These metrics describe your Azure VM but are collected from the Azure VM host rather than via agent installed on the guest VM. You can use these metrics in autoscaling rules.
 
 - [Host metrics for Resource Manager-based Windows and Linux VMs](../essentials/metrics-supported.md#microsoftcomputevirtualmachines)
-- [Host metrics for Resource Manager-based Windows and Linux virtual machine scale sets](../essentials/metrics-supported.md#microsoftcomputevirtualmachinescalesets)
+- [Host metrics for Resource Manager-based Windows and Linux Virtual Machine Scale Sets](../essentials/metrics-supported.md#microsoftcomputevirtualmachinescalesets)
 
 ### Guest OS metrics for Resource Manager-based Windows VMs
 
-When you create a VM in Azure, diagnostics is enabled by using the Diagnostics extension. The Diagnostics extension emits a set of metrics taken from inside of the VM. This means you can autoscale off of metrics that aren't emitted by default.
-
-You can generate a list of the metrics by using the following command in PowerShell.
-
-```
-Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
-```
+When you create a VM in Azure, diagnostics is enabled by using the Diagnostics extension. The Diagnostics extension emits a set of metrics taken from inside of the VM. This means you can autoscale using metrics that aren't emitted by default.
 
 You can create an alert for the following metrics:
 
@@ -81,12 +83,6 @@ You can create an alert for the following metrics:
 ### Guest OS metrics Linux VMs
 
 When you create a VM in Azure, diagnostics is enabled by default by using the Diagnostics extension.
-
-You can generate a list of the metrics by using the following command in PowerShell.
-
-```
-Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
-```
 
  You can create an alert for the following metrics:
 
@@ -137,13 +133,7 @@ You can also perform autoscale based on common web server metrics such as the HT
 
 ### Web Apps metrics
 
-You can generate a list of the Web Apps metrics by using the following command in PowerShell:
-
-```
-Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
-```
-
-You can alert on or scale by these metrics.
+for Web Apps, you can alert on or scale by these metrics.
 
 | Metric name | Unit |
 | --- | --- |
@@ -158,7 +148,7 @@ You can alert on or scale by these metrics.
 
 You can scale by Azure Storage queue length, which is the number of messages in the Storage queue. Storage queue length is a special metric, and the threshold is the number of messages per instance. For example, if there are two instances and if the threshold is set to 100, scaling occurs when the total number of messages in the queue is 200. That amount can be 100 messages per instance, 120 plus 80, or any other combination that adds up to 200 or more.
 
-Configure this setting in the Azure portal in the **Settings** pane. For virtual machine scale sets, you can update the autoscale setting in the Resource Manager template to use `metricName` as `ApproximateMessageCount` and pass the ID of the storage queue as `metricResourceUri`.
+Configure this setting in the Azure portal in the **Settings** pane. For Virtual Machine Scale Sets, you can update the autoscale setting in the Resource Manager template to use `metricName` as `ApproximateMessageCount` and pass the ID of the storage queue as `metricResourceUri`.
 
 For example, with a Classic Storage account, the autoscale setting `metricTrigger` would include:
 
@@ -178,9 +168,9 @@ For a (non-classic) Storage account, the `metricTrigger` setting would include:
 
 ## Commonly used Service Bus metrics
 
-You can scale by Azure Service Bus queue length, which is the number of messages in the Service Bus queue. Service Bus queue length is a special metric, and the threshold is the number of messages per instance. For example, if there are two instances and if the threshold is set to 100, scaling occurs when the total number of messages in the queue is 200. That amount can be 100 messages per instance, 120 plus 80, or any other combination that adds up to 200 or more.
+You can scale by Azure Service Bus queue length, which is the number of messages in the Service Bus queue. Service Bus queue length is a special metric, and the threshold is the number of messages per instance. For example, if there are two instances, and if the threshold is set to 100, scaling occurs when the total number of messages in the queue is 200. That amount can be 100 messages per instance, 120 plus 80, or any other combination that adds up to 200 or more.
 
-For virtual machine scale sets, you can update the autoscale setting in the Resource Manager template to use `metricName` as `ApproximateMessageCount` and pass the ID of the storage queue as `metricResourceUri`.
+For Virtual Machine Scale Sets, you can update the autoscale setting in the Resource Manager template to use `metricName` as `ApproximateMessageCount` and pass the ID of the storage queue as `metricResourceUri`.
 
 ```
 "metricName": "ApproximateMessageCount",
@@ -189,4 +179,4 @@ For virtual machine scale sets, you can update the autoscale setting in the Reso
 ```
 
 > [!NOTE]
-> For Service Bus, the resource group concept doesn't exist, but Azure Resource Manager creates a default resource group per region. The resource group is usually in the Default-ServiceBus-[region] format. Examples are Default-ServiceBus-EastUS, Default-ServiceBus-WestUS, and Default-ServiceBus-AustraliaEast.
+> For Service Bus, the resource group concept doesn't exist. Azure Resource Manager creates a default resource group per region. The resource group is usually in the Default-ServiceBus-[region] format. Examples are Default-ServiceBus-EastUS, Default-ServiceBus-WestUS, and Default-ServiceBus-AustraliaEast.

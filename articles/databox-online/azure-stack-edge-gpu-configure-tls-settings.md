@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 05/24/2023
 ms.author: alkohli
 ---
 
@@ -21,15 +21,15 @@ The guidelines provided here are based on testing performed on a client running 
 
 ## Configure TLS 1.2 for current PowerShell session
 
-Do the following steps to configure TLS 1.2 on your client.
+Use the following steps to configure TLS 1.2 on your client.
 
 1. Run PowerShell as administrator.
 2. To set TLS 1.2 for the current PowerShell session, type:
   
     ```azurepowershell
-    $TLS12Protocol = [System.Net.SecurityProtocolType] 'Ssl3 , Tls12'
-    [System.Net.ServicePointManager]::SecurityProtocol = $TLS12Protocol
+    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
     ```
+
 ## Configure TLS 1.2 on client
 
 If you want to set system-wide TLS 1.2 for your environment, follow the guidelines in these documents:
@@ -47,6 +47,8 @@ If you want to set system-wide TLS 1.2 for your environment, follow the guidelin
     - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 
     You can also add these cipher suites by directly editing the registry settings.
+    The variable $HklmSoftwarePath should be defined
+    $HklmSoftwarePath = 'HKLM:\SOFTWARE'
 
     ```azurepowershell
     New-ItemProperty -Path "$HklmSoftwarePath\Policies\Microsoft\Cryptography\Configuration\SSL\00010002" -Name "Functions"  -PropertyType String -Value ("TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384")

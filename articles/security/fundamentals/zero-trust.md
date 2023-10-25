@@ -7,7 +7,7 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: terrylan
 manager: rkarlin
-ms.date: 03/08/2022
+ms.date: 03/31/2023
 ---
 
 # Zero Trust security
@@ -79,4 +79,4 @@ To learn about recommendations and core concepts for deploying secure email, doc
 
 ## Next steps
 
-- To learn how to enhance your security solutions by integrating with Microsoft products, see Integrate with [Microsoft's Zero Trust solutions](/security/zero-trust/integrate/overview)
+- To learn how to enhance your security solutions by integrating with Microsoft products, see [Integrate with Microsoft's Zero Trust solutions](/security/zero-trust/integrate/overview)

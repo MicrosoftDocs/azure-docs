@@ -1,13 +1,13 @@
 ---
-title: Enable Angular application options by using Azure Active Directory B2C
+title: Configure authentication options in an Angular application by using Azure Active Directory B2C
 description:  Enable the use of Angular application options in several ways.
 services: active-directory-b2c
 author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
-ms.topic: reference
-ms.date: 07/29/2021
+ms.topic: how-to
+ms.date: 03/23/2023
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -15,22 +15,25 @@ ms.custom: "b2c-support"
 
 # Configure authentication options in an Angular application by using Azure Active Directory B2C
 
-This article describes ways you can customize and enhance the Azure Active Directory B2C (Azure AD B2C) authentication experience for your Angular single-page application (SPA). Before you start, familiarize yourself with the article [Configure authentication in an Angular SPA](configure-authentication-sample-angular-spa-app.md) or [Enable authentication in your own Angular SPA](enable-authentication-angular-spa-app.md).
+This article describes how you can customize and enhance the Azure Active Directory B2C (Azure AD B2C) authentication experience for your Angular single-page application (SPA). 
+
+## Prerequisites
+
+Familiarize yourself with the article [Configure authentication in an Angular SPA](configure-authentication-sample-angular-spa-app.md) or [Enable authentication in your own Angular SPA](enable-authentication-angular-spa-app.md).
 
 
 ## Sign-in and sign-out behavior
 
-
 You can configure your single-page application to sign in users with MSAL.js in two ways:
 
-- **Pop-up window**: The authentication happens in a pop-up window, and the state of the application is preserved. Use this approach if you don't want users to move away from your application page during authentication.  Note that there are [known issues with pop-up windows on Internet Explorer](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/internet-explorer.md#popups).
+- **Pop-up window**: The authentication happens in a pop-up window, and the state of the application is preserved. Use this approach if you don't want users to move away from your application page during authentication.  However, there are known issues with pop-up windows on Internet Explorer.
   - To sign in with pop-up windows, in the `src/app/app.component.ts` class, use the `loginPopup` method.  
   - In the `src/app/app.module.ts` class, set the `interactionType` attribute to `InteractionType.Popup`.
   - To sign out with pop-up windows, in the `src/app/app.component.ts` class, use the `logoutPopup` method. You can also configure `logoutPopup` to redirect the main window to a different page, such as the home page or sign-in page, after sign-out is complete by passing `mainWindowRedirectUri` as part of the request.
 - **Redirect**: The user is redirected to Azure AD B2C to complete the authentication flow. Use this approach if users have browser constraints or policies where pop-up windows are disabled. 
   - To sign in with redirection, in the `src/app/app.component.ts` class, use the `loginRedirect` method.  
   - In the `src/app/app.module.ts` class, set the `interactionType` attribute to `InteractionType.Redirect`.
-  - To sign out with redirection, in the `src/app/app.component.ts` class, use the `logoutRedirect` method. Configure the URI to which it should redirect after sign-out by setting `postLogoutRedirectUri`. This URI should be registered as a redirect URI in your application registration.
+  - To sign out with redirection, in the `src/app/app.component.ts` class, use the `logoutRedirect` method. Configure the URI to which it should redirect after a sign-out by setting `postLogoutRedirectUri`. You should add this URI as a redirect URI in your application registration.
   
 The following sample demonstrates how to sign in and sign out:
 
@@ -456,7 +459,7 @@ const msalConfig = {
 
 [!INCLUDE [active-directory-b2c-app-integration-logging](../../includes/active-directory-b2c-app-integration-logging.md)]
 
-To configure Angular [logging](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/docs/v2-docs/logging.md), in *src/app/auth-config.ts*, configure the following keys:
+To configure Angular [logging](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/docs/logging.md), in *src/app/auth-config.ts*, configure the following keys:
 
 - `loggerCallback` is the logger callback function. 
 - `logLevel` lets you specify the level of logging. Possible values: `Error`, `Warning`, `Info`, and `Verbose`.

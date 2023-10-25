@@ -29,7 +29,7 @@ Alerts allow you to define a condition to monitor for and an action to take when
 
 2. The **Configure signal logic** page is where you define the logic that triggers the alert. Under the historical graph you are presented with two dimensions, **Runbook Name** and **Status**. Dimensions are different properties for a metric that can be used to filter results. For **Runbook Name**, select the runbook you want to alert on or leave blank to alert on all runbooks. For **Status**, select a status from the drop-down you want to monitor for. The runbook name and status values that appear in the dropdown are only for jobs that have ran in the past week.
 
-   If you want to alert on a status or runbook that isn't shown in the dropdown, click the **Add custom value** option next to the dimension. This action opens a dialog that allows you to specify a custom value, which hasn't emitted for that dimension recently. If you enter a value that doesn't exist for a property your alert won't be triggered.
+   If you want to alert on a status or runbook that isn't shown in the dropdown, click the **Add custom value** option next to the dimension. This action opens a dialog that allows you to specify a custom value, which hasn't emitted for that dimension recently. If you enter a value that doesn't exist for a property your alert won't be triggered. For more information, see [Job statuses](automation-runbook-execution.md#job-statuses).
 
    > [!NOTE]
    > If you don't specify a name for the **Runbook Name** dimension, if there are any runbooks that meet the status criteria, which includes hidden system runbooks, you will receive an alert.

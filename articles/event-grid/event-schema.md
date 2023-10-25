@@ -1,15 +1,17 @@
 ---
 title: Azure Event Grid event schema
-description: Describes the properties and schema that are present for all events. Events consist of a set of four required string properties.
+description: Describes the properties and schema for the proprietary, nonextensible, yet fully functional Event Grid format. 
 ms.topic: reference
-ms.date: 09/15/2021
+ms.date: 05/24/2023
 ---
 
 # Azure Event Grid event schema
 
-This article describes the properties and schema that are present for all events. Events consist of a set of four required string properties. The properties are common to all events from any publisher. The data object has properties that are specific to each publisher. For system topics, these properties are specific to the resource provider, such as Azure Storage or Azure Event Hubs.
+This article describes the Event Grid schema, which is a proprietary, nonextensible, yet fully functional event format. Event Grid still supports this event format and will continue to support it. However, [CloudEvents](cloud-event-schema.md) is the recommended event format to use. If you're using applications that use the Event Grid format, you may find useful the information in the [CloudEvents] section that describes the transformations between the Event Grid and CloudEvents format supported by Event Grid.
 
-Event sources send events to Azure Event Grid in an array, which can have several event objects. When posting events to an event grid topic, the array can have a total size of up to 1 MB. Each event in the array is limited to 1 MB. If an event or the array is greater than the size limits, you receive the response **413 Payload Too Large**. Operations are charged in 64 KB increments though. So, events over 64 KB will incur operations charges as though they were multiple events. For example, an event that is 130 KB would incur operations as though it were 3 separate events.
+This article describes in detail the properties and schema for the Event Grid format. Events consist of a set of four required string properties. The properties are common to all events from any publisher. The data object has properties that are specific to each publisher. For system topics, these properties are specific to the resource provider, such as Azure Storage or Azure Event Hubs.
+
+Event sources send events to Azure Event Grid in an array, which can have several event objects. When posting events to an Event Grid topic, the array can have a total size of up to 1 MB. Each event in the array is limited to 1 MB. If an event or the array is greater than the size limits, you receive the response **413 Payload Too Large**. Operations are charged in 64 KB increments though. So, events over 64 KB incur operations charges as though they were multiple events. For example, an event that is 130 KB would incur operations as though it were three separate events.
 
 Event Grid sends the events to subscribers in an array that has a single event. This behavior may change in the future.
 
@@ -72,14 +74,14 @@ All events have the same following top-level data:
 
 | Property | Type | Required | Description |
 | -------- | ---- | -------- | ----------- |
-| topic | string | No, but if included, must match the Event Grid topic Azure Resource Manager ID exactly. If not included, Event Grid will stamp onto the event. | Full resource path to the event source. This field isn't writeable. Event Grid provides this value. |
-| subject | string | Yes | Publisher-defined path to the event subject. |
-| eventType | string | Yes | One of the registered event types for this event source. |
+| `topic` | string | No, but if included, must match the Event Grid topic Azure Resource Manager ID exactly. If not included, Event Grid stamps onto the event. | Full resource path to the event source. This field isn't writeable. Event Grid provides this value. |
+| `subject` | string | Yes | Publisher-defined path to the event subject. |
+| `eventType` | string | Yes | One of the registered event types for this event source. |
 | eventTime | string | Yes | The time the event is generated based on the provider's UTC time. |
-| id | string | Yes | Unique identifier for the event. |
-| data | object | No | Event data specific to the resource provider. |
-| dataVersion | string | No, but will be stamped with an empty value. | The schema version of the data object. The publisher defines the schema version. |
-| metadataVersion | string | Not required, but if included, must match the Event Grid Schema `metadataVersion` exactly (currently, only `1`). If not included, Event Grid will stamp onto the event. | The schema version of the event metadata. Event Grid defines the schema of the top-level properties. Event Grid provides this value. |
+| `id` | string | Yes | Unique identifier for the event. |
+| `data` | object | No | Event data specific to the resource provider. |
+| `dataVersion` | string | No, but will be stamped with an empty value. | The schema version of the data object. The publisher defines the schema version. |
+| `metadataVersion` | string | Not required, but if included, must match the Event Grid Schema `metadataVersion` exactly (currently, only `1`). If not included, Event Grid stamps onto the event. | The schema version of the event metadata. Event Grid defines the schema of the top-level properties. Event Grid provides this value. |
 
 To learn about the properties in the data object, see the event source:
 
@@ -100,6 +102,15 @@ For custom topics, the event publisher determines the data object. The top-level
 When publishing events to custom topics, create subjects for your events that make it easy for subscribers to know whether they're interested in the event. Subscribers use the subject to filter and route events. Consider providing the path for where the event happened, so subscribers can filter by segments of that path. The path enables subscribers to narrowly or broadly filter events. For example, if you provide a three segment path like `/A/B/C` in the subject, subscribers can filter by the first segment `/A` to get a broad set of events. Those subscribers get events with subjects like `/A/B/C` or `/A/D/E`. Other subscribers can filter by `/A/B` to get a narrower set of events.
 
 Sometimes your subject needs more detail about what happened. For example, the **Storage Accounts** publisher provides the subject `/blobServices/default/containers/<container-name>/blobs/<file>` when a file is added to a container. A subscriber could filter by the path `/blobServices/default/containers/testcontainer` to get all events for that container but not other containers in the storage account. A subscriber could also filter or route by the suffix `.txt` to only work with text files.
+
+## CloudEvents
+CloudEvents is the recommended event format to use. Azure Event Grid continues investing in features related to at least [CloudEvents JSON](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/formats/json-format.md) format. Given the fact that some event sources like Azure services use the Event Grid format, the following table is provided to help you understand the transformation supported when using CloudEvents and Event Grid formats as an input schema in topics and as an output schema in event subscriptions. An Event Grid output schema can't be used when using CloudEvents as an input schema because CloudEvents supports [extension attributes](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/primer.md#cloudevent-attribute-extensions) that aren't supported by the Event Grid schema.
+
+| Input schema       | Output schema
+|--------------------|---------------------
+| CloudEvents format | CloudEvents format
+| Event Grid format  | CloudEvents format
+| Event Grid format  | Event Grid format
 
 ## Next steps
 

@@ -1,7 +1,7 @@
 ---
 title:  "Blue-green deployment strategies in Azure Spring Apps"
 description: This topic explains two approaches to blue-green deployments in Azure Spring Apps.
-author: karlerickson
+author: KarlErickson
 ms.author: karler
 ms.service: spring-apps
 ms.topic: conceptual
@@ -14,11 +14,11 @@ ms.custom: devx-track-java, event-tier1-build-2022
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
 This article describes the blue-green deployment support in Azure Spring Apps.
 
-Azure Spring Apps (Standard tier and higher) permits two deployments for every app, only one of which receives production traffic. This pattern is commonly known as blue-green deployment. Azure Spring Apps's support for blue-green deployment, together with a [Continuous Delivery (CD)](/devops/deliver/what-is-continuous-delivery) pipeline and rigorous automated testing, allows agile application deployments with high confidence.
+Azure Spring Apps (Standard plan and higher) permits two deployments for every app, only one of which receives production traffic. This pattern is commonly known as blue-green deployment. Azure Spring Apps's support for blue-green deployment, together with a [Continuous Delivery (CD)](/devops/deliver/what-is-continuous-delivery) pipeline and rigorous automated testing, allows agile application deployments with high confidence.
 
 ## Alternating deployments
 

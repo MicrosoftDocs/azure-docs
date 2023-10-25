@@ -22,7 +22,7 @@ The policies available in Azure API Management service can do a wide range of us
 You have previously seen how to interact with the [Azure Event Hub service for logging, monitoring, and analytics](api-management-log-to-eventhub-sample.md). This article demonstrates policies that allow you to interact with any external HTTP-based service. These policies can be used for triggering remote events or for retrieving information that is used to manipulate the original request and response in some way.
 
 ## Send-One-Way-Request
-Possibly the simplest external interaction is the fire-and-forget style of request that allows an external service to be notified of some kind of important event. The control flow policy `choose` can be used to detect any kind of condition that you are interested in.  If the condition is satisfied, you can make an external HTTP request using the [send-one-way-request](./api-management-advanced-policies.md#SendOneWayRequest) policy. This could be a request to a messaging system like Hipchat or Slack, or a mail API like SendGrid or MailChimp, or for critical support incidents something like PagerDuty. All of these messaging systems have simple HTTP APIs that can be invoked.
+Possibly the simplest external interaction is the fire-and-forget style of request that allows an external service to be notified of some kind of important event. The control flow policy `choose` can be used to detect any kind of condition that you are interested in.  If the condition is satisfied, you can make an external HTTP request using the [send-one-way-request](./send-one-way-request-policy.md) policy. This could be a request to a messaging system like Hipchat or Slack, or a mail API like SendGrid or MailChimp, or for critical support incidents something like PagerDuty. All of these messaging systems have simple HTTP APIs that can be invoked.
 
 ### Alerting with Slack
 The following example demonstrates how to send a message to a Slack chat room if the HTTP response status code is greater than or equal to 500. A 500 range error indicates a problem with the backend API that the client of the API cannot resolve themselves. It usually requires some kind of intervention on API Management part.  
@@ -57,13 +57,13 @@ Slack has the notion of inbound web hooks. When configuring an inbound web hook,
 ![Slack Web Hook](./media/api-management-sample-send-request/api-management-slack-webhook.png)
 
 ### Is fire and forget good enough?
-There are certain tradeoffs when using a fire-and-forget style of request. If for some reason, the request fails, then the failure will not be reported. In this particular situation, the complexity of having a secondary failure reporting system and the additional performance cost of waiting for the response is not warranted. For scenarios where it is essential to check the response, then the [send-request](./api-management-advanced-policies.md#SendRequest) policy is a better option.
+There are certain tradeoffs when using a fire-and-forget style of request. If for some reason, the request fails, then the failure will not be reported. In this particular situation, the complexity of having a secondary failure reporting system and the additional performance cost of waiting for the response is not warranted. For scenarios where it is essential to check the response, then the [send-request](./send-request-policy.md) policy is a better option.
 
 ## Send-Request
 The `send-request` policy enables using an external service to perform complex processing functions and return data to the API management service that can be used for further policy processing.
 
 ### Authorizing reference tokens
-A major function of API Management is protecting backend resources. If the authorization server used by your API creates [JWT tokens](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims) as part of its OAuth2 flow, as [Azure Active Directory](../active-directory/hybrid/whatis-hybrid-identity.md) does, then you can use the `validate-jwt` policy to verify the validity of the token. Some authorization servers create what are called [reference tokens](https://leastprivilege.com/2015/11/25/reference-tokens-and-introspection/) that cannot be verified without making a callback to the authorization server.
+A major function of API Management is protecting backend resources. If the authorization server used by your API creates [JWT tokens](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims) as part of its OAuth2 flow, as [Microsoft Entra ID](../active-directory/hybrid/whatis-hybrid-identity.md) does, then you can use the `validate-jwt` policy to verify the validity of the token. Some authorization servers create what are called [reference tokens](https://leastprivilege.com/2015/11/25/reference-tokens-and-introspection/) that cannot be verified without making a callback to the authorization server.
 
 ### Standardized introspection
 In the past, there has been no standardized way of verifying a reference token with an authorization server. However a recently proposed standard [RFC 7662](https://tools.ietf.org/html/rfc7662) was published by the IETF that defines how a resource server can verify the validity of a token.
@@ -212,7 +212,7 @@ API Management will send these requests sequentially.
 
 ### Responding
 
-To construct the composite response, you can use the [return-response](./api-management-advanced-policies.md#ReturnResponse) policy. The `set-body` element can use an expression to construct a new `JObject` with all the component representations embedded as properties.
+To construct the composite response, you can use the [return-response](return-response-policy.md) policy. The `set-body` element can use an expression to construct a new `JObject` with all the component representations embedded as properties.
 
 ```xml
 <return-response response-variable-name="existing response variable">

@@ -1,0 +1,74 @@
+### YamlMime:Hub
+
+title: Azure OpenAI Service Documentation
+summary: Learn how to use Azure OpenAI's powerful language models including the GPT-3, Codex and Embeddings model series for content generation, summarization, semantic search, and natural language to code translation.
+brand: azure
+
+metadata:
+  title: Azure OpenAI Service - Documentation, quickstarts, API reference
+  titleSuffix: Azure AI services
+  description: Learn how to use Azure OpenAI's powerful language models including the GPT-3, Codex and Embeddings model series.
+  services: cognitive-services
+  manager: nitinme
+  ms.service: azure-ai-openai
+  ms.topic: hub-page
+  ms.date: 02/17/2023
+
+highlightedContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+  items:
+    - title: What is Azure OpenAI Service?
+      itemType: overview # controls the icon image and super-title text
+      url: overview.md
+    - title: Quickstarts
+      itemType: quickstart
+      url: quickstart.md
+    - title: Create a resource
+      itemType: how-to-guide
+      url: ./how-to/create-resource.md
+    - title: Embeddings
+      itemType: tutorial
+      url: ./tutorials/embeddings.md
+    - title: Completions
+      itemType: how-to-guide
+      url: ./how-to/completions.md
+    - title: Intro to Azure OpenAI training
+      itemType: learn
+      url: /training/modules/explore-azure-openai/
+    - title: Azure OpenAI Models
+      itemType: concept
+      url: ./concepts/models.md
+    - title: Support and help options
+      itemType: reference
+      url: ../cognitive-services-support-options.md
+additionalContent:
+  sections:
+    - title: Additional resources
+      items:
+        - title: Azure OpenAI
+          links:
+            - text: Azure OpenAI Studio
+              url: https://oai.azure.com/
+            - text: Region support
+              url: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
+            # Card
+            - text: Quotas and limits
+              url: ./quotas-limits.md?branch=release-azure-openai-preview
+            - text: Apply for access to Azure OpenAI
+              url: https://aka.ms/oaiapply
+        - title: Video
+          links:
+            - text: Combining OpenAI models with the power of Azure
+              url: /shows/ai-show/build-recap-combining-openai-models-with-the-power-of-azure
+        - title: Reference
+          links:
+            - text: REST API
+              url: reference.md
+            - text: Terms of use
+              url: https://www.microsoft.com/licensing/terms/productoffering/MicrosoftAzure/MCA#ServiceSpecificTerms
+        - title: Tools
+          links:
+            - text: Azure CLI
+              url: /cli/azure/cognitiveservices
+            - text: PowerShell
+              url: /powershell/module/az.cognitiveservices/#cognitive_services

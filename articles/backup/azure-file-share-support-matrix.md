@@ -4,9 +4,9 @@ description: Provides a summary of support settings and limitations when backing
 ms.topic: conceptual
 ms.date: 10/14/2022
 ms.custom: references_regions
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Support matrix for Azure file share backup
@@ -18,7 +18,7 @@ You can use the [Azure Backup service](./backup-overview.md) to back up Azure fi
 
 ## Supported regions
 
-Azure file shares backup is available in all regions, **except** for Germany Central (Sovereign), Germany Northeast (Sovereign), China East, China East 2, China North, China North 2, China North 3, France South, and US Gov Iowa.
+Azure file shares backup is available in all regions, **except** for Germany Central (Sovereign), Germany Northeast (Sovereign), China East, China North, France South, and US Gov Iowa.
 
 ## Supported storage accounts
 
@@ -61,6 +61,7 @@ Azure file shares backup is available in all regions, **except** for Germany Cen
 | Maximum number of restore per day                           | 10      |
 | Maximum  number of individual files or folders per restore, if ILR (Item level recovery)                         | 99      |
 | Maximum  recommended restore size per restore for large file shares | 15  TiB |
+| Maximum duration of a restore job                           | 15 days
 
 ## Retention limits
 
@@ -86,3 +87,4 @@ Azure file shares backup is available in all regions, **except** for Germany Cen
 * Learn how to [Back up Azure file shares](backup-afs.md)
 * Learn how to [Restore Azure file shares](restore-afs.md)
 * Learn how to [Manage Azure file share backups](manage-afs-backup.md)
+

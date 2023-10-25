@@ -15,7 +15,7 @@ Azure Monitor for Azure Cosmos DB provides metrics, alerts, and logs to monitor 
 
 ## Monitor key updates with metrics
 
-1. Sign into the [Azure portal](https://portal.azure.com/)
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Monitor** from the left navigation bar and select **Metrics**.
 

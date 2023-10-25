@@ -2,24 +2,23 @@
 title: Configure hybrid Kubernetes clusters with Container insights | Microsoft Docs
 description: This article describes how you can configure Container insights to monitor Kubernetes clusters hosted on Azure Stack or other environments.
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 08/21/2023
 ms.reviewer: aul
 ---
 
 # Configure hybrid Kubernetes clusters with Container insights
 
-Container insights provides a rich monitoring experience for the Azure Kubernetes Service (AKS) and [AKS Engine on Azure](https://github.com/Azure/aks-engine), which is a self-managed Kubernetes cluster hosted on Azure. This article describes how to enable monitoring of Kubernetes clusters hosted outside of Azure and achieve a similar monitoring experience.
+Container insights provides a rich monitoring experience for the Azure Kubernetes Service (AKS). This article describes how to enable monitoring of Kubernetes clusters hosted outside of Azure and achieve a similar monitoring experience.
 
 ## Supported configurations
 
-The following configurations are officially supported with Container insights. If you have a different version of Kubernetes and operating system versions, send an email to askcoin@microsoft.com.
+The following configurations are officially supported with Container insights. If you have a different version of Kubernetes and operating system versions, please open a support ticket..
 
 - Environments:
     - Kubernetes on-premises.
-    - AKS Engine on Azure and Azure Stack. For more information, see [AKS Engine on Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview).
     - [OpenShift](https://docs.openshift.com/container-platform/4.3/welcome/index.html) version 4 and higher, on-premises or in other cloud environments.
 - Versions of Kubernetes and support policy are the same as versions of [AKS supported](../../aks/supported-kubernetes-versions.md).
-- The following container runtimes are supported: Docker, Moby, and CRI compatible runtimes such CRI-O and ContainerD.
+- The following container runtimes are supported: Moby and CRI compatible runtimes such CRI-O and ContainerD.
 - The Linux OS release for main and worker nodes supported are Ubuntu (18.04 LTS and 16.04 LTS) and Red Hat Enterprise Linux CoreOS 43.81.
 - Azure Access Control service supported: Kubernetes role-based access control (RBAC) and non-RBAC.
 
@@ -58,7 +57,7 @@ To enable Container insights for the hybrid Kubernetes cluster:
 
 1. Enable the Container insights Helm chart with a Log Analytics workspace.
 
-For more information on monitoring solutions in Azure Monitor, see [Monitoring solutions in Azure Monitor](../../azure-monitor/insights/solutions.md).
+For more information on monitoring solutions in Azure Monitor, see [Monitoring solutions in Azure Monitor](/previous-versions/azure/azure-monitor/insights/solutions).
 
 ### Add the Azure Monitor Containers solution
 

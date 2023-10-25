@@ -1,12 +1,13 @@
 ---
 title: Monitor and track Azure free service usage
 description: Learn how to check free service usage in the Azure portal. There's no charge for services included in a free account unless you go over the service limits.
-author: amberbhargava
+author: bandersmsft
+ms.reviewer: amberbhargava
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 12/03/2021
+ms.date: 12/06/2022
 ms.author: banders
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: How to use decoration markers to highlight text - Bing Web Search API
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn how to use text decorations and hit highlighting in your search results using the Bing Web Search API.
 services: cognitive-services
 
@@ -15,7 +15,7 @@ ms.date: 07/30/2019
 
 # Using decoration markers to highlight text
 
-[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
 
 Bing supports hit highlighting, which marks query terms (or other terms that Bing finds relevant) in the display strings of some answers. For example, a webpage result's `name`, `displayUrl`, and `snippet` fields might contain marked query terms. 
 

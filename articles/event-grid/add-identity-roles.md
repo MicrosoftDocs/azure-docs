@@ -2,6 +2,7 @@
 title: Add managed identity to a role on Azure Event Grid destination
 description: This article describes how to add managed identity to Azure roles on destinations such as Azure Service Bus and Azure Event Hubs. 
 ms.topic: how-to
+ms.custom: devx-track-azurecli
 ms.date: 03/25/2021
 ---
 
@@ -15,7 +16,7 @@ Assign a system-assigned managed identity by using instructions from the followi
 - [System topics](enable-identity-system-topics.md)
 
 ## Supported destinations and Azure roles
-After you enable identity for your event grid custom topic or domain, Azure automatically creates an identity in Azure Active Directory. Add this identity to appropriate Azure roles so that the custom topic or domain can forward events to supported destinations. For example, add the identity to the **Azure Event Hubs Data Sender** role for an Azure Event Hubs namespace so that the event grid custom topic can forward events to event hubs in that namespace. 
+After you enable identity for your event grid custom topic or domain, Azure automatically creates an identity in Microsoft Entra ID. Add this identity to appropriate Azure roles so that the custom topic or domain can forward events to supported destinations. For example, add the identity to the **Azure Event Hubs Data Sender** role for an Azure Event Hubs namespace so that the event grid custom topic can forward events to event hubs in that namespace. 
 
 Currently, Azure event grid supports custom topics or domains configured with a system-assigned managed identity to forward events to the following destinations. This table also gives you the roles that the identity should be in so that the custom topic can forward the events.
 

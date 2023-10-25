@@ -5,8 +5,8 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 03/22/2022
 ms.service: confidential-ledger
+ms.custom: devx-track-azurecli
 ms.topic: quickstart
-
 ---
 
 # Quickstart: Create a confidential ledger using the Azure CLI
@@ -17,7 +17,7 @@ For more information on Azure confidential ledger, and for examples of what can 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Create a resource group
 
@@ -25,7 +25,7 @@ For more information on Azure confidential ledger, and for examples of what can 
 
 ## Get your principal ID
 
-To create a confidential ledger, you'll need your Azure Active Directory principal ID (also called your object ID).  To obtain your principal ID, use the Azure CLI [az ad signed-in-user](/cli/azure/ad/signed-in-user) command, and filter the results by `objectId`:
+To create a confidential ledger, you'll need your Microsoft Entra principal ID (also called your object ID).  To obtain your principal ID, use the Azure CLI [az ad signed-in-user](/cli/azure/ad/signed-in-user) command, and filter the results by `objectId`:
 
 ```azurecli
 az ad signed-in-user show --query objectId

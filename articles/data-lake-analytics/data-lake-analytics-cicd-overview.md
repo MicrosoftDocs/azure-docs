@@ -1,17 +1,15 @@
 ---
 title: How to set up a CI/CD pipeline for Azure Data Lake Analytics
 description: Learn how to set up continuous integration and continuous deployment for Azure Data Lake Analytics.
-author: liudan66
-ms.author: liud
-ms.reviewer: jasonh
 ms.service: data-lake-analytics
 ms.topic: how-to
-ms.date: 09/14/2018 
-ms.custom: devx-track-azurepowershell
+ms.date: 01/20/2023
 ---
 # How to set up a CI/CD pipeline for Azure Data Lake Analytics  
 
 In this article, you learn how to set up a continuous integration and deployment (CI/CD) pipeline for U-SQL jobs and U-SQL databases.  
+
+[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -63,7 +61,7 @@ Learn more about [U-SQL database project](data-lake-analytics-data-lake-tools-de
 
 ### Build a U-SQL project with the MSBuild command line
 
-First migrate the project and get the NuGet package. Then call the standard MSBuild command line with the following additional arguments to build your U-SQL project:
+First migrate the project and get the NuGet package. Then call the standard MSBuild command line with the following arguments to build your U-SQL project:
 
 ```console
 msbuild USQLBuild.usqlproj /p:USQLSDKPath=packages\Microsoft.Azure.DataLake.USQL.SDK.1.3.180615\build\runtime;USQLTargetType=SyntaxCheck;DataRoot=datarootfolder;/p:EnableDeployment=true
@@ -313,7 +311,7 @@ To add the NuGet package reference, right-click the solution in Visual Studio So
 
 ### Build U-SQL a database project with the MSBuild command line
 
-To build your U-SQL database project, call the standard MSBuild command line and pass the U-SQL SDK NuGet package reference as an additional argument. See the following example: 
+To build your U-SQL database project, call the standard MSBuild command line and pass the U-SQL SDK NuGet package reference as another argument. See the following example: 
 
 ```console
 msbuild DatabaseProject.usqldbproj /p:USQLSDKPath=packages\Microsoft.Azure.DataLake.USQL.SDK.1.3.180615\build\runtime
@@ -341,7 +339,7 @@ In addition to the command line, you can use Visual Studio Build or an MSBuild t
 
 ### U-SQL database project build output
 
-The build output for a U-SQL database project is a U-SQL database deployment package, named with the suffix `.usqldbpack`. The `.usqldbpack` package is a zip file that includes all DDL statements in a single U-SQL script in a DDL folder. It includes all **.dlls** and additional files for assembly in a temp folder.
+The build output for a U-SQL database project is a U-SQL database deployment package, named with the suffix `.usqldbpack`. The `.usqldbpack` package is a zip file that includes all DDL statements in a single U-SQL script in a DDL folder. It includes all **.dlls** and other files for assembly in a temp folder.
 
 ## Test table-valued functions and stored procedures
 
@@ -475,13 +473,13 @@ Take the following steps to set up a database deployment task in Azure Pipelines
 |Account|Specifies which Azure Data Lake Analytics account to deploy to by account name.|null|true|
 |ResourceGroup|The Azure resource group name for the Azure Data Lake Analytics account.|null|true|
 |SubscriptionId|The Azure subscription ID for the Azure Data Lake Analytics account.|null|true|
-|Tenant|The tenant name is the Azure Active Directory (Azure AD) domain name. Find it in the subscription management page in the Azure portal.|null|true|
+|Tenant|The tenant name is the Microsoft Entra domain name. Find it in the subscription management page in the Azure portal.|null|true|
 |AzureSDKPath|The path to search dependent assemblies in the Azure SDK.|null|true|
 |Interactive|Whether or not to use interactive mode for authentication.|false|false|
-|ClientId|The Azure AD application ID required for non-interactive authentication.|null|Required for non-interactive authentication.|
-|Secrete|The secrete or password for non-interactive authentication. It should be used only in a trusted and secure environment.|null|Required for non-interactive authentication, or else use SecreteFile.|
-|SecreteFile|The file saves the secrete or password for non-interactive authentication. Make sure to keep it readable only by the current user.|null|Required for non-interactive authentication, or else use Secrete.|
-|CertFile|The file saves X.509 certification for non-interactive authentication. The default is to use client secrete authentication.|null|false|
+|ClientId|The Microsoft Entra application ID required for non-interactive authentication.|null|Required for non-interactive authentication.|
+|Secret|The secret or password for non-interactive authentication. It should be used only in a trusted and secure environment.|null|Required for non-interactive authentication, or else use SecreteFile.|
+|SecretFile|The file saves the secret or password for non-interactive authentication. Make sure to keep it readable only by the current user.|null|Required for non-interactive authentication, or else use Secret.|
+|CertFile|The file saves X.509 certification for non-interactive authentication. The default is to use client secret authentication.|null|false|
 | JobPrefix | The prefix for database deployment of a U-SQL DDL job. | Deploy_ + DateTime.Now | false |
 
 ## Next steps

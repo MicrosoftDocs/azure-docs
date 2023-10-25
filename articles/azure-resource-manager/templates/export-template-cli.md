@@ -2,8 +2,10 @@
 title: Export template in Azure CLI
 description: Use Azure CLI to export an Azure Resource Manager template from resources in your subscription.
 ms.topic: conceptual
-ms.date: 09/03/2021
+ms.custom: devx-track-azurecli, devx-track-arm-template
+ms.date: 05/22/2023
 ---
+
 # Use Azure CLI to export a template
 
 [!INCLUDE [Export template intro](../../../includes/resource-manager-export-template-intro.md)]
@@ -68,7 +70,7 @@ If you use the `--skip-resource-name-params` parameter when exporting the templa
 "resources": [
   {
     "type": "Microsoft.Web/serverfarms",
-    "apiVersion": "2016-09-01",
+    "apiVersion": "2022-09-01",
     "name": "demoHostPlan",
     ...
   }
@@ -97,7 +99,7 @@ You can save a template from a deployment in the deployment history. The templat
 To get a template from a resource group deployment, use the [az deployment group export](/cli/azure/deployment/group#az-deployment-group-export) command. You specify the name of the deployment to retrieve. For help with getting the name of a deployment, see [View deployment history with Azure Resource Manager](deployment-history.md).
 
 ```azurecli-interactive
-az deployment group export --resource-group demoGroup --name demoDeployment 
+az deployment group export --resource-group demoGroup --name demoDeployment
 ```
 
 The template is displayed in the console. To save the file, use:

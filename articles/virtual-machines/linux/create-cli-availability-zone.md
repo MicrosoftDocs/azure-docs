@@ -3,6 +3,7 @@ title: Create a zoned VM with the Azure CLI
 description: Create a virtual machine in an availability zone with the Azure CLI
 author: cynthn
 ms.service: virtual-machines
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 04/05/2018
 ms.author: cynthn
@@ -66,7 +67,7 @@ Create a virtual machine with the [az vm create](/cli/azure/vm) command.
 When creating a virtual machine, several options are available such as operating system image, disk sizing, and administrative credentials. In this example, a virtual machine is created with a name of *myVM* running Ubuntu Server. The VM is created in availability zone *1*. By default, the VM is created in the *Standard_DS1_v2* size.
 
 ```azurecli-interactive
-az vm create --resource-group myResourceGroupVM --name myVM --location eastus2 --image UbuntuLTS --generate-ssh-keys --zone 1
+az vm create --resource-group myResourceGroupVM --name myVM --location eastus2 --image Ubuntu2204 --generate-ssh-keys --zone 1
 ```
 
 It may take a few minutes to create the VM. Once the VM has been created, the Azure CLI outputs information about the VM. Take note of the `zones` value, which indicates the availability zone in which the VM is running. 

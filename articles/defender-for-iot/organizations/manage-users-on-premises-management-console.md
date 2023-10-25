@@ -13,17 +13,17 @@ This article describes how to manage on-premises users directly on an on-premise
 
 ## Default privileged users
 
-By default, each on-premises management console is installed with the privileged *cyberx* and *support* users, which have access to advanced tools for troubleshooting and setup.
+By default, each on-premises management console is installed with the privileged *support* and *cyberx* users, which have access to advanced tools for troubleshooting and setup.
 
 When setting up an on-premises management console for the first time, sign in with one of these privileged users, create an initial user with an **Admin** role, and then create extra users for security analysts and read-only users.
 
-For more information, see [Install OT monitoring software](how-to-install-software.md#install-ot-monitoring-software) and [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
+For more information, see [Install OT monitoring software on an on-premises management console](ot-deploy/install-software-on-premises-management-console.md) and [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
 
 ## Add new on-premises management console users
 
 This procedure describes how to create new users for an on-premises management console.
 
-**Prerequisites**: This procedure is available for the *cyberx* and *support* users, and any user with the **Admin** role.
+**Prerequisites**: This procedure is available for the *support* and *cyberx* users, and any user with the **Admin** role.
 
 **To add a user**:
 
@@ -39,7 +39,7 @@ This procedure describes how to create new users for an on-premises management c
     |**Last Name**     |   Enter the user's last name.      |
     |**Role**     |  Select a user role. For more information, see [On-premises user roles](roles-on-premises.md#on-premises-user-roles).      |
     |**Remote Sites Access Group**     | Available for the on-premises management console only.   <br><br> Select either **All** to assign the user to all global access groups, or **Specific** to assign them to a specific group only, and then select the group from the drop-down list.   <br><br>For more information, see [Define global access permission for on-premises users](#define-global-access-permission-for-on-premises-users).  |
-    |**Password**     |   Select the user type, either **Local** or **Active Directory User**. <br><br>For local users, enter a password for the user. Password requirements include: <br>- At least eight characters<br>- Both lowercase and uppercase alphabetic characters<br>- At least one numbers<br>- At least one symbol|
+    |**Password**     |   Select the user type, either **Local** or **Active Directory User**. <br><br>For local users, enter a password for the user. Password requirements include: <br>- At least eight characters<br>- Both lowercase and uppercase alphabetic characters<br>- At least one number<br>- At least one symbol|
 
     > [!TIP]
     > Integrating with Active Directory lets you associate groups of users with specific permission levels. If you want to create users using Active Directory, first configure [Active Directory on the on-premises management console](#integrate-users-with-active-directory) and then return to this procedure.
@@ -60,7 +60,7 @@ This procedure describes how **Admin** users can change local user passwords. **
 > [!TIP]
 > If you need to recover access to a privileged user account, see [Recover privileged access to an on-premises management console](#recover-privileged-access-to-an-on-premises-management-console).
 
-**Prerequisites**: This procedure is available only for the *cyberx* or *support* users, or for users with the **Admin** role.
+**Prerequisites**: This procedure is available only for the *support* or *cyberx* users, or for users with the **Admin** role.
 
 **To reset a user's password on the on-premises management console**:
 
@@ -78,9 +78,9 @@ This procedure describes how **Admin** users can change local user passwords. **
 
 ### Recover privileged access to an on-premises management console
 
-This procedure describes how to recover either the *cyberx* or *support* user password on an on-premises management console. For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
+This procedure describes how to recover either the *support* or *cyberx* user password on an on-premises management console. For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
 
-**Prerequisites**: This procedure is available for the *cyberx* and *support* users only.
+**Prerequisites**: This procedure is available for the *support* and *cyberx* users only.
 
 **To recover privileged access to an on-premises management console**:
 
@@ -107,7 +107,7 @@ This procedure describes how to recover either the *cyberx* or *support* user pa
     >
     > Return to Azure, and select the settings icon in the top toolbar. On the **Directories + subscriptions** page, make sure that you've selected the subscription where your sensors were onboarded to Defender for IoT. Then repeat the steps in Azure to download the **password_recovery.zip** file and upload it on the on-premises management console again.
 
-1. Select **Next**. A system-generated password for your on-premises management console appears for you to use for the selected user. Make sure to write the password down as it won't be shown again.
+1. Select **Next**. A system-generated password for your on-premises management console appears for you to use for the selected user. Make sure to write down the password as it won't be shown again.
 
 1. Select **Next** again to sign into your on-premises management console.
 
@@ -122,7 +122,7 @@ For example, use Active Directory when you have a large number of users that you
 
 For more information, see [Active Directory support on sensors and on-premises management consoles](manage-users-overview.md#active-directory-support-on-sensors-and-on-premises-management-consoles).
 
-**Prerequisites**: This procedure is available for the *cyberx* and *support* users only, or any user with an **Admin** role.
+**Prerequisites**: This procedure is available for the *support* and *cyberx* users only, or any user with an **Admin** role.
 
 **To integrate with Active Directory**:
 
@@ -134,10 +134,10 @@ For more information, see [Active Directory support on sensors and on-premises m
 
     |Field  |Description  |
     |---------|---------|
-    |**Domain Controller FQDN**     |  The fully qualified domain name (FQDN), exactly as it appears on your LDAP server. For example, enter `host1.subdomain.domain.com`.       |
+    |**Domain Controller FQDN**     |  The fully qualified domain name (FQDN), exactly as it appears on your LDAP server. For example, enter `host1.subdomain.contoso.com`. <br><br> If you encounter an issue with the integration using the FQDN, check your DNS configuration. You can also enter the explicit IP of the LDAP server instead of the FQDN when setting up the integration.      |
     |**Domain Controller Port**     |  The port on which your LDAP is configured.       |
-    |**Primary Domain**     |  The domain name, such as `subdomain.domain.com`, and then select the connection type for your LDAP configuration. <br><br>Supported connection types include: **LDAPS/NTLMv3** (recommended), **LDAP/NTLMv3**, or **LDAP/SASL-MD5**       |
-    |**Active Directory Groups**     | Select **+ Add** to add an Active Directory group to each permission level listed, as needed. <br><br>When you enter a group name, make sure that you enter the group name as it's defined in your Active Directory configuration on the LDAP server. Then, make sure to use these groups when creating new sensor users from Active Directory.<br><br>        Supported permission levels include **Read-only**, **Security Analyst**, **Admin**, and **Trusted Domains**.<br><br>        Add groups as **Trusted endpoints** in a separate row from the other Active Directory groups. To add a trusted domain, add the domain name and the connection type of a trusted domain. You can configure trusted endpoints only for users who were defined under users. <!--what?-->|
+    |**Primary Domain**     |  The domain name, such as `subdomain.contoso.com`, and then select the connection type for your LDAP configuration. <br><br>Supported connection types include: **LDAPS/NTLMv3** (recommended), **LDAP/NTLMv3**, or **LDAP/SASL-MD5**       |
+    |**Active Directory Groups**     | Select **+ Add** to add an Active Directory group to each permission level listed, as needed. <br><br>When you enter a group name, make sure that you enter the group name as it's defined in your Active Directory configuration on the LDAP server. Then, make sure to use these groups when creating new sensor users from Active Directory.<br><br>        Supported permission levels include **Read-only**, **Security Analyst**, **Admin**, and **Trusted Domains**.<br><br>        Add groups as **Trusted endpoints** in a separate row from the other Active Directory groups. To add a trusted domain, add the domain name and the connection type of a trusted domain. You can configure trusted endpoints only for users who were defined under users.|
 
     Select **+ Add Server** to add another server and enter its values as needed, and **Save** when you're done.
 
@@ -149,12 +149,15 @@ For more information, see [Active Directory support on sensors and on-premises m
     > - LDAP and LDAPS can't be configured for the same domain. However, you can configure each in different domains and then use them at the same time.
     >
 
+    For example: 
+
+    :::image type="content" source="media/manage-users-on-premises-management-console/active-directory-config-example.png" alt-text="Screenshot of Active Directory integration configuration on the on-premises management console.":::
+
 1. Create access group rules for on-premises management console users.
 
     If you configure Active Directory groups for on-premises management console users, you must also create an access group rule for each Active Directory group. Active Directory credentials won't work for on-premises management console users without a corresponding access group rule.
 
     For more information, see [Define global access permission for on-premises users](#define-global-access-permission-for-on-premises-users).
-
 
 ## Define global access permission for on-premises users
 
@@ -166,7 +169,7 @@ For more information, see [On-premises global access groups](manage-users-overvi
 
 **Prerequisites**:
 
-This procedure is available for the *cyberx* and *support* users, and any user with the **Admin** role.
+This procedure is available for the *support* and *cyberx* users, and any user with the **Admin** role.
 
 Before you create access groups, we also recommend that you:
 
@@ -178,11 +181,7 @@ Before you create access groups, we also recommend that you:
 
     Users with **Admin** roles have access to all business topology entities by default, and can't be assigned to access groups.
 
-- Carefully set up your business topology. For a rule to be successfully applied, you must assign sensors to zones in the **Site Management** window. For more information, see:
-
-    - [Work with site map views](how-to-gain-insight-into-global-regional-and-local-threats.md#work-with-site-map-views)
-    - [Create enterprise zones](how-to-activate-and-set-up-your-on-premises-management-console.md#create-enterprise-zones)
-    - [Assign sensors to zones](how-to-activate-and-set-up-your-on-premises-management-console.md#assign-sensors-to-zones)
+- Carefully set up your business topology. For a rule to be successfully applied, you must assign sensors to zones in the **Site Management** window. For more information, see [Create OT sites and zones on an on-premises management console](ot-deploy/sites-and-zones-on-premises.md).
 
 **To create access groups**:
 
@@ -219,7 +218,7 @@ Before you create access groups, we also recommend that you:
 
 If you later modify a topology entity and the change affects the rule logic, the rule is automatically deleted.
 
-If modifications to topology entities affect rule logic so that all rules are deleted, the access group remains but users won't be able to sign in to the on-premises management console. Instead, users are notified to contact their on-premises management console administrator for help signing in. [Update the settings](#add-new-on-premises-management-console-users) for these users so that they're no longer part of the legacy access group.
+If modifications to topology entities affect rule logic so that all rules are deleted, the access group remains but users won't be able to sign in to the on-premises management console. Instead, users are notified to contact their on-premises management console administrator for help with signing in. [Update the settings](#add-new-on-premises-management-console-users) for these users so that they're no longer part of the legacy access group.
 
 ## Control user session timeouts
 
@@ -229,7 +228,7 @@ For more information, see [Work with Defender for IoT CLI commands](references-w
 > [!NOTE]
 > Any changes made to user session timeouts are reset to defaults when you [update the OT monitoring software](update-ot-software.md).
 
-**Prerequisites**: This procedure is available for the *cyberx* and *support* users only.
+**Prerequisites**: This procedure is available for the *support* and *cyberx* users only.
 
 **To control sensor user session timeouts**:
 

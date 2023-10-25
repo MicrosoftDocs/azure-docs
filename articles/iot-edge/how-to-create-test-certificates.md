@@ -12,7 +12,7 @@ services: iot-edge
 
 # Create demo certificates to test IoT Edge device features
 
-[!INCLUDE [iot-edge-version-1.1-or-1.4](./includes/iot-edge-version-1.1-or-1.4.md)]
+[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
 
 IoT Edge devices require certificates for secure communication between the runtime, the modules, and any downstream devices.
 If you don't have a certificate authority to create the required certificates, you can use demo certificates to try out IoT Edge features in your test environment.
@@ -171,7 +171,7 @@ If you want multiple root CA certificates, be sure to manage them in separate fo
 
 ---
 
-This certificate is required before you can create more certificates for your IoT Edge devices and leaf devices as described in the next sections.
+This certificate is required before you can create more certificates for your IoT Edge devices and downstream devices as described in the next sections.
 
 ## Create identity certificate for the IoT Edge device
 
@@ -223,29 +223,11 @@ Device identity certificates go in the **Provisioning** section of the config fi
 
 ---
 
-<!--1.1-->
-:::moniker range="iotedge-2018-06"
-
-## Create device CA certificates
-
-These certificates are required for **gateway scenarios** because the device CA certificate is how the IoT Edge device verifies its identity to downstream devices. You can skip this section if you're not connecting any downstream devices to IoT Edge.
-
-The **device CA** certificate is also responsible for creating certificates for modules running on the device, but IoT Edge runtime can create temporary certificate if device CA isn't configured. Device CA certificates go in the **Certificate** section of the `config.yaml` file on the IoT Edge device. To learn more, see [Understand how Azure IoT Edge uses certificates](iot-edge-certs.md). 
-
-:::moniker-end
-<!--end 1.1-->
-
-<!-- iotedge-2020-11 -->
-:::moniker range=">=iotedge-2020-11"
-
 ## Create edge CA certificates
 
 These certificates are required for **gateway scenarios** because the edge CA certificate is how the IoT Edge device verifies its identity to downstream devices. You can skip this section if you're not connecting any downstream devices to IoT Edge.
 
 The **edge CA** certificate is also responsible for creating certificates for modules running on the device, but IoT Edge runtime can create temporary certificates if edge CA isn't configured. Edge CA certificates go in the **Edge CA** section of the `config.toml` file on the IoT Edge device. To learn more, see [Understand how Azure IoT Edge uses certificates](iot-edge-certs.md). 
-
-:::moniker-end
-<!-- end iotedge-2020-11 -->
 
 # [Windows](#tab/windows)
 
@@ -321,7 +303,7 @@ Your IoT device also needs a copy of its device certificates so that it can auth
 3. Retrieve the SHA1 thumbprint (called a thumbprint in IoT Hub contexts) from each certificate. The thumbprint is a 40 hexadecimal character string. Use the following openssl command to view the certificate and find the thumbprint:
 
    ```PowerShell
-   openssl x509 -in certs\iot-device-<device name>-primary.cert.pem -text -thumbprint
+   Write-Host (Get-Pfxcertificate -FilePath certs\iot-device-<device name>-primary.cert.pem).Thumbprint
    ```
 
    Run this command twice, once for the primary certificate and once for the secondary certificate. You provide thumbprints for both certificates when you register a new IoT device using self-signed X.509 certificates.

@@ -4,7 +4,7 @@ description: This article provides an overview of the Azure Application Gateway 
 services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
-ms.date: 01/14/2022
+ms.date: 03/28/2023
 ms.author: greglin
 ms.topic: conceptual
 ---
@@ -73,6 +73,8 @@ Path rules are case insensitive.
 |`/*.jpg`     |no|
 |`/Repos/*/Comments/*`     |no|
 |`/CurrentUser/Comments/*`     |yes|
+
+Path rules are processed in order, based on how they're listed in the portal. The least specific path (with wildcards) should be at the end of the list, so that it will be processed last. If wildcard rules are present at the top of the list, they take priority and will be processed first. See the following example scenarios.
 
 #### Examples
 

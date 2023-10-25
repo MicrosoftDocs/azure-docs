@@ -7,7 +7,7 @@ ms.service: postgresql
 ms.subservice: flexible-server
 ms.devlang: azurecli
 ms.topic: how-to
-ms.date: 11/30/2021
+ms.date: 8/14/2023
 ms.custom: devx-track-azurecli
 ---
 
@@ -59,7 +59,7 @@ If you want to reset the value of a parameter, you simply choose to leave out th
 az postgres flexible-server parameter set --name log_min_messages --resource-group myresourcegroup --server-name mydemoserver
 ```
 
-This command resets the **log\_min\_messages** parameter to the default value **WARNING**. For more information on server parameters and permissible values, see PostgreSQL documentation on [Setting Parameters](https://www.postgresql.org/docs/12/config-setting.html).
+This command resets the **log\_min\_messages** parameter to the default value **WARNING**. For more information on server parameters and permissible values, see PostgreSQL documentation on [Setting Parameters](https://www.postgresql.org/docs/current/config-setting.html).
 
 ## Next steps
 

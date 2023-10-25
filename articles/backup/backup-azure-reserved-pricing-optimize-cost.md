@@ -4,8 +4,8 @@ description: This article explains about how to optimize costs for Azure Backup 
 ms.topic: how-to
 ms.service: backup
 ms.date: 09/03/2022
-author: v-amallick
-ms.author: v-amallick
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Optimize costs for Azure Backup Storage with reserved capacity

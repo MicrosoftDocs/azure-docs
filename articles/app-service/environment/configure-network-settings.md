@@ -5,6 +5,7 @@ author: madsd
 keywords: ASE, ASEv3, ftp, remote debug
 
 ms.topic: tutorial
+ms.custom: devx-track-arm-template, devx-track-azurecli
 ms.date: 03/29/2022
 ms.author: madsd
 ---
@@ -76,7 +77,7 @@ ASE_NAME="[myAseName]"
 RESOURCE_GROUP_NAME="[myResourceGroup]"
 az appservice ase update --name $ASE_NAME -g $RESOURCE_GROUP_NAME --allow-new-private-endpoint-connection true
 
-az appservice ase list-addresses -n --name $ASE_NAME -g $RESOURCE_GROUP_NAME --query properties.allowNewPrivateEndpointConnections
+az appservice ase list-addresses -n --name $ASE_NAME -g $RESOURCE_GROUP_NAME --query allowNewPrivateEndpointConnections
 ```
 
 The setting is also available for configuration through Azure portal at the App Service Environment configuration:
@@ -92,9 +93,9 @@ If you want to enable FTP access, you can run the following Azure CLI command:
 ```azurecli
 ASE_NAME="[myAseName]"
 RESOURCE_GROUP_NAME="[myResourceGroup]"
-az resource update --name $ASE_NAME/configurations/networking --set properties.ftpEnabled=true -g $RESOURCE_GROUP_NAME --resource-type "Microsoft.Web/hostingEnvironments/networkingConfiguration"
+az appservice ase update --name $ASE_NAME -g $RESOURCE_GROUP_NAME --allow-incoming-ftp-connections true
 
-az resource show --name $ASE_NAME/configurations/networking -g $RESOURCE_GROUP_NAME --resource-type "Microsoft.Web/hostingEnvironments/networkingConfiguration" --query properties.ftpEnabled
+az appservice ase list-addresses -n --name $ASE_NAME -g $RESOURCE_GROUP_NAME --query ftpEnabled
 ```
 The setting is also available for configuration through Azure portal at the App Service Environment configuration:
 
@@ -111,9 +112,9 @@ Run the following Azure CLI command to enable remote debugging access:
 ```azurecli
 ASE_NAME="[myAseName]"
 RESOURCE_GROUP_NAME="[myResourceGroup]"
-az resource update --name $ASE_NAME/configurations/networking --set properties.RemoteDebugEnabled=true -g $RESOURCE_GROUP_NAME --resource-type "Microsoft.Web/hostingEnvironments/networkingConfiguration"
+az appservice ase update --name $ASE_NAME -g $RESOURCE_GROUP_NAME --allow-remote-debugging true
 
-az resource show --name $ASE_NAME/configurations/networking -g $RESOURCE_GROUP_NAME --resource-type "Microsoft.Web/hostingEnvironments/networkingConfiguration" --query properties.remoteDebugEnabled
+az appservice ase list-addresses -n --name $ASE_NAME -g $RESOURCE_GROUP_NAME --query remoteDebugEnabled
 ```
 
 The setting is also available for configuration through Azure portal at the App Service Environment configuration:
@@ -123,7 +124,7 @@ The setting is also available for configuration through Azure portal at the App 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create an App Service Environment from a template](create-from-template.md)
+> [Create an App Service Environment from a template](./how-to-create-from-template.md)
 
 > [!div class="nextstepaction"]
 > [Deploy your app to Azure App Service using FTP](../deploy-ftp.md)

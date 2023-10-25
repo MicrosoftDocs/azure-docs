@@ -1,11 +1,11 @@
 ---
-title: "Access Azure Arc-enabled Kubernetes clusters from anywhere using cluster connect"
+title: "Cluster connect access to Azure Arc-enabled Kubernetes clusters"
 ms.date: 07/22/2022
 ms.topic: conceptual
 description: "Cluster connect allows developers to access their Azure Arc-enabled Kubernetes clusters from anywhere for interactive development and debugging."
 ---
 
-# Access Azure Arc-enabled Kubernetes clusters from anywhere using cluster connect
+# Cluster connect access to Azure Arc-enabled Kubernetes clusters
 
 The Azure Arc-enabled Kubernetes *cluster connect* feature provides connectivity to the `apiserver` of the cluster without requiring any inbound port to be enabled on the firewall. A reverse proxy agent running on the cluster can securely start a session with the Azure Arc service in an outbound manner.
 
@@ -28,8 +28,8 @@ When a user sends a request using this `kubeconfig` file:
 
 1. The Azure Arc proxy maps the endpoint receiving the request to the Azure Arc service.
 1. The Azure Arc service then forwards the request to the `clusterconnect-agent` running on the cluster.
-1. The `clusterconnect-agent` passes on the request to the `kube-aad-proxy` component, which performs Azure Active Directory (Azure AD) authentication on the calling entity.
-1. After Azure AD authentication, `kube-aad-proxy` uses Kubernetes [user impersonation](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#user-impersonation) to forward the request to the cluster's `apiserver`.
+1. The `clusterconnect-agent` passes on the request to the `kube-aad-proxy` component, which performs Microsoft Entra authentication on the calling entity.
+1. After Microsoft Entra authentication, `kube-aad-proxy` uses Kubernetes [user impersonation](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#user-impersonation) to forward the request to the cluster's `apiserver`.
 
 ## Next steps
 

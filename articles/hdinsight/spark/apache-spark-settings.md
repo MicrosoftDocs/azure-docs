@@ -4,7 +4,7 @@ description: How to view and configure Apache Spark settings for an Azure HDInsi
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
-ms.date: 05/30/2022
+ms.date: 06/12/2023
 ---
 
 # Configure Apache Spark settings

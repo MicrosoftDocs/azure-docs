@@ -3,7 +3,7 @@ title: Optimize Apache Pig with Apache Ambari in Azure HDInsight
 description: Use the Apache Ambari web UI to configure and optimize Apache Pig.
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 05/04/2020
+ms.date: 01/31/2023
 ---
 
 # Optimize Apache Pig with Apache Ambari in Azure HDInsight

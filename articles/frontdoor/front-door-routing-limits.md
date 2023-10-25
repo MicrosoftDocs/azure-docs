@@ -1,14 +1,13 @@
 ---
-title: Azure Front Door - routing limits | Microsoft Docs
+title: Routing limits
+titleSuffix: Azure Front Door
 description: This article helps you understand the composite limits around routing for Azure Front Door.
 services: front-door
-documentationcenter: ''
 author: johndowns
 ms.service: frontdoor
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 02/27/2022
+ms.date: 12/08/2022
 ms.author: jodowns
 ---
 
@@ -22,6 +21,8 @@ The composite route metric for each Front Door profile can't exceed 5000.
 
 > [!TIP]
 > Most Front Door profiles don't approach the composite route limit. However, if you have a large Front Door profiles, consider whether you could exceed the limit and plan accordingly.
+
+The number of origin groups, origins, and endpoints don't affect your composite routing limit. However, there are other limits that apply to these resources. For more information, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-front-door-standard-and-premium-service-limits).
 
 ## Calculate your profile's composite route metric
 

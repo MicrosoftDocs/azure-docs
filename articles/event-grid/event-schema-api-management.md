@@ -32,6 +32,17 @@ API Management emits the following event types:
 | Microsoft.ApiManagement.SubscriptionCreated | Raised when a subscription is created. |
 | Microsoft.ApiManagement.SubscriptionUpdated | Raised when a subscription is updated. |
 | Microsoft.ApiManagement.SubscriptionDeleted | Raised when a subscription is deleted. |
+| Microsoft.ApiManagement.GatewayCreated | Raised when a self-hosted gateway is created. |
+| Microsoft.ApiManagement.GatewayDeleted | Raised when a self-hosted gateway is updated. |
+| Microsoft.ApiManagement.GatewayUpdated | Raised when a self-hosted gateway is deleted. |
+| Microsoft.ApiManagement.GatewayAPIAdded | Raised when an API was removed from a self-hosted gateway. |
+| Microsoft.ApiManagement.GatewayAPIRemoved | Raised when an API was removed from a self-hosted gateway. |
+| Microsoft.ApiManagement.GatewayCertificateAuthorityCreated | Raised when a certificate authority was updated for a self-hosted. |
+| Microsoft.ApiManagement.GatewayCertificateAuthorityDeleted | Raised when a certificate authority was deleted for a self-hosted. |
+| Microsoft.ApiManagement.GatewayCertificateAuthorityUpdated | Raised when a certificate authority was updated for a self-hosted. |
+| Microsoft.ApiManagement.GatewayHostnameConfigurationCreated | Raised when a hostname configuration was created for a self-hosted. |
+| Microsoft.ApiManagement.GatewayHostnameConfigurationDeleted | Raised when a hostname configuration was deleted for a self-hosted. |
+| Microsoft.ApiManagement.GatewayHostnameConfigurationUpdated | Raised when a hostname configuration was updated for a self-hosted. |
 
 ## Example event
 

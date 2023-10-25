@@ -2,39 +2,36 @@
 title: Azure Functions runtime versions overview
 description: Azure Functions supports multiple versions of the runtime. Learn the differences between them and how to choose the one that's right for you.
 ms.topic: conceptual
-ms.custom: devx-track-dotnet
-ms.date: 10/22/2022
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
+ms.date: 09/01/2023
 zone_pivot_groups: programming-languages-set-functions
 ---
 
 # Azure Functions runtime versions overview
 
-<a name="top"></a>Azure Functions currently supports several versions of the runtime host. The following table details the available versions, their support level, and when they should be used:
+<a name="top"></a>Azure Functions currently supports two versions of the runtime host. The following table details the currently supported runtime versions, their support level, and when they should be used:
 
 | Version | Support level | Description |
 | --- | --- | --- |
 | 4.x | GA | **_Recommended runtime version for functions in all languages._** Check out [Supported language versions](#languages). |
-| 3.x | GA | Supports all languages. Check out [Supported language versions](#languages).|
-| 2.x | GA | Supported for [legacy version 2.x apps](#pinning-to-version-20). This version is in maintenance mode, with enhancements provided only in later versions.|
-| 1.x | GA | Recommended only for C# apps that must use .NET Framework and only supports development in the Azure portal, Azure Stack Hub portal, or locally on Windows computers. This version is in maintenance mode, with enhancements provided only in later versions. |
+| 1.x | GA ([support ends September 14, 2026](https://aka.ms/azure-functions-retirements/hostv1)) | Supported only for C# apps that must use .NET Framework. This version is in maintenance mode, with enhancements provided only in later versions. **Support will end for version 1.x on September 14, 2026.** We highly recommend you [migrate your apps to version 4.x](migrate-version-1-version-4.md?pivots=programming-language-csharp), which supports .NET Framework 4.8, .NET 6, .NET 7, and a preview of .NET 8.|
 
 > [!IMPORTANT]
-> Beginning on December 3, 2022, function apps running on versions 2.x and 3.x of the Azure Functions runtime can no longer be supported. Before that time, please test, verify, and migrate your function apps to version 4.x of the Functions runtime. For more information, see [Migrate apps from Azure Functions version 3.x to version 4.x](migrate-version-3-version-4.md). After the deadline, function apps can be created and deployed, and existing apps continue to run. However, your apps won't be eligible for new features, security patches, performance optimizations, and support until you upgrade them to version 4.x.
-> 
->End of support for these runtime versions is due to the ending of support for .NET Core 3.1, which is required by these older runtime versions. This requirement affects all Azure Functions runtime languages.  
->Functions version 1.x is still supported for C# function apps that require the .NET Framework. Preview support is now available in Functions 4.x to [run C# functions on .NET Framework 4.8](dotnet-isolated-process-guide.md#supported-versions). 
+> As of December 13, 2022, function apps running on versions 2.x and 3.x of the Azure Functions runtime have reached the end of life (EOL) of extended support. For more information, see [Retired versions](#retired-versions).
 
-This article details some of the differences between these versions, how you can create each version, and how to change the version on which your functions run.
+This article details some of the differences between supported versions, how you can create each version, and how to change the version on which your functions run.
+
+## Levels of support
 
 [!INCLUDE [functions-support-levels](../../includes/functions-support-levels.md)]
 
 ## Languages
 
-All functions in a function app must share the same language. You chose the language of functions in your function app when you create the app. The language of your function app is maintained in the [FUNCTIONS\_WORKER\_RUNTIME](functions-app-settings.md#functions_worker_runtime) setting, and shouldn't be changed when there are existing functions. 
-
-The following table indicates which programming languages are currently supported in each runtime version.
+All functions in a function app must share the same language. You choose the language of functions in your function app when you create the app. The language of your function app is maintained in the [FUNCTIONS\_WORKER\_RUNTIME](functions-app-settings.md#functions_worker_runtime) setting, and shouldn't be changed when there are existing functions. 
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
+
+For information about the language versions of previously supported versions of the Functions runtime, see [Retired runtime versions](language-support-policy.md#retired-runtime-versions).
 
 ## <a name="creating-1x-apps"></a>Run on a specific version
 
@@ -44,19 +41,18 @@ By default, function apps created in the Azure portal, by the Azure CLI, or from
 
 ### Migrating existing function apps
 
-When your app has existing functions, you must take precautions before moving to a later runtime version. The following articles detail breaking changes between versions, including language-specific breaking changes. They also provide you with step-by-step instructions for a successful migration of you existing function app. 
+When your app has existing functions, you must take precautions before moving to a later runtime version. The following articles detail breaking changes between versions, including language-specific breaking changes. They also provide you with step-by-step instructions for a successful migration of your existing function app. 
 
 + [Migrate from runtime version 3.x to version 4.x](./migrate-version-3-version-4.md) 
 + [Migrate from runtime version 1.x to version 4.x](./migrate-version-1-version-4.md)
 
 ### Changing version of apps in Azure
 
-The following major runtime version values are supported:
+The following major runtime version values are used:
 
 | Value | Runtime target |
 | ------ | -------- |
 | `~4` | 4.x |
-| `~3` | 3.x |
 | `~1` | 1.x |
 
 >[!IMPORTANT]
@@ -68,11 +64,6 @@ To resolve issues your function app may have when running on the latest major ve
 
 Older minor versions are periodically removed from Functions. For the latest news about Azure Functions releases, including the removal of specific older minor versions, monitor [Azure App Service announcements](https://github.com/Azure/app-service-announcements/issues). 
 
-### Pinning to version ~2.0
-
-.NET function apps running on version 2.x (`~2`) are automatically upgraded to run on .NET Core 3.1, which is a long-term support version of .NET Core 3. Running your .NET functions on .NET Core 3.1 allows you to take advantage of the latest security updates and product enhancements. 
-
-Any function app pinned to `~2.0` continues to run on .NET Core 2.2, which no longer receives security and other updates. To learn more, see [Functions v2.x considerations](functions-dotnet-class-library.md#functions-v2x-considerations). 
 
 ## Minimum extension versions
 
@@ -112,13 +103,30 @@ If you receive a warning about your extension bundle version not meeting a minim
 To learn more about extension bundles, see [Extension bundles](functions-bindings-register.md#extension-bundles).
 ::: zone-end
 
+## Retired versions
+
+[!INCLUDE [functions-runtime-1x-retirement-note](../../includes/functions-runtime-1x-retirement-note.md)]
+
+These versions of the Functions runtime reached the end of life (EOL) for extended support on December 13, 2022. 
+
+| Version | Current support level | Previous support level |
+| --- | --- | --- |
+| 3.x | Out-of-support |GA | 
+| 2.x | Out-of-support | GA |
+
+As soon as possible, you should migrate your apps to version 4.x to obtain full support. For a complete set of language-specific migration instructions, see [Migrate apps to Azure Functions version 4.x](migrate-version-3-version-4.md).
+
+Apps using versions 2.x and 3.x can still be created and deployed from your CI/CD DevOps pipeline, and all existing apps continue to run without breaking changes. However, your apps aren't eligible for new features, security patches, and performance optimizations. You can only get related service support after you upgrade your apps to version 4.x.
+
+End of support for versions 2.x and 3.x is due to the end of support for .NET Core 3.1, which they had as a core dependency. This requirement affects all [languages supported by Azure Functions](supported-languages.md).
+
 ## Locally developed application versions
 
 You can make the following updates to function apps to locally change the targeted versions.
 
 ### Visual Studio runtime versions
 
-In Visual Studio, you select the runtime version when you create a project. Azure Functions tools for Visual Studio supports the three major runtime versions. The correct version is used when debugging and publishing based on project settings. The version settings are defined in the `.csproj` file in the following properties:
+In Visual Studio, you select the runtime version when you create a project. Azure Functions tools for Visual Studio supports the two major runtime versions. The correct version is used when debugging and publishing based on project settings. The version settings are defined in the `.csproj` file in the following properties:
 
 # [Version 4.x](#tab/v4)
 
@@ -127,45 +135,24 @@ In Visual Studio, you select the runtime version when you create a project. Azur
 <AzureFunctionsVersion>v4</AzureFunctionsVersion>
 ```
 
-You can also choose `net6.0`, `net7.0`, or `net48` as the target framework if you are using [.NET isolated worker process functions](dotnet-isolated-process-guide.md). Support for `net7.0` and `net48` is currently in preview.
+You can also choose `net6.0`, `net7.0`, `net8.0`, or `net48` as the target framework if you are using [.NET isolated worker process functions](dotnet-isolated-process-guide.md). Support for `net8.0` is currently in preview.
 
 > [!NOTE]
 > Azure Functions 4.x requires the `Microsoft.NET.Sdk.Functions` extension be at least `4.0.0`.
 
-# [Version 3.x](#tab/v3)
-
-```xml
-<TargetFramework>netcoreapp3.1</TargetFramework>
-<AzureFunctionsVersion>v3</AzureFunctionsVersion>
-```
-
-You can also choose `net5.0` as the target framework if you're using [.NET isolated worker process functions](dotnet-isolated-process-guide.md).
-
-> [!NOTE]
-> Azure Functions 3.x and .NET requires the `Microsoft.NET.Sdk.Functions` extension be at least `3.0.0`.
-
-# [Version 2.x](#tab/v2)
-
-```xml
-<TargetFramework>netcoreapp2.1</TargetFramework>
-<AzureFunctionsVersion>v2</AzureFunctionsVersion>
-```
-
 # [Version 1.x](#tab/v1)
 
 ```xml
-<TargetFramework>net472</TargetFramework>
+<TargetFramework>net48</TargetFramework>
 <AzureFunctionsVersion>v1</AzureFunctionsVersion>
 ```
 ---
 
-### VS Code and Azure Functions Core Tools
+### Visual Studio Code and Azure Functions Core Tools
 
-[Azure Functions Core Tools](functions-run-local.md) is used for command-line development and also by the [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code. To develop against version 4.x, install version 4.x of the Core Tools. Version 3.x development requires version 3.x of the Core Tools, and so on. For more information, see [Install the Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools).
+[Azure Functions Core Tools](functions-run-local.md) is used for command-line development and also by the [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code. For more information, see [Install the Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools).
 
-For Visual Studio Code development, you may also need to update the user setting for the `azureFunctions.projectRuntime` to match the version of the tools installed.  This setting also updates the templates and languages used during function app creation.  To create apps in `~3`, you update the `azureFunctions.projectRuntime` user setting to `~3`.
-
-![Azure Functions extension runtime setting](./media/functions-versions/vs-code-version-runtime.png)
+For Visual Studio Code development, you may also need to update the user setting for the `azureFunctions.projectRuntime` to match the version of the tools installed.  This setting also updates the templates and languages used during function app creation. 
 
 ## Bindings
 

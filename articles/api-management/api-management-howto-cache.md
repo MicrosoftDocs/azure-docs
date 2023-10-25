@@ -37,6 +37,9 @@ What you'll learn:
 
 > [!NOTE]
 > Internal cache is not available in the **Consumption** tier of Azure API Management. You can [use an external Azure Cache for Redis](api-management-howto-cache-external.md) instead.
+> 
+> For feature availability in the v2 tiers (preview), see the [v2 tiers overview](v2-service-tiers-overview.md).
+
 
 ## Prerequisites
 
@@ -49,7 +52,7 @@ To complete this tutorial:
 
 With caching policies shown in this example, the first request to the **GetSpeakers** operation returns a response from the backend service. This response is cached, keyed by the specified headers and query string parameters. Subsequent calls to the operation, with matching parameters, will have the cached response returned, until the cache duration interval has expired.
 
-1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Browse to your APIM instance.
 3. Select the **API** tab.
 4. Click **Demo Conference API** from your API list.

@@ -1,0 +1,188 @@
+### YamlMime:Landing
+
+title: Operator Nexus  
+summary: Operator Nexus runs network-intensive workloads under stringent security, performance and manageability. Learn Operator Nexus with these quickstarts and how-to guides. # < 160 chars
+
+metadata:
+  title: Operator Nexus  
+  description: Azure Operator Nexus, the next-generation hybrid cloud platform for operators, 
+   proven to run network-intensive workloads and mission-critical applications under the stringent  security, 
+   resiliency, observability, manageability, and performance required by telecommunication' operators. 
+   Learn how to deploy, manage and use Operator Nexus with these concepts and quickstarts.
+  ms.service: azure-operator-nexus
+  ms.topic: landing-page
+  author: jashobhit
+  ms.author: shobhitjain
+  ms.date: 01/23/2023
+# linkListType: architecture | concept | how-to-guide | overview | quickstart | reference | tutorial # | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: Operator Nexus overview
+    linkLists:
+      - linkListType: overview
+        links:
+           - text: What is Operator Nexus?
+             url: overview.md
+      - linkListType: concept
+        links:
+           - text: Resource types
+             url: concepts-resource-types.md
+           - text: Compute
+             url: concepts-compute.md
+           - text: Storage
+             url: concepts-storage.md
+           - text: Nexus Kubernetes overview
+             url: concepts-nexus-kubernetes-cluster.md
+           - text: Observability
+             url: concepts-observability.md
+           - text: Security
+             url: concepts-security.md  
+           - text: Frequently asked questions
+             url: azure-operator-nexus-faq.md
+#     - linkListType: how-to-guide
+#       links:
+#          - text: Deploy agents and monitoring
+#            url: howto-monitoring-vnf-aks-h-vms.md
+#          - text: Deploy workbooks and alerts
+#            url: howto-workbooks-alerts.md
+#  
+  # Card
+  - title: QuickStart guides
+    linkLists:
+      - linkListType: quickstart
+        links:
+           - text: Before you start NFC/CM deployment
+             url: howto-azure-operator-nexus-prerequisites.md      
+           - text: Before you start platform deployment
+             url: howto-platform-prerequisites.md
+      - linkListType: quickstart
+        links:
+           - text: Deploy Nexus Kubernetes cluster
+             url: quickstarts-kubernetes-cluster-deployment-bicep.md
+           - text: Deploy Nexus virtual machine
+             url: quickstarts-tenant-workload-deployment.md
+#
+  # Card
+  - title: Observability
+    linkLists:
+      - linkListType: concept
+        links:
+           - text: Observability concepts
+             url: concepts-observability.md 
+      - linkListType: how-to-guide
+        links:
+           - text: Monitor Nexus Kubernetes cluster
+             url: howto-monitor-naks-cluster.md
+           - text: Monitor VMs for VNF
+             url: howto-monitor-virtualized-network-functions-virtual-machines.md
+           - text: Cluster metrics configuration management
+             url: howto-cluster-metrics-configuration-management.md
+#
+  # Card
+  - title: Security
+    linkLists:
+      - linkListType: concept
+        links:
+           - text: Security concepts
+             url: concepts-security.md 
+      - linkListType: how-to-guide
+        links:
+           - text: Set up Defender for Cloud security
+             url: howto-set-up-defender-for-cloud-security.md
+           - text: Use Azure Policy to protect AKS clusters
+             url: howto-use-azure-policy-for-aks-cluster-security.md
+#
+  # Card
+  - title: References
+    linkLists:
+      - linkListType: reference
+        links:
+           - text: List of metrics collected
+             url: List-of-metrics-collected.md
+           - text: Near-edge Compute
+             url: reference-near-edge-compute.md
+           - text: Near-edge storage
+             url: reference-near-edge-storage.md
+           - text: Limits & quotas
+             url: reference-limits-and-quotas.md
+#
+  # Card
+# - title: How-to guides
+#   linkLists:
+#     - linkListType: how-to-guide
+#       links:
+#          - text: BareMetal functions
+#            url: bare-metal-functions.md
+#          - text: Workbooks and alerts
+#            url: workbooks-alerts.md
+#          - text: Cluster manager
+#            url: howto-cluster-manager.md
+#          - text: AKS-Hybrid manager
+#            url: howto-aks-h-manager.md
+#
+  # Card
+# - title: Deploy platform
+#   linkLists:
+#     - linkListType: quickstart
+#       links:
+#          - text: Before you start platform deployment
+#            url: quickstarts-platform-prerequisites.md
+#          - text: Platform deployment
+#            url: quickstarts-platform-deployment.md
+#     - linkListType: how-to-guide
+#       links:
+#          - text: Network fabric controller
+#            url: howto-configure-network fabric-controller.md
+#         links:
+#          - text: Cluster manager
+#            url: howto-cluster-manager.md
+#         links:
+#          - text: Configure: network fabric
+#            url: howto-configure-network fabric.md
+  # Card
+# - title: Deploy workloads
+#   linkLists:
+#     - linkListType: sample
+#       links:
+#          - text: Sample VNF deployment
+#            url: sample-vnf-deployment.md
+#       links:
+#          - text: Sample CNF deployment
+#            url: sample-cnf-deployment.md
+#     - linkListType: quickstart
+#       links:
+#          - text: Before you start tenant workload deployment
+#            url: quickstarts-tenant-workload-prerequisites.md
+#       links:
+#          - text: Tenant workload deployment
+#            url: quickstarts-tenant-workload-deployment.md           
+#     - linkListType: how-to-guide
+#       links:
+#          - text: Bare metal operations
+#            url: howto-baremetal-functions.md
+#        links:
+#          - text: AKS-Hybrid clusters
+#            url: howto-hybrid-aks.md
+#        links:
+#          - text: Tenant networking
+#            url: howto-configure-isolation-domain.md
+#        links:
+#          - text: Install CLI extensions
+#            url: howto-install-cli-extensions.md            
+#
+ # Card
+# - title: References and resources
+#   linkLists:
+#     - linkListType: reference
+#       links:
+          #- text: Resource and other links
+          #  url: #### <TBD>
+#       links:
+#          - text: APIs
+#            url: /rest/api/azure/
+#       links:
+#          - text: Monitor metrics
+#            url: https:///azure/azure-monitor/essentials/data-platform-metrics

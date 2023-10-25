@@ -7,7 +7,7 @@ tags: azure-service-management
 ms.topic: sample
 ms.date: 08/26/2020
 ms.author: tomfitz
-ms.custom: mvc, fasttrack-edit
+ms.custom: mvc, fasttrack-edit, devx-track-arm-template
 ---
 # Azure Resource Manager templates for App Service
 
@@ -39,6 +39,8 @@ To learn about the JSON syntax and properties for App Services resources, see [M
 | [App with a Blob storage connection](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/web-app-blob-connection)| Deploys an App Service app with an Azure Blob storage connection string. You can then use Blob storage from the app. |
 | [App with an Azure Cache for Redis](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/web-app-with-redis-cache)| Deploys an App Service app with an Azure Cache for Redis. |
 | [App connected to a backend webapp](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/webapp-privateendpoint-vnet-injection)| Deploys two web apps (frontend and backend) securely connected together with VNet injection and Private Endpoint. |
+| [App connected to a backend webapp with staging slots](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/webapp-secure-ntier)| Deploys two web apps (frontend and backend) with staging slots securely connected together with VNet injection and Private Endpoint. |
+| [Two apps in separate regions with Azure Front Door](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/webapp-multi-region-front-door) | Deploys two identical web apps in separate regions with Azure Front Door to direct traffic. |
 |**App Service Environment**| **Description** |
 | [Create an App Service environment v2](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/web-app-asev2-create) | Creates an App Service environment v2 in your virtual network. |
 | [Create an App Service environment v2 with an ILB address](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/web-app-asev2-ilb-create) | Creates an App Service environment v2 in your virtual network with a private internal load balancer address. |

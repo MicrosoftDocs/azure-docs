@@ -2,11 +2,11 @@
 title: Troubleshoot Azure Data Share 
 description: Learn how to troubleshoot problems with invitations and errors when you create or receive data shares in Azure Data Share.
 services: data-share
-author: jifems
-ms.author: jife
+author: sidontha
+ms.author: sidontha
 ms.service: data-share
 ms.topic: troubleshooting
-ms.date: 09/10/2021
+ms.date: 11/30/2022
 ---
 
 # Troubleshoot common problems in Azure Data Share 
@@ -31,7 +31,7 @@ In some cases, when new users select **Accept Invitation** in an email invitatio
 
 * **The invitation is already accepted.** The link in the email takes you to the **Data Share Invitations** page in the Azure portal. This page lists only pending invitations. Accepted invitations don't appear on the page. To view received shares and configure your target Azure Data Explorer cluster setting, go to the Data Share resource you used to accept the invitation.
 
-* **You are guest user of the tenant.** If you are a guest user of the tenant, you will need to verify your email address for the tenant prior to viewing the invitation. Once verified, it is valid for 12 months. 
+* **You are guest user of the tenant.** If you're a guest user of the tenant, you'll need to verify your email address for the tenant prior to viewing the invitation. Once verified, it's valid for 12 months. 
 
 ## Creating and receiving shares
 
@@ -40,8 +40,8 @@ The following errors might appear when you create a new share, add datasets, or 
 * Failed to add datasets.
 * Failed to map datasets.
 * Unable to grant Data Share resource x access to y.
-* You do not have proper permissions to x.
-* We could not add write permissions for the Azure Data Share account to one or more of your selected resources.
+* You don't have proper permissions to x.
+* We couldn't add write permissions for the Azure Data Share account to one or more of your selected resources.
 
 You might see one of these errors if you have insufficient permissions to the Azure data store. For more information, see [Roles and requirements](concepts-roles-permissions.md). 
 
@@ -66,7 +66,7 @@ For storage accounts, a snapshot can fail because a file is being updated at the
 
 For SQL sources, a snapshot can fail for these other reasons:
 
-* The source SQL script or target SQL script that grants Data Share permission hasn't run. Or for Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL Data Warehouse), the script runs by using SQL authentication rather than Azure Active Directory authentication. You can run the below query to check if the Data Share account has proper permission to the SQL database. For source SQL database, query result should show Data Share account has *db_datareader* role. For target SQL database, query result should show Data Share account has *db_datareader*, *db_datawriter*, and *db_dlladmin* roles.
+* The source SQL script or target SQL script that grants Data Share permission hasn't run. Or for Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL Data Warehouse), the script runs by using SQL authentication rather than Microsoft Entra authentication. You can run the below query to check if the Data Share account has proper permission to the SQL database. For source SQL database, query result should show Data Share account has *db_datareader* role. For target SQL database, query result should show Data Share account has *db_datareader*, *db_datawriter*, and *db_dlladmin* roles.
 
     ```sql
         SELECT DP1.name AS DatabaseRoleName,
@@ -87,14 +87,14 @@ For SQL sources, a snapshot can fail for these other reasons:
 * A target CSV file is generated, but the data can't be read in Excel. You might see this problem when the source SQL table contains data that includes non-English characters. In Excel, select the **Get Data** tab and choose the CSV file. Select the file origin **65001: Unicode (UTF-8)**, and then load the data.
 
 ## Update snapshot schedule
-After the data provider updates the snapshot schedule for the sent share, the data consumer needs to disable the previous snapshot schedule, then enable the updated snapshot schedule for the received share. Snapshot schedule is stored in UTC, and shown in the UI as the computer local time. It does not automatically adjust for daylight saving time.  
+After the data provider updates the snapshot schedule for the sent share, the data consumer needs to disable the previous snapshot schedule, then enable the updated snapshot schedule for the received share. Snapshot schedule is stored in UTC, and shown in the UI as the computer local time. It doesn't automatically adjust for daylight saving time.  
 
 ## In-place sharing
 Dataset mapping can fail for Azure Data Explorer clusters due to the following reasons:
 
-* User does not have *write* permission to the Azure Data Explorer cluster. This permission is typically part of the Contributor role. 
+* User doesn't have *write* permission to the Azure Data Explorer cluster. This permission is typically part of the Contributor role. 
 * The source or target Azure Data Explorer cluster is paused.
-* Source Azure Data Explorer cluster is EngineV2 and target is EngineV3, or vice versa. Sharing between Azure Data Explorer clusters of different engine versions is not supported.
+* Source Azure Data Explorer cluster is EngineV2 and target is EngineV3, or vice versa. Sharing between Azure Data Explorer clusters of different engine versions isn't supported.
 
 ## Next steps
 

@@ -4,7 +4,7 @@ description: include file
 author: v-dalc
 services: storage
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: include
 ms.date: 11/11/2021
 ms.author: alkohli

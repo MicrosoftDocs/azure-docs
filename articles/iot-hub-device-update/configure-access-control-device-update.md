@@ -1,7 +1,7 @@
 ---
-title: Configure Access Control in Device Update for IoT Hub | Microsoft Docs
+title: Configure Access Control in Device Update for IoT Hub
 description: Configure Access Control in Device Update for IoT Hub.
-author: eshashah
+author: eshashah-msft
 ms.author: eshashah
 ms.date: 10/31/2022
 ms.topic: how-to

@@ -24,6 +24,9 @@ Azure Cosmos DB offers several preview features that you can request access to. 
 
 :::image type="content" source="./mongodb/media/indexing/unique-reindex-preview.png" alt-text="Screenshot of steps to enable preview feature" lightbox="./mongodb/media/indexing/unique-reindex-preview.png":::
 
+> [!TIP]
+> If your request is stuck in the **Pending** state for an abnormal amount of time, [create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
+
 ## Next steps
 
 - Learn [how to choose an API](choose-api.md) in Azure Cosmos DB

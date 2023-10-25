@@ -6,10 +6,10 @@ author: jonels-msft
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: how-to
-ms.date: 12/06/2021
+ms.date: 01/30/2023
 ---
 
-# Determine table and relation size
+# Determine table and relation size in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
@@ -44,23 +44,23 @@ provides helper functions to query this information.
 <td>citus_table_size(relation_name)</td>
 <td><ul>
 <li><p>citus_relation_size plus:</p>
-<blockquote>
+
 <ul>
 <li>size of <a href="https://www.postgresql.org/docs/current/static/storage-fsm.html">free space map</a></li>
 <li>size of <a href="https://www.postgresql.org/docs/current/static/storage-vm.html">visibility map</a></li>
 </ul>
-</blockquote></li>
+</li>
 </ul></td>
 </tr>
 <tr class="odd">
 <td>citus_total_relation_size(relation_name)</td>
 <td><ul>
 <li><p>citus_table_size plus:</p>
-<blockquote>
+
 <ul>
 <li>size of indices</li>
 </ul>
-</blockquote></li>
+</li>
 </ul></td>
 </tr>
 </tbody>

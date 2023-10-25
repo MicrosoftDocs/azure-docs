@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Perform a news search with PHP and the Bing News Search REST API"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Use this quickstart to send a request to the Bing News Search REST API using PHP, and receive a JSON response.
 services: cognitive-services
 author: aahill
@@ -15,7 +15,7 @@ ms.custom: seodec2018, mode-api
 ---
 # Quickstart: Perform a news search using PHP and the Bing News Search REST API
 
-[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
 
 Use this quickstart to make your first call to the Bing News Search API. This simple PHP application sends a search query to the API and displays the JSON response.
 
@@ -27,7 +27,7 @@ Although this application is written in PHP, the API is a RESTful Web service co
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
-For more information, see [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+For more information, see [Azure AI services pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## Run the application
 
@@ -37,7 +37,7 @@ To run this application, follow these steps:
 2. Create a new PHP project in your favorite IDE or editor.
 3. Add the code provided below.
 4. Replace the `accessKey` value with an access key valid for your subscription.
-5. You can use the global endpoint in the following code, or use the [custom subdomain](../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+5. You can use the global endpoint in the following code, or use the [custom subdomain](../../ai-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 6. Run the program.
 
 ```php

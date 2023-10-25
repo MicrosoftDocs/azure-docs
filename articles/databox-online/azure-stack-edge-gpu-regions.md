@@ -55,7 +55,7 @@ In general, choose the nearest region to your service for your storage account. 
 
 ## Region of device
 
-To find out the countries and geographic regions where Azure Stack Edge models are available, see the product overview:
+To find out the countries/regions where Azure Stack Edge models are available, see the product overview:
 
 - [Region availability for Azure Stack Edge Pro with GPU](azure-stack-edge-gpu-overview.md#region-availability)
 - [Region availability for Azure Stack Edge Pro R](azure-stack-edge-pro-r-overview.md#region-availability)

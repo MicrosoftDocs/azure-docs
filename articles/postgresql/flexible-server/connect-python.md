@@ -7,7 +7,7 @@ ms.topic: quickstart
 ms.author: sunila
 author: sunilagarwal
 ms.devlang: python
-ms.custom: mvc, mode-api
+ms.custom: mvc, mode-api, devx-track-python
 ms.date: 11/30/2021
 ---
 

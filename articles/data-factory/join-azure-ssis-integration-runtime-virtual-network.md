@@ -4,15 +4,14 @@ description: Learn how to join Azure-SSIS integration runtime to a virtual netwo
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 08/12/2022
+ms.date: 07/20/2023
 author: chugugrace
 ms.author: chugu 
-ms.custom: devx-track-azurepowershell
 ---
 
 # Join Azure-SSIS integration runtime to a virtual network
 
-[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 When using SQL Server Integration Services (SSIS) in Azure Data Factory (ADF), you should join your Azure-SSIS integration runtime (IR) to a virtual network in the following scenarios:
 

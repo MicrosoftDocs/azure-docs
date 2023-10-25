@@ -120,10 +120,10 @@ To try out an end-to-end IoT solution, check out the IoT Hub quickstarts:
 
 - [Send telemetry from a device to IoT Hub](quickstart-send-telemetry-cli.md)
 - [Send telemetry from an IoT Plug and Play device to IoT Hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json)
-- [Control a device connected to an IoT hub](quickstart-control-device.md)
+- [Quickstart: Control a device connected to an IoT hub](quickstart-control-device.md)
 
 To learn more about the ways you can build and deploy IoT solutions with Azure IoT, visit:
 
 - [What is Azure IoT device and application development](../iot-develop/about-iot-develop.md)
-- [Fundamentals: Azure IoT technologies and solutions](../iot-fundamentals/iot-services-and-technologies.md)
+- [Fundamentals: Azure IoT technologies and solutions](../iot/iot-services-and-technologies.md)
 

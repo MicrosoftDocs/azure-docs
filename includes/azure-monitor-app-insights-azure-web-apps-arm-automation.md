@@ -5,14 +5,14 @@ ms.author: lagayhar
 author: lgayhardt
 services: azure-monitor
 ms.subservice: application-insights
-ms.custom: "devx-track-azurepowershell"
+ms.custom:
 ---
 
 ### App Service application settings with Azure Resource Manager
 
 Application settings for Azure App Service can be managed and configured with [Azure Resource Manager templates](../articles/azure-resource-manager/templates/syntax.md). You can use this method when you deploy new App Service resources with Resource Manager automation or modify the settings of existing resources.
 
-The basic structure of the application settings JSON for an app service:
+The basic structure of the application settings JSON for an App Service resource:
 
 ```JSON
       "resources": [
@@ -34,9 +34,9 @@ The basic structure of the application settings JSON for an app service:
       ]
 ```
 
-For an example of a Resource Manager template with application settings configured for Application Insights, see this [template](https://github.com/Andrew-MSFT/BasicImageGallery) can be helpful. Specifically, see the section that starts on [line 238](https://github.com/Andrew-MSFT/BasicImageGallery/blob/c55ada54519e13ce2559823c16ca4f97ddc5c7a4/CoreImageGallery/Deploy/CoreImageGalleryARM/azuredeploy.json#L238).
+For an example of a Resource Manager template with application settings configured for Application Insights, this [template](https://github.com/Andrew-MSFT/BasicImageGallery) can be helpful. Specifically, see the section that starts on [line 238](https://github.com/Andrew-MSFT/BasicImageGallery/blob/c55ada54519e13ce2559823c16ca4f97ddc5c7a4/CoreImageGallery/Deploy/CoreImageGalleryARM/azuredeploy.json#L238).
 
-### Automate the creation of an Application Insights resource and link to your newly created App Service
+### Automate the creation of an Application Insights resource and link to your newly created App Service resource
 
 To create a Resource Manager template with all the default Application Insights settings configured, begin the process as if you were going to create a new web app with Application Insights enabled.
 

@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: article
-ms.date: 09/14/2020
+ms.date: 01/11/2023
 ms.author: victorh
 ---
 
@@ -44,4 +44,6 @@ The following table compares these two architecture options and can help you dec
 ## Next steps
 
 - Review [Azure Firewall Manager deployment overview](deployment-overview.md)
-- Learn about [secured Virtual Hubs](secured-virtual-hub.md).
+- [Learn about secured Virtual Hubs](secured-virtual-hub.md)
+- [Learn more about Azure network security](../networking/security/index.yml)
+

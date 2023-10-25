@@ -1,13 +1,13 @@
 ---
 title: Create and deploy applications in Azure Spring Apps by using PowerShell
 description: How to create and deploy applications in Azure Spring Apps by using PowerShell
-author: karlerickson
+author: KarlErickson
 ms.author: karler
 ms.topic: conceptual
 ms.service: spring-apps
 ms.devlang: azurepowershell
 ms.date: 2/15/2022
-ms.custom: devx-track-azurepowershell, event-tier1-build-2022
+ms.custom: devx-track-azurepowershell, event-tier1-build-2022, devx-track-java
 ---
 
 # Create and deploy applications by using PowerShell
@@ -15,7 +15,7 @@ ms.custom: devx-track-azurepowershell, event-tier1-build-2022
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
 This article describes how you can create an instance of Azure Spring Apps by using the [Az.SpringCloud](/powershell/module/Az.SpringCloud) PowerShell module.
 
@@ -76,10 +76,11 @@ New-AzSpringCloudApp -ResourceGroupName <resource group name> -ServiceName <serv
 
 To create a new app Deployment, you use the
 [New-AzSpringCloudAppDeployment](/powershell/module/az.springcloud/new-azspringcloudappdeployment)
-cmdlet. The following example creates an app deployment in Azure Spring Apps named `default`, for the `gateway` app.
+cmdlet. The following example creates an app deployment in Azure Spring Apps named `default` with an empty welcome application, for the `gateway` app.
 
 ```azurepowershell-interactive
-New-AzSpringCloudAppDeployment -ResourceGroupName <resource group name> -Name <service instance name> -AppName gateway -DeploymentName default
+$welcomeApplication = New-AzSpringCloudAppDeploymentJarUploadedObject -RuntimeVersion "Java_11"
+New-AzSpringCloudAppDeployment -ResourceGroupName <resource group name> -ServiceName <service instance name> -AppName gateway -Name default -Source $welcomeApplication
 ```
 
 ## Get a service and its properties

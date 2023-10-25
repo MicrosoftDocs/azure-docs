@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: tutorial
-ms.date: 10/08/2020
+ms.date: 06/30/2023
 ms.author: duau 
 ms.custom: devx-track-azurepowershell
 
@@ -24,13 +24,15 @@ This tutorial helps you create and manage routing configuration for an ExpressRo
 > * [PowerShell (classic)](expressroute-howto-routing-classic.md)
 > 
 
-These instructions only apply to circuits created with service providers offering Layer 2 connectivity services. If you're using a service provider that offers managed Layer 3 services (typically an IPVPN, like MPLS), your connectivity provider will configure and manage routing for you.
+These instructions only apply to circuits created with service providers offering Layer 2 connectivity services. If you're using a service provider that offers managed Layer 3 services, typically an IPVPN, like MPLS, your connectivity provider configures and manages network routing for you.
 
 > [!IMPORTANT]
 > We currently do not advertise peerings configured by service providers through the service management portal. We are working on enabling this capability soon. Check with your service provider before configuring BGP peerings.
 > 
 
 You can configure private peering and Microsoft peering for an ExpressRoute circuit (Azure public peering is deprecated for new circuits). Peerings can be configured in any order you choose. However, you must make sure that you complete the configuration of each peering one at a time. For more information about routing domains and peerings, see [ExpressRoute routing domains](expressroute-circuit-peerings.md). For information about public peering, see [ExpressRoute public peering](about-public-peering.md).
+
+:::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/expressroute-network.png" alt-text="Diagram showing an on-premises network connected to the Microsoft cloud through an ExpressRoute circuit.":::
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -163,7 +165,7 @@ This section helps you create, get, update, and delete the Azure private peering
 
 1. Import the PowerShell module for ExpressRoute.
 
-   Install the latest PowerShell installer from [PowerShell Gallery](https://www.powershellgallery.com/). Then import the Azure Resource Manager modules into the PowerShell session in order to start using the ExpressRoute cmdlets. You'll need to run PowerShell as an Administrator.
+   Install the latest PowerShell installer from [PowerShell Gallery](https://www.powershellgallery.com/). Then import the Azure Resource Manager modules into the PowerShell session in order to start using the ExpressRoute cmdlets. You need to run PowerShell as an Administrator.
 
    ```azurepowershell-interactive
    Install-Module Az
@@ -229,7 +231,7 @@ This section helps you create, get, update, and delete the Azure private peering
    ```
 4. Configure Azure private peering for the circuit. Make sure that you have the following items before you continue with the next steps:
 
-   * A pair of subnets that are not part of any address space reserved for virtual networks. One subnet will be used for the primary link, while the other will be used for the secondary link. From each of these subnets, you will assign the first usable IP address to your router as Microsoft uses the second usable IP for its router. You have three options for this pair of subnets:
+   * A pair of subnets that aren't part of any address space reserved for virtual networks. One subnet is used for the primary link, while the other is used for the secondary link. From each of these subnets, you assign the first usable IP address to your router as Microsoft uses the second usable IP for its router. You have three options for this pair of subnets:
        * IPv4: Two /30 subnets.
        * IPv6: Two /126 subnets.
        * Both: Two /30 subnets and two /126 subnets.

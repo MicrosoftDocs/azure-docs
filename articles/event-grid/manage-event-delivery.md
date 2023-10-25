@@ -119,7 +119,7 @@ az eventgrid event-subscription create \
 ```
 
 > [!NOTE]
-> If you set both `event-ttl` and `max-deliver-attempts`, Event Grid uses the first to expire to determine when to stop event delivery. For example, if you set 30 minutes as time-to-live (TTL) and 10 max delivery attempts. When an event isn't delivered after 30 minutes (or) isn't delivered after 10 attempts, whichever happens first, the event is dead-lettered.  
+> If you set both `event-ttl` and `max-deliver-attempts`, Event Grid uses the first to expire to determine when to stop event delivery. For example, if you set 30 minutes as time-to-live (TTL) and 5 max delivery attempts. When an event isn't delivered after 30 minutes (or) isn't delivered after 5 attempts, whichever happens first, the event is dead-lettered. If you set max delivery attempts to 10, with respect to [exponential retry schedule](delivery-and-retry.md#retry-schedule), max 6 number of delivery attempts happen before 30 minutes TTL will be reached, therefore setting max number of attempts to 10 will have no impact in this case and events will be dead-lettered after 30 minutes.
 
 ### PowerShell
 
@@ -148,7 +148,7 @@ New-AzEventGridSubscription `
 ```
 
 > [!NOTE]
-> If you set both `event-ttl` and `max-deliver-attempts`, Event Grid uses the first to expire to determine when to stop event delivery. For example, if you set 30 minutes as time-to-live (TTL) and 10 max delivery attempts. When an event isn't delivered after 30 minutes (or) isn't delivered after 10 attempts, whichever happens first, the event is dead-lettered.  
+> If you set both `event-ttl` and `max-deliver-attempts`, Event Grid uses the first to expire to determine when to stop event delivery. For example, if you set 30 minutes as time-to-live (TTL) and 5 max delivery attempts. When an event isn't delivered after 30 minutes (or) isn't delivered after 5 attempts, whichever happens first, the event is dead-lettered. If you set max delivery attempts to 10, with respect to [exponential retry schedule](delivery-and-retry.md#retry-schedule), max 6 number of delivery attempts happen before 30 minutes TTL will be reached, therefore setting max number of attempts to 10 will have no impact in this case and events will be dead-lettered after 30 minutes. 
 
 ## Next steps
 

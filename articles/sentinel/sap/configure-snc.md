@@ -103,7 +103,28 @@ This section explains how to import a certificate so that it's trusted by your A
 
 1. Ensure **Entry for RFC activated** and **Entry for certificate activated** checkboxes are marked, then select **Save**.
 
+### Map users of the ABAP service provider to external user IDs
+
+1. Run the **SM30** transaction.
+
+1. In the **Table/View** field, type **VUSREXTID**, then select **Maintain**. 
+
+1. In the **Determine Work Area: Entry** page, select the **DN** ID type as the **Work Area**. 
+
+1. Type these details:
+
+    - **External ID**: *CN=Sentinel*, *C=US*
+    - **Seq. No**: *000*
+    - **User**: *SENTINEL*
+
+1. Select **Save** and **Enter**. 
+
+    :::image type="content" source="media/configure-snc/vusrextid-table-configuration.png" alt-text="Screenshot of configuring the SAP VUSREXTID table.":::
+
 ### Set up the container
+
+> [!NOTE]
+> If you set up the SAP data connector agent container via the UI, don't perform the steps in this section. Continue to set up the connector [in the connector page](deploy-data-connector-agent-container.md) instead.
 
 1. Transfer the **libsapcrypto.so** and **sapgenpse** files to the target system where the container will be created.
 
@@ -177,29 +198,27 @@ For additional information on options available in the kickstart script, review 
 
 ## Next steps
 
-Learn more about the Microsoft Sentinel Solution for SAP:
+Learn more about the Microsoft Sentinel solution for SAP® applications:
 
-- [Deploy Microsoft Sentinel Solution for SAP](deployment-overview.md)
-- [Prerequisites for deploying Microsoft Sentinel Solution for SAP](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
+- [Deploy Microsoft Sentinel solution for SAP® applications](deployment-overview.md)
+- [Prerequisites for deploying Microsoft Sentinel solution for SAP® applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
 - [Deploy SAP Change Requests (CRs) and configure authorization](preparing-sap.md)
+- [Deploy the solution content from the content hub](deploy-sap-security-content.md)
 - [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md)
-- [Deploy SAP security content](deploy-sap-security-content.md)
-- [Deploy the Microsoft Sentinel Solution for SAP](configure-snc.md)
 - [Enable and configure SAP auditing](configure-audit.md)
+- [Monitor the health of your SAP system](../monitor-sap-system-health.md)
 - [Collect SAP HANA audit logs](collect-sap-hana-audit-logs.md)
 
 Troubleshooting:
 
-- [Troubleshoot your Microsoft Sentinel Solution for SAP deployment](sap-deploy-troubleshoot.md)
-- [Configure SAP Transport Management System](configure-transport.md)
+- [Troubleshoot your Microsoft Sentinel solution for SAP® applications deployment](sap-deploy-troubleshoot.md)
 
 Reference files:
 
-- [Microsoft Sentinel Solution for SAP data reference](sap-solution-log-reference.md)
-- [Microsoft Sentinel Solution for SAP: security content reference](sap-solution-security-content.md)
+- [Microsoft Sentinel solution for SAP® applications data reference](sap-solution-log-reference.md)
+- [Microsoft Sentinel solution for SAP® applications: security content reference](sap-solution-security-content.md)
 - [Kickstart script reference](reference-kickstart.md)
 - [Update script reference](reference-update.md)
 - [Systemconfig.ini file reference](reference-systemconfig.md)
 
 For more information, see [Microsoft Sentinel solutions](../sentinel-solutions.md).
-

@@ -6,7 +6,7 @@ ms.reviewer: nitinarora
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 08/24/2022
+ms.date: 12/06/2022
 ms.author: banders
 ---
 
@@ -70,7 +70,7 @@ Like Reserved VM Instances, Virtual machine software reservation purchases offer
 
 ## Self-service cancellation and exchanges
 
-You can't exchange a Virtual machine software reservation that you bought yourself. You can however, cancel the reservation within 72 hours of purchase. The [cancellation limit](exchange-and-refund-azure-reservations.md#cancel-exchange-and-refund-policies) applies.
+You can't exchange a Virtual machine software reservation that you bought yourself. You can, however, cancel the reservation within 72 hours of purchase for a full refund. The [cancellation limit](exchange-and-refund-azure-reservations.md#cancel-exchange-and-refund-policies) applies. Please note that any reservations purchased via a private offer from an ISV cannot be canceled at any time. 
 
 Check your usage before purchasing to make sure you buy the right software reservation.
 

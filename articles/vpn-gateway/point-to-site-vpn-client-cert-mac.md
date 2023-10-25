@@ -1,19 +1,25 @@
 ---
-title: 'Configure P2S VPN clients -certificate authentication - macOS and iOS'
+title: 'Configure P2S VPN clients - certificate authentication - macOS and iOS'
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure the VPN client for VPN Gateway P2S configurations that use certificate authentication. This article applies to macOS and iOS.
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 07/28/2022
+ms.date: 02/03/2023
 ms.author: cherylmc
 ---
 
-# Configure point-to-site VPN clients - certificate authentication - macOS and iOS
+# Configure point-to-site VPN clients: certificate authentication - macOS and iOS
 
-When you connect to an Azure virtual network (VNet) using VPN Gateway point-to-site (P2S), IKEv2, and certificate authentication, you use the VPN client that is natively installed on the operating system from which you’re connecting. For OpenVPN connections, you use an OpenVPN client. All of the necessary configuration settings for the VPN clients are contained in a VPN client configuration zip file. The settings in the zip file help you easily configure the VPN clients macOS.
+This article helps you connect to your Azure virtual network (VNet) using VPN Gateway point-to-site (P2S) and **Certificate authentication**. There are multiple sets of steps in this article, depending on the tunnel type you selected for your P2S configuration, the operating system, and the VPN client that is used to connect.
 
-The VPN client configuration files that you generate are specific to the P2S VPN gateway configuration for the virtual network. If there are any changes to the P2S VPN configuration after you generate the files, such as changes to the VPN protocol type or authentication type, you need to generate new VPN client configuration files and apply the new configuration to all of the VPN clients that you want to connect. For more information about P2S connections, see [About point-to-site VPN](point-to-site-about.md).
+Note the following when working with certificate authentication:
+
+* For the IKEv2 tunnel type, you can connect using the VPN client that is natively installed on the macOS system.
+
+* For the OpenVPN tunnel type, you can use an OpenVPN client.
+
+* The Azure VPN Client isn't available for macOS and iOS when using certificate authentication, even if you selected the OpenVPN tunnel type for your P2S configuration.
 
 ## Before you begin
 
@@ -24,32 +30,31 @@ Before beginning, verify that you are on the correct article. The following tabl
 >[!IMPORTANT]
 >[!INCLUDE [TLS](../../includes/vpn-gateway-tls-change.md)]
 
+## Generate certificates
+
+For certificate authentication, a client certificate must be installed on each client computer. The client certificate you want to use must be exported with the private key, and must contain all certificates in the certification path. Additionally, for some configurations, you'll also need to install root certificate information.
+
+For information about working with certificates, see [Point-to site: Generate certificates - Linux](vpn-gateway-certificates-point-to-site.md).
+
 ## Generate VPN client configuration files
 
-You can generate client configuration files using PowerShell, or by using the Azure portal. Either method returns the same zip file.
+All of the necessary configuration settings for the VPN clients are contained in a VPN client profile configuration zip file. You can generate client profile configuration files using PowerShell, or by using the Azure portal. Either method returns the same zip file.
 
-### Generate files using the Azure portal
+The VPN client profile configuration files that you generate are specific to the P2S VPN gateway configuration for the virtual network. If there are any changes to the P2S VPN configuration after you generate the files, such as changes to the VPN protocol type or authentication type, you need to generate new VPN client profile configuration files and apply the new configuration to all of the VPN clients that you want to connect. For more information about P2S connections, see [About point-to-site VPN](point-to-site-about.md).
 
-1. In the Azure portal, navigate to the virtual network gateway for the virtual network that you want to connect to.
-1. On the virtual network gateway page, select **Point-to-site configuration** to open the Point-to-site configuration page.
-1. At the top of the Point-to-site configuration page, select **Download VPN client**. This doesn't download VPN client software, it generates the configuration package used to configure VPN clients. It takes a few minutes for the client configuration package to generate. During this time, you may not see any indications until the packet has generated.
+To generate files using the Azure portal:
 
-   :::image type="content" source="./media/point-to-site-vpn-client-cert-mac/download-configuration.png" alt-text="Download the VPN client configuration." lightbox="./media/point-to-site-vpn-client-cert-mac/download-configuration.png":::
-1. Once the configuration package has been generated, your browser indicates that a client configuration zip file is available. It's named the same name as your gateway. Unzip the file to view the folders.
+[!INCLUDE [Generate profile configuration files - Azure portal](../../includes/vpn-gateway-generate-profile-portal.md)]
 
-### Generate files using PowerShell
+Next, configure the VPN client. Select from the following instructions:
 
-1. When generating VPN client configuration files, the value for '-AuthenticationMethod' is 'EapTls'. Generate the VPN client configuration files using the following command:
+* [IKEv2: native VPN client - macOS steps](#ikev2-native-vpn-client---macos-steps)
+* [OpenVPN: macOS steps](#openvpn-macos-steps)
+* [OpenVPN: iOS steps](#openvpn-ios-steps)
 
-   ```azurepowershell-interactive
-   $profile=New-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapTls"
+## IKEv2: native VPN client - macOS steps
 
-   $profile.VPNProfileSASUrl
-   ```
-
-1. Copy the URL to your browser to download the zip file, then unzip the file to view the folders.
-
-## IKEv2 - native client - macOS steps
+The following sections help you configure the native VPN client that is already installed as part of macOS. This type of connection works over IKEv2 only.
 
 ### View files
 
@@ -84,7 +89,7 @@ Verify that both the client and the root certificate are installed.
 1. Open **Keychain Access**.
 1. Go to the **Certificates** tab.
 1. Verify that both the client and the root certificate are installed.
-  
+
 ### Configure VPN client profile
 
 1. Go to **System Preferences -> Network**. On the Network page, click **'+'** to create a new VPN client connection profile for a P2S connection to the Azure virtual network.
@@ -155,17 +160,17 @@ If you're using Catalina, use these authentication settings steps:
 
    :::image type="content" source="./media/point-to-site-vpn-client-cert-mac/mac/connected.png" alt-text="Screenshot shows Connected." lightbox="./media/point-to-site-vpn-client-cert-mac/mac/connected.png":::
 
-## OpenVPN Client - macOS steps
+## OpenVPN: macOS steps
 
 The following example uses **TunnelBlick**.
 
->[!INCLUDE [OpenVPN Mac](../../includes/vpn-gateway-vwan-config-openvpn-mac.md)]
+[!INCLUDE [OpenVPN Mac](../../includes/vpn-gateway-vwan-config-openvpn-mac.md)]
 
-## OpenVPN Client - iOS steps
+## OpenVPN: iOS steps
 
 The following example uses **OpenVPN Connect** from the App store.
 
->[!INCLUDE [OpenVPN iOS](../../includes/vpn-gateway-vwan-config-openvpn-ios.md)]
+[!INCLUDE [OpenVPN iOS](../../includes/vpn-gateway-vwan-config-openvpn-ios.md)]
 
 ## Next steps
 

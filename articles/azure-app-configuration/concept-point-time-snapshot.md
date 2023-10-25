@@ -1,16 +1,17 @@
 ---
 title: Retrieve key-values from a point-in-time
 titleSuffix: Azure App Configuration
-description: Retrieve old key-value pairs using point-in-time snapshots in Azure App Configuration, which maintains a record of changes to key-values.
+description: Retrieve old key-values using point-in-time revisions in Azure App Configuration, which maintains a record of changes to key-values.
 services: azure-app-configuration
 author: maud-lv
 ms.author: malev
 ms.service: azure-app-configuration
+ms.custom: devx-track-azurecli
 ms.topic: conceptual
-ms.date: 03/14/2022
+ms.date: 05/24/2023
 ---
 
-# Point-in-time snapshot
+# Point-in-time key-values
 
 Azure App Configuration maintains a record of changes made to key-values. This record provides a timeline of key-value changes. You can reconstruct the history of any key and provide its past value at any moment within the key history period (7 days for Free tier stores, or 30 days for Standard tier stores). Using this feature, you can “time-travel” backward and retrieve an old key-value. For example, you can recover configuration settings used before the most recent deployment in order to roll back the application to the previous configuration.
 

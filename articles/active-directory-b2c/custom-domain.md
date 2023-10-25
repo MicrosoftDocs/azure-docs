@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/26/2022
+ms.date: 11/3/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -20,7 +20,11 @@ zone_pivot_groups: b2c-policy-type
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
-This article describes how to enable custom domains in your redirect URLs for Azure Active Directory B2C (Azure AD B2C). Using a custom domain with your application provides a more seamless user experience. From the user's perspective, they remain in your domain during the sign in process rather than redirecting to the Azure AD B2C default domain *&lt;tenant-name&gt;.b2clogin.com*.
+This article describes how to enable custom domains in your redirect URLs for Azure Active Directory B2C (Azure AD B2C). By using a verified custom domain, you've benefits such as: 
+
+- It provides a more seamless user experience. From the user's perspective, they remain in your domain during the sign in process rather than redirecting to the Azure AD B2C default domain *&lt;tenant-name&gt;.b2clogin.com*.
+
+- You increase the number of objects (user accounts and applications) you can create in your Azure AD B2C tenant from the default 1.25 million to 5.25 million. 
 
 ![Screenshot demonstrates an Azure AD B2C custom domain user experience.](./media/custom-domain/custom-domain-user-experience.png)
 
@@ -47,7 +51,7 @@ The following diagram illustrates Azure Front Door integration:
 
 When using custom domains, consider the following:
 
-- You can set up multiple custom domains. For the maximum number of supported custom domains, see [Azure AD service limits and restrictions](../active-directory/enterprise-users/directory-service-limits-restrictions.md) for Azure AD B2C and [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-front-door-classic-limits) for Azure Front Door.
+- You can set up multiple custom domains. For the maximum number of supported custom domains, see [Microsoft Entra service limits and restrictions](../active-directory/enterprise-users/directory-service-limits-restrictions.md) for Azure AD B2C and [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-front-door-classic-limits) for Azure Front Door.
 - Azure Front Door is a separate Azure service, so extra charges will be incurred. For more information, see [Front Door pricing](https://azure.microsoft.com/pricing/details/frontdoor).
 - After you configure custom domains, users will still be able to access the Azure AD B2C default domain name *&lt;tenant-name&gt;.b2clogin.com* (unless you're using a custom policy and you [block access](#optional-block-access-to-the-default-domain-name).
 - If you have multiple applications, migrate them all to the custom domain because the browser stores the Azure AD B2C session under the domain name currently being used.
@@ -57,18 +61,18 @@ When using custom domains, consider the following:
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
 
-## Step 1. Add a custom domain name to your Azure AD B2C tenant
+## Step 1: Add a custom domain name to your Azure AD B2C tenant
 
 Every new Azure AD B2C tenant comes with an initial domain name, &lt;domainname&gt;.onmicrosoft.com. You can't change or delete the initial domain name, but you can add a custom domain. 
 
 Follow these steps to add a custom domain to your Azure AD B2C tenant:
 
-1. [Add your custom domain name to Azure AD](../active-directory/fundamentals/add-custom-domain.md#add-your-custom-domain-name-to-azure-ad).
+1. [Add your custom domain name to Microsoft Entra ID](../active-directory/fundamentals/add-custom-domain.md#add-your-custom-domain-name).
 
     > [!IMPORTANT]
-    > For these steps, be sure to sign in to your **Azure AD B2C** tenant and select the **Azure Active Directory** service.
+    > For these steps, be sure to sign in to your **Azure AD B2C** tenant and select the **Microsoft Entra ID** service.
 
-1. [Add your DNS information to the domain registrar](../active-directory/fundamentals/add-custom-domain.md#add-your-dns-information-to-the-domain-registrar). After you add your custom domain name to Azure AD, create a DNS `TXT`, or `MX` record for your domain. Creating this DNS record for your domain verifies ownership of your domain name.
+1. [Add your DNS information to the domain registrar](../active-directory/fundamentals/add-custom-domain.md#add-your-dns-information-to-the-domain-registrar). After you add your custom domain name to Microsoft Entra ID, create a DNS `TXT`, or `MX` record for your domain. Creating this DNS record for your domain verifies ownership of your domain name.
 
     The following examples demonstrate TXT records for *login.contoso.com* and *account.contoso.com*:
 
@@ -77,7 +81,7 @@ Follow these steps to add a custom domain to your Azure AD B2C tenant:
     |login   | TXT  | MS=ms12345678  |
     |account | TXT  | MS=ms87654321  |
     
-    The TXT record must be associated with the subdomain, or hostname of the domain. For example, the *login* part of the *contoso.com* domain. If the hostname is empty or `@`, Azure AD won't be able to verify the custom domain you added. In the following examples, both records are configured incorrectly.
+    The TXT record must be associated with the subdomain, or hostname of the domain. For example, the *login* part of the *contoso.com* domain. If the hostname is empty or `@`, Microsoft Entra ID won't be able to verify the custom domain you added. In the following examples, both records are configured incorrectly.
     
     |Name (hostname)  |Type  |Data  |
     |---------|---------|---------|
@@ -93,7 +97,7 @@ Follow these steps to add a custom domain to your Azure AD B2C tenant:
     > After the domain is verified, **delete** the DNS TXT record you created.
 
     
-## Step 2. Create a new Azure Front Door instance
+## Step 2: Create a new Azure Front Door instance
 
 Follow these steps to create an Azure Front Door:
 
@@ -103,7 +107,7 @@ Follow these steps to create an Azure Front Door:
     
     1. Select the **Directories + subscriptions** icon in the portal toolbar.
     
-    1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD directory in the **Directory name** list, and then select **Switch** button next to the directory. 
+    1. On the **Portal settings | Directories + subscriptions** page, find your Microsoft Entra directory in the **Directory name** list, and then select **Switch** button next to the directory. 
     
 1. Follow the steps in [Create Front Door profile - Quick Create](../frontdoor/create-front-door-portal.md#create-front-door-profile---quick-create) to create a Front Door for your Azure AD B2C tenant using the following settings: 
 
@@ -116,7 +120,7 @@ Follow these steps to create an Azure Front Door:
     |Tier| Select either Standard or Premium tier. Standard tier is content delivery optimized. Premium tier builds on Standard tier and is focused on security. See [Tier Comparison](../frontdoor/standard-premium/tier-comparison.md).|
     |Endpoint name| Enter a globally unique name for your endpoint, such as `b2cazurefrontdoor`. The **Endpoint hostname** is generated automatically. |
     |Origin type| Select `Custom`.|
-    |Origin host name| Enter `<tenant-name>.b2clogin.com`. Replace `<tenant-name>` with the [name of your Azure AD B2C tenant](tenant-management.md#get-your-tenant-name) such as `contoso.b2clogin.com`.|
+    |Origin host name| Enter `<tenant-name>.b2clogin.com`. Replace `<tenant-name>` with the [name of your Azure AD B2C tenant]( tenant-management-read-tenant-name.md#get-your-tenant-name) such as `contoso.b2clogin.com`.|
     
     Leave the **Caching** and **WAF policy** empty.
 
@@ -132,7 +136,7 @@ Follow these steps to create an Azure Front Door:
     :::image type="content" source="./media/custom-domain/azure-front-door-custom-domain-origins.png" alt-text="Screenshot of how to update custom domain origins.":::
 
 
-## Step 3. Set up your custom domain on Azure Front Door
+## Step 3: Set up your custom domain on Azure Front Door
 
 In this step, you add the custom domain you registered in [Step 1](#step-1-add-a-custom-domain-name-to-your-azure-ad-b2c-tenant) to your Azure Front Door. 
 
@@ -209,7 +213,7 @@ The **default-route** routes the traffic from the client to Azure Front Door. Th
 1. Select the **Enable route** checkbox.
 1. Select **Update** to save the changes.
 
-## Step 4. Configure CORS
+## Step 4: Configure CORS
 
 If you [customize the Azure AD B2C user interface](customize-ui-with-html.md) with an HTML template, you need to [Configure CORS](customize-ui-with-html.md?pivots=b2c-user-flow.md#3-configure-cors) with your custom domain.
 
@@ -339,7 +343,7 @@ https://<domain-name>/11111111-1111-1111-1111-111111111111/v2.0/
 
 After you add the custom domain and configure your application, users will still be able to access the &lt;tenant-name&gt;.b2clogin.com domain. To prevent access, you can configure the policy to check the authorization request "host name" against an allowed list of domains. The host name is the domain name that appears in the URL. The host name is available through `{Context:HostName}` [claim resolvers](claim-resolver-overview.md). Then you can present a custom error message. 
 
-1. Get the example of a conditional access policy that checks the host name from [GitHub](https://github.com/azure-ad-b2c/samples/blob/master/policies/check-host-name).
+1. Get the example of a conditional access policy that checks the host name from [GitHub](https://github.com/azure-ad-b2c/samples/tree/master/policies/check-host-name).
 1. In each file, replace the string `yourtenant` with the name of your Azure AD B2C tenant. For example, if the name of your B2C tenant is *contosob2c*, all instances of `yourtenant.onmicrosoft.com` become `contosob2c.onmicrosoft.com`.
 1. Upload the policy files in the following order: `B2C_1A_TrustFrameworkExtensions_HostName.xml` and then `B2C_1A_signup_signin_HostName.xml`.
 
@@ -348,7 +352,7 @@ After you add the custom domain and configure your application, users will still
 
 ## (Optional) Azure Front Door advanced configuration
 
-You can use Azure Front Door advanced configuration, such as [Azure Web Application Firewall (WAF)](partner-azure-web-application-firewall.md). Azure WAF provides centralized protection of your web applications from common exploits and vulnerabilities.
+You can use Azure Front Door advanced configuration, such as [Azure Web Application Firewall (WAF)](partner-web-application-firewall.md). Azure WAF provides centralized protection of your web applications from common exploits and vulnerabilities.
 
 When using custom domains, consider the following points:
 
@@ -376,7 +380,7 @@ When using custom domains, consider the following points:
 ### Azure AD B2C returns the resource you're looking for has been removed, had its name changed, or is temporarily unavailable.
 
 - **Symptom** - You configure a custom domain, but when you try to sign in with the custom domain, you get *the resource you are looking for has been removed, had its name changed, or is temporarily unavailable* error message.
-- **Possible causes** - This issue could be related to the Azure AD custom domain verification. 
+- **Possible causes** - This issue could be related to the Microsoft Entra custom domain verification. 
 - **Resolution**:  Make sure the custom domain is [registered and **successfully verified**](#step-1-add-a-custom-domain-name-to-your-azure-ad-b2c-tenant) in your Azure AD B2C tenant.
 
 ### Identify provider returns an error

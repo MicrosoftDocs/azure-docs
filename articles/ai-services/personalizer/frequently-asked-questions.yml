@@ -1,0 +1,128 @@
+### YamlMime:FAQ
+metadata:
+  title: Frequently asked questions - Personalizer
+  description: This article contains answers to frequently asked troubleshooting questions about Personalizer.
+  ms.service: azure-ai-personalizer
+  ms.topic: faq
+  ms.date: 03/14/2022
+  ms.author: jacodel
+  author: jcodella
+  ms.manager: nitinme
+title: Personalizer frequently asked questions
+summary: This article contains answers to frequently asked troubleshooting questions about the Personalizer service.
+
+sections:
+  - name: Single region data residency
+    questions: 
+      - question: |
+          When will Personalizer be deprecated?
+        answer:  |
+          Starting on the 20th of September, 2023 you won’t be able to create new Personalizer resources. The Personalizer service is being retired on the 1st of October, 2026.
+
+      - question: |
+          How is my data replicated in a region with single region data residency? 
+        answer:  |
+          Personalizer doesn't store/process customer data outside the region the customer deploys the service instance in.
+          
+  - name: Configuration issues
+    questions:
+      - question: |
+          I changed a configuration setting and now my loop isn't performing at the same learning level. What happened?
+        answer: |
+          Some configuration settings will [reset your model](how-to-settings.md#settings-that-include-resetting-the-model). Configuration changes should be planned and executed carefully after reading the documentation.
+          
+      - question: |
+          When configuring Personalizer with the API, I received an error. What happened?
+        answer: |
+          If you use a single API request to configure your service and change your learning behavior, you will get an error. You will need to make two separate API calls: first, to configure your service, then to change the learning behavior.
+          
+  - name: Transaction errors
+    questions:
+      - question: |
+          I get an HTTP 429 (Too many requests) response from the service. What can I do?
+        answer: |
+          If you picked a free price tier when you created the Personalizer instance, there is a quota limit on the number of Rank requests that are allowed. Review your API call rate for the Rank API (in the Metrics pane in the Azure portal for your Personalizer resource) and adjust the pricing tier (in the Pricing Tier pane) if your API call volume is expected to increase beyond the threshold for the chosen tier.
+
+      - question: |
+          I'm getting a 5xx error on Rank or Reward APIs. What should I do?
+        answer: |
+          5xx errors should be transient issues. If they continue to occur, please contact support by selecting **New support request** in the **Support + troubleshooting** section, in the Azure portal for your Personalizer resource.
+
+  - name: Learning loop
+    questions:
+      - question: |
+          In Apprentice mode, the learning loop doesn't attain a 100% match to the non-personalized (baseline) policy. How do I fix this?
+        answer: |
+
+          Personalizer's effectiveness in Apprentice mode will rarely achieve near 100% of the application's baseline; and never exceed it.
+          The best practice would be not aim for 100% attainment; but a range of 60% – 80% should be achievable depending on the use case.
+          However, if the learning performance is slow or plateaued below 60%, then the following issues may have occurred:
+          * Not enough features sent with Rank API call
+          * Bugs in the features sent - such as sending non-aggregated feature data such as timestamps to Rank API
+          * Bugs with loop processing - such as not sending reward data to Reward API for events
+          
+          To address these issues, you may need to make adjustments by either changing the features sent to the loop, or ensuring that the reward score is accurately capturing the value of the action returned by the Rank API call.
+          
+      - question: |
+          The learning loop doesn't seem to learn effectively or quickly. How do I fix this?
+        answer: |
+          The learning loop needs a few thousand Reward calls before Rank calls prioritize effectively.
+          
+          If you are unsure about how your learning loop is currently behaving, run an [offline evaluation](concepts-offline-evaluation.md), and apply the corrected learning policy.
+          
+      - question: |
+          I keep getting rank results with all the same probabilities for all items. How do I know Personalizer is learning?
+        answer: |
+          Personalizer returns the same probabilities in a Rank API result when it has just started and has an _empty_ model, or when you reset the Personalizer Loop, and your model is still within your **Model update frequency** period.
+          
+          When the new update period begins, you will see the probabilities change with the updated model results.
+          
+      - question: |
+          The learning loop was learning but seems to not learn anymore, and the quality of the Rank results isn't that good. What should I do?
+        answer: |
+          * Make sure you've completed and applied one evaluation in the Azure portal for that loop.
+          * Make sure all rewards were sent successfully via the Reward API, and processed.
+          
+      - question: |
+          How do I know that the learning loop is getting updated regularly and is used to score my data?
+        answer: |
+          You can find the time when the model was last updated in the **Model and Learning Settings** page of the Azure portal. If you see an old timestamp, it is likely because you are not sending the Rank and Reward calls. If the service has no incoming data, it does not update the learning. If you see the learning loop is not updating frequently enough, you can edit the loop's **Model Update frequency**.
+
+  - name: Offline evaluations
+    questions:
+      - question: |
+          An offline evaluation's feature importance returns a long list with hundreds or thousands of items. What happened?
+        answer: |
+          This is typically due to timestamps, user IDs or some other fine grained features sent in.
+
+      - question: |
+          I created an offline evaluation and it succeeded almost instantly. Why is that? I don't see any results?
+        answer: |
+          The offline evaluation uses the trained model and data from the events that were sent to the Rank/Reward APIs in that time period. If your application did not send any data in between the start and end times of the evaluation, it will complete quickly without any results.
+
+  - name: Learning policy
+    questions:
+      - question: |
+          How do I import a learning policy?
+        answer: |
+          Learn more about [learning policy concepts](concept-active-learning.md#understand-learning-policy-settings) and [how to apply](how-to-manage-model.md) a new learning policy. If you do not want to select a learning policy, you can use the [offline evaluation](how-to-offline-evaluation.md) to suggest a learning policy, based on your current events.
+          
+          
+  - name: Security
+    questions:
+      - question: |
+          What API authentication protocols does Personalizer support?
+        answer: |
+          Personalizer APIs use Microsoft Entra ID, which supports a variety of [authentication and synchronization protocols](../../active-directory/fundamentals/auth-sync-overview.md). 
+      
+      - question: |
+          The API key for my loop has been compromised. What can I do?
+        answer: |
+          You can regenerate one key after swapping your clients to use the other key. Having two keys allows you to propagate the key in a lazy manner without having to have any downtime. For security purposes, we recommend doing this at a regular cadence.
+
+
+additionalContent: |
+
+  ## Next steps
+  
+  [Configure the model update frequency](how-to-settings.md#model-update-frequency)

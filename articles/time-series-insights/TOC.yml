@@ -196,7 +196,7 @@
 - name: Resources
   items:
   - name: Support and help options
-    href: ../iot-fundamentals/iot-support-help.md?toc=/azure/time-series-insights/toc.json&bc=/azure/time-series-insights/breadcrumb/toc.json
+    href: ../iot/iot-support-help.md?toc=/azure/time-series-insights/toc.json&bc=/azure/time-series-insights/breadcrumb/toc.json
   - name: Customer data requests
     href: time-series-insights-customer-data-requests.md
   - name: Developer resources
@@ -222,7 +222,7 @@
     - name: Azure support options
       href: https://azure.microsoft.com/support/options/
     - name: Azure IoT support and help options
-      href: ../iot-fundamentals/iot-support-help.md
+      href: ../iot/iot-support-help.md
     - name: Stack Overflow
       href: https://stackoverflow.com/questions/tagged/azure-timeseries-insights
     - name: MSDN forum

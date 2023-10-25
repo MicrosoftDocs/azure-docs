@@ -3,7 +3,7 @@ author: stevenmatthew
 ms.author: shaas
 ms.topic: include
 ms.date: 09/16/2022
-ms.service: storage-mover
+ms.service: azure-storage-mover
 ---
 
 <!-- 
@@ -27,6 +27,3 @@ ssh <AgentIpAddress> -l admin
 > A newly deployed Storage Mover agent has a default password: </br>**Local user:** admin </br>**Default password:** admin
 
 You're prompted and advised to change the default password immediately after you first connect to a newly deployed agent. Note down the new password, there's no process to recover it. Losing your password locks you out from the administrative shell. Cloud management doesn't require this local admin password. If the agent was previously registered, you can still use it for migration jobs. Agents are disposable. They hold little value beyond the current migration job they're executing. You can always deploy a new agent and use that instead to run the next migration job.
-
-> [!NOTE]
-> Losing the local account password during public preview precludes you from accessing your detailed copy logs.

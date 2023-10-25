@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: quickstart
 ms.tool: azure-powershell
-ms.custom: mvc, contperf-fy21q2, mode-api
+ms.custom: mvc, contperf-fy21q2, mode-api, devx-track-azurepowershell
 ms.date: 08/20/2022
 ---
 
@@ -14,7 +14,7 @@ ms.date: 08/20/2022
 
 [!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
-This quickstart shows how to create and manage automated workflows that run in Azure Logic Apps by using [Azure PowerShell](/powershell/azure/install-az-ps). From PowerShell, you can create a [Consumption logic app](logic-apps-overview.md#resource-environment-differences) in multi-tenant Azure Logic Apps by using the JSON file for a logic app workflow definition. You can then manage your logic app by running the cmdlets in the [Az.LogicApp](/powershell/module/az.logicapp/) PowerShell module.
+This quickstart shows how to create and manage automated workflows that run in Azure Logic Apps by using [Azure PowerShell](/powershell/azure/install-azure-powershell). From PowerShell, you can create a [Consumption logic app](logic-apps-overview.md#resource-environment-differences) in multi-tenant Azure Logic Apps by using the JSON file for a logic app workflow definition. You can then manage your logic app by running the cmdlets in the [Az.LogicApp](/powershell/module/az.logicapp/) PowerShell module.
 
 > [!NOTE]
 >
@@ -22,13 +22,13 @@ This quickstart shows how to create and manage automated workflows that run in A
 > Azure Logic Apps. Azure PowerShell is currently unavailable for Standard logic app workflows that 
 > run in single-tenant Azure Logic Apps. For more information, review [Resource type and host differences in Azure Logic Apps](logic-apps-overview.md#resource-environment-differences).
 
-If you're new to Azure Logic Apps, learn how to create your first Consumption logic app workflow [through the Azure portal](quickstart-create-first-logic-app-workflow.md), [in Visual Studio](quickstart-create-logic-apps-with-visual-studio.md), or [in Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md).
+If you're new to Azure Logic Apps, learn how to create your first Consumption logic app workflow [through the Azure portal](quickstart-create-example-consumption-workflow.md), [in Visual Studio](quickstart-create-logic-apps-with-visual-studio.md), or [in Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md).
 
 ## Prerequisites
 
 * An Azure account with an active subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* The [Az PowerShell](/powershell/azure/install-az-ps) module installed on your local computer.
+* The [Az PowerShell](/powershell/azure/install-azure-powershell) module installed on your local computer.
 
 * An [Azure resource group](#example---create-resource-group) in which to create your logic app.
 
@@ -62,7 +62,7 @@ ResourceId        : /subscriptions/00000000-0000-0000-0000-000000000000/resource
 
 ## Workflow definition
 
-Before you [create a new logic app](#create-logic-apps-from-powershell) or [update an existing logic app](#update-logic-apps-from-powershell) by using Azure PowerShell, you need a workflow definition for your logic app. In the Azure portal, you can view your logic app's underlying workflow definition in JSON format by switching from **Designer** view to **Code view**.
+Before you [create a new logic app](#create-logic-apps-from-powershell) or [update an existing logic app](#update-logic-apps-from-powershell) by using Azure PowerShell, you need a workflow definition for your logic app. To see an example workflow definition, in the Azure portal, open any existing logic app workflow in the designer. On the **Designer** toolbar, select **Code view**, which shows the workflow's underlying definition in JSON format.
 
 When you run the commands to create or update your logic app, your workflow definition is uploaded as a required parameter (`Definition`) or (`DefinitionFilePath`) depending on the parameter set. You must create your workflow definition as a JSON file that follows the [Workflow Definition Language schema](./logic-apps-workflow-definition-language.md).
 

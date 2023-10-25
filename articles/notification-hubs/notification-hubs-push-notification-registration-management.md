@@ -11,7 +11,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: csharp
 ms.topic: article
-ms.date: 08/23/2021
+ms.date: 06/30/2023
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 04/08/2019
@@ -28,7 +28,7 @@ Device registration with a Notification Hub is accomplished using a **Registrati
 
 ### Registrations
 
-A registration associates the Platform Notification Service (PNS) handle for a device with tags and possibly a template. The PNS handle could be a ChannelURI, device token, or FCM registration ID. Tags are used to route notifications to the correct set of device handles. For more information, see [Routing and Tag Expressions](notification-hubs-tags-segment-push-message.md). Templates are used to implement per-registration transformation. For more information, see [Templates](notification-hubs-templates-cross-platform-push-messages.md).
+A registration associates the Platform Notification Service (PNS) handle for a device with tags and possibly a template. The PNS handle could be a ChannelURI, or device token registration ID. Tags are used to route notifications to the correct set of device handles. For more information, see [Routing and Tag Expressions](notification-hubs-tags-segment-push-message.md). Templates are used to implement per-registration transformation. For more information, see [Templates](notification-hubs-templates-cross-platform-push-messages.md).
 
 > [!NOTE]
 > Azure Notification Hubs supports a maximum of 60 tags per device.
@@ -86,17 +86,16 @@ An installation can contain the following properties. For a complete listing of 
 
 Registrations and installations must contain a valid PNS handle for each device/channel. Because PNS handles can only be obtained in a client app on the device, one pattern is to register directly on that device with the client app. On the other hand, security considerations and business logic related to tags might require you to manage device registration in the app back-end.
 
+When the push is made to a handle that has been expired by the PNS, Azure Notification Hubs automatically cleans the associated installation/registration record based on the response received from the PNS server. To clean expired records from a secondary notification hub, add custom logic that processes feedback from each send. Then, expire installation/registration in the secondary notification hub.
+
 > [!NOTE]
 > The Installations API does not support the Baidu service (although the Registrations API does). 
 
 ### Templates
 
-> [!NOTE]
-> Microsoft Push Notification Service (MPNS) has been deprecated and is no longer supported.
-
 If you want to use [Templates](notification-hubs-templates-cross-platform-push-messages.md), the device installation also holds all templates associated with that device in a JSON format (see sample above). The template names help target different templates for the same device.
 
-Each template name maps to a template body and an optional set of tags. Moreover, each platform can have additional template properties. For Windows Store (using WNS) and Windows Phone 8 (using MPNS), an additional set of headers can be part of the template. In the case of APNs, you can set an expiry property to either a constant or to a template expression. For a complete listing of the installation properties see, [Create or Overwrite an Installation with REST](/rest/api/notificationhubs/create-overwrite-installation) topic.
+Each template name maps to a template body and an optional set of tags. Moreover, each platform can have additional template properties. For Windows Store (using WNS), an additional set of headers can be part of the template. In the case of APNs, you can set an expiry property to either a constant or to a template expression. For a complete listing of the installation properties see, [Create or Overwrite an Installation with REST](/rest/api/notificationhubs/create-overwrite-installation) topic.
 
 ### Secondary Tiles for Windows Store Apps
 
@@ -286,9 +285,6 @@ public async Task<HttpResponseMessage> Put(DeviceInstallation deviceUpdate)
 
     switch (deviceUpdate.Platform)
     {
-        case "mpns":
-            installation.Platform = NotificationPlatform.Mpns;
-            break;
         case "wns":
             installation.Platform = NotificationPlatform.Wns;
             break;
@@ -313,7 +309,7 @@ public async Task<HttpResponseMessage> Put(DeviceInstallation deviceUpdate)
 }
 ```
 
-### Example code to register with a notification hub from a device using a registration ID
+### Example code to register with a notification hub from a backend using a registration ID
 
 From your app backend, you can perform basic CRUDS operations on registrations. For example:
 

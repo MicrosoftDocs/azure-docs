@@ -6,8 +6,8 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: how-to
-ms.date: 11/16/2022
-ms.custom: template-how-to, engagement-fy23
+ms.date: 08/17/2023
+ms.custom: template-how-to, devx-track-azurecli
 ---
 
 
@@ -17,12 +17,12 @@ Azure Cache for Redis supports upgrading the version of your Azure Cache for Red
 
 As a precautionary step, we recommend exporting the data from your existing Redis 4 cache and testing your client application with a Redis 6 cache in a lower environment before upgrading.
 
-For more details on how to export, see [Import and Export data in Azure Cache for Redis](cache-how-to-import-export-data.md).
+For more information on how to export, see [Import and Export data in Azure Cache for Redis](cache-how-to-import-export-data.md).
 
 > [!IMPORTANT]
 > As announced in [What's new](cache-whats-new.md#upgrade-your-azure-cache-for-redis-instances-to-use-redis-version-6-by-june-30-2023), we'll retire version 4 for Azure Cache for Redis instances on June 30, 2023. Before that date, you need to upgrade any of your cache instances to version 6.
 >
-> For more information on the retirement of Redis 4, see [Retirements](cache-retired-features.md).
+> For more information on the retirement of Redis 4, see [Retirements](cache-retired-features.md) and [Frequently asked questions](cache-retired-features.md#redis-4-retirement-questions)
 >
 
 ## Prerequisites
@@ -31,9 +31,12 @@ For more details on how to export, see [Import and Export data in Azure Cache fo
 
 ### Limitations
 
-- When you upgrade a cache in the Basic tier, it is unavailable for several minutes and results in data loss.
+- When you upgrade a cache in the Basic tier, it's unavailable for several minutes and results in data loss.
 - Upgrading on geo-replicated cache isn't supported. You must manually unlink the cache instances before upgrading.
-- Upgrading a cache with a dependency on Cloud Services isn't supported. You should migrate your cache instance to virtual machine scale set before upgrading. For more information, see [Caches with a dependency on Cloud Services (classic)](./cache-faq.yml) for details on cloud services hosted caches.
+- Upgrading a cache with a dependency on Cloud Services isn't supported. You should migrate your cache instance to Virtual Machine Scale Set before upgrading.
+  - For more information, see [Caches with a dependency on Cloud Services (classic)](./cache-faq.yml) for details on cloud services hosted caches.
+- When trying to upgrade to Redis 6, your VNet must be configured in accord with the requirements. Your upgrade might fail or the cache might not function properly after the upgrade if not configured correctly.
+  - For more information on the VNet requirements, see [What are some common misconfiguration issues with Azure Cache for Redis and virtual networks](cache-how-to-premium-vnet.md#what-are-some-common-misconfiguration-issues-with-azure-cache-for-redis-and-virtual-networks).
 
 ### Check the version of a cache
 
@@ -49,7 +52,7 @@ Before you upgrade, check the Redis version of a cache by selecting **Properties
 
 1. If your cache instance is eligible to be upgraded, you should see the following blue banner. If you want to proceed, select the text in the banner.
 
-    :::image type="content" source="media/cache-how-to-upgrade/blue-banner-upgrade-cache.png" alt-text="Screenshot informing you that you can upgrade your cache to Redis 6 with additional features. Upgrading your cache instance cannot be reversed.":::
+    :::image type="content" source="media/cache-how-to-upgrade/blue-banner-upgrade-cache.png" alt-text="Screenshot informing you that you can upgrade your cache to Redis 6 with more features. Upgrading your cache instance can't be reversed.":::
 
 1. A dialog box displays a popup notifying you that upgrading is permanent and might cause a brief connection blip. Select **Yes** if you would like to upgrade your cache instance.
 
@@ -61,10 +64,26 @@ Before you upgrade, check the Redis version of a cache by selecting **Properties
 
 ## Upgrade using Azure CLI
 
-To upgrade a cache from 4 to 6 using the Azure CLI, use the following command:
+To upgrade a cache from 4 to 6 using the Azure CLI that is not using Private Endpoint, use the following command. 
 
 ```azurecli-interactive
 az redis update --name cacheName --resource-group resourceGroupName --set redisVersion=6
+```
+
+### Private Endpoint
+
+If Private Endpoint is enabled on the cache, use the command that is appropriate based on whether `PublicNetworkAccess` is enabled or disabled:
+
+If `PublicNetworkAccess` is enabled:
+
+```azurecli
+ az redis update --name <cacheName> --resource-group <resourceGroupName> --set publicNetworkAccess=Enabled redisVersion=6
+```
+
+If `PublicNetworkAccess` is disabled:
+
+```azurecli
+az redis update --name <cacheName> --resource-group <resourceGroupName> --set publicNetworkAccess=Disabled redisVersion=6
 ```
 
 ## Upgrade using PowerShell

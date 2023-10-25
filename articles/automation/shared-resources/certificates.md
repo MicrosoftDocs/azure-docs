@@ -3,9 +3,9 @@ title: Manage certificates in Azure Automation
 description: This article tells how to work with certificates for access by runbooks and DSC configurations.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 12/22/2020
+ms.date: 05/26/2023
 ms.topic: conceptual 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-python
 ---
 
 # Manage certificates in Azure Automation
@@ -26,7 +26,8 @@ The cmdlets in the following table create and manage Automation certificates wit
 |[Remove-AzAutomationCertificate](/powershell/module/Az.Automation/Remove-AzAutomationCertificate)|Removes a certificate from Automation.|
 |[Set-AzAutomationCertificate](/powershell/module/Az.Automation/Set-AzAutomationCertificate)|Sets the properties for an existing certificate, including uploading the certificate file and setting the password for a **.pfx** file.|
 
-The [Add-AzureCertificate](/powershell/module/servicemanagement/azure.service/add-azurecertificate) cmdlet can also be used to upload a service certificate for the specified cloud service.
+The [Add-AzureCertificate](/powershell/module/servicemanagement/azure/add-azureaccount) cmdlet can also be used to upload a service certificate for the specified cloud service.
+
 
 ## Internal cmdlets to access certificates
 
@@ -59,7 +60,7 @@ When you create a new certificate, you upload a .cer or .pfx file to Automation.
 1. From your Automation account, on the left-hand pane select **Certificates** under **Shared Resource**.
 1. On the **Certificates** page, select **Add a certificate**.
 1. In the **Name** field, type a name for the certificate.
-1. To browse for a **.cer** or **.pfx** file, under **Upload a certificate file**, choose **Select a file**. If you select a **.pfx** file, specify a password and indicate if it can be exported.
+1. To browse for a **.cer** or **.pfx** file, under **Upload a certificate file**, choose **Select a file**. If you select a **.pfx** file, specify a password and indicate if it can be exported. If you are using Azure Automation portal to upload certificates, it might fail for partner (CSP) accounts. We recommend that you use [PowerShell cmdlets](#powershell-cmdlets-to-access-certificates) as a workaround to overcome this issue.
 1. Select **Create** to save the new certificate asset.
 
 ### Create a new certificate with PowerShell
@@ -142,7 +143,7 @@ The following example shows how to access certificates in Python 2 runbooks.
 
 ```python
 # get a reference to the Azure Automation certificate
-cert = automationassets.get_automation_certificate("AzureRunAsCertificate")
+cert = automationassets.get_automation_certificate("MyCertificate")
 
 # returns the binary cert content  
 print cert
@@ -154,7 +155,7 @@ The following example shows how to access certificates in Python 3 runbooks (pre
 
 ```python
 # get a reference to the Azure Automation certificate
-cert = automationassets.get_automation_certificate("AzureRunAsCertificate")
+cert = automationassets.get_automation_certificate("MyCertificate")
 
 # returns the binary cert content  
 print (cert)

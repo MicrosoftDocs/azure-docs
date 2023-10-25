@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Search for videos using the REST API and Ruby - Bing Video Search"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Use this quickstart to send video search requests to the Bing Video Search REST API using Ruby.
 services: cognitive-services
 author: aahill
@@ -16,7 +16,7 @@ ms.custom: mode-api
 
 # Quickstart: Search for videos using the Bing Video Search REST API and Ruby
 
-[!INCLUDE [Bing move notice](../../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../../bing-web-search/includes/bing-move-notice.md)]
 
 Use this quickstart to make your first call to the Bing Video Search API. This simple Ruby application sends an HTTP video search query to the API, and displays the JSON response. Although this application is written in Python, the API is a RESTful Web service compatible with most programming languages. 
 
@@ -38,7 +38,7 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
     require 'json'
     ```
 
-2. Create variables for the API endpoint, video API search path, your subscription key, and search term. For the `url` value, you can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+2. Create variables for the API endpoint, video API search path, your subscription key, and search term. For the `url` value, you can use the global endpoint in the following code, or use the [custom subdomain](../../../ai-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```ruby
     uri  = "https://api.cognitive.microsoft.com"

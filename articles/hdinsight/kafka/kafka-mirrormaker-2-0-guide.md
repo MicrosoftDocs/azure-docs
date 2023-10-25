@@ -4,7 +4,7 @@ description: How to use Kafka MirrorMaker 2.0 in data migration/replication and 
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 05/20/2022
+ms.date: 06/07/2023
 ---
 
 # How to use Kafka MirrorMaker 2.0 in data migration, replication and the use-cases

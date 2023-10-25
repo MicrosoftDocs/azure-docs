@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 05/05/2022
+ms.date: 06/30/2023
 ms.author: duau
 ---
 
@@ -21,11 +21,11 @@ Even though ExpressRoute supports virtual network to virtual network connectivit
 
 ### ExpressRoute virtual network gateway in the data path
 
-Virtual networks that are connected to an ExpressRoute circuit are established by deploying a virtual network gateway. The gateway facilitates the management plane and data path connectivity to virtual machines (VMs) and private endpoints defined in a virtual network. These gateway resources have bandwidth, connections-per-second and packets-per-second limitations. For more information about these limitations, see [About ExpressRoute gateways](expressroute-about-virtual-network-gateways.md). When virtual network to virtual network connectivity goes through ExpressRoute, the virtual network gateway can be the source of bottleneck in terms of bandwidth and data path or control plane limitations. When you configure virtual network peering, the virtual network gateway isn't in the data path. Therefore, you won't experience those limitations seen with VNet to VNet connectivity going through ExpressRoute.
+Virtual networks that are connected to an ExpressRoute circuit are established by deploying a virtual network gateway. The gateway facilitates the management plane and data path connectivity to virtual machines (VMs) and private endpoints defined in a virtual network. These gateway resources have bandwidth, connections-per-second and packets-per-second limitations. For more information about these limitations, see [About ExpressRoute gateways](expressroute-about-virtual-network-gateways.md). When virtual network to virtual network connectivity goes through ExpressRoute, the virtual network gateway can be the source of bottleneck in terms of bandwidth and data path or control plane limitations. When you configure virtual network peering, the virtual network gateway isn't in the data path. Therefore, you don't experience those limitations seen with VNet to VNet connectivity going through ExpressRoute.
 
 ### Higher latency
 
-ExpressRoute connectivity is managed by a pair of Microsoft Enterprise Edge (MSEE) devices located at [ExpressRoute peering locations](expressroute-locations-providers.md#expressroute-locations). ExpressRoute peering locations are physically separate from Azure regions, when virtual network to virtual network connectivity is enabled using ExpressRoute. Traffic from the virtual network leaves the origin Azure region and passes through the MSEE devices at the peering location. Then that traffic will go through Microsoft's global network to reach the destination Azure region. With VNet peering, traffic flows from the origin Azure region directly to the destination Azure region using Microsoft's global network, without the extra hop of the MSEE devices. Since the extra hop is no longer in the data path, you'll see lower latency and an overall better experience with your applications and network traffic.
+ExpressRoute connectivity gets managed by a pair of Microsoft Enterprise Edge (MSEE) devices located at [ExpressRoute peering locations](expressroute-locations-providers.md#expressroute-locations). ExpressRoute peering locations are physically separate from Azure regions, when virtual network to virtual network connectivity is enabled using ExpressRoute. Traffic from the virtual network leaves the origin Azure region and passes through the MSEE devices at the peering location. Then that traffic goes through Microsoft's global network to reach the destination Azure region. With VNet peering, traffic flows from the origin Azure region directly to the destination Azure region using Microsoft's global network, without the extra hop of the MSEE devices. Since the extra hop is no longer in the data path, you see lower latency and an overall better experience with your applications and network traffic.
 
 ## Next steps
 

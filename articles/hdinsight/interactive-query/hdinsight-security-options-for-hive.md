@@ -4,7 +4,7 @@ description: Security options for Hive in Standard and ESP clusters.
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/02/2020
+ms.date: 02/27/2023
 ---
 
 # Security options for Hive in Azure HDInsight
@@ -15,20 +15,20 @@ This document describes the recommended security options for Hive in HDInsight. 
 
 ## HiveServer2 authentication
 
-For standard clusters, the recommended setting for HiveServer2 authentication is the default which is none. To enable authentication, we recommend upgrading to an [ESP](../domain-joined/hdinsight-security-overview.md) (Enterprise Security Package) cluster. 
+For standard clusters, the recommended setting for HiveServer2 authentication is the default, which is none. To enable authentication, we recommend upgrading to an [ESP](../domain-joined/hdinsight-security-overview.md) (Enterprise Security Package) cluster. 
 
-For ESP clusters, [Kerberos](https://web.mit.edu/Kerberos/) authentication is enabled by default. Pluggable Authentication Modules (PAM) and custom authentication schemes are not supported.
+For ESP clusters, [Kerberos](https://web.mit.edu/Kerberos/) authentication is enabled by default. Pluggable Authentication Modules (PAM) and custom authentication schemes aren't supported.
 
 ## HiveServer2 authorization
 
-For standard clusters, the default setting is None. [SqlStdAuth (SQL Standards Based Authorization)](https://cwiki.apache.org/confluence/display/Hive/SQL+Standard+based+hive+authorization) can be enabled. Authorization through [Apache Ranger](https://ranger.apache.org/) is not supported for standard clusters. We recommend upgrading to an ESP cluster for Ranger Authorization. 
+For standard clusters, the default setting is None. [SqlStdAuth (SQL Standards Based Authorization)](https://cwiki.apache.org/confluence/display/Hive/SQL+Standard+based+hive+authorization) can be enabled. Authorization through [Apache Ranger](https://ranger.apache.org/) isn't supported for standard clusters. We recommend upgrading to an ESP cluster for Ranger Authorization. 
 
 For ESP clusters, authorization through Ranger is enabled by default. 
 
 
 ## SSL Encryption for HiveServer2
 
-Enabling Hiveserver2 SSL is not recommended for either standard or ESP clusters. SSL is enabled on the gateway instead. [Encryption in transit](../domain-joined/encryption-in-transit.md) can be enabled to encrypt communications among the cluster nodes using [Internet Protocol Security (IPSec)](https://en.wikipedia.org/wiki/IPsec).
+Enabling Hiveserver2 SSL isn't recommended for either standard or ESP clusters. SSL is enabled on the gateway instead. [Encryption in transit](../domain-joined/encryption-in-transit.md) can be enabled to encrypt communications among the cluster nodes using [Internet Protocol Security (IPSec)](https://en.wikipedia.org/wiki/IPsec).
 
 
 ## Next steps

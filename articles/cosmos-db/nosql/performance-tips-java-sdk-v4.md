@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 04/22/2022
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.custom: devx-track-java, contperf-fy21q2, ignite-2022
+ms.custom: devx-track-java, contperf-fy21q2, ignite-2022, devx-track-extended-java
 ---
 
 # Performance tips for Azure Cosmos DB Java SDK v4
@@ -42,13 +42,13 @@ When possible, place any applications calling Azure Cosmos DB in the same region
 An app that interacts with a multi-region Azure Cosmos DB account needs to configure 
 [preferred locations](tutorial-global-distribution.md#preferred-locations) to ensure that requests are going to a collocated region.
 
-* **Enable Accelerated Networking on your Azure VM for lower latency.**
+**Enable accelerated networking to reduce latency and CPU jitter**
 
-It is recommended that you follow the instructions to enable Accelerated Networking in your [Windows (click for instructions)](../../virtual-network/create-vm-accelerated-networking-powershell.md) or [Linux (click for instructions)](../../virtual-network/create-vm-accelerated-networking-cli.md) Azure VM, in order to maximize performance.
+It is recommended that you follow the instructions to enable [Accelerated Networking](../../virtual-network/accelerated-networking-overview.md) in your [Windows (click for instructions)](../../virtual-network/create-vm-accelerated-networking-powershell.md) or [Linux (click for instructions)](../../virtual-network/create-vm-accelerated-networking-cli.md) Azure VM, in order to maximize performance (reduce latency and CPU jitter).
 
 Without accelerated networking, IO that transits between your Azure VM and other Azure resources may be unnecessarily routed through a host and virtual switch situated between the VM and its network card. Having the host and virtual switch inline in the datapath not only increases latency and jitter in the communication channel, it also steals CPU cycles from the VM. With accelerated networking, the VM interfaces directly with the NIC without intermediaries; any network policy details which were being handled by the host and virtual switch are now handled in hardware at the NIC; the host and virtual switch are bypassed. Generally you can expect lower latency and higher throughput, as well as more *consistent* latency and decreased CPU utilization when you enable accelerated networking.
 
-Limitations: accelerated networking must be supported on the VM OS, and can only be enabled when the VM is stopped and deallocated. The VM cannot be deployed with Azure Resource Manager.
+Limitations: accelerated networking must be supported on the VM OS, and can only be enabled when the VM is stopped and deallocated. The VM cannot be deployed with Azure Resource Manager. [App Service](../../app-service/overview.md) has no accelerated network enabled.
 
 Please see the [Windows](../../virtual-network/create-vm-accelerated-networking-powershell.md) and [Linux](../../virtual-network/create-vm-accelerated-networking-cli.md) instructions for more details.
 
@@ -126,6 +126,8 @@ After result is received if you want to do CPU intensive work on the result you 
 
 Based on the type of your work you should use the appropriate existing Reactor Scheduler for your work. Read here
 [``Schedulers``](https://projectreactor.io/docs/core/release/api/reactor/core/scheduler/Schedulers.html).
+
+To further understand the threading and scheduling model of project Reactor, refer to this [blog post by Project Reactor](https://spring.io/blog/2019/12/13/flight-of-the-flux-3-hopping-threads-and-schedulers).
 
 For more information on Azure Cosmos DB Java SDK v4, please look at the [Azure Cosmos DB directory of the Azure SDK for Java monorepo on GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-cosmos).
 

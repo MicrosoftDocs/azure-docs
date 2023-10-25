@@ -1,23 +1,24 @@
 ---
-title: How to schedule a contact on Azure Orbital Earth Observation service
+title: Azure Orbital Ground Station - schedule a contact
 description: Learn how to schedule a contact.
-author: wamota
+author: apoorvanori
 ms.service: orbital
 ms.topic: quickstart
 ms.custom: ga
-ms.date: 07/12/2022
-ms.author: wamota
-# Customer intent: As a satellite operator, I want to ingest data from my satellite into Azure.
+ms.date: 12/06/2022
+ms.author: apoorvanori
+# Customer intent: As a satellite operator, I want to schedule a contact to ingest data from my satellite into Azure.
 ---
 
 # Schedule a contact
 
-Schedule a contact with the selected satellite for data retrieval/delivery on Azure Orbital. At the scheduled time, the selected ground station will contact the satellite and start data retrieval/delivery using the contact profile.
+Schedule a contact with your satellite for data retrieval and delivery on Azure Orbital Ground Station. At the scheduled time, the selected ground station will contact the satellite and start data retrieval/delivery using the designated contact profile.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- A registered spacecraft. Learn more on how to [register spacecraft](register-spacecraft.md).
+- Contributor permissions at the subscription level.
+- A registered and authorized spacecraft. Learn more on how to [register a spacecraft](register-spacecraft.md).
 - A contact profile. Learn more on how to [configure a contact profile](contact-profile.md).
 
 ## Sign in to Azure
@@ -37,7 +38,7 @@ Sign in to the [Azure portal - Orbital](https://aka.ms/orbital/portal).
    | **Field** | **Value** |
    | --- | --- |
    | Contact profile | Specify the contact profile to be used for the contact |
-   | Ground station | Specify the ground station(s) |
+   | Ground station | Specify the ground station(s) to be used for the contact |
    | Start time | Identify a start time for the contact availability window |
    | End time | Identify an end time for the contact availability window |
 
@@ -48,9 +49,13 @@ Sign in to the [Azure portal - Orbital](https://aka.ms/orbital/portal).
 
    :::image type="content" source="media/orbital-eos-select-schedule.png" alt-text="Select an available contact schedule page" lightbox="media/orbital-eos-select-schedule.png":::
 
-7. View scheduled contacts by selecting on the spacecraft page, and navigating to **Contacts**.
+7. View scheduled contacts by selecting the spacecraft page, and navigating to **Contacts**.
 
    :::image type="content" source="media/orbital-eos-view-scheduled-contacts.png" alt-text="View scheduled contacts page" lightbox="media/orbital-eos-view-scheduled-contacts.png":::
+
+## Cancel a contact
+
+To cancel a scheduled contact, you must delete the contact resource. Learn more at [contact resource](concepts-contact.md).
 
 ## Next steps
 

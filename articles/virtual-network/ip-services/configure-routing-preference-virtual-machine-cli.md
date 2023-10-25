@@ -1,12 +1,12 @@
 ---
 title: 'Tutorial: Configure routing preference for a VM - Azure CLI'
-description: In this tutorial, learn how to create a VM with a public IP address with routing preference choice using the Azure CLI.
-author: asudbring
-ms.author: allensu
+description: In this tutorial, learn how to configure routing preference for a VM using a public IP address with the Azure CLI.
+author: mbender-ms
+ms.author: mbender
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: tutorial
-ms.date: 10/01/2021
+ms.date: 08/24/2023
 ms.custom: template-tutorial, devx-track-azurecli 
 ms.devlang: azurecli
 ---
@@ -21,7 +21,7 @@ In this tutorial, you learn how to:
 > * Create a virtual machine.
 > * Verify the public IP address is set to **Internet** routing preference.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - This tutorial requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.

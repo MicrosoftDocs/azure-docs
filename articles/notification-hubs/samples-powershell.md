@@ -9,6 +9,7 @@ editor: jwargo
 ms.service: notification-hubs
 ms.workload: data-services
 ms.tgt_pltfrm: na
+ms.custom: devx-track-azurepowershell
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: sethm

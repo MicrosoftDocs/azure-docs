@@ -5,8 +5,8 @@ author: maud-lv
 ms.author: malev 
 ms.service: managed-grafana 
 ms.topic: conceptual
-ms.date: 7/27/2022 
-ms.custom: references_regions
+ms.date: 3/23/2023 
+ms.custom: references_regions, engagement-fy23
 ---
 
 # Azure Managed Grafana service reliability
@@ -30,16 +30,15 @@ When the zone redundancy option is enabled, VMs are spread across [availability 
 In a zone-wide outage, no user action is required. An impacted Managed Grafana instance will rebalance itself to take advantage of the healthy zone automatically. The Managed Grafana service will attempt to heal the affected instances during zone recovery.
 
 > [!NOTE]
-> Zone redundancy can only be enabled when creating the Managed Grafana instance, and can't be modified subsequently. The zone redundancy option comes with an additional cost. Go to [Azure Managed Grafana pricing](https://azure.microsoft.com/pricing/details/managed-grafana/) for details.
+> Zone redundancy can only be enabled when creating the Azure Managed Grafana instance, and can't be modified subsequently. The zone redundancy option comes with an additional cost. Go to [Azure Managed Grafana pricing](https://azure.microsoft.com/pricing/details/managed-grafana/) for details.
 
 ### With zone redundancy disabled
 
-Zone redundancy is disabled in the Managed Grafana Standard tier by default. In this scenario, virtual machines are created as single-region resources and should not be expected to survive zone-downs scenarios as they can go down at same time.
+Zone redundancy is disabled in the Azure Managed Grafana Standard tier by default. In this scenario, virtual machines are created as single-region resources and should not be expected to survive zone-downs scenarios as they can go down at same time.
 
 ## Supported regions
 
 Zone redundancy support is enabled in the following regions:
-
 
 | Americas         | Europe            | Africa            | Asia Pacific      |
 |------------------|-------------------|-------------------|-------------------|
@@ -52,4 +51,4 @@ For a complete list of regions where Managed Grafana is available, see [Products
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create an Azure Managed Grafana instance](./quickstart-managed-grafana-portal.md)
+> [Enable zone redundancy](./how-to-enable-zone-redundancy.md)

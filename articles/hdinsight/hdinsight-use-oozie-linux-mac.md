@@ -4,7 +4,7 @@ description: Use Hadoop Oozie in Linux-based HDInsight. Learn how to define an O
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
-ms.date: 05/09/2022
+ms.date: 06/26/2023
 ---
 
 # Use Apache Oozie with Apache Hadoop to define and run a workflow on Linux-based Azure HDInsight

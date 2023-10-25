@@ -2,8 +2,8 @@
 title: What's new in the Remote Desktop WebRTC Redirector Service?
 description: New features and product updates the Remote Desktop WebRTC Redirector Service for Azure Virtual Desktop.
 author: Heidilohr
-ms.topic: conceptual
-ms.date: 10/21/2022
+ms.topic: release-notes
+ms.date: 09/06/2023
 ms.author: helohr
 manager: femila
 ms.custom: references_regions
@@ -16,6 +16,36 @@ This article provides information about the latest updates to the Remote Desktop
 ## Latest versions of the Remote Desktop WebRTC Redirector Service
 
 The following sections describe what changed in each version of the Remote Desktop WebRTC Redirector Service.
+
+### Updates for version 1.43.2306.30001
+
+Date published: September 7, 2023
+
+Download: [MSI Installer](https://aka.ms/msrdcwebrtcsvc/msi)
+
+- If a user is sharing a PowerPoint edit window then selects **Present**, the shared window will automatically switch to the PowerPoint presentation window.
+- Improved WebRTC redirector service reliability and performance handling.
+- Fixed an issue where the diagnostic overlay hotkey (<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>;</kbd>) caused hotkeys to be disabled for non-Teams applications during Teams calls.
+- Fixed an issue where a race condition caused a loss of audio during Teams calls.
+
+### Updates for version 1.33.2302.07001
+
+Date published: March 1, 2023
+
+Download: [MSI Installer](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWWDIg)
+
+- Support for non-Latin characters for window names in the application window share tray.
+
+### Updates for version 1.31.2211.15001 
+
+Date published: January 19, 2023
+
+Download: [MSI Installer](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE5c8Kk)
+
+- Support for application window sharing for Windows users.
+- Support for Give and Take Control functionality for macOS users.
+- Latency and performance improvements for Give and Take Control on Windows.
+- Improved screen share performance.
 
 ### Updates for version 1.17.2205.23001
 

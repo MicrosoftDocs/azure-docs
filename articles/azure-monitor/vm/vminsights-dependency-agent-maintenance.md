@@ -2,15 +2,18 @@
 title: VM Insights Dependency Agent
 description: This article describes how to upgrade the VM insights Dependency agent using command-line, setup wizard, and other methods.
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
-ms.date: 04/16/2020
+author: guywi-ms
+ms.author: guywild
+ms.date: 09/28/2023
 
 ---
 
 # Dependency Agent
 
 The Dependency Agent collects data about processes running on the virtual machine and external process dependencies. Dependency Agent updates include bug fixes or support of new features or functionality. This article describes Dependency Agent requirements and how to upgrade Dependency Agent manually or through automation.
+
+>[!NOTE]
+> The Dependency Agent sends heartbeat data to the [InsightsMetrics](/azure/azure-monitor/reference/tables/insightsmetrics) table, for which you incur data ingestion charges. This behavior is different from Azure Monitor Agent, which sends agent health data to the [Heartbeat](/azure/azure-monitor/reference/tables/heartbeat) table, which is free from data collection charges.
 
 ## Dependency Agent requirements
 
@@ -60,7 +63,7 @@ Update the agent on a Windows VM from the command prompt, with a script or other
 
 ### Upgrade Linux agent 
 
-Upgrade from prior versions of the Dependency agent on Linux is supported and performed following the same command as a new installation.
+Upgrade from prior versions of the Dependency Agent on Linux is supported and performed following the same command as a new installation.
 
 You can download the latest version of the Linux agent from [here](https://aka.ms/dependencyagentlinux).
 
@@ -73,6 +76,15 @@ You can download the latest version of the Linux agent from [here](https://aka.m
     ```
 
 If the Dependency agent fails to start, check the logs for detailed error information. On Linux agents, the log directory is */var/opt/microsoft/dependency-agent/log*. 
+
+## Uninstall Dependency Agent 
+
+To uninstall Dependency Agent:
+
+1. From the **Virtual Machines** menu in the Azure portal, select your virtual machine.
+1. Select **Extensions + applications** > **DependencyAgentWindows** or **DependencyAgentLinux** > **Uninstall**.
+
+    :::image type="content" source="media/vminsights-dependency-agent-maintenance/azure-monitor-uninstall-dependency-agent.png" alt-text="Screenshot showing the Extensions and applications screen for a virtual machine." lightbox="media/vminsights-dependency-agent-maintenance/azure-monitor-uninstall-dependency-agent.png":::
 
 ## Dependency Agent Linux support
 

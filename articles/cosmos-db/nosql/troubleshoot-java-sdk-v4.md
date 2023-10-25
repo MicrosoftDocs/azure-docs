@@ -8,7 +8,7 @@ ms.author: thvankra
 ms.devlang: java
 ms.subservice: nosql
 ms.topic: troubleshooting
-ms.custom: devx-track-java, ignite-2022
+ms.custom: devx-track-java, ignite-2022, devx-track-extended-java
 ---
 
 # Troubleshoot issues when you use Azure Cosmos DB Java SDK v4 with API for NoSQL accounts
@@ -295,7 +295,7 @@ Error handling from Azure Cosmos DB Java SDK is important when it comes to clien
 
 ### Failure connecting to Azure Cosmos DB Emulator
 
-The Azure Cosmos DB Emulator HTTPS certificate is self-signed. For the SDK to work with the emulator, import the emulator certificate to a Java TrustStore. For more information, see [Export Azure Cosmos DB Emulator certificates](../local-emulator-export-ssl-certificates.md).
+The Azure Cosmos DB Emulator HTTPS certificate is self-signed. For the SDK to work with the emulator, import the emulator certificate to a Java TrustStore. For more information, see [Export Azure Cosmos DB Emulator certificates](../emulator.md).
 
 ### Dependency Conflict Issues
 

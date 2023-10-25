@@ -2,7 +2,7 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 07/27/2022
+ ms.date: 04/28/2023
  ms.author: cherylmc
  ms.custom: include file
 
@@ -12,7 +12,9 @@
 > Only iOS 11.0 and above is supported with OpenVPN protocol.
 >
 
-1. Install the OpenVPN client (version 2.4 or higher) from the App store.
+[!INCLUDE [OpenVPN client version 2.6 not supported](vpn-gateway-vwan-open-vpn-client-version-unsupported.md)]
+
+1. Install the OpenVPN client (version 2.4 or higher) from the App store. Version 2.6 is not yet supported.
 1. If you haven't already done so, download the VPN client profile package from the Azure portal.
 1. Unzip the profile. Open the vpnconfig.ovpn configuration file from the OpenVPN folder in a text editor.
 1. Fill in the P2S client certificate section with the P2S client certificate public key in base64. In a PEM formatted certificate, you can open the .cer file and copy over the base64 key between the certificate headers.

@@ -8,14 +8,10 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/26/2022
+ms.date: 06/05/2023
 ---
 
 # Copy and transform data in Amazon Simple Storage Service using Azure Data Factory or Azure Synapse Analytics
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
->
-> * [Version 1](v1/data-factory-amazon-simple-storage-service-connector.md)
-> * [Current version](connector-amazon-simple-storage-service.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -31,7 +27,7 @@ This Amazon S3 connector is supported for the following capabilities:
 | Supported capabilities|IR |
 |---------| --------|
 |[Copy activity](copy-activity-overview.md) (source/-)|&#9312; &#9313;|
-|[Mapping data flow](concepts-data-flow-overview.md) (source/-)|&#9312; |
+|[Mapping data flow](concepts-data-flow-overview.md) (source/sink)|&#9312; |
 |[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|
 |[GetMetadata activity](control-flow-get-metadata-activity.md)|&#9312; &#9313;|
 |[Delete activity](delete-activity.md)|&#9312; &#9313;|

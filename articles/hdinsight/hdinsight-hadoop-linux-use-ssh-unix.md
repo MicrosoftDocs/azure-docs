@@ -3,8 +3,8 @@ title: Use SSH with Hadoop - Azure HDInsight
 description: "You can access HDInsight using Secure Shell (SSH). This document provides information on connecting to HDInsight using the ssh commands from Windows, Linux, Unix, or macOS clients."
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017,seoapr2020, devx-track-azurepowershell
-ms.date: 03/31/2022
+ms.custom: H1Hack27Feb2017, hdinsightactive, hdiseo17may2017, seoapr2020
+ms.date: 04/24/2023
 ---
 
 # Connect to HDInsight (Apache Hadoop) using SSH
@@ -110,7 +110,7 @@ For information on changing the SSH user account password, see the __Change pass
 
 ## Authentication domain joined HDInsight
 
-If you're using a __domain-joined HDInsight cluster__, you must use the `kinit` command after connecting with SSH local user. This command prompts you for a domain user and password, and authenticates your session with the Azure Active Directory domain associated with the cluster.
+If you're using a __domain-joined HDInsight cluster__, you must use the `kinit` command after connecting with SSH local user. This command prompts you for a domain user and password, and authenticates your session with the Microsoft Entra domain associated with the cluster.
 
 You can also enable Kerberos Authentication on each domain joined node (for example, head node, edge node) to ssh using the domain account. To do this edit sshd config file:
 
@@ -210,7 +210,7 @@ If the SSH account is secured using __SSH keys__, make sure that SSH forwarding 
     /tmp/ssh-rfSUL1ldCldQ/agent.1792
     ```
 
-    If nothing is returned, then `ssh-agent` isn't running. For more information, see the agent startup scripts information at [Using ssh-agent with ssh (http://mah.everybody.org/docs/ssh)](http://mah.everybody.org/docs/ssh) or consult your SSH client documentation.
+    If nothing is returned, then `ssh-agent` isn't running.
 
 4. Once you've verified that **ssh-agent** is running, use the following to add your SSH private key to the agent:
 

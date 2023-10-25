@@ -9,13 +9,13 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/16/2020
-ms.author: sebansal
+ms.date: 01/20/2023
+ms.author: mbaldwin
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store certificates in Azure.
 ---
 # Tutorial: Configure certificate auto-rotation in Key Vault
 
-You can easily provision, manage, and deploy digital certificates by using Azure Key Vault. The certificates can be public and private Secure Sockets Layer (SSL)/Transport Layer Security (TLS) certificates signed by a certificate authority (CA), or a self-signed certificate. Key Vault can also request and renew certificates through partnerships with CAs, providing a robust solution for certificate lifecycle management. In this tutorial, you will update a certificate's validity period, auto-rotation frequency, and CA attributes.
+You can easily provision, manage, and deploy digital certificates by using Azure Key Vault. The certificates can be public and private Secure Sockets Layer (SSL)/Transport Layer Security (TLS) certificates signed by a certificate authority (CA), or a self-signed certificate. Key Vault can also request and renew certificates through partnerships with CAs, providing a robust solution for certificate lifecycle management. In this tutorial, you'll update a certificate's validity period, auto-rotation frequency, and CA attributes.
 
 The tutorial shows you how to:
 
@@ -32,7 +32,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at https://portal.azure.com.
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create a vault
 
@@ -58,10 +58,10 @@ A certificate created in Key Vault can be:
 
 The following CAs are currently partnered providers with Key Vault:
 
-- DigiCert: Key Vault offers OV TLS/SSL certificates.
-- GlobalSign: Key Vault offers OV TLS/SSL certificates.
+- DigiCert: Key Vault offers OV or EV TLS/SSL certificates.
+- GlobalSign: Key Vault offers OV or EV TLS/SSL certificates.
 
-Key Vault auto-rotates certificates through established partnerships with CAs. Because Key Vault automatically requests and renews certificates through the partnership, auto-rotation capability is not applicable for certificates created with CAs that are not partnered with Key Vault.
+Key Vault auto-rotates certificates through established partnerships with CAs. Because Key Vault automatically requests and renews certificates through the partnership, auto-rotation capability isn't applicable for certificates created with CAs that aren't partnered with Key Vault.
 
 > [!NOTE]
 > An account admin for a CA provider creates credentials that Key Vault uses to create, renew, and use TLS/SSL certificates.

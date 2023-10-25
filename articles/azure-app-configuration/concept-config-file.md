@@ -55,7 +55,7 @@ Key Vault references require a particular content type during importing, so you 
 Run the following CLI command to import it with the `test` label and the Key Vault reference content type.
 
 ```azurecli-interactive
-az appconfig kv import --label test --content-type application/vnd.microsoft.appconfig.keyvaultref+json;charset=utf-8 --name <your store name> --source file --path keyvault-refs.json --format json
+az appconfig kv import --label test --content-type "application/vnd.microsoft.appconfig.keyvaultref+json;charset=utf-8" --name <your store name> --source file --path keyvault-refs.json --format json
 ```
 
 The following table shows all the imported data in your App Configuration store.

@@ -6,7 +6,7 @@ ms.author: malev
 ms.service: service-connector
 ms.topic: tutorial
 ms.date: 10/24/2022
-ms.custom: engagement-fy23
+ms.custom: engagement-fy23, devx-track-azurecli
 ---
 
 # Tutorial: Connect a web app to Azure App Configuration with Service Connector

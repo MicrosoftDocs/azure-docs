@@ -1,0 +1,30 @@
+- name: Azure API Center Documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+      - name: What is API Center?
+        displayName: Overview
+        href: overview.md
+      - name: Service limits
+        href: ../azure-resource-manager/management/azure-subscription-service-limits.md#api-center-preview-limits
+- name: Concepts
+  items:
+      - name: Key concepts
+        href: key-concepts.md
+- name: Tutorials
+  items:
+      - name: Set up an API center
+        href: set-up-api-center.md
+- name: Reference
+  items:
+      - name: REST API
+        href: /rest/api/apicenter/
+      - name: REST API SDKs
+        items:
+          - name: JavaScript
+            href: /javascript/api/overview/azure/apicenter
+          - name: Java
+            href: /java/api/overview/azure/apicenter
+          - name: Python
+            href: https://pypi.org/project/azure-mgmt-apicenter

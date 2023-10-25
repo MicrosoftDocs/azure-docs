@@ -2,9 +2,9 @@
 author: alkohli
 ms.service: storsimple
 ms.topic: include
-ms.date: 08/18/2022
+ms.date: 01/19/2023
 ms.author: alkohli
 ---
 
 > [!CAUTION]
-> **ACTION REQUIRED:** StorSimple 8000 series will reach its end-of-life in December 2022. Microsoft provides a [dedicated migration service](../articles/storage/files/storage-files-migration-storsimple-8000.md) for StorSimple 8000 series volumes and their backups. To avoid data loss, it's imperative that you plan, test, and complete your migration as soon as possible.
+> **ACTION REQUIRED:** StorSimple Data Manager, StorSimple Device Manager, StorSimple 1200, and StorSimple 8000 have reached their end of support. End of support details were published in 2019 on the [Microsoft Lifecycle Policy](/lifecycle/products/?terms=storsimple) and [Azure Communications](https://azure.microsoft.com/updates/storsimpleeol/) pages. Additional notifications were also sent via email and posted on the [Azure portal](https://ms.portal.azure.com/#home) and [StorSimple documentation site](../articles/storsimple/storsimple-overview.md). Contact [Microsoft Support](https://azure.microsoft.com/support/create-ticket/) for additional details.

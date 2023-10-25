@@ -26,20 +26,22 @@ Custom identity providers are configured in the `auth` section of the [configura
 
 To avoid putting secrets in source control, the configuration looks into [application settings](application-settings.md#configure-application-settings) for a matching name in the configuration file. You may also choose to store your secrets in [Azure Key Vault](./key-vault-secrets.md).
 
-# [Azure Active Directory](#tab/aad)
+# [Microsoft Entra ID](#tab/aad)
 
 To create the registration, begin by creating the following [application settings](application-settings.md#configure-application-settings):
 
 | Setting Name | Value |
 | --- | --- |
-| `AZURE_CLIENT_ID` | The Application (client) ID for the Azure AD app registration. |
-| `AZURE_CLIENT_SECRET` | The client secret for the Azure AD app registration. |
+| `AZURE_CLIENT_ID` | The Application (client) ID for the Microsoft Entra app registration. |
+| `AZURE_CLIENT_SECRET` | The client secret for the Microsoft Entra app registration. |
 
 Next, use the following sample to configure the provider in the [configuration file](configuration.md).
 
-Azure Active Directory providers are available in two different versions. Version 1 explicitly defines the `userDetailsClaim`, which allows the payload to return user information. By contrast, version 2 returns user information by default, and is designated by `v2.0` in the `openIdIssuer` URL.
+Microsoft Entra providers are available in two different versions. Version 1 explicitly defines the `userDetailsClaim`, which allows the payload to return user information. By contrast, version 2 returns user information by default, and is designated by `v2.0` in the `openIdIssuer` URL.
 
-### Azure Active Directory Version 1
+<a name='azure-active-directory-version-1'></a>
+
+### Microsoft Entra Version 1
 
 ```json
 {
@@ -58,9 +60,11 @@ Azure Active Directory providers are available in two different versions. Versio
 }
 ```
 
-Make sure to replace `<TENANT_ID>` with your Azure Active Directory tenant ID.
+Make sure to replace `<TENANT_ID>` with your Microsoft Entra tenant ID.
 
-### Azure Active Directory Version 2
+<a name='azure-active-directory-version-2'></a>
+
+### Microsoft Entra Version 2
 
 ```json
 {
@@ -78,14 +82,14 @@ Make sure to replace `<TENANT_ID>` with your Azure Active Directory tenant ID.
 }
 ```
 
-Make sure to replace `<TENANT_ID>` with your Azure Active Directory tenant ID.
+Make sure to replace `<TENANT_ID>` with your Microsoft Entra tenant ID.
 
-For more information on how to configure Azure Active Directory, see the [App Service Authentication/Authorization documentation](../app-service/configure-authentication-provider-aad.md#-option-2-use-an-existing-registration-created-separately) on using an existing registration.
+For more information on how to configure Microsoft Entra ID, see the [App Service Authentication/Authorization documentation](../app-service/configure-authentication-provider-aad.md#-option-2-use-an-existing-registration-created-separately) on using an existing registration.
 
-To configure which accounts can sign in, see [Modify the accounts supported by an application](../active-directory/develop/howto-modify-supported-accounts.md) and [Restrict your Azure AD app to a set of users in an Azure AD tenant](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md).
+To configure which accounts can sign in, see [Modify the accounts supported by an application](../active-directory/develop/howto-modify-supported-accounts.md) and [Restrict your Microsoft Entra app to a set of users in a Microsoft Entra tenant](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md).
 
 > [!NOTE]
-> While the configuration section for Azure Active Directory is `azureActiveDirectory`, the platform aliases this to `aad` in the URL's for login, logout and purging user information. Refer to the [authentication and authorization](authentication-authorization.md) section for more information.
+> While the configuration section for Microsoft Entra ID is `azureActiveDirectory`, the platform aliases this to `aad` in the URL's for login, logout and purging user information. Refer to the [authentication and authorization](authentication-authorization.md) section for more information.
 
 # [Apple](#tab/apple)
 
@@ -299,7 +303,7 @@ Identity providers require a redirect URL to complete the login or logout reques
 | Login  | `https://<YOUR_SITE>/.auth/login/<PROVIDER_NAME_IN_CONFIG>/callback`  |
 | Logout | `https://<YOUR_SITE>/.auth/logout/<PROVIDER_NAME_IN_CONFIG>/callback` |
 
-If you are using Azure Active Directory, use `aad` as the value for the `<PROVIDER_NAME_IN_CONFIG>` placeholder.
+If you are using Microsoft Entra ID, use `aad` as the value for the `<PROVIDER_NAME_IN_CONFIG>` placeholder.
 
 > [!Note]
 > These URLs are provided by Azure Static Web Apps to receive the response from the authentication provider, you don't need to create pages at these routes.
@@ -315,7 +319,189 @@ To use a custom identity provider, use the following URL patterns.
 | User details       | `/.auth/me`                              |
 | Purge user details | `/.auth/purge/<PROVIDER_NAME_IN_CONFIG>` |
 
-If you are using Azure Active Directory, use `aad` as the value for the `<PROVIDER_NAME_IN_CONFIG>` placeholder.
+If you are using Microsoft Entra ID, use `aad` as the value for the `<PROVIDER_NAME_IN_CONFIG>` placeholder.
+
+## Manage roles
+
+Every user who accesses a static web app belongs to one or more roles. There are two built-in roles that users can belong to:
+
+- **anonymous**: All users automatically belong to the _anonymous_ role.
+- **authenticated**: All users who are signed in belong to the _authenticated_ role.
+
+Beyond the built-in roles, you can assign custom roles to users, and reference them in the _staticwebapp.config.json_ file.
+
+# [Invitations](#tab/invitations)
+
+### Add a user to a role
+
+To add a user to a role, you generate invitations that allow you to associate users to specific roles. Roles are defined and maintained in the _staticwebapp.config.json_ file.
+
+<a name="invitations" id="invitations"></a>
+
+#### Create an invitation
+
+Invitations are specific to individual authorization-providers, so consider the needs of your app as you select which providers to support. Some providers expose a user's email address, while others only provide the site's username.
+
+<a name="provider-user-details" id="provider-user-details"></a>
+
+| Authorization provider | Exposes |
+| ---------------------- | ---------------- |
+| Microsoft Entra ID | email address    |
+| GitHub                 | username         |
+| Twitter                | username         |
+
+Do the following steps to create an invitation.
+
+1. Go to a Static Web Apps resource in the [Azure portal](https://portal.azure.com).
+2. Under _Settings_, select **Role Management**.
+3. Select **Invite**.
+4. Select an _Authorization provider_ from the list of options.
+5. Add either the username or email address of the recipient in the _Invitee details_ box.
+   - For GitHub and Twitter, enter the username. For all others, enter the recipient's email address.
+6. Select the domain of your static site from the _Domain_ drop-down menu.
+   - The domain you select is the domain that appears in the invitation. If you have a custom domain associated with your site, choose the custom domain.
+7. Add a comma-separated list of role names in the _Role_ box.
+8. Enter the maximum number of hours you want the invitation to remain valid.
+   - The maximum possible limit is 168 hours, which is seven days.
+9. Select **Generate**.
+10. Copy the link from the _Invite link_ box.
+11. Email the invitation link to the user that you're granting access to.
+
+When the user selects the link in the invitation, they're prompted to sign in with their corresponding account. Once successfully signed in, the user is associated with the selected roles.
+
+> [!CAUTION]
+> Make sure your route rules don't conflict with your selected authentication providers. Blocking a provider with a route rule prevents users from accepting invitations.
+
+### Update role assignments
+
+1. Go to a Static Web Apps resource in the [Azure portal](https://portal.azure.com).
+1. Under _Settings_, select **Role Management**.
+2. Select the user in the list.
+3. Edit the list of roles in the _Role_ box.
+4. Select **Update**.
+
+### Remove user
+
+1. Go to a Static Web Apps resource in the [Azure portal](https://portal.azure.com).
+1. Under _Settings_, select **Role Management**.
+1. Locate the user in the list.
+1. Check the checkbox on the user's row.
+2. Select **Delete**.
+
+As you remove a user, keep in mind the following items:
+
+- Removing a user invalidates their permissions.
+- Worldwide propagation may take a few minutes.
+- If the user is added back to the app, the [`userId` changes](user-information.md).
+
+# [Function (preview)](#tab/function)
+
+Instead of using the built-in invitations system, you can use a serverless function to programmatically assign roles to users when they sign in.
+
+To assign custom roles in a function, you can define an API function that is automatically called after each time a user successfully authenticates with an identity provider. The function is passed the user's information from the provider. It must return a list of custom roles that are assigned to the user.
+
+Example uses of this function include:
+
+- Query a database to determine which roles a user should be assigned
+- Call the [Microsoft Graph API](https://developer.microsoft.com/graph) to determine a user's roles based on their Active Directory group membership
+- Determine a user's roles based on claims returned by the identity provider
+
+> [!NOTE]
+> The ability to assign roles via a function is only available when [custom authentication](authentication-custom.md) is configured.
+>
+> When this feature is enabled, any roles assigned via the built-in invitations system are ignored.
+
+### Configure a function for assigning roles
+
+To configure Static Web Apps to use an API function as the role assignment function, add a `rolesSource` property to the `auth` section of your app's [configuration file](configuration.md). The value of the `rolesSource` property is the path to the API function.
+
+```json
+{
+  "auth": {
+    "rolesSource": "/api/GetRoles",
+    "identityProviders": {
+      // ...
+    }
+  }
+}
+```
+
+> [!NOTE]
+> Once configured, the role assignment function can no longer be accessed by external HTTP requests.
+
+### Create a function for assigning roles
+
+After you define the `rolesSource` property in your app's configuration, add an [API function](apis-functions.md) in your static web app at the specified path. You can use a managed function app or [bring your own function app](functions-bring-your-own.md).
+
+Each time a user successfully authenticates with an identity provider, the POST method calls the specified function. The function passes a JSON object in the request body that contains the user's information from the provider. For some identity providers, the user information also includes an `accessToken` that the function can use to make API calls using the user's identity.
+
+See the following example payload from Microsoft Entra ID:
+
+```json
+{
+  "identityProvider": "aad",
+  "userId": "72137ad3-ae00-42b5-8d54-aacb38576d76",
+  "userDetails": "ellen@contoso.com",
+  "claims": [
+      {
+          "typ": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress",
+          "val": "ellen@contoso.com"
+      },
+      {
+          "typ": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname",
+          "val": "Contoso"
+      },
+      {
+          "typ": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname",
+          "val": "Ellen"
+      },
+      {
+          "typ": "name",
+          "val": "Ellen Contoso"
+      },
+      {
+          "typ": "http://schemas.microsoft.com/identity/claims/objectidentifier",
+          "val": "7da753ff-1c8e-4b5e-affe-d89e5a57fe2f"
+      },
+      {
+          "typ": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier",
+          "val": "72137ad3-ae00-42b5-8d54-aacb38576d76"
+      },
+      {
+          "typ": "http://schemas.microsoft.com/identity/claims/tenantid",
+          "val": "3856f5f5-4bae-464a-9044-b72dc2dcde26"
+      },
+      {
+          "typ": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
+          "val": "ellen@contoso.com"
+      },
+      {
+          "typ": "ver",
+          "val": "1.0"
+      }
+  ],
+  "accessToken": "eyJ0eXAiOiJKV..."
+}
+```
+
+The function can use the user's information to determine which roles to assign to the user. It must return an HTTP 200 response with a JSON body containing a list of custom role names to assign to the user.
+
+For example, to assign the user to the `Reader` and `Contributor` roles, return the following response:
+
+```json
+{
+  "roles": [
+    "Reader",
+    "Contributor"
+  ]
+}
+```
+
+If you don't want to assign any other roles to the user, return an empty `roles` array.
+
+To learn more, see [Tutorial: Assign custom roles with a function and Microsoft Graph](assign-roles-microsoft-graph.md).
+
+---
 
 ## Next steps
 

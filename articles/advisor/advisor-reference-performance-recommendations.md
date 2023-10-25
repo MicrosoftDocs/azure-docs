@@ -109,37 +109,19 @@ The latest version of Azure Front Door Standard and Premium Client Library or SD
 
 Learn more about [Front Door Profile - UpgradeCDNToLatestSDKLanguage (Upgrade SDK version recommendation)](https://aka.ms/afd/tiercomparison).
 
-## Cognitive Services
+## Azure AI services
 
 ### 429 Throttling Detected on this resource
 
 We observed that there have been 1,000 or more 429 throttling errors on this resource in a one day timeframe.  Consider enabling autoscale to better handle higher call volumes and reduce the number of 429 errors.
 
-Learn more about [Cognitive Service - AzureAdvisor429LimitHit (429 Throttling Detected on this resource)](/azure/cognitive-services/autoscale?tabs=portal).
+Learn more about [Azure AI services autoscale](/azure/ai-services/autoscale?tabs=portal).
 
-### Upgrade to the latest Cognitive Service Text Analytics API version
+### Upgrade to the latest Azure AI Language SDK version
 
-Upgrade to the latest API version to get the best results in terms of model quality, performance and service availability. Also there are new features available as new endpoints starting from V3.0 such as personally identifiable information recognition, entity recognition and entity linking available as separate endpoints. In terms of changes in preview endpoints we have opinion mining in SA endpoint, redacted text property in personally identifiable information endpoint
+Upgrade to the latest SDK version to get the best results in terms of model quality, performance and service availability. Also there are new features available as new endpoints starting from V3.0 such as personally identifiable information recognition, Entity recognition and entity linking available as separate endpoints. In terms of changes in preview endpoints we have Opinion Mining in SA endpoint, redacted text property in personally identifiable information endpoint.
 
-Learn more about [Cognitive Service - UpgradeToLatestAPI (Upgrade to the latest Cognitive Service Text Analytics API version)](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-call-api).
-
-### Upgrade to the latest API version of Azure Cognitive Service for Language
-
-Upgrade to the latest API version to get the best results in terms of model quality, performance and service availability.
-
-Learn more about [Cognitive Service - UpgradeToLatestAPILanguage (Upgrade to the latest API version of Azure Cognitive Service for Language)](https://aka.ms/language-api).
-
-### Upgrade to the latest Cognitive Service Text Analytics SDK version
-
-Upgrade to the latest SDK version to get the best results in terms of model quality, performance and service availability. Also there are new features available as new endpoints starting from V3.0 such as personally identifiable information recognition, Entity recognition and entity linking available as separate endpoints. In terms of changes in preview endpoints we have Opinion Mining in SA endpoint, redacted text property in personally identifiable information endpoint
-
-Learn more about [Cognitive Service - UpgradeToLatestSDK (Upgrade to the latest Cognitive Service Text Analytics SDK version)](/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk?tabs=version-3-1&pivots=programming-language-csharp).
-
-### Upgrade to the latest Cognitive Service Language SDK version
-
-Upgrade to the latest SDK version to get the best results in terms of model quality, performance and service availability.
-
-Learn more about [Cognitive Service - UpgradeToLatestSDKLanguage (Upgrade to the latest Cognitive Service Language SDK version)](https://aka.ms/language-api).
+Learn more about [Azure AI Language](/azure/ai-services/language-service/language-detection/overview).
 
 ## Communication services
 
@@ -281,7 +263,7 @@ Learn more about [MariaDB server - OrcasMariaDbStorageLimit (Scale the storage l
 
 Our internal telemetry shows that the CPU has been running under high utilization for an extended period of time over the last 7 days. High CPU utilization may lead to slow query performance. To improve performance, we recommend moving to a larger compute size.
 
-Learn more about [MariaDB server - OrcasMariaDbCpuOverlaod (Increase the MariaDB server vCores)](https://aka.ms/mariadbpricing).
+Learn more about [MariaDB server - OrcasMariaDbCpuOverload (Increase the MariaDB server vCores)](https://aka.ms/mariadbpricing).
 
 ### Scale the MariaDB server to higher SKU
 
@@ -611,6 +593,12 @@ We noticed that your Azure Cosmos DB applications are using Gateway mode via the
 
 Learn more about [Azure Cosmos DB account - CosmosDBGatewayMode (Configure your Azure Cosmos DB applications to use Direct connectivity in the SDK)](/azure/cosmos-db/performance-tips#networking).
 
+### Enhance Performance by Scaling Up for Optimal Resource Utilization
+
+Maximizing the efficiency of your system's resources is crucial for maintaining top-notch performance. Our system closely monitors CPU usage, and when it crosses the 90% threshold over a 12-hour period, a proactive alert is triggered. This alert not only informs Azure Cosmos DB for MongoDB vCore users of the elevated CPU consumption but also provides valuable guidance on scaling up to a higher tier. By upgrading to a more robust tier, you can unlock improved performance and ensure your system operates at its peak potential.
+
+Learn more about [Scaling and configuring Your Azure Cosmos DB for MongoDB vCore cluster](../cosmos-db/mongodb/vcore/how-to-scale-cluster.md)
+
 ## HDInsight
 
 ### Unsupported Kubernetes version is detected
@@ -923,7 +911,7 @@ Learn more about [Database Instance - DisableIPv6Protocol (For improved file sys
 
 The parameter net.ipv4.tcp_slow_start_after_idle disables the need to scale-up incrementally the TCP window size for TCP connections which were idle for some time. By setting this parameter to zero as per SAP note: 302436, the maximum speed is used from beginning for previously idle TCP connections
 
-Learn more about [Database Instance - ParamterSlowStart (To improve file system performance in HANA DB with ANF, disable parameter for slow start after idle)](https://launchpad.support.sap.com/#/notes/3024346).
+Learn more about [Database Instance - ParameterSlowStart (To improve file system performance in HANA DB with ANF, disable parameter for slow start after idle)](https://launchpad.support.sap.com/#/notes/3024346).
 
 ### For improved file system performance in HANA DB with ANF optimize tcp_max_syn_backlog OS parameter
 
@@ -937,11 +925,11 @@ Enable the tcp_sack parameter as per SAP note: 302436. This configuration certif
 
 Learn more about [Database Instance - TCPSackParameter (For improved file system performance in HANA DB with ANF, enable the tcp_sack OS parameter)](https://launchpad.support.sap.com/#/notes/3024346).
 
-### In high-availaility scenario for HANA DB with ANF, disable the tcp_timestamps OS parameter
+### In high-availability scenario for HANA DB with ANF, disable the tcp_timestamps OS parameter
 
 Disable the tcp_timestamps parameter as per SAP note: 302436. This configuration certifies HANA DB to run with ANF and improves file system performance in high-availability scenarios for HANA DB with ANF in SAP workloads
 
-Learn more about [Database Instance - DisableTCPTimestamps (In high-availaility scenario for HANA DB with ANF, disable the tcp_timestamps OS parameter)](https://launchpad.support.sap.com/#/notes/3024346).
+Learn more about [Database Instance - DisableTCPTimestamps (In high-availability scenario for HANA DB with ANF, disable the tcp_timestamps OS parameter)](https://launchpad.support.sap.com/#/notes/3024346).
 
 ### For improved file system performance in HANA DB with ANF, enable the tcp_timestamps OS parameter
 

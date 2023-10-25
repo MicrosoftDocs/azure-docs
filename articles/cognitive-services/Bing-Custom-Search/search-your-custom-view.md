@@ -1,6 +1,6 @@
 ---
 title: Search a custom view - Bing Custom Search
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: After you've configured your custom search experience, you can test it from within the Bing Custom Search portal.
 services: cognitive-services
 author: aahill
@@ -15,7 +15,7 @@ ms.author: aahi
 
 # Call your Bing Custom Search instance from the Portal
 
-[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
 
 After you've configured your custom search experience, you can test it from within the Bing Custom Search [portal](https://customsearch.ai). 
 

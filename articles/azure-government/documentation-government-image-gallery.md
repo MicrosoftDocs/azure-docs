@@ -3,14 +3,12 @@ title: Azure Government Marketplace images
 description: This article provides an overview of Azure Government Marketplace image gallery
 services: azure-government
 cloud: gov
-documentationcenter: ''
 
 ms.service: azure-government
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 08/31/2021 
-ms.custom: devx-track-azurepowershell
 ---
 
 # Azure Government Marketplace images

@@ -1,6 +1,6 @@
 ---
 title: Configure your Bing Custom Search experience | Microsoft Docs
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: The portal lets you create a search instance that specifies the slices of the web; domains, subpages, and webpages.
 services: cognitive-services
 author: aahill
@@ -15,7 +15,7 @@ ms.author: aahi
 
 # Configure your Bing Custom Search experience
 
-[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
 
 A Custom Search instance lets you tailor the search experience to include content only from websites that your users care about. Instead of performing a web-wide search, Bing searches only the slices of the web that interest you. To create your custom view of the web, use the Bing Custom Search [portal](https://www.customsearch.ai).
 
@@ -74,7 +74,7 @@ After adding web slices to the **Active** list, the Bing Custom Search portal wi
 
 You can search for images and videos similarly to web content by using the [Bing Custom Image Search API](/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference) or the [Bing Custom Video Search API](/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference). You can display these results with the [hosted UI](hosted-ui.md), or the APIs. 
 
-These APIs are similar to the non-custom [Bing Image Search](../Bing-Image-Search/overview.md) and [Bing Video Search](../bing-video-search/overview.md) APIs, but search the entire web, and do not require the `customConfig` query parameter. See these documentation sets for more information on working with images and videos. 
+These APIs are similar to the non-custom [Bing Image Search](../bing-image-search/overview.md) and [Bing Video Search](../bing-video-search/overview.md) APIs, but search the entire web, and do not require the `customConfig` query parameter. See these documentation sets for more information on working with images and videos. 
 
 ## Test your search instance with the Preview pane
 

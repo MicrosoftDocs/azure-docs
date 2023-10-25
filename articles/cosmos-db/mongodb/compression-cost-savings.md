@@ -7,6 +7,7 @@ ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 09/06/2022
 ms.author: gahllevy
+ms.subservice: mongodb
 ---
 
 # Improve performance and optimize costs when upgrading to Azure Cosmos DB API for MongoDB 4.0+

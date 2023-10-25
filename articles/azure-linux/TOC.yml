@@ -1,0 +1,72 @@
+- name: Azure Linux Container Host for AKS
+  href: ./index.yml
+- name: Overview
+  items: 
+    - name: About the Azure Linux Container Host for AKS
+      href: intro-azure-linux.md
+    - name: Support cycle for the Azure Linux Container Host for AKS
+      href: support-cycle.md
+    #- name: Supported Azure Linux versions
+    #  href: azure-linux-supported-versions.md
+- name: Quickstarts
+  items: 
+    - name: Deploy an Azure Linux Container Host Cluster
+      items:
+        - name: Use the Azure CLI
+          href: quickstart-azure-cli.md
+        - name: Use the ARM template
+          href: quickstart-azure-resource-manager-template.md
+        - name: Use Terraform
+          href: quickstart-terraform.md
+
+- name: Tutorials
+  items:
+    - name: 1 - Create a cluster with Azure Linux
+      href: tutorial-azure-linux-create-cluster.md
+    - name: 2 - Add an Azure Linux node pool to your existing cluster
+      href: tutorial-azure-linux-add-nodepool.md
+    - name: 3 - Migrating to Azure Linux
+      href: tutorial-azure-linux-migration.md
+    - name: 4 - Enable telemetry and monitoring
+      href: tutorial-azure-linux-telemetry-monitor.md
+    - name: 5 - Upgrade Azure Linux nodes
+      href: tutorial-azure-linux-upgrade.md
+- name: Concepts
+  items: 
+    - name: Core concepts
+      href: concepts-core.md
+    - name: Security
+      items:
+      #  - name: Security baseline
+      #    href: concepts-security.md
+        - name: Compliance 
+          items:
+            - name: CIS baseline overview
+              href: /compliance/regulatory/offering-CIS-Benchmark
+            - name: CIS Azure Linux Container Host for AKS benchmark
+              href: ../aks/cis-azure-linux.md
+    - name: Packages
+      href: concepts-packages.md
+    #- name: Certification
+    #  href: concepts-certs.md
+- name: How-to guides
+  items:
+    - name: Install certificates
+      href: how-to-install-certs.md
+    - name: Troubleshoot
+      items:
+        - name: Package upgrade
+          href: troubleshoot-packages.md
+        - name: Kernel versioning 
+          href: troubleshoot-kernel.md
+- name: Resources 
+  items: 
+    - name: Support policies 
+      href: ../../articles/aks/support-policies.md
+    - name: Release notes
+      href: https://github.com/microsoft/CBL-Mariner/releases
+    - name: Support and help
+      href: support-help.md
+    - name: FAQ
+      href: faq.md
+  

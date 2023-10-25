@@ -2,13 +2,13 @@
 title: Azure Data Box Disk limits | Microsoft Docs
 description: Describes system limits and recommended sizes for the Microsoft Azure Data Box Disk.
 services: databox
-author: alkohli
+author: stevenmatthew
 
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 11/09/2021
-ms.author: alkohli
+ms.date: 12/29/2022
+ms.author: shaas
 ---
 # Azure Data Box Disk limits
 
@@ -19,6 +19,7 @@ Consider these limits as you deploy and operate your Microsoft Azure Data Box Di
 
  - Data Box service is available in the Azure regions listed in [Region availability](data-box-disk-overview.md#region-availability).
  - A single storage account is supported with Data Box Disk.
+ - Data Box Disk supports a maximum of 512 containers or shares in the cloud. The top-level directories within the user share become containers or Azure file shares in the cloud.
 
 ## Data Box Disk performance
 

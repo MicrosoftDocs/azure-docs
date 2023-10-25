@@ -1,9 +1,9 @@
 ---
-title: Azure IoT Central scalability and high availability | Microsoft Docs
+title: Scalability and high availability
 description: This article describes how IoT Central automatically scales to handle more devices, its high availability disaster recovery capabilities.
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/01/2022
+ms.date: 03/21/2023
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -24,11 +24,27 @@ IoT Central automatically scales its IoT hubs based on the load profiles in your
 
 ## High availability and disaster recovery
 
-For highly available device connectivity, an IoT Central application always have at least two IoT hubs. For exceptions to to this rule, see [Limitations](#limitations). The number of hubs can grow or shrink as IoT Central scales the application in response to changes in the load profile.
+HADR capabilities depend on when you created your IoT Central application:
+
+### Applications created before April 2021
+
+Some applications created before April 2021 use a single IoT hub. For these applications, IoT Central doesn't provide HADR capabilities. If the IoT hub becomes unavailable, the application becomes unavailable.
+
+Use the `az iot central device manual-failover` command to check if your application still uses a single IoT hub. This command returns an error if the application has a single IoT hub.
+
+### Applications created after April 2021 and before April 2023
+
+For highly available device connectivity, an IoT Central application always has at least two IoT hubs. The number of hubs can grow or shrink as IoT Central scales the application in response to changes in the load profile.
 
 IoT Central also uses [availability zones](../../availability-zones/az-overview.md#availability-zones) to make various services it uses highly available.
 
 An incident that requires disaster recovery could range from a subset of services becoming unavailable to a whole region becoming unavailable. IoT Central follows different recovery processes depending on the nature and scale of the incident. For example, if an entire Azure region becomes unavailable in the wake of a catastrophic failure, disaster recovery procedures failover applications to another region in the same geography.
+
+### Applications created after April 2023
+
+IoT Central applications created after March 2023 initially have a single IoT hub. If the IoT hub becomes unavailable, the application becomes unavailable. However, IoT Central automatically scales the application and adds a new IoT hub for each 10,000 connected devices. If you require multiple IoT hubs for applications with fewer than 10,000 devices, submit a request to [IoT Central customer support](../../iot/iot-support-help.md?toc=%2Fazure%2Fiot-central%2Ftoc.json&bc=%2Fazure%2Fiot-central%2Fbreadcrumb%2Ftoc.json).
+
+Use the `az iot central device manual-failover` command to check if your application currently uses a single IoT hub. This command returns an error if the application currently has a single IoT hub.
 
 ## Work with multiple IoT hubs
 
@@ -73,8 +89,6 @@ Review the high availability and scalability best practices for the data export 
 - Azure Service Bus: [Best practices for insulating applications against Service Bus outages and disasters](../../service-bus-messaging/service-bus-outages-disasters.md) and [Automatically update messaging units of an Azure Service Bus namespace](../../service-bus-messaging/automate-update-messaging-units.md)
 
 ## Limitations
-
-Currently, there are a few legacy IoT Central applications created before April 2021 that haven't yet migrated to the multiple IoT hub architecture. Use the `az iot central device manual-failover` command to check if your application still uses a single IoT hub.
 
 Currently, IoT Edge devices can't move between IoT hubs.
 

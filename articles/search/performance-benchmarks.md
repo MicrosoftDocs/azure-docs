@@ -2,12 +2,11 @@
 title: Performance benchmarks
 titleSuffix: Azure Cognitive Search
 description: Learn about the performance of Azure Cognitive Search through various performance benchmarks
-author: dereklegenzoff
-
-ms.author: delegenz
+author: gmndrg
+ms.author: gimondra
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/07/2021
+ms.date: 01/31/2023
 ---
 
 # Azure Cognitive Search performance benchmarks
@@ -31,26 +30,26 @@ To create these benchmarks, the following methodology was used:
 2. QPS then increased by `X` and ran for another 180 seconds
 3. Every 180 seconds, the test increased by `X` QPS until average latency increased above 1000 ms or less than 99% of queries succeeded.
 
-The graph below gives a visual example of what the test's query load looks like:
+The following graph gives a visual example of what the test's query load looks like:
 
 ![Example test](./media/performance-benchmarks/example-test.png)
 
 Each scenario used at least 10,000 unique queries to avoid tests being overly skewed by caching.
 
 > [!IMPORTANT]
-> These tests only include query workloads. If you expect to have a high volumne of indexing operations, be sure to factor that into your estimation and performance testing. Sample code for simulating indexing can be found in this [tutorial](tutorial-optimize-indexing-push-api.md).
+> These tests only include query workloads. If you expect to have a high volume of indexing operations, be sure to factor that into your estimation and performance testing. Sample code for simulating indexing can be found in this [tutorial](tutorial-optimize-indexing-push-api.md).
 
 ### Definitions
 
-- **Maximum QPS** -  the maximum QPS numbers below are based on the highest QPS achieved in a test where 99% of queries completed successfully without throttling and average latency stayed under 1000 ms.
+- **Maximum QPS** -  the maximum QPS numbers are based on the highest QPS achieved in a test where 99% of queries completed successfully without throttling and average latency stayed under 1000 ms.
 
 - **Percentage of max QPS** - A percentage of the maximum QPS achieved for a particular test. For example, if a given test reached a maximum of 100 QPS, 20% of max QPS would be 20 QPS.
 
-- **Latency** - The server's latency for a query; these numbers do not include [round trip delay (RTT)](https://en.wikipedia.org/wiki/Round-trip_delay). Values below are in milliseconds (ms).
+- **Latency** - The server's latency for a query; these numbers don't include [round trip delay (RTT)](https://en.wikipedia.org/wiki/Round-trip_delay). Values are in milliseconds (ms).
 
 ### Disclaimer
 
-The code we used to run these benchmarks is available [here](https://github.com/Azure-Samples/azure-search-performance-testing/tree/main/other_tools). It's worth noting that we observed slightly lower QPS levels with the [JMeter performance testing solution](https://github.com/Azure-Samples/azure-search-performance-testing) than in the benchmarks below. The differences can be attributed to differences in the style of the tests. This speaks to the importance of making your performance tests as similar to your production workload as possible.
+The code we used to run these benchmarks is available on the [azure-search-performance-testing](https://github.com/Azure-Samples/azure-search-performance-testing/tree/main/other_tools) repository. It's worth noting that we observed slightly lower QPS levels with the [JMeter performance testing solution](https://github.com/Azure-Samples/azure-search-performance-testing) than in the benchmarks. The differences can be attributed to differences in the style of the tests. This speaks to the importance of making your performance tests as similar to your production workload as possible.
 
 These benchmarks in no way guarantee a certain level of performance from your service but can give you an idea of the performance you can expect based on your scenario.
 
@@ -80,13 +79,13 @@ To run these tests, we used a snapshot of CDON's production search index and tho
 
 #### Queries per second
 
-The chart below shows the highest query load a service could handle for an extended period of time in terms of queries per second (QPS).
+The following chart shows the highest query load a service could handle for an extended period of time in terms of queries per second (QPS).
 
 ![Highest maintainable QPS ecommerce s1](./media/performance-benchmarks/s1-ecom-qps.png)
 
 #### Query latency
 
-Query latency varies based on the load of the service and services under higher stress will have a higher average query latency. The table below show the 25th, 50th, 75th, 90th, 95th, and 99th percentiles of query latency for three different usage levels.
+Query latency varies based on the load of the service and services under higher stress will have a higher average query latency. The following table shows the 25th, 50th, 75th, 90th, 95th, and 99th percentiles of query latency for three different usage levels.
 
 | Percentage of max QPS  | Average latency | 25% | 75% | 90% | 95% | 99%|
 |---|---|---|---| --- | --- | --- | 
@@ -99,13 +98,13 @@ Query latency varies based on the load of the service and services under higher 
 
 #### Queries per second
 
-The chart below shows the highest query load a service could handle for an extended period of time in terms of queries per second (QPS).
+The following chart shows the highest query load a service could handle for an extended period of time in terms of queries per second (QPS).
 
 ![Highest maintainable QPS ecommerce s2](./media/performance-benchmarks/s2-ecom-qps.png)
 
 #### Query latency
 
-Query latency varies based on the load of the service and services under higher stress will have a higher average query latency. The table below show the 25th, 50th, 75th, 90th, 95th, and 99th percentiles of query latency for three different usage levels.
+Query latency varies based on the load of the service and services under higher stress will have a higher average query latency. The following table shows the 25th, 50th, 75th, 90th, 95th, and 99th percentiles of query latency for three different usage levels.
 
 | Percentage of max QPS  | Average latency | 25% | 75% | 90% | 95% | 99%|
 |---|---|---|---| --- | --- | --- | 
@@ -117,7 +116,7 @@ Query latency varies based on the load of the service and services under higher 
 
 #### Queries per second
 
-The chart below shows the highest query load a service could handle for an extended period of time in terms of queries per second (QPS).
+The following chart shows the highest query load a service could handle for an extended period of time in terms of queries per second (QPS).
 
 ![Highest maintainable QPS ecommerce s3](./media/performance-benchmarks/s3-ecom-qps.png)
 
@@ -125,7 +124,7 @@ In this case, we see that adding a second partition significantly increases the 
 
 #### Query latency
 
-Query latency varies based on the load of the service and services under higher stress will have a higher average query latency. The table below show the 25th, 50th, 75th, 90th, 95th, and 99th percentiles of query latency for three different usage levels.
+Query latency varies based on the load of the service and services under higher stress will have a higher average query latency. The following table shows the 25th, 50th, 75th, 90th, 95th, and 99th percentiles of query latency for three different usage levels.
 
 | Percentage of max QPS  | Average latency | 25% | 75% | 90% | 95% | 99%|
 |---|---|---|---| --- | --- | --- |
@@ -146,13 +145,13 @@ Query latency varies based on the load of the service and services under higher 
 
 #### Queries per second
 
-The chart below shows the highest query load a service could handle for an extended period of time in terms of queries per second (QPS).
+The following chart shows the highest query load a service could handle for an extended period of time in terms of queries per second (QPS).
 
 ![Highest maintainable QPS doc search s1](./media/performance-benchmarks/s1-docsearch-qps.png)
 
 #### Query latency
 
-Query latency varies based on the load of the service and services under higher stress will have a higher average query latency. The table below show the 25th, 50th, 75th, 90th, 95th, and 99th percentiles of query latency for three different usage levels.
+Query latency varies based on the load of the service and services under higher stress will have a higher average query latency. The following table shows the 25th, 50th, 75th, 90th, 95th, and 99th percentiles of query latency for three different usage levels.
 
 | Percentage of max QPS  | Average latency | 25% | 75% | 90% | 95% | 99%|
 |---|---|---|---| --- | --- | --- |
@@ -164,13 +163,13 @@ Query latency varies based on the load of the service and services under higher 
 
 #### Queries per second
 
-The chart below shows the highest query load a service could handle for an extended period of time in terms of queries per second (QPS).
+The following chart shows the highest query load a service could handle for an extended period of time in terms of queries per second (QPS).
 
 ![Highest maintainable QPS doc search s2](./media/performance-benchmarks/s2-docsearch-qps.png)
 
 #### Query latency
 
-Query latency varies based on the load of the service and services under higher stress will have a higher average query latency. The table below show the 25th, 50th, 75th, 90th, 95th, and 99th percentiles of query latency for three different usage levels.
+Query latency varies based on the load of the service and services under higher stress will have a higher average query latency. The following table shows the 25th, 50th, 75th, 90th, 95th, and 99th percentiles of query latency for three different usage levels.
 
 | Percentage of max QPS  | Average latency | 25% | 75% | 90% | 95% | 99%|
 |---|---|---|---| --- | --- | --- |
@@ -182,13 +181,13 @@ Query latency varies based on the load of the service and services under higher 
 
 #### Queries per second
 
-The chart below shows the highest query load a service could handle for an extended period of time in terms of queries per second (QPS).
+The following chart shows the highest query load a service could handle for an extended period of time in terms of queries per second (QPS).
 
 ![Highest maintainable QPS doc search s3](./media/performance-benchmarks/s3-docsearch-qps.png)
 
 #### Query latency
 
-Query latency varies based on the load of the service and services under higher stress will have a higher average query latency. The table below show the 25th, 50th, 75th, 90th, 95th, and 99th percentiles of query latency for three different usage levels.
+Query latency varies based on the load of the service and services under higher stress will have a higher average query latency. The following table shows the 25th, 50th, 75th, 90th, 95th, and 99th percentiles of query latency for three different usage levels.
 
 | Percentage of max QPS  | Average latency | 25% | 75% | 90% | 95% | 99%|
 |---|---|---|---| --- | --- | --- |
@@ -213,6 +212,6 @@ You can also see that performance can vary drastically between scenarios. If you
 
 Now that you've seen the performance benchmarks, you can learn more about how to analyze Cognitive Search's performance and key factors that influence performance.
 
-> [!div class="nextstepaction"]
-> [Analyze performance](search-performance-analysis.md)
-> [Tips for better performance](search-performance-tips.md)
++ [Analyze performance](search-performance-analysis.md)
++ [Tips for better performance](search-performance-tips.md)
++ [Case Study: Use Cognitive Search to Support Complex AI Scenarios](https://techcommunity.microsoft.com/t5/azure-ai/case-study-effectively-using-cognitive-search-to-support-complex/ba-p/2804078)

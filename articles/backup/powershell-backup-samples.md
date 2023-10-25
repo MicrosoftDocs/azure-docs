@@ -4,6 +4,8 @@ description: This article provides links to PowerShell script samples that use A
 ms.topic: sample
 ms.date: 06/23/2021
 ms.custom: mvc
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 # Azure Backup PowerShell samples
 

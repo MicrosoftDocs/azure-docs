@@ -7,15 +7,16 @@ ms.service: virtual-machines
 ms.subservice: billing
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 10/30/2017
+ms.date: 01/09/2023
 ms.author: vikdesai
+ms.reviewer: erd
 
 ---
 # Save costs with Azure Reserved VM Instances
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-When you commit to an Azure reserved VM instance you can save money. The reservation discount is applied automatically to the number of running virtual machines that match the reservation scope and attributes. You don't need to assign a reservation to a virtual machine to get the discounts. A reserved instance purchase covers only the compute part of your VM usage. For Windows VMs, the usage meter is split into two separate meters. There's a compute meter, which is same as the Linux meter, and a Windows IP meter. The charges that you see when you make the purchase are only for the compute costs. Charges don't include Windows software costs. For more information about software costs, see [Software costs not included with Azure Reserved VM Instances](../cost-management-billing/reservations/reserved-instance-windows-software-costs.md).
+When you commit to an Azure reserved VM instance you can save money. The reservation discount is applied automatically to the number of running virtual machines that match the reservation scope and attributes. You don't need to assign a reservation to a virtual machine to get the discounts. A reserved instance purchase covers only the compute part of your VM usage. For Windows VMs, the usage meter is split into two separate meters. There's a compute meter, which is same as the Linux meter, and a Windows server license. The charges that you see when you make the purchase are only for the compute costs. Charges don't include Windows software costs. For more information about software costs, see [Software costs not included with Azure Reserved VM Instances](../cost-management-billing/reservations/reserved-instance-windows-software-costs.md).
 
 ## Determine the right VM size before you buy
 

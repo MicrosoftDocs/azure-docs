@@ -5,24 +5,26 @@ ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.topic: quickstart
 ms.date: 11/23/2020
 ms.devlang: csharp
-ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18, contperf-fy21q1, mode-other
+ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18, contperf-fy21q1, mode-other, devx-track-dotnet
 zone_pivot_groups: app-service-platform-windows-linux
 ROBOTS: NOINDEX,NOFOLLOW
+author: cephalin
+ms.author: cephalin
 ---
 
 # Quickstart: Create an ASP.NET Core web app in Azure
 
 ::: zone pivot="platform-windows"  
 
-In this quickstart, you'll learn how to create and deploy your first ASP.NET Core web app to <abbr title="An HTTP-based service for hosting web applications, REST APIs, and mobile back-end applications.">Azure App Service</abbr>. App Service supports .NET 5.0 apps.
+In this quickstart, you'll learn how to create and deploy your first ASP.NET Core web app to  Azure App Service (An HTTP-based service for hosting web applications, REST APIs, and mobile back-end applications.). App Service supports .NET 5.0 apps.
 
-When you're finished, you'll have an Azure <abbr title="A logical container for related Azure resources that you can manage as a unit.">resource group</abbr>, consisting of an <abbr title="The plan that specifies the location, size, and features of the web server farm that hosts your app.">App Service plan</abbr> and an <abbr title="The representation of your web app, which contains your app code, DNS hostnames, certificates, and related resources.">App Service app</abbr> with a deployed sample ASP.NET Core application.
+When you're finished, you'll have an Azure  resource group (A logical container for related Azure resources that you can manage as a unit.) consisting of an App Service plan (The plan that specifies the location, size, and features of the web server farm that hosts your app.) and on App Service app (The representation of your web app, which contains your app code, DNS hostnames, certificates, and related resources.) with a deployed sample ASP.NET Core application.
 
 <hr/> 
 
 ## 1. Prepare your environment
 
-- **Get an Azure account** with an active <abbr title="The basic organizational structure in which you manage resources in Azure, typically associated with an individual or department within an organization.">subscription</abbr>. [Create an account for free](https://azure.microsoft.com/free/dotnet/).
+- **Get an Azure account** with an active  subscription (The basic organizational structure in which you manage resources in Azure, typically associated with an individual or department within an organization.). [Create an account for free](https://azure.microsoft.com/free/dotnet/).
 - **Install <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a>** with the **ASP.NET and web development** workload.
 
 <details>
@@ -63,13 +65,13 @@ If you've installed Visual Studio 2019 already:
 
 1. In **Solution Explorer**, right-click the **myFirstAzureWebApp** project and select **Publish**. 
 
-1. In **Publish**, select **Azure** and click **Next**.
+1. In **Publish**, select **Azure** and select **Next**.
 
 1. Your options depend on whether you're signed in to Azure already and whether you have a Visual Studio account linked to an Azure account. Select either **Add an account** or **Sign in** to sign in to your Azure subscription. If you're already signed in, select the account you want.
 
    ![Sign in to Azure](./media/quickstart-dotnetcore/sign-in-azure-vs2019.png)
 
-1. To the right of **App Service instances**, click **+**.
+1. To the right of **App Service instances**, select **+**.
 
    ![New App Service app](./media/quickstart-dotnetcore/publish-new-app-service.png)
 
@@ -102,7 +104,7 @@ If you've installed Visual Studio 2019 already:
 
 1. Wait for the wizard to finish creating Azure resources. Select **Finish** to close the wizard.
 
-1. In the **Publish** page, click **Publish** to deploy your project. 
+1. In the **Publish** page, select **Publish** to deploy your project. 
 
     <details>
         <summary>What's Visual Studio doing?</summary>
@@ -174,7 +176,7 @@ Advance to the next article to learn how to create a .NET Core app and connect i
 ::: zone-end  
 
 ::: zone pivot="platform-linux"
-This quickstart shows how to create a [.NET Core](/aspnet/core/) app on <abbr title="App Service on Linux provides a highly scalable, self-patching web hosting service using the Linux operating system.">App Service on Linux</abbr>. You create the app using the [Azure CLI](/cli/azure/get-started-with-azure-cli), and you use Git to deploy the .NET Core code to the app.
+This quickstart shows how to create a [.NET Core](/aspnet/core/) app on App Service on Linux (App Service on Linux provides a highly scalable, self-patching web hosting service using the Linux operating system.). You create the app using the [Azure CLI](/cli/azure/get-started-with-azure-cli), and you use Git to deploy the .NET Core code to the app.
 
 <hr/> 
 
@@ -318,7 +320,7 @@ http://<app_name>.azurewebsites.net
     
     <details>
     <summary>What's <code>az webapp up</code> doing this time?</summary>
-    The first time you ran the command, it saved the app name, resource group, and App Service plan in the <i>.azure/config</i> file from the project root. When you run it again from the project root, it uses the values saved in <i>.azure/config</i>, detects that the App Service resources already exists, and performs Zip deploy again.
+    The first time you ran the command, it saved the app name, resource group, and App Service plan in the <i>.azure/config</i> file from the project root. When you run it again from the project root, it uses the values saved in <i>.azure/config</i>, detects that the App Service resources already exist, and performs Zip deploy again.
     </details>
     
 1. Once deployment has completed, **hit refresh** in the browser window that previously opened.
@@ -333,7 +335,7 @@ http://<app_name>.azurewebsites.net
 
 1. Go to the <a href="https://portal.azure.com" target="_blank">Azure portal</a>.
 
-1. From the left menu, click **App Services**, and then click the name of your Azure app.
+1. From the left menu, select **App Services**, and then select the name of your Azure app.
 
     :::image type="content" source="./media/quickstart-dotnetcore/portal-app-service-list-up.png" alt-text="Screenshot of the App Services page showing an example Azure app selected.":::
 
@@ -359,5 +361,6 @@ az group delete --name myResourceGroup
 
 - [Tutorial: ASP.NET Core app with SQL Database](tutorial-dotnetcore-sqldb-app.md)
 - [Configure ASP.NET Core app](configure-language-dotnetcore.md)
+- [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)
 
 ::: zone-end

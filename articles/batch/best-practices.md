@@ -1,7 +1,7 @@
 ---
 title: Best practices
 description: Learn best practices and useful tips for developing your Azure Batch solutions.
-ms.date: 11/15/2022
+ms.date: 10/12/2023
 ms.topic: conceptual
 ---
 
@@ -35,13 +35,14 @@ initiates communication to the compute nodes, and compute nodes also require com
 node communication model, compute nodes initiate communication with the Batch service. Due to the reduced scope of
 inbound/outbound connections required, and not requiring Azure Storage outbound access for baseline operation, the recommendation
 is to use the simplified node communication model. Some future improvements to the Batch service will also require the simplified
-node communication model.
+node communication model. The classic node communication model will be
+[retired on March 31, 2026](batch-pools-to-simplified-compute-node-communication-model-migration-guide.md).
 
 - **Job and task run time considerations:** If you have jobs comprised primarily of short-running tasks, and the expected total task counts are small, so that the overall expected run time of the job isn't long, don't allocate a new pool for each job. The allocation time of the nodes will diminish the run time of the job.
 
 - **Multiple compute nodes:** Individual nodes aren't guaranteed to always be available. While uncommon, hardware failures, operating system updates, and a host of other issues can cause individual nodes to be offline. If your Batch workload requires deterministic, guaranteed progress, you should allocate pools with multiple nodes.
 
-- **Images with impending end-of-life (EOL) dates:** We strongly recommended avoiding images with impending Batch support
+- **Images with impending end-of-life (EOL) dates:** It's strongly recommended to avoid images with impending Batch support
 end of life (EOL) dates. These dates can be discovered via the
 [`ListSupportedImages` API](/rest/api/batchservice/account/listsupportedimages),
 [PowerShell](/powershell/module/az.batch/get-azbatchsupportedimage), or
@@ -72,6 +73,17 @@ Before you recreate or resize your pool, you should download any node agent logs
 
 > [!NOTE]
 > For general guidance about security in Azure Batch, see [Batch security and compliance best practices](security-best-practices.md).
+
+#### Operating system updates
+
+It's recommended that the VM image selected for a Batch pool should be up-to-date with the latest publisher provided security updates.
+Some images may perform automatic updates upon boot (or shortly thereafter), which may interfere with certain user directed actions such
+as retrieving package repository updates (for example, `apt update`) or installing packages during actions such as a
+[StartTask](jobs-and-tasks.md#start-task).
+
+Azure Batch doesn't verify or guarantee that images allowed for use with the service have the latest security updates.
+Updates to images are under the purview of the publisher of the image, and not that of Azure Batch. For certain images published
+under `microsoft-azure-batch`, there's no guarantee that these images are kept up-to-date with their upstream derived image.
 
 ### Pool lifetime and billing
 
@@ -142,6 +154,9 @@ Deleting tasks accomplishes two things:
 - Ensures that you don't have a build-up of tasks in the job. This action will help avoid difficulty in finding the task you're interested in as you'll have to filter through the Completed tasks.
 - Cleans up the corresponding task data on the node (provided `retentionTime` hasn't already been hit). This action helps ensure that your nodes don't fill up with task data and run out of disk space.
 
+> [!NOTE]
+> For tasks just submitted to Batch, the DeleteTask API call takes up to 10 minutes to take effect. Before it takes effect, other tasks might be prevented from being scheduled. It's because Batch Scheduler still tries to schedule the tasks just deleted. If you want to delete one task shortly after it's submitted, please terminate the task instead (since the terminate task will take effect immediately). And then delete the task 10 minutes later.
+
 ### Submit large numbers of tasks in collection
 
 Tasks can be submitted on an individual basis or in collections. Submit tasks in [collections](/rest/api/batchservice/task/addcollection) of up to 100 at a time when doing bulk submission of tasks to reduce overhead and submission time.
@@ -211,6 +226,13 @@ mounted. It's your responsibility to perform these operations as part of your [s
 must be crafted to be idempotent. A re-execution of the start task after the compute node has been provisioned is possible. If the start
 task isn't idempotent, potential data loss can occur on the data disks.
 
+> [!TIP]
+> When mounting a data disk in Linux, if nesting the disk mountpoint under the Azure temporary mount points such as `/mnt` or `/mnt/resource`,
+> care should be taken such that no dependency races are introduced. For example, if these mounts are automatically performed by the OS, there
+> can be a race between the temporary disk being mounted and your data disk(s) being mounted under the parent. Steps should be taken to
+> ensure that appropriate dependencies are enforced by facilities available such as `systemd` or defer mounting of the data disk to the start
+> task as part of your idempotent data disk preparation script.
+
 #### Preparing data disks in Linux Batch pools
 
 Azure data disks in Linux are presented as block devices and assigned a typical `sd[X]` identifier. You shouldn't rely on static `sd[X]`
@@ -227,9 +249,11 @@ lrwxrwxrwx 1 root root 12 Oct 31 15:16 lun0 -> ../../../sdc
 
 There's no need to translate the reference back to the `sd[X]` mapping in your preparation script, instead refer to the device directly.
 In this example, this device would be `/dev/disk/azure/scsi1/lun0`. You could provide this ID directly to `fdisk`, `mkfs`, and any other
-tooling required for your workflow.
+tooling required for your workflow. Alternatively, you can use `lsblk` with `blkid` to map the UUID for the disk.
 
-For more information about Azure data disks in Linux, see this [article](../virtual-machine-scale-sets/tutorial-use-disks-cli.md).
+For more information about Azure data disks in Linux, including alternate methods of locating data disks and `/etc/fstab` options,
+see this [article](../virtual-machines/linux/add-disk.md). Ensure that there are no dependencies or races as described by the Tip
+note before promoting your method into production use.
 
 #### Preparing data disks in Windows Batch pools
 
@@ -251,7 +275,9 @@ Number Friendly Name Serial Number                    HealthStatus         Opera
 Where disk number 2 is the uninitialized data disk attached to this compute node. These disks can then be initialized, partitioned,
 and formatted as required for your workflow.
 
-For more information about Azure data disks in Windows, see this [article](../virtual-machine-scale-sets/tutorial-use-disks-powershell.md).
+For more information about Azure data disks in Windows, including sample PowerShell scripts, see this
+[article](../virtual-machines/windows/attach-disk-ps.md). Ensure any sample scripts are validated for idempotency before
+promotion into production use.
 
 ### Collect Batch agent logs
 

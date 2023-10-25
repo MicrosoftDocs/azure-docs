@@ -3,8 +3,7 @@
  description: Create a storage account for Azure Files using the Azure portal.
  services: storage
  author: khdownie
- ms.service: storage
- ms.subservice: files
+ ms.service: azure-file-storage
  ms.topic: include
  ms.date: 10/24/2022
  ms.author: kendownie

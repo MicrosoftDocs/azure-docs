@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 11/01/2022
+ms.date: 10/20/2023
 ---
 
 # Copy data from Salesforce Marketing Cloud using Azure Data Factory or Synapse Analytics
@@ -61,6 +61,9 @@ Use the following steps to create a linked service to Salesforce Marketing Cloud
 1. Configure the service details, test the connection, and create the new linked service.
 
    :::image type="content" source="media/connector-salesforce-marketing-cloud/configure-salesforce-marketing-cloud-linked-service.png" alt-text="Configure a linked service to Salesforce Marketing Cloud.":::
+   
+>[!NOTE]
+> The API integration scope on the Salesforce Marketing Cloud must be set to Hub | Campaign | Read in order for the connector to succeed.
 
 ## Connector configuration details
 

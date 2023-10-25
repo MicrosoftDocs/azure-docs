@@ -1,0 +1,344 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "kubernetesClusterName": {
+        "type": "string",
+        "metadata": {
+          "description": "The name of Nexus Kubernetes cluster"
+        }
+      },
+      "location": {
+        "type": "string",
+        "metadata": {
+          "description": "The Azure region where the cluster is to be deployed"
+        },
+        "defaultValue": "[resourceGroup().location]"
+      },
+      "extendedLocation": {
+        "type": "string",
+        "metadata": {
+          "description": "The custom location of the Nexus instance"
+        },
+        "defaultValue": ""
+      },
+      "tags": {
+        "type": "object",
+        "metadata": {
+          "description": "The metadata tags to be associated with the cluster resource"
+        },
+        "defaultValue": {}
+      },
+      "adminUsername": {
+        "type": "string",
+        "metadata": {
+          "description": "The username for the administrative account on the cluster"
+        },
+        "defaultValue": "azureuser"
+      },
+      "adminGroupObjectIds": {
+        "type": "array",
+        "metadata": {
+          "description": "The object IDs of Azure Active Directory (AAD) groups that will have administrative access to the cluster"
+        },
+        "defaultValue": []
+      },
+      "cniNetworkId": {
+        "type": "string",
+        "metadata": {
+          "description": "The Azure Resource Manager (ARM) id of the network to be used as the Container Networking Interface (CNI) network"
+        }
+      },
+      "cloudServicesNetworkId": {
+        "type": "string",
+        "metadata": {
+          "description": "The ARM id of the network to be used for cloud services network"
+        }
+      },
+      "podCidrs": {
+        "type": "array",
+        "metadata": {
+          "description": "The CIDR blocks used for Nexus Kubernetes PODs in the cluster"
+        },
+        "defaultValue": ["10.244.0.0/16"]
+      },
+      "serviceCidrs": {
+        "type": "array",
+        "metadata": {
+          "description": "The CIDR blocks used for k8s service in the cluster"
+        },
+        "defaultValue": ["10.96.0.0/16"]
+      },
+      "dnsServiceIp": {
+        "type": "string",
+        "metadata": {
+          "description": "The IP address of the DNS service in the cluster"
+        },
+        "defaultValue": "10.96.0.10"
+      },
+      "agentPoolL2Networks": {
+        "type": "array",
+        "metadata": {
+          "description": "The Layer 2 networks associated with the initial agent pool"
+        },
+        "defaultValue": []
+        /*
+          {
+            "networkId": "string",
+            "pluginType": "SRIOV|DPDK|OSDevice|MACVLAN|IPVLAN"
+          }
+        */
+      },
+      "agentPoolL3Networks": {
+        "type": "array",
+        "metadata": {
+          "description": "The Layer 3 networks associated with the initial agent pool"
+        },
+        "defaultValue": []
+        /*
+          {
+            "ipamEnabled": "True/False",
+            "networkId": "string",
+            "pluginType": "SRIOV|DPDK|OSDevice|MACVLAN|IPVLAN"
+          }
+        */
+      },
+      "agentPoolTrunkedNetworks": {
+        "type": "array",
+        "metadata": {
+          "description": "The trunked networks associated with the initial agent pool"
+        },
+        "defaultValue": []
+        /*
+          {
+            "networkId": "string",
+            "pluginType": "SRIOV|DPDK|OSDevice|MACVLAN|IPVLAN"
+          }
+        */
+      },
+      "l2Networks": {
+        "type": "array",
+        "metadata": {
+          "description": "The Layer 2 networks associated with the cluster"
+        },
+        "defaultValue": []
+        /*
+          {
+            "networkId": "string",
+            "pluginType": "SRIOV|DPDK|OSDevice|MACVLAN|IPVLAN"
+          }
+        */
+      },
+      "l3Networks": {
+        "type": "array",
+        "metadata": {
+          "description": "The Layer 3 networks associated with the cluster"
+        },
+        "defaultValue": []
+        /*
+          {
+            "ipamEnabled": "True/False",
+            "networkId": "string",
+            "pluginType": "SRIOV|DPDK|OSDevice|MACVLAN|IPVLAN"
+          }
+        */
+      },
+      "trunkedNetworks": {
+        "type": "array",
+        "metadata": {
+          "description": "The trunked networks associated with the cluster"
+        },
+        "defaultValue": []
+        /*
+          {
+            "networkId": "string",
+            "pluginType": "SRIOV|DPDK|OSDevice|MACVLAN|IPVLAN"
+          }
+        */
+      },
+      "ipAddressPools": {
+        "type": "array",
+        "metadata": {
+          "description": "The LoadBalancer IP address pools associated with the cluster"
+        },
+        "defaultValue": []
+        /*
+          {
+            "addresses": [
+              "string"
+            ],
+            "autoAssign": "True/False",
+            "name": "sting",
+            "onlyUseHostIps": "True/False"
+          }
+        */
+      },
+      "kubernetesVersion": {
+        "type": "string",
+        "metadata": {
+          "description": "The version of Kubernetes to be used in the Nexus Kubernetes cluster"
+        },
+        "defaultValue": "v1.24.9"
+      },
+      "controlPlaneCount": {
+        "type": "int",
+        "metadata": {
+          "description": "The number of control plane nodes to be deployed in the cluster"
+        },
+        "defaultValue": 1
+      },
+      "controlPlaneZones": {
+        "type": "array",
+        "metadata": {
+          "description": "The zones/racks used for placement of the control plane nodes"
+        },
+        "defaultValue": []
+        /* array of strings Example: ["1", "2", "3"] */
+      },
+      "agentPoolZones": {
+        "type": "array",
+        "metadata": {
+          "description": "The zones/racks used for placement of the agent pool nodes"
+        },
+        "defaultValue": []
+        /* array of strings Example: ["1", "2", "3"] */
+      },
+      "controlPlaneVmSkuName": {
+        "type": "string",
+        "metadata": {
+          "description": "The size of the control plane nodes"
+        },
+        "defaultValue": "NC_G6_28_v1"
+      },
+      "systemPoolNodeCount": {
+        "type": "int",
+        "metadata": {
+          "description": "The number of worker nodes to be deployed in the initial agent pool"
+        },
+        "defaultValue": 1
+      },
+      "workerVmSkuName": {
+        "type": "string",
+        "metadata": {
+          "description": "The size of the worker nodes"
+        },
+        "defaultValue": "NC_P10_56_v1"
+      },
+      "initialPoolAgentOptions": {
+        "type": "object",
+        "metadata": {
+          "description": "The configurations for the initial agent pool"
+        },
+        "defaultValue": {}
+        /*
+          "hugepagesCount": int,
+          "hugepagesSize": "2M/1G"
+        */
+      },
+      "sshPublicKey": {
+        "type": "string",
+        "metadata": {
+          "description": "The SSH public key that will be associated with the 'azureuser' user for secure remote login"
+        }
+      },
+      "labels": {
+        "type": "array",
+        "metadata": {
+          "description": "The labels to assign to the nodes in the cluster for identification and organization"
+        },
+        "defaultValue": []
+        /*
+          {
+            "key": "string",
+            "value": "string"
+          }
+        */
+      },
+      "taints": {
+        "type": "array",
+        "metadata": {
+          "description": "The taints to apply to the nodes in the cluster to restrict which pods can be scheduled on them"
+        },
+        "defaultValue": []
+        /*
+          {
+            "key": "string",
+            "value": "string:NoSchedule|PreferNoSchedule|NoExecute"
+          }
+        */
+      }
+    },
+    "resources": [
+      {
+        "type": "Microsoft.NetworkCloud/kubernetesClusters",
+        "apiVersion": "2023-07-01",
+        "name": "[parameters('kubernetesClusterName')]",
+        "location": "[parameters('location')]",
+        "tags": "[parameters('tags')]",
+        "extendedLocation": {
+          "name": "[parameters('extendedLocation')]",
+          "type": "CustomLocation"
+        },
+        "properties": {
+          "kubernetesVersion": "[parameters('kubernetesVersion')]",
+          "managedResourceGroupConfiguration": {
+            "name": "[concat(uniqueString(resourceGroup().name), '-', parameters('kubernetesClusterName'))]",
+            "location": "[parameters('location')]"
+          },
+          "aadConfiguration": {
+            "adminGroupObjectIds": "[parameters('adminGroupObjectIds')]"
+          },
+          "administratorConfiguration": {
+            "adminUsername": "[parameters('adminUsername')]",
+            "sshPublicKeys": [
+              {
+                "keyData": "[parameters('sshPublicKey')]"
+              }
+            ]
+          },
+          "initialAgentPoolConfigurations": [
+            {
+              "name": "[concat(parameters('kubernetesClusterName'), '-nodepool-1')]",
+              "administratorConfiguration": {},
+              "count": "[parameters('systemPoolNodeCount')]",
+              "vmSkuName": "[parameters('workerVmSkuName')]",
+              "mode": "System",
+              "labels": "[if(empty(parameters('labels')), json('null'), parameters('labels'))]",
+              "taints": "[if(empty(parameters('taints')), json('null'), parameters('taints'))]",
+              "agentOptions": "[if(empty(parameters('initialPoolAgentOptions')), json('null'), parameters('initialPoolAgentOptions'))]",
+              "attachedNetworkConfiguration": {
+                "l2Networks": "[if(empty(parameters('agentPoolL2Networks')), json('null'), parameters('agentPoolL2Networks'))]",
+                "l3Networks": "[if(empty(parameters('agentPoolL3Networks')), json('null'), parameters('agentPoolL3Networks'))]",
+                "trunkedNetworks": "[if(empty(parameters('agentPoolTrunkedNetworks')), json('null'), parameters('agentPoolTrunkedNetworks'))]"
+              },
+              "availabilityZones": "[if(empty(parameters('agentPoolZones')), json('null'), parameters('agentPoolZones'))]",
+              "upgradeSettings": {
+                "maxSurge": "1"
+              }
+            }
+          ],
+          "controlPlaneNodeConfiguration": {
+            "administratorConfiguration": {},
+            "count": "[parameters('controlPlaneCount')]",
+            "vmSkuName": "[parameters('controlPlaneVmSkuName')]",
+            "availabilityZones": "[if(empty(parameters('controlPlaneZones')), json('null'), parameters('controlPlaneZones'))]"
+          },
+          "networkConfiguration": {
+            "cniNetworkId": "[parameters('cniNetworkId')]",
+            "cloudServicesNetworkId": "[parameters('cloudServicesNetworkId')]",
+            "dnsServiceIp": "[parameters('dnsServiceIp')]",
+            "podCidrs": "[parameters('podCidrs')]",
+            "serviceCidrs": "[parameters('serviceCidrs')]",
+            "attachedNetworkConfiguration": {
+              "l2Networks": "[if(empty(parameters('l2Networks')), json('null'), parameters('l2Networks'))]",
+              "l3Networks": "[if(empty(parameters('l3Networks')), json('null'), parameters('l3Networks'))]",
+              "trunkedNetworks": "[if(empty(parameters('trunkedNetworks')), json('null'), parameters('trunkedNetworks'))]"
+            },
+            "bgpServiceLoadBalancerConfiguration": {
+              "ipAddressPools": "[if(empty(parameters('ipAddressPools')), json('null'), parameters('ipAddressPools'))]"
+            }
+          }
+        }
+      }
+    ]
+  }

@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: seo-lt-2019, ignite-2022
-ms.date: 11/01/2022
+ms.date: 10/20/2023
 ---
 
 # Sink transformation in mapping data flow
@@ -45,7 +45,7 @@ When using data flows in Azure Synapse workspaces, you will have an additional o
 
 ##  <a name="supported-sinks"></a> Supported sink types
 
-Mapping data flow follows an extract, load, and transform (ELT) approach and works with *staging* datasets that are all in Azure. Currently, the following datasets can be used in a source transformation.
+Mapping data flow follows an extract, load, and transform (ELT) approach and works with *staging* datasets that are all in Azure. Currently, the following datasets can be used in a sink transformation.
 
 | Connector | Format | Dataset/inline |
 | --------- | ------ | -------------- |

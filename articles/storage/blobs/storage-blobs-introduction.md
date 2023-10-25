@@ -3,13 +3,12 @@ title: Introduction to Blob (object) Storage
 titleSuffix: Azure Storage
 description: Use Azure Blob Storage to store massive amounts of unstructured object data, such as text or binary data. Azure Blob Storage is highly scalable and available.
 services: storage
-author: tamram
+author: akashdubey-ms
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: overview
-ms.date: 11/07/2022
-ms.author: tamram
-ms.subservice: blobs
+ms.date: 03/28/2023
+ms.author: akashdubey
 ms.custom: engagement-fy23
 ---
 
@@ -55,7 +54,7 @@ To learn how to create a storage account, see [Create a storage account](../comm
 
 A container organizes a set of blobs, similar to a directory in a file system. A storage account can include an unlimited number of containers, and a container can store an unlimited number of blobs.
 
-A container name must be a valid DNS name, as it forms part of the unique URI used to address the container or its blobs. Follow these rules when naming a container:
+A container name must be a valid DNS name, as it forms part of the unique URI (Uniform resource identifier) used to address the container or its blobs. Follow these rules when naming a container:
 
 - Container names can be between 3 and 63 characters long.
 - Container names must start with a letter or number, and can contain only lowercase letters, numbers, and the dash (-) character.
@@ -91,7 +90,9 @@ Follow these rules when naming a blob:
 - A blob name must be at least one character long and cannot be more than 1,024 characters long, for blobs in Azure Storage. 
 - Blob names are case-sensitive.  
 - Reserved URL characters must be properly escaped.  
-- The number of path segments comprising the blob name cannot exceed 254. A path segment is the string between consecutive delimiter characters (*e.g.*, the forward slash '/') that corresponds to the name of a virtual directory.  
+- There are limitations on the number of path segments comprising a blob name. A path segment is the string between consecutive delimiter characters (for example, a forward slash `/`) that corresponds to the directory or virtual directory. The following path segment limitations apply to blob names:
+  - If the storage account *does not* have hierarchical namespace enabled, the number of path segments comprising the blob name cannot exceed 254.
+  - If the storage account has hierarchical namespace enabled, the number of path segments comprising the blob name cannot exceed 63 (including path segments for container name and account host name).
   
 > [!NOTE]
 > Avoid blob names that end with a dot (.), a forward slash (/), or a sequence or combination of the two. No path segments should end with a dot (.).

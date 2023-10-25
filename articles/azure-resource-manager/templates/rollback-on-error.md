@@ -2,9 +2,10 @@
 title: Roll back on error to successful deployment
 description: Specify that a failed deployment should roll back to a successful deployment.
 ms.topic: conceptual
-ms.date: 02/02/2021 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.date: 05/22/2023
+ms.custom: devx-track-azurecli
 ---
+
 # Rollback on error to successful deployment
 
 When a deployment fails, you can automatically redeploy an earlier, successful deployment from your deployment history. This functionality is useful if you've got a known good state for your infrastructure deployment and want to revert to this state. You can specify either a particular earlier deployment or the last successful deployment.

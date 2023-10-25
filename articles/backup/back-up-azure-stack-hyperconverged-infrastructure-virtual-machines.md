@@ -2,15 +2,15 @@
 title: Back up Azure Stack HCI virtual machines with MABS
 description: This article contains the procedures to back up and recover virtual machines using Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
-ms.date: 02/15/2022
-author: v-amallick
+ms.date: 05/15/2022
 ms.service: backup
-ms.author: v-amallick
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Back up Azure Stack HCI virtual machines with Azure Backup Server
 
-This article explains how to back up virtual machines on Azure Stack HCI using Microsoft Azure Backup Server (MABS).
+This article describes how to back up virtual machines on Azure Stack HCI using Microsoft Azure Backup Server (MABS).
  
 ## Supported scenarios
 
@@ -25,6 +25,8 @@ MABS can back up Azure Stack HCI virtual machines in the following scenarios:
 - **VM Move within a cluster**: When VMs are moved within a stretched/normal cluster, MABS continues to protect the virtual machines as long as the MABS protection agent is installed on the Azure Stack HCI host. The way in which MABS protects the virtual machines depends on the type of live migration involved. With a VM Move within a cluster, MABS detects the migration, and backs up the virtual machine from the new cluster node without any requirement for user intervention. Because the storage location hasn't changed, MABS continues with express full backups. 
 
 - **VM Move to a different stretched/normal cluster**: VM Move to a different stretched/normal cluster is not supported.
+
+Learn more about the [supported scenarios for MABS V3 UR2 and later](backup-mabs-protection-matrix.md#vm-backup).
 
 ## Host versus guest backup
 
@@ -57,13 +59,13 @@ These are the prerequisites for backing up virtual machines with MABS:
 
 2. Set up the MABS protection agent on the server or each cluster node.
 
-3. In  the MABS Administrator console, select **Protection** > **Create protection group** to open the **Create New Protection Group** wizard.
+3. On  the MABS Administrator console, select **Protection** > **Create protection group** to open the **Create New Protection Group** wizard.
 
 4. On the **Select Group Members** page, select the VMs you want to protect from the host servers on which they're located. We recommend you put all VMs that will have the same protection policy into one protection group. To make efficient use of space, enable colocation. Colocation allows you to locate data from different protection groups on the same disk or tape storage, so that multiple data sources have a single replica and recovery point volume.
 
 5. On the **Select Data Protection Method** page, specify a protection group name. Select **I want short-term protection using Disk** and select **I want online protection** if you want to back up data to Azure using the Azure Backup service.
 
-6. In **Specify Short-Term Goals** > **Retention range**, specify how long you want to retain disk data. In **Synchronization frequency**, specify how often incremental backups of the data should run. Alternatively, instead of selecting an interval for incremental backups you can enable **Just before a recovery point**. With this setting enabled, MABS will run an express full backup just before each scheduled recovery point.
+6. On **Specify Short-Term Goals** > **Retention range**, specify how long you want to retain disk data. In **Synchronization frequency**, specify how often incremental backups of the data should run. Alternatively, instead of selecting an interval for incremental backups you can enable **Just before a recovery point**. With this setting enabled, MABS will run an express full backup just before each scheduled recovery point.
 
     > [!NOTE]
     >If you're protecting application workloads, recovery points are created in accordance with Synchronization frequency, provided the application supports incremental backups. If it doesn't, then MABS runs an express full backup, instead of an incremental backup, and creates recovery points in accordance with the express backup schedule.<br></br>The backup process doesn't back up the checkpoints associated with VMs.

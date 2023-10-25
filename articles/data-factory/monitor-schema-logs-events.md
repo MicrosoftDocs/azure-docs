@@ -1,13 +1,13 @@
 ---
 title: Schema of logs and events 
 description: Learn about the schema used by Azure Data Factory logs and events for monitoring.
-author: joshuha-msft
-ms.author: joowen
+author: nabhishek
+ms.author: abnarain
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: monitoring
 ms.topic: conceptual
-ms.date: 10/25/2022
+ms.date: 10/20/2023
 ---
 
 # Schema of logs and events

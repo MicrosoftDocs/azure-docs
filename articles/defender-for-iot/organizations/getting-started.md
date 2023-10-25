@@ -1,93 +1,66 @@
 ---
-title: Get started with Microsoft Defender for IoT
-description: In this quickstart, set up a trial for Microsoft Defender for IoT and understand next steps required to configure your network sensors.
-ms.topic: quickstart
-ms.date: 03/24/2022
+title: Get started with OT monitoring - Microsoft Defender for IoT
+description: Use this quickstart to set up a trial OT plan with Microsoft Defender for IoT and understand the next steps required to configure your network sensors.
+ms.topic: get-started
+ms.date: 09/21/2023
+#CustomerIntent: As a prospective Defender for IoT customer with OT networks, I want to understand how I can set up a trial and evaluate Defender for IoT.
 ---
 
-# Quickstart: Get started with Defender for IoT
+# Start a Microsoft Defender for IoT trial
 
-This quickstart takes you through the initial steps of setting up Defender for IoT, including:
+This article describes how to set up a trial license and create an initial OT plan for Microsoft Defender for IoT, for customers who don't have any Microsoft tenant or Azure subscription at all. Use Defender for IoT to monitor network traffic across your OT networks.
 
-- Identify and plan OT monitoring system architecture
-- Add Defender for IoT to an Azure subscription
-
-You can use this procedure to set up a Defender for IoT trial. The trial provides 30-day support for 1000 devices and a virtual sensor, which you can use to monitor traffic, analyze data, generate alerts, understand network risks and vulnerabilities and more.
+A trial supports a **Large** site size with up to 1000 devices, and lasts for 60 days. You might want to use this trial with a [virtual sensor](tutorial-onboarding.md) or on-premises sensors to monitor traffic, analyze data, generate alerts, understand network risks and vulnerabilities, and more.
 
 ## Prerequisites
 
-Before you start, make sure that you have:
+Before you start, all you need is an email address that will be used as the contact for your new Microsoft Tenant.
 
-- An Azure account. If you don't already have an Azure account, you can [create your free Azure account today](https://azure.microsoft.com/free/).
+You'll also need to enter credit card details for your new Azure subscription, although you won't be charged until you switch from the **Free Trial** to the **Pay-As-You-Go** plan.
 
-- Access to the Azure portal as a [Security Admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner). For more information, see [Azure user roles for OT and Enterprise IoT monitoring with Defender for IoT](roles-azure.md).
+## Add a trial license
 
-If you're using a Defender for IoT sensor version earlier than 22.1.x, you must also have an Azure IoT Hub (Free or Standard tier) **Contributor** role, for cloud-connected management. Make sure that the **Microsoft Defender for IoT** feature is enabled.
+This procedure describes how to add a trial license for Defender for IoT to your Azure subscription. One trial license is available per tenant.
 
-### Supported service regions
+**To add a trial license**:
 
-Defender for IoT routes all traffic from all European regions to the *West Europe* regional datacenter. It routes traffic from all remaining regions to the *East US* regional datacenter.
+1. In a browser, open the [Microsoft Defender for IoT - OT Site License (1000 max devices per site) Trial wizard](https://signup.microsoft.com/get-started/signup?OfferId=11c457e2-ac0a-430d-8500-88c99927ff9f&ali=1&products=11c457e2-ac0a-430d-8500-88c99927ff9f).
 
-If you're using a legacy experience of Defender for IoT and are connecting through your own IoT Hub, the IoT Hub supported regions are also relevant for your organization. For more information, see [IoT Hub supported regions](https://azure.microsoft.com/global-infrastructure/services/?products=iot-hub).
+1. In the **Email** box, enter the email address you want to associate with the trial license, and select **Next**.
 
-## Identify and plan your OT solution architecture
+1. In the **Tell us about yourself** page, enter your details, and then select **Next**.
 
-We recommend that you identify system requirements and plan your OT network monitoring architecture before you start, even if you plan to start with a trial subscription.
+1. Select whether you want the confirmation message to be sent to you via SMS or a phone call. Verify your phone number, and then select **Send verification code**.
 
-- To deploy Defender for IoT, you'll need network switches that support traffic monitoring via a SPAN port and hardware appliances for NTA sensors.
+1. After receiving the code, enter it in the **Enter your verification code** box.
 
-   For on-premises machines, including network sensors, on-premises management consoles and for air-gapped environments you'll need administrative user permissions for activities. These include activation, managing SSL/TLS certificates, managing passwords, and so on.
+1. In the **How you'll sign in** page, enter a username and password and select **Next**.
 
-- Research your own network architecture and monitor bandwidth. Check requirements for creating certificates and other network details, and clarify the sensor appliances you'll need for your own network load.
+1. In the **Confirmation details** page, note your order number and username, and then select **Start using Microsoft Defender for IoT - OT Site License (1000 max devices per site) Trial** button to continue. We recommend that you copy your full username to the clipboard as you'll need it to access the Azure portal.
 
-   Calculate the approximate number of devices you'll be monitoring. Devices can be added in intervals of **100**, such as **100**, **200**, **300**. The numbers of monitored devices are called *committed devices*. For more information, see [What is a Defender for IoT committed device?](architecture.md#what-is-a-defender-for-iot-committed-device)
+Use the Microsoft 365 admin center manage your users, billing details, and more. For more information, see the [Microsoft 365 admin center help](/microsoft-365/admin/).
 
-Microsoft Defender for IoT supports both physical and virtual deployments. For physical deployments, you'll be able to purchase certified, preconfigured appliances, or download software to install yourself.
+## Add an OT plan
+ 
+This procedure describes how to add an OT plan for Defender for IoT in the Azure portal, based on your [new trial license](#add-a-trial-license).
 
-For more information, see:
+**To add an OT plan in Defender for IoT**:
 
-- [Best practices for planning your OT network monitoring](best-practices/plan-network-monitoring.md)
-- [Sensor connection methods](architecture-connections.md)
-- [Prepare your OT network for Microsoft Defender for IoT](how-to-set-up-your-network.md)
-- [Predeployment checklist](pre-deployment-checklist.md)
-- [Identify required appliances](how-to-identify-required-appliances.md)
+1. Open [Defender for IoT](https://portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) in the Azure portal, select **Plans and pricing**, where you're prompted to create a new subscription.
 
-## Add a Defender for IoT plan for OT networks
+1. Select **Go to subscriptions** to create a new subscription on the [Azure **Subscriptions** page](https://portal.azure.com/?quickstart=True#view/Microsoft_Azure_Billing/SubscriptionsBlade). Make sure to select the **Free Trial** option.
 
-This procedure describes how to add a Defender for IoT plan for OT networks to an Azure subscription.
+1. Back in the Defender for IoT's **Plans and pricing** page, select **Add plan**. In the **Plan settings** pane, select your new subscription.
 
-**To onboard a Defender for IoT plan for OT networks:**
+   The **Price plan** value is updated automatically to read **Microsoft 365**, reflecting your Microsoft 365 license.
 
-1. In the Azure portal, go to **Defender for IoT** > **Pricing**.
+1. Select **Next** and review the details for your licensed site. The details listed on the **Review and purchase** pane reflect your trial license.
 
-1. Select **Add plan**.
+1. Select the terms and conditions, and then select **Save**.
 
-1. In the **Purchase** pane, define the plan:
-
-     - **Purchase method**. Select a monthly or annual commitment, or a [trial](billing.md#free-trial). Microsoft Defender for IoT provides a 30-day free trial for the first 1,000 committed devices for evaluation purposes.
-
-        For more information, see the [Microsoft Defender for IoT pricing page](https://azure.microsoft.com/pricing/details/iot-defender/).
-
-    - **Subscription**. Select the subscription where you would like to add a plan.
-
-    - **Number of sites** (for annual commitment only). Enter the number of committed sites.
-
-    - **Committed devices**. If you selected a monthly or annual commitment, enter the number of assets you'll want to monitor. If you selected a trial, this section doesn't appear as you have a default of 1000 devices.
-
-    For example:
-
-    :::image type="content" source="media/how-to-manage-subscriptions/onboard-plan-2.png" alt-text="Screenshot of adding a plan for OT networks to your subscription.":::
-
-1. Select the **I accept the terms** option, and then select **Save**.
-
-Your OT networks plan will be shown under the associated subscription in the **Plans** grid. For more information, see [Manage your subscriptions](how-to-manage-subscriptions.md).
+Your new plan is listed under the relevant subscription on the **Plans and pricing** > **Plans** page. For more information, see [Manage your subscriptions](how-to-manage-subscriptions.md).
 
 ## Next steps
 
-Continue with [Tutorial: Get started with OT network security](tutorial-onboarding.md) or [Enhance IoT security monitoring with an Enterprise IoT network sensor (Public preview)](eiot-sensor.md).
-
-For more information, see:
-
-- [Welcome to Microsoft Defender for IoT for organizations](overview.md)
-- [Microsoft Defender for IoT architecture](architecture.md)
-- [Defender for IoT subscription billing](billing.md)
+> [!div class="step-by-step"]
+> [Defender for IoT OT deployment path »](ot-deploy/ot-deploy-path.md)

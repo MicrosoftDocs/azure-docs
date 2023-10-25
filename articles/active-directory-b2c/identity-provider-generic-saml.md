@@ -3,7 +3,7 @@ title: Set up sign-up and sign-in with SAML identity provider
 titleSuffix: Azure Active Directory B2C
 description: Set up sign-up and sign-in with any SAML identity provider (IdP) in Azure Active Directory B2C.
 services: active-directory-b2c
-author: kengaderdus
+author: garrodonnell
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,7 +11,7 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 09/16/2021
 ms.custom: project-no-code
-ms.author: kengaderdus
+ms.author: godonnell
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
@@ -139,10 +139,10 @@ The **OutputClaims** element contains a list of claims returned by the SAML iden
 
 In the example above, *Contoso-SAML2* includes the claims returned by a SAML identity provider:
 
-* The **issuerUserId** claim is mapped to the **assertionSubjectName** claim.
+* The **assertionSubjectName** claim is mapped to the **issuerUserId** claim.
 * The **first_name** claim is mapped to the **givenName** claim.
 * The **last_name** claim is mapped to the **surname** claim.
-* The **displayName** claim is mapped to the `http://schemas.microsoft.com/identity/claims/displayname` claim.
+* The `http://schemas.microsoft.com/identity/claims/displayname` claim is mapped to the **displayName** claim.
 * The **email** claim without name mapping.
 
 The technical profile also returns claims that aren't returned by the identity provider:

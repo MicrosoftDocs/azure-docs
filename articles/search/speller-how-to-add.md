@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/03/2022
+ms.date: 03/28/2023
 
 ---
 
@@ -19,7 +19,7 @@ ms.date: 10/03/2022
 
 You can improve recall by spell-correcting individual search query terms before they reach the search engine. The **speller** parameter is supported for all query types: [simple](query-simple-syntax.md), [full](query-lucene-syntax.md), and the [semantic](semantic-how-to-query-request.md) option currently in public preview.
 
-Speller was released in tandem with the [semantic search preview](semantic-search-overview.md) and shares the "queryLanguage" parameter, but is otherwise an independent feature with its own prerequisites. There's no sign-up or extra charges for using this feature.
+Speller was released in tandem with the [semantic ranking](semantic-search-overview.md) and shares the "queryLanguage" parameter, but is otherwise an independent feature with its own prerequisites. There's no sign-up or extra charges for using this feature.
 
 ## Prerequisites
 
@@ -36,10 +36,10 @@ Use a search client that supports preview APIs on the query request. For REST, y
 | Client library | Versions |
 |----------|----------|
 | REST API | [2021-04-30-Preview](/rest/api/searchservice/index-preview) or 2020-06-30-Preview |
-| Azure SDK for .NET | [version 11.3.0-beta.2](https://www.nuget.org/packages/Azure.Search.Documents/11.3.0-beta.2) | 
-| Azure SDK for Java |  [version 11.4.0-beta.2](https://search.maven.org/artifact/com.azure/azure-search-documents/11.4.0-beta.2/jar) |
-| Azure SDK for JavaScript | [version 11.2.0-beta.2](https://www.npmjs.com/package/@azure/search-documents/v/11.2.0-beta.2) |
-| Azure SDK for Python | [version 11.2.0b3](https://pypi.org/project/azure-search-documents/11.2.0b3/) |
+| Azure SDK for .NET | [version 11.5.0-beta.2](https://www.nuget.org/packages/Azure.Search.Documents/11.5.0-beta.2) | 
+| Azure SDK for Java |  [version 11.6.0-beta.5](https://repo1.maven.org/maven2/com/azure/azure-search-documents/11.6.0-beta.5/azure-search-documents-11.6.0-beta.5.jar) 
+| Azure SDK for JavaScript | [version 11.3.0-beta.8](https://www.npmjs.com/package/@azure/search-documents/v/11.3.0-beta.8) |
+| Azure SDK for Python | [version 11.4.0b3](https://pypi.org/project/azure-search-documents/11.4.0b3/) |
 
 ## Spell correction with simple search
 
@@ -78,7 +78,7 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 }
 ```
 
-## Spell correction with semantic search
+## Spell correction with semantic ranking
 
 This query, with typos in every term except one, undergoes spelling corrections to return relevant results. To learn more, see [Configure semantic ranking](semantic-how-to-query-request.md).
 
@@ -136,4 +136,4 @@ While content in a search index can be composed in multiple languages, the query
 + [Create a basic query](search-query-create.md)
 + [Use full Lucene query syntax](query-Lucene-syntax.md)
 + [Use simple query syntax](query-simple-syntax.md)
-+ [Semantic search overview](semantic-search-overview.md)
++ [Semantic ranking](semantic-search-overview.md)

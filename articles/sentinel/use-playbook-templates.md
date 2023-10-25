@@ -1,34 +1,27 @@
 ---
-title: Create and customize Microsoft Sentinel playbooks from built-in templates | Microsoft Docs
+title: Create and customize Microsoft Sentinel playbooks from templates | Microsoft Docs
 description: This article shows how to create playbooks from and work with playbook templates, to customize them to fit your needs.
 author: yelevin
 ms.topic: how-to
-ms.date: 11/09/2021
+ms.date: 06/21/2023
 ms.author: yelevin
-ms.custom: ignite-fall-2021
 ---
 
-# Create and customize Microsoft Sentinel playbooks from built-in templates
+# Create and customize Microsoft Sentinel playbooks from content templates
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+A playbook template is a prebuilt, tested, and ready-to-use workflow that can be customized to meet your needs. Templates can also serve as a reference for best practices when developing playbooks from scratch, or as inspiration for new automation scenarios.
 
-> [!IMPORTANT]
->
-> **Playbook templates** are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+Playbook templates aren't active playbooks themselves, until you create a playbook (an editable copy of the template) from them.
 
-A playbook template is a pre-built, tested, and ready-to-use workflow that can be customized to meet your needs. Templates can also serve as a reference for best practices when developing playbooks from scratch, or as inspiration for new automation scenarios.
+Many playbook templates are developed by the Microsoft Sentinel community, independent software vendors (ISVs), and Microsoft's own experts, based on popular automation scenarios used by security operations centers around the world.
 
-Playbook templates are not active playbooks themselves, until you create a playbook (an editable copy of the template) from them.
+Get playbook templates from the following sources:
 
-Many playbook templates have been developed by the Microsoft Sentinel community, independent software vendors (ISVs), and Microsoft's own experts, based on popular automation scenarios used by security operations centers around the world.
+- On the **Automation** page, the **Playbook templates** tab lists the playbook templates installed. Multiple active playbooks can be created from the same template.
 
-You can get playbook templates from the following sources:
+    When a new version of the template is published, the active playbooks created from that template show in the **Active playbooks** tab that an update is available.
 
-- The **Playbook templates** tab (under **Automation**) presents the leading scenarios contributed by the Microsoft Sentinel community. Multiple active playbooks can be created from the same template.
-
-    When a new version of the template is published, the active playbooks created from that template (in the **Playbooks** tab) will be labeled with a notification that an update is available.
-
-- Playbook templates can also be obtained as part of a [Microsoft Sentinel solution](sentinel-solutions.md) in the context of a specific product. The deployment of the solution produces active playbooks.
+- Playbook templates are available as part of product solutions or standalone content that you install from the content hub in Microsoft Sentinel. For more information, see [Microsoft Sentinel content and solutions](sentinel-solutions.md) and [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
 
 - The [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks) contains many playbook templates. They can be deployed to an Azure subscription by selecting the **Deploy to Azure** button.
 
@@ -42,21 +35,25 @@ This article helps you understand how to:
 > - Explore out-of-the-box playbook templates
 > - Deploy a playbook template
 
+> [!IMPORTANT]
+>
+> **Playbook templates** are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 ## Explore playbook templates
 
-From the Microsoft Sentinel navigation menu, select **Automation** and then the **Playbooks templates** tab.
+In Microsoft Sentinel, select **Content hub** and then select **Content type** to filter for **Playbook**. This filtered view lists all the solutions and standalone content that include one or more playbook templates. Install the solution or standalone content to get the template.
 
-The playbook templates displayed here demonstrate leading automation scenarios that SOCs tend to use or get ideas from. Most of these playbooks were contributed by the Microsoft Sentinel community, and were originally located in Microsoft Sentinel GitHub repository. Some of these have been integrated into Microsoft Sentinel Solutions.
+Then, in Microsoft Sentinel, select **Automation** and then the **Playbook templates** tab to view the installed templates.
 
 :::image type="content" source="media/use-playbook-templates/gallery.png" alt-text="Screenshot of the playbooks gallery." lightbox="media/use-playbook-templates/gallery.png":::
 
 To find a playbook template that fits your requirements, you can filter the list by the following criteria:
 
-- **Trigger** indicates the playbook is triggered by incident creation (and can therefore be attached to an automation rule), by alert creation (and can therefore be attached to an analytics rule), or by something else. [Learn more](playbook-triggers-actions.md#microsoft-sentinel-triggers-summary)
+- **Trigger** indicates whether the playbook is triggered by incident creation, by incident update, or by alert creation. [Learn more](playbook-triggers-actions.md#microsoft-sentinel-triggers-summary)
 
-- **Logic Apps connectors** shows the external services this playbook will interact with. During the deployment process, each connector will need to assume an identity to authenticate to the external service.
+- **Logic Apps connectors** shows the external services this playbook interacts with. During the deployment process, each connector needs to assume an identity to authenticate to the external service.
 
-- **Entities** shows the entity types explicitly filtered and parsed by a playbook that expects to find those entity types in the incident. For example, a playbook that tells a firewall to block an IP address will expect to operate on incidents created by analytics rules that generate alerts containing IP addresses, such as a Brute Force attack detection rule.
+- **Entities** shows the entity types explicitly filtered and parsed by a playbook that expects to find those entity types in the incident. For example, a playbook that tells a firewall to block an IP address expects to operate on incidents created by analytics rules that generate alerts containing IP addresses, such as a Brute Force attack detection rule.
 
 - **Tags** show labels applied to the playbook to relate it to a specific scenario, or to indicate a special characteristic.
 
@@ -84,16 +81,16 @@ You can repeat this process to create multiple playbooks on the same template.
 
 1. If the playbook has any prerequisites, make sure to follow the instructions.
 
-    - Some playbooks will call other playbooks as actions. This second playbook is referred to as a **nested playbook**. In such a case, one of the prerequisites will be to first deploy the nested playbook.
+    - Some playbooks call other playbooks as actions. This second playbook is referred to as a **nested playbook**. In such a case, one of the prerequisites is to first deploy the nested playbook.
 
-    - Some playbooks will require deploying a custom Logic Apps connector or an Azure Function. In such cases, there will be a **Deploy to Azure** link <!-- WHERE? --> that will take you to the general ARM template deployment process.
+    - Some playbooks require deploying a custom Logic Apps connector or an Azure Function. In such cases, there is a **Deploy to Azure** link that takes you to the general ARM template deployment process.
 
 1. Select **Create playbook** to open the playbook creation wizard based on the selected template. The wizard has four tabs:
 
     - **Basics:** Locate your new playbook (Logic Apps resource) and give it a name (can use default).
         :::image type="content" source="media/use-playbook-templates/basics.png" alt-text="Playbook creation wizard, basics tab":::
 
-    - **Parameters:** Enter customer-specific values that playbook will use. For example, if this playbook will send an email to the SOC, you can define the recipient address here. This tab will be shown only if the playbook has parameters.
+    - **Parameters:** Enter customer-specific values that the playbook uses. For example, if this playbook sends an email to the SOC, you can define the recipient address here. This tab is shown only if the playbook has parameters.
 
         > [!NOTE]
         > If this playbook has a custom connector in use, it should be deployed in the same resource group, and you will be able to insert its name in this tab.
@@ -107,13 +104,13 @@ You can repeat this process to create multiple playbooks on the same template.
 
         :::image type="content" source="media/use-playbook-templates/connections.png" alt-text="Playbook creation wizard. connections tab":::
 
-        If there aren't any, or if you want to create new ones, choose **Create new connection after deployment**. This will take you to the Logic Apps designer after the deployment process is completed.
+        If there aren't any, or if you want to create new ones, choose **Create new connection after deployment**. This option takes you to the Logic Apps designer after the deployment process is completed.
 
-        For connectors that support [connecting with managed identity](authenticate-playbooks-to-sentinel.md#authenticate-with-managed-identity), such as **Microsoft Sentinel**, this will be the connection method selected by default.
+        For connectors that support [connecting with managed identity](authenticate-playbooks-to-sentinel.md#authenticate-with-managed-identity), such as **Microsoft Sentinel**, this is the connection method selected by default.
 
     - **Review and Create:** View a summary of the process and await validation of your input before creating the playbook.
 
-1. After following the steps in the playbook creation wizard to the end, you will be taken to the new playbook's workflow design in the Logic Apps designer.
+1. After following the steps in the playbook creation wizard to the end, you're taken to the new playbook's workflow design in the Logic Apps designer.
 
     :::image type="content" source="media/use-playbook-templates/designer.png" alt-text="See playbook in Logic Apps designer":::
 
@@ -124,12 +121,12 @@ You can repeat this process to create multiple playbooks on the same template.
         :::image type="content" source="media/use-playbook-templates/view-api-connections.png" alt-text="Screenshot showing how to view A P I connections.":::
     1. Select **Edit API connection** from the navigation menu.
 
-    1. Fill in the required parameters and click **Save**.
+    1. Fill in the required parameters and select **Save**.
         :::image type="content" source="media/use-playbook-templates/edit-api-connection.png" alt-text="Screenshot showing how to edit A P I connections.":::
 
     Alternatively, you can create a new connection from within the relevant steps in the Logic Apps designer:
     
-    1. For each step which appears with an error sign, select it to expand.
+    1. For each step that appears with an error sign, select it to expand.
 
     1. Select **Add new**.
 
@@ -149,7 +146,7 @@ You can repeat this process to create multiple playbooks on the same template.
 
 ### Issue: Found a bug in the playbook
 
-To report a bug or request an improvement for a playbook, select the **Supported by** link in the playbook's details pane. If this is a community-supported playbook, the link will take you to open a GitHub issue. Otherwise, you will be directed to the supporter's page.
+To report a bug or request an improvement for a playbook, select the **Supported by** link in the playbook's details pane. If this is a community-supported playbook, the link takes you to open a GitHub issue. Otherwise, you're directed to the supporter's page.
 
 ## Next steps
 

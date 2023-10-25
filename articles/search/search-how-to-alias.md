@@ -2,12 +2,11 @@
 title: Create an index alias
 titleSuffix: Azure Cognitive Search
 description: Create an alias to define a secondary name that can be used to refer to an index for querying, indexing, and other operations.
-
-author: dereklegenzoff
-ms.author: delegenz
+author: gmndrg
+ms.author: gimondra
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 03/01/2022
+ms.date: 04/04/2023
 ---
 
 # Create an index alias in Azure Cognitive Search
@@ -74,7 +73,7 @@ Index aliases are also supported in the latest preview SDKs for [Java](https://s
 
 ## Send requests to an index alias
 
-Once you've created your alias, you're ready to start using it. Aliases can be used for all [document operations](/rest/api/searchservice/document-operations) including querying, indexing, suggestions, and autocomplete.
+Once you've created your alias, you're ready to start using it. Aliases can be used for all document operations including querying, indexing, suggestions, and autocomplete.
 
 In the query below, instead of sending the request to `hotel-samples-index`, you can instead send the request to `my-alias` and it will be routed accordingly. 
 
@@ -89,10 +88,12 @@ POST /indexes/my-alias/docs/search?api-version=2021-04-30-preview
 }
 ```
 
-If you expect that you may need to make updates to your index definition for your production indexes, you should use an alias rather than the index name for requests in your client-side application. Scenarios that require you to create a new index are outlined under these [rebuild conditions](search-howto-reindex.md#rebuild-conditions).
+If you expect to make updates to a production index, specify an alias rather than the index name in your client-side application. Scenarios that require an index rebuild are outlined in [Drop and rebuild an index](search-howto-reindex.md).
 
 > [!NOTE]
-> You can only use an alias with [document operations](/rest/api/searchservice/document-operations) or to get and update an index definition. Aliases can't be used to delete an index, can't be used with the Analyze Text API, and can't be used as the `targetIndexName` on an indexer.
+> You can only use an alias with document operations or to get and update an index definition. Aliases can't be used to delete an index, can't be used with the Analyze Text API, and can't be used as the `targetIndexName` on an indexer.
+> 
+> An update to an alias may take up to 10 seconds to propagate through the system so you should wait at least 10 seconds before performing any operation in the index that has been mapped or recently was mapped to the alias.
 
 ## Swap indexes
 

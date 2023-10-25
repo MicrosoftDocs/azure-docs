@@ -7,7 +7,7 @@ author: peiliu
 manager: alexokun
 
 ms.author: peiliu
-ms.date: 08/18/2022
+ms.date: 12/06/2022
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.custom: mode-other
@@ -99,34 +99,25 @@ var inputs = new Dictionary<string, MediaInput>()
 {
     ["Jill"] = new ParticipantInput
     (
-        id: new MicrosoftTeamsUserIdentifier("f3ba9014-6dca-4456-8ec0-fa03cfa2b7b7"),
-        call: "teamsMeeting")
-    {
-        PlaceholderImageUri = "https://imageendpoint"
-    },
+        id: new CommunicationUserIdentifier("8:acs:5110fbea-014a-45aa-a839-d6dc967b4175_00000080-fa91-402b-a3a5-42d74e113351"),
+        call: "meeting")
+    ,
     ["Jack"] = new ParticipantInput
     (
-        id: new MicrosoftTeamsUserIdentifier("fa4337b5-f13a-41c5-a34f-f2aa46699b61"),
-        call: "teamsMeeting")
-    {
-        PlaceholderImageUri = "https://imageendpoint"
-    },
+        id: new CommunicationUserIdentifier("8:acs:5110fbea-014a-45aa-a839-d6dc967b4175_00000090-20e2-430d-9c34-0e4b72c98636"),
+        call: "meeting")
+    ,
     ["Jane"] = new ParticipantInput
     (
-        id: new MicrosoftTeamsUserIdentifier("2dd69470-dc25-49cf-b5c3-f562f08bf3b2"),
-        call: "teamsMeeting"
-    )
-    {
-        PlaceholderImageUri = "https://imageendpoint"
-    },
+        id: new CommunicationUserIdentifier("8:acs:5110fbea-014a-45aa-a839-d6dc967b4175_00000030-45lk-9dp0-04c8-3ed0023d0ds"),
+        call: "meeting"
+    ),
     ["Jerry"] = new ParticipantInput
     (
-        id: new MicrosoftTeamsUserIdentifier("30e29fde-ac1c-448f-bb34-0f3448d5a677"),
-        call: "teamsMeeting")
-    {
-        PlaceholderImageUri = "https://imageendpoint"
-    },
-    ["teamsMeeting"] = new TeamsMeetingInput(teamsJoinUrl: "https://teamsJoinUrl")
+        id: new CommunicationUserIdentifier("8:acs:5110fbea-014a-45aa-a839-d6dc967b4175_00000080-09ce-4ac2-8dbf-00533d606db8"),
+        call: "meeting"
+    ),
+    ["meeting"] = new GroupCallInput("d12d2277-ffec-4e22-9979-8c0d8c13d193")
 };
 
 var outputs = new Dictionary<string, MediaOutput>()
@@ -157,7 +148,7 @@ Updating the `layout` of a media composition can happen on-the-fly as the media 
 Updating the `layout` can be issued by passing in the new `layout` object and the `mediaCompositionId`. For example, we can update the grid layout to an auto-grid layout following the snippet below:
 
 ```csharp
-var layout = new AutoGridLayout(new List<string>() { "teamsMeeting" })
+var layout = new AutoGridLayout(new List<string>() { "meeting" })
 {
     Resolution = new(720, 480),
 };
@@ -167,19 +158,16 @@ var response = await mediaCompositionClient.UpdateLayoutAsync(mediaCompositionId
 
 ### Upsert or remove inputs
 
-To upsert inputs from the media composition object, use the `UpsertInputsAsync` function exposed in the client.
+To upsert inputs from the media composition object, use the `UpsertInputsAsync` function exposed in the client. Note that multi-source inputs such as group call or rooms cannot be upserted or removed when the media composition is running.
 
 ```csharp
 var inputsToUpsert = new Dictionary<string, MediaInput>()
 {
     ["James"] = new ParticipantInput
     (
-        id: new MicrosoftTeamsUserIdentifier("f3ba9014-6dca-4456-8ec0-fa03cfa2b70p"),
-        call: "teamsMeeting"
-    )
-    {
-        PlaceholderImageUri = "https://imageendpoint"
-    }
+        id: new CommunicationUserIdentifier("8:acs:5110fbea-014a-45aa-a839-d6dc967b4175_00000030-91cc-4b24-9ae2-505161ad3ca7"),
+        call: "meeting"
+    ),
 };
 
 var response = await mediaCompositionClient.UpsertInputsAsync(mediaCompositionId, inputsToUpsert);
@@ -196,7 +184,8 @@ var response = await mediaCompositionClient.RemoveInputsAsync(mediaCompositionId
 
 ### Upsert or remove outputs
 
-To upsert outputs, you can use the `UpsertOutputsAsync` function from the client.
+To upsert outputs, you can use the `UpsertOutputsAsync` function from the client. Note that outputs cannot be upserted or removed when the media composition is running.
+
 ```csharp
 var outputsToUpsert = new Dictionary<string, MediaOutput>()
 {

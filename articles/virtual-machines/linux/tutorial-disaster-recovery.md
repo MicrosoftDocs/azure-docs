@@ -2,11 +2,10 @@
 title: Tutorial - Set up disaster recovery for Linux VMs with Azure Site Recovery
 description: Learn how to set up disaster recovery for Linux VMs to a different Azure region, using the Azure Site Recovery service.
 author: rayne-wiselman
-ms.service: virtual-machines
+ms.service: site-recovery
 ms.collection: linux
-ms.subservice: recovery
 ms.topic: tutorial
-ms.date: 11/05/2020
+ms.date: 01/25/2023
 ms.author: raynew
 ms.custom: mvc
 #Customer intent: As an Azure admin, I want to prepare for disaster recovery by replicating my Linux VMs to another Azure region.
@@ -24,7 +23,7 @@ This tutorial shows you how to set up disaster recovery for Azure VMs running Li
 > * Run a disaster recovery drill to check it works as expected
 > * Stop replicating the VM after the drill
 
-When you enable replication for a VM, the Site Recovery Mobility service extension installs on the VM, and registers it with [Azure Site Recovery](../../site-recovery/site-recovery-overview.md). During replication, VM disk writes are send to a cache storage account in the source VM region. Data is sent from there to the target region, and recovery points are generated from the data.  When you fail a VM over to another region during disaster recovery, a recovery point is used to create a VM in the target region.
+When you enable replication for a VM, the Site Recovery Mobility service extension installs on the VM, and registers it with [Azure Site Recovery](../../site-recovery/site-recovery-overview.md). During replication, VM disk writes are sent to a cache storage account in the source VM region. Data is sent from there to the target region, and recovery points are generated from the data.  When you fail a VM over to another region during disaster recovery, a recovery point is used to create a VM in the target region.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
 
@@ -43,7 +42,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
     **Name** | **Public cloud** | **Government cloud** | **Details**
     --- | --- | --- | ---
     Storage | `*.blob.core.windows.net` | `*.blob.core.usgovcloudapi.net`| Write data from the VM to the cache storage account in the source region. 
-    Azure AD  | `login.microsoftonline.com` | `login.microsoftonline.us`| Authorize and authenticate to Site Recovery service URLs. 
+    Microsoft Entra ID  | `login.microsoftonline.com` | `login.microsoftonline.us`| Authorize and authenticate to Site Recovery service URLs. 
     Replication | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`  |VM communication with the Site Recovery service. 
     Service Bus | `*.servicebus.windows.net` | `*.servicebus.usgovcloudapi.net` | VM writes to Site Recovery for monitoring and diagnostic data. 
 
@@ -52,9 +51,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
     **Tag** | **Allow** 
     --- | --- 
     Storage tag | Allows data to be written from the VM to the cache storage account.
-    Azure AD tag | Allows access to all IP addresses that correspond to Azure AD.
-    EventsHub tag | Allows access to Site Recovery monitoring.
-    AzureSiteRecovery tag | Allows access to the Site Recovery service in any region.
+    Microsoft Entra ID tag | Allows access to all IP addresses that correspond to Microsoft Entra ID.
+    Events Hub tag | Allows access to Site Recovery monitoring.
+    Azure Site Recovery tag | Allows access to the Site Recovery service in any region.
     GuestAndHybridManagement | Use if you want to automatically upgrade the Site Recovery Mobility agent that's running on VMs enabled for replication.
 5. Make sure VMs have the latest root certificates. On Linux VMs, follow the guidance provided by your Linux distributor, to get the latest trusted root certificates and certificate revocation list on the VM.
 
@@ -75,7 +74,7 @@ You can optionally enable disaster recovery when you create a VM.
     - An app-consistent snapshot is taken every 4 hours.
     - By default Site Recovery stores recovery points for 24 hours.
 
-7. In **Availability options**, specify whether the VM is deploy as standalone, in an availability zone, or in an availability set.
+7. In **Availability options**, specify whether the VM will deploy as standalone, in an availability zone, or in an availability set.
 
     :::image type="content" source="./media/tutorial-disaster-recovery/create-vm.png" alt-text="Enable replication on the VM management properties page.":::
 
@@ -91,7 +90,7 @@ If you want to enable disaster recovery on an existing VM, use this procedure.
     :::image type="content" source="./media/tutorial-disaster-recovery/existing-vm.png" alt-text="Open disaster recovery options for an existing VM.":::
 
 3. In **Basics**, if the VM is deployed in an availability zone, you can select disaster recovery between availability zones.
-4. In **Target region**, select the region to which you want to replicate the VM. The source and target regions must be in the same Azure Active Directory tenant.
+4. In **Target region**, select the region to which you want to replicate the VM. The source and target regions must be in the same Microsoft Entra tenant.
 
     :::image type="content" source="./media/tutorial-disaster-recovery/basics.png" alt-text="Set the basic disaster recovery options for a VM.":::
 
@@ -111,7 +110,7 @@ If you want to enable disaster recovery on an existing VM, use this procedure.
         - You can customize the storage type as needed.
     - **Replication settings**. Shows the vault in which the VM is located, and the replication policy used for the VM. By default, recovery points created by Site Recovery for the VM are kept for 24 hours.
     - **Extension settings**. Indicates that Site Recovery manages updates to the Site Recovery Mobility Service extension that's installed on VMs you replicate.
-        - The indicated Azure automation account manages the update process.
+        - The indicated Azure Automation account manages the update process.
         - You can customize the automation account.
 
     :::image type="content" source="./media/tutorial-disaster-recovery/settings-summary.png" alt-text="Page showing summary of target and replication settings.":::
@@ -175,11 +174,11 @@ The VM is automatically cleaned up by Site Recovery after the drill.
 
 ### Stop replicating the VM
 
-After completing a disaster recovery drill, we suggest you continue to try out a full failover. If you don't want to do a full failover, you can disable replication. This does the following:
+After completing a disaster recovery drill, we suggest you continue to try out a full failover. If you don't want to do a full failover, you can disable replication. Disabling replication will:
 
-- Removes the VM from the Site Recovery list of replicated machines.
-- Stops Site Recovery billing for the VM.
-- Automatically cleans up source replication settings.
+- Remove the VM from the Site Recovery list of replicated machines.
+- Stop Site Recovery billing for the VM.
+- Automatically clean up source replication settings.
 
 Stop replication as follows:
 

@@ -6,8 +6,8 @@ author: hhunter-ms
 ms.reviewer: charles.weininger
 reviewer: cweining
 ms.topic: conceptual
-ms.date: 08/18/2022
-ms.custom: devdivchpfy22
+ms.date: 03/20/2023
+ms.custom: devdivchpfy22, devx-track-dotnet
 ---
 
 # <a id="troubleshooting"></a> Troubleshoot problems enabling Application Insights Snapshot Debugger or viewing snapshots
@@ -26,7 +26,7 @@ Below you can find scenarios where Snapshot Collector isn't supported:
 
 ## Make sure you're using the appropriate Snapshot Debugger Endpoint
 
-Currently the only regions that require endpoint modifications are [Azure Government](../../azure-government/compare-azure-government-global-azure.md#application-insights) and [Azure China](/azure/china/resources-developer-guide).
+Currently the only regions that require endpoint modifications are [Azure Government](../../azure-government/compare-azure-government-global-azure.md#application-insights) and [Microsoft Azure operated by 21Vianet](/azure/china/resources-developer-guide).
 
 For App Service and applications using the Application Insights SDK, you have to update the connection string using the supported overrides for Snapshot Debugger as defined below:
 
@@ -91,7 +91,6 @@ If the `httpRuntime targetFramework` is 4.5.2 or lower, then TLS 1.2 isn't inclu
 
 > [!NOTE]
 > The `httpRuntime targetFramework` value is independent of the target framework used when building your application.
-
 To check the setting, open your *web.config* file and find the system.web section. Ensure that the `targetFramework` for `httpRuntime` is set to 4.6 or above.
 
    ```xml
@@ -104,10 +103,8 @@ To check the setting, open your *web.config* file and find the system.web sectio
 
 > [!NOTE]
 > Modifying the `httpRuntime targetFramework` value changes the runtime quirks applied to your application and can cause other, subtle behavior changes. Be sure to test your application thoroughly after making this change. For a full list of compatibility changes, see [Re-targeting changes](/dotnet/framework/migration-guide/application-compatibility#retargeting-changes).
-
 > [!NOTE]
 > If the `targetFramework` is 4.7 or above then Windows determines the available protocols. In Azure App Service, TLS 1.2 is available. However, if you're using your own virtual machine, you may need to enable TLS 1.2 in the OS.
-
 ## Preview Versions of .NET Core
 
 If you're using a preview version of .NET Core or your application references Application Insights SDK, directly or indirectly via a dependent assembly, follow the instructions for [Enable Snapshot Debugger for other environments](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json).
@@ -119,14 +116,12 @@ If Snapshot Debugger was enabled through the [Application Insights pane](snapsho
 > [!NOTE]
 > Codeless installation of Application Insights Snapshot Debugger follows the .NET Core support policy.
 > For more information about supported runtimes, see [.NET Core Support Policy](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
-
 You can check the Status Page of this extension by going to the following url:
 `https://{site-name}.scm.azurewebsites.net/DiagnosticServices`
 
 > [!NOTE]
 > The domain of the Status Page link will vary depending on the cloud.
 This domain will be the same as the Kudu management site for App Service.
-
 This Status Page shows the installation state of the Profiler and Snapshot Collector agents. If there was an unexpected error, it will be displayed and show how to fix it.
 
 You can use the Kudu management site for App Service to get the base url of this Status Page:
@@ -145,7 +140,7 @@ Based on how Snapshot Debugger was enabled, see the following options:
 
 * If Snapshot Debugger was enabled by including the [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet package, use Visual Studio's NuGet Package Manager to make sure you're using the latest version of `Microsoft.ApplicationInsights.SnapshotCollector`.
 
-For the latest updates and bug fixes [consult the release notes](./snapshot-collector-release-notes.md).
+For the latest updates and bug fixes [consult the release notes](./snapshot-debugger.md#release-notes-for-microsoftapplicationinsightssnapshotcollector).
 
 ## Check the uploader logs
 
@@ -187,7 +182,6 @@ SnapshotUploader.exe Information: 0 : Deleted D:\local\Temp\Dumps\c12a605e73c443
 
 > [!NOTE]
 > The example above is from version 1.2.0 of the `Microsoft.ApplicationInsights.SnapshotCollector` NuGet package. In earlier versions, the uploader process is called `MinidumpUploader.exe` and the log is less detailed.
-
 In the previous example, the instrumentation key is `c12a605e73c44346a984e00000000000`. This value should match the instrumentation key for your application.
 The minidump is associated with a snapshot with the ID `139e411a23934dc0b9ea08a626db16c5`. You can use this ID later to locate the associated exception record in Application Insights Analytics.
 
@@ -241,7 +235,6 @@ Follow these steps to configure your Cloud Service role with a dedicated local r
    ```csharp
    using Microsoft.WindowsAzure.ServiceRuntime;
    using System;
-
    namespace MyWebRoleApp
    {
        public class MyMvcApplication : System.Web.HttpApplication
@@ -336,3 +329,7 @@ If you still don't see an exception with that snapshot ID, then the exception re
 If your application connects to the Internet via a proxy or a firewall, you may need to update the rules to communicate with the Snapshot Debugger service.
 
 The IPs used by Application Insights Snapshot Debugger are included in the Azure Monitor service tag. For more information, see [Service Tags documentation](../../virtual-network/service-tags-overview.md).
+
+## Are there any billing costs when using snapshots?
+
+There are no charges against your subscription specific to Snapshot Debugger. The snapshot files collected are stored separately from the telemetry collected by the Application Insights SDKs and there are no charges for the snapshot ingestion or storage. 

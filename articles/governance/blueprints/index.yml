@@ -9,8 +9,8 @@ metadata:
   ms.service: blueprints
   ms.topic: landing-page
   ms.collection: collection
-  author: DCtheGeek
-  ms.author: dacoulte
+  author: mumian
+  ms.author: jgao
   ms.date: 08/27/2020
 
 landingContent:
@@ -106,6 +106,6 @@ landingContent:
           - text: Azure PowerShell
             url: /powershell/module/az.blueprint/#blueprint
           - text: Azure SDK for .NET
-            url: /dotnet/api/overview/azure/blueprints/management
+            url: /dotnet/api/microsoft.azure.management.blueprint
           - text: REST
             url: /rest/api/blueprints/

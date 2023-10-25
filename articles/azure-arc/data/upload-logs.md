@@ -4,6 +4,7 @@ description: Upload logs for Azure Arc-enabled data services to Azure Monitor
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
+ms.custom: devx-track-azurecli
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
@@ -247,7 +248,7 @@ Once your logs are uploaded, you should be able to query them using the log quer
 2. Select Logs in the left panel.
 3. Select Get Started (or select the links on the Getting Started page to learn more about Log Analytics if you are new to it).
 4. Follow the tutorial to learn more about Log Analytics if this is your first time using Log Analytics.
-5. Expand Custom Logs at the bottom of the list of tables and you will see a table called 'sql_instance_logs_CL'.
+5. Expand Custom Logs at the bottom of the list of tables and you will see a table called 'sql_instance_logs_CL' or 'postgresInstances_postgresql_logs_CL'.
 6. Select the 'eye' icon next to the table name.
 7. Select the 'View in query editor' button.
 8. You'll now have a query in the query editor that will show the most recent 10 events in the log.
@@ -257,7 +258,7 @@ Once your logs are uploaded, you should be able to query them using the log quer
 
 If you want to upload metrics and logs on a scheduled basis, you can create a script and run it on a timer every few minutes. Below is an example of automating the uploads using a Linux shell script.
 
-In your favorite text/code editor, add the following script to the file and save as a script executable file - such as .sh for Linux/Mac, or .cmd, .bat, or .ps1 for Windows.
+In your favorite text/code editor, add the following script to the file and save as a script executable file - such as `.sh` (Linux/Mac), `.cmd`, `.bat`, or `.ps1` (Windows).
 
 ```azurecli
 az arcdata dc export --type logs --path logs.json --force --k8s-namespace arc

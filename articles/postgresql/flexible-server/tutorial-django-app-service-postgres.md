@@ -76,16 +76,16 @@ These changes are specific to configuring Django to run in any production enviro
 Create a private flexible server and a database inside a virtual network (VNET) using the following command:
 
 ```azurecli
-# Create Flexible server in a VNET
+# Create Flexible server in a private virtual network (VNET) 
 
-az postgres flexible-server create --resource-group myresourcegroup --location westus2
+az postgres flexible-server create --resource-group myresourcegroup  --vnet myvnet --location westus2
 ```
 
 This command performs the following actions, which may take a few minutes:
 
 - Create the resource group if it doesn't already exist.
 - Generates a server name if it isn't provided.
-- Create a new virtual network for your new postgreSQL server. **Make a note of virtual network name and subnet name** created for your server since you need to add the web app to the same virtual network.
+- Create a new virtual network for your new postgreSQL server, if you choose to do so after prompted. **Make a note of virtual network name and subnet name** created for your server since you need to add the web app to the same virtual network.
 - Creates admin username, password for your server if not provided. **Make a note of the username and password** to use in the next step.
 - Create a database ```postgres``` that can be used for development. You can run [**psql** to connect to the database](quickstart-create-server-portal.md#connect-to-the-postgresql-database-using-psql) to create a different database.
 
@@ -156,11 +156,11 @@ Django database migrations ensure that the schema in the PostgreSQL on Azure dat
 
 ### Create a poll question in the app
 
-4. In a browser, open the URL *http:\//\<app-name>.azurewebsites.net*. The app should display the message "No polls are available" because there are no specific polls yet in the database.
+1. In a browser, open the URL *http:\//\<app-name>.azurewebsites.net*. The app should display the message "No polls are available" because there are no specific polls yet in the database.
 
-5. Browse to *http:\//\<app-name>.azurewebsites.net/admin*. Sign in using superuser credentials from the previous section (`root` and `postgres1`). Under **Polls**, select **Add** next to **Questions** and create a poll question with some choices.
+2. Browse to *http:\//\<app-name>.azurewebsites.net/admin*. Sign in using superuser credentials from the previous section (`root` and `postgres1`). Under **Polls**, select **Add** next to **Questions** and create a poll question with some choices.
 
-6. Browse again to *http:\//\<app-name>.azurewebsites.net/* to confirm that the questions are now presented to the user. Answer questions however you like to generate some data in the database.
+3. Browse again to *http:\//\<app-name>.azurewebsites.net/* to confirm that the questions are now presented to the user. Answer questions however you like to generate some data in the database.
 
 **Congratulations!** You're running a Python Django web app in Azure App Service for Linux, with an active Postgres database.
 
@@ -261,7 +261,7 @@ python manage.py migrate
 
 ### Review app in production
 
-Browse to *http:\//\<app-name>.azurewebsites.net* and test the app again in production. (Because you only changed the length of a database field, the change is only noticeable if you try to enter a longer response when creation a question.)
+Browse to *http:\//\<app-name>.azurewebsites.net* and test the app again in production. (Because you only changed the length of a database field, the change is only noticeable if you try to enter a longer response when creating a question.)
 
 > [!TIP]
 > You can use [django-storages](https://django-storages.readthedocs.io/en/latest/backends/azure.html) to store static & media assets in Azure storage. You can use Azure CDN for gzipping for static files.

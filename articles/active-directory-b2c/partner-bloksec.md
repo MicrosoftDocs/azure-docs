@@ -1,16 +1,15 @@
 ---
-title: Tutorial to configure Azure Active Directory B2C with BlokSec
+title: Tutorial to configure Azure Active Directory B2C with BlokSec for passwordless authentication
 titleSuffix: Azure AD B2C
 description: Learn how to integrate Azure AD B2C authentication with BlokSec for Passwordless authentication
 services: active-directory-b2c
 author: gargi-sinha
-manager: CelesteDG
+manager: martinco
 ms.reviewer: kengaderdus
-
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/20/2021
+ms.date: 03/09/2023
 ms.author: gasinh
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -18,214 +17,175 @@ zone_pivot_groups: b2c-policy-type
 
 # Tutorial: Configure Azure Active Directory B2C with BlokSec for passwordless authentication
 
-[!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
+## Before you begin
 
-::: zone pivot="b2c-custom-policy"
+Azure Active Directory B2C has two methods to define user interactions with applications: predefined user flows or configurable custom policies.  
 
-::: zone-end
+>[!NOTE]
+>In Azure Active Directory B2C, custom policies primarily address complex scenarios. For most scenarios, we recommend built-in user flows.</br> See, [User flows and custom policies overview](./user-flow-overview.md)
 
-In this sample tutorial, learn how to integrate Azure Active Directory (AD) B2C authentication with [BlokSec](https://bloksec.com/). BlokSec simplifies the end-user login experience by providing customers passwordless authentication and tokenless multifactor authentication (MFA). BlokSec protects customers against identity-centric cyber-attacks such as password stuffing, phishing, and man-in-the-middle attacks.
+## Azure AD B2C and BlokSec
+
+Learn how to integrate Azure Active Directory B2C (Azure AD B2C) authentication with BlokSec Decentralized Identity Router. The BlokSec solution simplifies user sign-in with passwordless authentication and tokenless multi-factor authentication. The solution protects customers from identity-related attacks such as password stuffing, phishing, and man-in-the-middle.
+
+To learn more, go to bloksec.com: [BlokSec Technologies Inc.](https://bloksec.com/)
 
 ## Scenario description
 
 BlokSec integration includes the following components:
 
-- **Azure AD B2C** – Configured as the authorization server/identity provider for any B2C application.
+* **Azure AD B2C** – authorization server and identity provider (IdP) for B2C applications
+* **BlokSec Decentralized Identity Router** – gateway for services that apply BlokSec DIaaS to route authentication and authorization requests to user Personal Identity Provider (PIdP) applications
+  * It's an OpenID Connect (OIDC) identity provider in Azure AD B2C
+* **BlokSec SDK-based mobile app** – user PIdP in the decentralized authentication scenario. 
+  * If you're not using the BlokSec SDK, go to Google Play for the free [BlokSec yuID](https://play.google.com/store/apps/details?id=com.bloksec)
 
-- **BlokSec Decentralized Identity Router** – Acts as a gateway for services that wish to apply BlokSec’s DIaaS™ to route authentication and authorization requests to end users’ Personal Identity Provider (PIdP) applications; configured as an OpenID Connect (OIDC) identity provider in Azure AD B2C.
+The following architecture diagram illustrates the sign-up, sign-in flow in the BlokSec solution implementation.
 
-- **BlokSec SDK-based mobile app** – Acts as the users’ PIdP in the decentralized authentication scenario. The freely downloadable [BlokSec yuID](https://play.google.com/store/apps/details?id=com.bloksec) application can be used if your organization prefers not to develop your own mobile applications using the BlokSec SDKs.
-The following architecture diagram shows the implementation.
+   ![Diagram of the sign-up, sign-in flow in the BlokSec solution implementation.](./media/partner-bloksec/partner-bloksec-architecture-diagram.png)
 
-![image shows the architecture diagram](./media/partner-bloksec/partner-bloksec-architecture-diagram.png)
+1. User signs in to an Azure AD B2C application and is forwarded to Azure AD B2C sign-in and sign-up policy
+2. Azure AD B2C redirects user to the BlokSec decentralized identity router using the OIDC authorization code flow.
+3. The BlokSec router sends a push notification to the user mobile app with authentication and authorization request details.
+4. User reviews the authentication challenge. An accepted user is prompted for biometry such as fingerprint or facial scan.
+5. The response is digitally signed with the user's unique digital key. The authentication response provides proof of possession, presence, and consent. The respond returns to the router.
+6. The router verifies the digital signature against the user’s immutable unique public key stored in a distributed ledger. The router replies to Azure AD B2C with the authentication result.
+8. User is granted or denied access.
 
-|Steps| Description|
-|:---------------|:----------------|
-|1.| User attempts to log in to an Azure AD B2C application and is forwarded to Azure AD B2C’s combined sign-in and sign-up policy.|
-|2.| Azure AD B2C redirects the user to the BlokSec decentralized identity router using the OIDC authorization code flow.|
-|3.| The BlokSec decentralized router sends a push notification to the user’s mobile app including all context details of the authentication and authorization request.|
-|4.| The user reviews the authentication challenge, if accepted the user is prompted for biometry such as fingerprint or facial scan as available on their device, proving the user’s identity.|
-|5.| The response is digitally signed with the user’s unique digital key. Final authentication response provides proof of possession, presence, and consent. The respond is returned to the BlokSec decentralized identity router.|
-|6.| The BlokSec decentralized identity router verifies the digital signature against the user’s immutable unique public key that is stored in a distributed ledger, then replies to Azure AD B2C with the authentication result.|
-|7.| Based on the authentication result user is granted/denied access.|
+## Enable BlokSec
 
-## Onboard to BlokSec
-
-Request a demo tenant with BlokSec by filling out [the form](https://bloksec.com/). In the message field indicates that you would like to onboard with Azure AD B2C. Download and install the free BlokSec yuID mobile app from the app store. Once your demo tenant has been prepared, you'll receive an email. On your mobile device where the BlokSec application is installed, select the link to register your admin account with your yuID app.
-
-::: zone pivot="b2c-user-flow"
-
-## Prerequisites
-
-To get started, you'll need:
-
-- An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-
-- An [Azure AD B2C tenant](./tutorial-create-tenant.md) that's linked to your Azure subscription.
-
-- A BlokSec [trial account](https://bloksec.com/).
-
-- If you haven't already done so, [register](./tutorial-register-applications.md) a web application.
-::: zone-end
-
-::: zone pivot="b2c-custom-policy"
+1. Go to bloksec.com and select **Request a demo** tenant. 
+2. In the message field, indicate you want to integrate with Azure AD B2C. 
+3. Download and install the free BlokSec yuID mobile app. 
+4. After the demo tenant is prepared, an email arrives. 
+5. On the mobile device with the BlokSec application, select the link to register your admin account with your yuID app.
 
 ## Prerequisites
 
-To get started, you'll need:
+To get started, you need:
 
-- An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* An Azure subscription
+  * If you don't have one, get an [Azfree account](https://azure.microsoft.com/free/)
+* An [Azure AD B2C tenant](./tutorial-create-tenant.md) linked to the Azure subscription
+* A BlokSec [demo](https://bloksec.com/)
+* Register a web application
+  * [Tutorial: Register a web application in Azure AD B2C](./tutorial-register-applications.md)
 
-- An [Azure AD B2C tenant](./tutorial-create-tenant.md) that's linked to your Azure subscription.
+See also, [Tutorial: Create user flows and custom policies in Azure AD B2C](./tutorial-create-user-flows.md?pivots=b2c-custom-policy)
 
-- A BlokSec [trial account](https://bloksec.com/).
 
-- If you haven't already done so, [register](./tutorial-register-applications.md) a web application.
+### Create an application registration in BlokSec
 
-- Complete the steps in the [**Get started with custom policies in Azure Active Directory B2C**](./tutorial-create-user-flows.md?pivots=b2c-custom-policy).
-::: zone-end
+In the account registration email from BlokSec, find the link to the BlokSec admin console. 
 
-### Part 1 - Create an application registration in BlokSec
-
-1. Sign in to the BlokSec admin portal. A link will be included as part of your account registration email received when you onboard to BlokSec.
-
-2. On the main dashboard, select **Add Application > Create Custom**
-
-3. Complete the application details as follows and submit:  
-
-   |Property  |Value  |
-   |---------|---------|
-   |  Name         |Azure AD B2C or your desired application name|
-   |SSO type         | OIDC|
-   |Logo URI     |[https://bloksec.io/assets/AzureB2C.png](https://bloksec.io/assets/AzureB2C.png) a link to the image of your choice|
-   |Redirect URIs     | https://**your-B2C-tenant-name**.b2clogin.com/**your-B2C-tenant-name**.onmicrosoft.com/oauth2/authresp<BR>**For Example**:      'https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp' <BR><BR>If you use a custom domain, enter  https://**your-domain-name**/**your-tenant-name**.onmicrosoft.com/oauth2/authresp. <BR> Replace your-domain-name with your custom domain, and your-tenant-name with the name of your tenant.         |
-   |Post log out redirect URIs  |https://**your-B2C-tenant-name**.b2clogin.com/**your-B2C-tenant-name**.onmicrosoft.com/**{policy}**/oauth2/v2.0/logout <BR> [Send a sign-out request](./openid-connect.md#send-a-sign-out-request). |
-
-4. Once saved, select the newly created Azure AD B2C application to open the application configuration, select **Generate App Secret**.
+1. Sign in to the BlokSec admin console. 
+2. On the main dashboard, select **Add Application > Create Custom**.
+3. For **Name**, enter Azure AD B2C or an application name.
+4. For **SSO type**, select **OIDC**.
+5. For **Logo URI**, enter a link to logo image.
+6. For **Redirect URIs**, use `https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp`. For example,      `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`. For a custom domain, enter `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp`.
+7. For **Post log out redirect URIs**, enter `https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/{policy}/oauth2/v2.0/logout`.
+8. Select the created Azure AD B2C application to open the application configuration.
+9. Select **Generate App Secret**.
+ 
+Learn more: [Send a sign out request](./openid-connect.md#send-a-sign-out-request).
 
 >[!NOTE]
->You'll need application ID and application secret later to configure the Identity provider in Azure AD B2C.
+>You need application ID and application secret to configure the identity provider (IdP) in Azure AD B2C.
 
-::: zone pivot="b2c-user-flow"
+### Add a new identity provider in Azure AD B2C
 
-### Part 2 - Add a new Identity provider in Azure AD B2C
+For the following instructions, use the directory that contains your Azure AD B2C tenant. 
 
-1. Sign-in to the [Azure portal](https://portal.azure.com/#home) as the global administrator of your Azure AD B2C tenant.
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
-1. Choose **All services** in the top-left corner of the Azure portal, then search for and select **Azure AD B2C**.
-1. Navigate to **Dashboard** > **Azure Active Directory B2C** > **Identity providers**.
-1. Select New **OpenID Connect Provider**.
-1. Select **Add**.
+1. Sign in to the [Azure portal](https://portal.azure.com) as Global Administrator of your Azure AD B2C tenant.
+2. In the portal toolbar, select **Directories + subscriptions**.
+3. On the **Portal settings, Directories + subscriptions** page, in the **Directory name** list, find your Azure AD B2C directory.
+4. Select **Switch**.
+5. In the top-left corner of the Azure portal, select **All services**.
+6. Search for and select **Azure AD B2C**.
+7. Navigate to **Dashboard** > **Azure Active Directory B2C** > **Identity providers**.
+8. Select **New OpenID Connect Provider**.
+9. Select **Add**.
 
-### Part 3 - Configure an Identity provider
+### Configure an identity provider
 
 1. Select **Identity provider type > OpenID Connect**
+2. For **Name**, enter **BlokSec yuID Passwordless** or another name.
+3. For **Metadata URL**, enter `https://api.bloksec.io/oidc/.well-known/openid-configuration`.
+4. For **Client IDV**, enter the application ID from the BlokSec admin UI.
+5. For **Client Secret**, enter the application Secret from the BlokSec admin UI.
+6. For **Scope**, select **OpenID email profile**.
+7. For **Response type**, select **Code**.
+8. For **Domain hint**, select **yuID**.
+9. Select **OK**.
+10. Select **Map this identity provider’s claims**.
+11. For **User ID**, select **sub**.
+12. For **Display name**, select **name**.
+13. For **Given name**, use **given_name**.
+14. For **Surname**, use **family_name**.
+15. For **Email**, use **email**.
+16. Select **Save**. 
 
-1. Fill out the form to set up the Identity provider:
+### User registration
 
-|Property  |Value  |
-|:---------|:---------|
-|Name     |Enter BlokSec yuID – Passwordless or a name of your choice|
-|Metadata URL| `https://api.bloksec.io/oidc/.well-known/openid-configuration` |
-|Client ID|The application ID from the BlokSec admin UI captured in **Part 1**|
-|Client Secret|The application Secret from the BlokSec admin UI captured in **Part 1**|
-|Scope|OpenID email profile|
-|Response type|Code|
-|Domain hint|yuID|
+1. Sign in to the BlokSec admin console with the provided credential.
+2. Navigate to the Azure AD B2C application created earlier. 
+3. In the top-right, select the **gear** icon.
+4. Select **Create Account**.  
+5. In **Create Account**, enter user information. Note the Account Name.
+6. Select **Submit**.  
 
-1. Select **OK**.
+The user receives an account registration email at the provided email address. Instruct the user to select the registration link on the mobile device with the BlokSec yuID app.
 
-1. Select **Map this identity provider’s claims**.
+### Create a user flow policy
 
-1. Fill out the form to map the Identity provider:
-
-|Property  |Value  |
-|:---------|:---------|
-|User ID|sub|
-|Display name|name|
-|Given name|given_name|
-|Surname|family_name|
-|Email|email|
-
-1. Select **Save** to complete the setup for your new OIDC Identity provider.  
-
-### Part 4 - User registration
-
-1. Sign-in to BlokSec admin console with the credential provided earlier.
-
-1. Navigate to Azure AD B2C application that was created earlier. Select the gear icon at the top-right, and then select **Create Account**.  
-
-1. Enter the user’s information in the Create Account form, making note of the Account Name, and select **Submit**.  
-
-The user will receive an **account registration email** at the provided email address. Have the user follow the registration link on the mobile device where the BlokSec yuID app is installed,
-
-### Part 5 - Create a user flow policy
-
-You should now see BlokSec as a new OIDC Identity provider listed within your B2C identity providers.  
+For the following instructions, ensure BlokSec is a new OIDC identity provider (IdP).  
 
 1. In your Azure AD B2C tenant, under **Policies**, select **User flows**.  
-
-1. Select **New user flow**
-
-1. Select **Sign up and sign in** > **Version** > **Create**.
-
-1. Enter a **Name** for your policy.
-
-1. In the Identity providers section, select your newly created BlokSec Identity provider.  
-
-1. Select **None** for Local Accounts to disable email and password-based authentication.
-
-1. Select **Run user flow**
-
-1. In the form, enter the Replying URL, such as `https://jwt.ms`.
-
-1. The browser will be redirected to the BlokSec login page. Enter the account name registered during User registration. The user will receive a push notification to their mobile device where the BlokSec yuID application is installed; upon opening the notification, the user will be presented with an authentication challenge
-
-1. Once the authentication challenge is accepted, the browser will redirect the user to the replying URL.
-
-## Next steps
-
-For additional information, review the following articles:
-
-- [Custom policies in Azure AD B2C](./custom-policy-overview.md)
-
-- [Get started with custom policies in Azure AD B2C](./tutorial-create-user-flows.md?pivots=b2c-custom-policy)
-
-::: zone-end
-
-::: zone pivot="b2c-custom-policy"
+2. Select **New user flow**.
+3. Select **Sign up and sign in** > **Version** > **Create**.
+4. Enter a policy **Name**.
+5. In the identity providers section, select the created BlokSec identity provider.  
+6. For Local Account, select **None**. This action disables email and password-based authentication.
+7. Select **Run user flow**
+8. In the form, enter the Replying URL, such as `https://jwt.ms`.
+9. The browser is redirected to the BlokSec sign-in page. 
+10. Enter the account name from user registration. 
+11. The user receives a push notification on the mobile device with the BlokSec yuID application.
+12. The user opens the notification, and the authentication challenge appears.
+13. If authentication is accepted, the browser redirects the user to the replying URL.
 
 >[!NOTE]
->In Azure Active Directory B2C, [**custom policies**](./user-flow-overview.md) are designed primarily to address complex scenarios. For most scenarios, we recommend that you use built-in [**user flows**](./user-flow-overview.md).
+>In Azure Active Directory B2C, custom policies primarily address complex scenarios. For most scenarios, we recommend built-in user flows.</br> See, [User flows and custom policies overview](./user-flow-overview.md)
 
-### Part 2 - Create a policy key
+### Create a policy key
 
-Store the client secret that you previously recorded in your Azure AD B2C tenant.
+Store the client secret you noted in your Azure AD B2C tenant. For the following instructions, use the directory with your Azure AD B2C tenant. 
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
-1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
-1. On the Overview page, select **Identity Experience Framework**.
-1. Select **Policy Keys** and then select **Add**.
-1. For **Options**, choose `Manual`.
-1. Enter a **Name** for the policy key. For example, `BlokSecAppSecret`. The prefix `B2C_1A_` is added automatically to the name of your key.
-1. In **Secret**, enter your client secret that you previously recorded.
-1. For **Key usage**, select `Signature`.
-1. Select **Create**.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. In the portal toolbar, select **Directories + subscriptions**.
+3. On the **Portal settings, Directories + subscriptions** page, in the **Directory name** list, find your Azure AD B2C directory.
+4. Select **Switch**.
+5. In the top-left corner of the Azure portal, select **All services**
+6. Search for and select **Azure AD B2C**.
+7. On the **Overview** page, select **Identity Experience Framework**.
+8. Select **Policy Keys**.
+9. Select **Add**.
+10. For **Options**, choose **Manual**.
+11. Enter a policy **Name** for the policy key. For example, `BlokSecAppSecret`. The prefix `B2C_1A_` is added to the key name.
+12. In **Secret**, enter the client secret you noted.
+13. For **Key usage**, select **Signature**.
+14. Select **Create**.
 
-### Part 3 - Configure BlokSec as an Identity provider
+### Configure BlokSec as an identity provider
 
-To enable users to sign in using BlokSec decentralized identity, you need to define BlokSec as a claims provider that Azure AD B2C can communicate with through an endpoint. The endpoint provides a set of claims that are used by Azure AD B2C to verify a specific user has authenticated using biometry such as fingerprint or facial scan as available on their device, proving the user’s identity.
+To enable users to sign in using BlokSec decentralized identity, define BlokSec as a claims provider. This action ensures Azure AD B2C communicates with it through an endpoint. Azure AD B2C uses endpoint claims to verify users authenticate identity by using biometry, such as fingerprint or facial scan.
 
-You can define BlokSec as a claims provider by adding it to the **ClaimsProvider** element in the extension file of your policy
+To define BlokSec as a claims provider, add it to the **ClaimsProvider** element in the policy extension file.
 
 1. Open the `TrustFrameworkExtensions.xml`.
-
-2. Find the **ClaimsProviders** element. If it dosen't exist, add it under the root element.
-
-3. Add a new **ClaimsProvider** as follows:
+2. Find the **ClaimsProviders** element. If the element doesn't appear, add it under the root element.
+3. To add a new **ClaimsProvider**:
 
     ```xml
     <ClaimsProvider>
@@ -273,32 +233,30 @@ You can define BlokSec as a claims provider by adding it to the **ClaimsProvider
     ```
 
 4. Set **client_id** to the application ID from the application registration.
+5. Select **Save**.
 
-5. Save the file.
+### Add a user journey
 
-### Part 4 - Add a user journey
+Use the following instructions if the identity provider is set up, but not in any sign-in page. If you don't have a custom user journey, copy a template user journey.  
+1. From the starter pack, open the `TrustFrameworkBase.xml` file.
+2. Find and copy the contents of the **UserJourneys** element that includes ID=`SignUpOrSignIn`.
+3. Open the `TrustFrameworkExtensions.xml`.
+4. Find the **UserJourneys** element. If the element doesn't appear, add one.
+5. Paste the contents of the **UserJourney** element you copied as a child of the **UserJourneys** element.
+6. Rename the user journey ID. For example, ID=`CustomSignUpSignIn`.  
 
-At this point, the identity provider has been set up, but it's not yet available in any of the sign-in pages. If you don't have your own custom user journey, create a duplicate of an existing template user journey, otherwise continue to the next step.  
+### Add the identity provider to a user journey
 
-1. Open the `TrustFrameworkBase.xml` file from the starter pack.
+If you have a user journey, add the new identity provider to it. First add a sign-in button, then link it to an action, which is the technical profile you created.  
 
-2. Find and copy the entire contents of the **UserJourneys** element that includes ID=`SignUpOrSignIn`.
+1. In the user journey, locate the orchestration step element that includes Type=`CombinedSignInAndSignUp`, or Type=`ClaimsProviderSelection`. It's usually the first orchestration step. The **ClaimsProviderSelections** element contains a list of identity providers for user sign-in. The order of the elements controls the order of the sign-in buttons the user sees. 
+2. Add a **ClaimsProviderSelection** XML element. 
+3. Set the value of **TargetClaimsExchangeId** to a friendly name.
+4. In the next orchestration step, add a **ClaimsExchange** element. 
+5. Set the **Id** to the value of the target claims exchange ID. 
+6. Update the value of **TechnicalProfileReferenceId** to the ID of the technical profile you created.
 
-3. Open the `TrustFrameworkExtensions.xml` and find the **UserJourneys** element. If the element doesn't exist, add one.
-
-4. Paste the entire content of the **UserJourney** element that you copied as a child of the **UserJourneys** element.
-
-5. Rename the ID of the user journey. For example,  ID=`CustomSignUpSignIn`.  
-
-### Part 5 - Add the identity provider to a user journey
-
-Now that you have a user journey, add the new identity provider to the user journey. First add a sign-in button, then link the button to an action. The action is the technical profile you created earlier.  
-
-1. Find the orchestration step element that includes Type=`CombinedSignInAndSignUp`, or Type=`ClaimsProviderSelection` in the user journey. It's usually the first orchestration step. The **ClaimsProviderSelections** element contains a list of identity providers that a user can sign in with. The order of the elements controls the order of the sign-in buttons presented to the user. Add a **ClaimsProviderSelection** XML element. Set the value of **TargetClaimsExchangeId** to a friendly name.
-
-2. In the next orchestration step, add a **ClaimsExchange** element. Set the **Id** to the value of the target claims exchange ID. Update the value of **TechnicalProfileReferenceId** to the ID of the technical profile you created earlier.
-
-The following XML demonstrates the first two orchestration steps of a user journey with the identity provider:
+The following XML demonstrates the first two user-journey orchestration steps with the identity provider:
 
 ```xml
 <OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">
@@ -317,9 +275,12 @@ The following XML demonstrates the first two orchestration steps of a user journ
 </OrchestrationStep>
 ```
 
-### Part 6 - Configure the relying party policy
+### Configure the relying party policy
 
-The relying party policy, for example [SignUpSignIn.xml](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/blob/master/SocialAndLocalAccounts/SignUpOrSignin.xml), specifies the user journey which Azure AD B2C will execute. Find the **DefaultUserJourney** element within relying party. Update the **ReferenceId** to match the user journey ID, in which you added the identity provider.
+The relying party policy, for example [SignUpSignIn.xml](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/blob/master/SocialAndLocalAccounts/SignUpOrSignin.xml), specifies the user journey Azure AD B2C executes. 
+
+1. Find the **DefaultUserJourney** element in relying party. 
+2. Update the **ReferenceId** to match the user journey ID, in which you added the identity provider.
 
 In the following example, for the `CustomSignUpOrSignIn` user journey, the ReferenceId is set to `CustomSignUpOrSignIn`.
 
@@ -329,31 +290,34 @@ In the following example, for the `CustomSignUpOrSignIn` user journey, the Refer
   ...
 </RelyingParty>
 ```
+### Upload the custom policy
 
-### Part 7 - Upload the custom policy
+For the following instructions, use the directory with your Azure AD B2C tenant. 
 
-1. Sign in to the [Azure portal](https://portal.azure.com/#home).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
-1. In the [Azure portal](https://portal.azure.com/#home), search for and select **Azure AD B2C**.
-1. Under Policies, select **Identity Experience Framework**.
-Select **Upload Custom Policy**, and then upload the two policy files that you changed, in the following order: the extension policy, for example `TrustFrameworkExtensions.xml`, then the relying party policy, such as `SignUpSignIn.xml`.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. In the portal toolbar, select the **Directories + subscriptions**.
+3. On the **Portal settings, Directories + subscriptions** page, in the **Directory name** list, find your Azure AD B2C directory
+4. Select **Switch**.
+5. In the Azure portal, search for and select **Azure AD B2C**.
+6. Under **Policies**, select **Identity Experience Framework**.
+7. Select **Upload Custom Policy**.
+8. Upload the two policy files you changed in the following order: 
 
-### Part 8 - Test your custom policy
+  * Extension policy, for example `TrustFrameworkExtensions.xml`
+  * Relying party policy, such as `SignUpSignIn.xml`
+
+### Test the custom policy
 
 1. Select your relying party policy, for example `B2C_1A_signup_signin`.
-1. For **Application**, select a web application that you [previously registered](./tutorial-register-applications.md). The **Reply URL** should show `https://jwt.ms`.
-1. Select the **Run now** button.
-1. From the sign-up or sign-in page, select **Google** to sign in with Google account.
+1. For **Application**, select a web application you registered. 
+2. The **Reply URL** appears as `https://jwt.ms`.
+3. Select **Run now**.
+4. From the sign-up or sign-in page, select **Google** to sign in with Google account.
+5. The browser is redirected to `https://jwt.ms`. See the token contents returned by Azure AD B2C.
 
-If the sign-in process is successful, your browser is redirected to `https://jwt.ms`, which displays the contents of the token returned by Azure AD B2C.
+Learn more: [Tutorial: Register a web application in Azure Active Directory B2C](./tutorial-register-applications.md)
 
 ## Next steps
 
-For additional information, review the following articles:
-
-- [Custom policies in Azure AD B2C](./custom-policy-overview.md)
-
-- [Get started with custom policies in Azure AD B2C](./tutorial-create-user-flows.md?pivots=b2c-custom-policy)
-
-::: zone-end
+* [Azure AD B2C custom policy overview](./custom-policy-overview.md)
+* [Tutorial: Create user flows and custom policies in Azure AD B2C](./tutorial-create-user-flows.md?pivots=b2c-custom-policy)

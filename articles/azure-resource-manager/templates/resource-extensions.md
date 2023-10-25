@@ -1,10 +1,9 @@
 ---
 title: Post-deployment configuration with extensions
 description: Learn how to use Azure Resource Manager template (ARM template) extensions for post-deployment configurations.
-author: mumian
 ms.topic: conceptual
-ms.date: 12/14/2018
-ms.author: jgao
+ms.custom: devx-track-arm-template
+ms.date: 06/23/2023
 ---
 
 # Post-deployment configurations by using extensions

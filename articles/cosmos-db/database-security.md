@@ -24,7 +24,7 @@ Encryption at rest is now available for documents and backups stored in Azure Co
 
 Data security is a shared responsibility between you, the customer, and your database provider. Depending on the database provider you choose, the amount of responsibility you carry can vary. If you choose an on-premises solution, you need to provide everything from end-point protection to physical security of your hardware - which is no easy task. If you choose a PaaS cloud database provider such as Azure Cosmos DB, your area of concern shrinks considerably. The following image, borrowed from Microsoft's [Shared Responsibilities for Cloud Computing](https://azure.microsoft.com/resources/shared-responsibilities-for-cloud-computing/) white paper, shows how your responsibility decreases with a PaaS provider like Azure Cosmos DB.
 
-:::image type="content" source="./media/database-security/nosql-database-security-responsibilities.png" alt-text="Customer and database provider responsibilities":::
+:::image type="content" source="./media/database-security/nosql-database-security-responsibilities.png" alt-text="Screenshot of customer and database provider responsibilities.":::
 
 The preceding diagram shows high-level cloud security components, but what items do you need to worry about specifically for your database solution? And how can you compare solutions to each other?
 
@@ -72,14 +72,14 @@ Let's dig into each one in detail.
 |Respond to attacks|Once you have contacted Azure support to report a potential attack, a five-step incident response process is kicked off. The goal of the five-step process is to restore normal service security and operations. The five-step process restores services as quickly as possible after an issue is detected and an investigation is started.<br><br>Learn more in [Microsoft Azure Security Response in the Cloud](https://azure.microsoft.com/resources/shared-responsibilities-for-cloud-computing/).|
 |Geo-fencing|Azure Cosmos DB ensures data governance for sovereign regions (for example, Germany, China, US Gov).|
 |Protected facilities|Data in Azure Cosmos DB is stored on SSDs in Azure's protected data centers.<br><br>Learn more in [Microsoft global datacenters](https://www.microsoft.com/en-us/cloud-platform/global-datacenters)|
-|HTTPS/SSL/TLS encryption|All connections to Azure Cosmos DB support HTTPS. Azure Cosmos DB supports TLS levels up to 1.3 (included).<br>It's possible to enforce a minimum TLS level server-side. To do so, open an [Azure support ticket](https://azure.microsoft.com/support/options/).|
+|HTTPS/SSL/TLS encryption|All connections to Azure Cosmos DB support HTTPS. Azure Cosmos DB supports TLS levels up to 1.2 (included).<br>It's possible to enforce a minimum TLS level on server-side. To do so, refer to self service guide [Self-serve minimum TLS version enforcement in Azure Cosmos DB](./self-serve-minimum-tls-enforcement.md).|
 |Encryption at rest|All data stored into Azure Cosmos DB is encrypted at rest. Learn more in [Azure Cosmos DB encryption at rest](./database-encryption-at-rest.md)|
 |Patched servers|As a managed database, Azure Cosmos DB eliminates the need to manage and patch servers, that's done for you, automatically.|
 |Administrative accounts with strong passwords|It's hard to believe we even need to mention this requirement, but unlike some of our competitors, it's impossible to have an administrative account with no password in Azure Cosmos DB.<br><br> Security via TLS and HMAC secret based authentication is baked in by default.|
 |Security and data protection certifications| For the most up-to-date list of certifications, see [Azure compliance](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings) and the latest [Azure compliance document](https://azure.microsoft.com/mediahandler/files/resourcefiles/microsoft-azure-compliance-offerings/Microsoft%20Azure%20Compliance%20Offerings.pdf) with all Azure certifications including Azure Cosmos DB.
 
 The following screenshot shows how you can use audit logging and activity logs to monitor your account: 
-:::image type="content" source="./media/database-security/nosql-database-security-application-logging.png" alt-text="Activity logs for Azure Cosmos DB":::
+:::image type="content" source="./media/database-security/nosql-database-security-application-logging.png" alt-text="Screenshot of activity logs for Azure Cosmos DB.":::
 
 <a id="primary-keys"></a>
 
@@ -108,7 +108,7 @@ The process of key rotation and regeneration is simple. First, make sure that **
 
 1. Select **Keys** from the left menu, then select **Regenerate Secondary Key** from the ellipsis on the right of your secondary key.
 
-    :::image type="content" source="./media/database-security/regenerate-secondary-key.png" alt-text="Screenshot of the Azure portal showing how to regenerate the secondary key" border="true":::
+    :::image type="content" source="./media/database-security/regenerate-secondary-key.png" alt-text="Screenshot of the Azure portal showing how to regenerate the secondary key." border="true":::
 
 1. Validate that the new secondary key works consistently against your Azure Cosmos DB account. Key regeneration can take anywhere from one minute to multiple hours depending on the size of the Azure Cosmos DB account.
 
@@ -116,7 +116,7 @@ The process of key rotation and regeneration is simple. First, make sure that **
 
 1. Go back to the Azure portal and trigger the regeneration of the primary key.
 
-    :::image type="content" source="./media/database-security/regenerate-primary-key.png" alt-text="Screenshot of the Azure portal showing how to regenerate the primary key" border="true":::
+    :::image type="content" source="./media/database-security/regenerate-primary-key.png" alt-text="Screenshot of the Azure portal showing how to regenerate the primary key." border="true":::
 
 #### If your application is currently using the secondary key
 
@@ -124,7 +124,7 @@ The process of key rotation and regeneration is simple. First, make sure that **
 
 1. Select **Keys** from the left menu, then select **Regenerate Primary Key** from the ellipsis on the right of your primary key.
 
-    :::image type="content" source="./media/database-security/regenerate-primary-key.png" alt-text="Screenshot of the Azure portal showing how to regenerate the primary key" border="true":::
+    :::image type="content" source="./media/database-security/regenerate-primary-key.png" alt-text="Screenshot of the Azure portal showing how to regenerate the primary key." border="true":::
 
 1. Validate that the new primary key works consistently against your Azure Cosmos DB account. Key regeneration can take anywhere from one minute to multiple hours depending on the size of the Azure Cosmos DB account.
 
@@ -132,7 +132,7 @@ The process of key rotation and regeneration is simple. First, make sure that **
 
 1. Go back to the Azure portal and trigger the regeneration of the secondary key.
 
-    :::image type="content" source="./media/database-security/regenerate-secondary-key.png" alt-text="Screenshot of the Azure portal showing how to regenerate the secondary key" border="true":::
+    :::image type="content" source="./media/database-security/regenerate-secondary-key.png" alt-text="Screenshot of the Azure portal showing how to regenerate the secondary key." border="true":::
 
 # [Azure Cosmos DB for MongoDB](#tab/mongo-api)
 
@@ -142,7 +142,7 @@ The process of key rotation and regeneration is simple. First, make sure that **
 
 1. Select **Connection String** from the left menu, then select **Regenerate Password** from the ellipsis on the right of your secondary password.
 
-    :::image type="content" source="./media/database-security/regenerate-secondary-key-mongo.png" alt-text="Screenshot of the Azure portal showing how to regenerate the secondary key" border="true":::
+    :::image type="content" source="./media/database-security/regenerate-secondary-key-mongo.png" alt-text="Screenshot of the Azure portal showing how to regenerate the secondary key." border="true":::
 
 1. Validate that the new secondary key works consistently against your Azure Cosmos DB account. Key regeneration can take anywhere from one minute to multiple hours depending on the size of the Azure Cosmos DB account.
 
@@ -150,7 +150,7 @@ The process of key rotation and regeneration is simple. First, make sure that **
 
 1. Go back to the Azure portal and trigger the regeneration of the primary key.
 
-    :::image type="content" source="./media/database-security/regenerate-primary-key-mongo.png" alt-text="Screenshot of the Azure portal showing how to regenerate the primary key" border="true":::
+    :::image type="content" source="./media/database-security/regenerate-primary-key-mongo.png" alt-text="Screenshot of the Azure portal showing how to regenerate the primary key." border="true":::
 
 #### If your application is currently using the secondary key
 
@@ -158,7 +158,7 @@ The process of key rotation and regeneration is simple. First, make sure that **
 
 1. Select **Connection String** from the left menu, then select **Regenerate Password** from the ellipsis on the right of your primary password.
 
-    :::image type="content" source="./media/database-security/regenerate-primary-key-mongo.png" alt-text="Screenshot of the Azure portal showing how to regenerate the primary key" border="true":::
+    :::image type="content" source="./media/database-security/regenerate-primary-key-mongo.png" alt-text="Screenshot of the Azure portal showing how to regenerate the primary key." border="true":::
 
 1. Validate that the new primary key works consistently against your Azure Cosmos DB account. Key regeneration can take anywhere from one minute to multiple hours depending on the size of the Azure Cosmos DB account.
 
@@ -166,7 +166,7 @@ The process of key rotation and regeneration is simple. First, make sure that **
 
 1. Go back to the Azure portal and trigger the regeneration of the secondary key.
 
-    :::image type="content" source="./media/database-security/regenerate-secondary-key-mongo.png" alt-text="Screenshot of the Azure portal showing how to regenerate the secondary key" border="true":::
+    :::image type="content" source="./media/database-security/regenerate-secondary-key-mongo.png" alt-text="Screenshot of the Azure portal showing how to regenerate the secondary key." border="true":::
 
 # [API for Cassandra](#tab/cassandra-api)
 
@@ -176,7 +176,7 @@ The process of key rotation and regeneration is simple. First, make sure that **
 
 1. Select **Connection String** from the left menu, then select **Regenerate Secondary Read-Write Password** from the ellipsis on the right of your secondary password.
 
-    :::image type="content" source="./media/database-security/regenerate-secondary-key-cassandra.png" alt-text="Screenshot of the Azure portal showing how to regenerate the secondary key" border="true":::
+    :::image type="content" source="./media/database-security/regenerate-secondary-key-cassandra.png" alt-text="Screenshot of the Azure portal showing how to regenerate the secondary key." border="true":::
 
 1. Validate that the new secondary key works consistently against your Azure Cosmos DB account. Key regeneration can take anywhere from one minute to multiple hours depending on the size of the Azure Cosmos DB account.
 
@@ -184,7 +184,7 @@ The process of key rotation and regeneration is simple. First, make sure that **
 
 1. Go back to the Azure portal and trigger the regeneration of the primary key.
 
-    :::image type="content" source="./media/database-security/regenerate-primary-key-cassandra.png" alt-text="Screenshot of the Azure portal showing how to regenerate the primary key" border="true":::
+    :::image type="content" source="./media/database-security/regenerate-primary-key-cassandra.png" alt-text="Screenshot of the Azure portal showing how to regenerate the primary key." border="true":::
 
 #### If your application is currently using the secondary key
 
@@ -192,7 +192,7 @@ The process of key rotation and regeneration is simple. First, make sure that **
 
 1. Select **Connection String** from the left menu, then select **Regenerate Primary Read-Write Password** from the ellipsis on the right of your primary password.
 
-    :::image type="content" source="./media/database-security/regenerate-primary-key-cassandra.png" alt-text="Screenshot of the Azure portal showing how to regenerate the primary key" border="true":::
+    :::image type="content" source="./media/database-security/regenerate-primary-key-cassandra.png" alt-text="Screenshot of the Azure portal showing how to regenerate the primary key." border="true":::
 
 1. Validate that the new primary key works consistently against your Azure Cosmos DB account. Key regeneration can take anywhere from one minute to multiple hours depending on the size of the Azure Cosmos DB account.
 
@@ -200,7 +200,7 @@ The process of key rotation and regeneration is simple. First, make sure that **
 
 1. Go back to the Azure portal and trigger the regeneration of the secondary key.
 
-    :::image type="content" source="./media/database-security/regenerate-secondary-key-cassandra.png" alt-text="Screenshot of the Azure portal showing how to regenerate the secondary key" border="true":::
+    :::image type="content" source="./media/database-security/regenerate-secondary-key-cassandra.png" alt-text="Screenshot of the Azure portal showing how to regenerate the secondary key." border="true":::
 
 # [API for Gremlin](#tab/gremlin-api)
 
@@ -210,7 +210,7 @@ The process of key rotation and regeneration is simple. First, make sure that **
 
 1. Select **Keys** from the left menu, then select **Regenerate Secondary Key** from the ellipsis on the right of your secondary key.
 
-    :::image type="content" source="./media/database-security/regenerate-secondary-key-gremlin.png" alt-text="Screenshot of the Azure portal showing how to regenerate the secondary key" border="true":::
+    :::image type="content" source="./media/database-security/regenerate-secondary-key-gremlin.png" alt-text="Screenshot of the Azure portal showing how to regenerate the secondary key." border="true":::
 
 1. Validate that the new secondary key works consistently against your Azure Cosmos DB account. Key regeneration can take anywhere from one minute to multiple hours depending on the size of the Azure Cosmos DB account.
 
@@ -218,7 +218,7 @@ The process of key rotation and regeneration is simple. First, make sure that **
 
 1. Go back to the Azure portal and trigger the regeneration of the primary key.
 
-    :::image type="content" source="./media/database-security/regenerate-primary-key-gremlin.png" alt-text="Screenshot of the Azure portal showing how to regenerate the primary key" border="true":::
+    :::image type="content" source="./media/database-security/regenerate-primary-key-gremlin.png" alt-text="Screenshot of the Azure portal showing how to regenerate the primary key." border="true":::
 
 #### If your application is currently using the secondary key
 
@@ -226,7 +226,7 @@ The process of key rotation and regeneration is simple. First, make sure that **
 
 1. Select **Keys** from the left menu, then select **Regenerate Primary Key** from the ellipsis on the right of your primary key.
 
-    :::image type="content" source="./media/database-security/regenerate-primary-key-gremlin.png" alt-text="Screenshot of the Azure portal showing how to regenerate the primary key" border="true":::
+    :::image type="content" source="./media/database-security/regenerate-primary-key-gremlin.png" alt-text="Screenshot of the Azure portal showing how to regenerate the primary key." border="true":::
 
 1. Validate that the new primary key works consistently against your Azure Cosmos DB account. Key regeneration can take anywhere from one minute to multiple hours depending on the size of the Azure Cosmos DB account.
 
@@ -234,7 +234,7 @@ The process of key rotation and regeneration is simple. First, make sure that **
 
 1. Go back to the Azure portal and trigger the regeneration of the secondary key.
 
-    :::image type="content" source="./media/database-security/regenerate-secondary-key-gremlin.png" alt-text="Screenshot of the Azure portal showing how to regenerate the secondary key" border="true":::
+    :::image type="content" source="./media/database-security/regenerate-secondary-key-gremlin.png" alt-text="Screenshot of the Azure portal showing how to regenerate the secondary key." border="true":::
 
 # [API for Table](#tab/table-api)
 
@@ -244,7 +244,7 @@ The process of key rotation and regeneration is simple. First, make sure that **
 
 1. Select **Connection String** from the left menu, then select **Regenerate Secondary Key** from the ellipsis on the right of your secondary key.
 
-    :::image type="content" source="./media/database-security/regenerate-secondary-key-table.png" alt-text="Screenshot of the Azure portal showing how to regenerate the secondary key" border="true":::
+    :::image type="content" source="./media/database-security/regenerate-secondary-key-table.png" alt-text="Screenshot of the Azure portal showing how to regenerate the secondary key." border="true":::
 
 1. Validate that the new secondary key works consistently against your Azure Cosmos DB account. Key regeneration can take anywhere from one minute to multiple hours depending on the size of the Azure Cosmos DB account.
 
@@ -252,7 +252,7 @@ The process of key rotation and regeneration is simple. First, make sure that **
 
 1. Go back to the Azure portal and trigger the regeneration of the primary key.
 
-    :::image type="content" source="./media/database-security/regenerate-primary-key-table.png" alt-text="Screenshot of the Azure portal showing how to regenerate the primary key" border="true":::
+    :::image type="content" source="./media/database-security/regenerate-primary-key-table.png" alt-text="Screenshot of the Azure portal showing how to regenerate the primary key." border="true":::
 
 #### If your application is currently using the secondary key
 
@@ -260,7 +260,7 @@ The process of key rotation and regeneration is simple. First, make sure that **
 
 1. Select **Connection String** from the left menu, then select **Regenerate Primary Key** from the ellipsis on the right of your primary key.
 
-    :::image type="content" source="./media/database-security/regenerate-primary-key-table.png" alt-text="Screenshot of the Azure portal showing how to regenerate the primary key" border="true":::
+    :::image type="content" source="./media/database-security/regenerate-primary-key-table.png" alt-text="Screenshot of the Azure portal showing how to regenerate the primary key." border="true":::
 
 1. Validate that the new primary key works consistently against your Azure Cosmos DB account. Key regeneration can take anywhere from one minute to multiple hours depending on the size of the Azure Cosmos DB account.
 
@@ -268,7 +268,7 @@ The process of key rotation and regeneration is simple. First, make sure that **
 
 1. Go back to the Azure portal and trigger the regeneration of the secondary key.
 
-    :::image type="content" source="./media/database-security/regenerate-secondary-key-table.png" alt-text="Screenshot of the Azure portal showing how to regenerate the secondary key" border="true":::
+    :::image type="content" source="./media/database-security/regenerate-secondary-key-table.png" alt-text="Screenshot of the Azure portal showing how to regenerate the secondary key." border="true":::
 
 ---
 
@@ -276,14 +276,13 @@ The process of key rotation and regeneration is simple. First, make sure that **
 
 After you rotate or regenerate a key, you can track its status from the Activity log. Use the following steps to track the status:
 
-1. Sign into the [Azure portal](https://portal.azure.com/) and navigate to your Azure Cosmos DB account.
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Azure Cosmos DB account.
 
-1. Open the **Activity log** pane and set the following filters:
+1. Select **Keys** from the left menu. You should see the last key regeneration date below each key.
 
-   * Set the **Resource type** to **Azure Cosmos DB accounts**.
-   * Set the **Operation** to **Rotate keys**.
+   :::image type="content" source="./media/database-security/track-key-regeneration-status.png" alt-text="Screenshot of status of key regeneration from Activity log." border="true":::
 
-   :::image type="content" source="./media/database-security/track-key-regeneration-status.png" alt-text="Status of key regeneration from Activity log" border="true":::
+   Microsoft recommends regenerating the keys at least once every 60 days. If your last regeneration was more than 60 days ago, you will see a warning icon. Also, you could see that your key was not recorded. If this is the case, your account was created before 2022-06-18 and the dates were not registered. However, you should be able to regenerate and see your new last regeneration date for the new key.
 
 1. You should see the key regeneration events along with its status, time at which the operation was issued, details of the user who initiated key regeneration. The key generation operation initiates with **Accepted** status, it then changes to **Started** and then to **Succeeded** when the operation completes.
 

@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/21/2021
+ms.date: 12/16/2022
 ms.custom: "project-no-code, b2c-support"
 ms.author: kengaderdus
 ms.subservice: B2C
@@ -38,7 +38,7 @@ Azure AD B2C provide several built-in templates you can choose from to give your
 
 ### Ocean Blue
 
-Example of the Ocean Blue template rendered on sign up sign in page:
+Example of the Ocean Blue template rendered on sign up and sign in page:
 
 ![Ocean Blue template screenshot](media/customize-ui/template-ocean-blue.png)
 
@@ -56,7 +56,7 @@ Example of the Classic template rendered on sign up sign in page:
 
 ### Company branding
 
-You can customize your Azure AD B2C pages with a banner logo, background image, and background color by using Azure Active Directory [Company branding](../active-directory/fundamentals/customize-branding.md). The company branding includes signing up, signing in, profile editing, and password resetting. 
+You can customize your Azure AD B2C pages with a banner logo, background image, and background color by using Microsoft Entra ID [Company branding](../active-directory/fundamentals/how-to-customize-branding.md). The company branding includes signing up, signing in, profile editing, and password resetting. 
 
 The following example shows a *Sign up and sign in* page with a custom logo, background image, using Ocean Blue template:
 
@@ -190,7 +190,7 @@ Classic:
 
 ## Configure company branding
 
-To customize your user flow pages, you first configure company branding in Azure Active Directory, then you enable it in your user flows in Azure AD B2C.
+To customize your user flow pages, you first configure company branding in Microsoft Entra ID, then you enable it in your user flows in Azure AD B2C.
 
 Start by setting the banner logo, background image, and background color within **Company branding**.
 
@@ -199,11 +199,11 @@ Start by setting the banner logo, background image, and background color within 
 1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Under **Manage**, select **Company branding**.
-1. Follow the steps in [Add branding to your organization's Azure Active Directory sign-in page](../active-directory/fundamentals/customize-branding.md).
+1. Follow the steps in [Add branding to your organization's Microsoft Entra sign-in page](../active-directory/fundamentals/how-to-customize-branding.md).
 
 Keep these things in mind when you configure company branding in Azure AD B2C:
 
-* Company branding in Azure AD B2C is currently limited to **background image**, **banner logo**, and **background color** customization. The other properties in the company branding pane, for example, **Advanced settings**, are *not supported*.
+* Company branding in Azure AD B2C is currently limited to **background image**, **banner logo**, and **background color** customization. The other properties in the company branding pane, for example, **Advanced settings**, aren't supported.
 * In your user flow pages, the background color is shown before the background image is loaded. We recommended you choose a background color that closely matches the colors in your background image for a smoother loading experience.
 * The banner logo appears in the verification emails sent to your users when they initiate a sign-up user flow.
 
@@ -231,7 +231,7 @@ If you'd like to brand all pages in the user flow, set the page layout version f
 
 ## Enable company branding in custom policy pages
 
-Once you've configured company branding, enable it in your custom policy. Configure the [page layout version](contentdefinitions.md#migrating-to-page-layout) with page `contract` version for *all* of the content definitions in your custom policy. The format of the value must contain the word `contract`: _urn:com:microsoft:aad:b2c:elements:**contract**:page-name:version_. To specify a page layout in your custom policies that use an old **DataUri** value. For more information, learn how to [migrate to page layout](contentdefinitions.md#migrating-to-page-layout) with page version.
+Once you've configured company branding, enable it in your custom policy. Configure the [page layout version](contentdefinitions.md#migrating-to-page-layout) with page `contract` version for *all* of the content definitions in your custom policy. The format of the value must contain the word `contract`: *urn:com:microsoft:aad:b2c:elements:**contract**:page-name:version*. To specify a page layout in your custom policies that use an old **DataUri** value. For more information, learn how to [migrate to page layout](contentdefinitions.md#migrating-to-page-layout) with page version.
 
 The following example shows the content definitions with their corresponding the page contract, and *Ocean Blue* page template: 
 
@@ -280,17 +280,17 @@ The following example shows the content definitions with their corresponding the
 
 ::: zone pivot="b2c-user-flow"
 
-## Re-order input fields in the sign-up form
-To re-order the input fields on the sign-up page for local accounts form, follow these steps:
+## Rearrange input fields in the sign-up form
+To rearrange the input fields on the sign-up page for local accounts form, follow these steps:
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
 1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. In the left menu, select **User flows**.
-1. Select a user flow (for local accounts only) that you want to re-order its input fields.
+1. Select a user flow (for local accounts only) that you want to rearrange its input fields.
 1. In the left menu, select **Page layouts**
 1. In the table, select the row **Local account sign up page**.
-1. Under **User attributes**, select the input field you want to re-order, and drag (up or down) and drop or use use the **Move Up** or **Move down** controls to achieve the desired order. 
+1. Under **User attributes**, select the input field you want to rearrange, and drag (up or down) and drop or use the **Move Up** or **Move down** controls to achieve the desired order. 
 1. At the top of the page, select **Save**.
 
   :::image type="content" source="media/customize-ui/portal-02-page-layout-fields.png" alt-text="Template selection drop-down in user flow page of Azure portal.":::

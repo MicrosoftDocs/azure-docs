@@ -1,9 +1,9 @@
 ---
 title: "Diagnose connection issues for Azure Arc-enabled Kubernetes clusters"
-ms.date: 11/22/2022
+ms.date: 12/06/2022
 ms.topic: how-to
+ms.custom: devx-track-azurecli
 description: "Learn how to resolve common issues when connecting Kubernetes clusters to Azure Arc."
-
 ---
 
 # Diagnose connection issues for Azure Arc-enabled Kubernetes clusters
@@ -23,11 +23,11 @@ Review this flowchart in order to diagnose your issue when attempting to connect
 
 Review the [prerequisites for connecting a cluster](quickstart-connect-cluster.md?tabs=azure-cli#prerequisites) and make sure that the identity you're using to connect the cluster has the necessary permissions.
 
-### Is Azure CLI version above 2.30.0?
+### Are you running the latest version of Azure CLI?
 
 Make sure you [have the latest version installed](/cli/azure/install-azure-cli).
 
-If you connected your cluster by using Azure PowerShell, make sure you are running [Azure PowerShell version 6.6.0 or later](/powershell/azure/install-az-ps).
+If you connected your cluster by using Azure PowerShell, make sure you are [running the latest version](/powershell/azure/install-azure-powershell).
 
 ### Is the `connectedk8s` extension the latest version?
 
@@ -47,14 +47,13 @@ az extension add --name connectedk8s
 
 Run `kubectl config get-contexts` to confirm the target context name. Then set the default context to the right cluster by running `kubectl config use-context <target-cluster-name>`.
 
-
 ### Are all required resource providers registered?
 
 Be sure that the Microsoft.Kubernetes, Microsoft.KubernetesConfiguration, and Microsoft.ExtendedLocation resource providers are [registered](quickstart-connect-cluster.md#register-providers-for-azure-arc-enabled-kubernetes).
 
 ### Are all network requirements met?
 
-Review the [network requirements](quickstart-connect-cluster.md#meet-network-requirements) and ensure that no required endpoints are blocked.
+Review the [network requirements](network-requirements.md) and ensure that no required endpoints are blocked.
 
 ### Are all pods in the `azure-arc` namespace running?
 
@@ -100,7 +99,7 @@ az connectedk8s connect --name <cluster-name> --resource-group <resource-group> 
 
 ### Is the proxy server able to reach required network endpoints?
 
-Review the [network requirements](quickstart-connect-cluster.md#meet-network-requirements) and ensure that no required endpoints are blocked.
+Review the [network requirements](network-requirements.md) and ensure that no required endpoints are blocked.
 
 ### Is the proxy server only using HTTP?
 

@@ -2,15 +2,15 @@
 title: Language customization in Azure Active Directory B2C
 description: Learn about customizing the language experience in your user flows in Azure Active Directory B2C.
 services: active-directory-b2c
-author: kengaderdus
+author: garrodonnell
 manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/16/2021
+ms.date: 12/28/2022
 ms.custom: project-no-code
-ms.author: kengaderdus
+ms.author: godonnell
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
@@ -221,7 +221,7 @@ Open the extensions file of your policy. For example, <em>`SocialAndLocalAccount
 
 ## Provide language-specific labels
 
-The [LocalizedResources](localization.md#localizedresources) of the `Localization` element contains the list of localized strings. The localized resources element has an identifier that is used to uniquely identify localized resources. This identifer is used later in the [content definition](contentdefinitions.md) element.
+The [LocalizedResources](localization.md#localizedresources) of the `Localization` element contains the list of localized strings. The localized resources element has an identifier that is used to uniquely identify localized resources. This identifier is used later in the [content definition](contentdefinitions.md) element.
 
 You configure localized resources elements for the content definition and any language you want to support. To customize the unified sign-up or sign-in pages for English and Spanish, you add the following `LocalizedResources` elements after the close of the `</SupportedLanguages>` element.
 
@@ -285,7 +285,7 @@ You configure localized resources elements for the content definition and any la
       <LocalizedString ElementType="UxElement" StringId="local_intro_email">#Iniciar sesión con su cuenta existente</LocalizedString>
       <LocalizedString ElementType="UxElement" StringId="invalid_email">#Escriba una dirección de correo electrónico válida</LocalizedString>
       <LocalizedString ElementType="UxElement" StringId="unknown_error">#Tenemos problemas para iniciar su sesión. Vuelva a intentarlo más tarde.  </LocalizedString>
-      <LocalizedString ElementType="UxElement" StringId="email_pattern">^[a-zA-Z0-9.!#$%&amp;'^_`{}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$</LocalizedString>
+      <LocalizedString ElementType="UxElement" StringId="email_pattern">^[a-zA-Z0-9.!#$%&amp;'^_`\{\}~\-]+@[a-zA-Z0-9\-]+(?:\.[a-zA-Z0-9\-]+)*$</LocalizedString>
       <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidPassword">#Su contraseña es incorrecta.</LocalizedString>
       <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalDoesNotExist">#Parece que no podemos encontrar su cuenta.</LocalizedString>
       <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfOldPasswordUsed">#Parece que ha usado una contraseña antigua.</LocalizedString>
@@ -472,7 +472,7 @@ Chrome and Firefox both request for their set language. If it's a supported lang
 
 ## Supported languages
 
-Azure AD B2C includes support for the following languages. User flow languages are provided by Azure AD B2C. The multi-factor authentication (MFA) notification languages are provided by [Azure AD MFA](../active-directory/authentication/concept-mfa-howitworks.md).
+Azure AD B2C includes support for the following languages by using ISO 639-1 codes. User flow languages are provided by Azure AD B2C. The multifactor authentication notification languages are provided by [Microsoft Entra multifactor authentication](../active-directory/authentication/concept-mfa-howitworks.md).
 
 | Language              | Language code | User flows         | MFA notifications  |
 |-----------------------| :-----------: | :----------------: | :----------------: |
@@ -527,6 +527,7 @@ Azure AD B2C includes support for the following languages. User flow languages a
 | Turkish               | tr            | ![Green check mark.](./media/user-flow-language-customization/yes.png) | ![Green check mark.](./media/user-flow-language-customization/yes.png) |
 | Ukrainian             | uk            | ![X indicating no.](./media/user-flow-language-customization/no.png) | ![Green check mark.](./media/user-flow-language-customization/yes.png) |
 | Vietnamese            | vi            | ![X indicating no.](./media/user-flow-language-customization/no.png) | ![Green check mark.](./media/user-flow-language-customization/yes.png) |
+| Welsh            | cy            | ![X indicating no.](./media/user-flow-language-customization/no.png) | ![X indicating no.](./media/user-flow-language-customization/no.png) |
 | Chinese - Simplified  | zh-hans       | ![Green check mark.](./media/user-flow-language-customization/yes.png) | ![Green check mark.](./media/user-flow-language-customization/yes.png) |
 | Chinese - Traditional | zh-hant       | ![Green check mark.](./media/user-flow-language-customization/yes.png) | ![Green check mark.](./media/user-flow-language-customization/yes.png) |
 

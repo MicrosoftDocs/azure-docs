@@ -7,7 +7,7 @@ metadata:
   ms.service: cost-management-billing
   ms.subservice: microsoft-customer-agreement
   ms.topic: faq
-  ms.date: 03/22/2022
+  ms.date: 06/12/2023
   ms.author: banders
 title: Microsoft Customer Agreement FAQ - Azure
 summary: |
@@ -17,44 +17,67 @@ sections:
       - question: Can I sign the Microsoft Customer Agreement today?
         answer: |
           - **If you work through a Microsoft seller**, the Microsoft Customer Agreement is currently available in Argentina, Australia, Austria, Canada, Chile, Finland, France, Germany, Greece, Iceland, Ireland, Italy, Luxembourg, Netherlands, Norway, Portugal, Puerto Rico, South Africa, Spain, Sweden, Switzerland, United Kingdom, United States, and Uruguay.
-          - **If you are a new customer purchasing Azure services directly from Azure.com,** today the Microsoft Customer Agreement is available in the countries below all of which are transacted in US dollars (USD). In 2021, we began the rollout for the new customers in other regions with the goal of making Microsoft Customer Agreement available worldwide.
+          - **If you're a new customer purchasing Azure services directly from Azure.com,** today the Microsoft Customer Agreement is available in the countries/regions below all of which are transacted in US dollars (USD). In 2021, we began the rollout for the new customers in other regions with the goal of making Microsoft Customer Agreement available worldwide.
           - The Microsoft Customer Agreement is also available through Cloud Solution Providers (CSP) around the world. You can find a partner in the CSP program at [Microsoft Solution Providers](https://www.microsoft.com/solution-providers/home).
 
              | Countries/regions       | Countries/regions   | Countries/regions      | Countries/regions                    |
              |-------------------------|---------------------|------------------------|--------------------------------------|
-             | Afghanistan             | Côte d'Ivoire       | Moldova                | Sri Lanka                            |
-             | Albania                 | Curaçao             | Mongolia               | Tajikistan                           |
-             | Algeria                 | Dominican Republic  | Montenegro             | Tanzania                             |
-             | Angola                  | Egypt               | Morocco                | Thailand                             |
-             | Armenia                 | Ethiopia            | Namibia                | Trinidad and Tobago                  |
-             | Azerbaijan              | Georgia             | Nepal                  | Tunisia                              |
-             | Bahrain                 | Ghana               | Nicaragua              | Turkmenistan                         |
-             | Bangladesh              | Guatemala           | Nigeria                | Virgin Islands of the United States  |
-             | Barbados                | Honduras            | Oman                   | Uganda                               |
-             | Belarus                 | Iraq                | Pakistan               | Ukraine                              |
-             | Belize                  | Israel              | Palestinian Authority  | United Arab Emirates                 |
-             | Bermuda                 | Jamaica             | Panama                 | United States                        |
-             | Bolivia                 | Jordan              | Paraguay               | Uruguay                              |
-             | Bosnia and Herzegovina  | Kazakhstan          | Peru                   | Uzbekistan                           |
-             | Botswana                | Kenya               | Philippines            | Venezuela                            |
-             | Brunei Darussalam       | Kuwait              | Puerto Rico            | Vietnam                              |
-             | Cameroon                | Kyrgyzstan          | Qatar                  | Yemen                                |
-             | Cabo Verde              | Lebanon             | Rwanda                 | Zambia                               |
-             | Cayman Islands          | Libya               | Saint Kitts and Nevis  | Zimbabwe                             |
-             | Chile                   | Macao               | Senegal                | Ecuador                              |
-             | Colombia                | Macedonia (FYRO)    | Serbia                 | El Salvador                          |
-             | Costa Rica              | Mauritius           | Singapore              |                                      |
-      - question: What if I am an existing customer purchasing Azure directly from Azure.com?
+             | Afghanistan | Albania | Algeria | Angola |
+             | Argentina | Armenia | Australia | Austria |
+             | Azerbaijan | Bahamas | Bahrain | Bangladesh |
+             | Barbados | Belarus | Belgium | Belize |
+             | Bermuda | Bolivia | Bosnia and Herzegovina | Botswana |
+             | Brazil | Brunei | Bulgaria | Cabo Verde |
+             | Cameroon | Canada | Cayman Islands | Chile |
+             | Colombia | Costa Rica | Côte d'Ivoire | Croatia |
+             | Curaçao | Cyprus | Czechia | Darussalam |
+             | Denmark | Dominican Republic | Ecuador | Egypt |
+             | El Salvador | Estonia | Ethiopia | Faroe Islands |
+             | Fiji | Finland | France | Georgia |
+             | Germany | Ghana | Greece | Guatemala |
+             | Honduras | Hong Kong Special Administrative Region| Hungary | Iceland |
+             | Indonesia | Iraq | Ireland | Israel |
+             | Italy | Jamaica | Japan | Jordan |
+             | Kazakhstan | Kenya | Korea | Kuwait |
+             | Kyrgyzstan | Lebanon | Libya | Lithuania |
+             | Macao Special Administrative Region| Malaysia | Malta | Mauritius |
+             | Mexico | Moldova | Monaco | Mongolia |
+             | Montenegro | Morocco | Namibia | Nepal |
+             | Netherlands | New Zealand | Nicaragua | Nigeria |
+             | Norway | North Macedonia | Oman | Pakistan |
+             | Palestinian Authority | Panama | Paraguay | Peru |
+             | Philippines | Poland | Portugal | Puerto Rico |
+             | Qatar | Romania | Russia | Rwanda |
+             | Saint Kitts and Nevis | Saudi Arabia | Senegal | Serbia |
+             | Singapore | Slovakia | Slovenia | South Africa |
+             | Spain | Sri Lanka | Sweden | Switzerland |
+             | Taiwan | Tajikistan | Tanzania | Thailand |
+             | Trinidad and Tobago | Tunisia | Türkiye | Turkmenistan |
+             | Uganda | UK | Ukraine | United Arab Emirates |
+             | United States | Uruguay | Uzbekistan | Venezuela |
+             | Vietnam | Virgin Islands of the United States | Yemen | Zambia |
+             | Zimbabwe | | | |
+      - question: What if I'm an existing customer purchasing Azure directly from Azure.com?
         answer: |
-          Microsoft will share a notice directly with you at least 30 days before the transition to the Microsoft Customer Agreement.
-      - question: Which Azure Services are available through the Microsoft Customer Agreement?
+          Microsoft shares a notice directly with you at least 30 days before the transition to the Microsoft Customer Agreement.
+      - question: What Azure Services are available through the Microsoft Customer Agreement?
         answer: |
           All Azure services are available through Microsoft Customer Agreement. Once you accept the Microsoft Customer Agreement, you get the benefit of more free enterprise-grade management tools including new invoice and cost management capabilities through the same portal where you manage your Azure services.
       - question: How is Azure priced under the Microsoft Customer Agreement?
         answer: |
-          Azure is priced in US dollars (USD) worldwide under the Microsoft Customer Agreement.
+          Azure is priced in US dollars (USD) worldwide under the Microsoft Customer Agreement and Microsoft Partner Agreement. 
 
-          If you transact in one of the other supported currencies listed below, your monthly cost is first calculated in US dollars (USD). For payment, the total is then converted to the local currency.
+          Prices are in your local currency for Enterprise Agreements.
+
+          Azure users are always charged in their local currency. A currency conversion occurs at the time of billing, if the pricing currency isn't the same as the billing currency. 
+
+            -	The [Retail Price API](/rest/api/cost-management/retail-prices/azure-retail-prices) returns USD as the default. The API returns a currency conversion if the user specifies a currency. Although convenient, the conversion might cause confusion because the API returns *estimated prices based on the current conversion rate*. If you try to use the API to reconcile your invoice, the API results won’t match the invoice.
+            -	When you download your price sheet from the Azure portal:
+              - For Enterprise Agreements, prices are in your local currency for Azure first party services.
+              - For Microsoft Partner Agreements and Microsoft Customer Agreements, prices are shown in USD for Azure first party services. 
+
+          As mentioned previously, if you transact in one of the other supported currencies listed below, your monthly cost is first calculated in USD. For payment, the total is then converted to the local currency.
+
 
           | Code    | Currency           |
           |---------|--------------------|
@@ -76,9 +99,10 @@ sections:
           | TWD     | Taiwan Dollar      |
       - question: What exchange rate will be used and how does it work with my bill?
         answer: |
-          We use Thomson Reuters benchmark rates that are captured at the end of the previous month and go into effect on the first day of the next calendar month. This rate applies to all transactions during the upcoming month.
+          We use London closing spot rates that are captured in the two business days prior to the last business day of the previous month end. If the two business days prior to the end of the month fall on a bank holiday in major markets, the rate setting day is generally the day immediately preceding the two business days. This rate applies to all transactions during the upcoming month.
 
-          For example, the exchange rate for January transactions is first captured in the final days of December. This rate will be applied to all Azure purchases made in January and all Azure consumption in January. The January exchange rate and local currency billed amount will appear in the January invoice, which is available at the beginning of February.
+          For example, the exchange rate for January transactions is first captured in the final days of December. The rate is applied to all Azure purchases made in January and all Azure consumption in January. The January exchange rate and local currency billed amount will appear in the January invoice, which is available at the beginning of February.
+
       - question: Under the Microsoft Customer Agreement, in which currency will my payment be processed?
         answer: |
           The legal address you provide at the time of signing will determine your billing geography and currency based on the table below:
@@ -139,7 +163,7 @@ sections:
           | Greece                              | Euro (€)                |
           | Guatemala                           | US Dollar (\$)          |
           | Honduras                            | US Dollar (\$)          |
-          | Hong Kong                           | US Dollar (\$)          |
+          | Hong Kong SAR                       | US Dollar (\$)          |
           | Hungary                             | Euro (€)                |
           | Iceland                             | Euro (€)                |
           | India                               | Indian Rupee (₹)        |
@@ -162,8 +186,7 @@ sections:
           | Liechtenstein                       | Swiss Franc. (chf)      |
           | Lithuania                           | Euro (€)                |
           | Luxembourg                          | Euro (€)                |
-          | Macao                               | US Dollar (\$)          |
-          | Macedonia (FYRO)                    | US Dollar (\$)          |
+          | Macao SAR                              | US Dollar (\$)          |
           | Malaysia                            | US Dollar (\$)          |
           | Malta                               | Euro (€)                |
           | Mauritius                           | US Dollar (\$)          |
@@ -179,6 +202,7 @@ sections:
           | New Zealand                         | New Zealand Dollar (\$) |
           | Nicaragua                           | US Dollar (\$)          |
           | Nigeria                             | US Dollar (\$)          |
+          | North Macedonia                     | US Dollar (\$)          |
           | Norway                              | Norwegian Krone (kr)    |
           | Oman                                | US Dollar (\$)          |
           | Pakistan                            | US Dollar (\$)          |
@@ -212,7 +236,7 @@ sections:
           | Thailand                            | US Dollar (\$)          |
           | Trinidad and Tobago                 | US Dollar (\$)          |
           | Tunisia                             | US Dollar (\$)          |
-          | Turkey                              | US Dollar (\$)          |
+          | Türkiye                             | US Dollar (\$)          |
           | Turkmenistan                        | US Dollar (\$)          |
           | Uganda                              | US Dollar (\$)          |
           | Ukraine                             | US Dollar (\$)          |

@@ -1,17 +1,14 @@
 ---
-title: 'Quickstart: Create an Azure Front Door Standard/Premium by using an Azure Resource Manager template (ARM template)'
-description: This quickstart describes how to create an Azure Front Door Standard/Premium by using Azure Resource Manager template (ARM template).
+title: 'Quickstart: Create an Azure Front Door Standard/Premium - ARM template'
+description: This quickstart describes how to create an Azure Front Door Standard/Premium using Azure Resource Manager template (ARM template).
 services: front-door
-documentationcenter: 
 author: duongau
 ms.author: duau
-editor: 
 ms.date: 07/12/2022
 ms.topic: quickstart
 ms.service: frontdoor
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.custom: devx-track-azurepowershell, subject-armqs, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 #Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ---
 

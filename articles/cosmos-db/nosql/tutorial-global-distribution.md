@@ -8,7 +8,7 @@ ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: tutorial
 ms.date: 04/03/2022
-ms.custom: devx-track-python, devx-track-js, devx-track-csharp, ignite-2022
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, ignite-2022, devx-track-dotnet, devx-track-extended-java
 ---
 # Tutorial: Set up Azure Cosmos DB global distribution using the API for NoSQL
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
@@ -246,7 +246,7 @@ In this tutorial, you've done the following:
 You can now proceed to the next tutorial to learn how to develop locally using the Azure Cosmos DB local emulator.
 
 > [!div class="nextstepaction"]
-> [Develop locally with the emulator](../local-emulator.md)
+> [Develop locally with the emulator](../emulator.md)
 
 Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
 * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 

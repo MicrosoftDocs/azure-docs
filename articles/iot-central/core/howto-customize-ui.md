@@ -1,9 +1,9 @@
 ---
-title: Customize the Azure IoT Central UI | Microsoft Docs
-description: How to customize the theme, text, and help links for your Azure IoT Central application
+title: Customize the Azure IoT Central UI
+description: How to customize the theme, text, and help links for your Azure IoT Central application to apply your branding to the application.
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/01/2022
+ms.date: 05/22/2023
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -75,7 +75,7 @@ You can also add new entries to the help menu and remove default entries:
 
 To change text labels in the application, navigate to the **Text** section in the **Customization** page.
 
-On this page, you can customize the text of your application for all supported languages. You can change 'Device' related text to any word you prefer using the text customization file. After you upload the file, the application text automatically appears with the updated words. You can make further customizations by editing and overwriting the customization file. You can repeat the process for any language that the IoT Central UI supports.
+On this page, you can customize the text of your application for all supported languages. After you upload the custom text file, the application text automatically appears with the updated text. You can make further customizations by editing and overwriting the customization file. You can repeat the process for any language that the IoT Central UI supports.
 
 Following example shows how to change the word `Device` to `Asset` when you view the application in English:
 

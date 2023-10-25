@@ -68,7 +68,7 @@ Because the file *CacheSecrets.config* isn't deployed to Azure with your applica
 
      :::image type="content" source="media/cache-web-app-howto/cache-web-config.png" alt-text="Web.config":::
 
-1. In the *web.config* file, you can how to set the `<appSetting>` element for running the application locally.
+1. In the *web.config* file, you can set the `<appSettings>` element for running the application locally.
 
     `<appSettings file="C:\AppSecrets\CacheSecrets.config">`
 

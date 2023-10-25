@@ -34,7 +34,7 @@ During preview, you can join up to 20 AKS clusters as member clusters to the sam
 Fleet supports joining the following types of AKS clusters as member clusters:
 
 * AKS clusters across same or different resource groups within same subscription
-* AKS clusters across different subscriptions of the same Azure AD tenant
+* AKS clusters across different subscriptions of the same Microsoft Entra tenant
 * AKS clusters from different regions but within the same tenant
 
 ## Relationship to Azure-Arc enabled Kubernetes
@@ -44,6 +44,17 @@ The current preview of Azure Kubernetes Fleet Manager resource supports joining 
 ## Regional or global
 
 Azure Kubernetes Fleet Manager resource is a regional resource. Support for region failover for disaster recovery use cases is in the [roadmap](https://aka.ms/fleet/roadmap).
+
+## What happens when the user changes the cluster identity of a joined cluster?
+Changing the identity of a member AKS cluster will break the communication between fleet and that member cluster. While the member agent will use the new identity to communicate with the fleet cluster, fleet still needs to be made aware of this new identity. To achieve this, run the following command:
+
+```azurecli
+az fleet member create \
+    --resource-group ${GROUP} \
+    --fleet-name ${FLEET} \
+    --name ${MEMBER_NAME} \
+    --member-cluster-id ${MEMBER_CLUSTER_ID}
+```  
 
 ## Roadmap
 

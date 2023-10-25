@@ -4,6 +4,7 @@ description: Create an Azure Arc-enabled PostgreSQL server from CLI
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data-postgresql
+ms.custom: devx-track-azurecli
 author: dhanmm
 ms.author: dhmahaja
 ms.reviewer: mikeray
@@ -126,7 +127,7 @@ For example:
 }
 ```
 
-You can use the PostgreSQL Instance endpoint to connect to the PostgreSQL server from your favorite tool:  [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio), [pgcli](https://www.pgcli.com/) psql, pgAdmin, etc.
+You can use the PostgreSQL Instance endpoint to connect to the PostgreSQL server from your favorite tool:  [Azure Data Studio](/azure-data-studio/download-azure-data-studio), [pgcli](https://www.pgcli.com/) psql, pgAdmin, etc.
 
    [!INCLUDE [use-insider-azure-data-studio](includes/use-insider-azure-data-studio.md)]
 

@@ -1,21 +1,21 @@
 ---
 title: Overview of platform-supported migration of IaaS resources from classic to Azure Resource Manager   
 description: Walk through the platform-supported migration of resources from classic to Azure Resource Manager.
-author: tanmaygore
+author: oriwolman
 manager: vashan
 ms.service: virtual-machines
 ms.subservice: classic-to-arm-migration
 ms.topic: conceptual
-ms.date: 10/21/2022
-ms.author: tagore
-
+ms.date: 1/25/2023
+ms.author: oriwolman
+ms.custom: compute-evergreen, devx-track-arm-template
 ---
 # Platform-supported migration of IaaS resources from classic to Azure Resource Manager
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs
 
 > [!IMPORTANT]
-> Today, about 90% of IaaS VMs are using [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). As of February 28, 2020, classic VMs have been deprecated and will be fully retired on March 1, 2023. [Learn more]( https://aka.ms/classicvmretirement) about this deprecation and [how it affects you](classic-vm-deprecation.md#how-does-this-affect-me).
+> Today, about 90% of IaaS VMs are using [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). As of February 28, 2020, classic VMs have been deprecated and will be fully retired on September 6, 2023. [Learn more]( https://aka.ms/classicvmretirement) about this deprecation and [how it affects you](classic-vm-deprecation.md#how-does-this-affect-me).
 
 
 
@@ -47,7 +47,7 @@ These classic IaaS resources are supported during migration
 
 | Service | Configuration |
 | --- | --- |
-| Azure AD Domain Services | [Virtual networks that contain Azure AD Domain services](../active-directory-domain-services/migrate-from-classic-vnet.md) |
+| Microsoft Entra Domain Services | [Virtual networks that contain Microsoft Entra Domain Services](../active-directory-domain-services/overview.md) |
 
 ## Supported scopes of migration
 There are four different ways to complete migration of compute, network, and storage resources:

@@ -2,30 +2,27 @@
 title: Tutorial - Add Azure CDN to an Azure App Service web app | Microsoft Docs
 description: In this tutorial, Azure Content Delivery Network (CDN) is added to an Azure App Service web app to cache and deliver your static files from servers close to your customers around the world.
 services: cdn
-documentationcenter: ''
 author: duongau
-manager: danielgi
-editor: ''
-
+manager: kumudd
 ms.assetid: 
 ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 05/14/2018
+ms.date: 02/27/2023
 ms.author: duau
 ms.custom: mvc
-
 ---
+
 # Tutorial: Add Azure CDN to an Azure App Service web app
 
-This tutorial shows how to add [Azure Content Delivery Network (CDN)](cdn-overview.md) to a [web app in Azure App Service](../app-service/overview.md). Web apps is a service for hosting web applications, REST APIs, and mobile back ends. 
+This tutorial shows how to add [Azure Content Delivery Network (CDN)](cdn-overview.md) to a [web app in Azure App Service](../app-service/overview.md). Web apps are services for hosting web applications, REST APIs, and mobile back ends. 
 
-Here's the home page of the sample static HTML site that you'll work with:
+Here's the home page of the sample static HTML site that you work with:
 
 ![Sample app home page](media/cdn-add-to-web-app/sample-app-home-page.png)
 
-What you'll learn:
+What you learn:
 
 > [!div class="checklist"]
 > * Create a CDN endpoint.
@@ -44,29 +41,29 @@ To complete this tutorial:
 
 ## Create the web app
 
-To create the web app that you'll work with, follow the [static HTML quickstart](../app-service/quickstart-html.md) through the **Browse to the app** step.
+To create the web app that you work with, follow the [static HTML quickstart](../app-service/quickstart-html.md) through the **Browse to the app** step.
 
-## Log in to the Azure portal
+## Sign in to the Azure portal
 
-Open a browser and navigate to the [Azure portal](https://portal.azure.com).
+Open a browser and sign in to the [Azure portal](https://portal.azure.com).
 
 ### Dynamic site acceleration optimization
 If you want to optimize your CDN endpoint for dynamic site acceleration (DSA), you should use the [CDN portal](cdn-create-new-endpoint.md) to create your profile and endpoint. With [DSA optimization](cdn-dynamic-site-acceleration.md), the performance of web pages with dynamic content is measurably improved. For instructions about how to optimize a CDN endpoint for DSA from the CDN portal, see [CDN endpoint configuration to accelerate delivery of dynamic files](cdn-dynamic-site-acceleration.md#cdn-endpoint-configuration-to-accelerate-delivery-of-dynamic-files). 
-Otherwise, if you don't want to optimize your new endpoint, you can use the web app portal to create it by following the steps in the next section. Note that for **Azure CDN from Verizon** profiles, you cannot change the optimization of a CDN endpoint after it has been created.
+Otherwise, if you don't want to optimize your new endpoint, you can use the web app portal to create it by following the steps in the next section. For **Azure CDN from Edgio** profiles, you can't change the optimization of a CDN endpoint after it has been created.
 
 ## Create a CDN profile and endpoint
 
 In the left navigation, select **App Services**, and then select the app that you created in the [static HTML quickstart](../app-service/quickstart-html.md).
 
-![Select App Service app in the portal](media/cdn-add-to-web-app/portal-select-app-services.png)
+:::image type="content" source="./media/cdn-add-to-web-app/portal-select-app-services.png" alt-text="Screenshot of select an App Service app in the portal.":::
 
-In the **App Service** page, in the **Settings** section, select **Networking > Configure Azure CDN for your app**.
+In the **App Service** page, in the **Settings** section, select **Networking > Azure CDN**.
 
-![Select CDN in the portal](media/cdn-add-to-web-app/portal-select-cdn.png)
+:::image type="content" source="./media/cdn-add-to-web-app/portal-select-cdn.png" alt-text="Screenshot of select Azure CDN from networking setting of an App Service.":::
 
 In the **Azure Content Delivery Network** page, provide the **New endpoint** settings as specified in the table.
 
-![Create profile and endpoint in the portal](media/cdn-add-to-web-app/portal-new-endpoint.png)
+:::image type="content" source="./media/cdn-add-to-web-app/portal-new-endpoint.png" alt-text="Screenshot of create Azure CDN profile and endpoint in the portal.":::
 
 | Setting | Suggested value | Description |
 | ------- | --------------- | ----------- |
@@ -78,14 +75,14 @@ Select **Create** to create a CDN profile.
 
 Azure creates the profile and endpoint. The new endpoint appears in the **Endpoints** list, and when it's provisioned, the status is **Running**.
 
-![New endpoint in list](media/cdn-add-to-web-app/portal-new-endpoint-in-list.png)
+:::image type="content" source="./media/cdn-add-to-web-app/portal-new-endpoint-in-list.png" alt-text="Screenshot of new Azure CDN endpoint in list.":::
 
 ### Test the CDN endpoint
 
  Because it takes time for the registration to propagate, the endpoint isn't immediately available for use: 
    - For **Azure CDN Standard from Microsoft** profiles, propagation usually completes in 10 minutes. 
    - For **Azure CDN Standard from Akamai** profiles, propagation usually completes within one minute. 
-   - For **Azure CDN Standard from Verizon** and **Azure CDN Premium from Verizon** profiles, propagation usually completes within 90 minutes. 
+   - For **Azure CDN Standard from Edgio** and **Azure CDN Premium from Edgio** profiles, propagation usually completes within 90 minutes. 
 
 The sample app has an *index.html* file and *css*, *img*, and *js* folders that contain other static assets. The content paths for all of these files are the same at the CDN endpoint. For example, both of the following URLs access the *bootstrap.css* file in the *css* folder:
 
@@ -142,7 +139,7 @@ http://<appname>.azurewebsites.net/index.html
 
 ![V2 in title in web app](media/cdn-add-to-web-app/v2-in-web-app-title.png)
 
-If you browse to the CDN endpoint URL for the home page, you won't see the change because the cached version in the CDN hasn't expired yet. 
+If you browse to the CDN endpoint URL for the home page, you don't see the changes because the cached version in the CDN hasn't expired yet. 
 
 ```
 http://<endpointname>.azureedge.net/index.html
@@ -156,29 +153,29 @@ To trigger the CDN to update its cached version, purge the CDN.
 
 In the portal left navigation, select **Resource groups**, and then select the resource group that you created for your web app (myResourceGroup).
 
-![Select resource group](media/cdn-add-to-web-app/portal-select-group.png)
+:::image type="content" source="./media/cdn-add-to-web-app/portal-select-group.png" alt-text="Screenshot of selecting resource group from left menu pane in the portal.":::
 
 In the list of resources, select your CDN endpoint.
 
-![Select endpoint](media/cdn-add-to-web-app/portal-select-endpoint.png)
+:::image type="content" source="./media/cdn-add-to-web-app/portal-select-endpoint.png" alt-text="Screenshot of Azure CDN endpoint from resource group.":::
 
 At the top of the **Endpoint** page, select **Purge**.
 
-![Select Purge](media/cdn-add-to-web-app/portal-select-purge.png)
+:::image type="content" source="./media/cdn-add-to-web-app/portal-select-purge.png" alt-text="Screenshot of purge button in an Azure CDN profile.":::
 
 Enter the content paths you want to purge. You can pass a complete file path to purge an individual file, or a path segment to purge and refresh all content in a folder. Because you changed *index.html*, ensure that is in one of the paths.
 
 At the bottom of the page, select **Purge**.
 
-![Purge page](media/cdn-add-to-web-app/app-service-web-purge-cdn.png)
+:::image type="content" source="./media/cdn-add-to-web-app/app-service-web-purge-cdn.png" alt-text="Screenshot of purge page in an Azure CDN profile.":::
 
 ### Verify that the CDN is updated
 
 Wait until the purge request finishes processing, which is typically a couple of minutes. To see the current status, select the bell icon at the top of the page. 
 
-![Purge notification](media/cdn-add-to-web-app/portal-purge-notification.png)
+:::image type="content" source="./media/cdn-add-to-web-app/portal-purge-notification.png" alt-text="Screenshot of purge notification for an Azure CDN profile.":::
 
-When you browse to the CDN endpoint URL for *index.html*, you'll see the *V2* that you added to the title on the home page, which indicates that the CDN cache has been refreshed.
+When you browse to the CDN endpoint URL for *index.html*, you see the *V2* that you added to the title on the home page, which indicates that the CDN cache has been refreshed.
 
 ```
 http://<endpointname>.azureedge.net/index.html
@@ -196,7 +193,7 @@ Azure CDN offers the following caching behavior options:
 * Bypass caching for query strings
 * Cache every unique URL 
 
-The first option is the default, which means there is only one cached version of an asset regardless of the query string in the URL. 
+The first option is the default, which means there's only one cached version of an asset regardless of the query string in the URL. 
 
 In this section of the tutorial, you change the caching behavior to cache every unique URL.
 
@@ -208,7 +205,7 @@ Select **Cache every unique URL** from the **Query string caching behavior** dro
 
 Select **Save**.
 
-![Select query string caching behavior](media/cdn-add-to-web-app/portal-select-caching-behavior.png)
+:::image type="content" source="./media/cdn-add-to-web-app/portal-select-caching-behavior.png" alt-text="Screenshot of cache rules settings for an Azure CDN profile.":::
 
 ### Verify that unique URLs are cached separately
 

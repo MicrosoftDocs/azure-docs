@@ -8,9 +8,9 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 05/17/2022
 ms.author: allensu 
-ms.custom: devx-track-azurepowershell
-
+ms.custom: devx-track-azurepowershell, template-how-to, devx-track-azurecli
 ---
+
 # Manage Azure Private Endpoints
 
 Azure Private Endpoints have several options when managing the configuration and their deployment. 
@@ -282,6 +282,10 @@ Use **[az network private-endpoint-connection delete](/cli/azure/network/private
 ```
 
 ---
+
+> [!NOTE]
+> Connections that have been previously denied can't be approved. You must remove the connection and create a new one.
+
 
 ## Next steps
 - [Learn about Private Endpoints](private-endpoint-overview.md)

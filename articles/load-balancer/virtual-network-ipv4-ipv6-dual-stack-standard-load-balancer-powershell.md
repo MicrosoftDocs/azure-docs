@@ -1,27 +1,24 @@
 ---
 title: Deploy IPv6 dual stack application - Standard Load Balancer - PowerShell
 titlesuffix: Azure Virtual Network
-description: This article shows how deploy an IPv6 dual stack application with Standard Load Balancer in Azure virtual network using Azure PowerShell.
+description: This article shows how to deploy an IPv6 dual stack application with Standard Load Balancer in Azure virtual network using Azure PowerShell.
 services: virtual-network
-documentationcenter: na
-author: KumudD
-manager: mtillman
+author: mbender-ms
 ms.service: virtual-network
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/01/2020
-ms.author: kumud 
-ms.custom: devx-track-azurepowershell
+ms.date: 04/17/2023
+ms.author: mbender 
+ms.custom: devx-track-azurepowershell, template-how-to, engagement-fy23
 ---
 
-# Deploy an IPv6 dual stack application in Azure - PowerShell
+# Deploy an IPv6 dual stack application in Azure virtual network using PowerShell
 
 This article shows you how to deploy a dual stack (IPv4 + IPv6) application using Standard Load Balancer in Azure that includes a dual stack virtual network and subnet, a Standard Load Balancer with dual (IPv4 + IPv6) front-end configurations, VMs with NICs that have a dual IP configuration, network security group, and public IPs.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 6.9.0 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 6.9.0 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 ## Create a resource group
 
@@ -53,7 +50,7 @@ $PublicIP_v6 = New-AzPublicIpAddress `
   -IpAddressVersion IPv6 `
   -Sku Standard
 ```
-To access your virtual machines using a RDP connection, create a IPV4 public IP addresses for the virtual machines with [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress).
+To access your virtual machines using a RDP connection, create an IPV4 public IP addresses for the virtual machines with [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress).
 
 ```azurepowershell-interactive
   $RdpPublicIP_1 = New-AzPublicIpAddress `
@@ -169,7 +166,7 @@ $avset = New-AzAvailabilitySet `
 
 ### Create network security group
 
-Create a network security group for the rules that will govern inbound and outbound communication in your VNET.
+Create a network security group for the rules that govern inbound and outbound communication in your VNET.
 
 #### Create a network security group rule for port 3389
 
@@ -284,7 +281,7 @@ Set an administrator username and password for the VMs with [Get-Credential](/po
 $cred = get-credential -Message "DUAL STACK VNET SAMPLE:  Please enter the Administrator credential to log into the VMs."
 ```
 
-Now you can create the VMs with [New-AzVM](/powershell/module/az.compute/new-azvm). The following example creates two VMs and the required virtual network components if they do not already exist. 
+Now you can create the VMs with [New-AzVM](/powershell/module/az.compute/new-azvm). The following example creates two VMs and the required virtual network components if they don't already exist. 
 
 ```azurepowershell-interactive
 $vmsize = "Standard_A2"
@@ -302,7 +299,7 @@ $VM2 = New-AzVM -ResourceGroupName $rg.ResourceGroupName  -Location $rg.Location
 ```
 
 ## Determine IP addresses of the IPv4 and IPv6 endpoints
-Get all Network Interface Objects in the resource group to summarize the IP's used in this deployment with `get-AzNetworkInterface`. Also, get the Load Balancer's frontend addresses of the IPv4 and IPv6 endpoints with `get-AzpublicIpAddress`.
+Get all Network Interface Objects in the resource group to summarize the IPs used in this deployment with `get-AzNetworkInterface`. Also, get the Load Balancer's frontend addresses of the IPv4 and IPv6 endpoints with `get-AzpublicIpAddress`.
 
 ```azurepowershell-interactive
 $rgName= "dsRG1"

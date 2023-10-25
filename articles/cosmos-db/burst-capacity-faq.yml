@@ -1,19 +1,19 @@
 ### YamlMime:FAQ
 metadata:
-  title: Frequently asked questions on burst capacity in Azure Cosmos DB (preview)
+  title: Frequently asked questions on burst capacity in Azure Cosmos DB
   description: Frequently asked questions about burst capacity in Azure Cosmos DB
   author: seesharprun
   ms.author: sidandrews
   ms.service: cosmos-db
-  ms.custom: event-tier1-build-2022, ignite-2022
+  ms.custom: event-tier1-build-2022, ignite-2022, build-2023
   ms.topic: faq
   ms.reviewer: dech
-  ms.date: 05/09/2022
-title: Frequently asked questions on burst capacity in Azure Cosmos DB (preview)
+  ms.date: 05/23/2023
+title: Frequently asked questions on burst capacity in Azure Cosmos DB
 summary: |
   [!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
   
-  Azure Cosmos DB burst capacity (preview) allows you to take advantage of your database or container's idle throughput capacity to handle spikes of traffic. This article answers commonly asked questions about Azure Cosmos DB burst capacity.
+  Azure Cosmos DB burst capacity allows you to take advantage of your database or container's idle throughput capacity to handle spikes of traffic. This article answers commonly asked questions about Azure Cosmos DB burst capacity.
 
 sections:
   - name: General
@@ -35,15 +35,57 @@ sections:
       - question: |
           What resources can use burst capacity?
         answer: |
-          When your account is enrolled in the preview, any shared throughput databases or containers with dedicated throughput that have less than 3000 RU/s per physical partition can use burst capacity. The resource can use either manual or autoscale throughput.
+          When burst capacity is enabled on your account, any shared throughput databases or containers with dedicated throughput that have less than 3000 RU/s per physical partition can use burst capacity. The resource can use either manual or autoscale throughput.
       - question: |
           How can I monitor burst capacity?
         answer: |
-          [Azure Monitor metrics](monitor.md#analyzing-metrics), built-in to Azure Cosmos DB, can filter by the dimension **CapacityType** on the **TotalRequests** and **TotalRequestUnits (preview)** metrics. Requests served with burst capacity will have **CapacityType** equal to **BurstCapacity**.
+          [Azure Monitor metrics](monitor.md#analyzing-metrics), built-in to Azure Cosmos DB, can filter by the dimension **CapacityType** on the **TotalRequests** and **TotalRequestUnits** metrics. Requests served with burst capacity will have **CapacityType** equal to **BurstCapacity**.
       - question: |
           How can I see which resources have less than 3000 RU/s per physical partition?
         answer: |
           You can use the new Azure Monitor metric **PhysicalPartitionThroughput** and split by the dimension **PhysicalPartitionId** to see how many RU/s you have per physical partition.
+      - question: |
+          Does burst capacity consume Azure Cosmos DB reserved capacity?
+        answer: |
+          No.          
+      - question: |
+          How can I enable burst capacity on an account programatically?
+        answer: |
+          You can use the [Azure Cosmos DB Resource Provider REST API version `2023-03-15-preview`](/rest/api/cosmos-db-resource-provider/2023-03-15-preview/database-accounts/create-or-update) or a [Resource Manager template with API version `2023-03-01-preview`](/azure/templates/microsoft.documentdb/2023-03-01-preview/databaseaccounts) to set the property `enableBurstCapacity` to true.
+          You can also use the Azure CLI or PowerShell.
+
+          #### [PowerShell](#tab/azure-powershell)
+
+          ```azurepowershell
+          // Add the preview extension 2.0.5-preview or higher
+          $installParameters = @{
+              Name = "Az.CosmosDB"
+              AllowPrerelease = $true
+              Force = $true
+          }
+          Install-Module @installParameters
+
+          // Enable burst capacity on an account
+          $parameters = @{
+          ResourceGroupName = "<resource-group-name>"
+          Name = "<cosmos-account-name>"
+          EnableBurstCapacity = $true
+          }
+          Update-AzCosmosDBAccount @parameters
+          ```
+          
+          #### [Azure CLI](#tab/azure-cli)
+
+          ```azurecli
+          // Add the preview extension version 0.24.0 or higher
+          az extension add --name cosmosdb-preview --version 0.24.0
+
+          // Enable burst capacity on an account
+          az cosmosdb update  \
+          --resource-group '<resource-group-name>' \
+          --name '<cosmos-account-name>' \
+          --enable-burst-capacity true
+          ```
 additionalContent: |
 
   ## Next steps

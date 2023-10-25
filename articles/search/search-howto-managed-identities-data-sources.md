@@ -1,15 +1,15 @@
 ---
 title: Connect using a managed identity
 titleSuffix: Azure Cognitive Search
-description: Create a managed identity for your search service and use Azure Active Directory authentication and role-based-access controls for connections to other cloud services.
+description: Create a managed identity for your search service and use Microsoft Entra authentication and role-based-access controls for connections to other cloud services.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.custom: ignite-2022
+ms.custom: 
 ms.topic: how-to
-ms.date: 11/15/2022
+ms.date: 12/08/2022
 ---
 
 # Connect a search service to other Azure resources using a managed identity
@@ -20,11 +20,11 @@ You can configure an Azure Cognitive Search service to connect to other Azure re
 
 + A search service at the [Basic tier or above](search-sku-tier.md).
 
-+ An Azure resource that accepts incoming requests from an Azure Active Directory login that has a valid role assignment.
++ An Azure resource that accepts incoming requests from a Microsoft Entra login that has a valid role assignment.
 
 ## Supported scenarios
 
-Cognitive Search can use a system-assigned or user-assigned managed identity on outbound connections to Azure resources. A system managed identity is indicated when a connection string is the unique resource ID of an Azure AD-aware service or application. A user-assigned managed identity is specified through an "identity" property.
+Cognitive Search can use a system-assigned or user-assigned managed identity on outbound connections to Azure resources. A system managed identity is indicated when a connection string is the unique resource ID of a Microsoft Entra ID-aware service or application. A user-assigned managed identity is specified through an "identity" property.
 
 A search service uses Azure Storage as an indexer data source and as a data sink for debug sessions, enrichment caching, and knowledge store. For search features that write back to storage, the managed identity needs a contributor role assignment as described in the ["Assign a role"](#assign-a-role) section. 
 
@@ -49,7 +49,7 @@ A system-assigned managed identity is unique to your search service and bound to
 
 ### [**Azure portal**](#tab/portal-sys)
 
-1. [Sign in to Azure portal](https://portal.azure.com) and [find your search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/).
+1. Sign in to the [Azure portal](https://portal.azure.com) and [find your search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/).
 
 1. Under **Settings**, select **Identity**.
 
@@ -110,7 +110,7 @@ A user-assigned managed identity is a resource on Azure. It's useful if you need
 
 ### [**Azure portal**](#tab/portal-user)
 
-1. [Sign in to Azure portal](https://portal.azure.com/)
+1. Sign in to the [Azure portal](https://portal.azure.com)
 
 1. Select **+ Create a resource**.
 
@@ -183,20 +183,23 @@ A managed identity must be paired with an Azure role that determines permissions
 
 The following steps are for Azure Storage. If your resource is Azure Cosmos DB or Azure SQL, the steps are similar.
 
-1. [Sign in to Azure portal](https://portal.azure.com) and [find your Azure resource](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) to which the search service must have access.
+1. Sign in to the [Azure portal](https://portal.azure.com) and [find your Azure resource](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) to which the search service must have access.
 
 1. In Azure Storage, select **Access control (AIM)** on the left navigation pane.
 
 1. Select **Add role assignment**.
 
-1. On the **Role** page, choose a role:
+1. On the **Role** page, select the roles needed for your search service:
 
-   | Role | Usage |
-   |------|-------|
-   | **Reader and Data Access** | Grants read permissions for indexer access to content in Azure Table Storage and Azure File Storage. |
-   | **Storage Blob Data Reader** | Grants read permissions for indexer access to content in Blob Storage and Azure Data Lake Storage Gen2. |
-   | **Storage Blob Data Contributor** | Grants write permissions necessary for debug sessions, knowledge store object projections, and enrichment cache. |
-   | **Storage Table Data Contributor** | Grants write permissions necessary for knowledge store table projections. |
+   | Task | Role assignment |
+   |------|-----------------|
+   | Blob indexing using an indexer | Add **Storage Blob Data Reader** |
+   | ADLS Gen2 indexing using an indexer | Add **Storage Blob Data Reader** |
+   | Table indexing using an indexer | Add **Reader and Data Access** |
+   | File indexing using an indexer | Add **Reader and Data Access** |
+   | Write to a knowledge store | Add **Storage Blob DataContributor** for object and file projections, and **Reader and Data Access** for table projections. |
+   | Write to an enrichment cache | Add **Storage Blob Data Contributor**  |
+   | Save debug session state | Add **Storage Blob Data Contributor**  |
 
 1. On the **Members** page, select **Managed Identity**.
 
@@ -212,7 +215,7 @@ Once a managed identity is defined for the search service and given a role assig
 
 [**Blob data source (system):**](search-howto-managed-identities-storage.md)
 
-An indexer data source includes a "credentials" property that determines how the connection is made to the data source. The following example shows a connection string specifying the unique resource ID of a storage account. Azure AD will authenticate the request using the system managed identity of the search service. Notice that the connection string doesn't include a container. In a data source definition, a container name is specified in the "container" property (not shown), not the connection string.
+An indexer data source includes a "credentials" property that determines how the connection is made to the data source. The following example shows a connection string specifying the unique resource ID of a storage account. Microsoft Entra ID will authenticate the request using the system managed identity of the search service. Notice that the connection string doesn't include a container. In a data source definition, a container name is specified in the "container" property (not shown), not the connection string.
 
 ```json
 "credentials": {
@@ -237,7 +240,7 @@ A search request to Azure Storage can also be made under a user-assigned managed
 
 [**Knowledge store:**](knowledge-store-create-rest.md)
 
-A knowledge store definition includes a connection string to Azure Storage. On Azure Storage, a knowledge store will create projections as blobs and tables. The connection string is the unique resource ID of your storage account. Notice that the string does not include containers or tables in the path. These are defined in the embedded projection definition, not the connection string.
+A knowledge store definition includes a connection string to Azure Storage. On Azure Storage, a knowledge store will create projections as blobs and tables. The connection string is the unique resource ID of your storage account. Notice that the string doesn't include containers or tables in the path. These are defined in the embedded projection definition, not the connection string.
 
 ```json
 "knowledgeStore": {
@@ -286,5 +289,5 @@ A custom skill targets the endpoint of an Azure function or app hosting custom c
 + [Security overview](search-security-overview.md)
 + [AI enrichment overview](cognitive-search-concept-intro.md)
 + [Indexers overview](search-indexer-overview.md)
-+ [Authenticate with Azure Active Directory](/azure/architecture/framework/security/design-identity-authentication)
-+ [About managed identities (Azure Active Directory)](../active-directory/managed-identities-azure-resources/overview.md)
++ [Authenticate with Microsoft Entra ID](/azure/architecture/framework/security/design-identity-authentication)
++ [About managed identities (Microsoft Entra ID)](../active-directory/managed-identities-azure-resources/overview.md)

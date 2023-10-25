@@ -32,7 +32,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Create a resource group
 
-1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. On the Azure portal home page, select **Resource groups**, then select **Add**.
 4. For **Subscription**, select your subscription.
 1. For **Resource group name**, type **RG-DNAT-Test**.
@@ -166,6 +166,9 @@ After deployment finishes, note the private IP address for the virtual machine. 
 ## Create a default route
 
 For the **SN-Workload** subnet, you configure the outbound default route to go through the firewall.
+
+> [!IMPORTANT]
+> You do not need to configure an explicit route back to the firewall at the destination subnet. Azure Firewall is a stateful service and handles the packets and sessions automatically. If you create this route, you'll create an asymmetrical routing environment that interrupts the stateful session logic and results in dropped packets and connections.
 
 1. From the Azure portal home page, select **All services**.
 2. Under **Networking**, select **Route tables**.

@@ -2,10 +2,10 @@
 title: Monitor the health of your backups using Azure Backup Metrics (preview)
 description: In this article, learn about the metrics available for Azure Backup to monitor your backup health
 ms.topic: conceptual
-author: v-amallick
 ms.date: 07/13/2022
-ms.author: v-amallick
 ms.service: backup
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Monitor the health of your backups using Azure Backup Metrics (preview)
@@ -122,7 +122,7 @@ To configure alerts and notifications on your metrics, follow these steps:
    - To generate an alert on every job failure irrespective of the failure is due to the same underlying cause (stateless behavior), deselect the **Automatically resolve alerts** option in the alert rule.
    - Alternately, to configure the alerts as stateful, select the same checkbox. Therefore, when a metric alert is fired on the scope, another failure won't create a new metric alert. The alert gets auto-resolved if the alert generation condition evaluates to false for three successive evaluation cycles. New alerts are generated if the condition evaluates to true again.
 
-[Learn more about stateful and stateless behavior of Azure Monitor metric alerts](../azure-monitor/alerts/alerts-troubleshoot-metric.md#make-metric-alerts-occur-every-time-my-condition-is-met).
+[Learn more about stateful and stateless behavior of Azure Monitor metric alerts](../azure-monitor/alerts/alerts-troubleshoot-metric.md#metric-alert-is-not-triggered-every-time-my-condition-is-met).
 
 :::image type="content" source="./media/metrics-overview/auto-resolve-alert-inline.png" alt-text="Screenshot showing the process to configure auto-resolution behavior." lightbox="./media/metrics-overview/auto-resolve-alert-expanded.png":::
 

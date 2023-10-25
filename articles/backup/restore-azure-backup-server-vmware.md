@@ -1,8 +1,10 @@
 ---
 title: Restore VMware VMs with Azure Backup Server
 description: Use Azure Backup Server (MABS) to restore VMware VMs running on a VMware vCenter/ESXi server.
-ms.topic: conceptual
-ms.date: 08/18/2019
+ms.topic: how-to
+ms.date: 03/01/2023
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 # Restore VMware virtual machines
 
@@ -18,7 +20,7 @@ This article explains how to use Microsoft Azure Backup Server (MABS) to restore
 
 1. In the MABS Administrator Console, select **Recovery view**.
 
-2. Using the Browse pane, browse or filter to find the VM you want to recover. Once you select a VM or folder, the Recovery points for pane displays the available recovery points.
+2. On the **Browse** pane, browse or filter to find the VM you want to recover. Once you select a VM or folder, the Recovery points for pane displays the available recovery points.
 
     ![Available recovery points](./media/restore-azure-backup-server-vmware/recovery-points.png)
 
@@ -51,7 +53,7 @@ You can restore individual files from a protected VM recovery point. This featur
 
 1. In the MABS Administrator Console, select **Recovery** view.
 
-2. Using the **Browse** pane, browse or filter to find the VM you want to recover. Once you select a VM or folder, the **Recovery points for pane** displays the available recovery points.
+2. On the **Browse** pane, browse or filter to find the VM you want to recover. Once you select a VM or folder, the **Recovery points for pane** displays the available recovery points.
 
     !["Recovery points for" pane](./media/restore-azure-backup-server-vmware/vmware-rp-disk.png)
 
@@ -71,6 +73,17 @@ You can restore individual files from a protected VM recovery point. This featur
 
 9. On the **Specify Recovery Options** screen, choose which security setting to apply. You can opt to modify the network bandwidth usage throttling, but throttling is disabled by default. Also, **SAN Recovery** and **Notification** aren't enabled.
 10. On the **Summary** screen, review your settings and select **Recover** to start the recovery process. The **Recovery status** screen shows the progression of the recovery operation.
+
+## VMware parallel restore in MABS v4 (and later)
+
+MABS v4 supports restoring more than one VMware VMs protected from the same vCenter in parallel. By default, eight parallel recoveries are supported. You can increase the number of parallel restore jobs by adding the following registry key.
+
+>[!Note]
+>Before you increase the number of parallel recoveries, you need to consider the VMware performance. Considering the number of resources in use and additional usage required on VMware vSphere Server, you need to determine the number of recoveries to run in parallel.
+>
+>**Key Path**: `HKLM\ Software\Microsoft\Microsoft Data Protection Manager\Configuration\ MaxParallelRecoveryJobs`
+>- **32 Bit DWORD**: VMware
+>- **Data**: `<number>`. The value should be the number (decimal) of virtual machines that you select for parallel recovery.
 
 ## Next steps
 

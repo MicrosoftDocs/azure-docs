@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 05/12/2022
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli
+ms.custom: devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Configure time to live in Azure Cosmos DB
@@ -233,7 +233,7 @@ Use the following steps to enable time to live on an item:
 ### [.NET SDK v3](#tab/dotnet-sdk-v3)
 
 ```csharp
-public record SalesOrder(string id, string customerId, int? ttl);
+public record SalesOrder(string id, string customerId, int ttl);
 ```
 
 ```csharp
@@ -393,7 +393,7 @@ container.replace_item(
 
 ## Disable time to live using an SDK
 
-To disable time to live on a container and stop the background process from checking for expired items, the `DefaultTimeToLive` property on the container should be deleted. Deleting this property is different from setting it to -1. When you set it to -1, new items added to the container will live forever, however you can override this value on specific items in the container. When you remove the TTL property from the container the items will never expire, even if there are they have explicitly overridden the previous default TTL value.
+To disable time to live on a container and stop the background process from checking for expired items, the `DefaultTimeToLive` property on the container should be deleted. Deleting this property is different from setting it to -1. When you set it to -1, new items added to the container will live forever, however you can override this value on specific items in the container. When you remove the TTL property from the container the items will never expire, even if they have explicitly overridden the previous default TTL value.
 
 ### [.NET SDK v3](#tab/dotnet-sdk-v3)
 

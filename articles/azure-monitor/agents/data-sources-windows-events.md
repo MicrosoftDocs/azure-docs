@@ -2,7 +2,7 @@
 title: Collect Windows event log data sources with Log Analytics agent in Azure Monitor
 description: The article describes how to configure the collection of Windows event logs by Azure Monitor and details of the records they create.
 ms.topic: conceptual
-ms.date: 04/06/2022
+ms.date: 07/06/2023
 ms.reviewer: luki
 
 ---
@@ -11,19 +11,19 @@ ms.reviewer: luki
 
 Windows event logs are one of the most common [data sources](../agents/agent-data-sources.md) for Log Analytics agents on Windows virtual machines because many applications write to the Windows event log. You can collect events from standard logs, such as System and Application, and any custom logs created by applications you need to monitor.
 
-![Diagram that shows the Log Analytics agent sending Windows events to the Event table in Azure Monitor.](media/data-sources-windows-events/overview.png)
+:::image type="content" source="media/data-sources-windows-events/overview.png" lightbox="media/data-sources-windows-events/overview.png" alt-text="Diagram that shows the Log Analytics agent sending Windows events to the Event table in Azure Monitor.":::
 
 [!INCLUDE [Log Analytics agent deprecation](../../../includes/log-analytics-agent-deprecation.md)]
 
 ## Configure Windows event logs
 
-Configure Windows event logs from the [Agents configuration menu](../agents/agent-data-sources.md#configure-data-sources) for the Log Analytics workspace.
+Configure Windows event logs from the [Legacy agents management menu](../agents/agent-data-sources.md#configure-data-sources) for the Log Analytics workspace.
 
 Azure Monitor only collects events from Windows event logs that are specified in the settings. You can add an event log by entering the name of the log and selecting **+**. For each log, only the events with the selected severities are collected. Check the severities for the particular log that you want to collect. You can't provide any other criteria to filter events.
 
 As you enter the name of an event log, Azure Monitor provides suggestions of common event log names. If the log you want to add doesn't appear in the list, you can still add it by entering the full name of the log. You can find the full name of the log by using event viewer. In event viewer, open the **Properties** page for the log and copy the string from the **Full Name** field.
 
-[![Screenshot that shows the Windows event logs tab on the Agents configuration screen.](media/data-sources-windows-events/configure.png)](media/data-sources-windows-events/configure.png#lightbox)
+:::image type="content" source="media/data-sources-windows-events/configure.png" lightbox="media/data-sources-windows-events/configure.png" alt-text="Screenshot that shows the Windows event logs tab on the Legacy agents management screen.":::
 
 > [!IMPORTANT]
 > You can't configure collection of security events from the workspace by using the Log Analytics agent. You must use [Microsoft Defender for Cloud](../../security-center/security-center-enable-data-collection.md) or [Microsoft Sentinel](../../sentinel/connect-windows-security-events.md) to collect security events. The [Azure Monitor agent](azure-monitor-agent-overview.md) can also be used to collect security events.

@@ -2,12 +2,11 @@
 title: Use Azure DevOps to create a CI/CD pipeline for a Stream Analytics job
 description: This article describes how to set up a continuous integration and deployment (CI/CD) pipeline for an Azure Stream Analytics job in Azure DevOps
 services: stream-analytics
-author: su-jie
-ms.author: sujie
-
+author: alexlzx
+ms.author: zhenxilin
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 09/10/2020
+ms.date: 09/08/2023
 ---
 
 # Use Azure DevOps to create a CI/CD pipeline for a Stream Analytics job
@@ -81,12 +80,17 @@ Use following steps if you need to use hosted-Linux agent:
 2. On the **Tasks** page, select the plus sign next to **Agent job 1**. Search for **Command line**.
 
 3. Give the task a **Display name** and enter the following script. Modify the script with your repository name and project name.
+    
+    > [!NOTE]
+    > It's highly recommended to use the `build --v2` to generate ARM template for deployment. The new ARM template has fewer parameters while preserving the same functionality as the previous version.
+    >
+    > Please note that the older ARM template will soon be deprecated, only templates created using `build --v2` will receive updates and bug fixes.
 
    ```bash
-   azure-streamanalytics-cicd build -project $(projectRootPath)/asaproj.json -outputpath $(projectRootPath)/$(outputPath)/$(deployPath)
+   azure-streamanalytics-cicd build --v2 -project $(projectRootPath)/asaproj.json -outputpath $(projectRootPath)/$(outputPath)/$(deployPath)
    ```
 
-   The image below uses a Stream Analytics Visual Studio Code project as an example.
+   The image uses a Stream Analytics Visual Studio Code project as an example.
 
    :::image type="content" source="media/set-up-cicd-pipeline/command-line-config-build.png" alt-text="Enter configurations for command-line task visual studio code":::
 
@@ -139,7 +143,7 @@ You need to add a copy file task to copy the test summary file and Azure Resourc
 
 ## Save and run
 
-Once you have finished adding the npm package, command line, copy files, and publish build artifacts tasks, select **Save & queue**. When you are prompted, enter a save comment and select **Save and run**. You can download the testing results from **Summary** page of the pipeline.
+Once you have finished adding the npm package, command line, copy files, and publish build artifacts tasks, select **Save & queue**. When you're prompted, enter a save comment and select **Save and run**. You can download the testing results from **Summary** page of the pipeline.
 
 ## Check the build and test results
 
@@ -168,6 +172,11 @@ Open a web browser and navigate to your Azure Stream Analytics Visual Studio Cod
 5. Add a new stage and name it **Deploy job to production environment**.
 
 ### Add deploy tasks
+
+> [!NOTE]
+> The `Override template parameters` is not applicable for ARM --v2 builds since parameters are passed as objects. To address this, it's recommended to include a PowerShell script in your pipeline to read the parameter file as JSON and make the necessary parameter modifications.
+>
+> For more guidance on adding the PowerShell script, please refer to [ConvertFrom-Json](/powershell/module/microsoft.powershell.utility/convertfrom-json) and [Update Object in JSON file](https://stackoverflow.com/questions/65753594/update-object-in-json-file-using-powershell).
 
 1. From the tasks dropdown, select **Deploy job to test environment**.
 

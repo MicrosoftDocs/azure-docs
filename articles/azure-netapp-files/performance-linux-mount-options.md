@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/19/2022
+ms.date: 12/07/2022
 ms.author: anfdocs
 ---
 # Linux NFS mount options best practices for Azure NetApp Files
@@ -83,11 +83,11 @@ For example, [Deploy a SAP HANA scale-out system with standby node on Azure VMs 
 ```
 sudo vi /etc/fstab
 # Add the following entries
-10.23.1.5:/HN1-data-mnt00001 /hana/data/HN1/mnt00001  nfs rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,noatime,lock,_netdev,sec=sys  0  0
-10.23.1.6:/HN1-data-mnt00002 /hana/data/HN1/mnt00002  nfs   rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,noatime,lock,_netdev,sec=sys  0  0
-10.23.1.4:/HN1-log-mnt00001 /hana/log/HN1/mnt00001  nfs   rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,noatime,lock,_netdev,sec=sys  0  0
-10.23.1.6:/HN1-log-mnt00002 /hana/log/HN1/mnt00002  nfs   rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,noatime,lock,_netdev,sec=sys  0  0
-10.23.1.4:/HN1-shared/shared /hana/shared  nfs   rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,noatime,lock,_netdev,sec=sys  0  0
+10.23.1.5:/HN1-data-mnt00001 /hana/data/HN1/mnt00001  nfs rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,noatime,_netdev,sec=sys  0  0
+10.23.1.6:/HN1-data-mnt00002 /hana/data/HN1/mnt00002  nfs   rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,noatime,_netdev,sec=sys  0  0
+10.23.1.4:/HN1-log-mnt00001 /hana/log/HN1/mnt00001  nfs   rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,noatime,_netdev,sec=sys  0  0
+10.23.1.6:/HN1-log-mnt00002 /hana/log/HN1/mnt00002  nfs   rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,noatime,_netdev,sec=sys  0  0
+10.23.1.4:/HN1-shared/shared /hana/shared  nfs   rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,noatime,_netdev,sec=sys  0  0
 ```
  
 For example, SAS Viya recommends a 256-KiB read and write sizes, and [SAS GRID](https://communities.sas.com/t5/Administration-and-Deployment/Azure-NetApp-Files-A-shared-file-system-to-use-with-SAS-Grid-on/m-p/606973/highlight/true#M17740) limits the `r/wsize` to 64 KiB while augmenting read performance with increased read-ahead for the NFS mounts. See [NFS read-ahead best practices for Azure NetApp Files](performance-linux-nfs-read-ahead.md) for details.
@@ -122,7 +122,7 @@ Using these mount options significantly reduces the workload to storage in these
 
 Close-to-open consistency (the `cto` mount option) ensures that no matter the state of the cache, on open the most recent data for a file is always presented to the application.  
 
-* When a directory is crawled (`ls`, `ls -l` for example) a certain set of PRC calls are issued.  
+* When a directory is crawled (`ls`, `ls -l` for example) a certain set of RPCs (remote procedure calls) are issued.  
     The NFS server shares its view of the filesystem. As long as `cto` is used by all NFS clients accessing a given NFS export, all clients will see the same list of files and directories therein.  The freshness of the attributes of the files in the directory is controlled by the [attribute cache timers](#how-attribute-cache-timers-work).  In other words, as long as `cto` is used, files appear to remote clients as soon as the file is created and the file lands on the storage.
 * When a file is opened, the content of the file is guaranteed fresh from the perspective of the NFS server.  
     If there's a race condition where the content has not finished flushing from Machine 1 when a file is opened on Machine 2, Machine 2 will only receive the data present on the server at the time of the open. In this case, Machine 2 will not retrieve more data from the file until the `acreg` timer is reached, and Machine 2 checks its cache coherency from the server again.  This scenario can be observed using a tail `-f` from Machine 2 when the file is still being written to from Machine 1.
@@ -131,7 +131,7 @@ Close-to-open consistency (the `cto` mount option) ensures that no matter the st
 
 When no close-to-open consistency (`nocto`) is used, the client will trust the freshness of its current view of the file and directory until the cache attribute timers have been breached.  
 
-* When a directory is crawled (`ls`, `ls -l` for example) a certain set of PRC calls are issued.  
+* When a directory is crawled (`ls`, `ls -l` for example) a certain set of RPCs (remote procedure calls) are issued.  
     The client will only issue a call to the server for a current listing of files when the `acdir` cache timer value has been breached.  In this case, recently created files and directories will not appear and recently removed files and directories will still appear.  
 
 * When a file is opened, as long as the file is still in the cache, its cached content (if any) is returned without validating consistency with the NFS server.

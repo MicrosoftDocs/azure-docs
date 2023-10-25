@@ -5,7 +5,7 @@ author: jonburchel
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: quickstart
-ms.date: 10/24/2022
+ms.date: 10/20/2023
 ms.author: xupzhou
 ---
 
@@ -69,8 +69,6 @@ A quick creation experience provided in the Azure Data Factory Studio to enable 
    :::image type="content" source="./media/doc-common-process/name-not-available-error.png" alt-text="New data factory error message for duplicate name.":::
 
 1. For **Version**, select **V2**.
-
-1. Select **Next: Git configuration**, and then select **Configure Git later** check box.
 
 1. Select **Review + create**, and select **Create** after the validation is passed. After the creation is complete, select **Go to resource** to navigate to the **Data Factory** page. 
 

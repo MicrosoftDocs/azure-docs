@@ -14,9 +14,6 @@ ms.custom: template-how-to
 
 In this article, you learn how to manage access (authorization) to an Azure load testing resource. [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) is used to manage access to Azure resources, such as the ability to create new resources or use existing ones. You can grant role-based access to users using the Azure portal, Azure Command-Line tools, or Azure Management APIs.
 
-> [!IMPORTANT]
-> Azure Load Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## Prerequisites
 
 To assign Azure roles, you must have:
@@ -122,7 +119,7 @@ You can remove the access permission for a user who isn't managing the Azure loa
 
 You can also configure role-based access to a load testing resource using the following [Azure PowerShell cmdlets](/azure/role-based-access-control/role-assignments-powershell):
 
-* [Get-AzRoleDefinition](/powershell/module/Az.Resources/Get-AzRoleDefinition) lists all Azure roles that are available in Azure Active Directory. You can use this cmdlet with the Name parameter to list all the actions that a specific role can perform.
+* [Get-AzRoleDefinition](/powershell/module/Az.Resources/Get-AzRoleDefinition) lists all Azure roles that are available in Microsoft Entra ID. You can use this cmdlet with the Name parameter to list all the actions that a specific role can perform.
 
     ```azurepowershell-interactive
     Get-AzRoleDefinition -Name 'Load Test Contributor'

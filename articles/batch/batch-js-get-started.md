@@ -2,8 +2,9 @@
 title: Use the Azure Batch client library for JavaScript
 description: Learn the basic concepts of Azure Batch and build a simple solution using JavaScript.
 ms.topic: how-to
-ms.date: 01/01/2021
+ms.date: 05/16/2023
 ms.devlang: javascript
+ms.custom: devx-track-js, devx-track-linux
 ---
 
 # Get started with Batch SDK for JavaScript
@@ -117,13 +118,13 @@ The following code snippet creates the configuration parameter objects.
 const imgRef = {
     publisher: "Canonical",
     offer: "UbuntuServer",
-    sku: "18.04-LTS",
+    sku: "20.04-LTS",
     version: "latest"
 }
 // Creating the VM configuration object with the SKUID
 const vmConfig = {
     imageReference: imgRef,
-    nodeAgentSKUId: "batch.node.ubuntu 18.04"
+    nodeAgentSKUId: "batch.node.ubuntu 20.04"
 };
 // Number of VMs to create in a pool
 const numVms = 4;
@@ -205,10 +206,10 @@ Following is a sample result object returned by the pool.get function.
     imageReference: {
       publisher: 'Canonical',
       offer: 'UbuntuServer',
-      sku: '18.04-LTS',
+      sku: '20.04-LTS',
       version: 'latest'
     },
-    nodeAgentSKUId: 'batch.node.ubuntu 18.04'
+    nodeAgentSKUId: 'batch.node.ubuntu 20.04'
   },
   resizeTimeout: 'PT15M',
   currentDedicatedNodes: 4,

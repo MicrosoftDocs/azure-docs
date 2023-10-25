@@ -17,7 +17,7 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-A claims provide is an interface to communicate with different types of parties via its [technical profiles](technicalprofiles.md). Every claims provider must have one or more technical profiles that determine the endpoints and the protocols needed to communicate with the claims provider. A claims provider can have multiple technical profiles. For example, multiple technical profiles may be defined because the claims provider supports multiple protocols, various endpoints with different capabilities, or releases different claims at different assurance levels. It may be acceptable to release sensitive claims in one user journey, but not in another.
+A claims provider is an interface to communicate with different types of parties via its [technical profiles](technicalprofiles.md). Every claims provider must have one or more technical profiles that determine the endpoints and the protocols needed to communicate with the claims provider. A claims provider can have multiple technical profiles. For example, multiple technical profiles may be defined because the claims provider supports multiple protocols, various endpoints with different capabilities, or releases different claims at different assurance levels. It may be acceptable to release sensitive claims in one user journey, but not in another.
 
 A user journey combines calling technical profiles via orchestration steps to define your business logic. 
 
@@ -53,7 +53,7 @@ The **ClaimsProvider** element contains the following child elements:
 | DisplayName | 1:1 | A string that contains the name of the claims provider. |
 | [TechnicalProfiles](technicalprofiles.md) | 0:1 | A set of technical profiles supported by the claim provider |
 
-**ClaimsProvider** organizes how your technical profiles relate to the claims provider. The following example shows the Azure Active Directory claims provider with the Azure Active Directory technical profiles:
+**ClaimsProvider** organizes how your technical profiles relate to the claims provider. The following example shows the Microsoft Entra claims provider with the Microsoft Entra technical profiles:
 
 ```xml
 <ClaimsProvider>

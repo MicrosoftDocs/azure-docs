@@ -5,8 +5,7 @@ author: roygara
 ms.author: rogarana
 ms.date: 09/07/2021
 ms.topic: how-to
-ms.service: storage
-ms.subservice: disks
+ms.service: azure-disk-storage
 ---
 
 # Use Azure Storage Explorer to manage Azure managed disks

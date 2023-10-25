@@ -5,22 +5,18 @@ services: attestation
 author: msmbaldwin
 ms.service: attestation
 ms.topic: reference
-ms.date: 07/20/2020
+ms.date: 01/23/2023
 ms.author: mbaldwin 
-ms.custom: devx-track-azurepowershell
-
-
+ms.custom:
 ---
 
 # Microsoft Azure Attestation troubleshooting guide
 
 Error handling in Azure Attestation is implemented following [Microsoft REST API guidelines](https://github.com/microsoft/api-guidelines/blob/vNext/Guidelines.md#7102-error-condition-responses). The error response returned by Azure Attestation APIs contains HTTP status code and name/value pairs with the names “code” and “message”. The value of “code” is human-readable and is an indicator of the type of error. The value of “message” intends to aid the user and provides error details.
 
-If your issue is not addressed in this article, you can also submit an Azure support request on the [Azure support page](https://azure.microsoft.com/support/options/).
+If your issue isn't addressed in this article, you can also submit an Azure support request on the [Azure support page](https://azure.microsoft.com/support/options/).
 
-Below are some examples of the errors returned by Azure Attestation:
-
-## 1. HTTP–401 : Unauthorized exception
+## HTTP–401: Unauthorized exception
 
 ### HTTP status code
 401
@@ -29,8 +25,8 @@ Below are some examples of the errors returned by Azure Attestation:
 Unauthorized
 
 **Scenario examples**
-  - Unable to manage attestation policies as the user is not assigned with appropriate roles
-  - Unable to manage attestation policy signers as the user is not assigned with appropriate roles
+  - Unable to manage attestation policies as the user isn't assigned with appropriate roles
+  - Unable to manage attestation policy signers as the user isn't assigned with appropriate roles
 
 User with Reader role trying to edit an attestation policy in PowerShell 
 
@@ -45,42 +41,42 @@ At line:1 char:1
 
 **Troubleshooting steps**
 
-In order to manage policies, an Azure AD user requires the following permissions for "Actions":
+In order to manage policies, a Microsoft Entra user requires the following permissions for "Actions":
 - Microsoft.Attestation/attestationProviders/attestation/read
 - Microsoft.Attestation/attestationProviders/attestation/write
 - Microsoft.Attestation/attestationProviders/attestation/delete
 
-  To perform these actions, an Azure AD user must have "Attestation Contributor" role on the attestation provider. These permissions can be also be inherited with roles such as "Owner" (wildcard permissions), "Contributor" (wildcard permissions) on  the subscription/ resource group.  
+  To perform these actions, a Microsoft Entra user must have "Attestation Contributor" role on the attestation provider. These permissions can also be inherited with roles such as "Owner" (wildcard permissions), "Contributor" (wildcard permissions) on  the subscription/ resource group.  
 
-In order to read policies, an Azure AD user requires the following permission for "Actions":
+In order to read policies, a Microsoft Entra user requires the following permission for "Actions":
 - Microsoft.Attestation/attestationProviders/attestation/read
 
-  To perform this action, an Azure AD user must have "Attestation Reader" role on the attestation provider. The read permission can be also be inherited with roles such as "Reader" (wildcard permissions) on  the subscription/ resource group.  
+  To perform this action, a Microsoft Entra user must have "Attestation Reader" role on the attestation provider. Read permissions are also part of roles such as "Reader" (wildcard permissions) on the subscription/ resource group.  
 
 To verify the roles in PowerShell, run the below steps:
 
 a. Launch PowerShell and log into Azure via the "Connect-AzAccount" cmdlet
 
-b. Please refer the guidance [here](../role-based-access-control/role-assignments-list-powershell.md) to verify your Azure role assignment on the attestation provider
+b. Refer to the guidance [here](../role-based-access-control/role-assignments-list-powershell.md) to verify your Azure role assignment on the attestation provider
 
 c. If you don't find an appropriate role assignment, follow the instructions in [here](../role-based-access-control/role-assignments-powershell.md)
 
-## 2. HTTP – 400 errors
+## HTTP – 400 errors
 
 ### HTTP status code
 400
 
-There are different reasons why a request may return 400. Below are some examples of errors returned by Azure Attestation APIs:
+There are different reasons why a request may return 400. Here are some examples of errors returned by Azure Attestation APIs.
 
-### 2.1. Attestation failure due to policy evaluation errors
+### Attestation failure due to policy evaluation errors
 
-Attestation policy includes authorization rules and issuance rules. Enclave evidence is evaluated based on the authorization rules. Issuance rules define the claims to be included in attestation token. If claims in enclave evidence do not comply with authorization rules, attest calls will return policy evaluation error. 
+Attestation policy includes authorization rules and issuance rules. Enclave evidence is evaluated based on the authorization rules. Issuance rules define the claims to be included in attestation token. If claims in enclave evidence don't comply with authorization rules, attest calls will return policy evaluation error.
 
 **Error code**
 PolicyEvaluationError
 
 **Scenario examples**
-When claims in the enclave quote do not match with the authorization rules of attestation policy
+When claims in the enclave quote don't match with the authorization rules of attestation policy
 
 ```
 Native operation failed with 65518: G:\Az\security\Attestation\src\AttestationServices\Instance\NativePolicyWrapper\NativePolicyEngine.cpp(168)\(null)!00007FF801762308: (caller: 00007FF80143DCC8) Exception(0) 83FFFFEE Policy Evaluation Error has occurred Msg:[Policy Engine Exception: A Deny claim was issued, authorization failed.]
@@ -96,13 +92,13 @@ Send a request to attest API by providing policy text in “draftPolicyForAttest
 
 See [attestation policy examples](./policy-examples.md)
 
-### 2.2. Attestation failure due to invalid input
+### Attestation failure due to invalid input
 
 **Error code**
 InvalidParameter
 
 **Scenario examples**
-SGX attestation failure due to invalid input. Below are some of the examples for error messages:
+SGX attestation failure due to invalid input. Here are some examples of error messages:
 - The specified quote was invalid due to an error in the quote collateral 
 - The specified quote was invalid because the device on which the quote was generated does not meet the Azure baseline requirements
 - The specified quote was invalid because the TCBInfo or QEID provided by the PCK Cache Service was invalid
@@ -113,7 +109,7 @@ Microsoft Azure Attestation supports attestation of SGX quotes generated by Inte
 
 Refer to [code samples](/samples/browse/?expanded=azure&terms=attestation) for performing attestation using Open Enclave SDK/ Intel SDK
 
-### 2.3. Invalid certificate chain error while uploading policy/policy signer
+### Invalid certificate chain error while uploading policy/policy signer
 
 **Error code**
 InvalidParameter
@@ -141,7 +137,7 @@ Else the certificate chain is considered to be invalid.
 
 See [policy signer](./policy-signer-examples.md) and [policy](./policy-examples.md) examples 
 
-### 2.4. Add/Delete policy signer failure
+### Add/Delete policy signer failure
 
 **Error code**
 InvalidOperation
@@ -189,7 +185,7 @@ At line:1 char:1
 **Troubleshooting steps**
 To add/delete a new policy signer certificate, use RFC7519 JSON Web Token (JWT) with a claim named "x-ms-policyCertificate". Value of the claim is an RFC7517 JSON Web Key, which contains the certificate to be added. JWT must be signed with private key of any of the valid policy signer certificates associated with the provider. See [policy signer examples](./policy-signer-examples.md).
 
-### 2.5. Attestation policy configuration failure
+### Attestation policy configuration failure
 
 **Error code**
 PolicyParsingError
@@ -218,6 +214,7 @@ InvalidOperation
 Invalid content provided (for example, upload policy/ unsigned policy when policy signing is required)
 
 ```
+
 Native operation failed with 74: ..\Shared\base64url.h(226)\(null)!: (caller: ) Exception(0) 83FF004A Bad message    Msg:[Unknown base64 character: 41 (')')]
 ..\Enclave\api.cpp(618)\(null)!: (caller: ) LogHr(0) 83FF004A Bad message    Msg:[Unhandled Enclave Exception: "Bad message"]
 At line:1 char:1
@@ -232,7 +229,7 @@ Ensure that the policy in Text format is UTF-8 encoded.
 
 If policy signing is required, attestation policy must be configured only in RFC7519 JSON Web Token (JWT) format. If policy signing is not required, policy can be configured in text or JWT format.
 
-To configure a policy in JWT format, use JWT with a claim named "AttestationPolicy". Value of the claim is Base64URL encoded version of the policy text. If the attestation provider is configured with policy signer certificates, the JWT must be signed with private key of any of the valid policy signer certificates associated with the provider. 
+To configure a policy in JWT format, use JWT with a claim named "AttestationPolicy". Value of the claim is Base64URL encoded version of the policy text. If the attestation provider is configured with policy signer certificates, the JWT must be signed with private key of any of the valid policy signer certificates associated with the provider.
 
 To configure a policy in text format, specify policy text directly.
 
@@ -240,14 +237,14 @@ In PowerShell, specify PolicyFormat as JWT to configure policy in JWT format. De
 
 See attestation [policy examples](./policy-examples.md) and [how to author an attestation policy](./author-sign-policy.md) 
 
-## 3. Az.Attestation installation issues in PowerShell
+## Az.Attestation installation issues in PowerShell
 
-Unable to install Az or Az.Attestation modules in PowerShell
+Unable to install the Az PowerShell module or Az.Attestation PowerShell module in PowerShell.
 
 ### Error
 
 WARNING: Unable to resolve package source 'https://www.powershellgallery.com/api/v2' 
-PackageManagement\Install-Package : No match was found for the specified search criteria and module name
+PackageManagement\Install-Package: No match was found for the specified search criteria and module name
 
 ### Troubleshooting steps
 
@@ -259,29 +256,30 @@ To continue to interact with the PowerShell Gallery, run the following command b
 
 **[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12**
 
-## 4. Policy access/configuration issues in PowerShell
+## Policy access/configuration issues in PowerShell
 
 User assigned with appropriate roles. But facing authorization issues while managing attestation policies through PowerShell.
 
 ### Error
-The client with object ID &lt;object Id&gt;  does not have authorization to perform action Microsoft.Authorization/roleassignments/write over scope ‘subcriptions/&lt;subscriptionId&gt;resourcegroups/secure_enclave_poc/providers/Microsoft.Authorization/roleassignments/&lt;role assignmentId&gt;’ or the scope is invalid. If access was recently granted, please refresh your credentials
+
+The client with object ID &lt;object Id&gt;  does not have authorization to perform action Microsoft.Authorization/roleassignments/write over scope ‘subcriptions/&lt;subscriptionId&gt;resourcegroups/secure_enclave_poc/providers/Microsoft.Authorization/roleassignments/&lt;role assignmentId&gt;’ or the scope is invalid. If access was recently granted, refresh your credentials
 
 ### Troubleshooting steps
 
-Minimum version of Az modules required to support attestation operations are the below: 
+The minimum version of the Az PowerShell modules required to support attestation operations are: 
 
- **Az 4.5.0** 
- 
- **Az.Accounts 1.9.2**
- 
- **Az.Attestation 0.1.8** 
+- **Az 4.5.0**
+- **Az.Accounts 1.9.2**
+- **Az.Attestation 0.1.8**
 
 Run the below command to verify the installed version of all Az modules 
 
-```powershell
+```azurepowershell-interactive
 Get-InstalledModule 
 ```
 
-If the versions are not matching with the minimum requirement, run Update-Module commands
+If the versions do not meet the minimum requirement, run the Update-Module PowerShell cmdlet.
 
-e.g. - Update-Module -Name Az.Attestation
+```azurepowershell-interactive
+Update-Module -Name Az.Attestation
+```

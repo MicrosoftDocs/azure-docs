@@ -2,29 +2,36 @@
 title: Manage Azure Data Lake Analytics using Azure Java SDK
 description: This article describes how to use the Azure Java SDK to write apps that manage Data Lake Analytics jobs, data sources, & users.
 ms.service: data-lake-analytics
-ms.reviewer: jasonh
+ms.reviewer: whhender
 ms.topic: how-to
-ms.date: 08/20/2019
-ms.custom: devx-track-java
+ms.date: 01/27/2023
+ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # Manage Azure Data Lake Analytics using a Java app
+
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
+
+[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
 
 This article describes how to manage Azure Data Lake Analytics accounts, data sources, users, and jobs using an app written using the Azure Java SDK. 
 
 ## Prerequisites
+
 * **Java Development Kit (JDK) 8** (using Java version 1.8).
 * **IntelliJ** or another suitable Java development environment. The instructions in this document use IntelliJ.
-* Create an Azure Active Directory (AAD) application and retrieve its **Client ID**, **Tenant ID**, and **Key**. For more information about AAD applications and instructions on how to get a client ID, see [Create Active Directory application and service principal using portal](../active-directory/develop/howto-create-service-principal-portal.md). The Reply URI and Key is available from the portal once you have the application created and key generated.
+* Create a Microsoft Entra application and retrieve its **Client ID**, **Tenant ID**, and **Key**. For more information about Microsoft Entra applications and instructions on how to get a client ID, see [Create Active Directory application and service principal using portal](../active-directory/develop/howto-create-service-principal-portal.md). The Reply URI and Key is available from the portal once you have the application created and key generated.
 
-## Authenticating using Azure Active Directory
+<a name='authenticating-using-azure-active-directory'></a>
+
+## Authenticating using Microsoft Entra ID
 
 The code following snippet provides code for **non-interactive** authentication, where the application provides its own credentials.
 
 ## Create a Java application
+
 1. Open IntelliJ and create a Java project using the **Command-Line App** template.
-2. Right-click on the project on the left-hand side of your screen and click **Add Framework Support**. Choose **Maven** and click **OK**.
+2. Right-click on the project on the left-hand side of your screen and click **Add Framework Support**. Choose **Maven** and select **OK**.
 3. Open the newly created **"pom.xml"** file and add the following snippet of text between the **\</version>** tag and the **\</project>** tag:
 
 ```xml

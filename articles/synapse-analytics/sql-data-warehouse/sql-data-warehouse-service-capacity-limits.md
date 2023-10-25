@@ -1,15 +1,13 @@
 ---
 title: Capacity limits for dedicated SQL pool
 description: Maximum values allowed for various components of dedicated SQL pool in Azure Synapse Analytics.
-author: mlee3gsd
-manager: craigg
-ms.service: synapse-analytics
-ms.topic: conceptual
-ms.subservice: sql-dw 
-ms.date: 2/19/2020
-ms.author: martinle
+author: heydh
+ms.author: dhsundar
 ms.reviewer: wiassaf
-
+ms.date: 6/20/2023
+ms.service: synapse-analytics
+ms.subservice: sql-dw
+ms.topic: conceptual
 ms.custom: azure-synapse
 ---
 
@@ -74,7 +72,7 @@ Maximum values allowed for various components of dedicated SQL pool in Azure Syn
 | SELECT |Bytes per GROUP BY columns. |8060<br/><br/>The columns in the GROUP BY clause can have a maximum of 8060 bytes. |
 | SELECT |Bytes per ORDER BY columns |8060 bytes<br/><br/>The columns in the ORDER BY clause can have a maximum of 8060 bytes |
 | Identifiers  per statement |Number of referenced identifiers |65,535<br/><br/> The number of identifiers that can be contained in a single expression of a query is limited. Exceeding this number results in SQL Server error 8632. For more information, see [Internal error: An expression services limit has been reached](https://support.microsoft.com/help/913050/error-message-when-you-run-a-query-in-sql-server-2005-internal-error-a). |
-| String literals | Number of string literals in a statement | 20,000 <br/><br/>The number of string constants in a single expression of a query is limited. Exceeding this number results in SQL Server error 8632.|
+| String literals | Number of string literals in a statement | 32,500 <br/><br/>The number of string constants in a single expression of a query is limited. Exceeding this number results in SQL Server error 8632.|
 ||||
 
 ## Metadata

@@ -1,15 +1,55 @@
 ---
 title: Manage Azure Managed Disks
 description: Learn about managing Azure Managed Disk from the Azure portal.
-ms.topic: conceptual
-ms.date: 09/23/2021
+ms.topic: how-to
+ms.date: 03/27/2023
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
+ms.service: backup
+ms.custom: engagement-fy23
 ---
 
 # Manage Azure Managed Disks
 
 This article explains how to manage Azure Managed Disk from the Azure portal.
 
-## Stop Protection (Preview)
+## Monitor a backup operation
+
+The Azure Backup service creates a job for scheduled backups or if you trigger on-demand backup operation for tracking. To view the backup job status:
+
+1. Go to the **Backup instance** screen. It shows the jobs dashboard with operation and status for the past seven days.
+
+   ![Screenshot shows the jobs dashboard.](./media/backup-managed-disks/jobs-dashboard.png)
+
+1. To view the status of the backup operation, select **View all** to show ongoing and past jobs of this backup instance.
+
+   ![Screenshot shows how to select the view all option.](./media/backup-managed-disks/view-all.png)
+
+1. Review the list of backup and restore jobs and their status. Select a job from the list of jobs to view job details.
+
+   ![Screenshot shows how to select a job to see details.](./media/backup-managed-disks/select-job.png)
+
+## Monitor a restore operation
+
+After you trigger the restore operation, the backup service creates a job for tracking. Azure Backup displays notifications about the job in the portal. To view the restore job progress:
+
+1. Go to the **Backup instance** screen. It shows the jobs dashboard with operation and status for the past seven days.
+
+    ![Screenshot shows the Jobs dashboard that lists all jobs and the statuses.](./media/restore-managed-disks/jobs-dashboard.png)
+
+1. To view the status of the restore operation, select **View all** to show ongoing and past jobs of this backup instance.
+
+    ![Screenshot shows how to select View all.](./media/restore-managed-disks/view-all.png)
+
+1. Review the list of backup and restore jobs and their status. Select a job from the list of jobs to view job details.
+
+    ![Screenshot shows the list of jobs.](./media/restore-managed-disks/list-of-jobs.png)
+
+## Manage operations using the Azure portal
+
+This section describes several Azure Backup supported management operations that make it easy to manage Azure Managed disks.
+
+### Stop Protection
 
 
 There are three ways by which you can stop protecting an Azure Disk:
@@ -20,13 +60,13 @@ There are three ways by which you can stop protecting an Azure Disk:
 
 - **Stop Protection and Delete Data**: This option helps you stop all future backup jobs from protecting your disks and delete all the recovery points. You won't be able to restore the disk or use the **Resume backup** option.
 
-### Stop Protection and Retain Data
+#### Stop Protection and Retain Data
 
 1. Go to **Backup center** and select **Azure Disks**.
 
 1. From the list of disk backup instances, select the instance that you want to retain.
 
-1. Select **Stop Backup (Preview)**.
+1. Select **Stop Backup**.
 
    :::image type="content" source="./media/manage-azure-managed-disks/select-disk-backup-instance-to-stop-inline.png" alt-text="Screenshot showing the selection of the Azure disk backup instance to be stopped." lightbox="./media/manage-azure-managed-disks/select-disk-backup-instance-to-stop-expanded.png":::
  
@@ -45,7 +85,7 @@ There are three ways by which you can stop protecting an Azure Disk:
 
    :::image type="content" source="./media/manage-azure-managed-disks/confirm-stopping-disk-backup-inline.png" alt-text="Screenshot showing the options for disk backup instance retention to be selected." lightbox="./media/manage-azure-managed-disks/confirm-stopping-disk-backup-expanded.png":::
 
-### Stop Protection and Delete Data
+#### Stop Protection and Delete Data
 
 1. Go to **Backup center** and select **Azure Disks**.
 
@@ -65,7 +105,7 @@ There are three ways by which you can stop protecting an Azure Disk:
 
    :::image type="content" source="./media/manage-azure-managed-disks/confirm-stopping-disk-backup-inline.png" alt-text="Screenshot showing the options for disk backup instance retention to be selected." lightbox="./media/manage-azure-managed-disks/confirm-stopping-disk-backup-expanded.png":::
 
-## Resume Protection
+### Resume Protection
 
 If you have selected the **Stop Protection and Retain data** option, you can resume protection for your disks.
 
@@ -86,7 +126,7 @@ Use the following steps:
 
    :::image type="content" source="./media/manage-azure-managed-disks/resume-disk-backup-inline.png" alt-text="Screenshot showing the option to resume disk backup." lightbox="./media/manage-azure-managed-disks/resume-disk-backup-expanded.png":::
 
-## Delete Backup Instance
+### Delete Backup Instance
 
 If you choose to stop all scheduled backup jobs and delete all existing backups, use **Delete Backup Instance**.
 

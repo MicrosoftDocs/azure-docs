@@ -12,7 +12,7 @@ ms.date: 06/24/2021
 This article provides you with sample custom Azure policies to control the destinations that can be configured in Event Grid's event subscriptions. [Azure Policy](../governance/policy/overview.md) helps you enforce organizational standards and regulatory compliance for different concerns such as security, cost, resource consistency, management, etc. Prominent among those concerns are security compliance standards that help maintain a security posture for your organization. To help you with your security controls, the policies presented in this article help you prevent data exfiltration or the delivery of events to unauthorized endpoints or Azure services.
 
 > [!NOTE]
-> Azure Event Grid provides built-in policies for compliance domains and security controls related to several compliance standards. You can find those built-in policies in Event Grid's [Azure Security Benchmark](security-controls-policy.md#azure-security-benchmark).
+> Azure Event Grid provides built-in policies for compliance domains and security controls related to several compliance standards. You can find those built-in policies in Event Grid's [Microsoft Cloud Security Benchmark](security-controls-policy.md#microsoft-cloud-security-benchmark).
 
 To prevent data exfiltration, organizations may want to limit the destinations to which Event Grid can deliver events. This can be done by assigning policies that allow the creation or update of [event subscriptions](concepts.md#event-subscriptions) that have as a destination one of the sanctioned destinations in the policy. The policy effect used to prevent a resource request to succeed is [deny](../governance/policy/concepts/effects.md#deny).
 

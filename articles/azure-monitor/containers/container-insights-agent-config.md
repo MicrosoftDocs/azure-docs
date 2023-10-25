@@ -34,6 +34,7 @@ The following table describes the settings you can configure to control data col
 | `[log_collection_settings.env_var] enabled =` | Boolean | True or false | This setting controls environment variable collection<br> across all pods/nodes in the cluster<br> and defaults to `enabled = true` when not specified<br> in the ConfigMap.<br> If collection of environment variables is globally enabled, you can disable it for a specific container<br> by setting the environment variable<br> `AZMON_COLLECT_ENV` to `False` either with a Dockerfile setting or in the [configuration file for the Pod](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/) under the `env:` section.<br> If collection of environment variables is globally disabled, you can't enable collection for a specific container. The only override that can be applied at the container level is to disable collection when it's already enabled globally. |
 | `[log_collection_settings.enrich_container_logs] enabled =` | Boolean | True or false | This setting controls container log enrichment to populate the `Name` and `Image` property values<br> for every log record written to the **ContainerLog** table for all container logs in the cluster.<br> It defaults to `enabled = false` when not specified in the ConfigMap. |
 | `[log_collection_settings.collect_all_kube_events] enabled =` | Boolean | True or false | This setting allows the collection of Kube events of all types.<br> By default, the Kube events with type **Normal** aren't collected. When this setting is set to `true`, the **Normal** events are no longer filtered, and all events are collected.<br> It defaults to `enabled = false` when not specified in the ConfigMap. |
+| `[log_collection_settings.enable_multiline_logs] enabled =` | Boolean | True or False | This setting controls whether multiline container logs are enabled. They are disabled by default. See [Multi-line logging in Container Insights](./container-insights-logging-v2.md) to learn more. |
 
 ### Metric collection settings
 
@@ -44,6 +45,12 @@ The following table describes the settings you can configure to control metric c
 | `[metric_collection_settings.collect_kube_system_pv_metrics] enabled =` | Boolean | True or false | This setting allows persistent volume (PV) usage metrics to be collected in the kube-system namespace. By default, usage metrics for persistent volumes with persistent volume claims in the kube-system namespace aren't collected. When this setting is set to `true`, PV usage metrics for all namespaces are collected. By default, this setting is set to `false`. |
 
 ConfigMap is a global list and there can be only one ConfigMap applied to the agent. You can't have another ConfigMap overruling the collections.
+
+### Agent settings for outbound proxy with Azure Monitor Private Link Scope (AMPLS)
+
+| Key | Data type | Value | Description |
+|--|--|--|--|
+| `[agent_settings.proxy_config] ignore_proxy_settings =` | Boolean | True or false | Set this value to true to ignore proxy settings. On both AKS & Arc K8s environments, if your cluster is configured with forward proxy, then proxy settings are automatically applied and used for the agent. For certain configurations, such as, with AMPLS + Proxy, you may with for the proxy config to be ignored. . By default, this setting is set to `false`. |
 
 ## Configure and deploy ConfigMaps
 
@@ -65,6 +72,7 @@ To configure and deploy your ConfigMap configuration file to your cluster:
     Example: `kubectl apply -f container-azm-ms-agentconfig.yaml`
 
 The configuration change can take a few minutes to finish before taking effect. Then all Azure Monitor Agent pods in the cluster will restart. The restart is a rolling restart for all Azure Monitor Agent pods, so not all of them restart at the same time. When the restarts are finished, a message similar to this example includes the following result: `configmap "container-azm-ms-agentconfig" created`.
+
 
 ## Verify configuration
 

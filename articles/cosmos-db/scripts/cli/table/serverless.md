@@ -8,7 +8,7 @@ ms.service: cosmos-db
 ms.subservice: table
 ms.topic: sample
 ms.date: 06/16/2022
-ms.custom: kr2b-contr-experiment, ignite-2022
+ms.custom: kr2b-contr-experiment, ignite-2022, devx-track-azurecli
 ---
 
 # Use Azure CLI to create an Azure Cosmos DB for Table serverless account and table

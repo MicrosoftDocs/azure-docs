@@ -3,7 +3,7 @@ title: Set up sign-up and sign-in with an Apple ID
 titleSuffix: Azure AD B2C
 description: Provide sign-up and sign-in to customers with Apple ID in your applications using Azure Active Directory B2C.
 services: active-directory-b2c
-author: kengaderdus
+author: garrodonnell
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,7 +11,7 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: project-no-code
-ms.author: kengaderdus
+ms.author: godonnell
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
@@ -261,10 +261,9 @@ If the sign-in process is successful, your browser is redirected to `https://jwt
 
 ## Customize your user interface
 
-Follow the guidelines how to [offer Sign in with Apple](https://developer.apple.com/design/human-interface-guidelines/sign-in-with-apple/overview/introduction/). Apple provides several **Sign in with Apple** buttons you can use to let people set up an account and sign in. If necessary, create a custom button to offer Sign in with Apple. Learn how to [display a Sign in with Apple button](https://developer.apple.com/design/human-interface-guidelines/sign-in-with-apple/overview/buttons/).
+Follow the guidelines how to [offer Sign in with Apple](https://developer.apple.com/design/human-interface-guidelines/sign-in-with-apple). Apple provides several **Sign in with Apple** buttons you can use to let people set up an account and sign in. If necessary, create a custom button to offer Sign in with Apple. Learn how to [display a Sign in with Apple button](https://developer.apple.com/design/human-interface-guidelines/buttons).
 
 To align with the Apple user interface guidelines:
 
 - [Customize the user interface with HTML templates](customize-ui-with-html.md)
 - [Localize](language-customization.md) the identity provider name.
-

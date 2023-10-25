@@ -1,21 +1,22 @@
 ---
-title: Azure Cosmos DB SQL indexer
+title: Azure Cosmos DB NoSQL indexer
 titleSuffix: Azure Cognitive Search
-description: Set up a search indexer to index data stored in Azure Cosmos DB for full text search in Azure Cognitive Search. This article explains how index data using the SQL API protocol.
+description: Set up a search indexer to index data stored in Azure Cosmos DB for full text search in Azure Cognitive Search. This article explains how index data using the NoSQL API protocol.
 
 author: mgottein 
 ms.author: magottei
 ms.service: cognitive-search
-ms.custom: ignite-2022
+ms.custom: devx-track-dotnet
 ms.topic: how-to
-ms.date: 07/12/2022
+ms.date: 01/18/2023
 ---
 
-# Index data from Azure Cosmos DB using the SQL API
+# Import data from Azure Cosmos DB for NoSQL for queries in Azure Cognitive Search
 
-In this article, learn how to configure an [**indexer**](search-indexer-overview.md) that imports content using the SQL API from Azure Cosmos DB. 
+In this article, learn how to configure an [**indexer**](search-indexer-overview.md) that imports content from [Azure Cosmos DB for NoSQL](../cosmos-db/nosql/index.yml) and makes it searchable in Azure Cognitive Search.
 
-This article supplements [**Create an indexer**](search-howto-create-indexers.md) with information that's specific to [Azure Cosmos DB for NoSQL](../cosmos-db/choose-api.md#coresql-api). It uses the REST APIs to demonstrate a three-part workflow common to all indexers: create a data source, create an index, create an indexer. Data extraction occurs when you submit the Create Indexer request.
+
+This article supplements [**Create an indexer**](search-howto-create-indexers.md) with information that's specific to Cosmos DB. It uses the REST APIs to demonstrate a three-part workflow common to all indexers: create a data source, create an index, create an indexer. Data extraction occurs when you submit the Create Indexer request.
 
 Because terminology can be confusing, it's worth noting that [Azure Cosmos DB indexing](../cosmos-db/index-overview.md) and [Cognitive Search indexing](search-what-is-an-index.md) are different operations. Indexing in Cognitive Search creates and loads a search index on your search service.
 
@@ -73,7 +74,7 @@ The data source definition specifies the data to index, credentials, and policie
 
 ### Supported credentials and connection strings
 
-Indexers can connect to a collection using the following connections. For connections that target the [SQL API](../cosmos-db/sql-query-getting-started.md), you can omit "ApiKind" from the connection string.
+Indexers can connect to a collection using the following connections.
 
 Avoid port numbers in the endpoint URL. If you include the port number, the connection will fail. 
 
@@ -84,8 +85,8 @@ Avoid port numbers in the endpoint URL. If you include the port number, the conn
 
 | Managed identity connection string |
 |------------------------------------|
-|`{ "connectionString" : "ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.DocumentDB/databaseAccounts/<your cosmos db account name>/;(ApiKind=[api-kind];)" }`|
-|This connection string doesn't require an account key, but you must have previously configured a search service to [connect using a managed identity](search-howto-managed-identities-data-sources.md) and created a role assignment that grants **Cosmos DB Account Reader Role** permissions. See [Setting up an indexer connection to an Azure Cosmos DB database using a managed identity](search-howto-managed-identities-cosmos-db.md) for more information.|
+|`{ "connectionString" : "ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.DocumentDB/databaseAccounts/<your cosmos db account name>/;(ApiKind=[api-kind];)/(IdentityAuthType=[identity-auth-type])" }`|
+|This connection string doesn't require an account key, but you must have previously configured a search service to [connect using a managed identity](search-howto-managed-identities-data-sources.md). For connections that target the [SQL API](../cosmos-db/sql-query-getting-started.md), you can omit `ApiKind` from the connection string. For more information about `ApiKind`, `IdentityAuthType` see [Setting up an indexer connection to an Azure Cosmos DB database using a managed identity](search-howto-managed-identities-cosmos-db.md).|
 
 <a name="flatten-structures"></a>
 
@@ -156,7 +157,7 @@ SELECT DISTINCT VALUE c.name FROM c ORDER BY c.name
 
 ## Add search fields to an index
 
-In a [search index](search-what-is-an-index.md), add fields to accept the source JSON documents or the output of your custom query projection. Ensure that the search index schema is compatible with source data. For content in Azure Cosmos DB, your search index schema should correspond to the [Azure Cosmos DB items](../cosmos-db/account-databases-containers-items.md#azure-cosmos-db-items) in your data source.
+In a [search index](search-what-is-an-index.md), add fields to accept the source JSON documents or the output of your custom query projection. Ensure that the search index schema is compatible with source data. For content in Azure Cosmos DB, your search index schema should correspond to the [Azure Cosmos DB items](../cosmos-db/resource-model.md#azure-cosmos-db-items) in your data source.
 
 1. [Create or update an index](/rest/api/searchservice/create-index) to define search fields that will store data:
 

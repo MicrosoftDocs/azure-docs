@@ -40,6 +40,10 @@ Configure your [maxmemory-reserved setting](cache-configure.md#memory-policies) 
 
 - One thing to consider when choosing a new memory reservation value (`maxmemory-reserved` or `maxfragmentationmemory-reserved`) is how this change might affect a cache with large amounts of data in it that is already running. For instance, if you have a 53-GB cache with 49 GB of data and then change the reservation value to 8 GB, the max available memory for the system will drop to 45 GB. If either your current `used_memory` or your `used_memory_rss` values are higher than the new limit of 45 GB, then the system must evict data until both `used_memory` and `used_memory_rss` are below 45 GB. Eviction can increase server load and memory fragmentation. For more information on cache metrics such as `used_memory` and `used_memory_rss`, see [Create your own metrics](cache-how-to-monitor.md#create-your-own-metrics).
 
+> [!NOTE]
+> When you scale a cache up or down, both `maxmemory-reserved` and `maxfragmentationmemory-reserved` settings automatically scale in proportion to the cache size. For example, if `maxmemory-reserved` is set to 3 GB on a 6-GB cache, and you scale to 12-GB cache, the settings automatically get updated to 6 GB during scaling. When you scale down, the reverse happens.
+> When you scale a cache up or down programmatically, using PowerShell, CLI or Rest API, any `maxmemory-reserved` or `maxfragmentationmemory-reserved` are ignored as part of the update request. Only your scaling change is honored. You can update these memory settings after the scaling operation has completed.
+
 ## Next steps
 
 - [Best practices for development](cache-best-practices-development.md)

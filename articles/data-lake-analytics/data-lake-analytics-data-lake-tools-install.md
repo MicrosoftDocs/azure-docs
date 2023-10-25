@@ -8,6 +8,8 @@ ms.date: 11/15/2022
 ---
 # Install Data Lake Tools for Visual Studio
 
+[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
+
 Learn how to use Visual Studio to create Azure Data Lake Analytics accounts. You can define jobs in [U-SQL](data-lake-analytics-u-sql-get-started.md) and submit jobs to the Data Lake Analytics service. For more
 information about Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).
 

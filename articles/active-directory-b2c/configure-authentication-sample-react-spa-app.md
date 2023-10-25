@@ -7,7 +7,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/17/2022
+ms.date: 04/24/2023
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -58,7 +58,7 @@ The following diagram describes the app registrations and the app architecture.
 Before you follow the procedures in this article, make sure that your computer is running:
 
 * [Visual Studio Code](https://code.visualstudio.com/) or another code editor.
-* [Node.js runtime](https://nodejs.org/en/download/) and [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm). To test that you have Node.js and npm correctly installed on your machine, you can type `node --version` and `npm --version` in a terminal or command prompt.
+* [Node.js runtime](https://nodejs.org/en/download/) and [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm/). To test that you have Node.js and npm correctly installed on your machine, you can type `node --version` and `npm --version` in a terminal or command prompt.
 
 ## Step 1: Configure your user flow
 
@@ -118,8 +118,8 @@ Now that you've obtained the SPA sample, update the code with your Azure AD B2C 
 |Section  |Key  |Value  |
 |---------|---------|---------|
 | b2cPolicies | names |The user flows or custom policies that you created in [step 1](#step-1-configure-your-user-flow). |
-| b2cPolicies | authorities | Replace `your-tenant-name` with your Azure AD B2C [tenant name](tenant-management.md#get-your-tenant-name). For example, use `contoso.onmicrosoft.com`. Then, replace the policy name with the user flow or custom policy that you created in [step 1](#step-1-configure-your-user-flow). For example: `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<your-sign-in-sign-up-policy>`. |
-| b2cPolicies | authorityDomain|Your Azure AD B2C [tenant name](tenant-management.md#get-your-tenant-name). For example: `contoso.onmicrosoft.com`. |
+| b2cPolicies | authorities | Replace `your-tenant-name` with your Azure AD B2C [tenant name]( tenant-management-read-tenant-name.md#get-your-tenant-name). For example, use `contoso.onmicrosoft.com`. Then, replace the policy name with the user flow or custom policy that you created in [step 1](#step-1-configure-your-user-flow). For example: `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<your-sign-in-sign-up-policy>`. |
+| b2cPolicies | authorityDomain|Your Azure AD B2C [tenant name]( tenant-management-read-tenant-name.md#get-your-tenant-name). For example: `contoso.onmicrosoft.com`. |
 | Configuration | clientId | The React application ID from [step 2.3](#23-register-the-react-app). |
 | protectedResources| endpoint| The URL of the web API: `http://localhost:5000/hello`. |
 | protectedResources| scopes| The web API scopes that you created in [step 2.2](#22-configure-scopes). For example: `b2cScopes: ["https://<your-tenant-name>.onmicrosoft.com/tasks-api/tasks.read"]`. |
@@ -171,7 +171,7 @@ In the sample folder, open the *authConfig.js* file. This file contains informat
 
 |Section  |Key  |Value  |
 |---------|---------|---------|
-|credentials|tenantName| Your Azure AD B2C [domain/tenant name](tenant-management.md#get-your-tenant-name). For example: `contoso.ommicrosoft.com`.|
+|credentials|tenantName| Your Azure AD B2C [domain/tenant name]( tenant-management-read-tenant-name.md#get-your-tenant-name). For example: `contoso.ommicrosoft.com`.|
 |credentials|clientID| The web API application ID from step [2.1](#21-register-the-web-api-application). In the [earlier diagram](#app-registration), it's the application with **App ID: 2**.|
 |policies|policyName|The user flow or custom policy that you created in [step 1](#step-1-configure-your-user-flow). If your application uses multiple user flows or custom policies, specify only one. For example, use the sign-up or sign-in user flow.|
 | protectedRoutes| scopes | The scopes of your web API application registration from [step 2.5](#25-grant-permissions). |
@@ -213,7 +213,7 @@ You're now ready to test the React scoped access to the API. In this step, run b
 
     ```console
     npm install && npm update
-    node index.js
+    npm start
     ```
 
     The console window displays the port number where the application is hosted:

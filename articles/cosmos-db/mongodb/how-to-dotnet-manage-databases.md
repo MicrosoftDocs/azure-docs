@@ -78,4 +78,4 @@ A database is removed from the server using the `DropDatabase` method on the DB 
 ## See also
 
 - [Get started with Azure Cosmos DB for MongoDB and .NET](how-to-dotnet-get-started.md)
-- Work with a collection](how-to-dotnet-manage-collections.md)
+- [Work with a collection](how-to-dotnet-manage-collections.md)

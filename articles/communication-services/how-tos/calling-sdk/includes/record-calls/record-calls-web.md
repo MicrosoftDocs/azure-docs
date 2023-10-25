@@ -20,7 +20,7 @@ import { Features} from "@azure/communication-calling";
 Then you can get the recording feature API object from the call instance:
 
 ```js
-const callTransferApi = call.feature(Features.Recording);
+const callRecordingApi = call.feature(Features.Recording);
 ```
 
 Then, to check if the call is being recorded, inspect the `isRecordingActive` property of `callRecordingApi`. It returns `Boolean`.

@@ -4,8 +4,8 @@ description: Learn how to use Azure PowerShell to create and manage virtual mach
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 03/17/2022
-ms.custom: devx-track-azurepowershell
+ms.date: 09/30/2023
+ms.custom: devx-track-azurepowershell, UpdateFrequency2
 ---
 
 # Create DevTest Labs VMs by using Azure PowerShell
@@ -17,7 +17,7 @@ This article shows you how to create an Azure DevTest Labs virtual machine (VM) 
 You need the following prerequisites to work through this article:
 
 - Access to a lab in DevTest Labs. [Create a lab](devtest-lab-create-lab.md), or use an existing lab.
-- Azure PowerShell. [Install Azure PowerShell](/powershell/azure/install-az-ps), or [use Azure Cloud Shell](../cloud-shell/quickstart-powershell.md) in the Azure portal.
+- Azure PowerShell. [Install Azure PowerShell](/powershell/azure/install-azure-powershell), or [use Azure Cloud Shell](/azure/cloud-shell/quickstart?tabs=powershell) in the Azure portal.
 
 ## PowerShell VM creation script
 
@@ -25,7 +25,7 @@ The PowerShell [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-
 
 This sample script creates a Windows Server 2019 Datacenter VM. The sample also includes properties to add a second data disk under `dataDiskParameters`.
 
- ```powershell
+```powershell
 [CmdletBinding()]
 
 Param(
@@ -36,7 +36,7 @@ Param(
 [Parameter(Mandatory = $true)]   $UserName,
 [Parameter(Mandatory = $true)]   $Password
 )
- 
+
 pushd $PSScriptRoot
 
 try {
@@ -62,7 +62,7 @@ try {
     #Prepare all the properties needed for the createEnvironment call.
     # The properties are slightly different depending on the type of VM base.
     # The virtual network setup might also affect the properties.
-    
+
     $parameters = @{
        "name"      = $NewVmName;
        "location"  = $lab.Location;
@@ -93,7 +93,7 @@ try {
           })
        }
     }
-    
+
     #The following line has the same effect as invoking the
     # https://azure.github.io/projects/apis/#!/Labs/Labs_CreateEnvironment REST API
 
@@ -167,7 +167,7 @@ Creating a VM in the Azure portal generates an Azure Resource Manager (ARM) temp
 
 1. Copy and save the template to use in future PowerShell automation, and transfer the properties to the PowerShell VM creation script.
 
-   
+
 
 ### Use the DevTest Labs Azure REST API to get VM properties
 
@@ -178,7 +178,7 @@ You can also call the DevTest Labs REST API to get the properties of existing la
    - Under **labName**, enter your lab name.
    - Under **labResourceGroup**, enter the lab resource group name.
    - Under **subscriptionId**, select the lab's Azure subscription.
-1. Select **Run**. 
+1. Select **Run**.
 1. In the **Response** section under **Body**, view the properties for all the existing VMs in the lab.
 
 ## Set VM expiration date
@@ -186,7 +186,7 @@ You can also call the DevTest Labs REST API to get the properties of existing la
 In training, demo, and trial scenarios, you can avoid unnecessary costs by deleting VMs automatically on a certain date. You can set the VM `expirationDate` property when you create a VM. The PowerShell VM creation script earlier in this article sets an expiration date under `properties`:
 
 ```json
-          "expirationDate"          = "2022-12-01"
+  "expirationDate": "2022-12-01"
 ```
 
 You can also set expiration dates on existing VMs by using PowerShell. The following PowerShell script sets an expiration date for an existing lab VM if it doesn't already have an expiration date:

@@ -1,8 +1,8 @@
 ---
 title: "Synapse POC playbook: Big data analytics with Apache Spark pool in Azure Synapse Analytics"
 description: "A high-level methodology for preparing and running an effective Azure Synapse Analytics proof of concept (POC) project for Apache Spark pool."
-author: peter-myers
-ms.author: v-petermyers
+author: SnehaGunda
+ms.author: sngun
 ms.reviewer: sngun
 ms.service: synapse-analytics
 ms.custom: ignite-2022
@@ -121,8 +121,8 @@ Here's an example of the needed level of specificity in planning:
 - **Goal D:** We will have tested the data ingestion rate of incremental data loading and will have the data points to estimate the data ingestion and processing time window to the data lake and/or the dedicated SQL pool.
 - **Output D:** We will have tested the data ingestion rate and can determine whether our data ingestion and processing requirements can be met with the identified approach.
     - **Test D1:** Test the daily update data ingestion and processing.
-    - **Test D1:** Test the processed data load to the dedicated SQL pool table from the Spark pool. For more information, see [Azure Synapse Dedicated SQL Pool Connector for Apache Spark](../spark/synapse-spark-sql-pool-import-export.md).
-    - **Test D1:** Execute the daily update load process concurrently while running end user queries.
+    - **Test D2:** Test the processed data load to the dedicated SQL pool table from the Spark pool. For more information, see [Azure Synapse Dedicated SQL Pool Connector for Apache Spark](../spark/synapse-spark-sql-pool-import-export.md).
+    - **Test D3:** Execute the daily update load process concurrently while running end user queries.
 
 Be sure to refine your tests by adding multiple testing scenarios. Azure Synapse makes it easy to test different scale (varying number of worker nodes, size of the worker nodes like small, medium, and large) to compare performance and behavior.
 
@@ -143,7 +143,7 @@ Using the specific tests you identified, select a dataset to support the tests. 
 
 Based upon the high-level architecture of your proposed future state architecture, identify the components that will form part of your POC. Your high-level future state architecture likely contains many data sources, numerous data consumers, big data components, and possibly machine learning and artificial intelligence (AI) data consumers. Your POC architecture should specifically identify components that will be part of the POC. Importantly, it should identify any components that won't form part of the POC testing.
 
-If you're already using Azure, identify any resources you already have in place (Azure Active Directory, ExpressRoute, and others) that you can use during the POC. Also identify the Azure regions your organization uses. Now is a great time to identify the throughput of your ExpressRoute connection and to check with other business users that your POC can consume some of that throughput without adverse impact on production systems.
+If you're already using Azure, identify any resources you already have in place (Microsoft Entra ID, ExpressRoute, and others) that you can use during the POC. Also identify the Azure regions your organization uses. Now is a great time to identify the throughput of your ExpressRoute connection and to check with other business users that your POC can consume some of that throughput without adverse impact on production systems.
 
 For more information, see [Big data architectures](/azure/architecture/data-guide/big-data/).
 

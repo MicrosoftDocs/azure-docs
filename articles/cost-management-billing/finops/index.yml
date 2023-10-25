@@ -1,0 +1,115 @@
+### YamlMime:Landing
+
+title: FinOps
+summary: FinOps combines financial management principles with cloud engineering and operations to provide organizations with a better understanding of their cloud spending and to help them make informed decisions on how to allocate and manage their cloud costs.
+metadata:
+  title: FinOps documentation
+  description: FinOps combines financial management principles with cloud engineering and operations to provide organizations with a better understanding of their cloud spending and to help them make informed decisions on how to allocate and manage their cloud costs.
+  ms.service: cost-management-billing
+  ms.subservice: finops
+  ms.topic: landing-page
+  ms.collection: collection
+  author: bandersmsft
+  ms.author: banders
+  ms.date: 06/21/2023
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+
+  - title: Get started
+    linkLists:
+    - linkListType: overview
+      links:
+      - text: What is FinOps?
+        url: overview-finops.md
+    - linkListType: tutorial
+      links:
+      - text: Conduct a FinOps iteration
+        url: conduct-finops-iteration.md
+
+# Card (optional)
+
+  - title: Understanding cloud usage + cost
+    linkLists:
+    - linkListType: concept
+      links:
+      - text: Data analysis and showback
+        url: capabilities-analysis-showback.md
+      - text: Cost allocation
+        url: capabilities-allocation.md
+      - text: Managing shared cost
+        url: capabilities-shared-cost.md
+      - text: Data ingestion and normalization
+        url: capabilities-ingestion-normalization.md
+
+  - title: Performance tracking + benchmarking
+    linkLists:
+    - linkListType: concept
+      links:
+      - text: Forecasting
+        url: capabilities-forecasting.md
+      - text: Budget management
+        url: capabilities-budgets.md
+      - text: Measuring unit costs
+        url: capabilities-unit-costs.md
+
+  - title: Real-time decision making
+    linkLists:
+    - linkListType: concept
+      links:
+      - text: Managing anomalies
+        url: capabilities-anomalies.md
+      - text: Establishing a decision and accountability structure
+        url: capabilities-structure.md
+
+  - title: Cloud usage optimization
+    linkLists:
+    - linkListType: concept
+      links:
+      - text: Resource utilization and efficiency
+        url: capabilities-efficiency.md
+      - text: Workload management and automation
+        url: capabilities-workloads.md
+      - text: Onboarding workloads
+        url: capabilities-onboarding.md
+
+  - title: Cloud rate optimization
+    linkLists:
+    - linkListType: concept
+      links:
+      - text: Managing commitment-based discounts
+        url: capabilities-commitment-discounts.md
+
+  - title: Organizational alignment
+    linkLists:
+    - linkListType: concept
+      links:
+      - text: Cloud policy and governance
+        url: capabilities-policy.md
+      - text: Chargeback and finance integration
+        url: capabilities-chargeback.md
+      - text: FinOps education and enablement
+        url: capabilities-education.md
+      - text: Establishing a FinOps culture
+        url: capabilities-culture.md
+      - text: FinOps and intersecting frameworks
+        url: capabilities-frameworks.md
+
+# Card (optional)
+
+  - title: Resources
+    linkLists:
+    - linkListType: reference
+      links:
+      - text: FinOps with Azure e-book
+        url: https://aka.ms/finops/ebook
+      - text: FinOps Foundation
+        url: https://finops.org/
+    - linkListType: video
+      links:
+      - text: FinOps The operating model for the cloud
+        url: https://www.youtube.com/watch?v=VDrcgEne6lU
