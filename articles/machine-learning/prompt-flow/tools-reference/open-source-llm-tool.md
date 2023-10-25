@@ -34,7 +34,7 @@ This Prompt flow supports two different LLM API types:
 1. Choose a Model from the Azure Machine Learning Model Catalog and deploy.
 2. Setup and select the connections to the model deployment.
 3. Configure the tool with the model settings.
-4. Prepare the Prompt with [guidance](./prompt-tool.md#how-to-write-prompt).
+4. [Prepare the Prompt](./prompt-tool.md#how-to-write-prompt).
 5. Run the flow.
 
 ## Prerequisites: Model Deployment
@@ -42,13 +42,13 @@ This Prompt flow supports two different LLM API types:
 1. Pick the model that matched your scenario from the [Azure Machine Learning model catalog](https://ml.azure.com/model/catalog).
 2. Use the "Deploy" button to deploy the model to an Azure Machine Learning Online Inference endpoint.
 
-More detailed instructions can be found here [Deploying foundation models to endpoints for inferencing.](../../how-to-use-foundation-models.md#deploying-foundation-models-to-endpoints-for-inferencing)
+To learn more, see [Deploying foundation models to endpoints for inferencing.](../../how-to-use-foundation-models.md#deploying-foundation-models-to-endpoints-for-inferencing)
 
 ## Prerequisites: Prompt flow Connections
 
 In order for Prompt flow to use your deployed model, you need to set up a Connection. Explicitly, the Open Source LLM tool uses the CustomConnection.
 
-1. Instructions to create a Custom Connection [can be found here.](https://microsoft.github.io/promptflow/how-to-guides/manage-connections.html#create-a-connection)
+1. To learn how to create a custom connection, see [create a connection](https://microsoft.github.io/promptflow/how-to-guides/manage-connections.html#create-a-connection).
 
     The keys to set are:
 

@@ -13,7 +13,7 @@ ms.date: 10/24/2023
 ---
 
 # More tools in Prompt flow (preview)
-This table provides an index of more tools. If existing tools can't meet your requirements, you can follow [this guidance](https://microsoft.github.io/promptflow/how-to-guides/develop-a-tool/create-and-use-tool-package.html) to develop your own custom tool and make it a tool package. 
+This table provides an index of more tools. If existing tools can't meet your requirements, you can [develop your own custom tool and make a tool package](https://microsoft.github.io/promptflow/how-to-guides/develop-a-tool/create-and-use-tool-package.html). 
 
 > [!IMPORTANT]
 > Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
@@ -32,7 +32,7 @@ This table provides an index of more tools. If existing tools can't meet your re
 | [Vector DB Lookup](./vector-db-lookup-tool.md) | Search vector based query from existing Vector Database. | Default | [promptflow-vectordb](https://pypi.org/project/promptflow-vectordb/) |
 | [Vector Index Lookup](./vector-index-lookup-tool.md) | Search text or vector based query from Azure Machine Learning Vector Index. | Default | [promptflow-vectordb](https://pypi.org/project/promptflow-vectordb/) |
 
-You can also visit [this page](https://microsoft.github.io/promptflow/integrations/tools/index.html) to discover more custom tools that developed by the open source community.
+To discover more custom tools that developed by the open source community, see [more custom tools](https://microsoft.github.io/promptflow/integrations/tools/index.html).
 
-For the tools that should be utilized in the custom environment, please follow [this guidance](../how-to-custom-tool-package-creation-and-usage.md#prepare-runtime) to prepare the runtime. Then the tools can be displayed in the tool list.
+For the tools that should be utilized in the custom environment, see [Custom tool package creation and usage](../how-to-custom-tool-package-creation-and-usage.md#prepare-runtime) to prepare the runtime. Then the tools can be displayed in the tool list.
 
