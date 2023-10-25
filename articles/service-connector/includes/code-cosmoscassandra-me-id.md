@@ -47,14 +47,14 @@ public class Program
         // var tokenProvider = new DefaultAzureCredential(
         //     new DefaultAzureCredentialOptions
         //     {
-        //         ManagedIdentityClientId = Environment.GetEnvironmentVariable("AZURE_POSTGRESQL_CLIENTID");
+        //         ManagedIdentityClientId = Environment.GetEnvironmentVariable("AZURE_COSMOS_CLIENTID");
         //     }
         // );
         
         // For service principal.
-        // var tenantId = Environment.GetEnvironmentVariable("AZURE_POSTGRESQL_TENANTID");
-        // var clientId = Environment.GetEnvironmentVariable("AZURE_POSTGRESQL_CLIENTID");
-        // var clientSecret = Environment.GetEnvironmentVariable("AZURE_POSTGRESQL_CLIENTSECRET");
+        // var tenantId = Environment.GetEnvironmentVariable("AZURE_COSMOS_TENANTID");
+        // var clientId = Environment.GetEnvironmentVariable("AZURE_COSMOS_CLIENTID");
+        // var clientSecret = Environment.GetEnvironmentVariable("AZURE_COSMOS_CLIENTSECRET");
         // var tokenProvider = new ClientSecretCredential(tenantId, clientId, clientSecret);
         
         // Acquire the access token. 
@@ -273,15 +273,15 @@ Authentication type is not supported for Spring Boot.
         // cred, err := azidentity.NewDefaultAzureCredential(nil)
         
         // For user-assigned identity.
-        // clientid := os.Getenv("AZURE_POSTGRESQL_CLIENTID")
+        // clientid := os.Getenv("AZURE_COSMOS_CLIENTID")
         // azidentity.ManagedIdentityCredentialOptions.ID := clientid
         // options := &azidentity.ManagedIdentityCredentialOptions{ID: clientid}
         // cred, err := azidentity.NewManagedIdentityCredential(options)
         
         // For service principal.
-        // clientid := os.Getenv("AZURE_POSTGRESQL_CLIENTID")
-        // tenantid := os.Getenv("AZURE_POSTGRESQL_TENANTID")
-        // clientsecret := os.Getenv("AZURE_POSTGRESQL_CLIENTSECRET")
+        // clientid := os.Getenv("AZURE_COSMOS_CLIENTID")
+        // tenantid := os.Getenv("AZURE_COSMOS_TENANTID")
+        // clientsecret := os.Getenv("AZURE_COSMOS_CLIENTSECRET")
         // cred, err := azidentity.NewClientSecretCredential(tenantid, clientid, clientsecret, &azidentity.ClientSecretCredentialOptions{})
     
         // Acquire the access token.
@@ -344,15 +344,15 @@ Authentication type is not supported for Spring Boot.
     // const credential = new DefaultAzureCredential();
     
     // For user-assigned identity.
-    // const clientId = process.env.AZURE_POSTGRESQL_CLIENTID;
+    // const clientId = process.env.AZURE_COSMOS_CLIENTID;
     // const credential = new DefaultAzureCredential({
     //     managedIdentityClientId: clientId
     // });
     
     // For service principal.
-    // const tenantId = process.env.AZURE_POSTGRESQL_TENANTID;
-    // const clientId = process.env.AZURE_POSTGRESQL_CLIENTID;
-    // const clientSecret = process.env.AZURE_POSTGRESQL_CLIENTSECRET;
+    // const tenantId = process.env.AZURE_COSMOS_TENANTID;
+    // const clientId = process.env.AZURE_COSMOS_CLIENTID;
+    // const clientSecret = process.env.AZURE_COSMOS_CLIENTSECRET;
     
     // Acquire the access token.
     var accessToken = await credential.getToken(scope);
