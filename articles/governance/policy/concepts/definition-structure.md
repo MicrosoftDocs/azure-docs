@@ -149,6 +149,7 @@ The following Resource Provider modes are currently supported as a **[preview](h
 
 - `Microsoft.ManagedHSM.Data` for managing [Managed HSM](../../../key-vault/managed-hsm/azure-policy.md) keys using Azure Policy.
 - `Microsoft.DataFactory.Data` for using Azure Policy to deny [Azure Data Factory](../../../data-factory/introduction.md) outbound traffic domain names not specified in an allow list.
+- `Microsoft.MachineLearningServices.v2.Data` for managing [Azure Machine Learning](../../../machine-learning/overview-what-is-azure-machine-learning.md) model deployments. 
 
 > [!NOTE]
 >Unless explicitly stated, Resource Provider modes only support built-in policy definitions, and exemptions are not supported at the component-level.
