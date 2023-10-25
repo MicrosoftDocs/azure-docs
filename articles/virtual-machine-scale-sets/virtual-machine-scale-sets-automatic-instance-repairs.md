@@ -156,7 +156,6 @@ New-AzVmssConfig `
  -Location "EastUS" `
  -SkuCapacity 2 `
  -SkuName "Standard_DS2" `
- -UpgradePolicyMode "Automatic" `
  -EnableAutomaticRepair $true `
  -AutomaticRepairGracePeriod "PT30M"
 ```
