@@ -126,7 +126,6 @@ New-AzVmss `
   -SubnetName "mySubnet" `
   -PublicIpAddressName "myPublicIPAddress" `
   -LoadBalancerName "myLoadBalancer" `
-  -UpgradePolicyMode "Automatic" `
   -ProximityPlacementGroup $ppg.Id
 ```
 
