@@ -15,7 +15,7 @@ An Azure Orbital Ground station emits telemetry events that can be used to analy
 
 ## Configure Event Hubs
 
-1. In your subscription, go to **resource providers** in settings.  Search for **Microsoft.Orbital** and register it as a provider.
+1. In your subscription, go to **resource providers** in settings. Search for **Microsoft.Orbital** and register it as a provider.
 2. [Create an Azure Event Hubs namespace](../azure/event-hubs/event-hubs-create.md#create-an-event-hubs-namespace) and an [event hub](azure/event-hubs/event-hubs-create.md#create-an-event-hub) in your subscription.
 
 > [!Note]
