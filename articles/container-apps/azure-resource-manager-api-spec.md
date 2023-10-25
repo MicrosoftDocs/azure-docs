@@ -10,7 +10,7 @@ ms.author: cshoe
 ms.custom: ignite-fall-2021, event-tier1-build-2022, devx-track-arm-template, build-2023
 ---
 
-# ontainer Apps ARM and YAML template specification
+# Container Apps ARM and YAML template specification
 
 Azure Container Apps deployments are powered by an Azure Resource Manager (ARM) template. Some Container Apps CLI commands also support using a YAML template to specify a resource.
 
