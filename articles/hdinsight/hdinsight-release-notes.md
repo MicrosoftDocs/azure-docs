@@ -64,10 +64,10 @@ You’re welcome to add more proposals and ideas and other topics here and vote 
 > [!NOTE]
 > This release addresses the following CVEs released by [MSRC](https://msrc.microsoft.com/update-guide/vulnerability) on September 12, 2023. The action is to update to the latest image 2308221128 or 2310140056. Customers are advised to plan accordingly. 
 
-|CVE | Severity| CVE Title| Remark |
-|-|-|-|-|
-|[CVE-2023-38156](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-38156)|	Important | Azure HDInsight Apache Ambari Elevation of Privilege Vulnerability |Included on image 2308221128 or 2310140056 |
-|[CVE-2023-36419](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-36419) | Important | Azure HDInsight Apache Oozie Workflow Scheduler Elevation of Privilege Vulnerability | Apply [Script action](https://hdiconfigactions2.blob.core.windows.net/msrc-script/script_action.sh) on your clusters, or update to 2310140056 image |
+| CVE | Severity | CVE Title | Remark |
+| - | - | - | - |
+| [CVE-2023-38156](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-38156) |	Important | Azure HDInsight Apache Ambari Elevation of Privilege Vulnerability |Included on image 2308221128 or 2310140056 |
+| [CVE-2023-36419](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-36419) | Important | Azure HDInsight Apache Oozie Workflow Scheduler Elevation of Privilege Vulnerability | Apply [Script action](https://hdiconfigactions2.blob.core.windows.net/msrc-script/script_action.sh) on your clusters, or update to 2310140056 image |
 
  > [!NOTE]
  > We advise customers to use to latest versions of HDInsight [Images](./view-hindsight-cluster-image-version.md) as they bring in the best of open source updates,  Azure updates and security fixes. For more information, see [Best practices](./hdinsight-overview-before-you-start.md).
