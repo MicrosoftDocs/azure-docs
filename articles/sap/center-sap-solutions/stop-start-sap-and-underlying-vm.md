@@ -74,7 +74,7 @@ POST https://management.azure.com/subscriptions/Sub1/resourceGroups/test-rg/prov
  }
 
 ### Stop HANA database and its VMs
-To stop HANA database and its underlying VMs, use the following REST API with "deallocateVm" parameter set to true.
+To stop HANA database and its underlying VMs, use the following REST API with `deallocateVm` parameter set to `true`.
 
 POST https://management.azure.com/subscriptions/Sub1/resourceGroups/test-rg/providers/Microsoft.Workloads/sapVirtualInstances/X00/databaseInstances/db0/stop?api-version=2023-10-01-preview
 
