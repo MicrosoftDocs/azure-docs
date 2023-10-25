@@ -172,21 +172,6 @@ Follow instructions to [create and configure an Azure Event Hub](receive-real-ti
    | **Demodulation Configuration** | Select the **demodulation configuration** for your selected public satellite. Refer to [configure the modem chain](modem-chain.md#named-modem-configuration) for details. |
    | **Decoding Configuration** | Leave this field blank. |
 
-   | **Field** | **Value** |
-   | --- | --- |
-   | **Name** | 
-   | **Direction** | Enter **Downlink**. |
-   | **Gain/Temperature in db/K** | Enter **0**. |
-   | **Center Frequency** | Enter **8160.0**. |
-   | **Bandwidth MHz** | Enter **15.0**. |
-   | **Polarization** | Enter **RHCP**. |
-   | **Endpoint name** | Enter the name of the virtual machine that you created earlier. |
-   | **IP Address** | Enter the private IP address of the virtual machine that you created earlier. |
-   | **Port** | Enter **56001**. |
-   | **Protocol** | Enter **TCP**. |
-   | **Demodulation Configuration** | Select the **Preset Named Modem Configuration** option, and then select **Aqua Direct Broadcast**.|
-   | **Decoding Configuration** | Leave this field blank. |
-
 9. Select the **Submit** button to add the channel. Select the **Submit** button again to add the link. 
 10. Select **Review + create**.
 11. After the validation is complete, select **Create**.
