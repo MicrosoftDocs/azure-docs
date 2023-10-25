@@ -40,13 +40,13 @@
       expanded: true
       items:
         - name: Use the Azure CLI
-          href: quickstarts-tenant-workload-deployment.md
+          href: quickstarts-virtual-machine-deployment-cli.md
         - name: Use ARM template
           href: quickstarts-virtual-machine-deployment-arm.md
         - name: Use Bicep file
           href: quickstarts-virtual-machine-deployment-bicep.md
         - name: Use Azure PowerShell
-          href: quickstarts-tenant-workload-deployment-ps.md 
+          href: quickstarts-virtual-machine-deployment-ps.md 
 - name: How-To Guides
   items:
     - name: Operator Nexus Instance Deployment and Upgrade
