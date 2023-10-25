@@ -5,7 +5,8 @@ summary: Astronomer – An Azure Native ISV Service is part of Marketplace and c
 
 metadata:
   title: Astronomer 
-  description: Astronomer integrates with Azure to combine the benefits of astronomer   ms.topic: landing-page
+  description: Astronomer integrates with Azure to combine the benefits of astronomer
+  ms.topic: landing-page
   ms.date: 10/25/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
