@@ -373,8 +373,6 @@
               href: ../vercel-integration.md
         - name: Migrate data to Azure Cosmos DB
           items:
-            - name: Options to migrate data into Azure Cosmos DB
-              href: ../migration-choices.md
             - name: Desktop data migration tool
               href: ../how-to-migrate-desktop-tool.md
             - name: Estimate RU/s with capacity planner

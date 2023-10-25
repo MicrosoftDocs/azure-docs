@@ -47,7 +47,7 @@ Azure Cosmos DB does not natively support migrating account metadata from one re
 > [!IMPORTANT]
 > It is not necessary to migrate the account metadata if the data is stored or moved to a different region. The region in which the account metadata resides has no impact on the performance, security or any other operational aspects of your Azure Cosmos DB account.
 
-A near-zero-downtime migration for the API for NoSQL requires the use of the [change feed](change-feed.md) or a tool that uses it. If you're migrating from the API for MongoDB, Cassandra, or another API, or to learn more about options for migrating data between accounts, see [Options to migrate your on-premises or cloud data to Azure Cosmos DB](migration-choices.md). 
+A near-zero-downtime migration for the API for NoSQL requires the use of the [change feed](change-feed.md) or a tool that uses it.
 
 The following steps demonstrate how to migrate an Azure Cosmos DB account for the API for NoSQL and its data from one region to another:
 

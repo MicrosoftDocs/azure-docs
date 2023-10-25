@@ -1,8 +1,8 @@
 ---
 title: Azure Government Security
 description: Customer guidance and best practices for securing Azure workloads.
-author: stevevi
-ms.author: stevevi
+author: EliotSeattle
+ms.author: eliotgra
 ms.service: azure-government
 ms.topic: article
 recommendations: false

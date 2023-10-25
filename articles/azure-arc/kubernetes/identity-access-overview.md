@@ -51,7 +51,7 @@ Authentication is the process of verifying a user's identity. There are two opti
 
 The [Azure RBAC on Arc-enabled Kubernetes](conceptual-azure-rbac.md) feature (currently in public preview) lets you use [Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis) to allow users in your Azure tenant to access your connected Kubernetes clusters.
 
-You can also use Microsoft Entra authentication with cluster connect. For more information, see [Microsoft Entra authentication option](cluster-connect.md#azure-active-directory-authentication-option).
+You can also use Microsoft Entra authentication with cluster connect. For more information, see [Microsoft Entra authentication option](cluster-connect.md#microsoft-entra-authentication-option).
 
 ### Service token authentication
 
