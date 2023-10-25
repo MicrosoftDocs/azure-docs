@@ -44,6 +44,8 @@ With the geo-replication feature, Contoso can now establish a replica in Canada 
 ![Diagram of using one Azure Web PubSub instance with replica to handle traffic from two countries.](./media/howto-enable-geo-replication/web-pubsub-replica.png "Replica Example")
 
 ## How to enable geo-replication in a Web PubSub resource
+
+# 【Portal](#tab/Portal)
 To create a replica in an Azure region, go to your Web PubSub resource and find the **Replicas** blade on the Azure portal and click **Add** to create a replica. It will be automatically enabled upon creation.
 
 ![Screenshot of creating replica for Azure Web PubSub on Portal.](./media/howto-enable-geo-replication/web-pubsub-replica-create.png "Replica create")
@@ -55,6 +57,14 @@ After creation, you would be able to view/edit your replica on the portal by cli
 > [!NOTE]
 > * Geo-replication is a feature available in premium tier.
 > * A replica is considered a separate resource when it comes to billing. See [Pricing and resource unit](#pricing-and-resource-unit) for more details. 
+
+# [CLI](#tab/CLI)
+   ```azurecli
+   az signalr replica create -g MyGroup --signalr-name mySignalRName --replica-name myReplicaName -l myReplicaLocation
+   ```
+
+# [Bicep](#tab/Bicep)
+:::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.web/azure-web-pubsub/main.bicep":::
 
 ## Pricing and resource unit
 Each replica has its **own** `unit` and `autoscale settings`.
