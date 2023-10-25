@@ -29,11 +29,11 @@ The DICOM service requires that keys meet these requirements:
 
 ## Rotate keys often
 
-Follow [security best practices](/articles/key-vault/secrets/secrets-best-practices.md) and rotate keys often. Keys used with the DICOM service must be rotated manually. To rotate a key, update the version of the existing key or set a new encryption key from a different storage location. Always make sure to keep existing keys enabled when adding new keys because they're still needed to access the data that was encrypted with them.  
+Follow [security best practices](../../key-vault/secrets/secrets-best-practices.md) and rotate keys often. Keys used with the DICOM service must be rotated manually. To rotate a key, update the version of the existing key or set a new encryption key from a different storage location. Always make sure to keep existing keys enabled when adding new keys because they're still needed to access the data that was encrypted with them.  
 
 ## Enable a managed identity
 
-Before you set up keys, you need to enable a managed identity for the DICOM service. You can use either a system-assigned or user-assigned managed identity. For more information, see [Microsoft Entra managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview.md).
+Before you set up keys, you need to enable a managed identity for the DICOM service. You can use either a system-assigned or user-assigned managed identity. For more information, see [Microsoft Entra managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview).
 
 #### Update the DICOM service after moving or deleting the managed identity
 
@@ -66,3 +66,5 @@ The DICOM service has some limitations when it uses customer-managed keys:
 ## Next steps
 
 [Configure customer-managed keys for the DICOM service](configure-customer-managed-keys.md)
+
+[!INCLUDE [DICOM trademark statement](../includes/healthcare-apis-dicom-trademark.md)]
