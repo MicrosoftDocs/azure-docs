@@ -225,7 +225,7 @@ az aks get-credentials --name myAKSCluster --resource-group myResourceGroup
 
 1. Select **Dashboards** from the left navigation menu, open **Kubernetes / Networking** dashboard under **Managed Prometheus** folder.
 
-1. Check if the Metrics in **Kubernetes / Networking** Grafana dashboard are visible. If metrics aren't shown, change the time range to the last 15 minutes in the top right.
+1. Check if the Metrics in **Kubernetes / Networking** Grafana dashboard are visible. If metrics aren't shown, change time range to last 15 minutes in top right dropdown box.
 
 # [**Cilium**](#tab/cilium)
 
