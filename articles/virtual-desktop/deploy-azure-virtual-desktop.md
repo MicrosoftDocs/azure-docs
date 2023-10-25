@@ -26,7 +26,7 @@ Select the relevant tab for your scenario for additional prerequisites.
 
 In addition, you'll need:
 
-- The Azure account you use must have the following built-in role-based access control (RBAC) roles as a minimum on a resource group or subscription to create the following resource types. If you want to assign the roles to a resource group, you'll need to create this first.
+- The Azure account you use must be assigned the following built-in role-based access control (RBAC) roles as a minimum on a resource group or subscription to create the following resource types. If you want to assign the roles to a resource group, you'll need to create this first.
 
    | Resource type | RBAC role(s) |
    |--|--|
