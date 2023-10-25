@@ -7,7 +7,7 @@ author: sally-baolian
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: conceptual
-ms.date: 02/23/2023
+ms.date: 10/25/2023
 ms.author: eur
 ---
 

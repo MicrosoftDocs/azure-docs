@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: azure-ai-speech
 ms.custom: devx-track-extended-java, devx-track-go, devx-track-js, devx-track-python
 ms.topic: how-to
-ms.date: 06/05/2023
+ms.date: 10/25/2023
 ms.author: eur
 zone_pivot_groups: programming-languages-speech-sdk
 ---
