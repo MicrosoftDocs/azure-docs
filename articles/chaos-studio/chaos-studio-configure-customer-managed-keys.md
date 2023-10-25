@@ -57,7 +57,7 @@ To configure customer-managed keys for a new Chaos Studio resource, follow these
 # [Azure CLI](#tab/azure-cli)
 
  
-The following code sample shows an example PUT command for creating a Chaos Studio experiment resource with customer-managed keys enabled:
+The following code sample shows an example PUT command for creating or updating a Chaos Studio experiment resource to enable customer-managed keys:
 
 **NOTE** The two parameters specific to CMK experiments are under the "CustomerDataStorage" block, in which we will ask for the Subscription ID of the Azure Blob Storage Account you want to use to storage your experiment data, as well as the name of the Blob Storage container to use or create. 
  
@@ -113,6 +113,9 @@ PUT https://management.azure.com/subscriptions/6b052e15-03d3-4f17-b2e1-be7f07588
   }
 }
 ```
+## disable CMK from a Chaos Studio experiment
+ 
+You can change the managed identity for customer-managed keys for an existing Chaos Studio experiment at any time. This would be identical to updating the User-assigned Managed identity for any Chaos Studio experiment. **NOTE** If the User-Assigned Managed Identity does NOT have the correct permisions to retrieve the CMK from your key vault and write to the Bloc Storage, the PUT command to update the UMI will fail. 
 
 ## Change the managed identity for retrieving the encryption key
  
@@ -140,5 +143,5 @@ This feature is currently only available for Azure Chaos Studio experiments crea
  
 ### How can I tell if customer-managed keys are enabled on my Azure Chaos Studio experiment?
  
-Using the "GetExperiment" command, the response will show you whether the "CustomerDataStorage" properties have been populated or not, which is how you can tell whether an experiment has CMK enabled or not. 
+Using the "Get Experiment" command from the 2023-10-27-preview REST API, the response will show you whether the "CustomerDataStorage" properties have been populated or not, which is how you can tell whether an experiment has CMK enabled or not. 
  
