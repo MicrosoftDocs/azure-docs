@@ -7,13 +7,10 @@ author: robertklee
 ms.author: robertlee
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/09/2023
+ms.date: 10/24/2023
 ---
 
 # Vector index size limit
-
-> [!IMPORTANT]
-> Vector search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and [beta client libraries](https://github.com/Azure/cognitive-search-vector-pr#readme).
 
 When you index documents with vector fields, Azure Cognitive Search constructs internal vector indexes using the algorithm parameters that you specified for the field. Because Cognitive Search imposes limits on vector index size, it's important that you know how to retrieve metrics about the vector index size, and how to estimate the vector index size requirements for your use case.
 
@@ -44,17 +41,17 @@ The following table repurposes information from [Search service limits](search-l
 
 ## How to get vector index size
 
-Use the preview REST APIs to return vector index size:
+Use the REST APIs to return vector index size:
 
-+ [GET Index Statistics](/rest/api/searchservice/preview-api/get-index-statistics) returns usage for a given index.
++ [GET Index Statistics](/rest/api/searchservice/2023-11-01/indexes/get-statistics) returns usage for a given index.
 
-+ [GET Service Statistics](/rest/api/searchservice/preview-api/get-service-statistics) returns quota and usage for the search service all-up.
++ [GET Service Statistics](/rest/api/searchservice/2023-11-01/get-service-statistics/get-service-statistics) returns quota and usage for the search service all-up.
 
-For a visual, here's the sample response for a Basic search service that has the quickstart vector search index. `storageSize` and `vectorIndexSize` are reported in bytes. Notice that you'll need the preview API to return vector statistics.
+For a visual, here's the sample response for a Basic search service that has the quickstart vector search index. `storageSize` and `vectorIndexSize` are reported in bytes. 
 
 ```json
 {
-    "@odata.context": "https://my-demo.search.windows.net/$metadata#Microsoft.Azure.Search.V2023_07_01_Preview.IndexStatistics",
+    "@odata.context": "https://my-demo.search.windows.net/$metadata#Microsoft.Azure.Search.V2023_11_01.IndexStatistics",
     "documentCount": 108,
     "storageSize": 5853396,
     "vectorIndexSize": 1342756
@@ -65,7 +62,7 @@ Return service statistics to compare usage against available quota at the servic
 
 ```json
 {
-    "@odata.context": "https://my-demo.search.windows.net/$metadata#Microsoft.Azure.Search.V2023_07_01_Preview.ServiceStatistics",
+    "@odata.context": "https://my-demo.search.windows.net/$metadata#Microsoft.Azure.Search.V2023_11_01.ServiceStatistics",
     "counters": {
         "documentCount": {
             "usage": 15377,
@@ -140,7 +137,7 @@ These results demonstrate the relationship between dimensions, HNSW parameter `m
 
 When a document with a vector field is either deleted or updated (updates are internally represented as a delete and insert operation), the underlying document is marked as deleted and skipped during subsequent queries. As new documents are indexed and the internal vector index grows, the system cleans up these deleted documents and reclaims the resources. This means you'll likely observe a lag between deleting documents and the underlying resources being freed.
 
-We refer to this as the "deleted documents ratio". Since the deleted documents ratio depends on the indexing characteristics of your service, there's no universal heuristic to estimate this parameter, and there's no API or script that returns the ratio in effect for your service. We observe that half of our customers have a deleted documents ratio less than 10%. If you tend to perform high-frequency deletions or updates, then you may observe a higher deleted documents ratio.
+We refer to this as the "deleted documents ratio". Since the deleted documents ratio depends on the indexing characteristics of your service, there's no universal heuristic to estimate this parameter, and there's no API or script that returns the ratio in effect for your service. We observe that half of our customers have a deleted documents ratio less than 10%. If you tend to perform high-frequency deletions or updates, then you might observe a higher deleted documents ratio.
 
 This is another factor impacting the size of your vector index. Unfortunately, we don't have a mechanism to surface your current deleted documents ratio.
 

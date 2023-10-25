@@ -7,13 +7,10 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 10/13/2023
+ms.date: 10/24/2023
 ---
 
 # Create a vector query in Azure Cognitive Search
-
-> [!IMPORTANT]
-> Vector search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST APIs, and [beta client libraries](https://github.com/Azure/cognitive-search-vector-pr#readme).
 
 In Azure Cognitive Search, if you [added vector fields](vector-search-how-to-create-index.md) to a search index, this article explains how to:
 
@@ -30,11 +27,11 @@ Code samples in the [cognitive-search-vector-pr](https://github.com/Azure/cognit
 
 + A search index containing vector fields. See [Add vector fields to a search index](vector-search-how-to-create-index.md).
 
-+ Use REST API version **2023-10-01-Preview** if you want pre-filters and the latest behaviors. Otherwise, you can continue to use **2023-07-01-Preview**, the [beta client libraries](https://github.com/Azure/cognitive-search-vector-pr/tree/main), or Search Explorer in the Azure portal.
++ Use REST API version **2023-11-01** if you want the stable version. Otherwise, you can continue to use **2023-10-01-Preview**, **2023-07-01-Preview**, the Azure SDK libraries, or Search Explorer in the Azure portal.
 
 ## Limitations
 
-Cognitive Search doesn't provide built-in vectorization of the query input string. Encoding (text-to-vector) of the query string requires that you pass the query string to an embedding model for vectorization. You would then pass the response to the search engine for similarity search over vector fields.
+The stable version doesn't provide built-in vectorization of the query input string. Encoding (text-to-vector) of the query string requires that you pass the query string to an embedding model for vectorization. You would then pass the response to the search engine for similarity search over vector fields.
 
 All results are returned in plain text, including vectors. If you use Search Explorer in the Azure portal to query an index that contains vectors, the numeric vectors are returned in plain text. Because numeric vectors aren't useful in search results, choose other fields in the index as a proxy for the vector match. For example, if an index has "descriptionVector" and "descriptionText" fields, the query can match on "descriptionVector" but the search result can show "descriptionText". Use the `select` parameter to specify only human-readable fields in the results.
 
@@ -96,6 +93,41 @@ The actual response for this POST call to the deployment model includes 1536 emb
 ## Vector query request
 
 You can use the Azure portal, REST APIs, or the beta packages of the Azure SDKs to query vectors.
+
+### [**2023-11-01**](#tab/query-2023-11-01)
+
+REST API version [**2023-11-01**](/rest/api/searchservice/search-service-api-versions#2023-11-01) is the stable API version for [Search POST](/rest/api/searchservice/2023-11-01/documents/search-post). This API supports:
+
++ `vectorQueries` for specifying a vector to search for, vector fields to search in, and the k-number of nearest neighbors to return.
++ `kind` as a parameter of `vectorQueries`.
++ `exhaustive` can be set to true or false, and invokes exhaustive KNN at query time, even if you indexed the field for HNSW.
+
+In the following example, the vector is a representation of this query string: `"what Azure services support full text search"`. The query targets the "contentVector" field. The actual vector has 1536 embeddings, so it's trimmed in this example for readability.
+
+```http
+POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2023-11-01
+Content-Type: application/json
+api-key: {{admin-api-key}}
+{
+    "count": true,
+    "select": "title, content, category",
+    "vectorQueries": [
+        {
+            "kind": "vector"
+            "vector": [
+                -0.009154141,
+                0.018708462,
+                . . . 
+                -0.02178128,
+                -0.00086512347
+            ],
+            "exhaustive": true,
+            "fields": "contentVector",
+            "k": 5
+        }
+    ]
+}
+```
 
 ### [**2023-10-01-Preview**](#tab/query-2023-10-01-Preview)
 
@@ -217,7 +249,7 @@ Here's a modified example so that you can see the basic structure of a response 
 
 ### [**Azure portal**](#tab/portal-vector-query)
 
-Azure portal supports **2023-07-01-Preview** behaviors.
+Azure portal supports **2023-10-01-Preview** behaviors.
 
 Be sure to the **JSON view** and formulate the query in JSON. The search bar in **Query view** is for full text search and will treat any vector input as plain text.
 
@@ -231,7 +263,7 @@ Be sure to the **JSON view** and formulate the query in JSON. The search bar in 
 
    :::image type="content" source="media/vector-search-how-to-query/select-json-view.png" alt-text="Screenshot of the index list." border="true":::
 
-1. By default, the search API is **2023-07-01-Preview**. This is the correct API version for vector search.
+1. By default, the search API is **2023-10-01-Preview**. This is the correct API version for vector search.
 
 1. Paste in a JSON vector query, and then select **Search**. You can use the REST example as a template for your JSON query.
 
@@ -261,12 +293,50 @@ Be sure to the **JSON view** and formulate the query in JSON. The search bar in 
 
 A query request can include a vector query and a [filter expression](search-filters.md). Filters apply to "filterable" text and numeric fields, and are useful for including or excluding search documents based on filter criteria. Although a vector field isn't filterable itself, a query can include filters on other fields in the same index.
 
-In **2023-10-01-Preview**, you can apply a filter before or after query execution. The default is pre-query. If you want post-query filtering instead, set the `vectorFiltermode` parameter.
+In **2023-11-01** or **2023-10-01-Preview**, you can apply a filter before or after query execution. The default is pre-query. If you want post-query filtering instead, set the `vectorFiltermode` parameter.
 
 In **2023-07-01-Preview**, a filter in a pure vector query is processed as a post-query operation.
 
 > [!TIP]
 > If you don't have source fields with text or numeric values, check for document metadata, such as LastModified or CreatedBy properties, that might be useful in a metadata filter.
+
+### [**2023-11-01**](#tab/filter-2023-11-01)
+
+REST API version [**2023-11-01**](/rest/api/searchservice/search-service-api-versions#2023-11-01) is the stable version for this API. It has:
+
++ `vectorFilterMode` for prefiltering (default) or postfiltering during query execution. Valid values are `preFilter` (default), `postFilter`, and null.
++ `filter` provides the criteria.
+
+In the following example, the vector is a representation of this query string: `"what Azure services support full text search"`. The query targets the "contentVector" field. The actual vector has 1536 embeddings, so it's trimmed in this example for readability.
+
+The filter criteria are applied to a filterable text field ("category" in this example) before the search engine executes the vector query.
+
+```http
+POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2023-11-01
+Content-Type: application/json
+api-key: {{admin-api-key}}
+{
+    "count": true,
+    "select": "title, content, category",
+    "filter": "category eq 'Databases'",
+    "vectorFilterMode": "preFilter",
+    "vectorQueries": [
+        {
+            "kind": "vector"
+            "vector": [
+                -0.009154141,
+                0.018708462,
+                . . . 
+                -0.02178128,
+                -0.00086512347
+            ],
+            "exhaustive": true,
+            "fields": "contentVector",
+            "k": 5
+        }
+    ]
+}
+```
 
 ### [**2023-10-01-Preview**](#tab/filter-2023-10-01-Preview)
 
@@ -312,7 +382,7 @@ REST API version [**2023-07-01-Preview**](/rest/api/searchservice/index-preview)
 
 In the following example, the vector is a representation of this query string: `"what Azure services support full text search"`. The query targets the "contentVector" field. The actual vector has 1536 embeddings, so it's trimmed in this example for readability.
 
-In this API version, there is no pre-filter support or `vectorFilterMode` parameter. The filter criteria are applied after the search engine executes the vector query. The set of `"k"` nearest neighbors is retrieved, and then combined with the set of filtered results. As such, the value of `"k"` predetermines the surface over which the filter is applied. For `"k": 10`, the filter is applied to 10 most similar documents. For `"k": 100`, the filter iterates over 100 documents (assuming the index contains 100 documents that are sufficiently similar to the query).
+In this API version, there's no pre-filter support or `vectorFilterMode` parameter. The filter criteria are applied after the search engine executes the vector query. The set of `"k"` nearest neighbors is retrieved, and then combined with the set of filtered results. As such, the value of `"k"` predetermines the surface over which the filter is applied. For `"k": 10`, the filter is applied to 10 most similar documents. For `"k": 100`, the filter iterates over 100 documents (assuming the index contains 100 documents that are sufficiently similar to the query).
 
 ```http
 POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2023-07-01-Preview
@@ -344,7 +414,7 @@ api-key: {{admin-api-key}}
 You can set the "vectors.fields" property to multiple vector fields. For example, the Postman collection has vector fields named "titleVector" and "contentVector". A single vector query executes over both the "titleVector" and "contentVector" fields, which must have the same embedding space since they share the same query vector.
 
 ```http
-POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2023-10-01-Preview
+POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2023-11-01
 Content-Type: application/json
 api-key: {{admin-api-key}}
 {

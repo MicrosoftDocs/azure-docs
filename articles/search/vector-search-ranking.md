@@ -7,13 +7,10 @@ author: yahnoosh
 ms.author: jlembicz
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/13/2023
+ms.date: 10/24/2023
 ---
 
 # Relevance and ranking in vector search
-
-> [!IMPORTANT]
-> Vector search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and [beta client libraries](https://github.com/Azure/cognitive-search-vector-pr#readme).
 
 In vector query execution, the search engine looks for similar vectors to find the best candidates to return in search results. Depending on how you indexed the vector content, the search for relevant matches is either exhaustive, or constrained to near neighbors for faster processing. Once candidates are found, similarity metrics are used to score each result based on the strength of the match. This article explains the algorithms used to determine relevance and the similarity metrics used for scoring.
 
@@ -33,7 +30,7 @@ This algorithm is intended for scenarios where high recall is of utmost importan
 
 Another use is to build a dataset to evaluate approximate nearest neighbor algorithm recall. Exhaustive KNN can be used to build the ground truth set of nearest neighbors.
 
-Exhaustive KNN support is available through [2023-10-01-Preview REST API](/rest/api/searchservice/search-service-api-versions#2023-10-01-Preview) and in Azure SDK client libraries that target that REST API version.
+Exhaustive KNN support is available through [2023-11-01 REST API](/rest/api/searchservice/search-service-api-versions#2023-11-01), [2023-10-01-Preview REST API](/rest/api/searchservice/search-service-api-versions#2023-10-01-Preview), and in Azure SDK client libraries that target either REST API version.
 
 ### When to use HNSW
 

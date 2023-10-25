@@ -7,13 +7,10 @@ author: robertklee
 ms.author: robertlee
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/27/2023
+ms.date: 10/24/2023
 ---
 
 # Vector search in Azure Cognitive Search
-
-> [!IMPORTANT]
-> Vector search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, [**2023-10-01-Preview REST APIs**](/rest/api/searchservice/search-service-api-versions#2023-10-01-Preview), [**2023-07-01-Preview REST APIs**](/rest/api/searchservice/index-preview), and [beta client libraries](https://github.com/Azure/cognitive-search-vector-pr#readme).
 
 Vector search is an approach in information retrieval that uses numeric representations of content for search scenarios. Because the content is numeric rather than plain text, the search engine matches on vectors that are the most similar to the query, with no requirement for matching on exact terms.
 
@@ -25,7 +22,7 @@ We recommend this article for background, but if you'd rather get started, follo
 > + [Generate vector embeddings](vector-search-how-to-generate-embeddings.md) before you start.
 > + [Add vector fields to an index](vector-search-how-to-create-index.md).
 > + [Load vector data](search-what-is-data-import.md) into an index using push or pull methodologies. 
-> + [Query vector data](vector-search-how-to-query.md) using the Azure portal, preview REST APIs, or beta SDK packages.
+> + [Query vector data](vector-search-how-to-query.md) using the Azure portal, REST APIs, or Azure SDK packages.
 
 You could also begin with the [vector quickstart](search-get-started-vector.md) or the [code samples on GitHub](https://github.com/Azure/cognitive-search-vector-pr). 
 
@@ -44,12 +41,6 @@ On the indexing side, prepare source documents that contain embeddings. Cognitiv
 On the query side, in your client application, collect the query input. Add a step that converts the input into a vector, and then send the vector query to your index on Cognitive Search for a similarity search. Cognitive Search returns documents with the requested `k` nearest neighbors (kNN) in the results.
 
 You can index vector data as fields in documents alongside alphanumeric content. Vector queries can be issued singly or in combination with filters and other query types, including term queries (hybrid search) and semantic ranking in the same search request.
-
-## Limitations
-
-Azure Cognitive Search doesn't generate vector embeddings for your content. You need to provide the embeddings yourself by using a solution like Azure OpenAI. See [How to generate embeddings](vector-search-how-to-generate-embeddings.md) to learn more.
-
-Vector search doesn't support customer-managed keys (CMK) at this time. This means you won't be able to add vector fields to an index with CMK enabled.
 
 ## Availability and pricing
 
@@ -132,7 +123,7 @@ Within an index definition, you can specify one or more algorithms, and then for
 
 + [Create a vector index](vector-search-how-to-create-index.md) to specify an algorithm in the index and on fields.
 
-+ For exhaustive KNN, use [2023-10-01-Preview](/rest/api/searchservice/2023-10-01-preview/indexes/create-or-update) REST APIs or Azure SDK beta libraries that target the 2023-10-01-Preview version.
++ For exhaustive KNN, use [2023-11-01](/rest/api/searchservice/2023-11-01/indexes/create-or-update), [2023-10-01-Preview](/rest/api/searchservice/2023-10-01-preview/indexes/create-or-update), or Azure SDK beta libraries that target either REST API version.
 
 Algorithm parameters that are used to initialize the index during index creation are immutable and can't be changed after the index is built. However, parameters that affect the query-time characteristics (`efSearch`) can be modified. 
 

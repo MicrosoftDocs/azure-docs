@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 10/19/2023
+ms.date: 10/24/2023
 ms.custom: references_regions
 ---
 
@@ -22,7 +22,11 @@ Learn about the latest updates to Azure Cognitive Search functionality, docs, an
 
 | Item&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Type |  Description |
 |-----------------------------|------|--------------|
-| [**Semantic ranking generally available**](semantic-search-overview.md) | Feature | Semantic ranking ([formerly known as "semantic search"](#feature-rename)) is now generally available.  |
+| [**Vector search, generally available**](vector-search-overview.md) | Feature | Vector search is now supported for production workloads. The previous restriction on customer-managed keys (CMK) is now lifted. Prefiltering and exhaustive K-nearest neighbor algorithm are also now generally available. |
+| [**Semantic ranking, generally available**](semantic-search-overview.md) | Feature | Semantic ranking ([formerly known as "semantic search"](#feature-rename)) is now supported for production workloads.|
+| [**2023-11-01 Search REST API**](/rest/api/searchservice/search-service-api-versions#2023-11-01) | API | New stable version of the Search REST APIs for [vector fields](vector-search-how-to-create-index.md), [vector queries](vector-search-how-to-query.md), and [semantic ranking](semantic-how-to-query-request.md). |
+| [**2023-11-01 Management REST API**](/rest/api/searchmanagement/management-api-versions#2023-11-01) | API | New stable version of the Management REST APIs for control plane operations. This version adds APIs that [enable or disable semantic ranking](/rest/api/searchmanagement/2023-11-01/services/create-or-update). |
+
 ## October 2023
 
 | Item&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Type |  Description |
