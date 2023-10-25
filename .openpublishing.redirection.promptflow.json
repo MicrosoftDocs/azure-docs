@@ -1,0 +1,14 @@
+{
+  "redirections": [
+    {
+      "source_path_from_root": "/articles/machine-learning/prompt-flow/how-to-develop-a-chat-flow.md",
+      "redirect_url": "/azure/machine-learning/prompt-flow/how-to-develop-flow.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/prompt-flow/how-to-develop-a-standard-flow.md",
+      "redirect_url": "/azure/machine-learning/prompt-flow/how-to-develop-flow.md",
+      "redirect_document_id": true
+    }
+  ]
+}
