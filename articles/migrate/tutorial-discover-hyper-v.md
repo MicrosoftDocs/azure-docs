@@ -6,7 +6,7 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
 ms.service: azure-migrate
-ms.date: 09/15/2023
+ms.date: 10/15/2023
 ms.custom: mvc, subject-rbac-steps, engagement-fy24
 #Customer intent: As a Hyper-V admin, I want to discover my on-premises servers on Hyper-V.
 ---
@@ -52,7 +52,7 @@ If you just created a free Azure account, you're the owner of your subscription.
 
 1. In the Azure portal, search for "subscriptions", and under **Services**, select **Subscriptions**.
 
-    ![Screenshot of Search box to search for the Azure subscription.](./media/tutorial-discover-hyper-v/search-subscription.png)
+    :::image type="content" source="./media/tutorial-discover-hyper-v/search-subscription.png" alt-text="Screenshot of Search box to search for the Azure subscription.":::
 
 1. In the **Subscriptions** page, select the subscription in which you want to create a project.
 
@@ -68,7 +68,7 @@ If you just created a free Azure account, you're the owner of your subscription.
     | Assign access to | User |
     | Members | azmigrateuser |
 
-    ![Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
+    :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-page.png" alt-text="Screenshot of add role assignment page in Azure portal.":::
 
 1. To register the appliance, your Azure account needs **permissions to register Microsoft Entra apps.**
 
@@ -133,18 +133,16 @@ Set up a new project.
 5. In **Create project**, select your Azure subscription and resource group. Create a resource group if you don't have one.
 6. In **Project Details**, specify the project name and the geography in which you want to create the project. Review supported geographies for [public](migrate-support-matrix.md#public-cloud) and [government clouds](migrate-support-matrix.md#azure-government).
 
-   ![Screenshot of project name and region.](./media/tutorial-discover-hyper-v/new-project.png)
-
    > [!Note]
    > Use the **Advanced** configuration section to create an Azure Migrate project with private endpoint connectivity. [Learn more](discover-and-assess-using-private-endpoints.md#create-a-project-with-private-endpoint-connectivity). 
 
 7. Select **Create**.
 8. Wait a few minutes for the project to deploy. The **Azure Migrate: Discovery and assessment** tool is added by default to the new project.
 
-![Page showing Azure Migrate: Discovery and assessment tool added by default.](./media/tutorial-discover-hyper-v/added-tool.png)
+    :::image type="content" source="./media/tutorial-discover-vmware/added-tool.png" alt-text="Screenshot showing Azure Migrate: Discovery and assessment tool added by default.":::
 
 > [!NOTE]
-> If you have already created a project, you can use the same project to register additional appliances to discover and assess more no of servers.[Learn more](create-manage-projects.md#find-a-project)
+> If you have already created a project, you can use the same project to register additional appliances to discover and assess more no of servers. [Learn more](create-manage-projects.md#find-a-project)
 
 ## Set up the appliance
 
