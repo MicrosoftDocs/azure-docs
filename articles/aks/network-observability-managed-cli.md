@@ -223,9 +223,9 @@ az aks get-credentials --name myAKSCluster --resource-group myResourceGroup
     ama-metrics-win-node-tkrm8            2/2     Running   0 (26h ago)   26h
     ```
 
-1. Use the ID [18814]( https://grafana.com/grafana/dashboards/18814/) to import the dashboard from Grafana's public dashboard repo.
+1. Select **Dashboards** from the left navigation menu, open **Kubernetes / Networking** dashboard under **Managed Prometheus** folder.
 
-1. Verify the Grafana dashboard is visible.
+1. Check if the Metrics in **Kubernetes / Networking** Grafana dashboard are visible. If metrics aren't shown, change the time range to the last 15 minutes in the top right.
 
 # [**Cilium**](#tab/cilium)
 
