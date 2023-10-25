@@ -14,7 +14,7 @@ author: sagarkeswani
 
 In this how-to guide, you'll learn to start and stop your SAP systems through the *Virtual Instance for SAP solutions (VIS)* resource in *Azure Center for SAP solutions*. 
 
-Through the Azure portal, you can start and stop:
+Through the Azure portal, [Azure PowerShell](/powershell/module/az.workloads), [CLI](/cli/azure/workloads/sap-virtual-instance) and [REST API](/rest/api/workloads) interfaces, you can start and stop:
 
 - Entire SAP Application tier in one go, which include ABAP SAP Central Services (ASCS) and Application Server instances.
 - Individual SAP instances, which include Central Services and Application server instances.
@@ -97,9 +97,6 @@ To start an SAP system in the VIS resource:
 1. Wait for the VIS resource's **Status** to change to **Running**. 
 
     A notification pane then opens with a **Started Virtual Instance for SAP solutions** message.
-
-> [!NOTE]
-> You can Stop and Start SAP system, specific SAP instances and HANA database using [Azure PowerShell](/powershell/module/az.workloads), [CLI](/cli/azure/workloads/sap-virtual-instance) and [REST API](/rest/api/workloads) interfaces too.
 
 ## Troubleshooting
 
