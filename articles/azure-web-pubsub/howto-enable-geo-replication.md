@@ -180,7 +180,7 @@ Before deleting a replication, consider disabling its endpoint first. Over time,
 This feature is also useful for troubleshooting regional issues.
 
 > [!NOTE]
-> * Due to the DNS cache, it may take several minutes for the DNS update to take effect. 
+> * Due to the DNS cache, it might take several minutes for the DNS update to take effect. 
 > * Existing connections remain unaffected until they disconnect.
 
 ## Impact on performance after enabling geo-replication feature
