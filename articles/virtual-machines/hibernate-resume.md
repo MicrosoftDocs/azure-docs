@@ -183,7 +183,7 @@ New-AzVm `
 
 ### [REST](#tab/enableWithREST)
 
-First, [create a VM with hibernation enabled](https://docs.microsoft.com/rest/api/compute/virtual-machines/create-or-update#create-a-vm-with-hibernationenabled)
+First, [create a VM with hibernation enabled](/rest/api/compute/virtual-machines/create-or-update#create-a-vm-with-hibernationenabled)
 
 ```json
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/{vm-name}?api-version=2021-11-01
@@ -563,7 +563,7 @@ VMs created from Compute Gallery images can also be enabled for hibernation. Ens
 
 To create VMs with hibernation enabled using Gallery images, you'll first need to create a new image definition with the hibernation property enabled. Once this feature property is enabled on the Gallery Image definition, you can create an image version(s) and use that image version to create hibernation enabled VMs. 
 
-[Create an image version within this image definition](azure/virtual-machines/image-version?tabs=portal#create-an-image)
+[Create an image version within this image definition](/azure/virtual-machines/image-version?tabs=portal#create-an-image)
 
 >[!NOTE]
 > For specialized Windows images, the page file location must be set to C: drive in order for Azure to successfully configure your guest OS for hibernation.
