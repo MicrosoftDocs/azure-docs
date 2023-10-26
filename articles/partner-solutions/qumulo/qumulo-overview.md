@@ -52,7 +52,7 @@ Azure Native Qumulo Scalable File Service provides:
 ## Next steps
 
 - For more help with using Azure Native Qumulo Scalable File Service, see the [Qumulo documentation](https://docs.qumulo.com/cloud-guide/azure/).
-- To get started with the Azure Native Qumulo V2 Scalable File Service, see the [quickstart](qumulo-create-V2.md).
+- To get started with the Azure Native Qumulo V2 Scalable File Service, see the [quickstart](qumulo-create-v2.md).
 - To get started with the Azure Native Qumulo V1 Scalable File Service, see the [quickstart](qumulo-create.md).
 - Get started with Azure Native Qumulo Scalable File Service on
 
