@@ -16,7 +16,7 @@ This article provides troubleshooting information to help you with problems you 
 When you onboard an Azure virtual machine from the Azure portal, the following steps occur:
 
 - A default Log Analytics workspace is created if that option was selected.
-- The Log Analytics agent is installed on Azure virtual machines by using a VM extension if the agent is already installed.
+- Azure Monitor Agent is installed on Azure virtual machines by using a VM extension if the agent is already installed.
 - The Dependency agent is installed on Azure virtual machines by using an extension if it's required.
 
 During the onboarding process, each of these steps is verified and a notification status appears in the portal. Configuration of the workspace and the agent installation typically takes 5 to 10 minutes. It takes another 5 to 10 minutes for data to become available to view in the portal.
