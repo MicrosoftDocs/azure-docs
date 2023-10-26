@@ -181,7 +181,7 @@ You can create a K3S Kubernetes cluster on the Linux VM to simulate a cluster in
     az connectedk8s connect -g <your resource group name> -n <your connected cluster name>
     ```
 
-    For more information about *connectedk8s*, see [Quickstart: Connect an existing Kubernetes cluster to Azure Arc ](/azure-arc/kubernetes/quickstart-connect-cluster).
+    For more information about *connectedk8s*, see [Quickstart: Connect an existing Kubernetes cluster to Azure Arc ](/azure/azure-arc/kubernetes/quickstart-connect-cluster).
 
 1. You should see output like the following:
     
