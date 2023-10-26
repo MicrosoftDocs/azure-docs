@@ -267,6 +267,8 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Support options
     href: ./hdinsight-aks-support-help.md
+  - name: Trademarks
+    href: ./trademarks.md
   - name: Troubleshoot
     items:
     - name: Cluster creation errors

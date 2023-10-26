@@ -308,6 +308,8 @@ items:
         href: how-tos/calling-sdk/record-calls.md
       - name: Raise Hand
         href: how-tos/calling-sdk/raise-hand.md
+      - name: Reactions
+        href: how-tos/calling-sdk/reactions.md
       - name: Spotlight
         href: how-tos/calling-sdk/spotlight.md
       - name: Show transcription state
