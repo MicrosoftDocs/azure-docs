@@ -295,7 +295,7 @@ The following table provides the source device/point, possible values, and defin
 
 ## Event Consumers
 
-You can write simple consumer apps to receive events from your Event Hubs using [event consumers](../event-hubs/event-hubs-features#event-consumers.md). Refer to the following documentation to learn how to send and receive events Event Hubs in various languages: 
+You can write simple consumer apps to receive events from your Event Hubs using [event consumers](../azure/event-hubs/event-hubs-features#event-consumers.md). Refer to the following documentation to learn how to send and receive events Event Hubs in various languages: 
 - [Python](../event-hubs/event-hubs-python-get-started-send.md)
 - [.NET](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
 - [Java](../event-hubs/event-hubs-java-get-started-send.md)
