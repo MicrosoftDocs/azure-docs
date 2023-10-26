@@ -20,7 +20,7 @@ Load balancing provides a higher level of availability and scale by spreading in
 
 This quickstart shows you how to deploy a standard load balancer to load balance virtual machines.
 
-:::image type="content" source="media/quickstart-load-balancer-standard-public-portal/public-load-balancer-resources.png" alt-text="Diagram of resources deployed for a standard public load balancer.":::
+:::image type="content" source="media/quickstart-load-balancer-standard-public-portal/public-load-balancer-resources.png" alt-text="Diagram of resources deployed for a standard public load balancer." lightbox="media/quickstart-load-balancer-standard-public-portal/public-load-balancer-resources.png":::
 
 Using an ARM template takes fewer steps comparing to other deployment methods.
 
