@@ -188,7 +188,7 @@ As a part of AKS backup capability, you can back up all or specific cluster reso
 :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/various-backup-configurations.png" alt-text="Screenshot shows various backup configurations.":::
 
 
-## Use Hooks during backup
+## Use Hooks during AKS backup
 
 This section describes how to use Backup Hook to do Application Consistent Snapshots of the AKS cluster with MySQL deployed (Persistent Volume with containing the MySQL). 
 
