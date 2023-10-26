@@ -26,7 +26,7 @@ You can apply resiliency policies to two styles of service-to-service communicat
   - Container app's fully qualified domain name (FQDN) 
 - [Dapr service invocation](./dapr-invoke-resiliency.md). 
 
-This guide focuses on configuring Azure Container Apps resiliency policies when initiating requests using a container app's service name.
+This guide focuses on configuring Azure Container Apps resiliency policies when initiating requests using Azure Container Apps service discovery.
 
 :::image type="content" source="media/service-name-resiliency/service-name-resiliency.png" alt-text="Diagram demonstrating container app to container app resiliency using a container app's service name.":::
 
@@ -64,9 +64,9 @@ resource myPolicyDoc 'Microsoft.App/containerApps/resiliencyPolicies@2023-08-01-
             headers: [
                 {
                     headerMatch: {
-                        header: 'X-Content-Type'
+                        header: 'x-ms-retriable'
                         match: { 
-                            prefixMatch: 'application'
+                            exactMatch: 'true'
                         }
                     }
                 }
@@ -76,8 +76,11 @@ resource myPolicyDoc 'Microsoft.App/containerApps/resiliencyPolicies@2023-08-01-
                 503
             ]
             errors: [
-                'retriable-headers'
                 'retriable-status-codes'
+                '5xx'
+                'reset'
+                'connect-failure'
+                'retriable-4xx'
             ]
         }
     } 
@@ -208,9 +211,9 @@ properties: {
             headers: [
                 {
                     headerMatch: {
-                        header: 'X-Content-Type'
+                        header: 'x-ms-retriable'
                         match: { 
-                            prefixMatch: 'application'
+                           exactMatch: 'true'
                         }
                     }
                 }
@@ -235,22 +238,22 @@ properties: {
 | `retryBackOff.initialDelayInMilliseconds` | Y | Delay between first error and first retry. | `1000` |
 | `retryBackOff.maxIntervalInMilliseconds` | Y | Maximum delay between retries. | `10000` |
 | `matches` | Y | Set match values to limit when the app should attempt a retry.  | `headers`, `httpStatusCodes`, `errors` |
-| `matches.headers` | Y* | Retry on any status code defined in retriable headers. *Headers are only required properties if you've specified the `retriable-headers` error property. [Learn more about available header matches.](#header-matches) | `X-Content-Type` |
-| `matches.httpStatusCodes` | Y* | Retry on any status code defined. *Status codes are only required properties if you've specified the `retriable-status-codes` error property. | `502`, `503` |
-| `matches.errors` | Y | Only retries when the app returns a specific error message. [Learn more about available errors.](#errors) | `connect-failure`, `reset` |
+| `matches.headers` | Y* | Retry when the error response includes a specific header. *Headers are only required properties if you've specified the `retriable-headers` error property. [Learn more about available header matches.](#header-matches) | `X-Content-Type` |
+| `matches.httpStatusCodes` | Y* | Retry when the response returns a specific status code. *Status codes are only required properties if you've specified the `retriable-status-codes` error property. | `502`, `503` |
+| `matches.errors` | Y | Only retries when the app returns a specific error. [Learn more about available errors.](#errors) | `connect-failure`, `reset` |
 
 ##### Header matches
 
-If you've specified `retriable-headers` error, you can use any of the following header match properties to retry.
+If you've specified the `retriable-headers` error, you can use the following header match properties to retry when the response includes a specific header.
 
 ```bicep
 matches: {
   headers: [
     { 
       headerMatch: {
-        header: 'X-Content-Type'
+        header: 'x-ms-retriable'
         match: {
-          prefixMatch: 'application'
+          exactMatch: 'true'
         }
       }
     }
@@ -258,16 +261,16 @@ matches: {
 }
 ```
 
-| Metadata | Description | Example |
-| -------- | ----------- | ------- |
-| `prefixMatch` | Retry on matches to the specified prefix. | `application` |
-| `exactMatch` | Retry on exact matches to the header type. | `application/json` |
-| `suffixMatch` | Retry on matches to the specified suffix. | `json` |
-| `regexMatch` | Retry on matches to the regex pattern. | `application/json` |
+| Metadata | Description |
+| -------- | ----------- |
+| `prefixMatch` | Retries will be performed based on the prefix of the header value. |
+| `exactMatch` | Retries will be performed based on an exact match of the header value. |
+| `suffixMatch` | Retries will be performed based on the suffix of the header value. |
+| `regexMatch` | Retries will be performed based on an regular expression rule where the header value must match the regex pattern. |
 
 ##### Errors
 
-You can specify any of the following errors as retriable matches.
+You can perform retries on any of the following errors:
 
 ```bicep
 matches: {
@@ -284,12 +287,12 @@ matches: {
 
 | Metadata | Description |
 | -------- | ----------- |
-| `retriable-headers` | Required if you'd like to retry any matching headers. |
-| `retriable-status-codes` | Required if you'd like to retry any matching status codes. |
+| `retriable-headers` | HTTP response headers that trigger a retry. A retry will be performed if any of the header matches match the upstream response headers. Required if you'd like to retry on any matching headers. |
+| `retriable-status-codes` | HTTP status codes that should trigger a retries. Required if you'd like to retry on any matching status codes. |
 | `5xx` | Retry if upstream server responds with any 5xx response codes. |
 | `reset` | Retry if the upstream server doesn't respond. |
-| `connect-failure` | Retry if request has failed due to a connection failure with the upstream server. |
-| `retriable-4xx` | Retry if upstream server responds with a retriable 4xx response code, like `409`. |
+| `connect-failure` | Retry if request has failed due to a connection failure with the upstream container app. |
+| `retriable-4xx` | Retry if upstream container app responds with a retriable 4xx response code, like `409`. |
 
 #### tcpRetryPolicy
 
@@ -303,12 +306,12 @@ properties: {
 
 | Metadata | Required? | Description | Example |
 | -------- | --------- | ----------- | ------- |
-| `maxConnectAttempts` | Y | Set the maximum connection attempts (`maxConnectionAttempts`) to retry on failed connections. You can use HTTP and TCP retry policies in the same resiliency policy. | `3` |
+| `maxConnectAttempts` | Y | Set the maximum connection attempts (`maxConnectionAttempts`) to retry on failed connections. | `3` |
 
 
 ### Circuit breakers
 
-Circuit breaker policies monitor the requests and shut off all traffic to the impacted service when timeout and retry criteria are met. 
+Circuit breaker policies determine whether some number of upstream container app hosts (replicas) are unhealthy and removing them from load balancing.  
 
 ```bicep
 properties: {
@@ -322,9 +325,9 @@ properties: {
 
 | Metadata | Required? | Description | Example |
 | -------- | --------- | ----------- | ------- |
-| `consecutiveErrors` | Y | Consecutive number of errors before an upstream container app is temporarily removed from load balancing. | `5` |
-| `intervalInSeconds` | Y | Interval between evaluation to eject or restore an upstream container app. | `10` |
-| `maxEjectionPercent` | Y | Maximum percent of failing replicas to eject from load balancing. | `50` |
+| `consecutiveErrors` | Y | Consecutive number of errors before an upstream container app replica is temporarily removed from load balancing. | `5` |
+| `intervalInSeconds` | Y | Interval between evaluation to eject or restore an upstream container app replica. | `10` |
+| `maxEjectionPercent` | Y | Maximum percent of failing container app replicas to eject from load balancing. | `50` |
 
 ### Connection pools
 
