@@ -14,6 +14,8 @@ ms.custom: template-quickstart, subject-armqs, mode-arm, devx-track-bicep,engage
 
 This quickstart describes how to use Bicep to create an internal Azure load balancer.
 
+:::image type="content" source="media/quickstart-load-balancer-standard-internal-portal/internal-load-balancer-resources.png" alt-text="Diagram of resources deployed for internal load balancer.":::
+
 [!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
 
 ## Prerequisites

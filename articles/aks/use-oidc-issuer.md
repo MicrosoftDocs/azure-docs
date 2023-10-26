@@ -3,7 +3,7 @@ title: Create an OpenID Connect provider for your Azure Kubernetes Service (AKS)
 description: Learn how to configure the OpenID Connect (OIDC) provider for a cluster in Azure Kubernetes Service (AKS)
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 07/26/2023
+ms.date: 10/26/2023
 ---
 
 # Create an OpenID Connect provider on Azure Kubernetes Service (AKS)
@@ -78,7 +78,7 @@ The output should resemble the following:
 https://eastus.oic.prod-aks.azure.com/00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000/
 ```
 
-By default, the Issuer is set to use the base URL `https://{region}.oic.prod-aks.azure.com/{uuid}`, where the value for `{region}` matches the location the AKS cluster is deployed in. The value `{uuid}` represents the OIDC key.
+By default, the Issuer is set to use the base URL `https://{region}.oic.prod-aks.azure.com/{uuid}`, where the value for `{region}` matches the location the AKS cluster is deployed in. The value `{uuid}` represents the OIDC key, which is a randomly generated guid for each cluster that is immutable.
 
 ### Get the discovery document
 
