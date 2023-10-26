@@ -31,7 +31,7 @@ We're recommending that customers secure their infrastructure by using TLS 1.2 w
 
 TLS 1.2 is more secure and faster than TLS 1.0 and 1.1, which don't support modern cryptographic algorithms and cipher suites. While many customers using Azure storage are already using TLS 1.2, we're sharing further guidance to accelerate this transition for customers that are still using TLS 1.0 or 1.1.
 
-## Prepare for migration to TLS 1.2
+## Prepare for the migration to TLS 1.2
 
 We recommend the following steps as you prepare to migrate to TLS 1.2:
 
