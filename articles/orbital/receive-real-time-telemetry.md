@@ -9,9 +9,9 @@ ms.date: 07/12/2022
 ms.author: mikailasmith
 ---
 
-# Receive real-time telemetry
+# Receive real-time antenna telemetry
 
-An Azure Orbital Ground station emits telemetry events that can be used to analyze the ground station operation during a contact. You can configure your contact profile to send telemetry events to [Azure Event Hubs](../event-hubs/event-hubs-about.md).. 
+Azure Orbital Ground station emits antenna telemetry events that can be used to analyze ground station operation during a contact. You can configure your contact profile to send telemetry events to [Azure Event Hubs](../event-hubs/event-hubs-about.md).. 
 
 In this guide, you'll learn how to:
 
@@ -39,32 +39,32 @@ In this guide, you'll learn how to:
 5. Under the **Members** tab, assign access to **User, group, or service principal**.
 6. Click **+ Select members**.
 7. Search for **Azure Orbital Resource Provider** and click **Select**.
-8. Select **Review + assign**. This action will grant Azure Orbital Ground Station the rights to send telemetry into your event hub.
+8. Click **Review + assign**. This action will grant Azure Orbital Ground Station the rights to send telemetry into your event hub.
 9. To confirm the newly added role assignment, go back to the Access Control (IAM) page and select **View access to this resource**. Azure Orbital Resource Provider should be under **Azure Event Hubs Data Sender**.
 
-## Enable telemetry for a contact profile
+## Enable Event Hubs telemetry for a contact profile
 
-Ensure the [contact profile](contact-profile.md) is configured as follows:
+Configure a [contact profile](contact-profile.md) as follows:
 
 1. Choose a namespace using the Event Hubs Namespace dropdown.
 1. Choose an instance using the Event Hubs Instance dropdown that appears after namespace selection.
 
-## Verify telemetry data from a contact
+You can update the settings of an existing contact profile by 
+
+## Verify antenna telemetry data from a contact
 
 [Schedule contacts](schedule-contact.md) using the contact profile that you previously configured for Event Hubs telemetry. Once a contact begins, you should begin seeing data in your Event Hubs soon after.
 
 You can verify both the presence and content of incoming telemetry data multiple ways.
 
-### Portal: Event Hubs Capture
+### Event Hubs Namespace
 
-To verify that events are being received in your Event Hubs, you can check the graphs present on the Event Hubs namespace Overview page. This view shows data across all Event Hubs instances within a namespace. You can navigate to the Overview page of a specific instance to see the graphs for that instance.
+To verify that events are being received in your Event Hubs, you can check the graphs present on the overview page of your Event Hubs namespace within your resource group. This view shows data across all Event Hubs instances within a namespace. You can navigate to the overview page of a specific Event Hub instance in your resource group to see the graphs for that instance.
 
-### Verify content of telemetry data
+### Deliver antenna telemetry data to a storage account
 
-You can enable Event Hubs Capture feature that will automatically deliver the telemetry data to an Azure Blob storage account of your choosing.
-Follow the [instructions to enable Capture](../event-hubs/event-hubs-capture-enable-through-portal.md). Once enabled, you can check your container and view/download the data.
-
-
+You can enable the Event Hubs Capture feature to automatically deliver the telemetry data to an Azure Blob storage account of your choosing.
+Follow the [instructions to enable Capture](../event-hubs/event-hubs-capture-enable-through-portal.md#enable-capture-when-you-create-an-event-hub) and [capture data to Azure storage](../event-hubs/event-hubs-capture-enable-through-portal.md#capture-data-to-azure-storage). Once enabled, you can check your container and view/download the data.
 
 ## Understand telemetry points
 
@@ -259,8 +259,10 @@ The ground station provides telemetry using Avro as a schema. The schema is belo
   ]
 }
 ```
-| **Telemetry Point** | **Source Device / Point** | **Possible Values** | **Definition** |
-| :------------------ | :------------------------ | :------------------ | :------------- |
+The following table provides the source device/point, possible values, and definition of each telemetry point.
+
+| **Telemetry Point** | **Source Device/Point** | **Possible Values** | **Definition** |
+| :------------------ | :---------------------- | :------------------ | :------------- |
 | version | Manually set internally | | Release version of the telemetry |
 | contactID	| Contact resource |	|	Identification number of the contact |
 | contactPlatformIdentifier |	Contact resource	| | |	
@@ -291,10 +293,9 @@ The ground station provides telemetry using Avro as a schema. The schema is belo
 | modemLockStatus	| Modem: carrierLockState	| • NULL (Modem model other than QRadio or QRx; couldn’t parse lock status Enum) <br> • Empty string (if metric reading was null) <br> • String: Lock status | Confirmation that the modem was locked. |
 | commandsSent | Modem: commandsSent | • NULL (if not Uplink and QRadio) <br> • Double: # of commands sent | Confirmation that commands were sent during the contact. |
 
-## Event Hubs consumer
+## Event Consumers
 
-Code: Event Hubs Consumer. 
-Event Hubs documentation provides guidance on how to write simple consumer apps to receive events from your Event Hubs:
+You can write simple consumer apps to receive events from your Event Hubs using [event consumers](../event-hubs/event-hubs-features#event-consumers.md). Refer to the following documentation to learn how to send and receive events Event Hubs in various languages: 
 - [Python](../event-hubs/event-hubs-python-get-started-send.md)
 - [.NET](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
 - [Java](../event-hubs/event-hubs-java-get-started-send.md)
