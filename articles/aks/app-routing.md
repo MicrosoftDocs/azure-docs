@@ -1,5 +1,5 @@
 ---
-title: Azure Kubernetes Service (AKS) ingress with the application routing add-on (preview)
+title: Azure Kubernetes Service (AKS) managed nginx ingress with the application routing add-on (preview)
 description: Use the application routing add-on to securely access applications deployed on Azure Kubernetes Service (AKS).
 ms.subservice: aks-networking
 ms.custom: devx-track-azurecli
@@ -9,13 +9,13 @@ ms.date: 08/07/2023
 ms.author: allensu
 ---
 
-# Azure Kubernetes Service (AKS) ingress with the application routing add-on (preview)
+# Managed nginx ingress with the application routing add-on (preview)
 
-The application routing add-on configures an [ingress controller](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) in your Azure Kubernetes Service (AKS) cluster with SSL termination through certificates stored in Azure Key Vault. It can optionally integrate with Open Service Mesh (OSM) for end-to-end encryption of inter-cluster communication using mutual TLS (mTLS). When you deploy ingresses, the add-on creates publicly accessible DNS names for endpoints on an Azure DNS zone.
+The application routing add-on configures an [ingress controller](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) in your Azure Kubernetes Service (AKS) cluster with SSL termination through certificates stored in Azure Key Vault. When you deploy ingresses, the add-on creates publicly accessible DNS names for endpoints on an Azure DNS zone.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-## Application routing add-on overview
+## Application routing add-on with nginx overview
 
 The application routing add-on deploys the following components:
 
@@ -100,7 +100,7 @@ The following extra add-on is required:
 - **azure-keyvault-secrets-provider**: The Secret Store CSI provider for Azure Key Vault is required to retrieve the certificates from Azure Key Vault.
 
 > [!IMPORTANT]
-> To enable the add-on to reload certificates from Azure Key Vault when they change, you should to enable the [secret autorotation feature](./csi-secrets-store-driver.md#enable-and-disable-autorotation) of the Secret Store CSI driver with the `--enable-secret-rotation` argument. When the autorotation is enabled, the driver updates the pod mount and the Kubernetes secret by polling for changes periodically, based on the rotation poll interval you can define. The default rotation poll interval is two minutes.
+> To enable the add-on to reload certificates from Azure Key Vault when they change, you should enable the [secret autorotation feature](./csi-secrets-store-configuration-options.md#enable-and-disable-auto-rotation) of the Secret Store CSI driver with the `--enable-secret-rotation` argument. When the autorotation is enabled, the driver updates the pod mount and the Kubernetes secret by polling for changes periodically, based on the rotation poll interval you can define. The default rotation poll interval is two minutes.
 
 ### Enable application routing on a new cluster
 
@@ -126,7 +126,7 @@ The following extra add-ons are required:
 - **open-service-mesh**:  If you require encrypted intra cluster traffic (recommended) between the nginx ingress and your services, the Open Service Mesh add-on is required which provides mutual TLS (mTLS).
 
 > [!IMPORTANT]
-> To enable the add-on to reload certificates from Azure Key Vault when they change, you should to enable the [secret autorotation feature](./csi-secrets-store-driver.md#enable-and-disable-autorotation) of the Secret Store CSI driver with the `--enable-secret-rotation` argument. When the autorotation is enabled, the driver updates the pod mount and the Kubernetes secret by polling for changes periodically, based on the rotation poll interval you can define. The default rotation poll interval is two minutes.
+> To enable the add-on to reload certificates from Azure Key Vault when they change, you should enable the [secret autorotation feature](./csi-secrets-store-configuration-options.md#enable-and-disable-auto-rotation) of the Secret Store CSI driver with the `--enable-secret-rotation` argument. When the autorotation is enabled, the driver updates the pod mount and the Kubernetes secret by polling for changes periodically, based on the rotation poll interval you can define. The default rotation poll interval is two minutes.
 
 ### Enable application routing on a new cluster
 
@@ -157,7 +157,7 @@ The following extra add-on is required:
 - **azure-keyvault-secrets-provider**: The Secret Store CSI provider for Azure Key Vault is required to retrieve the certificates from Azure Key Vault.
 
 > [!IMPORTANT]
-> To enable the add-on to reload certificates from Azure Key Vault when they change, you should to enable the [secret autorotation feature](./csi-secrets-store-driver.md#enable-and-disable-autorotation) of the Secret Store CSI driver with the `--enable-secret-rotation` argument. When the autorotation is enabled, the driver updates the pod mount and the Kubernetes secret by polling for changes periodically, based on the rotation poll interval you can define. The default rotation poll interval is two minutes.
+> To enable the add-on to reload certificates from Azure Key Vault when they change, you should enable the [secret autorotation feature](./csi-secrets-store-configuration-options.md#enable-and-disable-auto-rotation) of the Secret Store CSI driver with the `--enable-secret-rotation` argument. When the autorotation is enabled, the driver updates the pod mount and the Kubernetes secret by polling for changes periodically, based on the rotation poll interval you can define. The default rotation poll interval is two minutes.
 
 ### Enable application routing on a new cluster
 
@@ -621,7 +621,7 @@ If you haven't configured Azure DNS integration, you need to configure your own 
     az aks disable-addons --addons web_application_routing --name myAKSCluster --resource-group myResourceGroup 
     ```
 
-When the application routing add-on is disabled, some Kubernetes resources may remain in the cluster. These resources include *configMaps* and *secrets* and are created in the *app-routing-system* namespace. You can remove these resources if you want.
+When the application routing add-on is disabled, some Kubernetes resources might remain in the cluster. These resources include *configMaps* and *secrets* and are created in the *app-routing-system* namespace. You can remove these resources if you want.
 
 <!-- LINKS - internal -->
 [az-aks-create]: /cli/azure/aks#az-aks-create

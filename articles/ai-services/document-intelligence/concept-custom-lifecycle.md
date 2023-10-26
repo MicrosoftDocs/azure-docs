@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: Document Intelligence custom model lifecycle and management guide.
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
 ms.date: 07/24/2023
 ms.author: lajanuar

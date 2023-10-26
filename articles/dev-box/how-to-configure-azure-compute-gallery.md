@@ -37,6 +37,10 @@ To learn more about Azure Compute Gallery and how to create galleries, see:
 
 A gallery used to configure dev box definitions must have at least [one image definition and one image version](../virtual-machines/image-version.md).
 
+When creating a virtual machine image, select an image from the marketplace that is Dev Box compatible, like the following examples:
+- [Visual Studio 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio2019plustools?tab=Overview)
+- [Visual Studio 2022](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudioplustools?tab=Overview) 
+
 The image version must meet the following requirements:
 - Generation 2.
 - Hyper-V v2.
@@ -181,4 +185,4 @@ The gallery is detached from the dev center. The gallery and its images aren't d
 
 ## Next steps
 
-- Learn more about [key concepts in Microsoft Dev Box ](./concept-dev-box-concepts.md).
+- Learn more about [key concepts in Microsoft Dev Box](./concept-dev-box-concepts.md).

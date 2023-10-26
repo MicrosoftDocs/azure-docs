@@ -50,6 +50,7 @@ With *Azure CNI*, each pod receives an IP address in the IP subnet and can commu
 
 * An additional hop is required in the design of kubenet, which adds minor latency to pod communication.
 * Route tables and user-defined routes are required for using kubenet, which adds complexity to operations.
+  * For more information, see [Customize cluster egress with a user-defined routing table in AKS](./egress-udr.md) and [Customize cluster egress with outbound types in AKS](./egress-outboundtype.md).
 * Direct pod addressing isn't supported for kubenet due to kubenet design.
 * Unlike Azure CNI clusters, multiple kubenet clusters can't share a subnet.
 * AKS doesn't apply Network Security Groups (NSGs) to its subnet and doesn't modify any of the NSGs associated with that subnet. If you provide your own subnet and add NSGs associated with that subnet, you must ensure the security rules in the NSGs allow traffic between the node and pod CIDR. For more details, see [Network security groups][aks-network-nsg].
@@ -86,7 +87,7 @@ The following considerations help outline when each network model may be the mos
 * Most of the pod communication is within the cluster.
 * You don't need advanced AKS features, such as virtual nodes or Azure Network Policy.
 
-***Use *Azure CNI* when**:
+**Use *Azure CNI* when**:
 
 * You have available IP address space.
 * Most of the pod communication is to resources outside of the cluster.
@@ -247,7 +248,7 @@ kubenet networking requires organized route table rules to successfully route re
 > [!NOTE]
 > When you create and use your own VNet and route table with the kubenet network plugin, you need to use a [user-assigned control plane identity][bring-your-own-control-plane-managed-identity]. For a system-assigned control plane identity, you can't retrieve the identity ID before creating a cluster, which causes a delay during role assignment.
 >
-> Both system-assigned and user-assigned managed identities are supported when you create and use your own VNet and route table with the azure network plugin. We highly recommend using a user-assigned managed identity for BYO scenarios.
+> Both system-assigned and user-assigned managed identities are supported when you create and use your own VNet and route table with the Azure network plugin. We highly recommend using a user-assigned managed identity for BYO scenarios.
 
 ### Add a route table with a user-assigned managed identity to your AKS cluster
 

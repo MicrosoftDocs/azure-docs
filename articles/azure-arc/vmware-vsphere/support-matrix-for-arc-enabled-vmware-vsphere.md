@@ -3,6 +3,8 @@ title: Plan for deployment
 description: Learn about the support matrix for Arc-enabled VMware vSphere including vCenter Server versions supported, network requirements, and more.
 ms.topic: how-to 
 ms.date: 08/18/2023
+ms.service: azure-arc
+ms.subservice: azure-arc-vmware-vsphere
 # Customer intent: As a VI admin, I want to understand the support matrix for Arc-enabled VMware vSphere.
 ---
 
@@ -21,7 +23,7 @@ The following requirements must be met in order to use Azure Arc-enabled VMware 
 Azure Arc-enabled VMware vSphere (preview) works with vCenter Server versions 6.7, 7 and 8.
 
 > [!NOTE]
-> Azure Arc-enabled VMware vSphere (preview) currently supports vCenters with a maximum of 9500 VMs. If your vCenter has more than 9500 VMs, it is not recommended to use Arc-enabled VMware vSphere with it at this point.
+> Azure Arc-enabled VMware vSphere (preview) currently supports vCenters with a maximum of 9500 VMs. If your vCenter has more than 9500 VMs, it's not recommended to use Arc-enabled VMware vSphere with it at this point.
 
 ### Required vSphere account privileges
 
@@ -86,7 +88,7 @@ Additionally, be sure that the requirements below are met in order to enable gue
 
 ### Supported operating systems
 
-Make sure you are using a version of the Windows or Linux [operating systems that are officially supported for the Azure Connected Machine agent](../servers/prerequisites.md#supported-operating-systems). Only x86-64 (64-bit) architectures are supported. x86 (32-bit) and ARM-based architectures, including x86-64 emulation on arm64, aren't supported operating environments.
+Make sure you're using a version of the Windows or Linux [operating systems that are officially supported for the Azure Connected Machine agent](../servers/prerequisites.md#supported-operating-systems). Only x86-64 (64-bit) architectures are supported. x86 (32-bit) and ARM-based architectures, including x86-64 emulation on arm64, aren't supported operating environments.
 
 ### Software requirements
 
@@ -109,9 +111,9 @@ The following firewall URL exceptions are needed for the Azure Arc agents:
 | `aka.ms` | Used to resolve the download script during installation |
 | `packages.microsoft.com` | Used to download the Linux installation package |
 | `download.microsoft.com` | Used to download the Windows installation package |
-| `login.windows.net` | Azure Active Directory |
-| `login.microsoftonline.com` | Azure Active Directory |
-| `pas.windows.net` | Azure Active Directory |
+| `login.windows.net` | Microsoft Entra ID |
+| `login.microsoftonline.com` | Microsoft Entra ID |
+| `pas.windows.net` | Microsoft Entra ID |
 | `management.azure.com` | Azure Resource Manager - to create or delete the Arc server resource |
 | `*.his.arc.azure.com` | Metadata and hybrid identity services |
 | `*.guestconfiguration.azure.com` | Extension management and guest configuration services |

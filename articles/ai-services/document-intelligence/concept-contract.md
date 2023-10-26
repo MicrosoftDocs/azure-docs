@@ -4,10 +4,9 @@ titleSuffix: Azure AI services
 description: Automate tax document data extraction with Document Intelligence's tax document models.
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
-ms.date: 07/18/2023
+ms.date: 09/20/2023
 ms.author: lajanuar
 monikerRange: 'doc-intel-3.1.0'
 ---
@@ -18,7 +17,7 @@ monikerRange: 'doc-intel-3.1.0'
 
 [!INCLUDE [applies to v3.1](includes/applies-to-v3-1.md)]
 
-The Document Intelligence contract model uses powerful Optical Character Recognition (OCR) capabilities to analyze and extract key fields and line items from a select group of important contract entities. Contracts can be of various formats and quality including phone-captured images, scanned documents, and digital PDFs. The API analyzes document text; extracts key information such as Parties, Jurisdictions, Contract ID, and Title; and returns a structured JSON data representation. The model currently supports certain English tax document formats.
+The Document Intelligence contract model uses powerful Optical Character Recognition (OCR) capabilities to analyze and extract key fields and line items from a select group of important contract entities. Contracts can be of various formats and quality including phone-captured images, scanned documents, and digital PDFs. The API analyzes document text; extracts key information such as Parties, Jurisdictions, Contract ID, and Title; and returns a structured JSON data representation. The model currently supports English-language document formats.
 
 ## Automated contract processing
 
@@ -50,11 +49,11 @@ See how data, including customer information, vendor details, and line items, is
 
 1. On the Document Intelligence Studio home page, select **Tax Documents**
 
-1. You can analyze the sample tax documents or select the **+ Add** button to upload your own sample.
+1. You can analyze the sample tax documents or upload your own files.
 
-1. Select the **Analyze** button:
+1. Select the **Run analysis** button and, if necessary, configure the **Analyze options** :
 
-    :::image type="content" source="media/studio/invoice-analyze.png" alt-text="Screenshot of the analyze invoice menu.":::
+    :::image type="content" source="media/studio/run-analysis-analyze-options.png" alt-text="Screenshot of Run analysis and Analyze options buttons in the Document Intelligence Studio.":::
 
 > [!div class="nextstepaction"]
 > [Try Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice)

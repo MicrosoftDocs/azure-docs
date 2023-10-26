@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: Learn the latest changes to the Document Intelligence API.
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: whats-new
 ms.date: 07/18/2023
 ms.author: lajanuar
@@ -54,7 +53,7 @@ The v3.1 API introduces new and updated capabilities:
 * Support for [high resolution documents](concept-add-on-capabilities.md)
 * Custom neural models now require a single labeled sample to train
 * Custom neural models language expansion. Train a neural model for documents in 30 languages. See [language support](language-support.md) for the complete list of supported languages
-* 🆕 [Prebuilt health insurance card model](concept-insurance-card.md).
+* 🆕 [Prebuilt health insurance card model](concept-health-insurance-card.md).
 * [Prebuilt invoice model locale expansion](concept-invoice.md#supported-languages-and-locales).
 * [Prebuilt receipt model language and locale expansion](concept-receipt.md#supported-languages-and-locales) with more than 100 languages supported.
 * [Prebuilt ID model](concept-id-document.md#supported-document-types) now supports European IDs.
@@ -882,7 +881,7 @@ The v3.1 API introduces new and updated capabilities:
 
 * New option `pages` supported by all document intelligence methods (custom forms and all prebuilt models). The argument allows you to select individual or a range of pages for multi-page PDF and TIFF documents. For individual pages, enter the page number, for example, `3`. For a range of pages (like page 2 and pages 5-7) enter the page numbers and ranges separated by commas: `2, 5-7`.
 
-* Added support for a [ReadingOrder](/javascript/api/@azure/ai-form-recognizer/formreadingorder?view=azure-node-latest&preserve-view=true) type to the content recognition methods. This option enables you to control the algorithm that the service uses to determine how recognized lines of text should be ordered. You can specify which reading order algorithm—`basic` or `natural`—should be applied to order the extraction of text elements. If not specified, the default value is `basic`.
+* Added support for a [ReadingOrder](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md#310-2021-05-26) type to the content recognition methods. This option enables you to control the algorithm that the service uses to determine how recognized lines of text should be ordered. You can specify which reading order algorithm—`basic` or `natural`—should be applied to order the extraction of text elements. If not specified, the default value is `basic`.
 
 * Split **FormField** type into several different interfaces. This update shouldn't cause any API compatibility issues except in certain edge cases (undefined valueType).
 

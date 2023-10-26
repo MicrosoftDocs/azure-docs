@@ -14,6 +14,8 @@ ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
 
 # Upload a blob with .NET
 
+[!INCLUDE [storage-dev-guide-selector-upload](../../../includes/storage-dev-guides/storage-dev-guide-selector-upload.md)]
+
 This article shows how to upload a blob using the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage). You can upload data to a block blob from a file path, a stream, a binary object, or a text string. You can also open a blob stream and write to it, or upload large blobs in blocks.
 
 ## Prerequisites

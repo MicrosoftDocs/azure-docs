@@ -130,7 +130,7 @@ for i in `seq 1 2`; do
     --resource-group myResourceGroupAG \
     --name myVM$i \
     --nics myNic$i \
-    --image UbuntuLTS \
+    --image Ubuntu2204 \
     --admin-username azureuser \
     --generate-ssh-keys \
     --custom-data cloud-init.txt

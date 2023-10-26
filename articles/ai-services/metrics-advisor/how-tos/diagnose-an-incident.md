@@ -4,14 +4,15 @@ titleSuffix: Azure AI services
 description: Learn how to diagnose an incident using Metrics Advisor, and get detailed views of anomalies in your data.
 author: mrbullwinkle
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: metrics-advisor
+ms.service: azure-ai-metrics-advisor
 ms.topic: how-to
 ms.date: 04/15/2021
 ms.author: mbullwin
 ---
 
 # Diagnose an incident using Metrics Advisor
+
+[!INCLUDE [Deprecation announcement](../includes/deprecation.md)]
 
 ## What is an incident? 
 

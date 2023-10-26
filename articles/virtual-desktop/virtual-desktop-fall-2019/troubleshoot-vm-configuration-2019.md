@@ -60,9 +60,9 @@ Follow these instructions if you're having issues joining VMs to the domain.
 
 **Fix 1:** Create VNET peering between the VNET where VMs were provisioned and the VNET where the domain controller (DC) is running. See [Create a virtual network peering - Resource Manager, different subscriptions](../../virtual-network/create-peering-different-subscriptions.md).
 
-**Cause 2:** When using Azure Active Directory Domain Services (Azure AD DS), the virtual network doesn't have its DNS server settings updated to point to the managed domain controllers.
+**Cause 2:** When using Microsoft Entra Domain Services, the virtual network doesn't have its DNS server settings updated to point to the managed domain controllers.
 
-**Fix 2:** To update the DNS settings for the virtual network containing Azure AD DS, see [Update DNS settings for the Azure virtual network](../../active-directory-domain-services/tutorial-create-instance.md#update-dns-settings-for-the-azure-virtual-network).
+**Fix 2:** To update the DNS settings for the virtual network containing Microsoft Entra Domain Services, see [Update DNS settings for the Azure virtual network](../../active-directory-domain-services/tutorial-create-instance.md#update-dns-settings-for-the-azure-virtual-network).
 
 **Cause 3:** The network interface's DNS server settings do not point to the appropriate DNS server on the virtual network.
 

@@ -22,7 +22,7 @@ Azure Kubernetes Fleet Manager (Fleet) is meant to solve at-scale and multi-clus
 Fleet supports joining the following types of existing AKS clusters as member clusters:
 
 * AKS clusters across same or different resource groups within same subscription
-* AKS clusters across different subscriptions of the same Azure AD tenant
+* AKS clusters across different subscriptions of the same Microsoft Entra tenant
 * AKS clusters from different regions but within the same tenant
 
 During preview, you can join up to 20 AKS clusters as member clusters to the same fleet resource.
@@ -32,13 +32,13 @@ Once a cluster is joined to a fleet resource, a MemberCluster custom resource is
 The member clusters can be viewed by running the following command:
 
 ```bash
-kubectl get crd memberclusters.fleet.azure.com -o yaml
+kubectl get memberclusters
 ```
 
 The complete specification of the `MemberCluster` custom resource can be viewed by running the following command:
 
 ```bash
-kubectl get crd memberclusters -o yaml
+kubectl get crd memberclusters.fleet.azure.com -o yaml
 ```
 
 The following labels are added automatically to all member clusters, which can then be used for target cluster selection in resource propagation.

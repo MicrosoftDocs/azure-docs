@@ -168,6 +168,8 @@
     href: ./afds/protect-azure-open-ai.md
   - name: Using Microsoft Sentinel with Web Application Firewall
     href: waf-sentinel.md
+  - name: Automated detection and response
+    href: ./afds/automated-detection-response-with-sentinel.md
   - name: Troubleshoot
     items:
      - name: Application Gateway

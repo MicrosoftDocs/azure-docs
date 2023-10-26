@@ -47,8 +47,7 @@ The following list presents the set of features that are currently available in 
 | ----------------------| -----------------------------------------------   | ------ | ----- |  ------ | ----- |
 | Pre-call scenarios    | Place new outbound call to a Microsoft Teams user  | ✔️    | ✔️    | ✔️    | ✔️    |
 |                       | Redirect (forward) a call to a Microsoft Teams user | ✔️    | ✔️    | ✔️    | ✔️    |
-|                       | Set custom display name for the callee when making a call offer to a Microsoft Teams user | Only on Microsoft Teams desktop and web client    | Only on Microsoft Teams desktop 
- and web client    |
+|                       | Set custom display name for the callee when making a call offer to a Microsoft Teams user | Only on Microsoft Teams desktop and web client    | Only on Microsoft Teams desktop and web client    |
 | Mid-call scenarios    | Add one or more endpoints to an existing call with a Microsoft Teams user     | ✔️    | ✔️    |  ✔️    | ✔️    |
 |                       | Play Audio from an audio file                     | ✔️    | ✔️    | ✔️    | ✔️    |
 |                       | Recognize user input through DTMF                 | ❌    | ❌   | ❌    | ❌  |
@@ -65,19 +64,23 @@ The following list presents the set of features that are currently available in 
 > During Public preview, you won't be able to stop the call recording if it started after adding the Teams participant.
 
 ## Supported clients
+> [!IMPORTANT]
+> Teams phone license is a must to use this feature.
+
 | Clients          | Support     |
 | -----------------| ----------- |
 | Microsoft Teams Desktop | ✔️ |
 | Microsoft Teams Web | ✔️ |
-| Microsoft Teams iOS | ❌ |
-| Microsoft Teams Android | ❌ |
+| Microsoft Teams iOS | ✔️ |
+| Microsoft Teams Android | ✔️ |
 | Azure Communications Services signed in with Microsoft 365 Identity | ❌ |
 
-Teams phone license is a must to use this feature. 
+> [!NOTE]
+> While in preview, the support for Microsoft Teams mobile apps is available with limited functionality and some features might not work properly.   
 
 ## Roadmap
 1. Support for Azure Communications Services signed in with Microsoft 365 Identity coming soon.
-2. Support for Microsoft Teams iOS and Android clients coming soon. 
+
 
 ## Next steps
 

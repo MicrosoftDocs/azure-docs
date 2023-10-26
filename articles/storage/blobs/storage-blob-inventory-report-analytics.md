@@ -2,7 +2,7 @@
 title: 'Tutorial: Analyze blob inventory reports - Azure Storage'
 description: Learn how to analyze and visualize blob inventory reports by using Azure Synapse and Power BI.  
 author: normesta
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: tutorial
 ms.date: 12/01/2022
 ms.author: normesta

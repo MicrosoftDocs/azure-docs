@@ -1,6 +1,5 @@
 ---
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: include
 ms.date: 10/31/2022
 author: aahill

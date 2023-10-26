@@ -2,11 +2,10 @@
 title: Example Azure role assignment conditions for Blob Storage
 titleSuffix: Azure Storage
 description: Example Azure role assignment conditions for Blob Storage.
-author: jimmart-dev
-
-ms.service: azure-storage
+author: pauljewellmsft
+ms.author: pauljewell
+ms.service: azure-blob-storage
 ms.topic: conceptual
-ms.author: jammart
 ms.reviewer: nachakra
 ms.custom: devx-track-azurepowershell
 ms.date: 05/09/2023
@@ -666,7 +665,7 @@ Here are the settings to add this condition using the Azure portal.
 
 ### Example: Write blobs in named containers with a path
 
-This condition allows a partner (an Azure AD guest user) to drop files into storage containers named Contosocorp with a path of uploads/contoso/*. This condition is useful for allowing other users to put data in storage containers.
+This condition allows a partner (a Microsoft Entra guest user) to drop files into storage containers named Contosocorp with a path of uploads/contoso/*. This condition is useful for allowing other users to put data in storage containers.
 
 You must add this condition to any role assignments that include the following actions.
 

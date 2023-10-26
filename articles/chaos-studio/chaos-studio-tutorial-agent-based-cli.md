@@ -74,7 +74,7 @@ sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.
 
 Next, set up a Microsoft-Agent target on each VM or virtual machine scale set that specifies the user-assigned managed identity that the agent uses to connect to Chaos Studio. In this example, we use one managed identity for all VMs. A target must be created via REST API. In this example, we use the `az rest` CLI command to execute the REST API calls.
 
-1. Modify the following JSON by replacing `$USER_IDENTITY_CLIENT_ID` with the client ID of your managed identity. You can find the client ID in the Azure portal overview of the user-assigned managed identity you created. Replace `$USER_IDENTITY_TENANT_ID` with your Azure tenant ID. You can find it in the Azure portal under **Azure Active Directory** under **Tenant information**. Save the JSON as a file in the same location where you're running the Azure CLI. In Cloud Shell, you can drag and drop the JSON file to upload it.
+1. Modify the following JSON by replacing `$USER_IDENTITY_CLIENT_ID` with the client ID of your managed identity. You can find the client ID in the Azure portal overview of the user-assigned managed identity you created. Replace `$USER_IDENTITY_TENANT_ID` with your Azure tenant ID. You can find it in the Azure portal under **Microsoft Entra ID** under **Tenant information**. Save the JSON as a file in the same location where you're running the Azure CLI. In Cloud Shell, you can drag and drop the JSON file to upload it.
 
     ```json
     {

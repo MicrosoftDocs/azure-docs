@@ -1,8 +1,8 @@
 ---
 author: eric-urban
-ms.service: cognitive-services
+ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 03/11/2020
+ms.date: 09/01/2023
 ms.custom: devx-track-java
 ms.author: eur
 ---
@@ -13,9 +13,10 @@ ms.author: eur
 
 ## Create a speech configuration
 
-To call the Speech service by using the Speech SDK, you need to create a [`SpeechConfig`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig) instance. This class includes information about your subscription, like your key and associated location/region, endpoint, host, or authorization token. 
+To call the Speech service by using the Speech SDK, you need to create a [SpeechConfig](/java/api/com.microsoft.cognitiveservices.speech.speechconfig) instance. This class includes information about your subscription, like your key and associated location/region, endpoint, host, or authorization token. 
 
-Create a `SpeechConfig` instance by using your key and location/region. Create a Speech resource on the [Azure portal](https://portal.azure.com). For more information, see [Create a multi-service resource](~/articles/ai-services/multi-service-resource.md?pivots=azportal).
+1. Create a `SpeechConfig` instance by using your key and location/region. 
+1. Create a Speech resource on the [Azure portal](https://portal.azure.com). For more information, see [Create a multi-service resource](~/articles/ai-services/multi-service-resource.md?pivots=azportal).
 
 ```java
 import com.microsoft.cognitiveservices.speech.*;
@@ -32,16 +33,16 @@ public class Program {
 
 You can initialize `SpeechConfig` in a few other ways:
 
-* With an endpoint: pass in a Speech service endpoint. A key or authorization token is optional.
-* With a host: pass in a host address. A key or authorization token is optional.
-* With an authorization token: pass in an authorization token and the associated region.
+* Use an endpoint, and pass in a Speech service endpoint. A key or authorization token is optional.
+* Use a host, and pass in a host address. A key or authorization token is optional.
+* Use an authorization token with the associated region/location.
 
 > [!NOTE]
 > Regardless of whether you're performing speech recognition, speech synthesis, translation, or intent recognition, you'll always create a configuration.
 
 ## Recognize speech from a microphone
 
-To recognize speech by using your device microphone, create an `AudioConfig` instance by using `fromDefaultMicrophoneInput()`. Then initialize [`SpeechRecognizer`](/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer) by passing `audioConfig` and `config`.
+To recognize speech by using your device microphone, create an `AudioConfig` instance by using the `fromDefaultMicrophoneInput()` method. Then initialize the [`SpeechRecognizer`](/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer) object by passing `audioConfig` and `config`.
 
 ```java
 import com.microsoft.cognitiveservices.speech.*;
@@ -67,11 +68,11 @@ public class Program {
 }
 ```
 
-If you want to use a *specific* audio input device, you need to specify the device ID in `AudioConfig`. Learn [how to get the device ID](../../../how-to-select-audio-input-devices.md) for your audio input device.
+If you want to use a *specific* audio input device, you need to specify the device ID in `AudioConfig`. For more information on how to get the device ID for your audio input device, see [Select an audio input device with the Speech SDK](../../../how-to-select-audio-input-devices.md).
 
 ## Recognize speech from a file
 
-If you want to recognize speech from an audio file instead of using a microphone, you still need to create an `AudioConfig` instance. But instead of calling `fromDefaultMicrophoneInput()`, you call `fromWavFileInput()` and pass the file path:
+If you want to recognize speech from an audio file instead of using a microphone, you still need to create an `AudioConfig` instance. But for this case you don't call `FromDefaultMicrophoneInput()`. You call `fromWavFileInput()` and pass the file path:
 
 ```java
 import com.microsoft.cognitiveservices.speech.*;
@@ -98,11 +99,11 @@ public class Program {
 
 ## Handle errors
 
-The previous examples simply get the recognized text by using `result.getText()`. To handle errors and other responses, you need to write some code to handle the result. The following example evaluates [`result.getReason()`](/java/api/com.microsoft.cognitiveservices.speech.recognitionresult.getreason) and:
+The previous examples only get the recognized text by using `result.getText()`. To handle errors and other responses, you need to write some code to handle the result. The following example evaluates [`result.getReason()`](/java/api/com.microsoft.cognitiveservices.speech.recognitionresult.getreason) and:
 
 * Prints the recognition result: `ResultReason.RecognizedSpeech`.
-* If there is no recognition match, informs the user: `ResultReason.NoMatch`.
-* If an error is encountered, prints the error message: `ResultReason.Canceled`.
+* If there's no recognition match, it informs the user: `ResultReason.NoMatch`.
+* If an error is encountered, it prints the error message: `ResultReason.Canceled`.
 
 ```java
 switch (result.getReason()) {
@@ -131,7 +132,7 @@ switch (result.getReason()) {
 
 The previous examples use single-shot recognition, which recognizes a single utterance. The end of a single utterance is determined by listening for silence at the end or until a maximum of 15 seconds of audio is processed.
 
-In contrast, you use continuous recognition when you want to control when to stop recognizing. It requires you to subscribe to the `recognizing`, `recognized`, and `canceled` events to get the recognition results. To stop recognition, you must call [`stopContinuousRecognitionAsync`](/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer.stopcontinuousrecognitionasync). Here's an example of how continuous recognition is performed on an audio input file.
+In contrast, you use continuous recognition when you want to control when to stop recognizing. It requires you to subscribe to the `recognizing`, `recognized`, and `canceled` events to get the recognition results. To stop recognition, you must call [`stopContinuousRecognitionAsync`](/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer.stopcontinuousrecognitionasync). Here's an example of how you can perform continuous recognition on an audio input file.
 
 Start by defining the input and initializing [`SpeechRecognizer`](/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer):
 
@@ -151,7 +152,7 @@ Next, subscribe to the events that [`SpeechRecognizer`](/java/api/com.microsoft.
 * [`recognizing`](/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer.recognizing): Signal for events that contain intermediate recognition results.
 * [`recognized`](/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer.recognized): Signal for events that contain final recognition results, which indicate a successful recognition attempt.
 * [`sessionStopped`](/java/api/com.microsoft.cognitiveservices.speech.recognizer.sessionstopped): Signal for events that indicate the end of a recognition session (operation).
-* [`canceled`](/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer.canceled): Signal for events that contain canceled recognition results. These results indicate a recognition attempt that was canceled as a result of a direct cancellation request. Alternatively, they indicate a transport or protocol failure.
+* [`canceled`](/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer.canceled): Signal for events that contain canceled recognition results. These results indicate a recognition attempt that was canceled as a result of a direct cancelation request. Alternatively, they indicate a transport or protocol failure.
 
 ```java
 // First initialize the semaphore.
@@ -203,7 +204,7 @@ speechRecognizer.stopContinuousRecognitionAsync().get();
 
 ## Change the source language
 
-A common task for speech recognition is specifying the input (or source) language. The following example shows how you would change the input language to French. In your code, find your [`SpeechConfig`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig) instance and add this line directly below it:
+A common task for speech recognition is specifying the input (or source) language. The following example shows how to change the input language to French. In your code, find your [`SpeechConfig`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig) instance, and add this line directly below it:
 
 ```java
 config.setSpeechRecognitionLanguage("fr-FR");
@@ -213,13 +214,13 @@ config.setSpeechRecognitionLanguage("fr-FR");
 
 ## Language identification
 
-You can use [language identification](../../../language-identification.md?pivots=programming-language-java#speech-to-text) with Speech to text recognition when you need to identify the language in an audio source and then transcribe it to text.
+You can use [language identification](../../../language-identification.md?pivots=programming-language-java#speech-to-text) with speech to text recognition when you need to identify the language in an audio source and then transcribe it to text.
 
-For a complete code sample, see [language identification](../../../language-identification.md?pivots=programming-language-java#speech-to-text).
+For a complete code sample, see [Language identification](../../../language-identification.md?pivots=programming-language-java#speech-to-text).
 
 ## Use a custom endpoint
 
-With [Custom Speech](../../../custom-speech-overview.md), you can upload your own data, test and train a custom model, compare accuracy between models, and deploy a model to a custom endpoint. The following example shows how to set a custom endpoint.
+With [Custom Speech](../../../custom-speech-overview.md), you can upload your own data, test and train a custom model, compare accuracy between models, and deploy a model to a custom endpoint. The following example shows how to set a custom endpoint:
 
 ```java
 SpeechConfig speechConfig = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
@@ -231,5 +232,5 @@ SpeechRecognizer speechRecognizer = new SpeechRecognizer(speechConfig);
 
 Speech containers provide websocket-based query endpoint APIs that are accessed through the Speech SDK and Speech CLI. By default, the Speech SDK and Speech CLI use the public Speech service. To use the container, you need to change the initialization method. Use a container host URL instead of key and region.
 
-For more information about containers, see the [speech containers](../../../speech-container-howto.md#host-urls) how-to guide.
+For more information about containers, see [Host URLs](../../../speech-container-howto.md#host-urls) in Install and run Speech containers with Docker.
 

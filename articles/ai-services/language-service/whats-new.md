@@ -5,8 +5,7 @@ description: Find out about new releases and features for the Azure AI Language.
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: whats-new
 ms.date: 04/14/2023
 ms.author: aahi
