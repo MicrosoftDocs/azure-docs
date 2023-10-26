@@ -35,7 +35,7 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 
 ### Use Azure Business Continuity center (preview)
 
-You can now also manage Azure Site Recovery protections using Azure Business Continuity (ABC) center. ABC enables you to manage your protection estate across solutions and environments. It provides a unified experience with consistent views, seamless navigation, and supporting information to provide a holistic view of your business continuity estate for better discoverability with the ability to do core activities. [Lear](../business-continuity-center/business-continuity-center-overview.md).
+You can now also manage Azure Site Recovery protections using Azure Business Continuity (ABC) center. ABC enables you to manage your protection estate across solutions and environments. It provides a unified experience with consistent views, seamless navigation, and supporting information to provide a holistic view of your business continuity estate for better discoverability with the ability to do core activities. [Lear more about the supported scenarios](../business-continuity-center/business-continuity-center-support-matrix.md).
 
 
 ## Updates (August 2023)
