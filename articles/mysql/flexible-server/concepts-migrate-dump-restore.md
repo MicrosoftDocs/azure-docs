@@ -197,6 +197,6 @@ For known issues, tips and tricks, we recommend you to look at our [techcommunit
 
 ## Next steps
 
-- [Connect applications to Azure Database for MySQL]((../single-server/how-to-connection-string.md).
+- [Connect applications to Azure Database for MySQL](../single-server/how-to-connection-string.md).
 - For more information about migrating databases to Azure Database for MySQL, see the [Database Migration Guide](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide).
 - If you're looking to migrate large databases with database sizes more than 1 TB, you may want to consider using community tools like **mydumper/myloader** which supports parallel export and import. Learn [how to migrate large MySQL databases](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/best-practices-for-migrating-large-databases-to-azure-database/ba-p/1362699).
