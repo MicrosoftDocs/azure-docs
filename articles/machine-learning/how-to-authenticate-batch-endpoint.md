@@ -279,9 +279,9 @@ You can also use the Azure CLI to get an authentication token for the managed id
 
 ## Configure RBAC for Batch Endpoints invoke
 
-Batch Endpoints exposes a durable API consumers can use to generate jobs. The invoker request proper permission to be able to generate those jobs. You can either use one of the [built-in security roles](../role-based-access-control/built-in-roles.md) or you can create a custom role for the purpoise.
+Batch Endpoints exposes a durable API consumers can use to generate jobs. The invoker request proper permission to be able to generate those jobs. You can either use one of the [built-in security roles](../role-based-access-control/built-in-roles.md) or you can create a custom role for the purposes.
 
-To successfuly invoke a batch endpoint you need the following explicit actions granted to the identity used to invoke the endpoints. See [Steps to assign an Azure role](../role-based-access-control/role-assignments-steps.md) for instructions to assign them.
+To successfully invoke a batch endpoint you need the following explicit actions granted to the identity used to invoke the endpoints. See [Steps to assign an Azure role](../role-based-access-control/role-assignments-steps.md) for instructions to assign them.
 
 ```json
 "actions": [
