@@ -9,28 +9,28 @@ ms.author: robece
 
 # Delivery and retry with Azure Event Grid namespaces
 
-Event Grid namespaces provides durable delivery. It tries to deliver each message at least once for each matching subscription immediately. If a subscriber's endpoint doesn't acknowledge receipt of an event or if there's a failure, Event Grid retries delivery based on a fixed [retry schedule](#retry-schedule) and [retry policy](#retry-policy). By default, Event Grid delivers one event at a time to the subscriber. The payload is however an array with a single event.
+Event Grid namespaces provides durable delivery. It tries to deliver a message at least once for each matching subscription immediately. If a subscriber's endpoint doesn't acknowledge receipt of an event or if there's a failure, Event Grid retries delivery based on a fixed [retry schedule](#retry-schedule) and [retry policy](#retry-policy). By default, Event Grid delivers one event at a time to the subscriber. The payload is however an array with a single event.
 
 > [!NOTE]
-> Event Grid namespaces doesn't guarantee order for event delivery, so subscribers may receive them out of order.
+> Event Grid namespaces doesn't guarantee an order for event delivery, so subscribers might receive them out of order.
 
 ## Retry schedule
 
-When Event Grid namespace receives an error when delivering, events can be retried, dropped or dead-lettered depending on the type of error. Even though you may have configured retention and maximum delivery count. Event Grid drop or dead-letter events depending on the following errors:
+When Event Grid namespace receives an error on delivering events, it retries, drops, or dead-letters those events depending on the type of error. Even though you might have configured retention and maximum delivery count, Event Grid drops or dead-letters events depending on the following errors:
 
-- ArgumentException
-- TimeoutException
-- UnauthorizedAccessException
-- OperationCanceledException
-- SocketException
+- `ArgumentException`
+- `TimeoutException`
+- `UnauthorizedAccessException`
+- `OperationCanceledException`
+- `SocketException`
 - Http exception with any of the following status code:
-    - NotFound
-    - Unauthorized
-    - Forbidden
-    - BadRequest
-    - RequestUriTooLong
+    - `NotFound`
+    - `Unauthorized`
+    - `Forbidden`
+    - `BadRequest`
+    - `RequestUriTooLong`
 
-For other errors, Event Grid namespace does a best effort retry with an exponential backoff retry of 0 sec, 10 sec, 30 sec, 1 min, and 5 min. After reaching 5 minutes, Event Grid continues retrying every 5 min until it’s delivered or event retention is expired.
+For other errors, Event Grid namespace retries on a best effort basis with an exponential backoff retry of 0 sec, 10 sec, 30 sec, 1 min, and 5 min. After 5 minutes, Event Grid continues to retry every 5 min until the event is delivered or event retention is expired.
 
 ## Retry policy
 
