@@ -1,7 +1,7 @@
 ---
-title: Manage secrets in an online deployment for inferencing
+title: Deploy machine learning models to online endpoints with secret injection
 titleSuffix: Azure Machine Learning
-description: Learn to . #Required; Keep the description within 100- and 165-characters including spaces.
+description: Learn to use secret injection with online endpoint and deployment.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: inferencing
@@ -9,12 +9,12 @@ author: dem108
 ms.author: sehan
 ms.reviewer: mopeakande
 reviewer: msakande
-ms.date: 10/16/2023
+ms.date: 10/25/2023
 ms.topic: how-to
 ms.custom: how-to, ignite-2023, sdkv2
 ---
 
-# Manage secrets in an online deployment for inferencing
+# Deploy machine learning models to online endpoints with secret injection
 
 [!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
