@@ -18,7 +18,7 @@ You can configure an Arc-enabled Kubernetes cluster in an isolated network using
 
 ## Configure a Kubernetes cluster
 
-You can choose to use the AKS Edge Essentials ([AKS Edge Essentials](/azure/aks/hybrid/aks-edge-overview)) hosted on Windows 11 or a K3S cluster on Ubuntu.
+You can choose to use [AKS Edge Essentials](/azure/aks/hybrid/aks-edge-overview)) hosted on Windows 11 or a K3S cluster on Ubuntu.
 
 # [AKS Edge Essentials](#tab/aksee)
 

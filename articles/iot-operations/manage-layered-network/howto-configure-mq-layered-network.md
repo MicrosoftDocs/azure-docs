@@ -103,7 +103,7 @@ After the level 4 and level 3 cluster are both Arc-enabled, configure Iot MQ and
 
 ### Create TLS server certificate of MQ on level 4
 
-1. Follow the steps in [Configure TLS with manual certificate management to secure MQTT communication](../manage-mqtt-connectivity/howto-configure-tls-manual.md). When creating the certificate, use `azedge-dmqtt-frontend.level-4.com` as one of the Subject Alternative Names (SANs) (in --san option of step CLI).
+Follow the steps in [Configure TLS with manual certificate management to secure MQTT communication](../manage-mqtt-connectivity/howto-configure-tls-manual.md). When creating the certificate, use `azedge-dmqtt-frontend.level-4.com` as one of the Subject Alternative Names (SANs) (in --san option of step CLI).
 
 ### Deploy TLS Listener for MQ on level 4
 
