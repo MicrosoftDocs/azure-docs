@@ -241,6 +241,22 @@ git clone https://github.com/$GITHUB_USERNAME/containerapps-albumapi-go.git code
 
 ::: zone-end
 
+# [Java](#tab/java)
+
+Select the **Fork** button at the top of the [album API repo](https://github.com/azure-samples/containerapps-albumapi-java) to fork the repo to your account.
+
+::: zone pivot="local-build"
+
+Now you can clone your fork of the sample repository.
+
+Use the following git command to clone your forked repo into the *code-to-cloud* folder:
+
+```git
+git clone https://github.com/$GITHUB_USERNAME/containerapps-albumapi-java.git code-to-cloud
+```
+
+::: zone-end
+
 # [JavaScript](#tab/javascript)
 
 Select the **Fork** button at the top of the [album API repo](https://github.com/azure-samples/containerapps-albumapi-javascript) to fork the repo to your account.
