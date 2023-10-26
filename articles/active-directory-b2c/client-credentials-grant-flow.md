@@ -107,9 +107,6 @@ To create a new web app registration, follow these steps:
 
 ## Step 2.1 Create a client secret
 
-> [!NOTE]
-> Only client secrets are supported. Attempting to use federated credentials or client certificates will result in a `AADB2C99027: Policy '<policy>' does not contain a AuthorizationTechnicalProfile with a corresponding ClientAssertionType.` error.
-
 Create a client secret for the registered application. Your app uses the client secret to prove its identity when it requests tokens.
 
 1. Under **Manage**, select **Certificates & secrets**.
