@@ -109,7 +109,7 @@ items:
         - name: Push delivery
           items:
           - name: Publish and subscribe using namespace topics
-            href: publish-deliver-events-using-namespace-topics.md
+            href: publish-deliver-events-with-namespace-topics.md
       - name: Concepts
         items:
         - name: Pull delivery
