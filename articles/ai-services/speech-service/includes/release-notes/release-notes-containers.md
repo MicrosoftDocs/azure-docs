@@ -13,11 +13,11 @@ Add support for the latest model versions:
 - Speech to text 4.4.0
 - Neural text to speech 2.18.0
 
-Fix a lot of vulnerability issues.
+Fix a bunch of high risk vulnerability issues.
 
-Fix redundant logs.
+Remove redundant logs in containers.
 
-Upgrade internal media component.
+Upgrade internal media component to the latest.
 
 Add support for voice `en-IN-NeerjaNeural`.
 
