@@ -484,12 +484,12 @@ Use the following steps to set up APM in Spring Cloud Gateway by using the Azure
 
 1. Use the following command to update gateway with APM reference names:
 
-```azurecli
-az spring gateway update \
-    --resource-group <resource-group-name> \
-    --service <Azure-Spring-Apps-instance-name> \
-    --apms <APM-reference-name>
-```
+   ```azurecli
+   az spring gateway update \
+       --resource-group <resource-group-name> \
+       --service <Azure-Spring-Apps-instance-name> \
+       --apms <APM-reference-name>
+   ```
 
    The value for `--apms` is a space-separated list of APM reference names, which you created in step 1.
 
