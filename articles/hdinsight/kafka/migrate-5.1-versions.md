@@ -44,7 +44,7 @@ New Kafka brokers support older clients. [KIP-35 - Retrieving protocol version](
 ## General migration process
 
 The following migration guidance assumes an Apache Kafka 2.1.1 cluster deployed on HDInsight 4.0 in a single virtual network. The existing broker has some topics and is being actively used by producers and consumers.
-Upgrading the Kafka version on an existing cluster is not supported. After you create a cluster with HDI 5.1, migrate your Kafka clients to use the new cluster.
+Upgrading the Kafka version on an existing cluster isn't supported. After you create a cluster with HDI 5.1, migrate your Kafka clients to use the new cluster.
 
 
 To complete the migration, do the following steps:
