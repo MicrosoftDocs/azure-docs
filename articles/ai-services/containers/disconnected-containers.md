@@ -173,7 +173,7 @@ You can choose a different commitment plan in the **Commitment Tier pricing** se
 
 ## Overage pricing for disconnected containers
 
-To use the disconnected container beyond the quota initially purchased with your disconnected container commitment plan, you can purchase additional quota by updating your commitment plan at any time. 
+To use a disconnected container beyond the quota initially purchased with your disconnected container commitment plan, you can purchase additional quota by updating your commitment plan at any time. 
 
 To purchase additional quota, go to your resource in Azure portal and adjust the "unit count" of your disconnected container commitment plan using the slider. This will add additional monthly quota and you will be charged a pro-rated price based on the remaining days left in the current billing cycle.
 
