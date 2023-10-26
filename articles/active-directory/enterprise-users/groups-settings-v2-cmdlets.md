@@ -151,7 +151,7 @@ $param = @{
  mailNickname="Demo"
 }
 
-New-MgGroup -BodyParameter $param
+New-MgGroup @param
 ```
 
 ## Update groups

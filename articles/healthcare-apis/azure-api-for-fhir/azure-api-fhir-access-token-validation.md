@@ -17,15 +17,15 @@ How Azure API for FHIR validates the access token will depend on implementation 
 
 ## Validate token has no issues with identity provider
 
-The first step in the token validation is to verify that the token was issued by the correct identity provider and that it hasn't been modified. The FHIR server will be configured to use a specific identity provider known as the authority `Authority`. The FHIR server will retrieve information about the identity provider from the `/.well-known/openid-configuration` endpoint. When you use Azure Active Directory (Azure AD), the full URL is:
+The first step in the token validation is to verify that the token was issued by the correct identity provider and that it hasn't been modified. The FHIR server will be configured to use a specific identity provider known as the authority `Authority`. The FHIR server will retrieve information about the identity provider from the `/.well-known/openid-configuration` endpoint. When you use Microsoft Entra ID, the full URL is:
 
 ```
 GET https://login.microsoftonline.com/<TENANT-ID>/.well-known/openid-configuration
 ```
 
-where `<TENANT-ID>` is the specific Azure AD tenant (either a tenant ID or a domain name).
+where `<TENANT-ID>` is the specific Microsoft Entra tenant (either a tenant ID or a domain name).
 
-Azure AD will return a document like this one to the FHIR server.
+Microsoft Entra ID will return a document like this one to the FHIR server.
 
 ```json
 {
@@ -102,7 +102,7 @@ When you use Azure API for FHIR, the server will validate:
 1. The token has the right `Audience` (`aud` claim).
 1. The user or principal that the token was issued for is allowed to access the FHIR server data plane. The `oid` claim of the token contains an identity object ID, which uniquely identifies the user or principal.
 
-We recommend that the FHIR service be [configured to use Azure RBAC](configure-azure-rbac.md) to manage data plane role assignments. However, you can also [configure local RBAC](configure-local-rbac.md) if your FHIR service uses an external or secondary Azure AD tenant. 
+We recommend that the FHIR service be [configured to use Azure RBAC](configure-azure-rbac.md) to manage data plane role assignments. However, you can also [configure local RBAC](configure-local-rbac.md) if your FHIR service uses an external or secondary Microsoft Entra tenant. 
 
 When you use the OSS Microsoft FHIR server for Azure, the server will validate:
 

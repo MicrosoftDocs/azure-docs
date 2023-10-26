@@ -86,7 +86,7 @@ After you enable users, notify them via email. Tell the users that a prompt is d
 
 If your users were enabled using per-user enabled and enforced Microsoft Entra multifactor authentication the following PowerShell can assist you in making the conversion to Conditional Access based Microsoft Entra multifactor authentication.
 
-Run this PowerShell in an ISE window or save as a `.PS1` file to run locally. The operation can only be done by using the [MSOnline module](/powershell/module/msonline#msonline). 
+Run this PowerShell in an ISE window or save as a `.PS1` file to run locally. The operation can only be done by using the [MSOnline module](/powershell/module/msonline/#msonline).
 
 ```PowerShell
 # Connect to tenant

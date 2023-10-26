@@ -40,22 +40,22 @@ Using the ROPC authentication flow is risky in a production environment, so [cre
 
 ## Create and configure a key vault
 
-We recommend you securely store the test usernames and passwords as [secrets](../../key-vault/secrets/about-secrets.md) in Azure Key Vault.  When you run the tests later, the tests run in the context of a security principal.  The security principal is a Microsoft Entra user if you're running tests locally (for example, in Visual Studio or Visual Studio Code), or a service principal or managed identity if you're running tests in Azure Pipelines or another Azure resource. The security principal must have **Read** and **List** secrets permissions so the test runner can get the test usernames and passwords from your key vault. For more information, read [Authentication in Azure Key Vault](../../key-vault/general/authentication.md).
+We recommend you securely store the test usernames and passwords as [secrets](/azure/key-vault/secrets/about-secrets) in Azure Key Vault.  When you run the tests later, the tests run in the context of a security principal.  The security principal is a Microsoft Entra user if you're running tests locally (for example, in Visual Studio or Visual Studio Code), or a service principal or managed identity if you're running tests in Azure Pipelines or another Azure resource. The security principal must have **Read** and **List** secrets permissions so the test runner can get the test usernames and passwords from your key vault. For more information, read [Authentication in Azure Key Vault](/azure/key-vault/general/authentication).
 
-1. [Create a new key vault](../../key-vault/general/quick-create-portal.md) if you don't have one already.
+1. [Create a new key vault](/azure/key-vault/general/quick-create-portal) if you don't have one already.
 1. Take note of the **Vault URI** property value (similar to `https://<your-unique-keyvault-name>.vault.azure.net/`) which is used in the example test later in this article.
-1. [Assign an access policy](../../key-vault/general/assign-access-policy.md) for the security principal running the tests. Grant the user, service principal, or managed identity **Get** and **List** secrets permissions in the key vault.
+1. [Assign an access policy](/azure/key-vault/general/assign-access-policy) for the security principal running the tests. Grant the user, service principal, or managed identity **Get** and **List** secrets permissions in the key vault.
 
 ## Create test users
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-Create some test users in your tenant for testing. Since the test users are not actual humans, we recommend you assign complex passwords and securely store these passwords as [secrets](../../key-vault/secrets/about-secrets.md) in Azure Key Vault.
+Create some test users in your tenant for testing. Since the test users are not actual humans, we recommend you assign complex passwords and securely store these passwords as [secrets](/azure/key-vault/secrets/about-secrets) in Azure Key Vault.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
 1. Browse to **Identity** > **Users** > **All users**.
 1. Select **New user** and create one or more test user accounts in your directory.
-1. The example test later in this article uses a single test user.  [Add the test username and password as secrets](../../key-vault/secrets/quick-create-portal.md) in the key vault you created previously. Add the username as a secret named "TestUserName" and the password as a secret named "TestPassword".
+1. The example test later in this article uses a single test user.  [Add the test username and password as secrets](/azure/key-vault/secrets/quick-create-portal) in the key vault you created previously. Add the username as a secret named "TestUserName" and the password as a secret named "TestPassword".
 
 ## Create and configure an app registration
 Register an application that acts as your client app when calling APIs during testing.  This should *not* be the same application you may already have in production.  You should have a separate app to use only for testing purposes.
@@ -283,11 +283,11 @@ export const keyVaultConfig = {
 
 ### Initialize MSAL.js and fetch the user credentials from Key Vault
 
-Initialize the MSAL.js authentication context by instantiating a [PublicClientApplication](/javascript/api/@azure/msal-node/publicclientapplication) with a [Configuration](/javascript/api/@azure/msal-node/publicclientapplication#@azure-msal-node-publicclientapplication-constructor) object. The minimum required configuration property is the `clientID` of the application.
+Initialize the MSAL.js authentication context by instantiating a [PublicClientApplication](/javascript/api/%40azure/msal-node/publicclientapplication) with a [Configuration](/javascript/api/%40azure/msal-node/publicclientapplication#@azure-msal-node-publicclientapplication-constructor) object. The minimum required configuration property is the `clientID` of the application.
 
-Use [SecretClient()](/javascript/api/@azure/keyvault-secrets/secretclient) to get the test username and password secrets from Azure Key Vault.
+Use [SecretClient()](/javascript/api/%40azure/keyvault-secrets/secretclient) to get the test username and password secrets from Azure Key Vault.
 
-[DefaultAzureCredential()](/javascript/api/@azure/identity/defaultazurecredential) authenticates with Azure Key Vault by getting an access token from a service principal configured by environment variables or a managed identity (if the code is running on an Azure resource with a managed identity).  If the code is running locally, `DefaultAzureCredential` uses the local user's credentials. Read more in the [Azure Identity client library](/javascript/api/@azure/identity/defaultazurecredential) content.
+[DefaultAzureCredential()](/javascript/api/@azure/identity/defaultazurecredential) authenticates with Azure Key Vault by getting an access token from a service principal configured by environment variables or a managed identity (if the code is running on an Azure resource with a managed identity).  If the code is running locally, `DefaultAzureCredential` uses the local user's credentials. Read more in the [Azure Identity client library](/javascript/api/%40azure/identity/defaultazurecredential) content.
 
 Use Microsoft Authentication Library (MSAL) to authenticate using the ROPC flow and get an access token.  The access token is passed along as a bearer token in the HTTP request.
 

@@ -64,7 +64,7 @@ Assigning numbers to an enterprise allows IT administrators at the enterprise to
 
 1. Go to the number management page for the enterprise.
     * If you followed [Select an enterprise customer to manage](#select-an-enterprise-customer-to-manage), select **Manage numbers** from the menu.
-    * Otherwise, select **Numbers** in the sidebar and search for the enterprise using the enterprise's Azure Active Directory tenant ID.
+    * Otherwise, select **Numbers** in the sidebar and search for the enterprise using the enterprise's Microsoft Entra tenant ID.
 1. To add new numbers for an enterprise:
     1. Select **Upload numbers**.
     1. Fill in the fields based on the information you determined in [Prerequisites](#prerequisites). These settings apply to all the numbers you upload in the **Telephone numbers** section.
@@ -82,7 +82,7 @@ You can view civic addresses for an enterprise. The enterprise configures the de
 
 1. Go to the civic address page for the enterprise.
     * If you followed [Select an enterprise customer to manage](#select-an-enterprise-customer-to-manage), select **Civic addresses** from the menu.
-    * Otherwise, select **Civic addresses** in the sidebar and search for the enterprise using the enterprise's Azure Active Directory tenant ID.
+    * Otherwise, select **Civic addresses** in the sidebar and search for the enterprise using the enterprise's Microsoft Entra tenant ID.
 1. View the civic addresses. You can see the address, the company name, the description and whether the address was validated when the enterprise configured the address.
 1. Optionally, select an individual address to view additional information provided by the enterprise (for example, the ELIN information).
 

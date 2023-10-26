@@ -1,6 +1,6 @@
 ---
 title: Service-to-service authentication - Data Lake Storage Gen2 – Java SDK
-description: Learn how to achieve service-to-service authentication with Azure Data Lake Storage Gen2 using Azure Active Directory with Java
+description: Learn how to achieve service-to-service authentication with Azure Data Lake Storage Gen2 using Microsoft Entra ID with Java
 
 author: normesta
 ms.service: data-lake-store
@@ -25,7 +25,7 @@ In this article, you learn about how to use the Java SDK to do service-to-servic
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Create an Azure Active Directory "Web" Application**. You must have completed the steps in [Service-to-service authentication with Data Lake Storage Gen2 using Azure Active Directory](data-lake-store-service-to-service-authenticate-using-active-directory.md).
+* **Create a Microsoft Entra ID "Web" Application**. You must have completed the steps in [Service-to-service authentication with Data Lake Storage Gen2 using Microsoft Entra ID](data-lake-store-service-to-service-authenticate-using-active-directory.md).
 
 * [Maven](https://maven.apache.org/install.html). This tutorial uses Maven for build and project dependencies. Although it is possible to build without using a build system like Maven or Gradle, these systems make it much easier to manage dependencies.
 
@@ -76,7 +76,7 @@ In this article, you learn about how to use the Java SDK to do service-to-servic
 
 4. Use the following snippet in your Java app to obtain a token for the Active Directory web app you created earlier using one of the class of `StorageSharedKeyCredential` (the following example uses `credential`). The token provider caches the credentials used to obtain the token in memory, and automatically renews the token if it's about to expire. It's possible to create your own subclasses of `StorageSharedKeyCredential` so tokens are obtained by your customer code. For now, let's just use the one provided in the SDK.
 
-    Replace **FILL-IN-HERE** with the actual values for the Azure Active Directory Web application.
+    Replace **FILL-IN-HERE** with the actual values for the Microsoft Entra Web application.
 
     ```java
     private static String clientId = "FILL-IN-HERE";

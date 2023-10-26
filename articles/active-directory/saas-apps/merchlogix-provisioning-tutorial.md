@@ -34,23 +34,10 @@ Before configuring MerchLogix for automatic user provisioning with Microsoft Ent
 
 **To add MerchLogix from the Microsoft Entra application gallery, perform the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click on the **Microsoft Entra ID** icon. 
-
-	![The Microsoft Entra button][1]
-
-2. Navigate to **Enterprise applications** > **All applications**.
-
-	![The Enterprise applications Section][2]
-
-3. To add MerchLogix, click the **New application** button on the top of the dialog.
-
-	![The New application button][3]
-
-4. In the search box, type **MerchLogix**.
-
-5. In the results panel, select **MerchLogix**, and then click the **Add** button to add MerchLogix to your list of SaaS applications.
-
-	![Screenshot of the Add from the galley section with the Enter a name text box called out.][4]
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
+1. In the **Add from the gallery** section, type **MerchLogix** in the search box.
+1. Select **MerchLogix** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
 ## Assigning users to MerchLogix
 
@@ -124,9 +111,3 @@ For more information on how to read the Microsoft Entra provisioning logs, see [
 ## Next steps
 
 * [Learn how to review logs and get reports on provisioning activity](../app-provisioning/check-status-user-account-provisioning.md)
-
-<!--Image references-->
-[1]: common/select-azuread.png
-[2]: common/enterprise-applications.png
-[3]: common/add-new-app.png
-[4]: common/search-new-app.png

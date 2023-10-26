@@ -39,6 +39,10 @@ For more details on GIPK and its use cases with [Data-in-Replication](./concepts
 mysql> SET sql_generate_invisible_primary_key=OFF;
 ```
 
+### lower_case_table_names
+
+For MySQL version 5.7, default value is 1 in Azure Database for MySQL - Flexible Server. It is important to note that while it is possible to change the supported value to 2, reverting from 2 back to 1 is not permitted is not allowed.  Please contact our [support team](https://azure.microsoft.com/support/create-ticket/) for assistance in changing the default value. 
+For [MySQl version 8.0+](https://dev.mysql.com/doc/refman/8.0/en/identifier-case-sensitivity.html) lower_case_table_names can only be configured when initializing the server. [Learn more](https://dev.mysql.com/doc/refman/8.0/en/identifier-case-sensitivity.html). Changing the lower_case_table_names setting after the server is initialized is prohibited. For MySQL version 8.0, default value is 1 in Azure Database for MySQL - Flexible Server. Supported value for MySQL version 8.0 are 1 and 2 Azure Database for MySQL - Flexible Server. Please contact our [support team](https://azure.microsoft.com/support/create-ticket/) for assistance in changing the default value during server creation.
 
 ## Storage engines
 

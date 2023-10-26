@@ -24,7 +24,7 @@ Azure provides the capability to fulfill all control requirements to achieve a F
 
 ## Microsoft and FedRAMP 
 
-Microsoft Azure supports more services at [FedRAMP High Impact](../../azure-government/compliance/azure-services-in-fedramp-auditscope.md) levels than any other CSP. And while this level in the Azure public cloud meets the needs of many US government customers, agencies with more stringent requirements might rely on the Azure Government cloud. Azure Government provides additional safeguards, such as the heightened screening of personnel. 
+Microsoft Azure supports more services at [FedRAMP High Impact](/azure/azure-government/compliance/azure-services-in-fedramp-auditscope) levels than any other CSP. And while this level in the Azure public cloud meets the needs of many US government customers, agencies with more stringent requirements might rely on the Azure Government cloud. Azure Government provides additional safeguards, such as the heightened screening of personnel. 
 
 Microsoft is required to recertify its cloud services each year to maintain its authorizations. To do so, Microsoft continuously monitors and assesses its security controls, and demonstrates that the security of its services remains in compliance. For more information, see [Microsoft cloud services FedRAMP authorizations](https://marketplace.fedramp.gov/), and [Microsoft FedRAMP Audit Reports](https://aka.ms/MicrosoftFedRAMPAuditDocuments). To receive other FedRAMP reports, send email to [Azure Federal Documentation](mailto:AzFedDoc@microsoft.com).
 
@@ -50,11 +50,11 @@ The following is a list of FedRAMP resources:
 
 * [Azure Compliance Offerings](https://aka.ms/azurecompliance)
 
-* [FedRAMP High Azure Policy built-in initiative definition](../../governance/policy/samples/fedramp-high.md)
+* [FedRAMP High Azure Policy built-in initiative definition](/azure/governance/policy/samples/fedramp-high)
 
-* [Microsoft Purview compliance portal](/microsoft-365/compliance/microsoft-365-compliance-center)
+* [Microsoft Purview compliance portal](/purview/microsoft-365-compliance-center)
 
-* [Microsoft Purview Compliance Manager](/microsoft-365/compliance/compliance-manager)
+* [Microsoft Purview Compliance Manager](/purview/compliance-manager)
 
 ## Next steps
 

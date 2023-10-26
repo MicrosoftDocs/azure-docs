@@ -12,7 +12,7 @@ To enable your application to sign in users with Microsoft Entra, Microsoft Entr
 
 The following steps show you how to register your app in the Microsoft Entra admin center:
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Application Developer](/azure/active-directory/roles/permissions-reference#application-developer).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Application Developer](../../../../roles/permissions-reference.md#application-developer).
 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="../../media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to your customer tenant. 
 1. Browse to **Identity** >**Applications** > **App registrations**.
 1. Select **+ New registration**.

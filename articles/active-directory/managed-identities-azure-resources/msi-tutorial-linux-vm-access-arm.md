@@ -34,9 +34,9 @@ In this tutorial, you learn how to:
 
 - An understanding of Managed identities. If you're not familiar with the managed identities for Azure resources feature, see this [overview](overview.md). 
 - An Azure account, [sign up for a free account](https://azure.microsoft.com/free/).
-- You also need a Linux Virtual machine. If you need to create  a virtual machine for this tutorial, you can follow the article titled [Create a Linux virtual machine with the Azure portal](../../virtual-machines/linux/quick-create-portal.md#create-virtual-machine)
+- You also need a Linux Virtual machine. If you need to create  a virtual machine for this tutorial, you can follow the article titled [Create a Linux virtual machine with the Azure portal](/azure/virtual-machines/linux/quick-create-portal#create-virtual-machine)
 - To run the example scripts, you have two options:
-    - Use the [Azure Cloud Shell](../../cloud-shell/overview.md), which you can open using the **Try It** button on the top-right corner of code blocks.
+    - Use the [Azure Cloud Shell](/azure/cloud-shell/overview), which you can open using the **Try It** button on the top-right corner of code blocks.
     - Run scripts locally by installing the latest version of the [Azure CLI](/cli/azure/install-azure-cli), then sign in to Azure using [az login](/cli/azure/reference-index#az-login).
 
 ## Create a user-assigned managed identity
@@ -166,4 +166,4 @@ To complete these steps, you need an SSH client. If you are using Windows, you c
 In this tutorial, you learned how to create a user-assigned managed identity and attach it to a Linux virtual machine to access the Azure Resource Manager API.  To learn more about Azure Resource Manager see:
 
 > [!div class="nextstepaction"]
->[Azure Resource Manager](../../azure-resource-manager/management/overview.md)
+>[Azure Resource Manager](/azure/azure-resource-manager/management/overview)

@@ -34,7 +34,7 @@ This sample requires the [Azure Active Directory PowerShell 2.0 for Graph module
 
 | Command | Notes |
 |---|---|
-| [New-AzureADGroupAppRoleAssignment](/powershell/module/AzureAD/New-azureadgroupapproleassignment) | Assigns a group to an application role. |
+| [New-AzureADGroupAppRoleAssignment](/powershell/module/azuread/new-azureadgroupapproleassignment) | Assigns a group to an application role. |
 
 ## Next steps
 

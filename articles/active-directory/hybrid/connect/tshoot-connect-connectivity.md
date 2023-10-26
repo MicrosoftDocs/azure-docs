@@ -26,7 +26,7 @@ This article explains how connectivity between Microsoft Entra Connect and Micro
 Microsoft Entra Connect uses the Microsoft Authentication Library (MSAL) for authentication. The installation wizard and the sync engine require machine.config to be properly configured because these two are .NET applications.
 
 > [!NOTE]
-> Microsoft Entra Connect v1.6.xx.x uses the Active Directory Authentication Library (ADAL). The ADAL is being deprecated and support will end in June 2022. We recommend that you upgrade to the latest version of [Microsoft Entra Connect v2](whatis-azure-ad-connect-v2.md).
+> Azure AD Connect v1.6.xx.x uses the Active Directory Authentication Library (ADAL). The ADAL is being deprecated and support will end in June 2022. We recommend that you upgrade to the latest version of [Microsoft Entra Connect v2](whatis-azure-ad-connect-v2.md).
 
 In this article, we show how Fabrikam connects to Microsoft Entra ID through its proxy. The proxy server is named `fabrikamproxy` and uses port 8080.
 

@@ -60,7 +60,7 @@ For more information on how SSO works with Windows 10 using PRT, see: [Primary R
 - Microsoft 365 Win32 clients (Outlook, Word, Excel, and others) with versions 16.0.8730.xxxx and above are supported using a non-interactive flow. For OneDrive, you'll have to activate the [OneDrive silent config feature](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) for a silent sign-on experience.
 - It can be enabled via Microsoft Entra Connect.
 - It's a free feature, and you don't need any paid editions of Microsoft Entra ID to use it.
-- It's supported on web browser-based clients and Office clients that support [modern authentication](/office365/enterprise/modern-auth-for-office-2013-and-2016) on platforms and browsers capable of Kerberos authentication:
+- It's supported on web browser-based clients and Office clients that support [modern authentication](/microsoft-365/enterprise/modern-auth-for-office-2013-and-2016) on platforms and browsers capable of Kerberos authentication:
 
 | OS\Browser |Internet Explorer|Microsoft Edge\*\*\*\*|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 

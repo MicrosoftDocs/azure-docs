@@ -33,7 +33,7 @@ In this article, you'll learn how to use Azure Pipelines with HDInsight on AKS t
 
 ### Create a service principal for Azure Pipelines
 
-  Create [Azure AD Service Principal](/cli/azure/ad/sp/) to access Azure – Grant permission to access HDInsight on AKS Cluster with Contributor role, make a note of appId, password, and tenant from the response.
+  Create [Microsoft Entra service principal](/cli/azure/ad/sp/) to access Azure – Grant permission to access HDInsight on AKS Cluster with Contributor role, make a note of appId, password, and tenant from the response.
   ```
   az ad sp create-for-rbac -n <service_principal_name> --role Contributor --scopes <Flink Cluster Resource ID>`
   ```

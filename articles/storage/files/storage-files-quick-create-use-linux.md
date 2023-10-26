@@ -5,7 +5,7 @@ author: khdownie
 ms.service: azure-file-storage
 ms.custom: devx-track-linux
 ms.topic: tutorial
-ms.date: 10/21/2022
+ms.date: 10/10/2023
 ms.author: kendownie
 #Customer intent: As an IT admin new to Azure Files, I want to try out Azure file share using NFS and Linux so I can determine whether I want to subscribe to the service.
 ---
@@ -193,7 +193,7 @@ Now that you've created an NFS share, to use it you have to mount it on your Lin
 
 1. Select **File shares** from the storage account pane and select the NFS file share you created.
 
-1. You should see **Connect to this NFS share from Linux** along with sample commands to use NFS on your Linux distribution and a provided mounting script.
+1. You should see **Connect to this NFS share from Linux** along with sample commands to use NFS on your Linux distribution and a mounting script that contains the required mount options. For other recommended mount options, see [Mount NFS Azure file share on Linux](storage-files-how-to-mount-nfs-shares.md#mount-options).
 
    > [!IMPORTANT]
    > The provided mounting script will mount the NFS share only until the Linux machine is rebooted. To automatically mount the share every time the machine reboots, see [Mount an NFS share using /etc/fstab](storage-files-how-to-mount-nfs-shares.md#mount-an-nfs-share-using-etcfstab).

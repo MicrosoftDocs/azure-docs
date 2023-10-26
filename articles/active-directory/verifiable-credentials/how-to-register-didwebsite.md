@@ -25,7 +25,7 @@ ms.author: barclayn
 
 ## Why do I need to register my decentralized ID?
 
-If your trust system for the tenant is Web, you need register your decentralized ID to be able to issue and verify your credentials. When the trust system is Web, you have to make this information available on your website and complete this registration. Otherwise your public key isn't made public. When you use the ION based trust system, information like your issuers' public keys are published to blockchain and you don't need to complete this step.
+For Web trust system, you need register your decentralized ID to be able to issue and verify your credentials. You have to make this information available on your website and complete this registration. Otherwise your public key isn't made public.
 
 ## How do I register my decentralized ID?
 

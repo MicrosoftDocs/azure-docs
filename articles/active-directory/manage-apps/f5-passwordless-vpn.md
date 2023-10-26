@@ -29,7 +29,7 @@ Enabling a BIG-IP SSL-VPN for Microsoft Entra single sign-on (SSO) provides many
 To learn about more benefits, see 
 
 * [Integrate F5 BIG-IP with Microsoft Entra ID](./f5-integration.md)
-* [What is single sign-on in Microsoft Entra ID?](/azure/active-directory/active-directory-appssoaccess-whatis)
+* [What is single sign-on in Microsoft Entra ID?](./what-is-single-sign-on.md)
 
 >[!NOTE]
 >Classic VPNs remain network orientated, often providing little to no fine-grained access to corporate applications. We encourage a more identity-centric approach to achieve Zero Trust. Learn more: [Five steps for integrating all your apps with Microsoft Entra ID](../fundamentals/five-steps-to-full-application-integration.md).

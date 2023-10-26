@@ -101,7 +101,7 @@ Organizations should monitor sign-in and audit log activity from the emergency a
 
 ### Prerequisites
 
-1. [Send Microsoft Entra sign-in logs](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) to Azure Monitor.
+1. [Send Microsoft Entra sign-in logs](../reports-monitoring/howto-integrate-activity-logs-with-azure-monitor-logs.md) to Azure Monitor.
 
 ### Obtain Object IDs of the break glass accounts
 
@@ -117,7 +117,7 @@ Organizations should monitor sign-in and audit log activity from the emergency a
 
 ### Create an alert rule
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as at least a [Monitoring Contributor](../../role-based-access-control/built-in-roles.md#monitoring-contributor).
+1. Sign in to the [Azure portal](https://portal.azure.com) as at least a [Monitoring Contributor](/azure/role-based-access-control/built-in-roles#monitoring-contributor).
 
 1. Browse to **Monitor** > **Log Analytics workspaces**.
 
@@ -227,5 +227,5 @@ These steps should be performed at regular intervals and for key changes:
 - [Add users using Microsoft Entra ID](../fundamentals/add-users.md) and [assign the new user to the Global Administrator role](../fundamentals/how-subscriptions-associated-directory.md)
 - [Sign up for Microsoft Entra ID P1 or P2](../fundamentals/get-started-premium.md), if you haven’t signed up already
 - [How to require two-step verification for a user](../authentication/howto-mfa-userstates.md)
-- [Configure additional protections for Global Administrators in Microsoft 365](/office365/enterprise/protect-your-global-administrator-accounts), if you are using Microsoft 365
+- [Configure additional protections for Global Administrators in Microsoft 365](/microsoft-365/enterprise/protect-your-global-administrator-accounts), if you are using Microsoft 365
 - [Start an access review of Global Administrators](../privileged-identity-management/pim-create-roles-and-resource-roles-review.md) and [transition existing Global Administrators to more specific administrator roles](permissions-reference.md)

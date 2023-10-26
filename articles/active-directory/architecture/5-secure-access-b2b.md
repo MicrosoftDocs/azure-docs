@@ -140,7 +140,7 @@ If you use a self-service portal, use API connectors to collect user attributes 
 Learn more:
 
 * [Use API connectors to customize and extend self-service sign-up](../external-identities/api-connectors-overview.md)
-* [Manage Azure AD B2C with Microsoft Graph](../../active-directory-b2c/microsoft-graph-operations.md)
+* [Manage Azure AD B2C with Microsoft Graph](/azure/active-directory-b2c/microsoft-graph-operations)
 
 <a name='troubleshoot-invitation-redemption-to-azure-ad-users'></a>
 
@@ -224,13 +224,13 @@ By default, Teams allows external access. The organization can communicate with
 Sharing through SharePoint and OneDrive adds users not in the entitlement management process. 
 
 * [Secure external access to Microsoft Teams, SharePoint, and OneDrive for Business](9-secure-access-teams-sharepoint.md)
-* [Block OneDrive use from Office](/office365/troubleshoot/group-policy/block-onedrive-use-from-office) 
+* [Block OneDrive use from Office](/microsoft-365/troubleshoot/group-policy/block-onedrive-use-from-office) 
 
 ### Emailed documents and sensitivity labels
 
 Users send documents to external users by email. You can use sensitivity labels to restrict and encrypt access to documents. 
 
-See, [Learn about sensitivity labels](/microsoft-365/compliance/sensitivity-labels?view=o365-worldwide&preserve-view=true).
+See, [Learn about sensitivity labels](/purview/sensitivity-labels?view=o365-worldwide&preserve-view=true).
 
 ### Unsanctioned collaboration tools
 

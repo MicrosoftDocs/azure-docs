@@ -364,4 +364,4 @@ Here are a few tips on avoiding issues when you implement brokered authenticatio
 
 ## Next steps
 
-Learn about [Considerations for using Universal Windows Platform with MSAL.NET](msal-net-uwp-considerations.md).
+Learn about [Considerations for using Universal Windows Platform with MSAL.NET](/entra/msal/dotnet/acquiring-tokens/desktop-mobile/uwp).

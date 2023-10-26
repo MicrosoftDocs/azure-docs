@@ -164,4 +164,4 @@ If required, add `ConsistencyLevel=eventual` in the request or the header. You m
 ## Next steps
 
 - [Manage access to custom security attributes in Microsoft Entra ID](custom-security-attributes-manage.md)
-- [Troubleshoot Azure role assignment conditions](../../role-based-access-control/conditions-troubleshoot.md)
+- [Troubleshoot Azure role assignment conditions](/azure/role-based-access-control/conditions-troubleshoot)

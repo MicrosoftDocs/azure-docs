@@ -7,7 +7,7 @@ author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 10/25/2022 
+ms.date: 10/20/2023 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -64,9 +64,8 @@ The following YAML code executes a script that can be used to stop triggers befo
               ScriptArguments: -armTemplate "<your-arm-template-location>" -ResourceGroupName <your-resource-group-name> -DataFactoryName <your-data-factory-name> -predeployment $true -deleteDeployment $false
               errorActionPreference: stop
               FailOnStandardError: False
-              azurePowerShellVersion: azurePowerShellVersion
-              preferredAzurePowerShellVersion: 3.1.0
-              pwsh: False
+              azurePowerShellVersion: 'LatestVersion'
+              pwsh: True
               workingDirectory: ../
 ```
 
@@ -81,9 +80,8 @@ The following YAML code executes a script that can be used to stop triggers befo
               ScriptArguments: -armTemplate "<your-arm-template-location>" -ResourceGroupName <your-resource-group-name> -DataFactoryName <your-data-factory-name>-predeployment $false -deleteDeployment $true
               errorActionPreference: stop
               FailOnStandardError: False
-              azurePowerShellVersion: azurePowerShellVersion
-              preferredAzurePowerShellVersion: 3.1.0
-              pwsh: False
+              azurePowerShellVersion: 'LatestVersion'
+              pwsh: True
               workingDirectory: ../
 ```
 

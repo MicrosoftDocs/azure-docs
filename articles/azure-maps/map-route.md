@@ -169,7 +169,7 @@ document.body.onload = onload;
 > [!VIDEO //codepen.io/azuremaps/embed/RBZbep/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
 --------------------------------------------------------->
 
-In the previous code example, the first block constructs a map object and sets the authentication mechanism to use Azure Active Directory. You can see [Create a map] for instructions.
+In the previous code example, the first block constructs a map object and sets the authentication mechanism to use Microsoft Entra ID. You can see [Create a map] for instructions.
 
 The second block of code creates an object that implements the [TokenCredential] interface to authenticate HTTP requests to Azure Maps with the access token. It then passes the credential object to [MapsRoute] and creates an instance of the client.
 
@@ -309,7 +309,7 @@ document.body.onload = onload;
 > [!VIDEO //codepen.io/azuremaps/embed/zRyNmP/?height=469&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
 --------------------------------------------------------->
 
-In the previous code example, the first block of code constructs a map object and sets the authentication mechanism to use Azure Active Directory. You can see [Create a map] for instructions.
+In the previous code example, the first block of code constructs a map object and sets the authentication mechanism to use Microsoft Entra ID. You can see [Create a map] for instructions.
 
 The second block of code creates and adds a [DataSource] object to the map.
 

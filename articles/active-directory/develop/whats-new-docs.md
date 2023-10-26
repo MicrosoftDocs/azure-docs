@@ -60,6 +60,6 @@ Welcome to what's new in the Microsoft identity platform documentation. This art
 
 - [Access tokens in the Microsoft identity platform](access-tokens.md) - Improve the explanations on how to validate a token
 - [Claims mapping policy type](reference-claims-mapping-policy-type.md) - Updates to Restricted Claims Set
-- [Migrate confidential client applications from ADAL.NET to MSAL.NET](msal-net-migration-confidential-client.md) - Improving clarity in the content
+- [Migrate confidential client applications from ADAL.NET to MSAL.NET](/entra/msal/dotnet/how-to/migrate-confidential-client) - Improving clarity in the content
 - [Single sign-on with MSAL.js](msal-js-sso.md) - Add guidance on using the loginHint claim for SSO
 - [Tutorial: Create a Blazor Server app that uses the Microsoft identity platform for authentication](tutorial-blazor-server.md) - Simplified and leverage the Microsoft Identity App Sync .NET tool

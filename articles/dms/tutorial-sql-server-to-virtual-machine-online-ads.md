@@ -37,8 +37,8 @@ This article describes an online migration from SQL Server to a SQL Server on Az
 
 To complete this tutorial, you need to:
 
-* [Download and install Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio)
-* [Install the Azure SQL migration extension](/sql/azure-data-studio/extensions/azure-sql-migration-extension) from the Azure Data Studio marketplace
+* [Download and install Azure Data Studio](/azure-data-studio/download-azure-data-studio)
+* [Install the Azure SQL migration extension](/azure-data-studio/extensions/azure-sql-migration-extension) from the Azure Data Studio marketplace
 * Have an Azure account that is assigned to one of the built-in roles listed below:
     - Contributor for the target SQL Server on Azure Virtual Machine (and Storage Account to upload your database backup files from SMB network share).
     - Reader role for the Azure Resource Groups containing the target SQL Server on Azure Virtual Machine or the Azure storage account.

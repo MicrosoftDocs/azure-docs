@@ -242,13 +242,13 @@ WHERE STEP in (3,4,6);
 
 - **Cause**: The selected tables for the migration don't exist in the target Azure SQL Database.
 
-- **Recommendation**: Make sure the target database schema was created before starting the migration. For more information on how to deploy the target database schema, see [SQL Database Projects extension](/sql/azure-data-studio/extensions/sql-database-project-extension)
+- **Recommendation**: Make sure the target database schema was created before starting the migration. For more information on how to deploy the target database schema, see [SQL Database Projects extension](/azure-data-studio/extensions/sql-database-project-extension)
 
 - **Message**: DatabaseSizeMoreThanMax: `The source database size <Source Database Size> exceeds the maximum allowed size of the target database <Target Database Size>. Check if the target database has enough space.`
 
 - **Cause**: The target database doesn't have enough space.
 
-- **Recommendation**: Make sure the target database schema was created before starting the migration. For more information on how to deploy the target database schema, see [SQL Database Projects extension](/sql/azure-data-studio/extensions/sql-database-project-extension).
+- **Recommendation**: Make sure the target database schema was created before starting the migration. For more information on how to deploy the target database schema, see [SQL Database Projects extension](/azure-data-studio/extensions/sql-database-project-extension).
 
 - **Message**: NoTablesFound: `Some of the source tables don't exist in the target database. Missing tables: <TableList>`.
 
@@ -327,6 +327,6 @@ Migrating to SQL Server on Azure VMs by using the Azure SQL extension for Azure 
 
 ## Next steps
 
-- For an overview and installation of the Azure SQL migration extension, see [Azure SQL migration extension for Azure Data Studio](/sql/azure-data-studio/extensions/azure-sql-migration-extension)
+- For an overview and installation of the Azure SQL migration extension, see [Azure SQL migration extension for Azure Data Studio](/azure-data-studio/extensions/azure-sql-migration-extension)
 - For more information on known limitations with Log Replay Service,  see [Migrate databases from SQL Server to SQL Managed Instance by using Log Replay Service (Preview)](/azure/azure-sql/managed-instance/log-replay-service-migrate#limitations)
 - For more information on SQL Server on Virtual machine resource limits, see [Checklist: Best practices for SQL Server on Azure VMs](/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist)

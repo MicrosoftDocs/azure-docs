@@ -50,7 +50,9 @@ A gateway device manages one or more downstream devices that connect to your IoT
 
 As you connect a device to IoT Central, it goes through the following stages: _registered_, _provisioned_, and _connected_.
 
-To learn how to monitor the status of a device, see [Monitor your devices](howto-manage-devices-individually.md#monitor-your-devices).
+- To learn why devices should always use the Device Provisioning Service to connect to IoT Central, see [Device implementation and best practices for IoT central](concepts-device-implementation.md).
+
+- To learn how to monitor the status of a device, see [Monitor your devices](howto-manage-devices-individually.md#monitor-your-devices).
 
 ### Register a device
 

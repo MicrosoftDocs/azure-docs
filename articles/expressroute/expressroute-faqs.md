@@ -94,7 +94,7 @@ If your ExpressRoute circuit is enabled for Azure Microsoft peering, you can acc
 
 * [Microsoft 365](/microsoft-365/enterprise/azure-expressroute)
 * Power BI - Available via an Azure Regional Community, see [here](/power-bi/service-admin-where-is-my-tenant-located) for how to find out the region of your Power BI tenant.
-* Azure Active Directory
+* Microsoft Entra ID
 * [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (Azure Global Services community)
 * [Microsoft PSTN services](./using-expressroute-for-microsoft-pstn.md)
 * Azure Public IP addresses for IaaS (Virtual Machines, Virtual Network Gateways, Load Balancers, etc.)  
@@ -243,7 +243,9 @@ Yes. You can link up to 10 virtual networks in the same subscription as the circ
 
 For more information, see [sharing an ExpressRoute circuit across multiple subscriptions](expressroute-howto-linkvnet-arm.md).
 
-### I have multiple Azure subscriptions associated to different Azure Active Directory tenants or Enterprise Agreement enrollments. Can I connect virtual networks that are in separate tenants and enrollments to a single ExpressRoute circuit not in the same tenant or enrollment?
+<a name='i-have-multiple-azure-subscriptions-associated-to-different-azure-active-directory-tenants-or-enterprise-agreement-enrollments-can-i-connect-virtual-networks-that-are-in-separate-tenants-and-enrollments-to-a-single-expressroute-circuit-not-in-the-same-tenant-or-enrollment'></a>
+
+### I have multiple Azure subscriptions associated to different Microsoft Entra tenants or Enterprise Agreement enrollments. Can I connect virtual networks that are in separate tenants and enrollments to a single ExpressRoute circuit not in the same tenant or enrollment?
 
 Yes. ExpressRoute authorizations can span subscription, tenant, and enrollment boundaries with no extra configuration required. Connectivity and bandwidth charges for the dedicated circuit gets applied to the ExpressRoute circuit owner and all virtual networks share the same bandwidth.
 

@@ -295,7 +295,7 @@ const msalTokenCache = publicClientApplication.getTokenCache();
 
 Importantly, your previous token cache with ADAL Node won't be transferable to MSAL Node, since cache schemas are incompatible. However, you may use the valid refresh tokens your app obtained previously with ADAL Node in MSAL Node. See the section on [refresh tokens](#remove-logic-around-refresh-tokens) for more.
 
-You can also write your cache to disk by providing your own **cache plugin**. The cache plugin must implement the interface [ICachePlugin](/javascript/api/@azure/msal-node/icacheplugin). Like logging, caching is part of the configuration options and is created with the initialization of the MSAL Node instance:
+You can also write your cache to disk by providing your own **cache plugin**. The cache plugin must implement the interface [ICachePlugin](/javascript/api/%40azure/msal-node/icacheplugin). Like logging, caching is part of the configuration options and is created with the initialization of the MSAL Node instance:
 
 ```javascript
 const msal = require('@azure/msal-node');

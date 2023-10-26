@@ -82,10 +82,10 @@ The common schema includes information about the affected resource and the cause
           }
         ]
       }
-      },
-      "customProperties":{
-        "Key1": "Value1",
-        "Key2": "Value2"
+    },
+    "customProperties": {
+      "Key1": "Value1",
+      "Key2": "Value2"
     }
   }
 }

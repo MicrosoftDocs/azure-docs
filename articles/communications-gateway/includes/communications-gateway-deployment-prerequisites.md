@@ -3,7 +3,7 @@ author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: include
-ms.date: 08/23/2022
+ms.date: 10/09/2023
 ---
 
 > [!IMPORTANT]
@@ -15,7 +15,7 @@ You must own globally routable numbers that you can use for testing, as follows.
 
 |Type of testing|Numbers required |
 |---------|---------|
-|Automated validation testing by Microsoft Teams test suites|Minimum: 6. Recommended: 9 (to run tests simultaneously).|
 |Manual test calls made by you and/or Microsoft staff during integration testing |Minimum: 1|
+|Automated validation testing by Microsoft Teams test suites (Operator Connect and Teams Phone Mobile only) |Minimum: 6. Recommended: 9 (to run tests simultaneously).|
 
-After deployment, the automated validation testing numbers use synthetic traffic to continuously check the health of your deployment.
+After deployment, the automated validation testing numbers for Operator Connect and Teams Phone Mobile use synthetic traffic to continuously check the health of your deployment.

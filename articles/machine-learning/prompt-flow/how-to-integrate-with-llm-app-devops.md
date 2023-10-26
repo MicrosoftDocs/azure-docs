@@ -126,10 +126,6 @@ pf = PFClient(ml_client)
 
 ---
 
-### Submit flow run to Azure Machine Learning workspace
-
-We'll use [web-classification flow](https://github.com/microsoft/promptflow/tree/examples/flows/standard/web-classification/) as example.
-
 # [Azure CLI](#tab/cli)
 
 Prepare the `run.yml` to define the config for this flow run in cloud.
@@ -193,10 +189,6 @@ print(base_run)
 ```
 
 ---
-
-### Evaluation your flow to Azure Machine Learning workspace
-
-- We will use [classification-accuracy-eval flow](https://github.com/microsoft/promptflow/tree/examples/flows/evaluation/classification-accuracy-eval/) as example.
 
 # [Azure CLI](#tab/cli)
 

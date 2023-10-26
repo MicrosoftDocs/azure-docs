@@ -9,7 +9,7 @@ ms.author: aahi
 ---
 
 
-Assigning deployment resources programmatically requires Microsoft Azure Active Directory (Azure AD) authentication. Azure AD is used to confirm you have access to the resources you are interested in assigning to your project for multi-region deployment. To programmatically use Azure AD authentication when making REST API calls, learn more from the [Azure AI services documentation](../../../../../authentication.md?source=docs&tabs=powershell&tryIt=true#authenticate-with-azure-active-directory).
+Assigning deployment resources programmatically requires Microsoft Entra authentication. Microsoft Entra ID is used to confirm you have access to the resources you are interested in assigning to your project for multi-region deployment. To programmatically use Microsoft Entra authentication when making REST API calls, learn more from the [Azure AI services documentation](../../../../../authentication.md?source=docs&tabs=powershell&tryIt=true#authenticate-with-azure-active-directory).
 
 ### Assign resource 
 
@@ -31,7 +31,7 @@ Use the following URL when creating your API request. Replace the placeholder va
 
 ### Headers
 
-Use [Azure AD authentication](../../../../../authentication.md#authenticate-with-azure-active-directory) to authenticate this API.
+Use [Microsoft Entra authentication](../../../../../authentication.md#authenticate-with-azure-active-directory) to authenticate this API.
 
 ### Body
 

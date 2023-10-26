@@ -106,4 +106,4 @@ The following scenarios are supported when collaborating with an organization fr
 
 ## Next steps
 
-See [Configure external collaboration settings](external-collaboration-settings-configure.md) for B2B collaboration with non-Azure AD identities, social identities, and non-IT managed external accounts.
+See [Configure external collaboration settings](external-collaboration-settings-configure.md) for B2B collaboration with non Microsoft Entra identities, social identities, and non-IT managed external accounts.

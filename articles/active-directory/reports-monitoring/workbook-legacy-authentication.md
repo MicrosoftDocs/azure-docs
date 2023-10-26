@@ -86,4 +86,4 @@ This workbook supports multiple filters:
 
 - To learn more about identity protection, see [What is identity protection](../identity-protection/overview-identity-protection.md). 
 
-- For more information about Microsoft Entra workbooks, see [How to use Microsoft Entra workbooks](howto-use-azure-monitor-workbooks.md).
+- For more information about Microsoft Entra workbooks, see [How to use Microsoft Entra workbooks](./howto-use-workbooks.md).

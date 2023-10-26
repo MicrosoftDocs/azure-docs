@@ -9,7 +9,7 @@
       href: fhir-rest-api-capabilities.md
     - name: Security controls by Azure policy
       href: ./security-controls-policy.md
-    - name: Azure AD and Azure API for FHIR 
+    - name: Microsoft Entra ID and Azure API for FHIR 
       href: azure-active-directory-identity-configuration.md
 - name: Quickstarts
   expanded: false
@@ -147,7 +147,7 @@
 - name: Concepts
   expanded: true
   items:
-  - name: Azure AD and Azure API for FHIR Overview
+  - name: Microsoft Entra ID and Azure API for FHIR Overview
     href: azure-active-directory-identity-configuration.md
   - name: Access token validation
     href: azure-api-fhir-access-token-validation.md

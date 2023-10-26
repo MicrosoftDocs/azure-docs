@@ -99,4 +99,4 @@ Preauthorization allows a resource application owner to grant permissions withou
 - [User and admin consent overview](../manage-apps/user-admin-consent-overview.md)
 - [OpenID connect scopes](scopes-oidc.md)
 -- [Making your application multi-tenant](./howto-convert-app-to-be-multi-tenant.md)
-- [Microsoft Entra Microsoft Q&A](/answers/topics/azure-active-directory.html)
+- [Microsoft Entra Microsoft Q&A](/answers/tags/455/entra-id)

@@ -66,7 +66,7 @@ Workload Identity Federation enables developers to use managed identities for th
 For more information, see: 
 - [Workload identity federation](../workload-identities/workload-identity-federation.md).
 - [Configure a user-assigned managed identity to trust an external identity provider (preview)](../workload-identities/workload-identity-federation-create-trust-user-assigned-managed-identity.md)
-- [Use Azure AD workload identity with Azure Kubernetes Service (AKS)](../../aks/workload-identity-overview.md)
+- [Use Azure AD workload identity with Azure Kubernetes Service (AKS)](/azure/aks/workload-identity-overview)
 
 ---
 
@@ -332,14 +332,14 @@ For more information about how to better secure your organization by using autom
 
 ---
 
-### Public Preview - Azure AD cloud sync new user experience
+### Public Preview - Azure AD Connect cloud sync new user experience
 
 
-**Type:** Changed feature   
-**Service category:** Azure AD Connect Cloud Sync                  
-**Product capability:** Identity Governance         
+**Type:** Changed feature
+**Service category:** Azure AD Connect cloud sync
+**Product capability:** Identity Governance
 
-Try out the new guided experience for syncing objects from AD to Azure AD using Azure AD Cloud Sync in Azure portal. With this new experience, Hybrid Identity Administrators can easily determine which sync engine to use for their scenarios and learn more about the various options they have with our sync solutions. With a rich set of tutorials and videos, customers are able to learn everything about Azure AD cloud sync in one single place. 
+Try out the new guided experience for syncing objects from AD to Azure AD using Azure AD Connect cloud sync in Azure portal. With this new experience, Hybrid Identity Administrators can easily determine which sync engine to use for their scenarios and learn more about the various options they have with our sync solutions. With a rich set of tutorials and videos, customers are able to learn everything about Azure AD Connect cloud sync in one single place. 
 
 This experience helps administrators walk through the different steps involved in setting up a cloud sync configuration and an intuitive experience to help them easily manage it. Admins can also get insights into their sync configuration by using the "Insights" option, which integrates with Azure Monitor and Workbooks. 
 
@@ -347,21 +347,19 @@ For more information, see:
 
 - [Create a new configuration for Azure AD Connect cloud sync](../hybrid/cloud-sync/how-to-configure.md)
 - [Attribute mapping in Azure AD Connect cloud sync](../hybrid/cloud-sync/how-to-attribute-mapping.md)
-- [Azure AD cloud sync insights workbook](../hybrid/cloud-sync/how-to-cloud-sync-workbook.md)
+- [Azure AD Connect cloud sync insights workbook](../hybrid/cloud-sync/how-to-cloud-sync-workbook.md)
 
 ---
 
-### Public Preview - Support for Directory Extensions using Azure AD cloud sync
-
-
+### Public Preview - Support for Directory Extensions using Azure AD Connect cloud sync
 
 **Type:** New feature   
 **Service category:** Provisioning               
-**Product capability:** Azure AD Connect Cloud Sync         
+**Product capability:** Azure AD Connect cloud sync         
 
-Hybrid IT Admins now can sync both Active Directory and Azure AD Directory Extensions using Azure AD Cloud Sync. This new capability adds the ability to dynamically discover the schema for both Active Directory and Azure AD, allowing customers to map the needed attributes using Cloud Sync's attribute mapping experience. 
+Hybrid IT Admins now can sync both Active Directory and Azure AD Directory Extensions using Azure AD cloud sync. This new capability adds the ability to dynamically discover the schema for both Active Directory and Azure AD, allowing customers to map the needed attributes using the attribute mapping experience of Azure AD Connect cloud sync.
 
-For more information on how to enable this feature, see: [Cloud Sync directory extensions and custom attribute mapping](../hybrid/cloud-sync/custom-attribute-mapping.md)
+For more information on how to enable this feature, see [Directory extensions and custom attribute mapping in Azure AD Connect cloud sync](../hybrid/cloud-sync/custom-attribute-mapping.md)
 
 
 ---
@@ -565,7 +563,7 @@ We recognize that changing libraries isn't an easy task, and can't be accomplish
 
 ### How to find out which applications in my tenant are using Microsoft Authentication Library?
 
-Refer to our post on [Microsoft Q&A](/answers/questions/360928/information-how-to-find-apps-using-adal-in-your-te.html) for details on identifying Microsoft Authentication Library apps with the help of [Azure Workbooks](../../azure-monitor/visualize/workbooks-overview.md). 
+Refer to our post on [Microsoft Q&A](/answers/questions/360928/information-how-to-find-apps-using-adal-in-your-te) for details on identifying Microsoft Authentication Library apps with the help of [Azure Workbooks](/azure/azure-monitor/visualize/workbooks-overview).
 ### If I’m using Microsoft Authentication Library, what can I expect after the deadline? 
 
 - There will be no new releases (security or otherwise) to the library after June 2023. 
@@ -624,7 +622,7 @@ Developers can now use managed identities for their software workloads running a
 For more information, see: 
 - [Configure a user-assigned managed identity to trust an external identity provider (preview)](../workload-identities/workload-identity-federation-create-trust-user-assigned-managed-identity.md)
 - [Workload identity federation](../workload-identities/workload-identity-federation.md)
-- [Use an Azure AD workload identity (preview) on Azure Kubernetes Service (AKS)](../../aks/workload-identity-overview.md)
+- [Use an Azure AD workload identity (preview) on Azure Kubernetes Service (AKS)](/azure/aks/workload-identity-overview)
 
 
 ---
@@ -767,11 +765,11 @@ We continue to share additional guidance on IPv6 enablement in Azure AD at this 
 
 
 
-**Type:** Plan for change     
-**Service category:** Provisioning         
-**Product capability:** Azure AD Connect Cloud Sync        
+**Type:** Plan for change
+**Service category:** Provisioning
+**Product capability:** Azure AD Connect cloud sync
 
-Microsoft stops support for Azure AD provisioning agent with versions 1.1.818.0 and below starting Feb 1,2023. If you're using Azure AD cloud sync, make sure you have the latest version of the agent. You can view info about the agent release history [here](../app-provisioning/provisioning-agent-release-version-history.md). You can download the latest version [here](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/provisioningAgentInstaller)
+Microsoft stops support for Azure AD provisioning agent with versions 1.1.818.0 and below starting Feb 1,2023. If you're using Azure AD Connect cloud sync, make sure you have the latest version of the agent. You can view info about the agent release history [here](../app-provisioning/provisioning-agent-release-version-history.md). You can download the latest version [here](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/provisioningAgentInstaller)
 
 You can find out which version of the agent you're using as follows:
 
@@ -780,7 +778,7 @@ You can find out which version of the agent you're using as follows:
 1. Select on “Details” tab and you can find the version number there
 
 > [!NOTE]
-> Azure Active Directory (AD) Connect follows the [Modern Lifecycle Policy](/lifecycle/policies/modern). Changes for products and services under the Modern Lifecycle Policy may be more frequent and require customers to be alert for forthcoming modifications to their product or service.
+> Azure Active Directory Connect follows the [Modern Lifecycle Policy](/lifecycle/policies/modern). Changes for products and services under the Modern Lifecycle Policy may be more frequent and require customers to be alert for forthcoming modifications to their product or service.
 Product governed by the Modern Policy follow a [continuous support and servicing model](/lifecycle/overview/product-end-of-support-overview). Customers must take the latest update to remain supported. For products and services governed by the Modern Lifecycle Policy, Microsoft's policy is to provide a minimum 30 days' notification when customers are required to take action in order to avoid significant degradation to the normal use of the product or service.
 
 ---
@@ -1008,11 +1006,11 @@ For more information about how to better secure your organization by using autom
 
 
 
-**Type:** New feature  
-**Service category:** Azure AD Connect Cloud Sync   
-**Product capability:** Identity Lifecycle Management 
+**Type:** New feature
+**Service category:** Azure AD Connect cloud sync
+**Product capability:** Identity Lifecycle Management
 
-Azure AD Connect Cloud Sync Password writeback now provides customers the ability to synchronize Azure AD password changes made in the cloud to an on-premises directory in real time. This can be accomplished using the lightweight Azure AD cloud provisioning agent. For more information, see: [Tutorial: Enable cloud sync self-service password reset writeback to an on-premises environment](../authentication/tutorial-enable-cloud-sync-sspr-writeback.md).
+Password writeback in Azure AD Connect cloud sync now provides customers the ability to synchronize Azure AD password changes made in the cloud to an on-premises directory in real time. This can be accomplished using the lightweight Azure AD cloud provisioning agent. For more information, see: [Tutorial: Enable cloud sync self-service password reset writeback to an on-premises environment](../authentication/tutorial-enable-cloud-sync-sspr-writeback.md).
 
 ---
 
@@ -1065,7 +1063,7 @@ For more information, see: [Tutorial: Validate a SCIM endpoint](../app-provision
 
 
 
-Accidental deletion of users in any system could be disastrous. We’re excited to announce the general availability of the accidental deletions prevention capability as part of the Azure AD provisioning service. When the number of deletions to be processed in a single provisioning cycle spikes above a customer defined threshold the following will happen. The Azure AD provisioning service pauses, provide you with visibility into the potential deletions, and allow you to accept or reject the deletions. This functionality has historically been available for Azure AD Connect, and Azure AD Connect Cloud Sync. It's now available across the various provisioning flows, including both HR-driven provisioning and application provisioning.
+Accidental deletion of users in any system could be disastrous. We’re excited to announce the general availability of the accidental deletions prevention capability as part of the Azure AD provisioning service. When the number of deletions to be processed in a single provisioning cycle spikes above a customer defined threshold the following will happen. The Azure AD provisioning service pauses, provide you with visibility into the potential deletions, and allow you to accept or reject the deletions. This functionality has historically been available for Azure AD Connect, and Azure AD Connect cloud sync. It's now available across the various provisioning flows, including both HR-driven provisioning and application provisioning.
 
 For more information, see: [Enable accidental deletions prevention in the Azure AD provisioning service](../app-provisioning/accidental-deletions.md)
 
@@ -1181,7 +1179,7 @@ For more information, see: [Block users from viewing their BitLocker keys (previ
 **Service category:** Identity Protection  
 **Product capability:** Identity Security & Protection 
 
-Identity Protection risk detections (alerts) are now also available in Microsoft 365 Defender to provide a unified investigation experience for security professionals. For more information, see: [Investigate alerts in Microsoft 365 Defender](/microsoft-365/security/defender/investigate-alerts?view=o365-worldwide#alert-sources&preserve-view=true)
+Identity Protection risk detections (alerts) are now also available in Microsoft 365 Defender to provide a unified investigation experience for security professionals. For more information, see: [Investigate alerts in Microsoft 365 Defender](/microsoft-365/security/defender/investigate-alerts?view=o365-worldwide&preserve-view=true#alert-sources)
 
 
 
@@ -1295,7 +1293,7 @@ For more information, see:[Customize app SAML token claims - Microsoft Entra](..
 
 You can now create trusts on both user and resource forests. On-premises AD DS users can't authenticate to resources in the Azure AD DS resource forest until you create an outbound trust to your on-premises AD DS. An outbound trust requires network connectivity to your on-premises virtual network on which you have installed Azure AD Domain Service. On a user forest, trusts can be created for on-premises AD forests that aren't synchronized to Azure AD DS.
 
-To learn more about trusts and how to deploy your own, visit [How trust relationships work for forests in Active Directory](../../active-directory-domain-services/concepts-forest-trust.md).
+To learn more about trusts and how to deploy your own, visit [How trust relationships work for forests in Active Directory](/entra/identity/domain-services/concepts-forest-trust).
  
  
 
@@ -1312,7 +1310,7 @@ To learn more about trusts and how to deploy your own, visit [How trust relation
 
 In July 2022 we've added the following 28 new applications in our App gallery with Federation support:
 
-[Lunni Ticket Service](https://ticket.lunni.io/login), [Spring Health](https://benefits.springhealth.com/care), [Sorbet](https://lite.sorbetapp.com/login), [Planview ID](../saas-apps/planview-id-tutorial.md), [Karbonalpha](https://saas.karbonalpha.com/settings/api), [Headspace](../saas-apps/headspace-tutorial.md), [SeekOut](../saas-apps/seekout-tutorial.md), [Stackby](../saas-apps/stackby-tutorial.md), [Infrascale Cloud Backup](../saas-apps/infrascale-cloud-backup-tutorial.md), [Keystone](../saas-apps/keystone-tutorial.md), [LMS・教育管理システム Leaf](../saas-apps/lms-and-education-management-system-leaf-tutorial.md), [ZDiscovery](../saas-apps/zdiscovery-tutorial.md), [ラインズeライブラリアドバンス (Lines eLibrary Advance)](../saas-apps/lines-elibrary-advance-tutorial.md), [Rootly](../saas-apps/rootly-tutorial.md), [Articulate 360](../saas-apps/articulate360-tutorial.md), [Rise.com](../saas-apps/risecom-tutorial.md), [SevOne Network Monitoring System (NMS)](../saas-apps/sevone-network-monitoring-system-tutorial.md), [PGM](https://ups-pgm.4gfactor.com/azure/), [TouchRight Software](https://app.touchrightsoftware.com/), [Tendium](../saas-apps/tendium-tutorial.md), [Training Platform](../saas-apps/training-platform-tutorial.md), [Znapio](https://app.znapio.com/), [Preset](../saas-apps/preset-tutorial.md), [itslearning MS Teams sync](https://itslearning.com/global/), [Veza](../saas-apps/veza-tutorial.md),
+[Lunni Ticket Service](https://ticket.lunni.io/login), [Spring Health](https://benefits.springhealth.com/care), [Sorbet](https://lite.sorbetapp.com/login), [Planview ID](../saas-apps/planview-admin-tutorial.md), [Karbonalpha](https://saas.karbonalpha.com/settings/api), [Headspace](../saas-apps/headspace-tutorial.md), [SeekOut](../saas-apps/seekout-tutorial.md), [Stackby](../saas-apps/stackby-tutorial.md), [Infrascale Cloud Backup](../saas-apps/infrascale-cloud-backup-tutorial.md), [Keystone](../saas-apps/keystone-tutorial.md), [LMS・教育管理システム Leaf](../saas-apps/lms-and-education-management-system-leaf-tutorial.md), [ZDiscovery](../saas-apps/zdiscovery-tutorial.md), [ラインズeライブラリアドバンス (Lines eLibrary Advance)](../saas-apps/lines-elibrary-advance-tutorial.md), [Rootly](../saas-apps/rootly-tutorial.md), [Articulate 360](../saas-apps/articulate360-tutorial.md), [Rise.com](../saas-apps/risecom-tutorial.md), [SevOne Network Monitoring System (NMS)](../saas-apps/sevone-network-monitoring-system-tutorial.md), [PGM](https://ups-pgm.4gfactor.com/azure/), [TouchRight Software](https://app.touchrightsoftware.com/), [Tendium](../saas-apps/tendium-tutorial.md), [Training Platform](../saas-apps/training-platform-tutorial.md), [Znapio](https://app.znapio.com/), [Preset](../saas-apps/preset-tutorial.md), [itslearning MS Teams sync](https://itslearning.com/global/), [Veza](../saas-apps/veza-tutorial.md),
 
 You can also find the documentation of all the applications from here https://aka.ms/AppsTutorial,
 
@@ -1344,7 +1342,7 @@ Pick a group of up to five members and provision them into your third-party appl
 **Product capability:** Identity Security & Protection  
  
 
-We're delighted to announce a new security protection that prevents bypassing of cloud Azure AD Multi-Factor Authentication when federated with Azure AD. When enabled for a federated domain in your Azure AD tenant, it ensures that a compromised federated account can't bypass Azure AD Multi-Factor Authentication by imitating that a multi factor authentication has already been performed by the identity provider. The protection can be enabled via new security setting, [federatedIdpMfaBehavior](/graph/api/resources/internaldomainfederation?view=graph-rest-beta#federatedidpmfabehavior-values&preserve-view=true).
+We're delighted to announce a new security protection that prevents bypassing of cloud Azure AD Multi-Factor Authentication when federated with Azure AD. When enabled for a federated domain in your Azure AD tenant, it ensures that a compromised federated account can't bypass Azure AD Multi-Factor Authentication by imitating that a multi factor authentication has already been performed by the identity provider. The protection can be enabled via new security setting, [federatedIdpMfaBehavior](/graph/api/resources/internaldomainfederation?view=graph-rest-beta&preserve-view=true#federatedidpmfabehavior-values).
 
  
 We highly recommend enabling this new protection when using Azure AD Multi-Factor Authentication as your multi factor authentication for your federated users. To learn more about the protection and how to enable it, visit [Enable protection to prevent by-passing of cloud Azure AD Multi-Factor Authentication when federated with Azure AD](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#enable-protection-to-prevent-by-passing-of-cloud-azure-ad-multi-factor-authentication-when-federated-with-azure-ad). 
@@ -1377,7 +1375,7 @@ For more information about how to better secure your organization by using autom
 **Product capability:** Platform  
  
 
-Azure Service Health supports service outage notifications to Tenant Admins for Azure Active Directory issues. These outages will also appear on the Azure portal Overview page with appropriate links to Azure Service Health. Outage events will be able to be seen by built-in Tenant Administrator Roles. We'll continue to send outage notifications to subscriptions within a tenant for transition. More information is available at: [What are Service Health notifications in Azure Active Directory?](../reports-monitoring/overview-service-health-notifications.md).
+Azure Service Health supports service outage notifications to Tenant Admins for Azure Active Directory issues. These outages will also appear on the Azure portal Overview page with appropriate links to Azure Service Health. Outage events will be able to be seen by built-in Tenant Administrator Roles. We'll continue to send outage notifications to subscriptions within a tenant for transition. More information is available at: [What are Service Health notifications in Azure Active Directory?](/azure/service-health/service-health-portal-update).
 
  
 
@@ -1414,14 +1412,14 @@ End users are encouraged to enable the optional telemetry setting in the Authent
 Previously to set up and administer your AAD-DS instance you needed top level permissions of Azure Contributor and Azure AD Global Administrator. Now for both initial creation, and ongoing administration, you can utilize more fine grain permissions for enhanced security and control. The prerequisites now minimally require:
 
 - You need [Application Administrator](../roles/permissions-reference.md#application-administrator) and [Groups Administrator](../roles/permissions-reference.md#groups-administrator) Azure AD roles in your tenant to enable Azure AD DS.
-- You need [Domain Services Contributor](../../role-based-access-control/built-in-roles.md#domain-services-contributor) Azure role to create the required Azure AD DS resources.
+- You need [Domain Services Contributor](/azure/role-based-access-control/built-in-roles#domain-services-contributor) Azure role to create the required Azure AD DS resources.
  
 
 Check out these resources to learn more:
 
-- [Tutorial - Create an Azure Active Directory Domain Services managed domain](../../active-directory-domain-services/tutorial-create-instance.md#prerequisites)
+- [Tutorial - Create an Azure Active Directory Domain Services managed domain](/entra/identity/domain-services/tutorial-create-instance#prerequisites)
 - [Least privileged roles by task](../roles/delegate-by-task.md#domain-services)
-- [Azure built-in roles - Azure RBAC](../../role-based-access-control/built-in-roles.md#domain-services-contributor)
+- [Azure built-in roles - Azure RBAC](/azure/role-based-access-control/built-in-roles#domain-services-contributor)
 
  
 
@@ -1634,7 +1632,7 @@ For listing your application in the Azure AD app gallery, see the details here h
 
  
 
-We're delighted to announce a new security protection that prevents bypassing of cloud Azure AD Multi-Factor Authentication when federated with Azure AD. When enabled for a federated domain in your Azure AD tenant, it ensures that a compromised federated account can't bypass Azure AD Multi-Factor Authentication by imitating that a multi factor authentication has already been performed by the identity provider. The protection can be enabled via new security setting, [federatedIdpMfaBehavior](/graph/api/resources/internaldomainfederation?view=graph-rest-1.0#federatedidpmfabehavior-values&preserve-view=true). 
+We're delighted to announce a new security protection that prevents bypassing of cloud Azure AD Multi-Factor Authentication when federated with Azure AD. When enabled for a federated domain in your Azure AD tenant, it ensures that a compromised federated account can't bypass Azure AD Multi-Factor Authentication by imitating that a multi factor authentication has already been performed by the identity provider. The protection can be enabled via new security setting, [federatedIdpMfaBehavior](/graph/api/resources/internaldomainfederation?view=graph-rest-1.0&preserve-view=true#federatedidpmfabehavior-values).
 
 We highly recommend enabling this new protection when using Azure AD Multi-Factor Authentication as your multi factor authentication for your federated users. To learn more about the protection and how to enable it, visit [Enable protection to prevent by-passing of cloud Azure AD Multi-Factor Authentication when federated with Azure AD](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#enable-protection-to-prevent-by-passing-of-cloud-azure-ad-multi-factor-authentication-when-federated-with-azure-ad). 
  

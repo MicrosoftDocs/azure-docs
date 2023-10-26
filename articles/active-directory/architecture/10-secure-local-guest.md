@@ -34,7 +34,7 @@ We recommend that external-facing applications have single-sign on (SSO) and pro
 
 ## Identify local guest accounts
 
-Identify the accounts to be migrated to Microsoft Entra B2B. External identities in Active Directory are identifiable with an attribute-value pair. For example, making ExtensionAttribute15 = `External` for external users. If these users are set up with Microsoft Entra Connect or Cloud Sync, configure synced external users to have the `UserType` attributes set to `Guest`. If the users are set up as cloud-only accounts, you can modify user attributes. Primarily, identify users to convert to B2B.
+Identify the accounts to be migrated to Microsoft Entra B2B. External identities in Active Directory are identifiable with an attribute-value pair. For example, making ExtensionAttribute15 = `External` for external users. If these users are set up with Microsoft Entra Connect Sync or Microsoft Entra Connect cloud sync, configure synced external users to have the `UserType` attributes set to `Guest`. If the users are set up as cloud-only accounts, you can modify user attributes. Primarily, identify users to convert to B2B.
 
 ## Map local guest accounts to external identities
 

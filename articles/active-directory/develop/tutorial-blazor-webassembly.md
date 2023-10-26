@@ -63,7 +63,7 @@ dotnet run
 
 In your browser, navigate to `https://localhost:<port number>`, and log in using a Microsoft Entra user account to see the app running and logging users in with the Microsoft identity platform.
 
-The components of this template that enable logins with Microsoft Entra ID using the Microsoft identity platform are explained in the [ASP.NET doc on this article](/aspnet/core/blazor/security/webassembly/standalone-with-azure-active-directory#authentication-package).
+The components of this template that enable logins with Microsoft Entra ID using the Microsoft identity platform are explained in the [ASP.NET doc on this article](/aspnet/core/blazor/security/webassembly/standalone-with-microsoft-entra-id#authentication-package).
 
 ## Retrieving data from a protected API (Microsoft Graph)
 

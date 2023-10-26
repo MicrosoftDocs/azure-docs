@@ -61,7 +61,7 @@ When the server is configured to use the customer-managed key stored in the key 
 
 The following are requirements for configuring Key Vault:
 
-* Key Vault and Azure Database for PostgreSQL Single server must belong to the same Azure Active Directory (Azure AD) tenant. Cross-tenant Key Vault and server interactions aren't supported. Moving the Key Vault resource afterwards requires you to reconfigure the data encryption.
+* Key Vault and Azure Database for PostgreSQL Single server must belong to the same Microsoft Entra tenant. Cross-tenant Key Vault and server interactions aren't supported. Moving the Key Vault resource afterwards requires you to reconfigure the data encryption.
 * The key vault must be set with 90 days for 'Days to retain deleted vaults'. If the existing key vault has been configured with a lower number, you will need to create a new key vault as it cannot be modified after creation.
 * Enable the soft-delete feature on the key vault, to protect from data loss if an accidental key (or Key Vault) deletion happens. Soft-deleted resources are retained for 90 days, unless the user recovers or purges them in the meantime. The recover and purge actions have their own permissions associated in a Key Vault access policy. The soft-delete feature is off by default, but you can enable it through PowerShell or the Azure CLI (note that you can't enable it through the Azure portal). 
 * Enable Purge protection to enforce a mandatory retention period for deleted vaults and vault objects
@@ -110,7 +110,7 @@ It might happen that someone with sufficient access rights to Key Vault accident
 * Deleting the key vault.
 * Changing the key vault's firewall rules.
 
-* Deleting the managed identity of the server in Azure AD.
+* Deleting the managed identity of the server in Microsoft Entra ID.
 
 ## Monitor the customer-managed key in Key Vault
 

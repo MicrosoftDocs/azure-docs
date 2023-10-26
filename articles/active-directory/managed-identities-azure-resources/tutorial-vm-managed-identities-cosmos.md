@@ -17,7 +17,7 @@ ms.devlang: azurecli
 
 # How to use managed identities to connect to Azure Cosmos DB from an Azure virtual machine
 
-In this article, we set up a virtual machine to use managed identities to connect to Azure Cosmos DB. [Azure Cosmos DB](../../cosmos-db/introduction.md) is a fully managed NoSQL database for modern app development. [Managed identities for Azure resources](overview.md) allow your applications to authenticate when accessing services that support Microsoft Entra authentication using an identity managed by Azure.
+In this article, we set up a virtual machine to use managed identities to connect to Azure Cosmos DB. [Azure Cosmos DB](/azure/cosmos-db/introduction) is a fully managed NoSQL database for modern app development. [Managed identities for Azure resources](overview.md) allow your applications to authenticate when accessing services that support Microsoft Entra authentication using an identity managed by Azure.
 
 ## Prerequisites
 
@@ -30,9 +30,9 @@ In this article, we set up a virtual machine to use managed identities to connec
 
 Create a resource group called **mi-test**. We use this resource group for all resources used in this tutorial.
 
-- [Create a resource group using the Azure portal](../../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups)
-- [Create a resource group using the CLI](../../azure-resource-manager/management/manage-resource-groups-cli.md#create-resource-groups)
-- [Create a resource group using PowerShell](../../azure-resource-manager/management/manage-resource-groups-powershell.md#create-resource-groups)
+- [Create a resource group using the Azure portal](/azure/azure-resource-manager/management/manage-resource-groups-portal#create-resource-groups)
+- [Create a resource group using the CLI](/azure/azure-resource-manager/management/manage-resource-groups-cli#create-resource-groups)
+- [Create a resource group using PowerShell](/azure/azure-resource-manager/management/manage-resource-groups-powershell#create-resource-groups)
 
 ## Create an Azure VM with a managed identity
 
@@ -40,7 +40,7 @@ For this tutorial, you need an Azure virtual machine(VM). Create a virtual machi
 
 ### Create a VM with a system-assigned managed identity
 
-To create an Azure VM with the system-assigned managed identity enabled, your account needs the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) role assignment.  No other Microsoft Entra role assignments are required.
+To create an Azure VM with the system-assigned managed identity enabled, your account needs the [Virtual Machine Contributor](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) role assignment.  No other Microsoft Entra role assignments are required.
 
 # [Portal](#tab/azure-portal)
 
@@ -54,8 +54,8 @@ To create an Azure VM with the system-assigned managed identity enabled, your ac
 
 For more information, review the Azure virtual machines documentation:
 
-- [Linux](../../virtual-machines/linux/quick-create-portal.md)
-- [Windows](../../virtual-machines/windows/quick-create-portal.md)
+- [Linux](/azure/virtual-machines/linux/quick-create-portal)
+- [Windows](/azure/virtual-machines/windows/quick-create-portal)
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -75,8 +75,8 @@ New-AzVm `
     -OpenPorts 80,3389
 ```
 
-- [Quickstart: Create a Windows virtual machine in Azure with PowerShell](../../virtual-machines/windows/quick-create-powershell.md)
-- [Quickstart: Create a Linux virtual machine in Azure with PowerShell](../../virtual-machines/linux/quick-create-powershell.md)
+- [Quickstart: Create a Windows virtual machine in Azure with PowerShell](/azure/virtual-machines/windows/quick-create-powershell)
+- [Quickstart: Create a Linux virtual machine in Azure with PowerShell](/azure/virtual-machines/linux/quick-create-powershell)
 
 
 # [Azure CLI](#tab/azure-cli)
@@ -87,8 +87,8 @@ Create a VM using [Azure CLI vm create command](/cli/azure/vm/#az-vm-create). Th
    az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --generate-ssh-keys --assign-identity --admin-username azureuser --admin-password myPassword12
    ```
 
-- [Create a Linux virtual machine with a system assigned managed identity](../../virtual-machines/linux/quick-create-cli.md)
-- [Create a Windows virtual machine with a system assigned managed identity](../../virtual-machines/windows/quick-create-cli.md)
+- [Create a Linux virtual machine with a system assigned managed identity](/azure/virtual-machines/linux/quick-create-cli)
+- [Create a Windows virtual machine with a system assigned managed identity](/azure/virtual-machines/windows/quick-create-cli)
 
 # [Resource Manager Template](#tab/azure-resource-manager)
 
@@ -211,7 +211,7 @@ Under the resources element, add the following entry to assign a user-assigned m
 
 ## Create an Azure Cosmos DB account
 
-Now that we have a VM with either a user-assigned managed identity or a system-assigned managed identity we need an Azure Cosmos DB account available where you have administrative rights. If you need to create an Azure Cosmos DB account for this tutorial, the [Azure Cosmos DB quickstart](../..//cosmos-db/sql/create-cosmosdb-resources-portal.md) provides detailed steps on how to do that.
+Now that we have a VM with either a user-assigned managed identity or a system-assigned managed identity we need an Azure Cosmos DB account available where you have administrative rights. If you need to create an Azure Cosmos DB account for this tutorial, the [Azure Cosmos DB quickstart](/azure/cosmos-db/sql/create-cosmosdb-resources-portal) provides detailed steps on how to do that.
 
 >[!NOTE]
 > Managed identities may be used to access any Azure resource that supports Microsoft Entra authentication. This tutorial assumes that your Azure Cosmos DB account will be configured as shown below.
@@ -221,7 +221,7 @@ Now that we have a VM with either a user-assigned managed identity or a system-a
    |Subscription|Subscription name|Select the Azure subscription that you want to use for this Azure Cosmos DB account. |
    |Resource Group|Resource group name|Select **mi-test**, or select **Create new**, then enter a unique name for the new resource group. |
    |Account Name|A unique name|Enter a name to identify your Azure Cosmos DB account. Because *documents.azure.com* is appended to the name that you provide to create your URI, use a unique name.<br><br>The name can only contain lowercase letters, numbers, and the hyphen (-) character. It must be between 3-44 characters in length.|
-   |API|The type of account to create|Select **Azure Cosmos DB for NoSQL** to create a document database and query by using SQL syntax. <br><br>[Learn more about the SQL API](../../cosmos-db/introduction.md).|
+   |API|The type of account to create|Select **Azure Cosmos DB for NoSQL** to create a document database and query by using SQL syntax. <br><br>[Learn more about the SQL API](/azure/cosmos-db/introduction).|
    |Location|The region closest to your users|Select a geographic location to host your Azure Cosmos DB account. Use the location that is closest to your users to give them the fastest access to the data.|
 
    > [!NOTE]
@@ -231,9 +231,9 @@ Now that we have a VM with either a user-assigned managed identity or a system-a
 
 At this point, we should have both a virtual machine configured with a managed identity and an Azure Cosmos DB account. Before we continue, we need to grant the managed identity a couple of different roles.
 
-- First grant access to the Azure Cosmos DB management plane using [Azure RBAC](../../cosmos-db/role-based-access-control.md). The managed identity needs to have the DocumentDB Account Contributor role assigned to create Databases and containers.
+- First grant access to the Azure Cosmos DB management plane using [Azure RBAC](/azure/cosmos-db/role-based-access-control). The managed identity needs to have the DocumentDB Account Contributor role assigned to create Databases and containers.
 
-- You also need to grant the managed identity a contributor role using [Azure Cosmos DB RBAC](../../cosmos-db/how-to-setup-rbac.md). You can see specific steps below. 
+- You also need to grant the managed identity a contributor role using [Azure Cosmos DB RBAC](/azure/cosmos-db/how-to-setup-rbac). You can see specific steps below. 
 
 > [!NOTE] 
 > We will use the **Cosmos DB Built-in Data contributor** role. To grant access, you need to associate the role definition with the identity. In our case, the managed identity associated with our virtual machine.
@@ -392,7 +392,7 @@ Initialize your Azure Cosmos DB client:
 CosmosClient client = new CosmosClient("<account-endpoint>", new ManagedIdentityCredential());
 ```
 
-Then [read and write data](../../cosmos-db/sql/sql-api-dotnet-v3sdk-samples.md).
+Then [read and write data](/azure/cosmos-db/sql/sql-api-dotnet-v3sdk-samples).
 
 ### Java
 
@@ -402,7 +402,7 @@ Initialize your Azure Cosmos DB client:
 CosmosAsyncClient Client = new CosmosClientBuilder().endpoint("<account-endpoint>") .credential(new ManagedIdentityCredential()) .build();
 ```
 
-Then read and write data as described in [these samples](../../cosmos-db/sql/sql-api-java-sdk-samples.md)
+Then read and write data as described in [these samples](/azure/cosmos-db/sql/sql-api-java-sdk-samples)
 
 ### JavaScript
 
@@ -412,7 +412,7 @@ Initialize your Azure Cosmos DB client:
 const client = new CosmosClient({ "<account-endpoint>", aadCredentials: new ManagedIdentityCredential() });
 ```
 
-Then read and write data as described in [these samples](../../cosmos-db/sql/sql-api-nodejs-samples.md)
+Then read and write data as described in [these samples](/azure/cosmos-db/sql/sql-api-nodejs-samples)
 
 ## Clean up steps
 
@@ -461,5 +461,5 @@ Learn more about managed identities for Azure resources:
 
 Learn more about Azure Cosmos DB:
 
-- [Azure Cosmos DB resource model](../../cosmos-db/resource-model.md)
-- [Tutorial: Build a .NET console app to manage data in an Azure Cosmos DB for NoSQL account](../../cosmos-db/sql/sql-api-get-started.md)
+- [Azure Cosmos DB resource model](/azure/cosmos-db/resource-model)
+- [Tutorial: Build a .NET console app to manage data in an Azure Cosmos DB for NoSQL account](/azure/cosmos-db/sql/sql-api-get-started)

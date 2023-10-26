@@ -229,7 +229,7 @@ In this section, you enable Microsoft Entra SSO in the Azure portal and configur
 
    ![Screenshot showing where the account ID is displayed on the "Identity and Access Management" pane.](./media/aws-multi-accounts-tutorial/aws-accountid.png)
 
-1. Sign in to the Azure portal, and then go to **Groups**.
+1. Sign in to the [Azure portal](https://portal.azure.com/), and then browse to **Groups**.
 
 1. Create new groups with the same name as that of the IAM roles you created earlier, and then note the value in the **Object Id** box of each of these new groups.
 

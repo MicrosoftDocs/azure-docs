@@ -1,6 +1,6 @@
 ---
 title: Hide an Enterprise application
-description: How to hide an Enterprise application from user's experience in Microsoft Entra access portals or Microsoft 365 launchers.
+description: How to hide an Enterprise application from user's experience in Microsoft Entra ID access portals or Microsoft 365 launchers.
 services: active-directory
 author: omondiatieno
 manager: CelesteDG

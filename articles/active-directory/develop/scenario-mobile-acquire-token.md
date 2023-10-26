@@ -230,7 +230,7 @@ The class defines the following constants:
 - `ForceLogin` enables the service to prompt the user for credentials even if the prompt isn't needed.
 
     This option can be useful if the token acquisition fails and you want to let the user sign in again. In this case, MSAL sends `prompt=login` to the identity provider. You might want to use this option in security-focused applications where the organization governance requires the user to sign in each time they access specific parts of the application.
-- `Never` is for only .NET 4.5 and Windows Runtime (WinRT). This constant won't prompt the user, but it will try to use the cookie that's stored in the hidden embedded web view. For more information, see [Using web browsers with MSAL.NET](./msal-net-web-browsers.md).
+- `Never` is for only .NET 4.5 and Windows Runtime (WinRT). This constant won't prompt the user, but it will try to use the cookie that's stored in the hidden embedded web view. For more information, see [Using web browsers with MSAL.NET](/entra/msal/dotnet/acquiring-tokens/using-web-browsers).
 
     If this option fails, then `AcquireTokenInteractive` throws an exception to notify you that a UI interaction is needed. Then use another `Prompt` parameter.
 - `NoPrompt` doesn't send a prompt to the identity provider.

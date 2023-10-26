@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/08/2023
+ms.date: 10/10/2023
 ms.author: barclayn
 ms.reviewer: beengen
 ms.custom: it-pro, has-azure-ad-ps-ref
@@ -32,8 +32,6 @@ You can allow users in your organization to access their LinkedIn connections wi
 
 ## Enable LinkedIn account connections in the Azure portal
 
-[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
-
 You can enable LinkedIn account connections for only the users you want to have access, from your entire organization to only selected users in your organization.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Administrator](../roles/permissions-reference.md#global-administrator).
@@ -51,7 +49,7 @@ You can enable LinkedIn account connections for only the users you want to have 
 1. When you're done, select **Save** to save your settings.
 
 > [!Important]
-> LinkedIn integration is not fully enabled for your users until they consent to connect their accounts. No data is shared when you enable account connections for your users.
+> While LinkedIn integration is not fully enabled until your users consent to connect their accounts, access to public LinkedIn profile information is available without requiring individual consent. Full integration (two-way consent and additional fields) is not enabled without each user's consent. Your users can see the available LinkedIn profile of anyone that matches the name searched, regardless of whether that match is in the same enabled group or not.
 
 ### Assign selected users with a group
 

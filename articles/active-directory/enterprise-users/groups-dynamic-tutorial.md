@@ -106,4 +106,4 @@ In this tutorial, you learned how to:
 
 Advance to the next article to learn more group-based licensing basics
 > [!div class="nextstepaction"]
-> [Group licensing basics](../fundamentals/licensing-whatis-azure-portal.md)
+> [Group licensing basics](../fundamentals/concept-group-based-licensing.md)

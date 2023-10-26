@@ -81,7 +81,7 @@ ADAL to MSAL migration guide for different platforms are available in the follow
 - [Migrate to MSAL iOS and macOS](migrate-objc-adal-msal.md)
 - [Migrate to MSAL Java](/entra/msal/java/advanced/migrate-adal-msal-java)
 - [Migrate to MSAL.js](msal-compare-msal-js-and-adal-js.md)
-- [Migrate to MSAL .NET](msal-net-migration.md)
+- [Migrate to MSAL .NET](/entra/msal/dotnet/how-to/msal-net-migration)
 - [Migrate to MSAL Node](msal-node-migration.md)
 - [Migrate to MSAL Python](/entra/msal/python/advanced/migrate-python-adal-msal)   
 

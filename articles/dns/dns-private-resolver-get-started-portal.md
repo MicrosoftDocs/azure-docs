@@ -4,7 +4,7 @@ description: In this quickstart, you create and test a private DNS resolver in A
 services: dns
 author: greg-lindsay
 ms.author: greglin
-ms.date: 06/21/2023
+ms.date: 10/20/2023
 ms.topic: quickstart
 ms.service: dns
 ms.custom: mode-ui, ignite-2022
@@ -89,6 +89,10 @@ Next, add a virtual network to the resource group that you created, and configur
 
 3. Select the **Inbound Endpoints** tab, select **Add an endpoint**, and then enter a name next to **Endpoint name** (ex: myinboundendpoint).
 4. Next to **Subnet**, select the inbound endpoint subnet you created (ex: snet-inbound, 10.0.0.0/28) and then select **Save**.
+
+> [!NOTE]
+> You can choose a static or dynamic IP address for the inbound endpoint. A dynamic IP address is used by default. Typically the first available [non-reserved](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets) IP address is assigned (example: 10.0.0.4). This dynamic IP address does not change unless the endpoint is deleted and reprovisioned (for example using a different subnet). To specify a static address, select **Static** and enter a non-reserved IP address in the subnet.
+
 5. Select the **Outbound Endpoints** tab, select **Add an endpoint**, and then enter a name next to **Endpoint name** (ex: myoutboundendpoint).
 6. Next to **Subnet**, select the outbound endpoint subnet you created (ex: snet-outbound, 10.1.1.0/28) and then select **Save**.
 7. Select the **Ruleset** tab, select **Add a ruleset**, and enter the following:

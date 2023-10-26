@@ -35,7 +35,7 @@ The following features/properties are defined on app level.
 | Public</br>Endpoint    | The URL to access the app.                                                                                                                  |
 | Custom</br>Domain      | The `CNAME` record that secures the custom domain.                                                                                          |
 | Service</br>Binding    | The out-of-box connection with other Azure services.                                                                                        |
-| Managed</br>Identity   | The managed identity by Azure Active Directory allows your app to easily access other Azure AD-protected resources such as Azure Key Vault. |
+| Managed</br>Identity   | The managed identity by Microsoft Entra ID allows your app to easily access other Microsoft Entra protected resources such as Azure Key Vault. |
 | Persistent</br>Storage | The setting that enables data to persist beyond app restart.                                                                                |
 
 ## Deployment

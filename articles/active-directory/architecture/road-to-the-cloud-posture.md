@@ -86,7 +86,7 @@ In this state:
 
 * Self-service password reset (SSPR) and password protection for users are enabled.
 
-* Some legacy apps are authenticated in the cloud through Microsoft Entra DS and Application Proxy.
+* Some legacy apps are authenticated in the cloud through Microsoft Entra Domain Services and Application Proxy.
 
 ### State 3: Cloud first
 

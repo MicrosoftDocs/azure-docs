@@ -15,7 +15,7 @@ ms.reviewer: jpettere
 
 ms.collection: M365-identity-device-management
 ---
-# User portal for the Microsoft Entra multifactor authentication Server
+# User portal for the Azure Multi-Factor Authentication Server
 
 The user portal is an IIS web site that allows users to enroll in Microsoft Entra multifactor authentication and maintain their accounts. A user may change their phone number, change their PIN, or choose to bypass two-step verification during their next sign-on.
 
@@ -23,10 +23,10 @@ Users sign in to the user portal with their normal username and password, then e
 
 User portal Administrators may be set up and granted permission to add new users and update existing users.
 
-Depending on your environment, you may want to deploy the user portal on the same server as Microsoft Entra multifactor authentication Server or on another internet-facing  server.
+Depending on your environment, you may want to deploy the user portal on the same server as Azure Multi-Factor Authentication Server or on another internet-facing  server.
 
 > [!IMPORTANT]
-> In September 2022, Microsoft announced deprecation of Microsoft Entra multifactor authentication Server. Beginning September 30, 2024, Microsoft Entra multifactor authentication Server deployments will no longer service multifactor authentication requests, which could cause authentications to fail for your organization. To ensure uninterrupted authentication services and to remain in a supported state, organizations should [migrate their users’ authentication data](how-to-migrate-mfa-server-to-mfa-user-authentication.md) to the cloud-based Azure MFA service by using the latest Migration Utility included in the most recent [Azure MFA Server update](https://www.microsoft.com/download/details.aspx?id=55849). For more information, see [Azure MFA Server Migration](how-to-migrate-mfa-server-to-azure-mfa.md).  
+> In September 2022, Microsoft announced deprecation of Azure Multi-Factor Authentication Server. Beginning September 30, 2024, Azure Multi-Factor Authentication Server deployments will no longer service multifactor authentication requests, which could cause authentications to fail for your organization. To ensure uninterrupted authentication services and to remain in a supported state, organizations should [migrate their users’ authentication data](how-to-migrate-mfa-server-to-mfa-user-authentication.md) to the cloud-based Azure MFA service by using the latest Migration Utility included in the most recent [Azure MFA Server update](https://www.microsoft.com/download/details.aspx?id=55849). For more information, see [Azure MFA Server Migration](how-to-migrate-mfa-server-to-azure-mfa.md).  
 
 > To get started with cloud-based MFA, see [Tutorial: Secure user sign-in events with Microsoft Entra multifactor authentication](tutorial-enable-azure-mfa.md).
 
@@ -34,13 +34,13 @@ Depending on your environment, you may want to deploy the user portal on the sam
 ![MFA Server User portal log in page](./media/howto-mfaserver-deploy-userportal/portal.png)
 
 > [!NOTE]
-> The user portal is only available with multifactor authentication Server. If you use multifactor authentication in the cloud, refer your users to the [Set-up your account for two-step verification](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc) or [Manage your settings for two-step verification](https://support.microsoft.com/account-billing/change-your-two-step-verification-method-and-settings-c801d5ad-e0fc-4711-94d5-33ad5d4630f7).
+> The user portal is only available with Multi-Factor Authentication Server. If you use multifactor authentication in the cloud, refer your users to the [Set-up your account for two-step verification](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc) or [Manage your settings for two-step verification](https://support.microsoft.com/account-billing/change-your-two-step-verification-method-and-settings-c801d5ad-e0fc-4711-94d5-33ad5d4630f7).
 
 ## Install the web service SDK
 
-In either scenario, if the Microsoft Entra multifactor authentication Web Service SDK is **not** already installed on the Microsoft Entra multifactor authentication Server, complete the steps that follow.
+In either scenario, if the Microsoft Entra multifactor authentication Web Service SDK is **not** already installed on the Azure Multi-Factor Authentication Server, complete the steps that follow.
 
-1. Open the multifactor authentication Server console.
+1. Open the Multi-Factor Authentication Server console.
 2. Go to the **Web Service SDK** and select **Install Web Service SDK**.
 3. Complete the install using the defaults unless you need to change them for some reason.
 4. Bind a TLS/SSL Certificate to the site in IIS.
@@ -53,9 +53,11 @@ The Web Service SDK must be secured with a TLS/SSL certificate. A self-signed ce
 
 <a name='deploy-the-user-portal-on-the-same-server-as-the-azure-ad-multi-factor-authentication-server'></a>
 
-## Deploy the user portal on the same server as the Microsoft Entra multifactor authentication Server
+<a name='deploy-the-user-portal-on-the-same-server-as-the-microsoft-entra-multifactor-authentication-server'></a>
 
-The following pre-requisites are required to install the user portal on the **same server** as the Microsoft Entra multifactor authentication Server:
+## Deploy the user portal on the same server as the Azure Multi-Factor Authentication Server
+
+The following pre-requisites are required to install the user portal on the **same server** as the Azure Multi-Factor Authentication Server:
 
 * IIS, including ASP.NET, and IIS 6 meta base compatibility (for IIS 7 or higher)
 * An account with admin rights for the computer and Domain if applicable. The account needs permissions to create Active Directory security groups.
@@ -64,7 +66,7 @@ The following pre-requisites are required to install the user portal on the **sa
 
 To deploy the user portal, follow these steps:
 
-1. Open the Microsoft Entra multifactor authentication Server console, click the **User Portal** icon in the left menu, then click **Install User Portal**.
+1. Open the Azure Multi-Factor Authentication Server console, click the **User Portal** icon in the left menu, then click **Install User Portal**.
 2. Complete the install using the defaults unless you need to change them for some reason.
 3. Bind a TLS/SSL Certificate to the site in IIS
 
@@ -79,22 +81,22 @@ If you have questions about configuring a TLS/SSL Certificate on an IIS server, 
 
 ## Deploy the user portal on a separate server
 
-If the server where Microsoft Entra multifactor authentication Server is running isn't internet-facing, you should install the user portal on a **separate, internet-facing server**.
+If the server where Azure Multi-Factor Authentication Server is running isn't internet-facing, you should install the user portal on a **separate, internet-facing server**.
 
 If your organization uses the Microsoft Authenticator app as one of the verification methods, and want to deploy the user portal on its own server, complete the following requirements:
 
-* Use v6.0 or higher of the Microsoft Entra multifactor authentication Server.
+* Use v6.0 or higher of the Azure Multi-Factor Authentication Server.
 * Install the user portal on an internet-facing web server running Microsoft internet Information Services (IIS) 6.x or higher.
 * When using IIS 6.x, ensure ASP.NET v2.0.50727 is installed, registered, and set to **Allowed**.
 * When using IIS 7.x or higher, IIS, including Basic Authentication, ASP.NET, and IIS 6 meta base compatibility.
 * Secure the user portal with a TLS/SSL certificate.
 * Secure the Microsoft Entra multifactor authentication Web Service SDK with a TLS/SSL certificate.
 * Ensure that the user portal can connect to the Microsoft Entra multifactor authentication Web Service SDK over TLS/SSL.
-* Ensure that the user portal can authenticate to the Microsoft Entra multifactor authentication Web Service SDK using the credentials of a service account in the "PhoneFactor Admins" security group. This service account and group should exist in Active Directory if the Microsoft Entra multifactor authentication Server is running on a domain-joined server. This service account and group exist locally on the Microsoft Entra multifactor authentication Server if it isn't joined to a domain.
+* Ensure that the user portal can authenticate to the Microsoft Entra multifactor authentication Web Service SDK using the credentials of a service account in the "PhoneFactor Admins" security group. This service account and group should exist in Active Directory if the Azure Multi-Factor Authentication Server is running on a domain-joined server. This service account and group exist locally on the Azure Multi-Factor Authentication Server if it isn't joined to a domain.
 
-Installing the user portal on a server other than the Microsoft Entra multifactor authentication Server requires the following steps:
+Installing the user portal on a server other than the Azure Multi-Factor Authentication Server requires the following steps:
 
-1. **On the MFA Server**, browse to the installation path (Example: C:\Program Files\multifactor authentication Server), and copy the file **MultiFactorAuthenticationUserPortalSetup64** to a location accessible to the internet-facing server where you'll install it.
+1. **On the MFA Server**, browse to the installation path (Example: C:\Program Files\Multi-Factor Authentication Server), and copy the file **MultiFactorAuthenticationUserPortalSetup64** to a location accessible to the internet-facing server where you'll install it.
 2. **On the internet-facing web server**, run the  MultiFactorAuthenticationUserPortalSetup64 install file as an administrator, change the Site if desired and change the Virtual directory to a short name if you would like.
 3. Bind a TLS/SSL Certificate to the site in IIS.
 
@@ -116,11 +118,13 @@ If you have questions about configuring a TLS/SSL Certificate on an IIS server, 
 
 <a name='configure-user-portal-settings-in-the-azure-ad-multi-factor-authentication-server'></a>
 
-## Configure user portal settings in the Microsoft Entra multifactor authentication Server
+<a name='configure-user-portal-settings-in-the-microsoft-entra-multifactor-authentication-server'></a>
 
-Now that the user portal is installed, you need to configure the Microsoft Entra multifactor authentication Server to work with the portal.
+## Configure user portal settings in the Azure Multi-Factor Authentication Server
 
-1. In the Microsoft Entra multifactor authentication Server console, click the **User Portal** icon. On the Settings tab, enter the URL to the user portal in the **User Portal URL** textbox. If email functionality has been enabled, this URL is included in the emails that are sent to users when they're imported into the Microsoft Entra multifactor authentication Server.
+Now that the user portal is installed, you need to configure the Azure Multi-Factor Authentication Server to work with the portal.
+
+1. In the Azure Multi-Factor Authentication Server console, click the **User Portal** icon. On the Settings tab, enter the URL to the user portal in the **User Portal URL** textbox. If email functionality has been enabled, this URL is included in the emails that are sent to users when they're imported into the Azure Multi-Factor Authentication Server.
 2. Choose the settings that you want to use in the User Portal. For example, if users are allowed to choose their authentication methods, ensure that **Allow users to select method** is checked, along with the methods they can choose from.
 3. Define who should be Administrators on the **Administrators** tab. You can create granular administrative permissions using the checkboxes and dropdowns in the Add/Edit boxes.
 
@@ -132,7 +136,7 @@ Optional configuration:
 
 ![MFA Server User Portal configuration](./media/howto-mfaserver-deploy-userportal/config.png)
 
-Microsoft Entra multifactor authentication server provides several options for the user portal. The following table provides a list of these options and an explanation of what they're used for.
+Azure Multi-Factor Authentication Server provides several options for the user portal. The following table provides a list of these options and an explanation of what they're used for.
 
 | User Portal Settings | Description |
 |:--- |:--- |
@@ -147,7 +151,7 @@ Microsoft Entra multifactor authentication server provides several options for t
 | Use security questions for fallback | Allow security questions in case two-step verification fails. You can specify the number of security questions that must be successfully answered. |
 | Allow users to associate third-party OATH token | Allow users to specify a third-party OATH token. |
 | Use OATH token for fallback | Allow for the use of an OATH token in case two-step verification isn't successful. You can also specify the session timeout in minutes. |
-| Enable logging | Enable logging on the user portal. The log files are located at: C:\Program Files\multifactor authentication Server\Logs. |
+| Enable logging | Enable logging on the user portal. The log files are located at: C:\Program Files\Multi-Factor Authentication Server\Logs. |
 
 > [!IMPORTANT]
 > Starting in March of 2019 the phone call options will not be available to MFA Server users in free/trial Microsoft Entra tenants. SMS messages are not impacted by this change. Phone call will continue to be available to users in paid Microsoft Entra tenants. This change only impacts free/trial Microsoft Entra tenants.
@@ -181,7 +185,7 @@ The page then displays an activation code and a URL along with a barcode picture
 
 After the activation is complete, the user clicks the **Authenticate Me Now** button. Microsoft Entra multifactor authentication performs a verification to the user's mobile app. The user must enter their PIN (if applicable) and press the Authenticate button in their mobile app to move on to the next step of the self-enrollment process.
 
-If the administrators have configured the Microsoft Entra multifactor authentication Server to collect security questions and answers, the user is then taken to the Security Questions page. The user must select four security questions and provide answers to their selected questions.
+If the administrators have configured the Azure Multi-Factor Authentication Server to collect security questions and answers, the user is then taken to the Security Questions page. The user must select four security questions and provide answers to their selected questions.
 
 ![User portal security questions](./media/howto-mfaserver-deploy-userportal/secq.png)
 
@@ -189,4 +193,4 @@ The user self-enrollment is now complete and the user is signed in to the user p
 
 ## Next steps
 
-- [Deploy the Microsoft Entra multifactor authentication Server Mobile App Web Service](howto-mfaserver-deploy-mobileapp.md)
+- [Deploy the Azure Multi-Factor Authentication Server Mobile App Web Service](howto-mfaserver-deploy-mobileapp.md)

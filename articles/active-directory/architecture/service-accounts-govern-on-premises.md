@@ -137,7 +137,7 @@ Consider the following restrictions, although some might not be relevant to your
   * Learn more: [Set-ADAccountExpiration](/powershell/module/activedirectory/set-adaccountexpiration)
 * See, [Set-ADUser (Active Directory)](/powershell/module/activedirectory/set-aduser)
 * Password policy requirements
-  * See, [Password and account lockout policies on Microsoft Entra Domain Services managed domains](../../active-directory-domain-services/password-policy.md)
+  * See, [Password and account lockout policies on Microsoft Entra Domain Services managed domains](/entra/identity/domain-services/password-policy)
 * Create accounts in an organizational unit location that ensures only some users will manage it
   *  See, [Delegating Administration of Account OUs and Resource OUs](/windows-server/identity/ad-ds/plan/delegating-administration-of-account-ous-and-resource-ous)  
 * Set up and collect auditing that detects service account changes:

@@ -70,22 +70,24 @@ mapsDemo
 
 ## Create and authenticate a MapsSearchClient
 
-You need a `credential` object for authentication when creating the `MapsSearchClient` object used to access the Azure Maps search APIs. You can use either an Azure Active Directory (Azure AD) credential or an Azure subscription key to authenticate. For more information on authentication, see [Authentication with Azure Maps].
+You need a `credential` object for authentication when creating the `MapsSearchClient` object used to access the Azure Maps search APIs. You can use either a Microsoft Entra credential or an Azure subscription key to authenticate. For more information on authentication, see [Authentication with Azure Maps].
 
 > [!TIP]
 > The`MapsSearchClient` is the primary interface for developers using the Azure Maps search library. See [Azure Maps Search client library][JS-SDK] to learn more about the search methods available.
 
-### Using an Azure AD credential
+<a name='using-an-azure-ad-credential'></a>
 
-You can authenticate with Azure AD using the [Azure Identity library]. To use the [DefaultAzureCredential] provider, you need to install the `@azure/identity` package:
+### Using a Microsoft Entra credential
+
+You can authenticate with Microsoft Entra ID using the [Azure Identity library]. To use the [DefaultAzureCredential] provider, you need to install the `@azure/identity` package:
 
 ```powershell
 npm install @azure/identity
 ```
 
-You need to register the new Azure AD application and grant access to Azure Maps by assigning the required role to your service principal. For more information, see [Host a daemon on non-Azure resources]. The Application (client) ID, a Directory (tenant) ID, and a client secret are returned. Copy these values and store them in a secure place. You need them in the following steps.
+You need to register the new Microsoft Entra application and grant access to Azure Maps by assigning the required role to your service principal. For more information, see [Host a daemon on non-Azure resources]. The Application (client) ID, a Directory (tenant) ID, and a client secret are returned. Copy these values and store them in a secure place. You need them in the following steps.
 
-Set the values of the Application (client) ID, Directory (tenant) ID, and client secret of your Azure AD application, and the map resource’s client ID as environment variables:
+Set the values of the Application (client) ID, Directory (tenant) ID, and client secret of your Microsoft Entra application, and the map resource’s client ID as environment variables:
 
 | Environment Variable  | Description                                                     |
 |-----------------------|-----------------------------------------------------------------|
@@ -203,7 +205,7 @@ main().catch((err) => {
 
 ```
 
-This code snippet shows how to use the `MapsSearch` method from the Azure Maps Search client library to create a `client` object with your Azure credentials. You can use either your Azure Maps subscription key or the [Azure AD credential](#using-an-azure-ad-credential) from the previous section. The `path` parameter specifies the API endpoint, which is "/search/fuzzy/{format}" in this case. The `get` method sends an HTTP GET request with the query parameters, such as `query`, `coordinates`, and `countryFilter`. The query searches for Starbucks locations near Seattle in the US. The SDK returns the results as a [FuzzySearchResult] object and writes them to the console. For more information, see the [FuzzySearchRequest] documentation.
+This code snippet shows how to use the `MapsSearch` method from the Azure Maps Search client library to create a `client` object with your Azure credentials. You can use either your Azure Maps subscription key or the [Microsoft Entra credential](#using-an-azure-ad-credential) from the previous section. The `path` parameter specifies the API endpoint, which is "/search/fuzzy/{format}" in this case. The `get` method sends an HTTP GET request with the query parameters, such as `query`, `coordinates`, and `countryFilter`. The query searches for Starbucks locations near Seattle in the US. The SDK returns the results as a [FuzzySearchResult] object and writes them to the console. For more information, see the [FuzzySearchRequest] documentation.
  
 Run `search.js` with Node.js:
 

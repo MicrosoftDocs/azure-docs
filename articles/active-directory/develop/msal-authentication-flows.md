@@ -190,7 +190,7 @@ The following constraints apply to the applications using the ROPC flow:
 - ROPC is **supported** in .NET desktop and .NET Core applications.
 - ROPC is **unsupported** in Universal Windows Platform (UWP) applications.
 - ROPC in Azure AD B2C is supported _only_ for local accounts.
-  - For information about ROPC in MSAL.NET and Azure AD B2C, see [Using ROPC with Azure AD B2C](./msal-net-b2c-considerations.md#resource-owner-password-credentials-ropc).
+  - For information about ROPC in MSAL.NET and Azure AD B2C, see [Using ROPC with Azure AD B2C](/entra/msal/dotnet/acquiring-tokens/desktop-mobile/social-identities#resource-owner-password-credentials-ropc).
 
 ## Integrated Windows authentication (IWA)
 

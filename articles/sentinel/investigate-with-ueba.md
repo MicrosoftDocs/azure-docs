@@ -98,7 +98,7 @@ For example:
     | where Department != "IT"
     ```
 
-- To correlate Azure AD sign-in logs with the **IdentityInfo** table in an alert that's triggered if an application is accessed by someone who isn't a member of a specific security group:
+- To correlate Microsoft Entra sign-in logs with the **IdentityInfo** table in an alert that's triggered if an application is accessed by someone who isn't a member of a specific security group:
 
     ```kusto
     SigninLogs
@@ -109,7 +109,7 @@ For example:
     | where GroupMembership !contains "Developers"
     ```
 
-The **IdentityInfo** table synchronizes with your Azure AD workspace to create a snapshot of your user profile data, such as user metadata, group information, and Azure AD roles assigned to each user. For more information, see [IdentityInfo table](ueba-reference.md#identityinfo-table) in the UEBA enrichments reference.
+The **IdentityInfo** table synchronizes with your Microsoft Entra workspace to create a snapshot of your user profile data, such as user metadata, group information, and Microsoft Entra roles assigned to each user. For more information, see [IdentityInfo table](ueba-reference.md#identityinfo-table) in the UEBA enrichments reference.
 
 ## Identify password spray and spear phishing attempts
 

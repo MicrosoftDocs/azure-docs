@@ -48,8 +48,8 @@ For detailed feature and licensing information, see the [Microsoft Entra pricing
 
 To deploy Microsoft Entra monitoring and health, you'll need a user who is a Global Administrator or Security Administrator for the Microsoft Entra tenant.
 
-* [Azure Monitor data platform](../../azure-monitor/data-platform.md)
-* [Azure Monitor naming and terminology changes](../../azure-monitor/overview.md)
+* [Azure Monitor data platform](/azure/azure-monitor/data-platform)
+* [Azure Monitor naming and terminology changes](/azure/azure-monitor/overview)
 * [How long does Microsoft Entra ID store reporting data?](./reference-reports-data-retention.md)
 * An Azure storage account that you have `ListKeys` permissions for. We recommend that you use a general storage account and not a Blob storage account. For storage pricing information, see the [Azure Storage pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=storage).
 * An Azure Event Hubs namespace to integrate with third-party SIEM solutions.
@@ -117,19 +117,19 @@ You can keep logs longer than the default retention period by routing them to an
 Learn more:
 
 * [How long does Microsoft Entra ID store reporting data?](./reference-reports-data-retention.md)
-* [Tutorial: Archive Microsoft Entra logs to an Azure storage account](./quickstart-azure-monitor-route-logs-to-storage-account.md)
+* [Tutorial: Archive Microsoft Entra logs to an Azure storage account](./howto-archive-logs-to-storage-account.md)
 
 #### Stream logs to storage and SIEM tools
 
-* [Integrate Microsoft Entra logs with Azure Monitor logs](./howto-integrate-activity-logs-with-log-analytics.md).
+* [Integrate Microsoft Entra logs with Azure Monitor logs](./howto-integrate-activity-logs-with-azure-monitor-logs.md).
 * [Analyze Microsoft Entra activity logs with Azure Monitor logs](../reports-monitoring/howto-analyze-activity-logs-log-analytics.md).
-* Learn how to [stream logs to an event hub](./tutorial-azure-monitor-stream-logs-to-event-hub.md).
+* Learn how to [stream logs to an event hub](./howto-stream-logs-to-event-hub.md).
 * Learn how to [Archive Microsoft Entra logs to an Azure Storage account](./howto-archive-logs-to-storage-account.md).
 * [Route Microsoft Entra logs to an event hub](./howto-stream-logs-to-event-hub.md)
 
 ## Next steps
 
 - Consider implementing [Privileged Identity Management](../privileged-identity-management/pim-configure.md) 
-- Consider implementing [Azure role-based access control](../../role-based-access-control/overview.md)
+- Consider implementing [Azure role-based access control](/azure/role-based-access-control/overview)
 - [Learn more about report retention policies](./reference-reports-data-retention.md).
 - [Analyze Microsoft Entra activity logs with Azure Monitor logs](./howto-analyze-activity-logs-log-analytics.md)

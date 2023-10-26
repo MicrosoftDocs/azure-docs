@@ -143,7 +143,7 @@ Follow these steps to enable Microsoft Entra SSO.
 	| --------------- | --------------- | --------------- |
 	| RoleSessionName | user.userprincipalname | `https://aws.amazon.com/SAML/Attributes` |
 	| Role | user.assignedroles |  `https://aws.amazon.com/SAML/Attributes` |
-	| SessionDuration | "provide a value between 900 seconds (15 minutes) to 43200 seconds (12 hours)" |  `https://aws.amazon.com/SAML/Attributes` |
+	| SessionDuration | user.sessionduration |  `https://aws.amazon.com/SAML/Attributes` |
 
     > [!NOTE]
     > AWS expects roles for users assigned to the application. Please set up these roles in Microsoft Entra ID so that users can be assigned the appropriate roles. To understand how to configure roles in Microsoft Entra ID, see [here](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui)

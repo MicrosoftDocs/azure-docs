@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory synchronization protocol overview
+title: Microsoft Entra synchronization protocol overview
 description: Architectural guidance on integrating Microsoft Entra ID with legacy synchronization protocols
 services: active-directory
 author: janicericketts

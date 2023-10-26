@@ -166,6 +166,18 @@ You can check the following items to troubleshoot the issue:
 > [!TIP]
    > More troubleshoot guide of common errors when creating/updating the Kubernetes online endpoints and deployments, you can find in [How to troubleshoot online endpoints](how-to-troubleshoot-online-endpoints.md).
 
+### Identity error
+
+#### ERROR: RefreshExtensionIdentityNotSet
+
+This error occurs when the extension is installed but the extension identity is not correctly assigned. You can try to re-install the extension to fix it.
+
+> Please notice this error is only for managed clusters
+
+
+
+
+
 ### How to check sslCertPemFile and sslKeyPemFile is correct?
 Use the commands below to run a baseline check for your cert and key. This is to allow for any known errors to be surfaced. Expect the second command to return "RSA key ok" without prompting you for password.
 

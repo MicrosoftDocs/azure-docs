@@ -28,7 +28,7 @@ Group-based licensing in Microsoft Entra ID, part of Microsoft Entra, is availab
 
 ## Assign licenses to a group
 
-[Group based licensing](../fundamentals/licensing-whatis-azure-portal.md) provides a convenient way to manage license assignment. You can assign one or more product licenses to a group and those licenses are assigned to all members of the group.
+[Group based licensing](../fundamentals/concept-group-based-licensing.md) provides a convenient way to manage license assignment. You can assign one or more product licenses to a group and those licenses are assigned to all members of the group.
 
 ```powershell
 # Import the Microsoft.Graph.Groups module
@@ -359,6 +359,6 @@ else {
 
 To learn more about the feature set for license management through groups, see the following articles:
 
-* [What is group-based licensing in Microsoft Entra ID?](../fundamentals/licensing-whatis-azure-portal.md)
+* [What is group-based licensing in Microsoft Entra ID?](../fundamentals/concept-group-based-licensing.md)
 * [Assigning licenses to a group in Microsoft Entra ID](./licensing-groups-assign.md)
 * [Identifying and resolving license problems for a group in Microsoft Entra ID](licensing-groups-resolve-problems.md)

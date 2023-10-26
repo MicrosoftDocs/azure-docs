@@ -9,7 +9,7 @@ ms.author: kengaderdus
 
 To use your client app certificate, you need to associate the app you registered in the Microsoft Entra admin center with the certificate:
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Application Administrator](/azure/active-directory/roles/permissions-reference#application-administrator). 
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Application Administrator](../../../../roles/permissions-reference.md#application-administrator). 
 
 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="../../media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to your customer tenant. 
 

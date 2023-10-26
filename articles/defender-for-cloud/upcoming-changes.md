@@ -212,6 +212,12 @@ The Attack Path's Azure Resource Graph (ARG) table scheme will be updated. The `
 
 The Azure Log Analytics agent, also known as the Microsoft Monitoring Agent (MMA) will be [retired in August 2024.](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/) As a result, features of the two Defender for Cloud plans that rely on the Log Analytics agent are impacted, and they have updated strategies: [Defender for Servers](#defender-for-servers) and [Defender for SQL Server on machines](#defender-for-sql-server-on-machines).
 
+## Deprecating two security incidents 
+
+**Estimated date for change: November 2023**
+
+Following quality improvement process, the following security incidents are set to be deprecated: 'Security incident detected suspicious virtual machines activity' and 'Security incident detected on multiple machines'.
+
 ## Next steps
 
 For all recent changes to Defender for Cloud, see [What's new in Microsoft Defender for Cloud?](release-notes.md).

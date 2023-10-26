@@ -74,5 +74,5 @@ You can also make your shared account more secure with Multi-Factor Authenticati
 ## Next steps
 
 * [Application Management in Microsoft Entra ID](../manage-apps/what-is-application-management.md)
-* [Protecting apps with Conditional Access](../../active-directory-b2c/overview.md)
+* [Protecting apps with Conditional Access](/azure/active-directory-b2c/overview)
 * [Self-service group management/SSAA](groups-self-service-management.md)

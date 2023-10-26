@@ -8,11 +8,11 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/07/2023
+ms.date: 10/16/2023
 ms.author: jfields
 ---
 
-# Configure AWS IAM Identity Center as an identity provider
+# Configure AWS IAM Identity Center as an identity provider (preview)
 
 If you're an Amazon Web Services (AWS) customer who uses the AWS IAM Identity Center, you can configure the Identity Center as an identity provider in Permissions Management. Configuring your AWS IAM Identity Center information allows you to receive more accurate data for your identities in Permissions Management.
 
@@ -24,7 +24,7 @@ If you're an Amazon Web Services (AWS) customer who uses the AWS IAM Identity Ce
 1. If the **Data Collectors** dashboard isn't displayed when Permissions Management launches, select **Settings** (gear icon), and then select the **Data Collectors** subtab. 
 
 
-2. On the **Data Collectors** dashboard, select **AWS**, and then select **Create Configuration**. If a Data Collector already exists in your AWS account and you want to add AWS IAM integration, do the following: 
+2. On the **Data Collectors** dashboard, select **AWS**, and then select **Create Configuration**. If a Data Collector already exists in your AWS account and you want to add AWS IAM integration, then: 
     - Select the Data Collector for which you want to configure AWS IAM. 
     - Click on the ellipsis next to the **Authorization Systems Status**. 
     - Select **Integrate Identity Provider**. 
@@ -38,15 +38,15 @@ If you're an Amazon Web Services (AWS) customer who uses the AWS IAM Identity Ce
     - Your **AWS Management Account Role**
 
 5. Select **Launch Management Account Template**. The template opens in a new window. 
-6. If the Management Account stack is created with the Cloud Formation Template as part of the previous onboarding steps, update the stack by running ``EnableSSO`` as true. This creates a new stack when running the Management Account Template. 
+6. If the Management Account stack is created with the Cloud Formation Template as part of the previous onboarding steps, update the stack by running ``EnableSSO`` as true. Running this command creates a new stack when running the Management Account Template. 
 
-The template execution attaches the AWS managed policy  ``AWSSSOReadOnly`` and the newly created custom policy ``SSOPolicy`` to the AWS IAM role that allows Microsoft Entra Permissions Management to collect organizational information. The following details are requested in the template. All fields are pre-populated, and you can edit the data as you need: 
-- **Stack name** – This is the name of the AWS stack for creating the required AWS resources for Permissions Management to collect organizational information. The default value is ``mciem-org-<tenant-id>``. 
+The template execution attaches the AWS managed policy  ``AWSSSOReadOnly`` and the newly created custom policy ``SSOPolicy`` to the AWS IAM role that allows Microsoft Entra Permissions Management to collect organizational information. The following details are requested in the template. All fields are prepopulated, and you can edit the data as you need: 
+- **Stack name** – The Stack name is the name of the AWS stack for creating the required AWS resources for Permissions Management to collect organizational information. The default value is ``mciem-org-<tenant-id>``. 
 
 - **CFT Parameters**
     - **OIDC Provider Role Name** – Name of the IAM Role OIDC Provider that can assume the role. The default value is the OIDC account role (as entered in Permissions Management).
 
-    - **Org Account Role Name** - Name of the IAM Role. The default value is pre-populated with the Management account role name (as entered in Microsoft Entra PM).
+    - **Org Account Role Name** - Name of the IAM Role. The default value is prepopulated with the Management account role name (as entered in Microsoft Entra PM).
 
     - **true** – Enables AWS SSO. The default value is ``true`` when the template is launched from the Configure Identity Provider (IdP) page, otherwise the default is ``false``. 
 

@@ -42,7 +42,7 @@ To get started, you need:
 
 You can choose one of the following options to authorize access to your Translator resource.
 
-**✔️ Managed Identity**. A managed identity is a service principal that creates an Azure Active Directory (Azure AD) identity and specific permissions for an Azure managed resource. Managed identities enable you to run your Translator application without having to embed credentials in your code. Managed identities are a safer way to grant access to storage data and replace the requirement for you to include shared access signature tokens (SAS) with your source and target URLs.
+**✔️ Managed Identity**. A managed identity is a service principal that creates a Microsoft Entra identity and specific permissions for an Azure managed resource. Managed identities enable you to run your Translator application without having to embed credentials in your code. Managed identities are a safer way to grant access to storage data and replace the requirement for you to include shared access signature tokens (SAS) with your source and target URLs.
 
 To learn more, *see* [Managed identities for Document Translation](../how-to-guides/create-use-managed-identities.md).
 

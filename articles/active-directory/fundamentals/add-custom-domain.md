@@ -15,7 +15,7 @@ ms.reviewer: elkuzmen
 ---
 # Add your custom domain name to your tenant
 
-Microsoft Entra tenants come with an initial domain name like, `domainname.onmicrosoft.com`. You can't change or delete the initial domain name, but you can add your organization's names. Adding custom domain names helps you to create user names that are familiar to your users, such as `alain@contoso.com`.
+Microsoft Entra tenants come with an initial domain name like, `domainname.onmicrosoft.com`. You can't change or delete the initial domain name, but you can add your organization's name to the initial domain. By adding your custom domain name, you can then add user names that are familiar to your users, such as `alain@contoso.com`.
 
 ## Before you begin
 
@@ -32,7 +32,7 @@ Create your new directory by following the steps in [Create a new tenant for you
 > [!IMPORTANT]
 > The person who creates the tenant is automatically granted [Global Administrator](../roles/permissions-reference.md#global-administrator) privileges. The Global Administrator role is highly privileged and can add additional administrators to the tenant.
 
-For more information about subscription roles, see [Azure roles](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles).
+For more information about subscription roles, see [Azure roles](/azure/role-based-access-control/rbac-and-directory-admin-roles#azure-roles).
 
 > [!TIP]
 > If you plan to federate on-premises Windows Server Active Directory with Microsoft Entra ID, then you need to select **I plan to configure this domain for single sign-on with my local Active Directory** when you run the Microsoft Entra Connect tool to synchronize your directories.
@@ -44,7 +44,7 @@ For more information about subscription roles, see [Azure roles](../../role-base
 After you create your directory, you can add your custom domain name.
 
 > [!IMPORTANT]
-> When updating domain information, you may be unable to complete the process and encounter a   HTTP 500 Internal Server Error message. Under some conditions, this error may be expected. This message may appear if you try to use a protected DNS suffix. Protected DNS suffixes may only be used by Microsoft. If you believe that this operation should have been completed successfully, please contact your Microsoft representative for assistance. 
+> When updating domain information, you may be unable to complete the process and encounter a HTTP 500 Internal Server Error message. Under some conditions, this error may be expected. This message may appear if you try to use a protected DNS suffix. Protected DNS suffixes may only be used by Microsoft. If you believe that this operation should have been completed successfully, please contact your Microsoft representative for assistance. 
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Domain Name Administrator](../roles/permissions-reference.md#domain-name-administrator).
 

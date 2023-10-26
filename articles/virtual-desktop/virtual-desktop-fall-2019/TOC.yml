@@ -86,7 +86,7 @@
           href: diagnostics-log-analytics-2019.md
   - name: Publish built-in apps
     href: publish-apps-2019.md
-  - name: Set up Azure AD Multi-Factor Authentication
+  - name: Set up Microsoft Entra multifactor authentication
     href: ../set-up-mfa.md
   - name: Delete Azure Virtual Desktop classic
     href: manual-delete.md

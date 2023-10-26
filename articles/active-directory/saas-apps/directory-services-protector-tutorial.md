@@ -161,9 +161,9 @@ In this section, you'll enable B.Simon to use Microsoft Entra single sign-on by 
 
 1. In Step **3 - User Attributes & Claims**, we don't need this information now, so we can skip to Step 4.
 
-1. In Step **4 – Data received from the SAML identity provider**, DSP supports both importing from a metadata URL and importing of a metadata XML provided by Entra ID.
+1. In Step **4 – Data received from the SAML identity provider**, DSP supports both importing from a metadata URL and importing of a metadata XML provided by Microsoft Entra ID.
 
-    1. Select **App federation metadata URL** radio button, and paste the **Metadata URL** in the field from Entra ID, and then select **IMPORT**.
+    1. Select **App federation metadata URL** radio button, and paste the **Metadata URL** in the field from Microsoft Entra ID, and then select **IMPORT**.
 
         ![Screenshot shows settings of the app metadata URL.](./media/directory-services-protector-tutorial/field.png "Application")
 

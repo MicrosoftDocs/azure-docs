@@ -3,7 +3,7 @@ title: Azure HDInsight configuration settings reference
 description: Introduce the configuration of Azure HDInsight extension.
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 09/19/2023
+ms.date: 10/16/2023
 ms.custom:
 ---
 
@@ -31,7 +31,7 @@ For general information about working with settings in VS Code, refer to [User a
 | HDInsight: Enable Skip Pyspark Installation | Unchecked | Enable/Disable skipping pyspark installation |
 | HDInsight: Login Tips Enable | Unchecked | When this option is checked, there is a prompt when logging in to Azure |
 | HDInsight: Previous Extension Version | Display the version number of the current extension | Show the previous extension version|
-| HDInsight: Results Font Family | -apple-system,BlinkMacSystemFont,Segoe WPC,Segoe UI,HelveticaNeue-Light,Ubuntu,Droid Sans,sans-serif | Set the font family for the results grid; set to blank to use the editor font |
+| HDInsight: Results Font Family | -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI, HelveticaNeue-Light, Ubuntu, Droid Sans, sans-serif | Set the font family for the results grid; set to blank to use the editor font |
 | HDInsight: Results Font Size | 13 |Set the font size for the results gird; set to blank to use the editor size |
 | HDInsight Cluster: Linked Cluster | -- | Linked clusters urls. Also can edit the JSON file to set |
 | HDInsight Hive: Apply Localization | Unchecked | [Optional] Configuration options for localizing into Visual Studio Code's configured locale (must restart Visual Studio Code for settings to take effect)|
@@ -41,7 +41,7 @@ For general information about working with settings in VS Code, refer to [User a
 | HDInsight Hive › Format: Datatype Casing | none | Should data types be formatted as UPPERCASE, lowercase, or none (not formatted) |
 | HDInsight Hive › Format: Keyword Casing | none | Should keywords be formatted as UPPERCASE, lowercase, or none (not formatted) |
 | HDInsight Hive › Format: Place Commas Before Next Statement | Unchecked | Should commas be placed at the beginning of each statement in a list for example ', mycolumn2' instead of at the end 'mycolumn1,'|
-| HDInsight Hive › Format: Place Select Statement References On New Line | Unchecked | Should references to objects in a SELECT statement be split into separate lines? For example, for 'SELECT C1, C2 FROM T1' both C1 and C2 is on separate lines
+| HDInsight Hive › Format: Place Select Statement References On New Line | Unchecked | Is reference to objects in a SELECT statement be split into separate lines? For example, for 'SELECT C1, C2 FROM T1' both C1 and C2 is on separate lines
 | HDInsight Hive: Log Debug Info | Unchecked | [Optional] Log debug output to the VS Code console (Help -> Toggle Developer Tools) 
 | HDInsight Hive: Messages Default Open | Checked | True for the messages pane to be open by default; false for closed|
 | HDInsight Hive: Results Font Family | -apple-system, BlinkMacSystemFont, Segoe WPC,Segoe UI, HelveticaNeue-Light, Ubuntu, Droid Sans, sans-serif | Set the font family for the results grid; set to blank to use the editor font |
@@ -54,7 +54,7 @@ For general information about working with settings in VS Code, refer to [User a
 | HDInsight Job Submission: Livy `Conf` | -- | Livy Configuration. POST/batches |
 | HDInsight Jupyter: Append Results| Checked | Whether to append the results to the results window or to clear and display them. |
 | HDInsight Jupyter: Languages | -- | Default settings per language. |
-| HDInsight Jupyter › Log: Verbose | Unchecked | If enable verbose logging. |
+| HDInsight Jupyter › Log: Verbose | Unchecked | If you enable verbose logging. |
 | HDInsight Jupyter › Notebook: Startup Args | Can add item | `jupyter notebook` command-line arguments. Each argument is a separate item in the array. For a full list type `jupyter notebook--help` in a terminal window. |
 | HDInsight Jupyter › Notebook: Startup Folder | ${workspaceRoot} |-- |
 | HDInsight Jupyter: Python Extension Enabled | Checked | Use Python-Interactive-Window of ms-python extension when submitting pySpark Interactive jobs. Otherwise, use our own `jupyter` window. |
@@ -65,7 +65,7 @@ For general information about working with settings in VS Code, refer to [User a
 | HDInsight Spark.NET: SPARK_HOME | D:\spark-2.3.3-bin-hadoop2.7\ | Path to Spark Home |
 | Hive: Persist Query Result Tabs | Unchecked | Hive PersistQueryResultTabs |
 | Hive: Split Pane Selection | next | [Optional] Configuration options for which column new result panes should open in |
-| Hive Interactive: Copy Executable Folder | Unchecked | If copy the hive interactive service runtime folder to user's tmp folder. |
+| Hive Interactive: Copy Executable Folder | Unchecked | If you copy the Hive Interactive Service runtime folder to the user's tmp folder. |
 | Hql Interactive Server: Wrapper Port | 13424 | Hive interactive service port |
 | Hql Language Server: Language Wrapper Port | 12342 | Hive language service port servers listen to. |
 | Hql Language Server: Max Number Of Problems | 100 | Controls the maximum number of problems produced by the server. |

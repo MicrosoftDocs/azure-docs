@@ -86,7 +86,7 @@ Follow these steps to enable Microsoft Entra SSO.
     `<SUBDOMAIN>.smartfile.com`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [SmartFile Client support team](https://support.lumanox.com/hc/sections/360003453152-SAML-Authentication) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
+	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [SmartFile Client support team](https://www.smartfile.com/support) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
@@ -128,11 +128,11 @@ In this section, you'll enable B.Simon to use single sign-on by granting access 
 
 ## Configure SmartFile SSO
 
-To configure single sign-on on **SmartFile** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from the application configuration to [SmartFile support team](https://support.lumanox.com/hc/sections/360003453152-SAML-Authentication). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **SmartFile** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from the application configuration to [SmartFile support team](https://www.smartfile.com/support). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create SmartFile test user
 
-In this section, you create a user called Britta Simon in SmartFile. Work with [SmartFile support team](https://support.lumanox.com/hc/sections/360003453152-SAML-Authentication) to add the users in the SmartFile platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in SmartFile. Work with [SmartFile support team](https://www.smartfile.com/support) to add the users in the SmartFile platform. Users must be created and activated before you use single sign-on.
 
 SmartFile also supports automatic user provisioning, you can find more details [here](./smartfile-provisioning-tutorial.md) on how to configure automatic user provisioning.
 

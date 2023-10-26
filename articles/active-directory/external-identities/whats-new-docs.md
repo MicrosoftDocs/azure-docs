@@ -17,7 +17,7 @@ Welcome to what's new in Azure Active Directory External Identities documentatio
 
 ## September 2023
 
-This month, we renamed Azure Active Directory (Azure AD) to Microsoft Entra ID. For more information about the rebranding, see the [New name for Azure Active Directory](/azure/active-directory/fundamentals/new-name) article.
+This month, we renamed Azure Active Directory (Azure AD) to Microsoft Entra ID. For more information about the rebranding, see the [New name for Azure Active Directory](../fundamentals/new-name.md) article.
 
 ### Updated articles
 
@@ -70,7 +70,3 @@ This month, we renamed Azure Active Directory (Azure AD) to Microsoft Entra ID. 
 - [Tenant restrictions V2](tenant-restrictions-v2.md) - Note update
 - [Leave an organization](leave-the-organization.md) - Screenshot update
 - [Use audit logs and access reviews](auditing-and-reporting.md) - B2B sponsors feature update
-
-
-
-

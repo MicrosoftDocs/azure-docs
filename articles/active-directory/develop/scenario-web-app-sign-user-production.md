@@ -45,7 +45,7 @@ This progressive tutorial has production-ready code for a web app, including how
 - Your organization
 - Multiple organizations
 - Work or school accounts, or personal Microsoft accounts
-- [Azure AD B2C](../../active-directory-b2c/overview.md)
+- [Azure AD B2C](/azure/active-directory-b2c/overview)
 - National clouds
 
 ## Tutorial: Node.js web app

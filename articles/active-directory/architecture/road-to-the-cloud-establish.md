@@ -23,7 +23,7 @@ If you're using Microsoft Office 365, Exchange Online, or Teams, then you're alr
 
 * [Select authentication methods](../hybrid/connect/choose-ad-authn.md). We strongly recommend password hash synchronization.
 
-* Secure your hybrid identity infrastructure by following [Five steps to securing your identity infrastructure](../../security/fundamentals/steps-secure-identity.md).
+* Secure your hybrid identity infrastructure by following [Five steps to securing your identity infrastructure](/azure/security/fundamentals/steps-secure-identity).
 
 ## Optional tasks
 

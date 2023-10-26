@@ -52,6 +52,6 @@ There is a need for user consent and for web sign in.
 
 * [Microsoft identity platform and OpenID Connect protocol](../develop/v2-protocols-oidc.md) 
 
-* [Web sign-in with OpenID Connect in Azure Active Directory B2C](../../active-directory-b2c/openid-connect.md) 
+* [Web sign-in with OpenID Connect in Azure Active Directory B2C](/azure/active-directory-b2c/openid-connect) 
 
-* [Secure your application by using OpenID Connect and Microsoft Entra ID](/training/modules/secure-app-with-oidc-and-azure-ad/) 
+* [Secure your application by using OpenID Connect and Microsoft Entra ID](../develop/v2-protocols-oidc.md) 

@@ -36,7 +36,7 @@ sections:
           |Role| Operating system / Version|
           |--|--|
           |Active Directory Federation Services (AD FS)| <ul><li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> <li> Windows Server 2019  </li> <li> Windows Server 2022  </li> </ul>|
-          |Azure AD Connect | Version 1.0.9125 or higher|
+          |Microsoft Entra Connect | Version 1.0.9125 or higher|
           |Active Directory Domain Services (AD DS)| <ul><li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> <li> Windows Server 2019  </li> <li> Windows Server 2022  </li> </ul>|
           
           Windows Server Core installations aren't supported.
@@ -46,22 +46,22 @@ sections:
       - question: |
           How many licenses do I need to monitor my infrastructure?
         answer: |
-          * The first Connect Health Agent requires at least one Azure AD Premium (P1 or P2) license.
-          * Each additional registered agent requires 25 more Azure AD Premium (P1 or P2) licenses.
-          * Agent count is equivalent to the total number of agents that are registered across all monitored roles (AD FS, Azure AD Connect, and/or AD DS).
-          * Azure AD Connect Health licensing doesn't require you to assign the license to specific users. You only need to have the requisite number of valid licenses.
+          * The first Connect Health Agent requires at least one Microsoft Entra P1 or P2 license.
+          * Each additional registered agent requires 25 more Microsoft Entra P1 or P2 licenses.
+          * Agent count is equivalent to the total number of agents that are registered across all monitored roles (AD FS, Microsoft Entra Connect, and/or AD DS).
+          * Microsoft Entra Connect Health licensing doesn't require you to assign the license to specific users. You only need to have the requisite number of valid licenses.
           
-          Licensing information is also found on the [Azure AD Pricing page](https://aka.ms/aadpricing).
+          Licensing information is also found on the [Microsoft Entra pricing page](https://aka.ms/aadpricing).
           
           Example:
           
           | Registered agents | Licenses needed | Example monitoring configuration |
           | ------ | --------------- | --- |
-          | 1 | 1 | 1 Azure AD Connect server |
-          | 2 | 26| 1 Azure AD Connect server and 1 domain controller |
+          | 1 | 1 | 1 Microsoft Entra Connect server |
+          | 2 | 26| 1 Microsoft Entra Connect server and 1 domain controller |
           | 3 | 51 | 1 Active Directory Federation Services (AD FS) server, 1 AD FS proxy, and 1 domain controller |
           | 4 | 76 | 1 AD FS server, 1 AD FS proxy, and 2 domain controllers |
-          | 5 | 101 | 1 Azure AD Connect server, 1 AD FS server, 1 AD FS proxy, and 2 domain controllers |
+          | 5 | 101 | 1 Microsoft Entra Connect server, 1 AD FS server, 1 AD FS proxy, and 2 domain controllers |
                    
   - name: Installation questions
     questions:
@@ -90,8 +90,8 @@ sections:
           >
           >
           
-          * Local buffer storage for Azure AD Connect Health Agents: ~20 MB.
-          * For AD FS servers, we recommend that you provision a disk space of 1,024 MB (1 GB) for the AD FS audit channel for Azure AD Connect Health Agents to process all the audit data before it is overwritten.
+          * Local buffer storage for Microsoft Entra Connect Health Agents: ~20 MB.
+          * For AD FS servers, we recommend that you provision a disk space of 1,024 MB (1 GB) for the AD FS audit channel for Microsoft Entra Connect Health Agents to process all the audit data before it is overwritten.
           
       - question: |
           Will I have to reboot my servers during the installation of the Microsoft Entra Connect Health Agents?
@@ -220,10 +220,10 @@ sections:
 additionalContent: |
 
   ## Related links
-  * [Azure AD Connect Health](./whatis-azure-ad-connect.md)
-  * [Azure AD Connect Health Agent installation](how-to-connect-health-agent-install.md)
-  * [Azure AD Connect Health operations](how-to-connect-health-operations.md)
-  * [Using Azure AD Connect Health with AD FS](how-to-connect-health-adfs.md)
-  * [Using Azure AD Connect Health for sync](how-to-connect-health-sync.md)
-  * [Using Azure AD Connect Health with AD DS](how-to-connect-health-adds.md)
-  * [Azure AD Connect Health version history](reference-connect-health-version-history.md)
+  * [Microsoft Entra Connect Health](./whatis-azure-ad-connect.md)
+  * [Microsoft Entra Connect Health Agent installation](how-to-connect-health-agent-install.md)
+  * [Microsoft Entra Connect Health operations](how-to-connect-health-operations.md)
+  * [Using Microsoft Entra Connect Health with AD FS](how-to-connect-health-adfs.md)
+  * [Using Microsoft Entra Connect Health for sync](how-to-connect-health-sync.md)
+  * [Using Microsoft Entra Connect Health with AD DS](how-to-connect-health-adds.md)
+  * [Microsoft Entra Connect Health version history](reference-connect-health-version-history.md)

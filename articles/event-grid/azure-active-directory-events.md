@@ -1,29 +1,29 @@
 ---
-title: Azure Active Directory events
-description: This article describes Azure AD event types and provides event samples.
+title: Microsoft Entra events
+description: This article describes Microsoft Entra event types and provides event samples.
 ms.topic: conceptual
 ms.date: 09/19/2023
 ---
 
-# Azure Active Directory events
+# Microsoft Entra events
 
-This article provides the properties and schema for Azure Active Directory (Azure AD) events, which are published by Microsoft Graph API. For an introduction to event schemas, see [CloudEvents schema](cloud-event-schema.md). 
+This article provides the properties and schema for Microsoft Entra events, which are published by Microsoft Graph API. For an introduction to event schemas, see [CloudEvents schema](cloud-event-schema.md). 
 
 ## Available event types
-These events are triggered when a [User](/graph/api/resources/user) or [Group](/graph/api/resources/group) is created, updated, or deleted in Azure AD or by operating over those resources using Microsoft Graph API. 
+These events are triggered when a [User](/graph/api/resources/user) or [Group](/graph/api/resources/group) is created, updated, or deleted in Microsoft Entra ID or by operating over those resources using Microsoft Graph API. 
 
  | Event name | Description |
  | ---------- | ----------- |
- | **Microsoft.Graph.UserUpdated** | Triggered when a user in Azure AD is created or updated. |
- | **Microsoft.Graph.UserDeleted** | Triggered when a user in Azure AD is permanently deleted. |
- | **Microsoft.Graph.GroupUpdated** | Triggered when a group in Azure AD is created or updated. |
- | **Microsoft.Graph.GroupDeleted** | Triggered when a group in Azure AD is permanently deleted.  |
+ | **Microsoft.Graph.UserUpdated** | Triggered when a user in Microsoft Entra ID is created or updated. |
+ | **Microsoft.Graph.UserDeleted** | Triggered when a user in Microsoft Entra ID is permanently deleted. |
+ | **Microsoft.Graph.GroupUpdated** | Triggered when a group in Microsoft Entra ID is created or updated. |
+ | **Microsoft.Graph.GroupDeleted** | Triggered when a group in Microsoft Entra ID is permanently deleted.  |
 
 > [!NOTE]
 > By default, deleting a user or a group is only a soft delete operation, which means that the user or group is marked as deleted but the user or group object still exists. Microsoft Graph sends an updated event when users are soft deleted. To permanently delete a user, navigate to the **Delete users** page in the Azure portal and select **Delete permanently**. Steps to permanently delete a group are similar.  
 
 ## Example event
-When an event is triggered, the Event Grid service sends data about that event to subscribing destinations. This section contains an example of what that data would look like for each Azure AD event.
+When an event is triggered, the Event Grid service sends data about that event to subscribing destinations. This section contains an example of what that data would look like for each Microsoft Entra event.
 
 ### Microsoft.Graph.UserUpdated event
 
@@ -172,18 +172,18 @@ The data object has the following properties:
 | `@odata.type` | string | The Graph API change type.   |
 | `@odata.id` | string | The Graph API resource identifier for which the event was raised. |
 | `id` | string | The resource identifier for which the event was raised. |
-| `organizationId` | string | The Azure AD tenant identifier.  |
+| `organizationId` | string | The Microsoft Entra tenant identifier.  |
 | `eventTime` | string | The time when the resource state changed. |
 | `sequenceNumber` | string | A sequence number. |
 | `subscriptionExpirationDateTime` | string | The time in [RFC 3339](https://tools.ietf.org/html/rfc3339) format at which the Graph API subscription expires.  |
 | `subscriptionId` | string | The Graph API subscription identifier. |
-| `tenantId` | string | The Azure AD tenant identifier.  |
+| `tenantId` | string | The Microsoft Entra tenant identifier.  |
 
 
 ## Next steps
 
 * For an introduction to Azure Event Grid's Partner Events, see [Partner Events overview](partner-events-overview.md)
-* For information on how to subscribe to Microsoft Graph API to receive Azure AD events, see [subscribe to Azure Graph API events](subscribe-to-graph-api-events.md).
+* For information on how to subscribe to Microsoft Graph API to receive Microsoft Entra events, see [subscribe to Azure Graph API events](subscribe-to-graph-api-events.md).
 * For information about Azure Event Grid event handlers, see [event handlers](event-handlers.md).
 * For more information about creating an Azure Event Grid subscription, see [create event subscription](subscribe-through-portal.md#create-event-subscriptions) and [Event Grid subscription schema](subscription-creation-schema.md).
 * For information about how to configure an event subscription to select specific events to be delivered, see [event filtering](event-filtering.md). You may also want to refer to [filter events](how-to-filter-events.md).

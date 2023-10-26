@@ -32,7 +32,7 @@ The API is protected through Microsoft Entra ID and uses OAuth2 bearer tokens. T
 
 ### User bearer tokens
 
-The app registration needs to have the API Permission for `Verifiable Credentials Service Admin` and then when acquiring the access token the app should use scope `6a8b4b39-c021-437c-b060-5a14a3fd65f3/full_access`. The access token must be for a user with the [global administrator](../../active-directory/roles/permissions-reference.md#global-administrator) or the [authentication policy administrator](../../active-directory/roles/permissions-reference.md#authentication-policy-administrator) role. A user with role [global reader](../../active-directory/roles/permissions-reference.md#global-reader) can perform read-only API calls.
+The app registration needs to have the API Permission for `Verifiable Credentials Service Admin` and then when acquiring the access token the app should use scope `6a8b4b39-c021-437c-b060-5a14a3fd65f3/full_access`. The access token must be for a user with the [global administrator](../roles/permissions-reference.md#global-administrator) or the [authentication policy administrator](../roles/permissions-reference.md#authentication-policy-administrator) role. A user with role [global reader](../roles/permissions-reference.md#global-reader) can perform read-only API calls.
 
 ### Application bearer tokens
 
@@ -46,7 +46,7 @@ The `Verifiable Credentials Service Admin` service supports the following applic
 | VerifiableCredential.Credential.Revoke | Permission to [revoke a previously issued credential](how-to-issuer-revoke.md) |
 | VerifiableCredential.Network.Read | Permission to read entries from the [Verified ID Network](vc-network-api.md) |
 
-The app registration needs to have the API Permission for `Verifiable Credentials Service Admin` and permissions required from the above table. When acquiring the access token, via the [client credentials flow](../../active-directory/develop/v2-oauth2-client-creds-grant-flow.md), the app should use scope `6a8b4b39-c021-437c-b060-5a14a3fd65f3/.default`.
+The app registration needs to have the API Permission for `Verifiable Credentials Service Admin` and permissions required from the above table. When acquiring the access token, via the [client credentials flow](../develop/v2-oauth2-client-creds-grant-flow.md), the app should use scope `6a8b4b39-c021-437c-b060-5a14a3fd65f3/.default`.
 
 ## Onboarding
 
@@ -178,19 +178,6 @@ The response contains the following properties.
 
 #### didModel type
 
-We support two different didModels. One is `ion` and the other supported method is `web`
-
-#### ION
-
-| Property | Type | Description |
-| -------- | -------- | -------- |
-| `did` | string | The DID for this verifiable credential service instance |
-| `signingKeys` | string array | URL to the signing key |
-| `recoveryKeys` | string array | URL to the recovery key  |
-| `encryptionKeys` | string array | URL to the encryption key |
-| `linkedDomainUrls` | string array | Domains linked to this DID |
-| `didDocumentStatus` | string | status of the DID, `published` when it's written to ION otherwise it is `submitted`|
-
 #### Web
 
 | Property | Type | Description |
@@ -305,7 +292,7 @@ Content-type: application/json
 
 ### Create authority
 
-This call creates a new **private key**, recovery key and update key, stores these keys in the specified Azure Key Vault and sets the permissions to this Key Vault for the verifiable credential service and a create new **DID** with corresponding DID Document and commits that to the ION network.
+This call creates a new **private key**, recovery key and update key, stores these keys in the specified Azure Key Vault and sets the permissions to this Key Vault for the verifiable credential service and a create new **DID** with corresponding DID Document.
 
 #### HTTP request
 
@@ -451,115 +438,6 @@ Example message
   "name":"ExampleIssuerName"
 }
 ```
-
-### Linked domains
-
-It's possible to update the domain related to the DID. This functionality needs to write an update operation to ION to get this update distributed around the world. The update can take some time, currently up to an hour before it's processed and available for other users.
-
-#### HTTP request
-
-`POST /v1.0/verifiableCredentials/authorities/:authorityId/updateLinkedDomains`
-
-replace the value of `:authorityId` with the value of the authority ID you want to update.
-
-#### Request headers
-
-| Header | Value |
-| -------- | -------- |
-| Authorization | Bearer (token). Required |
-| Content-Type | application/json |
-
-#### Request body
-
-You need to specify the domain you want to publish to the DID Document. Although the value of domains is an array, you should only specify a **single domain**.
-
-In the request body, supply a JSON representation of the following:
-
-| Property | Type | Description |
-| -------- | -------- | -------- |
-| `domainUrls` | string array | link to domain(s), need to start with https and not contain a path |
-
-Example message:
-
-```
-{
-    "domainUrls" : ["https://www.mydomain.com"]
-}
-```
-
-#### Response message
-
-```
-HTTP/1.1 202 Accepted
-Content-type: application/json
-
-Accepted
-```
-
-The didDocumentStatus switches to `submitted` it will take a while before the change is committed to the ION network.
-
-If you try to submit a change before the operation is completed, you'll get the following error message:
-
-```
-HTTP/1.1 409 Conflict
-Content-type: application/json
-
-{
-  "requestId":"83047b1c5811284ce56520b63b9ba83a","date":"Mon, 07 Feb 2022 18:36:24 GMT",
-  "mscv":"tf5p8EaXIY1iWgYM.1",
-  "error":
-  {
-    "code": "conflict",
-    "innererror": {  
-        "code":"ionOperationNotYetPublished",
-        "message":"There is already an operation in queue for this organization's DID (decentralized identifier), please wait until the operation is published to submit a new one."
-    }
-  }
-}
-```
-
-You need to wait until the didDocumentstatus is back to `published` before you can submit another change.
-
-The domain URLs must start with https and not contain any path values.
-
-Possible error messages:
-
-```
-HTTP/1.1 400 Bad Request
-Content-type: application/json
-
-{
-  "requestId":"57c5ac78abb86bbfbc6f9e96d9ae6b18",
-  "date":"Mon, 07 Feb 2022 18:47:14 GMT",
-  "mscv":"+QfihZZk87z0nky2.0",
-  "error": "BadRequest",
-    "innererror": {
-        "code":"parameterUrlSchemeMustBeHttps",
-        "message":"URLs must begin with HTTPS: domains"
-    }
-}
-```
-
-```
-HTTP/1.1 400 Bad Request
-Content-type: application/json
-
-{
-  "requestId":"e65753b03f28f159feaf434eaf140547",
-  "date":"Mon, 07 Feb 2022 18:48:36 GMT",
-  "mscv":"QWB4uvgYzCKuMeKg.0",
-  "error": "BadRequest",
-    "innererror":  {
-        "code":"parameterUrlPathMustBeEmpty",
-        "message":"The URL can only include a domain. Please remove any characters after the domain name and try again. linkedDomainUrl"
-    }
-}
-```
-
-
-#### Remarks
-
-Although it is technically possible to publish multiple domains, we currently only support a single domain per authority.
 
 ### Well-known DID configuration
 

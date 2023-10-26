@@ -53,7 +53,7 @@ The following prerequisites must be met prior to installing Azure Monitor Agent.
     }
     ```
     We recommend that you use `mi_res_id` as the `identifier-name`. The following sample commands only show usage with `mi_res_id` for the sake of brevity. For more information on `mi_res_id`, `object_id`, and `client_id`, see the [Managed identity documentation](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md#get-a-token-using-http).
-  - **System-assigned**: This managed identity is suited for initial testing or small deployments. When used at scale, for example, for all VMs in a subscription, it results in a substantial number of identities created (and deleted) in Azure Active Directory. To avoid this churn of identities, use user-assigned managed identities instead. *For Azure Arc-enabled servers, system-assigned managed identity is enabled automatically* as soon as you install the Azure Arc agent. It's the only supported type for Azure Arc-enabled servers.
+  - **System-assigned**: This managed identity is suited for initial testing or small deployments. When used at scale, for example, for all VMs in a subscription, it results in a substantial number of identities created (and deleted) in Microsoft Entra ID. To avoid this churn of identities, use user-assigned managed identities instead. *For Azure Arc-enabled servers, system-assigned managed identity is enabled automatically* as soon as you install the Azure Arc agent. It's the only supported type for Azure Arc-enabled servers.
   - **Not required for Azure Arc-enabled servers**: The system identity is enabled automatically when you [create a data collection rule in the Azure portal](data-collection-rule-azure-monitor-agent.md#create-a-data-collection-rule).
 - **Networking**: If you use network firewalls, the [Azure Resource Manager service tag](../../virtual-network/service-tags-overview.md) must be enabled on the virtual network for the virtual machine. The virtual machine must also have access to the following HTTPS endpoints:
 
@@ -427,8 +427,8 @@ You can choose to use the individual policies from the preceding policy initiati
 The initiatives or policies will apply to each virtual machine as it's created. A [remediation task](../../governance/policy/how-to/remediate-resources.md) deploys the policy definitions in the initiative to existing resources, so you can configure Azure Monitor Agent for any resources that were already created.
 
 When you create the assignment by using the Azure portal, you have the option of creating a remediation task at the same time. For information on the remediation, see [Remediate non-compliant resources with Azure Policy](../../governance/policy/how-to/remediate-resources.md).
-
-:::image type="content" source="media/azure-monitor-agent-install/built-in-ama-dcr-remediation.png" lightbox="media/azure-monitor-agent-install/built-in-ama-dcr-remediation.png" alt-text="Screenshot that shows initiative remediation for Azure Monitor Agent.":::
+<!-- convertborder later -->
+:::image type="content" source="media/azure-monitor-agent-install/built-in-ama-dcr-remediation.png" lightbox="media/azure-monitor-agent-install/built-in-ama-dcr-remediation.png" alt-text="Screenshot that shows initiative remediation for Azure Monitor Agent." border="false":::
 
 ## Next steps
 

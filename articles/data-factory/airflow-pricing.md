@@ -5,7 +5,7 @@ author: nabhishek
 ms.service: data-factory
 ms.subservice: pricing
 ms.topic: conceptual
-ms.date: 01/24/2023
+ms.date: 10/20/2023
 ms.author: abnarain
 ---
 

@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-This tutorial shows you how to use a system-assigned managed identity for a Linux virtual machine (VM) to obtain a storage Shared Access Signature (SAS) credential. Specifically, a [Service SAS credential](../../storage/common/storage-sas-overview.md?toc=/azure/storage/blobs/toc.json#types-of-shared-access-signatures). 
+This tutorial shows you how to use a system-assigned managed identity for a Linux virtual machine (VM) to obtain a storage Shared Access Signature (SAS) credential. Specifically, a [Service SAS credential](/azure/storage/common/storage-sas-overview?toc=/azure/storage/blobs/toc.json#types-of-shared-access-signatures). 
 
 > [!NOTE]
 > The SAS key generated in this tutorial will not be restricted/bound to the VM.  
@@ -65,12 +65,12 @@ Later we'll upload and download a file to the new storage account. Because files
 
 ## Grant your VM's system-assigned managed identity access to use a storage SAS
 
-Azure Storage natively supports Microsoft Entra authentication, so you can use your VM's system-assigned managed identity to retrieve a storage SAS from Resource Manager, then use the SAS to access storage.  In this step, you grant your VM's system-assigned managed identity access to your storage account SAS. Assign the [Storage Account Contributor](../../role-based-access-control/built-in-roles.md#storage-account-contributor) role to the managed-identity at the scope of the resource group that contains your storage account.
+Azure Storage natively supports Microsoft Entra authentication, so you can use your VM's system-assigned managed identity to retrieve a storage SAS from Resource Manager, then use the SAS to access storage.  In this step, you grant your VM's system-assigned managed identity access to your storage account SAS. Assign the [Storage Account Contributor](/azure/role-based-access-control/built-in-roles#storage-account-contributor) role to the managed-identity at the scope of the resource group that contains your storage account.
  
-For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 >[!NOTE]
-> For more information on the various roles that you can use to grant permissions to storage review [Authorize access to blobs and queues using Microsoft Entra ID.](../../storage/blobs/authorize-access-azure-active-directory.md#assign-azure-roles-for-access-rights)
+> For more information on the various roles that you can use to grant permissions to storage review [Authorize access to blobs and queues using Microsoft Entra ID.](/azure/storage/blobs/authorize-access-azure-active-directory#assign-azure-roles-for-access-rights)
 
 
 ## Get an access token using the VM's identity and use it to call Azure Resource Manager
@@ -79,8 +79,8 @@ For the remainder of the tutorial, we'll work from the VM we created earlier.
 
 You need an SSH client to complete these steps. If you're using Windows, you can use the SSH client in the [Windows Subsystem for Linux](/windows/wsl/install-win10). If you need assistance configuring your SSH client's keys, see:
 
-  - [How to Use SSH keys with Windows on Azure](../../virtual-machines/linux/ssh-from-windows.md)
-  - [How to create and use an SSH public and private key pair for Linux VMs in Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
+  - [How to Use SSH keys with Windows on Azure](/azure/virtual-machines/linux/ssh-from-windows)
+  - [How to create and use an SSH public and private key pair for Linux VMs in Azure](/azure/virtual-machines/linux/mac-create-ssh-keys).
 
 Now that you have your SSH client continue to the steps below:
 
@@ -127,7 +127,7 @@ For this request, we'll use the following HTTP request parameters to create the 
 }
 ```
 
-These parameters are included in the POST body of the request for the SAS credential. For more information on the parameters for creating a SAS credential, see the [List Service SAS REST reference](/rest/api/storagerp/storageaccounts/listservicesas).
+These parameters are included in the POST body of the request for the SAS credential. For more information on the parameters for creating a SAS credential, see the [List Service SAS REST reference](/rest/api/storagerp/storage-accounts/list-service-sas).
 
 Use the following CURL request to get the SAS credential. Be sure to replace the `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, `<STORAGE ACCOUNT NAME>`, `<CONTAINER NAME>`, and `<EXPIRATION TIME>` parameter values with your own values. Replace the `<ACCESS TOKEN>` value with the access token you retrieved earlier:
 
@@ -229,4 +229,4 @@ Response:
 In this tutorial, you learned how to use a Linux VM system-assigned managed identity to access Azure Storage using a SAS credential.  To learn more about Azure Storage SAS, see:
 
 > [!div class="nextstepaction"]
->[Using shared access signatures (SAS)](../../storage/common/storage-sas-overview.md)
+>[Using shared access signatures (SAS)](/azure/storage/common/storage-sas-overview)

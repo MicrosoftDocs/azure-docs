@@ -189,9 +189,9 @@ In this example, Okta stamped the **mail** attribute to the user's account, alth
 
 <a name='install-azure-ad-cloud-sync-agents'></a>
 
-## Install Microsoft Entra cloud sync agents
+## Install Microsoft Entra Connect cloud sync agents
 
-After you prepare your list of source and destination targets, install and configure Microsoft Entra cloud sync agents. See, [Tutorial: Integrate a single forest with a single Microsoft Entra tenant](../hybrid/cloud-sync/tutorial-single-forest.md). 
+After you prepare your list of source and destination targets, install and configure Microsoft Entra Connect cloud sync agents. See, [Tutorial: Integrate a single forest with a single Microsoft Entra tenant](../hybrid/cloud-sync/tutorial-single-forest.md). 
 
    > [!NOTE]
    > If you use a Microsoft Entra Connect server, skip this section.
@@ -226,7 +226,7 @@ After you verify the Microsoft Entra Connect installation, disable Okta provisio
 After you disable Okta provisioning, the Microsoft Entra Connect server can synchronize objects. 
 
    >[!NOTE]
-   >If you use Microsoft Entra cloud sync agents, skip this section.
+   >If you use Microsoft Entra Connect cloud sync agents, skip this section.
 
 1. From the desktop, run the installation wizard from the desktop.
 2. Select **Configure**.
@@ -260,7 +260,7 @@ After you disable Okta provisioning, the Microsoft Entra Connect server can sync
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-After you disable Okta provisioning, the Microsoft Entra cloud sync agent can synchronize objects.
+After you disable Okta provisioning, the Microsoft Entra Connect cloud sync agent can synchronize objects.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Hybrid Identity Administrator](../roles/permissions-reference.md#hybrid-identity-administrator).
 2. Browse to **Identity** > **Hybrid management** > **Microsoft Entra Connect** > **Connect Sync**. 

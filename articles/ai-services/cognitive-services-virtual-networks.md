@@ -16,7 +16,7 @@ ms.author: aahi
 
 Azure AI services provide a layered security model. This model enables you to secure your Azure AI services accounts to a specific subset of networks​. When network rules are configured, only applications that request data over the specified set of networks can access the account. You can limit access to your resources with *request filtering*, which allows requests that originate only from specified IP addresses, IP ranges, or from a list of subnets in [Azure Virtual Networks](../virtual-network/virtual-networks-overview.md).
 
-An application that accesses an Azure AI services resource when network rules are in effect requires authorization. Authorization is supported with [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) credentials or with a valid API key.
+An application that accesses an Azure AI services resource when network rules are in effect requires authorization. Authorization is supported with [Microsoft Entra ID](../active-directory/fundamentals/active-directory-whatis.md) credentials or with a valid API key.
 
 > [!IMPORTANT]
 > Turning on firewall rules for your Azure AI services account blocks incoming requests for data by default. To allow requests through, one of the following conditions needs to be met:
@@ -169,7 +169,7 @@ You can manage default network access rules for Azure AI services resources thro
 
 ## Grant access from a virtual network
 
-You can configure Azure AI services resources to allow access from specific subnets only. The allowed subnets might belong to a virtual network in the same subscription or in a different subscription. The other subscription can belong to a different Azure AD tenant.
+You can configure Azure AI services resources to allow access from specific subnets only. The allowed subnets might belong to a virtual network in the same subscription or in a different subscription. The other subscription can belong to a different Microsoft Entra tenant.
 
 Enable a *service endpoint* for Azure AI services within the virtual network. The service endpoint routes traffic from the virtual network through an optimal path to the Azure AI services service. For more information, see [Virtual Network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md).
 
@@ -181,10 +181,10 @@ Each Azure AI services resource supports up to 100 virtual network rules, which 
 
 To apply a virtual network rule to an Azure AI services resource, you need the appropriate permissions for the subnets to add. The required permission is the default *Contributor* role or the *Cognitive Services Contributor* role. Required permissions can also be added to custom role definitions.
 
-The Azure AI services resource and the virtual networks that are granted access might be in different subscriptions, including subscriptions that are part of a different Azure AD tenant.
+The Azure AI services resource and the virtual networks that are granted access might be in different subscriptions, including subscriptions that are part of a different Microsoft Entra tenant.
 
 > [!NOTE]
-> Configuration of rules that grant access to subnets in virtual networks that are a part of a different Azure AD tenant are currently supported only through PowerShell, the Azure CLI, and the REST APIs. You can view these rules in the Azure portal, but you can't configure them.
+> Configuration of rules that grant access to subnets in virtual networks that are a part of a different Microsoft Entra tenant are currently supported only through PowerShell, the Azure CLI, and the REST APIs. You can view these rules in the Azure portal, but you can't configure them.
 
 ### Configure virtual network rules
 
@@ -211,7 +211,7 @@ To grant access to a virtual network with an existing network rule:
    > [!NOTE]
    > If a service endpoint for Azure AI services wasn't previously configured for the selected virtual network and subnets, you can configure it as part of this operation.
    >
-   > Currently, only virtual networks that belong to the same Azure AD tenant are available for selection during rule creation. To grant access to a subnet in a virtual network that belongs to another tenant, use PowerShell, the Azure CLI, or the REST APIs.
+   > Currently, only virtual networks that belong to the same Microsoft Entra tenant are available for selection during rule creation. To grant access to a subnet in a virtual network that belongs to another tenant, use PowerShell, the Azure CLI, or the REST APIs.
 
 1. Select **Save** to apply your changes.
 
@@ -276,7 +276,7 @@ To remove a virtual network or subnet rule:
     ```
 
     > [!TIP]
-    > To add a network rule for a subnet in a virtual network that belongs to another Azure AD tenant, use a fully-qualified `VirtualNetworkResourceId` parameter in the form `/subscriptions/subscription-ID/resourceGroups/resourceGroup-Name/providers/Microsoft.Network/virtualNetworks/vNet-name/subnets/subnet-name`.
+    > To add a network rule for a subnet in a virtual network that belongs to another Microsoft Entra tenant, use a fully-qualified `VirtualNetworkResourceId` parameter in the form `/subscriptions/subscription-ID/resourceGroups/resourceGroup-Name/providers/Microsoft.Network/virtualNetworks/vNet-name/subnets/subnet-name`.
 
 1. Remove a network rule for a virtual network and subnet.
 
@@ -328,9 +328,9 @@ To remove a virtual network or subnet rule:
     ```
 
     > [!TIP]
-    > To add a rule for a subnet in a virtual network that belongs to another Azure AD tenant, use a fully-qualified subnet ID in the form `/subscriptions/subscription-ID/resourceGroups/resourceGroup-Name/providers/Microsoft.Network/virtualNetworks/vNet-name/subnets/subnet-name`.
+    > To add a rule for a subnet in a virtual network that belongs to another Microsoft Entra tenant, use a fully-qualified subnet ID in the form `/subscriptions/subscription-ID/resourceGroups/resourceGroup-Name/providers/Microsoft.Network/virtualNetworks/vNet-name/subnets/subnet-name`.
     > 
-    > You can use the `--subscription` parameter to retrieve the subnet ID for a virtual network that belongs to another Azure AD tenant.
+    > You can use the `--subscription` parameter to retrieve the subnet ID for a virtual network that belongs to another Microsoft Entra tenant.
 
 1. Remove a network rule for a virtual network and subnet.
 

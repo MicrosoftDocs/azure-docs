@@ -47,6 +47,9 @@ AKS configures the required supporting services for dual-stack networking. This 
 * Outbound rules for both IPv4 and IPv6 traffic.
 * Load balancer setup for IPv4 and IPv6 services.
 
+> [!NOTE]
+> When using Dualstack with an [outbound type][outbound-type] of user-defined routing, you can choose to have a default route for IPv6 depending on if you need your IPv6 traffic to reach the internet or not. If you don't have a default route for IPv6, a warning will surface when creating a cluster but will not prevent cluster creation.  
+
 ## Deploying a dual-stack cluster
 
 The following attributes are provided to support dual-stack clusters:
@@ -417,6 +420,7 @@ Once the cluster has been created, you can deploy your workloads. This article w
 [kubernetes-dual-stack]: https://kubernetes.io/docs/concepts/services-networking/dual-stack/
 
 <!-- LINKS - Internal -->
+[outbound-type]: ./egress-outboundtype.md
 [deploy-arm-template]: ../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md
 [deploy-bicep-template]: ../azure-resource-manager/bicep/deploy-cli.md
 [kubenet]: ./configure-kubenet.md
