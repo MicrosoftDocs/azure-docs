@@ -31,7 +31,7 @@ When using app settings, you should be aware of the following considerations:
     }
     ````
     
-    In this article, only double-underscores are used, since they're supported on both operating systems.
+    In this article, only double-underscores are used, since they're supported on both operating systems. Most of the settings that support managed identity connections use double-underscores.
 
 + When Functions runs locally, app settings are specified in the `Values` collection in the [local.settings.json](functions-develop-local.md#local-settings-file).
 
