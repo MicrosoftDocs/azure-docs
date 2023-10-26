@@ -24,7 +24,7 @@ In this guide, you'll learn how to:
 ## Configure Event Hubs
 
 1. In your subscription, go to **resource providers** in settings. Search for **Microsoft.Orbital** and register it as a provider.
-2. [Create an Azure Event Hubs namespace](../azure/event-hubs/event-hubs-create.md#create-an-event-hubs-namespace) and an [event hub](azure/event-hubs/event-hubs-create.md#create-an-event-hub) in your subscription.
+2. [Create an Azure Event Hubs namespace](../azure/event-hubs/event-hubs-create.md#create-an-event-hubs-namespace) and an [event hub](../azure/event-hubs/event-hubs-create.md#create-an-event-hub) in your subscription.
 
 > [!Note]
 > Choose Public access for connectivity access to the Eventhubs. Private access or service endpoints is not supported.
@@ -39,7 +39,7 @@ In this guide, you'll learn how to:
 5. Under the **Members** tab, assign access to **User, group, or service principal**.
 6. Click **+ Select members**.
 7. Search for **Azure Orbital Resource Provider** and click **Select**.
-8. Click **Review + assign**. This action will grant Azure Orbital Ground Station the rights to send telemetry into your event hub.
+8. Click **Review + assign**. This action grants Azure Orbital Ground Station the rights to send telemetry into your event hub.
 9. To confirm the newly added role assignment, go back to the Access Control (IAM) page and select **View access to this resource**. Azure Orbital Resource Provider should be under **Azure Event Hubs Data Sender**.
 
 ## Enable Event Hubs telemetry for a contact profile
@@ -267,7 +267,7 @@ The following table provides the source device/point, possible values, and defin
 | contactID	| Contact resource |	|	Identification number of the contact |
 | contactPlatformIdentifier |	Contact resource	| | |	
 | groundStationName | Contact resource | | Name of groundstation |
-| antennaType	| Respective 1P/3P telemetry builders set this value | MICROSOFT, KSAT, VIASAT | Antenna network used for the contact. |
+| antennaType	| Respective Microsoft / partner telemetry builders set this value | MICROSOFT, KSAT, VIASAT | Antenna network used for the contact. |
 | antennaId | Contact resource | | Human-readable name of antenna ID |
 | spacecraftName | Parsed from Contact Platform Identifier | | Name of spacecraft |
 | gpsTime |	Coversion of utcTime | | Time in GPS time that the customer telemetry message was generated. |
@@ -285,7 +285,7 @@ The following table provides the source device/point, possible values, and defin
 | digitizerName | Digitizer | | Name of digitizer device |
 | endpointName | Contact profile link channel	| |	Name of the endpoint used for the contact. |
 | inputEbN0InDb |	Modem: measuredEbN0	| • NULL (Modem model other than QRadio or QRx) <br> • Double: Input EbN0 | Input energy per bit to noise power spectral density in dB. |
-| inputEsN0InDb	| Not used in 1P telemetry | NULL (Not used in 1P telemetry) | Input energy per symbol to noise power spectral density in dB. |
+| inputEsN0InDb	| Not used in Microsoft antenna telemetry | NULL (Not used in Microsoft antenna telemetry) | Input energy per symbol to noise power spectral density in dB. |
 | inputRfPowerDbm |	Digitizer: inputRfPower	| • NULL (Uplink or Digitizer driver other than SNNB or SNWB) <br> • Double: Input Rf Power | Input RF power in dBm. |
 | outputRfPowerDbm | Digitizer: outputRfPower | • NULL (Downlink or Digitizer driver other than SNNB or SNWB) <br> • Double: Output Rf Power | Ouput RF power in dBm. |
 | outputPacketRate | Digitizer: rfOutputStream[0].measuredPacketRate | • NULL (Downlink or Digitizer driver other than SNNB or SNWB) <br> • Double: Output Packet Rate | Measured packet rate for Uplink |
@@ -302,8 +302,8 @@ You can write simple consumer apps to receive events from your Event Hubs using 
 - [JavaScript](../event-hubs/event-hubs-node-get-started-send.md)
 
 ## Changelog
-2023-10-03 - Introduce version 4.0. Updated schema to include uplink packet metrics and names of infrastructure in use (groundstation, antenna, spacecraft, modem, digitizer, link, channel) <br>
-2023-06-05 - Updatd schema to show metrics under channels instead of links.
+2023-10-03 - Introduce version 4.0. Updated schema to include uplink packet metrics and names of infrastructure in use (ground station, antenna, spacecraft, modem, digitizer, link, channel) <br>
+2023-06-05 - Updated schema to show metrics under channels instead of links.
 
 ## Next steps
 
