@@ -109,55 +109,55 @@ This article is a list of all sensitive information types supported by MDC (a su
 | [France value added tax number](https://learn.microsoft.com/purview/sit-defn-france-value-added-tax-number) | Other | NO |
 | [Germany driver's license number](https://learn.microsoft.com/purview/sit-defn-germany-drivers-license-number) | Other | NO |
 | [Germany identity card number](https://learn.microsoft.com/purview/sit-defn-germany-identity-card-number) | PII | YES |
-| [Germany passport number](https://learn.microsoft.com/purview/sit-defn-germany-passport-number | Other | NO |
+| [Germany passport number](https://learn.microsoft.com/purview/sit-defn-germany-passport-number) | Other | NO |
 | [Germany tax identification number](https://learn.microsoft.com/purview/sit-defn-germany-tax-identification-number) | PII | YES |
 | [Germany value added tax number](https://learn.microsoft.com/purview/sit-defn-germany-value-added-tax-number) | Other | NO |
 | [GitHub Personal Access Token](https://learn.microsoft.com/purview/sit-defn-github-personal-access-token) | Credentials | YES |
 | [Google API key](https://learn.microsoft.com/purview/sit-defn-google-api-key) | Credentials | YES |
 | [Greece driver's license number](https://learn.microsoft.com/purview/sit-defn-greece-drivers-license-number) | Other | NO |
-Greece passport number	https://learn.microsoft.com/purview/sit-defn-greece-passport-number)| Other | NO |
+| [Greece passport number](https://learn.microsoft.com/purview/sit-defn-greece-passport-number)| Other | NO |
 | [Greece Social Security Number (AMKA)](https://learn.microsoft.com/purview/sit-defn-greece-social-security-number) | Other | NO |
 | [Greece tax identification number](https://learn.microsoft.com/purview/sit-defn-greece-tax-identification-number) | Other | NO |
 | [Hong Kong identity card (HKID) number](https://learn.microsoft.com/purview/sit-defn-hong-kong-identity-card-number) | Other | NO |
-Http authorization header	https://learn.microsoft.com/en-us/purview/sit-defn-http-authorization-header	Credentials	YES
-Hungary driver's license number	https://learn.microsoft.com/en-us/purview/sit-defn-hungary-drivers-license-number	Other	NO
-Hungary passport number	https://learn.microsoft.com/en-us/purview/sit-defn-hungary-passport-number	Other	NO
-Hungary personal identification number	https://learn.microsoft.com/en-us/purview/sit-defn-hungary-personal-identification-number	PII	YES
-Hungary social security number (TAJ)	https://learn.microsoft.com/en-us/purview/sit-defn-hungary-social-security-number	PII	YES
-Hungary tax identification number	https://learn.microsoft.com/en-us/purview/sit-defn-hungary-tax-identification-number	Other	NO
-Hungary value added tax number	https://learn.microsoft.com/en-us/purview/sit-defn-hungary-value-added-tax-number	Other	NO
-India permanent account number (PAN)	https://learn.microsoft.com/en-us/purview/sit-defn-india-permanent-account-number	Other	NO
-India unique identification (Aadhaar) number	https://learn.microsoft.com/en-us/purview/sit-defn-india-unique-identification-number	Other	NO
-Indonesia identity card (KTP) number	https://learn.microsoft.com/en-us/purview/sit-defn-indonesia-identity-card-number	Other	NO
-International banking account number (IBAN)	https://learn.microsoft.com/en-us/purview/sit-defn-international-banking-account-number	Finance	YES
-IP address	https://learn.microsoft.com/en-us/purview/sit-defn-ip-address	Other	NO
-Ireland driver's license number	https://learn.microsoft.com/en-us/purview/sit-defn-ireland-drivers-license-number	Other	NO
-Ireland passport number	https://learn.microsoft.com/en-us/purview/sit-defn-ireland-passport-number	Other	NO
-Ireland personal public service (PPS) number	https://learn.microsoft.com/en-us/purview/sit-defn-ireland-personal-public-service-number	PII	YES
-Israel bank account number	https://learn.microsoft.com/en-us/purview/sit-defn-israel-bank-account-number	Other	NO
-Israel national identification number	https://learn.microsoft.com/en-us/purview/sit-defn-israel-national-identification-number	Other	NO
-Italy driver's license number	https://learn.microsoft.com/en-us/purview/sit-defn-italy-drivers-license-number	Other	NO
-Italy fiscal code	https://learn.microsoft.com/en-us/purview/sit-defn-italy-fiscal-code	PII	YES
-Italy passport number	https://learn.microsoft.com/en-us/purview/sit-defn-italy-passport-number	Other	NO
-Italy value added tax number	https://learn.microsoft.com/en-us/purview/sit-defn-italy-value-added-tax-number	Other	NO
-Japan bank account number	https://learn.microsoft.com/en-us/purview/sit-defn-japan-bank-account-number	Other	NO
-Japan driver's license number	https://learn.microsoft.com/en-us/purview/sit-defn-japan-drivers-license-number	Other	NO
-Japan My Number - Corporate	https://learn.microsoft.com/en-us/purview/sit-defn-japan-my-number-corporate	Other	NO
-Japan My Number - Personal	https://learn.microsoft.com/en-us/purview/sit-defn-japan-my-number-personal	Other	NO
-Japan passport number	https://learn.microsoft.com/en-us/purview/sit-defn-japan-passport-number	Other	NO
-Japan residence card number	https://learn.microsoft.com/en-us/purview/sit-defn-japan-residence-card-number	Other	NO
-Japan resident registration number	https://learn.microsoft.com/en-us/purview/sit-defn-japan-resident-registration-number	Other	NO
-Japan social insurance number (SIN)	https://learn.microsoft.com/en-us/purview/sit-defn-japan-social-insurance-number	Other	NO
-Latvia driver's license number	https://learn.microsoft.com/en-us/purview/sit-defn-latvia-drivers-license-number	Other	NO
-Latvia passport number	https://learn.microsoft.com/en-us/purview/sit-defn-latvia-passport-number	Other	NO
-Latvia personal code	https://learn.microsoft.com/en-us/purview/sit-defn-latvia-personal-code	PII	YES
-Lithuania driver's license number	https://learn.microsoft.com/en-us/purview/sit-defn-lithuania-drivers-license-number	Other	NO
-Lithuania passport number	https://learn.microsoft.com/en-us/purview/sit-defn-lithuania-passport-number	Other	NO
-Lithuania personal code	https://learn.microsoft.com/en-us/purview/sit-defn-lithuania-personal-code	PII	YES
-Luxemburg driver's license number	https://learn.microsoft.com/en-us/purview/sit-defn-luxemburg-drivers-license-number	Other	NO
-Luxemburg national identification number (natural persons)	https://learn.microsoft.com/en-us/purview/sit-defn-luxemburg-national-identification-number-natural-persons	PII	YES
-Luxemburg national identification number (non-natural persons)	https://learn.microsoft.com/en-us/purview/sit-defn-luxemburg-national-identification-number-non-natural-persons	Other	NO
-Luxemburg passport number	https://learn.microsoft.com/en-us/purview/sit-defn-luxemburg-passport-number	Other	NO
+| [Http authorization header](https://learn.microsoft.com/purview/sit-defn-http-authorization-header) | Credentials | YES |
+| [Hungary driver's license number](https://learn.microsoft.com/purview/sit-defn-hungary-drivers-license-number) | Other | NO |
+| [Hungary passport number](https://learn.microsoft.com/purview/sit-defn-hungary-passport-number) | Other | NO | 
+| [Hungary personal identification number](https://learn.microsoft.com/purview/sit-defn-hungary-personal-identification-number) | PII | YES |
+| [Hungary social security number (TAJ)](https://learn.microsoft.com/purview/sit-defn-hungary-social-security-number) | PII | YES |
+| [Hungary tax identification number](https://learn.microsoft.com/purview/sit-defn-hungary-tax-identification-number) | Other | NO |
+| [Hungary value added tax number](https://learn.microsoft.com/purview/sit-defn-hungary-value-added-tax-number) | Other | NO |
+| [India permanent account number (PAN)](https://learn.microsoft.com/purview/sit-defn-india-permanent-account-numbe)  | Other | NO |
+| [India unique identification (Aadhaar) number](https://learn.microsoft.com/purview/sit-defn-india-unique-identification-number) | Other | NO |
+| [Indonesia identity card (KTP) number](https://learn.microsoft.com/purview/sit-defn-indonesia-identity-card-number) | Other | NO |
+| [International banking account number (IBAN)](https://learn.microsoft.com/purview/sit-defn-international-banking-account-number) | Finance | YES |
+| [IP address](https://learn.microsoft.com/purview/sit-defn-ip-address) | Other | NO |
+| [Ireland driver's license number](https://learn.microsoft.com/purvew/sit-defn-ireland-drivers-license-number) | Other | NO |
+| [Ireland passport number](https://learn.microsoft.com/purview/sit-defn-ireland-passport-number) | Other | NO |
+| [Ireland personal public service (PPS) number](https://learn.microsoft.com/purview/sit-defn-ireland-personal-public-service-number) | PII | YES |
+| [Israel bank account number](https://learn.microsoft.com/purview/sit-defn-israel-bank-account-number) | Other | NO |
+| [Israel national identification number](https://learn.microsoft.com/purview/sit-defn-israel-national-identification-number) | Other | NO |
+| [Italy driver's license number](https://learn.microsoft.com/purview/sit-defn-italy-drivers-license-number) | Other | NO |
+| [Italy fiscal code](https://learn.microsoft.com/purview/sit-defn-italy-fiscal-code) | PII | YES |
+| [Italy passport number](https://learn.microsoft.com/purview/sit-defn-italy-passport-number) | Other | NO |
+| [Italy value added tax number](https://learn.microsoft.com/purview/sit-defn-italy-value-added-tax-number) | Other | NO |
+| [Japan bank account number](https://learn.microsoft.com/purview/sit-defn-japan-bank-account-number) | Other | NO
+| [Japan driver's license number](https://learn.microsoft.com/purview/sit-defn-japan-drivers-license-number) | Other | NO |
+| [Japan My Number - Corporate](https://learn.microsoft.com/purview/sit-defn-japan-my-number-corporate) | Other | NO |
+| [Japan My Number - Personal](https://learn.microsoft.com/purview/sit-defn-japan-my-number-personal) | Other | NO |
+| [Japan passport number](https://learn.microsoft.com/purview/sit-defn-japan-passport-number) | Other | NO |
+| [Japan residence card](https://learn.microsoft.com/purview/sit-defn-japan-residence-card-number) | Other | NO |
+| [Japan resident registration](https://learn.microsoft.com/purview/sit-defn-japan-resident-registration-number) | Other | NO |
+| [Japan social insurance number (SIN)](https://learn.microsoft.com/purview/sit-defn-japan-social-insurance-number) | Other | NO |
+| [Latvia driver's license number](https://learn.microsoft.com/purview/sit-defn-latvia-drivers-license-number) | Other | NO |
+| [Latvia passport number](https://learn.microsoft.com/purview/sit-defn-latvia-passport-number) | Other | NO |
+| [Latvia personal code](https://learn.microsoft.com/purview/sit-defn-latvia-personal-code) | PII | YES |
+| [Lithuania driver's license number](https://learn.microsoft.com/purview/sit-defn-lithuania-drivers-license-number) | Other | NO |
+| [Lithuania passport number](https://learn.microsoft.com/purview/sit-defn-lithuania-passport-number) | Other| NO |
+| [Lithuania personal code](https://learn.microsoft.com/purview/sit-defn-lithuania-personal-code) | PII | YES |
+| [Luxemburg driver's license number](https://learn.microsoft.com/purview/sit-defn-luxemburg-drivers-license-number) | Other | NO |
+| [Luxemburg national identification number (natural persons)](https://learn.microsoft.com/purview/sit-defn-luxemburg-national-identification-number-natural-persons) | PII | YES |
+| [Luxemburg national identification number (non-natural persons)](https://learn.microsoft.com/purview/sit-defn-luxemburg-national-identification-number-non-natural-persons) | Other | NO |
+| [Luxemburg passport number](https://learn.microsoft.com/purview/sit-defn-luxemburg-passport-number) | Other | NO |
 Malaysia identification card number	https://learn.microsoft.com/en-us/purview/sit-defn-malaysia-identification-card-number	Other	NO
 Malta driver's license number	https://learn.microsoft.com/en-us/purview/sit-defn-malta-drivers-license-number	Other	NO
 Malta identity card number	https://learn.microsoft.com/en-us/purview/sit-defn-malta-identity-card-number	Other	NO
