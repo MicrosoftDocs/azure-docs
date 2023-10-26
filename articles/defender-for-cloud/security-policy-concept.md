@@ -2,8 +2,8 @@
 title: Understanding security policies, initiatives, and recommendations
 description: Learn about security policies, initiatives, and recommendations in Microsoft Defender for Cloud.
 ms.topic: conceptual
-ms.custom: ignite-2022
-ms.date: 01/24/2023
+ms.custom: ignite-2023
+ms.date: 10/26/2023
 ---
 
 # What are security policies, initiatives, and recommendations?
@@ -14,7 +14,7 @@ Microsoft Defender for Cloud applies security initiatives to your subscriptions.
 
 An Azure Policy definition, created in Azure Policy, is a rule about specific security conditions that you want controlled. Built in definitions include things like controlling what type of resources can be deployed or enforcing the use of tags on all resources. You can also create your own custom policy definitions.
 
-To implement these policy definitions (whether built-in or custom), you'll need to assign them. You can assign any of these policies through the Azure portal, PowerShell, or Azure CLI. Policies can be disabled or enabled from Azure Policy.
+To implement these policy definitions (whether built-in or custom), you need to assign them. You can assign any of these policies through the Azure portal, PowerShell, or Azure CLI. Policies can be disabled or enabled from Azure Policy.
 
 There are different types of policies in Azure Policy. Defender for Cloud mainly uses 'Audit' policies that check specific conditions and configurations then report on compliance. There are also "Enforce' policies that can be used to apply secure settings.
 
@@ -32,13 +32,18 @@ Defender for Cloud offers the following options for working with security initia
 
 - **View and edit the built-in default initiative** - When you enable Defender for Cloud, the initiative named 'Microsoft cloud security benchmark' is automatically assigned to all Defender for Cloud registered subscriptions. To customize this initiative, you can enable or disable individual policies within it by editing a policy's parameters. See the list of [built-in security policies](./policy-reference.md) to understand the options available out-of-the-box.
 
-- **Add your own custom initiatives** - If you want to customize the security initiatives applied to your subscription, you can do so within Defender for Cloud. You'll then receive recommendations if your machines don't follow the policies you create. For instructions on building and assigning custom policies, see [Using custom security initiatives and policies](custom-security-policies.md).
+- **Add your own custom initiatives** - If you want to customize the security initiatives applied to your subscription, you can do so within Defender for Cloud. You then receive recommendations if your machines don't follow the policies you create. For instructions on building and assigning custom policies, see [Using custom security initiatives and policies](custom-security-policies.md).
 
 - **Add regulatory compliance standards as initiatives** - Defender for Cloud's regulatory compliance dashboard shows the status of all the assessments within your environment in the context of a particular standard or regulation (such as Azure CIS, NIST SP 800-53 R4, SWIFT CSP CSCF-v2020). For more information, see [Improve your regulatory compliance](regulatory-compliance-dashboard.md).
 
 ## What is a security recommendation?
 
-Using the policies, Defender for Cloud periodically analyzes the compliance status of your resources to identify potential security misconfigurations and weaknesses. It then provides you with recommendations on how to remediate those issues. Recommendations are the result of assessing your resources against the relevant policies and identifying resources that aren't meeting your defined requirements.
+By using the policies, Defender for Cloud periodically analyzes the compliance status of your resources to identify potential security misconfigurations and weaknesses. It then provides you with recommendations on how to remediate those issues. Recommendations are the result of assessing your resources against the relevant policies and identifying resources that aren't meeting your defined requirements.
+
+Every recommendation in Defender for Cloud has an associated risk-level that represents how exploitable and impactful the security issue presents to your environments. The risk assessment engine takes into account factors such as, internet exposure, sensitivity of data, lateral movement possibilities, attack paths remediation, and more. Recommendations can be prioritized based on their risk levels.
+
+> [!NOTE]
+> Currently, risk prioritization doesn't affect the secure score.
 
 Defender for Cloud makes its security recommendations based on your chosen initiatives. When a policy from your initiative is compared against your resources and finds one or more that aren't compliant, it's presented as a recommendation in Defender for Cloud.
 
@@ -47,6 +52,9 @@ Recommendations are actions for you to take to secure and harden your resources.
 - A short description of the issue
 - The remediation steps to carry out in order to implement the recommendation
 - The affected resources
+- The risk level
+- Risk factors
+- Attack paths
 
 In practice, it works like this:
 
@@ -56,11 +64,11 @@ In practice, it works like this:
 
 1. The initiative includes multiple ***policies***, each with a requirement of a specific resource type. These policies enforce the requirements in the initiative.
 
-    To continue the example, the storage requirement is enforced with the policy "Storage accounts should restrict network access using virtual network rules".
+    To continue the example, the storage requirement is enforced with the policy `Storage accounts should restrict network access using virtual network rules`.
 
 1. Microsoft Defender for Cloud continually assesses your connected subscriptions. If it finds a resource that doesn't satisfy a policy, it displays a ***recommendation*** to fix that situation and harden the security of resources that aren't meeting your security requirements.
 
-    So, for example, if an Azure Storage account on any of your protected subscriptions isn't protected with virtual network rules, you'll see the recommendation to harden those resources.
+    So, for example, if an Azure Storage account on any of your protected subscriptions isn't protected with virtual network rules, the recommendation to harden those resources will be present.
 
 So, (1) an initiative includes (2) policies that generate (3) environment-specific recommendations.
 
