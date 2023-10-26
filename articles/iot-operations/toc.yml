@@ -170,7 +170,7 @@ items:
         href: develop/howto-develop-mqttnet-apps.md
       - name: Develop Node-RED apps
         href: develop/howto-develop-node-red-apps.md
-    - name: Manage Layered Network
+    - name: Manage layered network
       items:
       - name: Layered Network Management overview
         href: manage-layered-network/concept-layered-network.md
