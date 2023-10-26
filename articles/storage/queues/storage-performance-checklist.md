@@ -32,9 +32,8 @@ This article organizes proven practices for performance into a checklist you can
 | &nbsp; | Networking | [Do client-side devices have a high quality network link?](#link-quality) |
 | &nbsp; | Networking | [Is the client application in the same region as the storage account?](#location) |
 | &nbsp; | Direct client access | [Are you using shared access signatures (SAS) and cross-origin resource sharing (CORS) to enable direct access to Azure Storage?](#sas-and-cors) |
-| &nbsp; | .NET configuration | [Are you using .NET Core 2.1 or later for optimum performance?](#use-net-core) |
-| &nbsp; | .NET configuration | [Have you configured your client to use a sufficient number of concurrent connections?](#increase-default-connection-limit) |
-| &nbsp; | .NET configuration | [For .NET applications, have you configured .NET to use a sufficient number of threads?](#increase-the-minimum-number-of-threads) |
+| &nbsp; |.NET configuration |[For .NET Framework applications, have you configured your client to use a sufficient number of concurrent connections?](#increase-default-connection-limit) |
+| &nbsp; |.NET configuration |[For .NET Framework applications, have you configured .NET to use a sufficient number of threads?](#increase-minimum-number-of-threads) |
 | &nbsp; | Parallelism | [Have you ensured that parallelism is bounded appropriately so that you don't overload your client's capabilities or approach the scalability targets?](#unbounded-parallelism) |
 | &nbsp; | Tools | [Are you using the latest versions of Microsoft-provided client libraries and tools?](#client-libraries-and-tools) |
 | &nbsp; | Retries | [Are you using a retry policy with an exponential backoff for throttling errors and timeouts?](#timeout-and-server-busy-errors) |
