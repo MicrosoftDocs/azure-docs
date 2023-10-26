@@ -15,34 +15,39 @@ ms.date: 10/26/2023
 
 To maximize your uptime, plan ahead to maintain business continuity and prepare for disaster recovery with Azure Cosmos DB for MongoDB vCore.
 
-Microsoft strives to ensure that Azure services are always available. However, unplanned service outages may occur. We recommend having a disaster recovery plan in place for handling regional service outages. In this article, you'll learn how to:
+While Azure services are designed to maximize uptime, unplanned service outages might occur. A disaster recovery plan ensures that you have a strategy in place for handling regional service outages.
 
-* Plan for a multi-regional deployment of Azure Cosmos DB for MongoDB vCore and associated resources.
-* Design for high availability of your solution.
-* Initiate a failover to another region.
+In this article, learn how to:
+
+- Plan a multi-regional deployment of Azure Cosmos DB for MongoDB vCore and associated resources.
+- Design your solutions for high availability.
+- Initiate a failover to another Azure region.
 
 > [!IMPORTANT]
-> Azure Cosmos DB for MongoDB vCore itself does not provide automatic failover or disaster recovery. 
+> Azure Cosmos DB for MongoDB vCore does not provide built-in automatic failover or disaster recovery. Planning for high availability is a critical step as your solution scales.
 
-Azure Cosmos DB for MongoDB vCore automatically takes backups of your data at regular intervals. The automatic backups are taken without affecting the performance or availability of the database operations. All the backups are stored separately in a storage service. The automatic backups are helpful in scenarios when you accidentally delete or update your cluster, database, or collection and later require the data recovery.Backups are performed automatically in the background. Backups are retained for 35 days for active clusters and 7 days for deleted clusters.
+Azure Cosmos DB for MongoDB vCore automatically takes backups of your data at regular intervals. The automatic backups are taken without affecting the performance or availability of the database operations. All backups are performed automatically in the background and stored separately from the source data in a storage service. These automatic backups are useful in scenarios when you accidentally delete or modify resources and later require the original versions.
+
+Automatic backups are retained in various intervals based on whether the cluster is currently active or recently deleted.
+
+| | Retention period |
+| --- | --- |
+| **Active clusters** | `35` days |
+| **Deleted clusters** | `7` days |
 
 ## Design for high availability
 
-High availability (HA) should be enabled for critical Azure Cosmos DB for MongoDB vCore clusters running Production workloads. In an HA-enabled cluster, each node serves as a primary along with a hot standby node provisioned in another Availability Zone. Replication between the primary and the secondary node is synchronous. Thus, any modification to the database is persisted on both the primary and the hot standby before a response from the database is received.
+High availability (HA) should be enabled for critical Azure Cosmos DB for MongoDB vCore clusters running production workloads. In an HA-enabled cluster, each node serves as a primary along with a hot-standby node provisioned in another availability zone. Replication between the primary and the secondary node is synchronous by default. Any modification to the database is persisted on both the primary and the secondary (hot-standby) nodes before a response from the database is received.
 
-The service maintains health checks and heartbeats to each primary and secondary node of the cluster. In the event of a primary node becoming unavailable (either due to a Zone outage or a regional outage), the secondary node is automatically promoted to become the new primary and a subsequent secondary node is built for the new primary. In addition, if a secondary node becomes unavailable, the service auto creates a new secondary node with a full copy of data from the primary.
+The service maintains health checks and heartbeats to each primary and secondary node of the cluster. If a primary node becomes unavailable due to a zone or regional outage, the secondary node is automatically promoted to become the new primary and a subsequent secondary node is built for the new primary. In addition, if a secondary node becomes unavailable, the service auto creates a new secondary node with a full copy of data from the primary.
 
-In the event of a failover from the primary to the secondary node that is triggered by the service, connections are seamlessly routed under the covers to the new primary node.
+If the service triggers a failover from the primary to the secondary node, connections are seamlessly routed under the covers to the new primary node.
 
-Synchronous replication between the primary and secondary nodes guarantees no data loss in the event of a failover.
+Synchronous replication between the primary and secondary nodes guarantees no data loss if there's a failover.
 
 ### Configure high availability
 
-High availability (HA) can be specified when [creating a cluster](quickstart-portal.md) or in the [**Scale** section of an existing cluster](how-to-scale-cluster.md) in the Azure portal.
-
-## Disaster recovery in Azure CosmosDB for MongoDB vCore
-
-Resiliency and disaster recovery is a common need for online systems. Azure Cosmos DB for Mongo vCore Service already guarantees 99.995% availability within the region. Multi-region clusters will become available in 2024 to provide both in-region and cross-region availability guarantees.
+High availability can be specified when [creating a new cluster](quickstart-portal.md) or [updating an existing cluster](how-to-scale-cluster.md).
 
 ## Next steps
 
