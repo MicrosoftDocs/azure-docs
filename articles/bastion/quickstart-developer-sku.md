@@ -6,7 +6,7 @@ ms.service: bastion
 ms.topic: quickstart
 ms.date: 10/26/2023
 ms.author: cherylmc
-
+ms.custom: references_regions
 ---
 
 # Quickstart: Deploy Bastion using the Developer SKU (Preview)
