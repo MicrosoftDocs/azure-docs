@@ -8,9 +8,9 @@ author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Tutorial: View protectable resources 
+# Tutorial: View protectable resources (preview)
 
-This tutorial shows you how to view your resources that are currently not protected by any solution, using Azure Business Continuity (ABC) Center. 
+This tutorial shows you how to view your resources that are currently not protected by any solution, using Azure Business Continuity (ABC) center (preview). 
 
 ## Prerequisites
 

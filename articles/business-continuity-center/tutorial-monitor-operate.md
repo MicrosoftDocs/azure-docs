@@ -8,10 +8,10 @@ author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Tutorials: Monitor jobs across your business continuity estate 
+# Tutorials: Monitor jobs across your business continuity estate (preview)
 
 
-Azure Business Continuity center allows you to view jobs across Azure Backup and Azure Site Recovery, with ability to filter, view details of individual jobs and take appropriate action. 
+Azure Business Continuity center (preview) allows you to view jobs across Azure Backup and Azure Site Recovery, with ability to filter, view details of individual jobs and take appropriate action. 
 
 ## Monitor jobs
 

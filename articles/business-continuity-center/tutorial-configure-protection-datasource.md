@@ -8,9 +8,9 @@ author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Tutorial: Configure protection for data sources 
+# Tutorial: Configure protection for data sources (preview) 
 
-This tutorial guides you to configure protection for your data sources that are currently not protected by any solution using Azure Business Continuity center. 
+This tutorial guides you to configure protection for your data sources that are currently not protected by any solution using Azure Business Continuity center (preview). 
 
 The key principle of data protection is to safeguard and make data or application available under all circumstances.
 

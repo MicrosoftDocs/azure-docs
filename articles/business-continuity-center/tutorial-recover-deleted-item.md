@@ -8,11 +8,11 @@ ms.author: v-abhmallick
 ms.service: backup
 ---
 
-# Recover deleted item
+# Recover deleted item (preview)
 
 This tutorial describes the process to recover deleted items from the vault to ensure business continuity.
 
-Azure Business Continuity center allows you to recover protected items, that is, restore backup or failover or test failover etc., for the replication of the datasources from various views such as Overview, protected items, and so on.
+Azure Business Continuity center (preview) allows you to recover protected items, that is, restore backup or failover or test failover etc., for the replication of the datasources from various views such as Overview, protected items, and so on.
 
 ## Prerequisites
 

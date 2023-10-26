@@ -8,7 +8,7 @@ author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Manage vault lifecycle used for Azure Backup and Azure Site Recovery
+# Manage vault lifecycle used for Azure Backup and Azure Site Recovery (preview)
 
 Using the Azure Business Continuity center, you can centrally manage the lifecycle of your Recovery Services and Backup vaults for both Azure Backup and Azure Site Recovery. 
 

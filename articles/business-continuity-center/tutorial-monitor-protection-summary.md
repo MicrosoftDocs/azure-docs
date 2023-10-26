@@ -8,9 +8,9 @@ author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Tutorial: Monitor protection summary
+# Tutorial: Monitor protection summary (preview)
 
-In this article, you learn how to monitor and govern protection estate, using Azure business continuity center overview pane.
+In this article, you learn how to monitor and govern protection estate, using Azure Business Continuity center (preview) overview pane.
 
 The Azure Business Continuity Center overview pane provides a comprehensive snapshot of your resources from various aspects, such as protection status, the configuration of your security settings, and which resources are protected or not protected. It provides a summarized view from different angles to give you a clear overview of your business continuity status. You can view:
 

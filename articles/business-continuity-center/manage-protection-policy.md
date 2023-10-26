@@ -8,9 +8,9 @@ author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Manage backup and replication policies for your resources
+# Manage backup and replication policies for your resources (preview)
 
-Using Azure Business Continuity center, you can centrally manage the lifecycle of your replication and backup protection policies for both Azure Backup or Azure Site Recovery.
+Using Azure Business Continuity center (preview), you can centrally manage the lifecycle of your replication and backup protection policies for both Azure Backup or Azure Site Recovery.
 
 This tutorial shows you how to view your protection policies (backup and replication policies), and perform actions related to them using Azure Business Continuity center. 
 

@@ -1,4 +1,4 @@
-- name: Azure Business Continuity Center documentation
+- name: Azure Business Continuity Center documentation (preview)
   href: index.yml
 - name: Overview
   href: business-continuity-center-overview.md

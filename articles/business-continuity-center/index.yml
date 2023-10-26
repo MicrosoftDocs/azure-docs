@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 
-title: Azure Business Continuity center documentation
+title: Azure Business Continuity center documentation (preview)
 summary: The Azure Business Continuity center (preview) is an easy-to-use web-based user interface for managing your backup and disaster recovery at scale from single place across various environment and solutions.  Use it for configuring backups and replication, defining protection policies, monitoring operations, review configurations and much more.
 
 metadata:

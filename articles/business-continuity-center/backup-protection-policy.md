@@ -8,7 +8,7 @@ author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Create backup and replication policies for your resources
+# Create backup and replication policies for your resources (preview)
 
 This article describes how to create a backup and replication policy that can be used for backups with Azure Backup and replication with Azure Site Recovery. 
 
