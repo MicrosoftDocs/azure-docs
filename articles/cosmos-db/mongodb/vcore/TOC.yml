@@ -44,8 +44,8 @@
       href: migration-options.md 
     - name: Security
       href: security.md
-    - name: Failover for business continuity and disaster recovery
-      href: failover-and-disater-recovery.md
+    - name: Failover and disaster recovery
+      href: failover-disater-recovery.md
 - name: How to
   items:
     - name: Use community tools
