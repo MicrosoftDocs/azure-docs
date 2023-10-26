@@ -16,8 +16,12 @@ ms.custom:
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs
 
 > [!IMPORTANT]
-> Azure Virtual Machines - Hibernate is currently in PREVIEW.
+> Azure Virtual Machines - Hibernation is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+Hibernation is a feature designed to save on compute costs when not actively using a virtual machine. You can "pause" a virtual machine instance to prevent costs acociated with underutilized compute.
+
+## How hibernation works
 
 When hibernating a VM, Azure signals the VM's operating system to perform a suspend-to-disk action. Azure stores the memory contents of the VM in the OS disk, then deallocates the VM. When the VM is started again, the memory contents are transferred from the OS disk back into memory. Applications and processes that were previously running in your VM resume from the state prior to hibernation.
 
@@ -33,28 +37,17 @@ When hibernating a VM:
 - You aren't billed for the VM usage for a hibernated VM. 
 - You continue to be billed for the storage and networking resources associated with the hibernated VM.
 
-## Supported Configurations and Limitations
+## Supported Configurations
 The hibernate feature has several limitations at the Azure subscription, VM size and operating system levels. Make sure you have a supported configuration before using hibernate.
 
-### General Limitations
-- You can't enable hibernation on existing VMs.
-- You can't resize a VM if it has hibernation enabled.
-- When a  VM is hibernated, you can't attach or detach any disks or NICs to the VM. To do so, you must move the VM to a Stop-Deallocated state by stopping the VM and then attach/detach disks and NICs.
--	When a VM is hibernated, you can't modify the disks and NICs associated with the VM. To do so, you must move the VM to a Stop-Deallocated state by stopping the VM and then modify the disks and NICs.
--	When a VM is hibernated, there's no capacity guarantee to ensure that there will sufficient capacity to start the VM later. In rare cases if you encounter capacity issues, you can try starting the VM at a later time. 
--	If a VM has a Capacity Reservation  associated with it and is hibernated, the Capacity Reservation doesn't ensure that the VM has capacity to resume.
--	You can only hibernate a VM using the Azure portal, CLI, PowerShell, SDKs and API. Hibernating the VM using guest OS operations don't result in the VM moving to a hibernated state and the VM continues to be billed.
--	You can't disable hibernation on a VM once it's enabled.
+### Supported VM sizes 
 
--	The following Azure features aren't supported with hibernation
-    -	Ephemeral OS disk
-    -	Shared disk
-    -	Availability Sets
-    -	Virtual Machine Scale Sets (VMSS) Uniform
-    -	Spot VMs
-    -	Managed images
-    -	Azure Backup
-    -	Capacity reservations
+VM sizes with upto 32 GB RAM from the following VM series support hibernation.  
+- [Dasv5-series](dasv5-dadsv5-series.md) 
+- [Dadsv5-series](dasv5-dadsv5-series.md) 
+- [Dsv5-series](../virtual-machines/dv5-dsv5-series.md)
+- [Ddsv5-series](ddv5-ddsv5-series.md) 
+
 
 ### Operating system support and limitations
 
@@ -94,13 +87,26 @@ The following Windows operating systems support hibernation:
 
 ---
 
-### Supported VM sizes 
+### General Limitations
+- You can't enable hibernation on existing VMs.
+- You can't resize a VM if it has hibernation enabled.
+- When a  VM is hibernated, you can't attach or detach any disks or NICs to the VM. To do so, you must move the VM to a Stop-Deallocated state by stopping the VM and then attach/detach disks and NICs.
+-	When a VM is hibernated, you can't modify the disks and NICs associated with the VM. To do so, you must move the VM to a Stop-Deallocated state by stopping the VM and then modify the disks and NICs.
+-	When a VM is hibernated, there's no capacity guarantee to ensure that there will sufficient capacity to start the VM later. In rare cases if you encounter capacity issues, you can try starting the VM at a later time. 
+-	If a VM has a Capacity Reservation  associated with it and is hibernated, the Capacity Reservation doesn't ensure that the VM has capacity to resume.
+-	You can only hibernate a VM using the Azure portal, CLI, PowerShell, SDKs and API. Hibernating the VM using guest OS operations don't result in the VM moving to a hibernated state and the VM continues to be billed.
+-	You can't disable hibernation on a VM once it's enabled.
 
-VM sizes with upto 32 GB RAM from the following VM series support hibernation.  
-- [Dasv5-series](dasv5-dadsv5-series.md) 
-- [Dadsv5-series](dasv5-dadsv5-series.md) 
-- [Dsv5-series](../virtual-machines/dv5-dsv5-series.md)
-- [Ddsv5-series](ddv5-ddsv5-series.md) 
+-	The following Azure features aren't supported with hibernation
+    -	Ephemeral OS disk
+    -	Shared disk
+    -	Availability Sets
+    -	Virtual Machine Scale Sets (VMSS) Uniform
+    -	Spot VMs
+    -	Managed images
+    -	Azure Backup
+    -	Capacity reservations
+
 
 ## Prerequisites to use hibernation
 - Your subscription is registered for the hibernation feature
@@ -247,7 +253,7 @@ To learn more about REST, check out an [API example](/rest/api/compute/virtual-m
 
 Once you've created a VM with hibernation enabled, you'll need to configure the guest OS to successfully hibernate your VM. 
 
-### Configuring hibernation on the VM's OS
+## Guest configuration for hibernation
 
 ### Configuring hibernation on Linux
 There are many ways you can configure the guest OS for hibernation in Linux VMs.  
@@ -316,18 +322,8 @@ When enabling hibernation while creating a Windows VM, a VM extension of type Mi
 >[!NOTE]
 >When you create a VM with hibernation enabled, Azure automatically places the page file on the C: drive. If you're using a specialized image, then you'll need to follow additional steps to ensure that the pagefile is located on the C: drive. 
 
-#### Installing Azure VM Agent
-Using the WindowsHibernateExtension requires the Azure VM Agent to be installed on the VM.
-
-While inside the guest OS, configure hibernation:
-```azurecli
-powercfg /h /type full 
-```
-
-To verify that hibernation is enabled:
-```azurecli
-powercfg /a
-```
+>[!NOTE]
+>Using the WindowsHibernateExtension requires the Azure VM Agent to be installed on the VM. If you choose to opt-out of the Azure VM Agent, then you can configure the OS for hibernation by running powercfg /h /type full inside the guest. You can then verify if hibernation is enabled inside guest using the powercfg /a command.
 
 ## Hibernating a VM
 
@@ -336,13 +332,9 @@ Once you've created a VM with hibernation enabled and the guest OS is configured
 
 #### [Portal](#tab/PortalDoHiber) 
 
-To hibernate a VM in the Azure portal, click the 'Hibernate' button on the VM Overview page between the 'Stop' and 'Capture' buttons.
+To hibernate a VM in the Azure portal, click the 'Hibernate' button on the VM Overview page.
 
-![Hibernate a VM in the Azure portal](./media/hibernate-resume/hibernate-overview-button.png)
-
-Once the VM has entered hibernation, the 'Status' on the overview page should report as "Hibernated (deallocated)"
-
-![Hibernated VM in the Azure portal](./media/hibernate-resume/is-hibernated-status.png)
+![Button to hibernate a VM in the Azure portal](./media/hibernate-resume/hibernate-overview-button.png)
 
 #### [CLI](#tab/CLIDoHiber) 
 
@@ -380,17 +372,17 @@ https://management.azure.com/subscriptions/.../providers/Microsoft.Compute/virtu
 ```
 ---
 
-## Check the status of hibernated VM 
+## View state of hibernated VM 
 
 #### [Portal](#tab/PortalStatCheck)
 
-To check the status of a VM in the portal, check the 'Status' on the overview page. It should report as "Hibernated (deallocated)"
+To view the state of a VM in the portal, check the 'Status' on the overview page. It should report as "Hibernated (deallocated)"
 
 ![Hibernated VM in the Azure portal](./media/hibernate-resume/is-hibernated-status.png)
 
 #### [PowerShell](#tab/PSStatCheck)
 
-To check the status of a VM using PowerShell:
+To view the state of a VM using PowerShell:
 
 ```powershell
 Get-AzVM -ResourceGroupName "testRG" -Name "testVM" -Status 
@@ -426,7 +418,7 @@ Statuses[2]       :
 
 #### [CLI](#tab/CLIStatCheck)
 
-To check the status of a VM using Azure CLI:
+To view the state of a VM using Azure CLI:
 
 ```azurecli
 az vm get-instance-view -g MyResourceGroup -n myVM
@@ -475,7 +467,7 @@ Your output should look something like this:
 
 #### [REST API](#tab/APIStatCheck)
 
-To check the status of a VM using REST API, run this command:
+To view the state of a VM using REST API, run this command:
 
 ```json
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/instanceView?api-version=2020-12-01 
@@ -506,9 +498,9 @@ Your output should look something like this:
 ```
 ---
 
-## Starting hibernated VMs 
+## Start hibernated VMs 
 
-You can start hibernated VMs just like starting a shut down VM. 
+You can start hibernated VMs just like how you would start a stopped VM.
 
 ### [Portal](#tab/PortalStartHiber)
 To start a hibernated VM using the Azure portal, click the 'Start' button on the VM Overview page.
@@ -539,27 +531,9 @@ POST https://management.azure.com/subscriptions/../providers/Microsoft.Compute/v
 ```
 ---
 
-## VMs created using images
+## Deploy hibernation enabled VMs from the Azure Compute Gallery
 
-### OS disk VMs with hibernation enabled
-
-VMs created from OS disks can also be enabled for hibernation. Ensure that the OS version associated with your OS disk supports hibernation on Azure. Refer to the list of supported OS versions.
-
-To create VMs with hibernation enabled using OS disks, ensure that the OS disk has the hibernation property enabled. Refer to API example to enable this property on OS disks. Once the hibernation property is enabled on the OS disk, you can create hibernation enabled VMs using that OS disk.
-
-```
-PATCH https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/myDisk?api-version=2021-12-01
-
-{
-  "properties": {
-    "supportsHibernation": true
-  }
-}
-```
-
-### Azure Compute Gallery images with hibernation enabled
-
-VMs created from Compute Gallery images can also be enabled for hibernation. Ensure that the OS version associated with your Gallery image supports hibernation on Azure. Refer to the list of supported OS versions here (link to supported OS versions for hibernation).
+VMs created from Compute Gallery images can also be enabled for hibernation. Ensure that the OS version associated with your Gallery image supports hibernation on Azure. Refer to the list of supported OS versions.
 
 To create VMs with hibernation enabled using Gallery images, you'll first need to create a new image definition with the hibernation property enabled. Once this feature property is enabled on the Gallery Image definition, you can create an image version(s) and use that image version to create hibernation enabled VMs. 
 
@@ -568,6 +542,11 @@ To create VMs with hibernation enabled using Gallery images, you'll first need t
 >[!NOTE]
 > For specialized Windows images, the page file location must be set to C: drive in order for Azure to successfully configure your guest OS for hibernation.
 > If you're creating an Image version from an existing VM, you should first move the page file to the OS disk and then use the VM as the source for the Image version.
+
+#### [Portal](#tab/PortalImageGallery)
+To create an image definition with the hibernation property enabled, select the checkmark for 'Enable hibernation'.
+
+![Hibernate image support](./media/hibernate-resume/hibernate-images-support.png)
 
 
 #### [CLI](#tab/CLIImageGallery)
@@ -594,6 +573,22 @@ $features = @($IsHibernateSupported)
 New-AzGalleryImageDefinition -ResourceGroupName $rgName -GalleryName $galleryName -Name $galleryImageDefinitionName -Location $location -Publisher $publisherName -Offer $offerName -Sku $skuName -OsState "Generalized" -OsType "Windows" -Description $description -Feature $features
 ```
 ---
+
+## Deploy hibernation enabled VMs from an OS disk 
+
+VMs created from OS disks can also be enabled for hibernation. Ensure that the OS version associated with your OS disk supports hibernation on Azure. Refer to the list of supported OS versions.
+
+To create VMs with hibernation enabled using OS disks, ensure that the OS disk has the hibernation property enabled. Refer to API example to enable this property on OS disks. Once the hibernation property is enabled on the OS disk, you can create hibernation enabled VMs using that OS disk.
+
+```
+PATCH https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/myDisk?api-version=2021-12-01
+
+{
+  "properties": {
+    "supportsHibernation": true
+  }
+}
+```
 
 ## Troubleshooting
 Refer to the [Hibernate troubleshooting guide](./hibernate-resume-troubleshooting.md) for more information

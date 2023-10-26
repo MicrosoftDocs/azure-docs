@@ -13,8 +13,8 @@ ms.custom:
 
 # Troubleshooting VM hibernation
 
-## Unable to enable hibernation during VM creation
-If you receive the error "Your subscription isn't registered to use Hibernate" and the box is greyed out in the Azure portal, make sure you have registered for the Hibernation preview.
+## Subscription not registered to use hibernation
+If you receive the error "Your subscription isn't registered to use Hibernate" and the box is greyed out in the Azure portal, make sure you have [register for the Hibernation preview.](hibernate-resume.md)
 
 ![Subscription not registered](./media/hibernate-resume/subscription-not-registered.png)
 
