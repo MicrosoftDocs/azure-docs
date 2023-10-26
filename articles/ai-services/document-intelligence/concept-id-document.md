@@ -17,7 +17,7 @@ monikerRange: '<=doc-intel-4.0.0'
 # Document Intelligence ID document model
 
 ::: moniker range=">=doc-intel-3.0.0"
-[!INCLUDE [applies to v4.0 v3.1 v3.0](includes/applies-to-v40-v31-v30.md)] ![blue-checkmark](../media/versions-icon.png) **Earlier version:** [v2.1](?view=doc-intel-2.1.0&preserve-view=true)
+[!INCLUDE [applies to v4.0 v3.1 v3.0](includes/applies-to-v40-v31-v30.md)]  **Earlier version:** ![blue-checkmark](media/versions-icon.png) [v2.1](?view=doc-intel-2.1.0&preserve-view=true)
 ::: moniker-end
 
 ::: moniker range="doc-intel-2.1.0"
