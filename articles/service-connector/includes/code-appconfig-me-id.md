@@ -61,10 +61,10 @@ ms.author: wchi
 
     ```java
     // Uncomment the following lines according to the authentication type.
-    // for system managed identity
+    // for system-managed identity
     // DefaultAzureCredential defaultCredential = new DefaultAzureCredentialBuilder().build();
 
-    // for user assigned managed identity
+    // for user-assigned managed identity
     // DefaultAzureCredential defaultCredential = new DefaultAzureCredentialBuilder()
     //     .managedIdentityClientId(System.getenv("AZURE_APPCONFIGURATION_CLIENTID"))
     //     .build();
@@ -98,10 +98,10 @@ ms.author: wchi
     from azure.identity import ManagedIdentityCredential, ClientSecretCredential
     
     # Uncomment the following lines according to the authentication type.
-    # system assigned managed identity
+    # system-assigned managed identity
     # cred = ManagedIdentityCredential()
     
-    # user assigned managed identity
+    # user-assigned managed identity
     # managed_identity_client_id = os.getenv('AZURE_APPCONFIGURATION_CLIENTID')
     # cred = ManagedIdentityCredential(client_id=managed_identity_client_id)
     
@@ -130,10 +130,10 @@ ms.author: wchi
     const appConfig = require("@azure/app-configuration");
     
     // Uncomment the following lines according to the authentication type.
-    // for system assigned managed identity
+    // for system-assigned managed identity
     // const credential = new DefaultAzureCredential();
     
-    // for user assigned managed identity
+    // for user-assigned managed identity
     // const clientId = process.env.AZURE_APPCONFIGURATION_CLIENTID;
     // const credential = new DefaultAzureCredential({
     //     managedIdentityClientId: clientId
