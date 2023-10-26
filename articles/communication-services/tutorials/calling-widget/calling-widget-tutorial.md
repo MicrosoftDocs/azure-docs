@@ -139,7 +139,7 @@ function App() {
       style={{ height: "100%", width: "100%", padding: "3rem" }}
       tokens={{ childrenGap: "1.5rem" }}
     >
-      <Stack style={{ margin: "auto" }}>
+      <Stack tokens={{ childrenGap: '1rem' }} style={{ margin: "auto" }}>
         <Stack
           style={{ padding: "3rem" }}
           horizontal
@@ -157,17 +157,8 @@ function App() {
 
         <Text>
           Welcome to a Calling Widget sample for the Azure Communication Services UI
-          Library. Sample has the ability to:
+          Library. Sample has the ability to connect you through Teams voice apps to a agent to help you.
         </Text>
-        <ul>
-          <li>
-            Adhoc call teams users with a tenant set that allows for external
-            calls
-          </li>
-          <li>Joining Teams interop meetings as a Azure Communication Services user</li>
-          <li>Make a calling Widget PSTN call to a help phone line</li>
-          <li>Join a Azure Communication Services group call</li>
-        </ul>
         <Text>
           As a user all you need to do is click the widget below, enter your
           display name for the call - this will act as your caller id, and
