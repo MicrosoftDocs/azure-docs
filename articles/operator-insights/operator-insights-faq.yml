@@ -18,7 +18,7 @@ sections:
         answer: |
           Azure Operator Insights doesn't move or store customer data out of the region it's deployed in. 
 
-          The only exceptions are the West Central US or South Central US regions. If you deploy to these regions, the data is stored in the East US region that is still within the US region.
+          The only exceptions are the West Central US or South Central US regions. If you deploy to these regions, the data is stored in the East US region.
 
       - question: Does Azure Operator Insights support CMK-based encryption?
         answer: |
@@ -44,4 +44,4 @@ sections:
           - West Europe
           - Australia East 
 
-          We'll be enabling other regions. If your region isn't in the list, contact Microsoft Support.
+          We'll be enabling other regions. If your region isn't in the list, contact your local Microsoft representative.
