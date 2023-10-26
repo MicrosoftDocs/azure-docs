@@ -90,8 +90,6 @@ Linux server distributions that are not endorsed by Azure do not support Azure D
 | Oracle | Oracle Linux 8.5 Gen 2 | 8.5 | Oracle:Oracle-Linux:ol85-lvm-gen2:latest | OS and data disk (see note below) |
 | RedHat | RHEL 9.2 | 9.2 | RedHat:RHEL:9_2:latest | OS and data disk (see note below) |
 | RedHat | RHEL 9.2 Gen 2 | 9.2 | RedHat:RHEL:92-gen2:latest | OS and data disk (see note below) |
-| RedHat | RHEL 9.1 | 9.1 | RedHat:RHEL:9_1:latest | OS and data disk (see note below) |
-| RedHat | RHEL 9.1 Gen 2 | 9.1 | RedHat:RHEL:91-gen2:latest | OS and data disk (see note below) |
 | RedHat | RHEL 9.0 | 9.0 | RedHat:RHEL:9_0:latest | OS and data disk (see note below) |
 | RedHat | RHEL 9.0 Gen 2 | 9.0 | RedHat:RHEL:90-gen2:latest | OS and data disk (see note below) |
 | RedHat | RHEL 9-lvm | 9-lvm | RedHat:RHEL:9-lvm:latest | OS and data disk (see note below) |
