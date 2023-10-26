@@ -392,6 +392,6 @@ To delete, go to in your Application Insights resource under *Configure* select 
 ## See also
 
 * [Azure Pipelines documentation](/azure/devops/pipelines)
-* [Create work items](./diagnostic-search.md#create-work-item)
+* [Create work items](./search-and-transaction-diagnostics.md?tabs=transaction-search#create-work-item)
 * [Automation with PowerShell](./powershell.md)
 * [Availability test](availability-overview.md)

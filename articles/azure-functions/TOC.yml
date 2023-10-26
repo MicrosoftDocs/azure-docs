@@ -787,7 +787,43 @@
               href: functions-bindings-azure-sql-output.md
               displayName: Azure SQL
         - name: Dapr
-          href: https://github.com/dapr/azure-functions-extension
+          items: 
+            - name: Overview
+              href: functions-bindings-dapr.md
+              displayName: Dapr
+            - name: Trigger
+              items: 
+              - name: Binding
+                href: functions-bindings-dapr-trigger.md
+                displayName: Dapr
+              - name: Service Invocation
+                href: functions-bindings-dapr-trigger-svc-invoke.md
+                displayName: Dapr
+              - name: Topic
+                href: functions-bindings-dapr-trigger-topic.md
+                displayName: Dapr
+            - name: Input
+              items: 
+              - name: State
+                href: functions-bindings-dapr-input-state.md
+                displayName: Dapr
+              - name: Secret
+                href: functions-bindings-dapr-input-secret.md
+                displayName: Dapr
+            - name: Output
+              items: 
+              - name: State
+                href: functions-bindings-dapr-output-state.md
+                displayName: Dapr
+              - name: Invoke
+                href: functions-bindings-dapr-output-invoke.md 
+                displayName: Dapr
+              - name: Publish
+                href: functions-bindings-dapr-output-publish.md 
+                displayName: Dapr
+              - name: Binding
+                href: functions-bindings-dapr-output.md 
+                displayName: Dapr
         - name: Event Grid
           items:
             - name: Overview

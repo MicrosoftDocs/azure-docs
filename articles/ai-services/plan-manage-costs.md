@@ -42,21 +42,17 @@ With Pay-As-You-Go pricing, you are billed according to the Azure AI services of
 
 | Service | Instance(s) | Billing information | 
 |---------|-------|---------------------|
-| **Vision** | | |
-| [Azure AI Vision](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/) | Free, Standard (S1) | Billed by the number of transactions. Price per transaction varies per feature (Read, OCR, Spatial Analysis). For full details, see [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/). |
-| [Custom Vision](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) | Free, Standard | <li>Predictions are billed by the number of transactions.</li><li>Training is billed by compute hour(s).</li><li>Image storage is billed by number of images (up to 6 MB per image).</li>|
-| [Face](https://azure.microsoft.com/pricing/details/cognitive-services/face-api/) | Free, Standard | Billed by the number of transactions. |
-| **Speech** | | |
-| [Speech service](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) | Free, Standard | Billing varies by feature (speech-to-text, text to speech, speech translation, speaker recognition). Primarily, billing is by transaction count or character count. For full details, see [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). |
-| **Language** | | |
-| [Language Understanding (LUIS)](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) | Free Authoring, Free Prediction, Standard | Billed by number of transactions. Price per transaction varies by feature (speech requests, text requests). For full details, see [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/). |
-| [QnA Maker](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/) | Free, Standard | Subscription fee billed monthly. For full details, see [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/). | 
-| [Language service](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) | Free, Standard | Billed by number of text records. | 
-| [Translator](https://azure.microsoft.com/pricing/details/cognitive-services/translator/) | Free, Pay-as-you-go (S1), Volume discount (S2, S3, S4, C2, C3, C4, D3) | Pricing varies by meter and feature. For full details, see [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/translator/). <li>Text translation is billed by number of characters translated.</li><li>Document translation is billed by characters translated.</li><li>Custom translation is billed by characters of source and target training data.</li> |  
-| **Decision** | | |
 | [Anomaly Detector](https://azure.microsoft.com/pricing/details/cognitive-services/anomaly-detector/) | Free, Standard | Billed by the number of transactions. | 
 | [Content Moderator](https://azure.microsoft.com/pricing/details/cognitive-services/content-moderator/) | Free, Standard | Billed by the number of transactions. |
+| [Custom Vision](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) | Free, Standard | <li>Predictions are billed by the number of transactions.</li><li>Training is billed by compute hour(s).</li><li>Image storage is billed by number of images (up to 6 MB per image).</li>|
+| [Face](https://azure.microsoft.com/pricing/details/cognitive-services/face-api/) | Free, Standard | Billed by the number of transactions. |
+| [Language](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) | Free, Standard | Billed by number of text records. | 
+| [Language Understanding (LUIS)](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) | Free Authoring, Free Prediction, Standard | Billed by number of transactions. Price per transaction varies by feature (speech requests, text requests). For full details, see [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/). |
 | [Personalizer](https://azure.microsoft.com/pricing/details/cognitive-services/personalizer/) | Free, Standard (S0) | Billed by transactions per month. There are storage and transaction quotas. For full details, see [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/personalizer/). | 
+| [QnA Maker](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/) | Free, Standard | Subscription fee billed monthly. For full details, see [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/). | 
+| [Speech](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) | Free, Standard | Billing varies by feature (speech-to-text, text to speech, speech translation, speaker recognition). Primarily, billing is by transaction count or character count. For full details, see [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). |
+| [Translator](https://azure.microsoft.com/pricing/details/cognitive-services/translator/) | Free, Pay-as-you-go (S1), Volume discount (S2, S3, S4, C2, C3, C4, D3) | Pricing varies by meter and feature. For full details, see [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/translator/). <li>Text translation is billed by number of characters translated.</li><li>Document translation is billed by characters translated.</li><li>Custom translation is billed by characters of source and target training data.</li> |
+| [Vision](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/) | Free, Standard (S1) | Billed by the number of transactions. Price per transaction varies per feature (Read, OCR, Spatial Analysis). For full details, see [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/). |
 
 ## Commitment tier
 
@@ -66,9 +62,6 @@ With commitment tier pricing, you are billed according to the plan you choose. S
 
 > [!NOTE]
 > If you use the resource above the quota provided by the commitment plan, you will be charged for the additional usage as per the overage amount mentioned in the Azure portal when you purchase a commitment plan. For more information, see [Azure AI services pricing](https://azure.microsoft.com/pricing/details/cognitive-services/).
-
-
-
 
 ### Costs that typically accrue with Azure AI services
 
@@ -98,8 +91,6 @@ You can pay for Azure AI services charges with your Azure Prepayment (previously
 
 ## Monitor costs
 
-<!-- Note to Azure service writer: Modify the following as needed for your service. Replace example screenshots with ones taken for your service. If you need assistance capturing screenshots, ask banders for help. -->
-
 As you use Azure resources with Azure AI services, you incur costs. Azure resource usage unit costs vary by time intervals (seconds, minutes, hours, and days) or by unit usage (bytes, megabytes, and so on). As soon as use of an Azure AI services resource starts, costs are incurred and you can see the costs in [cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 
 When you use cost analysis, you view Azure AI services costs in graphs and tables for different time intervals. Some examples are by day, current and prior month, and year. You also view costs against budgets and forecasted costs. Switching to longer views over time can help you identify spending trends. And you see where overspending might have occurred. If you've created budgets, you can also easily see where they're exceeded.
@@ -107,8 +98,8 @@ When you use cost analysis, you view Azure AI services costs in graphs and table
 To view Azure AI services costs in cost analysis:
 
 1. Sign in to the Azure portal.
-2. Open the scope in the Azure portal and select **Cost analysis** in the menu. For example, go to **Subscriptions**, select a subscription from the list, and then select  **Cost analysis** in the menu. Select **Scope** to switch to a different scope in cost analysis.
-3. By default, cost for services are shown in the first donut chart. Select the area in the chart labeled Azure AI services.
+1. Open the scope in the Azure portal and select **Cost analysis** in the menu. For example, go to **Subscriptions**, select a subscription from the list, and then select  **Cost analysis** in the menu. Select **Scope** to switch to a different scope in cost analysis.
+1. By default, cost for services are shown in the first donut chart. Select the area in the chart labeled Azure AI services.
 
 Actual monthly costs are shown when you initially open cost analysis. Here's an example showing all monthly usage costs.
 

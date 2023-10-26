@@ -35,9 +35,12 @@ Learn how to use routing preference setting in Azure Route Server to influence i
 
 1. Select **Configuration**.
 
-1. In the **Configuration** page, select **VPN** or **ASPath** to change the routing preference setting from the default setting: **ExpressRoute**.
+1. In the **Configuration** page, select **VPN**, **ASPath** or **ExpressRoute**.
 
     :::image type="content" source="./media/hub-routing-preference-portal/routing-preference-configuration.png" alt-text="Screenshot of configuring routing preference of a Route Server in the Azure portal.":::
+
+    > [!NOTE]
+    > The default routing preference setting is **ExpressRoute**.
 
 1. Select **Save**.
 

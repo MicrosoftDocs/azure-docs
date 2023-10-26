@@ -295,7 +295,7 @@ More information about this threat: [API10:2019  Insufficient logging and monito
 
 * Monitor API traffic with [Azure Monitor](api-management-howto-use-azure-monitor.md). 
 
-* Log to [Application Insights](api-management-howto-app-insights.md) for debugging purposes. Correlate [transactions in Application Insights](../azure-monitor/app/transaction-diagnostics.md) between API Management and the backend API to [trace them end-to-end](../azure-monitor/app/correlation.md). 
+* Log to [Application Insights](api-management-howto-app-insights.md) for debugging purposes. Correlate [transactions in Application Insights](../azure-monitor/app/search-and-transaction-diagnostics.md?tabs=transaction-diagnostics) between API Management and the backend API to [trace them end-to-end](../azure-monitor/app/correlation.md). 
 
 * If needed, forward custom events to [Event Hubs](api-management-howto-log-event-hubs.md). 
 

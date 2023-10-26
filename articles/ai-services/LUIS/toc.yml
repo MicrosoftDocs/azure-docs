@@ -119,8 +119,8 @@ items:
       displayName: phrase list recommendations, multi-language, translator, locale, language, English, Chinese, French, German, Italian, Korean, Portuguese, Spanish, Turkish, Keigo, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens
     - name: Use containers in disconnected environments
       href: ../containers/disconnected-containers.md?context=/azure/ai-services/luis/context/context
-    - name: All Azure AI containers documentation
-      href: ../containers/index.yml
+    - name: Azure AI containers overview
+      href: ../cognitive-services-container-support.md
       maintainContext: true
   - name: Set up enterprise features
     items:

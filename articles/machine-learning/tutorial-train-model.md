@@ -185,8 +185,8 @@ dependencies:
   - pandas>=1.1,<1.2
   - pip:
     - inference-schema[numpy-support]==1.3.0
-    - mlflow== 1.26.1
-    - azureml-mlflow==1.42.0
+    - mlflow== 2.4.1
+    - azureml-mlflow==1.51.0
     - psutil>=5.8,<5.9
     - tqdm>=4.59,<4.60
     - ipykernel~=6.0

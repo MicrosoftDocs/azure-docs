@@ -198,7 +198,7 @@ You can embed a map in a web page by using the Map Control client-side JavaScrip
 
 8. Open the file in your web browser and view the rendered map. It should look like the following image:
 
-   ![Map image showing rendered result](./media/how-to-use-map-control/map-of-seattle.png)
+    :::image type="content" source="./media/how-to-use-map-control/map-of-seattle.png" alt-text="Screenshot of a map image showing rendered result." lightbox="./media/how-to-use-map-control/map-of-seattle.png":::
 
 ## Localizing the map
 
@@ -230,7 +230,7 @@ map = new atlas.Map('myMap', {
 
 Here's an example of Azure Maps with the language set to "fr-FR" and the regional view set to `Auto`.
 
-![Map image showing labels in French](./media/how-to-use-map-control/websdk-localization.png)
+:::image type="content" source="./media/how-to-use-map-control/websdk-localization.png" alt-text="Screenshot showing a map image with its labels in French." lightbox="./media/how-to-use-map-control/websdk-localization.png":::
 
 For a list of supported languages and regional views, see [Localization support in Azure Maps].
 

@@ -72,9 +72,9 @@ azcopy sync 'https://mystorageaccount.blob.core.windows.net/mycontainer' 'C:\myD
 
 ## Update a container with changes in another container
 
-The first container that appears in this command is the source. The second one is the destination. Make sure to append a SAS token to each source URL.
+The first container that appears in this command is the source. The second one is the destination. 
 
-If you provide authorization credentials by using Microsoft Entra ID, you can omit the SAS token only from the destination URL. Make sure that you've set up the proper roles in your destination account. See [Option 1: Use Microsoft Entra ID](storage-use-azcopy-v10.md?toc=/azure/storage/blobs/toc.json#option-1-use-azure-active-directory).
+If you provide authorization credentials by using Microsoft Entra ID, make sure that you've set up the proper roles in your source and destination account. See [Option 1: Use Microsoft Entra ID](storage-use-azcopy-v10.md?toc=/azure/storage/blobs/toc.json#option-1-use-azure-active-directory).
 
 > [!TIP]
 > This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
@@ -91,9 +91,9 @@ azcopy sync 'https://mysourceaccount.blob.core.windows.net/mycontainer?sv=2018-0
 
 ## Update a directory with changes to a directory in another container
 
-The first directory that appears in this command is the source. The second one is the destination. Make sure to append a SAS token to each source URL.
+The first directory that appears in this command is the source. The second one is the destination.
 
-If you provide authorization credentials by using Microsoft Entra ID, you can omit the SAS token only from the destination URL. Make sure that you've set up the proper roles in your destination account. See [Option 1: Use Microsoft Entra ID](storage-use-azcopy-v10.md?toc=/azure/storage/blobs/toc.json#option-1-use-azure-active-directory).
+If you provide authorization credentials by using Microsoft Entra ID, make sure that you've set up the proper roles in your source and destination account. See [Option 1: Use Microsoft Entra ID](storage-use-azcopy-v10.md?toc=/azure/storage/blobs/toc.json#option-1-use-azure-active-directory).
 
 > [!TIP]
 > This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').

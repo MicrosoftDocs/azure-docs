@@ -95,7 +95,7 @@ You can create multiple Data Collection Rules that point to the same Data Collec
   }
   ```
 
-- Add an additional DCRA with the relevant Data Collection Rule. You *must* replace `<dcraName>`:
+- Add an additional Data Collection Rule Association (DCRA) with the relevant Data Collection Rule (DCR). This associates the DCR with the cluster. You must replace `<dcraName>`:
      ```json
     {
       "type": "Microsoft.Resources/deployments",
@@ -192,6 +192,7 @@ relabel_configs:
 The source label is `__address__` because this label will always exist so this relabel config will always be applied. The target label will always be `microsoft_metrics_account` and its value should be replaced with the corresponding label value for the workspace.
 
 
+
 ### Example
 
 If you want to configure three different jobs to send the metrics to three different workspaces, then include the following in each data collection rule:
@@ -257,3 +258,5 @@ scrape_configs:
 
 - [Learn more about Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md).
 - [Collect Prometheus metrics from AKS cluster](prometheus-metrics-enable.md).
+
+

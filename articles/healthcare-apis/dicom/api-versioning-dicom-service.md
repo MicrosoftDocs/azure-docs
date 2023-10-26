@@ -6,7 +6,7 @@ author: mmitrik
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 10/11/2023
+ms.date: 10/13/2023
 ms.author: mmitrik
 ---
 

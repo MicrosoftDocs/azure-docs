@@ -49,6 +49,12 @@ Spatial Analysis can also be configured to detect if a person is wearing a prote
 
 ![Spatial Analysis classifies whether people have facemasks in an elevator](https://user-images.githubusercontent.com/11428131/137015842-ce524f52-3ac4-4e42-9067-25d19b395803.png)
 
+## Video Retrieval
+
+Spatial Analysis Video Retrieval is a service that lets you create a search index, add documents (videos and images) to it, and search with natural language. Developers can define metadata schemas for each index and ingest metadata to the service to help with retrieval. Developers can also specify what features to extract from the index (vision, speech) and filter their search based on features.
+
+[Call the Video Retrieval APIs](./how-to/video-retrieval.md)
+
 ## Input requirements
 
 Spatial Analysis works on videos that meet the following requirements:
