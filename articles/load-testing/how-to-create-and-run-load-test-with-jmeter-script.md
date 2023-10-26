@@ -42,9 +42,11 @@ Next, you create a load test by uploading an Apache JMeter test script (JMX file
 
 To create a load test using an existing JMeter script in the Azure portal:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) by using the credentials for your Azure subscription.
+1. In the [Azure portal](https://portal.azure.com/), go to your Azure Load Testing resource.
 
-1. Go to your Azure Load Testing resource, select **Tests** from the left pane, select **+ Create**, and then select **Upload a JMeter script**.
+1. In the left navigation, select **Tests**  to view all tests.
+
+1. Select **+ Create**, and then select **Upload a JMeter script**.
 
     :::image type="content" source="./media/how-to-create-and-run-load-test-with-jmeter-script/create-new-test.png" alt-text="Screenshot that shows the Azure Load Testing page and the button for creating a new test." lightbox="./media/how-to-create-and-run-load-test-with-jmeter-script/create-new-test.png":::
     
