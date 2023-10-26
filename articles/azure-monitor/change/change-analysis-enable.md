@@ -89,6 +89,14 @@ foreach ($webapp in $webapp_list)
 }
 ```
 
+## Frequently asked questions
+
+This section provides answers to common questions.
+
+### How can I enable Change Analysis for a web application?
+
+Enable Change Analysis for web application in guest changes by using the [Diagnose and solve problems tool](./change-analysis-visualizations.md#diagnose-and-solve-problems-tool).
+
 ## Next steps
 
 - Learn about [visualizations in Change Analysis](change-analysis-visualizations.md)
