@@ -35,7 +35,7 @@ Before you perform a bulk import, you need to enable a system-assigned managed i
 
 4. Choose **Save**.
 
-:::image type="content" source="media/configure-system-managed-keys/system-assigned-managed-identity.png" alt-text="Screenshot showing the system assigned managed identity toggle on the Identity page." lightbox="media/configure-system-managed-keys/system-assigned-managed-identity.png":::
+:::image type="content" source="media/configure-customer-managed-keys/system-assigned-managed-identity.png" alt-text="Screenshot showing the system assigned managed identity toggle on the Identity page." lightbox="media/configure-customer-managed-keys/system-assigned-managed-identity.png":::
 
 ## Enable bulk import
 
