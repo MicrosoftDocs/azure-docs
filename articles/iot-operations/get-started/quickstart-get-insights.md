@@ -1,239 +1,97 @@
 ---
-title: "Quickstart: get insights from your processed data"
-description: "Quickstart: Use a Power BI report to capture insights from your OPC UA data you sent to the Microsoft Fabric OneLake lakehouse."
-author: dominicbetts
-ms.author: dobett
-ms.topic: quickstart
-ms.date: 10/10/2023
-
-#CustomerIntent: As a < type of user >, I want < what? > so that < why? >.
+title: "Get insights from data"
+linkTitle: "Get insights"
+majorRevDate: "2023-08-17"
+owner: "smohanselvan"
+weight: 60
+description: >
+  Connect Azure IoT Operations data to a Power BI report for insights.
 ---
 
-<!--
-Remove all the comments in this template before you sign-off or merge to the main branch.
-
-This template provides the basic structure of a Quickstart - General article pattern. See the [instructions - Quickstart - General](../level4/article-quickstart.md) in the pattern library.
-
-You can provide feedback about this template at: https://aka.ms/patterns-feedback
-
-Quickstart is an article pattern that shows how a product or service solves a customer problem. These articles focus on what the product or service "can do" rather than "how to use" it. The goal is to help new customers evaluate whether the product or service will meet their needs.
-
--->
-
-<!-- 1. H1 -----------------------------------------------------------------------------
-
-Required: Use a "Quickstart: <verb> * <capability> * <product or service> * <scenario>" format for you H1. Pick an H1 that clearly conveys the product capability that's covered and how the capability will be demonstrated.
-
-For example: "Quickstart: Demonstrate the incident response capabilities of Microsoft 365 Defender by simulating an attack".
-
-* Include only a single H1 in the article.
-* If the Quickstart is part of a numbered series, don't include the number in the H1.
-* Don't start with a gerund.
-* Don't add "Quickstart:" to the H1 of any article that's not a Quickstart.
-* Don't include "Tutorial" in the H1.
-
--->
-
-# Quickstart: Get insights from Deploy Azure IoT Operations – enabled by Azure Arc Preview to an Arc-enabled Kubernetes cluster
-
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
-
-<!-- 2. Introductory paragraph ----------------------------------------------------------
-
-Required: In the opening sentence, focus on the product capability that will be demonstrated. Emphasize general industry terms (such as "serverless," which are better for SEO) more than Microsoft-branded terms or acronyms (such as "Azure Functions" or "ACR"). That is, try to include terms people typically search for and avoid using *only* Microsoft terms.
-
-* Introduction immediately follows the H1 text.
-* Introduction section should be between 1-3 paragraphs.
-* Begin with a sentence that says, "In this Quickstart, you'll ..."
-* After the opening sentence, summarize the demonstration in the article to answer "what is this article about?" Then include a brief statement of cost, if applicable.
-
-Example:
-You'll simulate a sophisticated attack that uses advanced techniques to hide from detection. The attack enumerates opened Server Message Block (SMB) sessions on domain controllers and retrieves recent IP addresses of users' devices. After the attack, you'll use the Microsoft 365 Defender portal to review the generated alerts and automated remediation.
-
--->
-
-Use a Power BI report to capture insights from your OPC UA data you sent to the Microsoft Fabric OneLake lakehouse.
-
-TODO: Add your introductory paragraph
-
-Demonstrate the [capability] of [service/product] by using [specific tools or activities] to [achieve a goal or job to be done]. [Summary of steps]. [Brief statement of cost incurred.]
-
-<!---Avoid notes, tips, and important boxes. Readers tend to skip over them. Better to put that info directly into the article text.
-
--->
-
-<!-- 3. Free account links 
-----------------------------------------------------------------
-
-Required, if a free trial account exists Because Quickstarts are intended to help new customers evaluate the product, include a link to a free trial before the first H2. You can find listed examples in the  [Quickstart pattern](article-quickstart.md)
--->
-
-If you don’t have a \<service\> subscription, create a free trial account...
-TODO: Add the free account information if it exists
-
-<!-- 4. Prerequisites --------------------------------------------------------------------
-
-Make Prerequisites the first H2 after the H1. 
-
-The prerequisites H2 is never numbered.
-
-Provide a bulleted list of items that the user needs to complete the Quickstart. Omit any preliminary text to the list.
-
-If there aren't any prerequisites, list "None" in plain text, not as a bulleted item.
-
-If the prerequisite is something to install, link to the applicable and specific installer or download.
-
-List each as an _item_, not instructions, to minimize the verbiage. For example, use "Python 3.6" instead of "Install Python 3.6". Include an action word only if necessary to make the meaning clear.
-
-If there are specific versions of software a user needs, call out those versions (for example: Visual Studio 2019 or later).
-
--->
+This quickstart demonstrates how you can connect your Azure IoT Operations data in the cloud to a Power BI report to derive insights from that data.
 
 ## Prerequisites
 
-- (Include as needed) Accounts
-- (Include as needed) Completion of a previous Quickstart
-- (Include as needed) Language runtimes
-- (Include as needed) Packages
-- (Include as needed) Tools
-- (Include as needed) Sample code
-- (Include as needed) Specialized hardware
-- (Include as needed) Other preparatory work
-- (Include as needed) Service keys
+Before you proceed, make sure you've completed the following prerequisites.
 
-<!-- 5. Account sign in --------------------------------------------------------------------
+* You have a deployed Azure IoT Operations environment.
+* You've completed the previous quickstarts in this set, including adding assets to your Azure IoT Operations project and processing telemetry from your assets.
+* You've set up a Fabric lakehouse destination and landed contextualized data to the lakehouse. If you haven't completed this, see [Process telemetry](../process-telemetry/).
+* You have access to either a Power BI Pro or Power BI Premium Per User license (free license users will be unable to complete the measure creation step of this quickstart).
+* You've downloaded and signed into [Power BI Desktop](https://learn.microsoft.com/power-bi/fundamentals/desktop-what-is-desktop). If you haven't completed this, you can download it here: [Download Power BI tools and apps](https://powerbi.microsoft.com/downloads/).
 
-Required: If you need to sign in to a portal to do the Quickstart, this H2 and link are required.
+## Connect your data sources to the Power BI report
 
--->
+### Step 1: Create a new dataset in the lakehouse
 
-## Sign in to <service/product/tool name>
-TODO: add your instructions
+Create a new dataset in your lakehouse that contains the contextualized telemetry table you created in the [Process telemetry](../process-telemetry/) section to use for reporting.
 
-<!-- If signing in requires more than one step, then use this section. If it's just a single
-step, include that step in the first section that requires it.
+1. In the lakehouse menu, select **New Power BI dataset**.
 
--->
+   ![Screenshot of the New Power BI dataset button](new-powerbi-dataset.png)
 
-<!-- 6. Open Azure Cloud Shell ------------------------------------------------------------------------------
-If you want to refer to using the Cloud Shell, place the instructions after the
-Prerequisites to keep the prerequisites as the first H2.
+2. Select *OPCUA*, the contextualized telemetry table from the previous quickstart, and confirm. This action creates a new dataset and opens a new page.
 
-However, only include the Cloud Shell if ALL commands can be run in the cloud shell.
+3. In this new page, create four measures. **Measures** in Power BI are custom calculators that perform math or summarize data from your table, to help you find answers from your data. To learn more, see [Create measures for data analysis in Power BI Desktop](https://learn.microsoft.com/power-bi/transform-model/desktop-measures).
 
---->
+   To create a measure, select **New measure** from the menu, enter one line of measure text from the code block below, and select **Commit**. Complete this process four times, once for each line of measure text:
 
-## Open Azure Cloud Shell
-TODO: add your instructions
+   ```power-bi
+   MinTemperature = CALCULATE(MINX(OPCUA, OPCUA[CurrentTemperature]))
+   MaxTemperature = CALCULATE(MAXX(OPCUA, OPCUA[CurrentTemperature]))
+   MinPressure = CALCULATE(MINX(OPCUA, OPCUA[Pressure]))
+   MaxPressure = CALCULATE(MAXX(OPCUA, OPCUA[Pressure]))
+   ```
 
-<!-- 7. Demonstration H2s ------------------------------------------------------------------------------
+   ![Screenshot of creating a new measure in Power BI](power-bi-new-measure.png)
 
-Required: Quickstarts are prescriptive and guide the customer through an end-to-end demonstration. Make sure to use specific naming for setting up accounts and configuring technology.
+4. Select the name of the dataset in the top left, and rename it to something memorable. You will use this dataset in the next section:
 
-Avoid linking off to other content - include whatever the customer needs to complete the demonstration in the article. For example, if the customer needs to set permissions, include the permissions they need to set, and the specific settings in the Quickstart procedure. Don't send the customer to another article to read about it.
+   ![Screenshot of naming a dataset in Power BI](power-bi-name-dataset.png)
 
-In a break from tradition, do not link to reference topics in the Quickstart when using cmdlets or code. Provide customers what they need to know in the Quickstart to successfully complete the Quickstart.
+### Step 2: Configure your Power BI report and load Asset Registry data
 
-For portal-based procedures, minimize bullets and numbering.
+The next steps will be performed using Power BI Desktop, so make sure you have it installed.
 
-For the CLI or PowerShell based procedures, don't use bullets or numbering.
+1. Download the following Power BI template: [quickStartTemplate.pbit](quickStartTemplate.pbit). Selecting the link will download it automatically.
+2. Open a new instance of Power BI Desktop.
+3. Exit the startup screen and select **File** > **Import** > **Power BI template**. Select the file you downloaded to import it.
+4. A menu will pop up asking you to input an Azure subscription and resource group. Enter the Azure subscription ID and resource group where you've created your assets and select **Load**. This loads your sample Asset Registry data into Power BI using a custom [Power Query M](https://learn.microsoft.com/powerquery-m/) script.  
 
-Be mindful of the number of H2/procedures in the Quickstart. 3-5 procedural steps are about right.
-Once you've staged the article, look at the right-hand "In this article" section on the docs page;
-if there are more than 8 total, consider restructuring the article.
+   {{% alert title="Note" color="secondary" %}}
+   Optional: To view the script, right select **Asset** > **Edit query**.
 
---->
+   ![Screenshot of Edit query in Power BI](power-bi-edit-query.png)
 
-<!-- Use this exact H2 -->
-## What problem will we solve?
-TODO: Write a brief description of the problem and how the product or service solves that problem. Include one or more diagrams when appropriate to show the solution architecture and/or the dataflow.
+   You'll see a few queries on the new page that comes up (the Transform page). Go through each of them and select **Advanced Editor** in the top menu to view the details of the queries. The most important query is **GetAssetData**.
 
-<!-- 
+   ![Screenshot of Advanced editor in Power BI](power-bi-advanced-editor.png)
 
-Present the demonstration in a series of H2s.
+   When you're finished, exit the Transform page.
+   {{% /alert %}}
 
-Each H2 should describe either what they'll do in the step or which part of the problem the step solves.
+### Step 3: Configure the remaining Power BI report visuals
 
-* Each H2 should be a major step in the demonstration
-* The H2 title should describe either what they'll do in the step or which part of the problem the step solves
-* Phrase each H2 title as "<verb> * <noun>".
-* Don't start with a gerund.
-* Don't number the H2s.
-* Begin each H2 with a brief explanation for context
-* Provide a numbered list of procedural steps as applicable
-* Provide a code block, diagram, or screenshot if appropriate
-* An image, code block, or other graphical element comes after numbered step it illustrates.
+1. At this stage, some of the visuals in the Power BI report still display an error. That's because you still need to get the telemetry data. Select **File** > **Options and Settings** > **Data source settings**.  
 
--->
-## "\<verb\> * \<noun\>"
-TODO: Add introduction sentence(s)
-[Include a sentence or two to explain only what is needed to complete the procedure.]
-TODO: Add ordered list of procedure steps
-1. Step 1
-1. Step 2
-1. Step 3
+2. Select **Change source**. A list of data hubs and datasets will be visible. Select the dataset you created in the previous section, choose the *OPCUA* contextualized telemetry table, and select **Submit**.
 
-## Task 2
-TODO: Add introduction sentence(s)
-[Include a sentence or two to explain only what is needed to complete the procedure.]
-TODO: Add ordered list of procedure steps
-1. Step 1
-1. Step 2
-1. Step 3
+3. In the left pane menu, select **Model View**.
 
-## Task 3
-TODO: Add introduction sentence(s)
-[Include a sentence or two to explain only what is needed to complete the procedure.]
-TODO: Add ordered list of procedure steps
-1. Step 1
-1. Step 2
-1. Step 3
+   ![Screenshot of model view button in Power BI](power-bi-model-view.png)
 
-<!-- Use this exact H2 -->
-## How did we solve the problem?
-TODO: End the demonstration with a few paragraphs of analysis to make it clear that the product or service was a good choice to solve the customer problem.
+4. Drag **assetName** in the **Asset** box to **AssetName** in the **OPCUA** box, to create a relationship between the tables.
 
-<!-- 8. Clean up resources ------------------------------------------------------------------------
+5. Set **Cardinality** to _One to many (1:*)_, and set **Cross filter direction** to _Both_. Select **OK**.
 
-Required: To avoid any costs associated with following the Quickstart procedure, a Clean up resources (H2) should come just before Next step or Related content (H2)
+   ![Screenshot of model view options in Power BI](power-bi-model-view-options.png)
 
-If there is a follow-on Quickstart that uses the same resources, make that option clear so that a reader doesn't need to recreate those resources. 
+6. Return to the **Report view** using the left pane menu. All the visuals should display data now without error.
 
--->
+   ![Screenshot of Power BI report view](new-powerbi-page1.png)
 
-<!-- Use this exact H2 -->
-## Clean up resources
+## View insights
 
-If you're not going to continue to use this application, delete \<resources\> with the following steps:
+The report is split into two pages, each offering a different view of the asset and telemetry data. On Page 1, you can view each asset and their associated telemetry. On Page 2, you can view multiple assets and their associated telemetry simultaneously, to compare data points at a specified time period. Select your assets with _CTRL+Click_ on the assets you want to view. Explore the various filters for each visual to explore and do more with your data.
 
-1. From the left-hand menu...
-2. ...click Delete, type...and then click Delete
-
-<!-- 9. Next step/Related content ------------------------------------------------------------------------ 
-
-Optional: You have two options for manually curated links in this pattern: Next step and Related content. You don't have to use either, but don't use both.
-  - For Next step, provide one link to the next step in a sequence. Use the blue box format
-  - For Related content provide 1-3 links. Include some context so the customer can determine why they would click the link. Add a context sentence for the following links.
-
--->
-
-## Next step
-
-TODO: Add your next step link(s)
-
-<!-- 
-
-> [!div class="nextstepaction"]
-> [Write concepts](article-concept.md)
-
-OR -->
-
-## Related content
-
-TODO: Add your next step link(s)
-
-<!--
-- [Write concepts](article-concept.md)
-
-Remove all the comments in this template before you sign-off or merge to the main branch.
--->
+With data connected from various sources at the edge being related to one another in Power BI, the visualizations and interactive features in the report allow you to gain deeper insights into asset health, utilization, and operational trends. This can empower you to enhance productivity, improve asset performance, and drive informed decision-making for better business outcomes.
