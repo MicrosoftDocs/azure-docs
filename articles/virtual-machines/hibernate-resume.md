@@ -50,7 +50,7 @@ The hibernate feature has several limitations at the Azure subscription, VM size
     -	Ephemeral OS disk
     -	Shared disk
     -	Availability Sets
-    -	VMSS Uniform
+    -	Virtual Machine Scale Sets (VMSS) Uniform
     -	Spot VMs
     -	Managed images
     -	Azure Backup
@@ -89,8 +89,8 @@ The following Windows operating systems support hibernation:
 
 ##### Windows Limitations
 -	The page file can't be on the temp disk.  
--	Applications such as Device Guard and Credential Guard that require virtualization-based security (VBS) are supported with hibernation when Trusted Launch is enabled on the VM and Nested Virtualization is enabled in the guest OS.
--	Hibernation is supported with Nested Virtualization only when Trusted Launch is enabled on the VM
+-	Applications such as Device Guard and Credential Guard that require virtualization-based security (VBS) work with hibernation when you enable Trusted Launch on the VM and Nested Virtualization in the guest OS.
+-	Hibernation is supported with Nested Virtualization only when you enable Trusted Launch on the VM
 
 ---
 
@@ -559,7 +559,7 @@ PATCH https://management.azure.com/subscriptions/{subscription-id}/resourceGroup
 
 VMs created from Compute Gallery images can also be enabled for hibernation. Ensure that the OS version associated with your Gallery image supports hibernation on Azure. Refer to the list of supported OS versions here (link to supported OS versions for hibernation).
 
-To create VMs with hibernation enabled using Gallery images, you will first need to create a new image definition with the hibernation property enabled. Once this feature property is enabled on the Gallery Image definition, you can create an image version(s) and use that image version to create hibernation enabled VMs. 
+To create VMs with hibernation enabled using Gallery images, you'll first need to create a new image definition with the hibernation property enabled. Once this feature property is enabled on the Gallery Image definition, you can create an image version(s) and use that image version to create hibernation enabled VMs. 
 
 Steps to create an image version within this image definition can be found here: https://docs.microsoft.com/azure/virtual-machines/image-version?tabs=portal#create-an-image
 
@@ -599,30 +599,30 @@ Refer to the [Hibernate troubleshooting guide](./hibernate-resume-troubleshootin
 ## FAQs
 
 - What are the charges for using this feature?
-    - Once a VM is placed in a hibernated state, you are not charged for the VM, just like how you are not charged for VMs in a stop (deallocated) state. You're only charged for the OS disk, data disks and any static IPs associated with the VM.
+    - Once a VM is placed in a hibernated state, you aren't charged for the VM, just like how you aren't charged for VMs in a stop (deallocated) state. You're only charged for the OS disk, data disks and any static IPs associated with the VM.
 
 - Can I enable hibernation on existing VMs?
-    - No, you cannot enable hibernation on existing VMs. You can only enable hibernation at the time of creating a VM.
+    - No, you can't enable hibernation on existing VMs. You can only enable hibernation at the time of creating a VM.
 
 - Can I resize a VM with hibernation enabled?
-    - No. Once you enable hibernation on a VM, you cannot resize the VM. 
+    - No. Once you enable hibernation on a VM, you can't resize the VM. 
 
 - Can I modify a VM once it is in a hibernated state?
-    - No, once a VM is in a hibernated state, you cannot perform actions like resizing the VM and modifying the disks. Additionally, you cannot detach any disks or networking resources that are currently attached to the VM or attach new resources to the VM. You can however stop(deallocate) or delete the VM if you want to detach these resources. 
+    - No, once a VM is in a hibernated state, you can't perform actions like resizing the VM and modifying the disks. Additionally, you can't detach any disks or networking resources that are currently attached to the VM or attach new resources to the VM. You can however stop(deallocate) or delete the VM if you want to detach these resources. 
 
 - What is the difference between stop(deallocating) and hibernating a VM?
     - When you stop(deallocate) a VM, the VM shuts down without persisting the memory contents. You can resize stop(deallocated) VMs as well as detach/attach disks to the VM.
 
-    - When you hibernate a VM, the memory contents are first persisted in the OS disk and then the VM hibernates. You cannot resize VMs in a hibernated state, nor detach/attach disks and networking resources to the VM.
+    - When you hibernate a VM, the memory contents are first persisted in the OS disk and then the VM hibernates. You can't resize VMs in a hibernated state, nor detach/attach disks and networking resources to the VM.
 
 - Can you disable hibernation?
-    - No, you cannot disable hibernation on a VM. 
+    - No, you can't disable hibernation on a VM. 
 
 - Can I initiate hibernation from within the VM?
     - To hibernate a VM you should use the Azure Portal, CLI, PowerShell commands, SDKs and APIs. Triggering hibernation from inside the VM will still result in your VM being billed for the compute resources. 
 
 - When a VM is hibernated, is there a capacity assurance at the time of starting the VM?
-    - No, there is no capacity assurance for starting hibernated VMs. In rare scenarios if you encounter a capacity issue, then you can try starting the VM at a later time. 
+    - No, there's no capacity assurance for starting hibernated VMs. In rare scenarios if you encounter a capacity issue, then you can try starting the VM at a later time. 
 
 ## Next Steps:
 - [Learn more about Azure billing](https://learn.microsoft.com/azure/cost-management-billing/)

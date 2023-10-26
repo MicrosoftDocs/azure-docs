@@ -14,7 +14,7 @@ ms.custom:
 # Troubleshooting VM hibernation
 
 ## Unable to enable hibernation during VM creation
-If you recieve the error "Your subscription is not registered to use Hibernate" and the box is greyed out in the Azure portal, make sure you have registered for the Hibernation preview.
+If you receive the error "Your subscription isn't registered to use Hibernate" and the box is greyed out in the Azure portal, make sure you have registered for the Hibernation preview.
 
 ![Subscription not registered](./media/hibernate-resume/subscription-not-registered.png)
 
@@ -33,7 +33,7 @@ If you're unable to create a VM with hibernation enabled, ensure that you're usi
 | OperationNotAllowed | Referencing a Capacity Reservation Group isn't supported for a VM with Hibernation capability. |  |
 | OperationNotAllowed | Enabling/disabling hibernation on an existing VM requires the VM to be stopped (deallocated) first. | Stop-deallocate the VM, patch with VM to enable hibernation and then start the VM |
 | OperationNotAllowed | Hibernation cannot be enabled on Virtual Machine since the OS Disk Size ({0} bytes) should at least be greater than the VM memory ({1} bytes). | Ensure the OS disk has enough space to be able to persist the RAM contents once the VM is hibernated |
-| OperationNotAllowed | Hibernation cannot be enabled on Virtual Machines created in an Availability Set. | Hibernation is only supported for standalone VMs & VMSS Flex VMs |
+| OperationNotAllowed | Hibernation cannot be enabled on Virtual Machines created in an Availability Set. | Hibernation is only supported for standalone VMs & Virtual Machine Scale Sets (VMSS) Flex VMs |
 
 
 ## Unable to hibernate a VM
@@ -64,7 +64,7 @@ On Windows, you can check the status of the Hibernation extension to see if the 
 
 :::image type="content" source="./media/hibernate-resume/provisioning-success-win.png" alt-text="Provisioning Success on Windows":::
 
-The VM instance view  would have the final output of the extension :
+The VM instance view would have the final output of the extension:
 ```
 "extensions": [
     {
@@ -137,7 +137,7 @@ C:\Users\vmadmin>powercfg /a
 
 ```
 
-If either the extension, or the guest sleep state reports an error, you'd' need to update the guest configurations as per the error descriptions to resolve the issue. After fixing all the issues, you can validate that hibernation has been enabled successfully inside the guest by running  the powercfg /a command - which should return Hibernate as one of the sleep states.
+If the extension or the guest sleep state reports an error, you'd need to update the guest configurations as per the error descriptions to resolve the issue. After fixing all the issues, you can validate that hibernation has been enabled successfully inside the guest by running  the 'powercfg /a' command - which should return Hibernate as one of the sleep states.
 Also validate that the AzureHibernateExtension returns to a Succeeded state. If the extension is still in a failed state, then update the extension state by triggering [reapply VM API](https://learn.microsoft.com/rest/api/compute/virtual-machines/reapply?tabs=HTTP)
 
 >[!NOTE]
@@ -183,7 +183,7 @@ Logs needed for troubleshooting:
 
 If you encounter an issue outside of these known scenarios, the following logs can help Azure troubleshoot the issue: 
 1. Event logs on the guest: Microsoft-Windows-Kernel-Power, Microsoft-Windows-Kernel-General, Microsoft-Windows-Kernel-Boot.
-1. On bugcheck, a guest crash dump is helpful.
+1. On bug check, a guest crash dump is helpful.
 
 
 ### [Linux](#tab/troubleshootLinuxGuestCantHiber)
@@ -228,7 +228,7 @@ If the guest OS isn't configured for hibernation, take the appropriate action to
 | OperationNotAllowed | The Hibernate-Deallocate Operation can only be triggered on a VM that is successfully provisioned and is running. | Customer error. Ensure that the VM is successfully running before attempting to Hibernate-Deallocate the VM. |
 | OperationNotAllowed | The Hibernate-Deallocate Operation can only be triggered on a VM that is enabled for hibernation. Enable the property additionalCapabilities.hibernationEnabled during VM creation, or after stop-deallocating the VM. | Customer error. |
 | VMHibernateFailed | Hibernating the VM 'hiber_vm_res_5' failed due to an internal error. Retry later. | Retry after 5mins. If it continues to fail after multiple retries, check if the guest is correctly configured to support hibernation or contact Azure support. |
-| VMHibernateNotSupported | The VM 'Z0000ZYJ000' doesn't support hibernation. Ensure that the VM is correctly configured to support hibernation. | Hibernating a VM immediately after it boots isn't supported. Retry hibernating the VM after a few minutes. |
+| VMHibernateNotSupported | The VM 'Z0000ZYJ000' doesn't support hibernation. Ensure that the VM is correctly configured to support hibernation. | Hibernating a VM immediately after boot isn't supported. Retry hibernating the VM after a few minutes. |
 
 ## Unable to resume a VM
 Starting a hibernated VM is similar to starting a stopped VM. For errors and troubleshooting steps related to starting a VM, refer to this guide
@@ -321,7 +321,7 @@ When the guest successfully resumes, this is the VM instance view output:
 
 
 ```
-If the Windows guest fails to resume from its previously state and instead cold boots, then the VM instance view response is:
+If the Windows guest fails to resume from its previous state and cold boots, then the VM instance view response is:
 ```
   "extensions": [
     {
