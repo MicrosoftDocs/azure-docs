@@ -7,7 +7,7 @@ author: robece
 ms.author: robece
 ---
 
-# How to send events from Event Grid basic to Event Grid namespace topics
+# How to send events from Event Grid basic to Event Grid namespace topics (Preview)
 
 This article describes how to forward events from event subscriptions created in resources like custom topics, system topics, domains, and partner topics to Event Grid namespaces.
 
