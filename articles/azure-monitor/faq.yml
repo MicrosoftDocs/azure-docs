@@ -171,17 +171,6 @@ sections:
         answer: |
            During node updates you might see a 1 to 2 minute gap in metric data for metrics collected from our cluster level collectors because the node that it runs on is being updated as part of a normal update process. This affects cluster-wide targets such as kube-state-metrics and custom application targets that are specified. This occurs when your cluster is updated manually or via auto-update. This is expected behavior that occurs due to the node it runs on being updated. None of our recommended alert rules are affected by this behavior. 
            
-  - name: Change Analysis
-    questions:
-      - question: |
-          Does using Change Analysis incur cost?
-        answer: |
-          You can use Change Analysis at no extra cost. Enable the `Microsoft.ChangeAnalysis` resource provider, and anything supported by Change Analysis is open to you.
-      - question: |
-          How can I enable Change Analysis for a web application?
-        answer: |
-          Enable Change Analysis for web application in guest changes by using the [Diagnose and solve problems tool](change/change-analysis-visualizations.md#diagnose-and-solve-problems-tool).
-
   - name: Alerts
     questions:
       - question: |
