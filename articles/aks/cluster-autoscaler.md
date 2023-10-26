@@ -106,7 +106,7 @@ The cluster autoscaler uses startup parameters for things like time intervals be
 
 1. From here, you can enable or disable autoscaling, adjust minimum and maximum node count, and learn more about your node pool’s size, capacity, and usage. Select *Apply* to save your changes.
 
-:::image type="content" source="./media/cluster-autoscaler/menu-inline.png" alt-text="The Azure portal page for a cluster's node pools is shown with the 'Scale method' column highlighted. The method has been selected and the resulting menu is showing" lightbox="./media/cluster-autoscaler/menu.png":::
+:::image type="content" source="./media/cluster-autoscaler/menu-inline.png" alt-text="The Azure portal page for a cluster's node pools is shown with the 'Scale node pool' menu expanded. The 'Apply' button is highlighted." lightbox="./media/cluster-autoscaler/menu.png":::
 
 ---
 
