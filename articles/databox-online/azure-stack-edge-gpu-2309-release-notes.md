@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 10/09/2023
+ms.date: 10/25/2023
 ms.author: alkohli
 ---
 
@@ -28,13 +28,13 @@ This article applies to the **Azure Stack Edge 2309** release, which maps to sof
 
 ## Supported update paths
 
-To apply the 2309 update, your device must be running version 2203 or later.
+To apply the 2309 update, your device must be running version 2303 or later.
 
  - If you are not running the minimum required version, you'll see this error: 
 
    *Update package cannot be installed as its dependencies are not met.* 
 
- - You can update to 2203 from 2207 or later, and then install 2309.
+ - You can update to 2303 from 2207 or later, and then install 2309.
 
 You can update to the latest version using the following update paths:
 
