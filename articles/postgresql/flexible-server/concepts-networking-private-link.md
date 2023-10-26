@@ -47,7 +47,7 @@ Clients can connect to the private endpoint from the same VNet, peered VNet in s
 
 :::image type="content" source="./media/concepts-networking/show-private-link-overview.png" alt-text="Diagram that shows how Azure Private Link works with Private Endpoints."  lightbox="./media/concepts-networking/show-private-link-overview.png":::
 
-### Limitations and Supported Features for Private Link Private Preview with Azure Database for PostgreSQL - Flexible Server
+### Limitations and Supported Features for Private Link  Preview with Azure Database for PostgreSQL - Flexible Server
 
 In  preview of Private Endpoint for PostgreSQL flexible server, there are certain limitations as explain in cross feature availability matrix below.
 
