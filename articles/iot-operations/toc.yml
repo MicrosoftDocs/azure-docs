@@ -52,7 +52,7 @@ items:
             href: manage-devices-assets/howto-use-opcua-broker-actions.md
           - name: Uninstall OPC UA Broker using helm
             href: manage-devices-assets/howto-uninstall-opcua-broker-using-helm.md    
-    - name: Publish/Subscribe with MQTT
+    - name: Manage MQTT connectivity
       items:
       - name: Overview
         href: manage-mqtt-connectivity/overview-iot-mq.md
