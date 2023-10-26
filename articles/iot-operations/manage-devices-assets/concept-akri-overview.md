@@ -93,8 +93,8 @@ The following features are supported in Azure IoT Akri Preview:
 To learn more about the CNCF Akri, see the following open source resources.  
 
 - [Documentation](https://docs.akri.sh/)
-- [OPC UA Sample on AKS Edge Essentials](https://learn.microsoft.com/azure/aks/hybrid/aks-edge-how-to-akri-opc-ua)
-- [ONVIF Sample on AKS Edge Essentials](https://learn.microsoft.com/azure/aks/hybrid/aks-edge-how-to-akri-onvif)
+- [OPC UA Sample on AKS Edge Essentials](/azure/aks/hybrid/aks-edge-how-to-akri-opc-ua)
+- [ONVIF Sample on AKS Edge Essentials](/azure/aks/hybrid/aks-edge-how-to-akri-onvif)
 
 ## Next step
 In this article, you learned how Azure IoT Akri works and how it enables you to detect devices and add assets at the edge.  Here's the suggested next step: 
