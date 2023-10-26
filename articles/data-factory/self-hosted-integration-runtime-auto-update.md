@@ -52,5 +52,4 @@ If you want to manually control which version of self-hosted integration runtime
 ## Next steps
 
 - Review [integration runtime concepts in Azure Data Factory](./concepts-integration-runtime.md).
-
 - Learn how to [create a self-hosted integration runtime in the Azure portal](./create-self-hosted-integration-runtime.md).
