@@ -539,7 +539,9 @@ POST https://management.azure.com/subscriptions/../providers/Microsoft.Compute/v
 ```
 ---
 
-## OS disk VMs with hibernation enabled
+## VMs created using images
+
+### OS disk VMs with hibernation enabled
 
 VMs created from OS disks can also be enabled for hibernation. Ensure that the OS version associated with your OS disk supports hibernation on Azure. Refer to the list of supported OS versions.
 
@@ -555,7 +557,7 @@ PATCH https://management.azure.com/subscriptions/{subscription-id}/resourceGroup
 }
 ```
 
-## Azure Compute Gallery images with hibernation enabled
+### Azure Compute Gallery images with hibernation enabled
 
 VMs created from Compute Gallery images can also be enabled for hibernation. Ensure that the OS version associated with your Gallery image supports hibernation on Azure. Refer to the list of supported OS versions here (link to supported OS versions for hibernation).
 
@@ -568,7 +570,7 @@ Steps to create an image version within this image definition can be found here:
 > If you're creating an Image version from an existing VM, you should first move the page file to the OS disk and then use the VM as the source for the Image version.
 
 
-### [CLI](#tab/CLIImageGallery)
+#### [CLI](#tab/CLIImageGallery)
 ```azurecli
 az sig image-definition create --resource-group MyResourceGroup \
 --gallery-name MyGallery --gallery-image-definition MyImage \
@@ -577,7 +579,7 @@ az sig image-definition create --resource-group MyResourceGroup \
 --features IsHibernateSupported=true
 ```
 
-### [PowerShell](#tab/PSImageGallery)
+#### [PowerShell](#tab/PSImageGallery)
 ```powershell
 $rgName = "myResourceGroup"
 $galleryName = "myGallery"
