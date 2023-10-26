@@ -70,9 +70,9 @@ A **QID** is a QRadar event identifier. Since all Defender for IoT reports are t
 
 Create a forwarding rule from your on-premises management console to forward alerts to QRadar.
 
-Forwarding alert rules run only on alerts triggered after the forwarding rule is created. Alerts already in the system from before the forwarding rule was created aren't affected by the rule.
+Forwarding alert rules run only on alerts triggered after the forwarding rule is created. The rule doesn't affect any alerts already in the system from before the forwarding rule was created.
 
-The following is an example of a payload sent to QRadar:
+The following code is an example of a payload sent to QRadar:
 
 ```sample payload
 <9>May 5 12:29:23 sensor_Agent LEEF:1.0|CyberX|CyberX platform|2.5.0|CyberX platform Alert|devTime=May 05 2019 15:28:54 devTimeFormat=MMM dd yyyy HH:mm:ss sev=2 cat=XSense Alerts title=Device is Suspected to be Disconnected (Unresponsive) score=81 reporter=192.168.219.50 rta=0 alertId=6 engine=Operational senderName=sensor Agent UUID=5-1557059334000 site=Site zone=Zone actions=handle dst=192.168.2.2 dstName=192.168.2.2 msg=Device 192.168.2.2 is suspected to be disconnected (unresponsive).
@@ -146,7 +146,7 @@ For example:
 
     | Parameter | Description |
     |--|--|
-    | **New Property** | Choose from the list below: <br><br> - Sensor Alert Description <br> - Sensor Alert ID <br> - Sensor Alert Score <br> - Sensor Alert Title <br> - Sensor Destination Name <br> - Sensor Direct Redirect <br> - Sensor Sender IP <br> - Sensor Sender Name <br> - Sensor Alert Engine <br> - Sensor Source Device Name |
+    | **New Property** | One of the following: <br><br> - Sensor Alert Description <br> - Sensor Alert ID <br> - Sensor Alert Score <br> - Sensor Alert Title <br> - Sensor Destination Name <br> - Sensor Direct Redirect <br> - Sensor Sender IP <br> - Sensor Sender Name <br> - Sensor Alert Engine <br> - Sensor Source Device Name |
    | **Optimize Parsing** | Check on. |
    | **Field Type** | `AlphaNumeric` |
    | **Enabled** | Check on. |
