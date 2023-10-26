@@ -1,7 +1,7 @@
 ---
 title: Azure Arc resource bridge (preview) overview
 description: Learn how to use Azure Arc resource bridge (preview) to support VM self-servicing on Azure Stack HCI, VMware, and System Center Virtual Machine Manager.
-ms.date: 02/15/2023
+ms.date: 10/26/2023
 ms.topic: overview
 ms.custom: references_regions
 ---
@@ -72,9 +72,27 @@ You can connect an SCVMM management server to Azure by deploying Azure Arc resou
 * Add, remove, and update network interfaces
 * Add, remove, and update disks and update VM size (CPU cores and memory)
 
+## Example scenarios
+
+The following are just two examples of the many scenarios that can be enabled by using Arc resource bridge in a hybrid environment.
+
+### Apply Azure Policy and other Azure services to on-premises VMware VMs
+
+A customer deploys Arc Resource Bridge onto their on-premises VMware environment. They sign into the Azure portal and select the VMware VMs that they'd like to connect to Azure. Now they can manage these on-premises VMware VMs in Azure Resource Manager (ARM) as Arc-enabled machines, alongside their native Azure machines, achieving a single pane of glass to view their resources in a VMware/Azure hybrid environment. This includes deploying Azure services, such as Defender for Cloud and Azure Policy, to keep updated on the security and compliance posture of their on-premises VMware VMs in Azure.
+
+:::image type="content" source="../media/overview/resource-bridge-vmware.png" alt-text="Diagram showing VMware VMs connected to Azure through Arc resource bridge." lightbox="../media/overview/resource-bridge-vmware.png":::
+
+### Create physical HCI VMs on-premises from Azure
+
+A customer has multiple datacenter locations in Canada and New York. They install an Arc resource bridge in each datacenter and connect their Azure Stack HCI VMs to Azure in each location. They can then sign into Azure portal and see all their Arc-enabled VMs from the two physical locations together in one central cloud location. From the portal, the customer can choose to create a new VM; that VM is also created on-premises at the selected datacenter, allowing the customer to manage VMs in different physical locations centrally through Azure.
+
+:::image type="content" source="../media/overview/resource-bridge-multi-datacenter.png" alt-text="Diagram showing Azure Stack HCI VMs in two datacenters connected to Azure through Arc resource bridge." lightbox="../media/overview/resource-bridge-multi-datacenter.png":::
+
+## Version and region support
+
 ### Supported regions
 
-In order to use Arc resource bridge in a region, Arc resource bridge and the arc-enabled feature for a private cloud must be supported in the region. For example, to use Arc resource bridge with Azure Stack HCI in East US, Arc resource bridge and the Arc VM management feature for Azure Stack HCI must be supported in East US. Please check with the private cloud product for their feature region availability - it is typically in their [deployment guide](deploy-cli.md#az-arcappliance-createconfig) for Arc resource bridge. There are instances where Arc Resource Bridge may be available in a region where the private cloud feature is not yet available. 
+In order to use Arc resource bridge in a region, Arc resource bridge and the Arc-enabled feature for a private cloud must be supported in the region. For example, to use Arc resource bridge with Azure Stack HCI in East US, Arc resource bridge and the Arc VM management feature for Azure Stack HCI must be supported in East US. To confirm feature availability across regions for each private cloud provider, review their deployment guide and other documentation. There could be instances where Arc resource bridge is available in a region where the private cloud feature is not yet available.
 
 Arc resource bridge supports the following Azure regions:
 
@@ -88,7 +106,6 @@ Arc resource bridge supports the following Azure regions:
 * North Europe
 * UK South
 * UK West
-
 * Sweden Central
 * Canada Central
 * Australia East
@@ -106,27 +123,23 @@ The following private cloud environments and their versions are officially suppo
 * Azure Stack HCI
 * SCVMM
 
-
 ### Supported versions
 
-Generally, the latest released version and the previous three versions (n-3) of Arc resource bridge are supported. For example, if the current version is 1.0.10, then the typical n-3 supported versions are:
+When the Arc-enabled private cloud announces General Availability, the minimum supported version of Arc resource bridge will be 1.0.15.
 
-* Current version: 1.0.10
-*n-1 version: 1.0.9
-* n-2 version: 1.0.8
-* n-3 version: 1.0.7
+Generally, the latest released version and the previous three versions (n-3) of Arc resource bridge are supported. For example, if the current version is 1.0.18, then the typical n-3 supported versions are:
 
-There may be instances where supported versions are not sequential. For example, version 1.0.11 is released and later found to contain a bug. A hot fix is released in version 1.0.12 and version 1.0.11 is removed. In this scenario, n-3 supported versions become 1.0.12, 1.0.10, 1.0.9, 1.0.8.
+* Current version: 1.0.18
+* n-1 version: 1.0.17
+* n-2 version: 1.0.16
+* n-3 version: 1.0.15
 
-Arc resource bridge typically releases a new version on a monthly cadence, at the end of the month. Delays may occur that could push the release date further out. Regardless of when a new release comes out, if you are within n-3 supported versions, then your Arc resource bridge version is supported. To stay updated on releases, visit the [Arc resource bridge release notes](https://github.com/Azure/ArcResourceBridge/releases) on GitHub. To learn more about upgrade options, visit [Upgrade Arc resource bridge](upgrade.md).
+There may be instances where supported versions are not sequential. For example, version 1.0.18 is released and later found to contain a bug; a hot fix is released in version 1.0.19 and version 1.0.18 is removed. In this scenario, n-3 supported versions become 1.0.19, 1.0.17, 1.0.16, 1.0.15.
+
+Arc resource bridge typically releases a new version on a monthly cadence, at the end of the month. Delays may occur that could push the release date further out. Regardless of when a new release comes out, if you are within n-3 supported versions (starting with 1.0.15), then your Arc resource bridge version is supported. To stay updated on releases, visit the [Arc resource bridge release notes](https://github.com/Azure/ArcResourceBridge/releases) on GitHub. To learn more about upgrade options, visit [Upgrade Arc resource bridge](upgrade.md).
 
 ## Next steps
 
 * Learn more about [how Azure Arc-enabled VMware vSphere extends Azure's governance and management capabilities to VMware vSphere infrastructure](../vmware-vsphere/overview.md).
-* Learn more about [provisioning and managing on-premises Windows and Linux VMs running on Azure Stack HCI](/azure-stack/hci/manage/azure-arc-vm-management-overview).
+* Learn more about [provisioning and managing on-premises Windows and Linux VMs running on Azure Stack HCI clusters](/azure-stack/hci/manage/azure-arc-enabled-virtual-machines).
 * Review the [system requirements](system-requirements.md) for deploying and managing Arc resource bridge.
-
-
-
-
-
