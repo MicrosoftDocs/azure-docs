@@ -8,7 +8,7 @@ ms.date: 09/26/2023
 
 # Automatically scale a cluster to meet application demands on Azure Kubernetes Service (AKS)
 
-To keep up with application demands in Azure Kubernetes Service (AKS), you may need to adjust the number of nodes that run your workloads. The cluster autoscaler component watches for pods in your cluster that can't be scheduled because of resource constraints. When the cluster autoscaler detects issues, it scales up the number of nodes in the node pool to meet the application demand. It also regularly checks nodes for a lack of running pods and scales down the number of nodes as needed.
+To keep up with application demands in Azure Kubernetes Service (AKS), you might need to adjust the number of nodes that run your workloads. The cluster autoscaler component watches for pods in your cluster that can't be scheduled because of resource constraints. When the cluster autoscaler detects issues, it scales up the number of nodes in the node pool to meet the application demand. It also regularly checks nodes for a lack of running pods and scales down the number of nodes as needed.
 
 This article shows you how to enable and manage the cluster autoscaler in an AKS cluster, which is based on the open source [Kubernetes][kubernetes-cluster-autoscaler] version.
 
@@ -35,9 +35,9 @@ The cluster autoscaler and Horizontal Pod Autoscaler can work together and are o
 > [!NOTE]
 > Manual scaling is disabled when you use the cluster autoscaler. Let the cluster autoscaler determine the required number of nodes. If you want to manually scale your cluster, [disable the cluster autoscaler](#disable-the-cluster-autoscaler-on-a-cluster).
 
-With cluster autoscaler enabled, when the node pool size is lower than the minimum or greater than the maximum it applies the scaling rules. Next, the autoscaler waits to take effect until a new node is needed in the node pool or until a node may be safely deleted from the current node pool. For more information, see [How does scale-down work?](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#how-does-scale-down-work)
+With cluster autoscaler enabled, when the node pool size is lower than the minimum or greater than the maximum it applies the scaling rules. Next, the autoscaler waits to take effect until a new node is needed in the node pool or until a node might be safely deleted from the current node pool. For more information, see [How does scale-down work?](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#how-does-scale-down-work)
 
-The cluster autoscaler may be unable to scale down if pods can't move, such as in the following situations:
+The cluster autoscaler might be unable to scale down if pods can't move, such as in the following situations:
 
 * A directly created pod not backed by a controller object, such as a deployment or replica set.
 * A pod disruption budget (PDB) is too restrictive and doesn't allow the number of pods to fall below a certain threshold.
@@ -124,7 +124,7 @@ The cluster autoscaler uses startup parameters for things like time intervals be
     Nodes aren't removed when the cluster autoscaler is disabled.
 
 > [!NOTE]
-> You can manually scale your cluster after disabling the cluster autoscaler using the [`az aks scale`][az-aks-scale] command. If you use the horizontal pod autoscaler, that feature continues to run with the cluster autoscaler disabled, but pods may end up unable to be scheduled if all node resources are in use.
+> You can manually scale your cluster after disabling the cluster autoscaler using the [`az aks scale`][az-aks-scale] command. If you use the horizontal pod autoscaler, that feature continues to run with the cluster autoscaler disabled, but pods might end up unable to be scheduled if all node resources are in use.
 
 ### Re-enable a disabled cluster autoscaler
 
@@ -155,7 +155,7 @@ Monitor the performance of your applications and services, and adjust the cluste
 
 ## Use the cluster autoscaler profile
 
-You can also configure more granular details of the cluster autoscaler by changing the default values in the cluster-wide autoscaler profile. For example, a scale down event happens after nodes are under-utilized after 10 minutes. If you have workloads that run every 15 minutes, you may want to change the autoscaler profile to scale down under-utilized nodes after 15 or 20 minutes. When you enable the cluster autoscaler, a default profile is used unless you specify different settings. The cluster autoscaler profile has the following settings you can update:
+You can also configure more granular details of the cluster autoscaler by changing the default values in the cluster-wide autoscaler profile. For example, a scale down event happens after nodes are under-utilized after 10 minutes. If you have workloads that run every 15 minutes, you might want to change the autoscaler profile to scale down under-utilized nodes after 15 or 20 minutes. When you enable the cluster autoscaler, a default profile is used unless you specify different settings. The cluster autoscaler profile has the following settings you can update:
 
 * Example profile update that scales after 15 minutes and changes after 10 minutes of idle use.
 
@@ -264,7 +264,7 @@ Use the following steps to configure logs to be pushed from the cluster autoscal
 
 :::image type="content" source="./media/cluster-autoscaler/main-blade-tiles-inline.png" alt-text="The Azure portal page for a cluster's node pools is shown. The section displaying autoscaler events, warning, and scale-ups not triggered is highlighted." lightbox="./media/cluster-autoscaler/main-blade-tiles.png":::
 
-1. You’ll see a list of Kubernetes events filtered to `source: cluster-autoscaler` that have occurred within the last hour. With this information, you’ll be able to troubleshoot and diagnose any issues that may arise while scaling your nodes.
+1. You’ll see a list of Kubernetes events filtered to `source: cluster-autoscaler` that have occurred within the last hour. With this information, you’ll be able to troubleshoot and diagnose any issues that might arise while scaling your nodes.
 
 :::image type="content" source="./media/cluster-autoscaler/events-inline.png" alt-text="The Azure portal page for a cluster's  events is shown. The filter for source is highlighted, showing 'source: cluster-autoscaler'." lightbox="./media/cluster-autoscaler/events-inline.png":::
 
