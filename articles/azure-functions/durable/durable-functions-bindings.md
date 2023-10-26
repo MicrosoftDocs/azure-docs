@@ -549,7 +549,7 @@ public static Task Run(
     [DurableClient] IDurableOrchestrationClient starter)
 {
     // Orchestration input comes from the queue message content.
-    return starter.StartNewAsync("HelloWorld", input);
+    return starter.StartNewAsync<string>("HelloWorld", input);
 }
 ```
 
