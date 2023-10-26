@@ -665,6 +665,9 @@ az network asg delete --resource-group myResourceGroup --name myASG
 
 To manage network security groups, security rules, and application security groups, your account must be assigned to the [Network contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role. A [Custom role](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) can also be used that's assigned the appropriate permissions as listed in the following tables:
 
+> [!NOTE]
+You may NOT see the full list of Service Tags if the Network Contributor role has been assigned at Resource Group level. To view the full list, you can assign this role at Subscription scope instead. If you can only allow Network Contributor for the Resource Group, you can then also create a custom role for the permissions "Microsoft.Network/locations/serviceTags/read" and "Microsoft.Network/locations/serviceTagDetails/read" and assign them at Subscription Scope along with the Network Contributor at Resource Group scope.
+
 ### Network security group
 
 | Action                                                        |   Name                                                                |
