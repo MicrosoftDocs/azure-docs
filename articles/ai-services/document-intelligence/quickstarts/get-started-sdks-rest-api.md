@@ -21,7 +21,7 @@ zone_pivot_groups: programming-languages-set-formre
 > * Some platforms are still awaiting the renaming update.
 > * All mention of Form Recognizer or Document Intelligence in our documentation refers to the same Azure service.
 
-**This content applies to:** ![checkmark](../media/yes-icon.png) **v3.1 (GA)** **Earlier versions:** ![blue-checkmark](../media/versions-icon.png) [v3.0](?view=doc-intel-3.0.0&preserve-view=true) ![blue-checkmark](../media/versions-icon.png) [v2.1](?view=doc-intel-2.1.0&preserve-view=true)
+**This content applies to:** ![checkmark](../media/yes-icon.png) **v3.1 (GA)** **Earlier versions:** ![blue-checkmark](../media/blue-yes-icon.png) [v3.0](?view=doc-intel-3.0.0&preserve-view=true) ![blue-checkmark](../media/blue-yes-icon.png) [v2.1](?view=doc-intel-2.1.0&preserve-view=true)
 
 ::: moniker range="doc-intel-3.1.0"
 
@@ -40,7 +40,7 @@ To learn more about Document Intelligence features and development options, visi
 
 ::: moniker range="doc-intel-3.0.0"
 
-**This content applies to:** ![checkmark](../media/yes-icon.png) **v3.0 (GA)** **Newer version:** ![blue-checkmark](../media/versions-icon.png) [v3.1](?view=doc-intel-3.1.0&preserve-view=true)  **Earlier version:** ![blue-checkmark](../media/versions-icon.png) [v2.1](?view=doc-intel-2.1.0&preserve-view=true)
+**This content applies to:** ![checkmark](../media/yes-icon.png) **v3.0 (GA)** **Newer version:** ![blue-checkmark](../media/blue-yes-icon.png) [v3.1](?view=doc-intel-3.1.0&preserve-view=true)   ![blue-checkmark](../media/blue-yes-icon.png) [v2.1](?view=doc-intel-2.1.0&preserve-view=true)
 
 Get started with Azure AI Document Intelligence GA version (3.0). Azure AI Document Intelligence is a cloud-based Azure AI service that uses machine learning to extract key-value pairs, text, tables and key data from your documents. You can easily integrate Document Intelligence models into your workflows and applications by using an SDK in the programming language of your choice or calling the REST API.  For this quickstart, we recommend that you use the free service while you're learning the technology. Remember that the number of free pages is limited to 500 per month.
 
