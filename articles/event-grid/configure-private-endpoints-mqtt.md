@@ -19,7 +19,7 @@ This article shows you how to enable private network access for an Event Grid na
     :::image type="content" source="./media/create-view-manage-namespaces/portal-search-box-namespaces.png" alt-text="Screenshot showing Event Grid Namespaces in the search results.":::
 1. Select your Event Grid namespace in the list to open the **Event Grid Namespace** page for your namespace.
 1. On the **Event Grid Namespace** page, select **Networking** on the left menu.
-1. In the **Public network access** tab, select **Private endpoints only**.
+1. In the **Public network access** tab, select **Private endpoints only** if you want the namespace to be accessed only via private endpoints.
 1. Select **Save** on the toolbar.
 1. Then, switch to the **Private endpoint connections** tab. 
 
@@ -51,8 +51,6 @@ This article shows you how to enable private network access for an Event Grid na
 
         :::image type="content" source="./media/configure-private-endpoints-mqtt/create-private-endpoint-virtual-network-page.png" alt-text="Screenshot showing the Virtual Network page of the Create a private endpoint wizard.":::
 1. On the **DNS** page, select whether you want the private endpoint to be integrated with a **private DNS zone**, and then select **Next: Tags** at the bottom of the page. 
-
-    :::image type="content" source="./media/configure-private-endpoints-mqtt/create-private-endpoint-dns-page.png" alt-text="Screenshot showing the DNS page of the Create a private endpoint wizard."::: 
 1. On the **Tags** page, create any tags (names and values) that you want to associate with the private endpoint resource. Then, select **Review + create** button at the bottom of the page. 
 1. On the **Review + create**, review all the settings, and select **Create** to create the private endpoint. 
 
