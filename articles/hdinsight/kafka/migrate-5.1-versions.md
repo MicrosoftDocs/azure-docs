@@ -56,7 +56,7 @@ To complete the migration, do the following steps:
 
 1. **Deploy a new HDInsight 5.1 cluster and clients for test.** Deploy a new HDInsight 5.1 Kafka cluster. If multiple Kafka cluster versions can be selected, it's recommended to select the latest version. After deployment, set some parameters as needed and create a topic with the same name as your existing environment. Also, set TLS and bring-your-own-key (BYOK) encryption as needed. Then check if it works correctly with the new cluster.
 
-    :::image type="content" source="./media/upgrade-to-fiveone/deploy-new-hdinsight-clusters.png" alt-text="Deploy new HDInsight 4.0 clusters" border="false":::
+    :::image type="content" source="./media/upgrade-to-fiveone/deploy-new-hdinsight-clusters.png" alt-text="Deploy new HDInsight 5.1 clusters" border="false":::
 
 1. **Switch the cluster for the producer application, and wait until all the queue data is consumed by the current consumers.** When the new HDInsight 5.1 Kafka cluster is ready, switch the existing producer destination to the new cluster. Leave it as it is until the existing Consumer app has consumed all the data from the existing cluster.
 
