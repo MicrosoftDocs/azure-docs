@@ -71,7 +71,7 @@ The following operating system (OS) software versions are compatible with these 
     $offerName="RHEL-SAP-HA"
     $skuName="82sapha-gen2"
     ```
-- Azure Center for SAP Solutions now support custom images along with the Azure Marketplace images for Operating System. For deployment using custom OS images, follow the steps [here](#using-custom-operating-system-image).
+- Azure Center for SAP solutions now supports deployment of SAP system VMs with custom OS images along with the Azure Marketplace images. For deployment using custom OS images, follow the steps [here](deploy-s4hana.md#using-custom-operating-system-image).
   
 ## Create deployment
 
@@ -113,7 +113,7 @@ The following operating system (OS) software versions are compatible with these 
         1. For **Application OS image**, select the OS image for the application server.
 
         1. For **Database OS image**, select the OS image for the database server.
-    1. In case of custom OS images,
+    1. In case of [custom OS images](deploy-s4hana.md#using-custom-operating-system-image),
         
         1. For **Application OS image**, select the Image Version from the Azure Compute Gallery.
 
@@ -218,10 +218,11 @@ The following operating system (OS) software versions are compatible with these 
 1. Wait for the infrastructure deployment to complete. Numerous resources are deployed and configured. This process takes approximately 7 minutes.
 
 ## Using Custom Operating System Image
-In this section of how to guides, you will learn how to use custom images for deployment in Azure Center for SAP Solutions. You can now use a marketplace image as well as a custom OS image for Application and Database Virtual Machine.
+In this section of how to guides, you will learn how to use custom images for deployment in Azure Center for SAP Solutions. ACSS deployment with Custom OS images is supported by allowing users to pick OS images from the [Azure Compute Gallery](/articles/virtual-machines/capture-image-portal.md#capture-a-vm-in-the-portal)
 ### Prerequisites 
 
-- Check the [list of supported OS image](#deployment-types) versions in ACSS. BYOI is supported on the OS version supported by ACSS. While creating an image from Azure Marketplace for customization, ensure the base image selected is supported for SAP “For SAP”. In case you have an image version not supported by ACSS, the deployment will fail. 
+- Check the [list of supported OS image](#deployment-types) versions in ACSS. BYOI is supported on the OS version supported by ACSS. While creating an image from Azure Marketplace for customization, ensure the base image selected is supported for SAP “For SAP”. In case you have an image version not supported by ACSS, the deployment will fail with the following error:
+      *The resource ID provided consists of an OS image which is not supported in ACSS. Please ensure that the OS image version is supported in ACSS for a successful installation.* 
 
 - Refer to SAP installation documentation to ensure the operating system prerequisites are met for the deployment to be successful. 
 
@@ -240,11 +241,9 @@ In this section of how to guides, you will learn how to use custom images for de
 ### Deploying using Custom Operating System Image
 - Select **“Use a custom image”** option during deployment. Choose the image to be used for OS image for Application and Database OS.  
 
-- Azure Center for SAP Solutions validates the operating system version selected while creating the OS Image is available in the supportability matrix in Azure Center for SAP Solutions. If the versions are unsupported, the deployment fails with the following error, 
+- Azure Center for SAP Solutions validates the base operating system version of the custom OS Image is available in the supportability matrix in Azure Center for SAP Solutions. If the versions are unsupported, the deployment fails.     
 
-  *The resource ID provided consists of an OS image which is not supported in ACSS. Please ensure that the OS image version is supported in ACSS for a successful installation.* 
-
-- In case of such an error, please delete the infrastructure created (failed VIS) and retry using an operating system that is supported.  
+- In case of such an error, please delete the VIS and infrastructure resources that might be created in the Resource Group and then try deploying again with a supported image.
 
 - For successful installation of SAP Software, ensure the image version is compatible with the SAP Software version. [Learn more](#deployment-types)
   
