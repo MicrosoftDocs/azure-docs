@@ -102,7 +102,7 @@ You can skip this step if you're using built-in roles or other pre-made custom r
     ```
 
     > [!NOTE]
-    > You need one of three roles: owner, user access administrator, or a custom role with `Microsoft.Authorization/roleDefinitions/write` permission (to be able to create/delete/update custom roles) and `Microsoft.Authorization/roleDefinitions/read` permission (to view custom roles). For more information on creating custom roles, see [Azure custom roles](https://learn.microsoft.com/azure/role-based-access-control/custom-roles#who-can-create-delete-update-or-view-a-custom-role).
+    > You need one of three roles: owner, user access administrator, or a custom role with `Microsoft.Authorization/roleDefinitions/write` permission (to be able to create/delete/update custom roles) and `Microsoft.Authorization/roleDefinitions/read` permission (to view custom roles). For more information on creating custom roles, see [Azure custom roles](/azure/role-based-access-control/custom-roles#who-can-create-delete-update-or-view-a-custom-role).
     
 1. Check the role definition to verify it:
 
@@ -134,7 +134,7 @@ You can skip this step if you're using built-in roles or other pre-made custom r
     ```
 
     > [!NOTE]
-    > You need one of three roles: owner, user access administrator, or a custom role that allows `Microsoft.Authorization/roleAssignments/write` permission (to be able to assign custom roles) and `Microsoft.Authorization/roleAssignments/read` (to view role assignments). For more information on the different Azure roles and their permissions, see [Azure roles](https://learn.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles#azure-roles) and [Assigning Azure roles using Azure Portal](https://learn.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+    > You need one of three roles: owner, user access administrator, or a custom role that allows `Microsoft.Authorization/roleAssignments/write` permission (to be able to assign custom roles) and `Microsoft.Authorization/roleAssignments/read` (to view role assignments). For more information on the different Azure roles and their permissions, see [Azure roles](/azure/role-based-access-control/rbac-and-directory-admin-roles#azure-roles) and [Assigning Azure roles using Azure Portal](/azure/role-based-access-control/role-assignments-portal).
 
 1. Confirm the role assignment:
 
