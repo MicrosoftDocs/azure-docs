@@ -5,7 +5,7 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/23/2023
+ms.date: 10/26/2023
 ---
 
 # Stream data from Kafka into Azure Stream Analytics (Preview)
@@ -23,6 +23,10 @@ Azure Stream Analytics lets you connect directly to Kafka clusters to ingest dat
 
 ### Configuration
 The following table lists the property names and their description for creating a Kafka Input: 
+
+> [!IMPORTANT]
+> To configure your Kafka cluster as an input, the timestamp type of the input topic should be **LogAppendTime**
+>
 
 | Property name                | Description                                                                                                             |
 |------------------------------|-------------------------------------------------------------------------------------------------------------------------|
@@ -52,7 +56,7 @@ You can use four types of security protocols to connect to your Kafka clusters:
 ### Connect to Confluent Cloud using API key
 
 The ASA Kafka adapter is a librdkafka-based client, and to connect to confluent cloud, you will need TLS certificates that confluent cloud uses for server auth.
-Confluent uses TLS certificates from Let’s Encrypt, an open certificate authority (CA)
+Confluent uses TLS certificates from Let’s Encrypt, an open certificate authority (CA), which you can download on the site of [LetsEncrypt](https://letsencrypt.org/certificates/).
 
 To authenticate using the API Key confluent offers, you must use the SASL_SSL protocol and complete the configuration as follows:
 
@@ -61,7 +65,7 @@ To authenticate using the API Key confluent offers, you must use the SASL_SSL pr
  | Username | Key/ Username from API Key |
  | Password | Secret/ Password from API key |
  | KeyVault | Name of Azure Key vault with Uploaded certificate from Let’s Encrypt |
- | Certificate | Certificate uploaded to KeyVault downloaded from Let’s Encrypt (You can download the ISRG Root X1 Self-sign cert in PEM format) |
+ | Certificate | Certificate uploaded to KeyVault downloaded from Let’s Encrypt (eg: You can download the ISRG Root X1 Self-sign cert in PEM format) |
  
 
 ## Key vault integration
