@@ -26,7 +26,7 @@ The legacy portal will be retired on 31 October 2023.
 
 ## Required action
 
-If you use the legacy developer portal and want to continue using the API Management developer portal, you must migrate to the new developer portal. For detailed steps, see the [migration guide](developer-portal-deprecated-migration.md).
+If you use the legacy developer portal and want to continue using the API Management developer portal, you must migrate to the new developer portal. For detailed steps, see the [migration guide](../developer-portal-deprecated-migration.md).
 
 ## Help and support
 
