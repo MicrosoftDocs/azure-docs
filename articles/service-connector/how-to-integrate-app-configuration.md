@@ -5,12 +5,12 @@ author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 08/11/2022
+ms.date: 10/26/2023
 ---
 
 # Integrate Azure App Configuration with Service Connector
 
-This page shows the supported authentication types and client types of Azure App Configuration using Service Connector. You might still be able to connect to App Configuration in other programming languages without using Service Connector and the sample code of how to use them. You can learn more about the [Service Connector environment variable naming convention](concept-service-connector-internals.md).
+This page shows supported authentication methods and clients, and shows sample code you can use to connect Azure App Configuration to other cloud services using Service Connector. You may still be able to connect to App Configuration using other methods. For more information about naming conventions, check the [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article.
 
 ## Supported compute services
 
@@ -32,9 +32,9 @@ Supported authentication and clients for App Service, Container Apps and Azure S
 
 ---
 
-## Default environment variable names or application properties and Sample code
+## Default environment variable names or application properties and sample code
 
-Use the connection details below to connect compute services to Azure App Configuration stores instances. This page also shows default environment variable names and values you get when you create the service connection and the sample code of how to use them. You can learn more about [Service Connector environment variable naming convention](concept-service-connector-internals.md).
+Use the connection details below to connect compute services to Azure App Configuration stores. This page also shows default environment variable names and values you get when you create the service connection, as well as sample code. For more information about naming conventions, check the [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article.
 
 ### System-assigned managed identity
 

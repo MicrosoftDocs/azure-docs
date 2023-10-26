@@ -12,7 +12,7 @@ ms.author: wchi
     ```bash
     dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration
     ```
-1. Get App Configuration connection string from environment variables added by Service Connector.
+1. Get the App Configuration connection string from the environment variables added by Service Connector.
     
     ```csharp
     using Microsoft.Extensions.Configuration;
@@ -35,7 +35,7 @@ ms.author: wchi
         <version>1.4.9</version>
     </dependency>
     ```
-1. Get App Configuration connection string from environment variables added by Service Connector.
+1. Get the App Configuration connection string from the environment variables added by Service Connector.
     ```java
     String connectionString = System.getenv("AZURE_APPCONFIGURATION_CONNECTIONSTRING");
     ConfigurationClient configurationClient = new ConfigurationClientBuilder()
@@ -49,7 +49,7 @@ ms.author: wchi
     ```bash
     pip install azure-appconfiguration
     ```
-1. Get App Configuration connection string from environment variables added by Service Connector.
+1. Get the App Configuration connection string from the environment variables added by Service Connector.
     ```python
     import os
     from azure.appconfiguration import AzureAppConfigurationClient
@@ -64,7 +64,7 @@ ms.author: wchi
     ```bash
     npm install @azure/app-configuration
     ```
-1. Get App Configuration connection string from environment variables added by Service Connector.
+1. Get the App Configuration connection string from the environment variables added by Service Connector.
     
     ```javascript
     const appConfig = require("@azure/app-configuration");
