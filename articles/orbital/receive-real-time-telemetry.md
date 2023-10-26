@@ -11,7 +11,15 @@ ms.author: mikailasmith
 
 # Receive real-time telemetry
 
-An Azure Orbital Ground station emits telemetry events that can be used to analyze the ground station operation during a contact. You can configure your contact profile to send telemetry events to Azure Event Hubs. The steps in this article describe how to create and sent events to Event Hubs.
+An Azure Orbital Ground station emits telemetry events that can be used to analyze the ground station operation during a contact. You can configure your contact profile to send telemetry events to [Azure Event Hubs](../event-hubs/event-hubs-about.md).. 
+
+In this guide, you'll learn how to:
+
+> [!div class="checklist"]
+> * Configure Azure Event Hubs for Azure Orbital Ground Station
+> * Enable telemetry in your contact profile.
+> * Verify content of telemetry data
+> * Understand telemetry points
 
 ## Configure Event Hubs
 
@@ -30,24 +38,20 @@ An Azure Orbital Ground station emits telemetry events that can be used to analy
 4. Under the **Role** tab, search for and select **Azure Event Hubs Data Sender**. Click **Next**.
 5. Under the **Members** tab, assign access to **User, group, or service principal**.
 6. Click **+ Select members**.
-7. Search for **Azure Orbital Resource Provider** and press **Select**.
+7. Search for **Azure Orbital Resource Provider** and click **Select**.
 8. Select **Review + assign**. This action will grant Azure Orbital Ground Station the rights to send telemetry into your event hub.
 9. To confirm the newly added role assignment, go back to the Access Control (IAM) page and select **View access to this resource**. Azure Orbital Resource Provider should be under **Azure Event Hubs Data Sender**.
 
 ## Enable telemetry for a contact profile
 
-Ensure the contact profile is configured as follows:
+Ensure the [contact profile](contact-profile.md) is configured as follows:
 
 1. Choose a namespace using the Event Hubs Namespace dropdown.
 1. Choose an instance using the Event Hubs Instance dropdown that appears after namespace selection.
 
-## Schedule a contact
+## Verify telemetry data from a contact
 
-Schedule a contact using the contact profile that you previously configured for Telemetry.
-
-Once the contact begins, you should begin seeing data in your Event Hubs soon after.
-
-## Verifying telemetry data
+[Schedule contacts](schedule-contact.md) using the contact profile that you previously configured for Event Hubs telemetry. Once a contact begins, you should begin seeing data in your Event Hubs soon after.
 
 You can verify both the presence and content of incoming telemetry data multiple ways.
 
@@ -60,16 +64,9 @@ To verify that events are being received in your Event Hubs, you can check the g
 You can enable Event Hubs Capture feature that will automatically deliver the telemetry data to an Azure Blob storage account of your choosing.
 Follow the [instructions to enable Capture](../event-hubs/event-hubs-capture-enable-through-portal.md). Once enabled, you can check your container and view/download the data.
 
-## Event Hubs consumer
 
-Code: Event Hubs Consumer. 
-Event Hubs documentation provides guidance on how to write simple consumer apps to receive events from your Event Hubs:
-- [Python](../event-hubs/event-hubs-python-get-started-send.md)
-- [.NET](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
-- [Java](../event-hubs/event-hubs-java-get-started-send.md)
-- [JavaScript](../event-hubs/event-hubs-node-get-started-send.md)
 
-## Understanding telemetry points
+## Understand telemetry points
 
 ### Current Telemetry Schema Version: 4.0
 The ground station provides telemetry using Avro as a schema. The schema is below:
@@ -293,6 +290,15 @@ The ground station provides telemetry using Avro as a schema. The schema is belo
 | gapCount | Digitizer: rfOutputStream[0].gapCount | • NULL (Downlink or Digitizer driver other than SNNB or SNWB) <br> • Double: Gap count | Packet gap count for Uplink |
 | modemLockStatus	| Modem: carrierLockState	| • NULL (Modem model other than QRadio or QRx; couldn’t parse lock status Enum) <br> • Empty string (if metric reading was null) <br> • String: Lock status | Confirmation that the modem was locked. |
 | commandsSent | Modem: commandsSent | • NULL (if not Uplink and QRadio) <br> • Double: # of commands sent | Confirmation that commands were sent during the contact. |
+
+## Event Hubs consumer
+
+Code: Event Hubs Consumer. 
+Event Hubs documentation provides guidance on how to write simple consumer apps to receive events from your Event Hubs:
+- [Python](../event-hubs/event-hubs-python-get-started-send.md)
+- [.NET](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
+- [Java](../event-hubs/event-hubs-java-get-started-send.md)
+- [JavaScript](../event-hubs/event-hubs-node-get-started-send.md)
 
 ## Changelog
 2023-10-03 - Introduce version 4.0. Updated schema to include uplink packet metrics and names of infrastructure in use (groundstation, antenna, spacecraft, modem, digitizer, link, channel) <br>
