@@ -230,5 +230,5 @@ U.S. social security number (SSN)	https://learn.microsoft.com/en-us/purview/sit-
 U.S./U.K. passport number	https://learn.microsoft.com/en-us/purview/sit-defn-us-uk-passport-number	PII	YES
 Ukraine passport domestic	https://learn.microsoft.com/en-us/purview/sit-defn-ukraine-passport-domestic	Other	NO
 Ukraine passport international	https://learn.microsoft.com/en-us/purview/sit-defn-ukraine-passport-international	Other	NO
-X.509 certificate private key	https://learn.microsoft.com/en-us/purview/sit-defn-x-509-certificate-private-key	Credentials	YES
 X.509 certificate private key	https://learn.microsoft.com/en-us/purview/sit-defn-x-509-certificate-private-key	Credentials	YES |
+
