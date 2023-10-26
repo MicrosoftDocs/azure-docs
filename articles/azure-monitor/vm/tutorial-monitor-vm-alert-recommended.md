@@ -39,13 +39,13 @@ From the menu for the VM, select **Alerts** in the **Monitoring** section. Selec
 A list of recommended alert rules is displayed. You can select which ones to create and change their recommended threshold if you want. Ensure that **Email** is enabled and provide an email address to be notified when any of the alerts fire. An [action group](../alerts/action-groups.md) will be created with this address. If you already have an action group that you want to use, you can specify it instead.
 
 
-:::image type="content" source="media/tutorial-monitor-vm/recommended-alerts-configure.png" alt-text="Screenshot of recommended alert rule configuration." lightbox="media/tutorial-monitor-vm/recommended-alerts-configure.png":::
+:::image type="content" source="media/tutorial-monitor-vm/set-up-recommended-alerts.png" alt-text="Screenshot of recommended alert rule configuration." lightbox="media/tutorial-monitor-vm/set-up-recommended-alerts.png":::
 
 Expand each of the alert rules to inspect its details. By default, the severity for each is **Informational**. You might want to change to another severity such as **Error**.
 
-:::image type="content" source="media/tutorial-monitor-vm/recommended-alerts-configure-severity.png" alt-text="Screenshot of recommended alert rule severity configuration." lightbox="media/tutorial-monitor-vm/recommended-alerts-configure-severity.png":::
+:::image type="content" source="media/tutorial-monitor-vm/configure-alert-severity.png" alt-text="Screenshot of recommended alert rule severity configuration." lightbox="media/tutorial-monitor-vm/configure-alert-severity.png":::
 
-Click **Enable** to create the alert rules.
+Select **Save** to create the alert rules.
 
 ## View created alert rules
 
