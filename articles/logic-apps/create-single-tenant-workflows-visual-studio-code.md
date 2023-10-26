@@ -197,7 +197,7 @@ For more information, review the [documentation for the Azurite extension in Vis
    | Azure Functions Core Tools - 4.x version | - [Windows](https://github.com/Azure/azure-functions-core-tools/releases/tag/4.0.4865): Use the Microsoft Installer (MSI) version, which is `func-cli-X.X.XXXX-x*.msi`. <br>- [macOS](../azure-functions/functions-run-local.md?tabs=macos#install-the-azure-functions-core-tools) <br>- [Linux](../azure-functions/functions-run-local.md?tabs=linux#install-the-azure-functions-core-tools) <br><br>These tools include a version of the same runtime that powers the Azure Functions runtime, which the Azure Logic Apps (Standard) extension uses in Visual Studio Code. <br><br>If you have an installation that's earlier than these versions, uninstall that version first, or make sure that the PATH environment variable points at the version that you download and install. <br><br>**Note**: Azure Functions v3 support in Azure Logic Apps ends on March 31, 2023. Starting mid-October 2022, new Standard logic app workflows in the Azure portal automatically use Azure Functions v4. Since January 31, 2023, existing Standard workflows in the Azure portal were automatically migrated to Azure Functions v4. Unless you deployed your Standard logic apps as NuGet-based projects, pinned your logic apps to a specific bundle version, or Microsoft determined that you had to take action before the automatic migration, this upgrade is designed to require no action from you nor have a runtime impact. However, if the exceptions apply to you, or for more information about Azure Functions v3 support, see [Azure Logic Apps Standard now supports Azure Functions v4](https://techcommunity.microsoft.com/t5/integrations-on-azure-blog/azure-logic-apps-standard-now-supports-azure-functions-v4/ba-p/3656072). |
    | [Node.js version 16.x.x unless a newer version is already installed](https://nodejs.org/en/download/releases/) | Required to enable the [Inline Code Operations action](../logic-apps/logic-apps-add-run-inline-code.md) that runs JavaScript. <br><br>**Note**: For Windows, download the MSI version. If you use the ZIP version instead, you have to manually make Node.js available by using a PATH environment variable for your operating system. |
 
-1. If you already installed this extension that has the preview depedencies installer, skip this step. Otherwise, [download and install the Azure Logic Apps (Standard) extension for Visual Studio Code](https://go.microsoft.com/fwlink/p/?linkid=2143167).
+1. If you already installed this extension that has the preview dependencies installer, skip this step. Otherwise, [download and install the Azure Logic Apps (Standard) extension for Visual Studio Code](https://go.microsoft.com/fwlink/p/?linkid=2143167).
 
    1. In Visual Studio Code, on the left toolbar, select **Extensions**.
 
@@ -1136,11 +1136,17 @@ Stopping a logic app affects workflow instances in the following ways:
   To stop a trigger from firing on unprocessed items since the last run, clear the trigger state before you restart the logic app:
 
   1. On the Visual Studio Code Activity Bar, select the Azure icon to open the Azure window.
+
   1. In the **Resources** section, expand your subscription, which shows all the deployed logic apps for that subscription.
+
   1. Expand your logic app, and then expand the node that's named **Workflows**.
+
   1. Open a workflow, and edit any part of that workflow's trigger.
+
   1. Save your changes. This step resets the trigger's current state.
+
   1. Repeat for each workflow.
+
   1. When you're done, restart your logic app.
 
 <a name="considerations-delete-logic-apps"></a>
@@ -1219,7 +1225,7 @@ Through the Azure portal, you can add blank workflows to a Standard logic app re
 
 To debug a stateless workflow more easily, you can enable the run history for that workflow, and then disable the run history when you're done. Follow these steps for Visual Studio Code, or if you're working in the Azure portal, see [Create single-tenant based workflows in the Azure portal](create-single-tenant-workflows-azure-portal.md#enable-run-history-stateless).
 
-1. In your Visual Studio Code project, expand the folder that's named **workflow-designtime**, and open the **local.settings.json** file.
+1. In your Visual Studio Code project, expand the folder that's named **workflow-designtime**. Open the **local.settings.json** file.
 
 1. Add the `Workflows.{yourWorkflowName}.operationOptions` property and set the value to `WithStatelessRunHistory`, for example:
 
