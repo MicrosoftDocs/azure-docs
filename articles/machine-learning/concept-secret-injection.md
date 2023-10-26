@@ -25,7 +25,7 @@ Secret injection in the context of online endpoints is a process of retrieving s
 
 ## Background
 
-When a user creates a deployment, the user may want to leverage secrets such as API keys to access external services (for example, Azure OpenAI, Azure Cognitive Search, Azure Content Safety etc) from within the deployment. Currently to do this in a secured way, the user needs to directly interact with [workspace connections](prompt-flow/concept-connections.md) or [key vaults](/azure/key-vault/general/overview.md) within the deployment.
+When a user creates a deployment, the user may want to leverage secrets such as API keys to access external services (for example, Azure OpenAI, Azure Cognitive Search, Azure Content Safety etc) from within the deployment. Currently to do this in a secured way, the user needs to directly interact with [workspace connections](prompt-flow/concept-connections.md) or [key vaults](../key-vault/general/overview.md) within the deployment.
 
 The user would be using Inference Server / scoring script or BYOC (Bring your own container) to implement this interaction to retrieve the credentials. As the user container will run with the managed identity associated with the endpoint, using the Azure RBAC and managed identity is recommended in general. Regardless of the secret store user wants to retrieve the secrets from, either workspace connections or key vaults, the endpoint identity would need to have the right permissions to read secrets from the store.
 
@@ -38,7 +38,7 @@ The platform already supports these scenarios and code examples using managed id
 
 ## Managed identity associated with the endpoint
 
-Online deployment runs the user container with the managed identity associated with the endpoint. This managed identity is a [Microsoft Entra ID](/entra/fundamentals/whatis) that supports [Azure RBAC](/azure/role-based-access-control/overview.md), meaning that you can assign Azure roles to the identity to control permission to perform operations. This endpoint identity can be either a system-assigned identity (SAI) or a user-assigned identity (UAI), and you can decide which one to use when you create the deployment.
+Online deployment runs the user container with the managed identity associated with the endpoint. This managed identity is a [Microsoft Entra ID](/entra/fundamentals/whatis) that supports [Azure RBAC](../role-based-access-control/overview.md), meaning that you can assign Azure roles to the identity to control permission to perform operations. This endpoint identity can be either a system-assigned identity (SAI) or a user-assigned identity (UAI), and you can decide which one to use when you create the deployment.
 
 - In the case of system-assigned identity, the identity is created automatically when you create the endpoint, and roles with fundamental permissions such as Azure Container Registry pull permission and Storage Blob Data Reader etc are automatically assigned.
 - In the case of user-assigned identity, you need to create the identity first and then associate it with the endpoint when you create the endpoint. You are also responsible for assigning proper roles to the user-assigned identity as needed.
