@@ -1,18 +1,18 @@
 ---
 title: Quickstart vector search
-titleSuffix: Azure Cognitive Search
-description: Use the preview REST APIs to call vector search.
+titleSuffix: Azure AI Search
+description: Use the generally available REST APIs to call vector search.
 
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 10/24/2023
+ms.date: 10/26/2023
 ---
 
 # Quickstart: Vector search using REST APIs
 
-Get started with vector search in Azure Cognitive Search using the **2023-11-01** REST APIs that create, load, and query a search index. 
+Get started with vector search in Azure AI Search using the **2023-11-01** REST APIs that create, load, and query a search index. 
 
 Search indexes can have vector fields in the fields collection. When querying the search index, you can build vector-only queries, or create hybrid queries that target vector fields *and* textual fields configured for filters, sorts, facets, and semantic ranking.
 
@@ -25,13 +25,16 @@ Search indexes can have vector fields in the fields collection. When querying th
 
 + An Azure subscription. [Create one for free](https://azure.microsoft.com/free/).
 
-+ Azure Cognitive Search, in any region and on any tier. Most existing services support vector search. For a small subset of services created prior to January 2019, an index containing vector fields will fail on creation. In this situation, a new service must be created.
++ Azure AI Search, in any region and on any tier. Most existing services support vector search. For a small subset of services created prior to January 2019, an index containing vector fields will fail on creation. In this situation, a new service must be created.
 
   For the optional [semantic ranking](semantic-search-overview.md) shown in the last example, your search service must be Basic tier or higher, with [semantic ranking enabled](semantic-how-to-enable-disable.md).
 
-+ [Sample Postman collection](https://github.com/Azure-Samples/azure-search-postman-samples/tree/main/Quickstart-vectors), with requests targeting the **2023-11-01** API version of Azure Cognitive Search.
++ [Sample Postman collection](https://github.com/Azure-Samples/azure-search-postman-samples/tree/main/Quickstart-vectors), with requests targeting the **2023-11-01** API version of Azure AI Search.
 
 + Optional. The Postman collection includes a **Generate Embedding** request that can generate vectors from text. To send this request, you need [Azure OpenAI](https://aka.ms/oai/access) with a deployment of **text-embedding-ada-002**. For this request only, provide your Azure OpenAI endpoint, Azure OpenAI key, model deployment name, and API version in the collection variables.
+
+> [!NOTE]
+> Integrated vectorization is currently in public preview. It automates data chunking and vectorization, providing you supply the connection information to Azure OpenAI or another vectorization agent.  
 
 ## About the sample data and queries
 
@@ -39,7 +42,7 @@ Sample data consists of text and vector descriptions for seven fictitious hotels
 
 + Textual data is used for keyword search, semantic ranking, and capabilities that depend on text (filters, facets, and sorting). 
 
-+ Vector data (text embeddings) is used for vector search. Currently, Cognitive Search doesn't generate vectors for you. For this quickstart, vector data was generated separately and copied into the "Upload Documents" request and into the query requests.
++ Vector data (text embeddings) is used for vector search. Currently, Azure AI Search doesn't generate vectors for you. For this quickstart, vector data was generated separately and copied into the "Upload Documents" request and into the query requests.
 
 For vector queries, we used the **Generate Embedding** request that calls Azure OpenAI and outputs embeddings for a search string. If you want to formulate your own vector queries against the sample data, provide your Azure OpenAI connection information in the Postman collection variables. Your Azure OpenAI service must have a deployment of an embedding model that's identical to the one used to generate embeddings in your search corpus. 
 
@@ -57,7 +60,7 @@ If you're unfamiliar with Postman, see [this quickstart](search-get-started-rest
 
 1. Start Postman and import the `AzureSearchQuickstartVectors 2023-11-01.postman_collection.json` collection.
 
-1. Right-click the collection name and select **Edit** to set the collection's variables to valid values for Azure Cognitive Search and Azure OpenAI.
+1. Right-click the collection name and select **Edit** to set the collection's variables to valid values for Azure AI Search and Azure OpenAI.
 
 1. Select **Variables** from the list of actions at the top of the page. Into **Current value**, provide the following values. Required and recommended values are specified.
 
@@ -787,7 +790,7 @@ Now, Old Carabelle Hotel moves into the top spot. Without semantic ranking, Nord
 
 ## Clean up
 
-Azure Cognitive Search is a billable resource. If it's no longer needed, delete it from your subscription to avoid charges.
+Azure AI Search is a billable resource. If it's no longer needed, delete it from your subscription to avoid charges.
 
 ## Next steps
 

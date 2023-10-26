@@ -17,7 +17,7 @@ Azure AI Search ([formerly known as "Azure Cognitive Search"](whats-new.md#new-s
 
 Search is foundational to any app that surfaces text to users, where common scenarios include catalog or document search, online retail apps, or data exploration over proprietary content. When you create a search service, you'll work with the following capabilities:
 
-+ A search engine for full text and [vector search](vector-search-overview.md) over a search index containing user-owned content
++ A search engine for [full text](search-lucene-query-architecture.md) and [vector search](vector-search-overview.md) over a search index containing user-owned content
 + Rich indexing, with [lexical analysis](search-analyzers.md) and [optional AI enrichment](cognitive-search-concept-intro.md) for content extraction and transformation
 + Rich query syntax for [vector queries](vector-search-how-to-query.md), text search, fuzzy search, autocomplete, geo-search and more
 + Programmability through REST APIs and client libraries in Azure SDKs
