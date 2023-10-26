@@ -19,7 +19,6 @@ In this how-to guide, you'll learn how to:
 > * Prepare endpoints
 > * Verify the contact profile
 > * Find IPs of scheduled contacts
-> * Set up link flows
 
 Ensure the objects comply with the recommendations in this article. Note that these steps do not have to be followed in order.
 
