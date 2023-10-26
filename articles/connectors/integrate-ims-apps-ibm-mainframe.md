@@ -34,7 +34,7 @@ The following diagram shows how the IMS connector interacts with an IBM mainfram
 
 To extend these hybrid cloud scenarios, the IMS connector in a Standard workflow works with the HIS Designer for Azure Logic Apps, which you can use to create a *program definition* or *program map* of the mainframe transaction program. For this task, the HIS Designer converts that information into metadata that the IMS connector uses when calling an action that represents that task from your workflow.
 
-After you generate the metadata file from the HIS Designer, you can add that file as a map artifact to your Standard logic app resource or to a linked intgration account in Azure. That way, your workflow can access your app's metadata when you add an IMS connector action. The connector reads the metadata file from your logic app resource or integration account, and dynamically presents the parameters to the IMS connector. You can then provide parameters to the host application, and the connector returns the results to your workflow. As a result, you can integrate your legacy apps with Azure, Microsoft, other apps, services, and systems that Azure Logic Apps supports.
+After you generate the metadata file from the HIS Designer, you can add that file as a map artifact to your Standard logic app resource or to a linked integration account in Azure. That way, your workflow can access your app's metadata when you add an IMS connector action. The connector reads the metadata file from your logic app resource or integration account, and dynamically presents the parameters to the IMS connector. You can then provide parameters to the host application, and the connector returns the results to your workflow. As a result, you can integrate your legacy apps with Azure, Microsoft, other apps, services, and systems that Azure Logic Apps supports.
 
 ## Connector technical reference
 
@@ -63,7 +63,7 @@ This operation also includes advanced parameters, which appear after you select 
 
   To create this metadata, use the [HIS Designer for Logic Apps](/host-integration-server/core/application-integration-ladesigner-2). With this tool, you can manually create the methods that your workflow uses and define the methods and parameters for the tasks in your app. These tasks are represented as IMS connector actions that you add and run in your workflow. You can also import mainframe COBOL program definitions (copybooks) that provide all these program structures by using the designer.
 
-  The tool generates a Host Integration Designer XML (HIDX) file that provides the necessary metadata for the connector to use for driving your mainframe app. If you are using HIS, you can use the TI Designer to create the HIDX file.
+  The tool generates a Host Integration Designer XML (HIDX) file that provides the necessary metadata for the connector to use for driving your mainframe app. If you're using HIS, you can use the TI Designer to create the HIDX file.
 
 * The Standard logic app workflow to use for integrating with the IMS system
 
