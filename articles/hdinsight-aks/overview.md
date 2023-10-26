@@ -91,6 +91,6 @@ For more information, see [HDInsight on AKS security](./concept-security.md).
 > - Apache, Apache Kafka, Kafka and the Kafka logo are trademarks of the [Apache Software Foundation](https://www.apache.org/) (ASF).
 > - Apache, Apache Flink, Flink and the Flink logo are trademarks of the [Apache Software Foundation](https://www.apache.org/) (ASF).
 > - Apache HBase, HBase and the HBase logo are trademarks of the [Apache Software Foundation](https://www.apache.org/) (ASF).
-> - Apache®, Apache Spark™, Apache HBase®, Apache Kafka®, and Apache Flink® are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.
+> - Apache®, Apache Spark™, Apache HBase®, Apache Kafka®, and Apache Flink® are either registered trademarks or trademarks of the [Apache Software Foundation](https://www.apache.org/) in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.
 
 
