@@ -38,47 +38,47 @@ This article is a list of all sensitive information types supported by MDC (a su
 | [Azure Bot Framework secret key](https://learn.microsoft.com/purview/sit-defn-azure-bot-framework-secret-key) | Credentials | YES |
 | [Azure Bot service app secret](https://learn.microsoft.com/purview/sit-defn-azure-bot-service-app-secret) | Credentials | YES |
 | [Azure Cognitive Search API key](https://learn.microsoft.com/purview/sit-defn-azure-cognitive-search-api-key) | Credentials | YES |
-Azure Cognitive Service key	https://learn.microsoft.com/en-us/purview/sit-defn-azure-cognitive-service-key	Credentials	YES
-Azure Container Registry access key	https://learn.microsoft.com/en-us/purview/sit-defn-azure-container-registry-access-key	Credentials	YES
-Azure Cosmos DB account access key	https://learn.microsoft.com/en-us/purview/sit-defn-azure-cosmos-db-account-access-key	Credentials	YES
-Azure Databricks personal access token	https://learn.microsoft.com/en-us/purview/sit-defn-azure-databricks-personal-access-token	Credentials	YES
-Azure DevOps app secret	https://learn.microsoft.com/en-us/purview/sit-defn-azure-devops-app-secret	Credentials	YES
-Azure DevOps personal access token	https://learn.microsoft.com/en-us/purview/sit-defn-azure-devops-personal-access-token	Credentials	YES
-Azure EventGrid access key	https://learn.microsoft.com/en-us/purview/sit-defn-azure-eventgrid-access-key	Credentials	YES
-Azure Function Master / API key	https://learn.microsoft.com/en-us/purview/sit-defn-azure-function-master-api-key	Credentials	YES
-Azure IoT shared access key	https://learn.microsoft.com/en-us/purview/sit-defn-azure-iot-shared-access-key	Credentials	YES
-Azure Logic app shared access signature	https://learn.microsoft.com/en-us/purview/sit-defn-azure-logic-app-shared-access-signature	Credentials	YES
-Azure Machine Learning web service API key	https://learn.microsoft.com/en-us/purview/sit-defn-azure-machine-learning-web-service-api-key	Credentials	YES
-Azure Maps subscription key	https://learn.microsoft.com/en-us/purview/sit-defn-azure-maps-subscription-key	Credentials	YES
-Azure Redis cache connection string password	https://learn.microsoft.com/en-us/purview/sit-defn-azure-redis-cache-connection-string-password	Credentials	YES
-Azure service bus shared access signature	https://learn.microsoft.com/en-us/purview/sit-defn-azure-service-bus-shared-access-signature	Credentials	YES
-Azure Shared Access key / Web Hook token	https://learn.microsoft.com/en-us/purview/sit-defn-azure-shared-access-key-web-hook-token	Credentials	YES
-Azure SignalR access key	https://learn.microsoft.com/en-us/purview/sit-defn-azure-signalr-access-key	Credentials	YES
-Azure SQL connection string	https://learn.microsoft.com/en-us/purview/sit-defn-azure-sql-connection-string	Credentials	YES
-Azure storage account access key	https://learn.microsoft.com/en-us/purview/sit-defn-azure-storage-account-access-key	Credentials	YES
-Azure Storage account shared access signature	https://learn.microsoft.com/en-us/purview/sit-defn-azure-storage-account-shared-access-signature	Credentials	YES
-Azure Storage account shared access signature for high risk resources	https://learn.microsoft.com/en-us/purview/sit-defn-azure-storage-account-shared-access-signature-high-risk-resources	Credentials	YES
-Azure subscription management certificate	https://learn.microsoft.com/en-us/purview/sit-defn-azure-subscription-management-certificate	Credentials	YES
-Belgium driver's license number	https://learn.microsoft.com/en-us/purview/sit-defn-belgium-drivers-license-number	Other	NO
-Belgium national number	https://learn.microsoft.com/en-us/purview/sit-defn-belgium-national-number	PII	YES
-Belgium passport number	https://learn.microsoft.com/en-us/purview/sit-defn-belgium-passport-number	Other	NO
-Belgium value added tax number	https://learn.microsoft.com/en-us/purview/sit-defn-belgium-value-added-tax-number	Other	NO
-Brazil CPF number	https://learn.microsoft.com/en-us/purview/sit-defn-brazil-cpf-number	Other	NO
-Brazil legal entity number (CNPJ)	https://learn.microsoft.com/en-us/purview/sit-defn-brazil-legal-entity-number	Other	NO
-Brazil national identification card (RG)	https://learn.microsoft.com/en-us/purview/sit-defn-brazil-national-identification-card	Other	NO
-Bulgaria driver's license number	https://learn.microsoft.com/en-us/purview/sit-defn-bulgaria-drivers-license-number	Other	NO
-Bulgaria passport number	https://learn.microsoft.com/en-us/purview/sit-defn-bulgaria-passport-number	Other	NO
-Bulgaria uniform civil number	https://learn.microsoft.com/en-us/purview/sit-defn-bulgaria-uniform-civil-number	PII	YES
-Canada bank account number	https://learn.microsoft.com/en-us/purview/sit-defn-canada-bank-account-number	Other	NO
-Canada driver's license number	https://learn.microsoft.com/en-us/purview/sit-defn-canada-drivers-license-number	Other	NO
-Canada health service number	https://learn.microsoft.com/en-us/purview/sit-defn-canada-health-service-number	Other	NO
-Canada passport number	https://learn.microsoft.com/en-us/purview/sit-defn-canada-passport-number	Other	NO
-Canada personal health identification number (PHIN)	https://learn.microsoft.com/en-us/purview/sit-defn-canada-personal-health-identification-number	Other	NO
-Canada social insurance number	https://learn.microsoft.com/en-us/purview/sit-defn-canada-social-insurance-number	Other	NO
-Chile identity card number	https://learn.microsoft.com/en-us/purview/sit-defn-chile-identity-card-number	Other	NO
-China resident identity card (PRC) number	https://learn.microsoft.com/en-us/purview/sit-defn-china-resident-identity-card-number	Other	NO
-Client secret / API key	https://learn.microsoft.com/en-us/purview/sit-defn-client-secret-api-key	Credentials	YES
-Credit card number	https://learn.microsoft.com/en-us/purview/sit-defn-credit-card-number	Finance	YES
+| [Azure Cognitive Service key](https://learn.microsoft.com/purview/sit-defn-azure-cognitive-service-key) | Credentials | YES |
+| [Azure Container Registry access key](https://learn.microsoft.com/purview/sit-defn-azure-container-registry-access-key) | Credentials | YES |
+| [Azure Cosmos DB account access key](https://learn.microsoft.com/purview/sit-defn-azure-cosmos-db-account-access-key) | Credentials | YES |
+| [Azure Databricks personal access token](https://learn.microsoft.com/purview/sit-defn-azure-databricks-personal-access-token) | Credentials | YES |
+| [Azure DevOps app secret](https://learn.microsoft.com/purview/sit-defn-azure-devops-app-secret) | Credentials | YES |
+| [Azure DevOps personal access token](https://learn.microsoft.com/purview/sit-defn-azure-devops-personal-access-token) | Credentials | YES |
+| [Azure EventGrid access key](https://learn.microsoft.com/purview/sit-defn-azure-eventgrid-access-key) | Credentials | YES |
+| [Azure Function Master / API key](https://learn.microsoft.com/purview/sit-defn-azure-function-master-api-key) | Credentials | YES |
+| [Azure IoT shared access key](https://learn.microsoft.com/purview/sit-defn-azure-iot-shared-access-key) | Credentials | YES |
+| [Azure Logic app shared access signature](https://learn.microsoft.com/purview/sit-defn-azure-logic-app-shared-access-signature) | Credentials | YES |
+| [Azure Machine Learning web service API key](https://learn.microsoft.com/purview/sit-defn-azure-machine-learning-web-service-api-key) | Credentials | YES |
+| [Azure Maps subscription key](https://learn.microsoft.com/purview/sit-defn-azure-maps-subscription-key) | Credentials |  YES |
+| [Azure Redis cache connection string password](https://learn.microsoft.com/purview/sit-defn-azure-redis-cache-connection-string-password) | Credentials | YES |
+| [Azure service bus shared access signature](https://learn.microsoft.com/purview/sit-defn-azure-service-bus-shared-access-signature) | Credentials |YES |
+| [Azure Shared Access key / Web Hook token](https://learn.microsoft.com/purview/sit-defn-azure-shared-access-key-web-hook-token) | Credentials | YES |
+| [Azure SignalR access key](https://learn.microsoft.com/purview/sit-defn-azure-signalr-access-key) | Credentials | YES |
+| [Azure SQL connection string](https://learn.microsoft.com/purview/sit-defn-azure-sql-connection-string) | Credentials | YES |
+| [Azure storage account access key](https://learn.microsoft.com/purview/sit-defn-azure-storage-account-access-key) | Credentials | YES |
+| [Azure Storage account shared access signature](https://learn.microsoft.com/purview/sit-defn-azure-storage-account-shared-access-signature) | Credentials | YES |
+| [Azure Storage account shared access signature for high risk resources](https://learn.microsoft.com/purview/sit-defn-azure-storage-account-shared-access-signature-high-risk-resources) | Credentials | YES |
+| [Azure subscription management certificate](https://learn.microsoft.com/purview/sit-defn-azure-subscription-management-certificate) | Credentials | YES |
+| [Belgium driver's license number](https://learn.microsoft.com/purview/sit-defn-belgium-drivers-license-number) | Other | NO |
+| [Belgium national number](https://learn.microsoft.com/purview/sit-defn-belgium-national-number) | PII | YES |
+| [Belgium passport number](https://learn.microsoft.com/purview/sit-defn-belgium-passport-number) | Other | NO |
+| [Belgium value added tax number](https://learn.microsoft.com/purview/sit-defn-belgium-value-added-tax-number) | Other | NO |
+| [Brazil CPF number](https://learn.microsoft.com/purview/sit-defn-brazil-cpf-number) | Other | NO |
+| [Brazil legal entity number (CNPJ)](https://learn.microsoft.com/purview/sit-defn-brazil-legal-entity-number) | Other | NO |
+| [Brazil national identification card (RG)](https://learn.microsoft.com/purview/sit-defn-brazil-national-identification-card) | Other | NO |
+| [Bulgaria driver's license number](https://learn.microsoft.com/purview/sit-defn-bulgaria-drivers-license-number) | Other | NO |
+| [Bulgaria passport number](https://learn.microsoft.com/purview/sit-defn-bulgaria-passport-number) |Other | NO |
+| [Bulgaria uniform civil number](https://learn.microsoft.com/purview/sit-defn-bulgaria-uniform-civil-number) | PII | YES |
+| [Canada bank account number](https://learn.microsoft.com/purview/sit-defn-canada-bank-account-number) | Other | NO |
+| [Canada driver's license number](https://learn.microsoft.com/purview/sit-defn-canada-drivers-license-number) | Other | NO |
+| [Canada health service number](https://learn.microsoft.com/purview/sit-defn-canada-health-service-number) | Other | NO |
+| [Canada passport number](https://learn.microsoft.com/purview/sit-defn-canada-passport-number) | Other | NO |
+| [Canada personal health identification number (PHIN)](https://learn.microsoft.com/purview/sit-defn-canada-personal-health-identification-number) | Other | NO |
+| [Canada social insurance number](https://learn.microsoft.com/purview/sit-defn-canada-social-insurance-number) | Other | NO |
+| [Chile identity card number](https://learn.microsoft.com/purview/sit-defn-chile-identity-card-number) | Other | NO |
+| [China resident identity card (PRC) number](https://learn.microsoft.com/purview/sit-defn-china-resident-identity-card-number) | Other | NO |
+| [Client secret / API key](https://learn.microsoft.com/purview/sit-defn-client-secret-api-key) | Credentials | YES |
+| [Credit card number](https://learn.microsoft.com/purview/sit-defn-credit-card-number) | Finance | YES |
 Croatia driver's license number	https://learn.microsoft.com/en-us/purview/sit-defn-croatia-drivers-license-number	Other	NO
 Croatia identity card number	https://learn.microsoft.com/en-us/purview/sit-defn-croatia-identity-card-number	Other	NO
 Croatia passport number	https://learn.microsoft.com/en-us/purview/sit-defn-croatia-passport-number	Other	NO
