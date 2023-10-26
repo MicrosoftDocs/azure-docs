@@ -36,6 +36,10 @@ items:
         items:
         - name: Manage assets remotely
           href: manage-devices-assets/howto-manage-assets-remotely.md
+        - name: Autodetect assets
+          href: manage-devices-assets/howto-autodetect-opcua-assets-using-akri.md
+        - name: Install or uninstall Azure IoT Akri
+          href: manage-devices-assets/howto-install-akri.md
         - name: Use OPC UA broker in standalone mode
           items:
           - name: Install OPC UA Broker using helm
