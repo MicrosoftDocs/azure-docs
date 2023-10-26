@@ -1,6 +1,6 @@
 ---
- title: include file
- description: include file
+ title: Event type filtering in Event Grid
+ description: Provides information on different types of event filtering supported by Azure Event Grid. 
  services: event-grid
  author: robece
  ms.service: event-grid
@@ -96,7 +96,7 @@ Key is the field in the event data that you're using for filtering. It can be on
 
 For events in **Cloud Events schema**, use the following values for the key: `eventid`, `source`, `eventtype`, `eventtypeversion`, or event data (like `data.key1`).
 
-If you are using Event Grid basic tier. For events in the **Event Grid schema**, use the following values for the key: `ID`, `Topic`, `Subject`, `EventType`, `DataVersion`, or event data (like `data.key1`). For **custom input schema**, use the event data fields (like `data.key1`). To access fields in the data section, use the `.` (dot) notation. For example, `data.siteName`, `data.appEventTypeDetail.action` to access `siteName` or `action` for the following sample event.
+If you're using Event Grid basic tier, for events in the **Event Grid schema**, use the following values for the key: `ID`, `Topic`, `Subject`, `EventType`, `DataVersion`, or event data (like `data.key1`). For **custom input schema**, use the event data fields (like `data.key1`). To access fields in the data section, use the `.` (dot) notation. For example, `data.siteName`, `data.appEventTypeDetail.action` to access `siteName` or `action` for the following sample event.
 
 ```json
 	"data": {
@@ -578,7 +578,7 @@ In the following example, key1 is set to null, so the operator would evaluate to
 }
 ```
 
-if key1 has any other value in these examples, the operator would evaluate to false. 
+If key1 has any other value in these examples, the operator would evaluate to false. 
 
 ## IsNotNull
 
