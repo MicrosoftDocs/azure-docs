@@ -151,8 +151,6 @@ You can learn more about data aware security posture in the following articles:
 - [Support and prerequisites for data-aware security posture](concept-data-security-posture-prepare.md)
 - [Enable data-aware security posture](data-security-posture-enable.md)
 - [Explore risks to sensitive data](data-security-review-risks.md)
-- [Azure data attack paths](attack-path-reference.md#azure-data)
-- [AWS data attack paths](attack-path-reference.md#aws-data)
 
 ### General Availability (GA): malware scanning in Defender for Storage
 
