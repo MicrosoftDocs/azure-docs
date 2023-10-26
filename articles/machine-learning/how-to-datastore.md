@@ -10,7 +10,7 @@ ms.author: yogipandey
 author: ynpandey
 ms.reviewer: franksolomon
 ms.date: 10/25/2023
-ms.5ustom: contperf-fy21q1, data4ml, ignite-2023
+ms.custom: contperf-fy21q1, data4ml, ignite-2023
 # Customer intent: As an experienced Python developer, I need to make my data in Azure storage available to my remote compute resource, to train my machine learning models.
 ---
 
@@ -445,9 +445,9 @@ In your Microsoft Fabric instance, you can find the endpoint information as show
 #### OneLake artifact name
 In your Microsoft Fabric instance, you can find the artifact information as shown in this screenshot. You can use either a GUID value, or a "friendly name" to create an Azure Machine Learning OneLake datastore, as shown in this screenshot:
 
-:::image type="content" source="media/how-to-datastore/fabric-LH.png" alt-text="Screenshot showing how to get Fabric LH artifact details in Microsoft Fabric UI." lightbox="./media/how-to-datastore/fabric-LH.png":::
+:::image type="content" source="media/how-to-datastore/fabric-lakehouse.png" alt-text="Screenshot showing how to get Fabric LH artifact details in Microsoft Fabric UI." lightbox="./media/how-to-datastore/fabric-lakehouse.png":::
 
-### Create a OneLake datastore:
+### Create a OneLake datastore
 
 # [Python SDK: Identity-based access](#tab/sdk-onelake-identity-access)
 
