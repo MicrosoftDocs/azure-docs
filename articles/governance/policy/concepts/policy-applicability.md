@@ -52,9 +52,9 @@ Following are special cases to the previously described applicability logic:
 
 The applicability of `Microsoft.Kubernetes.Data` policies is based off the entire `if` condition of the policy rule. When the `if` evaluates to false, the policy isn't applicable.
 
-### Microsoft.KeyVault.Data, Microsoft.ManagedHSM.Data, and Microsoft.DataFactory.Data
+### Microsoft.KeyVault.Data, Microsoft.ManagedHSM.Data, Microsoft.DataFactory.Data, and Microsoft.MachineLearningServices.v2.Data
 
-Policies with mode `Microsoft.KeyVault.Data` are applicable if the `type` condition of the policy rule evaluates to true. The `type` refers to component type.
+Policies with these RP Modes are applicable if the `type` condition of the policy rule evaluates to true. The `type` refers to component type.
 
 Key Vault component types:
 - Microsoft.KeyVault.Data/vaults/certificates
@@ -66,6 +66,9 @@ Managed HSM component type:
 
 Azure Data Factory component type:
 - Microsoft.DataFactory.Data/factories/outboundTraffic
+
+Azure Machine Learning component type:
+- Microsoft.MachineLearningServices.v2.Data/workspaces/deployments
 
 ### Microsoft.Network.Data
 
