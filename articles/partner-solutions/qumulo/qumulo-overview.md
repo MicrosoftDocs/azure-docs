@@ -3,8 +3,7 @@ title: Azure Native Qumulo Scalable File Service overview
 description: Learn about what Azure Native Qumulo Scalable File Service offers you.
 
 ms.topic: overview
-ms.custom: template-overview
-ms.date: 01/18/2023
+ms.date: 10/25/2023
 
 ---
 
@@ -26,10 +25,8 @@ The Azure Native Qumulo Scalable File Service offering on Azure Marketplace enab
 Azure Native Qumulo Scalable File Service provides:
 
 - Seamless onboarding: Easily include Qumulo as a natively integrated service on Azure.
-
-- Unified billing: Get a single bill for all resources that you consume on Azure for the Qumulo service. 
-<!-- Is the benefit one bill for all Qumulo deployments or one bill for anything you do on Azure including Qumulo? -->
-- Private access: The service is directly connected to your own virtual network (sometimes called *VNet injection*).
+- Unified billing: Get a single bill for all resources that you consume on Azure for the Qumulo service.
+- Private access: The service is directly connected to your own virtual network, sometimes called *VNet injection*.
 
 ## Next steps
 

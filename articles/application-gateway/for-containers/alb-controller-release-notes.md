@@ -6,7 +6,7 @@ author: greglin
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: article
-ms.date: 09/25/2023
+ms.date: 10/23/2023
 ms.author: greglin
 ---
 
@@ -27,6 +27,7 @@ September 25, 2023 - 0.5.024542 - Custom Health Probes, Controller HA, Multi-sit
 
 ## Release history
 July 25, 2023 - 0.4.023971 - Ingress + Gateway co-existence improvements
+
 July 24, 2023 - 0.4.023961 - Improved Ingress support
 
 July 24, 2023 - 0.4.023921 - Initial release of ALB Controller

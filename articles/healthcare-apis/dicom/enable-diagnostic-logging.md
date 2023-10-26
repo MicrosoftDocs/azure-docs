@@ -5,7 +5,7 @@ author: mmitrik
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 03/02/2022
+ms.date: 10/13/2023
 ms.author: mmitrik
 ---
 
@@ -145,12 +145,8 @@ MicrosoftHealthcareApisAuditLogs
 | where ResultType == "Failed" 
 ```
 
-## Conclusion
-
-Having access to diagnostic logs is essential for monitoring a service and providing compliance reports. The DICOM service allows you to do these actions through diagnostic logs. 
-
 ## Next steps
-In this article, you learned how to enable audit logs for the DICOM service. For information about the Azure activity log, see
- 
->[!div class="nextstepaction"]
->[Azure Activity Log event schema](.././../azure-monitor/essentials/activity-log-schema.md)
+
+Having access to diagnostic logs is essential for monitoring a service and providing compliance reports. The DICOM service allows you to do these actions through diagnostic logs. For more information, see [Azure Activity Log event schema](.././../azure-monitor/essentials/activity-log-schema.md)
+
+[!INCLUDE [DICOM trademark statement](../includes/healthcare-apis-dicom-trademark.md)]

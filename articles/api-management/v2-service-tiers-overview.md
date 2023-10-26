@@ -126,6 +126,10 @@ A: A Standard v2 service instance can be integrated with a VNet to provide secur
 
 A: No, such a deployment is only supported in the Premium tier. 
 
+### Q: Is a Premium v2 tier planned?
+
+A: Yes, a Premium v2 preview is planned and will be announced separately.
+
 ## Related content
 
 * Learn more about the API Management [tiers](api-management-features.md).
