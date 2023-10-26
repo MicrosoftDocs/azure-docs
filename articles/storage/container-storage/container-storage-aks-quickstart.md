@@ -62,7 +62,7 @@ When you create a resource group, you're prompted to specify a location. This lo
 * The storage location of your resource group metadata.
 * Where your resources will run in Azure if you don't specify another region during resource creation.
 
-Create a resource group using the `az group create` command. Replace `<resource-group-name>` with the name of the resource group you want to create, and replace `<location>` with an Azure region such as *eastus*, *westus2*, *westus3*, or *westeurope*.
+Create a resource group using the `az group create` command. Replace `<resource-group-name>` with the name of the resource group you want to create, and replace `<location>` with an Azure region such as *eastus*, *westus2*, *westus3*, or *westeurope*. See this [list of Azure regions](container-storage-introduction.md#regional-availability) where Azure Container Storage is available.
 
 ```azurecli-interactive
 az group create --name <resource-group-name> --location <location>
@@ -118,7 +118,7 @@ Optional storage pool parameters:
 | --storage-pool-option | NVMe |
 
 ```azurecli-interactive
-az aks create --n <cluster-name> --g <resource-group-name> --node-vm-size Standard_D4s_v3 --node-count 3 --enable-azure-container-storage <storage-pool-type>
+az aks create -n <cluster-name> -g <resource-group-name> --node-vm-size Standard_D4s_v3 --node-count 3 --enable-azure-container-storage <storage-pool-type>
 ```
 
 The deployment will take 10-15 minutes to complete.
@@ -131,7 +131,7 @@ If you already have an AKS cluster that meets the [VM requirements](#choose-a-vm
 > **If you created your AKS cluster using the Azure portal:** The cluster will likely have a user node pool and a system/agent node pool. However, if your cluster consists of only a system node pool, which is the case with test/dev clusters created with the Azure portal, you'll need to first [add a new user node pool](../../aks/create-node-pools.md#add-a-node-pool) and then label it. This is because when you create an AKS cluster using the Azure portal, a taint `CriticalAddOnsOnly` is added to the system/agent nodepool, which blocks installation of Azure Container Storage on the system node pool. This taint isn't added when an AKS cluster is created using Azure CLI.
 
 ```azurecli-interactive
-az aks update --n <cluster-name> --g <resource-group-name> --enable-azure-container-storage <storage-pool-type>
+az aks update -n <cluster-name> -g <resource-group-name> --enable-azure-container-storage <storage-pool-type>
 ```
 
 The deployment will take 10-15 minutes to complete.
