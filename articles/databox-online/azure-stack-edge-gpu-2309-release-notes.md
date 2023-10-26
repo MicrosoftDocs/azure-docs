@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 10/25/2023
+ms.date: 10/26/2023
 ms.author: alkohli
 ---
 
@@ -77,6 +77,7 @@ The 2309 release has the following new features and enhancements:
 | No. | Feature | Issue | Workaround/comments |
 | --- | --- | --- | --- |
 |**1.**|AKS Update |The AKS Kubernetes update might fail if the one of the AKS VMs are not running. This issue might be seen in the 2-node cluster. |If the AKS update has failed, [Connect to the PowerShell interface of the device](azure-stack-edge-gpu-connect-powershell-interface.md). Check the state of the Kubernetes VMs by running `Get-VM` cmdlet. If the VM is off, run the `Start-VM` cmdlet to restart the VM. Once the Kubernetes VM is running, reapply the update. |
+|**2.**|Wi-Fi |Starting this release, Wi-Fi functionality for Azure Stack Edge Mini R has been deprecated. |  |
 
 
 ## Known issues from previous releases
