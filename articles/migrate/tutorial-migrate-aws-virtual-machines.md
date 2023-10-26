@@ -177,6 +177,7 @@ A Mobility service agent must be pre-installed on the source AWS VMs to be migra
 
 - [AWS System Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/what-is-systems-manager.html)
 - [System Center Configuration Manager](../site-recovery/vmware-azure-mobility-install-configuration-mgr.md)
+- [Arc for Servers and Custom Script Extensions](../azure-arc/servers/overview.md)
 - [Manual installation](../site-recovery/vmware-physical-mobility-service-overview.md)
 
 ## Enable replication for AWS VMs

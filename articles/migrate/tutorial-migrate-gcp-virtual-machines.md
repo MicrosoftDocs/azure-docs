@@ -170,6 +170,7 @@ The first step of migration is to set up the replication appliance. To set up th
 A Mobility service agent must be pre-installed on the source GCP VMs to be migrated before you can initiate replication. The approach you choose to install the Mobility service agent may depend on your organization's preferences and existing tools, but be aware that the "push" installation method built into Azure Site Recovery is not currently supported. Approaches you may want to consider:
 
 - [System Center Configuration Manager](../site-recovery/vmware-azure-mobility-install-configuration-mgr.md)
+- [Arc for Servers and Custom Script Extensions](../azure-arc/servers/overview.md)
 - [Manual installation](../site-recovery/vmware-physical-mobility-service-overview.md)
 
 1. Extract the contents of the installer tarball to a local folder (for example /tmp/MobSvcInstaller) on the GCP VM, as follows:
