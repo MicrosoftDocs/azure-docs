@@ -20,7 +20,7 @@ You can Arc-enable AKS Edge Essentials clusters in an ISA-95 network environment
 - A custom DNS that resolves the DNS server in the local network
 - The level 3 Azure AKS Edge Essentials cluster connects to the Layered Network Management service as a proxy for all the Azure Arc related traffic.
 
-![Diagram showing a level 4 and level 3 AKS Edge Essentials network](./media/howto-configure-aks-ee-layered-network/arc-enabled-aks-edge-essentials-cluster.png)
+![Diagram showing a level 4 and level 3 AKS Edge Essentials network.](./media/howto-configure-aks-edge-essentials-layered-network/arc-enabled-aks-edge-essentials-cluster.png)
 
 ## Configure network environment
 

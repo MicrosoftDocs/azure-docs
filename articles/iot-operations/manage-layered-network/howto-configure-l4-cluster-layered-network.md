@@ -1,7 +1,7 @@
 ---
-title: Configure IoT Layered Network Management Level 4 Cluster
+title: Configure IoT Layered Network Management Level 4 cluster
 # titleSuffix: Azure IoT Layered Network Management
-description: Configure IoT Layered Network Management Level 4 Cluster.
+description: Configure IoT Layered Network Management Level 4 cluster.
 author: PatAltimore
 ms.author: patricka
 ms.topic: how-to
@@ -10,7 +10,7 @@ ms.date: 10/25/2023
 #CustomerIntent: As an operator, I want to configure Layered Network Management so that I have secure isolate devices.
 ---
 
-# Configure IoT Layered Network Management Level 4 Cluster
+# Configure IoT Layered Network Management Level 4 cluster
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
@@ -33,51 +33,50 @@ Since Level 4 is internet facing, the configuration and installation can be comp
 
 ## Create the AKS Edge Essentials cluster
 
-1. To deploy AKS Edge Essentials, you need an Azure service principal that has at least **contributor** access to your subscription. For more information on how to create an Azure service principal, see [Create a Microsoft Entra application and service principal that can access resources](/entra/identity-platform/howto-create-service-principal-portal) to create a service principal.
-
-  For more information on prerequisites, see [AKS Edge Essentials prerequisites](/azure/aks/hybrid/aks-edge-quickstart#prerequisites).
-
+1. To deploy AKS Edge Essentials, you need an Azure service principal that has at least **contributor** access to your subscription. For more information on how to create an Azure service principal, see [Create a Microsoft Entra application and service principal that can access resources](/entra/identity-platform/howto-create-service-principal-portal) to create a service principal. For more information on prerequisites, see [AKS Edge Essentials prerequisites](/azure/aks/hybrid/aks-edge-quickstart#prerequisites).
 1. Follow the steps in the [Single machine deployment](/azure/aks/hybrid/aks-edge-howto-single-node-deployment) article.
 1. Use the `New-AksEdgeDeployment` PowerShell command to create a file named **aks-ee-config.json**.
 1. Edit the **aks-ee-config.json** file.
 1. In the **Init** section, change the **ServiceIPRangeSize** property to **10**.
 
-  ```json
-  "Init": {
-      "ServiceIPRangeSize": 10
-    },
-  ```
+    ```json
+    "Init": {
+        "ServiceIPRangeSize": 10
+      },
+    ```
 
 1. In the **Arc** section, replace the placeholder text with values to reflect your specific environment.
 
-  ```json
-  "Arc": {
-      "ClusterName": "<NAME OF THE ARC CLUSTER TO BE DISPLAYED IN AZURE PORTAL>",
-      "Location": "<REGION>",
-      "ResourceGroupName": "<RESOURCE GROUP>",
-      "SubscriptionId": "<SUBSCRIPTION>",
-      "TenantId": "<TENANT ID>",
-      "ClientId": "<CLIENT ID>",
-      "ClientSecret": "<CLIENT SECRET>"
-    },
-  ```
+    ```json
+    "Arc": {
+        "ClusterName": "<NAME OF THE ARC CLUSTER TO BE DISPLAYED IN AZURE PORTAL>",
+        "Location": "<REGION>",
+        "ResourceGroupName": "<RESOURCE GROUP>",
+        "SubscriptionId": "<SUBSCRIPTION>",
+        "TenantId": "<TENANT ID>",
+        "ClientId": "<CLIENT ID>",
+        "ClientSecret": "<CLIENT SECRET>"
+      },
+    ```
 
 1. In the **Network** section, verify the following properties are added or set. Replace the placeholder text with your values. Confirm that the *Ip4AddressPrefix* **A.B.C** doesn't overlap with the IP range that is assigned within network layers.
 
-  ```json
-  "Network": {
-      "NetworkPlugin": "flannel",
-      "Ip4AddressPrefix": "<A.B.C.0/24>",
-      "Ip4PrefixLength": 24,
-      "InternetDisabled": false,
-      "SkipDnsCheck": false,
-  ```
-  For more information, see [Deployment configuration JSON parameters](/azure/aks/hybrid/aks-edge-deployment-config-json). 
-    
+    ```json
+    "Network": {
+        "NetworkPlugin": "flannel",
+        "Ip4AddressPrefix": "<A.B.C.0/24>",
+        "Ip4PrefixLength": 24,
+        "InternetDisabled": false,
+        "SkipDnsCheck": false,
+    ```
+
+    For more information, see [Deployment configuration JSON parameters](/azure/aks/hybrid/aks-edge-deployment-config-json). 
+
 1. Create the AKS EE cluster:
-  ```bash
-  New-AksEdgeDeployment -JsonConfigFilePath .\aks-ee-config.json
-  ```
+
+    ```bash
+    New-AksEdgeDeployment -JsonConfigFilePath .\aks-ee-config.json
+    ```
 
 ## Arc enable the cluster
 
@@ -100,20 +99,20 @@ The following sections describe how to deploy the Layered Network Management ser
 
 1. Run the following command using helm 3.8.0 or later:
 
-  ```bash
-  helm install lnm-level-4 oci://alicesprings.azurecr.io/az-e4in --version 0.1.2
-  ```
+    ```bash
+    helm install lnm-level-4 oci://alicesprings.azurecr.io/az-e4in --version 0.1.2
+    ```
 
 1. Use the *kubectl* command to verify the Layered Network Management operator is running.
 
-```bash
-kubectl get pods
-```
+    ```bash
+    kubectl get pods
+    ```
 
-```output
-NAME                                   READY   STATUS    RESTARTS   AGE
-azedge-lnm-operator-598cc495c-5428j   1/1     Running   0          28h
-```
+    ```output
+    NAME                                   READY   STATUS    RESTARTS   AGE
+    azedge-lnm-operator-598cc495c-5428j   1/1     Running   0          28h
+    ```
 
 ## Config Layered Network Management Service
 
@@ -121,43 +120,44 @@ Create Layered Network Management custom resource.
 
 1. Create a `lnm-cr.yaml` file as specified:
 
-```yaml
-apiVersion: az-edge.com/v1
-kind: E4in
-metadata:
-  name: level-4
-  namespace: default
-spec:
-  image:
-    repository: mcr.microsoft.com/oss/envoyproxy/envoy-distroless
-    tag: v1.27.0
-  replicas: 1
-  logLevel: "info"
-  allowList:
-    enableArcDomains: true
-    domains:
-    sourceIpRange:
-    - addressPrefix: "0.0.0.0"
-      prefixLen: 0
-```
+  ```yaml
+  apiVersion: az-edge.com/v1
+  kind: E4in
+  metadata:
+    name: level-4
+    namespace: default
+  spec:
+    image:
+      repository: mcr.microsoft.com/oss/envoyproxy/envoy-distroless
+      tag: v1.27.0
+    replicas: 1
+    logLevel: "info"
+    allowList:
+      enableArcDomains: true
+      domains:
+      sourceIpRange:
+      - addressPrefix: "0.0.0.0"
+        prefixLen: 0
+  ```
 
 For debugging or experimentation, you can change the value of **loglevel** parameter to **debug**.  
 
 1. Create the Custom Resource to create a Layered Network Management instance
 
-  ```bash
-  kubectl apply -f lnm-cr.yaml
-  ```
+    ```bash
+    kubectl apply -f lnm-cr.yaml
+    ```
 
 1. View the Layered Network Management Kubernetes service:
-```bash
-kubectl get services
-```
 
-```output
-NAME           TYPE           CLUSTER-IP    EXTERNAL-IP   PORT(S)                                      AGE
-lnm-level-4   LoadBalancer   10.43.91.54   192.168.0.4   80:30530/TCP,443:31117/TCP,10000:31914/TCP   95s
-```
+    ```bash
+    kubectl get services
+    ```
+
+    ```output
+    NAME           TYPE           CLUSTER-IP    EXTERNAL-IP   PORT(S)                                      AGE
+    lnm-level-4   LoadBalancer   10.43.91.54   192.168.0.4   80:30530/TCP,443:31117/TCP,10000:31914/TCP   95s
+    ```
 
 ### Add iptables configuration
 

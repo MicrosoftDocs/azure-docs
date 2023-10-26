@@ -1,5 +1,5 @@
 ---
-title: Configure Azure IoT Layered Network Management Environment
+title: Configure Azure IoT Layered Network Management environment
 # titleSuffix: Azure IoT Layered Network Management
 description: Configure Azure IoT Layered Network Management environment.
 author: PatAltimore
@@ -10,7 +10,7 @@ ms.date: 10/25/2023
 #CustomerIntent: As an operator, I want to configure Layered Network Management so that I have secure isolate devices.
 ---
 
-# Configure Azure IoT Layered Network Management Environment
+# Configure Azure IoT Layered Network Management environment
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
@@ -22,7 +22,7 @@ Each isolated layer that's level 3 and lower, requires you to include a DNS serv
 
 The following example configuration is a simple isolated network with minimum physical devices.
 
-![Diagram of a physical device Isolated Network configuration](./media/howto-configure-layered-network/physical-device-isolated.png)
+![Diagram of a physical device isolated network configuration.](./media/howto-configure-layered-network/physical-device-isolated.png)
 
 - The wireless access point is used for setting up a local network and doesn't provide internet access.
 - **Level 4 cluster** is a single node cluster hosted on a dual network interface card (NIC) physical machine that connects to internet and the local network.
@@ -34,12 +34,12 @@ Layered Network Management is deployed to the dual NIC cluster. The cluster in t
 
 The following example is an isolated network environment where each level is logically segmented with subnets. In this test environment, there are multiple clusters one at each level. The clusters can be AKS Edge Essentials or K3S. The Kubernetes cluster in the level 4 network has direct internet access. The Kubernetes clusters in level 3 and below don't have internet access.
 
-![Diagram of a logical segmentation isolated network](./media/howto-configure-layered-network/nested-edge-diagram.png)
+<!--![Diagram of a logical segmentation isolated network](./media/howto-configure-layered-network/nested-edge-diagram.png)-->
 
 The multiple levels of networks in this test setup are accomplished using subnets within a network:
 
 - **Level 4 subnet (10.104.0.0/16)** - This subnet has access to the internet. All the requests are sent to the destinations on the internet. This subnet has a single Windows 11 machine with the IP address 10.104.0.10
-- **Level 3 subnet (10.103.0.0/16)** - This subnet doesn't have access to the internet and is configured to only have access the IP address 10.104.0.10 in Level 4. This subnet contains a Windows 11 machine with the IP address 10.103.0.33 and a Linux machine that hosts a DNS server. The DNS server is configured using the steps in [configure the DNS server](#configure-the-dns-server). All the domains in the DNS configuration must be mapped to the address 10.104.0.10.
+- **Level 3 subnet (10.103.0.0/16)** - This subnet doesn't have access to the internet and is configured to only have access to the IP address 10.104.0.10 in Level 4. This subnet contains a Windows 11 machine with the IP address 10.103.0.33 and a Linux machine that hosts a DNS server. The DNS server is configured using the steps in [configure the DNS server](#configure-the-dns-server). All the domains in the DNS configuration must be mapped to the address 10.104.0.10.
 - **Level 2 subnet (10.102.0.0/16)** - Like Level 3, this subnet doesn't have access to the internet. It's configured to only have access to the IP address 10.103.0.33 in Level 3. This subnet contains a Windows 11 machine with the IP address 10.102.0.28 and a Linux machine that hosts a DNS server. There's one Windows 11 machine (node) in this network with IP address 10.102.0.28. All the domains in the DNS configuration must be mapped to the address 10.103.0.33.
 
 ## Configure the DNS server

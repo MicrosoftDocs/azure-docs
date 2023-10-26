@@ -161,16 +161,16 @@ You can create a K3S Kubernetes cluster on the Linux VM to simulate a cluster in
     ```
 1. Copy the K3S configuration yaml file to `.kube/config`.
 
-  ```bash
-  mkdir ~/.kube
-  cp ~/.kube/config ~/.kube/config.back
-  sudo KUBECONFIG=~/.kube/config:/etc/rancher/k3s/k3s.yaml kubectl config view --flatten > ~/.kube/merged
-  mv ~/.kube/merged ~/.kube/config
-  chmod  0600 ~/.kube/config
-  export KUBECONFIG=~/.kube/config
-  #switch to k3s context
-  kubectl config use-context default
-  ```
+    ```bash
+    mkdir ~/.kube
+    cp ~/.kube/config ~/.kube/config.back
+    sudo KUBECONFIG=~/.kube/config:/etc/rancher/k3s/k3s.yaml kubectl config view --flatten > ~/.kube/merged
+    mv ~/.kube/merged ~/.kube/config
+    chmod  0600 ~/.kube/config
+    export KUBECONFIG=~/.kube/config
+    #switch to k3s context
+    kubectl config use-context default
+    ```
 
 1. Perform the following command to connect the cluster to Arc. This step requires Azure CLI. Install the [Az CLI](/cli/azure/install-azure-cli-linux) if needed.
 

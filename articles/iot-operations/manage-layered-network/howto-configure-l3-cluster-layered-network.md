@@ -1,7 +1,7 @@
 ---
-title: Configure IoT Layered Network Management Level 3 Cluster
+title: Configure IoT Layered Network Management Level 3 cluster
 # titleSuffix: Azure IoT Layered Network Management
-description: Configure IoT Layered Network Management Level 3 Cluster.
+description: Configure IoT Layered Network Management Level 3 cluster.
 author: PatAltimore
 ms.author: patricka
 ms.topic: how-to
@@ -10,7 +10,7 @@ ms.date: 10/24/2023
 #CustomerIntent: As an operator, I want to configure Layered Network Management so that I have secure isolate devices.
 ---
 
-# Configure IoT Layered Network Management Level 3 Cluster
+# Configure IoT Layered Network Management Level 3 cluster
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
@@ -52,7 +52,7 @@ After the device is moved to L3, configure the DNS setting using the following s
 1. Check **Use the following DNS server addresses**
 1. Enter the level 3 DNS server local IP address.
 
-    ![Screenshot that shows Windows DNS setting with the level 3 DNS server local IP address](./media/howto-configure-l3-cluster-layered-network/windows-dns-setting.png)
+    :::image type="content" source="./media/howto-configure-l3-cluster-layered-network/windows-dns-setting.png" alt-text="Screenshot that shows Windows DNS setting with the level 3 DNS server local IP address.":::
 
 ## Create the AKS Edge Essentials cluster
 
@@ -99,6 +99,7 @@ To create the AKS Edge Essentials cluster in level 3, use the `aks-ee-config.jso
 
     sudo sysctl -p
     ```
+
 1. For better performance, make sure the [file descriptor limit](https://www.cyberciti.biz/faq/linux-increase-the-maximum-number-of-open-files/) is high enough.
 
 <!--  - Refer to the [Install Project Alice Springs](/docs/quickstart/install/) to fulfill prerequisite for the host. -->

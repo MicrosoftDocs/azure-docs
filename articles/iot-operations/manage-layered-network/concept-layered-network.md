@@ -24,11 +24,11 @@ Layered Network Management provides several benefits including:
 * Kubernetes observability tooling for previously isolated devices and applications across levels
 * Default compatibility with all Azure IoT Operations service connections
 
-![Diagram of Layered Network Management](./media/concept-layered-network/layered-network-management-overview.png)
+![Diagram of Layered Network Management.](./media/concept-layered-network/layered-network-management-overview.png)
 
-## Isolated Network Environment for deploying Layered Network Management
+## Isolated network environment for deploying Layered Network Management
 
-There are several ways to configure Layered Network Management to bridge the connection between clusters in the isolated network and services on Azure. The following list are example network environments and cluster scenarios for Layered Network Management.
+There are several ways to configure Layered Network Management to bridge the connection between clusters in the isolated network and services on Azure. The following lists example network environments and cluster scenarios for Layered Network Management.
 
 - **A simplified virtual machine and network** - This scenario uses an [Azure AKS](/azure/aks/) cluster and an Azure Linux VM. You need an Azure subscription the following resources:
   - An [AKS cluster](/azure/aks/concepts-clusters-workloads) for layer 4 and 5.
