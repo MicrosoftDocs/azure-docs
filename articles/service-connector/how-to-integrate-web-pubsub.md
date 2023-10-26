@@ -5,12 +5,12 @@ author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 08/11/2022
+ms.date: 10/26/2023
 ---
 
 # Integrate Azure Web PubSub with service connector
 
-This page shows all the supported compute services, clients, and authentication types to connect services to Azure Web PubSub instances, using Service Connector. This page also shows the default environment variable names and application properties needed to create service connections and the sample code of how to use them. You might still be able to connect to an Azure Web PubSub instance using other programming languages, without using Service Connector. Learn more about the [service connector environment variable naming conventions](concept-service-connector-internals.md).
+This page shows supported authentication methods and clients, and shows sample code you can use to connect Azure Web PubSub to other cloud services using Service Connector. You may still be able to connect to App Configuration using other methods. For more information about naming conventions, check the [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article.
 
 ## Supported compute services
 
@@ -31,7 +31,7 @@ Supported authentication and clients for App Service, Container Apps and Azure S
 
 ## Default environment variable names or application properties and sample code
 
-Use the environment variable names and application properties listed below, according to your connection's authentication type and client type, to connect an Azure service to Web PubSub using .NET, Java, Node.js, or Python. For each example below, replace the placeholder texts `<name>`, `<client-id>`, `<client-secret`, `<access-key>`, and `<tenant-id>` with your own resource name, client ID, client secret, access-key, and tenant ID.
+Use the environment variable names and application properties listed below, according to your connection's authentication type and client type, to connect compute services to Web PubSub using .NET, Java, Node.js, or Python. For each example below, replace the placeholder texts `<name>`, `<client-id>`, `<client-secret`, `<access-key>`, and `<tenant-id>` with your own resource name, client ID, client secret, access-key, and tenant ID.
 
 ### System-assigned managed identity
 
