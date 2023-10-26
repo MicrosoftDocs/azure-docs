@@ -11,8 +11,8 @@ ms.date: 10/26/2023
 
 This article is a list of all sensitive information types supported by MDC (a subset of what's supported in Purview). The following table lists the scanned sensitive information type, the Microsoft Defender for Cloud info type category, and whether the sensitive information type is scanned by default in the sensitivity settings. Read more about [data sensitivity settings](data-sensitivity-settings.md).
 
-| Information Type Name | Microsoft Defender for Cloud Info Type Category | Is Default in sensitivity settings? |
-|----------|----------|----------|----------|
+|Sensitive information type name |Microsoft Defender for Cloud info type category | Is default in sensitivity settings?  |
+|----------|----------|----------|
 | [ABA routing number](https://learn.microsoft.com/purview/sit-defn-aba-routing) | Finance | YES |
 | [Amazon S3 Client Secret Access Key](https://learn.microsoft.com/purview/sit-defn-amazon-s3-client-secret-access-key) | Credentials | YES |
 | [Argentina national identity (DNI) number](https://learn.microsoft.com/purview/sit-defn-argentina-national-identity-numbers) | Other | NO |
