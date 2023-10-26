@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: mongodb-vcore
 ms.topic: conceptual
-ms.date: 08/28/2023
+ms.date: 10/26/2023
 ---
 
 # Ensure Business Continuity and disaster recovery
