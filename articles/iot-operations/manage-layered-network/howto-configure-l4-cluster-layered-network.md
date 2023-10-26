@@ -25,7 +25,7 @@ Since Level 4 is internet facing, the configuration and installation can be comp
 1. Install [Kubectl](https://kubernetes.io/docs/tasks/tools/)
 1. Install AKS Edge Essentials. Follow the steps in [Prepare your machines for AKS Edge Essentials](/azure/aks/hybrid/aks-edge-howto-setup-machine)
 1. Install Azure CLI. Follow the steps in [Install Azure CLI on Windows](/azure/install-azure-cli-windows)
-1. Install connectedk8s using te following command:
+1. Install connectedk8s using the following command:
 
     ```bash
     az extension add --name connectedk8s
@@ -35,7 +35,7 @@ Since Level 4 is internet facing, the configuration and installation can be comp
 
 1. To deploy AKS Edge Essentials, you need an Azure service principal that has at least **contributor** access to your subscription. For more information on how to create an Azure service principal, see [Create a Microsoft Entra application and service principal that can access resources](/entra/identity-platform/howto-create-service-principal-portal) to create a service principal.
 
-  For more information on prerequistes, see [AKS Edge Essentials prerequistes](/azure/aks/hybrid/aks-edge-quickstart#prerequisites).
+  For more information on prerequisites, see [AKS Edge Essentials prerequisites](/azure/aks/hybrid/aks-edge-quickstart#prerequisites).
 
 1. Follow the steps in the [Single machine deployment](/azure/aks/hybrid/aks-edge-howto-single-node-deployment) article.
 1. Use the `New-AksEdgeDeployment` PowerShell command to create a file named **aks-ee-config.json**.
@@ -62,7 +62,7 @@ Since Level 4 is internet facing, the configuration and installation can be comp
     },
   ```
 
-1. In the **Network** section, verify the following properties are added or set. Replace the placeholder text with your values. Confirm that the *Ip4AddressPrefix* **A.B.C** doesn't overlap with the IP range that are assigned within network layers.
+1. In the **Network** section, verify the following properties are added or set. Replace the placeholder text with your values. Confirm that the *Ip4AddressPrefix* **A.B.C** doesn't overlap with the IP range that is assigned within network layers.
 
   ```json
   "Network": {
@@ -83,7 +83,7 @@ Since Level 4 is internet facing, the configuration and installation can be comp
 
 1. Make sure that **helm 3.8.0 (or later)** is installed before Arc-enable the cluster.
 
-1. Run the following in an elevated PowerShell prompt:
+1. Run the following command in an elevated PowerShell prompt:
 
   ```powershell
   Connect-AksEdgeArc -JsonConfigFilePath .\aks-ee-config.json
@@ -119,7 +119,7 @@ azedge-lnm-operator-598cc495c-5428j   1/1     Running   0          28h
 
 Create Layered Network Management custom resource.
 
-1. Create a `lnm-cr.yaml` file as specified below
+1. Create a `lnm-cr.yaml` file as specified:
 
 ```yaml
 apiVersion: az-edge.com/v1

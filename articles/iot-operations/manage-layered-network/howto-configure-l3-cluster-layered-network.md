@@ -26,14 +26,14 @@ You can choose to use the AKS EE ([AKS Edge Essentials](/azure/aks/hybrid/aks-ed
 
 You should complete this step in an **internet facing environment** outside of the isolated network. Otherwise, you need to prepare the offline installation package for the following required software.
 
-If you are using VM to create your Windows 11 machines, please use the [VM image](https://developer.microsoft.com/windows/downloads/virtual-machines/) that includes Visual Studio preinstalled. This ensures the required certificates needed by Arc onboarding are included.
+If you're using VM to create your Windows 11 machines, use the [VM image](https://developer.microsoft.com/windows/downloads/virtual-machines/) that includes Visual Studio preinstalled. This ensures the required certificates needed by Arc onboarding are included.
 
 1. Install [Windows 11](https://www.microsoft.com/software-download/windows11) on your device
 1. Install [Helm](https://helm.sh/docs/intro/install/) 3.8.0 or later
 1. Install [Kubectl](https://kubernetes.io/docs/tasks/tools/)
 1. Install AKS Edge Essentials. Follow the steps in [Prepare your machines for AKS Edge Essentials](/azure/aks/hybrid/aks-edge-howto-setup-machine)
 1. Install Azure CLI. Follow the steps in [Install Azure CLI on Windows](/azure/install-azure-cli-windows)
-1. Install connectedk8s using te following command:
+1. Install connectedk8s using the following command:
 
     ```bash
     az extension add --name connectedk8s
@@ -43,7 +43,7 @@ If you are using VM to create your Windows 11 machines, please use the [VM image
 
 ## Move the device to level 3 isolated network
 
-In your isolated network layer, the DNS server was configured in a prerequiste step using [Configure Azure IoT Layered Network Management Environment](./howto-configure-layered-network.md#configure-dns-server). Complete the step if you haven't done so.
+In your isolated network layer, the DNS server was configured in a prerequisite step using [Configure Azure IoT Layered Network Management Environment](./howto-configure-layered-network.md#configure-dns-server). Complete the step if you haven't done so.
 
 After the device is moved to L3, configure the DNS setting using the following steps:
 
@@ -81,7 +81,7 @@ To create the AKS Edge Essentials cluster in level 3, use the `aks-ee-config.jso
 1. Install [Helm](https://helm.sh/docs/intro/install/) 3.8.0 or later
 1. Install [Kubectl](https://kubernetes.io/docs/tasks/tools/)
 1. Install Azure CLI. Follow the steps in [Install Azure CLI on Linux](/cli/azure/install-azure-cli-linux)
-1. Install connectedk8s using te following command:
+1. Install connectedk8s using the following command:
 
     ```bash
     az extension add --name connectedk8s
@@ -105,7 +105,7 @@ To create the AKS Edge Essentials cluster in level 3, use the `aks-ee-config.jso
 
 ## Move the device to level 3 isolated network
 
-In your isolated network layer, the DNS server was configured in a prerequiste step using [Configure Azure IoT Layered Network Management Environment](./howto-configure-layered-network.md#configure-dns-server). Complete the step if you haven't done so.
+In your isolated network layer, the DNS server was configured in a prerequisite step using [Configure Azure IoT Layered Network Management Environment](./howto-configure-layered-network.md#configure-dns-server). Complete the step if you haven't done so.
 
 After the device is moved to L3, configure the DNS setting using the following steps:
 

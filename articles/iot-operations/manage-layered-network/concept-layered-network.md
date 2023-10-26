@@ -38,7 +38,7 @@ There are several ways to configure Layered Network Management to bridge the con
   - Level 4 cluster - A single node cluster hosted on a dual NIC physical machine, connects to internet and the local network.
   - Level 3 cluster - Another single node cluster hosted on a physical machine. This device (cluster) only connects to the local network.
   - DNS server - A DNS server setup in the local network. It provides custom domain name resolution and point the network request to the IP of level 4 cluster.
-- **ISA-95 network** - You should try deploying Layered Network Management to a ISA-95 network or a preproduction environment.
+- **ISA-95 network** - You should try deploying Layered Network Management to an ISA-95 network or a preproduction environment.
 
 ## Key features
 

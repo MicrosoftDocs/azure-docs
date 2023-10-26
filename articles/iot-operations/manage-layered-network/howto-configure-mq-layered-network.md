@@ -19,29 +19,29 @@ You can use Azure IoT Layered Network Management for deploying Azure IoT MQ in a
 ![Diagram of an isolated network using IoT MQ and Layered Network Management](./media/howto-configure-mq-layered-network/mq-layered-network.png)
 
 ## Prerequisites
-You need to setup two clusters in a basic isolated network environment to try this MQ scenario.
+You need to set up two clusters in a basic isolated network environment to try this MQ scenario.
 - A level 4 cluster that is internet facing.
 - A level 3 cluster in the isolated network and connects to Arc through the Layered Network Management service at level 4.
 
 You can use the following steps to configure the prerequisites.
 
-1. [Configure Azure IoT Layered Network Management Environment](./howto-configure-layered-network.md). It's recommended to setup with physical machines. You also need to setup the DNS server.
+1. [Configure Azure IoT Layered Network Management Environment](./howto-configure-layered-network.md). It's recommended to set up with physical machines. You also need to set up the DNS server.
 1. [Configure IoT Layered Network Management Level 4 Cluster](./howto-configure-l4-cluster-layered-network.md)
 3. [Configure IoT Layered Network Management Level 3 Cluster](./howto-configure-l3-cluster-layered-network.md)
 
-After the level 4 and level 3 cluster are both Arc-enabled, setup Iot MQ and MQTT bridge.
+After the level 4 and level 3 cluster are both Arc-enabled, configure Iot MQ and MQTT bridge.
 
 ## Level 4 configuration
 
 ### Deploy MQ on Level 4
 
-1. Run the following command to deploy IoT MQ. This installs the MQ Operator and Health Manager.
+1. Run the following command to deploy IoT MQ. This command installs the MQ Operator and Health Manager.
 
   ```bash
   helm install e4k "oci://e4kpreview.azurecr.io/helm/az-e4k" --version 0.5.0
   ```
 
-1. To setup the CR for IoT MQ, create `mq-cr.yaml` file with the following content. Run `kubectl apply -f mq-cr.yaml` and wait until all pods are ready.
+1. To set up the CR for IoT MQ, create `mq-cr.yaml` file with the following content. Run `kubectl apply -f mq-cr.yaml` and wait until all pods are ready.
 
   ```yaml
   apiVersion: az-edge.com/v1alpha3
@@ -170,13 +170,13 @@ On level 3, you need to deploy IoT MQ and MQTT Bridge. MQTT Bridge is the compon
 > [!NOTE]
 > I didn't see a level4 namespace for MQ. I'm not sure what needs to change in these instructions. 
 
-1. Run the following command to deploy IoT MQ. This installs the MQ Operator and Health Manager.
+1. Run the following command to deploy IoT MQ. This command installs the MQ Operator and Health Manager.
 
   ```bash
   helm install e4k "oci://e4kpreview.azurecr.io/helm/az-e4k" --version 0.5.0
   ```
 
-1. To setup the CR for IoT MQ, create `mq-cr.yaml` file with the following content. Run `kubectl apply -f mq-cr.yaml` and wait until all pods are ready.
+1. To set up the CR for IoT MQ, create `mq-cr.yaml` file with the following content. Run `kubectl apply -f mq-cr.yaml` and wait until all pods are ready.
 
   ```yaml
   apiVersion: az-edge.com/v1alpha3
@@ -288,7 +288,7 @@ You can use Mosquitto clients for testing end-to-end message delivery. Download 
   kubectl port-forward service/azedge-dmqtt-frontend 12345:1883
   ```
   
-1. Run the following command to subscribe to a topic. The topic you are subscribing to is **froml3** as specified in `MqttBridgeTopicMap` earlier.
+1. Run the following command to subscribe to a topic. The topic you're subscribing to is **froml3** as specified in `MqttBridgeTopicMap` earlier.
 
   ```bash
   mosquitto_sub -d -h localhost -p 12345 -i "my-client" -t "froml3"
@@ -302,7 +302,7 @@ You can use Mosquitto clients for testing end-to-end message delivery. Download 
   kubectl port-forward -n level3 service/azedge-dmqtt-frontend 12345:1883
   ```
 
-1. Publish a message with the following command. You are publishing to topic **tol4** as specified in `MqttBridgeTopicMap`
+1. Publish a message with the following command. You're publishing to topic **tol4** as specified in `MqttBridgeTopicMap`
 
   ```bash
   mosquitto_pub -d -h localhost -p 12345 -i "my-client-l3" -t "tol4" -m "Test"
