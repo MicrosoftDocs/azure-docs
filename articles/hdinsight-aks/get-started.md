@@ -46,7 +46,7 @@ When you click on one of these templates, it launches Custom deployment page in 
 |Cluster OSS Version |Provide the cluster type supported OSS version in three part naming format. For example: Trino - 0.410.0, Flink - 1.16.0, Spark - 3.3.1|
 |Custom VNet Name |Provide custom virtual network to be associated with the cluster pool. It should be in the same resource group as your cluster pool. |
 |Subnet Name in Custom Vnet |Provide subnet name defined in your custom virtual network. |
-|User Object ID| Provide user alias object ID from Microsoft Entra ID [(Azure Active Directory)](https://www.microsoft.com/security/business/identity-access/azure-active-directory).|
+|User Object ID| Provide user alias object ID from Microsoft Entra ID [(Microsoft Entra ID)](https://www.microsoft.com/security/business/identity-access/azure-active-directory).|
    
  ### Find Object ID of an identity
  
@@ -54,7 +54,7 @@ When you click on one of these templates, it launches Custom deployment page in 
 
     :::image type="content" source="./media/get-started/search-object-id.png" alt-text="Screenshot showing how to search object ID.":::
    
- 2. From Azure Active Directory box, click on your user ID.
+ 2. From Microsoft Entra ID box, click on your user ID.
     
     :::image type="content" source="./media/get-started/view-object-id.png" alt-text="Screenshot showing how to view object ID.":::
     

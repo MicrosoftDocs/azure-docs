@@ -82,7 +82,7 @@ In addition, you'll need:
 - If you want to use Azure PowerShell locally, see [Use Azure CLI and Azure PowerShell with Azure Virtual Desktop](cli-powershell.md) to make sure you have the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module installed. Alternatively, use the [Azure Cloud Shell](../cloud-shell/overview.md).
 
 > [!IMPORTANT]
-> If you want to create Azure Active Directory-joined session hosts, we only support this using the Azure portal with the Azure Virtual Desktop service.
+> If you want to create Microsoft Entra joined session hosts, we only support this using the Azure portal with the Azure Virtual Desktop service.
 
 # [Azure CLI](#tab/cli)
 
@@ -102,7 +102,7 @@ In addition, you'll need:
 - If you want to use Azure CLI locally, see [Use Azure CLI and Azure PowerShell with Azure Virtual Desktop](cli-powershell.md) to make sure you have the [desktopvirtualization](/cli/azure/desktopvirtualization) Azure CLI extension installed. Alternatively, use the [Azure Cloud Shell](../cloud-shell/overview.md).
 
 > [!IMPORTANT]
-> If you want to create Azure Active Directory-joined session hosts, we only support this using the Azure portal with the Azure Virtual Desktop service.
+> If you want to create Microsoft Entra joined session hosts, we only support this using the Azure portal with the Azure Virtual Desktop service.
 
 ---
 
@@ -151,7 +151,7 @@ Here's how to create a host pool using the Azure portal.
    |--|--|
    | Add Azure virtual machines | Select **Yes**. This shows several new options. |
    | Resource group | This automatically defaults to the resource group you chose your host pool to be in on the *Basics* tab, but you can also select an alternative. |
-   | Name prefix | Enter a name for your session hosts, for example **aad-hp01-sh**.<br /><br />This will be used as the prefix for your session host VMs. Each session host has a suffix of a hyphen and then a sequential number added to the end, for example **aad-hp01-sh-0**.<br /><br />This name prefix can be a maximum of 11 characters and is used in the computer name in the operating system. The prefix and the suffix combined can be a maximum of 15 characters. Session host names must be unique. |
+   | Name prefix | Enter a name for your session hosts, for example **me-id-hp01-sh**.<br /><br />This will be used as the prefix for your session host VMs. Each session host has a suffix of a hyphen and then a sequential number added to the end, for example **me-id-hp01-sh-0**.<br /><br />This name prefix can be a maximum of 11 characters and is used in the computer name in the operating system. The prefix and the suffix combined can be a maximum of 15 characters. Session host names must be unique. |
    | Virtual machine location | Select the Azure region where your session host VMs will be deployed. This must be the same region that your virtual network is in. |
    | Availability options | Select from **[availability zones](../reliability/availability-zones-overview.md)**, **[availability set](../virtual-machines/availability-set-overview.md)**, or **No infrastructure dependency required**. If you select availability zones or availability set, complete the extra parameters that appear.  |
    | Security type | Select from **Standard**, **[Trusted launch virtual machines](../virtual-machines/trusted-launch.md)**, or **[Confidential virtual machines](../confidential-computing/confidential-vm-overview.md)**.<br /><br />- If you select **Trusted launch virtual machines**, options for **secure boot** and **vTPM** are automatically selected.<br /><br />- If you select **Confidential virtual machines**, options for **secure boot**, **vTPM**, and **integrity monitoring** are automatically selected. You can't opt out of vTPM when using a confidential VM. |
@@ -167,7 +167,7 @@ Here's how to create a host pool using the Azure portal.
    | Network security group | Select whether you want to use a network security group (NSG).<br /><br />- **None** won't create a new NSG.<br /><br />- **Basic** will create a new NSG for the VM NIC.<br /><br />- **Advanced** enables you to select an existing NSG.<br /><br />We recommend that you don't create an NSG here, but [create an NSG on the subnet instead](../virtual-network/manage-network-security-group.md). |
    | Public inbound ports | You can select a port to allow from the list. Azure Virtual Desktop doesn't require public inbound ports, so we recommend you select **No**. |
    | **Domain to join** |  |
-   | Select which directory you would like to join | Select from **Azure Active Directory** or **Active Directory** and complete the relevant parameters for the option you select.  |
+   | Select which directory you would like to join | Select from **Microsoft Entra ID** or **Active Directory** and complete the relevant parameters for the option you select.  |
    | **Virtual Machine Administrator account** |  |
    | Username | Enter a name to use as the local administrator account for the new session host VMs. |
    | Password | Enter a password for the local administrator account. |
@@ -183,7 +183,7 @@ Here's how to create a host pool using the Azure portal.
    | Parameter | Value/Description |
    |--|--|
    | Register desktop app group | Select **Yes**. This registers the default desktop application group to the selected workspace. |
-   | To this workspace | Select an existing workspace from the list, or select **Create new** and enter a name, for example **aad-ws01**. |
+   | To this workspace | Select an existing workspace from the list, or select **Create new** and enter a name, for example **Microsoft Entra ID-ws01**. |
 
    Once you've completed this tab, select **Next: Advanced**.
 

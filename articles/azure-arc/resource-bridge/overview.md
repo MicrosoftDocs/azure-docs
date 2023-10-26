@@ -10,13 +10,12 @@ ms.custom: references_regions
 
 Azure Arc resource bridge (preview) is a Microsoft managed product that is part of the core Azure Arc platform. It is designed to host other Azure Arc services. In this release, the resource bridge supports VM self-servicing and management from Azure, for virtualized Windows and Linux virtual machines hosted in an on-premises environment on [Azure Stack HCI](/azure-stack/hci/manage/azure-arc-vm-management-overview), VMware ([Arc-enabled VMware vSphere](../vmware-vsphere/index.yml) preview), and System Center Virtual Machine Manager (SCVMM) ([Arc-enabled SCVMM](../system-center-virtual-machine-manager/index.yml) preview).
 
-Arc resource bridge is a packaged virtual machine that hosts a *management* Kubernetes cluster and requires minimal user management. The virtual machine is deployed on the on-premises infrastructure, and an ARM resource of Arc resource bridge is created in Azure. The two resources are then connected, allowing VM self-service and management from Azure. The on-premises resource bridge uses guest management to tag local resources, making them available in Azure.
+Azure Arc resource bridge is a Kubernetes management cluster installed on the customer’s on-premises infrastructure. The resource bridge is provided credentials to the infrastructure control plane that allows it to apply guest management services on the on-premises resources. Arc resource bridge enables projection of on-premises resources as ARM resources and management from ARM as “arc-enabled” Azure resources.
 
 Arc resource bridge delivers the following benefits:
 
 * Enables VM self-servicing from Azure without having to create and manage a Kubernetes cluster.
 * Fully supported by Microsoft, including updates to core components.
-* Designed to recover from software failures.
 * Supports deployment to any private cloud hosted on Hyper-V or VMware from the Azure portal or using the Azure Command-Line Interface (CLI).
 
 ## Overview
@@ -34,10 +33,10 @@ Azure Arc resource bridge (preview) can host other Azure services or solutions r
 * Cluster extension: The Azure service deployed to run on-premises. For the preview release, it supports three services:
 
   * Azure Arc-enabled VMware
-  * Azure Arc-enabled Azure Stack HCI
+  * Azure Arc VM management on Azure Stack HCI
   * Azure Arc-enabled System Center Virtual Machine Manager (SCVMM)
 
-* Custom locations: A deployment target where you can create Azure resources. It maps to different resource for different Azure services. For example, for Arc-enabled VMware, the custom locations resource maps to an instance of vCenter, and for Arc-enabled Azure Stack HCI, it maps to an HCI cluster instance.
+* Custom locations: A deployment target where you can create Azure resources. It maps to different resource for different Azure services. For example, for Arc-enabled VMware, the custom locations resource maps to an instance of vCenter, and for Azure Arc VM management on Azure Stack HCI, it maps to an HCI cluster instance.
 
 Custom locations and cluster extension are both Azure resources, which are linked to the Azure Arc resource bridge (preview) resource in Azure Resource Manager. When you create an on-premises VM from Azure, you can select the custom location, and that routes that *create action* to the mapped vCenter, Azure Stack HCI cluster, or SCVMM.
 
@@ -84,13 +83,13 @@ Arc resource bridge supports the following Azure regions:
 * West US 2
 * West US 3
 * Central US
-
 * South Central US
 * West Europe
 * North Europe
 * UK South
-* Sweden Central
+* UK West
 
+* Sweden Central
 * Canada Central
 * Australia East
 * Southeast Asia
@@ -107,19 +106,27 @@ The following private cloud environments and their versions are officially suppo
 * Azure Stack HCI
 * SCVMM
 
-### Required Azure permissions
 
-* To onboard Arc resource bridge, you must have the [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role for the resource group.
-* To read, modify, and delete Arc resource bridge, you must have the [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role for the resource group.
+### Supported versions
 
-### Networking
+Generally, the latest released version and the previous three versions (n-3) of Arc resource bridge are supported. For example, if the current version is 1.0.10, then the typical n-3 supported versions are:
 
-Arc resource bridge communicates outbound securely to Azure Arc over TCP port 443. If the appliance needs to connect through a firewall or proxy server to communicate over the internet, it communicates outbound using the HTTPS protocol. You may need to allow specific URLs to [ensure outbound connectivity is not blocked](troubleshoot-resource-bridge.md#not-able-to-connect-to-url) by your firewall or proxy server. For more information, see [Azure Arc resource bridge (preview) network requirements](network-requirements.md).
+* Current version: 1.0.10
+*n-1 version: 1.0.9
+* n-2 version: 1.0.8
+* n-3 version: 1.0.7
+
+There may be instances where supported versions are not sequential. For example, version 1.0.11 is released and later found to contain a bug. A hot fix is released in version 1.0.12 and version 1.0.11 is removed. In this scenario, n-3 supported versions become 1.0.12, 1.0.10, 1.0.9, 1.0.8.
+
+Arc resource bridge typically releases a new version on a monthly cadence, at the end of the month. Delays may occur that could push the release date further out. Regardless of when a new release comes out, if you are within n-3 supported versions, then your Arc resource bridge version is supported. To stay updated on releases, visit the [Arc resource bridge release notes](https://github.com/Azure/ArcResourceBridge/releases) on GitHub. To learn more about upgrade options, visit [Upgrade Arc resource bridge](upgrade.md).
 
 ## Next steps
 
 * Learn more about [how Azure Arc-enabled VMware vSphere extends Azure's governance and management capabilities to VMware vSphere infrastructure](../vmware-vsphere/overview.md).
-* Learn more about [provisioning and managing on-premises Windows and Linux VMs running on Azure Stack HCI clusters](/azure-stack/hci/manage/azure-arc-enabled-virtual-machines).
+* Learn more about [provisioning and managing on-premises Windows and Linux VMs running on Azure Stack HCI](/azure-stack/hci/manage/azure-arc-vm-management-overview).
 * Review the [system requirements](system-requirements.md) for deploying and managing Arc resource bridge.
+
+
+
 
 

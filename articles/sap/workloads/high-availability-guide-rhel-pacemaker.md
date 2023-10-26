@@ -290,7 +290,7 @@ To create a managed identity (MSI), [create a system-assigned](../../active-dire
 Follow these steps to create a service principal, if you aren't using managed identity.
 
 1. Go to the [Azure portal](https://portal.azure.com).
-1. Open the **Azure Active Directory** pane.
+1. Open the **Microsoft Entra ID** pane.
    Go to **Properties** and make a note of the **Directory ID**. This is the **tenant ID**.
 1. Select **App registrations**.
 1. Select **New Registration**.

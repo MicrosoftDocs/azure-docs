@@ -65,7 +65,7 @@ Before you start the offline backup workflow, complete the following prerequisit
 * Azure PowerShell 3.7.0 is required on the computer running the Azure Backup Agent. Download and [install the 3.7.0 version of Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/v3.7.0-March2017).
 * On the computer running the Azure Backup Agent, make sure that Microsoft Edge or Internet Explorer 11 is installed and JavaScript is enabled.
 * Create an Azure storage account in the same subscription as the Recovery Services vault.
-* Make sure you have the [necessary permissions](../active-directory/develop/howto-create-service-principal-portal.md) to create the Azure Active Directory application. The offline backup workflow creates an Azure Active Directory application in the subscription associated with the Azure storage account. The goal of the application is to provide Azure Backup with secure and scoped access to the Azure Import/Export service, which is required for the offline backup workflow.
+* Make sure you have the [necessary permissions](../active-directory/develop/howto-create-service-principal-portal.md) to create the Microsoft Entra application. The offline backup workflow creates a Microsoft Entra application in the subscription associated with the Azure storage account. The goal of the application is to provide Azure Backup with secure and scoped access to the Azure Import/Export service, which is required for the offline backup workflow.
 * Register the *Microsoft.DataBox* resource provider with the subscription that contains the Azure storage account. To register the resource provider:
     1. On the main menu, select **Subscriptions**.
     1. If you're subscribed to multiple subscriptions, select the subscription you plan to use for the offline backup. If you use only one subscription, then your subscription appears.
@@ -107,7 +107,7 @@ This section describes the offline backup workflow so that your data can be deli
   
    After you fill in the boxes, select **Next**. Save the **Staging Location** and the **Azure Import Job Name** information. It's required to prepare the disks.
 
-1. When prompted, sign in to your Azure subscription. You must sign in so that Azure Backup can create the Azure Active Directory application. Enter the required permissions to access the Azure Import/Export service.
+1. When prompted, sign in to your Azure subscription. You must sign in so that Azure Backup can create the Microsoft Entra application. Enter the required permissions to access the Azure Import/Export service.
 
     :::image type="content" source="./media/backup-azure-backup-import-export/azure-login.png" alt-text="Screenshot showing the Azure subscription sign-in page.":::
 
