@@ -14,6 +14,7 @@ ms.author: hrshelar
 Azure Orbital Ground Station interfaces with your Azure resources using virtual network (VNET) injection, which is used in both uplink and downlink directions. This page describes how to ensure your subnet and Azure Orbital Ground Station resources are configured correctly.
 
 In this how-to guide, you'll learn how to:
+
 > [!div class="checklist"]
 > * Prepare the subnet for VNET injection
 > * Prepare endpoints
