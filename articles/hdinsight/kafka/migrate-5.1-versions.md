@@ -26,7 +26,7 @@ Upgrading the Kafka version on an existing cluster is not supported. After you c
 If you migrate from Kafka to 3.2.0  you can take advantage of the following new features:
 
 
-:::image type="content" source="Kafka_3.2.0_improvements.png" alt-text="kafka 3.2.0 improvements" border="false":::
+:::image type="content" source="./media/migrate-5.1-versions/kafka-320-improvements.png" alt-text=" Screenshot shows kafka 3.2.0 improvements" lightbox="./media/migrate-5.1-versions/kafka-320-improvements.png":::
 
 
 - Support Automated consumer offsets sync across cluster in MM 2.0, making it easier to migrate or failover consumers across clusters. (KIP-545)
@@ -44,7 +44,7 @@ For a complete list of updates, see [Apache Kafka 3.2.0 release notes](https://a
 
 New Kafka brokers support older clients. [KIP-35 - Retrieving protocol version](https://cwiki.apache.org/confluence/display/KAFKA/KIP-35+-+Retrieving+protocol+version) introduced a mechanism for dynamically determining the functionality of a Kafka broker and [KIP-97: Improved Kafka Client RPC Compatibility Policy](https://cwiki.apache.org/confluence/display/KAFKA/KIP-97%3A+Improved+Kafka+Client+RPC+Compatibility+Policy) introduced a new compatibility policy and guarantees for the Java client. Previously, a Kafka client had to interact with a broker of the same version or a newer version. Now, newer versions of the Java clients and other clients that support KIP-35 such as `librdkafka` can fall back to older request types or throw appropriate errors if functionality isn't available.
 
-:::image type="content" source="./media/upgrade-to-fiveone/client-compatibility.png" alt-text="Upgrade Kafka client compatibility" border="false":::
+:::image type="content" source="./media/migrate-5.1-versions/client-compatibility.png" alt-text="Screenshot shows Upgrade Kafka client compatibility" lightbox="./media/migrate-5.1-versions/client-compatibility.png":::
 
 Note that it does not mean that the client supports older brokers.  For more information, see [Compatibility Matrix](https://cwiki.apache.org/confluence/display/KAFKA/Compatibility+Matrix).
 
@@ -56,15 +56,15 @@ To complete the migration, do the following steps:
 
 1. **Deploy a new HDInsight 5.1 cluster and clients for test.** Deploy a new HDInsight 5.1 Kafka cluster. If multiple Kafka cluster versions can be selected, it's recommended to select the latest version. After deployment, set some parameters as needed and create a topic with the same name as your existing environment. Also, set TLS and bring-your-own-key (BYOK) encryption as needed. Then check if it works correctly with the new cluster.
 
-    :::image type="content" source="./media/upgrade-to-fiveone/deploy-new-hdinsight-clusters.png" alt-text="Deploy new HDInsight 5.1 clusters" border="false":::
+    :::image type="content" source="./media/migrate-5.1-versions/deploy-new-hdinsight-clusters.png" alt-text="Screenshot shows how to Deploy new HDInsight 5.1 clusters" lightbox="./media/migrate-5.1-versions/deploy-new-hdinsight-clusters.png":::
 
 1. **Switch the cluster for the producer application, and wait until all the queue data is consumed by the current consumers.** When the new HDInsight 5.1 Kafka cluster is ready, switch the existing producer destination to the new cluster. Leave it as it is until the existing Consumer app has consumed all the data from the existing cluster.
 
-    :::image type="content" source="./media/upgrade-to-fiveone/switch-cluster-producer-app.png" alt-text="Switch cluster for producer app" border="false":::
+    :::image type="content" source="./media/migrate-5.1-versions/switch-cluster-producer-app.png" alt-text="Screenshot shows how to Switch cluster for producer app" lightbox="./media/migrate-5.1-versions/switch-cluster-producer-app.png":::
 
 1. **Switch the cluster on the consumer application.** After confirming that the existing consumer application has finished consuming all data from the existing cluster, switch the connection to the new cluster.
 
-    :::image type="content" source="./media/upgrade-to-fiveone/switch-cluster-consumer-app.png" alt-text="Switch cluster on consumer app" border="false":::
+    :::image type="content" source="./media/migrate-5.1-versions/switch-cluster-consumer-app.png" alt-text="Screenshot shows how to Switch cluster on consumer app" lightbox="./media/migrate-5.1-versions/switch-cluster-consumer-app.png":::
 
 1. **Remove the old cluster and test applications as needed.** Once the switch is complete and working properly, remove the old HDInsight 4.0 Kafka cluster and the producers and consumers used in the test as needed.
 
