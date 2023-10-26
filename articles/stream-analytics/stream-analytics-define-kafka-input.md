@@ -137,7 +137,10 @@ For your Azure Stream Analytics job to access the certificate in your key vault 
 
    
 ### VNET integration
-When configuring your Azure Stream Analytics job to connect to your Kafka clusters, depending on your configuration, you might have to configure your job to access your Kafka clusters, which are behind a firewall or inside a virtual network. You can visit the Azure Stream Analytics VNET documentation to learn more about configuring private endpoints to access resources inside a virtual network or behind a firewall.
+
+If your Kafka is inside a virtual network (VNET) or behind a firewall, you must configure your Azure Stream Analytics job to access your Kafka topic.
+Visit the (Run your Azure Stream Analytics job in an Azure Virtual Network documentation)[../stream-analytics/run-job-in-virtual-network.md] for more information.
+
 
 
 ### Limitations
