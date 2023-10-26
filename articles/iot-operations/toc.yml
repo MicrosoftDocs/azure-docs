@@ -156,20 +156,6 @@ items:
         href: monitor/overview-monitor-health.md
       - name: Monitor Azure MQ
         href: monitor/howto-monitor-mq.md
-    - name: Developer guide
-      items:
-      - name: Overview
-        href: develop/overview-develop-customizations.md
-      - name: About the MQ state store
-        href: develop/concept-about-state-store.md
-      - name: About distributed apps
-        href: develop/concept-about-distributed-apps.md
-      - name: Develop Dapr apps
-        href: develop/howto-develop-dapr-apps.md
-      - name: Develop MQTTnet apps
-        href: develop/howto-develop-mqttnet-apps.md
-      - name: Develop Node-RED apps
-        href: develop/howto-develop-node-red-apps.md
     - name: Manage layered network
       items:
       - name: Layered Network Management overview
@@ -186,6 +172,20 @@ items:
         href: manage-layered-network/howto-configure-mq-layered-network.md
       - name: Configure AKS Edge Essentials clusters
         href: manage-layered-network/howto-configure-aks-edge-essentials-layered-network.md
+    - name: Developer guide
+      items:
+      - name: Overview
+        href: develop/overview-develop-customizations.md
+      - name: About the MQ state store
+        href: develop/concept-about-state-store.md
+      - name: About distributed apps
+        href: develop/concept-about-distributed-apps.md
+      - name: Develop Dapr apps
+        href: develop/howto-develop-dapr-apps.md
+      - name: Develop MQTTnet apps
+        href: develop/howto-develop-mqttnet-apps.md
+      - name: Develop Node-RED apps
+        href: develop/howto-develop-node-red-apps.md
     - name: Administrator guide
       items:
       - name: Overview
