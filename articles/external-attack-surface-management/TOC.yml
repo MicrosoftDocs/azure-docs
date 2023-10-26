@@ -5,7 +5,7 @@
     href: index.md
   - name: Understanding inventory assets
     href: understanding-inventory-assets.md
-  - name: "What is Discovery?"
+  - name: What is Discovery?
     href: what-is-discovery.md
 - name: How-to
   items:
@@ -52,5 +52,5 @@
     href: discovering-your-attack-surface.md
 - name: Integrations
   items: 
-  - name: "Security Copilot (preview) and Defender EASM"
+  - name: Security Copilot (preview) and Defender EASM
   - href: easm-copilot.md
