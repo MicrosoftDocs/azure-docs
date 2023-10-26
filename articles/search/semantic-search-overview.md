@@ -15,7 +15,7 @@ ms.date: 10/26/2023
 
 In Azure Cognitive Search, *semantic ranking* measurably improves search relevance by using language understanding to rerank search results. This article is a high-level introduction to semantic ranking. The [embedded video](#how-semantic-ranking-works) describes the technology, and the section at the end covers availability and pricing.
 
-Semantic ranking is a premium feature that's billed by usage. We recommend this article for background, but if you'd rather get started, follow these steps:
+Semantic ranking is a premium feature, billed by usage. We recommend this article for background, but if you'd rather get started, follow these steps:
 
 > [!div class="checklist"]
 > * [Check regional availability](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=search).
@@ -60,13 +60,11 @@ In semantic ranking, the query subsystem passes search results as an input to su
 
 1. Semantic ranking starts with a [BM25-ranked result](index-ranking-similarity.md) from a text query or an [RRF-ranked result](hybrid-search-ranking.md) from a hybrid query. Only text fields are used in the reranking exercise, and only the top 50 results progress to semantic ranking, even if results include more than 50. Typically, fields used in semantic ranking are informational and descriptive.
 
-1. For each document in the search result, the summarization model accepts 140 sentences of 64 tokens each, where a token is approximately 10 characters. The summarization model pulls from the "title", "keyword", and "content" fields listed in the [semantic configuration](semantic-how-to-query-request.md#2---create-a-semantic-configuration). It outputs a summary string composed of the most relevant information from each field.
+1. For each document in the search result, the summarization model accepts up to 2,000 tokens, where a token is approximately 10 characters. Inputs are assembled from the "title", "keyword", and "content" fields listed in the [semantic configuration](semantic-how-to-query-request.md#2---create-a-semantic-configuration). 
 
 1. Excessively long strings are trimmed to ensure the overall length meets the input requirements of the summarization step.
 
    This trimming exercise is why it's important to add fields to your semantic configuration in priority order. If you have very large documents with text-heavy fields, anything after the maximum limit is ignored.
-
-   The maximum limit of the summary string is 256 tokens.
 
    | Semantic field | Token limit |
    |-----------|-------------|
@@ -74,7 +72,11 @@ In semantic ranking, the query subsystem passes search results as an input to su
    | "keywords | 128 tokens |
    | "content" | remaining tokens |
 
-The summary strings are sent to the ranker. 
+1. Outputs are a summary string for each document, composed of the most relevant information from each field. 
+
+The maximum length of each summary string is 256 tokens. 
+
+Summary strings are sent to the ranker for scoring, and to machine reading comprehension models for captions and answers.
 
 ### How summaries are scored
 
@@ -91,7 +93,7 @@ Scoring is done over the summary string.
 
 ### Outputs of semantic ranking
 
-From each string, the summarization model finds a passage that is the most representative.
+From each summary string, the machine reading comprension models find passages that are the most representative.
 
 Outputs are:
 
