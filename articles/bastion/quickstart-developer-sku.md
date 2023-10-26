@@ -59,7 +59,7 @@ You can use the following example values when creating this configuration as an 
 | --- | --- |
 | Virtual machine| TestVM |
 | Resource group | TestRG1 |
-| Region | East US |
+| Region | West US |
 | Virtual network | VNet1 |
 | Address space | 10.1.0.0/16 |
 | Subnets | FrontEnd: 10.1.0.0/24 |
