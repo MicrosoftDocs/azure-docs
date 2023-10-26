@@ -175,17 +175,17 @@ items:
       - name: Manage Azure MQ
         items:
         - name: Configure automatic TLS
-          href: administer/mq/howto-configure-tls-auto.md
+          href: manage-mqtt-connectivity/howto-configure-tls-auto.md
         - name: Configure manual TLS
-          href: administer/mq/howto-configure-tls-manual.md
+          href: manage-mqtt-connectivity/howto-configure-tls-manual.md
         - name: Configure authentication
-          href: administer/mq/howto-configure-authentication.md
+          href: manage-mqtt-connectivity/howto-configure-authentication.md
         - name: Configure authorization
-          href: administer/mq/howto-configure-authorization.md
+          href: manage-mqtt-connectivity/howto-configure-authorization.md
         - name: Configure availability and scale
-          href: administer/mq/howto-configure-availability-scale.md
+          href: manage-mqtt-connectivity/howto-configure-availability-scale.md
         - name: Configure disk buffer
-          href: administer/mq/howto-configure-disk-buffer.md
+          href: manage-mqtt-connectivity/howto-configure-disk-buffer.md
 
     - name: Troubleshoot
       href: troubleshoot/troubleshoot.md
