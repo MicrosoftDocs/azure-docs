@@ -87,7 +87,7 @@ Reimaging a VM instance in a scale set is a more immediate and disruptive action
 
 **When to use each method:**
 - Use OS Image Upgrade when you want to update the OS image for the entire scale set while maintaining high availability.
-- Use Reimage when you need to troubleshoot or reset a specific VM instance within the VMSS.
+- Use Reimage when you need to troubleshoot or reset a specific VM instance within the virtual Machine Scale Set.
 
 It's essential to carefully plan and choose the appropriate method based on your specific requirements to minimize any disruption to your applications and services running in a Virtual Machine Scale Set.
 
@@ -430,7 +430,7 @@ az vmss rolling-upgrade start --resource-group "myResourceGroup" --name "myScale
 
 ## Investigate and Resolve Auto Upgrade Errors
 
-The platform can return errors on VMs while performing Automatic Image Upgrade with Rolling Upgrade policy. The [Get Instance View](/rest/api/compute/virtual-machine-scale-sets/get-instance-view) of a VM contains the detailed error message to investigate and resolve an error. The [Rolling Upgrades - Get Latest](/rest/api/compute/virtual-machine-scale-sets/get) can provide more details on rolling upgrade configuration and status. The [Get OS Upgrade History](/rest/api/compute/virtual-machine-scale-sets/get) provides details on the last image upgrade operation on the scale set. Below are the top most errors that can result in Rolling Upgrades.
+The platform can return errors on VMs while performing Automatic Image Upgrade with Rolling Upgrade policy. The [Get Instance View](/rest/api/compute/virtual-machine-scale-sets/get-instance-view) of a VM contains the detailed error message to investigate and resolve an error. The [Rolling Upgrades - Get Latest](/rest/api/compute/virtual-machine-scale-sets/get) can provide more details on rolling upgrade configuration and status. The [Get OS Upgrade History](/rest/api/compute/virtual-machine-scale-sets/get) provides details on the last image upgrade operation on the scale set. Below are the topmost errors that can result in Rolling Upgrades.
 
 **RollingUpgradeInProgressWithFailedUpgradedVMs**
 - Error is triggered for a VM failure.
