@@ -44,8 +44,6 @@ For push event subscriptions, there's no change as to the maximum retry period. 
 ### Use Azure portal
 The **Create Topic** page in the Azure portal allows you to specify **Retention in days**. 
 
-:::image type="content" source="./media/configure-event-retention/create-topic-retention.png" alt-text="Screenshot that shows the Create Topic page with the Retention section highlighted.":::
-
 ### Use Azure Resource Manager template
 Use the `eventRetentionInDays` specifies the maximum number of days published messages are stored by the topic regardless of the message state (acknowledged, etc.). The default value for this property is 7, minimum is 1, and the maximum is 7. 
 
@@ -70,8 +68,6 @@ For example, use the [`NamespaceTopicData.EventRetentionInDays`](/dotnet/api/azu
 
 ### Use Azure portal
 The **Additional features** tab of the **Create Subscription** page in the Azure portal allows you to specify **retention or time-to-live** settings for the events in the subscription. 
-
-:::image type="content" source="./media/configure-event-retention/create-subscription-retention.png" alt-text="Screenshot that shows the Create Subscription page with the Retention section highlighted.":::
 
 ### Use Azure Resource Manager template
 Use the `eventTimeToLive` determines how long messages are in the subscription from the time the message was published. It can't be set  to a value greater than topic’s `eventRetentionInDays`. The minimum value is  1 minute, maximum value is topic’s retention, and the default value is 7 days or topic retention, whichever is lower. If the user species a value (no default use) and that TTL > topic’s event retention, then the service throws an exception.
