@@ -131,11 +131,11 @@ Create a basic pipeline to pass through the data to a separate MQTT topic.
 
 In the following steps, leave all values at their default unless otherwise specified:
 
-1. In the [Digital Operations portal](https://digitaloperations.azure.com/), navigate to **Data pipelines** in your cluster.  
+1. In the [Azure IoT Operations portal](https://digitaloperations.azure.com), navigate to **Data pipelines** in your cluster.  
 
 1. To create a new pipeline, select **+ Create pipeline**.
 
-1. Select **Configure source**, then enter information from the thermostat data MQTT topic, and then select **Apply**:
+1. Select **Configure source > MQ**, then enter information from the thermostat data MQTT topic, and then select **Apply**:
 
     | Parameter     | Value                               |
     | ------------- | ----------------------------------- |
@@ -161,16 +161,16 @@ In the following steps, leave all values at their default unless otherwise speci
     | Display name   | `output data`             |
     | Broker         | `mqtt://azedge-dmqtt-frontend:1883` |
     | Authentication | `none`                            |
-    | Topic          | `bluefin-output`                 |
+    | Topic          | `dp-output`                 |
     | Data format    | `JSON`                              |
     | Path           | `.payload`                        |
 
 1. Select the pipeline name, **\<pipeline-name\>**, and change it to _passthrough-data-pipeline_. Select **Apply**.
 1. Select **Save** to save and deploy the pipeline. It takes a few seconds to deploy this pipeline to your cluster.
-1. Connect to the MQ broker using your MQTT client again. This time, specify the topic `bluefin-output`.
+1. Connect to the MQ broker using your MQTT client again. This time, specify the topic `dp-output`.
 
     ```bash
-    mqttui "bluefin-output"
+    mqttui "dp-output"
     ```
 
 1. You see the same data flowing as previously. This behavior is expected because the deployed _passthrough data pipeline_ doesn't transform the data. The pipeline routes data from one MQTT topic to another.
@@ -183,11 +183,11 @@ Create a reference data pipeline to temporarily store reference data in a refere
 
 In the following steps, leave all values at their default unless otherwise specified:
 
-1. In the [Digital Operations portal](https://digitaloperations.azure.com/), navigate to **Data pipelines** in your cluster.  
+1. In the [Azure IoT Operations portal](https://digitaloperations.azure.com), navigate to **Data pipelines** in your cluster.  
 
 1. Select **+ Create pipeline** to create a new pipeline.
 
-1. Select **Configure source**, then enter information from the reference data topic, and then select **Apply**:
+1. Select **Configure source > MQ**, then enter information from the reference data topic, and then select **Apply**:
 
     | Parameter     | Value                               |
     | ------------- | ----------------------------------- |
@@ -235,11 +235,11 @@ After you publish the message, the pipeline receives the message and stores the 
 
 Create a Data Processor pipeline to process and enrich your data before it sends it to your Microsoft Fabric lakehouse. This pipeline uses the data stored in the equipment data reference data set to enrich messages.
 
-1. In the [Digital Operations portal](https://digitaloperations.azure.com/), navigate to **Data pipelines** in your cluster.  
+1. In the [Azure IoT Operations portal](https://digitaloperations.azure.com), navigate to **Data pipelines** in your cluster.  
 
 1. Select **+ Create pipeline** to create a new pipeline.
 
-1. Select **Configure source**, use the information in the following table to enter information from the thermostat data MQTT topic, then select **Apply**:
+1. Select **Configure source > MQ**, use the information in the following table to enter information from the thermostat data MQTT topic, then select **Apply**:
 
     | Parameter     | Value |
     | ------------- | ----- |
