@@ -102,7 +102,7 @@ Azure CLI and Azure PowerShell use subscriptions that the user has access to. Wh
 API, the subscription list is provided by the user. If the user has access to any of the
 subscriptions in the list, the query results are returned for the subscriptions the user has access
 to. This behavior is the same as when calling [Resource Groups - List](/rest/api/resources/resourcegroups/list)
-because you get resource groups that you can access, without any indication that the result may be
+because you get resource groups that you can access, without any indication that the result might be
 partial. If there are no subscriptions in the subscription list that the user has appropriate rights
 to, the response is a _403_ (Forbidden).
 
