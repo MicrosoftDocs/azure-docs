@@ -46,11 +46,13 @@ After deploying a Prompt flow, the endpoint must be assigned the `AzureML Data S
 
 If you do not have a compute instance, create a new one: [Create and manage an Azure Machine Learning compute instance](../how-to-create-compute-instance.md).
 
-1. Select add compute instance runtime in runtime list page.
+1. Select add runtime in runtime list page.
     :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-runtime-list-add.png" alt-text="Screenshot of Prompt flow on the runtime add with compute instance runtime selected. " lightbox = "./media/how-to-create-manage-runtime/runtime-creation-runtime-list-add.png":::
 1. Select compute instance you want to use as runtime.
     :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-ci-runtime-select-ci.png" alt-text="Screenshot of add compute instance runtime with select compute instance highlighted. " lightbox = "./media/how-to-create-manage-runtime/runtime-creation-ci-runtime-select-ci.png":::
     Because compute instances are isolated by user, you can only see your own compute instances or the ones assigned to you. To learn more, see [Create and manage an Azure Machine Learning compute instance](../how-to-create-compute-instance.md).
+1. Authenticate on the compute instance. You only need to do auth one time per region in 6 month.
+    :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-ci-runtime-select-ci.png" alt-text="Screenshot of doing the authentication on compute instance. " lightbox = "./media/how-to-create-manage-runtime/runtime-creation-ci-runtime-select-ci.png":::
 1. Select create new custom application or existing custom application as runtime.
     1. Select create new custom application as runtime.
         :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-ci-runtime-select-custom-application.png" alt-text="Screenshot of add compute instance runtime with custom application highlighted. " lightbox = "./media/how-to-create-manage-runtime/runtime-creation-ci-runtime-select-custom-application.png":::
@@ -91,9 +93,9 @@ When you're authoring your Prompt flow, you can select and change the runtime fr
 
 :::image type="content" source="./media/how-to-create-manage-runtime/runtime-authoring-dropdown.png" alt-text="Screenshot of Chat with Wikipedia with the runtime dropdown highlighted. " lightbox = "./media/how-to-create-manage-runtime/runtime-authoring-dropdown.png":::
 
-When performing a bulk test, you can use the original runtime in the flow or change to a more powerful runtime.
+When performing evaluation, you can use the original runtime in the flow or change to a more powerful runtime.
 
-:::image type="content" source="./media/how-to-create-manage-runtime/runtime-authoring-bulktest.png" alt-text="Screenshot of the bulk run and evaluate wizard on the bulk run setting page with runtime highlighted. " lightbox = "./media/how-to-create-manage-runtime/runtime-authoring-bulktest.png":::
+:::image type="content" source="./media/how-to-create-manage-runtime/runtime-authoring-bulktest.png" alt-text="Screenshot of evaluate wizard with runtime highlighted. " lightbox = "./media/how-to-create-manage-runtime/runtime-authoring-bulktest.png":::
 
 ## Update runtime from UI
 
