@@ -5,7 +5,7 @@ ms.topic: quickstart
 ms.date: 11/03/2021
 author: flang-msft
 ms.author: franlanglois
-ms.custom: devx-track-azurepowershell, mode-api
+
 ---
 
 # QuickStart: Get started with Apache Kafka for Confluent Cloud - Azure PowerShell
