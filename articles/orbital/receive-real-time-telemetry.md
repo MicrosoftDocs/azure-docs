@@ -24,7 +24,7 @@ In this guide, you'll learn how to:
 ## Configure Event Hubs
 
 1. In your subscription, go to **resource providers** in settings. Search for **Microsoft.Orbital** and register it as a provider.
-2. [Create an Azure Event Hubs namespace](../azure/event-hubs/event-hubs-create.md#create-an-event-hubs-namespace) and an [event hub](../azure/event-hubs/event-hubs-create.md#create-an-event-hub) in your subscription.
+2. [Create an Azure Event Hubs namespace](articles/event-hubs/event-hubs-create.md#create-an-event-hubs-namespace) and an [event hub](articles/event-hubs/event-hubs-create.md#create-an-event-hub) in your subscription.
 
 > [!Note]
 > Choose Public access for connectivity access to the Eventhubs. Private access or service endpoints is not supported.
