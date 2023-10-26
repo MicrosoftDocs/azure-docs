@@ -147,6 +147,20 @@ Different environment types have different subnet requirements:
 
   - When you're using the [Consumption workload profile](workload-profiles-overview.md#profile-types), the IP address assignment behaves the same as when running on the [Consumption only environment](environment.md#types). As your app scales, each IP address will be assigned to at least 1 replica. When determining how many IP addresses are required for your app, account for 1 IP address per replica.
 
+- When you make a [change to a revision](./revisions#revision-scope-changes), the required address space is doubled for a short period of time. This affects the real, available supported replicas or nodes for a given subnet size. The following table shows both the maximum available addresses per CIDR block and the effect on horizontal scale.
+
+| Subnet Size | Available IP Addresses<sup>1</sup> | Max horizontal scale (nodes/replicas)<sup>2</sup>|
+|--|--|--|
+| /23 | 501 | 250<sup>3</sup> |
+| /24 | 245 | 122<sup>3</sup> |
+| /25 | 117 | 58 |
+| /26 | 53 | 26 |
+| /27 | 21 | 10 |
+
+<sup>1</sup> The available IP addresses is the size of the subnet minus the 11 IP addresses required for Azure Container Apps infrastructure.  
+<sup>2</sup> This is accounting for 1 IP address per node/replica on scale out.  
+<sup>3</sup> The quota is 100 for nodes/replicas in workload profiles. If additional quota is needed, please follow steps in [Quotas for Azure Container Apps](./quotas.md).
+
 # Consumption only environment
 
 - `/23` is the minimum subnet size required for virtual network integration.
@@ -155,9 +169,13 @@ Different environment types have different subnet requirements:
 
 - As your apps scale, a new IP address is allocated for each new replica.
 
+- When you make a [change to a revision](./revisions#revision-scope-changes), the required address space is doubled for a short period of time. This affect the real, available supported replicas for a given subnet size.
+
 ---
 
 ### Subnet address range restrictions
+
+# Workload profiles environment
 
 Subnet address ranges can't overlap with the following ranges reserved by Azure Kubernetes Services:
 
@@ -172,6 +190,17 @@ In addition, a workload profiles environment reserves the following addresses:
 - 100.100.128.0/19
 - 100.100.160.0/19
 - 100.100.192.0/19
+
+# Consumption only environment
+
+Subnet address ranges can't overlap with the following ranges reserved by Azure Kubernetes Services:
+
+- 169.254.0.0/16
+- 172.30.0.0/16
+- 172.31.0.0/16
+- 192.0.2.0/24
+
+---
 
 ## Routes
 
