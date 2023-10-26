@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 10/26/2023
 ---
 
-# Ensure Business Continuity and disaster recovery
+# Failover for business continuity and disaster recovery with Azure Cosmos DB for MongoDB vCore
 
 To maximize your uptime, plan ahead to maintain business continuity and prepare for disaster recovery with Azure Cosmos DB for MongoDB vCore.
 
