@@ -47,7 +47,7 @@ We recommend using Azure Migrate to migrate on-premises servers to Azure.  Howev
 In sum:
 
 - If you are beginning a new migration with neither ASR nor Migrate in place, use Azure Migrate.
-- If you have ASR in place actively protecting machines, continue to use it.
+- If you have ASR in place actively protecting machines, continue to use it for replication, but consider also using Azure Migrate for business cases and dependency analysis.
 - For disaster recovery of on-premises machines to Azure, use ASR; this tool can be used to eventually migrate machines to Azure when it is determined they should be moved off-premise.
 - For disaster recovery of Azure VMs, between Azure regions, use ASR though Azure Migrate may be used to initially move them into Azure.   
 
