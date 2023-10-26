@@ -68,7 +68,7 @@ In practice, it works like this:
 
 1. Microsoft Defender for Cloud continually assesses your connected subscriptions. If it finds a resource that doesn't satisfy a policy, it displays a ***recommendation*** to fix that situation and harden the security of resources that aren't meeting your security requirements.
 
-    So, for example, if an Azure Storage account on any of your protected subscriptions isn't protected with virtual network rules, the recommendation to harden those resources will be present.
+    For example, if an Azure Storage account on any of your protected subscriptions isn't protected with virtual network rules, the recommendation to harden those resources are present on the recommendations page.
 
 So, (1) an initiative includes (2) policies that generate (3) environment-specific recommendations.
 
@@ -80,41 +80,39 @@ Security recommendations contain details that help you understand its significan
 
 The recommendation details shown are:
 
-1. For supported recommendations, the top toolbar shows any or all of the following buttons:
-    - **Enforce** and **Deny** (see [Prevent misconfigurations with Enforce/Deny recommendations](prevent-misconfigurations.md)).
-    - **View policy definition** to go directly to the Azure Policy entry for the underlying policy.
-    - **Open query** - You can view the detailed information about the affected resources using Azure Resource Graph Explorer.
-1. **Severity indicator**
-1. **Freshness interval**
-1. **Count of exempted resources** if exemptions exist for a recommendation, this shows the number of resources that have been exempted with a link to view the specific resources.
-1. **Mapping to MITRE ATT&CK ® tactics and techniques** if a recommendation has defined tactics and techniques, select the icon for links to the relevant pages on MITRE's site. This applies only to Azure scored recommendations.
+For supported recommendations, the top toolbar shows any or all of the following buttons:
 
-    :::image type="content" source="media/review-security-recommendations/tactics-window.png" alt-text="Screenshot of the MITRE tactics mapping for a recommendation.":::
+- **View policy definition** to go directly to the Azure Policy entry for the underlying policy.
+- **Open query** - You can view the detailed information about the affected resources using Azure Resource Graph Explorer.
 
-1. **Description** - A short description of the security issue.
-1. When relevant, the details page also includes a table of **related recommendations**:
+The left side of the screen shows the following:
 
-    The relationship types are:
+- **Risk level** - Critical, High, Medium, Low
+- **Resource** - the resource that is affected
+- **Status** - if the recommendation is assigned
+- **Description** - A short description of the security issue.
+- **Attack Paths** - The number of attack paths
+- **Scope** - The affected subscription
+- **Freshness** - The freshness interval
+- **Last change date** - The date this recommendation last had a change
+- **Owner** - The person assigned to this recommendation
+- **Due date** - The assigned date the recommendation must be resolved by
+- **Risk factors** - Environmental factors of the resource affected by the recommendation, which influence the exploitability and the business impact of the underlying security issue. For example, Internet exposure, sensitive data, lateral movement potential and more.
+- **Findings by severity** - The total findings by severity
+- **Tactics & techniques** - The tactics and techniques mapped to MITRE ATT&CK.
 
-    - **Prerequisite** - A recommendation that must be completed before the selected recommendation
-    - **Alternative** - A different recommendation, which provides another way of achieving the goals of the selected recommendation
-    - **Dependent** - A recommendation for which the selected recommendation is a prerequisite
+The right side of the screen shows the following:
 
-    For each related recommendation, the number of unhealthy resources is shown in the "Affected resources" column.
+- **Take action**
+    - **Remediate** - A description of the manual steps required to remediate the security issue on the affected resources. For recommendations with the **Fix** option, you can select**View remediation logic** before applying the suggested fix to your resources
+    - **Assign owner and set due date** - Gives you the option to assign an owner and due date
+    - **Exempt** - Exempt the entire recommendation, or disable specific findings using disable rules
+    - **Workflow automation** - Set a logic app which you would like to trigger with this security recommendation
+- **Graph** - Presents all of the [identified attack paths](how-to-manage-attack-path.md)
+- **Findings** - all affiliated findings
 
-    > [!TIP]
-    > If a related recommendation is grayed out, its dependency isn't yet completed and so isn't available.
-
-1. **Remediation steps** - A description of the manual steps required to remediate the security issue on the affected resources. For recommendations with the **Fix** option, you can select**View remediation logic** before applying the suggested fix to your resources.
-
-1. **Affected resources** - Your resources are grouped into tabs:
-    - **Healthy resources** – Relevant resources, which either aren't impacted or on which you've already  remediated the issue.
-    - **Unhealthy resources** – Resources that are still impacted by the identified issue.
-    - **Not applicable resources** – Resources for which the recommendation can't give a definitive answer. The not applicable tab also includes reasons for each resource.
-
-    :::image type="content" source="./media/review-security-recommendations/recommendations-not-applicable-reasons.png" alt-text="Screenshot of resources for which the recommendation can't give a definitive answer.":::
-
-1. Action buttons to remediate the recommendation or trigger a logic app.
+> [!NOTE]
+> If an option is not present on your screen or is greyed out, it is not relevant to your recommendation.
 
 ## Viewing the relationship between a recommendation and a policy
 
