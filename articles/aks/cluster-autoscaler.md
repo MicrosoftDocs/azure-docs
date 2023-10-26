@@ -24,7 +24,7 @@ To adjust to changing application demands, such as between workdays and evenings
 * The **[Horizontal Pod Autoscaler][horizontal-pod-autoscaler]** uses the Metrics Server in a Kubernetes cluster to monitor the resource demand of pods. If an application needs more resources, the number of pods is automatically increased to meet the demand.
 * **[Vertical Pod Autoscaler][vertical-pod-autoscaler]** (preview) automatically sets resource requests and limits on containers per workload based on past usage to ensure pods are scheduled onto nodes that have the required CPU and memory resources.
 
-:::image type="content" source="media/autoscaler/cluster-autoscaler.png" alt-text="Screenshot of how the cluster autoscaler and horizontal pod autoscaler often work together to support the required application demands.":::
+:::image type="content" source="media/cluster-autoscaler/cluster-autoscaler.png" alt-text="Screenshot of how the cluster autoscaler and horizontal pod autoscaler often work together to support the required application demands.":::
 
 The Horizontal Pod Autoscaler scales the number of pod replicas as needed, and the cluster autoscaler scales the number of nodes in a node pool as needed. The cluster autoscaler decreases the number of nodes when there has been unused capacity after a period of time. Any pods on a node removed by the cluster autoscaler are safely scheduled elsewhere in the cluster.
 
@@ -83,6 +83,8 @@ The cluster autoscaler uses startup parameters for things like time intervals be
 > [!IMPORTANT]
 > The cluster autoscaler is a Kubernetes component. Although the AKS cluster uses a virtual machine scale set for the nodes, don't manually enable or edit settings for scale set autoscale in the Azure portal or using the Azure CLI. Let the Kubernetes cluster autoscaler manage the required scale settings. For more information, see [Can I modify the AKS resources in the node resource group?][aks-faq-node-resource-group]
 
+#### [Azure CLI](#tab/azure-cli)
+
 * Update an existing cluster using the [`az aks update`][az-aks-update] command and enable and configure the cluster autoscaler on the node pool using the `--enable-cluster-autoscaler` parameter and specifying a node `--min-count` and `--max-count`. The following example command updates an existing AKS cluster to enable the cluster autoscaler on the node pool for the cluster and sets a minimum of one and maximum of three nodes:
 
     ```azurecli-interactive
@@ -95,6 +97,18 @@ The cluster autoscaler uses startup parameters for things like time intervals be
     ```
 
     It takes a few minutes to update the cluster and configure the cluster autoscaler settings.
+
+#### [Portal](#tab/azure-portal)
+
+1. To enable cluster autoscaler on your existing cluster’s node pools, navigate to *Node pools* from your cluster's overview page in the Azure portal. Select the *scale method* for the node pool you’d like to adjust scaling settings for.
+
+:::image type="content" source="./media/cluster-autoscaler/main-blade-column-inline.png" alt-text="The Azure portal page for a cluster's node pools is shown. The section displaying autoscaler events, warning, and scale-ups not triggered is highlighted." lightbox="./media/cluster-autoscaler/main-blade-column.png":::
+
+1. From here, you can enable or disable autoscaling, adjust minimum and maximum node count, and learn more about your node pool’s size, capacity, and usage. Select *Apply* to save your changes.
+
+:::image type="content" source="./media/cluster-autoscaler/menu-inline.png" alt-text="The Azure portal page for a cluster's node pools is shown with the 'Scale method' column highlighted. The method has been selected and the resulting menu is showing" lightbox="./media/cluster-autoscaler/menu.png":::
+
+---
 
 ### Disable the cluster autoscaler on a cluster
 
@@ -221,6 +235,8 @@ You can also configure more granular details of the cluster autoscaler by changi
 
 You can retrieve logs and status updates from the cluster autoscaler to help diagnose and debug autoscaler events. AKS manages the cluster autoscaler on your behalf and runs it in the managed control plane. You can enable control plane node to see the logs and operations from the cluster autoscaler.
 
+### [Azure CLI](#tab/azure-cli)
+
 Use the following steps to configure logs to be pushed from the cluster autoscaler into Log Analytics:
 
 1. Set up a rule for resource logs to push cluster autoscaler logs to Log Analytics using the [instructions here][aks-view-master-logs]. Make sure you check the box for `cluster-autoscaler` when selecting options for **Logs**.
@@ -234,13 +250,25 @@ Use the following steps to configure logs to be pushed from the cluster autoscal
 
     As long as there are logs to retrieve, you should see logs similar to the following logs:
 
-    :::image type="content" source="media/autoscaler/autoscaler-logs.png" alt-text="Screenshot of Log Analytics logs.":::
+    :::image type="content" source="media/cluster-autoscaler/autoscaler-logs.png" alt-text="Screenshot of Log Analytics logs.":::
 
     The cluster autoscaler also writes out the health status to a `configmap` named `cluster-autoscaler-status`. You can retrieve these logs using the following `kubectl` command:
 
     ```bash
     kubectl get configmap -n kube-system cluster-autoscaler-status -o yaml
     ```
+
+### [Portal](#tab/azure-portal)
+
+1. Navigate to *Node pools* from your cluster's overview page in the Azure portal. Select any of the tiles for autoscale events, autoscale warnings, or scale-ups not triggered to get more details.
+
+:::image type="content" source="./media/cluster-autoscaler/main-blade-tiles-inline.png" alt-text="The Azure portal page for a cluster's node pools is shown. The section displaying autoscaler events, warning, and scale-ups not triggered is highlighted." lightbox="./media/cluster-autoscaler/main-blade-tiles.png":::
+
+1. You’ll see a list of Kubernetes events filtered to `source: cluster-autoscaler` that have occurred within the last hour. With this information, you’ll be able to troubleshoot and diagnose any issues that may arise while scaling your nodes.
+
+:::image type="content" source="./media/cluster-autoscaler/events-inline.png" alt-text="The Azure portal page for a cluster's  events is shown. The filter for source is highlighted, showing 'source: cluster-autoscaler'." lightbox="./media/cluster-autoscaler/events-inline.png":::
+
+---
 
 To learn more about the autoscaler logs, see the [Kubernetes/autoscaler GitHub project FAQ][kubernetes-faq].
 
