@@ -112,9 +112,7 @@
           href: background-processing.md
         - name: With a job
           href: tutorial-event-driven-jobs.md
-    - name: Reliability in Azure Container Apps
-      href: ../reliability/reliability-azure-container-apps.md
-- name: Logs & monitoring
+- name: Observability
   items:
     - name: Overview
       href: observability.md
@@ -177,6 +175,10 @@
           href: managed-identity.md
         - name: Azure Container Registry image pull with managed identity
           href: managed-identity-image-pull.md
+- name: Reliability
+  items:
+  - name: Reliability in Azure Container Apps
+    href: ../reliability/reliability-azure-container-apps.md
 - name: Dedicated hardware
   items:
     - name: Workload profiles
