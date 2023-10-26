@@ -24,7 +24,7 @@ The need for access to privileged Azure resource and Microsoft Entra roles by em
 
 [!INCLUDE [entra-id-license-pim.md](../../../includes/entra-id-license-pim.md)]
 
-For more information about licenses for PIM, refer to [License requirements to use Privileged Identity Management](subscription-requirements.md).
+For more information about licenses for PIM, refer to [License requirements to use Privileged Identity Management](../governance/licensing-fundamentals.md).
 
 To create access reviews for Azure resources, you must be assigned to the [Owner](/azure/role-based-access-control/built-in-roles#owner) or the [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) role for the Azure resources. To create access reviews for Microsoft Entra roles, you must be assigned to the [Global Administrator](../roles/permissions-reference.md#global-administrator) or the [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator) role.
 

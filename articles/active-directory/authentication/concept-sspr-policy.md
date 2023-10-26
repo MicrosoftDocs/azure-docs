@@ -123,7 +123,7 @@ This guidance applies to other providers, such as Intune and Microsoft 365, whic
 
 ### Set or check the password policies by using PowerShell
 
-To get started, [download and install the Azure AD PowerShell module](/powershell/module/Azuread/) and [connect it to your Microsoft Entra tenant](/powershell/module/azuread/connect-azuread#examples).
+To get started, [download and install the Azure AD PowerShell module](/powershell/module/azuread/) and [connect it to your Microsoft Entra tenant](/powershell/module/azuread/connect-azuread#examples).
 
 After the module is installed, use the following steps to complete each task as needed.
 

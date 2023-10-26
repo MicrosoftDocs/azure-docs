@@ -24,15 +24,18 @@ Azure NetApp Files supports three service levels: *Ultra*, *Premium*, and *Stand
 
 * <a name="Ultra"></a>Ultra storage
 
-    The Ultra storage tier provides up to 128 MiB/s of throughput per 1 TiB of capacity provisioned. 
+    The Ultra service level provides up to 128 MiB/s of throughput per 1 TiB of capacity provisioned. 
 
 * <a name="Premium"></a>Premium storage
 
-    The Premium storage tier provides up to 64 MiB/s of throughput per 1 TiB of capacity provisioned. 
+    The Premium service level provides up to 64 MiB/s of throughput per 1 TiB of capacity provisioned. 
 
 * <a name="Standard"></a>Standard storage
 
-    The Standard storage tier provides up to 16 MiB/s of throughput per 1 TiB of capacity provisioned.
+    The Standard service level provides up to 16 MiB/s of throughput per 1 TiB of capacity provisioned.   
+
+    * Standard storage with cool access   
+        The throughput experience for this service level is the same as the Standard service level for data that is in the hot tier. But it may differ when data that resides in the cool tier is accessed. For more information, see [Standard storage with cool access in Azure NetApp Files](cool-access-introduction.md#effects-of-cool-access-on-data). 
 
 ## Throughput limits
 
