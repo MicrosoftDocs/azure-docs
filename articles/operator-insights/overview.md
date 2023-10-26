@@ -5,7 +5,7 @@ author: bettylew
 ms.author: bettylew
 ms.service: operator-insights
 ms.topic: overview 
-ms.date: 10/16/2023
+ms.date: 10/26/2023
 ---
 
 # What is Azure Operator Insights?
