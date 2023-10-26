@@ -24,7 +24,7 @@ Community Training uses Azure availability zones to provide high availability an
 
 - The [control plane](/azure/azure-resource-manager/management/control-plane-and-data-plane#control-plane) is zone redundant in the primary regions of availability. 
 
-- The [data plane](/azure/azure-resource-manager/management/control-plane-and-data-plane#data-plane) can be either zonal or zone-redundant, depending on what you choose for your needs. However, it is highly recommended that you choose a zone-redundant deployment in order to avoid data loss and maintain service availability in the case of a zone outage. 
+- The [data plane](/azure/azure-resource-manager/management/control-plane-and-data-plane#data-plane) can be either zonal or zone-redundant, depending on what you choose for your needs. However, it's highly recommended that you choose a zone-redundant deployment in order to avoid data loss and maintain service availability during a zone outage. 
 
 
 ### Prerequisites
@@ -51,7 +51,7 @@ Community Training uses Azure availability zones to provide high availability an
 
 ### Zonal failover support
 
-Community Training uses a number of dependency Azure services, such as App service and Azure SQL. When you choose a zone redundant deployment, Community Training also creates zonal redundant offerings of those underlying Azure service resources. If one zone fails, all resources, including dependency resources, fail over to one of the healthier zones.
+Community Training uses many dependency Azure services, such as App service and Azure SQL. When you choose a zone redundant deployment, Community Training also creates zonal redundant offerings of those underlying Azure service resources. If one zone fails, all resources, including dependency resources, fail over to one of the healthier zones.
 
 
 #### Create a resource with availability zone enabled
@@ -60,24 +60,24 @@ Community Training provides configuration for availability zones only at the tim
 
 ### Zone down experience
 
-- **Zonal zone down experience**. During a zone-wide outage, Community Training can have either complete or partial service disruption. The extent to which it is available depends on various factors, such as whether the entire datacenter is down, or whether a specific dependency service isn't no longer available in that zone. 
+- **Zonal zone down experience**. During a zone-wide outage, Community Training can have either complete or partial service disruption. The extent to which it's available depends on various factors, such as whether the entire datacenter is down, or whether a specific dependency service isn't no longer available in that zone. 
 
-- **Zone redundant zone down experience**. During a zone-wide outage, you won't experience any impact on provisioned resources. However, you should be prepared for a brief interruption in communication with those resources. In a zone down situation, Clients typically receive 409 error codes, as well as retry logic attempts to re-establish connections at appropriate intervals. New requests are directed to healthy nodes with zero impact on the user. During zone-wide outages, users are able to create new resources and successfully scale existing ones.
+- **Zone redundant zone down experience**. During a zone-wide outage, you shouldn't experience any impact on provisioned resources. However, you should be prepared for a brief interruption in communication with those resources. In a zone down situation, Clients typically receive 409 error codes, as well as retry logic attempts to re-establish connections at appropriate intervals. New requests are directed to healthy nodes with zero impact on the user. During zone-wide outages, users are able to create new resources and successfully scale existing ones.
 
 ## Disaster recovery and business continuity
 
 [!INCLUDE [introduction to disaster recovery](includes/reliability-disaster-recovery-description-include.md)]
 
-The entire disaster recovery procedure for Community Training is manually managed by the Community Training team. Disaster recovery is not active-active or active passive, but is instead based on recovery from the most recent available backup of Azure services. The Community Training team manually creates all resources in the paired region from data backup.
+The Microsoft Community Training team manages the entire disaster recovery procedure for Community Training. Disaster recovery isn't active-active or active passive, but is instead based on recovery from the most recent available backup of Azure services. The Community Training team manually creates all resources in the paired region from data backup.
 
 >[!NOTE]
 >Community Training disaster recovery is only supported in [paired regions](./cross-region-replication-azure.md#azure-paired-regions). 
 
 ### Disaster recovery in multi-region geography
 
-- In the case of regional disaster, the **control plane** is manually failed over to the paired region. You should expect some service degradation in the time before the failover completes. After the failover, only read-only operations are supported until the disaster region is back online. The service is manually failed back to the original region once it's back online and all operations resume. Recovery Point Objective (RPO) is expected to be ten minutes; Recovery Time Objective (RTO), 24 hours.
+- In a regional disaster, the **control plane** is manually failed over to the paired region. You should expect some service degradation in the time before the failover completes. After the failover, only read-only operations are supported until the disaster region is back online. The service is manually failed back to the original region once it's back online and all operations resume. Recovery Point Objective (RPO) is expected to be 10 minutes; Recovery Time Objective (RTO), 24 hours.
 
-- For the **data plane**, Community Training offers microsoft managed disaster recovery. To use managed disaster recovery, you'll need to [enable disaster recovery]() during Community Training instance creation in Azure. Once you enable disaster recovery, Microsoft maintains the backup of storage and database in the paired region. Recovery Point Objective (RPO) is expected to be twelve hours; Recovery Time Objective (RTO), 48 hours.
+- For the **data plane**, Community Training offers microsoft managed disaster recovery. To use managed disaster recovery, you need to [enable disaster recovery]() during Community Training instance creation in Azure. Once you enable disaster recovery, Microsoft maintains the backup of storage and database in the paired region. Recovery Point Objective (RPO) is expected to be 12 hours; Recovery Time Objective (RTO), 48 hours.
 
 
 >[!NOTE]
@@ -86,7 +86,7 @@ The entire disaster recovery procedure for Community Training is manually manage
 
 #### Outage detection, notification, and management
 
-When a Community Training health check detects an outage of any service, and in any region, Microsoft will request your consent for failover to the paired region. Microsoft will let you know which features will be available during the disaster recovery procedure. Once Microsoft receives your consent, the Community Training team can then start the disaster recovery procedure.
+When a Community Training health check detects an outage of any service, and in any region, Microsoft requests your consent for failover to the paired region. Microsoft informs you which features are available during the disaster recovery procedure. Once Microsoft receives your consent, the Community Training team can then start the disaster recovery procedure.
 
 >[!IMPORTANT]
 > Learners will not be able to consume audio/video features until the primary region is operational. It's recommended that you avoid media upload operations until the primary site is operational.
