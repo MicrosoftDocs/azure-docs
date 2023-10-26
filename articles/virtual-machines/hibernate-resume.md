@@ -241,7 +241,7 @@ Your output should look something like this:
 }
 
 ```
-To learn more about REST, check out an [API example](https://docs.microsoft.com/rest/api/compute/virtual-machines/create-or-update#create-a-vm-with-hibernationenabled)
+To learn more about REST, check out an [API example](/rest/api/compute/virtual-machines/create-or-update#create-a-vm-with-hibernationenabled)
 
 ---
 
@@ -563,7 +563,7 @@ VMs created from Compute Gallery images can also be enabled for hibernation. Ens
 
 To create VMs with hibernation enabled using Gallery images, you'll first need to create a new image definition with the hibernation property enabled. Once this feature property is enabled on the Gallery Image definition, you can create an image version(s) and use that image version to create hibernation enabled VMs. 
 
-Steps to create an image version within this image definition can be found here: https://docs.microsoft.com/azure/virtual-machines/image-version?tabs=portal#create-an-image
+[Create an image version within this image definition](azure/virtual-machines/image-version?tabs=portal#create-an-image)
 
 >[!NOTE]
 > For specialized Windows images, the page file location must be set to C: drive in order for Azure to successfully configure your guest OS for hibernation.
@@ -627,6 +627,6 @@ Refer to the [Hibernate troubleshooting guide](./hibernate-resume-troubleshootin
     - No, there's no capacity assurance for starting hibernated VMs. In rare scenarios if you encounter a capacity issue, then you can try starting the VM at a later time. 
 
 ## Next Steps:
-- [Learn more about Azure billing](https://learn.microsoft.com/azure/cost-management-billing/)
-- [Learn about Azure Virtual Desktop](../../articles/virtual-desktop/overview.md)
-- [Look into Azure VM Sizes](../../articles/virtual-machines/sizes)
+- [Learn more about Azure billing](/azure/cost-management-billing/)
+- [Learn about Azure Virtual Desktop](../virtual-desktop/overview.md)
+- [Look into Azure VM Sizes](sizes.md)

@@ -138,7 +138,7 @@ C:\Users\vmadmin>powercfg /a
 ```
 
 If the extension or the guest sleep state reports an error, you'd need to update the guest configurations as per the error descriptions to resolve the issue. After fixing all the issues, you can validate that hibernation has been enabled successfully inside the guest by running  the 'powercfg /a' command - which should return Hibernate as one of the sleep states.
-Also validate that the AzureHibernateExtension returns to a Succeeded state. If the extension is still in a failed state, then update the extension state by triggering [reapply VM API](https://learn.microsoft.com/rest/api/compute/virtual-machines/reapply?tabs=HTTP)
+Also validate that the AzureHibernateExtension returns to a Succeeded state. If the extension is still in a failed state, then update the extension state by triggering [reapply VM API](/rest/api/compute/virtual-machines/reapply?tabs=HTTP)
 
 >[!NOTE]
 >If the extension remains in a failed state, you can't hibernate the VM
@@ -150,7 +150,7 @@ Commonly seen issues where the extension fails
 | Page file is in temp disk. Move it to OS disk to enable hibernation. | Move page file to the C: drive and trigger reapply on the VM to rerun the extension |
 | Windows failed to configure hibernation due to insufficient space for the hiberfile | Ensure that C: drive has sufficient space. You can try expanding your OS disk, your C: partition size to overcome this issue. Once you have sufficient space, trigger the Reapply operation so that the extension can retry enabling hibernation in the guest and succeeds. |
 | Extension error message: “A device attached to the system isn't functioning” | Ensure that C: drive has sufficient space. You can try expanding your OS disk, your C: partition size to overcome this issue. Once you have sufficient space, trigger the Reapply operation so that the extension can retry enabling hibernation in the guest and succeeds. |
-| Hibernation is no longer supported after Virtualization Based Security (VBS) was enabled inside the guest | Enable Virtualization in the guest to get VBS capabilities along with the ability to hibernate the guest. To enable virtualization in the guest, refer to this document: https://learn.microsoft.com/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v#enable-hyper-v-using-powershell |
+| Hibernation is no longer supported after Virtualization Based Security (VBS) was enabled inside the guest | Enable Virtualization in the guest to get VBS capabilities along with the ability to hibernate the guest. [Enable virtualization in the guest OS.](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v#enable-hyper-v-using-powershell) |
 | Enabling hibernate failed. Response from the powercfg command. Exit Code: 1. Error message: Hibernation failed with the following error: The request isn't supported. The following items are preventing hibernation on this system. The current Device Guard configuration has disabled hibernation. An internal system component has disabled hibernation. Hypervisor | Enable Virtualization in the guest to get VBS capabilities along with the ability to hibernate the guest. To enable virtualization in the guest, refer to [this document](https://learn.microsoft.com/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v#enable-hyper-v-using-powershell) |
 
 ---
@@ -176,7 +176,7 @@ Commonly seen issues:
 
 | Issue | Action |
 |--|--|
-| Guest fails to hibernate because Hyper-V Guest Shutdown Service is disabled. | [Ensure that Hyper-V Guest Shutdown Service isn't disabled.](https://learn.microsoft.com/virtualization/hyper-v-on-windows/reference/integration-services#hyper-v-guest-shutdown-service) Enabling this service should resolve the issue. |
+| Guest fails to hibernate because Hyper-V Guest Shutdown Service is disabled. | [Ensure that Hyper-V Guest Shutdown Service isn't disabled.](/virtualization/hyper-v-on-windows/reference/integration-services#hyper-v-guest-shutdown-service) Enabling this service should resolve the issue. |
 | Guest fails to hibernate because HVCI (Memory integrity) is enabled. | Hibernation isn't supported with HVCI. Disabling HVCI should resolve the issue. |
 
 Logs needed for troubleshooting:
