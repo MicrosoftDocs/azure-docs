@@ -25,7 +25,7 @@ Azure Stream Analytics lets you connect directly to Kafka clusters to ingest dat
 The following table lists the property names and their description for creating a Kafka Input: 
 
 > [!IMPORTANT]
-> To configure your Kafka cluster as an input, the timestamp type of the input topic should be **LogAppendTime**
+> To configure your Kafka cluster as an input, the timestamp type of the input topic should be **LogAppendTime**. The only timestamp type Azure Stream Analytics supports is **LogAppendTime**.
 >
 
 | Property name                | Description                                                                                                             |
