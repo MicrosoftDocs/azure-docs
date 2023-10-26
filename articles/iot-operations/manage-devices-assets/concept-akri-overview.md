@@ -1,128 +1,103 @@
 ---
 title: Azure IoT Akri overview
-description: Understand how Azure IoT Akri works and how it enables you to detect IoT leaf devices and assets, and project them into your cluster. 
+description: Understand how Azure IoT Akri Preview enables you to discover devices and assets at the edge, and expose them as resources on your cluster.
 author: timlt
 ms.author: timlt
 # ms.subservice: akri
 ms.topic: concept-article 
-ms.date: 09/22/2023
+ms.date: 10/26/2023
 
-#CustomerIntent: As a <type of user>, I want <what?> so that <why?>.
+# CustomerIntent: As an industrial edge IT or operations user, I want to to understand how Azure IoT Akri 
+# enables me to discover devices and assets at the edge, and expose them as resources on a Kubernetes cluster. 
 ---
-
-<!--
-Remove all the comments in this template before you sign-off or merge to the  main branch.
-
-This template provides the basic structure of a Concept article pattern. See the [instructions - Concept](../level4/article-concept.md) in the pattern library.
-
-You can provide feedback about this template at: https://aka.ms/patterns-feedback
-
-Concept is an article pattern that defines what something is or explains an abstract idea.
-
-There are several situations that might call for writing a Concept article, including:
-
-* If there's a new idea that's central to a service or product, that idea must be explained so that customers understand the value of the service or product as it relates to their circumstances. A good recent example is the concept of containerization or the concept of scalability.
-* If there's optional information or explanations that are common to several Tutorials or How-to guides, this information can be consolidated and single-sourced in a full-bodied Concept article for you to reference.
-* If a service or product is extensible, advanced users might modify it to better suit their application. It's better that advanced users fully understand the reasoning behind the design choices and everything else "under the hood" so that their variants are more robust, thereby improving their experience.
-
--->
-
-<!-- 1. H1
------------------------------------------------------------------------------
-
-Required. Set expectations for what the content covers, so customers know the content meets their needs. The H1 should NOT begin with a verb.
-
-Reflect the concept that undergirds an action, not the action itself. The H1 must start with:
-
-* "\<noun phrase\> concept(s)", or
-* "What is \<noun\>?", or
-* "\<noun\> overview"
-
-Concept articles are primarily distinguished by what they aren't:
-
-* They aren't procedural articles. They don't show how to complete a task.
-* They don't have specific end states, other than conveying an underlying idea, and don't have concrete, sequential actions for the user to take.
-
-One clear sign of a procedural article would be the use of a numbered list. With rare exception, numbered lists shouldn't appear in Concept articles.
-
--->
 
 # Azure IoT Akri overview
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-TODO: Add your heading
+Azure IoT Akri Preview is a hosting framework for discovery handlers that enables you to detect devices and assets at the edge, and expose them as resources on a Kubernetes cluster. By using Azure IoT Akri, you can simplify the process of projecting leaf devices (OPC UA devices, cameras, IoT sensors, and peripherals) into your cluster.  Azure Iot Akri projects leaf devices into a cluster by using the devices' own protocols. For administrators who attach devices to or remove them from the cluster, this capability reduces the level of coordination and manual configuration. The hosting framework is also extensible. You can use it as shipped, or you can add custom discovery and provisioning by adding protocol handlers, brokers and behaviors. Azure IoT Akri is a Microsoft-managed commercial version of [Akri](https://docs.akri.sh/), an open source Cloud Native Computing Foundation (CNCF) project.  
 
-<!-- 2. Introductory paragraph
-----------------------------------------------------------
+:::image type="content" source="media/concept-akri-overview/akri-logo.png" alt-text="Logo for the Akri project." border="false":::
 
-Required. Lead with a light intro that describes what the article covers. Answer the fundamental “why would I want to know this?” question. Keep it short.
+## The challenge of integrating IoT leaf devices at the edge
 
-* Answer the fundamental "Why do I want this knowledge?" question.
-* Don't start the article with a bunch of notes or caveats.
-* Don’t link away from the article in the introduction.
-* For definitive concepts, it's better to lead with a sentence in the form, "X is a (type of) Y that does Z."
+It's common to run Kubernetes directly on infrastructure. But to integrate non-Kubernetes IoT leaf devices into a Kubernetes cluster requires a unique solution. 
 
--->
+IoT leaf devices present the following challenges:
+- Contain hardware that's too small, too old, or too locked-down to run Kubernetes
+- Use various protocols and different topologies
+- Have intermittent downtime and availability
+- Require different methods of authentication and storing secrets
 
-[Introductory paragraph]
-TODO: Add your introductory paragraph
+## What Azure IoT Akri does
+To address the challenge of integrating non-Kubernetes IoT leaf devices, Azure IoT Akri provides several core capabilities.
 
-<!-- 3. Prerequisites --------------------------------------------------------------------
+### Device discovery
+Azure IoT Akri deployments can include fixed-network discovery handlers. Discovery handlers enable assets from known network endpoints to find leaf devices as they appear on device interfaces or local subnets. Examples of network endpoints include OPC UA servers at a fixed IP address (without network scanning), and network scanning discovery handlers.
 
-Optional: Make **Prerequisites** your first H2 in the article. Use clear and unambiguous
-language and use a unordered list format. 
+### Dynamic provisioning
+Another capability of Azure IoT Akri is dynamic device provisioning.  
 
--->
+With Azure IoT Akri, you can dynamically provision devices like the following examples:
 
-## Prerequisites
-TODO: [List the prerequisites if appropriate]
+- USB cameras that you want to use on your cluster
+- IP cameras that you don't want to look up IP addresses for
+- OPC UA servers simulated on your host machine to test Kubernetes workloads
 
-<!-- 4. H2s (Article body)
---------------------------------------------------------------------
+> [!NOTE]
+> In addition to connecting proximal devices, you can also use Azure IoT Akri with Azure Programmable Connectivity MEC clusters to provision devices across multiple locations and networks.
 
-Required: In a series of H2 sections, the article body should discuss the ideas that explain how "X is a (type of) Y that does Z":
+### Compatibility with Kubernetes
+Azure IoT Akri employs standard Kubernetes primitives. The use of Kubernetes primitives lets users apply their expertise creating applications or managing infrastructure. Small devices connected in an Akri-configured site can appear as Kubernetes resources, just like memory or CPUs. The Azure IoT Akri controller enables the cluster operator to start brokers, jobs or other workloads for individual connected devices or groups of devices. These Azure IoT Akri device configurations and properties remain in the cluster so that if there's node failure, other nodes can pick up any lost work.
 
-* Give each H2 a heading that sets expectations for the content that follows.
-* Follow the H2 headings with a sentence about how the section contributes to the whole.
-* Describe the concept's critical features in the context of defining what it is.
-* Provide an example of how it's used where, how it fits into the context, or what it does. If it's complex and new to the user, show at least two examples.
-* Provide a non-example if contrasting it will make it clearer to the user what the concept is.
-* Images, code blocks, or other graphical elements come after the text block it illustrates.
-* Don't number H2s.
+## Using Azure IoT Akri to discover OPC UA assets
+Azure IoT Akri is a turnkey solution that enables you to autodetect and create assets connected to an OPC UA server at the edge. Azure IoT Akri discovers devices at the edge and maps them to assets. The assets send telemetry to upstream connectors. By using Azure IoT Akri, you eliminate the painstaking process of manually configuring from the cloud and onboarding the assets to your cluster.  
 
--->
+The Azure IoT Operations Preview documentation provides guidance for detecting assets at the edge, by using the Azure IoT Operations OPC UA discovery handler and broker. You can use these components to process your OPC UA data and telemetry. 
 
-## Section 1 heading
-TODO: add your content
+## Features
+This section highlights the key capabilities and supported features in Azure IoT Akri.
 
-## Section 2 heading
-TODO: add your content
+### Key capabilities
+- **Dynamic discovery**. Protocol representations of devices can come and go, without static configurations in brokers or customer containers. 
+  - **Device network scanning**.  This capability is especially useful for finding devices in smaller, remote locations. For example, a replacement camera in a store. The protocols that currently support device network scanning are ONVIF and OPC UA localhost.
+  - **Device connecting**. This capability is often used in larger industrial scenarios. For example, factory environments where the network is typically static and network scanning isn't permitted. The protocols that currently support device connecting are udev and OPC UA local discovery servers.
+  - **Device attach**: Azure IoT Akri also supports implementing custom logic for mapping or connecting devices and there are [open-source templates](https://docs.akri.sh/development/handler-development) to accelerate customization.
 
-## Section 3 heading
-TODO: add your content
+- **Optimal scheduling**. Azure IoT Akri can schedule devices on specified nodes with minimal latency, because the service knows where a particular device is located on the K8s cluster. Optimal scheduling applies to directly connected devices, or in scenarios where only specific nodes can access the devices.
 
-<!-- 5. Next step/Related content ------------------------------------------------------------------------ 
+- **Optimal configuration**. Azure IoT Akri uses the capacity of the node to drive cardinality of the brokers for the discovered devices.
 
-Optional: You have two options for manually curated links in this pattern: Next step and Related content. You don't have to use either, but don't use both.
-  - For Next step, provide one link to the next step in a sequence. Use the blue box format
-  - For Related content provide 1-3 links. Include some context so the customer can determine why they would click the link. Add a context sentence for the following links.
+- **Secure credential management**. Azure IoT Akri facilitates secure access to assets and devices by integrating with services for secure distribution of credential material to brokers.
 
--->
+### Features supported
+The following features are supported in Azure IoT Akri Preview:
+
+| [CNCF Akri Features](https://docs.akri.sh/)                                                  | Supported |
+| -------------------------------------------------------- | :-------: |
+| Dynamic discovery of devices at the edge (supported protocols: OPC UA, ONVIF, udev)                      |     ✅     |
+| Schedule devices with minimal latency using Akri's information on node affinity on the cluster |     ✅     |
+| View Akri metrics/logs locally through Prometheus and Grafana |     ✅     |
+| Secrets/credentials management                   |     ✅     |
+| M:N device to broker ratio through configuration-level resource support |     ✅     |
+| Observability on Akri deployments through Prometheus and Grafana dashboards |     ✅     |
+
+
+| Microsoft-managed Akri Features                                                  | Supported |
+| -------------------------------------------------------- | :-------: |
+| Installation through Akri Arc cluster extension     |     ✅     |
+| Deployment through the Orchestrator                        |     ✅     |
+
+## Open-Source Akri Resources
+
+To learn more about the CNCF Akri, see the following open source resources.  
+
+- [Documentation](https://docs.akri.sh/)
+- [OPC UA Sample on AKS Edge Essentials](https://learn.microsoft.com/azure/aks/hybrid/aks-edge-how-to-akri-opc-ua)
+- [ONVIF Sample on AKS Edge Essentials](https://learn.microsoft.com/azure/aks/hybrid/aks-edge-how-to-akri-onvif)
 
 ## Next step
+In this article, you learned how Azure IoT Akri works and how it enables you to detect devices and add assets at the edge.  Here's the suggested next step: 
 
-TODO: Add your next step link(s)
-
-<!-- OR -->
-
-## Related content
-
-TODO: Add your next step link(s)
-
-
-<!--
-Remove all the comments in this template before you sign-off or merge to the 
-main branch.
-
--->
+> [!div class="nextstepaction"]
+> [Autodetect assets using Azure IoT Akri Preview](howto-autodetect-opcua-assets-using-akri.md)
