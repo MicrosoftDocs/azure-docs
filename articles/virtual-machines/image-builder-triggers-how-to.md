@@ -1,5 +1,5 @@
 ---
-title: How to use Azure Image Builder triggers preview to set up an automatic image build
+title: How to use Azure Image Builder triggers to set up an automatic image build
 description: Use triggers in Azure Image Builder to set up automatic image builds when criteria are met in a build pipeline
 author: kof-f
 ms.author: kofiforson
@@ -7,7 +7,7 @@ ms.reviewer: erd
 ms.service: virtual-machines
 ms.subservice: image-builder
 ms.topic: how-to
-ms.date: 06/05/2023
+ms.date: 10/16/2023
 ms.custom: template-how-to-pattern, devx-track-azurecli
 ---
 
@@ -15,7 +15,7 @@ ms.custom: template-how-to-pattern, devx-track-azurecli
 You can use triggers in Azure Image Builder (AIB) to set up automatic image builds when certain criteria are met in your build pipeline.
 
 > [!IMPORTANT]
-> Azure Image Builder triggers is currently in Preview. Please be informed that there exists a restriction on the number of triggers allowable per region, specifically 100 per region per subscription.
+> Please be informed that there exists a restriction on the number of triggers allowable per region, specifically 100 per region per subscription.
 
 > [!NOTE]
 > Currently, we only support setting a trigger for a new source image, but we do expect to support different kinds of triggers in the future.
@@ -52,10 +52,7 @@ Register the auto image build triggers feature:
 az feature register --namespace Microsoft.VirtualMachineImages --name Triggers
 ```
 
-To register the auto image build triggers feature using PowerShell, run the following command:
-```azurepowershell-interactive
-Register-AzProviderPreviewFeature -ProviderNamespace Microsoft.VirtualMachineImages -Name Triggers
-```
+
 ### Set variables
 First, you need to set some variables that you'll repeatedly use in commands.
 

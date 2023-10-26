@@ -77,9 +77,9 @@ Follow the quickstart instructions on how to "[Deploy confidential VM with ARM t
 
 ## Enable system-assigned managed identity
 
-[Managed identities](../active-directory/managed-identities-azure-resources/overview.md) for Azure resources provide Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code.
+[Managed identities](../active-directory/managed-identities-azure-resources/overview.md) for Azure resources provide Azure services with an automatically managed identity in Microsoft Entra ID. You can use this identity to authenticate to any service that supports Microsoft Entra authentication, without having credentials in your code.
 
-To enable system-assigned managed identity on a CVM, your account needs the [Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#virtual-machine-contributor) role assignment.  No other Azure AD directory role assignments are required.
+To enable system-assigned managed identity on a CVM, your account needs the [Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#virtual-machine-contributor) role assignment.  No other Microsoft Entra directory role assignments are required.
 
 ### [Bicep 1](#tab/bicep)
 
@@ -552,7 +552,7 @@ The documentation for Microsoft Azure Attestation service has an extensive list 
 
 We can use any scripting or programming language to receive an attested platform report using the AttestationClient binary. Since the virtual machine we deployed in a previous step has managed identity enabled, we should get an __Azure AD token for Key Vault__ from the instance metadata service (__IMDS__).
 
-By configuring the attested platform report as the body payload and the Azure AD token in our __authorization header__, you have everything needed to perform the key `release` operation.
+By configuring the attested platform report as the body payload and the Microsoft Entra token in our __authorization header__, you have everything needed to perform the key `release` operation.
 
 ```powershell
 #Requires -Version 7

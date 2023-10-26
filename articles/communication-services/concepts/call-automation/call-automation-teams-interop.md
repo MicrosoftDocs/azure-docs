@@ -47,8 +47,7 @@ The following list presents the set of features that are currently available in 
 | ----------------------| -----------------------------------------------   | ------ | ----- |  ------ | ----- |
 | Pre-call scenarios    | Place new outbound call to a Microsoft Teams user  | ✔️    | ✔️    | ✔️    | ✔️    |
 |                       | Redirect (forward) a call to a Microsoft Teams user | ✔️    | ✔️    | ✔️    | ✔️    |
-|                       | Set custom display name for the callee when making a call offer to a Microsoft Teams user | Only on Microsoft Teams desktop and web client    | Only on Microsoft Teams desktop 
- and web client    |
+|                       | Set custom display name for the callee when making a call offer to a Microsoft Teams user | Only on Microsoft Teams desktop and web client    | Only on Microsoft Teams desktop and web client    |
 | Mid-call scenarios    | Add one or more endpoints to an existing call with a Microsoft Teams user     | ✔️    | ✔️    |  ✔️    | ✔️    |
 |                       | Play Audio from an audio file                     | ✔️    | ✔️    | ✔️    | ✔️    |
 |                       | Recognize user input through DTMF                 | ❌    | ❌   | ❌    | ❌  |

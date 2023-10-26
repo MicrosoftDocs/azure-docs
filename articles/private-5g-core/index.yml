@@ -64,6 +64,8 @@ landingContent:
             url: collect-required-information-for-private-mobile-network.md
           - text: Deploy a private mobile network - Azure portal
             url: how-to-guide-deploy-a-private-mobile-network-azure-portal.md
+          - text: Configure Azure Private 5G Core network for accessing UE IP addresses
+            url: configure-access-for-user-equipment-ip-addresses.md
           - text: Create and manage network slices - Azure portal
             url: create-manage-network-slices.md
           - text: Create a network slice - ARM template
@@ -152,6 +154,8 @@ landingContent:
             url: packet-core-dashboards.md
           - text: Monitor AP5GC UE usage with Event Hubs (preview)
             url: ue-usage-event-hub.md
+          - text: Monitor packet cores with alerts
+            url: monitor-private-5g-core-alerts.md
       - linkListType: how-to-guide
         links:
           - text: Gather diagnostics

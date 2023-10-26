@@ -5,7 +5,7 @@ description: Frequently asked questions note.
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
+ms.service: azure-ai-services
 ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi

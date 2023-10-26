@@ -61,6 +61,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Arctic IT](https://arcticit.com/)|
 |[Ardalyst Federal LLC](https://ardalyst.com)|
 |[ArdentMC](https://www.ardentmc.com)|
+|[Ariento Inc.](https://www.ariento.com/)|
 |[Army of Quants](https://www.armyofquants.com/)|
 |[Ascent Innovations LLC](https://www.ascent365.com/)|
 |[ASM Research LLC](https://www.asmr.com)|
@@ -498,7 +499,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |Partner name|
 |----------------------------|
 |[Arrow Enterprise Computing Solutions, Inc.](http://ecs.arrow.com/)|
-|[Crayon Software Experts LCC](https://www.crayon.com/en-US)|
+|[Crayon Software Experts LCC](https://www.crayon.com/)|
 |[Carahsoft Technology Corporation](https://www.carahsoft.com)|
 |[DLT Solutions](https://www.dlt.com)|
 |[Ingram Micro Inc.](https://usa.ingrammicro.com/)|

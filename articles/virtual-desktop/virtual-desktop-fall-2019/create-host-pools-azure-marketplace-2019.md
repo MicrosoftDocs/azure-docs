@@ -63,7 +63,7 @@ Here's what you do for the **Basics** tab:
 1. For **Service metadata location**, select the same location as the virtual network that has connectivity to the Active Directory server.
 
    >[!IMPORTANT]
-   >If you're using a pure Azure Active Directory Domain Services (Azure AD DS) and Azure Active Directory (Azure AD) solution, make sure to deploy your host pool in the same region as your Azure AD DS to avoid domain-join and credential errors.
+   >If you're using a pure Microsoft Entra Domain Services and Microsoft Entra solution, make sure to deploy your host pool in the same region as your Microsoft Entra Domain Services to avoid domain-join and credential errors.
 
 1. Select **Next: Configure virtual machines**.
 
@@ -89,9 +89,9 @@ For the **Virtual machine settings** tab:
 1. Enter the user principal name and password. This account must be the domain account that will join the virtual machines to the Active Directory domain. This same username and password will be created on the virtual machines as a local account. You can reset these local accounts later.
 
    >[!NOTE]
-   > If you're joining your virtual machines to an Azure AD DS environment, ensure that your domain join user is a member of the [AAD DC Administrators group](../../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group).
+   > If you're joining your virtual machines to a Microsoft Entra Domain Services environment, ensure that your domain join user is a member of the [AAD DC Administrators group](../../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group).
    >
-   > The account must also be part of the Azure AD DS managed domain or Azure AD tenant. Accounts from external directories associated with your Azure AD tenant can't correctly authenticate during the domain-join process.
+   > The account must also be part of the Microsoft Entra Domain Services managed domain or Microsoft Entra tenant. Accounts from external directories associated with your Microsoft Entra tenant can't correctly authenticate during the domain-join process.
 
 1. Select the **Virtual network** that has connectivity to the Active Directory server, and then choose a subnet to host the virtual machines.
 1. Select **Next: Azure Virtual Desktop information**.
@@ -106,7 +106,7 @@ For the **Azure Virtual Desktop tenant information** tab:
 
    If you completed the [Create service principals and role assignments with PowerShell tutorial](create-service-principal-role-powershell.md), select **Service principal**.
 
-1. For **Service principal**, for **Azure AD tenant ID**, enter the tenant admin account for the Azure AD instance that contains the service principal. Only service principals with a password credential are supported.
+1. For **Service principal**, for **Microsoft Entra tenant ID**, enter the tenant admin account for the Microsoft Entra instance that contains the service principal. Only service principals with a password credential are supported.
 1. Select **Next: Review + create**.
 
 ## Complete setup and create the virtual machine
@@ -140,7 +140,7 @@ To assign users to the desktop application group:
    Add-RdsAppGroupUser <tenantname> <hostpoolname> "Desktop Application Group" -UserPrincipalName <userupn>
    ```
 
-   The user's UPN should match the user's identity in Azure AD, for example, *user1@contoso.com*. If you want to add multiple users, run the command for each user.
+   The user's UPN should match the user's identity in Microsoft Entra ID, for example, *user1@contoso.com*. If you want to add multiple users, run the command for each user.
 
 Users you add to the desktop application group can sign in to Azure Virtual Desktop with supported Remote Desktop clients and see a resource for a session desktop.
 

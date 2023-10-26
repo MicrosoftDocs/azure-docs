@@ -5,8 +5,7 @@ description: Use the Anomaly Detector API's algorithms to apply anomaly detectio
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: anomaly-detector
+ms.service: azure-ai-anomaly-detector
 ms.topic: overview
 ms.date: 10/27/2022
 ms.author: mbullwin
@@ -15,6 +14,8 @@ ms.custom:
 ---
 
 # What is Anomaly Detector?
+
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
 
 [!INCLUDE [Azure AI services rebrand](../includes/rebrand-note.md)]
 

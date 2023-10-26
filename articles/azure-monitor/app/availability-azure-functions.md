@@ -2,7 +2,7 @@
 title: Review TrackAvailability() test results
 description: This article explains how to review data logged by TrackAvailability() tests
 ms.topic: conceptual
-ms.date: 08/20/2023
+ms.date: 09/12/2023
 ---
 
 # Review TrackAvailability() test results
@@ -66,4 +66,4 @@ For advanced scenarios where the business logic must be adjusted to access the U
 * [Standard tests](availability-standard-tests.md)
 * [Availability alerts](availability-alerts.md)
 * [Application Map](./app-map.md)
-* [Transaction diagnostics](./transaction-diagnostics.md)
+* [Transaction diagnostics](./search-and-transaction-diagnostics.md?tabs=transaction-diagnostics)

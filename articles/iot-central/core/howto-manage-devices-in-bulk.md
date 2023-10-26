@@ -17,7 +17,7 @@ You can use Azure IoT Central to manage your connected devices at scale through 
 To learn how to manage jobs by using the IoT Central REST API, see [How to use the IoT Central REST API to manage devices](../core/howto-manage-jobs-with-rest-api.md).
 
 > [!TIP]
-> When you create a recurring job, sign in to your application using a Microsoft account or Azure Active Directory account. If you sign in using an Azure Active Directory group, it's possible that the Azure Active Directory token associated with the group will expire at some point in the future and cause the job to fail.
+> When you create a recurring job, sign in to your application using a Microsoft account or Microsoft Entra account. If you sign in using a Microsoft Entra group, it's possible that the Microsoft Entra token associated with the group will expire at some point in the future and cause the job to fail.
 
 ## Create and run a job
 

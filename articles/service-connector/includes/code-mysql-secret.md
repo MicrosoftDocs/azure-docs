@@ -63,7 +63,7 @@ ms.author: yungez
 
 ### [Python](#tab/python)
 
-1. Install dependencies. Follow the guidance to [install Connector/Python](https://dev.mysql.com/doc/connector-python/en/connector-python-installation.html) by following the guidance.
+1. Install dependencies. Follow the guidance to [install Connector/Python](https://dev.mysql.com/doc/connector-python/en/connector-python-installation.html).
 1. In code, get MySQL connection information from environment variables added by Service Connector service. To establish encrypted connection to MySQL server over SSL, refer to [these steps](/azure/mysql/flexible-server/how-to-connect-tls-ssl#connect-using-mysql-command-line-client-with-tlsssl).
    ```python
    import os
@@ -124,14 +124,14 @@ ms.author: yungez
     "os"
 
     _ "github.com/go-sql-driver/mysql"
-    s)
+    )
 
     connectionString := os.Getenv("AZURE_MYSQL_CONNECTIONSTRING")
     db, err := sql.Open("mysql", connectionString)
     ```
 
 
-### [NodeJS](#tab/node)
+### [NodeJS](#tab/nodejs)
 
 1. Install dependencies.
    ```bash

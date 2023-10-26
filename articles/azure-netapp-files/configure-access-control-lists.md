@@ -35,7 +35,7 @@ ACLs contain access control entities (ACEs), which specify the permissions (read
 
 ## Configure ACLs
 
-1. If you want to configure ACLs for a Linux VM joined to Active Directory, complete the steps in [Join a Linux VM to an Azure Active Directory Domain](join-active-directory-domain.md).
+1. If you want to configure ACLs for a Linux VM joined to Active Directory, complete the steps in [Join a Linux VM to a Microsoft Entra Domain](join-active-directory-domain.md).
 
 1. [Mount the volume](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md).
 

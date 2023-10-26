@@ -115,7 +115,8 @@ az network private-endpoint create \
     --subnet mySubnet \
     --private-connection-resource-id $(az resource show -g myResourcegroup -n mydemoserver --resource-type "Microsoft.DBforMySQL/flexibleServers" --query "id" -o tsv) \
     --group-id mysqlServer \
-    --connection-name myConnection
+    --connection-name myConnection \
+    --location location
  ```
 
 ### Configure the Private DNS Zone
@@ -248,6 +249,4 @@ az network private-endpoint-connection delete --id {PrivateEndpointConnectionID}
 - Learn how to [configure private link for Azure Database for MySQL flexible server from the [Azure portal](how-to-networking-private-link-portal.md).
 - Learn how to [manage connectivity](concepts-networking.md) to your Azure Database for MySQL flexible Server.
 - Learn how to [add another layer of encryption to your Azure Database for MySQL flexible server using [Customer Managed Keys](concepts-customer-managed-key.md).
-- Learn how to configure and use [Azure AD authentication](concepts-azure-ad-authentication.md) on your Azure Database for MySQL flexible server.
-
-
+- Learn how to configure and use [Microsoft Entra authentication](concepts-azure-ad-authentication.md) on your Azure Database for MySQL flexible server.

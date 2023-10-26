@@ -5,8 +5,12 @@
   items:
   - name: Security advantages
     href: ../fundamentals/overview.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
-  - name: Shared responsibility in the cloud
-    href: ../fundamentals/shared-responsibility.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+  - name: Shared responsibility
+    items:
+    - name: Shared responsibility in the cloud
+      href: ../fundamentals/shared-responsibility.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - name: AI shared responsibility model
+      href: ../fundamentals/shared-responsibility-ai.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
   - name: Identity as the security perimeter
     href: ../fundamentals/paas-deployments.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
 

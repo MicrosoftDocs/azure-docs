@@ -145,6 +145,17 @@ Azure NetApp Files metrics are natively integrated into Azure monitor. From with
 * *Volume Backup Last Transferred Bytes*   
     The total bytes transferred for the last backup or restore operation.  
 
+## Cool access metrics
+
+* *Volume cool tier size*   
+    Volume footprint for the cool tier.
+
+* *Volume cool tier data read size*   
+    Data read in using `GET` per volume.
+
+* *Volume cool tier data write size*   
+    Data tiered out using `PUT` per volume. 
+ 
 ## Next steps
 
 * [Understand the storage hierarchy of Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)

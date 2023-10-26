@@ -2,7 +2,7 @@
 title: Back up SQL Server databases to Azure 
 description: This article explains how to back up SQL Server to Azure. The article also explains SQL Server recovery.
 ms.topic: conceptual
-ms.date: 09/06/2023
+ms.date: 09/21/2023
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -158,7 +158,7 @@ To configure simultaneous backups, follow these steps:
 
    - Under `EnableLocalDiskBackupForBackupTypes`, list the backup types that you want to store locally.
 
-     For example, if you want to store the *Full* and *Log* backups, mention `[“Full”, “Log”]`. To store only the log backups, mention `[“Log”]`.
+     For example, if you want to store the *Full* and *Log* backups, mention `["Full", "Log"]`. To store only the log backups, mention `["Log"]`.
 
    - Under `LocalDiskBackupFolderPath`, mention the *path to the local folder*. Ensure that you use the *double forward slash* while mentioning the path in the JSON file.
    
@@ -168,8 +168,8 @@ To configure simultaneous backups, follow these steps:
  
      ```JSON
      {
-             "EnableLocalDiskBackupForBackupTypes": [“Log”],
-             "LocalDiskBackupFolderPath": “E:\\LocalBackup”,
+             "EnableLocalDiskBackupForBackupTypes": ["Log"],
+             "LocalDiskBackupFolderPath": "E:\\LocalBackup",
      }
 	 
      ```	 
@@ -196,7 +196,7 @@ To configure simultaneous backups, follow these steps:
 
    ```azurepowershell
    $cred = Get-Credential
-               New-SmbGlobalMapping -RemotePath <FileSharePath> -Credential $cred -LocalPath <LocalDrive>:  -FullAccess @(“<Comma Separated list of accounts>”) -Persistent $true
+   New-SmbGlobalMapping -RemotePath <FileSharePath> -Credential $cred -LocalPath <LocalDrive>:  -FullAccess @("<Comma Separated list of accounts>") -Persistent $true
    
    ```
 
@@ -204,7 +204,7 @@ To configure simultaneous backups, follow these steps:
    
    ```azurepowershell
    $cred = Get-Credential
-               New-SmbGlobalMapping -RemotePath \\i00601p1imsa01.file.core.windows.net\rsvshare -Credential $cred -LocalPath Y:  -FullAccess @("NT AUTHORITY\SYSTEM","NT Service\AzureWLBackupPluginSvc") -Persistent $true
+   New-SmbGlobalMapping -RemotePath \\i00601p1imsa01.file.core.windows.net\rsvshare -Credential $cred -LocalPath Y:  -FullAccess @("NT AUTHORITY\SYSTEM","NT Service\AzureWLBackupPluginSvc") -Persistent $true
     ```
 
 ## Next steps

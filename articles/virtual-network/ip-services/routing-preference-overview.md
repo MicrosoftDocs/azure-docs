@@ -80,23 +80,53 @@ The price difference between both options is reflected in the internet egress da
 
 ### Regional availability
 
-Internet routing preference is available in all regions except:
+Internet routing preference is available in all regions listed below:
 
-* Australia Central
-
-* Austria East
-
-* Brazil Southeast
-
-* Germany Central
-
-* Germany NorthEast
-
-* Norway West
-
-* Sweden Central
-
-* West US 3
+- Australia Central
+- Australia Central 2
+- Australia East 
+- Australia Southeast
+- Brazil South
+- Brazil Southeast
+- Canada Central
+- Canada East
+- Central India
+- Central US
+- Central US EUAP
+- East Asia
+- East US
+- East US 2
+- East US 2 EUAP
+- France Central
+- France South
+- Germany North
+- Germany West Central
+- Japan East
+- Japan West
+- Korea Central
+- Korea South
+- North Central US
+- North Europe
+- Norway East
+- Norway West
+- South Africa North
+- South Africa West
+- South Central US
+- South India
+- Southeast Asia
+- Sweden Central
+- Switzerland North
+- Switzerland West
+- UAE Central
+- UAE North
+- UK South
+- UK West
+- West Central US
+- West Europe
+- West India
+- West US
+- West US 2
+- West US 3
 
 ## Next steps
 

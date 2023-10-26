@@ -8,13 +8,13 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting
-ms.date: 04/11/2023
+ms.date: 10/17/2023
 ms.author: banders
 ---
 
 # Troubleshoot issues when you sign up for a new account in the Azure portal
 
-You may experience an issue when you try to sign up for a new account in the Microsoft Azure portal. This short guide walks you through the sign-up process and discusses some common issues at each step.
+You might experience an issue when you try to sign up for a new account in the Microsoft Azure portal. This short guide walks you through the sign-up process and discusses some common issues at each step.
 
 > [!NOTE]
 > If you already have an existing account and are looking for guidance to troubleshoot sign-in issues, see [Troubleshoot Azure subscription sign-in issues](./troubleshoot-sign-in-issue.md).
@@ -78,7 +78,7 @@ To resolve this issue, double-check whether the following items are true:
 
 #### You see the message 'Your current account type is not supported'
 
-This issue can occur if the account is registered in an [unmanaged Azure AD directory](../../active-directory/enterprise-users/directory-self-service-signup.md), and it isn't in your organization's Azure AD directory. To resolve this issue, sign up the Azure account by using another account, or take over the unmanaged AD directory. For more information, see [Take over an unmanaged directory as administrator in Azure Active Directory](../../active-directory/enterprise-users/domains-admin-takeover.md).
+This issue can occur if the account is registered in an [unmanaged Microsoft Entra directory](../../active-directory/enterprise-users/directory-self-service-signup.md), and it isn't in your organization's Microsoft Entra directory. To resolve this issue, sign up the Azure account by using another account, or take over the unmanaged AD directory. For more information, see [Take over an unmanaged directory as administrator in Microsoft Entra ID](../../active-directory/enterprise-users/domains-admin-takeover.md).
 
 The issue can also occur if the account was created using the Microsoft 365 Developer Program. Microsoft doesn't allow purchasing other paid services using your Microsoft 365 Developer Program subscription. For more information, see [Does the subscription also include a subscription to Azure?](/office/developer-program/microsoft-365-developer-program-faq#does-the-subscription-also-include-a-subscription-to-azure-)
 
@@ -92,7 +92,7 @@ When you get the text message or telephone call, enter the code that you receive
 
 #### No verification text message or phone call
 
-Although the sign-up verification process is typically quick, it may take up to four minutes for a verification code to be delivered.
+Although the sign-up verification process is typically quick, it might take up to four minutes for a verification code to be delivered.
 
 Here are some other tips:
 
@@ -110,7 +110,7 @@ Here are some other tips:
 
 #### Credit card declined or not accepted
 
-Virtual or prepaid credit cards aren't accepted as payment for Azure subscriptions. To see what else may cause your card to be declined, see [Troubleshoot a declined card at Azure sign-up](./troubleshoot-declined-card.md).
+Virtual or prepaid credit cards aren't accepted as payment for Azure subscriptions. To see what else might cause your card to be declined, see [Troubleshoot a declined card at Azure sign-up](./troubleshoot-declined-card.md).
 
 #### Credit card form doesn't support my billing address
 
@@ -134,7 +134,7 @@ Use the following steps to update your browser's cookie settings.
 
 ### I saw a charge on my free trial account
 
-You may see a small, temporary verification hold on your credit card account after you sign up. This hold is removed within three to five days. If you're worried about managing costs, read more about [Analyzing unexpected charges](../understand/analyze-unexpected-charges.md).
+You might see a small, temporary verification hold on your credit card account after you sign up. This hold is removed within three to five days. If you're worried about managing costs, read more about [Analyzing unexpected charges](../understand/analyze-unexpected-charges.md).
 
 ## Agreement
 
@@ -150,9 +150,9 @@ Check that you're using the correct sign-in credentials. Then, check the benefit
   - If you can't verify your status, contact [Visual Studio Subscription Support](https://visualstudio.microsoft.com/subscriptions/support/).
 - Microsoft for Startups
   - Sign in to the [Microsoft for Startups portal](https://startups.microsoft.com/#start-two) to verify your eligibility status for Microsoft for Startups.
-  - If you can't verify your status, you can get help on the [Microsoft for Startups forums](https://www.microsoftpartnercommunity.com/t5/Microsoft-for-Startups/ct-p/Microsoft_Startups).
+  - If you can't verify your status, you can get help by creating a [Microsoft for Startups support request](https://support.microsoft.com/supportrequestform/354fe60a-ba6d-92ad-208a-6a41387aa9d8).
 - Cloud Partner Program
-  - Sign in to the [Cloud Partner Program portal](https://mspartner.microsoft.com/Pages/Locale.aspx) to verify your eligibility status. If you have the appropriate [Cloud Platform Competencies](https://mspartner.microsoft.com/pages/membership/cloud-platform-competency.aspx), you may be eligible for other benefits.
+  - Sign in to the [Cloud Partner Program portal](https://mspartner.microsoft.com/Pages/Locale.aspx) to verify your eligibility status. If you have the appropriate [Cloud Platform Competencies](https://mspartner.microsoft.com/pages/membership/cloud-platform-competency.aspx), you might be eligible for other benefits.
   - If you can't verify your status, contact [Cloud Partner Program Support](https://mspartner.microsoft.com/Pages/Support/Premium/contact-support.aspx).
 
 ### Can't activate new Azure In Open subscription

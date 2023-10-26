@@ -64,12 +64,14 @@ Assign the Virtual Machine Contributor role to the account, so that you have per
 - Write to an Azure managed disk.
 
 
-### Assign permissions to register the Replication Appliance in Azure AD
+<a name='assign-permissions-to-register-the-replication-appliance-in-azure-ad'></a>
 
-If you are following the least privilege principle, assign the **Application Developer** Azure AD role to the user registering the Replication Appliance. Follow the [Assign administrator and non-administrator roles to users with Azure Active Directory](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md) guide to do so.
+### Assign permissions to register the Replication Appliance in Microsoft Entra ID
+
+If you are following the least privilege principle, assign the **Application Developer** Microsoft Entra role to the user registering the Replication Appliance. Follow the [Assign administrator and non-administrator roles to users with Microsoft Entra ID](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md) guide to do so.
 
 > [!IMPORTANT]
-> If the user registering the Replication Appliance is an Azure AD Global administrator, that user already has the required permissions.
+> If the user registering the Replication Appliance is a Microsoft Entra Global Administrator, that user already has the required permissions.
 
 ### Set up an Azure network
 
@@ -194,7 +196,7 @@ After downloading the OVF template, you import it into VMware vSphere to create 
 3. After the installation finishes, sign in to the VM as the administrator, using the admin password. The first time you sign in, the replication appliance setup tool (Azure Site Recovery Configuration Tool) starts within a few seconds.
 5. Enter a name to use for registering the appliance with the Migration and modernization tool. Select **Next**.
 6. The tool checks that the VM can connect to Azure. After the connection is established, select **Sign in** to sign in to your Azure subscription.
-7. Wait for the tool to finish registering an Azure AD app to identify the appliance. The appliance reboots.
+7. Wait for the tool to finish registering a Microsoft Entra app to identify the appliance. The appliance reboots.
 1. Sign in to the machine again. In a few seconds, the Configuration Server Management Wizard starts automatically.
 
 ### Register the replication appliance
@@ -267,7 +269,7 @@ Select VMs for migration.
 12. In  **Cache storage account**, keep the default option to use the cache storage account that is automatically created for the project. Use the dropdown if you'd like to specify a different storage account to use as the cache storage account for replication. <br/>
     > [!NOTE]
     >
-    > - If you selected private endpoint as the connectivity method for the Azure Migrate project, grant the Recovery Services vault access to the cache storage account. [**Learn more**](migrate-servers-to-azure-using-private-link.md#grant-access-permissions-to-the-recovery-services-vault )
+    > - If you selected private endpoint as the connectivity method for the Azure Migrate project, grant the Recovery Services vault access to the cache storage account. [**Learn more**](migrate-servers-to-azure-using-private-link.md#grant-access-permissions-to-the-recovery-services-vault)
     > - To replicate using ExpressRoute with private peering, create a private endpoint for the cache storage account. [**Learn more**](migrate-servers-to-azure-using-private-link.md#create-a-private-endpoint-for-the-storage-account-1)
 13. In **Availability options**, select:
     -  Availability Zone to pin the migrated machine to a specific Availability Zone in the region. Use this option to distribute servers that form a multi-node application tier across Availability Zones. If you select this option, you'll need to specify the Availability Zone to use for each of the selected machine in the Compute tab. This option is only available if the target region selected for the migration supports Availability Zones

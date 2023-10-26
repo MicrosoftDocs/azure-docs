@@ -17,13 +17,13 @@ The IoT Central REST API lets you develop client applications that integrate wit
 
 Every IoT Central REST API call requires an authorization header that IoT Central uses to determine the identity of the caller and the permissions that caller is granted within the application.
 
-This article describes the types of token you can use in the authorization header, and how to get them.
+This article describes the types of token you can use in the authorization header, and how to get them. Srvice principals are the recommended approach to access management for IoT Central REST APIs.
 
 ## Token types
 
 To access an IoT Central application using the REST API, you can use an:
 
-- _Azure Active Directory bearer token_. A bearer token is associated with an Azure Active Directory user account or service principal. The token grants the caller the same permissions the user or service principal has in the IoT Central application.
+- _Azure Active Directory bearer token_. A bearer token is associated with a Microsoft Entra user account or service principal. The token grants the caller the same permissions the user or service principal has in the IoT Central application. 
 - IoT Central API token. An API token is associated with a role in your IoT Central application.
 
 Use a bearer token associated with your user account while you're developing and testing automation and scripts that use the REST API. Use a bearer token that's associated with a service principal for production automation and scripts. Use a bearer token in preference to an API token to reduce the risk of leaks and problems when tokens expire.
@@ -32,7 +32,7 @@ To learn more about users and roles in IoT Central, see [Manage users and roles 
 
 ## Get a bearer token
 
-To get a bearer token for your Azure Active Directory user account, use the following Azure CLI commands:
+To get a bearer token for your Microsoft Entra user account, use the following Azure CLI commands:
 
 ```azurecli
 az login

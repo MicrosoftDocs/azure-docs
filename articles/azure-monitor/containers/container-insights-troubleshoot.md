@@ -117,7 +117,7 @@ To view the non-AKS cluster in Container insights, read access is required on th
     ```
     For clusters with MSI, the user-assigned client ID for Azure Monitor Agent changes every time monitoring is enabled and disabled, so the role assignment should exist on the current MSI client ID.
 
-1. For clusters with Azure Active Directory pod identity enabled and using MSI:
+1. For clusters with Microsoft Entra pod identity enabled and using MSI:
 
    - Verify that the required label **kubernetes.azure.com/managedby: aks** is present on the Azure Monitor Agent pods by using the following command:
 
