@@ -11,8 +11,8 @@ ms.date: 10/26/2023
 
 This article is a list of all sensitive information types supported by MDC (a subset of what's supported in Purview). The following table lists the scanned sensitive information type, the Microsoft Defender for Cloud info type category, and whether the sensitive information type is scanned by default in the sensitivity settings. Read more about [data sensitivity settings](data-sensitivity-settings.md).
 
-| Sensitive information type name | Microsoft Defender for Cloud info type category | Is default in sensitivity settings?  |
-|----------|----------|----------|
+| Sensitive information type name | Microsoft Defender for Cloud info type category | Is default in sensitivity settings? |
+|----------------|----------------|----------------|
 | [ABA routing number](https://learn.microsoft.com/purview/sit-defn-aba-routing) | Finance | YES |
 | [Amazon S3 Client Secret Access Key](https://learn.microsoft.com/purview/sit-defn-amazon-s3-client-secret-access-key) | Credentials | YES |
 | [Argentina national identity (DNI) number](https://learn.microsoft.com/purview/sit-defn-argentina-national-identity-numbers) | Other | NO |
@@ -79,48 +79,46 @@ This article is a list of all sensitive information types supported by MDC (a su
 | [China resident identity card (PRC) number](https://learn.microsoft.com/purview/sit-defn-china-resident-identity-card-number) | Other | NO |
 | [Client secret / API key](https://learn.microsoft.com/purview/sit-defn-client-secret-api-key) | Credentials | YES |
 | [Credit card number](https://learn.microsoft.com/purview/sit-defn-credit-card-number) | Finance | YES |
-Croatia driver's license number	https://learn.microsoft.com/en-us/purview/sit-defn-croatia-drivers-license-number	Other	NO
-Croatia identity card number	https://learn.microsoft.com/en-us/purview/sit-defn-croatia-identity-card-number	Other	NO
-Croatia passport number	https://learn.microsoft.com/en-us/purview/sit-defn-croatia-passport-number	Other	NO
-Croatia personal identification (OIB) number	https://learn.microsoft.com/en-us/purview/sit-defn-croatia-personal-identification-number	PII	YES
-Cyprus drivers license number	https://learn.microsoft.com/en-us/purview/sit-defn-cyprus-drivers-license-number	Other	NO
-Cyprus identity card	https://learn.microsoft.com/en-us/purview/sit-defn-cyprus-identity-card	Other	NO
-Cyprus passport number	https://learn.microsoft.com/en-us/purview/sit-defn-cyprus-passport-number	Other	NO
-Cyprus tax identification number	https://learn.microsoft.com/en-us/purview/sit-defn-cyprus-tax-identification-number	PII	YES
-Czech driver's license number	https://learn.microsoft.com/en-us/purview/sit-defn-czech-drivers-license-number	Other	NO
-Czech passport number	https://learn.microsoft.com/en-us/purview/sit-defn-czech-passport-number	Other	NO
-Czech personal identity number	https://learn.microsoft.com/en-us/purview/sit-defn-czech-personal-identity-number	PII	YES
-Denmark driver's license number	https://learn.microsoft.com/en-us/purview/sit-defn-denmark-drivers-license-number	Other	NO
-Denmark passport number	https://learn.microsoft.com/en-us/purview/sit-defn-denmark-passport-number	Other	NO
-Denmark personal identification number	https://learn.microsoft.com/en-us/purview/sit-defn-denmark-personal-identification-number	Other	NO
-Estonia driver's license number	https://learn.microsoft.com/en-us/purview/sit-defn-estonia-drivers-license-number	Other	NO
-Estonia passport number	https://learn.microsoft.com/en-us/purview/sit-defn-estonia-passport-number	Other	NO
-Estonia Personal Identification Code	https://learn.microsoft.com/en-us/purview/sit-defn-estonia-personal-identification-code	PII	YES
-EU debit card number	https://learn.microsoft.com/en-us/purview/sit-defn-eu-debit-card-number	Finance	YES
-Finland driver's license number	https://learn.microsoft.com/en-us/purview/sit-defn-finland-drivers-license-number	Other	NO
-Finland european health insurance number	https://learn.microsoft.com/en-us/purview/sit-defn-finland-european-health-insurance-number	Other	NO
-Finland national ID	https://learn.microsoft.com/en-us/purview/sit-defn-finland-national-id	PII	YES
-Finland passport number	https://learn.microsoft.com/en-us/purview/sit-defn-finland-passport-number	Other	NO
-France driver's license number	https://learn.microsoft.com/en-us/purview/sit-defn-france-drivers-license-number	Other	NO
-France health insurance number	https://learn.microsoft.com/en-us/purview/sit-defn-france-health-insurance-number	Other	NO
-France national id card (CNI)	https://learn.microsoft.com/en-us/purview/sit-defn-france-national-id-card	Other	NO
-France passport number	https://learn.microsoft.com/en-us/purview/sit-defn-france-passport-number	Other	NO
-France social security number (INSEE)	https://learn.microsoft.com/en-us/purview/sit-defn-france-social-security-number	PII	YES
-France tax identification number	https://learn.microsoft.com/en-us/purview/sit-defn-france-tax-identification-number	PII	YES
-France value added tax number	https://learn.microsoft.com/en-us/purview/sit-defn-france-value-added-tax-number	Other	NO
-Germany driver's license number	https://learn.microsoft.com/en-us/purview/sit-defn-germany-drivers-license-number	Other	NO
-Germany identity card number	https://learn.microsoft.com/en-us/purview/sit-defn-germany-identity-card-number	PII	YES
-Germany passport number	https://learn.microsoft.com/en-us/purview/sit-defn-germany-passport-number	Other	NO
-Germany tax identification number	https://learn.microsoft.com/en-us/purview/sit-defn-germany-tax-identification-number	PII	YES
-Germany value added tax number	https://learn.microsoft.com/en-us/purview/sit-defn-germany-value-added-tax-number	Other	NO
-GitHub Personal Access Token	https://learn.microsoft.com/en-us/purview/sit-defn-github-personal-access-token	Credentials	YES
-Google API key	https://learn.microsoft.com/en-us/purview/sit-defn-google-api-key	Credentials	YES
-Greece driver's license number	https://learn.microsoft.com/en-us/purview/sit-defn-greece-drivers-license-number	Other	NO
-Greece national ID card	https://learn.microsoft.com/en-us/purview/sit-defn-greece-national-id-card	PII	YES
-Greece passport number	https://learn.microsoft.com/en-us/purview/sit-defn-greece-passport-number	Other	NO
-Greece Social Security Number (AMKA)	https://learn.microsoft.com/en-us/purview/sit-defn-greece-social-security-number	Other	NO
-Greece tax identification number	https://learn.microsoft.com/en-us/purview/sit-defn-greece-tax-identification-number	Other	NO
-Hong Kong identity card (HKID) number	https://learn.microsoft.com/en-us/purview/sit-defn-hong-kong-identity-card-number	Other	NO
+| [Croatia driver's license number](https://learn.microsoft.com/purview/sit-defn-croatia-drivers-license-number) | Other | NO |
+| [Croatia identity card number](https://learn.microsoft.com/purview/sit-defn-croatia-identity-card-number) | Other | NO |
+| [Croatia passport number](https://learn.microsoft.com/purview/sit-defn-croatia-passport-number) | Other | NO |
+| [Croatia personal identification (OIB) number](https://learn.microsoft.com/purview/sit-defn-croatia-personal-identification-number) | PII | YES |
+| [Cyprus drivers license number](https://learn.microsoft.com/purview/sit-defn-cyprus-drivers-license-number) | Other | NO |
+| [Cyprus identity card](https://learn.microsoft.com/purview/sit-defn-cyprus-identity-card) | Other | NO |
+| [Cyprus passport number](https://learn.microsoft.com/purview/sit-defn-cyprus-passport-number) |Other | NO |
+| [Cyprus tax identification number](https://learn.microsoft.com/purview/sit-defn-cyprus-tax-identification-number) | PII | YES |
+| [Czech driver's license number](https://learn.microsoft.com/purview/sit-defn-czech-drivers-license-number) | Other | NO |
+| [Czech passport number](https://learn.microsoft.com/purview/sit-defn-czech-passport-number) | Other | NO |
+| [Czech personal identity number](https://learn.microsoft.com/purview/sit-defn-czech-personal-identity-number) | PII | YES |
+| [Denmark driver's license number](https://learn.microsoft.com/purview/sit-defn-denmark-drivers-license-number) | Other | NO |
+| [Denmark passport number](https://learn.microsoft.com/purview/sit-defn-denmark-passport-number) | Other | NO |
+| [Denmark personal identification number](https://learn.microsoft.com/purview/sit-defn-denmark-personal-identification-number) | Other | NO |
+| [Estonia driver's license number](https://learn.microsoft.com/purview/sit-defn-estonia-drivers-license-number) | Other | NO |
+| [Estonia passport number](https://learn.microsoft.com/purview/sit-defn-estonia-passport-number) | Other | NO |
+| [Estonia Personal Identification Code](https://learn.microsoft.com/purview/sit-defn-estonia-personal-identification-code) | PII | YES |
+| [EU debit card number](https://learn.microsoft.com/purview/sit-defn-eu-debit-card-number]) |Finance | YES |
+| [Finland driver's license number](https://learn.microsoft.com/purview/sit-defn-finland-drivers-license-number) | Other | NO |
+| [Finland european health insurance number](https://learn.microsoft.com/purview/sit-defn-finland-european-health-insurance-number) | Other | NO |
+| [Finland national ID](https://learn.microsoft.com/purview/sit-defn-finland-national-id) | PII | YES |
+| [Finland passport number](https://learn.microsoft.com/purview/sit-defn-finland-passport-number) | Other | NO |
+| [France driver's license number](https://learn.microsoft.com/purview/sit-defn-france-drivers-license-number) | Other | NO |
+| [France health insurance number](https://learn.microsoft.com/purview/sit-defn-france-health-insurance-number) | Other | NO |
+| [France passport number](https://learn.microsoft.com/purview/sit-defn-france-passport-number) | Other | NO |
+| [France social security number (INSEE)](https://learn.microsoft.com/purview/sit-defn-france-social-security-number) | PII | YES |
+| [France tax identification number](https://learn.microsoft.com/purview/sit-defn-france-tax-identification-number) | PII | YES |
+| [France value added tax number](https://learn.microsoft.com/purview/sit-defn-france-value-added-tax-number) | Other | NO |
+| [Germany driver's license number](https://learn.microsoft.com/purview/sit-defn-germany-drivers-license-number) | Other | NO |
+| [Germany identity card number](https://learn.microsoft.com/purview/sit-defn-germany-identity-card-number) | PII | YES |
+| [Germany passport number](https://learn.microsoft.com/purview/sit-defn-germany-passport-number | Other | NO |
+| [Germany tax identification number](https://learn.microsoft.com/purview/sit-defn-germany-tax-identification-number) | PII | YES |
+| [Germany value added tax number](https://learn.microsoft.com/purview/sit-defn-germany-value-added-tax-number) | Other | NO |
+| [GitHub Personal Access Token](https://learn.microsoft.com/purview/sit-defn-github-personal-access-token) | Credentials | YES |
+| [Google API key](https://learn.microsoft.com/purview/sit-defn-google-api-key) | Credentials | YES |
+| [Greece driver's license number](https://learn.microsoft.com/purview/sit-defn-greece-drivers-license-number) | Other | NO |
+Greece passport number	https://learn.microsoft.com/purview/sit-defn-greece-passport-number)| Other | NO |
+| [Greece Social Security Number (AMKA)](https://learn.microsoft.com/purview/sit-defn-greece-social-security-number) | Other | NO |
+| [Greece tax identification number](https://learn.microsoft.com/purview/sit-defn-greece-tax-identification-number) | Other | NO |
+| [Hong Kong identity card (HKID) number](https://learn.microsoft.com/purview/sit-defn-hong-kong-identity-card-number) | Other | NO |
 Http authorization header	https://learn.microsoft.com/en-us/purview/sit-defn-http-authorization-header	Credentials	YES
 Hungary driver's license number	https://learn.microsoft.com/en-us/purview/sit-defn-hungary-drivers-license-number	Other	NO
 Hungary passport number	https://learn.microsoft.com/en-us/purview/sit-defn-hungary-passport-number	Other	NO
@@ -233,4 +231,4 @@ U.S./U.K. passport number	https://learn.microsoft.com/en-us/purview/sit-defn-us-
 Ukraine passport domestic	https://learn.microsoft.com/en-us/purview/sit-defn-ukraine-passport-domestic	Other	NO
 Ukraine passport international	https://learn.microsoft.com/en-us/purview/sit-defn-ukraine-passport-international	Other	NO
 X.509 certificate private key	https://learn.microsoft.com/en-us/purview/sit-defn-x-509-certificate-private-key	Credentials	YES
-X.509 certificate private key	https://learn.microsoft.com/en-us/purview/sit-defn-x-509-certificate-private-key	Credentials	YES
+X.509 certificate private key	https://learn.microsoft.com/en-us/purview/sit-defn-x-509-certificate-private-key	Credentials	YES |
