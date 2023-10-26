@@ -1,5 +1,5 @@
 ---
-title: Azure Orbital Ground Station - configure contact profile
+title: Azure Orbital Ground Station - Configure a contact profile
 description: Learn how to configure a contact profile
 author: apoorvanori
 ms.service: orbital
@@ -18,7 +18,7 @@ Learn how to configure a [contact profile](concepts-contact-profile.md) with Azu
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Contributor permissions at the subscription level.
-- To collect telemetry during the contact, [create an Event Hub](receive-real-time-telemetry.md). [Learn more about Azure Event Hubs](../event-hubs/event-hubs-about.md).
+- To collect telemetry during the contact, [create an event hub](receive-real-time-telemetry.md). [Learn more about Azure Event Hubs](../event-hubs/event-hubs-about.md).
 - An IP address (private or public) for data retrieval/delivery. Learn how to [create a VM and use its private IP](../virtual-machines/windows/quick-create-portal.md).
 
 ## Sign in to Azure
@@ -38,7 +38,7 @@ Sign in to the [Azure portal - Orbital](https://aka.ms/orbital/portal).
    | **Name** | Enter a contact profile **name**. Specify the antenna provider and mission information here, e.g. Microsoft_Aqua_Uplink_Downlink_1. |
    | **Region** | Select a **region**. |
    | **Minimum viable contact duration** | Define the **minimum duration** of the contact as a prerequisite to show available time slots to communicate with your spacecraft. _If an available time window is less than this time, it won't be in the list of available options. Provide minimum contact duration in ISO 8601 format, e.g. PT1M._ |
-   | **Minimum elevation** | Define **minimum elevation** of the contact, after acquisition of signal (AOS), as a prerequisite to show available time slots to communicate with your spacecraft. _Using a higher value may reduce the duration of the contact. Provide minimum viable elevation in decimal degrees._ |
+   | **Minimum elevation** | Define **minimum elevation** of the contact, after acquisition of signal (AOS), as a prerequisite to show available time slots to communicate with your spacecraft. _Using a higher value might reduce the duration of the contact. Provide minimum viable elevation in decimal degrees._ |
    | **Auto track configuration** | Select the frequency band to be used for autotracking during the contact: **X band**, **S band**, or **Disabled**. |
    | **Event Hubs Namespace** | Select an **Event Hubs Namespace** to which you'll send telemetry data of your contacts. Learn how to [configure Event Hubs](receive-real-time-telemetry.md#configure-event-hubs). _You must select a subscription before you can select an Event Hubs Namespace._ |
    | **Event Hubs Instance** | Select an **Event Hubs Instance** that belongs to the previously selected Namespace. _This field only appears if an Event Hubs Namespace is selected first_. |
