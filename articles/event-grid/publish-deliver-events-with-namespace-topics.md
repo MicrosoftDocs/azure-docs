@@ -165,7 +165,7 @@ event_subscription="<your_event_subscription_name>"
 
 ```azurecli
 az resource create --api-version 2023-06-01-preview --resource-group $resource_group --namespace Microsoft.EventGrid --resource-type eventsubscriptions --name $event_subscription --parent namespaces/$namespace/topics/$topic --location $location --properties "{\"deliveryConfiguration\":{\"deliveryMode\":\"Push\",\"push\":{\"maxDeliveryCount\":10,\"deliveryWithResourceIdentity\":{\"identity\":{\"type\":\"SystemAssigned\"},\"destination\":{\"endpointType\":\"EventHub\",\"properties\":{\"resourceId\":\"$eventHubResourceId\"}}}}}}"
-    ```
+```
 
 ## Send events to your topic
 
