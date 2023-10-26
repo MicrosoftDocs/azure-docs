@@ -85,4 +85,5 @@ For more information, see [Microsoft.Network azureFirewalls](/azure/templates/mi
 
 ## Next steps
 
-To learn how to deploy an Azure Firewall, see [Deploy and configure Azure Firewall using Azure PowerShell](deploy-ps.md).
+- To learn more about FTP scenarios, see [Validating FTP traffic scenarios with Azure Firewall](https://techcommunity.microsoft.com/t5/azure-network-security-blog/validating-ftp-traffic-scenarios-with-azure-firewall/ba-p/3880683).
+- To learn how to deploy an Azure Firewall, see [Deploy and configure Azure Firewall using Azure PowerShell](deploy-ps.md).

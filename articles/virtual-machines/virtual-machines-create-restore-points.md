@@ -23,7 +23,10 @@ An individual VM restore point is a resource that stores VM configuration and po
 VM restore points supports both application consistency and crash consistency (in preview).
 Application consistency is supported for VMs running Windows operating systems and support file system consistency for VMs running Linux operating system. Application consistent restore points use VSS writers (or pre/post scripts for Linux) to ensure the consistency of the application data before a restore point is created. To get an application consistent restore point, the application running in the VM needs to provide a VSS writer (for Windows), or pre and post scripts (for Linux) to achieve application consistency.
 
-Crash consistent VM restore point stores the VM configuration and point-in-time write-order consistent snapshots for all managed disks attached to a Virtual Machine. This is same as the status of data in the VM after a power outage or a crash. "consistencyMode" optional parameter has to be set to "crashConsistent" in the creation request. This feature is currently in preview.
+Multi-disk crash consistent VM restore point stores the VM configuration and point-in-time write-order consistent snapshots for all managed disks attached to a virtual machine. This is the same as the status of data in the VM after a power outage or a crash. The "consistencyMode" optional parameter has to be set to "crashConsistent" in the creation request. This feature is currently in preview.
+
+> [!NOTE]
+> For disks configured with read/write host caching, multi-disk crash consistency can't be guaranteed because writes occurring while the snapshot is taken might not have been acknowledged by Azure Storage. If maintaining consistency is crucial, we advise using the application consistency mode.
 
 VM restore points are organized into restore point collections. A restore point collection is an Azure Resource Management resource that contains the restore points for a specific VM. If you want to utilize ARM templates for creating restore points and restore point collections, visit the public [Virtual-Machine-Restore-Points](https://github.com/Azure/Virtual-Machine-Restore-Points) repository on GitHub.
 

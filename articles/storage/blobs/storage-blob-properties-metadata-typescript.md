@@ -6,13 +6,15 @@ services: storage
 author: pauljewellmsft
 ms.author: pauljewell
 ms.date: 03/21/2023
-ms.service: azure-storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: typescript
 ms.custom: devx-track-ts, devguide-ts, devx-track-js
 ---
 
 # Manage blob properties and metadata with TypeScript
+
+[!INCLUDE [storage-dev-guide-selector-manage-properties-blob](../../../includes/storage-dev-guides/storage-dev-guide-selector-manage-properties-blob.md)]
 
 In addition to the data they contain, blobs support system properties and user-defined metadata. This article shows how to manage system properties and user-defined metadata with the [Azure Storage client library for JavaScript](https://www.npmjs.com/package/@azure/storage-blob).
 

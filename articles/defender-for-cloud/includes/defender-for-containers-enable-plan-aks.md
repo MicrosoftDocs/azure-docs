@@ -25,8 +25,10 @@ ms.date: 06/01/2023
 
     :::image type="content" source="../media/defender-for-containers-enable-plan-gke/container-components-on.png" alt-text="screenshot of turning on components." lightbox="../media/defender-for-containers-enable-plan-gke/container-components-on.png":::
 
-    > [!Note]
-    > When you turn off Defender for Containers, the components are set to off and are not deployed to any more containers but they are not removed from containers that they are already installed on.
+    > [!NOTE]
+    >
+    > - Defenders for Containers customers who joined before August 2023 and don't have Agentless discovery for Kubernetes enabled as part of Defender CSPM when they enabled the plan, must manually enable the Agentless discovery for Kubernetes extension within the Defender for Containers plan.
+    > - When you turn off Defender for Containers, the components are set to off and are not deployed to any more containers but they are not removed from containers that they are already installed on.
 
 By default, when enabling the plan through the Azure portal, [Microsoft Defender for Containers](../defender-for-containers-introduction.md) is configured to automatically install required components to provide the protections offered by plan, including the assignment of a default workspace.
 
@@ -50,14 +52,14 @@ If you disable the automatic installation of any component, you can easily deplo
 
 Learn more about the [roles used to provision Defender for Containers extensions](../permissions.md#roles-used-to-automatically-provision-agents-and-extensions).
 
-## Deploy the Defender profile
+## Deploy the Defender agent
 
 You can enable the Defender for Containers plan and deploy all of the relevant components from the Azure portal, the REST API, or with a Resource Manager template. For detailed steps, select the relevant tab.
 
-Once the Defender profile has been deployed, a default workspace will be automatically assigned. You can [assign a custom workspace](../defender-for-containers-enable.md?pivots=defender-for-container-aks&tabs=aks-deploy-portal%2ck8s-deploy-asc%2ck8s-verify-asc%2ck8s-remove-arc%2caks-removeprofile-api#assign-a-custom-workspace) in place of the default workspace through Azure Policy.
+Once the Defender agent has been deployed, a default workspace will be automatically assigned. You can [assign a custom workspace](../defender-for-containers-enable.md?pivots=defender-for-container-aks&tabs=aks-deploy-portal%2ck8s-deploy-asc%2ck8s-verify-asc%2ck8s-remove-arc%2caks-removeprofile-api#assign-a-custom-workspace) in place of the default workspace through Azure Policy.
 
 > [!NOTE]
-> The Defender profile is deployed to each node to provide the runtime protections and collect signals from those nodes using [eBPF technology](https://ebpf.io/).
+> The Defender agent is deployed to each node to provide the runtime protections and collect signals from those nodes using [eBPF technology](https://ebpf.io/).
 
 ### [**Azure portal**](#tab/aks-deploy-portal)
 
@@ -67,8 +69,8 @@ A streamlined, frictionless, process lets you use the Azure portal pages to enab
 
 A dedicated Defender for Cloud recommendation provides:
 
-- **Visibility** about which of your clusters has the Defender profile deployed
-- **Fix** button to deploy it to those clusters without the extension
+- **Visibility** about which of your clusters has the Defender agent deployed
+- **Fix** button to deploy it to those clusters without the agent
 
 1. From Microsoft Defender for Cloud's recommendations page, open the **Enable enhanced security** security control.
 
@@ -77,7 +79,7 @@ A dedicated Defender for Cloud recommendation provides:
     > [!TIP]
     > Notice the **Fix** icon in the actions column
 
-1. Select the clusters to see the details of the healthy and unhealthy resources - clusters with and without the profile.
+1. Select the clusters to see the details of the healthy and unhealthy resources - clusters with and without the agent.
 
 1. From the unhealthy resources list, select a cluster and select **Remediate** to open the pane with the remediation confirmation.
 
@@ -85,7 +87,7 @@ A dedicated Defender for Cloud recommendation provides:
 
 ### [**REST API**](#tab/aks-deploy-rest)
 
-### Use the REST API to deploy the Defender profile
+### Use the REST API to deploy the Defender agent
 
 To install the 'SecurityProfile' on an existing cluster with the REST API, run the following PUT command:
 
@@ -132,7 +134,7 @@ Request body parameters:
 
 ### [**Azure CLI**](#tab/k8s-deploy-cli)
 
-### Use Azure CLI to deploy the Defender extension
+### Use Azure CLI to deploy the Defender agent
 
 1. Sign in to Azure:
 
@@ -144,21 +146,21 @@ Request body parameters:
     > [!IMPORTANT]
     > Ensure that you use the same subscription ID for ``<your-subscription-id>`` as the one associated with your AKS cluster.
 
-1. Enable the Defender profile on your containers:
+1. Enable the Defender agent on your containers:
 
-    - Run the following command to create a new cluster with the Defender profile enabled:
+    - Run the following command to create a new cluster with the Defender agent enabled:
 
         ```azurecli
         az aks create --enable-defender --resource-group <your-resource-group> --name <your-cluster-name>
         ```
 
-    - Run the following command to enable the Defender profile on an existing cluster:
+    - Run the following command to enable the Defender agent on an existing cluster:
 
         ```azurecli
         az aks update --enable-defender --resource-group <your-resource-group> --name <your-cluster-name>
         ```
 
-    A description of all the supported configuration settings on the Defender extension type is given below:
+    A description of all the supported configuration settings on the Defender agent type is given below:
 
     | Property | Description |
     |----------|-------------|
@@ -172,19 +174,19 @@ Request body parameters:
 
     Learn more about AKS CLI commands in [az aks](/cli/azure/aks).
 
-1. To verify that the profile was successfully added, run the following command on your machine with the `kubeconfig` file pointed to your cluster:
+1. To verify that the agent was successfully added, run the following command on your machine with the `kubeconfig` file pointed to your cluster:
 
     ```console
     kubectl get pods -n kube-system
     ```
 
-    When the profile is added, you should see a pod called `microsoft-defender-XXXXX` in `Running` state. It might take a few minutes for pods to be added.
+    When the agent is added, you should see a pod called `microsoft-defender-XXXXX` in `Running` state. It might take a few minutes for pods to be added.
 
 ### [**Resource Manager**](#tab/aks-deploy-arm)
 
-### Use Azure Resource Manager to deploy the Defender profile
+### Use Azure Resource Manager to deploy the Defender agent
 
-To use Azure Resource Manager to deploy the Defender profile, you'll need a Log Analytics workspace on your subscription. Learn more in [Log Analytics workspaces](../../azure-monitor/logs/log-analytics-workspace-overview.md).
+To use Azure Resource Manager to deploy the Defender agent, you'll need a Log Analytics workspace on your subscription. Learn more in [Log Analytics workspaces](../../azure-monitor/logs/log-analytics-workspace-overview.md).
 
 > [!TIP]
 > If you're new to Resource Manager templates, start here: [What are Azure Resource Manager templates?](../../azure-resource-manager/templates/overview.md)

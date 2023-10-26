@@ -24,7 +24,7 @@ A container runtime is software that executes containers and manages container i
 
 With a `containerd`-based node and node pools, instead of talking to the `dockershim`, the kubelet talks directly to `containerd` using the CRI (container runtime interface) plugin, removing extra hops in the data flow when compared to the Docker CRI implementation. As such, you see better pod startup latency and less resource (CPU and memory) usage.
 
-By using `containerd` for AKS nodes, pod startup latency improves and node resource consumption by the container runtime decreases. These improvements through this new architecture enable kubelet communicating directly to `containerd` through the CRI plugin. While in a Moby/docker architecture, kubelet communicates to the `dockershim` and docker engine before reaching `containerd`, therefore having extra hops in the data flow.
+By using `containerd` for AKS nodes, pod startup latency improves and node resource consumption by the container runtime decreases. These improvements through this new architecture enable kubelet communicating directly to `containerd` through the CRI plugin. While in a Moby/docker architecture, kubelet communicates to the `dockershim` and docker engine before reaching `containerd`, therefore having extra hops in the data flow. For more details on the origin of the `dockershim` and its deprecation, see the [Dockershim removal FAQ][kubernetes-dockershim-faq].
 
 ![Docker CRI 2](media/cluster-configuration/containerd-cri.png)
 
@@ -485,19 +485,19 @@ az provider register --namespace Microsoft.ContainerService
 To create a cluster using node resource group lockdown, set the `--nrg-lockdown-restriction-level` to **ReadOnly**. This configuration allows you to view the resources, but not modify them.
 
 ```azurecli-interactive
-az aks create -n aksTest -g aksTest –-nrg-lockdown-restriction-level ReadOnly
+az aks create -n aksTest -g aksTest --nrg-lockdown-restriction-level ReadOnly
 ```
 
 ### Update an existing cluster with node resource group lockdown
 
 ```azurecli-interactive
-az aks update -n aksTest -g aksTest –-nrg-lockdown-restriction-level ReadOnly
+az aks update -n aksTest -g aksTest --nrg-lockdown-restriction-level ReadOnly
 ```
 
 ### Remove node resource group lockdown from a cluster
 
 ```azurecli-interactive
-az aks update -n aksTest -g aksTest –-nrg-lockdown-restriction-level Unrestricted
+az aks update -n aksTest -g aksTest --nrg-lockdown-restriction-level Unrestricted
 ```
 
 
@@ -515,6 +515,7 @@ az aks update -n aksTest -g aksTest –-nrg-lockdown-restriction-level Unrestric
 [azurerm-azurelinux]: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster_node_pool#os_sku
 [general-usage]: https://kubernetes.io/docs/tasks/debug/debug-cluster/crictl/#general-usage
 [client-config-options]: https://github.com/kubernetes-sigs/cri-tools/blob/master/docs/crictl.md#client-configuration-options
+[kubernetes-dockershim-faq]: https://kubernetes.io/blog/2022/02/17/dockershim-faq/#why-was-the-dockershim-removed-from-kubernetes
 
 <!-- LINKS - internal -->
 [azure-cli-install]: /cli/azure/install-azure-cli
@@ -526,7 +527,7 @@ az aks update -n aksTest -g aksTest –-nrg-lockdown-restriction-level Unrestric
 [az-feature-register]: /cli/azure/feature#az_feature_register
 [az-feature-list]: /cli/azure/feature#az_feature_list
 [az-provider-register]: /cli/azure/provider#az_provider_register
-[aks-add-np-containerd]: /create-node-pools.md#add-a-windows-server-node-pool-with-containerd
+[aks-add-np-containerd]: create-node-pools.md#add-a-windows-server-node-pool-with-containerd
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [az-aks-update]: /cli/azure/aks#az-aks-update
 [baseline-reference-architecture-aks]: /azure/architecture/reference-architectures/containers/aks/baseline-aks

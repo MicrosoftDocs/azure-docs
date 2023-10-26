@@ -20,7 +20,7 @@ ms.custom: references_regions
 
 * <a id="azure-container-storage-regions"></a>
   **In which Azure regions is Azure Container Storage available?**  
-  Azure Container Storage Preview is only available in East US, East US 2, West US 2, West US 3, South Central US, Southeast Asia, Australia East, West Europe, North Europe, UK South, Sweden Central, and France Central. See [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products).
+  [!INCLUDE [container-storage-regions](../../../includes/container-storage-regions.md)]
 
 * <a id="azure-container-storage-preview-limitations"></a>
   **Which other Azure services does Azure Container Storage support?**  

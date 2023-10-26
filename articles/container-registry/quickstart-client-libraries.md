@@ -68,7 +68,7 @@ dotnet add package Azure.Containers.ContainerRegistry --prerelease
 
 ## Authenticate the client
 
-For your application to connect to your registry, you'll need to create a `ContainerRegistryClient` that can authenticate with it. Use the [Azure Identity library][dotnet_identity] to add Azure Active Directory support for authenticating Azure SDK clients with their corresponding Azure services.  
+For your application to connect to your registry, you'll need to create a `ContainerRegistryClient` that can authenticate with it. Use the [Azure Identity library][dotnet_identity] to add Microsoft Entra ID support for authenticating Azure SDK clients with their corresponding Azure services.  
 
 When you're developing and debugging your application locally, you can use your own user to authenticate with your registry. One way to accomplish this is to [authenticate your user with the Azure CLI](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity/Azure.Identity#authenticating-via-the-azure-cli) and run your application from this environment. If your application is using a client that has been constructed to authenticate with `DefaultAzureCredential`, it will correctly authenticate with the registry at the specified endpoint.  
 
@@ -84,7 +84,7 @@ ContainerRegistryClient client = new ContainerRegistryClient(endpoint, new Defau
 
 See the [Azure Identity README][dotnet_identity] for more approaches to authenticating with `DefaultAzureCredential`, both locally and in deployment environments. To connect to registries in non-public Azure clouds, see the [API reference][dotnet_docs].
 
-For more information on using Azure AD with Azure Container Registry, see the [authentication overview](container-registry-authentication.md).
+For more information on using Microsoft Entra ID with Azure Container Registry, see the [authentication overview](container-registry-authentication.md).
 
 ## Examples
 
@@ -205,7 +205,7 @@ await foreach (string repositoryName in repositoryNames)
 
 ## Authenticate the client
 
-The [Azure Identity library][java_identity] provides Azure Active Directory support for authentication.
+The [Azure Identity library][java_identity] provides Microsoft Entra ID support for authentication.
 
 The following samples assume you have a registry endpoint string containing the  `https://` prefix and the name of the login server, for example "https://myregistry.azurecr.io".
 
@@ -227,7 +227,7 @@ ContainerRegistryAsyncClient client = new ContainerRegistryClientBuilder()
     .buildAsyncClient();
 ```
 
-For more information on using Azure AD with Azure Container Registry, see the [authentication overview](container-registry-authentication.md).
+For more information on using Microsoft Entra ID with Azure Container Registry, see the [authentication overview](container-registry-authentication.md).
 
 ## Examples
 
@@ -313,7 +313,7 @@ for (String repositoryName : client.listRepositoryNames()) {
 
 ### Currently supported environments
 
-- [LTS versions of Node.js](https://nodejs.org/about/releases/)
+- [LTS versions of Node.js](https://github.com/nodejs/release#release-schedule)
 
 See our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more details.
 
@@ -327,7 +327,7 @@ npm install @azure/container-registry
 
 ## Authenticate the client
 
-The [Azure Identity library][javascript_identity] provides Azure Active Directory support for authentication.
+The [Azure Identity library][javascript_identity] provides Microsoft Entra ID support for authentication.
 
 ```javascript
 const { ContainerRegistryClient } = require("@azure/container-registry");
@@ -338,7 +338,7 @@ const endpoint = process.env.CONTAINER_REGISTRY_ENDPOINT;
 const client = new ContainerRegistryClient(endpoint, new DefaultAzureCredential());
 ```
 
-For more information on using Azure AD with Azure Container Registry, see the [authentication overview](container-registry-authentication.md).
+For more information on using Microsoft Entra ID with Azure Container Registry, see the [authentication overview](container-registry-authentication.md).
 
 ## Examples
 
@@ -455,7 +455,7 @@ pip install --pre azure-containerregistry
 
 ## Authenticate the client
 
-The [Azure Identity library][python_identity] provides Azure Active Directory support for authentication. The `DefaultAzureCredential` assumes the `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_CLIENT_SECRET` environment variables are set. For more information, see [Azure Identity environment variables](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity/azure-identity#environment-variables).
+The [Azure Identity library][python_identity] provides Microsoft Entra ID support for authentication. The `DefaultAzureCredential` assumes the `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_CLIENT_SECRET` environment variables are set. For more information, see [Azure Identity environment variables](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity/azure-identity#environment-variables).
 
 ```python
 # Create a ContainerRegistryClient that will authenticate through Active Directory

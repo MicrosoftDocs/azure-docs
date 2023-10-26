@@ -5,7 +5,7 @@ description: Learn how to write automated tests against private endpoints for Az
 services: storage
 author: ikivanc
 
-ms.service: azure-storage
+ms.service: azure-blob-storage
 ms.devlang: python
 ms.topic: how-to
 ms.date: 03/31/2021

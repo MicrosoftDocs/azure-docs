@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/20/2023
+ms.date: 09/21/2023
 ms.custom: query-reference
 ---
 
@@ -44,7 +44,7 @@ The following example returns the index of various substrings inside the larger 
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/index-of/result.json":::
 
-## Next steps
+## Related content
 
 - [System functions](system-functions.yml)
 - [`SUBSTRING`](substring.md)

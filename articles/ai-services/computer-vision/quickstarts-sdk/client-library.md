@@ -5,10 +5,9 @@ description: Learn how to use Optical character recognition (OCR) in your applic
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: computer-vision
+ms.service: azure-ai-vision
 ms.topic: quickstart
-ms.date: 07/04/2023
+ms.date: 08/07/2023
 ms.author: pafarley
 ms.devlang: csharp, golang, java, javascript, python
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020, mode-api, ignite-2022, devx-track-dotnet, devx-track-extended-java

@@ -4,8 +4,7 @@ description: This article describes how Microsoft manages and operates the Azure
 services: security
 documentationcenter: n
 author: TerryLanfear
-manager: barbkess
-editor: TomSh
+manager: rkarlin
 
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security
@@ -13,7 +12,7 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/30/2019
+ms.date: 08/29/2023
 ms.author: terrylan
 
 ---
@@ -42,7 +41,7 @@ To ensure the secure execution of services running in the Azure environment, the
 If any anomalies occur, the incident response process followed by the Azure incident triage team is activated. The appropriate Azure support personnel are notified to respond to the incident. Issue tracking and resolution are documented and managed in a centralized ticketing system. System uptime metrics are available under the non-disclosure agreement (NDA) and upon request.
 
 ## Corporate network and multi-factor access to production
-The corporate network user base includes Azure support personnel. The corporate network supports internal corporate functions and includes access to internal applications that are used for Azure customer support. The corporate network is both logically and physically separated from the Azure production network. Azure personnel access the corporate network by using Azure workstations and laptops. All users must have an Azure Active Directory (Azure AD) account, including a username and password, to access corporate network resources. Corporate network access uses Azure AD accounts, which are issued to all Microsoft personnel, contractors, and vendors and managed by Microsoft Information Technology. Unique user identifiers distinguish personnel based on their employment status at Microsoft.
+The corporate network user base includes Azure support personnel. The corporate network supports internal corporate functions and includes access to internal applications that are used for Azure customer support. The corporate network is both logically and physically separated from the Azure production network. Azure personnel access the corporate network by using Azure workstations and laptops. All users must have a Microsoft Entra account, including a username and password, to access corporate network resources. Corporate network access uses Microsoft Entra accounts, which are issued to all Microsoft personnel, contractors, and vendors and managed by Microsoft Information Technology. Unique user identifiers distinguish personnel based on their employment status at Microsoft.
 
 Access to internal Azure applications is controlled through authentication with Active Directory Federation Services (AD FS). AD FS is a service hosted by Microsoft Information Technology that provides authentication of corporate network users through applying a secure token and user claims. AD FS enables internal Azure applications to authenticate users against the Microsoft corporate active directory domain. To access the production network from the corporate network environment, users must authenticate by using multi-factor authentication.
 

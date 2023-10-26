@@ -5,7 +5,7 @@ services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.topic: troubleshooting
-ms.date: 08/03/2023
+ms.date: 08/28/2023
 ms.author: jasteppe
 ---
 

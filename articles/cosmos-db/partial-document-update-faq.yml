@@ -20,7 +20,7 @@ sections:
       - question: |
           Is this an implementation of JSON Patch RFC 6902?
         answer: |
-          Azure Cosmos DB partial document update is *inspired* by [JSON Patch RFC 6902](https://datatracker.ietf.org/doc/html/rfc6902). There are other features such as [Conditional Patch](partial-document-update.md#supported-modes) while some of the features of JSON Patch RFC 6902 such as (`Copy`, `Move`, `Test`) have not been implemented.
+          Azure Cosmos DB partial document update is *inspired* by [JSON Patch RFC 6902](https://datatracker.ietf.org/doc/html/rfc6902). There are other features such as [Conditional Patch](partial-document-update.md#supported-modes) while some of the features of JSON Patch RFC 6902 such as (`Copy`, `Test`) have not been implemented.
 
       - question: |
           Is partial document update compatible with serverless, provisioned throughput and autoscale modes of billing?

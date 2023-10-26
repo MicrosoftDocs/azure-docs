@@ -13,6 +13,8 @@ ms.custom: mode-other, devx-track-js
 
 # Quickstart: Join your calling app to a Teams Auto Attendant
 
+[!INCLUDE [Public Preview](../../../communication-services/includes/public-preview-include-document.md)]
+
 In this quickstart you are going to learn how to start a call from Azure Communication Services user to Teams Auto Attendant. You are going to achieve it with the following steps:
 
 1. Enable federation of Azure Communication Services resource with Teams Tenant.
@@ -21,7 +23,9 @@ In this quickstart you are going to learn how to start a call from Azure Communi
 4. Get Object ID of the Auto Attendant via Graph API.
 5. Start a call with Azure Communication Services Calling SDK.
 
-If you'd like to skip ahead to the end, you can download this quickstart as a sample on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-cte-video-calling).
+If you'd like to skip ahead to the end, you can download this quickstart as a sample on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/voice-apps-calling).
+
+[!INCLUDE [Enable interoperability in your Teams tenant](../../concepts/includes/enable-interoperability-for-teams-tenant.md)]
 
 ## Create or select Teams Auto Attendant
 
@@ -46,7 +50,7 @@ In results we'll are able to find "ID" field
     "id": "31a011c2-2672-4dd0-b6f9-9334ef4999db"
 ```
 
-[!INCLUDE [Call Queue with JavaScript](./includes/teams-auto-attendant/teams-auto-attendant-javascript.md)]
+[!INCLUDE [Auto Attendant with JavaScript](./includes/teams-auto-attendant/teams-auto-attendant-javascript.md)]
 
 ## Clean up resources
 

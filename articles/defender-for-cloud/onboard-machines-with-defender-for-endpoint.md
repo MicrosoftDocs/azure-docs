@@ -22,7 +22,7 @@ This tenant-level setting allows you to automatically and natively onboard any n
 | ------------------------------- | ------------------------------------------------------------ |
 | Release state                   | GA                                                           |
 | Supported operating systems     | All [Windows](/microsoft-365/security/defender-endpoint/minimum-requirements#supported-windows-versions) and [Linux](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux#system-requirements) **Server** operating systems supported by Defender for Endpoint |
-| Required roles and  permissions | To manage this setting, you need **Subscription Owner** (on the chosen subscription), and  **AAD Global Administrator** or  **AAD Security Administrator** |
+| Required roles and  permissions | To manage this setting, you need **Subscription Owner** (on the chosen subscription), and  **Microsoft Entra Global Administrator** or  **Microsoft Entra Security Administrator** |
 | Environments                    | On-premises servers  <br />Multicloud VMs – limited  support (see limitations section)|
 | Supported plans                 | Defender for Servers P1  <br />Defender for Servers P2 –  limited features (see limitations section) |
 
@@ -32,7 +32,7 @@ Direct onboarding is a seamless integration between Defender for Endpoint and De
 
 ## Enabling direct onboarding
 
-Enabling direct onboarding is an opt-in setting at the tenant level. It affects both existing and new servers onboarded to Defender for Endpoint in the same Azure AD tenant. Shortly after enabling this setting, your server devices will show under the designated subscription. Alerts, software inventory, and vulnerability data are integrated with Defender for Cloud, in a similar way to how it works with Azure VMs.
+Enabling direct onboarding is an opt-in setting at the tenant level. It affects both existing and new servers onboarded to Defender for Endpoint in the same Microsoft Entra tenant. Shortly after enabling this setting, your server devices will show under the designated subscription. Alerts, software inventory, and vulnerability data are integrated with Defender for Cloud, in a similar way to how it works with Azure VMs.
 
 Before you begin:
 

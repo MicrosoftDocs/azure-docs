@@ -40,7 +40,7 @@ Policy analytics starts monitoring the flows in the DNAT, Network, and Applicati
 1.	Select **Policy analytics** in the table of contents. 
 2. Next, select **Configure Workspaces**.
 3. In the pane that opens, select the **Enable Policy Analytics** checkbox. 
-4. Next, choose a log analytics workspace. The log analytics workspace should be the same as the Firewall attached to the policy.
+4. Next, choose a log analytics workspace. The log analytics workspace should be the same workspace configured in the firewall Diagnostic settings.
 5. Select **Save** after you choose the log analytics workspace.
 
 > [!TIP]
@@ -49,5 +49,6 @@ Policy analytics starts monitoring the flows in the DNAT, Network, and Applicati
 ## Next steps
 
 
+- To learn more about Policy Analytics, see [Optimize performance and strengthen security with Policy Analytics for Azure Firewall](https://azure.microsoft.com/blog/optimize-performance-and-strengthen-security-with-policy-analytics-for-azure-firewall/).
 - To learn more about Azure Firewall logs and metrics, see [Azure Firewall logs and metrics](logs-and-metrics.md).
 - To learn more about Azure Firewall structured logs, see [Azure Firewall structured logs](firewall-structured-logs.md).

@@ -1,0 +1,9 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/managed-grafana/how-to-sync-teams-with-aad-groups.md",
+            "redirect_url": "/azure/managed-grafana/how-to-sync-teams-with-azure-ad-groups",
+            "redirect_document_id": false
+        }
+    ]
+}

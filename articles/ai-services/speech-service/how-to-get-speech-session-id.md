@@ -5,8 +5,7 @@ description: Learn how to get Speech service Speech to text Session ID and Trans
 services: cognitive-services
 author: alexeyo26
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 11/29/2022
 ms.author: alexeyo 
@@ -74,9 +73,14 @@ Generate a GUID inside your code or using any standard tool. Use the GUID value 
 
 As a part of your REST request use `X-ConnectionId=<GUID>` expression. For our example, a sample request will look like this:
 ```http
-https://westeurope.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US&X-ConnectionId=9f4ffa5113a846eba289aa98b28e766f
+https://eastus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US&X-ConnectionId=9f4ffa5113a846eba289aa98b28e766f
 ```
 `9f4ffa5113a846eba289aa98b28e766f` will be your Session ID.
+
+> [!WARNING]
+> The value of the parameter `X-ConnectionId` should be in the format of GUID without dashes or other dividers. All other formats aren't supported and will be discarded by the Service. 
+>
+> Example. If the request contains  `X-ConnectionId=9f4ffa51-13a8-46eb-a289-aa98b28e766f` (GUID with dividers) or `X-ConnectionId=Request9f4ffa5113a846eba289aa98b28e766f` (non-GUID) then the value of `X-ConnectionId` will not be accepted by the system, and the Session won't be found in the logs.
 
 ## Getting Transcription ID for Batch transcription
 

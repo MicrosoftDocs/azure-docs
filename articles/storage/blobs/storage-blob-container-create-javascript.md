@@ -4,7 +4,7 @@ titleSuffix: Azure Storage
 description: Learn how to create a blob container in your Azure Storage account using the JavaScript client library.
 author: pauljewellmsft
 
-ms.service: azure-storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 11/30/2022
 ms.author: pauljewell
@@ -13,6 +13,8 @@ ms.custom: devx-track-js, devguide-js
 ---
 
 # Create a blob container with JavaScript
+
+[!INCLUDE [storage-dev-guide-selector-create-container](../../../includes/storage-dev-guides/storage-dev-guide-selector-create-container.md)]
 
 Blobs in Azure Storage are organized into containers. Before you can upload a blob, you must first create a container. This article shows how to create containers with the [Azure Storage client library for JavaScript](https://www.npmjs.com/package/@azure/storage-blob).
 
@@ -41,7 +43,7 @@ The following example creates a container asynchronously from the BlobServiceCli
 ```javascript
 async function createContainer(blobServiceClient, containerName){
 
-  // public access at container level
+  // anonymous access at container level
   const options = {
     access: 'container'
   };

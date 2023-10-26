@@ -11,16 +11,18 @@ This article shows you how to create and manage system topics using the Azure po
 ## Create a system topic
 You can create a system topic for an Azure resource (Storage account, Event Hubs namespace, etc.) in two ways:
 
-- Using the **Events** page of a resource, for example, Storage Account or Event Hubs Namespace. When you use the **Events** page in the Azure portal to create an event subscription for an event raised by an Azure source (for example: Azure Storage account), the portal creates a system topic for the Azure resource and then creates a subscription for the system topic. You specify the name of the system topic if you're creating an event subscription on the Azure resource for the first time. From the second time onwards, the system topic name is displayed for you in the read-only mode. See [Quickstart: Route Blob storage events to web endpoint with the Azure portal](blob-event-quickstart-portal.md#subscribe-to-the-blob-storage) for detailed steps.
-- Using the **Event Grid System Topics** page. The following steps are for creating a system topic using the **Event Grid System Topics** page. 
+- Using the **Events** page of a resource, for example, Storage Account or Event Hubs Namespace. Event Grid automatically creates a system topic for you in this case.
+
+    When you use the **Events** page in the Azure portal to create an event subscription for an event raised by an Azure source (for example: Azure Storage account), the portal creates a system topic for the Azure resource and then creates a subscription for the system topic. You specify the name of the system topic if you're creating an event subscription on the Azure resource for the first time. From the second time onwards, the system topic name is displayed for you in the read-only mode. See [Quickstart: Route Blob storage events to web endpoint with the Azure portal](blob-event-quickstart-portal.md#subscribe-to-the-blob-storage) for detailed steps.
+- Using the **Event Grid System Topics** page. You create a system topic manually in this case by using the following steps. 
 
 1. Sign in to [Azure portal](https://portal.azure.com).
 2. In the search box at the top, type **Event Grid System Topics**, and then press **ENTER**. 
 
-    ![Search for system topics](./media/create-view-manage-system-topics/search-system-topics.png)
-3. On the **Event Grid System Topics** page, select **+ Add** on the toolbar.
+    :::image type="content" source="./media/create-view-manage-system-topics/search-system-topics.png" alt-text="Screenshot that shows the Azure portal with Event Grid System Topics in the search box.":::
+3. On the **Event Grid System Topics** page, select **+ Create** on the toolbar.
 
-    ![Add system topic - toolbar button](./media/create-view-manage-system-topics/add-system-topic-menu.png)
+    :::image type="content" source="./media/create-view-manage-system-topics/add-system-topic-menu.png" alt-text="Screenshot that shows in the Event Grid System Topics page with the Create button selected.":::
 4. On the **Create Event Grid System Topic** page, do the following steps:
     1. Select the **topic type**. In the following example, **Storage Accounts** option is selected. 
     2. Select the **Azure subscription** that has your storage account resource. 
@@ -44,26 +46,7 @@ You can create a system topic for an Azure resource (Storage account, Event Hubs
 ## View all system topics
 Follow these steps to view all existing Event Grid system topics. 
 
-1. Sign in to [Azure portal](https://portal.azure.com).
-2. In the search box at the top, type **Event Grid System Topics**, and then press **ENTER**. 
-
-    ![Search for system topics](./media/create-view-manage-system-topics/search-system-topics.png)
-3. On the **Event Grid System Topics** page, you see all the system topics. 
-
-    ![List of system topics](./media/create-view-manage-system-topics/list-system-topics.png)
-4. Select a **system topic** from the list to see details about it. 
-
-    ![System topic details](./media/create-view-manage-system-topics/system-topic-details.png)
-
-    This page shows you details about the system topic such as the following information: 
-    - Source. Name of the resource on which the system topic was created.
-    - Source type. Type of the resource. For example: `Microsoft.Storage.StorageAccounts`, `Microsoft.EventHub.Namespaces`, `Microsoft.Resources.ResourceGroups` and so on.
-    - Any subscriptions created for the system topic.
-
-    This page allows operations such as the following ones:
-    - Create an event subscription Select **+Event Subscription** on the toolbar. 
-    - Delete an event subscription. Select **Delete** on the toolbar. 
-    - Add tags for the system topic. Select **Tags** on the left menu, and specify tag names and values. 
+[!INCLUDE [system-topics](./includes/system-topics.md)] 
 
 
 ## Delete a system topic

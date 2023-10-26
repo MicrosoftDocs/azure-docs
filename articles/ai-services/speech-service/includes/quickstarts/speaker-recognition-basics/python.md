@@ -1,6 +1,6 @@
 ---
 author: eric-urban
-ms.service: cognitive-services
+ms.service: azure-ai-speech
 ms.topic: include
 ms.date: 02/15/2022
 ms.author: eur
@@ -8,4 +8,4 @@ ms.author: eur
 
 [!INCLUDE [Header](../../common/python.md)]
 
-The Speech SDK for Python does not support speaker recognition. Please select another programming language or the Python reference and samples linked from the beginning of this article. 
+The Speech SDK for Python doesn't support speaker recognition. Please select another programming language or the Python reference and samples linked from the beginning of this article. 

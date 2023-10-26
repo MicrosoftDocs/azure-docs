@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: Form and document processing, data extraction, and analysis using Document Intelligence Studio
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: quickstart
 ms.date: 07/18/2023
 ms.author: lajanuar
@@ -29,7 +28,7 @@ monikerRange: '>=doc-intel-3.0.0'
 * A [**Document Intelligence**](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [**multi-service**](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource.
 
 > [!TIP]
-> Create an Azure AI services resource if you plan to access multiple Azure AI services under a single endpoint/key. For Document Intelligence access only, create a Document Intelligence resource. Please note that you'll  need a single-service resource if you intend to use [Azure Active Directory authentication](../../../active-directory/authentication/overview-authentication.md).
+> Create an Azure AI services resource if you plan to access multiple Azure AI services under a single endpoint/key. For Document Intelligence access only, create a Document Intelligence resource. Please note that you'll  need a single-service resource if you intend to use [Microsoft Entra authentication](../../../active-directory/authentication/overview-authentication.md).
 
 ## Models
 
@@ -132,7 +131,7 @@ CORS should now be configured to use the storage account from Document Intellige
     :::image border="true" type="content" source="../media/sas-tokens/upload-blob-window.png" alt-text="Screenshot of upload blob window in the Azure portal.":::
 
 > [!NOTE]
-> By default, the Studio will use form documents that are located at the root of your container. However, you can use data organized in folders by specifying the folder path in the Custom form project creation steps. *See* [**Organize your data in subfolders**](../how-to-guides/build-a-custom-model.md?view=doc-intel-2.1.0&preserve-view=true#organize-your-data-in-subfolders-optional)
+> By default, the Studio will use documents that are located at the root of your container. However, you can use data organized in folders by specifying the folder path in the Custom form project creation steps. *See* [**Organize your data in subfolders**](../how-to-guides/build-a-custom-model.md?view=doc-intel-2.1.0&preserve-view=true#organize-your-data-in-subfolders-optional)
 
 ## Custom models
 

@@ -5,8 +5,7 @@ description: Learn about the data formats accepted by custom text analytics for 
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: conceptual
 ms.date: 04/14/2023
 ms.author: aahi

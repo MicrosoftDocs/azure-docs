@@ -2,13 +2,13 @@
 title: Monitoring Public IP addresses
 titleSuffix: Azure Virtual Network
 description: Start here to learn how to monitor Public IP addresses
-author: asudbring
-ms.author: allensu
+author: mbender-ms
+ms.author: mbender
+ms.date: 08/24/2023
 ms.topic: how-to
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.custom: subject-monitoring, devx-track-azurecli, devx-track-azurepowershell
-ms.date: 06/29/2022
 ---
 
 # Monitoring Public IP addresses

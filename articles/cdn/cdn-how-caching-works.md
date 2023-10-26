@@ -56,7 +56,7 @@ Two headers can be used to define cache freshness: `Cache-Control` and `Expires`
 ## Cache-directive headers
 
 > [!IMPORTANT]
-> By default, an Azure CDN endpoint that is optimized for DSA ignores cache-directive headers and bypasses caching. For **Azure CDN Standard from Verizon** and **Azure CDN Standard from Akamai** profiles, you can adjust how an Azure CDN endpoint treats these headers by using [CDN caching rules](cdn-caching-rules.md) to enable caching. For **Azure CDN Premium from Verizon** profiles only, you use the [rules engine](./cdn-verizon-premium-rules-engine.md) to enable caching.
+> By default, an Azure CDN endpoint that is optimized for DSA ignores cache-directive headers and bypasses caching. For **Azure CDN Standard from Edgio** and **Azure CDN Standard from Akamai** profiles, you can adjust how an Azure CDN endpoint treats these headers by using [CDN caching rules](cdn-caching-rules.md) to enable caching. For **Azure CDN Premium from Edgio** profiles only, you use the [rules engine](./cdn-verizon-premium-rules-engine.md) to enable caching.
 
 Azure CDN supports the following HTTP cache-directive headers, which define cache duration and cache sharing.
 
@@ -65,8 +65,8 @@ Azure CDN supports the following HTTP cache-directive headers, which define cach
 - Overrides the `Expires` header, if both it and `Cache-Control` are defined.
 - When used in an HTTP request from the client to the CDN POP, `Cache-Control` gets ignored by all Azure CDN profiles, by default.
 - When used in an HTTP response from the origin server  to the CDN POP:
-     - **Azure CDN Standard/Premium from Verizon** and **Azure CDN Standard from Microsoft** support all `Cache-Control` directives.
-     - **Azure CDN Standard/Premium from Verizon** and **Azure CDN Standard from Microsoft** honors caching behaviors for Cache-Control directives in [RFC 7234 - Hypertext Transfer Protocol (HTTP/1.1): Caching (ietf.org)](https://tools.ietf.org/html/rfc7234#section-5.2.2.8).
+     - **Azure CDN Standard/Premium from Edgio** and **Azure CDN Standard from Microsoft** support all `Cache-Control` directives.
+     - **Azure CDN Standard/Premium from Edgio** and **Azure CDN Standard from Microsoft** honors caching behaviors for Cache-Control directives in [RFC 7234 - Hypertext Transfer Protocol (HTTP/1.1): Caching (ietf.org)](https://tools.ietf.org/html/rfc7234#section-5.2.2.8).
      - **Azure CDN Standard from Akamai** supports only the following `Cache-Control` directives; all others are ignored:
          - `max-age`: A cache can store the content for the number of seconds specified. For example, `Cache-Control: max-age=5`. This directive specifies the maximum amount of time the content is considered to be fresh.
          - `no-cache`: Cache the content, but validate the content every time before delivering it from the cache. Equivalent to `Cache-Control: max-age=0`.
@@ -86,25 +86,25 @@ Azure CDN supports the following HTTP cache-directive headers, which define cach
 
 ## Validators
 
-When the cache is stale, HTTP cache validators are used to compare the cached version of a file with the version on the origin server. **Azure CDN Standard/Premium from Verizon** supports both `ETag` and `Last-Modified` validators by default, while **Azure CDN Standard from Microsoft** and **Azure CDN Standard from Akamai** supports only `Last-Modified` by default.
+When the cache is stale, HTTP cache validators are used to compare the cached version of a file with the version on the origin server. **Azure CDN Standard/Premium from Edgio** supports both `ETag` and `Last-Modified` validators by default, while **Azure CDN Standard from Microsoft** and **Azure CDN Standard from Akamai** supports only `Last-Modified` by default.
 
 **ETag:**
-- **Azure CDN Standard/Premium from Verizon** supports `ETag` by default, while **Azure CDN Standard from Microsoft** and **Azure CDN Standard from Akamai** don't.
+- **Azure CDN Standard/Premium from Edgio** supports `ETag` by default, while **Azure CDN Standard from Microsoft** and **Azure CDN Standard from Akamai** don't.
 - `ETag` defines a string that is unique for every file and version of a file. For example, `ETag: "17f0ddd99ed5bbe4edffdd6496d7131f"`.
 - Introduced in HTTP 1.1 and is more current than `Last-Modified`. Useful when the last modified date is difficult to determine.
 - Supports both strong validation and weak validation; however, Azure CDN supports only strong validation. For strong validation, the two resource representations must be byte-for-byte identical. 
 - A cache validates a file that uses `ETag` by sending an `If-None-Match` header with one or more `ETag` validators in the request. For example, `If-None-Match: "17f0ddd99ed5bbe4edffdd6496d7131f"`. If the server’s version matches an `ETag` validator on the list, it sends status code 304 (Not Modified) in its response. If the version is different, the server responds with status code 200 (OK) and the updated resource.
 
 **Last-Modified:**
-- For **Azure CDN Standard/Premium from Verizon** only, `Last-Modified` is used if `ETag` isn't part of the HTTP response. 
+- For **Azure CDN Standard/Premium from Edgio** only, `Last-Modified` is used if `ETag` isn't part of the HTTP response. 
 - Specifies the date and time that the origin server has determined the resource was last modified. For example, `Last-Modified: Thu, 19 Oct 2017 09:28:00 GMT`.
 - A cache validates a file using `Last-Modified` by sending an `If-Modified-Since` header with a date and time in the request. The origin server compares that date with the `Last-Modified` header of the latest resource. If the resource hasn't been modified since the specified time, the server returns status code 304 (Not Modified) in its response. If the resource has been modified, the server returns status code 200 (OK) and the updated resource.
 
 ## Determining which files can be cached
 
-Not all resources can be cached. The following table shows what resources can be cached, based on the type of HTTP response. Resources delivered with HTTP responses that don't meet all of these conditions can't be cached. For **Azure CDN Premium from Verizon** only, you can use the rules engine to customize some of these conditions.
+Not all resources can be cached. The following table shows what resources can be cached, based on the type of HTTP response. Resources delivered with HTTP responses that don't meet all of these conditions can't be cached. For **Azure CDN Premium from Edgio** only, you can use the rules engine to customize some of these conditions.
 
-|                       | Azure CDN from Microsoft          | Azure CDN from Verizon | Azure CDN from Akamai        |
+|                       | Azure CDN from Microsoft          | Azure CDN from Edgio | Azure CDN from Akamai        |
 |-----------------------|-----------------------------------|------------------------|------------------------------|
 | **HTTP status codes** | 200, 203, 206, 300, 301, 410, 416 | 200                    | 200, 203, 300, 301, 302, 401 |
 | **HTTP methods**      | GET, HEAD                         | GET                    | GET                          |
@@ -116,7 +116,7 @@ For **Azure CDN Standard from Microsoft** caching to work on a resource, the ori
 
 The following table describes the default caching behavior for the Azure CDN products and their optimizations.
 
-|    | Microsoft: General web delivery | Verizon: General web delivery | Verizon: DSA | Akamai: General web delivery | Akamai: DSA | Akamai: Large file download | Akamai: general or VOD media streaming |
+|    | Microsoft: General web delivery | Edgio: General web delivery | Edgio: DSA | Akamai: General web delivery | Akamai: DSA | Akamai: Large file download | Akamai: general or VOD media streaming |
 |------------------------|--------|-------|------|--------|------|-------|--------|
 | **Honor origin**       | Yes    | Yes   | No   | Yes    | No   | Yes   | Yes    |
 | **CDN cache duration** | Two days |Seven days | None | Seven days | None | One day | One year |

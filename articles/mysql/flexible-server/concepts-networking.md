@@ -1,8 +1,8 @@
 ---
 title: Networking overview - Azure Database for MySQL - Flexible Server
 description: Connectivity and networking concepts for Azure Database for MySQL - Flexible Server
-author: vivgk
-ms.author: vivgk
+author: SudheeshGH
+ms.author: sunaray
 ms.reviewer: maghan
 ms.date: 05/23/2023
 ms.service: mysql
@@ -59,7 +59,7 @@ The following characteristics apply whether you choose to use the private access
 
 ## Hostname
 
-Regardless of your networking option, we recommend you use the fully qualified domain name (FQDN) '<servername>.mysql.database.azure.com' in connection strings when connecting to your flexible server. The server's IP address is not guaranteed to remain static. Using the FQDN will help you avoid making changes to your connection string.
+Regardless of your networking option, we recommend you use the fully qualified domain name (FQDN) `<servername>.mysql.database.azure.com` in connection strings when connecting to your flexible server. The server's IP address is not guaranteed to remain static. Using the FQDN will help you avoid making changes to your connection string.
 
 An example that uses an FQDN as a host name is hostname = servername.mysql.database.azure.com. Where possible, avoid using hostname = 10.0.0.4 (a private address) or hostname = 40.2.45.67 (a public address).
 
@@ -87,4 +87,5 @@ Review how to [connect using SSL/TLS](how-to-connect-tls-ssl.md) to learn more.
 
 - Learn how to enable private access (VNet integration) using the [Azure portal](how-to-manage-virtual-network-portal.md) or [Azure CLI](how-to-manage-virtual-network-cli.md)
 - Learn how to enable public access (allowed IP addresses) using the [Azure portal](how-to-manage-firewall-portal.md) or [Azure CLI](how-to-manage-firewall-cli.md)
-- Learn how to [configure private link for Azure Database for MySQL flexible server from Azure portal](Flex - Tutorials - Networking - Configure private link using Azure portal.md)
+- Learn how to [configure private link for Azure Database for MySQL flexible server from Azure portal](how-to-networking-private-link-portal.md).
+

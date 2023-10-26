@@ -89,7 +89,7 @@ A full list of supported alerts is available in the [reference table of all Defe
     :::image type="content" source="media/defender-for-kubernetes-azure-arc/sample-kubernetes-security-alert.png" alt-text="Sample alert from Microsoft Defender for Kubernetes." lightbox="media/defender-for-kubernetes-azure-arc/sample-kubernetes-security-alert.png":::
 
 ::: zone pivot="defender-for-container-arc,defender-for-container-eks,defender-for-container-gke"
-[!INCLUDE [Remove the extension](./includes/defender-for-containers-remove-extension.md)]
+[!INCLUDE [Remove the agent](./includes/defender-for-containers-remove-extension.md)]
 ::: zone-end
 
 ::: zone pivot="defender-for-container-aks"
@@ -101,7 +101,7 @@ A full list of supported alerts is available in the [reference table of all Defe
 ::: zone-end
 
 ::: zone pivot="defender-for-container-aks"
-[!INCLUDE [Remove the profile](./includes/defender-for-containers-remove-profile.md)]
+[!INCLUDE [Remove the agent](./includes/defender-for-containers-remove-profile.md)]
 ::: zone-end
 
 ## Learn more

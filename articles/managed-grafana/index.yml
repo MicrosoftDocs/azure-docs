@@ -8,8 +8,8 @@ metadata:
   description: Learn about Azure Managed Grafana
   ms.service: managed-grafana
   ms.topic: landing-page
-  author: mcleanbyron
-  ms.author: mcleans
+  author: maud-lv
+  ms.author: malev
   ms.date: 01/18/2023
 
 landingContent:

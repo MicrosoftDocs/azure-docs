@@ -6,6 +6,8 @@ ms.date: 06/18/2020
 ms.reviewer: astay; kraigb
 ms.devlang: ruby
 ms.custom: mvc, seodec18, devx-track-azurecli, mode-other
+author: cephalin
+ms.author: cephalin
 ---
 
 # Configure a Linux Ruby app for Azure App Service

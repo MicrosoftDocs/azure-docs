@@ -14,7 +14,7 @@ This article provides details on ExpressRoute connections in Azure Virtual WAN.
 A virtual hub can contain gateways for site-to-site, ExpressRoute, or point-to-site functionality. Users using private connectivity in Virtual WAN can connect their ExpressRoute circuits to an ExpressRoute gateway in a Virtual WAN hub. For a tutorial on connecting an ExpressRoute circuit to an Azure Virtual WAN hub, see [How to Connect an ExpressRoute Circuit to Virtual WAN](virtual-wan-expressroute-portal.md).
 
 ## ExpressRoute circuit SKUs supported in Virtual WAN
-The following ExpressRoute circuit SKUs can be connected to the hub gateway: Local, Standard, and Premium. To learn more about different SKUs, visit [ExpressRoute Circuit SKUs](../expressroute/expressroute-faqs.md#what-is-the-connectivity-scope-for-different-expressroute-circuit-skus).
+The following ExpressRoute circuit SKUs can be connected to the hub gateway: Local, Standard, and Premium. ExpressRoute Direct circuits are also supported with Virtual WAN. To learn more about different SKUs, visit [ExpressRoute Circuit SKUs](../expressroute/expressroute-faqs.md#what-is-the-connectivity-scope-for-different-expressroute-circuit-skus). ExpressRoute Local circuits can only be connected to ExpressRoute gateways in the same region, but they can still access resources in spoke virtual networks located in other regions. 
 
 ## ExpressRoute performance
 
@@ -30,7 +30,7 @@ Dynamic routing (BGP) is supported. For more information, please see [Dynamic Ro
 ## ExpressRoute connection concepts 
 | Concept| Description| Notes|
 | --| --| --|
-| Propagate Default Route|If the Virtual WAN hub is configured with a 0.0.0.0/0 default route, this setting controls whether the 0.0.0.0/0 route is advertised to connecting users. The default route doesn't originate in the Virtual WAN hub. The route can be a static route in the default route table or 0.0.0.0/0 advertised from on-premises. | This field can be set to enabled or disabled.|
+| Propagate Default Route|If the Virtual WAN hub is configured with a 0.0.0.0/0 default route, this setting controls whether the 0.0.0.0/0 route is advertised to your ExpressRoute-connected site. The default route doesn't originate in the Virtual WAN hub. The route can be a static route in the default route table or 0.0.0.0/0 advertised from on-premises. | This field can be set to enabled or disabled.|
 | Routing Weight|If the Virtual WAN hub learns the same prefix from multiple connected ExpressRoute circuits, then the ExpressRoute connection with the higher weight will be preferred for traffic destined for this prefix.  | This field can be set to a number between 0 and 32000.|
 
 ## ExpressRoute circuit concepts 

@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/31/2023
+ms.date: 09/21/2023
 ms.custom: query-reference
 ---
 
@@ -88,7 +88,7 @@ In this next example, the ``FROM`` clause can also reduce the source to a smalle
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/from-field/result.json":::
 
-## Next steps
+## Related content
 
 - [``SELECT`` clause](select.md)
 - [``WHERE`` clause](where.md)

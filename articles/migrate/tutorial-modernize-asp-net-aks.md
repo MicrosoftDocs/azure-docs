@@ -5,7 +5,7 @@ author: anraghun
 ms.author: anraghun
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 02/28/2023
+ms.date: 08/31/2023
 ms.custom: template-tutorial
 ---
 
@@ -35,7 +35,7 @@ Before you begin this tutorial, you should address the following:
 ### Limitations
 
  - You can migrate ASP.NET applications using Microsoft .NET framework 3.5 or later.
- - You can migrate application servers running Windows Server 2008 R2 or later (application servers should be running PowerShell version 5.1).
+ - You can migrate application servers running Windows Server 2012 R2 or later (application servers should be running PowerShell version 5.1).
  - Applications should be running on Internet Information Services (IIS) 7.5 or later.
 
 ## Enable replication

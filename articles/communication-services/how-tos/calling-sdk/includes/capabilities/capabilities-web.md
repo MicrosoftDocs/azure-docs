@@ -20,28 +20,53 @@ The feature allows you to register for an event listener, to listen to capabilit
 **Get the capabilities of the local participant:**
 Capabilities object has the capabilities of the local participants and is of type `ParticipantCapabilities`. Properties of Capabilities include:
 
-- `isPresent` represent if a capability is present.
-- `reason` capability resolution reason.
+- *isPresent* indicates if a capability is present.
+- *reason* indicates capability resolution reason.
 
->```js
->const capabilities =  capabilitiesFeature.capabilities;
->```
+```js
+const capabilities =  capabilitiesFeature.capabilities;
+```
 
 **Subscribe to `capabilitiesChanged` event:**
->```js
->capabilitiesFeature.on('capabilitiesChanged', () => {
->  const updatedCapabilities  = capabilitiesFeature.capabilities;
->  // If screen share capability has changed then update the state to refresh UI and disable share screen button
->  if (this.state.canShareScreen != updatedCapabilities.shareScreen.isPresent) {
->    this.setState({ canShareScreen: updatedCapabilities.shareScreen.isPresent });
->  }
->});
->```
+```js
+capabilitiesFeature.on('capabilitiesChanged', (capabilitiesChangeInfo) => {
+    for (const [key, value] of Object.entries(capabilitiesChangeInfo.newValue)) {
+        if(key === 'turnVideoOn' && value.reason != 'FeatureNotSupported') {
+             (value.isPresent) ? this.setState({ canOnVideo: true }) : this.setState({ canOnVideo: false });
+             continue;
+        }
+        if(key === 'unmuteMic' && value.reason != 'FeatureNotSupported') {
+            (value.isPresent) ? this.setState({ canUnMuteMic: true }) : this.setState({ canUnMuteMic: false });
+            continue;
+        }
+        if(key === 'shareScreen' && value.reason != 'FeatureNotSupported') {
+            (value.isPresent) ? this.setState({ canShareScreen: true }) : this.setState({ canShareScreen: false });
+            continue;
+        }
+        if(key === 'spotlightParticipant' && value.reason != 'FeatureNotSupported') {
+            (value.isPresent) ? this.setState({ canSpotlight: true }) : this.setState({ canSpotlight: false });
+            continue;
+        }
+        if(key === 'raiseHand' && value.reason != 'FeatureNotSupported') {
+            (value.isPresent) ? this.setState({ canRaiseHands: true }) : this.setState({ canRaiseHands: false });
+            continue;
+        }
+    }
+});
+```
 
 **Capabilities Exposed**
-> - *manageBreakOutRoom*:	    Ability to manage break out room
-> - *muteUnmuteMic*:	        Ability to mute and unmute Mic
-> - *removeParticipant*:	    Ability to remove a participant
-> - *shareApplication*:	        Ability to share an application
-> - *shareBrowserTab*:	        Ability to share a browser tab
-> - *shareScreen*:              Ability to share screen
+- *turnVideoOn*: Ability to turn video on
+- *unmuteMic*: Ability to turn mic on
+- *shareScreen*: Ability to share screen
+- *removeParticipant*: Ability to remove a participant
+- *hangUpForEveryOne*: Ability to hang up for everyone
+- *addCommunicationUser*: Ability to add a communication user
+- *addTeamsUser*: Ability to add Teams User
+- *addPhoneNumber*: Ability to add phone number
+- *manageLobby*: Ability to manage lobby (beta only)
+- *spotlightParticipant*: Ability to spotlight Participant (beta only)
+- *removeParticipantsSpotlight*: Ability to remove Participant spotlight (beta only)
+- *startLiveCaptions*: Ability to start live captions (beta only)
+- *stopLiveCaptions*: Ability to stop live captions (beta only)
+- *raiseHand*: Ability to raise hand (beta only)

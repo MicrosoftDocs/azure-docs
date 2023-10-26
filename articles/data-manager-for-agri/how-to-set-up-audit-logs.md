@@ -13,7 +13,7 @@ ms.custom: template-how-to
 
 After you create a Data Manager for Agriculture resource instance, you can monitor how and when your resources are accessed, and by whom. You can also debug reasons for failure for data-plane requests. To do this, you need to enable logging for Azure Data Manager for Agriculture. You can then save log information at a destination such as a storage account, event hub or a log analytics workspace, that you provide. 
 
-This article provides you with the steps to setup logging for Azure Data Manager for Agriculture.
+This article provides you with the steps to set up logging for Azure Data Manager for Agriculture.
 
 ## Enable collection of logs
 
@@ -53,7 +53,7 @@ The `categories` field for Data Manager for Agriculture can have values that are
 ### Categories table
 | category| Description |
 | --- | --- |
-|FarmManagementLogs| Logs for CRUD operations for party, Farm, Field, Boundary, Seasonal Field, Crop, CropVariety, Season, Attachment, prescription maps, prescriptions, management zones, zones, plant tissue analysis and nutrient analyses.
+|FarmManagementLogs| Logs for CRUD operations for party, Farm, Field, Seasonal Field, Crop, CropVariety, Season, Attachment, prescription maps, prescriptions, management zones, zones, plant tissue analysis and nutrient analyses.
 |FarmOperationsLogs|Logs for CRUD operations for FarmOperations data ingestion job, ApplicationData, PlantingData, HarvestingData, TillageData
 |SatelliteLogs| Logs for create and get operations for Satellite data ingestion job
 |WeatherLogs|Logs for create, delete and get operations for weather data ingestion job
@@ -237,7 +237,7 @@ All the `categories` of resource logs are mapped as a table in log analytics. To
 ### List of tables in log analytics and their mapping to categories in resource logs
 | Table name in log analytics| Categories in resource logs |Description
 | --- | --- | --- |
-|AgriFoodFarmManagementLogs|FarmManagementLogs| Logs for CRUD operations for party, Farm, Field, Boundary, Seasonal Field, Crop, CropVariety, Season, Attachment, prescription maps, prescriptions, management zones, zones, plant tissue analysis and nutrient analyses.
+|AgriFoodFarmManagementLogs|FarmManagementLogs| Logs for CRUD operations for party, Farm, Field, Seasonal Field, Crop, CropVariety, Season, Attachment, prescription maps, prescriptions, management zones, zones, plant tissue analysis and nutrient analyses.
 |AgriFoodFarmOperationsLogs|FarmOperationsLogs| Logs for CRUD operations for FarmOperations data ingestion job, ApplicationData, PlantingData, HarvestingData, TillageData.
 |AgriFoodSatelliteLogs|SatelliteLogs| Logs for create and get operations for satellite data ingestion job.
 |AgriFoodWeatherLogs|WeatherLogs|Logs for create, delete and get operations for weather data ingestion job.
@@ -274,7 +274,7 @@ All the `categories` of resource logs are mapped as a table in log analytics. To
 |**partyId**| ID of the party associated with the operation. |
 |**Properties** | Available only in`AgriFoodJobProcessesLogs` table, it contains: `farmOperationEntityId` (ID of the entity that failed to be created by the farmOperation job), `farmOperationEntityType`(Type of the entity that failed  to be created, can be ApplicationData, PeriodicJob, etc.), `errorCode`(Code for failure of the job at Data Manager for Agriculture end),`errorMessage`(Description of failure at the Data Manager for Agriculture end),`internalErrorCode`(Code of failure of the job provide by the provider),`internalErrorMessage`(Description of the failure provided by the provider),`providerId`(ID of the provider such as JOHN-DEERE). |
 
-Each of these tables can be queried by creating a log analytics workspace. Reference for query language is [here](https://learn.microsoft.com/azure/data-explorer/kql-quick-reference).
+Each of these tables can be queried by creating a log analytics workspace. Reference for query language is [here](/azure/data-explorer/kql-quick-reference).
 
 ### List of sample queries in the log analytics workspace
 | Query name | Description |
