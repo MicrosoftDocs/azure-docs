@@ -65,12 +65,12 @@ You  can now use the Custom Hooks capability available in Azure Backup for AKS. 
 
 ### What are Custom Hooks? 
 
-Azure Backup for AKS enables you to execute custom hooks as part of the backup and restore operation. Hooks are commands configured to run one or more commands to execute in a pod under a container during the backup operation or after restore. It allows you to define these hooks as a custom resource and deploy in the AKS cluster to be backed up or restored. Once the custom resource is deployed in the AKS cluster in the required Namespace, you need to provide the details as input for the Configure Backup/Restore flow, and the Backup extension runs the hooks as defined in the YAML file.
-
-There are two types of hooks:
+Azure Backup for AKS enables you to execute Custom Hooks as part of the backup and restore operation. Hooks are commands configured to run one or more commands to execute in a pod under a container during the backup operation or after restore. They allow you to define these hooks as a custom resource and deploy in the AKS cluster to be backed up or restored. Once the custom resource is deployed in the AKS cluster in the required Namespace, you need to provide the details as input for the Configure Backup/Restore flow, and the Backup extension runs the hooks as defined in the YAML file.
 
 >[!Note]
->Hooks aren't executed in a shell. on the containers.
+>Hooks aren't executed in a *shell* on the containers.
+
+There are two types of hooks:
 
 ### Backup Hooks
 
@@ -167,7 +167,7 @@ spec:
 
 ```
 
-Learn [how to use Hooks during backup](azure-kubernetes-service-cluster-backup.md#use-hooks-during-backup).
+Learn [how to use Hooks during AKS backup](azure-kubernetes-service-cluster-backup.md#use-hooks-during-aks-backup).
 
 ## Pricing
 
