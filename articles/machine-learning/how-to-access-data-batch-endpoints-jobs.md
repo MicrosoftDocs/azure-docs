@@ -35,8 +35,8 @@ The following table summarizes it:
 
 | Deployment type | Input's number | Supported input's types | Output's number | Supported output's types |
 |--|--|--|--|--|
-| [Model deployment](concept-endpoints-batch.md#model-deployments) | 1 | [Data inputs](#data-inputs) | 1 | [Data outputs](#data-inputs) |
-| [Pipeline component deployment (preview)](concept-endpoints-batch.md#pipeline-component-deployment-preview) | [0..N] | [Data inputs](#data-inputs) and [literal inputs](#literal-inputs) | [0..N] | [Data outputs](#data-outputs) |
+| [Model deployment](concept-endpoints-batch.md#model-deployments) | 1 | [Data inputs](#data-inputs) | 1 | [Data outputs](#data-outputs) |
+| [Pipeline component deployment](concept-endpoints-batch.md#pipeline-component-deployment) | [0..N] | [Data inputs](#data-inputs) and [literal inputs](#literal-inputs) | [0..N] | [Data outputs](#data-outputs) |
 
 
 
