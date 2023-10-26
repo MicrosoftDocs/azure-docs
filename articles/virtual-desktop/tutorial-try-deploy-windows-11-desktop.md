@@ -21,7 +21,7 @@ You'll deploy a sample infrastructure by:
 > * Connecting to the desktop.
 
 > [!TIP]
-> This tutorial shows a simple way you can get started with Azure Virtual Desktop. It doesn't provide an in-depth guide of the different options or using more [restrictive permissions](/security/zero-trust/azure-infrastructure-avd). For a more in-depth and adaptable approach to deploying Azure Virtual Desktop, see [Deploy Azure Virtual Desktop](deploy-azure-virtual-desktop.md), or for suggestions of what else you can configure, see the articles we list in [Next steps](#next-steps).
+> This tutorial shows a simple way you can get started with Azure Virtual Desktop. It doesn't provide an in-depth guide of the different options and you can't publish a RemoteApp in addition to the desktop. For a more in-depth and adaptable approach to deploying Azure Virtual Desktop, see [Deploy Azure Virtual Desktop](deploy-azure-virtual-desktop.md), or for suggestions of what else you can configure, see the articles we list in [Next steps](#next-steps).
 
 ## Prerequisites
 
