@@ -5,9 +5,9 @@ author: haroldcampos
 ms.author: hcampos
 ms.service: logic-apps
 ms.topic: conceptual
-ms.date: 10/24/2023
+ms.date: 10/26/2023
 
-#CustomerIntent: As an integration developer, I need to integrate mainframe and midrange system with Standard workflows in Azure Logic Apps.
+#CustomerIntent: As an integration developer, I need to learn about mainframe and midrange system integration with Standard workflows in Azure Logic Apps.
 ---
 
 # Mainframe and midrange modernization with Azure Logic Apps
@@ -22,7 +22,7 @@ When enterprise developers build integration workflows with Azure Logic Apps, th
 
 Since 1990, Microsoft has provided integration with mainframe and midrange systems through Microsoft Communications Server. Further evolution of Microsoft Communications Server created Host Integration Server (HIS) in 2000. While HIS started as a System Network Archtecture (SNA) Gateway, HIS expanded to include IBM's data stores (DB2, VSAM, and Informix), IBM's transaction systems (CICS, IMS, and IBMi), and IBM messaging (MQ Series). Microsoft's strategic customers have used these technologies for more than 20 years. To empower customers that run applications and data on Azure to continue using these technologies, Azure Logic Apps and Visual Studio has gradually incorporated these capabilities. For example, Visual Studio includes the following designers: HIS Designer for Logic Apps and the 3270 Design Tool.
 
-:::image type="content" source="media/mainframe-modernization-overview/mainframe-modernization.png" alt-text="Cloud native capabilities for mainframe integration":::
+:::image type="content" source="media/mainframe-modernization-overview/mainframe-modernization.png" alt-text="Conceptual diagram showing Microsoft cloud native capabilities for mainframe integration.":::
 
 For more information about the Microsoft's capabilities for mainframe and midrange integration, continue to the following sections.
 
@@ -58,7 +58,7 @@ This Azure Logic Apps connector for DB2 enables connections between Standard wor
 
 #### IBM Host Files
 
-This Azure Logic Apps connector for Host Files provides a thin wrapper around the "Flat File Parser" feature in Host Integration Server. This offline "connector" provides operations that parse or generate binary data to and from host files. These operations require this data to come from any trigger or another action that produces binary data. For more information, see [Parse and generate IBM host files using Azure Logic Apps](../connectors/integrate-host-files-ibm-mainframe.md).
+This Azure Logic Apps "connector" for Host Files provides a thin wrapper around the "Flat File Parser" feature in Host Integration Server. This offline "connector" provides operations that parse or generate binary data to and from host files. These operations require this data to come from any trigger or another action that produces binary data. For more information, see [Parse and generate IBM host files using Azure Logic Apps](../connectors/integrate-host-files-ibm-mainframe.md).
 
 #### IBM Information Management System (IMS)
 
@@ -68,67 +68,104 @@ This Azure Logic Apps connector for IMS uses the IBM IMS Connect component, whic
 
 This Azure Logic Apps connector for MQ enables connections between Standard workflows and an MQ server on premises or in Azure. We also provide MQ Integration capabilities with Host Integration Server and BizTalk Server. For more information, see [Connect to an IBM MQ server from a workflow in Azure Logic Apps](../connectors/connectors-create-api-mq.md).
 
-## How do we modernize Mainframe workloads with Azure Logic Apps?
+## How to modernize mainframe workloads with Azure Logic Apps?
 
-While there are multiple approaches for modernization, we recommend modernizing mainframe applications, following an iterative, agile based model. Mainframes host multiple environments with Applications and Data. A successful modernization strategy will include ways to deal with:
+While multiple approaches for modernization exist, Microsoft recommends modernizing mainframe applications by following an iterative, agile-based model. Mainframes host multiple environments with applications and data. A successful modernization strategy include ways to handle the following tasks:
 
-- Maintaining the current Service Level Indicators and Objectives
-- Managing coexistence between legacy Data along with migrated data
-- Managing applications’ inter-dependencies
-- Defining the future of the Scheduler and jobs
-- Defining a strategy for third party tools replacement
-- Conducting hybrid functional and non-functional testing activities
-- Maintaining external dependencies or interfaces
+- Maintain the current service level indicators and objectives.
+- Manage coexistence between legacy data along with migrated data.
+- Manage application interdependencies.
+- Define the future of the scheduler and jobs.
+- Define a strategy for replacing non-Microsoft tools.
+- Conduct hybrid functional and non-functional testing activities.
+- Maintain external dependencies or interfaces.
 
-Let’s explore a little more about Modernization approaches.
+The following paths are the most common ways to modernize mainframe applications:
 
-There are multiple ways to conduct Mainframe modernization. The most common ones are the Big Bang and the Agile approaches. The Big Bang approach is largely based on the waterfall software delivery model but with Iterations in phases. The Agile based approach follows Agile principles of Software Engineering. The choice will depend on each customer. Each approach has benefits and drawbacks to consider.
+- Big bang
 
-### Big Bang (Waterfall)
+  This approach is largely based on the waterfall software delivery model but with iterations in phases.
 
-Big Bang approaches are typically chosen by organizations focused on locking time, scope of migration, and resources. While this sounds positive, the risks associated with this approach are that as these migrations can take months or even years, what was analyzed at the beginning of the migration journey, during planning, is no longer accurate as it is usually outdated. Also, as these organizations typically focus on having comprehensive documentation to reduce risks for delivery, the time spent on providing planning artifacts causes exactly the opposite effect. Focusing on planning more than executing tends to create delays in execution, causing increased costs in the long run.
-A typical Big Bang Migration starts with a Kickoff in an Envisioning phase, then a Planning phase where planning deliverables are prepared and then once they are approved, the building phase begins. The Building phase expects that all work for dependencies has been identified and Migration activities can begin. Once this occurs, there will be multiple iterations to complete the migration work.
+- Agile waves
 
-   :::image type="content" source="media/mainframe-modernization-overview/waterfall-mainframe.png" alt-text="Big Bang migration":::
+  This approach follows the Agile principles of software engineering.
 
-After the Building phase is completed, the Stabilizing or Testing phase begins where the Migrated environment, dependencies and applications are tested against the Mainframe environment test regions. Once all of this is approved, it moves to the Deploy phase where a Go Live occurs.
+The choice between these paths depends on your organization's needs and scenarios. Each path has benefits and drawbacks to consider. The following sections provide more information about these modernization approaches.
 
-### Agile Waves
+### Big bang or waterfall
 
-Agile Waves are results oriented and focused on building software and not planning deliverables. While the first stages of an Agile delivery may be chaotic and complex for the organizational barriers that need to break, once the migration team has matured after a few sprints of execution, it becomes smoother. The goal is to release features to production frequently and provide business value sooner than with a Big Bang approach.
-A Sprint zero (0) is designed to define the team, an initial Backlog of work and core dependencies to begin work. Features are defined and a Minimum Viable Product is defined as well. Mainframe readiness is kicked off at this stage and with a defined set of work items (user stories) the work begins.
+A big bang migration typically has the following phases:
 
-   :::image type="content" source="media/mainframe-modernization-overview/mainframe-waves.png" alt-text="Mainframe Migration waves":::
+:::image type="content" source="media/mainframe-modernization-overview/waterfall-mainframe.png" alt-text="Conceptual diagram showing big bang migration phases approach.":::
 
-Each Sprint will have a Sprint Goal. The team should have a shipping mindset. In other words, the focus will be on completing migration goals and release them to production. A group of sprints will be used to deliver a specific Feature or Wave of Features. Each Feature will include slices of Integration workloads.
+1. **Envisioning**: Kickoff
 
-   :::image type="content" source="media/mainframe-modernization-overview/mainframe-streams.png" alt-text="Mainframe migration waves per streams":::
+1. **Planning**: Identify and prepare planning deliverables, such as scope, time, and resources.
 
-As pointed out before, there are shared elements that have impact across the entire environments, such as Jobs and Interdependencies. A successful strategy focuses on a partial enablement of Jobs and re-architecture of the applications to be modernized and leaves the systems with most interdependencies at the end of the modernization effort, to reduce the size of the migration work first and then complete the scope of the modernization.
+1. **Building**: Begins after planning deliverables are approved
 
-## Patterns for Modernization
+   This phase also expects that all the work for dependencies has been identified, and then migration activities can begin. Multiple iterations occur to complete the migration work.
 
-Good Design encompasses factors such as consistency and coherence in component design and deployment, maintainability to simplify administration and development, and reusability to allow components and subsystems to be used in other applications and in other scenarios. Decisions made during the design and implementation phase have a huge impact on the quality and the total cost of ownership of cloud hosted applications and services.
-At our Architecture Center, we have a list of tested patterns that describes the problem that they address, considerations for applying the pattern, and an example based on Microsoft Azure. They are available at https://learn.microsoft.com/en-us/azure/architecture/patterns/category/design-implementation. We call them Design and Implementation Patterns.
-While there are multiple Design and Implementation Patterns, there are two that are the most relevant for Mainframe Modernization: The Anticorruption Layer and Strangler Fig Patterns.
+1. **Stablizing or testing**: Begins when the migrated environment, dependencies, and applications are tested against the test regions in the mainframe environment.
 
-### Anticorruption layer
+1. **Deploy**: After everything is approved, the migration goes live into production.
 
-Regardless of the selected Modernization Approach, you will need to implement an “Anticorruption layer” using Azure Logic Apps. In other words, Azure Logic Apps will become the façade or adapter layer between the Mainframe legacy system and Azure systems. For this approach to be effective, we recommend identifying the Mainframe workloads to Integrate/coexist (Mainframe Integration Workloads) and create a strategy per Integration workload. An Integration workload is the set of Interfaces that need to be enabled because of the migration of a Mainframe Application. For more information on this pattern, visit this location:
-https://learn.microsoft.com/en-us/azure/architecture/patterns/anti-corruption-layer 
+Organizations that typically choose this approach focus on locking time, migration scope, and resources. This path sounds like a positive choice but includes the following risks:
 
-   :::image type="content" source="media/mainframe-modernization-overview/anti-corruption-pattern.png" alt-text="Anticorruption layer":::
+- Migrations can take months or even years.
 
-### Strangler Fig Pattern
+- The analysis that you perform at the start of the migration journey or during planning is no longer accurate because that information is usually outdated.
 
-Once you have an Anticorruption Layer, modernization will be progressive. For that you need to use the Strangler Fig  pattern. For instance, if you decide to modernize a CICS application, you will have to modernize not only the CICS Programs but most likely 3270 Applications along with their corresponding data and Jobs. As you modernize workloads, you will start “strangling the monolith”. This expression is used when the new system eventually replaces all of the old system's features, strangling the old system and allowing you to decommission it. For more information on this pattern, visit here: https://learn.microsoft.com/en-us/azure/architecture/patterns/strangler-fig 
+- Organizations typically focus on having comprehensive documentation to reduce delivery risks for delivery.
 
-   :::image type="content" source="media/mainframe-modernization-overview/strangler-fig-pattern.png" alt-text="Strangler fig pattern":::
+  However, the time spent on providing planning artifacts causes exactly the opposite effect. Focusing on planning more than executing tends to create execution delays, which cause increased costs in the long run.
 
-## Related content
+### Agile waves
 
-- [Azure Architecture Center for Mainframes and Midranges:](/azure/architecture/browse/?terms=mainframe)
+An Agile approach is results oriented and focused on building software and not planning deliverables. The first stages of an Agile delivery might be chaotic and complex for the organizational barriers that need to break. However, when the migration team matures after several sprints of execution, the journey becomes smoother. The goal is to frequently release features to production and provide business value sooner than with a big bang approach.
 
-<!--
-Remove all the comments in this template before you sign-off or merge to the main branch.
--->
+An Agile waves migration typically has the following sprints:
+
+:::image type="content" source="media/mainframe-modernization-overview/mainframe-waves.png" alt-text="Conceptual diagram showing mainframe migration with Agile waves approach.":::
+
+- Sprint zero (0)
+
+  - Define the team, an initial work backlog, and the core dependencies.
+  - Identify the features and a Minimum Viable Product (MVP) to deliver.
+  - Kick off mainframe readiness with a selected set of work items or user stories to begin the work.
+
+- Sprint 1, 2, ..., *N*
+
+  Each sprint has a goal where the team maintains a shipping mindset, meaning that they focus on completing migration goals and releasing deliverables to production. The team can use a group of sprints to deliver a specific feature or a wave of features. Each feature includes slices of integration workloads.
+
+:::image type="content" source="media/mainframe-modernization-overview/mainframe-streams.png" alt-text="Conceptual diagram showign mainframe migration with Agile waves per streams.":::
+
+Shared elements, such as jobs and interdependencies, exist and have impact across the entire environment. A successful strategy focuses on partially enabling jobs, redesigning applications for modernization, and leaving the systems with most interdependencies until the end to first reduce the amount of migration work and then complete the scope of the modernization effort.
+
+## Modernization patterns
+
+Good design includes factors such as consistency and coherence in component design and deployment, maintainability to simplify administration and development, and reusability that allows other applications and scenarios to reuse components and subsystems. For cloud-hosted applications and services, decisions made during the design and implementation phase have a huge impact on quality and the total cost of ownership.
+
+The Azure Architecture Center provides tested [design and implementation patterns](/azure/architecture/patterns/category/design-implementation) that describe the problem that they address, considerations for applying the pattern, and an example based on Microsoft Azure. While multiple design and implementation patterns exist, the two most relevant patterns for mainframe modernization include the "Anti-corruption Layer" and "Strangler Fig" patterns.
+
+### Anti-corruption Layer pattern
+
+Regardless which modernization approach that you select, you need to implement an "anti-corruption layer" using Azure Logic Apps. This service becomes the façade or adapter layer between the mainframe legacy system and Azure. For an effective approach, identify the mainframe workloads to integrate or coexist as mainframe integration workloads. Create a strategy for each integration workload, which is the set of interfaces that you need to enable for migrating a mainframe application. 
+
+:::image type="content" source="media/mainframe-modernization-overview/anti-corruption-pattern.png" alt-text="Conceptual diagram showing the Anti-corruption Layer pattern.":::
+
+For more information, see [Anti-corruption Layer](/azure/architecture/patterns/anti-corruption-layer).
+
+### Strangler Fig pattern
+
+After you implement the anti-corruption layer, modernization progressively happens. For this phase, you need to use the "Strangler Fig" pattern where you identify mainframe workloads or features that you can incrementally modernize. For example, if you choose to modernize a CICS application, you have to modernize not only the CICS programs, but most likely the 3270 applications along with their corresponding data and jobs.
+
+Eventually, after you replace all the workloads or features in the mainframe system with your new system, you'll finish the migration process, which means that you can decommission your legacy system.
+
+:::image type="content" source="media/mainframe-modernization-overview/strangler-fig-pattern.png" alt-text="Conceptual diagram showing the Strangler Fig pattern.":::
+
+For more information, see [Strangler Fig pattern](/azure/architecture/patterns/strangler-fig).
+
+## Next step
+
+- [Azure Architecture Center for mainframes and midrange systems](/azure/architecture/browse/?terms=mainframe)
