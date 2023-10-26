@@ -78,11 +78,12 @@ Azure Stream Analytics integrates seamlessly with Azure Key vault to access stor
 Certificates are stored as secrets in the key vault and must be in PEM format.
 
 ### Configure Key vault with permissions
-1. You can create a key vault resource by following the documentation [Quickstart: Create a key vault using the Azure portal](../key-vault/general/quick-create-portal.md)
-2. To be able to upload certificates, you must have "**Key Vault Administrator**"  access to your Key vault. Follow the following to grant admin access.
+
+You can create a key vault resource by following the documentation [Quickstart: Create a key vault using the Azure portal](../key-vault/general/quick-create-portal.md)
+To be able to upload certificates, you must have "**Key Vault Administrator**"  access to your Key vault. Follow the following to grant admin access.
+
 > [!NOTE]
 > You must have "**Owner**" permissions to grant other key vault permissions.
-
 
 1. Select **Access control (IAM)**.
 
@@ -111,7 +112,7 @@ az keyvault secret set --vault-name <your key vault> --name <name of the secret>
 
 ### Configure Managed identity
 Azure Stream Analytics requires you to configure managed identity to access key vault.
-YOu can configure your ASA job to use managed identity by navigating to the **Managed Identity** tab on the left side under **Configure**.
+You can configure your ASA job to use managed identity by navigating to the **Managed Identity** tab on the left side under **Configure**.
 
    ![Configure Stream Analytics managed identity](./media/common/stream-analytics-enable-managed-identity-new.png)
 
@@ -139,7 +140,7 @@ For your Azure Stream Analytics job to access the certificate in your key vault 
 ### VNET integration
 
 If your Kafka is inside a virtual network (VNET) or behind a firewall, you must configure your Azure Stream Analytics job to access your Kafka topic.
-Visit the (Run your Azure Stream Analytics job in an Azure Virtual Network documentation)[../stream-analytics/run-job-in-virtual-network.md] for more information.
+Visit the [Run your Azure Stream Analytics job in an Azure Virtual Network documentation](../stream-analytics/run-job-in-virtual-network.md) for more information.
 
 
 
