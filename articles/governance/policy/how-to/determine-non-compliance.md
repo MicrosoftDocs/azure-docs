@@ -15,7 +15,7 @@ understand which change altered a previously compliant resource to make it non-c
 two ways to find this information:
 
 - [Compliance details](#compliance-details)
-- [Change history (Preview)](#change-history)
+- [Change history (Preview)](#change-history-preview)
 
 ## Compliance details
 
@@ -29,8 +29,8 @@ When a resource is non-compliant, the compliance details for that resource are a
 > [!IMPORTANT]
 > As the compliance details for a _Non-compliant_ resource shows the current value of properties on
 > that resource, the user must have **read** operation to the **type** of resource. For example, if
-> the _Non-compliant_ resource is **Microsoft.Compute/virtualMachines** then the user must have the
-> **Microsoft.Compute/virtualMachines/read** operation. If the user doesn't have the needed
+> the _Non-compliant_ resource is `Microsoft.Compute/virtualMachines` then the user must have the
+> `Microsoft.Compute/virtualMachines/read` operation. If the user doesn't have the needed
 > operation, an access error is displayed.
 
 To view the compliance details, follow these steps:
@@ -48,19 +48,19 @@ To view the compliance details, follow these steps:
    :::image type="content" source="../media/determine-non-compliance/view-compliance-details.png" alt-text="Screenshot of the View compliance details link on the Resource compliance tab." :::
 
 1. The **Compliance details** pane displays information from the latest evaluation of the resource
-   to the current policy assignment. In this example, the field **Microsoft.Sql/servers/version** is
+   to the current policy assignment. In this example, the field `Microsoft.Sql/servers/version` is
    found to be _12.0_ while the policy definition expected _14.0_. If the resource is non-compliant
    for multiple reasons, each is listed on this pane.
 
    :::image type="content" source="../media/determine-non-compliance/compliance-details-pane.png" alt-text="Screenshot of the Compliance details pane and reasons for non-compliance that current value is 12 and target value is 14." :::
 
-   For an **auditIfNotExists** or **deployIfNotExists** policy definition, the details include the
+   For an `auditIfNotExists` or `deployIfNotExists` policy definition, the details include the
    **details.type** property and any optional properties. For a list, see [auditIfNotExists
    properties](../concepts/effects.md#auditifnotexists-properties) and [deployIfNotExists
    properties](../concepts/effects.md#deployifnotexists-properties). **Last evaluated resource** is
    a related resource from the **details** section of the definition.
 
-   Example partial **deployIfNotExists** definition:
+   Example partial `deployIfNotExists` definition:
 
    ```json
    {
@@ -69,7 +69,7 @@ To view the compliance details, follow these steps:
        "equals": "[parameters('resourceType')]"
      },
      "then": {
-       "effect": "DeployIfNotExists",
+       "effect": "deployIfNotExists",
        "details": {
          "type": "Microsoft.Insights/metricAlerts",
          "existenceCondition": {
@@ -92,7 +92,7 @@ To view the compliance details, follow these steps:
 
 These details explain why a resource is currently non-compliant, but don't show when the change was
 made to the resource that caused it to become non-compliant. For that information, see [Change
-history (Preview)](#change-history).
+history (Preview)](#change-history-preview).
 
 ### Compliance reasons
 
@@ -128,7 +128,7 @@ responsible [condition](../concepts/definition-structure.md#conditions) in the p
 | Current value must not be like the target value.                        | notLike or **not** like                                                                                                                             |
 | Current value must not be case-sensitive match the target value.        | notMatch or **not** match                                                                                                                           |
 | Current value must not be case-insensitive match the target value.      | notMatchInsensitively or **not** matchInsensitively                                                                                                 |
-| No related resources match the effect details in the policy definition. | A resource of the type defined in **then.details.type** and related to the resource defined in the **if** portion of the policy rule doesn't exist. |
+| No related resources match the effect details in the policy definition. | A resource of the type defined in `then.details.type` and related to the resource defined in the **if** portion of the policy rule doesn't exist. |
 
 #### Azure Policy Resource Provider mode compliance reasons
 
