@@ -85,7 +85,7 @@ Two access keys are assigned so that you can rotate your keys. Having two keys e
 > [!WARNING]
 > Regenerating your access keys can affect any applications or Azure services that are dependent on the storage account key. Any clients that use the account key to access the storage account must be updated to use the new key, including media services, cloud, desktop and mobile applications, and graphical user interface applications for Azure Storage, such as [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 >
-> Additionally, rotating or regenerating access keys revokes shared access signatures (SAS) that are generated based on that key. After access key rotation, you must regenerate account and service SAS tokens to avoid disruptions to applications. Note that user delegation SAS tokens are secured with Microsoft Entra credentials and aren't affected by key rotation.
+> Additionally, rotating or regenerating access keys revokes shared access signatures (SAS) that are generated based on that key. After access key rotation, you must regenerate **account** and **service** SAS tokens to avoid disruptions to applications. Note that **user delegation** SAS tokens are secured with Microsoft Entra credentials and aren't affected by key rotation.
 
 If you plan to manually rotate access keys, Microsoft recommends that you set a key expiration policy. For more information, see [Create a key expiration policy](#create-a-key-expiration-policy).
 
