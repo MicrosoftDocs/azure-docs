@@ -25,33 +25,34 @@ Azure AI Spatial Analysis Video Retrieval APIs are part of Azure AI Vision and e
 
 ## Input requirements
 
-### Supported file formats
+### Supported formats
+
 | File format | Description |
 | ----------- | ----------- |
 | `asf`         | ASF (Advanced / Active Streaming Format)       |
-| `avi` | AVI (Audio Video Interleaved) |
-| `flac` | raw FLAC|
+| `avi`         | AVI (Audio Video Interleaved)        |
 | `flv`         | FLV (Flash Video)        |
 | `matroskamm`, `webm`          | Matroska / WebM       |
-| `mov`, `mp4`, `3gp`, `3g2`, `mj2`   | QuickTime / MOV        |
-| `mpegts`                    | MPEG-TS (MPEG-2 Transport Stream)       |
-| `ogg` | Ogg|
-| `rawvideo`                  | raw video        |
-| `rm`                        | RealMedia        |
-| `rtsp`                      | RTSP input       |
+| `mov`,`mp4`,`m4a`,`3gp`,`3g2`,`mj2`   | QuickTime / MOV        |
+ 
+### Supported video codecs
 
-### Supported audio codecs
 | Codec       | Format |
 | ----------- | ----------- |
-| `aac` | AAC (Advanced Audio Coding) |
-| `mp3`| MP3 (MPEG audio layer 3) |
-| `pcm` | PCM |
 | `h264`        | H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10       |
-| `h265`        | HEVC |
+| `h265`        | H.265/HEVC        |
 | `libvpx-vp9`  | libvpx VP9 (codec vp9)        |
-| `rawvideo`    | raw video        |
-| `vorbis` | Vorbis |
-| `wmav2`| Windows Media Audio 2 |
+| `mpeg4`       | MPEG-4 part 2       |
+ 
+### Supported audio codecs
+
+| Codec       | Format |
+| ----------- | ----------- |
+| `aac`         | AAC (Advanced Audio Coding)       |
+| `mp3`         | MP3 (MPEG audio layer 3)        |
+| `pcm`         | PCM (uncompressed)        |
+| `vorbis`      | Vorbis       |
+| `wmav2`       | Windows Media Audio 2       |
 
 ## Call the Video Retrieval APIs
 
