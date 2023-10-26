@@ -52,10 +52,9 @@ You can use Spring Data Azure Cosmos DB in your applications hosted in [Azure Sp
 |**API documentation** | [Spring Data Azure Cosmos DB reference documentation]() |
 |**Contribute to the SDK** | [Spring Data Azure Cosmos DB repo on GitHub](https://github.com/microsoft/spring-data-cosmosdb) | 
 |**Spring Boot Starter**| [Azure Cosmos DB Spring Boot Starter client library for Java](https://github.com/MicrosoftDocs/azure-dev-docs/blob/master/articles/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md) |
-|**Spring TODO app sample with Azure Cosmos DB**| [End-to-end Java Experience in App Service Linux (Part 2)](https://github.com/Azure-Samples/e2e-java-experience-in-app-service-linux-part-2) |
 |**Developer's guide** | [Spring Data Azure Cosmos DB developer's guide](/azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb) | 
 |**Using Starter** | [How to use Spring Boot Starter with the Azure Cosmos DB for NoSQL](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db) <br> [GitHub repo for Azure Cosmos DB Spring Boot Starter](https://github.com/MicrosoftDocs/azure-dev-docs/blob/master/articles/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md) |
-|**Sample with Azure App Service** | [How to use Spring and Azure Cosmos DB with App Service on Linux](/azure/developer/java/spring-framework/configure-spring-app-with-cosmos-db-on-app-service-linux) <br> [TODO app sample](https://github.com/Azure-Samples/e2e-java-experience-in-app-service-linux-part-2.git) |
+|**Sample with Azure App Service** | [How to use Spring and Azure Cosmos DB with App Service on Linux](/azure/developer/java/spring-framework/configure-spring-app-with-cosmos-db-on-app-service-linux) |
 
 ## Release history
 
