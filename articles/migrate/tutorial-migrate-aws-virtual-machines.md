@@ -173,17 +173,11 @@ The first step of migration is to set up the replication appliance. To set up th
 
 ## Install the Mobility service agent
 
-A Mobility service agent must be installed on the source AWS VMs to be migrated. The approach you choose to install the Mobility service agent may depend on your organization's preferences and existing tools, but in general we recommend using the "push" installation method as it doesn't require additional infrastructure and configuration. Other approaches you may want to consider:
+A Mobility service agent must be pre-installed on the source AWS VMs to be migrated before you can initiate replication. The approach you choose to install the Mobility service agent may depend on your organization's preferences and existing tools, but be aware that the "push" installation method built into Azure Site Recovery is not currently supported. Approaches you may want to consider:
 
 - [AWS System Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/what-is-systems-manager.html)
 - [System Center Configuration Manager](../site-recovery/vmware-azure-mobility-install-configuration-mgr.md)
 - [Manual installation](../site-recovery/vmware-physical-mobility-service-overview.md)
-
-### Using the "push" installation of the Mobility agent
-
-Ensure your AWS VMs are properly prepared for the agent installation. Follow the instructions [Prepare for push installation of the Mobility service](../site-recovery/vmware-azure-install-mobility-service.md), noting that the referenced Process Server will be your Azure Migrate appliance.
-
-If you encounter issues with the Mobility agent push installation, review [Troubleshoot Mobility service push installation](../site-recovery/vmware-azure-troubleshoot-push-install.md)
 
 ## Enable replication for AWS VMs
 
