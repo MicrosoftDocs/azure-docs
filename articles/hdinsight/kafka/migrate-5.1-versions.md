@@ -25,7 +25,6 @@ If you migrate from Kafka to 3.2.0, you can take advantage of the following new 
 - Hint to the partition leader to recover the partition: A new feature that allows the controller to communicate to a newly elected topic partition leader whether it needs to recover its state (KIP-704)
 - Supports TLS 1.2 by default for secure communication
 - Zookeeper Dependency Removal: Producers and consumers no longer need the zookeeper parameter. Use the `--bootstrap-server` option instead of `--zookeeper` with CLI commands. (KIP-500)
-- Improved metrics (KIP-551, KIP-748, KIP-773)
 - Configurable backlog size for creating Acceptor: A new configuration that allows setting the size of the SYN backlog for TCP’s acceptor sockets on the brokers (KIP-764)
 - Top-level error code field to DescribeLogDirsResponse: A new error code that makes DescribeLogDirs API consistent with other APIs and allows returning other errors besides CLUSTER_AUTHORIZATION_FAILED (KIP-784) 
 
