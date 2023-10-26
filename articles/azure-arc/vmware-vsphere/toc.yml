@@ -14,6 +14,10 @@
   items:
   - name: Create a virtual machine on VMware vCenter
     href: quick-start-create-a-vm.md
+- name: Concepts
+  items:   
+  - name: Azure Arc agent
+    href: azure-arc-agent.md
 - name: How-to guides
   items:
   - name: Deploy
