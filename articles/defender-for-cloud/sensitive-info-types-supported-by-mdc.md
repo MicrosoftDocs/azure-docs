@@ -25,7 +25,7 @@ This article is a list of all sensitive information types supported by MDC (a su
 | [Australia passport number](https://learn.microsoft.com/purview/sit-defn-australia-passport-number) | Other | NO |
 | [Australia tax file number](https://learn.microsoft.com/purview/sit-defn-australia-tax-file-number) | Other | NO |
 | [Austria drivers license number](https://learn.microsoft.com/purview/sit-defn-austria-drivers-license-number) | Other | NO |
-| [Austria identity card](https://learn.microsoft.com/en-us/purview/sit-defn-austria-identity-card) | Other | NO |
+| [Austria identity card](https://learn.microsoft.com/purview/sit-defn-austria-identity-card) | Other | NO |
 | [Austria passport number](https://learn.microsoft.com/purview/sit-defn-austria-passport-number) |	Other | NO |
 | [Austria social security number](https://learn.microsoft.com/purview/sit-defn-austria-social-security-number) | PII  | YES |
 | [Austria tax identification number](https://learn.microsoft.com/purview/sit-defn-austria-tax-identification-number) | PII | YES |
