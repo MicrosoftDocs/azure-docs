@@ -10,7 +10,6 @@ ms.topic: quickstart
 ms.date: 08/15/2023
 ms.author: lajanuar
 zone_pivot_groups: programming-languages-set-formre
-monikerRange: 'doc-intel-4.0.0 || doc-intel-3.1.0 || doc-intel-3.0.0'
 ---
 
 
