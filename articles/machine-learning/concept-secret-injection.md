@@ -38,7 +38,7 @@ The platform already supports these scenarios and code examples using managed id
 
 ## Managed identity associated with the endpoint
 
-Online deployment runs the user container with the managed identity associated with the endpoint. This managed identity is a [Microsoft Entra ID](/entra/fundamentals/whatis) that supports [Azure RBAC](/azure/role-based-access-control/overview.md), meaning that you can assign Azure roles to the identity to control permission to perform operations. This endpoint identity can be either a system-assigned identity or a user-assigned identity, and you can decide which one to use when you create the deployment.
+Online deployment runs the user container with the managed identity associated with the endpoint. This managed identity is a [Microsoft Entra ID](/entra/fundamentals/whatis) that supports [Azure RBAC](/azure/role-based-access-control/overview.md), meaning that you can assign Azure roles to the identity to control permission to perform operations. This endpoint identity can be either a system-assigned identity (SAI) or a user-assigned identity (UAI), and you can decide which one to use when you create the deployment.
 
 - In the case of system-assigned identity, the identity is created automatically when you create the endpoint, and roles with fundamental permissions such as Azure Container Registry pull permission and Storage Blob Data Reader etc are automatically assigned.
 - In the case of user-assigned identity, you need to create the identity first and then associate it with the endpoint when you create the endpoint. You are also responsible for assigning proper roles to the user-assigned identity as needed.
@@ -73,7 +73,6 @@ First, you can set a flag on endpoint to allow the system-assigned identity of t
 
 - The user identity that creates the _endpoint_ has the permissions to read secrets from workspace connections.
 - The endpoint uses system-assigned identity.
-- Workspace connection is used as the secret store.
 - The endpoint is defined with a flag to enforce access to default secret stores (workspace connections under the current workspace) when creating the endpoint.
 
 If you are using user-assigned identity for the endpoint, or Azure Key Vault is used as the secret store, you will need to assign the role with proper permissions to the endpoint identity yourself.
