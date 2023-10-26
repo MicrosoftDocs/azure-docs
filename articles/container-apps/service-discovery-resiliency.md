@@ -9,8 +9,6 @@ ms.topic: conceptual
 ms.date: 10/23/2023
 ms.author: hannahhunter
 ms.custom: ignite-fall-2023
-zone_pivot_group_filename: container-apps/dapr-zone-pivot-groups.json
-zone_pivot_groups: resiliency-options
 # Customer Intent: As a developer, I'd like to learn how to make my container apps resilient using Azure Container Apps.
 ---
 
@@ -18,15 +16,15 @@ zone_pivot_groups: resiliency-options
 
 With Azure Container Apps resiliency, you can proactively prevent, detect, and recover from service-to-service request failures using simple resiliency policies. 
 
-For container app resiliency, policies are configured as a subresource to a container app. Resiliency policies tailored to the specific requirement of the container app being called (App B in the diagram) determine how retries timeouts and other resiliency policies are applied.  
+For application resiliency, policies are configured as a subresource to a container app. Resiliency policies tailored to the specific requirement of the container app being called (App B in the diagram) determine how retries timeouts and other resiliency policies are applied.  
 
 You can apply resiliency policies to two styles of service-to-service communication: 
-- A request to a container app using its service name, such as:
+- A request to a container app using Azure Container Apps service discovery, for example:
   - Container app's name
   - Container app's fully qualified domain name (FQDN) 
 - [Dapr service invocation](./dapr-invoke-resiliency.md). 
 
-This guide focuses on configuring Azure Container Apps resiliency policies when initiating requests using Azure Container Apps service discovery.
+This article focuses on configuring Azure Container Apps resiliency policies when initiating requests using Azure Container Apps service discovery.
 
 :::image type="content" source="media/service-name-resiliency/service-name-resiliency.png" alt-text="Diagram demonstrating container app to container app resiliency using a container app's service name.":::
 

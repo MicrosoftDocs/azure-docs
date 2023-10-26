@@ -1,5 +1,5 @@
 ---
-title: Resiliency policies for Dapr service invocation API
+title: Dapr service invocation API resiliency
 titleSuffix: Azure Container Apps
 description: Learn how to apply container app to container app resiliency when using Dapr service invocation API in Azure Container Apps.
 services: container-apps
@@ -9,20 +9,18 @@ ms.topic: conceptual
 ms.date: 10/17/2023
 ms.author: hannahhunter
 ms.custom: ignite-fall-2023
-zone_pivot_group_filename: container-apps/dapr-zone-pivot-groups.json
-zone_pivot_groups: resiliency-options
 # Customer Intent: As a developer, I'd like to learn how to make my container apps resilient using Azure Container Apps.
 ---
 
-# Resiliency policies for Dapr service invocation API
+# Dapr service invocation API resiliency
 
 With Azure Container Apps resiliency, you can proactively prevent, detect, and recover from service-to-service request failures using simple resiliency policies. 
 
-For container app resiliency, policies are configured as a subresource to a container app. Resiliency policies tailored to the specific requirement of the container app being called (App B in the diagram) determine how retries timeouts and other resiliency policies are applied.  
+For application resiliency, policies are configured as a subresource to a container app. Resiliency policies tailored to the specific requirement of the container app being called (App B in the diagram) determine how retries timeouts and other resiliency policies are applied.  
 
-You can apply resiliency policies to two styles of service-to-service communication: your [container app's service name](./service-discovery-resiliency.md) or Dapr service invocation. 
+You can apply resiliency policies to two styles of service-to-service communication: your [container app's service discovery](./service-discovery-resiliency.md) or Dapr service invocation. 
 
-This guide focuses on configuring Dapr's resiliency policies when using Dapr’s Service Invocation API for container app-to-container app communication. 
+This article focuses on configuring Dapr's resiliency policies when using Dapr’s Service Invocation API for container app-to-container app communication. 
 
 :::image type="content" source="media/dapr-invoke-resiliency/dapr-invoke-resiliency.png" alt-text="Diagram demonstrating sidecar to sidecar resiliency for container apps using Dapr service invocation API.":::
 
@@ -173,7 +171,7 @@ properties: {
 
 ### Circuit breakers
 
-Circuit breaker policies monitor the requests and shut off all traffic to the impacted service when timeout and retry criteria are met. 
+Circuit breaker policies determine whether some number of upstream container app hosts (replicas) are unhealthy and removing them from load balancing. 
 
 ```bicep
 properties: {
@@ -187,9 +185,9 @@ properties: {
 
 | Metadata | Required? | Description | Example |
 | -------- | --------- | ----------- | ------- |
-| `consecutiveErrors` | Y | Consecutive number of errors before an upstream container app is temporarily removed from load balancing. | `5` |
-| `intervalInSeconds` | Y | Interval between evaluation to eject or restore an upstream container app. | `10` |
-| `maxEjectionPercent` | Y | Maximum percent of failing replicas to eject from load balancing. | `50` |
+| `consecutiveErrors` | Y | Consecutive number of errors before an upstream container app replica is temporarily removed from load balancing. | `5` |
+| `intervalInSeconds` | Y | Interval between evaluation to eject or restore an upstream container app replica. | `10` |
+| `maxEjectionPercent` | Y | Maximum percent of failing container app replicas to eject from load balancing. | `50` |
 
 ## Resiliency observability
 
