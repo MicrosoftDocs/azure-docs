@@ -1,11 +1,11 @@
-ew- name: Concepts
+- name: Concepts
   expanded: true
   items:
   - name: Overview
     href: index.md
   - name: Understanding inventory assets
     href: understanding-inventory-assets.md
-  - name: What is Discovery?
+  - name: "What is Discovery?"
     href: what-is-discovery.md
 - name: How-to
   items:
