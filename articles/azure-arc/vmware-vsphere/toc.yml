@@ -14,14 +14,6 @@
   items:
   - name: Create a virtual machine on VMware vCenter
     href: quick-start-create-a-vm.md
-- name: Concepts
-  items:   
-  - name: Custom locations
-    href: custom-locations.md
-  - name: Azure Arc resource bridge
-    href: azure-arc-resource-bridge.md
-  - name: Azure Arc agent
-    href: azure-arc-agent.md
 - name: How-to guides
   items:
   - name: Deploy

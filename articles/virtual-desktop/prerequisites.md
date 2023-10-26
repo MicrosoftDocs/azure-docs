@@ -23,9 +23,11 @@ At a high level, you'll need:
 
 ## Azure account with an active subscription
 
-You'll need an Azure account with an active subscription to deploy Azure Virtual Desktop. If you don't have one already, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). Your account must be assigned the [contributor or owner role](../role-based-access-control/built-in-roles.md) on your subscription.
+You need an Azure account with an active subscription to deploy Azure Virtual Desktop. If you don't have one already, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-You also need to make sure you've registered the *Microsoft.DesktopVirtualization* resource provider for your subscription. To check the status of the resource provider and register if needed, select the relevant tab for your scenario and follow the steps.
+To deploy Azure Virtual Desktop, you need to assign the relevant Azure role-based access control (RBAC) roles. The specific role requirements are covered in each related article for deploying Azure Virtual Desktop, which are listed in the [Next steps](#next-steps) section.
+
+Also make sure you've registered the *Microsoft.DesktopVirtualization* resource provider for your subscription. To check the status of the resource provider and register if needed, select the relevant tab for your scenario and follow the steps.
 
 > [!IMPORTANT]
 > You must have permission to register a resource provider, which requires the `*/register/action` operation. This is included if your account is assigned the [contributor or owner role](../role-based-access-control/built-in-roles.md) on your subscription.
@@ -84,7 +86,7 @@ You also need to make sure you've registered the *Microsoft.DesktopVirtualizatio
 
 ## Identity
 
-To access desktops and applications from your session hosts, your users need to be able to authenticate. [Microsoft Entra ID](../active-directory/fundamentals/active-directory-whatis.md) is Microsoft's centralized cloud identity service that enables this capability. Microsoft Entra ID is always used to authenticate users for Azure Virtual Desktop. Session hosts can be joined to the same Microsoft Entra tenant, or to an Active Directory domain using [Active Directory Domain Services](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) (AD DS) or [Microsoft Entra Domain Services](../active-directory-domain-services/overview.md) (Microsoft Entra Domain Services), providing you with a choice of flexible configuration options.
+To access desktops and applications from your session hosts, your users need to be able to authenticate. [Microsoft Entra ID](../active-directory/fundamentals/active-directory-whatis.md) is Microsoft's centralized cloud identity service that enables this capability. Microsoft Entra ID is always used to authenticate users for Azure Virtual Desktop. Session hosts can be joined to the same Microsoft Entra tenant, or to an Active Directory domain using [Active Directory Domain Services](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) (AD DS) or [Microsoft Entra Domain Services](../active-directory-domain-services/overview.md), providing you with a choice of flexible configuration options.
 
 ### Session hosts
 
@@ -234,7 +236,6 @@ To learn which URLs clients use to connect and that you must allow through firew
 
 ## Next steps
 
-Get started with Azure Virtual Desktop by creating a host pool. Head to the following tutorial to find out more.
+- For a simple way to get started with Azure Virtual Desktop by creating a sample infrastructure, see [Tutorial: Try Azure Virtual Desktop with a Windows 11 desktop](tutorial-create-connect-personal-desktop.md).
 
-> [!div class="nextstepaction"]
-> [Create and connect to a Windows 11 desktop with Azure Virtual Desktop](tutorial-create-connect-personal-desktop.md)
+- For a more in-depth and adaptable approach to deploying Azure Virtual Desktop, see [Create a host pool in Azure Virtual Desktop](create-host-pool.md).

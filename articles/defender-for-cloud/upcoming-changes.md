@@ -10,7 +10,8 @@ ms.date: 10/09/2023
 > [!IMPORTANT]
 > The information on this page relates to pre-release products or features, which might be substantially modified before they are commercially released, if ever. Microsoft makes no commitments or warranties, express or implied, with respect to the information provided here.
 
-[Defender for Servers](#defender-for-servers)
+<!-- Please don't adjust this next line without getting approval from the Defender for Cloud documentation team. It is necessary for proper RSS functionality. --> 
+
 On this page, you can learn about changes that are planned for Defender for Cloud. It describes planned modifications to the product that might affect things like your secure score or workflows.
 
 > [!TIP]
@@ -36,8 +37,9 @@ If you're looking for the latest release notes, you can find them in the [What's
 
 ## Four alerts are set to be deprecated
 
-Announcement date: October 23, 2023
-Estimated date for change: November 23, 2023
+**Announcement date: October 23, 2023**
+
+**Estimated date for change: November 23, 2023**
 
 As part of our quality improvement process, the following security alerts are set to be deprecated:
 
