@@ -31,7 +31,7 @@ Azure Event Grid is used at different stages of data pipelines to achieve a dive
 
 **MQTT messaging (preview)**. IoT devices and applications can communicate with each other over MQTT. Event Grid can also be used to route MQTT messages to Azure services or custom endpoints for further data analysis, visualization, or storage. This integration with Azure services enables you to build data pipelines that start with data ingestion from your IoT devices.
 
-**Data distribution using push and pull delivery (preview) modes**. At any point in a data pipeline, HTTP applications can consume messages using push or pull APIs. The source of the data may include MQTT clients’ data, but also includes the following data sources that send their events over HTTP:
+**Data distribution using push and pull delivery (preview) modes**. At any point in a data pipeline, HTTP applications can consume messages using push or pull APIs. The source of the data might include MQTT clients’ data, but also includes the following data sources that send their events over HTTP:
 
 - Azure services
 - Your custom applications
@@ -125,7 +125,7 @@ Your own service or application publishes events to Event Grid that subscriber a
 #### Receive events from partner (SaaS providers)
 :::image type="content" source="media/overview/receive-saas-providers.png" alt-text="Diagram that shows an external partner application publishing event to Event Grid using HTTP. Event Grid sends those events to webhooks or Azure services." lightbox="media/overview/receive-saas-providers-high-res.png" border="false":::
 
-A multi-tenant SaaS provider or platform can publish their events to Event Grid through a feature called [Partner Events](partner-events-overview.md). You can [subscribe to those events](subscribe-to-partner-events.md) and automate tasks, for example. Events from the following partners are currently available:
+A multitenant SaaS provider or platform can publish their events to Event Grid through a feature called [Partner Events](partner-events-overview.md). You can [subscribe to those events](subscribe-to-partner-events.md) and automate tasks, for example. Events from the following partners are currently available:
 
 - [Auth0](auth0-overview.md)
 - [Microsoft Graph API](subscribe-to-graph-api-events.md). Through Microsoft Graph API you can get events from [Azure AD](azure-active-directory-events.md), [Microsoft Outlook](outlook-events.md), [Teams](teams-events.md), Conversations, security alerts, and Universal Print.
