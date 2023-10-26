@@ -58,6 +58,18 @@ items:
         href: manage-mqtt-connectivity/overview-iot-mq.md
       - name: Secure communication using BrokerListener
         href: manage-mqtt-connectivity/concept-brokerlistener.md
+      - name: Configure automatic TLS
+        href: manage-mqtt-connectivity/howto-configure-tls-auto.md
+      - name: Configure manual TLS
+        href: manage-mqtt-connectivity/howto-configure-tls-manual.md
+      - name: Configure authentication
+        href: manage-mqtt-connectivity/howto-configure-authentication.md
+      - name: Configure authorization
+        href: manage-mqtt-connectivity/howto-configure-authorization.md
+      - name: Configure availability and scale
+        href: manage-mqtt-connectivity/howto-configure-availability-scale.md
+      - name: Configure disk buffer
+        href: manage-mqtt-connectivity/howto-configure-disk-buffer.md
     - name: Process messages
       items:
       - name: Overview
@@ -172,21 +184,6 @@ items:
           href: administer/howto-deploy-layered-network-managment-aks.md
         - name: Configure AKS EE clusters
           href: administer/howto-configure-aks-ee-layered-network-management.md
-      - name: Manage Azure MQ
-        items:
-        - name: Configure automatic TLS
-          href: manage-mqtt-connectivity/howto-configure-tls-auto.md
-        - name: Configure manual TLS
-          href: manage-mqtt-connectivity/howto-configure-tls-manual.md
-        - name: Configure authentication
-          href: manage-mqtt-connectivity/howto-configure-authentication.md
-        - name: Configure authorization
-          href: manage-mqtt-connectivity/howto-configure-authorization.md
-        - name: Configure availability and scale
-          href: manage-mqtt-connectivity/howto-configure-availability-scale.md
-        - name: Configure disk buffer
-          href: manage-mqtt-connectivity/howto-configure-disk-buffer.md
-
     - name: Troubleshoot
       href: troubleshoot/troubleshoot.md
     - name: Reference # supporting information like APIs, tools, code libraries
