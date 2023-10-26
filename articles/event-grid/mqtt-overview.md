@@ -26,7 +26,7 @@ The MQTT support in Event Grid is ideal for the implementation of automotive and
 
 
 
-## Key concepts:
+## Key concepts
 The following are a list of key concepts involved in MQTT messaging on Event Grid.
 
 ### MQTT
