@@ -21,7 +21,7 @@ In this how-to guide, you'll learn how to:
 > * Verify the contact profile
 > * Find IPs of scheduled contacts
 
-Ensure the objects comply with the recommendations in this article. Note that these steps do not have to be followed in order.
+Ensure the objects comply with the recommendations in this article. Note that these steps don't have to be followed in order.
 
 ## Create and prepare subnet for VNET injection
 
@@ -68,26 +68,26 @@ The links/channels must be set up in the following manner, based on direction an
 | Contact Profile: Link/Channel **Port**       | Unique port in 49152-65535 | Unique port in 49152-65535           | Unique port in 49152-65535 | Not applicable |
 | **Output**                                   |                            |                                      |                            |                |
 | Contact Resource: **destinationIP**          | Connect to this IP         | Not applicable                       | Connect to this IP         | Not applicable |
-| Contact Resource: **sourceIP**               | Not applicable             | Link will come from one of these IPs | Not applicable             | Not applicable |
+| Contact Resource: **sourceIP**               | Not applicable             | Link comes from one of these IPs     | Not applicable             | Not applicable |
 
 #### Downlink
 
-| Setting                                      | TCP Client                 | TCP Server                           | UDP Client     | UDP Server                           |
-|:---------------------------------------------|:---------------------------|:-------------------------------------|:---------------|:-------------------------------------|
-| Contact Profile: Link/Channel **IP Address** | Blank                      | Routable IP from delegated subnet    | Not applicable | Routable IP from delegated subnet    |
-| Contact Profile: Link/Channel **Port**       | Unique port in 49152-65535 | Unique port in 49152-65535           | Not applicable | Unique port in 49152-65535           |
-| **Output**                                   |                            |                                      |                |                                      |
-| Contact Resource: **destinationIP**          | Connect to this IP         | Not applicable                       | Not applicable | Not applicable                       |
-| Contact Resource: **sourceIP**               | Not applicable             | Link will come from one of these IPs | Not applicable | Link will come from one of these IPs |
+| Setting                                      | TCP Client                 | TCP Server                        | UDP Client     | UDP Server                        |
+|:---------------------------------------------|:---------------------------|:----------------------------------|:---------------|:----------------------------------|
+| Contact Profile: Link/Channel **IP Address** | Blank                      | Routable IP from delegated subnet | Not applicable | Routable IP from delegated subnet |
+| Contact Profile: Link/Channel **Port**       | Unique port in 49152-65535 | Unique port in 49152-65535        | Not applicable | Unique port in 49152-65535        |
+| **Output**                                   |                            |                                   |                |                                   |
+| Contact Resource: **destinationIP**          | Connect to this IP         | Not applicable                    | Not applicable | Not applicable                    |
+| Contact Resource: **sourceIP**               | Not applicable             | Link comes from one of these IPs  | Not applicable | Link comes from one of these IPs  |
 
 > [!NOTE]
-> You can have multiple links/channels in a contact profile, and you can have multiple IPs. However the combination of port/protocol must be unique. You cannot have two identical ports, even if you have two different destination IPs. 
+> You can have multiple links/channels in a contact profile, and you can have multiple IPs. However the combination of port/protocol must be unique. You can't have two identical ports, even if you have two different destination IPs. 
 
 For more information, learn about [contact profiles](/azure/orbital/concepts-contact-profile) and [how to configure a contact profile](/azure/orbital/contact-profile).
 
 ## Find IPs of a scheduled contact
 
-The Azure Orbital Ground Station platform pre-reserves IPs in the subnet when a contact is scheduled. These IPs represent the platform-side endpoints for each link. IPs are unique between contacts, and if multiple concurrent contacts are using the same subnet, Microsoft guarantees those IPs to be distinct. The service fails to schedule the contact and an error is returned if the service runs out of IPs or cannot allocate an IP.
+The Azure Orbital Ground Station platform prereserves IPs in the subnet when a contact is scheduled. These IPs represent the platform-side endpoints for each link. IPs are unique between contacts, and if multiple concurrent contacts are using the same subnet, Microsoft guarantees those IPs to be distinct. The service fails to schedule the contact and an error is returned if the service runs out of IPs or can't allocate an IP.
 
 When you create a contact, you can find these IPs by viewing the contact properties. 
 To view the contact properties, go to the contact resource overview page and select **JSON view** in the portal or use the **GET contact** API call. Make sure to use the current API version of 2022-11-01. The parameters of interest are below:
@@ -95,7 +95,7 @@ To view the contact properties, go to the contact resource overview page and sel
 | **Parameter**                      | **Usage**                                                                      |
 |------------------------------------|--------------------------------------------------------------------------------|
 | antennaConfiguration.destinationIp | Connect to this IP when you configure the link as **tcp/udp client**.          |
-| antennaConfiguration.sourceIps     | Data will come from this IP when you configure the link as **tcp/udp server**. |
+| antennaConfiguration.sourceIps     | Data comes from this IP when you configure the link as **tcp/udp server**. |
 
 You can use this information to set up network policies or to distinguish between simultaneous contacts to the same endpoint.
 
