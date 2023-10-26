@@ -21,7 +21,7 @@ High scale ingestion to handle large amounts of network data from operator data 
 - Common data model with open standards such as parquet and delta lake for easy integration with other Microsoft and third-party services. 
 - High speed analytics to enable fast data exploration and correlation between different data sets produced by disaggregated 5G multi-vendor networks. 
 
-The result is that the operator has a lower total cost of ownership but higher insights of their network over equivalent on-prem or cloud chemistry set platforms. 
+The result is that the operator has a lower total cost of ownership but higher insights of their network over equivalent on-premises or cloud chemistry set platforms. 
 
 ## How do I get access to Azure Operator Insights?
 
