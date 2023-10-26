@@ -13,9 +13,15 @@ monikerRange: '>=doc-intel-3.0.0'
 
 <!-- markdownlint-disable MD033 -->
 
-# Document Intelligence tax document model
+# Document Intelligence tax document models
 
-[!INCLUDE [applies to v4.0 v3.1](includes/applies-to-v40-v31.md)]
+::: moniker range="doc-intel-4.0.0"
+**This content applies to:** ![checkmark](../media/yes-icon.png) **v4.0 (preview)** | **Previous versions:** ![blue-checkmark](../media/blue-yes-icon.png) [**v3.1 (GA)**](?view=doc-intel-3.1.0&preserve-view=tru)
+:::moniker-end
+
+:::moniker range="doc-intel-3.1.0"
+**This content applies to:** ![checkmark](../media/yes-icon.png) **v3.1 (GA)** | **Latest version:** ![purple-checkmark](../media/purple-yes-icon.png) [**v4.0 (preview)**](?view=doc-intel-4.0.0&preserve-view=true)
+:::moniker-end
 
 The Document Intelligence contract model uses powerful Optical Character Recognition (OCR) capabilities to analyze and extract key fields and line items from a select group of tax documents. Tax documents can be of various formats and quality including phone-captured images, scanned documents, and digital PDFs. The API analyzes document text; extracts key information such as customer name, billing address, due date, and amount due; and returns a structured JSON data representation. The model currently supports certain English tax document formats.
 

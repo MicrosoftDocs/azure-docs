@@ -15,7 +15,17 @@ monikerRange: '>=doc-intel-3.0.0'
 
 # Document Intelligence custom neural model
 
-[!INCLUDE [applies to v4.0 v3.1 v3.0](includes/applies-to-v40-v31-v30.md)]
+::: moniker range="doc-intel-4.0.0"
+**This content applies to:**![checkmark](../media/yes-icon.png) **v4.0 (preview)** | **Previous versions:** ![blue-checkmark](../media/blue-yes-icon.png) [**v3.1 (GA)**](?view=doc-intel-3.1.0&preserve-view=tru) ![blue-checkmark](../media/blue-yes-icon.png) [**v3.0 (GA)**](?view=doc-intel-3.0.0&preserve-view=tru)
+::: moniker-end
+
+::: moniker range="doc-intel-3.1.0"
+**This content applies to:** ![checkmark](../media/yes-icon.png) **v3.1 (GA)** | **Latest version:** ![purple-checkmark](../media/purple-yes-icon.png) [**v4.0 (preview)**](?view=doc-intel-4.0.0&preserve-view=true) | **Previous versions:** ![blue-checkmark](../media/blue-yes-icon.png) [**v3.0**](?view=doc-intel-3.0.0&preserve-view=true)
+::: moniker-end
+
+::: moniker range="doc-intel-3.0.0"
+**This content applies to:** ![checkmark](../media/yes-icon.png) **v3.0 (GA)** | **Latest versions:** ![purple-checkmark](../media/purple-yes-icon.png) [**v4.0 (preview)**](?view=doc-intel-4.0.0&preserve-view=true) ![purple-checkmark](../media/purple-yes-icon.png) [**v3.1 (preview)**](?view=doc-intel-3.1.0&preserve-view=true)
+::: moniker-end
 
 Custom neural document models or neural models are a deep learned model type that combines layout and language features to accurately extract labeled fields from documents. The base custom neural model is trained on various document types that makes it suitable to be trained for extracting fields from structured, semi-structured and unstructured documents. Custom neural models are available in the [v3.0 and later models](v3-1-migration-guide.md) The table below lists common document types for each category:
 
@@ -47,10 +57,6 @@ Neural models support documents that have the same information, but different pa
 
 >[!NOTE]
 > Document Intelligence auto-detects language and locale data.
-
-:::moniker range="doc-intel-3.1.0"
-
-Neural models now support added languages for the ```v3.1``` APIs.
 
 |Language| Code (optional) |
 |:-----|:----:|
@@ -102,11 +108,9 @@ Neural models now support added languages for the ```v3.1``` APIs.
 |Urdu|`ur`|
 |Vietnamese|`vi`|
 
-:::moniker-end
-
 :::moniker range=">=doc-intel-3.1.0"
 
-Neural models now support added languages for the `v3.1` and later APIs.
+Neural models support added languages for the `v3.1` and later APIs.
 
 | Languages | API version |
 |:--:|:--:|
@@ -174,6 +178,15 @@ As of October 18, 2022, Document Intelligence custom neural model training will 
 
 :::moniker-end
 
+:::moniker range="doc-intel-3.0.0"
+
+> [!TIP]
+> You can [copy a model](disaster-recovery.md#copy-api-overview) trained in one of the select regions listed to **any other region** and use it accordingly.
+>
+> Use the [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/CopyDocumentModelTo) or [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio/custommodel/projects) to copy a model to another region.
+
+:::moniker-end
+
 ## Best practices
 
 Custom neural models differ from custom template models in a few different ways. The custom template or model relies on a consistent visual template to extract the labeled data. Custom neural models support structured, semi-structured, and unstructured documents to extract fields. When you're choosing between the two model types, start with a neural model, and test to determine if it supports your functional needs.
@@ -237,6 +250,23 @@ https://{endpoint}/documentintelligence/documentModels:build?api-version=2023-10
 
 ```REST
 https://{endpoint}/formrecognizer/documentModels:build?api-version=v3.1:2023-07-31
+
+{
+  "modelId": "string",
+  "description": "string",
+  "buildMode": "neural",
+  "azureBlobSource":
+  {
+    "containerUrl": "string",
+    "prefix": "string"
+  }
+}
+```
+
+:::moniker range="doc-intel-3.0.0"
+
+```REST
+https://{endpoint}/formrecognizer/documentModels/{modelId}:copyTo?api-version=2022-08-31
 
 {
   "modelId": "string",

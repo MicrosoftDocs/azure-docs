@@ -8,15 +8,22 @@ ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
 ms.date: 11/15/2023
 ms.author: lajanuar
-monikerRange: '<=doc-intel-4.0.0'
 ---
 
 <!-- markdownlint-disable MD033 -->
 
 # Document Intelligence receipt model
 
-::: moniker range=">=doc-intel-3.0.0"
-[!INCLUDE [applies to v4.0 (preview)](includes/applies-to-v40-v31-v30.md)]   ![blue-checkmark](media/blue-yes-icon.png) [v2.1](?view=doc-intel-2.1.0&preserve-view=true)
+::: moniker range="doc-intel-4.0.0"
+[!INCLUDE [applies to v4.0](includes/applies-to-v40.md)]
+::: moniker-end
+
+::: moniker range="doc-intel-3.1.0"
+[!INCLUDE [applies to v3.1](includes/applies-to-v31.md)]
+::: moniker-end
+
+::: moniker range="doc-intel-3.0.0"
+[!INCLUDE [applies to v3.0](includes/applies-to-v30.md)]
 ::: moniker-end
 
 ::: moniker range="doc-intel-2.1.0"
