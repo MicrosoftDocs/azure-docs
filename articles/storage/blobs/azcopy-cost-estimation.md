@@ -25,7 +25,7 @@ When you run the [azcopy copy](../common/storage-use-azcopy-blobs-upload.md?toc=
 
 ### Cost of uploading to the Blob Service endpoint
 
-If you upload data to the Blob Service endpoint, then AzCopy uploads each blob in 8-MiB blocks. 
+If you upload data to the Blob Service endpoint, then by default, AzCopy uploads each blob in 8-MiB blocks. 
 
 AzCopy uses the [Put Block](/rest/api/storageservices/put-block) operation to upload each block. After the final block is uploaded, AzCopy commits those blocks by using the [Put Block List](/rest/api/storageservices/put-block-list) operation. Both operations are billed as write operations. 
 
