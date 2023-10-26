@@ -743,7 +743,7 @@ items:
       href: agents/azure-monitor-agent-performance.md
     - name: FAQ
       displayName: Azure Monitor agent FAQ
-      href: /azure/azure-monitor/faq#azure-monitor-agent
+      href: agents/agents-overview.md#frequently-asked-questions
     - name: Legacy agents
       items:
       - name: Log Analytics agent

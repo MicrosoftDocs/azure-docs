@@ -93,8 +93,8 @@
         href: vpn-gateway-create-site-to-site-rm-powershell.md
       - name: Azure CLI
         href: vpn-gateway-howto-site-to-site-resource-manager-cli.md
-    - name: Add additional site-to-site connections
-      href: vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md
+    - name: Add or remove site-to-site-connections
+      href: add-remove-site-to-site-connections.md
     - name: Connect to multiple policy-based VPN devices
       href: vpn-gateway-connect-multiple-policybased-rm-ps.md
   - name: Site-to-site with ExpressRoute connections
@@ -315,7 +315,7 @@
       href: vpn-gateway-howto-vnet-vnet-portal-classic.md
     - name: Delete a VPN gateway
       href: vpn-gateway-delete-vnet-gateway-classic-powershell.md
-    - name: Configure multiple site-to-site connections
+    - name: Add or remove site-to-site connections
       href: vpn-gateway-multi-site.md
     - name: Configure a VPN gateway
       href: ./vpn-gateway-howto-site-to-site-classic-portal.md
