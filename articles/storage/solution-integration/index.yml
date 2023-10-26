@@ -81,6 +81,8 @@ landingContent:
             url: .\validated-partners\primary-secondary-storage\partner-overview.md
           - text: ISV file services
             url: .\validated-partners\primary-secondary-storage\isv-file-services.md
+          - text: Nasuni getting started guide
+            url: ./validated-partners/primary-secondary-storage/nasuni-deployment-guide.md
           - text: Tiger Bridge getting started guide
             url: ./validated-partners/primary-secondary-storage/tiger-bridge-deployment-guide.md
       

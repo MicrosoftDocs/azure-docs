@@ -1,15 +1,15 @@
 ---
-title: Azure Elastic SAN networking Preview concepts
+title: Azure Elastic SAN Preview networking concepts
 description: An overview of Azure Elastic SAN Preview networking options, including storage service endpoints, private endpoints, and iSCSI.
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: conceptual
-ms.date: 08/16/2023
+ms.date: 10/19/2023
 ms.author: rogarana
 ms.custom: references_regions
 ---
 
-# Elastic SAN Preview networking
+# Learn about networking configurations for Elastic SAN Preview
 
 Azure Elastic storage area network (SAN) Preview allows you to secure and control the level of access to your Elastic SAN volumes that your applications and enterprise environments require. This article describes the options for allowing users and applications access to Elastic SAN volumes from an [Azure virtual network infrastructure](../../virtual-network/vnet-integration-for-azure-services.md).
 

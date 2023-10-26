@@ -21,7 +21,7 @@ ms.reviewer: sngun
 > * [sqlcmd](get-started-connect-sqlcmd.md)
 > * [SSMS](get-started-ssms.md)
 
-You can use [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio?view=azure-sqldw-latest&preserve-view=true) to connect to and query Synapse SQL in Azure Synapse Analytics. 
+You can use [Azure Data Studio](/azure-data-studio/download-azure-data-studio?view=azure-sqldw-latest&preserve-view=true) to connect to and query Synapse SQL in Azure Synapse Analytics. 
 
 ## Connect
 
@@ -91,4 +91,4 @@ Explore other ways to connect to Synapse SQL:
 - [Visual Studio](..//sql/get-started-visual-studio.md)
 - [sqlcmd](get-started-connect-sqlcmd.md)
 
-Visit [Use Azure Data Studio to connect and query data using a dedicated SQL pool in Azure Synapse Analytics](/sql/azure-data-studio/quickstart-sql-dw), for more information.
+Visit [Use Azure Data Studio to connect and query data using a dedicated SQL pool in Azure Synapse Analytics](/azure-data-studio/quickstart-sql-dw), for more information.

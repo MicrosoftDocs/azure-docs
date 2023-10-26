@@ -17,6 +17,8 @@ keywords:
 - An Azure subscription. <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>.
 - Access granted to Azure OpenAI in the desired Azure subscription.
 - An Azure OpenAI resource that's located in a region that supports fine-tuning of the Azure OpenAI model. Check the [Model summary table and region availability](../concepts/models.md#fine-tuning-models-preview) for the list of available models by region and supported functionality. For more information, see [Create a resource and deploy a model with Azure OpenAI](../how-to/create-resource.md).
+- Fine-tuning access requires **Cognitive Services OpenAI Contributor**.
+- If you do not already have access to view quota, and deploy models in Azure OpenAI Studio you will require [additional permissions](../how-to/role-based-access-control.md).  
 
 > [!NOTE]
 > Currently, you must submit an application to access Azure OpenAI Service. To apply for access, complete [this form](https://aka.ms/oai/access).
@@ -342,7 +344,7 @@ When you're done with your custom model, you can delete the deployment and model
 
 [!INCLUDE [Fine-tuning deletion](fine-tune.md)]
 
-You can delete the deployment for your custom model on the **Deployments** pane in Azure OpenAI Studio. Select the deployment to delete, and then select **Delete** to delete the deployment. 
+You can delete the deployment for your custom model on the **Deployments** pane in Azure OpenAI Studio. Select the deployment to delete, and then select **Delete** to delete the deployment.
 
 ### Delete your custom model
 
@@ -354,6 +356,13 @@ You can delete a custom model on the **Models** pane in Azure OpenAI Studio. Sel
 ### Delete your training files
 
 You can optionally delete training and validation files that you uploaded for training, and result files generated during training, on the **Management** > **Data files** pane in Azure OpenAI Studio. Select the file to delete, and then select **Delete** to delete the file.
+
+## Troubleshooting
+
+### How do I enable fine-tuning? Create a custom model is greyed out in Azure OpenAI Studio?
+
+In order to successfully access fine-tuning you need **Cognitive Services OpenAI Contributor assigned**. Even someone with high-level Service Administrator permissions would still need this account explicitly set in order to access fine-tuning. For more information please review the [role-based access control guidance](/azure/ai-services/openai/how-to/role-based-access-control#cognitive-services-openai-contributor).
+ 
 
 ## Next steps
 

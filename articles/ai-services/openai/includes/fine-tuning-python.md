@@ -19,6 +19,9 @@ keywords:
 - An Azure OpenAI resource. For more information, see [Create a resource and deploy a model with Azure OpenAI](../how-to/create-resource.md).
 - The following Python libraries: `os`, `json`, `requests`, `openai`.
 - The OpenAI Python library **should be at least version 0.28.1**.
+- Fine-tuning access requires **Cognitive Services OpenAI Contributor**.
+- If you do not already have access to view quota, and deploy models in Azure OpenAI Studio you will require [additional permissions](../how-to/role-based-access-control.md).  
+
 
 > [!NOTE]
 > Currently, you must submit an application to access Azure OpenAI Service. To apply for access, complete [this form](https://aka.ms/oai/access). 
@@ -406,6 +409,12 @@ print(f'Deleting already uploaded files.')
 for id in results:
     openai.File.delete(sid = id)
 ```
+
+## Troubleshooting
+
+### How do I enable fine-tuning? Create a custom model is greyed out in Azure OpenAI Studio?
+
+In order to successfully access fine-tuning you need **Cognitive Services OpenAI Contributor assigned**. Even someone with high-level Service Administrator permissions would still need this account explicitly set in order to access fine-tuning. For more information please review the [role-based access control guidance](/azure/ai-services/openai/how-to/role-based-access-control#cognitive-services-openai-contributor).
 
 ## Next steps
 

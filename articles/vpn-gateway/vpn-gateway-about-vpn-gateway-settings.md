@@ -30,7 +30,7 @@ The values in this article apply VPN gateways (virtual network gateways that use
 
 Currently, Azure supports two gateway VPN types: route-based VPN gateways and policy-based VPN gateways. They're built on different internal platforms, which result in different specifications.
 
-As of Oct 1, 2023, you can't create a policy-based VPN gateway. All new VPN gateways will automatically be created as route-based. If you already have a policy-based gateway, you don't need to upgrade your gateway to route-based.
+As of Oct 1, 2023, you can't create a policy-based VPN gateway through Azure portal. All new VPN gateways will automatically be created as route-based. If you already have a policy-based gateway, you don't need to upgrade your gateway to route-based. You can use Powershell/CLI to create the policy-based gateways.
 
 Previously, the older gateway SKUs didn't support IKEv1 for route-based gateways. Now, most of the current gateway SKUs support both IKEv1 and IKEv2.
 

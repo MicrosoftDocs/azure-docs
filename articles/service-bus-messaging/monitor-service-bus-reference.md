@@ -32,7 +32,7 @@ Counts the number of data and management operations requests.
 The following two types of errors are classified as **user errors**:
 
 1. Client-side errors (In HTTP that would be 400 errors).
-2. Errors that occur while processing messages, such as [MessageLockLostException](/dotnet/api/microsoft.azure.servicebus.messagelocklostexception).
+2. Errors that occur while processing messages, such as [MessageLockLostException](/dotnet/api/azure.messaging.servicebus.servicebusfailurereason).
 
 
 ### Message metrics
@@ -297,6 +297,9 @@ Resource specific table entry:
  }
 
 ```
+
+[!INCLUDE [service-bus-amqp-support-retirement](../../includes/service-bus-amqp-support-retirement.md)]
+
 ## Azure Monitor Logs tables
 Azure Service Bus uses Kusto tables from Azure Monitor Logs. You can query these tables with Log Analytics. For a list of Kusto tables the service uses, see [Azure Monitor Logs table reference](/azure/azure-monitor/reference/tables/tables-resourcetype#service-bus).
 

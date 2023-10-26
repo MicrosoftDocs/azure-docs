@@ -48,6 +48,27 @@ More details on eligible subscription types are as follows:
 |Italy|
 |United States|
 
+## Azure subscription billing locations where France alphanumeric sender IDs are available
+| Country/Region |
+| :---------- |
+| Australia |
+| Austria |
+| Denmark |
+| France |
+| Germany |
+| India |
+| Ireland |
+| Italy |
+| Netherlands |
+| Poland |
+| Portugal |
+| Puerto Rico |
+| Spain |
+| Sweden |
+| Switzerland |
+| United Kingdom |
+| United States |
+
 
 ## Find information about other countries/regions
 

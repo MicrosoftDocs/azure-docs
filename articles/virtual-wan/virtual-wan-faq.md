@@ -454,7 +454,7 @@ Virtual WAN is a networking-as-a-service platform that has a 99.95% SLA. However
 The SLA for each component is calculated individually. For example, if ExpressRoute has a 10 minute downtime, the availability of ExpressRoute would be calculated as (Maximum Available Minutes - downtime) / Maximum Available Minutes * 100.
 ### Can you change the VNet address space in a spoke VNet connected to the hub? 
 
-Yes, this can be done automatically with no update or reset required on the peering connection. You can find more information on how to change the VNet address space [here](https://learn.microsoft.com/azure/virtual-network/manage-virtual-network ).  
+Yes, this can be done automatically with no update or reset required on the peering connection. You can find more information on how to change the VNet address space [here](../virtual-network/manage-virtual-network.md).  
 
 ## Next steps
 

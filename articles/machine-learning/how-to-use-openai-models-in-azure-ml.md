@@ -109,14 +109,12 @@ To run a deploy fine-tuned model job from Azure Machine Learning, in order to de
 1. Select the **Deploy** button and give the deployment name. The model is deployed to the default Azure OpenAI resource linked to your workspace.
 
 ### Finetuning using code based samples
-To enable users to quickly get started with code based finetuning, we have published samples (both Python notebooks and CLI examples) to the azureml-examples gut repo - 
+To enable users to quickly get started with code based finetuning, we have published samples (both Python notebooks and CLI examples) to the azureml-examples git repo - 
 * [SDK example](https://github.com/Azure/azureml-examples/tree/main/sdk/python/foundation-models/azure_openai)
 * [CLI example](https://github.com/Azure/azureml-examples/tree/main/cli/foundation-models/azure_openai)
 
 ### Troubleshooting
 Here are some steps to help you resolve any of the following issues with your Azure OpenAI in Azure Machine Learning experience.
-
-Currently, only a maximum of 10 workspaces can be designated for a particular subscription. If a user creates more workspaces, they will get access to the models but their jobs will fail. 
 
 You might receive any of the following errors when you try to deploy an Azure OpenAI model.
 
@@ -124,22 +122,16 @@ You might receive any of the following errors when you try to deploy an Azure Op
     - **Fix**: Go to the [Azure OpenAI Studio](https://oai.azure.com/portal) and delete the deployments of the model you're trying to deploy.
 
 - **Failed to create deployment**
-    - **Fix**: Azure OpenAI failed to create. This is due to Quota issues, make sure you have enough quota for the deployment.
-
-- **Failed to fetch Azure OpenAI deployments**
-    - **Fix**: Unable to create the resource. Due to one of, the following reasons. You aren't in correct region, or you have exceeded the maximum limit of three Azure OpenAI resources. You need to delete an existing Azure OpenAI resource or you need to make sure you created a workspace in one of the [supported regions](../ai-services/openai/concepts/models.md#model-summary-table-and-region-availability).
+    - **Fix**: Azure OpenAI failed to create. This is due to quota issues, make sure you have enough quota for the deployment. The default quota for fine-tuned models is 2 deployment per customer.
 
 - **Failed to get Azure OpenAI resource**
-    - **Fix**: Unable to create the resource. Due to one of, the following reasons. You aren't in correct region, or you have exceeded the maximum limit of three Azure OpenAI resources. You need to delete an existing Azure OpenAI resource or you need to make sure you created a workspace in one of the [supported regions](../ai-services/openai/concepts/models.md#model-summary-table-and-region-availability).
-
-- **Failed to get Azure OpenAI resource**
-    - **Fix**: Unable to create the resource. Due to one of, the following reasons. You aren't in correct region, or you have exceeded the maximum limit of three Azure OpenAI resources. You need to delete an existing Azure OpenAI resource or you need to make sure you created a workspace in one of the [supported regions](../ai-services/openai/concepts/models.md#model-summary-table-and-region-availability).
+    - **Fix**: Unable to create the resource. You either aren't in correct region, or you have exceeded the maximum limit of three Azure OpenAI resources. You need to delete an existing Azure OpenAI resource or you need to make sure you created a workspace in one of the [supported regions](../ai-services/openai/concepts/models.md#model-summary-table-and-region-availability).
 
 - **Model Not Deployable**
     - **Fix**: This usually happens while trying to deploy a GPT-4 model. Due to high demand you need to [apply for access to use GPT-4 models](/azure/ai-services/openai/concepts/models#gpt-4-models).
 
-- **Resource Create Failed**
-    - **Fix**: We tried to automatically create the Azure OpenAI resource but the operation failed. Try again on a new workspace.
+- **Finetuning job Failed**
+    - **Fix**: Currently, only a maximum of 10 workspaces can be designated for a particular subscription for new fine tunable models. If a user creates more workspaces, they will get access to the models, but their jobs will fail. Try to limit number of workspaces per subscription to 10.
 
 ## Next steps
 

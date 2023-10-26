@@ -49,9 +49,9 @@ Learn [where and how to deploy your model to a compute target](./v1/how-to-deplo
 
 ## Azure Machine Learning compute (managed)
 
-A managed compute resource is created and managed by Azure Machine Learning. This compute is optimized for machine learning workloads. Azure Machine Learning compute clusters, [serverless compute (preview)](how-to-use-serverless-compute.md), and [compute instances](concept-compute-instance.md) are the only managed computes.
+Azure Machine Learning creates and manages the managed compute resources. This type of compute is optimized for machine learning workloads. Azure Machine Learning compute clusters, [serverless compute](how-to-use-serverless-compute.md), and [compute instances](concept-compute-instance.md) are the only managed computes.
 
-There is no need to create serverless compute. You can create Azure Machine Learning compute instances or compute clusters from:
+There's no need to create serverless compute. You can create Azure Machine Learning compute instances or compute clusters from:
 
 * [Azure Machine Learning studio](how-to-create-attach-compute-studio.md).
 * The Python SDK and the Azure CLI:
@@ -74,7 +74,7 @@ When created, these compute resources are automatically part of your workspace, 
 
 > [!NOTE]
 > To avoid charges when the compute is idle:
-> * For compute *cluster* make sure the minimum number of nodes is set to 0, or use [serverless compute](./how-to-use-serverless-compute.md) (preview).
+> * For compute *cluster* make sure the minimum number of nodes is set to 0, or use [serverless compute](./how-to-use-serverless-compute.md).
 > * For a compute *instance*, [enable idle shutdown](how-to-create-compute-instance.md#configure-idle-shutdown).
 
 ### Supported VM series and sizes
@@ -87,7 +87,7 @@ When you select a node size for a managed compute resource in Azure Machine Lear
 There are a few exceptions and limitations to choosing a VM size:
 
 * Some VM series aren't supported in Azure Machine Learning.
-* There are some VM series, such as GPUs and other special SKUs, which may not initially appear in your list of available VMs.  But you can still use them, once you request a quota change. For more information about requesting quotas, see [Request quota increases](how-to-manage-quotas.md#request-quota-increases).
+* Some VM series, such as GPUs and other special SKUs, might not initially appear in your list of available VMs.  But you can still use them, once you request a quota change. For more information about requesting quotas, see [Request quota increases](how-to-manage-quotas.md#request-quota-increases).
 See the following table to learn more about supported series.
 
 | **Supported VM series** | **Category** | **Supported by** |

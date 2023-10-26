@@ -295,7 +295,7 @@ To use a Dapr Service Invocation trigger, learn more about which components to u
 
 To use the `daprServiceInvocationTrigger` in Python v2, set up your project with the correct dependencies.
 
-1. [Create and activate a virtual environment](https://learn.microsoft.com/azure/azure-functions/create-first-function-cli-python?tabs=macos%2Cbash%2Cazure-cli&pivots=python-mode-decorators#create-venv). 
+1. [Create and activate a virtual environment](create-first-function-cli-python.md?tabs=macos%2Cbash%2Cazure-cli&pivots=python-mode-decorators#create-venv). 
 
 1. In your `requirements.text` file, add the following line:
 
