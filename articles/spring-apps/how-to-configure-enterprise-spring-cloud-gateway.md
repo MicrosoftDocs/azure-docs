@@ -466,9 +466,9 @@ To enable APM monitoring in your VMware Spring Cloud Gateway, you can create APM
 
 Use the following steps to set up APM by using the Azure portal:
 
-1. Configure APM on the service instance level with APM name, type, and properties. For more information, see the [Manage APM configuration in Azure Spring Apps](./how-to-enterprise-configure-apm-integration-and-ca-certificates.md#manage-apms-on-the-service-instance-level-recommended) section in [How to configure APM integration and CA certificates](./how-to-enterprise-configure-apm-integration-and-ca-certificates.md).
+1. Configure APM on the service instance level with the APM name, type, and properties. For more information, see the [Manage APMs on the service instance level (recommended)](./how-to-enterprise-configure-apm-integration-and-ca-certificates.md#manage-apms-on-the-service-instance-level-recommended) section of [How to configure APM integration and CA certificates](./how-to-enterprise-configure-apm-integration-and-ca-certificates.md).
 
-:::image type="content" source="media/how-to-configure-enterprise-spring-cloud-gateway/service-level-apm-configure.png" alt-text="Screenshot of Azure portal that shows the Azure Spring Apps APM editor page." lightbox="media/how-to-configure-enterprise-spring-cloud-gateway/service-level-apm-configure.png":::
+   :::image type="content" source="media/how-to-configure-enterprise-spring-cloud-gateway/service-level-apm-configure.png" alt-text="Screenshot of Azure portal that shows the Azure Spring Apps APM editor page." lightbox="media/how-to-configure-enterprise-spring-cloud-gateway/service-level-apm-configure.png":::
 
 1. Select **Spring Cloud Gateway** on the navigation pane, then select **APM**.
 
@@ -480,7 +480,7 @@ Use the following steps to set up APM by using the Azure portal:
 
 Use the following steps to set up APM in Spring Cloud Gateway by using the Azure CLI:
 
-1. Configure APM on the service instance level with APM name, type, and properties. For more information, see the [Manage APM configuration in Azure Spring Apps](./how-to-enterprise-configure-apm-integration-and-ca-certificates.md#manage-apms-on-the-service-instance-level-recommended) section in [How to configure APM integration and CA certificates](./how-to-enterprise-configure-apm-integration-and-ca-certificates.md).
+1. Configure APM on the service instance level with the APM name, type, and properties. For more information, see the [Manage APMs on the service instance level (recommended)](./how-to-enterprise-configure-apm-integration-and-ca-certificates.md#manage-apms-on-the-service-instance-level-recommended) section of [How to configure APM integration and CA certificates](./how-to-enterprise-configure-apm-integration-and-ca-certificates.md).
 
 1. Use the following command to update gateway with APM reference names:
 
@@ -491,10 +491,10 @@ az spring gateway update \
     --apms <APM-reference-name>
 ```
 
-The values for `--apms` are space-separated list of APM reference names, which are created in step 1.
+   The value for `--apms` is a space-separated list of APM reference names, which you created in step 1.
 
-> [!NOTE]
-> APM types in Spring Cloud Gateway is deprecating. Use APM reference names to configure APM in gateway.
+   > [!NOTE]
+   > Spring Cloud Gateway is deprecating APM types. Use APM reference names to configure APM in a gateway.
 
 ---
 
