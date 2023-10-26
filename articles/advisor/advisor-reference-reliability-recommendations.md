@@ -79,13 +79,13 @@ Learn more about [HDInsight cluster - clusterOlderThanAYear (Your cluster was cr
 
 ### Your Kafka cluster disks are almost full
 
-The data disks used by Kafka brokers in your HDInsight cluster are almost full. When that happens, the Apache Kafka broker process can't start and fails because of the disk full error. To mitigate, find the retention time for every topic, back up the files that are older and restart the brokers.
+The data disks used by Kafka brokers in your HDInsight cluster are almost full. When that happens, the Apache Kafka broker process can't start and fails because of the disk full error. To mitigate, find the retention time for every Kafka Topic, back up the files that are older and restart the brokers.
 
 Learn more about [HDInsight cluster - KafkaDiskSpaceFull (Your Kafka Cluster Disks are almost full)](https://aka.ms/kafka-troubleshoot-full-disk).
 
-### Creation of clusters under custom virtual network (VNet) requires more permission
+### Creation of clusters under custom virtual network requires more permission
 
-Your clusters with custom VNet were created without VNet joining permission. Ensure that the users who perform create operations have permissions to the Microsoft.Network/virtualNetworks/subnets/join action before September 30, 2023.
+Your clusters with custom virtual network were created without virtual network joining permission. Ensure that the users who perform create operations have permissions to the Microsoft.Network/virtualNetworks/subnets/join action before September 30, 2023.
 
 Learn more about [HDInsight cluster - EnforceVNetJoinPermissionCheck (Creation of clusters under custom VNet requires more permission)](https://aka.ms/hdinsightEnforceVnet).
 
@@ -149,7 +149,7 @@ Learn more about [Virtual machine - MigrateStandardStorageAccountToPremium (Upgr
 
 ### Enable virtual machine replication to protect your applications from regional outage
 
-Virtual machines that don't have replication enabled to another region aren't resilient to regional outages. Replicating the machines drastically reduce any adverse business impact during the time of an Azure region outage. We highly recommend enabling replication of all the business critical virtual machines from the following list so that in an event of an outage, you can quickly bring up your machines in remote Azure region.
+Virtual machines that don't have replication enabled to another region aren't resilient to regional outages. Replicating the machines drastically reduce any adverse business effect during the time of an Azure region outage. We highly recommend enabling replication of all the business critical virtual machines from the following list so that in an event of an outage, you can quickly bring up your machines in remote Azure region.
 Learn more about [Virtual machine - ASRUnprotectedVMs (Enable virtual machine replication to protect your applications from regional outage)](https://aka.ms/azure-site-recovery-dr-azure-vms).
 
 ### Upgrade VM from Premium Unmanaged Disks to Managed Disks at no extra cost
@@ -299,11 +299,11 @@ Our internal monitoring system has identified significant replication lag on the
 
 Learn more about [Azure Database for MySQL flexible server - MySqlFlexibleServerHAMissingPKcf38 (High Availability - Add primary key to the table that currently doesn't have one.)](/azure/mysql/how-to-troubleshoot-replication-latency#no-primary-key-or-unique-key-on-a-table).
 
-### Availability might be impacted from high memory fragmentation. Increase fragmentation memory reservation to avoid potential impact
+### Availability might be impacted from high memory fragmentation. Increase fragmentation memory reservation to avoid
 
 Fragmentation and memory pressure can cause availability incidents during a failover or management operations. Increasing reservation of memory for fragmentation helps in reducing the cache failures when running under high memory pressure. Memory for fragmentation can be increased with the maxfragmentationmemory-reserved setting available in the advanced settings option area.
 
-Learn more about [Redis Cache Server - RedisCacheMemoryFragmentation (Availability might be impacted from high memory fragmentation. Increase fragmentation memory reservation to avoid potential impact.)](https://aka.ms/redis/recommendations/memory-policies).
+Learn more about [Redis Cache Server - RedisCacheMemoryFragmentation (Availability might be impacted from high memory fragmentation. Increase fragmentation memory reservation to avoid potential effect.)](https://aka.ms/redis/recommendations/memory-policies).
 
 ### Enable Azure backup for SQL on your virtual machines
 
@@ -325,7 +325,7 @@ Learn more about [Azure Database for PostgreSQL flexible server - OrcasPostgreSq
 
 ### Configure Consistent indexing mode on your Azure Cosmos DB container
 
-We noticed that your Azure Cosmos DB container is configured with the Lazy indexing mode, which might impact the freshness of query results. We recommend switching to Consistent mode.
+We noticed that your Azure Cosmos DB container is configured with the Lazy indexing mode, which might affect the freshness of query results. We recommend switching to Consistent mode.
 
 Learn more about [Azure Cosmos DB account - CosmosDBLazyIndexing (Configure Consistent indexing mode on your Azure Cosmos DB container)](/azure/cosmos-db/how-to-manage-indexing-policy).
 
@@ -552,22 +552,22 @@ Try to avoid overriding the hostname when configuring Application Gateway.  Havi
 
 Learn more about [Application gateway - AppGatewayHostOverride (Avoid hostname override to ensure site integrity)](https://aka.ms/appgw-advisor-usecustomdomain).
 
-### Azure WAF RuleSet CRS 3.1/3.2 has been updated with Log4j2 vulnerability rule
+### Azure WAF RuleSet CRS 3.1/3.2 has been updated with Log4j 2 vulnerability rule
 
 In response to Log4j 2 vulnerability (CVE-2021-44228), Azure Web Application Firewall (WAF) RuleSet CRS 3.1/3.2 has been updated on your Application Gateway to help provide extra protection from this vulnerability. The rules are available under Rule 944240 and no action is needed to enable them.
 
 Learn more about [Application gateway - AppGwLog4JCVEPatchNotification (Azure WAF RuleSet CRS 3.1/3.2 has been updated with log4j2 vulnerability rule)](https://aka.ms/log4jcve).
 
-### Extra protection to mitigate Log4j2 vulnerability (CVE-2021-44228)
+### Extra protection to mitigate Log4j 2 vulnerability (CVE-2021-44228)
 
-To mitigate the impact of Log 4j2 vulnerability, we recommend these steps:
+To mitigate the effect of Log4j 2 vulnerability, we recommend these steps:
 
 1) Upgrade Log4j 2 to version 2.15.0 on your backend servers. If upgrade isn't possible, follow the system property guidance link provided.
 2) Take advantage of WAF Core rule sets (CRS) by upgrading to WAF SKU.
 
-Learn more about [Application gateway - AppGwLog4JCVEGenericNotification (More protection to mitigate Log4j2 vulnerability (CVE-2021-44228))](https://aka.ms/log4jcve).
+Learn more about [Application gateway - AppGwLog4JCVEGenericNotification (More protection to mitigate Log4j 2 vulnerability (CVE-2021-44228))](https://aka.ms/log4jcve).
 
-### Update virtual network (VNet) permission of Application Gateway users
+### Update virtual network permission of Application Gateway users
 
 To improve security and provide a more consistent experience across Azure, all users must pass a permission check before creating or updating an Application Gateway in a Virtual Network. The users or service principals must include at least Microsoft.Network/virtualNetworks/subnets/join/action permission.
 
@@ -627,7 +627,7 @@ Prevent risk of connectivity failures due to SNAT port exhaustion by using NAT g
 
 Learn more about [Virtual network - natGateway (Use NAT gateway for outbound connectivity)](/azure/load-balancer/load-balancer-outbound-connections#2-associate-a-nat-gateway-to-the-subnet).
 
-### Update virtual network (VNet) permission of Application Gateway users
+### Update virtual network permission of Application Gateway users
 
 To improve security and provide a more consistent experience across Azure, all users must pass a permission check before creating or updating an Application Gateway in a Virtual Network. The users or service principals must include at least Microsoft.Network/virtualNetworks/subnets/join/action permission.
 
@@ -680,7 +680,7 @@ Learn more about [Central Server Instance - ExpectedVotesHAASCSRH (Set the expec
 
 ### Set 'token_retransmits_before_loss_const' to 10 in Pacemaker cluster in ASCS HA setup in SAP workloads
 
-The corosync token_retransmits_before_loss_const determines how many token retransmits the system attempts before timeout in HA clusters. Set the totem.token_retransmits_before_loss_const to 10 as per recommendation for ASCS HA setup.
+The corosync token_retransmits_before_loss_const determines the number of times that tokens can be retransmitted the system attempts before timeout in HA clusters. Set the totem.token_retransmits_before_loss_const to 10 as per recommendation for ASCS HA setup.
 
 Learn more about [Central Server Instance - TokenRestransmitsHAASCSSLE (Set 'token_retransmits_before_loss_const' to 10 in Pacemaker cluster in ASCS HA setup in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
 
@@ -750,9 +750,9 @@ The softdog timer is loaded as a kernel module in linux OS. This timer  triggers
 
 Learn more about [Central Server Instance - softdogmoduleloadedHAASCSSLE (Ensure the softdog module is loaded in for Pacemaker in ASCS HA setup in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
 
-### Ensure that there's one instance of fence_azure_arm in Pacemaker configuration for ASCS HA setup
+### Ensure there's one instance of a fence_azure_arm in Pacemaker configuration for ASCS HA setup
 
-The fence_azure_arm is an I/O fencing agent for Azure Resource Manager. Ensure that there's one instance of fence_azure_arm in your Pacemaker configuration for ASCS HA setup. The fence_azure_arm requirement is applicable if you're using Azure fence agent for fencing with either managed identity or service principal.
+The fence_azure_arm is an I/O fencing agent for Azure Resource Manager. Ensure there's one instance of a fence_azure_arm in your Pacemaker configuration for ASCS HA setup. The fence_azure_arm requirement is applicable if you're using Azure fence agent for fencing with either managed identity or service principal.
 
 Learn more about [Central Server Instance - FenceAzureArmHAASCSSLE (Ensure that there's one instance of fence_azure_arm in your Pacemaker configuration for ASCS HA setup)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
 
@@ -842,7 +842,7 @@ Learn more about [Database Instance - PreferSiteTakeoverHDB (Set parameter PREFE
 
 ### Set 'token_retransmits_before_loss_const'  to 10 in Pacemaker cluster in HA enabled SAP workloads
 
-The corosync token_retransmits_before_loss_const determines how many token retransmits are attempted before timeout in HA clusters. Set the totem.token_retransmits_before_loss_const to 10 as per recommendation for HANA DB HA setup.
+The corosync token_retransmits_before_loss_const determines the number of token retransmits that are attempted before timeout in HA clusters. Set the totem.token_retransmits_before_loss_const to 10 as per recommendation for HANA DB HA setup.
 
 Learn more about [Database Instance - TokenRetransmitsHDB (Set 'token_retransmits_before_loss_const'  to 10 in Pacemaker cluster in HA enabled SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
 
@@ -914,13 +914,13 @@ Learn more about [Database Instance - DBHAEnableLBPorts (Enable HA ports in the 
 
 ### Disable TCP timestamps on VMs placed behind Azure Load Balancer in HANA DB HA setup in SAP workloads
 
-Disable TCP timestamps on VMs placed behind Azure Load Balancer. Enabled TCP timestamps cause the health probes to fail due to TCP packets being dropped by the VM's guest OS TCP stack. Dropped TCP packets cause the load balancer to mark the endpoint as down.
+Disable TCP timestamps on VMs placed behind Azure Load Balancer. Enabled TCP timestamps cause the health probes to fail due to TCP packets dropped by the VM's guest OS TCP stack. Dropped TCP packets cause the load balancer to mark the endpoint as down.
 
 Learn more about [Database Instance - DBLBHADisableTCP (Disable TCP timestamps on VMs placed behind Azure Load Balancer in HANA DB HA setup in SAP workloads)](/azure/load-balancer/load-balancer-custom-probe-overview).
 
 ### There should be one instance of fence_azure_arm in Pacemaker configuration for HANA DB HA setup
 
-fence_azure_arm is an I/O fencing agent for Azure Resource Manager. Ensure that there is one instance of fence_azure_arm in the pacemaker configuration for HANA DB HA setup. This is applicable if you're using Azure fence agent for fencing with either managed identity or service principal.
+The fence_azure_arm is an I/O fencing agent for Azure Resource Manager. Ensure there's one instance of a fence_azure_arm in the Pacemaker configuration for HANA DB HA setup. The fence_azure_arm is needed if you're using Azure fence agent for fencing with either managed identity or service principal.
 
 Learn more about [Database Instance - FenceAzureArmSuseHDB (There should be one instance of fence_azure_arm in Pacemaker configuration for HANA DB HA setup)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
 
@@ -965,7 +965,7 @@ Learn more about [Data lake store account - ADLSGen1_Deprecation (You have ADLS 
 
 ### You have ADLS Gen1 Accounts Which Need to be Migrated to ADLS Gen2
 
-As previously announced, Azure Data Lake Storage Gen1 will be retired on February 29, 2024. We highly recommend that you migrate your data lake to Azure Data Lake Storage Gen2, which offers advanced capabilities specifically designed for big data analytics, and is built on top of Azure Blob Storage.
+As previously announced, Azure Data Lake Storage Gen1 will be retired on February 29, 2024. We highly recommend that you migrate your data lake to Azure Data Lake Storage Gen2, which offers advanced capabilities designed for big data analytics. Azure Data Lake Storage Gen2 is built on top of Azure Blob Storage.
 
 Learn more about [Data lake store account - ADLSGen1_Deprecation (You have ADLS Gen1 Accounts Which Needs to be Migrated to ADLS Gen2)](https://azure.microsoft.com/updates/action-required-switch-to-azure-data-lake-storage-gen2-by-29-february-2024/).
 
@@ -995,7 +995,7 @@ Learn more about [Availability set - ManagedDisksAvSet (Use Managed Disks to imp
 
 ### Implement disaster recovery strategies for your Azure NetApp Files Resources
 
-To avoid data or functionality loss in the event of a regional or zonal disaster, implement common disaster recovery techniques such as cross region replication or cross zone replication for your Azure NetApp Files volumes
+To avoid data or functionality loss if there is a regional or zonal disaster, implement common disaster recovery techniques such as cross region replication or cross zone replication for your Azure NetApp Files volumes
 
 Learn more about [Volume - ANFCRRCZRRecommendation (Implement disaster recovery strategies for your Azure NetApp Files Resources)](https://aka.ms/anfcrr).
 
@@ -1018,7 +1018,7 @@ Learn more about [Volume - SAPTimeoutsANF (Review SAP configuration for timeout 
 
 ### Consider scaling out your App Service Plan to avoid CPU exhaustion
 
-Your App reached >90% CPU over the last couple of days. High CPU utilization can lead to runtime issues with your apps, to solve this you could scale out your app.
+Your App reached >90% CPU over the last couple of days. High CPU utilization can lead to runtime issues with your apps, to solve this problem, you could scale out your app.
 
 Learn more about [App service - AppServiceCPUExhaustion (Consider scaling out your App Service Plan to avoid CPU exhaustion)](https://aka.ms/antbc-cpu).
 
@@ -1042,7 +1042,7 @@ Learn more about [App service - AppServiceRemoveQuota (Scale up your App Service
 
 ### Use deployment slots for your App Service resource
 
-You have deployed your application multiple times over the last week. Deployment slots help you manage changes and help you reduce deployment impact to your production web app.
+You have deployed your application multiple times over the last week. Deployment slots help you manage changes and help you reduce deployment effect to your production web app.
 
 Learn more about [App service - AppServiceUseDeploymentSlots (Use deployment slots for your App Service resource)](https://aka.ms/ant-staging).
 
@@ -1054,7 +1054,7 @@ Learn more about [App service - AppServiceFixBackupStorageSettings (Fix the back
 
 ### Move your App Service resource to Standard or higher and use deployment slots
 
-You have deployed your application multiple times over the last week. Deployment slots help you manage changes and help you reduce deployment impact to your production web app.
+You have deployed your application multiple times over the last week. Deployment slots help you manage changes and help you reduce deployment effect to your production web app.
 
 Learn more about [App service - AppServiceStandardOrHigher (Move your App Service resource to Standard or higher and use deployment slots)](https://aka.ms/ant-staging).
 
@@ -1066,13 +1066,13 @@ Learn more about [App Service plan - AppServiceNumberOfInstances (Consider scali
 
 ### Application code needs fixing when the worker process crashes due to Unhandled Exception
 
-We identified the following thread that resulted in an unhandled exception for your App and the application code must be fixed to prevent impact to application availability. A crash happens when an exception in your code terminates the process.
+We identified the following thread that resulted in an unhandled exception for your App and the application code must be fixed to prevent effect to application availability. A crash happens when an exception in your code terminates the process.
 
 Learn more about [App service - AppServiceProactiveCrashMonitoring (Application code must be fixed as worker process crashed due to Unhandled Exception)](https://azure.github.io/AppService/2020/08/11/Crash-Monitoring-Feature-in-Azure-App-Service.html).
 
 ### Consider changing your App Service configuration to 64-bit
 
-We identified your application is running in 32-bit and the memory is reaching the 2GB limit. Consider switching to 64-bit processes so you can take advantage of the extra memory available in your Web Worker role. This action triggers a web app restart, so schedule accordingly.
+We identified your application is running in 32-bit and the memory is reaching the 2-GB limit. Consider switching to 64-bit processes so you can take advantage of the extra memory available in your Web Worker role. This action triggers a web app restart, so schedule accordingly.
 
 Learn more about [App service 32-bit limitations](/troubleshoot/azure/app-service/web-apps-performance-faqs#i-see-the-message-worker-process-requested-recycle-due-to-percent-memory-limit-how-do-i-address-this-issue).
 
@@ -1084,7 +1084,7 @@ Learn more about [FluidRelay Server - UpgradeClientLibrary (Upgrade your Azure F
 
 ### Consider upgrading the hosting plan of the Static Web App(s) in this subscription to Standard SKU
 
-The combined bandwidth used by all the Free SKU Static Web Apps in this subscription is exceeding the monthly limit of 100GB. Consider upgrading these apps to Standard SKU to avoid throttling.
+The combined bandwidth used by all the Free SKU Static Web Apps in this subscription is exceeding the monthly limit of 100 GB. Consider upgrading these apps to Standard SKU to avoid throttling.
 
 Learn more about [Static Web App - StaticWebAppsUpgradeToStandardSKU (Consider upgrading the hosting plan of the Static Web App(s) in this subscription to Standard SKU.)](https://azure.microsoft.com/pricing/details/app-service/static/).
 

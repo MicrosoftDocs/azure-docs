@@ -41,7 +41,7 @@ Learn more about [Cognitive Service - TAUpgradeModelVersiontoLatest (Text Analyt
 
 ### Upgrade to the latest Cognitive Service Text Analytics API version
 
-Upgrade to the latest API version to get the best results in terms of model quality, performance and service availability. Also there are new features available as new endpoints starting from V3.0 such as personal data (PII) recognition, entity recognition and entity linking available as separate endpoints. In terms of changes in preview endpoints, we have Opinion Mining in SA endpoint, redacted text property in PII endpoint
+Upgrade to the latest API version to get the best results in terms of model quality, performance and service availability. Also there are new features available as new endpoints starting from V3.0 such as personal data recognition, entity recognition and entity linking available as separate endpoints. In terms of changes in preview endpoints, we have Opinion Mining in SA endpoint, redacted text property in personal data endpoint
 
 Learn more about [Cognitive Service - UpgradeToLatestAPI (Upgrade to the latest Cognitive Service Text Analytics API version)](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-call-api).
 
@@ -53,7 +53,7 @@ Learn more about [Cognitive Service - UpgradeToLatestAPILanguage (Upgrade to the
 
 ### Upgrade to the latest Cognitive Service Text Analytics SDK version
 
-Upgrade to the latest SDK version to get the best results in terms of model quality, performance and service availability. Also there are new features available as new endpoints starting from V3.0 such as personal data (PII) recognition, entity recognition and entity linking available as separate endpoints. In terms of changes in preview endpoints, we have Opinion Mining in SA endpoint, redacted text property in PII endpoint
+Upgrade to the latest SDK version to get the best results in terms of model quality, performance and service availability. Also there are new features available as new endpoints starting from V3.0 such as personal data recognition, entity recognition and entity linking available as separate endpoints. In terms of changes in preview endpoints, we have Opinion Mining in SA endpoint, redacted text property in personal data endpoint
 
 Learn more about [Cognitive Service - UpgradeToLatestSDK (Upgrade to the latest Cognitive Service Text Analytics SDK version)](/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk?tabs=version-3-1&pivots=programming-language-csharp).
 
@@ -106,7 +106,7 @@ Learn more about [Data explorer resource - PerformanceEnableOptimizedAutoscaleAz
 
 ### Reads happen on most recent data
 
-More than 75% of your read requests are landing on the memstore indicating that the reads are primarily on recent data, which suggests that even if a flush happens on the memstore, the recent file needs to be accessed and put in the cache.
+More than 75% of your read requests are landing on the memstore, indicating that the reads are primarily on recent data. Recent data reads suggest that even if a flush happens on the memstore, the recent file needs to be accessed and put in the cache.
 
 Learn more about [HDInsight cluster - HBaseMemstoreReadPercentage (Reads happen on most recent data)](../hdinsight/hbase/apache-hbase-advisor.md).
 
@@ -146,7 +146,7 @@ Learn more about [HDInsight cluster - FlushQueueCandidate (Consider increasing t
 
 ### Consider increasing your compaction threads for compactions to complete faster
 
-The compaction queue in your region servers is more than 2000 suggesting that more data requires compaction. Slower compactions can impact read performance as the number of files to read are more. More files without compaction can also impact the heap usage related to how files interact with Azure file system.
+The compaction queue in your region servers is more than 2000 suggesting that more data requires compaction. Slower compactions can affect read performance as the number of files to read are more. More files without compaction can also affect the heap usage related to how files interact with Azure file system.
 
 Learn more about [HDInsight cluster - CompactionQueueCandidate (Consider increasing your compaction threads for compactions to complete faster)](/azure/hdinsight/hbase/apache-hbase-advisor).
 
@@ -174,13 +174,13 @@ Learn more about [AVS Private cloud - vSANCapacity (vSAN capacity utilization ha
 
 ### Update Automanage to the latest API Version
 
-We have identified SDK calls from outdated API for resources under this subscription. We recommend switching to the latest SDK versions. This ensures you receive the latest features and performance improvements.
+We have identified SDK calls from outdated API for resources under this subscription. We recommend switching to the latest SDK versions to ensure you receive the latest features and performance improvements.
 
 Learn more about [Virtual machine - UpdateToLatestApi (Update Automanage to the latest API Version)](/azure/automanage/reference-sdk).
 
 ### Improve user experience and connectivity by deploying VMs closer to user’s location.
 
-We have determined that your VMs are located in a region different or far from where your users are connecting with Azure Virtual Desktop, which might lead to prolonged connection response times and impact overall user experience.
+We have determined that your VMs are located in a region different or far from where your users are connecting with Azure Virtual Desktop. Distant user regions might lead to prolonged connection response times and affect overall user experience.
 
 Learn more about [Virtual machine - RegionProximitySessionHosts (Improve user experience and connectivity by deploying VMs closer to user’s location.)](../virtual-desktop/connection-latency.md).
 
@@ -198,7 +198,7 @@ Learn more about [Disk - MDHDDtoPremiumForPerformance (Convert Managed Disks fro
 
 ### Enable Accelerated Networking to improve network performance and latency
 
-We have detected that Accelerated Networking is not enabled on VM resources in your existing deployment that might be capable of supporting this feature. If your VM OS image supports Accelerated Networking as detailed in the documentation, make sure to enable this free feature on these VMs to maximize the performance and latency of your networking workloads in cloud
+We have detected that Accelerated Networking isn't enabled on VM resources in your existing deployment that might be capable of supporting this feature. If your VM OS image supports Accelerated Networking as detailed in the documentation, make sure to enable this free feature on these VMs to maximize the performance and latency of your networking workloads in cloud
 
 Learn more about [Virtual machine - AccelNetConfiguration (Enable Accelerated Networking to improve network performance and latency)](../virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
 
@@ -216,7 +216,7 @@ Learn more about [Virtual machine - MatchProdVMProdDisks (Match production Virtu
 
 ### Accelerated Networking might require stopping and starting the VM
 
-We have detected that Accelerated Networking is not engaged on VM resources in your existing deployment even though the feature has been requested. In rare cases like this, it might be necessary to stop and start your VM, at your convenience, to re-engage AccelNet.
+We have detected that Accelerated Networking isn't engaged on VM resources in your existing deployment even though the feature has been requested. In rare cases like this, it might be necessary to stop and start your VM, at your convenience, to re-engage AccelNet.
 
 Learn more about [Virtual machine - AccelNetDisengaged (Accelerated Networking might require stopping and starting the VM)](../virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
 
@@ -228,7 +228,7 @@ Learn more about [Virtual machine - AzureStorageVmUltraDisk (Take advantage of U
 
 ### Upgrade the size of your most active virtual machines to prevent resource exhaustion and improve performance
 
-We analyzed data for the past seven days and identified virtual machines (VMs) with high utilization across different metrics (that is, CPU, Memory, and VM IO). Those VMs might experience performance issues since they are nearing or at their SKU's limits. Consider upgrading their SKU to improve performance.
+We analyzed data for the past seven days and identified virtual machines (VMs) with high utilization across different metrics (that is, CPU, Memory, and VM IO). Those VMs might experience performance issues since they're nearing or at their SKU's limits. Consider upgrading their SKU to improve performance.
 
 Learn more about [Virtual machine - UpgradeSizeHighVMUtilV0 (Upgrade the size of your most active virtual machines to prevent resource exhaustion and improve performance)](https://aka.ms/aa_resizehighusagevmrec_learnmore).
 
@@ -274,7 +274,7 @@ Learn more about [Azure Cosmos DB account - CosmosDBQueryPageSize (Configure you
 
 ### Add composite indexes to your Azure Cosmos DB container
 
-Your Azure Cosmos DB containers are running ORDER BY queries incurring high Request Unit (RU) charges. It is recommended to add composite indexes to your containers' indexing policy to improve the RU consumption and decrease the latency of these queries.
+Your Azure Cosmos DB containers are running ORDER BY queries incurring high Request Unit (RU) charges. It's recommended to add composite indexes to your containers' indexing policy to improve the RU consumption and decrease the latency of these queries.
 
 Learn more about [Azure Cosmos DB account - CosmosDBOrderByHighRUCharge (Add composite indexes to your Azure Cosmos DB container)](../cosmos-db/index-policy.md#composite-indexes).
 
@@ -286,7 +286,7 @@ Learn more about [Azure Cosmos DB account - CosmosDBDefaultIndexingWithManyPaths
 
 ### Use hierarchical partition keys for optimal data distribution
 
-Your account has a custom setting that allows the logical partition size in a container to exceed the limit of 20 GB. The Azure Cosmos DB team applied this setting as a temporary measure to give you time to re-architect your application with a different partition key. It is not recommended as a long-term solution, as SLA guarantees are not honored when the limit is increased. You can now use hierarchical partition keys (preview) to re-architect your application. The feature allows you to exceed the 20 GB limit by setting up to three partition keys, ideal for multitenant scenarios or workloads that use synthetic keys.
+Your account has a custom setting that allows the logical partition size in a container to exceed the limit of 20 GB. The Azure Cosmos DB team applied this setting as a temporary measure to give you time to rearchitect your application with a different partition key. It isn't recommended as a long-term solution, as SLA guarantees aren't honored when the limit is increased. You can now use hierarchical partition keys (preview) to rearchitect your application. The feature allows you to exceed the 20-GB limit by setting up to three partition keys, ideal for multitenant scenarios or workloads that use synthetic keys.
 
 Learn more about [Azure Cosmos DB account - CosmosDBHierarchicalPartitionKey (Use hierarchical partition keys for optimal data distribution)](https://devblogs.microsoft.com/cosmosdb/hierarchical-partition-keys-private-preview/).
 
@@ -311,7 +311,7 @@ Learn more about [Cosmos DB account - ScaleUpvCoreRecommendation (PerformanceBoo
 
 ### Scale the storage limit for MariaDB server
 
-Our system shows that the server might be constrained because it is approaching limits for the currently provisioned storage values. Approaching the storage limits might result in degraded performance or the server moved to read-only mode. To ensure continued performance, we recommend increasing the provisioned storage amount or turning ON the "Auto-Growth" feature for automatic storage increases
+Our system shows that the server might be constrained because it's approaching limits for the currently provisioned storage values. Approaching the storage limits might result in degraded performance or the server moved to read-only mode. To ensure continued performance, we recommend increasing the provisioned storage amount or turning ON the "Auto-Growth" feature for automatic storage increases
 
 Learn more about [MariaDB server - OrcasMariaDbStorageLimit (Scale the storage limit for MariaDB server)](https://aka.ms/mariadbstoragelimits).
 
@@ -673,7 +673,7 @@ Learn more about [Monitor - UpgradeToLatestAMSSdkVersion (Upgrade to the latest 
 
 ### Upgrade your API Management resource to an alternative version
 
-Your subscription are running on versions that have been scheduled for deprecation. On 30 September 2023, all API versions for the Azure API Management service prior to 2021-08-01 retire and API calls fail. Upgrade to newer version to prevent disruption to your services. 
+Your subscription is running on versions that have been scheduled for deprecation. On 30 September 2023, all API versions for the Azure API Management service prior to 2021-08-01 retire and API calls fail. Upgrade to newer version to prevent disruption to your services. 
 
 Learn more about [Api Management - apimgmtdeprecation (Upgrade your API Management resource to an alternative version)](https://azure.microsoft.com/updates/api-versions-being-retired-for-azure-api-management/).
 
@@ -691,7 +691,7 @@ Learn more about [Communication service - UpgradeChatSdk (Use recommended versio
 
 ### Use recommended version of Resource Manager SDK
 
-Resource Manager SDK can be used to provision and manage Azure Communication Services resources. Update to the recommended version of Resource Manager SDK to ensure the latest fixes and features.
+Resource Manager SDK can be used to create and manage Azure Communication Services resources. Update to the recommended version of Resource Manager SDK to ensure the latest fixes and features.
 
 Learn more about [Communication service - UpgradeResourceManagerSdk (Use recommended version of Resource Manager SDK)](../communication-services/quickstarts/create-communication-resource.md?pivots=platform-net&tabs=windows).
 
@@ -796,13 +796,13 @@ Time to Live (TTL) affects how recent the response a client gets when it makes a
 
 Learn more about [Traffic Manager profile - ProfileTTL (Configure DNS Time to Live to 60 seconds)](https://aka.ms/Um3xr5).
 
-### Consider increasing the size of your virtual network (VNet) Gateway SKU to address consistently high CPU use
+### Consider increasing the size of your virtual network Gateway SKU to address consistently high CPU use
 
 Under high traffic load, the VPN gateway might drop packets due to high CPU.
 
 Learn more about [Virtual network gateway - HighCPUVNetGateway (Consider increasing the size of your virtual network (VNet) Gateway SKU to address consistently high CPU use)](https://aka.ms/HighCPUP2SVNetGateway).
 
-### Consider increasing the size of your virtual network (VNet) Gateway SKU to address high P2S use
+### Consider increasing the size of your virtual network Gateway SKU to address high P2S use
 
 Each gateway SKU can only support a specified count of concurrent P2S connections. Your connection count is close to your gateway limit, so more connection attempts might fail.
 
@@ -810,7 +810,7 @@ Learn more about [Virtual network gateway - HighP2SConnectionsVNetGateway (Consi
 
 ### Make sure you have enough instances in your Application Gateway to support your traffic
 
-Your Application Gateway has been running on high utilization recently and under heavy load you might experience traffic loss or increase in latency. It is important that you scale your Application Gateway accordingly and add a buffer so that you're prepared for any traffic surges or spikes and minimize the impact that it might have in your QoS. Application Gateway v1 SKU (Standard/WAF) supports manual scaling and v2 SKU (Standard_v2/WAF_v2) supports manual and autoscaling. With manual scaling, increase your instance count. If autoscaling is enabled, make sure your maximum instance count is set to a higher value so Application Gateway can scale out as the traffic increases.
+Your Application Gateway has been running on high utilization recently and under heavy load you might experience traffic loss or increase in latency. It is important that you scale your Application Gateway accordingly and add a buffer so that you're prepared for any traffic surges or spikes and minimize the effect that it might have in your QoS. Application Gateway v1 SKU (Standard/WAF) supports manual scaling and v2 SKU (Standard_v2/WAF_v2) supports manual and autoscaling. With manual scaling, increase your instance count. If autoscaling is enabled, make sure your maximum instance count is set to a higher value so Application Gateway can scale out as the traffic increases.
 
 Learn more about [Application gateway - HotAppGateway (Make sure you have enough instances in your Application Gateway to support your traffic)](https://aka.ms/hotappgw).
 
@@ -1047,7 +1047,7 @@ Learn more about [Storage Account - StorageCallPutBlob (Use \""Put Blob\"" for b
 
 ### Increase provisioned size of premium file share to avoid throttling of requests
 
-Your requests for premium file share are throttled as the I/O operations per second (IOPS) or throughput limits for the file share have reached. To protect your requests from being throttled increase the provision size of the premium file share.
+Your requests for premium file share are throttled as the I/O operations per second (IOPS) or throughput limits for the file share have reached. To protect your requests from being throttled, increase the size of the premium file share.
 
 Learn more about [Storage Account - AzureStorageAdvisorAvoidThrottlingPremiumFiles (Increase provisioned size of premium file share to avoid throttling of requests)]().
 
@@ -1071,13 +1071,13 @@ Learn more about [SQL data warehouse - UpdateTableStatisticsSqlDW (Update statis
 
 ### Scale up to optimize cache utilization with SQL Data Warehouse
 
-We have detected that you had high cache used percentage with low hit percentage, indicating a high cache eviction rate that can impact the performance of your workload.
+We have detected that you had high cache used percentage with low hit percentage, indicating a high cache eviction rate that can affect the performance of your workload.
 
 Learn more about [SQL data warehouse - SqlDwIncreaseCacheCapacity (Scale up to optimize cache utilization with SQL Data Warehouse)](https://aka.ms/learnmoreadaptivecache).
 
 ### Scale up or update resource class to reduce tempdb contention with SQL Data Warehouse
 
-We have detected that you had high tempdb utilization that can impact the performance of your workload.
+We have detected that you had high tempdb utilization that can affect the performance of your workload.
 
 Learn more about [SQL data warehouse - SqlDwReduceTempdbContention (Scale up or update resource class to reduce tempdb contention with SQL Data Warehouse)](https://aka.ms/learnmoretempdb).
 
@@ -1154,7 +1154,7 @@ Learn more about [Hyperscale (Citus) server group - OrcasPostgreSqlCitusRebalanc
 
 ### Improve user experience and connectivity by deploying VMs closer to user’s location
 
-We have determined that your VMs are located in a region different or far from where your users are connecting with Azure Virtual Desktop, which might lead to prolonged connection response times and impact overall user experience. When you create VMs for your host pools, try to use a region closer to the user. Having close proximity ensures continuing satisfaction with the Azure Virtual Desktop service and a better overall quality of experience.
+We have determined that your VMs are located in a region different or far from where your users are connecting with Azure Virtual Desktop, which might lead to prolonged connection response times and affect overall user experience. When you create VMs for your host pools, try to use a region closer to the user. Having close proximity ensures continuing satisfaction with the Azure Virtual Desktop service and a better overall quality of experience.
 
 Learn more about [Host Pool - RegionProximityHostPools (Improve user experience and connectivity by deploying VMs closer to user’s location.)](../virtual-desktop/connection-latency.md).
 

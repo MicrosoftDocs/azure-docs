@@ -67,7 +67,7 @@ Learn more about the [Azure Spring Apps service](../spring-apps/index.yml).
 
 ### New HCX version is available for upgrade
 
-Your HCX version is not latest. New HCX version is available for upgrade. Updating a VMware HCX system installs the latest features, problem fixes, and security patches.
+Your HCX version isn't latest. New HCX version is available for upgrade. Updating a VMware HCX system installs the latest features, problem fixes, and security patches.
 
 Learn more about [AVS Private cloud - HCXVersion (New HCX version is available for upgrade)](https://aka.ms/vmware/hcxdoc).
 
@@ -133,7 +133,7 @@ Learn more about [Virtual machine - GetF5vulnK03009991 (The iControl REST interf
 
 ### NVA Accelerated Networking enabled but potentially not working
 
-Desired state for Accelerated Networking is set to ‘true’ for one or more interfaces on your VM, but actual state for accelerated networking is not enabled.
+Desired state for Accelerated Networking is set to ‘true’ for one or more interfaces on your VM, but actual state for accelerated networking isn't enabled.
 
 Learn more about [Virtual machine - GetVmListANDisabled (NVA Accelerated Networking enabled but potentially not working.)](../virtual-network/create-vm-accelerated-networking-cli.md).
 
@@ -169,7 +169,7 @@ Learn more about [Microsoft App Container App - UseLatestApiVersion (The api ver
 
 ### Update cluster's service principal
 
-This cluster's service principal is expired and the cluster is not healthy until the service principal is updated
+This cluster's service principal is expired and the cluster isn't healthy until the service principal is updated
 
 Learn more about [Kubernetes service - UpdateServicePrincipal (Update cluster's service principal)](../aks/update-credentials.md).
 
@@ -193,7 +193,7 @@ Learn more about [Kubernetes service - EnableClusterAutoscaler (Enable the Clust
 
 ### The AKS node pool subnet is full
 
-Some of the subnets for this cluster's node pools are full and can't take any more worker nodes. Using the Azure CNI plugin requires to reserve IP addresses for each node and all the pods for the node at node provisioning time. If there is not enough IP address space in the subnet, no worker nodes can be deployed. Additionally, the AKS cluster can't be upgraded if the node subnet is full.
+Some of the subnets for this cluster's node pools are full and can't take any more worker nodes. Using the Azure CNI plugin requires to reserve IP addresses for each node and all the pods for the node at node provisioning time. If there isn't enough IP address space in the subnet, no worker nodes can be deployed. Additionally, the AKS cluster can't be upgraded if the node subnet is full.
 
 Learn more about [Kubernetes service - NodeSubnetIsFull (The AKS node pool subnet is full)](../aks/create-node-pools.md#add-a-node-pool-with-a-unique-subnet).
 
@@ -211,7 +211,7 @@ Learn more about [Kubernetes service - UseAzurePolicyForKubernetes (Disable the 
 
 ### Use Ephemeral OS disk
 
-This cluster is not using ephemeral OS disks which can provide lower read/write latency, along with faster node scaling and cluster upgrades
+This cluster isn't using ephemeral OS disks which can provide lower read/write latency, along with faster node scaling and cluster upgrades
 
 Learn more about [Kubernetes service - UseEphemeralOSdisk (Use Ephemeral OS disk)](../aks/concepts-storage.md#ephemeral-os-disk).
 
@@ -320,7 +320,7 @@ Learn more about [Redis Cache Server - TLSVersion (TLS versions 1.0 and 1.1 are 
 
 ### Cloud service caches are being retired in August 2024, migrate before then to avoid any problems
 
-This instance of Azure Cache for Redis has a dependency on Cloud Services (classic) which is being retired in August 2024. Follow the instructions found in the following link to migrate to an instance without this dependency. If you need to upgrade your cache to Redis 6  note that upgrading a cache with a dependency on cloud services is not supported. You must migrate your cache instance to Virtual Machine Scale Set before upgrading. For more information, see the following link. Note: If you have completed your migration away from Cloud Services,  allow up to 24 hours for this recommendation to be removed
+This instance of Azure Cache for Redis has a dependency on Cloud Services (classic) which is being retired in August 2024. Follow the instructions found in the following link to migrate to an instance without this dependency. If you need to upgrade your cache to Redis 6  note that upgrading a cache with a dependency on cloud services isn't supported. You must migrate your cache instance to Virtual Machine Scale Set before upgrading. For more information, see the following link. Note: If you have completed your migration away from Cloud Services,  allow up to 24 hours for this recommendation to be removed
 
 Learn more about [Redis Cache Server - MigrateFromCloudService (Cloud service caches are being retired in August 2024, migrate before then to avoid any problems)](/azure/azure-cache-for-redis/cache-faq#caches-with-a-dependency-on-cloud-services-%28classic%29).
 
@@ -600,13 +600,13 @@ Learn more about [App Server Instance - AppIPV4intvl (Set the parameter net.ipv4
 
 ### Ensure Accelerated Networking is enabled on all NICs for improved performance of SAP workloads
 
-Network latency between App VMs and DB VMs for SAP workloads is required to be 0.7ms or less. If accelerated networking is not enabled, network latency can increase beyond the threshold of 0.7ms
+Network latency between App VMs and DB VMs for SAP workloads is required to be 0.7ms or less. If accelerated networking isn't enabled, network latency can increase beyond the threshold of 0.7ms
 
 Learn more about [Database Instance - NIC_0001_DB (Ensure Accelerated Networking is enabled on all NICs for improved performance of SAP workloads)](https://launchpad.support.sap.com/#/notes/1928533).
 
 ### Ensure Accelerated Networking is enabled on all NICs for improved performance of SAP workloads
 
-Network latency between App VMs and DB VMs for SAP workloads is required to be 0.7ms or less. If accelerated networking is not enabled, network latency can increase beyond the threshold of 0.7ms
+Network latency between App VMs and DB VMs for SAP workloads is required to be 0.7ms or less. If accelerated networking isn't enabled, network latency can increase beyond the threshold of 0.7ms
 
 Learn more about [App Server Instance - NIC_0001 (Ensure Accelerated Networking is enabled on all NICs for improved performance of SAP workloads)](https://launchpad.support.sap.com/#/notes/1928533).
 
@@ -645,19 +645,19 @@ Learn more about [Database Instance - VM_0001_DB (Azure Center for SAP recommend
 
 ### Disable fstrim in SLES OS to avoid XFS metadata corruption in SAP workloads
 
-fstrim scans the filesystem and sends 'UNMAP' commands for each unused block it finds; useful in thin-provisioned system if the system is over-provisioned. Running SAP HANA on an over-provisioned storage array is not recommended. Active fstrim can cause XFS metadata corruption See SAP note: 2205917
+fstrim scans the filesystem and sends 'UNMAP' commands for each unused block it finds; useful in thin-provisioned system if the system is over-provisioned. Running SAP HANA on an over-provisioned storage array isn't recommended. Active fstrim can cause XFS metadata corruption See SAP note: 2205917
 
 Learn more about [App Server Instance - GetFsTrimForApp (Disable fstrim in SLES OS to avoid XFS metadata corruption in SAP workloads)](https://www.suse.com/support/kb/doc/?id=000019447).
 
 ### Disable fstrim in SLES OS to avoid XFS metadata corruption in SAP workloads
 
-fstrim scans the filesystem and sends 'UNMAP' commands for each unused block it finds; useful in thin-provisioned system if the system is over-provisioned. Running SAP HANA on an over-provisioned storage array is not recommended. Active fstrim can cause XFS metadata corruption See SAP note: 2205917
+fstrim scans the filesystem and sends 'UNMAP' commands for each unused block it finds; useful in thin-provisioned system if the system is over-provisioned. Running SAP HANA on an over-provisioned storage array isn't recommended. Active fstrim can cause XFS metadata corruption See SAP note: 2205917
 
 Learn more about [Central Server Instance - GetFsTrimForAscs (Disable fstrim in SLES OS to avoid XFS metadata corruption in SAP workloads)](https://www.suse.com/support/kb/doc/?id=000019447).
 
 ### Disable fstrim in SLES OS to avoid XFS metadata corruption in SAP workloads
 
-fstrim scans the filesystem and sends 'UNMAP' commands for each unused block it finds; useful in thin-provisioned system if the system is over-provisioned. Running SAP HANA on an over-provisioned storage array is not recommended. Active fstrim can cause XFS metadata corruption See SAP note: 2205917
+fstrim scans the filesystem and sends 'UNMAP' commands for each unused block it finds; useful in thin-provisioned system if the system is over-provisioned. Running SAP HANA on an over-provisioned storage array isn't recommended. Active fstrim can cause XFS metadata corruption See SAP note: 2205917
 
 Learn more about [Database Instance - GetFsTrimForDb (Disable fstrim in SLES OS to avoid XFS metadata corruption in SAP workloads)](https://www.suse.com/support/kb/doc/?id=000019447).
 
