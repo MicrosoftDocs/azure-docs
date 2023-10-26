@@ -4,7 +4,7 @@ titleSuffix: Azure AI services
 services: cognitive-services
 author: luhuo
 manager: wguyman
-ms.service: cognitive-services
+ms.service: azure-ai-vision
 ms.topic: include 
 ms.date: 12/12/2022
 ms.author: luhuo

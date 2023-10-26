@@ -56,17 +56,21 @@ The following table shows which parameters can be used in the PowerShell script:
 |$keyVaultName|Name of the KeyVault in which encryption keys are to be placed. A new vault with this name will be created if one doesn't exist.| True|
 |$location|Location of the KeyVault. Make sure the KeyVault and VMs to be encrypted are in the same location. Get a location list with `Get-AzLocation`.|True|
 |$subscriptionId|Identifier of the Azure subscription to be used.  You can get your Subscription ID with `Get-AzSubscription`.|True|
-|$aadAppName|Name of the Azure AD application that will be used to write secrets to KeyVault. A new application with this name will be created if one doesn't exist. If this app already exists, pass aadClientSecret parameter to the script.|False|
-|$aadClientSecret|Client secret of the Azure AD application that was created earlier.|False|
+|$aadAppName|Name of the Microsoft Entra application that will be used to write secrets to KeyVault. A new application with this name will be created if one doesn't exist. If this app already exists, pass aadClientSecret parameter to the script.|False|
+|$aadClientSecret|Client secret of the Microsoft Entra application that was created earlier.|False|
 |$keyEncryptionKeyName|Name of optional key encryption key in KeyVault. A new key with this name will be created if one doesn't exist.|False|
 
-### Encrypt or decrypt VMs without an Azure AD app
+<a name='encrypt-or-decrypt-vms-without-an-azure-ad-app'></a>
+
+### Encrypt or decrypt VMs without a Microsoft Entra app
 
 - [Enable disk encryption on an existing or running Linux VM](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/encrypt-running-linux-vm-without-aad)
 - [Disable encryption on a running Linux VM](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/encrypt-running-linux-vm)
     - Disabling encryption is only allowed on Data volumes for Linux VMs.
 
-### Encrypt or decrypt VMs with an Azure AD app (previous release)
+<a name='encrypt-or-decrypt-vms-with-an-azure-ad-app-previous-release'></a>
+
+### Encrypt or decrypt VMs with a Microsoft Entra app (previous release)
 
 - [Enable disk encryption on an existing or running Linux VM](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/encrypt-running-linux-vm)
 -  [Disable encryption on a running Linux VM](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/decrypt-running-linux-vm)
@@ -444,7 +448,7 @@ After DM-Crypt encryption is enabled, the local encrypted VHD needs to be upload
 
 ## Upload the secret for the pre-encrypted VM to your key vault
 
-When encrypting using an Azure AD app (previous release), the disk-encryption secret that you obtained previously must be uploaded as a secret in your key vault. The key vault needs to have disk encryption and permissions enabled for your Azure AD client.
+When encrypting using a Microsoft Entra app (previous release), the disk-encryption secret that you obtained previously must be uploaded as a secret in your key vault. The key vault needs to have disk encryption and permissions enabled for your Microsoft Entra client.
 
 ```azurepowershell-interactive
  $AadClientId = "My-AAD-Client-Id"

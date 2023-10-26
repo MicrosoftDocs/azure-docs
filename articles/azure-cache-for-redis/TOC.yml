@@ -154,8 +154,8 @@
       href: cache-how-to-encryption.md
     - name: Reboot
       href: cache-administration.md#reboot
-    - name: Schedule updates
-      href: cache-administration.md#schedule-updates
+    - name: Update channel and schedule updates
+      href: cache-administration.md#update-channel-and-schedule-updates
     - name: Configure redis-cli.exe access
       href: cache-how-to-redis-cli-tool.md
     - name: Create and manage a cache using CLI
@@ -172,7 +172,7 @@
       href: ../azure-functions/functions-bindings-cache.md
     - name: Role-based access control - authentication
       href: cache-configure-role-based-access-control.md
-    - name: Azure AD for authentication -authentication
+    - name: Microsoft Entra ID for authentication
       href: cache-azure-active-directory-for-authentication.md
 - name: Resiliency
   items:

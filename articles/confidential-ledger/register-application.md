@@ -1,6 +1,6 @@
 ---
-title: How to register an Azure confidential ledger application with Azure AD
-description: In this how to, you learn how to register an Azure confidential ledger application with Azure AD
+title: How to register an Azure confidential ledger application with Microsoft Entra ID
+description: In this how to, you learn how to register an Azure confidential ledger application with Microsoft Entra ID
 services: confidential-ledger
 author: msmbaldwin
 ms.service: confidential-ledger
@@ -10,16 +10,16 @@ ms.author: mbaldwin
 #Customer intent: As developer, I want to know how to register my Azure confidential ledger application with the Microsoft identity platform so that the security token service can issue ID and/or access tokens to client applications that request them.
 ---
 
-# How to register an Azure confidential ledger application with Azure AD
+# How to register an Azure confidential ledger application with Microsoft Entra ID
 
-In this article you'll learn how to integrate your Azure confidential ledger application with Azure AD, by registering it with the Microsoft identity platform.  
+In this article you'll learn how to integrate your Azure confidential ledger application with Microsoft Entra ID, by registering it with the Microsoft identity platform.  
 
 The Microsoft identity platform performs identity and access management (IAM) only for registered applications. Whether it's a client application like a web or mobile app, or it's a web API that backs a client app, registering it establishes a trust relationship between your application and the identity provider, the Microsoft identity platform. [Learn more about the Microsoft identity platform](../active-directory/develop/v2-overview.md).
 
 ## Prerequisites
 
-- An Azure account with an active subscription and permission to manage applications in Azure Active Directory (Azure AD). [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- An Azure AD tenant. [Learn how to set up a tenant](../active-directory/develop/quickstart-create-new-tenant.md).
+- An Azure account with an active subscription and permission to manage applications in Microsoft Entra ID. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- A Microsoft Entra tenant. [Learn how to set up a tenant](../active-directory/develop/quickstart-create-new-tenant.md).
 - An application that calls Azure confidential ledger.
 
 ## Register an application
@@ -29,8 +29,8 @@ Registering your Azure confidential ledger application establishes a trust relat
 Follow these steps to create the app registration:
 
 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
-1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="../active-directory/develop/media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
-1. Search for and select **Azure Active Directory**.
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter in the top menu to switch to the tenant in which you want to register the application.
+1. Search for and select **Microsoft Entra ID**.
 1. Under **Manage**, select **App registrations** > **New registration**.
 1. Enter a display **Name** for your application. Users of your application might see the display name when they use the app, for example during sign-in.
    You can change the display name at any time and multiple app registrations can share the same name. The app registration's automatically generated Application (client) ID, not its display name, uniquely identifies your app within the identity platform.
@@ -39,7 +39,7 @@ Follow these steps to create the app registration:
    | Supported account types                                                      | Description                                                                                                                                                                                                                                                                                                                                                                                 |
    | ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
    | **Accounts in this organizational directory only**                           | Select this option if you're building an application for use only by users (or guests) in _your_ tenant.<br><br>Often called a _line-of-business_ (LOB) application, this app is a _single-tenant_ application in the Microsoft identity platform.                                                                                                                                          |
-   | **Accounts in any organizational directory**                                 | Select this option if you want users in _any_ Azure Active Directory (Azure AD) tenant to be able to use your application. This option is appropriate if, for example, you're building a software-as-a-service (SaaS) application that you intend to provide to multiple organizations.<br><br>This type of app is known as a _multitenant_ application in the Microsoft identity platform. |
+   | **Accounts in any organizational directory**                                 | Select this option if you want users in _any_ Microsoft Entra tenant to be able to use your application. This option is appropriate if, for example, you're building a software-as-a-service (SaaS) application that you intend to provide to multiple organizations.<br><br>This type of app is known as a _multitenant_ application in the Microsoft identity platform. |
    | **Accounts in any organizational directory and personal Microsoft accounts** | Select this option to target the widest set of customers.<br><br>By selecting this option, you're registering a _multitenant_ application that can also support users who have personal _Microsoft accounts_.                                                                                                                                                                               |
    | **Personal Microsoft accounts**                                              | Select this option if you're building an application only for users who have personal Microsoft accounts. Personal Microsoft accounts include Skype, Xbox, Live, and Hotmail accounts.                                                                                                                                                                                                      |
 1. Don't enter anything for **Redirect URI (optional)**. You'll configure a redirect URI in the next section.
@@ -50,7 +50,7 @@ Follow these steps to create the app registration:
 When registration finishes, the Azure portal displays the app registration's **Overview** pane. You see the **Application (client) ID**. Also called the _client ID_, this value uniquely identifies your application in the Microsoft identity platform.
 
 > [!IMPORTANT]
-> New app registrations are hidden to users by default. When you are ready for users to see the app on their [My Apps page](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510) you can enable it. To enable the app, in the Azure portal navigate to **Azure Active Directory** > **Enterprise applications** and select the app. Then on the **Properties** page toggle **Visible to users?** to Yes.
+> New app registrations are hidden to users by default. When you are ready for users to see the app on their [My Apps page](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510) you can enable it. To enable the app, in the Azure portal navigate to **Microsoft Entra ID** > **Enterprise applications** and select the app. Then on the **Properties** page toggle **Visible to users?** to Yes.
 
 Your application's code, or more typically an authentication library used in your application, also uses the client ID. The ID is used as part of validating the security tokens it receives from the identity platform.
 
@@ -127,9 +127,9 @@ For application security recommendations, see [Microsoft identity platform best 
 
 ## Next steps
 
-- [Azure confidential ledger authentication with Azure Active Directory (Azure AD)](authentication-azure-ad.md)
+- [Azure confidential ledger authentication with Microsoft Entra ID](authentication-azure-ad.md)
 - [Overview of Microsoft Azure confidential ledger](overview.md)
-- [Integrating applications with Azure Active Directory](../active-directory/develop/quickstart-register-app.md)
-- [Use portal to create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md)
+- [Integrating applications with Microsoft Entra ID](../active-directory/develop/quickstart-register-app.md)
+- [Use portal to create a Microsoft Entra application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md)
 - [Create an Azure service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli).
 - [Authenticating Azure confidential ledger nodes](authenticate-ledger-nodes.md)

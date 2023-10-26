@@ -12,6 +12,8 @@ ms.date: 09/06/2022
 
 # Get started with the local inference SDK for Azure AI Personalizer
 
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
+
 The Personalizer local inference SDK (Preview) downloads the Personalizer model locally, and thus significantly reduces the latency of Rank calls by eliminating network calls. Every minute the client will download the most recent model in the background and use it for inference.
 
 In this guide, you'll learn how to use the Personalizer local inference SDK.

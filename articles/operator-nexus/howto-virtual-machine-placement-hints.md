@@ -6,7 +6,7 @@ ms.author: dramasamy #Required; microsoft alias of author; optional team alias.
 ms.service: azure-operator-nexus #Required; service per approved list. slug assigned by ACOM.
 ms.topic: how-to #Required; leave this attribute/value as-is.
 ms.date: 07/28/2023 #Required; mm/dd/yyyy format.
-ms.custom: template-how-to-pattern #Required; leave this attribute/value as-is.
+ms.custom: template-how-to-pattern, devx-track-azurecli #Required; leave this attribute/value as-is.
 ---
 
 # Working with placement hints in Azure Operator Nexus virtual machine

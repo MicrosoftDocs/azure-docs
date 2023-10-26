@@ -63,9 +63,9 @@ If your labelers are outside of your organization, add them, so they can access 
 
 To add a guest user, your organization's external collaboration settings need the correct configuration to allow you to invite guests.
 
-1. In [Azure portal](https://portal.azure.com), in the top-left corner, expand the menu and select **Azure Active Directory**.
+1. In [Azure portal](https://portal.azure.com), in the top-left corner, expand the menu and select **Microsoft Entra ID**.
 
-    :::image type="content" source="media/how-to-add-users/menu-active-directory.png" alt-text="Select Azure Active Directory from the menu.":::
+    :::image type="content" source="media/how-to-add-users/menu-active-directory.png" alt-text="Select Microsoft Entra ID from the menu.":::
 
 1. On the left, select **Users**.
 1. At the top, select **New user**.
@@ -74,7 +74,7 @@ To add a guest user, your organization's external collaboration settings need th
 1. Add a message for the new user.
 1. At the bottom of the page, select **Invite**.
 
-    :::image type="content" source="media/how-to-add-users/invite-user.png" alt-text="Invite guest user from Azure Active Directory.":::
+    :::image type="content" source="media/how-to-add-users/invite-user.png" alt-text="Invite guest user from Microsoft Entra ID.":::
 
 Repeat these steps for each of your labelers. You can also use the link at the bottom of the **Invite user** box to invite multiple users in bulk.
 

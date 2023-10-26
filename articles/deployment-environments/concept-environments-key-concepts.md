@@ -12,7 +12,9 @@ ms.date: 04/25/2023
 
 # Key concepts for Azure Deployment Environments
 
-Learn about the key concepts and components of Azure Deployment Environments. This knowledge can help you more effectively deploy environments for your scenarios.
+In this article, you'll learn about the key concepts and components of Azure Deployment Environments. This knowledge helps you more effectively deploy environments for your scenarios.
+
+As you learn about Deployment Environments, you'll also encounter components of [Microsoft Dev Box](../dev-box/overview-what-is-microsoft-dev-box.md), a complementary service that shares certain architectural components. Dev Box provides developers with a cloud-based development workstation, called a dev box, which is configured with the tools they need for their work.  
 
 This diagram shows the key components of Deployment Environments and how they relate to each other. You can learn more about each component in the following sections.
 
@@ -20,16 +22,22 @@ This diagram shows the key components of Deployment Environments and how they re
 
 ## Dev centers
 
-A dev center is a collection of projects that require similar settings. Dev centers enable platform engineers to:
+A dev center is a collection of [Projects](#projects) that require similar settings. Dev centers enable platform engineers to:
 
 - Use catalogs to manage infrastructure as code (IaC) templates that are available to the projects.
 - Use environment types to configure the types of environments that development teams can create.
+ 
+[Microsoft Dev Box](../dev-box/concept-dev-box-concepts.md#dev-center) also uses dev centers to organize resources. An organization can use the same dev center for both services.
 
 ## Projects
 
-A project is the point of access for the development team. When you associate a project with a dev center, all the settings for the dev center are automatically applied to the project. 
+In Deployment Environments, a project represents a team or business function within the organization. When you associate a project with a dev center, all the settings for the dev center are automatically applied to the project. 
 
 Each project can be associated with only one dev center. Platform engineers can configure environments for a project by specifying which environment types are appropriate for the development team.
+
+To enable developers to create their own deployment environments, you must [provide access for developers to projects](how-to-configure-deployment-environments-user.md) by assigning the Deployment Environments User role.
+
+You can configure projects for Deployment Environments and projects for [Microsoft Dev Box](../dev-box/concept-dev-box-concepts.md#project) resources in the same dev center.
 
 ## Environments
 
@@ -39,7 +47,7 @@ An environment is a collection of Azure resources on which your application is d
 
 in Azure Deployment Environments, you use [managed identities](../active-directory/managed-identities-azure-resources/overview.md) to provide elevation-of-privilege capabilities. Identities can help you provide self-serve capabilities to your development teams without giving them access to the target subscriptions in which the Azure resources are created. 
 
-The managed identity that's attached to the dev center needs to be granted appropriate access to connect to the catalogs. You should grant owner access to the target deployment subscriptions that are configured at the project level. The Azure Deployment Environments service uses the specific managed identity to perform the deployment on behalf of the developer.
+The managed identity that's attached to the dev center needs to be granted appropriate access to connect to the catalogs. You should grant Contributor and User Access Administrator access to the target deployment subscriptions that are configured at the project level. The Azure Deployment Environments service uses the specific managed identity to perform the deployment on behalf of the developer.
 
 ## Dev center environment types
 

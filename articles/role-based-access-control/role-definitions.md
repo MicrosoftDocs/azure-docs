@@ -148,7 +148,7 @@ Role-based access control for control plane actions is specified in the `Actions
 - Create, update, or delete a blob container
 - Delete a resource group and all of its resources
 
-Control plane access is not inherited to your data plane provided that the container authentication method is set to "Azure AD User Account" and not "Access Key". This separation prevents roles with wildcards (`*`) from having unrestricted access to your data. For example, if a user has a [Reader](built-in-roles.md#reader) role on a subscription, then they can view the storage account, but by default they can't view the underlying data.
+Control plane access is not inherited to your data plane provided that the container authentication method is set to **Azure AD User Account** and not **Access Key**. This separation prevents roles with wildcards (`*`) from having unrestricted access to your data. For example, if a user has a [Reader](built-in-roles.md#reader) role on a subscription, then they can view the storage account, but by default they can't view the underlying data.
 
 Previously, role-based access control was not used for data actions. Authorization for data actions varied across resource providers. The same role-based access control authorization model used for control plane actions has been extended to data plane actions.
 

@@ -1,52 +1,52 @@
 ---
-title: Remediate anonymous public read access to blob data (classic deployments)
+title: Remediate anonymous read access to blob data (classic deployments)
 titleSuffix: Azure Storage
-description: Learn how to prevent anonymous requests against a classic storage account by disabling anonymous public access to containers.
-author: akashdubey-ms
-
+description: Learn how to prevent anonymous requests against a classic storage account by disabling anonymous access to containers.
+author: pauljewellmsft
+ms.author: pauljewell
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 11/09/2022
-ms.author: akashdubey
+ms.date: 09/12/2023
+
 ms.reviewer: nachakra
 ms.devlang: powershell, azurecli
 ms.custom: devx-track-azurepowershell, engagement-fy23
 ---
 
-# Remediate anonymous public read access to blob data (classic deployments)
+# Remediate anonymous read access to blob data (classic deployments)
 
-Azure Blob Storage supports optional anonymous public read access to containers and blobs. However, anonymous access may present a security risk. We recommend that you disable anonymous access for optimal security. Disallowing public access helps to prevent data breaches caused by undesired anonymous access.
+Azure Blob Storage supports optional anonymous read access to containers and blobs. However, anonymous access may present a security risk. We recommend that you disable anonymous access for optimal security. Disallowing anonymous access helps to prevent data breaches caused by undesired anonymous access.
 
-By default, public access to your blob data is always prohibited. However, the default configuration for a classic storage account permits a user with appropriate permissions to configure public access to containers and blobs in a storage account. To prevent public access to a classic storage account, you must configure each container in the account to block public access.
+By default, anonymous access to your blob data is always prohibited. However, the default configuration for a classic storage account permits a user with appropriate permissions to configure anonymous access to containers and blobs in a storage account. To prevent anonymous access to a classic storage account, you must configure each container in the account to block anonymous access.
 
-If your storage account is using the classic deployment model, we recommend that you [migrate](../../virtual-machines/migration-classic-resource-manager-overview.md#migration-of-storage-accounts) to the Azure Resource Manager deployment model as soon as possible. After you migrate your account, you can configure it to disallow anonymous public access at the account level. For information about how to disallow anonymous public access for an Azure Resource Manager account, see [Remediate anonymous public read access to blob data (Azure Resource Manager deployments)](anonymous-read-access-prevent.md).
+If your storage account is using the classic deployment model, we recommend that you [migrate](../../virtual-machines/migration-classic-resource-manager-overview.md#migration-of-storage-accounts) to the Azure Resource Manager deployment model as soon as possible. After you migrate your account, you can configure it to disallow anonymous access at the account level. For information about how to disallow anonymous access for an Azure Resource Manager account, see [Remediate anonymous read access to blob data (Azure Resource Manager deployments)](anonymous-read-access-prevent.md).
 
-If you cannot migrate your classic storage accounts at this time, then you should remediate public access to those accounts now by setting all containers to be private. This article describes how to remediate access to the containers in a classic storage account.
+If you cannot migrate your classic storage accounts at this time, then you should remediate anonymous access to those accounts now by setting all containers to be private. This article describes how to remediate access to the containers in a classic storage account.
 
 Azure Storage accounts that use the classic deployment model will be retired on August 31, 2024. For more information, see [Azure classic storage accounts will be retired on 31 August 2024](https://azure.microsoft.com/updates/classic-azure-storage-accounts-will-be-retired-on-31-august-2024/).
 
 > [!WARNING]
-> Anonymous public access presents a security risk. We recommend that you take the actions described in the following section to remediate public access for all of your classic storage accounts, unless your scenario specifically requires anonymous access.
+> Anonymous access presents a security risk. We recommend that you take the actions described in the following section to remediate anonymous access for all of your classic storage accounts, unless your scenario specifically requires anonymous access.
 
 ## Block anonymous access to containers
 
-To remediate anonymous access for a classic storage account, set the public access level for each container in the account to **Private**.
+To remediate anonymous access for a classic storage account, set the anonymous access level for each container in the account to **Private**.
 
 # [Azure portal](#tab/portal)
 
-To remediate public access for one or more containers in the Azure portal, follow these steps:
+To remediate anonymous access for one or more containers in the Azure portal, follow these steps:
 
 1. Navigate to your storage account overview in the Azure portal.
 1. Under **Data storage** on the menu blade, select **Blob containers**.
-1. Select the containers for which you want to set the public access level.
-1. Use the **Change access level** button to display the public access settings.
-1. Select **Private (no anonymous access)** from the **Public access level** dropdown and click the OK button to apply the change to the selected containers.
+1. Select the containers for which you want to set the anonymous access level.
+1. Use the **Change access level** button to display the access settings.
+1. Select **Private (no anonymous access)** from the **Anonymous access level** dropdown and click the OK button to apply the change to the selected containers.
 
-    :::image type="content" source="media/anonymous-read-access-prevent-classic/configure-public-access-container.png" alt-text="Screenshot showing how to set public access level in the portal." lightbox="media/anonymous-read-access-prevent-classic/configure-public-access-container.png":::
+    :::image type="content" source="media/anonymous-read-access-prevent-classic/configure-public-access-container.png" alt-text="Screenshot showing how to set anonymous access level in the portal." lightbox="media/anonymous-read-access-prevent-classic/configure-public-access-container.png":::
 
 # [PowerShell](#tab/powershell)
 
-To remediate anonymous access for one or more containers with PowerShell, call the [Set-AzStorageContainerAcl](/powershell/module/az.storage/set-azstoragecontaineracl) command. Authorize this operation by passing in your account key, a connection string, or a shared access signature (SAS). The [Set Container ACL](/rest/api/storageservices/set-container-acl) operation that sets the container's public access level does not support authorization with Azure AD. For more information, see [Permissions for calling blob and queue data operations](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-data-operations).
+To remediate anonymous access for one or more containers with PowerShell, call the [Set-AzStorageContainerAcl](/powershell/module/az.storage/set-azstoragecontaineracl) command. Authorize this operation by passing in your account key, a connection string, or a shared access signature (SAS). The [Set Container ACL](/rest/api/storageservices/set-container-acl) operation that sets the container's anonymous access level does not support authorization with Microsoft Entra ID. For more information, see [Permissions for calling blob and queue data operations](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-data-operations).
 
 The following example updates a container's anonymous access setting to make the container private. Remember to replace the placeholder values in brackets with your own values:
 
@@ -59,28 +59,28 @@ $accountName = "<storage-account>"
 $storageAccount = Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName
 $ctx = $storageAccount.Context
 
-# Read the container's public access setting.
+# Read the container's anonymous access setting.
 Get-AzStorageContainerAcl -Container $containerName -Context $ctx
 
-# Update the container's public access setting to Off.
+# Update the container's anonymous access setting to Off.
 Set-AzStorageContainerAcl -Container $containerName -Permission Off -Context $ctx
 ```
 
 # [Azure CLI](#tab/azure-cli)
 
-To remediate anonymous access for one or more containers with Azure CLI, call the [az storage container set permission](/cli/azure/storage/container#az-storage-container-set-permission) command. Authorize this operation by passing in your account key, a connection string, or a shared access signature (SAS). The [Set Container ACL](/rest/api/storageservices/set-container-acl) operation that sets the container's public access level does not support authorization with Azure AD. For more information, see [Permissions for calling blob and queue data operations](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-data-operations).
+To remediate anonymous access for one or more containers with Azure CLI, call the [az storage container set permission](/cli/azure/storage/container#az-storage-container-set-permission) command. Authorize this operation by passing in your account key, a connection string, or a shared access signature (SAS). The [Set Container ACL](/rest/api/storageservices/set-container-acl) operation that sets the container's anonymous access level does not support authorization with Microsoft Entra ID. For more information, see [Permissions for calling blob and queue data operations](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-data-operations).
 
 The following example updates a container's anonymous access setting to make the container private. Remember to replace the placeholder values in brackets with your own values:
 
 ```azurecli-interactive
-# Read the container's public access setting.
+# Read the container's anonymous access setting.
 az storage container show-permission \
     --name <container-name> \
     --account-name <account-name> \
     --account-key <account-key> \
     --auth-mode key
 
-# Update the container's public access setting to Off.
+# Update the container's anonymous access setting to Off.
 az storage container set-permission \
     --name <container-name> \
     --account-name <account-name> \
@@ -91,11 +91,11 @@ az storage container set-permission \
 
 ---
 
-## Check the public access setting for a set of containers
+## Check the anonymous access setting for a set of containers
 
-It is possible to check which containers in one or more storage accounts are configured for public access by listing the containers and checking the public access setting. This approach is a practical option when a storage account does not contain a large number of containers, or when you are checking the setting across a small number of storage accounts. However, performance may suffer if you attempt to enumerate a large number of containers.
+It is possible to check which containers in one or more storage accounts are configured for anonymous access by listing the containers and checking the anonymous access setting. This approach is a practical option when a storage account does not contain a large number of containers, or when you are checking the setting across a small number of storage accounts. However, performance may suffer if you attempt to enumerate a large number of containers.
 
-The following example uses PowerShell to get the public access setting for all containers in a storage account. Remember to replace the placeholder values in brackets with your own values:
+The following example uses PowerShell to get the anonymous access setting for all containers in a storage account. Remember to replace the placeholder values in brackets with your own values:
 
 ```powershell
 $rgName = "<resource-group>"
@@ -109,10 +109,10 @@ Get-AzStorageContainer -Context $ctx | Select Name, PublicAccess
 
 ## Sample script for bulk remediation
 
-The following sample PowerShell script runs against all classic storage accounts in a subscription and sets the public access setting for the containers in those accounts to **Private**.
+The following sample PowerShell script runs against all classic storage accounts in a subscription and sets the anonymous access setting for the containers in those accounts to **Private**.
 
 > [!CAUTION]
-> Running this script against storage accounts with very large numbers of containers may require significant resources and take a long time. If you have a storage account with a very large number of containers, you may wish to devise a different approach for remediating public access.
+> Running this script against storage accounts with very large numbers of containers may require significant resources and take a long time. If you have a storage account with a very large number of containers, you may wish to devise a different approach for remediating anonymous access.
 
 ```powershell
 # This script runs against all classic storage accounts in a single subscription
@@ -231,5 +231,5 @@ write-host "Script complete"
 
 ## See also
 
-- [Overview: Remediating anonymous public read access for blob data](anonymous-read-access-overview.md)
-- [Remediate anonymous public read access to blob data (Azure Resource Manager deployments)](anonymous-read-access-prevent.md)
+- [Overview: Remediating anonymous read access for blob data](anonymous-read-access-overview.md)
+- [Remediate anonymous read access to blob data (Azure Resource Manager deployments)](anonymous-read-access-prevent.md)
