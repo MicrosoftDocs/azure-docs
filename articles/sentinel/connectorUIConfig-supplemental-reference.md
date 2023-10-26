@@ -15,8 +15,6 @@ Your custom CCP connector has two primary JSON sections needed for deployment. F
 
 - `connectorUiConfig`. Defines the visual elements and text displayed on the data connector page in Microsoft Sentinel. For more information, see [Configure your connector's user interface](#configure-your-connectors-user-interface).
 
-- `pollingConfig`. Defines how Microsoft Sentinel collects data from your data source. For more information, see [Configure your connector's polling settings](#configure-your-connectors-polling-settings).
-
 Then, if you deploy your codeless connector via ARM, you'll wrap these sections in the ARM template for data connectors.
 
 Review [other CCP data connectors](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors#codeless-connector-platform-ccp-preview--native-microsoft-sentinel-polling) as examples or download the example template, [DataConnector_API_CCP_template.json (Preview)](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors#build-the-connector).
@@ -103,7 +101,7 @@ Displays a group of instructions, with various options as parameters and the abi
 
 You may want to create a JSON configuration file template, with placeholders parameters, to reuse across multiple connectors, or even to create a connector with data that you don't currently have.
 
-To create placeholder parameters, define an additional array named `userRequestPlaceHoldersInput` in the [Instructions](#instructions) section of your [CCP JSON configuration](#create-a-connector-json-configuration-file) file, using the following syntax:
+To create placeholder parameters, define an additional array named `userRequestPlaceHoldersInput` in the [Instructions](#instructions) section of your [CCP JSON configuration] file, using the following syntax:
 
 ```json
 "instructions": [

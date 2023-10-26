@@ -15,12 +15,13 @@ Still a work in progress
 
 From DataConnector API doc.
 
+- `pollingConfig`. Defines how Microsoft Sentinel collects data from your data source. For more information, see [Configure your connector's polling settings](#configure-your-connectors-polling-settings).
 
 ## Configure your connector's polling settings
 
 This section describes the configuration for how data is polled from your data source for a codeless data connector.
 
-The following code shows the syntax of the `pollingConfig` section of the [CCP configuration](#create-a-connector-json-configuration-file) file.
+The following code shows the syntax of the `pollingConfig` section of the [CCP configuration] file.
 
 ```json
 "pollingConfig": {
@@ -198,7 +199,7 @@ The `paging` section of the [pollingConfig](#configure-your-connectors-polling-s
 
 ### Sample pollingConfig code
 
-The following code shows an example of the `pollingConfig` section of the [CCP configuration](#create-a-connector-json-configuration-file) file:
+The following code shows an example of the `pollingConfig` section of the [CCP configuration] file:
 
 ```json
 "pollingConfig": {

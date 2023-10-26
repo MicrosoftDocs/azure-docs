@@ -37,7 +37,7 @@ The initial version of the CCP was [announced](https://techcommunity.microsoft.c
 
 Before building a connector, understand your data source and how Microsoft Sentinel needs to connect.
 
-1. A Data Collection Endpoint (DCE) for the Data Collection Rule (DCR) you create for your connector. Every log analytics workspace with a DCR requires a DCE. For more information on how to create one or whether you need a new one, see [Data collection endpoints in Azure Monitor](/articles/azure-monitor/essentials/data-collection-endpoint-overview.md).
+1. A Data Collection Endpoint (DCE) for the Data Collection Rule (DCR) you create for your connector. Every log analytics workspace with a DCR requires a DCE. For more information on how to create one or whether you need a new one, see [Data collection endpoints in Azure Monitor](../azure-monitor/essentials/data-collection-endpoint-overview.md).
 1. Schema of the output table(s).  It's important to understand the shape of your data stream and the fields you want to include in the output table. Reference your data source documentation or analyze sufficient output examples.
 
 Research the following components and verify support for them in the [Data Connector API reference]:
@@ -67,15 +67,15 @@ If your data source doesn't conform to the schema of a standard table, you have 
 1. create a custom table for all the data
 1. create a custom table for some data and split conforming data out to a standard table
 
-Use the Log Analytics UI for a straight forward method to create a custom table together with a DCR. For more information, see [Create a custom table](/articles/azure-monitor/logs/create-custom-table.md#create-a-custom-table).
+Use the Log Analytics UI for a straight forward method to create a custom table together with a DCR. For more information, see [Create a custom table](../azure-monitor/logs/create-custom-table.md#create-a-custom-table).
 
 ### Data Collection Rule 
 
 Reference the latest information on DCRs in these articles:
-- [Data collection rules overview](/articles/azure-monitor/essentials/data-collection-rule-overview.md)
-- [Structure of a data collections rule](/articles/azure-monitor//essentials/data-collection-rule-structure.md)
+- [Data collection rules overview](../azure-monitor/essentials/data-collection-rule-overview.md)
+- [Structure of a data collections rule](../azure-monitor//essentials/data-collection-rule-structure.md)
 
-For a tutorial demonstrating the creation of a DCE, including using sample data to create the custom table and DCR, see [Tutorial: Send data to Azure Monitor Logs with Logs ingestion API (Azure portal)](/articles/azure-monitor/logs/tutorial-logs-ingestion-portal.md). Use the process in this tutorial to verify data is ingested correctly to your table with your DCR.
+For a tutorial demonstrating the creation of a DCE, including using sample data to create the custom table and DCR, see [Tutorial: Send data to Azure Monitor Logs with Logs ingestion API (Azure portal)](../azure-monitor/logs/tutorial-logs-ingestion-portal.md). Use the process in this tutorial to verify data is ingested correctly to your table with your DCR.
 
 To understand how to create a complex DCR with multiple data flows, see the [example section](#example).
 
@@ -96,19 +96,17 @@ For more information on building this section, see the [RestApiPoller data conne
 
 ## Create the solution deployment template
 
-Manually package the deployment using the [example template] as your guide.
-
-Another example of a deployment template using the RestApiPoller codeless connector is the following solution, [Prisma Cloud Compute](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/PrismaCloudCompute/Package/mainTemplate.json).
+Manually package the deployment using the [example template](#example-deployment-solution-template) as your guide.
 
 ## Deploy the solution
 
-Deploy your RestApiPoller codeless connector solution as a custom template. 
+Deploy your codeless connector solution as a custom template. 
 
 >[!TIP]
 >Delete resources you created in previous steps. A n DCR and custom tables are created with the deployment making it easier to verify your template.
 
-1. Copy the contents of the [solution deployment template](#create-solution-deployment-template).
-1. Follow the **Edit and deploy the template** instructions from the article, [Quickstart: Create and deploy ARM templates by using the Azure portal](/articles/azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md#edit-and-deploy-the-template).
+1. Copy the contents of the [solution deployment template](#create-the-solution-deployment-template).
+1. Follow the **Edit and deploy the template** instructions from the article, [Quickstart: Create and deploy ARM templates by using the Azure portal](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md#edit-and-deploy-the-template).
 
 ## Verify the codeless connector
 
