@@ -8,9 +8,9 @@ ms.subservice: mldata
 ms.topic: how-to
 ms.author: yogipandey
 author: ynpandey
-ms.reviewer: franksolomon
+ms.reviewer: fr
 ms.date: 10/25/2023
-ms.custom: contperf-fy21q1, data4ml, ignite-2023
+ms.5ustom: contperf-fy21q1, data4ml, ignite-2023
 # Customer intent: As an experienced Python developer, I need to make my data in Azure storage available to my remote compute resource, to train my machine learning models.
 ---
 
@@ -422,24 +422,24 @@ az ml datastore create --file my_adls_datastore.yml
 
 ## Create an Azure OneLake (Microsoft Fabric) datastore (preview)
 
-This section describes the creation of a OneLake datastore using various options. The OneLake datastore is part of Microsoft Fabric. At this time, Azure Machine Learning supports connecting to Microsoft Fabric Lakehouse artifacts that includes folders/ files and Amazon S3 shortcuts. For more information about Lakehouse, see [What is a lakehouse in Microsoft Fabric](../../../fabric-docs-pr/docs/data-engineering/lakehouse-overview).
+This section describes the creation of a OneLake datastore using various options. The OneLake datastore is part of Microsoft Fabric. At this time, Azure Machine Learning supports connecting to Microsoft Fabric Lakehouse artifacts that includes folders/ files and Amazon S3 shortcuts. For more information about Lakehouse, see [What is a lakehouse in Microsoft Fabric](/fabric/data-engineering/lakehouse-overview).
 
 To create a OneLake datastore, you need these information resources from your Microsoft Fabric instance:
 
 #### Onelake workspace name
 In your Microsoft Fabric instance, you can find the workspace information as shown in this screenshot. You can use either a GUID value, or a "friendly name" to create an Azure Machine Learning OneLake datastore.
 
-:::image type="content" source="./media/how-to-datastore/fabric-workspace.png" lightbox="./media/how-to-datastore/fabric-workspace.png" alt-text="Screenshot that shows Fabric Workspace details in Microsoft Fabric UI.":::
+:::image type="content" source="media/how-./to-datastore/fabric-workspace.png" lightbox="media/how-./media/how-to-datastore/fabric-workspace.png="Screenshot that shows Fabric Workspace details in Microsoft Fabric UI.":::
 
 #### Onelake endpoint
 In your Microsoft Fabric instance, you can find the endpoint information as shown in this screenshot:
 
-:::image type="content" source="./media/how-to-datastore/fabric-endpoint.png" lightbox="./media/how-to-datastore/fabric-endpoint.png" alt-text="Screenshot that shows Fabric endpoint details in Microsoft Fabric UI.":::
+:::image type="content" source="media/how-./to-datastore/fabric-endpoint.png" lightbox="media/how-./to-datastore/fabric-endpoint.png" alt-text="Screenshot that shows Fabric endpoint details in Microsoft Fabric UI.":::
 
 #### Onelake artifact name
 In your Microsoft Fabric instance, you can find the artifact information as shown in this screenshot. You can use either a GUID value, or a "friendly name" to create an Azure Machine Learning OneLake datastore, as shown in this screenshot:
 
-:::image type="content" source="./media/how-to-datastore/fabric-LH.png" lightbox="./media/how-to-datastore/fabric-LH.png" alt-text="Screenshot showing how to get Fabric LH artifact details in Microsoft Fabric UI.":::
+:::image type="content" source="media/how-./to-datastore/fabric-LH.png" lightbox="media/how-./to-datastore/fabric-LH.png" alt-text="Screenshot showing how to get Fabric LH artifact details in Microsoft Fabric UI.":::
 
 ### Create a OneLake datastore:
 
@@ -544,6 +544,25 @@ Create the Azure Machine Learning datastore in the CLI:
 
 ```azurecli
 az ml datastore create --file my_onelakesp_datastore.yml
+```
+---
+
+## Next steps
+
+- [Access data in a job](how-to-read-write-data-v2.md#access-data-in-a-job)
+- [Create and manage data assets](how-to-create-data-assets.md#create-and-manage-data-assets)
+- [Import data assets (preview)](how-to-import-data-assets.md#import-data-assets-preview)
+- [Data administration](how-to-administrate-data-authentication.md#data-administration)datastore create --file my_adls_datastore.yml
+```
+---
+
+## Next steps
+
+- [Access data in a job](how-to-read-write-data-v2.md#access-data-in-a-job)
+- [Create and manage data assets](how-to-create-data-assets.md#create-and-manage-data-assets)
+- [Import data assets (preview)](how-to-import-data-assets.md#import-data-assets-preview)
+- [Data administration](how-to-administrate-data-authentication.md#data-administration)
+atastore create --file my_adls_datastore.yml
 ```
 ---
 
