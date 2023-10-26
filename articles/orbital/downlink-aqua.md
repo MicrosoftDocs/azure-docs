@@ -38,14 +38,14 @@ Sign in to the [Azure portal - Orbital](https://aka.ms/orbital/portal).
 
 1. In the Azure portal search box, enter **Spacecrafts**. Select **Spacecrafts** in the search results.
 2. On the **Spacecrafts** page, select **Create**.
-3. Choose which public satellite to contact: Aqua, Suomi NPP, JPSS-1/NOAA-20, or Terra. The table below outlines the NORAD ID, center frequency, bandwidth, and link direction and polarization for each satellite. Refer to this information in the following steps.
+3. Choose which public satellite to contact: Aqua, Suomi NPP, JPSS-1/NOAA-20, or Terra. The table below outlines the NORAD ID, center frequency, bandwidth, and link direction and polarization for each satellite. Refer to this information in the following steps and throughout the tutorial.
 
- | **Spacecraft Title** | **NORAD ID** | **Center Frequency (MHz)** | **Bandwidth (MHz)** | **Direction** | **Polarization** |
- | :---                 | :----:       | :----:                     | :----:              | :----:        | :----:           |
- | Aqua                 | 27424        | 8160                       | 15                  | Downlink      | RHCP             |
- | Suomi NPP            | 37849        | 7812                       | 30                  | Downlink      | RHCP             | 
- | JPSS-1/NOAA-20       | 43013        | 7812                       | 30                  | Downlink      | RHCP             |
- | Terra                | 25994        | 8212.5                     | 45                  | Downlink      | RHCP             |  
+ | **Spacecraft**  | **NORAD ID** | **Center Frequency (MHz)** | **Bandwidth (MHz)** | **Direction** | **Polarization** |
+ | :---            | :----:       | :----:                     | :----:              | :----:        | :----:           |
+ | Aqua            | 27424        | 8160                       | 15                  | Downlink      | RHCP             |
+ | Suomi NPP       | 37849        | 7812                       | 30                  | Downlink      | RHCP             | 
+ | JPSS-1/NOAA-20  | 43013        | 7812                       | 30                  | Downlink      | RHCP             |
+ | Terra           | 25994        | 8212.5                     | 45                  | Downlink      | RHCP             |  
  
 5. Search for your desired public satellite in [CelesTrak](https://celestrak.com/NORAD/elements/active.txt) and identify its current Two-Line Element (TLE).
    
@@ -54,7 +54,7 @@ Sign in to the [Azure portal - Orbital](https://aka.ms/orbital/portal).
    >
    > [Read more about TLE values](spacecraft-object.md#ephemeris).
 
-4. In **Create spacecraft resource**, on the **Basics** tab, enter or select this information:
+4. In **Create spacecraft resource**, on the **Basics** tab, enter or select the following information:
 
    | **Field** | **Value** |
    | --- | --- |
@@ -77,18 +77,17 @@ Sign in to the [Azure portal - Orbital](https://aka.ms/orbital/portal).
    | **Bandwidth** | Enter the **bandwidth** in MHz from the table above. |
    | **Polarization** | Select **RHCP**. |
 
-7. Select the **Review + create** tab, or select the **Next: Review + create** button.
-8. Select **Create**.
+7. Select **Review + create**. After the validation is complete, select **Create**.
 
 ## Request authorization of the new public spacecraft resource
 
 1. Navigate to the overview page for the newly created spacecraft resource within your resource group.
-2. On the left pane, navigate to **Support + Troubleshooting** then select **Diagnose and solve problems**. Under Spacecraft Management and Setup, select **Troubleshoot**, then select **Create a support request**.
+2. On the left pane, navigate to **Support + troubleshooting** then select **Diagnose and solve problems**. Under Spacecraft Management and Setup, select **Troubleshoot**, then select **Create a support request**.
    
    > [!NOTE]
    > A [Basic support plan](https://azure.microsoft.com/support/plans/) or higher is required for a spacecraft authorization request.
 
-3. On the **New support request** page, under the **Problem description** tab, enter or select this information:
+3. On the **New support request** page, under the **Problem description** tab, enter or select the following information:
 
    | **Field** | **Value** |
    | --- | --- |
@@ -113,8 +112,7 @@ Sign in to the [Azure portal - Orbital](https://aka.ms/orbital/portal).
    | **File upload** |	No additional files are required. |
 
 8. Complete the **Advanced diagnostic information** and **Support method** sections of the **Additional details** tab according to your preferences.
-9. Select **Next** to move to the **Review + create** tab.
-10. Select **Create**.
+9. Select **Review + create**. After the validation is complete, select **Create**.
 
 Your spacecraft authorization request is reviewed by the Azure Orbital Ground Station team. Requests for supported public satellites should not take long to approve.
 
@@ -127,9 +125,9 @@ Follow instructions to [create and configure an Azure Event Hub](receive-real-ti
 
 ## Configure a contact profile to downlink from a public satellite
 
-1. In the Azure portal's search box, enter **contact profiles**. Select **Contact Profiles** in the search results. 
+1. In the Azure portal's search box, enter **Contact Profiles**. Select **Contact Profiles** in the search results. 
 2. On the **Contact Profiles** page, select **Create**.
-3. In **Create Contact Profile resource**, on the **Basics** tab, enter or select this information:
+3. In **Create Contact Profile resource**, on the **Basics** tab, enter or select the following information:
 
    | **Field** | **Value** |
    | --- | --- |
@@ -146,18 +144,18 @@ Follow instructions to [create and configure an Azure Event Hub](receive-real-ti
    | **Virtual Network** | Select your virtual network. |
    | **Subnet** | Select your subnet. _This field appears only if you select a virtual network first_. |
 
-5. Select the **Links** tab, or select **Next** button at the bottom of the page. Then, select **Add new Link**.
-6. On the **Add Link** page, enter or select this information:
+6. Select **Next**. In the **Links** page, select **Add new Link**.
+7. On the **Add Link** page, enter or select the following information:
 
    | **Field** | **Value** |
    | --- | --- |
    | **Name** | Enter a name for the link, e.g. Aqua_Downlink |
    | **Direction** | Select **Downlink**. |
-   | **Gain/Temperature** (Downlink only) | Enter **0**. |
-   | **EIRP in dBW** (Uplink only) | Leave blank. |
+   | **Gain/Temperature** | Enter **0**. |
+   | **EIRP in dBW** | Only applicable to uplink. Leave blank. |
    | **Polarization** | Select **RHCP**. |
 
-7. Select **Add Channel**. In the **Add Channel** pane, add
+8. Select **Add Channel**. In the **Add Channel** pane, add or select the following information:
 
    | **Field** | **Value** |
    | --- | --- |
@@ -172,9 +170,8 @@ Follow instructions to [create and configure an Azure Event Hub](receive-real-ti
    | **Demodulation Configuration** | Select the **demodulation configuration** for your selected public satellite. Refer to [configure the modem chain](modem-chain.md#named-modem-configuration) for details. |
    | **Decoding Configuration** | Leave this field blank. |
 
-9. Select the **Submit** button to add the channel. Select the **Submit** button again to add the link. 
-10. Select **Review + create**.
-11. After the validation is complete, select **Create**.
+9. Select **Submit** to add the channel. Select **Submit** again to add the link. 
+10. Select **Review + create**. After the validation is complete, select **Create**.
 
 ## Prepare your virtual machine and network to receive public satellite data
 
