@@ -13,7 +13,7 @@ ms.custom: horz-monitor
 
 # Monitoring App Configuration data reference
 
-This article is a reference for the monitoring data collected by App Configuration. See [Monitoring App Configuration](monitor-app-configuration.md) for a walk through on to collect and analyze monitoring data for App Configuration.
+This article is a reference for the monitoring data collected by App Configuration. See [Monitoring App Configuration](monitor-app-configuration.md) for how to collect and analyze monitoring data for App Configuration.
 
 ## Metrics 
 Resource Provider and Type: [App Configuration Platform Metrics](../azure-monitor/essentials/metrics-supported.md#microsoftappconfigurationconfigurationstores)
@@ -35,8 +35,8 @@ App Configuration has the following dimensions associated with its metr
 
 | Metric Name | Dimension description |
 |-------|-----|
-| Http Incoming Request Count | The supported dimensions are the **HttpStatusCode**, **AuthenticationScheme**, and **Endpoint** of each request. **AuthenticationScheme** can be filtered by AAD or HMAC authentication.   |
-| Http Incoming Request Duration | The supported dimensions are the **HttpStatusCode**, **AuthenticationScheme**, and **Endpoint** of each request. **AuthenticationScheme** can be filtered by AAD or HMAC authentication. |
+| Http Incoming Request Count | The supported dimensions are the **HttpStatusCode**, **AuthenticationScheme**, and **Endpoint** of each request. **AuthenticationScheme** can be filtered by "AAD" or "HMAC" authentication.   |
+| Http Incoming Request Duration | The supported dimensions are the **HttpStatusCode**, **AuthenticationScheme**, and **Endpoint** of each request. **AuthenticationScheme** can be filtered by "AAD" or "HMAC" authentication. |
 | Throttled Http Request Count | The **Endpoint** of each request is included as a dimension.  |
 | Daily Storage Usage | This metric does not have any dimensions.  |
 | Request Quota Usage | The supported dimensions are the **OperationType** (Read/Write) and **Endpoint** of each request.  |
