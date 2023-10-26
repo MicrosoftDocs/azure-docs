@@ -158,6 +158,8 @@
       href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure VPN Gateway
       href: ../vpn-gateway/about-zone-redundant-vnet-gateways.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Community Training
+      href: reliability-community-training.md
 - name: Disaster recovery
   items:
   - name: What is disaster recovery?
@@ -402,6 +404,8 @@
       href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure VPN Gateway
       href: ../vpn-gateway/about-zone-redundant-vnet-gateways.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Community Training
+      href: reliability-community-training.md
   - name: Test reliability
     items: 
     - name: Chaos engineering

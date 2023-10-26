@@ -12,7 +12,7 @@ ms.date: 10/24/2023
 
 # Reliability in Community Training
 
-Community Training is a cloud-based solution that enables delivery of large-scale, far-spread training programs with high quality and efficiency. Community Training is an Azure-powered online learning platform to enable organizations of all sizes and types to run large scale training programs for their internal and external communities such as frontline workers, extended workforces, partner ecosystem, volunteer network, program beneficiaries, etc.
+Community Training is an Azure-powered cloud-based solution that can deliver large-scale, far-spread training programs with high quality and efficiency. With Community Training, organizations of all sizes and types can run large scale training programs for their internal and external communities. Communities can include frontline workers, extended workforces, a partner ecosystem, a volunteer network, and program beneficiaries. 
 
 This article describes reliability support in Community Training, and covers  both regional resiliency with [availability zones](/azure/reliability/availability-zones-overview?tabs=azure-clit) and [disaster recovery and business continuity](/azure/reliability/disaster-recovery-overview). For a more detailed overview of a reliability principle in Azure, see [Azure reliability](/azure/reliability/overview).
 
@@ -24,7 +24,7 @@ Community Training uses Azure availability zones to provide high availability an
 
 - The [control plane](/azure/azure-resource-manager/management/control-plane-and-data-plane#control-plane) is zone redundant in the primary regions of availability. 
 
-- The [data plane](/azure/azure-resource-manager/management/control-plane-and-data-plane#data-plane) can be either zonal or zone-redundant, depending on what you choose for your needs. However, it is highly recommended that you choose a zone-redundant deployment in order to avoid data loss in the case of a zone outage. 
+- The [data plane](/azure/azure-resource-manager/management/control-plane-and-data-plane#data-plane) can be either zonal or zone-redundant, depending on what you choose for your needs. However, it is highly recommended that you choose a zone-redundant deployment in order to avoid data loss and maintain service availability in the case of a zone outage. 
 
 
 ### Prerequisites
@@ -44,8 +44,8 @@ Community Training uses Azure availability zones to provide high availability an
 | East US          | Sweden Central       |               |                    |                |
 | West US 3        |                      |               |                    |                |
 
->[!NOTE]
->Community Training is only supported in [paired regions](./cross-region-replication-azure.md#azure-paired-regions).  Each secondary region is deployed with a zonal configuration.
+
+- Community Training is only supported in [paired regions](./cross-region-replication-azure.md#azure-paired-regions).  Each secondary region is deployed with a zonal configuration.
 
 
 
@@ -56,13 +56,13 @@ Community Training uses a number of dependency Azure services, such as App servi
 
 #### Create a resource with availability zone enabled
 
-Community Training provides configuration for availability zones only at the time of creation. If you wish to change your availability zone configuration after creation, you'll need to create new resources. To learn how to create your Community Training, see [Create Community Training](). 
+Community Training provides configuration for availability zones only at the time of instance creation. If you wish to change your availability zone configuration after instance creation, you'll need to create a new instance. To learn how to create your Community Training instance, see [Create Community Training](). 
 
 ### Zone down experience
 
 - **Zonal zone down experience**. During a zone-wide outage, Community Training can have either complete or partial service disruption. The extent to which it is available depends on various factors, such as whether the entire datacenter is down, or whether a specific dependency service isn't no longer available in that zone. 
 
-- **Zone redundant zone down experience**. During a zone-wide outage, you won't experience any impact on provisioned resources. However, you should be prepared for a brief interruption in communication with those resources. Clients typically receive 409 error codes in this situation, and retry logic attempts to re-establish connections at appropriate intervals. New requests are directed to healthy nodes with zero impact on the user. During zone-wide outages, users are able to create new resources and successfully scale existing ones.
+- **Zone redundant zone down experience**. During a zone-wide outage, you won't experience any impact on provisioned resources. However, you should be prepared for a brief interruption in communication with those resources. In a zone down situation, Clients typically receive 409 error codes, as well as retry logic attempts to re-establish connections at appropriate intervals. New requests are directed to healthy nodes with zero impact on the user. During zone-wide outages, users are able to create new resources and successfully scale existing ones.
 
 ## Disaster recovery and business continuity
 
@@ -81,12 +81,12 @@ The entire disaster recovery procedure for Community Training is manually manage
 
 
 >[!NOTE]
-> RTO depends on database and storage size, latency between the paired region. Database or storage VM capacity (SKU). RPO depends on underlying Azure resources, such as [Azure SQL](/azure/azure-sql/database/recovery-using-backups?view=azuresql&tabs=azure-portal&preserve-view=true#geo-restore-considerations) and Azure storage. 
+> RTO depends on database and storage size, latency between the paired region. Database or storage VM capacity (SKU). RPO depends on underlying Azure resources, such as [Azure SQL](/azure/azure-sql/database/recovery-using-backups?view=azuresql&tabs=azure-portal&preserve-view=true#geo-restore-considerations) and Azure storage. For more information on RTO and RPO, see [Overview of Disaster Recovery](./disaster-recovery-overview.md).
 
 
 #### Outage detection, notification, and management
 
-When a Community Training health check detects an outage of any service, and in any region, Microsoft will request your consent for failover to the paired region. Microsoft will let you know which features will be available during the disaster recovery procedure. When Microsoft receives your consent, the Community Training team starts the disaster recovery procedure.
+When a Community Training health check detects an outage of any service, and in any region, Microsoft will request your consent for failover to the paired region. Microsoft will let you know which features will be available during the disaster recovery procedure. Once Microsoft receives your consent, the Community Training team can then start the disaster recovery procedure.
 
 >[!IMPORTANT]
 > Learners will not be able to consume audio/video features until the primary region is operational. It's recommended that you avoid media upload operations until the primary site is operational.
@@ -95,3 +95,7 @@ When a Community Training health check detects an outage of any service, and in 
 ### Capacity and proactive disaster recovery resiliency
 
 Microsoft and its customers operate under the shared responsibility model. Once any region is down, not only is the Community Training instance migrated to the paired region, but also all product and customer workloads are also migrated to paired region.  This procedure can cause a shortage for resources in the paired region or datacenter. As a result, Disaster recovery availability depends on the available capacity of the underlying Azure resources.
+
+## Next steps
+
+- [Reliability in Azure](./overview.md)
