@@ -77,4 +77,4 @@ This table lists the solutions and scenarios that are unsupported in Azure Busin
 
 ## Next steps
 
-- [About Azure Business Continuity center (preview)](business-continuity-center\business-continuity-center-overview.md).
+- [About Azure Business Continuity center (preview)](business-continuity-center-overview.md).

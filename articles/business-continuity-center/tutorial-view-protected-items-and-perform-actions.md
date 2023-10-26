@@ -16,7 +16,7 @@ This tutorial describes how to view your datasources that are protected by one o
 
 Before you start this tutorial:
 
-- [Review supported regions for ABC center](business-continuity-center\business-continuity-center-support-matrix.md).
+- [Review supported regions for ABC center](business-continuity-center-support-matrix.md).
 - You need to have permission on the resources to view them in ABC center.
 
 ## View protected items
