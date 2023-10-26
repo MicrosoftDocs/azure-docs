@@ -16,8 +16,8 @@ In this how-to guide, you'll learn how to start and stop SAP systems and their u
 Using the [REST API](/rest/api/workloads) interfaces, you can:
 
 - Start and stop the entire SAP application tier and its Virtual machines, which includes ABAP SAP Central Services (ASCS) and Application Server instances.
-- Start and stop a specific SAP instance, such as the application server instance, and its Virtual machines
-- Start and stop HANA database instance and its Virtual machines
+- Start and stop a specific SAP instance, such as the application server instance, and its Virtual machines.
+- Start and stop HANA database instance and its Virtual machines.
 
 > [!IMPORTANT]
 > The ability to start and stop virtual machines of an SAP system is available from API Version 2023-10-01-preview.
@@ -33,9 +33,13 @@ Using the [REST API](/rest/api/workloads) interfaces, you can:
 ## Unsupported scenarios
 The following scenarios are not currently supported when using the Start and Stop of SAP, individual SAP instances, HANA database and their underlying VMs:
 
-- Starting and stopping systems when multiple SIDs on the same set of Virtual Machines
+- Starting and stopping systems when multiple SIDs on the same set of Virtual Machines.
 - Starting and stopping HANA databases with MCOS (Multiple Components in One System) architecture, where multiple HANA instances run on the same set of virtual machines.
 - Starting and stopping SAP application server or central services instances where instances of multiple SIDs or multiple instances of same SID run on the same virtual machine.
+
+> [!IMPORTANT]
+> For single-server deployments, when you want to stop SAP, HANA DB and the VM, use stop VIS action to stop SAP application tier and then stop HANA database with 'deallocateVm' set to true. This ensures that SAP application and HANA database are both stopped before stopping the VM.
+
 
 ## Start and Stop SAP system and underlying Virtual machines
 You can start and stop the entire SAP application tier and underlying VMs using [REST API version 2023-10-01-preview](/rest/api/workloads).
@@ -58,8 +62,6 @@ POST https://management.azure.com/subscriptions/Sub1/resourceGroups/test-rg/prov
   "deallocateVm": true
 }
 
-> [!IMPORTANT]
-> When using the stop action for SAP system and underlying VM for single-server deployments, ensure that you stop SAP application tier and HANA database and then invoke the stop action for the VIS with 'deallocateVm' set to true. 
 
 ## Start and Stop HANA Database and its VMs
 You can start and stop HANA database and its underlying VMs using [REST API version 2023-10-01-preview](/rest/api/workloads).
