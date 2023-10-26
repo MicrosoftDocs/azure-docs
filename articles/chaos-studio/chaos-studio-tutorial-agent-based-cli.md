@@ -76,11 +76,13 @@ Next, set up a Microsoft-Agent target on each VM or virtual machine scale set th
     }
     ```
 
-1. Create the target by replacing `$RESOURCE_ID` with the resource ID of the target VM or virtual machine scale set. Replace `target.json` with the name of the JSON file you created in the previous step. If you receive a PowerShell parsing error, switch to a Bash terminal as recommended for this tutorial or surround the referenced JSON file in single quotes (`--body '@target.json'`).
+1. Create the target by replacing `$RESOURCE_ID` with the resource ID of the target VM or virtual machine scale set. Replace `target.json` with the name of the JSON file you created in the previous step.
 
     ```azurecli-interactive
     az rest --method put --uri https://management.azure.com/$RESOURCE_ID/providers/Microsoft.Chaos/targets/Microsoft-Agent?api-version=2021-09-15-preview --body @target.json --query properties.agentProfileId -o tsv
     ```
+    
+    If you receive a PowerShell parsing error, switch to a Bash terminal as recommended for this tutorial or surround the referenced JSON file in single quotes (`--body '@target.json'`).
 
 1. Copy down the GUID for the **agentProfileId** returned by this command for use in a later step.
 
