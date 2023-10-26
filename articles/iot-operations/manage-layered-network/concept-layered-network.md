@@ -30,7 +30,7 @@ Layered Network Management provides several benefits including:
 
 There are several ways to configure Layered Network Management to bridge the connection between clusters in the isolated network and services on Azure. The following list are example network environments and cluster scenarios for Layered Network Management.
 
-- **A simplified virtual machine and network** - This scenario uses an [Azure AKS](https://learn.microsoft.com/en-us/azure/aks/) cluster and an Azure Linux VM. You need an Azure subscription the following resources:
+- **A simplified virtual machine and network** - This scenario uses an [Azure AKS](/azure/aks/) cluster and an Azure Linux VM. You need an Azure subscription the following resources:
   - An [AKS cluster](/azure/aks/concepts-clusters-workloads) for layer 4 and 5.
   - An [Azure Linux VM](/azure/virtual-machines/) for layer 3. 
 - **A simplified physically isolated network** - Requires three physical devices (IoT/PC/server) and a wireless access point.

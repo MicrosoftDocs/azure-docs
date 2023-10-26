@@ -242,39 +242,39 @@ On level 3, you need to deploy IoT MQ and MQTT Bridge. MQTT Bridge is the compon
 
   For **MqttBridgeConnector**, in `remoteBrokerConnection` section of the yaml file, specify the name of the MQ service as follows:
 
-    ```yaml
-      remoteBrokerConnection:
-        # Remote broker endpoint URL with port.
-        endpoint: "azedge-dmqtt-frontend.level-4.com:8883"
-        # Specifies if connection is encrypted with TLS and trusted CA cert
-        tls:
-          # TLS enabled or not.
-          tlsEnabled: true
-          trustedCaCertificateName: "ca-cert-configmap"
-    ```
+  ```yaml
+  remoteBrokerConnection:
+    # Remote broker endpoint URL with port.
+    endpoint: "azedge-dmqtt-frontend.level-4.com:8883"
+    # Specifies if connection is encrypted with TLS and trusted CA cert
+    tls:
+      # TLS enabled or not.
+      tlsEnabled: true
+      trustedCaCertificateName: "ca-cert-configmap"
+  ```
 
   For **MqttBridgeTopicMap**, use the following example content of yaml file for testing end to end message delivery.
 
-    ```yaml
-    apiVersion: az-edge.com/v1alpha3
-    kind: MqttBridgeTopicMap
-    metadata:
-      name: "my-topic-map"
-      namespace: level3
-    spec:
-      mqttBridgeConnectorRef: "my-bridge"
-      routes:
-        - direction: local-to-remote
-          name: "send-to-l4"
-          source: "tol4"
-          target: "froml3"
-          qos: 1
-        - direction: remote-to-local
-          name: "receive-from-l4"
-          source: "froml4"
-          target: "tol3"
-          qos: 1
-    ```
+  ```yaml
+  apiVersion: az-edge.com/v1alpha3
+  kind: MqttBridgeTopicMap
+  metadata:
+    name: "my-topic-map"
+    namespace: level3
+  spec:
+    mqttBridgeConnectorRef: "my-bridge"
+    routes:
+      - direction: local-to-remote
+        name: "send-to-l4"
+        source: "tol4"
+        target: "froml3"
+        qos: 1
+      - direction: remote-to-local
+        name: "receive-from-l4"
+        source: "froml4"
+        target: "tol3"
+        qos: 1
+  ```
 
 ## Testing
 

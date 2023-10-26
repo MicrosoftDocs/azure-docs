@@ -32,7 +32,7 @@ If you're using VM to create your Windows 11 machines, use the [VM image](https:
 1. Install [Helm](https://helm.sh/docs/intro/install/) 3.8.0 or later
 1. Install [Kubectl](https://kubernetes.io/docs/tasks/tools/)
 1. Install AKS Edge Essentials. Follow the steps in [Prepare your machines for AKS Edge Essentials](/azure/aks/hybrid/aks-edge-howto-setup-machine)
-1. Install Azure CLI. Follow the steps in [Install Azure CLI on Windows](/azure/install-azure-cli-windows)
+1. Install Azure CLI. Follow the steps in [Install Azure CLI on Windows](/cli/azure/install-azure-cli-windows)
 1. Install connectedk8s using the following command:
 
     ```bash
@@ -52,11 +52,11 @@ After the device is moved to L3, configure the DNS setting using the following s
 1. Check **Use the following DNS server addresses**
 1. Enter the level 3 DNS server local IP address.
 
-    ![Screenshot that shows Windows DNS setting with the level 3 DNS server local IP address](windows-dns-setting.png)
+    ![Screenshot that shows Windows DNS setting with the level 3 DNS server local IP address](./media/howto-configure-l3-cluster-layered-network/windows-dns-setting.pngwindows-dns-setting.png)
 
 ## Create the AKS Edge Essentials cluster
 
-To create the AKS Edge Essentials cluster in level 3, use the `aks-ee-config.json` file that was created for [Level 4 AKS EE](/e4in/setup-l4-cluster/#aks-ee-cluster) with following modification:
+To create the AKS Edge Essentials cluster in level 3, use the `aks-ee-config.json` file that was created for [Level 4 AKS EE](howto-configure-l4-cluster-layered-network.mdr) with following modification:
 
 1. In the **Network** section, set the `SkipDnsCheck` property to **true** and add the `DnsServers` property set to the address of the DNS server in the subnet.
 
@@ -161,7 +161,7 @@ login.microsoftonline.com. 0    IN      A       100.104.0.165
 
 ### Arc-enable cluster
 
-Follow the steps in [Prepare your Kubernetes cluster](../../deploy/howto-prepare-cluster.md) to provision your cluster to Arc.
+Follow the steps in [Prepare your Kubernetes cluster](../deploy/howto-prepare-cluster.md) to provision your cluster to Arc.
 
 ## Related content
 
