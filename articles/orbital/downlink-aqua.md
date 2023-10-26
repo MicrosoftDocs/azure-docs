@@ -37,7 +37,7 @@ Sign in to the [Azure portal - Orbital](https://aka.ms/orbital/portal).
 ## Create a spacecraft resource
 
 1. In the Azure portal search box, enter **Spacecrafts**. Select **Spacecrafts** in the search results.
-2. On the **Spacecrafts** page, select **Create**.
+2. On the **Spacecrafts** page, click **Create**.
 3. Choose which public satellite to contact: Aqua, Suomi NPP, JPSS-1/NOAA-20, or Terra. The table below outlines the NORAD ID, center frequency, bandwidth, and link direction and polarization for each satellite. Refer to this information in the following steps and throughout the tutorial.
 
  | **Spacecraft**  | **NORAD ID** | **Center Frequency (MHz)** | **Bandwidth (MHz)** | **Direction** | **Polarization** |
@@ -67,7 +67,8 @@ Sign in to the [Azure portal - Orbital](https://aka.ms/orbital/portal).
    | **TLE line 1** | Enter TLE line 1 from CelesTrak. |
    | **TLE line 2** | Enter TLE line 2 from CelesTrak. |
 
-5. Select the **Links** tab, or select the **Next: Links** button at the bottom of the page. Then, select **Add new link** and enter or select the following information:
+5. Click **Next**. In the **Links** pane, select **Add new Link**.
+6. In the **Add Link** page, enter or select the following information:
 
    | **Field** | **Value** |
    | --- | --- |
@@ -77,12 +78,12 @@ Sign in to the [Azure portal - Orbital](https://aka.ms/orbital/portal).
    | **Bandwidth** | Enter the **bandwidth** in MHz from the table above. |
    | **Polarization** | Select **RHCP**. |
 
-7. Select **Review + create**. After the validation is complete, select **Create**.
+8. Click **Review + create**. After the validation is complete, click **Create**.
 
 ## Request authorization of the new public spacecraft resource
 
 1. Navigate to the overview page for the newly created spacecraft resource within your resource group.
-2. On the left pane, navigate to **Support + troubleshooting** then select **Diagnose and solve problems**. Under Spacecraft Management and Setup, select **Troubleshoot**, then select **Create a support request**.
+2. On the left pane, navigate to **Support + troubleshooting** then click **Diagnose and solve problems**. Under Spacecraft Management and Setup, click **Troubleshoot**, then click **Create a support request**.
    
    > [!NOTE]
    > A [Basic support plan](https://azure.microsoft.com/support/plans/) or higher is required for a spacecraft authorization request.
@@ -100,82 +101,29 @@ Sign in to the [Azure portal - Orbital](https://aka.ms/orbital/portal).
    | **Problem type** |	Select **Spacecraft Management and Setup**. |
    | **Problem subtype** |	Select **Spacecraft Registration**. |
 
-5. Select **Next**. If a Solutions page pops up, click **Return to support request**. Select **Next** to move to the **Additional details** tab.
+5. click **Next**. If a Solutions page pops up, click **Return to support request**. click **Next** to move to the **Additional details** tab.
 6. Under the **Additional details** tab, enter the following information:
 
    | **Field** | **Value** |
    | --- | --- |
-   | **When did the problem start?** |	Select the current date and time. |
-   | **Select Ground Stations** | Select the desired ground stations. |
+   | **When did the problem start?** |	Select the **current date and time**. |
+   | **Select Ground Stations** | Select the desired **ground stations**. |
    | **Supplemental Terms** | Select **Yes** to accept and acknowledge the Azure Orbital [supplemental terms](https://azure.microsoft.com/products/orbital/#overview). |
    | **Description** |	Enter the satellite's **center frequency** from the table above. |
    | **File upload** |	No additional files are required. |
 
 8. Complete the **Advanced diagnostic information** and **Support method** sections of the **Additional details** tab according to your preferences.
-9. Select **Review + create**. After the validation is complete, select **Create**.
+9. Click **Review + create**. After the validation is complete, click **Create**.
 
 Your spacecraft authorization request is reviewed by the Azure Orbital Ground Station team. Requests for supported public satellites should not take long to approve.
 
    > [!NOTE]
    > You can confirm that your spacecraft resource is authorized by checking that the **Authorization status** shows **Allowed** on the spacecraft's overview page.
 
-## Configure Event Hubs for antenna telemetry
-
-Follow instructions to [create and configure an Azure Event Hub](receive-real-time-telemetry.md#configure-event-hubs) in your subscription.
-
-## Configure a contact profile to downlink from a public satellite
-
-1. In the Azure portal's search box, enter **Contact Profiles**. Select **Contact Profiles** in the search results. 
-2. On the **Contact Profiles** page, select **Create**.
-3. In **Create Contact Profile resource**, on the **Basics** tab, enter or select the following information:
-
-   | **Field** | **Value** |
-   | --- | --- |
-   | **Subscription** | Select your subscription. |
-   | **Resource group** | Select your resource group. |
-   | **Name** | Enter **[Satellite_Name]_Downlink**, e.g., Aqua_Downlink. |
-   | **Region** | Select **West US 2**. |
-   | **Minimum viable contact duration** | Enter **PT1M**. |
-   | **Minimum elevation** | Enter **5.0**. |
-   | **Auto track configuration** | Select **X-band**. |
-   | **Send telemetry to Event Hub?** | Select **Yes**. |
-   | **Event Hubs Namespace** | Select an Azure Event Hubs namespace to which you'll send telemetry data for your contacts. You must select a subscription before you can select an Event Hubs namespace. |
-   | **Event Hubs Instance** | Select an Event Hubs instance that belongs to the previously selected namespace. _This field appears only if you select an Event Hubs namespace first_. |
-   | **Virtual Network** | Select your virtual network. |
-   | **Subnet** | Select your subnet. _This field appears only if you select a virtual network first_. |
-
-6. Select **Next**. In the **Links** page, select **Add new Link**.
-7. On the **Add Link** page, enter or select the following information:
-
-   | **Field** | **Value** |
-   | --- | --- |
-   | **Name** | Enter a name for the link, e.g. Aqua_Downlink |
-   | **Direction** | Select **Downlink**. |
-   | **Gain/Temperature** | Enter **0**. |
-   | **EIRP in dBW** | Only applicable to uplink. Leave blank. |
-   | **Polarization** | Select **RHCP**. |
-
-8. Select **Add Channel**. In the **Add Channel** pane, add or select the following information:
-
-   | **Field** | **Value** |
-   | --- | --- |
-   | **Name** | Enter a name for the channel, e.g Aqua_Downlink_Channel. |
-   | **Center Frequency (MHz)** | Enter the **center frequency** in MHz. Refer to the table above for the value for your selected spacecraft. |
-   | **Bandwidth (MHz)** | Enter the **bandwidth** in MHz. Refer to the table above for the value for your selected spacecraft. |
-   | **Endpoint name** | Enter the **name of the virtual machine** that you created earlier. |
-   | **IP Address** | Enter the **private IP address** of the virtual machine that you created earlier. |
-   | **Port** | Enter **56001**. |
-   | **Protocol** | Enter **TCP**. |
-   | **Demodulation Configuration Type** | Select **Preset Named Modem Configuration**. |
-   | **Demodulation Configuration** | Select the **demodulation configuration** for your selected public satellite. Refer to [configure the modem chain](modem-chain.md#named-modem-configuration) for details. |
-   | **Decoding Configuration** | Leave this field blank. |
-
-9. Select **Submit** to add the channel. Select **Submit** again to add the link. 
-10. Select **Review + create**. After the validation is complete, select **Create**.
-
 ## Prepare your virtual machine and network to receive public satellite data
 
 1. [Create a virtual network](../virtual-network/quick-create-portal.md) to host your data endpoint virtual machine (VM) using the same subscription and resource group where your spacecraft resource is located.
+
 2. [Create a virtual machine](../virtual-network/quick-create-portal.md#create-virtual-machines) within the virtual network that you created using the same subscription and resource group where your spacecraft resource is located. Ensure that this VM has the following specifications:
    - Under the Basics tab:
       - **Image**: the operating system is Linux (**Ubuntu 20.04** or later).
@@ -195,18 +143,72 @@ Follow instructions to [create and configure an Azure Event Hub](receive-real-ti
    sudo mkdir /media/aqua
    sudo mount -t tmpfs -o size=28G tmpfs /media/aqua
    ```
-4. Enter the following command to ensure that the Socat tool is installed on the machine:
+4. Enter the following command in your VM to ensure that the Socat tool is installed on the machine:
 
    ```console
    sudo apt install socat
    ```
-5. [Prepare the network for Azure Orbital Ground Station integration](prepare-network.md) to configure your network.
-
-When preparing the endpoints, enter the following command in your VM to set the MTU level:
+5. Follow instructions to [delegate a subnet](prepare-network.md#prepare-subnet-for-vnet-injection) to Azure Orbital Ground Station.
+   
+6. Follow instructions to [prepare your VM endpoint](prepare-network.md#prepare-endpoints). Enter the following command in your VM to set the MTU level to 3650:
 
    ```console
    sudo ifconfig eth0 3650
    ```
+
+## Configure Event Hubs for antenna telemetry
+
+To receive antenna telemetry during contacts with your selected public satellite, follow instructions to [create and configure an Azure Event Hub](receive-real-time-telemetry.md#configure-event-hubs) in your subscription.
+
+## Configure a contact profile to downlink from a public satellite
+
+1. In the Azure portal's search box, enter **Contact Profiles**. Select **Contact Profiles** in the search results. 
+2. On the **Contact Profiles** page, click **Create**.
+3. In **Create Contact Profile resource**, on the **Basics** tab, enter or select the following information:
+
+   | **Field** | **Value** |
+   | --- | --- |
+   | **Subscription** | Select your **subscription**. |
+   | **Resource group** | Select your **resource group**. |
+   | **Name** | Enter **[Satellite_Name]_Downlink**, e.g., Aqua_Downlink. |
+   | **Region** | Select **West US 2**. |
+   | **Minimum viable contact duration** | Enter **PT1M**. |
+   | **Minimum elevation** | Enter **5.0**. |
+   | **Auto track configuration** | Select **X-band**. |
+   | **Send telemetry to Event Hub?** | Select **Yes**. |
+   | **Event Hubs Namespace** | Select an Azure Event Hubs **namespace** to which you'll send telemetry data for your contacts. You must select a subscription before you can select an Event Hubs namespace. |
+   | **Event Hubs Instance** | Select an Event Hubs **instance** that belongs to the previously selected namespace. _This field appears only if you select an Event Hubs namespace first_. |
+   | **Virtual Network** | Select the **virtual network** that you created earlier. |
+   | **Subnet** | Select the delegated subnet that you created earlier. _This field appears only if you select a virtual network first_. |
+
+6. Click **Next**. In the **Links** page, click **Add new Link**.
+7. On the **Add Link** page, enter or select the following information:
+
+   | **Field** | **Value** |
+   | --- | --- |
+   | **Name** | Enter a name for the link, e.g. Aqua_Downlink |
+   | **Direction** | Select **Downlink**. |
+   | **Gain/Temperature** | Enter **0**. |
+   | **EIRP in dBW** | Only applicable to uplink. Leave blank. |
+   | **Polarization** | Select **RHCP**. |
+
+8. Click **Add Channel**. In the **Add Channel** pane, add or select the following information:
+
+   | **Field** | **Value** |
+   | --- | --- |
+   | **Name** | Enter a name for the channel, e.g Aqua_Downlink_Channel. |
+   | **Center Frequency (MHz)** | Enter the **center frequency** in MHz. Refer to the table above for the value for your selected spacecraft. |
+   | **Bandwidth (MHz)** | Enter the **bandwidth** in MHz. Refer to the table above for the value for your selected spacecraft. |
+   | **Endpoint name** | Enter the **name of the virtual machine** that you created earlier. |
+   | **IP Address** | Enter the **private IP address** of the virtual machine that you created earlier. |
+   | **Port** | Enter **56001**. |
+   | **Protocol** | Enter **TCP**. |
+   | **Demodulation Configuration Type** | Select **Preset Named Modem Configuration**. |
+   | **Demodulation Configuration** | Select the **demodulation configuration** for your selected public satellite. Refer to [configure the modem chain](modem-chain.md#named-modem-configuration) for details. |
+   | **Decoding Configuration** | Leave this field blank. |
+
+9. Click **Submit** to add the channel. Click **Submit** again to add the link. 
+10. Click **Review + create**. After the validation is complete, click **Create**.
 
 ## Schedule a contact with Aqua and save the downlinked data
 
@@ -215,19 +217,19 @@ When preparing the endpoints, enter the following command in your VM to set the 
 
 1. In the Azure portal's search box, enter **Spacecraft**. Select **Spacecraft** in the search results.
 2. On the **Spacecraft** page, select your public spacecraft resource.
-3. Select **Schedule contact** on the top bar of the spacecraft's overview.
+3. Click **Schedule contact** on the top bar of the spacecraft's overview.
 4. On the **Schedule contact** page, specify the following information:
 
    | **Field** | **Value** |
    | --- | --- |
-   | **Contact profile** | Select the contact profile you previously created. |
+   | **Contact profile** | Select the **contact profile** you previously created. |
    | **Ground station** | Select **Microsoft_Quincy**. |
    | **Start time** | Identify a start time for the contact availability window. |
    | **End time** | Identify an end time for the contact availability window. |
 
-5. Select **Search** to view available contact times.
-6. Select one or more contact windows, and then select **Schedule**.
-7. View the scheduled contact by selecting the public spacecraft resource, navigating to Configurations on the left panel, and selecting **Contacts**.
+5. Click **Search** to view available contact times.
+6. Select one or more contact windows, and then click **Schedule**.
+7. View the scheduled contact by selecting the spacecraft resource, navigating to Configurations on the left panel, and clicking **Contacts**.
 8. Shortly before you start running the contact, start listening on port 56001 and output the data received in the file: 
 
    > [!NOTE]
