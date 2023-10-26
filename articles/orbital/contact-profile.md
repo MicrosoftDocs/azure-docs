@@ -1,5 +1,5 @@
 ---
-title: Configure a contact profile on Azure Orbital Ground Station service 
+title: Azure Orbital Ground Station - configure contact profile
 description: Learn how to configure a contact profile
 author: apoorvanori
 ms.service: orbital
@@ -42,10 +42,10 @@ Sign in to the [Azure portal - Orbital](https://aka.ms/orbital/portal).
    | **Auto track configuration** | Select the frequency band to be used for autotracking during the contact: X band, S band, or Disabled. |
    | **Event Hubs Namespace** | Select an Event Hubs Namespace to which you'll send telemetry data of your contacts. Select a Subscription before you can select an Event Hubs Namespace. |
    | **Event Hubs Instance** | Select an Event Hubs Instance that belongs to the previously selected Namespace. _This field will only appear if an Event Hubs Namespace is selected first_. |
-   | **Virtual Network** | Select a Virtual Network according to the instructions on the page. |
-   | **Subnet** | Select your subnet. _This field appears only if you select a virtual network first_. |
+   | **Virtual Network** | Select a **virtual network**. *This VNET must be in the same region as the contact profile.* |
+   | **Subnet** | Select a subnet. *This field appears only if you select a virtual network first. The subnet must be within the previously chosen VNET, be delegated to the Microsoft.Orbital service, and have a minimum address prefix of size /24.* |
 
-   :::image type="content" source="media/orbital-eos-contact-profile.png" alt-text="Contact Profile Resource Page" lightbox="media/orbital-eos-contact-profile.png":::
+   :::image type="content" source="media/orbital-eos-contact-profile.png" alt-text="Screenshot of the contact profile basics page." lightbox="media/orbital-eos-contact-profile.png":::
 
 5. Select the **Links** tab, or select the **Next: Links** button at the bottom of the page.
 6. In the **Links** page, select **Add new Link**.
@@ -53,31 +53,31 @@ Sign in to the [Azure portal - Orbital](https://aka.ms/orbital/portal).
 
    | **Field** | **Value** |
    | --- | --- |
-   | **Name** | Provide a name for the link |
-   | **Direction** | Select the link direction |
-   | **Gain/Temperature** (Downlink only) | Enter the gain to noise temperature in db/K |
-   | **EIRP in dBW** (Uplink only) | Enter the effective isotropic radiated power in dBW |
-   | **Polarization** | Select RHCP, LHCP, Dual, or Linear Vertical |
+   | **Name** | Provide a **name** for the link. |
+   | **Direction** | Select the link **direction**. |
+   | **Gain/Temperature** (_downlink only_) | Enter the **gain to noise temperature** in dB/K. |
+   | **EIRP in dBW** (_uplink only_) | Enter the **effective isotropic radiated power** in dBW. |
+   | **Polarization** | Select **RHCP**, **LHCP**, **Dual**, or **Linear Vertical**. |
+
+   :::image type="content" source="media/orbital-eos-contact-link.png" alt-text="Screenshot of the contact profile links pane." lightbox="media/orbital-eos-contact-link.png":::
 
 8. Select the **Add Channel** button.  
 9. In the **Add Channel** page, enter or select this information per channel:
 
    | **Field** | **Value** |
    | --- | --- |
-   | **Name** | Enter the name for the channel |
-   | **Center Frequency** (MHz) | Enter the center frequency in MHz |
-   | **Bandwidth** (MHz) | Enter the bandwidth in MHz |
-   | **Endpoint name** | Enter the name of the data delivery endpoint |
-   | **IP Address** | Specify the IP Address for data retrieval/delivery |
-   | **Port** | Specify the Port for data retrieval/delivery |
-   | **Protocol** | Select TCP or UDP protocol for data retrieval/delivery |
+   | **Name** | Enter a **name** for the channel. |
+   | **Center Frequency** (MHz) | Enter the **center frequency** in MHz. |
+   | **Bandwidth** (MHz) | Enter the **bandwidth** in MHz. |
+   | **Endpoint name** | Enter the **name** of the data delivery endpoint, e.g. the name of a virtual machine in your resource group. |
+   | **IP Address** | Specify the **IP Address** for data retrieval/delivery |
+   | **Port** | Specify the **port** for data retrieval/delivery. *The port must be within the 49152 and 65535 range and must be unique across all links in the contact profile.* |
+   | **Protocol** | Select **TCP** or **UDP** protocol for data retrieval/delivery. |
    | **Demodulation Configuration Type** (_downlink only_) | Select type. |
    | **Demodulation Configuration** (_downlink only_) | Refer to [configure the modem chain](modem-chain.md) for options. |
    | **Decoding Configuration** (_downlink only_)| If applicable, paste your decoding configuration. |
    | **Modulation Configuration** (_uplink only_) | Refer to [configure the modem chain](modem-chain.md) for options. |
    | **Encoding Configuration** (_uplink only_)| If applicable, paste your encoding configuration. |
-
-   :::image type="content" source="media/orbital-eos-contact-link.png" alt-text="Contact Profile Links Page" lightbox="media/orbital-eos-contact-link.png":::
 
 7. Select the **Submit** button to add the channel.
 8. After adding all channels, select the **Submit** button to add the link.  
@@ -98,6 +98,8 @@ Sign in to the [Azure portal - Orbital](https://aka.ms/orbital/portal).
 13. Select the **Submit** button to add the mission configuration.
 14. Select **Review + create**.
 15. After the validation is complete, select **Create**.
+
+After successful deployment, the contact profile is added to your resource group.
 
 ## Next steps
 
