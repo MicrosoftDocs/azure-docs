@@ -18,7 +18,7 @@ In this quickstart, you will deploy a suite of IoT services to an Azure Arc-enab
 The services deployed in this quickstart include:
 
 * [Azure IoT Orchestrator](../deploy/overview-deploy-iot-operations.md)
-* [Azure IoT MQ](../pub-sub-mqtt/overview-iot-mq.md)
+* [Azure IoT MQ](../manage-mqtt-connectivity/overview-iot-mq.md)
 * [Azure IoT Data Processor](../process-data/overview-data-processor.md) with a demo pipeline to start routing the simulated data
 * [Azure IoT Akri](../manage-devices-assets/concept-akri-overview.md)
 * [Azure Device Registry](../manage-devices-assets/overview-manage-assets.md#manage-assets-as-azure-resources-in-a-centralized-registry)
