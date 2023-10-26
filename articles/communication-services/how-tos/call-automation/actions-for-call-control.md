@@ -361,6 +361,9 @@ var transferOption = new TransferToParticipantOptions(transferDestination) {
     OperationContext = "<Your_context>",
     OperationCallbackUri = new Uri("<uri_endpoint>") // Sending event to a non-default endpoint.
 };
+// adding customeContext
+transferOption.CustomContext.Add(new VoipHeader("customVoipHeader1", "customVoipHeaderValue1"));
+transferOption.CustomContext.Add(new VoipHeader("customVoipHeader2", "customVoipHeaderValue2"));
 
 TransferCallToParticipantResult result = await callConnection.TransferCallToParticipantAsync(transferOption);
 ```
@@ -372,6 +375,8 @@ CommunicationIdentifier transferDestination = new CommunicationUserIdentifier("<
 TransferCallToParticipantOptions options = new TransferCallToParticipantOptions(transferDestination)
                 .setOperationContext("<operation_context>")
                 .setOperationCallbackUrl("<url_endpoint>"); // Sending event to a non-default endpoint.
+// set customContext
+options.getCustomContext().addOrUpdate(new VoipHeader("voipHeaderName", "voipHeaderValue"));
 
 Response<TransferCallResult> transferResponse = callConnectionAsync.transferToParticipantCallWithResponse(options).block();
 ```
@@ -380,10 +385,14 @@ Response<TransferCallResult> transferResponse = callConnectionAsync.transferToPa
 
 ```javascript
 const transferDestination = { communicationUserId: "<user_id>" };
-const result = await callConnection.transferCallToParticipant(transferDestination, {
-                operationContext: "<operation_context>",
-                operationCallbackUrl: "<url_endpoint>"
-});
+const options = { operationContext: "<Your_context>", operationCallbackUrl: "<url_endpoint>" };
+// adding customeContext
+const customContext = new CustomContext({}, {});
+const voipHeader = new VoipHeader("customVoipHeader1", "customVoipHeaderValue1");
+customContext.add(voipHeader);
+options.customContext = customContext;
+
+const result = await callConnection.transferCallToParticipant(transferDestination, options);
 ```
 
 # [Python](#tab/python)
@@ -391,8 +400,12 @@ const result = await callConnection.transferCallToParticipant(transferDestinatio
 ```python
 transfer_destination = CommunicationUserIdentifier("<user_id>")
 call_connection_client = call_automation_client.get_call_connection("<call_connection_id_from_ongoing_call>")
+# set custom context
+voip_headers = {"customVoipHeader1", "customVoipHeaderValue1"}
+
 result = call_connection_client.transfer_call_to_participant(
     target_participant=transfer_destination,
+    voip_headers=voip_headers,
     opration_context="Your context",
     operationCallbackUrl="<url_endpoint>"
 )
