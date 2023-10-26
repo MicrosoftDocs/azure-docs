@@ -86,7 +86,7 @@ Next, set up a Microsoft-Agent target on each VM or virtual machine scale set th
 
 1. Copy down the GUID for the **agentProfileId** returned by this command for use in a later step.
 
-1. Create the capabilities by replacing `$RESOURCE_ID` with the resource ID of the target VM or virtual machine scale set. Replace `$CAPABILITY` with the [name of the fault capability you're enabling](chaos-studio-fault-library.md).
+1. Create the capabilities by replacing `$RESOURCE_ID` with the resource ID of the target VM or virtual machine scale set. Replace `$CAPABILITY` with the [name of the fault capability you're enabling](chaos-studio-fault-library.md) (for example, `CPUPressure-1.0`).
     
     ```azurecli-interactive
     az rest --method put --url "https://management.azure.com/$RESOURCE_ID/providers/Microsoft.Chaos/targets/Microsoft-Agent/capabilities/$CAPABILITY?api-version=2021-09-15-preview" --body "{\"properties\":{}}"
