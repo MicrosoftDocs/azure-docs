@@ -8,11 +8,11 @@ author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Review security posture
+# Review security posture (preview)
 
 Azure Backup offers security features at the vault level to safeguard the backup data stored in it. These security measures encompass the settings associated with the Azure Backup solution for the vault and apply to the protected data sources contained within the vault.
 
-Azure Business Continuity center allows you to view the Security level for each protected item from the Security posture view.
+Azure Business Continuity center (preview) allows you to view the Security level for each protected item from the Security posture view.
 
 ## View security level
 
@@ -34,7 +34,7 @@ Follow these steps to view the security level for protected items:
 
 5. To change the scope for **Security posture** view from the scope picker, select the required options:
     - **Resource status**: 
-        - **Active resources** - Refers to resources currently under active, that is, not deleted.
+        - **Active resources** - Resources that are currently active, which are not deleted.
         - **Deprovisioned resources** - Describes resources that no longer exist, yet their backup and recovery points are retained.
 
 6. The BCDR Security assessment score shows the percentage and count of the protected items having adequate or maximum security.
@@ -83,11 +83,11 @@ Follow these steps to modify the security level for an item:
 
     :::image type="content" source="./media/tutorial-review-security-posture/modify-security-settings.png" alt-text="Screenshot shows the modify security settings on properties page.":::
 
-4.	It can take a while to get the security level updated in Azure Business Continuity center.
+    It might take a while to get the security level settings implemented in Azure Business Continuity center.
 
 5.	When you modify the security setting for a vault, it gets applied to all the protected datasources by Azure Backup in that vault.
 
 ## Next steps
 
 - Manage vaults [Add link]().
-- Review security posture [Add link]().
+- [Review security posture](tutorial-review-security-posture.md).

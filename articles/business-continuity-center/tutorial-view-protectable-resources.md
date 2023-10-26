@@ -8,9 +8,9 @@ author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Tutorial: View protectable resources 
+# Tutorial: View protectable resources (preview)
 
-This tutorial shows you how to view your resources that are currently not protected by any solution, using Azure Business Continuity center. 
+This tutorial shows you how to view your resources that are currently not protected by any solution, using Azure Business Continuity (ABC) center (preview). 
 
 ## Prerequisites
 
@@ -25,12 +25,12 @@ As a business continuity and disaster recovery admin, the first stage in the jou
 
 Follow these steps:
 
-1. Go to the Azure Business Continuity center
+1. Go to the Azure Business Continuity Center from the Azure portal.
 1. Select **Protectable resources** under the **Protection inventory** section. 
 
     :::image type="content" source="./media/tutorial-view-protectable-resources/protection-inventory.png" alt-text="Screenshot showing **Protectable resources** option." lightbox="./media/tutorial-view-protectable-resources/protection-inventory.png":::
  
-In this view you can see a list of all the resources which are not protected by any solution across subscription, resource groups, location, type, and more along with their properties. To view further details for each resource, you can select any resource name, subscription, or resource group from the list.
+In this view, you can see a list of all the resources which are not protected by any solution across subscription, resource groups, location, type, and more along with their properties. To view further details for each resource, you can select any resource name, subscription, or resource group from the list.
 
 > [!NOTE]
 > Currently, you can only view the unprotected Azure resources under **Protectable resources**.

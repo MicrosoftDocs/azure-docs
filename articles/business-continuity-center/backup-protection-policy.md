@@ -8,7 +8,7 @@ author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Create backup and replication policies for your resources
+# Create backup and replication policies for your resources (preview)
 
 This article describes how to create a backup and replication policy that can be used for backups with Azure Backup and replication with Azure Site Recovery. 
 
@@ -43,5 +43,5 @@ Follow these steps to create a policy:
 
 ## Next steps 
 
-- [Manage protection policies](./manage-protection-policy.md)
-- Configure protection  
+- [Manage protection policies](./manage-protection-policy.md).
+- [Configure protection](tutorial-configure-protection-datasource.md).  

@@ -16,6 +16,8 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 ## Updates summary
 
+- November 2023
+  - [Manage protection of datasources using Azure Business Continuity center (preview)](#manage-protection-of-datasources-using-azure-business-continuity-center-preview)
 - September 2023
   - [Multi-user authorization using Resource Guard for Backup vault is now generally available](#multi-user-authorization-using-resource-guard-for-backup-vault-is-now-generally-available)
   - [Enhanced soft delete for Azure Backup is now generally available](#enhanced-soft-delete-for-azure-backup-is-now-generally-available)
@@ -67,6 +69,13 @@ You can learn more about the new releases by bookmarking this page or by [subscr
   - [Archive Tier support for Azure Backup (in preview)](#archive-tier-support-for-azure-backup-in-preview)
 - February 2021
   - [Backup for Azure Blobs (in preview)](#backup-for-azure-blobs-in-preview)
+
+
+## Manage protection of datasources using Azure Business Continuity center (preview)
+
+You can now also manage Azure Backup protections with Azure Business Continuity (ABC) center. ABC enables you to manage your protection estate across solutions and environments. It provides a unified experience with consistent views, seamless navigation, and supporting information to provide a holistic view of your business continuity estate for better discoverability with the ability to do core activities. 
+
+For more information, see the [supported scenarios of ABC center (preview)](../business-continuity-center/business-continuity-center-support-matrix.md).
 
 ## Multi-user authorization using Resource Guard for Backup vault is now generally available
 

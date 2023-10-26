@@ -1,4 +1,4 @@
-- name: Azure Business Continuity Center documentation
+- name: Azure Business Continuity Center documentation (preview)
   href: index.yml
 - name: Overview
   href: business-continuity-center-overview.md
@@ -14,7 +14,7 @@
     href: tutorial-view-protected-items-and-perform-actions.md
   - name: Review security posture
     href: tutorial-review-security-posture.md
-  - name: Monitor and operate
+  - name: Monitor jobs
     href: tutorial-monitor-operate.md
   - name: Monitoring protection summary
     href: tutorial-monitor-protection-summary.md

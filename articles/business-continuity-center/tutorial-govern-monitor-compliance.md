@@ -9,9 +9,9 @@ ms.author: v-abhmallick
 ---
 
 
-# Tutorial – Govern and view compliance
+# Tutorial – Govern and view compliance (preview)
 
-Azure Business Continuity center helps you govern your Azure environment to ensure that all your resources are compliant from a backup and replication perspective. 
+Azure Business Continuity center  (preview) helps you govern your Azure environment to ensure that all your resources are compliant from a backup and replication perspective. 
 
 These are some of the governance capabilities of Azure Business Continuity center: 
 
@@ -21,7 +21,7 @@ These are some of the governance capabilities of Azure Business Continuity cente
 
 ## Supported scenarios 
 
-Refer to the support matrix for a detailed list of supported and unsupported scenarios. 
+Learn more the [supported and unsupported scenarios](business-continuity-center-support-matrix.md). 
 
 ## Azure Policies for protection 
 

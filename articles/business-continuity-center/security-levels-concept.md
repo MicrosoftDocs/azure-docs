@@ -7,7 +7,7 @@ ms.service: backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
-# About Security levels
+# About Security levels (preview)
 
 This article describes the levels of Security available in Azure Business Continuity center (preview).
 
