@@ -4,7 +4,7 @@ description: Learn how to configure collection of performance counters for Windo
 ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
-ms.date: 06/28/2022
+ms.date: 10/19/2023
 
 ---
 
@@ -13,7 +13,7 @@ Performance counters in Windows and Linux provide insight into the performance o
 
 [!INCLUDE [Log Analytics agent deprecation](../../../includes/log-analytics-agent-deprecation.md)]
 
-![Screenshot that shows performance counters.](media/data-sources-performance-counters/overview.png)
+:::image type="content" source="media/data-sources-performance-counters/overview.png" lightbox="media/data-sources-performance-counters/overview.png" alt-text="Screenshot that shows performance counters.":::
 
 ## Configure performance counters
 Configure performance counters from the [Legacy agents management menu](../agents/agent-data-sources.md#configure-data-sources) for the Log Analytics workspace.
@@ -30,7 +30,7 @@ For Windows performance counters, you can choose a specific instance for each pe
 
 ### Windows performance counters
 
-[![Screenshot that shows configuring Windows performance counters.](media/data-sources-performance-counters/configure-windows.png)](media/data-sources-performance-counters/configure-windows.png#lightbox)
+:::image type="content" source="media/data-sources-performance-counters/configure-windows.png" lightbox="media/data-sources-performance-counters/configure-windows.png" alt-text="Screenshot that shows configuring Windows performance counters.":::
 
 Follow this procedure to add a new Windows performance counter to collect. V2 Windows performance counters aren't supported.
 
@@ -44,7 +44,7 @@ Follow this procedure to add a new Windows performance counter to collect. V2 Wi
 
 ### Linux performance counters
 
-[![Screenshot that shows configuring Linux performance counters.](media/data-sources-performance-counters/configure-linux.png)](media/data-sources-performance-counters/configure-linux.png#lightbox)
+:::image type="content" source="media/data-sources-performance-counters/configure-linux.png" lightbox="media/data-sources-performance-counters/configure-linux.png" alt-text="Screenshot that shows configuring Linux performance counters.":::
 
 Follow this procedure to add a new Linux performance counter to collect.
 

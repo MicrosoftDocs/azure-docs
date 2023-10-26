@@ -29,7 +29,7 @@ To see this code as part of a sample application, see the [sample on GitHub](htt
 
 ### Install client library packages
 
-Install the [Blob Storage NuGet package](https://www.nuget.org/packages/Azure.Storage.Blobs/) to work with Blob Storage and the [Azure Identity client library for .NET NuGet package](https://www.nuget.org/packages/Azure.Identity/) to authenticate with Azure AD credentials. Install the client libraries by using the .NET Core command-line interface or the Package Manager Console in Visual Studio.
+Install the [Blob Storage NuGet package](https://www.nuget.org/packages/Azure.Storage.Blobs/) to work with Blob Storage and the [Azure Identity client library for .NET NuGet package](https://www.nuget.org/packages/Azure.Identity/) to authenticate with Microsoft Entra credentials. Install the client libraries by using the .NET Core command-line interface or the Package Manager Console in Visual Studio.
 
 #### .NET Core command-line
 

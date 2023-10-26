@@ -73,7 +73,7 @@ landingContent:
         links:
           - text: JavaScript SDK
             url: reference.md
-          - text: Security Advisory - Update Role Assignment for Azure Active Directory authentication
+          - text: Security Advisory - Update Role Assignment for Microsoft Entra authentication
             url: security-how-to-update-role-assignment.md            
           - text: Release notes
             url: release-notes.md
