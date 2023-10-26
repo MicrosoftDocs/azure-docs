@@ -12,7 +12,7 @@ ms.date: 10/02/2023
 
 # Configure Azure IoT MQ authorization
 
-[!INCLUDE [public-preview-note](../../includes/public-preview-note.md)]
+[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
 
 Authorization policies determine what actions the clients can perform on the broker, such as connecting, publishing, or subscribing to topics. Configure Azure IoT MQ to use one or multiple authorization policies with the *BrokerAuthorization* resource.
@@ -220,7 +220,7 @@ With MQTT 3.1.1, when a publish is denied, the client receives the PUBACK with n
 
 ## Related content
 
-- About [BrokerListener resource](../../manage-mqtt-connectivity/concept-brokerlistener.md)
+- About [BrokerListener resource](concept-brokerlistener.md)
 - [Configure authentication for a BrokerListener](./howto-configure-authentication.md)
 - [Configure TLS with manual certificate management](./howto-configure-tls-manual.md)
 - [Configure TLS with automatic certificate management](./howto-configure-tls-auto.md)

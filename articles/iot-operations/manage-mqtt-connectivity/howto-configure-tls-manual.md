@@ -12,9 +12,9 @@ ms.date: 10/16/2023
 
 # Configure TLS with manual certificate management to secure MQTT communication
 
-[!INCLUDE [public-preview-note](../../includes/public-preview-note.md)]
+[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-You can configure TLS to secure MQTT communication between the MQTT broker and client using a [BrokerListener resource](../../manage-mqtt-connectivity/concept-brokerlistener.md). You can configure TLS with manual or automatic certificate management. 
+You can configure TLS to secure MQTT communication between the MQTT broker and client using a [BrokerListener resource](concept-brokerlistener.md). You can configure TLS with manual or automatic certificate management. 
 
 To manually configure Azure IoT MQ to use a specific TLS certificate, specify it in a Broker Listener resource with a reference to a Kubernetes secret. Then deploy it using kubectl. This guide shows an example to set this up with self-signed certificates for testing.
 
@@ -189,7 +189,7 @@ $ kubectl logs azedge-dmqtt-health-manager-0
 
 ## Related content
 
-- About [BrokerListener resource](../../manage-mqtt-connectivity/concept-brokerlistener.md)
+- About [BrokerListener resource](concept-brokerlistener.md)
 - [Configure authorization for a BrokerListener](./howto-configure-authorization.md)
 - [Configure authentication for a BrokerListener](./howto-configure-authentication.md)
 - [Configure TLS with automatic certificate management](./howto-configure-tls-auto.md)
