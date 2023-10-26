@@ -15,7 +15,7 @@ You can use a Bicep file or an Azure Resource Manager template to deploy a funct
 For a broad set of example Bicep files and ARM templates, see [these function app deployment examples](samples/browse/?expanded=azure&terms=%22azure%20functions%22&products=azure-resource-manager).
 
 >[!IMPORTANT]
->Deployment code depends on how your function app is hosted and whether you are deploying code or a containerized function app. This article supports the three Functions hosting plans (Consumption, Elastic Premium, and Dedicated), as well as deployments to both Azure Container Apps and Azure Arc. 
+>Deployment code depends on how your function app is hosted and whether you are deploying code or a containerized function app. This article supports the three Functions hosting plans (Consumption, Elastic Premium, and Dedicated), as well as containerized deployments to both Azure Container Apps and Azure Arc. 
 > 
 > Choose your desired hosting at the top of the article.
 
