@@ -327,7 +327,7 @@ To start vCenter Server discovery, select **Start discovery**. After the discove
 * It takes approximately 20-25 minutes for the discovery of servers across 10 vCenter Servers added to a single appliance.
 * If you have provided server credentials, software inventory (discovery of installed applications) is automatically initiated when the discovery of servers running on vCenter Server(s) is finished. Software inventory occurs once every 12 hours.
 * [Software inventory](how-to-discover-applications.md) identifies the SQL Server instances that are running on the servers. Using the information it collects, the appliance attempts to connect to the SQL Server instances through the Windows authentication credentials or the SQL Server authentication credentials that are provided on the appliance. Then, it gathers data on SQL Server databases and their properties. The SQL Server discovery is performed once every 24 hours.
-* Appliance can connect to only those SQL Server instances to which it has network line of sight, whereas software inventory by itself may not need network line of sight.
+* Appliance can connect to only those SQL Server instances to which it has network line of sight, whereas software inventory by itself might not need network line of sight.
 * Discovery of installed applications might take longer than 15 minutes. The duration depends on the number of discovered servers. For 500 servers, it takes approximately one hour for the discovered inventory to appear in the Azure Migrate project in the portal.
 * [Software inventory](how-to-discover-applications.md) identifies web server role existing on discovered servers. If a server is found to have web server role enabled, Azure Migrate will perform web apps discovery on the server. Web apps configuration data is updated once every 24 hours.
 * During software inventory, the added server credentials are iterated against servers and validated for agentless dependency analysis. When the discovery of servers is finished, in the portal, you can enable agentless dependency analysis on the servers. Only the servers on which validation succeeds can be selected to enable [agentless dependency analysis](how-to-create-group-machine-dependencies-agentless.md).
@@ -346,7 +346,7 @@ To start vCenter Server discovery, select **Start discovery**. After the discove
 
    :::image type="content" source="./media/tutorial-discover-vmware/discovery-assessment-tile.png" alt-text="Screenshot that shows how to refresh data in discovery and assessment tile.":::
 
-Details such as OS license support status, inventory, database instances, etc are displayed. 
+Details such as OS license support status, inventory, database instances, etc. are displayed. 
 
 #### View support status
 
