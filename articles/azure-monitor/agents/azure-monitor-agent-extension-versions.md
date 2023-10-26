@@ -20,6 +20,7 @@ We strongly recommended to always update to the latest version, or opt in to the
 ## Version details
 | Release Date | Release notes | Windows | Linux |
 |:---|:---|:---|:---|
+| October 2023| **Linux** <ul><li>Add support for Process metrics counters for Log Analytics upload and Azure Monitor Metrics<li>Use rsyslog omfwd TCP for improved syslog reliability</li><li>Support Palo Alto CEF logs where hostname is followed by 2 spaces</li><li>Bug and reliability improvements</li></ui> |None|1.28.0|
 | September 2023| **Windows** <ul><li>Fix issue with high CPU usage due to excessive Windows Event Logs subscription reset</li><li>Reduce fluentbit resource usage by limiting tracked files older than 3 days and limiting logging to errors only</li><li>Fix race-condition where resource_id is unavailable when agent is restarted</li><li>Fix race-condition when AMA vm-extension is provisioned involving disable command</li><li>Update MetricExtension version to 2.2023.721.1630</li><li>Update Troubleshooter to v1.5.14 </li></ul>|1.20.0| None |
 | August 2023| **Windows** <ul><li>AMA: Allow prefixes in the tag names to handle regression</li><li>Updating package version for AzSecPack 4.28 release</li></ul>**Linux**<ul><li> Comming soon</li></ui>|1.19.0| Comming Soon |
 | July 2023| **Windows** <ul><li>Fix crash when Event Log subscription callback throws errors.<li>MetricExtension updated to 2.2023.609.2051</li></ui> |1.18.0|None|

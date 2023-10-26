@@ -98,7 +98,7 @@ The following features and services now have an Azure Monitor Agent version (som
 |	[Container insights](../containers/container-insights-overview.md)	|	Public preview 	|	Containerized Azure Monitor agent	|	[Enable Container Insights](../containers/container-insights-onboard.md)	|
 |   [Microsoft Defender for Cloud](../../security-center/security-center-introduction.md)	| Moving to an agentless solution	|		| Many features available now all will be available by April 2024|
 |   [Microsoft Sentinel](../../sentinel/overview.md)	| <ul><li>Windows Security Events: [GA](../../sentinel/connect-windows-security-events.md?tabs=AMA)</li><li>Windows Forwarding Event (WEF): [GA](../../sentinel/data-connectors/windows-forwarded-events.md)</li><li>Windows DNS logs: [Public preview](../../sentinel/connect-dns-ama.md)</li><li>Linux Syslog CEF: [Public preview](../../sentinel/connect-cef-ama.md#set-up-the-common-event-format-cef-via-ama-connector)</li></ul> |	Sentinel DNS extension, if you’re collecting DNS logs. For all other data types, you just need the Azure Monitor Agent extension. |  See [Gap analysis for Microsoft Sentinel](../../sentinel/ama-migrate.md#gap-analysis-between-agents) for a comparison of the extra data collected by Microsoft Sentinel.  |
-|	 [Change Tracking and Inventory Management](../../automation/change-tracking/overview.md) |	 Moving to an agentless solution 	|	|	Available Novermber 2023 |
+|	 [Change Tracking and Inventory Management](../../automation/change-tracking/overview.md) |	 Moving to an agentless solution 	|	|	Available November 2023 |
 |	[Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md)	|	New service called Connection Monitor: Public preview with Azure Monitor Agent	|	Azure NetworkWatcher extension	|	[Monitor network connectivity by using Azure Monitor Agent](../../network-watcher/azure-monitor-agent-with-connection-monitor.md)	|
 |	Azure Stack HCI Insights	|	Private preview	|	|	[Sign up here](https://aka.ms/amadcr-privatepreviews)	|
 |	Azure Virtual Desktop (AVD) Insights |	Generally Available	|	|	|
@@ -113,10 +113,18 @@ When you migrate the following services, which currently use Log Analytics agent
 |	 [Update Management](../../automation/update-management/overview.md)	|	 Update Manager - Public preview (no dependency on Log Analytics agents or Azure Monitor Agent)	|	None	|	[Update Manager (Public preview with Azure Monitor Agent) documentation](../../update-center/index.yml)	|
 |	 [Automation Hybrid Runbook Worker overview](../../automation/automation-hybrid-runbook-worker.md)	|	 Automation Hybrid Worker Extension - Generally available (no dependency on Log Analytics agents or Azure Monitor Agent)	|	None	|	[Migrate an existing Agent based to Extension based Hybrid Workers](../../automation/extension-based-hybrid-runbook-worker-install.md#migrate-an-existing-agent-based-to-extension-based-hybrid-workers)	|
 
+## Frequently asked questions
+
+This section provides answers to common questions.
+
+### Can Azure Monitor Agent and the Log Analytics agent coexist side by side?
+
+Yes. If you're migrating to Azure Monitor Agent, you might consider installing Azure Monitor Agent together with a legacy agent for a transition period, but you must be mindful of certain considerations. Read more about agent coexistence considerations in the [Azure Monitor Agent migration guidance](./azure-monitor-agent-migration.md#migration-guidance).
+
 ## Next steps
 
 For more information, see:
 
 - [Azure Monitor Agent overview](agents-overview.md)
 - [Azure Monitor Agent migration for Microsoft Sentinel](../../sentinel/ama-migrate.md)
-- [Frequently asked questions for Azure Monitor Agent migration](/azure/azure-monitor/faq#azure-monitor-agent)
+- [Frequently asked questions for Azure Monitor Agent](agents-overview.md#frequently-asked-questions)
