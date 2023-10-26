@@ -9,7 +9,7 @@ ms.date: 10/25/2023
 
 # Deploy Azure Virtual Desktop
 
-This article shows you how to deploy Azure Virtual Desktop by using the Azure portal, Azure CLI, or Azure PowerShell. You create a host pool, workspace, application group, and session hosts and can optionally enable diagnostics settings. You can do all these tasks in the same process when using the Azure portal, but you can also also do them separately.
+This article shows you how to deploy Azure Virtual Desktop by using the Azure portal, Azure CLI, or Azure PowerShell. You create a host pool, workspace, application group, and session hosts and can optionally enable diagnostics settings. You also assign users or groups to the application group for users to get access to their desktops and applications. You can do all these tasks in the same process when using the Azure portal, but you can also also do them separately.
 
 The process covered in this article is an in-depth and adaptable approach to deploying Azure Virtual Desktop. If you want a more simple approach to deploy a sample Windows 11 desktop in Azure Virtual Desktop, see [Tutorial: Deploy a sample Azure Virtual Desktop infrastructure with a Windows 11 desktop](tutorial-try-deploy-windows-11-desktop.md) or use the [getting started feature](getting-started-feature.md).
 
@@ -42,11 +42,11 @@ In addition, you need:
 
 In addition, you need:
 
-- The account must have the following built-in role-based access control (RBAC) roles as a minimum on a resource group or subscription to create the following resource types. If you want to assign the roles to a resource group, you need to create this first.
+- The Azure account you use must be assigned the following built-in role-based access control (RBAC) roles as a minimum on a resource group or subscription to create the following resource types. If you want to assign the roles to a resource group, you need to create this first.
 
-   | Resource type | RBAC role(s) |
+   | Resource type | RBAC role |
    |--|--|
-   | Host pool<br />Workspace<br />Application group | [Desktop Virtualization Contributor](rbac.md#desktop-virtualization-contributor) |
+   | Host pool, workspace, and application group | [Desktop Virtualization Contributor](rbac.md#desktop-virtualization-contributor) |
    | Session hosts | [Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#virtual-machine-contributor) |
 
    Alternatively you can assign the [Contributor](../role-based-access-control/built-in-roles.md#contributor) RBAC role to create all of these resource types.
@@ -62,11 +62,11 @@ In addition, you need:
 
 In addition, you need:
 
-- The account must have the following built-in role-based access control (RBAC) roles as a minimum on a resource group or subscription to create the following resource types. If you want to assign the roles to a resource group, you need to create this first.
+- The Azure account you use must be assigned the following built-in role-based access control (RBAC) roles as a minimum on a resource group or subscription to create the following resource types. If you want to assign the roles to a resource group, you need to create this first.
 
-   | Resource type | RBAC role(s) |
+   | Resource type | RBAC role |
    |--|--|
-   | Host pool<br />Workspace<br />Application group | <br />[Desktop Virtualization Contributor](rbac.md#desktop-virtualization-contributor) |
+   | Host pool, workspace, and application group | [Desktop Virtualization Contributor](rbac.md#desktop-virtualization-contributor) |
    | Session hosts | [Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#virtual-machine-contributor) |
 
    Alternatively you can assign the [Contributor](../role-based-access-control/built-in-roles.md#contributor) RBAC role to create all of these resource types.
@@ -422,7 +422,7 @@ Here's how to create an application group using the Azure portal.
 1. Select **Create** to create the application group.
 
 1. Once the application group has been created, select **Go to resource** to go to the overview of your new application group, then select **Properties** to view its properties.
-TODO:
+
 > [!NOTE]
 > - If you created a desktop application group, assigned users or groups, and registered the default desktop application group to a workspace, your assigned users can connect to the desktop and you don't need to complete the rest of the article.
 >
@@ -695,7 +695,11 @@ Here's how to assign users or user groups to an application group to a workspace
 
 ## Next steps
 
-Once you've deployed Azure Virtual Desktop, here's some extra tasks you might want to do:
+Once you've deployed Azure Virtual Desktop, your users can connect. There are several platforms you can connect from, including from a web browser. For more information, see [Remote Desktop clients for Azure Virtual Desktop](users/remote-desktop-clients-overview.md) and [Connect to Azure Virtual Desktop with the Remote Desktop Web client](users/connect-web.md).
+
+Here are some extra tasks you might want to do:
+
+- Configure profile management with FSLogix. To learn more, see [FSLogix profile containers](fslogix-containers-azure-files.md).
 
 - [Add session hosts to a host pool](add-session-hosts-host-pool.md).
 
