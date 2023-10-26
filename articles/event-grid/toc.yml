@@ -106,6 +106,10 @@ items:
             items:
             - name: .NET
               href: event-grid-dotnet-get-started-pull-delivery.md
+        - name: Push delivery
+          items:
+          - name: Publish and subscribe using namespace topics
+            href: publish-deliver-events-with-namespace-topics.md
       - name: Concepts
         items:
         - name: Pull delivery
@@ -144,6 +148,8 @@ items:
           href: event-grid-namespace-managed-identity.md
         - name: Authenticate publishing clients using Microsoft Entra ID
           href: authenticate-with-active-directory-namespaces.md
+        - name: Forward events to Event Grid namespace topic
+          href: handler-event-grid-namespace-topic.md
         - name: Monitor
           items:
           - name: Pull delivery data reference
