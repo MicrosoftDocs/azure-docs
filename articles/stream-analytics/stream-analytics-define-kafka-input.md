@@ -78,7 +78,7 @@ Azure Stream Analytics integrates seamlessly with Azure Key vault to access stor
 Certificates are stored as secrets in the key vault and must be in PEM format.
 
 ### Configure Key Vault with permissions
-1. You can create a key vault resource by following the documentation [Quickstart: Create a key vault using the Azure portal](https://learn.microsoft.com/en-us/azure/key-vault/general/quick-create-portal)
+1. You can create a key vault resource by following the documentation [Quickstart: Create a key vault using the Azure portal](../key-vault/general/quick-create-portal.md)
 2. To be able to upload certificates, you must have "**Kev Vault Administrator**"  access to your Key vault. Follow the following to grant admin access.
 > [!NOTE]
 > You must have "**Owner**" to be able to grant key vault permissions
