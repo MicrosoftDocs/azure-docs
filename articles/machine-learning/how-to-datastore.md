@@ -429,17 +429,17 @@ To create a OneLake datastore, you need these information resources from your Mi
 #### Onelake workspace name
 In your Microsoft Fabric instance, you can find the workspace information as shown in this screenshot. You can use either a GUID value, or a "friendly name" to create an Azure Machine Learning OneLake datastore.
 
-:::image type="content" source="media/how-./to-datastore/fabric-workspace.png" lightbox="media/how-./media/how-to-datastore/fabric-workspace.png="Screenshot that shows Fabric Workspace details in Microsoft Fabric UI.":::
+:::image type="content" source="media/how-to-datastore/fabric-workspace.png" alt-text="Screenshot that shows Fabric Workspace details in Microsoft Fabric UI." lightbox="./media/how-to-datastore/fabric-workspace.png":::
 
 #### Onelake endpoint
 In your Microsoft Fabric instance, you can find the endpoint information as shown in this screenshot:
 
-:::image type="content" source="media/how-./to-datastore/fabric-endpoint.png" lightbox="media/how-./to-datastore/fabric-endpoint.png" alt-text="Screenshot that shows Fabric endpoint details in Microsoft Fabric UI.":::
+:::image type="content" source="media/how-to-datastore/fabric-endpoint.png" alt-text="Screenshot that shows Fabric endpoint details in Microsoft Fabric UI." lightbox="./media/how-to-datastore/fabric-endpoint.png":::
 
 #### Onelake artifact name
 In your Microsoft Fabric instance, you can find the artifact information as shown in this screenshot. You can use either a GUID value, or a "friendly name" to create an Azure Machine Learning OneLake datastore, as shown in this screenshot:
 
-:::image type="content" source="media/how-./to-datastore/fabric-LH.png" lightbox="media/how-./to-datastore/fabric-LH.png" alt-text="Screenshot showing how to get Fabric LH artifact details in Microsoft Fabric UI.":::
+:::image type="content" source="media/how-to-datastore/fabric-LH.png" alt-text="Screenshot showing how to get Fabric LH artifact details in Microsoft Fabric UI." lightbox="./media/how-to-datastore/fabric-LH.png":::
 
 ### Create a OneLake datastore:
 
@@ -554,21 +554,3 @@ az ml datastore create --file my_onelakesp_datastore.yml
 - [Import data assets (preview)](how-to-import-data-assets.md#import-data-assets-preview)
 - [Data administration](how-to-administrate-data-authentication.md#data-administration)datastore create --file my_adls_datastore.yml
 ```
----
-
-## Next steps
-
-- [Access data in a job](how-to-read-write-data-v2.md#access-data-in-a-job)
-- [Create and manage data assets](how-to-create-data-assets.md#create-and-manage-data-assets)
-- [Import data assets (preview)](how-to-import-data-assets.md#import-data-assets-preview)
-- [Data administration](how-to-administrate-data-authentication.md#data-administration)
-atastore create --file my_adls_datastore.yml
-```
----
-
-## Next steps
-
-- [Access data in a job](how-to-read-write-data-v2.md#access-data-in-a-job)
-- [Create and manage data assets](how-to-create-data-assets.md#create-and-manage-data-assets)
-- [Import data assets (preview)](how-to-import-data-assets.md#import-data-assets-preview)
-- [Data administration](how-to-administrate-data-authentication.md#data-administration)
