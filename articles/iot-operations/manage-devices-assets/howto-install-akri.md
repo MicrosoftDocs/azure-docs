@@ -59,5 +59,4 @@ az k8s-extension delete --name akri-installation --cluster-name $CLUSTER_NAME --
 In this article, you learned how to install and uninstall Azure IoT Akri by using the Azure Arc Extension.  Here's the suggested next step to start working with OPC UA assets:
 
 > [!div class="nextstepaction"]
-> [Create and detect assets using Azure IoT Akri Preview](howto-create-and-detect-assets-using-akri.md)
-
+> [Autodetect assets using Azure IoT Akri](howto-autodetect-opcua-assets-using-akri.md)

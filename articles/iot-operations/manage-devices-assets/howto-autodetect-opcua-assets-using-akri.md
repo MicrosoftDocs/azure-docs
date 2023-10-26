@@ -11,7 +11,7 @@ ms.date: 10/26/2023
 # industrial edge environment so that I can reduce manual configuration overhead. 
 ---
 
-# Create and detect assets using Azure IoT Akri Preview
+# Autodetect assets using Azure IoT Akri Preview
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
