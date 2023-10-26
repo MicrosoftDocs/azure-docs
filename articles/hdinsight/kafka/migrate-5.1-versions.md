@@ -8,15 +8,7 @@ ms.date: 10/26/2023
 
 # Migrate Apache Kafka workloads to Azure HDInsight 5.1
 
-Azure HDInsight 5.1 offers the latest open-source components with significant enhancements in performance, connectivity, and security. This document explains how to migrate Apache Kafka workloads on HDInsight 4.0 to HDInsight 5.1. After migrating your workloads to HDInsight 5.1, you can use many of the new features that aren't available on HDInsight 4.0.
-
-
-
-## HDInsight 4.0 Kafka migration paths
-
-HDInsight 4.0 supports 2.4.1 HDInsight 5.1 supports versions 3.2.0. Depending on which version of Kafka and which version of HDInsight you would like to run. Migration paths are explained and illustrated in the following diagram.
-
-Upgrading the Kafka version on an existing cluster is not supported. After you create a cluster with the version you want, migrate your Kafka clients to use the new cluster.
+Azure HDInsight 5.1 offers the latest open-source components with significant enhancements in performance, connectivity, and security. This document explains how to migrate Apache Kafka workloads from HDInsight 4.0 to HDInsight 5.1. After migrating your workloads to HDInsight 5.1, you can use many of the new features that aren't available on HDInsight 4.0.
 
 
 ## Apache Kafka versions
@@ -32,6 +24,7 @@ If you migrate from Kafka to 3.2.0, you can take advantage of the following new 
 - Support Automated consumer offsets sync across cluster in MM 2.0, making it easier to migrate or failover consumers across clusters. (KIP-545)
 - Hint to the partition leader to recover the partition: A new feature that allows the controller to communicate to a newly elected topic partition leader whether it needs to recover its state (KIP-704)
 - Supports TLS 1.2 by default for secure communication
+- Zookeeper Dependency Removal: Producers and consumers no longer need the zookeeper parameter. Use the `--bootstrap-server` option instead of `--zookeeper` with CLI commands. (KIP-500)
 - Improved metrics (KIP-551, KIP-748, KIP-773)
 - Configurable backlog size for creating Acceptor: A new configuration that allows setting the size of the SYN backlog for TCP’s acceptor sockets on the brokers (KIP-764)
 - Top-level error code field to DescribeLogDirsResponse: A new error code that makes DescribeLogDirs API consistent with other APIs and allows returning other errors besides CLUSTER_AUTHORIZATION_FAILED (KIP-784) 
@@ -47,11 +40,13 @@ New Kafka brokers support older clients. [KIP-35 - Retrieving protocol version](
 :::image type="content" source="./media/migrate-5.1-versions/client-compatibility.png" alt-text="Screenshot shows Upgrade Kafka client compatibility" lightbox="./media/migrate-5.1-versions/client-compatibility.png":::
 
 > [!NOTE]
-> Try to use the cluster versions for the clients.  For more information, see [Compatibility Matrix](https://cwiki.apache.org/confluence/display/KAFKA/Compatibility+Matrix).
+> Recommended to use kafka client version same as the cluster versions. For more information, see [Compatibility Matrix](https://cwiki.apache.org/confluence/display/KAFKA/Compatibility+Matrix).
 
 ## General migration process
 
-The following migration guidance assumes an Apache Kafka 2.4.0 cluster deployed on HDInsight 4.0 in a single virtual network. The existing broker has some topics and is being actively used by producers and consumers.
+The following migration guidance assumes an Apache Kafka 2.1.1 cluster deployed on HDInsight 4.0 in a single virtual network. The existing broker has some topics and is being actively used by producers and consumers.
+Upgrading the Kafka version on an existing cluster is not supported. After you create a cluster with HDI 5.1, migrate your Kafka clients to use the new cluster.
+
 
 To complete the migration, do the following steps:
 
