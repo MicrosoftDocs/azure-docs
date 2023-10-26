@@ -10,134 +10,160 @@ ms.date: 10/02/2023
 #CustomerIntent: As an developer, I want to understand how to use Node-RED to develop low-code apps that talk with Azure IoT MQ.
 ---
 
-
-<!--
-Remove all the comments in this template before you sign-off or merge to the main branch.
-
-This template provides the basic structure of a How-to article pattern. See the
-[instructions - How-to](../level4/article-how-to-guide.md) in the pattern library.
-
-You can provide feedback about this template at: https://aka.ms/patterns-feedback
-
-How-to is a procedure-based article pattern that show the user how to complete a task in their own environment. A task is a work activity that has a definite beginning and ending, is observable, consist of two or more definite steps, and leads to a product, service, or decision.
-
--->
-
-<!-- 1. H1 -----------------------------------------------------------------------------
-
-Required: Use a "<verb> * <noun>" format for your H1. Pick an H1 that clearly conveys the task the user will complete.
-
-For example: "Migrate data from regular tables to ledger tables" or "Create a new Azure SQL Database".
-
-* Include only a single H1 in the article.
-* Don't start with a gerund.
-* Don't include "Tutorial" in the H1.
-
--->
-
 # Use Node-RED to develop low-code applications
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-TODO: Add your heading
+[Node-RED](https://nodered.org/) enables low-code programming for event-driven applications. It's
+ a programming tool for wiring together hardware devices, APIs and online services in new and interesting ways. It provides a browser-based editor that makes it easy to wire together flows using the wide range of nodes in the palette that can be deployed to its runtime in a single-click.
 
-<!-- 2. Introductory paragraph ----------------------------------------------------------
+Before you begin, [verify E4K is installed and running](/docs/mqtt-broker/deploy/).
 
-Required: Lead with a light intro that describes, in customer-friendly language, what the customer will do. Answer the fundamental "why would I want to do this?" question. Keep it short.
+## Connect Node-RED
 
-Readers should have a clear idea of what they will do in this article after reading the introduction.
+This article demonstrates how to deploy a Node-RED environment on Kubernetes and integrate it with E4K. It uses the [node-red-K8s](https://github.com/kube-red/node-red-k8s) open-source project that includes a set of Node-RED nodes to interact with Kubernetes.
 
-* Introduction immediately follows the H1 text.
-* Introduction section should be between 1-3 paragraphs.
-* Don't use a bulleted list of article H2 sections.
+```yaml {hl_lines=[8]}
+apiVersion: v1
+kind: Pod
+metadata:
+  name: node-red
+spec:
+  containers:
+    - name: node-red
+      image: ghcr.io/kube-red/node-red-k8s:0.0.1
+      imagePullPolicy: Always
+      ports:
+      - containerPort: 1880
+        name: http-web-svc
+  restartPolicy: Always
+```
 
-Example: In this article, you will migrate your user databases from IBM Db2 to SQL Server by using SQL Server Migration Assistant (SSMA) for Db2.
+Next, deploy Node-RED to the Kubernetes cluster by running the following command:
 
--->
+```bash
+kubectl apply -f pod.yaml
+```
 
-TODO: Add your introductory paragraph
+When you run `kubectl get pods`, you should see the Node-RED pod running alongside the E4K Pods as well.
 
-<!---Avoid notes, tips, and important boxes. Readers tend to skip over them. Better to put that info directly into the article text.
+```console {hl_lines=[4]}
+NAME                                    READY   STATUS    RESTARTS       AGE
+azedge-dmqtt-backend-0                  1/1     Running   13 (15m ago)   9d
+azedge-diagnostics-574b6b8896-22qd2     1/1     Running   13 (15m ago)   9d
+node-red                                1/1     Running   8 (15m ago)    8d
+azedge-dmqtt-health-manager-0           1/1     Running   13 (15m ago)   9d
+azedge-dmqtt-backend-1                  1/1     Running   13 (15m ago)   9d
+azedge-dmqtt-authentication-0           1/1     Running   13 (15m ago)   9d
+azedge-spiffe-server-5499775dff-gjtp8   2/2     Running   26 (15m ago)   9d
+azedge-spiffe-agent-bbxds               1/1     Running   13 (15m ago)   9d
+azedge-dmqtt-frontend-1                 1/1     Running   13 (15m ago)   9d
+azedge-dmqtt-frontend-0                 1/1     Running   13 (15m ago)   9d
+```
 
--->
+Next, port-forward the Node-RED pod to access the Node-RED client in the browser.
 
-<!-- 3. Prerequisites --------------------------------------------------------------------
+```bash
+kubectl port-forward node-red 1880
+```
 
-Required: Make Prerequisites the first H2 after the H1. 
+To confirm the Node-RED application is running, you can run `kubectl logs node-red`.
 
-* Provide a bulleted list of items that the user needs.
-* Omit any preliminary text to the list.
-* If there aren't any prerequisites, list "None" in plain text, not as a bulleted item.
+```console
 
--->
+Welcome to Node-RED
+===================
 
-## Prerequisites
+28 Jan 01:34:12 - [info] Node-RED version: v3.0.2
+28 Jan 01:34:12 - [info] Node.js  version: v19.3.0
+28 Jan 01:34:12 - [info] Linux 5.4.0-1100-azure x64 LE
+28 Jan 01:34:13 - [info] Loading palette nodes
+28 Jan 01:34:17 - [info] Settings file  : /data/settings.js
+28 Jan 01:34:17 - [info] Context store  : 'default' [module=memory]
+28 Jan 01:34:17 - [info] User directory : /data
+28 Jan 01:34:17 - [warn] Projects disabled : editorTheme.projects.enabled=false
+28 Jan 01:34:17 - [info] Flows file     : /data/flows.json
+28 Jan 01:34:17 - [info] Creating new flow file
 
-TODO: List the prerequisites
+```
 
-<!-- 4. Task H2s ------------------------------------------------------------------------------
+Open `http://{host-ip}:1880` to see the Node-RED web UI.
 
-Required: Multiple procedures should be organized in H2 level sections. A section contains a major grouping of steps that help users complete a task. Each section is represented as an H2 in the article.
+## Sample scenario
 
-For portal-based procedures, minimize bullets and numbering.
+To see how we can use a low-code solution like Node-RED with E4K, we're going to create a simple flow in this exercise.
 
-* Each H2 should be a major step in the task.
-* Phrase each H2 title as "<verb> * <noun>" to describe what they'll do in the step.
-* Don't start with a gerund.
-* Don't number the H2s.
-* Begin each H2 with a brief explanation for context.
-* Provide a ordered list of procedural steps.
-* Provide a code block, diagram, or screenshot if appropriate
-* An image, code block, or other graphical element comes after numbered step it illustrates.
-* If necessary, optional groups of steps can be added into a section.
-* If necessary, alternative groups of steps can be added into a section.
+* The flow triggers every 5 seconds and retrieves a data from a public REST API providing earthquake data.
+* An MQTTui client subscribes to two topics, `degrees` and `earthquake`, to which Node-RED is publishing the parsed data.
+* The switch node in Node-RED unpacks the data, and publishes data with magnitude value greater than or equal to 7, to the `earthquake` topic.
 
--->
+### See it in action
 
-## Task 1
-TODO: Add introduction sentence(s)
-[Include a sentence or two to explain only what is needed to complete the procedure.]
-TODO: Add ordered list of procedure steps
-1. Step 1
-1. Step 2
-1. Step 3
+1. **Add an Inject node** - The Inject node is configured to trigger the flow at a regular interval. Drag an Inject node onto the workspace from the palette. Double click the node to bring up the edit dialog. Set the repeat interval to every 5 seconds. Select Done to close the dialog.
 
-## Task 2
-TODO: Add introduction sentence(s)
-[Include a sentence or two to explain only what is needed to complete the procedure.]
-TODO: Add ordered list of procedure steps
-1. Step 1
-1. Step 2
-1. Step 3
+2. **Add an HTTP Request node** - The HTTP Request node can be used to retrieve a web-page when triggered. The URL is a feed of significant earthquakes in the last month from the US Geological Survey web site. After adding one to the workspace, edit it to set the URL property to: `https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_month.csv`. Then select Done to close the dialog.
 
-## Task 3
-TODO: Add introduction sentence(s)
-[Include a sentence or two to explain only what is needed to complete the procedure.]
-TODO: Add ordered list of procedure steps
-1. Step 1
-1. Step 2
-1. Step 3
+3. **Add a CSV node** - The CSV node converts the JSON-formatted response from the HTTP Request node to a CSV formatted string. Add a CSV node and edit its properties. Enable option for ‘First row contains column names’. Then select Done to close.
 
-<!-- 5. Next step/Related content------------------------------------------------------------------------
+4. **Add an MQTT out node** to the output. The MQTT out node connects to an MQTT broker and publishes messages. The MQTT out node should have the following properties:
 
-Optional: You have two options for manually curated links in this pattern: Next step and Related content. You don't have to use either, but don't use both.
-  - For Next step, provide one link to the next step in a sequence. Use the blue box format
-  - For Related content provide 1-3 links. Include some context so the customer can determine why they would click the link. Add a context sentence for the following links.
+    * **Server**: azedge-dmqtt-frontend
+    * **Port**: 1883
+    * **Topic**: degrees
+    * **Username**: client1
+    * **Password**: password
+    * **Name**: E4K Broker
+    * **QoS**: 1
 
--->
+  {{< detail-tag "See E4K Broker Settings" >}}
 
-## Next step
+  ![](e4k_broker.png)
 
-TODO: Add your next step link(s)
+  <br />
 
+  ![](authentication.png)
 
-<!-- OR -->
+  <br />
+
+  ![](configure_e4k.png)
+
+  <br />
+
+  {{< /detail-tag >}}
+
+  <br/>
+
+6. **Add another MQTT out node** -  Use the same parameters as the first, but change the topic from `degrees` to `earthquake`.
+
+7. **Add a Switch node** - The switch node routes messages based on their property values or sequence position. Edit its properties and configure it to check the property `msg.payload.mag`. Add a value rule for `>=`, set the value to `type number`, and value `7`. Select Done to close. Add a second wire from the `CSV node` to the `Switch node`.
+
+8. **Add a Change node** - The change node can `Set`, `change`, `delete` or `move` properties of a message. Add a `Change` node, wired to the output of the `Switch` node. Configure it to set `msg.payload` to a `string` and enter string name as  `PANIC!`.
+
+9. Connect the nodes together as shown in the following diagram, and select the **Deploy** button on the top right corner.
+
+![](flow.png)
+
+## Subscribe
+
+Now subscribe to the `degrees` and `earthquake` topic from another MQTT client.
+
+{{< detail-tag "See detailed commands to execute in the Quick Start Codespace" >}}
+
+Create a new terminal in the Codespace using the + button on the top right, while ensuring the Node-RED client is continuing to publish data.
+
+Monitor the messages received by the subscriber in real-time using a terminal UI tool called mqttui. Use the following command to subscribe to all topics and see messages arriving on the orders topic in real-time:
+
+```bash
+mqttui -b mqtt://localhost:1883 -u client2 --password password2
+```
+
+{{< /detail-tag >}}
+
+Notice messages are published by the Node-RED flow to the *earthquake* topic when the magnitude value is above the configured threshold:
+
+![](output_1.png)
+
+See the [Node-RED library](https://flows.nodered.org) for more building blocks and examples from the community.
+
 
 ## Related content
-
-TODO: Add your next step link(s)
-
-
-<!--
-Remove all the comments in this template before you sign-off or merge to the main branch.
--->
