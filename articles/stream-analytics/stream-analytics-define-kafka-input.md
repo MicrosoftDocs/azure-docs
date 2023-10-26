@@ -79,7 +79,7 @@ Certificates are stored as secrets in the key vault and must be in PEM format.
 
 ### Configure Key vault with permissions
 1. You can create a key vault resource by following the documentation [Quickstart: Create a key vault using the Azure portal](../key-vault/general/quick-create-portal.md)
-2. To be able to upload certificates, you must have "**Kev Vault Administrator**"  access to your Key vault. Follow the following to grant admin access.
+2. To be able to upload certificates, you must have "**Key Vault Administrator**"  access to your Key vault. Follow the following to grant admin access.
 > [!NOTE]
 > You must have "**Owner**" permissions to grant other key vault permissions.
 
