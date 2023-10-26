@@ -8,7 +8,7 @@ ms.author: chenlujiao
 ms.service: machine-learning
 ms.subservice: prompt-flow
 ms.topic: how-to
-ms.reviewer: larryfr
+ms.reviewer: lagayhar
 ms.date: 10/24/2023
 ms.custom: cli-v2, sdk-v2
 ---
