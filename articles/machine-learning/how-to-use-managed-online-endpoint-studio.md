@@ -44,7 +44,7 @@ Use the studio to create a managed online endpoint directly in your browser. Whe
 
 ### Register the model
 
-A model registration is a logical entity in the workspace that may contain a single model file, or a directory containing multiple files. The steps in this article assume that you've registered the [model folder](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/model-1/model) that contains the model.
+A model registration is a logical entity in the workspace that can contain a single model file, or a directory containing multiple files. The steps in this article assume that you've registered the [model folder](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/model-1/model) that contains the model.
 
 To register the example model using Azure Machine Learning studio, use the following steps:
 

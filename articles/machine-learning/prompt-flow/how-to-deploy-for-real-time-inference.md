@@ -15,7 +15,7 @@ ms.date: 10/24/2023
 
 # Deploy a flow as a managed online endpoint for real-time inference (preview)
 
-After you build a flow and test it properly, you may want to deploy it as an endpoint so that you can invoke the endpoint for real-time inference.
+After you build a flow and test it properly, you might want to deploy it as an endpoint so that you can invoke the endpoint for real-time inference.
 
 In this article, you'll learn how to deploy a flow as a managed online endpoint for real-time inference. The steps you'll take are:
 
@@ -139,7 +139,7 @@ In this step, you can select the virtual machine size and instance count for you
 > [!NOTE]
 > For **Virtual machine**, to ensure that your endpoint can serve smoothly, it's better to select a virtual machine SKU with more than 8GB of memory.  For the list of supported sizes, see [Managed online endpoints SKU list](../reference-managed-online-endpoints-vm-sku-list.md).
 >
-> For **Instance count**, Base the value on the workload you expect. For high availability, we recommend that you set the value to at least 3. We reserve an extra 20% for performing upgrades. For more information, see [virtual machine quota allocation for deployment](../how-to-deploy-online-endpoints.md#virtual-machine-quota-allocation-for-deployment).
+> For **Instance count**, base the value on the workload you expect. For high availability, we recommend that you set the value to at least 3. We reserve an extra 20% for performing upgrades. For more information, see [virtual machine quota allocation for deployment](../how-to-deploy-online-endpoints.md#virtual-machine-quota-allocation-for-deployment).
 
 Once you configured and reviewed all the steps above, you can select **Create** to finish the creation.
 
@@ -283,7 +283,7 @@ Select **Metrics** tab in the left navigation. Select **promptflow standard metr
 
 ### Model response taking too long
 
-Sometimes you may notice that the deployment is taking too long to respond. There are several potential factors for this to occur. 
+Sometimes you might notice that the deployment is taking too long to respond. There are several potential factors for this to occur. 
 
 - Model is not powerful enough (ex. use gpt over text-ada)
 - Index query is not optimized and taking too long

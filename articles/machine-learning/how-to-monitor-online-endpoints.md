@@ -149,13 +149,13 @@ There are three logs that can be enabled for online endpoints:
 
 * **AMLOnlineEndpointConsoleLog**: Contains logs that the containers output to the console. Below are some cases: 
 
-    * If the container fails to start, the console log may be useful for debugging. 
+    * If the container fails to start, the console log can be useful for debugging. 
 
     * Monitor container behavior and make sure that all requests are correctly handled. 
 
     * Write request IDs in the console log. Joining the request ID, the AMLOnlineEndpointConsoleLog, and AMLOnlineEndpointTrafficLog in the Log Analytics workspace, you can trace a request from the network entry point of an online endpoint to the container.  
 
-    * You may also use this log for performance analysis in determining the time required by the model to process each request. 
+    * You can also use this log for performance analysis in determining the time required by the model to process each request. 
 
 * **AMLOnlineEndpointEventLog**: Contains event information regarding the container’s life cycle. Currently, we provide information on the following types of events: 
 

@@ -406,7 +406,7 @@ ml_client.online_deployments.begin_create_or_update(green_deployment).result()
 ```
 
 ## Update traffic allocation for deployments
-You can split production traffic between deployments. You may first want to test the `green` deployment with sample data, just like you did for the `blue` deployment. Once you've tested your green deployment, allocate a small percentage of traffic to it.
+You can split production traffic between deployments. You might first want to test the `green` deployment with sample data, just like you did for the `blue` deployment. Once you've tested your green deployment, allocate a small percentage of traffic to it.
 
 
 ```python

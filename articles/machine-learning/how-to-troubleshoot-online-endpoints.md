@@ -92,9 +92,9 @@ To debug conda installation problems, try the following steps:
 
 1. If there are errors locally, try resolving the conda environment and creating a functional one before redeploying. 
 
-1. If the container crashes even if it resolves locally, the SKU size used for deployment may be too small. 
-    1. Conda package installation occurs at runtime, so if the SKU size is too small to accommodate all of the packages detailed in the `conda.yaml` environment file, then the container may crash. 
-    1. A Standard_F4s_v2 VM is a good starting SKU size, but larger ones may be needed depending on which dependencies are specified in the conda file.
+1. If the container crashes even if it resolves locally, the SKU size used for deployment might be too small. 
+    1. Conda package installation occurs at runtime, so if the SKU size is too small to accommodate all of the packages detailed in the `conda.yaml` environment file, then the container might crash. 
+    1. A Standard_F4s_v2 VM is a good starting SKU size, but larger ones might be needed depending on which dependencies are specified in the conda file.
     1. For Kubernetes online endpoint, the Kubernetes cluster must have minimum of 4 vCPU cores and 8-GB memory.
 
 ## Get container logs
@@ -213,7 +213,7 @@ If you're creating or updating a Kubernetes online deployment, you can see [Comm
 
 ### ERROR: ImageBuildFailure
 
-This error is returned when the environment (docker image) is being built. You can check the build log for more information on the failure(s). The build log is located in the default storage for your Azure Machine Learning workspace. The exact location may be returned as part of the error. For example, `"the build log under the storage account '[storage-account-name]' in the container '[container-name]' at the path '[path-to-the-log]'"`.
+This error is returned when the environment (docker image) is being built. You can check the build log for more information on the failure(s). The build log is located in the default storage for your Azure Machine Learning workspace. The exact location might be returned as part of the error. For example, `"the build log under the storage account '[storage-account-name]' in the container '[container-name]' at the path '[path-to-the-log]'"`.
 
 The following list contains common image build failure scenarios:
 
@@ -227,9 +227,9 @@ We also recommend reviewing the default [probe settings](reference-yaml-deployme
 
 If the error message mentions `"container registry authorization failure"` that means you can't access the container registry with the current credentials.
 The desynchronization of a workspace resource's keys can cause this error and it takes some time to automatically synchronize.
-However, you can [manually call for a synchronization of keys](/cli/azure/ml/workspace#az-ml-workspace-sync-keys), which may resolve the authorization failure.
+However, you can [manually call for a synchronization of keys](/cli/azure/ml/workspace#az-ml-workspace-sync-keys), which might resolve the authorization failure.
 
-Container registries that are behind a virtual network may also encounter this error if set up incorrectly. You must verify that the virtual network that you have set up properly.
+Container registries that are behind a virtual network might also encounter this error if set up incorrectly. You must verify that the virtual network that you have set up properly.
 
 #### Image build compute not set in a private workspace with VNet
 
@@ -238,7 +238,7 @@ If the error message mentions `"failed to communicate with the workspace's conta
 #### Generic image build failure
 
 As stated previously, you can check the build log for more information on the failure.
-If no obvious error is found in the build log and the last line is `Installing pip dependencies: ...working...`, then a dependency may cause the error. Pinning version dependencies in your conda file can fix this problem.
+If no obvious error is found in the build log and the last line is `Installing pip dependencies: ...working...`, then a dependency might cause the error. Pinning version dependencies in your conda file can fix this problem.
 
 We also recommend [deploying locally](#deploy-locally) to test and debug your models locally before deploying to the cloud.
 
@@ -267,7 +267,7 @@ A possible mitigation is to check if there are unused deployments that you can d
 
 #### Cluster quota
 
-This issue occurs when you don't have enough Azure ML Compute cluster quota. This quota defines the total number of clusters that may be in use at one time per subscription to deploy CPU or GPU nodes in Azure Cloud.
+This issue occurs when you don't have enough Azure Machine Learning Compute cluster quota. This quota defines the total number of clusters that might be in use at one time per subscription to deploy CPU or GPU nodes in Azure Cloud.
 
 A possible mitigation is to check if there are unused deployments that you can delete. Or you can submit a [request for a quota increase](how-to-manage-quotas.md#request-quota-increases). Make sure to select `Machine Learning Service: Cluster Quota` as the quota type for this quota increase request.
 
@@ -375,7 +375,7 @@ For more information, please see [Container Registry Authorization Error](#conta
 
 #### Invalid template function specification
 
-This error occurs when a template function has been specified incorrectly. Either fix the policy or remove the policy assignment to unblock. The error message may include the policy assignment name and the policy definition to help you debug this error, and the [Azure policy definition structure article](https://aka.ms/policy-avoiding-template-failures), which discusses tips to avoid template failures.
+This error occurs when a template function has been specified incorrectly. Either fix the policy or remove the policy assignment to unblock. The error message might include the policy assignment name and the policy definition to help you debug this error, and the [Azure policy definition structure article](https://aka.ms/policy-avoiding-template-failures), which discusses tips to avoid template failures.
 
 #### Unable to download user container image
 
@@ -514,9 +514,9 @@ Retrying the operation might allow it to be performed without cancellation.
 
 #### Operation canceled waiting for lock confirmation
 
-Azure operations have a brief waiting period after being submitted during which they retrieve a lock to ensure that we don't run into race conditions. This error happens when the operation you submitted is the same as another operation. And the other operation is currently waiting for confirmation that it has received the lock to proceed. It may indicate that you've submitted a similar request too soon after the initial request.
+Azure operations have a brief waiting period after being submitted during which they retrieve a lock to ensure that we don't run into race conditions. This error happens when the operation you submitted is the same as another operation. And the other operation is currently waiting for confirmation that it has received the lock to proceed. It might indicate that you've submitted a similar request too soon after the initial request.
 
-Retrying the operation after waiting several seconds up to a minute may allow it to be performed without cancellation.
+Retrying the operation after waiting several seconds up to a minute might allow it to be performed without cancellation.
 
 ### ERROR: InternalServerError
 
@@ -561,7 +561,7 @@ The following list is of reasons you might run into this error when creating/upd
 * The Azure ARC (For Azure Arc Kubernetes cluster) or Azure Machine Learning extension (For AKS) isn't properly installed or configured. Try to check the Azure ARC or Azure Machine Learning extension configuration and status. 
 * The Kubernetes cluster has improper network configuration, check the proxy, network policy or certificate.
   * If you're using a private AKS cluster, it's necessary to set up private endpoints for ACR, storage account, workspace in the AKS vnet. 
-* Make sure your Azure machine learning extension version is greater than v1.1.25.
+* Make sure your Azure Machine Learning extension version is greater than v1.1.25.
 
 ### ERROR: TokenRefreshFailed
 
@@ -570,7 +570,7 @@ The following list is of reasons you might run into this error when creating/upd
 
 ### ERROR: GetAADTokenFailed
 
-This error is because the Kubernetes cluster request AAD token failed or timed out, check your network accessibility then try again. 
+This error is because the Kubernetes cluster request Azure AD token failed or timed out, check your network accessibility then try again. 
 
 * You can follow the [Configure required network traffic](../machine-learning/how-to-access-azureml-behind-firewall.md#scenario-use-kubernetes-compute) to check the outbound proxy, make sure the cluster can connect to workspace. 
 * The workspace endpoint url can be found in online endpoint CRD in cluster. 
@@ -588,9 +588,9 @@ You can follow the troubleshooting steps in [GetAADTokenFailed](#error-getaadtok
 
 ### ERROR: ACRTokenExchangeFailed
 
-This error is because the Kubernetes cluster exchange ACR token failed because AAD token is unauthorized yet. Since the role assignment takes some time, so you can wait a moment then try again.
+This error is because the Kubernetes cluster exchange ACR token failed because Azure AD token is unauthorized yet. Since the role assignment takes some time, so you can wait a moment then try again.
 
-This failure may also be due to too many requests to the ACR service at that time, it should be a transient error, you can try again later.
+This failure might also be due to too many requests to the ACR service at that time, it should be a transient error, you can try again later.
 
 ### ERROR: KubernetesUnaccessible
 
@@ -761,8 +761,8 @@ The following table contains common error codes when consuming Kubernetes online
 | ----------- | ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | 409         | Conflict error                                                                | When an operation is already in progress, any new operation on that same online endpoint responds with 409 conflict error. For example, If create or update online endpoint operation is in progress and if you trigger a new Delete operation it throws an error.                                                                                                                             |
 | 502         | Has thrown an exception or crashed in the `run()` method of the score.py file | When there's an error in `score.py`, for example an imported package doesn't exist in the conda environment, a syntax error, or a failure in the `init()` method. You can follow [here](#error-resourcenotready) to debug the file.                                                                                                                                                                   |
-| 503         | Receive large spikes in requests per second                                   | The autoscaler is designed to handle gradual changes in load. If you receive large spikes in requests per second, clients may receive an HTTP status code 503. Even though the autoscaler reacts quickly, it takes AKS a significant amount of time to create more containers. You can follow [here](#how-to-prevent-503-status-codes) to prevent 503 status codes.                                    |
-| 504         | Request has timed out                                                         | A 504 status code indicates that the request has timed out. The default timeout setting is 5 seconds. You can increase the timeout or try to speed up the endpoint by modifying the score.py to remove unnecessary calls. If these actions don't correct the problem, you can follow [here](#error-resourcenotready) to debug the score.py file. The code may be in a nonresponsive state or an infinite loop. |
+| 503         | Receive large spikes in requests per second                                   | The autoscaler is designed to handle gradual changes in load. If you receive large spikes in requests per second, clients might receive an HTTP status code 503. Even though the autoscaler reacts quickly, it takes AKS a significant amount of time to create more containers. You can follow [here](#how-to-prevent-503-status-codes) to prevent 503 status codes.                                    |
+| 504         | Request has timed out                                                         | A 504 status code indicates that the request has timed out. The default timeout setting is 5 seconds. You can increase the timeout or try to speed up the endpoint by modifying the score.py to remove unnecessary calls. If these actions don't correct the problem, you can follow [here](#error-resourcenotready) to debug the score.py file. The code might be in a nonresponsive state or an infinite loop. |
 | 500         | Internal server error                                                         | Azure Machine Learning-provisioned infrastructure is failing.                                                                                                                                                                                                                                                                                                                                                        |
 
 

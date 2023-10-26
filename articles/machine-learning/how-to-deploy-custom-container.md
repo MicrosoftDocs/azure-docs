@@ -22,7 +22,7 @@ Learn how to use a custom container for deploying a model to an online endpoint 
 
 Custom container deployments can use web servers other than the default Python Flask server used by Azure Machine Learning. Users of these deployments can still take advantage of Azure Machine Learning's built-in monitoring, scaling, alerting, and authentication.
 
-The following table lists various [deployment examples](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/custom-container) that use custom containers such as TensorFlow Serving, TorchServe, Triton Inference Server, Plumber R package, and AzureML Inference Minimal image.
+The following table lists various [deployment examples](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/custom-container) that use custom containers such as TensorFlow Serving, TorchServe, Triton Inference Server, Plumber R package, and Azure Machine Learning Inference Minimal image.
 
 |Example|Script (CLI)|Description| 
 |-------|------|---------|
@@ -319,7 +319,7 @@ Now that you've understood how the YAML was constructed, create your endpoint.
 az ml online-endpoint create --name tfserving-endpoint -f endpoints/online/custom-container/tfserving-endpoint.yml
 ```
 
-Creating a deployment may take few minutes.
+Creating a deployment might take few minutes.
 
 ```azurecli
 az ml online-deployment create --name tfserving-deployment -f endpoints/online/custom-container/tfserving-deployment.yml --all-traffic

@@ -301,7 +301,7 @@ When you create a managed online endpoint in the Azure Machine Learning studio, 
 
 ### Register your model
 
-A model registration is a logical entity in the workspace. This entity may contain a single model file or a directory of multiple files. As a best practice for production, you should register the model and environment. When creating the endpoint and deployment in this article, we'll assume that you've registered the [model folder](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/model-1/model) that contains the model.
+A model registration is a logical entity in the workspace. This entity can contain a single model file or a directory of multiple files. As a best practice for production, you should register the model and environment. When creating the endpoint and deployment in this article, we'll assume that you've registered the [model folder](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/model-1/model) that contains the model.
 
 To register the example model, follow these steps:
 
@@ -372,7 +372,7 @@ This action opens up a window for you to specify details about your endpoint and
 
 ## Confirm your existing deployment
 
-One way to confirm your existing deployment is to invoke your endpoint so that it can score your model for a given input request. When you invoke your endpoint via the CLI or Python SDK, you may choose to specify the name of the deployment that will receive the incoming traffic.
+One way to confirm your existing deployment is to invoke your endpoint so that it can score your model for a given input request. When you invoke your endpoint via the CLI or Python SDK, you can choose to specify the name of the deployment that will receive the incoming traffic.
 
 > [!NOTE]
 > Unlike the CLI or Python SDK, Azure Machine Learning studio requires you to specify a deployment when you invoke an endpoint.
