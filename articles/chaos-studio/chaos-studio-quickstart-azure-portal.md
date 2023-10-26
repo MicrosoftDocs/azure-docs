@@ -39,7 +39,9 @@ Create an Azure resource and ensure that it's one of the supported [fault provid
 
    ![Screenshot that shows the Targets view in the Azure portal.](images/quickstart-virtual-machine-enabled.png)
 
-1. A notification appears and indicates that the resources selected were successfully enabled.
+1. Confirm that the desired resource is listed. Select **Review + Enable**, then **Enable**. 
+
+1. A notification appears and indicates that the resource selected was successfully enabled.
    
    ![Screenshot that shows a notification that indicates that targets were successfully enabled.](images/tutorial-service-direct-targets-enable-confirm.png)
 

@@ -1435,7 +1435,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 | Fault type | Continuous. |
 | Parameters (key, value) | |
 | certificateName | Name of Azure Key Vault certificate on which the fault is executed. |
-| version | Certificate version that should be updated. If not specified, the latest version is updated. |
+| version | Certificate version that should be disabled. If not specified, the latest version is disabled. |
 
 ### Sample JSON
 
