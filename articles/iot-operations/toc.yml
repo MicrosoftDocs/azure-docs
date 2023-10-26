@@ -162,6 +162,22 @@ items:
         href: monitor/overview-monitor-health.md
       - name: Monitor Azure MQ
         href: monitor/howto-monitor-mq.md
+    - name: Manage layered network
+      items:
+      - name: Layered Network Management overview
+        href: manage-layered-network/concept-layered-network.md
+      - name: Deploy to an AKS cluster
+        href: manage-layered-network/howto-deploy-aks-layered-network.md
+      - name: Configure Layered Network Management
+        href: manage-layered-network/howto-configure-layered-network.md
+      - name: Configure L3 cluster
+        href: manage-layered-network/howto-configure-l3-cluster-layered-network.md
+      - name: Configure L4 cluster
+        href: manage-layered-network/howto-configure-l4-cluster-layered-network.md
+      - name: Configure MQ in isolated network
+        href: manage-layered-network/howto-configure-mq-layered-network.md
+      - name: Configure AKS Edge Essentials clusters
+        href: manage-layered-network/howto-configure-aks-edge-essentials-layered-network.md
     - name: Developer guide
       items:
       - name: Overview
@@ -180,16 +196,6 @@ items:
       items:
       - name: Overview
         href: administer/overview-manage-solution.md
-      - name: Manage Layered Network
-        items:
-        - name: Layered Network Management overview
-          href: administer/concept-layered-network-management.md
-        - name: Configure Layered Network Management
-          href: administer/howto-configure-layered-network-management.md
-        - name: Deploy to an AKS cluster
-          href: administer/howto-deploy-layered-network-managment-aks.md
-        - name: Configure AKS EE clusters
-          href: administer/howto-configure-aks-ee-layered-network-management.md
     - name: Troubleshoot
       href: troubleshoot/troubleshoot.md
     - name: Reference # supporting information like APIs, tools, code libraries
