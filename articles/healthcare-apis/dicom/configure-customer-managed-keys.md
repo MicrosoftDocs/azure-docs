@@ -19,7 +19,9 @@ With customer-managed keys (CMK), you can protect and control access to your org
 
 - Add a key for the DICOM service in Azure Key Vault. For steps, see [Add a key in Azure Key Vault](../../key-vault/keys/quick-create-portal.md#add-a-key-to-key-vault). 
 
-- Enable a managed identity for the DICOM service. You can use either a system-assigned or user-assigned managed identity. To find out the differences between a system-assigned and user-assigned managed identity, see [Managed identity types](/entra/identity/managed-identities-azure-resources/overview). 
+## Enable a managed identity for the DICOM service
+
+ You can use either a system-assigned or user-assigned managed identity. To find out the differences between a system-assigned and user-assigned managed identity, see [Managed identity types](/entra/identity/managed-identities-azure-resources/overview). 
 
 #### System-assigned managed identity
 
@@ -74,7 +76,8 @@ After you add the key, you need to update the DICOM service with the key URL.
 
 :::image type="content" source="media/configure-customer-managed-keys/key-vault-list.png" alt-text="Screenshot of the Keys page and the key to use with the DICOM service." lightbox="media/configure-customer-managed-keys/key-vault-list.png":::
 
-3. Select the key version, and then copy the **Key Identifier**.  You need the key URL when you update the key by using an ARM template.
+3. Select the key version.
+4. Copy the **Key Identifier**.  You need the key URL when you update the key by using an ARM template.
 
 :::image type="content" source="media/configure-customer-managed-keys/key-vault-url.png" alt-text="Screenshot showing the key version details and the copy action for the Key Identifier." lightbox="media/configure-customer-managed-keys/key-vault-url.png":::
 
