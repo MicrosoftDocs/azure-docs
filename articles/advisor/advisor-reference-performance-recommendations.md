@@ -41,7 +41,7 @@ Learn more about [Cognitive Service - TAUpgradeModelVersiontoLatest (Text Analyt
 
 ### Upgrade to the latest Cognitive Service Text Analytics API version
 
-Upgrade to the latest API version to get the best results in terms of model quality, performance and service availability. Also there are new features are available as new endpoints starting from V3.0 such as PII recognition, Entity recognition and entity linking available as separate endpoints. In terms of changes in preview endpoints, we have Opinion Mining in SA endpoint, redacted text property in PII endpoint
+Upgrade to the latest API version to get the best results in terms of model quality, performance and service availability. Also there are new features available as new endpoints starting from V3.0 such as personal data (PII) recognition, entity recognition and entity linking available as separate endpoints. In terms of changes in preview endpoints, we have Opinion Mining in SA endpoint, redacted text property in PII endpoint
 
 Learn more about [Cognitive Service - UpgradeToLatestAPI (Upgrade to the latest Cognitive Service Text Analytics API version)](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-call-api).
 
@@ -53,7 +53,7 @@ Learn more about [Cognitive Service - UpgradeToLatestAPILanguage (Upgrade to the
 
 ### Upgrade to the latest Cognitive Service Text Analytics SDK version
 
-Upgrade to the latest SDK version to get the best results in terms of model quality, performance and service availability. Also there are new features are available as new endpoints starting from V3.0 such as PII recognition, Entity recognition and entity linking available as separate endpoints. In terms of changes in preview endpoints, we have Opinion Mining in SA endpoint, redacted text property in PII endpoint
+Upgrade to the latest SDK version to get the best results in terms of model quality, performance and service availability. Also there are new features available as new endpoints starting from V3.0 such as personal data (PII) recognition, entity recognition and entity linking available as separate endpoints. In terms of changes in preview endpoints, we have Opinion Mining in SA endpoint, redacted text property in PII endpoint
 
 Learn more about [Cognitive Service - UpgradeToLatestSDK (Upgrade to the latest Cognitive Service Text Analytics SDK version)](/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk?tabs=version-3-1&pivots=programming-language-csharp).
 
@@ -65,7 +65,7 @@ Learn more about [Cognitive Service - UpgradeToLatestSDKLanguage (Upgrade to the
 
 ### Upgrade to the latest Azure AI Language SDK version
 
-Upgrade to the latest SDK version to get the best results in terms of model quality, performance and service availability. Also there are new features available as new endpoints starting from V3.0 such as personally identifiable information recognition, Entity recognition and entity linking available as separate endpoints. In terms of changes in preview endpoints, we have Opinion Mining in SA endpoint, redacted text property in personally identifiable information endpoint.
+Upgrade to the latest SDK version to get the best results in terms of model quality, performance and service availability. Also there are new features available as new endpoints starting from V3.0 such as personal data recognition, entity recognition and entity linking available as separate endpoints. In terms of changes in preview endpoints, we have Opinion Mining in SA endpoint, redacted text property in personal data endpoint.
 
 Learn more about [Azure AI Language](/azure/ai-services/language-service/language-detection/overview).
 
@@ -88,13 +88,13 @@ Learn more about [Data explorer resource - UpdateCachePoliciesForAdxTables (Revi
 
 ### Reduce Data Explorer table cache policy for better performance
 
-Reducing the table cache policy frees up unused data from the resource's cache and improve performance.
+Reducing the table cache policy frees up unused data from the resource's cache and improves performance.
 
 Learn more about [Data explorer resource - ReduceCacheForAzureDataExplorerTablesToImprovePerformance (Reduce Data Explorer table cache policy for better performance)](https://aka.ms/adxcachepolicy).
 
 ### Increase the cache in the cache policy
 
-Based on your actual usage during the last month, update the cache policy to increase the hot cache for the table. The retention period must always be larger than the cache period. If, after increasing the cache, the retention period is lower than the cache period, update the retention policy.(*) The analysis is based only on user queries that scanned data.
+Based on your actual usage during the last month, update the cache policy to increase the hot cache for the table. The retention period must always be larger than the cache period. If you increase the cache and the retention period is lower than the cache period, update the retention policy. The analysis is based only on user queries that scanned data.
 
 Learn more about [Data explorer resource - IncreaseCacheForAzureDataExplorerTablesToImprovePerformance (Increase the cache in the cache policy)](https://aka.ms/adxcachepolicy).
 
@@ -174,7 +174,7 @@ Learn more about [AVS Private cloud - vSANCapacity (vSAN capacity utilization ha
 
 ### Update Automanage to the latest API Version
 
-We have identified sdk calls from outdated API for resources under this subscription. We recommend switching to the latest sdk versions. This ensures you receive the latest features and performance improvements.
+We have identified SDK calls from outdated API for resources under this subscription. We recommend switching to the latest SDK versions. This ensures you receive the latest features and performance improvements.
 
 Learn more about [Virtual machine - UpdateToLatestApi (Update Automanage to the latest API Version)](/azure/automanage/reference-sdk).
 
@@ -249,15 +249,15 @@ Unsupported Kubernetes version is detected. Ensure Kubernetes cluster runs with 
 
 Learn more about [HDInsight Cluster Pool - UnsupportedHiloAKSVersionIsDetected (Unsupported Kubernetes version is detected)](https://aka.ms/aks-supported-versions).
 
-### Clusters with a Single Node Pool
+### Clusters with a single node pool
 
 We recommended that you add one or more node pools instead of using a single node pool. Multiple pools help to isolate critical system pods from your application to prevent misconfigured or rogue application pods from accidentally killing system pods.
 
 Learn more about [Kubernetes service - ClustersWithASingleNodePool (Clusters with a Single Node Pool)](/azure/aks/use-system-pools?tabs=azure-cli#system-and-user-node-pools).
 
-### Update Fleet API to the latest Version
+### Update Fleet API to the latest version
 
-We have identified SDK calls from outdated Fleet API for resources under your subscription. We recommend switching to the latest sdk versions, which ensures you receive the latest features and performance improvements.
+We have identified SDK calls from outdated Fleet API for resources under your subscription. We recommend switching to the latest SDK version, which ensures you receive the latest features and performance improvements.
 
 Learn more about [Kubernetes fleet manager | PREVIEW - UpdateToLatestFleetApi (Update Fleet API to the latest Version)](/azure/kubernetes-fleet/update-orchestration).
 
@@ -286,7 +286,7 @@ Learn more about [Azure Cosmos DB account - CosmosDBDefaultIndexingWithManyPaths
 
 ### Use hierarchical partition keys for optimal data distribution
 
-Your account has a custom setting that allows the logical partition size in a container to exceed the limit of 20 GB. The Azure Cosmos DB team applied this setting as a temporary measure to give you time to re-architect your application with a different partition key. It is not recommended as a long-term solution, as SLA guarantees are not honored when the limit is increased. You can now use hierarchical partition keys (preview) to re-architect your application. The feature allows you to exceed the 20 GB limit by setting up to three partition keys, ideal for multi-tenant scenarios or workloads that use synthetic keys.
+Your account has a custom setting that allows the logical partition size in a container to exceed the limit of 20 GB. The Azure Cosmos DB team applied this setting as a temporary measure to give you time to re-architect your application with a different partition key. It is not recommended as a long-term solution, as SLA guarantees are not honored when the limit is increased. You can now use hierarchical partition keys (preview) to re-architect your application. The feature allows you to exceed the 20 GB limit by setting up to three partition keys, ideal for multitenant scenarios or workloads that use synthetic keys.
 
 Learn more about [Azure Cosmos DB account - CosmosDBHierarchicalPartitionKey (Use hierarchical partition keys for optimal data distribution)](https://devblogs.microsoft.com/cosmosdb/hierarchical-partition-keys-private-preview/).
 
@@ -311,194 +311,194 @@ Learn more about [Cosmos DB account - ScaleUpvCoreRecommendation (PerformanceBoo
 
 ### Scale the storage limit for MariaDB server
 
-Our internal telemetry shows that the server might be constrained because it is approaching limits for the currently provisioned storage values. Approaching the storage limits might result in degraded performance or the server moved to read-only mode. To ensure continued performance, we recommend increasing the provisioned storage amount or turning ON the "Auto-Growth" feature for automatic storage increases
+Our system shows that the server might be constrained because it is approaching limits for the currently provisioned storage values. Approaching the storage limits might result in degraded performance or the server moved to read-only mode. To ensure continued performance, we recommend increasing the provisioned storage amount or turning ON the "Auto-Growth" feature for automatic storage increases
 
 Learn more about [MariaDB server - OrcasMariaDbStorageLimit (Scale the storage limit for MariaDB server)](https://aka.ms/mariadbstoragelimits).
 
 ### Increase the MariaDB server vCores
 
-Our internal telemetry shows that the CPU has been running under high utilization for an extended time period over the last seven days. High CPU utilization might lead to slow query performance. To improve performance, we recommend moving to a larger compute size.
+Our system shows that the CPU has been running under high utilization for an extended time period over the last seven days. High CPU utilization might lead to slow query performance. To improve performance, we recommend moving to a larger compute size.
 
 Learn more about [MariaDB server - OrcasMariaDbCpuOverload (Increase the MariaDB server vCores)](https://aka.ms/mariadbpricing).
 
 ### Scale the MariaDB server to higher SKU
 
-Our internal telemetry shows that the server might be unable to support the connection requests because of the maximum supported connections for the given SKU, which might result in a large number of failed connections requests which adversely affect the performance. To improve performance, we recommend moving to higher memory SKU by increasing vCore or switching to Memory-Optimized SKUs.
+Our system shows that the server might be unable to support the connection requests because of the maximum supported connections for the given SKU, which might result in a large number of failed connections requests which adversely affect the performance. To improve performance, we recommend moving to higher memory SKU by increasing vCore or switching to Memory-Optimized SKUs.
 
 Learn more about [MariaDB server - OrcasMariaDbConcurrentConnection (Scale the MariaDB server to higher SKU)](https://aka.ms/mariadbconnectionlimits).
 
 ### Move your MariaDB server to Memory Optimized SKU
 
-Our internal telemetry shows that there is high churn in the buffer pool for this server which can result in slower query performance and increased IOPS. To improve performance,  review your workload queries to identify opportunities to minimize memory consumed.  If no such opportunity found, then we recommend moving to higher SKU with more memory or increase storage size to get more IOPS.
+Our system shows that there is high churn in the buffer pool for this server which can result in slower query performance and increased IOPS. To improve performance,  review your workload queries to identify opportunities to minimize memory consumed.  If no such opportunity found, then we recommend moving to higher SKU with more memory or increase storage size to get more IOPS.
 
 Learn more about [MariaDB server - OrcasMariaDbMemoryCache (Move your MariaDB server to Memory Optimized SKU)](https://aka.ms/mariadbpricing).
 
 ### Increase the reliability of audit logs
 
-Our internal telemetry shows that the server's audit logs might have been lost over the past day. Lost audit logs can occur when your server is experiencing a CPU-heavy workload, or a server generates a large number of audit logs over a short time period. We recommend only logging the necessary events required for your audit purposes using the following server parameters: audit_log_events, audit_log_exclude_users, audit_log_include_users. If the CPU usage on your server is high due to your workload, we recommend increasing the server's vCores to improve performance.
+Our system shows that the server's audit logs might have been lost over the past day. Lost audit logs can occur when your server is experiencing a CPU-heavy workload, or a server generates a large number of audit logs over a short time period. We recommend only logging the necessary events required for your audit purposes using the following server parameters: audit_log_events, audit_log_exclude_users, audit_log_include_users. If the CPU usage on your server is high due to your workload, we recommend increasing the server's vCores to improve performance.
 
 Learn more about [MariaDB server - OrcasMariaDBAuditLog (Increase the reliability of audit logs)](https://aka.ms/mariadb-audit-logs).
 
 ### Scale the storage limit for MySQL server
 
-Our internal telemetry shows that the server might be constrained because it is approaching limits for the currently provisioned storage values. Approaching the storage limits might result in degraded performance or in the server being moved to read-only mode. To ensure continued performance, we recommend increasing the provisioned storage amount or turning ON the "Auto-Growth" feature for automatic storage increases
+Our system shows that the server might be constrained because it is approaching limits for the currently provisioned storage values. Approaching the storage limits might result in degraded performance or in the server being moved to read-only mode. To ensure continued performance, we recommend increasing the provisioned storage amount or turning ON the "Auto-Growth" feature for automatic storage increases
 
 Learn more about [MySQL server - OrcasMySQLStorageLimit (Scale the storage limit for MySQL server)](https://aka.ms/mysqlstoragelimits).
 
 ### Scale the MySQL server to higher SKU
 
-Our internal telemetry shows that the server might be unable to support the connection requests because of the maximum supported connections for the given SKU, which might result in a large number of failed connections requests that adversely affect the performance. To improve performance, we recommend moving to a higher memory SKU by increasing vCore or switching to Memory-Optimized SKUs.
+Our system shows that the server might be unable to support the connection requests because of the maximum supported connections for the given SKU, which might result in a large number of failed connections requests that adversely affect the performance. To improve performance, we recommend moving to a higher memory SKU by increasing vCore or switching to Memory-Optimized SKUs.
 
 Learn more about [MySQL server - OrcasMySQLConcurrentConnection (Scale the MySQL server to higher SKU)](https://aka.ms/mysqlconnectionlimits).
 
 ### Increase the MySQL server vCores
 
-Our internal telemetry shows that the CPU has been running under high utilization for an extended time period over the last seven days. High CPU utilization might lead to slow query performance. To improve performance, we recommend moving to a larger compute size.
+Our system shows that the CPU has been running under high utilization for an extended time period over the last seven days. High CPU utilization might lead to slow query performance. To improve performance, we recommend moving to a larger compute size.
 
 Learn more about [MySQL server - OrcasMySQLCpuOverload (Increase the MySQL server vCores)](https://aka.ms/mysqlpricing).
 
 ### Move your MySQL server to Memory Optimized SKU
 
-Our internal telemetry shows that there is high churn in the buffer pool for this server which can result in slower query performance and increased IOPS. To improve performance, review your workload queries to identify opportunities to minimize memory consumed.  If no such opportunity found, then we recommend moving to higher SKU with more memory or increase storage size to get more IOPS.
+Our system shows that there is high churn in the buffer pool for this server which can result in slower query performance and increased IOPS. To improve performance, review your workload queries to identify opportunities to minimize memory consumed.  If no such opportunity found, then we recommend moving to higher SKU with more memory or increase storage size to get more IOPS.
 
 Learn more about [MySQL server - OrcasMySQLMemoryCache (Move your MySQL server to Memory Optimized SKU)](https://aka.ms/mysqlpricing).
 
 ### Add a MySQL Read Replica server
 
-Our internal telemetry shows that you might have a read intensive workload running, which results in resource contention for this server. Resource contention might lead to slow query performance for the server. To improve performance, we recommend you add a read replica, and offload some of your read workloads to the replica.
+Our system shows that you might have a read intensive workload running, which results in resource contention for this server. Resource contention might lead to slow query performance for the server. To improve performance, we recommend you add a read replica, and offload some of your read workloads to the replica.
 
 Learn more about [MySQL server - OrcasMySQLReadReplica (Add a MySQL Read Replica server)](https://aka.ms/mysqlreadreplica).
 
 ### Improve MySQL connection management
 
-Our internal telemetry shows that your application connecting to MySQL server might be managing connections poorly, which might result in unnecessary resource consumption and overall higher application latency. To improve connection management, we recommend that you reduce the number of short-lived connections and eliminate unnecessary idle connections. You can do this by configuring a server side connection-pooler, such as ProxySQL.
+Our system shows that your application connecting to MySQL server might be managing connections poorly, which might result in unnecessary resource consumption and overall higher application latency. To improve connection management, we recommend that you reduce the number of short-lived connections and eliminate unnecessary idle connections. You can do this by configuring a server side connection-pooler, such as ProxySQL.
 
 Learn more about [MySQL server - OrcasMySQLConnectionPooling (Improve MySQL connection management)](https://aka.ms/azure_mysql_connection_pooling).
 
 ### Increase the reliability of audit logs
 
-Our internal telemetry shows that the server's audit logs might have been lost over the past day. This can occur when your server is experiencing a CPU heavy workload or a server generates a large number of audit logs over a short time period. We recommend only logging the necessary events required for your audit purposes using the following server parameters: audit_log_events, audit_log_exclude_users, audit_log_include_users. If the CPU usage on your server is high due to your workload, we recommend increasing the server's vCores to improve performance.
+Our system shows that the server's audit logs might have been lost over the past day. This can occur when your server is experiencing a CPU heavy workload or a server generates a large number of audit logs over a short time period. We recommend only logging the necessary events required for your audit purposes using the following server parameters: audit_log_events, audit_log_exclude_users, audit_log_include_users. If the CPU usage on your server is high due to your workload, we recommend increasing the server's vCores to improve performance.
 
 Learn more about [MySQL server - OrcasMySQLAuditLog (Increase the reliability of audit logs)](https://aka.ms/mysql-audit-logs).
 
 ### Improve performance by optimizing MySQL temporary-table sizing
 
-Our internal telemetry shows that your MySQL server might be incurring unnecessary I/O overhead due to low temporary-table parameter settings. This might result in unnecessary disk-based transactions and reduced performance. We recommend that you increase the 'tmp_table_size' and 'max_heap_table_size' parameter values to reduce the number of disk-based transactions.
+Our system shows that your MySQL server might be incurring unnecessary I/O overhead due to low temporary-table parameter settings. This might result in unnecessary disk-based transactions and reduced performance. We recommend that you increase the 'tmp_table_size' and 'max_heap_table_size' parameter values to reduce the number of disk-based transactions.
 
 Learn more about [MySQL server - OrcasMySqlTmpTables (Improve performance by optimizing MySQL temporary-table sizing)](https://aka.ms/azure_mysql_tmp_table).
 
 ### Improve MySQL connection latency
 
-Our internal telemetry shows that your application connecting to MySQL server might be managing connections poorly. This might result in higher application latency. To improve connection latency, we recommend that you enable connection redirection. This can be done by enabling the connection redirection feature of the PHP driver.
+Our system shows that your application connecting to MySQL server might be managing connections poorly. This might result in higher application latency. To improve connection latency, we recommend that you enable connection redirection. This can be done by enabling the connection redirection feature of the PHP driver.
 
 Learn more about [MySQL server - OrcasMySQLConnectionRedirection (Improve MySQL connection latency)](https://aka.ms/azure_mysql_connection_redirection).
 
 ### Increase the storage limit for MySQL Flexible Server
 
-Our internal telemetry shows that the server might be constrained because it is approaching limits for the currently provisioned storage values. Approaching the storage limits might result in degraded performance or in the server being moved to read-only mode. To ensure continued performance, we recommend increasing the provisioned storage amount.
+Our system shows that the server might be constrained because it is approaching limits for the currently provisioned storage values. Approaching the storage limits might result in degraded performance or in the server being moved to read-only mode. To ensure continued performance, we recommend increasing the provisioned storage amount.
 
 Learn more about [Azure Database for MySQL flexible server - OrcasMeruMySqlStorageUpsell (Increase the storage limit for MySQL Flexible Server)](https://aka.ms/azure_mysql_flexible_server_storage).
 
 ### Scale the MySQL Flexible Server to a higher SKU
 
-Our telemetry shows that your Flexible Server is exceeding the connection limits associated with your current SKU. A large number of failed connection requests might adversely affect server performance. To improve performance, we recommend increasing the number of vCores or switching to a higher SKU.
+Our system shows that your Flexible Server is exceeding the connection limits associated with your current SKU. A large number of failed connection requests might adversely affect server performance. To improve performance, we recommend increasing the number of vCores or switching to a higher SKU.
 
 Learn more about [Azure Database for MySQL flexible server - OrcasMeruMysqlConnectionUpsell (Scale the MySQL Flexible Server to a higher SKU)](https://aka.ms/azure_mysql_flexible_server_storage).
 
 ### Increase the MySQL Flexible Server vCores.
 
-Our internal telemetry shows that the CPU has been running under high utilization for an extended time period over the last seven days. High CPU utilization might lead to slow query performance. To improve performance, we recommend moving to a larger compute size.
+Our system shows that the CPU has been running under high utilization for an extended time period over the last seven days. High CPU utilization might lead to slow query performance. To improve performance, we recommend moving to a larger compute size.
 
 Learn more about [Azure Database for MySQL flexible server - OrcasMeruMysqlCpuUpcell (Increase the MySQL Flexible Server vCores.)](https://aka.ms/azure_mysql_flexible_server_pricing).
 
 ### Improve performance by optimizing MySQL temporary-table sizing.
 
-Our internal telemetry shows that your MySQL server might be incurring unnecessary I/O overhead due to low temporary-table parameter settings. Unnecessary I/O overhead might result in unnecessary disk-based transactions and reduced performance. We recommend that you increase the 'tmp_table_size' and 'max_heap_table_size' parameter values to reduce the number of disk-based transactions.
+Our system shows that your MySQL server might be incurring unnecessary I/O overhead due to low temporary-table parameter settings. Unnecessary I/O overhead might result in unnecessary disk-based transactions and reduced performance. We recommend that you increase the 'tmp_table_size' and 'max_heap_table_size' parameter values to reduce the number of disk-based transactions.
 
 Learn more about [Azure Database for MySQL flexible server - OrcasMeruMysqlTmpTable (Improve performance by optimizing MySQL temporary-table sizing.)](https://dev.mysql.com/doc/refman/8.0/en/internal-temporary-tables.html#internal-temporary-tables-engines).
 
 ### Move your MySQL server to Memory Optimized SKU
 
-Our internal telemetry shows that there is high memory usage for this server that can result in slower query performance and increased IOPS. To improve performance,  review your workload queries to identify opportunities to minimize memory consumed.  If no such opportunity found, then we recommend moving to higher SKU with more memory or increase storage size to get more IOPS.
+Our system shows that there is high memory usage for this server that can result in slower query performance and increased IOPS. To improve performance,  review your workload queries to identify opportunities to minimize memory consumed.  If no such opportunity found, then we recommend moving to higher SKU with more memory or increase storage size to get more IOPS.
 
 Learn more about [Azure Database for MySQL flexible server - OrcasMeruMysqlMemoryUpsell (Move your MySQL server to Memory Optimized SKU)](https://aka.ms/azure_mysql_flexible_server_storage).
 
 ### Add a MySQL Read Replica server
 
-Our internal telemetry shows that you might have a read intensive workload running, which results in resource contention for this server. This might lead to slow query performance for the server. To improve performance, we recommend you add a read replica, and offload some of your read workloads to the replica.
+Our system shows that you might have a read intensive workload running, which results in resource contention for this server. This might lead to slow query performance for the server. To improve performance, we recommend you add a read replica, and offload some of your read workloads to the replica.
 
 Learn more about [Azure Database for MySQL flexible server - OrcasMeruMysqlReadReplicaUpsell (Add a MySQL Read Replica server)](https://aka.ms/flexible-server-mysql-read-replicas).
 
 ### Increase the work_mem to avoid excessive disk spilling from sort and hash
 
-Our internal telemetry shows that the configuration work_mem is too small for your PostgreSQL server which is resulting in disk spilling and degraded query performance. To improve this, we recommend increasing the work_mem limit for the server, which helps to reduce the scenarios when the sort or hash happens on disk and improves the overall query performance.
+Our system shows that the configuration work_mem is too small for your PostgreSQL server which is resulting in disk spilling and degraded query performance. To improve this, we recommend increasing the work_mem limit for the server, which helps to reduce the scenarios when the sort or hash happens on disk and improves the overall query performance.
 
 Learn more about [PostgreSQL server - OrcasPostgreSqlWorkMem (Increase the work_mem to avoid excessive disk spilling from sort and hash)](https://aka.ms/runtimeconfiguration).
 
 ### Boost your workload performance by 30% with the new Ev5 compute hardware
 
-With the new Ev5 compute hardware, you can boost workload performance by 30% with higher concurrency and better throughput. Navigate to the Compute+Storage blade on the Azure Portal and switch to Ev5 compute at no extra cost. Ev5 compute provides best performance among other VM series in terms of QPS and latency.
+With the new Ev5 compute hardware, you can boost workload performance by 30% with higher concurrency and better throughput. Navigate to the Compute+Storage option on the Azure portal and switch to Ev5 compute at no extra cost. Ev5 compute provides best performance among other VM series in terms of QPS and latency.
 
 Learn more about [Azure Database for MySQL flexible server - OrcasMeruMySqlComputeSeriesUpgradeEv5 (Boost your workload performance by 30% with the new Ev5 compute hardware)](https://techcommunity.microsoft.com/t5/azure-database-for-mysql-blog/boost-azure-mysql-business-critical-flexible-server-performance/ba-p/3603698).
 
 
 ### Scale the storage limit for PostgreSQL server
 
-Our internal telemetry shows that the server might be constrained because it is approaching limits for the currently provisioned storage values. Approaching the storage limits might result in degraded performance or in the server being moved to read-only mode. To ensure continued performance, we recommend increasing the provisioned storage amount or turning ON the "Auto-Growth" feature for automatic storage increases
+Our system shows that the server might be constrained because it is approaching limits for the currently provisioned storage values. Approaching the storage limits might result in degraded performance or in the server being moved to read-only mode. To ensure continued performance, we recommend increasing the provisioned storage amount or turning ON the "Auto-Growth" feature for automatic storage increases
 
 Learn more about [PostgreSQL server - OrcasPostgreSqlStorageLimit (Scale the storage limit for PostgreSQL server)](https://aka.ms/postgresqlstoragelimits).
 
 ### Scale the PostgreSQL server to higher SKU
 
-Our internal telemetry shows that the server might be unable to support the connection requests because of the maximum supported connections for the given SKU, which might result in a large number of failed connections requests adversely affecting performance. To improve performance, we recommend moving to higher memory SKU by increasing vCore or switching to Memory-Optimized SKUs.
+Our system shows that the server might be unable to support the connection requests because of the maximum supported connections for the given SKU, which might result in a large number of failed connections requests adversely affecting performance. To improve performance, we recommend moving to higher memory SKU by increasing vCore or switching to Memory-Optimized SKUs.
 
 Learn more about [PostgreSQL server - OrcasPostgreSqlConcurrentConnection (Scale the PostgreSQL server to higher SKU)](https://aka.ms/postgresqlconnectionlimits).
 
 ### Move your PostgreSQL server to Memory Optimized SKU
 
-Our internal telemetry shows that there is high churn in the buffer pool for this server which can result in slower query performance and increased IOPS. To improve performance, review your workload queries to identify opportunities to minimize memory consumed.  If no such opportunity found, then we recommend moving to higher SKU with more memory or increase storage size to get more IOPS.
+Our system shows that there is high churn in the buffer pool for this server which can result in slower query performance and increased IOPS. To improve performance, review your workload queries to identify opportunities to minimize memory consumed.  If no such opportunity found, then we recommend moving to higher SKU with more memory or increase storage size to get more IOPS.
 
 Learn more about [PostgreSQL server - OrcasPostgreSqlMemoryCache (Move your PostgreSQL server to Memory Optimized SKU)](https://aka.ms/postgresqlpricing).
 
 ### Add a PostgreSQL Read Replica server
 
-Our internal telemetry shows that you might have a read intensive workload running, which results in resource contention for this server. Resource contention can lead to slow query performance for the server. To improve performance, we recommend you add a read replica, and offload some of your read workloads to the replica.
+Our system shows that you might have a read intensive workload running, which results in resource contention for this server. Resource contention can lead to slow query performance for the server. To improve performance, we recommend you add a read replica, and offload some of your read workloads to the replica.
 
 Learn more about [PostgreSQL server - OrcasPostgreSqlReadReplica (Add a PostgreSQL Read Replica server)](https://aka.ms/postgresqlreadreplica).
 
 ### Increase the PostgreSQL server vCores
 
-Our internal telemetry shows that the CPU has been running under high utilization for an extended time period over the last seven days. High CPU utilization might lead to slow query performance. To improve performance, we recommend moving to a larger compute size.
+Our system shows that the CPU has been running under high utilization for an extended time period over the last seven days. High CPU utilization might lead to slow query performance. To improve performance, we recommend moving to a larger compute size.
 
 Learn more about [PostgreSQL server - OrcasPostgreSqlCpuOverload (Increase the PostgreSQL server vCores)](https://aka.ms/postgresqlpricing).
 
 ### Improve PostgreSQL connection management
 
-Our internal telemetry shows that your PostgreSQL server might not be managing connections efficiently, which can result in unnecessary resource consumption and overall higher application latency. To improve connection management, we recommend that you reduce the number of short-lived connections and eliminate unnecessary idle connections by configuring a server side connection-pooler, such as PgBouncer.
+Our system shows that your PostgreSQL server might not be managing connections efficiently, which can result in unnecessary resource consumption and overall higher application latency. To improve connection management, we recommend that you reduce the number of short-lived connections and eliminate unnecessary idle connections by configuring a server side connection-pooler, such as PgBouncer.
 
 Learn more about [PostgreSQL server - OrcasPostgreSqlConnectionPooling (Improve PostgreSQL connection management)](https://aka.ms/azure_postgresql_connection_pooling).
 
 ### Improve PostgreSQL log performance
 
-Our internal telemetry shows that your PostgreSQL server has been configured to output VERBOSE error logs. This setting can be useful for troubleshooting your database, but it can also result in reduced database performance. To improve performance, we recommend that you change the log_error_verbosity parameter to the DEFAULT setting.
+Our system shows that your PostgreSQL server has been configured to output VERBOSE error logs. This setting can be useful for troubleshooting your database, but it can also result in reduced database performance. To improve performance, we recommend that you change the log_error_verbosity parameter to the DEFAULT setting.
 
 Learn more about [PostgreSQL server - OrcasPostgreSqlLogErrorVerbosity (Improve PostgreSQL log performance)](https://aka.ms/azure_postgresql_log_settings).
 
 ### Optimize query statistics collection on an Azure Database for PostgreSQL
 
-Our internal telemetry shows that your PostgreSQL server has been configured to track query statistics using the pg_stat_statements module. While useful for troubleshooting, it can also result in reduced server performance. To improve performance, we recommend that you change the pg_stat_statements.track parameter to NONE.
+Our system shows that your PostgreSQL server has been configured to track query statistics using the pg_stat_statements module. While useful for troubleshooting, it can also result in reduced server performance. To improve performance, we recommend that you change the pg_stat_statements.track parameter to NONE.
 
 Learn more about [PostgreSQL server - OrcasPostgreSqlStatStatementsTrack (Optimize query statistics collection on an Azure Database for PostgreSQL)](https://aka.ms/azure_postgresql_optimize_query_stats).
 
 ### Optimize query store on an Azure Database for PostgreSQL when not troubleshooting
 
-Our internal telemetry shows that your PostgreSQL database has been configured to track query performance using the pg_qs.query_capture_mode parameter. While troubleshooting, we suggest setting the pg_qs.query_capture_mode parameter to TOP or ALL. When not troubleshooting, we recommend that you set the pg_qs.query_capture_mode parameter to NONE.
+Our system shows that your PostgreSQL database has been configured to track query performance using the pg_qs.query_capture_mode parameter. While troubleshooting, we suggest setting the pg_qs.query_capture_mode parameter to TOP or ALL. When not troubleshooting, we recommend that you set the pg_qs.query_capture_mode parameter to NONE.
 
 Learn more about [PostgreSQL server - OrcasPostgreSqlQueryCaptureMode (Optimize query store on an Azure Database for PostgreSQL when not troubleshooting)](https://aka.ms/azure_postgresql_query_store).
 
 ### Increase the storage limit for PostgreSQL Flexible Server
 
-Our internal telemetry shows that the server might be constrained because it is approaching limits for the currently provisioned storage values. Approaching the storage limits might result in degraded performance or in the server being moved to read-only mode.
+Our system shows that the server might be constrained because it is approaching limits for the currently provisioned storage values. Approaching the storage limits might result in degraded performance or in the server being moved to read-only mode.
 
 Learn more about [PostgreSQL server - OrcasPostgreSqlFlexibleServerStorageLimit (Increase the storage limit for PostgreSQL Flexible Server)](https://aka.ms/azure_postgresql_flexible_server_limits).
 
@@ -534,61 +534,61 @@ Learn more [Logs in Azure Database for PostgreSQL - Single Server] (/azurepostgr
 
 ### Increase the storage limit for Hyperscale (Citus) server group
 
-Our internal telemetry shows that one or more nodes in the server group might be constrained because they are approaching limits for the currently provisioned storage values. This might result in degraded performance or in the server being moved to read-only mode. To ensure continued performance, we recommend increasing the provisioned disk space.
+Our system shows that one or more nodes in the server group might be constrained because they are approaching limits for the currently provisioned storage values. This might result in degraded performance or in the server being moved to read-only mode. To ensure continued performance, we recommend increasing the provisioned disk space.
 
 Learn more about [PostgreSQL server - OrcasPostgreSqlCitusStorageLimitHyperscaleCitus (Increase the storage limit for Hyperscale (Citus) server group)](/azure/postgresql/howto-hyperscale-scale-grow#increase-storage-on-nodes).
 
 ### Optimize log_statement settings for PostgreSQL on Azure Database
 
-Our internal telemetry shows that you have log_statement enabled, for better performance set it to NONE
+Our system shows that you have log_statement enabled, for better performance set it to NONE
 
 Learn more about [Azure Database for PostgreSQL flexible server - OrcasMeruMeruLogStatement (Optimize log_statement settings for PostgreSQL on Azure Database)](../postgresql/flexible-server/concepts-logging.md).
 
 ### Increase the work_mem to avoid excessive disk spilling from sort and hash
 
-Our internal telemetry shows that the configuration work_mem is too small for your PostgreSQL server, resulting in disk spilling and degraded query performance. We recommend increasing the work_mem limit for the server, which helps to reduce the scenarios when the sort or hash happens on disk and improves the overall query performance.
+Our system shows that the configuration work_mem is too small for your PostgreSQL server, resulting in disk spilling and degraded query performance. We recommend increasing the work_mem limit for the server, which helps to reduce the scenarios when the sort or hash happens on disk and improves the overall query performance.
 
 Learn more about [Azure Database for PostgreSQL flexible server - OrcasMeruMeruWorkMem (Increase the work_mem to avoid excessive disk spilling from sort and hash)](https://aka.ms/runtimeconfiguration).
 
 ### Improve PostgreSQL - Flexible Server performance by enabling Intelligent tuning
 
-Our internal telemetry suggests that you can improve storage performance by enabling Intelligent tuning
+Our system suggests that you can improve storage performance by enabling Intelligent tuning
 
 Learn more about [Azure Database for PostgreSQL flexible server - OrcasMeruIntelligentTuning (Improve PostgreSQL - Flexible Server performance by enabling Intelligent tuning)](../postgresql/flexible-server/concepts-intelligent-tuning.md).
 
 ### Optimize log_duration settings for PostgreSQL on Azure Database
 
-Our internal telemetry shows that you have log_duration enabled, for better performance, set it to OFF
+Our system shows that you have log_duration enabled, for better performance, set it to OFF
 
 Learn more about [Azure Database for PostgreSQL flexible server - OrcasMeruMeruLogDuration (Optimize log_duration settings for PostgreSQL on Azure Database)](../postgresql/flexible-server/concepts-logging.md).
 
 ### Optimize log_min_duration settings for PostgreSQL on Azure Database
 
-Our internal telemetry shows that you have log_min_duration enabled, for better performance, set it to -1
+Our system shows that you have log_min_duration enabled, for better performance, set it to -1
 
 Learn more about [Azure Database for PostgreSQL flexible server - OrcasMeruMeruLogMinDuration (Optimize log_min_duration settings for PostgreSQL on Azure Database)](../postgresql/flexible-server/concepts-logging.md).
 
 ### Optimize pg_qs.query_capture_mode settings for PostgreSQL on Azure Database
 
-Our internal telemetry shows that you have pg_qs.query_capture_mode enabled, for better performance, set it to NONE
+Our system shows that you have pg_qs.query_capture_mode enabled, for better performance, set it to NONE
 
 Learn more about [Azure Database for PostgreSQL flexible server - OrcasMeruMeruQueryCaptureMode (Optimize pg_qs.query_capture_mode settings for PostgreSQL on Azure Database)](../postgresql/flexible-server/concepts-query-store-best-practices.md).
 
 ### Optimize PostgreSQL performance by enabling PGBouncer
 
-Our Internal telemetry shows that you can improve PostgreSQL performance by enabling PGBouncer
+Our system shows that you can improve PostgreSQL performance by enabling PGBouncer
 
 Learn more about [Azure Database for PostgreSQL flexible server - OrcasMeruOrcasPostgreSQLConnectionPooling (Optimize PostgreSQL performance by enabling PGBouncer)](../postgresql/flexible-server/concepts-pgbouncer.md).
 
 ### Optimize log_error_verbosity settings for PostgreSQL on Azure Database
 
-Our internal telemetry shows that you have log_error_verbosity enabled, for better performance, set it to DEFAULT
+Our system shows that you have log_error_verbosity enabled, for better performance, set it to DEFAULT
 
 Learn more about [Azure Database for PostgreSQL flexible server - OrcasMeruMeruLogErrorVerbosity (Optimize log_error_verbosity settings for PostgreSQL on Azure Database)](../postgresql/flexible-server/concepts-logging.md).
 
 ### Increase the storage limit for Hyperscale (Citus) server group
 
-Our internal telemetry shows that one or more nodes in the server group might be constrained because they are approaching limits for the currently provisioned storage values. This might result in degraded performance or in the server being moved to read-only mode. To ensure continued performance, we recommend increasing the provisioned disk space.
+Our system shows that one or more nodes in the server group might be constrained because they are approaching limits for the currently provisioned storage values. This might result in degraded performance or in the server being moved to read-only mode. To ensure continued performance, we recommend increasing the provisioned disk space.
 
 Learn more about [Hyperscale (Citus) server group - MarlinStorageLimitRecommendation (Increase the storage limit for Hyperscale (Citus) server group)](/azure/postgresql/howto-hyperscale-scale-grow#increase-storage-on-nodes).
 
@@ -600,49 +600,49 @@ Learn more about [Azure Database for PostgreSQL flexible server - OrcasPostgreSq
 
 ### Move your PostgreSQL Flexible Server to Memory Optimized SKU
 
-Our internal telemetry shows that there is high churn in the buffer pool for this server, resulting in slower query performance and increased IOPS. To improve performance,  review your workload queries to identify opportunities to minimize memory consumed. If no such opportunity found, then we recommend moving to higher SKU with more memory or increase storage size to get more IOPS.
+Our system shows that there is high churn in the buffer pool for this server, resulting in slower query performance and increased IOPS. To improve performance,  review your workload queries to identify opportunities to minimize memory consumed. If no such opportunity found, then we recommend moving to higher SKU with more memory or increase storage size to get more IOPS.
 
 Learn more about [PostgreSQL server - OrcasMeruMemoryUpsell (Move your PostgreSQL Flexible Server to Memory Optimized SKU)](https://aka.ms/azure_postgresql_flexible_server_pricing).
 
 ### Improve your Cache and application performance when running with high network bandwidth
 
-Cache instances perform best when not running under high network bandwidth that might cause unresponsiveness, data loss, or unavailablility. Apply best practices to reduce network bandwidth or scale to a different size or SKU with more capacity.
+Cache instances perform best when not running under high network bandwidth that might cause unresponsiveness, data loss, or unavailability. Apply best practices to reduce network bandwidth or scale to a different size or SKU with more capacity.
 
 Learn more about [Redis Cache Server - RedisCacheNetworkBandwidth (Improve your Cache and application performance when running with high network bandwidth)](https://aka.ms/redis/recommendations/bandwidth).
 
 ### Improve your Cache and application performance when running with many connected clients
 
-Cache instances perform best when not running under high network bandwidth that might cause unresponsiveness, data loss, or unavailablility. Apply best practices to reduce the server load or scale to a different size or SKU with more capacity.
+Cache instances perform best when not running under high network bandwidth that might cause unresponsiveness, data loss, or unavailability. Apply best practices to reduce the server load or scale to a different size or SKU with more capacity.
 
 Learn more about [Redis Cache Server - RedisCacheConnectedClients (Improve your Cache and application performance when running with many connected clients)](https://aka.ms/redis/recommendations/connections).
 
 ### Improve your Cache and application performance when running with many connected clients
 
-Cache instances perform best when not running under high network bandwidth that might cause unresponsiveness, data loss, or unavailablility. Apply best practices to reduce the server load or scale to a different size or SKU with more capacity.
+Cache instances perform best when not running under high network bandwidth that might cause unresponsiveness, data loss, or unavailability. Apply best practices to reduce the server load or scale to a different size or SKU with more capacity.
 
 Learn more about [Redis Cache Server - RedisCacheConnectedClientsHigh (Improve your Cache and application performance when running with many connected clients)](https://aka.ms/redis/recommendations/connections).
 
 ### Improve your Cache and application performance when running with high server load
 
-Cache instances perform best when not running under high network bandwidth that might cause unresponsiveness, data loss, or unavailablility. Apply best practices to reduce the server load or scale to a different size or SKU with more capacity.
+Cache instances perform best when not running under high network bandwidth that might cause unresponsiveness, data loss, or unavailability. Apply best practices to reduce the server load or scale to a different size or SKU with more capacity.
 
 Learn more about [Redis Cache Server - RedisCacheServerLoad (Improve your Cache and application performance when running with high server load)](https://aka.ms/redis/recommendations/cpu).
 
 ### Improve your Cache and application performance when running with high server load
 
-Cache instances perform best when not running under high network bandwidth that might cause unresponsiveness, data loss, or unavailablility. Apply best practices to reduce the server load or scale to a different size or SKU with more capacity.
+Cache instances perform best when not running under high network bandwidth that might cause unresponsiveness, data loss, or unavailability. Apply best practices to reduce the server load or scale to a different size or SKU with more capacity.
 
 Learn more about [Redis Cache Server - RedisCacheServerLoadHigh (Improve your Cache and application performance when running with high server load)](https://aka.ms/redis/recommendations/cpu).
 
 ### Improve your Cache and application performance when running with high memory pressure
 
-Cache instances perform best when not running under high network bandwidth that might cause unresponsiveness, data loss, or unavailablility. Apply best practices to reduce used memory or scale to a different size or SKU with more capacity.
+Cache instances perform best when not running under high network bandwidth that might cause unresponsiveness, data loss, or unavailability. Apply best practices to reduce used memory or scale to a different size or SKU with more capacity.
 
 Learn more about [Redis Cache Server - RedisCacheUsedMemory (Improve your Cache and application performance when running with high memory pressure)](https://aka.ms/redis/recommendations/memory).
 
 ### Improve your Cache and application performance when memory rss usage is high.
 
-Cache instances perform best when not running under high network bandwidth that might cause unresponsiveness, data loss, or unavailablility. Apply best practices to reduce used memory or scale to a different size or SKU with more capacity.
+Cache instances perform best when not running under high network bandwidth that might cause unresponsiveness, data loss, or unavailability. Apply best practices to reduce used memory or scale to a different size or SKU with more capacity.
 
 Learn more about [Redis Cache Server - RedisCacheUsedMemoryRSS (Improve your Cache and application performance when memory rss usage is high.)](https://aka.ms/redis/recommendations/memory).
 
@@ -657,7 +657,7 @@ Learn more about [Redis Cache Server - UnresponsiveClient (Cache instances perfo
 
 ### Update to the latest AMS API Version
 
-We have identified calls to a AMS API version that is not recommended. We recommend switching to the latest AMS API version to ensure uninterrupted access to AMS, latest features, and performance improvements.
+We have identified calls to an Azure Media Services (AMS) API version that is not recommended. We recommend switching to the latest AMS API version to ensure uninterrupted access to AMS, latest features, and performance improvements.
 
 Learn more about [Monitor - UpdateToLatestAMSApiVersion (Update to the latest AMS API Version)](https://aka.ms/AMSAdvisor).
 
@@ -673,7 +673,7 @@ Learn more about [Monitor - UpgradeToLatestAMSSdkVersion (Upgrade to the latest 
 
 ### Upgrade your API Management resource to an alternative version
 
-in your subscription are running on versions that have been scheduled for deprecation. On 30 September 2023, all API versions for the Azure API Management service prior to 2021-08-01 retire and API calls fail. Upgrade to newer version to prevent disruption to your services. 
+Your subscription are running on versions that have been scheduled for deprecation. On 30 September 2023, all API versions for the Azure API Management service prior to 2021-08-01 retire and API calls fail. Upgrade to newer version to prevent disruption to your services. 
 
 Learn more about [Api Management - apimgmtdeprecation (Upgrade your API Management resource to an alternative version)](https://azure.microsoft.com/updates/api-versions-being-retired-for-azure-api-management/).
 
@@ -796,13 +796,13 @@ Time to Live (TTL) affects how recent the response a client gets when it makes a
 
 Learn more about [Traffic Manager profile - ProfileTTL (Configure DNS Time to Live to 60 seconds)](https://aka.ms/Um3xr5).
 
-### Consider increasing the size of your VNet Gateway SKU to address consistently high CPU use
+### Consider increasing the size of your virtual network (VNet) Gateway SKU to address consistently high CPU use
 
 Under high traffic load, the VPN gateway might drop packets due to high CPU.
 
-Learn more about [Virtual network gateway - HighCPUVNetGateway (Consider increasing the size of your VNet Gateway SKU to address consistently high CPU use)](https://aka.ms/HighCPUP2SVNetGateway).
+Learn more about [Virtual network gateway - HighCPUVNetGateway (Consider increasing the size of your virtual network (VNet) Gateway SKU to address consistently high CPU use)](https://aka.ms/HighCPUP2SVNetGateway).
 
-### Consider increasing the size of your VNet Gateway SKU to address high P2S use
+### Consider increasing the size of your virtual network (VNet) Gateway SKU to address high P2S use
 
 Each gateway SKU can only support a specified count of concurrent P2S connections. Your connection count is close to your gateway limit, so more connection attempts might fail.
 
@@ -845,7 +845,7 @@ The parameter net.ipv4.tcp_wmem specifies minimum, default, and maximum send buf
 
 Learn more about [Database Instance - WriteBuffersAllocated (For improved file system performance in HANA DB with ANF, optimize tcp_wmem OS parameter)](https://launchpad.support.sap.com/#/notes/3024346).
 
-### For improved file system performance in HANA DB with ANF, optimise tcp_rmem OS parameter
+### For improved file system performance in HANA DB with ANF, optimize tcp_rmem OS parameter
 
 The parameter net.ipv4.tcp_rmem specifies minimum, default, and maximum receive buffer sizes used for a TCP socket. Set the parameter as per SAP note 3024346 to certify HANA DB to run with ANF and improve file system performance. The maximum value must not exceed net.core.rmem_max parameter.
 
@@ -919,7 +919,7 @@ Learn more about [Database Instance - EnableTCPTimestamps (For improved file sys
 
 ### To improve file system performance in HANA DB with ANF, enable auto-tuning TCP receive buffer size
 
-The parameter net.ipv4.tcp_moderate_rcvbuf enables  TCP to perform receive buffer auto-tuning, to automatically size the buffer (no greater than tcp_rmem to match the size required by the path for full throughput. Enable this parameter as per SAP note: 302436 for improved file system performance.
+The parameter net.ipv4.tcp_moderate_rcvbuf enables TCP to perform buffer auto-tuning, to automatically size the buffer (no greater than tcp_rmem to match the size required by the path for full throughput. Enable this parameter as per SAP note: 302436 for improved file system performance.
 
 Learn more about [Database Instance - EnableAutoTuning (To improve file system performance in HANA DB with ANF, enable auto-tuning TCP receive buffer size)](https://launchpad.support.sap.com/#/notes/3024346).
 
@@ -1154,7 +1154,7 @@ Learn more about [Hyperscale (Citus) server group - OrcasPostgreSqlCitusRebalanc
 
 ### Improve user experience and connectivity by deploying VMs closer to user’s location
 
-We have determined that your VMs are located in a region different or far from where your users are connecting with Azure Virtual Desktop, which might lead to prolonged connection response times and impact overall user experience. When creating VMs for your host pools, attempt to use a region closer to the user. Having close proximity ensures continuing satisfaction with the Azure Virtual Desktop service and a better overall quality of experience.
+We have determined that your VMs are located in a region different or far from where your users are connecting with Azure Virtual Desktop, which might lead to prolonged connection response times and impact overall user experience. When you create VMs for your host pools, try to use a region closer to the user. Having close proximity ensures continuing satisfaction with the Azure Virtual Desktop service and a better overall quality of experience.
 
 Learn more about [Host Pool - RegionProximityHostPools (Improve user experience and connectivity by deploying VMs closer to user’s location.)](../virtual-desktop/connection-latency.md).
 
