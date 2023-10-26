@@ -60,9 +60,8 @@ The following tables describe how to configure a collection of NSG allow rules. 
 | Protocol | Source | Source Ports | Destination | Destination Ports | Description |
 |--|--|--|--|--|--|
 | TCP | Your container app's subnet<sup>1</sup> | \* | `AzureMonitor` | `443` | Allows outbound calls to Azure Monitor. |
-| TCP | Your container app's subnet | \* | `MicrosoftContainerRegistry` | `443` | This is the service tag for container registry for microsoft containers. |
+| TCP | Your container app's subnet | \* | `MicrosoftContainerRegistry` | `443` | This is the service tag for Microsoft container registry for system containers. |
 | TCP | Your container app's subnet | \* | `AzureFrontDoor.FirstParty` | `443` | This is a dependency of the `MicrosoftContainerRegistry` service tag. |
-| TCP | Your container app's subnet | \* | `AzureCloud` | `443` | Allowing all outbound on port `443` provides a way to allow all FQDN based outbound dependencies that don't have a static IP. | 
 | UDP | Your container app's subnet | \* | \* | `123` | NTP server. |
 | Any | Your container app's subnet | \* | Your container app's subnet | \* |  Allow communication between IPs in your container app's subnet.  |
 
