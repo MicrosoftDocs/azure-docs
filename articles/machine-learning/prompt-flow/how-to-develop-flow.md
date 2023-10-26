@@ -64,11 +64,11 @@ Flow output is the data produced by the flow as a whole, which summarizes the re
 
 In a flow, you can consume different kinds of tools, for example, LLM, Python, Serp API, Content Safety, etc.
 
-By selecting a tool, you'll add a new node to flow. You should specify the node name, and set necessary configurations for the node. For example, for LLM node, you need to select a connection, select a deployment, set the prompt, etc. For Python node, you need to set the Python script, set the input value, etc. 
+By selecting a tool, you'll add a new node to flow. You should specify the node name, and set necessary configurations for the node. 
 
-LLM and Prompt tool supports you to use **Jinja** as templating language to dynamically generate the prompt. For example, you can use `{{}}` to enclose your input name, instead of fixed text, so it can be replaced on the fly.
+For example, for LLM node, you need to select a connection, a deployment, set the prompt, etc. Connection helps securely store and manage secret keys or other sensitive credentials required for interacting with Azure OpenAI. If you do not already have a connection, you should create it first, and make sure your Azure OpenAI resource has the chat or completion deployments. LLM and Prompt tool supports you to use **Jinja** as templating language to dynamically generate the prompt. For example, you can use `{{}}` to enclose your input name, instead of fixed text, so it can be replaced on the fly.
 
-To use Python tool, you should define a Python function with inputs and outputs as follows.
+To use Python tool, you need to set the Python script, set the input value, etc. You should define a Python function with inputs and outputs as follows.
 
 ![Write python script for Python node](./media/how-to-develop-flow/python-tool.png)
 
