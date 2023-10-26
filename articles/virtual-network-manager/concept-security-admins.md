@@ -110,18 +110,18 @@ New resources are protected along with existing resources. For example, if you a
 
 When new security risks are identified, you can deploy them at scale by creating a security admin rule to protect against the new risk and applying it to your network groups. Once this new rule is deployed, all resources in the scope of the network groups will be protected now and in the future.
 
-## Services that do not apply security admin rules to their resources
+## Azure services that do not apply security admin rules
 
-By default, security admin rules are applied to all virtual networks and subnets within the scope of a network group. However, there are some services that do not apply security admin rules to their resources due to the network requirements of the service. 
+By default, security admin rules are applied to all virtual networks and subnets within the scope of a network group. However, there are some services that do not apply security admin rules due to the network requirements of the service.
 
 ### Services in Virtual Networks
 
-The following services do not apply security admin rules to their resources when they are deployed in a virtual network within the scope of a network group:
+Security admin rules do not apply when they are deployed in a virtual network within the scope of a network group. These services include:
 
 - Azure SQL Managed Instances  
 - Azure Databricks  
 
-If you want *Allow rules* applied to resources of other services in the virtual network, you can set `AllowRulesOnly` on `securityConfiguration.properties.applyOnNetworkIntentPolicyBasedServices`. When set, *Allow rules* in your security rule configuration will be applied on the virtual networks with these services. Both Allow and Deny rules will still be applied on the virtual networks without these services using the AllowRulesOnly option. 
+If you want *Allow rules* applied to supported services in the virtual network, you can set `AllowRulesOnly` on `securityConfiguration.properties.applyOnNetworkIntentPolicyBasedServices`. When set, *Allow rules* in your security rule configuration will be applied to supported services on the virtual networks with Azure SQL Managed Instances or Azure Databricks. Both *Allow* and *Deny* rules will still be applied on the virtual networks without these services using the *AllowRulesOnly* option. 
 
 > [!NOTE]
 > When multiple Azure Virtual Network Manager instances have different settings for `securityConfiguration.properties.applyOnNetworkIntentPolicyBasedServices` for the same virtual network, the setting of the AVNM with the highest scope will be used. For example, if the AVNM whose scope is the root management group uses AllowRulesOnly for the `securityConfiguration.properties.applyOnNetworkIntentPolicyBasedServices` option, but the other AVNM whose scope is a subscription under this root management group uses the default setting, when these two AVNMs apply security admin rules for a particular virtual network, the AllowRulesOnly will be used for the `securityConfiguration.properties.applyOnNetworkIntentPolicyBasedServices` setting. 
