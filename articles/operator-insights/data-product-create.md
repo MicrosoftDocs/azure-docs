@@ -83,7 +83,7 @@ Once your Data Product instance is created, you can deploy sample insights dashb
 > [!NOTE] 
 > The reader role is required for you to have access to the insights consumption URL.
 
-3.	Download the sample JSON template file from the Data product overview page by clicking on the link shown after the text “Sample Dashboard”. Alternatively [download the sample JSON template file](https://aka.ms/aoidashboard).
+3.	Download the sample JSON template file from the Data product overview page by clicking on the link shown after the text “Sample Dashboard”. Alternatively [download the sample JSON template file here](https://aka.ms/aoidashboard).
 1. Copy the consumption URL from the Data Product overview screen into the clipboard.
 1. Open a web browser, paste in the URL and select enter.
 1. When the URL loads, click on the Dashboards option on the left navigation pane.
