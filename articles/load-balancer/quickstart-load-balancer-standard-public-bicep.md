@@ -19,7 +19,7 @@ Load balancing provides a higher level of availability and scale by spreading in
 
 This quickstart shows you how to deploy a standard load balancer to load balance virtual machines.
 
-:::image type="content" source="media/quickstart-load-balancer-standard-public-portal/public-load-balancer-resources.png" alt-text="Diagram of resources deployed for a standard public load balancer.":::
+:::image type="content" source="media/quickstart-load-balancer-standard-public-portal/public-load-balancer-resources.png" alt-text="Diagram of resources deployed for a standard public load balancer." lightbox="media/quickstart-load-balancer-standard-public-portal/public-load-balancer-resources.png":::
 
 Using a Bicep file takes fewer steps comparing to other deployment methods.
 
@@ -49,10 +49,7 @@ Multiple Azure resources have been defined in the bicep file:
 - [**Microsoft.Compute/virtualMachine/extensions**](/azure/templates/microsoft.compute/virtualmachines/extensions) (3): use to configure the Internet Information Server (IIS), and the web pages.
 
 > [!IMPORTANT]
-
 > [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
-
->
 
 To find more Bicep files or ARM templates that are related to Azure Load Balancer, see [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular).
 
