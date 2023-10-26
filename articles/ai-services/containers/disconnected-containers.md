@@ -171,6 +171,12 @@ Commitment plans for disconnected containers have a calendar year commitment per
 
 You can choose a different commitment plan in the **Commitment Tier pricing** settings of your resource. For more information about commitment tier pricing plans, see [purchase commitment tier pricing](../commitment-tier.md).
 
+## Overage pricing for disconnected containers
+
+To use the disconnected container beyond the quota initially purchased with your disconnected container commitment plan, you can purchase additional quota by updating your commitment plan at any time. 
+
+To purchase additional quota, go to your resource in Azure portal and adjust the "unit count" of your disconnected container commitment plan using the slider. This will add additional monthly quota and you will be charged a pro-rated price based on the remaining days left in the current billing cycle.
+
 ## End a commitment plan
 
 If you decide that you don't want to continue purchasing a commitment plan, you can set your resource's auto-renewal to **Do not auto-renew**. Your commitment plan will expire on the displayed commitment end date. After this date, you won't be charged for the commitment plan. You'll be able to continue using the Azure resource to make API calls, charged at pay-as-you-go pricing. You have until midnight (UTC) on the last day of the year to end a commitment plan for disconnected containers, and not be charged for the following year.
