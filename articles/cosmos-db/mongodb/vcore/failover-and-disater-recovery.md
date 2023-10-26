@@ -49,7 +49,7 @@ Synchronous replication between the primary and secondary nodes guarantees no da
 
 High availability can be specified when [creating a new cluster](quickstart-portal.md) or [updating an existing cluster](how-to-scale-cluster.md).
 
-## Next steps
+## Related content
 
 - Read more about [feature compatibility with MongoDB](compatibility.md).
 - Review options for [migrating from MongoDB to Azure Cosmos DB for MongoDB vCore](migration-options.md)
