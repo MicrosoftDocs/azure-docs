@@ -846,8 +846,6 @@
       href: connect-microsoft-purview.md
     - name: Windows security events
       href: data-connectors/windows-security-events-via-ama.md
-  - name: Integrate Azure Data Explorer
-    href: store-logs-in-azure-data-explorer.md
   - name: Configure ingestion-time transformation
     href: configure-data-transformation.md
   - name: Configure RDP login detection
