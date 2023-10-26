@@ -4,7 +4,7 @@ ms.author: cherylmc
 ms.date: 10/26/2023
 ms.service: bastion
 ms.topic: include
-
+ms.custom: references_regions
 ---
 
 The Developer SKU (Preview) is currently available in the following regions:
