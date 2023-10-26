@@ -21,16 +21,33 @@ The Azure Native Qumulo Scalable File Service offering on Azure Marketplace enab
 > [!NOTE]
 > Azure Native Qumulo Scalable File Service stores and processes data only in the region where the service was deployed. No data is stored outside that region.
 
+## Versions
+
+There are 2 versions of Azure Native Qumulo(ANQ) Scalable File Service. ANQ V2 is the latest offering and it provides enchanced capabilities over ANQ V1. The below section provides details regarding key capabilities 
+
+
+
 ## Capabilities
 
 Azure Native Qumulo Scalable File Service provides:
 
-- Seamless onboarding: Easily include Qumulo as a natively integrated service on Azure.
-
+- Seamless onboarding: Easily include Qumulo as a natively integrated service on Azure.The service can be deployed in few minutes. 
+- Multi-protocol support: ANQ supports all standard file system protocols NFS, SMB, FTP, and S3
+- Unlimited storage scaling: Each qumulo instance can be scaled up to exabytes of storage capacity. 
 - Unified billing: Get a single bill for all resources that you consume on Azure for the Qumulo service. 
-<!-- Is the benefit one bill for all Qumulo deployments or one bill for anything you do on Azure including Qumulo? -->
-- Private access: The service is directly connected to your own virtual network (sometimes called *VNet injection*).
-- Global Namespaces: This capability enables all workloads to be pointed to a single namespace regardless of where the data resides Azure Native Qumulo V2 Scalabe File Service or on prem Qumulo instance. This feature is only available with ANQ V2. 
+- Private access: The service is directly connected to your own virtual network (sometimes called *VNet injection*). 
+- Global Namespaces: This capability enables all workloads to be pointed to a single namespace regardless of where the data resides Azure Native Qumulo V2 Scalabe File Service or on prem Qumulo instance. This feature is only available with ANQ V2.
+
+| Feature Description | ANQ V2 | ANQ V1 |
+| ------------------- | :-----: | :------: | 
+| Seamless onboarding|✔|✔|
+| True mutli-protocol support|✔|✔|
+| unlimited storage scaling|✔|✔|
+| Azure CLI, SDK, API |-|✔|
+| Pay-as-you-pricing|✔|-|
+| support for independent performance scaling|✔|-|
+| global namespaces|✔|-|
+
 
 ## Next steps
 
