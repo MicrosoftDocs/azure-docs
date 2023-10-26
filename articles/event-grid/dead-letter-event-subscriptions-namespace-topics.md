@@ -239,7 +239,12 @@ Here's an example **Resource manager template** JSON snippet. You can also use t
 
 In the Azure portal:
 
-:::image type="content" source=".\media\dead-letter-event-subscriptions-namespace-topics\configure-dead-letter.png" alt-text="Screenshot that shows an example deadletter configuration.":::
+1. Navigate to the **Event Subscription** page for your namespace topic.
+1. Switch to the **Advanced Features** tab. 
+1. Select the **Azure subscription** that has the Azure Storage account where the dead-lettered events are stored. 
+1. Select the **blob container** that holds the blobs with dead-lettered events.
+1. To use a managed identity, for **Managed identity type**, select the type of managed identity that you want to use to connect to the storage account, and configure it. 
+
 
 ## Next steps
 
