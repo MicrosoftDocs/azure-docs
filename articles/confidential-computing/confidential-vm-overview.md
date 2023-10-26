@@ -9,7 +9,7 @@ ms.topic: overview
 ms.date: 11/14/2023
 ---
 
-# Azure Azure confidential VMs 
+# About Azure confidential VMs 
 
 Azure confidential computing offers confidential VMs are for tenants with high security and confidentiality requirements. These VMs provide a strong, hardware-enforced boundary to help meet your security needs. You can use confidential VMs for migrations without making changes to your code, with the platform protecting your VM's state from being read or modified.
 
