@@ -24,7 +24,7 @@ In this tutorial, you learn how to:
 > * Create a NAT gateway for outbound internet access for the backend pool
 > * Install and configure a web server on the VMs to demonstrate the port forwarding and load-balancing rules
 
-:::image type="content" source="media/tutorial-load-balancer-port-forwarding-portal/load-balancer-port-forwarding-resources-thumb.png" alt-text="Diagram of load balancer resources for deploying an inbound NAT rule for a virtual machine." lightbox="media/tutorial-load-balancer-port-forwarding-portal/load-balancer-port-forwarding-resources.png":::
+:::image type="content" source="media/tutorial-load-balancer-port-forwarding-portal/load-balancer-port-forwarding-resources.png" alt-text="Diagram of load balancer resources for deploying an inbound NAT rule for a virtual machine.":::
 
 ## Prerequisites
 

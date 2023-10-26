@@ -15,7 +15,7 @@ dotnet add package CassandraCSharpDriver --version 3.19.3
 dotnet add package Azure.Identity
 ```
 
-2. Get an access token for the managed identity or service principal using client library [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/). Use the access token and `AZURE_COSMOS_LISTKEYURL` to get the password. Get connection information from the environment variable added by Service Connector and connect to Azure Cosmos DB for Cassandra. **Uncomment the corresponding part of the code snippet according to the authentication type.**
+2. Get an access token for the managed identity or service principal using client library [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/). Use the access token and `AZURE_COSMOS_LISTKEYURL` to get the password. Get connection information from the environment variable added by Service Connector and connect to Azure Cosmos DB for Cassandra. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
 
 ```csharp
 using System;
@@ -47,14 +47,14 @@ public class Program
         // var tokenProvider = new DefaultAzureCredential(
         //     new DefaultAzureCredentialOptions
         //     {
-        //         ManagedIdentityClientId = Environment.GetEnvironmentVariable("AZURE_POSTGRESQL_CLIENTID");
+        //         ManagedIdentityClientId = Environment.GetEnvironmentVariable("AZURE_COSMOS_CLIENTID");
         //     }
         // );
         
         // For service principal.
-        // var tenantId = Environment.GetEnvironmentVariable("AZURE_POSTGRESQL_TENANTID");
-        // var clientId = Environment.GetEnvironmentVariable("AZURE_POSTGRESQL_CLIENTID");
-        // var clientSecret = Environment.GetEnvironmentVariable("AZURE_POSTGRESQL_CLIENTSECRET");
+        // var tenantId = Environment.GetEnvironmentVariable("AZURE_COSMOS_TENANTID");
+        // var clientId = Environment.GetEnvironmentVariable("AZURE_COSMOS_CLIENTID");
+        // var clientSecret = Environment.GetEnvironmentVariable("AZURE_COSMOS_CLIENTSECRET");
         // var tokenProvider = new ClientSecretCredential(tenantId, clientId, clientSecret);
         
         // Acquire the access token. 
@@ -125,7 +125,7 @@ public class Program
     </dependency>
     ```
 
-1. Get an access token for the managed identity or service principal using `azure-identity`. Use the access token and `AZURE_COSMOS_LISTKEYURL` to get the password. Get connection information from the environment variable added by Service Connector and connect to Azure Cosmos DB for Cassandra. **Uncomment the corresponding part of the code snippet according to the authentication type.**
+1. Get an access token for the managed identity or service principal using `azure-identity`. Use the access token and `AZURE_COSMOS_LISTKEYURL` to get the password. Get connection information from the environment variable added by Service Connector and connect to Azure Cosmos DB for Cassandra. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
 
     ```java
     import com.datastax.oss.driver.api.core.CqlSession;
@@ -193,13 +193,14 @@ Authentication type is not supported for Spring Boot.
     pip install azure-identity
     ```
 
-1. Use `azure-identity` to authenticate with the managed identity or service principal and send request to `AZURE_COSMOS_LISTKEYURL` to get the password. Get connection information from the environment variable added by Service Connector and connect to Azure Cosmos DB for Cassandra.**Uncomment the corresponding part of the code snippet according to the authentication type.**
+1. Use `azure-identity` to authenticate with the managed identity or service principal and send request to `AZURE_COSMOS_LISTKEYURL` to get the password. Get connection information from the environment variable added by Service Connector and connect to Azure Cosmos DB for Cassandra. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
     ```python
     from cassandra.cluster import Cluster
     from ssl import PROTOCOL_TLSv1_2, SSLContext, CERT_NONE
     from cassandra.auth import PlainTextAuthProvider
     import requests
     from azure.core.pipeline.policies import BearerTokenCredentialPolicy
+    from azure.identity import ManagedIdentityCredential, ClientSecretCredential
 
     username = os.getenv('AZURE_COSMOS_USERNAME')
     contactPoint = os.getenv('AZURE_COSMOS_CONTACTPOINT')
@@ -244,7 +245,7 @@ Authentication type is not supported for Spring Boot.
    go get "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
    go get "github.com/Azure/azure-sdk-for-go/sdk/azcore"
    ```
-2. In code, get access token via `azidentity`, then use it to acquire the password. Get connection information from the environment variable added by Service Connector and connect to Azure Cosmos DB for Cassandra. **Uncomment the corresponding part of the code snippet according to the authentication type.**
+2. In code, get access token via `azidentity`, then use it to acquire the password. Get connection information from the environment variable added by Service Connector and connect to Azure Cosmos DB for Cassandra. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
 
     ```go
     import (
@@ -272,15 +273,15 @@ Authentication type is not supported for Spring Boot.
         // cred, err := azidentity.NewDefaultAzureCredential(nil)
         
         // For user-assigned identity.
-        // clientid := os.Getenv("AZURE_POSTGRESQL_CLIENTID")
+        // clientid := os.Getenv("AZURE_COSMOS_CLIENTID")
         // azidentity.ManagedIdentityCredentialOptions.ID := clientid
         // options := &azidentity.ManagedIdentityCredentialOptions{ID: clientid}
         // cred, err := azidentity.NewManagedIdentityCredential(options)
         
         // For service principal.
-        // clientid := os.Getenv("AZURE_POSTGRESQL_CLIENTID")
-        // tenantid := os.Getenv("AZURE_POSTGRESQL_TENANTID")
-        // clientsecret := os.Getenv("AZURE_POSTGRESQL_CLIENTSECRET")
+        // clientid := os.Getenv("AZURE_COSMOS_CLIENTID")
+        // tenantid := os.Getenv("AZURE_COSMOS_TENANTID")
+        // clientsecret := os.Getenv("AZURE_COSMOS_CLIENTSECRET")
         // cred, err := azidentity.NewClientSecretCredential(tenantid, clientid, clientsecret, &azidentity.ClientSecretCredentialOptions{})
     
         // Acquire the access token.
@@ -324,9 +325,10 @@ Authentication type is not supported for Spring Boot.
    npm install cassandra-driver
    npm install --save @azure/identity
    ```
-2. In code, get the access token via `@azure/identity`, then use it to acquire the password. Get connection information from the environment variable added by Service Connector and connect to Azure Cosmos DB for Cassandra. **Uncomment the corresponding part of the code snippet according to the authentication type.**
+2. In code, get the access token via `@azure/identity`, then use it to acquire the password. Get connection information from the environment variable added by Service Connector and connect to Azure Cosmos DB for Cassandra. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
 
     ```javascript
+    import { DefaultAzureCredential,ClientSecretCredential } from "@azure/identity";
     const cassandra = require("cassandra-driver");
     const axios = require('axios');
     
@@ -342,15 +344,15 @@ Authentication type is not supported for Spring Boot.
     // const credential = new DefaultAzureCredential();
     
     // For user-assigned identity.
-    // const clientId = process.env.AZURE_POSTGRESQL_CLIENTID;
+    // const clientId = process.env.AZURE_COSMOS_CLIENTID;
     // const credential = new DefaultAzureCredential({
     //     managedIdentityClientId: clientId
     // });
     
     // For service principal.
-    // const tenantId = process.env.AZURE_POSTGRESQL_TENANTID;
-    // const clientId = process.env.AZURE_POSTGRESQL_CLIENTID;
-    // const clientSecret = process.env.AZURE_POSTGRESQL_CLIENTSECRET;
+    // const tenantId = process.env.AZURE_COSMOS_TENANTID;
+    // const clientId = process.env.AZURE_COSMOS_CLIENTID;
+    // const clientSecret = process.env.AZURE_COSMOS_CLIENTSECRET;
     
     // Acquire the access token.
     var accessToken = await credential.getToken(scope);

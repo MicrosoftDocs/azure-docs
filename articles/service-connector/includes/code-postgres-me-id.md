@@ -8,7 +8,7 @@ ms.author: xiaofanzhou
 
 
 #### [.NET](#tab/dotnet)
-For .NET, there's not a plugin or library to support passwordless connections. You can get an access token for the managed identity or service principal using client library like [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/). Then you can use the access token as the password to connect to the database. **Uncomment the corresponding part of the code snippet according to the authentication type.**
+For .NET, there's not a plugin or library to support passwordless connections. You can get an access token for the managed identity or service principal using client library like [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/). Then you can use the access token as the password to connect to the database. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
 
 ```csharp
 using Azure.Identity;
@@ -101,7 +101,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for PostgreSQL
     pip install azure-identity
     pip install psycopg2-binary
     ```
-1. Get access token via `azure-identity` library and use the token as password. Get connection information from the environment variables added by Service Connector. **Uncomment the corresponding part of the code snippet according to the authentication type.**
+1. Get access token using `azure-identity` library and use the token as password. Get connection information from the environment variables added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
     
     ```python
     from azure.identity import DefaultAzureCredential
@@ -135,7 +135,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for PostgreSQL
     ```bash
    pip install azure-identity
    ```
-1. Get access token via `azure-identity` library using environment variables added by Service Connector. **Uncomment the corresponding part of the code snippet according to the authentication type.**
+1. Get access token using `azure-identity` library using environment variables added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
     
     ```python
     from azure.identity import DefaultAzureCredential
@@ -188,7 +188,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for PostgreSQL
     go get "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
     go get "github.com/Azure/azure-sdk-for-go/sdk/azcore"
     ```
-1. In code, get access token via `azidentity`, then use it as password to connect to Azure PostgreSQL along with connection information provided by Service Connector. **Uncomment the corresponding part of the code snippet according to the authentication type.**
+1. In code, get access token using `azidentity`, then use it as password to connect to Azure PostgreSQL along with connection information provided by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
     
     ```go
     import (
@@ -248,7 +248,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for PostgreSQL
     npm install --save @azure/identity
     npm install --save pg
     ```
-1. In code, get the access token via `@azure/identity` and PostgreSQL connection information from environment variables added by Service Connector service. Combine them to establish the connection. **Uncomment the corresponding part of the code snippet according to the authentication type.**
+1. In code, get the access token using `@azure/identity` and PostgreSQL connection information from environment variables added by Service Connector service. Combine them to establish the connection. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
     
     ```javascript
     import { DefaultAzureCredential, ClientSecretCredential } from "@azure/identity";
@@ -292,7 +292,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for PostgreSQL
 
 For PHP, there's not a plugin or library for passwordless connections. You can get an access token for the managed identity or service principal and use it as the password to connect to the database. The access token can be acquired using Azure REST API.
 
-1. In code, get the access token via REST API with your favorite library.
+1. In code, get the access token using REST API with your favorite library.
 
     For user-assigned identity and system-assigned identity, App Service and Container Apps provides an internally accessible REST endpoint to retrieve tokens for managed identities by defining two environment variables: `IDENTITY_ENDPOINT` and `IDENTITY_HEADER`. For more information, see [REST endpoint reference](/azure/container-apps/managed-identity?tabs=http#rest-endpoint-reference). 
     Get the access token by making an HTTP GET request to the identity endpoint, and use `https://ossrdbms-aad.database.windows.net` as `resource` in the query. For user-assigned identity, please include the client ID from the environment variables added by Service Connector in the query as well.
@@ -315,7 +315,7 @@ For Ruby, there's not a plugin or library for passwordless connections. You can 
     ```bash
     gem install pg
     ```
-1. In code, get the access token via REST API and PostgreSQL connection information from environment variables added by Service Connector service. Combine them to establish the connection. **Uncomment the corresponding part of the code snippet according to the authentication type.**
+1. In code, get the access token using REST API and PostgreSQL connection information from environment variables added by Service Connector service. Combine them to establish the connection. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
 
     App service and container Apps provides an internally accessible REST endpoint to retrieve tokens for managed identities. For more information, see [REST endpoint reference](/azure/container-apps/managed-identity?tabs=http#rest-endpoint-reference).
     ```ruby

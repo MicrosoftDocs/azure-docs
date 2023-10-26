@@ -75,10 +75,10 @@
       href: tutorial-kubernetes-deploy-cluster.md
     - name: 4 - Run application
       href: tutorial-kubernetes-deploy-application.md
-    - name: 5 - Scale application
-      href: tutorial-kubernetes-scale.md        
-    - name: 6 - Update application
-      href: tutorial-kubernetes-app-update.md
+    - name: 5 - Use PaaS services
+      href: tutorial-kubernetes-paas-services.md        
+    - name: 6 - Scale application
+      href: tutorial-kubernetes-scale.md
     - name: 7 - Upgrade cluster
       href: tutorial-kubernetes-upgrade-cluster.md
     - name: Security
