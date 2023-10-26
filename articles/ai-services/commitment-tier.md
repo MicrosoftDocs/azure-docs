@@ -42,7 +42,7 @@ For more information, see [Azure AI services pricing](https://azure.microsoft.co
 2. Enter the applicable information to create your resource. Be sure to select the standard pricing tier.
 
     > [!NOTE]
-    > If you intend to purchase a commitment tier for disconnected container usage, you will need to request separate access and select the **Commitment tier disconnected containers** pricing tier. For more information, [disconnected containers](./containers/disconnected-containers.md).
+    > If you intend to purchase a commitment tier for disconnected container usage, you will need to request separate access and select the **Commitment tier disconnected containers** pricing tier. For more information, see [disconnected containers](./containers/disconnected-containers.md).
 
     :::image type="content" source="media/commitment-tier/create-resource.png" alt-text="A screenshot showing resource creation on the Azure portal." lightbox="media/commitment-tier/create-resource.png":::
 
@@ -85,6 +85,12 @@ If you need a larger commitment plan than any of the ones offered, contact `csga
 ## End a commitment plan
 
 If you decide that you don't want to continue purchasing a commitment plan, you can set your resource's autorenewal to **Do not auto-renew**. Your commitment plan expires on the displayed commitment end date. After this date, you won't be charged for the commitment plan. You're able to continue using the Azure resource to make API calls, charged at pay-as-you-go pricing. You have until midnight (UTC) on the last day of each month to end a commitment plan, and not be charged for the following month.
+
+## Purchase a commitment tier pricing plan for disconnected containers
+
+Commitment plans for disconnected containers have a calendar year commitment period. These are distinct from Web and Connected container commmitment plans. When you purchase a plan, you'll be charged the full price immediately. During the commitment period, you can't change your commitment plan, however you can purchase additional unit(s) at a pro-rated price for the remaining days in the year. You have until midnight (UTC) on the last day of your commitment, to end a commitment plan.
+
+You can choose a different commitment plan in the **Commitment Tier pricing** settings of your resource.
 
 ## See also
 
