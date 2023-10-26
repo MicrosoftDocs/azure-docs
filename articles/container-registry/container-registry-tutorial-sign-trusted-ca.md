@@ -11,9 +11,16 @@ ms.date: 6/9/2023
 
 # Sign container images with Notation and Azure Key Vault using a CA-issued certificate (Preview)
 
-Signing and verifying the container images with a certificate issued by a trusted Certificate Authority (CA) ensure authorizing and validating the identity responsibly with approved CA without any compromise. The trusted CA entities (for example, GlobalSign or DigiCert) ensure to validate the user's and organization's identity and also have the authority to revoke the certificate immediately upon any risk or misuse.
+Signing and verifying container images with a certificate issued by a trusted Certificate Authority (CA) is a valuable security practice. This security measure will help you to responsibly identify, authorize, and validate the identity of both the publisher of the container image and the container image itself. The Trusted Certificate Authorities (CAs) such as GlobalSign, DigiCert, and others play a crucial role in the validation of a user's or organization's identity, maintaining the security of digital certificates, and revoking the certificate immediately upon any risk or misuse.
 
-[Notation](https://github.com/notaryproject/notation) is an open source supply chain tool developed by [Notary Project](https://notaryproject.dev/), which supports signing and verifying container images and other artifacts. The Azure Key Vault (AKV) is used to store a certificate with a signing key that can be utilized by Notation with the [Notation AKV plugin (azure-kv)](https://github.com/Azure/notation-azure-kv) to sign and verify container images and other artifacts. The Azure Container Registry (ACR) allows you to attach these signatures to the signed image.
+Here are some essential components that help you to sign and verify container images with a certificate issued by a trusted CA:
+
+* The [Notation](https://github.com/notaryproject/notation) is an open-source supply chain tool developed by [Notary Project](https://notaryproject.dev/), which supports signing and verifying container images and other artifacts.
+* The Azure Key Vault (AKV), a cloud-based service for managing cryptographic keys, secrets, and certificates will help you ensure to securely store and manage a certificate with a signing key.
+* The [Notation AKV plugin azure-kv](https://github.com/Azure/notation-azure-kv), the extension of Notation uses the keys stored in Azure Key Vault for signing and verifying the digital signatures of container images and artifacts.
+* The Azure Container Registry (ACR) allows you to attach these signatures to the signed image and helps you to store and manage these container images.
+
+When you verify the image, the signature is used to validate the integrity of the image and the identity of the signer. This helps to ensure that the container images are not tampered with and are from a trusted source.
 
 > [!IMPORTANT]
 > This feature is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
