@@ -36,7 +36,7 @@ Supported authentication and clients for App Service, Container Apps and Azure S
 
 ## Default environment variable names or application properties and Sample code
 
-Reference the connection details and sample code in the following tables, according to your connection's authentication type and client type, to connect your compute services to Azure Cosmos DB for Apache Cassandra. **Please go to beginning of the documentation to choose authentication type.**
+Reference the connection details and sample code in the following tables, according to your connection's authentication type and client type, to connect your compute services to Azure Cosmos DB for Apache Cassandra.
 
 ### Connect with System-assigned Managed Identity
 
