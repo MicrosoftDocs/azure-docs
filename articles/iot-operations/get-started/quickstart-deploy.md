@@ -201,13 +201,57 @@ Now that your Azure resources and permissions are configured, you need to add th
 
 Use the Azure portal to deploy Azure IoT Operations components to your Arc-enabled Kubernetes cluster.
 
+1. In the Azure portal search bar, search for and select **Azure Arc**.
+
+1. Select **Azure IoT Operations (preview)** from the **Application services** section of the Azure Arc menu.
+
+1. Select **Create**.
+
+1. On the **Basics** tab of the **Install Azure IoT Operations Arc Extension** page, provide the following information:
+
+   | Field | Value |
+   | ----- | ----- |
+   | **Subscription** | Select the subscription that contains your Arc-enabled Kubernetes cluster. |
+   | **Resource group** | Select the resource group that contains your Arc-enabled Kubernetes cluster. |
+   | **Cluster name** | Select your cluster. When you do, the **Custom location** and **Deployment details** sections auto-fill. |
+   | **Secrets** | Check the box confirming that you set up the secrets provider in your cluster by following the steps in the previous sections. |
+
+1. Select **Next: Configuration**.
+
+1. On the **Configuration** tab, provide the following information:
+
+   | Field | Value |
+   | ----- | ----- |
+   | **Deploy a simulated PLC** | Switch this toggle to **Yes**. The simulated PLC creates demo telemetry data that you'll use in the following quickstarts. |
+   | **Mode** | Set the MQ configuration mode to **Auto**. |
+
+1. Select **Review + create**.
+
+1. Wait for the validation to pass and then select **Create**.
+
+## View resources in your cluster
+
+1. In the Azure portal, navigate to the resource group that contains your cluster.
+
+1. From the **Overview** of the resource group, select the name of your cluster.
+
+1. On your cluster, select **Extensions** from the menu.
+
+   You can see that your cluster is running extensions of the type **iotoperations**, which is the group name for all of the Azure IoT Operations components and the orchestration service.
+
+   There is also an extension called **akvsecretsprovider**. This extension is the secrets provider that you configured and installed on your cluster with the `setup-cluster.sh` script. You might delete and reinstall the Azure IoT Operations components during the course of testing, but keep the secrets provider extension on your cluster.
+
 ## How did we solve the problem?
 
 In this quickstart, you configured your Arc-enabled Kubernetes cluster so that it could communicate securely with your Azure IoT Operations components. Then, you deployed those components to your cluster. For this test scenario, you have a single Kubernetes cluster that's probably running locally on your machine. In a production scenario, however, you can use the same steps to deploy workloads to many clusters across many sites.
 
 ## Clean up resources
 
-If you're not going to continue to use this deployment, delete the Kubernetes cluster that you deployed Azure IoT Operations to and remove the Azure resource group that contains the cluster.
+If you're continuing on to the next quickstart, keep all of your resources.
+
+If you want to delete the Azure IoT Operations deployment but plan on reinstalling it on your cluster, be sure to keep the secrets provider on your cluster. In your cluster on the Azure portal, select the extensions of the type **iotoperations**, then select **Uninstall**.
+
+If you want to delete all of the resources you created for this quickstart, delete the Kubernetes cluster that you deployed Azure IoT Operations to and remove the Azure resource group that contained the cluster.
 
 ## Next steps
 
