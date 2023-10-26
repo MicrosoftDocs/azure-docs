@@ -9,7 +9,7 @@ ms.author: franlanglois
 
 # Azure services and Confluent Cloud integrations
 
-This article describes how to use Azure services like Azure Functions, and install connectors to Azure resources for Confluent Cloud.
+This article describes how to use Azure services like Azure Functions, and how to install connectors to Azure resources for Confluent Cloud.
 
 ## Azure Cosmos DB connector
 
