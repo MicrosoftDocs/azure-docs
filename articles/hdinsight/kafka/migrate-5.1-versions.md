@@ -18,7 +18,7 @@ Azure HDInsight 5.1 offers the latest open-source components with significant en
 If you migrate from Kafka to 3.2.0, you can take advantage of the following new features:
 
 
-:::image type="content" source="./media/migrate-5.1-versions/kafka-320-improvements.png" alt-text=" Screenshot shows kafka 3.2.0 improvements" lightbox="./media/migrate-5.1-versions/kafka-320-improvements.png":::
+:::image type="content" source="./media/migrate-5.1-versions/kafka-320-improvements.png" alt-text=" Screenshot shows kafka 3.2.0 improvements":::
 
 
 - Support Automated consumer offsets sync across cluster in MM 2.0, making it easier to migrate or failover consumers across clusters. (KIP-545)
