@@ -115,7 +115,7 @@ Sign in to the [Azure portal - Orbital](https://aka.ms/orbital/portal).
 8. Complete the **Advanced diagnostic information** and **Support method** sections of the **Additional details** tab according to your preferences.
 9. Click **Review + create**. After the validation is complete, click **Create**.
 
-Your spacecraft authorization request is reviewed by the Azure Orbital Ground Station team. Requests for supported public satellites should not take long to approve.
+After submission, the Azure Orbital Ground Station team reviews your satellite authorization request. Requests for supported public satellites shouldn't take long to approve.
 
    > [!NOTE]
    > You can confirm that your spacecraft resource is authorized by checking that the **Authorization status** shows **Allowed** on the spacecraft's overview page.
