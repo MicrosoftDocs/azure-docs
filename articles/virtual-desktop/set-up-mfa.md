@@ -43,26 +43,22 @@ Here's how to create a Conditional Access policy that requires multifactor authe
 1. Under the **Include** tab, select **Select apps**, then under **Select**, select **None**.
 1. On the new pane that opens, search for and select the necessary apps based on the resources you are trying to protect.
 
-   - If you're using Azure Virtual Desktop (based on Azure Resource Manager), you can configure MFA on two different apps:
+    - If you're using Azure Virtual Desktop (based on Azure Resource Manager), you can configure MFA on three different apps:
 
-        - **Azure Virtual Desktop** (app ID 9cdead84-a844-4324-93f2-b2e6bb768d07), which applies when the user subscribes to Azure Virtual Desktop, authenticates to the Azure Virtual Desktop Gateway during a connection, and when diagnostics information is sent to the service from the user's local device.
+      - **Azure Virtual Desktop** (app ID 9cdead84-a844-4324-93f2-b2e6bb768d07), which applies when the user subscribes to Azure Virtual Desktop, authenticates to the Azure Virtual Desktop Gateway during a connection, and when diagnostics information is sent to the service from the user's local device.
 
         > [!TIP]
         > The app name was previously *Windows Virtual Desktop*. If you registered the *Microsoft.DesktopVirtualization* resource provider before the display name changed, the application will be named **Windows Virtual Desktop** with the same app ID as above.
 
-        - **Windows Cloud Login** (app ID 270efc09-cd0d-444b-a71f-39af4910ec45), which applies when the user authenticates to the session host when [single sign-on](configure-single-sign-on.md) is enabled. It's recommended to match conditional access policies between this app and the Azure Virtual Desktop app above, except for the [sign-in frequency](#configure-sign-in-frequency).
+      - **Microsoft Remote Desktop** (app ID a4a365df-50f1-4397-bc59-1a1564b8bb9c) and **Windows Cloud Login** (app ID 270efc09-cd0d-444b-a71f-39af4910ec45). These apply when the user authenticates to the session host when [single sign-on](configure-single-sign-on.md) is enabled. It's recommended to match conditional access policies between these apps and the Azure Virtual Desktop app above, except for the [sign-in frequency](#configure-sign-in-frequency).
 
-        > [!TIP]
-        > Older versions of the clients used to access Azure Virtual Desktop used the **Microsoft Remote Desktop** (app ID a4a365df-50f1-4397-bc59-1a1564b8bb9c) app to authenticate to the session host when single sign-on was enabled. Add this app to your policy only if your users are still using the following clients:
-        > - [Windows Desktop client](users/connect-windows.md) on local PCs running Windows 10 or later. There's no requirement for the local PC to be joined to a domain or Microsoft Entra ID.
-        > - [macOS client](users/connect-macos.md) version 10.8.2 or older.
-        > - [iOS client](users/connect-ios-ipados.md) version 10.5.1 or older.
-        > - [Android client](users/connect-android-chrome-os.md) version 10.0.16 or older.
+        > [!IMPORTANT]
+        > The clients used to access Azure Virtual Desktop use the **Microsoft Remote Desktop** Entra ID app to authenticate to the session host today. An upcoming change will transition the authentication to the **Windows Cloud Login** Entra ID app. To ensure a smooth transition, you need to add both Entra ID apps to your CA policies.
 
-   - If you're using Azure Virtual Desktop (classic), choose these apps:
+    - If you're using Azure Virtual Desktop (classic), choose these apps:
        
-       - **Windows Virtual Desktop** (app ID 5a0aa725-4958-4b0c-80a9-34562e23f3b7).
-       - **Windows Virtual Desktop Client** (app ID fa4345a4-a730-4230-84a8-7d9651b86739), which will let you set policies on the web client.
+      - **Windows Virtual Desktop** (app ID 5a0aa725-4958-4b0c-80a9-34562e23f3b7).
+      - **Windows Virtual Desktop Client** (app ID fa4345a4-a730-4230-84a8-7d9651b86739), which will let you set policies on the web client.
        
         > [!TIP]
         > If you're using Azure Virtual Desktop (classic) and if the Conditional Access policy blocks all access excluding Azure Virtual Desktop app IDs, you can fix this by also adding the **Azure Virtual Desktop** (app ID 9cdead84-a844-4324-93f2-b2e6bb768d07) to the policy. Not adding this app ID will block feed discovery of Azure Virtual Desktop (classic) resources.
@@ -105,11 +101,15 @@ Here's how to create a Conditional Access policy that requires multifactor authe
 To optionally configure the time period before a user is asked to sign-in again:
 
 1. Open the policy you created previously.
-1. Under **Assignments**, select **Access controls** > **Session**. On the right, select **Sign-in frequency**. Set the value for the time period before a user is asked to sign-in again, and then select **Select**. For example, setting the value to **1** and the unit to **Hours**, will require multifactor authentication if a connection is launched over an hour after the last one.
+1. Under **Access controls** > **Session**, select **0 controls selected**.
+1. On the new pane that opens, select **Sign-in frequency**.
+1. Select **Periodic reauthentication**.
+1. Set the value for the time period before a user is asked to sign-in again, and then select **Select**. For example, setting the value to **1** and the unit to **Hours**, will require multifactor authentication if a connection is launched over an hour after the last one.
 1. At the bottom of the page, under **Enable policy** select **Save**.
 
 > [!NOTE]
-> If [single sign-on](configure-single-sign-on.md) is enabled, it's recommended to configure the sign-in frequency only on the **Windows Cloud Login** app. This will ensure that feed refresh and diagnostics upload continue working as expected.
+> - If [single sign-on](configure-single-sign-on.md) is enabled, it's recommended to configure the sign-in frequency only on the **Microsoft Remote Desktop** and  **Windows Cloud Login** Entra ID apps. This will ensure that feed refresh and diagnostics upload continue working as expected.
+> - Without single sign-on, sign-in frequency can be configured on the Azure Virtual Desktop Entra ID app.
 
 <a name='azure-ad-joined-session-host-vms'></a>
 
