@@ -47,7 +47,7 @@ Layered Network Management supports the Azure IoT Operations components in an is
 | Layered Network Management features | Status |
 |------------------------------------------------------------------------------------------|:---:|
 |Forward TLS traffic|Public preview|
-|Traffic Auditing - Basic: Source/destination IP addresses and header values|Supported|
+|Traffic Auditing - Basic: Source/destination IP addresses and header values|Public preview|
 |Allowlist management through [Kubernetes Custom Resource](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/)|Public preview|
 |Installation: Integrated install experience of Layered Network Management and other Azure IoT Operations components|Public preview|
 |Reverse Proxy for OSI Layer4 (TCP)|Public preview|
@@ -60,6 +60,6 @@ Layered Network Management supports the Azure IoT Operations components in an is
 
 ## Related content
 
-[Configure Azure IoT Layered Network Management Environment](howto-configure-layered-network.md)
-[Configure Azure IoT MQ in an Isolated Network](howto-configure-mq-layered-network.md)
+- [Configure Azure IoT Layered Network Management Environment](howto-configure-layered-network.md)
+- [Configure Azure IoT MQ in an Isolated Network](howto-configure-mq-layered-network.md)
 

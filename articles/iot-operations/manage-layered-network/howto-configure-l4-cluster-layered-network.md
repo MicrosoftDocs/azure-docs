@@ -84,12 +84,11 @@ Since Level 4 is internet facing, the configuration and installation can be comp
 
 1. Run the following command in an elevated PowerShell prompt:
 
-  ```powershell
-  Connect-AksEdgeArc -JsonConfigFilePath .\aks-ee-config.json
-  ```
+    ```powershell
+    Connect-AksEdgeArc -JsonConfigFilePath .\aks-ee-config.json
+    ```
 
-  For more information, see [Connect your AKS Edge Essentials cluster to Arc](/azure/aks/hybrid/aks-edge-howto-connect-to-arc).
-
+    For more information, see [Connect your AKS Edge Essentials cluster to Arc](/azure/aks/hybrid/aks-edge-howto-connect-to-arc).
 
 ## Deploy Layered Network Management Service to the cluster
 
@@ -114,33 +113,33 @@ The following sections describe how to deploy the Layered Network Management ser
     azedge-lnm-operator-598cc495c-5428j   1/1     Running   0          28h
     ```
 
-## Config Layered Network Management Service
+## Configure Layered Network Management Service
 
-Create Layered Network Management custom resource.
+Create the Layered Network Management custom resource.
 
 1. Create a `lnm-cr.yaml` file as specified:
 
-  ```yaml
-  apiVersion: az-edge.com/v1
-  kind: E4in
-  metadata:
-    name: level-4
-    namespace: default
-  spec:
-    image:
-      repository: mcr.microsoft.com/oss/envoyproxy/envoy-distroless
-      tag: v1.27.0
-    replicas: 1
-    logLevel: "info"
-    allowList:
-      enableArcDomains: true
-      domains:
-      sourceIpRange:
-      - addressPrefix: "0.0.0.0"
-        prefixLen: 0
-  ```
+    ```yaml
+    apiVersion: az-edge.com/v1
+    kind: E4in
+    metadata:
+      name: level-4
+      namespace: default
+    spec:
+      image:
+        repository: mcr.microsoft.com/oss/envoyproxy/envoy-distroless
+        tag: v1.27.0
+      replicas: 1
+      logLevel: "info"
+      allowList:
+        enableArcDomains: true
+        domains:
+        sourceIpRange:
+        - addressPrefix: "0.0.0.0"
+          prefixLen: 0
+    ```
 
-For debugging or experimentation, you can change the value of **loglevel** parameter to **debug**.  
+    For debugging or experimentation, you can change the value of **loglevel** parameter to **debug**.  
 
 1. Create the Custom Resource to create a Layered Network Management instance
 

@@ -54,7 +54,7 @@ Once the Azure Arc enablement of the level 3 cluster is complete, Navigate to yo
 1. Open the resource overview page. 
 1. Verify **status** of the cluster is **online**.
 
-For more information, see [Access Kubernetes resources from Azure portal](/azure/azure-arc/kubernetes/kubernetes-resource-view)
+For more information, see [Access Kubernetes resources from Azure portal](/azure/azure-arc/kubernetes/kubernetes-resource-view).
 
 ## Related content
 
