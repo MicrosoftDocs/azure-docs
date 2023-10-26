@@ -685,6 +685,9 @@ items:
     - name: Overview 
       displayName: Diagnostic Settings, Platform logs, Resource logs, Activity log
       href: essentials/diagnostic-settings.md
+    - name: Create Diagnostic Settings in Azure Monitor 
+      displayName: Diagnostic Settings, Platform logs, Resource logs, Activity log
+      href: essentials/create-diagnostic-settings.md      
     - name: Create Diagnostic Settings with Azure Policy
       displayName: Diagnostic Settings, Platform logs, Resource logs, Activity log
       href: essentials/diagnostic-settings-policy.md
@@ -740,7 +743,7 @@ items:
       href: agents/azure-monitor-agent-performance.md
     - name: FAQ
       displayName: Azure Monitor agent FAQ
-      href: /azure/azure-monitor/faq#azure-monitor-agent
+      href: agents/agents-overview.md#frequently-asked-questions
     - name: Legacy agents
       items:
       - name: Log Analytics agent
