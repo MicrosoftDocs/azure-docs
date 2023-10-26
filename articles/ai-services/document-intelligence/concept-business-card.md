@@ -14,25 +14,22 @@ ms.author: lajanuar
 
 # Document Intelligence business card model
 
-:::moniker range="doc-intel-4.0.0"
-
 > [!IMPORTANT]
 > Starting with Document Intelligence **v4.0:2023-10-31-preview** and going forward, the business card model (prebuilt-businessCard) is deprecated. To extract data from business card formats, use the following:
 
 | Feature   | version| Model ID |
 |----------  |---------|--------|
 | Business card model|&bullet; v3.1:2023-07-31 (GA)</br>&bullet; v3.0:2022-08-31 (GA)</br>&bullet; v2.1 (GA)|**`prebuilt-businessCard`**|
-:::moniker-end
 
-::: moniker range="doc-intel-3.1.0 || doc-intel-3.0.0"
-[!INCLUDE [applies to v3.1 and v3.0](includes/applies-to-v3-1-v3-0.md)]
+::: moniker range=">=doc-intel-3.0.0"
+[!INCLUDE [applies to v4.0, v3.1 and v3.0](includes/applies-to-v40-v31-v30.md)]  **Earlier version:** ![blue-checkmark](media/versions-icon.png) [v2.1](?view=doc-intel-2.1.0&preserve-view=true)
 ::: moniker-end
 
 ::: moniker range="doc-intel-2.1.0"
-[!INCLUDE [applies to v2.1](includes/applies-to-v2-1.md)]
+[!INCLUDE [applies to v2.1](includes/applies-to-v21.md)]
 ::: moniker-end
 
-::: moniker range="doc-intel-3.1.0 || doc-intel-3.0.0"
+::: moniker range=">=doc-intel-3.0.0"
 
 The Document Intelligence business card model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to analyze and extract data from business card images. The API analyzes printed business cards; extracts key information such as first name, last name, company name, email address, and phone number;  and returns a structured JSON data representation.
 
@@ -55,6 +52,15 @@ Business cards are a great way to represent a business or a professional. The co
 ::: moniker-end
 
 ## Development options
+
+::: moniker range="doc-intel-4.0.0"
+
+Document Intelligence v4.0 (2023-10-31-preview) supports the following tools, applications, and libraries:
+
+| Feature | Resources | Model ID |
+|----------|-------------|-----------|
+|**ID document model**|&bullet; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</br>&bullet;  [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/document-intelligence-api-2023-10-31-preview/operations/AnalyzeDocument)</br>&bullet;  [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)|**prebuilt-idDocument**|
+::: moniker-end
 
 :::moniker range="doc-intel-3.1.0"
 
@@ -85,7 +91,7 @@ Document Intelligence **v2.1 (GA)** supports the following tools, applications, 
 
 ::: moniker-end
 
-::: moniker range="doc-intel-3.1.0 || doc-intel-3.0.0"
+::: moniker range=">=doc-intel-3.0.0"
 
 ### Try business card data extraction
 
@@ -157,7 +163,7 @@ See how data, including name, job title, address, email, and company name, is ex
 
 ## Input requirements
 
-::: moniker range="doc-intel-3.1.0 || doc-intel-3.0.0"
+::: moniker range=">=doc-intel-3.0.0"
 
 [!INCLUDE [input requirements](./includes/input-requirements.md)]
 
@@ -171,7 +177,7 @@ See how data, including name, job title, address, email, and company name, is ex
 
 ::: moniker-end
 
-::: moniker range="doc-intel-3.1.0 || doc-intel-3.0.0"
+::: moniker range=">=doc-intel-3.0.0"
 
 ## Supported languages and locales
 
@@ -241,7 +247,7 @@ See how data, including name, job title, address, email, and company name, is ex
 
 ## Next steps
 
-::: moniker range="doc-intel-3.1.0 || doc-intel-3.0.0"
+::: moniker range=">=doc-intel-3.0.0"
 
 * Try processing your own forms and documents with the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
 

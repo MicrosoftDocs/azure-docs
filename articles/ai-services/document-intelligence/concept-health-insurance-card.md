@@ -14,7 +14,7 @@ monikerRange: 'doc-intel-4.0.0 || >=doc-intel-3.0.0'
 
 # Document Intelligence health insurance card model
 
-[!INCLUDE [applies to v4.0, v3.1 and v3.0](includes/applies-to-v4-v3-1-v3.md)]
+[!INCLUDE [applies to v4.0, v3.1 and v3.0](includes/applies-to-v40-v31-v30.md)]
 
 The Document Intelligence health insurance card model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to analyze and extract key information from US health insurance cards. A health insurance card is a key document for care processing and can be digitally analyzed for patient onboarding, financial coverage information, cashless payments, and insurance claim processing. The health insurance card model analyzes health card images; extracts key information such as insurer, member, prescription, and group number; and returns a structured JSON representation.  Health insurance cards can be presented in various formats and quality including phone-captured images, scanned documents, and digital PDFs.
 
@@ -24,9 +24,9 @@ The Document Intelligence health insurance card model combines powerful Optical 
 
 ## Development options
 
-::: moniker range=">=doc-intel-4.0.0"
+::: moniker range="doc-intel-4.0.0"
 
-Document Intelligence v4.0 supports the following tools, applications, and libraries:
+Document Intelligence v4.0 (2023-10-31-preview) supports the following tools, applications, and libraries:
 
 | Feature | Resources | Model ID |
 |----------|-------------|-----------|

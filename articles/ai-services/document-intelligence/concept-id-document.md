@@ -17,11 +17,11 @@ monikerRange: '<=doc-intel-4.0.0'
 # Document Intelligence ID document model
 
 ::: moniker range=">=doc-intel-3.0.0"
-[!INCLUDE [applies to v3.1 and v3.0](includes/applies-to-v3-1-v3-0.md)]
+[!INCLUDE [applies to v4.0 v3.1 v3.0](includes/applies-to-v40-v31-v30.md)]  **Earlier version:** ![blue-checkmark](media/versions-icon.png) [v2.1](?view=doc-intel-2.1.0&preserve-view=true)
 ::: moniker-end
 
 ::: moniker range="doc-intel-2.1.0"
-[!INCLUDE [applies to v2.1](includes/applies-to-v2-1.md)]
+[!INCLUDE [applies to v2.1](includes/applies-to-v21.md)]
 ::: moniker-end
 
 ::: moniker range=">=doc-intel-3.0.0"
@@ -74,9 +74,9 @@ The prebuilt IDs service extracts the key values from worldwide passports and U.
 
 ## Development options
 
-::: moniker range=">=doc-intel-4.0.0"
+::: moniker range="doc-intel-4.0.0"
 
-Document Intelligence v4.0 supports the following tools, applications, and libraries:
+Document Intelligence v4.0 (2023-10-31-preview) supports the following tools, applications, and libraries:
 
 | Feature | Resources | Model ID |
 |----------|-------------|-----------|

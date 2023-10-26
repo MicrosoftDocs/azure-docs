@@ -15,7 +15,7 @@ ms.custom: devx-track-csharp
 <!-- markdownlint-disable MD033 -->
 <!-- markdownlint-disable MD034 -->
 
-> [!IMPORTANT]
+> [!NOTE]
 >
 > This project targets Document Intelligence REST API version 3.1.
 

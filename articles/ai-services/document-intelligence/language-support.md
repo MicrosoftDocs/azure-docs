@@ -7,12 +7,15 @@ manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
 ms.date: 11/15/2023
-monikerRange: '<=doc-intel-4.0.0'
 ---
 
 <!-- markdownlint-disable MD036 -->
 
 # Language detection and extraction support
+
+::: moniker range="<=doc-intel-4.0.0"
+ [!INCLUDE [applies to v4.0 v3.1 v3.0 v2.1](includes/applies-to-v40-v31-v30-v21.md)]
+::: moniker-end
 
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -33,6 +36,7 @@ Azure AI Document Intelligence models support many languages. Our language suppo
 Model | Description |
 | --- | --- |
 |:::image type="icon" source="media/overview/icon-business-card.png" link="concept-business-card.md#supported-languages-and-locales"::: [**Business card**](concept-business-card.md#supported-languages-and-locales)| Extract business contact details.|
+:::image type="icon" source="media/overview/icon-contract.png" link="concept-contract.md#supported-languages-and-locales"::: [**Contract**](concept-contract.md)| Extract party and time period details.
 |:::image type="icon" source="media/overview/icon-insurance-card.png" link="concept-health-insurance-card.md#supported-languages-and-locales"::: [**Health insurance**](concept-health-insurance-card.md#supported-languages-and-locales)| Extract health insurance details.|
 |:::image type="icon" source="media/overview/icon-id-document.png" link="concept-id-document.md#supported-document-types"::: [**ID document**](concept-id-document.md#supported-document-types)| Extract identification and verification details.|
 |:::image type="icon" source="media/overview/icon-invoice.png" link="concept-invoice.md#supported-languages-and-locales"::: [**Invoice**](concept-invoice.md#supported-languages-and-locales)| Extract customer and vendor details.|

@@ -16,11 +16,11 @@ monikerRange: '<=doc-intel-4.0.0'
 # Document Intelligence receipt model
 
 ::: moniker range=">=doc-intel-3.0.0"
-[!INCLUDE [applies to v3.1 and v3.0](includes/applies-to-v3-1-v3-0.md)]
+[!INCLUDE [applies to v4.0 v3.1 v3.0](includes/applies-to-v40-v31-v30.md)]  **Earlier version:** ![blue-checkmark](media/versions-icon.png) [v2.1](?view=doc-intel-2.1.0&preserve-view=true)
 ::: moniker-end
 
 ::: moniker range="doc-intel-2.1.0"
-[!INCLUDE [applies to v2.1](includes/applies-to-v2-1.md)]
+[!INCLUDE [applies to v2.1](includes/applies-to-v21.md)]
 ::: moniker-end
 
 The Document Intelligence receipt model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to analyze and extract key information from sales receipts. Receipts can be of various formats and quality including printed and handwritten receipts. The API extracts key information such as merchant name, merchant phone number, transaction date, tax, and transaction total and returns structured JSON data.
@@ -47,9 +47,9 @@ Receipt digitization encompasses the transformation of various types of receipts
 
 ## Development options
 
-::: moniker range=">=doc-intel-4.0.0"
+::: moniker range="doc-intel-4.0.0"
 
-Document Intelligence v4.0 supports the following tools, applications, and libraries:
+Document Intelligence v4.0 (2023-10-31-preview) supports the following tools, applications, and libraries:
 
 | Feature | Resources | Model ID |
 |----------|-------------|-----------|

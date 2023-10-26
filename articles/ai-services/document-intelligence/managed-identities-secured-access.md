@@ -14,7 +14,7 @@ monikerRange: '<=doc-intel-4.0.0'
 
 # Configure secure access with managed identities and private endpoints
 
-[!INCLUDE [applies to v3.1, v3.0, and v2.1](includes/applies-to-v3-1-v3-0-v2-1.md)]
+[!INCLUDE [applies to v4.0, v3.1, v3.0, and v2.1](includes/applies-to-v40-v31-v30-v21.md)]
 
 This how-to guide walks you through the process of enabling secure connections for your Document Intelligence resource. You can secure the following connections:
 

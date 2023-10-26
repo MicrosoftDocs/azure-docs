@@ -16,11 +16,11 @@ monikerRange: '<=doc-intel-4.0.0'
 # Document Intelligence layout model
 
 ::: moniker range=">=doc-intel-3.0.0"
-[!INCLUDE [applies to v3.1 and v3.0](includes/applies-to-v3-1-v3-0.md)]
+[!INCLUDE [applies to v4.0 v3.1 v3.0](includes/applies-to-v40-v31-v30.md)]  **Earlier version:** ![blue-checkmark](media/versions-icon.png) [v2.1](?view=doc-intel-2.1.0&preserve-view=true)
 ::: moniker-end
 
 ::: moniker range="doc-intel-2.1.0"
-[!INCLUDE [applies to v2.1](includes/applies-to-v2-1.md)]
+[!INCLUDE [applies to v2.1](includes/applies-to-v21.md)]
 ::: moniker-end
 
 Document Intelligence layout model is an advanced machine-learning based document analysis API available in the Document Intelligence cloud. It enables you to take documents in various formats and return structured data representations of the documents. It combines an enhanced version of our powerful [Optical Character Recognition (OCR)](../../ai-services/computer-vision/overview-ocr.md) capabilities with deep learning models to extract text, tables, selection marks, and document structure.
@@ -46,9 +46,9 @@ The following illustration shows the typical components in an image of a sample 
 
 ## Development options
 
-::: moniker range=">=doc-intel-4.0.0"
+::: moniker range="doc-intel-4.0.0"
 
-Document Intelligence v4.0 supports the following tools, applications, and libraries:
+Document Intelligence v4.0 (2023-10-31-preview) supports the following tools, applications, and libraries:
 
 | Feature | Resources | Model ID |
 |----------|-------------|-----------|

@@ -15,7 +15,7 @@ monikerRange: '>=doc-intel-3.0.0'
 
 # Document Intelligence contract model
 
-[!INCLUDE [applies to v3.1](includes/applies-to-v3-1.md)]
+[!INCLUDE [applies to v4.0 v3.1](includes/applies-to-v40-v31.md)]
 
 The Document Intelligence contract model uses powerful Optical Character Recognition (OCR) capabilities to analyze and extract key fields and line items from a select group of important contract entities. Contracts can be of various formats and quality including phone-captured images, scanned documents, and digital PDFs. The API analyzes document text; extracts key information such as Parties, Jurisdictions, Contract ID, and Title; and returns a structured JSON data representation. The model currently supports English-language document formats.
 
@@ -27,7 +27,7 @@ Automated contract processing is the process of extracting key contract fields f
 
 ::: moniker range="doc-intel-4.0.0"
 
-Document Intelligence v4.0 supports the following tools, applications, and libraries:
+Document Intelligence v4.0 (2023-10-31-preview) supports the following tools, applications, and libraries:
 
 | Feature | Resources | Model ID |
 |----------|-------------|-----------|

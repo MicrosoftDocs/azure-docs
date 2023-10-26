@@ -18,7 +18,7 @@ monikerRange: 'doc-intel-2.1.0'
 <!-- markdownlint-disable MD029 -->
 # Get started with the Document Intelligence Sample Labeling tool
 
-**This article applies to:** ![Document Intelligence v2.1 checkmark](../media/yes-icon.png) **Document Intelligence v2.1**.
+**This content applies to:** ![Document Intelligence v2.1 checkmark](../media/yes-icon.png) **v2.1**.
 
 >[!TIP]
 >

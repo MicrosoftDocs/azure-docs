@@ -15,11 +15,11 @@ monikerRange: 'doc-intel-4.0.0 || <=doc-intel-3.1.0'
 # Document Intelligence custom template model
 
 ::: moniker range=">=doc-intel-3.0.0"
-[!INCLUDE [applies to v4.0, v3.1 and v3.0](includes/applies-to-v4-v3-1-v3.md)]
+[!INCLUDE [applies to v4.0, v3.1 and v3.0](includes/applies-to-v40-v31-v30.md)]  **Earlier version:** ![blue-checkmark](media/versions-icon.png) [v2.1](?view=doc-intel-2.1.0&preserve-view=true)
 ::: moniker-end
 
 ::: moniker range="doc-intel-2.1.0"
-[!INCLUDE [applies to v2.1](includes/applies-to-v2-1.md)]
+[!INCLUDE [applies to v2.1](includes/applies-to-v21.md)]
 ::: moniker-end
 
 Custom template (formerly custom form) is an easy-to-train document model that accurately extracts labeled key-value pairs, selection marks, tables, regions, and signatures from documents. Template models use layout cues to extract values from documents and are suitable to extract fields from highly structured documents with defined visual templates.
@@ -57,7 +57,7 @@ Template models rely on a defined visual template, changes to the template resul
 
 ## Training a model
 
-::: moniker range=">=doc-intel-4.0.0"
+::: moniker range="doc-intel-4.0.0"
 
 Custom template models are generally available with the [v4.0 API](https://westus.dev.cognitive.microsoft.com/docs/services/document-intelligence-api-2023-10-31-preview/operations/BuildDocumentModel). If you're starting with a new project or have an existing labeled dataset, use the v3.1 or v3.0 API with Document Intelligence Studio to train a custom template model.
 

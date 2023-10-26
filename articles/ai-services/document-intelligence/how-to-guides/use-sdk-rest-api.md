@@ -18,7 +18,7 @@ monikerRange: '<=doc-intel-4.0.0'
 # Use Document Intelligence models
 
 ::: moniker range=">=doc-intel-3.0.0"
-[!INCLUDE [applies to v3.0](../includes/applies-to-v3-0.md)]
+[!INCLUDE [applies to v3.1 and v3.0](../includes/applies-to-v31-v30.md)]
 ::: moniker-end
 
 ::: moniker range=">=doc-intel-3.0.0"
@@ -35,6 +35,8 @@ Choose from the following Document Intelligence models to analyze and extract da
 > - The [prebuilt-layout](../concept-layout.md) model extracts text and text locations, tables, selection marks, and structure information from documents and images.
 >
 > - The [prebuilt-document](../concept-general-document.md) model extracts key-value pairs, tables, and selection marks from documents. You can use this model as an alternative to training a custom model without labels.
+>
+> - The [prebuilt-contract](../concept-contract.md) model extracts key information from contractual agreements.
 >
 > - The [prebuilt-healthInsuranceCard.us](../concept-health-insurance-card.md) model extracts key information from US health insurance cards.
 >
@@ -110,7 +112,7 @@ Congratulations! You've learned to use Document Intelligence models to analyze v
 ::: moniker-end
 
 ::: moniker range="doc-intel-2.1.0"
-[!INCLUDE [applies to v2.1](../includes/applies-to-v2-1.md)]
+[!INCLUDE [applies to v2.1](../includes/applies-to-v21.md)]
 ::: moniker-end
 
 ::: moniker range="doc-intel-2.1.0"
