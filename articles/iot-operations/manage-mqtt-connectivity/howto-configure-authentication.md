@@ -183,7 +183,7 @@ It might take a few minutes for the changes to take effect.
 
 ## Prerequisites
 
-- Azure IoT MQ configured with [TLS enabled](../../pub-sub-mqtt/concept-brokerlistener.md).
+- Azure IoT MQ configured with [TLS enabled](../../manage-mqtt-connectivity/concept-brokerlistener.md).
 - [Step-CLI](https://smallstep.com/docs/step-cli/installation/)
 - Client certificates and the issuing certificate chain in PEM files. If you don't have any, use Step CLI to generate some.
 - Familiarity with public key cryptography and terms like root CA, private key, and intermediate certificates.
@@ -193,7 +193,7 @@ Both EC and RSA keys are supported, but all certificates in the chain must use t
 
 ## Enable X.509 client authentication
 
-To enable X.509 client authentication, [TLS must first be enabled](../../pub-sub-mqtt/concept-brokerlistener.md). Then, add `x509` as one of the authentication methods as part of a Broker Authentication resource:
+To enable X.509 client authentication, [TLS must first be enabled](../../manage-mqtt-connectivity/concept-brokerlistener.md). Then, add `x509` as one of the authentication methods as part of a Broker Authentication resource:
 
 ```yaml
 apiVersion: az-edge.com/v1alpha4 
@@ -481,7 +481,7 @@ spec:
 
 ## Related content
 
-- About [BrokerListener resource](../../pub-sub-mqtt/concept-brokerlistener.md)
+- About [BrokerListener resource](../../manage-mqtt-connectivity/concept-brokerlistener.md)
 - [Configure authorization for a BrokerListener](./howto-configure-authorization.md)
 - [Configure TLS with manual certificate management](./howto-configure-tls-manual.md)
 - [Configure TLS with automatic certificate management](./howto-configure-tls-auto.md)

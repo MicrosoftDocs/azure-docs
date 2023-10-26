@@ -55,9 +55,9 @@ items:
     - name: Publish/Subscribe with MQTT
       items:
       - name: Overview
-        href: pub-sub-mqtt/overview-iot-mq.md
+        href: manage-mqtt-connectivity/overview-iot-mq.md
       - name: Secure communication using BrokerListener
-        href: pub-sub-mqtt/concept-brokerlistener.md
+        href: manage-mqtt-connectivity/concept-brokerlistener.md
     - name: Process messages
       items:
       - name: Overview

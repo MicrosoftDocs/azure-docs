@@ -595,4 +595,4 @@ Azure IoT MQ is a compliant MQTT broker and other brokers can bridge to it with 
 
 ## Related content
 
-- [Publish and subscribe MQTT messages using Azure IoT MQ](../pub-sub-mqtt/overview-iot-mq.md)
+- [Publish and subscribe MQTT messages using Azure IoT MQ](../manage-mqtt-connectivity/overview-iot-mq.md)

@@ -144,4 +144,4 @@ The messages being received on the `cloud-updates` topic are cloud-to-device mes
 
 ## Related content
 
-- [Publish and subscribe MQTT messages using Azure IoT MQ](../pub-sub-mqtt/overview-iot-mq.md)
+- [Publish and subscribe MQTT messages using Azure IoT MQ](../manage-mqtt-connectivity/overview-iot-mq.md)
