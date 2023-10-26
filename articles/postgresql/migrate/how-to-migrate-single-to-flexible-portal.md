@@ -168,7 +168,7 @@ The validation grid has the following columns
 
 The validation moves to **Validation Failed** state if there are any errors in the validation. Click on the **Finding** in the grid whose status is **Failed** and a fan-out pane appears giving the details and the corrective action you should take to avoid this error.
 
-:::image type="content" source="./media/concepts-single-to-flexible/validation-failed.png" alt-text="Screenshot of the validation grid with failed status" lightbox="./media/concepts-single-to-flexible/validation-failed.png":::
+:::image type="content" source="./media/concepts-single-to-flexible/validation-failed.png" alt-text="Screenshot of the validation grid with failed status." lightbox="./media/concepts-single-to-flexible/validation-failed.png":::
 
 ### Migrate 
 
@@ -194,9 +194,9 @@ In this option, validations are performed first before migration starts. After t
 
 You can see the results of validation under the **Validation** tab and monitor the migration under the **Migration** tab.
 
-:::image type="content" source="./media/concepts-single-to-flexible/validate-and-migrate-1.png" alt-text="Screenshot showing validations tab in details page" lightbox="./media/concepts-single-to-flexible/validate-and-migrate-1.png":::
+:::image type="content" source="./media/concepts-single-to-flexible/validate-and-migrate-1.png" alt-text="Screenshot showing validations tab in details page." lightbox="./media/concepts-single-to-flexible/validate-and-migrate-1.png":::
 
-:::image type="content" source="./media/concepts-single-to-flexible/validate-and-migrate-2.png" alt-text="Screenshot showing migrations tab in details page" lightbox="./media/concepts-single-to-flexible/validate-and-migrate-2.png":::
+:::image type="content" source="./media/concepts-single-to-flexible/validate-and-migrate-2.png" alt-text="Screenshot showing migrations tab in details page." lightbox="./media/concepts-single-to-flexible/validate-and-migrate-2.png":::
 
 After the migration has moved to the **Succeeded** state, follow the post-migration steps in [Migrate from Azure Database for PostgreSQL Single Server to Flexible Server](./concepts-single-to-flexible.md#post-migration).
 
@@ -218,10 +218,10 @@ Possible migration substates include:
 
 ## Cancel the migration
 
-You can cancel any ongoing validations or migrations. The workflow must be in the **InProgress** state to be cancelled. You can't cancel a validation or migration that's in the **Succeeded** or **Failed** state.
+You can cancel any ongoing validations or migrations. The workflow must be in the **InProgress** state to be canceled. You can't cancel a validation or migration that's in the **Succeeded** or **Failed** state.
 
-Cancelling a validation stops any further validation activity and the validation moves to a **Cancelled** state.
-Cancelling a migration stops further migration activity on your target server and moves to a **Cancelled** state. It doesn't drop or roll back any changes on your target server. Be sure to drop the databases on your target server involved in a canceled migration.
+Canceling a validation stops any further validation activity and the validation moves to a **Cancelled** state.
+Canceling a migration stops further migration activity on your target server and moves to a **Cancelled** state. It doesn't drop or roll back any changes on your target server. Be sure to drop the databases on your target server involved in a canceled migration.
 
 ## Migration best practices
 

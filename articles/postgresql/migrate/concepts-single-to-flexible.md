@@ -54,12 +54,12 @@ Let us first look at the methods you can consider performing the migration from 
 
 **Online Migration** - In an online migration, applications connecting to your single server aren't stopped while database(s) are copied to flexible server. The initial copy of the databases is followed by replication to keep flexible server in sync with the single server. A cutover is performed when the flexible server is in complete sync with the single server resulting in minimal downtime.
 
-The following table gives an overview of Offline vs Online migration.
+The following table gives an overview of Offline and Online modes of migration.
 
 | Mode | Pros | Cons |
 | :--- | :--- | :--- |
 | Offline | - Simple, easy and less complex to execute.<br />- Very fewer chances of failure.<br />- No restrictions in terms of database objects it can handle | Downtime to applications. |
-| Online | - Very minimal downtime to application.<br />- Ideal for large databases and for customers having limited downtime requirements.<br />| - Replication used in online migration has multiple restrictions listed in this [doc](https://www.postgresql.org/docs/current/logical-replication-restrictions.html) (e.g Primary Keys needed in all tables)<br />- Tough and much complex to execute than offline migration. <br />- Greater chances of failure due to complexity of migration. <br />There's an impact on the source server's storage and compute if the migration runs for a long time. The impact needs to be monitored closely during migration. |
+| Online | - Very minimal downtime to application.<br />- Ideal for large databases and for customers having limited downtime requirements.<br />| - Replication used in online migration has multiple restrictions listed in this [doc](https://www.postgresql.org/docs/current/logical-replication-restrictions.html) (e.g Primary Keys needed in all tables)<br />- Tough and more complex to execute than offline migration. <br />- Greater chances of failure due to complexity of migration. <br />There's an impact on the source server's storage and compute if the migration runs for a long time. The impact needs to be monitored closely during migration. |
 
 > [!IMPORTANT]  
 > Offline migration is the recommended way to perform migrations from single server to flexible server. Customers should consider online migrations only if their downtime requirements are not met.
@@ -156,7 +156,7 @@ Along with data migration, the tool automatically provides the following built-i
 > [!NOTE]  
 > The following limitations are applicable only for flexible servers on which the migration of users/roles functionality is enabled.
 
-- AAD users present on your source server won't be migrated to target server. To mitigate this limitation, manually create all AAD users on your target server using this [link](../flexible-server/how-to-manage-azure-ad-users.md) before triggering a migration. If AAD users aren't created on target server, migration fails with appropriate error message.
+- Azure Active Directory users present on your source server won't be migrated to target server. To mitigate this limitation, manually create all Azure Active Directory users on your target server using this [link](../flexible-server/how-to-manage-azure-ad-users.md) before triggering a migration. If Azure Active Directory users aren't created on target server, migration fails with appropriate error message.
 - If the target flexible server uses SCRAM-SHA-256 password encryption method, connection to flexible server using the users/roles on single server fails since the passwords are encrypted using md5 algorithm. To mitigate this limitation, choose the option **MD5** for **password_encryption** server parameter on your flexible server.
 ## Experience
 
@@ -206,7 +206,7 @@ The following table summarizes the list of networking scenarios supported by the
 
 ##### Allow list required extensions
 
-The migration tool automatically allow lists all extensions used by your single server databases on your flexible server except for the ones whose libraries need to be loaded at the server start. 
+The migration tool automatically allows lists all extensions used by your single server databases on your flexible server except for the ones whose libraries need to be loaded at the server start. 
 
 Use the following select command to list all the extensions used on your Single server databases.
 
@@ -243,7 +243,7 @@ Use the **Save and Restart** option and wait for the flexible server to restart.
 > [!NOTE]  
 > This pre-requisite is applicable only for flexible servers on which the migration of users/roles functionality is enabled.
 
-Execute the following query on your source server to get the list of AAD users.
+Execute the following query on your source server to get the list of Azure Active Directory users.
 ```sql
 SELECT r.rolname
 	FROM
@@ -257,7 +257,7 @@ SELECT r.rolname
 		'azure_ad_mfa'
 	  );
 ``` 
-Create the AAD users on your target flexible server using this [link](../flexible-server/how-to-manage-azure-ad-users.md) before creating a migration.
+Create the Azure Active Directory users on your target flexible server using this [link](../flexible-server/how-to-manage-azure-ad-users.md) before creating a migration.
 
 #### Database migration planning
 
@@ -295,7 +295,7 @@ Psql -h **myflexserver**.postgres.database.azure.com -u user1 -d db1
 
 **Total planned downtime** = **Time to migrate PITR** + **time to migrate Buffer** + **time for Validation** + **time to migrate server settings** + **time to switch connection strings to the flexible server.**
 
-While most frequently a migration runs without a hitch, it's good practice to plan for contingencies if more time is required for debugging or if a migration may need to be restarted.
+While most frequently a migration runs without a hitch, it's good practice to plan for contingencies if more time is required for debugging or if a migration needs to be restarted.
 
 ### Migration
 
