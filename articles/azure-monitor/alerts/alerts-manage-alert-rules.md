@@ -5,7 +5,7 @@ author: AbbyMSFT
 ms.author: abbyweisberg
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.date: 03/05/2023
+ms.date: 10/25/2023
 ms.reviewer: harelbr
 ---
 # Manage your alert rules
@@ -67,17 +67,18 @@ The system compiles a list of recommended alert rules based on:
 > - AKS resources
 > - Log Analytics workspaces
 
-:::image type="content" source="media/alerts-managing-alert-instances/enable-recommended-alert-rules.jpg" alt-text="Screenshot of alerts page with link to recommended alert rules.":::
+:::image type="content" source="media/alerts-managing-alert-instances/enable-recommended-alerts.png" alt-text="Screenshot of alerts page with link to recommended alert rules.":::
 
 To enable recommended alert rules:
 
-1. On the **Alerts** page, select **Enable recommended alert rules**. The **Enable recommended alert rules** pane opens with a list of recommended alert rules based on your type of resource.  
-1. In the **Alert me if** section, select all of the rules you want to enable. The rules are populated with the default values for the rule condition, such as the percentage of CPU usage that you want to trigger an alert. You can change the default values if you would like.
+1. In the left pane, select **Alerts**. 
+1. Select **View + enable**. The **Set up recommended alert rules** pane opens with a list of recommended alert rules based on your type of resource.  
+1. In the **Alert me if** section, all recommended alerts are enabled by default. The rules are populated with the default values for the rule condition, such as the percentage of CPU usage that you want to trigger an alert. You can change the default values if you would like, or turn off an alert.
 1. In the **Notify me by** section, select the way you want to be notified if an alert is fired.
 1. Select **Use an existing action group**, and enter the details of the existing action group if you want to use an action group that already exists.
-1. Select **Enable**.
+1. Select **Save**.
 
-    :::image type="content" source="media/alerts-managing-alert-instances/alerts-enable-recommended-alert-rule-pane.png" alt-text="Screenshot of recommended alert rules pane."::: 
+    :::image type="content" source="media/alerts-managing-alert-instances/set-up-recommended-alerts.png" alt-text="Screenshot of recommended alert rules pane."::: 
 
 ## Manage metric alert rules with the Azure CLI
 
