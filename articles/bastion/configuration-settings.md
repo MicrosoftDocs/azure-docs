@@ -6,6 +6,7 @@ ms.author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
 ms.date: 10/26/2023
+ms.custom: references_regions
 ---
 
 # About Bastion configuration settings
