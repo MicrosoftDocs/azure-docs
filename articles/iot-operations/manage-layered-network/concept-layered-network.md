@@ -24,7 +24,7 @@ Layered Network Management provides several benefits including:
 * Kubernetes observability tooling for previously isolated devices and applications across levels
 * Default compatibility with all Azure IoT Operations service connections
 
-:::image type="content" source="./media/concept-layered-network/layered-network-management-overview.png" alt-text="Diagram of Layered Network Management." lightbox="media/article-folder-name/image-file-expanded.png":::
+:::image type="content" source="./media/concept-layered-network/layered-network-management-overview.png" alt-text="Diagram of Layered Network Management." lightbox="./media/concept-layered-network/layered-network-management-overview.png":::
 
 ## Isolated network environment for deploying Layered Network Management
 
