@@ -552,5 +552,4 @@ az ml datastore create --file my_onelakesp_datastore.yml
 - [Access data in a job](how-to-read-write-data-v2.md#access-data-in-a-job)
 - [Create and manage data assets](how-to-create-data-assets.md#create-and-manage-data-assets)
 - [Import data assets (preview)](how-to-import-data-assets.md#import-data-assets-preview)
-- [Data administration](how-to-administrate-data-authentication.md#data-administration)datastore create --file my_adls_datastore.yml
-```
+- [Data administration](how-to-administrate-data-authentication.md#data-administration)
