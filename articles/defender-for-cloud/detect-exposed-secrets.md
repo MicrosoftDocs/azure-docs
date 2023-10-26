@@ -55,7 +55,7 @@ When credentials are discovered in your code, you can remove them. Instead you c
 
 - Using secret storage such as Azure Key Vault (AKV).
 
-- Updating your authentication methods to take advantage of managed identities (MSI) via Azure Active Directory (AAD).
+- Updating your authentication methods to take advantage of managed identities (MSI) via Microsoft Entra ID.
   
 ### Remediate secrets findings using Azure Key Vault
 

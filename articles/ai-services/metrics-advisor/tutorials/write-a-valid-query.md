@@ -28,6 +28,8 @@ verb.
 
 # Tutorial: Write a valid query to onboard metrics data
 
+[!INCLUDE [Deprecation announcement](../includes/deprecation.md)]
+
 <!-- 2. Introductory paragraph 
 Required. Lead with a light intro that describes, in customer-friendly language, 
 what the customer will learn, or do, or accomplish. Answer the fundamental “why 

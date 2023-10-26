@@ -59,7 +59,7 @@ sections:
       - question: |
           How many users can an Azure AD B2C tenant accommodate?
         answer: |
-          - By default, each tenant can accommodate a total of **1 million** objects (user accounts and applications), but you can increase this limit to **5 million** objects when you [add and verify a custom domain](custom-domain.md). If you want to increase this limit, please contact [Microsoft Support](find-help-open-support-ticket.md). However, if you created your tenant before **September 2022**, this limit doesn't affect you, and your tenant will retain the size allocated to it at creation, that's, **50 million** objects. 
+          - By default, each tenant can accommodate a total of **1.25 million** objects (user accounts and applications), but you can increase this limit to **5.25 million** objects when you [add and verify a custom domain](custom-domain.md). If you want to increase this limit, please contact [Microsoft Support](find-help-open-support-ticket.md). However, if you created your tenant before **September 2022**, this limit doesn't affect you, and your tenant will retain the size allocated to it at creation, that's, **50 million** objects. 
       - question: |
           Which social identity providers do you support now? Which ones do you plan to support in the future?
         answer: |

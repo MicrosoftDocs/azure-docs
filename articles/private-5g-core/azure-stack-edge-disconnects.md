@@ -36,7 +36,7 @@ The following functions aren't supported while disconnected:
 
 ### Monitoring and troubleshooting during disconnects
 
-While disconnected, you can't enable local monitoring authentication or sign in to the [distributed tracing](distributed-tracing.md) and [packet core dashboards](packet-core-dashboards.md) using Azure Active Directory. However, you can access both distributed tracing and packet core dashboards via local access if enabled.
+While disconnected, you can't enable local monitoring authentication or sign in to the [distributed tracing](distributed-tracing.md) and [packet core dashboards](packet-core-dashboards.md) using Microsoft Entra ID. However, you can access both distributed tracing and packet core dashboards via local access if enabled.
 
 New [Azure Monitor platform metrics](monitor-private-5g-core-with-platform-metrics.md) won't be collected while in disconnected mode. Once the disconnect ends, Azure Monitor will automatically resume gathering metrics about the packet core instance.
 

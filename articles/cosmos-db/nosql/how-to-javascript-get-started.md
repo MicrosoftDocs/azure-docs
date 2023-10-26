@@ -52,7 +52,7 @@ To connect to the API for NoSQL of Azure Cosmos DB, create an instance of the [`
 
 - [Connect with a API for NoSQL endpoint and read/write key](#connect-with-an-endpoint-and-key)
 - [Connect with a API for NoSQL connection string](#connect-with-a-connection-string)
-- [Connect with Azure Active Directory](#connect-using-the-microsoft-identity-platform)
+- [Connect with Microsoft Entra ID](#connect-using-the-microsoft-identity-platform)
 
 ### Connect with an endpoint and key
 
@@ -300,9 +300,9 @@ Create a new instance of the **CosmosClient** class with the ``COSMOS_CONNECTION
 const cosmosClient = new CosmosClient(process.env.COSMOS_CONNECTION_STRING);
 ```
 
-### Connect using the Microsoft Identity Platform
+### Connect using the Microsoft identity platform
 
-To connect to your API for NoSQL account using the Microsoft Identity Platform and Azure AD, use a security principal. The exact type of principal depends on where you host your application code. The table below serves as a quick reference guide.
+To connect to your API for NoSQL account using the Microsoft identity platform and Microsoft Entra ID, use a security principal. The exact type of principal depends on where you host your application code. The table below serves as a quick reference guide.
 
 | Where the application runs | Security principal
 |--|--|---|
@@ -347,7 +347,7 @@ If you plan to deploy the application out of Azure, you can obtain an OAuth toke
 
 For this example, we create a [``ClientSecretCredential``](/javascript/api/@azure/identity/tokencredential) instance by using client and tenant identifiers, along with a client secret.
 
-You can obtain the client ID, tenant ID, and client secret when you register an application in Azure Active Directory (AD). For more information about registering Azure AD applications, see [Register an application with the Microsoft identity platform](../../active-directory/develop/quickstart-register-app.md).
+You can obtain the client ID, tenant ID, and client secret when you register an application in Microsoft Entra ID. For more information about registering Microsoft Entra applications, see [Register an application with the Microsoft identity platform](../../active-directory/develop/quickstart-register-app.md).
 
 Create a new instance of the **CosmosClient** class with the ``COSMOS_ENDPOINT`` environment variable and the **TokenCredential** object as parameters.
 

@@ -14,6 +14,8 @@ keywords: anomaly detection, machine learning, algorithms
 
 # Troubleshoot the multivariate API
 
+[!INCLUDE [Deprecation announcement](../includes/deprecation.md)]
+
 This article provides guidance on how to troubleshoot and remediate common error messages when you use the Azure AI Anomaly Detector multivariate API.
 
 ## Multivariate error codes

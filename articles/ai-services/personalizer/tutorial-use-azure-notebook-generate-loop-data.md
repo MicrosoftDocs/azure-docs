@@ -14,6 +14,8 @@ ms.custom:
 
 # Tutorial: Use Personalizer in Azure Notebook
 
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
+
 This tutorial runs a Personalizer loop in an Azure Notebook, demonstrating the end to end life cycle of a Personalizer loop.
 
 The loop suggests which type of coffee a customer should order. The users and their preferences are stored in a user dataset. Information about the coffee is stored in a coffee dataset.

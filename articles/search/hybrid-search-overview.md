@@ -17,9 +17,9 @@ ms.date: 09/27/2023
 
 Hybrid search is a combination of full text and vector queries that execute against a search index that contains both searchable plain text content and generated embeddings. For query purposes, hybrid search is:
 
-+ A single query request that includes `search` and `vectors` parameters, multiple vector queries, or one vector query targeting multiple fields
-+ Parallel query execution
-+ Merged results in the query response, scored using [Reciprocal Rank Fusion (RRF)](hybrid-search-ranking.md)
++ A single query request that includes both `search` and `vectors` query parameters
++ Executing in parallel
++ With merged results in the query response, scored using [Reciprocal Rank Fusion (RRF)](hybrid-search-ranking.md)
 
 This article explains the concepts, benefits, and limitations of hybrid search.
 

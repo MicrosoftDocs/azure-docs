@@ -96,7 +96,7 @@ To restore a soft-deleted blob or directory in the Azure portal, first display t
 
 1. Ensure that you have the **Az.Storage** preview module installed. For more information, see [Enable blob soft delete via PowerShell](soft-delete-blob-enable.md?tabs=azure-powershell#enable-blob-soft-delete-hierarchical-namespace).
 
-2. Obtain storage account authorization by using either a storage account key, a connection string, or Azure Active Directory (Azure AD). For more information, see [Connect to the account](data-lake-storage-directory-file-acl-powershell.md#connect-to-the-account).
+2. Obtain storage account authorization by using either a storage account key, a connection string, or Microsoft Entra ID. For more information, see [Connect to the account](data-lake-storage-directory-file-acl-powershell.md#connect-to-the-account).
 
    The following example obtains authorization by using a storage account key.
 

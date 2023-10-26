@@ -15,6 +15,9 @@ This article describes how to set up Container insights to monitor a managed Kub
 
 If you're connecting an existing AKS cluster to a Log Analytics workspace in another subscription, the *Microsoft.ContainerService* resource provider must be registered in the subscription with the Log Analytics workspace. For more information, see [Register resource provider](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 
+> [!NOTE]
+> When you enable Container Insights on legacy auth clusters, a managed identity is automatically created. This identity will not be available in case the cluster migrates to MSI Auth or if the Container Insights is disabled and hence this managed identity should not be used for anything else.
+
 ## New AKS cluster
 
 You can enable monitoring for an AKS cluster when it's created by using any of the following methods:
@@ -135,7 +138,7 @@ To enable [managed identity authentication](container-insights-onboard.md#authen
    - `aksResourceId`: Use the values on the **AKS Overview** page for the AKS cluster.
    - `aksResourceLocation`: Use the values on the **AKS Overview** page for the AKS cluster.
    - `workspaceResourceId`: Use the resource ID of your Log Analytics workspace.
-   - `resourceTagValues`: Match the existing tag values specified for the existing Container insights extension data collection rule (DCR) of the cluster and the name of the DCR. The name will be *MSCI-\<clusterName\>-\<clusterRegion\>* and this resource created in an AKS clusters resource group. If this is the first time onboarding, you can set the arbitrary tag values.
+   - `resourceTagValues`: Match the existing tag values specified for the existing Container insights extension data collection rule (DCR) of the cluster and the name of the DCR. The name will be *MSCI-\<clusterRegion\>-\<clusterName\>* and this resource created in an AKS clusters resource group. If this is the first time onboarding, you can set the arbitrary tag values.
 
 To enable [managed identity authentication](container-insights-onboard.md#authentication):
 

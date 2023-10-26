@@ -87,7 +87,7 @@ The following steps help you create, edit, and view diagnostic settings:
 
 Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](../azure-monitor/alerts/alerts-types.md#metric-alerts), [logs](../azure-monitor/alerts/alerts-types.md#log-alerts), and the [activity log](../azure-monitor/alerts/alerts-types.md#activity-log-alerts). Different types of alerts have benefits and drawbacks.
 
-To create a metric alert, see [Tutorial: Create a metric alert for an Azure resource](../azure-monitor/alerts/tutorial-metric-alert.md).
+To see a list of monitoring best practices when configuring alerts, see [Monitoring - best practices](monitoring-best-practices.md).
 
 ## Virtual WAN Insights
 

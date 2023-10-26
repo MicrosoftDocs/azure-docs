@@ -16,10 +16,6 @@ ms.date: 02/22/2023
 
 Before you send XML content to a business partner in a business-to-business (B2B) scenario, you might want to encode that content first. If you receive encoded XML content, you'll need to decode that content first. When you're building a logic app workflow in Azure Logic Apps, you can encode and decode flat files by using the **Flat File** built-in connector actions and a flat file schema for encoding and decoding. You can use **Flat File** actions in multi-tenant Consumption logic app workflows and single-tenant Standard logic app workflows.
 
-> [!NOTE]
->
-> In Standard logic app workflows, the **Flat File** actions are currently in preview.
-
 While no **Flat File** triggers are available, you can use any trigger or action to feed the source XML content into your workflow. For example, you can use a built-in connector trigger, a managed or Azure-hosted connector trigger available for Azure Logic Apps, or even another app.
 
 This article shows how to add the **Flat File** encoding and decoding actions to your workflow.

@@ -34,7 +34,7 @@ The X.509 CA feature enables device authentication to IoT Hub using a certificat
 
 This article describes authentication using **X.509 certificates**. You can use any X.509 certificate to authenticate a device with IoT Hub by uploading either a certificate thumbprint or a certificate authority (CA) to Azure IoT Hub. 
 
-X.509 certificates are used for authentication in IoT Hub, not authorization. Unlike with Azure Active Directory and shared access signatures, you can't customize permissions with X.509 certificates.
+X.509 certificates are used for authentication in IoT Hub, not authorization. Unlike with Microsoft Entra ID and shared access signatures, you can't customize permissions with X.509 certificates.
 
 ## Enforce X.509 authentication
 

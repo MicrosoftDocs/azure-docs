@@ -17,8 +17,8 @@ This article demonstrates how to use a function to query [Microsoft Graph](https
 In this tutorial, you learn to:
 
 - Deploy a static web app.
-- Create an Azure Active Directory app registration.
-- Set up custom authentication with Azure Active Directory.
+- Create a Microsoft Entra app registration.
+- Set up custom authentication with Microsoft Entra ID.
 - Configure a [serverless function](authentication-custom.md#manage-roles) that queries the user's Active Directory group membership and returns a list of custom roles.
 
 > [!NOTE]
@@ -31,7 +31,7 @@ There's a function named *GetRoles* in the app's API. This function uses the use
 | Requirement | Comments |
 |---|---|
 | Active Azure account | If you don't have one, you can [create an account for free](https://azure.microsoft.com/free/). |
-| Azure Active Directory permissions | You must have sufficient permissions to create an Azure Active Directory application. |
+| Microsoft Entra permissions | You must have sufficient permissions to create a Microsoft Entra application. |
 
 ## Create a GitHub repository
 
@@ -91,9 +91,11 @@ There's a function named *GetRoles* in the app's API. This function uses the use
 
 1. In the overview section, locate your application's **URL**. Copy this value into a text editor to use in upcoming steps to set up Active Directory authentication.
 
-## Create an Azure Active Directory application
+<a name='create-an-azure-active-directory-application'></a>
 
-1. In the Azure portal, search for and go to *Azure Active Directory*.
+## Create a Microsoft Entra application
+
+1. In the Azure portal, search for and go to *Microsoft Entra ID*.
 
 1. From the *Manage* menu, select **App registrations**.
 
@@ -103,7 +105,7 @@ There's a function named *GetRoles* in the app's API. This function uses the use
     |---|---|---|
     | Name | Enter **MyStaticWebApp**. | |
     | Supported account types | Select **Accounts in this organizational directory only**. ||
-    | Redirect URI | Select **Web** and enter the Azure Active Directory [authentication callback](authentication-custom.md#authentication-callbacks) URL of your static web app. Replace `<YOUR_SITE_URL>` in `<YOUR_SITE_URL>/.auth/login/aad/callback` with the URL of your static web app. | This URL is what you  copied to a text editor in an earlier step. |
+    | Redirect URI | Select **Web** and enter the Microsoft Entra [authentication callback](authentication-custom.md#authentication-callbacks) URL of your static web app. Replace `<YOUR_SITE_URL>` in `<YOUR_SITE_URL>/.auth/login/aad/callback` with the URL of your static web app. | This URL is what you  copied to a text editor in an earlier step. |
 
     :::image type="content" source="media/assign-roles-microsoft-graph/create-app-registration.png" alt-text="Create an app registration":::
 
@@ -177,14 +179,14 @@ There's a function named *GetRoles* in the app's API. This function uses the use
     |---|---|
     | `rolesSource` | The URL where the login process gets a list of available roles. For the sample application the URL is `/api/GetRoles`. |
     | `userDetailsClaim` | The URL of the schema used to validate the login request. |
-    | `openIdIssuer` | The Azure Active Directory login route, appended with your tenant ID. |
-    | `clientIdSettingName` | Your Azure Active Directory tenant ID. |
-    | `clientSecretSettingName` | Your Azure Active Directory client secret value. |
+    | `openIdIssuer` | The Microsoft Entra login route, appended with your tenant ID. |
+    | `clientIdSettingName` | Your Microsoft Entra tenant ID. |
+    | `clientSecretSettingName` | Your Microsoft Entra client secret value. |
     | `loginParameters` | To obtain an access token for Microsoft Graph, the `loginParameters` field must be configured with `resource=https://graph.microsoft.com`. |
 
 1. Select **Edit** to update the file.
 
-1. Update the *openIdIssuer* value of `https://login.microsoftonline.com/<YOUR_AAD_TENANT_ID>` by replacing `<YOUR_AAD_TENANT_ID>` with the directory (tenant) ID of your Azure Active Directory.
+1. Update the *openIdIssuer* value of `https://login.microsoftonline.com/<YOUR_AAD_TENANT_ID>` by replacing `<YOUR_AAD_TENANT_ID>` with the directory (tenant) ID of your Microsoft Entra ID.
 
 1. Select **Commit changes...**.
 
@@ -236,11 +238,11 @@ Based on the user's group memberships, the function assigns custom roles to the 
 
 1. In your GitHub repository, go to the *GetRoles* function located at *api/GetRoles/index.js*.
 
-    Near the top, there's a `roleGroupMappings` object that maps custom user roles to Azure Active Directory groups.
+    Near the top, there's a `roleGroupMappings` object that maps custom user roles to Microsoft Entra groups.
 
 1. Select **Edit**.
 
-1. Update the object with group IDs from your Azure Active Directory tenant.
+1. Update the object with group IDs from your Microsoft Entra tenant.
 
     For instance, if you have groups with IDs `6b0b2fff-53e9-4cff-914f-dd97a13bfbd6` and `b6059db5-9cef-4b27-9434-bb793aa31805`, you would update the object to:
 
@@ -251,7 +253,7 @@ Based on the user's group memberships, the function assigns custom roles to the 
     };
     ```
 
-    The *GetRoles* function is called whenever a user is successfully authenticated with Azure Active Directory. The function uses the user's access token to query their Active Directory group membership from Microsoft Graph. If the user is a member of any groups defined in the `roleGroupMappings` object, then the corresponding custom roles are returned.
+    The *GetRoles* function is called whenever a user is successfully authenticated with Microsoft Entra ID. The function uses the user's access token to query their Active Directory group membership from Microsoft Graph. If the user is a member of any groups defined in the `roleGroupMappings` object, then the corresponding custom roles are returned.
 
     In the above example, if a user is a member of the Active Directory group with ID `b6059db5-9cef-4b27-9434-bb793aa31805`, they're granted the `reader` role.
 
@@ -263,7 +265,7 @@ Based on the user's group memberships, the function assigns custom roles to the 
 
 1. When the deployment is complete, you can verify your changes by navigating to the app's URL.
 
-1. Sign in to your static web app using Azure Active Directory.
+1. Sign in to your static web app using Microsoft Entra ID.
 
 1. When you're logged in, the sample app displays the list of roles that you're assigned based on your identity's Active Directory group membership. 
 

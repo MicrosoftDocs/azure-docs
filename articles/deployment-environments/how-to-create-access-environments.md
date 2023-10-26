@@ -6,8 +6,8 @@ author: RoseHJM
 ms.author: rosemalcolm
 ms.service: deployment-environments
 ms.custom: ignite-2022, devx-track-azurecli, build-2023
-ms.topic: quickstart
-ms.date: 04/25/2023
+ms.topic: how-to
+ms.date: 10/06/2023
 ---
 
 # Create and access an environment by using the Azure CLI
@@ -106,7 +106,7 @@ Message: The environment resource was not found.
 
 To resolve the issue, assign the correct permissions: [Give access to the development team](quickstart-create-and-configure-projects.md#give-access-to-the-development-team).
 
-## Access an environment
+### Access an environment
 
 To access an environment:
 
@@ -118,6 +118,19 @@ To access an environment:
 
 1. View the access endpoints to various resources as defined in the ARM template outputs.
 1. Access the specific resources by using the endpoints.
+ 
+### Deploy an environment
+
+```azurecli
+az devcenter dev environment deploy-action --action-id "deploy" --dev-center-name <devcenter-name> \
+    -g <resource-group-name> --project-name <project-name> --environment-name <environment-name> --parameters <parameters-json-string>
+```
+
+### Delete an environment
+
+```azurecli
+az devcenter dev environment delete --dev-center-name <devcenter-name>  --project-name <project-name> --environment-name <environment-name> --user-id "me"
+```
 
 ## Next steps
 

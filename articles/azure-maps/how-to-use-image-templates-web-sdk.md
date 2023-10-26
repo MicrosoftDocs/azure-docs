@@ -508,7 +508,9 @@ With the following tool, you can render the different built-in image templates i
 
 <br/>
 
+<!-----
 > [!VIDEO //codepen.io/azuremaps/embed/NQyaaO/?height=500&theme-id=0&default-tab=result]
+---->
 
 ## Next steps
 

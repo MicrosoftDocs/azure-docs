@@ -145,7 +145,7 @@ There is a limited list of "Azure Trusted Services". Azure Web Sites are **not**
 
 You must add the IP address of the Azure Web Site to the Key Vault in order for it to work.
 
-If due to access policy: find the object ID for the request and ensure that the object ID matches the object to which the user is trying to assign the access policy. There will often be multiple objects in Azure AD, which have the same name, so choosing the correct one is important. By deleting and readding the access policy, it is possible to see if multiple objects exist with the same name.
+If due to access policy: find the object ID for the request and ensure that the object ID matches the object to which the user is trying to assign the access policy. There will often be multiple objects in Microsoft Entra ID, which have the same name, so choosing the correct one is important. By deleting and readding the access policy, it is possible to see if multiple objects exist with the same name.
 
 In addition, most access policies do not require the use of the "Authorized application" as shown in the portal. Authorized applications are used for "on-behalf-of" authentication scenarios, which are rare.
 

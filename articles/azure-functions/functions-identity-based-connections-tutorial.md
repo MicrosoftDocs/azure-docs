@@ -10,7 +10,7 @@ ms.date: 10/20/2021
 
 # Tutorial: Create a function app that connects to Azure services using identities instead of secrets
 
-This tutorial shows you how to configure a function app using Azure Active Directory identities instead of secrets or connection strings, where possible. Using identities helps you avoid accidentally leaking sensitive secrets and can provide better visibility into how data is accessed. To learn more about identity-based connections, see [configure an identity-based connection](functions-reference.md#configure-an-identity-based-connection).
+This tutorial shows you how to configure a function app using Microsoft Entra identities instead of secrets or connection strings, where possible. Using identities helps you avoid accidentally leaking sensitive secrets and can provide better visibility into how data is accessed. To learn more about identity-based connections, see [configure an identity-based connection](functions-reference.md#configure-an-identity-based-connection).
 
 While the procedures shown work generally for all languages, this tutorial currently supports C# class library functions on Windows specifically. 
 
@@ -34,15 +34,15 @@ After you complete this tutorial, you should complete the follow-on tutorial tha
 
 ## Why use identity?
 
-Managing secrets and credentials is a common challenge for teams of all sizes. Secrets need to be secured against theft or accidental disclosure, and they may need to be periodically rotated. Many Azure services allow you to instead use an identity in [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) to authenticate clients and check against permissions which can be modified and revoked quickly. This allows for greater control over application security with less operational overhead. An identity could be a human user, such as the developer of an application, or a running application in Azure with a [managed identity](../active-directory/managed-identities-azure-resources/overview.md).
+Managing secrets and credentials is a common challenge for teams of all sizes. Secrets need to be secured against theft or accidental disclosure, and they may need to be periodically rotated. Many Azure services allow you to instead use an identity in [Microsoft Entra ID](../active-directory/fundamentals/active-directory-whatis.md) to authenticate clients and check against permissions which can be modified and revoked quickly. This allows for greater control over application security with less operational overhead. An identity could be a human user, such as the developer of an application, or a running application in Azure with a [managed identity](../active-directory/managed-identities-azure-resources/overview.md).
 
-Some services do not support Azure Active Directory authentication, so secrets may still be required by your applications. However, these can be stored in [Azure Key Vault](../key-vault/general/overview.md), which helps simplify the management lifecycle for your secrets. Access to a key vault is also controlled with identities.
+Some services do not support Microsoft Entra authentication, so secrets may still be required by your applications. However, these can be stored in [Azure Key Vault](../key-vault/general/overview.md), which helps simplify the management lifecycle for your secrets. Access to a key vault is also controlled with identities.
 
 By understanding how to use identities instead of secrets when you can and to use Key Vault when you can't, you'll be able to reduce risk, decrease operational overhead, and generally improve the security posture for your applications.
 
 ## Create a function app that uses Key Vault for necessary secrets
 
-Azure Files is an example of a service that does not yet support Azure Active Directory authentication for SMB file shares. Azure Files is the default file system for Windows deployments on Premium and Consumption plans. While we could [remove Azure Files entirely](./storage-considerations.md#create-an-app-without-azure-files), this introduces limitations you may not want. Instead, you will move the Azure Files connection string into Azure Key Vault. That way it is centrally managed, with access controlled by the identity.
+Azure Files is an example of a service that does not yet support Microsoft Entra authentication for SMB file shares. Azure Files is the default file system for Windows deployments on Premium and Consumption plans. While we could [remove Azure Files entirely](./storage-considerations.md#create-an-app-without-azure-files), this introduces limitations you may not want. Instead, you will move the Azure Files connection string into Azure Key Vault. That way it is centrally managed, with access controlled by the identity.
 
 ### Create an Azure Key Vault
 

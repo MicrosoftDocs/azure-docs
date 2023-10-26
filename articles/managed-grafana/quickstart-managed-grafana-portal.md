@@ -69,7 +69,7 @@ Get started by creating an Azure Managed Grafana workspace using the Azure porta
 
 1. Once the deployment is complete, select **Go to resource** to open your resource.
 
-1. In the **Overview** tab's Essentials section, select the **Endpoint** URL. Single sign-on via Azure Active Directory has been configured for you automatically. If prompted, enter your Azure account.
+1. In the **Overview** tab's Essentials section, select the **Endpoint** URL. Single sign-on via Microsoft Entra ID has been configured for you automatically. If prompted, enter your Azure account.
 
     :::image type="content" source="media/quickstart-portal/grafana-overview.png" alt-text="Screenshot of the Azure portal. Endpoint URL display.":::
 

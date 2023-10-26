@@ -243,6 +243,8 @@ Value = Microsoft.Compute/virtualMachines
 
 ---
 
+## Contact us
+If you have any questions or feedback on this feature, don't hesitate to reach us at [arnsupport@microsoft.com](mailto:arnsupport@microsoft.com). 
 
 ## Next steps
 For detailed information about these events, see [Azure Resource Notifications - Health Resources events](event-schema-health-resources.md).

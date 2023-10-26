@@ -1,7 +1,7 @@
 ---
 
 title: Use Microsoft and Azure security resources to help recover from systemic identity compromise | Microsoft Docs
-description: Learn how to use Microsoft and Azure security resources, such as Microsoft 365 Defender, Microsoft Sentinel, Azure Active Directory, Microsoft Defender for Cloud, and Microsoft Defender for IoT and Microsoft recommendations to secure your system against systemic-identity compromises.
+description: Learn how to use Microsoft and Azure security resources, such as Microsoft 365 Defender, Microsoft Sentinel, Microsoft Entra ID, Microsoft Defender for Cloud, and Microsoft Defender for IoT and Microsoft recommendations to secure your system against systemic-identity compromises.
 services: security
 documentationcenter: na
 author: batamig
@@ -130,7 +130,7 @@ Microsoft's security services provide extensive resources for detailed investiga
 Investigate and review cloud environment logs  for suspicious actions and attacker indications of compromise. For example, check the following logs:
 
 - [Unified Audit Logs (UAL)](/powershell/module/exchange/search-unifiedauditlog)
-- [Azure Active Directory (Azure AD) logs](../../active-directory/reports-monitoring/overview-monitoring.md)
+- [Microsoft Entra logs](../../active-directory/reports-monitoring/overview-monitoring.md)
 - [Microsoft Exchange on-premises logs](/exchange/mail-flow/transport-logs/transport-logs)
 - VPN logs, such as from [VPN Gateway](../../vpn-gateway/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md)
 - Engineering system logs
@@ -198,23 +198,25 @@ For more information, see:
 - [Track and respond to emerging threats with threat analytics](/windows/security/threat-protection/microsoft-defender-atp/threat-analytics)
 - [Understand the analyst report in threat analytics](/microsoft-365/security/defender/threat-analytics-analyst-reports)
 
-### Monitoring with Azure Active Directory
+<a name='monitoring-with-azure-active-directory'></a>
 
-Azure Active Directory sign-in logs can show whether multi-factor authentication is being used correctly. Access sign-in logs directly from the Azure Active Directory area in the Azure portal, use the **Get-AzureADAuditSignInLogs** cmdlet, or view them in the **Logs** area of Microsoft Sentinel.
+### Monitoring with Microsoft Entra ID
+
+Microsoft Entra sign-in logs can show whether multi-factor authentication is being used correctly. Access sign-in logs directly from the Microsoft Entra area in the Azure portal, use the **Get-AzureADAuditSignInLogs** cmdlet, or view them in the **Logs** area of Microsoft Sentinel.
 
 For example, search or filter the results for when the **MFA results** field has a value of **MFA requirement satisfied by claim in the token**. If your organization uses ADFS and the claims logged are not included in the ADFS configuration, these claims may indicate attacker activity.
 
 Search or filter your results further to exclude extra noise. For example, you may want to include results only from federated domains. If you find suspicious sign-ins, drill down even further based on IP addresses, user accounts, and so on.
 
-The following table describes more methods for using Azure Active directory logs in your investigation:
+The following table describes more methods for using Microsoft Entra logs in your investigation:
 
 |Method  |Description  |
 |---------|---------|
-|**Analyze risky sign-in events**     |  Azure Active Directory and its Identity Protection platform may generate risk events associated with the use of attacker-generated SAML tokens. <br><br>These events might be labeled as *unfamiliar properties*, *anonymous IP address*, *impossible travel*, and so on. <br><br>We recommend that you closely analyze all risk events associated with accounts that have administrative privileges, including any that may have been automatically been dismissed or remediated. For example, a risk event or an anonymous IP address might be automatically remediated because the user passed MFA. <br><br>Make sure to use [ADFS Connect Health](../../active-directory/hybrid/how-to-connect-health-adfs.md) so that all authentication events are visible in Azure AD. |
-|**Detect domain authentication properties**     |  Any attempt by the attacker to manipulate domain authentication policies will be recorded in the Azure Active Directory Audit logs, and reflected in the Unified Audit log. <br><br> For example, review any events associated with **Set domain authentication** in the Unified Audit Log, Azure AD Audit logs, and / or your SIEM environment to verify that all activities listed were expected and planned.   |
+|**Analyze risky sign-in events**     |  Microsoft Entra ID and its Identity Protection platform may generate risk events associated with the use of attacker-generated SAML tokens. <br><br>These events might be labeled as *unfamiliar properties*, *anonymous IP address*, *impossible travel*, and so on. <br><br>We recommend that you closely analyze all risk events associated with accounts that have administrative privileges, including any that may have been automatically been dismissed or remediated. For example, a risk event or an anonymous IP address might be automatically remediated because the user passed MFA. <br><br>Make sure to use [ADFS Connect Health](../../active-directory/hybrid/how-to-connect-health-adfs.md) so that all authentication events are visible in Microsoft Entra ID. |
+|**Detect domain authentication properties**     |  Any attempt by the attacker to manipulate domain authentication policies will be recorded in the Microsoft Entra audit logs, and reflected in the Unified Audit log. <br><br> For example, review any events associated with **Set domain authentication** in the Unified Audit Log, Microsoft Entra audit logs, and / or your SIEM environment to verify that all activities listed were expected and planned.   |
 |**Detect credentials for OAuth applications**     |  Attackers who have gained control of a privileged account may search for an application with the ability to access any user's email in the organization, and then add attacker-controlled credentials to that application. <br><br>For example, you may want to search for any of the following activities, which would be consistent with attacker behavior: <br>- Adding or updating service principal credentials <br>- Updating application certificates and secrets <br>- Adding an app role assignment grant to a user <br>- Adding Oauth2PermissionGrant |
 |**Detect e-mail access by applications**     |  Search for access to email by applications in your environment. For example, use the [Microsoft Purview Audit (Premium) features](/microsoft-365/compliance/mailitemsaccessed-forensics-investigations) to investigate compromised accounts. |
-|**Detect non-interactive sign-ins to service principals**     | The Azure Active Directory sign-in reports provide details about any non-interactive sign-ins that used service principal credentials.  For example, you can use the sign-in reports to find valuable data for your investigation, such as an IP address used by the attacker to access email applications.        |
+|**Detect non-interactive sign-ins to service principals**     | The Microsoft Entra sign-in reports provide details about any non-interactive sign-ins that used service principal credentials.  For example, you can use the sign-in reports to find valuable data for your investigation, such as an IP address used by the attacker to access email applications.        |
 
 
 ## Improve security posture
@@ -243,9 +245,9 @@ We recommend the following actions to ensure identity-related security posture:
 
 - **Review Microsoft's [Five steps to securing your identity infrastructure](steps-secure-identity.md)**, and prioritize the steps as appropriate for your identity architecture.
 
-- **[Consider migrating to Azure AD Security Defaults](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md)** for your authentication policy.
+- **[Consider migrating to Microsoft Entra Security Defaults](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md)** for your authentication policy.
 
-- **Eliminate your organization’s use of legacy authentication**, if systems or applications still require it. For more information, see [Block legacy authentication to Azure AD with Conditional Access](../../active-directory/conditional-access/block-legacy-authentication.md).
+- **Eliminate your organization’s use of legacy authentication**, if systems or applications still require it. For more information, see [Block legacy authentication to Microsoft Entra ID with Conditional Access](../../active-directory/conditional-access/block-legacy-authentication.md).
 
 - **Treat your ADFS infrastructure and AD Connect infrastructure as a Tier 0 asset**.
 
@@ -297,7 +299,7 @@ If there was an attack, you don't want the attacker to retain access at all. Mak
 
 For more information, see:
 
-- [Revoke user access in Azure Active Directory](../../active-directory/enterprise-users/users-revoke-access.md)
+- [Revoke user access in Microsoft Entra ID](../../active-directory/enterprise-users/users-revoke-access.md)
 
 
 ### Replace your ADFS servers
@@ -313,7 +315,7 @@ In addition to the recommendations listed earlier in this article, we also recom
 |Activity  |Description  |
 |---------|---------|
 |**Reset passwords**     |   Reset passwords on any [break-glass accounts](../../active-directory/roles/security-emergency-access.md) and reduce the number of break-glass accounts to the absolute minimum required.    |
-|**Restrict privileged access accounts**     |    Ensure that service and user accounts with privileged access are cloud-only accounts, and do not use on-premises accounts that are synced or federated to Azure Active Directory.  |
+|**Restrict privileged access accounts**     |    Ensure that service and user accounts with privileged access are cloud-only accounts, and do not use on-premises accounts that are synced or federated to Microsoft Entra ID.  |
 |**Enforce MFA**     | Enforce Multi-Factor Authentication (MFA) across all elevated users in the tenant. We recommend enforcing MFA across all users in the tenant.       |
 |**Limit administrative access**     |    Implement [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md) (PIM) and conditional access to limit administrative access.  <br><br>For Microsoft 365 users, implement [Privileged Access Management](https://techcommunity.microsoft.com/t5/microsoft-security-and/privileged-access-management-in-office-365-is-now-generally/ba-p/261751) (PAM) to limit access to sensitive abilities, such as eDiscovery, Global Admin, Account Administration, and more.    |
 |**Review / reduce delegated permissions and consent grants**     |  Review and reduce all Enterprise Applications delegated permissions or [consent grants](/graph/auth-limit-mailbox-access) that allow any of the following functionalities: <br><br>- Modification of privileged users and roles <br>- Reading, sending email, or accessing all mailboxes <br>- Accessing OneDrive, Teams, or SharePoint content <br>- Adding Service Principals that can read/write to the directory <br>- Application Permissions versus Delegated Access       |
@@ -351,7 +353,7 @@ In addition to the recommended actions listed above, we recommend that you consi
 
     For more information, see:
 
-    - [Revoke user access in an emergency in Azure Active Directory](../../active-directory/enterprise-users/users-revoke-access.md)
+    - [Revoke user access in an emergency in Microsoft Entra ID](../../active-directory/enterprise-users/users-revoke-access.md)
 
 ## Next steps
 

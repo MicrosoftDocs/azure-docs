@@ -1,6 +1,6 @@
 ---
-title: Receive inbound or incoming HTTPS calls
-description: Receive and respond to HTTPS requests sent to workflows in Azure Logic Apps.
+title: Receive and respond to inbound HTTPS calls
+description: Receive and respond to inbound HTTPS requests received by workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewers: estfan, azla
@@ -9,11 +9,11 @@ ms.date: 07/31/2023
 tags: connectors
 ---
 
-# Receive incoming or inbound HTTPS calls or requests to workflows in Azure Logic Apps
+# Receive and respond to inbound HTTPS calls to workflows in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-This how-to guide shows how to run your logic app workflow after receiving an HTTPS call or request from another service by using the Request built-in trigger. When your workflow uses this trigger, you can then respond to the HTTPS request by using the Response built-in action.
+This how-to guide shows create a logic app workflow that can receive and handle an inbound HTTPS request or call from another service using the Request built-in trigger. When your workflow uses this trigger, you can then respond to the HTTPS request by using the Response built-in action.
 
 > [!NOTE]
 >
@@ -367,7 +367,7 @@ Now, continue building your workflow by adding another action as the next step. 
 > after this time expires, your workflow returns the **504 GATEWAY TIMEOUT** status to the caller. If your workflow 
 > doesn't include a Response action, your workflow immediately returns the **202 ACCEPTED** status to the caller.
 
-For information about security, authorization, and encryption for inbound calls to your workflow, such as [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), previously known as Secure Sockets Layer (SSL), [Azure Active Directory Open Authentication (Azure AD OAuth)](../active-directory/develop/index.yml), exposing your logic app resource with Azure API Management, or restricting the IP addresses that originate inbound calls, see [Secure access and data - Access for inbound calls to request-based triggers](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
+For information about security, authorization, and encryption for inbound calls to your workflow, such as [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), previously known as Secure Sockets Layer (SSL), [Microsoft Entra ID Open Authentication (Microsoft Entra ID OAuth)](../active-directory/develop/index.yml), exposing your logic app resource with Azure API Management, or restricting the IP addresses that originate inbound calls, see [Secure access and data - Access for inbound calls to request-based triggers](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
 
 ## Trigger outputs
 
@@ -470,7 +470,7 @@ To test your workflow, send an HTTP request to the generated URL. For example, y
 
 In a Standard logic app workflow that starts with the Request trigger (but not a webhook trigger), you can use the Azure Functions provision for authenticating inbound calls sent to the endpoint created by that trigger by using a managed identity. This provision is also known as "**Easy Auth**". For more information, review [Trigger workflows in Standard logic apps with Easy Auth](https://techcommunity.microsoft.com/t5/integrations-on-azure-blog/trigger-workflows-in-standard-logic-apps-with-easy-auth/ba-p/3207378).
 
-For more information about security, authorization, and encryption for inbound calls to your logic app workflow, such as [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), previously known as Secure Sockets Layer (SSL), [Azure Active Directory Open Authentication (Azure AD OAuth)](../active-directory/develop/index.yml), exposing your logic app with Azure API Management, or restricting the IP addresses that originate inbound calls, see [Secure access and data - Access for inbound calls to request-based triggers](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
+For more information about security, authorization, and encryption for inbound calls to your logic app workflow, such as [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), previously known as Secure Sockets Layer (SSL), [Microsoft Entra ID Open Authentication (Microsoft Entra ID OAuth)](../active-directory/develop/index.yml), exposing your logic app with Azure API Management, or restricting the IP addresses that originate inbound calls, see [Secure access and data - Access for inbound calls to request-based triggers](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
 
 ## Next steps
 

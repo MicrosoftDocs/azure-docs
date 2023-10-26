@@ -1,7 +1,7 @@
 ---
 title: Create an Azure Virtual Desktop golden image
 description: A walkthrough for how to set up a golden image for your Azure Virtual Desktop deployment in the Azure portal.
-author: cshea15
+author: cshea-msft
 ms.topic: how-to
 ms.date: 12/01/2021
 ms.author: chashea
@@ -13,7 +13,7 @@ There are other approaches to customizing your session hosts, such as using devi
 ## Create an image from an Azure VM
 When creating a new VM for your golden image, make sure to choose an OS that's in the list of [supported virtual machine OS images](prerequisites.md#operating-systems-and-licenses).  We recommend using a Windows 10 or 11 multi-session (with or without Microsoft 365) or Windows Server image for pooled host pools. We recommend using Windows 10 or 11 Enterprise images for personal host pools. You can use either Generation 1 or Generation 2 VMs; Gen 2 VMs support features that aren't supported for Gen 1 machines. Learn more about Generation 1 and Generation 2 VMs at [Support for generation 2 VMs on Azure](../virtual-machines/generation-2.md).
 > [!IMPORTANT]
-> The VM used for taking the image must be deployed without "Login with Azure AD" flag. During the deployment of Session Hosts in Azure Virtual Desktop, if you choose to add VMs to Azure Active Directory you are able to Login with AD Credentials too.
+> The VM used for taking the image must be deployed without "Login with Microsoft Entra ID" flag. During the deployment of Session Hosts in Azure Virtual Desktop, if you choose to add VMs to Microsoft Entra ID you are able to Login with AD Credentials too.
 ### Take your first snapshot
 First, [create the base VM](../virtual-machines/windows/quick-create-portal.md) for your chosen image. After you've deployed the image, take a snapshot of the disk of your image VM. Snapshots are save states that will let you roll back any changes if you run into problems while building the image. Since you'll be taking many snapshots throughout the build process, make sure to give the snapshot a name you can easily identify. 
 ### Customize your VM

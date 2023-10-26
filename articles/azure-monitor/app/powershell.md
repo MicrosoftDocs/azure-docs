@@ -475,4 +475,4 @@ See these other automation articles:
 * [Create an Application Insights resource](./create-workspace-resource.md)
 * [Create web tests](../alerts/resource-manager-alerts-metric.md#availability-test-with-metric-alert).
 * [Send Azure Diagnostics to Application Insights](../agents/diagnostics-extension-to-application-insights.md).
-* [Create release annotations](annotations.md).
+* [Create release annotations](release-and-work-item-insights.md?tabs=release-annotations).

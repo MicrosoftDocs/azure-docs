@@ -13,6 +13,8 @@ ms.author: mbullwin
 
 # Metrics Advisor glossary of common vocabulary and concepts
 
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
+
 This document explains the technical terms used in Metrics Advisor. Use this article to learn about common concepts and objects you might encounter when using the service.
 
 ## Data feed

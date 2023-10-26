@@ -35,7 +35,7 @@ Although Event Grid on Kubernetes and Azure Event Grid share many features and t
 | [Azure Event Grid trigger for Azure Functions](../../azure-functions/functions-bindings-event-grid-trigger.md) | ✘ | ✔ |
 | Azure Relay's Hybrid Connections as a destination | ✘ | ✔ |
 | [Advanced filtering](filter-events.md) | ✔*** | ✔ |
-| [Webhook AuthN/AuthZ with Azure AD](../secure-webhook-delivery.md) | ✘ | ✔ |
+| [Webhook AuthN/AuthZ with Microsoft Entra ID](../secure-webhook-delivery.md) | ✘ | ✔ |
 | [Event delivery with resource identity](/rest/api/eventgrid/controlplane-preview/event-subscriptions/create-or-update) | ✘ | ✔ |
 | Same set of data plane SDKs | ✔ | ✔ |
 | Same set of management SDKs | ✔ | ✔ |

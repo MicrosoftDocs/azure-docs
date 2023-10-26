@@ -397,4 +397,9 @@ If you created an OpenAI resource solely for completing this tutorial and want t
 Learn more about Azure OpenAI's models:
 > [!div class="nextstepaction"]
 > [Azure OpenAI Service models](../concepts/models.md)
-* Store your embeddings and perform vector (similarity) search using [Azure Cosmos DB for MongoDB vCore](../../../cosmos-db/mongodb/vcore/vector-search.md) or [Azure Cosmos DB for NoSQL](../../../cosmos-db/rag-data-openai.md)
+* Store your embeddings and perform vector (similarity) search using your choice of Azure service:
+  * [Azure Cognitive Search](../../../search/vector-search-overview.md)
+  * [Azure Cosmos DB for MongoDB vCore](../../../cosmos-db/mongodb/vcore/vector-search.md)
+  * [Azure Cosmos DB for NoSQL](../../../cosmos-db/vector-search.md)
+  * [Azure Cosmos DB for PostgreSQL](../../../cosmos-db/postgresql/howto-use-pgvector.md)
+  * [Azure Cache for Redis](../../../azure-cache-for-redis/cache-tutorial-vector-similarity.md)

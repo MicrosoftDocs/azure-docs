@@ -24,12 +24,16 @@ For example, when you “Add a new member” to the ```users.datalake.admins``` 
  
 ## Enable audit logs
 To enable audit logs in diagnostic logging, select your Azure Data Manager for Energy instance in the Azure portal.
+
+> [!NOTE]
+> Currently, you can enable audit logs for OSDU Core Services, Seismic DMS, Petrel Data Services, and Wellbore DMS. 
+
 * Select the **Activity log** screen, and then select **Diagnostic settings**.
 * Select **+ Add diagnostic setting**.
 * Enter the Diagnostic settings name.
 * Select **Audit Events** as the Category. 
 
-[![Screenshot of audit events option in diagnostic settings](media/how-to-manage-audit-logs/how-to-manage-audit-logs-1-audit-event-diagnostic-logs.png)](media/how-to-manage-audit-logs/how-to-manage-audit-logs-1-audit-event-diagnostic-logs.png#lightbox)
+[![Screenshot of audit events option in diagnostic settings.](media/how-to-manage-audit-logs/how-to-manage-audit-logs-1-audit-event-diagnostic-logs-categories.png)](media/how-to-manage-audit-logs/how-to-manage-audit-logs-1-audit-event-diagnostic-logs-categories.png#lightbox)
 
 * Select appropriate Destination details for accessing the diagnostic logs. 
  
@@ -51,10 +55,10 @@ The audit logs for Azure Data Manager for Energy service returns the following f
 | Data partition ID | 	String |  	Data partition ID on which operation is performed. |
 | Action  |	String | 	Action refers to the type of operation that is, whether it's create, delete, update etc.|
 | ActionID | 	String 	| ID associated with operation. |
-| PuID |	String	| ObjectId of the user in Azure AD|
+| PuID |	String	| ObjectId of the user in Microsoft Entra ID|
 | ResultType |	String 	| Define success or failure of operation | 
 | Operation Description	| String |	Provides specific details of the response. These details can include tracing information, such as the symptoms, of the result that are used for further analysis. |
-| RequestId | 	 String 	| This is the unique ID associated to the request, which triggered the operation on data plane. |
+| RequestId | 	 String 	| RequestId is the unique ID associated to the request, which triggered the operation on data plane. |
 | Message |	String |	Provides message associated with the success or failure of the operation.|
 | ResourceID | 	String | 	The Azure Data Manager for Energy resource ID of the customer under which the audit log belongs. |
 
@@ -91,5 +95,3 @@ OEPAuditLogs
 Learn about Managed Identity:
 > [!div class="nextstepaction"]
 > [Managed Identity in Azure Data Manager for Energy](how-to-use-managed-identity.md)
-
-

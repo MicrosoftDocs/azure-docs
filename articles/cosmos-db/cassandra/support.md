@@ -150,7 +150,7 @@ Azure Cosmos DB supports the following database commands on API for Cassandra ac
 | `COMPACT STORAGE` | N/A (PaaS service) |
 | `CREATE AGGREGATE` | No | 
 | `CREATE CUSTOM INDEX (SASI)` | No |
-| `CREATE INDEX` | Yes (including [named indexes](secondary-indexing.md), and cluster key index is currently in [private preview](https://devblogs.microsoft.com/cosmosdb/now-in-private-preview-cluster-key-index-support-for-azure-cosmos-db-cassandra-api/) but full FROZEN collection is not supported) |
+| `CREATE INDEX` | Yes (including [named indexes](secondary-indexing.md) but full FROZEN collection is not supported) |
 | `CREATE FUNCTION` | No |
 | `CREATE KEYSPACE` (replication settings ignored) | Yes |
 | `CREATE MATERIALIZED VIEW` | Yes |

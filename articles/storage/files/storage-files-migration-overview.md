@@ -48,11 +48,11 @@ Unlike object storage in Azure blobs, an Azure file share can natively store fil
 > [!IMPORTANT]
 > If you're migrating on-premises file servers to Azure File Sync, set the ACLs for the root directory of the file share **before** copying a large number of files, as changes to permissions for root ACLs can take up to a day to propagate if done after a large file migration.
 
-A user of Active Directory, which is their on-premises domain controller, can natively access an Azure file share. So can a user of Azure Active Directory Domain Services (Azure AD DS). Each uses their current identity to get access based on share permissions and on file and folder ACLs. This behavior is similar to a user connecting to an on-premises file share.
+A user of Active Directory, which is their on-premises domain controller, can natively access an Azure file share. So can a user of Microsoft Entra Domain Services. Each uses their current identity to get access based on share permissions and on file and folder ACLs. This behavior is similar to a user connecting to an on-premises file share.
 
 The alternative data stream is the primary aspect of file fidelity that currently can't be stored on a file in an Azure file share. It's preserved on-premises when Azure File Sync is used.
 
-Learn more about [on-premises Active Directory authentication](storage-files-identity-auth-active-directory-enable.md) and [Azure AD DS authentication](storage-files-identity-auth-domain-services-enable.md) for Azure file shares.
+Learn more about [on-premises Active Directory authentication](storage-files-identity-auth-active-directory-enable.md) and [Microsoft Entra Domain Services authentication](storage-files-identity-auth-domain-services-enable.md) for Azure file shares.
 
 ## Migration guides
 

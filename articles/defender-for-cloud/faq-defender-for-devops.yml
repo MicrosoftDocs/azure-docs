@@ -159,7 +159,7 @@ sections:
       - question: |
           Why am I not able to configure Pull Request Annotations?
         answer: |
-          Make sure you have write (owner/contributor) access to the subscription. If you don't have this type of access today, you can get it through [activating an Azure Active Directory role in PIM](/azure/active-directory/privileged-identity-management/pim-how-to-activate-role). 
+          Make sure you have write (owner/contributor) access to the subscription. If you don't have this type of access today, you can get it through [activating a Microsoft Entra role in PIM](/azure/active-directory/privileged-identity-management/pim-how-to-activate-role). 
 
 
       - question: |

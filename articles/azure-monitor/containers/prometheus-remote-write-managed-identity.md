@@ -17,7 +17,7 @@ This article applies to the following cluster configurations:
 - Azure Arc-enabled Kubernetes cluster
 
 > [!NOTE]
-> For a Kubernetes cluster running in another cloud or on-premises, see [Azure Monitor managed service for Prometheus remote write - Azure Active Directory](prometheus-remote-write-active-directory.md).
+> For a Kubernetes cluster running in another cloud or on-premises, see [Azure Monitor managed service for Prometheus remote write - Microsoft Entra ID](prometheus-remote-write-active-directory.md).
 
 ## Prerequisites
 See prerequisites at [Azure Monitor managed service for Prometheus remote write](prometheus-remote-write.md#prerequisites).
@@ -181,6 +181,6 @@ See [Azure Monitor managed service for Prometheus remote write](prometheus-remot
 - [Collect Prometheus metrics from an AKS cluster](../containers/prometheus-metrics-enable.md)
 - [Learn more about Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md)
 - [Remote-write in Azure Monitor Managed Service for Prometheus](prometheus-remote-write.md)
-- [Remote-write in Azure Monitor Managed Service for Prometheus using Azure Active Directory](./prometheus-remote-write-active-directory.md)
+- [Remote-write in Azure Monitor Managed Service for Prometheus using Microsoft Entra ID](./prometheus-remote-write-active-directory.md)
 - [Configure remote write for Azure Monitor managed service for Prometheus using managed identity authentication](./prometheus-remote-write-managed-identity.md)
-- [Configure remote write for Azure Monitor managed service for Prometheus using Azure AD pod identity (preview)](./prometheus-remote-write-azure-ad-pod-identity.md)
+- [Configure remote write for Azure Monitor managed service for Prometheus using Microsoft Entra pod identity (preview)](./prometheus-remote-write-azure-ad-pod-identity.md)
