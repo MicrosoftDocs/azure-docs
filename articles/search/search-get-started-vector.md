@@ -1,7 +1,7 @@
 ---
 title: Quickstart vector search
 titleSuffix: Azure AI Search
-description: Use the generaly available REST APIs to call vector search.
+description: Use the generally available REST APIs to call vector search.
 
 author: HeidiSteen
 ms.author: heidist
