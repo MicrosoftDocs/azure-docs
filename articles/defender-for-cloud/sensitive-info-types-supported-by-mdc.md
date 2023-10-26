@@ -1,6 +1,6 @@
 ---
 title: Sensitive information types supported by Microsoft Defender for Cloud
-description: 
+description: List table of Sensitive information types supported by Microsoft Defender for Cloud
 author: AlizaBernstein
 ms.author: v-bernsteina
 ms.topic: reference
@@ -11,33 +11,33 @@ ms.date: 10/26/2023
 
 This article is a list of all sensitive information types supported by MDC (a subset of what's supported in Purview). The following table lists the scanned sensitive information type, the Microsoft Defender for Cloud info type category, and whether the sensitive information type is scanned by default in the sensitivity settings. Read more about [data sensitivity settings](data-sensitivity-settings.md).
 
-|Sensitive information type name |Microsoft Defender for Cloud info type category | Is default in sensitivity settings?  |
+| Sensitive information type name | Microsoft Defender for Cloud info type category | Is default in sensitivity settings?  |
 |----------|----------|----------|
 | [ABA routing number](https://learn.microsoft.com/purview/sit-defn-aba-routing) | Finance | YES |
 | [Amazon S3 Client Secret Access Key](https://learn.microsoft.com/purview/sit-defn-amazon-s3-client-secret-access-key) | Credentials | YES |
 | [Argentina national identity (DNI) number](https://learn.microsoft.com/purview/sit-defn-argentina-national-identity-numbers) | Other | NO |
 | [ASP.NET machine Key](https://learn.microsoft.com/purview/sit-defn-asp-net-machine-key) | Credentials | YES |
 | [Australia bank account number](https://learn.microsoft.com/purview/sit-defn-australia-bank-account-number) |Other | NO |
-| [Australia business number](https://learn.microsoft.com/purview/sit-defn-australia-business-number) |	Other | NO |
-Australia company number	https://learn.microsoft.com/en-us/purview/sit-defn-australia-business-number	Other	NO
-Australia drivers license number	https://learn.microsoft.com/en-us/purview/sit-defn-australia-drivers-license-number	Other	NO
-Australia medical account number	https://learn.microsoft.com/en-us/purview/sit-defn-australia-medical-account-number	Other	NO
-Australia passport number	https://learn.microsoft.com/en-us/purview/sit-defn-australia-passport-number	Other	NO
-Australia tax file number	https://learn.microsoft.com/en-us/purview/sit-defn-australia-tax-file-number	Other	NO
-Austria drivers license number	https://learn.microsoft.com/en-us/purview/sit-defn-austria-drivers-license-number	Other	NO
-Austria identity card	https://learn.microsoft.com/en-us/purview/sit-defn-austria-identity-card	Other	NO
-Austria passport number	https://learn.microsoft.com/en-us/purview/sit-defn-austria-passport-number	Other	NO
-Austria social security number	https://learn.microsoft.com/en-us/purview/sit-defn-austria-social-security-number	PII	YES
-Austria tax identification number	https://learn.microsoft.com/en-us/purview/sit-defn-austria-tax-identification-number	PII	YES
-Austria value added tax	https://learn.microsoft.com/en-us/purview/sit-defn-austria-value-added-tax	PII	YES
-Azure AD client access token	https://learn.microsoft.com/en-us/purview/sit-defn-azure-ad-client-access-token	Credentials	YES
-Azure AD client secret	https://learn.microsoft.com/en-us/purview/sit-defn-azure-ad-client-secret	Credentials	YES
-Azure AD User Credentials	https://learn.microsoft.com/en-us/purview/sit-defn-azure-ad-user-credentials	Credentials	YES
-Azure App Service deployment password	https://learn.microsoft.com/en-us/purview/sit-defn-azure-app-service-deployment-password	Credentials	YES
-Azure Batch shared access key	https://learn.microsoft.com/en-us/purview/sit-defn-azure-batch-shared-access-key	Credentials	YES
-Azure Bot Framework secret key	https://learn.microsoft.com/en-us/purview/sit-defn-azure-bot-framework-secret-key	Credentials	YES
-Azure Bot service app secret	https://learn.microsoft.com/en-us/purview/sit-defn-azure-bot-service-app-secret	Credentials	YES
-Azure Cognitive Search API key	https://learn.microsoft.com/en-us/purview/sit-defn-azure-cognitive-search-api-key	Credentials	YES
+| [Australia business number](https://learn.microsoft.com/purview/sit-defn-australia-business-number) | Other | NO |
+| [Australia company number](https://learn.microsoft.com/purview/sit-defn-australia-business-number) | Other | NO |
+| [Australia drivers license number](https://learn.microsoft.com/purview/sit-defn-australia-drivers-license-number) | Other | NO |
+| [Australia medical account number](https://learn.microsoft.com/purview/sit-defn-australia-medical-account-number) | | Other | NO |
+| [Australia passport number](https://learn.microsoft.com/purview/sit-defn-australia-passport-number) | Other | NO |
+| [Australia tax file number](https://learn.microsoft.com/purview/sit-defn-australia-tax-file-number) | Other | NO |
+| [Austria drivers license number](https://learn.microsoft.com/purview/sit-defn-austria-drivers-license-number) | Other | NO |
+| [Austria identity card](https://learn.microsoft.com/en-us/purview/sit-defn-austria-identity-card) | Other | NO |
+| [Austria passport number](https://learn.microsoft.com/purview/sit-defn-austria-passport-number) |	Other | NO |
+| [Austria social security number](https://learn.microsoft.com/purview/sit-defn-austria-social-security-number) | PII  | YES |
+| [Austria tax identification number](https://learn.microsoft.com/purview/sit-defn-austria-tax-identification-number) | PII | YES |
+| [Austria value added tax](https://learn.microsoft.com/purview/sit-defn-austria-value-added-tax) |	PII | YES |
+| [Azure AD client access token](https://learn.microsoft.com/purview/sit-defn-azure-ad-client-access-token) | Credentials | YES |
+| [Azure AD client secret](https://learn.microsoft.com/purview/sit-defn-azure-ad-client-secret) |Credentials | YES |
+| [Azure AD User Credentials](https://learn.microsoft.com/purview/sit-defn-azure-ad-user-credentials) | Credentials | YES |
+| [Azure App Service deployment password](https://learn.microsoft.com/purview/sit-defn-azure-app-service-deployment-password) | Credentials | YES |
+| [Azure Batch shared access key](https://learn.microsoft.com/purview/sit-defn-azure-batch-shared-access-key) | Credentials | YES |
+| [Azure Bot Framework secret key](https://learn.microsoft.com/purview/sit-defn-azure-bot-framework-secret-key) | Credentials | YES |
+| [Azure Bot service app secret](https://learn.microsoft.com/purview/sit-defn-azure-bot-service-app-secret) | Credentials | YES |
+| [Azure Cognitive Search API key](https://learn.microsoft.com/purview/sit-defn-azure-cognitive-search-api-key) | Credentials | YES |
 Azure Cognitive Service key	https://learn.microsoft.com/en-us/purview/sit-defn-azure-cognitive-service-key	Credentials	YES
 Azure Container Registry access key	https://learn.microsoft.com/en-us/purview/sit-defn-azure-container-registry-access-key	Credentials	YES
 Azure Cosmos DB account access key	https://learn.microsoft.com/en-us/purview/sit-defn-azure-cosmos-db-account-access-key	Credentials	YES
