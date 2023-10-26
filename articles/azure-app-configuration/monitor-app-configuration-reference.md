@@ -40,6 +40,7 @@ App Configuration has the following dimensions associated with its metr
 | Daily Storage Usage | This metric does not have any dimensions.  |
 | Replication Latency | The **Endpoint** of the replica that data was replicated to is included as a dimension.  |
 | Request Quota Usage | The supported dimensions are the **OperationType** (Read/Write) and **Endpoint** of each request.  |
+
  For more information on what metric dimensions are, see [Multi-dimensional metrics](../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics).
 
 ## Resource logs
