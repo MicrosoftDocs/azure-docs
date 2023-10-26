@@ -1,5 +1,5 @@
 ---
-title: Failover and Disaster Recovery for Mongo vCore
+title: Failover for business continuity and disaster recovery
 titleSuffix: Azure Cosmos DB for MongoDB vCore
 description: Learn how to plan for disaster recovery and maintain business continuity for Cosmos DB for Mongo vCore
 author: sajeetharan
