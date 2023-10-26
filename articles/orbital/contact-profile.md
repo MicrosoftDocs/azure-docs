@@ -47,7 +47,7 @@ Sign in to the [Azure portal - Orbital](https://aka.ms/orbital/portal).
 
    :::image type="content" source="media/orbital-eos-contact-profile.png" alt-text="Screenshot of the contact profile basics page." lightbox="media/orbital-eos-contact-profile.png":::
 
-4. Click **Next**. In the **Links** pane, select **Add new Link**.
+4. Click **Next**. In the **Links** pane, click **Add new Link**.
 5. In the **Add Link** page, enter or select the following information per link direction:
 
    | **Field** | **Value** |
@@ -83,7 +83,7 @@ Sign in to the [Azure portal - Orbital](https://aka.ms/orbital/portal).
    > [!NOTE] 
    > Mission configurations are agreed upon with partner network providers. Contacts can only be successfully scheduled with the partners if the contact profile contains the appropriate mission configuration.
 
-11. In the **Third-Party Configurations** tab, select **Add new Configuration**.
+11. In the **Third-Party Configurations** tab, click **Add new Configuration**.
 12. In the **Mission Configuration** page, enter the following information:
    
     | **Field** | **Value** |
