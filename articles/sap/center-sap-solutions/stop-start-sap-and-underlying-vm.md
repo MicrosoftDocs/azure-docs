@@ -20,7 +20,7 @@ Using the [REST API](/rest/api/workloads) interfaces, you can:
 - Start and stop HANA database instance and its Virtual machines
 
 > [!IMPORTANT]
-> The ability to start and stop virtual machines of an SAP system is available from API Version 2023-10-01.
+> The ability to start and stop virtual machines of an SAP system is available from API Version 2023-10-01-preview.
 
 > [!NOTE]
 > You can schedule stop and start of SAP systems, HANA database at scale for your SAP landscapes using the [ARM template](https://aka.ms/SnoozeSAPSystems). This ARM template can be customized to suit your own requirements.
@@ -38,7 +38,7 @@ The following scenarios are not currently supported when using the Start and Sto
 - Starting and stopping SAP application server or central services instances where instances of multiple SIDs or multiple instances of same SID run on the same virtual machine.
 
 ## Start and Stop SAP system and underlying Virtual machines
-You can start and stop the entire SAP application tier and underlying VMs using [REST API version 2023-10-01](/rest/api/workloads).
+You can start and stop the entire SAP application tier and underlying VMs using [REST API version 2023-10-01-preview](/rest/api/workloads).
 
 ### Start SAP system and its VMs
 To start the virtual machines and the SAP application on it, use the following REST API with "startVm" parameter set to true. This command starts the VMs associated with Central services instance and Application server instances.
@@ -62,7 +62,7 @@ POST https://management.azure.com/subscriptions/Sub1/resourceGroups/test-rg/prov
 > When using the stop action for SAP system and underlying VM for single-server deployments, ensure that you stop SAP application tier and HANA database and then invoke the stop action for the VIS with 'deallocateVm' set to true. 
 
 ## Start and Stop HANA Database and its VMs
-You can start and stop HANA database and its underlying VMs using [REST API version 2023-10-01](/rest/api/workloads).
+You can start and stop HANA database and its underlying VMs using [REST API version 2023-10-01-preview](/rest/api/workloads).
 
 ### Start HANA database and its VMs
 To start the virtual machines and the HANA database on it, use the following REST API with "startVm" parameter set to true.
