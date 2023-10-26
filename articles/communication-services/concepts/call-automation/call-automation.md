@@ -162,6 +162,22 @@ To understand which events are published for different actions, refer to [this g
 
 To learn how to secure the callback event delivery, refer to [this guide](../../how-tos/call-automation/secure-webhook-endpoint.md).
 
+### Operation Callback Uri
+
+It is an optional parameter in some mid-call APIs that use events as their async responses. By default, all events are sent to the default callback Uri set by CreateCall / AnswerCall API when the user establishes a call. With the usage of Operation Callback Uri, corresponding events of this individual (one-time only) request will be sent to the new Uri.
+
+| Supported API             | Corresponding event |
+| ----------------- | ------------ |
+| AddParticipant      | AddParticipantSucceed / AddParticipantFailed  |
+| RemoveParticipant       | RemoveParticipantSucceed / RemoveParticipantFailed  |
+| TransferCall         | CallTransferAccepted / CallTransferFailed  |
+| CancelAddParticipant  | AddParticipantCancelled / CancelAddParticipantFailed |
+| Play | PlayCompleted / PlayFailed / PlayCanceled  |
+| PlayToAll | PlayCompleted / PlayFailed / PlayCanceled  |
+| Recognize | RecognizeCompleted / RecognizeFailed / RecognizeCanceled  |
+| StopContinuousDTMFRecognition | ContinuousDtmfRecognitionStopped |
+| SendDTMF | ContinuousDtmfRecognitionToneReceived / ContinuousDtmfRecognitionToneFailed  |
+
 ## Next steps
 
 > [!div class="nextstepaction"]
