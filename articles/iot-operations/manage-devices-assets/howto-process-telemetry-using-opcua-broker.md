@@ -1,141 +1,194 @@
 ---
-title: Process telemetry using Azure IoT OPC UA Broker
-description: How to process telemetry using Azure IoT OPC UA Broker
+title: Process telemetry for OPC UA assets
+description: How to process telemetry for OPC UA assets by using Azure IoT OPC UA Broker Preview
 author: timlt
 ms.author: timlt
+# ms.subservice: opcua-broker
 ms.topic: how-to 
-ms.date: 09/22/2023
+ms.date: 10/24/2023
 
-#CustomerIntent: As a < type of user >, I want < what? > so that < why? >.
+# CustomerIntent: As an industrial edge IT or operations user, I want to to process telemetry
+# from my OPC UA devices, so that I can monitor status and health in my industrial edge environment. 
 ---
 
-<!--
-Remove all the comments in this template before you sign-off or merge to the main branch.
-
-This template provides the basic structure of a How-to article pattern. See the
-[instructions - How-to](../level4/article-how-to-guide.md) in the pattern library.
-
-You can provide feedback about this template at: https://aka.ms/patterns-feedback
-
-How-to is a procedure-based article pattern that show the user how to complete a task in their own environment. A task is a work activity that has a definite beginning and ending, is observable, consist of two or more definite steps, and leads to a product, service, or decision.
-
--->
-
-<!-- 1. H1 -----------------------------------------------------------------------------
-
-Required: Use a "<verb> * <noun>" format for your H1. Pick an H1 that clearly conveys the task the user will complete.
-
-For example: "Migrate data from regular tables to ledger tables" or "Create a new Azure SQL Database".
-
-* Include only a single H1 in the article.
-* Don't start with a gerund.
-* Don't include "Tutorial" in the H1.
-
--->
-
-# Process telemetry using OPC UA Broker
+# Process telemetry for OPC UA assets
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-TODO: Add your heading
-
-<!-- 2. Introductory paragraph ----------------------------------------------------------
-
-Required: Lead with a light intro that describes, in customer-friendly language, what the customer will do. Answer the fundamental “why would I want to do this?” question. Keep it short.
-
-Readers should have a clear idea of what they will do in this article after reading the introduction.
-
-* Introduction immediately follows the H1 text.
-* Introduction section should be between 1-3 paragraphs.
-* Don't use a bulleted list of article H2 sections.
-
-Example: In this article, you will migrate your user databases from IBM Db2 to SQL Server by using SQL Server Migration Assistant (SSMA) for Db2.
-
--->
-
-TODO: Add your introductory paragraph
-
-<!---Avoid notes, tips, and important boxes. Readers tend to skip over them. Better to put that info directly into the article text.
-
--->
-
-<!-- 3. Prerequisites --------------------------------------------------------------------
-
-Required: Make Prerequisites the first H2 after the H1. 
-
-* Provide a bulleted list of items that the user needs.
-* Omit any preliminary text to the list.
-* If there aren't any prerequisites, list "None" in plain text, not as a bulleted item.
-
--->
+A key task for monitoring your industrial edge environment, is to process the telemetry emitted by assets. In this article, you learn how to subscribe to telemetry emitted by assets in an MQTT broker. 
 
 ## Prerequisites
 
-TODO: List the prerequisites
+- An installed Azure IoT OPC UA Broker environment, with an MQTT broker.  For more information, see [Install OPC UA Broker](howto-install-opcua-broker-using-helm.md).
+- An OPC UA server connected to OPC UA Broker.  For more information, see [Connect an OPC UA server to OPC UA Broker](howto-connect-an-opcua-server.md). 
+- One or more OPC UA assets.  For more information, see [Define OPC UA assets using OPC UA Broker](howto-define-opcua-assets.md).
 
-<!-- 4. Task H2s ------------------------------------------------------------------------------
+## Subscribe to telemetry 
+You can subscribe to telemetry by connecting to an MQTT broker, and subscribing to the topic that the telemetry events are published to. The topic name is constructed using the following pattern
+`<Application.Name>/data/opcua-connector/<opcua-connector deployment name>/<Asset.Name>`. In a production environment, Microsoft recommends using MQTT V5 with Quality of Service `AtLeastOnce` (QoS 1) delivery and secured access to the MQTT broker.
 
-Required: Multiple procedures should be organized in H2 level sections. A section contains a major grouping of steps that help users complete a task. Each section is represented as an H2 in the article.
+For the code sample used in this article, the topic to read telemetry events of the Asset 'thermostat-sample' is `opcuabroker/data/opcua-connector/aio-opcplc-connector/thermostat-sample`. 
 
-For portal-based procedures, minimize bullets and numbering.
+> [!NOTE]
+> The following commands run within the Kubernetes cluster. To run the commands from another machine, [forward the port](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/#forward-a-local-port-to-a-port-on-the-pod) of the MQTT broker and update the command parameters to `-h localhost -p <local-port>`.
 
-* Each H2 should be a major step in the task.
-* Phrase each H2 title as "<verb> * <noun>" to describe what they'll do in the step.
-* Don't start with a gerund.
-* Don't number the H2s.
-* Begin each H2 with a brief explanation for context.
-* Provide a ordered list of procedural steps.
-* Provide a code block, diagram, or screenshot if appropriate
-* An image, code block, or other graphical element comes after numbered step it illustrates.
-* If necessary, optional groups of steps can be added into a section.
-* If necessary, alternative groups of steps can be added into a section.
+To verify that telemetry is published to Azure IoT MQ, run the following command:
 
--->
+```bash
+# Subscribing to telemetry events of Asset 'thermostat-sample' on AIO MQ
+AIO_MQ_USERNAME="$(</tmp/e4i/secrets/mqtt_username)"
+AIO_MQ_PASSWORD="$(</tmp/e4i/secrets/mqtt_password)"
+mosquitto_sub -h aio-mq-dmqtt-frontend.default -p 1883 -q 1 -V mqttv5 -t opcua/data/opc-ua-connector/opc-ua-connector/thermostat-sample -u $AIO_MQ_USERNAME -P $AIO_MQ_PASSWORD | jq '.'
+```
 
-## Task 1
-TODO: Add introduction sentence(s)
-[Include a sentence or two to explain only what is needed to complete the procedure.]
-TODO: Add ordered list of procedure steps
-1. Step 1
-1. Step 2
-1. Step 3
+To verify that telemetry is published to Mosquitto, run the following command:
 
-## Task 2
-TODO: Add introduction sentence(s)
-[Include a sentence or two to explain only what is needed to complete the procedure.]
-TODO: Add ordered list of procedure steps
-1. Step 1
-1. Step 2
-1. Step 3
+```bash
+# Subscribing to all telemetry events sent by the deployed OPC UA Connector to Mosquitto
+mosquitto_sub -h mosquitto.opcuabroker -p 1883 -q 1 -V mqttv5 -t opcua/data/opc-ua-connector/opc-ua-connector/# | jq '.'
+```
 
-## Task 3
-TODO: Add introduction sentence(s)
-[Include a sentence or two to explain only what is needed to complete the procedure.]
-TODO: Add ordered list of procedure steps
-1. Step 1
-1. Step 2
-1. Step 3
+The commands should generate output like the following example.  The output shows all telemetry events from all assets configured on the module named `opc-ua-connector`. 
 
-<!-- 5. Next step/Related content------------------------------------------------------------------------
+```json
+{
+  "Timestamp": "2023-03-21T08:51:03.5502849Z",
+  "Payload": {
+    "dtmi:com:example:Thermostat:temperature;1": {
+      "SourceTimestamp": "2023-03-21T08:51:02.6950444Z",
+      "Value": 41
+    },
+    "dtmi:com:example:Thermostat:pressure;1": {
+      "SourceTimestamp": "2023-03-21T08:51:02.6950689Z",
+      "Value": 41
+    }
+  },
+  "DataSetWriterName": "thermostat-sample-2",
+  "SequenceNumber": 379
+}
+{
+  "Timestamp": "2023-03-21T08:51:03.5502855Z",
+  "Payload": {
+    "dtmi:com:example:Thermostat:temperature;1": {
+      "SourceTimestamp": "2023-03-21T08:51:02.6950444Z",
+      "Value": 41
+    },
+    "dtmi:com:example:Thermostat:pressure;1": {
+      "SourceTimestamp": "2023-03-21T08:51:02.6950689Z",
+      "Value": 41
+    }
+  },
+  "DataSetWriterName": "thermostat-sample-2",
+  "SequenceNumber": 380
+}
+{
+  "Timestamp": "2023-03-21T08:51:04.25094Z",
+  "Payload": {
+    "dtmi:com:example:Thermostat:temperature;1": {
+      "SourceTimestamp": "2023-03-21T08:51:03.6958564Z",
+      "Value": 42
+    }
+  },
+  "DataSetWriterName": "thermostat-sample",
+  "SequenceNumber": 229
+}
+{
+  "Timestamp": "2023-03-21T08:51:04.2509419Z",
+  "Payload": {
+    "dtmi:com:example:Thermostat:temperature;1": {
+      "SourceTimestamp": "2023-03-21T08:51:03.6958564Z",
+      "Value": 42
+    }
+  },
+  "DataSetWriterName": "thermostat-sample",
+  "SequenceNumber": 230
+}
+```
 
-Optional: You have two options for manually curated links in this pattern: Next step and Related content. You don't have to use either, but don't use both.
-  - For Next step, provide one link to the next step in a sequence. Use the blue box format
-  - For Related content provide 1-3 links. Include some context so the customer can determine why they would click the link. Add a context sentence for the following links.
+## Payload format
+OPC UA Connector generates OPC UA PubSub V1.05 compliant JSON.  To generate JSON, OPC UA Connector uses the JSON Encoder from the OPC UA stack, with the following configuration:
 
--->
+* Network message content: Dataset Message Header | Single DataSet Message | Publisher ID
+* Dataset message content: Sequence Number | Timestamp | Dataset Writer Name
+* Dataset field content: Status Code | Source Timestamp
+* Dataset message type: Delta Frame
 
-## Next step
+## MQTT user properties
+To allow downstream services to process the payload, OPC UA Broker adds MQTT user properties to each message it emits.
 
-TODO: Add your next step link(s)
+> [!div class="mx-tdBreakAll"]
+> | User property     | User property in upcoming release | Description                                                                 |
+> | ----------------- | --------------------------------- | --------------------------------------------------------------------------- |
+> | MQTT-Enqueue-Time | mqtt-enqueue-time                | The MQTT enqueue time is added to the message shortly before the message is send to the MQTT broker. This field can be used to measure the latency from OPC UA Connector to a subscriber connected of the message.                       |
+> | asset-uuid        |                                   | The Asset uuid is the universal unique identifier that can be assigned to an Asset. To assign an uuid to an Asset the label `microsoft.iotoperations/uuid` can be set in the Assets metadata.                                            |
+> | external-asset-id |                                   | The external Asset id can be used to store and transport a link to the same Asset in another system. To assign an external Asset id to an Asset the label `microsoft.iotoperations/external-asset-id` can be set in the Assets metadata. |
+> | traceparent       | traceparent                       | The traceparent field is a way to track requests across services. It has four parts: version, trace-id, parent-id and trace-flags. The parts are separated by dashes. |
 
+> [!NOTE]
+> If the labels for `uuid` and `external-asset-id` are added after the asset is deployed, they are only picked up after a restart of `opcua-connector`.
 
-<!-- OR -->
+### Value changes
+Whenever there's a change in values, OPC UA Connector generates a payload that contains one JSON object with the following structure:
+
+```json
+{
+  "Timestamp": "2023-03-21T08:51:03.5502855Z",
+  "Payload": {
+    "dtmi:com:example:Thermostat:temperature;1": {
+      "SourceTimestamp": "2023-03-21T08:51:02.6950444Z",
+      "Value": 41
+    },
+    "dtmi:com:example:Thermostat:pressure;1": {
+      "SourceTimestamp": "2023-03-21T08:51:02.6950689Z",
+      "Value": 41
+    }
+  },
+  "DataSetWriterName": "thermostat-sample-2",
+  "SequenceNumber": 380
+}
+```
+
+### Events
+Whenever there are events, OPC UA Connector generates a payload that contains one JSON object with the following structure:
+
+```json
+{
+  "Timestamp": "2023-03-21T08:51:03.5502855Z",
+  "Payload": {
+    "dtmi:com:example:Thermostat:serverEvents;1": {
+      "eventId": "07785B86F3B58346A886547D94D9797F",
+      "eventType"{
+        "id":3035
+      },
+      "sourceNode": {
+        "id":2253
+      },
+      "sourceName": "Internal",
+      "time":"2023-03-21T08:51:02.6950444Z",
+      "receiveTime": "2023-03-21T08:51:02.6950444Z",
+      "message": "Events lost due to queue overflow",
+      "severity":  100
+    }
+  },
+  "DataSetWriterName": "thermostat-sample-2",
+  "SequenceNumber": 380
+}
+```
+
+## Elements of OPC UA PubSub format
+
+> [!div class="mx-tdBreakAll"]
+> | Name                                                | Mandatory | Datatype         | Comment                                                                                                                |
+> | --------------------------------------------------- | --------- | ---------------- | ---------------------------------------------------------------------------------------------------------------------- |
+> | Timestamp                                           | true      | String           | OPC UA Connector generated timestamp when it received the OPC UA data value change notification from the OPC UA Server |
+> | Payload                                             | true      | Object           | Object containing one element for each OPC UA node with a data change                                                  |
+> | Payload.<AssetType.spec.schema.@id>                 | true      | String           | Object with a key name of the datapoint's DTDL @id in the AssetType's schema to which the OPC UA node is mapped to     |
+> | Payload.<AssetType.spec.schema.@id>.SourceTimestamp | true      | String           | OPC UA data source system (typically OPC UA Server) generated timestamp of the OPC UA node data value change           |
+> | Payload.<AssetType.spec.schema.@id>.Value           | true      | Any              | New value of the OPC UA node                                                                                           |
+> | Payload.<AssetType.spec.schema.@id>.StatusCode      | false     | Unsigned Integer | Status if OPC UA node value monitoring of the OPC UA Server, will be omitted if it is Good (0)                         |
+> | DataSetWriterName                                   | true      | String           | Name of the Asset the telemetry belongs to                                                                             |
+> | SequenceNumber                                      | true      | Unsigned Integer | OPC UA Connector generated sequence number of messages                                                                 |
 
 ## Related content
 
-TODO: Add your next step link(s)
-
-
-<!--
-Remove all the comments in this template before you sign-off or merge to the main branch.
--->
+- [Uninstall OPC UA Broker using helm](howto-uninstall-opcua-broker-using-helm.md)

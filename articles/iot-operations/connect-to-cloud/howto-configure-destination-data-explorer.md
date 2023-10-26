@@ -55,7 +55,7 @@ The Azure Data Explorer destination stage JSON configuration defines the details
 
 | Field | Type | Description | Required | Default | Example |
 | --- | --- | --- | --- | --- | --- |
-| Display name  | String | A name to show in the Data Processor UI.  | Yes | -  | `E4K output` |
+| Display name  | String | A name to show in the Data Processor UI.  | Yes | -  | `Azure IoT MQ output` |
 | Description | String |  A user-friendly description of what the stage does.  | No |  | `Write to topic default/topic1` |
 | Cluster URL | String | The URI (This value isn't the data ingestion URI). | Yes | - | |
 | Database | String | The database name.  | Yes | - | |

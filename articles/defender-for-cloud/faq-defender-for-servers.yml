@@ -167,16 +167,7 @@ sections:
           - On Windows Server 2012 R2 with Defender for Endpoint unified solution integration enabled, Defender for Servers deploys [Microsoft Defender Antivirus](/microsoft-365/security/defender-endpoint/microsoft-defender-antivirus-windows) in *active mode*.
           - On newer Windows Server operating systems, Microsoft Defender Antivirus is part of the operating system and will be enabled in *active mode*.
           - On Linux, Defender for Servers deploy Defender for Endpoint including the anti-malware component, and set the component in *passive mode*.
-                    
-      - question: |
-          If I already have a license for Microsoft Defender for Endpoint, can I get a discount for Microsoft Defender for Servers?
-        answer: |
-          If you already have a license for **Microsoft Defender for Endpoint for Servers**, you won't pay for that part of your [Microsoft Defender for Servers Plan 2](plan-defender-for-servers-select-plan.md#plan-features) license. Learn more about [the Microsoft 365 license](/microsoft-365/security/defender-endpoint/minimum-requirements#licensing-requirements).
-
-          To request your discount, [contact Defender for Cloud's support team](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). You need to provide the relevant workspace ID, region, and number of Microsoft Defender for Endpoint for servers licenses applied for machines in the given workspace.
-
-          The discount is effective starting from the approval date, and won't take place retroactively.
-          
+                      
       - question: |
           How do I switch from a third-party EDR tool?
         answer: |

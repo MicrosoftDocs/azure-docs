@@ -1,141 +1,276 @@
 ---
 title: Autodetect OPC UA assets
-description: How to autodetect OPC UA assets using Azure IoT OPC UA Broker
+description: How to autodetect OPC UA assets by using Azure IoT OPC UA Broker Preview
 author: timlt
 ms.author: timlt
+# ms.subservice: opcua-broker
 ms.topic: how-to 
-ms.date: 09/22/2023
+ms.date: 10/24/2023
 
-#CustomerIntent: As a < type of user >, I want < what? > so that < why? >.
+# CustomerIntent: As an industrial edge IT or operations user, I want to to autodetect assets in my  
+# industrial edge environment so that I can reduce manual configuration overhead. 
 ---
 
-<!--
-Remove all the comments in this template before you sign-off or merge to the main branch.
-
-This template provides the basic structure of a How-to article pattern. See the
-[instructions - How-to](../level4/article-how-to-guide.md) in the pattern library.
-
-You can provide feedback about this template at: https://aka.ms/patterns-feedback
-
-How-to is a procedure-based article pattern that show the user how to complete a task in their own environment. A task is a work activity that has a definite beginning and ending, is observable, consist of two or more definite steps, and leads to a product, service, or decision.
-
--->
-
-<!-- 1. H1 -----------------------------------------------------------------------------
-
-Required: Use a "<verb> * <noun>" format for your H1. Pick an H1 that clearly conveys the task the user will complete.
-
-For example: "Migrate data from regular tables to ledger tables" or "Create a new Azure SQL Database".
-
-* Include only a single H1 in the article.
-* Don't start with a gerund.
-* Don't include "Tutorial" in the H1.
-
--->
-
-# Autodetect OPC UA assets using OPC UA Broker
+# Autodetect OPC UA assets
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-TODO: Add your heading
+In this article, you learn how to autodetect OPC UA assets by using Akri together with OPC UA Broker Preview. 
 
-<!-- 2. Introductory paragraph ----------------------------------------------------------
+## Features supported
 
-Required: Lead with a light intro that describes, in customer-friendly language, what the customer will do. Answer the fundamental “why would I want to do this?” question. Keep it short.
+The following features are supported to autodetect OPC UA assets:
 
-Readers should have a clear idea of what they will do in this article after reading the introduction.
+| Feature                                                                                                                                                                                          | Supported  | Symbol     |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | :-------:  |
+| Connect using lowest security profile                                                                                                                                                            | Supported  |     ✅     |
+| Accept and trust all OPC UA Server certificates                                                                                                                                                  | Supported  |     ✅     |
+| Use self-signed OPC UA Client certificate                                                                                                                                                        | Supported  |     ✅     |
+| Asset detection defined in the [Asset Management Basics specification](http://reference.opcfoundation.org/AMB/v101/docs/)                                                                        | Supported  |     ✅     |
+| Detection of Assets and automatic configuration of OPC UA nodes as telemetry for detected assets [OPC UA Devices specification](https://reference.opcfoundation.org/DI/v104/docs/)               | Supported  |     ✅     |
+| Detection of Assets and automatic configuration of OPC UA events as telemetry for detected assets [DeviceHealth Interface specification](https://reference.opcfoundation.org/DI/v104/docs/4.5.4) | Supported  |     ✅     |
 
-* Introduction immediately follows the H1 text.
-* Introduction section should be between 1-3 paragraphs.
-* Don't use a bulleted list of article H2 sections.
+## Detect and create assets
+Akri uses OPC UA asset detection to generate `AssetType` and `Asset` custom resources.  These custom resources are used for [OPC UA Device Integration (DI) specification](https://reference.opcfoundation.org/DI/v104/docs/) compliant assets in the address space of an OPC UA server.
 
-Example: In this article, you will migrate your user databases from IBM Db2 to SQL Server by using SQL Server Migration Assistant (SSMA) for Db2.
+### Install Akri
 
--->
+To use asset detection, first install [Akri](https://github.com/project-akri/akri). For more information on installing Akri, see the [Using Akri](https://docs.akri.sh/user-guide/getting-started) documentation.
 
-TODO: Add your introductory paragraph
+You can install Akri as shown in the following code:
 
-<!---Avoid notes, tips, and important boxes. Readers tend to skip over them. Better to put that info directly into the article text.
+# [bash](#tab/bash)
 
--->
+```bash
+helm repo add akri-helm-charts https://project-akri.github.io/akri/
+helm upgrade -i akri akri-helm-charts/akri -n akri --create-namespace --set kubernetesDistro=k8s
+```
 
-<!-- 3. Prerequisites --------------------------------------------------------------------
+# [Azure PowerShell](#tab/azure-powershell)
 
-Required: Make Prerequisites the first H2 after the H1. 
+```azurepowershell
+helm repo add akri-helm-charts https://project-akri.github.io/akri/
+helm upgrade -i akri akri-helm-charts/akri -n akri --create-namespace --set kubernetesDistro=k8s
+```
+---
 
-* Provide a bulleted list of items that the user needs.
-* Omit any preliminary text to the list.
-* If there aren't any prerequisites, list "None" in plain text, not as a bulleted item.
+After you install Akri, install the Akri pods `agent` and `controller`, and run them in the `akri` namespace. To verify a successful installation, run the following command:
 
--->
+# [bash](#tab/bash)
 
-## Prerequisites
+```bash
+kubectl get -o wide -n akri pods
+```
 
-TODO: List the prerequisites
+# [Azure PowerShell](#tab/azure-powershell)
 
-<!-- 4. Task H2s ------------------------------------------------------------------------------
+```azurepowershell
+kubectl get -o wide -n akri pods
+```
+---
 
-Required: Multiple procedures should be organized in H2 level sections. A section contains a major grouping of steps that help users complete a task. Each section is represented as an H2 in the article.
+The output of the command shows the Akri pods running:
 
-For portal-based procedures, minimize bullets and numbering.
+```console
+NAME                                          READY   STATUS    RESTARTS          AGE    IP          NODE             NOMINATED NODE   READINESS GATES
+akri-agent-daemonset-jrx9t                    1/1     Running   124 (3m18s ago)   2d3h   10.1.0.87   docker-desktop   <none>           <none>
+akri-controller-deployment-57c5dc7dc5-b5qjg   1/1     Running   124 (3m56s ago)   2d3h   10.1.0.86   docker-desktop   <none>           <none>
+```
 
-* Each H2 should be a major step in the task.
-* Phrase each H2 title as "<verb> * <noun>" to describe what they'll do in the step.
-* Don't start with a gerund.
-* Don't number the H2s.
-* Begin each H2 with a brief explanation for context.
-* Provide a ordered list of procedural steps.
-* Provide a code block, diagram, or screenshot if appropriate
-* An image, code block, or other graphical element comes after numbered step it illustrates.
-* If necessary, optional groups of steps can be added into a section.
-* If necessary, alternative groups of steps can be added into a section.
+The Akri agent and controller should be visible are ready to start a discovery handler.
 
--->
+### Deploy a discovery handler
 
-## Task 1
-TODO: Add introduction sentence(s)
-[Include a sentence or two to explain only what is needed to complete the procedure.]
-TODO: Add ordered list of procedure steps
-1. Step 1
-1. Step 2
-1. Step 3
+To deploy the custom OPC UA discovery handler with asset detection, use the following custom resource YAML file to specify the discovery URL of the OPC UA Server. The current version of the discovery handler only supports no security `UseSecurity=false` and requires `autoAcceptUntrustedCertificates=true`. The specified server contains a sample address model that uses the Robotics companion specification, which is based on the DI specification.  This sample address model is required for asset detection. The Robot contains five assets with observable variables and a `DeviceHealth` node that is automatically detected for monitoring. You can specify other servers by providing the `endpointUrl` and ensuring that a security `None` profile is enabled.
 
-## Task 2
-TODO: Add introduction sentence(s)
-[Include a sentence or two to explain only what is needed to complete the procedure.]
-TODO: Add ordered list of procedure steps
-1. Step 1
-1. Step 2
-1. Step 3
+```yml
+kubernetesDistro: k8s
 
-## Task 3
-TODO: Add introduction sentence(s)
-[Include a sentence or two to explain only what is needed to complete the procedure.]
-TODO: Add ordered list of procedure steps
-1. Step 1
-1. Step 2
-1. Step 3
+# https://docs.akri.sh/development/handler-development
+custom:
+  configuration:
+    enabled: true
+    name: akri-opcua-asset
+    discoveryHandlerName: opcua-asset
+    discoveryDetails: |
+      opcuaDiscoveryMethod:
+        - asset:
+            endpointUrl: "opc.tcp://opcplc-000000.opcuabroker:50000"
+            useSecurity: false
+            autoAcceptUntrustedCertificates: true
 
-<!-- 5. Next step/Related content------------------------------------------------------------------------
+  discovery:
+    enabled: true
+    name: akri-opcua-asset-discovery
+    image:
+      repository: {{% oub-registry %}}/opcuabroker/discovery-handler
+      tag: latest
+      pullPolicy: Always
+    useNetworkConnection: true
+    port: 80
+    resources:
+      memoryRequest: 64Mi
+      cpuRequest: 10m
+      memoryLimit: 512Mi
+      cpuLimit: 100m
+```
 
-Optional: You have two options for manually curated links in this pattern: Next step and Related content. You don't have to use either, but don't use both.
-  - For Next step, provide one link to the next step in a sequence. Use the blue box format
-  - For Related content provide 1-3 links. Include some context so the customer can determine why they would click the link. Add a context sentence for the following links.
+> [!div class="mx-tdBreakAll"]
+> | Name                              | Mandatory         | Datatype | Default | Comment                 |
+> | --------------------------------- | ----------------- | -------- | ------- | ---------------------   |
+> | `EndpointUrl`                     | true              | String   | null    | The OPC UA endpoint URL to use for Asset discovery                                                                                                                                                                                           |
+> | `AutoAcceptUntrustedCertificates` | true ¹            | Boolean  | false   | Whether the client auto accepts untrusted certificates. A certificate can only be auto-accepted as trusted if no non-suppressible errors occurred during chain validation. For example, a certificate with incomplete chain is not accepted. |
+> | `UseSecurity`                     | true ¹            | Boolean  | true    | Whether the client should use a secure connection                                                                                                                                                                                            |
+> | `UserName`                        | false             | String   | null    | The username for user authentication. ²                                                                                                                                                                                           |
+> | `Password`                        | false             | String   | null    | The user password for user authentication. ²                                                                                                                                                                                      |
 
--->
+¹ The current version of the discovery handler only supports no security `UseSecurity=false` and requires `autoAcceptUntrustedCertificates=true`.  
+² Temporary implementation until Akri can pass K8S secrets.
+
+You can store the YAML file you created previously on your computer as *opcuadiscovery.yaml* and execute the following command to activate the discovery.
+
+# [bash](#tab/bash)
+
+```bash
+helm upgrade -i akri akri-helm-charts/akri -n akri -f opcuadiscovery.yaml
+```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+helm upgrade -i akri akri-helm-charts/akri -n akri -f opcuadiscovery.yaml
+```
+---
+
+A successful helm upgrade outputs the following messages:
+
+```console
+Release "akri" has been upgraded. Happy Helming!
+NAME: akri
+LAST DEPLOYED: Thu Mar  2 15:39:15 2023
+NAMESPACE: akri
+STATUS: deployed
+REVISION: 51
+TEST SUITE: None
+NOTES:
+...
+```
+
+To check the pods again for the asset discovery container and confirm it's deployed: 
+
+# [bash](#tab/bash)
+
+```bash
+kubectl get -o wide -n akri pods
+```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+kubectl get -o wide -n akri pods
+```
+---
+
+The output of the command contains the `akri-opcua-asset-discovery` pod that was created: 
+
+```console
+NAME                                         READY   STATUS              RESTARTS   AGE     IP          NODE             NOMINATED NODE   READINESS GATES
+akri-agent-daemonset-42tdp                   1/1     Running             0          5m37s   10.1.0.92   docker-desktop   <none>           <none>
+akri-controller-deployment-d4f7847b6-64zxh   1/1     Running             0          6m8s    10.1.0.91   docker-desktop   <none>           <none>
+akri-opcua-asset-discovery-daemonset-5q2ts   0/1     ContainerCreating   0          5s      <none>      docker-desktop   <none>           <none>
+```
+
+A log from the `akri-opcua-asset-discovery` pod shows after a few seconds that the discovery handler registered with Akri:
+
+```console
+2023-06-07 10:45:27.395 +00:00 info: OpcUaAssetDetection.Akri.Program[0]      Akri OPC UA Asset Detection (0.2.0-alpha.203+Branch.main.Sha.cd4045345ad0d148cca4098b68fc7da5b307ce13) is starting with the process id: 1
+2023-06-07 10:45:27.695 +00:00 info: OpcUaAssetDetection.Akri.Program[0]      Got IP address of the pod from POD_IP environment variable.
+2023-06-07 10:45:28.695 +00:00 info: OpcUaAssetDetection.Akri.Program[0]      Registered with Akri system with Name opcua-asset for http://10.1.0.92:80 with type: Network as shared: True
+2023-06-07 10:45:28.696 +00:00 info: OpcUaAssetDetection.Akri.Program[0]      Press CTRL+C to exit
+```
+
+After one minute, Akri issues the first discovery request based on the configuration in the custom resource `opcuadiscovery.yaml`.
+
+```console
+2023-06-07 12:49:17.344 +00:00 dbug: Grpc.AspNetCore.Server.ServerCallHandler[10]
+      => SpanId:603279c62c9ccbb0, TraceId:15ad328e1e803c55bc6731266aae8725, ParentId:0000000000000000 => ConnectionId:0HMR7AMCHHG2G => RequestPath:/v0.DiscoveryHandler/Discover RequestId:0HMR7AMCHHG2G:00000001
+      Reading message.
+2023-06-07 12:49:18.046 +00:00 info: OpcUa.AssetDiscovery.Akri.Services.DiscoveryHandlerService[0]
+      => SpanId:603279c62c9ccbb0, TraceId:15ad328e1e803c55bc6731266aae8725, ParentId:0000000000000000 => ConnectionId:0HMR7AMCHHG2G => RequestPath:/v0.DiscoveryHandler/Discover RequestId:0HMR7AMCHHG2G:00000001
+      Got discover request opcuaDiscoveryMethod:
+        - asset:
+            endpointUrl: "opc.tcp://opcplc-000000.opcuabroker:50000"
+            useSecurity: false
+            autoAcceptUntrustedCertificates: true
+       from ipv6:[::ffff:10.1.7.47]:39708
+2023-06-07 12:49:20.238 +00:00 info: OpcUa.AssetDiscovery.Akri.Services.DiscoveryHandlerService[0]
+      => SpanId:603279c62c9ccbb0, TraceId:15ad328e1e803c55bc6731266aae8725, ParentId:0000000000000000 => ConnectionId:0HMR7AMCHHG2G => RequestPath:/v0.DiscoveryHandler/Discover RequestId:0HMR7AMCHHG2G:00000001
+      Start asset discovery
+2023-06-07 12:49:20.242 +00:00 info: OpcUa.AssetDiscovery.Akri.Services.DiscoveryHandlerService[0]
+      => SpanId:603279c62c9ccbb0, TraceId:15ad328e1e803c55bc6731266aae8725, ParentId:0000000000000000 => ConnectionId:0HMR7AMCHHG2G => RequestPath:/v0.DiscoveryHandler/Discover RequestId:0HMR7AMCHHG2G:00000001
+      Discovering OPC UA endpoint opc.tcp://opcplc-000000.opcuabroker:50000 using Asset Discovery
+...
+2023-06-07 14:20:03.905 +00:00 info: OpcUa.Common.Dtdl.DtdlGenerator[6901]
+      => SpanId:603279c62c9ccbb0, TraceId:15ad328e1e803c55bc6731266aae8725, ParentId:0000000000000000 => ConnectionId:0HMR7AMCHHG2G => RequestPath:/v0.DiscoveryHandler/Discover RequestId:0HMR7AMCHHG2G:00000001
+      Created DTDL_2 model for boiler_1 with 35 telemetries in 0 ms
+2023-06-07 14:20:04.208 +00:00 info: OpcUa.AssetDiscovery.Akri.CustomResources.CustomResourcesManager[0]
+      => SpanId:603279c62c9ccbb0, TraceId:15ad328e1e803c55bc6731266aae8725, ParentId:0000000000000000 => ConnectionId:0HMR7AMCHHG2G => RequestPath:/v0.DiscoveryHandler/Discover RequestId:0HMR7AMCHHG2G:00000001
+      Generated 1 asset CRs from discoveryUrl opc.tcp://opcplc-000000.opcuabroker:50000
+2023-06-07 14:20:04.208 +00:00 info: OpcUa.Common.Client.OpcUaClient[1005]
+      => SpanId:603279c62c9ccbb0, TraceId:15ad328e1e803c55bc6731266aae8725, ParentId:0000000000000000 => ConnectionId:0HMR7AMCHHG2G => RequestPath:/v0.DiscoveryHandler/Discover RequestId:0HMR7AMCHHG2G:00000001
+      Session ns=8;i=1828048901 is closing
+...
+2023-06-07 14:20:05.002 +00:00 info: OpcUa.AssetDiscovery.Akri.Services.DiscoveryHandlerService[0]
+      => SpanId:603279c62c9ccbb0, TraceId:15ad328e1e803c55bc6731266aae8725, ParentId:0000000000000000 => ConnectionId:0HMR7AMCHHG2G => RequestPath:/v0.DiscoveryHandler/Discover RequestId:0HMR7AMCHHG2G:00000001
+      Sending response to caller ...
+2023-06-07 14:20:05.003 +00:00 dbug: Grpc.AspNetCore.Server.ServerCallHandler[15]
+      => SpanId:603279c62c9ccbb0, TraceId:15ad328e1e803c55bc6731266aae8725, ParentId:0000000000000000 => ConnectionId:0HMR7AMCHHG2G => RequestPath:/v0.DiscoveryHandler/Discover RequestId:0HMR7AMCHHG2G:00000001
+      Sending message.
+2023-06-07 14:20:05.004 +00:00 info: OpcUa.AssetDiscovery.Akri.Services.DiscoveryHandlerService[0]
+      => SpanId:603279c62c9ccbb0, TraceId:15ad328e1e803c55bc6731266aae8725, ParentId:0000000000000000 => ConnectionId:0HMR7AMCHHG2G => RequestPath:/v0.DiscoveryHandler/Discover RequestId:0HMR7AMCHHG2G:00000001
+      Sent successfully
+
+```
+
+After the discovery finishes, the result is sent back to Akri to create the Akri instance custom resource with asset information and observable variables. The discovery handler repeats the discovery every 10 minutes to detect changes on the server.
+
+You can inspect the Akri instance custom resource with an editor in OpenLens, for example, under the CustomResources/akri.sh/Instance.  For example, the following code block shows the JSON encoded result of the asset detection with the information of the observable variables of axis-1:
+
+```json
+  "spec": {
+    "displayName": "axis_1",
+    "description": "",
+    "dataPoints": [
+        {
+            "capabilityId": "dtmi:microsoft:e4i:axis_1:ActualPosition_6020;1",
+            "dataSource": "nsu=http://vdma.org/OPCRoboticsTestServer/;i=6020",
+            "observabilityMode": "none"
+        },
+        {
+            "capabilityId": "dtmi:microsoft:e4i:axis_1:ActualAcceleration_6022;1",
+            "dataSource": "nsu=http://vdma.org/OPCRoboticsTestServer/;i=6022",
+            "observabilityMode": "none"
+        },
+        {
+            "capabilityId": "dtmi:microsoft:e4i:axis_1:ActualSpeed_6024;1",
+            "dataSource": "nsu=http://vdma.org/OPCRoboticsTestServer/;i=6024",
+            "observabilityMode": "none"
+        },
+        {
+            "capabilityId": "dtmi:microsoft:e4i:axis_1:Mass_6050;1",
+            "dataSource": "nsu=http://vdma.org/OPCRoboticsTestServer/;i=6050",
+            "observabilityMode": "none"
+        }
+    ],
+    "assetEndpointProfileUri": "opc-ua-broker-opcplc-opcuabroker-50000",
+    "assetType": "axis-1"
+  }
+```
+
+The OPC UA Connector supervisor watches for new Akri instance custom resources of type `opc-ua-asset` and generates the initial `AssetType` and `Asset` custom resources for them. You can modify these custom resources to extend publishing for more data points, or to add OPC UA Broker observability settings.
 
 ## Next step
 
-TODO: Add your next step link(s)
-
-
-<!-- OR -->
-
-## Related content
-
-TODO: Add your next step link(s)
-
-
-<!--
-Remove all the comments in this template before you sign-off or merge to the main branch.
--->
+In this article, you learned how to autodetect assets by using Akri.  Here's a suggested next step for working with assets:
+> [!div class="nextstepaction"]
+> [Process telemetry using OPC UA Broker](howto-process-telemetry-using-opcua-broker.md)

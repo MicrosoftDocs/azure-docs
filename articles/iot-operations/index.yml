@@ -35,7 +35,7 @@ landingContent:
           - text: Manage assets
             url: manage-devices-assets/overview-manage-assets.md
           - text: Publish and subscribe with MQTT
-            url: pub-sub-mqtt/overview-iot-mq.md
+            url: manage-mqtt-connectivity/overview-iot-mq.md
           - text: Process messages
             url: process-data/overview-data-processor.md
           - text: Connect to the cloud

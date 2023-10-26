@@ -4,7 +4,7 @@ description: Use the Azure IoT Operations portal to manage your asset configurat
 author: dominicbetts
 ms.author: dobett
 ms.topic: how-to 
-ms.date: 10/20/2023
+ms.date: 10/24/2023
 
 #CustomerIntent: As an OT user, I want configure my IoT Operations environment to so that data can flow from my OPC UA servers through to the MQTT broker.
 ---
@@ -13,15 +13,18 @@ ms.date: 10/20/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-An _asset_ is a physical or logical entity that represents a device, a machine, a system, or a process. For example, an asset could be a pump, a motor, a tank, or a production line. Assets can have properties and values that describe their characteristics and behaviors.
+An _asset_ in Azure IoT Operations is a logical entity that you create to represent a real asset. An Azure IoT Operations asset can have properties, tags, and events that describe its behavior and characteristics.
 
 _OPC UA servers_ are software applications that communicate with assets. OPC UA servers expose _OPC UA tags_ that represent data points. OPC UA tags provide real-time or historical data about the status, performance, quality, or condition of assets.
 
-An _asset endpoint_ is a custom resource that connects OPC UA servers to OPC UA connector modules. This connection enables an OPC UA connector to access an asset's data points. Without an asset endpoint, data can't flow from an OPC UA server to the Azure IoT OPC UA Broker instance and Azure IoT MQ instance. After you configure the custom resources in your cluster, a connection is established to the downstream OPC UA server and the server forwards telemetry to the OPC UA Broker instance.
+An _asset endpoint_ is a custom resource in your Kubernetes cluster that connects OPC UA servers to OPC UA connector modules. This connection enables an OPC UA connector to access an asset's data points. Without an asset endpoint, data can't flow from an OPC UA server to the Azure IoT OPC UA Broker (preview) instance and Azure IoT MQ (preview) instance. After you configure the custom resources in your cluster, a connection is established to the downstream OPC UA server and the server forwards telemetry to the OPC UA Broker instance.
 
-The [quick setup](#asset-endpoint-quick-setup) section gets you started by using the built-in OPC-PLC simulator. The remaining sections describe how to configure more complex scenarios, such as custom authentication.
+This article describes how to use the Azure IoT Operations (preview) portal to:
 
-This article describes how to use the Azure IoT Operations Preview portal to manually add assets and define tags. These assets and tags map inbound data from OPC UA servers to friendly names that you can use in the Azure MQ broker and Data Processor pipelines.
+- Define asset endpoints
+- Add assets, and define tags and events.
+
+These assets, tags, and events map inbound data from OPC UA servers to friendly names that you can use in the MQ broker and Azure IoT Data Processor (preview) pipelines.
 
 ## Prerequisites
 
@@ -40,75 +43,32 @@ When you sign in, the portal displays a list of the Azure Arc-enabled Kubernetes
 
 :::image type="content" source="media/howto-manage-assets-remotely/cluster-list.png" alt-text="Screenshot that shows the list of clusters in the Azure IoT Operations portal.":::
 
-## Asset endpoint quick setup
-<!-- Update this as soon as the UX is confirmed - it will all be done through the portal -->
+## Create an asset endpoint
 
-By default, an Azure IoT Operations deployment includes a built-in OPC PLC simulator. Apply the following manifest to your kubernetes cluster using `kubectl apply -f <your-file-name>.yaml` to create an asset endpoint that uses the built-in OPC PLC simulator:
+By default, an Azure IoT Operations deployment includes a built-in OPC PLC simulator. To create an asset endpoint that uses the built-in OPC PLC simulator:
 
-```yaml
-apiVersion: e4i.microsoft.com/v1
-kind: Application
-metadata:
-  name: alice-springs-solution
-  namespace: alice-springs
-spec:
-  name: alice-springs-solution
-  description: This is a sample application running OPC UA Connector for testing.
-  payloadCompression: none
----
-apiVersion: e4i.microsoft.com/v1
-kind: Module
-metadata:
-  name: opc-ua-connector-0
-  namespace: alice-springs-solution
-spec:
-  type: opc-ua-connector
-  name: opc-ua-connector-0
-  description: Connect to opc.tcp://opcplc-000000.alice-springs:50000 and forward data to the configured broker
-  settings: |-
-    {
-      "OpcUaConnectionOptions":
-      {
-        "DiscoveryUrl": "opc.tcp://opcplc-000000.alice-springs:50000",
-        "UseSecurity": true,
-        "LoadComplexTypes": true,
-        "AuthenticationMode": "Anonymous",
-        "SessionTimeout": 600000,
-        "DefaultPublishingInterval": 1000,
-        "DefaultSamplingInterval": 500,
-        "DefaultQueueSize": 15,
-        "MaxItemsPerSubscription": 1000,
-        "AutoAcceptUntrustedCertificates": true
-      },
-      "OpcUaConfigurationOptions": {
-        "ApplicationName": "az-e4i-opcua-connector-0",
-        "ModuleName": "opc-ua-connector-0",
-      }
-    }
-```
+1. Select **Asset endpoints** and then **Create asset endpoint**:
 
-This manifest deploys a new module called `opc-ua-connector-0` to the `alice-springs-solution` namespace. To start using the newly created asset endpoint, create an asset through the [Azure IoT Operations](https://digitaloperations.azure.com) portal, specify `opc-ua-connector-0` in the **Endpoint profile** field:
+    :::image type="content" source="media/howto-manage-assets-remotely/asset-endpoints.png" alt-text="Screenshot that shows the asset endpoints page in the Azure IoT Operations portal.":::
 
-:::image type="content" source="media/howto-manage-assets-remotely/asset-endpoint-profile.png" alt-text="Screenshot that shows how to use the asset endpoint in the Azure IoT Operations portal.":::
+1. Enter the following endpoint information:
 
-By default, assets are created in the `alice-springs-solution` namespace where you created the asset endpoint.
+    | Field | Value |
+    | --- | --- |
+    | Name | `opc-ua-connector-0` |
+    | OPC UA Broker URL | `opc.tcp://opc-plc-simulator:50000` |
+    | User authentication | `Anonymous` |
+    | Transport authentication | `Do not use transport authentication certificate` |
 
-When you specify the asset tags in the Azure IoT Operations experience portal, you can now use any of the simulated node IDs such as `nsu=http://microsoftcom/Opc/OpcPlc/;s=FastUInt1`:
+1. To save the definition, select **Create**.
 
-:::image type="content" source="media/howto-manage-assets-remotely/tag-definition.png" alt-text="Screenshot that shows how to use a node ID when you define a tag in the Azure IoT Operations portal.":::
+This configuration deploys a new module called `opc-ua-connector-0` to the cluster. After you define an asset, an OPC UA connector pod discovers it. The pod uses the asset endpoint that you specify in the asset definition to connect to an OPC UA server.
 
-An OPC UA connector pod discovers the asset after you create it. The pod uses the asset endpoint that you specified in the asset definition to connect to an OPC UA server. If the OPC PLC simulator is running, data flows from the simulator, to the connector, to the OPC UA broker, and finally to the MQTT broker.
+When the OPC PLC simulator is running, data flows from the simulator, to the connector, to the OPC UA broker, and finally to the MQ broker.
 
-## Asset endpoint custom setup
-<!-- Update this as soon as the UX is confirmed - it will all be done through the portal -->
+### Configure an asset endpoint to use a username and password
 
-The remaining sections in this article include instructions for more complex asset endpoint scenarios, such as custom authentication.
-
-### Configure an asset endpoint using a username and password
-
-The YAML file shown in the previous section uses the `Anonymous` authentication mode. This mode doesn't require a username or password. If you want to use the `UsernamePassword` authentication mode, you must configure the asset endpoint accordingly.
-
-### Create a Kubernetes secret for the OPC UA server connection
+The previous example uses the `Anonymous` authentication mode. This mode doesn't require a username or password. If you want to use the `UsernamePassword` authentication mode, you must configure the asset endpoint accordingly.
 
 The following script shows how to create a secret for the username and password and add it to the Kubernetes store:
 
@@ -124,53 +84,19 @@ echo "Storing k8s username and password generic secret..."
 kubectl create secret generic opc-ua-connector-secrets --from-literal=username=$USERNAME --from-literal=password=$PASSWORD --namespace $NAMESPACE
 ```
 
+To configure the asset endpoint to use these secrets, select **Username & password** for the **User authentication** field. Then enter the following values for the **Username reference** and **Password reference** fields:
+
+| Field | Value |
+| --- | --- |
+| Username reference | `@@sec_k8s_opc-ua-connector-secrets/username` |
+| Password reference | `@@sec_k8s_opc-ua-connector-secrets/password` |
 The following example YAML file shows the configuration for an asset endpoint that uses the `UsernamePassword` authentication mode. The configuration references the secret you created previously:
 
-```yaml
-apiVersion: e4i.microsoft.com/v1
-kind: Application
-metadata:
-  name: alice-springs-solution
-  namespace: alice-springs
-spec:
-  name: alice-springs-solution
-  description: This is a sample application running OPC UA Connector for testing.
-  payloadCompression: none
----
-apiVersion: e4i.microsoft.com/v1
-kind: Module
-metadata:
-  name: opc-ua-connector-1
-  namespace: alice-springs-solution
-spec:
-  type: opc-ua-connector
-  name: opc-ua-connector-1
-  description: Connect to opc.tcp://opcplc-000000.alice-springs:50000 and forward data to the configured broker
-  settings: |-
-    {
-      "OpcUaConnectionOptions":
-      {
-        "DiscoveryUrl": "opc.tcp://opcplc-000000.alice-springs:50000",
-        "UseSecurity": true,
-        "LoadComplexTypes": true,
-        "AuthenticationMode": "UsernamePassword",
-        "UserNameFile": "@@sec_k8s_opc-ua-connector-secrets/username",
-        "PasswordFile": "@@sec_k8s_opc-ua-connector-secrets/password",
-        "SessionTimeout": 600000,
-        "DefaultPublishingInterval": 1000,
-        "DefaultSamplingInterval": 500,
-        "DefaultQueueSize": 15,
-        "MaxItemsPerSubscription": 1000,
-        "AutoAcceptUntrustedCertificates": true
-      },
-      "OpcUaConfigurationOptions": {
-        "ApplicationName": "az-e4i-opcua-connector-0",
-        "ModuleName": "opc-ua-connector-1",
-      }
-    }
-```
+### Configure an asset endpoint to use a transport authentication certificate
 
-## Add an asset and tags
+To configure the asset endpoint to use a transport authentication certificate, select **Use transport authentication certificate** for the **Transport authentication** field. Then enter the certificate thumbprint and the certificate password reference.
+
+## Add an asset, tags, and events
 
 To add an asset in the Azure IoT Operations portal:
 
@@ -178,17 +104,17 @@ To add an asset in the Azure IoT Operations portal:
 
     :::image type="content" source="media/howto-manage-assets-remotely/create-asset-empty.png" alt-text="Screenshot that shows an empty Assets tab in the Azure IoT Operations portal.":::
 
-1. Enter the following asset information:
+    Select **Create asset**.
+
+1. On the asset details screen, enter the following asset information:
 
     - Asset name
-    - Endpoint profile
-    - Asset description.
-
-    The **Endpoint profile** must match the value in the [asset endpoint](#asset-endpoint-quick-setup).
+    - Asset endpoint. Select your asset endpoint from the list.
+    - Description
 
     :::image type="content" source="media/howto-manage-assets-remotely/create-asset-details.png" alt-text="Screenshot that shows how to add asset details in the Azure IoT Operations portal.":::
 
-1. Add any optional information that you want to include such as:
+1. Add any optional information for the asset that you want to include such as:
 
     - Manufacturer
     - Manufacturer URI
@@ -199,38 +125,26 @@ To add an asset in the Azure IoT Operations portal:
     - Serial number
     - Documentation URI
 
-    :::image type="content" source="media/howto-manage-assets-remotely/create-asset-additional-info.png" alt-text="Screenshot that shows how to add additional asset information in the Azure IoT Operations portal.":::
-
-1. Select **Next** to go to the **Additional configurations** page.
-
-    This page shows the default telemetry settings for the asset. You can override these settings for each tag that you add. These settings apply to all the OPC UA tags that belong to the asset.
-
-    Default telemetry settings include:
-
-    - **Sampling interval (milliseconds)**: The sampling interval indicates the fastest rate at which the OPC UA Server should sample its underlying source for data changes.
-    - **Publishing interval (milliseconds)**: The rate at which OPC UA Server should publish data.
-    - **Queue size**: The depth of the queue to hold the sampling data before it's published.
-
-    :::image type="content" source="media/howto-manage-assets-remotely/create-asset-additional-config.png" alt-text="Screenshot that shows how to define default telemetry settings for asset tags in the Azure IoT Operations portal.":::
-
 1. Select **Next** to go to the **Tags** page.
 
 ### Add individual tags to an asset
 
 Now you can define the tags associated with the asset. To add OPC UA tags:
 
-- Select **Add** and then select **Add tag**. Enter your tag details:
+1. Select **Add > Add tag**.
 
-    - Node ID. This value is the node ID from the OPC UA server.
-    - Tag name (Optional). This value is the friendly name that you want to use for the tag. If you don't specify a tag name, the node ID is used as the tag name.
-    - Observability mode (Optional) with following choices:
-      - None
-      - Gauge
-      - Counter
-      - Histogram
-      - Log
-    - Sampling Interval (milliseconds). You can override the asset default value for this tag.
-    - Queue size. You can override the asset default value for this tag.
+1. Enter your tag details:
+
+      - Node ID. This value is the node ID from the OPC UA server.
+      - Tag name (Optional). This value is the friendly name that you want to use for the tag. If you don't specify a tag name, the node ID is used as the tag name.
+      - Observability mode (Optional) with following choices:
+        - None
+        - Gauge
+        - Counter
+        - Histogram
+        - Log
+      - Sampling Interval (milliseconds). You can override the default value for this tag.
+      - Queue size. You can override the default value for this tag.
 
     :::image type="content" source="media/howto-manage-assets-remotely/add-tag.png" alt-text="Screenshot that shows adding tags in the Azure IoT Operations portal.":::
 
@@ -241,11 +155,17 @@ Now you can define the tags associated with the asset. To add OPC UA tags:
     | ns=3;s=FastUInt10 | temperature | none |
     | ns=3;s=FastUInt100 | Tag 10 | none |
 
+1. Select **Manage default settings** to configure default telemetry settings for the asset. These settings apply to all the OPC UA tags that belong to the asset. You can override these settings for each tag that you add. Default telemetry settings include:
+
+    - **Sampling interval (milliseconds)**: The sampling interval indicates the fastest rate at which the OPC UA Server should sample its underlying source for data changes.
+    - **Publishing interval (milliseconds)**: The rate at which OPC UA Server should publish data.
+    - **Queue size**: The depth of the queue to hold the sampling data before it's published.
+
 ### Add tags in bulk to an asset
 
-You can import up to 1000 OPC UA tags at a time from a Microsoft Excel file:
+You can import up to 1000 OPC UA tags at a time from a CSV file:
 
-1. Create a Microsoft Excel file that looks like the following example:
+1. Create a CSV file that looks like the following example:
 
     | NodeID              | TagName  | Sampling Interval Milliseconds | QueueSize | ObservabilityMode |
     |---------------------|----------|--------------------------------|-----------|-------------------|
@@ -253,41 +173,78 @@ You can import up to 1000 OPC UA tags at a time from a Microsoft Excel file:
     | ns=3;s=FastUInt1001 | Tag 1001 | 1000                           | 5         | none              |
     | ns=3;s=FastUInt1002 | Tag 1002 | 5000                           | 10        | none              |
 
-1. Select **Add** and then select **Import Microsoft Excel**. Select the Excel file you created and select **Open**. The tags defined in the Excel file are imported:
+1. Select **Add > Import CSV (.csv) file**. Select the CSV file you created and select **Open**. The tags defined in the CSV file are imported:
 
     :::image type="content" source="media/howto-manage-assets-remotely/import-complete.png" alt-text="A screenshot that shows the completed import from the Excel file in the Azure IoT Operations portal.":::
 
-    If you import an= Microsoft Excel file that contains tags that are duplicates of existing tags, the Azure IoT Operations portal displays the following message:
+    If you import a CSV file that contains tags that are duplicates of existing tags, the Azure IoT Operations portal displays the following message:
 
     :::image type="content" source="media/howto-manage-assets-remotely/import-duplicates.png" alt-text="A screenshot that shows the error message when you import duplicate tag definitions in the Azure IoT Operations portal.":::
 
     You can either replace the duplicate tags and add new tags from the import file, or you can cancel the import.
 
-1. To export all the tags from an asset to a Microsoft Excel file, select **Export** and choose a location for the file:
+1. To export all the tags from an asset to a CSV file, select **Export all** and choose a location for the file:
 
     :::image type="content" source="media/howto-manage-assets-remotely/export-tags.png" alt-text="A screenshot that shows how to export tag definitions from an asset in the Azure IoT Operations portal.":::
 
+1. On the **Tags** page, select **Next** to go to the **Events** page.
+
+### Add individual events to an asset
+
+Now you can define the events associated with the asset. To add OPC UA events:
+
+1. Select **Add > Add event**.
+
+1. Enter your event details:
+
+      - Event notifier. This value is the event notifier from the OPC UA server.
+      - Event name (Optional). This value is the friendly name that you want to use for the event. If you don't specify an event name, the event notifier is used as the event name.
+      - Observability mode (Optional) with following choices:
+        - None
+        - Gauge
+        - Counter
+        - Histogram
+        - Log
+      - Queue size. You can override the default value for this tag.
+
+    :::image type="content" source="media/howto-manage-assets-remotely/add-event.png" alt-text="Screenshot that shows adding events in the Azure IoT Operations portal.":::
+
+1. Select **Manage default settings** to configure default event settings for the asset. These settings apply to all the OPC UA events that belong to the asset. You can override these settings for each event that you add. Default event settings include:
+
+    - **Publishing interval (milliseconds)**: The rate at which OPC UA Server should publish data.
+    - **Queue size**: The depth of the queue to hold the sampling data before it's published.
+
+### Add events in bulk to an asset
+
+You can import up to 1000 OPC UA events at a time from a CSV file.
+
+To export all the events from an asset to a CSV file, select **Export all** and choose a location for the file.
+
+On the **Events** page, select **Next** to go to the **Review** page.
+
 ### Review your changes
 
-Select **Next** to go to the **Review** page. Review your asset and OPC UA tag details and make any adjustments you need:
+Review your asset and OPC UA tag and event details and make any adjustments you need:
 
-:::image type="content" source="media/howto-manage-assets-remotely/review-asset-tags.png" alt-text="A screenshot that shows how to review your asset and tags in the Azure IoT Operations portal.":::
+:::image type="content" source="media/howto-manage-assets-remotely/review-asset.png" alt-text="A screenshot that shows how to review your asset, tags, and events in the Azure IoT Operations portal.":::
 
 ## Update an asset
 
-Select the asset you created previously. Use the **Properties**, **Default telemetry settings**, and **Tags** tabs to make any changes:
+Select the asset you created previously. Use the **Properties**, **Tags**, and **Events** tabs to make any changes:
 
 :::image type="content" source="media/howto-manage-assets-remotely/asset-update-property-save.png" alt-text="A screenshot that shows how to update an existing asset in the Azure IoT Operations portal.":::
 
-On the **Tags** tab, you can update existing tags or remove them or add new ones.
+On the **Tags** tab, you can add tags, update existing tags, or remove tags.
 
 To update a tag, select an existing tag and update the tag information. Then select **Update**:
 
 :::image type="content" source="media/howto-manage-assets-remotely/asset-update-tag.png" alt-text="A screenshot that shows how to update an existing tag in the Azure IoT Operations portal.":::
 
-To remove tags, select one or more tags and then select **Remove**:
+To remove tags, select one or more tags and then select **Remove tags**:
 
 :::image type="content" source="media/howto-manage-assets-remotely/asset-remove-tags.png" alt-text="A screenshot that shows how to delete a tag in the Azure IoT Operations portal.":::
+
+You can also add, update, and delete events and properties in the same way.
 
 When you're finished making changes, select **Save** to save your changes.
 
