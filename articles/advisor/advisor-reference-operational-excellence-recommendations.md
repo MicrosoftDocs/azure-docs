@@ -217,7 +217,7 @@ Learn more about [Kubernetes service - UseEphemeralOSdisk (Use Ephemeral OS disk
 
 ### Outdated Azure Linux (Mariner) OS SKUs Found
 
-Found outdated Azure Linux (Mariner) OS SKUs. 'CBL-Mariner' SKU isn't supported. 'Mariner' SKU is equivalent to 'AzureLinux', but it's advisable to switch to 'AzureLinux' SKU for future updates and support, as 'AzureLinux' is the Generally Avaliable version.
+Found outdated Azure Linux (Mariner) OS SKUs. 'CBL-Mariner' SKU isn't supported. 'Mariner' SKU is equivalent to 'AzureLinux', but it's advisable to switch to 'AzureLinux' SKU for future updates and support, as 'AzureLinux' is the Generally Available version.
 
 Learn more about [Kubernetes service - ClustersWithDeprecatedMarinerSKU (Outdated Azure Linux (Mariner) OS SKUs Found)](https://aka.ms/AzureLinuxOSSKU).
 
@@ -271,7 +271,7 @@ Learn more about [Cosmos DB account - CosmosDBPartitionMerge (Enable partition m
 
 ### Your Azure Database for MySQL - Flexible Server is vulnerable using weak, deprecated TLSv1 or TLSv1.1 protocols
 
-To support modern security standards, MySQL community edition discontinued the support for communication over Transport Layer Security (TLS) 1.0 and 1.1 protocols. Microsoft also stops supporting connection over TLSv1 and TLSv1.1 to Azure Database for MySQL - Flexible server soon to comply with the modern security standards. We recommend you upgrade your client driver to support TLSv1.2.
+To support modern security standards, MySQL community edition discontinued the support for communication over Transport Layer Security (TLS) 1.0 and 1.1 protocols. Microsoft also stopped supporting connections over TLSv1 and TLSv1.1 to Azure Database for MySQL - Flexible server to comply with the modern security standards. We recommend you upgrade your client driver to support TLSv1.2.
 
 Learn more about [Azure Database for MySQL flexible server - OrcasMeruMySqlTlsDeprecation (Your Azure Database for MySQL - Flexible Server is vulnerable using weak, deprecated TLSv1 or TLSv1.1 protocols)](https://aka.ms/encrypted_connection_deprecated_protocols).
 
@@ -289,7 +289,7 @@ Learn more about [Azure Database for MySQL flexible server - MySqlFlexibleServer
 
 ### Apply resource delete lock
 
-Lock your MySQL Flexible Server to to protect from accidental user deletions and modifications
+Lock your MySQL Flexible Server to protect from accidental user deletions and modifications
 
 Learn more about [Azure Database for MySQL flexible server - MySqlFlexibleServerResourceLockbe19e (Apply resource delete lock)](/azure/azure-resource-manager/management/lock-resources).
 
@@ -320,7 +320,7 @@ Learn more about [Redis Cache Server - TLSVersion (TLS versions 1.0 and 1.1 are 
 
 ### Cloud service caches are being retired in August 2024, migrate before then to avoid any problems
 
-This instance of Azure Cache for Redis has a dependency on Cloud Services (classic) which is being retired in August 2024. Follow the instructions found in the learn more link to migrate to an instance without this dependency. If you need to upgrade your cache to Redis 6  note that upgrading a cache with a dependency on cloud services is not supported. You must migrate your cache instance to Virtual Machine Scale Set before upgrading. For more information, see the following link. Note: If you have completed your migration away from Cloud Services,  allow up to 24 hours for this recommendation to be removed
+This instance of Azure Cache for Redis has a dependency on Cloud Services (classic) which is being retired in August 2024. Follow the instructions found in the following link to migrate to an instance without this dependency. If you need to upgrade your cache to Redis 6  note that upgrading a cache with a dependency on cloud services is not supported. You must migrate your cache instance to Virtual Machine Scale Set before upgrading. For more information, see the following link. Note: If you have completed your migration away from Cloud Services,  allow up to 24 hours for this recommendation to be removed
 
 Learn more about [Redis Cache Server - MigrateFromCloudService (Cloud service caches are being retired in August 2024, migrate before then to avoid any problems)](/azure/azure-cache-for-redis/cache-faq#caches-with-a-dependency-on-cloud-services-%28classic%29).
 
@@ -459,7 +459,7 @@ Learn more about [Network Security Group - NSGFlowLogsenableTA (Enable Traffic A
 
 ### Set up staging environments in Azure App Service
 
-Deploying an app to a slot first, and swapping it into production, makes sure that all instances of the slot are warmed up before being swapped into production, which eliminates downtime when you deploy your app. The traffic redirection is seamless, no requests are dropped because of swap operations.
+Deploy an app to a slot first and then swap it into production to ensure that all instances of the slot are warmed up before being swapped and eliminate downtime. The traffic redirection is seamless, no requests are dropped because of swap operations.
 
 Learn more about [Subscription - AzureApplicationService (Set up staging environments in Azure App Service)](../app-service/deploy-staging-slots.md).
 
@@ -477,7 +477,7 @@ Learn more about [Subscription - AllowedLocationsPolicy (Enforce 'Allowed locati
 
 ### Enforce 'Audit VMs that do not use managed disks' using Azure Policy
 
-Azure Policy is a service in Azure that you use to create, assign, and manage policies that enforce different rules and effects over your resources. Endorce a policy that audits VMs that do not use managed disks.
+Azure Policy is a service in Azure that you use to create, assign, and manage policies that enforce different rules and effects over your resources. Enforce a policy that audits VMs that do not use managed disks.
 
 Learn more about [Subscription - AuditForManagedDisksPolicy (Enforce 'Audit VMs that do not use managed disks' using Azure Policy)](../governance/policy/overview.md).
 
@@ -525,7 +525,7 @@ Learn more about [Resource - UpgradeNSGToVnetFlowLog (Upgrade NSG flow logs to V
 
 ### Ensure the HANA DB VM type supports the HANA scenario in your SAP workload
 
-Correct VM type needs to be selected for the specific HANA Scenario. The HANA scenarios can be 'OLAP', 'OLTP', 'OLAP: Scaleout' and 'OLTP: Scaleout'. See SAP note 1928533 for the correct VM type for your SAP workload. The correct VM type helps ensure better performance and support for your SAP systems
+Correct VM type needs to be selected for the specific HANA Scenario. The HANA scenarios can be 'OLAP', 'OLTP', 'OLAP: Scaleup' and 'OLTP: Scaleup'. See SAP note 1928533 for the correct VM type for your SAP workload. The correct VM type helps ensure better performance and support for your SAP systems
 
 Learn more about [Database Instance - HanaDBSupport (Ensure the HANA DB VM type supports the HANA scenario in your SAP workload)](https://launchpad.support.sap.com/#/notes/1928533).
 
@@ -561,7 +561,7 @@ Learn more about [App Server Instance - AppIPV4Probes (See the parameter net.ipv
 
 ### Set the parameter net.ipv4.tcp_tw_recycle to '0' in the Application VM OS in SAP workloads
 
-In the Application VM OS, edit the /etc/sysctl.conf file and add  net.ipv4.tcp_tw_recycle = 0 to enable faster reconnection after an ASCS failover . This setting is recommended for all Application VM OS in SAP workloads.
+In the Application VM OS, edit the /etc/sysctl.conf file and add  net.ipv4.tcp_tw_recycle = 0 to enable faster reconnection after an ASCS failover. This setting is recommended for all Application VM OS in SAP workloads.
 
 Learn more about [App Server Instance - AppIpv4Recycle (Set the parameter net.ipv4.tcp_tw_recycle to '0' in the Application VM OS in SAP workloads)](https://www.suse.com/support/kb/doc/?id=000019722#:~:text=To%20check%20for%20current%20values%20of%20certain%20TCP%20tuning).
 
@@ -663,20 +663,20 @@ Learn more about [Database Instance - GetFsTrimForDb (Disable fstrim in SLES OS 
 
 ### For better performance and support, ensure HANA data filesystem type is supported for HANA DB
 
-For different volumes of SAP HANA, where asynchronous I/O is used, SAP only supports filesystems validated as part of a SAP HANA appliance certification. Using an unsupported filesystem might lead to various operational issues, e.g. hanging recovery and indexserver crashes. See SAP note 2972496.
+For different volumes of SAP HANA, where asynchronous I/O is used, SAP only supports filesystems validated as part of an SAP HANA appliance certification. Using an unsupported filesystem might lead to various operational issues, e.g. hanging recovery and index server crashes. See SAP note 2972496.
 
 Learn more about [Database Instance - HanaDataFileSystemSupported (For better performance and support, ensure HANA data filesystem type is supported for HANA DB)](https://launchpad.support.sap.com/#/notes/2972496).
 
 ### For better performance and support, ensure HANA shared filesystem type is supported for HANA DB
 
-For different volumes of SAP HANA, where asynchronous I/O is used, SAP only supports filesystems validated as part of a SAP HANA appliance certification. Using an unsupported filesystem might lead to various operational issues, e.g. hanging recovery and indexserver crashes. See SAP note 2972496.
+For different volumes of SAP HANA, where asynchronous I/O is used, SAP only supports filesystems validated as part of an SAP HANA appliance certification. Using an unsupported filesystem might lead to various operational issues, e.g. hanging recovery and index server crashes. See SAP note 2972496.
 
 Learn more about [Database Instance - HanaSharedFileSystem (For better performance and support, ensure HANA shared filesystem type is supported for HANA DB)](https://launchpad.support.sap.com/#/notes/2972496).
 
 
 ### For better performance and support, ensure HANA log filesystem type is supported for HANA DB
 
-For different volumes of SAP HANA, where asynchronous I/O is used, SAP only supports filesystems validated as part of a SAP HANA appliance certification. Using an unsupported filesystem might lead to various operational issues, e.g. hanging recovery and indexserver crashes. See SAP note 2972496.
+For different volumes of SAP HANA, where asynchronous I/O is used, SAP only supports filesystems validated as part of an SAP HANA appliance certification. Using an unsupported filesystem might lead to various operational issues, e.g. hanging recovery and index server crashes. See SAP note 2972496.
 
 Learn more about [Database Instance - HanaLogFileSystemSupported (For better performance and support, ensure HANA log filesystem type is supported for HANA DB)](https://launchpad.support.sap.com/#/notes/2972496).
 
@@ -799,7 +799,7 @@ Learn more about [Host Pool - ProductionEnvHostPools (Not enough production envi
 
 ### Set up staging environments in Azure App Service
 
-Deploying an app to a slot first and swapping it into production, ensures that all instances of the slot are warmed up before being swapped into production. Doing this eliminates downtime when you deploy your app. The traffic redirection is seamless, no requests are dropped because of swap operations.
+Deploy an app to a slot first and then swap it into production to ensure that all instances of the slot are warmed up before being swapped and eliminate downtime. The traffic redirection is seamless, no requests are dropped because of swap operations.
 
 Learn more about [App service - AzureAppService-StagingEnv (Set up staging environments in Azure App Service)](../app-service/deploy-staging-slots.md).
 

@@ -19,19 +19,19 @@ Azure Advisor helps you ensure and improve the continuity of your business-criti
 
 ## AI Services
 
-### You are close to exceeding storage quota of 2GB. Create a Standard search service
+### You're close to exceeding storage quota of 2GB. Create a Standard search service
 
 You're close to exceeding storage quota of 2GB. Create a Standard search service. Indexing operations stop working when storage quota is exceeded.
 
 Learn more about [Service limits in Azure Cognitive Search](/azure/search/search-limits-quotas-capacity).
 
-### You are close to exceeding storage quota of 50MB. Create a Basic or Standard search service
+### You're close to exceeding storage quota of 50MB. Create a Basic or Standard search service
 
 You're close to exceeding storage quota of 50MB. Create a Basic or Standard search service. Indexing operations stop working when storage quota is exceeded.
 
 Learn more about [Service limits in Azure Cognitive Search](/azure/search/search-limits-quotas-capacity).
 
-### You are close to exceeding your available storage quota. Add more partitions if you need more storage
+### You're close to exceeding your available storage quota. Add more partitions if you need more storage
 
 You're close to exceeding your available storage quota. Add extra partitions if you need more storage. After exceeding storage quota, you can still query, but indexing operations no longer work.
 
@@ -83,7 +83,7 @@ The data disks used by Kafka brokers in your HDInsight cluster are almost full. 
 
 Learn more about [HDInsight cluster - KafkaDiskSpaceFull (Your Kafka Cluster Disks are almost full)](https://aka.ms/kafka-troubleshoot-full-disk).
 
-### Creation of clusters under custom VNet requires more permission
+### Creation of clusters under custom virtual network (VNet) requires more permission
 
 Your clusters with custom VNet were created without VNet joining permission. Ensure that the users who perform create operations have permissions to the Microsoft.Network/virtualNetworks/subnets/join action before September 30, 2023.
 
@@ -121,7 +121,7 @@ Learn more about [HDInsight cluster - GCSCertRotationR3DropRecreate (Drop and re
 
 ### Apply critical updates to your HDInsight clusters
 
-The HDInsight service has attempted to apply a critical certificate update on all your running clusters. However, one or more policies in your subscription are preventing HDInsight service from creating or modifying network resources  associated with your clusters and applying this update. Remove or update your policy assignment to allow HDInsight service to create or modify network resources such as load balancer, network interface and public IP address, associated with your clusters. Do this before January 21, 2021 05:00 PM UTC when the HDInsight team is performing updates between January 21, 2021 05:00 PM UTC and January 23, 2021 05:00 PM UTC. To verify the policy update, you can try to create network resources in the same resource group and subnet where your cluster is. Failure to apply this update might result in your clusters becoming unhealthy and unusable. You can also drop and recreate your cluster before January 25, 2021 to prevent the cluster from becoming unhealthy and unusable. The HDInsight service sends another notification if we failed to apply the update to your clusters.
+The HDInsight service has attempted to apply a critical certificate update on all your running clusters. However, one or more policies in your subscription are preventing HDInsight service from creating or modifying network resources  associated with your clusters and applying the update. Remove or update your policy assignment to allow HDInsight service to create or modify network resources associated with your clusters. Change your policy assignment before January 21, 2021 05:00 PM UTC when the HDInsight team is performing updates between January 21, 2021 05:00 PM UTC and January 23, 2021 05:00 PM UTC. To verify the policy update, you can try to create network resources in the same resource group and subnet where your cluster is. Failure to apply this update might result in your clusters becoming unhealthy and unusable. You can also drop and recreate your cluster before January 25, 2021 to prevent the cluster from becoming unhealthy and unusable. The HDInsight service sends another notification if we failed to apply the update to your clusters.
 
 Learn more about [HDInsight cluster - GCSCertRotationR3PlanPatch (Apply critical updates to your HDInsight clusters)](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md).
 
@@ -203,7 +203,7 @@ Learn more about [Availability set - ManagedDisksAvSet (Use Managed Disks to imp
 
 ### Access to mandatory URLs missing for your Azure Virtual Desktop environment
 
-In order for a session host to deploy and register to Azure Virtual Desktop properly, you need to add a set of URLs to the allowed list, in case your virtual machine runs in a restricted environment. After visiting the "Learn More" link, you see the minimum list of URLs you need to unblock to have a successful deployment and functional session host. For specific URL(s) missing from allowed list, you might also search your application event log for event 3702.
+In order for a session host to deploy and register to Azure Virtual Desktop properly, you need to add a set of URLs to the allowed list, in case your virtual machine runs in a restricted environment. After visiting the "Learn More" link, you see the minimum list of URLs you need to unblock to have a successful deployment and functional session host. For specific URL(s) missing from allowed list, you might also search your Application event log for event 3702.
 
 Learn more about [Virtual machine - SessionHostNeedsAssistanceForUrlCheck (Access to mandatory URLs missing for your Azure Virtual Desktop environment)](../virtual-desktop/safe-url-list.md).
 
@@ -287,13 +287,13 @@ Learn more about [Kubernetes - Azure Arc - Arc-enabled K8s agent version upgrade
 
 ## Databases
 
-### Replication - Add a primary key to the table that currently does not have one
+### Replication - Add a primary key to the table that currently doesn't have one
 
 Based on our internal monitoring, we have observed significant replication lag on your replica server. This lag is occurring because the replica server is replaying relay logs on a table that lacks a primary key. To ensure that the replica can synchronize with the primary and keep up with changes, add primary keys to the tables in the primary server. Once the primary keys are added, recreate the replica server.
 
 Learn more about [Azure Database for MySQL flexible server - MySqlFlexibleServerReplicaMissingPKfb41 (Replication - Add a primary key to the table that currently doesn't have one)](/azure/mysql/how-to-troubleshoot-replication-latency#no-primary-key-or-unique-key-on-a-table).
 
-### High Availability - Add primary key to the table that currently does not have one
+### High Availability - Add primary key to the table that currently doesn't have one
 
 Our internal monitoring system has identified significant replication lag on the High Availability standby server. The standby server replaying relay logs on a table that lacks a primary key, is the main cause of the lag. To address this issue and adhere to best practices, we recommend you add primary keys to all tables. Once you add the primary keys, proceed to disable and then re-enable High Availability to mitigate the problem.
 
@@ -301,7 +301,7 @@ Learn more about [Azure Database for MySQL flexible server - MySqlFlexibleServer
 
 ### Availability might be impacted from high memory fragmentation. Increase fragmentation memory reservation to avoid potential impact
 
-Fragmentation and memory pressure can cause availability incidents during a failover or management operations. Increasing reservation of memory for fragmentation helps in reducing the cache failures when running under high memory pressure. Memory for fragmentation can be increased via maxfragmentationmemory-reserved setting available in advanced settings blade.
+Fragmentation and memory pressure can cause availability incidents during a failover or management operations. Increasing reservation of memory for fragmentation helps in reducing the cache failures when running under high memory pressure. Memory for fragmentation can be increased with the maxfragmentationmemory-reserved setting available in the advanced settings option area.
 
 Learn more about [Redis Cache Server - RedisCacheMemoryFragmentation (Availability might be impacted from high memory fragmentation. Increase fragmentation memory reservation to avoid potential impact.)](https://aka.ms/redis/recommendations/memory-policies).
 
@@ -313,13 +313,13 @@ Learn more about [SQL virtual machine - EnableAzBackupForSQL (Enable Azure backu
 
 ### Improve PostgreSQL availability by removing inactive logical replication slots
 
-Our internal telemetry indicates that your PostgreSQL server might have inactive logical replication slots. THIS NEEDS IMMEDIATE ATTENTION. Inactive logical replication can result in degraded server performance and unavailability due to WAL file retention and buildup of snapshot files. To improve performance and availability, we STRONGLY recommend that you IMMEDIATELY take action. Either delete the inactive replication slots, or start consuming the changes from these slots so that the slots' Log Sequence Number (LSN) advances and is close to the current LSN of the server.
+Our internal system indicates that your PostgreSQL server might have inactive logical replication slots. THIS NEEDS IMMEDIATE ATTENTION. Inactive logical replication can result in degraded server performance and unavailability due to WAL file retention and buildup of snapshot files. To improve performance and availability, we STRONGLY recommend that you IMMEDIATELY take action. Either delete the inactive replication slots, or start consuming the changes from these slots so that the slots' Log Sequence Number (LSN) advances and is close to the current LSN of the server.
 
 Learn more about [PostgreSQL server - OrcasPostgreSqlLogicalReplicationSlots (Improve PostgreSQL availability by removing inactive logical replication slots)](https://aka.ms/azure_postgresql_logical_decoding).
 
 ### Improve PostgreSQL availability by removing inactive logical replication slots
 
-Our internal telemetry indicates that your PostgreSQL flexible server might have inactive logical replication slots. THIS NEEDS IMMEDIATE ATTENTION. Inactive logical replication slots can result in degraded server performance and unavailability due to WAL file retention and buildup of snapshot files. To improve performance and availability, we STRONGLY recommend that you IMMEDIATELY take action. Either delete the inactive replication slots, or start consuming the changes from these slots so that the slots' Log Sequence Number (LSN) advances and is close to the current LSN of the server.
+Our internal system indicates that your PostgreSQL flexible server might have inactive logical replication slots. THIS NEEDS IMMEDIATE ATTENTION. Inactive logical replication slots can result in degraded server performance and unavailability due to WAL file retention and buildup of snapshot files. To improve performance and availability, we STRONGLY recommend that you IMMEDIATELY take action. Either delete the inactive replication slots, or start consuming the changes from these slots so that the slots' Log Sequence Number (LSN) advances and is close to the current LSN of the server.
 
 Learn more about [Azure Database for PostgreSQL flexible server - OrcasPostgreSqlFlexibleServerLogicalReplicationSlots (Improve PostgreSQL availability by removing inactive logical replication slots)](https://aka.ms/azure_postgresql_flexible_server_logical_decoding).
 
@@ -484,11 +484,11 @@ Some or all of your devices are using outdated SDK and we recommend you upgrade 
 
 Learn more about [IoT hub - UpgradeDeviceClientSdk (Upgrade device client SDK to a supported version for IotHub)](https://aka.ms/iothubsdk).
 
-### Upgrade Edge Device Runtime to a supported version for Iot Hub
+### Upgrade Microsoft Edge Device Runtime to a supported version for Iot Hub
 
-Some or all of your Edge devices are using outdated versions and we recommend you upgrade to the latest supported version of the runtime. See the details in the link given.
+Some or all of your Microsoft Edge devices are using outdated versions and we recommend you upgrade to the latest supported version of the runtime. See the details in the link given.
 
-Learn more about [IoT hub - UpgradeEdgeSdk (Upgrade Edge Device Runtime to a supported version for Iot Hub)](https://aka.ms/IOTEdgeSDKCheck).
+Learn more about [IoT hub - UpgradeEdgeSdk (Upgrade Microsoft Edge Device Runtime to a supported version for Iot Hub)](https://aka.ms/IOTEdgeSDKCheck).
 
 
 
@@ -552,22 +552,22 @@ Try to avoid overriding the hostname when configuring Application Gateway.  Havi
 
 Learn more about [Application gateway - AppGatewayHostOverride (Avoid hostname override to ensure site integrity)](https://aka.ms/appgw-advisor-usecustomdomain).
 
-### Azure WAF RuleSet CRS 3.1/3.2 has been updated with Log4j 2 vulnerability rule
+### Azure WAF RuleSet CRS 3.1/3.2 has been updated with Log4j2 vulnerability rule
 
 In response to Log4j 2 vulnerability (CVE-2021-44228), Azure Web Application Firewall (WAF) RuleSet CRS 3.1/3.2 has been updated on your Application Gateway to help provide extra protection from this vulnerability. The rules are available under Rule 944240 and no action is needed to enable them.
 
 Learn more about [Application gateway - AppGwLog4JCVEPatchNotification (Azure WAF RuleSet CRS 3.1/3.2 has been updated with log4j2 vulnerability rule)](https://aka.ms/log4jcve).
 
-### Extra protection to mitigate Log4j 2 vulnerability (CVE-2021-44228)
+### Extra protection to mitigate Log4j2 vulnerability (CVE-2021-44228)
 
-To mitigate the impact of Log4j 2 vulnerability, we recommend these steps:
+To mitigate the impact of Log 4j2 vulnerability, we recommend these steps:
 
 1) Upgrade Log4j 2 to version 2.15.0 on your backend servers. If upgrade isn't possible, follow the system property guidance link provided.
 2) Take advantage of WAF Core rule sets (CRS) by upgrading to WAF SKU.
 
-Learn more about [Application gateway - AppGwLog4JCVEGenericNotification (Additional protection to mitigate Log4j2 vulnerability (CVE-2021-44228))](https://aka.ms/log4jcve).
+Learn more about [Application gateway - AppGwLog4JCVEGenericNotification (More protection to mitigate Log4j2 vulnerability (CVE-2021-44228))](https://aka.ms/log4jcve).
 
-### Update VNet permission of Application Gateway users
+### Update virtual network (VNet) permission of Application Gateway users
 
 To improve security and provide a more consistent experience across Azure, all users must pass a permission check before creating or updating an Application Gateway in a Virtual Network. The users or service principals must include at least Microsoft.Network/virtualNetworks/subnets/join/action permission.
 
@@ -627,7 +627,7 @@ Prevent risk of connectivity failures due to SNAT port exhaustion by using NAT g
 
 Learn more about [Virtual network - natGateway (Use NAT gateway for outbound connectivity)](/azure/load-balancer/load-balancer-outbound-connections#2-associate-a-nat-gateway-to-the-subnet).
 
-### Update VNet permission of Application Gateway users
+### Update virtual network (VNet) permission of Application Gateway users
 
 To improve security and provide a more consistent experience across Azure, all users must pass a permission check before creating or updating an Application Gateway in a Virtual Network. The users or service principals must include at least Microsoft.Network/virtualNetworks/subnets/join/action permission.
 
@@ -750,11 +750,11 @@ The softdog timer is loaded as a kernel module in linux OS. This timer  triggers
 
 Learn more about [Central Server Instance - softdogmoduleloadedHAASCSSLE (Ensure the softdog module is loaded in for Pacemaker in ASCS HA setup in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
 
-### Ensure that there is one instance of fence_azure_arm in Pacemaker configuration for ASCS HA setup
+### Ensure that there's one instance of fence_azure_arm in Pacemaker configuration for ASCS HA setup
 
-The fence_azure_arm is an I/O fencing agent for Azure Resource Manager. Ensure that there's one instance of fence_azure_arm in the pacemaker configuration for ASCS HA setup. The fence_azure_arm requirement is applicable if you're using Azure fence agent for fencing with either managed identity or service principal.
+The fence_azure_arm is an I/O fencing agent for Azure Resource Manager. Ensure that there's one instance of fence_azure_arm in your Pacemaker configuration for ASCS HA setup. The fence_azure_arm requirement is applicable if you're using Azure fence agent for fencing with either managed identity or service principal.
 
-Learn more about [Central Server Instance - FenceAzureArmHAASCSSLE (Ensure that there's one instance of fence_azure_arm in Pacemaker configuration for ASCS HA setup)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
+Learn more about [Central Server Instance - FenceAzureArmHAASCSSLE (Ensure that there's one instance of fence_azure_arm in your Pacemaker configuration for ASCS HA setup)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
 
 ### Enable HA ports in the Azure Load Balancer for ASCS HA setup in SAP workloads
 
@@ -776,7 +776,7 @@ Learn more about [Central Server Instance - ASCSHASetIdleTimeOutLB (Set the Idle
 
 ### Disable TCP timestamps on VMs placed behind Azure Load Balancer in ASCS HA setup in SAP workloads
 
-Disable TCP timestamps on VMs placed behind Azure Load Balancer. Enabled TCP timestamps cause the health probes to fail due to TCP packets being dropped by the VM's guest OS TCP stack. Dropped TCP packets cause the load balancer to mark the endpoint as down.
+Disable TCP timestamps on VMs placed behind Azure Load Balancer. Enabled TCP timestamps cause the health probes to fail due to TCP packets dropped by the VM's guest OS TCP stack. Dropped TCP packets cause the load balancer to mark the endpoint as down.
 
 Learn more about [Central Server Instance - ASCSLBHADisableTCP (Disable TCP timestamps on VMs placed behind Azure Load Balancer in ASCS HA setup in SAP workloads)](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-on-azure-general-update-november-2021/ba-p/2807619#network-settings-and-tuning-for-sap-on-azure).
 
@@ -884,7 +884,7 @@ Learn more about [Database Instance - SoftdogConfigSuseHDB (Create the softdog c
 
 ### Ensure that there is one instance of fence_azure_arm in Pacemaker configuration for HANA DB HA setup
 
-The fence_azure_arm is an I/O fencing agent for Azure Resource Manager. Ensure that there's one instance of fence_azure_arm in the pacemaker configuration for HANA DB HA setup. The fence_azure-arm instance requirement is applicable if you're using Azure fence agent for fencing with either managed identity or service principal.
+The fence_azure_arm is an I/O fencing agent for Azure Resource Manager. Ensure that there's one instance of fence_azure_arm in your Pacemaker configuration for HANA DB HA setup. The fence_azure-arm instance requirement is applicable if you're using Azure fence agent for fencing with either managed identity or service principal.
 
 Learn more about [Database Instance - FenceAzureArmSuseHDB (Ensure that there's one instance of fence_azure_arm in Pacemaker configuration for HANA DB HA setup)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
 
@@ -920,7 +920,7 @@ Learn more about [Database Instance - DBLBHADisableTCP (Disable TCP timestamps o
 
 ### There should be one instance of fence_azure_arm in Pacemaker configuration for HANA DB HA setup
 
-fence_azure_arm is an I/O fencing agent for Azure Resource Manager. Ensure that there is one instance of fence_azure_arm in the pacemaker configuration for HANA DB HA setup. This is applicable if you are using Azure fence agent for fencing with either managed identity or service principal.
+fence_azure_arm is an I/O fencing agent for Azure Resource Manager. Ensure that there is one instance of fence_azure_arm in the pacemaker configuration for HANA DB HA setup. This is applicable if you're using Azure fence agent for fencing with either managed identity or service principal.
 
 Learn more about [Database Instance - FenceAzureArmSuseHDB (There should be one instance of fence_azure_arm in Pacemaker configuration for HANA DB HA setup)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
 
@@ -953,7 +953,7 @@ Learn more about [Storage Account - ConfigureBlobBackup (Configure blob backup)]
 
 ### Turn on Azure Backup to get simple, reliable, and cost-effective protection for your data
 
-Keep your information and applications safe with robust, one click backup from Azure.  Activate Azure Backup to get cost-effective protection for a wide range of workloads including VMs, SQL databases, applications, and file shares.
+Keep your information and applications safe with robust, one select backup from Azure.  Activate Azure Backup to get cost-effective protection for a wide range of workloads including VMs, SQL databases, applications, and file shares.
 
 Learn more about [Subscription - AzureBackupService (Turn on Azure Backup to get simple, reliable, and cost-effective protection for your data)](/azure/backup/).
 
@@ -971,7 +971,7 @@ Learn more about [Data lake store account - ADLSGen1_Deprecation (You have ADLS 
 
 ### Enable Soft Delete to protect your blob data
 
-After enabling the soft delete option, deleted data transitions to a soft deleted state instead of being permanently deleted. When data is overwritten, a soft deleted snapshot is generated to save the state of the overwritten data. You can configure the amount of time soft deleted data is recoverable before it permanently expires.
+After you enable the Soft Delete option, deleted data transitions to a "soft" deleted state instead of being permanently deleted. When data is overwritten, a soft deleted snapshot is generated to save the state of the overwritten data. You can configure the amount of time soft deleted data is recoverable before it permanently expires.
 
 Learn more about [Storage Account - StorageSoftDelete (Enable Soft Delete to protect your blob data)](https://aka.ms/softdelete).
 
