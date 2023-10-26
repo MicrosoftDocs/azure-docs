@@ -1,66 +1,72 @@
 ---
-title: Mainframe and Midranges integration workflows
-description: Learn about building mainframe and midranges integration solutions by using Azure Logic Apps and the Mainframe and Midranges connectors.
+title: Mainframe and midrange integration workflows
+description: Learn about building mainframe and midrange system integration solutions in Azure Logic Apps using mainframe and midrange connectors.
 author: haroldcampos
 ms.author: hcampos
 ms.service: logic-apps
-ms.topic: overview 
+ms.topic: conceptual
 ms.date: 10/24/2023
 
-#CustomerIntent: As an Integration developer I need to integrate with Mainframe and Midranges systems from Azure
+#CustomerIntent: As an integration developer, I need to integrate mainframe and midrange system with Standard workflows in Azure Logic Apps.
 ---
 
+# Mainframe and midrange modernization with Azure Logic Apps
 
-# Mainframe and Midranges Modernization with Azure Logic Apps 
+This guide describes how your organization can increase business value and agility by extending your mainframe and midrange system workloads to Azure using workflows in Azure Logic Apps. The current business world is experiencing an era of hyper innovation and is on a permanent quest to obtain enterprise efficiencies, cost reduction, growth, and business alignment. Organizations are looking for ways to modernize, and one effective strategy is to increase and augment business value.
 
-Learn how Azure Logic Apps enable organizations to extend their Mainframe and Midranges workloads to Azure to increase business value and agility 
+For organizations with investments in mainframe and midrange systems, this means making the best use of platforms that sent humans to the moon or helped build current financial markets and extend their value using the cloud and artificial intelligence. This scenario is where Azure Logic Apps and its native capabilities for integrating with mainframe and midrange systems come into play. Among other features, this Azure cloud service incorporates the core capabilities of Host Integration Server (HIS), which has been used at the core of Microsoft's most strategic customers for more than 30 years.
 
-## The World we live in Today
+When enterprise developers build integration workflows with Azure Logic Apps, they can more quickly deliver new applications using little to no code or less custom code. Developers who use Visual Studio Code and Visual Studio can be more productive than those who use IBM mainframe development tools and technologies because they don't require knowledge about mainframe systems and infrastructure. Azure Logic Apps empowers business analysts and decision makers to more quickly analyze and report vital legacy information. They can directly access data in mainframe data sources, which removes the need to have mainframe developers create programs that extract and convert complex mainframe structures.
 
-We live in an era of hyper innovation where the quest to obtain enterprise efficiencies, cost reduction, growth, and business alignment, is permanent. Organizations use Modernization as a vehicle to increase their business value. But what is an effective Modernization strategy? A Modernization strategy is effective when it has the purpose of augmenting business value. For organizations who have made investments in Mainframes and Midranges, this means leveraging the best of these platforms that were used to send a man to the moon or that helped build the financial markets as we know them and extend their value with the Cloud and Artificial Intelligence. 
-This is where Azure Logic Apps and its native capabilities for integrating with Mainframe and Midranges come into play. Azure Logic Apps incorporate the core capabilities of the Host Integration Server product, which has been available for more than 30 years at the core of our most strategic customers.
-Azure Logic Apps empowers enterprise developers to deliver new applications more quickly and with less custom coding. Developers who use Visual Studio and Visual Studio code can be more productive than those who use IBM mainframe development tools and technologies because they do not require knowledge of mainframe systems and infrastructure. Azure Logic Apps empowers business analysts and decision-makers to analyze and report vital legacy information faster. They can access data in mainframe data sources directly, eliminating the need to schedule mainframe developers to write programs to extract and convert complex mainframe structures.
+## Cloud native capabilities for mainframe and midrange system integration
 
-What are those Native capabilities?
+Since 1990, Microsoft has provided integration with mainframe and midrange systems through Microsoft Communications Server. Further evolution of Microsoft Communications Server created Host Integration Server (HIS) in 2000. While HIS started as a System Network Archtecture (SNA) Gateway, HIS expanded to include IBM's data stores (DB2, VSAM, and Informix), IBM's transaction systems (CICS, IMS, and IBMi), and IBM messaging (MQ Series). Microsoft's strategic customers have used these technologies for more than 20 years. To empower customers that run applications and data on Azure to continue using these technologies, Azure Logic Apps and Visual Studio has gradually incorporated these capabilities. For example, Visual Studio includes the following designers: HIS Designer for Logic Apps and the 3270 Design Tool.
 
+:::image type="content" source="media/mainframe-modernization-overview/mainframe-modernization.png" alt-text="Cloud native capabilities for mainframe integration":::
 
-## Cloud native capabilities for Mainframes and Midranges Integration
+For more information about the Microsoft's capabilities for mainframe and midrange integration, continue to the following sections.
 
-Microsoft has provided Integration with Mainframes and Midranges since 1990 with Microsoft Communications Server. Further evolution of Microsoft Communications Server created Host Integration Server in 2000. 
-While it started as an SNA Gateway, it then expanded to include IBM’s data stores (DB2, VSAM, Informix), IBM’s transaction systems (CICS, IMS, IBMi) and IBM’s messaging (MQ Series). Our strategic customers have been using these technologies for more than 20 years. To allow our customers running applications and data on Azure to leverage these technologies, those capabilities have been gradually incorporated into Azure Logic Apps and our Visual Studio Designers: Microsoft HIS Designer for logic Apps and the Microsoft 3270 Design Tool.
+### HIS Designer for Logic Apps
 
-   :::image type="content" source="media/mainframe-modernization-overview/mainframe-modernization.png" alt-text="Cloud native capabilities for mainframe integration":::
+This tool creates mainframe and midrange system metadata artifacts for Azure Logic Apps and works with Microsoft Visual Studio by providing a graphical designer so that you can create, view, edit, and map metadata objects to mainframe artifacts. Azure Logic Apps uses these maps to mirror the programs and data in mainframe and midrange systems. For more information, see [HIS Designer for Logic Apps](/host-integration-server/core/application-integration-ladesigner-2).
 
-The following are our capabilities for Mainframe and Midrange integration:
+### Microsoft 3270 Design Tool
 
-### Microsoft HIS Designer for Logic Apps:
+This tool records screens, navigation paths, methods, and parameters for the tasks in your application so that you can add and run those tasks as 3270 connector actions. While the HIS Designer for Logic Apps targets transactional systems and data, the 3270 Design Tool targets 3270 applications. For more information, see [3270 Design Tool](/host-integration-server/core/application-integration-3270designer-2).
 
-It is a tool to create mainframe and midrange system metadata artifacts for Azure Logic Apps. This tool works with Microsoft Visual Studio and provides a graphical user interface for you to create, view, edit, and map metadata objects to mainframe artifacts. Azure Logic Apps uses these maps to mirror the programs and data in mainframes and midrange systems. Learn more about the HIS Designer for Logic Apps here: [HIS Designer for Logic Apps](/host-integration-server/core/application-integration-ladesigner-2)
+### Azure Logic Apps connectors for IBM mainframe and midrange systems
 
-### Microsoft 3270 Design Tool:
+The following sections describe the [built-in, service provider-based connectors](custom-connector-overview.md#service-provider-interface-implementation) that you can use to access and interact with IBM mainframe and midrange systems when you create Standard workflows in Azure Logic Apps.
 
-This tool helps record screens, navigation paths, methods, and parameters for the tasks in your application that you add and run as 3270 connector actions. While the HIS Designer for Logic Apps targets Transactional Systems and Data, the 3270 Design tool targets 3270 applications. Learn more about the 3270 Design tool here: [3270 Design Tool](/host-integration-server/core/application-integration-3270designer-2)
+> [!NOTE]
+>
+> Although some of the following connectors are available as "shared" connectors that run
+> in global Azure, this guide is focused on the built-in, service provider-based connectors, 
+> which are available only when you create Standard workflows in Azure Logic Apps.
 
+#### IBM 3270
 
-### IBM Mainframe Connectors
+This Azure Logic Apps connector for 3270 allows Standard workflows to access and run IBM mainframe applications that you usually drive by navigating through 3270 emulator screens. The connector uses the TN3270 stream. For more information, see [Integrate 3270 screen-driven apps on IBM mainframes with Azure by using Azure Logic Apps and IBM 3270 connector](../connectors/connectors-run-3270-apps-ibm-mainframe-create-api-3270.md).
 
-#### Azure Logic Apps connector for IBM CICS
-Our Logic Apps connector for IBM CICS Integration technologies provide multiple mechanisms to interact with CICS Programs. With Azure Logic Apps, we support Integration via TCP/IP and HTTP. If you need APPC support, we provide access to CICS transactions using LU6.2 (available only in Host Integration Server). Learn more about this connector in this article: [Integrate CICS programs on IBM mainframes with Standard workflows in Azure Logic Apps using the IBM CICS connector](/connectors/integrate-cics-apps-ibm-mainframe)
+#### IBM Customer Information Control System (CICS)
 
-#### Azure Logic Apps connector for IBM IMS
-Our Logic Apps connector for IBM IMS Integration technologies leverage the IBM IMS Connect component that provides high performance access to IBM Information Management Systems (IMS) transactions using TCP/IP.  This model uses the IMS message queue for processing data. Learn more about this connector in this article: [Integrate IMS programs on IBM mainframes with Standard workflows in Azure Logic Apps using the IBM IMS connector](/connectors/integrate-ims-apps-ibm-mainframe)
+This Azure Logic Apps connector for CICS provides multiple protocols, including TCP/IP and HTTP, for Standard workflows to interact and integrate with CICS programs. If you need APPC support, the connector provides access to CICS transactions using LU6.2, which is available only in Host Integration Server (HIS). For more information, see [Integrate CICS programs on IBM mainframes with Standard workflows in Azure Logic Apps using the IBM CICS connector](../connectors/integrate-cics-apps-ibm-mainframe.md).
 
-#### Azure Logic Apps connector for IBM 3270
-Our Logic Apps connector for IBM 3270 Integration technologies allows accessing and running IBM mainframe applications that you usually drive by navigating through 3270 emulator screens. The connector uses the TN3270 stream. Learn more about this connector in this article: [Integrate 3270 screen-driven apps on IBM mainframes with Azure by using Azure Logic Apps and IBM 3270 connector](/connectors/connectors-run-3270-apps-ibm-mainframe-create-api-3270)
+#### IBM DB2
 
-#### Azure Logic Apps connector for IBM MQ
-Our Logic Apps connector for IBM MQ Integration technologies enable connections between Logic App workflows and IBM MQ server on premises or in Azure. IBM MQ was originally introduced in 1993 (under the MQSeries name). We also provide MQ Integration capabilities with Host Integration Server and BizTalk Server. Learn more about this connector in this article: [Connect to an IBM MQ server from a workflow in Azure Logic Apps](/connectors/connectors-create-api-mq)
+This Azure Logic Apps connector for DB2 enables connections between Standard workflows and DB2 databases that are either on premises or in Azure. The connector offers enterprise IT professionals and developers direct access to vital information stored in DB2 database management systems. For more information, see [Access and manage IBM DB2 resources using Azure Logic Apps](../connectors/connectors-create-api-db2.md).
 
-#### Azure Logic Apps connector for IBM DB2
-Our Logic Apps connector for IBM DB2 Integration technologies enable connections between Azure Logic App workflows and IBM DB2 Databases that are either on premises or in Azure. It offers enterprise IT professionals and developers direct access to vital information stored in IBM DB2 database management systems.  Learn more about this connector in this article: [Access and manage IBM DB2 resources by using Azure Logic Apps](/connectors/connectors-create-api-db2)
+#### IBM Host Files
 
-#### Azure Logic Apps connector for IBM Host files
-Our Logic Apps connector for IBM Host Files Integration technologies is a thin wrapper round the Host Integration Server feature “Flat File Parser”. This is an offline connector that parses and generates binary data from and to Host Files. As such, it requires its data to come from any Trigger or Action that produces binary data. Learn more about this connector in this article: [Parse and Generate IBM Host Files by using Azure Logic Apps](/connectors/integrate-host-files-ibm-mainframe)
+This Azure Logic Apps connector for Host Files provides a thin wrapper around the "Flat File Parser" feature in Host Integration Server. This offline "connector" provides operations that parse or generate binary data to and from host files. These operations require this data to come from any trigger or another action that produces binary data. For more information, see [Parse and generate IBM host files using Azure Logic Apps](../connectors/integrate-host-files-ibm-mainframe.md).
+
+#### IBM Information Management System (IMS)
+
+This Azure Logic Apps connector for IMS uses the IBM IMS Connect component, which provides high performance access from Standard workflows to IMS transactions using TCP/IP. This model uses the IMS message queue for processing data. For more information, see [Integrate IMS programs on IBM mainframes with Standard workflows in Azure Logic Apps using the IBM IMS connector](../connectors/integrate-ims-apps-ibm-mainframe.md).
+
+#### IBM MQ
+
+This Azure Logic Apps connector for MQ enables connections between Standard workflows and an MQ server on premises or in Azure. We also provide MQ Integration capabilities with Host Integration Server and BizTalk Server. For more information, see [Connect to an IBM MQ server from a workflow in Azure Logic Apps](../connectors/connectors-create-api-mq.md).
 
 ## How do we modernize Mainframe workloads with Azure Logic Apps?
 

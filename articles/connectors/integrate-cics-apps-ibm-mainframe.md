@@ -63,7 +63,7 @@ This operation also includes advanced parameters, which appear after you select 
 
   To create this metadata, use the [HIS Designer for Logic Apps](/host-integration-server/core/application-integration-ladesigner-2). With this tool, you can manually create the methods used by your workflow and then define the methods and parameters for the tasks in your app. These tasks are represented as CICS connector actions that you add and run in your workflow. You can also import mainframe COBOL program definitions (copybooks) that provide all these program structures by using the designer.
 
-  The tool generates a Host Integration Designer XML (HIDX) file that provides the necessary metadata for the connector to use for driving your mainframe app. If you are using HIS, you can use the TI Designer to create the HIDX file.
+  The tool generates a Host Integration Designer XML (HIDX) file that provides the necessary metadata for the connector to use for driving your mainframe app. If you're using HIS, you can use the TI Designer to create the HIDX file.
 
 * The Standard logic app workflow to use for integrating with the CICS system
 
