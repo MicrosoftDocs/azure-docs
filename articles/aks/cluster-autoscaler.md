@@ -102,7 +102,7 @@ The cluster autoscaler uses startup parameters for things like time intervals be
 
 1. To enable cluster autoscaler on your existing cluster’s node pools, navigate to *Node pools* from your cluster's overview page in the Azure portal. Select the *scale method* for the node pool you’d like to adjust scaling settings for.
 
-:::image type="content" source="./media/cluster-autoscaler/main-blade-column-inline.png" alt-text="The Azure portal page for a cluster's node pools is shown. The section displaying autoscaler events, warning, and scale-ups not triggered is highlighted." lightbox="./media/cluster-autoscaler/main-blade-column.png":::
+:::image type="content" source="./media/cluster-autoscaler/main-blade-column-inline.png" alt-text="The Azure portal page for a cluster's node pools is shown. The column for 'Scale method' is highlighted." lightbox="./media/cluster-autoscaler/main-blade-column.png":::
 
 1. From here, you can enable or disable autoscaling, adjust minimum and maximum node count, and learn more about your node pool’s size, capacity, and usage. Select *Apply* to save your changes.
 
