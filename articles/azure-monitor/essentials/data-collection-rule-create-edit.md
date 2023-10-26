@@ -24,22 +24,22 @@ This article describes the different methods for creating and editing a DCR. For
 | Any role that includes the action *Microsoft.Resources/deployments/** | <ul><li>Subscription and/or</li><li>Resource group and/or </li><li>An existing DCR</li></ul> | Deploy Azure Resource Manager templates. |
 
 ## Automated methods
+The following table lists 
 
 | Scenario | Resources | Description |
 |:---|:---|:---|
 | Azure Monitor Agent | [Configure data collection for Azure Monitor Agent](../agents/data-collection-rule-azure-monitor-agent.md) | Use the Azure portal to create a DCR that specifies events and performance counters to collect from a machine with Azure Monitor Agent. Then apply that rule to one or more virtual machines. Azure Monitor Agent will be installed on any machines that don't currently have it.  |
-| Text logs | [Collect text logs with Azure Monitor Agent](../agents/data-collection-text-log.md?tabs=portal) | Create a DCR to collect entries from a text log.  |
+| Text logs | [Collect text logs with Azure Monitor Agent](../agents/data-collection-text-log.md?tabs=portal) | Use the Azure portal to create a DCR to collect entries from a text log on a machine with Azure Monitor Agent.  |
 | Workspace transformation | [Configure ingestion-time transformations by using the Azure portal](../logs/tutorial-workspace-transformations-portal.md) | Create a transformation for any supported table in a Log Analytics workspace. The transformation is defined in a DCR that's then associated with the workspace. It's applied to any data sent to that table from a legacy workload that doesn't use a DCR. |
 
 
 ## Manually create a DCR
+To manually create a DCR, create a JSON file with the using the appropriate configuration for the data collection that you're configuring. Start with one of the [sample DCRs](./data-collection-rule-samples.md) and use information in [Structure of a data collection rule in Azure Monitor](./data-collection-rule-structure.md) to modify the JSON file for your particular environment and requirements.
 
-
-
-
-
+Once you have the JSON file created, you can use any of the following methods to create the DCR:
 
 ## [PowerShell](#tab/powershell)
+Use the [New-AzDataCollectionRule](/powershell/module/az.monitor/new-azdatacollectionrule) to create the DCR using PowerShell as shown in the following example. Since you specify the location with the cmdlet, you don't have to include the `location` property in the JSON file.
 
 ```powershell
 New-AzDataCollectionRule    -Location 'east-us' `
@@ -49,12 +49,16 @@ New-AzDataCollectionRule    -Location 'east-us' `
                             -Description 'This is my new DCR' `
 ```
 
+## [CLI](#tab/cli)
+The 
+
 ## [ARM](#tab/arm)
 
 
 ## [API](#tab/api)
 
 
+---
 
 ## Work with data collection rules
 To work with DCRs outside of the Azure portal, see the following resources:

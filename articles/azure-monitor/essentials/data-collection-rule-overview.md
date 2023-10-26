@@ -10,7 +10,7 @@ ms.custom: references_regions
 ---
 
 # Data collection rules in Azure Monitor
-Data collection rules (DCRs) are sets of instructions that define [data collection workflows in Azure Monitor](../essentials/data-collection.md). DCRs specify what data should be collected, how to transform that data, and where to send that data. Some DCRs will be created and managed by Azure Monitor to collect a specific set of data to enable insights and visualizations. You might also create your own DCRs to define the set of data required for other scenarios.
+Data collection rules (DCRs) are sets of instructions that define [data collection workflows in Azure Monitor](../essentials/data-collection.md). DCRs specify what data should be collected, how to transform that data, and where to send it. Some DCRs will be created and managed by Azure Monitor to collect a specific set of data to enable insights and visualizations. You might also create your own DCRs to define the set of data required for other scenarios.
 
 
 ## Concept
