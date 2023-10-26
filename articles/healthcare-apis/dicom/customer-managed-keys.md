@@ -1,6 +1,6 @@
 ---
-title: Encrypt your data with customer-managed keys (CMK) in the DICOM service in Azure Health Data Services. Get tips on requirements, best practices, limitations, and troubleshooting.
-description: This document describes how to use Customer-Managed Keys (CMK) for the DICOM service in Azure Health Data Services.
+title: Best practices for customer-managed keys for the DICOM service in Azure Health Data Services
+description: Encrypt your data with customer-managed keys (CMK) in the DICOM service in Azure Health Data Services. Get tips on requirements, best practices, limitations, and troubleshooting.
 author: mmitrik
 ms.service: healthcare-apis
 ms.subservice: fhir
@@ -35,8 +35,7 @@ Follow [security best practices](../../key-vault/secrets/secrets-best-practices.
 
 Before you set up keys, you need to enable a managed identity for the DICOM service. You can use either a system-assigned or user-assigned managed identity. For more information, see [Microsoft Entra managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview).
 
-#### Update the DICOM service after moving or deleting the managed identity
-
+## Update the DICOM service after changing a managed identity
 If you change the managed identity in any way, such as moving your DICOM service to a different tenant or subscription, the DICOM service isn't able to access your keys until you update the service manually with an ARM template deployment. For steps, see [Use an ARM template to update the encryption key](configure-customer-managed-keys.md#use-an-arm-template-to-update-the-encryption-key).
 
 ## Recover from lost key access
