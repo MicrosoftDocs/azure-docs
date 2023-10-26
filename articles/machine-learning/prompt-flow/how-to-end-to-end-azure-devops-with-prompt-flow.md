@@ -130,7 +130,7 @@ Before you can set up an MLOps project with Azure Machine Learning, you need to 
 1. Navigate to [Azure DevOps](https://go.microsoft.com/fwlink/?LinkId=2014676&githubsi=true&clcid=0x409&WebUserId=2ecdcbf9a1ae497d934540f4edce2b7d). 
 
 1. Select **create a new project** (Name the project mlopsv2 for this tutorial).
-    ![Screenshot of ADO Project.](../media/how-to-setup-mlops-azureml/ado-create-project.png)
+    ![Screenshot of Azure DevOps project.](../media/how-to-setup-mlops-azureml/ado-create-project.png)
 
 1. In the project under **Project Settings** (at the bottom left of the project page) select **Service Connections**.
 
