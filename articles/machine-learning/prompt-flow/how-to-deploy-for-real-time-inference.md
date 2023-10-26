@@ -20,7 +20,7 @@ After you build a flow and test it properly, you may want to deploy it as an end
 In this article, you'll learn how to deploy a flow as a managed online endpoint for real-time inference. The steps you'll take are:
 
 - [Test your flow and get it ready for deployment](#build-the-flow-and-get-it-ready-for-deployment)
-- [Create an online endpoint](#create-an-online-endpoint)
+- [Create an online deployment](#create-an-online-deployment)
 - [Grant permissions to the endpoint](#grant-permissions-to-the-endpoint)
 - [Test the endpoint](#test-the-endpoint-with-sample-data)
 - [Consume the endpoint](#consume-the-endpoint)
@@ -142,7 +142,7 @@ Once you configured and reviewed all the steps above, you can select **Review+Cr
 > Expect the endpoint creation to take approximately more than 15 minutes, as it contains several stages including creating endpoint, registering model, creating deployment, etc.
 >
 > You can understand the deployment creation progress via the notification starts by **Prompt flow deployment**.
-> :::image type="content" source="./media/how-to-deploy-for-real-time-inference/deploy-notification.png" alt-text="Screenshot of Access control with add role assignment highlighted. " lightbox = "./media/how-to-deploy-for-real-time-inference/deploy-notification.png":::
+> :::image type="content" source="./media/how-to-deploy-for-real-time-inference/deploy-notification.png" alt-text="Screenshot of deployment notification. " lightbox = "./media/how-to-deploy-for-real-time-inference/deploy-notification.png":::
 
 ## Grant permissions to the endpoint
 

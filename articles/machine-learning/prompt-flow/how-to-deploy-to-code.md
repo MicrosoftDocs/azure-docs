@@ -102,6 +102,11 @@ Following is an endpoint definition example which by default uses system-assigne
 $schema: https://azuremlschemas.azureedge.net/latest/managedOnlineEndpoint.schema.json
 name: basic-chat-endpoint
 auth_mode: key
+properties:
+# this property only works for system-assigned identity.
+# if the deploy user has access to connection secrets, 
+# the endpoint system-assigned identity will be auto-assigned connection secrets reader role as well
+  enforce_access_to_default_secret_stores: enabled
 ```
 
 # [Kubernetes online endpoint](#tab/kubernetes)
@@ -121,6 +126,7 @@ auth_mode: key
 | `$schema` | (Optional) The YAML schema. To see all available options in the YAML file, you can view the schema in the preceding code snippet in a browser. |
 | `name` | The name of the endpoint. |
 | `auth_mode` | Use `key` for key-based authentication. Use `aml_token` for Azure Machine Learning token-based authentication. To get the most recent token, use the `az ml online-endpoint get-credentials` command. |
+|`property: enforce_access_to_default_secret_stores` (preview)|- By default the endpoint will use system-asigned identity. This property only works for system-assigned identity. <br> - This property means if you have the connection secrets reader permission, the endpoint system-assigned identity will be auto-assigned Azure Machine Learning Workspace Connection Secrets Reader role of the workspace, so that the endpoint can access connections correctly when performing inferencing. <br> - By default this property is `disabled``.|
 
 If you want to use user-assigned identity, you can specify the following additional attributes:
 
@@ -130,6 +136,17 @@ identity:
   user_assigned_identities:
     - resource_id: user_identity_ARM_id_place_holder
 ```
+
+> [!IMPORTANT]
+>
+> You need to give the following permissions to the user-assigned identity **before create the endpoint**:
+> |Scope|Role|Why it's needed|
+> |---|---|---|
+> |Azure Machine Learning Workspace|**Azure Machine Learning Workspace Connection Secrets Reader** role **OR** a customized role with "Microsoft.MachineLearningServices/workspaces/connections/listsecrets/action" | Get workspace connections|
+> |Workspace container registry |Acr pull |Pull container image |
+> |Workspace default storage| Storage Blob Data Reader| Load model from storage |
+> |(Optional) Azure Machine Learning Workspace|Workspace metrics writer| After you deploy then endpoint, if you want to monitor the endpoint related metrics like CPU/GPU/Disk/Memory utilization, you need to give this permission to the identity.|
+
 
 If you create a Kubernetes online endpoint, you need to specify the following additional attributes:
 
@@ -269,15 +286,6 @@ az ml online-deployment create --file blue-deployment.yml --all-traffic
 >
 > This deployment might take more than 15 minutes. 
 
-> [!IMPORTANT]
->
-> You need to give the following permissions to the system-assigned identity after the endpoint is created:
-
-- AzureML Data Scientist role or a customized role with "Microsoft.MachineLearningServices/workspaces/connections/listsecrets/action" permission to workspace
-- Storage Blob Data Contributor permission, and Storage Table Data Contributor to the default storage of the workspace
- 
-
-
 
 > [!TIP]
 >
@@ -327,12 +335,52 @@ curl --request POST "$ENDPOINT_URI" --header "Authorization: Bearer $ENDPOINT_KE
 
 Note that you can get your endpoint key and your endpoint URI from the AzureML workspace in **Endpoints** > **Consume** > **Basic consumption info**.
 
-## Advanced settings
+## Advanced configurations
 
+### Deploy with a custom environment
 
+This section will show you how to use a docker build context to specify the environment for your deployment, assuming you have knowledge of [Docker](https://www.docker.com/) and [Azure Machine Learning environments](../concept-environments.md).
+
+1. In your local environment, create a folder named `image_build_with_reqirements` contains following files:
+
+    ```
+    |--image_build_with_reqirements
+    |  |--requirements.txt
+    |  |--Dockerfile
+    ```
+    - The `requirements.txt` should be inherited from the flow folder, which has been used to track the dependencies of the flow. 
+
+    - The `Dockerfile` content is as following: 
+
+        ```
+        FROM mcr.microsoft.com/azureml/promptflow/promptflow-runtime:latest
+        COPY ./requirements.txt .
+        RUN pip install -r requirements.txt
+        ```
+
+1. replace the environment section in the deployment definition yaml file with the following content:
+
+    ```yaml
+    environment: 
+      build:
+        path: image_build_with_reqirements
+        dockerfile_path: Dockerfile
+      # deploy prompt flow is BYOC, so we need to specify the inference config
+      inference_config:
+        liveness_route:
+          path: /health
+          port: 8080
+        readiness_route:
+          path: /health
+          port: 8080
+        scoring_route:
+          path: /score
+          port: 8080
+    ```
 
 ## Next steps
 
 - Learn more about [managed online endpoint schema](../reference-yaml-endpoint-online.md) and [managed online deployment schema](../reference-yaml-deployment-managed-online.md).
+- Learn more about how to [test the endpoint in UI](./how-to-deploy-for-real-time-inference.md#test-the-endpoint-with-sample-data) and [monitor the endpoint](./how-to-deploy-for-real-time-inference.md#view-managed-online-endpoints-common-metrics-using-azure-monitor-optional).
 - Learn more about how to [troubleshoot managed online endpoints](../how-to-troubleshoot-online-endpoints.md).
 - Once you improve your flow, and would like to deploy the improved version with safe rollout strategy, see [Safe rollout for online endpoints](../how-to-safely-rollout-online-endpoints.md).
