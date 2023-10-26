@@ -52,12 +52,24 @@ items:
             href: manage-devices-assets/howto-use-opcua-broker-actions.md
           - name: Uninstall OPC UA Broker using helm
             href: manage-devices-assets/howto-uninstall-opcua-broker-using-helm.md    
-    - name: Publish/Subscribe with MQTT
+    - name: Manage MQTT connectivity
       items:
       - name: Overview
-        href: pub-sub-mqtt/overview-iot-mq.md
+        href: manage-mqtt-connectivity/overview-iot-mq.md
       - name: Secure communication using BrokerListener
-        href: pub-sub-mqtt/concept-brokerlistener.md
+        href: manage-mqtt-connectivity/concept-brokerlistener.md
+      - name: Configure automatic TLS
+        href: manage-mqtt-connectivity/howto-configure-tls-auto.md
+      - name: Configure manual TLS
+        href: manage-mqtt-connectivity/howto-configure-tls-manual.md
+      - name: Configure authentication
+        href: manage-mqtt-connectivity/howto-configure-authentication.md
+      - name: Configure authorization
+        href: manage-mqtt-connectivity/howto-configure-authorization.md
+      - name: Configure availability and scale
+        href: manage-mqtt-connectivity/howto-configure-availability-scale.md
+      - name: Configure disk buffer
+        href: manage-mqtt-connectivity/howto-configure-disk-buffer.md
     - name: Process messages
       items:
       - name: Overview
@@ -178,21 +190,6 @@ items:
       items:
       - name: Overview
         href: administer/overview-manage-solution.md
-      - name: Manage Azure MQ
-        items:
-        - name: Configure automatic TLS
-          href: administer/mq/howto-configure-tls-auto.md
-        - name: Configure manual TLS
-          href: administer/mq/howto-configure-tls-manual.md
-        - name: Configure authentication
-          href: administer/mq/howto-configure-authentication.md
-        - name: Configure authorization
-          href: administer/mq/howto-configure-authorization.md
-        - name: Configure availability and scale
-          href: administer/mq/howto-configure-availability-scale.md
-        - name: Configure disk buffer
-          href: administer/mq/howto-configure-disk-buffer.md
-
     - name: Troubleshoot
       href: troubleshoot/troubleshoot.md
     - name: Reference # supporting information like APIs, tools, code libraries

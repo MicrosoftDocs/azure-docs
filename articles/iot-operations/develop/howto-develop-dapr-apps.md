@@ -62,7 +62,7 @@ To create the yaml file, use the following component definitions:
 > | `metadata.name` | The component name is important and is how [a Dapr application reaches the component](https://github.com/microsoft/e4k-playground/blob/0b9b8bc846c2567f840576ed5c6e17c469891877/samples/quickstart-sample/src/main.go#L42).  |
 > | `spec.metadata.type`  | [The type of the component](https://docs.dapr.io/operations/components/pluggable-components-registration/#define-the-component), which must be declared exactly as shown. It tells Dapr what kind of component (`pubsub` or `state`) it is and which Unix socket to use.  |
 > | `spec.metadata.url`   | The URL tells the component where the local MQ endpoint is. The shown value 1883 is MQ's default MQTT port.    |
-> | `brokerAuthMethod` / `satTokenPath`   | For [Kubernetes SAT authentication to MQ](../administer/mq/howto-configure-authentication.md). This component is specific to this example. You could use another method like [X.509](../administer/mq/howto-configure-tls-auto.md) |
+> | `brokerAuthMethod` / `satTokenPath`   | For [Kubernetes SAT authentication to MQ](../manage-mqtt-connectivity/howto-configure-authentication.md). This component is specific to this example. You could use another method like [X.509](../manage-mqtt-connectivity/howto-configure-tls-auto.md) |
 
 1. Save the following yaml, which contains the component definitions, to a file named `components.yaml`:
 
@@ -130,7 +130,7 @@ To create the yaml file, use the following component definitions:
 
 
 ### Set up authentication between the workload and MQ
-Your application can authenticate to MQ using any of the [supported authentication methods](../administer/mq/howto-configure-authentication.md). Make sure to enable authentication on the broker listener as well. The following example uses SAT, so to begin, you create a Kubernetes service account.
+Your application can authenticate to MQ using any of the [supported authentication methods](../manage-mqtt-connectivity/howto-configure-authentication.md). Make sure to enable authentication on the broker listener as well. The following example uses SAT, so to begin, you create a Kubernetes service account.
 
 1. Create a Kubernetes service account:
 
@@ -140,7 +140,7 @@ Your application can authenticate to MQ using any of the [supported authenticati
     serviceaccount/mqtt-client created
     ```
 
-1. Ensure that the service account `mqtt-client` has an [authorization attribute](../administer/mq/howto-configure-authentication.md#create-a-service-account):
+1. Ensure that the service account `mqtt-client` has an [authorization attribute](../manage-mqtt-connectivity/howto-configure-authentication.md#create-a-service-account):
 
     ```console
     $ kubectl annotate serviceaccount mqtt-client azedge-broker-auth/group=dapr-workload
@@ -149,7 +149,7 @@ Your application can authenticate to MQ using any of the [supported authenticati
     ```
 
 ## Set up authorization policy between the workload and MQ
-To configure authorization policies to the MQ DMQTT broker, first you create a [BrokerAuthorization resource](../administer/mq/howto-configure-authorization.md). 
+To configure authorization policies to the MQ DMQTT broker, first you create a [BrokerAuthorization resource](../manage-mqtt-connectivity/howto-configure-authorization.md). 
 
 To create the yaml file, use the following component definitions:
 
@@ -157,7 +157,7 @@ To create the yaml file, use the following component definitions:
 > [!div class="mx-tdBreakAll"]
 > | Component                     | Description                           |
 > | ----------------------------- | ------------------------------------- |
-> | `dapr-workload`  | The Dapr application authorization attribute, a client id or username is not required due to [SAT annotations](../administer/mq/howto-configure-authentication.md).        |
+> | `dapr-workload`  | The Dapr application authorization attribute, a client id or username is not required due to [SAT annotations](../manage-mqtt-connectivity/howto-configure-authentication.md).        |
 > | `odd-numbered-orders`   | The Dapr application publishes to this topic which is saved to the [MQ state store](concept-about-state-store.md).        |
 > | `response_topic`   |  The response topic for the MQ state store.       |
 
