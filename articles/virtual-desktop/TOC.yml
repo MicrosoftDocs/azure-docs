@@ -64,9 +64,9 @@
 - name: Tutorials
   expanded: true
   items:
-  - name: Create and connect to a Windows 11 desktop
+  - name: Deploy a Windows 11 desktop
     displayName: tutorial
-    href: tutorial-create-connect-personal-desktop.md
+    href: tutorial-try-deploy-windows-11-desktop.md
 - name: Concepts
   items:
   - name: Deploy
@@ -238,17 +238,14 @@
   items:
   - name: Deploy
     items:
-      - name: Create a host pool
-        displayName: deploy, get started
-        href: create-host-pool.md
-      - name: Create application group, workspace, and assign users
-        displayName: deploy, get started
-        href: create-application-group-workspace.md
+      - name: Deploy Azure Virtual Desktop
+        displayName: deploy, create, get started, host pool, application group, workspace, assign users
+        href: deploy-azure-virtual-desktop.md
       - name: Add session hosts to a host pool
         displayName: deploy, get started
         href: add-session-hosts-host-pool.md
       - name: Use the getting started feature
-        displayName: deploy, get started
+        displayName: deploy, create, get started
         href: getting-started-feature.md
       - name: Enable GPU acceleration
         displayName: graphics, multimedia, videos, cad

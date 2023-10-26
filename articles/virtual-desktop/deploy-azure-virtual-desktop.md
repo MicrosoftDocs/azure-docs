@@ -9,9 +9,9 @@ ms.date: 10/25/2023
 
 # Deploy Azure Virtual Desktop
 
-This article shows you how to deploy Azure Virtual Desktop by using the Azure portal, Azure CLI, or Azure PowerShell. When using the Azure portal, you can optionally create session hosts, a workspace, register the default desktop application group from this host pool, and enable diagnostics settings in the same process, but you can also do this separately.
+This article shows you how to deploy Azure Virtual Desktop by using the Azure portal, Azure CLI, or Azure PowerShell. You create a host pool, workspace, application group, and session hosts and can optionally enable diagnostics settings. You can do all these tasks in the same process when using the Azure portal, but you can also also do them separately.
 
-The process covered in this article is an in-depth and adaptable approach to deploying Azure Virtual Desktop. If you want a more simple approach to deploy a sample Windows 11 desktop in Azure Virtual Desktop, see [Tutorial: Deploy a sample Azure Virtual Desktop infrastructure with a Windows 11 desktop](tutorial-try-azure-virtual-desktop-windows-11.md) or use the [getting started feature](getting-started-feature.md).
+The process covered in this article is an in-depth and adaptable approach to deploying Azure Virtual Desktop. If you want a more simple approach to deploy a sample Windows 11 desktop in Azure Virtual Desktop, see [Tutorial: Deploy a sample Azure Virtual Desktop infrastructure with a Windows 11 desktop](tutorial-try-deploy-windows-11-desktop.md) or use the [getting started feature](getting-started-feature.md).
 
 For more information on the terminology used in this article, see [Azure Virtual Desktop terminology](environment-setup.md), and to learn about the service architecture and resilience of the Azure Virtual Desktop service, see [Azure Virtual Desktop service architecture and resilience](service-architecture-resilience.md).
 
@@ -107,19 +107,9 @@ Here's how to create a host pool using the Azure portal.
    | Host pool type | Select whether you want your host pool to be Personal or Pooled.<br /><br />If you select **Personal**, a new option appears for **Assignment type**. Select either **Automatic** or **Direct**.<br /><br />If you select **Pooled**, two new options appear for **Load balancing algorithm** and **Max session limit**.<br /><br />- For **Load balancing algorithm**, choose either **breadth-first** or **depth-first**, based on your usage pattern.<br /><br />- For **Max session limit**, enter the maximum number of users you want load-balanced to a single session host. |
 
    > [!TIP]
-   > Once you've completed this tab, you can continue to optionally configure networking, create session hosts, a workspace, register the default desktop application group from this host pool, and enable diagnostics settings. Alternatively, if you want to create and configure these separately, select **Next: Review + create** and go to step 10.
+   > Once you've completed this tab, you can continue to optionally create session hosts, a workspace, register the default desktop application group from this host pool, and enable diagnostics settings by selecting **Next: Virtual Machines**. Alternatively, if you want to create and configure these separately, select **Next: Review + create** and go to step 9.
 
-1. *Optional*: On the **Networking** tab, select how end users and session hosts connect to the Azure Virtual Desktop service. You also need to configure Azure Private Link to use private access. For more information, see [Azure Private Link with Azure Virtual Desktop](private-link-overview.md).
-
-   | Parameter | Value/Description |
-   |--|--|
-   | **Enable public access from all networks** | End users can access the feed and session hosts securely over the public internet or the private endpoints. |
-   | **Enable public access for end users, use private access for session hosts** | End users can access the feed securely over the public internet but must use private endpoints to access session hosts. |
-   | **Disable public access and use private access** | End users can only access the feed and session hosts over the private endpoints. |
-
-   Once you've completed this tab, select **Next: Virtual Machines**.
-
-1. *Optional*: If you want to add session hosts in this process, on the **Virtual machines** tab, complete the following information:
+1. *Optional*: On the **Virtual machines** tab, if you want to add session hosts, complete the following information:
 
    | Parameter | Value/Description |
    |--|--|
@@ -152,16 +142,16 @@ Here's how to create a host pool using the Azure portal.
 
    Once you've completed this tab, select **Next: Workspace**.
 
-1. *Optional*: If you want to create a workspace and register the default desktop application group from this host pool in this process, on the **Workspace** tab, complete the following information:
+1. *Optional*: On the **Workspace** tab, if you want to create a workspace and register the default desktop application group from this host pool, complete the following information:
 
    | Parameter | Value/Description |
    |--|--|
    | Register desktop app group | Select **Yes**. This registers the default desktop application group to the selected workspace. |
-   | To this workspace | Select an existing workspace from the list, or select **Create new** and enter a name, for example **Microsoft Entra ID-ws01**. |
+   | To this workspace | Select an existing workspace from the list, or select **Create new** and enter a name, for example **ws01**. |
 
    Once you've completed this tab, select **Next: Advanced**.
 
-1. *Optional*: If you want to enable diagnostics settings in this process, on the **Advanced** tab, complete the following information:
+1. *Optional*: On the **Advanced** tab, if you want to enable diagnostics settings, complete the following information:
 
    | Parameter | Value/Description |
    |--|--|
@@ -178,7 +168,7 @@ Here's how to create a host pool using the Azure portal.
 
 1. Once the host pool has been created, select **Go to resource** to go to the overview of your new host pool, then select **Properties** to view its properties.
 
-## Optional: Post deployment
+### Optional: Post deployment
 
 If you also added session hosts to your host pool, there's some extra configuration you might need to do, which is covered in the following sections.
 
@@ -189,7 +179,7 @@ If you also added session hosts to your host pool, there's some extra configurat
 >
 > - If you created a host pool and workspace in the same process, but didn't register the default desktop application group from this host pool, go to the section [Create an application group](#create-an-application-group) and complete the rest of the article.
 >
-> - If you didn't create a workspace, continue to the next section and complete the rest of the article..
+> - If you didn't create a workspace, continue to the next section and complete the rest of the article.
 
 # [Azure PowerShell](#tab/powershell)
 
@@ -199,6 +189,7 @@ Here's how to create a host pool using the [Az.DesktopVirtualization](/powershel
 > In the following examples, you'll need to change the `<placeholder>` values for your own.
 
 [!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
+
 2. Use the `New-AzWvdHostPool` cmdlet with the following examples to create a host pool. More parameters are available; for more information, see the [New-AzWvdHostPool PowerShell reference](/powershell/module/az.desktopvirtualization/new-azwvdhostpool).
 
    1. To create a pooled host pool using the *breadth-first* [load-balancing algorithm](host-pool-load-balancing.md) and *Desktop* as the preferred [app group type](environment-setup.md#app-groups), run the following command:
@@ -243,7 +234,12 @@ Here's how to create a host pool using the [Az.DesktopVirtualization](/powershel
 
 Here's how to create a host pool using the [desktopvirtualization](/cli/azure/desktopvirtualization) extension for Azure CLI. The following examples show you how to create a pooled host pool and a personal host pool.
 
-1. In the same CLI session, use the `az desktopvirtualization hostpool create` command with the following examples to create a host pool. More parameters are available; for more information, see the [az desktopvirtualization hostpool Azure CLI reference](/cli/azure/desktopvirtualization/hostpool).
+> [!IMPORTANT]
+> In the following examples, you'll need to change the `<placeholder>` values for your own.
+
+[!INCLUDE [include-cloud-shell-local-cli](includes/include-cloud-shell-local-cli.md)]
+
+2. Use the `az desktopvirtualization hostpool create` command with the following examples to create a host pool. More parameters are available; for more information, see the [az desktopvirtualization hostpool Azure CLI reference](/cli/azure/desktopvirtualization/hostpool).
 
    1. To create a pooled host pool using the *breadth-first* [load-balancing algorithm](host-pool-load-balancing.md) and *Desktop* as the preferred [app group type](environment-setup.md#app-groups), run the following command:
    
@@ -271,7 +267,7 @@ Here's how to create a host pool using the [desktopvirtualization](/cli/azure/de
           --location <AzureRegion>
       ```
 
-1. You can view the properties of your new host pool by running the following command:
+3. You can view the properties of your new host pool by running the following command:
 
    ```azurecli
    az desktopvirtualization hostpool show --name <Name> --resource-group <ResourceGroupName>
@@ -301,13 +297,37 @@ Here's how to create a workspace using the Azure portal.
    | Location | Select the Azure region where you want to deploy your workspace. |
 
    > [!TIP]
-   > Once you've completed this tab, select **Next: Review + create**. You don't need to complete the other tabs to create a workspace, but you'll need to [add an application group to a workspace](#add-an-application-group-to-a-workspace) and [assign users to the application group](#assign-users-to-an-application-group) before they can access its applications.
+   > Once you've completed this tab, you can continue to optionally register an existing application group to this workspace, if you have one, and enable diagnostics settings by selecting **Next: Application groups**. Alternatively, if you want to create and configure these separately, select **Review + create** and go to step 9.
+
+1. *Optional*: On the **Application groups** tab, if you want to register an existing application group to this workspace, complete the following information:
+
+   | Parameter | Value/Description |
+   |--|--|
+   | Register application groups | Select **Yes**, then select **+ Register application groups**. In the new pane that opens, select the **Add** icon for the application group(s) you want to add, then select **Select**. |
+
+   Once you've completed this tab, select **Next: Advanced**.
+
+1. *Optional*: On the **Advanced** tab, if you want to enable diagnostics settings, complete the following information:
+
+   | Parameter | Value/Description |
+   |--|--|
+   | Enable diagnostics settings | Check the box. |
+   | Choosing destination details to send logs to | Select one of the following destinations:<br /><br />- Send to Log Analytics workspace<br /><br />- Archive to storage account<br /><br />- Stream to an event hub |
+
+   Once you've completed this tab, select **Next: Tags**.
+
+1. *Optional*: On the **Tags** tab, you can enter any name/value pairs you need, then select **Next: Review + create**.
 
 1. On the **Review + create** tab, ensure validation passes and review the information that is used during deployment.
 
 1. Select **Create** to create the workspace.
 
 1. Once the workspace has been created, select **Go to resource** to go to the overview of your new workspace, then select **Properties** to view its properties.
+
+> [!NOTE]
+> - If you added an application group to this workspace, go to the section [Assign users to an application group](#assign-users-to-an-application-group) and complete the rest of the article.
+>
+> - If you didn't add an application group to this workspace, continue to the next section and complete the rest of the article.
 
 # [Azure PowerShell](#tab/powershell)
 
@@ -361,7 +381,7 @@ Here's how to create an application group using the Azure portal.
    | Resource group | Select an existing resource group or select **Create new** and enter a name. |
    | Host pool | Select the host pool for the application group. |
    | Location | Metadata is stored in the same location as the host pool. |
-   | Application group type | Select the [application group type](environment-setup.md#app-groups) for this host pool from *Desktop* or *RemoteApp*. |
+   | Application group type | Select the [application group type](environment-setup.md#app-groups) for the host pool you selected from *Desktop* or *RemoteApp*. |
    | Application group name | Enter a name for the application group, for example *Session Desktop*. |
 
    > [!TIP]
@@ -369,11 +389,46 @@ Here's how to create an application group using the Azure portal.
    >
    > If you created an application group for RemoteApp, you will also need to add applications. For more information, see [Add applications to an application group](manage-app-groups.md)
 
+1. *Optional*: If you selected to create a RemoteApp application group, you can add applications to this application group. On the **Application groups** tab, select **+ Add applications**, then select an application. For more information on the application parameters, see [Publish applications with RemoteApp](manage-app-groups.md). At least one session host in the host pool must be powered on and available in Azure Virtual Desktop.
+
+   Once you've completed this tab, or if you're creating a desktop application group, select **Next: Assignments**.
+
+1. *Optional*: On the **Assignments** tab, if you want to assign users or groups to this application group, select **+ Add Microsoft Entra users or user groups**. In the new pane that opens, check the box next to the users or groups you want to add, then select **Select**.
+
+   Once you've completed this tab, select **Next: Workspace**.
+
+1. *Optional*: On the **Workspace** tab, if you're creating a desktop application group, you can register the default desktop application group from the host pool you selected by completing the following information:
+
+   | Parameter | Value/Description |
+   |--|--|
+   | Register application group | Select **Yes**. This registers the default desktop application group to the selected workspace. |
+   | Register application group | Select an existing workspace from the list. |
+
+   Once you've completed this tab, select **Next: Advanced**.
+
+1. *Optional*: If you want to enable diagnostics settings, on the **Advanced** tab, complete the following information:
+
+   | Parameter | Value/Description |
+   |--|--|
+   | Enable diagnostics settings | Check the box. |
+   | Choosing destination details to send logs to | Select one of the following destinations:<br /><br />- Send to Log Analytics workspace<br /><br />- Archive to storage account<br /><br />- Stream to an event hub |
+
+   Once you've completed this tab, select **Next: Tags**.
+
+1. *Optional*: On the **Tags** tab, you can enter any name/value pairs you need, then select **Next: Review + create**.
+
 1. On the **Review + create** tab, ensure validation passes and review the information that is used during deployment.
 
 1. Select **Create** to create the application group.
 
 1. Once the application group has been created, select **Go to resource** to go to the overview of your new application group, then select **Properties** to view its properties.
+TODO:
+> [!NOTE]
+> - If you created a desktop application group, assigned users or groups, and registered the default desktop application group to a workspace, your assigned users can connect to the desktop and you don't need to complete the rest of the article.
+>
+> - If you created a RemoteApp application group, added applications, and assigned users or groups, go to the section [Add an application group to a workspace](#add-an-application-group-to-a-workspace) and complete the rest of the article.
+>
+> - If you didn't add applications, assign users or groups, or register the application group to a workspace continue to the next section and complete the rest of the article.
 
 # [Azure PowerShell](#tab/powershell)
 
