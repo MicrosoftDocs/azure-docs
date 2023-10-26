@@ -12,7 +12,9 @@ ms.date: 10/24/2023
 
 # Configure IoT Layered Network Management Level 3 Cluster
 
-You can configure an Arc-enabled Kubernetes cluster in an isolated network using Layered Network Management.
+[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+
+You can configure an Arc-enabled Kubernetes cluster in an isolated network using Azure IoT Layered Network Management.
 
 ## Configure a Kubernetes cluster
 

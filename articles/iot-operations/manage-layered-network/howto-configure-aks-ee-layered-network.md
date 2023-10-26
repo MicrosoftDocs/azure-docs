@@ -14,7 +14,7 @@ ms.date: 10/24/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-You can Arc-enable AKS Edge Essentials clusters in a *ISA-95 network environment* using the **Layered Network Management** service. In this article, you deploy an example level 4 cluster that can:
+You can Arc-enable AKS Edge Essentials clusters in a *ISA-95 network environment* using the Azure IoT Layered Network Management service. In this article, you deploy an example level 4 cluster that can:
 - Directly access the internet
 - A dual network interface card (NIC) host that allows the level 4 cluster to be visible to the level 3 local network. 
 - A custom DNS that resolves the DNS server in the local network

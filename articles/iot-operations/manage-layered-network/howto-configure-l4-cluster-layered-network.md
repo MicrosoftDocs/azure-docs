@@ -12,7 +12,9 @@ ms.date: 10/25/2023
 
 # Configure IoT Layered Network Management Level 4 Cluster
 
-You can configure an Arc-enabled Kubernetes cluster in an isolated network using Layered Network Management.
+[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+
+You can configure an Arc-enabled Kubernetes cluster in an isolated network using Azure IoT Layered Network Management.
 
 Since Level 4 is internet facing, the configuration and installation can be completed using online commands.
 
@@ -81,7 +83,7 @@ Since Level 4 is internet facing, the configuration and installation can be comp
 
 1. Make sure that **helm 3.8.0 (or later)** is installed before Arc-enable the cluster.
 
-1. Run the following in in an elevated PowerShell prompt:
+1. Run the following in an elevated PowerShell prompt:
 
   ```powershell
   Connect-AksEdgeArc -JsonConfigFilePath .\aks-ee-config.json

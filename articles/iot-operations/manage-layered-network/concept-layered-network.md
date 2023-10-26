@@ -12,7 +12,9 @@ ms.date: 10/24/2023
 
 # What is Azure IoT Layered Network Management?
 
-Layered Network Management is a Kubernetes-based solution that provides secure communication between devices and the cloud through **isolated network environments** based on the *[ISA-95](https://www.isa.org/standards-and-publications/isa-standards/isa-standards-committees/isa95)/[Purdue Network architecture](http://www.pera.net/)*. The solution is deployed and managed as a component of Azure IoT Operations on Arc-enabled Kubernetes clusters.
+[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+
+Azure IoT Layered Network Management is a Kubernetes-based solution that provides secure communication between devices and the cloud through **isolated network environments** based on the *[ISA-95](https://www.isa.org/standards-and-publications/isa-standards/isa-standards-committees/isa95)/[Purdue Network architecture](http://www.pera.net/)*. The solution is deployed and managed as a component of Azure IoT Operations on Arc-enabled Kubernetes clusters.
 
 Layered Network Management provides several benefits including:
 
