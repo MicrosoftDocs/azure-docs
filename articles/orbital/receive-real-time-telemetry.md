@@ -24,7 +24,7 @@ In this guide, you'll learn how to:
 ## Configure Event Hubs
 
 1. In your subscription, go to **resource providers** in settings. Search for **Microsoft.Orbital** and register it as a provider.
-2. [Create an Azure Event Hubs namespace](articles/event-hubs/event-hubs-create.md#create-an-event-hubs-namespace) and an [event hub](articles/event-hubs/event-hubs-create.md#create-an-event-hub) in your subscription.
+2. [Create an Azure Event Hubs namespace](../../articles/event-hubs/event-hubs-create.md#create-an-event-hubs-namespace) and an [event hub](../../articles/event-hubs/event-hubs-create.md#create-an-event-hub) in your subscription.
 
 > [!Note]
 > Choose Public access for connectivity access to the Eventhubs. Private access or service endpoints is not supported.
@@ -64,7 +64,7 @@ To verify that events are being received in your Event Hubs, you can check the g
 ### Deliver antenna telemetry data to a storage account
 
 You can enable the Event Hubs Capture feature to automatically deliver the telemetry data to an Azure Blob storage account of your choosing.
-Follow the [instructions to enable Capture](../event-hubs/event-hubs-capture-enable-through-portal.md#enable-capture-when-you-create-an-event-hub) and [capture data to Azure storage](../event-hubs/event-hubs-capture-enable-through-portal.md#capture-data-to-azure-storage). Once enabled, you can check your container and view/download the data.
+Follow the [instructions to enable Capture](../../articles/event-hubs/event-hubs-capture-enable-through-portal.md#enable-capture-when-you-create-an-event-hub) and [capture data to Azure storage](../../articles/event-hubs/event-hubs-capture-enable-through-portal.md#capture-data-to-azure-storage). Once enabled, you can check your container and view/download the data.
 
 ## Understand telemetry points
 
@@ -295,7 +295,7 @@ The following table provides the source device/point, possible values, and defin
 
 ## Event Consumers
 
-You can write simple consumer apps to receive events from your Event Hubs using [event consumers](../azure/event-hubs/event-hubs-features#event-consumers.md). Refer to the following documentation to learn how to send and receive events Event Hubs in various languages: 
+You can write simple consumer apps to receive events from your Event Hubs using [event consumers](../../articles/event-hubs/event-hubs-features#event-consumers.md). Refer to the following documentation to learn how to send and receive events Event Hubs in various languages: 
 - [Python](../event-hubs/event-hubs-python-get-started-send.md)
 - [.NET](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
 - [Java](../event-hubs/event-hubs-java-get-started-send.md)
