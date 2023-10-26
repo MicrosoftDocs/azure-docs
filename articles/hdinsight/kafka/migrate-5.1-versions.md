@@ -40,7 +40,7 @@ If you migrate from Kafka to 3.2.0, you can take advantage of the following new 
 For a complete list of updates, see [Apache Kafka 3.2.0 release notes](https://archive.apache.org/dist/kafka/3.2.0/RELEASE_NOTES.html).
 
 
-## Kafka client compatibility [TODO]
+## Kafka client compatibility
 
 New Kafka brokers support older clients. [KIP-35 - Retrieving protocol version](https://cwiki.apache.org/confluence/display/KAFKA/KIP-35+-+Retrieving+protocol+version) introduced a mechanism for dynamically determining the functionality of a Kafka broker and [KIP-97: Improved Kafka Client RPC Compatibility Policy](https://cwiki.apache.org/confluence/display/KAFKA/KIP-97%3A+Improved+Kafka+Client+RPC+Compatibility+Policy) introduced a new compatibility policy and guarantees for the Java client. Previously, a Kafka client had to interact with a broker of the same version or a newer version. Now, newer versions of the Java clients and other clients that support KIP-35 such as `librdkafka` can fall back to older request types or throw appropriate errors if functionality isn't available.
 
