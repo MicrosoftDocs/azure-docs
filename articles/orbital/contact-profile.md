@@ -12,7 +12,7 @@ ms.author: apoorvanori
 
 # Configure a contact profile
 
-Configure a contact profile with Azure Orbital Ground Station to save and reuse contact configurations. This is required before scheduling a contact to ingest data from a satellite into Azure.
+Learn how to configure a [contact profile](concepts-contact-profile.md) with Azure Orbital Ground Station to save and reuse contact configurations. To schedule a contact, you must have a contact profile resource and satellite resource.
 
 ## Prerequisites
 
@@ -41,7 +41,7 @@ Sign in to the [Azure portal - Orbital](https://aka.ms/orbital/portal).
    | **Minimum elevation** | Define **minimum elevation** of the contact, after acquisition of signal (AOS), as a prerequisite to show available time slots to communicate with your spacecraft. _Using a higher value may reduce the duration of the contact. Provide minimum viable elevation in decimal degrees._ |
    | **Auto track configuration** | Select the frequency band to be used for autotracking during the contact: **X band**, **S band**, or **Disabled**. |
    | **Event Hubs Namespace** | Select an **Event Hubs Namespace** to which you'll send telemetry data of your contacts. Learn how to [configure Event Hubs](receive-real-time-telemetry.md#configure-event-hubs). _You must select a subscription before you can select an Event Hubs Namespace._ |
-   | **Event Hubs Instance** | Select an **Event Hubs Instance** that belongs to the previously selected Namespace. _This field will only appear if an Event Hubs Namespace is selected first_. |
+   | **Event Hubs Instance** | Select an **Event Hubs Instance** that belongs to the previously selected Namespace. _This field only appears if an Event Hubs Namespace is selected first_. |
    | **Virtual Network** | Select a **virtual network**. *This VNET must be in the same region as the contact profile.* |
    | **Subnet** | Select a **subnet**. *The subnet must be within the previously chosen VNET, be delegated to the Microsoft.Orbital service, and have a minimum address prefix of size /24.* |
 
