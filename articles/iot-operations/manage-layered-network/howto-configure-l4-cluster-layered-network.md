@@ -24,7 +24,7 @@ Since Level 4 is internet facing, the configuration and installation can be comp
 1. Install [Helm](https://helm.sh/docs/intro/install/) 3.8.0 or later
 1. Install [Kubectl](https://kubernetes.io/docs/tasks/tools/)
 1. Install AKS Edge Essentials. Follow the steps in [Prepare your machines for AKS Edge Essentials](/azure/aks/hybrid/aks-edge-howto-setup-machine)
-1. Install Azure CLI. Follow the steps in [Install Azure CLI on Windows](/azure/install-azure-cli-windows)
+1. Install Azure CLI. Follow the steps in [Install Azure CLI on Windows](/cli/azure/install-azure-cli-windows)
 1. Install connectedk8s using the following command:
 
     ```bash

@@ -43,7 +43,7 @@ If you're using VM to create your Windows 11 machines, use the [VM image](https:
 
 ## Move the device to level 3 isolated network
 
-In your isolated network layer, the DNS server was configured in a prerequisite step using [Configure Azure IoT Layered Network Management Environment](./howto-configure-layered-network.md#configure-dns-server). Complete the step if you haven't done so.
+In your isolated network layer, the DNS server was configured in a prerequisite step using [Configure Azure IoT Layered Network Management Environment](./howto-configure-layered-network.md). Complete the step if you haven't done so.
 
 After the device is moved to L3, configure the DNS setting using the following steps:
 
@@ -52,11 +52,11 @@ After the device is moved to L3, configure the DNS setting using the following s
 1. Check **Use the following DNS server addresses**
 1. Enter the level 3 DNS server local IP address.
 
-    ![Screenshot that shows Windows DNS setting with the level 3 DNS server local IP address](./media/howto-configure-l3-cluster-layered-network/windows-dns-setting.pngwindows-dns-setting.png)
+    ![Screenshot that shows Windows DNS setting with the level 3 DNS server local IP address](./media/howto-configure-l3-cluster-layered-network/windows-dns-setting.png)
 
 ## Create the AKS Edge Essentials cluster
 
-To create the AKS Edge Essentials cluster in level 3, use the `aks-ee-config.json` file that was created for [Level 4 AKS EE](howto-configure-l4-cluster-layered-network.mdr) with following modification:
+To create the AKS Edge Essentials cluster in level 3, use the `aks-ee-config.json` file that was created for [Level 4 AKS EE](howto-configure-l4-cluster-layered-network.md) with following modification:
 
 1. In the **Network** section, set the `SkipDnsCheck` property to **true** and add the `DnsServers` property set to the address of the DNS server in the subnet.
 
@@ -105,7 +105,7 @@ To create the AKS Edge Essentials cluster in level 3, use the `aks-ee-config.jso
 
 ## Move the device to level 3 isolated network
 
-In your isolated network layer, the DNS server was configured in a prerequisite step using [Configure Azure IoT Layered Network Management Environment](./howto-configure-layered-network.md#configure-dns-server). Complete the step if you haven't done so.
+In your isolated network layer, the DNS server was configured in a prerequisite step using [Configure Azure IoT Layered Network Management Environment](./howto-configure-layered-network.md). Complete the step if you haven't done so.
 
 After the device is moved to L3, configure the DNS setting using the following steps:
 

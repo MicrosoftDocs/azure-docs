@@ -165,21 +165,21 @@ items:
       - name: Manage Layered Network
         items:
         - name: Layered Network Management overview
-          href: administer/layered-network-management/concept-layered-network.md
+          href: layered-network-management/concept-layered-network.md
         - name: Configure Layered Network Management
-          href: administer/layered-network-management/howto-configure-layered-network.md
+          href: layered-network-management/howto-configure-layered-network.md
         - name: Configure Layered Network Management
-          href: administer/layered-network-management/howto-configure-layered-network.md
+          href: layered-network-management/howto-configure-layered-network.md
         - name: Configure L3 cluster
-          href: administer/layered-network-management/howto-configure-l3-cluster-layered-network.md
+          href: layered-network-management/howto-configure-l3-cluster-layered-network.md
         - name: Configure L4 cluster
-          href: administer/layered-network-management/howto-configure-l4-cluster-layered-network.md
+          href: layered-network-management/howto-configure-l4-cluster-layered-network.md
         - name: Deploy to an AKS cluster
-          href: administer/layered-network-management/howto-deploy-aks-layered-network.md
+          href: layered-network-management/howto-deploy-aks-layered-network.md
         - name: Configure AKS EE clusters
-          href: administer/layered-network-management/howto-configure-aks-ee-layered-network.md
+          href: layered-network-management/howto-configure-aks-ee-layered-network.md
         - name: Configure MQ in isolated network
-          href: administer/layered-network-management/howto-configure-mq-layered-network.md
+          href: layered-network-management/howto-configure-mq-layered-network.md
       - name: Manage Azure MQ
         items:
         - name: Configure automatic TLS
