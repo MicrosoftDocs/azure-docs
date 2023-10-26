@@ -14,7 +14,7 @@ Azure HDInsight 5.1 offers the latest open-source components with significant en
 
 ## HDInsight 4.0 Kafka migration paths
 
-HDInsight 4.0 supports 2.4.1 HDInsight 5.1 supports versions 3.2.0. Depending on which version of Kafka and which version of HDInsight you would like to run, there are multiple supported migration paths. These paths are explained below and illustrated in the following diagram.
+HDInsight 4.0 supports 2.4.1 HDInsight 5.1 supports versions 3.2.0. Depending on which version of Kafka and which version of HDInsight you would like to run. Migration paths are explained and illustrated in the following diagram.
 
 Upgrading the Kafka version on an existing cluster is not supported. After you create a cluster with the version you want, migrate your Kafka clients to use the new cluster.
 
@@ -23,7 +23,7 @@ Upgrading the Kafka version on an existing cluster is not supported. After you c
 
 ### Apache Kafka 3.2.0
   
-If you migrate from Kafka to 3.2.0  you can take advantage of the following new features:
+If you migrate from Kafka to 3.2.0, you can take advantage of the following new features:
 
 
 :::image type="content" source="./media/migrate-5.1-versions/kafka-320-improvements.png" alt-text=" Screenshot shows kafka 3.2.0 improvements" lightbox="./media/migrate-5.1-versions/kafka-320-improvements.png":::
@@ -32,7 +32,7 @@ If you migrate from Kafka to 3.2.0  you can take advantage of the following new 
 - Support Automated consumer offsets sync across cluster in MM 2.0, making it easier to migrate or failover consumers across clusters. (KIP-545)
 - Hint to the partition leader to recover the partition: A new feature that allows the controller to communicate to a newly elected topic partition leader whether it needs to recover its state (KIP-704)
 - Supports TLS 1.2 by default for secure communication
-- Improved metrics, (KIP-551, KIP-748, KIP-773)
+- Improved metrics (KIP-551, KIP-748, KIP-773)
 - Configurable backlog size for creating Acceptor: A new configuration that allows setting the size of the SYN backlog for TCP’s acceptor sockets on the brokers (KIP-764)
 - Top-level error code field to DescribeLogDirsResponse: A new error code that makes DescribeLogDirs API consistent with other APIs and allows returning other errors besides CLUSTER_AUTHORIZATION_FAILED (KIP-784) 
 
@@ -46,7 +46,8 @@ New Kafka brokers support older clients. [KIP-35 - Retrieving protocol version](
 
 :::image type="content" source="./media/migrate-5.1-versions/client-compatibility.png" alt-text="Screenshot shows Upgrade Kafka client compatibility" lightbox="./media/migrate-5.1-versions/client-compatibility.png":::
 
-Note that it does not mean that the client supports older brokers.  For more information, see [Compatibility Matrix](https://cwiki.apache.org/confluence/display/KAFKA/Compatibility+Matrix).
+> [!NOTE]
+> Try to use the cluster versions for the clients.  For more information, see [Compatibility Matrix](https://cwiki.apache.org/confluence/display/KAFKA/Compatibility+Matrix).
 
 ## General migration process
 
