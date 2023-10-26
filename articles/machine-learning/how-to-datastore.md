@@ -8,7 +8,7 @@ ms.subservice: mldata
 ms.topic: how-to
 ms.author: yogipandey
 author: ynpandey
-ms.reviewer: fr
+ms.reviewer: franksolomon
 ms.date: 10/25/2023
 ms.5ustom: contperf-fy21q1, data4ml, ignite-2023
 # Customer intent: As an experienced Python developer, I need to make my data in Azure storage available to my remote compute resource, to train my machine learning models.
@@ -427,8 +427,8 @@ This section describes the creation of a OneLake datastore using various options
 To create a OneLake datastore, you need
 
 - Endpoint
-- Fabric workspace name and GUID
-- Artifact name and GUID
+- Fabric workspace name or GUID
+- Artifact name or GUID
 
 information from your Microsoft Fabric instance. These three screenshots describe retrieval of these required information resources from your Microsoft Fabric instance:
 
