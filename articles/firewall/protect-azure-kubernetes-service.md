@@ -6,7 +6,7 @@ ms.service: firewall
 ms.custom: devx-track-azurecli, build-2023, devx-track-linux
 services: firewall
 ms.topic: how-to
-ms.date: 10/27/2022
+ms.date: 10/19/2023
 ms.author: victorh
 ---
 
@@ -20,9 +20,9 @@ Azure Kubernetes Service (AKS) offers a managed Kubernetes cluster on Azure. For
 
 Despite AKS being a fully managed solution, it doesn't offer a built-in solution to secure ingress and egress traffic between the cluster and external networks. Azure Firewall offers a solution to this.
 
-AKS clusters are deployed on a virtual network. This network can be managed (created by AKS) or custom (pre-configured by the user beforehand). In either case, the cluster has outbound dependencies on services outside of that virtual network (the service has no inbound dependencies). For management and operational purposes, nodes in an AKS cluster need to access [certain ports and fully qualified domain names (FQDNs)](../aks/outbound-rules-control-egress.md) describing these outbound dependencies. This is required for various functions including, but not limited to, the nodes that communicate with the Kubernetes API server.  They download and install core Kubernetes cluster components and node security updates, or pull base system container images from Microsoft Container Registry (MCR), and so on. These outbound dependencies are almost entirely defined with FQDNs, which don't have static addresses behind them. The lack of static addresses means that Network Security Groups can't be used to lock down outbound traffic from an AKS cluster. For this reason, by default, AKS clusters have unrestricted outbound (egress) Internet access. This level of network access allows nodes and services you run to access external resources as needed.
+AKS clusters are deployed on a virtual network. This network can be managed (created by AKS) or custom (preconfigured by the user beforehand). In either case, the cluster has outbound dependencies on services outside of that virtual network (the service has no inbound dependencies). For management and operational purposes, nodes in an AKS cluster need to access [certain ports and fully qualified domain names (FQDNs)](../aks/outbound-rules-control-egress.md) describing these outbound dependencies. This is required for various functions including, but not limited to, the nodes that communicate with the Kubernetes API server.  They download and install core Kubernetes cluster components and node security updates, or pull base system container images from Microsoft Container Registry (MCR), and so on. These outbound dependencies are almost entirely defined with FQDNs, which don't have static addresses behind them. The lack of static addresses means that Network Security Groups can't be used to lock down outbound traffic from an AKS cluster. For this reason, by default, AKS clusters have unrestricted outbound (egress) Internet access. This level of network access allows nodes and services you run to access external resources as needed.
  
-However, in a production environment, communications with a Kubernetes cluster should be protected to prevent against data exfiltration along with other vulnerabilities. All incoming and outgoing network traffic must be monitored and controlled based on a set of security rules. If you want to do this, you'll have to restrict egress traffic, but a limited number of ports and addresses must remain accessible to maintain healthy cluster maintenance tasks and satisfy those outbound dependencies previously mentioned.
+However, in a production environment, communications with a Kubernetes cluster should be protected to prevent against data exfiltration along with other vulnerabilities. All incoming and outgoing network traffic must be monitored and controlled based on a set of security rules. If you want to do this, you have to restrict egress traffic, but a limited number of ports and addresses must remain accessible to maintain healthy cluster maintenance tasks and satisfy those outbound dependencies previously mentioned.
  
 The simplest solution uses a firewall device that can control outbound traffic based on domain names. A firewall typically establishes a barrier between a trusted network and an untrusted network, such as the Internet. Azure Firewall, for example, can restrict outbound HTTP and HTTPS traffic based on the FQDN of the destination, giving you fine-grained egress traffic control, but at the same time allows you to provide access to the FQDNs encompassing an AKS cluster’s outbound dependencies (something that NSGs can't do). Likewise, you can control ingress traffic and improve security by enabling threat intelligence-based filtering on an Azure Firewall deployed to a shared perimeter network. This filtering can provide alerts, and deny traffic to and from known malicious IP addresses and domains.
 
@@ -64,7 +64,7 @@ FWROUTE_NAME_INTERNET="${PREFIX}-fwinternet"
 
 ### Create a virtual network with multiple subnets
 
-Provision a virtual network with two separate subnets, one for the cluster, one for the firewall. Optionally you could also create one for internal service ingress.
+Create a virtual network with two separate subnets, one for the cluster, one for the firewall. Optionally you could also create one for internal service ingress.
 
 ![Empty network topology](../aks/media/limit-egress-traffic/empty-network.png)
 
@@ -78,7 +78,7 @@ az group create --name $RG --location $LOC
 
 Create a virtual network with two subnets to host the AKS cluster and the Azure Firewall. Each has their own subnet. Let's start with the AKS network.
 
-```
+```azurecli
 # Dedicated virtual network with AKS subnet
 
 az network vnet create \
@@ -128,9 +128,10 @@ az network firewall create -g $RG -n $FWNAME -l $LOC --enable-dns-proxy true
 
 The IP address created earlier can now be assigned to the firewall frontend.
 
+
 > [!NOTE]
 > Set up of the public IP address to the Azure Firewall may take a few minutes.
-> To leverage FQDN on network rules we need DNS proxy enabled, when enabled the firewall will listen on port 53 and will forward DNS requests to the DNS server specified above. This will allow the firewall to translate that FQDN automatically.
+> To leverage FQDN on network rules we need DNS proxy enabled, when enabled the firewall will listen on port 53 and will forward DNS requests to the DNS server specified previously. This will allow the firewall to translate that FQDN automatically.
 
 ```azurecli
 # Configure Firewall IP Config
@@ -154,7 +155,7 @@ FWPRIVATE_IP=$(az network firewall show -g $RG -n $FWNAME --query "ipConfigurati
 
 Azure automatically routes traffic between Azure subnets, virtual networks, and on-premises networks. If you want to change any of Azure's default routing, you do so by creating a route table.
 
-Create an empty route table to be associated with a given subnet. The route table will define the next hop as the Azure Firewall created above. Each subnet can have zero or one route table associated to it.
+Create an empty route table to be associated with a given subnet. The route table will define the next hop as the Azure Firewall created previously. Each subnet can have zero or one route table associated to it.
 
 ```azurecli
 # Create UDR and add a route for Azure Firewall
@@ -164,7 +165,7 @@ az network route-table route create -g $RG --name $FWROUTE_NAME --route-table-na
 az network route-table route create -g $RG --name $FWROUTE_NAME_INTERNET --route-table-name $FWROUTE_TABLE_NAME --address-prefix $FWPUBLIC_IP/32 --next-hop-type Internet
 ```
 
-See [virtual network route table documentation](../virtual-network/virtual-networks-udr-overview.md#user-defined) about how you can override Azure's default system routes or add additional routes to a subnet's route table.
+See [virtual network route table documentation](../virtual-network/virtual-networks-udr-overview.md#user-defined) about how you can override Azure's default system routes or add more routes to a subnet's route table.
 
 ### Adding firewall rules
 
@@ -172,23 +173,23 @@ See [virtual network route table documentation](../virtual-network/virtual-netwo
 > For applications outside of the kube-system or gatekeeper-system namespaces that needs to talk to the API server, an additional network rule to allow TCP communication to port 443 for the API server IP in addition to adding application rule for fqdn-tag AzureKubernetesService is required.
 
 
-Below are three network rules you can use to configure on your firewall, you may need to adapt these rules based on your deployment. The first rule allows access to port 9000 via TCP. The second rule allows access to port 1194 and 123 via UDP. Both these rules will only allow traffic destined to the Azure Region CIDR that we're using, in this case East US. 
+ You can use the following three network rules to configure your firewall.  You might need to adapt these rules based on your deployment. The first rule allows access to port 9000 via TCP. The second rule allows access to port 1194 and 123 via UDP. Both these rules only allow traffic destined to the Azure Region CIDR that we're using, in this case East US. 
 
 Finally, we add a third network rule opening port 123 to an Internet time server FQDN (for example:`ntp.ubuntu.com`)  via UDP. Adding an FQDN as a network rule is one of the specific features of Azure Firewall, and you need to adapt it when using your own options.
 
-After setting the network rules, we'll also add an application rule using the `AzureKubernetesService` that covers the needed FQDNs accessible through TCP port 443 and port 80. In addition, you may need to configure additional network and application rules based on your deployment. For more information, see [Outbound network and FQDN rules for Azure Kubernetes Service (AKS) clusters](../aks/outbound-rules-control-egress.md#required-outbound-network-rules-and-fqdns-for-aks-clusters).
+After setting the network rules, we'll also add an application rule using the `AzureKubernetesService` that covers the needed FQDNs accessible through TCP port 443 and port 80. In addition, you might need to configure more network and application rules based on your deployment. For more information, see [Outbound network and FQDN rules for Azure Kubernetes Service (AKS) clusters](../aks/outbound-rules-control-egress.md#required-outbound-network-rules-and-fqdns-for-aks-clusters).
 
-```azurecli
-
-```
 #### Add FW Network Rules
 
+```azurecli
 az network firewall network-rule create -g $RG -f $FWNAME --collection-name 'aksfwnr' -n 'apiudp' --protocols 'UDP' --source-addresses '*' --destination-addresses "AzureCloud.$LOC" --destination-ports 1194 --action allow --priority 100
 az network firewall network-rule create -g $RG -f $FWNAME --collection-name 'aksfwnr' -n 'apitcp' --protocols 'TCP' --source-addresses '*' --destination-addresses "AzureCloud.$LOC" --destination-ports 9000
 az network firewall network-rule create -g $RG -f $FWNAME --collection-name 'aksfwnr' -n 'time' --protocols 'UDP' --source-addresses '*' --destination-fqdns 'ntp.ubuntu.com' --destination-ports 123
+```
 
 #### Add FW Application Rules
 
+```azurecli
 az network firewall application-rule create -g $RG -f $FWNAME --collection-name 'aksfwar' -n 'fqdn' --source-addresses '*' --protocols 'http=80' 'https=443' --fqdn-tags "AzureKubernetesService" --action allow --priority 100
 ```
 
@@ -196,7 +197,7 @@ See [Azure Firewall documentation](overview.md) to learn more about the Azure Fi
 
 ### Associate the route table to AKS
 
-To associate the cluster with the firewall, the dedicated subnet for the cluster's subnet must reference the route table created above. Association can be done by issuing a command to the virtual network holding both the cluster and firewall to update the route table of the cluster's subnet.
+To associate the cluster with the firewall, the dedicated subnet for the cluster's subnet must reference the route table created previously. Association can be done by issuing a command to the virtual network holding both the cluster and firewall to update the route table of the cluster's subnet.
 
 ```azurecli
 # Associate route table with next hop to Firewall to the AKS subnet
@@ -206,7 +207,7 @@ az network vnet subnet update -g $RG --vnet-name $VNET_NAME --name $AKSSUBNET_NA
 
 ### Deploy AKS with outbound type of UDR to the existing network
 
-Now an AKS cluster can be deployed into the existing virtual network. We'll also use [outbound type `userDefinedRouting`](../aks/egress-outboundtype.md), this feature ensures any outbound traffic is forced through the firewall and no other egress paths exist (by default the Load Balancer outbound type could be used).
+Now an AKS cluster can be deployed into the existing virtual network. You also use [outbound type `userDefinedRouting`](../aks/egress-outboundtype.md), this feature ensures any outbound traffic is forced through the firewall and no other egress paths exist (by default the Load Balancer outbound type could be used).
 
 ![aks-deploy](../aks/media/limit-egress-traffic/aks-udr-fw.png)
 
@@ -262,11 +263,11 @@ az aks get-credentials -g $RG -n $AKSNAME
 
 ## Restrict ingress traffic using Azure Firewall
 
-You can now start exposing services and deploying applications to this cluster. In this example, we expose a public service, but you may also choose to expose an internal service via [internal load balancer](../aks/internal-lb.md).
+You can now start exposing services and deploying applications to this cluster. In this example, we expose a public service, but you can also choose to expose an internal service via [internal load balancer](../aks/internal-lb.md).
 
 ![Public Service DNAT](../aks/media/limit-egress-traffic/aks-create-svc.png)
 
-Deploy the Azure voting app application by copying the yaml below to a file named `example.yaml`.
+Deploy the Azure voting app application by copying the following yaml to a file named `example.yaml`.
 
 ```yaml
 # voting-storage-deployment.yaml
@@ -286,7 +287,7 @@ spec:
     spec:
       containers:
       - name: voting-storage
-        image: mcr.microsoft.com/aks/samples/voting/storage:2.0
+        image: mcr.microsoft.com/azuredocs/voting/storage:2.0
         args: ["--ignore-db-dir=lost+found"]
         resources:
           requests:
@@ -382,7 +383,7 @@ spec:
     spec:
       containers:
       - name: voting-app
-        image: mcr.microsoft.com/aks/samples/voting/app:2.0
+        image: mcr.microsoft.com/azuredocs/voting/app:2.0
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
@@ -443,7 +444,7 @@ spec:
     spec:
       containers:
       - name: voting-analytics
-        image: mcr.microsoft.com/aks/samples/voting/analytics:2.0
+        image: mcr.microsoft.com/azuredocs/voting/analytics:2.0
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
@@ -503,7 +504,7 @@ You need to specify the internal IP address assigned to the load balancer create
 kubectl get services
 ```
 
-The IP address needed will be listed in the EXTERNAL-IP column, similar to the following.
+The IP address needed is listed in the EXTERNAL-IP column, similar to the following.
 
 ```bash
 NAME               TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE

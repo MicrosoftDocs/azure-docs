@@ -6,7 +6,7 @@ ms.author: halkazwini
 ms.reviewer: saggupta
 ms.service: network-watcher
 ms.topic: concept-article
-ms.date: 08/03/2023
+ms.date: 08/10/2023
 ms.custom: subject-monitoring, ignite-2022
 ---
 
@@ -58,7 +58,7 @@ The **Alert** box on the right side of the page provides a view of all alerts ge
 
 ### Resource view
 
-The resource view helps you visualize how a resource is configured. The resource view is currently available for Azure Application Gateway, Azure Virtual WAN, and Azure Load Balancer. For example, to access the resource view of an application gateway, select the topology icon next to the application gateway name in the metrics grid view:
+The resource view helps you visualize how a resource is configured. For example, to access the resource view of an application gateway, select the topology icon next to the application gateway name in the metrics grid view:
 
 :::image type="content" source="./media/network-insights-overview/access-resource-view.png" alt-text="Screenshot shows how to access the resource view of an application gateway in Azure Monitor network insights." lightbox="./media/network-insights-overview/access-resource-view.png":::
 

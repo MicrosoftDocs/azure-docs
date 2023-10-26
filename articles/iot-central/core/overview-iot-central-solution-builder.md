@@ -100,7 +100,7 @@ Scenarios that process IoT data outside of IoT Central to extract business value
 
 - Streaming computation, monitoring, and diagnostics
 
-  IoT Central provides a scalable and reliable infrastructure to capture streaming data from millions of connected devices. Sometimes, you need to run stream computations over the hot or warm data paths to meet business requirements. You can also merge IoT data with data in external stores such as Azure Data explorer to provide enhanced diagnostics.
+  IoT Central provides a scalable and reliable infrastructure to capture streaming data from hundreds of thousands of connected devices. Sometimes, you need to run stream computations over the hot or warm data paths to meet business requirements. You can also merge IoT data with data in external stores such as Azure Data explorer to provide enhanced diagnostics.
 
 - Analyze and visualize IoT data alongside business data
 

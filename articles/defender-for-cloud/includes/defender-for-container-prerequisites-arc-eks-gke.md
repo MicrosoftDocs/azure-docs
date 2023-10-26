@@ -9,7 +9,7 @@ author: dcurwin
 
 ## Network requirements
 
-Validate the following endpoints are configured for outbound access so that the Defender extension can connect to Microsoft Defender for Cloud to send security data and events:
+Validate the following endpoints are configured for outbound access so that the Defender agent can connect to Microsoft Defender for Cloud to send security data and events:
 
 For public cloud deployments:
 

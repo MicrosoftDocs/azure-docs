@@ -4,7 +4,7 @@ description: This article lists Microsoft Defender for Cloud's security recommen
 author: dcurwin
 ms.service: defender-for-cloud
 ms.topic: reference
-ms.date: 01/24/2023
+ms.date: 09/27/2023
 ms.author: dacurwin
 ms.custom: generated
 ---
@@ -14,11 +14,11 @@ This article lists the recommendations you might see in Microsoft Defender for C
 shown in your environment depend on the resources you're protecting and your customized
 configuration.
 
-Recommendations in Defender for Cloud are based on the [Microsoft cloud security benchmark](/security/benchmark/azure/introduction). 
-the Microsoft cloud security benchmark is the Microsoft-authored set of guidelines for security 
-and compliance best practices based on common compliance frameworks. This widely respected benchmark 
-builds on the controls from the [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) 
-and the [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) with a focus on 
+Recommendations in Defender for Cloud are based on the [Microsoft cloud security benchmark](/security/benchmark/azure/introduction).
+the Microsoft cloud security benchmark is the Microsoft-authored set of guidelines for security
+and compliance best practices based on common compliance frameworks. This widely respected benchmark
+builds on the controls from the [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/)
+and the [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) with a focus on
 cloud-centric security.
 
 To learn about how to respond to these recommendations, see
@@ -51,8 +51,6 @@ impact on your secure score.
 ## <a name='recs-data'></a>Data recommendations
 
 [!INCLUDE [asc-recs-data](../../includes/asc-recs-data.md)]
-
-[!INCLUDE [devops-recommendations](includes/defender-for-devops-recommendations.md)]
 
 ## <a name='recs-identityandaccess'></a>IdentityAndAccess recommendations
 
@@ -87,6 +85,21 @@ impact on your secure score.
 (Preview) API Management should disable public network access to the service configuration endpoints|To improve the security of API Management services, restrict connectivity to service configuration endpoints, like direct access management API, Git configuration management endpoint, or self-hosted gateways configuration endpoint.| Medium
 (Preview) API Management minimum API version should be set to 2019-12-01 or higher|To prevent service secrets from being shared with read-only users, the minimum API version should be set to 2019-12-01 or higher.|Medium
 (Preview) API Management calls to API backends should be authenticated|Calls from API Management to backends should use some form of authentication, whether via certificates or credentials. Does not apply to Service Fabric backends.|Medium
+
+## AI recommendations
+
+| Recommendation                                               | Description & related policy                                 | Severity |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | -------- |
+| Resource logs in Azure Machine Learning Workspaces should be enabled (Preview) | Resource logs enable recreating activity trails to use for investigation purposes when a security incident occurs or when your network is compromised. | Medium   |
+| Azure Machine Learning Workspaces should disable public network access (Preview) | Disabling public network access improves security by ensuring that the Machine Learning Workspaces aren't exposed on the public internet. You can control exposure of your workspaces by creating private endpoints instead. For more information, see [Configure a private endpoint for an Azure Machine Learning workspace](/azure/machine-learning/how-to-configure-private-link). | Medium   |
+| Azure Machine Learning Computes should be in a virtual network (Preview) | Azure Virtual Networks provide enhanced security and isolation for your Azure Machine Learning Compute Clusters and Instances, as well as subnets, access control policies, and other features to further restrict access. When a compute is configured with a virtual network, it is not publicly addressable and can only be accessed from virtual machines and applications within the virtual network. | Medium   |
+| Azure Machine Learning Computes should have local authentication methods disabled (Preview) | Disabling local authentication methods improves security by ensuring that Machine Learning Computes require Azure Active Directory identities exclusively for authentication. For more information, see [Azure Policy Regulatory Compliance controls for Azure Machine Learning](/azure/machine-learning/security-controls-policy). | Medium   |
+| Azure Machine Learning compute instances should be recreated to get the latest software updates (Preview) | Ensure Azure Machine Learning compute instances run on the latest available operating system. Security is improved and vulnerabilities reduced by running with the latest security patches. For more information, see [Vulnerability management for Azure Machine Learning](/azure/machine-learning/concept-vulnerability-management#compute-instance). | Medium   |
+| Resource logs in Azure Databricks Workspaces should be enabled (Preview) | Resource logs enable recreating activity trails to use for investigation purposes when a security incident occurs or when your network is compromised. | Medium   |
+| Azure Databricks Workspaces should disable public network access (Preview) | Disabling public network access improves security by ensuring that the resource isn't exposed on the public internet. You can control exposure of your resources by creating private endpoints instead. For more information, see [Enable Azure Private Link](/azure/databricks/administration-guide/cloud-configurations/azure/private-link). | Medium   |
+| Azure Databricks Clusters should disable public IP (Preview) | Disabling public IP of clusters in Azure Databricks Workspaces improves security by ensuring that the clusters aren't exposed on the public internet. For more information, see [Secure cluster connectivity](/azure/databricks/security/network/secure-cluster-connectivity). | Medium   |
+| Azure Databricks Workspaces should be in a virtual network (Preview) | Azure Virtual Networks provide enhanced security and isolation for your Azure Databricks Workspaces, as well as subnets, access control policies, and other features to further restrict access. For more information, see [Deploy Azure Databricks in your Azure virtual network](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject). | Medium   |
+| Azure Databricks Workspaces should use private link (Preview) | Azure Private Link lets you connect your virtual networks to Azure services without a public IP address at the source or destination. The Private Link platform handles the connectivity between the consumer and services over the Azure backbone network. By mapping private endpoints to Azure Databricks workspaces, you can reduce data leakage risks. For more information, see [Create the workspace and private endpoints in the Azure portal UI](/azure/databricks/administration-guide/cloud-configurations/azure/private-link-standard#create-the-workspace-and-private-endpoints-in-the-azure-portal-ui). | Medium   |
 
 ## Deprecated recommendations
 

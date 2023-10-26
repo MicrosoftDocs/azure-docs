@@ -5,7 +5,7 @@ ms.topic: install-set-up-deploy
 ms.date: 06/29/2023
 ---
 
-# Protect your Google Cloud Platform (GCP) project containers with Defender for Containers
+# Protect your Google Cloud Platform (GCP) containers with Defender for Containers
 
 Defender for Containers in Microsoft Defender for Cloud is the cloud-native solution that is used to secure your containers so you can improve, monitor, and maintain the security of your clusters, containers, and their applications.
 
@@ -70,7 +70,7 @@ You can learn more about Defender for Container's pricing on the [pricing page](
 
 ## Deploy the solution to specific clusters
 
-If you disabled any of the default auto provisioning configurations to Off, during the [GCP connector onboarding process](quickstart-onboard-gcp.md#configure-the-defender-for-containers-plan), or afterwards. You need to manually install Azure Arc-enabled Kubernetes, the Defender extension, and the Azure Policy extensions to each of your GKE clusters to get the full security value out of Defender for Containers.
+If you disabled any of the default auto provisioning configurations to Off, during the [GCP connector onboarding process](quickstart-onboard-gcp.md#configure-the-defender-for-containers-plan), or afterwards. You need to manually install Azure Arc-enabled Kubernetes, the Defender agent, and Azure Policy for Kubernetes to each of your GKE clusters to get the full security value out of Defender for Containers.
 
 There are two dedicated Defender for Cloud recommendations you can use to install the extensions (and Arc if necessary):
 
@@ -88,7 +88,7 @@ There are two dedicated Defender for Cloud recommendations you can use to instal
 
 1. In the Defender for Cloud menu, select **Recommendations**.
 
-1. From Defender for Cloud's **Recommendations** page, search for one of the recommendations by name.
+1. From Defender for Cloud's **Recommendations** page, search for each one of the recommendations above by name.
 
     :::image type="content" source="media/tutorial-enable-containers-gcp/recommendation-search.png" alt-text="Screenshot showing how to search for the recommendation." lightbox="media/tutorial-enable-containers-gcp/recommendation-search-expanded.png":::
 

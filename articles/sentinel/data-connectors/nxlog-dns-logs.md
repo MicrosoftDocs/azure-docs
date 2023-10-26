@@ -3,14 +3,14 @@ title: "NXLog DNS Logs connector for Microsoft Sentinel"
 description: "Learn how to install the connector NXLog DNS Logs to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 07/26/2023
+ms.date: 10/23/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
 # NXLog DNS Logs connector for Microsoft Sentinel
 
-The NXLog DNS Logs data connector uses Event Tracing for Windows ([ETW](/windows/apps/trace-processing/overview)) for collecting both Audit and Analytical DNS Server events. The [NXLog *im_etw* module](https://nxlog.co/documentation/nxlog-user-guide/im_etw.html) reads event tracing data directly for maximum efficiency, without the need to capture the event trace into an .etl file. This REST API connector can forward DNS Server events to Microsoft Sentinel in real time.
+The NXLog DNS Logs data connector uses Event Tracing for Windows ([ETW](/windows/apps/trace-processing/overview)) for collecting both Audit and Analytical DNS Server events. The [NXLog *im_etw* module](https://docs.nxlog.co/refman/current/im/etw.html) reads event tracing data directly for maximum efficiency, without the need to capture the event trace into an .etl file. This REST API connector can forward DNS Server events to Microsoft Sentinel in real time.
 
 ## Connector attributes
 
@@ -18,7 +18,7 @@ The NXLog DNS Logs data connector uses Event Tracing for Windows ([ETW](/windows
 | --- | --- |
 | **Log Analytics table(s)** | NXLog_DNS_Server_CL<br/> |
 | **Data collection rules support** | Not currently supported |
-| **Supported by** | [NXLog](https://nxlog.co/user?destination=node/add/support-ticket) |
+| **Supported by** | [NXLog](https://nxlog.co/support-tickets/add/support-ticket) |
 
 ## Query samples
 
@@ -70,7 +70,7 @@ ASimDnsMicrosoftNXLog
    >  This data connector depends on parsers based on Kusto functions deployed with the Microsoft Sentinel Solution to work as expected. The [**ASimDnsMicrosoftNXLog **](https://aka.ms/sentinel-nxlogdnslogs-parser) is designed to leverage Microsoft Sentinel's built-in DNS-related analytics capabilities.
 
 
-Follow the step-by-step instructions in the *NXLog User Guide* Integration Topic [Microsoft Sentinel](https://nxlog.co/documentation/nxlog-user-guide/sentinel.html) to configure this connector.
+Follow the step-by-step instructions in the *NXLog User Guide* Integration Topic [Microsoft Sentinel](https://docs.nxlog.co/userguide/integrate/microsoft-azure-sentinel.html) to configure this connector.
 
 
 

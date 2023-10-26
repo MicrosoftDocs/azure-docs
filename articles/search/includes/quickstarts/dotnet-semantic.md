@@ -6,9 +6,9 @@ ms.topic: include
 ms.date: 06/09/2023
 ---
 
-Build a console application using the [**Azure.Search.Documents**](/dotnet/api/overview/azure/search.documents-readme) client library to add semantic search to an existing index. Alternatively, you can [download the source code](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/main/quickstart-semantic-search/SemanticSearchQuickstart) to start with a finished project or follow these steps to create your own.
+Build a console application using the [**Azure.Search.Documents**](/dotnet/api/overview/azure/search.documents-readme) client library to add semantic ranking to an existing index. Alternatively, you can [download the source code](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/main/quickstart-semantic-search/SemanticSearchQuickstart) to start with a finished project or follow these steps to create your own.
 
-Semantic search is in public preview and available in beta versions of the Azure SDK for .NET (`11.5.0-beta.2`).
+Semantic ranking is in public preview and available in beta versions of the Azure SDK for .NET (`11.5.0-beta.2`).
 
 #### Set up your environment
 
@@ -113,11 +113,11 @@ Azure Cognitive Search searches over content stored in the service. The code for
 
 #### Search an index
 
-Here's a query that invokes semantic search, with search options for specifying parameters:
+Here's a query that invokes semantic ranking, with search options for specifying parameters:
 
 ```csharp
 // Query 4
-Console.WriteLine("Query #3: Invoke semantic search");
+Console.WriteLine("Query #3: Invoke semantic ranking");
 
 options = new SearchOptions()
 {
@@ -142,7 +142,7 @@ For comparison, here are results from a query that uses the default BM25 ranking
 
 In contrast, when semantic ranking is applied to the same query ("what hotel has a good restaurant on site"), the results are reranked based on semantic relevance to the query. This time, the top result is the hotel with the restaurant, which aligns better to user expectations.
 
-:::image type="content" source="../../media/quickstart-semantic/semantic-ranking.png" alt-text="Screenshot showing matches ranked based on semantic search.":::
+:::image type="content" source="../../media/quickstart-semantic/semantic-ranking.png" alt-text="Screenshot showing matches ranked based on semantic ranking.":::
 
 #### Run the program
 

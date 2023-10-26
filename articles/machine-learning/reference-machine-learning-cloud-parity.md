@@ -58,6 +58,7 @@ The information in the rest of this document provides information on what featur
 | **SDK support** |  |  | | 
 | [Python SDK support](/python/api/overview/azure/ml/)                                                         | GA                   | YES                | YES         |
 | **[Security](concept-enterprise-security.md)** |   | | | 
+| Managed virtual network support                                            | Preview                   | Preview                | Preview         |
 | Virtual Network (VNet) support for training                                | GA                   | YES                | YES         |
 | Virtual Network (VNet) support for inference                               | GA                   | YES                | YES         |
 | Scoring endpoint authentication                                            | Public Preview       | YES                | YES         |
@@ -166,6 +167,7 @@ The information in the rest of this document provides information on what featur
 | **Compute instance** |    | | |
 | Managed compute Instances for integrated Notebooks                         | GA               | YES        | N/A        |
 | Jupyter, JupyterLab Integration                                            | GA               | YES       | N/A        |
+| Managed virtual network support                                            | Preview               | Preview        | N/A        |
 | Virtual Network (VNet) support                                             | GA   | YES       | N/A        |
 | **SDK support** |    | | |
 | Python SDK support                                                         | GA               | YES       | N/A        |
@@ -228,7 +230,7 @@ The information in the rest of this document provides information on what featur
     |------------------|--------------------------------------------|--------------------------------------------|
     | Management plane | `https://management.azure.com/`              | `https://management.chinacloudapi.cn/`       |
     | Data plane       | `https://{location}.experiments.azureml.net` | `https://{location}.experiments.ml.azure.cn` |
-    | Azure Active Directory              | `https://login.microsoftonline.com`          | `https://login.chinacloudapi.cn`             |
+    | Microsoft Entra ID              | `https://login.microsoftonline.com`          | `https://login.chinacloudapi.cn`             |
 
 * Sample notebook may not work, if it needs access to public data.
 * IP address ranges: The CLI command used in the [required public internet access](how-to-secure-training-vnet.md#required-public-internet-access-to-train-models) instructions does not return IP ranges. Use the [Azure IP ranges and service tags for Microsoft Azure operated by 21Vianet](https://www.microsoft.com//download/details.aspx?id=57062) instead.

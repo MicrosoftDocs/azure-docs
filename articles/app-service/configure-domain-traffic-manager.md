@@ -5,6 +5,8 @@ ms.assetid: 0f96c0e7-0901-489b-a95a-e3b66ca0a1c2
 ms.topic: article
 ms.date: 03/05/2020
 ms.custom: seodec18
+author: msangapu-msft
+ms.author: msangapu
 
 ---
 # Configure a custom domain name in Azure App Service with Traffic Manager integration

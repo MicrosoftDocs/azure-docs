@@ -4,7 +4,7 @@ metadata:
   description: Get answers to frequently asked questions about Azure Disk Backup
   ms.topic: faq
   ms.service: backup
-  ms.date: 05/27/2021
+  ms.date: 08/23/2023
   author: AbhishekMallick-MS
   ms.author: v-abhmallick
 title: Frequently asked questions about Azure Disk Backup
@@ -46,7 +46,7 @@ sections:
       - question: |
           Why does backup policy limit the retention duration?
         answer: |
-          Azure Disk Backup uses incremental snapshots, which are limited to 200 snapshots per disk. To allow you to take on-demand backups aside from scheduled backups, backup policy limits the total backups to 180. Learn more about [incremental snapshots](../virtual-machines/disks-incremental-snapshots.md#restrictions) for managed disks.
+          Azure Disk Backup uses incremental snapshots, which are limited to 500 snapshots per disk. To allow you to take on-demand backups aside from scheduled backups, backup policy limits the total backups to 450. Learn more about [incremental snapshots](../virtual-machines/disks-incremental-snapshots.md#restrictions) for managed disks.
           
       - question: |
           How does the hourly and daily backup frequency work in the backup policy?

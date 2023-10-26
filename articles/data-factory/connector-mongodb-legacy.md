@@ -8,14 +8,11 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 01/25/2023
+ms.date: 10/20/2023
 ---
 
 # Copy data from MongoDB using Azure Data Factory or Synapse Analytics (legacy)
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](v1/data-factory-on-premises-mongodb-connector.md)
-> * [Current version](connector-mongodb.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from a MongoDB database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
@@ -224,7 +221,7 @@ Virtual tables refer to the data in the real table, enabling the driver to acces
 
 ### Example
 
-For example, ExampleTable here is a MongoDB table that has one column with an array of Objects in each cell – Invoices, and one column with an array of Scalar types – Ratings.
+For example, ExampleTable here is a MongoDB table that has one column with an array of Objects in each cell - Invoices, and one column with an array of Scalar types - Ratings.
 
 | _id | Customer Name | Invoices | Service Level | Ratings |
 | --- | --- | --- | --- | --- |

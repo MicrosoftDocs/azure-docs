@@ -1,15 +1,17 @@
 ---
 title: Create a virtual machine on VMware vCenter using Azure Arc
-description: In this quickstart, you'll learn how to create a virtual machine on VMware vCenter using Azure Arc
-ms.topic: quickstart 
-ms.date: 09/29/2021
+description: In this quickstart, you learn how to create a virtual machine on VMware vCenter using Azure Arc
+ms.topic: tutorial
+ms.date: 10/23/2023
+ms.service: azure-arc
+ms.subservice: azure-arc-vmware-vsphere
 
 # Customer intent: As a self-service user, I want to provision a VM using vCenter resources through Azure so that I can deploy my code
 ---
 
-# Quickstart: Create a virtual machine on VMware vCenter using Azure Arc
+# Create a virtual machine on VMware vCenter using Azure Arc
 
-Once your administrator has connected a VMware vCenter to Azure, represented VMware vCenter resources in Azure, and provided you permissions on those resources, you'll create a virtual machine.
+Once your administrator has connected a VMware vCenter to Azure, represented VMware vCenter resources in Azure, and provided you with permissions on those resources, you'll create a virtual machine.
 
 ## Prerequisites
 
@@ -27,7 +29,7 @@ Once your administrator has connected a VMware vCenter to Azure, represented VMw
 
    :::image type="content" source="media/browse-virtual-machines.png" alt-text="Screenshot showing the unified browse experience for Azure and Arc virtual machines.":::
 
-2. Click **Add** and then select **Azure Arc machine** from the drop-down.
+2. Select **Add** and then select **Azure Arc machine** from the drop-down.
 
    :::image type="content" source="media/create-azure-arc-virtual-machine-1.png" alt-text="Screenshot showing the Basic tab for creating an Azure Arc virtual machine.":::
 
@@ -54,8 +56,8 @@ Once your administrator has connected a VMware vCenter to Azure, represented VMw
 
 10. (Optional) Add tags to the VM resource if necessary.
 
-11. Select **Create** after reviewing all the properties.  It should take a few minutes to provision the VM.
+11. Select **Create** after reviewing all the properties.  It should take a few minutes to create the VM.
 
 ## Next steps
 
-- [Perform operations on VMware VMs in Azure](manage-vmware-vms-in-azure.md)
+[Perform operations on VMware VMs in Azure](perform-vm-ops-through-azure.md).

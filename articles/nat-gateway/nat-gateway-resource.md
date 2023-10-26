@@ -81,15 +81,15 @@ NAT Gateway interacts with IP and IP transport headers of UDP and TCP flows. NAT
 
 ## TCP reset
 
-A TCP reset packet is sent when a NAT gateway detects traffic on a connection flow that doesn't exist. TCP reset is uni-directional for a NAT gateway.
+A TCP reset packet is sent when a NAT gateway detects traffic on a connection flow that doesn't exist. The TCP reset packet indicates to the receiving endpoint that the release of the connection flow has occurred and any future communication on this same TCP connection will fail. TCP reset is uni-directional for a NAT gateway.
 
 The connection flow may not exist if:
 
-* The connection flow idle timeout was reached and caused the connection to close earlier.
+* The idle timeout was reached after a period of inactivity on the connection flow and the connection is silently dropped.
 
-* The sender, either from the Azure network side or from the public internet side, sent traffic after the connection closed.
+* The sender, either from the Azure network side or from the public internet side, sent traffic after the connection dropped.
 
-NAT Gateway silently drops a connection flow when the idle timeout of a flow is reached. A TCP reset packet is sent only upon detecting traffic on the closed connection flow. This operation means a TCP reset packet may not be sent right away.
+A TCP reset packet is sent only upon detecting traffic on the dropped connection flow. This operation means a TCP reset packet may not be sent right away after a connection flow has dropped.
 
 The system sends a TCP reset packet in response to detecting traffic on a nonexisting connection flow, regardless of whether the traffic originates from the Azure network side or the public internet side.
 
@@ -97,9 +97,9 @@ The system sends a TCP reset packet in response to detecting traffic on a nonexi
 
 A NAT gateway provides a configurable idle timeout range of 4 minutes to 120 minutes for TCP protocols. UDP protocols have a nonconfigurable idle timeout of 4 minutes.
 
-When a connection goes idle, the NAT gateway holds onto SNAT ports until the connection idle times out. Because long idle timeout timers can unnecessarily increase the likelihood of SNAT port exhaustion, it isn't recommended to increase the TCP idle timeout duration to longer than the default time of 4 minutes. The idle timer doesn't affect a flow that never goes idle.
+When a connection goes idle, the NAT gateway holds onto the SNAT port until the connection idle times out. Because long idle timeout timers can unnecessarily increase the likelihood of SNAT port exhaustion, it isn't recommended to increase the TCP idle timeout duration to longer than the default time of 4 minutes. The idle timer doesn't affect a flow that never goes idle.
 
-TCP keepalives can be used to provide a pattern of refreshing long idle connections and endpoint liveness detection. For more information, see these [.NET examples] (/dotnet/api/system.net.servicepoint.settcpkeepalive?view=net-7.0). TCP keepalives appear as duplicate ACKs to the endpoints, are low overhead, and invisible to the application layer.
+TCP keepalives can be used to provide a pattern of refreshing long idle connections and endpoint liveness detection. For more information, see these [.NET examples](/dotnet/api/system.net.servicepoint.settcpkeepalive). TCP keepalives appear as duplicate ACKs to the endpoints, are low overhead, and invisible to the application layer.
 
 UDP idle timeout timers aren't configurable, UDP keepalives should be used to ensure that the idle timeout value isn't reached, and that the connection is maintained. Unlike TCP connections, a UDP keepalive enabled on one side of the connection only applies to traffic flow in one direction. UDP keepalives must be enabled on both sides of the traffic flow in order to keep the traffic flow alive.
 
@@ -141,7 +141,7 @@ The total number of connections that a NAT gateway can support at any given time
 
 ## Limitations
 
-- Basic load balancers and basic public IP addresses aren't compatible with NAT. Use standard SKU load balancers and public IPs instead.
+- Basic load balancers and basic public IP addresses aren't compatible with NAT gateway. Use standard SKU load balancers and public IPs instead.
   
   - To upgrade a load balancer from basic to standard, see [Upgrade Azure Public Load Balancer](../load-balancer/upgrade-basic-standard.md)
   

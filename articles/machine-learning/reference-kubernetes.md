@@ -163,7 +163,10 @@ spec:
        storage: 1Gi
 ```
 > [!IMPORTANT]
-> Only training job pods and batch-deployment pods will have access to the PVC(s); managed and Kubernetes online-deployment pods will not. In addition, only the pods in the same Kubernetes namespace with the PVC(s) will be mounted the volume. Data scientist is able to access the `mount path` specified in the PVC annotation in the job.
+> * Only the command job/component, hyperdrive job/component, and batch-deployment support custom data storage from PVC(s). 
+    > * The real-time online endpoint, AutoML job and PRS job do not support custom data storage from PVC(s).
+> * In addition, only the pods in the same Kubernetes namespace with the PVC(s) will be mounted the volume. Data scientist is able to access the `mount path` specified in the PVC annotation in the job.
+> AutoML job and Prs job will not have access to the PVC(s).
 
 
 ## Supported Azure Machine Learning taints and tolerations

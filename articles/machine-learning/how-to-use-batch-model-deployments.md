@@ -276,6 +276,7 @@ A model deployment is a set of resources required for hosting the model that doe
     | `settings.retry_settings.timeout` | [Optional] The timeout in seconds for a `scoring_script` `run()` for scoring a mini batch. |
     | `settings.error_threshold` | [Optional] The number of input file scoring failures that should be ignored. If the error count for the entire input goes above this value, the batch scoring job will be terminated. The example uses `-1`, which indicates that any number of failures is allowed without terminating the batch scoring job. | 
     | `settings.logging_level` | [Optional] Log verbosity. Values in increasing verbosity are: WARNING, INFO, and DEBUG. |
+    | `settings.environment_variables` | [Optional] Dictionary of environment variable name-value pairs to set for each batch scoring job.  |
     
     # [Python](#tab/python)
     
@@ -302,7 +303,7 @@ A model deployment is a set of resources required for hosting the model that doe
     | `settings.retry_settingstimeout` | The timeout in seconds for scoring a mini batch (default is 30) |
     | `settings.output_action` | Indicates how the output should be organized in the output file. Allowed values are `append_row` or `summary_only`. Default is `append_row` |
     | `settings.logging_level` | The log verbosity level. Allowed values are `warning`, `info`, `debug`. Default is `info`. |
-    | `environment_variables` | Dictionary of environment variable name-value pairs to set for each batch scoring job.  |
+    | `settings.environment_variables` | Dictionary of environment variable name-value pairs to set for each batch scoring job.  |
 
     # [Studio](#tab/studio)
    

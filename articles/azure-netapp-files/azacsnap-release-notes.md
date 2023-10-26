@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/27/2023
+ms.date: 08/21/2023
 ms.author: phjensen
 ---
 
@@ -24,6 +24,25 @@ Download the [latest release](https://aka.ms/azacsnapinstaller) of the installer
 
 For specific information on Preview features, refer to the [AzAcSnap Preview](azacsnap-preview.md) page.
 
+## Aug-2023
+
+### AzAcSnap 9 (Build: 1AE5640)
+
+AzAcSnap 9 is being released with the following fixes and improvements:
+
+- Features moved to GA (generally available):
+  - IBM Db2 Database support.
+  - [System Managed Identity](azacsnap-installation.md#azure-system-managed-identity) support for easier setup while improving security posture.
+- Fixes and Improvements:
+  - Configure (`-c configure`) changes:
+    - Allows for a blank value for `authFile` in the configuration file when using System Managed Identity.
+- Features added to [Preview](azacsnap-preview.md):
+  - None.
+- Features removed:
+  - Azure Key Vault support has been removed from Preview, it isn't needed now AzAcSnap supports a System Managed Identity directly.
+
+Download the [AzAcSnap 9](https://aka.ms/azacsnap-9) installer.
+
 ## Jun-2023
 
 ### AzAcSnap 8b (Build: 1AD3679)
@@ -32,7 +51,7 @@ AzAcSnap 8b is being released with the following fixes and improvements:
 
 - Fixes and Improvements:
   - General improvement to `azacsnap` command exit codes.
-    - `azacsnap` should return an exit code of 0 (zero) when it has run as expected, otherwise it should return an exit code of non-zero.  For example, running `azacsnap` will return non-zero as it has not done anything and will show usage information whereas `azacsnap -h` will return exit-code of zero as it's expected to return usage information.
+    - `azacsnap` should return an exit code of 0 (zero) when it has run as expected, otherwise it should return an exit code of non-zero.  For example, running `azacsnap` returns non-zero as it hasn't done anything and shows usage information whereas `azacsnap -h` returns exit-code of zero as it's performing as expected by returning usage information.
     - Any failure in `--runbefore` exits before any backup activity and returns the `--runbefore` exit code.
     - Any failure in `--runafter` returns the `--runafter` exit code.
   - Backup (`-c backup`) changes:
@@ -64,7 +83,7 @@ AzAcSnap 8 is being released with the following fixes and improvements:
   - Backup (`-c backup`) changes:
     - Fix for incorrect error output when using `-c backup` and the database has ‘backint’ configured.
     - Remove lower-case conversion for anfBackup rename-only option using `-c backup` so the snapshot name maintains case of Volume name.
-    - Fix for when a snapshot is created even though SAP HANA wasn't put into backup-mode.  Now if SAP HANA cannot be put into backup-mode, AzAcSnap immediately exits with an error.
+    - Fix for when a snapshot is created even though SAP HANA wasn't put into backup-mode.  Now if SAP HANA can't be put into backup-mode, AzAcSnap immediately exits with an error.
   - Details (`-c details`) changes:
     - Fix for listing snapshot details with `-c details` when using Azure Large Instance storage.
   - Logging enhancements:
@@ -190,8 +209,8 @@ AzAcSnap v5.1 Preview (Build: 20220125.85030) has been released with the followi
 
 AzAcSnap v5.0.2 (Build: 20210827.19086) is provided as a patch update to the v5.0 branch with the following fixes and improvements:
 
-- Ignore `ssh` 255 exit codes.  In some cases the `ssh` command, which is used to communicate with storage on Azure Large Instance, would emit an exit code of 255 when there were no errors or execution failures  (refer `man ssh` "EXIT STATUS") - then AzAcSnap would trap this exit code as a failure and abort.  With this update extra verification is done to validate correct execution, this includes parsing `ssh` STDOUT and STDERR for errors in addition to traditional exit code checks.
-- Fix the installer's check for the location of the hdbuserstore.  The installer would search the filesystem for an incorrect source directory for the hdbuserstore location for the user running the install - the installer now searches for `~/.hdb`.  This fix is applicable to systems (for example, Azure Large Instance) where the hdbuserstore was pre-configured for the `root` user before installing `azacsnap`.
+- Ignore `ssh` 255 exit codes.  In some cases the `ssh` command, which is used to communicate with storage on Azure Large Instance, would emit an exit code of 255 when there were no errors or execution failures  (refer `man ssh` "EXIT STATUS") - then AzAcSnap would trap this exit code as a failure and abort.  With this update extra verification is done to validate correct execution, this validation includes parsing `ssh` STDOUT and STDERR for errors in addition to traditional exit code checks.
+- Fix the installer's check for the location of the hdbuserstore.  The installer would search the filesystem for an incorrect source directory for the hdbuserstore location for the user running the install - the installer now searches for `~/.hdb`.  This fix is applicable to systems (for example, Azure Large Instance) where the hdbuserstore was preconfigured for the `root` user before installing `azacsnap`.
 - Installer now shows the version it will install/extract (if the installer is run without any arguments).
 
 ## May-2021
@@ -217,7 +236,7 @@ AzAcSnap v5.0 (Build: 20210421.6349) has been made Generally Available and for t
 
 AzAcSnap v5.0 Preview (Build: 20210318.30771) has been released with the following fixes and improvements:
 
-- Removed the need to add the AZACSNAP user into the SAP HANA Tenant DBs, see the [Enable communication with database](azacsnap-installation.md#enable-communication-with-database) section.
+- Removed the need to add the AZACSNAP user into the SAP HANA Tenant DBs, see the [Enable communication with database](azacsnap-installation.md#enable-communication-with-the-database) section.
 - Fix to allow a [restore](azacsnap-cmd-ref-restore.md) with volumes configured with Manual QOS.
 - Added mutex control to throttle SSH connections for Azure Large Instance.
 - Fix installer for handling path names with spaces and other related issues.

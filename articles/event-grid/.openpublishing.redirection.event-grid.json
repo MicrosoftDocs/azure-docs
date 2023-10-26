@@ -286,6 +286,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "mqtt-client-authorization-use-rbac.md",
+      "redirect_url": "/azure/event-grid/mqtt-client-azure-ad-token-and-rbac",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "event-schema-farmbeats.md",
       "redirect_url": "/azure/event-grid/system-topics",
       "redirect_document_id": false

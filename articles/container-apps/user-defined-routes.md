@@ -6,13 +6,13 @@ author: cachai
 ms.service: container-apps
 ms.author: cachai
 ms.topic: article
-ms.date: 03/29/2023
+ms.date: 08/29/2023
 ---
 
-# Control outbound traffic with user defined routes (preview)
+# Control outbound traffic with user defined routes
 
->[!Note]
-> This feature is in preview and is only supported for the workload profiles environment. User defined routes only work with an internal Azure Container Apps environment.
+> [!NOTE]
+> This feature is only supported for the workload profiles environment type. User defined routes only work with an internal Azure Container Apps environment.
 
 This article shows you how to use user defined routes (UDR) with [Azure Firewall](../firewall/overview.md) to lock down outbound traffic from your Container Apps to back-end Azure resources or other network resources.
 
@@ -24,7 +24,7 @@ For more information on networking concepts in Container Apps, see [Networking E
 
 ## Prerequisites
 
-* **Internal environment**: An internal container app environment on the workload profiles environment that's integrated with a custom virtual network. When you create an internal container app environment, your container app environment has no public IP addresses, and all traffic is routed through the virtual network. For more information, see the [guide for how to create a container app environment on the workload profiles environment](./workload-profiles-manage-cli.md).
+* **Workload profiles environment**: A workload profiles environment that's integrated with a custom virtual network. For more information, see the [guide for how to create a container app environment on the workload profiles environment](./workload-profiles-manage-cli.md?pivots=aca-vnet-custom).
 
 * **`curl` support**: Your container app must have a container that supports `curl` commands. In this how-to, you use `curl` to verify the container app is deployed correctly. If you don't have a container app with `curl` deployed, you can deploy the following container which supports `curl`, `mcr.microsoft.com/k8se/quickstart:latest`.
 
@@ -122,7 +122,7 @@ Your virtual networks in Azure have default route tables in place when you creat
 ## Configure firewall policies
 
 > [!NOTE]
-> When using UDR with Azure Firewall in Azure Container Apps, you will need to add certain FQDN's and service tags to the allowlist for the firewall. Please refer to [configuring UDR with Azure Firewall](./networking.md#configuring-udr-with-azure-firewall---preview) to determine which service tags you need.
+> When using UDR with Azure Firewall in Azure Container Apps, you will need to add certain FQDN's and service tags to the allowlist for the firewall. Please refer to [configuring UDR with Azure Firewall](./networking.md#configuring-udr-with-azure-firewall) to determine which service tags you need.
 
 Now, all outbound traffic from your container app is routed to the firewall. Currently, the firewall still allows all outbound traffic through. In order to manage what outbound traffic is allowed or denied, you need to configure firewall policies.
 

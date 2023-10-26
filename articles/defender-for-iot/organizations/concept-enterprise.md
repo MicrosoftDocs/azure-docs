@@ -16,7 +16,7 @@ While the number of IoT devices continues to grow, they often lack the security 
 
 ## IoT security across Microsoft 365 Defender and Azure
 
-Defender for IoT provides IoT security functionality across both the Microsoft 365 Defender and [Azure portals](https://ms.portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started).
+Defender for IoT provides IoT security functionality across both the Microsoft 365 Defender and [Azure portals](https://portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started).
 
 [Add an Enterprise IoT plan](eiot-defender-for-endpoint.md) in the **Settings** \> **Device discovery** \> **Enterprise IoT** page in Microsoft 365 Defender to view IoT-specific alerts, recommendations, and vulnerability data in Microsoft 365 Defender. The extra security value is provided for IoT devices detected by Defender for Endpoint.  
 

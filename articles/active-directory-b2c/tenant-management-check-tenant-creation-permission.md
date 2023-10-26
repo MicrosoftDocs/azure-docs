@@ -36,7 +36,7 @@ As a *Global Administrator* in an Azure AD B2C tenant, you can restrict non-admi
     
     1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 
-1. In the Azure portal, search for and select **Azure Active Directory**.
+1. In the Azure portal, search for and select **Microsoft Entra ID**.
 
 1. Under **Manage**, select **User Settings**.
 
@@ -56,7 +56,7 @@ Before you create an Azure AD B2C tenant, make sure that you've the permission t
     
     1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 
-1. In the Azure portal, search for and select **Azure Active Directory**.
+1. In the Azure portal, search for and select **Microsoft Entra ID**.
 
 1. Under **Manage**, select **User Settings**.
 

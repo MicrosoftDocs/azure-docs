@@ -69,9 +69,6 @@ In customer-managed mode, TDE uses a service-managed database master key and use
 1. Create a certificate.
 1. Store the certificate as a secret in the same Kubernetes namespace as the instance.
 
-> [!NOTE]
-> If you need to change from one mode to the other, you must disable TDE from the current mode before you apply the new mode. To disable, before you proceed, follow the instructions at [Turn off TDE on the managed instance](#turn-off-tde-on-the-managed-instance).
-
 ### Enable
 
 # [Service-managed](#tab/service-managed)
@@ -162,6 +159,7 @@ To enable TDE in customer-managed mode:
    kubectl patch sqlmi sqlmi-tde --namespace arc --type merge --patch '{ "spec": { "security": { "transparentDataEncryption": { "mode": "CustomerManaged", "protectorSecret": "sqlmi-tde-protector-cert-secret" } } } }'
    ```
 
+
 ---
 
 ## Turn off TDE on the managed instance
@@ -193,6 +191,7 @@ Example:
 ```console
 kubectl patch sqlmi sqlmi-tde --namespace arc --type merge --patch '{ "spec": { "security": { "transparentDataEncryption": { "mode": "Disabled" } } } }'
 ```
+
 
 ---
 
@@ -297,6 +296,7 @@ When you back up credentials from the managed instance, the credentials are stor
 Similar to above, to restore the credentials, copy them into the container and run the corresponding T-SQL afterwards.
 
 
+
 > [!NOTE]
 > If the `kubectl cp` command is run from Windows, the command may fail when using absolute Windows paths. Use relative paths or the commands specified below.
 > To restore database backups that have been taken before enabling TDE, you would need to disable TDE on the SQL Managed Instance, restore the database backup and enable TDE again.
@@ -395,3 +395,4 @@ Similar to above, to restore the credentials, copy them into the container and r
 ## Next steps
 
 [Transparent data encryption](/sql/relational-databases/security/encryption/transparent-data-encryption)
+

@@ -5,8 +5,7 @@ description: The Speech service provides speech to text, text to speech, and spe
 services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: overview
 ms.date: 09/16/2022
 ms.author: eur
@@ -56,10 +55,11 @@ The base model may not be sufficient if the audio contains ambient noise or incl
 
 With [real-time speech to text](get-started-speech-to-text.md), the audio is transcribed as speech is recognized from a microphone or file. Use real-time speech to text for applications that need to transcribe audio in real-time such as:
 - Transcriptions, captions, or subtitles for live meetings
+- [Diarization](get-started-stt-diarization.md)
+- [Pronunciation assessment](how-to-pronunciation-assessment.md)
 - Contact center agent assist
 - Dictation
 - Voice agents
-- Pronunciation assessment
 
 ### Batch transcription
 

@@ -35,11 +35,13 @@ Another option is to create a new identity with [the expected permission](./how-
 
 After assigning the permissions, wait upwards to one hour for the account to stop being in revoke state. If the issue isn't resolved after more than two hours, contact customer service. 
 
-## Azure Active Directory Token Acquisition error 
+<a name='azure-active-directory-token-acquisition-error'></a>
+
+## Microsoft Entra Token Acquisition error 
 
 ### Reason for error? 
 
-You see this error when Azure Cosmos DB is unable to obtain the default's identity Microsoft Azure Active Directory access token. The token is used for communicating with the Azure Key Vault in order to wrap and unwrap the data encryption key. 
+You see this error when Azure Cosmos DB is unable to obtain the default's identity Microsoft Entra access token. The token is used for communicating with the Azure Key Vault in order to wrap and unwrap the data encryption key. 
 
 ### Troubleshooting 
 
@@ -49,11 +51,11 @@ A troubleshooting solution, for example, would be to create a new identity with 
 
 After updating the account's default identity, you need to wait upwards to one hour for the account to stop being in revoke state. If the issue isn't resolved after more than two hours, contact customer service. 
 
-## Customer Managed Key does not exist 
+## Azure Key Vault Resource not found 
 
 ### Reason for error? 
 
-You see this error when the customer managed key isn't found on the specified Azure Key Vault. 
+You see this error when the Azure Key Vault or specified Key are not found. 
 
 ### Troubleshooting 
 

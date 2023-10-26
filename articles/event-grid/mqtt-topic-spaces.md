@@ -52,6 +52,7 @@ Topic Spaces can group up to 10 topic templates. Topic templates support MQTT wi
 
 **Note:**
 
+- Topics that start with $ are reserved for internal use.
 - A variable can represent a portion of a segment or an entire segment but can't cover more than one segment. For example, a topic template could include "machines/${client.authenticationName|.factory1}/temp" matches topics "machines/machine1.factory1/temp", "machines/machine2.factory1/temp", etc.
 - Topic templates use special characters \$ and | and these need to be escaped differently based on the shell being used. In PowerShell, \$ can be escaped with vehicles/${dollar}telemetry/#. If you’re using PowerShell, you can escape these special characters as shown in the following examples:
 

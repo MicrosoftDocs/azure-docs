@@ -6,7 +6,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.custom: ignite-2022
 ms.workload: infrastructure-services
-ms.date: 07/28/2022
+ms.date: 08/09/2023
 ms.reviewer: bwren
 ---
 
@@ -30,9 +30,7 @@ Azure resources generate a significant amount of monitoring data. Azure Monitor 
 
 Metrics in Azure Monitor are stored in a time-series database that's optimized for analyzing time-stamped data. Time-stamping makes metrics well suited for alerting and fast detection of issues. Metrics can tell you how your system is performing but typically must be combined with logs to identify the root cause of issues.
 
-Metrics are available for interactive analysis in the Azure portal with [Azure Metrics Explorer](essentials/metrics-getting-started.md). They can be added to an [Azure dashboard](app/tutorial-app-dashboards.md) for visualization in combination with other data and used for near-real-time [alerting](alerts/alerts-metric.md).
-
-To read more about Azure Monitor metrics, including their sources of data, see [Metrics in Azure Monitor](essentials/data-platform-metrics.md).
+Azure Monitor Metrics includes two types of metrics - native metrics and Prometheus metrics. See a comparison of the two and further details about Azure Monitor metrics, including their sources of data, at [Metrics in Azure Monitor](essentials/data-platform-metrics.md).
 
 ### Logs
 
@@ -45,7 +43,7 @@ Logs in Azure Monitor are stored in a Log Analytics workspace that's based on [A
 >
 >Azure Monitor Logs is a log data platform that collects Activity logs and resource logs along with other monitoring data to provide deep analysis across your entire set of resources.
 
- You can work with [log queries](logs/log-query-overview.md) interactively with [Log Analytics](logs/log-query-overview.md) in the Azure portal. You can also add the results to an [Azure dashboard](app/tutorial-app-dashboards.md) for visualization in combination with other data. You can create [log alerts](alerts/alerts-log.md), which will trigger an alert based on the results of a schedule query.
+ You can work with [log queries](logs/log-query-overview.md) interactively with [Log Analytics](logs/log-query-overview.md) in the Azure portal. You can also add the results to an [Azure dashboard](app/overview-dashboard.md#create-custom-kpi-dashboards-using-application-insights) for visualization in combination with other data. You can create [log alerts](alerts/alerts-log.md), which will trigger an alert based on the results of a schedule query.
 
 Read more about Azure Monitor logs including their sources of data in [Logs in Azure Monitor](logs/data-platform-logs.md).
 
@@ -68,21 +66,8 @@ Once [Change Analysis is enabled](./change/change-analysis-enable.md), the `Micr
 
 Read more about Change Analysis, including data sources in [Use Change Analysis in Azure Monitor](./change/change-analysis.md).
 
-## Compare Azure Monitor metrics and logs
-
-The following table compares metrics and logs in Azure Monitor.
-
-| Attribute  | Metrics | Logs |
-|:---|:---|:---|
-| Benefits | Lightweight and capable of near-real time scenarios such as alerting. Ideal for fast detection of issues. | Analyzed with rich query language. Ideal for deep analysis and identifying root cause. |
-| Data | Numerical values only | Text or numeric data |
-| Structure | Standard set of properties including sample time, resource being monitored, a numeric value. Some metrics include multiple dimensions for further definition. | Unique set of properties depending on the log type. |
-| Collection | Collected at regular intervals. | May be collected sporadically as events trigger a record to be created. |
-| Analyze in Azure portal | Metrics Explorer | Log Analytics |
-| Data sources include | Platform metrics collected from Azure resources<br>Applications monitored by Application Insights<br>Azure Monitor agent<br>Custom defined by application or API | Application and resource logs<br>Azure Monitor agent<br>Application requests and exceptions<br>Logs ingestion API<br>Azure Sentinel<br>Microsoft Defender for Cloud |
-
 ## Collect monitoring data
-Different [sources of data for Azure Monitor](data-sources.md) will write to either a Log Analytics workspace (Logs) or the Azure Monitor metrics database (Metrics) or both. Some sources will write directly to these data stores, while others may write to another location such as Azure storage and require some configuration to populate logs or metrics. 
+Different [sources of data for Azure Monitor](data-sources.md) will write to either a Log Analytics workspace (Logs) or the Azure Monitor metrics database (Metrics) or both. Some sources will write directly to these data stores, while others might write to another location such as Azure storage and require some configuration to populate logs or metrics. 
 
 For a listing of different data sources that populate each type, see [Metrics in Azure Monitor](essentials/data-platform-metrics.md) and [Logs in Azure Monitor](logs/data-platform-logs.md).
 

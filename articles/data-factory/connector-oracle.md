@@ -7,15 +7,11 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/15/2022
+ms.date: 08/10/2023
 ms.author: jianleishen
 ---
 
 # Copy data from and to Oracle by using Azure Data Factory or Azure Synapse Analytics
-
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](v1/data-factory-onprem-oracle-connector.md)
-> * [Current version](connector-oracle.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 

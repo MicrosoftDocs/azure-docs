@@ -1,15 +1,16 @@
 ---
-title: Using group by options 
+title: Using group by options
 description: Tips for implementing group by options for dedicated SQL pools in Azure Synapse Analytics.
 author: MSTehrani
-manager: craigg
-ms.service: synapse-analytics
-ms.topic: conceptual
-ms.subservice: sql-dw 
-ms.date: 04/17/2018
 ms.author: emtehran
 ms.reviewer: wiassaf
-ms.custom: seo-lt-2019, azure-synapse
+ms.date: 04/17/2018
+ms.service: synapse-analytics
+ms.subservice: sql-dw
+ms.topic: conceptual
+ms.custom:
+  - seo-lt-2019
+  - azure-synapse
 ---
 
 # Group by options for dedicated SQL pools in Azure Synapse Analytics

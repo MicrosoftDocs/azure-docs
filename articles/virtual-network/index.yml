@@ -101,7 +101,7 @@ landingContent:
           - text: Virtual network peering
             url: virtual-network-peering-overview.md
           - text: Virtual network peering FAQ
-            url: virtual-networks-faq.md#vnet-peering            
+            url: virtual-networks-faq.md#virtual-network-peering            
       - linkListType: tutorial
         links:
           - text: Connect VNets with virtual network peering

@@ -48,7 +48,7 @@ All the builders configured in an Azure Spring Apps service instance are listed 
 
 :::image type="content" source="media/how-to-enterprise-deploy-polyglot-apps/builder-list.png" alt-text="Screenshot of the Azure portal showing the Build Service page with the Builders list highlighted." lightbox="media/how-to-enterprise-deploy-polyglot-apps/builder-list.png":::
 
-Select **Add** to create a new builder. The following screenshot shows the resources you should use to create the custom builder. The [OS Stack](https://docs.pivotal.io/tanzu-buildpacks/stacks.html) includes `Bionic Base`, `Bionic Full`, `Jammy Tiny`, `Jammy Base`, and `Jammy Full`. Bionic is based on `Ubuntu 18.04 (Bionic Beaver)` and Jammy is based on `Ubuntu 22.04 (Jammy Jellyfish)`. For more information, see the [OS stack recommendations](#os-stack-recommendations) section.
+Select **Add** to create a new builder. The following screenshot shows the resources you should use to create the custom builder. The [OS Stack](https://docs.vmware.com/en/VMware-Tanzu-Buildpacks/services/tanzu-buildpacks/GUID-stacks.html) includes `Bionic Base`, `Bionic Full`, `Jammy Tiny`, `Jammy Base`, and `Jammy Full`. Bionic is based on `Ubuntu 18.04 (Bionic Beaver)` and Jammy is based on `Ubuntu 22.04 (Jammy Jellyfish)`. For more information, see the [OS stack recommendations](#os-stack-recommendations) section.
 
 We recommend using `Jammy OS Stack` to create your builder because VMware is deprecating `Bionic OS Stack`.
 
@@ -437,11 +437,11 @@ The following table indicates the features supported for each language.
 | Scaling - auto scaling                                          | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      |                   |
 | Scaling - manual scaling (in/out, up/down)                      | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               |
 | Managed Identity                                                | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ️                 |
-| API portal for VMware Tanzu®                                   | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️                                                     | ✔️                |
-| Spring Cloud Gateway for VMware Tanzu®                         | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️                                                     | ✔️                |
-| Application Configuration Service for VMware Tanzu®            | ✔️   |        |      |           |    |                                                         | ✔️               |
-| VMware Tanzu® Service Registry                                 | ✔️   |        |      |           |    |                                                         | ✔️               |
-| App Live View for VMware Tanzu®                                | ✔️   |        |      |           |    |                                                         | ✔️               |
+| API portal for VMware Tanzu                                   | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️                                                     | ✔️                |
+| Spring Cloud Gateway for VMware Tanzu                         | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️                                                     | ✔️                |
+| Application Configuration Service for VMware Tanzu            | ✔️   |        |      |           |    |                                                         | ✔️               |
+| VMware Tanzu Service Registry                                 | ✔️   |        |      |           |    |                                                         | ✔️               |
+| App Live View for VMware Tanzu                                | ✔️   |        |      |           |    |                                                         | ✔️               |
 | Virtual network                                                 | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               |
 | Outgoing IP Address                                             | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               |
 | E2E TLS                                                         | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               |
@@ -596,6 +596,8 @@ The following table lists the features supported in Azure Spring Apps:
 | Add CA certificates to the system trust store at build and runtime. | See the [Use CA certificates](./how-to-enterprise-configure-apm-intergration-and-ca-certificates.md#use-ca-certificates) section of [How to configure APM integration and CA certificates](./how-to-enterprise-configure-apm-intergration-and-ca-certificates.md). | Not applicable.                                                                                                       | Not applicable.                                               |
 | Enable configuration of labels on the created image                 | Configures both OCI-specified labels with short environment variable names and arbitrary labels using a space-delimited syntax in a single environment variable.                                                                                                   | `BP_IMAGE_LABELS` <br> `BP_OCI_AUTHORS` <br> See more envs [here](https://github.com/paketo-buildpacks/image-labels). | `--build-env BP_OCI_AUTHORS=<value>`                          |
 | Support building Maven-based applications from source.              | Used for a multi-module project. Indicates the module to find the application artifact in. Defaults to the root module (empty).                                                                                                                                    | `BP_MAVEN_BUILT_MODULE`                                                                                               | `--build-env BP_MAVEN_BUILT_MODULE=./gateway`                 |
+
+There are some limitations for Java Native Image. For more information, see the [Java Native Image limitations](#java-native-image-limitations) section.
 
 ### Deploy PHP applications
 
