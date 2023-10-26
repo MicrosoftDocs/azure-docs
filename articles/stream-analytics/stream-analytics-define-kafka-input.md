@@ -77,11 +77,11 @@ To authenticate using the API Key confluent offers, you must use the SASL_SSL pr
 Azure Stream Analytics integrates seamlessly with Azure Key vault to access stored secrets needed for authentication and encryption when using mTLS or SASL_SSL security protocols. Your Azure Stream Analytics job connects to your Azure Key vault using managed identity to ensure a secure connection and avoid the exfiltration of secrets.
 Certificates are stored as secrets in the key vault and must be in PEM format.
 
-### Configure Key Vault with permissions
+### Configure Key vault with permissions
 1. You can create a key vault resource by following the documentation [Quickstart: Create a key vault using the Azure portal](../key-vault/general/quick-create-portal.md)
 2. To be able to upload certificates, you must have "**Kev Vault Administrator**"  access to your Key vault. Follow the following to grant admin access.
 > [!NOTE]
-> You must have "**Owner**" to be able to grant key vault permissions
+> You must have "**Owner**" permissions to grant other key vault permissions.
 
 
 1. Select **Access control (IAM)**.
@@ -94,10 +94,10 @@ Certificates are stored as secrets in the key vault and must be in PEM format.
  | --- | --- |
  | Role | Key Vault Administrator |
  | Assign access to | User, group, or service principal |
- | Members | \<YOur account information or email> |
+ | Members | \<Your account information or email> |
 
 
-### Upload Certificate to Key Vault
+### Upload Certificate to Key vault
 > [!IMPORTANT]
 > You must use Azure CLI to upload certificates to your key vault. You cannot use the Azure Portal.
 >
