@@ -164,11 +164,11 @@ adminClient.CreateOrUpdateIndex(definition);
 
 Several query capabilities in Cognitive Search bypass relevance scoring or are otherwise incompatible with semantic ranking. If your query logic includes the following features, you can't semantically rank your results:
 
-+ Filter-only queries, with no `search` parameter. Search scores are a uniform 1.0 and won't provide meaningful input for semantic ranking because there's no way to select the top 50 matches. The 50 matches passed to the semantic ranker are arbitrarily chosen from the full set of matching documents.
++ Filter-only queries, with no `search` parameter. In filtered results, search scores are a uniform 1.0 and won't provide meaningful input for semantic ranking because there's no way to select the top 50 matches. The 50 matches passed to the semantic ranker are arbitrarily chosen from the full set of qualifying documents.
 
-+ Query logic based on the [full Lucene syntax](query-lucene-syntax.md) (`queryType=full`) is incompatible with semantic ranking (`queryType=semantic`). Fuzzy search, wildcard search, and regular expressions iterate over untokenized text, scanning for verbatim matches in the content. Search scores for these queries are also a uniform 1.0, and won't provide meaningful input for semantic ranking because there's no way to select the top 50 matches.
++ Sorting (orderBy clauses) on specific fields overrides search scores and a semantic score. Given that the semantic score is supposed to provide the ranking, adding an orderby clause results in an HTTP 400 error if you apply semantic ranking over ordered results.
 
-+ Sorting (orderBy clauses) on specific fields overrides search scores and a semantic score. Given that the semantic score is supposed to provide the ranking, adding an orderby clause results in an HTTP 400 error if you try to apply semantic ranking over ordered results.
++ Query logic based on the [full Lucene syntax](query-lucene-syntax.md) (`queryType=full`) is incompatible with semantic ranking (`queryType=semantic`). Fuzzy search, wildcard search, and regular expressions scan for verbatim matches at the character level. Search scores for these queries are also a uniform 1.0. The top 50 matches are an arbitrary selection from the full set of qualifying documents.
 
 ## 4 - Set up the query
 
@@ -225,11 +225,11 @@ The following example in this section uses the [hotels-sample-index](search-get-
 
 1. Set "answers" to specify whether [semantic answers](semantic-answers.md) are included in the result. Currently, the only valid value for this parameter is `extractive`. Answers can be configured to return a maximum of 10. The default is one. This example shows a count of three answers: `extractive|count-3`.
 
-   Answers are extracted from passages found in fields listed in the semantic configuration. This behavior is why you want to include content-rich fields in the prioritizedContentFields of a semantic configuration, so that you can get the best answers and captions in a response. Answers aren't guaranteed on every request. To get an answer, the query must look like a question and the content must include text that looks like an answer.
+   Answers aren't guaranteed on every request. To get an answer, the query must look like a question and the content must include text that looks like an answer.
 
 1. Set "captions" to specify whether semantic captions are included in the result. Currently, the only valid value for this parameter is `extractive`. Captions can be configured to return results with or without highlights. The default is for highlights to be returned. This example returns captions without highlights: `extractive|highlight-false`.
 
-   For semantic captions, the fields referenced in the "semanticConfiguration" must have a character limit in the range of 20,000 characters, otherwise, it misses important caption results. If you anticipate that the fields used by the "semanticConfiguration" word count could be higher than the exposed limit and you need to use captions, consider [Text split cognitive skill](cognitive-search-skill-textsplit.md) as part of your [AI enrichment pipeline](cognitive-search-concept-intro.md) while indexing your data with [built-in pull indexers](search-indexer-overview.md).
+   The basis for captions and answers are the fields referenced in the "semanticConfiguration". These fields are under a combined character limit in the range of 20,000 characters. If you anticipate a word count exceeding this limit, consider a [data chunking step](vector-search-how-to-chunk-documents.md) using the [Text split skill](cognitive-search-skill-textsplit.md). This approach introduces a dependency on an [AI enrichment pipeline](cognitive-search-concept-intro.md) and [indexers](search-indexer-overview.md).
 
 1. Set "highlightPreTag" and "highlightPostTag" if you want to override the default highlight formatting that's applied to captions.
 

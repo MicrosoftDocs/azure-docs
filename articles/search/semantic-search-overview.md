@@ -62,9 +62,7 @@ In semantic ranking, the query subsystem passes search results as an input to su
 
 1. For each document in the search result, the summarization model accepts up to 2,000 tokens, where a token is approximately 10 characters. Inputs are assembled from the "title", "keyword", and "content" fields listed in the [semantic configuration](semantic-how-to-query-request.md#2---create-a-semantic-configuration). 
 
-1. Excessively long strings are trimmed to ensure the overall length meets the input requirements of the summarization step.
-
-   This trimming exercise is why it's important to add fields to your semantic configuration in priority order. If you have very large documents with text-heavy fields, anything after the maximum limit is ignored.
+1. Excessively long strings are trimmed to ensure the overall length meets the input requirements of the summarization step. This trimming exercise is why it's important to add fields to your semantic configuration in priority order. If you have very large documents with text-heavy fields, anything after the maximum limit is ignored.
 
    | Semantic field | Token limit |
    |-----------|-------------|
@@ -72,11 +70,9 @@ In semantic ranking, the query subsystem passes search results as an input to su
    | "keywords | 128 tokens |
    | "content" | remaining tokens |
 
-1. Outputs are a summary string for each document, composed of the most relevant information from each field. 
+1. Outputs are a summary string for each document, composed of the most relevant information from each field. Summary strings are sent to the ranker for scoring, and to machine reading comprehension models for captions and answers.
 
-The maximum length of each summary string is 256 tokens. 
-
-Summary strings are sent to the ranker for scoring, and to machine reading comprehension models for captions and answers.
+   The maximum length of each summary string is 256 tokens. 
 
 ### How summaries are scored
 
@@ -93,7 +89,7 @@ Scoring is done over the summary string.
 
 ### Outputs of semantic ranking
 
-From each summary string, the machine reading comprension models find passages that are the most representative.
+From each summary string, the machine reading comprehension models find passages that are the most representative.
 
 Outputs are:
 
