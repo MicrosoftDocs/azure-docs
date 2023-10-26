@@ -7929,11 +7929,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-arc/vmware-vsphere/azure-arc-agent.md",
-            "redirect_url": "/azure/azure-arc/vmware-vsphere/overview",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/azure-arc/vmware-vsphere/azure-arc-resource-bridge.md",
             "redirect_url": "/azure/azure-arc/vmware-vsphere/overview",
             "redirect_document_id": false
@@ -7941,11 +7936,6 @@
         {
             "source_path_from_root": "/articles/azure-arc/vmware-vsphere/custom-locations.md",
             "redirect_url": "/azure/azure-arc/vmware-vsphere/overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/azure-arc/system-center-virtual-machine-manager/agent-overview-scvmm.md",
-            "redirect_url": "/azure/azure-arc/system-center-virtual-machine-manager/overview",
             "redirect_document_id": false
         },
         {
