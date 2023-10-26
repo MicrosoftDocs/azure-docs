@@ -88,7 +88,7 @@ If you decide that you don't want to continue purchasing a commitment plan, you 
 
 ## Purchase a commitment tier pricing plan for disconnected containers
 
-Commitment plans for disconnected containers have a calendar year commitment period. These are distinct from Web and Connected container commmitment plans. When you purchase a plan, you'll be charged the full price immediately. During the commitment period, you can't change your commitment plan, however you can purchase additional unit(s) at a pro-rated price for the remaining days in the year. You have until midnight (UTC) on the last day of your commitment, to end a commitment plan.
+Commitment plans for disconnected containers have a calendar year commitment period. These are different plans than web and connected container commitment plans. When you purchase a commitment plan, you'll be charged the full price immediately. During the commitment period, you can't change your commitment plan, however you can purchase additional unit(s) at a pro-rated price for the remaining days in the year. You have until midnight (UTC) on the last day of your commitment, to end a commitment plan.
 
 You can choose a different commitment plan in the **Commitment Tier pricing** settings of your resource.
 
