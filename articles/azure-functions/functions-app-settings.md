@@ -266,6 +266,15 @@ The Azure Functions runtime uses this storage account connection string for norm
 |---|------------|
 |AzureWebJobsStorage|`DefaultEndpointsProtocol=https;AccountName=...`|
 
+## AzureWebJobsStorage__accountName
+For Azure functions to connect to the storage account using identity instead of a connection string, use this setting in place of AzureWebJobsStorage.
+It tells the host to use the identity instead of looking for a stored secret. The setting uses a double underscore (__), which is a special character in application settings.
+
+|Key|Sample value|
+|---|------------|
+|AzureWebJobsStorage__accountName|`yourstorageaccount`|
+
+
 ## AzureWebJobs_TypeScriptPath
 
 Path to the compiler used for TypeScript. Allows you to override the default if you need to.
