@@ -29,6 +29,7 @@ The following are known limitations in Chaos Studio.
 - **Supported browsers** The Chaos Studio portal experience has only been tested on the following browsers:
     * **Windows:** Microsoft Edge, Google Chrome, and Firefox
     * **MacOS:** Safari, Google Chrome, and Firefox
+- **Terraform** At present Chaos Studio does not support terraform.
 
 ## Known issues
 When you pick target resources for an agent-based fault in the experiment designer, it's possible to select virtual machines or virtual machine scale sets with an operating system not supported by the fault selected.

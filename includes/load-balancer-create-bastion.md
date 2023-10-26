@@ -31,26 +31,8 @@ The following procedure creates a virtual network with a resource subnet, an Azu
 
     :::image type="content" source="./media/load-balancer-internal-create-bastion-include/create-virtual-network-basics.png" alt-text="Screenshot of Basics tab of Create virtual network in the Azure portal.":::
 
-1. Select **Next** to proceed to the **Security** tab.
-
-1. Select **Enable Bastion** in the **Azure Bastion** section of the **Security** tab.
-
-    Azure Bastion uses your browser to connect to VMs in your virtual network over secure shell (SSH) or remote desktop protocol (RDP) by using their private IP addresses. The VMs don't need public IP addresses, client software, or special configuration. For more information about Azure Bastion, see [Azure Bastion](../articles/bastion/bastion-overview.md)
-
-    >[!NOTE]
-    >[!INCLUDE [Pricing](bastion-pricing.md)]
-
-1. Enter or select the following information in **Azure Bastion**:
-
-    | Setting | Value |
-    |---|---|
-    | Azure Bastion host name | Enter **bastion**. |
-    | Azure Bastion public IP address | Select **Create a public IP address**. </br> Enter **bastion-public-ip** in Name. </br> Select **OK**. |
-
-    :::image type="content" source="./media/load-balancer-internal-create-bastion-include/enable-bastion.png" alt-text="Screenshot of enable bastion host in Create virtual network in the Azure portal.":::
-
-1. Select **Next** to proceed to the **IP Addresses** tab.
-    
+1. Select the **IP addresses** tab, or the **Next: Security** and **Next: IP Addresses** buttons at the bottom of the page.
+  
 1. In the address space box in **Subnets**, select the **default** subnet.
 
 1. In **Edit subnet**, enter or select the following information:
