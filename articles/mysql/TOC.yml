@@ -725,7 +725,7 @@
     href: single-server/concepts-migrate-dbforge-studio-for-mysql.md
     displayName: migrate, dbforge
   - name: Migrate data with MySQL Workbench
-    href: single-server/concepts-migrate-import-export.md
+    href: flexible-server/concepts-migrate-import-export.md
     displayName: import , migrate, export
   - name: Migrate RDS MySQL data with MySQL Workbench
     href: single-server/how-to-migrate-rds-mysql-workbench.md
@@ -768,7 +768,7 @@
     href: how-to-troubleshoot-replication-latency.md
     displayName: replication, latency, monitor
   - name: Troubleshoot database corruption
-    href: single-server/how-to-fix-corrupt-database.md
+    href: flexible-server/how-to-fix-corrupt-database.md
     displayName: corrupt data
   - name: Troubleshoot connectivity issues
     href: flexible-server/how-to-troubleshoot-connectivity-issues.md

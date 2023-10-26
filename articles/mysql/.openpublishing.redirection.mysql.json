@@ -904,6 +904,21 @@
         "source_path_from_root": "/articles/mysql/single-server/quickstart-mysql-github-actions.md",
         "redirect_url": "/azure/mysql/flexible-server/quickstart-mysql-github-actions",
         "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/mysql/single-server/how-to-fix-corrupt-database.md",
+        "redirect_url": "/azure/mysql/flexible-server/how-to-fix-corrupt-database",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/mysql/single-server/concepts-migrate-import-export.md",
+        "redirect_url": "/azure/mysql/flexible-server/concepts-migrate-import-export",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/mysql/single-server/concepts-aks.md",
+        "redirect_url": "/azure/mysql/flexible-server/concepts-aks",
+        "redirect_document_id": true
       }
   ]
 }
