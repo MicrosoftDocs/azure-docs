@@ -89,11 +89,11 @@ To add a [Grafana core data source](https://grafana.com/docs/grafana/latest/data
 To add a data source that isn't part of the Grafana built-in core data sources, start by installing the corresponding data source plugin.
 
 1. Open your Azure Managed Grafana instance in the Azure portal.
-1. Select **Plugin management (Preview)**. This page displays a table with data source plugins. It contains three columns including checkboxes, plugin names, and plugin IDs. Review the checkboxes. A checked box indicates that the corresponding plugin is alreaded installed and can be removed, an unchecked box indicates that the corresponding plugin can be added.
-1. Select a datasource plugins to add or remove from your Grafana instance by checking its checkbox select **Save**. Azure displays a messaging stating what plugins will be added or removed. Select **Yes** to confirm.
-1. A refresh icon appears in the table next to the updated plugin, indicating that the update is in progress. The update may take a while. Select **Refresh** at the top to get an updated list of installed plugins.
+1. Select **Plugin management (Preview)**. This page displays a table with data source plugins. It contains three columns including checkboxes, plugin names, and plugin IDs. Review the checkboxes. A checked box indicates that the corresponding plugin is already installed and can be removed, an unchecked box indicates that the corresponding plugin can be added.
+1. Select a data source plugin to add from your Grafana instance by checking its checkbox select **Save**. Azure displays a messaging stating what plugins will be added or removed. Select **Yes** to confirm.
+1. A refresh icon appears in the table next to the updated plugin, indicating that the update is in progress. The update might take a while. Select **Refresh** at the top to get an updated list of installed plugins.
 
-   :::image type="content" source="media/data-sources/add-data-plugin.png" alt-text="Screenshot of the Plugin management feature data source page.":::
+   :::image type="content" source="media/data-sources/add-plugin.png" alt-text="Screenshot of the Plugin management feature data source page.":::
 
 > [!IMPORTANT]
 > Plugin management is currently in PREVIEW.
@@ -107,7 +107,7 @@ Then add the datasource from the Grafana portal.
 
 ### [Azure CLI](#tab/azure-cli)
 
-Run the [az grafana data-source create](/cli/azure/grafana/data-source#az-grafana-data-source-create) command to add a Grafana core data source with the Azure CLI.
+Run the [az grafana data-source create](/cli/azure/grafana/data-source#az-grafana-data-source-create) command to add a [Grafana core data source](https://grafana.com/docs/grafana/latest/datasources/#built-in-core-data-sources) with the Azure CLI.
 
 For example, to add an Azure SQL data source, run:
 
@@ -129,6 +129,8 @@ az grafana data-source create --name <instance-name> --definition '{
   "user": "<user>"
 }'
 ```
+
+Other data sources can be added [from the Azure portal](#portaltabazure-portal).
 
 ---
 
@@ -243,15 +245,13 @@ Azure Managed Grafana can also access data sources using a service principal set
 
 1. Run the [az grafana data-source update](/cli/azure/grafana/data-source#az-grafana-data-source-update) command to update the configuration of the Azure Data Explorer data source.
 
-To add another
-
 ---
 
 ## Remove a data source
 
 ### [Portal](#tab/azure-portal)
 
-Follow the instrutions below to remove a data source.
+Follow the instructions below to remove a data source.
 
 ### Core data sources
 
@@ -267,11 +267,11 @@ To remove a [Grafana core data source](https://grafana.com/docs/grafana/latest/d
 To remove a data source plugin that isn't part of the Grafana built-in core data sources, follow the steps below:
 
 1. Open your Azure Managed Grafana instance in the Azure portal.
-1. Select **Plugin management (Preview)**. This page displays a table with data source plugins. It contains three columns including checkboxes, plugin names, and plugin IDs. Review the checkboxes. A checked box indicates that the corresponding plugin is alreaded installed and can be removed, an unchecked box indicates that the corresponding plugin can be added.
-1. Select one or more datasource plugins to add or remove from your Grafana instance by checking one or more checkboxes and select **Save**. Azure displays a messaging stating what plugins will be added or removed. Select **Yes** to confirm.
-1. A refresh icon appears in the table next to the updated plugin, indicating that the update is in progress. The update may take a while. Select **Refresh** at the top to get an updated list of installed plugins.
+1. Select **Plugin management (Preview)**. This page displays a table with data source plugins. It contains three columns including checkboxes, plugin names, and plugin IDs. Review the checkboxes. A checked box indicates that the corresponding plugin is already installed and can be removed, an unchecked box indicates that the corresponding plugin can be added.
+1. Select a datasource plugin to remove from your Grafana instance by unchecking its checkbox and select **Save**. Azure displays a messaging stating what plugins will be added or removed. Select **Yes** to confirm.
+1. A refresh icon appears in the table next to the updated plugin, indicating that the update is in progress. The update might take a while. Select **Refresh** at the top to get an updated list of installed plugins.
 
-   :::image type="content" source="media/data-sources/add-data-plugin.png" alt-text="Screenshot of the Plugin management feature data source page.":::
+   :::image type="content" source="media/data-sources/remove-plugin.png" alt-text="Screenshot of the Plugin management feature data source page. Remove plugin.":::
 
 > [!IMPORTANT]
 > Plugin management is currently in PREVIEW.
