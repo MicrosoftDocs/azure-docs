@@ -5,8 +5,7 @@ description: Learn how to use custom text classification to categorize and triag
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: tutorial
 ms.date: 01/27/2023
 ms.author: aahi

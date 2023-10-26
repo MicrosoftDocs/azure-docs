@@ -5,12 +5,12 @@ author: flang-msft
 
 ms.service: cache
 ms.topic: conceptual
-ms.date: 07/22/2021
+ms.date: 09/29/2023
 ms.author: franlanglois 
 ---
 # How to administer Azure Cache for Redis
 
-This article describes how to do administration tasks such as [rebooting](#reboot) and [scheduling updates](#schedule-updates) for your Azure Cache for Redis instances.
+This article describes how to do administration tasks such as [rebooting](#reboot) and [Update channel and Schedule updates](#update-channel-and-schedule-updates) for your Azure Cache for Redis instances.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -38,7 +38,7 @@ The effect on your client applications varies depending on which nodes you reboo
 
 * **Primary** - When the primary node is rebooted, Azure Cache for Redis fails over to the replica node and promotes it to primary. During this failover, there may be a short interval in which connections may fail to the cache.
 * **Replica** - When the replica node is rebooted, there's typically no effect on the cache clients.
-* **Both primary and replica** - When both cache nodes are rebooted, Azure Cache for Redis will attempt to gracefully reboot both nodes, waiting for one to finish before rebooting the other. Typically, data loss does not occur. However, data loss can still occur do to unexpected maintenance events or failures. Rebooting your cache many times in a row increases the odds of data loss.
+* **Both primary and replica** - When both cache nodes are rebooted, Azure Cache for Redis attempts to gracefully reboot both nodes, waiting for one to finish before rebooting the other. Typically, data loss doesn't occur. However, data loss can still occur do to unexpected maintenance events or failures. Rebooting your cache many times in a row increases the odds of data loss.
 * **Nodes of a premium cache with clustering enabled** - When you reboot one or more nodes of a premium cache with clustering enabled, the behavior for the selected nodes is the same as when you reboot the corresponding node or nodes of a non-clustered cache.
 
 ## Reboot FAQ
@@ -76,15 +76,33 @@ Yes, for PowerShell instructions see [To reboot an Azure Cache for Redis](cache-
 
 No. Reboot isn't available for the Enterprise tier yet. Reboot is available for Basic, Standard and Premium tiers.The settings that you see on the Resource menu under **Administration** depend on the tier of your cache. You don't see **Reboot** when using a cache from the Enterprise tier.
 
-## Schedule updates
+## Flush data (preview)
 
-On the left, **Schedule updates** allows you to choose a maintenance window for your cache instance. A maintenance window allows you to control the day(s) and time(s) of a week during which the VM(s) hosting your cache can be updated. Azure Cache for Redis will make a best effort to start and finish updating Redis server software within the specified time window you define.
+When using the Basic, Standard, or Premium tiers of Azure Cache for Redis, you see **Flush data** on the resource menu. The **Flush data** operation allows you to delete or _flush_ all data in your cache. This _flush_ operation can be used before scaling operations to potentially reduce the time required to complete the scaling operation on your cache. You can also configure to run the _flush_ operation periodically on your dev/test caches to keep memory usage in check.
 
-> [!NOTE]
-> The maintenance window applies to Redis server updates and updates to the Operating System of the VMs hosting the cache. The maintenance window does not apply to Host OS updates to the Hosts hosting the cache VMs or other Azure Networking components. In rare cases, where caches are hosted on older models (you can tell if your cache is on an older model if the DNS name of the cache resolves to a suffix of "cloudapp.net", "chinacloudapp.cn", "usgovcloudapi.net" or "cloudapi.de"), the maintenance window won't apply to Guest OS updates either.
+The _flush_ operation, when executed on a clustered cache, clears data from all shards at the same time.
+
+> [!IMPORTANT]
+> Previously, the _flush_ operation was only available for geo-replicated Enterprise tier caches. Now, it is available in Basic, Standard and Premium tiers.
 >
-> Currently, no option is available to configure a reboot or scheduled updates for an Enterprise tier cache.
+:::image type="content" source="media/cache-administration/cache-flush.png" alt-text="Screenshot showing flush data selected in the resource menu of a cache instance. ":::
+
+## Update channel and Schedule updates
+
+On the left, **Schedule updates** allows you to choose an update channel and a maintenance window for your cache instance.
+
+Any cache instance using the **Stable** update channel receives updates a few weeks later than cache instances using **Preview** update channel. We recommend choosing the **Preview** update channel for your non-production and less critical workloads. Choose the **Stable** update channel for your most critical, production workloads. All caches default to the **Stable** update channel by default.
+
+> [!IMPORTANT]
+> Changing the update channel on your cache instance results in your cache undergoing a patching event to apply the right updates. Consider changing the update channel during your maintenance window.
 >
+
+A maintenance window allows you to control the days and times of a week during which the VMs hosting your cache can be updated. Azure Cache for Redis makes a best effort to start and finish updating Redis server software within the specified time window you define.
+
+> [!IMPORTANT]
+> The update channel and maintenance window applies to Redis server updates and updates to the Operating System of the VMs hosting the cache. The update channel and maintenance window does not apply to Host OS updates to the Hosts hosting the cache VMs or other Azure Networking components. In rare cases, where caches are hosted on older models the maintenance window won't apply to Guest OS updates either. You can tell if your cache is on an older model if the DNS name of the cache resolves to a suffix of `cloudapp.net`, `chinacloudapp.cn`, `usgovcloudapi.net` or `cloudapi.de`.
+>
+Currently, no option is available to configure an update channel or scheduled updates for an Enterprise tier cache.
 
 :::image type="content" source="media/cache-administration/redis-schedule-updates-2.png" alt-text="Screenshot showing schedule updates":::
 

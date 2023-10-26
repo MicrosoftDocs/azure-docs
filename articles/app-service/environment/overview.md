@@ -3,7 +3,7 @@ title: App Service Environment overview
 description: This article discusses the Azure App Service Environment feature of Azure App Service.
 author: madsd
 ms.topic: overview
-ms.date: 08/30/2023
+ms.date: 09/19/2023
 ms.author: madsd
 ms.custom: "UpdateFrequency3, references_regions"
 ---
@@ -117,6 +117,7 @@ App Service Environment v3 is available in the following regions:
 | France South         | ✅                           |                             | ✅                           | 
 | Germany North        | ✅                           |                             | ✅                           | 
 | Germany West Central | ✅                           | ✅                          | ✅                           | 
+| Italy North          | ✅                           | ✅**                        |                              | 
 | Japan East           | ✅                           | ✅                          | ✅                           | 
 | Japan West           | ✅                           |                             | ✅                           | 
 | Jio India West       |                              |                             | ✅                           | 
@@ -126,8 +127,8 @@ App Service Environment v3 is available in the following regions:
 | North Europe         | ✅                           | ✅                          | ✅                           |
 | Norway East          | ✅                           | ✅                          | ✅                           | 
 | Norway West          | ✅                           |                             | ✅                           |
-| Poland Central       | ✅                           |                             |                               |
-| Qatar Central        | ✅                           | ✅                          |                              |
+| Poland Central       | ✅                           | ✅                          |                               |
+| Qatar Central        | ✅**                         | ✅**                        |                              |
 | South Africa North   | ✅                           | ✅                          | ✅                           |
 | South Africa West    | ✅                           |                             | ✅                           | 
 | South Central US     | ✅                           | ✅                          | ✅                           |
@@ -147,7 +148,8 @@ App Service Environment v3 is available in the following regions:
 | West US 2            | ✅                           | ✅                          | ✅                           | 
 | West US 3            | ✅                           | ✅                          | ✅                           | 
 
-\* Limited availability and no support for dedicated host deployments
+\* Limited availability and no support for dedicated host deployments.  
+\** To learn more about availability zones and available services support in these regions, contact your Microsoft sales or customer representative.
 
 ### Azure Government:
 
@@ -155,7 +157,7 @@ App Service Environment v3 is available in the following regions:
 | -------------------- | :--------------------------: | :-------------------------: | :-------------------------: |
 |                      | App Service Environment v3   | App Service Environment v3  | App Service Environment v1/v2 |
 | US DoD Central       | ✅                           |                             | ✅                          |
-| US DoD East          |                              |                             | ✅                          |
+| US DoD East          | ✅                           |                             | ✅                          |
 | US Gov Arizona       | ✅                           |                             | ✅                         |
 | US Gov Iowa          |                              |                             | ✅                          |
 | US Gov Texas         | ✅                           |                             | ✅                         |

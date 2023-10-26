@@ -1,9 +1,11 @@
 ---
 title: What is Azure Arc-enabled VMware vSphere (preview)?
-description: Azure Arc-enabled VMware vSphere (preview) extends Azure governance and management capabilities to VMware vSphere infrastructure and delivers a consistent management experience across both platforms. 
+description: Azure Arc-enabled VMware vSphere extends Azure governance and management capabilities to VMware vSphere infrastructure and delivers a consistent management experience across both platforms. 
 ms.topic: overview
 ms.date: 08/21/2023
 ms.custom: references_regions
+ms.service: azure-arc
+ms.subservice: azure-arc-vmware-vsphere
 ---
 
 # What is Azure Arc-enabled VMware vSphere (preview)?
@@ -24,13 +26,13 @@ Arc-enabled VMware vSphere (preview) allows you to:
 
 ## Onboard resources to Azure management at scale
 
-Azure services such as Microsoft Defender for Cloud, Azure Monitor, Azure Update Management Center, and Azure Policy provide a rich set of capabilities to secure, monitor, patch, and govern off-Azure resources via Arc. 
+Azure services such as Microsoft Defender for Cloud, Azure Monitor, Azure Update Manager, and Azure Policy provide a rich set of capabilities to secure, monitor, patch, and govern off-Azure resources via Arc. 
 
 By using Arc-enabled VMware vSphere's capabilities to discover your VMware estate and install the Arc agent at scale, you can simplify onboarding your entire VMware vSphere estate to these services. 
 
 ## Set up self-service access for your teams to use vSphere resources using Azure Arc
 
-Arc-enabled VMware vSphere extends Azure's control plane (Azure Resource Manager) to VMware vSphere infrastructure. This enables you to use Azure AD-based identity management, granular Azure RBAC, and ARM templates to help your app teams and developers get self-service access to provision and manage VMs on VMware vSphere environment, providing greater agility. 
+Arc-enabled VMware vSphere extends Azure's control plane (Azure Resource Manager) to VMware vSphere infrastructure. This enables you to use Microsoft Entra ID-based identity management, granular Azure RBAC, and ARM templates to help your app teams and developers get self-service access to provision and manage VMs on VMware vSphere environment, providing greater agility. 
 
 1. Virtualized Infrastructure Administrators/Cloud Administrators can connect a vCenter instance to Azure. 
 
@@ -54,18 +56,18 @@ All guest OS-based capabilities are provided by enabling guest management (insta
 
 The easiest way to think of this is as follows:
 
-- Azure Arc-enabled servers interact on the guest operating system level, with no awareness of the underlying infrastructure fabric and the virtualization platform that they're running on. Since Arc-enabled servers also support bare-metal machines, there may, in fact, not even be a host hypervisor in some cases.
+- Azure Arc-enabled servers interact on the guest operating system level, with no awareness of the underlying infrastructure fabric and the virtualization platform that they're running on. Since Arc-enabled servers also support bare-metal machines, there can, in fact, not even be a host hypervisor in some cases.
 
 - Azure Arc-enabled VMware vSphere is a superset of Arc-enabled servers that extends management capabilities beyond the guest operating system to the VM itself. This provides lifecycle management and CRUD (Create, Read, Update, and Delete) operations on a VMware vSphere VM. These lifecycle management capabilities are exposed in the Azure portal and look and feel just like a regular Azure VM. Azure Arc-enabled VMware vSphere also provides guest operating system management—in fact, it uses the same components as Azure Arc-enabled servers. 
 
-You have the flexibility to start with either option, and incorporate the other one later without any disruption. With both the options, you will enjoy the same consistent experience.
+You have the flexibility to start with either option, and incorporate the other one later without any disruption. With both the options, you enjoy the same consistent experience.
 
 
 ## Supported VMware vSphere versions
 
 Azure Arc-enabled VMware vSphere (preview) currently works with vCenter Server versions 6.7, 7, and 8. 
 > [!NOTE]
-> Azure Arc-enabled VMware vSphere  (preview) supports vCenters with a maximum of 9500 VMs. If your vCenter has more than 9500 VMs, we don't recommend you to use Arc-enabled VMware vSphere with it at this point.
+> Azure Arc-enabled VMware vSphere (preview) supports vCenters with a maximum of 9500 VMs. If your vCenter has more than 9500 VMs, we don't recommend you to use Arc-enabled VMware vSphere with it at this point.
 
 ## Supported regions
 

@@ -48,7 +48,7 @@ If you use **Azure Storage** to store the diagnostic logging information, the in
 If you use **Azure Event Hubs** to store the diagnostic logging information, the information is stored in Event Hubs instances named **insights-logs-operationlogs** and **insights-metrics-pt1m**. You can also select an existing event hub except for the event hub for which you are configuring diagnostic settings. 
 
 ### Log Analytics
-If you use **Log Analytics** to store the diagnostic logging information, the information is stored in tables named **AzureDiagnostics** and **AzureMetrics**. 
+If you use **Log Analytics** to store the diagnostic logging information, the information is stored in tables named **AzureDiagnostics** / **AzureMetrics** or **resource specific tables**
 
 > [!IMPORTANT]
 > Enabling these settings requires additional Azure services (storage account, event hub, or Log Analytics), which may increase your cost. To calculate an estimated cost, visit the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
@@ -88,6 +88,8 @@ For a detailed reference of the logs and metrics, see [Azure Event Hubs monitori
 
 Following are sample queries that you can use to help you monitor your Azure Event Hubs resources: 
 
+### [AzureDiagnostics](#tab/AzureDiagnostics)
+
 + Get errors from the past seven days
 
     ```Kusto
@@ -105,8 +107,6 @@ Following are sample queries that you can use to help you monitor your Azure Eve
     | where ResourceProvider =="MICROSOFT.EVENTHUB"
     | where Category == "RuntimeAuditLogs"    
     ```
-
-
 + Get access attempts to a key vault that resulted in "key not found" error.
 
     ```Kusto
@@ -131,9 +131,30 @@ Following are sample queries that you can use to help you monitor your Azure Eve
     | where ResourceProvider == "MICROSOFT.EVENTHUB"
     | where Category == "ArchiveLogs"
     | summarize count() by "failures", "durationInSeconds"    
+    ```
+    
+### [Resource Specific Table](#tab/Resourcespecifictable)
 
+
++ Get Operational Logs for event hub resource for last 7 days 
+
+    ```Kusto
+    AZMSOperationalLogs 
+    | where Timegenerated > ago(7d) 
+    | where Provider == "EVENTHUB"
+    | where resourceId == "<Resource Id>" // Replace your resource Id
     ```
 
++ Get capture logs for event hub for last 7 days 
+
+    ```Kusto
+    AZMSArchiveLogs
+    | where EventhubName == "<Event Hub Name>" //Enter event hub entity name
+    | where TimeGenerated > ago(7d)
+    ```
+
+
+---
 ## Use runtime logs  
 
 Azure Event Hubs allows you to monitor and audit data plane interactions of your client applications using runtime audit logs and application metrics logs. 
@@ -161,12 +182,22 @@ To collect sample runtime audit logs in your Event Hubs namespace, you can publi
 ### Analyze runtime audit logs
 You can analyze the collected runtime audit logs using the following sample query. 
 
+### [AzureDiagnostics](#tab/AzureDiagnosticsforRuntimeAudit)
+
 ```kusto
 AzureDiagnostics
 | where TimeGenerated > ago(1h)
 | where ResourceProvider == "MICROSOFT.EVENTHUB"
 | where Category == "RuntimeAuditLogs"
 ```
+### [Resource Specific Table](#tab/ResourcespecifictableforRuntimeAudit)
+
+```kusto
+AZMSRuntimeAuditLogs
+| where TimeGenerated > ago(1h)
+| where Provider == "EVENTHUB"
+```
+---
 Up on the execution of the query you should be able to obtain corresponding audit logs in the following format. 
 :::image type="content" source="./media/monitor-event-hubs/runtime-audit-logs.png" alt-text="Image showing the result of a sample query to analyze runtime audit logs." lightbox="./media/monitor-event-hubs/runtime-audit-logs.png":::
 
@@ -176,12 +207,22 @@ By analyzing these logs you should be able to audit how each client application 
 ### Analyze application metrics 
 You can analyze the collected application metrics logs using the following sample query. 
 
+### [AzureDiagnostics](#tab/AzureDiagnosticsforAppMetrics)
+
 ```kusto
 AzureDiagnostics
 | where TimeGenerated > ago(1h)
 | where Category == "ApplicationMetricsLogs"
 ```
 
+### [Resource Specific Table](#tab/ResourcespecifictableforAppMetrics)
+
+```kusto
+AZMSApplicationMetricLogs
+| where TimeGenerated > ago(1h)
+| where Provider == "EVENTHUB"
+```
+---
 Application metrics includes the following runtime metrics. 
 :::image type="content" source="./media/monitor-event-hubs/application-metrics-logs.png" alt-text="Image showing the result of a sample query to analyze application metrics." lightbox="./media/monitor-event-hubs/application-metrics-logs.png":::
 

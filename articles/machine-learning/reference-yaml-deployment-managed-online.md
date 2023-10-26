@@ -6,10 +6,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: reference
-ms.custom: cliv2, event-tier1-build-2022, build-2023, moe-wsvnet
+ms.custom: cliv2, event-tier1-build-2022, build-2023
 author: dem108
 ms.author: sehan
-ms.date: 01/24/2023
+ms.date: 10/19/2023
 ms.reviewer: mopeakande
 ---
 
@@ -46,13 +46,13 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `request_settings` | object | Scoring request settings for the deployment. See [RequestSettings](#requestsettings) for the set of configurable properties. | | |
 | `liveness_probe` | object | Liveness probe settings for monitoring the health of the container regularly. See [ProbeSettings](#probesettings) for the set of configurable properties. | | |
 | `readiness_probe` | object | Readiness probe settings for validating if the container is ready to serve traffic. See [ProbeSettings](#probesettings) for the set of configurable properties. | | |
-| `egress_public_network_access` | string |**Note:** This key is applicable when you use the [legacy network isolation method](concept-secure-online-endpoint.md#secure-outbound-access-with-legacy-network-isolation-method) to secure outbound communication for a deployment. We strongly recommend that you secure outbound communication for deployments using [a workspace managed VNet](concept-secure-online-endpoint.md) (preview) instead. <br><br>This flag secures the deployment by restricting communication between the deployment and the Azure resources used by it. Set to `disabled` to ensure that the download of the model, code, and images needed by your deployment are secured with a private endpoint. This flag is applicable only for managed online endpoints. | `enabled`, `disabled` | `enabled` |
+| `egress_public_network_access` | string |**Note:** This key is applicable when you use the [legacy network isolation method](concept-secure-online-endpoint.md#secure-outbound-access-with-legacy-network-isolation-method) to secure outbound communication for a deployment. We strongly recommend that you secure outbound communication for deployments using [a workspace managed VNet](concept-secure-online-endpoint.md) instead. <br><br>This flag secures the deployment by restricting communication between the deployment and the Azure resources used by it. Set to `disabled` to ensure that the download of the model, code, and images needed by your deployment are secured with a private endpoint. This flag is applicable only for managed online endpoints. | `enabled`, `disabled` | `enabled` |
 
 ### RequestSettings
 
 | Key | Type | Description | Default value |
 | --- | ---- | ----------- | ------------- |
-| `request_timeout_ms` | integer | The scoring timeout in milliseconds. | `5000` |
+| `request_timeout_ms` | integer | The scoring timeout in milliseconds. Note that the maximum value allowed is `180000` milliseconds. See [Managed online endpoint quotas](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints) for more. | `5000` |
 | `max_concurrent_requests_per_instance` | integer | The maximum number of concurrent requests per instance allowed for the deployment. <br><br> **Note:** If you're using [Azure Machine Learning Inference Server](how-to-inference-server-http.md) or [Azure Machine Learning Inference Images](concept-prebuilt-docker-images-inference.md), your model must be configured to handle concurrent requests. To do so, pass `WORKER_COUNT: <int>` as an environment variable. For more information about `WORKER_COUNT`, see [Azure Machine Learning Inference Server Parameters](how-to-inference-server-http.md#server-parameters) <br><br> **Note:** Set to the number of requests that your model can process concurrently on a single node. Setting this value higher than your model's actual concurrency can lead to higher latencies. Setting this value too low may lead to under utilized nodes. Setting too low may also result in requests being rejected with a 429 HTTP status code, as the system will opt to fail fast. For more information, see [Troubleshooting online endpoints: HTTP status codes](how-to-troubleshoot-online-endpoints.md#http-status-codes). | `1` |
 | `max_queue_wait_ms` | integer | The maximum amount of time in milliseconds a request will stay in the queue. | `500` |
 

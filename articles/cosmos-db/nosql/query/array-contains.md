@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/18/2023
+ms.date: 09/21/2023
 ms.custom: query-reference
 ---
 
@@ -48,7 +48,7 @@ The following example illustrates how to check for specific values or objects in
 
 - This system function benefits from a [range index](../../index-policy.md#includeexclude-strategy).
 
-## Next steps
+## Related content
 
 - [System functions](system-functions.yml)
 - [`ARRAY_CONCAT`](array-concat.md)

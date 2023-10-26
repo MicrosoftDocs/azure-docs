@@ -2,13 +2,13 @@
 title: Microsoft Azure Data Box Disk self-managed Shipping | Microsoft Docs in data 
 description: Describes self-managed shipping workflow for Azure Data Box Disk devices
 services: databox
-author: alkohli
+author: stevenmatthew
 
 ms.service: databox
 ms.subservice: disk
 ms.topic: how-to
 ms.date: 06/07/2022
-ms.author: alkohli
+ms.author: shaas
 ---
 
 # Use self-managed shipping for Azure Data Box Disk in the Azure portal

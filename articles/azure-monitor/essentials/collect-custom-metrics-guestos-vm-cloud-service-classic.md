@@ -37,7 +37,7 @@ The process that's outlined in this article works only for performance counters 
 
 ## Create a service principal 
 
-Create a service principal in your Azure Active Directory tenant by using the instructions at [Use portal to create an Azure Active Directory application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md). Note the following while you're going through this process: 
+Create a service principal in your Microsoft Entra tenant by using the instructions at [Use portal to create a Microsoft Entra application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md). Note the following while you're going through this process: 
 
 - You can put in any URL for the sign-in URL.  
 - Create new client secret for this app.  

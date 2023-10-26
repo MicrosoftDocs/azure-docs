@@ -1,8 +1,8 @@
 ---
 title: 'Tutorial: Deploy a web application connected to Azure Blob Storage with Service Connector'
 description: Create a web app connected to Azure Blob Storage with Service Connector.
-author: mcleanbyron
-ms.author: mcleans
+author: maud-lv
+ms.author: malev
 ms.service: service-connector
 ms.topic: tutorial
 ms.date: 05/03/2022

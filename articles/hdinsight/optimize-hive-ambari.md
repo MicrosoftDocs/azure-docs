@@ -3,7 +3,7 @@ title: Optimize Apache Hive with Apache Ambari in Azure HDInsight
 description: Use the Apache Ambari web UI to configure and optimize Apache Hive.
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 08/26/2022
+ms.date: 09/15/2023
 ---
 
 # Optimize Apache Hive with Apache Ambari in Azure HDInsight

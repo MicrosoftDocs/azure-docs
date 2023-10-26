@@ -491,7 +491,7 @@ Validation|Device to be validated through toolset to ensure the device supports 
 ::: zone pivot="platform-sphere"
 
 ## Azure Sphere platform Support
-The Mediatek MT3620AN must be included in your design. Additional guidance for building secured Azure Sphere applications can be within the [Azure Sphere application notes](https://learn.microsoft.com/azure-sphere/app-notes/app-notes-overview).
+The Mediatek MT3620AN must be included in your design. Additional guidance for building secured Azure Sphere applications can be within the [Azure Sphere application notes](/azure-sphere/app-notes/app-notes-overview).
 
 
 ## Azure Sphere Hardware/Firmware Requirements
@@ -567,7 +567,7 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |Description|The purpose of this requirement is to validate that sensitive data can be encrypted on nonvolatile storage.|
 |Validation Type|Prevalidated, no additional validation is required|
 |Validation|Provided by Microsoft|
-|Resources|[Data at rest protection on Azure Sphere](https://learn.microsoft.com/azure-sphere/app-notes/app-notes-overview)|
+|Resources|[Data at rest protection on Azure Sphere](/azure-sphere/app-notes/app-notes-overview)|
 
 ---
 </br>
@@ -619,7 +619,7 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |Description|The purpose of this requirement is to make sure devices can report security information and events by sending data to a Microsoft telemetry service.|
 |Validation Type|Prevalidated, no additional validation is required|
 |Validation|Provided by Microsoft|
-|Resources|[Collect and interpret error data - Azure Sphere](https://learn.microsoft.com/azure-sphere/deployment/interpret-error-data?tabs=cliv2beta)</br>[Configure crash dumps - Azure Sphere](https://learn.microsoft.com/azure-sphere/deployment/configure-crash-dumps)|
+|Resources|[Collect and interpret error data - Azure Sphere](/azure-sphere/deployment/interpret-error-data?tabs=cliv2beta)</br>[Configure crash dumps - Azure Sphere](/azure-sphere/deployment/configure-crash-dumps)|
 
 ---
 </br>
@@ -704,7 +704,7 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |Description|The purpose of this policy is to ensure that there's a mechanism for collecting and distributing reports of vulnerabilities in the product.|
 |Validation Type|Prevalidated, no additional validation is required|
 |Validation|Azure Sphere vulnerabilities are collected by Microsoft through MSRC and are published to customers through the Tech Community Blog, Azure Sphere “What’s New” page, and through Mitre’s CVE database.|
-|Resources|<ul><li>[Report an issue and submission guidelines](https://www.microsoft.com/msrc/faqs-report-an-issue)</li><li>[What's new - Azure Sphere](https://learn.microsoft.com/azure-sphere/product-overview/whats-new)</li><li>[Azure Sphere CVEs](https://learn.microsoft.com/azure-sphere/deployment/azure-sphere-cves)|</li></ul>
+|Resources|<ul><li>[Report an issue and submission guidelines](https://www.microsoft.com/msrc/faqs-report-an-issue)</li><li>[What's new - Azure Sphere](/azure-sphere/product-overview/whats-new)</li><li>[Azure Sphere CVEs](/azure-sphere/deployment/azure-sphere-cves)</li></ul>|
 
 ---
 </br>

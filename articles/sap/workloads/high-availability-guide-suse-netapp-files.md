@@ -9,7 +9,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 07/17/2023
+ms.date: 09/15/2023
 ms.author: radeltch
 ---
 
@@ -663,6 +663,8 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo crm configure colocation col_sap_QAS_no_both -5000: g-QAS_ERS g-QAS_ASCS
    sudo crm configure location loc_sap_QAS_failover_to_ers rsc_sap_QAS_ASCS00 rule 2000: runs_ers_QAS eq 1
    sudo crm configure order ord_sap_QAS_first_start_ascs Optional: rsc_sap_QAS_ASCS00:start rsc_sap_QAS_ERS01:stop symmetrical=false
+
+   sudo crm_attribute --delete --name priority-fencing-delay
       
    sudo crm node online anftstsapcl1
    sudo crm configure property maintenance-mode="false"
