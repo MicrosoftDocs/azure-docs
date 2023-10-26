@@ -26,10 +26,11 @@ During the public preview of Azure Chaos Studio, there are a few limitations and
     - Windows Server 2019, Windows Server 2016, Windows Server 2012, and Windows Server 2012 R2
     - Red Hat Enterprise Linux 8.2, SUSE Enterprise Linux 15 SP2, CentOS 8.2, Debian 10 Buster (with unzip installation required), Oracle Linux 7.8, Ubuntu Server 16.04 LTS, and Ubuntu Server 18.04 LTS
 - **Hardened Linux untested** -  The Chaos Studio agent isn't tested against custom Linux distributions or hardened Linux distributions (for example, FIPS or SELinux).
-- **Supported browsers** The Chaos Studio portal experience has only been tested on the following browsers:
+- **Supported browsers** - The Chaos Studio portal experience has only been tested on the following browsers:
     * **Windows:** Microsoft Edge, Google Chrome, and Firefox
     * **MacOS:** Safari, Google Chrome, and Firefox
-- **Terraform** At present Chaos Studio does not support terraform.
+- **Terraform** - At present Chaos Studio does not support terraform.
+- **Built-in roles** - Chaos Studio does not currently have its own built-in roles. Permissions may be attained to run a chaos experiment by either assigning an [Azure built-in role](chaos-studio-fault-providers.md) or a created custom role to the experiment's identity. 
 
 ## Known issues
 When you pick target resources for an agent-based fault in the experiment designer, it's possible to select virtual machines or virtual machine scale sets with an operating system not supported by the fault selected.
