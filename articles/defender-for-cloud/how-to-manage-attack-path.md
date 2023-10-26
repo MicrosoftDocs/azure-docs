@@ -3,8 +3,8 @@ title: Identify and remediate attack paths
 
 description: Learn how to manage your attack path analysis and build queries to locate vulnerabilities in your multicloud environment.
 ms.topic: how-to
-ms.custom: ignite-2022
-ms.date: 08/10/2023
+ms.custom: ignite-2023
+ms.date: 10/26/2023
 ---
 
 # Identify and remediate attack paths
@@ -53,11 +53,6 @@ You can use Attack path analysis  to locate the biggest risks to your environmen
 
 1. Select an attack path.
 
-    :::image type="content" source="media/how-to-manage-cloud-map/attack-path.png" alt-text="Screenshot that shows a sample of attack paths." lightbox="media/how-to-manage-cloud-map/attack-path.png" :::
-
-    > [!NOTE]
-    > An attack path may have more than one path that is at risk. The path count will tell you how many paths need to be remediated. If the attack path has more than one path, you will need to select each path within that attack path to remediate all risks.
-
 1. Select a node.
 
     :::image type="content" source="media/how-to-manage-cloud-map/node-select.png" alt-text="Screenshot of the attack path screen that shows you where the nodes are located for selection." lightbox="media/how-to-manage-cloud-map/node-select.png":::
@@ -90,7 +85,7 @@ Attack path analysis also gives you the ability to see all recommendations by at
 
 1. Select an attack path.
 
-1. Select **Recommendations**.
+1. Select **Remediation**.
 
     :::image type="content" source="media/how-to-manage-cloud-map/bulk-recommendations.png" alt-text="Screenshot that shows where to select on the screen to see the attack paths full list of recommendations." lightbox="media/how-to-manage-cloud-map/bulk-recommendations.png":::
 
