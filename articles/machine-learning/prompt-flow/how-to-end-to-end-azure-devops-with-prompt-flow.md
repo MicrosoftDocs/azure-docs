@@ -263,7 +263,7 @@ LLMOps with Prompt Flow provides capabilities for both simple as well as complex
     python -m pip install promptflow promptflow-tools promptflow-sdk jinja2 promptflow[azure] openai promptflow-sdk[builtins]
 
     ```
-4. Bring or write **your flows** into the template based on documentation [here](https://github.com/microsoft/llmops-promptflow-template/blob/main/docs/how_to_setup.md).
+4. Bring or write **your flows** into the template. To learn how, see [How to setup](https://github.com/microsoft/llmops-promptflow-template/blob/main/docs/how_to_setup.md).
 
 5. Write lpython scripts in notebooks folder similar to provided examples there.
 
