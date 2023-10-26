@@ -25,7 +25,7 @@ Resource Provider and Type: [App Configuration Platform Metrics](../azure-monito
 | Throttled Http Request Count | Count |	Throttled requests are Http requests that receive a response with a status code of 429 |
 | Daily Storage Usage | Percent |	Represents the amount of storage in use as a percentage of the maximum allowance. This metric is updated at least once daily. |
 | Replication Latency | Milliseconds |	Represents the average time it takes for a replica to be consistent with current state. |
-
+| Request Quota Usage | Percent |	Represents the current total request usage in percentage. |
 For more information, see a list of [all platform metrics supported in Azure Monitor](../azure-monitor/essentials/metrics-supported.md).
 
 
@@ -39,7 +39,7 @@ App Configuration has the following dimensions associated with its metr
 | Throttled Http Request Count | The **Endpoint** of each request is included as a dimension.  |
 | Daily Storage Usage | This metric does not have any dimensions.  |
 | Replication Latency | The **Endpoint** of the replica that data was replicated to is included as a dimension.  |
-
+| Request Quota Usage | The The supported dimensions are the **OperationType** and **Endpoint** of each request.  |
  For more information on what metric dimensions are, see [Multi-dimensional metrics](../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics).
 
 ## Resource logs

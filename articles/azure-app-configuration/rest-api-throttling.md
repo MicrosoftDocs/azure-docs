@@ -47,3 +47,9 @@ The service may identify situations other than throttling that need a client ret
 HTTP/1.1 503 Service Unavailable
 retry-after-ms: 787
 ```
+
+## Monitoring
+
+To view **Total Requests** quota usage, App Configuration provides a metric named **Request Quota Usage**. The request quota usage metric shows the current quota usage in percentage.
+
+For more information on the request quota usage metric and other App Configuration metrics see [Monitoring App Configuration data reference](./monitor-app-configuration-reference.md).
