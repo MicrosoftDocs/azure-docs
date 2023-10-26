@@ -61,7 +61,7 @@ This operation also includes advanced parameters, which appear after you select 
 
   To invoke a mainframe program, your workflow needs to understand the mainframe program's type, parameters, and return values. The CICS connector manages the process and data conversions, which are required for providing input data from the workflow to the mainframe program and for sending any output data generated from the mainframe program to the workflow. For this process, Azure Logic Apps requires that you provide this information as metadata.
 
-  To create this metadata, use the [HIS Designer for Logic Apps](/host-integration-server/core/application-integration-ladesigner-2). With this tool, you can manually create the methods that your workflow uses and define the methods and parameters for the tasks in your app. These tasks are represented as CICS connector actions that you add and run in your workflow. You can also import mainframe COBOL program definitions (copybooks) that provide all these program structures by using the designer.
+  To create this metadata, use the [HIS Designer for Logic Apps](/host-integration-server/core/application-integration-ladesigner-2). With this tool, you can manually create the methods used by your workflow and then define the methods and parameters for the tasks in your app. These tasks are represented as CICS connector actions that you add and run in your workflow. You can also import mainframe COBOL program definitions (copybooks) that provide all these program structures by using the designer.
 
   The tool generates a Host Integration Designer XML (HIDX) file that provides the necessary metadata for the connector to use for driving your mainframe app. If you are using HIS, you can use the TI Designer to create the HIDX file.
 
@@ -161,7 +161,7 @@ After you finish all the previous steps, you can use the action that you added t
 
 1. To run your workflow, on the workflow menu, select **Overview**. On the **Overview** toolbar, select **Run** > **Run**.
 
-   After your workflow finishes running, your workflow's run history appears. Successful steps show check marks, while unsuccessful steps show an eclamation point (**!**).
+   After your workflow finishes running, your workflow's run history appears. Successful steps show check marks, while unsuccessful steps show an exclamation point (**!**).
 
 1. To review the inputs and outputs for each step, expand that step.
 
