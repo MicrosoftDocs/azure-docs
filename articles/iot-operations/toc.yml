@@ -184,7 +184,7 @@ items:
         href: manage-layered-network/howto-configure-l4-cluster-layered-network.md
       - name: Configure MQ in isolated network
         href: manage-layered-network/howto-configure-mq-layered-network.md
-      - name: Configure AKS EE clusters
+      - name: Configure AKS Edge Essentials clusters
         href: manage-layered-network/howto-configure-aks-edge-essentials-layered-network.md
     - name: Administrator guide
       items:
