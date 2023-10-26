@@ -37,7 +37,7 @@ Before you set up keys, you need to enable a managed identity for the DICOM serv
 
 #### Update the DICOM service after moving or deleting the managed identity
 
-If you change the managed identity in any way, such as moving your DICOM service to a different tenant or subscription, the DICOM service isn't able to access your keys anymore. You need to update the service by manually using an ARM template deployment. For steps, see [Use an ARM template to update the encryption key](configure-customer-managed-keys.md#use-an-arm-template-to-update-the-encryption-key).
+If you change the managed identity in any way, such as moving your DICOM service to a different tenant or subscription, the DICOM service isn't able to access your keys until you update the service by manually using an ARM template deployment. For steps, see [Use an ARM template to update the encryption key](configure-customer-managed-keys.md#use-an-arm-template-to-update-the-encryption-key).
 
 ## Recover from lost key access
 

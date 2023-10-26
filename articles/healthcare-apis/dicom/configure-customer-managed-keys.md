@@ -13,16 +13,13 @@ ms.author: mmitrik
 
 With customer-managed keys (CMK), you can protect and control access to your organization's data using keys that you create and manage. 
 
-Before you complete the steps in this article, make sure you're familiar with [Best practices for using customer-managed keys](customer-managed-keys.md).
+## Prerequisites
 
+- Make sure you're familiar with [Best practices for using customer-managed keys](customer-managed-keys.md).
 
-## Add a key for the DICOM service in Azure Key Vault
+- Add a key for the DICOM service in Azure Key Vault. For steps, see [Add a key in Azure Key Vault](../../key-vault/keys/quick-create-portal.md#add-a-key-to-key-vault). 
 
-Before you configure customer-managed keys for the DICOM service, you need to add the key. For steps, see [Add a key in Azure Key Vault](../../key-vault/keys/quick-create-portal.md#add-a-key-to-key-vault). 
-
-## Enable a managed identity
-
-Before configure keys, you need to enable a managed identity for the DICOM service. You can use either a system-assigned or user-assigned managed identity. To understand the differences between a system-assigned and user-assigned managed identity, see [Managed identity types](/entra/identity/managed-identities-azure-resources/overview). 
+- Enable a managed identity for the DICOM service. You can use either a system-assigned or user-assigned managed identity. To find out the differences between a system-assigned and user-assigned managed identity, see [Managed identity types](/entra/identity/managed-identities-azure-resources/overview). 
 
 #### System-assigned managed identity
 
@@ -56,10 +53,10 @@ The system-assigned managed identity needs the [Key Vault Crypto Officer](../../
 
 :::image type="content" source="media/configure-customer-managed-keys/key-vault-crypto-officer-role.png" alt-text="Screenshot showing the Key Vault Crypto Officer role selected on the role assignments tab." lightbox="media/configure-customer-managed-keys/key-vault-crypto-officer-role.png":::
 
-5. On the Members tab, select **Managed Identity** and then select **+ Select members**.
+5. On the Members tab, select **Managed Identity** and then select **+Select members**.
 
-1. On the **Select managed identities** pane, select **DICOM service** from the **Managed identity** drop-down list. Select your DICOM service.
-3. Choose **Select** on the **Select managed identities** pane. 
+6. On the **Select managed identities** pane, select **DICOM service** from the **Managed identity** drop-down list. Select your DICOM service.
+7. On the **Select managed identities** pane, choose **Select**. 
 
 :::image type="content" source="media/configure-customer-managed-keys/key-vault-add-role-assignment.png" alt-text="Screenshot of selecting the system assigned managed identity in the Add role assignment page." lightbox="media/configure-customer-managed-keys/key-vault-add-role-assignment.png":::
 
@@ -77,7 +74,7 @@ After you add the key, you need to update the DICOM service with the key URL.
 
 :::image type="content" source="media/configure-customer-managed-keys/key-vault-list.png" alt-text="Screenshot of the Keys page and the key to use with the DICOM service." lightbox="media/configure-customer-managed-keys/key-vault-list.png":::
 
-1. Select the key version, and then copy the **Key Identifier**.  You need the key URL for the next step.
+3. Select the key version, and then copy the **Key Identifier**.  You need the key URL when you update the key by using an ARM template.
 
 :::image type="content" source="media/configure-customer-managed-keys/key-vault-url.png" alt-text="Screenshot showing the key version details and the copy action for the Key Identifier." lightbox="media/configure-customer-managed-keys/key-vault-url.png":::
 
@@ -246,15 +243,15 @@ After you add the key, you need to update the DICOM service with the key URL.
 }
 ```
 
-4. When prompted, select the values for the resource group, region, workspace, and DICOM service name.  
+1. When prompted, select the values for the resource group, region, workspace, and DICOM service name.  
 
     * If you're using a system-assigned managed identity, enter the **Key Identifier** you copied from the key vault in the **Key Encryption Key Url** field.
     * If you're using a user-assigned managed identity, enter the values for the key vault name, key name, user assigned identity name, and tenant ID.
 
-:::image type="content" source="media/configure-customer-managed-keys/cmk-arm-deploy.png" alt-text="Screenshot of the deployment template with details, including Key Encryption Key URL filled in." lightbox="media/configure-customer-managed-keys/cmk-arm-deploy.png":::
-
-5. Select **Review + create** to deploy the updates to the key.
+1. Select **Review + create** to deploy the updates to the key.
 
 When the deployment completes, the DICOM service data is encrypted with the key you provided.
+
+:::image type="content" source="media/configure-customer-managed-keys/cmk-arm-deploy.png" alt-text="Screenshot of the deployment template with details, including Key Encryption Key URL filled in." lightbox="media/configure-customer-managed-keys/cmk-arm-deploy.png":::
 
 [!INCLUDE [DICOM trademark statement](../includes/healthcare-apis-dicom-trademark.md)]
