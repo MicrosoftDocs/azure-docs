@@ -32,8 +32,8 @@ If you're unable to create a VM with hibernation enabled, ensure that you're usi
 | OperationNotAllowed | Referencing a Dedicated Host isn't supported for a VM with Hibernation capability. |  |
 | OperationNotAllowed | Referencing a Capacity Reservation Group isn't supported for a VM with Hibernation capability. |  |
 | OperationNotAllowed | Enabling/disabling hibernation on an existing VM requires the VM to be stopped (deallocated) first. | Stop-deallocate the VM, patch with VM to enable hibernation and then start the VM |
-| OperationNotAllowed | Hibernation cannot be enabled on Virtual Machine since the OS Disk Size ({0} bytes) should at least be greater than the VM memory ({1} bytes). | Ensure the OS disk has enough space to be able to persist the RAM contents once the VM is hibernated |
-| OperationNotAllowed | Hibernation cannot be enabled on Virtual Machines created in an Availability Set. | Hibernation is only supported for standalone VMs & Virtual Machine Scale Sets (VMSS) Flex VMs |
+| OperationNotAllowed | Hibernation can't be enabled on Virtual Machine since the OS Disk Size ({0} bytes) should at least be greater than the VM memory ({1} bytes). | Ensure the OS disk has enough space to be able to persist the RAM contents once the VM is hibernated |
+| OperationNotAllowed | Hibernation can't be enabled on Virtual Machines created in an Availability Set. | Hibernation is only supported for standalone VMs & Virtual Machine Scale Sets (VMSS) Flex VMs |
 
 
 ## Unable to hibernate a VM
@@ -108,7 +108,7 @@ C:\Users\vmadmin>powercfg /a
 
 
 ```
-If hibernate isn't listed as a supported sleep state, there should be a reason associated with it, which should help determine why hibernate isn't supported. For example, the following example would happen if guest hibernate has not been configured for the VM.
+If 'Hibernate' isn't listed as a supported sleep state, there should be a reason associated with it, which should help determine why hibernate isn't supported. For example, the following example would happen if guest hibernate hasn't been configured for the VM.
 
 ```
 C:\Users\vmadmin>powercfg /a
@@ -123,7 +123,7 @@ C:\Users\vmadmin>powercfg /a
             The system firmware does not support this standby state.
 
         Hibernate
-            Hibernation has not been enabled.
+            Hibernation hasn't been enabled.
 
         Standby (S0 Low Power Idle)
             The system firmware does not support this standby state.
@@ -237,7 +237,7 @@ In addition to commonly seen issues while starting VMs, certain issues are speci
 
 | ResultCode | errorDetails |
 |--|--|--|
-| OverconstrainedResumeFromHibernatedStateAllocationRequest | Allocation failed. VM(s) with the following constraints cannot be allocated, because the condition is too restrictive. Remove some constraints and try again. Constraints applied are: Networking Constraints (such as Accelerated Networking or IPv6), Resuming from hibernated state (retry starting the VM after some time or alternatively stop-deallocate the VM and try starting the VM again). |
+| OverconstrainedResumeFromHibernatedStateAllocationRequest | Allocation failed. VM(s) with the following constraints can't be allocated, because the condition is too restrictive. Remove some constraints and try again. Constraints applied are: Networking Constraints (such as Accelerated Networking or IPv6), Resuming from hibernated state (retry starting the VM after some time or alternatively stop-deallocate the VM and try starting the VM again). |
 | AllocationFailed | VM allocation failed from hibernated state due to insufficient capacity. Try again later or alternatively stop-deallocate the VM and try starting the VM. |
 
 ## Windows guest resume status through VM instance view

@@ -26,7 +26,7 @@ Once a VM is in a hibernated state, you aren't billed for the VM usage. Your acc
 -	Applications that require considerable time to load due to memory components. These applications can be initialized on VMs and hibernated. These “prewarmed” VMs can then be quickly started when needed, with the applications already up and running in the desired state.
 
 When hibernating a VM:
-- Hibernation is triggered on a VM using the Azure Portal, CLI, PS, SDKs, and APIs, Azure signals the guest operating system to perform suspend-to-disk (S4). 
+- Hibernation is triggered on a VM using the Azure portal, CLI, PS, SDKs, and APIs, Azure signals the guest operating system to perform suspend-to-disk (S4). 
 - The VM's memory contents are stored on the OS disk. The VM is then deallocated, releases the lease on the underlying hardware, and is powered off. Refer to VM [states and billing](states-billing.md) for more details on the VM deallocated state.
 - Data in the temporary disk isn't persisted. 
 - The OS disk, data disks, and NICs remain attached to your VM. Any static IPs remain unchanged. 
@@ -43,7 +43,7 @@ The hibernate feature has several limitations at the Azure subscription, VM size
 -	When a VM is hibernated, you can't modify the disks and NICs associated with the VM. To do so, you must move the VM to a Stop-Deallocated state by stopping the VM and then modify the disks and NICs.
 -	When a VM is hibernated, there's no capacity guarantee to ensure that there will sufficient capacity to start the VM later. In rare cases if you encounter capacity issues, you can try starting the VM at a later time. 
 -	If a VM has a Capacity Reservation  associated with it and is hibernated, the Capacity Reservation doesn't ensure that the VM has capacity to resume.
--	You can only hibernate a VM using the Azure Portal, CLI, PowerShell, SDKs and API. Hibernating the VM using guest OS operations don't result in the VM moving to a hibernated state and the VM continues to be billed.
+-	You can only hibernate a VM using the Azure portal, CLI, PowerShell, SDKs and API. Hibernating the VM using guest OS operations don't result in the VM moving to a hibernated state and the VM continues to be billed.
 -	You can't disable hibernation on a VM once it's enabled.
 
 -	The following Azure features aren't supported with hibernation
@@ -125,7 +125,7 @@ az feature register --name VMHibernationPreview --namespace Microsoft.Compute
 ```
 ---
 
-Confirm that the registration state is Registered (registration may take a few minutes) using the following command before trying out the feature.
+Confirm that the registration state is Registered (registration takes a few minutes) using the following command before trying out the feature.
 ### [PowerShell](#tab/checkhiberPS)
 ```powershell
 Get-AzProviderFeature -FeatureName " VMHibernationPreview " -ProviderNamespace "Microsoft.Compute"
@@ -138,9 +138,9 @@ az feature show --name VMHibernationPreview --namespace Microsoft.Compute
 
 ## Getting started with hibernation
 
-To hibernate a VM, you must first enable the feature while creating the VM. You can only enable hibernation for a VM when it is first created. You can't enable this feature after the VM is created.
+To hibernate a VM, you must first enable the feature while creating the VM. You can only enable hibernation for a VM when it's first created. You can't enable this feature after the VM is created.
 
-To enable hibernation during VM creation, you can use the Azure Portal, CLI, PS, ARM templates and API. 
+To enable hibernation during VM creation, you can use the Azure portal, CLI, PowerShell, ARM templates and API. 
 
 ### [Portal](#tab/enableWithPortal)
 
@@ -619,7 +619,7 @@ Refer to the [Hibernate troubleshooting guide](./hibernate-resume-troubleshootin
     - No, you can't disable hibernation on a VM. 
 
 - Can I initiate hibernation from within the VM?
-    - To hibernate a VM you should use the Azure Portal, CLI, PowerShell commands, SDKs and APIs. Triggering hibernation from inside the VM will still result in your VM being billed for the compute resources. 
+    - To hibernate a VM you should use the Azure portal, CLI, PowerShell commands, SDKs and APIs. Triggering hibernation from inside the VM will still result in your VM being billed for the compute resources. 
 
 - When a VM is hibernated, is there a capacity assurance at the time of starting the VM?
     - No, there's no capacity assurance for starting hibernated VMs. In rare scenarios if you encounter a capacity issue, then you can try starting the VM at a later time. 
