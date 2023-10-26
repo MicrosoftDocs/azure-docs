@@ -3,7 +3,7 @@ title: Enforce Microsoft Entra multifactor authentication for Azure Virtual Desk
 description: How to enforce Microsoft Entra multifactor authentication for Azure Virtual Desktop using Conditional Access to help make it more secure.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 10/20/2023
+ms.date: 10/27/2023
 ms.author: helohr
 manager: femila
 ---
@@ -33,20 +33,19 @@ Here's what you'll need to get started:
 Here's how to create a Conditional Access policy that requires multifactor authentication when connecting to Azure Virtual Desktop:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as a global administrator, security administrator, or Conditional Access administrator.
-1. In the search bar, type *Microsoft Entra ID* and select the matching service entry.
-1. Browse to **Security** > **Conditional Access**.
-1. Select **New policy** > **Create new policy**.
+1. In the search bar, type *Microsoft Entra Conditional Access* and select the matching service entry.
+1. From the overview, select **Create new policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
-1. Under **Assignments**, select **Users or workload entities**.
-1. Under the **Include** tab, select **Select users and groups** and tick **Users and groups**. On the right, search for and choose the group that contains your Azure Virtual Desktop users as group members.
-1. Select **Select**.
-1. Under **Assignments**, select **Cloud apps or actions**.
-1. Under the **Include** tab, select **Select apps**.
-1. On the right, search for and select the necessary apps based on the resources you are trying to protect.
+1. Under **Assignments** > **Users**, select **0 users and groups selected**.
+1. Under the **Include** tab, select **Select users and groups** and check **Users and groups**, then under **Select**, select **0 users and groups selected**.
+1. On the new pane that opens, search for and choose the group that contains your Azure Virtual Desktop users as group members, then select **Select**.
+1. Under **Assignments** > **Target resources**, select **No target resources selected**.
+1. Under the **Include** tab, select **Select apps**, then under **Select**, select **None**.
+1. On the new pane that opens, search for and select the necessary apps based on the resources you are trying to protect.
 
    - If you're using Azure Virtual Desktop (based on Azure Resource Manager), you can configure MFA on two different apps:
 
-        - **Azure Virtual Desktop** (app ID 9cdead84-a844-4324-93f2-b2e6bb768d07), which applies when the user subscribes to Azure Virtual Desktop, authenticates to the Azure Virtual Desktop Gateway during a connection and when diagnostics information is sent to the service from the user's local device.
+        - **Azure Virtual Desktop** (app ID 9cdead84-a844-4324-93f2-b2e6bb768d07), which applies when the user subscribes to Azure Virtual Desktop, authenticates to the Azure Virtual Desktop Gateway during a connection, and when diagnostics information is sent to the service from the user's local device.
 
         > [!TIP]
         > The app name was previously *Windows Virtual Desktop*. If you registered the *Microsoft.DesktopVirtualization* resource provider before the display name changed, the application will be named **Windows Virtual Desktop** with the same app ID as above.
@@ -71,30 +70,35 @@ Here's how to create a Conditional Access policy that requires multifactor authe
    > [!IMPORTANT]
    > Don't select the app called Azure Virtual Desktop Azure Resource Manager Provider (app ID 50e95039-b200-4007-bc97-8d5790743a63). This app is only used for retrieving the user feed and shouldn't have multifactor authentication.   
 
-1. Once you've selected your app, select **Select**.
+1. Once you've selected your apps, select **Select**.
 
     > [!div class="mx-imgBorder"]
     > ![A screenshot of the Conditional Access Cloud apps or actions page. The Azure Virtual Desktop app is shown.](media/cloud-apps-enterprise.png)
     
-1. Under **Assignments**, select **Conditions** > **Client apps**. On the right, for **Configure**, select **Yes**, and then select the client apps this policy will apply to:
+1. Under **Assignments** > **Conditions**, select **0 conditions select**.
+1. Under **Client apps**, select **Not configured**.
+1. On the new pane that opens, for **Configure**, select **Yes**
+1. Select the client apps this policy will apply:
 
-    - Select both check boxes if you want to apply the policy to all clients.    
     - Select **Browser** if you want the policy to apply to the web client.
     - Select **Mobile apps and desktop clients** if you want to apply the policy to other clients.
+    - Select both check boxes if you want to apply the policy to all clients.    
     - Deselect values for legacy authentication clients.
    
     > [!div class="mx-imgBorder"]
     > ![A screenshot of the Conditional Access Client apps page. The user has selected the mobile apps and desktop clients, and browser check boxes.](media/conditional-access-client-apps.png)
 
 1. Once you've selected the client apps this policy will apply to, select **Done**.
-1. Under **Assignments**, select **Access controls** > **Grant**, select **Grant access**, **Require multifactor authentication**, and then select **Select**.
+1. Under **Access controls** > **Grant**, select **0 controls selected**.
+1. On the new pane that opens, select **Grant access**.
+1. Check **Require multifactor authentication**, and then select **Select**.
 1. At the bottom of the page, set **Enable policy** to **On** and select **Create**.
 
 > [!NOTE]
 > When you use the web client to sign in to Azure Virtual Desktop through your browser, the log will list the client app ID as a85cf173-4192-42f8-81fa-777a763e6e2c (Azure Virtual Desktop client). This is because the client app is internally linked to the server app ID where the conditional access policy was set.
 
 > [!TIP]
-> Some users may see a prompt titled *Stay signed in to all your apps* if the Windows device they're using is not already registered with Microsoft Entra ID. If they deselect **Allow my organization to manage my device** and select **No, sign in to this app only**, they may be prompted for authenitcation more frequently.
+> Some users may see a prompt titled *Stay signed in to all your apps* if the Windows device they're using is not already registered with Microsoft Entra ID. If they deselect **Allow my organization to manage my device** and select **No, sign in to this app only**, they may be prompted for authentication more frequently.
 
 ## Configure sign-in frequency
 
