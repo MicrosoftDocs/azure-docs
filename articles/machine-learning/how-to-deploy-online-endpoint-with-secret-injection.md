@@ -134,7 +134,7 @@ Explain key vault as well
         1. ${{azureml://connections/<connection_name>/credentials/<credential_name>}}: The value of the credential will be populated into the environment variable.
         1. ${{azureml://connections/<connection_name>/metadata/<metadata_name>}}: The value of the metadata will be populated into the environment variable.
         1. ${{azureml://connections/<connection_name>/target}}: The value of the target (where applicable) will be populated into the environment variable.
-        1. ${{keyvault:https://<keyvault-name>.vault.azure.net/secrets/<secret_name>/<secret_version>}}: The value of the secret version will be populated into the environment variable.
+        1. ${{keyvault:https://<keyvault_name>.vault.azure.net/secrets/<secret_name>/<secret_version>}}: The value of the secret version will be populated into the environment variable.
     1. For example,
 
         ```YAML
