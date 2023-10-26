@@ -157,13 +157,13 @@ You can deploy your AKS clusters in a dual-stack mode when using Overlay network
 ### Prerequisites
 
   - You must have Azure CLI 2.48.0 or later installed.
-  - You must register the `AKS-OutBoundTypeMigrationPreview` feature flag.
+  - You must register the `AzureOverlayDualStackPreview` feature flag.
   - Kubernetes version 1.26.3 or greater.
 
 ### Limitations
 
 The following features aren't supported with dual-stack networking:
-  - Linux only
+  - Windows Nodepools
   - Azure network policies
   - Calico network policies
   - NAT Gateway
@@ -183,18 +183,18 @@ The following attributes are provided to support dual-stack clusters:
   * If no values are supplied, the default value `10.0.0.0/16,fd12:3456:789a:1::/108` is used.
   * The IPv6 subnet assigned to `--service-cidrs` can be no larger than a /108.
 
-### Register the `AKS-OutBoundTypeMigrationPreview` feature flag
+### Register the `AzureOverlayDualStackPreview` feature flag
 
-1. Register the `AKS-OutBoundTypeMigrationPreview` feature flag using the [`az feature register`][az-feature-register] command. It takes a few minutes for the status to show *Registered*.
+1. Register the `AzureOverlayDualStackPreview` feature flag using the [`az feature register`][az-feature-register] command. It takes a few minutes for the status to show *Registered*.
 
 ```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService" --name "AKS-OutBoundTypeMigrationPreview"
+az feature register --namespace "Microsoft.ContainerService" --name "AzureOverlayDualStackPreview"
 ```
 
 2. Verify the registration status using the [`az feature show`][az-feature-show] command.
 
 ```azurecli-interactive
-az feature show --namespace "Microsoft.ContainerService" --name "AKS-OutBoundTypeMigrationPreview"
+az feature show --namespace "Microsoft.ContainerService" --name "AzureOverlayDualStackPreview"
 ```
 
 3. When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider using the [`az provider register`][az-provider-register] command.
