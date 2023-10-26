@@ -126,34 +126,26 @@ The Table service supports batch transactions on entities that are in the same t
 
 ## .NET configuration
 
-If using the .NET Framework, this section lists several quick configuration settings that you can use to make significant performance improvements.  If using other languages, check to see if similar concepts apply in your chosen language.  
-
-### Use .NET Core
-
-Develop your Azure Storage applications with .NET Core 2.1 or later to take advantage of performance enhancements. Using .NET Core 3.x is recommended when possible.
-
-For more information on performance improvements in .NET Core, see the following blog posts:
-
-- [Performance Improvements in .NET Core 3.0](https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-core-3-0/)
-- [Performance Improvements in .NET Core 2.1](https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-core-2-1/)
+For projects using .NET Framework, this section lists some quick configuration settings that you can use to make significant performance improvements. If you're using a language other than .NET, check to see if similar concepts apply in your chosen language.
 
 ### Increase default connection limit
 
-In .NET, the following code increases the default connection limit (which is usually 2 in a client environment or 10 in a server environment) to 100. Typically, you should set the value to approximately the number of threads used by your application.  
+> [!NOTE]
+> This section applies to projects using .NET Framework, as connection pooling is controlled by the ServicePointManager class. .NET Core introduced a significant change around connection pool management, where connection pooling happens at the HttpClient level and the pool size is not limited by default. This means that HTTP connections are automatically scaled to satisfy your workload. Using the latest version of .NET is recommended, when possible, to take advantage of performance enhancements.
+
+For projects using .NET Framework, you can use the following code to increase the default connection limit (which is usually two in a client environment or ten in a server environment) to 100. Typically, you should set the value to approximately the number of threads used by your application. Set the connection limit before opening any connections.
 
 ```csharp
 ServicePointManager.DefaultConnectionLimit = 100; //(Or More)  
 ```
 
-Set the connection limit before opening any connections.  
+To learn more about connection pool limits in .NET Framework, see [.NET Framework Connection Pool Limits and the new Azure SDK for .NET](https://devblogs.microsoft.com/azure-sdk/net-framework-connection-pool-limits/).
 
-For other programming languages, see that language's documentation to determine how to set the connection limit.  
-
-For more information, see the blog post [Web Services: Concurrent Connections](/archive/blogs/darrenj/web-services-concurrent-connections).  
+For other programming languages, see the documentation to determine how to set the connection limit.
 
 ### Increase minimum number of threads
 
-If you are using synchronous calls together with asynchronous tasks, you may want to increase the number of threads in the thread pool:
+If you're using synchronous calls together with asynchronous tasks, you may want to increase the number of threads in the thread pool:
 
 ```csharp
 ThreadPool.SetMinThreads(100,100); //(Determine the right number for your application)  
