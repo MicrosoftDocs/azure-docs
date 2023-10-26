@@ -105,9 +105,6 @@ If you installed Azure IoT Akri as described in [Prerequisites](#prerequisites),
     - To enable Azure IoT Akri to discover the servers, confirm that you specified the correct discovery endpoint URL during installation.
     - Discovery URLs appear as `opc.tcp://<FQDN>:50000/`. To find the FQDNs of your OPC PLC servers, navigate to your deployments in the Azure portal. For each server, copy and paste the **FQDN** value into your discovery URLs. The following example demonstrates discovery of two OPC PLC servers. You can add the asset parameters for each OPC PLC server.  If you only have one OPC PLC server, delete one of the assets.
     
-    The following screenshot shows a section from an example deployment in Azure portal, with the **FQDN** value highlighted:
-    :::image type="content" source="media/howto-create-and-detect-assets-using-akri/akri-opc-plc-fqdn.png" alt-text="Screenshot that shows a section from a deployment in Azure portal with the FQDN field highlighted.":::
-    
 
     > [!div class="mx-tdBreakAll"]
     > | Name                              | Mandatory         | Datatype | Default | Comment                                                                                                                                                                                                                                      |
