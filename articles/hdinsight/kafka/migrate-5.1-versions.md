@@ -8,7 +8,7 @@ ms.date: 10/26/2023
 
 # Migrate Apache Kafka workloads to Azure HDInsight 5.1
 
-Azure HDInsight 5.1 offers the latest open-source components with significant enhancements in performance, connectivity, and security. This document explains how to migrate Apache Kafka workloads from HDInsight 4.0 to HDInsight 5.1. After migrating your workloads to HDInsight 5.1, you can use many of the new features that aren't available on HDInsight 4.0.
+Azure HDInsight 5.1 offers the latest open-source components with significant enhancements in performance, connectivity, and security. This document explains how to migrate Apache Kafka workloads from HDInsight 4.0 (Kafka 2.1) to HDInsight 5.1 (Kafka 3.2).
 
 
 ## Apache Kafka versions
