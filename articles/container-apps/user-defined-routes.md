@@ -66,7 +66,7 @@ A subnet called **AzureFirewallSubnet** is required in order to deploy a firewal
     | **Virtual network** | Select the integrated virtual network. |
     | **Public IP address** | Select an existing address or create one by selecting **Add new**. |
 
-1. Select **Review + create**. After validation finishes, select **Create**. The validation step may take a few minutes to complete.
+1. Select **Review + create**. After validation finishes, select **Create**. The validation step might take a few minutes to complete.
 
 1. Once the deployment completes, select **Go to Resource**.
 
