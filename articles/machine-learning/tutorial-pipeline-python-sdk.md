@@ -106,7 +106,7 @@ ml_client = MLClient(
 > [!NOTE]
 > Creating MLClient will not connect to the workspace. The client initialization is lazy, it will wait for the first time it needs to make a call (this will happen in the next code cell).
 
-Verify the connection by making a call to `ml_client`. Since this is the first time that you're making a call to the workspace, you may be asked to authenticate. 
+Verify the connection by making a call to `ml_client`. Since this is the first time that you're making a call to the workspace, you might be asked to authenticate. 
 
 
 ```python
@@ -586,7 +586,7 @@ pipeline_job = ml_client.jobs.create_or_update(
 ml_client.jobs.stream(pipeline_job.name)
 ```
 
-You can track the progress of your pipeline, by using the link generated in the previous cell. When you first select this link, you may see that the pipeline is still running. Once it's complete, you can examine each component's results.
+You can track the progress of your pipeline, by using the link generated in the previous cell. When you first select this link, you might see that the pipeline is still running. Once it's complete, you can examine each component's results.
 
 Double-click the **Train Credit Defaults Model** component. 
 
