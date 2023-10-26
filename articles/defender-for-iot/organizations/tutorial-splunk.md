@@ -22,7 +22,7 @@ If you're integrating a cloud-connected OT sensor with Splunk, we recommend that
 
 ## On-premises integrations
 
-If you're working with an air-gapped, locally managed OT sensor, you'll need an on-premises solution to view Defender for IoT and Splunk information in the same place.
+If you're working with an air-gapped, locally managed OT sensor, you need an on-premises solution to view Defender for IoT and Splunk information in the same place.
 
 In such cases, we recommend that you configure your OT sensor to send syslog files directly to Splunk, or use Defender for IoT's built-in API.
 
@@ -60,7 +60,7 @@ Before you begin, make sure that you have the following prerequisites:
 
 ### Download the Defender for IoT application in Splunk
 
-To access the Defender for IoT application within Splunk, you need to download the application form the Splunkbase application store.
+To access the Defender for IoT application within Splunk, you need to download the application from the Splunkbase application store.
 
 **To access the Defender for IoT application in Splunk**:
 
