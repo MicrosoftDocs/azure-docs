@@ -34,6 +34,44 @@ To invoke a batch endpoint, the user must present a valid Microsoft Entra token 
 
 You can either use one of the [built-in security roles](../role-based-access-control/built-in-roles.md) or create a new one. In any case, the identity used to invoke the endpoints requires to be granted the permissions explicitly. See [Steps to assign an Azure role](../role-based-access-control/role-assignments-steps.md) for instructions to assign them.
 
+The following specific permissions are needed in case you want to create a custom role:
+
+```json
+"actions": [
+    "Microsoft.MachineLearningServices/workspaces/read",
+    "Microsoft.MachineLearningServices/workspaces/data/versions/write",
+    "Microsoft.MachineLearningServices/workspaces/datasets/registered/read",
+    "Microsoft.MachineLearningServices/workspaces/datasets/registered/write",
+    "Microsoft.MachineLearningServices/workspaces/datasets/unregistered/read",
+    "Microsoft.MachineLearningServices/workspaces/datasets/unregistered/write",
+    "Microsoft.MachineLearningServices/workspaces/datastores/read",
+    "Microsoft.MachineLearningServices/workspaces/datastores/write",
+    "Microsoft.MachineLearningServices/workspaces/datastores/listsecrets/action",
+    "Microsoft.MachineLearningServices/workspaces/listStorageAccountKeys/action",
+    "Microsoft.MachineLearningServices/workspaces/batchEndpoints/read",
+    "Microsoft.MachineLearningServices/workspaces/batchEndpoints/deployments/read",
+    "Microsoft.MachineLearningServices/workspaces/computes/read",
+    "Microsoft.MachineLearningServices/workspaces/computes/listKeys/action",
+    "Microsoft.MachineLearningServices/workspaces/metadata/secrets/read",
+    "Microsoft.MachineLearningServices/workspaces/metadata/snapshots/read",
+    "Microsoft.MachineLearningServices/workspaces/metadata/artifacts/read",
+    "Microsoft.MachineLearningServices/workspaces/metadata/artifacts/write",
+    "Microsoft.MachineLearningServices/workspaces/experiments/read",
+    "Microsoft.MachineLearningServices/workspaces/experiments/runs/submit/action",
+    "Microsoft.MachineLearningServices/workspaces/experiments/runs/read",
+    "Microsoft.MachineLearningServices/workspaces/experiments/runs/write",
+    "Microsoft.MachineLearningServices/workspaces/metrics/resource/write",
+    "Microsoft.MachineLearningServices/workspaces/modules/read",
+    "Microsoft.MachineLearningServices/workspaces/models/read",
+    "Microsoft.MachineLearningServices/workspaces/endpoints/pipelines/read",
+    "Microsoft.MachineLearningServices/workspaces/endpoints/pipelines/write",
+    "Microsoft.MachineLearningServices/workspaces/environments/read",
+    "Microsoft.MachineLearningServices/workspaces/environments/write",
+    "Microsoft.MachineLearningServices/workspaces/environments/build/action"
+    "Microsoft.MachineLearningServices/workspaces/environments/readSecrets/action"
+]
+```
+
 > [!IMPORTANT]
 > The identity used for invoking a batch endpoint may not be used to read the underlying data depending on how the data store is configured. Please see [Configure compute clusters for data access](#configure-compute-clusters-for-data-access) for more details.
 
