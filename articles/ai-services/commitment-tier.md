@@ -92,6 +92,12 @@ Commitment plans for disconnected containers have a calendar year commitment per
 
 You can choose a different commitment plan in the **Commitment Tier pricing** settings of your resource.
 
+## Overage pricing for disconnected containers
+
+To use a disconnected container beyond the quota initially purchased with your disconnected container commitment plan, you can purchase additional quota by updating your commitment plan at any time. 
+
+To purchase additional quota, go to your resource in Azure portal and adjust the "unit count" of your disconnected container commitment plan using the slider. This will add additional monthly quota and you will be charged a pro-rated price based on the remaining days left in the current billing cycle.
+
 ## See also
 
 * [Azure AI services pricing](https://azure.microsoft.com/pricing/details/cognitive-services/).
