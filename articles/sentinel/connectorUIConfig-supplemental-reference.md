@@ -1,6 +1,6 @@
 ---
-title: connectorUIConfig supplemental reference for the Data Connector Definition
-description: This article provides a supplemental reference for creating connectorUIConfig JSON for the Data Connector Definition API as part of the Codeless Connector Platform.
+title: Supplemental reference for the Data Connector Definition connectorUIConfig section
+description: This article provides a supplemental reference for creating the connectorUIConfig JSON section for the Data Connector Definition API as part of the Codeless Connector Platform.
 services: sentinel
 author: austinmccollum
 ms.topic: reference
@@ -9,7 +9,7 @@ ms.author: austinmc
 
 ---
 
-# 
+# Supplemental reference for the Data Connector Definition API
 
 Your custom CCP connector has two primary JSON sections needed for deployment. Fill in these areas to define how your connector is displayed in the Azure portal and how it connects Microsoft Sentinel to your data source.
 
