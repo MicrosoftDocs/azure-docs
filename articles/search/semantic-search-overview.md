@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/25/2023
+ms.date: 10/26/2023
 ---
 
 # Semantic ranking in Azure Cognitive Search
@@ -50,35 +50,46 @@ The following illustration explains the concept. Consider the term "capital". It
 
 :::image type="content" source="media/semantic-search-overview/semantic-vector-representation.png" alt-text="Illustration of vector representation for context." border="true":::
 
-Semantic ranking is both resource and time intensive. In order to complete processing within the expected latency of a query operation, inputs to the semantic ranker are consolidated and reduced so that the underlying summarization and reranking steps can be completed as quickly as possible.
+Semantic ranking is both resource and time intensive. In order to complete processing within the expected latency of a query operation, inputs to the semantic ranker are consolidated and reduced so that the reranking step can be completed as quickly as possible.
 
-### How inputs are prepared
+There are two steps to semantic ranking: summarization and scoring. Outputs consist of rescored results, captions, and answers.
 
-In semantic ranking, the query subsystem passes search results as an input to the language understanding models. Because the models have input size constraints and are processing intensive, search results must be sized and structured for efficient handling.
+### How inputs are collected and summarized
 
-1. Semantic ranking starts with a [BM25-ranked search result](index-ranking-similarity.md) from a text query or an [RRF-ranked](hybrid-search-ranking.md) from a hybrid query. Only text fields are used in the reranking exercise, and only the top 50 results progress to semantic ranking, even if results include more than 50.
+In semantic ranking, the query subsystem passes search results as an input to summarization and ranking models. Because the ranking models have input size constraints and are processing intensive, search results must be sized and structured (summarized) for efficient handling.
 
-1. From each match, for each string field listed in the [semantic configuration](semantic-how-to-query-request.md#2---create-a-semantic-configuration), the query subsystem combines values into one long string. Typically, fields used in semantic ranking are textual and descriptive.
+1. Semantic ranking starts with a [BM25-ranked result](index-ranking-similarity.md) from a text query or an [RRF-ranked result](hybrid-search-ranking.md) from a hybrid query. Only text fields are used in the reranking exercise, and only the top 50 results progress to semantic ranking, even if results include more than 50. Typically, fields used in semantic ranking are informational and descriptive.
 
-<!-- summarization and ranker. The summarization step accepts 140 sentences of 64 tokens each, it extracts the summary of 256 tokens (query, title and terms included, so less than 256 tokens for content fields actually) and this summary is sent to the ranker.  -->
+1. For each document in the search result, the summarization model accepts 140 sentences of 64 tokens each, where a token is approximately 10 characters. The summarization model pulls from the "title", "keyword", and "content" fields listed in the [semantic configuration](semantic-how-to-query-request.md#2---create-a-semantic-configuration). It outputs a summary string.
 
-<!-- 1. Excessively long strings are trimmed to ensure the overall length meets the input requirements of the summarization step.
+1. Excessively long strings are trimmed to ensure the overall length meets the input requirements of the summarization step.
 
    This trimming exercise is why it's important to add fields to your semantic configuration in priority order. If you have very large documents with text-heavy fields, anything after the maximum limit is ignored.
 
-Each document is now represented by a single long *summarization string*.
+   The maximum limit of the summary string is 256 tokens.
 
-**Maximum token counts (256)**. The string is composed of tokens, not characters or words. The maximum token count is 256 unique tokens. For estimation purposes, you can assume that 256 tokens are roughly equivalent to a string that is 256 words in length.  -->
+   | Semantic field | Token limit |
+   |-----------|-------------|
+   | "title"   | 128 tokens |
+   | "keywords | 128 tokens |
+   | "content" | remaining tokens |
 
-### How inputs are summarized
+The summary strings are sent to the ranker. 
 
-After strings are prepared, it's now possible to pass the reduced inputs through machine reading comprehension and language representation models to determine which sentences and phrases provide the best summary, relative to the query. This phase extracts content from the string that will move forward to the semantic ranker.
+### How summaries are scored
 
-Inputs to summarization:
+Scoring is done over the summary string.
 
-* For each document, the summarization step accepts 140 sentences of 64 tokens each.
+1. Summary strings are evaluated for conceptual and semantic relevance, relative to the query provided.
 
-* It extracts the summary of 256 tokens (query, title and terms included, so less than 256 tokens are available to content fields) and this summary is sent to the ranker. 
+1. A **@search.rerankerScore** is assigned to each document based on the semantic relevance of the caption. Scores range from 4 to 0 (high to low), where a higher score indicates a stronger match.
+
+1. Matches are listed in descending order by score and included in the query response payload. The payload includes answers, plain text and highlighted captions, and any fields that you marked as retrievable or specified in a select clause.
+
+> [!NOTE]
+> Beginning on July 14, 2023, the **@search.rerankerScore** distribution is changing. The effect on scores can't be determined except through testing. If you have a hard threshold dependency on this response property, rerun your tests to understand what the new values should be for your threshold.
+
+### Outputs of semantic ranking
 
 From each string, the summarization model finds a passage that is the most representative.
 
@@ -90,28 +101,15 @@ Outputs are:
 
 Captions and answers are always verbatim text from your index. There's no generative AI model in this workflow that creates or composes new content.
 
-### How summaries are scored
-
-Scoring is done over the summarization string.
-
-1. Summarization strings are evaluated for conceptual and semantic relevance, relative to the query provided.
-
-1. A **@search.rerankerScore** is assigned to each document based on the semantic relevance of the caption. Scores range from 4 to 0 (high to low), where a higher score indicates a stronger match.
-
-1. Matches are listed in descending order by score and included in the query response payload. The payload includes answers, plain text and highlighted captions, and any fields that you marked as retrievable or specified in a select clause.
-
-> [!NOTE]
-> Beginning on July 14, 2023, the **@search.rerankerScore** distribution is changing. The effect on scores can't be determined except through testing. If you have a hard threshold dependency on this response property, rerun your tests to understand what the new values should be for your threshold.
-
 ## Semantic capabilities and limitations
 
-Semantic ranking is a newer technology so it's important to set expectations about what it can and can't do. What it can do:
+Semantic ranking is a newer technology so it's important to set expectations about what it can and can't do. What it *can* do:
 
 * Promote matches that are semantically closer to the intent of original query.
 
 * Find strings to use as captions and answers. Captions and answers are returned in the response and can be rendered on a search results page.
 
-What semantic ranking can't do is rerun the query over the entire corpus to find semantically relevant results. Semantic ranking reranks the *existing* result set, consisting of the top 50 results as scored by the default ranking algorithm. Furthermore, semantic ranking can't create new information or strings. Captions and answers are extracted verbatim from your content so if the results don't include answer-like text, the language models won't produce one.
+What semantic ranking *can't* do is rerun the query over the entire corpus to find semantically relevant results. Semantic ranking reranks the existing result set, consisting of the top 50 results as scored by the default ranking algorithm. Furthermore, semantic ranking can't create new information or strings. Captions and answers are extracted verbatim from your content so if the results don't include answer-like text, the language models won't produce one.
 
 Although semantic ranking isn't beneficial in every scenario, certain content can benefit significantly from its capabilities. The language models in semantic ranking work best on searchable content that is information-rich and structured as prose. A knowledge base, online documentation, or documents that contain descriptive content see the most gains from semantic ranking capabilities.
 
