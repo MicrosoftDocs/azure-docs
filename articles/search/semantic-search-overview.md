@@ -74,19 +74,6 @@ In semantic ranking, the query subsystem passes search results as an input to su
 
    The maximum length of each summary string is 256 tokens. 
 
-### How summaries are scored
-
-Scoring is done over the summary string.
-
-1. Summary strings are evaluated for conceptual and semantic relevance, relative to the query provided.
-
-1. A **@search.rerankerScore** is assigned to each document based on the semantic relevance of the caption. Scores range from 4 to 0 (high to low), where a higher score indicates a stronger match.
-
-1. Matches are listed in descending order by score and included in the query response payload. The payload includes answers, plain text and highlighted captions, and any fields that you marked as retrievable or specified in a select clause.
-
-> [!NOTE]
-> Beginning on July 14, 2023, the **@search.rerankerScore** distribution is changing. The effect on scores can't be determined except through testing. If you have a hard threshold dependency on this response property, rerun your tests to understand what the new values should be for your threshold.
-
 ### Outputs of semantic ranking
 
 From each summary string, the machine reading comprehension models find passages that are the most representative.
@@ -98,6 +85,19 @@ Outputs are:
 * An optional [semantic answer](semantic-answers.md), assuming you specified the `answers` parameter, the query was posed as a question, and a passage is found in the long string that provides a likely answer to the question.
 
 Captions and answers are always verbatim text from your index. There's no generative AI model in this workflow that creates or composes new content.
+
+### How summaries are scored
+
+Scoring is done over the caption.
+
+1. Captions are evaluated for conceptual and semantic relevance, relative to the query provided.
+
+1. A **@search.rerankerScore** is assigned to each document based on the semantic relevance of the caption. Scores range from 4 to 0 (high to low), where a higher score indicates a stronger match.
+
+1. Matches are listed in descending order by score and included in the query response payload. The payload includes answers, plain text and highlighted captions, and any fields that you marked as retrievable or specified in a select clause.
+
+> [!NOTE]
+> Beginning on July 14, 2023, the **@search.rerankerScore** distribution is changing. The effect on scores can't be determined except through testing. If you have a hard threshold dependency on this response property, rerun your tests to understand what the new values should be for your threshold.
 
 ## Semantic capabilities and limitations
 
