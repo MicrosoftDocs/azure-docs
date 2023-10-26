@@ -11,7 +11,7 @@ ms.author: v-abhmallick
 
 # Support matrix for Azure Business Continuity center (preview)
 
-This article describes the supportable scenarios and limitations for Azure Business Continuity center.
+This article describes supportable scenarios and limitations.
 
 You can use [Azure Business Continuity center](business-continuity-center-overview.md), a cloud-native unified business continuity and disaster recovery (BCDR) management platform in Azure to manage your protection estate across solutions and environments. This helps enterprises to govern, monitor, operate, and analyze backups and replication at scale. This article summarizes the solutions and scenarios that ABC center supports for each workload type.
 
@@ -75,3 +75,6 @@ This table lists the solutions and scenarios that are unsupported in Azure Busin
 | Actions | Re-protect action is not available for Azure Site Recovery replicated items of Azure Virtual machine. |
 | Actions | Move, delete is not available for vaults in Azure Business Continuity Center and can only be performed directly from individual vault pane. |
 
+## Next steps
+
+- [About Azure Business Continuity center (preview)](business-continuity-center\business-continuity-center-overview.md).

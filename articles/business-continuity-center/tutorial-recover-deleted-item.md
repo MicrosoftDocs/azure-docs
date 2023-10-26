@@ -18,8 +18,8 @@ Azure Business Continuity center allows you to recover protected items, that is,
 
 Before you start this tutorial:
 
-- Review the supported regions.
-- Review the supported actions.
+- [Review the supported regions](business-continuity-center\business-continuity-center-support-matrix.md).
+- [Review the supported actions](business-continuity-center\business-continuity-center-support-matrix.md).
 - You need to have permission on the resources to view them in ABC center and recover them. 
 
 ## Initiate recovery for Azure VM
@@ -50,6 +50,6 @@ Follow these steps to initiate the recovery for Azure VMs:
 
 ## Next steps
 
-Monitor progress of recover action [Add link]().
+[Monitor progress of recover action](tutorial-monitor-protection-summary.md).
 
 

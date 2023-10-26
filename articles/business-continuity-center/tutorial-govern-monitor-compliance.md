@@ -21,7 +21,7 @@ These are some of the governance capabilities of Azure Business Continuity cente
 
 ## Supported scenarios 
 
-Refer to the support matrix for a detailed list of supported and unsupported scenarios. 
+Learn more the [supported and unsupported scenarios](business-continuity-center-support-matrix.md). 
 
 ## Azure Policies for protection 
 

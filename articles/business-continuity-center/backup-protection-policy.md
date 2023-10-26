@@ -43,5 +43,5 @@ Follow these steps to create a policy:
 
 ## Next steps 
 
-- [Manage protection policies](./manage-protection-policy.md)
-- Configure protection  
+- [Manage protection policies](./manage-protection-policy.md).
+- [Configure protection](tutorial-configure-protection-datasource.md).  

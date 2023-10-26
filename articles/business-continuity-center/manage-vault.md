@@ -22,7 +22,9 @@ Before you start this tutorial:
 
 ## View vaults
 
-Follow these steps to use Azure Business Continuity center to view all your existing Recovery Services and Backup vaults from a single location and manage their lifecycle as needed.
+Use Azure Business Continuity center to view all your existing Recovery Services and Backup vaults from a single location and manage their lifecycle as needed.
+
+Follow these steps:
 
 1.	In the Azure Business Continuity center, select **Vaults** under **Manage**. 
     In this view you can see a list of all the vaults across subscription, resource groups, location, type, and more, along with their properties. 

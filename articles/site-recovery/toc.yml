@@ -147,6 +147,8 @@
       href: hyper-v-azure-common-questions.md
     - name: Monitoring
       href: monitoring-common-questions.md
+  - name: About Azure Business Continuity center
+    href: ../business-continuity-center/business-continuity-center-overview.md?toc=/azure/site-recovery/toc.json&bc=/azure/site-recovery/breadcrumb/toc.json    
   - name: About Backup center
     items:
     - name: Backup center overview
