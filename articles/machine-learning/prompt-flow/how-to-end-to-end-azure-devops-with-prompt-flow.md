@@ -106,7 +106,7 @@ Before you can set up an MLOps project with Azure Machine Learning, you need to 
 
 # [Create from Azure portal](#tab/azure-portal)
 
-1. Navigate to [Azure App Registrations](https://entra.microsoft.com/#view/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType~/null/sourceTypeMicrosoft_AAD_IAM)
+1. Navigate to [Azure App Registrations](https://entra.microsoft.com/#view/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType~/null/sourceTypeMicrosoft_AAD_IAM).
 
 1. Select **New Registration**.
     ![Screenshot of service principal setup.](../media/how-to-setup-mlops-azureml/SP-setup-ownership-tab.png)
