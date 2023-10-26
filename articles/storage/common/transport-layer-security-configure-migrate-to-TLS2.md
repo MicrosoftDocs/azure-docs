@@ -33,7 +33,7 @@ TLS 1.2 is more secure and faster than TLS 1.0 and 1.1, which don't support mode
 
 ## Prepare for the migration to TLS 1.2
 
-We recommend the following steps as you prepare to migrate to TLS 1.2:
+We recommend the following steps as you prepare the migration to TLS 1.2:
 
 - Update your operating system to the latest version.
 
