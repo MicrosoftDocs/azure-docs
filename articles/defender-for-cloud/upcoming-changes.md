@@ -2,7 +2,7 @@
 title: Important upcoming changes
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 10/09/2023
+ms.date: 10/26/2023
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -10,7 +10,7 @@ ms.date: 10/09/2023
 > [!IMPORTANT]
 > The information on this page relates to pre-release products or features, which might be substantially modified before they are commercially released, if ever. Microsoft makes no commitments or warranties, express or implied, with respect to the information provided here.
 
-<!-- Please don't adjust this next line without getting approval from the Defender for Cloud documentation team. It is necessary for proper RSS functionality. --> 
+<!-- Please don't adjust this next line without getting approval from the Defender for Cloud documentation team. It is necessary for proper RSS functionality. -->
 
 On this page, you can learn about changes that are planned for Defender for Cloud. It describes planned modifications to the product that might affect things like your secure score or workflows.
 
@@ -25,6 +25,7 @@ If you're looking for the latest release notes, you can find them in the [What's
 
 | Planned change | Announcement date | Estimated date for change |
 |--|--|--|
+| [Changes to how Microsoft Defender for Cloud's costs are presented in Microsoft Cost Management](#changes-to-how-microsoft-defender-for-clouds-costs-are-presented-in-microsoft-cost-management) | October 25, 2023 | November 2023 |
 | [Four alerts are set to be deprecated](#four-alerts-are-set-to-be-deprecated) | October 23, 2023 | November 23, 2023 |
 | [Replacing the "Key Vaults should have purge protection enabled" recommendation with combined recommendation "Key Vaults should have deletion protection enabled"](#replacing-the-key-vaults-should-have-purge-protection-enabled-recommendation-with-combined-recommendation-key-vaults-should-have-deletion-protection-enabled) |  | June 2023|
 | [Preview alerts for DNS servers to be deprecated](#preview-alerts-for-dns-servers-to-be-deprecated) |  | August 2023 |
@@ -33,8 +34,19 @@ If you're looking for the latest release notes, you can find them in the [What's
 | [DevOps Resource Deduplication for Defender for DevOps](#devops-resource-deduplication-for-defender-for-devops) |  | November 2023 |
 | [Changes to Attack Path's Azure Resource Graph table scheme](#changes-to-attack-paths-azure-resource-graph-table-scheme) |  | November 2023 |
 | [Deprecating two security incidents](#deprecating-two-security-incidents) |  | November 2023 |
-|Changes to how Microsoft Defender for Cloud's costs are presented in Microsoft Cost Management (#changes-to-how-microsoft-defender-for-clouds-costs-are-presented-in-microsoft-cost-management) ||November 2023|
 | [Defender for Cloud plan and strategy for the Log Analytics agent deprecation](#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation) |  | August 2024 |
+
+## Changes to how Microsoft Defender for Cloud's costs are presented in Microsoft Cost Management
+
+**Annoucement date: October 26, 2023**
+
+**Estimated date for change: November 2023**
+
+In November there will be a change as to how Microsoft Defender for Cloud's costs are presented in Cost Management and in Subscriptions invoices.
+
+Costs will be presented for each protected resource instead of as an aggregation of all resources on the subscription.
+
+If a resource has a tag applied, which are often used by organizations to perform financial chargeback processes, it will be added to the appropriate billing lines.
 
 ## Four alerts are set to be deprecated
 
@@ -143,16 +155,6 @@ Customers will have until November 14, 2023 to resolve this issue. After this da
 
 The Attack Path's Azure Resource Graph (ARG) table scheme will be updated. The `attackPathType` property will be removed and additional properties will be added.
 
-## Changes to how Microsoft Defender for Cloud's costs are presented in Microsoft Cost Management
-
-**Estimated date for change: December 2023**
-
-In November, there will be a change as to how Microsoft Defender for Cloud's costs are presented in Cost Management and in Subscriptions invoices. 
- 
-Costs will be presented for each protected resource instead of as an aggregation of all resources on the subscription. 
- 
-If a resource has a tag applied, which are often used by organizations to perform financial chargeback processes, will be added to the appropriate billing line(s). 
-
 ## Defender for Cloud plan and strategy for the Log Analytics agent deprecation
 
 **Estimated date for change: August 2024**
@@ -245,4 +247,3 @@ Following quality improvement process, the following security incidents are set 
 ## Next steps
 
 For all recent changes to Defender for Cloud, see [What's new in Microsoft Defender for Cloud?](release-notes.md).
-
