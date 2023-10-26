@@ -8,11 +8,11 @@ ms.custom: ga
 ms.date: 04/21/2023
 ms.author: marclichtman
 # Customer intent: As an Azure Orbital customer I want easy to understand documentation for virtual RF so I don't have to bug the product team to understand how to build my applications.
----
+---Configure a contact profile to downlink from a public satellite
 
 # Tutorial: Understand virtual RF (vRF) through demodulation of Aqua using GNU Radio
 
-In [Tutorial: Downlink data from NASA's Aqua public satellite](downlink-aqua.md), data from NASA's Aqua satellite is downlinked using a **managed modem**, meaning the raw RF signal received from the Aqua satellite by the ground station is passed through a modem managed by Azure Orbital.  The output of this modem, which is in the form of bytes, is then streamed to the user's VM.  As part of the step [Configure a contact profile for an Aqua downlink mission](downlink-aqua.md#configure-a-contact-profile-for-an-aqua-downlink-mission) the **Demodulation Configuration** was set to **Aqua Direct Broadcast**, which is what enabled and configured the managed modem to demodulate/decode the RF signal received from Aqua.  Using the vRF concept, no managed modem is used, and instead the raw RF signal is sent to the user's VM for processing.  This concept can apply to both the downlink and uplink, but in this tutorial we examine the downlink process.  We create a vRF, based on GNU Radio, which processes the raw RF signal and act as the modem.
+In [Tutorial: Downlink data from a public satellite](downlink-aqua.md), data from NASA's Aqua satellite is downlinked using a **managed modem**, meaning the raw RF signal received from the Aqua satellite by the ground station is passed through a modem managed by Azure Orbital.  The output of this modem, which is in the form of bytes, is then streamed to the user's VM.  As part of the step [Configure a contact profile for a public satellite downlink mission](downlink-aqua.md#configure-a-contact-profile-to-downlink-from-a-public-satellite) the **Demodulation Configuration** was set to **Aqua Direct Broadcast**, which is what enabled and configured the managed modem to demodulate/decode the RF signal received from Aqua.  Using the vRF concept, no managed modem is used, and instead the raw RF signal is sent to the user's VM for processing.  This concept can apply to both the downlink and uplink, but in this tutorial we examine the downlink process.  We create a vRF, based on GNU Radio, which processes the raw RF signal and act as the modem.
 
 In this guide, you learn how to:
 
@@ -42,7 +42,7 @@ The DIFI Packet Protocol contains two primary message types: data packets and co
 
 ## Step 1: Use AOGS to schedule a contact and collect Aqua data
 
-First we remove the managed modem, and capture the raw RF data into a pcap file.  Execute the steps listed in [Tutorial: Downlink data from NASA's Aqua public satellite](downlink-aqua.md) but during step [Configure a contact profile for an Aqua downlink mission](downlink-aqua.md#configure-a-contact-profile-for-an-aqua-downlink-mission) leave the **Demodulation Configuration** blank and choose UDP for **Protocol**. Lastly, towards the end, instead of the `socat` command (which captures TCP packets), run `sudo tcpdump -i eth0 port 56001 -vvv -p -w /tmp/aqua.pcap` to capture the UDP packets to a pcap file.
+First we remove the managed modem, and capture the raw RF data into a pcap file.  Execute the steps listed in [Tutorial: Downlink data from NASA's Aqua public satellite](downlink-aqua.md) but during step [Configure a contact profile for an Aqua downlink mission](downlink-aqua.md#configure-a-contact-profile-to-downlink-from-a-public-satellite) leave the **Demodulation Configuration** blank and choose UDP for **Protocol**. Lastly, towards the end, instead of the `socat` command (which captures TCP packets), run `sudo tcpdump -i eth0 port 56001 -vvv -p -w /tmp/aqua.pcap` to capture the UDP packets to a pcap file.
 
 > [!NOTE]
 > The following three modifications are needed to [Tutorial: Downlink data from NASA's Aqua public satellite](downlink-aqua.md):
