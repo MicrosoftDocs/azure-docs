@@ -14,7 +14,7 @@ ms.custom: [mvc, device-developer, iot-central-frontdoor]
 
 # IoT Central device connectivity guide
 
-An IoT Central application lets you monitor and manage millions of devices throughout their life cycle. This guide is for device developers who implement the code to run on devices that connect to IoT Central.
+An IoT Central application lets you monitor and manage hundreds of thousands of devices throughout their life cycle. This guide is for device developers who implement the code to run on devices that connect to IoT Central.
 
 Devices interact with an IoT Central application by using the following primitives:
 
