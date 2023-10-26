@@ -474,7 +474,7 @@ Use the following steps to set up APM by using the Azure portal:
 
 1. Choose the APM name in the **APM reference names** list. The list includes all the APM names configured in step 1.
 
-1. Select **Save** to bind APM reference names to Spring Cloud Gateway. This restarts your gateway to enable APM monitoring.
+1. Select **Save** to bind APM reference names to Spring Cloud Gateway. Your gateway restarts to enable APM monitoring.
 
 ##### [Azure CLI](#tab/Azure-CLI)
 
