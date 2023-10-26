@@ -83,7 +83,7 @@ Once your Data Product instance is created, you can deploy sample insights dashb
 > [!NOTE] 
 > The reader role is required for you to have access to the insights consumption URL.
 
-3.	Download the sample JSON template file from the Data product overview page by clicking on the link shown after the text “Sample Dashboard”. Alternatively click [here](https://aka.ms/aoidashboard). to download the sample JSON template file.
+3.	Download the sample JSON template file from the Data product overview page by clicking on the link shown after the text “Sample Dashboard”. Alternatively [download the sample JSON template file](https://aka.ms/aoidashboard).
 1. Copy the consumption URL from the Data Product overview screen into the clipboard.
 1. Open a web browser, paste in the URL and select enter.
 1. When the URL loads, click on the Dashboards option on the left navigation pane.
@@ -91,7 +91,7 @@ Once your Data Product instance is created, you can deploy sample insights dashb
 1. Select the three dots (...) at the top right corner of the consumption URL page and select **Data Sources**.
 1. Select the pencil icon next to the Data source name in order to edit the data source. 
 1. Under the Cluster URI section, replace the URL with your Data Product consumption URL. and click connect.
-1. In the Database drop down select your Database. Typically, the database name will be the same as your Data Product instance name. Click **Apply**.
+1. In the Database drop-down select your Database. Typically, the database name will be the same as your Data Product instance name. Click **Apply**.
 
 > [!NOTE] 
 > These dashboards are based on synthetic data and may not have complete or representative examples of the real-world experience.  
