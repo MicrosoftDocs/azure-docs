@@ -29,7 +29,7 @@ Your tool package should be a python package. To develop your custom tool, follo
 
 ## Prepare runtime
 
-To add the custom tool to your tool list, it's necessary to create a runtime, which is based on a customized environment where your custom tool is preginstalled. Here we use [my-tools-package](https://pypi.org/project/my-tools-package/) as an example to prepare the runtime.
+To add the custom tool to your tool list, it's necessary to create a runtime, which is based on a customized environment where your custom tool is preinstalled. Here we use [my-tools-package](https://pypi.org/project/my-tools-package/) as an example to prepare the runtime.
 
 ### Create customized environment
 
