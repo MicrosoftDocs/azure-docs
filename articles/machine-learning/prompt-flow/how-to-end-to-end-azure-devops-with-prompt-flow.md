@@ -273,7 +273,7 @@ More details on how to use the template can be found in the [Github repository](
 ## Next steps
 * [LLMOps wit Prompt flow template](https://github.com/microsoft/llmops-promptflow-template) on Github
 * [Prompt flow open source repository](https://github.com/microsoft/promptflow)
-* [Install and set up Python SDK v2](https://aka.ms/sdk-v2-install)
+* [Install and set up Python SDK v2](/python/api/overview/azure/ai-ml-readme)
 * [Install and set up Python CLI v2](../how-to-configure-cli.md)
 * [Azure MLOps (v2) solution accelerator](https://github.com/Azure/mlops-v2) on GitHub
 
