@@ -89,7 +89,7 @@ az communication rooms create
 ```
 
 ### Enable PSTN Dial Out Capability for a Room
-The PSTN dial out can be enabled during `rooms create` by defining the `--pstn-dial-out-enabled` parameter as "True". This capability may also be modified for during `rooms update` by specifying the `--pstn-dial-out-enabled` parameter.
+The PSTN dial out can be enabled during `rooms create` by defining the `--pstn-dial-out-enabled` parameter as "True". This capability may also be modified during `rooms update` by specifying the `--pstn-dial-out-enabled` parameter.
 
 ```azurecli-interactive
 az communication rooms create --pstn-dial-out-enabled "<pstn-dial-out-enabled>" --connection-string "<connection-string>"
