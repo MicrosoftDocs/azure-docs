@@ -135,7 +135,7 @@ Before you can set up an MLOps project with Azure Machine Learning, you need to 
 1. In the project under **Project Settings** (at the bottom left of the project page) select **Service Connections**.
 
 1. Select **Create Service Connection**.
-    ![Screenshot of ADO New Service connection button.](../media/how-to-setup-mlops-azureml/create_first_service_connection.png)
+    ![Screenshot of Azure DevOps New Service connection button.](../media/how-to-setup-mlops-azureml/create_first_service_connection.png)
 
 1. Select **Azure Resource Manager**, select **Next**, select **Service principal (manual)**, select **Next** and select the **Scope Level Subscription**.
     - Subscription Name - Use the name of the subscription where your service principal is stored.
