@@ -958,7 +958,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
       "parameters": [
         {
             "key": "jsonSpec",
-            "value": "{'action':'delay','mode':'one','selector':{'namespaces':['default']},'delay':{'latency':'200ms','correlation':'100','jitter':'0ms'}}}"
+            "value": "{\"action\":\"delay\",\"mode\":\"one\",\"selector\":{\"namespaces\":[\"default\"]},\"delay\":{\"latency\":\"200ms\",\"correlation\":\"100\",\"jitter\":\"0ms\"}}}"
         }
     ],
       "selectorid": "myResources"
@@ -992,7 +992,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
       "parameters": [
         {
             "key": "jsonSpec",
-            "value": "{'action':'pod-failure','mode':'all','selector':{'namespaces':['default']}}"
+            "value": "{\"action\":\"pod-failure\",\"mode\":\"all\",\"selector\":{\"namespaces\":[\"default\"]}}"
         }
     ],
       "selectorid": "myResources"
@@ -1026,7 +1026,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
       "parameters": [
         {
             "key": "jsonSpec",
-            "value": "{'mode':'one','selector':{'namespaces':['default']},'stressors':{'cpu':{'workers':1,'load':50},'memory':{'workers':4,'size':'256MB'}}"
+            "value": "{\"mode\":\"one\",\"selector\":{\"namespaces\":[\"default\"]},\"stressors\":{\"cpu\":{\"workers\":1,\"load\":50},\"memory\":{\"workers\":4,\"size\":\"256MB\"}}"
         }
     ],
       "selectorid": "myResources"
@@ -1060,7 +1060,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
       "parameters": [
         {
             "key": "jsonSpec",
-            "value": "{'action':'latency','mode':'one','selector':{'app':'etcd'},'volumePath':'\/var\/run\/etcd','path':'\/var\/run\/etcd\/**\/*','delay':'100ms','percent':50}"
+            "value": "{\"action\":\"latency\",\"mode\":\"one\",\"selector\":{\"app\":\"etcd\"},\"volumePath\":\"\/var\/run\/etcd\",\"path\":\"\/var\/run\/etcd\/**\/*\",\"delay\":\"100ms\",\"percent\":50}"
         }
     ],
       "selectorid": "myResources"
@@ -1094,7 +1094,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
       "parameters": [
         {
             "key": "jsonSpec",
-            "value": "{'mode':'one','selector':{'namespaces':['default']},'timeOffset':'-10m100ns'}"
+            "value": "{\"mode\":\"one\",\"selector\":{\"namespaces\":[\"default\"]},\"timeOffset\":\"-10m100ns\"}"
         }
     ],
       "selectorid": "myResources"
@@ -1128,7 +1128,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
       "parameters": [
         {
             "key": "jsonSpec",
-            "value": "{'mode':'one','selector':{'namespaces':['default']},'failKernRequest':{'callchain':[{'funcname':'__x64_sys_mount'}],'failtype':0}}"
+            "value": "{\"mode\":\"one\",\"selector\":{\"namespaces\":[\"default\"]},\"failKernRequest\":{\"callchain\":[{\"funcname\":\"__x64_sys_mount\"}],\"failtype\":0}}"
         }
     ],
       "selectorid": "myResources"
@@ -1162,7 +1162,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
       "parameters": [
         {
             "key": "jsonSpec",
-            "value": "{'mode':'all','selector':{'namespaces':['default']},'target':'Request','port':80,'method':'GET','path':'/api','abort':true}"
+            "value": "{\"mode\":\"all\",\"selector\":{\"namespaces\":[\"default\"]},\"target\":\"Request\",\"port\":80,\"method\":\"GET\",\"path\":\"/api\",\"abort\":true}"
         }
     ],
       "selectorid": "myResources"
@@ -1196,7 +1196,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
       "parameters": [
         {
             "key": "jsonSpec",
-            "value": "{'action':'random','mode':'all','patterns':['google.com','chaos-mesh.*','github.?om'],'selector':{'namespaces':['default']}}"
+            "value": "{\"action\":\"random\",\"mode\":\"all\",\"patterns\":[\"google.com\",\"chaos-mesh.*\",\"github.?om\"],\"selector\":{\"namespaces\":[\"default\"]}}"
         }
     ],
       "selectorid": "myResources"

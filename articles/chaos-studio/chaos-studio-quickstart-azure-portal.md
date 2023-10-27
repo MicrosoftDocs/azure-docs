@@ -48,11 +48,10 @@ Create an Azure resource and ensure that it's one of the supported [fault provid
 ## Create an experiment
 
 1. Select **Experiments**.
+
    ![Screenshot that shows selecting Experiments.](images/quickstart-left-experiment.png)
 
 1. Select **Create** > **New experiment**.
-
-   ![Screenshot that shows Add an experiment in the Azure portal.](images/add-an-experiment.png)
 
 1. Fill in the **Subscription**, **Resource Group**, and **Location** boxes where you want to deploy the chaos experiment. Give your experiment a name. Select **Next: Experiment designer**.
 
