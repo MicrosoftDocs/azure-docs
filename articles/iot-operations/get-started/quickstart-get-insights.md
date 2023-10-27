@@ -66,7 +66,7 @@ These steps will be completed in Power BI Desktop, so open that application now.
 
 ### Import template and load Asset Registry data
 
-1. Download the following Power BI template: [quickStartTemplate.pbit](quickStartTemplate.pbit). Selecting the link will download it automatically.
+1. Download the following Power BI template: [quickStartTemplate.pbit](https://github.com/microsoft/alicesprings-preview/blob/main/content/en/docs/Quickstart/Get%20insights/quickStartTemplate.pbit).
 1. Open a new instance of Power BI Desktop.
 1. Exit the startup screen and select **File** > **Import** > **Power BI template**. Select the file you downloaded to import it.
 1. A menu will pop up asking you to input an Azure subscription and resource group. Enter the Azure subscription ID and resource group where you've created your assets and select **Load**. This loads your sample Asset Registry data into Power BI using a custom [Power Query M](/powerquery-m/) script.  
