@@ -46,7 +46,7 @@ Skills that call models deployed on Azure OpenAI are billed at the pay-as-you-go
 
 | OData type  | Description | Metered by |
 |-------|-------------|-------------|
-|[Microsoft.Skills.Text.AzureOpenAIEmbeddingSkill](cognitive-search-skill-azure-openai-embedding.md) | Connects to a deployed model on Azure OpenAI for integrated vectorization. | Azure OpenAI ([pricing](ttps://azure.microsoft.com/pricing/details/cognitive-services/openai-service/#pricing)) |
+|[Microsoft.Skills.Text.AzureOpenAIEmbeddingSkill](cognitive-search-skill-azure-openai-embedding.md) | Connects to a deployed model on Azure OpenAI for integrated vectorization. | Azure OpenAI ([pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/#pricing)) |
 
 ## Azure AI Search utility skills
 

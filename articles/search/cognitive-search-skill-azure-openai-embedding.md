@@ -26,7 +26,7 @@ Microsoft.Skills.Text.AzureOpenAIEmbeddingSkill
 
 ## Data limits
 
-The maximum size of a text input should be 8,191 tokens. If input exceeds 8191 tokens, the model throws an invalid request error.
+The maximum size of a text input should be 8,000 tokens. If input exceeds the maximum allowed, the model throws an invalid request error. For more information, see the [tokens](/azure/ai-services/openai/overview#tokens) key concept in the Azure OpenAI documentation.
 
 ## Skill parameters
 
@@ -34,10 +34,10 @@ Parameters are case-sensitive.
 
 | Inputs | Description |
 |---------------------|-------------|
-| `resourceUri` | The URI where a valid Azure OpenAI model is deployed. The model should be an embedding model, such as text-embedding-ada-002. See [List of OpenAI models](/azure/ai-services/openai/concepts/models) for supported models. |
-| `apiKey`   |  The secret key pertaining to a valid Azure OpenAI `resourceUri.` |
+| `resourceUri` | The URI where a valid Azure OpenAI model is deployed. The model should be an embedding model, such as text-embedding-ada-002. See the [List of Azure OpenAI models](/azure/ai-services/openai/concepts/models) for supported models. |
+| `apiKey`   |  The secret key pertaining to a valid Azure OpenAI `resourceUri.` If you provide a key, leave `authIdentity` empty. |
 | `deploymentId`   | The name of the deployed Azure OpenAI embedding model.|
-| `authIdentity`   | Managed identity used by the search service for connecting to Azure OpenAI. You can use either a [system or user managed identity](search-howto-managed-identities-data-sources.md). The identity must have [Cognitive Services OpenAI User](/azure/ai-services/openai/how-to/role-based-access-control#azure-openai-rol) permissions to send text to Azure OpenAI. Either this parameter or `apiKey` may be provided but, not both. |
+| `authIdentity`   | Managed identity used by the search service for connecting to Azure OpenAI. You can use either a [system or user managed identity](search-howto-managed-identities-data-sources.md). Either this parameter or `apiKey` may be provided but, not both. If you don't provide an `apiKey` or an `authIdentity`, but the search service is configured for a system identity, the system identity is used automatically by default. A managed identity must have [Cognitive Services OpenAI User](/azure/ai-services/openai/how-to/role-based-access-control#azure-openai-rol) permissions to send text to Azure OpenAI. |
 
 ## Skill inputs
 
@@ -66,6 +66,9 @@ Then your skill definition might look like this:
 ```json
 {
   "@odata.type": "#Microsoft.Skills.Text.AzureOpenAIEmbeddingSkill",
+  "description": "Connects a deployed embedding model.",
+  "resourceUri": "https://my-demo-openai-eastus.openai.azure.com/",
+  "deploymentId": "my-text-embedding-ada-002-model",
   "inputs": [
     {
       "name": "text",
@@ -102,7 +105,7 @@ For the given input text, a vectorized embedding output is produced. The output 
 | Null or invalid URI | Error |
 | Null or invalid deploymentID | Error |
 | Text is empty | Warning |
-| Text is larger than 8,191 characters | Error |
+| Text is larger than 8,000 tokens | Error |
 
 ## See also
 
