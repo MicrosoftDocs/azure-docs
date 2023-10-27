@@ -5,7 +5,7 @@ description: This article explains how to seamlessly migrate from Standard/HighP
 services: expressroute
 author: duongau
 ms.service: expressroute
-ms.topic: how-To
+ms.topic: how-to
 ms.date: 10/27/2023
 ms.author: duau
 ---
