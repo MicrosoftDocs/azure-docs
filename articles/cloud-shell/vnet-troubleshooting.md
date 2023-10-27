@@ -5,9 +5,9 @@ description: >
 ms.contributor: jahelmic
 ms.date: 10/26/2023
 ms.topic: article
-title: Troubleshooting Azure Cloud Shell in a private virtual network
+title: Troubleshoot Azure Cloud Shell in a private virtual network
 ---
-# Troubleshooting Azure Cloud Shell in a private virtual network
+# Troubleshoot Azure Cloud Shell in a private virtual network
 
 This article provides instructions for troubleshooting a private virtual network deployment of Azure
 Cloud Shell. For best results, and to be supportable, following the deployment instructions in the
