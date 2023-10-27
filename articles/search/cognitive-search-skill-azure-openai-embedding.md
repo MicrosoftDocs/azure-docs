@@ -89,7 +89,7 @@ For the given input text, a vectorized embedding output is produced. The output 
 
 ```json
 {
-  embedding: [
+  "embedding": [
         0.018990106880664825,
         -0.0073809814639389515,
         .... 
