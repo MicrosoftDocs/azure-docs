@@ -87,15 +87,13 @@ To be able to upload certificates, you must have "**Key Vault Administrator**"  
  | Members | \<Your account information or email> |
 
 
-### Upload Certificate to Key vault
+### Upload Certificate to Key vault via Azure CLI
 
 You can use Azure CLI to upload certificates as secrets to your key vault or use the Azure portal to upload the certificate as a secret.
 > [!IMPORTANT]
 > You must have "**Key Vault Administrator**" permissions access to your Key vault for this command to work properly
-> You must upload the certificate as a secret.
-> Your Azure Stream Analytics job will fail when the certificate used for authentication expires. To resolve this, you must update/replace the certificate in your key vault and restart your Azure Stream Analytics job.
-
-#### Option One - Upload certificate via Azure CLI
+> You must upload the certificate as a secret. You must use Azure CLI to upload certificates as secrets to your key vault.
+> Your Azure Stream Analytics job will fail when the certificate used for authentication expires. To resolve this, you must update/replace the certificate in your key vault and restart your Azure Stream Analytics job
 
 The following command can upload the certificate as a secret to your key vault.
 
@@ -103,22 +101,6 @@ The following command can upload the certificate as a secret to your key vault.
 az keyvault secret set --vault-name <your key vault> --name <name of the secret> --file <file path to secret>
 
 ```
-
-#### Option Two - Upload certificate via the Azure portal
-Use the following steps to upload a certificate as a secret using the Azure portal in your key vault:
-1. Select **Secrets**.
-
-1. Select **Generate/Import** > **Add role assignment** to open the **Add role assignment** page.
-
-1. Complete the following configuration for creating a secret:
-
- | Setting | Value |
- | --- | --- |
- | Upload Options | Certificate |
- | Upload certificate | \<select the certificate to upload> |
- | Name | \<Name you want to give your secret> |
- | activation date | (optional) |
- | expiration date | (optional) |
 
 ### Configure Managed identity
 Azure Stream Analytics requires you to configure managed identity to access key vault.
