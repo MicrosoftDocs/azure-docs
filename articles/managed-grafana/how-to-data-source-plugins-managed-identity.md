@@ -20,7 +20,7 @@ In this guide, you learn about data sources supported in each Azure Managed Gran
 
 By design, Grafana can be configured with multiple *data sources*. A data source is an externalized storage backend that holds telemetry information.
 
-Azure Managed Grafana supports many popular data sources. The table below lists the data sources that can be added to Azure Managed Grafana for each service tier.
+Azure Managed Grafana supports many popular data sources. The table below lists the Grafana core data sources that can be added to Azure Managed Grafana for each service tier.
 
 | Data sources                                                                                                                  | Essential (preview) | Standard |
 |-------------------------------------------------------------------------------------------------------------------------------|-----------|----------|
@@ -45,6 +45,9 @@ Azure Managed Grafana supports many popular data sources. The table below lists 
 | [TestData](https://grafana.com/docs/grafana/latest/datasources/testdata/)                                                     | ✔        | ✔       |
 | [Zipkin](https://grafana.com/docs/grafana/latest/datasources/zipkin/)                                                         | -         | ✔       |
 
+> [!TIP]
+> Additional data sources are available and can be added from the Plugin management (preview) feature.
+
 Within the Standard service tier, users who have subscribed to the Grafana Enterprise option can also access the following data sources.
 
 * [AppDynamics](https://grafana.com/grafana/plugins/dlopes7-appdynamics-datasource)
@@ -68,7 +71,7 @@ For more information about data sources, go to [Data sources](https://grafana.co
 
 ## Add a data source
 
-To add data sources to Azure Managed Grafana, follow the steps below using the Azure portal or the Azure CLI.
+To add a data source to Azure Managed Grafana, follow the steps below using the Azure portal or the Azure CLI.
 
 ### [Portal](#tab/azure-portal)
 
@@ -79,31 +82,20 @@ To add a [Grafana core data source](https://grafana.com/docs/grafana/latest/data
 1. Open your Azure Managed Grafana instance in the Azure portal.
 1. Select **Overview** from the left menu, then open the **Endpoint** URL.
 1. In the Grafana portal, deploy the menu on the left and select **Connections** > **Connect data**.
-1. Select a data source from the list, and add the data source to your instance by selecting **Create** in the top right hand corner.
+1. Select a data source from the list, and add it to your instance by selecting **Create** or **Add** in the top right hand corner.
 1. Fill out the form and select **Save and test** to test and update the data source configuration.
 
    :::image type="content" source="media/data-sources/add-data-source.png" alt-text="Screenshot of the Add data source page.":::
 
 ### Other data sources
 
-To add a data source that isn't part of the Grafana built-in core data sources, start by installing the corresponding data source plugin.
+1. To add a data source that isn't part of the Grafana built-in core data sources, start by [installing the corresponding data source plugin](how-to-manage-plugins.md#add-a-plugin).
 
-1. Open your Azure Managed Grafana instance in the Azure portal.
-1. Select **Plugin management (Preview)**. This page displays a table with data source plugins. It contains three columns including checkboxes, plugin names, and plugin IDs. Review the checkboxes. A checked box indicates that the corresponding plugin is already installed and can be removed, an unchecked box indicates that the corresponding plugin can be added.
-1. Select a data source plugin to add from your Grafana instance by checking its checkbox select **Save**. Azure displays a messaging stating what plugins will be added or removed. Select **Yes** to confirm.
-1. A refresh icon appears in the table next to the updated plugin, indicating that the update is in progress. The update might take a while. Select **Refresh** at the top to get an updated list of installed plugins.
+1. Then add the datasource from the Grafana portal.
 
-   :::image type="content" source="media/data-sources/add-plugin.png" alt-text="Screenshot of the Plugin management feature data source page.":::
-
-> [!IMPORTANT]
-> Plugin management is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-Then add the datasource from the Grafana portal.
-
-1. In the Grafana portal, go to **Connections** > **Connect data**.
-1. Select a data source from the list, and add the data source to your instance by selecting **Create** in the top right hand corner.
-1. Fill out the form and select **Save and test** to test and update the data source configuration.
+    1. In the Grafana portal, go to **Connections** > **Connect data**.
+    1. Select a data source from the list, and add the data source to your instance by selecting **Create** in the top right hand corner.
+    1. Fill out the form and select **Save and test** to test and update the data source configuration.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -130,7 +122,7 @@ az grafana data-source create --name <instance-name> --definition '{
 }'
 ```
 
-Other data sources can be added [from the Azure portal](#portaltabazure-portal).
+Other data sources can be added [from the Azure portal](#other-data-sources).
 
 ---
 
@@ -139,7 +131,7 @@ Other data sources can be added [from the Azure portal](#portaltabazure-portal).
 
 ## Configure a data source
 
-Refer to the guidelines below for examples showing how to configure popular data sources: Azure Monitor and Azure Data Explorer.
+The content below, shows how to configure some of the most popular data sources in Azure Managed Grafana: Azure Monitor and Azure Data Explorer. A similar process can be used to configure other types of data sources. For more information about a specific data source, refer to [Grafana's documentation](https://grafana.com/docs/grafana/latest/datasources/#built-in-core-data-sources).
 
 ### Azure Monitor configuration
 
@@ -249,33 +241,12 @@ Azure Managed Grafana can also access data sources using a service principal set
 
 ## Remove a data source
 
-### [Portal](#tab/azure-portal)
-
-Follow the instructions below to remove a data source.
-
-### Core data sources
-
-To remove a [Grafana core data source](https://grafana.com/docs/grafana/latest/datasources/#built-in-core-data-sources) with the Azure portal:
+Remove a data source:
 
 1. Open your Azure Managed Grafana instance in the Azure portal.
 1. Select **Overview** from the left menu, then open the **Endpoint** URL.
 1. In the Grafana portal, go to **Connections** > **Your connections**
 1. Select the data source you want to remove and select **Delete**.
-
-### Other data sources
-
-To remove a data source plugin that isn't part of the Grafana built-in core data sources, follow the steps below:
-
-1. Open your Azure Managed Grafana instance in the Azure portal.
-1. Select **Plugin management (Preview)**. This page displays a table with data source plugins. It contains three columns including checkboxes, plugin names, and plugin IDs. Review the checkboxes. A checked box indicates that the corresponding plugin is already installed and can be removed, an unchecked box indicates that the corresponding plugin can be added.
-1. Select a datasource plugin to remove from your Grafana instance by unchecking its checkbox and select **Save**. Azure displays a messaging stating what plugins will be added or removed. Select **Yes** to confirm.
-1. A refresh icon appears in the table next to the updated plugin, indicating that the update is in progress. The update might take a while. Select **Refresh** at the top to get an updated list of installed plugins.
-
-   :::image type="content" source="media/data-sources/remove-plugin.png" alt-text="Screenshot of the Plugin management feature data source page. Remove plugin.":::
-
-> [!IMPORTANT]
-> Plugin management is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 > [!CAUTION]
 > Removing a data source that is used in a dashboard will make the dashboard unable to collect the corresponding data and will trigger an error or result in no data being shown in the panel.
