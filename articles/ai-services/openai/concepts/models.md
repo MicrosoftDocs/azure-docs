@@ -81,19 +81,19 @@ These models can only be used with the Chat Completion API.
 GPT-4 version 0314 is the first version of the model released.  Version 0613 is the second version of the model and adds function calling support.
 
 |  Model ID  | Max Request (tokens) | Training Data (up to)  |
-|  --- |  --- | --- |
-| `gpt-4` (0314) | 8,192 | September 2021         |
-| `gpt-4-32k`(0314)  | 32,768               | September 2021         |
-| `gpt-4` (0613)     | 8,192                | September 2021         |
-| `gpt-4-32k` (0613) | 32,768               | September 2021         |
+|  --- |  :---: | :---: |
+| `gpt-4` (0314) | 8,192 | Sep 2021         |
+| `gpt-4-32k`(0314)  | 32,768               | Sep 2021         |
+| `gpt-4` (0613)     | 8,192                | Sep 2021         |
+| `gpt-4-32k` (0613) | 32,768               | Sep 2021         |
 
 > [!NOTE]
-> Any region where GPT-4 is listed as available will always have access to both the 4K and 32K versions of the model
+> Any region where GPT-4 is listed as available will always have access to both the 8K and 32K versions of the model
 
 ### GPT-4 model availability
 
 | Model Availability | gpt-4 (0314) | gpt-4 (0613) |
-|---|---|---|
+|---|:---|:---|
 | Available to all subscriptions with Azure OpenAI access | | Canada East <br> Sweden Central <br> Switzerland North |
 | Available to subscriptions with current access in the region | East US <br> France Central <br> South Central US <br> UK South | Australia East <br> East US <br> East US 2 <br> France Central <br> Japan East <br> UK South |
 
@@ -125,14 +125,14 @@ These models can only be used with Embedding API requests.
 > We strongly recommend using `text-embedding-ada-002 (Version 2)`. This model/version provides parity with OpenAI's `text-embedding-ada-002`. To learn more about the improvements offered by this model, please refer to [OpenAI's blog post](https://openai.com/blog/new-and-improved-embedding-model). Even if you are currently using Version 1 you should migrate to Version 2 to take advantage of the latest weights/updated token limit. Version 1 and Version 2 are not interchangeable, so document embedding and document search must be done using the same version of the model.
 
 |  Model ID  |  Model Availability  | Max Request (tokens) | Training Data (up to)  | Output dimensions |
-|---|---| ---|---|---|
+|---|---| ---|:---:|:---:|
 | `text-embedding-ada-002`` (version 2) | Australia East <br> Canada East <br> East US <br> East US2 <br> France Central <br> Japan East <br> North Central US <br> South Central US <br> Switzerland North <br> UK South <br> West Europe |8,191 | Sep 2021 | 1536 |
 | `text-embedding-ada-002` (version 1) | East US <br> South Central US <br> West Europe |2,046 | Sep 2021 | 1536 |
 
 ### DALL-E models (Preview)
 
 |  Model ID  | Feature Availability | Max Request (characters) |
-|  --- |  --- | --- |
+|  --- |  --- | :---: |
 | dalle2 | East US | 1000 |
 
 ### Fine-tuning models (Preview)
@@ -142,7 +142,7 @@ These models can only be used with Embedding API requests.
 `gpt-35-turbo-0613` - fine-tuning of this model is limited to a subset of regions, and is not available in every region the base model is available.  
 
 |  Model ID  | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to) |
-|  --- | --- | --- | --- |
+|  --- | --- | :---: | :---: |
 | `babbage-002` | North Central US <br> Sweden Central | 16,384 | Sep 2021 |
 | `davinci-002` | North Central US <br> Sweden Central | 16,384 | Sep 2021 |
 | `gpt-35-turbo` (0613) | North Central US <br> Sweden Central | 4096 | Sep 2021 |
@@ -150,7 +150,7 @@ These models can only be used with Embedding API requests.
 ### Whisper models (Preview)
 
 |  Model ID  | Model Availability | Max Request (audio file size) |
-|  --- |  --- | --- |
+|  --- |  --- | :---: |
 | `whisper` | North Central US <br> West Europe | 25 MB |
 
 ## Next steps
