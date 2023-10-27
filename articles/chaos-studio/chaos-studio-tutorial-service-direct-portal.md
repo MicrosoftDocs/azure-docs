@@ -33,6 +33,9 @@ Chaos Studio can't inject faults against a resource unless that resource is adde
 1. Select the checkbox next to your Azure Cosmos DB account. Select **Enable targets** and then select **Enable service-direct targets** from the dropdown menu.
 
    ![Screenshot that shows enabling targets in the Azure portal.](images/tutorial-service-direct-targets-enable.png)
+
+1. Confirm that the desired resource is listed. Select **Review + Enable**, then **Enable**. 
+
 1. A notification appears that indicates that the resources selected were successfully enabled.
 
    ![Screenshot that shows a notification showing the target was successfully enabled.](images/tutorial-service-direct-targets-enable-confirm.png)

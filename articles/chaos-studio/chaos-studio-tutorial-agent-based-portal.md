@@ -28,20 +28,6 @@ Chaos Studio can't inject faults against a VM unless that VM was added to Chaos 
 
 Virtual machines have two target types. One target type enables service-direct faults (where no agent is required). Another target type enables agent-based faults (which requires the installation of an agent). The chaos agent is an application installed on your VM as a [VM extension](../virtual-machines/extensions/overview.md). You use it to inject faults in the guest operating system.
 
-### Install stress-ng
-
-The Chaos Studio agent for Linux requires stress-ng. This open-source application can cause various stress events on a VM. To install stress-ng, [connect to your Linux VM](../virtual-machines/ssh-keys-portal.md). Then run the appropriate installation command for your package manager. For example:
-
-```bash
-sudo apt-get update && sudo apt-get -y install unzip && sudo apt-get -y install stress-ng
-```
-
-Or:
-
-```bash
-sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm && sudo yum -y install stress-ng
-```
-
 ### Enable the chaos target, capabilities, and agent
 
 > [!IMPORTANT]

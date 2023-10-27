@@ -73,6 +73,9 @@ Chaos Studio can't inject faults against a resource unless that resource is adde
 1. Select the checkbox next to your AKS cluster. Select **Enable targets** and then select  **Enable service-direct targets** from the dropdown menu.
 
    ![Screenshot that shows enabling targets in the Azure portal.](images/tutorial-aks-targets-enable.png)
+
+1. Confirm that the desired resource is listed. Select **Review + Enable**, then **Enable**.
+
 1. A notification appears that indicates that the resources you selected were successfully enabled.
 
    ![Screenshot that shows the notification showing that the target was successfully enabled.](images/tutorial-aks-targets-enable-confirm.png)
