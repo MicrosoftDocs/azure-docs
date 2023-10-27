@@ -19,4 +19,4 @@ If you need to troubleshoot a deployment, you can find error details in the Azur
 
 1. If a deployment failed, select **Error details** to get more information about each individual resource in the deployment.
 
-   ![Screenshow of error details for a failed deployment](./media/howto-troubleshoot-deployment/deployment-error-details.png)
+   ![Screenshot of error details for a failed deployment](./media/howto-troubleshoot-deployment/deployment-error-details.png)
