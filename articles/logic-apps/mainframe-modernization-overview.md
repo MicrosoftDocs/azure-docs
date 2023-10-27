@@ -158,7 +158,7 @@ For more information, see [Anti-corruption Layer](/azure/architecture/patterns/a
 
 ### Strangler Fig pattern
 
-After you implement the anti-corruption layer, modernization progressively happens. For this phase, you need to use the "Strangler Fig" pattern where you identify mainframe workloads or features that you can incrementally modernize. For example, if you choose to modernize a CICS application, you have to modernize not only the CICS programs, but most likely the 3270 applications along with their corresponding data and jobs.
+After you implement the anti-corruption layer, modernization progressively happens. For this phase, you need to use the "Strangler Fig" pattern where you identify mainframe workloads or features that you can incrementally modernize. For example, if you choose to modernize a CICS application, you have to modernize not only the CICS programs, but most likely the 3270 applications along with their corresponding external dependencies, data and jobs.
 
 Eventually, after you replace all the workloads or features in the mainframe system with your new system, you'll finish the migration process, which means that you can decommission your legacy system.
 
