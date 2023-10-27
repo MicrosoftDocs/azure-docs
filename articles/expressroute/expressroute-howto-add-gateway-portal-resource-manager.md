@@ -82,7 +82,7 @@ The steps for this tutorial use the values in the following configuration refere
     | Name | Name your gateway. This name isn't the same as naming a gateway subnet. It's the name of the gateway resource you're creating.|
     | Region | Change the **Region** field to point to the location where your virtual network is located. If the region isn't pointing to the location where your virtual network is, the virtual network doesn't appear in the **Virtual network** dropdown. |
     | Gateway type | Select **ExpressRoute**.|
-    | SKU | Select a gateway SKU from the dropdown. For more information, see [About ExpressRoute gateway](expressroute-about-virtual-network-gateway.md). |
+    | SKU | Select a gateway SKU from the dropdown. For more information, see [About ExpressRoute gateway](expressroute-about-virtual-network-gateways.md). |
     | Minimum Scale Units | This option is only available when you select the **ErGwScale (Preview)** SKU. Enter the minimum number of scale units you want to use. For more information, see [ExpressRoute Gateway Scale Units](expressroute-about-virtual-network-gateways.md#expressroute-scalable-gateway-preview). |
     | Maximum Scale Units | This option is only available when you select the **ErGwScale (Preview)** SKU. Enter the maximum number of scale units you want to use. For more information, see [ExpressRoute Gateway Scale Units](expressroute-about-virtual-network-gateways.md#expressroute-scalable-gateway-preview). |
     | Virtual network | Select *vnet-1*. |
