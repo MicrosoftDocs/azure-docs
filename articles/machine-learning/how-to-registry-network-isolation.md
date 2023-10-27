@@ -51,7 +51,7 @@ This section describes the scenarios and required network configuration if you h
 
 ### Create assets in registry from local files 
 
-The identity (for example, a Data Scientist's Azure AD user identity) used to create assets in the registry must be assigned the __AzureML Registry User__, __owner__, or __contributor__ role in Azure role-based access control. For more information, see the [Manage access to Azure Machine Learning](how-to-assign-roles.md) article.
+The identity (for example, a Data Scientist's Microsoft Entra user identity) used to create assets in the registry must be assigned the __AzureML Registry User__, __owner__, or __contributor__ role in Azure role-based access control. For more information, see the [Manage access to Azure Machine Learning](how-to-assign-roles.md) article.
 
 ### Share assets from workspace to registry 
 

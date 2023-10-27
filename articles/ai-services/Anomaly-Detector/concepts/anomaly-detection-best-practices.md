@@ -14,6 +14,8 @@ ms.author: mbullwin
 
 # Best practices for using the Anomaly Detector univariate API
 
+[!INCLUDE [Deprecation announcement](../includes/deprecation.md)]
+
 The Anomaly Detector API is a stateless anomaly detection service. The accuracy and performance of its results can be impacted by:
 
 * How your time series data is prepared.

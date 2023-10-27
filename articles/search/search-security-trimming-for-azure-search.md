@@ -186,7 +186,7 @@ You should get the documents back where `group_ids` contains either "group_id1" 
 
 This article described a pattern for filtering results based on user identity and the `search.in()` function. You can use this function to pass in principal identifiers for the requesting user to match against principal identifiers associated with each target document. When a search request is handled, the `search.in` function filters out search results for which none of the user's principals have read access. The principal identifiers can represent things like security groups, roles, or even the user's own identity.
 
-For an alternative pattern based on Azure Active Directory, or to revisit other security features, see the following links.
+For an alternative pattern based on Microsoft Entra ID, or to revisit other security features, see the following links.
 
 * [Security filters for trimming results using Active Directory identities](search-security-trimming-for-azure-search-with-aad.md)
 * [Security in Azure Cognitive Search](search-security-overview.md)

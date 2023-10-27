@@ -29,7 +29,7 @@ This quickstart describes the steps to create an Azure Synapse workspace by usin
 1. Select **Review + create** > **Create**. Your workspace is ready in a few minutes.
 
 > [!NOTE]
-> After creating your Azure Synapse workspace, you will not be able to move the workspace to another Azure Active Directory tenant. If you do so through subscription migration or other actions, you may lose access to the artifacts within the workspace.
+> After creating your Azure Synapse workspace, you will not be able to move the workspace to another Microsoft Entra tenant. If you do so through subscription migration or other actions, you may lose access to the artifacts within the workspace.
 
 ## Open Synapse Studio
 

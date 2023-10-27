@@ -50,7 +50,7 @@ Configuration documents (MOF files) can be applied to the machine using the `Sta
 
 The following are the parameters you pass to the PowerShell script to use.
 
-- `TenantId`: The unique identifier (GUID) that represents your dedicated instance of Azure AD.
+- `TenantId`: The unique identifier (GUID) that represents your dedicated instance of Microsoft Entra ID.
 
 - `SubscriptionId`: The subscription ID (GUID) of your Azure subscription that you want the machines in.
 

@@ -48,7 +48,7 @@ An Azure Machine Learning datastore is a *reference* to an *existing* Azure stor
 > [!div class="checklist"]
 > * A common, easy-to-use API to interact with different storage types (Blob/Files/ADLS).
 > * Easy discovery of useful datastores in team operations.
-> * Support of both credential-based (for example, SAS token) and identity-based (use Azure Active Directory or Manged identity) access, to access data.
+> * Support of both credential-based (for example, SAS token) and identity-based (use Microsoft Entra ID or Manged identity) access, to access data.
 > * For credential-based access, the connection information is secured, to void key exposure in scripts.
 > * Browse data and copy-paste datastore URIs in the Studio UI.
 

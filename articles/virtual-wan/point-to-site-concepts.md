@@ -21,7 +21,7 @@ VPN server configurations define the authentication, encryption and user group p
 
 | Concept | Description | Notes|
 |--| --|--|
-| Tunnel Type | Protocol(s) used between the P2S VPN gateway and connecting users.| Available parameters: IKEv2, OpenVPN or both. For IKEv2 server configurations, only RADIUS and certificate-based authentication is available. For Open VPN server configurations, RADIUS, certificate-based and Azure Active Directory based authentication are available. Additionally, multiple authentication methods on the same server configuration (for example, certificate and RADIUS on the same configuration) are only supported for OpenVPN. IKEv2 also has a protocol-level limit of 255 routes, while OpenVPN has a limit of 1000 routes. |
+| Tunnel Type | Protocol(s) used between the P2S VPN gateway and connecting users.| Available parameters: IKEv2, OpenVPN or both. For IKEv2 server configurations, only RADIUS and certificate-based authentication is available. For Open VPN server configurations, RADIUS, certificate-based and Microsoft Entra ID based authentication are available. Additionally, multiple authentication methods on the same server configuration (for example, certificate and RADIUS on the same configuration) are only supported for OpenVPN. IKEv2 also has a protocol-level limit of 255 routes, while OpenVPN has a limit of 1000 routes. |
 | Custom IPsec Parameters| Encryption parameters used by the P2S VPN gateway for gateways that use IKEv2.| For available parameters, see [Custom IPsec parameters for point-to-site VPN](point-to-site-ipsec.md). This parameter doesn't apply for gateways using OpenVPN authentication.|
 
 ### Azure Certificate Authentication concepts
@@ -48,19 +48,23 @@ If a P2S VPN gateway is configured to use RADIUS-based authentication, the P2S V
 |RADIUS server root certificate | RADIUS server root certificate public data.| This field is optional. Input the string(s) corresponding to the RADIUS root certificate public data. You may input multiple root certificates. All client certificates presented for authentication must be issued from the specified root certificates. For an example for how to get certificate public data, see the step 8 in the following document about [generating certificates](certificates-point-to-site.md).|
 |Revoked client certificates |Thumbprint(s) of revoked RADIUS client certificates. Clients presenting revoked certificates won't be able to connect. |This field is optional. Every user certificate must be revoked individually. Revoking an intermediate certificate or a root certificate won't automatically revoke all children certificates.|
 
-### Azure Active Directory Authentication concepts
+<a name='azure-active-directory-authentication-concepts'></a>
 
-The following concepts are related to server configurations that use Azure Active Directory-based authentication. Azure Active Directory-based authentication is only available if the tunnel type is OpenVPN.
+### Microsoft Entra authentication concepts
+
+The following concepts are related to server configurations that use Microsoft Entra ID-based authentication. Microsoft Entra ID-based authentication is only available if the tunnel type is OpenVPN.
 
 | Concept | Description | Available Parameters|
 |--| --|--|
- Audience| Application ID of the Azure VPN Enterprise Application registered in your Azure AD tenant. | For more information on how to register the Azure VPN application in your tenant and finding the application ID, see [configuring a tenant for P2S user VPN OpenVPN protocol connections](openvpn-azure-ad-tenant.md)|
+ Audience| Application ID of the Azure VPN Enterprise Application registered in your Microsoft Entra tenant. | For more information on how to register the Azure VPN application in your tenant and finding the application ID, see [configuring a tenant for P2S user VPN OpenVPN protocol connections](openvpn-azure-ad-tenant.md)|
 | Issuer|Full URL corresponding to Security Token Service (STS) associated to your Active Directory.| String in the following format: ```https://sts.windows.net/<your Directory ID>/```
-| Azure Active Directory Tenant| Full URL corresponding to the Active Directory Tenant used for authentication on the gateway.| Varies based on which cloud the Active Directory Tenant is deployed in. See below for per-cloud details.|
+| Microsoft Entra tenant| Full URL corresponding to the Active Directory Tenant used for authentication on the gateway.| Varies based on which cloud the Active Directory Tenant is deployed in. See below for per-cloud details.|
 
-#### Azure AD Tenant ID
+<a name='azure-ad-tenant-id'></a>
 
-The following table describes the format of the Azure Active Directory URL based on which cloud Azure Active Directory is deployed in.
+#### Microsoft Entra tenant ID
+
+The following table describes the format of the Microsoft Entra URL based on which cloud Microsoft Entra ID is deployed in.
 
 | Cloud | Parameter Format|
 |--|--|

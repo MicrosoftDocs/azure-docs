@@ -38,11 +38,13 @@ When packages are installed manually, they must also be manually upgraded as new
 ## Network security groups
 Any network security group settings that are applied must still allow the endpoint to meet the documented network configuration prerequisites for disk encryption.  See [Azure Disk Encryption: Networking requirements](disk-encryption-overview.md#networking-requirements)
 
-## Azure Disk Encryption with Azure AD (previous version)
+<a name='azure-disk-encryption-with-azure-ad-previous-version'></a>
 
-If using [Azure Disk Encryption with Azure AD (previous version)](disk-encryption-overview-aad.md), the [Microsoft Authentication Library](../../active-directory/develop/msal-overview.md) will need to be installed manually for all distros (in addition to the [packages appropriate for the distro](#package-management)).
+## Azure Disk Encryption with Microsoft Entra ID (previous version)
 
-When encryption is being enabled with [Azure AD credentials](disk-encryption-linux-aad.md), the target VM must allow connectivity to both Azure Active Directory endpoints and Key Vault endpoints. Current Azure Active Directory authentication endpoints are maintained in sections 56 and 59 of the [Microsoft 365 URLs and IP address ranges](/microsoft-365/enterprise/urls-and-ip-address-ranges) documentation. Key Vault instructions are provided in the documentation on how to [Access Azure Key Vault behind a firewall](../../key-vault/general/access-behind-firewall.md).
+If using [Azure Disk Encryption with Microsoft Entra ID (previous version)](disk-encryption-overview-aad.md), the [Microsoft Authentication Library](../../active-directory/develop/msal-overview.md) will need to be installed manually for all distros (in addition to the [packages appropriate for the distro](#package-management)).
+
+When encryption is being enabled with [Microsoft Entra credentials](disk-encryption-linux-aad.md), the target VM must allow connectivity to both Microsoft Entra endpoints and Key Vault endpoints. Current Microsoft Entra authentication endpoints are maintained in sections 56 and 59 of the [Microsoft 365 URLs and IP address ranges](/microsoft-365/enterprise/urls-and-ip-address-ranges) documentation. Key Vault instructions are provided in the documentation on how to [Access Azure Key Vault behind a firewall](../../key-vault/general/access-behind-firewall.md).
 
 ### Azure Instance Metadata Service 
 

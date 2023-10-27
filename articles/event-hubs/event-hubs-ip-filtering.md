@@ -182,7 +182,7 @@ The API version **2021-06-01-preview onwards** also introduces a new property na
 For more information about these properties, see [Create or Update Network Rule Set](/rest/api/eventhub/controlplane-preview/namespaces-network-rule-set/create-or-update-network-rule-set) and [Create or Update Private Endpoint Connections](/rest/api/eventhub/controlplane-preview/private-endpoint-connections/create-or-update).
 
 > [!NOTE]
-> None of the above settings bypass validation of claims via SAS or Azure AD authentication. The authentication check always runs after the service validates the network checks that are configured by `defaultAction`, `publicNetworkAccess`, `privateEndpointConnections` settings.
+> None of the above settings bypass validation of claims via SAS or Microsoft Entra authentication. The authentication check always runs after the service validates the network checks that are configured by `defaultAction`, `publicNetworkAccess`, `privateEndpointConnections` settings.
 
 ### Azure portal
 
@@ -207,5 +207,3 @@ For constraining access to Event Hubs to Azure virtual networks, see the followi
 [lnk-deploy]: ../azure-resource-manager/templates/deploy-powershell.md
 
 [lnk-vnet]: event-hubs-service-endpoints.md
-
-

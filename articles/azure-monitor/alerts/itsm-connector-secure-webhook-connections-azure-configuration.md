@@ -11,12 +11,14 @@ ms.reviewer: nolavime
 
 This article describes the required Azure configurations for using Secure Webhook.
 
-## Register with Azure Active Directory
+<a name='register-with-azure-active-directory'></a>
 
-To register the application with Azure Active Directory (Azure AD):
+## Register with Microsoft Entra ID
+
+To register the application with Microsoft Entra ID:
 
 1. Follow the steps in [Register an application with the Microsoft identity platform](../../active-directory/develop/quickstart-register-app.md).
-1. In Azure AD, select **Expose application**.
+1. In Microsoft Entra ID, select **Expose application**.
 1. Select **Add** for **Application ID URI**.
 
    [![Screenshot that shows the option for setting the U R I of the application I D.](media/itsm-connector-secure-webhook-connections-azure-configuration/azure-ad.png)](media/itsm-connector-secure-webhook-connections-azure-configuration/azure-ad-expand.png#lightbox)
@@ -24,7 +26,7 @@ To register the application with Azure Active Directory (Azure AD):
 
 ## Define a service principal
 
-The action group service is a first-party application. It has permission to acquire authentication tokens from your Azure AD application to authenticate with ServiceNow.
+The action group service is a first-party application. It has permission to acquire authentication tokens from your Microsoft Entra application to authenticate with ServiceNow.
 
 As an optional step, you can define an application role in the created app's manifest. This way, you can further restrict access so that only certain applications with that specific role can send messages. This role has to be then assigned to the Action Group service principal. Tenant admin privileges are required.
 
@@ -32,7 +34,7 @@ You can do this step by using the same [PowerShell commands](../alerts/action-gr
 
 ## Create a Secure Webhook action group
 
-After your application is registered with Azure AD, you can create work items in your ITSM tool based on Azure alerts by using the Secure Webhook action in action groups.
+After your application is registered with Microsoft Entra ID, you can create work items in your ITSM tool based on Azure alerts by using the Secure Webhook action in action groups.
 
 Action groups provide a modular and reusable way of triggering actions for Azure alerts. You can use action groups with metric alerts, activity log alerts, and Log Analytics alerts in the Azure portal.
 
@@ -53,7 +55,7 @@ To add a webhook to an action, follow these instructions for Secure Webhook:
 1. Enter a name in the **Action group name** box and enter a name in the **Short name** box. The short name is used in place of a full action group name when notifications are sent by using this group.
 1. Select **Secure Webhook**.
 1. Select these details:
-   1. Select the object ID of the Azure AD instance that you registered.
+   1. Select the object ID of the Microsoft Entra instance that you registered.
    1. For the URI, paste in the webhook URL that you copied from the [ITSM tool environment](#configure-the-itsm-tool-environment).
    1. Set **Enable the common Alert Schema** to **Yes**.
 

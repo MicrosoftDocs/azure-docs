@@ -44,7 +44,7 @@ The following diagram shows the architecture of the system:
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - [Git](https://git-scm.com/downloads).
 - [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
-- A Microsoft Entra ID tenant. For instructions on creating one, see [Quickstart: Create a new tenant in Microsoft Entra ID](../active-directory/fundamentals/create-new-tenant.md).
+- A Microsoft Entra tenant. For instructions on creating one, see [Quickstart: Create a new tenant in Microsoft Entra ID](../active-directory/fundamentals/create-new-tenant.md).
 - [curl](https://curl.se/download.html).
 
 ### [Azure Developer CLI](#tab/Azure-Developer-CLI)
@@ -52,7 +52,7 @@ The following diagram shows the architecture of the system:
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - [Git](https://git-scm.com/downloads).
 - [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
-- A Microsoft Entra ID tenant. For instructions on creating one, see [Quickstart: Create a new tenant in Microsoft Entra ID](../active-directory/fundamentals/create-new-tenant.md).
+- A Microsoft Entra tenant. For instructions on creating one, see [Quickstart: Create a new tenant in Microsoft Entra ID](../active-directory/fundamentals/create-new-tenant.md).
 - [Azure Developer CLI (AZD)](https://aka.ms/azd-install), version 1.0.2 or higher.
 - [curl](https://curl.se/download.html).
 
@@ -96,7 +96,7 @@ Use the following steps to register an application in Microsoft Entra ID, which 
 
 #### Add user to access the RESTful APIs
 
-Use the following steps to create a member user in your Microsoft Entra ID tenant. Then, the user can manage the data of the `ToDo` application through RESTful APIs.
+Use the following steps to create a member user in your Microsoft Entra tenant. Then, the user can manage the data of the `ToDo` application through RESTful APIs.
 
 1. Under **Manage**, select **Users** > **New user** > **Create new user**.
 
@@ -133,7 +133,7 @@ Use the following steps to use [OAuth 2.0 authorization code flow](../active-dir
 
 1. Open the URL exposed by the app, then select **Authorize** to prepare the OAuth2 authentication.
 
-1. In the **Available authorizations** window, enter the client ID of the `ToDoWeb` app in the **client_id** field, select all the scopes for **Scopes** field, ignore the **client_secret** field, and then select **Authorize** to redirect to the Microsoft Entra ID sign-in page.
+1. In the **Available authorizations** window, enter the client ID of the `ToDoWeb` app in the **client_id** field, select all the scopes for **Scopes** field, ignore the **client_secret** field, and then select **Authorize** to redirect to the Microsoft Entra sign-in page.
 
 After completing the sign in with the previous user, you're returned to the **Available authorizations** window.
 

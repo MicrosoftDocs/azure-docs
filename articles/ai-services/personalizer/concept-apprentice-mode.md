@@ -11,6 +11,8 @@ ms.date: 07/26/2022
 
 # Use Apprentice mode to train Personalizer without affecting your existing application
 
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
+
 When deploying a new Personalizer resource, it's initialized with an untrained, or blank model. That is, it hasn't learned from any data and therefore won't perform well in practice. This is known as the "cold start" problem and is resolved over time by training the model with real data from your production environment. **Apprentice mode** is a learning behavior that helps mitigate the "cold start" problem, and allows you to gain confidence in the model _before_ it makes decisions in production, all without requiring any code change. 
 
 <!-- 

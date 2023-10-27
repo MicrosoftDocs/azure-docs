@@ -14,6 +14,8 @@ ms.custom: kr2b-contr-experiment
 
 # Encryption of data at rest in Personalizer
 
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
+
 Personalizer is a service in Azure AI services that uses a machine learning model to provide apps with user-tailored content. When Personalizer persists data to the cloud, it encrypts that data. This encryption protects your data and helps you meet organizational security and compliance commitments.
 
 [!INCLUDE [cognitive-services-about-encryption](../includes/cognitive-services-about-encryption.md)]

@@ -15,6 +15,8 @@ ms.custom:
 
 # What is Anomaly Detector?
 
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
+
 [!INCLUDE [Azure AI services rebrand](../includes/rebrand-note.md)]
 
 Anomaly Detector is an AI service with a set of APIs, which enables you to monitor and detect anomalies in your time series data with little machine learning (ML) knowledge, either batch validation or real-time inference.

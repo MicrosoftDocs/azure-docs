@@ -5,15 +5,14 @@ description: Use Docker containers for the summarization API to summarize text, 
 services: cognitive-services
 author: jboback
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: how-to
 ms.date: 08/15/2023
 ms.author: jboback
 keywords: on-premises, Docker, container
 ---
 
-# Use summarization Docker containers on-premises 
+# Use summarization Docker containers on-premises
 
 Containers enable you to host the Summarization API on your own infrastructure. If you have security or data governance requirements that can't be fulfilled by calling Summarization remotely, then containers might be a good option.
 
@@ -24,7 +23,6 @@ Containers enable you to host the Summarization API on your own infrastructure. 
     * On Windows, Docker must also be configured to support Linux containers.
     * You should have a basic understanding of [Docker concepts](https://docs.docker.com/get-started/overview/). 
 * A <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Language resource"  target="_blank">Language resource </a> with the free (F0) or standard (S) [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/). For disconnected containers, the DC0 tier is required.
-* For disconnected containers, 
 
 [!INCLUDE [Gathering required parameters](../../../containers/includes/container-gathering-required-parameters.md)]
 
@@ -61,14 +59,14 @@ for GPU containers.
 
 [!INCLUDE [Tip for using docker list](../../../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
-## Download the summarization models
+## Download the summarization container models
 
-A pre-requisite for running the summarization container is to download the models first. This can be done by running one of the following commands:
+A pre-requisite for running the summarization container is to download the models first. This can be done by running one of the following commands using a CPU container image as an example:
 
 ```bash
-docker run -v {HOST_MODELS_PATH}:/models mcr.microsoft.com/azure-cognitive-services/textanalytics/summarization downloadModels=ExtractiveSummarization billing={ENDPOINT_URI} apikey={API_KEY}
-docker run -v {HOST_MODELS_PATH}:/models mcr.microsoft.com/azure-cognitive-services/textanalytics/summarization downloadModels=AbstractiveSummarization billing={ENDPOINT_URI} apikey={API_KEY}
-docker run -v {HOST_MODELS_PATH}:/models mcr.microsoft.com/azure-cognitive-services/textanalytics/summarization downloadModels=ConversationSummarization billing={ENDPOINT_URI} apikey={API_KEY}
+docker run -v {HOST_MODELS_PATH}:/models mcr.microsoft.com/azure-cognitive-services/textanalytics/summarization:cpu downloadModels=ExtractiveSummarization billing={ENDPOINT_URI} apikey={API_KEY}
+docker run -v {HOST_MODELS_PATH}:/models mcr.microsoft.com/azure-cognitive-services/textanalytics/summarization:cpu downloadModels=AbstractiveSummarization billing={ENDPOINT_URI} apikey={API_KEY}
+docker run -v {HOST_MODELS_PATH}:/models mcr.microsoft.com/azure-cognitive-services/textanalytics/summarization:cpu downloadModels=ConversationSummarization billing={ENDPOINT_URI} apikey={API_KEY}
 ```
 It's not recommended to download models for all skills inside the same `HOST_MODELS_PATH`, as the container loads all models inside the `HOST_MODELS_PATH`. Doing so would use a large amount of memory. It's recommended to only download the model for the skill you need in a particular `HOST_MODELS_PATH`.
 
@@ -76,38 +74,27 @@ In order to ensure compatibility between models and the container, re-download t
 
 ## Run the container with `docker run`
 
-Once the container is on the host computer, use the following command to run the containers. The container will continue to run until you stop it. (note the `rai_terms=accept` part)
+Once the *Summarization* container is on the host computer, use the following `docker run` command to run the containers. The container will continue to run until you stop it. Replace the placeholders below with your own values:
+
+| Placeholder | Value | Format or example |
+|-------------|-------|---|
+| **{HOST_MODELS_PATH}** | The host computer [volume mount](https://docs.docker.com/storage/volumes/), which Docker uses to persist the model. |An example is c:\SummarizationModel where the c:\ drive is located on the host machine.|
+| **{ENDPOINT_URI}** | The endpoint for accessing the summarization API. You can find it on your resource's **Key and endpoint** page, on the Azure portal. | `https://<your-custom-subdomain>.cognitiveservices.azure.com`|
+| **{API_KEY}** | The key for your Language resource. You can find it on your resource's **Key and endpoint** page, on the Azure portal. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
 
 ```bash
-docker run -p 5000:5000 -v {HOST_MODELS_PATH}:/models mcr.microsoft.com/azure-cognitive-services/textanalytics/summarization eula=accept rai_terms=accept billing={ENDPOINT_URI} apikey={API_KEY}
+docker run -p 5000:5000 -v {HOST_MODELS_PATH}:/models mcr.microsoft.com/azure-cognitive-services/textanalytics/summarization:cpu eula=accept rai_terms=accept billing={ENDPOINT_URI} apikey={API_KEY}
 ```
 
-Or if you are running a GPU container, use the this command instead.
+Or if you are running a GPU container, use this command instead.
 ```bash
-docker run -p 5000:5000 --gpus all -v {HOST_MODELS_PATH}:/models mcr.microsoft.com/azure-cognitive-services/textanalytics/summarization eula=accept rai_terms=accept billing={ENDPOINT_URI} apikey={API_KEY}
+docker run -p 5000:5000 --gpus all -v {HOST_MODELS_PATH}:/models mcr.microsoft.com/azure-cognitive-services/textanalytics/summarization:gpu eula=accept rai_terms=accept billing={ENDPOINT_URI} apikey={API_KEY}
 ```
 If there is more  than one GPU on the machine, replace `--gpus all` with `--gpus device={DEVICE_ID}`.
-
 
 > [!IMPORTANT]
 > * The docker commands in the following sections use the back slash, `\`, as a line continuation character. Replace or remove this based on your host operating system's requirements. 
 > * The `Eula`, `Billing`, `rai_terms` and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
-
-To run the *Summarization* container, execute the following `docker run` command. Replace the placeholders below with your own values:
-
-| Placeholder | Value | Format or example |
-|-------------|-------|---|
-| **{API_KEY}** | The key for your Language resource. You can find it on your resource's **Key and endpoint** page, on the Azure portal. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
-| **{ENDPOINT_URI}** | The endpoint for accessing the summarization API. You can find it on your resource's **Key and endpoint** page, on the Azure portal. | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
-
-
-```bash
-docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
-mcr.microsoft.com/azure-cognitive-services/textanalytics/summarization
-Eula=accept \
-Billing={ENDPOINT_URI} \
-ApiKey={API_KEY}
-```
 
 This command:
 
@@ -130,7 +117,7 @@ Use the host, `http://localhost:5000`, for container APIs.
 
 ## Run the container disconnected from the internet
 
-[!INCLUDE [configure-disconnected-container](../../../containers/includes/configure-disconnected-container.md)]
+[!INCLUDE [configure-disconnected-container](../includes/configure-disconnected-summarization.md)]
 
 ## Stop the container
 

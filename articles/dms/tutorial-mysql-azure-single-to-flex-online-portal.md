@@ -8,7 +8,9 @@ ms.reviewer: maghan
 ms.date: 09/17/2022
 ms.service: dms
 ms.topic: tutorial
-ms.custom: seo-lt-2019
+ms.custom:
+  - seo-lt-2019
+  - sql-migration-content
 ---
 
 # Tutorial: Migrate Azure Database for MySQL - Single Server to Flexible Server online using DMS via the Azure portal

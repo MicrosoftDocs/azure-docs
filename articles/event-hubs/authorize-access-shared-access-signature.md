@@ -17,9 +17,9 @@ A shared access signature (SAS) provides delegated access to Event Hubs resource
 SAS is a claim-based authorization mechanism using simple tokens. When you use SAS, keys are never passed on the wire. Keys are used to cryptographically sign information that can later be verified by the service. SAS can be used similar to a username and password scheme where the client is in immediate possession of an authorization rule name and a matching key. SAS can be used similar to a federated security model, where the client receives a time-limited and signed access token from a security token service without ever coming into possession of the signing key.
 
 > [!NOTE]
-> Azure Event Hubs also supports authorizing to Event Hubs resources using Azure Active Directory (Azure AD). Authorizing users or applications using OAuth 2.0 token returned by Azure AD provides superior security and ease of use over shared access signatures (SAS). With Azure AD, there is no need to store the tokens in your code and risk potential security vulnerabilities.
+> Azure Event Hubs also supports authorizing to Event Hubs resources using Microsoft Entra ID. Authorizing users or applications using OAuth 2.0 token returned by Microsoft Entra ID provides superior security and ease of use over shared access signatures (SAS). With Microsoft Entra ID, there is no need to store the tokens in your code and risk potential security vulnerabilities.
 >
-> Microsoft recommends using Azure AD with your Azure Event Hubs applications when possible. For more information, see [Authorize access to Azure Event Hubs resource using Azure Active Directory](authorize-access-azure-active-directory.md).
+> Microsoft recommends using Microsoft Entra ID with your Azure Event Hubs applications when possible. For more information, see [Authorize access to Azure Event Hubs resource using Microsoft Entra ID](authorize-access-azure-active-directory.md).
 
 > [!IMPORTANT]
 > SAS (Shared Access Signatures) tokens are critical to protect your resources. While providing granularity, SAS grants clients access to your Event Hubs resources. They should not be shared publicly. When sharing, if required for troubleshooting reasons, consider using a reduced version of any log files or deleting the SAS tokens (if present) from the log files, and make sure the screenshots don’t contain the SAS information either.
@@ -59,9 +59,7 @@ Share access signatures are useful for providing limited permissions to Event Hu
 ## Next steps
 See the following related articles: 
 
-- [Authenticate requests to Azure Event Hubs from an application using Azure Active Directory](authenticate-application.md)
-- [Authenticate a managed identity with Azure Active Directory to access Event Hubs Resources](authenticate-managed-identity.md)
+- [Authenticate requests to Azure Event Hubs from an application using Microsoft Entra ID](authenticate-application.md)
+- [Authenticate a managed identity with Microsoft Entra ID to access Event Hubs Resources](authenticate-managed-identity.md)
 - [Authenticate requests to Azure Event Hubs using Shared Access Signatures](authenticate-shared-access-signature.md)
-- [Authorize access to Event Hubs resources using Azure Active Directory](authorize-access-azure-active-directory.md)
-
-
+- [Authorize access to Event Hubs resources using Microsoft Entra ID](authorize-access-azure-active-directory.md)

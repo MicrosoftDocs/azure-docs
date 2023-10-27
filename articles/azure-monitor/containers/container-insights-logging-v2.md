@@ -47,6 +47,9 @@ Follow the instructions to configure an existing ConfigMap or to use a new one.
 
 ## [Azure portal](#tab/configure-portal)
 
+>[!NOTE]
+> DCR based configuration is not supported for service principal based clusters. Please [migrate your clusters with service principal to managed identity](./container-insights-enable-aks.md#migrate-to-managed-identity-authentication) to use this experience.
+
 1. In the Insights section of your Kubernetes cluster, select the **Monitoring Settings** button from the top toolbar
 
 ![Screenshot that shows monitoring settings.](./media/container-insights-logging-v2/container-insights-v2-monitoring-settings.png)

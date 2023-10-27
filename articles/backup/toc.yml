@@ -68,10 +68,12 @@
     href: backup-azure-enhanced-soft-delete-tutorial.md
 - name: Concepts
   items:
-  - name: Resiliency
+  - name: Reliability
     items:
+    - name: Availability zone and disaster recovery
+      href: ../reliability/reliability-backup.md?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json
     - name: Migrate to availability zone support
-      href: ../availability-zones/migrate-recovery-services-vault.md?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json
+      href: ../reliability/migrate-recovery-services-vault.md?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json
   - name: Support matrices
     items:
     - name: Azure Backup support matrix

@@ -28,7 +28,7 @@ To restrict access to these nodes and reduce the discoverability of these nodes 
 
 ## Prerequisites
 
-- **Authentication**. To use a pool without public IP addresses inside a [virtual network](./batch-virtual-network.md), the Batch client API must use Azure Active Directory (AD) authentication. Azure Batch support for Azure AD is documented in [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md). If you aren't creating your pool within a virtual network, either Azure AD authentication or key-based authentication can be used.
+- **Authentication**. To use a pool without public IP addresses inside a [virtual network](./batch-virtual-network.md), the Batch client API must use Microsoft Entra authentication. Azure Batch support for Microsoft Entra ID is documented in [Authenticate Azure Batch services with Microsoft Entra ID](batch-aad-auth.md). If you aren't creating your pool within a virtual network, either Microsoft Entra authentication or key-based authentication can be used.
 
 - **An Azure VNet**. If you're creating your pool in a [virtual network](batch-virtual-network.md), follow these  requirements and configurations. To prepare a VNet with one or more subnets in advance, you can use the Azure portal, Azure PowerShell, the Azure CLI, or other methods.
 
