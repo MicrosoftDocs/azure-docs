@@ -177,8 +177,6 @@ To set up the appliance, you:
 1. After the successful creation of the Azure resources, a **project key** is generated.
 1. Copy the key as you need it to complete the registration of the appliance during its configuration.
 
-    :::image type="content" source="./media/tutorial-discover-physical/generate-key-physical-inline-1.png" alt-text="Screenshot that shows Selections for Generate Key." lightbox="./media/tutorial-discover-physical/generate-key-physical-expanded-1.png":::
-
 ### 2. Download the installer script
 
 In **2: Download Azure Migrate appliance**, select **Download**.
