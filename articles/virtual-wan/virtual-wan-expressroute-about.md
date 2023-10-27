@@ -42,7 +42,7 @@ Dynamic routing (BGP) is supported. For more information, please see [Dynamic Ro
 > If you have configured a 0.0.0.0/0 route statically in a virtual hub route table or dynamically via a network virtual appliance for traffic inspection, that traffic will bypass inspection when destined for Azure Storage and is in the same region as the ExpressRoute gateway in the virtual hub. As a workaround, you can either use [Private Link](../private-link/private-link-overview.md) to access Azure Storage or put the Azure Storage service in a different region than the virtual hub.
 >
 
-## ExpressRoute Limits in Virtual WAN
+## ExpressRoute limits in Virtual WAN
 
 | Maximum number of circuits connected to the same virtual hub's ExpressRoute gateway | Limit |
 | --- | --- |
