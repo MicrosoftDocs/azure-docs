@@ -133,6 +133,10 @@ A network manager is only delegated enough access to apply configurations to vir
 
 Azure SQL Managed Instance has some network requirements. These are enforced through high priority Network Intent Policies, whose purpose conflicts with Security Admin Rules. By default, Admin rule application is skipped on VNets containing any of these Intent Policies. Since *Allow* rules pose no risk of conflict, you can opt to apply *Allow Only* rules. If you only wish to use Allow rules, you can set AllowRulesOnly on `securityConfiguration.properties.applyOnNetworkIntentPolicyBasedServices`.
 
+#### Are you applying security rules to a VNet or subnet that contains services blocking security configuration rules?
+
+Certain services such as Azure SQL Managed Instance, Azure Databricks and Azure Application Gateway use Network Intent Policies to enforce network requirements. These policies are enforced through high priority Network Intent Policies, whose purpose conflicts with Security Admin Rules. By default, Admin rule application is skipped on VNets containing any of these Intent Policies. Since *Allow* rules pose no risk of conflict, you can opt to apply *Allow Only* rules. If you only wish to use Allow rules, you can set AllowRulesOnly on `securityConfiguration.properties.applyOnNetworkIntentPolicyBasedServices`.
+
 ## Limits
 
 ### What are the service limitations of Azure Virtual Network Manager?
