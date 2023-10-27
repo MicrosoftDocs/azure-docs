@@ -133,7 +133,6 @@ New-AzResourceGroup -ResourceGroupName $resourceGroupName -Location $location
 $vmssConfig = New-AzVmssConfig `
    -Location $location `
    -SkuCapacity 2 `
-   -OrchestrationMode Flexible `
    -SkuName "Standard_D2s_v3"
 
 # Reference the image version
