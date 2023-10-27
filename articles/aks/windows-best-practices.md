@@ -24,7 +24,7 @@ There are some cases where you should consider deploying a Linux node pool when 
 
 ## Modernize existing applications with Windows on AKS
 
-You may want to containerize existing applications and run them using Windows on AKS. Before starting the containerization process, it's important to understand the application architecture and dependencies. For more information, see [Containerize existing applications using Windows containers](/virtualization/windowscontainers/quick-start/lift-shift-to-containers).
+You might want to containerize existing applications and run them using Windows on AKS. Before starting the containerization process, it's important to understand the application architecture and dependencies. For more information, see [Containerize existing applications using Windows containers](/virtualization/windowscontainers/quick-start/lift-shift-to-containers).
 
 ## Windows OS version
 
@@ -73,7 +73,7 @@ As a managed Kubernetes service, AKS provides the necessary tools to upgrade you
 
 ### Windows node monthly updates
 
-Windows nodes on AKS follow a monthly update schedule. Every month, AKS creates a new VHD with the latest available updates for Windows node pools. The VHD includes the host image, latest Nano Server image, latest Server Core image, and containerd. We recommend performing monthly updates to your Windows node pools to ensure your nodes have the latest security patches. For more information, see [Upgrade AKS node images][upgrade-aks-node-images].
+Windows nodes on AKS follow a monthly update schedule. Every month, AKS creates a new VHD with the latest available updates for Windows node pools. The VHD includes the host image, latest Nano Server image, latest Server Core image, and container. We recommend performing monthly updates to your Windows node pools to ensure your nodes have the latest security patches. For more information, see [Upgrade AKS node images][upgrade-aks-node-images].
 
 > [!NOTE]
 > Upgrades on Windows systems include both OS version upgrades and monthly node OS updates.
