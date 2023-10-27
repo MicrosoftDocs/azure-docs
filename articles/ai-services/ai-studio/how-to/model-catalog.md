@@ -28,18 +28,18 @@ You can filter the model catalog by collection, model name, or task to find the 
 
 Here's an example of filtering by collection ("Azure OpenAI") in the model catalog:
 
-:::image type="content" source="../media/explore/model-catalog-filter-collection.png" alt-text="Screenshot of filtering by collection in the Azure AI Studio model catalog" lightbox="../media/explore/model-catalog-filter-collection.png":::
+:::image type="content" source="../media/explore/model-catalog-filter-collection.png" alt-text="Screenshot of filtering by collection in the Azure AI Studio model catalog." lightbox="../media/explore/model-catalog-filter-collection.png":::
 
 
 ## Model benchmarks
 
 You might prefer to use a model that has been evaluated on a specific dataset or task. In Azure AI Studio, you can compare benchmarks across models and datasets available in the industry to assess which one meets your business scenario. You can find models to benchmark on the **Explore** page in Azure AI Studio. 
 
-:::image type="content" source="../media/explore/model-benchmarks-find-model-task.png" alt-text="Screenshot of models and tasks that can be selected to benchmark" lightbox="../media/explore/model-benchmarks-find-model-task.png":::
+:::image type="content" source="../media/explore/model-benchmarks-find-model-task.png" alt-text="Screenshot of models and tasks that can be selected to benchmark." lightbox="../media/explore/model-benchmarks-find-model-task.png":::
 
 Select the models and tasks you want to benchmark, and then select **Compare**.
 
-:::image type="content" source="../media/explore/model-benchmarks-compare-chart.png" alt-text="Screenshot of accuracy metrics of two models compared by task in a chart" lightbox="../media/explore/model-benchmarks-compare-chart.png":::
+:::image type="content" source="../media/explore/model-benchmarks-compare-chart.png" alt-text="Screenshot of accuracy metrics of two models compared by task in a chart." lightbox="../media/explore/model-benchmarks-compare-chart.png":::
 
 The model benchmarks help you make informed decisions about the suitability of models and datasets prior to initiating any job. The benchmarks are a curated list of the best-performing models for a given task, based on a comprehensive comparison of benchmarking metrics. Currently, Azure AI Studio only provides benchmarks based on accuracy.
 
@@ -66,7 +66,7 @@ In list view you can find the following information:
 
 You can also filter the list view by model name, dataset, and task.
 
-:::image type="content" source="../media/explore/model-benchmarks-compare-list.png" alt-text="Screenshot of accuracy metrics of two models compared by task in a list" lightbox="../media/explore/model-benchmarks-compare-list.png":::
+:::image type="content" source="../media/explore/model-benchmarks-compare-list.png" alt-text="Screenshot of accuracy metrics of two models compared by task in a list." lightbox="../media/explore/model-benchmarks-compare-list.png":::
 
 Dashboard view allows you to compare the scores of multiple models across datasets and tasks. You can view models side by side (horizontally along the x-axis) and compare their scores (vertically along the y-axis) for each metric. 
 

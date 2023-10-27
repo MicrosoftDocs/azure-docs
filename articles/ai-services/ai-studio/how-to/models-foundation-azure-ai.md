@@ -28,7 +28,7 @@ You can try the following capabilities of Azure AI Speech in AI Studio:
 - Real-time speech to text: Quickly test live transcription capabilities on your own audio without writing any code.
 - Custom voice: Use your own audio recordings to create a distinct, one-of-a-kind voice for your text to speech apps.
 
-:::image type="content" source="../media/explore/explore-speech.png" alt-text="Screenshot of speech capability cards in the Azure AI Studio explore tab" lightbox="../media/explore/explore-speech.png":::
+:::image type="content" source="../media/explore/explore-speech.png" alt-text="Screenshot of speech capability cards in the Azure AI Studio explore tab." lightbox="../media/explore/explore-speech.png":::
 
 Explore more Speech capabilities in the [Speech Studio](https://aka.ms/speechstudio/) and the [Azure AI Speech documentation](/azure/ai-services/speech-service/).
 
@@ -36,7 +36,7 @@ Explore more Speech capabilities in the [Speech Studio](https://aka.ms/speechstu
 
 [Azure AI Vision](/azure/ai-services/computer-vision/) gives your apps the ability to read text, analyze images, and detect faces with technology like optical character recognition (OCR) and machine learning. 
 
-:::image type="content" source="../media/explore/explore-vision.png" alt-text="Screenshot of vision capability cards in the Azure AI Studio explore tab" lightbox="../media/explore/explore-vision.png":::
+:::image type="content" source="../media/explore/explore-vision.png" alt-text="Screenshot of vision capability cards in the Azure AI Studio explore tab." lightbox="../media/explore/explore-vision.png":::
 
 Explore more vision capabilities in the [Vision Studio](https://portal.vision.cognitive.azure.com/) and the [Azure AI Vision documentation](/azure/ai-services/computer-vision/).
 
@@ -46,7 +46,7 @@ Explore more vision capabilities in the [Vision Studio](https://portal.vision.co
 
 Use Natural Language Processing (NLP) features to analyze your textual data using state-of-the-art pre-configured AI models or customize your own models to fit your scenario.
 
-:::image type="content" source="../media/explore/explore-language.png" alt-text="Screenshot of language capability cards in the Azure AI Studio explore tab" lightbox="../media/explore/explore-language.png":::
+:::image type="content" source="../media/explore/explore-language.png" alt-text="Screenshot of language capability cards in the Azure AI Studio explore tab." lightbox="../media/explore/explore-language.png":::
 
 Explore more Language capabilities in the [Language Studio](https://language.cognitive.azure.com/), [Custom Translator Studio](https://portal.customtranslator.azure.ai/), and the [Azure AI Language documentation](/azure/ai-services/language-service/).
 
