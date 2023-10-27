@@ -39,7 +39,7 @@ The `cardinality` field is a nested field that has these subfields:
 For example, to deploy a Broker resource named **my-broker**", with **0.6.0** images, and automatic cardinality settings:
 
 ```yaml
-apiVersion: az-edge.com/v1alpha4
+apiVersion: mq.iotoperations.azure.com/v1beta1
 kind: Broker
 metadata:
   name: my-broker
@@ -59,7 +59,7 @@ spec:
 You can manually specify the number of frontend pods and backend chains:
 
 ```yaml
-apiVersion: az-edge.com/v1alpha4
+apiVersion: mq.iotoperations.azure.com/v1beta1
 kind: Broker
 metadata:
   name: my-broker
@@ -131,7 +131,7 @@ Medium is the default profile.
 For example, you can specify the low memory profile like the following:
 
 ```yaml
-apiVersion: az-edge.com/v1alpha4
+apiVersion: mq.iotoperations.azure.com/v1beta1
 kind: Broker
 metadata:
   name: my-broker
