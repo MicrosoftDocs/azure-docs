@@ -36,6 +36,7 @@ landingContent:
           - text: Get started with Azure Orbital Ground Station
             url: get-started.md
           - text: Learn how Azure Orbital Ground Station supports all mission phases
+            url: mission-phases.md
 
   # Card
   - title: Concepts
