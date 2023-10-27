@@ -3,10 +3,10 @@ title: How to use Hive metastore in Apache Spark™
 description: Learn how to use Hive metastore in Apache Spark™
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 10/19/2023
+ms.date: 10/27/2023
 ---
 
-# How to use Hive metastore with Apache Spark cluster
+# How to use Hive metastore with Apache Spark™ cluster
 
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
