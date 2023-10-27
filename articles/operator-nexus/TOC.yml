@@ -86,8 +86,6 @@
             href: how-to-route-policy.md  
           - name: Network Packet Broker
             href: howto-configure-network-packet-broker.md
-          - name: Network Fabric ACLs at NNI Level
-            href: howto-configure-ACLs-at-NNI-level.md
     - name: Nexus Kubernetes cluster
       expanded: false
       items:
