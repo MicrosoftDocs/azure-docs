@@ -39,7 +39,7 @@ You can configure the `AZURE_COMMUNICATION_CONNECTION_STRING` environment variab
 ##### [Windows](#tab/windows)
 
 ```console
-setx AZURE_COMMUNICATION_CONNECTION_STRING "<yourConnectionString>"
+setx AZURE_COMMUNICATION_CONNECTION_STRING "<connectionString>"
 ```
 
 After you add the environment variable, you may need to restart any running programs that will need to read the environment variable, including the console window. For example, if you're using Visual Studio as your editor, restart Visual Studio before running the example. 
