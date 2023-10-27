@@ -25,7 +25,7 @@ The MQ state store provides several core capabilities:
 
 ## Prerequisites
 
-1. An [E4K deployment](/docs/mqtt-broker/deploy/).
+1. An [MQ deployement](../deploy/overview-deploy-iot-operations.md).
 1. The [.NET 7.0](https://dotnet.microsoft.com/en-us/download) compiler.
 
 ## Features supported
