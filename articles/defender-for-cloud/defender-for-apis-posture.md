@@ -5,7 +5,7 @@ author: dcurwin
 ms.author: dacurwin
 ms.service: defender-for-cloud
 ms.topic: conceptual
-ms.date: 05/08/2023
+ms.date: 10/24/2023
 ---
 # Investigate API findings, recommendations, and alerts
 
