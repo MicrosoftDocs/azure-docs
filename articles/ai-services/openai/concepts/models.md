@@ -112,7 +112,7 @@ GPT-3.5 Turbo version 0301 is the first version of the model released.  Version 
 |  --------- |  -------------------- |:------:|:----:|
 | `gpt-35-turbo`<sup>1</sup> (0301) | East US <br> France Central <br> South Central US <br> UK South <br> West Europe | 4096 | Sep 2021 |
 | `gpt-35-turbo` (0613) | Australia East <br> Canada East <br> East US <br> East US 2 <br> France Central <br> Japan East <br> North Central US <br> Sweden Central <br> Switzerland North <br> UK South | 4096 | Sep 2021 |
-| `gpt-35-turbo-16k` (0613) | Australia East <br> Canada East <br> East US <br> East US 2 <br> France Central, Japan East <br> North Central US <br> Sweden Central <br> Switzerland North<br> UK South | 16,384 | Sep 2021 |
+| `gpt-35-turbo-16k` (0613) | Australia East <br> Canada East <br> East US <br> East US 2 <br> France Central <br> Japan East <br> North Central US <br> Sweden Central <br> Switzerland North<br> UK South | 16,384 | Sep 2021 |
 | `gpt-35-turbo-instruct` (0914) | East US <br> Sweden Central | 4097 |Sep 2021 |
 
 <sup>1</sup> This model will accept requests > 4096 tokens. It is not recommended to exceed the 4096 input token limit as the newer version of the model are capped at 4096 tokens. If you encounter issues when exceeding 4096 input tokens with this model this configuration is not officially supported.
