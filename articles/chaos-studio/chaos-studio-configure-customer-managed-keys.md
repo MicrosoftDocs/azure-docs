@@ -42,7 +42,10 @@ When creating and/or updating your storage account to use for a CMK experiment, 
  
 ## Use customer-managed keys with Azure Chaos Studio
  
-You can only configure customer-managed encryption keys when you create a new Azure Chaos Studio experiment resource. When you specify the encryption key details, you also have to select a user-assigned managed identity to retrieve the key from Azure Key Vault. **NOTE** The UMI should be the SAME user-assigned managed identity you use with your Chaos Studio experiment resource, otherwise the Chaos Studio CMK experiment fails to Create/Update.
+You can only configure customer-managed encryption keys when you create a new Azure Chaos Studio experiment resource. When you specify the encryption key details, you also have to select a user-assigned managed identity to retrieve the key from Azure Key Vault. 
+
+> [!NOTE]
+> The UMI should be the SAME user-assigned managed identity you use with your Chaos Studio experiment resource, otherwise the Chaos Studio CMK experiment fails to Create/Update.
  
 
 # [Azure CLI](#tab/azure-cli)
