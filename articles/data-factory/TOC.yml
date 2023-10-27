@@ -1318,6 +1318,8 @@ items:
       href: tutorial-run-existing-pipeline-with-airflow.md
   - name: Concepts
     href: concept-managed-airflow.md
+  - name: Get Started with Managed Airflow
+    href: get-started-with-managed-airflow.md
   - name: How-to
     items:
     - name: How does Managed Airflow work
