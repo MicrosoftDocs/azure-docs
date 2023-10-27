@@ -57,7 +57,7 @@ The actions `set`, `get`, and `del` behave as expected.
 
 The values that the `set` action sets, and the `get` action retrieves, are arbitrary binary data.  The size of the values is only limited by the maximum MQTT payload size and resource limitations of MQ and the client themselves.
 
-### set options
+### `set` options
 
 The `set` action provides more optional flags beyond the basic `keyValue` and `keyName`.
 
@@ -65,7 +65,7 @@ The `set` action provides more optional flags beyond the basic `keyValue` and `k
 - `NEX <value>`. Allows the key to be set only if the key doesn't exist or if the key's value is already set to `<value>. The `NEX` flag is typically used for a client renewing the expiration (`PX`) on a key.
 - `PX`. How long the key should persist before it expires, in milliseconds.
 
-### vdel
+### `vdel` options
 
 The `vdel` action is a special case of the `del` command.  `del` unconditionally deletes the given `keyName`.  `vdel` requires another argument called `keyValue`.  `vdel` only deletes the given `keyName` if it has the same `keyValue`.
 
@@ -143,7 +143,7 @@ The output of the state store returning the value `1234` looks like the followin
 $4<CR><LF>1234<CR><LF>
 ```
 
-#### Responses to del and vdel
+#### Responses to `del` and `vdel`
 
 The state store returns the number of values it deletes on a delete request.  Currently, the state store can only delete one value at a time.  
 
