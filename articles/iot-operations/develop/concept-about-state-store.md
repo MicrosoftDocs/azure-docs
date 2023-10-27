@@ -106,8 +106,8 @@ The sample code connects to the state store via the MQTT broker and will set, ge
 
 ### Prerequisites
 
-1. An [IoT MQ deployment](../deploy/overview-deploy-iot-operations.md).
-1. The [.NET 7.0](https://dotnet.microsoft.com/en-us/download) compiler.
+- An [IoT MQ deployment](../deploy/overview-deploy-iot-operations.md).
+- The [.NET 7.0](https://dotnet.microsoft.com/en-us/download) compiler.
 
 ### Test the sample
 
