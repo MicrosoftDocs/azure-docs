@@ -1,24 +1,24 @@
 ---
-title: Explore Azure AI foundation models in Azure AI Studio
+title: Explore Azure AI capabilities in Azure AI Studio
 titleSuffix: Azure AI services
-description: This article introduces Azure AI foundation models in Azure AI Studio.
+description: This article introduces Azure AI capabilities in Azure AI Studio.
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-services
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/1/2023
 ms.author: eur
 ---
 
-# Explore Azure AI foundation models in Azure AI Studio
+# Explore Azure AI capabilities in Azure AI Studio
 
-In Azure AI Studio, you can quickly try out Azure AI foundation model capabilities such as Speech and Vision.
+In Azure AI Studio, you can quickly try out Azure AI capabilities such as Speech and Vision.
 
-## Azure AI foundation model capabilities
+## Azure AI foundation models
 
-Foundation models have been pre-trained on vast amounts of data, and that can be fine-tuned for specific tasks with a relatively small amount of domain-specific data. These models serve as a starting point for custom models and accelerate the model-building process for a variety of tasks, including natural language processing, computer vision, speech, and generative AI tasks. 
+Azure AI foundation models have been pre-trained on vast amounts of data, and that can be fine-tuned for specific tasks with a relatively small amount of domain-specific data. These models serve as a starting point for custom models and accelerate the model-building process for a variety of tasks, including natural language processing, computer vision, speech, and generative AI tasks. 
 
-Azure AI Studio provides the capability to easily integrate these pre-trained foundation models into your applications. See the following sections for more information about the capabilities of Azure AI foundation models in AI Studio.
+In this article, explore where Azure AI Studio lets you try out and integrate these capabilities into your applications.
 
 ## Speech
 
@@ -52,7 +52,7 @@ Explore more Language capabilities in the [Language Studio](https://language.cog
 
 ## Try more Azure AI services
 
-Azure AI Studio provides a quick way to try out Azure AI foundation models. However, some Azure AI services are not currently available in AI Studio.
+Azure AI Studio provides a quick way to try out Azure AI capabilities. However, some Azure AI services are not currently available in AI Studio.
 
 To try more Azure AI services, go to the following studio links:
 
