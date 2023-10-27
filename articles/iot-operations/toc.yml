@@ -192,6 +192,8 @@ items:
         href: develop/overview-develop-customizations.md
       - name: About the MQ state store
         href: develop/concept-about-state-store.md
+      - name: About the MQ state store protocol 
+        href: develop/concept-about-state-store-protocol.md
       - name: About distributed apps
         href: develop/concept-about-distributed-apps.md
       - name: Develop Dapr apps
