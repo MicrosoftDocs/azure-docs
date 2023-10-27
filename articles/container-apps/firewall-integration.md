@@ -80,7 +80,7 @@ The following tables describe how to configure a collection of NSG allow rules. 
 ---
 
 <sup>1</sup> This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`.  
-<sup>2</sup> If you're using Azure Container Registry (ACR) with NSGs configured on your virtual network, create a private endpoint on your ACR to allow Azure Container Apps to pull images through the virtual network. You don't need to add a NSG rule for ACR when configured with private endpoints.
+<sup>2</sup> If you're using Azure Container Registry (ACR) with NSGs configured on your virtual network, create a private endpoint on your ACR to allow Azure Container Apps to pull images through the virtual network. You don't need to add an NSG rule for ACR when configured with private endpoints.
 
 
 #### Considerations
