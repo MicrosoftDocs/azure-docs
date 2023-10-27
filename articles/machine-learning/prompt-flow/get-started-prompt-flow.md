@@ -182,7 +182,7 @@ In addition, the **input mapping** supports mapping your flow input to a specifi
 
 Next, select a or multiple evaluation methods. The evaluation methods are also flows that use Python or LLM etc., to calculate metrics like accuracy, relevance score. The built-in evaluation flows and customized ones are listed in the page. Since Web classification is a classification scenario, it's suitable to select the **Classification Accuracy Evaluation** to evaluate.
 
-:::image type="content" source="./media/get-started-prompt-flow/accuracy.png" alt-text="Screenshot of Web classification showing the batch run and evaluate on the evaluation settings." lightbox = "./media/get-started-prompt-flow/accuracy.png":::
+:::image type="content" source="./media/get-started-prompt-flow/accuracy.png" alt-text="Screenshot of Web classification showing showing the batch run and evaluate on evaluation methods." lightbox = "./media/get-started-prompt-flow/accuracy.png":::
 
 If you're interested in how the metrics are defined for built-in evaluation methods, you can preview the evaluation flows by selecting **More details**.
 
