@@ -10,7 +10,7 @@ ms.date: 10/26/2023
 
 # How to manage Grafana plugins (Preview)
 
-Grafana supports data source, panel, and app plugins. When you create a new Grafana instance, some plugins, such as Azure Monitor, are installed by default. In the following guide, learn how you can add or remove plugins.
+Grafana supports data source, panel, and app plugins. When you create a new Grafana instance, some plugins, such as Azure Monitor, are installed by default. In the following guide, learn how you can add or remove optional plugins.
 
 > [!NOTE]
 > Installing and removing plugins isn't available from the Grafana portal or the Azure CLI at this stage. Plugin management is done from the Azure Managed Grafana workspace in the Azure portal.
