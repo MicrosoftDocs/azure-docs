@@ -10,9 +10,9 @@ ms.subservice: azure-arc-vmware-vsphere
 
 # Recover from accidental deletion of resource bridge VM
 
-In this article, you learn how to recover the Azure Arc resource bridge connection into a working state in disaster scenarios such as accidental deletion. In such cases, the connection between on-premises infrastructure and Azure is lost and any operations performed through Arc will fail.
+In this article, you learn how to recover the Azure Arc resource bridge connection into a working state in disaster scenarios such as accidental deletion. In such cases, the connection between on-premises infrastructure and Azure is lost and any operations performed through Arc fail.
 
-## Recovering the Arc resource bridge in case of VM deletion
+## Recovering the Arc resource bridge if there is VM deletion
 
 To recover from Arc resource bridge VM deletion, you need to deploy a new resource bridge with the same resource ID as the current resource bridge using the following steps.
 
@@ -45,7 +45,7 @@ To recover from Arc resource bridge VM deletion, you need to deploy a new resour
 
 5. [Provide the inputs](../vmware-vsphere/quick-start-connect-vcenter-to-arc-using-script.md#inputs-for-the-script) as prompted.
 
-6. Once the script successfully finishes, the resource bridge should be recovered, and the previously disconnected Arc-enabled resources will be manageable in Azure again.
+6. Once the script successfully finishes, the resource bridge should be recovered, and the previously disconnected Arc-enabled resources are manageable in Azure again.
 
 ## Next steps
 
