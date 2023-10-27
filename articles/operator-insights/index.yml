@@ -24,6 +24,8 @@ landingContent:
         links:
           - text: What is Azure Operator Insights?
             url: overview.md
+          - text: zure Operator Insights FAQ
+            url: operator-insights-faq.yml
       - linkListType: concept
         links:
           - text: Managed identity
@@ -42,4 +44,16 @@ landingContent:
         links:
           - text: Create an Azure Operator Insights Data Product
             url: data-product-create.md
+
+  # Card 
+  - title: How to use Azure Operator Insights
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Use Microsoft Purview with an Azure Operator Insights Data Product
+            url: purview-setup.md
+          - text: Use Data Product dashboards to visualize data
+            url: dashboards-use.md
+          - text: Query data in the Data Product
+            url: data-query.md
 
