@@ -25,9 +25,10 @@ Azure Communications Gateway sits at the edge of your fixed line and mobile netw
     Architecture diagram showing Azure Communications Gateway connecting to Zoom servers and a fixed operator network over SIP and RTP. Azure Communications Gateway and Zoom Phone Cloud Peering connect multiple customers to the operator network. Azure Communications Gateway also has a provisioning API to which a BSS client in the operator's management network must connect. Azure Communications Gateway contains certified SBC function.
 :::image-end:::
 
-Calls flow from Zoom clients through the Zoom servers and Azure Communications Gateway into your network.
 
-With Zoom Cloud Peering, you provide a trunk towards Zoom (via Azure Communications Gateway) for your customers.[!INCLUDE [communications-gateway-multitenant](includes/communications-gateway-multitenant.md)]
+You provide a trunk towards Zoom (via Azure Communications Gateway) for your customers. Calls flow from Zoom clients through the Zoom servers and Azure Communications Gateway into your network.
+
+[!INCLUDE [communications-gateway-multitenant](includes/communications-gateway-multitenant.md)] When you upload numbers to Zoom, you can optionally configure Zoom to add a header with custom contents to SIP INVITEs. You can use this header to identify the customer to which you have assigned the number. For more information on this header, see Zoom's _Zoom Phone Provider Exchange Solution Reference Guide_.
 
 Azure Communications Gateway does not support Premises Peering (where each customer has an eSBC) for Zoom Phone.
 
