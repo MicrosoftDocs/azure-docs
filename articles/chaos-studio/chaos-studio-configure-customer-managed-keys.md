@@ -56,7 +56,7 @@ The following code sample shows an example PUT command for creating or updating 
 **NOTE** The two parameters specific to CMK experiments are under the "CustomerDataStorage" block, in which we ask for the Subscription ID of the Azure Blob Storage Account you want to use to storage your experiment data and the name of the Blob Storage container to use or create. 
  
 ```HTTP
-PUT https://management.azure.com/subscriptions/6b052e15-03d3-4f17-b2e1-be7f07588291/resourceGroups/exampleRG/providers/Microsoft.Chaos/experiments/exampleExperiment?api-version=2023-10-27-preview
+PUT https://management.azure.com/subscriptions/<yourSubscriptionID>/resourceGroups/exampleRG/providers/Microsoft.Chaos/experiments/exampleExperiment?api-version=2023-10-27-preview
 
 {
   "location": "eastus2euap",
