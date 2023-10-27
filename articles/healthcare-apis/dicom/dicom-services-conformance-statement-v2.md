@@ -34,6 +34,9 @@ Additionally, the following nonstandard API(s) are supported:
 
 * [Change Feed](dicom-change-feed-overview.md)
 * [Extended Query Tags](dicom-extended-query-tags-overview.md)
+* [Bulk Update](update-files.md)
+* [Bulk Import](import-files.md)
+* [Export](export-dicom-files.md)
 
 The service uses REST API versioning. The version of the REST API must be explicitly specified as part of the base URL, as in the following example:
 
@@ -388,6 +391,16 @@ The service only supports rendering of a single frame. If rendering is requested
 When specifying a particular frame to return, frame indexing starts at 1.
 
 The `quality` query parameter is also supported. An integer value between `1` and `100` inclusive (1 being worst quality, and 100 being best quality) might be passed as the value for the query parameter. This parameter is used for images rendered as `jpeg`, and is ignored for `png` render requests. If not specified the parameter defaults to `100`.
+
+### Retrieve original version
+Using the [bulk update](update-files.md) operation will allow you to retrieve either the original and latest version of a study, series, or instance.  The latest version of a study, series, or instance is always returned by default.  The original version may be returned by by setting the `msdicom-request-original` header to `true`.  An example request is shown below:
+
+```http 
+GET ../studies/{study}/series/{series}/instances/{instance}
+Accept: multipart/related; type="application/dicom"; transfer-syntax=*
+msdicom-request-original: true
+Content-Type: application/dicom
+ ```
 
 ### Retrieve response status codes
 
