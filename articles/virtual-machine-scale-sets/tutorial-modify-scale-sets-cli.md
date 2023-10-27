@@ -118,17 +118,15 @@ az vmss update --name MyScaleSet --resource-group MyResourceGroup --license-type
 az vmss update --name MyScaleSet --resource-group MyResourceGroup --instance-id 4 --protect-from-scale-set-actions False --protect-from-scale-in
 ```
 
-Additionally, if you previously deployed the scale set with the `az vmss create` command, you can run the `az vmss create` command again to update the scale set. Make sure that all properties in the `az vmss create` command are the same as before, except for the properties that you wish to modify. For example, below we're updating the upgrade policy and increasing the instance count to five.
+Additionally, if you previously deployed the scale set with the `az vmss create` command, you can run the `az vmss create` command again to update the scale set. Make sure that all properties in the `az vmss create` command are the same as before, except for the properties that you wish to modify. For example, below we're increasing the instance count to five.
 
 ```azurecli-interactive
 az vmss create \
   --resource-group myResourceGroup \
   --name myScaleSet \
-  --orchestration-mode flexible \
   --image RHELRaw8LVMGen2 \
   --admin-username azureuser \
   --generate-ssh-keys \
-  --upgrade-policy Rolling \
   --instance-count 5
 ```
 
