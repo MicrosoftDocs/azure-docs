@@ -85,7 +85,7 @@ To invoke the **Finetune** settings form, select **Finetune** on the model card 
 
 #### Training data
 
-1. Pass in the training data you want to use to fine-tune your model. You can choose to upload a local file in JSON Lines [JSONL] format. Or you can select an existing registered dataset from your workspace.
+1. Pass in the training data you want to use to fine-tune your model. You can choose to upload a local file in JSON Lines (JSONL) format. Or you can select an existing registered dataset from your workspace.
 
    - **Models with a completion task type**: The training data you use must be formatted as a JSONL document in which each line represents a single prompt-completion pair.
 
@@ -121,7 +121,7 @@ To enable users to quickly get started with code-based fine-tuning, we've publis
 
 ### Troubleshooting
 
-Here are some steps to help you resolve any of the following issues with your Azure OpenAI in Machine Learning.
+Here are some steps to help you resolve any of the following issues with Azure OpenAI in Machine Learning.
 
 You might receive any of the following errors when you try to deploy an Azure OpenAI model:
 
@@ -132,7 +132,7 @@ You might receive any of the following errors when you try to deploy an Azure Op
     - **Fix:** Azure OpenAI failed to create. This error occurs because of quota issues. Make sure you have enough quota for the deployment. The default quota for fine-tuned models is two deployments per customer.
 
 - **Failed to get Azure OpenAI resource**
-    - **Fix:** Unable to create the resource. You either aren't in the correct region or you've exceeded the maximum limit of three Azure OpenAI resources. You need to delete an existing Azure OpenAI resource or you need to make sure you created a workspace in one of the [supported regions](../ai-services/openai/concepts/models.md#model-summary-table-and-region-availability).
+    - **Fix:** Unable to create the resource. You either aren't in the correct region or you've exceeded the maximum limit of three Azure OpenAI resources. You need to delete an existing Azure OpenAI resource, or you need to make sure you created a workspace in one of the [supported regions](../ai-services/openai/concepts/models.md#model-summary-table-and-region-availability).
 
 - **Model not deployable**
     - **Fix:** This error usually happens while trying to deploy a GPT-4 model. Because of high demand, you need to [apply for access to use GPT-4 models](/azure/ai-services/openai/concepts/models#gpt-4-models).
