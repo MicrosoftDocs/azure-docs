@@ -14,11 +14,13 @@ In this guide, you learn about data sources supported in each Azure Managed Gran
 
 ## Prerequisites
 
-[An Azure Managed Grafana instance](./how-to-permissions.md)
+[An Azure Managed Grafana instance](./how-to-permissions.md).
 
 ## Supported Grafana data sources
 
 By design, Grafana can be configured with multiple *data sources*. A data source is an externalized storage backend that holds telemetry information.
+
+### Grafana core data sources
 
 Azure Managed Grafana supports many popular data sources. The table below lists the Grafana core data sources that can be added to Azure Managed Grafana for each service tier.
 
@@ -45,8 +47,7 @@ Azure Managed Grafana supports many popular data sources. The table below lists 
 | [TestData](https://grafana.com/docs/grafana/latest/datasources/testdata/)                                                     | ✔        | ✔       |
 | [Zipkin](https://grafana.com/docs/grafana/latest/datasources/zipkin/)                                                         | -         | ✔       |
 
-> [!TIP]
-> Additional data sources are available and can be added from the Plugin management (preview) feature.
+### Data sources for Grafana Enterprise customers
 
 Within the Standard service tier, users who have subscribed to the Grafana Enterprise option can also access the following data sources.
 
@@ -67,6 +68,10 @@ Within the Standard service tier, users who have subscribed to the Grafana Enter
 * [Splunk Infrastructure monitoring (SignalFx)](https://grafana.com/grafana/plugins/grafana-splunk-monitoring-datasource)
 * [Wavefront](https://grafana.com/grafana/plugins/grafana-wavefront-datasource)
 
+### Additional data sources
+
+More data sources can be added from the [Plugin management (preview) feature](how-to-manage-plugins.md).
+
 For more information about data sources, go to [Data sources](https://grafana.com/docs/grafana/latest/datasources/) on the Grafana Labs website.
 
 ## Add a data source
@@ -75,7 +80,7 @@ To add a data source to Azure Managed Grafana, follow the steps below using the 
 
 ### [Portal](#tab/azure-portal)
 
-### Core data sources
+### Grafana core data sources
 
 To add a [Grafana core data source](https://grafana.com/docs/grafana/latest/datasources/#built-in-core-data-sources) with the Azure portal:
 
@@ -246,7 +251,7 @@ This section describes the steps for removing a data source.
 > [!CAUTION]
 > Removing a data source that is used in a dashboard will make the dashboard unable to collect the corresponding data and will trigger an error or result in no data being shown in the panel.
 
-### [Azure CLI](#tab/azure-cli)
+### [Portal](#tab/azure-portal)
 
 Remove a data source in the Azure portal:
 
