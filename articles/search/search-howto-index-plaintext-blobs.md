@@ -1,6 +1,6 @@
 ---
 title: Search over plain text blobs
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Configure a search indexer to extract plain text from Azure blobs for full text search in Azure Cognitive Search.
 
 manager: nitinme

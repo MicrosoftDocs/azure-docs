@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Index encrypted blobs'
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Learn how to index and extract text from encrypted documents in Azure Blob Storage with Azure Cognitive Search.
 
 manager: nitinme

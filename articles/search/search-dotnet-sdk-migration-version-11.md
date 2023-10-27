@@ -1,6 +1,6 @@
 ---
 title: Upgrade to .NET SDK version 11
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Migrate your search application code from older SDK versions to the Azure Cognitive Search .NET SDK version 11. 
 
 manager: nitinme

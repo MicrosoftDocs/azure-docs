@@ -1,6 +1,6 @@
 ---
 title: Azure DB for MySQL (preview)
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Learn how to set up a search indexer to index data stored in Azure Database for MySQL for full text search in Azure Cognitive Search.
 author: gmndrg
 ms.author: gimondra

@@ -1,6 +1,6 @@
 ---
 title: .NET samples
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Find Azure Cognitive Search demo C# code samples that use the .NET client libraries.
 
 manager: nitinme

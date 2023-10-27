@@ -1,6 +1,6 @@
 ---
 title: Built-in skills
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Data extraction, natural language, and image processing skills add semantics and structure to raw content in an Azure Cognitive Search enrichment pipeline.
 author: HeidiSteen
 ms.author: heidist

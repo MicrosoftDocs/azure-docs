@@ -1,6 +1,6 @@
 ---
 title: Upgrade REST API versions
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Review differences in API versions and learn which actions are required to migrate existing code to the newest Azure Cognitive Search service REST API version.
 
 manager: nitinme

@@ -1,6 +1,6 @@
 ---
 title: Enable or disable semantic ranking
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Steps for turning semantic ranking on or off in Cognitive Search.
 
 manager: nitinme

@@ -1,6 +1,6 @@
 ---
 title: Search over Azure Blob Storage content
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Learn about extracting text from Azure blobs and making it full-text searchable in an Azure Cognitive Search index.
 
 manager: nitinme

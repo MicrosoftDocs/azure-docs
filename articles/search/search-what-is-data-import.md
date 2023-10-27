@@ -1,6 +1,6 @@
 ---
 title: Data import and data ingestion
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Populate and upload data to an index in Azure Cognitive Search from external data sources.
 
 manager: nitinme

@@ -1,6 +1,6 @@
 ---
 title: Security filters to trim results using Active Directory
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Learn how to implement security privileges at the document level for Azure Cognitive Search search results, using security filters and Microsoft Entra identities.
 
 manager: nitinme

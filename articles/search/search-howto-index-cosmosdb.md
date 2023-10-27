@@ -1,6 +1,6 @@
 ---
 title: Azure Cosmos DB NoSQL indexer
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Set up a search indexer to index data stored in Azure Cosmos DB for full text search in Azure Cognitive Search. This article explains how index data using the NoSQL API protocol.
 
 author: mgottein 

@@ -1,6 +1,6 @@
 ---
 title: Manage with REST
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Create and configure an Azure Cognitive Search service with the Management REST API. The Management REST API is comprehensive in scope, with access to generally available and preview features.
 author: HeidiSteen
 ms.author: heidist

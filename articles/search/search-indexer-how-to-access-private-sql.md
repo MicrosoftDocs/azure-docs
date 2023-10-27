@@ -1,6 +1,6 @@
 ---
 title: Connect to SQL Managed Instance
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Configure an indexer connection to access content in an Azure SQL Managed instance that's protected through a private endpoint.
 
 author: mattmsft

@@ -1,6 +1,6 @@
 ---
 title: Add spell check to queries
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Attach spelling correction to the query pipeline, to fix typos on query terms before executing the query.
 
 manager: nitinme

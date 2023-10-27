@@ -1,6 +1,6 @@
 ---
 title: Synonyms C# example
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: In this C# example, learn how to add the synonyms feature to an index in Azure Cognitive Search. A synonyms map is a list of equivalent terms. Fields with synonym support expand queries to include the user-provided term and all related synonyms.
 
 manager: nitinme

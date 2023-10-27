@@ -1,6 +1,6 @@
 ---
 title: How to work with search results
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Define search result composition, get a document count, sort results, and add content navigation to search results in Azure Cognitive Search.
 
 manager: nitinme

@@ -1,6 +1,6 @@
 ---
 title: Microsoft partners
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Learn about end-to-end solutions offered by Microsoft partners that include Azure Cognitive Search.
 author: HeidiSteen
 manager: nitinme

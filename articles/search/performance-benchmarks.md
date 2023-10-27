@@ -1,6 +1,6 @@
 ---
 title: Performance benchmarks
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Learn about the performance of Azure Cognitive Search through various performance benchmarks
 author: gmndrg
 ms.author: gimondra

@@ -1,6 +1,6 @@
 ---
 title: Connect using Azure roles
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Use Azure role-based access control for granular permissions on service administration and content tasks.
 
 manager: nitinme

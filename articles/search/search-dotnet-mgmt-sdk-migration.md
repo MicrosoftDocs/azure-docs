@@ -1,6 +1,6 @@
 ---
 title: Upgrade management SDKs
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Learn about the management libraries and packages used for control plane operations in Azure Cognitive Search.
 
 manager: nitinme

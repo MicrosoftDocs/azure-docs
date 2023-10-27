@@ -1,6 +1,6 @@
 ---
 title: SharePoint indexer (preview)
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Set up a SharePoint indexer to automate indexing of document library content in Azure Cognitive Search.
 author: gmndrg
 ms.author: gimondra

@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Use Azure SDKs'
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: "Create, load, and query a search index using the Azure SDKs for .NET, Python, Java, and JavaScript."
 manager: nitinme
 author: HeidiSteen

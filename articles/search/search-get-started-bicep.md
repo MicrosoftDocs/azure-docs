@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Deploy using Bicep'
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: You can quickly deploy an Azure Cognitive Search service instance using Bicep.
 author: HeidiSteen
 ms.author: heidist

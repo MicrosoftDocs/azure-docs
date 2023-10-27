@@ -1,6 +1,6 @@
 ---
 title: Demo sites for search features
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: This page provides links to demo sites that are built on Azure Cognitive Search. Try a web app to see how search performs.
 author: HeidiSteen
 manager: nitinme

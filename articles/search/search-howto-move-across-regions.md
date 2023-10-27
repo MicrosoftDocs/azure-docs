@@ -1,6 +1,6 @@
 ---
 title: How to move your service resource across regions
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: This article will show you how to move your Azure Cognitive Search resources from one region to another in the Azure cloud.
 
 manager: nitinme

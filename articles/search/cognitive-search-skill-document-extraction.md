@@ -1,6 +1,6 @@
 ---
 title: Document Extraction cognitive skill
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Extracts content from a file within the enrichment pipeline.
 
 author: careyjmac

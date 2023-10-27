@@ -1,6 +1,6 @@
 ---
 title: "Add search to web sites (Python tutorial)"
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Technical overview and setup for adding search to a website with Python and deploying to Azure Static Web App. 
 manager: nitinme
 author: diberry

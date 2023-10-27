@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Create a search index in PowerShell using REST APIs'
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: In this REST API quickstart, learn how to create an index, load data, and run queries using PowerShell's Invoke-RestMethod and the Azure Cognitive Search REST API.
 manager: nitinme
 author: HeidiSteen

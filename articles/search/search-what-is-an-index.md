@@ -1,6 +1,6 @@
 ---
 title: Index overview
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Explains what is a search index in Azure Cognitive Search and describes content, construction, physical expression, and the index schema.
 
 manager: nitinme

@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Debug skillsets'
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Debug Sessions is an Azure portal tool used to find, diagnose, and repair problems in a skillset.
 author: HeidiSteen
 ms.author: heidist

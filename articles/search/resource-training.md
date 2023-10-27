@@ -1,6 +1,6 @@
 ---
 title: Search training modules
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Get hands-on training on Azure Cognitive Search from Microsoft and other third-party training providers.
 author: HeidiSteen
 manager: nitinme

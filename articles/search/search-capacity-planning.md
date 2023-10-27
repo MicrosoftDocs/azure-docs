@@ -1,6 +1,6 @@
 ---
 title:  Estimate capacity for query and index workloads
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Adjust partition and replica computer resources in Azure Cognitive Search, where each resource is priced in billable search units.
 
 manager: nitinme

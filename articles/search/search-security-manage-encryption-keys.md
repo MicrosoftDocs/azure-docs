@@ -1,6 +1,6 @@
 ---
 title:  Encrypt data using customer-managed keys
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Supplement server-side encryption in Azure Cognitive Search using customer managed keys (CMK) or bring your own keys (BYOK) that you create and manage in Azure Key Vault.
 
 manager: nitinme

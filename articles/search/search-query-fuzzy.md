@@ -1,6 +1,6 @@
 ---
 title: Fuzzy search
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Implement a fuzzy search query for a "did you mean" search experience. Fuzzy search auto-corrects a misspelled term or typo on the query.
 
 manager: nitinme

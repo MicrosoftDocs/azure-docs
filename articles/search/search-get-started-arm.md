@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Deploy using templates'
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: You can quickly deploy an Azure Cognitive Search service instance using the Azure Resource Manager template.
 manager: nitinme
 author: HeidiSteen

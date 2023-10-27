@@ -1,6 +1,6 @@
 ---
 title: Plan and manage costs
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: 'Learn about billable events, the billing model, and tips for cost control when running a Cognitive Search service.'
 
 manager: nitinme

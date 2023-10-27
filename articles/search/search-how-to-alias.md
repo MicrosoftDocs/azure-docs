@@ -1,6 +1,6 @@
 ---
 title: Create an index alias
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Create an alias to define a secondary name that can be used to refer to an index for querying, indexing, and other operations.
 author: gmndrg
 ms.author: gimondra

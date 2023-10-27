@@ -1,6 +1,6 @@
 ---
 title: Generate embeddings
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Learn how to generate embeddings for downstream indexing into an Azure Cognitive Search index.
 
 author: farzad528

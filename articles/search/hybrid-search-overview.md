@@ -1,6 +1,6 @@
 ---
 title: Hybrid search
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Describes concepts and architecture of hybrid query processing and document retrieval. Hybrid queries combine vector search and full text search.
 
 author: robertklee

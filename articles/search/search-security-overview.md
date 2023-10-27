@@ -1,6 +1,6 @@
 ---
 title: Security overview
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Learn about the security features in Azure Cognitive Search to protect endpoints, content, and operations.
 
 manager: nitinme

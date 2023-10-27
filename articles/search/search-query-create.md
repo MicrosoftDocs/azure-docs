@@ -1,6 +1,6 @@
 ---
 title: Full-text query how-to
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Learn how to construct a query request for full text search in Azure Cognitive Search.
 
 manager: nitinme

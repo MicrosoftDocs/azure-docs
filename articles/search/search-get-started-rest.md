@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Create a search index using REST APIs'
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: In this REST API quickstart, learn how to call the Azure Cognitive Search REST APIs using Postman.
 zone_pivot_groups: URL-test-interface-rest-apis
 manager: nitinme

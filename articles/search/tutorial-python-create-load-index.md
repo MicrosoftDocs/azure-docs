@@ -1,6 +1,6 @@
 ---
 title: "Load an index (Python tutorial)" 
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Create index and import CSV data into Search index with Python using the PYPI package SDK azure-search-documents.
 manager: nitinme
 author: diberry

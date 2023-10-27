@@ -1,6 +1,6 @@
 ---
 title: Map enrichments in indexers
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Export the enriched content created by a skillset by mapping its output fields to fields in a search index.
 author: HeidiSteen
 ms.author: heidist

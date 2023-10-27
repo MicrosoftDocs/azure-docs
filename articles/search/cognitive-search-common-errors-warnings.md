@@ -1,6 +1,6 @@
 ---
 title: Indexer errors and warnings 
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: This article provides information and solutions to common errors and warnings you might encounter during AI enrichment in Azure Cognitive Search.
 
 manager: nitinme

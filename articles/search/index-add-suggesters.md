@@ -1,6 +1,6 @@
 ---
 title: Create a suggester
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Enable type-ahead query actions in Azure Cognitive Search by creating suggesters and formulating requests that invoke autocomplete or autosuggested query terms.
 
 manager: nitinme
