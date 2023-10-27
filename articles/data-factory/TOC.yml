@@ -1322,8 +1322,6 @@ items:
     href: get-started-with-managed-airflow.md
   - name: How-to
     items:
-    - name: How does Managed Airflow work
-      href: how-does-managed-airflow-work.md
     - name: How to change the Airflow password
       href: password-change-airflow.md
     - name: Create a private requirement Package
