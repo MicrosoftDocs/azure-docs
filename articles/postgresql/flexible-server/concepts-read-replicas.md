@@ -82,25 +82,6 @@ psql -h myreplica.postgres.database.azure.com -U myadmin postgres
 
 At the prompt, enter the password for the user account.
 
-## Monitor replication
-Read replica feature in Azure Database for PostgreSQL - Flexible Server relies on replication slots mechanism. The main advantage of replication slots is the ability to automatically adjust the number of transaction logs (WAL segments) needed by all replica servers and therefore avoid situations when one or more replicas going out of sync because WAL segments that were not yet sent to the replicas are being removed on the primary. The disadvantage of the approach is the risk of going out of space on the primary in case replication slot remains inactive for a long period of time. In such situations primary will accumulate WAL files causing incremental growth of the storage usage. When the storage usage reaches 95% or if the available capacity is less than 5 GiB, the server is automatically switched to read-only mode to avoid errors associated with disk-full situations. 
-Therefore, monitoring the replication lag and replication slots status is crucial for read replicas.
-
-We recommend setting alert rules for storage used or storage percentage, as well as for replication lags, when they exceed certain thresholds so that you can proactively act, increase the storage size and delete lagging read replicas. For example, you can set an alert if the storage percentage exceeds 80% usage, as well on the replica lag being higher than 1h. The [Transaction Log Storage Used](concepts-monitoring.md#default-metrics) metric will show you if the WAL files accumulation is the main reason of the excessive storage usage. 
-
-Azure Database for PostgreSQL - Flexible Server provides [two metrics](concepts-monitoring.md#replication) for monitoring replication. The two metrics are **Max Physical Replication Lag** and **Read Replica Lag**. To learn how to view these metrics, see the **Monitor a replica** section of the [read replica how-to article](how-to-read-replicas-portal.md#monitor-a-replica).
-
-The **Max Physical Replication Lag** metric shows the lag in bytes between the primary and the most-lagging replica. This metric is applicable and available on the primary server only, and will be available only if at least one of the read replicas is connected to the primary. The lag information is present also when the replica is in the process of catching up with the primary, during replica creation, or when replication becomes inactive.
-
-The **Read Replica Lag** metric shows the time since the last replayed transaction. For instance if there are no transactions occurring on your primary server, and the last transaction was replayed 5 seconds ago, then the Read Replica Lag will show 5 second delay. This metric is applicable and available on replicas only. 
-
-Set an alert to inform you when the replica lag reaches a value that isn’t acceptable for your workload.
-
-For additional insight, query the primary server directly to get the replication lag on all replicas.  
-
-> [!NOTE]
-> If a primary server or read replica restarts, the time it takes to restart and catch up is reflected in the Replica Lag metric.
-
 ## Promote replicas
 "Promote" refers to the process where a replica is commanded to end its replica mode and transition into full read-write operations.
 
@@ -115,6 +96,9 @@ For both promotion methods, there are additional options to consider:
 * **Planned**: This option ensures that data is synchronized before promoting. It applies all the pending logs to ensure data consistency before accepting client connections.
 
 * **Forced**: This option prioritizes speed. Instead of waiting to synchronize all the data from the primary, the server becomes operational once it processes WAL files needed to achieve the nearest consistent state.
+
+## Virtual Endpoints
+Virtual Endpoints  read-write and read-only listener end-points that remain unchanged during geo-failovers. You do not have to change the connection string for your application after a geo-failover, because connections are automatically routed to the current primary. Whether you use manual or automatic failover activation, a geo-failover switches all secondary databases in the group to the primary role. After the geo-failover is completed, the DNS record is automatically updated to redirect the endpoints to the new region. For geo-failover RPO and RTO, see Overview of Business Continuity.
 
 
 >[!NOTE]
@@ -158,6 +142,25 @@ Once your application is successfully processing reads and writes, you have comp
 When there is a major disaster event such as availability zone-level or regional failures, you can perform disaster recovery operation by promoting your read replica. From the UI portal, you can navigate to the read replica server. Then select the replication tab, and you can promote the replica to become an independent server. 
 
 [//]: # (Alternatively, you can use the [Azure CLI]&#40;/cli/azure/postgres/server/replica#az-postgres-server-replica-stop&#41; to stop and promote the replica server.)
+
+## Monitor replication
+Read replica feature in Azure Database for PostgreSQL - Flexible Server relies on replication slots mechanism. The main advantage of replication slots is the ability to automatically adjust the number of transaction logs (WAL segments) needed by all replica servers and therefore avoid situations when one or more replicas going out of sync because WAL segments that were not yet sent to the replicas are being removed on the primary. The disadvantage of the approach is the risk of going out of space on the primary in case replication slot remains inactive for a long period of time. In such situations primary will accumulate WAL files causing incremental growth of the storage usage. When the storage usage reaches 95% or if the available capacity is less than 5 GiB, the server is automatically switched to read-only mode to avoid errors associated with disk-full situations. 
+Therefore, monitoring the replication lag and replication slots status is crucial for read replicas.
+
+We recommend setting alert rules for storage used or storage percentage, as well as for replication lags, when they exceed certain thresholds so that you can proactively act, increase the storage size and delete lagging read replicas. For example, you can set an alert if the storage percentage exceeds 80% usage, as well on the replica lag being higher than 1h. The [Transaction Log Storage Used](concepts-monitoring.md#default-metrics) metric will show you if the WAL files accumulation is the main reason of the excessive storage usage. 
+
+Azure Database for PostgreSQL - Flexible Server provides [two metrics](concepts-monitoring.md#replication) for monitoring replication. The two metrics are **Max Physical Replication Lag** and **Read Replica Lag**. To learn how to view these metrics, see the **Monitor a replica** section of the [read replica how-to article](how-to-read-replicas-portal.md#monitor-a-replica).
+
+The **Max Physical Replication Lag** metric shows the lag in bytes between the primary and the most-lagging replica. This metric is applicable and available on the primary server only, and will be available only if at least one of the read replicas is connected to the primary. The lag information is present also when the replica is in the process of catching up with the primary, during replica creation, or when replication becomes inactive.
+
+The **Read Replica Lag** metric shows the time since the last replayed transaction. For instance if there are no transactions occurring on your primary server, and the last transaction was replayed 5 seconds ago, then the Read Replica Lag will show 5 second delay. This metric is applicable and available on replicas only. 
+
+Set an alert to inform you when the replica lag reaches a value that isn’t acceptable for your workload.
+
+For additional insight, query the primary server directly to get the replication lag on all replicas.  
+
+> [!NOTE]
+> If a primary server or read replica restarts, the time it takes to restart and catch up is reflected in the Replica Lag metric.
 
 ## Considerations
 
