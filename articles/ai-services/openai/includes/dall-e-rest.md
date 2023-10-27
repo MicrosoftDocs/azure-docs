@@ -165,14 +165,15 @@ The output from a successful image generation API call looks like the following 
 #### [DALL-E 3](#tab/dalle3)
 
 ```json
-{
-    "created": 1685130482,
-    "data": [
-        {
-            "url": "<URL_to_generated_image>"
-        }
-    ]
-}
+{ 
+    "created": 1698116662, 
+    "data": [ 
+        { 
+            "url": "<URL_to_generated_image>" 
+        }
+    ],
+    "revised_prompt": "<prompt_that_was_used>" 
+} 
 ```
 
 ---
