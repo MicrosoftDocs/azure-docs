@@ -251,7 +251,7 @@
           href: waf-app-gateway.md
         - name: Enable User Defined Routes (UDR)
           href: user-defined-routes.md
-        - name: Securing a custom VNET
+        - name: Securing a custom VNET with an NSG
           href: firewall-integration.md
     - name: Network proxying
       href: network-proxy.md
