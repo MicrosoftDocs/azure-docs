@@ -5,139 +5,114 @@ description: Develop distributed applications that talk with Azure IoT MQ using 
 author: PatAltimore
 ms.author: patricka
 ms.topic: how-to
-ms.date: 10/02/2023
+ms.date: 10/26/2023
 
 #CustomerIntent: As an developer, I want to understand how to use MQTTnet to develop distributed apps that talk with Azure IoT MQ.
 ---
 
 
-<!--
-Remove all the comments in this template before you sign-off or merge to the main branch.
-
-This template provides the basic structure of a How-to article pattern. See the
-[instructions - How-to](../level4/article-how-to-guide.md) in the pattern library.
-
-You can provide feedback about this template at: https://aka.ms/patterns-feedback
-
-How-to is a procedure-based article pattern that show the user how to complete a task in their own environment. A task is a work activity that has a definite beginning and ending, is observable, consist of two or more definite steps, and leads to a product, service, or decision.
-
--->
-
-<!-- 1. H1 -----------------------------------------------------------------------------
-
-Required: Use a "<verb> * <noun>" format for your H1. Pick an H1 that clearly conveys the task the user will complete.
-
-For example: "Migrate data from regular tables to ledger tables" or "Create a new Azure SQL Database".
-
-* Include only a single H1 in the article.
-* Don't start with a gerund.
-* Don't include "Tutorial" in the H1.
-
--->
-
 # Use MQTTnet to develop distributed application workloads
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-TODO: Add your heading
+[MQTTnet](https://dotnet.github.io/MQTTnet/) is an open-source, high performance .NET library for MQTT based communication. This article uses a Kubernetes service account token to connect to Azure IoT MQ's MQTT broker using MQTTnet. You should use service account tokens to connect to in-cluster clients.
 
-<!-- 2. Introductory paragraph ----------------------------------------------------------
+## Sample
 
-Required: Lead with a light intro that describes, in customer-friendly language, what the customer will do. Answer the fundamental "why would I want to do this?" question. Keep it short.
+The [sample code](https://github.com/microsoft/e4k-playground/blob/dot-net/samples/dotnet-client/Program.cs) does the following -
 
-Readers should have a clear idea of what they will do in this article after reading the introduction.
+Creates an MQTT client using the `MQTTFactory` class:
 
-* Introduction immediately follows the H1 text.
-* Introduction section should be between 1-3 paragraphs.
-* Don't use a bulleted list of article H2 sections.
+```csharp
+# Create a new MQTT client.
+var mqttFactory = new MqttFactory();
+var mqttClient = mqttFactory.CreateMqttClient();
+```
 
-Example: In this article, you will migrate your user databases from IBM Db2 to SQL Server by using SQL Server Migration Assistant (SSMA) for Db2.
+The following Kubernetes pod specification mounts the service account token to the specified path on the container file system. The mounted token is used as the password with well-known username `$sat`:
 
--->
+```csharp
+...
+    string token_path = "/var/run/secrets/tokens/mqtt-client-token";
+    ...
 
-TODO: Add your introductory paragraph
+    static async Task<int> MainAsync()
+    {
+        ...
 
-<!---Avoid notes, tips, and important boxes. Readers tend to skip over them. Better to put that info directly into the article text.
+        //Read SAT Token
+        var satToken = File.ReadAllText(token_path);
+...
+```
 
--->
+All options for the MQTT client are bundled in the class named `MqttClientOptions`. It's possible to fill options manually in code via the properties but you should use the `MqttClientOptionsBuilder` as advised in the [client](https://github.com/dotnet/MQTTnet/wiki/Client) documentation. The following code shows how to use the builder with the following options:
 
-<!-- 3. Prerequisites --------------------------------------------------------------------
+```csharp
+# Create TCP based options using the builder amd connect to broker
+ var mqttClientOptions = new MqttClientOptionsBuilder()
+                .WithTcpServer(broker, 1883)
+                .WithProtocolVersion(MqttProtocolVersion.V500)
+                .WithClientId("sampleid")
+                .WithCredentials("$sat", satToken )
+                .Build();
+```
 
-Required: Make Prerequisites the first H2 after the H1. 
+After setting up the MQTT client options, a connection can be established. The following code shows how to connect with a server. The *CancellationToken.None* can be replaced by a valid *CancellationToken*, if needed.
 
-* Provide a bulleted list of items that the user needs.
-* Omit any preliminary text to the list.
-* If there aren't any prerequisites, list "None" in plain text, not as a bulleted item.
+```csharp
+ var response = await mqttClient.ConnectAsync(mqttClientOptions, CancellationToken.None);
+```
 
--->
+MQTT messages can be created using the properties directly or via using `MqttApplicationMessageBuilder`. This class has some useful overloads that allow dealing with different payload formats easily. The API of the builder is a fluent API. The following code shows how to compose an application message and publish them to a topic called `sampletopic`:
 
-## Prerequisites
+```csharp
+ var applicationMessage = new MqttApplicationMessageBuilder()
+                    .WithTopic("sampletopic")
+                    .WithPayload("samplepayload" + counter)
+                    .Build();
 
-TODO: List the prerequisites
+                    await mqttClient.PublishAsync(applicationMessage, CancellationToken.None);
+                    Console.WriteLine("The MQTT client published a message.");
+```
 
-<!-- 4. Task H2s ------------------------------------------------------------------------------
+### Pod specification
 
-Required: Multiple procedures should be organized in H2 level sections. A section contains a major grouping of steps that help users complete a task. Each section is represented as an H2 in the article.
+The full pod specification is available in the [sample](https://github.com/microsoft/e4k-playground/blob/main/samples/dotnet-client/deploy/pod.yaml). The important sections are highlighted in this section.
 
-For portal-based procedures, minimize bullets and numbering.
+The `serviceAccountName` field in the pod configuration must match the service account associated with the token being used. Also, note the `serviceAccountToken.expirationSeconds` is set to **86400 seconds**, and once it expires, you need to reload the token from disk. This logic isn't currently implemented in the sample.
 
-* Each H2 should be a major step in the task.
-* Phrase each H2 title as "<verb> * <noun>" to describe what they'll do in the step.
-* Don't start with a gerund.
-* Don't number the H2s.
-* Begin each H2 with a brief explanation for context.
-* Provide a ordered list of procedural steps.
-* Provide a code block, diagram, or screenshot if appropriate
-* An image, code block, or other graphical element comes after numbered step it illustrates.
-* If necessary, optional groups of steps can be added into a section.
-* If necessary, alternative groups of steps can be added into a section.
+```yaml {hl_lines=[8,10,11,12,13,14,15,16,20,21,22]}
+apiVersion: v1
+kind: Pod
+metadata:
+  name: publisherclient
+  labels:
+    app: publisher
+spec:
+  serviceAccountName: mqtt-client
+  volumes: 
+    - name: mqtt-client-token
+      projected:
+        sources:
+        - serviceAccountToken:
+            path: mqtt-client-token
+            audience: azedge-dmqtt
+            expirationSeconds: 86400
+  containers:
+    - name: publisherclient
+      image: alicesprings.azurecr.io/dotnetmqttsample
+      volumeMounts:
+        - name: mqtt-client-token
+          mountPath: /var/run/secrets/tokens
+      imagePullPolicy: IfNotPresent
+  restartPolicy: Never
+```
 
--->
+The token is mounted into the container at the path specified in `containers[].volumeMount.mountPath`
 
-## Task 1
-TODO: Add introduction sentence(s)
-[Include a sentence or two to explain only what is needed to complete the procedure.]
-TODO: Add ordered list of procedure steps
-1. Step 1
-1. Step 2
-1. Step 3
-
-## Task 2
-TODO: Add introduction sentence(s)
-[Include a sentence or two to explain only what is needed to complete the procedure.]
-TODO: Add ordered list of procedure steps
-1. Step 1
-1. Step 2
-1. Step 3
-
-## Task 3
-TODO: Add introduction sentence(s)
-[Include a sentence or two to explain only what is needed to complete the procedure.]
-TODO: Add ordered list of procedure steps
-1. Step 1
-1. Step 2
-1. Step 3
-
-<!-- 5. Next step/Related content------------------------------------------------------------------------
-
-Optional: You have two options for manually curated links in this pattern: Next step and Related content. You don't have to use either, but don't use both.
-  - For Next step, provide one link to the next step in a sequence. Use the blue box format
-  - For Related content provide 1-3 links. Include some context so the customer can determine why they would click the link. Add a context sentence for the following links.
-
--->
-
-## Next step
-
-TODO: Add your next step link(s)
-
-
-<!-- OR -->
+To run the sample, follow the instructions in its [README](https://github.com/microsoft/e4k-playground/blob/main/samples/dotnet-client/README.md).
 
 ## Related content
 
-TODO: Add your next step link(s)
-
-
-<!--
-Remove all the comments in this template before you sign-off or merge to the main branch.
--->
+- [Azure IoT MQ overview](../manage-mqtt-connectivity/overview-iot-mq.md)
+- [Develop with Azure IoT MQ](concept-about-distributed-apps.md)
