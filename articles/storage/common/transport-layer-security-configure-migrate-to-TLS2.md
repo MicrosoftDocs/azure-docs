@@ -7,7 +7,7 @@ author: normesta
 
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 12/29/2022
+ms.date: 10/27/2023
 ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.devlang: csharp
@@ -23,7 +23,7 @@ To avoid disruptions to applications that connect to your storage account, you m
 
 Transport Layer Security (TLS) is an internet security protocol that establishes encryption channels over networks to encrypt communication between your applications and servers. When storage data is accessed via HTTPS connections, communication between client applications and the storage account is encrypted using TLS. 
 
-TLS encrypts data sent over the internet to prevent malicious users from accessing private, sensitive information. The client and server perform a TLS handshake to verify each other's identity and determine how they'll communicate. During the handshake, each party identifies which TLS versions they use. The client and server can communicate if they both support a common version. 
+TLS encrypts data sent over the internet to prevent malicious users from accessing private, sensitive information. The client and server perform a TLS handshake to verify each other's identity and determine how they communicate. During the handshake, each party identifies which TLS versions they use. The client and server can communicate if they both support a common version. 
 
 ## Why use TLS 1.2?
 
@@ -54,9 +54,9 @@ For more detailed guidance, see the [checklist to deprecate older TLS versions
 
 In advance of the deprecation date, you can enable Azure policy to enforce minimum TLS version. 
 
-To understand how configuring the minimum TLS version may affect client applications, we recommend that you enable logging for your Azure Storage account and analyze the logs after an interval of time to detect what versions of TLS client applications are using.
+To understand how configuring the minimum TLS version might affect client applications, we recommend that you enable logging for your Azure Storage account and analyze the logs after an interval of time to detect what versions of TLS client applications are using.
 
-When you are confident that traffic from clients using older versions of TLS is minimal, or that it's acceptable to fail requests made with an older version of TLS, then you can begin enforcement of a minimum TLS version on your storage account. 
+When you're confident that traffic from clients using older versions of TLS is minimal, or that it's acceptable to fail requests made with an older version of TLS, then you can begin enforcement of a minimum TLS version on your storage account. 
 
 To learn how to detect the TLS versions used by client applications, and then enforce TLS 1.2 as the minimum allowed version, see [Enforce a minimum required version of Transport Layer Security (TLS) for incoming requests for Azure Storage](transport-layer-security-configure-minimum-version.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json#detect-the-tls-version-used-by-client-applications).
 
@@ -89,7 +89,7 @@ To learn how to detect the TLS versions used by client applications, and then en
 
 - [Configure Transport Layer Security (TLS) for a client application](transport-layer-security-configure-client-version.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json) – contains instructions to update TLS version in PowerShell
 
-- [Enable support for TLS 1.2 in your environment for Azure AD TLS 1.1 and 1.0 deprecation](/troubleshoot/azure/active-directory/enable-support-tls-environment) – contains information on updating TLS version for WinHTTP.
+- [Enable support for TLS 1.2 in your environment for Microsoft Entra ID TLS 1.1 and 1.0 deprecation](/troubleshoot/azure/active-directory/enable-support-tls-environment) – contains information on updating TLS version for WinHTTP.
 
 - [Transport Layer Security (TLS) best practices with the .NET Framework](/dotnet/framework/network-programming/tls) – best practices when configuring security protocols for applications targeting .NET Framework.
 
