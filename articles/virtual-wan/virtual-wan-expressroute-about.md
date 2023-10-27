@@ -48,7 +48,7 @@ Dynamic routing (BGP) is supported. For more information, please see [Dynamic Ro
 | Maximum number of circuits in the same peering location connected to the same virtual hub | 4 |
 | Maximum number of circuits in different peering locations connected to the same virtual hub | 8 |
 
-The above two limits hold true regardless of the number of ExpressRoute gateway scale units deployed. For more limits, please see [ExpressRoute Circuit Limits](../azure-resource-manager/management/azure-subscription-service-limits.md#route-advertisement-limits).
+The above two limits hold true regardless of the number of ExpressRoute gateway scale units deployed. For ExpressRoute circuit route limits, please see [ExpressRoute Circuit Route Advertisement Limits](../azure-resource-manager/management/azure-subscription-service-limits.md#route-advertisement-limits).
 
 ## Next steps
 
