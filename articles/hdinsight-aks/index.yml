@@ -96,7 +96,7 @@ landingContent:
             url: ./trino/trino-create-delta-lake-tables-synapse.md
           - text: Configure caching
             url: ./trino/trino-caching.md
-  - title: Apache Flink
+  - title: Apache Flink®
     linkLists:
       - linkListType: overview
         links:
@@ -127,7 +127,7 @@ landingContent:
           - text: Kafka table on FlinkSQL
             url: ./flink/create-kafka-table-flink-kafka-sql-connector.md  
           
-  - title: Apache Spark
+  - title: Apache Spark™
     linkLists:
       - linkListType: overview
         links:
