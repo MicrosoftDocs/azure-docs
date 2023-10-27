@@ -12,7 +12,7 @@ ms.date: 09/06/2023
 
 # Quickstart: Create and configure a dev center for Azure Deployment Environments
 
-In this quickstart, you'll set up all the resources in Azure Deployment Environments to enable development teams to self-service deployment environments for their applications. Learn how to create and configure a dev center, add a catalog to the dev center, and define an environment type. After you complete this quickstart, developers can use the developer portal to create environments and deploy applications.
+In this quickstart, you'll set up all the resources in Azure Deployment Environments to enable development teams to self-service deployment environments for their applications. Learn how to create and configure a dev center, add a catalog to the dev center, and define an environment type.
 
 A platform engineering team typically sets up a dev center, attaches external catalogs to the dev center, creates projects, and provides access to development teams. Development teams create [environments](concept-environments-key-concepts.md#environments) by using [environment definitions](concept-environments-key-concepts.md#environment-definitions), connect to individual resources, and deploy applications. To learn more about the components of Azure Deployment Environments, see [Key concepts for Azure Deployment Environments](concept-environments-key-concepts.md).
 
