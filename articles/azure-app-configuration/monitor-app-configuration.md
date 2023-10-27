@@ -178,7 +178,7 @@ The following table lists common and recommended alert rules for App C
 
 | Alert type | Condition | Description  |
 |:---|:---|:---|
-|Rate Limit on Http Requests | Status Code = 429  | The configuration store has exceeded the [hourly request quota](./faq.yml#are-there-any-limits-on-the-number-of-requests-made-to-app-configuration). Upgrade to a standard store or follow the [best practices](./howto-best-practices.md#reduce-requests-made-to-app-configuration) to optimize your usage. |
+|Request quota usage exceeded | RequestQuotaUsage >= 100 | The configuration store has exceeded the [hourly request quota](./faq.yml#are-there-any-limits-on-the-number-of-requests-made-to-app-configuration). Upgrade to a standard store or follow the [best practices](./howto-best-practices.md#reduce-requests-made-to-app-configuration) to optimize your usage. |
 
 
 
