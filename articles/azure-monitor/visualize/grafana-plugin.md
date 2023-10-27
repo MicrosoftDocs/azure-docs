@@ -26,7 +26,7 @@ Follow these steps to set up Grafana.
 ### Set up Azure Managed Grafana
 Azure Managed Grafana is optimized for the Azure environment and works seamlessly with Azure Monitor. You can:
 
-- Manage user authentication and access control by using Azure Active Directory identities.
+- Manage user authentication and access control by using Microsoft Entra identities.
 - Pin charts from the Azure portal directly to Azure Managed Grafana dashboards.
 
 Use this [quickstart guide](../../managed-grafana/quickstart-managed-grafana-portal.md) to create an Azure Managed Grafana workspace by using the Azure portal.
@@ -71,17 +71,17 @@ If you're hosting Grafana on your own Azure Virtual Machines or Azure App Servic
 
 ### Use app registration
 
-1. Create a service principal. Grafana uses an Azure Active Directory service principal to connect to Azure Monitor APIs and collect data. You must create, or use an existing service principal, to manage access to your Azure resources:
-    * See [Create an Azure AD app and service principal in the portal](../../active-directory/develop/howto-create-service-principal-portal.md) to create a service principal. Copy and save your tenant ID (Directory ID), client ID (Application ID), and client secret (Application key value).
-    * View [Assign application to role](../../active-directory/develop/howto-create-service-principal-portal.md) to assign the [Monitoring Reader role](../roles-permissions-security.md) to the Azure Active Directory application on the subscription, resource group, or resource you want to monitor.
+1. Create a service principal. Grafana uses a Microsoft Entra service principal to connect to Azure Monitor APIs and collect data. You must create, or use an existing service principal, to manage access to your Azure resources:
+    * See [Create a Microsoft Entra app and service principal in the portal](../../active-directory/develop/howto-create-service-principal-portal.md) to create a service principal. Copy and save your tenant ID (Directory ID), client ID (Application ID), and client secret (Application key value).
+    * View [Assign application to role](../../active-directory/develop/howto-create-service-principal-portal.md) to assign the [Monitoring Reader role](../roles-permissions-security.md) to the Microsoft Entra application on the subscription, resource group, or resource you want to monitor.
   
 1. Provide the connection details you want to use:
-    * When you configure the plug-in, you can indicate which Azure Cloud you want the plug-in to monitor: Public, Azure US Government, Azure Germany, or Azure China.
+    * When you configure the plug-in, you can indicate which Azure Cloud you want the plug-in to monitor: Public, Azure US Government, Azure Germany, or Microsoft Azure operated by 21Vianet.
         > [!NOTE]
         > Some data source fields are named differently than their correlated Azure settings:
         > * Tenant ID is the Azure Directory ID.
-        > * Client ID is the Azure Active Directory Application ID.
-        > * Client Secret is the Azure Active Directory Application key value.
+        > * Client ID is the Microsoft Entra Application ID.
+        > * Client Secret is the Microsoft Entra Application key value.
 
 1. Select **Save & test** and Grafana will test the credentials. You should see a message similar to the following one.
     

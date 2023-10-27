@@ -58,7 +58,7 @@ Azure data adds more time to become available at a data collection endpoint for 
 
 - **Azure platform metrics** are available in under a minute in the metrics database, but they take another 3 minutes to be exported to the data collection endpoint.
 - **Resource logs** typically add 30 to 90 seconds, depending on the Azure service. Some Azure services (specifically, Azure SQL Database and Azure Virtual Network) currently report their logs at 5-minute intervals. Work is in progress to improve this time further. To examine this latency in your environment, see the [query that follows](#check-ingestion-time).
-- **Activity log** data is ingested in 30 seconds when you use the recommended subscription-level diagnostic settings to send them into Azure Monitor Logs. They might take 10 to 15 minutes if you instead use the legacy integration.
+- **Activity logs** are available for analysis in 3 to 10 minutes.
 
 ### Management solutions collection
 
@@ -79,7 +79,7 @@ After the data is available at the data collection endpoint, it takes another 30
 
 After log records are ingested into the Azure Monitor pipeline (as identified in the [_TimeReceived](./log-standard-columns.md#_timereceived) property), they're written to temporary storage to ensure tenant isolation and to make sure that data isn't lost. This process typically adds 5 to 15 seconds.
 
-Some management solutions implement heavier algorithms to aggregate data and derive insights as data is streaming in. For example, Azure Network Performance Monitoring aggregates incoming data over 3-minute intervals, which effectively adds 3-minute latency.
+Some solutions implement heavier algorithms to aggregate data and derive insights as data is streaming in. For example, Application Insights calculates application map data; Azure Network Performance Monitoring aggregates incoming data over 3-minute intervals, which effectively adds 3-minute latency.
 
 Another process that adds latency is the process that handles custom logs. In some cases, this process might add a few minutes of latency to logs that are collected from files by the agent.
 

@@ -20,7 +20,7 @@ This article assumes familiarity with the [two basic approaches for importing da
 This article complements [Tips for better performance](search-performance-tips.md), which offers best practices on index and query design. A well-designed index that includes only the fields and attributes you need is an important prerequisite for large-scale indexing.
 
 > [!NOTE]
-> The strategies described in this article assume a single large data source. If your solution requires indexing from multiple data sources, see [Index multiple data sources in Azure Cognitive Search](/samples/azure-samples/azure-search-dotnet-samples/multiple-data-sources/) for a recommended approach.
+> The strategies described in this article assume a single large data source. If your solution requires indexing from multiple data sources, see [Index multiple data sources in Azure Cognitive Search](/samples/azure-samples/azure-search-dotnet-scale/multiple-data-sources/) for a recommended approach.
 
 ## Index large data using the push APIs
 

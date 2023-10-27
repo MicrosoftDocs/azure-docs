@@ -28,7 +28,7 @@ This quickstart has [steps](#create-load-and-query-an-index) for the following S
 
 + An Azure Cognitive Search service. [Create a service](search-create-service-portal.md) if you don't have one. You can use a free tier for this quickstart.
 
-+ An API key and search endpoint:
++ An API key and service endpoint:
 
   Sign in to the [Azure portal](https://portal.azure.com) and [find your search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
 

@@ -1,8 +1,8 @@
 ---
 title: Manage virtual networks - Azure portal - Azure Database for MySQL - Flexible Server
 description: Create and manage virtual networks for Azure Database for MySQL - Flexible Server using the Azure portal
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: how-to

@@ -4,7 +4,7 @@ description: How to use the Azure CLI to assign a Key Vault access policy to a s
 services: key-vault
 author: msmbaldwin
 tags: azure-resource-manager
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, has-azure-ad-ps-ref
 
 ms.service: key-vault
 ms.subservice: general
@@ -50,7 +50,7 @@ A Key Vault access policy determines whether a given security principal, namely 
 
 # [Azure CLI](#tab/azure-cli)
 
-For more information on creating groups in Azure Active Directory using the Azure CLI, see [az ad group create](/cli/azure/ad/group#az-ad-group-create) and [az ad group member add](/cli/azure/ad/group/member#az-ad-group-member-add).
+For more information on creating groups in Microsoft Entra ID using the Azure CLI, see [az ad group create](/cli/azure/ad/group#az-ad-group-create) and [az ad group member add](/cli/azure/ad/group/member#az-ad-group-member-add).
 
 ## Configure the Azure CLI and sign in
 
@@ -102,7 +102,7 @@ You need only include `--secret-permissions`, `--key-permissions`, and `--certif
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-For more information on creating groups in Azure Active Directory using Azure PowerShell, see [New-AzureADGroup](/powershell/module/azuread/new-azureadgroup) and [Add-AzADGroupMember](/powershell/module/az.resources/add-azadgroupmember).
+For more information on creating groups in Microsoft Entra ID using Azure PowerShell, see [New-AzureADGroup](/powershell/module/azuread/new-azureadgroup) and [Add-AzADGroupMember](/powershell/module/az.resources/add-azadgroupmember).
 
 ## Configure PowerShell and sign-in
 

@@ -48,7 +48,7 @@ Azure keeps link and schema updated so that you can use the file programmaticall
 
 ## View VM size recommendations
 
-Azure shows VM size recommendations in the purchase experience. To view the smallest size recommendations, select **Group by smallest size**.
+Azure shows VM size recommendations in the purchase experience. When enabled, the **Optimize for instance size flexibility (preview)** option groups and sorts recommendations by instance size flexibility.
 
 :::image type="content" source="./media/reserved-vm-instance-size-flexibility/select-product-recommended-quantity.png" alt-text="Screenshot showing recommended quantities." lightbox="./media/reserved-vm-instance-size-flexibility/select-product-recommended-quantity.png" :::
 

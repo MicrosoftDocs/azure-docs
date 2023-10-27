@@ -1,6 +1,6 @@
 ---
 title: Upgrade from Bing Image Search API v5 to v7
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: This upgrade guide describes changes between version 5 and version 7 of the Bing Image Search API. Use this guide to help you identify the parts of your application that you need to update to use version 7.
 services: cognitive-services
 

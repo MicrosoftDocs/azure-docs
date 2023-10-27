@@ -5,9 +5,9 @@ description: Learn how to run Azure AI services Docker containers disconnected f
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
+ms.service: azure-ai-services
 ms.topic: reference
-ms.date: 06/28/2023
+ms.date: 07/28/2023
 ms.author: aahi
 ---
 
@@ -23,6 +23,7 @@ Containers enable you to run Azure AI services APIs in your own environment, and
   * [Sentiment Analysis](../language-service/sentiment-opinion-mining/how-to/use-containers.md)
   * [Key Phrase Extraction](../language-service/key-phrase-extraction/how-to/use-containers.md)
   * [Language Detection](../language-service/language-detection/how-to/use-containers.md)
+  * [Summarization](../language-service/summarization/how-to/use-containers.md)
 * [Azure AI Vision - Read](../computer-vision/computer-vision-how-to-install-containers.md)
 * [Document Intelligence](../../ai-services/document-intelligence/containers/disconnected.md)
 
@@ -83,7 +84,20 @@ See the following documentation for steps on downloading and configuring the con
 * [Sentiment Analysis](../language-service/sentiment-opinion-mining/how-to/use-containers.md#run-the-container-disconnected-from-the-internet)
 * [Key Phrase Extraction](../language-service/key-phrase-extraction/how-to/use-containers.md#run-the-container-disconnected-from-the-internet)
 * [Language Detection](../language-service/language-detection/how-to/use-containers.md#run-the-container-disconnected-from-the-internet)
-    
+
+## Environment variable names in Kubernetes deployments
+Some Azure AI Containers, for example Translator, require users to pass environmental variable names that include colons (`:`) when running the container. This will work fine when using Docker, but Kubernetes does not accept colons in environmental variable names.
+To resolve this, you can replace colons with double underscore characters (`__`) when deploying to Kubernetes. See the following example of an acceptable format for environment variable names:
+
+```Kubernetes
+        env:  
+        - name: Mounts__License
+          value: "/license"
+        - name: Mounts__Output
+          value: "/output"
+```
+
+This example replaces the default format for the `Mounts:License` and `Mounts:Output` environment variable names in the docker run command.
 
 ## Container image and license updates
 
@@ -151,11 +165,17 @@ it will return a JSON response similar to the example below:
 }
 ```
 
-## Purchase a different commitment plan for disconnected containers
+## Purchase a commitment tier pricing plan for disconnected containers
 
-Commitment plans for disconnected containers have a calendar year commitment period. When you purchase a plan, you'll be charged the full price immediately. During the commitment period, you can't change your commitment plan, however you can purchase additional unit(s) at a pro-rated price for the remaining days in the year. You have until midnight (UTC) on the last day of your commitment, to end a commitment plan.
+Commitment plans for disconnected containers have a calendar year commitment period. These are different plans than web and connected container commitment plans. When you purchase a commitment plan, you'll be charged the full price immediately. During the commitment period, you can't change your commitment plan, however you can purchase additional unit(s) at a pro-rated price for the remaining days in the year. You have until midnight (UTC) on the last day of your commitment, to end a commitment plan.
 
-You can choose a different commitment plan in the **Commitment Tier pricing** settings of your resource.
+You can choose a different commitment plan in the **Commitment Tier pricing** settings of your resource. For more information about commitment tier pricing plans, see [purchase commitment tier pricing](../commitment-tier.md).
+
+## Overage pricing for disconnected containers
+
+To use a disconnected container beyond the quota initially purchased with your disconnected container commitment plan, you can purchase additional quota by updating your commitment plan at any time. 
+
+To purchase additional quota, go to your resource in Azure portal and adjust the "unit count" of your disconnected container commitment plan using the slider. This will add additional monthly quota and you will be charged a pro-rated price based on the remaining days left in the current billing cycle.
 
 ## End a commitment plan
 
@@ -170,4 +190,4 @@ If you run the container with an output mount and logging enabled, the container
 
 ## Next steps
 
-[Azure AI services containers overview](../cognitive-services-container-support.md)
+[Azure AI containers overview](../cognitive-services-container-support.md)

@@ -1,8 +1,7 @@
 ---
 title: What's New - Anomaly Detector
 description: This article is regularly updated with news about the Azure AI Anomaly Detector.
-ms.service: cognitive-services
-ms.subservice: anomaly-detector
+ms.service: azure-ai-anomaly-detector
 ms.topic: whats-new
 ms.author: mbullwin
 author: mrbullwinkle
@@ -11,6 +10,8 @@ ms.date: 12/15/2022
 ---
 
 # What's new in Anomaly Detector
+
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
 
 Learn what's new in the service. These items include release notes, videos, blog posts, papers, and other types of information. Bookmark this page to keep up to date with the service.
 
@@ -79,12 +80,12 @@ We have also added links to some user-generated content. Those items will be mar
 
 * Multivariate anomaly detector APIs available in more regions: West US 2, West Europe, East US 2, South Central US, East US, and UK South.
 * Anomaly Detector (univariate) available in Azure cloud for US Government.
-* Anomaly Detector (univariate) available in Azure China (China North 2).
+* Anomaly Detector (univariate) available in Microsoft Azure operated by 21Vianet (China North 2).
 
 ### April 2021
 
 * [IoT Edge module](https://azuremarketplace.microsoft.com/marketplace/apps/azure-cognitive-service.edge-anomaly-detector) (univariate) published.
-* Anomaly Detector (univariate) available in Azure China (China East 2).
+* Anomaly Detector (univariate) available in Microsoft Azure operated by 21Vianet (China East 2).
 * Multivariate anomaly detector APIs preview in selected regions (West US 2, West Europe).
 
 ### September 2020

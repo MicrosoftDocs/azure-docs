@@ -1,6 +1,6 @@
 ---
 title: Quickstart - Send a query to the API in Python - Bing Local Business Search
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Use this quickstart to start using the Bing Local Business Search API in Python.
 services: cognitive-services
 author: aahill

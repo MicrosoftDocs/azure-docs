@@ -8,7 +8,7 @@ ms.service: cosmos-db
 ms.subservice: postgresql
 ms.custom: mvc, mode-ui, ignite-2022
 ms.topic: quickstart
-ms.date: 06/07/2023
+ms.date: 10/02/2023
 ---
 
 # Connect to a cluster with psql - Azure Cosmos DB for PostgreSQL
@@ -30,7 +30,7 @@ Your cluster has a default database named `citus`. To connect to the database, y
 
    :::image type="content" source="media/quickstart-connect-psql/get-connection-string.png" alt-text="Screenshot that shows copying the psql connection string.":::
 
-   The **psql** string is of the form `psql "host=c-<cluster>.<uniqueID>.postgres.cosmos.azure.com port=5432 dbname=citus user=citus password={your_password} sslmode=require"`. Notice that the host name starts with a `c.`, for example `c-mycluster.12345678901234.postgres.cosmos.azure.com`. This prefix indicates the coordinator node of the cluster. The default `dbname` is `citus` and can be changed only at cluster provisioning time. The `user` can be any valid [Postgres role](./howto-create-users.md) on your cluster.
+   The **psql** string is of the form `psql "host=c-<cluster>.<uniqueID>.postgres.cosmos.azure.com port=5432 dbname=citus user=citus password={your_password} sslmode=require"`. Notice that the host name starts with a `c.`, for example `c-mycluster.12345678901234.postgres.cosmos.azure.com`. This prefix indicates the coordinator node of the cluster. The default `dbname` is `citus` and can be changed only at cluster provisioning time. The `user` can be any valid [Postgres role](./how-to-configure-authentication.md#configure-native-postgresql-authentication) on your cluster.
 
 1. Open Azure Cloud Shell by selecting the **Cloud Shell** icon on the top menu bar.
 

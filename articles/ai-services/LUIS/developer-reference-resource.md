@@ -1,8 +1,8 @@
 ---
 title: Developer resources - Language Understanding
 description: SDKs, REST APIs, CLI, help you develop Language Understanding (LUIS) apps in your programming language. Manage your Azure resources and LUIS predictions.
-ms.service: cognitive-services
-ms.subservice: language-understanding
+ms.service: azure-ai-language
+ms.subservice: azure-ai-luis
 ms.author: aahi
 author: aahill
 manager: nitinme
@@ -21,7 +21,7 @@ SDKs, REST APIs, CLI, help you develop Language Understanding (LUIS) apps in you
 
 ## Azure resource management
 
-Use the Azure AI services Management layer to create, edit, list, and delete the Language Understanding or Azure AI services resource.
+Use the Azure AI services management layer to create, edit, list, and delete the Language Understanding or Azure AI services resource.
 
 Find reference documentation based on the tool:
 

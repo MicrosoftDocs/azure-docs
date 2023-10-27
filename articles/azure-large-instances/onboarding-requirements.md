@@ -17,8 +17,9 @@ This article explains the actions to take after you receive an environment from 
 ## Azure portal
 
 Use the Azure portal to:
-  * Create Azure Virtual Network (or networks) and ExpressRoute Gateway or Gateways with High or Ultra Performance Reference.
-  * Link them with Azure Large Instances stamps using the Circuit/peer ID and Authorization Keys provided by Microsoft team.  
+
+* Create Azure Virtual Network (or networks) and ExpressRoute Gateway or Gateways with High or Ultra Performance Reference.
+* Link them with Azure Large Instances stamps using the Circuit/peer ID and Authorization Keys provided by Microsoft team.  
 
 ## VNET address space
 
@@ -35,7 +36,7 @@ Setup time synchronization with NTP server. 
 
 ## Satellite server
 
-Install a red hat satellite server in a VM for RHEL 8.4 and patch download.
+Install a Red Hat satellite server in a VM for RHEL 8.4 and patch download.
 
 ## Azure Large Instances stamps
 
@@ -52,7 +53,7 @@ The recommended subnet size is a /24 CIDR block. If needed, it can be smaller, w
 
 From this range, the first 30 IP addresses are reserved for use by Microsoft.
 Make sure that you account for this when you choose the size of the range.
-This range must NOT overlap with your on-premises or other Azure IP addresses.
+This range must *not* overlap with your on-premises or other Azure IP addresses.
 
 Your corporate network team or service provider should provide an IP address range that's not currently being used inside your network.
 This range is an IP address range, which must be submitted to Microsoft when asking for an initial deployment.
@@ -86,7 +87,7 @@ To see the learned routes from Azure Large Instances, one of the options is look
 > A storage snapshot should only be set up after all data-intensive work (for example, Endian conversions) are complete in order to avoid creating unnecessary snapshots while build work is in progress
 
 The Azure subscription you use for Azure Large Instances deployments is already registered with the Azure Large Instances resource provider by the Microsoft Operations team during the provisioning process.
-If you don't see your deployed Azure Large Instances under your subscription, register the resource provider with your subscription. For more information, see Register the resource provider in [What is Azure Large Instances?](what-is-azure-large-instances.md)
+If you don't see your Azure Large Instances deployment under your subscription, register the resource provider with your subscription. For more information, see [What is Azure Large Instances?](work-with-azure-large-instances-in-azure-portal.md#register-the-resource-provider)
 
 ### Enable ExpressRoute Fast Path
 
@@ -96,10 +97,10 @@ For more information, see these resources:
 
 * [Azure ExpressRoute overview](https://azure.microsoft.com/products/expressroute/)
 
-* [How to create a connection between your VPN Gateway and ExpressRoute circuit](https://learn.microsoft.com/shows/azure/expressroute-how-to-create-connection-between-your-vpn-gateway-expressroute-circuit) 
+* [How to create a connection between your VPN Gateway and ExpressRoute circuit](/shows/azure/expressroute-how-to-create-connection-between-your-vpn-gateway-expressroute-circuit) 
 
 
-* [How to set up Microsoft peering for your ExpressRoute circuit](https://learn.microsoft.com/shows/azure/expressroute-how-to-set-up-microsoft-peering-your-expressroute-circuit)
+* [How to set up Microsoft peering for your ExpressRoute circuit](/shows/azure/expressroute-how-to-set-up-microsoft-peering-your-expressroute-circuit)
 
 ### Authorizing  
 

@@ -1,7 +1,6 @@
 ---
 author: eric-urban
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.date: 02/17/2023
 ms.topic: include
 ms.author: eur
@@ -143,7 +142,7 @@ Follow these steps to create a new console application and install the Speech SD
 [Build and run](/cpp/build/vscpp-step-2-build) your new console application to start speech recognition from a microphone.
 
 > [!IMPORTANT]
-> Make sure that you set the `LANGUAGE_KEY`, `LANGUAGE_ENDPOINT`, `SPEECH__KEY`, and `SPEECH__REGION` environment variables as described [above](#set-environment-variables). If you don't set these variables, the sample will fail with an error message.
+> Make sure that you set the `LANGUAGE_KEY`, `LANGUAGE_ENDPOINT`, `SPEECH_KEY`, and `SPEECH_REGION` environment variables as described [above](#set-environment-variables). If you don't set these variables, the sample will fail with an error message.
 
 Speak into your microphone when prompted. What you speak should be output as text: 
 

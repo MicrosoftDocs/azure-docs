@@ -2,10 +2,10 @@
 title: Azure Cosmos DB output binding for Functions 2.x and higher
 description: Learn to use the Azure Cosmos DB output binding in Azure Functions.
 ms.topic: reference
-ms.date: 03/02/2023
+ms.date: 10/05/2023
 ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: devx-track-csharp, devx-track-python, ignite-2022, devx-track-extended-java, devx-track-js
-zone_pivot_groups: programming-languages-set-functions-lang-workers
+zone_pivot_groups: programming-languages-set-functions
 ---
 
 # Azure Cosmos DB output binding for Azure Functions 2.x and higher
@@ -14,6 +14,9 @@ The Azure Cosmos DB output binding lets you write a new document to an Azure Cos
 
 For information on setup and configuration details, see the [overview](./functions-bindings-cosmosdb-v2.md).
 
+::: zone pivot="programming-language-javascript,programming-language-typescript"
+[!INCLUDE [functions-nodejs-model-tabs-description](../../includes/functions-nodejs-model-tabs-description.md)]
+::: zone-end
 ::: zone pivot="programming-language-python"
 Azure Functions supports two programming models for Python. The way that you define your bindings depends on your chosen programming model.
 
@@ -27,17 +30,27 @@ The Python v1 programming model requires you to define bindings in a separate *f
 
 This article supports both programming models.
 
-> [!IMPORTANT]
-> The Python v2 programming model is currently in preview.
+::: zone-end  
+::: zone pivot="programming-language-csharp"  
+[!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
 ::: zone-end
-
 ## Example
 
 Unless otherwise noted, examples in this article target version 3.x of the [Azure Cosmos DB extension](functions-bindings-cosmosdb-v2.md). For use with extension version 4.x, you need to replace the string `collection` in property and attribute names with `container`.
 
 ::: zone pivot="programming-language-csharp"
 
-# [In-process](#tab/in-process)
+# [Isolated worker model](#tab/isolated-process)
+
+The following code defines a `MyDocument` type:
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/CosmosDB/CosmosDBFunction.cs" range="49-58":::
+
+In the following example, the return type is an [`IReadOnlyList<T>`](/dotnet/api/system.collections.generic.ireadonlylist-1), which is a modified list of documents from trigger binding parameter:
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/CosmosDB/CosmosDBFunction.cs" range="4-47":::
+
+# [In-process model](#tab/in-process)
 
 This section contains the following examples:
 
@@ -160,153 +173,6 @@ namespace CosmosDBSamplesV2
                 await toDoItemsOut.AddAsync(toDoItem);
             }
         }
-    }
-}
-```
-
-[!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
-
-# [Isolated process](#tab/isolated-process)
-
-The following code defines a `MyDocument` type:
-
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/CosmosDB/CosmosDBFunction.cs" range="37-46":::
-
-In the following example, the return type is an [`IReadOnlyList<T>`](/dotnet/api/system.collections.generic.ireadonlylist-1), which is a modified list of documents from trigger binding parameter:
-
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/CosmosDB/CosmosDBFunction.cs" range="4-35":::
-
-# [C# Script](#tab/csharp-script)
-
-This section contains the following examples:
-
-* [Queue trigger, write one doc](#queue-trigger-write-one-doc-c-script)
-* [Queue trigger, write docs using IAsyncCollector](#queue-trigger-write-docs-using-iasynccollector-c-script)
-
-
-<a id="queue-trigger-write-one-doc-c-script"></a>
-
-### Queue trigger, write one doc
-
-The following example shows an Azure Cosmos DB output binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function uses a queue input binding for a queue that receives JSON in the following format:
-
-```json
-{
-    "name": "John Henry",
-    "employeeId": "123456",
-    "address": "A town nearby"
-}
-```
-
-The function creates Azure Cosmos DB documents in the following format for each record:
-
-```json
-{
-    "id": "John Henry-123456",
-    "name": "John Henry",
-    "employeeId": "123456",
-    "address": "A town nearby"
-}
-```
-
-Here's the binding data in the *function.json* file:
-
-```json
-{
-    "name": "employeeDocument",
-    "type": "cosmosDB",
-    "databaseName": "MyDatabase",
-    "collectionName": "MyCollection",
-    "createIfNotExists": true,
-    "connectionStringSetting": "MyAccount_COSMOSDB",
-    "direction": "out"
-}
-```
-
-The [configuration](#configuration) section explains these properties.
-
-Here's the C# script code:
-
-```cs
-    #r "Newtonsoft.Json"
-
-    using Microsoft.Azure.WebJobs.Host;
-    using Newtonsoft.Json.Linq;
-    using Microsoft.Extensions.Logging;
-
-    public static void Run(string myQueueItem, out object employeeDocument, ILogger log)
-    {
-      log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
-
-      dynamic employee = JObject.Parse(myQueueItem);
-
-      employeeDocument = new {
-        id = employee.name + "-" + employee.employeeId,
-        name = employee.name,
-        employeeId = employee.employeeId,
-        address = employee.address
-      };
-    }
-```
-
-<a id="queue-trigger-write-docs-using-iasynccollector-c-script"></a>
-
-### Queue trigger, write docs using IAsyncCollector
-
-To create multiple documents, you can bind to `ICollector<T>` or `IAsyncCollector<T>` where `T` is one of the supported types.
-
-This example refers to a simple `ToDoItem` type:
-
-```cs
-namespace CosmosDBSamplesV2
-{
-    public class ToDoItem
-    {
-        public string id { get; set; }
-        public string Description { get; set; }
-    }
-}
-```
-
-Here's the function.json file:
-
-```json
-{
-  "bindings": [
-    {
-      "name": "toDoItemsIn",
-      "type": "queueTrigger",
-      "direction": "in",
-      "queueName": "todoqueueforwritemulti",
-      "connectionStringSetting": "AzureWebJobsStorage"
-    },
-    {
-      "type": "cosmosDB",
-      "name": "toDoItemsOut",
-      "databaseName": "ToDoItems",
-      "collectionName": "Items",
-      "connectionStringSetting": "CosmosDBConnection",
-      "direction": "out"
-    }
-  ],
-  "disabled": false
-}
-```
-
-Here's the C# script code:
-
-```cs
-using System;
-using Microsoft.Extensions.Logging;
-
-public static async Task Run(ToDoItem[] toDoItemsIn, IAsyncCollector<ToDoItem> toDoItemsOut, ILogger log)
-{
-    log.LogInformation($"C# Queue trigger function processed {toDoItemsIn?.Length} items");
-
-    foreach (ToDoItem toDoItem in toDoItemsIn)
-    {
-        log.LogInformation($"Description={toDoItem.Description}");
-        await toDoItemsOut.AddAsync(toDoItem);
     }
 }
 ```
@@ -482,7 +348,80 @@ The following example shows a Java function that writes multiple documents to Az
 In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@CosmosDBOutput` annotation on parameters that will be written to Azure Cosmos DB.  The annotation parameter type should be `OutputBinding<T>`, where `T` is either a native Java type or a POJO.
 
 ::: zone-end  
+::: zone pivot="programming-language-typescript"  
+
+# [Model v4](#tab/nodejs-v4)
+
+The following example shows a storage queue triggered [TypeScript function](functions-reference-node.md?tabs=typescript) for a queue that receives JSON in the following format:
+
+```json
+{
+    "name": "John Henry",
+    "employeeId": "123456",
+    "address": "A town nearby"
+}
+```
+
+The function creates Azure Cosmos DB documents in the following format for each record:
+
+```json
+{
+    "id": "John Henry-123456",
+    "name": "John Henry",
+    "employeeId": "123456",
+    "address": "A town nearby"
+}
+```
+
+Here's the TypeScript code:
+
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/cosmosOutput1.ts" :::
+
+To output multiple documents, return an array instead of a single object. For example:
+
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/cosmosOutput2.ts" id="displayInDocs" :::
+
+# [Model v3](#tab/nodejs-v3)
+
+TypeScript samples are not documented for model v3.
+
+---
+
+::: zone-end
 ::: zone pivot="programming-language-javascript"  
+
+# [Model v4](#tab/nodejs-v4)
+
+The following example shows a storage queue triggered [JavaScript function](functions-reference-node.md) for a queue that receives JSON in the following format:
+
+```json
+{
+    "name": "John Henry",
+    "employeeId": "123456",
+    "address": "A town nearby"
+}
+```
+
+The function creates Azure Cosmos DB documents in the following format for each record:
+
+```json
+{
+    "id": "John Henry-123456",
+    "name": "John Henry",
+    "employeeId": "123456",
+    "address": "A town nearby"
+}
+```
+
+Here's the JavaScript code:
+
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/cosmosOutput1.js" :::
+
+To output multiple documents, return an array instead of a single object. For example:
+
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/cosmosOutput2.js" id="displayInDocs" :::
+
+# [Model v3](#tab/nodejs-v3)
 
 The following example shows an Azure Cosmos DB output binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function uses a queue input binding for a queue that receives JSON in the following format:
 
@@ -555,6 +494,8 @@ For bulk insert form the objects first and then run the stringify function. Here
         }]);
     };
 ```
+
+---
 
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
@@ -667,7 +608,7 @@ def main(req: func.HttpRequest, doc: func.Out[func.Document]) -> func.HttpRespon
 ::: zone pivot="programming-language-csharp" 
 ## Attributes
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use attributes to define the function. C# script instead uses a function.json configuration file.
+Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use attributes to define the function. C# script instead uses a function.json configuration file as described in the [C# scripting guide](./functions-reference-csharp.md#azure-cosmos-db-v2-output).
 
 # [Extension 4.x+](#tab/extensionv4/in-process)
 
@@ -677,21 +618,13 @@ Both [in-process](functions-dotnet-class-library.md) and [isolated worker proces
 
 [!INCLUDE [functions-cosmosdb-output-attributes-v3](../../includes/functions-cosmosdb-output-attributes-v3.md)]
 
-# [Extension 4.x+](#tab/functionsv4/isolated-process)
+# [Extension 4.x+](#tab/extensionv4/isolated-process)
 
 [!INCLUDE [functions-cosmosdb-output-attributes-v4](../../includes/functions-cosmosdb-output-attributes-v4.md)]
 
 # [Functions 2.x+](#tab/functionsv2/isolated-process)
 
 [!INCLUDE [functions-cosmosdb-output-attributes-v3](../../includes/functions-cosmosdb-output-attributes-v3.md)]
-
-# [Extension 4.x+](#tab/functionsv4/csharp-script)
-
-[!INCLUDE [functions-cosmosdb-output-settings-v4](../../includes/functions-cosmosdb-output-settings-v4.md)]
-
-# [Functions 2.x+](#tab/functionsv2/csharp-script)
-
-[!INCLUDE [functions-cosmosdb-output-settings-v3](../../includes/functions-cosmosdb-output-settings-v3.md)]
 
 ---
 ::: zone-end  
@@ -730,7 +663,7 @@ From the [Java functions runtime library](/java/api/overview/azure/functions/run
 + [useMultipleWriteLocations](/java/api/com.microsoft.azure.functions.annotation.cosmosdboutput.usemultiplewritelocations)
 
 ::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
 ## Configuration
 ::: zone-end
 
@@ -738,9 +671,25 @@ From the [Java functions runtime library](/java/api/overview/azure/functions/run
 _Applies only to the Python v1 programming model._
 
 ::: zone-end
-::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
+::: zone pivot="programming-language-javascript,programming-language-typescript"  
+
+# [Model v4](#tab/nodejs-v4)
+
+The following table explains the properties that you can set on the `options` object passed to the `output.cosmosDB()` method. The `type`, `direction`, and `name` properties don't apply to the v4 model.
+
+# [Model v3](#tab/nodejs-v3)
 
 The following table explains the binding configuration properties that you set in the *function.json* file, where properties differ by extension version:  
+
+---
+
+::: zone-end
+::: zone pivot="programming-language-powershell,programming-language-python"  
+
+The following table explains the binding configuration properties that you set in the *function.json* file, where properties differ by extension version:  
+
+::: zone-end
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
 
 # [Extension 4.x+](#tab/extensionv4)
 
@@ -758,7 +707,7 @@ See the [Example section](#example) for complete examples.
 
 ## Usage
 
-By default, when you write to the output parameter in your function, a document is created in your database. This document has an automatically generated GUID as the document ID. You can specify the document ID of the output document by specifying the `id` property in the JSON object passed to the output parameter.
+By default, when you write to the output parameter in your function, a document is created in your database. You should specify the document ID of the output document by specifying the `id` property in the JSON object passed to the output parameter.
 
 > [!NOTE]  
 > When you specify the ID of an existing document, it gets overwritten by the new output document.
@@ -782,14 +731,6 @@ See [Binding types](./functions-bindings-cosmosdb-v2.md?tabs=in-process%2Cfuncti
 # [Functions 2.x+](#tab/functionsv2/isolated-process)
 
 See [Binding types](./functions-bindings-cosmosdb-v2.md?tabs=isolated-process%2Cfunctionsv2&pivots=programming-language-csharp#binding-types) for a list of supported types.
-
-# [Extension 4.x+](#tab/extensionv4/csharp-script)
-
-See [Binding types](./functions-bindings-cosmosdb-v2.md?tabs=in-process%2Cextensionv4&pivots=programming-language-csharp#binding-types) for a list of supported types.
-
-# [Functions 2.x+](#tab/functionsv2/csharp-script)
-
-See [Binding types](./functions-bindings-cosmosdb-v2.md?tabs=in-process%2Cfunctionsv2&pivots=programming-language-csharp#binding-types) for a list of supported types.
 
 ---
 

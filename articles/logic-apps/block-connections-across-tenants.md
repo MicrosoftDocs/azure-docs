@@ -1,12 +1,12 @@
 ---
 title: Block access to and from other tenants
-description: Block connections between your tenant and other Azure Active Directory (Azure AD) tenants in Azure Logic Apps.
+description: Block connections between your tenant and other Microsoft Entra tenants in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 08/01/2022
-# Customer intent: As a developer, I want to prevent access to and from other Azure Active Directory tenants.
+# Customer intent: As a developer, I want to prevent access to and from other Microsoft Entra tenants.
 ---
 
 # Block connections to and from other tenants in Azure Logic Apps (Preview)
@@ -15,11 +15,11 @@ ms.date: 08/01/2022
 > This capability is in preview and is subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Azure Logic Apps includes many connectors for you to build integration apps and workflows and to access various data, apps, services, systems, and other resources. These connectors authorize your access to these resources by using Azure Active Directory (Azure AD) to authenticate your credentials.
+Azure Logic Apps includes many connectors for you to build integration apps and workflows and to access various data, apps, services, systems, and other resources. These connectors authorize your access to these resources by using Microsoft Entra ID to authenticate your credentials.
 
-When you create a connection from your workflow to access a resource, you can share that connection with others in the same Azure AD tenant or different tenant by sending a consent link. This shared connection provides access to same resource but creates a security vulnerability.
+When you create a connection from your workflow to access a resource, you can share that connection with others in the same Microsoft Entra tenant or different tenant by sending a consent link. This shared connection provides access to same resource but creates a security vulnerability.
 
-As a security measure to prevent this scenario, you can block access to and from your own Azure AD tenant through such shared connections. You can also permit but restrict connections only to specific tenants. By setting up a tenant isolation policy, you can better control data movement between your tenant and resources that require Azure AD authorized access.
+As a security measure to prevent this scenario, you can block access to and from your own Microsoft Entra tenant through such shared connections. You can also permit but restrict connections only to specific tenants. By setting up a tenant isolation policy, you can better control data movement between your tenant and resources that require Microsoft Entra authorized access.
 
 ## Prerequisites
 
@@ -31,7 +31,7 @@ As a security measure to prevent this scenario, you can block access to and from
 
 - Collect the following information:
 
-  - The tenant ID for your Azure AD tenant.
+  - The tenant ID for your Microsoft Entra tenant.
 
   - The choice whether to enforce two-way tenant isolation for connections that don't have a client tenant ID.
 
@@ -47,7 +47,7 @@ As a security measure to prevent this scenario, you can block access to and from
 
     - The choice whether to allow outbound connections from your tenant to each allowed tenant.
 
-- To test the tenant isolation policy, you need a second Azure AD tenant. From this tenant, you'll try connecting to and from the isolated tenant after the isolation policy takes effect.
+- To test the tenant isolation policy, you need a second Microsoft Entra tenant. From this tenant, you'll try connecting to and from the isolated tenant after the isolation policy takes effect.
 
 ## Request an isolation policy for your tenant
 
@@ -68,7 +68,7 @@ After the policy takes effect in a region, test the policy. You can try immediat
 
 ### Test inbound connections to your tenant
 
-1. Sign in to your "other" Azure AD tenant.
+1. Sign in to your "other" Microsoft Entra tenant.
 
 1. Create logic app workflow with a connection, such as Office 365 Outlook.
 

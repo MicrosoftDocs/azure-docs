@@ -1,0 +1,110 @@
+### YamlMime:FAQ
+metadata:
+  title: Windows Enterprise multi-session FAQ - Azure
+  description: Frequently asked questions and best practices for using Windows Enterprise multi-session for Azure Virtual Desktop.
+  author: Heidilohr
+  ms.topic: faq
+  ms.prod: windows
+  ms.date: 07/14/2023
+  ms.author: helohr
+  manager: femila
+title: Windows Enterprise multi-session FAQ
+summary: This article answers frequently asked questions and explains best practices for Windows 10 Enterprise multi-session and Windows 11 Enterprise multi-session.
+
+
+sections:
+  - name: Ignored
+    questions:
+      - question: What is Windows Enterprise multi-session?
+        answer: |
+          Windows 10 Enterprise multi-session and Windows 11 Enterprise multi-session, allows multiple concurrent interactive sessions. Previously, only Windows Server could do this. This capability gives users a familiar Windows experience while IT can benefit from the cost advantages of multi-session and use existing per-user Windows licensing instead of RDS Client Access Licenses (CALs). For more information about licenses and pricing, see [Azure Virtual Desktop pricing](https://azure.microsoft.com/pricing/details/virtual-desktop/).
+          
+      - question: How many users can simultaneously have an interactive session on Windows Enterprise multi-session?
+        answer: |
+          How many interactive sessions that can be active at the same time relies on your system's hardware resources (vCPU, memory, disk, and vGPU), how your users use their apps while signed in to a session, and how heavy your system's workload is. We suggest you validate your system's performance to understand how many users you can have on Windows Enterprise multi-session. To learn more, see [Azure Virtual Desktop pricing](https://azure.microsoft.com/pricing/details/virtual-desktop/).
+          
+      - question: Why does my application report Windows Enterprise multi-session as a Server operating system?
+        answer: |
+          Windows Enterprise multi-session is a virtual edition of Windows Enterprise. One of the differences is that this operating system (OS) reports the [ProductType](/windows/win32/cimwin32prov/win32-operatingsystem) as having a value of 3, the same value as Windows Server. This property keeps the OS compatible with existing RDSH management tooling, RDSH multi-session-aware applications, and mostly low-level system performance optimizations for RDSH environments. Some application installers can block installation on Windows multi-session depending on whether they detect the ProductType is set to Client. If your app won't install, contact your application vendor for an updated version.
+          
+      - question: Can I run Windows Enterprise multi-session outside of the Azure Virtual Desktop service?
+        answer: We don't allow customers to run Windows Enterprise multi-session in production environments outside of the Azure Virtual Desktop service. Only Microsoft or the Azure Virtual Desktop Approved Providers, Citrix and VMware, can provide access to the Azure Virtual Desktop service. It's against the licensing agreement to run Windows multi-session outside of the Azure Virtual Desktop service for production purposes. Windows multi-session also won’t activate against on-premises Key Management Services (KMS).
+
+      - question: Can I upgrade a Windows VM to Windows Enterprise multi-session?
+        answer: No. It's not currently possible to upgrade an existing virtual machine (VM) that's running Windows Professional or Enterprise to Windows Enterprise multi-session. Also, if you deploy a Windows Enterprise multi-session VM and then update the product key to another edition, you won't be able to switch the VM back to Windows Enterprise multi-session and will need to redeploy the VM. Changing your Azure Virtual Desktop VM SKU to another edition is not supported.
+        
+      - question: Does Windows Enterprise multi-session support Remote Desktop IP Virtualization?
+        answer: No. Azure Virtual Desktop [supported virtual machine OS images](prerequisites.md#operating-systems-and-licenses) do not support Remote Desktop IP Virtualization. 
+
+      - question: How do I customize the Windows Enterprise multi-session image for my organization?
+        answer: |
+          You can start a VM in Azure with Windows Enterprise multi-session and customize it by installing LOB applications, sysprep/generalize, and then create an image using the Azure portal.
+          
+          To get started, create a VM in Azure with Windows Enterprise multi-session. Instead of starting the VM in Azure, you can download the VHD directly. After that, you'll be able to use the VHD you downloaded to create a new Generation 1 VM on a Windows PC with Hyper-V enabled.
+          
+          Customize the image to your needs by installing LOB applications and sysprep the image. When you're done customizing, upload the image to Azure with the VHD inside. After that, get Azure Virtual Desktop from the Azure Marketplace and use it to deploy a new host pool with the customized image.
+          
+      - question: How do I manage Windows Enterprise multi-session after deployment?
+        answer: You can use any supported configuration tool, but we recommend Configuration Manager version 1906 because it supports Windows Enterprise multi-session or [Microsoft Intune](management.md) for Microsoft Entra joined or Microsoft Entra hybrid joined session hosts.
+
+      - question: Can Windows Enterprise multi-session be Microsoft Entra joined?
+        answer: |
+          Windows Enterprise multi-session can be Microsoft Entra joined. To get started, follow the steps to [Deploy Microsoft Entra joined virtual machines](deploy-azure-ad-joined-vm.md).
+          
+      - question: Where can I find the Windows Enterprise multi-session image?
+        answer: Windows Enterprise multi-session is in the Azure gallery. To find it, navigate to the Azure portal and search for the Windows Enterprise for Virtual Desktops release. For an image integrated with Microsoft 365 Apps for enterprise, go to the Azure portal and search for **Microsoft Windows + Microsoft 365 Apps for enterprise**.
+
+      - question: Which Windows Enterprise multi-session image should I use?
+        answer: The Azure gallery has several releases, including Windows Enterprise multi-session, version 1909, and Windows Enterprise multi-session, version 1903. We recommend using the latest version for improved performance and reliability.
+
+      - question: Which Windows Enterprise multi-session versions are supported?
+        answer: Windows Enterprise multi-session, versions 1909 and later are supported and are available in the Azure gallery. These releases follow the same support lifecycle policy as Windows Enterprise, which means the March release is supported for 18 months and the September release for 30 months.
+
+      - question: Which profile management solution should I use for Windows Enterprise multi-session?
+        answer: |
+          We recommend you use FSLogix profile containers when you configure Windows Enterprise in non-persistent environments or other scenarios that need a centrally stored profile. FSLogix ensures the user profile is available and up-to-date for every user session. We also recommend you use your FSLogix profile container to store a user profile in any SMB share with appropriate permissions, but you can store user profiles in Azure page blob storage if necessary. Azure Virtual Desktop users can use FSLogix at no additional cost.  FSLogix comes pre-installed on all Windows Enterprise multi-session images, but the IT admin is still responsible for configuring the FSLogix profile container.
+          
+          For more information about how to configure an FSLogix profile container, see [Configure the FSLogix profile container](create-host-pools-user-profile.md#configure-the-fslogix-profile-container).
+          
+      - question: Which license do I need to access Windows Enterprise multi-session?
+        answer: |
+          For a full list of applicable licenses, see [Azure Virtual Desktop pricing](https://azure.microsoft.com/pricing/details/virtual-desktop/).
+          
+      - question: Why do my apps disappear after I sign out?
+        answer: This happens because you're using Windows Enterprise multi-session with a profile management solution like FSLogix. Your admin or profile solution configured your system to delete user profiles when users sign out. This configuration means that when your system deletes your user profile after you sign out, it also removes any apps you installed during your session. If you want to keep the apps you installed, you'll need to ask your admin to provision these apps for all users in your Azure Virtual Desktop environment.
+
+      - question: How do I make sure apps don't disappear when users sign out?
+        answer: |
+          Most virtualized environments are configured by default to prevent users from installing additional apps to their profiles. If you want to make sure an app doesn't disappear when your user signs out of Azure Virtual Desktop, you have to provision that app for all user profiles in your environment. For more information about provisioning apps, check out these resources:
+          
+          - [Publish built-in apps in Azure Virtual Desktop](publish-apps.md)
+          - [DISM app package servicing command-line options](/windows-hardware/manufacture/desktop/dism-app-package--appx-or-appxbundle--servicing-command-line-options)
+          - [Add-AppxProvisionedPackage](/powershell/module/dism/add-appxprovisionedpackage)
+          
+      - question: How do I make sure users don't download and install apps from the Microsoft Store?
+        answer: |
+          You can disable the Microsoft Store app to make sure users don't download extra apps beyond the apps you've already provisioned for them.
+          
+          To disable the Store app:
+          
+          1. Create and edit a new Group Policy Object.
+          2. Select **Computer Configuration** > **Policies** > **Administrative Templates** > **Windows Components** > **Store**.
+          3. Open the **Turn off the Store Application** setting.
+          4. Select the **Enabled** option.
+          5. Click the **Apply** button.
+          6. Click the **OK** button.
+          
+      - question: Can Windows Enterprise multi-session and 11 Enterprise multi-session receive feature updates through Windows Server Update Services (WSUS)?
+        answer: |
+          Yes. You can update Windows Enterprise multi-session and Windows 11 Enterprise multi-session with the appropriate feature updates published to WSUS.
+          
+additionalContent: |
+
+  ## Next steps
+     
+  To learn more about Azure Virtual Desktop and Windows Enterprise multi-session:
+          
+  - Read our [Azure Virtual Desktop documentation](overview.md)
+  - Visit our [Azure Virtual Desktop TechCommunity](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop)
+  - Set up your Azure Virtual Desktop deployment with the [Azure Virtual Desktop tutorials](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md)
+          

@@ -6,7 +6,7 @@ author: mbender-ms
 ms.service: virtual-network
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 07/10/2023
+ms.date: 07/28/2023
 ms.author: mbender
 ms.custom: template-concept, engagement-fy23
 ---
@@ -71,7 +71,12 @@ The following diagram illustrates multiple site-to-site VPN connections to the s
 
 ### <a name="dns"></a>Azure DNS
 
-[Azure DNS](../../dns/dns-overview.md) is a hosting service for DNS domains that provides name resolution by using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records by using the same credentials, APIs, tools, and billing as your other Azure services.
+[Azure DNS](../../dns/index.yml) provides DNS hosting and resolution using the Microsoft Azure infrastructure. Azure DNS consists of three services:
+- [Azure Public DNS](../../dns/dns-overview.md) is a hosting service for DNS domains. By hosting your domains in Azure, you can manage your DNS records by using the same credentials, APIs, tools, and billing as your other Azure services.
+- [Azure Private DNS](../../dns/private-dns-overview.md) is a DNS service for your virtual networks. Azure Private DNS manages and resolves domain names in the virtual network without the need to configure a custom DNS solution. 
+- [Azure DNS Private Resolver](../../dns/dns-private-resolver-overview.md) is a service that enables you to query Azure DNS private zones from an on-premises environment and vice versa without deploying VM based DNS servers.
+
+Using Azure DNS, you can host and resolve public domains, manage DNS resolution in your virtual networks, and enable name resolution between Azure and your on-premises resources.
 
 ### <a name="bastion"></a>Azure Bastion
 
@@ -81,8 +86,8 @@ The following diagram illustrates multiple site-to-site VPN connections to the s
 
 ### <a name="nat"></a>Virtual network NAT Gateway
 
-[Virtual Network NAT](../../virtual-network/nat-gateway/nat-overview.md) (network address translation) simplifies outbound-only Internet connectivity for virtual networks. When configured on a subnet, all outbound connectivity uses your specified static public IP addresses. Outbound connectivity is possible without load balancer or public IP addresses directly attached to virtual machines. 
-For more information, see [What is virtual network NAT gateway?
+Virtual Network NAT(network address translation) simplifies outbound-only Internet connectivity for virtual networks. When configured on a subnet, all outbound connectivity uses your specified static public IP addresses. Outbound connectivity is possible without load balancer or public IP addresses directly attached to virtual machines. 
+For more information, see [What is virtual network NAT gateway](../../virtual-network/nat-gateway/nat-overview.md)?
 
 :::image type="content" source="./media/networking-overview/flow-map.png" alt-text="Virtual network NAT gateway":::
 
@@ -102,7 +107,12 @@ This section describes networking services in Azure that help protect your netwo
 
 [Azure DDoS Protection](../../ddos-protection/manage-ddos-protection.md) provides countermeasures against the most sophisticated DDoS threats. The service provides enhanced DDoS mitigation capabilities for your application and resources deployed in your virtual networks. Additionally, customers using Azure DDoS Protection have access to DDoS Rapid Response support to engage DDoS experts during an active attack.
 
-:::image type="content" source="./media/networking-overview/ddos-protection.png" alt-text="DDoS Protection":::
+Azure DDoS Protection consists of two tiers:
+
+- [DDoS Network Protection](../../ddos-protection/ddos-protection-overview.md#ddos-network-protection), combined with application design best practices, provides enhanced DDoS mitigation features to defend against DDoS attacks. It's automatically tuned to help protect your specific Azure resources in a virtual network.
+- [DDoS IP Protection](../../ddos-protection/ddos-protection-overview.md#ddos-ip-protection) is a pay-per-protected IP model. DDoS IP Protection contains the same core engineering features as DDoS Network Protection, but will differ in the following value-added services: DDoS rapid response support, cost protection, and discounts on WAF.
+
+:::image type="content" source="./media/networking-overview/ddos-protection-overview-architecture.png" alt-text="Diagram of the reference architecture for a DDoS protected PaaS web application.":::
 
 ### <a name="privatelink"></a>Azure Private Link
 

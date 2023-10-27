@@ -1,6 +1,6 @@
 ---
 title: What is the Bing Entity Search API?
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn details about the Bing Entity Search API and how to extract and search for entities and places from search queries.
 services: cognitive-services
 
@@ -29,7 +29,7 @@ The Bing Entity Search API sends a search query to Bing and gets results that in
 
 The Bing Entity Search API is a RESTful web service, making it easy to call from any programming language that can make HTTP requests and parse JSON. You can use the service using either the REST API, or the SDK.
 
-1. Create a [Cognitive Services API account](../cognitive-services-apis-create-account.md) with access to the Bing Search APIs. If you don't have an Azure subscription, you can [create an account](https://azure.microsoft.com/free/cognitive-services/) for free.
+1. Create an [Azure AI services API account](../cognitive-services-apis-create-account.md) with access to the Bing Search APIs. If you don't have an Azure subscription, you can [create an account](https://azure.microsoft.com/free/cognitive-services/) for free.
 2. Send a request to the API, with a valid search query.
 3. Process the API response by parsing the returned JSON message.
 

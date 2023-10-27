@@ -105,6 +105,14 @@ sections:
 
 
       - question: |
+          I successfully onboarded a connector, where can I find my DevOps recommendations?
+        answer: |
+          We recommend navigating to the DevOps Security page to see an overview of your DevOps recommendations and posture. You can sort and filter by the repos you care about to dive into the recommendation details.
+          
+          You can also view your DevOps recommendations on the Recommendations page.  Navigate to Recommendations, select the "All recommendations" tab, and filter the `environment` by the relevant DevOps sources (e.g., AzureDevOps and/or GitHub).  
+          
+
+      - question: |
           What information does Defender for DevOps store about me and my enterprise, and where is the data stored and processed?
         answer: |
           Defender for DevOps connects to your source code management system, for example, Azure DevOps, GitHub, to provide a central console for your DevOps resources and security posture. Defender for DevOps processes and stores the following information:
@@ -131,6 +139,10 @@ sections:
         answer: |
           Exemptions aren't available for Defender for DevOps within Microsoft Defender for Cloud.
 
+      - question: |
+          Why am I not able to see GitHub Advanced Security for Azure Devops (GHAzDO) results in Defender for Cloud?
+        answer: |
+          Ensure you are using the same Subscription ID for GHAzDO and Defender for Cloud. If you are still unable to see the results, the issue might be caused by your ADO connector lacking the necessary scope. Defender for DevOps introduced new scopes to ADO connectors in June. If you created the connector before June and haven't updated it, you won't be able to see GHAzDO results due to missing scope on the connector. You would need to create a new ADO connector, which will automatically include the new scopes.
 
       - question: |
           Is continuous, automatic scanning available?
@@ -147,7 +159,7 @@ sections:
       - question: |
           Why am I not able to configure Pull Request Annotations?
         answer: |
-          Make sure you have write (owner/contributor) access to the subscription. If you don't have this type of access today, you can get it through [activating an Azure Active Directory role in PIM](/azure/active-directory/privileged-identity-management/pim-how-to-activate-role). 
+          Make sure you have write (owner/contributor) access to the subscription. If you don't have this type of access today, you can get it through [activating a Microsoft Entra role in PIM](/azure/active-directory/privileged-identity-management/pim-how-to-activate-role). 
 
 
       - question: |

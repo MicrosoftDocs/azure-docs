@@ -6,7 +6,8 @@ ms.author: vijain
 ms.manager: kmadnani
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 10/14/2021
+ms.date: 07/14/2023
+ms.custom: engagement-fy24
 ---
 # ASP.NET app containerization and migration to Azure App Service
 
@@ -65,7 +66,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 After your subscription is set up, you'll need an Azure user account with:
 - Owner permissions on the Azure subscription.
-- Permissions to register Azure Active Directory apps.
+- Permissions to register Microsoft Entra apps.
 
 If you just created a free Azure account, you're the owner of your subscription. If you're not the subscription owner, work with the owner to assign the permissions as follows:
 
@@ -84,13 +85,13 @@ If you just created a free Azure account, you're the owner of your subscription.
 
     ![Screenshot that shows the Add role assignment page.](./media/tutorial-discover-vmware/assign-role.png)
 
-   Your Azure account also needs permissions to register Azure Active Directory apps.
-8. In the Azure portal, go to **Azure Active Directory** > **Users** > **User Settings**.
-9. In **User settings**, verify that Azure AD users can register applications. (This option is set to **Yes** by default.)
+   Your Azure account also needs permissions to register Microsoft Entra apps.
+8. In the Azure portal, go to **Microsoft Entra ID** > **Users** > **User Settings**.
+9. In **User settings**, verify that Microsoft Entra users can register applications. (This option is set to **Yes** by default.)
 
       ![Screenshot that shows the User settings page.](./media/tutorial-discover-vmware/register-apps.png)
 
-10. If the **App registrations** option is set to **No**, ask the tenant/global admin to assign the required permission. Alternatively, the tenant/global admin can assign the Application developer role to an account to allow the registration of Azure Active Directory apps. For more information, see [Assign roles to users](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
+10. If the **App registrations** option is set to **No**, ask the tenant/global admin to assign the required permission. Alternatively, the tenant/global admin can assign the Application developer role to an account to allow the registration of Microsoft Entra apps. For more information, see [Assign roles to users](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ## Download and install the Azure Migrate App Containerization tool
 

@@ -78,46 +78,48 @@ The end result of an enrichment pipeline is textual content in either a search i
 All skills have a type, context, inputs, and outputs. A skill might optionally have a name and description. The following example shows two unrelated [built-in skills](cognitive-search-predefined-skills.md) so that you can compare the basic structure.
 
 ```json
-"skills":[
-  {
-    "@odata.type": "#Microsoft.Skills.Text.V3.EntityRecognitionSkill",
-    "name": "#1",
-    "description": "This skill detects organizations in the source content",
-    "context": "/document",
-    "categories": [ "Organization" ],
-    "inputs": [
-      {
-        "name": "text",
-        "source": "/document/content"
-      }
-    ],
-    "outputs": [
-      {
-        "name": "organizations",
-        "targetName": "orgs"
-      }
-    ]
-  },
-  {
-      "name": "#2",
-      "description": "This skill detects corporate logos in the source files",
-      "@odata.type": "#Microsoft.Skills.Vision.ImageAnalysisSkill",
-      "context": "/document/normalized_images/*",
-      "visualFeatures": [
-          "brands"
-      ],
-      "inputs": [
-          {
-              "name": "image",
-              "source": "/document/normalized_images/*"
-          }
-      ],
-      "outputs": [
-          {
-              "name": "brands"
-          }
-      ]
-  }
+"skills": [
+    {
+        "@odata.type": "#Microsoft.Skills.Text.V3.EntityRecognitionSkill",
+        "name": "#1",
+        "description": "This skill detects organizations in the source content",
+        "context": "/document",
+        "categories": [
+            "Organization"
+        ],
+        "inputs": [
+            {
+                "name": "text",
+                "source": "/document/content"
+            }
+        ],
+        "outputs": [
+            {
+                "name": "organizations",
+                "targetName": "orgs"
+            }
+        ]
+    },
+    {
+        "name": "#2",
+        "description": "This skill detects corporate logos in the source files",
+        "@odata.type": "#Microsoft.Skills.Vision.ImageAnalysisSkill",
+        "context": "/document/normalized_images/*",
+        "visualFeatures": [
+            "brands"
+        ],
+        "inputs": [
+            {
+                "name": "image",
+                "source": "/document/normalized_images/*"
+            }
+        ],
+        "outputs": [
+            {
+                "name": "brands"
+            }
+        ]
+    }
 ]
 ```
 

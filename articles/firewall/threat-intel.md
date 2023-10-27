@@ -57,6 +57,7 @@ The following log excerpt shows a triggered rule:
 
 ## Next steps
 
+- [Exploring Azure Firewall's Threat Protection](https://techcommunity.microsoft.com/t5/azure-network-security-blog/exploring-azure-firewall-s-threat-protection/ba-p/3869571)
 - See [Azure Firewall Log Analytics samples](./firewall-workbook.md)
 - Learn how to [deploy and configure an Azure Firewall](tutorial-firewall-deploy-portal.md)
 - Review the [Microsoft Security intelligence report](https://www.microsoft.com/en-us/security/operations/security-intelligence-report)

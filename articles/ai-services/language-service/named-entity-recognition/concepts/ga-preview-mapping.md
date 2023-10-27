@@ -5,8 +5,7 @@ description: Learn about the NER preview API.
 services: cognitive-services
 author: jboback
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: conceptual
 ms.date: 06/14/2023
 ms.author: jboback
@@ -27,7 +26,7 @@ Entity tags are used to further identify an entity where a detected entity is ta
 The changes introduce better flexibility for named entity recognition, including:
 * More granular entity recognition through introducing the tags list where an entity could be tagged by more than one entity tag.
 * Overlapping entities where entities could be recognized as more than one entity type and if so, this entity would be returned twice. If an entity was recognized to belong to two entity tags under the same entity type, both entity tags are returned in the tags list.
-* Filtering entities using entity tags, you can learn more about this by navigating to [this article](../how-to-call#select-which-entities-to-be-returned-(Preview API only).md).
+* Filtering entities using entity tags, you can learn more about this by navigating to [this article](../how-to-call.md#select-which-entities-to-be-returned-preview-api-only).
 * Metadata Objects which contain additional information about the entity but currently only act as a wrapper for the existing entity resolution feature. You can learn more about this new feature [here](entity-metadata.md).
 
 ## Generally available to preview API entity mappings

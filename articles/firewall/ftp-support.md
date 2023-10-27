@@ -45,9 +45,11 @@ The following table shows the configuration required to support various FTP scen
 |---------|---------|---------|
 |VNet-VNet     |Network Rules to configure:<br>- Allow From Source VNet to Dest IP port 21<br>- Allow From Dest IP port 20 to Source VNet |Network Rules to configure:<br>- Allow From Source VNet to Dest IP port 21<br>- Allow From Source VNet to Dest IP \<Range of Data Ports>|
 |Outbound VNet - Internet<br><br>(FTP client in VNet, server on Internet)      |Not supported *|Network Rules to configure:<br>- Allow From Source VNet to Dest IP port 21<br>- Allow From Source VNet to Dest IP \<Range of Data Ports> |
-|Inbound DNAT<br><br>(FTP client on Internet, FTP server in VNet)      |DNAT rule to configure:<br>- DNAT From Internet Source to VNet IP port 21<br><br>Network rule to configure:<br>- Allow **traffic from** FTP server IP **to** the internet client IP on the active FTP port ranges. |Tip: Azure Firewall supports limited number of DNAT rules. It's important to configure the FTP server to use a small port range on the Data channel.<br><br>DNAT Rules to configure:<br>- DNAT From Internet Source to VNet IP port 21<br>- DNAT From Internet Source to VNet IP \<Range of Data Ports> |
+|Inbound DNAT<br><br>(FTP client on Internet, FTP server in VNet)      |DNAT rule to configure:<br>- DNAT From Internet Source to VNet IP port 21<br><br>Network rule to configure:<br>- Allow **traffic from** FTP server IP **to** the internet client IP on the active FTP port ranges. | Not supported** |
 
 \* Active FTP doesn't work when the FTP client must reach an FTP server on the Internet. Active FTP uses a PORT command from the FTP client that tells the FTP server what IP address and port to use for the data channel. The PORT command uses the private IP address of the client, which can't be changed. Client-side traffic traversing the Azure Firewall is NATed for Internet-based communications, so the PORT command is seen as invalid by the FTP server. This is a general limitation of Active FTP when used with a client-side NAT. 
+
+\** Passive FTP over the internet is currently unsupported because the data path traffic (from the internet client via Azure Firewall) can potentially use a different IP address (due to the load balancer). For security reasons, It’s not recommended to change the FTP server settings to accept control and data plane traffic from different source IP addresses.
 
 
 ## Deploy using Azure PowerShell
@@ -83,4 +85,5 @@ For more information, see [Microsoft.Network azureFirewalls](/azure/templates/mi
 
 ## Next steps
 
-To learn how to deploy an Azure Firewall, see [Deploy and configure Azure Firewall using Azure PowerShell](deploy-ps.md).
+- To learn more about FTP scenarios, see [Validating FTP traffic scenarios with Azure Firewall](https://techcommunity.microsoft.com/t5/azure-network-security-blog/validating-ftp-traffic-scenarios-with-azure-firewall/ba-p/3880683).
+- To learn how to deploy an Azure Firewall, see [Deploy and configure Azure Firewall using Azure PowerShell](deploy-ps.md).

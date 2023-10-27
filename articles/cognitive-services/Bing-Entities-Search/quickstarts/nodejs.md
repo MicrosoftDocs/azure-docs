@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Send a search request to the REST API using Node.js - Bing Entity Search"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Use this quickstart to send a request to the Bing Entity Search REST API using Node.js and receive a JSON response.
 services: cognitive-services
 author: aahill
@@ -178,5 +178,5 @@ A successful response is returned in JSON, as shown in the following example:
 > [!div class="nextstepaction"]
 > [Build a single-page web app](../tutorial-bing-entities-search-single-page-app.md)
 
-* [What is the Bing Entity Search API?](../overview.md )
+* [What is the Bing Entity Search API?](../overview.md)
 * [Bing Entity Search API reference](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference).

@@ -31,7 +31,7 @@ Before reading this guide, it is helpful to consider common SDK issues that aren
 - Sometimes queries may have empty pages even when there are results on a future page. Reasons for this could be:
     - The SDK could be doing multiple network calls.
     - The query might be taking a long time to retrieve the documents.
-- All queries have a continuation token that will allow the query to continue. Be sure to drain the query completely. Learn more about [handling multiple pages of results](query/pagination.md#handling-multiple-pages-of-results)
+- All queries have a continuation token that will allow the query to continue. Be sure to drain the query completely. Learn more about [handling multiple pages of results](query/pagination.md#handle-multiple-pages-of-results)
 
 ## Get query metrics
 

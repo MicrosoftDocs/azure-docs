@@ -1,7 +1,6 @@
 ---
 author: alexeyo26
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: include
 ms.date: 02/23/2022
 ms.author: alexeyo
@@ -9,7 +8,7 @@ ms.author: alexeyo
 
 ## Use of Speech Studio
 
-[Speech Studio](../speech-studio-overview.md) is a web portal with tools for building and integrating Azure AI services Speech service in your application. When you work in Speech Studio projects, network connections and API calls to the corresponding Speech resource are made on your behalf. Working with [private endpoints](../speech-services-private-link.md), [virtual network service endpoints](../speech-service-vnet-service-endpoint.md), and other network security options can limit the availability of Speech Studio features. You normally use Speech Studio when working with features, like [Custom Speech](../custom-speech-overview.md), [Custom Neural Voice](../how-to-custom-voice.md) and [Audio Content Creation](../how-to-audio-content-creation.md).
+[Speech Studio](../speech-studio-overview.md) is a web portal with tools for building and integrating Azure AI Speech service in your application. When you work in Speech Studio projects, network connections and API calls to the corresponding Speech resource are made on your behalf. Working with [private endpoints](../speech-services-private-link.md), [virtual network service endpoints](../speech-service-vnet-service-endpoint.md), and other network security options can limit the availability of Speech Studio features. You normally use Speech Studio when working with features, like [Custom Speech](../custom-speech-overview.md), [Custom Neural Voice](../how-to-custom-voice.md) and [Audio Content Creation](../how-to-audio-content-creation.md).
 
 
 ### Reaching Speech Studio web portal from a Virtual network

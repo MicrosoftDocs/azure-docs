@@ -50,36 +50,36 @@ pip install azure-datalake-store
 
 1. In the IDE of your choice create a new Python application, for example, **mysample.py**.
 
-2. Add the following snippet to import the required modules
+2. Add the following snippet to import the required modules:
 
-	```python
-	# Acquire a credential object for the app identity. When running in the cloud,
-	# DefaultAzureCredential uses the app's managed identity (MSI) or user-assigned service principal.
-	# When run locally, DefaultAzureCredential relies on environment variables named
-	# AZURE_CLIENT_ID, AZURE_CLIENT_SECRET, and AZURE_TENANT_ID.
-	from azure.identity import DefaultAzureCredential
+    ```python
+    # Acquire a credential object for the app identity. When running in the cloud,
+    # DefaultAzureCredential uses the app's managed identity (MSI) or user-assigned service principal.
+    # When run locally, DefaultAzureCredential relies on environment variables named
+    # AZURE_CLIENT_ID, AZURE_CLIENT_SECRET, and AZURE_TENANT_ID.
+    from azure.identity import DefaultAzureCredential
 
-	## Required for Data Lake Storage Gen1 account management
-	from azure.mgmt.datalake.store import DataLakeStoreAccountManagementClient
-	from azure.mgmt.datalake.store.models import CreateDataLakeStoreAccountParameters
+    ## Required for Data Lake Storage Gen1 account management
+    from azure.mgmt.datalake.store import DataLakeStoreAccountManagementClient
+    from azure.mgmt.datalake.store.models import CreateDataLakeStoreAccountParameters
 
-	## Required for Data Lake Storage Gen1 filesystem management
-	from azure.datalake.store import core, lib, multithread
+    ## Required for Data Lake Storage Gen1 filesystem management
+    from azure.datalake.store import core, lib, multithread
 
-	# Common Azure imports
-	import adal
-	from azure.mgmt.resource.resources import ResourceManagementClient
-	from azure.mgmt.resource.resources.models import ResourceGroup
+    # Common Azure imports
+    import adal
+    from azure.mgmt.resource.resources import ResourceManagementClient
+    from azure.mgmt.resource.resources.models import ResourceGroup
 
-	# Use these as needed for your application
-	import logging, getpass, pprint, uuid, time
-	```
+    # Use these as needed for your application
+    import logging, getpass, pprint, uuid, time
+    ```
 
 3. Save changes to mysample.py.
 
 ## Authentication
 
-In this section, we talk about the different ways to authenticate with Azure AD. The options available are:
+In this section, we talk about the different ways to authenticate with Microsoft Entra ID. The options available are:
 
 * For end-user authentication for your application, see [End-user authentication with Data Lake Storage Gen1 using Python](data-lake-store-end-user-authenticate-python.md).
 * For service-to-service authentication for your application, see [Service-to-service authentication with Data Lake Storage Gen1 using Python](data-lake-store-service-to-service-authenticate-python.md).
@@ -101,15 +101,15 @@ adlsAcctClient = DataLakeStoreAccountManagementClient(credential, subscription_i
 
 ## Create a Data Lake Storage Gen1 account
 adlsAcctResult = adlsAcctClient.accounts.begin_create(
-	resourceGroup,
-	adlsAccountName,
-	CreateDataLakeStoreAccountParameters(
-		location=location
-	)
+    resourceGroup,
+    adlsAccountName,
+    CreateDataLakeStoreAccountParameters(
+        location=location
+    )
 )
 ```
 
-	
+    
 ## List the Data Lake Storage Gen1 accounts
 
 ```python
@@ -126,7 +126,7 @@ for items in result_list:
 ## Delete an existing Data Lake Storage Gen1 account
 adlsAcctClient.accounts.begin_delete(resourceGroup, adlsAccountName)
 ```
-	
+    
 
 ## Next steps
 * [Filesystem operations on Data Lake Storage Gen1 using Python](data-lake-store-data-operations-python.md).

@@ -40,7 +40,7 @@
     href: local-search-reference.md
 - name: Resources
   items:
-  - name: Try Cognitive Services
+  - name: Try Azure AI services
     href: https://azure.microsoft.com/free/cognitive-services
   - name: Pricing information
     href: https://azure.microsoft.com/pricing/details/cognitive-services/search-api/

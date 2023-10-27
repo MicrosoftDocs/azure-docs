@@ -2,7 +2,7 @@
 title: Connection strings in Application Insights | Microsoft Docs
 description: This article shows how to use connection strings.
 ms.topic: conceptual
-ms.date: 07/10/2023
+ms.date: 09/12/2023
 ms.custom: devx-track-csharp
 ms.reviewer: cogoodson
 ---
@@ -27,7 +27,7 @@ Scenarios most affected by this change:
 
 - Firewall exceptions or proxy redirects:
 
-    In cases where monitoring for intranet web server is required, our earlier solution asked you to add individual service endpoints to your configuration. For more information, see the [Azure Monitor FAQ](../faq.yml#can-i-monitor-an-intranet-web-server-). Connection strings offer a better alternative by reducing this effort to a single setting. A simple prefix, suffix amendment, allows automatic population and redirection of all endpoints to the right services.
+    In cases where monitoring for intranet web server is required, our earlier solution asked you to add individual service endpoints to your configuration. For more information, see the [Can I monitor an intranet web server?](./ip-addresses.md#can-i-monitor-an-intranet-web-server). Connection strings offer a better alternative by reducing this effort to a single setting. A simple prefix, suffix amendment, allows automatic population and redirection of all endpoints to the right services.
 
 - Sovereign or hybrid cloud environments:
 
@@ -59,10 +59,10 @@ A connection string consists of a list of settings represented as key-value pair
 #### Syntax
 
 - `InstrumentationKey` (for example, 00000000-0000-0000-0000-000000000000).
-   This is a *required* field.
+   `InstrumentationKey` is a *required* field.
 - `Authorization` (for example, ikey). This setting is optional because today we only support ikey authorization.
 - `EndpointSuffix` (for example, applicationinsights.azure.cn).
-   Setting the endpoint suffix will instruct the SDK on which Azure cloud to connect to. The SDK will assemble the rest of the endpoint for individual services.
+   Setting the endpoint suffix tells the SDK which Azure cloud to connect to. The SDK assembles the rest of the endpoint for individual services.
 - Explicit endpoints.
   Any service can be explicitly overridden in the connection string:
    - `IngestionEndpoint` (for example, `https://dc.applicationinsights.azure.com`)
@@ -92,10 +92,10 @@ For more information, see [Regions that require endpoint modification](./create-
 
 #### Is the connection string a secret?
 
-The connection string contains an ikey, which is a unique identifier used by the ingestion service to associate telemetry to a specific Application Insights resource. It's not considered a security token or key. If you want to protect your AI resource from misuse, the ingestion endpoint provides authenticated telemetry ingestion options based on Azure Active Directory (Azure AD).
+The connection string contains an ikey, which is a unique identifier used by the ingestion service to associate telemetry to a specific Application Insights resource. It's not considered a security token or key. If you want to protect your AI resource from misuse, the ingestion endpoint provides authenticated telemetry ingestion options based on Microsoft Entra ID.
 
 > [!NOTE]
-> The Application Insights JavaScript SDK requires the connection string to be passed in during initialization and configuration. It's viewable in plain text in client browsers. There's no easy way to use the Azure AD-based authentication for browser telemetry. We recommend that you consider creating a separate Application Insights resource for browser telemetry if you need to secure the service telemetry.
+> The Application Insights JavaScript SDK requires the connection string to be passed in during initialization and configuration. It's viewable in plain text in client browsers. There's no easy way to use the Microsoft Entra ID-based authentication for browser telemetry. We recommend that you consider creating a separate Application Insights resource for browser telemetry if you need to secure the service telemetry.
 
 ## Connection string examples
 
@@ -105,7 +105,7 @@ Here are some examples of connection strings.
 
 `InstrumentationKey=00000000-0000-0000-0000-000000000000;EndpointSuffix=ai.contoso.com;`
 
-In this example, the connection string specifies the endpoint suffix and the SDK will construct service endpoints:
+In this example, the connection string specifies the endpoint suffix and the SDK constructs service endpoints:
 
 - Authorization scheme defaults to "ikey"
 - Instrumentation key: 00000000-0000-0000-0000-000000000000
@@ -119,7 +119,7 @@ In this example, the connection string specifies the endpoint suffix and the SDK
 
 `InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://custom.com:111/;LiveEndpoint=https://custom.com:222/;ProfilerEndpoint=https://custom.com:333/;SnapshotEndpoint=https://custom.com:444/;`
 
-In this example, the connection string specifies explicit overrides for every service. The SDK will use the exact endpoints provided without modification:
+In this example, the connection string specifies explicit overrides for every service. The SDK uses the exact endpoints provided without modification:
 
 - Authorization scheme defaults to "ikey"
 - Instrumentation key: 00000000-0000-0000-0000-000000000000
@@ -179,9 +179,6 @@ Connection string: `APPLICATIONINSIGHTS_CONNECTION_STRING`
     var options = new ApplicationInsightsServiceOptions { ConnectionString = app.Configuration["ApplicationInsights:ConnectionString"] };
     builder.Services.AddApplicationInsightsTelemetry(options: options);
     ```
-
-> [!NOTE]
-> When deploying applications to Azure in production scenarios, consider placing connection strings or other configuration secrets in secure locations such as App Service configuration settings or Azure Key Vault. Avoid including secrets in your application code or checking them into source control where they might be exposed or misused. The preceding code example will also work if the connection string is stored in App Service configuration settings. Learn more about [configuring App Service settings](/azure/app-service/configure-common).
 
 # [.NET Framework](#tab/dotnet-framework)
 
@@ -258,6 +255,18 @@ tracer = Tracer(exporter=AzureExporter(connection_string='InstrumentationKey=000
 
 ---
 
+## Frequently asked questions
+
+This section provides answers to common questions.
+
+### Do new Azure regions require the use of connection strings?
+
+New Azure regions *require* the use of connection strings instead of instrumentation keys. Connection string identifies the resource that you want to associate with your telemetry data. It also allows you to modify the endpoints your resource uses as a destination for your telemetry. Copy the connection string and add it to your application's code or to an environment variable.
+
+### Should I use connection strings or instrumentation keys?
+
+We recommend that you use connection strings instead of instrumentation keys.
+
 ## Next steps
 
 Get started at runtime with:
@@ -272,4 +281,4 @@ Get started at development time with:
 * [ASP.NET Core](./asp-net-core.md)
 * [Java](./opentelemetry-enable.md?tabs=java)
 * [Node.js](./nodejs.md)
-* [Python](./opencensus-python.md)
+* [Python](/previous-versions/azure/azure-monitor/app/opencensus-python)

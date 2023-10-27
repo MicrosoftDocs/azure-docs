@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Search for images using the Bing Image Search REST API and Node.js"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Use this quickstart to send image search requests to the Bing Image Search REST API using JavaScript, and JSON responses.
 services: cognitive-services
 documentationcenter: ''
@@ -27,7 +27,7 @@ Use this quickstart to learn how to send search requests to the Bing Image Searc
 
 * The [JavaScript Request Library](https://github.com/request/request).
 
-For more information, see [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+For more information, see [Azure AI services pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## Create and initialize the application
 

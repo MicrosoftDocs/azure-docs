@@ -1,12 +1,12 @@
 ---
-title: Add custom functionality to the Azure API Management developer portal
+title: Add custom functionality to developer portal - Azure API Management
 titleSuffix: Azure API Management
 description: How to customize the managed API Management developer portal with custom functionality such as custom widgets.
 author: dlepow
 ms.author: danlep
-ms.date: 07/25/2023
+ms.date: 10/27/2023
 ms.service: api-management
-ms.topic: article
+ms.topic: how-to
 ---
 
 # Extend the developer portal with custom widgets
@@ -54,6 +54,10 @@ For more advanced use cases, you can create and upload a custom widget to the de
 * Basic knowledge of programming and web development
 
 ### Create widget
+
+> [!WARNING]
+> Your custom widget code is stored in public Azure blob storage that's associated with your API Management instance. When you add a custom widget to the developer portal, code is read from this storage via an endpoint that doesn't require authentication, even if the developer portal or a page with the custom widget is only accessible to authenticated users. Don't include sensitive information or secrets in the custom widget code.
+>
 
 1. In the administrative interface for the developer portal, select **Custom widgets** > **Create new custom widget**. 
 1. Enter a widget name and choose a **Technology**. For more information, see [Widget templates](#widget-templates), later in this article.
@@ -115,7 +119,6 @@ For more advanced use cases, you can create and upload a custom widget to the de
 
     If prompted, sign in to your Azure account. 
 
-
 The custom widget is now deployed to your developer portal. Using the portal's administrative interface, you can add it on pages in the developer portal and set values for any custom properties configured in the widget.
 
 ### Publish the developer portal
@@ -143,6 +146,7 @@ The React template contains prepared custom hooks in the `hooks.ts` file and est
 This [npm package](https://www.npmjs.com/package/@azure/api-management-custom-widgets-tools) contains the following functions to help you develop your custom widget and provides features including communication between the developer portal and your widget:
 
 
+
 |Function  |Description  |
 |---------|---------|
 |[getValues](#azureapi-management-custom-widgets-toolsgetvalues) | Returns a JSON object containing values set in the widget editor combined with default values |
@@ -151,6 +155,7 @@ This [npm package](https://www.npmjs.com/package/@azure/api-management-custom-wi
 |[askForSecrets](#azureapi-management-custom-widgets-toolsaskforsecrets)     | Returns a JavaScript promise, which after resolution returns a JSON object of data needed to communicate with backend        |
 |[deployNodeJs](#azureapi-management-custom-widgets-toolsdeploynodejs)     | Deploys widget to blob storage        |
 |[getWidgetData](#azureapi-management-custom-widgets-toolsgetwidgetdata)     | Returns all data passed to your custom widget from the developer portal<br/><br/>Used internally in templates         |
+
 
 
 #### `@azure/api-management-custom-widgets-tools/getValues` 
@@ -190,6 +195,7 @@ This function returns a JavaScript promise, which after resolution returns a JSO
 
 > [!CAUTION]
 > Manage and use the token carefully. Anyone who has it can access data in your API Management service. 
+
 
 
 #### `@azure/api-management-custom-widgets-tools/deployNodeJs` 
@@ -258,7 +264,7 @@ Currently, you can use the toolkit in two ways to deploy a custom widget:
 > [!NOTE]
 > The React Component Toolkit and Azure Developer CLI sample template are open source projects. Support is provided only through GitHub issues in the respective repositories.
 
-## Next steps
+## Related content
 
 Learn more about the developer portal:
 
@@ -266,3 +272,4 @@ Learn more about the developer portal:
 - [Frequently asked questions](developer-portal-faq.md)
 - [Scaffolder of a custom widget for developer portal of Azure API Management service](https://www.npmjs.com/package/@azure/api-management-custom-widgets-scaffolder)
 - [Tools for working with custom widgets of developer portal of Azure API Management service](https://www.npmjs.com/package/@azure/api-management-custom-widgets-tools)
+

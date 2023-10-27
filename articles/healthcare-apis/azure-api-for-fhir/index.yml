@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
-title: Azure API for FHIR Documentation
-summary: Azure API for FHIR is a managed, standards-based, compliant API for clinical health data that enables solutions for actionable analytics and machine learning. 
+title: Azure API for FHIR documentation
+summary: Azure API for FHIR is a managed, standards-based, compliant API for clinical health data that enables actionable analytics and machine learning solutions. 
 
 metadata:
   title: Azure API for FHIR Documentation - tutorials, how-to guides
@@ -13,32 +13,30 @@ metadata:
   ms.collection: collection
   author: expekesheth
   ms.author: kesheth
-  ms.date: 09/30/2022
+  ms.date: 09/01/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
 
-  - title: Start with Azure API for FHIR
+  - title: Get started
     linkLists:
       - linkListType: overview
         links:
           - text: What is Azure API for FHIR?
             url: overview.md
-      - linkListType: quickstart
+      - linkListType: how-to-guide
         links:
           - text: Get started with Azure API for FHIR
             url: get-started-with-azure-api-fhir.md
-      - linkListType: deploy
-        links:
           - text: Deploy Azure API for FHIR
             url: fhir-paas-portal-quickstart.md
 
-  - title: Accessing Azure API for FHIR
+  - title: Access Azure API for FHIR
     linkLists:
       - linkListType: concept
         links:
-          - text: Azure AD identity configuration for Azure API for FHIR
+          - text: Microsoft Entra identity configuration for Azure API for FHIR
             url: azure-active-directory-identity-configuration.md
           - text: Access token validation
             url: azure-api-fhir-access-token-validation.md
@@ -58,7 +56,7 @@ landingContent:
           - text: Search examples for Azure API for FHIR
             url: search-samples.md 
 
-  - title: Interoperability and Patient Access
+  - title: Interoperability and patient access
     linkLists:
       - linkListType: tutorial
         links:
@@ -82,7 +80,7 @@ landingContent:
           - text: $member-match operation
             url: tutorial-member-match.md
 
-  - title: Export and Convert Data
+  - title: Export and convert data
     linkLists:
       - linkListType: how-to-guide
         links:

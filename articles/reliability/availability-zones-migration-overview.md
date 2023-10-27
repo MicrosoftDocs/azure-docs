@@ -43,8 +43,6 @@ The table below lists each product that offers migration guidance and/or informa
 | --- | 
 | [Azure API Management](migrate-api-mgt.md)|
 | [Azure App Configuration](migrate-app-configuration.md)|
-| [Azure App Service](migrate-app-service.md)|
-| [Azure App Service: App Service Environment](migrate-app-service-environment.md)|
 | [Azure Cache for Redis](migrate-cache-redis.md)|
 | [Azure Cognitive Search](migrate-search-service.md)|
 | [Azure Container Instances](migrate-container-instances.md)|

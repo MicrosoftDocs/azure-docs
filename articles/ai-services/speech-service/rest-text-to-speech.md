@@ -5,8 +5,7 @@ description: Learn how to use the REST API to convert text into synthesized spee
 services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: reference
 ms.date: 01/24/2022
 ms.author: eur
@@ -24,7 +23,7 @@ The text to speech REST API supports neural text to speech voices, which support
 
 - For a complete list of voices, see [Language and voice support for the Speech service](language-support.md?tabs=tts).
 - For information about regional availability, see [Speech service supported regions](regions.md#speech-service).
-- For Azure Government and Azure China endpoints, see [this article about sovereign clouds](sovereign-clouds.md).
+- For Azure Government and Microsoft Azure operated by 21Vianet endpoints, see [this article about sovereign clouds](sovereign-clouds.md).
 
 > [!IMPORTANT]
 > Costs vary for prebuilt neural voices (called *Neural* on the pricing page) and custom neural voices (called *Custom Neural* on the pricing page). For more information, see [Speech service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).

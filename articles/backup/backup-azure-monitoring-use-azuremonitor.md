@@ -171,18 +171,18 @@ Recovery Services vaults and Backup vaults send data to a common set of tables t
     AddonAzureBackupJobs
     | where JobOperation == "Restore"
     | summarize arg_max(TimeGenerated,*) by JobUniqueId
-	| where DatasourceType == "Microsoft.Compute/disks"
-    | where JobStatus=="Completed"	
+    | where DatasourceType == "Microsoft.Compute/disks"
+    | where JobStatus=="Completed"
     ````
 
 - Backup Storage Consumed per Backup Item
 
     ````Kusto
     CoreAzureBackup
-	| where OperationName == "BackupItem"
-	| summarize arg_max(TimeGenerated, *) by BackupItemUniqueId
-	| project BackupItemUniqueId, BackupItemFriendlyName, StorageConsumedInMBs
-	````
+    | where OperationName == "BackupItem"
+    | summarize arg_max(TimeGenerated, *) by BackupItemUniqueId
+    | project BackupItemUniqueId, BackupItemFriendlyName, StorageConsumedInMBs
+    ````
 
 ### Diagnostic data update frequency
 
@@ -231,7 +231,7 @@ Although you can get notifications through activity logs, we highly recommend us
 
 - **Limited scenarios**: Notifications through activity logs apply only to Azure VM backups. The notifications must be set up for every Recovery Services vault.
 - **Definition fit**: The scheduled backup activity doesn't fit with the latest definition of activity logs. Instead, it aligns with [resource logs](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace). This alignment causes unexpected effects when the data that flows through the activity log channel changes.
-- **Problems with the activity log channel**: In Recovery Services vaults, activity logs that are pumped from Azure Backup follow a new model. Unfortunately, this change affects the generation of activity logs in Azure Government, Azure Germany, and Azure China 21Vianet. If users of these cloud services create or configure any alerts from activity logs in Azure Monitor, the alerts aren't triggered. Also, in all Azure public regions, if a user [collects Recovery Services activity logs into a Log Analytics workspace](../azure-monitor/essentials/activity-log.md), these logs don't appear.
+- **Problems with the activity log channel**: In Recovery Services vaults, activity logs that are pumped from Azure Backup follow a new model. Unfortunately, this change affects the generation of activity logs in Azure Government, Azure Germany, and Microsoft Azure operated by 21Vianet. If users of these cloud services create or configure any alerts from activity logs in Azure Monitor, the alerts aren't triggered. Also, in all Azure public regions, if a user [collects Recovery Services activity logs into a Log Analytics workspace](../azure-monitor/essentials/activity-log.md), these logs don't appear.
 
 Use a Log Analytics workspace for monitoring and alerting at scale for all your workloads that are protected by Azure Backup.
 

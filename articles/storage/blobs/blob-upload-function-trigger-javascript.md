@@ -1,9 +1,9 @@
 ---
 title: Upload and analyze a file with Azure Functions (JavaScript) and Blob Storage
-description: With JavaScript, learn how to upload an image to Azure Blob Storage and analyze its content using Azure Functions and Cognitive Services
+description: With JavaScript, learn how to upload an image to Azure Blob Storage and analyze its content using Azure Functions and Azure AI services
 author: diberry
 ms.author: diberry
-ms.service: azure-storage
+ms.service: azure-blob-storage
 ms.topic: tutorial
 ms.date: 07/06/2023
 ms.devlang: javascript
@@ -29,7 +29,7 @@ In this tutorial, learn how to:
 > [!div class="checklist"]
 > * Upload images and files to Blob Storage
 > * Use an Azure Function event trigger to process data uploaded to Blob Storage
-> * Use Cognitive Services to analyze an image
+> * Use Azure AI services to analyze an image
 > * Write data to Cosmos DB using Azure Function output bindings
 
 :::image type="content" source="./media/blob-upload-storage-function/functions-storage-database-architectural-diagram.png" alt-text="Architectural diagram showing an image blob is added to Blob Storage, then analyzed by an Azure Function, with the analysis inserted into a Cosmos DB.":::
@@ -423,7 +423,6 @@ Although the Azure Function code runs locally, it connects to the cloud-based se
   "IsEncrypted": false,
   "Values": {
     "FUNCTIONS_WORKER_RUNTIME": "node",
-    "AzureWebJobsFeatureFlags": "EnableWorkerIndexing",
     "AzureWebJobsStorage": "",
     "StorageConnection": "STORAGE-CONNECTION-STRING",
     "StorageAccountName": "STORAGE-ACCOUNT-NAME",

@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: app-service
 ms.topic: include
 ms.workload: identity
-ms.date: 10/26/2021
+ms.date: 09/15/2023
 ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.custom: azureday1
@@ -16,7 +16,7 @@ ms.custom: azureday1
 ms.subservice: web-apps
 ---
 
-If you completed all the steps in this multipart tutorial, you created an app service, app service hosting plan, and a storage account in a resource group. You also created an app registration in Azure Active Directory. When no longer needed, delete these resources and app registration so that you don't continue to accrue charges.
+If you completed all the steps in this multipart tutorial, you created an app service, app service hosting plan, and a storage account in a resource group. You also created an app registration in Microsoft Entra ID. When no longer needed, delete these resources and app registration so that you don't continue to accrue charges.
 
 In this tutorial, you learn how to:
 
@@ -36,9 +36,8 @@ This command might take several minutes to run.
 
 ### Delete the app registration
 
-From the portal menu, select **Azure Active Directory** > **App registrations**. Then select the application you created.
+In the [Microsoft Entra admin center](https://entra.microsoft.com), select **Applications** > **App registrations**. Then select the application you created.
 :::image type="content" alt-text="Screenshot that shows selecting app registration." source="../media/scenario-secure-app-clean-up-resources/select-app-registration.png":::
 
 In the app registration overview, select **Delete**.
 :::image type="content" alt-text="Screenshot that shows deleting the app registration." source="../media/scenario-secure-app-clean-up-resources/delete-app-registration.png":::
-

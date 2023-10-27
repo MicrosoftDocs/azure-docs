@@ -219,7 +219,7 @@ In a few seconds, you should see an HTTP 201 response in the session list. This 
 If you get a 207, at least one document failed to upload. If you get a 404, you have a syntax error in either the header or body of the request: verify you changed the endpoint to include `/docs/index`.
 
 > [!TIP]
-> For selected data sources, you can choose the alternative *indexer* approach which simplifies and reduces the amount of code required for indexing. For more information, see [Indexer operations](/rest/api/searchservice/indexer-operations).
+> For selected data sources, you can [create an indexer](/rest/api/searchservice/create-indexer), which simplifies and reduces the amount of code required for indexing.
 
 ## 3 - Search an index
 

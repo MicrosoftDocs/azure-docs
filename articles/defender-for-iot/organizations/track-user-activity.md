@@ -11,17 +11,17 @@ After you've set up your user access for the [Azure portal](manage-users-portal.
 
 ## Audit Azure user activity
 
-Use Azure Active Directory user auditing resources to audit Azure user activity across Defender for IoT. For more information, see:
+Use Microsoft Entra user auditing resources to audit Azure user activity across Defender for IoT. For more information, see:
 
-- [Audit logs in Azure Active directory](../../active-directory/reports-monitoring/concept-audit-logs.md)
-- [Azure AD audit activity reference](../../active-directory/reports-monitoring/reference-audit-activities.md)
+- [Audit logs in Microsoft Entra ID](../../active-directory/reports-monitoring/concept-audit-logs.md)
+- [Microsoft Entra audit activity reference](../../active-directory/reports-monitoring/reference-audit-activities.md)
 
 ## Audit user activity on an OT network sensor
 
 Audit and track user activity on a sensor's **Event timeline**. The **Event timeline** displays events that occurred on the sensor, affected devices for each event, and the time and date that the event occurred.
 
 > [!NOTE]
-> This procedure is supported for users with an **Admin** role, and the *cyberx*, *support*, and *cyberx_host* users.
+> This procedure is supported for users with an **Admin** role, and the *support*, *cyberx*, and *cyberx_host* users.
 >
 
 **To use the sensor's Event Timeline**:
@@ -29,7 +29,7 @@ Audit and track user activity on a sensor's **Event timeline**. The **Event time
 1. Sign into the sensor console as one of the following users:
 
     - Any **Admin** user
-    - The *cyberx*, *support*, or *cyberx_host* user
+    - The *support*, *cyberx*, or *cyberx_host* user
 
 1. On the sensor, select **Event Timeline** from the left-hand menu. Make sure that the filter is set to show **User Operations**.
 

@@ -4,7 +4,7 @@ description: This article describes how to upgrade the VM insights Dependency ag
 ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
-ms.date: 04/16/2020
+ms.date: 09/28/2023
 
 ---
 

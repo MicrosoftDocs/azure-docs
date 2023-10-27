@@ -24,15 +24,15 @@ To open a resource by the service type:
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. In the left pane, select the Azure service. In this case, **Storage accounts**.  If you don't see the service listed, select **All services**, and then select the service type.
 
-    ![open azure resource in the portal](./media/manage-resources-portal/manage-azure-resources-portal-open-service.png)
+    :::image type="content" source="./media/manage-resources-portal/manage-azure-resources-portal-open-service.png" alt-text="Screenshot of the Azure portal showing the Storage accounts service selected.":::
 
 3. Select the resource you want to open.
 
-    ![Screenshot that highlights the selected resource.](./media/manage-resources-portal/manage-azure-resources-portal-open-resource.png)
+    :::image type="content" source="./media/manage-resources-portal/manage-azure-resources-portal-open-resource.png" alt-text="Screenshot of the Azure portal with a storage account named mystorage0207 highlighted.":::
 
     A storage account looks like:
 
-    ![Screenshot that shows what a storage account looks like.](./media/manage-resources-portal/manage-azure-resources-portal-open-resource-storage.png)
+    :::image type="content" source="./media/manage-resources-portal/manage-azure-resources-portal-open-resource-storage.png" alt-text="Screenshot of an opened storage account in the Azure portal displaying its overview and settings.":::
 
 To open a resource by resource group:
 
@@ -44,7 +44,7 @@ To open a resource by resource group:
 
 When viewing a resource in the portal, you see the options for managing that particular resource.
 
-![manage Azure resources](./media/manage-resources-portal/manage-azure-resources-portal-manage-resource.png)
+:::image type="content" source="./media/manage-resources-portal/manage-azure-resources-portal-manage-resource.png" alt-text="Screenshot of the Azure portal displaying management options for a virtual machine.":::
 
 The screenshot shows the management options for an Azure virtual machine. You can perform operations such as starting, restarting, and stopping a virtual machine.
 
@@ -53,7 +53,7 @@ The screenshot shows the management options for an Azure virtual machine. You ca
 1. Open the resource in the portal. For the steps, see [Open resources](#open-resources).
 2. Select **Delete**. The following screenshot shows the management options for a virtual machine.
 
-    ![delete azure resource](./media/manage-resources-portal/manage-azure-resources-portal-delete-resource.png)
+    :::image type="content" source="./media/manage-resources-portal/manage-azure-resources-portal-delete-resource.png" alt-text="Screenshot of the Azure portal showing the Delete option for a virtual machine.":::
 3. Type the name of the resource to confirm the deletion, and then select **Delete**.
 
 For more information about how Azure Resource Manager orders the deletion of resources, see [Azure Resource Manager resource group deletion](delete-resource-group.md).
@@ -63,7 +63,7 @@ For more information about how Azure Resource Manager orders the deletion of res
 1. Open the resource in the portal. For the steps, see [Open resources](#open-resources).
 2. Select **Move**. The following screenshot shows the management options for a storage account.
 
-    ![move azure resource](./media/manage-resources-portal/manage-azure-resources-portal-move-resource.png)
+    :::image type="content" source="./media/manage-resources-portal/manage-azure-resources-portal-move-resource.png" alt-text="Screenshot of the Azure portal displaying the Move option for a storage account.":::
 3. Select **Move to another resource group** or **Move to another subscription** depending on your needs.
 
 For more information, see [Move resources to new resource group or subscription](move-resource-group-and-subscription.md).
@@ -75,7 +75,7 @@ Locking prevents other users in your organization from accidentally deleting or 
 1. Open the resource in the portal. For the steps, see [Open resources](#open-resources).
 2. Select **Locks**. The following screenshot shows the management options for a storage account.
 
-    ![lock azure resource](./media/manage-resources-portal/manage-azure-resources-portal-lock-resource.png)
+    :::image type="content" source="./media/manage-resources-portal/manage-azure-resources-portal-lock-resource.png" alt-text="Screenshot of the Azure portal showing the Locks option for a storage account.":::
 3. Select **Add**, and then specify the lock properties.
 
 For more information, see [Lock resources with Azure Resource Manager](lock-resources.md).
@@ -87,7 +87,7 @@ Tagging helps organizing your resource group and resources logically.
 1. Open the resource in the portal. For the steps, see [Open resources](#open-resources).
 2. Select **Tags**. The following screenshot shows the management options for a storage account.
 
-    ![tag azure resource](./media/manage-resources-portal/manage-azure-resources-portal-tag-resource.png)
+    :::image type="content" source="./media/manage-resources-portal/manage-azure-resources-portal-tag-resource.png" alt-text="Screenshot of the Azure portal displaying the Tags option for a storage account.":::
 3. Specify the tag properties, and then select **Save**.
 
 For information, see [Using tags to organize your Azure resources](tag-resources-portal.md).
@@ -96,7 +96,7 @@ For information, see [Using tags to organize your Azure resources](tag-resources
 
 When you open a resource, the portal presents default graphs and tables for monitoring that resource type. The following screenshot shows the graphs for a virtual machine:
 
-![monitor azure resource](./media/manage-resources-portal/manage-azure-resources-portal-monitor-resource.png)
+:::image type="content" source="./media/manage-resources-portal/manage-azure-resources-portal-monitor-resource.png" alt-text="Screenshot of the Azure portal showing monitoring graphs for a virtual machine.":::
 
 You can select the pin icon on the upper right corner of the graphs to pin the graph to the dashboard. To learn about working with dashboards, see [Creating and sharing dashboards in the Azure portal](../../azure-portal/azure-portal-dashboards.md).
 

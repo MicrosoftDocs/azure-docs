@@ -16,7 +16,7 @@ The Azure Application Gateway Ingress Controller for Kubernetes (AGIC) can be up
 using a Helm repository hosted on Azure Storage.
 
 > [!TIP]
-> Also see [What is Application Gateway for Containers?](for-containers/overview.md), currently in public preview.
+> Also see [What is Application Gateway for Containers?](for-containers/overview.md) currently in public preview.
 
 Before beginning the upgrade procedure, ensure that you've added the required repository:
 

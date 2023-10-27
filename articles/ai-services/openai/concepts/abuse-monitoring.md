@@ -4,8 +4,7 @@ titleSuffix: Azure OpenAI
 description: Learn about the abuse monitoring capabilities of Azure OpenAI Service
 author: mrbullwinkle
 ms.author: mbullwin
-ms.service: cognitive-services
-ms.subservice: openai
+ms.service: azure-ai-openai
 ms.topic: conceptual 
 ms.date: 06/16/2023
 ms.custom: template-concept

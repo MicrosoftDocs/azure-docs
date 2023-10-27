@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 07/25/2023
+ms.date: 08/01/2023
 ms.author: jasteppe
 ---
 
@@ -90,7 +90,7 @@ In this example, we're using a device message that is capturing `heartRate` data
 ```json
 {
     "PatientId": "patient1",
-    "HeartRate" : 78
+    "HeartRate" : "78"
 }
 ```
 
@@ -105,7 +105,7 @@ The IoT hub enriches and routes the device message to the event hub before the M
 {
     "Body": {
         "PatientId": "patient1",
-        "HeartRate": 78
+        "HeartRate": "78"
     },
     "SystemProperties": {
         "iothub-enqueuedtime": "2023-07-25T20:41:26.046Z",
@@ -176,5 +176,10 @@ For an overview of the MedTech service FHIR destination mapping, see
 
 > [!div class="nextstepaction"]
 > [Overview of the FHIR destination mapping](overview-of-fhir-destination-mapping.md)
+
+For an overview of the MedTech service scenario-based mappings samples, see
+
+> [!div class="nextstepaction"]
+> [Overview of the MedTech service scenario-based mappings samples](overview-of-samples.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Use the Bing Visual Search client library'
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: The Visual Search API offers client libraries that makes it easy to integrate search capabilities into your applications. Use this quickstart to start sending search requests, and get back results.
 services: cognitive-services
 author: aahill

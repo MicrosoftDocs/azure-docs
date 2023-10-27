@@ -47,7 +47,7 @@ sections:
       - question: |
           I deleted my default workspace, how can I get it back?
         answer: |
-          To recover your default workspace, you need to remove the Defender profile/extension, and reinstall the agent. Reinstalling the Defender profile/extension creates a new default workspace.
+          To recover your default workspace, you need to remove the [Defender agent](defender-for-cloud-glossary.md#defender-agent), and reinstall the agent. Reinstalling the Defender agent creates a new default workspace.
 
       - question: |
           Where is the default Log Analytics workspace located?
@@ -55,11 +55,11 @@ sections:
           Depending on your region, the default Log Analytics workspace located will be located in various locations. To check your region see [Where is the default Log Analytics workspace created?](faq-data-collection-agents.yml)
 
       - question: |
-          My organization requires me to tag my resources, and required extension didn't get installed, what went wrong?
+          My organization requires me to tag my resources, and the required agent didn't get installed, what went wrong?
         answer: |
-          The Defender agent uses the Log analytics workspace to send data from your Kubernetes clusters to Defender for Cloud. The Defender for Cloud adds the Log analytic workspace and the resource group as a parameter for the agent to use.
+          The [Defender agent](defender-for-cloud-glossary.md#defender-agent) uses the Log analytics workspace to send data from your Kubernetes clusters to Defender for Cloud. The Defender for Cloud adds the Log analytic workspace and the resource group as a parameter for the agent to use.
 
-          However, if your organization has a policy that requires a specific tag on your resources, it may cause the extension installation to fail during the resource group or the default workspace creation stage. If it fails, you can either:
+          However, if your organization has a policy that requires a specific tag on your resources, it may cause the agent installation to fail during the resource group or the default workspace creation stage. If it fails, you can either:
 
           - [Assign a custom workspace](defender-for-containers-enable.md?pivots=defender-for-container-aks&tabs=aks-deploy-portal%2ck8s-deploy-asc%2ck8s-verify-asc%2ck8s-remove-arc%2caks-removeprofile-api#assign-a-custom-workspace) and add any tag your organization requires.
 
@@ -99,9 +99,9 @@ sections:
           No, the Qualys scanner is hosted by Microsoft, and no customer data is shared with Qualys.
 
       - question: |
-          Why is Defender for Cloud alerting me to vulnerabilities about an image that isn’t in my registry?
+          Why is Defender for Cloud alerting me to vulnerabilities about an image that isn't in my registry?
         answer: |
-          Some images may reuse tags from an image that was already scanned. For example, you may reassign the tag “Latest” every time you add an image to a digest. In such cases, the ‘old’ image does still exist in the registry and may still be pulled by its digest. If the image has security findings and is pulled, it will expose security vulnerabilities.
+          Some images may reuse tags from an image that was already scanned. For example, you may reassign the tag “Latest” every time you add an image to a digest. In such cases, the 'old' image does still exist in the registry and may still be pulled by its digest. If the image has security findings and is pulled, it will expose security vulnerabilities.
 
       - question: |
           Does Defender for Containers scan images in Microsoft Container Registry?
@@ -114,6 +114,19 @@ sections:
           Can I get the scan results via REST API?
         answer: |
           Yes. The results are under [Sub-Assessments REST API](/rest/api/defenderforcloud/sub-assessments/list). Also, you can use Azure Resource Graph (ARG), the Kusto-like API for all of your resources: a query can fetch a specific scan.
+
+      - question: |
+          How do I check which media type my containers are using?
+        answer: |
+          To check an image type, you need to use a tool that can check the raw image manifest such as [skopeo](https://github.com/containers/skopeo), and inspect the raw image format.
+
+          - For the Docker v2 format, the manifest media type would be **application/vnd.docker.distribution.manifest.v1+json** or **application/vnd.docker.distribution.manifest.v2+json**, as documented [here](https://docs.docker.com/registry/spec/manifest-v2-2/).
+          - For the OCI image format, the manifest media type would be **application/vnd.oci.image.manifest.v1+json**, and config media type **application/vnd.oci.image.config.v1+json**, as documented [here](https://specs.opencontainers.org/image-spec/media-types/).
+
+      - question: |
+          What's the agentless discovery for Kubernetes refresh interval?
+        answer: |
+          Agentless information in Defender for Containers is updated through a snapshot mechanism. It can take up to **6 hours** to see results in cloud security explorer.
 
 additionalContent: |
 

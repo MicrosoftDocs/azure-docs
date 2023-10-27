@@ -1,8 +1,8 @@
 ---
 title: Add a line layer to a map | Microsoft Azure Maps
 description: Learn how to add lines to maps. See examples that use the Azure Maps Web SDK to add line layers to maps and to customize lines with symbols and color gradients.
-author: dubiety
-ms.author: yuchungchen
+author: sinnypan
+ms.author: sipa
 ms.date: 06/06/2023
 ms.topic: how-to
 ms.service: azure-maps
@@ -37,8 +37,7 @@ The following screenshot shows a sample of the above functionality.
 :::image type="content" source="./media/map-add-line-layer/add-line-layer.png"alt-text="A screenshot showing a line layer on an Azure Maps map.":::
 
 <!-----------------------------------------------------------------------
-<iframe height='500' scrolling='no' title='Add a line to a map' src='//codepen.io/azuremaps/embed/qomaKv/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/qomaKv/'>Add a line to a map</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/qomaKv/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
 ----------------------------------------------------------------------->
 
 Line layers can be styled using [LineLayerOptions] and [Use data-driven style expressions].
@@ -126,10 +125,7 @@ This code creates a map that appears as follows:
 :::image type="content" source="./media/map-add-line-layer/add-symbols-along-a-line.png"alt-text="A screenshot showing a line layer on an Azure Maps map with arrow symbols along the line.":::
 
 <!-----------------------------------------------------------------------
-<iframe height="500" scrolling="no" title="Show arrow along line" src="//codepen.io/azuremaps/embed/drBJwX/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/azuremaps/pen/drBJwX/'>Show arrow along line</a> by Azure Maps
-  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/drBJwX/?height=500&theme-id=0&default-tab=js,result&editable=true]
 ----------------------------------------------------------------------->
 
 > [!TIP]
@@ -146,10 +142,7 @@ For a fully functional sample that shows how to apply a stroke gradient to a lin
 :::image type="content" source="./media/map-add-line-layer/line-with-stroke-gradient.png"alt-text="A screenshot showing a line with a stroke gradient on the map.":::
 
 <!-----------------------------------------------------------------------
-<iframe height="500" scrolling="no" title="Line with Stroke Gradient" src="//codepen.io/azuremaps/embed/wZwWJZ/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/azuremaps/pen/wZwWJZ/'>Line with Stroke Gradient</a> by Azure Maps
-  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/wZwWJZ/?height=500&theme-id=0&default-tab=js,result&editable=true]
 ----------------------------------------------------------------------->
 
 ## Customize a line layer
@@ -159,8 +152,7 @@ The Line layer has several styling options. For a fully functional sample that i
 :::image type="content" source="./media/map-add-line-layer/line-layer-options.png"alt-text="A screenshot showing the Line Layer Options sample that shows how the different options of the line layer affect rendering.":::
 
 <!-----------------------------------------------------------------------
-<iframe height='700' scrolling='no' title='Line Layer Options' src='//codepen.io/azuremaps/embed/GwLrgb/?height=700&theme-id=0&default-tab=result' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/GwLrgb/'>Line Layer Options</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/GwLrgb/?height=700&theme-id=0&default-tab=result]
 ----------------------------------------------------------------------->
 
 ## Next steps

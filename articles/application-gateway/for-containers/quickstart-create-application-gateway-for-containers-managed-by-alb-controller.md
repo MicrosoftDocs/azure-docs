@@ -5,8 +5,9 @@ services: application-gateway
 author: greglin
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
+ms.custom: devx-track-azurecli
 ms.topic: quickstart
-ms.date: 07/24/2023
+ms.date: 09/25/2023
 ms.author: greglin
 ---
 
@@ -67,7 +68,7 @@ ALB_SUBNET_ID=$(az network vnet subnet show --name $ALB_SUBNET_NAME --resource-g
 
 ALB Controller needs the ability to provision new Application Gateway for Containers resources and to join the subnet intended for the Application Gateway for Containers association resource.
 
-In this example, we delegate the _AppGW for Containers Configuration Manager_ role to the resource group the managed cluster and delegate the _Network Contributor_ role to the subnet used by the Application Gateway for Containers association subnet, which contains the _Microsoft.Network/virtualNetworks/subnets/join/action_ permission.
+In this example, we delegate the _AppGW for Containers Configuration Manager_ role to the resource group containing the managed cluster and delegate the _Network Contributor_ role to the subnet used by the Application Gateway for Containers association subnet, which contains the _Microsoft.Network/virtualNetworks/subnets/join/action_ permission.
 
 If desired, you can [create and assign a custom role](../../role-based-access-control/custom-roles-portal.md) with the _Microsoft.Network/virtualNetworks/subnets/join/action_ permission to eliminate other permissions contained in the _Network Contributor_ role. Learn more about [managing subnet permissions](../../virtual-network/virtual-network-manage-subnet.md#permissions). 
 
@@ -100,6 +101,15 @@ EOF
 ```
 
 2. Define the _ApplicationLoadBalancer_ resource, specifying the subnet ID the Application Gateway for Containers association resource should deploy into.  The association establishes connectivity from Application Gateway for Containers to the defined subnet (and connected networks where applicable) to be able to proxy traffic to a defined backend.
+
+> [!Note]
+> When the ALB Controller creates the Application Gateway for Containers resources in ARM, it'll use the following naming conventions for its resources:
+> - alb-\<8 randomly generated characters\> to define the Application Gateway for Containers resource
+> - as-\<8 randomly generated characters\> to define the association resource
+>
+> If you would like to change the name of the resources created in Azure, consider following the [bring your own deployment strategy](quickstart-create-application-gateway-for-containers-byo-deployment.md).
+
+Run the following command to create the Application Gateway for Containers resource and association.
 
 ```bash
 kubectl apply -f - <<EOF

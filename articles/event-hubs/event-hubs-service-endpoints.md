@@ -219,10 +219,10 @@ From API version **2021-06-01-preview onwards**, the default value of the `defau
 
 The API version **2021-06-01-preview onwards** also introduces a new property named `publicNetworkAccess`. If it's set to `Disabled`, operations are restricted to private links only. If it's set to `Enabled`, operations are allowed over the public internet. 
 
-For more information about these properties, see [Create or Update Network Rule Set](/rest/api/eventhub/preview/namespaces-network-rule-set/create-or-update-network-rule-set) and [Create or Update Private Endpoint Connections](/rest/api/eventhub/preview/private-endpoint-connections/create-or-update).
+For more information about these properties, see [Create or Update Network Rule Set](/rest/api/eventhub/controlplane-preview/namespaces-network-rule-set/create-or-update-network-rule-set) and [Create or Update Private Endpoint Connections](/rest/api/eventhub/controlplane-preview/private-endpoint-connections/create-or-update).
 
 > [!NOTE]
-> None of the above settings bypass validation of claims via SAS or Azure AD authentication. The authentication check always runs after the service validates the network checks that are configured by `defaultAction`, `publicNetworkAccess`, `privateEndpointConnections` settings.
+> None of the above settings bypass validation of claims via SAS or Microsoft Entra authentication. The authentication check always runs after the service validates the network checks that are configured by `defaultAction`, `publicNetworkAccess`, `privateEndpointConnections` settings.
 
 ### Azure portal
 

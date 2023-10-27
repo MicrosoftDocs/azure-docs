@@ -1,25 +1,27 @@
 ---
-title: Synchronize Azure Active Directory users to HDInsight cluster 
-description: Synchronize authenticated users from Azure Active Directory to an HDInsight cluster.
+title: Synchronize Microsoft Entra users to HDInsight cluster 
+description: Synchronize authenticated users from Microsoft Entra ID to an HDInsight cluster.
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/27/2023
 ---
 
-# Synchronize Azure Active Directory users to an HDInsight cluster
+# Synchronize Microsoft Entra users to an HDInsight cluster
 
-[HDInsight clusters with Enterprise Security Package (ESP)](./domain-joined/hdinsight-security-overview.md) can use strong authentication with Azure Active Directory (Azure AD) users, and use *Azure role-based access control (Azure RBAC)* policies. As you add users and groups to Azure AD, you can synchronize the users who need access to your cluster.
+[HDInsight clusters with Enterprise Security Package (ESP)](./domain-joined/hdinsight-security-overview.md) can use strong authentication with Microsoft Entra users, and use *Azure role-based access control (Azure RBAC)* policies. As you add users and groups to Microsoft Entra ID, you can synchronize the users who need access to your cluster.
 
 ## Prerequisites
 
 If you haven't already done so, [create a HDInsight cluster with Enterprise Security Package](./domain-joined/apache-domain-joined-configure-using-azure-adds.md).
 
-## Add new Azure AD users
+<a name='add-new-azure-ad-users'></a>
+
+## Add new Microsoft Entra users
 
 To view your hosts, open the Ambari Web UI. Each node is updated with  new unattended upgrade settings.
 
-1. From the [Azure portal](https://portal.azure.com), navigate to the Azure AD directory associated with your ESP cluster.
+1. From the [Azure portal](https://portal.azure.com), navigate to the Microsoft Entra directory associated with your ESP cluster.
 
 2. Select **All users** from the left-hand menu, then select **New user**.
 
@@ -112,14 +114,16 @@ The following method uses POST with the Ambari REST API. For more information, s
     }
     ```
 
-1. This result shows that the status is **COMPLETE**, one new user was created, and the user was assigned a membership. In this example,  the user is assigned to the "HiveUsers" synchronized LDAP group, since the user was added to that same group in Azure AD.
+1. This result shows that the status is **COMPLETE**, one new user was created, and the user was assigned a membership. In this example,  the user is assigned to the "HiveUsers" synchronized LDAP group, since the user was added to that same group in Microsoft Entra ID.
 
     > [!NOTE]  
-    > The previous method only synchronizes the Azure AD groups specified in the **Access user group** property of the domain settings during cluster creation. For more information, see  [create an HDInsight cluster](./domain-joined/apache-domain-joined-configure-using-azure-adds.md).
+    > The previous method only synchronizes the Microsoft Entra groups specified in the **Access user group** property of the domain settings during cluster creation. For more information, see  [create an HDInsight cluster](./domain-joined/apache-domain-joined-configure-using-azure-adds.md).
 
-## Verify the newly added Azure AD user
+<a name='verify-the-newly-added-azure-ad-user'></a>
 
-Open the [Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md) to verify that the new Azure AD user was added. Access the Ambari Web UI by browsing to **`https://CLUSTERNAME.azurehdinsight.net`**. Enter the cluster administrator username and password.
+## Verify the newly added Microsoft Entra user
+
+Open the [Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md) to verify that the new Microsoft Entra user was added. Access the Ambari Web UI by browsing to **`https://CLUSTERNAME.azurehdinsight.net`**. Enter the cluster administrator username and password.
 
 1. From the Ambari dashboard, select **Manage Ambari** under the **admin** menu.
 
@@ -131,11 +135,11 @@ Open the [Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md) to verify tha
 
 3. The new user should be listed within the Users table. The Type is set to `LDAP` rather than  `Local`.
 
-    :::image type="content" source="./media/hdinsight-sync-aad-users-to-cluster/hdinsight-users-page.png" alt-text="HDInsight aad users page overview":::
+    :::image type="content" source="./media/hdinsight-sync-aad-users-to-cluster/hdinsight-users-page.png" alt-text="HDInsight Microsoft Entra users page overview":::
 
 ## Log in to Ambari as the new user
 
-When the new user (or any other domain user) logs in to Ambari, they use their full Azure AD user name and  domain credentials.  Ambari displays a user  alias, which is the display name of the user in Azure AD.
+When the new user (or any other domain user) logs in to Ambari, they use their full Microsoft Entra user name and  domain credentials.  Ambari displays a user  alias, which is the display name of the user in Microsoft Entra ID.
 The new example user has the user name `hiveuser3@contoso.com`. In Ambari, this new user shows up as `hiveuser3` but the user logs into Ambari as `hiveuser3@contoso.com`.
 
 ## See also

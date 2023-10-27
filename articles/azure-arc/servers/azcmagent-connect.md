@@ -2,7 +2,7 @@
 title: azcmagent connect CLI reference
 description: Syntax for the azcmagent connect command line tool
 ms.topic: reference
-ms.date: 04/20/2023
+ms.date: 10/05/2023
 ---
 
 # azcmagent connect
@@ -20,19 +20,23 @@ azcmagent connect [authentication] --subscription-id [subscription] --resource-g
 Connect a server using the default login method (interactive browser or device code).
 
 ```
-azcmagent connect --subscription "Production" --resource-group "HybridServers" --location "eastus"
+azcmagent connect --subscription-id "Production" --resource-group "HybridServers" --location "eastus"
+```
+
+```
+azcmagent connect --subscription-id "Production" --resource-group "HybridServers" --location "eastus" --use-device-code
 ```
 
 Connect a server using a service principal.
 
 ```
-azcmagent connect --subscription "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee" --resource-group "HybridServers" --location "australiaeast" --service-principal-id "ID" --service-principal-secret "SECRET" --tenant-id "TENANT"
+azcmagent connect --subscription-id "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee" --resource-group "HybridServers" --location "australiaeast" --service-principal-id "ID" --service-principal-secret "SECRET" --tenant-id "TENANT"
 ```
 
 Connect a server using a private endpoint and device code login method.
 
 ```
-azcmagent connect --subscription "Production" --resource-group "HybridServers" --location "koreacentral" --use-device-code --private-link-scope "/subscriptions/.../Microsoft.HybridCompute/privateLinkScopes/ScopeName"
+azcmagent connect --subscription-id "Production" --resource-group "HybridServers" --location "koreacentral" --use-device-code --private-link-scope "/subscriptions/.../Microsoft.HybridCompute/privateLinkScopes/ScopeName"
 ```
 
 ## Authentication options
@@ -41,7 +45,7 @@ There are 4 ways to provide authentication credentials to the Azure connected ma
 
 ### Interactive browser login (Windows-only)
 
-This option is the default on Windows operating systems with a desktop experience. It login page opens in your default web browser. This option may be required if your organization has configured conditional access policies that require you to log in from trusted machines.
+This option is the default on Windows operating systems with a desktop experience. It login page opens in your default web browser. This option might be required if your organization has configured conditional access policies that require you to log in from trusted machines.
 
 No flag is required to use the interactive browser login.
 
@@ -59,7 +63,7 @@ To authenticate with a service principal, provide the service principal's applic
 
 ### Access token
 
-Access tokens can also be used for non-interactive authentication, but are short-lived and typically used by automation solutions onboarding several servers over a short period of time. You can get an access token with [Get-AzAccessToken](/powershell/module/az.accounts/get-azaccesstoken) or any other Azure Active Directory client.
+Access tokens can also be used for non-interactive authentication, but are short-lived and typically used by automation solutions onboarding several servers over a short period of time. You can get an access token with [Get-AzAccessToken](/powershell/module/az.accounts/get-azaccesstoken) or any other Microsoft Entra client.
 
 To authenticate with an access token, use the `--access-token [token]` flag. If the account you're logging in with and the subscription where you're registering the server aren't in the same tenant, you must also provide the tenant ID for the subscription with `--tenant-id [tenant]`.
 
@@ -67,7 +71,7 @@ To authenticate with an access token, use the `--access-token [token]` flag. If 
 
 `--access-token`
 
-Specifies the Azure Active Directory access token used to create the Azure Arc-enabled server resource in Azure. For more information, see [authentication options](#authentication-options).
+Specifies the Microsoft Entra access token used to create the Azure Arc-enabled server resource in Azure. For more information, see [authentication options](#authentication-options).
 
 `--automanage-profile`
 
@@ -83,7 +87,7 @@ Supported values:
 
 * AzureCloud (public regions)
 * AzureUSGovernment (Azure US Government regions)
-* AzureChinaCloud (Azure China regions)
+* AzureChinaCloud (Microsoft Azure operated by 21Vianet regions)
 
 `--correlation-id`
 
@@ -148,6 +152,10 @@ The tenant ID for the subscription where you want to create the Azure Arc-enable
 
 `--use-device-code`
 
-Generate an Azure Active Directory device login code that can be entered in a web browser on another computer to authenticate the agent with Azure. For more information, see [authentication options](#authentication-options).
+Generate a Microsoft Entra device login code that can be entered in a web browser on another computer to authenticate the agent with Azure. For more information, see [authentication options](#authentication-options).
+
+`--user-tenant-id`
+
+The tenant ID for the account used to connect the server to Azure. This field is required when the tenant of the onboarding account isn't the same as the desired tenant for the Azure Arc-enabled server resource.
 
 [!INCLUDE [common-flags](includes/azcmagent-common-flags.md)]

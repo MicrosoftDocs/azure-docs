@@ -2,7 +2,7 @@
 title: Logs Ingestion API in Azure Monitor
 description: Send data to a Log Analytics workspace using REST API or client libraries.
 ms.topic: conceptual
-ms.date: 06/27/2022
+ms.date: 09/14/2023
 
 ---
 
@@ -20,7 +20,7 @@ Your application sends data to a [data collection endpoint (DCE)](../essentials/
 
 You can modify the target table and workspace by modifying the DCR without any change to the API call or source data.
 
-:::image type="content" source="media/data-ingestion-api-overview/data-ingestion-api-overview.png" lightbox="media/data-ingestion-api-overview/data-ingestion-api-overview.png" alt-text="Diagram that shows an overview of logs ingestion API.":::
+:::image type="content" source="media/logs-ingestion-api-overview/data-ingestion-api-overview.png" lightbox="media/logs-ingestion-api-overview/data-ingestion-api-overview.png" alt-text="Diagram that shows an overview of logs ingestion API.":::
 
 > [!NOTE]
 > To migrate solutions from the [Data Collector API](data-collector-api.md), see [Migrate from Data Collector API and custom fields-enabled tables to DCR-based custom logs](custom-logs-migrate.md).
@@ -44,7 +44,7 @@ The following tables can receive data from the ingestion API.
 | Azure tables | The Logs Ingestion API can send data to the following Azure tables. Other tables may be added to this list as support for them is implemented.<br><br>- [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecuritylog)<br>- [SecurityEvents](/azure/azure-monitor/reference/tables/securityevent)<br>- [Syslog](/azure/azure-monitor/reference/tables/syslog)<br>- [WindowsEvents](/azure/azure-monitor/reference/tables/windowsevent)
 
 > [!NOTE]
-> Column names must start with a letter and can consist of up to 45 alphanumeric characters and the characters `_` and `-`. The following are reserved column names: `Type`, `TenantId`, `resource`, `resourceid`, `resourcename`, `resourcetype`, `subscriptionid`, `tenanted`. Custom columns you add to an Azure table must have the suffix `_CF`.
+> Column names must start with a letter and can consist of up to 45 alphanumeric characters and underscores (`_`).  `_ResourceId`, `id`, `_ResourceId`, `_SubscriptionId`, `TenantId`, `Type`, `UniqueId`, and `Title` are reserved column names. Custom columns you add to an Azure table must have the suffix `_CF`.
 
 ## Authentication
 
@@ -52,12 +52,12 @@ Authentication for the Logs Ingestion API is performed at the DCE, which uses st
 
 ### Token audience
 
-When developing a custom client to obtain an access token from Azure AD for the purpose of submitting telemetry to Log Ingestion API in Azure Monitor, refer to the table provided below to determine the appropriate audience string for your particular host environment.
+When developing a custom client to obtain an access token from Microsoft Entra ID for the purpose of submitting telemetry to Log Ingestion API in Azure Monitor, refer to the table provided below to determine the appropriate audience string for your particular host environment.
 
 | Azure cloud version | Token audience value |
 | --- | --- |
 | Azure public cloud | `https://monitor.azure.com` |
-| Azure China cloud | `https://monitor.azure.cn` |
+| Microsoft Azure operated by 21Vianet cloud | `https://monitor.azure.cn` |
 | Azure US Government cloud | `https://monitor.azure.us` |
 
 ## Source data
@@ -65,13 +65,14 @@ When developing a custom client to obtain an access token from Azure AD for the 
 The source data sent by your application is formatted in JSON and must match the structure expected by the DCR. It doesn't necessarily need to match the structure of the target table because the DCR can include a [transformation](../essentials//data-collection-transformations.md) to convert the data to match the table's structure.
 
 ## Client libraries
-You can use the following client libraries to send data to the Logs ingestion API.
+
+You can use the following client libraries to send data to the Logs ingestion API:
 
 - [.NET](/dotnet/api/overview/azure/Monitor.Ingestion-readme)
+- [Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/monitor/azingest)
 - [Java](/java/api/overview/azure/monitor-ingestion-readme)
 - [JavaScript](/javascript/api/overview/azure/monitor-ingestion-readme)
 - [Python](/python/api/overview/azure/monitor-ingestion-readme)
-
 
 ## REST API call
 To send data to Azure Monitor with a REST API call, make a POST call to the DCE over HTTP. Details of the call are described in the following sections.
@@ -107,6 +108,6 @@ For limits related to the Logs Ingestion API, see [Azure Monitor service limits]
 
 ## Next steps
 
-- [Walk through a tutorial configuring the i using the Azure portal](tutorial-logs-ingestion-portal.md)
+- [Walk through a tutorial sending data to Azure Monitor Logs with Logs ingestion API on the Azure portal](tutorial-logs-ingestion-portal.md)
 - [Walk through a tutorial sending custom logs using Resource Manager templates and REST API](tutorial-logs-ingestion-api.md)
 - Get guidance on using the client libraries for the Logs ingestion API for [.NET](/dotnet/api/overview/azure/Monitor.Ingestion-readme), [Java](/java/api/overview/azure/monitor-ingestion-readme), [JavaScript](/javascript/api/overview/azure/monitor-ingestion-readme), or [Python](/python/api/overview/azure/monitor-ingestion-readme).

@@ -45,7 +45,7 @@ To complete this tutorial:
 
 ## Create two instances of a web app
 
-You'll need two instances of a web app that run in different Azure regions for this tutorial. You'll use the [region pair](../availability-zones/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies) East US/West US as your two regions and create two empty web apps. Feel free to choose you're own regions if needed.
+You'll need two instances of a web app that run in different Azure regions for this tutorial. You'll use the [region pair](../availability-zones/cross-region-replication-azure.md#azure-paired-regions) East US/West US as your two regions and create two empty web apps. Feel free to choose you're own regions if needed.
 
 To make management and clean-up simpler, you'll use a single resource group for all resources in this tutorial. Consider using separate resource groups for each region/resource to further isolate your resources in a disaster recovery situation.
 
@@ -332,7 +332,7 @@ A default workflow file that uses a publish profile to authenticate to App Servi
 
 ### How do I disable basic auth on App Service?
 
-Consider [disabling basic auth on App Service](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html), which limits access to the FTP and SCM endpoints to users that are backed by Azure Active Directory (Azure AD). If using a continuous deployment tool to deploy your application source code, disabling basic auth will require [extra steps to configure continuous deployment](deploy-github-actions.md). For example, you won't be able to use a publish profile since that authentication mechanism doesn't use Azure AD backed credentials. Instead, you'll need to use either a [service principal or OpenID Connect](deploy-github-actions.md#generate-deployment-credentials).
+Consider [disabling basic auth on App Service](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html), which limits access to the FTP and SCM endpoints to users that are backed by Microsoft Entra ID. If using a continuous deployment tool to deploy your application source code, disabling basic auth will require [extra steps to configure continuous deployment](deploy-github-actions.md). For example, you won't be able to use a publish profile since that authentication mechanism doesn't use Microsoft Entra backed credentials. Instead, you'll need to use either a [service principal or OpenID Connect](deploy-github-actions.md#generate-deployment-credentials).
 
 To disable basic auth for your App Service, run the following commands for each app and slot by replacing the placeholders for `<web-app-east-us>` and `<web-app-west-us>` with your app names. The first set of commands disables FTP access for the production sites and staging slots, and the second set of commands disables basic auth access to the WebDeploy port and SCM site for the production sites and staging slots.
 

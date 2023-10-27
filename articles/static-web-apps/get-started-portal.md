@@ -36,7 +36,7 @@ Azure Static Web Apps publishes a website to a production environment by buildin
 
 ## Create a repository
 
-This article uses a Azure DevOps repository to make it easy for you to get started. The repository features a starter app used to deploy using Azure Static Web Apps.
+This article uses an Azure DevOps repository to make it easy for you to get started. The repository features a starter app used to deploy using Azure Static Web Apps.
 
 1. Sign in to Azure DevOps.
 2. Select **New repository**.

@@ -11,7 +11,7 @@ A control that adds an information box. The box contains important text or warni
 
 ## UI sample
 
-![Microsoft.Common.InfoBox](./media/managed-application-elements/microsoft-common-infobox.png)
+:::image type="content" source="./media/managed-application-elements/microsoft-common-infobox.png" alt-text="Screenshot of Microsoft.Common.InfoBox UI element displaying important text or warnings.":::
 
 
 ## Schema

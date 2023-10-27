@@ -31,7 +31,7 @@ Azure Event Grid is used at different stages of data pipelines to achieve a dive
 
 **MQTT messaging (preview)**. IoT devices and applications can communicate with each other over MQTT. Event Grid can also be used to route MQTT messages to Azure services or custom endpoints for further data analysis, visualization, or storage. This integration with Azure services enables you to build data pipelines that start with data ingestion from your IoT devices.
 
-**Data distribution using push and pull delivery (preview) modes**. At any point in a data pipeline, HTTP applications can consume messages using push or pull APIs. The source of the data may include MQTT clients’ data, but also includes the following data sources that send their events over HTTP:
+**Data distribution using push and pull delivery (preview) modes**. At any point in a data pipeline, HTTP applications can consume messages using push or pull APIs. The source of the data might include MQTT clients’ data, but also includes the following data sources that send their events over HTTP:
 
 - Azure services
 - Your custom applications
@@ -50,7 +50,8 @@ Event Grid offers a rich mixture of features. These features include:
 - **Publish-subscribe messaging model** - communicate efficiently using one-to-many, many-to-one, and one-to-one messaging patterns.
 - **[Built-in cloud integration](mqtt-routing.md)** - route your MQTT messages to Azure services or custom webhooks for further processing.
 - **Flexible and fine-grained [access control model](mqtt-access-control.md)** - group clients and topic to simplify access control management, and use the variable support in topic templates for a fine-grained access control.
-- **X.509 certificate [authentication](mqtt-client-authentication.md)** - authenticate your devices the standard mechanism for device authentication in the IoT industry.
+- **X.509 certificate [authentication](mqtt-client-authentication.md)** - authenticate your devices using the IoT industry's standard mechanism for authentication.
+- **[AAD authentication](mqtt-client-azure-ad-token-and-rbac.md)** - authenticate your applications using the Azure's standard mechanism for authentication.
 - **TLS 1.2 and TLS 1.3 support** - secure your client communication using robust encryption protocols.
 - **Multi-session support** - connect your applications with multiple active sessions to ensure reliability and scalability.
 - **MQTT over WebSockets** - enable connectivity for clients in firewall-restricted environments.
@@ -122,9 +123,9 @@ Event Grid can receive events from 20+ Azure services so that you can automate y
 Your own service or application publishes events to Event Grid that subscriber applications process. Event Grid features [Custom Topics](custom-topics.md) to address basic integration scenarios and [Domains](event-domains.md) to offer a simple management and routing model when you need to distribute events to hundreds or thousands of different groups.
 
 #### Receive events from partner (SaaS providers)
-:::image type="content" source="media/overview/receive-saas-providers.png" alt-text="Diagram that shows an external partner application publishing events to Event Grid using HTTP. Event Grid sends those events to webhooks or Azure services." lightbox="media/overview/receive-saas-providers-high-res.png" border="false":::
+:::image type="content" source="media/overview/receive-saas-providers.png" alt-text="Diagram that shows an external partner application publishing event to Event Grid using HTTP. Event Grid sends those events to webhooks or Azure services." lightbox="media/overview/receive-saas-providers-high-res.png" border="false":::
 
-A multi-tenant SaaS provider or platform can publish their events to Event Grid through a feature called [Partner Events](partner-events-overview.md). You can [subscribe to those events](subscribe-to-partner-events.md) and automate tasks, for example. Events from the following partners are currently available:
+A multitenant SaaS provider or platform can publish their events to Event Grid through a feature called [Partner Events](partner-events-overview.md). You can [subscribe to those events](subscribe-to-partner-events.md) and automate tasks, for example. Events from the following partners are currently available:
 
 - [Auth0](auth0-overview.md)
 - [Microsoft Graph API](subscribe-to-graph-api-events.md). Through Microsoft Graph API you can get events from [Azure AD](azure-active-directory-events.md), [Microsoft Outlook](outlook-events.md), [Teams](teams-events.md), Conversations, security alerts, and Universal Print.
@@ -157,7 +158,7 @@ One or more clients can connect to Azure Event Grid to read messages at their ow
 You can configure **private links** to connect to Azure Event Grid to **publish and read** CloudEvents through a [private endpoint](../private-link/private-endpoint-overview.md) in your virtual network. Traffic between your virtual network and Event Grid travels the Microsoft backbone network.
 
 >[!Important]
-> Private links are available with pull delivery, not with push delivery. This is not a gap. Private links “…[enables you to access Azure PaaS Services](../private-link/private-link-overview.md)…” That is, private links were designed to be used when you connect to Event Grid for publishing events or receiving events, not when Event Grid is connecting (sending events) to your webhook or Azure Service.
+> [Private links](../private-link/private-link-overview.md) are available with pull delivery, not with push delivery. You can use private links when your application connects to Event Grid to publish events or receive events, not when Event Grid connects to your webhook or Azure service to deliver events. 
 
 ## How much does Event Grid cost?
 

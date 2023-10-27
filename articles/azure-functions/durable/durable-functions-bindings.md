@@ -18,7 +18,6 @@ Make sure to choose your Durable Functions development language at the top of th
 
 > [!IMPORTANT]   
 > This article supports both Python v1 and Python v2 programming models for Durable Functions.  
-> The Python v2 programming model is currently in preview. 
 
 ## Python v2 programming model
 
@@ -26,9 +25,9 @@ Durable Functions provides preview support of the new [Python v2 programming mod
 
 Using [Extension Bundles](../functions-bindings-register.md#extension-bundles) isn't currently supported for the v2 model with Durable Functions. You'll instead need to manage your extensions manually as follows:
 
-1. Remove the `extensionBundle` section of your `host.json` as described in [this Functions article](../functions-run-local.md#install-extensions).
+1. Remove the `extensionBundle` section of your `host.json` file.
  
-1. Run the `func extensions install --package Microsoft.Azure.WebJobs.Extensions.DurableTask --version 2.9.1` command on your terminal. This installs the Durable Functions extension for your app, which allows you to use the v2 model preview.
+1. Run the `func extensions install --package Microsoft.Azure.WebJobs.Extensions.DurableTask --version 2.9.1` command on your terminal. This installs the Durable Functions extension for your app, which allows you to use the v2 model preview. For more information, see [func extensions install](../functions-core-tools-reference.md#func-extensions-install).
 
 ::: zone-end
 
@@ -434,7 +433,7 @@ public String sayHello(@DurableActivityTrigger(name = "name") String name) {
 You can use regular input and output bindings in addition to the activity trigger binding. 
 
 ::: zone pivot="programming-language-javascript" 
-For example, you can take the input to your activity binding, and send a message to an EventHub using the EventHub output binding:
+For example, you can take the input to your activity binding, and send a message to an Event Hub using the Event Hubs output binding:
 
 ```json
 {
@@ -725,7 +724,7 @@ Internally, this trigger binding polls the configured durable store for new enti
 The entity trigger is configured using the [EntityTriggerAttribute](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.entitytriggerattribute) .NET attribute.
 
 > [!NOTE]
-> Entity triggers aren't yet supported for isolated worker process apps.
+> Entity triggers are currently in **preview** for isolated worker process apps. [Learn more.](durable-functions-dotnet-entities.md)
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-powershell" 
 The entity trigger is defined by the following JSON object in the `bindings` array of *function.json*:

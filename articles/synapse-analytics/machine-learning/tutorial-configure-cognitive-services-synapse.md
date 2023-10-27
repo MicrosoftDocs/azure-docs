@@ -44,9 +44,9 @@ You can create an [Anomaly Detector](https://portal.azure.com/#create/Microsoft.
 
 ![Screenshot that shows Anomaly Detector in the portal, with the Create button.](media/tutorial-configure-cognitive-services/tutorial-configure-cognitive-services-00a.png)
 
-You can create a [Form Recognizer](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) resource (for Document Intelligence) in the Azure portal:
+You can create an [Azure AI Document Intelligence](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) resource (for Document Intelligence) in the Azure portal:
 
-![Screenshot that shows Form Recognizer in the portal, with the Create button.](media/tutorial-configure-cognitive-services/tutorial-configure-form-recognizer.png)
+![Screenshot that shows Azure AI Document Intelligence in the portal, with the Create button.](media/tutorial-configure-cognitive-services/tutorial-configure-form-recognizer.png)
 
 You can create a [Translator](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) resource in the Azure portal:
 

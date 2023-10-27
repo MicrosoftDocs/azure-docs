@@ -1,11 +1,11 @@
 ---
-title: Manage secrets with agentless secret scanning
+title: Manage secrets with agentless secret scanning (preview)
 description: Learn how to scan your servers for secrets with Defender for Server's agentless secret scanning.
 ms.topic: overview
-ms.date: 07/18/2023
+ms.date: 08/15/2023
 ---
 
-# Manage secrets with agentless secret scanning
+# Manage secrets with agentless secret scanning (preview)
 
 Attackers can move laterally across networks, find sensitive data, and exploit vulnerabilities to damage critical information systems by accessing internet-facing workloads and exploiting exposed credentials and secrets.
 
@@ -13,12 +13,12 @@ Defender for Cloud's agentless secret scanning for Virtual Machines (VM) locates
 
 By using agentless secret scanning, you can proactively discover the following types of secrets across your environments:
 
-- **Insecure SSH private keys** - supports RSA algorithm for PuTTy files, PKCS#8 and PKCS#1 standards
-- **Plaintext Azure SQL connection strings** - supports SQL PAAS
-- **Plaintext Azure storage account connection strings**
-- **Plaintext Azure storage account SAS tokens**
-- **Plaintext AWS access keys**
-- **Plaintext AWS RDS SQL connection string** -supports SQL PAAS
+- **Insecure SSH private keys (Azure, AWS, GCP)** - supports RSA algorithm for PuTTy files, PKCS#8 and PKCS#1 standards
+- **Plaintext Azure SQL connection strings (Azure, AWS)** - supports SQL PAAS
+- **Plaintext Azure storage account connection strings (Azure, AWS)**
+- **Plaintext Azure storage account SAS tokens (Azure, AWS)**
+- **Plaintext AWS access keys (Azure, AWS)**
+- **Plaintext AWS RDS SQL connection string (Azure, AWS)** -supports SQL PAAS
 
 In addition to detecting SSH private keys, the agentless scanner verifies whether they can be used to move laterally in the network. Keys that we didn't successfully verify are categorized as **unverified** in the **Recommendation** pane.
 
@@ -68,6 +68,12 @@ Agentless secret scanning for AWS instances supports the following attack path s
 
 - `Vulnerable EC2 instance has insecure secrets that are used to authenticate to an AWS RDS server`.
 
+### GCP instances supported attack path scenarios
+
+Agentless secret scanning for GCP VM instances supports the following attack path scenarios:
+
+- `Exposed Vulnerable GCP VM instance has an insecure SSH private key that is used to authenticate to a GCP VM instance`.
+
 **To investigate secrets with Attack path**:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -88,6 +94,8 @@ If a secret is found on your resource, that resource triggers an affiliated reco
 
 - **AWS resources**: `EC2 instances should have secret findings resolved`
 
+- **GCP resources**: `VM instances should have secret findings resolved`
+
 **To remediate secrets from the recommendations page**:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -101,6 +109,7 @@ If a secret is found on your resource, that resource triggers an affiliated reco
     - **Azure resources**: `Machines should have secrets findings resolved`
 
     - **AWS resources**: `EC2 instances should have secret findings resolved`
+    - **GCP resources**: `VM instances should have secret findings resolved`
 
         :::image type="content" source="media/secret-scanning/recommendation-findings.png" alt-text="Screenshot that shows either of the two results under the Remediate vulnerabilities security control." lightbox="media/secret-scanning/recommendation-findings.png":::
 
@@ -130,9 +139,9 @@ The [cloud security explorer](concept-attack-path.md#what-is-cloud-security-expl
 
 1. Select one of the following templates:
 
-    - **VM with plaintext secret that can authenticate to another VM** - Returns all Azure VMs or AWS EC2 instances with plaintext secret that can access other VMs or EC2s.
-    - **VM with plaintext secret that can authenticate to a storage account** - Returns all Azure VMs or AWS EC2 instances with plaintext secret that can access storage accounts.
-    - **VM with plaintext secret that can authenticate to a SQL database** - Returns all Azure VMs or AWS EC2 instances with plaintext secret that can access SQL databases.
+    - **VM with plaintext secret that can authenticate to another VM** - Returns all Azure VMs, AWS EC2 instances, or GCP VM instances with plaintext secret that can access other VMs or EC2s.
+    - **VM with plaintext secret that can authenticate to a storage account** - Returns all Azure VMs, AWS EC2 instances, or GCP VM instances with plaintext secret that can access storage accounts.
+    - **VM with plaintext secret that can authenticate to a SQL database** - Returns all Azure VMs, AWS EC2 instances, or GCP VM instances with plaintext secret that can access SQL databases.
 
 If you don't want to use any of the available templates, you can also [build your own query](how-to-manage-cloud-security-explorer.md) on the cloud security explorer.
 

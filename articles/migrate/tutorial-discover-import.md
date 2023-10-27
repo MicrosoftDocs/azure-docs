@@ -5,7 +5,7 @@ author: rashi-ms
 ms.author: rajosh
 ms.manager: ronai
 ms.topic: tutorial
-ms.date: 06/29/2023
+ms.date: 09/21/2023
 ms.service: azure-migrate
 ms.custom: engagement-fy23
 
@@ -50,7 +50,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 To create an Azure Migrate project, you need an account with:
 
 - Contributor or Owner permissions on an Azure subscription.
-- Permissions to register Azure Active Directory apps.
+- Permissions to register Microsoft Entra apps.
 
 If you just created a free Azure account, you're the owner of your subscription. If you're not the subscription owner, work with the owner to assign the permissions as follows:
 
@@ -76,7 +76,7 @@ If you just created a free Azure account, you're the owner of your subscription.
 
 1. In the portal, search for users, and under **Services**, select **Users**.
 
-1. In **User settings**, verify that Azure AD users can register applications (set to **Yes** by default).
+1. In **User settings**, verify that Microsoft Entra users can register applications (set to **Yes** by default).
 
     ![Verify in User Settings that users can register Active Directory apps](./media/tutorial-discover-import/register-apps.png)
 
@@ -92,7 +92,8 @@ Set up a new Azure Migrate project if you don't have one.
 
    ![Boxes for project name and region](./media/tutorial-discover-import/new-project.png)  
     > [!Note]
-    > Use the **Advanced** configuration section to create an Azure Migrate project with private endpoint connectivity. [Learn more](discover-and-assess-using-private-endpoints.md#create-a-project-with-private-endpoint-connectivity)
+    > - Use the **Advanced** configuration section to create an Azure Migrate project with private endpoint connectivity. [Learn more](discover-and-assess-using-private-endpoints.md#create-a-project-with-private-endpoint-connectivity).
+    > - Ensure that you allow network access to the Azure vNet (*selected during project creation with private endpoint connectivity*) from the IP address of the machine that you choose to upload the CSV file from. 
 
 7. Select **Create**.
 8. Wait a few minutes for the Azure Migrate project to deploy.

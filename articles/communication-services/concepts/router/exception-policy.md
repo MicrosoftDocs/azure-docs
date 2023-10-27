@@ -10,7 +10,7 @@ ms.author: danielgerlag
 ms.date: 01/28/2022
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.custom: devx-track-extended-java, devx-track-js
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: acs-js-csharp-java-python
 ---
 

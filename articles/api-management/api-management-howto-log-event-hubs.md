@@ -116,9 +116,24 @@ Include a JSON snippet similar to the following in your Azure Resource Manager t
 
 For prerequisites, see [Configure API Management managed identity](#option-2-configure-api-management-managed-identity).
 
-#### [PowerShell](#tab/PowerShell)
+#### [REST API](#tab/PowerShell)
 
 Use the API Management [REST API](/rest/api/apimanagement/current-preview/logger/create-or-update) or a Bicep or ARM template to configure a logger to an event hub with system-assigned managed identity credentials.
+
+```JSON
+{
+  "properties": {
+    "loggerType": "azureEventHub",
+    "description": "adding a new logger with system assigned managed identity",
+    "credentials": {
+         "endpointAddress":"<EventHubsNamespace>.servicebus.windows.net",
+         "identityClientId":"SystemAssigned",
+         "name":"<EventHubName>"
+    }
+  }
+}
+
+```
 
 #### [Bicep](#tab/bicep)
 
@@ -132,9 +147,9 @@ resource ehLoggerWithSystemAssignedIdentity 'Microsoft.ApiManagement/service/log
     loggerType: 'azureEventHub'
     description: 'Event hub logger with system-assigned managed identity'
     credentials: {
-      endpointAddress: '<EventHubsNamespace>.servicebus.windows.net/<EventHubName>'
+      endpointAddress: '<EventHubsNamespace>.servicebus.windows.net'
       identityClientId: 'systemAssigned'
-      name: 'ApimEventHub'
+      name: '<EventHubName>'
     }
   }
 }
@@ -154,9 +169,9 @@ Include a JSON snippet similar to the following in your Azure Resource Manager t
     "description": "Event hub logger with system-assigned managed identity",
     "resourceId": "<EventHubsResourceID>",
     "credentials": {
-      "endpointAddress": "<EventHubsNamespace>.servicebus.windows.net/<EventHubName>",
+      "endpointAddress": "<EventHubsNamespace>.servicebus.windows.net",
       "identityClientId": "SystemAssigned",
-      "name": "ApimEventHub"
+      "name": "<EventHubName>"
     },
   }
 }
@@ -166,9 +181,24 @@ Include a JSON snippet similar to the following in your Azure Resource Manager t
 
 For prerequisites, see [Configure API Management managed identity](#option-2-configure-api-management-managed-identity).
 
-#### [PowerShell](#tab/PowerShell)
+#### [REST API](#tab/PowerShell)
 
 Use the API Management [REST API](/rest/api/apimanagement/current-preview/logger/create-or-update) or a Bicep or ARM template to configure a logger to an event hub with user-assigned managed identity credentials.
+
+```JSON
+{
+  "properties": {
+    "loggerType": "azureEventHub",
+    "description": "adding a new logger with system assigned managed identity",
+    "credentials": {
+         "endpointAddress":"<EventHubsNamespace>.servicebus.windows.net",
+         "identityClientId":"<ClientID>",
+         "name":"<EventHubName>"
+    }
+  }
+}
+
+```
 
 #### [Bicep](#tab/bicep)
 
@@ -182,9 +212,9 @@ resource ehLoggerWithUserAssignedIdentity 'Microsoft.ApiManagement/service/logge
     loggerType: 'azureEventHub'
     description: 'Event hub logger with user-assigned managed identity'
     credentials: {
-      endpointAddress: '<EventHubsNamespace>.servicebus.windows.net/<EventHubName>'
+      endpointAddress: '<EventHubsNamespace>.servicebus.windows.net'
       identityClientId: '<ClientID>'
-      name: 'ApimEventHub'
+      name: '<EventHubName>'
     }
   }
 }
@@ -204,9 +234,9 @@ Include a JSON snippet similar to the following in your Azure Resource Manager t
     "description": "Event hub logger with user-assigned managed identity",
     "resourceId": "<EventHubsResourceID>",
     "credentials": {
-      "endpointAddress": "<EventHubsNamespace>.servicebus.windows.net/<EventHubName>",
+      "endpointAddress": "<EventHubsNamespace>.servicebus.windows.net",
       "identityClientId": "<ClientID>",
-      "name": "ApimEventHub"
+      "name": "<EventHubName>"
     },
   }
 }

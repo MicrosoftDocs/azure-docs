@@ -110,13 +110,13 @@ The following instructions describe how to provision an Azure Cache for Redis an
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-You can find the template used in this quickstart in the [fitness store sample GitHub repository](https://github.com/Azure-Samples/acme-fitness-store/blob/Azure/azure/templates/azuredeploy.json).
+You can find the template used in this quickstart in the [fitness store sample GitHub repository](https://github.com/Azure-Samples/acme-fitness-store/blob/Azure/azure-spring-apps-enterprise/resources/json/deploy/azuredeploy.json).
 
 To deploy this template, follow these steps:
 
 1. Select the following image to sign in to Azure and open a template. The template creates an Azure Cache for Redis and an Azure Database for PostgreSQL Flexible Server.
 
-   :::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Button to deploy the ARM template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Facme-fitness-store%2FAzure%2Fazure%2Ftemplates%2Fazuredeploy.json":::
+   :::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Button to deploy the ARM template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Facme-fitness-store%2FAzure%2Fazure-spring-apps-enterprise%2Fresources%2Fjson%2Fdeploy%2Fazuredeploy.json":::
 
 1. Enter values for the following fields:
 
@@ -226,11 +226,15 @@ The following steps show how to bind applications running in the Azure Spring Ap
        --app cart-service \
        --connection cart_service_cache | jq -r '.configurations[0].value')
 
+   export GATEWAY_URL=$(az spring gateway show \
+       --resource-group <resource-group-name> \
+       --service <Azure-Spring-Apps-service-instance-name> | jq -r '.properties.url')
+    
    az spring app update \
        --resource-group <resource-group-name> \
        --name cart-service \
        --service <Azure-Spring-Apps-service-instance-name> \
-       --env "CART_PORT=8080" "REDIS_CONNECTIONSTRING=${REDIS_CONN_STR}"
+       --env "CART_PORT=8080" "REDIS_CONNECTIONSTRING=${REDIS_CONN_STR}" "AUTH_URL=https://${GATEWAY_URL}"
    ```
 
 ## Access the application

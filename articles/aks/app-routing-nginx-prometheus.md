@@ -3,7 +3,7 @@ title: Monitor the ingress-nginx controller metrics in the application routing a
 description: Configure Prometheus to scrape the ingress-nginx controller metrics.
 ms.service: azure-kubernetes-service
 ms.subservice: aks-networking
-ms.custom: devx-track-azurecli
+ms.custom:
 author: sabbour
 ms.topic: how-to
 ms.date: 07/12/2023

@@ -7,14 +7,14 @@ ms.topic: conceptual
 
 # Cross-tenant management experiences
 
-As a service provider, you can use [Azure Lighthouse](../overview.md) to manage your customers' Azure resources from within your own Azure Active Directory (Azure AD) tenant. Many common tasks and services can be performed across these managed tenants.
+As a service provider, you can use [Azure Lighthouse](../overview.md) to manage your customers' Azure resources from within your own Microsoft Entra tenant. Many common tasks and services can be performed across these managed tenants.
 
 > [!TIP]
-> Azure Lighthouse can also be used [within an enterprise which has multiple Azure AD tenants of its own](enterprise.md) to simplify cross-tenant administration.
+> Azure Lighthouse can also be used [within an enterprise which has multiple Microsoft Entra tenants of its own](enterprise.md) to simplify cross-tenant administration.
 
 ## Understanding tenants and delegation
 
-An Azure AD tenant is a representation of an organization. It's a dedicated instance of Azure AD that an organization receives when they create a relationship with Microsoft by signing up for Azure, Microsoft 365, or other services. Each Azure AD tenant is distinct and separate from other Azure AD tenants, and has its own tenant ID (a GUID). For more information, see [What is Azure Active Directory?](../../active-directory/fundamentals/active-directory-whatis.md)
+A Microsoft Entra tenant is a representation of an organization. It's a dedicated instance of Microsoft Entra ID that an organization receives when they create a relationship with Microsoft by signing up for Azure, Microsoft 365, or other services. Each Microsoft Entra tenant is distinct and separate from other Microsoft Entra tenants, and has its own tenant ID (a GUID). For more information, see [What is Microsoft Entra ID?](../../active-directory/fundamentals/active-directory-whatis.md)
 
 Typically, in order to manage Azure resources for a customer, service providers must sign in to the Azure portal using an account associated with that customer's tenant. In this scenario, an administrator in the customer's tenant must create and manage user accounts for the service provider.
 
@@ -135,7 +135,7 @@ Most Azure tasks and services can be used with delegated resources across manage
 - Use boot diagnostics to troubleshoot Azure VMs
 - Access VMs with serial console
 - Integrate VMs with Azure Key Vault for passwords, secrets, or cryptographic keys for disk encryption by using [managed identity through policy](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/create-keyvault-secret), ensuring that secrets are stored in a Key Vault in the managed tenants
-- Note that you can't use Azure Active Directory for remote login to VMs
+- Note that you can't use Microsoft Entra ID for remote login to VMs
 
 [Microsoft Defender for Cloud](../../security-center/index.yml):
 

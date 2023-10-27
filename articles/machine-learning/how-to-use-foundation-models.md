@@ -47,7 +47,7 @@ You can quickly test out any pre-trained model using the Sample Inference widget
 > * When `egress_public_network_access` is set to `disabled`, the deployment can only access the workspace-associated resources secured in the virtual network. 
 > * When `egress_public_network_access` is set to `enabled` for a managed online endpoint deployment, the deployment can only access the resources with public access. Which means that it cannot access resources secured in the virtual network.
 >
-> For more information, see [Outbound resource access for managed online endpoints](how-to-secure-online-endpoint.md#outbound-resource-access).
+> For more information, see [Secure outbound access with legacy network isolation method](concept-secure-online-endpoint.md#secure-outbound-access-with-legacy-network-isolation-method).
 
 ## How to evaluate foundation models using your own test data
 
@@ -75,10 +75,6 @@ Each model can be evaluated for the specific inference task that the model can b
 1. Provide the Azure Machine Learning Compute cluster you would like to use for finetuning the model. Evaluation needs to run on GPU compute. Ensure that you have sufficient compute quota for the compute SKUs you wish to use.
 
 1.  Select **Finish** in the Evaluate wizard to submit your evaluation job. Once the job completes, you can view evaluation metrics for the model. Based on the evaluation metrics, you might decide if you would like to finetune the model using your own training data. Additionally, you can decide if you would like to register the model and deploy it to an endpoint.
-
-**Advanced Evaluation Parameters:**
-
-* The Evaluate UI wizard, allows you to perform basic evaluation by providing your own test data. Additionally, there are several advanced evaluation parameters described [in this reference page](https://github.com/Azure/azureml-assets/blob/main/training/model_evaluation/components/evaluate_model/README.md), such as evaluation config. Each of these settings has default values, but can be customized via code based samples, if needed.
 
 ### Evaluating using code based samples
 
@@ -115,10 +111,6 @@ You can invoke the finetune settings form by selecting on the **Finetune** butto
 
 3. Select **Finish** in the finetune form to submit your finetuning job. Once the job completes, you can view evaluation metrics for the finetuned model. You can then register the finetuned model output by the finetuning job and deploy this model to an endpoint for inferencing.
 
-**Advanced finetuning parameters:**
-
-The finetuning feature, allows you to perform basic finetuning by providing your own training data. Additionally, there are several advanced finetuning parameters, such as learning rate, epochs, batch size, etc., described in the Readme file for each task [here](https://github.com/Azure/azureml-assets/tree/main/training/finetune_acft_hf_nlp/components/finetune). Each of these settings has default values, but can be customized via code based samples, if needed.
-
 ### Finetuning using code based samples
 
 Currently, Azure Machine Learning supports finetuning models for the following language tasks:
@@ -145,6 +137,10 @@ Deployment Settings:
 Since the scoring script and environment are automatically included with the foundation model, you only need to specify the Virtual machine SKU to use, number of instances and the endpoint name to use for the deployment.
 
 :::image type="content" source="./media/how-to-use-foundation-models/deploy-options.png" alt-text="Screenshot showing the deploy options on the foundation model card after user selects the deploy button.":::
+
+If you're deploying a Llama model from the model catalog but don't have enough quota available for the deployment, Azure Machine Learning allows you to use quota from a shared quota pool for a limited time. For _Llama-2-70b_ and _Llama-2-70b-chat_ model deployment, access to the shared quota is available only to customers with [Enterprise Agreement subscriptions](/azure/cost-management-billing/manage/create-enterprise-subscription). For more information on shared quota, see [Azure Machine Learning shared quota](how-to-manage-quotas.md#azure-machine-learning-shared-quota).
+
+:::image type="content" source="media/how-to-use-foundation-models/deploy-llama-model-with-shared-quota.png" alt-text="Screenshot showing the option to deploy a Llama model temporarily, using shared quota." lightbox="media/how-to-use-foundation-models/deploy-llama-model-with-shared-quota.png":::
 
 ### Deploying using code based samples
 

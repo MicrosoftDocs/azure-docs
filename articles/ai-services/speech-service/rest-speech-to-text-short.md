@@ -5,8 +5,7 @@ description: Learn how to use Speech to text REST API for short audio to convert
 services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: reference
 ms.date: 05/02/2023
 ms.author: eur
@@ -38,7 +37,7 @@ https://<REGION_IDENTIFIER>.stt.speech.microsoft.com/speech/recognition/conversa
 Replace `<REGION_IDENTIFIER>` with the identifier that matches the [region](regions.md) of your Speech resource.
 
 > [!NOTE]
-> For Azure Government and Azure China endpoints, see [this article about sovereign clouds](sovereign-clouds.md).
+> For Azure Government and Microsoft Azure operated by 21Vianet endpoints, see [this article about sovereign clouds](sovereign-clouds.md).
 
 ## Audio formats
 
@@ -47,7 +46,7 @@ Audio is sent in the body of the HTTP `POST` request. It must be in one of the f
 | Format | Codec | Bit rate | Sample rate  |
 |--------|-------|----------|--------------|
 | WAV    | PCM   | 256 kbps | 16 kHz, mono |
-| OGG    | OPUS  | 256 kpbs | 16 kHz, mono |
+| OGG    | OPUS  | 256 kbps | 16 kHz, mono |
 
 > [!NOTE]
 > The preceding formats are supported through the REST API for short audio and WebSocket in the Speech service. The [Speech SDK](speech-sdk.md) supports the WAV format with PCM codec as well as [other formats](how-to-use-codec-compressed-audio-input-streams.md).

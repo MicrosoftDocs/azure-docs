@@ -20,8 +20,8 @@ This article describes how to access an Azure Data Explorer database from Synaps
 * [Create an Azure Data Explorer cluster and database](/azure/data-explorer/create-cluster-database-portal).
 * Have an existing Azure Synapse Analytics workspace, or create a new workspace by following the steps in [Quickstart: Create an Azure Synapse workspace](./quickstart-create-workspace.md).
 * Have an existing Apache Spark pool, or create a new pool by following the steps in [Quickstart: Create an Apache Spark pool using the Azure portal](./quickstart-create-apache-spark-pool-portal.md).
-* [Create an Azure Active Directory (Azure AD) app by provisioning an Azure AD application](/azure/data-explorer/kusto/management/access-control/how-to-provision-aad-app).
-* Grant your Azure AD app access to your database by following the steps in [Manage Azure Data Explorer database permissions](/azure/data-explorer/manage-database-permissions).
+* [Create a Microsoft Entra app by provisioning a Microsoft Entra application](/azure/data-explorer/kusto/management/access-control/how-to-provision-aad-app).
+* Grant your Microsoft Entra app access to your database by following the steps in [Manage Azure Data Explorer database permissions](/azure/data-explorer/manage-database-permissions).
 
 ## Go to Synapse Studio
 
@@ -56,7 +56,7 @@ From the Data Object Explorer, follow these steps to directly connect an Azure D
 1. Before you can interact with the linked service from a notebook, it must be published to the Workspace. Click **Publish** in the toolbar, review the pending changes and click **OK**.
 
     > [!NOTE]
-    > In the current release, the database objects are populated based on your Azure AD account permissions on the Azure Data Explorer databases. When you run the Apache Spark notebooks or integration jobs, the credential in the link service will be used (for example, service principal).
+    > In the current release, the database objects are populated based on your Microsoft Entra account permissions on the Azure Data Explorer databases. When you run the Apache Spark notebooks or integration jobs, the credential in the link service will be used (for example, service principal).
 
 ## Quickly interact with code-generated actions
 

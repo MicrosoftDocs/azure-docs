@@ -6,7 +6,7 @@ author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
-ms.custom: ignite-2022
+ms.custom: 
 ms.topic: how-to
 ms.date: 12/06/2022
 ---
@@ -123,7 +123,7 @@ GET /indexers/[indexer name]/status?api-version=[api-version]
 
 ### [**.NET SDK (C#)**](#tab/reset-indexer-csharp)
 
-The following example (from [azure-search-dotnet-samples/multiple-data-sources/](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/multiple-data-sources/v11/src/Program.cs)) illustrates the [**ResetIndexers**](/dotnet/api/azure.search.documents.indexes.searchindexerclient.resetindexer) and [**RunIndexers**](/dotnet/api/azure.search.documents.indexes.searchindexerclient.runindexer) methods in the Azure .NET SDK.
+The following example (from [azure-search-dotnet-samples/multiple-data-sources/](https://github.com/Azure-Samples/azure-search-dotnet-scale/blob/main/multiple-data-sources/v11/src/Program.cs)) illustrates the [**ResetIndexers**](/dotnet/api/azure.search.documents.indexes.searchindexerclient.resetindexer) and [**RunIndexers**](/dotnet/api/azure.search.documents.indexes.searchindexerclient.runindexer) methods in the Azure .NET SDK.
 
 ```csharp
 // Reset the indexer if it already exists
@@ -264,7 +264,6 @@ Reset APIs are used to inform the scope of the next indexer run. For actual proc
 
 After you reset and rerun indexer jobs, you can monitor status from the search service, or obtain detailed information through resource logging.
 
-+ [Indexer operations (REST)](/rest/api/searchservice/indexer-operations)
 + [Monitor search indexer status](search-howto-monitor-indexers.md)
 + [Collect and analyze log data](monitor-azure-cognitive-search.md)
 + [Schedule an indexer](search-howto-schedule-indexers.md)

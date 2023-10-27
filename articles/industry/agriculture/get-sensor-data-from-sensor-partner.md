@@ -3,6 +3,7 @@ title: Get sensor data from the partners
 description: This article describes how to get sensor data from partners.
 author: RiyazPishori
 ms.topic: article
+ms.custom: has-azure-ad-ps-ref
 ms.date: 11/04/2019
 ms.author: riyazp
 ---
@@ -42,7 +43,7 @@ Follow the below steps to  generate the above information:
 
 2. **If you are on FarmBeats version 1.2.7 or later, skip steps a, b and c, and go to step 3.** You can check FarmBeats version by selecting the **Settings** icon on the top-right corner of the FarmBeats UI.
 
-      a.  Go to **Azure Active Directory** > **App Registrations**
+      a.  Go to **Microsoft Entra ID** > **App Registrations**
 
       b. Select the **App Registration** that was created as part of your FarmBeats deployment. It will have the same name as your FarmBeats datahub.
 
@@ -62,7 +63,7 @@ Follow the below steps to  generate the above information:
     cd
     ```
 
-6. Run the following command. This connects an authenticated account to use for Azure AD requests
+6. Run the following command. This connects an authenticated account to use for Microsoft Entra ID requests
 
     ```azurepowershell-interactive
     Connect-AzureAD
@@ -76,7 +77,7 @@ Follow the below steps to  generate the above information:
 
     ```
 
-8. Run the following script. The script asks for the Tenant ID, which can be obtained from **Azure Active Directory** > **Overview** page.
+8. Run the following script. The script asks for the Tenant ID, which can be obtained from **Microsoft Entra ID** > **Overview** page.
 
     ```azurepowershell-interactive
 
