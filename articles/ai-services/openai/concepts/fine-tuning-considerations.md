@@ -18,7 +18,7 @@ When deciding whether or not fine-tuning is the right solution to explore for a 
 
 - [Prompt Engineering](/azure/ai-services/openai/concepts/prompt-engineering) is a technique that involves designing prompts for natural language processing models. This process improves accuracy and relevancy in responses, optimizing the performance of the model.
 - [Retrieval Augmented Generation (RAG)](/azure/machine-learning/concept-retrieval-augmented-generation?view=azureml-api-2&preserve-view=true) improves Large Language Model (LLM) performance by retrieving data from external sources and incorporating it into a prompt. RAG allows businesses to achieve customized solutions while maintaining data relevance and optimizing costs.
-- [Fine-tuning](/azure/ai-services/openai/how-to/fine-tuning?pivots=programming-language-studio) retrains an existing Large Language Model using example data, resulting in a new "custom"  Large Lanugage Model that has been optimized using the provided examples.
+- [Fine-tuning](/azure/ai-services/openai/how-to/fine-tuning?pivots=programming-language-studio) retrains an existing Large Language Model using example data, resulting in a new "custom" Large Language Model that has been optimized using the provided examples.
 
 ## What is Fine Tuning with Azure OpenAI?
 
