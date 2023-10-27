@@ -22,12 +22,12 @@ You can discover detections in two ways:
 
 * **You receive an email** from Application Insights. Here's a typical example:
   
-    ![Screenshot that shows an email alert.](./media/proactive-diagnostics/03.png)
+    :::image type="content" source="./media/proactive-diagnostics/03.png" lightbox="./media/proactive-diagnostics/03.png" alt-text="Screenshot that shows an email alert.":::
   
     Select **See the analysis of this issue** to see more information in the portal.
 * **The smart detection pane** in Application Insights. Under the **Investigate** menu, select **Smart Detection** to see a list of recent detections.
 
-   ![Screenshot that shows recent detections.](./media/proactive-diagnostics/04.png)
+   :::image type="content" source="./media/proactive-diagnostics/04.png" lightbox="./media/proactive-diagnostics/04.png" alt-text="Screenshot that shows recent detections.":::
 
 Select a detection to view its details.
 

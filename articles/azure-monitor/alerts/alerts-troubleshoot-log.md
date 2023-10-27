@@ -31,7 +31,7 @@ Log alerts provide an option to mute fired alert actions for a set amount of tim
 
 A common issue is that you think that the alert didn't fire, but it was actually the rule configuration.
 
-![Suppress alerts](media/alerts-troubleshoot-log/LogAlertSuppress.png)
+:::image type="content" source="media/alerts-troubleshoot-log/LogAlertSuppress.png" lightbox="media/alerts-troubleshoot-log/LogAlertSuppress.png" alt-text="Suppress alerts":::
 
 ### Alert scope resource has been moved, renamed, or deleted
 

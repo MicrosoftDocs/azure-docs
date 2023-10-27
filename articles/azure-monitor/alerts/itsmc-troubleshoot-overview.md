@@ -22,7 +22,7 @@ Depending on your configuration when you set up a connection, ITSMC can sync up 
 
 You can visualize the incident and change request data by using the ITSMC dashboard:
 
-![Screenshot that shows the ITSMC dashboard.](media/itsmc-overview/itsmc-overview-sample-log-analytics.png)
+:::image type="content" source="media/itsmc-overview/itsmc-overview-sample-log-analytics.png" lightbox="media/itsmc-overview/itsmc-overview-sample-log-analytics.png" alt-text="Screenshot that shows the ITSMC dashboard.":::
 
 The dashboard also provides information about connector status. You can use that information as a starting point to analyze problems with the connections. For more information, see [Error investigation using the dashboard](./itsmc-dashboard.md).
 
@@ -36,7 +36,7 @@ Service Map shows connections between servers, processes, and ports across any T
 
 If you're using Service Map, you can view the service desk items created in IT Service Management (ITSM) solutions, as shown in this example:
 
-![Screenshot that shows the Log Analytics screen.](media/itsmc-overview/itsmc-overview-integrated-solutions.png)
+:::image type="content" source="media/itsmc-overview/itsmc-overview-integrated-solutions.png" lightbox="media/itsmc-overview/itsmc-overview-integrated-solutions.png" alt-text="Screenshot that shows the Log Analytics screen.":::
 
 ## Resolve problems
 
