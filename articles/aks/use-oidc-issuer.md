@@ -3,7 +3,7 @@ title: Create an OpenID Connect provider for your Azure Kubernetes Service (AKS)
 description: Learn how to configure the OpenID Connect (OIDC) provider for a cluster in Azure Kubernetes Service (AKS)
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 10/26/2023
+ms.date: 10/27/2023
 ---
 
 # Create an OpenID Connect provider on Azure Kubernetes Service (AKS)
@@ -60,7 +60,7 @@ az aks oidc-issuer rotate-signing-keys -n myAKSCluster -g myResourceGroup
 ```
 
 > [!IMPORTANT]
-> Once you rotate the key, the old key (key1) expires after 24 hours. This means that both the old key (key1) and the new key (key2) are valid within the 24-hour period. If you want to invalidate the old key (key1) immediately, you need to rotate the OIDC key twice. Then key2 and key3 are valid, and key1 is invalid.
+> Once you rotate the key, the old key (key1) expires after 24 hours. This means that both the old key (key1) and the new key (key2) are valid within the 24-hour period. If you want to invalidate the old key (key1) immediately, you need to rotate the OIDC key twice and restart the pods using projected service account tokens. Then key2 and key3 are valid, and key1 is invalid.
 
 ## Check the OIDC keys
 
