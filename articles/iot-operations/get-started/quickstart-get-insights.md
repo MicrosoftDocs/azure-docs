@@ -37,7 +37,7 @@ This section prepares your lakehouse data to be a source for Power BI. You'll cr
 
 1. In the lakehouse menu, select **New Power BI dataset**.
 
-    :::image type="content" source="media/new-power-bi-dataset.png" alt-text="Screenshot of a Fabric lakehouse showing the New Power BI dataset button.":::
+    :::image type="content" source="media/quickstart-get-insights/new-power-bi-dataset.png" alt-text="Screenshot of a Fabric lakehouse showing the New Power BI dataset button.":::
 
 1. Select *OPCUA*, the contextualized telemetry table from the previous quickstart, and confirm. This action creates a new dataset and opens a new page.
 
@@ -52,11 +52,11 @@ This section prepares your lakehouse data to be a source for Power BI. You'll cr
     MaxPressure = CALCULATE(MAXX(OPCUA, OPCUA[Pressure]))
     ```
     
-    :::image type="content" source="media/power-bi-new-measure.png" alt-text="Screenshot of Power BI showing the creation of a new measure.":::
+    :::image type="content" source="media/quickstart-get-insights/power-bi-new-measure.png" alt-text="Screenshot of Power BI showing the creation of a new measure.":::
 
 1. Select the name of the dataset in the top left, and rename it to something memorable. You will use this dataset in the next section:
 
-    :::image type="content" source="media/power-bi-name-dataset.png" alt-text="Screenshot of Power BI showing a dataset being renamed.":::
+    :::image type="content" source="media/quickstart-get-insights/power-bi-name-dataset.png" alt-text="Screenshot of Power BI showing a dataset being renamed.":::
 
 ## Configure Power BI report
 
@@ -72,11 +72,11 @@ These steps will be completed in Power BI Desktop, so open that application now.
 1. A menu will pop up asking you to input an Azure subscription and resource group. Enter the Azure subscription ID and resource group where you've created your assets and select **Load**. This loads your sample Asset Registry data into Power BI using a custom [Power Query M](/powerquery-m/) script.  
 1. Optional: To view the script, right select **Asset** > **Edit query**.
 
-    :::image type="content" source="media/power-bi-edit-query.png" alt-text="Screenshot of Power BI showing the Edit query button.":::
+    :::image type="content" source="media/quickstart-get-insights/power-bi-edit-query.png" alt-text="Screenshot of Power BI showing the Edit query button.":::
     
     You'll see a few queries on the new page that comes up (the Transform page). Go through each of them and select **Advanced Editor** in the top menu to view the details of the queries. The most important query is **GetAssetData**.
     
-    :::image type="content" source="media/power-bi-advanced-editor.png" alt-text="Screenshot of Power BI showing the advanced editor.":::
+    :::image type="content" source="media/quickstart-get-insights/power-bi-advanced-editor.png" alt-text="Screenshot of Power BI showing the advanced editor.":::
     
     When you're finished, exit the Transform page.
 
@@ -88,17 +88,17 @@ At this stage, some of the visuals in the Power BI report still display an error
 1. Select **Change source**. A list of data hubs and datasets will be visible. Select the dataset you created in the previous section, choose the *OPCUA* contextualized telemetry table, and select **Submit**.
 1. In the left pane menu, select **Model view**.
 
-    :::image type="content" source="media/power-bi-model-view.png" alt-text="Screenshot of Power BI showing the Model View button.":::
+    :::image type="content" source="media/quickstart-get-insights/power-bi-model-view.png" alt-text="Screenshot of Power BI showing the Model View button.":::
 
 1. Drag **assetName** in the **Asset** box to **AssetName** in the **OPCUA** box, to create a relationship between the tables.
 
 1. Set **Cardinality** to _One to many (1:*)_, and set **Cross filter direction** to *Both*. Select **OK**.
 
-    :::image type="content" source="media/power-bi-model-view-options.png" alt-text="Screenshot of Power BI showing the model view options.":::
+    :::image type="content" source="media/quickstart-get-insights/power-bi-model-view-options.png" alt-text="Screenshot of Power BI showing the model view options.":::
 
 1. Return to the **Report view** using the left pane menu. All the visuals should display data now without error.
 
-    :::image type="content" source="media/power-bi-page-1.png" alt-text="Screenshot of Power BI showing the report view.":::
+    :::image type="content" source="media/quickstart-get-insights/power-bi-page-1.png" alt-text="Screenshot of Power BI showing the report view.":::
 
 ## View insights
 
