@@ -158,6 +158,8 @@ When you clone the sample, the flow outputs (category and evidence) are already 
 
 :::image type="content" source="./media/get-started-prompt-flow/view-outputs-entry-point.png" alt-text="Screenshot of Web classification showing the view outputs button." lightbox = "./media/get-started-prompt-flow/view-outputs-entry-point.png":::
 
+You can see that the flow predicts the input URL with a category and an evidence.
+
 :::image type="content" source="./media/get-started-prompt-flow/view-outputs.png" alt-text="Screenshot of Web classification showing outputs tab." lightbox = "./media/get-started-prompt-flow/view-outputs.png":::
 
 ## Test and evaluation
