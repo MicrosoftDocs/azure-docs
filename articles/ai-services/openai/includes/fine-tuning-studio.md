@@ -14,6 +14,7 @@ keywords:
 
 ## Prerequisites
 
+- Read the [When to use Azure OpenAI fine-tuning guide](../concepts/fine-tuning-considerations.md).
 - An Azure subscription. <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>.
 - Access granted to Azure OpenAI in the desired Azure subscription.
 - An Azure OpenAI resource that's located in a region that supports fine-tuning of the Azure OpenAI model. Check the [Model summary table and region availability](../concepts/models.md#fine-tuning-models-preview) for the list of available models by region and supported functionality. For more information, see [Create a resource and deploy a model with Azure OpenAI](../how-to/create-resource.md).
