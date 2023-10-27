@@ -13,8 +13,6 @@ items:
         href: persisting-shell-storage.md
       - name: Use the window
         href: using-the-shell-window.md
-      - name: Use MSI in Cloud Shell
-        href: msi-authorization.md
       - name: Embed Cloud Shell
         href: embed-cloud-shell.md
       - name: Predictive IntelliSense in Cloud Shell
@@ -31,6 +29,8 @@ items:
         href: private-vnet.md
       - name: Deploy using quickstart templates
         href: quickstart-deploy-vnet.md
+      - name: Troubleshoot Azure Cloud Shell in a virtual network
+        href: vnet-troubleshooting.md
   - name: Pricing
     items:
       - name: Cloud Shell pricing
