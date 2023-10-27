@@ -149,7 +149,7 @@ landingContent:
             url: ./spark/use-hive-metastore.md
   - title: Resources
     linkLists:
-      - linkListType: 
+      - linkListType: reference
         links:
          - text: FAQ
            url: faq.md
