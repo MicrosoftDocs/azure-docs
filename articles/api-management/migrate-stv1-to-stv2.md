@@ -29,6 +29,17 @@ For more information about the `stv1` and `stv2` platforms and the benefits of u
 
 [!INCLUDE [api-management-availability-premium-dev-standard-basic](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
+## What happens during migration?
+
+API Management platform migration from `stv1` to `stv2` involves updating the underlying compute alone and has no impact on the service/api configuration persisted in the storage layer.
+
+* The upgrade process involves creating a new compute in parallel the old compute. Both instances coexist for 48 hours. 
+* The management endpoint DNS entry is managed by the service and will point to the new compute immediately on successful migration. 
+* The Gateway DNS still points to the old compute if custom domain is in use. 
+* If custom DNS is not in use the Gateway and Portal DNS will also point to the new compute immediately.
+* For internal instance, DNS is managed by the customer, so the DNS entries continue to point to old compute until updated by the customer
+* It is the DNS which points to either the new or the old compute and hence no downtime to the APIs (unless there is any firewall that blocks the new compute subnet access to the backends)
+
 ## Prerequisites
 
 * An API Management instance hosted on the `stv1` compute platform. To confirm that your instance is hosted on the `stv1` platform, see [How do I know which platform hosts my API Management instance?](compute-infrastructure.md#how-do-i-know-which-platform-hosts-my-api-management-instance).
@@ -93,6 +104,14 @@ az rest --method post --uri "$APIM_RESOURCE_ID/migrateToStv2?api-version=2023-03
 # az rest --method post --uri "$APIM_RESOURCE_ID/migrateToStv2?api-version=2023-03-01-preview" --body '{"mode": "PreserveIp"}'
 ```
 
+### Verify migration
+
+To verify that the migration was successful, when the status changes to `Online`, check the [platform version](compute-infrastructure.md#how-do-i-know-which-platform-hosts-my-api-management-instance) of your API Management instance. After successful migration, the value is `stv2`.
+
+### Update Network Dependencies
+
+On successful migration, update any network dependencies including DNS, firewall rules, and VNets to use the new VIP address.
+
 ---
 
 ## Scenario 2: Migrate a network-injected API Management instance
@@ -151,10 +170,14 @@ You can optionally migrate back to the original VNet and subnet you used in each
 1. Verify that the original IP addresses were released by API Management. Under **Available IPs**, note the number of IP addresses available in the subnet. All addresses (except for Azure reserved addresses) should be available. If necessary, wait for IP addresses to be released. 
 1. Repeat the migration steps in the preceding section. In each region, specify the original VNet and subnet, and a new IP address resource.
 
-## Verify migration
+### Verify migration
 
-To verify that the migration was successful, check the [platform version](compute-infrastructure.md#how-do-i-know-which-platform-hosts-my-api-management-instance) of your API Management instance. After successful migration, the value is `stv2`.
+* To verify that the migration was successful, when the status changes to `Online`, check the [platform version](compute-infrastructure.md#how-do-i-know-which-platform-hosts-my-api-management-instance) of your API Management instance. After successful migration, the value is `stv2`. 
+* Additionally check the Network status to ensure connectivity of the instance to its dependencies. In the portal, in the left-hand menu, under **Deployment and infrastructure**, select **Network** > **Network status**.
 
+### Update Network Dependencies
+
+On successful migration, update any network dependencies including DNS, firewall rules, and VNets to use the new VIP address/subnet address space.
 [!INCLUDE [api-management-migration-support](../../includes/api-management-migration-support.md)]
 
 ## Related content
