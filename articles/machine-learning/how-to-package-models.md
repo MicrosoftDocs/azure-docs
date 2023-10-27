@@ -319,7 +319,7 @@ The following code shows how to configure `copy` in a model package:
 
 __package-external.yml__
 
-:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/deploy-with-packages/custom-model/package-external.yml" highlight="10-11" :::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/deploy-with-packages/custom-model/package-external.yml" highlight="11-12" :::
 
 # [Python](#tab/sdk)
 

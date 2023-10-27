@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/24/2022
+ms.date: 10/20/2023
 ---
 
 # Validation activity in Azure Data Factory and Synapse Analytics pipelines

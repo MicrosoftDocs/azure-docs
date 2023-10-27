@@ -52,7 +52,7 @@ This article describes [Cost optimization](/azure/architecture/framework/cost/) 
 ## Containers
 
 
-[!INCLUDE [waf-containers-cost](includes/waf-vm-cost.md)]
+[!INCLUDE [waf-containers-cost](includes/waf-containers-cost.md)]
 
 
 
