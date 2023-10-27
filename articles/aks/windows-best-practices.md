@@ -4,7 +4,7 @@ description: Learn about best practices for running Windows containers in Azure 
 ms.service: azure-kubernetes-service
 ms.author: schaffererin
 ms.topic: article
-ms.date: 10/10/2023
+ms.date: 10/27/2023
 ---
 
 # Best practices for Windows containers on Azure Kubernetes Service (AKS)
@@ -94,6 +94,8 @@ For more information, see [Upgrade Windows Server workloads on AKS][upgrade-wind
 
 > [!NOTE]
 > Windows announced a new [Windows Server Annual Channel for Containers](https://techcommunity.microsoft.com/t5/windows-server-news-and-best/windows-server-annual-channel-for-containers/ba-p/3866248) that supports portability and mixed versions of Windows nodes and containers. This feature isn't yet supported in AKS.
+>
+> To track AKS feature plans, see the [Public AKS roadmap](https://github.com/Azure/AKS/projects/1#card-90806240).
 
 ## Next steps
 
