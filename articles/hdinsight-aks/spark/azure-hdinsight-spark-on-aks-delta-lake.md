@@ -1,20 +1,20 @@
 ---
 title: How to use Delta Lake in Azure HDInsight on AKS with Apache Spark™ cluster.
-description: Learn how to use Delta Lake scenario in Azure HDInsight on AKS with Apache Spark cluster. 
+description: Learn how to use Delta Lake scenario in Azure HDInsight on AKS with Apache Spark™ cluster. 
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 10/19/2023
+ms.date: 10/27/2023
 ---
 
 # Use Delta Lake in Azure HDInsight on AKS with Apache Spark™ cluster (Preview)
 
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
-[Azure HDInsight on AKS](../overview.md) is a managed cloud-based service for big data analytics that helps organizations process large amounts data. This tutorial shows how to use Delta Lake in Azure HDInsight on AKS with Apache Spark cluster.
+[Azure HDInsight on AKS](../overview.md) is a managed cloud-based service for big data analytics that helps organizations process large amounts data. This tutorial shows how to use Delta Lake in Azure HDInsight on AKS with Apache Spark™ cluster.
 
 ## Prerequisite
 
-1. Create an [Apache Spark cluster in Azure HDInsight on AKS](./create-spark-cluster.md)
+1. Create an [Apache Spark™ cluster in Azure HDInsight on AKS](./create-spark-cluster.md)
 
     :::image type="content" source="./media/azure-hdinsight-spark-on-aks-delta-lake/create-spark-cluster.png" alt-text="Screenshot showing  spark cluster creation." lightbox="./media/azure-hdinsight-spark-on-aks-delta-lake/create-spark-cluster.png":::
 
