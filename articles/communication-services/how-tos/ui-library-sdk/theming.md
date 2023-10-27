@@ -15,7 +15,7 @@ zone_pivot_groups: acs-plat-web-ios-android
 
 # Theming the UI Library
 
-Azure Communication Services UI Library is a set of components, icons and composites designed to make it easier for you to build high-quality user intefaces for your projects. The UI Library uses components and icons from [Fluent UI](https://developer.microsoft.com/fluentui), the cross-platform design system that's used by Microsoft. As a result, the components are built with usability, accessibility, and localization in mind.
+Azure Communication Services UI Library is a set of components, icons and composites designed to make it easier for you to build high-quality user interfaces for your projects. The UI Library uses components and icons from [Fluent UI](https://developer.microsoft.com/fluentui), the cross-platform design system that's used by Microsoft. As a result, the components are built with usability, accessibility, and localization in mind.
 
 The UI Library is fully documented for developers on a separate site. Our documentation is interactive and designed to make it easy to understand how the APIs work by giving you the ability to try them out directly from a web page. See the [UI Library documentation](https://azure.github.io/communication-ui-library/?path=/docs/overview--page) for more information. 
 
