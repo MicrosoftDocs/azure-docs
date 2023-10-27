@@ -18,10 +18,10 @@ The easiest way to enable application monitoring for Node.js applications runnin
 Turning on application monitoring in Azure portal will automatically instrument your application with Application Insights, and doesn't require any code changes.
 
 >[!NOTE]
-> It is possible to configure the automatically attached agent using the `APPLICATIONINSIGHTS_CONFIGURATION_CONTENT` environment variable in App Service Environment variable blade. Details on configuration options that can be passed via this environment variable can be found [here](https://github.com/microsoft/ApplicationInsights-node.js#Configuration)
+> You can configure the automatically attached agent using the APPLICATIONINSIGHTS_CONFIGURATION_CONTENT environment variable in the App Service Environment variable blade. For details on the configuration options that can be passed via this environment variable, see [Node.js Configuration](https://github.com/microsoft/ApplicationInsights-node.js#Configuration).
 
 > [!NOTE]
-> If both autoinstrumentation monitoring and manual SDK-based instrumentation are detected, only the manual instrumentation settings will be honored. This is to prevent duplicate data from being sent. To learn more about this, check out the [troubleshooting section](#troubleshooting) in this article.
+> If both automatic instrumentation and manual SDK-based instrumentation are detected, only the manual instrumentation settings are honored. This is to prevent duplicate data from being sent. For more information, see the [troubleshooting section](#troubleshooting) in this article.
 
 ### Autoinstrumentation through Azure portal
 
