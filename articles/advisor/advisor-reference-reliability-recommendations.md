@@ -754,7 +754,7 @@ Learn more about [Central Server Instance - softdogmoduleloadedHAASCSSLE (Ensure
 
 The fence_azure_arm is an I/O fencing agent for Azure Resource Manager. Ensure there's one instance of a fence_azure_arm in your Pacemaker configuration for ASCS HA setup. The fence_azure_arm requirement is applicable if you're using Azure fence agent for fencing with either managed identity or service principal.
 
-Learn more about [Central Server Instance - FenceAzureArmHAASCSSLE (Ensure that there's one instance of fence_azure_arm in your Pacemaker configuration for ASCS HA setup)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
+Learn more about [Central Server Instance - FenceAzureArmHAASCSSLE (Ensure that there's one instance of a fence_azure_arm in your Pacemaker configuration for ASCS HA setup)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
 
 ### Enable HA ports in the Azure Load Balancer for ASCS HA setup in SAP workloads
 
@@ -842,7 +842,7 @@ Learn more about [Database Instance - PreferSiteTakeoverHDB (Set parameter PREFE
 
 ### Set 'token_retransmits_before_loss_const'  to 10 in Pacemaker cluster in HA enabled SAP workloads
 
-The corosync token_retransmits_before_loss_const determines the number of token retransmits that are attempted before timeout in HA clusters. Set the totem.token_retransmits_before_loss_const to 10 as per recommendation for HANA DB HA setup.
+The corosync token_retransmits_before_loss_const determines the amount of token retransmits that are attempted before timeout in HA clusters. Set the totem.token_retransmits_before_loss_const to 10 as per recommendation for HANA DB HA setup.
 
 Learn more about [Database Instance - TokenRetransmitsHDB (Set 'token_retransmits_before_loss_const'  to 10 in Pacemaker cluster in HA enabled SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
 
@@ -882,7 +882,7 @@ The softdog timer is loaded as a kernel module in linux OS. This timer  triggers
 
 Learn more about [Database Instance - SoftdogConfigSuseHDB (Create the softdog config file in Pacemaker configuration for HA enable HANA DB in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
 
-### Ensure that there is one instance of fence_azure_arm in Pacemaker configuration for HANA DB HA setup
+### Ensure that there's one instance of fence_azure_arm in Pacemaker configuration for HANA DB HA setup
 
 The fence_azure_arm is an I/O fencing agent for Azure Resource Manager. Ensure that there's one instance of fence_azure_arm in your Pacemaker configuration for HANA DB HA setup. The fence_azure-arm instance requirement is applicable if you're using Azure fence agent for fencing with either managed identity or service principal.
 
@@ -995,7 +995,7 @@ Learn more about [Availability set - ManagedDisksAvSet (Use Managed Disks to imp
 
 ### Implement disaster recovery strategies for your Azure NetApp Files Resources
 
-To avoid data or functionality loss if there is a regional or zonal disaster, implement common disaster recovery techniques such as cross region replication or cross zone replication for your Azure NetApp Files volumes
+To avoid data or functionality loss if there's a regional or zonal disaster, implement common disaster recovery techniques such as cross region replication or cross zone replication for your Azure NetApp Files volumes
 
 Learn more about [Volume - ANFCRRCZRRecommendation (Implement disaster recovery strategies for your Azure NetApp Files Resources)](https://aka.ms/anfcrr).
 
