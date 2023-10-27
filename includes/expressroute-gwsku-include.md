@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: expressroute
  ms.topic: include
- ms.date: 01/25/2022
+ ms.date: 10/27/2023
  ms.author: cherylmc
  ms.custom: include file
 ---
@@ -13,6 +13,7 @@ When you create a virtual network gateway, you need to specify the gateway SKU t
 
 ExpressRoute virtual network gateways can use the following SKUs: 
 
+* ERGwScale (Preview)
 * Standard
 * HighPerformance
 * UltraPerformance
