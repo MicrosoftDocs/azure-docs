@@ -74,7 +74,7 @@ You can also use the Whisper model via Azure AI Speech [batch transcription](../
 
 ### GPT-4 models
 
-GPT-4 and GPT-4-32k are now available to all Azure OpenAI Service customers.  Availability varies by region.  If you don't see GPT-4 in your region, please check back later.
+GPT-4 and GPT-4-32k models are now available to all Azure OpenAI Service customers.  Availability varies by region.  If you don't see GPT-4 in your region, please check back later.
 
 These models can only be used with the Chat Completion API.
 
@@ -95,7 +95,7 @@ GPT-4 version 0314 is the first version of the model released.  Version 0613 is 
 | Model Availability | gpt-4 (0314) | gpt-4 (0613) |
 |---|:---|:---|
 | Available to all subscriptions with Azure OpenAI access | | Canada East <br> Sweden Central <br> Switzerland North |
-| Available to subscriptions with current access in the region | East US <br> France Central <br> South Central US <br> UK South | Australia East <br> East US <br> East US 2 <br> France Central <br> Japan East <br> UK South |
+| Available to subscriptions with current access to the model version in the region | East US <br> France Central <br> South Central US <br> UK South | Australia East <br> East US <br> East US 2 <br> France Central <br> Japan East <br> UK South |
 
 ### GPT-3.5 models
 
