@@ -187,7 +187,7 @@ Using the following command to download your packages to local: `pip wheel <pack
 
 ### Create a python tool to install `requirements.txt` to runtime
 
-:::image type="content" source="./media/how-to-customize-environment-runtime/runtime-creation-flow-folder-tool-add-custom-packages.png" alt-text="Screenshot of flow.dag.yaml showing requirements.txt. " lightbox = "./media/how-to-customize-environment-runtime/runtime-creation-flow-folder-tool-add-custom-packages.png":::
+:::image type="content" source="./media/how-to-customize-environment-runtime/runtime-creation-flow-folder-tool-add-custom-packages.png" alt-text="Screenshot of python tool showing add custom packages. " lightbox = "./media/how-to-customize-environment-runtime/runtime-creation-flow-folder-tool-add-custom-packages.png":::
 
 ```python
 from promptflow import tool
