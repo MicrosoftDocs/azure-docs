@@ -108,8 +108,8 @@ To optionally configure the time period before a user is asked to sign-in again:
 1. At the bottom of the page, under **Enable policy** select **Save**.
 
 > [!NOTE]
-> - If [single sign-on](configure-single-sign-on.md) is enabled, it's recommended to configure the sign-in frequency only on the **Microsoft Remote Desktop** and  **Windows Cloud Login** Entra ID apps. This will ensure that feed refresh and diagnostics upload continue working as expected.
-> - Without single sign-on, sign-in frequency can be configured on the Azure Virtual Desktop Entra ID app.
+> - If [single sign-on](configure-single-sign-on.md) is enabled, it's recommended to configure the sign-in frequency only on the **Microsoft Remote Desktop** and  **Windows Cloud Login** Entra ID apps and not the **Azure Virtual Desktop** Entra ID app. This will ensure that feed refresh and diagnostics upload continue working as expected.
+> - Without single sign-on, sign-in frequency can be configured on the **Azure Virtual Desktop** Entra ID app.
 
 <a name='azure-ad-joined-session-host-vms'></a>
 
