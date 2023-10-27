@@ -14,7 +14,7 @@ ms.topic: how-to
  
 Azure Chaos Studio automatically encrypts all data stored in your experiment resource with keys that Microsoft provides (service-managed keys). As an optional feature, you can add a second layer of security by also providing your own (customer-managed) encryption key(s). Customer-managed keys offer greater flexibility for controlling access and key-rotation policies.
  
-When you use customer-managed encryption keys, you need to specify a user-assigned managed identity to retrieve the key. The UMI you create needs to match the UMI that you use for the Chaos Studio experiment. 
+When you use customer-managed encryption keys, you need to specify a user-assigned managed identity (UMI) to retrieve the key. The UMI you create needs to match the UMI that you use for the Chaos Studio experiment. 
  
 When configured, Azure Chaos Studio uses Azure Storage, which uses the customer-managed key to encrypt all of your experiment execution and result data within your own Storage account.
 
