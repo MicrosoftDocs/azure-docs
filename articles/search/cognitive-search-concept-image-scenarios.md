@@ -1,7 +1,7 @@
 ---
 title: Extract text from images
 titleSuffix: Azure AI Search
-description: Use Optical Character Recognition (OCR) and image analysis to extract text, layout, captions, and tags from image files in Azure Cognitive Search pipelines.
+description: Use Optical Character Recognition (OCR) and image analysis to extract text, layout, captions, and tags from image files in Azure AI Search pipelines.
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
@@ -12,7 +12,7 @@ ms.custom: devx-track-csharp
 
 # Extract text and information from images in AI enrichment
 
-Through [AI enrichment](cognitive-search-concept-intro.md), Azure Cognitive Search gives you several options for creating and extracting searchable text from images, including:
+Through [AI enrichment](cognitive-search-concept-intro.md), Azure AI Search gives you several options for creating and extracting searchable text from images, including:
 
 + [OCR](cognitive-search-skill-ocr.md) for optical character recognition of text and digits
 + [Image Analysis](cognitive-search-skill-image-analysis.md) that describes images through visual features
