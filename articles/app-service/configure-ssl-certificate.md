@@ -75,6 +75,7 @@ The free certificate comes with the following limitations:
 - Isn't exportable.
 - Isn't supported in an App Service Environment (ASE).
 - Only supports alphanumeric characters, dashes (-), and periods (.).
+- Only custom domains of length up to 64 characters are supported. 
 
 ### [Apex domain](#tab/apex)
 - Must have an A record pointing to your web app's IP address.
