@@ -122,7 +122,7 @@ For more information, see [Configure Azure CNI for an AKS cluster][aks-configure
 
 ### Azure CNI Powered by Cilium
 
-[Azure CNI Powered by Cilium][azure-cni-powered-by-cilium] uses [Cilium](https://cilium.io) to provide high-performance networking, observability, and network policy enforcement at scale. It integrates natively with:
+[Azure CNI Powered by Cilium][azure-cni-powered-by-cilium] uses [Cilium](https://cilium.io) to provide high-performance networking, observability, and network policy enforcement. It integrates natively with:
 
 * [Azure CNI Overlay][azure-cni-overlay] for scalable IP address management (IPAM)
 * [AKS Network Observability][network-observability-overview] for dataplane-level metrics.
