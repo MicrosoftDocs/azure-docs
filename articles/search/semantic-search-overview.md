@@ -72,7 +72,7 @@ In semantic ranking, the query subsystem passes search results as an input to su
 
 1. Summarization output is a summary string for each document, composed of the most relevant information from each field. Summary strings are sent to the ranker for scoring, and to machine reading comprehension models for captions and answers.
 
-   The maximum length of each summary string is 256 tokens. 
+   The maximum length of each generated summary string passed to the semantic ranker is 256 tokens. 
 
 ### Outputs of semantic ranking
 
