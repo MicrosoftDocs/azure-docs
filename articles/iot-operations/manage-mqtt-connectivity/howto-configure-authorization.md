@@ -5,7 +5,7 @@ description: Configure Azure IoT MQ authorization using BrokerAuthorization.
 author: PatAltimore
 ms.author: patricka
 ms.topic: how-to
-ms.date: 10/02/2023
+ms.date: 10/27/2023
 
 #CustomerIntent: As an operator, I want to configure authorization so that I have secure MQTT broker communications.
 ---
@@ -13,7 +13,6 @@ ms.date: 10/02/2023
 # Configure Azure IoT MQ authorization
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
-
 
 Authorization policies determine what actions the clients can perform on the broker, such as connecting, publishing, or subscribing to topics. Configure Azure IoT MQ to use one or multiple authorization policies with the *BrokerAuthorization* resource.
 
@@ -26,20 +25,18 @@ You can set to one *BrokerAuthorization* for each listener. Each *BrokerAuthoriz
 
 The specification of a *BrokerAuthorization* resource has the following fields:
 
-- **listenerRef**: The names of the BrokerListener resources that this authorization policy applies. This field is required and must match an existing *BrokerListener* resource in the same namespace.
-- **authorizationPolicies**: This field defines the settings for the authorization policies, such as:
-  - **enableCache**: A boolean flag that indicates whether to enable caching for the authorization policies. If set to `true`, the broker caches the authorization results for each client and topic combination to improve performance and reduce latency. If set to `false`, the broker evaluates the authorization policies for each client and topic request, to ensure consistency and accuracy. This field is optional and defaults to `false`.
-  - **rules**: A list of rules that specify the principals and resources for the authorization policies. Each rule has these subfields:
-    - **principals**: This subfield defines the identities that represent the clients, such as:
-      - **usernames**: A list of usernames that match the clients. The usernames are case-sensitive and must match the usernames provided by the clients during authentication.
-      - **clientids**: A list of client IDs that match the clients. The client IDs are case-sensitive and must match the client IDs provided by the clients during connection.
-      - **attributes**: A list of key-value pairs that match the attributes of the clients. The attributes are case-sensitive and must match the attributes provided by the clients during authentication.
-    - **brokerResources**: This subfield defines the objects that represent the actions or topics, such as:
-      - **method**: The type of action that the clients can perform on the broker. This subfield is required and can be one of these values:
-        - **Connect**: This value indicates that the clients can connect to the broker.
-        - **Publish**: This value indicates that the clients can publish messages to topics on the broker.
-        - **Subscribe**: This value indicates that the clients can subscribe to topics on the broker.
-      - **topics**: A list of topics or topic patterns that match the topics that the clients can publish or subscribe to. This subfield is required if the method is Connect or Publish.
+| Field Name | Required | Description |
+| --- | --- | --- |
+| listenerRef | Yes | The names of the BrokerListener resources that this authorization policy applies. This field is required and must match an existing *BrokerListener* resource in the same namespace. |
+| authorizationPolicies | Yes | This field defines the settings for the authorization policies. |
+| enableCache | Yes | Whether to enable caching for the authorization policies. |
+| rules | Yes | A boolean flag that indicates whether to enable caching for the authorization policies. If set to `true`, the broker caches the authorization results for each client and topic combination to improve performance and reduce latency. If set to `false`, the broker evaluates the authorization policies for each client and topic request, to ensure consistency and accuracy. This field is optional and defaults to `false`. |
+| principals | Yes | This subfield defines the identities that represent the clients. |
+| usernames | Yes | A list of usernames that match the clients. The usernames are case-sensitive and must match the usernames provided by the clients during authentication. |
+| attributes | Yes | A list of key-value pairs that match the attributes of the clients. The attributes are case-sensitive and must match the attributes provided by the clients during authentication. |
+| brokerResources | Yes | This subfield defines the objects that represent the actions or topics. |
+| method | Yes | The type of action that the clients can perform on the broker. This subfield is required and can be one of these values: **Connect**: This value indicates that the clients can connect to the broker. - **Publish**: This value indicates that the clients can publish messages to topics on the broker. - **Subscribe**: This value indicates that the clients can subscribe to topics on the broker. |
+| topics | No | A list of topics or topic patterns that match the topics that the clients can publish or subscribe to. This subfield is required if the method is Connect or Publish. |
 
 The following example shows how to create a *BrokerAuthorization* resource that defines the authorization policies for a listener named *my-listener*.
 
@@ -48,7 +45,7 @@ apiVersion: mq.iotoperations.azure.com/v1beta1
 kind: BrokerAuthorization
 metadata:
   name: "my-authz-policies"
-  namespace: alice-springs
+  namespace: namespace: default
 spec:
   listenerRef:
     - "my-listener"
@@ -88,7 +85,7 @@ To create this BrokerAuthorization resource, apply the YAML manifest to your Kub
 
 ## Authorize clients that use X.509 authentication
 
-Clients that use [X.509 certificates for authentication](./howto-configure-authentication.md) can be authorized to access resources based on information (X.509 properties) present on their certificate or their issuing certificates up the chain.
+Clients that use [X.509 certificates for authentication](./howto-configure-authentication.md) can be authorized to access resources based on X.509 properties present on their certificate or their issuing certificates up the chain.
 
 ### With certificate chain properties using attributes
 
@@ -117,7 +114,7 @@ building = "17"
 
 In this example, every client that has a certificate issued by the root CA `CN = Contoso Root CA Cert, OU = Engineering, C = US` or an intermediate CA `CN = Contoso Intermediate CA` receives the attributes listed. In addition, the smart fan receives attributes specific to it.
 
-The matching for attributes always starts from the leaf (client) certificate and then goes along the chain. The attribute assignment stops after the first match. In above example, even if `smart-fan` has the intermediate certificate `CN = Contoso Intermediate CA`, it doesn't get the associated attributes.
+The matching for attributes always starts from the leaf client certificate and then goes along the chain. The attribute assignment stops after the first match. In previous example, even if `smart-fan` has the intermediate certificate `CN = Contoso Intermediate CA`, it doesn't get the associated attributes.
 
 To apply the mapping, create a certificate-to-attribute mapping TOML file as a Kubernetes secret, and reference it in `authenticationMethods.x509.attributes` for the BrokerAuthentication resource.
 
@@ -139,14 +136,14 @@ kubectl annotate serviceaccount mqtt-client azedge-broker-auth/group=authz-sat
 
 Attribute annotations must begin with `azedge-broker-auth/` to distinguish them from other annotations.
 
-As the application has an authorization attribute called `authz-sat`, there is no need to provide a `clientId` or `username`. The corresponding *BrokerAuthorization* resource uses this attribute as a principle, for example:
+As the application has an authorization attribute called `authz-sat`, there's no need to provide a `clientId` or `username`. The corresponding *BrokerAuthorization* resource uses this attribute as a principle, for example:
 
-```yaml{hl_lines=[14]}
+```yaml
 apiVersion: mq.iotoperations.azure.com/v1beta1
 kind: BrokerAuthorization
 metadata:
   name: "my-authz-policies"
-  namespace: alice-springs
+  namespace: namespace: default
 spec:
   listenerRef:
     - "az-mqtt-non-tls-listener"
@@ -166,25 +163,13 @@ spec:
               - "orders"                                       
 ```
 
-| Field Name | Required | Description |
-| --- | --- | --- |
-| listenerRef | Yes | The reference to the listener that the authorization policies apply to. |
-| authorizationPolicies | Yes | The authorization policies that apply to the listener. |
-| enableCache | No | Whether to enable caching for the authorization policies. |
-| rules | Yes | The rules that define the authorization policies. |
-| principals | Yes | The principals that the rule applies to, including their attributes. |
-| attributes | Yes | The attributes of the principal, such as their group. |
-| brokerResources | Yes | The broker resources that the rule applies to, including their methods and topics. |
-| method | Yes | The method that the rule applies to, such as Connect or Publish. |
-| topics | No | The topics that the rule applies to, such as odd-numbered-orders or orders. |
-
 To learn more with an example, see [Set up Authorization Policy with Dapr Client](../develop/howto-develop-dapr-apps.md).
 
 ## Key-value Store
 
 Azure IoT MQ Broker provides a [distributed key-value (KV) store](../develop/concept-about-state-store.md) that clients can use as a state store. The KV store can also be configured to be highly available.
 
-To setup authorization for clients that use the key-value store, give it:
+To set up authorization for clients that use the key-value store, give it:
 
 - Permission to publish to the system KV store `$store/<key>/#` topic
 - Permission to subscribe to the response-topic (set during initial publish as a parameter) `<response_topic>/#`
@@ -201,12 +186,12 @@ kubectl edit brokerauthorization my-authz-policies
 
 To disable authorization, set `authorizationEnabled: false` in the BrokerListener resource. When the policy is set to allow all clients, all [authenticated clients](./howto-configure-authentication.md) can access all operations.
 
-```yaml {hl_lines=9}
+```yaml
 apiVersion: mq.iotoperations.azure.com/v1beta1
 kind: BrokerListener
 metadata:
   name: "my-listener"
-  namespace: alice-springs
+  namespace: namespace: default
 spec:
   brokerRef: "my-broker"
   authenticationEnabled: false
