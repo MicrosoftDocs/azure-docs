@@ -127,8 +127,6 @@ Use the following steps to upload a certificate as a secret using the azure port
  | Upload | \<select the certificate to upload> |
  | Name | \<Name you want to give your secret> |
 
-1. create
-
 
 ### Configure Managed identity
 Azure Stream Analytics requires you to configure managed identity to access key vault.
