@@ -99,16 +99,36 @@ To be able to upload certificates, you must have "**Key Vault Administrator**"  
 
 
 ### Upload Certificate to Key vault
-> [!IMPORTANT]
-> You must use Azure CLI to upload certificates to your key vault. You cannot use the Azure Portal.
->
 
+You can use Azure CLI to upload certificates as secrets to your key vault or use the Azure Portal to upload the certificate as a secret.
+> [!IMPORTANT]
+> You must upload the certificate as a secret
+
+#### Option One - Upload certificate via Azure CLI####
+Please visit the following documentation for guidance on configuring Azure CLI: [Get started with Azure CLI](../get-started-with-azure-cli#how-to-sign-into-the-azure-cli.md)
 The following command can upload the certificate as a secret to your key vault. You must have "**Kev Vault Administrator**"  access to your Key vault for this command to work properly.
 
 ```azurecli-interactive
 az keyvault secret set --vault-name <your key vault> --name <name of the secret> --file <file path to secret>
 
 ```
+
+#### Option Two - Upload certificate via the Azure portal####
+Use the following steps to upload a certificate as a secret using the azure portal in your key vault:
+1. Select **Secrets**.
+
+1. Select **Generate/Import** > **Add role assignment** to open the **Add role assignment** page.
+
+1. Complete the following configuration for creating a secret:
+
+ | Setting | Value |
+ | --- | --- |
+ | Upload | Certificate |
+ | Upload | \<select the certificate to upload> |
+ | Name | \<Name you want to give your secret> |
+
+1. create
+
 
 ### Configure Managed identity
 Azure Stream Analytics requires you to configure managed identity to access key vault.
