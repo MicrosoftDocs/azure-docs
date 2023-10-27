@@ -1322,6 +1322,12 @@ items:
     href: get-started-with-managed-airflow.md
   - name: How-to
     items:
+    - name: Create Managed Airflow Environment
+      href: create-managed-airflow-environment.md
+    - name: Import Dags using Azure Blob Storage
+      href: airflow-import-dags-using-blob-storage.md
+    - name: Delete Dags 
+      href: delete-dags-in-managed-airflow.md
     - name: How to change the Airflow password
       href: password-change-airflow.md
     - name: Create a private requirement Package
