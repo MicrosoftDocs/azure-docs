@@ -79,8 +79,7 @@ Flink schedules jobs using three distributed components, Job manager, Task manag
 
 :::image type="content" source="./media/flink-overview/flink-process.png" alt-text="Flink process diagram showing how the job, Job manager, Task manager, and Job client work together.":::
 
-**Note** : Apache, Apache Kafka, Kafka, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).
-
 ### Reference
 
-[Apache Flink Website](https://flink.apache.org/)
+- [Apache Flink Website](https://flink.apache.org/)
+- **Note** : Apache, Apache Kafka, Kafka, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).
