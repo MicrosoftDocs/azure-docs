@@ -32,11 +32,11 @@ Multithreaded applications should use [receive-max](https://docs.oasis-open.org/
 
 ## Acknowledging messages
 
-When a subscriber application sends an acknowledgement for a QoS-1 message, it takes ownership of the message. Upon receiving acknowledgement for a QoS-1 message, IoT MQ stops tracking the message for that application and topic. Proper transfer of ownership ensures message preservation in case of processing issues or application crashes. If an application wants to protect it from application crashes, then the application shouldn't take ownership before successfully completing its processing on that message. Applications subscribing to IoT MQ should delay acknowledging messages until processing is complete up to *receive-max* value with a maximum of 65,535. This might include relaying the message, or a derivative of the message, to IoT MQ for further dispatching.
+When a subscriber application sends an acknowledgment for a QoS-1 message, it takes ownership of the message. Upon receiving acknowledgment for a QoS-1 message, IoT MQ stops tracking the message for that application and topic. Proper transfer of ownership ensures message preservation in case of processing issues or application crashes. If an application wants to protect it from application crashes, then the application shouldn't take ownership before successfully completing its processing on that message. Applications subscribing to IoT MQ should delay acknowledging messages until processing is complete up to *receive-max* value with a maximum of 65,535. This might include relaying the message, or a derivative of the message, to IoT MQ for further dispatching.
 
 ## Message retention and broker behavior
 
-The broker retains messages until it receives an acknowledgement from a subscriber, ensuring zero message loss. This behavior guarantees that even if a subscriber application crashes or loses connectivity temporarily, messages won't be lost and can be processed once the application reconnects. IoT MQ messages might expire if configured by the [Message-Expiry-Interval](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901112) and a subscriber didn't consume the message.
+The broker retains messages until it receives an acknowledgment from a subscriber, ensuring zero message loss. This behavior guarantees that even if a subscriber application crashes or loses connectivity temporarily, messages won't be lost and can be processed once the application reconnects. IoT MQ messages might expire if configured by the [Message-Expiry-Interval](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901112) and a subscriber didn't consume the message.
 
 ## Retained messages
 
@@ -44,7 +44,7 @@ The broker retains messages until it receives an acknowledgement from a subscrib
 
 ## Keep-Alive
 
-To ensure high availability in case of connection errors or drops, set suitable [keep-alive intervals](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901045) for client-server communication. During idle periods, clients send *PINGREQs*, awaiting *PINGRESPs*. If no response, implement autoreconnect logic in the client to re-establish connections. Most clients like [Paho](https://www.eclipse.org/paho/) have retry logic built in. As IoT MQ is fault-tolerant, a reconnection succeeds if there is at least two healthy broker instances a frontend and a backend.
+To ensure high availability in case of connection errors or drops, set suitable [keep-alive intervals](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901045) for client-server communication. During idle periods, clients send *PINGREQs*, awaiting *PINGRESPs*. If no response, implement auto reconnect logic in the client to re-establish connections. Most clients like [Paho](https://www.eclipse.org/paho/) have retry logic built in. As IoT MQ is fault-tolerant, a reconnection succeeds if there is at least two healthy broker instances a frontend and a backend.
 
 ## Eventual consistency with QoS-1 subscription
 
@@ -77,7 +77,7 @@ For simpler use cases an application might utilize [Dapr](https://dapr.io) (Dist
   - Choose an appropriate MQTT client library for your programming language. The client should support MQTT v5. Use a C or Rust based library if your application is sensitive to latency.
   - Configure the client library to connect to IoT MQ broker with *clean-session* flag set to false and the desired QoS level (QoS-1).
   - Decide a suitable value for session expiry, message expiry, and keep-alive intervals.
-  - Implement the message processing logic for the subscriber application, including sending an acknowledgement when the message has been successfully delivered or processed.
+  - Implement the message processing logic for the subscriber application, including sending an acknowledgment when the message has been successfully delivered or processed.
   - For multithreaded applications, configure the *max-receive* parameter to enable parallel message processing.
   - Utilize retained messages for keeping temporary application state.
   - Utilize IoT MQ built-in key-value store to manage ephemeral application state.

@@ -5,7 +5,7 @@ description: Learn about the Azure IoT MQ state store and MQTT5 protocol
 author: PatAltimore
 ms.author: patricka
 ms.topic: concept-article
-ms.date: 10/02/2023
+ms.date: 10/26/2023
 
 #CustomerIntent: As an operator, I want understand how the state store works so that I can use it to store data in Azure IoT MQ.
 ---
@@ -14,26 +14,26 @@ ms.date: 10/02/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-E4K provides a distributed (and can be configured to be highly available) State Store for clients to use. Compared to MQTT retained messages - which only saves the latest message per topic - the key-value store is a built-in date store that is closer to a general purpose database.
+Azure IoT MQ provides a distributed state store for clients to use. It can be configured to be highly available. The key-value store is a built-in date store that's closer to a general purpose database compared to MQTT retained messages that only save the latest message per topic.
 
-It provides the ability to set, get, and delete key/value pairs. The State Store includes declarative security - analogous to MQTT topic security - so clients can be granted fine grained access to keys.
+It provides the ability to set, get, and delete key value pairs. The state store includes declarative security that's analogous to MQTT topic security. Clients can be granted fine grained access to keys.
 
-## What’s supported
+Supported features include:
 
 | Feature | Supported |
 |---|:---:|
 | Set | ✅ |
 | Get | ✅ |
 | Delete | ✅ |
-| Get Keys | 🔜 |
+<!--| Get Keys | 🔜 |
 | Observe | 🔜 |
-| Unobserve | 🔜 |
+| Unobserve | 🔜 |-->
 
-## Using the State Store
+## Using the state store
 
-The State Store SDK is available as a C# SDK and can be used by an application running both internal and external to the K8S Cluster.
+The state store SDK is available as a C# SDK and can be used by an application running both internal and external to the Kubernetes cluster.
 
-The main functions of the client are:
+The following sections list the main functions of the client.
 
 ### Create the MQTT client
 
@@ -59,7 +59,7 @@ await stateStoreClient.InitializeAsync().ConfigureAwait(false);
 
 ### Set
 
-Set a Key/Value pair in the State Store:
+Set a Key/Value pair in the state store:
 
 ```csharp
 var stateStoreKey = new StateStoreKey("someKey");
@@ -74,7 +74,7 @@ StateStoreSetResponse setResponse =
 
 ### Get
 
-Get the specific Key from the State Store into the `StateStoreGetResponse` object:
+Get the specific Key from the state store into the `StateStoreGetResponse` object:
 
 ```csharp
 StateStoreGetResponse getResponse = 
@@ -83,7 +83,7 @@ StateStoreGetResponse getResponse =
 
 ### Delete
 
-Delete the specific Key/Value pair from the State Store:
+Delete the specific Key/Value pair from the state store:
 
 ```csharp
 StateStoreDeleteResponse deleteResponse =
@@ -94,28 +94,26 @@ StateStoreDeleteResponse deleteResponse =
 
 Once you're finished, Dispose the `StateStoreClient` object:
 
-
 ```csharp
 await stateStoreClient.DisposeAsync().ConfigureAwait(false);
 ```
 
-## Running the sample
+## Sample
 
-The following sample code connects to the State Store via the MQTT broker and will set, get and then delete a value using the functions defined ealier.
+You can download a sample that demonstrates how to use the state store client from [GitHub](https://github.com/microsoft/e4k-playground/tree/main/samples/dss-client-sample).
 
-{{< button text="GitHub source" link="https://github.com/microsoft/e4k-playground/tree/main/samples/dss-client-sample" color="secondary" >}}
-
+The sample code connects to the state store via the MQTT broker and will set, get and then delete a value using the functions defined earlier.
 
 ### Prerequisites
 
-1. An [E4K deployment](/docs/mqtt-broker/deploy/).
+1. An [IoT MQ deployment](../deploy/overview-deploy-iot-operations.md).
 1. The [.NET 7.0](https://dotnet.microsoft.com/en-us/download) compiler.
 
-### Steps
+### Test the sample
 
 1. Configure the sample:
 
-    Edit `Program.cs` and update the `connectionSettings` with the E4K MQTT broker hostname and port.
+    Edit `Program.cs` and update the `connectionSettings` with the IoT MQ MQTT broker hostname and port.
 
 1. Build the sample:
 
@@ -137,3 +135,5 @@ The following sample code connects to the State Store via the MQTT broker and wi
 
 ## Related content
 
+- [Azure IoT MQ overview](../manage-mqtt-connectivity/overview-iot-mq.md)
+- [Develop with Azure IoT MQ](concept-about-distributed-apps.md)

@@ -5,7 +5,7 @@ description: Develop low-code applications that talk with Azure IoT MQ using Nod
 author: PatAltimore
 ms.author: patricka
 ms.topic: how-to
-ms.date: 10/02/2023
+ms.date: 10/26/2023
 
 #CustomerIntent: As an developer, I want to understand how to use Node-RED to develop low-code apps that talk with Azure IoT MQ.
 ---
@@ -14,14 +14,13 @@ ms.date: 10/02/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-[Node-RED](https://nodered.org/) enables low-code programming for event-driven applications. It's
- a programming tool for wiring together hardware devices, APIs and online services in new and interesting ways. It provides a browser-based editor that makes it easy to wire together flows using the wide range of nodes in the palette that can be deployed to its runtime in a single-click.
+[Node-RED](https://nodered.org/) enables low-code programming for event-driven applications. It's a programming tool for wiring together hardware devices, APIs and online services in new and interesting ways. It provides a browser-based editor that makes it easy to connect together flows using the wide range of nodes in the palette that can be deployed to its runtime in a single-click.
 
-Before you begin, [verify E4K is installed and running](/docs/mqtt-broker/deploy/).
+Before you begin, [verify Azure Iot MQ is installed and running](../deploy/overview-deploy-iot-operations.md).
 
 ## Connect Node-RED
 
-This article demonstrates how to deploy a Node-RED environment on Kubernetes and integrate it with E4K. It uses the [node-red-K8s](https://github.com/kube-red/node-red-k8s) open-source project that includes a set of Node-RED nodes to interact with Kubernetes.
+This article demonstrates how to deploy a Node-RED environment on Kubernetes and integrate it with IoT MQ. It uses the [node-red-K8s](https://github.com/kube-red/node-red-k8s) open-source project that includes a set of Node-RED nodes to interact with Kubernetes.
 
 ```yaml {hl_lines=[8]}
 apiVersion: v1
@@ -39,15 +38,15 @@ spec:
   restartPolicy: Always
 ```
 
-Next, deploy Node-RED to the Kubernetes cluster by running the following command:
+Deploy Node-RED to the Kubernetes cluster by running the following command:
 
 ```bash
 kubectl apply -f pod.yaml
 ```
 
-When you run `kubectl get pods`, you should see the Node-RED pod running alongside the E4K Pods as well.
+When you run `kubectl get pods`, you should see the Node-RED pod running alongside the IoT MQ pods.
 
-```console {hl_lines=[4]}
+```Output
 NAME                                    READY   STATUS    RESTARTS       AGE
 azedge-dmqtt-backend-0                  1/1     Running   13 (15m ago)   9d
 azedge-diagnostics-574b6b8896-22qd2     1/1     Running   13 (15m ago)   9d
@@ -61,7 +60,7 @@ azedge-dmqtt-frontend-1                 1/1     Running   13 (15m ago)   9d
 azedge-dmqtt-frontend-0                 1/1     Running   13 (15m ago)   9d
 ```
 
-Next, port-forward the Node-RED pod to access the Node-RED client in the browser.
+Port-forward the Node-RED pod to access the Node-RED client in the browser.
 
 ```bash
 kubectl port-forward node-red 1880
@@ -69,7 +68,7 @@ kubectl port-forward node-red 1880
 
 To confirm the Node-RED application is running, you can run `kubectl logs node-red`.
 
-```console
+```Output
 
 Welcome to Node-RED
 ===================
@@ -91,63 +90,39 @@ Open `http://{host-ip}:1880` to see the Node-RED web UI.
 
 ## Sample scenario
 
-To see how we can use a low-code solution like Node-RED with E4K, we're going to create a simple flow in this exercise.
+To see how we can use a low-code solution like Node-RED with IoT MQ, you can create a simple flow with this scenario.
 
 * The flow triggers every 5 seconds and retrieves a data from a public REST API providing earthquake data.
-* An MQTTui client subscribes to two topics, `degrees` and `earthquake`, to which Node-RED is publishing the parsed data.
-* The switch node in Node-RED unpacks the data, and publishes data with magnitude value greater than or equal to 7, to the `earthquake` topic.
+* An MQTTui client subscribes to two topics, `degrees` and `earthquake` where Node-RED is publishing the parsed data.
+* The switch node in Node-RED unpacks the data, and publishes data with magnitude value greater than or equal to seven, to the `earthquake` topic.
 
-### See it in action
+1. **Add an Inject node** - The Inject node is configured to trigger the flow at a regular interval. Drag an **Inject** node onto the workspace from the palette. Double click the node to bring up the edit dialog. Set the repeat interval to every 5 seconds. Select **Done** to close the dialog.
 
-1. **Add an Inject node** - The Inject node is configured to trigger the flow at a regular interval. Drag an Inject node onto the workspace from the palette. Double click the node to bring up the edit dialog. Set the repeat interval to every 5 seconds. Select Done to close the dialog.
+1. **Add an HTTP Request node** - The HTTP Request node can be used to retrieve a web-page when triggered. The URL is a feed of significant earthquakes in the last month from the US Geological Survey web site. After adding one to the workspace, edit it to set the URL property to: `https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_month.csv`. Then select **Done** to close the dialog.
 
-2. **Add an HTTP Request node** - The HTTP Request node can be used to retrieve a web-page when triggered. The URL is a feed of significant earthquakes in the last month from the US Geological Survey web site. After adding one to the workspace, edit it to set the URL property to: `https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_month.csv`. Then select Done to close the dialog.
+1. **Add a CSV node** - The CSV node converts the JSON-formatted response from the HTTP Request node to a CSV formatted string. Add a CSV node and edit its properties. Enable option for *First row contains column names*. Then select **Done** to close.
 
-3. **Add a CSV node** - The CSV node converts the JSON-formatted response from the HTTP Request node to a CSV formatted string. Add a CSV node and edit its properties. Enable option for ‘First row contains column names’. Then select Done to close.
-
-4. **Add an MQTT out node** to the output. The MQTT out node connects to an MQTT broker and publishes messages. The MQTT out node should have the following properties:
+1. **Add an MQTT out node** to the output. The MQTT out node connects to an MQTT broker and publishes messages. The MQTT out node should have the following properties:
 
     * **Server**: azedge-dmqtt-frontend
     * **Port**: 1883
     * **Topic**: degrees
     * **Username**: client1
     * **Password**: password
-    * **Name**: E4K Broker
+    * **Name**: IoT MQ Broker
     * **QoS**: 1
 
-  {{< detail-tag "See E4K Broker Settings" >}}
+1. **Add another MQTT out node** - Use the same parameters as the first, but change the topic from `degrees` to `earthquake`.
 
-  ![](e4k_broker.png)
+1. **Add a Switch node** - The switch node routes messages based on their property values or sequence position. Edit its properties and configure it to select the property `msg.payload.mag`. Add a value rule for `>=`, set the value to `type number`, and value `7`. Select Done to close. Add a second wire from the `CSV node` to the `Switch node`.
 
-  <br />
+1. **Add a Change node** - The change node can `Set`, `change`, `delete` or `move` properties of a message. Add a `Change` node, wired to the output of the `Switch` node. Configure it to set `msg.payload` to a `string` and enter string name as `PANIC!`.
 
-  ![](authentication.png)
-
-  <br />
-
-  ![](configure_e4k.png)
-
-  <br />
-
-  {{< /detail-tag >}}
-
-  <br/>
-
-6. **Add another MQTT out node** -  Use the same parameters as the first, but change the topic from `degrees` to `earthquake`.
-
-7. **Add a Switch node** - The switch node routes messages based on their property values or sequence position. Edit its properties and configure it to check the property `msg.payload.mag`. Add a value rule for `>=`, set the value to `type number`, and value `7`. Select Done to close. Add a second wire from the `CSV node` to the `Switch node`.
-
-8. **Add a Change node** - The change node can `Set`, `change`, `delete` or `move` properties of a message. Add a `Change` node, wired to the output of the `Switch` node. Configure it to set `msg.payload` to a `string` and enter string name as  `PANIC!`.
-
-9. Connect the nodes together as shown in the following diagram, and select the **Deploy** button on the top right corner.
-
-![](flow.png)
+1. Connect the nodes together as shown in the following diagram, and select the **Deploy** button on the top right corner.
 
 ## Subscribe
 
 Now subscribe to the `degrees` and `earthquake` topic from another MQTT client.
-
-{{< detail-tag "See detailed commands to execute in the Quick Start Codespace" >}}
 
 Create a new terminal in the Codespace using the + button on the top right, while ensuring the Node-RED client is continuing to publish data.
 
@@ -157,13 +132,11 @@ Monitor the messages received by the subscriber in real-time using a terminal UI
 mqttui -b mqtt://localhost:1883 -u client2 --password password2
 ```
 
-{{< /detail-tag >}}
-
 Notice messages are published by the Node-RED flow to the *earthquake* topic when the magnitude value is above the configured threshold:
 
-![](output_1.png)
-
-See the [Node-RED library](https://flows.nodered.org) for more building blocks and examples from the community.
-
+For more building blocks and examples from the community, See the [Node-RED library](https://flows.nodered.org).
 
 ## Related content
+
+- [Azure IoT MQ overview](../manage-mqtt-connectivity/overview-iot-mq.md)
+- [Develop with Azure IoT MQ](concept-about-distributed-apps.md)
