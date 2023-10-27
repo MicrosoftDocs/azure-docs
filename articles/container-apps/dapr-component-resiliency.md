@@ -119,7 +119,7 @@ spec:
       maxConnectAttempts: 3
 ```
 
-To show your existing resiliency policies in your resource group, run:
+To show existing resiliency policies for a container app in your resource group, run:
 
 ```azurecli
 az containerapp resiliency-policies show -g MyResourceGroup –name MyContainerApp​
@@ -131,7 +131,7 @@ To update a resiliency policy, run the following command:
 todo
 ```
 
-To delete a resiliency policy, run:
+To delete resiliency policies, run:
 
 ```azurecli
 az containerapp resiliency-policies remove -g MyResourceGroup –name MyContainerApp​
@@ -170,7 +170,7 @@ properties: {
 
 ### Retries
 
-Define an `httpRetryPolicy` strategy for failed operations, including failures due to a failed timeout or circuit breaker policy. The retry policy includes the following configurations.
+Define an `httpRetryPolicy` strategy for failed operations. The retry policy includes the following configurations.
 
 
 ```bicep

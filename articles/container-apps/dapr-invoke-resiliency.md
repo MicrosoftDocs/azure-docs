@@ -148,7 +148,7 @@ properties: {
 
 ### Retries
 
-Define an `httpRetryPolicy` strategy for failed operations, including failures due to a failed timeout or circuit breaker policy. The retry policy includes the following configurations.
+Define an `httpRetryPolicy` strategy for failed operations. The retry policy includes the following configurations.
 
 ```bicep
 properties: {
