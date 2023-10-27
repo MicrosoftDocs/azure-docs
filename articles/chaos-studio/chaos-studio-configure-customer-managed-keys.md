@@ -1,7 +1,7 @@
 ---
-title: Configure customer-managed keys for experiment encryption
+title: Configure customer-managed keys (preview) for experiment encryption
 titleSuffix: Azure Chaos Studio
-description: Learn how to configure customer-managed keys for your Azure Chaos Studio experiment resource using Azure Blob Storage
+description: Learn how to configure customer-managed keys (preview) for your Azure Chaos Studio experiment resource using Azure Blob Storage
 services: chaos-studio
 ms.service: chaos-studio
 ms.author: nikhilkaul
@@ -10,7 +10,7 @@ ms.date: 10/06/2023
 ms.topic: how-to
 ---
  
-# Configure customer-managed keys for Azure Chaos Studio using Azure Blob Storage
+# Configure customer-managed keys (preview) for Azure Chaos Studio using Azure Blob Storage
  
 Azure Chaos Studio automatically encrypts all data stored in your experiment resource with keys that Microsoft provides (service-managed keys). As an optional feature, you can add a second layer of security by also providing your own (customer-managed) encryption key(s). Customer-managed keys offer greater flexibility for controlling access and key-rotation policies.
  
