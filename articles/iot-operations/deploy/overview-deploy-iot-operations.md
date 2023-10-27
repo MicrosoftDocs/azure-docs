@@ -29,7 +29,7 @@ A *solution* is a template that defines an application workload that can be depl
 
 #### Target
 
-A *target* is a specific deployment environment, such as a Kubernetes cluster or an edge device. It describes infrastructural components, which are components installed once on a device, like PowerShell or Azure IoT Data Processor. Each target has its own configuration settings that can be customized to meet the specific needs of the deployment environment. A target also specifies provider bindings that define what types of resources are to be managed on the target (for example, Helm, Powershell scripts, CRs, or Bash scripts).
+A *target* is a specific deployment environment, such as a Kubernetes cluster or an edge device. It describes infrastructural components, which are components installed once on a device, like PowerShell or Azure IoT Data Processor. Each target has its own configuration settings that can be customized to meet the specific needs of the deployment environment. A target also specifies provider bindings that define what types of resources are to be managed on the target (for example, Helm, PowerShell scripts, CRs, or Bash scripts).
 
 #### Instance
 
