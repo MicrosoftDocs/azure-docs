@@ -24,7 +24,7 @@ The following table describes the built-in skills.
 
 | OData type  | Description | Metered by |
 |-------|-------------|-------------|
-|[Microsoft.Skills.Text.AzureOpenAIEmbeddingSkill](cognitive-search-skill-azure-openai.md) | Connects to a deployed model on Azure OpenAI for integrated vectorization. | Azure OpenAI ([pricing](ttps://azure.microsoft.com/pricing/details/cognitive-services/openai-service/#pricing)) |
+|[Microsoft.Skills.Text.AzureOpenAIEmbeddingSkill](cognitive-search-skill-azure-openai-embedding.md) | Connects to a deployed model on Azure OpenAI for integrated vectorization. | Azure OpenAI ([pricing](ttps://azure.microsoft.com/pricing/details/cognitive-services/openai-service/#pricing)) |
 |[Microsoft.Skills.Text.CustomEntityLookupSkill](cognitive-search-skill-custom-entity-lookup.md) | Looks for text from a custom, user-defined list of words and phrases.| Azure AI Search ([pricing](https://azure.microsoft.com/pricing/details/search/)) |
 | [Microsoft.Skills.Text.KeyPhraseExtractionSkill](cognitive-search-skill-keyphrases.md) | This skill uses a pretrained model to detect important phrases based on term placement, linguistic rules, proximity to other terms, and how unusual the term is within the source data. | Azure AI services ([pricing](https://azure.microsoft.com/pricing/details/cognitive-services/)) | 
 | [Microsoft.Skills.Text.LanguageDetectionSkill](cognitive-search-skill-language-detection.md)  | This skill uses a pretrained model to detect which language is used (one language ID per document). When multiple languages are used within the same text segments, the output is the LCID of the predominantly used language. | Azure AI services ([pricing](https://azure.microsoft.com/pricing/details/cognitive-services/)) | 
