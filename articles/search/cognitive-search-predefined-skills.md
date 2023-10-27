@@ -1,26 +1,31 @@
 ---
 title: Built-in skills
-titleSuffix: Azure Cognitive Search
-description: Data extraction, natural language, and image processing skills add semantics and structure to raw content in an Azure Cognitive Search enrichment pipeline.
+titleSuffix: Azure AI Search
+description: Data extraction, natural language, and image processing skills add semantics and structure to raw content in an Azure AI Search enrichment pipeline.
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/09/2022
+ms.date: 10/26/2023
 ---
-# Built-in skills for text and image processing during indexing (Azure Cognitive Search)
 
-This article describes the skills provided with Azure Cognitive Search that you can include in a [skillset](cognitive-search-working-with-skillsets.md) to extract content and structure from raw unstructured text and image files. A *skill* is an atomic operation that transforms content in some way. Often, it is an operation that recognizes or extracts text, but it can also be a utility skill that reshapes the enrichments that are already created. Typically, the output is text-based so that it can be used in full text queries. 
+# Built-in skills for extra processing during indexing (Azure AI Search)
+
+This article describes the skills provided with Azure AI Search that you can include in a [skillset](cognitive-search-working-with-skillsets.md) to extract content and structure from raw unstructured text and image files. A *skill* is an atomic operation that transforms content in some way. Often, it's an operation that recognizes or extracts text, but it can also be a utility skill that reshapes the enrichments that are already created. Typically, the output is text-based so that it can be used in full text queries. 
 
 ## Built-in skills
 
-Built-in skills are based on pre-trained models from Microsoft, which means you cannot train the model using your own training data. Skills that call the Cognitive Resources APIs have a dependency on those services and are billed at the Azure AI services pay-as-you-go price when you [attach a resource](cognitive-search-attach-cognitive-services.md). Other skills are metered by Azure Cognitive Search, or are utility skills that are available at no charge.
+Built-in skills are based on pretrained models from Microsoft, which means you can't train the model using your own training data. 
 
-The following table enumerates and describes the built-in skills.
+Skills that call the Azure AI or Azure OpenAI APIs have a dependency on those services and are billed at the pay-as-you-go rate when you [attach an AI service resource](cognitive-search-attach-cognitive-services.md) or connect to deployed model on your Azure OpenAI resource.
+Other skills are metered by Azure AI Search, or are utility skills that are available at no charge.
+
+The following table describes the built-in skills.
 
 | OData type  | Description | Metered by |
 |-------|-------------|-------------|
-|[Microsoft.Skills.Text.CustomEntityLookupSkill](cognitive-search-skill-custom-entity-lookup.md) | Looks for text from a custom, user-defined list of words and phrases.| Azure Cognitive Search ([pricing](https://azure.microsoft.com/pricing/details/search/)) |
+|[Microsoft.Skills.Text.AzureOpenAIEmbeddingSkill](cognitive-search-skill-azure-openai-embedding.md) | Connects to a deployed model on Azure OpenAI for integrated vectorization. | Azure OpenAI ([pricing](ttps://azure.microsoft.com/pricing/details/cognitive-services/openai-service/#pricing)) |
+|[Microsoft.Skills.Text.CustomEntityLookupSkill](cognitive-search-skill-custom-entity-lookup.md) | Looks for text from a custom, user-defined list of words and phrases.| Azure AI Search ([pricing](https://azure.microsoft.com/pricing/details/search/)) |
 | [Microsoft.Skills.Text.KeyPhraseExtractionSkill](cognitive-search-skill-keyphrases.md) | This skill uses a pretrained model to detect important phrases based on term placement, linguistic rules, proximity to other terms, and how unusual the term is within the source data. | Azure AI services ([pricing](https://azure.microsoft.com/pricing/details/cognitive-services/)) | 
 | [Microsoft.Skills.Text.LanguageDetectionSkill](cognitive-search-skill-language-detection.md)  | This skill uses a pretrained model to detect which language is used (one language ID per document). When multiple languages are used within the same text segments, the output is the LCID of the predominantly used language. | Azure AI services ([pricing](https://azure.microsoft.com/pricing/details/cognitive-services/)) | 
 | [Microsoft.Skills.Text.MergeSkill](cognitive-search-skill-textmerger.md) | Consolidates text from a collection of fields into a single field.  | Not applicable |
@@ -29,11 +34,11 @@ The following table enumerates and describes the built-in skills.
 | [Microsoft.Skills.Text.PIIDetectionSkill](cognitive-search-skill-pii-detection.md)  | This skill uses a pretrained model to extract personal information from a given text. The skill also gives various options for masking the detected personal information entities in the text.  | Azure AI services ([pricing](https://azure.microsoft.com/pricing/details/cognitive-services/)) | 
 | [Microsoft.Skills.Text.V3.SentimentSkill](cognitive-search-skill-sentiment-v3.md)  | This skill uses a pretrained model to assign sentiment labels (such as "negative", "neutral" and "positive") based on the highest confidence score found by the service at a sentence and document-level on a record by record basis. | Azure AI services ([pricing](https://azure.microsoft.com/pricing/details/cognitive-services/)) | 
 | [Microsoft.Skills.Text.SplitSkill](cognitive-search-skill-textsplit.md) | Splits text into pages so that you can enrich or augment content incrementally. | Not applicable |
-| [Microsoft.Skills.Text.TranslationSkill](cognitive-search-skill-text-translation.md) | This skill uses a pretrained model to translate the input text into a variety of languages for normalization or localization use cases. | Azure AI services ([pricing](https://azure.microsoft.com/pricing/details/cognitive-services/)) | 
+| [Microsoft.Skills.Text.TranslationSkill](cognitive-search-skill-text-translation.md) | This skill uses a pretrained model to translate the input text into various languages for normalization or localization use cases. | Azure AI services ([pricing](https://azure.microsoft.com/pricing/details/cognitive-services/)) | 
 | [Microsoft.Skills.Vision.ImageAnalysisSkill](cognitive-search-skill-image-analysis.md) | This skill uses an image detection algorithm to identify the content of an image and generate a text description. | Azure AI services ([pricing](https://azure.microsoft.com/pricing/details/cognitive-services/)) | 
 | [Microsoft.Skills.Vision.OcrSkill](cognitive-search-skill-ocr.md) | Optical character recognition. | Azure AI services ([pricing](https://azure.microsoft.com/pricing/details/cognitive-services/)) |
 | [Microsoft.Skills.Util.ConditionalSkill](cognitive-search-skill-conditional.md) | Allows filtering, assigning a default value, and merging data based on a condition. | Not applicable |
-| [Microsoft.Skills.Util.DocumentExtractionSkill](cognitive-search-skill-document-extraction.md) | Extracts content from a file within the enrichment pipeline. | Azure Cognitive Search ([pricing](https://azure.microsoft.com/pricing/details/search/))
+| [Microsoft.Skills.Util.DocumentExtractionSkill](cognitive-search-skill-document-extraction.md) | Extracts content from a file within the enrichment pipeline. | Azure AI Search ([pricing](https://azure.microsoft.com/pricing/details/search/))
 | [Microsoft.Skills.Util.ShaperSkill](cognitive-search-skill-shaper.md) | Maps output to a complex type (a multi-part data type, which might be used for a full name, a multi-line address, or a combination of last name and a personal identifier.) | Not applicable |
 
 ## Custom skills
