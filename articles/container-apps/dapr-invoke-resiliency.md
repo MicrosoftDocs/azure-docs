@@ -35,7 +35,7 @@ This article focuses on configuring Dapr's resiliency policies when using Daprâ€
 Create resiliency policies using Bicep, the CLI, and the Azure portal. 
 
 > [!IMPORTANT]
-> Once you've applied all the resiliency policies that use Dapr, restart your Dapr applications.
+> Once you've applied all the resiliency policies, restart your Dapr applications.
 
 # [Bicep](#tab/bicep)
 
@@ -126,7 +126,7 @@ Need
 
 ---
 
-## Policy descriptions
+## Policy specifications
 
 ### Timeouts
 

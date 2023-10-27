@@ -171,7 +171,7 @@ Need
 
 ---
 
-## Policy descriptions
+## Policy specifications
 
 ### Timeouts
 

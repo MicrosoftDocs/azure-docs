@@ -14,17 +14,15 @@ ms.custom: ignite-fall-2023
 
 # Dapr component resiliency
 
-With Azure Container Apps resiliency, you can proactively prevent, detect, and recover from service-to-service request failures using simple resiliency policies. 
-
-If your container app is leveraging Dapr to integrate with an external technology (for example, Azure Service Bus) you can apply resiliency policies to your Dapr components.
+If your container app is leveraging Dapr to integrate with a technology (for example, state stores, pub/sub message brokers, secret stores, etc.), you can apply resiliency policies to your Dapr components.
 
 You can configure resiliency policies for the following outbound and inbound operation directions via a Dapr component: 
 
-- **Outbound operations:** Calls from the sidecar to a component, such as:
+- **Outbound operations:** Calls from the Dapr sidecar to a component, such as:
    - Persisting or retrieving state
    - Publishing a message
    - Invoking an output binding
-- **Inbound operations:** Calls from the sidecar to your container app, such as:
+- **Inbound operations:** Calls from the Dapr sidecar to your container app, such as:
    - Subscriptions when delivering a message
    - Input bindings delivering an event
 
@@ -40,7 +38,7 @@ You can configure resiliency policies for the following outbound and inbound ope
 Create resiliency policies using Bicep, the CLI, and the Azure portal. 
 
 > [!IMPORTANT]
-> Once you've applied all the resiliency policies that use Dapr, restart your Dapr applications. All of the applications that load or use that component.
+> Once you've applied all the resiliency policies, restart your Dapr applications.
 
 # [Bicep](#tab/bicep)
 
@@ -145,7 +143,7 @@ Need
 
 ---
 
-## Policy descriptions
+## Policy specifications
 
 ### Timeouts
 
