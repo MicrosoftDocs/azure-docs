@@ -10,60 +10,76 @@ ms.custom: references_regions
 ---
 
 # Data collection rules in Azure Monitor
-Data collection rules (DCRs) are sets of instructions that define [data collection workflows in Azure Monitor](../essentials/data-collection.md). DCRs specify what data should be collected, how to transform that data, and where to send it. Some DCRs will be created and managed by Azure Monitor to collect a specific set of data to enable insights and visualizations. You might also create your own DCRs to define the set of data required for other scenarios.
+Data collection rules (DCRs) are sets of instructions supporting [data collection in Azure Monitor](../essentials/data-collection.md). They provide a consistent way to define and customize different data collection scenarios. Depending on the scenario, DCRs may specify what data should be collected, how to transform that data, and where to send it. 
+
+DCRs are stored in Azure so that you can centrally manage them. Different components of a data collection workflow will access the DCR for particular information that it requires. In some cases, you can use the Azure portal to configure data collection, and Azure Monitor will create and manage the DCR for you. Other scenarios will require you to create your own DCR. You may also choose to customize a DCR to meet your required functionality.
 
 
-## Concept
-DCRs are stored in Azure so that you can centrally manage them. Different components of a data collection workflow will access the DCR for particular information that it requires.
+## Basic operation
+One example of how DCRs are used is the Logs Ingestion API that allows you to send custom data to Azure Monitor. This scenario is illustrated in the following diagram. Prior to using the API, you create a DCR that defines the structure of the data that your going to send and the Log Analytics workspace and table that will receive the data. If the data needs to be formatted before it's stored, you can include a [transformation](data-collection-transformations.md) in the DCR.
 
-The following diagram illustrates data collection for the Azure Monitor agent. When the agent is installed, it connect to Azure to retrieve any DCRs that are associated with it. It then references the data sources section of each DCR to determine what data to collect from the machine. When the agent delivers this data to Azure Monitor, the pipeline references other sections of the DCR to determine whether a transformation should be applied to then the workspace and table to send it to.
+Each call to the API specifies the DCR to use, and Azure Monitor references this DCR to determine what to do with the incoming data. If your requirements change, you can modify the DCR without making any changes the application sending the data.
+
+ 
+:::image type="content" source="media/data-collection-transformations/transformation-data-ingestion-api.png" lightbox="media/data-collection-transformations/transformation-data-ingestion-api.png" alt-text="Diagram that shows ingestion-time transformation for custom application by using logs ingestion API." border="false":::
+
+## Data collection rule associations (DCRAs)
+Data collection rule associations (DCRAs) associate a DCR with a virtual machine (VM) using the Azure Monitor agent (AMA). A single VM can be associated with multiple DCRs, and a single DCR can be used with multiple VMs. 
+
+The following diagram illustrates data collection for the Azure Monitor agent. When the agent is installed, it connects to Azure to retrieve any DCRs that are associated with it. It then references the data sources section of each DCR to determine what data to collect from the machine. When the agent delivers this data, to Azure Monitor references other sections of the DCR to determine whether a transformation should be applied to then the workspace and table to send it to.
 
 :::image type="content" source="media/data-collection-transformations/transformation-azure-monitor-agent.png" lightbox="media/data-collection-transformations/transformation-azure-monitor-agent.png" alt-text="Diagram that shows ingestion-time transformation for Azure Monitor Agent." border="false":::
 
-Another example is the Logs Ingestion API that allows you to send custom data to Azure Monitor. In this case, the API call that sends the data also specifies a DCR to use. Azure Monitor references this DCR to understand the structure of the incoming data, determine whether a transformation should be applied to then the workspace and table to send it to.
 
-:::image type="content" source="media/data-collection-transformations/transformation-data-ingestion-api.png" lightbox="media/data-collection-transformations/transformation-data-ingestion-api.png" alt-text="Diagram that shows ingestion-time transformation for custom application by using logs ingestion API." border="false":::
 
 ## View data collection rules
+
+### [Portal](#tab/portal)
 To view your DCRs in the Azure portal, select **Data Collection Rules** under **Settings** on the **Monitor** menu.
 
 > [!NOTE]
-> Although this view shows all DCRs in the specified subscriptions, selecting the **Create** button will create a data collection for Azure Monitor Agent. Similarly, this page will only allow you to modify DCRs for Azure Monitor Agent. For guidance on how to create and update DCRs for other workflows, see [Create a data collection rule](#create-a-data-collection-rule).
+> Although this view shows all DCRs in the specified subscriptions, selecting the **Create** button will create a data collection for Azure Monitor Agent. Similarly, this page will only allow you to modify DCRs for Azure Monitor Agent. For guidance on how to create and update DCRs for other workflows, see [Create and edit data collection rules (DCRs) in Azure Monitor](./data-collection-rule-create-edit.md).
 
 :::image type="content" source="media/data-collection-rule-overview/view-data-collection-rules.png" lightbox="media/data-collection-rule-overview/view-data-collection-rules.png" alt-text="Screenshot that shows DCRs in the Azure portal.":::
 
-## Create a data collection rule
-The following resources describe different scenarios for creating DCRs. In some cases, the DCR might be created for you. In other cases, you might need to create and edit it yourself.
+### [PowerShell](#tab/powershell)
+[Get-AzDataCollectionRule](/powershell/module/az.monitor/get-azdatacollectionrule)
 
-| Scenario | Resources | Description |
-|:---|:---|:---|
-| Azure Monitor Agent | [Configure data collection for Azure Monitor Agent](../agents/data-collection-rule-azure-monitor-agent.md) | Use the Azure portal to create a DCR that specifies events and performance counters to collect from a machine with Azure Monitor Agent. Then apply that rule to one or more virtual machines. Azure Monitor Agent will be installed on any machines that don't currently have it.  |
-| | [Use Azure Policy to install Azure Monitor Agent and associate with a DCR](../agents/azure-monitor-agent-manage.md#use-azure-policy) | Use Azure Policy to install Azure Monitor Agent and associate one or more DCRs with any virtual machines or virtual machine scale sets as they're created in your subscription.
-| Text logs | [Collect text logs with Azure Monitor Agent](../agents/data-collection-text-log.md) | Create a DCR to collect entries from a text log  |
-| Text logs | [Configure custom logs by using the Azure portal](../logs/tutorial-logs-ingestion-portal.md)<br>[Configure custom logs by using Azure Resource Manager templates and the REST API](../logs/tutorial-logs-ingestion-api.md)<br>[Collect text logs with Azure Monitor Agent](../agents/data-collection-text-log.md) | Send custom data by using a REST API or Agent. The API call connects to a data collection endpoint and specifies a DCR to use. The agent uses the DCR to configure the collection of data on a machine. The DCR specifies the target table and potentially includes a transformation that filters and modifies the data before it's stored in a Log Analytics workspace.  |
-| Azure Event Hubs | [Ingest events from Azure Event Hubs to Azure Monitor Logs](../logs/ingest-logs-event-hub.md)| Collect data from multiple sources to an event hub and ingest the data you need directly into tables in one or more Log Analytics workspaces. This is a highly scalable method of collecting data from a wide range of sources with minimum configuration.|
-| Workspace transformation | [Configure ingestion-time transformations by using the Azure portal](../logs/tutorial-workspace-transformations-portal.md)<br>[Configure ingestion-time transformations by using Azure Resource Manager templates and the REST API](../logs/tutorial-workspace-transformations-api.md) | Create a transformation for any supported table in a Log Analytics workspace. The transformation is defined in a DCR that's then associated with the workspace. It's applied to any data sent to that table from a legacy workload that doesn't use a DCR. |
+Return all DCRs.
 
-## Work with data collection rules
-To work with DCRs outside of the Azure portal, see the following resources:
+```powershell
+Get-AzDataCollectionRule 
+```
 
-| Method | Resources |
-|:---|:---|
-| API        | Directly edit the DCR in any JSON editor and then [install it by using the REST API](/rest/api/monitor/datacollectionrules). |
-| CLI        | Create DCRs and associations with the [Azure CLI](/cli/azure/monitor/data-collection/rule). |
-| PowerShell | Work with DCRs and associations with the following Azure PowerShell cmdlets:<br>[Get-AzDataCollectionRule](/powershell/module/az.monitor/get-azdatacollectionrule)<br>[New-AzDataCollectionRule](/powershell/module/az.monitor/new-azdatacollectionrule)<br>[Set-AzDataCollectionRule](/powershell/module/az.monitor/set-azdatacollectionrule)<br>[Update-AzDataCollectionRule](/powershell/module/az.monitor/update-azdatacollectionrule)<br>[Remove-AzDataCollectionRule](/powershell/module/az.monitor/remove-azdatacollectionrule)<br>[Get-AzDataCollectionRuleAssociation](/powershell/module/az.monitor/get-azdatacollectionruleassociation)<br>[New-AzDataCollectionRuleAssociation](/powershell/module/az.monitor/new-azdatacollectionruleassociation)<br>[Remove-AzDataCollectionRuleAssociation](/powershell/module/az.monitor/remove-azdatacollectionruleassociation)
+Return DCRs associated with a VM.
 
-## Structure of a data collection rule
-Data collection rules are formatted in JSON. Although you might not need to interact with them directly, there are scenarios where you might need to directly edit a DCR. For a description of this structure and the different elements used for different workflows, see [Data collection rule structure](data-collection-rule-structure.md).
+```powershell
+get-azDataCollectionRuleAssociation -TargetResourceId /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/Microsoft.Compute/virtualMachines/my-vm | foreach {Get-azDataCollectionRule -RuleId $_.DataCollectionRuleId }
+```
 
-## Permissions
-When you use programmatic methods to create DCRs and associations, you require the following permissions:
+### [CLI](#tab/cli)
+ Create DCRs and associations with the [Azure CLI](/cli/azure/monitor/data-collection/rule).
 
-| Built-in role | Scopes | Reason |
-|:---|:---|:---|
-| [Monitoring Contributor](../../role-based-access-control/built-in-roles.md#monitoring-contributor) | <ul><li>Subscription and/or</li><li>Resource group and/or </li><li>An existing DCR</li></ul> | Create or edit DCRs, assign rules to the machine, deploy associations). |
-| [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)<br>[Azure Connected Machine Resource Administrator](../../role-based-access-control/built-in-roles.md#azure-connected-machine-resource-administrator)</li></ul> | <ul><li>Virtual machines, virtual machine scale sets</li><li>Azure Arc-enabled servers</li></ul> | Deploy agent extensions on the VM. |
-| Any role that includes the action *Microsoft.Resources/deployments/** | <ul><li>Subscription and/or</li><li>Resource group and/or </li><li>An existing DCR</li></ul> | Deploy Azure Resource Manager templates. |
+Return all DCRs.
+
+```azurecli
+az monitor data-collection rule list
+```
+
+Return DCR associations for a VM.
+
+```azurecli
+az monitor data-collection rule association list --resource "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/Microsoft.Compute/virtualMachines/my-vm "
+```
+
+---
+
+
+## Structure of a DCR
+Data collection rules are formatted in JSON. For a description of this structure and the different elements used for different workflows, see [Data collection rule structure](data-collection-rule-structure.md). For sample DCRs, see [Sample data collection rules (DCRs)](data-collection-rule-samples.md).
+
+## Create and edit DCRs
+See [Create and edit data collection rules (DCRs) in Azure Monitor](./data-collection-rule-create-edit.md).
 
 ## Limits
 For limits that apply to each DCR, see [Azure Monitor service limits](../service-limits.md#data-collection-rules).
