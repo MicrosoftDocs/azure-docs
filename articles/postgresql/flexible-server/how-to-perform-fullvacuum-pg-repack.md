@@ -24,13 +24,13 @@ To use pg_repack, you need to install the extension in your PostgreSQL database 
 
 To perform a full table repack, pg_repack will follow these steps: 
 
--    Create a log table to record changes made to the original table.
--    Add a trigger to the original table, logging INSERTs, UPDATEs, and DELETEs into the log table.
--    Create a new table containing all the rows in the old table.
--    Build indexes on the new table.
--    Apply all changes recorded in the log table to the new table.
--    Swap the tables, including indexes and toast tables, using the system catalogs.
--    Drop the original table. 
+1.    Create a log table to record changes made to the original table.
+2.    Add a trigger to the original table, logging INSERTs, UPDATEs, and DELETEs into the log table.
+3.    Create a new table containing all the rows in the old table.
+4.    Build indexes on the new table.
+5.    Apply all changes recorded in the log table to the new table.
+6.    Swap the tables, including indexes and toast tables, using the system catalogs.
+7.    Drop the original table. 
 
 During these steps, pg_repack will only hold an ACCESS EXCLUSIVE lock for a short period during initial setup (steps 1 and 2) and during the final swap-and-drop phase (steps 6 and 7). For the rest of the time, pg_repack will only need to hold an ACCESS SHARE lock on the original table, allowing INSERTs, UPDATEs, and DELETEs to proceed as usual. 
 
@@ -49,9 +49,9 @@ pg_repack has some limitations that you should be aware of before using it:
 
 To enable pg_repack extension follow the steps below: 
 
-1. Add pg_repack extension under azure extensions as shown below from the server parameters blade on Flexible server portal
+1. Add pg_repack extension under Azure extensions as shown below from the server parameters blade on Flexible server portal
 
-   :::image type="content" source="./media/how-to-perform-fullvacuum-pg_repack/portal.png" alt-text="Screenshot of server parameters blade with azure extensions parameter":::
+   :::image type="content" source="./media/how-to-perform-fullvacuum-pg-repack/portal.png" alt-text="Screenshot of server parameters blade with Azure extensions parameter.":::
 
 > [!NOTE]
 > Please note that making this change will not require a server restart. 

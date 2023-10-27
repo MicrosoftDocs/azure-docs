@@ -29,7 +29,7 @@ To enable auto explain extension follow the steps below:
 
 1. Add auto_explain extension to the shared preload libraries as shown below from the server parameters blade on Flexible server portal
 
-   :::image type="content" source="./media/how-to-identify-slow-queries/shared_preload_library.png" alt-text="Screenshot of server parameters blade with shared preload libraries parameter.":::
+   :::image type="content" source="./media/how-to-identify-slow-queries/shared-preload-library.png" alt-text="Screenshot of server parameters blade with shared preload libraries parameter.":::
 
 > [!NOTE]
 > Please note that making this change will require a server restart.
@@ -54,11 +54,11 @@ We have a scenario where CPU utilization is spiked to 90% and would like to know
 
 2.    Select High CPU Usage tab from the page opened. The high CPU Utilization troubleshooting guide opens.
 
-      :::image type="content" source="./media/how-to-identify-slow-queries/high-cpu-troubleshooting-guide.png" alt-text="Screenshot of troubleshooting guides menu - tabs ":::
+      :::image type="content" source="./media/how-to-identify-slow-queries/high-cpu-troubleshooting-guide.png" alt-text="Screenshot of troubleshooting guides menu - tabs. ":::
 
 3.    Select time range of the reported CPU spike using the time range drop-down.
 
-      :::image type="content" source="./media/how-to-identify-slow-queries/high-cpu-timerange.png" alt-text="Screenshot of troubleshooting guides menu - CPU tab":::
+      :::image type="content" source="./media/how-to-identify-slow-queries/high-cpu-timerange.png" alt-text="Screenshot of troubleshooting guides menu - CPU tab.":::
 
 4.    Select Top CPU Consuming Queries tab. 
       
@@ -86,12 +86,12 @@ order by c_w_id;
 
 7. To understand what exact explain plan was generated use Postgres logs. Auto explain extension would have logged an entry in the logs every time the query execution completed during the interval. Select Logs section from the `Monitoring` tab from the Flexible server portal overview blade.
 
-    :::image type="content" source="./media/how-to-identify-slow-queries/log-analytics-tab.png" alt-text="Screenshot of troubleshooting guides menu - Logs":::
+    :::image type="content" source="./media/how-to-identify-slow-queries/log-analytics-tab.png" alt-text="Screenshot of troubleshooting guides menu - Logs.":::
  
 
 8. Select the time range where 90% CPU Utilization was found.
    
-   :::image type="content" source="./media/how-to-identify-slow-queries/log-analytics-timerange.png" alt-text="Screenshot of troubleshooting guides menu - Logs Timerange":::
+   :::image type="content" source="./media/how-to-identify-slow-queries/log-analytics-timerange.png" alt-text="Screenshot of troubleshooting guides menu - Logs Timerange.":::
 
 
 9. Execute the below query to retrieve the explain analyze output of the query identified. 
@@ -144,7 +144,7 @@ To enable auto explain extension follow the steps below:
 
 1. Add auto_explain extension to the shared preload libraries as shown below from the server parameters blade on Flexible server portal
 
-   :::image type="content" source="./media/how-to-identify-slow-queries/shared_preload_library.png" alt-text="Screenshot of server parameters blade with shared preload libraries parameter - Procedure":::
+   :::image type="content" source="./media/how-to-identify-slow-queries/shared-preload-library.png" alt-text="Screenshot of server parameters blade with shared preload libraries parameter - Procedure.":::
 
 > [!NOTE]
 > Please note that making this change will require a server restart.
@@ -152,11 +152,11 @@ To enable auto explain extension follow the steps below:
 2. After the auto_explain extension is added to shared preload libraries and server has restarted, change the below highlighted auto_explain server parameters to `ON` from server parameters blade on Flexible server portal and leave the remaining ones
    with default values as shown below.
 
-   :::image type="content" source="./media/how-to-identify-slow-queries/auto-explain-procedure-parameters.png" alt-text="Screenshot of server parameters blade with auto_explain parameters - Procedure":::
+   :::image type="content" source="./media/how-to-identify-slow-queries/auto-explain-procedure-parameters.png" alt-text="Screenshot of server parameters blade with auto_explain parameters - Procedure.":::
 
 > [!NOTE]
-> 1.    Updating `auto_explain.log_min_duration` parameter to 0 will start logging all queries being executed on the server. This may impact performance of the database. Proper due diligence must be made to come to a value which is considered slow on the server. Example if 30 seconds is considered threshold and all queries being run below 30 seconds is acceptable for application then it is advised to update the parameter to 30000 milliseconds. This would then log any query which is executed more than 30 seconds on the server.
-> 2.    The parameter `auto_explain.log_nested_statements` causes nested statements (statements executed inside a function or procedure) to be considered for logging. When it is off, only top-level query plans are logged.  
+>-    Updating `auto_explain.log_min_duration` parameter to 0 will start logging all queries being executed on the server. This may impact performance of the database. Proper due diligence must be made to come to a value which is considered slow on the server. Example if 30 seconds is considered threshold and all queries being run below 30 seconds is acceptable for application then it is advised to update the parameter to 30000 milliseconds. This would then log any query which is executed more than 30 seconds on the server.
+>-    The parameter `auto_explain.log_nested_statements` causes nested statements (statements executed inside a function or procedure) to be considered for logging. When it is off, only top-level query plans are logged.  
 
 ### Scenario - Identify slow running query in a stored procedure
 
@@ -184,7 +184,7 @@ We have a scenario where CPU utilization is spiked to 90% and would like to know
 
       :::image type="content" source="./media/how-to-identify-slow-queries/high-cpu-procedure.png" alt-text="Screenshot of troubleshooting guides - Top CPU consuming queries tab.":::
 
-5.    Connect to azure_sys database and execute the query to retrieve actual query text using the below script 
+5.    Connect to azure_sys database and execute the query to retrieve actual query text using the below script. 
 
 ```sql
     psql -h ServerName.postgres.database.azure.com -U AdminUsername -d azure_sys
