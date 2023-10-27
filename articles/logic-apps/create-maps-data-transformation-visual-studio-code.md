@@ -28,8 +28,6 @@ This how-to guide shows how to create a blank data map, choose your source and t
 
 ## Limitations and known issues
 
-- The Data Mapper extension currently works only in Visual Studio Code running on Windows operating systems.
-
 - The Data Mapper tool is currently available only in Visual Studio Code, not the Azure portal, and only from within Standard logic app projects, not Consumption logic app projects.
 
 - To call maps created with the Data Mapper tool, you can only use the **Data Mapper Operations** action named **Transform using Data Mapper XSLT**. [For maps created by any other tool, use the **XML Operations** action named **Transform XML**](logic-apps-enterprise-integration-transform.md).
