@@ -15,7 +15,7 @@ Azure Operator Nexus's Network Packet Broker is a specialized offering from Micr
 The NPB has been designed and modeled as a separate top level Azure Resource Manager (ARM) resource under Microsoft.managednetworkfabric. Operators can Create, Read, Update and Delete Network TAP, Network TAP rule and Neighbor Group functions. Each network packet broker will have multiple resources such as Network TAP, Neighbor Group, & Network TAP Rules to manage, filter and forward designated traffic. 
 
 ## Steps to Enable Network Packet Broker
-**Prequisties**
+**Prerequisites**
 1. NPB devices are correctly racked, stacked, and provisioned. For Procedure on how to provision the network fabric, see [Network Fabric Provisioning](./howto-configure-network-fabric.md).
 2. Respective vProbes should be set up with dedicated IPs
 3. For internal vProbes, Layer 3 Isolation domains with internal networks should be created. Required connected subnets should be configured, in addition to it, the extension flag should be set to NPB (in internal networks). For Procedure on how to create internal and external networks on an Isolation Domain and set extension flag for NPB, see [Isolation Domains](./howto-configure-isolation-domain.md).
