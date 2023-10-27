@@ -115,7 +115,7 @@ Chat flow is designed for conversational application development, building upon 
 
 In chat flow authoring page, the chat flow is tagged with a "chat" label to distinguish it from standard flow and evaluation flow. To test the chat flow, select "Chat" button to trigger a chat box for conversation.
 
-:::image type="content" source="./media/how-to-develop-flow/chat-authoring-layout.png" alt-text="Screenshot of chat flow authoring page." lightbox ="./media/how-to-develop-flow/chat-authoring-layout.pnghow-to-develop-flow/chat-authoring-layout.png":::
+:::image type="content" source="./media/how-to-develop-flow/chat-authoring-layout.png" alt-text="Screenshot of chat flow authoring page." lightbox ="./media/how-to-develop-flow/chat-authoring-layout.png":::
 
 ### Chat input/output and chat history
 
