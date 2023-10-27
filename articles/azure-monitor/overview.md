@@ -242,6 +242,26 @@ You may need to integrate Azure Monitor with other systems or to build custom so
 |[Azure Functions](../azure-functions/functions-overview.md)| Similar to Azure Logic Apps, Azure Functions give you the ability to pre process and post process monitoring data as well as perform complex action beyond the scope of typical Azure Monitor alerts. Azure Functions uses code however providing additional flexibility over Logic Apps.
 |Azure DevOps and GitHub | Azure Monitor Application Insights gives you the ability to create [Work Item Integration](app/release-and-work-item-insights.md?tabs=work-item-integration) with monitoring data embedding in it. Additional options include [release annotations](app/release-and-work-item-insights.md?tabs=release-annotations) and [continuous monitoring](app/release-and-work-item-insights.md?tabs=continuous-monitoring). |
 
+## Frequently asked questions
+
+This section provides answers to common questions.
+
+### What's the difference between Azure Monitor, Log Analytics, and Application Insights?
+
+In September 2018, Microsoft combined Azure Monitor, Log Analytics, and Application Insights into a single service to provide powerful end-to-end monitoring of your applications and the components they rely on. Features in Log Analytics and Application Insights haven't changed, although some features have been rebranded to Azure Monitor to better reflect their new scope. The log data engine and query language of Log Analytics is now referred to as Azure Monitor Logs.
+
+### How much does Azure Monitor cost?
+
+The cost of Azure Monitor is based on your usage of different features and is primarily determined by the amount of data you collect. See [Azure Monitor cost and usage](./usage-estimated-costs.md) for details on how costs are determined and [Cost optimization in Azure Monitor](./best-practices-cost.md) for recommendations on reducing your overall spend.
+
+### Is there an on-premises version of Azure Monitor?
+
+No. Azure Monitor is a scalable cloud service that processes and stores large amounts of data, although Azure Monitor can monitor resources that are on-premises and in other clouds.
+
+### Does Azure Monitor integrate with System Center Operations Manager?
+
+You can connect your existing System Center Operations Manager management group to Azure Monitor to collect data from agents into Azure Monitor Logs. This capability allows you to use log queries and solutions to analyze data collected from agents. You can also configure existing System Center Operations Manager agents to send data directly to Azure Monitor. See [Connect Operations Manager to Azure Monitor](agents/om-agents.md).
+          
 
 ## Next steps
 - [Getting started with Azure Monitor](getting-started.md)
