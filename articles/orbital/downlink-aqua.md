@@ -1,5 +1,5 @@
 ---
-title: Azure Orbital Ground Station - downlink data from public satellites 
+title: Azure Orbital Ground Station - Downlink data from public satellites 
 description: Learn how to schedule a contact with public satellites by using the Azure Orbital Ground Station service.
 author: apoorvanori
 ms.service: orbital
@@ -14,7 +14,7 @@ ms.author: apoorvanori
 
 You can communicate with satellites directly from Azure by using the Azure Orbital Ground Station service. After you downlink data, you can process and analyze it in Azure. 
 
-In this turotial, you'll learn how to:
+In this tutorial, you'll learn how to:
 
 > [!div class="checklist"]
 > * Create and authorize a spacecraft for select public satellites.
@@ -47,14 +47,14 @@ Sign in to the [Azure portal - Orbital](https://aka.ms/orbital/portal).
  | JPSS-1/NOAA-20  | 43013        | 7812                       | 30                  | Downlink      | RHCP             |
  | Terra           | 25994        | 8212.5                     | 45                  | Downlink      | RHCP             |  
  
-5. Search for your desired public satellite in [CelesTrak](https://celestrak.com/NORAD/elements/active.txt) and identify its current Two-Line Element (TLE).
+4. Search for your desired public satellite in [CelesTrak](https://celestrak.com/NORAD/elements/active.txt) and identify its current Two-Line Element (TLE).
    
    > [!NOTE]
    > Be sure to update this TLE to the most current value before you schedule a contact. A TLE that's more than two weeks old might result in an unsuccessful downlink.
    >
    > [Read more about TLE values](spacecraft-object.md#ephemeris).
 
-4. In **Create spacecraft resource**, on the **Basics** tab, enter or select the following information:
+5. In **Create spacecraft resource**, on the **Basics** tab, enter or select the following information:
 
    | **Field** | **Value** |
    | --- | --- |
@@ -67,8 +67,8 @@ Sign in to the [Azure portal - Orbital](https://aka.ms/orbital/portal).
    | **TLE line 1** | Enter TLE line 1 from CelesTrak. |
    | **TLE line 2** | Enter TLE line 2 from CelesTrak. |
 
-5. Click **Next**. In the **Links** pane, select **Add new Link**.
-6. In the **Add Link** page, enter or select the following information:
+6. Click **Next**. In the **Links** pane, select **Add new Link**.
+7. In the **Add Link** page, enter or select the following information:
 
    | **Field** | **Value** |
    | --- | --- |
@@ -101,8 +101,8 @@ Sign in to the [Azure portal - Orbital](https://aka.ms/orbital/portal).
    | **Problem type** |	Select **Spacecraft Management and Setup**. |
    | **Problem subtype** |	Select **Spacecraft Registration**. |
 
-5. click **Next**. If a Solutions page pops up, click **Return to support request**. click **Next** to move to the **Additional details** tab.
-6. Under the **Additional details** tab, enter the following information:
+4. click **Next**. If a Solutions page pops up, click **Return to support request**. click **Next** to move to the **Additional details** tab.
+5. Under the **Additional details** tab, enter the following information:
 
    | **Field** | **Value** |
    | --- | --- |
@@ -112,8 +112,8 @@ Sign in to the [Azure portal - Orbital](https://aka.ms/orbital/portal).
    | **Description** |	Enter the satellite's **center frequency** from the table above. |
    | **File upload** |	No additional files are required. |
 
-8. Complete the **Advanced diagnostic information** and **Support method** sections of the **Additional details** tab according to your preferences.
-9. Click **Review + create**. After the validation is complete, click **Create**.
+6. Complete the **Advanced diagnostic information** and **Support method** sections of the **Additional details** tab according to your preferences.
+7. Click **Review + create**. After the validation is complete, click **Create**.
 
 After submission, the Azure Orbital Ground Station team reviews your satellite authorization request. Requests for supported public satellites shouldn't take long to approve.
 
@@ -158,7 +158,7 @@ After submission, the Azure Orbital Ground Station team reviews your satellite a
 
 ## Configure Event Hubs for antenna telemetry
 
-To receive antenna telemetry during contacts with your selected public satellite, follow instructions to [create and configure an Azure Event Hub](receive-real-time-telemetry.md#configure-event-hubs) in your subscription.
+To receive antenna telemetry during contacts with your selected public satellite, follow instructions to [create and configure an Azure event hub](receive-real-time-telemetry.md#configure-event-hubs) in your subscription.
 
 ## Configure a contact profile to downlink from a public satellite
 
@@ -181,8 +181,8 @@ To receive antenna telemetry during contacts with your selected public satellite
    | **Virtual Network** | Select the **virtual network** that you created earlier. |
    | **Subnet** | Select the delegated subnet that you created earlier. _This field appears only if you select a virtual network first_. |
 
-6. Click **Next**. In the **Links** page, click **Add new Link**.
-7. On the **Add Link** page, enter or select the following information:
+4. Click **Next**. In the **Links** page, click **Add new Link**.
+5. On the **Add Link** page, enter or select the following information:
 
    | **Field** | **Value** |
    | --- | --- |
@@ -192,7 +192,7 @@ To receive antenna telemetry during contacts with your selected public satellite
    | **EIRP in dBW** | Only applicable to uplink. Leave blank. |
    | **Polarization** | Select **RHCP**. |
 
-8. Click **Add Channel**. In the **Add Channel** pane, add or select the following information:
+6. Click **Add Channel**. In the **Add Channel** pane, add or select the following information:
 
    | **Field** | **Value** |
    | --- | --- |
@@ -207,8 +207,8 @@ To receive antenna telemetry during contacts with your selected public satellite
    | **Demodulation Configuration** | Select the **demodulation configuration** for your selected public satellite. Refer to [configure the modem chain](modem-chain.md#named-modem-configuration) for details. |
    | **Decoding Configuration** | Leave this field blank. |
 
-9. Click **Submit** to add the channel. Click **Submit** again to add the link. 
-10. Click **Review + create**. After the validation is complete, click **Create**.
+7. Click **Submit** to add the channel. Click **Submit** again to add the link. 
+8. Click **Review + create**. After the validation is complete, click **Create**.
 
 ## Schedule a contact with Aqua and save the downlinked data
 
