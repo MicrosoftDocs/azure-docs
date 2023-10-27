@@ -882,11 +882,11 @@ The softdog timer is loaded as a kernel module in linux OS. This timer  triggers
 
 Learn more about [Database Instance - SoftdogConfigSuseHDB (Create the softdog config file in Pacemaker configuration for HA enable HANA DB in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
 
-### Ensure that there's one instance of fence_azure_arm in Pacemaker configuration for HANA DB HA setup
+### Ensure there's one instance of a fence_azure_arm in Pacemaker configuration for HANA DB HA setup
 
-The fence_azure_arm is an I/O fencing agent for Azure Resource Manager. Ensure that there's one instance of fence_azure_arm in your Pacemaker configuration for HANA DB HA setup. The fence_azure-arm instance requirement is applicable if you're using Azure fence agent for fencing with either managed identity or service principal.
+The fence_azure_arm is an I/O fencing agent for Azure Resource Manager. Ensure there's one instance of a fence_azure_arm in your Pacemaker configuration for HANA DB HA setup. The fence_azure-arm instance requirement is applicable if you're using Azure fence agent for fencing with either managed identity or service principal.
 
-Learn more about [Database Instance - FenceAzureArmSuseHDB (Ensure that there's one instance of fence_azure_arm in Pacemaker configuration for HANA DB HA setup)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
+Learn more about [Database Instance - FenceAzureArmSuseHDB (Ensure there's one instance of a fence_azure_arm in Pacemaker configuration for HANA DB HA setup)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
 
 ### Ensure the softdog module is loaded in for Pacemaker in HA enabled HANA DB in SAP workloads
 
