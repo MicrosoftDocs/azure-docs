@@ -99,7 +99,7 @@ When performing evaluation, you can use the original runtime in the flow or chan
 
 ## Update runtime from UI
 
-We regularly update our base image (`mcr.microsoft.com/azureml/promptflow/promptflow-runtime`) to include the latest features and bug fixes. We recommend that you update your runtime to the [latest version](https://mcr.microsoft.com/v2/azureml/promptflow/promptflow-runtime/tags/list) if possible.
+We regularly update our base image (`mcr.microsoft.com/azureml/promptflow/promptflow-runtime-stable`) to include the latest features and bug fixes. We recommend that you update your runtime to the [latest version](https://mcr.microsoft.com/v2/azureml/promptflow/promptflow-runtime-stable/tags/list) if possible.
 
 Every time you open the runtime details page, we'll check whether there are new versions of the runtime. If there are new versions available, you'll see a notification at the top of the page. You can also manually check the latest version by clicking the **check version** button.
 

@@ -87,7 +87,7 @@ For more information about DevOps integration with Azure Machine Learning, see [
 ### Install prompt flow SDK
 
 ```shell
-pip install -r ../../exmples/requirements.txt
+pip install -r ../../examples/requirements.txt
 ```
 
 ### Connect to Azure Machine Learning workspace
