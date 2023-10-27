@@ -33,7 +33,7 @@ The `SMSReceived` event generated when an SMS is sent to an Azure Communication 
     "MessageId": "Incoming_20200918002745d29ebbea-3341-4466-9690-0a03af35228e",
     "From": "15555555555",
     "To": "15555555555",
-    "Message": "Great to connect with ACS events",
+    "Message": "Great to connect with Azure Communication Services events",
     "ReceivedTimestamp": "2020-09-18T00:27:45.32Z"
   },
   "eventType": "Microsoft.Communication.SMSReceived",
