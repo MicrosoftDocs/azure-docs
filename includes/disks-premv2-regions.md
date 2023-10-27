@@ -18,7 +18,7 @@ Currently only available in the following regions:
 - China North 3 (Three availability zones)
 - North Europe (Three availability zones)
 - West Europe (Three availability zones)
-- France Central (Two availability zones)
+- France Central (Three availability zones)
 - Central India (Three availability zones)
 - Japan East (Two availability zones)
 - Korea Central (Two availability zones)
