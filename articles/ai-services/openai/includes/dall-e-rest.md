@@ -14,11 +14,24 @@ Use this guide to get started calling the Azure OpenAI Service image generation 
 
 ## Prerequisites
 
+#### [DALL-E 2](#tab/dalle2)
+
 - An Azure subscription. <a href="https://azure.microsoft.com/free/ai-services" target="_blank">Create one for free</a>.
 - Access granted to DALL-E in the desired Azure subscription.
 - <a href="https://www.python.org/" target="_blank">Python 3.7.1 or later version</a>.
-- The following Python libraries: `os`, `requests`, `json`.
+- The following Python libraries installed: `os`, `requests`, `json`.
 - An Azure OpenAI resource created in the East US region. For more information, see [Create a resource and deploy a model with Azure OpenAI](../how-to/create-resource.md).
+
+#### [DALL-E 3](#tab/dalle3)
+
+- An Azure subscription. <a href="https://azure.microsoft.com/free/ai-services" target="_blank">Create one for free</a>.
+- Access granted to DALL-E in the desired Azure subscription.
+- <a href="https://www.python.org/" target="_blank">Python 3.7.1 or later version</a>.
+- The following Python libraries installed: `os`, `requests`, `json`.
+- An Azure OpenAI resource created in the `EastUS` or `SwedenCentral` region. 
+- Then, you need to deploy a `dalle3` model with your Azure resource. For more information, see [Create a resource and deploy a model with Azure OpenAI](../how-to/create-resource.md).
+
+---
 
 > [!NOTE]
 > Currently, you must submit an application to access Azure OpenAI Service. To apply for access, complete [this form](https://aka.ms/oai/access). If you need assistance, open an issue on this repo to contact Microsoft.
@@ -40,12 +53,6 @@ TBD deployment
 
 
 ## Create a new Python application
-
-Navigate to your project directory and install the requests library.
-
-```bash
-pip install requests
-```
 
 Create a new Python file named _quickstart.py_. Open the new file in your preferred editor or IDE.
 
@@ -90,6 +97,8 @@ Create a new Python file named _quickstart.py_. Open the new file in your prefer
     The script makes an image generation API call and then loops until the generated image is ready.
 
     #### [DALL-E 3](#tab/dalle3)
+
+    You also need to replace `<dalle3>` in the URL with the deployment name you chose when you deployed the DALL-E 3 model. Entering the model name will result in an error unless you chose a deployment name that is identical to the underlying model name. If you encounter an error, double check to make sure that you don't have a doubling of the `/` at the separation between your endpoint and `/openai/deployments`.
     
     ```python
     import requests
@@ -99,7 +108,7 @@ Create a new Python file named _quickstart.py_. Open the new file in your prefer
     api_key = '<your_key>'        # Enter your API key here
 
     api_version = '2023-11-01-preview'
-    url = f"{api_base}/openai/deployments/dalle3/images/generations?api-version={api_version}"
+    url = f"{api_base}/openai/deployments/<dalle3>/images/generations?api-version={api_version}"
     headers= { "api-key": api_key, "Content-Type": "application/json" }
     body = {
         # Enter your prompt text here
