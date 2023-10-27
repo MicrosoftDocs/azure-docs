@@ -188,7 +188,7 @@ If you're interested in how the metrics are defined for built-in evaluation meth
 
 After selecting **Classification Accuracy Evaluation** as evaluation method, you can set interface mapping to map the ground truth to flow input and prediction to flow output.
 
-:::image type="content" source="./media/get-started-prompt-flow/accuracy.png" alt-text="Screenshot of Web classification showing the batch run and evaluate on the evaluation settings." lightbox = "./media/get-started-prompt-flow/accuracy-configure.png":::
+:::image type="content" source="./media/get-started-prompt-flow/accuracy-configure.png" alt-text="Screenshot of Web classification showing the batch run and evaluate on the evaluation settings." lightbox = "./media/get-started-prompt-flow/accuracy-configure.png":::
 
 Then select **Review + submit** to submit a batch run and the selected evaluation.
 
