@@ -25,27 +25,35 @@ Transport Layer Security (TLS) is an internet security protocol that establishes
 
 TLS encrypts data sent over the internet to prevent malicious users from accessing private, sensitive information. The client and server perform a TLS handshake to verify each other's identity and determine how they'll communicate. During the handshake, each party identifies which TLS versions they use. The client and server can communicate if they both support a common version. 
 
-## Why migrate to TLS 1.2?
+## Why use TLS 1.2?
 
 We're recommending that customers secure their infrastructure by using TLS 1.2 with Azure Storage. The older TLS versions (1.0 and 1.1) are being deprecated and removed to meet evolving technology and regulatory standards (FedRamp, NIST), and provide improved security for our customers. 
 
 TLS 1.2 is more secure and faster than TLS 1.0 and 1.1, which don't support modern cryptographic algorithms and cipher suites. While many customers using Azure storage are already using TLS 1.2, we're sharing further guidance to accelerate this transition for customers that are still using TLS 1.0 or 1.1.
 
-## Prepare for the migration to TLS 1.2
+## Configure clients to use TLS 1.2
 
-We recommend the following steps as you prepare the migration to TLS 1.2:
+After Nov 1, 2024, calls to Azure Blob Storage will fail if the client uses TLS 1.0 and 1.1. Use the following checklist for each connecting client.
 
-- Update your operating system to the latest version.
+- Update the operating system to the latest version.
 
 - Update your development libraries and frameworks to their latest versions. (For example, Python 3.6 and 3.7 support TLS 1.2).
 
-- Enable Azure policy to enforce minimum TLS version and enable logging to identify requests using TLS 1.0 and 1.1. This helps identify TLS versions being used by clients. Learn more on how to [Enforce a minimum required version of Transport Layer Security (TLS) for incoming requests for Azure Storage](transport-layer-security-configure-minimum-version.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json#detect-the-tls-version-used-by-client-applications).
-
 - Fix hardcoded instances of older security protocols TLS 1.0 and 1.1.
+
+- Configure clients to use a TLS 1.2. See [Configure Transport Layer Security (TLS) for a client application](transport-layer-security-configure-client-version.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json).
 
 - Notify your customers and partners of your product or service's migration to TLS 1.2.
 
+> [!TIP]
+> Consider taking some time to monitor Azure Blob Storage resource logs to identify any other clients that make requests by using TLS versions 1.0 and 1.1. That way you can configure those clients to use TLS 1.2 or notify any customer or partner that manages the client of the upcoming deprecation. For guidance, see [Detect the TLS version used by client applications](transport-layer-security-configure-minimum-version.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json).
+
 For more detailed guidance, see the [checklist to deprecate older TLS versions in your environment](/security/engineering/solving-tls1-problem#figure-1-security-protocol-support-by-os-version).
+
+## Enforce TLS 1.2 as the minimum allowed version
+
+In advance of the deprecation date, enable Azure policy to enforce minimum TLS version. You can monitor TLS versions being used by clients by enabling resource logs. See [Enforce a minimum required version of Transport Layer Security (TLS) for incoming requests for Azure Storage](transport-layer-security-configure-minimum-version.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json#detect-the-tls-version-used-by-client-applications).
+
 
 ## Quick Tips
 
