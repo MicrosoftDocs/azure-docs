@@ -51,7 +51,7 @@ Community Training uses Azure availability zones to provide high availability an
 
 ### Zonal failover support
 
-Community Training uses many dependency Azure services, such as App service and Azure SQL. When you choose a zone redundant deployment, Community Training also creates zonal redundant offerings of those underlying Azure service resources. If one zone fails, all resources, including dependency resources, fail over to one of the healthier zones.
+Community Training uses many dependency Azure services, such as App service and Azure SQL. When you choose a zone redundant deployment, Community Training also creates zonal redundant offerings of those underlying Azure service resources. If one zone fails, all resources, including dependency resources, fail over to one of the healthy zones.
 
 
 #### Create a resource with availability zone enabled
