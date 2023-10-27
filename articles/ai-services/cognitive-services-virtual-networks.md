@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: azure-ai-services
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.topic: how-to
-ms.date: 08/10/2023
+ms.date: 10/27/2023
 ms.author: aahi
 ---
 
@@ -559,6 +559,47 @@ For more information on configuring your own DNS server to support private endpo
 
 - [Name resolution that uses your own DNS server](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)
 - [DNS configuration](../private-link/private-endpoint-overview.md#dns-configuration)
+
+## Grant access to trusted Azure services for Azure OpenAI
+
+You can grant a subset of trusted Azure services access to Azure OpenAI, while maintaining network rules for other apps. These trusted services will then use managed identity to authenticate your Azure AI service. The following table lists the services that can access your Azure AI services if the managed identity of those services has the appropriate role assignment.
+
+
+|Service  |Resource provider name  |
+|---------|---------|
+|Azure AI Services     | `Microsoft.CognitiveServices`   |
+|Azure Machine Learning     |`Microsoft.MachineLearningServices`         |
+|Azure Cognitive Search     | `Microsoft.Search`         |
+
+
+You can grant networking access to trusted Azure services by creating a network rule exception. See the REST API example below:
+```powershell
+
+accessToken=$(az account get-access-token --resource https://management.azure.com --query "accessToken" --output tsv)
+rid="/subscriptions/<your subscription id>/resourceGroups/<your resource group>/providers/Microsoft.CognitiveServices/accounts/<your Azure AI resource name>"
+
+curl -i -X PATCH https://management.azure.com$rid?api-version=2023-10-01-preview \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer $accessToken" \
+-d \
+'
+{
+    "properties":
+    {
+        "networkAcls": {
+            "bypass": "AzureServices"
+        }
+    }
+}
+'
+```
+
+To revoke the exception, set `networkAcls.bypass` to `None`. 
+
+See the following articles for more information on virtual network support:
+* [Configure Azure Storage firewalls and virtual networks](/azure/storage/common/storage-network-security#grant-access-to-trusted-azure-services)
+* [Virtual network service endpoints for Azure Key Vault](/azure/key-vault/general/overview-vnet-service-endpoints#grant-access-to-trusted-azure-services)
+
 
 ### Pricing
 
