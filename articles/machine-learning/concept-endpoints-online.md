@@ -249,9 +249,9 @@ For more information on monitoring, see [Monitor online endpoints](how-to-monito
 
 ### Secret injection in online deployments
 
-Secret injection in the context of online deployment is a process of retrieving secrets from secret stores and injecting secrets into user container that runs inside the online deployment. Secrets will be eventually accessible via environment variables, so Inference Server that runs your scoring script or inferencing stack that you bring with BYOC (bring your own container) approach can consume the secrets in a secured way.
+Secret injection in the context of an online deployment is a process of retrieving secrets from secret stores and injecting secrets into the user container that runs inside the online deployment. The secrets will eventually be accessible via environment variables, allowing the inference server that runs your scoring script or the inferencing stack that you bring with a BYOC approach to consume the secrets in a secured way.
 
-There are two ways to inject secrets. Inject secrets yourself using managed identities, or use secret injection feature. To learn more, see [Secret injection](concept-secret-injection.md).
+There are two ways to inject secrets. You can inject secrets yourself, using managed identities, or you can use the secret injection feature. To learn more about the ways to inject secrets, see [Secret injection in online endpoints](concept-secret-injection.md).
 
 
 ## Next steps
