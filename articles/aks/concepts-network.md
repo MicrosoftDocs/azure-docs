@@ -118,7 +118,7 @@ For more information, see [Configure Azure CNI for an AKS cluster][aks-configure
 
 ### Azure CNI Overlay networking
 
-[Azure CNI Overlay][azure-cni-overlay] represents an evolution of Azure CNI, addressing scalability and planning challenges arising from the assignment of VNet IPs to pods. It achieves this by assigning private CIDR IPs to pods, which are separate from the VNet and can be reused across multiple clusters. Additionally, Azure CNI Overlay can scale beyond the 400 node limit enforced in Kubenet clusters.
+[Azure CNI Overlay][azure-cni-overlay] represents an evolution of Azure CNI, addressing scalability and planning challenges arising from the assignment of VNet IPs to pods. It achieves this by assigning private CIDR IPs to pods, which are separate from the VNet and can be reused across multiple clusters. Additionally, Azure CNI Overlay can scale beyond the 400 node limit enforced in Kubenet clusters. Azure CNI Overlay is the recommended option for large-scale clusters.
 
 ### Azure CNI Powered by Cilium
 
