@@ -585,6 +585,8 @@
       items: 
       - name: Overview
         href: cognitive-search-predefined-skills.md
+      - name: Azure OpenAI Embedding
+        href: cognitive-search-skill-azure-openai-embedding.md
       - name: Conditional
         href: cognitive-search-skill-conditional.md
       - name: Custom Entity Lookup
