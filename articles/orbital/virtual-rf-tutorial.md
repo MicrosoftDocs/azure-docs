@@ -1,5 +1,5 @@
 ---
-title: Azure Orbital Ground Station - understand virtual RF through demodulation of Aqua using GNU Radio
+title: Azure Orbital Ground Station - Understand virtual RF through demodulation of Aqua using GNU Radio
 description: Learn how to use virtual RF (vRF) instead of a managed modem. Receive a raw RF signal from NASA's Aqua public satellite and process it in GNU Radio.
 author: 777arc
 ms.service: orbital
@@ -30,9 +30,9 @@ In this guide, you learn how to:
 
 Before we dive into the tutorial, it's important to understand how vRF works and how it compares to using a managed modem.  With a managed modem, the entire physical (PHY) layer occurs within Azure Orbital, meaning the RF signal is immediately processed within Azure Orbital's resources and the user only receives the information bytes produced by the modem.  Using vRF, there's no managed modem, and the raw RF signal is streamed to the user from the ground station digitizer.  This approach allows the user to run their own modem, or capture the RF signal for later processing.  
 
-Advantages of vRF include the ability to use modems that aren't supported by Azure Orbital or can't be shared with Azure Orbital.  vRF also allows running the same RF signal through a modem while trying different parameters to optimize performance.  This approach can be used to reduce the number of satellite passes needed during testing and speed up development.  Due to the nature of raw RF signals, the packet/file size is typically greater than the bytes contained within that RF signal; usually between 2-10x larger.  More data means the network throughput between the VM and Azure Orbital may be a limiting factor for vRF when it may not have been for a managed modem.
+Advantages of vRF include the ability to use modems that aren't supported by Azure Orbital or can't be shared with Azure Orbital.  vRF also allows running the same RF signal through a modem while trying different parameters to optimize performance.  This approach can be used to reduce the number of satellite passes needed during testing and speed up development.  Due to the nature of raw RF signals, the packet/file size is typically greater than the bytes contained within that RF signal; usually between 2-10x larger.  More data means the network throughput between the VM and Azure Orbital could be a limiting factor for vRF when it might not have been for a managed modem.
 
-Throughout this tutorial, you learn first hand how vRF works.  At the end of this tutorial, you can find several RF and digitizer-specific details that may be of interest to a vRF user.
+Throughout this tutorial, you learn first hand how vRF works.  At the end of this tutorial, you can find several RF and digitizer-specific details that could be of interest to a vRF user.
 
 ## Role of DIFI within vRF
 
@@ -67,7 +67,7 @@ export SAVE_IQ=true
 python drx.py
 ```
 
-You should see activity in the terminal if it worked, and there should be a new file `/tmp/samples.iq` growing larger as the script runs (it may take several minutes to finish).  This new file is a binary IQ file, containing the raw RF signal.  This drx.py script is essentially stripping off the DIFI header and concatenating many packets worth of IQ samples into one file.  Processing the entire pcap will take a while, but you can feel free to stop it after ~10 seconds, which should save more than enough IQ samples for use in the next step.
+You should see activity in the terminal if it worked, and there should be a new file `/tmp/samples.iq` growing larger as the script runs (it can take several minutes to finish).  This new file is a binary IQ file, containing the raw RF signal.  This drx.py script is essentially stripping off the DIFI header and concatenating many packets worth of IQ samples into one file.  Processing the entire pcap will take a while, but you can feel free to stop it after ~10 seconds, which should save more than enough IQ samples for use in the next step.
 
 ## Step 3: Demodulate the Aqua signal in GNU Radio
 
@@ -112,7 +112,7 @@ Before running the flowgraph, verify that your `/tmp/samples.iq` exists (or if y
 
    :::image type="content" source="media/aqua-constellation.png" alt-text="Screenshot of the IQ plot of the Aqua signal." lightbox="media/aqua-constellation.png":::
 
-Yours may vary, based on the strength the signal was received.  If no GUI showed up, then check GNU Radio's output in the bottom left for errors.  If the GUI shows up but resembles a horizontal noisy line (with no hump), it means the contact didn't actually receive the Aqua signal.  In this case, double check that autotrack is enabled in your Contact Profile and that the center frequency was entered correctly.
+Yours might vary, based on the strength the signal was received.  If no GUI showed up, then check GNU Radio's output in the bottom left for errors.  If the GUI shows up but resembles a horizontal noisy line (with no hump), it means the contact didn't actually receive the Aqua signal.  In this case, double check that autotrack is enabled in your Contact Profile and that the center frequency was entered correctly.
 
 The time it takes GNU Radio to finish is based on how long you let `drx.py` run, combined with your computer/VM CPU power.  As the flowgraph runs, it's demodulating the RF signal in `/tmp/samples.iq` and creating the file `/tmp/aqua_out.bin`, which contains the output of the modem.
 
@@ -179,7 +179,7 @@ If the above steps worked, you have successfully created and deployed a downlink
 
 ## vRF within AOGS reference
 
-In this section, we provide several RF/digitizer-specific details that may be of interest to a vRF user or designer.
+In this section, we provide several RF/digitizer-specific details that could be of interest to a vRF user or designer.
 
 On the downlink side, a vRF receives a signal from Azure Orbital.  A DIFI stream is sent to the user's VM by Azure Orbital during a pass, and is expected to be captured by the user in real-time.  Examples include using tcpdump, socat, or directly ingested into a modem.  Next are some specifications related to how Azure Orbital's ground station receives and processes the signal:
 
@@ -191,7 +191,7 @@ On the downlink side, a vRF receives a signal from Azure Orbital.  A DIFI stream
 * No frequency offset is used
 * The user VM MTU size should be set to 3650 for X-Band and 1500 for S-Band, which is the max packet size coming from Azure Orbital
 
-On the uplink side, the user must provide a DIFI stream to Azure Orbital throughout the pass, for Azure Orbital to transmit.  The following notes may be of interest to an uplink vRF designer:
+On the uplink side, the user must provide a DIFI stream to Azure Orbital throughout the pass, for Azure Orbital to transmit.  The following notes could be of interest to an uplink vRF designer:
 
 * The center frequency is specified in Contact Profile
 * The signal sample rate is set through the DIFI stream (even though a bandwidth is provided as part of the Contact Profile, it's purely for network configuration under the hood)
