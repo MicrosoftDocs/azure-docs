@@ -60,9 +60,9 @@ Community Training provides configuration for availability zones only at the tim
 
 ### Zone down experience
 
-- **Zonal zone down experience**. During a zone-wide outage, Community Training can have either complete or partial service disruption. The extent to which it's available depends on various factors, such as whether the entire datacenter is down, or whether a specific dependency service isn't no longer available in that zone. 
+- **Zonal**. During a zone-wide outage, Community Training can have either complete or partial service disruption. The extent to which it's available depends on various factors, such as whether the entire datacenter is down, or whether a specific dependency service isn't no longer available in that zone. 
 
-- **Zone redundant zone down experience**. During a zone-wide outage, you shouldn't experience any impact on provisioned resources. However, you should be prepared for a brief interruption in communication with those resources. In a zone down situation, Clients typically receive 409 error codes, as well as retry logic attempts to re-establish connections at appropriate intervals. New requests are directed to healthy nodes with zero impact on the user. During zone-wide outages, users are able to create new resources and successfully scale existing ones.
+- **Zone redundant**. During a zone-wide outage, you shouldn't experience any impact on provisioned resources. However, you should be prepared for a brief interruption in communication with those resources. In a zone down situation, Clients typically receive 409 error codes, as well as retry logic attempts to re-establish connections at appropriate intervals. New requests are directed to healthy nodes with zero impact on the user. During zone-wide outages, users are able to create new resources and successfully scale existing ones.
 
 ## Disaster recovery and business continuity
 
