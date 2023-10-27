@@ -5,8 +5,6 @@ description: >
 ms.contributor: jahelmic
 ms.date: 10/26/2023
 ms.topic: article
-tags: azure-resource-manager
-ms.custom: has-azure-ad-ps-ref
 title: Troubleshooting Azure Cloud Shell in a private virtual network
 ---
 # Troubleshooting Azure Cloud Shell in a private virtual network
@@ -70,7 +68,7 @@ permissions for your subscription:
 1. In the search box, enter `container`.
 1. Verify that **Azure Container Instance Service** has the `Network Contributor` role.
 
-   [![Screenshot of selecting resource providers in the Azure portal.][ss03]][ss03x]
+   [![Screenshot showing the network profiles role assignments.][ss03]][ss03x]
 
 1. From the Resources page, select the relay namespace resource with the type of `Relay`. The name
    should be the name of the relay namespace you provided in the deployment template.
@@ -79,7 +77,7 @@ permissions for your subscription:
 1. In the search box, enter `container`.
 1. Verify that **Azure Container Instance Service** has the `Contributor` role.
 
-   [![Screenshot of selecting resource providers in the Azure portal.][ss04]][ss04x]
+   [![Screenshot showing the network relay role assignments.][ss04]][ss04x]
 
 ## Redeploy Cloud Shell for a private virtual network
 
