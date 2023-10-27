@@ -20,7 +20,7 @@ The steps required to configure the Logs ingestion API are as follows:
 3. [Create a data collection endpoint (DCE)](#create-data-collection-endpoint) to receive data.
 2. [Create a custom table in a Log Analytics workspace](#create-new-table-in-log-analytics-workspace). This is the table you'll be sending data to.
 4. [Create a data collection rule (DCR)](#create-data-collection-rule) to direct the data to the target table. 
-5. [Give the Entra application access to the DCR](#assign-permissions-to-a-dcr).
+5. [Give the Microsoft Entra application access to the DCR](#assign-permissions-to-a-dcr).
 6. See [Sample code to send data to Azure Monitor using Logs ingestion API](tutorial-logs-ingestion-code.md) for sample code to send data to using the Logs ingestion API.
 
 ## Prerequisites
