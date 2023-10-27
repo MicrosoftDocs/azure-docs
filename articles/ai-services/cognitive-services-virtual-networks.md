@@ -171,7 +171,7 @@ You can manage default network access rules for Azure AI services resources thro
 
 You can configure Azure AI services resources to allow access from specific subnets only. The allowed subnets might belong to a virtual network in the same subscription or in a different subscription. The other subscription can belong to a different Microsoft Entra tenant.
 
-Enable a *service endpoint* for Azure AI services within the virtual network. The service endpoint routes traffic from the virtual network through an optimal path to the Azure AI services service. For more information, see [Virtual Network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md).
+Enable a *service endpoint* for Azure AI services within the virtual network. The service endpoint routes traffic from the virtual network through an optimal path to the Azure AI service. For more information, see [Virtual Network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md).
 
 The identities of the subnet and the virtual network are also transmitted with each request. Administrators can then configure network rules for the Azure AI services resource to allow requests from specific subnets in a virtual network. Clients granted access by these network rules must continue to meet the authorization requirements of the Azure AI services resource to access the data.
 
@@ -505,13 +505,13 @@ You can use [private endpoints](../private-link/private-endpoint-overview.md) fo
 
 Private endpoints for Azure AI services resources let you:
 
-- Secure your Azure AI services resource by configuring the firewall to block all connections on the public endpoint for the Azure AI services service.
+- Secure your Azure AI services resource by configuring the firewall to block all connections on the public endpoint for the Azure AI service.
 - Increase security for the virtual network, by enabling you to block exfiltration of data from the virtual network.
 - Securely connect to Azure AI services resources from on-premises networks that connect to the virtual network by using [Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) or [ExpressRoutes](../expressroute/expressroute-locations.md) with private-peering.
 
 ### Understand private endpoints
 
-A private endpoint is a special network interface for an Azure resource in your [virtual network](../virtual-network/virtual-networks-overview.md). Creating a private endpoint for your Azure AI services resource provides secure connectivity between clients in your virtual network and your resource. The private endpoint is assigned an IP address from the IP address range of your virtual network. The connection between the private endpoint and the Azure AI services service uses a secure private link.
+A private endpoint is a special network interface for an Azure resource in your [virtual network](../virtual-network/virtual-networks-overview.md). Creating a private endpoint for your Azure AI services resource provides secure connectivity between clients in your virtual network and your resource. The private endpoint is assigned an IP address from the IP address range of your virtual network. The connection between the private endpoint and the Azure AI service uses a secure private link.
 
 Applications in the virtual network can connect to the service over the private endpoint seamlessly. Connections use the same connection strings and authorization mechanisms that they would use otherwise. The exception is Speech Services, which require a separate endpoint. For more information, see [Private endpoints with the Speech Services](#use-private-endpoints-with-the-speech-service) in this article. Private endpoints can be used with all protocols supported by the Azure AI services resource, including REST.
 
