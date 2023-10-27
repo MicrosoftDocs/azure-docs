@@ -107,7 +107,7 @@ Follow these steps to hide the dialog:
 
 1. [Create a Dynamic Device Group](/entra/identity/users/groups-create-rule) in Microsoft Entra containing the devices to hide the dialog for. Remember the device group ID for the next step.
     > [!TIP]
-    > It's recommended to use a dynamic device group and configure the dynamic membership rules to includes all your Azure Virtual Desktop session hosts. This can be done using the device names or for a more secure option, you can set and use [device extension attributes](/graph/extensibility-overview?tabs=http) using [Microsoft Graph API](/graph/api/resources/device?view=graph-rest-1.0).
+    > It's recommended to use a dynamic device group and configure the dynamic membership rules to includes all your Azure Virtual Desktop session hosts. This can be done using the device names or for a more secure option, you can set and use [device extension attributes](/graph/extensibility-overview?tabs=http) using [Microsoft Graph API](/graph/api/resources/device).
 1. Use the [Microsoft Graph API](/graph/use-the-api) to [create targetDeviceGroup](/graph/api/remotedesktopsecurityconfiguration-post-targetdevicegroups?view=graph-rest-beta&preserve-view=true) to suppress the prompt from these devices.
 
 ### Create a Kerberos Server object
