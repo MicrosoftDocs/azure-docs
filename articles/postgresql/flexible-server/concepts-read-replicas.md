@@ -41,6 +41,23 @@ You can create a read replica in a different region from your primary server. Cr
 
 You can have a primary server in any [Azure Database for PostgreSQL region](https://azure.microsoft.com/global-infrastructure/services/?products=postgresql). A primary server can have replicas also in any global region of Azure that supports Azure Database for PostgreSQL. Currently [special Azure regions](../../virtual-machines/regions.md#special-azure-regions) are not supported.
 
+### Use paired regions for disaster recovery purposes
+
+While creating replicas in any supported region is possible, there are notable benefits when opting for replicas in paired regions, especially when architecting for disaster recovery purposes:
+
+* **Region Recovery Sequence**: In the event of a geography-wide outage, recovery of one region from every paired set is prioritized, ensuring that applications across paired regions always have a region expedited for recovery.
+
+* **Sequential Updating**: Paired regions' updates are staggered chronologically, minimizing the risk of downtime from update-related issues.
+
+* **Physical Isolation**: A minimum distance of 300 miles is maintained between data centers in paired regions, reducing the risk of simultaneous outages from significant events.
+
+* **Data Residency**: With a few exceptions, regions in a paired set reside within the same geography, meeting data residency requirements.
+
+* **Performance**: Paired regions typically boast low network latency, which can enhance data accessibility and user experience. However, if the primary aim is to serve data closer to users rather than disaster recovery, it might be worth considering creating a read replica in a non-paired region that exhibits the lowest latency. You can reference [Azure's round-trip latency figures](../../networking/azure-network-latency.md#round-trip-latency-figures) to make informed decisions.
+
+For a deeper understanding of the advantages of paired regions, refer to [Azure's documentation on cross-region replication](../../reliability/cross-region-replication-azure.md#azure-paired-regions).
+
+
 [//]: # (### Paired regions)
 
 [//]: # ()
