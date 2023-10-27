@@ -20,6 +20,7 @@ Here are the main scenarios where rooms are useful:
 - **Rooms enable scheduled communication experience.** Rooms help service platforms deliver meeting-style experiences while still being suitably generic for a wide variety of industry applications. Services can schedule and manage rooms for patients seeking medical advice, financial planners working with clients, and lawyers providing legal services.
 - **Rooms enable an invite-only experience.** Rooms allow your services to control which users can join the room for a virtual appointment with doctors or financial consultants. This will allow only a subset of users with assigned Communication Services identities to join a room call.
 - **Rooms enable structured communications through roles and permissions.** Rooms allow developers to assign predefined roles to users to exercise a higher degree of control and structure in communication. Ensure only presenters can speak and share content in a large meeting or in a virtual conference.
+- **Rooms enable to perform calls using PSTN.** Rooms enable users to invite participants to a meeting by making phone calls through the public switched telephone network (PSTN).
 
 ## When to use rooms
 
