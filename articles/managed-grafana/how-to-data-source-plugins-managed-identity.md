@@ -273,4 +273,4 @@ az grafana data-source delete --name <instance-name> --data-source <id>
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Connect to a data source privately](./how-to-connect-to-data-source-privately.md)
+> [Create a dashboard](how-to-create-dashboard.md)

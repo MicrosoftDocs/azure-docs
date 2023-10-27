@@ -33,8 +33,10 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Configure data sources with Managed Identity
+          - text: Configure data sources
             url: how-to-data-source-plugins-managed-identity.md
+          - text: Manage plugins
+            url: how-to-manage-plugins.md
           - text: Call Grafana APIs programmatically
             url: how-to-api-calls.md
           - text: Enable zone redundancy

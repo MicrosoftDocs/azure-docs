@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 10/26/2023
 ---
 
-# How manage Grafana plugins (Preview)
+# How to manage Grafana plugins (Preview)
 
 Grafana supports data source, panel, and app plugins. When you create a new Grafana instance, some plugins, such as Azure Monitor, are installed by default. In the following guide, learn how you can add or remove plugins.
 
@@ -58,9 +58,7 @@ To remove a plugin that isn't part of the Grafana built-in core plugins, follow 
 
 ## Next steps
 
-Now that you have added a
-> [!div class="nextstepaction"]
-> [Connect to a data source privately](./how-to-connect-to-data-source-privately.md)
+Now that you know how to add and remove plugins, learn how to manage data sources.
 
 > [!div class="nextstepaction"]
-> [Share an Azure Managed Grafana instance](./how-to-share-grafana-workspace.md)
+> [Configure a data source](./how-to-data-source-plugins-managed-identity.md)
