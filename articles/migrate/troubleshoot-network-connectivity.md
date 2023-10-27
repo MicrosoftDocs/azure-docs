@@ -213,7 +213,7 @@ You can use the tnc command in PowerShell to check if the port is reachable from
 
 ![vault network connectivity](./media/troubleshoot-network-connectivity/vault_network_connectivity_test.png)
 
-![vault network connectivity](./media/troubleshoot-network-connectivity/storage_network_connectivity_test.png)
+![storage network connectivity](./media/troubleshoot-network-connectivity/storage_network_connectivity_test.png)
 
 ### Start Discovery fails with the error AgentNotConnected
 The appliance could not initiate discovery as the on-premises agent is unable to communicate to the Azure Migrate service endpoint: <_URLname_> in Azure.
