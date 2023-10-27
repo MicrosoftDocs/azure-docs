@@ -14,7 +14,7 @@ ms.date: 10/26/2023
 > [!IMPORTANT] 
 > This feature is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [2023-10-01-Preview REST API](/rest/api/searchservice/2023-10-01-preview/skillsets/create-or-update) supports this feature.
 
-The **Azure OpenAI Embedding** skill connects to a deployed embedding model on your Azure OpenAI resource to generate embeddings.
+The **Azure OpenAI Embedding** skill connects to a deployed embedding model on your [Azure OpenAI](/azure/ai-services/openai/overview) resource to generate embeddings.
 
 > [!NOTE]
 > This skill is bound to Azure OpenAI and is charged at the existing [Azure OpenAI pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/#pricing).
