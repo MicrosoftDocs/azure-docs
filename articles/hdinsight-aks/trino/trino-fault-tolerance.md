@@ -1,17 +1,17 @@
 ---
 title: Configure fault-tolerance
-description: Learn how to configure fault-tolerance in HDInsight on AKS Trino.
+description: Learn how to configure fault-tolerance in Trino with HDInsight on AKS.
 ms.service: hdinsight-aks
 ms.topic: how-to 
-ms.date: 08/29/2023
+ms.date: 10/19/2023
 ---
 
 # Fault-tolerant execution
 
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
-HDInsight on AKS Trino supports [fault-tolerant execution](https://trino.io/docs/current/admin/fault-tolerant-execution.html) to mitigate query failures and increase resilience.
-This article describes how you can enable fault tolerance for your HDInsight on AKS Trino cluster.
+Trino supports [fault-tolerant execution](https://trino.io/docs/current/admin/fault-tolerant-execution.html) to mitigate query failures and increase resilience.
+This article describes how you can enable fault tolerance for your Trino cluster with HDInsight on AKS.
 
 ## Configuration
 
@@ -28,7 +28,7 @@ To enable fault-tolerant execution on queries/tasks with a larger result set, co
 ## Exchange manager
 
 Exchange manager is responsible for managing spooled data to back fault-tolerant execution. For more details, refer [Trino documentation]( https://trino.io/docs/current/admin/fault-tolerant-execution.html#fte-exchange-manager).
-<br>HDInsight on AKS Trino supports `filesystem` based exchange managers that can store the data in Azure Blob Storage (ADLS Gen 2). This section describes how to configure exchange manager with Azure Blob Storage.
+<br>Trino with HDInsight on AKS supports `filesystem` based exchange managers that can store the data in Azure Blob Storage (ADLS Gen 2). This section describes how to configure exchange manager with Azure Blob Storage.
 
 To set up exchange manager with Azure Blob Storage as spooling destination, you need three required properties in `exchange-manager.properties` file.
 
@@ -61,4 +61,4 @@ You can find the connection string in *Security + Networking* -> *Access keys* s
 :::image type="content" source="./media/trino-fault-tolerance/connection-string.png" alt-text="Screenshot showing storage account connection string." border="true" lightbox="./media/trino-fault-tolerance/connection-string.png":::
 
 > [!NOTE]
-> HDInsight on AKS Trino currently does not support MSI authentication in exchange manager set up backed by Azure Blob Storage.
+> Trino with HDInsight on AKS currently does not support MSI authentication in exchange manager set up backed by Azure Blob Storage.
