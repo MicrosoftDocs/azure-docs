@@ -164,7 +164,5 @@ landingContent:
         links:
          - text: FAQ
            url: faq.md
-         - text: Trademarks
-           url: trademarks.md
          - text: Troubleshooting
            url: create-cluster-error-dictionary.md
