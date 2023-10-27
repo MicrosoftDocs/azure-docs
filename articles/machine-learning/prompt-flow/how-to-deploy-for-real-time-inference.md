@@ -15,7 +15,7 @@ ms.date: 10/25/2023
 
 # Deploy a flow as a managed online endpoint for real-time inference (preview)
 
-After you build a flow and test it properly, you may want to deploy it as an endpoint so that you can invoke the endpoint for real-time inference.
+After you build a flow and test it properly, you might want to deploy it as an endpoint so that you can invoke the endpoint for real-time inference.
 
 In this article, you'll learn how to deploy a flow as a managed online endpoint for real-time inference. The steps you'll take are:
 
@@ -31,11 +31,13 @@ In this article, you'll learn how to deploy a flow as a managed online endpoint 
 
 ## Prerequisites
 
-1. Learn [how to build and test a flow in the Prompt flow](get-started-prompt-flow.md).
+- Learn [how to build and test a flow in the Prompt flow](get-started-prompt-flow.md).
 
-1. Have basic understanding on managed online endpoints. Managed online endpoints work with powerful CPU and GPU machines in Azure in a scalable, fully managed way that frees you from the overhead of setting up and managing the underlying deployment infrastructure. For more information on managed online endpoints, see [Online endpoints and deployments for real-time inference](../concept-endpoints-online.md#online-endpoints).
-1. Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To be able to deploy an endpoint in Prompt flow, your user account must be assigned the **AzureML Data scientist** or role with more privileges for the **Azure Machine Learning workspace**.
-1. Have basic understanding on managed identities. [Learn more about managed identities.](../../active-directory/managed-identities-azure-resources/overview.md)
+- Have basic understanding on managed online endpoints. Managed online endpoints work with powerful CPU and GPU machines in Azure in a scalable, fully managed way that frees you from the overhead of setting up and managing the underlying deployment infrastructure. For more information on managed online endpoints, see [Online endpoints and deployments for real-time inference](../concept-endpoints-online.md#online-endpoints).
+
+- Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To be able to deploy an endpoint in Prompt flow, your user account must be assigned the **AzureML Data scientist** or role with more privileges for the **Azure Machine Learning workspace**.
+  
+- Have basic understanding on managed identities. [Learn more about managed identities.](../../active-directory/managed-identities-azure-resources/overview.md)
 
 ## Build the flow and get it ready for deployment
 
@@ -104,7 +106,7 @@ The endpoint needs to access Azure resources such as the Azure Container Registr
 System-assigned identity will be autocreated after your endpoint is created, while user-assigned identity is created by user. [Learn more about managed identities.](../../active-directory/managed-identities-azure-resources/overview.md)
 
 ##### System-assigned
-You'll notice there is an option whether *Enforce access to connection secrets (preview)*. If your flow uses connections, the endpoint needs to access connections to perform inference. The option is by default enabled, the endpoint will be granted **Azure Machine Learning Workspace Connection Secrets Reader** role to access connections automatically if you have connetion secrets reader permission. If you disable this option, you need to grant this role to the system-assigned identity manually by yourself or ask help from your admin. [Learn more about how to grant permission to the endpoint identity](#grant-permissions-to-the-endpoint).
+You'll notice there is an option whether *Enforce access to connection secrets (preview)*. If your flow uses connections, the endpoint needs to access connections to perform inference. The option is by default enabled, the endpoint will be granted **Azure Machine Learning Workspace Connection Secrets Reader** role to access connections automatically if you have connection secrets reader permission. If you disable this option, you need to grant this role to the system-assigned identity manually by yourself or ask help from your admin. [Learn more about how to grant permission to the endpoint identity](#grant-permissions-to-the-endpoint).
 
 ##### User-Assigned
 
@@ -133,7 +135,7 @@ If you have already built custom environment, you can also select customized env
 
 In this step, you can view all flow outputs, and specify which outputs will be included in the response of the endpoint you deploy. By default all flow outputs are selected.
 
-You can also specify the connetions used by the endpoint when it performs inference. By default they're inherited from the flow.
+You can also specify the connections used by the endpoint when it performs inference. By default they're inherited from the flow.
 
 
 Once you configured and reviewed all the steps above, you can select **Review+Create** to finish the creation.
@@ -148,9 +150,9 @@ Once you configured and reviewed all the steps above, you can select **Review+Cr
 
  > [!IMPORTANT]
  >
- > Granting permissions (adding role assignment) is only enabled to the **Owner** of the specific Azure resources. You may need to ask your IT admin for help.
+ > Granting permissions (adding role assignment) is only enabled to the **Owner** of the specific Azure resources. You might need to ask your IT admin for help.
  > It's recommended to grant roles to the **user-assigned** identity **before the deployment creation**.
- > It may take more than 15 minutes for the granted permission to take effect.
+ > It maight take more than 15 minutes for the granted permission to take effect.
 
 You can grant all permissions in Azure portal UI by following steps.
 
@@ -171,7 +173,7 @@ You can grant all permissions in Azure portal UI by following steps.
 
     For **user-assigned identity**, select **User-assigned managed identity**, and search by identity name.
 
-1. For **user-assigned** identity, you need to grant permissions to the workspace container registry and storage account as well. You can find the contaniar registry and storage account in the workspace overview page in Azure portal.
+1. For **user-assigned** identity, you need to grant permissions to the workspace container registry and storage account as well. You can find the container registry and storage account in the workspace overview page in Azure portal.
        
     :::image type="content" source="./media/how-to-deploy-for-real-time-inference/storage-container-registry.png" alt-text="Screenshot of the overview page with storage and container registry highlighted. " lightbox = "./media/how-to-deploy-for-real-time-inference/storage-container-registry.png":::
 
@@ -257,7 +259,7 @@ Select **Metrics** tab in the left navigation. Select **promptflow standard metr
 
 ### Model response taking too long
 
-Sometimes you may notice that the deployment is taking too long to respond. There are several potential factors for this to occur. 
+Sometimes you might notice that the deployment is taking too long to respond. There are several potential factors for this to occur. 
 
 - Model is not powerful enough (ex. use gpt over text-ada)
 - Index query is not optimized and taking too long
@@ -276,14 +278,14 @@ After you deploy the endpoint and want to test it in the **Test tab** in the end
 
 ### Access denied to list workspace secret
 
-If you encounter error like "Access denied to list workspace secret", check whether you have granted the correct permission to the endpoint identity. Learn more about [how to grant permission to the endpoint identity](#grant-permissions-to-the-endpoint).
+If you encounter an error like "Access denied to list workspace secret", check whether you have granted the correct permission to the endpoint identity. Learn more about [how to grant permission to the endpoint identity](#grant-permissions-to-the-endpoint).
 
 ## Clean up resources
 
 If you aren't going use the endpoint after completing this tutorial, you should delete the endpoint.
 
 > [!NOTE]
-> The complete deletion may take approximately 20 minutes.
+> The complete deletion can take approximately 20 minutes.
 
 ## Next Steps
 
