@@ -5,7 +5,7 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/26/2023
+ms.date: 10/27/2023
 ---
 
 # Stream data from Kafka into Azure Stream Analytics (Preview)
@@ -150,7 +150,7 @@ For your Azure Stream Analytics job to access the certificate in your key vault 
 
  | Setting | Value |
  | --- | --- |
- | Role | Key vault secret reader |
+ | Role | Key vault secrets user |
  | Managed identity | Stream Analytics job for System-assigned managed identity or User-assigned managed identity |
  | Members | \<Name of your Stream Analytics job> or \<name of user-assigned identity> |
 
