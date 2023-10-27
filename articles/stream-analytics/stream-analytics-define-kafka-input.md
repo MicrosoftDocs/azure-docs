@@ -19,7 +19,7 @@ The following are the major use cases:
 * Log Aggregation 
 * Stream Processing 
 
-Azure Stream Analytics lets you connect directly to Kafka clusters to ingest data. The solution is low code and entirely managed by the Azure Stream Analytics team at Microsoft, allowing it to meet business compliance standards. The Kafka Adapters are backward compatible and support all versions with the latest client release starting from version 0.10. Users can connect to Kafka clusters inside a VNET and Kafka clusters with a public endpoint, depending on the configurations. The configuration relies on existing Kafka configuration conventions. Supported compression types are None, Gzip, Snappy, LZ4, and Zstd.
+Azure Stream Analytics lets you connect directly to Kafka clusters to ingest data. The solution is low code and entirely managed by the Azure Stream Analytics team at Microsoft, allowing it to meet business compliance standards. The ASA Kafka input is backward compatible and supports all versions with the latest client release starting from version 0.10. Users can connect to Kafka clusters inside a VNET and Kafka clusters with a public endpoint, depending on the configurations. The configuration relies on existing Kafka configuration conventions. Supported compression types are None, Gzip, Snappy, LZ4, and Zstd.
 
 ## Configuration
 The following table lists the property names and their description for creating a Kafka Input: 
@@ -55,7 +55,7 @@ You can use four types of security protocols to connect to your Kafka clusters:
 
 ### Connect to Confluent Cloud using API key
 
-The ASA Kafka adapter is a librdkafka-based client, and to connect to confluent cloud, you need TLS certificates that confluent cloud uses for server auth.
+The ASA Kafka input is a librdkafka-based client, and to connect to confluent cloud, you need TLS certificates that confluent cloud uses for server auth.
 Confluent uses TLS certificates from Let’s Encrypt, an open certificate authority (CA) You can download the ISRG Root X1 certificate in PEM format on the site of [LetsEncrypt](https://letsencrypt.org/certificates/).
 
 To authenticate using the API Key confluent offers, you must use the SASL_SSL protocol and complete the configuration as follows:
@@ -98,13 +98,12 @@ To be able to upload certificates, you must have "**Key Vault Administrator**"  
  | Members | \<Your account information or email> |
 
 
-### Upload Certificate to Key vault
+### Upload Certificate to Key vault via Azure CLI
 
-You can use Azure CLI to upload certificates as secrets to your key vault or use the Azure portal to upload the certificate as a secret.
 > [!IMPORTANT]
-> You must upload the certificate as a secret.
-
-#### Option One - Upload certificate via Azure CLI
+> You must have "**Key Vault Administrator**" permissions access to your Key vault for this command to work properly
+> You must upload the certificate as a secret. You must use Azure CLI to upload certificates as secrets to your key vault.
+> Your Azure Stream Analytics job will fail when the certificate used for authentication expires. To resolve this, you must update/replace the certificate in your key vault and restart your Azure Stream Analytics job
 
 The following command can upload the certificate as a secret to your key vault. You must have "**Key Vault Administrator**" permissions access to your Key vault for this command to work properly.
 
@@ -112,21 +111,6 @@ The following command can upload the certificate as a secret to your key vault. 
 az keyvault secret set --vault-name <your key vault> --name <name of the secret> --file <file path to secret>
 
 ```
-
-#### Option Two - Upload certificate via the Azure portal
-Use the following steps to upload a certificate as a secret using the Azure portal in your key vault:
-1. Select **Secrets**.
-
-1. Select **Generate/Import** > **Add role assignment** to open the **Add role assignment** page.
-
-1. Complete the following configuration for creating a secret:
-
- | Setting | Value |
- | --- | --- |
- | Upload Options | Certificate |
- | Upload certificate | \<select the certificate to upload> |
- | Name | \<Name you want to give your secret> |
-
 
 ### Configure Managed identity
 Azure Stream Analytics requires you to configure managed identity to access key vault.
@@ -170,7 +154,7 @@ Visit the [Run your Azure Stream Analytics job in an Azure Virtual Network docum
 
 
 > [!NOTE]
-> For direct help with using the Azure Stream Analytics Kafka adapter, please reach out to [askasa@microsoft.com](mailto:askasa@microsoft.com).
+> For direct help with using the Azure Stream Analytics Kafka input, please reach out to [askasa@microsoft.com](mailto:askasa@microsoft.com).
 >
 
 
