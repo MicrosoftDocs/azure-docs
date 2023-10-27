@@ -115,7 +115,7 @@ If you created the associated endpoint with **User Assigned Identity**, user-ass
 |Scope|Role|Why it's needed|
 |---|---|---|
 |Azure Machine Learning Workspace|**Azure Machine Learning Workspace Connection Secrets Reader** role **OR** a customized role with "Microsoft.MachineLearningServices/workspaces/connections/listsecrets/action" | Get workspace connections|
-|Workspace container registry |Acr pull |Pull container image |
+|Workspace container registry |ACR pull |Pull container image |
 |Workspace default storage| Storage Blob Data Reader| Load model from storage |
 |(Optional) Azure Machine Learning Workspace|Workspace metrics writer| After you deploy then endpoint, if you want to monitor the endpoint related metrics like CPU/GPU/Disk/Memory utilization, you need to give this permission to the identity.|
 
