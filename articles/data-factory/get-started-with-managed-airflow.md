@@ -21,6 +21,9 @@ ms.date: 10/20/2023
 Managed Airflow in Azure Data Factory uses Python-based Directed Acyclic Graphs (DAGs) to run your orchestration workflows. 
 To use this feature, you need to provide your DAGs and plugins in Azure Blob Storage. You can launch the Airflow UI from ADF using a command line interface (CLI) or a software development kit (SDK) to manage your DAGs.
 
+## 1. Create a Managed Airflow environment. 
+Go to: [Create a Managed Airflow environment](create-managed-airflow-environment.md)
+
 ## Import DAGs
 
 The following steps describe how to import DAGs into Managed Airflow.
