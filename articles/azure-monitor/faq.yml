@@ -44,24 +44,7 @@ sections:
           
           - Components in the pipeline have retries to ensure reliable delivery at the destination. Occasionally, this capability might result in duplicates for a small percentage of telemetry items.
           - If the duplicate records come from a virtual machine, you might have both the Log Analytics agent and Azure Monitor Agent installed. If you still need the Log Analytics agent installed, configure the Log Analytics workspace to no longer collect data that's also being collected by the data collection rule used by Azure Monitor Agent.
-
-          
-  - name: Solutions and insights
-    questions:
-      - question: |
-          What's an insight in Azure Monitor?
-        answer: |
-          Insights provide a customized monitoring experience for particular Azure services. They use the same metrics and logs as other features in Azure Monitor but might collect extra data and provide a unique experience in the Azure portal. See [Insights in Azure Monitor](./monitor-reference.md).
-          
-          To view insights in the Azure portal, see the **Insights** section of the **Monitor** menu or the **Monitoring** section of the service's menu.
-          
-      - question: |
-          What's a solution in Azure Monitor?
-        answer: |
-          Monitoring solutions are packaged sets of logic for monitoring a particular application or service based on Azure Monitor features. They collect log data in Azure Monitor and provide log queries and views for their analysis by using a common experience in the Azure portal. See [Monitoring solutions in Azure Monitor](/previous-versions/azure/azure-monitor/insights/solutions).
-          
-          To view solutions in the Azure portal, select **More** in the **Insights** section of the **Monitor** menu. Select **Add** to add more solutions to the workspace.
-          
+  
   - name: Metrics
     questions:
       - question: |
