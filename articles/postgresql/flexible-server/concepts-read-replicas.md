@@ -35,7 +35,7 @@ The feature is meant for scenarios where the lag is acceptable and meant for off
 > For most workloads read replicas offer near-real-time updates from the primary. However, with persistent heavy write-intensive primary workloads, the replication lag could continue to grow and may never be able to catch-up with the primary. This may also increase storage usage at the primary as the WAL files are not deleted until they are received at the replica. If this situation persists, deleting and recreating the read replica after the write-intensive workloads completes is the option to bring the replica back to a good state with respect to lag.
 > Asynchronous read replicas are not suitable for such heavy write workloads. When evaluating read replicas for your application, monitor the lag on the replica for a full app work load cycle through its peak and non-peak times to assess the possible lag and the expected RTO/RPO at various points of the workload cycle.
 
-## Cross-region replication
+## Geo-replication
 
 You can create a read replica in a different region from your primary server. Cross-region replication can be helpful for scenarios like disaster recovery planning or bringing data closer to your users.
 
@@ -102,8 +102,20 @@ For additional insight, query the primary server directly to get the replication
 > If a primary server or read replica restarts, the time it takes to restart and catch up is reflected in the Replica Lag metric.
 
 ## Promote replicas
+"Promote" refers to the process where a replica is commanded to end its replica mode and transition into full read-write operations.
 
-You can stop the replication between a primary and a replica by promoting one or more replicas at any time. The promote action causes the replica to apply all the pending logs and promotes the replica to be an independent, standalone read-writeable server. The data in the standalone server is the data that was available on the replica server at the time the replication is stopped. Any subsequent updates at the primary are not propagated to the replica. However, replica server may have accumulated logs that are not applied yet. As part of the promote process, the replica applies all the pending logs before accepting client connections.
+Promotion of replicas can be done in two distinct manners:
+
+1. **Promote to Primary Server**: This action promotes the replica to serve as the primary server. Concurrently, the current primary will be demoted to the replica role, effectively swapping their roles.
+
+2. **Promote to Independent Server and Remove from Replication**: By opting for this, the replica becomes an independent server and is removed from the replication process. As a result, both the primary and the promoted server will function as two independent read-write servers.
+
+For both promotion methods, there are additional options to consider:
+
+* **Planned**: This option ensures that data is synchronized before promoting. It applies all the pending logs to ensure data consistency before accepting client connections.
+
+* **Forced**: This option prioritizes speed. Instead of waiting to synchronize all the data from the primary, the server becomes operational once it processes WAL files needed to achieve the nearest consistent state.
+
 
 >[!NOTE]
 > Resetting admin password on replica server is currently not supported. Additionally, updating admin password along with promote replica operation in the same request is also not supported. If you wish to do this you must first promote the replica server then update the password on the newly promoted server separately.
@@ -164,7 +176,7 @@ A read replica is created as a new Azure Database for PostgreSQL server. An exis
 During creation of read replicas firewall rules and data encryption method can be changed. Server parameters and authentication method are inherited from the primary server and cannot be changed during creation. After a replica is created, several settings can be changed including storage, compute, backup retention period, server parameters, authentication method, firewall rules etc.
 
 ### Resource move
-Moving replica(s) to another resource group or subscription, as well as the primary that has read replica(s) is not currently supported.
+Users can create read replicas in a different resource group than the primary. However, moving read replicas to another resource group after their creation is unsupported. Additionally, moving replica(s) to a different subscription, as well as moving the primary that has read replica(s) to another resource group or subscription, is not supported.
 
 ### Replication slot issues mitigation
 
