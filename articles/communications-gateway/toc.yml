@@ -6,10 +6,10 @@ items:
   items:
   - name: What is Azure Communications Gateway?
     href: overview.md
-  - name: What's new?
-    href: whats-new.md
   - name: Get started
     href: get-started.md
+  - name: What's new?
+    href: whats-new.md
 - name: Planning
   items:
   - name: Your network and Communications Gateway
