@@ -49,6 +49,7 @@ langchain == 0.0.149        # Version Matching. Must be version 0.6.1
 keyring >= 4.1.1            # Minimum version 4.1.1
 coverage != 3.5             # Version Exclusion. Anything except version 3.5
 Mopidy-Dirble ~= 1.1        # Compatible release. Same as >= 1.1, == 1.*
+<path_to_local_package>     # reference to local pip wheel package
 ```
 
 You can obtain the path of local packages using `ls > requirements.txt`.
@@ -174,6 +175,50 @@ Follow [this document to add custom application](../how-to-create-compute-instan
 
 :::image type="content" source="./media/how-to-customize-environment-runtime/runtime-creation-add-custom-application-ui.png" alt-text="Screenshot of compute showing custom applications. " lightbox = "./media/how-to-customize-environment-runtime/runtime-creation-add-custom-application-ui.png":::
 
+## Leverage `requirements.txt` in flow folder to dynamic your environment - quick test only
+
+In promptflow `flow.dag.yaml`, you can also specify define `requirements.txt`, which will be used when you deploy your flow as deployment.
+
+:::image type="content" source="./media/how-to-customize-environment-runtime/runtime-creation-flow-folder-requirements.png" alt-text="Screenshot of flow.dag.yaml showing requirements.txt. " lightbox = "./media/how-to-customize-environment-runtime/runtime-creation-flow-folder-requirements.png":::
+
+### Add packages in private pypi repository - optional
+
+Using the following command to download your packages to local: `pip wheel <package_name> --index-url=<private pypi> --wheel-dir <local path to save packages>`
+
+### Create a python tool to install `requirements.txt` to runtime
+
+:::image type="content" source="./media/how-to-customize-environment-runtime/runtime-creation-flow-folder-tool-add-custom-packages.png" alt-text="Screenshot of flow.dag.yaml showing requirements.txt. " lightbox = "./media/how-to-customize-environment-runtime/runtime-creation-flow-folder-tool-add-custom-packages.png":::
+
+```python
+from promptflow import tool
+
+import subprocess
+import sys
+
+# Run the pip install command
+def add_custom_packages():
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "-r", "requirements.txt"])
+
+import os
+# List the contents of the current directory
+files = os.listdir()
+# Print the list of files
+
+# The inputs section will change based on the arguments of the tool function, after you save the code
+# Adding type to arguments and return value will help the system show the types properly
+# Please update the function name/signature per need
+
+# In Python tool you can do things like calling external services or
+# pre/post processing of data, pretty much anything you want
+
+
+@tool
+def echo(input: str) -> str:
+    add_custom_packages()
+    return files
+```
+
+We would recommend to put the common packages (include private wheel) in the `requirements.txt` when build image, put the packages (include private wheel) in flow folder that are only used in flow or change more rapidly in the `requirements.txt` in flow folder, the later approach is not recommended for production.
 
 ## Next steps
 
