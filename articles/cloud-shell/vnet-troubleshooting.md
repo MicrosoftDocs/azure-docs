@@ -50,11 +50,9 @@ To see all resource providers, and the registration status for your subscription
 
 ## Verify Azure Container Instance Service role assignments
 
-Verify **Microsoft.Relay** and Network profile have Azure Container Instance Service role.
-
-The **Azure Container Instance Service** application needs specific permissions for the Relay and
-Network Profile resources.Use the following steps to see the resources and the role permissions for
-your subscription:
+The **Azure Container Instance Service** application needs specific permissions for the **Relay**
+and **Network Profile** resources. Use the following steps to see the resources and the role
+permissions for your subscription:
 
 1. Go to the **Settings** section of left menu of your subscription page.
 1. Select **Resource groups**.
@@ -64,12 +62,13 @@ your subscription:
 
    [![Screenshot showing all the resources in your resource group.][ss02]][ss02x]
 
-1. Select the network profile resource with the type of `microsoft/networkprofile`. The name should
-   be `aci-networkProfile-<location>` where `<location>` is the location of the resource group.
+1. Select the network profile resource with the type of `microsoft.network/networkprofile`. The name
+   should be `aci-networkProfile-<location>` where `<location>` is the location of the resource
+   group.
 1. On network profile page, select **Access control (IAM)** in the left menu.
 1. Then select **Role assignments** from the top menu bar.
 1. In the search box, enter `container`.
-1. Verify that **Azure Container Instance Service** has the `network contributor` role.
+1. Verify that **Azure Container Instance Service** has the `Network Contributor` role.
 
    [![Screenshot of selecting resource providers in the Azure portal.][ss03]][ss03x]
 
@@ -78,14 +77,14 @@ your subscription:
 1. On relay page, select **Access control (IAM)**, then select **Role assignments** from the top
    menu bar.
 1. In the search box, enter `container`.
-1. Verify that **Azure Container Instance Service** has the `contributor` role.
+1. Verify that **Azure Container Instance Service** has the `Contributor` role.
 
    [![Screenshot of selecting resource providers in the Azure portal.][ss04]][ss04x]
 
 ## Redeploy Cloud Shell for a private virtual network
 
 Verify the configurations described in this article. If you continue receive an error message when
-you attempt to use your deployment of Cloud Shell, you have two options:
+you try to use your deployment of Cloud Shell, you have two options:
 
 1. Open a support ticket
 1. Redeploy Cloud Shell for a private virtual network
@@ -114,25 +113,25 @@ resources, then you shouldn't delete them.
 
 The following list provides a description of the resources created by the deployment:
 
-- A **microsoft.network/networkprofiless** resource named `aci-networkProfile-<location>` where
+- A **microsoft.network/networkprofiles** resource named `aci-networkProfile-<location>` where
   `<location>` is the location of the resource group.
 - A **Private endpoint** resource named `cloudshellRelayEndpoint`.
 - A **Network Interface** resource named `cloudshellRelayEndpoint.nic.<UUID>` where `<UUID>` is a
   unique identifier added to the name.
 - A **Virtual Network** resource that you provided from the prerequisites.
-- A **Private DNS zone** named `privateline.servicebus.windows.net`.
+- A **Private DNS zone** named `privatelink.servicebus.windows.net`.
 - A **Network security group** resource with the name you provided in the deployment template.
-- A **microsoft.network/provatednszones/virtualnetworklinks** resource with a name starting the name
+- A **microsoft.network/privatednszones/virtualnetworklinks** resource with a name starting the name
   of the relay namespace you provided in the deployment template.
 - A **Relay** resource with the name of the relay namespace you provided in the deployment template.
 - A **Storage account** resource with the name you provided in the deployment template.
 
+Once you have removed the resources, you can redeploy Cloud Shell by following the steps in the
+[Deploy Azure Cloud Shell in a virtual network using quickstart templates][03] article.
+
 You can find these resources by viewing the resource group in the Azure portal.
 
 [![Screenshot of resources created by the deployment.][ss02]][ss02x]
-
-Once you have removed the resources, you can redeploy Cloud Shell by following the steps in the
-[Deploy Azure Cloud Shell in a virtual network using quickstart templates][03] article.
 
 <!-- link references -->
 [01]: /azure/role-based-access-control/role-assignments-list-portal#list-owners-of-a-subscription
