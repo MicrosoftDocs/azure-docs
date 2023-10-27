@@ -16,7 +16,7 @@ To provide access to your private resources, you can deploy Cloud Shell into an 
 
 Deploying Cloud Shell in a private virtual network offers these benefits:
 
-- The resources that you want to manage don't have to have public IP addresses.
+- The resources that you want to manage don't need to have public IP addresses.
 - You can use command-line tools, SSH, and PowerShell remoting from the Cloud Shell container to manage your resources.
 - The storage account that Cloud Shell uses doesn't have to be publicly accessible.
 

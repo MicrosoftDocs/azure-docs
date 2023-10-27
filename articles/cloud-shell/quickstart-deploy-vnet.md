@@ -81,13 +81,13 @@ information, see the following articles:
 > [!NOTE]
 > When you're setting the container subnet address prefix for the Cloud Shell subnet, it's important to consider the number of Cloud Shell sessions that you need to run concurrently. If the number of Cloud Shell sessions exceeds the available IP addresses in the container subnet, users of those sessions can't connect to Cloud Shell. Increase the container subnet range to accommodate your specific needs. For more information, see the "Change subnet settings" section of [Add, change, or delete a virtual network subnet][07].
 
-### Azure container instance ID
+### Get the Azure container instance ID
 
 The Azure container instance ID is a unique value for every tenant. You use this identifier in
 the [quickstart templates][07] to configure a virtual network for Cloud Shell.
 
-1. Sign in to the [Azure portal][09]. From the home page, select **Microsoft Entra ID**. If the icon isn't displayed, enter `Microsoft Entra ID` on the top search bar.
-1. On the left menu, select **Overview**. Then enter `azure container instance service` on the search bar.
+1. Sign in to the [Azure portal][09]. From the home page, select **Microsoft Entra ID**. If the icon isn't displayed, enter `Microsoft Entra ID` in the top search bar.
+1. On the left menu, select **Overview**. Then enter `azure container instance service` in the search bar.
 
    [![Screenshot of searching for Azure Container Instance Service.][95]][95a]
 
