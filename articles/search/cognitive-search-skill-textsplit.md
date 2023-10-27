@@ -1,7 +1,7 @@
 ---
 title: Text split cognitive skill
-titleSuffix: Azure Cognitive Search
-description: Break text into chunks or pages of text based on length in an AI enrichment pipeline in Azure Cognitive Search. 
+titleSuffix: Azure AI Search
+description: Break text into chunks or pages of text based on length in an AI enrichment pipeline in Azure AI Search. 
 author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
@@ -125,9 +125,9 @@ Parameters are case-sensitive.
 
 This example is for integrated vectorization, currently in preview. It adds preview-only parameters to the sample definition, and shows the resulting output. 
 
-+ Overlapping text is useful in [data chunking](vector-search-how-to-chunk-documents.md) scenarios because it preserves continuity between chunks generated from the same document. 
++ `pageOverlapLength`: Overlapping text is useful in [data chunking](vector-search-how-to-chunk-documents.md) scenarios because it preserves continuity between chunks generated from the same document. 
 
-+ Limits on page intake are useful in [vectorization](vector-search-how-to-generate-embeddings.md) scenarios because it helps you stay under the maximum input limits of the embedding models providing the vectorization.
++ `maximumPagesToTake`: Limits on page intake are useful in [vectorization](vector-search-how-to-generate-embeddings.md) scenarios because it helps you stay under the maximum input limits of the embedding models providing the vectorization.
 
 ### Sample definition
 

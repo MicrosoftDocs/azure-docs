@@ -72,7 +72,7 @@ For a list of where log queries are used and references to tutorials and other d
 ![Screenshot that shows queries in Log Analytics.](media/data-platform-logs/log-analytics.png)
 
 ## Relationship to Azure Data Explorer
-Azure Monitor Logs is based on Azure Data Explorer. A Log Analytics workspace is roughly the equivalent of a database in Azure Data Explorer. Tables are structured the same, and both use KQL.
+Azure Monitor Logs is based on Azure Data Explorer. A Log Analytics workspace is roughly the equivalent of a database in Azure Data Explorer. Tables are structured the same, and both use KQL. For information on KQL, see [Kusto Query Language (KQL) overview](/azure/data-explorer/kusto/query/).
 
 The experience of using Log Analytics to work with Azure Monitor queries in the Azure portal is similar to the experience of using the Azure Data Explorer Web UI. You can even [include data from a Log Analytics workspace in an Azure Data Explorer query](/azure/data-explorer/query-monitor-data).
 
