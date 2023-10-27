@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title: Astronomer – An Azure Native ISV Service
-summary: Astronomer – An Azure Native ISV Service is part of Marketplace and combines the benefits of astronomer and the Azure cloud. You can learn how to create an Astronomer resource, manage it, and get support for your Astronomer deployment.
+title: Apache Airflow on Astro – An Azure Native ISV Service
+summary: Apache Airflow on Astro – An Azure Native ISV Service is part of Marketplace and combines the benefits of Apache Airflow on Astro and the Azure cloud. You can learn how to create an Apache Airflow on Astro resource, manage it, and get support for your deployment.
 
 metadata:
-  title: Astronomer 
-  description: Astronomer integrates with Azure to combine the benefits of astronomer
+  title: Apache Airflow on Astro – An Azure Native ISV Service
+  description: Apache Airflow on Astro – An Azure Native ISV Service integrates with Azure to combine the benefits of Apache Airflow on Astro with the Azure cloud.
   ms.topic: landing-page
   ms.date: 10/25/2023
 
@@ -13,27 +13,27 @@ metadata:
 
 landingContent:
   # Card (optional)
-  - title: About Astronomer – An Azure Native ISV Service
+  - title: About Apache Airflow on Astro
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Astronomer – An Azure Native ISV Service?
+          - text: What is Apache Airflow on Astro – An Azure Native ISV Service
             url: astronomer-overview.md
       - linkListType: how-to-guide
         links:
-          - text: Manage your Astronomer resource
+          - text: Manage your Apache Airflow on Astro resource
             url: astronomer-manage.md
 
   # Card
-  - title: Create an Astronomer deployment
+  - title: Create an Apache Airflow on Astro deployment
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Get started with Astronomer – An Azure Native ISV Service
+          - text: Get started with Apache Airflow on Astro
             url: astronomer-create.md
       - linkListType: how-to-guide
         links:
-          - text: Troubleshooting Astronomer – An Azure Native ISV Service 
+          - text: Troubleshooting Apache Airflow on Astro 
             url: astronomer-troubleshoot.md
 
   
