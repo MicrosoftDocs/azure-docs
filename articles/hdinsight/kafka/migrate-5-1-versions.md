@@ -57,7 +57,7 @@ To complete the migration, do the following steps:
 
 1. **Switch the cluster on the consumer application.** After confirming that the existing consumer application has finished consuming all data from the existing cluster, switch the connection to the new cluster.
 
-    :::image type="content" source="./media/migrate-5-1-versions/switch-cluster-consumer-app.png" alt-text="Screenshot shows how to Switch cluster on consumer app." lightbox="./media/migrate-5-1-versions/switch-cluster-consumer-app.png":::
+    :::image type="content" source="./media/migrate-5-1-versions/switch-cluster-consumer-app.png" alt-text="Screenshot shows how to Switch cluster on consumer app." lightbox="./media/migrate-5-1-versions/switch-cluster-consumer-app.png" width="auto":::
 
 1. **Remove the old cluster and test applications as needed.** Once the switch is complete and working properly, remove the old HDInsight 4.0 Kafka cluster and the producers and consumers used in the test as needed.
 
