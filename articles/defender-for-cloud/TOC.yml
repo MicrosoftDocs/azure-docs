@@ -757,6 +757,9 @@
     - name: Overview
       displayName: DevOps
       href: defender-for-devops-introduction.md
+    - name: DevOps posture management
+      displayName: DevOps posture management
+      href: concept-devops-posture-management-overview.md
     - name: Protect DevOps environments
       items: 
       - name: Connect GitHub repositories

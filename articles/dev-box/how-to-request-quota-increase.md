@@ -61,7 +61,7 @@ You'll find submitting a support request for additional quota is quicker if you 
 
 Follow these steps to request a limit increase:  
 
-1. On the Azure portal home page, select Support & troubleshooting, and then select  **Help + support**
+1. On the Azure portal home page, select Support & troubleshooting from the top left, and then select  **Help + support**.
 
     :::image type="content" source="./media/how-to-request-capacity-increase/submit-new-request.png" alt-text="Screenshot of the Azure portal home page, highlighting the Request core limit increase button." lightbox="./media/how-to-request-capacity-increase/submit-new-request.png":::
 

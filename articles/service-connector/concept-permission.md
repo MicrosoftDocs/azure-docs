@@ -1,8 +1,8 @@
 ---
 title: Permission requirement for Service Connector
 description: Resource permission requirement
-author: mcleanbyron
-ms.author: mcleans
+author: maud-lv
+ms.author: malev
 ms.service: service-connector
 ms.topic: conceptual
 ms.date: 08/04/2023
@@ -10,9 +10,9 @@ ms.date: 08/04/2023
 
 # Permission requirement for Service Connector
 
-Service Connector creates connection between compute service and target service with the [On-Behalf-Of token](../active-directory/develop/v2-oauth2-on-behalf-of-flow.md). Creating a connection to a specific Azure resource requires its corresponding permissions.
+Service Connector creates connections between Azure services using an [on-behalf-of token](../active-directory/develop/v2-oauth2-on-behalf-of-flow.md). Creating a connection to a specific Azure resource requires its corresponding permissions.
 
-### App service  
+### App Service  
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
@@ -36,7 +36,7 @@ Service Connector creates connection between compute service and target service 
 > |`microsoft.web/sites/slots/config/delete`|Delete Web Apps Slots Config.|
 > |`Microsoft.Web/sites/slots/config/list/Action`|List Web App Slot's security sensitive settings, such as publishing credentials, app settings and connection strings|
 
-### Spring App
+### Azure Spring App
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
@@ -48,7 +48,7 @@ Service Connector creates connection between compute service and target service 
 > |`Microsoft.AppPlatform/Spring/apps/deployments/*/write`|Create or update the deployment for a specific application|
 > |`Microsoft.AppPlatform/Spring/apps/deployments/*/delete`|Delete the deployment for a specific application|
 
-### Container App 
+### Azure Container Apps 
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
@@ -62,7 +62,7 @@ Service Connector creates connection between compute service and target service 
 > |`microsoft.app/locations/containerappoperationresults/read`|Get a Container App Long Running Operation Result|
 > |`microsoft.app/locations/managedenvironmentoperationresults/read`|Get a Managed Environment Long Running Operation Result|
 
-### Dapr on container app 
+### Dapr in Azure Container Apps 
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
@@ -159,7 +159,7 @@ Service Connector creates connection between compute service and target service 
 > |`Microsoft.DBforMySQL/flexibleServers/databases/read`|Returns the list of databases for a server or gets the properties for the specified database.|
 > |`Microsoft.DBforMySQL/flexibleServers/configurations/read`|Returns the list of MySQL server configurations or gets the configurations for the specified server.|
 
-### App configuration 
+### Azure App Configuration 
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |

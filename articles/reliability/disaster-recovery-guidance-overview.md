@@ -49,7 +49,7 @@ The tables below lists each product that offers disaster recovery guidance and/o
 | [Microsoft Entra Domain Services](../active-directory-domain-services/tutorial-create-replica-set.md) |
 | [Azure App Configuration](../azure-app-configuration/concept-disaster-recovery.md?&tabs=core2x)|
 | [Azure App Service](reliability-app-service.md#cross-region-disaster-recovery-and-business-continuity)|
-| [Azure Backup](../backup/backup-overview.md) |
+| [Azure Backup](reliability-backup.md) |
 | [Azure Batch](reliability-batch.md#cross-region-disaster-recovery-and-business-continuity) |
 | [Azure Bastion](../bastion/bastion-faq.md?#dr) |
 | [Azure Cache for Redis](../azure-cache-for-redis/cache-how-to-geo-replication.md) |
