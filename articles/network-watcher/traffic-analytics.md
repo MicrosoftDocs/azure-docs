@@ -7,7 +7,7 @@ ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: concept-article
 ms.reviewer: harshacs
-ms.date: 10/27/2023
+ms.date: 10/06/2023
 
 #CustomerIntent: As an Azure administrator, I want to use Traffic analytics to analyze Network Watcher flow logs so that I can view network activity, secure my networks, and optimize performance.
 ---
@@ -84,10 +84,7 @@ To use traffic analytics, you need the following components:
       - Information about the flow, such as the source and destination IP addresses, the source and destination ports, and the protocol.
       - The status of the traffic, such as allowed or denied.
     
-      For more information about VNet flow logs, see [VNet flow logs overview](vnet-flow-logs-overview.md).
-
-      > [!NOTE]
-      > For information about the differences between NSG flow logs and VNet flow logs, see [VNet flow logs compared to NSG flow logs](vnet-flow-logs-overview.md#vnet-flow-logs-compared-to-nsg-flow-logs) 
+      For more information about NSG flow logs, see [VNet flow logs overview](vnet-flow-logs-overview.md).
 
 ## How traffic analytics works
 
