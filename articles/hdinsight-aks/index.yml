@@ -149,9 +149,11 @@ landingContent:
             url: ./spark/use-hive-metastore.md
   - title: Resources
     linkLists:
-      - linkListType: learn
+      - linkListType: 
         links:
          - text: FAQ
            url: faq.md
+         - text: Trademarks
+           url: trademarks.md
          - text: Troubleshooting
            url: create-cluster-error-dictionary.md
