@@ -114,11 +114,18 @@ When new security risks are identified, you can deploy them at scale by creating
 
 By default, security admin rules are applied to all virtual networks and subnets within the scope of a network group. However, there are some services that do not apply security admin rules due to the network requirements of the service.
 
+### Network intent policies and security admin rules 
+
+Some services have network intent policies to ensure the network traffic is working as needed for their services. By default, when you deploy a security admin configuration, security admin rules are not applied on virtual networks with services that use network intent policies such as [SQL managed instance service](/azure/azure-sql/managed-instance/connectivity-architecture-overview.md#service-aided-subnet-configuration). If you create a service in a virtual network with existing security admin rules, those security admin rules will be removed from those virtual networks. 
+
+
+When you do so, you could break the network intent policies created for those services. For example, creating a deny admin rule can block some traffic allowed by the SQL managed instance service, which is defined by their network intent policies. Make sure to review your environment before applying a security admin configuration. 
+
 ### Services in Virtual Networks
 
 Security admin rules do not apply when they are deployed in a virtual network within the scope of a network group. These services include:
 
-- Azure SQL Managed Instances  
+- [Azure SQL Managed Instances](/azure/azure-sql/managed-instance/connectivity-architecture-overview.md#service-aided-subnet-configuration)  
 - Azure Databricks  
 
 If you want *Allow rules* applied to supported services in the virtual network, you can set `AllowRulesOnly` on `securityConfiguration.properties.applyOnNetworkIntentPolicyBasedServices`. When set, *Allow rules* in your security rule configuration will be applied to supported services on the virtual networks with Azure SQL Managed Instances or Azure Databricks. Both *Allow* and *Deny* rules will still be applied on the virtual networks without these services using the *AllowRulesOnly* option. 
@@ -129,7 +136,7 @@ If you want *Allow rules* applied to supported services in the virtual network, 
 
 ### Services in Subnets
 
-The following services do not apply security admin rules to their resources when they are deployed in a subnet within the scope of a network group: 
+The following services do not apply security admin rules to their resources when they are deployed in a subnet within the scope of a security configuration: 
 
 - Azure Application Gateway 
 - Azure Bastion
@@ -139,11 +146,12 @@ The following services do not apply security admin rules to their resources when
 - Azure Virtual WAN 
 - Azure ExpressRoute Gateway
 
-If you want to apply security admin rules on subnets containing an Azure Application Gateway, ensure each subnet only contains gateways that have been provisioned with *Network Isolation* enabled. If a subnet contains an Azure Application Gateway without network isolation, security admin rules won't be applied to this subnet. 
+If you want to apply security admin rules on subnets containing an [Azure Application Gateway](../application-gateway/application-gateway-private-deployment.md), ensure each subnet only contains gateways that have been provisioned with *Network Isolation* enabled. If a subnet contains an Azure Application Gateway without network isolation, security admin rules won't be applied to this subnet. 
 
 ## Security admin fields
 
 When you define a security admin rule, there are required and optional fields. 
+
 ### Required fields
 
 #### Priority
