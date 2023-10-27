@@ -572,7 +572,7 @@ You can grant a subset of trusted Azure services access to Azure OpenAI, while m
 |Azure Cognitive Search     | `Microsoft.Search`         |
 
 
-You can grant networking access to trusted Azure services by creating a network rule exception. See the REST API example below:
+You can grant networking access to trusted Azure services by creating a network rule exception using the REST API:
 ```powershell
 
 accessToken=$(az account get-access-token --resource https://management.azure.com --query "accessToken" --output tsv)
