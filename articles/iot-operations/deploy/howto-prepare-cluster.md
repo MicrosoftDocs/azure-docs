@@ -42,6 +42,9 @@ To prepare your Azure Arc-enabled Kubernetes cluster, you need:
 
 You can run Ubuntu in Windows Subsystem for Linux (WSL) on your Windows machine. Use WSL for testing and development purposes only.
 
+>[!IMPORTANT]
+>Run all of these steps in your WSL environment, including the Azure CLI steps for configuring your cluster.
+
 To set up your WSL Ubuntu environment:
 
 1. [Install Linux on Windows with WSL](/windows/wsl/install).
@@ -110,6 +113,6 @@ pod/resource-sync-agent-769bb66b79-z9n46          2/2     Running   0           
 pod/metrics-agent-6588f97dc-455j8                 2/2     Running   0               10m
 ```
 
-## Next step
+## Next steps
 
 Now that you have an Azure Arc-enabled Kubernetes cluster, you can [deploy Azure IoT Operations Preview](../get-started/quickstart-deploy.md).
