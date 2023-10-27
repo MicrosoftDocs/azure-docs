@@ -4,7 +4,7 @@ description: This article provides details about the known issues of Azure VMwar
 ms.topic: reference
 ms.custom: "engagement-fy23"
 ms.service: azure-vmware
-ms.date: 4/20/2023
+ms.date: 10/27/2023
 ---
 
 # Known issues: Azure VMware Solution
@@ -19,6 +19,9 @@ Refer to the table below to find details about resolution dates or possible work
 | After my private cloud NSX-T Data Center upgrade to version [3.2.2](https://docs.vmware.com/en/VMware-NSX/3.2.2/rn/vmware-nsxt-data-center-322-release-notes/index.html), the NSX-T Manager **DNS - Forwarder Upstream Server Timeout** alarm is raised | February 2023  | [Enable private cloud internet Access](concepts-design-public-internet-access.md), alarm is raised because NSX-T Manager cannot access the configured CloudFlare DNS server. Otherwise, [change the default DNS zone to point to a valid and reachable DNS server.](configure-dns-azure-vmware-solution.md) | February 2023 |
 | When first logging into the vSphere Client, the **Cluster-n: vSAN health alarms are suppressed** alert is active in the vSphere Client | 2021  | This should be considered an informational message, since Microsoft manages the service. Select the **Reset to Green** link to clear it. | 2021 |
 | When adding a cluster to my private cloud, the **Cluster-n: vSAN physical disk alarm 'Operation'** and **Cluster-n: vSAN cluster alarm 'vSAN Cluster Configuration Consistency'** alerts are active in the vSphere Client | 2021  | This should be considered an informational message, since Microsoft manages the service. Select the **Reset to Green** link to clear it. | 2021 |
+| After my private cloud NSX-T Data Center upgrade to version [3.2.2](https://docs.vmware.com/en/VMware-NSX/3.2.2/rn/vmware-nsxt-data-center-322-release-notes/index.html), the NSX-T Manager **Capacity - Maximum Capacity Threshold** alarm is raised | 2023  | Alarm is raised because there are more than 4 clusters in the private cloud with the medium form factor for the NSX-T Data Center Unified Appliance. The form factor needs to be scaled up to large. This will be detected and completed by Microsoft, you can also open a support request. | 2023 |
+| When I build a VMware HCX Service Mesh with the Enterprise license, the Replication Assisted vMotion Migration option is not available. | 2023  | The default VMware HCX Compute Profile does not have the Replication Assisted vMotion Migration option enabled. From the Azure VMware Solution vSphere Client, select the VMware HCX option and edit the default Compute Profile to enable Replication Assisted vMotion Migration. | 2023 |
+| [VMSA-2023-023](https://www.vmware.com/security/advisories/VMSA-2023-0023.html) VMware vCenter Server Out-of-Bounds Write Vulnerability (CVE-2023-34048) publicized in October 2023 | 2023  | Currently under investigation to be patched. | 2023 |
 
 In this article, you learned about the current known issues with the Azure VMware Solution.
 
