@@ -18,10 +18,18 @@ items:
       items:
       - name: Overview
         href: deploy/overview-deploy-iot-operations.md
-      - name: How to
+        displayName: Deploy, Orchestrator
+      - name: Concepts
         items:
-        - name: Prepare your Azure Arc-enabled Kubernetes cluster
-          href: deploy/howto-prepare-cluster.md
+        - name: Manifests
+          href: deploy/concept-manifests.md
+        - name: Providers and components
+          href: deploy/concept-providers.md
+      - name: Prepare a cluster
+        href: deploy/howto-prepare-cluster.md
+      - name: Troubleshoot
+        href: deploy/howto-troubleshoot-deployment.md
+        displayName: Deploy, Orchestrator
     - name: Manage assets
       items:
       - name: Overview
