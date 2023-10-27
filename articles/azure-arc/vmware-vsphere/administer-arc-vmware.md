@@ -10,9 +10,9 @@ ms.custom: devx-track-azurecli
 
 # Perform ongoing administration for Arc-enabled VMware vSphere
 
-In this article, you learn how to perform various administrative operations related to Azure Arc-enabled VMware vSphere (preview):
+In this article, you learn how to perform various administrative operations related to Azure Arc-enabled VMware vSphere:
 
-- Upgrading the Azure Arc resource bridge (preview)
+- Upgrading the Azure Arc resource bridge
 - Updating the credentials
 - Collecting logs from the Arc resource bridge
 

@@ -9,7 +9,7 @@ ms.subservice: azure-arc-vmware-vsphere
 
 # Manage VMware VMs in Azure through Arc-enabled VMware vSphere
 
-In this article, you learn how to perform various operations on the Azure Arc-enabled VMware vSphere (preview) VMs such as:
+In this article, you learn how to perform various operations on the Azure Arc-enabled VMware vSphere VMs such as:
 
 - Start, stop, and restart a VM
 
