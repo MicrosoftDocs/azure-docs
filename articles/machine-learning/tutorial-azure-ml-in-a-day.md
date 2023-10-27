@@ -36,7 +36,7 @@ The steps you'll take are:
 > * Call the Azure Machine Learning endpoint for inferencing
 
 Watch this video for an overview of the steps in this quickstart.
-> [!VIDEO https://www.microsoft.com/videoplayer/embed/RW14vFs]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=02ca158d-103d-4934-a8aa-fe6667533433]
 
 
 ## Prerequisites
