@@ -6,7 +6,7 @@ ms.author: schaffererin
 ms.service: azure-kubernetes-service
 ms.custom: devx-track-azurecli
 ms.topic: article
-ms.date: 10/11/2023
+ms.date: 10/27/2023
 ---
 
 # Reduce image pull time with Artifact Streaming on Azure Kubernetes Service (AKS) (Preview)
@@ -19,16 +19,14 @@ This article describes how to enable the Artifact Streaming feature on your AKS 
 
 ## Prerequisites
 
+* You need an existing AKS cluster with ACR integration. If you don't have one, you can create one using [Authenticate with ACR from AKS][acr-auth-aks].
 * [Enable Artifact Streaming on ACR][enable-artifact-streaming-acr].
-* This article assumes you have existing AKS cluster with ACR integration. If you don't have one, see [Authenticate with ACR from AKS][acr-auth-aks] to create an AKS cluster with ACR integration.
 * This feature requires Kubernetes version 1.25 or later. To check your AKS cluster version, see [Check for available AKS cluster upgrades][aks-upgrade].
-* [Install the `aks-preview` CLI extension](#install-the-aks-preview-cli-extension).
-* [Register the `ArtifactStreamingPreview` feature flag in your subscription](#register-the-artifactstreamingpreview-feature-flag-in-your-subscription).
 
 > [!NOTE]
 > Artifact Streaming is only supported on Ubuntu 22.04, Ubuntu 20.04, and Azure Linux node pools. Windows node pools aren't supported.
 
-### Install the `aks-preview` CLI extension
+## Install the `aks-preview` CLI extension
 
 1. Install the `aks-preview` CLI extension using the [`az extension add`][az-extension-add] command.
 
@@ -42,7 +40,7 @@ This article describes how to enable the Artifact Streaming feature on your AKS 
     az extension update --name aks-preview
     ```
 
-### Register the `ArtifactStreamingPreview` feature flag in your subscription
+## Register the `ArtifactStreamingPreview` feature flag in your subscription
 
 * Register the `ArtifactStreamingPreview` feature flag in your subscription using the [`az feature register`][az-feature-register] command.
 
