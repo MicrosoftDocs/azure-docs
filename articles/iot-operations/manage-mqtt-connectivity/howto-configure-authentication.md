@@ -276,7 +276,7 @@ In the example:
 
 ## Understand Azure IoT MQ X.509 client authentication flow
 
-![X.509 client authentication flow](./media/howto-configure-authentication/x509-client-auth-flow.png)
+![X.509 client authentication flow](./media/howto-configure-authentication/x509-client-auth-flow.svg)
 
 The following are the steps for client authentication flow:
 
