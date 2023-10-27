@@ -123,7 +123,7 @@ Upgrade a Basic Load Balancer to a Standard Load Balancer with the same name, pr
 PS C:\> Start-AzBasicLoadBalancerUpgrade -ResourceGroupName <loadBalancerRGName> -BasicLoadBalancerName <basicLBName>
 ```
 
-### Example: upgrade and show logs
+### Example: upgrade, change name, and show logs
 
 Upgrade a Basic Load Balancer to a Standard Load Balancer with the specified name, displaying logged output on screen
 
