@@ -48,27 +48,6 @@ The PowerShell module performs the following functions:
 - Basic Load Balancers with a Virtual Machine Scale Set backend pool member where one or more Virtual Machine Scale Set instances have ProtectFromScaleSetActions Instance Protection policies enabled
 - Migrating a Basic Load Balancer to an existing Standard Load Balancer
 
-## Pre- and Post-migration Steps
-
-### Pre-migration steps
-
-- Validate that your scenario is supported
-- Plan for application downtime during migration
-- Develop inbound and outbound connectivity tests for your traffic
-- Plan for instance-level Public IP changes on Virtual Machine Scale Set instances
-- [Recommended] Create Network Security Groups for your backend pool members, allowing the traffic through the Load Balancer and any other traffic which will need to be explicitly allowed on public Standard SKU resources
-- [Recommended] Prepare your outbound connectivity, taking one of the following approaches: 
-    - Add a NAT Gateway to your backend member's subnets 
-    - Add Public IP addresses to each backend Virtual Machine or Virtual Machine Scale Set instance
-    - Plan to create Outbound Rules for Public Load Balancers with multiple backend pools post-migration
-
-### Post-migration steps
-
-- [Validate that your migration was successful](#example-validate-a-completed-migration-by-passing-the-basic-load-balancer-state-file-backup-and-the-standard-load-balancer-name)
-- Test inbound application connectivity through the Load Balancer
-- Test outbound connectivity from backend pool members to the Internet
-- For Public Load Balancers with multiple backend pools, create Outbound Rules for each backend pool 
-
 ## Install the 'AzureBasicLoadBalancerUpgrade' module
 
 ### Prerequisites
@@ -85,6 +64,27 @@ Install the module from [PowerShell gallery](https://www.powershellgallery.com/p
 ```powershell
 PS C:\> Install-Module -Name AzureBasicLoadBalancerUpgrade -Scope CurrentUser -Repository PSGallery -Force
 ```
+
+## Pre- and Post-migration Steps
+
+### Pre-migration steps
+
+- [Validate](#example-validate-a-scenario) that your scenario is supported
+- Plan for [application downtime](#how-long-does-the-upgrade-take) during migration
+- Develop inbound and outbound connectivity tests for your traffic
+- Plan for instance-level Public IP changes on Virtual Machine Scale Set instances (see note above)
+- [Recommended] Create Network Security Groups for your backend pool members, allowing the traffic through the Load Balancer and any other traffic which will need to be explicitly allowed on public Standard SKU resources
+- [Recommended] Prepare your [outbound connectivity](../virtual-network/ip-services/default-outbound-access.md), taking one of the following approaches: 
+    - Add a NAT Gateway to your backend member's subnets 
+    - Add Public IP addresses to each backend Virtual Machine or [Virtual Machine Scale Set instance](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine)
+    - Plan to create [Outbound Rules](./outbound-rules.md) for Public Load Balancers with multiple backend pools post-migration
+
+### Post-migration steps
+
+- [Validate that your migration was successful](#example-validate-a-scenario)
+- Test inbound application connectivity through the Load Balancer
+- Test outbound connectivity from backend pool members to the Internet
+- For Public Load Balancers with multiple backend pools, create [Outbound Rules](/outbound-rules.md) for each backend pool 
 
 ## Use the module
 
@@ -250,7 +250,7 @@ The script migrates the following from the Basic Load Balancer to the Standard L
 
 ### How do I migrate when my backend pool members belong to multiple Load Balancers?
 
-In a scenario where your backend pool members are also members of backend pools on another Load Balancer, such as when you have internal and external Load Balancers for the same application, the Basic Load Balancers need to be migrated at the same time. Trying to migrate the Load Balancers one at a time would attempt to mix Basic and Standard SKU resources, which is not allowed. The migration script supports this by passing multiple Basic Load Balancers into the same [script execution using the `-MultiLBConfig` parameter](#example-migrate-multiple-load-balancers-with-shared-backend-members-at-the-same-time). 
+In a scenario where your backend pool members are also members of backend pools on another Load Balancer, such as when you have internal and external Load Balancers for the same application, the Basic Load Balancers need to be migrated at the same time. Trying to migrate the Load Balancers one at a time would attempt to mix Basic and Standard SKU resources, which is not allowed. The migration script supports this by passing multiple Basic Load Balancers into the same [script execution using the `-MultiLBConfig` parameter](#example-migrate-multiple-related-load-balancers). 
 
 ### How do I validate that a migration was successful?
 
