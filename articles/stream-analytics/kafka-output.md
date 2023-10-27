@@ -89,12 +89,12 @@ To be able to upload certificates, you must have "**Key Vault Administrator**"  
 
 ### Upload Certificate to Key vault via Azure CLI
 
-You can use Azure CLI to upload certificates as secrets to your key vault or use the Azure portal to upload the certificate as a secret.
 > [!IMPORTANT]
 > You must have "**Key Vault Administrator**" permissions access to your Key vault for this command to work properly
 > You must upload the certificate as a secret. You must use Azure CLI to upload certificates as secrets to your key vault.
 > Your Azure Stream Analytics job will fail when the certificate used for authentication expires. To resolve this, you must update/replace the certificate in your key vault and restart your Azure Stream Analytics job
 
+You can visit this page to get guidance on setting up Azure CLI: [Get started with Azure CLI](https://learn.microsoft.com/en-us/cli/azure/get-started-with-azure-cli#how-to-sign-into-the-azure-cli)
 The following command can upload the certificate as a secret to your key vault.
 
 ```azurecli-interactive
@@ -139,6 +139,7 @@ Visit the [Run your Azure Stream Analytics job in an Azure Virtual Network docum
 * When configuring your Azure Stream Analytics jobs to use VNET/SWIFT, your job must be configured with at least six (6) streaming units or one (1) V2 streaming unit. 
 * When using mTLS or SASL_SSL with Azure Key vault, you must convert your Java Key Store to PEM format. 
 * The minimum version of Kafka you can configure Azure Stream Analytics to connect to is version 0.10.
+* Azure Stream Analytics does not support authentication to confluent cloud using OAuth or SAML single sign-on (SSO). You must use API Key via the SASL_SSL protocol
 
 > [!NOTE]
 > For direct help with using the Azure Stream Analytics Kafka output, please reach out to [askasa@microsoft.com](mailto:askasa@microsoft.com).
