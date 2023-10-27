@@ -103,12 +103,12 @@ The consumption URL also allows you to write your own Kusto query to get insight
 1. On the Overview page, copy the consumption URL and paste it in a new browser tab to see the database and list of tables.
 1. Use the ADX query plane to write Kusto queries. For example:
 
-       ```
+ ```
     enriched_flow_events_sample
     | summarize Application_count=count() by flowRecord_dpiStringInfo_application
     | order by Application_count desc
     | take 10
-    ```
+ ```
 
     ```
     enriched_flow_events_sample
