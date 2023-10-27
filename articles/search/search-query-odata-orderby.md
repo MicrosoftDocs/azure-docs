@@ -1,6 +1,6 @@
 ---
 title: OData order-by reference
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Syntax and language reference documentation for using order-by in Azure Cognitive Search queries.
 
 manager: nitinme

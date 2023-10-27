@@ -1,6 +1,6 @@
 ---
 title: REST samples
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Find Azure Cognitive Search demo REST code samples that use the Search or Management REST APIs.
 
 manager: nitinme

@@ -1,6 +1,6 @@
 ---
 title: Vector index size limit
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Explanation of the factors affecting the size of a vector index.
 
 author: robertklee

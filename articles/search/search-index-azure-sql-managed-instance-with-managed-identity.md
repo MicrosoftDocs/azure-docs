@@ -1,6 +1,6 @@
 ---
 title: Connect to Azure SQL Managed Instance using managed identity
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Learn how to set up an Azure Cognitive Search indexer connection to an Azure SQL Managed Instance using a managed identity
 author: gmndrg
 ms.author: gimondra

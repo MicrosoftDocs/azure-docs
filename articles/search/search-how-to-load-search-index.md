@@ -1,6 +1,6 @@
 ---
 title: Load a search index
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Import and refresh data in a search index using the portal, REST APIs, or an Azure SDK.
 
 manager: nitinme

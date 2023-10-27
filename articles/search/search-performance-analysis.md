@@ -1,6 +1,6 @@
 ---
 title: Analyze performance
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Learn about the tools, behaviors, and approaches for analyzing query and indexing performance in Cognitive Search.
 author: LiamCavanagh
 ms.author: liamca

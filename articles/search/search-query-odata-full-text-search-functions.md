@@ -1,6 +1,6 @@
 ---
 title: OData full-text search function reference
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: OData full-text search functions, search.ismatch and search.ismatchscoring, in Azure Cognitive Search queries.
 
 manager: nitinme

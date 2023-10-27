@@ -1,6 +1,6 @@
 ---
 title: Text Translation cognitive skill
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Evaluates text and, for each record, returns text translated to the specified target language in an  AI enrichment pipeline in Azure Cognitive Search. 
 
 manager: nitinme

@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Index at scale (Spark)'
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Search big data from Apache Spark that's been transformed by SynapseML. You'll load invoices into data frames, apply machine learning, and then send output to a generated search index.
 
 manager: nitinme

@@ -1,6 +1,6 @@
 ---
 title: OData select reference
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Syntax and language reference for explicit selection of fields to return in the search results of Azure Cognitive Search queries.
 
 manager: nitinme

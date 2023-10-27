@@ -1,6 +1,6 @@
 ---
 title: JavaScript samples
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Find Azure Cognitive Search demo JavaScript code samples that use the Azure .NET SDK for JavaScript.
 
 manager: nitinme

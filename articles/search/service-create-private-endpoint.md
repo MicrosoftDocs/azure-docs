@@ -1,6 +1,6 @@
 ---
 title: Create a Private Endpoint for a secure connection
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Set up a private endpoint in a virtual network for a secure connection to an Azure Cognitive Search service.
 author: HeidiSteen
 ms.author: heidist

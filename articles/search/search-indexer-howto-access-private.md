@@ -1,6 +1,6 @@
 ---
 title: Connect through a shared private link
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Configure indexer connections to access content from other Azure resources that are protected through a shared private link.
 
 manager: nitinme

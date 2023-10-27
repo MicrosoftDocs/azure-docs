@@ -1,6 +1,6 @@
 ---
 title: Projection concepts
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Introduces projection concepts and best practices. If you are creating a knowledge store in Cognitive Search, projections will determine the type, quantity, and composition of objects in Azure Storage.
 
 manager: nitinme

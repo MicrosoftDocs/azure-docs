@@ -1,6 +1,6 @@
 ---
 title: Monitor indexer status and results
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Monitor the status, progress, and results of Azure Cognitive Search indexers in the Azure portal, using the REST API, or the .NET SDK.
 
 manager: nitinme

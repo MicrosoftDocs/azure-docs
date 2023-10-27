@@ -1,6 +1,6 @@
 ---
 title: Productivity tools
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Use existing code samples or build your own tools for working with a search index in Azure Cognitive Search.
 author: HeidiSteen
 manager: nitinme

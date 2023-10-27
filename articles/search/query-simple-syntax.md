@@ -1,6 +1,6 @@
 ---
 title: Simple query syntax
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Reference for the simple query syntax used for full text search queries in Azure Cognitive Search.
 
 manager: nitinme

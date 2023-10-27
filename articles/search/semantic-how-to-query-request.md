@@ -1,6 +1,6 @@
 ---
 title: Configure semantic ranking
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Set a semantic query type to attach the deep learning models of semantic ranking. 
 
 manager: nitinme

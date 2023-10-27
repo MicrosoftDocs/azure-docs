@@ -1,6 +1,6 @@
 ---
 title: OData search.in function reference
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Syntax and reference documentation for using the search.in function in Azure Cognitive Search queries.
 
 manager: nitinme

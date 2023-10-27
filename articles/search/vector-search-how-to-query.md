@@ -1,6 +1,6 @@
 ---
 title: Vector query how-to
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Learn how to build queries for vector search.
 
 author: HeidiSteen

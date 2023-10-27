@@ -1,6 +1,6 @@
 ---
 title: Full text search
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Describes concepts and architecture of query processing and document retrieval for full text search, as implemented Azure Cognitive Search.
 
 manager: nitinme

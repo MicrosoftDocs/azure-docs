@@ -1,6 +1,6 @@
 ---
 title: "Load an index (.NET tutorial)" 
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Create index and import CSV data into Search index with .NET.
 manager: nitinme
 author: diberry

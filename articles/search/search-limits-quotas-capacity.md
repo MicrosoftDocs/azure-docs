@@ -1,6 +1,6 @@
 ---
 title: Service limits for tiers and skus
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Service limits used for capacity planning and maximum limits on requests and responses for Azure Cognitive Search.
 
 manager: nitinme

@@ -1,6 +1,6 @@
 ---
 title: Index large data sets for full text search
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Strategies for large data indexing or computationally intensive indexing through batch mode, resourcing, and scheduled, parallel, and distributed indexing.
 
 manager: nitinme

@@ -1,6 +1,6 @@
 ---
 title: Service administration in the portal
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Manage an Azure Cognitive Search service, a hosted cloud search service on Microsoft Azure, using the Azure portal.
 
 manager: nitinme

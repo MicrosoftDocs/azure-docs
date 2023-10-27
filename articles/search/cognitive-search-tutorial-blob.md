@@ -1,6 +1,6 @@
 ---
 title: 'REST Tutorial: AI on Azure blobs'
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Step through an example of text extraction and natural language processing over content in Blob Storage using Postman and the Azure Cognitive Search REST APIs.
 author: HeidiSteen
 ms.author: heidist

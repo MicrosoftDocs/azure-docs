@@ -1,6 +1,6 @@
 ---
 title: Stopwords
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Reference documentation containing the stopwords list of the Microsoft language analyzers. 
 
 manager: nitinme

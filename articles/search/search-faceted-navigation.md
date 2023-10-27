@@ -1,6 +1,6 @@
 ---
 title: Add a faceted navigation category hierarchy
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Add faceted navigation for self-directed filtering in applications that integrate with Azure Cognitive Search.
 
 manager: nitinme

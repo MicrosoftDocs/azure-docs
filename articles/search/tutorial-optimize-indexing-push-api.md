@@ -1,6 +1,6 @@
 ---
 title: 'C# tutorial optimize indexing with the push API'
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Learn how to efficiently index data using Azure Cognitive Search's push API. This tutorial and sample code are in C#.
 author: gmndrg
 ms.author: gimondra

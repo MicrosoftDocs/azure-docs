@@ -1,6 +1,6 @@
 ---
 title: Configure search apps for Microsoft Entra ID
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Acquire a token from Microsoft Entra ID to authorize search requests to an app built on Azure Cognitive Search.
 author: gmndrg
 ms.author: gimondra

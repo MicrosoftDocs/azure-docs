@@ -1,6 +1,6 @@
 ---
 title: Azure SQL indexer
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Set up a search indexer to index data stored in Azure SQL Database for full text search in Azure Cognitive Search.
 
 manager: nitinme

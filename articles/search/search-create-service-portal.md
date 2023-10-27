@@ -1,6 +1,6 @@
 ---
 title: 'Create a search service in the portal'
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Learn how to set up an Azure Cognitive Search resource in the Azure portal. Choose resource groups, regions, and the SKU or pricing tier.
 
 manager: nitinme

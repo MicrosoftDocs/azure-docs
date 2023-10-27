@@ -1,6 +1,6 @@
 ---
 title: Choose a service tier
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: 'Learn about the service tiers (or SKUs) for Azure Cognitive Search. A search service can be provisioned at these tiers: Free, Basic, and Standard. Standard is available in various resource configurations and capacity levels.'
 
 manager: nitinme

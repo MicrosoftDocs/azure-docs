@@ -1,6 +1,6 @@
 ---
 title: moreLikeThis (preview) query feature
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Describes the moreLikeThis (preview) feature, which is available in preview versions of the Azure Cognitive Search REST API.
 
 author: bevloh

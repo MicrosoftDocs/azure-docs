@@ -1,6 +1,6 @@
 ---
 title: Chunk documents in vector search
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Learn strategies for chunking PDFs, HTML files, and other large documents for vectors and search indexing and query workloads.
 
 author: arv100kri

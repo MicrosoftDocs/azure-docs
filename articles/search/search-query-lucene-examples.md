@@ -1,6 +1,6 @@
 ---
 title: Use full Lucene query syntax
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Query examples demonstrating the Lucene query syntax for fuzzy search, proximity search, term boosting, regular expression search, and wildcard searches in an Azure Cognitive Search index.
 
 manager: nitinme

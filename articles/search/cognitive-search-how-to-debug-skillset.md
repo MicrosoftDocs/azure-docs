@@ -1,6 +1,6 @@
 ---
 title: Debug a skillset
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Investigate skillset errors and issues by starting a debug session in Azure portal.
 
 manager: nitinme

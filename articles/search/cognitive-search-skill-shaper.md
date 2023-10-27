@@ -1,6 +1,6 @@
 ---
 title: Shaper cognitive skill
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Extract metadata and structured information from unstructured data and shape it as a complex type in an AI enrichment pipeline in Azure Cognitive Search.
 author: LiamCavanagh
 ms.author: liamca

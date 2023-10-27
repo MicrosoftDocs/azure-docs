@@ -1,6 +1,6 @@
 ---
 title: OData language overview
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: OData language overview for filters, select, and order-by for Azure Cognitive Search queries.
 
 author: bevloh

@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: semantic ranking'
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Change an existing index to use semantic ranking.
 author: HeidiSteen
 manager: nitinme

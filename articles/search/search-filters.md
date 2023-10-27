@@ -1,6 +1,6 @@
 ---
 title: Filter on search results
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Apply filter criteria to include or exclude content before query execution in Azure Cognitive Search.
 
 manager: nitinme

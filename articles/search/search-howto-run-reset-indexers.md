@@ -1,6 +1,6 @@
 ---
 title: Run or reset indexers
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Run indexers in full, or reset an indexer, skills, or individual documents to refresh all or part of a search index or knowledge store.
 author: HeidiSteen
 manager: nitinme

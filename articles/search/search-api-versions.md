@@ -1,6 +1,6 @@
 ---
 title: API versions
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Version policy for Azure Cognitive Search REST APIs and the client library in the .NET SDK.
 
 manager: nitinme

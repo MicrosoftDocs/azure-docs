@@ -1,6 +1,6 @@
 ---
 title: Custom AML skill in skillsets
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Extend capabilities of Azure Cognitive Search skillsets with Azure Machine Learning models.
 
 manager: liamca

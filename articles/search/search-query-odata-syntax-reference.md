@@ -1,6 +1,6 @@
 ---
 title: OData expression syntax reference
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Formal grammar and syntax specification for OData expressions in Azure Cognitive Search queries.
 
 manager: nitinme

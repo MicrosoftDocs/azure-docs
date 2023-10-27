@@ -1,6 +1,6 @@
 ---
 title: C# tutorial indexing Azure SQL data
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: In this C# tutorial, connect to Azure SQL Database, extract searchable data, and load it into an Azure Cognitive Search index.
 
 manager: nitinme

@@ -1,6 +1,6 @@
 ---
 title: "Load an index (JavaScript tutorial)" 
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Create index and import CSV data into Search index with JavaScript using the npm SDK @azure/search-documents.
 manager: nitinme
 author: diberry

@@ -1,6 +1,6 @@
 ---
 title: Search over JSON blobs
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Crawl Azure JSON blobs for text content using the Azure Cognitive Search Blob indexer. Indexers automate data ingestion for selected data sources like Azure Blob Storage.
 
 manager: nitinme

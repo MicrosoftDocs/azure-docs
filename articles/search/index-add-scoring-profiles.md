@@ -1,6 +1,6 @@
 ---
 title: Add scoring profiles
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Boost search relevance scores for Azure Cognitive Search results by adding scoring profiles to a search index.
 
 manager: nitinme

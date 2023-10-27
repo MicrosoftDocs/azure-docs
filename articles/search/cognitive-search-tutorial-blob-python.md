@@ -1,6 +1,6 @@
 ---
 title: 'Python tutorial: AI on Azure blobs'
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Step through an example of text extraction and natural language processing over content in Blob storage using a Jupyter Python notebook and the Azure Cognitive Search REST APIs. 
 
 manager: nitinme

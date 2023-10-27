@@ -1,6 +1,6 @@
 ---
 title: OData filter reference
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: OData language reference and full syntax used for creating filter expressions in Azure Cognitive Search queries.
 
 manager: nitinme

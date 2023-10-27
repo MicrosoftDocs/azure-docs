@@ -1,6 +1,6 @@
 ---
 title: Connect using API keys
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Learn how to use an admin or query API key for inbound access to an Azure Cognitive Search service endpoint.
 
 manager: nitinme

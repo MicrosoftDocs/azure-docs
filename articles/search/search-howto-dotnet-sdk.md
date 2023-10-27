@@ -1,6 +1,6 @@
 ---
 title: Use Azure.Search.Documents (v11) in .NET
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Learn how to create and manage search objects in a .NET application using C# and the Azure.Search.Documents (v11) client library.
 
 manager: nitinme

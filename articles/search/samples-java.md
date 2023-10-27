@@ -1,6 +1,6 @@
 ---
 title: Java samples
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Find Azure Cognitive Search demo Java code samples that use the Azure .NET SDK for Java.
 
 manager: nitinme

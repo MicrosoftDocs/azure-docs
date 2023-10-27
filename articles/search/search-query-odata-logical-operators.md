@@ -1,6 +1,6 @@
 ---
 title: OData logical operator reference
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Syntax and reference documentation for using OData logical operators, and, or, and not, in Azure Cognitive Search queries.
 
 manager: nitinme

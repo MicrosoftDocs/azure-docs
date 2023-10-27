@@ -1,6 +1,6 @@
 ---
 title: Drop and rebuild an index
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Add new elements, update existing elements or documents, or delete obsolete documents in a full rebuild or partial indexing to refresh an Azure Cognitive Search index.
 
 manager: nitinme

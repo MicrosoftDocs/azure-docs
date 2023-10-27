@@ -1,6 +1,6 @@
 ---
 title: Create a search index
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Create a search index using the Azure portal, REST APIs, or an Azure SDK.
 
 manager: nitinme

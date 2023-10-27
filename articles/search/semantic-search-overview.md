@@ -1,6 +1,6 @@
 ---
 title: Semantic ranking
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Learn how Cognitive Search uses deep learning semantic ranking models from Bing to make search results more intuitive.
 
 manager: nitinme

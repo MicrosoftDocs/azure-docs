@@ -1,6 +1,6 @@
 ---
 title: Add vector search
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Create or update a search index to include vector fields.
 
 author: HeidiSteen

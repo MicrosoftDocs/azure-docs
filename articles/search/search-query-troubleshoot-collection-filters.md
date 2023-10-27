@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting OData collection filters
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Learn approaches for resolving OData collection filter errors in Azure Cognitive Search queries.
 
 author: bevloh

@@ -1,6 +1,6 @@
 ---
 title: Understanding OData collection filters
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Learn the mechanics of how OData collection filters work in Azure Cognitive Search queries, including limitations and behaviors unique to collections.
 
 author: bevloh

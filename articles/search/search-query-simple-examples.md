@@ -1,6 +1,6 @@
 ---
 title: Use simple Lucene query syntax
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Query examples demonstrating the simple syntax for full text search, filter search, and geo search against an Azure Cognitive Search index.
 
 manager: nitinme

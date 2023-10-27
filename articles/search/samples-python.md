@@ -1,6 +1,6 @@
 ---
 title: Python samples
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Find Azure Cognitive Search demo Python code samples that use the Azure .NET SDK for Python or REST.
 
 manager: nitinme

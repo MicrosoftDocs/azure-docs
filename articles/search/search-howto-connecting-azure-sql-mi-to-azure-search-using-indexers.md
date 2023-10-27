@@ -1,6 +1,6 @@
 ---
 title: Indexer connection to SQL Managed Instances
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Enable public endpoint to allow connections to SQL Managed Instances from an indexer on Azure Cognitive Search.
 
 manager: nitinme

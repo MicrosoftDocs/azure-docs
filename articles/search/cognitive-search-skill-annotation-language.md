@@ -1,6 +1,6 @@
 ---
 title: Skill context and input annotation reference language
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Annotation syntax reference for annotation in the context, inputs and outputs of a skillset in an AI enrichment pipeline in Azure Cognitive Search.
 
 author: BertrandLeRoy

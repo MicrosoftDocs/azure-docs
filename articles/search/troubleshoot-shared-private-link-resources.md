@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot shared private link resources
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Troubleshooting guide for common problems when managing shared private link resources in Azure Cognitive Search.
 
 manager: nitinme

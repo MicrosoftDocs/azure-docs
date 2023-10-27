@@ -1,6 +1,6 @@
 ---
 title: How to manage concurrent writes to resources
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Use optimistic concurrency to avoid mid-air collisions on updates or deletes to Azure Cognitive Search indexes, indexers, data sources.
 
 manager: nitinme

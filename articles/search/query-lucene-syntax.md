@@ -1,6 +1,6 @@
 ---
 title: Lucene query syntax
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Reference for the full Lucene query syntax, as used in Azure Cognitive Search for wildcard, fuzzy search, RegEx, and other advanced query constructs.
 
 manager: nitinme

@@ -1,6 +1,6 @@
 ---
 title: Knowledge store concepts
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: A knowledge store is enriched content created by an Azure Cognitive Search skillset and saved to Azure Storage for use in other apps and non-search scenarios.
 author: HeidiSteen
 manager: nitinme

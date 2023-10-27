@@ -1,6 +1,6 @@
 ---
 title: Schedule indexer execution
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Learn how to schedule Azure Cognitive Search indexers to index content at specific intervals, or at specific dates and times.
 author: HeidiSteen
 manager: nitinme

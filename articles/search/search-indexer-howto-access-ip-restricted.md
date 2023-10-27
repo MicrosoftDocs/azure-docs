@@ -1,6 +1,6 @@
 ---
 title: Connect through firewalls
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Configure IP firewall rules to allow data access by an Azure Cognitive Search indexer.
 
 manager: nitinme
