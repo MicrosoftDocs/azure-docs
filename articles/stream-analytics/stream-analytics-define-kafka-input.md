@@ -105,7 +105,7 @@ To be able to upload certificates, you must have "**Key Vault Administrator**"  
 > You must upload the certificate as a secret. You must use Azure CLI to upload certificates as secrets to your key vault.
 > Your Azure Stream Analytics job will fail when the certificate used for authentication expires. To resolve this, you must update/replace the certificate in your key vault and restart your Azure Stream Analytics job
 
-You can visit this page to get guidance on setting up Azure CLI: [Get started with Azure CLI](https://learn.microsoft.com/en-us/cli/azure/get-started-with-azure-cli#how-to-sign-into-the-azure-cli)
+You can visit this page to get guidance on setting up Azure CLI: [Get started with Azure CLI](https://learn.microsoft.com/cli/azure/get-started-with-azure-cli#how-to-sign-into-the-azure-cli)
 The following command can upload the certificate as a secret to your key vault. You must have "**Key Vault Administrator**" permissions access to your Key vault for this command to work properly.
 
 ```azurecli-interactive
