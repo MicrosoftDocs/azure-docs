@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 10/25/2022
 ---
 
-# Knowledge store "projections" in Azure Cognitive Search
+# Knowledge store "projections" in Azure AI Search
 
 Projections are the physical tables, objects, and files in a [**knowledge store**](knowledge-store-concept-intro.md) that accept content from a Cognitive Search AI enrichment pipeline. If you're creating a knowledge store, defining and shaping projections is most of the work.
 

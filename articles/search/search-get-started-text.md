@@ -26,7 +26,7 @@ This quickstart has [steps](#create-load-and-query-an-index) for the following S
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
 
-+ An Azure Cognitive Search service. [Create a service](search-create-service-portal.md) if you don't have one. You can use a free tier for this quickstart.
++ An Azure AI Search service. [Create a service](search-create-service-portal.md) if you don't have one. You can use a free tier for this quickstart.
 
 + An API key and service endpoint:
 

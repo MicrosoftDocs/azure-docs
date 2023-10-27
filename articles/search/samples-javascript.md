@@ -1,7 +1,7 @@
 ---
 title: JavaScript samples
 titleSuffix: Azure AI Search
-description: Find Azure Cognitive Search demo JavaScript code samples that use the Azure .NET SDK for JavaScript.
+description: Find Azure AI Search demo JavaScript code samples that use the Azure .NET SDK for JavaScript.
 
 manager: nitinme
 author: HeidiSteen
@@ -12,9 +12,9 @@ ms.topic: conceptual
 ms.date: 08/01/2023
 ---
 
-# JavaScript samples for Azure Cognitive Search
+# JavaScript samples for Azure AI Search
 
-Learn about the JavaScript code samples that demonstrate the functionality and workflow of an Azure Cognitive Search solution. These samples use the [**Azure Cognitive Search client library**](/javascript/api/overview/azure/search-documents-readme) for the [**Azure SDK for JavaScript**](/azure/developer/javascript/), which you can explore through the following links.
+Learn about the JavaScript code samples that demonstrate the functionality and workflow of an Azure AI Search solution. These samples use the [**Azure AI Search client library**](/javascript/api/overview/azure/search-documents-readme) for the [**Azure SDK for JavaScript**](/azure/developer/javascript/), which you can explore through the following links.
 
 | Target | Link |
 |--------|------|
@@ -67,4 +67,4 @@ The following samples are also published by the Cognitive Search team, but aren'
 | Samples | Description |
 |---------|-------------|
 | [azure-search-vector-sample.js](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-javascript)  | Vector search sample using the Azure SDK for JavaScript |
-| [azure-search-react-template](https://github.com/dereklegenzoff/azure-search-react-template) | React template for Azure Cognitive Search (github.com) |
+| [azure-search-react-template](https://github.com/dereklegenzoff/azure-search-react-template) | React template for Azure AI Search (github.com) |

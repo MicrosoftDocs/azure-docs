@@ -1,7 +1,7 @@
 ---
 title: Indexing with Azure Cosmos DB for MongoDB
 titleSuffix: Azure AI Search
-description: Set up a search indexer to index data stored in Azure Cosmos DB for full text search in Azure Cognitive Search. This article explains how index data in Azure Cosmos DB for MongoDB.
+description: Set up a search indexer to index data stored in Azure Cosmos DB for full text search in Azure AI Search. This article explains how index data in Azure Cosmos DB for MongoDB.
 author: gmndrg 
 ms.author: gimondra
 ms.service: cognitive-search
@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 01/18/2023
 ---
 
-# Import data from Azure Cosmos DB for MongoDB for queries in Azure Cognitive Search
+# Import data from Azure Cosmos DB for MongoDB for queries in Azure AI Search
 
 > [!IMPORTANT] 
 > MongoDB API support is currently in public preview under [supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Currently, there is no SDK support.
 
-In this article, learn how to configure an [**indexer**](search-indexer-overview.md) that imports content from [Azure Cosmos DB for MongoDB](../cosmos-db/mongodb/introduction.md) and makes it searchable in Azure Cognitive Search.
+In this article, learn how to configure an [**indexer**](search-indexer-overview.md) that imports content from [Azure Cosmos DB for MongoDB](../cosmos-db/mongodb/introduction.md) and makes it searchable in Azure AI Search.
 
 This article supplements [**Create an indexer**](search-howto-create-indexers.md) with information that's specific to Cosmos DB. It uses the REST APIs to demonstrate a three-part workflow common to all indexers: create a data source, create an index, create an indexer. Data extraction occurs when you submit the Create Indexer request.
 
@@ -44,7 +44,7 @@ These are the limitations of this feature:
 + The MongoDB attribute `$ref` is a reserved word. If you need this in your MongoDB collection, consider alternative solutions for populating an index. 
 
 
-As an alternative to this connector, if your scenario has any of those requirements, you could use the [Push API/SDK](search-what-is-data-import.md) or consider [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md) with an [Azure Cognitive Search index](../data-factory/connector-azure-search.md) as the sink.
+As an alternative to this connector, if your scenario has any of those requirements, you could use the [Push API/SDK](search-what-is-data-import.md) or consider [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md) with an [Azure AI Search index](../data-factory/connector-azure-search.md) as the sink.
 
 ## Define the data source
 

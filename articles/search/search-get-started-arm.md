@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Deploy using templates'
 titleSuffix: Azure AI Search
-description: You can quickly deploy an Azure Cognitive Search service instance using the Azure Resource Manager template.
+description: You can quickly deploy an Azure AI Search service instance using the Azure Resource Manager template.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
@@ -13,7 +13,7 @@ ms.date: 06/29/2023
 
 # Quickstart: Deploy Cognitive Search using an Azure Resource Manager template
 
-This article walks you through the process for using an Azure Resource Manager (ARM) template to deploy an Azure Cognitive Search resource in the Azure portal.
+This article walks you through the process for using an Azure Resource Manager (ARM) template to deploy an Azure AI Search resource in the Azure portal.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -35,11 +35,11 @@ The template used in this quickstart is from [Azure Quickstart Templates](https:
 
 The Azure resource defined in this template:
 
-- [Microsoft.Search/searchServices](/azure/templates/Microsoft.Search/searchServices): create an Azure Cognitive Search service
+- [Microsoft.Search/searchServices](/azure/templates/Microsoft.Search/searchServices): create an Azure AI Search service
 
 ## Deploy the template
 
-Select the following image to sign in to Azure and open a template. The template creates an Azure Cognitive Search resource.
+Select the following image to sign in to Azure and open a template. The template creates an Azure AI Search resource.
 
 [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.search%2Fazure-search-create%2Fazuredeploy.json)
 
@@ -60,7 +60,7 @@ Other Cognitive Search quickstarts and tutorials build upon this quickstart. If 
 
 In this quickstart, you created a Cognitive Search service using an ARM template, and validated the deployment. To learn more about Cognitive Search and Azure Resource Manager, continue on to the articles below.
 
-- Read an [overview of Azure Cognitive Search](search-what-is-azure-search.md).
+- Read an [overview of Azure AI Search](search-what-is-azure-search.md).
 - [Create an index](search-get-started-portal.md) for your search service.
 - [Create a demo app](search-create-app-portal.md) using the portal wizard.
 - [Create a skillset](cognitive-search-quickstart-blob.md) to extract information from your data.

@@ -1,7 +1,7 @@
 ---
 title: SharePoint indexer (preview)
 titleSuffix: Azure AI Search
-description: Set up a SharePoint indexer to automate indexing of document library content in Azure Cognitive Search.
+description: Set up a SharePoint indexer to automate indexing of document library content in Azure AI Search.
 author: gmndrg
 ms.author: gimondra
 manager: liamca
@@ -18,11 +18,11 @@ ms.date: 10/03/2023
 >
 >To use this preview, [request access](https://aka.ms/azure-cognitive-search/indexer-preview). Access will be automatically approved after the form is submitted. After access is enabled, use a [preview REST API (2020-06-30-preview or later)](search-api-preview.md) to index your content. There is currently limited portal support and no .NET SDK support.
 
-This article explains how to configure a [search indexer](search-indexer-overview.md) to index documents stored in SharePoint document libraries for full text search in Azure Cognitive Search. Configuration steps are followed by a deeper exploration of behaviors and scenarios you're likely to encounter.
+This article explains how to configure a [search indexer](search-indexer-overview.md) to index documents stored in SharePoint document libraries for full text search in Azure AI Search. Configuration steps are followed by a deeper exploration of behaviors and scenarios you're likely to encounter.
 
 ## Functionality
 
-An indexer in Azure Cognitive Search is a crawler that extracts searchable data and metadata from a data source. The SharePoint indexer will connect to your SharePoint site and index documents from one or more document libraries. The indexer provides the following functionality:
+An indexer in Azure AI Search is a crawler that extracts searchable data and metadata from a data source. The SharePoint indexer will connect to your SharePoint site and index documents from one or more document libraries. The indexer provides the following functionality:
 
 + Index content and metadata from one or more document libraries.
 + Incremental indexing, where the indexer identifies which file content or metadata have changed and indexes only the updated data. For example, if five PDFs are originally indexed and one is updated, only the updated PDF is indexed.
@@ -141,7 +141,7 @@ The SharePoint indexer will use this Microsoft Entra application for authenticat
 ### Step 4: Create data source
 
 > [!IMPORTANT] 
-> Starting in this section you need to use the preview REST API for the remaining steps. If you’re not familiar with the Azure Cognitive Search REST API, we suggest taking a look at this [Quickstart](search-get-started-rest.md).
+> Starting in this section you need to use the preview REST API for the remaining steps. If you’re not familiar with the Azure AI Search REST API, we suggest taking a look at this [Quickstart](search-get-started-rest.md).
 
 A data source specifies which data to index, credentials needed to access the data, and policies to efficiently identify changes in the data (new, modified, or deleted rows). A data source can be used by multiple indexers in the same search service.
 
@@ -305,7 +305,7 @@ api-key: [admin key]
 
 ## Updating the data source
 
-If there are no updates to the data source object, the indexer can run on a schedule without any user interaction. However, every time the Azure Cognitive Search data source object is updated or recreated when the device code expires you'll need to sign in again in order for the indexer to run. For example, if you change the data source query, sign in again using the `https://microsoft.com/devicelogin` and a new code.
+If there are no updates to the data source object, the indexer can run on a schedule without any user interaction. However, every time the Azure AI Search data source object is updated or recreated when the device code expires you'll need to sign in again in order for the indexer to run. For example, if you change the data source query, sign in again using the `https://microsoft.com/devicelogin` and a new code.
 
 Once the data source has been updated or recreated when the device code expires, follow the below steps:
 
@@ -349,7 +349,7 @@ If you have set the indexer to index document metadata (`"dataToExtract": "conte
 | metadata_spo_item_weburi | Edm.String | The URI of the item. |
 | metadata_spo_item_path | Edm.String | The combination of the parent path and item name. | 
 
-The SharePoint indexer also supports metadata specific to each document type. More information can be found in [Content metadata properties used in Azure Cognitive Search](search-blob-metadata-properties.md).
+The SharePoint indexer also supports metadata specific to each document type. More information can be found in [Content metadata properties used in Azure AI Search](search-blob-metadata-properties.md).
 
 > [!NOTE]
 > To index custom metadata, "additionalColumns" must be specified in the [query parameter of the data source](#query).
@@ -422,13 +422,13 @@ api-key: [admin key]
 }
 ```
 
-For some documents, Azure Cognitive Search is unable to determine the content type, or unable to process a document of otherwise supported content type. To ignore this failure mode, set the `failOnUnprocessableDocument` configuration parameter to false:
+For some documents, Azure AI Search is unable to determine the content type, or unable to process a document of otherwise supported content type. To ignore this failure mode, set the `failOnUnprocessableDocument` configuration parameter to false:
 
 ```http
 "parameters" : { "configuration" : { "failOnUnprocessableDocument" : false } }
 ```
 
-Azure Cognitive Search limits the size of documents that are indexed. These limits are documented in [Service Limits in Azure Cognitive Search](./search-limits-quotas-capacity.md). Oversized documents are treated as errors by default. However, you can still index storage metadata of oversized documents if you set `indexStorageMetadataOnlyForOversizedDocuments` configuration parameter to true:
+Azure AI Search limits the size of documents that are indexed. These limits are documented in [Service Limits in Azure AI Search](./search-limits-quotas-capacity.md). Oversized documents are treated as errors by default. However, you can still index storage metadata of oversized documents if you set `indexStorageMetadataOnlyForOversizedDocuments` configuration parameter to true:
 
 ```http
 "parameters" : { "configuration" : { "indexStorageMetadataOnlyForOversizedDocuments" : true } }
@@ -468,5 +468,5 @@ These are the considerations when using this feature:
 
 ## See also
 
-+ [Indexers in Azure Cognitive Search](search-indexer-overview.md)
-+ [Content metadata properties used in Azure Cognitive Search](search-blob-metadata-properties.md)
++ [Indexers in Azure AI Search](search-indexer-overview.md)
++ [Content metadata properties used in Azure AI Search](search-blob-metadata-properties.md)

@@ -1,7 +1,7 @@
 ---
 title: .NET samples
 titleSuffix: Azure AI Search
-description: Find Azure Cognitive Search demo C# code samples that use the .NET client libraries.
+description: Find Azure AI Search demo C# code samples that use the .NET client libraries.
 
 manager: nitinme
 author: HeidiSteen
@@ -12,9 +12,9 @@ ms.topic: conceptual
 ms.date: 08/02/2023
 ---
 
-# C# samples for Azure Cognitive Search
+# C# samples for Azure AI Search
 
-Learn about the C# code samples that demonstrate the functionality and workflow of an Azure Cognitive Search solution. These samples use the [**Azure Cognitive Search client library**](/dotnet/api/overview/azure/search) for the [**Azure SDK for .NET**](/dotnet/azure/), which you can explore through the following links.
+Learn about the C# code samples that demonstrate the functionality and workflow of an Azure AI Search solution. These samples use the [**Azure AI Search client library**](/dotnet/api/overview/azure/search) for the [**Azure SDK for .NET**](/dotnet/azure/), which you can explore through the following links.
 
 | Target | Link |
 |--------|------|
@@ -82,7 +82,7 @@ The following samples are also published by the Cognitive Search team, but aren'
 
 | Samples | Repository | Description |
 |---------|------------|-------------|
-| [DotNetVectorDemo](https://github.com/Azure/cognitive-search-vector-pr/blob/main/demo-dotnet/readme.md) | [cognitive-search-vector-pr](https://github.com/Azure/cognitive-search-vector-pr) | Calls Azure OpenAI to generate embeddings and Azure Cognitive Search to create, load, and query an index. |
+| [DotNetVectorDemo](https://github.com/Azure/cognitive-search-vector-pr/blob/main/demo-dotnet/readme.md) | [cognitive-search-vector-pr](https://github.com/Azure/cognitive-search-vector-pr) | Calls Azure OpenAI to generate embeddings and Azure AI Search to create, load, and query an index. |
 | [Query multiple services](https://github.com/Azure-Samples/azure-search-dotnet-scale/tree/main/multiple-search-services) |  [azure-search-dotnet-scale](https://github.com/Azure-Samples/azure-search-dotnet-samples) | Issue a single query across multiple search services and combine the results into a single page.  |
 | [Check storage](https://github.com/Azure-Samples/azure-search-dotnet-utilities/blob/main/check-storage-usage/README.md) | [azure-search-dotnet-utilities](https://github.com/Azure-Samples/azure-search-dotnet-utilities) | Invokes an Azure function that checks search service storage on a schedule. |
 | [Export an index](https://github.com/Azure-Samples/azure-search-dotnet-utilities/blob/main/export-data/README.md) | [azure-search-dotnet-utilities](https://github.com/Azure-Samples/azure-search-dotnet-utilities) | C# console app that partitions and export a large index. |

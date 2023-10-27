@@ -14,7 +14,7 @@ ms.date: 12/08/2022
 
 # Connect a search service to other Azure resources using a managed identity
 
-You can configure an Azure Cognitive Search service to connect to other Azure resources using a [system-assigned or user-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md) and an Azure role assignment. Managed identities and role assignments eliminate the need for passing secrets and credentials in a connection string or code.
+You can configure an Azure AI Search service to connect to other Azure resources using a [system-assigned or user-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md) and an Azure role assignment. Managed identities and role assignments eliminate the need for passing secrets and credentials in a connection string or code.
 
 ## Prerequisites
 

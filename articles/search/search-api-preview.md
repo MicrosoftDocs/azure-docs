@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.date: 10/24/2023
 ---
 
-# Preview features in Azure Cognitive Search
+# Preview features in Azure AI Search
 
 This article identifies all features in public preview. This list is helpful for checking feature status.
 

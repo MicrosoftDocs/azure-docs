@@ -13,7 +13,7 @@ ms.date: 06/09/2023
 
 # Quickstart: Semantic ranking with .NET or Python
 
-In Azure Cognitive Search, [semantic ranking](semantic-search-overview.md) is query-side functionality that uses AI from Microsoft to rescore search results, moving results that have more semantic relevance to the top of the list. Depending on the content and the query, semantic ranking can significantly improve a BM25-ranked result set, with minimal work for the developer.
+In Azure AI Search, [semantic ranking](semantic-search-overview.md) is query-side functionality that uses AI from Microsoft to rescore search results, moving results that have more semantic relevance to the top of the list. Depending on the content and the query, semantic ranking can significantly improve a BM25-ranked result set, with minimal work for the developer.
 
 This quickstart walks you through the query modifications that invoke semantic ranking.
 
@@ -24,7 +24,7 @@ This quickstart walks you through the query modifications that invoke semantic r
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
 
-+ Azure Cognitive Search, at Basic tier or higher, with [semantic ranking enabled](semantic-how-to-enable-disable.md).
++ Azure AI Search, at Basic tier or higher, with [semantic ranking enabled](semantic-how-to-enable-disable.md).
 
 + An API key and service endpoint:
 
