@@ -62,18 +62,6 @@ We highly recommend that you use system-assigned and user-assigned managed ident
 
 For the maximum number of user-assigned managed identities per application, see [Quotas and Service Plans for Azure Spring Apps](./quotas.md).
 
-### Azure services that aren't supported
-
-The following services do not currently support managed identity-based access:
-
-- Azure Redis Cache
-- Azure Flexible MySQL
-- Azure Flexible PostgreSQL
-- Azure Database for MariaDB
-- Azure Cosmos DB for MongoDB
-- Azure Cosmos DB for Apache Cassandra
-- Azure Databricks
-
 ---
 
 ## Concept mapping
