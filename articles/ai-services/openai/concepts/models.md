@@ -124,9 +124,9 @@ These models can only be used with Embedding API requests.
 > [!NOTE]
 > We strongly recommend using `text-embedding-ada-002 (Version 2)`. This model/version provides parity with OpenAI's `text-embedding-ada-002`. To learn more about the improvements offered by this model, please refer to [OpenAI's blog post](https://openai.com/blog/new-and-improved-embedding-model). Even if you are currently using Version 1 you should migrate to Version 2 to take advantage of the latest weights/updated token limit. Version 1 and Version 2 are not interchangeable, so document embedding and document search must be done using the same version of the model.
 
-|  Model ID  |  Model Availability  | Max Request (tokens) | Training Data (up to)  | Output dimensions |
-|---|---| ---|:---:|:---:|
-| `text-embedding-ada-002`` (version 2) | Australia East <br> Canada East <br> East US <br> East US2 <br> France Central <br> Japan East <br> North Central US <br> South Central US <br> Switzerland North <br> UK South <br> West Europe |8,191 | Sep 2021 | 1536 |
+|  Model ID  |  Model Availability  | Max Request (tokens) | Training Data (up to)  | Output Dimensions |
+|---|---| :---:|:---:|:---:|
+| `text-embedding-ada-002` (version 2) | Australia East <br> Canada East <br> East US <br> East US2 <br> France Central <br> Japan East <br> North Central US <br> South Central US <br> Switzerland North <br> UK South <br> West Europe |8,191 | Sep 2021 | 1536 |
 | `text-embedding-ada-002` (version 1) | East US <br> South Central US <br> West Europe |2,046 | Sep 2021 | 1536 |
 
 ### DALL-E models (Preview)
