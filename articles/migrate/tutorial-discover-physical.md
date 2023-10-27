@@ -55,7 +55,7 @@ If you just created a free Azure account, you're the owner of your subscription.
 
 1. In the Azure portal, search for "subscriptions", and under **Services**, select **Subscriptions**.
 
-    ![Screenshot of search box to search for the Azure subscription.](./media/tutorial-discover-physical/search-subscription.png)
+    :::image type="content" source="./media/tutorial-discover-physical/search-subscription.png" alt-text="Screenshot of search box to search for the Azure subscription.":::
 
 1. Select **Access control (IAM)**.
 
@@ -69,7 +69,7 @@ If you just created a free Azure account, you're the owner of your subscription.
     | Assign access to | User |
     | Members | azmigrateuser |
 
-    ![Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
+    :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-page.png" alt-text="Screenshot of Add role assignment page in Azure portal.":::
 
 1. To register the appliance, your Azure account needs **permissions to register Microsoft Entra apps.**
 
@@ -145,15 +145,13 @@ Set up a new project.
 5. In **Create project**, select your Azure subscription and resource group. Create a resource group if you don't have one.
 6. In **Project Details**, specify the project name and the geography in which you want to create the project. Review supported geographies for [public](migrate-support-matrix.md#public-cloud) and [government clouds](migrate-support-matrix.md#azure-government).
 
-   ![Screenshot of project name and region.](./media/tutorial-discover-physical/new-project.png)
-
    > [!Note]
    > Use the **Advanced** configuration section to create an Azure Migrate project with private endpoint connectivity. [Learn more](discover-and-assess-using-private-endpoints.md#create-a-project-with-private-endpoint-connectivity).
 
 7. Select **Create**.
 8. Wait a few minutes for the project to deploy. The **Azure Migrate: Discovery and assessment** tool is added by default to the new project.
 
-    ![Page showing Server Assessment tool added by default.](./media/tutorial-discover-physical/added-tool.png)
+    :::image type="content" source="./media/tutorial-discover-physical/added-tool.png" alt-text="Screenshot of  Discovery and assessment tool added by default.":::
 
 > [!NOTE]
 > If you have already created a project, you can use the same project to register additional appliances to discover and assess more no of servers. [Learn more](create-manage-projects.md#find-a-project).
@@ -179,7 +177,7 @@ To set up the appliance, you:
 1. After the successful creation of the Azure resources, a **project key** is generated.
 1. Copy the key as you'll need it to complete the registration of the appliance during its configuration.
 
-    [ ![Selections for Generate Key.](./media/tutorial-assess-physical/generate-key-physical-inline-1.png)](./media/tutorial-assess-physical/generate-key-physical-expanded-1.png#lightbox)
+    :::image type="content" source="./media/tutorial-discover-physical/generate-key-physical-inline-1.png" alt-text="Screenshot that shows Selections for Generate Key." lightbox="./media/tutorial-discover-physical/generate-key-physical-expanded-1.png":::
 
 ### 2. Download the installer script
 
@@ -269,6 +267,7 @@ In the configuration manager, select **Set up prerequisites**, and then complete
     3. To register the appliance, you need to select **Login**. In **Continue with Azure Login**, select **Copy code & Login** to copy the device code (you must have a device code to authenticate with Azure) and open an Azure Login prompt in a new browser tab. Make sure you've disabled the pop-up blocker in the browser to see the prompt.
     
         :::image type="content" source="./media/tutorial-discover-vmware/device-code.png" alt-text="Screenshot that shows where to copy the device code and sign in.":::
+
     4. In a new tab in your browser, paste the device code and sign in by using your Azure username and password. Signing in with a PIN isn't supported.
 	    > [!NOTE]
         > If you close the login tab accidentally without logging in, refresh the browser tab of the appliance configuration manager to display the device code and Copy code & Login button.
@@ -294,7 +293,7 @@ Now, connect from the appliance to the physical servers to be discovered, and st
     - If your Linux servers support the older version of RSA key, you can generate the key using the `$ ssh-keygen -m PEM -t rsa -b 4096` command.
     - Azure Migrate supports OpenSSH format of the SSH private key file as shown below:
     
-    ![Screenshot of SSH private key supported format.](./media/tutorial-discover-physical/key-format.png)
+    :::image type="content" source="./media/tutorial-discover-physical/key-format.png" alt-text="Screenshot of SSH private key supported format.":::
 
 1. If you want to add multiple credentials at once, select **Add more** to save and add more credentials. Multiple credentials are supported for physical servers discovery.
    > [!Note]
@@ -314,6 +313,7 @@ Now, connect from the appliance to the physical servers to be discovered, and st
 1. Before initiating discovery, you can choose to disable the slider to not perform software inventory and agentless dependency analysis on the added servers. You can change this option at any time.
 
     :::image type="content" source="./media/tutorial-discover-physical/disable-slider.png" alt-text="Screenshot that shows where to disable the slider.":::
+    
 1. To perform discovery of SQL Server instances and databases, you can add additional credentials (Windows domain/non-domain, SQL authentication credentials) and the appliance will attempt to automatically map the credentials to the SQL servers. If you add domain credentials, the appliance will authenticate the credentials against Active Directory of the domain to prevent any user accounts from locking out. To check validation of the domain credentials, follow these steps:
   - In the configuration manager credentials table, see **Validation status** for domain credentials. Only the domain credentials are validated.
   - If validation fails, you can select a Failed status to see the validation error. Fix the issue, and then select **Revalidate credentials** to reattempt validation of the credentials.
