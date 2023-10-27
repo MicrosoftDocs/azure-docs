@@ -1,7 +1,7 @@
 ---
 title: "Tutorial 2: Experiment and train models by using features"
 titleSuffix: Azure Machine Learning managed feature store - basics
-description: This is part of a tutorial series on managed feature store. 
+description: This is part of a tutorial series about managed feature store. 
 services: machine-learning
 ms.service: machine-learning
 
