@@ -5,7 +5,7 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 07/11/2023
+ms.date: 11/14/2023
 ms.author: helohr
 manager: femila
 ---
@@ -18,32 +18,32 @@ In this article, we'll give you a brief overview of what kinds of identities and
 Azure Virtual Desktop supports different types of identities depending on which configuration you choose. This section explains which identities you can use for each configuration.
 
 >[!IMPORTANT]
->Azure Virtual Desktop doesn't support signing in to Azure AD with one user account, then signing in to Windows with a separate user account. Signing in with two different accounts at the same time can lead to users reconnecting to the wrong session host, incorrect or missing information in the Azure portal, and error messages appearing while using MSIX app attach.
+>Azure Virtual Desktop doesn't support signing in to Microsoft Entra ID with one user account, then signing in to Windows with a separate user account. Signing in with two different accounts at the same time can lead to users reconnecting to the wrong session host, incorrect or missing information in the Azure portal, and error messages appearing while using MSIX app attach.
 
 ### On-premises identity
 
-Since users must be discoverable through Azure Active Directory (Azure AD) to access the Azure Virtual Desktop, user identities that exist only in Active Directory Domain Services (AD DS) aren't supported. This includes standalone Active Directory deployments with Active Directory Federation Services (AD FS).
+Since users must be discoverable through Microsoft Entra ID to access the Azure Virtual Desktop, user identities that exist only in Active Directory Domain Services (AD DS) aren't supported. This includes standalone Active Directory deployments with Active Directory Federation Services (AD FS).
 
 ### Hybrid identity
 
-Azure Virtual Desktop supports [hybrid identities](../active-directory/hybrid/whatis-hybrid-identity.md) through Azure AD, including those federated using AD FS. You can manage these user identities in AD DS and sync them to Azure AD using [Azure AD Connect](../active-directory/hybrid/whatis-azure-ad-connect.md). You can also use Azure AD to manage these identities and sync them to [Azure AD Domain Services (Azure AD DS)](../active-directory-domain-services/overview.md).
+Azure Virtual Desktop supports [hybrid identities](/entra/identity/hybrid/whatis-hybrid-identity) through Microsoft Entra ID, including those federated using AD FS. You can manage these user identities in AD DS and sync them to Microsoft Entra ID using [Microsoft Entra Connect](/entra/identity/hybrid/connect/whatis-azure-ad-connect). You can also use Microsoft Entra ID to manage these identities and sync them to [Azure AD Domain Services (Azure AD DS)](../active-directory-domain-services/overview.md).
 
-When accessing Azure Virtual Desktop using hybrid identities, sometimes the User Principal Name (UPN) or Security Identifier (SID) for the user in Active Directory (AD) and Azure AD don't match. For example, the AD account user@contoso.local may correspond to user@contoso.com in Azure AD. Azure Virtual Desktop only supports this type of configuration if either the UPN or SID for both your AD and Azure AD accounts match. SID refers to the user object property "ObjectSID" in AD and "OnPremisesSecurityIdentifier" in Azure AD.
+When accessing Azure Virtual Desktop using hybrid identities, sometimes the User Principal Name (UPN) or Security Identifier (SID) for the user in Active Directory (AD) and Microsoft Entra ID don't match. For example, the AD account user@contoso.local may correspond to user@contoso.com in Microsoft Entra ID. Azure Virtual Desktop only supports this type of configuration if either the UPN or SID for both your AD and Microsoft Entra ID accounts match. SID refers to the user object property "ObjectSID" in AD and "OnPremisesSecurityIdentifier" in Microsoft Entra ID.
 
 ### Cloud-only identity
 
-Azure Virtual Desktop supports cloud-only identities when using [Azure AD joined VMs](deploy-azure-ad-joined-vm.md). These users are created and managed directly in Azure AD.
+Azure Virtual Desktop supports cloud-only identities when using [Microsoft Entra joined VMs](deploy-azure-ad-joined-vm.md). These users are created and managed directly in Microsoft Entra ID.
 
 >[!NOTE]
->You can also assign hybrid identities to Azure Virtual Desktop Application groups that host Session hosts of join type Azure AD joined.
+>You can also assign hybrid identities to Azure Virtual Desktop Application groups that host Session hosts of join type Microsoft Entra joined.
 
 ### Third-party identity providers
 
-If you're using an Identity Provider (IdP) other than Azure AD to manage your user accounts, you must ensure that:
+If you're using an Identity Provider (IdP) other than Microsoft Entra ID to manage your user accounts, you must ensure that:
 
-- Your IdP is [federated with Azure AD](../active-directory/devices/azureadjoin-plan.md#federated-environment).
-- Your session hosts are Azure AD-joined or [Hybrid Azure AD-joined](../active-directory/devices/hybrid-join-plan.md).
-- You enable [Azure AD authentication](configure-single-sign-on.md) to the session host.
+- Your IdP is [federated with Microsoft Entra ID](../active-directory/devices/azureadjoin-plan.md#federated-environment).
+- Your session hosts are Microsoft Entra joined or [Microsoft Entra hybrid joined](../active-directory/devices/hybrid-join-plan.md).
+- You enable [Microsoft Entra authentication](configure-single-sign-on.md) to the session host.
 
 ### External identity
 
@@ -51,11 +51,11 @@ Azure Virtual Desktop currently doesn't support [external identities](../active-
 
 ## Service authentication
 
-To access Azure Virtual Desktop resources, you must first authenticate to the service by signing in with an Azure AD account. Authentication happens whenever you subscribe to a workspace to retrieve your resources and connect to apps or desktops. You can use [third-party identity providers](../active-directory/devices/azureadjoin-plan.md#federated-environment) as long as they federate with Azure AD.
+To access Azure Virtual Desktop resources, you must first authenticate to the service by signing in with a Microsoft Entra ID account. Authentication happens whenever you subscribe to a workspace to retrieve your resources and connect to apps or desktops. You can use [third-party identity providers](../active-directory/devices/azureadjoin-plan.md#federated-environment) as long as they federate with Microsoft Entra ID.
 
 ### Multi-factor authentication
 
-Follow the instructions in [Enforce Azure Active Directory Multi-Factor Authentication for Azure Virtual Desktop using Conditional Access](set-up-mfa.md) to learn how to enforce Azure AD Multi-Factor Authentication for your deployment. That article will also tell you how to configure how often your users are prompted to enter their credentials. When deploying Azure AD-joined VMs, note the extra steps for [Azure AD-joined session host VMs](set-up-mfa.md#azure-ad-joined-session-host-vms).
+Follow the instructions in [Enforce Azure Active Directory Multi-Factor Authentication for Azure Virtual Desktop using Conditional Access](set-up-mfa.md) to learn how to enforce Microsoft Entra Multi-Factor Authentication for your deployment. That article will also tell you how to configure how often your users are prompted to enter their credentials. When deploying Microsoft Entra joined VMs, note the extra steps for [Microsoft Entra joined session host VMs](set-up-mfa.md#azure-ad-joined-session-host-vms).
 
 ### Passwordless authentication
 
@@ -99,14 +99,9 @@ Azure Virtual Desktop supports both NT LAN Manager (NTLM) and Kerberos for sessi
 
 Once you're connected to your RemoteApp or desktop, you may be prompted for authentication inside the session. This section explains how to use credentials other than username and password in this scenario.
 
-### In-session passwordless authentication (preview)
+### In-session passwordless authentication
 
-> [!IMPORTANT]
-> In-session passwordless authentication is currently in public preview.
-> This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Azure Virtual Desktop supports in-session passwordless authentication (preview) using [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-overview) or security devices like FIDO keys when using the [Windows Desktop client](users/connect-windows.md). Passwordless authentication is enabled automatically when the session host and local PC are using the following operating systems:
+Azure Virtual Desktop supports in-session passwordless authentication using [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-overview) or security devices like FIDO keys when using the [Windows Desktop client](users/connect-windows.md). Passwordless authentication is enabled automatically when the session host and local PC are using the following operating systems:
 
   - Windows 11 single or multi-session with the [2022-10 Cumulative Updates for Windows 11 (KB5018418)](https://support.microsoft.com/kb/KB5018418) or later installed.
   - Windows 10 single or multi-session, versions 20H2 or later with the [2022-10 Cumulative Updates for Windows 10 (KB5018410)](https://support.microsoft.com/kb/KB5018410) or later installed.
