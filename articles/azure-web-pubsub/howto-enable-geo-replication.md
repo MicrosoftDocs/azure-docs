@@ -115,7 +115,7 @@ Update **webpubsub** extension to the latest version, then run:
   az webpubsub replica create --sku Premium_P1 -l eastus --replica-name MyReplica --name MyWebPubSub -g MyResourceGroup
    ```
 
-----
+---
 
 ## Pricing and resource unit
 Each replica has its **own** `unit` and `autoscale settings`.
