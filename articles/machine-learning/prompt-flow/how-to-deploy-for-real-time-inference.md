@@ -175,7 +175,7 @@ You can grant all permissions in Azure portal UI by following steps.
        
     :::image type="content" source="./media/how-to-deploy-for-real-time-inference/storage-container-registry.png" alt-text="Screenshot of the overview page with storage and container registry highlighted. " lightbox = "./media/how-to-deploy-for-real-time-inference/storage-container-registry.png":::
 
-    Go to the workspace container registry overview page, select **Access control**, and select **Add role assignment**, and assign **Acr pull |Pull container image** to the endpoint identity.
+    Go to the workspace container registry overview page, select **Access control**, and select **Add role assignment**, and assign **ACR pull |Pull container image** to the endpoint identity.
 
     Go to the workspace default storage overview page, select **Access control**, and select **Add role assignment**, and assign **Storage Blob Data Reader** to the endpoint identity.
 
