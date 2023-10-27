@@ -1,18 +1,18 @@
 ---
 title: What is Apache Spark™ in HDInsight on AKS? (Preview)
-description: An introduction to Apache Spark in HDInsight on AKS
+description: An introduction to Apache Spark™ in HDInsight on AKS
 ms.service: hdinsight-aks
 ms.topic: conceptual
 ms.date: 10/19/2023
 ---
 
-# What is Apache Spark in HDInsight on AKS? (Preview)
+# What is Apache Spark™ in HDInsight on AKS? (Preview)
 
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
 Apache Spark™ is a parallel processing framework that supports in-memory processing to boost the performance of big-data analytic applications. 
 
-Apache Spark provides primitives for in-memory cluster computing. A Spark job can load and cache data into memory and query it repeatedly. In-memory computing is faster than disk-based applications, such as Hadoop, which shares data through Hadoop distributed file system (HDFS). Apache Spark allows integration with the Scala and Python programming languages to let you manipulate distributed data sets like local collections. There's no need to structure everything as map and reduce operations.
+Apache Spark™ provides primitives for in-memory cluster computing. A Spark job can load and cache data into memory and query it repeatedly. In-memory computing is faster than disk-based applications, such as Hadoop, which shares data through Hadoop distributed file system (HDFS). Apache Spark allows integration with the Scala and Python programming languages to let you manipulate distributed data sets like local collections. There's no need to structure everything as map and reduce operations.
 
 :::image type="content" source="./media/spark-overview/spark-overview.png" alt-text="Diagram showing Spark overview in HDInsight on AKS."::: 
 
@@ -36,4 +36,4 @@ Cluster controllers are responsible for installing and managing respective servi
 
 **Yarn service:** Hadoop Yarn cluster, Spark jobs would be scheduled in the cluster as Yarn applications.
 
-**Client Interfaces:** HDInsight on AKS Spark provides various client interfaces. Livy Server, Jupyter Notebook, Spark History Server, provides Spark services to HDInsight on AKS users.
+**Client Interfaces:** Apache Spark clusters in HDInsight on AKS, provides various client interfaces. Livy Server, Jupyter Notebook, Spark History Server, provides Spark services to HDInsight on AKS users.
