@@ -39,35 +39,24 @@ Our prebuilt development environments are based on a docker container that has t
 
 Your file explorer is opened to the specific project directory you launched from in AI Studio. 
 
-> [!IMPORTANT]
-> It's recommended that you work within this project directory, as files, folders, and repos you include here persist across each VS Code (Web) session for that project.
-
-The container is configured with the Azure AI folder hierarchy (`afh` directory), which is designed to orient you within your current development context, and help you work with your code, data and shared files most efficiently. This `afh` directory houses your Azure AI projects, and each project has a dedicated project directory that includes `code`, `data` and `shared` folders. Files, folders, and repos you include in your project directory persist on your host machine (your compute instance).
+The container is configured with the Azure AI folder hierarchy (`afh` directory), which is designed to orient you within your current development context, and help you work with your code, data and shared files most efficiently. This `afh` directory houses your Azure AI projects, and each project has a dedicated project directory that includes `code`, `data` and `shared` folders. 
 
 This table summarizes the folder structure:
 
 | Folder | Description |
 | --- | --- |
-| `code` | Use for working with git repositories or local code files. |
-| `data` | Use for storing local data files. |
-| `shared` | Use for working with a project's shared files and assets such as prompt flows.<br/><br/>For example, `shared\Users\{user-name}\promptflow` is where you find the project's Prompt flows. |
+| `code` | Use for working with git repositories or local code files.<br/><br/>The `code` folder is a storage location directly on your compute instance and performant for large repositories. It's an ideal location to clone your git repositories, or otherwise bring in or create your code files. |
+| `data` | Use for storing local data files. We recommend you use the `data` folder to store and reference local data in a consistent way.|
+| `shared` | Use for working with a project's shared files and assets such as prompt flows.<br/><br/>For example, `shared\Users\{user-name}\promptflow` is where you find the project's prompt flows. |
 
-The `code` folder is where we recommend that you clone your git repositories, or otherwise bring in or create your code files. This folder is a storage location directly on your compute and performant for large repositories. We recommend you use the `data` folder to store and reference local data in a consistent way.
+> [!IMPORTANT]
+> It's recommended that you work within this project directory. Files, folders, and repos you include in your project directory persist on your host machine (your compute instance). Files stored in the code and data folders will persist even when the compute instance is stopped or restarted, but will be lost if the compute is deleted. However, the shared files are saved in your Azure AI resource's storage account, and therefore aren't lost if the compute instance is deleted.
 
-## Get started with the Azure AI SDK and CLI
+## Get started with the Azure AI Generative SDK
 
-To get started with the Azure AI SDK, try out an example notebook from the [aistudio-copilot-sample](https://github.com/Azure/aistudio-copilot-sample) repository.
+To get started with the [Azure AI Generative SDK](./sdk-install.md), try out an example notebook from the [aistudio-copilot-sample](https://github.com/Azure/aistudio-copilot-sample) repository.
 
-### Get the copilot sample
-
-Follow these steps to clone the copilot sample repository into your project's `code` folder:
-
-1. Go to the `code` folder by running `cd code` in the terminal:
-
-    ```bash
-    cd code
-    ```
-
+1. Open a terminal
 1. Clone the [aistudio-copilot-sample](https://github.com/Azure/aistudio-copilot-sample) repository into your project's `code` folder. You might be prompted to authenticate.
 
     ```bash
@@ -75,56 +64,24 @@ Follow these steps to clone the copilot sample repository into your project's `c
     git clone https://github.com/azure/aistudio-copilot-sample
     ```
 
-## Connect to Azure Resources with the Azure CLI and Azure AI CLI
+1. To work with LangChain, open the sample notebook (that you cloned from [/aistudio-copilot-sample/src/langchain/langchain_qna.ipynb](https://github.com/Azure/aistudio-copilot-sample/blob/main/src/langchain/langchain_qna.ipynb)) at `/code/aistudio-copilot-sample/src/langchain/langchain_qna.ipynb` and run through the notebook cells.
 
-Sign in to Azure and connect to an Azure AI project:
+## Get started with the Azure AI CLI
 
-1. In VS Code, open a new terminal by pressing `Ctrl-Shift-`.
-1. Sign in to Azure by running this Azure CLI command: 
-
-    ```bash
-    az login --use-device-code
-    ```
- 
-1. Run ```ai init``` and select **Azure AI Project + OpenAI + Cognitive Search** to create a new Azure AI resource and project or connect to an existing project.
-
-Those steps generate a `config.json` file in the root of the copilot sample repository in your project's `code` folder. The Azure AI SDK and Azure AI CLI use `config.json` to authenticate to Azure AI services. You can view the contents of `config.json` by running `cat ~/code/aistudio-copilot-sample/config.json`.
-
-## Run the sample notebook
-
-Open and run the sample QnA notebook to create, evaluate, and deploy a chatbot built using Azure OpenAI, Azure AI Search, and Langchain:
-
-1. Open the sample QnA notebook (downloaded from [/aistudio-copilot-sample/src/langchain/langchain_qna.ipynb](https://github.com/Azure/aistudio-copilot-sample/blob/main/src/langchain/langchain_qna.ipynb)) at `~/code/aistudio-copilot-sample/src/langchain/langchain_qna.ipynb`.
-1. Press `Ctrl-Enter` to run each cell.
-
-    > [!NOTE]
-    > When you run the first cell you may be prompted to select your kernel, choose `Python Environment` and select the `Python 3.10.x` environment.
-
-1. Optionally, you can check the contents of the shared folder to see the generated prompt flow files:
-
-    ```bash
-    ls /shared/Users/{user-name}/promptflow
-    ```
-
-1. Open your project in [Azure AI Studio](https://aka.ms/AzureAIStudio) to view the generated indexes, evaluation runs, and endpoints.
-
-
-As an alternative to VS Code (Web), you can run the copilot sample in Codespaces. To get started with Codespaces and leave VS Code (Web), select the following button:
-
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure/aistudio-copilot-sample?quickstart=1)
+If you prefer to work interactively, pen a terminal to get started with the Azure AI CLI.
+1. The `ai help` command guides you through Azure AI CLI capabilities.
+1. The `ai init` command guides you to configure your resources in your development environment.
 
 ## Remarks
 
-- The `ai help` command guides you through more Azure AI CLI capabilities.
+For prompt flow specific capabilities that aren't present in the Azure AI SDK and CLI, you can work directly with the Prompt flow CLI, SDK, or VS Code extension (that are all preinstalled in the VS Code (Web) environment). For more information about prompt flow, see [prompt flow reference](https://microsoft.github.io/promptflow/reference/index.html).
 
-- For Prompt flow specific capabilities that aren't present in the Azure AI SDK and CLI, you can work directly with the Prompt flow CLI, SDK, or VS Code extension (that are all preinstalled in the VS Code (Web) environment). For more information about prompt flow, see [Prompt flow reference](https://microsoft.github.io/promptflow/reference/index.html).
-
-- If you plan to work across multiple code and data directories, or multiple repositories, you can use the split root file explorer feature in VS Code. To try this out, follow these steps:
-    1. Enter *Ctrl+Shift+p* to open the command palette. Search for and select **Workspaces: Add Folder to Workspace**.
-    1. Select the repository folder that you want to load. You should see a new section in your file explorer for the folder you opened. If it was a repository, you can now work with source control in VS Code.
-    1. If you want to save this configuration for future development sessions, again enter *Ctrl+Shift+p* and select **Workspaces: Save Workspace As**. This action saves a config file to your current folder.
+If you plan to work across multiple code and data directories, or multiple repositories, you can use the split root file explorer feature in VS Code. To try this feature, follow these steps:
+1. Enter *Ctrl+Shift+p* to open the command palette. Search for and select **Workspaces: Add Folder to Workspace**.
+1. Select the repository folder that you want to load. You should see a new section in your file explorer for the folder you opened. If it was a repository, you can now work with source control in VS Code.
+1. If you want to save this configuration for future development sessions, again enter *Ctrl+Shift+p* and select **Workspaces: Save Workspace As**. This action saves a config file to your current folder.
     
-- For cross-language compatibility and seamless integration of Azure AI capabilities, explore the Azure AI Hub at [https://aka.ms/azai](https://aka.ms/azai). Discover app templates and SDK samples in your preferred programming language.
+For cross-language compatibility and seamless integration of Azure AI capabilities, explore the Azure AI Hub at [https://aka.ms/azai](https://aka.ms/azai). Discover app templates and SDK samples in your preferred programming language.
 
 ## Next steps
 
