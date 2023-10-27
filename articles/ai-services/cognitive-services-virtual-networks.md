@@ -562,7 +562,7 @@ For more information on configuring your own DNS server to support private endpo
 
 ## Grant access to trusted Azure services for Azure OpenAI
 
-You can grant a subset of trusted Azure services access to Azure OpenAI, while maintaining network rules for other apps. These trusted services will then use managed identity to authenticate your Azure AI service. The following table lists the services that can access your Azure AI services if the managed identity of those services has the appropriate role assignment.
+You can grant a subset of trusted Azure services access to Azure OpenAI, while maintaining network rules for other apps. These trusted services will then use managed identity to authenticate your Azure OpenAI service. The following table lists the services that can access Azure OpenAI if the managed identity of those services have the appropriate role assignment.
 
 
 |Service  |Resource provider name  |
@@ -573,7 +573,7 @@ You can grant a subset of trusted Azure services access to Azure OpenAI, while m
 
 
 You can grant networking access to trusted Azure services by creating a network rule exception using the REST API:
-```powershell
+```bash
 
 accessToken=$(az account get-access-token --resource https://management.azure.com --query "accessToken" --output tsv)
 rid="/subscriptions/<your subscription id>/resourceGroups/<your resource group>/providers/Microsoft.CognitiveServices/accounts/<your Azure AI resource name>"
@@ -595,11 +595,6 @@ curl -i -X PATCH https://management.azure.com$rid?api-version=2023-10-01-preview
 ```
 
 To revoke the exception, set `networkAcls.bypass` to `None`. 
-
-See the following articles for more information on virtual network support:
-* [Configure Azure Storage firewalls and virtual networks](/azure/storage/common/storage-network-security#grant-access-to-trusted-azure-services)
-* [Virtual network service endpoints for Azure Key Vault](/azure/key-vault/general/overview-vnet-service-endpoints#grant-access-to-trusted-azure-services)
-
 
 ### Pricing
 
