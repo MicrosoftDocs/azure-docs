@@ -1,12 +1,12 @@
 ---
-title: How to use Apache Flink CLI to submit jobs
-description: Learn how to use Apache Flink CLI to submit jobs
+title: How to use Apache Flink® CLI to submit jobs
+description: Learn how to use Apache Flink® CLI to submit jobs
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/29/2023
+ms.date: 10/27/2023
 ---
 
-# Apache Flink Command-Line Interface (CLI)
+# Apache Flink® Command-Line Interface (CLI) on HDInsight on AKS clusters
 
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
@@ -104,3 +104,8 @@ bin/flink <action> --help
 > [!TIP]
 > * If you have a Proxy blocking the connection: In order to get the installation scripts, your proxy needs to allow HTTPS connections to the following addresses: `https://aka.ms/` and `https://hdiconfigactions.blob.core.windows.net`
 > * To resolve the issue, add the user or group to the [authorization profile](../hdinsight-on-aks-manage-authorization-profile.md).
+
+### Reference
+
+- [Apache Flink Website](https://flink.apache.org/)
+- **Note** : Apache, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).
