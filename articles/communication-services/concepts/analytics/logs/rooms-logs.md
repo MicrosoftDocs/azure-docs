@@ -59,6 +59,7 @@ Communication Services offers the following types of logs that you can enable:
 | `UpsertedRoomParticipantsCount` | The count of participants upserted in a Room. |
 | `RemovedRoomParticipantsCount` | The count of participants removed from a Room. |
 | `TimeGenerated` | The timestamp (UTC) of when the log was generated. |
+| `PstnDialOutEnabled` | Indicates whether a room has the ability to make PSTN calls to invite people to a meeting. |
 
 
 #### Example CreateRoom log
@@ -76,6 +77,7 @@ Communication Services offers the following types of logs that you can enable:
       "RoomLifespan": 61,
       "AddedRoomParticipantsCount": 4,
       "TimeGenerated": "5/25/2023, 4:32:49.469 AM",
+      "PstnDialOutEnabled": false,
       }
     ]
 ```
@@ -112,6 +114,7 @@ Communication Services offers the following types of logs that you can enable:
       "RoomId": "99466387192310000",
       "RoomLifespan": 121,
       "TimeGenerated": "2022-08-19T17:07:30.3543160Z",
+      "PstnDialOutEnabled": false,
       },
     ]
 ```
