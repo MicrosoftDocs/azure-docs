@@ -43,7 +43,7 @@ Dynamic routing (BGP) is supported. For more information, please see [Dynamic Ro
 >
 
 ## ExpressRoute limits in Virtual WAN
-
+The following two limits hold true regardless of the number of ExpressRoute gateway scale units deployed. 
 | Maximum number of circuits connected to the same virtual hub's ExpressRoute gateway | Limit |
 | --- | --- |
 | Maximum number of circuits in the same peering location connected to the same virtual hub | 4 |
