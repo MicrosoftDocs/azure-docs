@@ -16,13 +16,13 @@ ms.date: 10/17/2022
 
 Find a data connector from Microsoft or a partner to simplify data ingestion into a search index. This article has the following sections:
 
-+ [Generally available data sources by Cognitive Search](#ga)
-+ [Preview data sources by Cognitive Search](#preview)
++ [Generally available data sources by Azure AI Search](#ga)
++ [Preview data sources by Azure AI Search](#preview)
 + [Data sources from our Partners](#partners)
 
 <a name="ga"></a>
 
-## Generally available data sources by Cognitive Search
+## Generally available data sources by Azure AI Search
 
 Pull in content from other Azure services using indexers and the following data source connectors. 
 
@@ -33,7 +33,7 @@ Pull in content from other Azure services using indexers and the following data 
 
 ### Azure Blob Storage
 
-by [Cognitive Search](search-what-is-azure-search.md)
+by [Azure AI Search](search-what-is-azure-search.md)
 
 Extract blob metadata and content, serialized into JSON documents, and imported into a search index as search documents. Set properties in both data source and indexer definitions to optimize for various blob content types. Change detection is supported automatically.
 
@@ -48,7 +48,7 @@ Extract blob metadata and content, serialized into JSON documents, and imported 
 
 ### Azure Cosmos DB for NoSQL
 
-by [Cognitive Search](search-what-is-azure-search.md)
+by [Azure AI Search](search-what-is-azure-search.md)
 
 Connect to Azure Cosmos DB through the SQL API to extract items from a container, serialized into JSON documents, and imported into a search index as search documents. Configure change tracking to refresh the search index with the latest changes in your database.
 
@@ -63,7 +63,7 @@ Connect to Azure Cosmos DB through the SQL API to extract items from a container
 
 ### Azure SQL Database
 
-by [Cognitive Search](search-what-is-azure-search.md)
+by [Azure AI Search](search-what-is-azure-search.md)
 
 Extract field values from a single table or view, serialized into JSON documents, and imported into a search index as search documents. Configure change tracking to refresh the search index with the latest changes in your database.
 
@@ -89,7 +89,7 @@ Extract field values from a single table or view, serialized into JSON documents
 
 ### Azure Table Storage
 
-by [Cognitive Search](search-what-is-azure-search.md)
+by [Azure AI Search](search-what-is-azure-search.md)
 
 Extract rows from an Azure Table, serialized into JSON documents, and imported into a search index as search documents. 
 
@@ -104,7 +104,7 @@ Extract rows from an Azure Table, serialized into JSON documents, and imported i
 
 ### Azure Data Lake Storage Gen2
 
-by [Cognitive Search](search-what-is-azure-search.md)
+by [Azure AI Search](search-what-is-azure-search.md)
 
 Connect to Azure Storage through Azure Data Lake Storage Gen2 to extract content from a hierarchy of directories and nested subdirectories.
 
@@ -132,7 +132,7 @@ Connect to Azure Storage through Azure Data Lake Storage Gen2 to extract content
 
 <a name="preview"></a>
 
-## Preview data sources by Cognitive Search
+## Preview data sources by Azure AI Search
 
 New data sources are issued as preview features. [Sign up](https://aka.ms/azure-cognitive-search/indexer-preview) to get started.
 
@@ -143,7 +143,7 @@ New data sources are issued as preview features. [Sign up](https://aka.ms/azure-
 
 ### Azure Cosmos DB for Apache Gremlin
 
-by [Cognitive Search](search-what-is-azure-search.md)
+by [Azure AI Search](search-what-is-azure-search.md)
 
 Connect to Azure Cosmos DB for Apache Gremlin to extract items from a container, serialized into JSON documents, and imported into a search index as search documents. Configure change tracking to refresh the search index with the latest changes in your database.
 
@@ -158,7 +158,7 @@ Connect to Azure Cosmos DB for Apache Gremlin to extract items from a container,
 
 ### Azure Cosmos DB for MongoDB
 
-by [Cognitive Search](search-what-is-azure-search.md)
+by [Azure AI Search](search-what-is-azure-search.md)
 
 Connect to Azure Cosmos DB for MongoDB to extract items from a container, serialized into JSON documents, and imported into a search index as search documents. Configure change tracking to refresh the search index with the latest changes in your database.
 
@@ -173,7 +173,7 @@ Connect to Azure Cosmos DB for MongoDB to extract items from a container, serial
 
 ### SharePoint
 
-by [Cognitive Search](search-what-is-azure-search.md)
+by [Azure AI Search](search-what-is-azure-search.md)
 
 Connect to a SharePoint site and index documents from one or more document libraries, for accounts and search services in the same tenant. Text and normalized images will be extracted by default. Optionally, you can configure a skillset for more content transformation and enrichment, or configure change tracking to refresh a search index with new or changed content in SharePoint.
 
@@ -199,7 +199,7 @@ Connect to a SharePoint site and index documents from one or more document libra
 
 ### Azure MySQL
 
-by [Cognitive Search](search-what-is-azure-search.md)
+by [Azure AI Search](search-what-is-azure-search.md)
 
 Connect to MySQL database on Azure to extract rows in a table, serialized into JSON documents, and imported into a search index as search documents. On subsequent runs, assuming High Water Mark change detection policy is configured, the indexer will take all changes, uploads, and delete and reflect those changes in your search index.
 
@@ -214,7 +214,7 @@ Connect to MySQL database on Azure to extract rows in a table, serialized into J
 
 ### Azure Files
 
-by [Cognitive Search](search-what-is-azure-search.md)
+by [Azure AI Search](search-what-is-azure-search.md)
 
 Connect to Azure Storage through Azure Files share to extract content serialized into JSON documents, and imported into a search index as search documents.
 
@@ -244,7 +244,7 @@ Connect to Azure Storage through Azure Files share to extract content serialized
 
 ## Data sources from our Partners
 
-Data source connectors are also provided by third-party Microsoft partners. See our [Terms of Use statement](search-data-sources-terms-of-use.md) and check the partner licensing and usage instructions before using a data source. These third-party Microsoft Partner data source connectors are implemented and supported by each partner and are not part of Cognitive Search built-in indexers. 
+Data source connectors are also provided by third-party Microsoft partners. See our [Terms of Use statement](search-data-sources-terms-of-use.md) and check the partner licensing and usage instructions before using a data source. These third-party Microsoft Partner data source connectors are implemented and supported by each partner and are not part of Azure AI Search built-in indexers. 
 
 :::row:::
 :::column span="":::
@@ -459,7 +459,7 @@ The BA Insight Microsoft Entra Connector makes it possible to surface content fr
 
 by [Raytion](https://www.raytion.com/contact)
 
-Secure enterprise search connector for reliably indexing content from Microsoft Entra ID and intelligently searching it with Azure AI Search. It indexes objects from Microsoft Entra ID via the Microsoft Graph API. The connector can be used for ingesting principals into Cognitive Search in near real time to implement use cases like expert search, equipment search, and location search or to provide early-binding security trimming in conjunction with custom data sources. The connector supports federated authentication against Microsoft 365.
+Secure enterprise search connector for reliably indexing content from Microsoft Entra ID and intelligently searching it with Azure AI Search. It indexes objects from Microsoft Entra ID via the Microsoft Graph API. The connector can be used for ingesting principals into Azure AI Search in near real time to implement use cases like expert search, equipment search, and location search or to provide early-binding security trimming in conjunction with custom data sources. The connector supports federated authentication against Microsoft 365.
 
 [More details](https://www.raytion.com/connectors/raytion-azure-ad-connector)
 

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 01/14/2023
 ---
 
-# Connect to Cognitive Search using key authentication
+# Connect to Azure AI Search using key authentication
 
-Cognitive Search offers key-based authentication that you can use on connections to your search service. An API key is a unique string composed of 52 randomly generated numbers and letters. A request made to a search service endpoint will be accepted if both the request and the API key are valid.
+Azure AI Search offers key-based authentication that you can use on connections to your search service. An API key is a unique string composed of 52 randomly generated numbers and letters. A request made to a search service endpoint will be accepted if both the request and the API key are valid.
 
 > [!NOTE]
-> A quick note about how "key" terminology is used in Cognitive Search. An "API key", which is described in this article, refers to a GUID used for authenticating a request. A separate term, "document key", refers to a unique string in your indexed content that's used to uniquely identify documents in a search index.
+> A quick note about how "key" terminology is used in Azure AI Search. An "API key", which is described in this article, refers to a GUID used for authenticating a request. A separate term, "document key", refers to a unique string in your indexed content that's used to uniquely identify documents in a search index.
 
 ## Types of API keys
 
@@ -49,7 +49,7 @@ Best practices for using hard-coded keys in source files include:
 
 Key authentication is built in so no action is required. By default, the portal uses API keys to authenticate the request automatically. However, if you [disable API keys](search-security-rbac.md#disable-api-key-authentication) and set up role assignments, the portal uses role assignments instead.
 
-In Cognitive Search, most tasks can be performed in Azure portal, including object creation, indexing through the Import data wizard, and queries through Search explorer.
+In Azure AI Search, most tasks can be performed in Azure portal, including object creation, indexing through the Import data wizard, and queries through Search explorer.
 
 ### [**PowerShell**](#tab/azure-ps-use)
 

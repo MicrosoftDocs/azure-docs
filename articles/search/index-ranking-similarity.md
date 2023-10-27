@@ -52,7 +52,7 @@ BM25 ranking provides two parameters for tuning the relevance score calculation.
 
 1. If the index is live, append the `allowIndexDowntime=true` URI parameter on the request, shown on the previous example.
 
-   Because Cognitive Search doesn't allow updates to a live index, you need to take the index offline so that the parameters can be added. Indexing and query requests fail while the index is offline. The duration of the outage is the amount of time it takes to update the index, usually no more than several seconds. When the update is complete, the index comes back automatically.
+   Because Azure AI Search doesn't allow updates to a live index, you need to take the index offline so that the parameters can be added. Indexing and query requests fail while the index is offline. The duration of the outage is the amount of time it takes to update the index, usually no more than several seconds. When the update is complete, the index comes back automatically.
 
 1. Set `"b"` and `"k1"` to custom values, and then send the request.
 

@@ -89,7 +89,7 @@ As a rule, if you're using multiple Azure services, putting all of them in the s
 
 Two notable exceptions might lead to provisioning one or more search services in a separate region:
 
-+ [Outbound connections from Cognitive Search to Azure Storage](search-indexer-securing-resources.md). You might want storage in a different region if you're enabling a firewall.
++ [Outbound connections from Azure AI Search to Azure Storage](search-indexer-securing-resources.md). You might want storage in a different region if you're enabling a firewall.
 
 + Business continuity and disaster recovery (BCDR) requirements dictate creating multiple search services in [regional pairs](../availability-zones/cross-region-replication-azure.md#azure-paired-regions). For example, if you're operating in North America, you might choose East US and West US, or North Central US and South Central US, for each search service.
 
@@ -181,7 +181,7 @@ A second service isn't required for high availability. High availability for que
 
 ## Add more services to a subscription
 
-Cognitive Search restricts the [number of resources](search-limits-quotas-capacity.md#subscription-limits) you can initially create in a subscription. If you exhaust your maximum limit, file a new support request to add more search services.
+Azure AI Search restricts the [number of resources](search-limits-quotas-capacity.md#subscription-limits) you can initially create in a subscription. If you exhaust your maximum limit, file a new support request to add more search services.
 
 1. Sign in to the Azure portal and find your search service.
 

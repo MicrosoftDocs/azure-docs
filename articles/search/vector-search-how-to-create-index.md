@@ -12,7 +12,7 @@ ms.date: 10/24/2023
 
 # Add vector fields to a search index
 
-In Azure Cognitive Search, vector data is indexed as *vector fields* in a [search index](search-what-is-an-index.md), using a *vector configuration* to specify the embedding space definition. 
+In Azure AI Search, vector data is indexed as *vector fields* in a [search index](search-what-is-an-index.md), using a *vector configuration* to specify the embedding space definition. 
 
 Follow these steps to index vector data:
 
@@ -25,9 +25,9 @@ Code samples in the [cognitive-search-vector-pr](https://github.com/Azure/cognit
 
 ## Prerequisites
 
-+ Azure Cognitive Search, in any region and on any tier. Most existing services support vector search. For services created prior to January 2019, there's a small subset which won't support vector search. If an index containing vector fields fails to be created or updated, this is an indicator. In this situation, a new service must be created.
++ Azure AI Search, in any region and on any tier. Most existing services support vector search. For services created prior to January 2019, there's a small subset which won't support vector search. If an index containing vector fields fails to be created or updated, this is an indicator. In this situation, a new service must be created.
 
-+ Pre-existing vector embeddings in your source documents. Cognitive Search doesn't generate vectors. We recommend [Azure OpenAI embedding models](/azure/ai-services/openai/concepts/models#embeddings-models) but you can use any model for vectorization. For more information, see [Create and use embeddings for search queries and documents](vector-search-how-to-generate-embeddings.md).
++ Pre-existing vector embeddings in your source documents. Azure AI Search doesn't generate vectors. We recommend [Azure OpenAI embedding models](/azure/ai-services/openai/concepts/models#embeddings-models) but you can use any model for vectorization. For more information, see [Create and use embeddings for search queries and documents](vector-search-how-to-generate-embeddings.md).
 
 + You should know the dimensions limit of the model used to create the embeddings and how similarity is computed. In Azure OpenAI, for **text-embedding-ada-002**, the length of the numerical vector is 1536. Similarity is computed using `cosine`.
 
@@ -537,7 +537,7 @@ Although you can add a field to an index, there's no portal (Import data wizard)
    + "efSearch default is 500. The range is 100 to 1,000. It's the number of nearest neighbors used during search.
    + "Similarity metric" should be "cosine" if you're using Azure OpenAI, otherwise use the similarity metric associated with the embedding model you're using. Supported values are `cosine`, `dotProduct`, `euclidean`.
 
-   If you're familiar with HNSW parameters, you might be wondering about how to set the `"k"` number of nearest neighbors to return in the result. In Cognitive Search, that value is set on the [query request](vector-search-how-to-query.md).
+   If you're familiar with HNSW parameters, you might be wondering about how to set the `"k"` number of nearest neighbors to return in the result. In Azure AI Search, that value is set on the [query request](vector-search-how-to-query.md).
 
 1. Select **Save** to save the vector configuration and the field definition.
 
@@ -632,7 +632,7 @@ Data sources provide the vectors in whatever format the data source supports (su
 
 ## Check your index for vector content
 
-For validation purposes, you can query the index using Search Explorer in Azure portal or a REST API call. Because Cognitive Search can't convert a vector to human-readable text, try to return fields from the same document that provide evidence of the match. For example, if the vector query targets the "titleVector" field, you could select "title" for the search results.
+For validation purposes, you can query the index using Search Explorer in Azure portal or a REST API call. Because Azure AI Search can't convert a vector to human-readable text, try to return fields from the same document that provide evidence of the match. For example, if the vector query targets the "titleVector" field, you could select "title" for the search results.
 
 Fields must be attributed as "retrievable" to be included in the results.
 

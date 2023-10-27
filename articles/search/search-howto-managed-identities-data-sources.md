@@ -24,7 +24,7 @@ You can configure an Azure AI Search service to connect to other Azure resources
 
 ## Supported scenarios
 
-Cognitive Search can use a system-assigned or user-assigned managed identity on outbound connections to Azure resources. A system managed identity is indicated when a connection string is the unique resource ID of a Microsoft Entra ID-aware service or application. A user-assigned managed identity is specified through an "identity" property.
+Azure AI Search can use a system-assigned or user-assigned managed identity on outbound connections to Azure resources. A system managed identity is indicated when a connection string is the unique resource ID of a Microsoft Entra ID-aware service or application. A user-assigned managed identity is specified through an "identity" property.
 
 A search service uses Azure Storage as an indexer data source and as a data sink for debug sessions, enrichment caching, and knowledge store. For search features that write back to storage, the managed identity needs a contributor role assignment as described in the ["Assign a role"](#assign-a-role) section. 
 

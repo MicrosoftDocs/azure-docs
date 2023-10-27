@@ -10,7 +10,7 @@ ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ms.date: 06/29/2023
 ---
 
-# Quickstart: Deploy Cognitive Search using Bicep
+# Quickstart: Deploy Azure AI Search using Bicep
 
 This article walks you through the process for using a Bicep file to deploy an Azure AI Search resource in the Azure portal.
 
@@ -19,7 +19,7 @@ This article walks you through the process for using a Bicep file to deploy an A
 Only those properties included in the template are used in the deployment. If more customization is required, such as [setting up network security](search-security-overview.md#network-security), you can update the service as a post-deployment task. To customize an existing service with the fewest steps, use [Azure CLI](search-manage-azure-cli.md) or [Azure PowerShell](search-manage-powershell.md). If you're evaluating preview features, use the [Management REST API](search-manage-rest.md).
 
 > [!TIP]
-> For an alternative Bicep template that deploys Cognitive Search with a pre-configured indexer to Cosmos DB for NoSQL, see [Bicep deployment of Azure AI Search](https://github.com/Azure-Samples/azure-search-deployment-template). The template creates an indexer, index, and data source. The indexer runs on a schedule that refreshes from Cosmos DB on a 5-minute interval.
+> For an alternative Bicep template that deploys Azure AI Search with a pre-configured indexer to Cosmos DB for NoSQL, see [Bicep deployment of Azure AI Search](https://github.com/Azure-Samples/azure-search-deployment-template). The template creates an indexer, index, and data source. The indexer runs on a schedule that refreshes from Cosmos DB on a 5-minute interval.
 
 ## Prerequisites
 
@@ -81,7 +81,7 @@ Get-AzResource -ResourceGroupName exampleRG
 
 ## Clean up resources
 
-Other Cognitive Search quickstarts and tutorials build upon this quickstart. If you plan to continue on to work with subsequent quickstarts and tutorials, you may wish to leave this resource in place. When no longer needed, use the Azure portal, Azure CLI, or Azure PowerShell to delete the resource group and its resources.
+Other Azure AI Search quickstarts and tutorials build upon this quickstart. If you plan to continue on to work with subsequent quickstarts and tutorials, you may wish to leave this resource in place. When no longer needed, use the Azure portal, Azure CLI, or Azure PowerShell to delete the resource group and its resources.
 
 # [CLI](#tab/CLI)
 
@@ -99,7 +99,7 @@ Remove-AzResourceGroup -Name exampleRG
 
 ## Next steps
 
-In this quickstart, you created a Cognitive Search service using a Bicep file, and then validated the deployment. To learn more about Cognitive Search and Azure Resource Manager, continue on to the articles below.
+In this quickstart, you created an Azure AI Search service using a Bicep file, and then validated the deployment. To learn more about Azure AI Search and Azure Resource Manager, continue on to the articles below.
 
 - Read an [overview of Azure AI Search](search-what-is-azure-search.md).
 - [Create an index](search-get-started-portal.md) for your search service.

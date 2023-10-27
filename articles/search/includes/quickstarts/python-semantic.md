@@ -18,7 +18,7 @@ We used the following tools to create this quickstart.
 
 * [azure-search-documents package (beta version)](https://pypi.org/project/azure-search-documents/11.4.0b3/) from the Azure SDK for Python
 
-#### Connect to Azure Cognitive Search
+#### Connect to Azure AI Search
 
 In this task, create the notebook, load the libraries, and set up your clients.
 

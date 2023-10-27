@@ -214,7 +214,7 @@ The analyzer_type is only provided for analyzers that can be customized. If ther
 
 Character filters add processing before a string reaches the tokenizer.
 
-Cognitive Search supports character filters in the following list. More information about each one can be found in the Lucene API reference.
+Azure AI Search supports character filters in the following list. More information about each one can be found in the Lucene API reference.
 
 |**char_filter_name**|**char_filter_type** <sup>1</sup>|**Description and Options**|  
 |--------------------|---------------------------------|---------------------------|
@@ -230,7 +230,7 @@ Cognitive Search supports character filters in the following list. More informat
 
 A tokenizer divides continuous text into a sequence of tokens, such as breaking a sentence into words, or a word into root forms. 
 
-Cognitive Search supports tokenizers in the following list. More information about each one can be found in the Lucene API reference.
+Azure AI Search supports tokenizers in the following list. More information about each one can be found in the Lucene API reference.
 
 |**tokenizer_name**|**tokenizer_type** <sup>1</sup>|**Description and Options**|  
 |------------------|-------------------------------|---------------------------|  

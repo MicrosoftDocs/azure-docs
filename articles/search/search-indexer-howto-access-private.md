@@ -24,7 +24,7 @@ Shared private link is a premium feature that's billed by usage. When you set up
 
 ## When to use a shared private link
 
-Cognitive Search makes outbound calls to other Azure PaaS resources in the following scenarios:
+Azure AI Search makes outbound calls to other Azure PaaS resources in the following scenarios:
 
 + Indexer connection requests to supported data sources
 + Indexer (skillset) connections to Azure Storage for caching enrichments or writing to a knowledge store

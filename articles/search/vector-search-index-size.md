@@ -12,7 +12,7 @@ ms.date: 10/24/2023
 
 # Vector index size limit
 
-When you index documents with vector fields, Azure Cognitive Search constructs internal vector indexes using the algorithm parameters that you specified for the field. Because Cognitive Search imposes limits on vector index size, it's important that you know how to retrieve metrics about the vector index size, and how to estimate the vector index size requirements for your use case.
+When you index documents with vector fields, Azure AI Search constructs internal vector indexes using the algorithm parameters that you specified for the field. Because Azure AI Search imposes limits on vector index size, it's important that you know how to retrieve metrics about the vector index size, and how to estimate the vector index size requirements for your use case.
 
 ## Key points about vector size limits
 

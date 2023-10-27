@@ -19,13 +19,13 @@ In this article, learn how to configure an [**indexer**](search-indexer-overview
 
 This article supplements [**Create an indexer**](search-howto-create-indexers.md) with information that's specific to Cosmos DB. It uses the REST APIs to demonstrate a three-part workflow common to all indexers: create a data source, create an index, create an indexer. Data extraction occurs when you submit the Create Indexer request.
 
-Because terminology can be confusing, it's worth noting that [Azure Cosmos DB indexing](../cosmos-db/index-overview.md) and [Cognitive Search indexing](search-what-is-an-index.md) are different operations. Indexing in Cognitive Search creates and loads a search index on your search service.
+Because terminology can be confusing, it's worth noting that [Azure Cosmos DB indexing](../cosmos-db/index-overview.md) and [Azure AI Search indexing](search-what-is-an-index.md) are different operations. Indexing in Azure AI Search creates and loads a search index on your search service.
 
 ## Prerequisites
 
 + [Register for the preview](https://aka.ms/azure-cognitive-search/indexer-preview) to provide feedback and get help with any issues you encounter.
 
-+ An [Azure Cosmos DB account, database, collection, and documents](../cosmos-db/sql/create-cosmosdb-resources-portal.md). Use the same region for both Cognitive Search and Azure Cosmos DB for lower latency and to avoid bandwidth charges.
++ An [Azure Cosmos DB account, database, collection, and documents](../cosmos-db/sql/create-cosmosdb-resources-portal.md). Use the same region for both Azure AI Search and Azure Cosmos DB for lower latency and to avoid bandwidth charges.
 
 + An [automatic indexing policy](../cosmos-db/index-policy.md) on the Azure Cosmos DB collection, set to [Consistent](../cosmos-db/index-policy.md#indexing-mode). This is the default configuration. Lazy indexing isn't recommended and may result in missing data.
 
@@ -149,7 +149,7 @@ In a [search index](search-what-is-an-index.md), add fields to accept the source
 
 ### Mapping data types
 
-| JSON data type | Cognitive Search field types |
+| JSON data type | Azure AI Search field types |
 | --- | --- |
 | Bool |Edm.Boolean, Edm.String |
 | Numbers that look like integers |Edm.Int32, Edm.Int64, Edm.String |

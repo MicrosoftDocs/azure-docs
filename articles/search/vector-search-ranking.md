@@ -94,7 +94,7 @@ Whenever results are ranked, **`@search.score`** property contains the value use
 |---------------|-----------|-------------------|-------|
 | vector search | `@search.score` | Cosine | 0.333 - 1.00 | 
 
-If you're using the `cosine` metric, it's important to note that the calculated `@search.score` isn't the cosine value between the query vector and the document vectors. Instead, Cognitive Search applies transformations such that the score function is monotonically decreasing, meaning score values will always decrease in value as the similarity becomes worse. This transformation ensures that search scores are usable for ranking purposes.
+If you're using the `cosine` metric, it's important to note that the calculated `@search.score` isn't the cosine value between the query vector and the document vectors. Instead, Azure AI Search applies transformations such that the score function is monotonically decreasing, meaning score values will always decrease in value as the similarity becomes worse. This transformation ensures that search scores are usable for ranking purposes.
 
 There are some nuances with similarity scores: 
 

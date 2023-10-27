@@ -162,7 +162,7 @@ adminClient.CreateOrUpdateIndex(definition);
 
 ## 3 - Avoid features that bypass relevance scoring
 
-Several query capabilities in Cognitive Search bypass relevance scoring or are otherwise incompatible with semantic ranking. If your query logic includes the following features, you can't semantically rank your results:
+Several query capabilities in Azure AI Search bypass relevance scoring or are otherwise incompatible with semantic ranking. If your query logic includes the following features, you can't semantically rank your results:
 
 + A query with `search=*` or an empty search string, such as pure filter-only query, won't work because there is nothing to measure semantic relevance against. The query must provide terms or phrases that can be assessed during processing.
 

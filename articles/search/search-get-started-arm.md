@@ -11,7 +11,7 @@ ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ms.date: 06/29/2023
 ---
 
-# Quickstart: Deploy Cognitive Search using an Azure Resource Manager template
+# Quickstart: Deploy Azure AI Search using an Azure Resource Manager template
 
 This article walks you through the process for using an Azure Resource Manager (ARM) template to deploy an Azure AI Search resource in the Azure portal.
 
@@ -43,7 +43,7 @@ Select the following image to sign in to Azure and open a template. The template
 
 [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.search%2Fazure-search-create%2Fazuredeploy.json)
 
-The portal displays a form that allows you to easily provide parameter values. Some parameters are pre-filled with the default values from the template. You will need to provide your subscription, resource group, location, and service name. If you want to use Azure AI services in an [AI enrichment](cognitive-search-concept-intro.md) pipeline, for example to analyze binary image files for text, choose a location that offers both Cognitive Search and Azure AI services. Both services are required to be in the same region for AI enrichment workloads. Once you have completed the form, you will need to agree to the terms and conditions and then select the purchase button to complete your deployment.
+The portal displays a form that allows you to easily provide parameter values. Some parameters are pre-filled with the default values from the template. You will need to provide your subscription, resource group, location, and service name. If you want to use Azure AI services in an [AI enrichment](cognitive-search-concept-intro.md) pipeline, for example to analyze binary image files for text, choose a location that offers both Azure AI Search and Azure AI services. Both services are required to be in the same region for AI enrichment workloads. Once you have completed the form, you will need to agree to the terms and conditions and then select the purchase button to complete your deployment.
 
 > [!div class="mx-imgBorder"]
 > ![Azure portal display of template](./media/search-get-started-arm/arm-portalscrnsht.png)
@@ -54,11 +54,11 @@ When your deployment is complete you can access your new resource group and new 
 
 ## Clean up resources
 
-Other Cognitive Search quickstarts and tutorials build upon this quickstart. If you plan to continue on to work with subsequent quickstarts and tutorials, you may wish to leave this resource in place. When no longer needed, you can delete the resource group, which deletes the Cognitive Search service and related resources.
+Other Azure AI Search quickstarts and tutorials build upon this quickstart. If you plan to continue on to work with subsequent quickstarts and tutorials, you may wish to leave this resource in place. When no longer needed, you can delete the resource group, which deletes the Azure AI Search service and related resources.
 
 ## Next steps
 
-In this quickstart, you created a Cognitive Search service using an ARM template, and validated the deployment. To learn more about Cognitive Search and Azure Resource Manager, continue on to the articles below.
+In this quickstart, you created an Azure AI Search service using an ARM template, and validated the deployment. To learn more about Azure AI Search and Azure Resource Manager, continue on to the articles below.
 
 - Read an [overview of Azure AI Search](search-what-is-azure-search.md).
 - [Create an index](search-get-started-portal.md) for your search service.

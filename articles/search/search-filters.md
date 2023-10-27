@@ -42,7 +42,7 @@ Filtering occurs in tandem with search, qualifying which documents to include in
 
 ## Defining filters
 
-Filters are OData expressions, articulated in the [filter syntax](search-query-odata-filter.md) supported by Cognitive Search.
+Filters are OData expressions, articulated in the [filter syntax](search-query-odata-filter.md) supported by Azure AI Search.
 
 You can specify one filter for each **search** operation, but the filter itself can include multiple fields, multiple criteria, and if you use an **ismatch** function, multiple full-text search expressions. In a multi-part filter expression, you can specify predicates in any order (subject to the rules of operator precedence). There's no appreciable gain in performance if you try to rearrange predicates in a particular sequence.
 

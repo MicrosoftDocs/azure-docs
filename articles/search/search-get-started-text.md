@@ -70,7 +70,7 @@ If you're using a free service, remember that you're limited to three indexes, i
 
 ## Next steps
 
-In this quickstart, you worked through a set of tasks to create an index, load it with documents, and run queries. At different stages, we took shortcuts to simplify the code for readability and comprehension. Now that you're familiar with the basic concepts, try a tutorial hat calls the Cognitive Search APIs in a web app.
+In this quickstart, you worked through a set of tasks to create an index, load it with documents, and run queries. At different stages, we took shortcuts to simplify the code for readability and comprehension. Now that you're familiar with the basic concepts, try a tutorial that calls the Azure AI Search APIs in a web app.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Add search to web apps](tutorial-csharp-overview.md)

@@ -24,7 +24,7 @@ This article complements [Tips for better performance](search-performance-tips.m
 
 ## Index large data using the push APIs
 
-"Push" APIs, such as [Add Documents REST API](/rest/api/searchservice/addupdate-or-delete-documents) or the [IndexDocuments method (Azure SDK for .NET)](/dotnet/api/azure.search.documents.searchclient.indexdocuments), are the most prevalent form of indexing in Cognitive Search. For solutions that use a push API, the strategy for long-running indexing will have one or both of the following components:
+"Push" APIs, such as [Add Documents REST API](/rest/api/searchservice/addupdate-or-delete-documents) or the [IndexDocuments method (Azure SDK for .NET)](/dotnet/api/azure.search.documents.searchclient.indexdocuments), are the most prevalent form of indexing in Azure AI Search. For solutions that use a push API, the strategy for long-running indexing will have one or both of the following components:
 
 + Batching documents
 + Managing threads

@@ -180,7 +180,7 @@ String fields (Edm.String, Edm.ComplexType subfields) are sorted in either [ASCI
 
 + Numeric content in string fields is sorted alphabetically (1, 10, 11, 2, 20).
 
-+ Upper case strings are sorted ahead of lower case (APPLE, Apple, BANANA, Banana, apple, banana). You can assign a [text normalizer](search-normalizers.md) to preprocess the text before sorting to change this behavior. Using the lowercase tokenizer on a field will have no effect on sorting behavior because Cognitive Search sorts on a non-analyzed copy of the field.
++ Upper case strings are sorted ahead of lower case (APPLE, Apple, BANANA, Banana, apple, banana). You can assign a [text normalizer](search-normalizers.md) to preprocess the text before sorting to change this behavior. Using the lowercase tokenizer on a field will have no effect on sorting behavior because Azure AI Search sorts on a non-analyzed copy of the field.
 
 + Strings that lead with diacritics appear last (Äpfel, Öffnen, Üben)
 

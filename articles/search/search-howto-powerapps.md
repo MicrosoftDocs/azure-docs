@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.date: 02/07/2023
 ---
 
-# Tutorial: Query a Cognitive Search index from Power Apps
+# Tutorial: Query an Azure AI Search index from Power Apps
 
 Use the rapid application development environment of Power Apps to create a custom app for your searchable content in Azure AI Search.
 
