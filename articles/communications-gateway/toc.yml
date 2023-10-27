@@ -96,3 +96,5 @@ items:
     href: https://cloudpartners.transform.microsoft.com/practices/microsoft-365-for-operators/teams-phone-mobile
   - name: Overview of multitenant Microsoft Teams Direct Routing
     href: /microsoftteams/direct-routing-sbc-multiple-tenants
+  - name: Overview of Zoom Phone Cloud Peering
+    href: https://partner.zoom.us/partner-type/cloud-peering/
