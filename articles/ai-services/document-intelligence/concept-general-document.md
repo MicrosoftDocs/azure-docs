@@ -25,7 +25,7 @@ ms.author: lajanuar
 |General document model|&bullet; v3.1:2023-07-31 (GA)</br>&bullet; v3.0:2022-08-31 (GA)</br>&bullet; v2.1 (GA)|**`prebuilt-document`**|
 :::moniker-end
 
-::: moniker range="doc-intel-3.1.0"
+::: moniker range=">=doc-intel-3.1.0"
 **This content applies to:** ![checkmark](media/yes-icon.png) **v3.1 (GA)**  | **Latest version:** ![purple-checkmark](media/purple-yes-icon.png) [**v4.0 (preview)**](?view=doc-intel-4.0.0&preserve-view=true) | **Previous version:** ![blue-checkmark](media/blue-yes-icon.png) [**v3.0**](?view=doc-intel-3.0.0&preserve-view=true)
 ::: moniker-end
 
@@ -112,7 +112,7 @@ You need the following resources:
 
 Key-value pairs are specific spans within the document that identify a label or key and its associated response or value. In a structured form, these pairs could be the label and the value the user entered for that field. In an unstructured  document, they could be the date a contract was executed on based on the text in a paragraph.  The AI model is trained to extract identifiable keys and values based on a wide variety of document types, formats, and structures.
 
-Keys can also exist in isolation when the model detects that a key exists, with no associated value or when processing optional fields. For example, a middle name field may be left blank on a form in some instances. Key-value pairs are spans of text contained in the document. For documents where the same value is described in different ways, for example, customer/user, the associated key is either customer or user (based on context).
+Keys can also exist in isolation when the model detects that a key exists, with no associated value or when processing optional fields. For example, a middle name field can be left blank on a form in some instances. Key-value pairs are spans of text contained in the document. For documents where the same value is described in different ways, for example, customer/user, the associated key is either customer or user (based on context).
 
 ## Data extraction
 
@@ -133,7 +133,7 @@ Keys can also exist in isolation when the model detects that a key exists, with 
 
 ## Considerations
 
-* Keys are spans of text extracted from the document, for semi structured documents, keys may need to be mapped to an existing dictionary of keys.
+* Keys are spans of text extracted from the document, for semi structured documents, keys can need to be mapped to an existing dictionary of keys.
 
 * Expect to see key-value pairs with a key, but no value. For example if a user chose to not provide an email address on the form.
 

@@ -229,8 +229,6 @@ items:
   - name: Create workflows using Azure Logic Apps
     displayName: connectors, automate, automation, workflows
     href: tutorial-logic-apps.md
-  - name: Use managed identities to access Azure storage
-    href: ../../app-service/scenario-secure-app-access-storage.md?bc=%2fazure%2fapplied-ai-services%2fform-recognizer%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fapplied-ai-services%2fform-recognizer%2ftoc.json
   - name: "Create Document Intelligence workflows with AI Builder"
     expanded: true
     items:
@@ -250,20 +248,18 @@ items:
     href: tutorial-azure-function.md
 - name: Reference
   items:
+    - name: REST API v4.0
+      href: https://westus.dev.cognitive.microsoft.com/docs/services/document-intelligence-api-2023-10-31-preview/operations/AnalyzeDocument
     - name: REST API v3.1
       href: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument
     - name: REST API v3.0
       href: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument
-    - name: Error codes and messages v3.0
+    - name: Error codes v4.0, v3.1, and v3.0
       href: v3-error-guide.md
     - name: REST API v2.1
       href: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm
-    - name: REST API versions
-      href: https://westus.dev.cognitive.microsoft.com/docs/services?pattern=form
 - name: Resources
   items:
-  - name:  Customer spotlight
-    href: resource-customer-stories.md
   - name: Enterprise readiness
     items:
     - name: Region support

@@ -36,7 +36,7 @@ With composed models, you can assign multiple custom models to a composed model 
 
 * With the model compose operation, you can assign up to 200 trained custom models to a single composed model. To analyze a document with a composed model, Document Intelligence first classifies the submitted form, chooses the best-matching assigned model, and returns results.
 
-* For **_custom template models_**, the composed model can be created using variations of a custom template or different form types. This operation is useful when incoming forms may belong to one of several templates.
+* For **_custom template models_**, the composed model can be created using variations of a custom template or different form types. This operation is useful when incoming forms belong to one of several templates.
 
 * The response includes a ```docType``` property to indicate which of the composed models was used to analyze the document.
 
