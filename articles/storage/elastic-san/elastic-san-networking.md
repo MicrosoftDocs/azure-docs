@@ -1,12 +1,12 @@
 ---
-title: How to configure Azure Elastic SAN Preview networking
-description: How to configure networking for Azure Elastic SAN Preview, a service that enables you to create and use network file shares in the cloud using either SMB or NFS protocols.
+title: Azure Elastic SAN networking Preview concepts
+description: An overview of Azure Elastic SAN Preview networking options, including storage service endpoints, private endpoints, and iSCSI.
 author: roygara
 ms.service: azure-elastic-san-storage
-ms.topic: how-to
-ms.date: 09/07/2023
+ms.topic: conceptual
+ms.date: 09/28/2023
 ms.author: rogarana
-ms.custom: ignite-2022, devx-track-azurepowershell, references_regions, engagement, devx-track-azurecli
+ms.custom: references_regions
 ---
 
 # Configure networking for an Elastic SAN Preview
@@ -18,8 +18,132 @@ This article describes how to configure your Elastic SAN to allow access from yo
 To configure network access to your Elastic SAN:
 
 > [!div class="checklist"]
+> - [Configure public network access](#configure-public-network-access)
 > - [Configure a virtual network endpoint](#configure-a-virtual-network-endpoint).
 > - [Configure client connections](#configure-client-connections).
+
+## Prerequisites
+
+- If you're using Azure PowerShell, install the [latest Azure PowerShell module](/powershell/azure/install-azure-powershell).
+- If you're using Azure CLI, install the [latest version](/cli/azure/install-azure-cli).
+- Once you've installed the latest version, run `az extension add -n elastic-san` to install the extension for Elastic SAN.
+There are no additional registration steps required.
+
+## Limitations
+
+[!INCLUDE [elastic-san-regions](../../../includes/elastic-san-regions.md)]
+
+## Configure public network access
+
+You can enable public Internet access to your Elastic SAN endpoints at the SAN level. Enabling public network access for an Elastic SAN allows you to configure public access to individual volume groups over storage service endpoints. By default, public access to individual volume groups is denied even if you allow it at the SAN level. You must explicictly configure your volume groups to permit access from specific IP address ranges and virtual network subnets.
+
+You can enable public network access during the creation of a new Elastic SAN, or for an existing one using the Azure Portal, PowerShell, or the Azure CLI.
+
+# [Portal](#tab/azure-portal)
+
+To enable public network access during creation of a new Elastic SAN, on the **Networking** tab, select **Enable from virtual networks** as shown in this image:
+
+:::image type="content" source="media/elastic-san-networking/elastic-san-public-network-access-create-san.png" alt-text="Screenshot showing how to enable public network access during creation of a new Elastic SAN." lightbox="media/elastic-san-networking/elastic-san-public-network-access-create-san.png":::
+
+To enable it for an existing Elastic SAN, navigate to **Networking** under **Settings** for the Elastic SAN then select **Enable public access from selected virtual networks** as shown in this image:
+
+:::image type="content" source="media/elastic-san-networking/elastic-san-public-network-access-update-san.png" alt-text="Screenshot showing how to enable public network access for an existing Elastic SAN." lightbox="media/elastic-san-networking/elastic-san-public-network-access-update-san.png":::
+
+# [PowerShell](#tab/azure-powershell)
+
+Replace all placeholder text enclosed in `<>` in the samples in this article with your own values:
+
+| Placeholder           | Description                                                       |
+|-----------------------|-------------------------------------------------------------------|
+| `<ResourceGroupName>` | The name of the resource group where the Elastic San is deployed. |
+| `<ElasticSanName>`    | The name of the Elastic SAN.                                      |
+| `<Location>`          | The region where the new Elastic San will be created.             |
+| `<SkuName>`           | The SKU of the new Elastic SAN - `Premium_LRS` or `Premium_ZRS`.  |
+| `<BaseSize>`          | The base size of the new Elastic SAN.                             |
+| `<ExtendedSize>`      | The extended size of the new Elastic SAN.                         |
+
+Use this sample code to create an Elastic SAN with public network access enabled using PowerShell.
+
+```powershell
+# Set the variable values.
+$RgName       = "<ResourceGroupName>"
+$EsanName     = "<ElasticSanName>"
+$Location     = "<Location>"
+$SkuName      = "<SkuName>"
+$BaseSize     = "<BaseSize>"
+$ExtendedSize = "<ExtendedSize>"
+# Setup the parameters to create an Elastic San with public network access enabled.
+$NewEsanArguments = @{
+    Name                    = $EsanName
+    ResourceGroupName       = $RgName
+    BaseSizeTiB             = $BaseSize
+    ExtendedCapacitySizeTiB = $ExtendedSize
+    Location                = $Location
+    SkuName                 = $SkuName
+    PublicNetworkAccess     = Enabled
+}
+# Create the Elastic San.
+New-AzElasticSan @NewEsanArguments
+```
+
+Use this sample code to update an Elastic SAN to enable public network access using PowerShell. Replace all placeholder text enclosed in `<>` with your own values:
+
+```powershell
+# Set the variable values.
+$RgName       = "<ResourceGroupName>"
+$EsanName     = "<ElasticSanName>"
+# Update the Elastic San.
+Update-AzElasticSan -Name $EsanName -ResourceGroupName $RgName -PublicNetworkAccess Enabled
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+Replace all placeholder text enclosed in `<>` in the samples in this article with your own values:
+
+| Placeholder           | Description                                                       |
+|-----------------------|-------------------------------------------------------------------|
+| `<ResourceGroupName>` | The name of the resource group where the Elastic San is deployed. |
+| `<ElasticSanName>`    | The name of the Elastic SAN.                                      |
+| `<Location>`          | The region where the new Elastic San will be created.             |
+| `<SkuName>`           | The SKU of the new Elastic SAN - `Premium_LRS` or `Premium_ZRS`.  |
+| `<BaseSize>`          | The base size of the new Elastic SAN.                             |
+| `<ExtendedSize>`      | The extended size of the new Elastic SAN.                         |
+
+Use this sample code to create an Elastic SAN with public network access enabled using the Azure CLI.
+
+```azurecli
+# Set the variable values.
+$RgName="<ResourceGroupName>"
+$EsanName="<ElasticSanName>"
+$Location="<Location>"
+$SkuName="<SkuName>"
+$BaseSize="<BaseSize>"
+$ExtendedSize="<ExtendedSize>"
+# Create the Elastic San.
+az elastic-san create \
+    --elastic-san-name $EsanName \
+    --resource-group $RgName \
+    --location $Location \
+    --base-size-tib $BaseSize \
+    --extended-capacity-size-tib $ExtendedSize \
+    --sku $SkuName \
+    --public-network-access enabled
+```
+
+Use this sample code to update an Elastic SAN to enable public network access using the Azure CLI. Replace all placeholder text enclosed in `<>` with your own values:
+
+```azurecli
+# Set the variable values.
+$RgName="<ResourceGroupName>"
+$EsanName="<ElasticSanName>"
+# Update the Elastic San.
+az elastic-san update \
+    --elastic-san-name $EsanName \
+    --resource-group $RgName \
+    --public-network-access enabled
+```
+
+---
 
 ## Configure a virtual network endpoint
 
@@ -60,7 +184,7 @@ You can also use [Network Policies](../../private-link/disable-private-endpoint-
 
 To create a private endpoint for an Elastic SAN volume group, you must have the [Elastic SAN Volume Group Owner](../../role-based-access-control/built-in-roles.md#elastic-san-volume-group-owner) role. To approve a new private endpoint connection, you must have permission to the [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftelasticsan) `Microsoft.ElasticSan/elasticSans/PrivateEndpointConnectionsApproval/action`. Permission for this operation is included in the [Elastic SAN Network Admin](../../role-based-access-control/built-in-roles.md#elastic-san-owner) role, but it can also be granted via a custom Azure role.
 
-If you create the endpoint from a user account that has all of the necessary roles and permissions required for creation and approval, the process can be completed in one step. If not, it will require two separate steps by two different users.
+If you create the endpoint from a user account that has all of the necessary roles and permissions required for creation and approval, the process can be completed in one step. If not, it requires two separate steps by two different users.
 
 The Elastic SAN and the virtual network may be in different resource groups, regions and subscriptions, including subscriptions that belong to different Microsoft Entra tenants. In these examples, we are creating the private endpoint in the same resource group as the virtual network.
 
