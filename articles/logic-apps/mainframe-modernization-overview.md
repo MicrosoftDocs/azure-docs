@@ -20,7 +20,7 @@ When enterprise developers build integration workflows with Azure Logic Apps, th
 
 ## Cloud native capabilities for mainframe and midrange system integration
 
-Since 1990, Microsoft has provided integration with mainframe and midrange systems through Microsoft Communications Server. Further evolution of Microsoft Communications Server created Host Integration Server (HIS) in 2000. While HIS started as a System Network Archtecture (SNA) Gateway, HIS expanded to include IBM's data stores (DB2, VSAM, and Informix), IBM's transaction systems (CICS, IMS, and IBMi), and IBM messaging (MQ Series). Microsoft's strategic customers have used these technologies for more than 20 years. To empower customers that run applications and data on Azure to continue using these technologies, Azure Logic Apps and Visual Studio has gradually incorporated these capabilities. For example, Visual Studio includes the following designers: HIS Designer for Logic Apps and the 3270 Design Tool.
+Since 1990, Microsoft has provided integration with mainframe and midrange systems through Microsoft Communications Server. Further evolution of Microsoft Communications Server created Host Integration Server (HIS) in 2000. While HIS started as a System Network Architecture (SNA) Gateway, HIS expanded to include IBM data stores (DB2, VSAM, and Informix), IBM transaction systems (CICS, IMS, and IBMi), and IBM messaging (MQ Series). Microsoft's strategic customers have used these technologies for more than 20 years. To empower customers that run applications and data on Azure to continue using these technologies, Azure Logic Apps and Visual Studio have gradually incorporated these capabilities. For example, Visual Studio includes the following designers: HIS Designer for Logic Apps and the 3270 Design Tool.
 
 :::image type="content" source="media/mainframe-modernization-overview/mainframe-modernization.png" alt-text="Conceptual diagram showing Microsoft cloud native capabilities for mainframe integration.":::
 
@@ -70,14 +70,14 @@ This Azure Logic Apps connector for MQ enables connections between Standard work
 
 ## How to modernize mainframe workloads with Azure Logic Apps?
 
-While multiple approaches for modernization exist, Microsoft recommends modernizing mainframe applications by following an iterative, agile-based model. Mainframes host multiple environments with applications and data. A successful modernization strategy include ways to handle the following tasks:
+While multiple approaches for modernization exist, Microsoft recommends modernizing mainframe applications by following an iterative, agile-based model. Mainframes host multiple environments with applications and data. A successful modernization strategy includes ways to handle the following tasks:
 
 - Maintain the current service level indicators and objectives.
 - Manage coexistence between legacy data along with migrated data.
 - Manage application interdependencies.
 - Define the future of the scheduler and jobs.
 - Define a strategy for replacing non-Microsoft tools.
-- Conduct hybrid functional and non-functional testing activities.
+- Conduct hybrid functional and nonfunctional testing activities.
 - Maintain external dependencies or interfaces.
 
 The following paths are the most common ways to modernize mainframe applications:
@@ -106,7 +106,7 @@ A big bang migration typically has the following phases:
 
    This phase also expects that all the work for dependencies has been identified, and then migration activities can begin. Multiple iterations occur to complete the migration work.
 
-1. **Stablizing or testing**: Begins when the migrated environment, dependencies, and applications are tested against the test regions in the mainframe environment.
+1. **Stabilizing or testing**: Begins when the migrated environment, dependencies, and applications are tested against the test regions in the mainframe environment.
 
 1. **Deploy**: After everything is approved, the migration goes live into production.
 
@@ -122,7 +122,7 @@ Organizations that typically choose this approach focus on locking time, migrati
 
 ### Agile waves
 
-An Agile approach is results oriented and focused on building software and not planning deliverables. The first stages of an Agile delivery might be chaotic and complex for the organizational barriers that need to break. However, when the migration team matures after several sprints of execution, the journey becomes smoother. The goal is to frequently release features to production and provide business value sooner than with a big bang approach.
+An Agile approach is results oriented and focused on building software and not planning deliverables. The first stages of an Agile delivery might be chaotic and complex for the organizational barriers that need to break. However, when the migration team matures after several sprints of execution, the journey becomes smoother. The goal is to frequently release features to production and to provide business value sooner than with a big bang approach.
 
 An Agile waves migration typically has the following sprints:
 
@@ -138,7 +138,7 @@ An Agile waves migration typically has the following sprints:
 
   Each sprint has a goal where the team maintains a shipping mindset, meaning that they focus on completing migration goals and releasing deliverables to production. The team can use a group of sprints to deliver a specific feature or a wave of features. Each feature includes slices of integration workloads.
 
-:::image type="content" source="media/mainframe-modernization-overview/mainframe-streams.png" alt-text="Conceptual diagram showign mainframe migration with Agile waves per streams.":::
+:::image type="content" source="media/mainframe-modernization-overview/mainframe-streams.png" alt-text="Conceptual diagram showing mainframe migration with Agile waves per streams.":::
 
 Shared elements, such as jobs and interdependencies, exist and have impact across the entire environment. A successful strategy focuses on partially enabling jobs, redesigning applications for modernization, and leaving the systems with most interdependencies until the end to first reduce the amount of migration work and then complete the scope of the modernization effort.
 
