@@ -183,7 +183,6 @@ The system returns an operation status of `Failed` and the `error.code` value in
 
 #### [DALL-E 2](#tab/dalle2)
 
-
 ```json
 {
    "created": 1589478378,
@@ -208,6 +207,8 @@ The system returns an operation status of `Failed` and the `error.code` value in
     }
 }
 ```
+
+---
 
 It's also possible that the generated image itself is filtered. In this case, the error message is set to `Generated image was filtered as a result of our safety system.`. Here's an example:
 
@@ -246,6 +247,8 @@ It's also possible that the generated image itself is filtered. In this case, th
     }
 }
 ```
+
+---
 
 ## Clean up resources
 
