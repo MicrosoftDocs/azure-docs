@@ -36,11 +36,22 @@ Go to your resource in the Azure portal. On the navigation pane, select **Keys a
 
 :::image type="content" source="../media/quickstarts/endpoint.png" alt-text="Screenshot that shows the Keys and Endpoint page for an Azure OpenAI resource in the Azure portal." lightbox="../media/quickstarts/endpoint.png":::
 
+TBD deployment
+
+
 ## Create a new Python application
+
+Navigate to your project directory and install the requests library.
+
+```bash
+pip install requests
+```
 
 Create a new Python file named _quickstart.py_. Open the new file in your preferred editor or IDE.
 
 1. Replace the contents of _quickstart.py_ with the following code. Enter your endpoint URL and key in the appropriate fields. Change the value of `prompt` to your preferred text.
+
+    #### [DALL-E 2](#tab/dalle2)
 
     ```python
     import requests
@@ -57,7 +68,8 @@ Create a new Python file named _quickstart.py_. Open the new file in your prefer
     url = f"{api_base}openai/images/generations:submit?api-version={api_version}"
     headers= { "api-key": api_key, "Content-Type": "application/json" }
     body = {
-        "prompt": "a multi-colored umbrella on the beach, disposable camera",  # Enter your prompt text here
+        # Enter your prompt text here
+        "prompt": "a multi-colored umbrella on the beach, disposable camera",  
         "size": "1024x1024",
         "n": 1
     }
@@ -74,7 +86,38 @@ Create a new Python file named _quickstart.py_. Open the new file in your prefer
 
     print(image_url)
     ```
+    
+    The script makes an image generation API call and then loops until the generated image is ready.
 
+    #### [DALL-E 3](#tab/dalle3)
+    
+    ```python
+    import requests
+    import time
+    import os
+    api_base = '<your_endpoint>'  # Enter your endpoint here
+    api_key = '<your_key>'        # Enter your API key here
+
+    api_version = '2023-11-01-preview'
+    url = f"{api_base}/openai/deployments/dalle3/images/generations?api-version={api_version}"
+    headers= { "api-key": api_key, "Content-Type": "application/json" }
+    body = {
+        # Enter your prompt text here
+        "prompt": "A multi-colored umbrella on the beach, disposable camera",
+        "size": "1024x1024",
+        "n": 1
+    }
+    submission = requests.post(url, headers=headers, json=body)
+    
+    image_url = submission.json()['data'][0]['url']
+    
+    print(image_url)
+    ```
+
+    The script makes a synchronous image generation API call.
+
+    ---
+    
     > [!IMPORTANT]
     > Remember to remove the key from your code when you're done, and never post your key publicly. For production, use a secure way of storing and accessing your credentials. For more information, see [Azure Key Vault](../../../key-vault/general/overview.md).
 
@@ -84,11 +127,13 @@ Create a new Python file named _quickstart.py_. Open the new file in your prefer
     python quickstart.py
     ```
 
-    The script makes an image generation API call and then loops until the generated image is ready.
+    Wait a few moments to get the response.
 
 ## Output
 
 The output from a successful image generation API call looks like the following example. The `url` field contains a URL where you can download the generated image. The URL stays active for 24 hours.
+
+#### [DALL-E 2](#tab/dalle2)
 
 ```json
 {
@@ -108,9 +153,25 @@ The output from a successful image generation API call looks like the following 
 }
 ```
 
+#### [DALL-E 3](#tab/dalle3)
+
+```json
+{
+    "created": 1685130482,
+    "data": [
+        {
+            "url": "<URL_to_generated_image>"
+        }
+    ]
+}
+```
+
 The image generation APIs come with a content moderation filter. If the service recognizes your prompt as harmful content, it doesn't generate an image. For more information, see [Content filtering](../concepts/content-filter.md).
 
 The system returns an operation status of `Failed` and the `error.code` value in the message is set to `contentFilter`. Here's an example:
+
+#### [DALL-E 2](#tab/dalle2)
+
 
 ```json
 {
@@ -124,7 +185,22 @@ The system returns an operation status of `Failed` and the `error.code` value in
 }
 ```
 
+#### [DALL-E 3](#tab/dalle3)
+
+```json
+{
+    "created": 1698435368,
+    "error":
+    {
+        "code": "contentFilter",
+        "message": "Your task failed as a result of our safety system."
+    }
+}
+```
+
 It's also possible that the generated image itself is filtered. In this case, the error message is set to `Generated image was filtered as a result of our safety system.`. Here's an example:
+
+#### [DALL-E 2](#tab/dalle2)
 
 ```json
 {
@@ -144,6 +220,19 @@ It's also possible that the generated image itself is filtered. In this case, th
        }
    ],
    "status": "succeeded"
+}
+```
+
+#### [DALL-E 3](#tab/dalle3)
+
+```json
+{
+    "created": 1698435368,
+    "error":
+    {
+        "code": "contentFilter",
+        "message": "Generated image was filtered as a result of our safety system."
+    }
 }
 ```
 
