@@ -162,15 +162,6 @@ Visit the [Run your Azure Stream Analytics job in an Azure Virtual Network docum
 > For direct help with using the Azure Stream Analytics Kafka output, please reach out to [askasa@microsoft.com](mailto:askasa@microsoft.com).
 >
 
-### Limitations
-* When configuring your Azure Stream Analytics jobs to use VNET/SWIFT, your job must be configured with at least six (6) streaming units. 
-* When using mTLS or SASL_SSL with Azure Key vault, you must convert your Java Key Store to PEM format. 
-* The minimum version of Kafka you can configure Azure Stream Analytics to connect to is version 0.10.
-
-> [!NOTE]
-> For direct help with using the Azure Stream Analytics Kafka output, please reach out to [askasa@microsoft.com](mailto:askasa@microsoft.com).
->
-
 
 ## Next steps
 > [!div class="nextstepaction"]
