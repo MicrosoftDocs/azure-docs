@@ -50,7 +50,7 @@ Create an Azure resource and ensure that it's one of the supported [fault provid
 1. Select **Experiments**.
    ![Screenshot that shows selecting Experiments.](images/quickstart-left-experiment.png)
 
-1. Select **Add an experiment**.
+1. Select **Create** > **New experiment**.
 
    ![Screenshot that shows Add an experiment in the Azure portal.](images/add-an-experiment.png)
 
@@ -58,7 +58,7 @@ Create an Azure resource and ensure that it's one of the supported [fault provid
 
    ![Screenshot that shows adding experiment basics.](images/quickstart-service-direct-add-basics.png)
 
-1. In the Chaos Studio experiment designer, give a friendly name to your **Step** and **Branch**. Select **Add fault**.
+1. In the Chaos Studio experiment designer, give a friendly name to your **Step** and **Branch**. Select **Add action > Add fault**.
 
    ![Screenshot that shows the Experiment designer.](images/quickstart-service-direct-add-designer.png)
 

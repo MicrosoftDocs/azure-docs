@@ -85,13 +85,13 @@ You've now successfully added your AKS cluster to Chaos Studio. In the **Targets
 ## Create an experiment
 Now you can create your experiment. A chaos experiment defines the actions you want to take against target resources. The actions are organized and run in sequential steps. The chaos experiment also defines the actions you want to take against branches, which run in parallel.
 
-1. Select the **Experiments** tab in Chaos Studio. In this view, you can see and manage all your chaos experiments. Select **Add an experiment**
+1. Select the **Experiments** tab in Chaos Studio. In this view, you can see and manage all your chaos experiments. Select **Create** > **New experiment**.
 
    ![Screenshot that shows the Experiments view in the Azure portal.](images/tutorial-aks-add.png)
 1. Fill in the **Subscription**, **Resource Group**, and **Location** where you want to deploy the chaos experiment. Give your experiment a name. Select **Next: Experiment designer**.
 
    ![Screenshot that shows adding basic experiment details.](images/tutorial-aks-add-basics.png)
-1. You're now in the Chaos Studio experiment designer. The experiment designer allows you to build your experiment by adding steps, branches, and faults. Give a friendly name to your **Step** and **Branch** and select **Add fault**.
+1. You're now in the Chaos Studio experiment designer. The experiment designer allows you to build your experiment by adding steps, branches, and faults. Give a friendly name to your **Step** and **Branch** and select **Add action > Add fault**.
 
    ![Screenshot that shows the experiment designer.](images/tutorial-aks-add-designer.png)
 1. Select **AKS Chaos Mesh Pod Chaos** from the dropdown list. Fill in **Duration** with the number of minutes you want the failure to last and **jsonSpec** with the following information:
