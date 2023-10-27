@@ -123,8 +123,8 @@ Use the following steps to upload a certificate as a secret using the azure port
 
  | Setting | Value |
  | --- | --- |
- | Upload | Certificate |
- | Upload | \<select the certificate to upload> |
+ | Upload Options | Certificate |
+ | Upload certificate | \<select the certificate to upload> |
  | Name | \<Name you want to give your secret> |
 
 
