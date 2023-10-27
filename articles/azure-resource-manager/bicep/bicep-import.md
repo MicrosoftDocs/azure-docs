@@ -13,7 +13,7 @@ This article describes the syntax you use to export and import shared functional
 ## Exporting types, variables and functions (Preview)
 
 > [!NOTE]
-> [Bicep version 0.23.X or newer](./install.md) is required to use this feature. The experimental feature `compileTimeImports` must be enabled from the [Bicep config file](./bicep-config.md#enable-experimental-features). For user-defined functions, the experimental feature `userDefinedFunctions` must also be enabled.
+> [Bicep version 0.23 or newer](./install.md) is required to use this feature. The experimental feature `compileTimeImports` must be enabled from the [Bicep config file](./bicep-config.md#enable-experimental-features). For user-defined functions, the experimental feature `userDefinedFunctions` must also be enabled.
 
 The `@export()` decorator is used to indicate that a given statement can be imported by another file. This decorator is only valid on type, variable and function statements. Variable statements marked with `@export()` must be compile-time constants.
 
