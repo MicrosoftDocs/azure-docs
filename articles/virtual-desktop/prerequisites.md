@@ -98,6 +98,9 @@ To join session hosts to Microsoft Entra ID or an Active Directory domain, you n
 
 - For an Active Directory domain, you need a domain account that can join computers to your domain. For Microsoft Entra Domain Services, you would need to be a member of the [*AAD DC Administrators* group](../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group).
 
+> [!NOTE]
+> Adding session hosts on Azure Stack HCI only supports using Active Directory Domain Services.
+
 ### Users
 
 Your users need accounts that are in Microsoft Entra ID. If you're also using AD DS or Microsoft Entra Domain Services in your deployment of Azure Virtual Desktop, these accounts need to be [hybrid identities](../active-directory/hybrid/whatis-hybrid-identity.md), which means the user accounts are synchronized. You need to keep the following things in mind based on which identity provider you use:
