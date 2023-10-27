@@ -26,8 +26,7 @@ ms.author: lajanuar
 
 ::: moniker range="doc-intel-2.1.0"
 [!INCLUDE [applies to v2.1](includes/applies-to-v21.md)]
-
-::: moniker range=">=doc-intel-2.1.0"
+::: moniker-end
 
 **Composed models**. A composed model is created by taking a collection of custom models and assigning them to a single model built from your form types. When a document is submitted for analysis using a composed model, the service performs a classification to decide which custom model best represents the submitted document.
 
@@ -42,8 +41,6 @@ With composed models, you can assign multiple custom models to a composed model 
 * The response includes a ```docType``` property to indicate which of the composed models was used to analyze the document.
 
 * For ```Custom neural``` models the best practice is to add all the different variations of a single document type into a single training dataset and train on custom neural model. Model compose is best suited for scenarios when you have documents of different types being submitted for analysis.
-
-::: moniker-end
 
 ::: moniker range=">=doc-intel-3.0.0"
 
