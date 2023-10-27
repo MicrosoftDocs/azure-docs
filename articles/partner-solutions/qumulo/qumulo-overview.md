@@ -3,8 +3,7 @@ title: Azure Native Qumulo Scalable File Service overview
 description: Learn about what Azure Native Qumulo Scalable File Service offers you.
 
 ms.topic: overview
-ms.custom: template-overview
-ms.date: 01/18/2023
+ms.date: 10/25/2023
 
 ---
 
@@ -30,6 +29,7 @@ There are 2 versions of Azure Native Qumulo(ANQ) Scalable File Service. ANQ V2 i
 ## Capabilities
 
 Azure Native Qumulo Scalable File Service provides:
+
 
 - Seamless onboarding: Easily include Qumulo as a natively integrated service on Azure.The service can be deployed in few minutes. 
 - Multi-protocol support: ANQ supports all standard file system protocols NFS, SMB, FTP, and S3

@@ -167,7 +167,7 @@ In this section, you use the Azure Bastion host you created previously to connec
 1. In the search box at the top of the portal, enter **Virtual machine**.
 1. Select **Virtual machines** in the search results.
 1. Select **lb-VM1**.
-1. Under **Operations** in the left-side menu, select **Run command > RunPowerShellScript**.
+1. Under **Payload** in the left-side menu, select **Run command > RunPowerShellScript**.
 1. In the PowerShell Script window, add the following commands to:
 
     * Install the IIS server
