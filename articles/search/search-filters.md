@@ -1,7 +1,7 @@
 ---
 title: Filter on search results
 titleSuffix: Azure AI Search
-description: Apply filter criteria to include or exclude content before query execution in Azure Cognitive Search.
+description: Apply filter criteria to include or exclude content before query execution in Azure AI Search.
 
 manager: nitinme
 author: HeidiSteen
@@ -12,7 +12,7 @@ ms.date: 10/27/2022
 ms.custom: devx-track-csharp
 ---
 
-# Filters in Azure Cognitive Search 
+# Filters in Azure AI Search 
 
 A *filter* provides value-based criteria for including or excluding content before query execution. For example, including or excluding documents based on dates, locations, or language. Filters are specified on individual fields. A field definition must be attributed as "filterable" if you want to use it in filter expressions.
 
@@ -122,7 +122,7 @@ public double? BaseRate { get; set; }
 
 ### Making an existing field filterable
 
-You can't modify existing fields to make them filterable. Instead, you need to add a new field, or rebuild the index. For more information about rebuilding an index or repopulating fields, see [How to rebuild an Azure Cognitive Search index](search-howto-reindex.md).
+You can't modify existing fields to make them filterable. Instead, you need to add a new field, or rebuild the index. For more information about rebuilding an index or repopulating fields, see [How to rebuild an Azure AI Search index](search-howto-reindex.md).
 
 ## Text filter fundamentals
 
@@ -175,7 +175,7 @@ To work with more examples, see [OData Filter Expression Syntax > Examples](./se
 
 ## See also
 
-+ [How full text search works in Azure Cognitive Search](search-lucene-query-architecture.md)
++ [How full text search works in Azure AI Search](search-lucene-query-architecture.md)
 + [Search Documents REST API](/rest/api/searchservice/search-documents)
 + [Simple query syntax](/rest/api/searchservice/simple-query-syntax-in-azure-search)
 + [Lucene query syntax](/rest/api/searchservice/lucene-query-syntax-in-azure-search)

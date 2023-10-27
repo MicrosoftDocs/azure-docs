@@ -1,7 +1,7 @@
 ---
 title: REST samples
 titleSuffix: Azure AI Search
-description: Find Azure Cognitive Search demo REST code samples that use the Search or Management REST APIs.
+description: Find Azure AI Search demo REST code samples that use the Search or Management REST APIs.
 
 manager: nitinme
 author: HeidiSteen
@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 01/04/2023
 ---
 
-# REST samples for Azure Cognitive Search
+# REST samples for Azure AI Search
 
-Learn about the REST API samples that demonstrate the functionality and workflow of an Azure Cognitive Search solution. These samples use the [**Search REST APIs**](/rest/api/searchservice).
+Learn about the REST API samples that demonstrate the functionality and workflow of an Azure AI Search solution. These samples use the [**Search REST APIs**](/rest/api/searchservice).
 
-REST is the definitive programming interface for Azure Cognitive Search, and all operations that can be invoked programmatically are available first in REST, and then in SDKs. For this reason, most examples in the documentation leverage the REST APIs to demonstrate or explain important concepts.
+REST is the definitive programming interface for Azure AI Search, and all operations that can be invoked programmatically are available first in REST, and then in SDKs. For this reason, most examples in the documentation leverage the REST APIs to demonstrate or explain important concepts.
 
 REST samples are usually developed and tested on Postman, but you can use any client that supports HTTP calls, including the [Postman app](https://www.postman.com/downloads/). [This quickstart](search-get-started-rest.md) explains how to formulate the HTTP request from end-to-end.
 

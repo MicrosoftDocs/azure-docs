@@ -1,7 +1,7 @@
 ---
 title: Java samples
 titleSuffix: Azure AI Search
-description: Find Azure Cognitive Search demo Java code samples that use the Azure .NET SDK for Java.
+description: Find Azure AI Search demo Java code samples that use the Azure .NET SDK for Java.
 
 manager: nitinme
 author: HeidiSteen
@@ -12,9 +12,9 @@ ms.topic: conceptual
 ms.date: 07/27/2023
 ---
 
-# Java samples for Azure Cognitive Search
+# Java samples for Azure AI Search
 
-Learn about the Java code samples that demonstrate the functionality and workflow of an Azure Cognitive Search solution. These samples use the [**Azure Cognitive Search client library**](/java/api/overview/azure/search-documents-readme) for the [**Azure SDK for Java**](/azure/developer/java/sdk), which you can explore through the following links.
+Learn about the Java code samples that demonstrate the functionality and workflow of an Azure AI Search solution. These samples use the [**Azure AI Search client library**](/java/api/overview/azure/search-documents-readme) for the [**Azure SDK for Java**](/azure/developer/java/sdk), which you can explore through the following links.
 
 | Target | Link |
 |--------|------|

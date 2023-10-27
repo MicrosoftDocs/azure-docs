@@ -1,7 +1,7 @@
 ---
 title: Manage with REST
 titleSuffix: Azure AI Search
-description: Create and configure an Azure Cognitive Search service with the Management REST API. The Management REST API is comprehensive in scope, with access to generally available and preview features.
+description: Create and configure an Azure AI Search service with the Management REST API. The Management REST API is comprehensive in scope, with access to generally available and preview features.
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 05/09/2023
 ---
 
-# Manage your Azure Cognitive Search service with REST APIs
+# Manage your Azure AI Search service with REST APIs
 
 > [!div class="op_single_selector"]
 > * [Portal](search-manage.md)
@@ -19,7 +19,7 @@ ms.date: 05/09/2023
 > * [.NET SDK](/dotnet/api/microsoft.azure.management.search)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)
 
-In this article, learn how to create and configure an Azure Cognitive Search service using the [Management REST APIs](/rest/api/searchmanagement/). Only the Management REST APIs are guaranteed to provide early access to [preview features](/rest/api/searchmanagement/management-api-versions#2021-04-01-preview). 
+In this article, learn how to create and configure an Azure AI Search service using the [Management REST APIs](/rest/api/searchmanagement/). Only the Management REST APIs are guaranteed to provide early access to [preview features](/rest/api/searchmanagement/management-api-versions#2021-04-01-preview). 
 
 The Management REST API is available in stable and preview versions. Be sure to set a preview API version if you're accessing preview features.
 
@@ -252,7 +252,7 @@ PATCH https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegrou
 
 ## (preview) Disable workloads that push data to external resources
 
-Azure Cognitive Search [writes to external data sources](search-indexer-securing-resources.md) when updating a knowledge store, saving debug session state, or caching enrichments. The following example disables these workloads at the service level.
+Azure AI Search [writes to external data sources](search-indexer-securing-resources.md) when updating a knowledge store, saving debug session state, or caching enrichments. The following example disables these workloads at the service level.
 
 ```rest
 PATCH https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-preview
@@ -269,7 +269,7 @@ PATCH https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegrou
 
 After a search service is configured, next steps include [create an index](search-how-to-create-search-index.md) or [query an index](search-query-overview.md) using the portal, REST APIs, or the .NET SDK.
 
-* [Create an Azure Cognitive Search index in the Azure portal](search-get-started-portal.md)
+* [Create an Azure AI Search index in the Azure portal](search-get-started-portal.md)
 * [Set up an indexer to load data from other services](search-indexer-overview.md)
-* [Query an Azure Cognitive Search index using Search explorer in the Azure portal](search-explorer.md)
-* [How to use Azure Cognitive Search in .NET](search-howto-dotnet-sdk.md)
+* [Query an Azure AI Search index using Search explorer in the Azure portal](search-explorer.md)
+* [How to use Azure AI Search in .NET](search-howto-dotnet-sdk.md)

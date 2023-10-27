@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.date: 11/09/2022
 ---
 
-# Change and delete detection using indexers for Azure Storage in Azure Cognitive Search
+# Change and delete detection using indexers for Azure Storage in Azure AI Search
 
 After an initial search index is created, you might want subsequent indexer jobs to only pick up new and changed documents. For indexed content that originates from Azure Storage, change detection occurs automatically because indexers keep track of the last update using the built-in timestamps on objects and files in Azure Storage.
 
@@ -54,7 +54,7 @@ For this deletion detection approach, Cognitive Search depends on the [native bl
 
 ### Configure native soft delete
 
-In Blob storage, when enabling soft delete per the requirements, set the retention policy to a value that's much higher than your indexer interval schedule. If there's an issue running the indexer, or if you have a large number of documents to index, there's plenty of time for the indexer to eventually process the soft deleted blobs. Azure Cognitive Search indexers will only delete a document from the index if it processes the blob while it's in a soft deleted state.
+In Blob storage, when enabling soft delete per the requirements, set the retention policy to a value that's much higher than your indexer interval schedule. If there's an issue running the indexer, or if you have a large number of documents to index, there's plenty of time for the indexer to eventually process the soft deleted blobs. Azure AI Search indexers will only delete a document from the index if it processes the blob while it's in a soft deleted state.
 
 In Cognitive Search, set a native blob soft deletion detection policy on the data source. You can do this either from the Azure portal or by using preview REST API (`api-version=2020-06-30-Preview`). The following instructions explain how to set the delete detection policy in Azure portal or through REST APIs.
 
@@ -111,7 +111,7 @@ There are steps to follow in both Azure Storage and Cognitive Search, but there 
 
 1. In Azure Storage, add a custom metadata key-value pair to the file to indicate the file is flagged for deletion. For example, you could name the property "IsDeleted", set to false. When you want to delete the file, change it to true.
 
-1. In Azure Cognitive Search, edit the data source definition to include a "dataDeletionDetectionPolicy" property. For example, the following policy considers a file to be deleted if it has a metadata property `IsDeleted` with the value `true`:
+1. In Azure AI Search, edit the data source definition to include a "dataDeletionDetectionPolicy" property. For example, the following policy considers a file to be deleted if it has a metadata property `IsDeleted` with the value `true`:
 
     ```http
     PUT https://[service name].search.windows.net/datasources/file-datasource?api-version=2020-06-30
@@ -142,6 +142,6 @@ You can reverse a soft-delete if the original source file still physically exist
 
 ## Next steps
 
-+ [Indexers in Azure Cognitive Search](search-indexer-overview.md)
++ [Indexers in Azure AI Search](search-indexer-overview.md)
 + [How to configure a blob indexer](search-howto-indexing-azure-blob-storage.md)
 + [Blob indexing overview](search-blob-storage-integration.md)

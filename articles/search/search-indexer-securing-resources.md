@@ -1,7 +1,7 @@
 ---
 title: Indexer access to protected resources
 titleSuffix: Azure AI Search
-description: Learn import concepts and requirements related to network-level security options for outbound requests made by indexers in Azure Cognitive Search.
+description: Learn import concepts and requirements related to network-level security options for outbound requests made by indexers in Azure AI Search.
 
 manager: nitinme
 author: arv100kri
@@ -19,7 +19,7 @@ Looking for step-by-step instructions instead? See [How to configure firewall ru
 
 ## Resources accessed by indexers
 
-Azure Cognitive Search indexers can make outbound calls to various Azure resources during execution. An indexer makes outbound calls in three situations:
+Azure AI Search indexers can make outbound calls to various Azure resources during execution. An indexer makes outbound calls in three situations:
 
 - Connecting to external data sources during indexing
 - Connecting to external, encapsulated code through a skillset that includes custom skills
@@ -58,9 +58,9 @@ Your Azure resources could be protected using any number of the network isolatio
 
 ## Indexer execution environment
 
-Azure Cognitive Search has the concept of an *indexer execution environment* that optimizes processing based on the characteristics of the job. There are two environments. If you're using an IP firewall to control access to Azure resources, knowing about execution environments will help you set up an IP range that is inclusive of both.
+Azure AI Search has the concept of an *indexer execution environment* that optimizes processing based on the characteristics of the job. There are two environments. If you're using an IP firewall to control access to Azure resources, knowing about execution environments will help you set up an IP range that is inclusive of both.
 
-For any given indexer run, Azure Cognitive Search determines the best environment in which to run the indexer. Depending on the number and types of tasks assigned, the indexer will run in one of two environments:
+For any given indexer run, Azure AI Search determines the best environment in which to run the indexer. Depending on the number and types of tasks assigned, the indexer will run in one of two environments:
 
 - A *private execution environment* that's internal to a search service. 
 
@@ -94,11 +94,11 @@ Notice that if you specified the service tag for the multi-tenant environment IP
 
 ## Choosing a connectivity approach
 
-When integrating Azure Cognitive Search into a solution that runs on a virtual network, consider the following constraints:
+When integrating Azure AI Search into a solution that runs on a virtual network, consider the following constraints:
 
 - An indexer can't make a direct connection to a [virtual network service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md). Public endpoints with credentials, private endpoints, trusted service, and IP addressing are the only supported methodologies for indexer connections.
 
-- A search service always runs in the cloud and can't be provisioned into a specific virtual network, running natively on a virtual machine. This functionality won't be offered by Azure Cognitive Search.
+- A search service always runs in the cloud and can't be provisioned into a specific virtual network, running natively on a virtual machine. This functionality won't be offered by Azure AI Search.
 
 Given the above constrains, your choices for achieving search integration in a virtual network are:
 
@@ -126,7 +126,7 @@ This section summarizes the main steps for setting up a private endpoint for out
 
 You'll create a shared private link using either the portal pages of your search service or through the [Management API](/rest/api/searchmanagement/2022-09-01/shared-private-link-resources/create-or-update).
 
-In Azure Cognitive Search, your search service must be at least the Basic tier for text-based indexers, and S2 for indexers with skillsets.
+In Azure AI Search, your search service must be at least the Basic tier for text-based indexers, and S2 for indexers with skillsets.
 
 A private endpoint connection will accept requests from the private indexer execution environment, but not the multi-tenant environment. You'll need to disable multi-tenant execution as described in step 3 to meet this requirement.
 
@@ -158,7 +158,7 @@ This setting is scoped to an indexer and not the search service. If you want all
 
 Once you have an approved private endpoint to a resource, indexers that are set to be *private* attempt to obtain access via the private link that was created and approved for the Azure resource. 
 
-Azure Cognitive Search will validate that callers of the private endpoint have appropriate Azure RBAC role permissions. For example, if you request a private endpoint connection to a storage account with read-only permissions, this call will be rejected.
+Azure AI Search will validate that callers of the private endpoint have appropriate Azure RBAC role permissions. For example, if you request a private endpoint connection to a storage account with read-only permissions, this call will be rejected.
 
 If the private endpoint isn't approved, or if the indexer didn't use the private endpoint connection, you'll find a `transientFailure` error message in indexer execution history.
 
@@ -168,7 +168,7 @@ A search service stores indexes and synonym lists. For other features that requi
 
 ### Same-region services
 
-In Azure Storage, access through a firewall requires that the request originates from a different region. If Azure Storage and Azure Cognitive Search are in the same region, you can bypass the IP restrictions on the storage account by accessing data under the system identity of the search service. 
+In Azure Storage, access through a firewall requires that the request originates from a different region. If Azure Storage and Azure AI Search are in the same region, you can bypass the IP restrictions on the storage account by accessing data under the system identity of the search service. 
 
 There are two options for supporting data access using the system identity:
 

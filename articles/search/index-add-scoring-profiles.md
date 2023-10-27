@@ -1,7 +1,7 @@
 ---
 title: Add scoring profiles
 titleSuffix: Azure AI Search
-description: Boost search relevance scores for Azure Cognitive Search results by adding scoring profiles to a search index.
+description: Boost search relevance scores for Azure AI Search results by adding scoring profiles to a search index.
 
 manager: nitinme
 author: shmed
@@ -16,7 +16,7 @@ ms.date: 07/17/2023
 In this article, you'll learn how to define a scoring profile. A scoring profile is critera for boosting a search score based on parameters that you provide. For example, you might want matches found in a "tags" field to be more relevant than the same match found in "descriptions". Criteria can be a weighted field (such as the "tags" example) or a function. Scoring profiles are defined in a search index and invoked on query requests. You can create multiple profiles and then modify query logic to choose which one is used.
 
 > [!NOTE]
-> Unfamiliar with relevance concepts? The following [video segment on YouTube](https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=463&end=970) fast-forwards to how scoring profiles work in Azure Cognitive Search. You can also visit [Relevance and scoring in Azure Cognitive Search](index-similarity-and-scoring.md) for more background.
+> Unfamiliar with relevance concepts? The following [video segment on YouTube](https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=463&end=970) fast-forwards to how scoring profiles work in Azure AI Search. You can also visit [Relevance and scoring in Azure AI Search](index-similarity-and-scoring.md) for more background.
 >
 
 <!-- > > [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=463&end=970]
@@ -86,7 +86,7 @@ You can use the [featuresMode (preview)](index-similarity-and-scoring.md#feature
 
 You should create one or more scoring profiles when the default ranking behavior doesn’t go far enough in meeting your business objectives. For example, you might decide that search relevance should favor newly added items. Likewise, you might have a field that contains profit margin, or some other field indicating revenue potential. Boosting results that are more meaningful to your users or the business is often the deciding factor in adoption of scoring profiles.
 
-Relevancy-based ordering in a search page is also implemented through scoring profiles. Consider search results pages you’ve used in the past that let you sort by price, date, rating, or relevance. In Azure Cognitive Search, scoring profiles can be used to drive the ‘relevance’ option. The definition of relevance is user-defined, predicated on business objectives and the type of search experience you want to deliver.  
+Relevancy-based ordering in a search page is also implemented through scoring profiles. Consider search results pages you’ve used in the past that let you sort by price, date, rating, or relevance. In Azure AI Search, scoring profiles can be used to drive the ‘relevance’ option. The definition of relevance is user-defined, predicated on business objectives and the type of search experience you want to deliver.  
 
 ## Steps for adding a scoring profile
 
@@ -339,8 +339,8 @@ The `boostGenre` profile uses weighted text fields, boosting matches found in al
 
 ## See also
 
-+ [Relevance and scoring in Azure Cognitive Search](index-similarity-and-scoring.md)
++ [Relevance and scoring in Azure AI Search](index-similarity-and-scoring.md)
 + [REST API Reference](/rest/api/searchservice/)
 + [Create Index API](/rest/api/searchservice/create-index)
-+ [Azure Cognitive Search .NET SDK](/dotnet/api/overview/azure/search?)
++ [Azure AI Search .NET SDK](/dotnet/api/overview/azure/search?)
 + [What Are Scoring Profiles?](https://social.technet.microsoft.com/wiki/contents/articles/26706.azure-search-what-are-scoring-profiles.aspx)

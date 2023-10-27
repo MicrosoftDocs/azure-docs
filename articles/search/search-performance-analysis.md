@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 08/31/2023
 ---
 
-# Analyze performance in Azure Cognitive Search
+# Analyze performance in Azure AI Search
 
 This article describes the tools, behaviors, and approaches for analyzing query and indexing performance in Cognitive Search.
 
