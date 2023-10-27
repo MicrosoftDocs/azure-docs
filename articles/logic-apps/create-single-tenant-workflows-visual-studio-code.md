@@ -169,7 +169,7 @@ For more information, review the [documentation for the Azurite extension in Vis
 
         1. If the following value doesn't appear in the list, select **New** to add the following value:
         
-           **C:\Users\\<your-user-name\>\.azurelogicapps\dependencies\DotNetSDK**
+           **C:\Users\\<your-user-name\>\\.azurelogicapps\dependencies\DotNetSDK**
 
         1. When you're done, select **OK**.
 
