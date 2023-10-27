@@ -35,7 +35,7 @@ TLS 1.2 is more secure and faster than TLS 1.0 and 1.1, which don't support mode
 
 First, identify each client that makes requests to the Blob Storage service of your account. Then, ensure that each client uses TLS 1.2 to make those requests. 
 
-For each client application, we recommend that you perform the following tasks.
+For each client application, we recommend the following tasks.
 
 - Update the operating system to the latest version.
 
@@ -48,13 +48,13 @@ For each client application, we recommend that you perform the following tasks.
 For more detailed guidance, see the [checklist to deprecate older TLS versions in your environment](/security/engineering/solving-tls1-problem#figure-1-security-protocol-support-by-os-version).
 
 > [!IMPORTANT] 
-> Make sure to notify your customers and partners of your product or service's migration to TLS 1.2 so that they can make the necessary changes to their applications.
+> Notify your customers and partners of your product or service's migration to TLS 1.2 so that they can make the necessary changes to their applications.
 
 ## Enforce TLS 1.2 as the minimum allowed version
 
 In advance of the deprecation date, you can enable Azure policy to enforce minimum TLS version. 
 
-To understand how configuring the minimum TLS version may affect client applications, Microsoft recommends that you enable logging for your Azure Storage account and analyze the logs after an interval of time to detect what versions of TLS client applications are using.
+To understand how configuring the minimum TLS version may affect client applications, we recommend that you enable logging for your Azure Storage account and analyze the logs after an interval of time to detect what versions of TLS client applications are using.
 
 When you are confident that traffic from clients using older versions of TLS is minimal, or that it's acceptable to fail requests made with an older version of TLS, then you can begin enforcement of a minimum TLS version on your storage account. 
 
