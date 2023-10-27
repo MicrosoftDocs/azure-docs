@@ -1,8 +1,8 @@
 ﻿---
 title: Create an Azure Operator Insights Data Product
 description: In this article, learn how to create an Azure Operator Insights Data Product resource. 
-author: bettylew
-ms.author: bettylew
+author: HollyCl
+ms.author: HollyCl
 ms.service: operator-insights
 ms.topic: quickstart
 ms.date: 10/16/2023
@@ -28,7 +28,7 @@ If you're using CMK-based data encryption or Microsoft Purview, you must set up 
 
 #### Set up Azure Key Vault
 
-Azure key Vault Resource will be used to store your Customer Managed Key (CMK) for data encryption. Data Product will use this key to encrypt your data over and above the standard storage encryption. You need to have Subscription/Resource group owner permissions to perform this step.
+Azure key Vault Resource is used to store your Customer Managed Key (CMK) for data encryption. Data Product uses this key to encrypt your data over and above the standard storage encryption. You need to have Subscription/Resource group owner permissions to perform this step.
 1. [Create an Azure Key Vault resource](../key-vault/general/quick-create-portal.md) in the same subscription and resource group where you intend to deploy the Data Product resource.
 1. Provide your user account with the Key Vault Administrator role on the Azure Key Vault resource. This is done via the **Access Control (IAM)** tab on the Azure Key Vault resource.
 1. Navigate to the object and select **Keys**. Select **Generate/Import**.
@@ -44,14 +44,14 @@ Azure key Vault Resource will be used to store your Customer Managed Key (CMK) f
 
 ## Create an Azure Operator Insights Data Product resource in the Azure portal
 
-You'll create the Azure Operator Insights Data Product resource.
+You create the Azure Operator Insights Data Product resource.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. In the search bar, search for Operator Insights and select **Azure Operator Insights - Data Products**.
 1. On the Azure Operator Insights - Data Products page, select **Create**.
 1. On the Basics tab of the **Create a Data Product** page:
     1. Select your subscription.
-    1. Select the resource group you created above for the Key Vault resource.
+    1. Select the resource group you previously created for the Key Vault resource.
     1. Under the Instance details, complete the following fields:
         - Name - Enter the name for your Data Product resource. The name must start with a lowercase letter and can contain only lowercase letters and numbers.
         - Publisher - Select Microsoft.
@@ -68,10 +68,10 @@ You'll create the Azure Operator Insights Data Product resource.
     1. Select the user-assigned managed identity that you set up as a prerequisite.
     1. Carefully paste the Key Identifier URI that was created when you set up Azure Key Vault as a prerequisite.
    
-1. To add owner(s) for the Data Product which will also appear in Microsoft Purview, select **Add owner**, enter the email address, and select **Add owners**.
+1. To add owner(s) for the Data Product, which will also appear in Microsoft Purview, select **Add owner**, enter the email address, and select **Add owners**.
 1. In the Tags tab of the **Create a Data Product** page, select or enter the name/value pair used to categorize your data product resource.
 1. Select **Review + create**.
-1. Select **Create**. Your Data Product instance is created in about 20-25 minutes. During this time all the underlying components are provisioned post which you can work with your data ingestion, exploring sample dashboards, queries etc.
+1. Select **Create**. Your Data Product instance is created in about 20-25 minutes. During this time, all the underlying components are provisioned post which you can work with your data ingestion, exploring sample dashboards, queries etc.
 
 ## Deploy Sample Insights
 
@@ -86,12 +86,12 @@ Once your Data Product instance is created, you can deploy sample insights dashb
 3.	Download the sample JSON template file from the Data product overview page by clicking on the link shown after the text “Sample Dashboard”. Alternatively [download the sample JSON template file here](https://aka.ms/aoidashboard).
 1. Copy the consumption URL from the Data Product overview screen into the clipboard.
 1. Open a web browser, paste in the URL and select enter.
-1. When the URL loads, click on the Dashboards option on the left navigation pane.
-1. Select the **New Dashboard** drop down and select **Import dashboard from file**. Browse to select the JSON file downloaded above, provide a name for the dashboard and click **Create**.
+1. When the URL loads, select on the Dashboards option on the left navigation pane.
+1. Select the **New Dashboard** drop down and select **Import dashboard from file**. Browse to select the JSON file downloaded previously, provide a name for the dashboard and select **Create**.
 1. Select the three dots (...) at the top right corner of the consumption URL page and select **Data Sources**.
 1. Select the pencil icon next to the Data source name in order to edit the data source. 
-1. Under the Cluster URI section, replace the URL with your Data Product consumption URL. and click connect.
-1. In the Database drop-down select your Database. Typically, the database name will be the same as your Data Product instance name. Click **Apply**.
+1. Under the Cluster URI section, replace the URL with your Data Product consumption URL and select connect.
+1. In the Database drop-down, select your Database. Typically, the database name is the same as your Data Product instance name. Select **Apply**.
 
 > [!NOTE] 
 > These dashboards are based on synthetic data and may not have complete or representative examples of the real-world experience.  
@@ -103,9 +103,7 @@ The consumption URL also allows you to write your own Kusto query to get insight
 1. On the Overview page, copy the consumption URL and paste it in a new browser tab to see the database and list of tables.
 1. Use the ADX query plane to write Kusto queries. For example:
 
-    `session | take 10`
-
-    ```
+       ```
     enriched_flow_events_sample
     | summarize Application_count=count() by flowRecord_dpiStringInfo_application
     | order by Application_count desc
