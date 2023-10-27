@@ -12,7 +12,7 @@ ms.date: 10/19/2023
 
 This tutorial shows how to connect to OneLake with a Jupyter notebook from an Azure HDInsight on AKS cluster.
 
-1. Create an HDInsight on AKS cluster With Apache Spark™. Follow these instructions: Set up clusters in HDInsight on AKS.
+1. Create an HDInsight on AKS cluster with Apache Spark™. Follow these instructions: Set up clusters in HDInsight on AKS.
 1. While providing cluster information, remember your Cluster login Username and Password, as you need them later to access the cluster.
 1. Create a user assigned managed identity (UAMI): Create for Azure HDInsight on AKS - UAMI and choose it as the identity in the **Storage** screen.
 
