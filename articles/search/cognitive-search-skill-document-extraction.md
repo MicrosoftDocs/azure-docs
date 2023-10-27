@@ -17,7 +17,7 @@ The **Document Extraction** skill extracts content from a file within the enrich
 
 > [!NOTE]
 > This skill isn't bound to Azure AI services and has no Azure AI services key requirement.
-> This skill extracts text and images. Text extraction is free. Image extraction is [metered by Azure Cognitive Search](https://azure.microsoft.com/pricing/details/search/). On a free search service, the cost of 20 transactions per indexer per day is absorbed so that you can complete quickstarts, tutorials, and small projects at no charge. For Basic, Standard, and above, image extraction is billable.
+> This skill extracts text and images. Text extraction is free. Image extraction is [metered by Azure AI Search](https://azure.microsoft.com/pricing/details/search/). On a free search service, the cost of 20 transactions per indexer per day is absorbed so that you can complete quickstarts, tutorials, and small projects at no charge. For Basic, Standard, and above, image extraction is billable.
 >
 
 ## @odata.type
@@ -160,4 +160,4 @@ The file reference object can be generated one of three ways:
 
 + [Built-in skills](cognitive-search-predefined-skills.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
-+ [How to process and extract information from images in cognitive search scenarios](cognitive-search-concept-image-scenarios.md)
++ [How to process and extract information from images](cognitive-search-concept-image-scenarios.md)
