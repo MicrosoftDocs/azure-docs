@@ -73,7 +73,7 @@ PS C:\> Install-Module -Name AzureBasicLoadBalancerUpgrade -Scope CurrentUser -R
 - Plan for [application downtime](#how-long-does-the-upgrade-take) during migration
 - Develop inbound and outbound connectivity tests for your traffic
 - Plan for instance-level Public IP changes on Virtual Machine Scale Set instances (see note above)
-- [Recommended] Create Network Security Groups for your backend pool members, allowing the traffic through the Load Balancer and any other traffic which will need to be explicitly allowed on public Standard SKU resources
+- [Recommended] Create Network Security Groups or add security rules to an existing Network Security Group for your backend pool members, allowing the traffic through the Load Balancer and any other traffic which will need to be explicitly allowed on public Standard SKU resources
 - [Recommended] Prepare your [outbound connectivity](../virtual-network/ip-services/default-outbound-access.md), taking one of the following approaches: 
     - Add a NAT Gateway to your backend member's subnets 
     - Add Public IP addresses to each backend Virtual Machine or [Virtual Machine Scale Set instance](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine)
@@ -128,7 +128,7 @@ PS C:\> Start-AzBasicLoadBalancerUpgrade -ResourceGroupName <loadBalancerRGName>
 Upgrade a Basic Load Balancer to a Standard Load Balancer with the specified name, displaying logged output on screen
 
 ```powershell
-PS C:\> Start-AzBasicLoadBalancerUpgrade -ResourceGroupName <loadBalancerRGName> -BasicLoadBalancerName <basicLBName> -StandardLoadBalancerName <new Standard Load Balancer name> -FollowLog
+PS C:\> Start-AzBasicLoadBalancerUpgrade -ResourceGroupName <loadBalancerRGName> -BasicLoadBalancerName <basicLBName> -StandardLoadBalancerName <newStandardLBName> -FollowLog
 ```
 
 ### Example: upgrade with alternate backup path
@@ -136,7 +136,7 @@ PS C:\> Start-AzBasicLoadBalancerUpgrade -ResourceGroupName <loadBalancerRGName>
 Upgrade a Basic Load Balancer to a Standard Load Balancer with the specified name and store the Basic Load Balancer backup file at the specified path
 
 ```powershell
-PS C:\> Start-AzBasicLoadBalancerUpgrade -ResourceGroupName <loadBalancerRGName> -BasicLoadBalancerName <basicLBName> -StandardLoadBalancerName <new Standard Load Balancer name> -RecoveryBackupPath C:\BasicLBRecovery
+PS C:\> Start-AzBasicLoadBalancerUpgrade -ResourceGroupName <loadBalancerRGName> -BasicLoadBalancerName <basicLBName> -StandardLoadBalancerName <newStandardLBName> -RecoveryBackupPath C:\BasicLBRecovery
 ```
 
 ### Example: validate completed migration
