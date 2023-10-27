@@ -109,7 +109,7 @@ GPT-3.5 Turbo version 0301 is the first version of the model released.  Version 
 ### GPT-3.5-Turbo model availability
 
 |  Model ID  |   Model Availability  | Max Request (tokens) | Training Data (up to) |
-|  --------- |  -------------------- |------|----|
+|  --------- |  -------------------- |:------:|:----:|
 | `gpt-35-turbo`<sup>1</sup> (0301) | East US <br> France Central <br> South Central US <br> UK South <br> West Europe | 4096 | Sep 2021 |
 | `gpt-35-turbo` (0613) | Australia East <br> Canada East <br> East US <br> East US 2 <br> France Central <br> Japan East <br> North Central US <br> Sweden Central <br> Switzerland North <br> UK South | 4096 | Sep 2021 |
 | `gpt-35-turbo-16k` (0613) | Australia East <br> Canada East <br> East US <br> East US 2 <br> France Central, Japan East <br> North Central US <br> Sweden Central <br> Switzerland North<br> UK South | 16,384 | Sep 2021 |
