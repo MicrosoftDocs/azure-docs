@@ -25,7 +25,7 @@ In a high CPU utilization scenario, in this article, you learn how to:
 
 One must enable troubleshooting guides and auto_explain extension on the Azure Database for PostgreSQL – Flexible Server. To enable troubleshooting guides, follow the steps mentioned [here](how-to-troubleshooting-guides.md).
 
-To enable autoexplain extension, follow the steps below:
+To enable auto_explain extension, follow the steps below:
 
 1. Add auto_explain extension to the shared preload libraries as shown below from the server parameters page on the Flexible Server portal
 
@@ -35,13 +35,13 @@ To enable autoexplain extension, follow the steps below:
 > [!NOTE]  
 > Making this change will require a server restart.
 
-1. After the auto_explain extension is added to shared preload libraries and the server has restarted, change the below highlighted auto_explain server parameters to `ON` from the server parameters page on the Flexible Server portal and leave the remaining ones
+2. After the auto_explain extension is added to shared preload libraries and the server has restarted, change the below highlighted auto_explain server parameters to `ON` from the server parameters page on the Flexible Server portal and leave the remaining ones
    with default values as shown below.
 
    :::image type="content" source="./media/how-to-identify-slow-queries/auto-explain-parameters.png" alt-text="Screenshot of server parameters page with auto_explain parameters." lightbox="./media/how-to-identify-slow-queries/auto-explain-parameters.png":::
 
 > [!NOTE]  
-> Updating the `auto_explain.log_min_duration` parameter to 0 will start logging all queries executed on the server. This might affect the performance of the database. Proper due diligence must come to a value considered slow on the server. For example, if 30 seconds is considered threshold and all queries being run below 30 seconds are acceptable for application, then it is advised to update the parameter to 30000 milliseconds. This would then log any query that is executed for more than 30 seconds on the server.
+> Updating `auto_explain.log_min_duration` parameter to 0 will start logging all queries being executed on the server. This may impact performance of the database. Proper due diligence must be made to come to a value which is considered slow on the server. Example if 30 seconds is considered threshold and all queries being run below 30 seconds is acceptable for application then it is advised to update the parameter to 30000 milliseconds. This would then log any query which is executed more than 30 seconds on the server.
 
 ### Scenario - Identify slow-running query
 
@@ -51,7 +51,7 @@ We have a scenario where CPU utilization has spiked to 90% and would like to kno
 
 1. As soon as you're alerted by a CPU scenario, go to the troubleshooting guides available under the Help tab on the Flexible server portal overview page.
 
-      :::image type="content" source="./media/how-to-identify-slow-queries/troubleshooting-guides-page.png" alt-text="Screenshot of troubleshooting guides menu." lightbox="./media/how-to-identify-slow-queries/troubleshooting-guides-page.png":::
+      :::image type="content" source="./media/how-to-identify-slow-queries/troubleshooting-guides-blade.png" alt-text="Screenshot of troubleshooting guides menu." lightbox="./media/how-to-identify-slow-queries/troubleshooting-guides-blade.png":::
 
 2. Select the High CPU Usage tab from the page opened. The high CPU Utilization troubleshooting guide opens.
 
@@ -104,7 +104,7 @@ AzureDiagnostics
 | project TimeGenerated, Message
 ```
 
-Executing the query following explains that the analysis output was retrieved from the body of the message column.
+The message column will store the execution plan as shown below:
 
 ```sql
 2023-10-10 19:56:46 UTC-6525a8e7.2e3d-LOG: duration: 150692.864 ms plan:
@@ -126,7 +126,7 @@ Buffers: shared hit=44639 read=355362, temp read=77521 written=77701
 Output: c_id, c_w_id, c_balance
 ```
 
-The query ran for ~2.5 minutes, as shown in troubleshooting guides, and was confirmed by the `duration` value of 150692.864 ms from the explained analysis output. Use the explained analyzed output to troubleshoot further and tune the query.
+The query ran for ~2.5 minutes, as shown in troubleshooting guides, and is confirmed by the `duration` value of 150692.864 ms from the execution plan output fetched. Use the explain analyze output to troubleshoot further and tune the query.
 
 > [!NOTE]  
 > Note that the query ran 22 times during the interval, and the logs shown above are one such entry captured during the interval.
@@ -139,7 +139,7 @@ In the second scenario, a stored procedure execution time is found to be slow, a
 
 One must enable troubleshooting guides and auto_explain extension on the Azure Database for PostgreSQL – Flexible Server as a prerequisite. To enable troubleshooting guides, follow the steps mentioned [here](how-to-troubleshooting-guides.md).
 
-To enable autoexplain extension, follow the steps below:
+To enable auto_explain extension, follow the steps below:
 
 1. Add auto_explain extension to the shared preload libraries as shown below from the server parameters page on the Flexible Server portal
 
@@ -165,7 +165,7 @@ We have a scenario where CPU utilization has spiked to 90% and would like to kno
 
 1. As soon as you're alerted by a CPU scenario, go to the troubleshooting guides available under the Help tab on the Flexible server portal overview page.
 
-      :::image type="content" source="./media/how-to-identify-slow-queries/troubleshooting-guides-page.png" alt-text="Screenshot of troubleshooting guides menu." lightbox="./media/how-to-identify-slow-queries/troubleshooting-guides-page.png":::
+      :::image type="content" source="./media/how-to-identify-slow-queries/troubleshooting-guides-blade.png" alt-text="Screenshot of troubleshooting guides menu." lightbox="./media/how-to-identify-slow-queries/troubleshooting-guides-blade.png":::
 
 2. Select the High CPU Usage tab from the page opened. The high CPU Utilization troubleshooting guide opens.
 
@@ -178,6 +178,8 @@ We have a scenario where CPU utilization has spiked to 90% and would like to kno
 4. Select the Top CPU Consuming Queries tab.
 
       The tab shares details of all the queries that ran in the interval where 90% CPU utilization was seen. From the snapshot, it looks like the query with the slowest average execution time during the time interval was ~6.3 minutes, and the query ran 35 times during the interval. This is most likely the cause of CPU spikes.
+
+      :::image type="content" source="./media/how-to-identify-slow-queries/high-cpu-procedure.png" alt-text="Screenshot of troubleshooting guides - CPU tab." lightbox="./media/how-to-identify-slow-queries/high-cpu-procedure.png":::
 
       It's important to note from the snapshot below that the query type as highlighted below is `Utility``. Generally, a utility can be a stored procedure or function running during the interval.
 
@@ -214,7 +216,7 @@ AzureDiagnostics
 | project TimeGenerated, Message
 ```
 
-The procedure has multiple queries, which are highlighted below. The explained analysis of every query used in the stored procedure is logged in to analyze further and troubleshoot. The execution time of the queries logged can be used to identify the slowest queries that are part of the stored procedure.
+The procedure has multiple queries, which are highlighted below. The explain analyze output of every query used in the stored procedure is logged in to analyze further and troubleshoot. The execution time of the queries logged can be used to identify the slowest queries that are part of the stored procedure.
 
 ```sql
 2023-10-11 17:52:45 UTC-6526d7f0.7f67-LOG: duration: 38459.176 ms plan:
