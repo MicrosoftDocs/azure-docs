@@ -102,11 +102,11 @@ The cluster autoscaler uses startup parameters for things like time intervals be
 
 1. To enable cluster autoscaler on your existing cluster’s node pools, navigate to *Node pools* from your cluster's overview page in the Azure portal. Select the *scale method* for the node pool you’d like to adjust scaling settings for.
 
-    :::image type="content" source="./media/cluster-autoscaler/main-blade-column-inline.png" alt-text="The Azure portal page for a cluster's node pools is shown. The column for 'Scale method' is highlighted." lightbox="./media/cluster-autoscaler/main-blade-column.png":::
+    :::image type="content" source="./media/cluster-autoscaler/main-blade-column-inline.png" alt-text="Screenshot of the Azure portal page for a cluster's node pools. The column for 'Scale method' is highlighted." lightbox="./media/cluster-autoscaler/main-blade-column.png":::
 
 1. From here, you can enable or disable autoscaling, adjust minimum and maximum node count, and learn more about your node pool’s size, capacity, and usage. Select *Apply* to save your changes.
 
-    :::image type="content" source="./media/cluster-autoscaler/menu-inline.png" alt-text="The Azure portal page for a cluster's node pools is shown with the 'Scale node pool' menu expanded. The 'Apply' button is highlighted." lightbox="./media/cluster-autoscaler/menu.png":::
+    :::image type="content" source="./media/cluster-autoscaler/menu-inline.png" alt-text="Screenshot of the Azure portal page for a cluster's node pools is shown with the 'Scale node pool' menu expanded. The 'Apply' button is highlighted." lightbox="./media/cluster-autoscaler/menu.png":::
 
 ---
 
@@ -269,11 +269,11 @@ Use the following steps to configure logs to be pushed from the cluster autoscal
 
 1. Navigate to *Node pools* from your cluster's overview page in the Azure portal. Select any of the tiles for autoscale events, autoscale warnings, or scale-ups not triggered to get more details.
 
-    :::image type="content" source="./media/cluster-autoscaler/main-blade-tiles-inline.png" alt-text="The Azure portal page for a cluster's node pools is shown. The section displaying autoscaler events, warning, and scale-ups not triggered is highlighted." lightbox="./media/cluster-autoscaler/main-blade-tiles.png":::
+    :::image type="content" source="./media/cluster-autoscaler/main-blade-tiles-inline.png" alt-text="Screenshot of the Azure portal page for a cluster's node pools. The section displaying autoscaler events, warning, and scale-ups not triggered is highlighted." lightbox="./media/cluster-autoscaler/main-blade-tiles.png":::
 
 1. You’ll see a list of Kubernetes events filtered to `source: cluster-autoscaler` that have occurred within the last hour. With this information, you’ll be able to troubleshoot and diagnose any issues that might arise while scaling your nodes.
 
-    :::image type="content" source="./media/cluster-autoscaler/events-inline.png" alt-text="The Azure portal page for a cluster's  events is shown. The filter for source is highlighted, showing 'source: cluster-autoscaler'." lightbox="./media/cluster-autoscaler/events-inline.png":::
+    :::image type="content" source="./media/cluster-autoscaler/events-inline.png" alt-text="Screenshot of the Azure portal page for a cluster's events. The filter for source is highlighted, showing 'source: cluster-autoscaler'." lightbox="./media/cluster-autoscaler/events.png":::
 
 ---
 
