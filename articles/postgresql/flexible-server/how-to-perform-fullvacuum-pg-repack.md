@@ -53,7 +53,7 @@ To enable the pg_repack extension, follow the steps below:
 
 1. Add pg_repack extension under Azure extensions as shown below from the server parameters blade on Flexible server portal
 
-   :::image type="content" source="./media/how-to-perform-fullvacuum-pg-repack/portal.png" alt-text="Screenshot of server parameters blade with Azure extensions parameter."::: lightbox="./media/how-to-perform-fullvacuum-pg-repack/portal.png":::
+   :::image type="content" source="./media/how-to-perform-fullvacuum-pg-repack/portal.png" alt-text="Screenshot of server parameters blade with Azure extensions parameter." lightbox="./media/how-to-perform-fullvacuum-pg-repack/portal.png":::
 
 > [!NOTE]  
 > Making this change will not require a server restart.
