@@ -33,7 +33,7 @@ Currently, to get this access in a secured way, you need to directly interact wi
 - How to assign the right roles to the endpoint's identity so that it can read secrets from the secret stores.
 - How to implement the scoring logic for the deployment so that it uses the endpoint's managed identity to retrieve the secrets from the secret stores.
 
-The platform already supports these scenarios, and code examples that use managed identity to access external services are available [TODO @seokjin: provide link to examples]. However, to improve the experience, we introduce a way to achieve the same goal in a simplified, yet secured way.
+The platform already supports these scenarios, and [code example for using managed identities to access external services](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/managed/managed-identities) is available. However, to improve the experience, we introduce a way to achieve the same goal in a simplified, yet secured way.
 
 ## Managed identity associated with the endpoint
 
@@ -48,7 +48,7 @@ For more information on using managed identities of an endpoint, see [How to acc
 
 There are two ways to inject secrets:
 
-- Inject secrets yourself, using managed identities
+- Inject secrets yourself, using managed identities.
 - Inject secrets, using the secret injection feature.
 
 Both of these approaches involve two steps:
@@ -77,13 +77,13 @@ This approach to secret injection involves role assignment to the endpoint's ide
 
 __Role assignment to the endpoint's identity__:
 
-You can set a flag on the endpoint to allow the endpoint's system-assigned identity (SAI) to have the permission to read secrets from workspace connections. This means that the `Azure Machine Learning Workspace Connection Secret Reader` role (or equivalent) would be automatically assigned to the endpoint's identity. This is done if the following conditions are met:
+When you create an online endpoint, you can set a flag on the endpoint to allow the endpoint's system-assigned identity (SAI) to have the permission to read secrets from workspace connections. This means that the `Azure Machine Learning Workspace Connection Secret Reader` role would be automatically assigned to the endpoint's identity. This is done if the following conditions are met:
 
-- Your _user identity_, that is, the identity that creates the endpoint and deployment(s) has the permissions to read secrets from workspace connections when creating the endpoint and when creating the deployment(s) under the endpoint.
+- Your _user identity_, that is, the identity that creates the endpoint has the permissions to read secrets from workspace connections when creating the endpoint.
 - The endpoint uses a system-assigned identity.
 - The endpoint is defined with a flag to enforce access to default secret stores (workspace connections under the current workspace) when creating the endpoint.
 
-If you're using a user-assigned identity (UAI) for the endpoint, or if the Azure Key Vault is used as the secret store, you'll need to assign the role with proper permissions to the endpoint to identity yourself. [TODO @seokjin: confirm if this last sentence is correct?]
+If you're using a user-assigned identity (UAI) for the endpoint, or if the Azure Key Vault is used as the secret store, you'll need to assign the role with proper permissions to the endpoint identity yourself.
 
 __Secret retrieval and injection__:
 
@@ -91,16 +91,21 @@ In your deployment definition, instead of directly calling the APIs from workspa
 
 - If the endpoint was defined to enforce access to default secret stores (workspace connections under the current workspace) when creating the endpoint, your user identity that creates the deployment should have the permissions to read secrets from workspace connections.
 - The endpoint's identity has permissions to read secrets from either workspace connections or the Azure Key Vault, as referenced in the deployment definition.
-    - If these conditions were met when the endpoint was created, the endpoint's identity would already have these permissions.
-    - If these conditions were _not_ met when the endpoint was created, you'll need to assign the role with proper permissions to the endpoint's identity by yourself.
+    - If endpoint was successfully created with SAI and the flag set to enforce access to default secret stores, the endpoint's identity would already have these permissions.
+    - Else, the endpoint's identity might not have these permissions. In that case, you'll need to assign the role with proper permissions to the endpoint's identity by yourself.
 
 For more information on using secret injection, see [Deploy machine learning models to online endpoints with secret injection (preview)](how-to-deploy-online-endpoint-with-secret-injection.md).
 
 ### User identity and endpoint identity
 
-The _user identity_ is the identity that creates the endpoints and deployment(s) under the endpoint. 
+__The differences__:
 
-The _endpoint identity_ is the identity that runs the user container in deployments. This identity can be a user-assigned identity (UAI) or a system-assigned identity (SAI). As mentioned earlier, the In the case of an SAI, the endpoint identity is created automatically when you create the endpoint. In the case of a UAI, you need to create the identity first and then associate it with the endpoint when you create the endpoint.
+The _user identity_ is the identity that can be used to create the endpoints and deployment(s) under the endpoint. 
+
+
+The _endpoint identity_ is the identity that runs the user container in deployments. This identity can be a user-assigned identity (UAI) or a system-assigned identity (SAI). As mentioned earlier, in the case of an SAI, the endpoint identity is created automatically when you create the endpoint. In the case of a UAI, you need to create the identity first and then associate it with the endpoint when you create the endpoint.
+
+__Permissions needed for user identity__:
 
 When the endpoint is created with a system-assigned identity, and the flag is set to enforce access to the default secret stores, the user identity needs to have permissions to read secrets from workspace connections when creating the endpoint and creating the deployment(s) under the endpoint. This restriction ensures that only a user identity with the permission to read secrets can grant the endpoint identity the permission to read secrets.
 
@@ -108,13 +113,8 @@ When the endpoint is created with a system-assigned identity, and the flag is se
 
 - Similarly, if a user identity does not have the permissions to read secrets from workspace connections, but tries to create a deployment under the endpoint with a system-assigned identity and the endpoint's flag set to enforce access to the default secret stores, the deployment creation will be rejected.
 
-When using the secret injection feature, the user identity that creates the endpoint needs to have the permissions to read secrets from workspace connections or Azure Key Vault. The endpoint identity needs to have the permissions to read secrets from workspace connections or Azure Key Vault as well, if the user identity that creates the endpoint does not have the permissions to read secrets from workspace connections or Azure Key Vault. [@seokjin, this last sentence isn't complete]
 
 ## Related content
 
 - [Online endpoints](concept-endpoints-online.md)
 - [Deploy machine learning models to online endpoints with secret injection (preview)](how-to-deploy-online-endpoint-with-secret-injection.md)
-
-<!--
-Remove all the comments in this template before you sign-off or merge to the main branch.
--->
