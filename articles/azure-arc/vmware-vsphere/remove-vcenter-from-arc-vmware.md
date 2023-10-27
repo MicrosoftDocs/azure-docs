@@ -4,7 +4,7 @@ description: This article explains the steps to cleanly remove your VMware vCent
 author: snehithm
 ms.author: snmuvva
 ms.topic: how-to 
-ms.date: 10/17/2023
+ms.date: 03/28/2022
 ms.service: azure-arc
 ms.subservice: azure-arc-vmware-vsphere
 
@@ -361,9 +361,9 @@ To run the deboarding script, follow these steps:
 
 - **AVSId**: The Azure resource ID of the AVS instance. Specifying vCenterId or AVSId is mandatory.
 
-- **ApplianceConfigFilePath (optional)**: Path to kubeconfig, output from deploy command. Providing applianceconfigfilepath will also delete the appliance VM running on the vCenter.
+- **ApplianceConfigFilePath (optional)**: Path to kubeconfig, output from deploy command. Providing applianceconfigfilepath also deletes the appliance VM running on the vCenter.
 
-- **Force**: Using the Force flag will delete all the Azure resources without reaching resource bridge. Use this option if resource bridge VM isn't in running state.  
+- **Force**: Using the Force flag deletes all the Azure resources without reaching resource bridge. Use this option if resource bridge VM isn't in running state.  
 
 ### Remove VMware vSphere resources from Azure manually
 
@@ -384,7 +384,7 @@ If you aren't using the deboarding script, follow these steps to remove the VMwa
 
 6. Select **Remove from Azure**.
 
-    This action will only remove these resource representations from Azure. The resources will continue to remain in your vCenter. 
+    This action only removes these resource representations from Azure. The resources continue to remain in your vCenter. 
 
 7. Do the steps 4, 5, and 6 for **Resources pools/clusters/hosts**, **Templates**, **Networks**, and **Datastores**
 

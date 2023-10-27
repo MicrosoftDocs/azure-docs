@@ -52,9 +52,7 @@ landingContent:
           - text: Receive real-time telemetry
             url: receive-real-time-telemetry.md
           - text: Update the spacecraft TLE
-            url: update-tle.md 
-          - text: Cancel a contact
-            url: delete-contact.md     
+            url: update-tle.md  
 
   # Card
   - title: Tutorials & Architectures

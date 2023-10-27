@@ -1,26 +1,26 @@
 ---
-title: Kubernetes on Azure tutorial  - Prepare an application
+title: Kubernetes on Azure tutorial - Prepare an application for Azure Kubernetes Service (AKS)
 description: In this Azure Kubernetes Service (AKS) tutorial, you learn how to prepare and build a multi-container app with Docker Compose that you can then deploy to AKS.
 ms.topic: tutorial
-ms.date: 12/06/2022
+ms.date: 10/23/2023
 ms.custom: mvc
 
 #Customer intent: As a developer, I want to learn how to build a container-based application so that I can deploy the app to Azure Kubernetes Service.
 ---
 
-# Tutorial: Prepare an application for Azure Kubernetes Service (AKS)
+# Tutorial - Prepare an application for Azure Kubernetes Service (AKS)
 
 In this tutorial, part one of seven, you prepare a multi-container application to use in Kubernetes. You use existing development tools like Docker Compose to locally build and test the application. You learn how to:
 
 > [!div class="checklist"]
 >
-> * Clone a sample application source from GitHub
-> * Create a container image from the sample application source
-> * Test the multi-container application in a local Docker environment
+> * Clone a sample application source from GitHub.
+> * Create a container image from the sample application source.
+> * Test the multi-container application in a local Docker environment.
 
 Once completed, the following application runs in your local development environment:
 
-:::image type="content" source="./media/container-service-kubernetes-tutorials/azure-vote-local.png" alt-text="Screenshot showing the container image Azure Voting App running locally opened in a local web browser" lightbox="./media/container-service-kubernetes-tutorials/azure-vote-local.png":::
+:::image type="content" source="./media/container-service-kubernetes-tutorials/aks-store-application.png" alt-text="Screenshot showing the Azure Store Front App running locally opened in a local web browser." lightbox="./media/container-service-kubernetes-tutorials/aks-store-application.png":::
 
 In later tutorials, you upload the container image to an Azure Container Registry (ACR), and then deploy it into an AKS cluster.
 
@@ -31,112 +31,188 @@ This tutorial assumes a basic understanding of core Docker concepts such as cont
 To complete this tutorial, you need a local Docker development environment running Linux containers. Docker provides packages that configure Docker on a [Mac][docker-for-mac], [Windows][docker-for-windows], or [Linux][docker-for-linux] system.
 
 > [!NOTE]
-> Azure Cloud Shell does not include the Docker components required to complete every step in these tutorials. Therefore, we recommend using a full Docker development environment.
+> Azure Cloud Shell doesn't include the Docker components required to complete every step in these tutorials. Therefore, we recommend using a full Docker development environment.
 
 ## Get application code
 
-The [sample application][sample-application] used in this tutorial is a basic voting app consisting of a front-end web component and a back-end Redis instance. The web component is packaged into a custom container image. The Redis instance uses an unmodified image from Docker Hub.
+The [sample application][sample-application] used in this tutorial is a basic store front app including the following Kubernetes deployments and services:
 
-Use [git][] to clone the sample application to your development environment.
+:::image type="content" source="./media/container-service-kubernetes-tutorials/aks-store-architecture.png" alt-text="Screenshot of Azure Store sample architecture." lightbox="./media/container-service-kubernetes-tutorials/aks-store-architecture.png":::
 
-```console
-git clone https://github.com/Azure-Samples/azure-voting-app-redis.git
+* **Store front**: Web application for customers to view products and place orders.
+* **Product service**: Shows product information.
+* **Order service**: Places orders.
+* **Rabbit MQ**: Message queue for an order queue.
+
+1. Use [git][] to clone the sample application to your development environment.
+
+    ```console
+    git clone https://github.com/Azure-Samples/aks-store-demo.git
+    ```
+
+2. Change into the cloned directory.
+
+    ```console
+    cd aks-store-demo
+    ```
+
+## Review Docker Compose file
+
+The sample application you create in this tutorial uses the [*docker-compose-quickstart* YAML file](https://github.com/Azure-Samples/aks-store-demo/blob/main/docker-compose-quickstart.yml) in the [repository](https://github.com/Azure-Samples/aks-store-demo/tree/main) you cloned in the previous step.
+
+```yaml
+version: "3.7"
+services:
+  rabbitmq:
+    image: rabbitmq:3.11.17-management-alpine
+    container_name: 'rabbitmq'
+    restart: always
+    environment:
+      - "RABBITMQ_DEFAULT_USER=username"
+      - "RABBITMQ_DEFAULT_PASS=password"
+    ports:
+      - 15672:15672
+      - 5672:5672
+    healthcheck:
+      test: ["CMD", "rabbitmqctl", "status"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    volumes:
+      - ./rabbitmq_enabled_plugins:/etc/rabbitmq/enabled_plugins
+    networks:
+      - backend_services
+  orderservice:
+    build: src/order-service
+    container_name: 'orderservice'
+    restart: always
+    ports:
+      - 3000:3000
+    healthcheck:
+      test: ["CMD", "wget", "-O", "/dev/null", "-q", "http://orderservice:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    environment:
+      - ORDER_QUEUE_HOSTNAME=rabbitmq
+      - ORDER_QUEUE_PORT=5672
+      - ORDER_QUEUE_USERNAME=username
+      - ORDER_QUEUE_PASSWORD=password
+      - ORDER_QUEUE_NAME=orders
+      - ORDER_QUEUE_RECONNECT_LIMIT=3
+    networks:
+      - backend_services
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+  productservice:
+    build: src/product-service
+    container_name: 'productservice'
+    restart: always
+    ports:
+      - 3002:3002
+    healthcheck:
+      test: ["CMD", "wget", "-O", "/dev/null", "-q", "http://productservice:3002/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    networks:
+      - backend_services
+  storefront:
+    build: src/store-front
+    container_name: 'storefront'
+    restart: always
+    ports:
+      - 8080:8080
+    healthcheck:
+      test: ["CMD", "wget", "-O", "/dev/null", "-q", "http://storefront:80/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    environment:
+      - VUE_APP_PRODUCT_SERVICE_URL=http://productservice:3002/
+      - VUE_APP_ORDER_SERVICE_URL=http://orderservice:3000/
+    networks:
+      - backend_services
+    depends_on:
+      - productservice
+      - orderservice
+networks:
+  backend_services:
+    driver: bridge
 ```
 
-Change into the cloned directory.
+## Create container images and run application
 
-```console
-cd azure-voting-app-redis
-```
+You can use [Docker Compose][docker-compose] to automate building container images and the deployment of multi-container applications.
 
-The directory contains the application source code, a pre-created Docker compose file, and a Kubernetes manifest file. These files are used throughout the tutorial set. The contents and structure of the directory are as follows:
+1. Create the container image, download the Redis image, and start the application using the `docker compose` command.
 
-```output
-azure-voting-app-redis
-│   azure-vote-all-in-one-redis.yaml
-│   docker-compose.yaml
-│   LICENSE
-│   README.md
-│
-├───azure-vote
-│   │   app_init.supervisord.conf
-│   │   Dockerfile
-│   │   Dockerfile-for-app-service
-│   │   sshd_config
-│   │
-│   └───azure-vote
-│       │   config_file.cfg
-│       │   main.py
-│       │
-│       ├───static
-│       │       default.css
-│       │
-│       └───templates
-│               index.html
-│
-└───jenkins-tutorial
-        config-jenkins.sh
-        deploy-jenkins-vm.sh
-```
+    ```console
+    docker compose -f docker-compose-quickstart.yml up -d
+    ```
 
-## Create container images
+2. View the created images using the [`docker images`][docker-images] command.
 
-[Docker Compose][docker-compose] can be used to automate building container images and the deployment of multi-container applications.
+    ```console
+    docker images
+    ```
 
-The following command uses the sample `docker-compose.yaml` file to create the container image, download the Redis image, and start the application.
+    The following condensed example output shows the created images:
 
-```console
-docker compose up -d
-```
+    ```output
+    REPOSITORY                       TAG                          IMAGE ID
+    aks-store-demo-productservice    latest                       2b66a7e91eca
+    aks-store-demo-orderservice      latest                       54ad5de546f9
+    aks-store-demo-storefront        latest                       d9e3ac46a225
+    rabbitmq                         3.11.17-management-alpine    79a570297657
+    ...
+    ```
 
-When completed, use the [`docker images`][docker-images] command to see the created images. Two images are downloaded or created. The *azure-vote-front* image contains the front-end application. The *redis* image is used to start a Redis instance.
+3. View the running containers using the [`docker ps`][docker-ps] command.
 
-```
-$ docker images
-REPOSITORY                                     TAG       IMAGE ID       CREATED       SIZE
-mcr.microsoft.com/oss/bitnami/redis            6.0.8     3a54a920bb6c   2 years ago   103MB
-mcr.microsoft.com/azuredocs/azure-vote-front   v1        4d4d08c25677   5 years ago   935MB
-```
+    ```console
+    docker ps
+    ```
 
-Run the [`docker ps`][docker-ps] command to see the running containers.
+    The following condensed example output shows four running containers:
 
-```
-$ docker ps
-
-CONTAINER ID        IMAGE                                             COMMAND                  CREATED             STATUS              PORTS                           NAMES
-d10e5244f237        mcr.microsoft.com/azuredocs/azure-vote-front:v1   "/entrypoint.sh /sta…"   3 minutes ago       Up 3 minutes        443/tcp, 0.0.0.0:8080->80/tcp   azure-vote-front
-21574cb38c1f        mcr.microsoft.com/oss/bitnami/redis:6.0.8         "/opt/bitnami/script…"   3 minutes ago       Up 3 minutes        0.0.0.0:6379->6379/tcp          azure-vote-back
-```
+    ```output
+    CONTAINER ID        IMAGE
+    21574cb38c1f        aks-store-demo-productservice
+    c30a5ed8d86a        aks-store-demo-orderservice
+    d10e5244f237        aks-store-demo-storefront
+    94e00b50b86a        rabbitmq:3.11.17-management-alpine
+    ```
 
 ## Test application locally
 
 To see your running application, navigate to `http://localhost:8080` in a local web browser. The sample application loads, as shown in the following example:
 
-:::image type="content" source="./media/container-service-kubernetes-tutorials/azure-vote-local.png" alt-text="Screenshot showing the container image Azure Voting App running locally opened in a local web browser" lightbox="./media/container-service-kubernetes-tutorials/azure-vote-local.png":::
+:::image type="content" source="./media/container-service-kubernetes-tutorials/aks-store-application.png" alt-text="Screenshot showing the Azure Store Front App opened in a local browser." lightbox="./media/container-service-kubernetes-tutorials/aks-store-application.png":::
+
+On this page, you can view products, add them to your cart, and then place an order.
 
 ## Clean up resources
 
-Now that the application's functionality has been validated, the running containers can be stopped and removed. ***Do not delete the container images*** - in the next tutorial, you'll upload the *azure-vote-front* image to an ACR instance.
+Since you validated the application's functionality, you can stop and remove the running containers. ***Do not delete the container images*** - you use them in the next tutorial.
 
-To stop and remove the container instances and resources, use the [`docker-compose down`][docker-compose-down] command.
+* Stop and remove the container instances and resources using the [`docker-compose down`][docker-compose-down] command.
 
-```console
-docker compose down
-```
-
-When the local application has been removed, you have a Docker image that contains the Azure Vote application, *azure-vote-front*, to use in the next tutorial.
+    ```console
+    docker compose down
+    ```
 
 ## Next steps
 
 In this tutorial, you created a sample application, created container images for the application, and then tested the application. You learned how to:
 
 > [!div class="checklist"]
+> * Clone a sample application source from GitHub.
+> * Create a container image from the sample application source.
+> * Test the multi-container application in a local Docker environment.
 
-> * Clone a sample application source from GitHub
-> * Create a container image from the sample application source
-> * Test the multi-container application in a local Docker environment
-
-In the next tutorial, you'll learn how to store container images in an ACR.
+In the next tutorial, you learn how to store container images in an ACR.
 
 > [!div class="nextstepaction"]
 > [Push images to Azure Container Registry][aks-tutorial-prepare-acr]
@@ -151,7 +227,7 @@ In the next tutorial, you'll learn how to store container images in an ACR.
 [docker-ps]: https://docs.docker.com/engine/reference/commandline/ps/
 [docker-compose-down]: https://docs.docker.com/compose/reference/down
 [git]: https://git-scm.com/downloads
-[sample-application]: https://github.com/Azure-Samples/azure-voting-app-redis
+[sample-application]: https://github.com/Azure-Samples/aks-store-demo
 
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-acr]: ./tutorial-kubernetes-prepare-acr.md

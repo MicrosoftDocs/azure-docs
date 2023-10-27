@@ -18,14 +18,14 @@ The following diagram shows the steps you perform in this quickstart to configur
 
 :::image type="content" source="media/quickstart-create-configure-projects/create-environment-steps.png" alt-text="Diagram showing the stages required to configure a project for Deployment Environments.":::
 
-First, you create a project. Then, assign the dev center managed identity the Owner role to the subscription. Then, you configure the project by creating a project environment type. Finally, you give the development team access to the project by assigning the [Deployment Environments User](how-to-configure-deployment-environments-user.md) role to the project.
+First, you create a project. Then, assign the dev center managed identity the Contributor and the User Access Administrator roles to the subscription. Then, you configure the project by creating a project environment type. Finally, you give the development team access to the project by assigning the [Deployment Environments User](how-to-configure-deployment-environments-user.md) role to the project.
 
 You need to perform the steps in both quickstarts before you can create a deployment environment. 
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Azure role-based access control role with permissions to create and manage resources in the subscription, such as [Contributor](../role-based-access-control/built-in-roles.md#contributor) or [Owner](../role-based-access-control/built-in-roles.md#owner).
+- Azure role-based access control role with permissions to create and manage resources in the subscription, such as [Contributor](../role-based-access-control/built-in-roles.md#contributor)
 - An Azure Deployment Environments dev center with a catalog attached. If you don't have a dev center with a catalog, see [Quickstart: Create and configure a dev center](./quickstart-create-and-configure-devcenter.md).
 
 ## Create a project
@@ -82,7 +82,7 @@ To configure a project, add a [project environment type](how-to-configure-projec
    :::image type="content" source="./media/quickstart-create-configure-projects/add-project-environment-type-page.png" alt-text="Screenshot that shows adding details in the Add project environment type pane.":::
 
 > [!NOTE]
-> At least one identity (system-assigned or user-assigned) must be enabled for deployment identity. The identity is used to perform the environment deployment on behalf of the developer. Additionally, the identity attached to the dev center should be [assigned the Owner role](how-to-configure-managed-identity.md) for  access to the deployment subscription for each environment type.
+> At least one identity (system-assigned or user-assigned) must be enabled for deployment identity. The identity is used to perform the environment deployment on behalf of the developer. Additionally, the identity attached to the dev center should be [assigned the Contributor and the User Access Admistrator roles](how-to-configure-managed-identity.md) for  access to the deployment subscription for each environment type.
 
 ## Give access to the development team
 
