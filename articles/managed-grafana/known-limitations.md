@@ -11,7 +11,7 @@ author: maud-lv
 
 # Limitations of Azure Managed Grafana
 
-Azure Managed Grafana delivers the native Grafana functionality in the highest possible fidelity. There are some differences between what it provides and what you can get by self-hosting Grafana. As a general rule, Azure Managed Grafana disables features and settings that may affect the security or reliability of the service and individual Grafana instances it manages.
+Azure Managed Grafana delivers the native Grafana functionality in the highest possible fidelity. There are some differences between what it provides and what you can get by self-hosting Grafana. As a general rule, Azure Managed Grafana disables features and settings that might affect the security or reliability of the service and individual Grafana instances it manages.
 
 ## Current limitations
 
@@ -21,7 +21,7 @@ Azure Managed Grafana has the following known limitations:
 
 * Installing, uninstalling and upgrading plugins from the Grafana Catalog isn't possible.
 
-* Querying Azure Data Explorer may take a long time or return 50x errors. To resolve these issues, use a table format instead of a time series, shorten the time duration, or avoid having many panels querying the same data cluster that can trigger throttling.
+* Querying Azure Data Explorer might take a long time or return 50x errors. To resolve these issues, use a table format instead of a time series, shorten the time duration, or avoid having many panels querying the same data cluster that can trigger throttling.
 
 * Users can be assigned the following Grafana Organization level roles: Admin, Editor, or Viewer. The Grafana Server Admin role isn't available to customers.
 

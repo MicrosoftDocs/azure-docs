@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev
 ms.service: managed-grafana
 ms.topic: how-to 
-ms.date: 09/29/2023
+ms.date: 10/27/2023
 ms.custom: how-to, devx-track-azurecli
 ---
 
@@ -29,7 +29,6 @@ Public access is enabled by default when you create an Azure Grafana workspace. 
 > [!NOTE]
 > When private access (preview) is enabled, pinging charts using the [*Pin to Grafana*](../azure-monitor/visualize/grafana-plugin.md#pin-charts-from-the-azure-portal-to-azure-managed-grafana) feature will no longer work as the Azure portal can’t access a Managed Grafana workspace on a private IP address.
 
-instance
 ### [Portal](#tab/azure-portal)
 
 1. Navigate to your Azure Managed Grafana workspace in the Azure portal.
@@ -95,7 +94,7 @@ Once you have disabled public access, set up a [private endpoint](../private-lin
 
 1. Select **Next : DNS >** to configure a DNS record. If you don't want to make changes to the default settings, you can move forward to the next tab.
 
-   1. For **Integrate with private DNS zone**, select **Yes** to integrate your private endpoint with a private DNS zone. You may also use your own DNS servers or create DNS records using the host files on your virtual machines.
+   1. For **Integrate with private DNS zone**, select **Yes** to integrate your private endpoint with a private DNS zone. You can also use your own DNS servers or create DNS records using the host files on your virtual machines.
 
    1. A subscription and resource group for your private DNS zone are preselected. You can change them optionally.
 
