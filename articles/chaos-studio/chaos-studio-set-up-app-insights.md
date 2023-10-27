@@ -36,7 +36,7 @@ See screenshot below for an example:
 [![Screenshot that shows the Chaos Targets Page.](images/step-2a-app-insights.png)](images/step-2a-app-insights.png#lightbox)
 
 ## Step 3: Add your Application Insights account and Instrumentation key
-At this point, the resource configuration page seen in the screenshot should come up . After configuring your managed identity, make sure Application Insights is "Enabled" and then select your desired Application Insights Account and enter the Instrumentation Key you copied in Step 1. Once you have filled out the required information, you can click "Review+Create" to deploy your resource. 
+At this point, the Agent target configuration page seen in the screenshot should come up . After configuring your managed identity, make sure Application Insights is "Enabled" and then select your desired Application Insights Account and enter the Instrumentation Key you copied in Step 1. Once you have filled out the required information, you can click "Review+Create" to deploy your resource. 
 
 <br/>
 
