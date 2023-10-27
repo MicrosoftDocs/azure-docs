@@ -39,6 +39,10 @@ Document Intelligence supports more sophisticated analysis capabilities. These o
 
 * [`ocr.barcode`](#barcode-property-extraction)
 
+The following add-on capability is available for `2023-10-31-preview` and later releases:
+
+* [`queryFields`](#query-fields)
+
 ## High resolution extraction
 
 The task of recognizing small text from large-size documents, like engineering drawings, is a challenge. Often the text is mixed with other graphical elements and has varying fonts, sizes and orientations. Moreover, the text may be broken into separate parts or connected with other symbols. Document Intelligence now supports extracting content from these types of documents with the `ocr.highResolution` capability. You get improved quality of content extraction from A1/A2/A3 documents by enabling this add-on capability.
@@ -149,7 +153,47 @@ The `ocr.barcode` capability extracts all identified barcodes in the `barcodes` 
 | `Databar` |:::image type="content" source="media/barcodes/databar.png" alt-text="Screenshot of the Data bar.":::|
 | `Databar` Expanded |:::image type="content" source="media/barcodes/databar-expanded.gif" alt-text="Screenshot of the Data bar Expanded.":::|
 | `ITF` |:::image type="content" source="media/barcodes/interleaved-two-five.png" alt-text="Screenshot of the interleaved-two-of-five barcode (ITF).":::|
-| `Data Matrix` |:::image type="content" source="media/barcodes/datamatrix.gif" alt-text="Screenshot of the Data Matrix.":::|
+| `Data Matrix` |:::image type="content" source="media/barcodes/datamatrix.gif" alt-text="Screenshot of the Data Matrix.
+":::|
+
+#### Query Fields
+
+**Document Intelligence now supports query field extractions using Azure OpenAI capabilities. With query field extraction, you can add fields to the extraction process using a query request without the need for added training.
+
+> [!NOTE]
+>
+> Document Intelligence Studio query field extraction is currently available with the general document model starting with the `2023-10-31-preview` API and later releases.
+
+##### Query field extraction
+
+For query field extraction, specify the fields you want to extract and Document Intelligence analyzes the document accordingly. Here's an example:
+
+* If you're processing a contract in the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/document), use the `2023-10-31-preview` version:
+
+    :::image type="content" source="media/studio/query-fields.png" alt-text="Screenshot of the query fields button in Document Intelligence Studio.":::
+
+* You can pass a list of field labels like `Party1`, `Party2`, `TermsOfUse`, `PaymentTerms`, `PaymentDate`, and `TermEndDate`" as part of the analyze document request.
+
+   :::image type="content" source="media/studio/query-field-select.png" alt-text="Screenshot of query fields selection window in Document Intelligence Studio.":::
+
+* Document Intelligence utilizes the capabilities of both [**Azure OpenAI Service**](../../ai-services/openai/overview.md) and extraction models to analyze and extract the field data and return the values in a structured JSON output.
+
+* In addition to the query fields, the response includes text, tables, selection marks, general document key-value pairs, and other relevant data.
+
+##### Query fields REST API request**
+
+Use the query fields feature with the [general document model](concept-general-document.md), to add fields to the extraction process without having to train a custom model:
+
+```http
+POST https://{endpoint}/documentintelligence/documentModels/{modelId}:analyze?api-version=2023-10-31-preview&queryFields=Party1, Party2, PaymentDate HTTP/1.1
+Host: *.cognitiveservices.azure.com
+Content-Type: application/json
+Ocp-Apim-Subscription-Key:
+
+{
+  "urlSource": "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf"
+}
+```
 
 ## Next steps
 

@@ -43,20 +43,24 @@ The following table shows the available models for each current preview and stab
 
 |Model|[2023-10-31-preview](https://westus.dev.cognitive.microsoft.com/docs/services/document-intelligence-api-2023-10-31-preview/operations/AnalyzeDocument)|[2023-07-31 (GA)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)|[2022-08-31 (GA)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)|[v2.1 (GA)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)|
 |----------------|-----------|---|--|---|
-|Business Card        | deprecated|✔️|✔️|✔️ |
-|Contract             | ✔️| ✔️| n/a| n/a|
-|Custom               | ✔️| ✔️| ✔️| ✔️|
-|General Document     | deprecated| ✔️| ✔️| n/a|
-|Health Insurance Card| ✔️| ✔️| ✔️| n/a|
-|ID Document          | ✔️| ✔️| ✔️| ✔️|
-|Invoice              | ✔️| ✔️| ✔️| ✔️|
-|Layout               | ✔️| ✔️| ✔️| ✔️|
-|Read                 | ✔️| ✔️| ✔️| n/a|
-|Receipt              | ✔️| ✔️| ✔️| ✔️|
-|US 1098 Tax          | ✔️| ✔️| n/a| n/a|
-|US 1098-E Tax        | ✔️| ✔️| n/a| n/a|
-|US 1098-T Tax        | ✔️| ✔️| n/a| n/a|
-|US W2 Tax            | ✔️| ✔️| ✔️| n/a|
+|[Add-on capabilities](concept-add-on-capabilities.md)    | ✔️| ✔️| n/a| n/a|
+|[Business Card](concept-business-card.md)                | deprecated|✔️|✔️|✔️ |
+|[Contract](concept-contract.md)                          | ✔️| ✔️| n/a| n/a|
+|[Custom classifier](concept-custom-classifier.md)        | ✔️| ✔️| n/a| n/a|
+|[Custom composed](concept-composed-models.md)            | ✔️| ✔️| ✔️| ✔️|
+|[Custom neural](concept-custom-neural.md)                | ✔️| ✔️| ✔️| n/a|
+|[Custom template](concept-custom-template.md)            | ✔️| ✔️| ✔️| ✔️|
+|[General Document](concept-general-document.md)          | deprecated| ✔️| ✔️| n/a|
+|[Health Insurance Card](concept-health-insurance-card.md)| ✔️| ✔️| ✔️| n/a|
+|[ID Document](concept-id-document.md)                    | ✔️| ✔️| ✔️| ✔️|
+|[Invoice](concept-invoice.md)                            | ✔️| ✔️| ✔️| ✔️|
+|[Layout](concept-layout.md)                              | ✔️| ✔️| ✔️| ✔️|
+|[Read](concept-read.md)                                  | ✔️| ✔️| ✔️| n/a|
+|[Receipt](concept-receipt.md)                            | ✔️| ✔️| ✔️| ✔️|
+|[US 1098 Tax](concept-tax-document.md)                   | ✔️| ✔️| n/a| n/a|
+|[US 1098-E Tax](concept-tax-document.md)                 | ✔️| ✔️| n/a| n/a|
+|[US 1098-T Tax](concept-tax-document.md)                 | ✔️| ✔️| n/a| n/a|
+|[US W2 Tax](concept-tax-document.md)                     | ✔️| ✔️| ✔️| n/a|
 
 ::: moniker range=">=doc-intel-3.0.0"
 
