@@ -65,7 +65,7 @@ Otherwise, if you want to run batch run with evaluation now, you can select an e
 
 :::image type="content" source="./media/how-to-bulk-test-evaluate-flow/batch-run-evaluation-selection.png" alt-text="Screenshot of evaluation settings where you can select built-in evaluation method from drop-down box." lightbox = "./media/how-to-bulk-test-evaluate-flow/batch-run-evaluation-selection.png":::
 
-In the  **"input mapping"**  section, you need to specify the sources of the input data that are needed for the evaluation method. For example, ground truth column may come from a dataset. By default, evaluation will use the same dataset as the test dataset provided to the tested run. However, if the corresponding labels or target ground truth values are in a different dataset, you can easily switch to that one.  
+In the  **"input mapping"**  section, you need to specify the sources of the input data that are needed for the evaluation method. For example, ground truth column might come from a dataset. By default, evaluation will use the same dataset as the test dataset provided to the tested run. However, if the corresponding labels or target ground truth values are in a different dataset, you can easily switch to that one.  
 
 Therefore, to run an evaluation, you need to indicate the sources of these required inputs. To do so, when submitting an evaluation, you'll see an  **"input mapping"**  section.
 

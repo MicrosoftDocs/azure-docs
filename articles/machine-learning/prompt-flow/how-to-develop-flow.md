@@ -1,5 +1,5 @@
 ---
-title: Develop a flow in prompt flow
+title: Develop a flow in Prompt flow
 titleSuffix: Azure Machine Learning
 description: Learn how to develop a prompt flow with Azure Machine Learning studio.
 services: machine-learning
@@ -32,8 +32,6 @@ In studio, select **Prompt flow** tab in the left navigation bar. Select **Creat
 ### Authoring the flow
 
 At the left, it's the flatten view, the main working area where you can author the flow, for example add tools in your flow, edit the prompt, set the flow input data, run your flow, view the output, etc.
-
-![Screenshot of prompt flow main working area](./media/how-to-develop-flow/flow-authoring-layout.png)
 
 :::image type="content" source="./media/how-to-develop-flow/flow-authoring-layout.png" alt-text="Screenshot of the prompt flow main working area." lightbox ="./media/how-to-develop-flow/flow-authoring-layout.png":::
 
@@ -93,7 +91,7 @@ At its core, conditional control provides the capability to associate each node 
 Specifically, you can set the activate config for a node by selecting the **Activate config** button in the node card. You can add "when" statement and set the condition.
 You can set the conditions by referencing the flow input, or node output. For example, you can set the condition `${input.[input name]}` as specific value or `${[node name].output}` as specific value.
 
-If the condition is not met, the node will be skipped. The node status is shown as "Bypassed".
+If the condition isn't met, the node will be skipped. The node status is shown as "Bypassed".
 
 :::image type="content" source="./media/how-to-develop-flow/conditional-flow.png" alt-text="Screenshot of setting activate config to enable conditional control." lightbox ="./media/how-to-develop-flow/conditional-flow.png":::
 
