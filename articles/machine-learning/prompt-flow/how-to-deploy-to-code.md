@@ -290,7 +290,7 @@ az ml online-deployment create --file blue-deployment.yml --all-traffic
 
 > [!TIP]
 >
-> If you prefer not to block your CLI console, you may add the flag `--no-wait` to the command. However, this will stop the interactive display of the deployment status.
+> If you prefer not to block your CLI console, you can add the flag `--no-wait` to the command. However, this will stop the interactive display of the deployment status.
 
 > [!IMPORTANT]
 >
@@ -334,13 +334,13 @@ ENDPOINT_URI=<your-endpoint-uri>
 curl --request POST "$ENDPOINT_URI" --header "Authorization: Bearer $ENDPOINT_KEY" --header 'Content-Type: application/json' --data '{"question": "What is Azure Machine Learning?", "chat_history":  []}'
 ```
 
-Note that you can get your endpoint key and your endpoint URI from the AzureML workspace in **Endpoints** > **Consume** > **Basic consumption info**.
+Note that you can get your endpoint key and your endpoint URI from the Azure Machine Learning workspace in **Endpoints** > **Consume** > **Basic consumption info**.
 
 ## Advanced configurations
 
 ### Deploy with different connections from flow development
 
-You may want to overide connetions of the flow during deployment.
+You might want to override connections of the flow during deployment.
 
 For example, if your flow.dag.yaml file uses a connection named `my_connection`, you can override it by adding environment variables of the deployment yaml like following:
 
@@ -407,7 +407,7 @@ This section will show you how to use a docker build context to specify the envi
 
 #### Monitor prompt flow deployment metrics
 
-You can monitor general metrics of online deployment (request numbers, request latency, network bytes, CPU/GPU/Disk/Memory utilization, and more), and prompt flow deployment specific metrics (toekn consumption, flow latency, etc) by adding `app_insights_enabled: true` in the deployment yaml file. Learn more about [metrics of prompt flow deployment](./how-to-deploy-for-real-time-inference.md#view-endpoint-metrics).
+You can monitor general metrics of online deployment (request numbers, request latency, network bytes, CPU/GPU/Disk/Memory utilization, and more), and prompt flow deployment specific metrics (token consumption, flow latency, etc.) by adding `app_insights_enabled: true` in the deployment yaml file. Learn more about [metrics of prompt flow deployment](./how-to-deploy-for-real-time-inference.md#view-endpoint-metrics).
 
 
 ## Next steps
