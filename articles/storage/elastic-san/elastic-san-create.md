@@ -17,7 +17,7 @@ This article explains how to deploy and configure an elastic storage area networ
 
 - If you're using Azure PowerShell, install the [latest Azure PowerShell module](/powershell/azure/install-azure-powershell).
 - If you're using Azure CLI, install the [latest version](/cli/azure/install-azure-cli).
-    - Once you've installed the latest version, run `az extension add -n elastic-san` to install the extension for Elastic SAN.
+- Once you've installed the latest version, run `az extension add -n elastic-san` to install the extension for Elastic SAN.
 There are no additional registration steps required.
 
 ## Limitations
@@ -44,7 +44,7 @@ There are no additional registration steps required.
 
 # [PowerShell](#tab/azure-powershell)
 
-Use one of these sets of sample code to create an Elastic SAN that uses locally redundant storage or zone-redundant storage. Replace all placeholder text with your own values and use the same variables in of all the examples in this article:
+Use one of these sets of sample code to create an Elastic SAN that uses locally redundant storage or zone-redundant storage. Replace all placeholder text with your own values and use the same variables in all of the examples in this article:
 
 | Placeholder                      | Description |
 |----------------------------------|-------------|
@@ -89,7 +89,7 @@ New-AzElasticSAN -ResourceGroupName $RgName -Name $EsanName -Location $Location 
 
 # [Azure CLI](#tab/azure-cli)
 
-Use one of these sets of sample code to create an Elastic SAN that uses locally redundant storage or zone-redundant storage. Replace all placeholder text with your own values and use the same variables in of all the examples in this article:
+Use one of these sets of sample code to create an Elastic SAN that uses locally redundant storage or zone-redundant storage. Replace all placeholder text with your own values and use the same variables in all of the examples in this article:
 
 | Placeholder                      | Description |
 |----------------------------------|-------------|
