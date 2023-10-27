@@ -22,7 +22,7 @@ ms.author: lajanuar
 | Business card model|&bullet; v3.1:2023-07-31 (GA)</br>&bullet; v3.0:2022-08-31 (GA)</br>&bullet; v2.1 (GA)|**`prebuilt-businessCard`**|
 
 ::: moniker range=">=doc-intel-3.1.0"
-[!INCLUDE [applies to v3.1](includes/applies-to-v31.md)]
+This content applies to: checkmark v3.1 (GA) | Previous versions: blue-checkmark v3.0 blue-checkmark v2.1
 ::: moniker-end
 
 ::: moniker range="doc-intel-3.0.0"
