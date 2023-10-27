@@ -109,58 +109,6 @@ sections:
           
           To view solutions in the Azure portal, select **More** in the **Insights** section of the **Monitor** menu. Select **Add** to add more solutions to the workspace.
           
-  - name: Logs
-    questions:
-      - question: |
-          What's the difference between Azure Monitor Logs and Azure Data Explorer?
-        answer: |
-          Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. Azure Monitor Logs is built on top of Azure Data Explorer and uses the same Kusto Query Language (KQL) with some minor differences. See [Azure Monitor log query language differences](/azure/data-explorer/kusto/query/).
-          
-      - question: |
-          How do I retrieve log data?
-        answer: |
-          All data is retrieved from a Log Analytics workspace by using a log query written using Kusto Query Language (KQL). You can write your own queries or use solutions and insights that include log queries for a particular application or service. See [Overview of log queries in Azure Monitor](logs/log-query-overview.md).
-          
-      - question: |
-          Can I delete data from a Log Analytics workspace?
-        answer: |
-          Data is removed from a workspace according to its [retention period](logs/data-retention-archive.md). You can delete specific data for privacy or compliance reasons. See [Export and delete private data](logs/personal-data-mgmt.md#exporting-and-deleting-personal-data).
-          
-      - question: |
-          Is Log Analytics storage immutable?
-        answer: |
-          Data in database storage can't be altered after it's ingested, but it can be deleted via the [Purge API path that's used for deleting private data](./logs/personal-data-mgmt.md#delete). Although data can't be altered, some certifications require that data is kept immutable, and can't be changed or deleted in storage. Data immutability can be achieved by using [data export](./logs/logs-data-export.md) to a storage account that's configured as [immutable storage](../storage/blobs/immutable-policy-configure-version-scope.md).
-          
-      - question: |
-          What's a Log Analytics workspace?
-        answer: |
-          All log data collected by Azure Monitor is stored in a Log Analytics workspace. A workspace is essentially a container where log data is collected from various sources. You might have a single Log Analytics workspace for all your monitoring data, or you might have requirements for multiple workspaces. See [Design a Log Analytics workspace configuration](logs/workspace-design.md).
-          
-      - question: |
-          Can you move an existing Log Analytics workspace to another Azure subscription?
-        answer: |
-          You can move a workspace between resource groups or subscriptions but not to a different region. See [Move a Log Analytics workspace to a different subscription or resource group](logs/move-workspace.md).
-          
-      - question: |
-          Why can't I see Query Explorer and Save buttons in Log Analytics?
-        answer: |
-          **Query Explorer**, **Save**, and **New alert rule** buttons aren't available when the [query scope](logs/scope.md) is set to a specific resource. To create alerts or save or load a query, Log Analytics must be scoped to a workspace. To open Log Analytics in workspace context, select **Logs** from the **Azure Monitor** menu. The last used workspace is selected, but you can select any other workspace. See [Log query scope and time range in Azure Monitor Log Analytics](logs/scope.md).
-          
-      - question: |
-          Why am I getting the error "Register resource provider Microsoft.Insights for this subscription to enable this query" when I open Log Analytics from a VM?
-        answer: |
-          Many resource providers are automatically registered, but you might need to register some resource providers manually. The scope for registration is always the subscription. See [Resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
-          
-      - question: |
-          Why am I not getting an access error message when I open Log Analytics from a VM?
-        answer: |
-          To view VM logs, you need read permission for the workspace that stores the VM logs. In these cases, an administrator must grant your permission in Azure.
-
-      - question: |
-          Why can't I create an AzureDiagnostics table via template or modify schema via an API?
-        answer: |
-          `AzureDiagnostics` is a unique table that Log Analytics creates from data ingestion. Its schema can't be configured. A retention policy can be applied after the table is generated.
-  
   - name: Metrics
     questions:
       - question: |
@@ -223,17 +171,6 @@ sections:
         answer: |
            During node updates you might see a 1 to 2 minute gap in metric data for metrics collected from our cluster level collectors because the node that it runs on is being updated as part of a normal update process. This affects cluster-wide targets such as kube-state-metrics and custom application targets that are specified. This occurs when your cluster is updated manually or via auto-update. This is expected behavior that occurs due to the node it runs on being updated. None of our recommended alert rules are affected by this behavior. 
            
-  - name: Change Analysis
-    questions:
-      - question: |
-          Does using Change Analysis incur cost?
-        answer: |
-          You can use Change Analysis at no extra cost. Enable the `Microsoft.ChangeAnalysis` resource provider, and anything supported by Change Analysis is open to you.
-      - question: |
-          How can I enable Change Analysis for a web application?
-        answer: |
-          Enable Change Analysis for web application in guest changes by using the [Diagnose and solve problems tool](change/change-analysis-visualizations.md#diagnose-and-solve-problems-tool).
-
   - name: Alerts
     questions:
       - question: |
