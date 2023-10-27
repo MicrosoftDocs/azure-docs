@@ -93,10 +93,11 @@ Add a filter on the **Instance ID** column for **contains workspace** or **conta
 
 ## Usage and estimated costs
 You can get additional usage details about Log Analytics workspaces and Application Insights resources from the **Usage and Estimated Costs** option for each.
+
 ### Log Analytics workspace
 To learn about your usage trends and choose the most cost-effective [commitment tier](logs/cost-logs.md#commitment-tiers) for your Log Analytics workspace, select **Usage and Estimated Costs** from the **Log Analytics workspace** menu in the Azure portal. 
 
-:::image type="content" source="logs/media/manage-cost-storage/usage-estimated-cost-dashboard-01.png" alt-text="Usage and estimated costs":::
+:::image type="content" source="media/cost-usage/usage-estimated-cost-dashboard-01.png" alt-text="Usage and estimated costs":::
 
 This view includes the following:
 
