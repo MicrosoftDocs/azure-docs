@@ -12,9 +12,9 @@ ms.reviewer: aul
 In addition to the default scrape targets that Azure Monitor Prometheus agent scrapes by default, use the following steps to provide more scrape config to the agent using a configmap. The Azure Monitor Prometheus agent doesn't understand or process operator [CRDs](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) for scrape configuration, but instead uses the native Prometheus configuration as defined in [Prometheus configuration](https://aka.ms/azureprometheus-promioconfig-scrape).
 
 The three configmaps that can be used for custom target scraping are -
-- ama-metrics-prometheus-config (Recommended) - When a configmap with this name is created, scrape jobs defined in it are run from the Azure monitor metrics replica pod running in the cluster.
-- ama-metrics-prometheus-config-node (Advanced) - When a configmap with this name is created, scrape jobs defined in it are run from each **Linux** DaemonSet pod running in the cluster. For more information, see [Advanced Setup](#advanced-setup-configure-custom-prometheus-scrape-jobs-for-the-daemonset).
-- ama-metrics-prometheus-config-node-windows (Advanced) - When a configmap with this name is created, scrape jobs defined in it are run from each **windows** DaemonSet. For more information, see [Advanced Setup](#advanced-setup-configure-custom-prometheus-scrape-jobs-for-the-daemonset).
+- ama-metrics-prometheus-config **Recommended** - When a configmap with this name is created, scrape jobs defined in it are run from the Azure monitor metrics replica pod running in the cluster.
+- ama-metrics-prometheus-config-node **Advanced** - When a configmap with this name is created, scrape jobs defined in it are run from each **Linux** DaemonSet pod running in the cluster. For more information, see [Advanced Setup](#advanced-setup-configure-custom-prometheus-scrape-jobs-for-the-daemonset).
+- ama-metrics-prometheus-config-node-windows **Advanced** - When a configmap with this name is created, scrape jobs defined in it are run from each **windows** DaemonSet. For more information, see [Advanced Setup](#advanced-setup-configure-custom-prometheus-scrape-jobs-for-the-daemonset).
 
 ## Create Prometheus configuration file
 
