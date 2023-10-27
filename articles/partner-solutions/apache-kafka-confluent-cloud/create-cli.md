@@ -5,8 +5,7 @@ ms.topic: quickstart
 ms.date: 06/07/2021
 author: flang-msft
 ms.author: franlanglois
-ms.custom: mode-api, devx-track-azurecli 
-ms.devlang: azurecli
+
 ---
 
 # QuickStart: Get started with Apache Kafka for Confluent Cloud - Azure CLI
