@@ -16,7 +16,7 @@ Azure Backup now allows you to back up AKS clusters (cluster resources and persi
 
 ## Prerequisites
 
-- Identify or [create a Backup vault](create-manage-backup-vault.mdlt) in the same region where you want to back up the AKS cluster.
+- Identify or [create a Backup vault](create-manage-backup-vault.md) in the same region where you want to back up the AKS cluster.
 - [Install the Backup Extension](quick-install-backup-extension.md) in the AKS cluster to be backed up. 
 
 
