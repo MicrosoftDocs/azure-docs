@@ -1,5 +1,5 @@
 ---
-title: Migrating to Transport Layer Security (TLS) 1.2 for Azure Blob Storage
+title: Migrate to Transport Layer Security (TLS) 1.2 for Azure Blob Storage
 titleSuffix: Azure Storage
 description: Avoid disruptions to client applications that connect to your storage account by migrating to Transport Layer Security (TLS) version 1.2.
 services: storage
@@ -13,7 +13,7 @@ ms.subservice: storage-common-concepts
 ms.devlang: csharp
 ---
 
-# Migrating to TLS 1.2 for Azure Blob Storage
+# Migrate to TLS 1.2 for Azure Blob Storage
 
 On **Nov 1, 2024**, Azure Blob Storage will stop supporting versions 1.0 and 1.1 of Transport Layer Security (TLS). TLS 1.2 will become the new minimum TLS version. This change impacts all existing and new blob storage accounts, using TLS 1.0 and 1.1 in all clouds. Storage accounts already using TLS 1.2 aren't impacted by this change.
 
