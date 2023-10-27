@@ -1,7 +1,7 @@
 ---
-title: Create, update, delete dev box definitions
+title: Manage dev box definitions
 titleSuffix: Microsoft Dev Box
-description: Microsoft Dev Box dev box definitions define a source image, compute size, and storage size for your dev boxes with. Learn how to manage dev box definitions.
+description: Microsoft Dev Box dev box definitions define a source image, compute size, and storage size for your dev boxes. Learn how to manage dev box definitions.
 services: dev-box
 ms.service: dev-box
 author: RoseHJM
@@ -13,7 +13,7 @@ ms.topic: how-to
 
 # Manage a dev box definition
 
-A dev box definition is a Microsoft Dev Box resource that specifies a source image, compute size, and storage size.
+In this article, you learn how to manage a dev box definition by using the Azure portal. A dev box definition is a Microsoft Dev Box resource that specifies the source image, compute size, and storage size for a dev box.
 
 Depending on their task, development teams have different software, configuration, compute, and storage requirements. You can create a new dev box definition to fulfill each team's needs. There's no limit to the number of dev box definitions that you can create, and you can use dev box definitions across multiple projects in a dev center.
 
@@ -27,7 +27,10 @@ To manage a dev box definition, you need the following permissions:
 
 ## Sources of images
 
-When you create a dev box definition, you can choose a preconfigured image from Azure Marketplace or a custom image from Azure Compute Gallery.
+When you create a dev box definition, you need to select a virtual machine image. Microsoft Dev Box supports the following types of images:
+
+- Preconfigured images from the Azure Marketplace
+- Custom images stored in an Azure compute gallery
 
 ### Azure Marketplace
 
@@ -37,20 +40,20 @@ When you're selecting an Azure Marketplace image, consider using an image that h
 
 ### Azure Compute Gallery
 
-Azure Compute Gallery enables you to store and manage a collection of custom images. You can build an image to your dev team's exact requirements and store it in a gallery.
+Azure Compute Gallery enables you to store and manage a collection of custom images. You can build an image to your dev team's exact requirements and store it in a compute gallery.
 
-To use the custom image while creating a dev box definition, attach the gallery to your dev center. To learn how to attach a gallery, see [Configure Azure Compute Gallery](how-to-configure-azure-compute-gallery.md).
+To use the custom image while creating a dev box definition, attach the compute gallery to your dev center in Microsoft Dev Box. Follow these steps to [attach a compute gallery to a dev center](how-to-configure-azure-compute-gallery.md).
 
 ## Image versions
 
-When you select an image to use in your dev box definition, you must specify whether you'll use updated versions of the image:
+When you select an image to use in your dev box definition, you must specify which version of the image you want to use:
 
 - **Numbered image versions**: If you want a consistent dev box definition in which the base image doesn't change, use a specific, numbered version of the image. Using a numbered version ensures that all the dev boxes in the pool always use the same version of the image.
 - **Latest image versions**: If you want a flexible dev box definition in which you can update the base image as needs change, use the latest version of the image. This choice ensures that new dev boxes use the most recent version of the image. Existing dev boxes aren't modified when an image version is updated.
 
 ## Create a dev box definition
 
-You can create multiple dev box definitions to meet the needs of your developer teams.
+In Microsoft Dev Box, you can create multiple dev box definitions to meet the needs of your developer teams. You associate dev box definitions with a dev center.
 
 The following steps show you how to create a dev box definition by using an existing dev center. If you don't have an available dev center, follow the steps in [Quickstart: Configure Microsoft Dev Box](./quickstart-configure-dev-box-service.md) to create one.
 
@@ -87,7 +90,7 @@ The following steps show you how to create a dev box definition by using an exis
 
 ## Update a dev box definition
 
-Over time, your needs for dev boxes will change. You might want to move from a Windows 10 base operating system to a Windows 11 base operating system, or increase the default compute specification for your dev boxes. Your initial dev box definitions might no longer be appropriate for your needs. You can update a dev box definition so that new dev boxes will use the new configuration.
+Over time, your needs for dev boxes can change. You might want to move from a Windows 10 base operating system to a Windows 11 base operating system, or increase the default compute specification for your dev boxes. Your initial dev box definitions might no longer be appropriate for your needs. You can update a dev box definition so that new dev boxes use the new configuration.
 
 You can update the image, image version, compute, and storage settings for a dev box definition:
 
@@ -115,6 +118,8 @@ You can update the image, image version, compute, and storage settings for a dev
 
 You can delete a dev box definition when you no longer want to use it. Deleting a dev box definition is permanent and can't be undone. Dev box definitions can't be deleted if one or more dev box pools are using them.
 
+To delete a dev box definition in the Azure portal: 
+
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. In the search box, enter **dev center**. In the list of results, select **Dev centers**.
@@ -133,7 +138,7 @@ You can delete a dev box definition when you no longer want to use it. Deleting 
 
     :::image type="content" source="./media/how-to-manage-dev-box-definitions/delete-warning.png" alt-text="Screenshot of the warning message about deleting a dev box definition.":::
 
-## Next steps
+## Related content
 
 - [Provide access to projects for project admins](./how-to-project-admin.md)
 - [Configure Azure Compute Gallery](./how-to-configure-azure-compute-gallery.md)
