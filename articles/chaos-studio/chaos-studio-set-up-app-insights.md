@@ -27,7 +27,8 @@ Once you have met all the prerequisite steps, copy the **Instrumentation Key** f
 [![Screenshot that shows Instrumentation Key in App Insights.](images/step-1a-app-insights.png)](images/step-1a-app-insights.png#lightbox)
 
 ## Step 2: Enable the Target Platform for your Agent-Based Fault with Application Insights
-Navigate to the Chaos Studio overview page and click on the **Targets** blade under the "Experiments Management" section. Find the target platform, ensure it's enabled for agent-based faults, and select "Manage Actions" in the right-most column. See screenshot below for an example:
+Navigate to the Chaos Studio overview page and click on the **Targets** blade under the "Experiments Management" section. Find the target platform. If it is already enabled as a target for agent-based experiments, you will need to disable it as a target and then re-enable it for agent-based faults to bring up the resource configuration pane.
+See screenshot below for an example:
 <br/>
 
 <br/>
