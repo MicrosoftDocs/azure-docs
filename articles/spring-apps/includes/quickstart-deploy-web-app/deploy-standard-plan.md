@@ -114,20 +114,20 @@ Use the following steps to connect your service instances:
 
 1. From the navigation pane, open the **Apps** pane and select **Create App**.
 
-1. On the **Create App** page, fill in the app name *simple-todo-web* and select *Java 17* as the runtime platform.
+1. On the **Create App** page, use *simple-todo-web* as the app name, and then select **Java 17** as the runtime platform.
 
    :::image type="content" source="../../media/quickstart-deploy-web-app/create-app.png" alt-text="Screenshot of the Azure portal that shows the Create app pane." lightbox="../../media/quickstart-deploy-web-app/create-app.png":::
 
 1. Select **Create** to finish the app creation and select the app to view details.
 
-1. Select **Service Connector** from the navigation pane, and select **Create** to create a new service connection.
+1. Select **Service Connector** from the navigation pane and then select **Create** to create a new service connection.
 
    :::image type="content" source="../../media/quickstart-deploy-web-app/app-service-connector.png" alt-text="Screenshot of the Azure portal that shows the Service Connector page with the Create button highlighted." lightbox="../../media/quickstart-deploy-web-app/app-service-connector.png":::
 
 1. Fill out the **Basics** tab with the following information:
 
     - **Service type**: **DB for PostgreSQL flexible server**
-    - **Connection name**: An automatically generated name will be populated, which can also be modified.
+    - **Connection name**: An automatically generated name is populated, which can be modified.
     - **Subscription**: Select your subscription.
     - **PostgreSQL flexible server**: *my-demo-pgsql*
     - **PostgreSQL database**: Select the database you created.
@@ -138,15 +138,15 @@ Use the following steps to connect your service instances:
 1. Configure the **Next: Authentication** tab with the following information:
 
    - **Select the authentication type you'd like to use between your compute service and target service.**: Select **Connection string**.
-   - **Continue with...**: Select **Database credentials**
+   - **Continue with...**: Select **Database credentials**.
    - **Username**: *myadmin*
    - **Password**: Enter your password.
 
    :::image type="content" source="../../media/quickstart-deploy-web-app/app-service-connector-authentication.png" alt-text="Screenshot of the Azure portal that shows the Authentication tab of the Create connection pane with the Connection string option highlighted." lightbox="../../media/quickstart-deploy-web-app/app-service-connector-authentication.png":::
 
-1. Select **Next: Networking**, Use the default option **Configure firewall rules to enable access to target service.**.
+1. Select **Next: Networking**. Use the default option **Configure firewall rules to enable access to target service.**.
 
-1. Select **Next: Review and Create** to review your selections, then select **Create** to create the connection.
+1. Select **Next: Review and Create** to review your selections and then select **Create** to create the connection.
 
 ### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
@@ -214,12 +214,12 @@ Use the following steps to deploy with the [Maven plugin for Azure Spring Apps](
 
    The following list describes the command interactions:
 
-    - **Select child modules to configure**: Select the module to configure, then enter the number of the *SimpleTodo Web* module.
-    - **OAuth2 login**: Authorize the login to Azure based on the OAuth2 protocol.
-    - **Select subscription**: Select the subscription list number of the Azure Spring Apps instance you created, which defaults to the first subscription in the list. If you use the default number, press <kbd>ENTER</kbd> directly.
-    - **Select Azure Spring Apps**: Select the number of the Azure Spring Apps instance you created. If you use the default number, press <kbd>ENTER</kbd> directly.
-    - **Expose public access for this app?**: Press <kbd>y</kbd>.
-    - **Confirm to save all the above configurations (Y/n)**: Press <kbd>y</kbd>. If you press <kbd>n</kbd>, the configuration isn't saved in the POM files.
+   - **Select child modules to configure**: Select the module to configure, then enter the number of the *SimpleTodo Web* module.
+   - **OAuth2 login**: Authorize the sign in to Azure based on the OAuth2 protocol.
+   - **Select subscription**: Select the subscription list number of the Azure Spring Apps instance you created, which defaults to the first subscription in the list. If you use the default number, press<kbd>ENTER</kbd> directly.
+   - **Select Azure Spring Apps**: Select the number of the Azure Spring Apps instance you created. If you use the default number, press <kbd>ENTER</kbd> directly.
+   - **Expose public access for this app?**: Press <kbd>y</kbd>.
+   - **Confirm to save all the above configurations (Y/n)**: Press <kbd>y</kbd>. If you press <kbd>n</kbd>, the configuration isn't saved in the POM files.
 
 1. Use the following command to deploy the app:
 
@@ -229,7 +229,7 @@ Use the following steps to deploy with the [Maven plugin for Azure Spring Apps](
 
    The following list describes the command interaction:
 
-    - **OAuth2 login**: You need to authorize the sign in to Azure based on the OAuth2 protocol.
+   - **OAuth2 login**: You need to authorize the sign in to Azure based on the OAuth2 protocol.
 
    After the command is executed, you can see from the following log messages that the deployment was successful:
 

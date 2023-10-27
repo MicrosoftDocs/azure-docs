@@ -64,20 +64,20 @@ Use the following steps to connect your service instances:
 
 1. Go to your Azure Spring Apps instance in the Azure portal.
 
-1. From the navigation pane, open the **Apps** pane and then select **Create App**.
+1. From the navigation pane, open **Apps**, and then select **Create App**.
 
-1. On the **Create App** page, fill in the app name *simple-todo-web* and leave other with default values.
+1. On the **Create App** page, use *simple-todo-web* as the app name, and leave all other with default values.
 
-1. Select **Create** to finish the app creation and select the app to view the details.
+1. Select **Create** to finish creating the app and then select the app to view the details.
 
-1. Select **Service Connector** from the navigation pane, and select **Create** to create a new service connection.
+1. Select **Service Connector** from the navigation pane and then select **Create** to create a new service connection.
 
    :::image type="content" source="../../media/quickstart-deploy-web-app/app-service-connector-enterprise.png" alt-text="Screenshot of the Azure portal that shows the enterprise plan Service Connector page with the Create button highlighted." lightbox="../../media/quickstart-deploy-web-app/app-service-connector-enterprise.png":::
 
 1. Fill out the **Basics** tab with the following information:
 
     - **Service type**: **DB for PostgreSQL flexible server**
-    - **Connection name**: An automatically generated name will be populated, which can also be modified.
+    - **Connection name**: An automatically generated name is populated, which can be modified.
     - **Subscription**: Select your subscription.
     - **PostgreSQL flexible server**: *my-demo-pgsql*
     - **PostgreSQL database**: Select the database you created.
@@ -94,9 +94,9 @@ Use the following steps to connect your service instances:
 
    :::image type="content" source="../../media/quickstart-deploy-web-app/app-service-connector-authentication.png" alt-text="Screenshot of the Azure portal that shows the Authentication tab of the Create connection pane with the Connection string option highlighted." lightbox="../../media/quickstart-deploy-web-app/app-service-connector-authentication.png":::
 
-1. Select **Next: Networking**, Use the default option **Configure firewall rules to enable access to target service.**.
+1. Select **Next: Networking**. Use the default option **Configure firewall rules to enable access to target service.**.
 
-1. Select **Next: Review and Create** to review your selections, then select **Create** to create the connection.
+1. Select **Next: Review and Create** to review your selections and then select **Create** to create the connection.
 
 ### [Azure CLI](#tab/Azure-CLI)
 

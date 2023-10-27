@@ -123,13 +123,13 @@ Use the following steps to connect your service instances:
 
 1. Go to your Azure Spring Apps instance in the Azure portal.
 
-1. From the navigation pane, open the **Apps** pane and then select **Create App**.
+1. From the navigation pane, open **Apps**, and then select **Create App**.
 
-1. On the **Create App** page, fill in the app name *simple-todo-web* and then select *Use quick start sample app* to create the app.
+1. On the **Create App** page, use *simple-todo-web* as the app name, and then select **Use quick start sample app** to create the app.
 
    :::image type="content" source="../../media/quickstart-deploy-web-app/consumption-create-app.png" alt-text="Screenshot of the Azure portal that shows the Create app pane." lightbox="../../media/quickstart-deploy-web-app/consumption-create-app.png":::
 
-1. Select **Create** to finish the app creation and select the app to view its details.
+1. Select **Create** to finish creating the app and then select the app to view its details.
 
 1. Select **Configuration** from the navigation pane and then configure the following properties on the **Environment variables** tab:
 
