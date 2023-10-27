@@ -1,12 +1,12 @@
 ---
 title: Save on select Azure SQL Services in Poland Central for a limited time
-description: Learn about how to save up to 66% on select Azure SQL Services in Poland Central for a limited time.
+description: Learn how to save up to 66 percent on select Azure SQL Services in Poland Central for a limited time.
 author: bandersmsft
 ms.reviewer: kyleikeda
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 10/24/2023
+ms.date: 10/27/2023
 ms.author: banders
 ms.custom: references_regions
 ---

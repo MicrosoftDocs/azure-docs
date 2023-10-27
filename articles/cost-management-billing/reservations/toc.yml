@@ -81,7 +81,7 @@
     - name: Poland Central VMs
       href: limited-time-central-poland.md
     - name: Poland Central SQL services
-      href: poland-lto-sql-services-reservations.md
+      href: poland-l-t-o-sql-services-reservations.md
   - name: Buy reservations
     items:
     - name: Buy an Azure reservation
