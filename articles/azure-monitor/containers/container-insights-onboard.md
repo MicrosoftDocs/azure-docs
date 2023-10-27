@@ -42,12 +42,10 @@ Container insights relies on a containerized [Azure Monitor agent](../agents/age
 ### Data collection rule
 [Data collection rules (DCR)](../essentials/data-collection-rule-overview.md) contain the definition of data that should be collected by Azure Monitor agent.  When you enable Container insights on a cluster, a DCR is created with the name *MSCI-\<cluster-region\>-<\cluster-name\>*. Currently, this name can't be modified.
 
-> [!NOTE]
-> Ingestion Transformations are not currently supported with the [Container insights DCR](../essentials/data-collection-transformations.md).
-
-
 Since 03/01/2023 Container insights uses a semver compliant agent version. The agent version is *mcr.microsoft.com/azuremonitor/containerinsights/ciprod:3.1.4* or later. It's represented by the format is mcr.microsoft.com/azuremonitor/containerinsights/ciprod:<semver compatible version>. When a new version of the agent is released, it's automatically upgraded on your managed Kubernetes clusters that are hosted on AKS. To track which versions are released, see [Agent release announcements](https://github.com/microsoft/Docker-Provider/blob/ci_prod/ReleaseNotes.md). 
 
+> [!NOTE]
+> Ingestion Transformations are not currently supported with the [Container insights DCR](../essentials/data-collection-transformations.md).
 
 
 ### Log Analytics agent
