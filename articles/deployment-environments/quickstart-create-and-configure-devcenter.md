@@ -1,7 +1,7 @@
 ---
 title: Create and configure a dev center
 titleSuffix: Azure Deployment Environments
-description: Learn how to configure a dev center in Deployment Environments. You create a dev center, attach an identity, attach a catalog, and create environment types.
+description: Learn how to configure a dev center in Azure Deployment Environments. You create a dev center, attach an identity, attach a catalog, and create environment types.
 author: RoseHJM
 ms.author: rosemalcolm
 ms.topic: quickstart
@@ -12,7 +12,7 @@ ms.date: 09/06/2023
 
 # Quickstart: Create and configure a dev center for Azure Deployment Environments
 
-This quickstart shows you how to create and configure a dev center in Azure Deployment Environments.
+In this quickstart, you'll set up all the resources in Azure Deployment Environments to enable development teams to self-service deployment environments for their applications. Learn how to create and configure a dev center, add a catalog to the dev center, and define an environment type.
 
 A platform engineering team typically sets up a dev center, attaches external catalogs to the dev center, creates projects, and provides access to development teams. Development teams create [environments](concept-environments-key-concepts.md#environments) by using [environment definitions](concept-environments-key-concepts.md#environment-definitions), connect to individual resources, and deploy applications. To learn more about the components of Azure Deployment Environments, see [Key concepts for Azure Deployment Environments](concept-environments-key-concepts.md).
 
@@ -61,7 +61,7 @@ To create and configure a Dev center in Azure Deployment Environments by using t
     :::image type="content" source="media/quickstart-create-and-configure-devcenter/deployment-environments-devcenter-created.png" alt-text="Screenshot that shows the Dev centers overview, to confirm that the dev center is created.":::
 
 ### Create a Key Vault
-When you are using a GitHub repository or an Azure DevOps repository to store your [catalog](./concept-environments-key-concepts.md#catalogs), you need an Azure Key Vault to store a personal access token (PAT) that is used to grant Azure access to your repository. Key Vaults can control access with either access policies or role-based access control (RBAC). If you have an existing key vault, you can use it, but you should check whether it uses access policies or RBAC assignments to control access. This quickstart assumes you're using an RBAC Key Vault and a GitHub repository. 
+When you're using a GitHub repository or an Azure DevOps repository to store your [catalog](./concept-environments-key-concepts.md#catalogs), you need an Azure Key Vault to store a personal access token (PAT) that is used to grant Azure access to your repository. Key Vaults can control access with either access policies or role-based access control (RBAC). If you have an existing key vault, you can use it, but you should check whether it uses access policies or RBAC assignments to control access. This quickstart assumes you're using an RBAC Key Vault and a GitHub repository. 
 
 If you don't have an existing key vault, use the following steps to create one: [Quickstart: Create a key vault using the Azure portal](../key-vault/general/quick-create-portal.md).
 
