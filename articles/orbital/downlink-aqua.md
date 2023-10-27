@@ -148,7 +148,7 @@ After submission, the Azure Orbital Ground Station team reviews your satellite a
    ```console
    sudo apt install socat
    ```
-5. Follow instructions to [delegate a subnet](prepare-network.md#prepare-subnet-for-vnet-injection) to Azure Orbital Ground Station.
+5. Follow instructions to [delegate a subnet](prepare-network.md#create-and-prepare-subnet-for-vnet-injection) to Azure Orbital Ground Station.
    
 6. Follow instructions to [prepare your VM endpoint](prepare-network.md#prepare-endpoints). Enter the following command in your VM to set the MTU level to 3650:
 
