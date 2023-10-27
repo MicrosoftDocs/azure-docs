@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 04/21/2023
 ---
 
-# Incremental enrichment and caching in Azure Cognitive Search
+# Incremental enrichment and caching in Azure AI Search
 
 > [!IMPORTANT] 
 > This feature is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [preview REST API](/rest/api/searchservice/index-preview) supports this feature.
