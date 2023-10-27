@@ -91,11 +91,13 @@ To be able to upload certificates, you must have "**Key Vault Administrator**"  
 
 You can use Azure CLI to upload certificates as secrets to your key vault or use the Azure portal to upload the certificate as a secret.
 > [!IMPORTANT]
+> You must have "**Key Vault Administrator**" permissions access to your Key vault for this command to work properly
 > You must upload the certificate as a secret.
+> Your Azure Stream Analytics job will fail when the certificate used for authentication expires. To resolve this, you must update/replace the certificate in your key vault and restart your Azure Stream Analytics job.
 
 #### Option One - Upload certificate via Azure CLI
 
-The following command can upload the certificate as a secret to your key vault. You must have "**Key Vault Administrator**" permissions access to your Key vault for this command to work properly.
+The following command can upload the certificate as a secret to your key vault.
 
 ```azurecli-interactive
 az keyvault secret set --vault-name <your key vault> --name <name of the secret> --file <file path to secret>
@@ -115,7 +117,8 @@ Use the following steps to upload a certificate as a secret using the Azure port
  | Upload Options | Certificate |
  | Upload certificate | \<select the certificate to upload> |
  | Name | \<Name you want to give your secret> |
-
+ | activation date | (optional) |
+ | expiration date | (optional) |
 
 ### Configure Managed identity
 Azure Stream Analytics requires you to configure managed identity to access key vault.
@@ -151,12 +154,12 @@ Visit the [Run your Azure Stream Analytics job in an Azure Virtual Network docum
 
 
 ### Limitations
-* When configuring your Azure Stream Analytics jobs to use VNET/SWIFT, your job must be configured with at least six (6) streaming units. 
+* When configuring your Azure Stream Analytics jobs to use VNET/SWIFT, your job must be configured with at least six (6) streaming units or one (1) V2 streaming unit. 
 * When using mTLS or SASL_SSL with Azure Key vault, you must convert your Java Key Store to PEM format. 
 * The minimum version of Kafka you can configure Azure Stream Analytics to connect to is version 0.10.
 
 > [!NOTE]
-> For direct help with using the Azure Stream Analytics Kafka adapter, please reach out to [askasa@microsoft.com](mailto:askasa@microsoft.com).
+> For direct help with using the Azure Stream Analytics Kafka output, please reach out to [askasa@microsoft.com](mailto:askasa@microsoft.com).
 >
 
 ### Limitations
