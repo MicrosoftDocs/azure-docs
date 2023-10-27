@@ -9,7 +9,7 @@ ms.date: 10/23/2023
 ms.custom: template-how-to, devx-track-azurecli
 ---
 
-## Access list at Network to Network Interconnect (NNI)
+# Access list at Network to Network Interconnect (NNI)
 Access Lists (Permit & Deny) at an NNI Level protect SSH access on Management VPN. The user should apply the Network Access control lists before provisioning the Network Fabric.
 The user must create an `Ingress` and `Egress` access lists before creating the NNI resources. The Conforming `Ingress` and or `Egress` access lists must be defined on the Network to Network Interconnect (NNI) payload while the user creates an NNI. This procedure should be carried out by the user before the Network Fabric is provisioned.
 ## Steps to Create an ACL on an NNI
