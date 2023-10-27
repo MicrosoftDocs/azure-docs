@@ -1,7 +1,7 @@
 ---
 title: Get Started with Managed Airflow?
 titleSuffix: Azure Data Factory
-description: This is the master doc that contains all the links required to start working with Managed Airflow.
+description: This document is the master document that contains all the links required to start working with Managed Airflow.
 ms.service: data-factory
 ms.topic: conceptual
 author: nabhishek
@@ -9,83 +9,32 @@ ms.author: abnarain
 ms.date: 10/20/2023
 ---
 
-# How does Apache Airflow work?
-
-# How does Azure Data Factory Managed Airflow work? 
-
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 > [!NOTE]
 > Managed Airflow for Azure Data Factory relies on the open source Apache Airflow application. Documentation and more tutorials for Airflow can be found on the Apache Airflow [Documentation](https://airflow.apache.org/docs/) or [Community](https://airflow.apache.org/community/) pages.
 
+
+# How does Azure Data Factory Managed Airflow work? 
+
 Managed Airflow in Azure Data Factory uses Python-based Directed Acyclic Graphs (DAGs) to run your orchestration workflows. 
 To use this feature, you need to provide your DAGs and plugins in Azure Blob Storage. You can launch the Airflow UI from ADF using a command line interface (CLI) or a software development kit (SDK) to manage your DAGs.
 
+# How does Apache Airflow work?
+
 ## 1. Create a Managed Airflow environment. 
-Go to: [Create a Managed Airflow environment](create-managed-airflow-environment.md)
+Refer to: [Create a Managed Airflow environment](create-managed-airflow-environment.md)
 
-## Import DAGs
+## 2. Import DAGs
+Managed Airflow provides two distinct methods for loading DAGs from python source files into Airflow's environment. These methods are listed below:
 
-The following steps describe how to import DAGs into Managed Airflow.
+- **Git Sync:** This service allows you to synchronize your GitHub repository with Managed Airflow, enabling you to import DAGs directly from your GitHub repository. Refer to: [Sync a Github repository in Managed Airflow](airflow-sync-github-repository.md)
 
-### Prerequisites
+- **Blob Storage:** With this approach, you can upload your DAG files to a designated directory within a blob storage account that is linked to your Azure Data Factory. Subsequently, you import the file paths of these DAGs in Managed Airflow. Refer to: [Import Dags using Azure Blob Storage](airflow-import-dags-using-blob-storage.md)
 
-You'll need to upload a sample DAG onto an accessible Storage account (Should be under dags folder).
+## Remove DAGs from the Airflow environment
 
-> [!NOTE]
-> Blob Storage behind VNet are not supported during the preview.<br>
-> KeyVault configuration in storageLinkedServices not supported to import dags.
-
-[Sample Apache Airflow v2.x DAG](https://airflow.apache.org/docs/apache-airflow/stable/tutorial/fundamentals.html).
-[Sample Apache Airflow v1.10 DAG](https://airflow.apache.org/docs/apache-airflow/1.10.11/_modules/airflow/example_dags/tutorial.html).
-
-
-### Steps to import
-1. Copy-paste the content (either v2.x or v1.10 based on the Airflow environment that you have setup) into a new file called as **tutorial.py**.
-
-   Upload the **tutorial.py** to a blob storage. ([How to upload a file into blob](../storage/blobs/storage-quickstart-blobs-portal.md))
-
-   > [!NOTE]
-   > You will need to select a directory path from a blob storage account that contains folders named **dags** and **plugins** to import those into the Airflow environment. **Plugins** are not mandatory. You can also have a container named **dags** and upload all Airflow files within it.  
-
-1. Select on **Airflow (Preview)** under **Manage** hub. Then hover over the earlier created **Airflow** environment and select on **Import files** to Import all DAGs and dependencies into the Airflow Environment.
-
-   :::image type="content" source="media/how-does-managed-airflow-work/import-files.png" alt-text="Screenshot shows import files in manage hub.":::
-
-1. Create a new Linked Service to the accessible storage account mentioned in the prerequisite (or use an existing one if you already have your own DAGs).
-
-   :::image type="content" source="media/how-does-managed-airflow-work/create-new-linked-service.png" alt-text="Screenshot that shows how to create a new linked service.":::
-
-1. Use the storage account where you uploaded the DAG (check prerequisite). Test connection, then select **Create**.
-
-   :::image type="content" source="media/how-does-managed-airflow-work/linked-service-details.png" alt-text="Screenshot shows some linked service details.":::
-
-1. Browse and select **airflow** if using the sample SAS URL or select the folder that contains **dags** folder with DAG files.
-
-   > [!NOTE]
-   > You can import DAGs and their dependencies through this interface. You will need to select a directory path from a blob storage account that contains folders named **dags** and **plugins** to import those into the Airflow environment. **Plugins** are not mandatory.
-
-   :::image type="content" source="media/how-does-managed-airflow-work/browse-storage.png" alt-text="Screenshot shows browse storage in import files.":::
-
-   :::image type="content" source="media/how-does-managed-airflow-work/browse.png" alt-text="Screenshot that shows browse in airflow.":::
-
-   :::image type="content" source="media/how-does-managed-airflow-work/import-in-import-files.png" alt-text="Screenshot shows import in import files.":::
-
-   :::image type="content" source="media/how-does-managed-airflow-work/import-dags.png" alt-text="Screenshot shows import dags.":::
-
-> [!NOTE]
-> Importing DAGs could take a couple of minutes during **Preview**. The notification center (bell icon in ADF UI) can be used to track the import status updates.
-
-## Troubleshooting import DAG issues
-
-* Problem: DAG import is taking over 5 minutes 
-Mitigation: Reduce the size of the imported DAGs with a single import. One way to achieve this is by creating multiple DAG folders with lesser DAGs across multiple containers.  
-
-* Problem: Imported DAGs don't show up when you sign in into the Airflow UI.  
-Mitigation: Sign in into the Airflow UI and see if there are any DAG parsing errors. This could happen if the DAG files contain any incompatible code. You'll find the exact line numbers and the files, which have the issue through the Airflow UI.
-
-    :::image type="content" source="media/how-does-managed-airflow-work/import-dag-issues.png" alt-text="Screenshot shows import dag issues.":::
-
+Refer to: [Delete Dags in Managed Airflow](delete-dags-in-managed-airflow.md)
 
 ## Monitor DAG runs
 
@@ -99,15 +48,16 @@ To monitor the Airflow DAGs, sign in into Airflow UI with the earlier created us
 
    :::image type="content" source="media/how-does-managed-airflow-work/login-in-dags.png" alt-text="Screenshot that shows sign in using the username-password provided during the Airflow Integration Runtime creation.":::
 
-## Remove DAGs from the Airflow environment
 
-If you're using Airflow version 1.x, delete DAGs that are deployed on any Airflow environment (IR), you need to delete the DAGs in two different places.
+## Troubleshooting import DAG issues
 
-1. Delete the DAG from Airflow UI 
-1. Delete the DAG in ADF UI
+* Problem: DAG import is taking over 5 minutes 
+Mitigation: Reduce the size of the imported DAGs with a single import. One way to achieve this is by creating multiple DAG folders with lesser DAGs across multiple containers.  
 
-> [!NOTE]
-> This is the current experience during the Public Preview, and we will be improving this experience. 
+* Problem: Imported DAGs don't show up when you sign in into the Airflow UI.  
+Mitigation: Sign in into the Airflow UI and see if there are any DAG parsing errors. This could happen if the DAG files contain any incompatible code. You'll find the exact line numbers and the files, which have the issue through the Airflow UI.
+
+   :::image type="content" source="media/how-does-managed-airflow-work/import-dag-issues.png" alt-text="Screenshot shows import dag issues.":::
 
 ## Next steps
 
