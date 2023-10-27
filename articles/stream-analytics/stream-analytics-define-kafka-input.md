@@ -21,7 +21,7 @@ The following are the major use cases:
 
 Azure Stream Analytics lets you connect directly to Kafka clusters to ingest data. The solution is low code and entirely managed by the Azure Stream Analytics team at Microsoft, allowing it to meet business compliance standards. The Kafka Adapters are backward compatible and support all versions with the latest client release starting from version 0.10. Users can connect to Kafka clusters inside a VNET and Kafka clusters with a public endpoint, depending on the configurations. The configuration relies on existing Kafka configuration conventions. Supported compression types are None, Gzip, Snappy, LZ4, and Zstd.
 
-### Configuration
+## Configuration
 The following table lists the property names and their description for creating a Kafka Input: 
 
 > [!IMPORTANT]
@@ -100,9 +100,9 @@ To be able to upload certificates, you must have "**Key Vault Administrator**"  
 
 ### Upload Certificate to Key vault
 
-You can use Azure CLI to upload certificates as secrets to your key vault or use the Azure Portal to upload the certificate as a secret.
+You can use Azure CLI to upload certificates as secrets to your key vault or use the Azure portal to upload the certificate as a secret.
 > [!IMPORTANT]
-> You must upload the certificate as a secret
+> You must upload the certificate as a secret.
 
 #### Option One - Upload certificate via Azure CLI
 
@@ -114,7 +114,7 @@ az keyvault secret set --vault-name <your key vault> --name <name of the secret>
 ```
 
 #### Option Two - Upload certificate via the Azure portal
-Use the following steps to upload a certificate as a secret using the azure portal in your key vault:
+Use the following steps to upload a certificate as a secret using the Azure portal in your key vault:
 1. Select **Secrets**.
 
 1. Select **Generate/Import** > **Add role assignment** to open the **Add role assignment** page.
@@ -137,7 +137,7 @@ You can configure your ASA job to use managed identity by navigating to the **Ma
 1.	Click on the **managed identity tab** under **configure**.
 2.	Select on **Switch Identity** and select the identity to use with the job: system-assigned identity or user-assigned identity.
 3.	For user-assigned identity, select the subscription where your user-assigned identity is located and select the name of your identity.
-4.	Review and **save**
+4.	Review and **save**.
 
 ### Grant the Stream Analytics job permissions to access the certificate in the key vault
 For your Azure Stream Analytics job to access the certificate in your key vault and read the secret for authentication using managed identity, the service principal you created when you configured managed identity for your Azure Stream Analytics job must have special permissions to the key vault. 
