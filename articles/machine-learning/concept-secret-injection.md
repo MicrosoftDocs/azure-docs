@@ -107,11 +107,13 @@ The _endpoint identity_ is the identity that runs the user container in deployme
 
 __Permissions needed for user identity__:
 
-When the endpoint is created with a system-assigned identity, and the flag is set to enforce access to the default secret stores, the user identity needs to have permissions to read secrets from workspace connections when creating the endpoint and creating the deployment(s) under the endpoint. This restriction ensures that only a user identity with the permission to read secrets can grant the endpoint identity the permission to read secrets.
+When the endpoint is created with a system-assigned identity, _and_ the flag is set to enforce access to the default secret stores, the user identity needs to have permissions to read secrets from workspace connections when creating the endpoint and creating the deployment(s) under the endpoint. This restriction ensures that only a user identity with the permission to read secrets can grant the endpoint identity the permission to read secrets.
 
 - If a user identity does not have the permissions to read secrets from workspace connections, but tries to create the endpoint with a system-assigned identity and the endpoint's flag set to enforce access to the default secret stores, the endpoint creation will be rejected.
 
 - Similarly, if a user identity does not have the permissions to read secrets from workspace connections, but tries to create a deployment under the endpoint with a system-assigned identity and the endpoint's flag set to enforce access to the default secret stores, the deployment creation will be rejected.
+
+When the endpoint is created with a user-assigned identity, _or_ the flag is not set to enforce access to the default secret stores even if the endpoint uses system-assigned identity, the user identity does not need to have permissions to read secrets from workspace connections. In this case, the endpoint identity will not be automatically granted permission to read secret, but you can still manually grant the endpoint identity to do it by assigning proper roles. Secret retrieval and injection will still be triggered if you mapped the environment variables with secret references, and it will use the current endpoint identity to do so.
 
 
 ## Related content
