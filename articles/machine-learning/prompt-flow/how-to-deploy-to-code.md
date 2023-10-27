@@ -140,10 +140,11 @@ identity:
 > [!IMPORTANT]
 >
 > You need to give the following permissions to the user-assigned identity **before create the endpoint**. Learn more about [how to grant permissions to your endpoint identity](how-to-deploy-for-real-time-inference.md#grant-permissions-to-the-endpoint).
+
 |Scope|Role|Why it's needed|
 |---|---|---|
 |Azure Machine Learning Workspace|**Azure Machine Learning Workspace Connection Secrets Reader** role **OR** a customized role with "Microsoft.MachineLearningServices/workspaces/connections/listsecrets/action" | Get workspace connections|
-|Workspace container registry |Acr pull |Pull container image |
+|Workspace container registry |ACR pull |Pull container image |
 |Workspace default storage| Storage Blob Data Reader| Load model from storage |
 |(Optional) Azure Machine Learning Workspace|Workspace metrics writer| After you deploy then endpoint, if you want to monitor the endpoint related metrics like CPU/GPU/Disk/Memory utilization, you need to give this permission to the identity.|
 
