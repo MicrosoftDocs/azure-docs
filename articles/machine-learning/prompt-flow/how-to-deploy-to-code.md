@@ -139,13 +139,13 @@ identity:
 
 > [!IMPORTANT]
 >
-> You need to give the following permissions to the user-assigned identity **before create the endpoint**:
-> |Scope|Role|Why it's needed|
-> |---|---|---|
-> |Azure Machine Learning Workspace|**Azure Machine Learning Workspace Connection Secrets Reader** role **OR** a customized role with "Microsoft.MachineLearningServices/workspaces/connections/listsecrets/action" | Get workspace connections|
-> |Workspace container registry |Acr pull |Pull container image |
-> |Workspace default storage| Storage Blob Data Reader| Load model from storage |
-> |(Optional) Azure Machine Learning Workspace|Workspace metrics writer| After you deploy then endpoint, if you want to monitor the endpoint related metrics like CPU/GPU/Disk/Memory utilization, you need to give this permission to the identity.|
+> You need to give the following permissions to the user-assigned identity **before create the endpoint**. Learn more about [how to grant permissions to your endpoint identity](how-to-deploy-for-real-time-inference.md#grant-permissions-to-the-endpoint).
+|Scope|Role|Why it's needed|
+|---|---|---|
+|Azure Machine Learning Workspace|**Azure Machine Learning Workspace Connection Secrets Reader** role **OR** a customized role with "Microsoft.MachineLearningServices/workspaces/connections/listsecrets/action" | Get workspace connections|
+|Workspace container registry |Acr pull |Pull container image |
+|Workspace default storage| Storage Blob Data Reader| Load model from storage |
+|(Optional) Azure Machine Learning Workspace|Workspace metrics writer| After you deploy then endpoint, if you want to monitor the endpoint related metrics like CPU/GPU/Disk/Memory utilization, you need to give this permission to the identity.|
 
 
 If you create a Kubernetes online endpoint, you need to specify the following additional attributes:
@@ -337,6 +337,30 @@ Note that you can get your endpoint key and your endpoint URI from the AzureML w
 
 ## Advanced configurations
 
+### Deploy with different connections from flow development
+
+You may want to overide connetions of the flow during deployment.
+
+For example, if your flow.dag.yaml file uses a connection named `my_connection`, you can override it by adding environment variables of the deployment yaml like following:
+
+**Option 1**: override connection name
+
+```yaml
+environment_variables:
+  my_connection: <override_connection_name>
+```
+
+**Option 2**: override by referring to asset
+
+```yaml
+environment_variables:
+  my_connection: ${{azureml://connections/<override_connection_name>}}
+```
+
+> [!NOTE]
+>
+> You can only refer to a connection within the same workspace.
+
 ### Deploy with a custom environment
 
 This section will show you how to use a docker build context to specify the environment for your deployment, assuming you have knowledge of [Docker](https://www.docker.com/) and [Azure Machine Learning environments](../concept-environments.md).
@@ -377,6 +401,13 @@ This section will show you how to use a docker build context to specify the envi
           path: /score
           port: 8080
     ```
+
+### Monitor the endpoint
+
+#### Monitor prompt flow deployment metrics
+
+You can monitor general metrics of online deployment (request numbers, request latency, network bytes, CPU/GPU/Disk/Memory utilization, and more), and prompt flow deployment specific metrics (toekn consumption, flow latency, etc) by adding `app_insights_enabled: true` in the deployment yaml file. Learn more about [metrics of prompt flow deployment](./how-to-deploy-for-real-time-inference.md#view-endpoint-metrics).
+
 
 ## Next steps
 
