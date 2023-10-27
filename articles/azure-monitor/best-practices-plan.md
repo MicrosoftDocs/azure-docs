@@ -56,7 +56,13 @@ While the operational data stored in Azure Monitor might be useful for investiga
 ### System Center Operations Manager
 You may have an existing investment in System Center Operations Manager for monitoring on-premises resources and workloads running on your virtual machines. You may choose to [migrate this monitoring to Azure Monitor](azure-monitor-operations-manager.md) or continue to use both products together in a hybrid configuration. See  [Cloud monitoring guide: Monitoring platforms overview](/azure/cloud-adoption-framework/manage/monitor/platform-overview) for a comparison of the two products. See [Monitoring strategy for cloud deployment models](/azure/cloud-adoption-framework/manage/monitor/cloud-models-monitor-overview) for guidance on using the two in a hybrid configuration and on determining the most appropriate model for your environment.
 
+## Frequently asked questions
 
+This section provides answers to common questions.
+
+### What IP addresses does Azure Monitor use?
+
+See [IP addresses used by Application Insights and Log Analytics](app/ip-addresses.md) for a listing of the IP addresses and ports required for agents and other external resources to access Azure Monitor.         
 
 ## Next steps
 

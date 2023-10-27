@@ -258,6 +258,11 @@ The cost of Azure Monitor is based on your usage of different features and is pr
 
 No. Azure Monitor is a scalable cloud service that processes and stores large amounts of data, although Azure Monitor can monitor resources that are on-premises and in other clouds.
 
+### Does Azure Monitor integrate with System Center Operations Manager?
+
+You can connect your existing System Center Operations Manager management group to Azure Monitor to collect data from agents into Azure Monitor Logs. This capability allows you to use log queries and solutions to analyze data collected from agents. You can also configure existing System Center Operations Manager agents to send data directly to Azure Monitor. See [Connect Operations Manager to Azure Monitor](agents/om-agents.md).
+          
+
 ## Next steps
 - [Getting started with Azure Monitor](getting-started.md)
 - [Sources of monitoring data for Azure Monitor](data-sources.md)
