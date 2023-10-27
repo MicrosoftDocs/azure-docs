@@ -175,6 +175,8 @@ The output from a successful image generation API call looks like the following 
 }
 ```
 
+---
+
 The image generation APIs come with a content moderation filter. If the service recognizes your prompt as harmful content, it doesn't generate an image. For more information, see [Content filtering](../concepts/content-filter.md).
 
 The system returns an operation status of `Failed` and the `error.code` value in the message is set to `contentFilter`. Here's an example:
