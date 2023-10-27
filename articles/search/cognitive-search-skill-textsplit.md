@@ -1,5 +1,5 @@
 ---
-title: Text split cognitive skill
+title: Text split skill
 titleSuffix: Azure AI Search
 description: Break text into chunks or pages of text based on length in an AI enrichment pipeline in Azure AI Search. 
 author: LiamCavanagh
