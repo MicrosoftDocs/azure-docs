@@ -17,7 +17,7 @@ ms.custom:
 When deciding whether or not fine-tuning is the right solution to explore for a given use case, there are some key terms that it's helpful to be familiar with:
 
 - [Prompt Engineering](/azure/ai-services/openai/concepts/prompt-engineering) is a technique that involves designing prompts for natural language processing models. This process improves accuracy and relevancy in responses, optimizing the performance of the model.
-- [Retrieval Augmented Generation (RAG)](/azure/machine-learning/concept-retrieval-augmented-generation?view=azureml-api-2) improves LLM performance by retrieving data from external sources and incorporating it into a prompt. RAG allows businesses to achieve customized solutions while maintaining data relevance and optimizing costs.
+- [Retrieval Augmented Generation (RAG)](/azure/machine-learning/concept-retrieval-augmented-generation?view=azureml-api-2&preserve-view=true) improves LLM performance by retrieving data from external sources and incorporating it into a prompt. RAG allows businesses to achieve customized solutions while maintaining data relevance and optimizing costs.
 - [Fine-tuning](/azure/ai-services/openai/how-to/fine-tuning?pivots=programming-language-studio) retrains an existing LLM using example data, resulting in a new "custom" LLM that has been optimized using the provided examples.
 
 ## What is Fine Tuning with Azure OpenAI?
@@ -79,10 +79,10 @@ Even with a great use case, fine-tuning is only as good as the quality of the da
 
 Another important point is even with high quality data if your data isn't in the necessary format for fine-tuning you will need to commit engineering resources in order to properly format the data.
 
-|   | Babbage-002 & Davinci-002 | GPT-3.5-Turbo |
+| Data  | Babbage-002 & Davinci-002 | GPT-3.5-Turbo |
 |---|---|---|
-| Data Volume | Thousands of Examples | Thousands of Examples |
-| Data Format | Prompt/Completion | Conversational Chat |
+| Volume | Thousands of Examples | Thousands of Examples |
+| Format | Prompt/Completion | Conversational Chat |
 
 **If you are ready for fine-tuning you:**
 
