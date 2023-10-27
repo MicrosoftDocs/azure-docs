@@ -84,7 +84,7 @@ NAMESPACE     NAME          TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S
 default       public-svc    LoadBalancer   10.0.39.110    52.156.88.187   80:32068/TCP    52s
 ```
 
-When you view the service details, the public IP address created for this service on the load balancer is shown in the *EXTERNAL-IP* column. It may take a few minutes for the IP address to change from *\<pending\>* to an actual public IP address.
+When you view the service details, the public IP address created for this service on the load balancer is shown in the *EXTERNAL-IP* column. It might take a few minutes for the IP address to change from *\<pending\>* to an actual public IP address.
 
 For more detailed information about your service, use the following command.
 
@@ -312,7 +312,7 @@ az aks create \
 
 > [!IMPORTANT]
 >
-> If you have applications on your cluster that can establish a large number of connections to small set of destinations, like many instances of a frontend application connecting to a database, you may have a scenario susceptible to encounter SNAT port exhaustion. SNAT port exhaustion happens when an application runs out of outbound ports to use to establish a connection to another application or host. If you have a scenario susceptible to encounter SNAT port exhaustion, we highly recommended you increase the allocated outbound ports and outbound frontend IPs on the load balancer.
+> If you have applications on your cluster that can establish a large number of connections to small set of destinations, like many instances of a frontend application connecting to a database, you might have a scenario susceptible to encounter SNAT port exhaustion. SNAT port exhaustion happens when an application runs out of outbound ports to use to establish a connection to another application or host. If you have a scenario susceptible to encounter SNAT port exhaustion, we highly recommended you increase the allocated outbound ports and outbound frontend IPs on the load balancer.
 >
 > For more information on SNAT, see [Use SNAT for outbound connections](../load-balancer/load-balancer-outbound-connections.md).
 
@@ -343,7 +343,7 @@ When calculating the number of outbound ports and IPs and setting the values, ke
 * The number of outbound ports per node is fixed based on the value you set.
 * The value for outbound ports must be a multiple of 8.
 * Adding more IPs doesn't add more ports to any node, but it provides capacity for more nodes in the cluster.
-* You must account for nodes that may be added as part of upgrades, including the count of nodes specified via [maxSurge values][maxsurge].
+* You must account for nodes that might be added as part of upgrades, including the count of nodes specified via [maxSurge values][maxsurge].
 
 The following examples show how the values you set affect the number of outbound ports and IP addresses:
 
@@ -397,7 +397,7 @@ If you expect to have numerous short-lived connections and no long-lived connect
 When setting *IdleTimeoutInMinutes* to a different value than the default of 30 minutes, consider how long your workloads need an outbound connection. Also consider that the default timeout value for a *Standard* SKU load balancer used outside of AKS is 4 minutes. An *IdleTimeoutInMinutes* value that more accurately reflects your specific AKS workload can help decrease SNAT exhaustion caused by tying up connections no longer being used.
 
 > [!WARNING]
-> Altering the values for *AllocatedOutboundPorts* and *IdleTimeoutInMinutes* may significantly change the behavior of the outbound rule for your load balancer and shouldn't be done lightly. Check the [SNAT Troubleshooting section][troubleshoot-snat] and review the [Load Balancer outbound rules][azure-lb-outbound-rules-overview] and [outbound connections in Azure][azure-lb-outbound-connections] before updating these values to fully understand the impact of your changes.
+> Altering the values for *AllocatedOutboundPorts* and *IdleTimeoutInMinutes* might significantly change the behavior of the outbound rule for your load balancer and shouldn't be done lightly. Check the [SNAT Troubleshooting section][troubleshoot-snat] and review the [Load Balancer outbound rules][azure-lb-outbound-rules-overview] and [outbound connections in Azure][azure-lb-outbound-connections] before updating these values to fully understand the impact of your changes.
 
 ## Restrict inbound traffic to specific IP ranges
 
@@ -451,7 +451,7 @@ The following annotations are supported for Kubernetes services with type `LoadB
 | `service.beta.kubernetes.io/azure-load-balancer-internal`         | `true` or `false`                     | Specify whether the load balancer should be internal. If not set, it defaults to public.
 | `service.beta.kubernetes.io/azure-load-balancer-internal-subnet`  | Name of the subnet                    | Specify which subnet the internal load balancer should be bound to. If not set, it defaults to the subnet configured in cloud config file.
 | `service.beta.kubernetes.io/azure-dns-label-name`                 | Name of the DNS label on Public IPs   | Specify the DNS label name for the **public** service. If it's set to an empty string, the DNS entry in the Public IP isn't used.
-| `service.beta.kubernetes.io/azure-shared-securityrule`            | `true` or `false`                     | Specify that the service should be exposed using an Azure security rule that may be shared with another service. Trade specificity of rules for an increase in the number of services that can be exposed. This annotation relies on the Azure [Augmented Security Rules](../virtual-network/network-security-groups-overview.md#augmented-security-rules) feature of Network Security groups.
+| `service.beta.kubernetes.io/azure-shared-securityrule`            | `true` or `false`                     | Specify that the service should be exposed using an Azure security rule that might be shared with another service. Trade specificity of rules for an increase in the number of services that can be exposed. This annotation relies on the Azure [Augmented Security Rules](../virtual-network/network-security-groups-overview.md#augmented-security-rules) feature of Network Security groups.
 | `service.beta.kubernetes.io/azure-load-balancer-resource-group`   | Name of the resource group            | Specify the resource group of load balancer public IPs that aren't in the same resource group as the cluster infrastructure (node resource group).
 | `service.beta.kubernetes.io/azure-allowed-service-tags`           | List of allowed service tags          | Specify a list of allowed [service tags][service-tags] separated by commas.
 | `service.beta.kubernetes.io/azure-load-balancer-tcp-idle-timeout` | TCP idle timeouts in minutes          | Specify the time in minutes for TCP connection idle timeouts to occur on the load balancer. The default and minimum value is 4. The maximum value is 30. The value must be an integer.
@@ -513,7 +513,7 @@ Since v1.21, two service annotations `service.beta.kubernetes.io/azure-load-bala
 
 
 ### Custom Load Balancer health probe for port
-Different ports in a service may require different health probe configurations. This could be because of service design (such as a single health endpoint controlling multiple ports), or Kubernetes features like the [MixedProtocolLBService](https://kubernetes.io/docs/concepts/services-networking/service/#load-balancers-with-mixed-protocol-types).
+Different ports in a service can require different health probe configurations. This could be because of service design (such as a single health endpoint controlling multiple ports), or Kubernetes features like the [MixedProtocolLBService](https://kubernetes.io/docs/concepts/services-networking/service/#load-balancers-with-mixed-protocol-types).
 
 The following annotations can be used to customize probe configuration per service port.
 
@@ -527,7 +527,7 @@ The following annotations can be used to customize probe configuration per servi
 | service.beta.kubernetes.io/port_{port}_health-probe_num-of-probe | service.beta.kubernetes.io/azure-load-balancer-health-probe-num-of-probe | Number of consecutive probe failures before the port is considered unhealthy |
 | service.beta.kubernetes.io/port_{port}_health-probe_interval     | service.beta.kubernetes.io/azure-load-balancer-health-probe-interval     | The amount of time between probe attempts                                    |
 
-For following manifest, probe rule for port httpsserver is different from the one for httpserver because annoations for port httpsserver are specified.
+For following manifest, probe rule for port httpsserver is different from the one for httpserver because annotations for port httpsserver are specified.
 
 ```yaml
 apiVersion: v1
@@ -714,6 +714,6 @@ To learn more about using internal load balancer for inbound traffic, see the [A
 [use-multiple-node-pools]: use-multiple-node-pools.md
 [troubleshoot-snat]: #troubleshooting-snat
 [service-tags]: ../virtual-network/network-security-groups-overview.md#service-tags
-[maxsurge]: upgrade-cluster.md#customize-node-surge-upgrade
+[maxsurge]: ./upgrade-aks-cluster.md#customize-node-surge-upgrade
 [az-lb]: ../load-balancer/load-balancer-overview.md
 [alb-outbound-rules]: ../load-balancer/outbound-rules.md
