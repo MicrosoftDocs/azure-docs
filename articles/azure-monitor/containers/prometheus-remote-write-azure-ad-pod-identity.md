@@ -1,6 +1,6 @@
 ---
-title: Configure remote write for Azure Monitor managed service for Prometheus using Microsoft Azure Active Directory pod identity (preview) 
-description: Configure remote write for Azure Monitor managed service for Prometheus using Azure AD pod identity (preview) 
+title: Configure remote write for Azure Monitor managed service for Prometheus using Microsoft Entra pod identity (preview) 
+description: Configure remote write for Azure Monitor managed service for Prometheus using Microsoft Entra pod identity (preview) 
 author: EdB-MSFT
 ms.author: edbaynash
 ms.topic: conceptual
@@ -8,14 +8,14 @@ ms.date: 05/11/2023
 ms.reviewer: rapadman
 ---
 
-# Configure remote write for Azure Monitor managed service for Prometheus using Microsoft Azure Active Directory pod identity (preview) 
+# Configure remote write for Azure Monitor managed service for Prometheus using Microsoft Entra pod identity (preview) 
 
 
 > [!NOTE] 
-> The remote write sidecar should only be configured via the following steps only if the AKS cluster already has the Azure AD pod enabled. This approach is not recommended as AAD pod identity has been deprecated to be replace by [Azure Workload Identity](/azure/active-directory/workload-identities/workload-identities-overview)
+> The remote write sidecar should only be configured via the following steps only if the AKS cluster already has the Microsoft Entra pod enabled. This approach is not recommended as Microsoft Entra pod identity has been deprecated to be replace by [Azure Workload Identity](/azure/active-directory/workload-identities/workload-identities-overview)
 
 
-To configure remote write for Azure Monitor managed service for Prometheus using Azure AD pod identity, follow the steps below.
+To configure remote write for Azure Monitor managed service for Prometheus using Microsoft Entra pod identity, follow the steps below.
 
 1. Create user assigned identity or use an existing user assigned managed identity. For information on creating the managed identity, see [Configure remote write for Azure Monitor managed service for Prometheus using managed identity authentication](./prometheus-remote-write-managed-identity.md#get-the-client-id-of-the-user-assigned-identity).
 1. Assign the `Managed Identity Operator` and `Virtual Machine Contributor` roles to the managed identity created/used in the previous step.
@@ -121,6 +121,6 @@ To configure remote write for Azure Monitor managed service for Prometheus using
 - [Collect Prometheus metrics from an AKS cluster](../containers/prometheus-metrics-enable.md)
 - [Learn more about Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md)
 - [Remote-write in Azure Monitor Managed Service for Prometheus](prometheus-remote-write.md)
-- [Remote-write in Azure Monitor Managed Service for Prometheus using Azure Active Directory](./prometheus-remote-write-active-directory.md)
+- [Remote-write in Azure Monitor Managed Service for Prometheus using Microsoft Entra ID](./prometheus-remote-write-active-directory.md)
 - [Configure remote write for Azure Monitor managed service for Prometheus using managed identity authentication](./prometheus-remote-write-managed-identity.md)
 - [Configure remote write for Azure Monitor managed service for Prometheus using Azure Workload Identity (preview)](./prometheus-remote-write-azure-workload-identity.md)

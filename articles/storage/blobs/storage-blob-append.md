@@ -51,8 +51,8 @@ static async Task AppendToBlob(
     while (bytesLeft > 0)
     {
         int blockSize = (int)Math.Min(bytesLeft, maxBlockSize);
-        int bytesRead = await logEntryStream.ReadAsync(buffer, 0, blockSize);
-        using (MemoryStream memoryStream = new MemoryStream(buffer, 0, bytesRead))
+        int bytesRead = await logEntryStream.ReadAsync(buffer.AsMemory(0, blockSize));
+        await using (MemoryStream memoryStream = new MemoryStream(buffer, 0, bytesRead))
         {
             await appendBlobClient.AppendBlockAsync(memoryStream);
         }

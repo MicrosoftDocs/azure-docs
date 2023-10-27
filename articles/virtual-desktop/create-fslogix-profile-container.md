@@ -7,7 +7,7 @@ ms.date: 07/01/2020
 ms.author: helohr
 manager: femila
 ---
-# Create a profile container with Azure NetApp Files and AD DS
+# Create a profile container with Azure NetApp Files
 
 We recommend using FSLogix profile containers as a user profile solution for the [Azure Virtual Desktop service](overview.md). FSLogix profile containers store a complete user profile in a single container and are designed to roam profiles in non-persistent remote computing environments like Azure Virtual Desktop. When you sign in, the container dynamically attaches to the computing environment using a locally supported virtual hard disk (VHD) and Hyper-V virtual hard disk (VHDX). These advanced filter-driver technologies allow the user profile to be immediately available and appear in the system exactly like a local user profile. To learn more about FSLogix profile containers, see [FSLogix profile containers and Azure Files](fslogix-containers-azure-files.md).
 
@@ -22,6 +22,10 @@ The instructions in this guide are specifically for Azure Virtual Desktop users.
 
 >[!NOTE]
 >If you're looking for comparison material about the different FSLogix Profile Container storage options on Azure, see [Storage options for FSLogix profile containers](store-fslogix-profile.md).
+
+## Considerations 
+
+FSLogix profile containers on Azure NetApp Files can be accessed by users authenticating from Active Directory Domain Services (AD DS) and from [hybrid identities](../active-directory/hybrid/whatis-hybrid-identity.md), allowing Microsoft Entra users to access profile containers without requiring line-of-sight to domain controllers from Microsoft Entra hybrid joined and Microsoft Entra joined virtual machines (VMs). For more information, see [Access SMB volumes from Microsoft Entra joined Windows VMs](../azure-netapp-files/access-smb-volume-from-windows-client.md).
 
 ## Prerequisites
 
@@ -108,7 +112,7 @@ After that, you need to join an Active Directory connection.
     - For **AD DNS Domain Name**, enter your fully qualified domain name (FQDN).
     - For **AD Site Name**, enter the Active Directory Site name that the domain controller discovery will be limited to. This should match the Site name in Active Directory Sites and Services for the Site created to represent the Azure virtual network environment. This Site must be reachable by Azure NetApp Files in Azure. 
     - For **SMB Server (Computer Account) Prefix**, enter the string you want to append to the computer account name.
-    - For **Organizational unit path**, this is the LDAP path for the organizational unit (OU) where SMB server machine accounts will be created. That is, OU=second level, OU=first level. If you are using Azure NetApp Files with Azure Active Directory Domain Services, the organizational unit path is OU=AADDC Computers when you configure Active Directory for your NetApp account.
+    - For **Organizational unit path**, this is the LDAP path for the organizational unit (OU) where SMB server machine accounts will be created. That is, OU=second level, OU=first level. If you are using Azure NetApp Files with Microsoft Entra Domain Services, the organizational unit path is OU=AADDC Computers when you configure Active Directory for your NetApp account.
     - For **Credentials**, insert username and password: 
       
       ![A screenshot of the Join Active Directory connections menu for username and password.](media/active-directory-connections-credentials.png)

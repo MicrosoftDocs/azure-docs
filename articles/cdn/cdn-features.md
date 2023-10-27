@@ -5,7 +5,7 @@ services: cdn
 author: duongau
 ms.service: azure-cdn
 ms.topic: overview
-ms.date: 06/05/2023
+ms.date: 10/09/2023
 ms.author: duau
 ms.custom: mvc
 
@@ -46,6 +46,7 @@ The following table compares the features available with each product.
 | [Query string caching](cdn-query-string.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | IPv4/IPv6 dual-stack | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [HTTP/2 support](cdn-http2.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| [Routing preference unmetered](../virtual-network/ip-services/routing-preference-unmetered.md)  | |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 ||||
  **Security** | **Standard Microsoft** | **Standard Akamai** | **Standard Edgio** | **Premium Edgio** |
 | HTTPS support with CDN endpoint | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |

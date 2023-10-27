@@ -121,7 +121,7 @@ items:
     - name: Use customer-managed keys
       displayName: encrypt, encryption, key vault
       href: encrypt-data-at-rest.md
-    - name: Use Azure AD authentication
+    - name: Use Microsoft Entra authentication
       displayName: headers, subscription, access token, azure active directory, subdomain, role, service principal
       href: ../../ai-services/authentication.md?context=/azure/ai-services/document-intelligence/context/context
 - name: Samples

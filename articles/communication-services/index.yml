@@ -106,7 +106,7 @@ productDirectory:
         text: How to set up a phone number
       - url: ./concepts/sms/sdk-features.md
         text: SMS SDK overview
-        
+
 #------------------------------------------------------------------
 additionalContent:
   sections:

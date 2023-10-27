@@ -27,8 +27,6 @@ landingContent:
             url: overview.md
           - text: Get started with Azure Orbital Ground Station
             url: get-started.md
-          - text: What is the Azure Space Partner Community?
-            url: space-partner-program-overview.md  
 
   # Card
   - title: Get started with Earth Observation
@@ -54,9 +52,7 @@ landingContent:
           - text: Receive real-time telemetry
             url: receive-real-time-telemetry.md
           - text: Update the spacecraft TLE
-            url: update-tle.md 
-          - text: Cancel a contact
-            url: delete-contact.md     
+            url: update-tle.md  
 
   # Card
   - title: Tutorials & Architectures

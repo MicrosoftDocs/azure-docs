@@ -223,6 +223,11 @@ The following snippet shows the unit property object that is associated with the
 
 You should now have all the DWG drawings prepared to meet Azure Maps Conversion service requirements. A manifest file has also been created to help describe the facility. All files need to be zipped into a single archive file, with the `.zip` extension. It's important that the manifest file is named `manifest.json` and is placed in the root directory of the zipped package. All other files can be in any directory of the zipped package if the filename includes the relative path to the manifest. For an example of a drawing package, see the [sample drawing package].
 
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Tutorial: Creating a Creator indoor map]
+
 :::zone-end
 
 :::zone pivot="drawing-package-v2"
@@ -340,16 +345,12 @@ When finished, select the **Create + Download** button to download a copy of the
 
 :::image type="content" source="./media/creator-indoor-maps/onboarding-tool/review-download.png" alt-text="Screenshot showing the manifest JSON.":::
 
-## Step 4: Prepare the drawing package
-
-You should now have all the DWG drawings prepared to meet Azure Maps Conversion service requirements. A manifest file has also been created to help describe the facility. All files need to be compressed into a single archive file, with the `.zip` extension. It's important that the manifest file is named `manifest.json` and is placed in the root directory of the drawing package. All other files can be in any directory of the drawing package if the filename includes the relative path to the manifest. For an example of a drawing package, see the [sample drawing package v2].
-
-:::zone-end
-
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Creating a Creator indoor map]
+> [Create indoor map with the onboarding tool]
+
+:::zone-end
 
 <!--------------------- Drawing Package v1 links--------------------------------------------------->
 [sample drawing package]: https://github.com/Azure-Samples/am-creator-indoor-data-examples/tree/master/Drawing%20Package%201.0

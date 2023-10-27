@@ -5,14 +5,15 @@ description: Characteristics and limitations of Personalizer
 author: jcodella
 ms.author: jacodel
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: personalizer
+ms.service: azure-ai-personalizer
 ms.date: 05/23/2022
 ms.topic: conceptual
 ---
 
 
 # Characteristics and limitations of Personalizer
+
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
 
 Azure AI Personalizer can work in many scenarios. To understand where you can apply Personalizer, make sure the requirements of your scenario meet the [expectations for Personalizer to work](where-can-you-use-personalizer.md#expectations-required-to-use-personalizer). To understand whether Personalizer should be used and how to integrate it into your applications, see [Use Cases for Personalizer](responsible-use-cases.md). You'll find criteria and guidance on choosing use cases, designing features, and reward functions for your uses of Personalizer.
 

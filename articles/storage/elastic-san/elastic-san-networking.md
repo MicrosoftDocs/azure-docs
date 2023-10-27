@@ -23,7 +23,7 @@ To configure network access to your Elastic SAN:
 
 ## Configure a virtual network endpoint
 
-You can configure your Elastic SAN volume groups to allow access only from endpoints on specific virtual network subnets. The allowed subnets may belong to virtual networks in the same subscription, or those in a different subscription, including a subscription belonging to a different Azure Active Directory tenant.
+You can configure your Elastic SAN volume groups to allow access only from endpoints on specific virtual network subnets. The allowed subnets may belong to virtual networks in the same subscription, or those in a different subscription, including a subscription belonging to a different Microsoft Entra tenant.
 
 You can allow access to your Elastic SAN volume group from two types of Azure virtual network endpoints:
 
@@ -62,7 +62,7 @@ To create a private endpoint for an Elastic SAN volume group, you must have the 
 
 If you create the endpoint from a user account that has all of the necessary roles and permissions required for creation and approval, the process can be completed in one step. If not, it will require two separate steps by two different users.
 
-The Elastic SAN and the virtual network may be in different resource groups, regions and subscriptions, including subscriptions that belong to different Azure AD tenants. In these examples, we are creating the private endpoint in the same resource group as the virtual network.
+The Elastic SAN and the virtual network may be in different resource groups, regions and subscriptions, including subscriptions that belong to different Microsoft Entra tenants. In these examples, we are creating the private endpoint in the same resource group as the virtual network.
 
 # [Portal](#tab/azure-portal)
 
@@ -240,7 +240,7 @@ To configure an Azure Storage service endpoint from the virtual network where ac
 Virtual network service endpoints are public and accessible via the internet. You can [Configure virtual network rules](#configure-virtual-network-rules) to control access to your volume group when using storage service endpoints. 
 
 > [!NOTE]
-> Configuration of rules that grant access to subnets in virtual networks that are a part of a different Azure Active Directory tenant are currently only supported through PowerShell, CLI and REST APIs. These rules cannot be configured through the Azure portal, though they may be viewed in the portal.
+> Configuration of rules that grant access to subnets in virtual networks that are a part of a different Microsoft Entra tenant are currently only supported through PowerShell, CLI and REST APIs. These rules cannot be configured through the Azure portal, though they may be viewed in the portal.
 
 # [Portal](#tab/azure-portal)
 
@@ -298,7 +298,7 @@ All incoming requests for data over a service endpoint are blocked by default. O
 You can manage virtual network rules for volume groups through the Azure portal, PowerShell, or CLI.
 
 > [!IMPORTANT]
-> If you want to enable access to your storage account from a virtual network/subnet in another Azure AD tenant, you must use PowerShell or the Azure CLI. The Azure portal does not show subnets in other Azure AD tenants.
+> If you want to enable access to your storage account from a virtual network/subnet in another Microsoft Entra tenant, you must use PowerShell or the Azure CLI. The Azure portal does not show subnets in other Microsoft Entra tenants.
 >
 > If you delete a subnet that has been included in a network rule, it will be removed from the network rules for the volume group. If you create a new subnet with the same name, it won't have access to the volume group. To allow access, you must explicitly authorize the new subnet in the network rules for the volume group.
 
@@ -334,7 +334,7 @@ You can manage virtual network rules for volume groups through the Azure portal,
     ```
 
     > [!TIP]
-    > To add a network rule for a subnet in a virtual network belonging to another Azure AD tenant, use a fully qualified **VirtualNetworkResourceId** parameter in the form "/subscriptions/subscription-ID/resourceGroups/resourceGroup-Name/providers/Microsoft.Network/virtualNetworks/vNet-name/subnets/subnet-name".
+    > To add a network rule for a subnet in a virtual network belonging to another Microsoft Entra tenant, use a fully qualified **VirtualNetworkResourceId** parameter in the form "/subscriptions/subscription-ID/resourceGroups/resourceGroup-Name/providers/Microsoft.Network/virtualNetworks/vNet-name/subnets/subnet-name".
 
 - Remove a virtual network rule.
 
@@ -367,9 +367,9 @@ You can manage virtual network rules for volume groups through the Azure portal,
 - Add a network rule for a virtual network and subnet.
 
     > [!TIP]
-    > To add a rule for a subnet in a virtual network belonging to another Azure AD tenant, use a fully-qualified subnet ID in the form `/subscriptions/\<subscription-ID\>/resourceGroups/\<resourceGroup-Name\>/providers/Microsoft.Network/virtualNetworks/\<vNet-name\>/subnets/\<subnet-name\>`.
+    > To add a rule for a subnet in a virtual network belonging to another Microsoft Entra tenant, use a fully-qualified subnet ID in the form `/subscriptions/\<subscription-ID\>/resourceGroups/\<resourceGroup-Name\>/providers/Microsoft.Network/virtualNetworks/\<vNet-name\>/subnets/\<subnet-name\>`.
     >
-    > You can use the **subscription** parameter to retrieve the subnet ID for a virtual network belonging to another Azure AD tenant.
+    > You can use the **subscription** parameter to retrieve the subnet ID for a virtual network belonging to another Microsoft Entra tenant.
 
     ```azurecli
     # First, get the current length of the list of virtual networks. This is needed to ensure you append a new network instead of replacing existing ones.

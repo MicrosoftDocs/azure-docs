@@ -2,8 +2,8 @@
 title: Quickstart - Create a service connection in Azure Spring Apps with the Azure CLI
 description: Quickstart showing how to create a service connection in Azure Spring Apps with the Azure CLI
 displayName: 
-author: mcleanbyron
-ms.author: mcleans
+author: maud-lv
+ms.author: malev
 ms.service: service-connector
 ms.topic: quickstart
 ms.date: 04/13/2022
@@ -78,7 +78,7 @@ You can create a connection from Azure Spring Apps using an access key or a mana
 ### [Managed Identity](#tab/Using-Managed-Identity)
 
 > [!IMPORTANT]
-> To use Managed Identity, you must have the permission to modify [role assignments in Azure Active Directory](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). Without this permission, your connection creation will fail. Ask your subscription owner to grant you a role assignment permission or use an access key to create the connection.
+> To use Managed Identity, you must have the permission to modify [role assignments in Microsoft Entra ID](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). Without this permission, your connection creation will fail. Ask your subscription owner to grant you a role assignment permission or use an access key to create the connection.
 
 1. Run the `az spring connection create` command to create a service connection to a Blob Storage with a system-assigned managed identity
 

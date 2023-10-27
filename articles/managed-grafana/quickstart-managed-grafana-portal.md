@@ -3,8 +3,8 @@ title: 'Quickstart: create an Azure Managed Grafana instance using the Azure por
 description: Learn how to create a Managed Grafana workspace to generate a new Managed Grafana instance in the Azure portal 
 ms.service: managed-grafana
 ms.topic: quickstart
-author: mcleanbyron
-ms.author: mcleans
+author: maud-lv
+ms.author: malev
 ms.date: 03/23/2022
 ms.custom: engagement-fy23
 
@@ -69,7 +69,7 @@ Get started by creating an Azure Managed Grafana workspace using the Azure porta
 
 1. Once the deployment is complete, select **Go to resource** to open your resource.
 
-1. In the **Overview** tab's Essentials section, select the **Endpoint** URL. Single sign-on via Azure Active Directory has been configured for you automatically. If prompted, enter your Azure account.
+1. In the **Overview** tab's Essentials section, select the **Endpoint** URL. Single sign-on via Microsoft Entra ID has been configured for you automatically. If prompted, enter your Azure account.
 
     :::image type="content" source="media/quickstart-portal/grafana-overview.png" alt-text="Screenshot of the Azure portal. Endpoint URL display.":::
 

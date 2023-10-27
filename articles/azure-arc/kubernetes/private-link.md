@@ -41,7 +41,7 @@ Consider these current limitations when planning your Private Link setup.
 * You can associate at most one Azure Arc Private Link Scope with a virtual network.
 * An Azure Arc-enabled Kubernetes cluster can only connect to one Azure Arc Private Link Scope.
 * All on-premises Kubernetes clusters need to use the same private endpoint by resolving the correct private endpoint information (FQDN record name and private IP address) using the same DNS forwarder. For more information, see [Azure Private Endpoint DNS configuration](../../private-link/private-endpoint-dns.md). The Azure Arc-enabled Kubernetes cluster, Azure Arc Private Link Scope, and virtual network must be in the same Azure region. The Private Endpoint and the virtual network must also be in the same Azure region, but this region can be different from that of your Azure Arc Private Link Scope and Arc-enabled Kubernetes cluster.
-* Traffic to Azure Active Directory, Azure Resource Manager and Microsoft Container Registry service tags must be allowed through your on-premises network firewall during the preview.
+* Traffic to Microsoft Entra ID, Azure Resource Manager and Microsoft Container Registry service tags must be allowed through your on-premises network firewall during the preview.
 * Other Azure services that you will use, for example Azure Monitor, requires their own private endpoints in your virtual network.
 
     > [!NOTE]
@@ -61,20 +61,20 @@ To connect your Kubernetes cluster to Azure Arc over a private link, you need to
 1. Establish a connection between your on-premises network and an Azure virtual network using a [site-to-site VPN](../../vpn-gateway/tutorial-site-to-site-portal.md) or [ExpressRoute](../../expressroute/expressroute-howto-linkvnet-arm.md) circuit.
 1. Deploy an Azure Arc Private Link Scope, which controls which Kubernetes clusters can communicate with Azure Arc over private endpoints and associate it with your Azure virtual network using a private endpoint.
 1. Update the DNS configuration on your local network to resolve the private endpoint addresses.
-1. Configure your local firewall to allow access to Azure Active Directory, Azure Resource Manager and Microsoft Container Registry.
+1. Configure your local firewall to allow access to Microsoft Entra ID, Azure Resource Manager and Microsoft Container Registry.
 1. Associate the Azure Arc-enabled Kubernetes clusters with the Azure Arc Private Link Scope.
 1. Optionally, deploy private endpoints for other Azure services your Azure Arc-enabled Kubernetes cluster is managed by, such as Azure Monitor.
 The rest of this document assumes you have already set up your ExpressRoute circuit or site-to-site VPN connection.
 
 ## Network configuration
 
-Azure Arc-enabled Kubernetes integrates with several Azure services to bring cloud management and governance to your hybrid Kubernetes clusters. Most of these services already offer private endpoints, but you need to configure your firewall and routing rules to allow access to Azure Active Directory and Azure Resource Manager over the internet until these services offer private endpoints. You also need to allow access to Microsoft Container Registry (and AzureFrontDoor.FirstParty as a precursor for Microsoft Container Registry) to pull images & Helm charts to enable services like Azure Monitor, as well as for initial setup of Azure Arc agents on the Kubernetes clusters.
+Azure Arc-enabled Kubernetes integrates with several Azure services to bring cloud management and governance to your hybrid Kubernetes clusters. Most of these services already offer private endpoints, but you need to configure your firewall and routing rules to allow access to Microsoft Entra ID and Azure Resource Manager over the internet until these services offer private endpoints. You also need to allow access to Microsoft Container Registry (and AzureFrontDoor.FirstParty as a precursor for Microsoft Container Registry) to pull images & Helm charts to enable services like Azure Monitor, as well as for initial setup of Azure Arc agents on the Kubernetes clusters.
 
 There are two ways you can achieve this:
 
-* If your network is configured to route all internet-bound traffic through the Azure VPN or ExpressRoute circuit, you can configure the network security group (NSG) associated with your subnet in Azure to allow outbound TCP 443 (HTTPS) access to Azure AD, Azure Resource Manager, Azure Front Door and Microsoft Container Registry  using [service tags](../../virtual-network/service-tags-overview.md). The NSG rules should look like the following:
+* If your network is configured to route all internet-bound traffic through the Azure VPN or ExpressRoute circuit, you can configure the network security group (NSG) associated with your subnet in Azure to allow outbound TCP 443 (HTTPS) access to Microsoft Entra ID, Azure Resource Manager, Azure Front Door and Microsoft Container Registry  using [service tags](../../virtual-network/service-tags-overview.md). The NSG rules should look like the following:
 
-    | Setting                 | Azure AD rule                                                 | Azure Resource Manager rule                                   | AzureFrontDoorFirstParty rule                                 | Microsoft Container Registry rule                            |
+    | Setting                 | Microsoft Entra ID rule                                                 | Azure Resource Manager rule                                   | AzureFrontDoorFirstParty rule                                 | Microsoft Container Registry rule                            |
     |-------------------------|---------------------------------------------------------------|---------------------------------------------------------------|---------------------------------------------------------------|---------------------------------------------------------------
     | Source                  | Virtual Network                                               | Virtual Network                                               | Virtual Network                                               | Virtual Network
     | Source Port ranges      | *                                                             | *                                                             | *                                                             | *
@@ -86,7 +86,7 @@ There are two ways you can achieve this:
     | Priority                | 150 (must be lower than any rules that block internet access) | 151 (must be lower than any rules that block internet access) | 152 (must be lower than any rules that block internet access) | 153 (must be lower than any rules that block internet access) |
     | Name                    | AllowAADOutboundAccess                                        | AllowAzOutboundAccess                                         | AllowAzureFrontDoorFirstPartyAccess                           | AllowMCROutboundAccess
 
-* Configure the firewall on your local network to allow outbound TCP 443 (HTTPS) access to Azure AD, Azure Resource Manager, and Microsoft Container Registry, and inbound & outbound access to AzureFrontDoor.FirstParty using the downloadable service tag files. The JSON file contains all the public IP address ranges used by Azure AD, Azure Resource Manager, AzureFrontDoor.FirstParty, and Microsoft Container Registry and is updated monthly to reflect any changes. Azure Active Directory's service tag is AzureActiveDirectory, Azure Resource Manager's service tag is AzureResourceManager, Microsoft Container Registry's service tag is MicrosoftContainerRegistry, and Azure Front Door's service tag is AzureFrontDoor.FirstParty. Consult with your network administrator and network firewall vendor to learn how to configure your firewall rules.
+* Configure the firewall on your local network to allow outbound TCP 443 (HTTPS) access to Microsoft Entra ID, Azure Resource Manager, and Microsoft Container Registry, and inbound & outbound access to AzureFrontDoor.FirstParty using the downloadable service tag files. The JSON file contains all the public IP address ranges used by Microsoft Entra ID, Azure Resource Manager, AzureFrontDoor.FirstParty, and Microsoft Container Registry and is updated monthly to reflect any changes. Microsoft Entra service tag is AzureActiveDirectory, Azure Resource Manager's service tag is AzureResourceManager, Microsoft Container Registry's service tag is MicrosoftContainerRegistry, and Azure Front Door's service tag is AzureFrontDoor.FirstParty. Consult with your network administrator and network firewall vendor to learn how to configure your firewall rules.
 
 ## Create an Azure Arc Private Link Scope
 
@@ -193,7 +193,7 @@ If you run into problems, the following suggestions may help:
   nslookup dp.kubernetesconfiguration.azure.com
   ```
 
-* If you are having trouble onboarding your Kubernetes cluster, confirm that you’ve added the Azure Active Directory, Azure Resource Manager, AzureFrontDoor.FirstParty and Microsoft Container Registry service tags to your local network firewall.
+* If you are having trouble onboarding your Kubernetes cluster, confirm that you’ve added the Microsoft Entra ID, Azure Resource Manager, AzureFrontDoor.FirstParty and Microsoft Container Registry service tags to your local network firewall.
 
 ## Next steps
 

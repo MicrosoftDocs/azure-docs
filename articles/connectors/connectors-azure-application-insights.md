@@ -19,7 +19,7 @@ tags: connectors
 > the other connectors and is the preferred method for running a query against a Log Analytics workspace or an Application Insights resource.
 > 
 > For example, when you connect to your Application Insights resource, you don't have to create or provide an application ID and API key. 
-> Authentication is integrated with Azure Active Directory. For the how-to guide to use the Azure Monitor Logs connector, see 
+> Authentication is integrated with Microsoft Entra ID. For the how-to guide to use the Azure Monitor Logs connector, see 
 > [Connect to Log Analytics or Application Insights from workflows in Azure Logic Apps](connectors-azure-monitor-logs.md).
 
 For more information, see the following documentation:
