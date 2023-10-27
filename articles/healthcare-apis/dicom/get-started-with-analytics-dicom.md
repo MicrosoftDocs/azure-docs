@@ -185,7 +185,7 @@ You can monitor trigger runs and their associated pipeline runs on the **Monitor
 
 ### Create shortcuts
 
-1. Go to the lakehouse created in the prerequisites. In the **Explorer** view, select the ellipses menu (**...**) next to the **Tables** folder.
+1. Go to the lakehouse created in the prerequisites. In the **Explorer** view, select the ellipsis menu (**...**) next to the **Tables** folder.
 
 1. Select **New shortcut** to create a new shortcut to the storage account that contains the DICOM analytics data.
 
