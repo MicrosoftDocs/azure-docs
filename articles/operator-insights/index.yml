@@ -24,7 +24,7 @@ landingContent:
         links:
           - text: What is Azure Operator Insights?
             url: overview.md
-          - text: zure Operator Insights FAQ
+          - text: Azure Operator Insights FAQ
             url: operator-insights-faq.yml
       - linkListType: concept
         links:
