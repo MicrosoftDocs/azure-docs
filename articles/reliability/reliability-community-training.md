@@ -36,13 +36,13 @@ Community Training uses Azure availability zones to provide high availability an
 
 - The following table shows all regions that support availability zones for Community Training:
 
-| Americas         | Europe               | Middle East   | Africa             | Asia Pacific   |
-|------------------|----------------------|---------------|--------------------|----------------|
-| West US 2        | UK South             |               |                    | Southeast Asia |
-| South Central US | West Europe          |               |                    | Australia East |
-| East US 2        | North Europe         |               |                    |                |
-| East US          | Sweden Central       |               |                    |                |
-| West US 3        |                      |               |                    |                |
+    | Americas         | Europe               | Middle East   | Africa             | Asia Pacific   |
+    |------------------|----------------------|---------------|--------------------|----------------|
+    | West US 2        | UK South             |               |                    | Southeast Asia |
+    | South Central US | West Europe          |               |                    | Australia East |
+    | East US 2        | North Europe         |               |                    |                |
+    | East US          | Sweden Central       |               |                    |                |
+    | West US 3        |                      |               |                    |                |
 
 
 - Community Training is only supported in [paired regions](./cross-region-replication-azure.md#azure-paired-regions).  Each secondary region is deployed with a zonal configuration.
