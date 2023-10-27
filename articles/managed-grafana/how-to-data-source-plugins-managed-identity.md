@@ -241,15 +241,19 @@ Azure Managed Grafana can also access data sources using a service principal set
 
 ## Remove a data source
 
-Remove a data source:
+This section describes the steps for removing a data source.
+
+> [!CAUTION]
+> Removing a data source that is used in a dashboard will make the dashboard unable to collect the corresponding data and will trigger an error or result in no data being shown in the panel.
+
+### [Azure CLI](#tab/azure-cli)
+
+Remove a data source in the Azure portal:
 
 1. Open your Azure Managed Grafana instance in the Azure portal.
 1. Select **Overview** from the left menu, then open the **Endpoint** URL.
 1. In the Grafana portal, go to **Connections** > **Your connections**
 1. Select the data source you want to remove and select **Delete**.
-
-> [!CAUTION]
-> Removing a data source that is used in a dashboard will make the dashboard unable to collect the corresponding data and will trigger an error or result in no data being shown in the panel.
 
 ### [Azure CLI](#tab/azure-cli)
 
