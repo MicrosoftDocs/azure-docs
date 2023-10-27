@@ -17,8 +17,6 @@ Azure HDInsight 5.1 offers the latest open-source components with significant en
   
 If you migrate to Kafka 3.2.0 (HDI 5.1), you can take advantage of the following new features:
 
-:::image type="content" source="./media/migrate-5-1-versions/kafka-320-improvements.png" alt-text="Screenshot shows kafka 3.2.0 improvements." lightbox="./media/migrate-5-1-versions/kafka-320-improvements.png":::
-
 - Support Automated consumer offsets sync across cluster in MM 2.0, making it easier to migrate or failover consumers across clusters. [KIP-545](https://cwiki.apache.org/confluence/display/KAFKA/KIP-545%3A+support+automated+consumer+offset+sync+across+clusters+in+MM+2.0)
 - Hint to the partition leader to recover the partition: A new feature that allows the controller to communicate to a newly elected topic partition leader whether it needs to recover its state [KIP-704](https://cwiki.apache.org/confluence/display/KAFKA/KIP-704%3A+Send+a+hint+to+the+partition+leader+to+recover+the+partition)
 - Supports TLS 1.2 by default for secure communication
@@ -28,7 +26,6 @@ If you migrate to Kafka 3.2.0 (HDI 5.1), you can take advantage of the following
 
 
 For a complete list of updates, see [Apache Kafka 3.2.0 release notes](https://archive.apache.org/dist/kafka/3.2.0/RELEASE_NOTES.html).
-
 
 ## Kafka client compatibility
 
