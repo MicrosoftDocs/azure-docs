@@ -5,7 +5,7 @@ description: This article explains how to seamlessly migrate from Standard/HighP
 services: expressroute
 author: duongau
 ms.service: expressroute
-ms.topic: How-To
+ms.topic: how-To
 ms.date: 10/27/2023
 ms.author: duau
 ---
@@ -41,7 +41,7 @@ You can also reduce the capacity and performance of your gateway by choosing a l
 
 ## Availability zones
 
-[Availability Zone deployments](../reliability/availability-zones-overview.md) are supported by the ErGw1Az, ErGw2Az, ErGw3Az and ErGwScale (Preview) SKUs, also known as Az-Enabled SKUs. The Standard, HighPerformance and UltraPerformance SKUs, also known as Non-Az-Enabled SKUs, don't support this feature.
+The ErGw1Az, ErGw2Az, ErGw3Az and ErGwScale (Preview) SKUs, also known as Az-Enabled SKUs, support [Availability Zone deployments](../reliability/availability-zones-overview.md). The Standard, HighPerformance and UltraPerformance SKUs, also known as Non-Az-Enabled SKUs, don't support this feature.
 
 > [!NOTE]
 > For optimal reliability, Azure suggests using an Az-Enabled virtual network gateway SKU with a [zone-redundant configuration](../reliability/availability-zones-overview.md#zonal-and-zone-redundant-services), which distributes the gateway across multiple availability zones.
@@ -49,27 +49,27 @@ You can also reduce the capacity and performance of your gateway by choosing a l
 
 ## Gateway migration experience
 
-The new guided gateway migration experience enables you to migrate from a Non-Az-Enabled SKU to an Az-Enabled SKU. With this feature, you can deploy a second virtual network gateway in the same GatewaySubnet and Azure will automatically transfer the control plane and data path configuration from the old gateway to the new one.
+The new guided gateway migration experience enables you to migrate from a Non-Az-Enabled SKU to an Az-Enabled SKU. With this feature, you can deploy a second virtual network gateway in the same GatewaySubnet and Azure automatically transfers the control plane and data path configuration from the old gateway to the new one.
 
 ### Limitations
 
-The following scenarios aren't supported by the guided gateway migration experience:
+The guided gateway migration experience doesn't support these scenarios:
 
 * ExpressRoute/VPN coexistence
 * Azure Route Server 
 * FastPath connections
 
-During the migration, you may face connectivity issues with private endpoints (PEs) in the virtual network, connected over ExpressRoute private peering. To learn more and minimize this impact, see [Private endpoint connectivity](expressroute-about-virtual-network-gateways.md#private-endpoint-connectivity-and-planned-maintenance-events).
+Private endpoints (PEs) in the virtual network, connected over ExpressRoute private peering, might have connectivity problems during the migration. To understand and reduce this issue, see [Private endpoint connectivity](expressroute-about-virtual-network-gateways.md#private-endpoint-connectivity-and-planned-maintenance-events).
 
 ## Enroll subscription to access the feature
 
 1. To access this feature, you need to enroll your subscription by filling out the [ExpressRoute gateway migration form](https://aka.ms/ergwmigrationform).
 
-1. After your subscription is enrolled, you will get a confirmation e-mail with a PowerShell script for the gateway migration.
+1. After your subscription is enrolled, you'll get a confirmation e-mail with a PowerShell script for the gateway migration.
 
-## Migrate to new gateway
+## Migrate to a new gateway
 
-1. First, update the Az.Network module to the latest version by running this PowerShell command:
+1. First, update the `Az.Network` module to the latest version by running this PowerShell command:
 
     ```powershell-interactive
     Update-Module -Name Az.Network -Force
@@ -86,11 +86,11 @@ During the migration, you may face connectivity issues with private endpoints (P
     Set-AzVirtualNetwork -VirtualNetwork $vnet
     ```
 
-1. Next, run the **PrepareMigration.ps1** script to prepare the migration. This script will create a new ExpressRoute virtual network gateway on the same GatewaySubnet and connect it to your existing ExpressRoute circuits.
+1. Next, run the **PrepareMigration.ps1** script to prepare the migration. This script creates a new ExpressRoute virtual network gateway on the same GatewaySubnet and connects it to your existing ExpressRoute circuits.
 
-1. After that, run the **Migration.ps1** script to perform the migration. This script will transfer the configuration from the old gateway to the new one.
+1. After that, run the **Migration.ps1** script to perform the migration. This script transfers the configuration from the old gateway to the new one.
 
-1. Finally, run the **CommitMigration.ps1** script to complete the migration. This script will delete the old gateway and its connections.
+1. Finally, run the **CommitMigration.ps1** script to complete the migration. This script deletes the old gateway and its connections.
 
     >[!IMPORTANT]
     > Before running this step, verify that the new virtual network gateway has a working ExpressRoute connection.
