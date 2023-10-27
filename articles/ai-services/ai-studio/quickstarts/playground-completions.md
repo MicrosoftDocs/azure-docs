@@ -12,6 +12,8 @@ ms.author: eur
 
 # Quickstart: Generate product name ideas in the Azure AI Studio playground
 
+[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
+
 Use this article to get started making your first calls to Azure OpenAI.
 
 ## Prerequisites

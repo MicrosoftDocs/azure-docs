@@ -61,6 +61,25 @@ def my_python_tool(message: str) -> str:
 
 If the input message is "world", the output is `hello world`.
 
+### Types
+
+| Type                                                | Python example                  | Description                                |
+|-----------------------------------------------------|---------------------------------|--------------------------------------------|
+| int                                                 | param: int                      | Integer type                               |
+| bool                                                | param: bool                     | Boolean type                               |
+| string                                              | param: str                      | String type                                |
+| double                                              | param: float                    | Double type                                |
+| list                                                | param: list or param: List[T]   | List type                                  |
+| object                                              | param: dict or param: Dict[K, V] | Object type                                |
+| Connection                                          | param: CustomConnection         | Connection type will be handled specially |
+
+Parameters with `Connection` type annotation will be treated as connection inputs, which means:
+- Prompt flow extension will show a selector to select the connection.
+- During execution time, prompt flow will try to find the connection with the name same from parameter value passed in.
+
+> [!Note]
+> `Union[...]` type annotation is only supported for connection type, for example, `param: Union[CustomConnection, OpenAIConnection]`.
+
 ## Python code input requirements
 
 This section describes requirements of the Python code input for the Python tool.
@@ -116,6 +135,7 @@ def my_python_tool(message:str, myconn:CustomConnection) -> str:
     connection_key1_value = myconn.key1
     connection_key2_value = myconn.key2
 ```
+
 
 ## Next steps
 

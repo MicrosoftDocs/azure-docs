@@ -1,8 +1,7 @@
 ---
-title: How to deploy flows from an Azure AI Studio project
+title: Deploy a flow as a managed online endpoint for real-time inference
 titleSuffix: Azure AI services
-description: This article provides instructions on how to deploy flows from an Azure AI Studio project.
-services: cognitive-services
+description: Learn how to deploy a flow as a managed online endpoint for real-time inference with Azure AI Studio.
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-services
@@ -11,13 +10,44 @@ ms.date: 10/1/2023
 ms.author: eur
 ---
 
-# How to deploy flows from an Azure AI Studio project
+# Deploy a flow as a managed online endpoint for real-time inference
 
-This article provides instructions on how to deploy flows from an Azure AI Studio project.
+[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
+
+After you build a flow and test it properly, you may want to deploy it as an endpoint so that you can invoke the endpoint for real-time inference.
+
+In this article, you'll learn how to deploy a flow as a managed online endpoint for real-time inference. The steps you'll take are:
+
+- Test your flow and get it ready for deployment
+- Create an online deployment
+- Grant permissions to the endpoint
+- Test the endpoint
+- Consume the endpoint
+
+## Build the flow and get it ready for deployment
+
+If you already completed the [get started tutorial](get-started-prompt-flow.md), you've already tested the flow properly by submitting bulk tests and evaluating the results.
+
+If you didn't complete the tutorial, you need to build a flow. Testing the flow properly by bulk tests and evaluation before deployment is a recommended best practice.
+
+We'll use the sample flow **Web Classification** as example to show how to deploy the flow. This sample flow is a standard flow. Deploying chat flows is similar. Evaluation flow doesn't support deployment.
+
+## Define the environment used by deployment
+
+When you deploy prompt flow to managed online endpoint in UI, by default the deployment will use the environment created based on the latest prompt flow image and dependencies specified in the `requirements.txt` of the flow. You can specify extra packages you needed in `requirements.txt`. You can find `requirements.txt` in the root folder of your flow folder.
+
+
 
 ## Prerequisites
 
 In order to make the chat playground to respond to your query, you must grant permissions to the endpoint entity after the promptflow deployment is created. This is a subscription owner level action, so if needed, ask your subscription owner to do it for you. 
+
+## Create an online deployment
+
+Now that you have built a flow and tested it properly, it's time to create your online endpoint for real-time inference. 
+
+The Prompt flow supports you to deploy endpoints from a flow, or a bulk test run. Testing your flow before deployment is recommended best practice.
+
 
 ### If you're using AI Studio UI:
 1. Follow [the promptflow instruction](https://github.com/Azure/azureai-insiders/blob/aistudio-preview/previews/aistudio/how-to/build_with_promptflow.md) to create a promptflow.
@@ -35,52 +65,44 @@ In order to make the chat playground to respond to your query, you must grant pe
 13. Test the promptflow deployment (`YourDeploymentName` > `Test`)
 
 
-## Langchain and Custom Python
+## Check the status of the endpoint
 
-This option is only offered in Azure AI SDK. After developing and debugging your Langchain using [example notebook](https://github.com/Azure/aistudio-chat-demo/blob/main/src/langchain/langchain_qna.ipynb), you can use the following code to deploy it.
+There will be notifications after you finish the deploy wizard. After the endpoint and deployment are created successfully, you can select **Deploy details** in the notification to endpoint detail page.
 
-**Deploy Langchain QA Function**  
-
-Download MLIndex files so they can be packaged with deployment code. MLIndex files describe an index of data + embeddings and the embeddings model used in yaml.
-
-```python
-client.mlindexes.download(name="product-info-cog-search-index", download_path="./qna_simple/mlindex", label="latest")
-```
-
-```python
-from azure.ai.generative.entities.deployment import Deployment
-from azure.ai.generative.entities.models import LocalModel
-
-deployment_name = "dan-contoso-test"
-
-deployment = Deployment(
-    name=deployment_name,
-    model=LocalModel(
-        path="./qna_simple",
-        conda_file="conda.yaml",
-        loader_module="model_loader.py",
-    ),
-)
-
-deployment = client.deployments.create_or_update(deployment)
-```
-**Invoke the deployment**
-
-```python
-response = client.deployments.invoke(deployment_name, "./request_file_qna_simple.json")
-print(response)
-```
+You can also directly go to the **Endpoints** page in the studio, and check the status of the endpoint you deployed.
 
 
+## Test the endpoint with sample data
 
-## SDK
+In the endpoint detail page, switch to the **Test** tab.
 
-Azure AI SDK isn't supporting open source model deployment at this time. 
+If you select **Allow sharing sample input data for testing purpose only** when you deploy the endpoint, you can see the input data values are already preloaded.
 
-If you want to deploy using SDK, there are two options that are currently supported:
+If there's no sample value, you'll need to input a URL.
 
-| Use Case                    |                 Instruction                                                                                                                                          |
-|-----------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Download a promptflow from AI Studio UI, and deploy via SDK | Follow [the promptflow deployment instruction](https://github.com/Azure/aistudio-chat-demo/blob/main/docs/qna_with_promptflow.md)    |  
-| Create a LangChain and deploy via SDK | Follow [the Langchain deployment notebook](https://github.com/Azure/aistudio-chat-demo/blob/main/src/langchain/langchain_qna.ipynb)   
+The **Test result** shows as following: 
 
+
+### Test the endpoint deployed from a chat flow
+
+For endpoints deployed from chat flow, you can test it in an immersive chat window.
+
+
+The `chat_input` was set during development of the chat flow. You can input the `chat_input` message in the input box. The **Inputs** panel on the right side is for you to specify the values for other inputs besides the `chat_input`. Learn more about [how to develop a chat flow](./how-to-develop-a-chat-flow.md).
+
+## Consume the endpoint
+
+In the endpoint detail page, switch to the **Consume** tab. You can find the REST endpoint and key/token to consume your endpoint. There is also sample code for you to consume the endpoint in different languages.
+
+
+## Clean up resources
+
+If you aren't going use the endpoint after completing this tutorial, you should delete the endpoint.
+
+> [!NOTE]
+> The complete deletion may take approximately 20 minutes.
+
+## Next Steps
+
+- Learn more about what you can do in [Azure AI Studio](../what-is-ai-studio.md)
+- Get answers to frequently asked questions in the [Azure AI FAQ article](../faq.yml)

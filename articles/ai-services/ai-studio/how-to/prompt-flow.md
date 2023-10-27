@@ -12,7 +12,11 @@ ms.author: eur
 
 # Prompt flow in Azure AI Studio
 
+[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
+
 Prompt flow is a development tool designed to streamline the entire development cycle of AI applications powered by Large Language Models (LLMs). Prompt flow provides a comprehensive solution that simplifies the process of prototyping, experimenting, iterating, and deploying your AI applications.
+
+Prompt flow is available independently as an open-source project on [GitHub](https://github.com/microsoft/promptflow), with it's own SDK and [VS Code extension](https://marketplace.visualstudio.com/items?itemName=prompt-flow.prompt-flow). Prompt flow is also available and recommended to use as a feature within both [Azure AI Studio](https://aka.ms/AzureAIStudio) and [Azure Machine Learning studio](https://aka.ms/AzureAIStudio). This set of documentation focuses on prompt flow in Azure AI Studio.
 
 Definitions:
 - *Prompt flow* is a feature that can be used to generate, customize, or run a flow.
@@ -21,7 +25,6 @@ Definitions:
 - A *sample flow* is a simple, prebuilt orchestration flow that shows how flows work, and can be customized. 
 - A *sample prompt* is a defined prompt for a specific scenario that can be copied from a library and used as-is or modified in prompt design. 
 
-Prompt flow is available independently as an open-source project on [GitHub](https://github.com/microsoft/promptflow), with it's own SDK and [VS Code extension](https://marketplace.visualstudio.com/items?itemName=prompt-flow.prompt-flow). Prompt flow is also available and recommended to use as a feature within both [Azure AI Studio](https://aka.ms/AzureAIStudio) and [Azure Machine Learning studio](https://aka.ms/AzureAIStudio). This set of documentation focuses on prompt flow in Azure AI Studio.
 
 ## Benefits of prompt flow
 With prompt flow in Azure AI Studio, you can:
@@ -98,9 +101,29 @@ One of the key benefit of Prompt flow tools is their seamless integration with t
 
 If the prompt flow tools in Azure AI Studio don't meet your requirements, you can follow [this guide](https://microsoft.github.io/promptflow/how-to-guides/develop-a-tool/create-and-use-tool-package.html) to develop your own custom tool and make it a tool package. To discover more custom tools developed by the open source community, visit [this page](https://microsoft.github.io/promptflow/integrations/tools/index.html).
 
+## Explore the Prompt Catalog in Azure AI Studio 
+
+Prompt engineering is an important aspect of working with generative AI models as it allows users to have greater control, customization, and influence over the outputs. By skillfully designing prompts, users can harness the capabilities of generative AI models to generate desired content, address specific requirements, and cater to various application domains.   
+
+A prompt catalog is a collection of prompts that are designed to assist AI studio users in finding and utilizing prompts for common use-cases. Users can explore the catalog, view available prompts, and easily open them in a playground for further customization and fine-tuning. 
+
+:::image type="content" source="../media/prompt-flow/explore-catalog.png" alt-text="Screenshot prompt flow catalog from the Explore tab" lightbox="../media/prompt-flow/explore-catalog.png":::
+
+Note that these prompts serve as starting points to help users get started and we recommend users to tune and evaluate before using in production. 
+
+Filter by Modalities, Industries or Tasks 
+
+You can filter the prompt catalog by modalities, industries, or task to find the prompt that best suits your use-case. 
+
+Modalities: You can filter the prompt catalog by modalities to find prompts for modalities like Completion, Chat, Image and Video.  
+
+Industries: You can filter the prompt catalog by industries to find prompts examples from specific domains.  
+
+Tasks: The task filter allows you to filter prompts by the task they are best suited for, such as translation, question answering, or classification. 
+
 ## Variants in Prompt flow
 
-With prompt flow, you can use variants to tune your prompt. A variant refers to a specific version of a tool node that has distinct settings. Currently, variants are supported only in the LLM tool. For example, in the LLM tool, a new variant can represent either a different prompt content or different connection settings.
+With prompt flow, you can use variants to tune your prompt. A variant refers to a specific version of a tool node that has distinct settings. Currently, variants are supported only in the [LLM tool](prompt-flow-tools/llm-tool.md). For example, in the LLM tool, a new variant can represent either a different prompt content or different connection settings.
 
 Suppose you want to generate a summary of a news article. You can set different variants of prompts and settings like this:
 
@@ -124,5 +147,5 @@ Benefits of using variants include:
 
 ## Next steps
 
-- [Build with prompt flow in Azure AI Studio](../how-to/flow-build.md)
+- [Build with prompt flow in Azure AI Studio](flow-build.md)
 - [Get started with prompt flow in VS Code](https://microsoft.github.io/promptflow/how-to-guides/quick-start.html)
