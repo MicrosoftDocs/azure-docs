@@ -30,7 +30,7 @@ When configured, Azure Chaos Studio uses Azure Storage, which uses the customer-
    
 - Azure Chaos Studio experiments can't automatically rotate the customer-managed key to use the latest version of the encryption key. You would do key rotation directly in your chosen Azure Storage account. 
 
-- You will need to use our **2023-10-27-preview REST API** to create and use CMK-enabled experiments ONLY. There is **no** support CMK-enabled experiments in our GA-stable REST API until H1 2024. 
+- You will need to use our **2023-10-27-preview REST API** to create and use CMK-enabled experiments ONLY. There is **no** support for CMK-enabled experiments in our GA-stable REST API until H1 2024. 
 
 - Azure Chaos Studio currently **only supports creating Chaos Studio Customer-Managed-Key experiments via the Command Line using our 2023-10-27-preview REST API**. As a result, you **cannot** create a Chaos Studio experiment with CMK enabled via the Azure portal. We plan to add this functionality in H1 of 2024.
 
