@@ -64,7 +64,7 @@ In this quickstart, you create an instance of Azure Native Qumulo Scalable File 
    |**Region** | Select one of the available regions from the dropdown list. |
    |**Availability Zone** | Select an availability zone to pin the Qumulo file system resources to that zone in a region. |
    |**Password** | Create an initial password to set the Qumulo administrator access. |
-   |**Service** | Choose the required Azure Native Qumulo version. V2 is the latest and recommended offering |
+   |**Service** | Choose the required Azure Native Qumulo(ANQ) version - ANQ V1 or ANQ V2. Selection is defaulted to ANQ V2 |
    |**Storage** | Choose either **Standard** or **Performance** for your storage configuration, based on your workload requirements.This is option is only available for Azure Native Qumulo V1 Scalable File Service|
    |**Capacity (TB)** | Specify the size of the file system that needs to be created.|
    |**Pricing Plan** | A pay-as-you-go plan is selected by default. For upfront pricing plans or free trials, contact azure@qumulo.com. |
