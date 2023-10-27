@@ -1,12 +1,12 @@
 ---
 title: How to submit and manage jobs on an Apache Spark™ cluster in Azure HDInsight on AKS
-description: Learn how to submit and manage jobs on an Apache Spark cluster in HDInsight on AKS
+description: Learn how to submit and manage jobs on an Apache Spark™ cluster in HDInsight on AKS
 ms.service: hdinsight-aks
 ms.topic: how-to
 ms.date: 10/19/2023
 ---
 
-# Submit and manage jobs on an Apache Spark cluster in HDInsight on AKS
+# Submit and manage jobs on an Apache Spark™ cluster in HDInsight on AKS
 
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
@@ -25,7 +25,7 @@ Jupyter Notebook is an interactive notebook environment that supports various pr
 
 ### Create a Jupyter Notebook
 
-1. Navigate to the Apache Spark cluster page and open the **Overview** tab. Click on Jupyter, it asks you to authenticate and open the Jupyter web page.
+1. Navigate to the Apache Spark™ cluster page and open the **Overview** tab. Click on Jupyter, it asks you to authenticate and open the Jupyter web page.
 
     :::image type="content" source="./media/submit-manage-jobs/select-jupyter-notebook.png" alt-text="Screenshot of how to select Jupyter notebook." border="true" lightbox="./media/submit-manage-jobs/select-jupyter-notebook.png":::
 
@@ -106,7 +106,7 @@ Jupyter Notebook is an interactive notebook environment that supports various pr
 
 ## Using Apache Zeppelin notebooks
 
-HDInsight on AKS Spark clusters include [Apache Zeppelin notebooks](https://zeppelin.apache.org/). Use the notebooks to run Apache Spark jobs. In this article, you learn how to use the Zeppelin notebook on an HDInsight on AKS cluster.
+Apache Spark clusters in HDInsight on AKS include [Apache Zeppelin notebooks](https://zeppelin.apache.org/). Use the notebooks to run Apache Spark jobs. In this article, you learn how to use the Zeppelin notebook on an HDInsight on AKS cluster.
 ### Prerequisites
 An Apache Spark cluster on HDInsight on AKS. For instructions, see [Create an Apache Spark cluster](./create-spark-cluster.md).
 
