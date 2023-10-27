@@ -17,14 +17,14 @@ ms.custom:
 When deciding whether or not fine-tuning is the right solution to explore for a given use case, there are some key terms that it's helpful to be familiar with:
 
 - [Prompt Engineering](/azure/ai-services/openai/concepts/prompt-engineering) is a technique that involves designing prompts for natural language processing models. This process improves accuracy and relevancy in responses, optimizing the performance of the model.
-- [Retrieval Augmented Generation (RAG)](/azure/machine-learning/concept-retrieval-augmented-generation?view=azureml-api-2&preserve-view=true) improves LLM performance by retrieving data from external sources and incorporating it into a prompt. RAG allows businesses to achieve customized solutions while maintaining data relevance and optimizing costs.
-- [Fine-tuning](/azure/ai-services/openai/how-to/fine-tuning?pivots=programming-language-studio) retrains an existing LLM using example data, resulting in a new "custom" LLM that has been optimized using the provided examples.
+- [Retrieval Augmented Generation (RAG)](/azure/machine-learning/concept-retrieval-augmented-generation?view=azureml-api-2&preserve-view=true) improves Large Language Model (LLM) performance by retrieving data from external sources and incorporating it into a prompt. RAG allows businesses to achieve customized solutions while maintaining data relevance and optimizing costs.
+- [Fine-tuning](/azure/ai-services/openai/how-to/fine-tuning?pivots=programming-language-studio) retrains an existing Large Language Model using example data, resulting in a new "custom"  Large Lanugage Model that has been optimized using the provided examples.
 
 ## What is Fine Tuning with Azure OpenAI?
 
 When we talk about fine tuning, we really mean *supervised fine-tuning* not continuous pre-training or Reinforcement Learning through Human Feedback (RLHF). Supervised fine-tuning refers to the process of retraining pre-trained models on specific datasets, typically to improve model performance on specific tasks or introduce information that wasn't well represented when the base model was originally trained.
 
-Fine-tuning is an advanced technique that requires expertise to use appropriately. The questions below will help you evaluate whether your customers are ready for fine-tuning, and how well they’ve thought through the process. You can use these to guide your next steps or identify other approaches that might be more appropriate.
+Fine-tuning is an advanced technique that requires expertise to use appropriately. The questions below will help you evaluate whether you are ready for fine-tuning, and how well you've thought through the process. You can use these to guide your next steps or identify other approaches that might be more appropriate.
 
 ## Why do you want to fine-tune a model?
 
@@ -51,7 +51,7 @@ Having a baseline for performance without fine-tuning is essential for knowing w
 
 **Common signs you might not be ready for fine-tuning yet:**
 
-- Starting with fine-tuning without having tested any other techniques
+- Starting with fine-tuning without having tested any other techniques.
 - Insufficient knowledge or understanding on how fine-tuning applies specifically to Large Language Models (LLMs).
 - No benchmark measurements to assess fine-tuning against.
 
@@ -59,19 +59,19 @@ Having a baseline for performance without fine-tuning is essential for knowing w
 
 Understanding where prompt engineering falls short should provide guidance on going about your fine-tuning. Is the base model failing on edge cases or exceptions? Is the base model not consistently providing output in the right format, and you can’t fit enough examples in the context window to fix it?
 
-Examples of failure with the base model and prompt engineering will help customers identify the data they need to collect for fine-tuning, and how they should be evaluating their fine-tuned model.
+Examples of failure with the base model and prompt engineering will help you identify the data they need to collect for fine-tuning, and how you should be evaluating your fine-tuned model.
 
 Here’s an example: A customer wanted to use GPT-3.5-Turbo to turn natural language questions into queries in a specific, non-standard query language. They provided guidance in the prompt (“Always return GQL”) and used RAG to retrieve the database schema. However, the syntax wasn't always correct and often failed for edge cases. They collected thousands of examples of natural language questions and the equivalent queries for their database, including cases where the model had failed before – and used that data to fine-tune the model. Combining their new fine-tuned model with their engineered prompt and retrieval brought the accuracy of the model outputs up to acceptable standards for use.
 
 **If you are ready for fine-tuning you:**
 
-- Clear examples on how you have approached the challenges in alternate approaches and what’s been tested as possible resolutions to improve performance.
-- You've identified shortcomings using a base model, such as inconsistent performance on edge cases, inability to fit enough few shot prompts in context window to steer the model, high latency, etc.
+- Have clear examples on how you have approached the challenges in alternate approaches and what’s been tested as possible resolutions to improve performance.
+- You've identified shortcomings using a base model, such as inconsistent performance on edge cases, inability to fit enough few shot prompts in the context window to steer the model, high latency, etc.
 
 **Common signs you might not be ready for fine-tuning yet:**
 
-- Insufficient knowledge from the model or data source
-- Inability to find the right data to serve the model
+- Insufficient knowledge from the model or data source.
+- Inability to find the right data to serve the model.
 
 ## What data are you going to use for fine-tuning?
 
@@ -86,14 +86,14 @@ Another important point is even with high quality data if your data isn't in the
 
 **If you are ready for fine-tuning you:**
 
-- Have identified a dataset for fine-tuning
-- The dataset is in the appropriate format for training
-- Some level of curation has been employed to ensure dataset quality
+- Have identified a dataset for fine-tuning.
+- The dataset is in the appropriate format for training.
+- Some level of curation has been employed to ensure dataset quality.
 
 **Common signs you might not be ready for fine-tuning yet:**
 
-- Dataset hasn't been identified yet
-- Dataset format doesn't match the model you wish to fine-tune
+- Dataset hasn't been identified yet.
+- Dataset format doesn't match the model you wish to fine-tune.
 
 ## How will you measure the quality of your fine-tuned model?
 
