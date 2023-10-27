@@ -18,7 +18,7 @@ Pronunciation assessment uses the Speech to text capability to provide subjectiv
 > [!NOTE]
 > For information about availability of pronunciation assessment, see [supported languages](language-support.md?tabs=pronunciation-assessment) and [available regions](regions.md#speech-service).
 
-This article describes how to use the pronunciation assessment tool without writing any code through the [Speech Studio](https://speech.microsoft.com). For information about how to integrate pronunciation assessment in your speech applications, see [How to use pronunciation sssessment](how-to-pronunciation-assessment.md).
+This article describes how to use the pronunciation assessment tool without writing any code through the [Speech Studio](https://speech.microsoft.com). For information about how to integrate pronunciation assessment in your speech applications, see [How to use pronunciation assessment](how-to-pronunciation-assessment.md).
 
 In addition to the baseline scores of accuracy, fluency, and completeness, the pronunciation asessment feature in Speech Studio includes more comprehensive scores to provide detailed feedback on various aspects of speech performance and understanding. The enhanced scores are as follows: Prosody score, Vocabulary score, Grammar score, and Topic score. These scores offer valuable insights into speech prosody, vocabulary usage, grammar correctness, and topic understanding. 
 
@@ -38,6 +38,9 @@ At the bottom of the Assessment result, two overall scores are displayed: Pronun
 - **Topic score**: Assesses the level of understanding and engagement with the topic discussed in the speech. It evaluates the speaker's ability to effectively express thoughts and ideas related to the given topic.
 
 These overall scores offer a comprehensive assessment of both pronunciation and content, providing learners with valuable feedback on various aspects of their speech performance and understanding. By using these enhanced features, language learners can gain deeper insights into their advantages and areas for improvement in both pronunciation and content expression.
+
+> [!NOTE]
+> Content and prosody assessments are only available in the [en-US](./language-support.md#pronunciation-assessment) locale.
 
 ## Pricing
 
