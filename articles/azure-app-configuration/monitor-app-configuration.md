@@ -149,7 +149,7 @@ Following are sample queries that you can use to help you monitor your App Confi
     ```Kusto
        AACHttpRequest
         | where TimeGenerated > ago(3d)
-        | summarize requestCount= count() by ClientIPAddress
+        | summarize requestCount=sum(HitCount) by ClientIPAddress
         | order by requestCount desc 
     ```
 
@@ -157,7 +157,7 @@ Following are sample queries that you can use to help you monitor your App Confi
     ```Kusto
        AACHttpRequest
         | where TimeGenerated > ago(3d)
-        | summarize requestCount=count() by StatusCode
+        | summarize requestCount=sum(HitCount) by StatusCode
         | order by requestCount desc 
         | render piechart 
     ```
@@ -167,7 +167,7 @@ Following are sample queries that you can use to help you monitor your App Confi
     AACHttpRequest
         | where TimeGenerated > ago(14d)
         | extend Day = startofday(TimeGenerated)
-        | summarize requestcount=count() by Day
+        | summarize requestcount=sum(HitCount) by Day
         | order by Day desc  
     ```
 
