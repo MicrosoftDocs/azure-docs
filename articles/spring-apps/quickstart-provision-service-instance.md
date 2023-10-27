@@ -88,6 +88,7 @@ Use the following steps to create an instance of Azure Spring Apps:
        --resource-group <resource-group-name> \
        --name <service-instance-name>
    ```
+
 ---
 
 ## Clean up resources

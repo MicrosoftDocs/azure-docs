@@ -145,6 +145,7 @@ az spring app show-deploy-log --name <app-name>
 4. Copy the URL from the **Overview** page and paste it into your browser to view running application.
 
 ## Next steps
+
 * [Quickstart: Monitoring Azure Spring Apps with logs, metrics, and tracing](./quickstart-logs-metrics-tracing.md)
 
 More samples are available on GitHub: [Azure Spring Apps Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples).
