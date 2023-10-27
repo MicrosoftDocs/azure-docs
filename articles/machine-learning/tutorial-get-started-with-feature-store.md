@@ -1,7 +1,7 @@
 ---
 title: "Tutorial 1: Develop and register a feature set with managed feature store"
 titleSuffix: Azure Machine Learning managed feature store - basics
-description: This is part of a tutorial series on managed feature store. 
+description: This is the first part of a tutorial series on managed feature store. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -300,7 +300,7 @@ If the feature data is materialized, the Storage Blob Data Reader role must read
 
    Execute this code cell for role assignment. The permissions might need some time to propagate.
 
-   [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/Enable materialization and backfill feature data.ipynb?name=grant-rbac-to-user-identity)]
+   [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/1. Enable materialization and backfill feature data.ipynb?name=grant-rbac-to-user-identity)]
 
 ### [SDK and CLI track](#tab/SDK-and-CLI-track)
 
@@ -383,7 +383,7 @@ If the feature data is materialized, the Storage Blob Data Reader role must read
 
    This code cell materializes data by current status *None* or *Incomplete* for the defined feature window.
 
-    [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/1. Develop a feature set and register with managed feature store.ipynb.ipynb?name=backfill-txns-fset-cli)]  
+   [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/1. Develop a feature set and register with managed feature store.ipynb.ipynb?name=backfill-txns-fset-cli)]  
 
 ---
 
