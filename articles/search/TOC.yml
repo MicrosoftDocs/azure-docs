@@ -605,11 +605,7 @@
         href: cognitive-search-skill-sentiment-v3.md
       - name: Text Translation
         href: cognitive-search-skill-text-translation.md
-    - name: Azure OpenAI skills
-      items:
-      - name: Azure OpenAI Embedding
-        href: cognitive-search-skill-azure-openai-embedding.md
-    - name: Utility skills (non-billable)
+    - name: Azure AI Search utility skills (non-billable)
       items:
       - name: Conditional
         href: cognitive-search-skill-conditional.md
@@ -620,7 +616,11 @@
       - name: Text Merger
         href: cognitive-search-skill-textmerger.md
       - name: Text Split
-        href: cognitive-search-skill-textsplit.md 
+        href: cognitive-search-skill-textsplit.md
+    - name: Azure OpenAI skills
+      items:
+      - name: Azure OpenAI Embedding
+        href: cognitive-search-skill-azure-openai-embedding.md 
     - name: Custom skills
       items:
       - name: Azure Machine Learning (AML)
