@@ -95,7 +95,7 @@ Enhance your user experiences:
 > [Code sample page]
 
 [Building an accessible map]: map-accessibility.md
-[Code sample page]: https://aka.ms/AzureMapsSamples
+[Code sample page]: https://samples.azuremaps.com/
 [Map interaction with mouse events]: map-events.md
 [Map]: /javascript/api/azure-maps-control/atlas.map
 [Traffic controls source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Traffic/Traffic%20controls/Traffic%20controls.html

@@ -24,29 +24,29 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
-|  Rel 23-10 |  [5031361]  |  Latest Cumulative Update(LCU) | [6.63] | Oct 10, 2023 |
-|  Rel 23-10 |  [5031364]  |  Latest Cumulative Update(LCU) | [7.32] | Oct 10, 2023 |
-|  Rel 23-10 |  [5031362]  |  Latest Cumulative Update(LCU) | [5.87] | Oct 10, 2023 |
-|  Rel 23-10 |  [5029938]  |  .NET Framework 3.5 Security and Quality Rollup | [2.143] | Oct 10, 2023 |
-|  Rel 23-10 |  [5029933]  |  .NET Framework 4.7.2 Cumulative Update LKG | [2.143] | Sep 12, 2023 |
-|  Rel 23-10 |  [5029915]  |  .NET Framework 3.5 Security and Quality Rollup LKG | [4.123] | Oct 10, 2023 |
-|  Rel 23-10 |  [5029916]  |  .NET Framework 4.7.2 Cumulative Update LKG | [4.123] | Oct 10, 2023 |
-|  Rel 23-10 |  [5030160]  |  .NET Framework 4.7.2 Security and Quality Rollup | [2.142] | Oct 10, 2023 |
-|  Rel 23-10 |  [5030160]  |  .NET Framework 3.5 Security and Quality Rollup LKG | [3.131] | Oct 10, 2023 |
-|  Rel 23-10 |  [5029932]  |  .NET Framework 4.7.2 Cumulative Update LKG | [3.131] | Oct 10, 2023 |
-|  Rel 23-10 |  [5029931]  |  .NET Framework DotNet | [6.63] | Oct 10, 2023 |
-|  Rel 23-10 |  [5029928]  |  .NET Framework 4.8 Security and Quality Rollup LKG | [7.32] | Oct 10, 2023 |
-|  Rel 23-10 |  [5031408]  |  Monthly Rollup | [2.143] | Oct 10, 2023 |
-|  Rel 23-10 |  [5031442]  |  Monthly Rollup | [3.131] | Oct 10, 2023 |
-|  Rel 23-10 |  [5031419]  |  Monthly Rollup | [4.123] | Oct 10, 2023 |
-|  Rel 23-10 |  [5031469]  |  Servicing Stack Update | [3.131] | Oct 10, 2023 |
-|  Rel 23-10 |  [5030329]  |  Servicing Stack Update LKG | [4.123] | Sep 12, 2023 |
-|  Rel 23-10 |  [5030504]  |  Servicing Stack Update LKG | [5.87] | Sep 12, 2023 |
-|  Rel 23-10 |  [5031658]  |  Servicing Stack Update LKG | [2.143] | Oct 10, 2023 |
-|  Rel 23-10 |  [4494175]  |  January '20 Microcode | [5.87] | Sep 1, 2020 |
-|  Rel 23-10 |  [4494175]  |  January '20 Microcode | [6.63] | Sep 1, 2020 |
-|  Rel 23-10 |  5031590  |  Servicing Stack Update | [7.31] |  |
-|  Rel 23-10 |  5031589  |  Servicing Stack Update | [6.62] |  |
+|  Rel 23-10 |  [5031361]  |  Latest Cumulative Update(LCU) | [6.64] | Oct 10, 2023 |
+|  Rel 23-10 |  [5031364]  |  Latest Cumulative Update(LCU) | [7.34] | Oct 10, 2023 |
+|  Rel 23-10 |  [5031362]  |  Latest Cumulative Update(LCU) | [5.88] | Oct 10, 2023 |
+|  Rel 23-10 |  [5029938]  |  .NET Framework 3.5 Security and Quality Rollup | [2.144] | Oct 10, 2023 |
+|  Rel 23-10 |  [5029933]  |  .NET Framework 4.7.2 Cumulative Update LKG | [2.144] | Sep 12, 2023 |
+|  Rel 23-10 |  [5029915]  |  .NET Framework 3.5 Security and Quality Rollup LKG | [4.124] | Oct 10, 2023 |
+|  Rel 23-10 |  [5029916]  |  .NET Framework 4.7.2 Cumulative Update LKG | [4.124] | Oct 10, 2023 |
+|  Rel 23-10 |  [5030160]  |  .NET Framework 4.7.2 Security and Quality Rollup | [2.144] | Oct 10, 2023 |
+|  Rel 23-10 |  [5030160]  |  .NET Framework 3.5 Security and Quality Rollup LKG | [3.132] | Oct 10, 2023 |
+|  Rel 23-10 |  [5029932]  |  .NET Framework 4.7.2 Cumulative Update LKG | [3.132] | Oct 10, 2023 |
+|  Rel 23-10 |  [5029931]  |  .NET Framework DotNet | [6.64] | Oct 10, 2023 |
+|  Rel 23-10 |  [5029928]  |  .NET Framework 4.8 Security and Quality Rollup LKG | [7.34] | Oct 10, 2023 |
+|  Rel 23-10 |  [5031408]  |  Monthly Rollup | [2.144] | Oct 10, 2023 |
+|  Rel 23-10 |  [5031442]  |  Monthly Rollup | [3.132] | Oct 10, 2023 |
+|  Rel 23-10 |  [5031419]  |  Monthly Rollup | [4.124] | Oct 10, 2023 |
+|  Rel 23-10 |  [5031469]  |  Servicing Stack Update | [3.132] | Oct 10, 2023 |
+|  Rel 23-10 |  [5030329]  |  Servicing Stack Update LKG | [4.124] | Sep 12, 2023 |
+|  Rel 23-10 |  [5030504]  |  Servicing Stack Update LKG | [5.88] | Sep 12, 2023 |
+|  Rel 23-10 |  [5031658]  |  Servicing Stack Update LKG | [2.144] | Oct 10, 2023 |
+|  Rel 23-10 |  [4494175]  |  January '20 Microcode | [5.88] | Sep 1, 2020 |
+|  Rel 23-10 |  [4494175]  |  January '20 Microcode | [6.64] | Sep 1, 2020 |
+|  Rel 23-10 |  5031590  |  Servicing Stack Update | [7.34] |  |
+|  Rel 23-10 |  5031589  |  Servicing Stack Update | [6.64] |  |
 
 [5031361]: https://support.microsoft.com/kb/5031361
 [5031364]: https://support.microsoft.com/kb/5031364
@@ -68,12 +68,12 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [5031658]: https://support.microsoft.com/kb/5031658
 [4494175]: https://support.microsoft.com/kb/4494175
 [4494175]: https://support.microsoft.com/kb/4494175
-[2.143]: ./cloud-services-guestos-update-matrix.md#family-2-releases
-[3.131]: ./cloud-services-guestos-update-matrix.md#family-3-releases
-[4.123]: ./cloud-services-guestos-update-matrix.md#family-4-releases
-[5.87]: ./cloud-services-guestos-update-matrix.md#family-5-releases
-[6.63]: ./cloud-services-guestos-update-matrix.md#family-6-releases
-[7.32]: ./cloud-services-guestos-update-matrix.md#family-7-releases
+[2.144]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3.132]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.124]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.88]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.64]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[7.34]: ./cloud-services-guestos-update-matrix.md#family-7-releases
 
 
 

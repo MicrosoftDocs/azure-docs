@@ -24,7 +24,7 @@ Azure Front Door and Azure CDN are both Azure services that offer global content
 
 The following table provides a comparison between Azure Front Door and Azure CDN services.
 
-| Features and optimizations | Front Door Standard | Front Door Premium | Azure CDN Classic | Azure CDN Standard Microsoft | Azure CDN Standard Edgio | Azure CDN Premium Edgio |
+| Features and optimizations | Front Door Standard | Front Door Premium | Front Door Classic | Azure CDN Standard Microsoft | Azure CDN Standard Edgio | Azure CDN Premium Edgio |
 | --- | --- | --- | --- | --- | --- | --- |
 | **Delivery and acceleration** | | | | | | |
 | Static file delivery | Yes | Yes | Yes | Yes | Yes | Yes |
@@ -34,7 +34,7 @@ The following table provides a comparison between Azure Front Door and Azure CDN
 | HTTPS support | Yes | Yes | Yes | Yes | Yes | Yes |
 | Custom domain HTTPS | Yes | Yes | Yes | Yes | Yes | Yes |
 | Bring your own certificate | Yes | Yes | Yes | Yes | Yes | Yes |
-| Supported TLS Versions | TLS1.2, TLS1.0 | TLS1.2, TLS1.0 | TLS1.2, TLS1.0 | TLS 1.2, TLS 1.0/1.1 | "TLS 1.2, TLS 1.3" | TLS 1.2, TLS 1.3 |
+| Supported TLS Versions | TLS1.2, TLS1.0 | TLS1.2, TLS1.0 | TLS1.2, TLS1.0 | TLS 1.2, TLS 1.0/1.1 | TLS 1.2, TLS 1.3 | TLS 1.2, TLS 1.3 |
 | **Caching** | | | | | | |
 | Query string caching | Yes | Yes | Yes | Yes | Yes | Yes |
 | Cache manage (purge, rules, and compression) | Yes | Yes | Yes | Yes | Yes | Yes |

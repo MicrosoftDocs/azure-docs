@@ -12,10 +12,6 @@ ms.date: 06/05/2023
 ---
 
 # Copy and transform data in Amazon Simple Storage Service using Azure Data Factory or Azure Synapse Analytics
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
->
-> * [Version 1](v1/data-factory-amazon-simple-storage-service-connector.md)
-> * [Current version](connector-amazon-simple-storage-service.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 

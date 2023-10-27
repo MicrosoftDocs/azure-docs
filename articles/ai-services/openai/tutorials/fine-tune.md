@@ -36,7 +36,9 @@ In this tutorial you learn how to:
 - The OpenAI Python library should be at least version: `0.28.1`.
 - [Jupyter Notebooks](https://jupyter.org/)
 - An Azure OpenAI resource in a [region where `gpt-35-turbo-0613` fine-tuning is available](../concepts/models.md). If you don't have a resource the process of creating one is documented in our resource [deployment guide](../how-to/create-resource.md).
-- Necessary [Role-based access control permissions](../how-to/role-based-access-control.md). To perform all the actions described in this tutorial requires the equivalent of `Cognitive Services Contributor` + `Cognitive Services OpenAI Contributor` + `Cognitive Services Usages Reader` depending on how the permissions in your environment are defined.
+- Fine-tuning access requires **Cognitive Services OpenAI Contributor**.
+- If you do not already have access to view quota, and deploy models in Azure OpenAI Studio you will require [additional permissions](../how-to/role-based-access-control.md).  
+
 
 > [!IMPORTANT]
 > We strongly recommend reviewing the [pricing information](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/#pricing) for fine-tuning prior to beginning this tutorial to make sure you are comfortable with the associated costs. In testing, this tutorial resulted in one training hour billed, in addition to the costs that are associated with fine-tuning inference, and the hourly hosting costs of having a fine-tuned model deployed. Once you have completed the tutorial, you should delete your fine-tuned model deployment otherwise you will continue to incur the hourly hosting cost.
