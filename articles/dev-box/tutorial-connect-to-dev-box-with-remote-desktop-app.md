@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Use a Remote Desktop client to connect to a dev box'
 titleSuffix: Microsoft Dev Box
-description: In this tutorial, you learn how to download a Remote Desktop client and connect to your dev box. You also learn how to configure a dev box to use multiple monitors during a remote desktop session. 
+description: In this tutorial, you download and use a remote desktop client to connect to a dev box in Microsoft Dev Box. Configure the RDP client for a multi-monitor setup.
 services: dev-box
 ms.service: dev-box
 ms.author: rosemalcolm
@@ -10,11 +10,13 @@ ms.date: 09/11/2023
 ms.topic: tutorial
 ---
 
-# Tutorial: Use a Remote Desktop client to connect to a dev box
+# Tutorial: Use a remote desktop client to connect to a dev box 
 
-After you configure the Microsoft Dev Box service and create dev boxes, you can connect to them by using a browser or by using a Remote Desktop client.
+In this tutorial, you'll download and use a remote desktop client application to connect to a dev box in Microsoft Dev Box. Learn how to configure the application to take advantage of a multi-monitor setup.
 
 Remote Desktop apps let you use and control a dev box from almost any device. For your desktop or laptop, you can choose to download the Remote Desktop client for Windows Desktop or Microsoft Remote Desktop for Mac. You can also download a Remote Desktop app for your mobile device: Microsoft Remote Desktop for iOS or Microsoft Remote Desktop for Android.
+
+Alternately, you can also connect to your dev box through the browser from the Microsoft Dev Box developer portal.
 
 In this tutorial, you learn how to:
 
@@ -30,9 +32,11 @@ To complete this tutorial, you must first:
 - [Configure Microsoft Dev Box](./quickstart-configure-dev-box-service.md).
 - [Create a dev box](./quickstart-create-dev-box.md#create-a-dev-box) on the [developer portal](https://aka.ms/devbox-portal).
 
-## Download the client and connect to your dev box
+## Download the remote desktop client and connect to your dev box
 
-Remote Desktop clients are available for many operating systems and devices. In this tutorial, you can view the steps for Windows or the steps for a non-Windows operating system by selecting the relevant tab.
+You can use a remote desktop client application to connect to your dev box in Microsoft Dev Box. Remote Desktop clients are available for many operating systems and devices. 
+
+Select the relevant tab to view the steps to download and use the remote desktop client application from Windows or non-Windows operating systems.
 
 # [Windows](#tab/windows)
 
@@ -130,7 +134,9 @@ To use a non-Windows Remote Desktop client to connect to your dev box:
 
 ## Configure Remote Desktop to use multiple monitors
 
-Microsoft Remote Desktop for Windows and Microsoft Remote Desktop for Mac both support up to 16 monitors. Use the following steps to configure Remote Desktop to use multiple monitors.
+When you connect to your cloud-hosted developer machine in Microsoft Dev Box, you can take advantage of a multi-monitor setup. Microsoft Remote Desktop for Windows and Microsoft Remote Desktop for Mac both support up to 16 monitors.
+
+Use the following steps to configure Remote Desktop to use multiple monitors.
 
 # [Windows](#tab/windows)
 
@@ -150,7 +156,7 @@ Microsoft Remote Desktop for Windows and Microsoft Remote Desktop for Mac both s
    |Single display |Remote desktop uses a single display. |
    |Select displays |Remote Desktop uses only the monitors you select. |
 
-   :::image type="content" source="media/tutorial-connect-to-dev-box-with-remote-desktop-app/remote-desktop-select-display.png" alt-text="Screenshot showing the remote desktop display settings. ":::
+   :::image type="content" source="media/tutorial-connect-to-dev-box-with-remote-desktop-app/remote-desktop-select-display.png" alt-text="Screenshot showing the remote desktop display settings, highlighting the option to select the number of displays.":::
 
 1. Close the settings pane, and then select your dev box to begin the remote desktop session.
 
@@ -188,6 +194,5 @@ The dev box might take a few moments to stop.
 
 ## Related content
 
-To learn about managing your dev box, see:
-
 - [Manage a dev box by using the developer portal](how-to-create-dev-boxes-developer-portal.md)
+- Learn how to [connect to a dev box through the browser](./quickstart-create-dev-box.md#connect-to-a-dev-box)
