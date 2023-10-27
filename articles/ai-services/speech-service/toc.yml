@@ -270,7 +270,7 @@ items:
         - name: Voice assistants FAQ
           href: faq-voice-assistants.yml
         - name: Voice Assistants Samples (GitHub)
-          href: http://aka.ms/speech/va-samples
+          href: https://aka.ms/speech/va-samples
         - name: Custom Commands
           items:
             - name: Custom Commands overview

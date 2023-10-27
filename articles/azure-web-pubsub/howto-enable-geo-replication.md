@@ -103,6 +103,23 @@ Once the issue in `eastus` is resolved and the region is back online, the health
 
 This failover and recovery process is **automatic** and requires no manual intervention.
 
+## Disable or enable the replica endpoint
+When setting up a replica, you have the option to enable or disable its endpoint. If it's disabled, the primary FQDN's DNS resolution won't include the replica, and therefore, traffic won't be directed to it.
+
+![Diagram of Azure  Web PubSub replica endpoint setting. ](./media/howto-enable-geo-replication/web-pubsub-replica-endpoint-setting.png "Replica Endpoint Setting")
+
+You can also enable of disable the endpoint after it's been created. On the primary resource's replicas blade, click the ellipsis button on the right side of the replica and choose **Enable Endpoint** or **Disable Endpoint**:
+
+![Diagram of Azure  Web PubSub replica endpoint modification. ](./media/howto-enable-geo-replication/web-pubsub-replica-endpoint-modify.png "Replica Endpoint Modify")
+
+Before deleting a replication, consider disabling its endpoint first. Over time, existing connections will disconnect. As no new connections are coming, the replication becomes idle finally. This ensures a seamless deletion process.
+ 
+This feature is also useful for troubleshooting regional issues.
+
+> [!NOTE]
+> * Due to the DNS cache, it may take several minutes for the DNS update to take effect. 
+> * Existing connections remain unaffected until they disconnect.
+
 ## Impact on performance after enabling geo-replication feature
 After replicas are enabled, clients will naturally distribute based on their geographical locations. While Web PubSub takes on the responsibility to synchronize data across these replicas, you'll be pleased to know that the associated overhead on [Server Load](concept-performance.md#quick-evaluation-using-metrics) is minimal for most common use cases. 
 

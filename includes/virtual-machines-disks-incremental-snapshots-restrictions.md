@@ -26,6 +26,8 @@ Incremental snapshots of Premium SSD v2 and Ultra Disks have the following extra
 - Up to five disks may be simultaneously created from a snapshot of a Premium SSD v2 or an Ultra Disk.
 - When an incremental snapshot of either a Premium SSD v2 or an Ultra Disk is created, a background copy process for that disk is started. While a background copy is ongoing, you can have up to three total snapshots pending. The process must complete before any more snapshots of that disk can be created.
 - Incremental snapshots of a Premium SSD v2 or an Ultra disk can't be used immediately after they're created. The background copy must complete before you can create a disk from the snapshot. See [Check snapshot status](#check-snapshot-status) for details.
+- Taking increment snapshots of a Premium SSD v2 or an Ultra disk while the CompletionPercent property (of the disk) hasn't reached 100 is not supported.
+- When restoring a Premium SSD v2 and Ultra disk from snapshot, customer is able to attach the disk to a running VM right away. However, until the CompletionPercent property of the disk reached 100, you will experience significant performance drop when reading data from the newly restored disk.
 
 > [!NOTE]
 > Normally, when you take an incremental snapshot, and there aren't any changes, the size of that snapshot is 0 MiB. Currently, empty snapshots of disks with a 4096 logical sector size instead have a size of 6 MiB, when they'd normally be 0 MiB.

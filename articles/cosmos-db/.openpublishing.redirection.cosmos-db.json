@@ -6229,6 +6229,11 @@
       "source_path_from_root": "/articles/cosmos-db/gremlin/quickstart-php.md",
       "redirect_url": "/azure/cosmos-db/gremlin/quickstart-console",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/migration-choices.md",
+      "redirect_url": "/azure/cosmos-db",
+      "redirect_document_id": false
     }
   ]
 }

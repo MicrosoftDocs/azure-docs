@@ -853,8 +853,6 @@
           href: ../visualize-qlik-sense.md
     - name: Migrate data
       items:
-        - name: Options to migrate data into Azure Cosmos DB
-          href: ../migration-choices.md
         - name: Desktop data migration tool
           href: ../how-to-migrate-desktop-tool.md
         - name: Using .NET bulk support

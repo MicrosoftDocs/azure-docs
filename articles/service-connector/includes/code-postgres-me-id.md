@@ -2,7 +2,7 @@
 author: xiaofanzhou
 ms.service: service-connector
 ms.topic: include
-ms.date: 07/17/2023
+ms.date: 10/20/2023
 ms.author: xiaofanzhou
 ---
 
@@ -101,7 +101,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for PostgreSQL
     pip install azure-identity
     pip install psycopg2-binary
     ```
-1. Authenticate with access token get via `azure-identity` library and use the token as password. Get connection information from the environment variables added by Service Connector. **Uncomment the corresponding part of the code snippet according to the authentication type.**
+1. Get access token via `azure-identity` library and use the token as password. Get connection information from the environment variables added by Service Connector. **Uncomment the corresponding part of the code snippet according to the authentication type.**
     
     ```python
     from azure.identity import DefaultAzureCredential
@@ -254,8 +254,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for PostgreSQL
     import { DefaultAzureCredential, ClientSecretCredential } from "@azure/identity";
     const { Client } = require('pg');
 
-    // Uncomment the following lines according to the authentication type.
-        
+    // Uncomment the following lines according to the authentication type.  
     // For system-assigned identity.
     // const credential = new DefaultAzureCredential();
 

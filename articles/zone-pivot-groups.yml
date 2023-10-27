@@ -748,6 +748,10 @@ groups:
     title: C#
   - id: programming-language-python
     title: Python
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
 - id: programming-languages-set-two-with-js-spx
 # Owner: erhopf
   title: Programming languages
@@ -1832,6 +1836,10 @@ groups:
     title: C#
   - id: programming-language-javascript
     title: JavaScript 
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-go
+    title: Go 
   - id: rest-api
     title: REST
 # Owner: pafarley
@@ -2655,6 +2663,16 @@ groups:
     title: MSIX app attach
   - id: app-attach
     title: App attach (preview)
+- id: azure-virtual-desktop-windows-client-troubleshoot
+  title: Remote Desktop client for Windows troubleshoot
+  prompt: "Choose the product you're connecting to:"
+  pivots:
+  - id: azure-virtual-desktop
+    title: Azure Virtual Desktop
+  - id: windows-365
+    title: Windows 365
+  - id: dev-box
+    title: Dev Box
 # Owner: kevinguo-ed
 - id: azure-web-pubsub-create-resource-methods
   title: Create a resource using any one of the methods

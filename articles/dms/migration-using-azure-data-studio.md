@@ -14,7 +14,7 @@ ms.custom:
 
 # Migrate databases by using the Azure SQL Migration extension for Azure Data Studio
 
-Learn how to use the unified experience in [Azure SQL Migration extension for Azure Data Studio](/sql/azure-data-studio/extensions/azure-sql-migration-extension). Helps you to assess your database requirements, get the right-sized SKU recommendations for Azure resources, and migrate your SQL Server database to Azure.
+Learn how to use the unified experience in [Azure SQL Migration extension for Azure Data Studio](/azure-data-studio/extensions/azure-sql-migration-extension). Helps you to assess your database requirements, get the right-sized SKU recommendations for Azure resources, and migrate your SQL Server database to Azure.
 
 The Azure SQL Migration extension for Azure Data Studio offers these key benefits:
 
@@ -44,7 +44,7 @@ SQL Server to SQL Server on an Azure virtual machine|[Online](./tutorial-sql-ser
 SQL Server to Azure SQL Database | [Offline](./tutorial-sql-server-azure-sql-database-offline.md)
 
 > [!IMPORTANT]
-> If your target is Azure SQL Database, make sure you deploy the database schema before you begin the migration. You can use tools like the [SQL Server dacpac extension](/sql/azure-data-studio/extensions/sql-server-dacpac-extension) or the [SQL Database Projects extension](/sql/azure-data-studio/extensions/sql-database-project-extension) for Azure Data Studio.
+> If your target is Azure SQL Database, make sure you deploy the database schema before you begin the migration. You can use tools like the [SQL Server dacpac extension](/azure-data-studio/extensions/sql-server-dacpac-extension) or the [SQL Database Projects extension](/azure-data-studio/extensions/sql-database-project-extension) for Azure Data Studio.
 
 The following video explains recent updates and features added to the Azure SQL Migration extension for Azure Data Studio:
 
@@ -70,7 +70,7 @@ The following list describes each step in the workflow:
 
 (3) **Network file share**: A Server Message Block (SMB) network file share where backup files are stored for the databases to be migrated. Azure storage blob containers and Azure storage file share also are supported.
 
-(4) **Azure Data Studio**: Download and install the [Azure SQL Migration extension for Azure Data Studio](/sql/azure-data-studio/extensions/azure-sql-migration-extension).
+(4) **Azure Data Studio**: Download and install the [Azure SQL Migration extension for Azure Data Studio](/azure-data-studio/extensions/azure-sql-migration-extension).
 
 (5) **Azure Database Migration Service**: An Azure service that orchestrates migration pipelines to do data movement activities from an on-premises environment to Azure. Database Migration Service is associated with the Azure Data Factory self-hosted integration runtime and provides the capability to register and monitor the self-hosted integration runtime.
 
@@ -177,4 +177,4 @@ For the list of Azure regions that support database migrations by using the Azur
 
 ## Next steps
 
-- Learn how to install the [Azure SQL Migration extension for Azure Data Studio](/sql/azure-data-studio/extensions/azure-sql-migration-extension).
+- Learn how to install the [Azure SQL Migration extension for Azure Data Studio](/azure-data-studio/extensions/azure-sql-migration-extension).

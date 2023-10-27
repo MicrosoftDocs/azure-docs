@@ -9,6 +9,9 @@
   - name: Terminology
     displayName: azure virtul desktop, avd, overview, what is
     href: terminology.md
+  - name: Service architecture and resilience
+    displayName: architecture
+    href: service-architecture-resilience.md
   - name: Prerequisites
     displayName: overview, get started
     href: prerequisites.md
@@ -580,6 +583,9 @@
     href: troubleshoot-service-connection.md
   - name: Remote Desktop clients
     items:
+    - name: Windows Desktop client basic troubleshooting
+      displayName: troubleshooting, apps, clients, remote desktop, rdp
+      href: troubleshoot-client-windows-basic-shared.md
     - name: Windows Desktop client
       displayName: troubleshooting, apps, clients, remote desktop, rdp
       href: troubleshoot-client-windows.md

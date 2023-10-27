@@ -2,13 +2,13 @@
 author: xiaofanzhou
 ms.service: service-connector
 ms.topic: include
-ms.date: 07/17/2023
+ms.date: 10/20/2023
 ms.author: xiaofanzhou
 ---
 
 
 ### [.NET](#tab/dotnet)
-For .NET, there's not a plugin or library to support passwordless connections. You can get an access token for the managed identity or service principal using client library like [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/). Then you can use the access token as the password to connect to the database. For example, you can use  **Uncomment the corresponding part of the code snippet according to the authentication type.**
+For .NET, there's not a plugin or library to support passwordless connections. You can get an access token for the managed identity or service principal using client library like [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/). Then you can use the access token as the password to connect to the database. **Uncomment the corresponding part of the code snippet according to the authentication type.**
 
 ```csharp
 using Azure.Core;
@@ -234,7 +234,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for MySQL](/az
    npm install --save @azure/identity
    npm install --save mysql2
    ```
-2. Get Azure MySQL database information from environment variables added by Service Connector service. **Uncomment the corresponding part of the code snippet according to the authentication type.**
+2. Get access token using `@azure/identity` and Azure MySQL database information from environment variables added by Service Connector service. **Uncomment the corresponding part of the code snippet according to the authentication type.**
 
 
    ```javascript
@@ -242,7 +242,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for MySQL](/az
    
    const mysql = require('mysql2');
 
-   //Uncomment the following lines according to the authentication type.
+   // Uncomment the following lines according to the authentication type.
    // for system-assigned managed identity
    // const credential = new DefaultAzureCredential();
 

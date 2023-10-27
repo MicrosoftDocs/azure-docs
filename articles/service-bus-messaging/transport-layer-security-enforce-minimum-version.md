@@ -45,6 +45,8 @@ When a client sends a request to Service Bus namespace, the client establishes a
 > [!NOTE]
 > Due to backwards compatibility, namespaces that do not have the `MinimumTlsVersion` setting specified or have specified this as 1.0, we do not do any TLS checks when connecting via the SBMP protocol.
 
+[!INCLUDE [service-bus-amqp-support-retirement](../../includes/service-bus-amqp-support-retirement.md)]
+
 Here're a few important points to consider:
 
 - A network trace would show the successful establishment of a TCP connection and successful TLS negotiation, before a 401 is returned if the TLS version used is less than the minimum TLS version configured.

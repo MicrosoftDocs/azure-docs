@@ -56,6 +56,10 @@ This example shows a [C# function](dotnet-isolated-process-guide.md) that receiv
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/ServiceBus/ServiceBusReceivedMessageFunctions.cs" id="docsnippet_servicebus_readbatch":::
 
+This example shows a [C# function](dotnet-isolated-process-guide.md) that receives multiple Service Bus queue messages, writes it to the logs, and then settles the message as completed:
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/ServiceBus/ServiceBusReceivedMessageFunctions.cs" id="docsnippet_servicebus_message_actions":::
+
 # [In-process model](#tab/in-process)
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that reads [message metadata](#message-metadata) and
@@ -379,7 +383,7 @@ The following table explains the properties you can set using this trigger attri
 |**Access**|Access rights for the connection string. Available values are `manage` and `listen`. The default is `manage`, which indicates that the `connection` has the **Manage** permission. If you use a connection string that does not have the **Manage** permission, set `accessRights` to "listen". Otherwise, the Functions runtime might fail trying to do operations that require manage rights. In Azure Functions version 2.x and higher, this property is not available because the latest version of the Service Bus SDK doesn't support manage operations.|
 |**IsBatched**| Messages are delivered in batches. Requires an array or collection type. |
 |**IsSessionsEnabled**|`true` if connecting to a [session-aware](../service-bus-messaging/message-sessions.md) queue or subscription. `false` otherwise, which is the default value.|
-|**AutoComplete**|`true` Whether the trigger should automatically call complete after processing, or if the function code will manually call complete.<br/><br/>If set to `true`, the trigger completes the message automatically if the function execution completes successfully, and abandons the message otherwise.<br/><br/>When set to `false`, you are responsible for calling [MessageReceiver](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver) methods to complete, abandon, or deadletter the message. If an exception is thrown (and none of the `MessageReceiver` methods are called), then the lock remains. Once the lock expires, the message is re-queued with the `DeliveryCount` incremented and the lock is automatically renewed. |
+|**AutoComplete**|`true` Whether the trigger should automatically call complete after processing, or if the function code will manually call complete.<br/><br/>If set to `true`, the trigger completes the message automatically if the function execution completes successfully, and abandons the message otherwise.<br/><br/>When set to `false`, you are responsible for calling [ServiceBusReceiver](/dotnet/api/azure.messaging.servicebus.servicebusreceiver) methods to complete, abandon, or deadletter the message, session, or batch. When an exception is thrown (and none of the `ServiceBusReceiver` methods are called), then the lock remains. Once the lock expires, the message is re-queued with the `DeliveryCount` incremented and the lock is automatically renewed. |
 
 ---
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -515,6 +519,8 @@ In [C# class libraries](functions-dotnet-class-library.md), the attribute's cons
 
 Use the [Message](/dotnet/api/microsoft.azure.servicebus.message) type to receive messages with metadata. To learn more, see [Messages, payloads, and serialization](../service-bus-messaging/service-bus-messages-payloads.md).
 
+[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
+
 In [C# class libraries](functions-dotnet-class-library.md), the attribute's constructor takes the name of the queue or the topic and subscription. 
 
 [!INCLUDE [functions-service-bus-account-attribute](../../includes/functions-service-bus-account-attribute.md)]
@@ -525,6 +531,8 @@ The following parameter types are available for the queue or topic message:
 
 * [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) - Gives you the deserialized message with the [BrokeredMessage.GetBody\<T>()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) method.
 * [MessageReceiver](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver) - Used to receive and acknowledge messages from the message container, which is required when `autoComplete` is set to `false`.
+
+[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
 
 In [C# class libraries](functions-dotnet-class-library.md), the attribute's constructor takes the name of the queue or the topic and subscription. In Azure Functions version 1.x, you can also specify the connection's access rights. If you don't specify access rights, the default is `Manage`. 
 
@@ -583,7 +591,7 @@ Poison message handling can't be controlled or configured in Azure Functions. Se
 
 The Functions runtime receives a message in [PeekLock mode](../service-bus-messaging/service-bus-performance-improvements.md#receive-mode). It calls `Complete` on the message if the function finishes successfully, or calls `Abandon` if the function fails. If the function runs longer than the `PeekLock` timeout, the lock is automatically renewed as long as the function is running.
 
-The `maxAutoRenewDuration` is configurable in *host.json*, which maps to [OnMessageOptions.MaxAutoRenewDuration](/dotnet/api/microsoft.azure.servicebus.messagehandleroptions.maxautorenewduration). The default value of this setting is 5 minutes.
+The `maxAutoRenewDuration` is configurable in *host.json*, which maps to [ServiceBusProcessor.MaxAutoLockRenewalDuration](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.maxautolockrenewalduration). The default value of this setting is 5 minutes.
 
 ::: zone pivot="programming-language-csharp" 
 ## Message metadata
@@ -612,6 +620,8 @@ These properties are members of the [ServiceBusReceivedMessage](/dotnet/api/azur
 
 These properties are members of the [Message](/dotnet/api/microsoft.azure.servicebus.message) class.
 
+[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
+
 |Property|Type|Description|
 |--------|----|-----------|
 |`ContentType`|`string`|A content type identifier utilized by the sender and receiver for application-specific logic.|
@@ -628,6 +638,8 @@ These properties are members of the [Message](/dotnet/api/microsoft.azure.servic
 # [Functions 1.x](#tab/functionsv1/in-process)
 
 These properties are members of the [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) and [MessageReceiver](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver) classes.
+
+[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
 
 |Property|Type|Description|
 |--------|----|-----------|
@@ -682,5 +694,4 @@ Functions version 1.x doesn't support isolated worker process. To use the isolat
 - [Send Azure Service Bus messages from Azure Functions (Output binding)](./functions-bindings-service-bus-output.md)
 
 
-[BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
 [upgrade your application to Functions 4.x]: ./migrate-version-1-version-4.md

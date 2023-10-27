@@ -8,8 +8,8 @@ ms.subservice: inferencing
 ms.topic: how-to
 author: santiagxf
 ms.author: fasantia
-ms.date: 10/10/2022
-ms.reviewer: mopeakande 
+ms.date: 10/10/2023
+ms.reviewer: larryfr
 ms.custom: devplatv2
 ---
 
@@ -35,7 +35,7 @@ To invoke a batch endpoint, the user must present a valid Microsoft Entra token 
 You can either use one of the [built-in security roles](../role-based-access-control/built-in-roles.md) or create a new one. In any case, the identity used to invoke the endpoints requires to be granted the permissions explicitly. See [Steps to assign an Azure role](../role-based-access-control/role-assignments-steps.md) for instructions to assign them.
 
 > [!IMPORTANT]
-> The identity used for invoking a batch endpoint may not be used to read the underlying data depending on how the data store is configured. Please see [Security considerations when reading data](how-to-access-data-batch-endpoints-jobs.md#security-considerations-when-reading-data) for more details.
+> The identity used for invoking a batch endpoint may not be used to read the underlying data depending on how the data store is configured. Please see [Configure compute clusters for data access](#configure-compute-clusters-for-data-access) for more details.
 
 ## How to run jobs using different types of credentials
 
@@ -47,9 +47,6 @@ The following examples show different ways to start batch deployment jobs using 
 ### Running jobs using user's credentials
 
 In this case, we want to execute a batch endpoint using the identity of the user currently logged in. Follow these steps:
-
-> [!NOTE]
-> When working on Azure Machine Learning studio, batch endpoints/deployments are always executed using the identity of the current user logged in.
 
 # [Azure CLI](#tab/cli)
 
@@ -227,11 +224,11 @@ In this case, we want to execute a batch endpoint using a service principal alre
 
 ### Running jobs using a managed identity
 
-You can use managed identities to invoke batch endpoint and deployments. Please notice that this manage identity doesn't belong to the batch endpoint, but it is the identity used to execute the endpoint and hence create a batch job. Both user assigned and system assigned identities can be use in this scenario.
+You can use managed identities to invoke batch endpoint and deployments. Notice that this manage identity doesn't belong to the batch endpoint, but it is the identity used to execute the endpoint and hence create a batch job. Both user assigned and system assigned identities can be use in this scenario.
 
 # [Azure CLI](#tab/cli)
 
-On resources configured for managed identities for Azure resources, you can sign in using the managed identity. Signing in with the resource's identity is done through the `--identity` flag. For more details see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
+On resources configured for managed identities for Azure resources, you can sign in using the managed identity. Signing in with the resource's identity is done through the `--identity` flag. For more details, see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
 
 ```azurecli
 az login --identity
@@ -279,6 +276,58 @@ You can use the REST API of Azure Machine Learning to start a batch endpoints jo
 You can also use the Azure CLI to get an authentication token for the managed identity and the pass it to the batch endpoints URI.
 
 ---
+
+## Configure compute clusters for data access
+
+Batch endpoints ensure that only authorized users are able to invoke batch deployments and generate jobs. However, depending on how the input data is configured, other credentials might be used to read the underlying data. Use the following table to understand which credentials are used:
+
+| Data input type              | Credential in store             | Credentials used                                              | Access granted by |
+|------------------------------|---------------------------------|---------------------------------------------------------------|-------------------|
+| Data store                   | Yes                             | Data store's credentials in the workspace                     | Access key or SAS |
+| Data asset                   | Yes                             | Data store's credentials in the workspace                     | Access Key or SAS |
+| Data store                   | No                              | Identity of the job + Managed identity of the compute cluster | RBAC              |
+| Data asset                   | No                              | Identity of the job + Managed identity of the compute cluster | RBAC              |
+| Azure Blob Storage           | Not apply                       | Identity of the job + Managed identity of the compute cluster | RBAC              |
+| Azure Data Lake Storage Gen1 | Not apply                       | Identity of the job + Managed identity of the compute cluster | POSIX             |
+| Azure Data Lake Storage Gen2 | Not apply                       | Identity of the job + Managed identity of the compute cluster | POSIX and RBAC    |
+
+For those items in the table where **Identity of the job + Managed identity of the compute cluster** is displayed, the managed identity of the compute cluster is used **for mounting** and configuring storage accounts. However, the identity of the job is still used to read the underlying data allowing you to achieve granular access control. That means that in order to successfully read data from storage, the managed identity of the compute cluster where the deployment is running must have at least [Storage Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) access to the storage account.
+
+To configure the compute cluster for data access, follow these steps:
+
+1. Go to [Azure Machine Learning studio](https://ml.azure.com).
+
+1. Navigate to __Compute__, then __Compute clusters__, and select the compute cluster your deployment is using.
+
+1. Assign a managed identity to the compute cluster:
+
+   1. In the __Managed identity__ section, verify if the compute has a managed identity assigned. If not, select the option __Edit__.
+      
+   1. Select __Assign a managed identity__ and configure it as needed. You can use a System-Assigned Managed Identity or a User-Assigned Managed Identity. If using a System-Assigned Managed Identity, it is named as "[workspace name]/computes/[compute cluster name]".
+
+   1. Save the changes. 
+
+    :::image type="content" source="media/how-to-authenticate-batch-endpoint/guide-manage-identity-cluster.gif" alt-text="Animation showing the steps to assign a managed identity to a cluster.":::
+
+1. Go to the [Azure portal](https://portal.azure.com) and navigate to the associated storage account where the data is located. If your data input is a Data Asset or a Data Store, look for the storage account where those assets are placed.
+
+1. Assign Storage Blob Data Reader access level in the storage account:
+
+   1. Go to the section __Access control (IAM)__.
+
+   1. Select the tab __Role assignment__, and then click on __Add__ > __Role assignment__.
+
+   1. Look for the role named __Storage Blob Data Reader__, select it, and click on __Next__.
+
+   1. Click on __Select members__.
+
+   1. Look for the managed identity you have created. If using a System-Assigned Managed Identity, it is named as __"[workspace name]/computes/[compute cluster name]"__.
+
+   1. Add the account, and complete the wizard.
+  
+    :::image type="content" source="media/how-to-authenticate-batch-endpoint/guide-manage-identity-assign.gif" alt-text="Animation showing the steps to assign the created managed identity to the storage account.":::
+  
+1. Your endpoint is ready to receive jobs and input data from the selected storage account. 
 
 ## Next steps
 

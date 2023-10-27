@@ -14,18 +14,7 @@ This article shows you how to configure Azure Monitor Application Insights for J
 
 ## Connection string and role name
 
-Connection string and role name are the most common settings you need to get started:
-
-```json
-{
-  "connectionString": "...",
-  "role": {
-    "name": "my cloud role name"
-  }
-}
-```
-
-Connection string is required. Role name is important anytime you're sending data from different applications to the same Application Insights resource.
+[!INCLUDE [azure-monitor-app-insights-opentelemetry-java-connection-string](../includes/azure-monitor-app-insights-opentelemetry-java-connection-string.md)]
 
 More information and configuration options are provided in the following sections.
 

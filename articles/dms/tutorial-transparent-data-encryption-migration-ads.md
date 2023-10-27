@@ -19,7 +19,7 @@ TDE provides a solution to this problem, with real-time I/O encryption/decryptio
 
 When you migrate a TDE-protected database, the certificate (asymmetric key) used to open the database encryption key (DEK) must also be moved along with the source database. Therefore, you need to recreate the server certificate in the `master` database of the target SQL Server for that instance to access the database files.
 
-You can use the [Azure SQL Migration extension for Azure Data Studio](/sql/azure-data-studio/extensions/azure-sql-migration-extension) to help you migrate TDE-enabled databases (preview) from an on-premises instance of SQL Server to Azure SQL.
+You can use the [Azure SQL Migration extension for Azure Data Studio](/azure-data-studio/extensions/azure-sql-migration-extension) to help you migrate TDE-enabled databases (preview) from an on-premises instance of SQL Server to Azure SQL.
 
 The TDE-enabled database migration process automates manual tasks such as backing up the database certificate keys (DEK), copying the certificate files from the on-premises SQL Server to the Azure SQL target, and then reconfiguring TDE for the target database again.
 
@@ -40,9 +40,9 @@ In this tutorial, you learn how to migrate the example `AdventureWorksTDE` encry
 
 Before you begin the tutorial:
 
-- [Download and install Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio).
+- [Download and install Azure Data Studio](/azure-data-studio/download-azure-data-studio).
 
-- [Install the Azure SQL Migration extension](/sql/azure-data-studio/extensions/azure-sql-migration-extension) from Azure Data Studio Marketplace.
+- [Install the Azure SQL Migration extension](/azure-data-studio/extensions/azure-sql-migration-extension) from Azure Data Studio Marketplace.
 
 - Run Azure Data Studio as Administrator.
 

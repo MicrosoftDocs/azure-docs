@@ -44,8 +44,8 @@ In this tutorial, you learn how to:
 
 Before you begin the tutorial:
 
-- [Download and install Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio).
-- [Install the Azure SQL Migration extension](/sql/azure-data-studio/extensions/azure-sql-migration-extension) from Azure Data Studio Marketplace.
+- [Download and install Azure Data Studio](/azure-data-studio/download-azure-data-studio).
+- [Install the Azure SQL Migration extension](/azure-data-studio/extensions/azure-sql-migration-extension) from Azure Data Studio Marketplace.
 
 - Create a target instance of [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/instance-create-quickstart) or [SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/windows/create-sql-vm-portal).
 

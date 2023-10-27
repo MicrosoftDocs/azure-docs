@@ -108,7 +108,7 @@ This section guides you through manually adding Application Insights to a templa
           </ExcludeComponentCorrelationHttpHeadersOnDomains>
           <IncludeDiagnosticSourceActivities>
             <Add>Microsoft.Azure.EventHubs</Add>
-            <Add>Microsoft.Azure.ServiceBus</Add>
+            <Add>Azure.Messaging.ServiceBus</Add>
           </IncludeDiagnosticSourceActivities>
         </Add>
         <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule, Microsoft.AI.PerfCounterCollector">

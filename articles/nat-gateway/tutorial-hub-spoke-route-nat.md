@@ -436,19 +436,19 @@ A virtual network peering is used to connect the hub to spoke one and spoke one 
     | ------- | ----- |
     | **This virtual network** |   |
     | Peering link name | Enter **vnet-hub-to-vnet-spoke-1**. |
-    | Allow access to remote virtual network | Leave the default of **Selected**. |
-    | Allow traffic to remote virtual network | **Select** the checkbox. |
-    | Allow traffic forwarded from the remote virtual network (allow gateway transit) | **Select** the checkbox.. |
-    | Use remote virtual network gateway or route server | Leave the default of **Unselected**. |
+    | Allow 'vnet-hub' to access 'vnet-spoke-1' | Leave the default of **Selected**. |
+    | Allow 'vnet-hub' to receive forwarded traffic from 'vnet-spoke-1' | **Select** the checkbox. |
+    | Allow gateway in 'vnet-hub' to forward traffic to 'vnet-spoke-1' | Leave the default of **Unselected**. |
+    | Enable 'vnet-hub' to use 'vnet-spoke-1's' remote gateway | Leave the default of **Unselected**. |
     | **Remote virtual network** |   |
     | Peering link name | Enter **vnet-spoke-1-to-vnet-hub**. |
     | Virtual network deployment model | Leave the default of **Resource manager**. |
     | Subscription | Select your subscription. |
     | Virtual network | Select **vnet-spoke-1**. |
-    | Allow access to current virtual network | Leave the default of **Selected**. |
-    | Allow traffic to current virtual network | **Select** the checkbox. |
-    | Allow traffic forwarded from the current virtual network (allow gateway transit) | **Select** the checkbox. |
-    | Use remote virtual network gateway or route server | Leave the default of **Unselected**. |
+    | Allow 'vnet-spoke-1' to access 'vnet-hub' | Leave the default of **Selected**. |
+    | Allow 'vnet-spoke-1' to receive forwarded traffic from 'vnet-hub' | **Select** the checkbox. |
+    | Allow gateway in 'vnet-spoke-1' to forward traffic to 'vnet-hub' | Leave the default of **Unselected**. |
+    | Enable 'vnet-spoke-1' to use 'vnet-hub's' remote gateway | Leave the default of **Unselected**. |
     
 1. Select **Add**.
 
@@ -670,19 +670,19 @@ Create a two-way virtual network peer between the hub and spoke two.
     | ------- | ----- |
     | **This virtual network** |   |
     | Peering link name | Enter **vnet-hub-to-vnet-spoke-2**. |
-    | Allow access to remote virtual network | Leave the default of **Selected**. |
-    | Allow traffic to remote virtual network | **Select** the checkbox. |
-    | Allow traffic forwarded from the remote virtual network (allow gateway transit) | **Select** the checkbox.. |
-    | Use remote virtual network gateway or route server | Leave the default of **Unselected**. |
+    | Allow 'vnet-hub' to access 'vnet-spoke-2' | Leave the default of **Selected**. |
+    | Allow 'vnet-hub' to receive forwarded traffic from 'vnet-spoke-2' | **Select** the checkbox. |
+    | Allow gateway in 'vnet-hub' to forward traffic to 'vnet-spoke-2' | Leave the default of **Unselected**. |
+    | Enable 'vnet-hub' to use 'vnet-spoke-2's' remote gateway | Leave the default of **Unselected**. |
     | **Remote virtual network** |   |
     | Peering link name | Enter **vnet-spoke-2-to-vnet-hub**. |
     | Virtual network deployment model | Leave the default of **Resource manager**. |
     | Subscription | Select your subscription. |
     | Virtual network | Select **vnet-spoke-2**. |
-    | Allow access to current virtual network | Leave the default of **Selected**. |
-    | Allow traffic to current virtual network | **Select** the checkbox. |
-    | Allow traffic forwarded from the current virtual network (allow gateway transit) | **Select** the checkbox. |
-    | Use remote virtual network gateway or route server | Leave the default of **Unselected**. |
+    | Allow 'vnet-spoke-1' to access 'vnet-hub' | Leave the default of **Selected**. |
+    | Allow 'vnet-spoke-1' to receive forwarded traffic from 'vnet-hub' | **Select** the checkbox. |
+    | Allow gateway in 'vnet-spoke-1' to forward traffic to 'vnet-hub' | Leave the default of **Unselected**. |
+    | Enable 'vnet-spoke-1' to use 'vnet-hub's' remote gateway | Leave the default of **Unselected**. |
     
 1. Select **Add**.
 

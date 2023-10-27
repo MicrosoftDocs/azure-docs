@@ -2,7 +2,7 @@
 title: The regulatory compliance dashboard
 description: Learn how to assign and remove regulatory standards from the regulatory compliance dashboard in Defender for Cloud
 ms.topic: how-to
-ms.date: 09/11/2023
+ms.date: 10/10/2023
 ms.custom: ignite-2022
 ---
 
@@ -45,6 +45,7 @@ If a subscription, account, or project has *any* Defender plan enabled, more sta
 | CIS Azure Foundations v1.1.0            |||
 | CIS Azure Foundations v1.3.0            |||
 | CIS Azure Foundations v1.4.0            |||
+| CIS Azure Foundations v2.0.0            |||
 | NIST SP 800-53 R4                       |||
 | NIST SP 800-53 R5                       |||
 | NIST SP 800 171 R2                      |||
