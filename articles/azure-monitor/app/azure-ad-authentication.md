@@ -37,7 +37,7 @@ The following SDKs and features are unsupported for use with Microsoft Entra aut
 - [ApplicationInsights JavaScript web SDK](javascript.md).
 - [Application Insights OpenCensus Python SDK](/previous-versions/azure/azure-monitor/app/opencensus-python) with Python version 3.4 and 3.5.
 - [Certificate/secret-based Microsoft Entra ID](../../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md) isn't recommended for production. Use managed identities instead.
-- On-by-default [autoinstrumentation/codeless monitoring](codeless-overview) (for languages) for Azure App Service, Azure Virtual Machines/Azure Virtual Machine Scale Sets, and Azure Functions.
+- On-by-default [autoinstrumentation/codeless monitoring](codeless-overview.md) (for languages) for Azure App Service, Azure Virtual Machines/Azure Virtual Machine Scale Sets, and Azure Functions.
 - [Availability tests](availability-overview.md).
 - [Profiler](profiler-overview.md).
 
