@@ -116,8 +116,10 @@ landingContent:
             url: concepts-namespace-push-delivery.md
       - linkListType: quickstart
         links:
-          - text: Publish and subscribe to events using namespace topics
+          - text: Publish and subscribe to events using namespace topics (Pull)
             url: publish-events-using-namespace-topics.md
+          - text: Publish and deliver events using namespace topics (Push)
+            url: publish-deliver-events-with-namespace-topics.md           
       - linkListType: how-to-guide
         links:
           - text: Create, view, and manage namespaces
