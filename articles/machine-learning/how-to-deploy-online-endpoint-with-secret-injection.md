@@ -82,12 +82,20 @@ Explain key vault as well
 
 1. In case of SAI, Specify whether you will enforce access to default secret stores (namely, workspace connections under the workspace) to the endpoint identity:
 
+    Create `endpoint.yaml`:
+
     ```YAML
     $schema: https://azuremlschemas.azureedge.net/latest/managedOnlineEndpoint.schema.json
     name: my-endpoint
     auth_mode: key
     properties:
         enforce_access_to_default_secret_stores: enabled  # default: disabled
+    ```
+
+    Create the endpoint:
+
+    ```azurecli
+    az ml online-endpoint create -f endpoint.yaml
     ```
 
   > [!NOTE]
@@ -105,6 +113,8 @@ Explain key vault as well
 
 1. In case of UAI, you are not allowed to specify the `enforce_access_to_default_secret_stores` flag:
 
+    Create `endpoint.yaml`:
+
     ```YAML
     $schema: https://azuremlschemas.azureedge.net/latest/managedOnlineEndpoint.schema.json
     name: my-endpoint
@@ -112,6 +122,12 @@ Explain key vault as well
     identity:
         type: user_assigned
         user_assigned_identities: /subscriptions/00000000-0000-0000-000-000000000000/resourcegroups/myrg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/my-identity 
+    ```
+
+    Create the endpoint:
+
+    ```azurecli
+    az ml online-endpoint create -f endpoint.yaml
     ```
 
 > [!NOTE]
@@ -137,9 +153,12 @@ Explain key vault as well
         1. ${{keyvault:https://<keyvault_name>.vault.azure.net/secrets/<secret_name>/<secret_version>}}: The value of the secret version will be populated into the environment variable.
     1. For example,
 
+        Create `deployment.yaml`:
+
         ```YAML
         $schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json
         name: blue
+        endpoint_name: my-endpoint
         #…
         environment_variables:
             AOAI_CONNECTION: ${{azureml://connections/aoai_connection}}
@@ -149,6 +168,12 @@ Explain key vault as well
             OPENAI_VERSION: ${{azureml://connections/multi_connection_langchain/metadata/OPENAI_API_VERSION}}
             
             USER_SECRET_KV1_KEY: ${{keyvault:https://mykeyvault.vault.azure.net/secrets/secret1/secretversion1}}
+        ```
+
+        Create the deployment:
+
+        ```azurecli
+        az ml online-deployment create -f deployment.yaml
         ```
 
 > [!IMPORTANT]
