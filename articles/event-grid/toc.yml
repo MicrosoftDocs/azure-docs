@@ -100,7 +100,7 @@ items:
         items:
         - name: Pull delivery
           items:
-          - name: Publish and subscribe using namespace topics
+          - name: Publish and subscribe to events using namespace topics
             href: publish-events-using-namespace-topics.md
           - name: Send and pull messages
             items:
@@ -108,7 +108,7 @@ items:
               href: event-grid-dotnet-get-started-pull-delivery.md
         - name: Push delivery
           items:
-          - name: Publish and deliver using namespace topics
+          - name: Publish and deliver events using namespace topics
             href: publish-deliver-events-with-namespace-topics.md
       - name: Concepts
         items:
