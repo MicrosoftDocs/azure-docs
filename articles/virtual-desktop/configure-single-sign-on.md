@@ -7,7 +7,7 @@ manager: femila
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 10/29/2023
+ms.date: 10/30/2023
 ms.author: helohr
 ---
 # Configure single sign-on for Azure Virtual Desktop using Microsoft Entra authentication
@@ -76,37 +76,39 @@ To enable single sign-on in your environment, you must:
 1. Enable Microsoft Entra authentication.
 1. Configure the target device groups.
 1. Create a Kerberos Server object.
+1. Review your conditional access policies.
 1. Configure your host pool to enable single sign-on.
 
 ### Enable Microsoft Entra authentication
 
-Before enabling the single sign-on feature, you must first allow Microsoft Entra authentication for Windows in your Microsoft Entra tenant. This will enable issuing RDP access tokens for the Windows Cloud Login app (App ID 270efc09-cd0d-444b-a71f-39af4910ec45) to enable users to sign in to Azure Virtual Desktop session hosts. This is done by enabling the isRemoteDesktopProtocolEnabled property on the Windows Cloud Login service principal's remoteDesktopSecurityConfiguration object.
+> [!IMPORTANT]
+> Due to an upcoming change, the steps below should be completed for the following Microsoft Entra Apps:
+> 
+> - Microsoft Remote Desktop (App ID a4a365df-50f1-4397-bc59-1a1564b8bb9c).
+> - Windows Cloud Login (App ID 270efc09-cd0d-444b-a71f-39af4910ec45)
+
+Before enabling the single sign-on feature, you must first allow Microsoft Entra authentication for Windows in your Microsoft Entra tenant. This will enable issuing RDP access tokens allowing users to sign in to Azure Virtual Desktop session hosts. This is done by enabling the isRemoteDesktopProtocolEnabled property on the service principal's remoteDesktopSecurityConfiguration object for the apps listed above.
 
 Use the [Microsoft Graph API](/graph/use-the-api) to [create remoteDesktopSecurityConfiguration](/graph/api/serviceprincipal-post-remotedesktopsecurityconfiguration?view=graph-rest-beta) and set the **isRemoteDesktopProtocolEnabled** to "true" to enable Microsoft Entra authentication.
 
-> [!IMPORTANT]
-> If you are using the following client versions, you need to configure the same properties on the Microsoft Remote Desktop service principal (App ID a4a365df-50f1-4397-bc59-1a1564b8bb9c).
-> 
-> XYZ client.
-
 ### Configure the target device groups
+
+> [!IMPORTANT]
+> Due to an upcoming change, the steps below should be completed for the following Microsoft Entra Apps:
+> 
+> - Microsoft Remote Desktop (App ID a4a365df-50f1-4397-bc59-1a1564b8bb9c).
+> - Windows Cloud Login (App ID 270efc09-cd0d-444b-a71f-39af4910ec45)
 
 By default when enabling single sign-on, users are prompted to authenticate to Microsoft Entra ID and allow the Remote Desktop connection when launching a connection to a new session host. Microsoft Entra remembers up to 15 hosts for 30 days before prompting again. If you see this dialogue, select **Yes** to connect.
 
-To provide single sign-on for all connections, you can hide this dialog by configuring a list of trusted devices. This is done by adding one or more Device Groups containing Azure Virtual Desktop session hosts to a property on the Windows Cloud Login service principal in your Microsoft Entra tenant. 
+To provide single sign-on for all connections, you can hide this dialog by configuring a list of trusted devices. This is done by adding one or more Device Groups containing Azure Virtual Desktop session hosts to a property on the service principals for the apps listed above in your Microsoft Entra tenant.
 
 Follow these steps to hide the dialog:
 
-1. Create a Device Group in Microsoft Entra containing the devices to hide the dialog for.
+1. [Create a Dynamic Device Group](/entra/identity/users/groups-create-rule) in Microsoft Entra containing the devices to hide the dialog for. Remember the device group ID for the next step.
     > [!TIP]
     > It's recommended to use a dynamic device group and configure the dynamic membership rules to includes all your Azure Virtual Desktop session hosts. This can be done using the device names or for a more secure option, you can set and use Extension attributes.
-1. The Device Group ID will be needed for a step below.
-1. Use the [Microsoft Graph API](/graph/use-the-api) to [create targetDeviceGroup](/graph/api/remotedesktopsecurityconfiguration-post-targetdevicegroups?view=graph-rest-beta).
-
-> [!IMPORTANT]
-> If you are using the following client versions, you need to configure the same properties on the Microsoft Remote Desktop service principal (App ID a4a365df-50f1-4397-bc59-1a1564b8bb9c).
-> 
-> XYZ client.
+1. Use the [Microsoft Graph API](/graph/use-the-api) to [create targetDeviceGroup](/graph/api/remotedesktopsecurityconfiguration-post-targetdevicegroups?view=graph-rest-beta) to suppress the prompt from these devices.
 
 ### Create a Kerberos Server object
 
@@ -122,6 +124,10 @@ You must [Create a Kerberos Server object](../active-directory/authentication/ho
 > - SSO will be skipped and you'll see a standard authentication dialog for the session host. 
 >
 > To resolve these issues, create the Kerberos server object before trying to connect again.
+
+### Review your conditional access policies
+
+When single sign-on is enabled, a new Microsoft Entra ID app is introduced to authenticate users to the session host. If you have conditional access policies that apply when accessing Azure Virtual Desktop, review the recommendations on setting up [multi-factor authentication](set-up-mfa.md) to ensure users have the desired experience.
 
 ### Configure your host pool
 
