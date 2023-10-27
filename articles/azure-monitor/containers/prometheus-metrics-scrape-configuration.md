@@ -113,31 +113,7 @@ You can configure the metrics add-on to scrape targets other than the default on
 
 Follow the instructions to [create, validate, and apply the configmap](prometheus-metrics-scrape-validate.md) for your cluster.
 
-### Advanced setup: Configure custom Prometheus scrape jobs for the DaemonSet
 
-The `ama-metrics` Replica pod consumes the custom Prometheus config and scrapes the specified targets. For a cluster with a large number of nodes and pods and a large volume of metrics to scrape, some of the applicable custom scrape targets can be off-loaded from the single `ama-metrics` Replica pod to the `ama-metrics` DaemonSet pod.
-
-The [ama-metrics-prometheus-config-node configmap](https://aka.ms/azureprometheus-addon-ds-configmap), is similar to the replica-set configmap, and can be created to have static scrape configs on each node. The scrape config should only target a single node and shouldn't use service discovery. Otherwise, each node tries to scrape all targets and makes many calls to the Kubernetes API server.
-
-Example:- The following `node-exporter` config is one of the default targets for the DaemonSet pods. It uses the `$NODE_IP` environment variable, which is already set for every `ama-metrics` add-on container to target a specific port on the node.
-
-  ```yaml
-  - job_name: nodesample
-    scrape_interval: 30s
-    scheme: http
-    metrics_path: /metrics
-    relabel_configs:
-    - source_labels: [__metrics_path__]
-      regex: (.*)
-      target_label: metrics_path
-    - source_labels: [__address__]
-      replacement: '$NODE_NAME'
-      target_label: instance
-    static_configs:
-    - targets: ['$NODE_IP:9100']
-  ```
-
-Custom scrape targets can follow the same format by using `static_configs` with targets and using the `$NODE_IP` environment variable and specifying the port to scrape. Each pod of the DaemonSet takes the config, scrapes the metrics, and sends them for that node.
 
 ## Prometheus configuration tips and examples
 
