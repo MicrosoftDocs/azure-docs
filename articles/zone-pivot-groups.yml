@@ -2778,3 +2778,12 @@ groups:
     title: Apache Gremlin
   - id: api-table
     title: Table
+# Owner: sidandrews
+- id: azure-cosmos-db-quickstart-path
+  title: Azure Cosmos DB Quickstart paths
+  prompt: Choose a development environment
+  pivots:
+  - id: azd
+    title: Azure Developer CLI
+  - id: local
+    title: Local
