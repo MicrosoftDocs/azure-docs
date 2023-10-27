@@ -106,7 +106,7 @@ You can use Azure CLI to upload certificates as secrets to your key vault or use
 
 #### Option One - Upload certificate via Azure CLI
 
-The following command can upload the certificate as a secret to your key vault. You must have "**Kev Vault Administrator**"  access to your Key vault for this command to work properly.
+The following command can upload the certificate as a secret to your key vault. You must have "**Key Vault Administrator**" permissions access to your Key vault for this command to work properly.
 
 ```azurecli-interactive
 az keyvault secret set --vault-name <your key vault> --name <name of the secret> --file <file path to secret>
