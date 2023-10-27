@@ -66,6 +66,7 @@ Once a Job has been classified, it can be reclassified in the following ways:
 1. You can update the Job labels, which cause the Job Router to evaluate the new labels with the previous Classification Policy.
 2. You can update the Classification Policy ID of a Job, which causes Job Router to process the existing Job against the new policy.
 3. An Exception Policy **trigger** can take the **action** of requesting a Job be reclassified.
+4. You can Reclassify the job, which causes the Job Router to re-evaluate the current labels and Classification Policy.
 
 <!-- LINKS -->
 [subscribe_events]: ../../how-tos/router-sdk/subscribe-events.md

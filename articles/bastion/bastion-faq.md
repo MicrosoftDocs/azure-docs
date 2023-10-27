@@ -4,7 +4,7 @@ description: Learn about frequently asked questions for Azure Bastion.
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 10/03/2023
+ms.date: 10/13/2023
 ms.author: cherylmc
 ---
 # Azure Bastion FAQ
@@ -64,13 +64,17 @@ No. UDR isn't supported on an Azure Bastion subnet.
 
 For scenarios that include both Azure Bastion and Azure Firewall/Network Virtual Appliance (NVA) in the same virtual network, you don’t need to force traffic from an Azure Bastion subnet to Azure Firewall because the communication between Azure Bastion and your VMs is private. For more information, see [Accessing VMs behind Azure Firewall with Bastion](https://azure.microsoft.com/blog/accessing-virtual-machines-behind-azure-firewall-with-azure-bastion/).
 
-### <a name="upgradesku"></a> Can I upgrade from a Basic SKU to a Standard SKU?
+### <a name="all-skus"></a> What SKU should I use?
+
+Azure Bastion has multiple SKUs. You should select a SKU based on your connection and feature requirements. For a full list of SKU tiers and supported connections and features, see the [Configuration settings](configuration-settings.md#skus) article.
+
+### <a name="upgradesku"></a> Can I upgrade a SKU?
 
 Yes. For steps, see [Upgrade a SKU](upgrade-sku.md). For more information about SKUs, see the [Configuration settings](configuration-settings.md#skus) article.
 
-### <a name="downgradesku"></a> Can I downgrade from a Standard SKU to a Basic SKU?
+### <a name="downgradesku"></a> Can I downgrade a SKU?
 
-No. Downgrading from a Standard SKU to a Basic SKU isn't supported. For more information about SKUs, see the [Configuration settings](configuration-settings.md#skus) article.
+No. Downgrading a SKU isn't supported. For more information about SKUs, see the [Configuration settings](configuration-settings.md#skus) article.
 
 ### <a name="virtual-desktop"></a>Does Bastion support connectivity to Azure Virtual Desktop?
 
@@ -92,9 +96,9 @@ Azure Bastion is deployed within VNets or peered VNets, and is associated to an 
 
 Currently, by default, new Bastion deployments don't support zone redundancies. Previously deployed bastions may or may not be zone-redundant. The exceptions are Bastion deployments in Korea Central and Southeast Asia, which do support zone redundancies.
 
-### <a name="azure-ad-guests"></a>Does Bastion support Azure AD guest accounts?
+### <a name="azure-ad-guests"></a>Does Bastion support Microsoft Entra guest accounts?
 
-Yes, [Azure AD guest accounts](../active-directory/external-identities/what-is-b2b.md) can be granted access to Bastion and can connect to virtual machines. However, Azure AD guest users can't connect to Azure VMs via Azure AD authentication. Non-guest users are supported via Azure AD authentication. For more information about Azure AD authentication for Azure VMs (for non-guest users), see [Log in to a Windows virtual machine in Azure by using Azure AD](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md).
+Yes, [Microsoft Entra guest accounts](../active-directory/external-identities/what-is-b2b.md) can be granted access to Bastion and can connect to virtual machines. However, Microsoft Entra guest users can't connect to Azure VMs via Microsoft Entra authentication. Non-guest users are supported via Microsoft Entra authentication. For more information about Microsoft Entra authentication for Azure VMs (for non-guest users), see [Log in to a Windows virtual machine in Azure by using Microsoft Entra ID](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md).
 
 ### <a name="shareable-links-domains"></a>Are custom domains supported with Bastion shareable links?
 
@@ -151,7 +155,7 @@ Azure Bastion offers support for file transfer between your target VM and local 
 
 ### <a name="aadj"></a>Does Bastion hardening work with AADJ VM extension-joined VMs?
 
-This feature doesn't work with AADJ VM extension-joined machines using Azure AD users. For more information, see [Sign in to a Windows virtual machine in Azure by using Azure AD](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#requirements).
+This feature doesn't work with AADJ VM extension-joined machines using Microsoft Entra users. For more information, see [Sign in to a Windows virtual machine in Azure by using Microsoft Entra ID](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#requirements).
 
 ### <a name="rdscal-compatibility"></a>Is Bastion compatible with VMs set up as RDS session hosts?
 

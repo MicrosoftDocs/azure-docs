@@ -2,11 +2,10 @@
 title: "Tutorial: Add a role assignment condition to restrict access to blobs using the Azure portal - Azure ABAC"
 titleSuffix: Azure Storage
 description: Add a role assignment condition to restrict access to blobs using the Azure portal and Azure attribute-based access control (Azure ABAC).
-author: akashdubey-ms
-
+author: pauljewellmsft
+ms.author: pauljewell
 ms.service: azure-blob-storage
 ms.topic: tutorial
-ms.author: akashdubey
 ms.reviewer: nachakra
 ms.date: 03/15/2023
 
@@ -61,7 +60,7 @@ Here is what the condition looks like in code:
 
 1. Sign in to the Azure portal as an Owner of a subscription.
 
-1. Click **Azure Active Directory**.
+1. Click **Microsoft Entra ID**.
 
 1. Create a user or find an existing user. This tutorial uses Chandra as the example.
 
@@ -183,7 +182,7 @@ Here is what the condition looks like in code:
 
 1. Open the storage account and container you created.
 
-1. Ensure that the authentication method is set to **Azure AD User Account** and not **Access key**.
+1. Ensure that the authentication method is set to **Microsoft Entra user Account** and not **Access key**.
 
 :::image type="content" source="./media/storage-auth-abac-portal/test-storage-container.png" alt-text="Screenshot of storage container with test files." lightbox="./media/storage-auth-abac-portal/test-storage-container.png":::
 

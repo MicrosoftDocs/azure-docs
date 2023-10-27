@@ -2,7 +2,7 @@
 author: blackmist
 ms.service: machine-learning
 ms.topic: include
-ms.date: 01/11/2022
+ms.date: 10/23/2023
 ms.author: larryfr
 ---
 
@@ -30,5 +30,7 @@ If you plan on using a customer-managed key with Azure Machine Learning, then th
 | ----- | ----- |
 | __Microsoft.DocumentDB__ | Azure CosmosDB instance that logs metadata for the workspace. |
 | __Microsoft.Search__ | Azure Search provides indexing capabilities for the workspace. |
+
+If you plan on using a managed virtual network with Azure Machine Learning, then the __Microsoft.Network__ resource provider must be registered. This resource provider is used by the workspace when creating private endpoints for the managed virtual network.
 
 For information on registering resource providers, see [Resolve errors for resource provider registration](/azure/azure-resource-manager/templates/error-register-resource-provider).

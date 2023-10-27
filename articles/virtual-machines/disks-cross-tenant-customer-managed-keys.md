@@ -1,6 +1,6 @@
 ---
-title: Use a disk encryption set across Azure AD tenants
-description: Learn how to use customer-managed keys with your Azure disks in different Azure AD tenants.
+title: Use a disk encryption set across Microsoft Entra tenants
+description: Learn how to use customer-managed keys with your Azure disks in different Microsoft Entra tenants.
 author: roygara
 ms.service: azure-disk-storage
 ms.topic: how-to
@@ -11,7 +11,7 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 
 # Encrypt managed disks with cross-tenant customer-managed keys
 
-This article covers building a solution where you encrypt managed disks with customer-managed keys using Azure Key Vaults stored in a different Azure Active Directory (Azure AD) tenant. This configuration can be ideal for several scenarios, one example being Azure support for service providers that want to offer bring-your-own encryption keys to their customers where resources from the service provider's tenant are encrypted with keys from their customer's tenant.
+This article covers building a solution where you encrypt managed disks with customer-managed keys using Azure Key Vaults stored in a different Microsoft Entra tenant. This configuration can be ideal for several scenarios, one example being Azure support for service providers that want to offer bring-your-own encryption keys to their customers where resources from the service provider's tenant are encrypted with keys from their customer's tenant.
 
 A disk encryption set with federated identity in a cross-tenant CMK workflow spans service provider/ISV tenant resources (disk encryption set, managed identities, and app registrations) and customer tenant resources (enterprise apps, user role assignments, and key vault). In this case, the source Azure resource is the service provider's disk encryption set.
 
@@ -29,7 +29,7 @@ If you have questions about cross-tenant customer-managed keys with managed disk
 
 ## Create a disk encryption set
 
-Now that you've created your Azure Key Vault and performed the required Azure AD configurations, deploy a disk encryption set configured to work across tenants and associate it with a key in the key vault. You can do this using the Azure portal, Azure PowerShell, or Azure CLI. You can also use an [ARM template](#use-an-arm-template) or [REST API](#use-rest-api).
+Now that you've created your Azure Key Vault and performed the required Microsoft Entra configurations, deploy a disk encryption set configured to work across tenants and associate it with a key in the key vault. You can do this using the Azure portal, Azure PowerShell, or Azure CLI. You can also use an [ARM template](#use-an-arm-template) or [REST API](#use-rest-api).
 
 # [Portal](#tab/azure-portal)
 

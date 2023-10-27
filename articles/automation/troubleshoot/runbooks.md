@@ -58,7 +58,6 @@ When you receive errors during runbook execution in Azure Automation, you can us
 
 1. If your runbook is suspended or unexpectedly fails:
 
-    * [Renew the certificate](../manage-runas-account.md#cert-renewal) if the Run As account has expired.
     * [Renew the webhook](../automation-webhooks.md#update-a-webhook) if you're trying to use an expired webhook to start the runbook.
     * [Check job statuses](../automation-runbook-execution.md#job-statuses) to determine current runbook statuses and some possible causes of the issue.
     * [Add additional output](../automation-runbook-output-and-messages.md#working-with-message-streams) to the runbook to identify what happens before the runbook is suspended.
@@ -166,7 +165,7 @@ To determine what's wrong, follow these steps:
    Connect-AzAccount -Credential $Cred
    ```
 
-1. If your authentication fails locally, you haven't set up your Azure Active Directory (Azure AD) credentials properly. To get the Azure AD account set up correctly, see the article [Authenticate to Azure using Azure Active Directory](../automation-use-azure-ad.md).
+1. If your authentication fails locally, you haven't set up your Microsoft Entra credentials properly. To get the Microsoft Entra account set up correctly, see the article [Authenticate to Azure using Microsoft Entra ID](../automation-use-azure-ad.md).
 
 1. If the error appears to be transient, try adding retry logic to your authentication routine to make authenticating more robust.
 
@@ -195,7 +194,7 @@ Run Login-AzureRMAccount to login.
 
 ### Cause
 
-This error can occur when you're not using a Run As account or the Run As account has expired. For more information, see [Azure Automation Run As accounts overview](../automation-security-overview.md#run-as-accounts).
+This error can occur when you're not using a Run As account or the Run As account has expired.
 
 This error has two primary causes:
 
@@ -254,7 +253,7 @@ The subscription named <subscription name> cannot be found.
 This error can occur if:
 
 * The subscription name isn't valid.
-* The Azure AD user who's trying to get the subscription details isn't configured as an administrator of the subscription.
+* The Microsoft Entra user who's trying to get the subscription details isn't configured as an administrator of the subscription.
 * The cmdlet isn't available.
 * Context switching occurred.
 
@@ -308,7 +307,7 @@ Add-AzureAccount: AADSTS50079: Strong authentication enrollment (proof-up) is re
 
 ### Cause
 
-If you have multifactor authentication on your Azure account, you can't use an Azure Active Directory user to authenticate to Azure. Instead, you need to use a certificate or a service principal to authenticate.
+If you have multifactor authentication on your Azure account, you can't use a Microsoft Entra user to authenticate to Azure. Instead, you need to use a certificate or a service principal to authenticate.
 
 ### Resolution
 
@@ -593,7 +592,7 @@ This error occurs because of one of the following issues:
 
 * **Module incompatible.** Module dependencies might not be correct. In this case, your runbook typically returns a `Command not found` or `Cannot bind parameter` message.
 
-* **No authentication with Active Directory for sandbox.** Your runbook attempted to call an executable or subprocess that runs in an Azure sandbox. Configuring runbooks to authenticate with Azure AD by using the Azure Active Directory Authentication Library (ADAL) isn't supported.
+* **No authentication with Active Directory for sandbox.** Your runbook attempted to call an executable or subprocess that runs in an Azure sandbox. Configuring runbooks to authenticate with Microsoft Entra ID by using the Azure Active Directory Authentication Library (ADAL) isn't supported.
 
 ### Resolution
 
@@ -601,7 +600,7 @@ This error occurs because of one of the following issues:
 
 * **Module incompatible.** Update your Azure modules by following the steps in [How to update Azure PowerShell modules in Azure Automation](../automation-update-azure-modules.md).
 
-* **No authentication with Active Directory for sandbox.** When you authenticate to Azure AD with a runbook, ensure that the Azure AD module is available in your Automation account. Be sure to grant the Run As account the necessary permissions to perform the tasks that the runbook automates.
+* **No authentication with Active Directory for sandbox.** When you authenticate to Microsoft Entra ID with a runbook, ensure that the Azure AD module is available in your Automation account. Be sure to grant the Run As account the necessary permissions to perform the tasks that the runbook automates.
 
   If your runbook can't call an executable or subprocess running in an Azure sandbox, use the runbook on a [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md). Hybrid workers aren't limited by the memory and network limits that Azure sandboxes have.
 
@@ -720,7 +719,7 @@ Follow [Step 5 - Add authentication to manage Azure resources](../learn/powershe
 
 #### Insufficient permissions
 
-[Add permissions to Key Vault](../manage-runas-account.md#add-permissions-to-key-vault) to ensure that your Run As account has sufficient permissions to access Key Vault.
+Add permissions to Key Vault to ensure that your Run As account has sufficient permissions to access Key Vault.
 
 ## Scenario: Runbook fails with "Parameter length exceeded" error
 

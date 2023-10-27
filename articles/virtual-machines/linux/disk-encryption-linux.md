@@ -8,7 +8,7 @@ ms.collection: linux
 ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 07/07/2023
-ms.custom: seodec18, devx-track-azurepowershell, devx-track-linux
+ms.custom: seodec18, devx-track-azurepowershell, devx-track-linux, devx-track-azurecli
 ---
 
 # Azure Disk Encryption scenarios on Linux VMs
@@ -19,19 +19,51 @@ Azure Disk Encryption for Linux virtual machines (VMs) uses the DM-Crypt feature
 
 Azure Disk Encryption is [integrated with Azure Key Vault](disk-encryption-key-vault.md) to help you control and manage the disk encryption keys and secrets. For an overview of the service, see [Azure Disk Encryption for Linux VMs](disk-encryption-overview.md).
 
+## Prerequisites
+
 You can only apply disk encryption to virtual machines of [supported VM sizes and operating systems](disk-encryption-overview.md#supported-vms-and-operating-systems). You must also meet the following prerequisites:
 
 - [Additional requirements for VMs](disk-encryption-overview.md#supported-vms-and-operating-systems)
 - [Networking requirements](disk-encryption-overview.md#networking-requirements)
 - [Encryption key storage requirements](disk-encryption-overview.md#encryption-key-storage-requirements)
 
-In all cases, you should [take a snapshot](snapshot-copy-managed-disk.md) and/or create a backup before disks are encrypted. Backups ensure that a recovery option is possible if an unexpected failure occurs during encryption. VMs with managed disks require a backup before encryption occurs. Once a backup is made, you can use the [Set-AzVMDiskEncryptionExtension cmdlet](/powershell/module/az.compute/set-azvmdiskencryptionextension) to encrypt managed disks by specifying the -skipVmBackup parameter. For more information about how to back up and restore encrypted VMs, see the [Azure Backup](../../backup/backup-azure-vms-encryption.md) article. 
+In all cases, you should [take a snapshot](snapshot-copy-managed-disk.md) and/or create a backup before disks are encrypted. Backups ensure that a recovery option is possible if an unexpected failure occurs during encryption. VMs with managed disks require a backup before encryption occurs. Once a backup is made, you can use the [Set-AzVMDiskEncryptionExtension cmdlet](/powershell/module/az.compute/set-azvmdiskencryptionextension) to encrypt managed disks by specifying the -skipVmBackup parameter. For more information about how to back up and restore encrypted VMs, see the [Azure Backup](../../backup/backup-azure-vms-encryption.md) article.
 
->[!WARNING]
-> - If you have previously used Azure Disk Encryption with Azure AD to encrypt a VM, you must continue use this option to encrypt your VM. See [Azure Disk Encryption with Azure AD (previous release)](disk-encryption-overview-aad.md) for details. 
->
-> - When encrypting Linux OS volumes, the VM should be considered unavailable. We strongly recommend to avoid SSH logins while the encryption is in progress to avoid issues blocking any open files that will need to be accessed during the encryption process. To check progress, use the [Get-AzVMDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) PowerShell cmdlet or the [vm encryption show](/cli/azure/vm/encryption#az-vm-encryption-show) CLI command. This process can be expected to take a few hours for a 30GB OS volume, plus additional time for encrypting data volumes. Data volume encryption time will be proportional to the size and quantity of the data volumes unless the encrypt format all option is used. 
-> - Disabling encryption on Linux VMs is only supported for data volumes. It is not supported on data or OS volumes if the OS volume has been encrypted.  
+## Restrictions
+
+If you have previously used Azure Disk Encryption with Microsoft Entra ID to encrypt a VM, you must continue use this option to encrypt your VM. See [Azure Disk Encryption with Microsoft Entra ID (previous release)](disk-encryption-overview-aad.md) for details.
+
+When encrypting Linux OS volumes, the VM should be considered unavailable. We strongly recommend to avoid SSH logins while the encryption is in progress to avoid issues blocking any open files that will need to be accessed during the encryption process. To check progress, use the [Get-AzVMDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) PowerShell cmdlet or the [vm encryption show](/cli/azure/vm/encryption#az-vm-encryption-show) CLI command. This process can be expected to take a few hours for a 30GB OS volume, plus additional time for encrypting data volumes. Data volume encryption time will be proportional to the size and quantity of the data volumes unless the encrypt format all option is used.
+
+Disabling encryption on Linux VMs is only supported for data volumes. It is not supported on data or OS volumes if the OS volume has been encrypted.
+
+Azure Disk Encryption does not work for the following Linux scenarios, features, and technology:
+
+- Encrypting basic tier VM or VMs created through the classic VM creation method.
+- Disabling encryption on an OS drive or data drive of a Linux VM when the OS drive is encrypted.
+- Encrypting the OS drive for Linux Virtual Machine Scale Sets.
+- Encrypting custom images on Linux VMs.
+- Integration with an on-premises key management system.
+- Azure Files (shared file system).
+- Network File System (NFS).
+- Dynamic volumes.
+- Ephemeral OS disks.
+- Encryption of shared/distributed file systems like (but not limited to): DFS, GFS, DRDB, and CephFS.
+- Moving an encrypted VM to another subscription or region.
+- Creating an image or snapshot of an encrypted VM and using it to deploy additional VMs.
+- Kernel Crash Dump (kdump).
+- Oracle ACFS (ASM Cluster File System).
+- NVMe disks such as those on [High performance computing VM sizes](../sizes-hpc.md) or [Storage optimized VM sizes](../sizes-storage.md).
+- A VM with "nested mount points"; that is, multiple mount points in a single path (such as "/1stmountpoint/data/2stmountpoint").
+- A VM with a data drive mounted on top of an OS folder.
+- A VM on which a root (OS disk) logical volume has been extended using a data disk.
+- M-series VMs with Write Accelerator disks.
+- Applying ADE to a VM that has disks encrypted with [Encryption at Host](../disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data) or [server-side encryption with customer-managed keys](../disk-encryption.md) (SSE + CMK). Applying SSE + CMK to a data disk or adding a data disk with SSE + CMK configured to a VM encrypted with ADE is an unsupported scenario as well.
+- Migrating a VM that is encrypted with ADE, or has **ever** been encrypted with ADE, to [Encryption at Host](../disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data) or [server-side encryption with customer-managed keys](../disk-encryption.md).
+- Encrypting VMs in failover clusters.
+- Encryption of [Azure ultra disks](../disks-enable-ultra-ssd.md).
+- Encryption of [Premium SSD v2 disks](../disks-types.md#premium-ssd-v2-limitations).
+- Encryption of VMs in subscriptions that have the [Secrets should have the specified maximum validity period](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F342e8053-e12e-4c44-be01-c3c2f318400f) policy enabled with the [DENY effect](../../governance/policy/concepts/effects.md).
 
 ## Install tools and connect to Azure
 
@@ -407,36 +439,6 @@ You can remove the encryption extension using Azure PowerShell or the Azure CLI.
      ```azurecli-interactive
      az vm extension delete -g "MyVirtualMachineResourceGroup" --vm-name "MySecureVM" -n "AzureDiskEncryptionForLinux"
      ```
-
-## Unsupported scenarios
-
-Azure Disk Encryption does not work for the following Linux scenarios, features, and technology:
-
-- Encrypting basic tier VM or VMs created through the classic VM creation method.
-- Disabling encryption on an OS drive or data drive of a Linux VM when the OS drive is encrypted.
-- Encrypting the OS drive for Linux Virtual Machine Scale Sets.
-- Encrypting custom images on Linux VMs.
-- Integration with an on-premises key management system.
-- Azure Files (shared file system).
-- Network File System (NFS).
-- Dynamic volumes.
-- Ephemeral OS disks.
-- Encryption of shared/distributed file systems like (but not limited to): DFS, GFS, DRDB, and CephFS.
-- Moving an encrypted VM to another subscription or region.
-- Creating an image or snapshot of an encrypted VM and using it to deploy additional VMs.
-- Kernel Crash Dump (kdump).
-- Oracle ACFS (ASM Cluster File System).
-- NVMe disks such as those on [High performance computing VM sizes](../sizes-hpc.md) or [Storage optimized VM sizes](../sizes-storage.md).
-- A VM with "nested mount points"; that is, multiple mount points in a single path (such as "/1stmountpoint/data/2stmountpoint").
-- A VM with a data drive mounted on top of an OS folder.
-- A VM on which a root (OS disk) logical volume has been extended using a data disk.
-- M-series VMs with Write Accelerator disks.
-- Applying ADE to a VM that has disks encrypted with [Encryption at Host](../disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data) or [server-side encryption with customer-managed keys](../disk-encryption.md) (SSE + CMK). Applying SSE + CMK to a data disk or adding a data disk with SSE + CMK configured to a VM encrypted with ADE is an unsupported scenario as well.
-- Migrating a VM that is encrypted with ADE, or has **ever** been encrypted with ADE, to [Encryption at Host](../disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data) or [server-side encryption with customer-managed keys](../disk-encryption.md).
-- Encrypting VMs in failover clusters.
-- Encryption of [Azure ultra disks](../disks-enable-ultra-ssd.md).
-- Encryption of [Premium SSD v2 disks](../disks-types.md#premium-ssd-v2-limitations).
-- Encryption of VMs in subscriptions that have the [Secrets should have the specified maximum validity period](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F342e8053-e12e-4c44-be01-c3c2f318400f) policy enabled with the [DENY effect](../../governance/policy/concepts/effects.md).
 
 ## Next steps
 

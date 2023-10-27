@@ -105,7 +105,7 @@ Before you can set up an MLOps project with Azure Machine Learning, you need to 
 
     ![Screenshot of service principal setup.](./media/how-to-setup-mlops-azureml/SP-setup-ownership-tab.png)
 
-1. Go through the process of creating a Service Principle (SP) selecting **Accounts in any organizational directory (Any Azure AD directory - Multitenant)** and name it  **Azure-ARM-Dev-ProjectName**. Once created, repeat and create a new SP named **Azure-ARM-Prod-ProjectName**. Replace **ProjectName** with the name of your project so that the service principal can be uniquely identified. 
+1. Go through the process of creating a Service Principle (SP) selecting **Accounts in any organizational directory (Any Microsoft Entra directory - Multitenant)** and name it  **Azure-ARM-Dev-ProjectName**. Once created, repeat and create a new SP named **Azure-ARM-Prod-ProjectName**. Replace **ProjectName** with the name of your project so that the service principal can be uniquely identified. 
 
 1. Go to **Certificates & Secrets** and add for each SP **New client secret**, then store the value and secret separately.
 

@@ -138,8 +138,8 @@ In a distributed architecture, a Log Analytics workspace is created in each Azur
 
 There are two options to allow service provider administrators to access the workspaces in the customer tenants:
 
-- Use [Azure Lighthouse](../../lighthouse/overview.md) to access each customer tenant. The service provider administrators are included in an Azure Active Directory (Azure AD) user group in the service provider's tenant. This group is granted access during the onboarding process for each customer. The administrators can then access each customer's workspaces from within their own service provider tenant instead of having to sign in to each customer's tenant individually. For more information, see [Monitor customer resources at scale](../../lighthouse/how-to/monitor-at-scale.md).
-- Add individual users from the service provider as [Azure AD guest users (B2B)](../../active-directory/external-identities/what-is-b2b.md). The customer tenant administrators manage individual access for each service provider administrator. The service provider administrators must sign in to the directory for each tenant in the Azure portal to access these workspaces.
+- Use [Azure Lighthouse](../../lighthouse/overview.md) to access each customer tenant. The service provider administrators are included in a Microsoft Entra user group in the service provider's tenant. This group is granted access during the onboarding process for each customer. The administrators can then access each customer's workspaces from within their own service provider tenant instead of having to sign in to each customer's tenant individually. For more information, see [Monitor customer resources at scale](../../lighthouse/how-to/monitor-at-scale.md).
+- Add individual users from the service provider as [Microsoft Entra guest users (B2B)](../../active-directory/external-identities/what-is-b2b.md). The customer tenant administrators manage individual access for each service provider administrator. The service provider administrators must sign in to the directory for each tenant in the Azure portal to access these workspaces.
 
 Advantages to this strategy:
 

@@ -2,8 +2,8 @@
 title: Show information about a coordinate on a map
 titleSuffix: Microsoft Azure Maps
 description: Learn how to display information about an address on the map when a user selects a coordinate.
-author: dubiety
-ms.author: yuchungchen
+author: sinnypan
+ms.author: sipa
 ms.date: 07/01/2023
 ms.topic: how-to
 ms.service: azure-maps
@@ -89,7 +89,7 @@ document.body.onload = onload;
 > [!VIDEO //codepen.io/azuremaps/embed/ejEYMZ/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
 --------------------------------------------------------->
 
-In the previous code example, the first block constructs a map object and sets the authentication mechanism to use Azure Active Directory. For more information, see [Create a map].
+In the previous code example, the first block constructs a map object and sets the authentication mechanism to use Microsoft Entra ID. For more information, see [Create a map].
 
 The second block of code creates an object that implements the [TokenCredential] interface to authenticate HTTP requests to Azure Maps with the access token. It then passes the credential object to [MapsSearch] and creates an instance of the client.
 
@@ -169,7 +169,7 @@ document.body.onload = onload;
 > [!VIDEO //codepen.io/azuremaps/embed/ddXzoB/?height=516&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
 --------------------------------------------------------->
 
-In the previous code example, the first block of code constructs a map object and sets the authentication mechanism to use Azure Active Directory. You can see [Create a map] for instructions.
+In the previous code example, the first block of code constructs a map object and sets the authentication mechanism to use Microsoft Entra ID. You can see [Create a map] for instructions.
 
 The second block of code updates the style of the mouse cursor to a pointer. It instantiates a [popup](/javascript/api/azure-maps-control/atlas.popup#open) object. For more information, see [Add a popup on the map].
 

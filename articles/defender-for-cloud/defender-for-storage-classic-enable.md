@@ -5,7 +5,7 @@ ms.date: 08/01/2023
 author: dcurwin
 ms.author: dacurwin
 ms.topic: how-to
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Enable Microsoft Defender for Storage (classic)

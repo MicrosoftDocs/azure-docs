@@ -1,6 +1,6 @@
 ---
 title: Microsoft Dev Box key concepts
-description: Learn key concepts and terminology for Microsoft Dev Box.
+description: Learn key concepts and terminology for Microsoft Dev Box. Get an understanding about dev center, dev box, dev box definitions, and dev box pools.
 services: dev-box
 ms.service: dev-box
 author: RoseHJM
@@ -11,12 +11,14 @@ ms.custom: template-concept
 #Customer intent: As a platform engineer, I want to understand Dev Box concepts and terminology so that I can set up a Dev Box environment.
 ---
 
-# Key concepts for Microsoft Dev Box 
+# Key concepts for Microsoft Dev Box
 
-This article describes the key concepts and components of Microsoft Dev Box.
+This article describes the key concepts and components of Microsoft Dev Box to help you set up the service successfully.
 
-As you learn about Microsoft Dev Box, you'll also encounter components of [Azure Deployment Environments](../deployment-environments/overview-what-is-azure-deployment-environments.md), a complementary service that shares certain architectural components. Deployment Environments provides developers with preconfigured cloud-based environments for developing applications. 
+Microsoft Dev Box gives developers self-service access to preconfigured, and ready-to-code cloud-based workstations. You can configure the service to meet your development team and project structure, and manage security and network settings to access resources securely. Different components play a part in the configuration of Microsoft Dev Box.
 
+Microsoft Dev Box builds on the same foundations as [Azure Deployment Environments](/azure/deployment-environments/overview-what-is-azure-deployment-environments). Deployment Environments provides developers with preconfigured cloud-based environments for developing applications. Both services are complementary and share certain architectural components, such as a [dev center](#dev-center) or [project](#project).
+    
 ## Dev center
 
 A dev center is a collection of [Projects](#project) that require similar settings. Dev centers enable platform engineers to:
@@ -46,10 +48,10 @@ IT administrators and platform engineers configure the network that's used for d
 
 When you're creating a network connection, you must choose the Active Directory join type:
 
-- If your dev boxes need to connect exclusively to cloud-based resources, use native Azure Active Directory (Azure AD).
-- If your dev boxes need to connect to on-premises resources and cloud-based resources, use hybrid Azure AD.
+- If your dev boxes need to connect exclusively to cloud-based resources, use native Microsoft Entra ID.
+- If your dev boxes need to connect to on-premises resources and cloud-based resources, use hybrid Microsoft Entra ID.
 
-To learn more about native Azure AD join and hybrid Azure AD join, see [Plan your Azure Active Directory device deployment](../active-directory/devices/plan-device-deployment.md).
+To learn more about native Microsoft Entra join and Microsoft Entra hybrid join, see [Plan your Microsoft Entra device deployment](../active-directory/devices/plan-device-deployment.md).
 
 The virtual network specified in a network connection also determines the region for a dev box. You can create multiple network connections based on the regions where you support developers. You can then use those connections when you're creating dev box pools to ensure that dev box users create dev boxes in a region close to them. Using a region close to the dev box user provides the best experience.
 

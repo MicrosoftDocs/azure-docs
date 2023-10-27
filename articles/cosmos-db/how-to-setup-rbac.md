@@ -1,7 +1,7 @@
 ---
-title: Configure role-based access control with Azure AD
+title: Configure role-based access control with Microsoft Entra ID
 titleSuffix: Azure Cosmos Db
-description: Learn how to configure role-based access control with Azure Active Directory for your Azure Cosmos DB account
+description: Learn how to configure role-based access control with Microsoft Entra ID for your Azure Cosmos DB account
 author: seesharprun
 ms.service: cosmos-db
 ms.topic: how-to
@@ -11,7 +11,7 @@ ms.reviewer: mjbrown
 ms.custom: ignite-2022
 ---
 
-# Configure role-based access control with Azure Active Directory for your Azure Cosmos DB account
+# Configure role-based access control with Microsoft Entra ID for your Azure Cosmos DB account
 
 [!INCLUDE[NoSQL](includes/appliesto-nosql.md)]
 
@@ -20,7 +20,7 @@ ms.custom: ignite-2022
 
 Azure Cosmos DB exposes a built-in role-based access control system that lets you:
 
-- Authenticate your data requests with an Azure Active Directory (Azure AD) identity.
+- Authenticate your data requests with a Microsoft Entra identity.
 - Authorize your data requests with a fine-grained, role-based permission model.
 
 ## Concepts
@@ -29,7 +29,7 @@ The Azure Cosmos DB data plane role-based access control is built on concepts th
 
 - The [permission model](#permission-model) is composed of a set of **actions**; each of these actions maps to one or multiple database operations. Some examples of actions include reading an item, writing an item, or executing a query.
 - Azure Cosmos DB users create **[role definitions](#role-definitions)** containing a list of allowed actions.
-- Role definitions get assigned to specific Azure AD identities through **[role assignments](#role-assignments)**. A role assignment also defines the scope that the role definition applies to; currently, three scopes are currently:
+- Role definitions get assigned to specific Microsoft Entra identities through **[role assignments](#role-assignments)**. A role assignment also defines the scope that the role definition applies to; currently, three scopes are currently:
   - An Azure Cosmos DB account,
   - An Azure Cosmos DB database,
   - An Azure Cosmos DB container.
@@ -48,7 +48,7 @@ The Azure Cosmos DB data plane role-based access control is built on concepts th
 > - Create/Replace/Delete/Read Triggers
 > - Create/Replace/Delete/Read User Defined Functions
 >
-> You *cannot use any Azure Cosmos DB data plane SDK* to authenticate management operations with an Azure AD identity. Instead, you must use [Azure role-based access control](role-based-access-control.md) through one of the following options:
+> You *cannot use any Azure Cosmos DB data plane SDK* to authenticate management operations with a Microsoft Entra identity. Instead, you must use [Azure role-based access control](role-based-access-control.md) through one of the following options:
 >
 > - [Azure Resource Manager templates (ARM templates)](./sql/manage-with-templates.md)
 > - [Azure PowerShell scripts](./sql/manage-with-powershell.md)
@@ -302,7 +302,7 @@ For a reference and examples of using Azure Resource Manager templates to create
 
 ## <a id="role-assignments"></a> Create role assignments
 
-You can associate built-in or custom role definitions with your Azure AD identities. When creating a role assignment, you need to provide:
+You can associate built-in or custom role definitions with your Microsoft Entra identities. When creating a role assignment, you need to provide:
 
 - The name of your Azure Cosmos DB account.
 - The resource group containing your account.
@@ -316,7 +316,7 @@ You can associate built-in or custom role definitions with your Azure AD identit
   The scope must match or be a subscope of one of the role definition's assignable scopes.
 
 > [!NOTE]
-> If you want to create a role assignment for a service principal, make sure to use its **Object ID** as found in the **Enterprise applications** section of the **Azure Active Directory** portal blade.
+> If you want to create a role assignment for a service principal, make sure to use its **Object ID** as found in the **Enterprise applications** section of the **Microsoft Entra ID** portal blade.
 
 > [!NOTE]
 > The operations described are available in:
@@ -373,11 +373,13 @@ resource sqlRoleAssignment 'Microsoft.DocumentDB/databaseAccounts/sqlRoleAssignm
 
 For a reference and examples of using Azure Resource Manager templates to create role assignments, see [``Microsoft.DocumentDB`` ``databaseAccounts/sqlRoleAssignments``](/azure/templates/microsoft.documentdb/2021-10-15/databaseaccounts/sqlroleassignments).
 
-## Initialize the SDK with Azure AD
+<a name='initialize-the-sdk-with-azure-ad'></a>
 
-To use the Azure Cosmos DB role-based access control in your application, you have to update the way you initialize the Azure Cosmos DB SDK. Instead of passing your account's primary key, you have to pass an instance of a `TokenCredential` class. This instance provides the Azure Cosmos DB SDK with the context required to fetch an Azure AD token on behalf of the identity you wish to use.
+## Initialize the SDK with Microsoft Entra ID
 
-The way you create a `TokenCredential` instance is beyond the scope of this article. There are many ways to create such an instance depending on the type of Azure AD identity you want to use (user principal, service principal, group etc.). Most importantly, your `TokenCredential` instance must resolve to the identity (principal ID) that you've assigned your roles to. You can find examples of creating a `TokenCredential` class:
+To use the Azure Cosmos DB role-based access control in your application, you have to update the way you initialize the Azure Cosmos DB SDK. Instead of passing your account's primary key, you have to pass an instance of a `TokenCredential` class. This instance provides the Azure Cosmos DB SDK with the context required to fetch a Microsoft Entra token on behalf of the identity you wish to use.
+
+The way you create a `TokenCredential` instance is beyond the scope of this article. There are many ways to create such an instance depending on the type of Microsoft Entra identity you want to use (user principal, service principal, group etc.). Most importantly, your `TokenCredential` instance must resolve to the identity (principal ID) that you've assigned your roles to. You can find examples of creating a `TokenCredential` class:
 
 - [In .NET](/dotnet/api/overview/azure/identity-readme#credential-classes)
 - [In Java](/java/api/overview/azure/identity-readme#credential-classes)
@@ -444,14 +446,14 @@ client = CosmosClient("<account-endpoint>", aad_credentials)
 
 ## Authenticate requests on the REST API
 
-When constructing the [REST API authorization header](/rest/api/cosmos-db/access-control-on-cosmosdb-resources), set the **type** parameter to **aad** and the hash signature **(sig)** to the **OAuth token** as shown in the following example:
+When constructing the [REST API authorization header](/rest/api/cosmos-db/access-control-on-cosmosdb-resources), set the **type** parameter to **Microsoft Entra ID** and the hash signature **(sig)** to the **OAuth token** as shown in the following example:
 
 `type=aad&ver=1.0&sig=<token-from-oauth>`
 
 ## Use data explorer
 
 > [!NOTE]
-> The data explorer exposed in the Azure portal does not support the Azure Cosmos DB role-based access control yet. To use your Azure AD identity when exploring your data, you must use the [Azure Cosmos DB Explorer](https://cosmos.azure.com/?feature.enableAadDataPlane=true) instead.
+> The data explorer exposed in the Azure portal does not support the Azure Cosmos DB role-based access control yet. To use your Microsoft Entra identity when exploring your data, you must use the [Azure Cosmos DB Explorer](https://cosmos.azure.com/?feature.enableAadDataPlane=true) instead.
 
 When you access the [Azure Cosmos DB Explorer](https://cosmos.azure.com/?feature.enableAadDataPlane=true) with the specific `?feature.enableAadDataPlane=true` query parameter and sign in, the following logic is used to access your data:
 
@@ -460,11 +462,11 @@ When you access the [Azure Cosmos DB Explorer](https://cosmos.azure.com/?feature
 
 ## Audit data requests
 
-[Diagnostic logs](monitor-resource-logs.md) get augmented with identity and authorization information for each data operation when using Azure Cosmos DB role-based access control. This augmentation lets you perform detailed auditing and retrieve the Azure AD identity used for every data request sent to your Azure Cosmos DB account.
+[Diagnostic logs](monitor-resource-logs.md) get augmented with identity and authorization information for each data operation when using Azure Cosmos DB role-based access control. This augmentation lets you perform detailed auditing and retrieve the Microsoft Entra identity used for every data request sent to your Azure Cosmos DB account.
 
 This additional information flows in the **DataPlaneRequests** log category and consists of two extra columns:
 
-- `aadPrincipalId_g` shows the principal ID of the Azure AD identity that was used to authenticate the request.
+- `aadPrincipalId_g` shows the principal ID of the Microsoft Entra identity that was used to authenticate the request.
 - `aadAppliedRoleAssignmentId_g` shows the [role assignment](#role-assignments) that was honored when authorizing the request.
 
 ## <a id="disable-local-auth"></a> Enforcing role-based access control as the only authentication method
@@ -492,9 +494,9 @@ When creating or updating your Azure Cosmos DB account using Azure Resource Mana
 ## Limits
 
 - You can create up to 100 role definitions and 2,000 role assignments per Azure Cosmos DB account.
-- You can only assign role definitions to Azure AD identities belonging to the same Azure AD tenant as your Azure Cosmos DB account.
-- Azure AD group resolution isn't currently supported for identities that belong to more than 200 groups.
-- The Azure AD token is currently passed as a header with each individual request sent to the Azure Cosmos DB service, increasing the overall payload size.
+- You can only assign role definitions to Microsoft Entra identities belonging to the same Microsoft Entra tenant as your Azure Cosmos DB account.
+- Microsoft Entra group resolution isn't currently supported for identities that belong to more than 200 groups.
+- The Microsoft Entra token is currently passed as a header with each individual request sent to the Azure Cosmos DB service, increasing the overall payload size.
 
 ## Frequently asked questions
 
@@ -512,7 +514,9 @@ Azure portal support for role management isn't available yet.
 
 The [.NET V3](nosql/sdk-dotnet-v3.md), [Java V4](nosql/sdk-java-v4.md), [JavaScript V3](nosql/sdk-nodejs.md) and [Python V4.3+](nosql/sdk-python.md) SDKs are currently supported.
 
-### Is the Azure AD token automatically refreshed by the Azure Cosmos DB SDKs when it expires?
+<a name='is-the-azure-ad-token-automatically-refreshed-by-the-azure-cosmos-db-sdks-when-it-expires'></a>
+
+### Is the Microsoft Entra token automatically refreshed by the Azure Cosmos DB SDKs when it expires?
 
 Yes.
 

@@ -10,7 +10,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.custom: 
 ms.topic: how-to
-ms.date: 09/20/2023
+ms.date: 10/05/2023
 ---
 
 # Create an indexer in Azure Cognitive Search
@@ -35,11 +35,11 @@ This article focuses on the basic steps of creating an indexer. Depending on the
 
 + Be under the [maximum limits](search-limits-quotas-capacity.md#indexer-limits) for your service tier. The Free tier allows three objects of each type and 1-3 minutes of indexer processing, or 3-10 if there's a skillset.
 
-## Indexer definition at a glance
+## Indexer patterns
 
 When you create an indexer, the definition is one of two patterns: text-based indexing or AI enrichment with skills. The patterns are the same, except that skills-based indexing has more definitions.
 
-### Indexer for text-based indexing
+### Indexer example for text-based indexing
 
 Text-based indexing for full text search is the primary use case for indexers, and for this workflow, an indexer looks like this example.
 
@@ -79,7 +79,7 @@ By default, an indexer runs immediately when you create it on the search service
 
 You can also [specify a schedule](search-howto-schedule-indexers.md) or set an [encryption key](search-security-manage-encryption-keys.md) for supplemental encryption of the indexer definition.
 
-### Indexer for skills-based indexing and AI enrichment
+### Indexer example for skills-based indexing
 
 Indexers also drive [AI enrichment](cognitive-search-concept-intro.md). All of the above properties and parameters for apply, but the following extra properties are specific to AI enrichment: `"skillSetName"`, `"cache"`, `"outputFieldMappings"`. 
 
@@ -188,8 +188,6 @@ POST /indexers?api-version=[api-version]
 ```
 
 There are numerous tutorials and examples that demonstrate REST clients for creating objects. [Create a search index using REST and Postman](search-get-started-rest.md) can get you started.
-
-Refer to the [Indexer operations (REST)](/rest/api/searchservice/Indexer-operations) for help with formulating indexer requests.
 
 ### [**.NET SDK**](#tab/indexer-csharp)
 

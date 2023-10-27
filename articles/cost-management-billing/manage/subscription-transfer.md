@@ -28,7 +28,7 @@ If you're an Enterprise Agreement (EA) customer, your enterprise administrators 
 
 This article focuses on product transfers. However, resource transfer is also discussed because it's required for some product transfer scenarios.
 
-For more information about product transfers between different Azure AD tenants, see [Transfer an Azure subscription to a different Azure AD directory](../../role-based-access-control/transfer-subscription.md).
+For more information about product transfers between different Microsoft Entra tenants, see [Transfer an Azure subscription to a different Microsoft Entra directory](../../role-based-access-control/transfer-subscription.md).
 
 > [!NOTE]
 > Most billing ownership transfers don't change the service tenant of the underlying products. They don't cause any downtime. However, even when a billing tenant does change, the change doesn't affect running services or resources.
@@ -137,7 +137,7 @@ To view the steps needed to transfer your product, see [Transfer billing ownersh
 
 ### Transferring a product shouldn't create downtime
 
-If you transfer a product to an account in the same Azure AD tenant, there's no effect on the resources running in the subscription. However, context information saved in PowerShell isn't updated so you might have to clear it or change settings. When you do a resource move or change the service tenant, then resources could be affected.
+If you transfer a product to an account in the same Microsoft Entra tenant, there's no effect on the resources running in the subscription. However, context information saved in PowerShell isn't updated so you might have to clear it or change settings. When you do a resource move or change the service tenant, then resources could be affected.
 
 ### New account usage and billing history
 
@@ -149,7 +149,7 @@ If you have a Visual Studio or Microsoft Cloud Partner Program product, you get 
 
 ### Users keep access to transferred resources
 
-Keep in mind that users with access to resources in a product keep their access when billing ownership is transferred. However, [administrator roles](add-change-subscription-administrator.md) and [Azure role assignments](../../role-based-access-control/role-assignments-portal.md) might get removed. Losing access occurs when your account is in an Azure AD tenant other than the product's tenant and the user who sent the transfer request moves the product to your account's tenant.
+Keep in mind that users with access to resources in a product keep their access when billing ownership is transferred. However, [administrator roles](add-change-subscription-administrator.md) and [Azure role assignments](../../role-based-access-control/role-assignments-portal.md) might get removed. Losing access occurs when your account is in a Microsoft Entra tenant other than the product's tenant and the user who sent the transfer request moves the product to your account's tenant.
 
 You can view the users who have Azure role assignments to access resources in the product in the Azure portal. Visit the [Subscription page in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Then select the product you want to check, and then select **Access control (IAM)** from the left-hand pane. Next, select  **Role assignments**  from the top of the page. The role assignments page lists all users who have access on the product.
 

@@ -519,7 +519,7 @@ As an administrator, you can create a compute instance on behalf of a data scien
 
 * Studio, using the [Advanced settings](?tabs=azure-studio#advanced-settings) or [Security settings (preview)](?tabs=azure-studio-preview#security-settings)
 
-* [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-compute-create-computeinstance).  For details on how to find the TenantID and ObjectID needed in this template, see [Find identity object IDs for authentication configuration](../healthcare-apis/azure-api-for-fhir/find-identity-object-ids.md).  You can also find these values in the Azure Active Directory portal.
+* [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-compute-create-computeinstance).  For details on how to find the TenantID and ObjectID needed in this template, see [Find identity object IDs for authentication configuration](../healthcare-apis/azure-api-for-fhir/find-identity-object-ids.md).  You can also find these values in the Microsoft Entra admin center.
 
 ## Assign managed identity
 
@@ -599,7 +599,7 @@ You can create compute instance with managed identity from Azure Machine Learnin
 Once the managed identity is created, grant the managed identity at least Storage Blob Data Reader role on the storage account of the datastore, see [Accessing storage services](how-to-identity-based-service-authentication.md?tabs=cli#accessing-storage-services). Then, when you work on the compute instance, the managed identity is used automatically to authenticate against datastores.
 
 > [!NOTE]
-> The name of the created system managed identity will be in the format /workspace-name/computes/compute-instance-name in your Azure Active Directory.
+> The name of the created system managed identity will be in the format /workspace-name/computes/compute-instance-name in your Microsoft Entra ID.
 
 You can also use the managed identity manually to authenticate against other Azure resources. The following example shows how to use it to get an Azure Resource Manager access token:
 

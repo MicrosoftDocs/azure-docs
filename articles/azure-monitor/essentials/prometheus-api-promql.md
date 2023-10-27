@@ -23,17 +23,19 @@ To query an Azure monitor workspace using PromQL, you need the following prerequ
 
 ## Authentication
 
-To query your Azure Monitor workspace, authenticate using Azure Active Directory.
-The API supports Azure Active Directory authentication using client credentials. Register a client app with Azure Active Directory and request a token.
+To query your Azure Monitor workspace, authenticate using Microsoft Entra ID.
+The API supports Microsoft Entra authentication using client credentials. Register a client app with Microsoft Entra ID and request a token.
 
-To set up Azure Active Directory authentication, follow the steps below:
+To set up Microsoft Entra authentication, follow the steps below:
 
-1. Register an app with Azure Active Directory.
+1. Register an app with Microsoft Entra ID.
 1. Grant access for the app to your Azure Monitor workspace.
 1. Request a token.
 
 
-### Register an app with Azure Active Directory
+<a name='register-an-app-with-azure-active-directory'></a>
+
+### Register an app with Microsoft Entra ID
 
 1. To register an app, follow the steps in [Register an App to request authorization tokens and work with APIs](../logs/api/register-app-for-token.md?tabs=portal)
 

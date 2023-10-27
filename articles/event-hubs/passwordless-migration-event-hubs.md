@@ -1,7 +1,7 @@
 ---
 title: Migrate applications to use passwordless authentication with Azure Event Hubs
 titleSuffix: Azure Event Hubs
-description: Learn to migrate existing applications away from Shared Key authorization with the account key to instead use Azure AD and Azure RBAC for enhanced security with Azure Event Hubs.
+description: Learn to migrate existing applications away from Shared Key authorization with the account key to instead use Microsoft Entra ID and Azure RBAC for enhanced security with Azure Event Hubs.
 author: alexwolfmsft
 ms.author: alexwolf
 ms.date: 06/12/2023
@@ -254,7 +254,7 @@ After making these code changes, run your application locally. The new configura
 
 ## Configure the Azure hosting environment
 
-Once your application is configured to use passwordless connections and runs locally, the same code can authenticate to Azure services after it's deployed to Azure. The sections that follow explain how to configure a deployed application to connect to Azure Event Hubs using a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview). Managed identities provide an automatically managed identity in Azure Active Directory (Azure AD) for applications to use when connecting to resources that support Azure AD authentication. Learn more about managed identities:
+Once your application is configured to use passwordless connections and runs locally, the same code can authenticate to Azure services after it's deployed to Azure. The sections that follow explain how to configure a deployed application to connect to Azure Event Hubs using a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview). Managed identities provide an automatically managed identity in Microsoft Entra ID for applications to use when connecting to resources that support Microsoft Entra authentication. Learn more about managed identities:
 
 * [Passwordless Overview](/azure/developer/intro/passwordless-overview)
 * [Managed identity best practices](/azure/active-directory/managed-identities-azure-resources/managed-identity-best-practice-recommendations)

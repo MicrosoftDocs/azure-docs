@@ -56,7 +56,11 @@ Use this checklist to assist the design decisions for your search index.
 
    + Filterable fields are returned in arbitrary order, so consider making them sortable as well.
 
-1. Determine whether to use the default analyzer (`"analyzer": null`) or a different analyzer. [Analyzers](search-analyzers.md) are used to tokenize text fields during indexing and query execution. If strings are descriptive and semantically rich, or if you have translated strings, consider overriding the default with a [language analyzer](index-add-language-analyzers.md).
+1. Determine whether to use the default analyzer (`"analyzer": null`) or a different analyzer. [Analyzers](search-analyzers.md) are used to tokenize text fields during indexing and query execution. 
+
+   For multi-lingual strings, consider a [language analyzer](index-add-language-analyzers.md).
+
+   For hyphenated strings or special characters, consider [specialized analyzers](index-add-custom-analyzers.md#built-in-analyzers). One example is [keyword](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) that treats the entire contents of a field as a single token. This behavior is useful for data like zip codes, IDs, and some product names. For more information, see [Partial term search and patterns with special characters](search-query-partial-matching.md).
 
 > [!NOTE]
 > Full text search is conducted over terms that are tokenized during indexing. If your queries fail to return the results you expect, [test for tokenization](/rest/api/searchservice/test-analyzer) to verify the string actually exists. You can try different analyzers on strings to see how tokens are produced for various analyzers.
@@ -92,8 +96,6 @@ The following screenshot highlights where **Add index** and **Import data** appe
 [**Create Index (REST API)**](/rest/api/searchservice/create-index) is used to create an index. The Postman app can function as a search index client to connect to your search service and send requests. See [Create a search index using REST and Postman](search-get-started-rest.md) to get started.
 
 The REST API provides defaults for field attribution. For example, all `Edm.String` fields are searchable by default. Attributes are shown in full below for illustrative purposes, but you can omit attribution in cases where the default values apply.
-
-Refer to the [Index operations (REST)](/rest/api/searchservice/index-operations) for help with formulating index requests.
 
 ```json
 POST https://[servicename].search.windows.net/indexes?api-version=[api-version] 

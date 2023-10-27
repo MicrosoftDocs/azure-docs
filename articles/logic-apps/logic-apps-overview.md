@@ -197,7 +197,7 @@ You might also want to explore other quickstart guides for Azure Logic Apps:
 
 Learn more about the Azure Logic Apps platform with these introductory videos:
 
-> [!VIDEO https://learn.microsoft.com/Shows/Azure-Friday/Connect-and-extend-your-mainframe-to-the-cloud-with-Logic-Apps/player]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?show=azure-friday&ep=integrate-your-mainframes-and-midranges-with-azure-logic-apps]
 
 ## Next steps
 

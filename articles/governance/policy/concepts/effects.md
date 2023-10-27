@@ -538,7 +538,7 @@ Example: Deny any delete calls targeting database accounts that have a tag envir
       ]
    },
    "then": {
-      "effect": "DenyAction",
+      "effect": "denyAction",
       "details": {
          "actionNames": [ "delete" ],
          "cascadeBehaviors": { "resourceGroup": "deny" }
@@ -667,7 +667,7 @@ If not, then a deployment to enable is executed.
     "equals": "Microsoft.Sql/servers/databases"
 },
 "then": {
-    "effect": "DeployIfNotExists",
+    "effect": "deployIfNotExists",
     "details": {
         "type": "Microsoft.Sql/servers/databases/transparentDataEncryption",
         "name": "current",

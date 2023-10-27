@@ -12,13 +12,13 @@ ms.custom: UpdateFrequency2
 
 A common challenge when building cloud applications is how to manage the credentials in your code for authenticating to cloud services. Keeping the credentials secure is an important task. Ideally, the credentials never appear on developer workstations and aren't checked into source control. Azure Key Vault provides a way to securely store credentials, secrets, and other keys, but your code must authenticate to Key Vault to retrieve them. 
 
-The managed identities for Azure resources feature in Azure Active Directory (Azure AD) solve this problem. The feature provides Azure services with an automatically managed identity in Azure AD. You can use the identity to authenticate to any service that supports Azure AD authentication, including Key Vault, without any credentials in your code. Learn more about [managed identities on Azure](../active-directory/managed-identities-azure-resources/overview.md). 
+The managed identities for Azure resources feature in Microsoft Entra solve this problem. The feature provides Azure services with an automatically managed identity in Microsoft Entra ID. You can use the identity to authenticate to any service that supports Microsoft Entra authentication, including Key Vault, without any credentials in your code. Learn more about [managed identities on Azure](../active-directory/managed-identities-azure-resources/overview.md). 
 
 There are two types of managed identities: 
 
 ## System-assigned managed identity  
 
-A **system-assigned managed identity** is enabled directly on an Azure service instance. When the identity is enabled, Azure creates an identity for the instance in the Azure AD tenant that's trusted by the subscription of the instance. After the identity is created, the credentials are provisioned onto the instance. The life cycle of a system-assigned identity is directly tied to the Azure service instance that it's enabled on. If the instance is deleted, Azure automatically cleans up the credentials and the identity in Azure AD. 
+A **system-assigned managed identity** is enabled directly on an Azure service instance. When the identity is enabled, Azure creates an identity for the instance in the Microsoft Entra tenant that's trusted by the subscription of the instance. After the identity is created, the credentials are provisioned onto the instance. The life cycle of a system-assigned identity is directly tied to the Azure service instance that it's enabled on. If the instance is deleted, Azure automatically cleans up the credentials and the identity in Microsoft Entra ID. 
 
 ### Scenarios for using lab’s system assigned identity  
 
@@ -46,7 +46,7 @@ This section demonstrates how to configure lab's identity policy.
 
 ## User-assigned managed identity  
 
-A user-assigned managed identity is created as a standalone Azure resource. Through a create process, Azure creates an identity in the Azure AD tenant that's trusted by the subscription in use. After the identity is created, the identity can be assigned to one or more Azure service instances. The life cycle of a user-assigned identity is managed separately from the life cycle of the Azure service instances to which it's assigned. 
+A user-assigned managed identity is created as a standalone Azure resource. Through a create process, Azure creates an identity in the Microsoft Entra tenant that's trusted by the subscription in use. After the identity is created, the identity can be assigned to one or more Azure service instances. The life cycle of a user-assigned identity is managed separately from the life cycle of the Azure service instances to which it's assigned. 
 
 DevTest Labs supports user assigned identities for both virtual machines and Azure Resource Manager based environments.  For more information, see the following topics:
 

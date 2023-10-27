@@ -109,7 +109,7 @@ Use the following steps to enable access to data stored in Azure Blob and File s
 
     For more information, see the [Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) built-in role.
 
-1. __Grant the workspace managed identity the 'Reader' role for storage private endpoints__. If your storage service uses a __private endpoint__, grant the workspace's managed identity __Reader__ access to the private endpoint. The workspace's managed identity in Azure AD has the same name as your Azure Machine Learning workspace.
+1. __Grant the workspace managed identity the 'Reader' role for storage private endpoints__. If your storage service uses a __private endpoint__, grant the workspace's managed identity __Reader__ access to the private endpoint. The workspace's managed identity in Microsoft Entra ID has the same name as your Azure Machine Learning workspace. A private endpoint is necessary for both __blob and file__ storage types. 
 
     > [!TIP]
     > Your storage account may have multiple private endpoints. For example, one storage account may have separate private endpoint for blob, file, and dfs (Azure Data Lake Storage Gen2). Add the managed identity to all these endpoints.
@@ -160,7 +160,7 @@ __To use ACLs__, the workspace's managed identity can be assigned access just li
 
 ## Datastore: Azure SQL Database
 
-To access data stored in an Azure SQL Database with a managed identity, you must create a SQL contained user that maps to the managed identity. For more information on creating a user from an external provider, see [Create contained users mapped to Azure AD identities](/azure/azure-sql/database/authentication-aad-configure#create-contained-users-mapped-to-azure-ad-identities).
+To access data stored in an Azure SQL Database with a managed identity, you must create a SQL contained user that maps to the managed identity. For more information on creating a user from an external provider, see [Create contained users mapped to Microsoft Entra identities](/azure/azure-sql/database/authentication-aad-configure#create-contained-users-mapped-to-azure-ad-identities).
 
 After you create a SQL contained user, grant permissions to it by using the [GRANT T-SQL command](/sql/t-sql/statements/grant-object-permissions-transact-sql).
 
@@ -207,4 +207,3 @@ This article is part of a series on securing an Azure Machine Learning workflow.
 * [Use custom DNS](how-to-custom-dns.md)
 * [Use a firewall](how-to-access-azureml-behind-firewall.md)
 :::moniker-end
-
