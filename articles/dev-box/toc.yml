@@ -25,7 +25,7 @@ items:
     - name: Limit number of dev boxes per project
       href: tutorial-dev-box-limits.md  
 - name: Concepts
-  expanded: true
+  expanded: false
   items:
     - name: Key concepts
       href: concept-dev-box-concepts.md
@@ -33,7 +33,7 @@ items:
   expanded: true
   items:
     - name: Configure Resources
-      expanded: true
+      expanded: false
       items: 
       - name: Manage a dev center
         href: how-to-manage-dev-center.md
@@ -52,7 +52,7 @@ items:
       - name: Manage a dev box through developer portal
         href: how-to-create-dev-boxes-developer-portal.md
     - name: Manage costs
-      expanded: true
+      expanded: false
       items:
       - name: Determine resource usage and quota
         href: how-to-determine-your-quota-usage.md
@@ -67,7 +67,7 @@ items:
       - name: Skip or delay an automatic shutdown
         href: how-to-skip-delay-stop.md
     - name: Prepare images
-      expanded: true
+      expanded: false
       items:
       - name: Configure an Azure compute gallery
         href: how-to-configure-azure-compute-gallery.md

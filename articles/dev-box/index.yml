@@ -40,6 +40,16 @@ landingContent:
             url: quickstart-create-dev-box.md
 
   # Card
+  - title: Quota management
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Determine resource usage and quota
+            url: how-to-determine-your-quota-usage.md
+          - text: Request a quota limit increase
+            url: how-to-request-quota-increase.md
+            
+  # Card
   - title: Connect to a dev box
     linkLists:
       - linkListType: tutorial
@@ -50,16 +60,6 @@ landingContent:
         links:
           - text: Troubleshoot dev box connectivity issues
             url: how-to-troubleshoot-repair-dev-box.md      
-
-  # Card
-  - title: Quota management
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Determine resource usage and quota
-            url: how-to-determine-your-quota-usage.md
-          - text: Request a quota limit increase
-            url: how-to-request-quota-increase.md
 
   # Card
   - title: Customize images
