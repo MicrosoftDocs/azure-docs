@@ -45,15 +45,12 @@ items:
         href: how-to-manage-dev-box-definitions.md
       - name: Manage a dev box pool
         href: how-to-manage-dev-box-pools.md
-      - name: Manage a dev box through developer portal
-        href: how-to-create-dev-boxes-developer-portal.md
-    - name: Grant access
-      expanded: true
-      items: 
       - name: Provide access to project admins
         href: how-to-project-admin.md
       - name: Provide access to dev box users
-        href: how-to-dev-box-user.md
+        href: how-to-dev-box-user.md        
+      - name: Manage a dev box through developer portal
+        href: how-to-create-dev-boxes-developer-portal.md
     - name: Manage costs
       expanded: true
       items:
@@ -82,7 +79,6 @@ items:
       href: how-to-install-dev-box-cli.md  
     - name: Configure Visual Studio caches
       href: how-to-generate-visual-studio-caches.md
-
     - name: Configure Azure Diagnostic Logs
       href: how-to-configure-dev-box-azure-diagnostic-logs.md
 - name: Troubleshooting and support
