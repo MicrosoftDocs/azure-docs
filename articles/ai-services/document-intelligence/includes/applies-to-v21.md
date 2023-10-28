@@ -9,4 +9,4 @@ ms.topic: include
 ms.date: 11/15/2023
 ---
 
-**This content applies to:** ![checkmark](../media/yes-icon.png) **v2.1**
+**This content applies to:** ![checkmark](../media/yes-icon.png) **v2.1** | **Latest version:** ![blue-checkmark](../media/blue-yes-icon.png) [**v4.0 (preview)**](?view=doc-intel-4.0.0&preserve-view=tru)

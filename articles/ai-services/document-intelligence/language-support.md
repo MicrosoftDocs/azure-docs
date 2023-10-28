@@ -13,8 +13,20 @@ ms.date: 11/15/2023
 
 # Language detection and extraction support
 
-::: moniker range="<=doc-intel-4.0.0"
- [!INCLUDE [applies to v4.0 v3.1 v3.0 v2.1](includes/applies-to-v40-v31-v30-v21.md)]
+::: moniker range="doc-intel-4.0.0"
+[!INCLUDE [applies to v4.0](includes/applies-to-v40.md)]
+::: moniker-end
+
+::: moniker range="doc-intel-3.1.0"
+[!INCLUDE [applies to v3.1](includes/applies-to-v31.md)]
+::: moniker-end
+
+::: moniker range="doc-intel-3.0.0"
+[!INCLUDE [applies to v3.0](includes/applies-to-v30.md)]
+::: moniker-end
+
+::: moniker range="doc-intel-2.1.0"
+[!INCLUDE [applies to v2.1](includes/applies-to-v21.md)]
 ::: moniker-end
 
 <!-- markdownlint-disable MD001 -->
@@ -23,6 +35,8 @@ ms.date: 11/15/2023
 
 Azure AI Document Intelligence models support many languages. Our language support capabilities enable your users to communicate with your applications in natural ways and empower global outreach. Use the links in the tables to view language support and availability by model and feature.
 
+:::moniker range=">=doc-intel-3.0.0"
+
 ## Document Analysis models and containers
 
 |Model | Description |
@@ -30,6 +44,7 @@ Azure AI Document Intelligence models support many languages. Our language suppo
 |:::image type="icon" source="media/overview/icon-read.png" link="concept-read.md#supported-extracted-languages-and-locales"::: [**Read**](concept-read.md#supported-extracted-languages-and-locales)| Extract printed and handwritten text.    |
 |:::image type="icon" source="media/overview/icon-layout.png" link="concept-layout.md#supported-languages-and-locales"::: [**Layout**](concept-layout.md#supported-languages-and-locales)| Extract text and document structure.|
 | :::image type="icon" source="media/overview/icon-general-document.png" link="concept-general-document.md#supported-languages-and-locales"::: [**General document**](concept-general-document.md#supported-languages-and-locales) |  Extract text, structure, and key-value pairs.
+:::moniker-end
 
 ## Prebuilt models and containers
 
@@ -45,10 +60,20 @@ Model | Description |
 
 ## Custom models and containers
 
- Model | Description |
+:::moniker range=">=doc-intel-3.0.0"
+| Model | Description |
 | --- | --- |
 |:::image type="icon" source="media/overview/icon-custom-template.png" link="concept-custom-template.md#supported-languages-and-locales"::: [**Custom template**](concept-custom-template.md#supported-languages-and-locales)|Extract data from static layouts.|
 |:::image type="icon" source="media/overview/icon-custom-neural.png" link="concept-custom-neural.md#supported-languages-and-locales"::: [**Custom neural**](concept-custom-neural.md#supported-languages-and-locales)|Extract data from mixed-type documents.|
+|:::image type="icon" source="media/overview/icon-custom-template.png" link="concept-custom-template.md#supported-languages-and-locales"::: [**Custom classification**](concept-custom-classifier.md#language-support)|Extract data from static layouts.|
+:::moniker-end
+
+:::moniker range="doc-intel-2.1.0"
+
+| Model | Description |
+| --- | --- |
+|:::image type="icon" source="media/overview/icon-custom-template.png" link="concept-custom-template.md#supported-languages-and-locales"::: [**Custom template**](concept-custom-template.md#supported-languages-and-locales)|Extract data from static layouts.|
+:::moniker-end
 
 ## Next steps
 

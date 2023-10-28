@@ -9,4 +9,4 @@ ms.topic: include
 ms.date: 11/15/2023
 ---
 
-**This content applies to:**![checkmark](../media/yes-icon.png) **v4.0 (preview)** ![checkmark](../media/yes-icon.png) **v3.1 (GA)** ![checkmark](../media/yes-icon.png) **v3.0 (GA)** ![ checkmark](../media/yes-icon.png) **v2.1 (GA)**
+**This content applies to:** ![checkmark](../media/yes-icon.png) **v4.0 (preview)** ![checkmark](../media/yes-icon.png) **v3.1 (GA)** ![checkmark](../media/yes-icon.png) **v3.0 (GA)** ![checkmark](../media/yes-icon.png) **v2.1 (GA)**

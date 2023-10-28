@@ -15,7 +15,7 @@ monikerRange: 'doc-intel-3.0.0'
 
 # Document Intelligence query field extraction
 
-Document Intelligence now supports query field extractions using Azure OpenAI capabilities. With query field extraction, you can add fields to the extraction process using a query request without the need for added training.
+**Document Intelligence now supports query field extractions using Azure OpenAI capabilities. With query field extraction, you can add fields to the extraction process using a query request without the need for added training.
 
 > [!NOTE]
 >
@@ -37,7 +37,7 @@ For query field extraction, specify the fields you want to extract and Document 
 
 * In addition to the query fields, the response includes text, tables, selection marks, general document key-value pairs, and other relevant data.
 
-## Query fields REST API request
+## Query fields REST API request**
 
 Use the query fields feature with the [general document model](concept-general-document.md), to add fields to the extraction process without having to train a custom model:
 

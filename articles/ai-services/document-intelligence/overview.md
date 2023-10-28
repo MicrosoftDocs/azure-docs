@@ -19,8 +19,22 @@ monikerRange: '<=doc-intel-4.0.0'
 
 # What is Azure AI Document Intelligence?
 
-::: moniker range="<=doc-intel-4.0.0"
- [!INCLUDE [applies to v4.0 v3.1 v3.0 v2.1](includes/applies-to-v40-v31-v30-v21.md)]
+::: moniker range="doc-intel-4.0.0"
+[!INCLUDE [preview-version-notice](includes/preview-notice.md)]
+
+[!INCLUDE [applies to v4.0](includes/applies-to-v40.md)]
+::: moniker-end
+
+::: moniker range="doc-intel-3.1.0"
+[!INCLUDE [applies to v3.1](includes/applies-to-v31.md)]
+::: moniker-end
+
+::: moniker range="doc-intel-3.0.0"
+[!INCLUDE [applies to v3.0](includes/applies-to-v30.md)]
+::: moniker-end
+
+::: moniker range="doc-intel-2.1.0"
+[!INCLUDE [applies to v2.1](includes/applies-to-v21.md)]
 ::: moniker-end
 
 > [!NOTE]
@@ -31,7 +45,6 @@ monikerRange: '<=doc-intel-4.0.0'
 > * The names *Cognitive Services* and *Azure Applied AI* continue to be used in Azure billing, cost analysis, price list, and price APIs.
 > * There are no breaking changes to application programming interfaces (APIs) or SDKs.
 > * Some platforms are still awaiting the renaming update. All mention of Form Recognizer or Document Intelligence in our documentation refers to the same Azure service.
-
 
 ::: moniker range=">=doc-intel-3.0.0"
 
@@ -376,15 +389,9 @@ Document Intelligence supports optional features that can be enabled and disable
 
 * [`ocr.barcode`](concept-add-on-capabilities.md#barcode-property-extraction)
 
-Document Intelligence supports optional features that can be enabled and disabled depending on the document extraction scenario. The following add-on capabilities are available for`2023-07-31 (GA)` and later releases:
+Document Intelligence supports optional features that can be enabled and disabled depending on the document extraction scenario. The following add-on capabilities are available for`2023-10-31-preview` and later releases:
 
-* [`ocr.highResolution`](concept-add-on-capabilities.md#high-resolution-extraction)
-
-* [`ocr.formula`](concept-add-on-capabilities.md#formula-extraction)
-
-* [`ocr.font`](concept-add-on-capabilities.md#font-property-extraction)
-
-* [`ocr.barcode`](concept-add-on-capabilities.md#barcode-property-extraction)
+* [`queryFields`](concept-add-on-capabilities.md#query-fields)
 
 :::moniker-end
 

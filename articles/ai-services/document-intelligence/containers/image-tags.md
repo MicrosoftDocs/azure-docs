@@ -14,7 +14,15 @@ ms.author: lajanuar
 
 <!-- markdownlint-disable MD051 -->
 
-::: moniker range=">=doc-intel-3.0.0"
+::: moniker range="doc-intel-4.0.0"
+[!INCLUDE [applies to v4.0](../includes/applies-to-v40.md)]
+::: moniker-end
+
+::: moniker range="doc-intel-3.1.0"
+[!INCLUDE [applies to v3.1](../includes/applies-to-v31.md)]
+::: moniker-end
+
+::: moniker range="doc-intel-3.0.0"
 [!INCLUDE [applies to v3.0](../includes/applies-to-v30.md)]
 ::: moniker-end
 
