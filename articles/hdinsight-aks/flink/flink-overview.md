@@ -3,7 +3,7 @@ title: What is Apache Flink® in Azure HDInsight on AKS? (Preview)
 description: An introduction to Apache Flink® in Azure HDInsight on AKS.
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/29/2023
+ms.date: 10/28/2023
 ---
 
 # What is Apache Flink® in Azure HDInsight on AKS? (Preview)
@@ -50,7 +50,7 @@ Apache Flink clusters in HDInsight on AKS are a fully managed service. Benefits 
 | Deployment Type | Flink can execute applications in Session mode or Application mode. Currently HDInsight on AKS supports only Session clusters. You can run multiple Flink jobs on a Session cluster. App mode is on the roadmap for HDInsight on AKS clusters| 
 | Support for Metastore | Flink clusters in HDInsight on AKS can support catalogs with [Hive Metastore](hive-dialect-flink.md) in different open file formats with remote checkpoints to Azure Data Lake Storage Gen2.|
 | Support for Azure Storage | Flink clusters in HDInsight can use Azure Data Lake Storage Gen2 as File sink. For more information on Data Lake Storage Gen2, see [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md).|
-| Integration with Azure services | Flink cluster in HDInsight on AKS comes with a integration to Kafka along with [Azure Event Hubs](flink-how-to-setup-event-hub.md) and [Azure HDInsight](process-and-consume-data.md). You can build streaming applications using the Event Hubs or HDInsight. |
+| Integration with Azure services | Flink cluster in HDInsight on AKS comes with an integration to Kafka along with [Azure Event Hubs](flink-how-to-setup-event-hub.md) and [Azure HDInsight](process-and-consume-data.md). You can build streaming applications using the Event Hubs or HDInsight. |
 | Adaptability | HDInsight on AKS allows you to scale the Flink cluster nodes based on schedule with the Autoscale feature. See [Automatically scale Azure HDInsight on AKS clusters](../hdinsight-on-aks-autoscale-clusters.md). |
 | State Backend | HDInsight on AKS uses the [RocksDB](http://rocksdb.org) as default StateBackend. RocksDB is an embeddable persistent key-value store for fast storage.|
 | Checkpoints | Checkpointing is enabled in HDInsight on AKS clusters by default. Default settings on HDInsight on AKS maintain the last five checkpoints in persistent storage. In case, your job fails, the job can be restarted from the latest checkpoint.|
