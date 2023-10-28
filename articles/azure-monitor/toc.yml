@@ -394,8 +394,6 @@ items:
       items:
       - name: Overview
         href: vm/vminsights-overview.md
-      - name: FAQ
-        href: /azure/azure-monitor/faq#vm-insights
       - name: Enable and configure
         items:
         - name: Overview
