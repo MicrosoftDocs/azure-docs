@@ -225,7 +225,7 @@ To authenticate  Flink ARM Rest API users, need to get the bearer token or acces
    
    | Property | Description | Default Value | Mandatory | 
    | -------- | ----------- | ------------- | --------- |
-   | jobType  | Type of Job.It should be “FlinkJob” | | Yes|
+   | jobType  | Type of Job. It should be “FlinkJob” | | Yes|
    | jobName  | Unique name for job. This is displayed on portal. Job name should be in small latter.| | Yes |
    | action   | It indicates operation type on job. It should be “NEW” always for new job launch. | | Yes |
    | jobJarDirectory |	Storage path for job jar directory. Users should create directory in cluster storage and upload job jar.| Yes |
