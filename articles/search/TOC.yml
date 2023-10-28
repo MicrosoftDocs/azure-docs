@@ -579,20 +579,14 @@
       href: search-more-like-this.md
   - name: Skills reference
     items:
+    - name: Overview
+      href: cognitive-search-predefined-skills.md
     - name: Annotation reference language
       href: cognitive-search-skill-annotation-language.md
-    - name: Built-in skills
+    - name: Azure AI resource skills
       items: 
-      - name: Overview
-        href: cognitive-search-predefined-skills.md
-      - name: Azure OpenAI Embedding
-        href: cognitive-search-skill-azure-openai-embedding.md
-      - name: Conditional
-        href: cognitive-search-skill-conditional.md
       - name: Custom Entity Lookup
         href: cognitive-search-skill-custom-entity-lookup.md 
-      - name: Document Extraction
-        href: cognitive-search-skill-document-extraction.md
       - name: Entity Linking (v3)
         href: cognitive-search-skill-entity-linking-v3.md
       - name: Entity Recognition (v3)
@@ -609,14 +603,24 @@
         href: cognitive-search-skill-pii-detection.md  
       - name: Sentiment (v3)
         href: cognitive-search-skill-sentiment-v3.md
+      - name: Text Translation
+        href: cognitive-search-skill-text-translation.md
+    - name: Azure AI Search utility skills (non-billable)
+      items:
+      - name: Conditional
+        href: cognitive-search-skill-conditional.md
+      - name: Document Extraction
+        href: cognitive-search-skill-document-extraction.md
       - name: Shaper
         href: cognitive-search-skill-shaper.md
       - name: Text Merger
         href: cognitive-search-skill-textmerger.md
       - name: Text Split
-        href: cognitive-search-skill-textsplit.md 
-      - name: Text Translation
-        href: cognitive-search-skill-text-translation.md
+        href: cognitive-search-skill-textsplit.md
+    - name: Azure OpenAI skills
+      items:
+      - name: Azure OpenAI Embedding
+        href: cognitive-search-skill-azure-openai-embedding.md 
     - name: Custom skills
       items:
       - name: Azure Machine Learning (AML)
