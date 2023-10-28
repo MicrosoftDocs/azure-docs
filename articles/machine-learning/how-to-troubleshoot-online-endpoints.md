@@ -8,7 +8,7 @@ ms.subservice: inferencing
 author: dem108
 ms.author: sehan
 ms.reviewer: mopeakande
-ms.date: 09/19/2023
+ms.date: 10/27/2023
 ms.topic: troubleshooting
 ms.custom: devplatv2, devx-track-azurecli, cliv2, event-tier1-build-2022, sdkv2, ignite-2022
 #Customer intent: As a data scientist, I want to figure out why my online endpoint deployment failed so that I can fix it.
@@ -232,6 +232,8 @@ The following list is of common deployment errors that are reported as part of t
 * [OperationCanceled](#error-operationcanceled)
     * [Operation was canceled by another operation that has a higher priority](#operation-canceled-by-another-higher-priority-operation)
     * [Operation was canceled due to a previous operation waiting for lock confirmation](#operation-canceled-waiting-for-lock-confirmation)
+* [SecretsInjectionError](#error-secretsinjectionerror)
+* [InternalServerError](#error-internalservererror)
 
 If you're creating or updating a Kubernetes online deployment, you can see [Common errors specific to Kubernetes deployments](#common-errors-specific-to-kubernetes-deployments).
 
@@ -544,6 +546,15 @@ Retrying the operation might allow it to be performed without cancellation.
 Azure operations have a brief waiting period after being submitted during which they retrieve a lock to ensure that we don't run into race conditions. This error happens when the operation you submitted is the same as another operation. And the other operation is currently waiting for confirmation that it has received the lock to proceed. It may indicate that you've submitted a similar request too soon after the initial request.
 
 Retrying the operation after waiting several seconds up to a minute may allow it to be performed without cancellation.
+
+### ERROR: SecretsInjectionError
+
+Secret retrieval and injection during online deployment creation uses identity associated with the endpoint to retrieve secrets from the workspace connections and/or key vaults. This error happens when:
+
+- The endpoint identity does not have the Azure RBAC permission to read the secrets from the workspace connections and/or key vaults, as specified by the deployment definition as secret references mapped to environment variables.
+- The format of the secret references are invalid, or the specified secrets do not exist in the workspace connections and/or key vaults.
+
+See [Secrets injection](concept-secret-injection.md) and [Deploy to online endpoint with secret injection](how-to-deploy-online-endpoint-with-secret-injection.md) for more.
 
 ### ERROR: InternalServerError
 

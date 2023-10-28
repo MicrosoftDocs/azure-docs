@@ -42,10 +42,13 @@ Explain key vault as well
         az role assignment create --assignee <UserIdentityID> --role "Azure Machine Learning Workspace Connection Secret Reader" --scope /subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/Microsoft.MachineLearningServices/workspaces/<workspaceName>
         ```
 
-    - If a user wants to use user-assigned identity (UAI) for the endpoint, this role assignment is not required. Instead the user is expected to assign a proper role to the _UAI_ manually as needed.
+    - If you want to use user-assigned identity (UAI) for the endpoint, you don't need to assign the role to your _user identity_. Instead, you must assign the role to the _UAI_ manually if you intend to use secret injection.
 - Workspace connections to use as secret stores.
-    - Create workspace connections to use in your deployment with `az ml connections create -f connection.yaml` command. See [Create and manage workspace connections](TBD) for more details.
-        - Connection sample 1
+    - Create workspace connections to use in your deployment. See [Workspace Connections - Create REST API](/rest/api/azureml/2023-08-01-preview/workspace-connections/create.md) for more details. <!-- CLI link will be added later -->
+    - For example,
+        - Create an Azure OpenAI connection
+
+            Create `aoai_connection.yaml`:
 
             ```YAML
             name: aoai_connection
@@ -57,8 +60,16 @@ Explain key vault as well
                 key: <key>
             ```
 
-        - Connection sample 2
-    
+            Create the connection:
+
+            ```azurecli
+            az ml connections create -f aoai_connection.yaml
+            ```
+
+        - Create a custom connection
+
+            Create `custom_connection.yaml`:
+
             ```YAML
             name: multi_connection_langchain
             type: custom
@@ -72,9 +83,37 @@ Explain key vault as well
                 OPENAI_API_TYPE: azure
                 SPEECH__REGION : eastus
             ```
-    
-- (Optional) Verify that the user identity can read the secrets from the workspace connection using the [Workspace Connection ReadSecrets REST API](TBD).
 
+            Create the connection:
+
+            ```azurecli
+            az ml connections create -f custom_connection.yaml
+            ```
+
+        - Verify that the user identity can read the secrets from the workspace connection using the [Workspace Connections - List Secrets REST API (preview)](/rest/api/azureml/2023-08-01-preview/workspace-connections/list-secrets.md).
+- (Optional) Key Vault to use as secret stores.
+    - Create Azure Key Vault and set a secret to use in your deployment. See [Set and retrieve a secret from Azure Key Vault using Azure CLI](../key-vault/secrets/quick-create-cli.md) for more details. In addition,
+        - [az keyvault CLI](/cli/azure/keyvault.md#az-keyvault-create) and [Set Secret REST API](/rest/api/keyvault/secrets/set-secret/set-secret.md) show how to set a secret.
+        - [az keyvault secret show CLI](/cli/azure/keyvault/secret.md#az-keyvault-secret-show) and [Get Secret Versions REST API](/rest/api/keyvault/secrets/get-secret-versions/get-secret-versions.md) show how to retrieve a secret version.
+    - For example,
+        - Create a key vault
+    
+            ```azurecli
+            az keyvault create --name mykeyvault --resource-group myrg --location eastus
+            ```
+        - Create a secret
+
+            ```azurecli
+            az keyvault secret set --vault-name mykeyvault --name secret1 --value <value>
+            ``` 
+
+            This returns the secret version it creates. You can check `id` property of the response to get the secret version. For example, it looks like `https://mykeyvault.vault.azure.net/secrets/<secret_name>/<secret_version>`.
+
+        - Verify that the user identity can read the secret from the key vault
+
+            ```azurecli
+            az keyvault secret show --vault-name mykeyvault --name secret1 --version <secret_version>
+            ```
 
 ## Create an endpoint
 
@@ -187,3 +226,4 @@ Explain key vault as well
 - [How to authenticate online endpoint](how-to-authenticate-online-endpoint.md)
 - [Deploy and score a model using an online endpoint](how-to-deploy-online-endpoints.md)
 - [Use a custom container to deploy a model using an online endpoint](how-to-deploy-custom-container.md)
+- [Troubleshoot online endpoints deployment](how-to-troubleshoot-online-endpoints.md)
