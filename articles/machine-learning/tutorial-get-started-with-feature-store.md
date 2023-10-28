@@ -300,7 +300,7 @@ If the feature data is materialized, the Storage Blob Data Reader role must read
 
    Execute this code cell for role assignment. The permissions might need some time to propagate.
 
-   [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/1. Enable materialization and backfill feature data.ipynb?name=grant-rbac-to-user-identity)]
+   [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/1. Enable materialization and backfill feature data.ipynb?name=grant-rbac-to-user-identity-sdk)]
 
 ### [SDK and CLI track](#tab/SDK-and-CLI-track)
 
