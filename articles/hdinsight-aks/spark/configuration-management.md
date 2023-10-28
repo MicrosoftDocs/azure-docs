@@ -62,5 +62,9 @@ When user updates a configuration in the management portal the corresponding ser
     > Selecting **Save** will restart the clusters.
     > It is advisable not to have any active jobs while making configuration changes, since restarting the cluster may impact the active jobs.
 
+## Reference
+
+* **Note** : Apache, Apache Spark, Spark, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).
+  
 ## Next steps
 * [Library management in Spark](./library-management.md)
