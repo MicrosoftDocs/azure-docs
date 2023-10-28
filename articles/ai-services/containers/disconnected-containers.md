@@ -49,11 +49,11 @@ Access is limited to customers that meet the following requirements:
   * Organization under strict regulation of not sending any kind of data back to cloud.
 * Application completed as instructed - Please pay close attention to guidance provided throughout the application to ensure you provide all the necessary information required for approval.
 
-## Purchase a commitment tier pricing plan for disconnected environments
+## Purchase a commitment tier pricing plan for disconnected containers
 
 ### Create a new resource
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and select **Create a new resource** for one of the applicable Azure AI services or Azure AI services listed above.
+1. Sign in to the [Azure portal](https://portal.azure.com) and select **Create a new resource** for one of the applicable Azure AI services listed above.
 
 2. Enter the applicable information to create your resource. Be sure to select **Commitment tier disconnected containers** as your pricing tier.
 
