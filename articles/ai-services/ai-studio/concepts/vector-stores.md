@@ -18,7 +18,7 @@ This concept article helps you use a vector index in Azure AI Studio for perform
 
 RAG uses your data to generate answers to the user question. For RAG to work well, we need to find a way to search and send your data in an easy and cost efficient manner to the LLMs. This is achieved by using an Index. An Index is a data store which allows you to search data efficiently. This is very useful in RAG. An Index can be optimized for LLMs by creating Vectors (text/data converted to number sequences using an embedding model). A good Index usually has efficient search capabilities like keyword searches, semantic searches, vector searches or a combination of these. This optimized RAG pattern can be illustrated as follows.
 
-![RAG Pattern with an Index](../media/rag/rag-pattern-with-index.png)
+:::image type="content" source="../media/rag/rag-pattern-with-index.png" alt-text="Diagram of the RAG pattern with an index." lightbox="../media/rag/rag-pattern-with-index.png":::
 
 Azure AI provides an Index asset to use with RAG pattern. The Index asset contains important information like where is your index stored, how to access your index, what are the modes in which your index can be searched, does your index have vectors, and what is the embedding model used for vectors. 
 

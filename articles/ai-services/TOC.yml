@@ -22,6 +22,8 @@
   items:
   - name: Azure AI services and the ecosystem
     href: ai-studio/concepts/ai-services-and-ecosystem.md
+  - name: Retrieval augmented generation
+    href: ai-studio/concepts/retrieval-augmented-generation.md
 - name: How-to
   expanded: true
   items:
@@ -31,20 +33,20 @@
       href: ai-studio/how-to/model-catalog.md
     - name: Azure AI capabilities
       href: ai-studio/how-to/models-foundation-azure-ai.md
-  - name: Data indexes and connections
+  - name: Data and connections
     items:
-    - name: Concepts
+    - name: Connections
       items:
-      - name: Connections and access control
+      - name: Connection types
         href: ai-studio/concepts/connections.md
-      - name: Retrieval augmented generation
-        href: ai-studio/concepts/retrieval-augmented-generation.md
+      - name: Create a connection
+        href: ai-studio/how-to/connections-add.md
+    - name: Index for retrieval
+      items:
       - name: Vector index
         href: ai-studio/concepts/vector-stores.md
-    - name: Create a connection
-      href: ai-studio/how-to/connections-add.md
-    - name: Create an index
-      href: ai-studio/how-to/index-add.md
+      - name: Create an index
+        href: ai-studio/how-to/index-add.md
     - name: Add data to your project
       href: ai-studio/how-to/data-add.md
     - name: Generate synthetic data
@@ -73,6 +75,8 @@
       href: rotate-keys.md
     - name: Use environment variables
       href: cognitive-services-environment-variables.md
+    - name: Role-based access control in Azure AI Studio
+      href: ai-studio/how-to/rback-ai-studio.md
     - name: Configure customer-managed keys
       href: ./encryption/cognitive-services-encryption-keys-portal.md
     - name: Use virtual networks

@@ -17,8 +17,6 @@ In this article, you learn how to add a new connection in Azure AI Studio.
 Connections are a way to authenticate and consume both Microsoft and third-party resources within your Azure AI projects. 
 
 
-> [!NOTE]
-> You can create connections via multiple workflows in Azure AI Studio. In this article, we will focus on creating connections from the project **Settings** page. You can also create a connection from the **Manage** page. When you create a connection from the **Manage** page, the connection is created at the Azure AI resource level and shared accross all associated projects. 
 
 
 
@@ -33,15 +31,15 @@ Connections are a way to authenticate and consume both Microsoft and third-party
 
 ## Service connection types
 
-When you [create a new connection](#create-a-new-connection), you enter the following information for the service connection type you selected. 
+When you [create a new connection](#create-a-new-connection), you enter the following information for the service connection type you selected. You can create a connection that's only available for the current project or available for all projects associated with the Azure AI resource.
+
+> [!NOTE]
+> When you create a connection from the **Manage** page, the connection is always created at the Azure AI resource level and shared accross all associated projects. 
 
 # [Azure AI Search](#tab/azure-ai-search)
 
 
 :::image type="content" source="../media/data-connections/connection-add-azure-ai-search.png" alt-text="Screenshot of a diagram of the technical overview of an LLM walking through rag steps." lightbox="../media/data-connections/connection-add-azure-ai-search.png":::
-
-You can create a connection that's only available for the current project or available for all projects associated with the Azure AI resource.
-
 
 
 # [Azure Blob Storage](#tab/azure-blob-storage)

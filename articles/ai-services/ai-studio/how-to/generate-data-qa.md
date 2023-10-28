@@ -162,15 +162,17 @@ To use the "generated_qa.jsonl" file for evaluation, you need to add this file a
 1. Enter details in **Basic Settings**
 2. In the **Batch run settings**" click on **Add new data**.
 
-![Screenshot of flow batch run file upload](../media/data-connections/batch-run-add-data.png)
-3. Provide a name for your data, select the file from you generated, click **Add**.
+    :::image type="content" source="../media/data-connections/batch-run-add-data.png" alt-text="Screenshot of flow batch run file upload." lightbox="../media/data-connections/batch-run-add-data.png":::
 
-![Screenshot of upload batch run file upload](../media/data-connections/upload-file.png)
-   You can use this name to reuse the uploaded file in other flows as well
-4. Next, you need to map the input fields to the prompt flow parameters. You can see an example of how to do this below.
+1. Provide a name for your data, select the file from you generated, click **Add**. You can also use this name to reuse the uploaded file in other flows.
 
-![Screenshot of input mappings](../media/data-connections/generate-qa-mappings.png)
-5. Complete the rest of the steps in the wizard and submit for evaluation.
+    :::image type="content" source="../media/data-connections/upload-file.png" alt-text="Screenshot of upload batch run file upload." lightbox="../media/data-connections/upload-file.png":::
+
+1. Next, you need to map the input fields to the prompt flow parameters. You can see an example of how to do this below.
+
+    :::image type="content" source="../media/data-connections/generate-qa-mappings.png" alt-text="Screenshot of input mappings." lightbox="../media/data-connections/generate-qa-mappings.png":::
+
+1. Complete the rest of the steps in the wizard and submit for evaluation.
 
 ## Generate data from files
 
@@ -178,9 +180,7 @@ Generating data from files might be more practical for large amounts of data. Yo
 
 Files might have large texts that go beyond model's context lengths. They need to be split to create smaller chunks. Moreover, they should not be split mid-sentence. Such partial sentences might lead to improper QA samples. You can use LangChain's `NLTKTextSplitter` to split the files before generating data.
 
-Given below is an excerpt of the code to generate samples using `generate_async()`. You can refer to the full sample here TBD.
-> TODO_PUBLIC_PREVIEW
-> Add a link to the samples repo
+Given below is an excerpt of the code needed to generate samples using `generate_async()`. 
 
 ```python
 import asyncio

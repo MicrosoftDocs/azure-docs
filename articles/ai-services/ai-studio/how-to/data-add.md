@@ -89,13 +89,10 @@ These steps explain how to create a File typed data asset in the Azure AI studio
 1. Navigate to [Azure AI studio](https://ml.azure.com)
 
 1. Under **Assets** in the left navigation, select **Data**. On the Data assets tab, select **Create**
-:::image type="content" source="./media/how-to-create-data-assets/data-assets-create.png" alt-text="Screenshot highlights Create in the Data assets tab.":::
 
 1. Give your data asset a name and an optional description. Then, select the **File (uri_file)** option under Type.
-:::image type="content" source="./media/how-to-create-data-assets/create-data-asset-file-type.png" alt-text="In this screenshot, choose File (uri folder) in the Type dropdown.":::
 
 1. You have a few options for your data source. If you already have the path to the file you want to upload, choose **From a URI**. For a file already stored in Azure, choose **From Azure storage**. To upload your file from your local drive, choose **From local files**.
-:::image type="content" source="./media/how-to-create-data-assets/create-data-asset.png" alt-text="This screenshot shows data asset source choices.":::
 
 1. Follow the steps; once you reach the Review step, select **Create** on the last page
 
@@ -110,13 +107,10 @@ Use these steps to create a Folder typed data asset in the Azure AI studio:
 1. Navigate to [Azure AI studio](https://ml.azure.com)
 
 1. Under **Assets** in the left navigation, select **Data**. On the Data assets tab, select **Create**
-:::image type="content" source="./media/how-to-create-data-assets/data-assets-create.png" alt-text="Screenshot highlights Create in the Data assets tab.":::
 
 1. Give your data asset a name and optional description. Then, select the **Folder (uri_folder)** option under Type, if it isn't already selected.
-:::image type="content" source="./media/how-to-create-data-assets/create-data-asset-folder-type.png" alt-text="In this screenshot, choose Folder (uri folder) in the Type dropdown.":::
 
 1. You have a few options for your data source. If you already have the path to the folder you want to upload, choose **From a URI**. For a folder already stored in Azure, choose **From Azure storage**. To upload a folder from your local drive, choose **From local files**.
-:::image type="content" source="./media/how-to-create-data-assets/create-data-asset.png" alt-text="This screenshot shows the data asset source choices.":::
 
 1. Follow the steps, and once you reach the Review step, select **Create** on the last page.
 
@@ -276,7 +270,7 @@ When a data asset has been erroneously created - for example, with an incorrect 
 |The **path** is incorrect     |  Create a *new version* of the data asset (same name) with the correct path. For more information, read [Create data assets](#create-data-assets).       |
 |It has an incorrect **type**  |  Currently, Azure AI doesn't allow the creation of a new version with a *different* type compared to the initial version.<br>(1) [Archive the data asset](#archive-a-data-asset)<br>(2) [Create a new data asset](#create-data-assets) under a different name with the correct type.    |
 
-### Archive data
+### Archive a data asset
 
 Archiving a data asset hides it by default from both list queries (for example, in the CLI `az ml data list`) and the data asset listing in the Studio UI. You can still continue to reference and use an archived data asset in your workflows. You can archive either:
 
@@ -291,8 +285,6 @@ To archive *all versions* of the data asset under a given name, use:
 1. In the Studio UI, select **Data** from the left-hand menu.
 1. On the **Data assets** tab, select the data asset you want to archive.
 1. Select **Archive**, followed by **Archive** in the confirmation dialog box.
-
-:::image type="content" source="media/how-to-create-data-assets/data-asset-container-archive.png" alt-text="Screenshot that shows an archive of all data asset versions.":::
 
 
 #### Archive a specific data asset version
@@ -310,10 +302,8 @@ To restore all versions of the data asset under a given name, use:
 
 1. In the Studio UI, select **Data** from the left-hand menu.
 1. On the **Data assets** tab, enable **Include Archived**.
-   :::image type="content" source="media/how-to-create-data-assets/data-asset-restore-incarc.png" alt-text="Screenshot showing Include archived as selected.":::
 1. Select the data asset name.
 1. Next, on the data asset details page, select **Restore**.
-   :::image type="content" source="media/how-to-create-data-assets/data-asset-restore.png" alt-text="Screenshot showing Restore as selected.":::
 
 
 #### Restore a specific data asset version

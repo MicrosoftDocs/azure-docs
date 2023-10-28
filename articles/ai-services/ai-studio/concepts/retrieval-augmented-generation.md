@@ -51,7 +51,7 @@ RAG is a pattern which uses your data with an LLM to generate answers specific t
 
 In information retrieval, RAG is an approach that enables you to harness the power of LLMs with your own data. Enabling an LLM to access custom data involves the following steps. First, the large data should be chunked into manageable pieces. Second, the chunks need to be converted into a searchable format. Third, the converted data should be stored in a location that allows efficient access. Additionally, it's important to store relevant metadata for citations or references when the LLM provides responses. 
 
-:::image type="content" source="./media/concept-retrieval-augmented-generation/retrieval-augmented-generation-walkthrough.png" alt-text="Screenshot of a diagram of the technical overview of an LLM walking through rag steps." lightbox="./media/concept-retrieval-augmented-generation/retrieval-augmented-generation-walkthrough.png":::
+:::image type="content" source="../media/rag/retrieval-augmented-generation-walkthrough.png" alt-text="Screenshot of a diagram of the technical overview of an LLM walking through rag steps." lightbox="../media/rag/retrieval-augmented-generation-walkthrough.png":::
 
 Let us look at the diagram in more detail. 
 
@@ -83,7 +83,7 @@ Azure AI Studio allows you to incorporate RAG in your AI using the Azure AI Stud
 ## Next steps
 
 - [Learn about vector stores](./vector-stores.md)
-- [Create a vector index](../how-to/create-consume-indexes.md)
+- [Create a vector index](../how-to/index-add.md)
 - [Check out the Azure AI samples for RAG and more](https://github.com/Azure-Samples/azureai-samples)
 
 
