@@ -28,12 +28,15 @@ Secret injection in the context of an online endpoint is a process of retrieving
 
 When you create an online deployment, you might want to use secrets, such as API keys, to access external services from within the deployment. These external services could include Microsoft Azure OpenAI service, Azure AI Services, Azure AI Content Safety, and so on. 
 
-Currently, to get this access in a secured way, you need to directly interact with [workspace connections](prompt-flow/concept-connections.md) or [key vaults](../key-vault/general/overview.md) within the deployment. You can use the inference server/scoring script or BYOC to implement this interaction to retrieve the credentials. Because your user container will run with the managed identity associated with the endpoint, using the Azure RBAC and managed identity is recommended. Regardless of which secret store you want to retrieve the secrets from, either workspace connections or key vaults, the endpoint's identity needs to have the right permissions to read secrets from the store, but ensuring that the endpoint's identity has the right permissions poses two challenges:
+The challenge is to securely pass secrets to your user container that runs inside the deployment. Including secrets as part of the deployment definition is not recommended, as it exposes the secrets in the deployment definition. A better approach is to store the secrets in secret stores and retrieve them from within the deployment in a secure manner. However, how would a deployment authenticate itself to the secret stores to retrieve the secrets?
 
-- How to assign the right roles to the endpoint's identity so that it can read secrets from the secret stores.
-- How to implement the scoring logic for the deployment so that it uses the endpoint's managed identity to retrieve the secrets from the secret stores.
+The online deployment runs your user container using the endpoint identity, which is a [managed identity](/entra/identity/managed-identities-azure-resources/overview). This means that you can use [Azure RBAC](../role-based-access-control/overview) to control permission of the endpoint identity and allow it to retrieve the secrets from the secret stores. Basic example of using managed identities to interact with external services is provided in [this example](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/managed/managed-identities). You can extend this example to retrieve secrets in your deployment. This approach requires you to do the following:
 
-The platform already supports these scenarios, and [code example for using managed identities to access external services](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/managed/managed-identities) is available. However, to improve the experience, we introduce a way to achieve the same goal in a simplified, yet secured way.
+- Assign the right roles to the endpoint's identity so that it can read secrets from the secret stores.
+- Implement the scoring logic for the deployment so that it uses the endpoint's managed identity to retrieve the secrets from the secret stores.
+
+While this approach of using managed identity is a secured way to retrieve secrets, we provide the secret injection feature to simplify this process further for [workspace connections](prompt-flow/concept-connections.md) and [key vaults](../key-vault/general/overview.md).
+
 
 ## Managed identity associated with the endpoint
 
