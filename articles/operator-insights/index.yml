@@ -34,6 +34,8 @@ landingContent:
             url: concept-data-quality-monitoring.md
           - text: Data types 
             url: concept-data-types.md
+          - text: Data visualization
+            url: concept-data-visualization.md 
           - text: MCC Data Product 
             url: concept-mcc-data-product.md
 
@@ -56,4 +58,3 @@ landingContent:
             url: dashboards-use.md
           - text: Query data in the Data Product
             url: data-query.md
-

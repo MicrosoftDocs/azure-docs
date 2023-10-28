@@ -8,12 +8,12 @@
   - name: Azure Operator Insights FAQ
     href: operator-insights-faq.yml
 - name: Quickstarts
-  expanded: true
+  expanded: false
   items:
   - name: Create an Azure Operator Insights Data Product
     href: data-product-create.md
 - name: Concepts
-  expanded: true
+  expanded: false
   items:
   - name: Managed identity
     href: managed-identity.md
@@ -21,10 +21,12 @@
     href: concept-data-quality-monitoring.md
   - name: Data types
     href: concept-data-types.md
+  - name: Data visualization
+    href: concept-data-visualization.md 
   - name: MCC Data Product
     href: concept-mcc-data-product.md
-- name: How-to
-  expanded: true
+- name: How-to guides
+  expanded: false
   items:
   - name: Use Microsoft Purview with an Azure Operator Insights Data Product
     href: purview-setup.md
