@@ -17,22 +17,22 @@ ms.author: lajanuar
 <!-- markdownlint-disable MD051 -->
 
 ::: moniker range="doc-intel-4.0.0"
-[!INCLUDE [applies to v4.0](includes/applies-to-v40.md)]
+[!INCLUDE [applies to v4.0](../includes/applies-to-v40.md)]
 ::: moniker-end
 
 ::: moniker range="doc-intel-3.1.0"
-[!INCLUDE [applies to v3.1](includes/applies-to-v31.md)]
+[!INCLUDE [applies to v3.1](../includes/applies-to-v31.md)]
 ::: moniker-end
 
 ::: moniker range="doc-intel-3.0.0"
-[!INCLUDE [applies to v3.0](includes/applies-to-v30.md)]
+[!INCLUDE [applies to v3.0](../includes/applies-to-v30.md)]
 ::: moniker-end
 
 ::: moniker range="doc-intel-2.1.0"
-[!INCLUDE [applies to v2.1](includes/applies-to-v21.md)]
+[!INCLUDE [applies to v2.1](../includes/applies-to-v21.md)]
 ::: moniker-end
 
-Azure AI Document Intelligence is an Azure AI service that lets you build automated data processing software using machine-learning technology. Document Intelligence enables you to identify and extract text, key/value pairs, selection marks, table data, and more from your documents. The results are delivered as structured data that includes the relationships in the original file.
+Azure AI Document Intelligence is an Azure AI service that lets you build automated data processing software using machine-learning technology. Document Intelligence enables you to identify and extract text, key/value pairs, selection marks, table data, and more from your documents. The results are delivered as structured data that ../includes the relationships in the original file.
 
 ::: moniker range=">=doc-intel-3.0.0"
 In this article you learn how to download, install, and run Document Intelligence containers. Containers enable you to run the Document Intelligence service in your own environment. Containers are great for specific security and data governance requirements.

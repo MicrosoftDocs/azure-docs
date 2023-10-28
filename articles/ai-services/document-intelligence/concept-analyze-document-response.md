@@ -16,7 +16,7 @@ monikerRange: '>=doc-intel-3.0.0'
 
 # Analyze document API response
 
-**This content applies to:** ![checkmark](../media/yes-icon.png) **v4.0 (preview)** ![checkmark](../media/yes-icon.png) **v3.1 (GA)** ![checkmark](../media/yes-icon.png) **v3.0 (GA)**
+**This content applies to:** ![checkmark](media/yes-icon.png) **v4.0 (preview)** ![checkmark](media/yes-icon.png) **v3.1 (GA)** ![checkmark](media/yes-icon.png) **v3.0 (GA)**
 
 In this article, let's examine the different objects returned as part of the analyze document response and how to use the document analysis API response in your applications.
 
