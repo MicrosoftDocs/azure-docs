@@ -26,7 +26,7 @@ It is recommended to rotate access keys or secrets periodically.
 
 1. [Setup Flink Cluster](flink-create-cluster-portal.md)
 
-1. Upload your Flink Job jar to the storage account. It can be the primary storage account associated with the Flink cluster or any other storage account, where Assign the “Storage Blob Data Owner” role to the user-assigned MSI used for the cluster to this storage account. 
+1. Upload your Flink Job jar to the storage account. It can be the primary storage account associated with the Flink cluster or any other storage account, where you should assign the "Storage Blob Data Owner" role to the user-assigned MSI used for the cluster in this storage account.
 
 1. Azure Key Vault - You can follow [this tutorial to create a new Azure Key Vault](/azure/key-vault/general/quick-create-portal/) in case, if you don't have one. 
 
