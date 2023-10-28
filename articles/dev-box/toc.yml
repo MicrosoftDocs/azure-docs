@@ -18,7 +18,7 @@ items:
     - name: Create a dev box
       href: quickstart-create-dev-box.md
 - name: Tutorials
-  expanded: true
+  expanded: false
   items:
     - name: Connect with Remote Desktop App 
       href: tutorial-connect-to-dev-box-with-remote-desktop-app.md
@@ -32,7 +32,7 @@ items:
 - name: How-to guides
   expanded: true
   items:
-    - name: Configure Resources
+    - name: Configure resources
       expanded: false
       items: 
       - name: Manage a dev center
