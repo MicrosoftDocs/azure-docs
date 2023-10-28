@@ -37,3 +37,7 @@ Cluster controllers are responsible for installing and managing respective servi
 **Yarn service:** Hadoop Yarn cluster, Spark jobs would be scheduled in the cluster as Yarn applications.
 
 **Client Interfaces:** Apache Spark clusters in HDInsight on AKS, provides various client interfaces. Livy Server, Jupyter Notebook, Spark History Server, provides Spark services to HDInsight on AKS users.
+
+## Reference
+
+* **Note** : Apache, Apache Spark, Spark, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).
