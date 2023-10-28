@@ -60,7 +60,7 @@ The state backend determines how Flink manages and persists the state of your ap
 
 `state.backend: <value>`
 
-By default Apache Flink clusters in HDInsight on AKS uses Rocks db
+By default Apache Flink clusters in HDInsight on AKS use Rocks db
 
 ## Checkpoint Storage Path
 
