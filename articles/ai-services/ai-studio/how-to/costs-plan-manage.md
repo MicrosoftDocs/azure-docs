@@ -14,15 +14,11 @@ ms.author: eur
 
 This article describes how you plan for and manage costs for Azure AI services. First, you use the Azure pricing calculator to help plan for Azure AI services costs before you add any resources for the service to estimate costs. Next, as you add Azure resources, review the estimated costs. 
 
-After you've started using Azure AI services resources (for example Speech, Azure AI Vision, LUIS, Language service, Translator, etc.), use Cost Management features to set budgets and monitor costs. You can also review forecasted costs and identify spending trends to identify areas where you might want to act. 
-
 Costs for Azure AI services are only a portion of the monthly costs in your Azure bill. Although this article explains how to plan for and manage costs for Azure AI services, you're billed for all Azure services and resources used in your Azure subscription, including the third-party services.
 
 ## Prerequisites
 
 Cost analysis in Cost Management supports most Azure account types, but not all of them. To view the full list of supported account types, see [Understand Cost Management data](../../../cost-management-billing/costs/understand-cost-mgt-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn). To view cost data, you need at least read access for an Azure account. For information about assigning access to Azure Cost Management data, see [Assign access to data](../../../cost-management-billing/costs/assign-access-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
-
-<!--Note for Azure AI service writer: If you have other prerequisites for your service, insert them here -->
 
 ## Estimate costs before using Azure AI services
 
@@ -30,64 +26,73 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 :::image type="content" source="../media/cost-management/ai-services-pricing-calculator.png" alt-text="Azure Pricing calculator for Azure AI services" border="true":::
 
-As you add new resources to your workspace, return to this calculator and add the same resource here to update your cost estimates.
+As you add new resources to your project, return to this calculator and add the same resource here to update your cost estimates.
 
 For more information, see [Azure AI services pricing](https://azure.microsoft.com/pricing/details/cognitive-services/).
 
+
 ## Understand the full billing model for Azure AI services
 
-Azure AI services runs on Azure infrastructure that [accrues costs](https://azure.microsoft.com/pricing/details/cognitive-services/) when you deploy the new resource. It's important to understand that more infrastructure might accrue costs. You need to manage that cost when you make changes to deployed resources. 
+Azure AI services run on Azure infrastructure that accrues costs along with Azure AI when you deploy the new resource. It's important to understand that additional infrastructure might accrue cost. You need to manage that cost when you make changes to deployed resources.
 
-When you create or use Azure AI services resources, you might get charged based on the services that you use. There are two billing models available for Azure AI services: pay-as-you-go, and commitment tier.
+When you create or use Azure AI services resources, you might get charged based on the services that you use. There are two billing models available for Azure AI services: 
 
-## Pay-as-you-go
-
-With Pay-As-You-Go pricing, you are billed according to the Azure AI services offering you use, based on its billing information.
-
-| Service | Instance(s) | Billing information | 
-|---------|-------|---------------------|
-| [Anomaly Detector](https://azure.microsoft.com/pricing/details/cognitive-services/anomaly-detector/) | Free, Standard | Billed by the number of transactions. | 
-| [Content Moderator](https://azure.microsoft.com/pricing/details/cognitive-services/content-moderator/) | Free, Standard | Billed by the number of transactions. |
-| [Custom Vision](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) | Free, Standard | <li>Predictions are billed by the number of transactions.</li><li>Training is billed by compute hour(s).</li><li>Image storage is billed by number of images (up to 6 MB per image).</li>|
-| [Face](https://azure.microsoft.com/pricing/details/cognitive-services/face-api/) | Free, Standard | Billed by the number of transactions. |
-| [Language](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) | Free, Standard | Billed by number of text records. | 
-| [Language Understanding (LUIS)](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) | Free Authoring, Free Prediction, Standard | Billed by number of transactions. Price per transaction varies by feature (speech requests, text requests). For full details, see [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/). |
-| [Personalizer](https://azure.microsoft.com/pricing/details/cognitive-services/personalizer/) | Free, Standard (S0) | Billed by transactions per month. There are storage and transaction quotas. For full details, see [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/personalizer/). | 
-| [QnA Maker](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/) | Free, Standard | Subscription fee billed monthly. For full details, see [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/). | 
-| [Speech](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) | Free, Standard | Billing varies by feature (speech-to-text, text to speech, speech translation, speaker recognition). Primarily, billing is by transaction count or character count. For full details, see [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). |
-| [Translator](https://azure.microsoft.com/pricing/details/cognitive-services/translator/) | Free, Pay-as-you-go (S1), Volume discount (S2, S3, S4, C2, C3, C4, D3) | Pricing varies by meter and feature. For full details, see [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/translator/). <li>Text translation is billed by number of characters translated.</li><li>Document translation is billed by characters translated.</li><li>Custom translation is billed by characters of source and target training data.</li> |
-| [Vision](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/) | Free, Standard (S1) | Billed by the number of transactions. Price per transaction varies per feature (Read, OCR, Spatial Analysis). For full details, see [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/). |
-
-## Commitment tier
-
-In addition to the pay-as-you-go model, Azure AI services has commitment tiers, which let you commit to using several service features for a fixed fee, enabling you to have a predictable total cost based on the needs of your workload.
-
-With commitment tier pricing, you are billed according to the plan you choose. See [Quickstart: purchase commitment tier pricing](../../commitment-tier.md) for information on available services, how to sign up, and considerations when purchasing a plan.
+- Pay-as-you-go: Pay-As-You-Go pricing, you are billed according to the Azure AI services offering you use, based on its billing information.
+- Commitment tiers: With commitment tier pricing, you commit to using several service features for a fixed fee, enabling you to have a predictable total cost based on the needs of your workload. You are billed according to the plan you choose. See [Quickstart: purchase commitment tier pricing](../../commitment-tier.md) for information on available services, how to sign up, and considerations when purchasing a plan.
 
 > [!NOTE]
-> If you use the resource above the quota provided by the commitment plan, you will be charged for the additional usage as per the overage amount mentioned in the Azure portal when you purchase a commitment plan. For more information, see [Azure AI services pricing](https://azure.microsoft.com/pricing/details/cognitive-services/).
+> If you use the resource above the quota provided by the commitment plan, you will be charged for the additional usage as per the overage amount mentioned in the Azure portal when you purchase a commitment plan. 
 
-### Costs that typically accrue with Azure AI services
+You can pay for Azure AI services charges with your Azure Prepayment (previously called monetary commitment) credit. However, you can't use Azure Prepayment credit to pay for charges for third-party products and services including those from the Azure Marketplace.
 
-Typically, after you deploy an Azure resource, costs are determined by your pricing tier and the API calls you make to your endpoint. If the service you're using has a commitment tier, going over the allotted calls in your tier may incur an overage charge.
+For more information, see the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
-Extra costs may accrue when using these services:
+### Costs that typically accrue with Azure AI and Azure AI Studio
 
-#### QnA Maker
+When you create resources for an Azure AI resource, resources for other Azure services are also created. They are:
 
-When you create resources for QnA Maker, resources for other Azure services may also be created. They include:
+| Service pricing page | Description with example use cases | 
+| --- | --- | 
+| [Azure AI services](https://azure.microsoft.com/pricing/details/cognitive-services/) | You pay to use services such as Azure OpenAI, Speech, Content Safety, Vision, Document Intelligence, and Language. Costs vary for each service and for some features within each service. | 
+| [Azure AI Search](https://azure.microsoft.com/pricing/details/search/) | An example use case is to store data in a vector search index. |
+| [Azure Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/) | Compute instances are needed to run Visual Studio Code (Web) and prompt flow via Azure AI Studio.<br/><br/>When you create a compute instance, the VM stays on so it is available for your work.<br/><br/>Enable idle shutdown to save on cost when the VM has been idle for a specified time period.<br/><br/>Or set up a schedule to automatically start and stop the compute instance to save cost when you aren't planning to use it. | 
+| [Azure Virtual Machine](https://azure.microsoft.com/pricing/details/virtual-machines/) | Azure Virtual Machines gives you the flexibility of virtualization for a wide range of computing solutions with support for Linux, Windows Server, SQL Server, Oracle, IBM, SAP, and more. |
+| [Azure Container Registry Basic account](https://azure.microsoft.com/pricing/details/container-registry) | Provides storage of private Docker container images, enabling fast, scalable retrieval, and network-close deployment of container workloads on Azure. |
+| [Azure Blob Storage](https://azure.microsoft.com/pricing/details/storage/blobs/) | Can be used to store Azure AI project files. |
+| [Key Vault](https://azure.microsoft.com/pricing/details/key-vault/) | A key vault for storing secrets. |
+| [Application Insights](https://azure.microsoft.com/pricing/details/storage/blobs/) | Helps you understand how your applications are performing and proactively identifies issues affecting them and the resources they depend on. |
+| [Azure Private Link](https://azure.microsoft.com/pricing/details/private-link/) | Azure Private Link enables you to access Azure PaaS Services (for example, Azure Storage and SQL Database) over a private endpoint in your virtual network. |
 
-- [Azure App Service (for the runtime)](https://azure.microsoft.com/pricing/details/app-service/)
-- [Azure AI Search (for the data)](https://azure.microsoft.com/pricing/details/search/)
- 
-### Costs that might accrue after resource deletion
+### Costs might accrue before resource deletion
 
-#### QnA Maker
+Before you delete an Azure AI resource in the Azure portal or with Azure CLI, the following sub resources are common costs that accumulate even when you are not actively working in the workspace. If you are planning on returning to your Azure AI resource at a later time, these resources may continue to accrue costs: 
+- Azure AI Search (for the data)
+- Virtual machines
+- Load Balancer
+- Virtual Network
+- Bandwidth
 
-After you delete QnA Maker resources, the following resources might continue to exist. They continue to accrue costs until you delete them.
+Each VM is billed per hour it is running. Cost depends on VM specifications. VMs that are running but not actively working on a dataset will still be charged via the load balancer. For each compute instance, one load balancer will be billed per day. Every 50 nodes of a compute cluster will have one standard load balancer billed. Each load balancer is billed around $0.33/day. To avoid load balancer costs on stopped compute instances and compute clusters, delete the compute resource.
 
-- [Azure App Service (for the runtime)](https://azure.microsoft.com/pricing/details/app-service/)
-- [Azure AI Search (for the data)](https://azure.microsoft.com/pricing/details/search/)
+Compute instances also incur P10 disk costs even in stopped state. This is because any user content saved there is persisted across the stopped state similar to Azure VMs. We are working on making the OS disk size/ type configurable to better control costs. For virtual networks, one virtual network will be billed per subscription and per region. Virtual networks cannot span regions or subscriptions. Setting up private endpoints in vNet setups may also incur charges. Bandwidth is charged by usage; the more data transferred, the more you are charged.
+
+### Costs might accrue after resource deletion
+
+After you delete an Azure AI resource in the Azure portal or with Azure CLI, the following resources continue to exist. They continue to accrue costs until you delete them.
+
+- Azure Container Registry
+- Azure Blob Storage
+- Key Vault
+- Application Insights
+
+To delete the Azure AI resource (also known as a workspace in this context) along with these dependent resources, use the Azure Machine Learning SDK:
+
+```python
+from azure.ai.ml.entities import Workspace
+ml_client.workspaces.begin_delete(name=ws.name, delete_dependent_resources=True)
+If you create Azure Kubernetes Service (AKS) in your workspace, or if you attach any compute resources to your workspace you must delete them separately in the Azure portal.
+```
+
 
 ### Using Azure Prepayment credit with Azure AI services
 
@@ -99,7 +104,7 @@ As you use Azure resources with Azure AI services, you incur costs. Azure resour
 
 When you use cost analysis, you view Azure AI services costs in graphs and tables for different time intervals. Some examples are by day, current and prior month, and year. You also view costs against budgets and forecasted costs. Switching to longer views over time can help you identify spending trends. And you see where overspending might have occurred. If you've created budgets, you can also easily see where they're exceeded.
 
-To view Azure AI services costs in cost analysis:
+To view Azure AI services costs in cost analysis here's an example:
 
 1. Sign in to the Azure portal.
 1. Open the scope in the Azure portal and select **Cost analysis** in the menu. For example, go to **Subscriptions**, select a subscription from the list, and then select  **Cost analysis** in the menu. Select **Scope** to switch to a different scope in cost analysis.
@@ -116,6 +121,8 @@ Here's an example showing costs for just Azure AI services.
 :::image type="content" source="../media/cost-management/cognitive-services-costs.png" alt-text="Example showing accumulated costs for Azure AI services":::
 
 In the preceding example, you see the current cost for the service. Costs by Azure regions (locations) and Azure AI services costs by resource group are also shown. From here, you can explore costs on your own.
+
+For more information, see the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
 ## Create budgets
 
