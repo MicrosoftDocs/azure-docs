@@ -51,26 +51,21 @@ To enable it for an existing Elastic SAN, navigate to **Networking** under **Set
 
 # [PowerShell](#tab/azure-powershell)
 
-Replace all placeholder text enclosed in `<>` in the samples in this article with your own values:
-
-| Placeholder           | Description                                                       |
-|-----------------------|-------------------------------------------------------------------|
-| `<ResourceGroupName>` | The name of the resource group where the Elastic San is deployed. |
-| `<ElasticSanName>`    | The name of the Elastic SAN.                                      |
-| `<Location>`          | The region where the new Elastic San will be created.             |
-| `<SkuName>`           | The SKU of the new Elastic SAN - `Premium_LRS` or `Premium_ZRS`.  |
-| `<BaseSize>`          | The base size of the new Elastic SAN.                             |
-| `<ExtendedSize>`      | The extended size of the new Elastic SAN.                         |
-
-Use this sample code to create an Elastic SAN with public network access enabled using PowerShell.
+Use this sample code to create an Elastic SAN with public network access enabled using PowerShell. Replace the variable values before running the sample.
 
 ```powershell
 # Set the variable values.
+# The name of the resource group where the Elastic San is deployed.
 $RgName       = "<ResourceGroupName>"
+# The name of the Elastic SAN.
 $EsanName     = "<ElasticSanName>"
+# The region where the new Elastic San will be created.
 $Location     = "<Location>"
+# The SKU of the new Elastic SAN - `Premium_LRS` or `Premium_ZRS`.
 $SkuName      = "<SkuName>"
+# The base size of the new Elastic SAN.
 $BaseSize     = "<BaseSize>"
+# The extended size of the new Elastic SAN.
 $ExtendedSize = "<ExtendedSize>"
 # Setup the parameters to create an Elastic San with public network access enabled.
 $NewEsanArguments = @{
@@ -86,7 +81,7 @@ $NewEsanArguments = @{
 New-AzElasticSan @NewEsanArguments
 ```
 
-Use this sample code to update an Elastic SAN to enable public network access using PowerShell. Replace all placeholder text enclosed in `<>` with your own values:
+Use this sample code to update an Elastic SAN to enable public network access using PowerShell. Replace the values of `RgName` and `EsanName` with your own, then run the sample:
 
 ```powershell
 # Set the variable values.
@@ -98,27 +93,23 @@ Update-AzElasticSan -Name $EsanName -ResourceGroupName $RgName -PublicNetworkAcc
 
 # [Azure CLI](#tab/azure-cli)
 
-Replace all placeholder text enclosed in `<>` in the samples in this article with your own values:
-
-| Placeholder           | Description                                                       |
-|-----------------------|-------------------------------------------------------------------|
-| `<ResourceGroupName>` | The name of the resource group where the Elastic San is deployed. |
-| `<ElasticSanName>`    | The name of the Elastic SAN.                                      |
-| `<Location>`          | The region where the new Elastic San will be created.             |
-| `<SkuName>`           | The SKU of the new Elastic SAN - `Premium_LRS` or `Premium_ZRS`.  |
-| `<BaseSize>`          | The base size of the new Elastic SAN.                             |
-| `<ExtendedSize>`      | The extended size of the new Elastic SAN.                         |
-
-Use this sample code to create an Elastic SAN with public network access enabled using the Azure CLI.
+Use this sample code to create an Elastic SAN with public network access enabled using the Azure CLI. Replace the variable values before running the sample.
 
 ```azurecli
 # Set the variable values.
+# The name of the resource group where the Elastic San is deployed.
 $RgName="<ResourceGroupName>"
+# The name of the Elastic SAN.
 $EsanName="<ElasticSanName>"
+# The region where the new Elastic San will be created.
 $Location="<Location>"
+# The SKU of the new Elastic SAN - `Premium_LRS` or `Premium_ZRS`.
 $SkuName="<SkuName>"
+# The base size of the new Elastic SAN.
 $BaseSize="<BaseSize>"
+# The extended size of the new Elastic SAN.
 $ExtendedSize="<ExtendedSize>"
+
 # Create the Elastic San.
 az elastic-san create \
     --elastic-san-name $EsanName \
@@ -130,7 +121,7 @@ az elastic-san create \
     --public-network-access enabled
 ```
 
-Use this sample code to update an Elastic SAN to enable public network access using the Azure CLI. Replace all placeholder text enclosed in `<>` with your own values:
+Use this sample code to update an Elastic SAN to enable public network access using the Azure CLI. Replace the values of `RgName` and `EsanName` with your own values:
 
 ```azurecli
 # Set the variable values.
