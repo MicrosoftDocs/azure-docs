@@ -22,6 +22,8 @@
   items:
   - name: Azure AI services and the ecosystem
     href: ai-studio/concepts/ai-services-and-ecosystem.md
+  - name: AI services resources
+    href: ai-studio/concepts/ai-services-resources.md
 - name: How-to
   expanded: true
   items:
@@ -31,6 +33,8 @@
       href: ai-studio/how-to/model-catalog.md
     - name: Azure AI capabilities
       href: ai-studio/how-to/models-foundation-azure-ai.md
+  - name: Create Azure AI projects
+    href: ai-studio/how-to/create-projects.md
   - name: Costs and quotas
     items:
     - name: Plan and manage costs
