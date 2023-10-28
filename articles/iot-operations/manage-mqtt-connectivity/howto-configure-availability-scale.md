@@ -5,7 +5,7 @@ description: Configure Azure IoT MQ availability and scale.
 author: PatAltimore
 ms.author: patricka
 ms.topic: how-to
-ms.date: 10/18/2023
+ms.date: 10/27/2023
 
 #CustomerIntent: As an operator, I want to understand availability and scale options for MQTT broker.
 ---
@@ -24,7 +24,7 @@ To configure the scaling settings Azure IoT MQ broker, you need to specify the `
 
 The `mode` field can be one of these values:
 
-- `auto`: This value indicates that Azure IoT MQ operator automatically deploys the appropriate number of pods based on the cluster hardware. This is the default value and the recommended option for most scenarios.
+- `auto`: This value indicates that Azure IoT MQ operator automatically deploys the appropriate number of pods based on the cluster hardware. *auto* is the default value and the recommended option for most scenarios.
 - `distributed`: This value indicates that you can manually specify the number of frontend pods and backend chains in the `cardinality` field. This option gives you more control over the deployment, but requires more configuration.
 
 The `cardinality` field is a nested field that has these subfields:
@@ -34,26 +34,26 @@ The `cardinality` field is a nested field that has these subfields:
 - `backendChain`: This subfield defines the settings for the backend chains, such as:
   - `replicas`: The number of replicas in each backend chain. This subfield is required if the `mode` field is set to `distributed`.
   - `partitions`: The number of partitions to deploy. This subfield is required if the `mode` field is set to `distributed`.
-  - `workers`: The numb0.6.0er of workers to deploy, currently it must be set to `1`. This subfield is required if the `mode` field is set to `distributed`.
+  - `workers`: The number of workers to deploy, currently it must be set to `1`. This subfield is required if the `mode` field is set to `distributed`.
 
-For example, to deploy a Broker resource named **my-broker**", with **0.6.0** images, and automatic cardinality settings:
+For example, to deploy a Broker resource named **my-broker**", with **0.1.0-peview-rc2** images, and automatic cardinality settings:
 
 ```yaml
 apiVersion: mq.iotoperations.azure.com/v1beta1
 kind: Broker
 metadata:
   name: my-broker
-  namespace: alice-springs
+  namespace: default
 spec:
   mode: auto
   image:
     pullPolicy: Always
-    repository: alicesprings.azurecr.io/dmqtt-pod
-    tag: 0.6.0
+    repository: e4kpreview.azurecr.io/dmqtt-pod
+    tag: 0.1.0-preview-rc2
   authImage:
     pullPolicy: Always
-    repository: alicesprings.azurecr.io/dmqtt-authentication
-    tag: 0.6.0
+    repository: e4kpreview.azurecr.io/dmqtt-authentication
+    tag: 0.1.0-preview-rc2
 ```
 
 You can manually specify the number of frontend pods and backend chains:
@@ -63,22 +63,22 @@ apiVersion: mq.iotoperations.azure.com/v1beta1
 kind: Broker
 metadata:
   name: my-broker
-  namespace: alice-springs
+  namespace: default
 spec:
   authImage:
     pullPolicy: Always
-    repository: alicesprings.azurecr.io/dmqtt-authentication
-    tag: 0.6.0
+    repository: e4kpreview.azurecr.io/dmqtt-authentication
+    tag: 0.1.0
   image:
     pullPolicy: Always
-    repository: alicesprings.azurecr.io/dmqtt-pod
-    tag: 0.6.0
+    repository: e4kpreview.azurecr.io/dmqtt-pod
+    tag: 0.1.0
   mode: distributed
   cardinality:
     frontend:
       replicas: 3
     backendChain:
-      replicas: 3
+      redundancyFactor: 3
       partitions: 3
       workers: 1
 ```
@@ -95,8 +95,6 @@ When using this profile:
 
 - Maximum memory usage of each frontend replica is approximately 99 MiB but the actual maximum memory usage might be higher.
 - Maximum memory usage of each backend replica is approximately 102 MiB but the actual maximum memory usage might be higher.
-
-
 
 Recommendations when using this profile:
 
@@ -128,14 +126,14 @@ Medium is the default profile.
 - Maximum memory usage of each frontend replica is approximately 4.9 GiB but the actual maximum memory usage might be higher.
 - Maximum memory usage of each backend replica is approximately 5.8 GiB multiplied by the number of backend workers, but the actual maximum memory usage might be higher.
 
-For example, you can specify the low memory profile like the following:
+You can specify the low memory profile like the following example:
 
 ```yaml
 apiVersion: mq.iotoperations.azure.com/v1beta1
 kind: Broker
 metadata:
   name: my-broker
-  namespace: alice-springs
+  namespace: default
 spec:
   mode: auto
   memoryProfile: low
@@ -166,7 +164,7 @@ In this example, one of the frontend brokers is deleted and Azure IoT MQ recover
     While the messages are being sent, delete one of the frontend pods.
     
     ```bash
-    kubectl delete pod azedge-dmqtt-frontend-798dd9bcfd-7phm8
+    kubectl delete pod aio-mq-dmqtt-frontend-798dd9bcfd-7phm8
     ```
 
 It takes about 10 seconds until the pod gets deleted. Once the frontend pod is deleted, all clients connected to it are disconnected. The mosquitto client has a built-in retry mechanism and reconnects to the broker. Upon receiving the request to reconnect, the load balancer directs it to the frontend broker still serving clients and the communication gets restored:
