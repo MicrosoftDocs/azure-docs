@@ -89,27 +89,15 @@ The sample policy definition file below sets the retention for all blobs in the 
       "type": "Lifecycle",
       "definition": {
         "actions": {
-          "version": {
-            "delete": {
-              "daysAfterCreationGreaterThan": 90
-            }
-          },
           "baseBlob": {
-            "tierToCool": {
-              "daysAfterModificationGreaterThan": 30
-            },
-            "tierToArchive": {
-              "daysAfterModificationGreaterThan": 90,
-              "daysAfterLastTierChangeGreaterThan": 7
-            },
-            "delete": {
-              "daysAfterModificationGreaterThan": 2555
+              "delete": {
+              "daysAfterModificationGreaterThan": 120
             }
           }
         },
         "filters": {
           "blobTypes": [
-            "blockBlob"
+            "appendBlob"
           ],
           "prefixMatch": [
             "insights-activity-logs/ResourceId=/SUBSCRIPTIONS/ABCD1234-5849-ABCD-1234-9876543210AB"
@@ -119,6 +107,9 @@ The sample policy definition file below sets the retention for all blobs in the 
     }
   ]
 }
+
+
+
 
 ```
 
@@ -148,29 +139,23 @@ The following template sets the retention for storage account *azmonstorageaccou
                     "rules": [
                         {
                             "enabled": true,
-                            "name": "Edtest",
+                            "name": "Susbcription level lifecycle rule",
                             "type": "Lifecycle",
                             "definition": {
+                                "actions": {
+                                    "baseBlob": {
+                                        "delete": {
+                                            "daysAfterModificationGreaterThan": 120
+                                        }
+                                    }
+                                },
                                 "filters": {
                                     "blobTypes": [
-                                        "blockBlob"
+                                        "appendBlob"
                                     ],
                                     "prefixMatch": [
                                         "insights-activity-logs/ResourceId=/SUBSCRIPTIONS/ABCD1234-5849-ABCD-1234-9876543210AB"
                                     ]
-                                },
-                                "actions": {
-                                    "baseBlob": {
-                                        "tierToCool": {
-                                            "daysAfterModificationGreaterThan": 30
-                                        },
-                                        "tierToArchive": {
-                                            "daysAfterModificationGreaterThan": 90
-                                        },
-                                        "delete": {
-                                            "daysAfterModificationGreaterThan": 1000
-                                        }
-                                    }
                                 }
                             }
                         }

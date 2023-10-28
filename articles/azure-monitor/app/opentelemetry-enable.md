@@ -247,7 +247,7 @@ input()
 
 #### Copy the Connection String from your Application Insights Resource
 > [!TIP]
-> If you don't already have one, now is a great time to [Create an Application Insights Resource](create-workspace-resource.md#create-a-workspace-based-resource). Here's when we recommend you [create a new Application Insights Resource versus use an existing one](separate-resources.md#when-to-use-a-single-application-insights-resource).
+> If you don't already have one, now is a great time to [Create an Application Insights Resource](create-workspace-resource.md#create-a-workspace-based-resource). Here's when we recommend you [create a new Application Insights Resource versus use an existing one](create-workspace-resource.md#when-to-use-a-single-application-insights-resource).
 
 To copy your unique Connection String:
 

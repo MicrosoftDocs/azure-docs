@@ -6,6 +6,7 @@ directCommands:
   name: swa login
   summary: Log in to Azure
   status: GA
+  sourceType: SWA Core
   description: 'Authenticate with Azure to get a deployment token for Azure Static Web Apps, using the `swa deploy` command.'
   syntax: >-
     swa login
@@ -44,6 +45,7 @@ directCommands:
   name: swa init
   summary: Configures a new Azure Static Web Apps project.
   status: GA
+  sourceType: SWA Core
   description: >-
     Configures a new Azure Static Web Apps project with the Static Web Apps CLI. Interactive mode prompts you for a configuration name, will detect your project settings and the frameworks used. Once complete, a new static web app is created and a swa-cli.config.json file is generated in the current directory.
 
@@ -86,6 +88,7 @@ directCommands:
   name: swa start
   summary: Start the Azure Static Web Apps emulator from a directory or bind to a running dev server.
   status: GA
+  sourceType: SWA Core
   description: >-
     ### Serve from a folder
 
@@ -229,6 +232,7 @@ directCommands:
 - uid: swa_build
   name: swa build
   status: GA
+  sourceType: SWA Core
   summary: Builds the application. If you have a Node.js application, it will install dependencies first.
   description: >-
     Common use cases include: installing dependencies for the front-end app and API and running the build commands for both, only building the front-end or API project if the other doesn't have a build step.
@@ -265,6 +269,7 @@ directCommands:
 - uid: swa_deploy
   name: swa deploy
   status: GA
+  sourceType: SWA Core
   summary: Deploy the current project to Azure Static Web Apps.
   description: >-
     Common use cases include:
@@ -420,6 +425,8 @@ directCommands:
     syntax: swa deploy --env production
 - uid: swa_db
   name: swa db
+  status: GA
+  sourceType: SWA Core
   summary: Generate and edit your Static Web Apps database connections configuration. 
   description: >-
     Use `swa db init` to generate a sample *swa-db-connections* folder, along with a *staticwebapp.database.config.json* configuration file. If you are using a Cosmos DB for NoSQL database, this will also generate a sample *staticwebapp.database.schema.gql* schema file. 

@@ -183,7 +183,7 @@ The following information lists the known limitations to the use of private endp
 
 | Limitation | Description |
 | --------- | ------------ |
-| Static IP address configuration currently unsupported. | **Azure Kubernetes Service (AKS)** </br> **Azure Application Gateway** </br> **HD Insight**. |
+| Static IP address configuration currently unsupported. | **Azure Kubernetes Service (AKS)** </br> **Azure Application Gateway** </br> **HD Insight** </br> **Recovery Services Vaults** </br> **Third party Private Link services** |
 
 ### Network security group
 

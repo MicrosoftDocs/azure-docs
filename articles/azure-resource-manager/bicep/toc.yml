@@ -323,30 +323,43 @@
     - name: Any function
       href: bicep-functions-any.md
     - name: Array functions
+      displayName: array,concat,contains,empty,first,flatten,indexOf,intersection,last,lastIndexOf,length,max,min,range,skip,take,union
       href: bicep-functions-array.md
     - name: CIDR functions
+      displayName: parseCidr,cidrSubnet,cidrHost
       href: bicep-functions-cidr.md
     - name: Date functions
+      displayName: dateTimeAdd,dateTimeFromEpoch,dateTimeToEpoch,utcNow
       href: bicep-functions-date.md
     - name: Deployment functions
+      displayName: deployment,environment
       href: bicep-functions-deployment.md
     - name: File functions
+      displayName: loadFileAsBase64,loadJsonContent,loadYamlContent,loadTextContent
       href: bicep-functions-files.md
     - name: Lambda functions
+      displayName: filter,map,reduce,sort,toObject
       href: bicep-functions-lambda.md
     - name: Logical functions
+      displayName: bool
       href: bicep-functions-logical.md
     - name: Numeric functions
+      displayName: int,max,min
       href: bicep-functions-numeric.md
     - name: Object functions
+      displayName: contains,empty,intersection,items,json,length,union
       href: bicep-functions-object.md
     - name: Parameters file functions
+      displayName: getSecret,readEnvironmentVariable
       href: bicep-functions-parameters-file.md
     - name: Resource functions
+      displayName: extensionResourceId,getSecret,list,pickZones,providers,reference,resourceId,subscriptionResourceId,managementGroupResourceId,tenantResourceId
       href: bicep-functions-resource.md
     - name: Scope functions
+      displayName: managementGroup,resourceGroup,subscription,tenant
       href: bicep-functions-scope.md
     - name: String functions
+      displayName: base64,base64ToJson,base64ToString,concat,contains,dataUri,dataUriToString,empty,endsWith,first,format,guid,indexOf,join,json,last,lastIndexOf,length,newGuid,padLeft,replace,skip,split,startsWith,string,substring,take,toLower,toUpper,trim,uniqueString,uri,uriComponent,uriComponentToString
       href: bicep-functions-string.md
   - name: Operators
     items:
