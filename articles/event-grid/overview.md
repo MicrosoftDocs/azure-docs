@@ -28,7 +28,7 @@ Azure Event Grid is used at different stages of data pipelines to achieve a dive
 - Your custom applications
 - External partner (SaaS) systems
 
-When configuring Event Grid for push delivery, Event Grid can send data to [destinations](event-handlers.md) that include your own application webhooks and Azure services.
+When using push delivery, Event Grid can send data to [destinations](event-handlers.md) that include your own application webhooks and Azure services.
 
 ## Capabilities
 
@@ -149,7 +149,46 @@ One or more clients can connect to Azure Event Grid to read messages at their ow
 You can configure **private links** to connect to Azure Event Grid to **publish and read** CloudEvents through a [private endpoint](../private-link/private-endpoint-overview.md) in your virtual network. Traffic between your virtual network and Event Grid travels the Microsoft backbone network.
 
 >[!Important]
-> [Private links](../private-link/private-link-overview.md) are available with pull delivery, not with push delivery. You can use private links when your application connects to Event Grid to publish events or receive events, not when Event Grid connects to your webhook or Azure service to deliver events. 
+> [Private links](../private-link/private-link-overview.md) are available with pull delivery, not with push delivery. You can use private links when your application connects to Event Grid to publish events or receive events, not when Event Grid connects to your webhook or Azure service to deliver events.
+
+## Regions where Event Grid namespace is available
+
+Here's the list of regions where the new MQTT broker and namespace topics features are available:
+- Australia East
+- Australia South East
+- Brazil South
+- Brazil Southeast
+- Canada Central
+- Canada East
+- Central India
+- Central US
+- East Asia
+- East US
+- East US 2
+- France Central
+- Germany West Central
+- Israel Central
+- Italy North
+- Japan East
+- Japan West
+- Korea Central
+- Korea South
+- North Central US  
+- North Europe
+- Norway East
+- Poland Central
+- South Africa West
+- South Central US
+- South India
+- Southeast Asia
+- Sweden Central
+- Switzerland North
+- UAE North
+- UK South
+- UK West
+- West Europe
+- West US 2
+- West US 3
 
 ## How much does Event Grid cost?
 
