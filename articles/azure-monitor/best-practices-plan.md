@@ -9,7 +9,7 @@ ms.reviewer: bwren
 ---
 
 # Azure Monitor best practices - Planning your monitoring strategy and configuration
-This article is part of the scenario [Recommendations for configuring Azure Monitor](best-practices.md). It describes planning that you should consider before starting your implementation. This ensures that the configuration options you choose meet your particular business requirements.
+This article is part of the scenario [Recommendations for configuring Azure Monitor](best-practices.md). It describes planning that you should consider before starting your implementation. This planning ensures that the configuration options you choose meet your particular business requirements.
 
 If you're not already familiar with monitoring concepts, start with the [Cloud monitoring guide](/azure/cloud-adoption-framework/manage/monitor), which is part of the [Microsoft Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/). That guide defines high-level concepts of monitoring and provides guidance for defining requirements for your monitoring environment and supporting processes. This article refers to sections of that guide that are relevant to particular planning steps.
 ## Understand Azure Monitor costs
@@ -21,7 +21,7 @@ A core goal of your monitoring strategy will be minimizing costs. Some data coll
 
 
 ## Define strategy
-Before you design and implement any monitoring solution, you should establish a monitoring strategy so that you understand the goals and requirements of your plan. The strategy defines your particular requirements, the configuration that best meets those requirements, and processes to leverage the monitoring environment to maximize your applications' performance and reliability. The configuration options that you choose for Azure Monitor should be consistent with your strategy.
+Before you design and implement any monitoring solution, you should establish a monitoring strategy so that you understand the goals and requirements of your plan. The strategy defines your particular requirements, the configuration that best meets those requirements, and processes to use the monitoring environment to maximize your applications' performance and reliability. The configuration options that you choose for Azure Monitor should be consistent with your strategy.
 
 See [Cloud monitoring guide: Formulate a monitoring strategy](/azure/cloud-adoption-framework/strategy/monitoring-strategy) for a number of factors that you should consider when developing a monitoring strategy. You should also refer to [Monitoring strategy for cloud deployment models](/azure/cloud-adoption-framework/manage/monitor/cloud-models-monitor-overview), which assist in comparing completely cloud based monitoring with a hybrid model. 
 
@@ -40,7 +40,7 @@ Your organization may have SLAs that define your commitments for performance and
 ## Identify monitoring services and products
 Azure Monitor is designed to address Health and Status monitoring. A complete monitoring solution typically involves multiple Azure services and potentially other products. Other monitoring objectives, which may require additional solutions, are described in the Cloud Monitoring Guide in [primary monitoring objectives](/azure/cloud-adoption-framework/strategy/monitoring-strategy#formulate-monitoring-requirements). 
 
-The following sections describe other services and products that you may use in conjunction with Azure Monitor. This scenario currently doesn't include guidance on implementing these solutions so you should refer to their documentation.
+The following sections describe other services and products that you may use with Azure Monitor. This scenario currently doesn't include guidance on implementing these solutions so you should refer to their documentation.
 
 ### Security monitoring
 While the operational data stored in Azure Monitor might be useful for investigating security incidents, other services in Azure were designed to monitor security. Security monitoring in Azure is performed by Microsoft Defender for Cloud and Microsoft Sentinel.
@@ -55,9 +55,15 @@ While the operational data stored in Azure Monitor might be useful for investiga
 
 
 ### System Center Operations Manager
-You may have an existing investment in System Center Operations Manager for monitoring on-premises resources and workloads running on your virtual machines. You may choose to [migrate this monitoring to Azure Monitor](azure-monitor-operations-manager.md) or continue to use both products together in a hybrid configuration. See  [Cloud monitoring guide: Monitoring platforms overview](/azure/cloud-adoption-framework/manage/monitor/platform-overview) for a comparison of the two products. See [Monitoring strategy for cloud deployment models](/azure/cloud-adoption-framework/manage/monitor/cloud-models-monitor-overview) for guidance on using the two in a hybrid configuration and on determining the most appropriate model for your environment.
+You may have an existing investment in System Center Operations Manager for monitoring on-premises resources and workloads running on your virtual machines. You may choose to [migrate this monitoring to Azure Monitor](azure-monitor-operations-manager.md) or continue to use both products together in a hybrid configuration. See  [Cloud monitoring guide: Monitoring platforms overview](/azure/cloud-adoption-framework/manage/monitor/platform-overview) for a comparison of the two products. See [Monitoring strategy for cloud deployment models](/azure/cloud-adoption-framework/manage/monitor/cloud-models-monitor-overview) for how to use the two in a hybrid configuration and determine the most appropriate model for your environment.
 
+## Frequently asked questions
 
+This section provides answers to common questions.
+
+### What IP addresses does Azure Monitor use?
+
+See [IP addresses used by Application Insights and Log Analytics](app/ip-addresses.md) for the IP addresses and ports required for agents and other external resources to access Azure Monitor.         
 
 ## Next steps
 
