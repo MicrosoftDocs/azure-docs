@@ -348,7 +348,7 @@ If the feature data is materialized, the Storage Blob Data Reader role must read
 
 ### [SDK and CLI track](#tab/SDK-and-CLI-track)
 
-   [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/1. Develop a feature set and register with managed feature store.ipynb.ipynb?name=enable-offline-mat-txns-fset-cli)]
+   [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/1. Develop a feature set and register with managed feature store.ipynb?name=enable-offline-mat-txns-fset-cli)]
 
 ---
 
@@ -383,7 +383,7 @@ If the feature data is materialized, the Storage Blob Data Reader role must read
 
    This code cell materializes data by current status *None* or *Incomplete* for the defined feature window.
 
-   [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/1. Develop a feature set and register with managed feature store.ipynb.ipynb?name=backfill-txns-fset-cli)]  
+   [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/1. Develop a feature set and register with managed feature store.ipynb?name=backfill-txns-fset-cli)]  
 
 ---
 
