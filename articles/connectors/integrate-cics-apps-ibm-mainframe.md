@@ -55,7 +55,7 @@ This operation also includes advanced parameters, which appear after you select 
 
 * Access to the mainframe that hosts the CICS system
 
-* The Host Integration Designer XML (HIDX) file that provides the necessary metadata for the **CICS Program Call** connector to drive your mainframe app.
+* The Host Integration Designer XML (HIDX) file that provides the necessary metadata for the **CICS Program Call** connector to execute your mainframe program.
 
   To create this HIDX file, [download and install the HIS Designer for Azure Logic Apps](https://aka.ms/his-desiner-logicapps-download). The only prerequisite is [Microsoft .NET Framework 4.8](https://aka.ms/net-framework-download).
 
