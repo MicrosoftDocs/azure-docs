@@ -41,12 +41,6 @@
       href: ai-studio/how-to/cli-install.md
     - name: Work with Azure AI Studio projects in VS Code (Web)
       href: ai-studio/how-to/vscode-web.md
-  - name: Create multi-service resources
-    items:
-    - name: Model catalog
-      href: ai-studio/how-to/model-catalog.md
-    - name: Azure AI capabilities
-      href: ai-studio/how-to/models-foundation-azure-ai.md
   - name: Costs and quotas
     items:
     - name: Plan and manage costs
