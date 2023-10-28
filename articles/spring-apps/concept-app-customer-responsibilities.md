@@ -55,7 +55,7 @@ When you deploy your polyglot applications to the Enterprise plan, assign specif
 |--------|-------------------------------------------------------------------------------------------------------------|
 | Java   | [Java support on Azure](/azure/developer/java/fundamentals/java-support-on-azure)                           |
 | Tomcat | [Tomcat versions](https://tomcat.apache.org/whichversion.html)                                              |
-| .NET   | [.NET and .NET core support policy](https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core) |
+| .NET   | [.NET and .NET core support policy](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) |
 | Python | [Status of Python versions](https://devguide.python.org/versions/)                                          |
 | Go     | [Go release history](https://go.dev/doc/devel/release)                                                      |
 | NodeJS | [Nodejs releases](https://nodejs.dev/en/about/releases/)                                                    |
