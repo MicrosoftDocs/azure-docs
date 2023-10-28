@@ -65,7 +65,7 @@ __Role assignment to the endpoint's identity__:
 Because the automatic role assignment for the endpoint's system-assigned identity (SAI) doesn't include the "read secrets" permission by default, you need to perform this role assignment yourself. For example,
 
 - If your secrets are stored in workspace connections under your workspace: `Workspace Connections` provides a [List Secrets API (preview)](/rest/api/azureml/2023-08-01-preview/workspace-connections/list-secrets) that requires the identity that calls the API to have `Azure Machine Learning Workspace Connection Secret Reader` role (or equivalent) assigned to the identity.
-- If your secrets are stored in an external Azure Key Vault: Azure Key Vault provides a [Get Secret Versions API](/rest/api/keyvault/secrets/get-secret-versions/get-secret-versions) that requires the identity that calls the API to have `Key Vault Secret Reader` role (or equivalent) assigned to the identity.
+- If your secrets are stored in an external Azure Key Vault: Azure Key Vault provides a [Get Secret Versions API](/rest/api/keyvault/secrets/get-secret-versions/get-secret-versions) that requires the identity that calls the API to have `Key Vault Secrets User` role (or equivalent) assigned to the identity.
 
 __Secret retrieval and injection__:
 
