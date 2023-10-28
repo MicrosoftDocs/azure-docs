@@ -236,7 +236,7 @@ The following code shows how to load a map with the same view in Azure Maps alon
 
 Running this code in a browser displays a map that looks like the following image:
 
-![Azure Maps map](media/migrate-bing-maps-web-app/azure-maps-load-map.jpg)
+:::image type="content" source="./media/migrate-bing-maps-web-app/azure-maps-load-map.jpg" lightbox="./media/migrate-bing-maps-web-app/azure-maps-load-map.jpg" alt-text="Screenshot showing an Azure Maps map.":::
 
 For more information on how to set up and use the Azure Maps map control in a web app, see [Use the Azure Maps map control].
 
@@ -292,7 +292,7 @@ map = new atlas.Map('myMap', {
 
 Here's an example of Azure Maps with the language set to "fr" and the user region set to `fr-FR`.
 
-![Localized Azure Maps map](media/migrate-bing-maps-web-app/bing-maps-localized-map.jpg)
+![Localized Azure Maps map](media/migrate-bing-maps-web-app/azure-maps-localized-map.jpg)
 
 ### Setting the map view
 
@@ -330,7 +330,7 @@ map.setStyle({
 });
 ```
 
-![Azure Maps set map view](media/migrate-bing-maps-web-app/azure-maps-set-map-view.jpg)
+:::image type="content" source="./media/migrate-bing-maps-web-app/azure-maps-set-map-view.jpg" lightbox="./media/migrate-bing-maps-web-app/azure-maps-set-map-view.jpg" alt-text="Screenshot showing an Azure Maps map using the satellite road labels style.":::
 
 **More resources**
 
@@ -389,7 +389,7 @@ map.markers.add(new atlas.HtmlMarker({
 }));
 ```
 
-![Azure Maps add marker](media/migrate-bing-maps-web-app/azure-maps-add-pushpin.jpg)
+:::image type="content" source="./media/migrate-bing-maps-web-app/azure-maps-html-marker.jpg" lightbox="./media/migrate-bing-maps-web-app/azure-maps-html-marker.jpg" alt-text="Screenshot showing an Azure Maps map with a blue pushpin with the number ten.":::
 
 **After: Azure Maps using a Symbol Layer**
 
@@ -453,7 +453,7 @@ When using a Symbol layer, the data must be added to a data source, and the data
 </html>
 ```
 
-![Azure Maps add symbol layer](media/migrate-bing-maps-web-app/azure-maps-add-pushpin.jpg)
+:::image type="content" source="./media/migrate-bing-maps-web-app/azure-maps-html-marker.jpg" lightbox="./media/migrate-bing-maps-web-app/azure-maps-html-marker.jpg" alt-text="Screenshot showing an Azure Maps map with a blue pushpin with the number ten.":::
 
 **More resources**
 
@@ -491,7 +491,7 @@ layer.add(pushpin);
 map.layers.insert(layer);
 ```
 
-![Bing Maps add custom puspin](media/migrate-bing-maps-web-app/bing-maps-add-custom-pushpin.jpg)
+![Bing Maps add custom pushpin](media/migrate-bing-maps-web-app/bing-maps-add-custom-pushpin.jpg)
 
 **After: Azure Maps using HTML Markers**
 
@@ -509,7 +509,7 @@ map.markers.add(new atlas.HtmlMarker({
 }));
 ```
 
-![Azure Maps add custom marker](media/migrate-bing-maps-web-app/azure-maps-add-custom-marker.jpg)
+:::image type="content" source="./media/migrate-bing-maps-web-app/azure-maps-add-custom-symbol-layer.jpg" lightbox="./media/migrate-bing-maps-web-app/azure-maps-add-custom-symbol-layer.jpg" alt-text="Screenshot showing an Azure Maps map of London with a yellow pushpin.":::
 
 **After: Azure Maps using a Symbol Layer**
 
@@ -648,7 +648,7 @@ map.layers.add(new atlas.layer.LineLayer(datasource, null, {
 }));
 ```
 
-![Azure Maps line](media/migrate-bing-maps-web-app/azure-maps-line.jpg)
+:::image type="content" source="./media/migrate-bing-maps-web-app/azure-maps-line.jpg" lightbox="./media/migrate-bing-maps-web-app/azure-maps-line.jpg" alt-text="Screenshot showing an Azure Maps map with a red line.":::
 
 **More resources**
 
@@ -686,7 +686,7 @@ layer.add(polygon);
 map.layers.insert(layer);
 ```
 
-![Bing Maps polyogn](media/migrate-bing-maps-web-app/azure-maps-polygon.jpg)
+<!-- ![Bing Maps polyogn](media/migrate-bing-maps-web-app/azure-maps-polygon.jpg) -->
 
 **After: Azure Maps**
 
@@ -720,7 +720,7 @@ map.layers.add(new atlas.layer.LineLayer(datasource, null, {
 }));
 ```
 
-![Azure Maps polyogn](media/migrate-bing-maps-web-app/azure-maps-polygon.jpg)
+:::image type="content" source="./media/migrate-bing-maps-web-app/azure-maps-polygon.jpg" lightbox="./media/migrate-bing-maps-web-app/azure-maps-polygon.jpg" alt-text="Screenshot showing an Azure Maps map with a red triangle filled with semi-transparent green.":::
 
 **More resources**
 
@@ -789,7 +789,7 @@ map.events.add('click', marker, function () {
 });
 ```
 
-![Azure Maps popup](media/migrate-bing-maps-web-app/azure-maps-popup.jpg)
+:::image type="content" source="./media/migrate-bing-maps-web-app/azure-maps-popup.jpg" lightbox="./media/migrate-bing-maps-web-app/azure-maps-popup.jpg" alt-text="Screenshot showing an Azure Maps map with a blue pin and a popup saying hello world.":::
 
 > [!NOTE]
 > To do the same thing with a symbol, bubble, line or polygon layer, pass the layer into the maps event code instead of a marker.
@@ -1019,7 +1019,7 @@ GeoJSON data can be directly imported in Azure Maps using the `importDataFromUrl
 </html>
 ```
 
-![Azure Maps clustering](media/migrate-bing-maps-web-app/azure-maps-clustering.jpg)
+:::image type="content" source="./media/migrate-bing-maps-web-app/azure-maps-clustering.jpg" alt-text="Screenshot showing an Azure Maps map with different size and color bubbles.":::
 
 **More resources**
 
@@ -1510,7 +1510,7 @@ In Azure Maps, GeoJSON is the main data format used in the web SDK, more spatial
 </html>
 ```
 
-![Azure Maps kml](media/migrate-bing-maps-web-app/azure-maps-kml.jpg)
+:::image type="content" source="./media/migrate-bing-maps-web-app/azure-maps-kml.jpg" lightbox="./media/migrate-bing-maps-web-app/azure-maps-kml.jpg" alt-text="Screenshot showing the Azure Maps view of Chicago with different colored lines for rail lines going out of the port.":::
 
 **More resources**
 
@@ -1622,7 +1622,7 @@ In Azure Maps, the drawing tools module needs to be loaded by loading the JavaSc
 </html>
 ```
 
-![Azure Maps drawing tools](media/migrate-bing-maps-web-app/azure-maps-drawing-tools.jpg)
+:::image type="content" source="./media/migrate-bing-maps-web-app/azure-maps-drawing-tools.jpg" lightbox="./media/migrate-bing-maps-web-app/azure-maps-drawing-tools-l.jpg" alt-text="Screenshot showing the Azure Maps drawing tools":::
 
 > [!TIP]
 > In Azure Maps layers the drawing tools provide multiple ways that users can draw shapes. For example, when drawing a polygon the user can click to add each point, or hold the left mouse button down and drag the mouse to draw a path. This can be modified using the `interactionType` option of the `DrawingManager`.
