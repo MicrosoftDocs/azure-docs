@@ -187,38 +187,26 @@ Currently, you can only configure a private endpoint using PowerShell or the Azu
 
 Deploying a private endpoint for an Elastic SAN Volume group using PowerShell involves these steps:
 
-1. Get the subnet from which applications will connect.
-1. Get the Elastic SAN Volume Group.
-1. Create a private link service connection using the volume group as input.
-1. Create the private endpoint using the subnet and the private link service connection as input.
-1. **(Optional** *if you are using the two-step process (creation, then approval))*: The Elastic SAN Network Admin approves the connection.
+- Get the subnet from which applications will connect.
+- Get the Elastic SAN Volume Group.
+- Create a private link service connection using the volume group as input.
+- Create the private endpoint using the subnet and the private link service connection as input.
+- **(Optional** *if you are using the two-step process (creation, then approval))*: The Elastic SAN Network Admin approves the connection.
 
-Use this sample code to create a private endpoint for your Elastic SAN volume group with PowerShell. Replace all placeholder text with your own values:
-
-| Placeholder                      | Description |
-|----------------------------------|-------------|
-| `<ResourceGroupName>`            | The name of the resource group where the resources are deployed. |
-| `<SubnetName>`                   | The name of the subnet from which access to the volume group will be configured. |
-| `<VnetName>`                     | The name of the virtual network that includes the subnet. |
-| `<ElasticSanVolumeGroupName>`    | The name of the Elastic SAN Volume Group to which a connection is to be created. |
-| `<ElasticSanName>`               | The name of the Elastic SAN that the volume group belongs to. |
-| `<PrivateLinkSvcConnectionName>` | The name of the new private link service connection to the volume group. |
-| `<PrivateEndpointName>`          | The name of the new private endpoint. |
-| `<Location>`                     | The region where the new private endpoint will be created. |
-| `<ApprovalDesc>`                 | The description provided for the approval of the private endpoint connection. |
+Use this sample code to create a private endpoint for your Elastic SAN volume group with PowerShell. Replace the values of `RgName`, `VnetName`, `SubnetName`, `EsanName`, `EsanVgName`, `PLSvcConnectionName`, `EndpointName`, and `Location` with your own values:
 
 ```powershell
 # Set the resource group name.
 $RgName     = "<ResourceGroupName>"
 
-# Get the virtual network and subnet, which is input to creating the private endpoint.
+# Set the virtual network and subnet, which is used when creating the private endpoint.
 $VnetName   = "<VnetName>"
 $SubnetName = "<SubnetName>"
 
 $Vnet = Get-AzVirtualNetwork -Name $VnetName -ResourceGroupName $RgName
 $Subnet = $Vnet | Select -ExpandProperty subnets | Where-Object {$_.Name -eq $SubnetName}
 
-# Get the Elastic SAN, which is input to creating the private endpoint service connection.
+# Set the Elastic SAN, which is used when creating the private endpoint service connection.
 $EsanName   = "<ElasticSanName>"
 $EsanVgName = "<ElasticSanVolumeGroupName>"
 
@@ -277,30 +265,27 @@ Deploying a private endpoint for an Elastic SAN Volume group using the Azure CLI
     1. Vnet name
 1. **(Optional** *if you are using the two-step process (creation, then approval))*: The Elastic SAN Network Admin approves the connection.
 
-Use this sample code to create a private endpoint for your Elastic SAN volume group with the Azure CLI. Uncomment the `--manual-request` parameter if you are using the two-step process. Replace all placeholder text with your own values:
-
-| Placeholder                      | Description |
-|----------------------------------|-------------|
-| `<ResourceGroupName>`            | The name of the resource group where the resources are deployed. |
-| `<SubnetName>`                   | The name of the subnet from which access to the volume group will be configured. |
-| `<VnetName>`                     | The name of the virtual network that includes the subnet. |
-| `<ElasticSanVolumeGroupName>`    | The name of the Elastic SAN Volume Group to which a connection is to be created. |
-| `<ElasticSanName>`               | The name of the Elastic SAN that the volume group belongs to. |
-| `<PrivateLinkSvcConnectionName>` | The name of the new private link service connection to the volume group. |
-| `<PrivateEndpointName>`          | The name of the new private endpoint. |
-| `<Location>`                     | The region where the new private endpoint will be created. |
-| `<ApprovalDesc>`                 | The description provided for the approval of the private endpoint connection. |
+Use this sample code to create a private endpoint for your Elastic SAN volume group with the Azure CLI. Uncomment the `--manual-request` parameter if you are using the two-step process. Replace all example variable values with your own:
 
 ```azurecli
 # Define some variables.
+# The name of the resource group where the resources are deployed.
 RgName="<ResourceGroupName>"
+# The name of the subnet from which access to the volume group will be configured.
 VnetName="<VnetName>"
+# The name of the virtual network that includes the subnet.
 SubnetName="<SubnetName>"
+# The name of the Elastic SAN that the volume group belongs to.
 EsanName="<ElasticSanName>"
+# The name of the Elastic SAN Volume Group to which a connection is to be created.
 EsanVgName="<ElasticSanVolumeGroupName>"
+# The name of the new private endpoint
 EndpointName="<PrivateEndpointName>"
+# The name of the new private link service connection to the volume group.
 PLSvcConnectionName="<PrivateLinkSvcConnectionName>"
+# The region where the new private endpoint will be created.
 Location="<Location>"
+# The description provided for the approval of the private endpoint connection.
 ApprovalDesc="<ApprovalDesc>"
 
 # Get the id of the Elastic SAN.
