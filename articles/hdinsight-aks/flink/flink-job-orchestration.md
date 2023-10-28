@@ -3,7 +3,7 @@ title: Azure Data Factory Managed Airflow with Apache Flink® on HDInsight on AK
 description: Learn how to perform Apache Flink® job orchestration using Azure Data Factory Managed Airflow
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 10/11/2023
+ms.date: 10/28/2023
 ---
 
 # Apache Flink® job orchestration using Azure Data Factory Managed Airflow
@@ -12,7 +12,7 @@ ms.date: 10/11/2023
 
 This article covers managing a Flink job using [Azure REST API](flink-job-management.md#arm-rest-api) and orchestration data pipeline with Azure Data Factory Managed Airflow. [Azure Data Factory Managed Airflow](/azure/data-factory/concept-managed-airflow) service is a simple and efficient way to create and manage [Apache Airflow](https://airflow.apache.org/) environments, enabling you to run data pipelines at scale easily. 
 
-Apache Airflow is an open-source platform that programmatically creates, schedules, and monitors complex data workflows. It allows you to define a set of tasks, called operators, that can be combined into directed acyclic graphs (DAGs) to represent data pipelines. 
+Apache Airflow is an open-source platform that programmatically creates, schedules, and monitors complex data workflows. It allows you to define a set of tasks, called operators that can be combined into directed acyclic graphs (DAGs) to represent data pipelines. 
 
 The following diagram shows the placement of Airflow, Key Vault, and HDInsight on AKS in Azure. 
 
@@ -26,11 +26,11 @@ It is recommended to rotate access keys or secrets periodically.
 
 1. [Setup Flink Cluster](flink-create-cluster-portal.md)
 
-1. Upload your Flink Job jar to the storage account -  It can be the primary storage account associated with the Flink cluster or any other storage account, where Assign the “Storage Blob Data Owner” role to the user-assigned MSI used for the cluster to this storage account. 
+1. Upload your Flink Job jar to the storage account. It can be the primary storage account associated with the Flink cluster or any other storage account, where Assign the “Storage Blob Data Owner” role to the user-assigned MSI used for the cluster to this storage account. 
 
 1. Azure Key Vault - You can follow [this tutorial to create a new Azure Key Vault](/azure/key-vault/general/quick-create-portal/) in case, if you don't have one. 
 
-1. Create [Microsoft Entra service principal](/cli/azure/ad/sp/) to access Key Vault – Grant permission to access Azure Key Vault with the “Key Vault Secrets Officer” role, and make a note of ‘appId’, ‘password’, and ‘tenant’ from the response. We need to use the same for Airflow to use Key Vault storage as backends for storing sensitive information. 
+1. Create [Microsoft Entra service principal](/cli/azure/ad/sp/) to access Key Vault – Grant permission to access Azure Key Vault with the “Key Vault Secrets Officer” role, and make a note of ‘appId’ ‘password’, and ‘tenant’ from the response. We need to use the same for Airflow to use Key Vault storage as backends for storing sensitive information. 
 
     ```
     az ad sp create-for-rbac -n <sp name> --role “Key Vault Secrets Officer” --scopes <key vault Resource ID> 
