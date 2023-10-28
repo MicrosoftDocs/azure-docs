@@ -26,7 +26,7 @@ The MQTT broker is ideal for the implementation of automotive and mobility scena
 
 
 
-## Key concepts:
+## Key concepts
 The following are a list of key concepts involved in Azure Event Grid’s MQTT broker feature.
 
 ### MQTT

@@ -2,13 +2,12 @@
 title: Event filtering for Azure Event Grid namespaces
 description: Describes how to filter events when creating subscriptions to Azure Event Grid namespace topics. 
 ms.topic: conceptual
-ms.custom: devx-track-arm-template
 ms.date: 10/19/2023
 ---
 
 # Event filters for subscriptions to Azure Event Grid namespace topics
 
-This article describes the different ways to filter which events are sent to your endpoint. When creating an event subscription, you have three options for filtering:
+This article describes different ways to specify filters on event subscriptions to namespace topics. The filters allow you to send only a subset of events that publisher sends to Event Grid to the destination endpoint. When creating an event subscription, you have three options for filtering:
 
 * Event types
 * Subject begins with or ends with

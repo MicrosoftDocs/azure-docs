@@ -58,7 +58,7 @@ Event Grid offers a rich mixture of features. These features include:
 - **Reliability** – Push delivery features a 24-hour retry mechanism with exponential backoff to make sure events are delivered. Using pull delivery, your application has full control over event consumption.
 - **High throughput** - Build high-volume integrated solutions with Event Grid.
 
-## Use cases:
+## Use cases
 
 Event Grid supports the following use cases:
 
