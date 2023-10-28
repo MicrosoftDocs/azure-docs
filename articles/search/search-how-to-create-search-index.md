@@ -156,7 +156,7 @@ For more examples, see[azure-search-dotnet-samples/quickstart/v11/](https://gith
 
 ### [**Other SDKs**](#tab/index-other-sdks)
 
-For Cognitive Search, the Azure SDKs implement generally available features. As such, you can use any of the SDKs to create a search index. All of them provide a **SearchIndexClient** that has methods for creating and updating indexes.
+For Azure AI Search, the Azure SDKs implement generally available features. As such, you can use any of the SDKs to create a search index. All of them provide a **SearchIndexClient** that has methods for creating and updating indexes.
 
 | Azure SDK | Client | Examples |
 |-----------|--------|----------|

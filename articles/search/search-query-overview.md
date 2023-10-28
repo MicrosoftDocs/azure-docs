@@ -1,7 +1,7 @@
 ---
 title: Query types 
 titleSuffix: Azure AI Search
-description: Learn about the types of queries supported in Cognitive Search, including free text, filter, autocomplete and suggestions, geospatial search, system queries, and document lookup.
+description: Learn about the types of queries supported in Azure AI Search, including free text, filter, autocomplete and suggestions, geospatial search, system queries, and document lookup.
 
 manager: nitinme
 author: HeidiSteen
@@ -34,7 +34,7 @@ This article brings focus to the last category: queries that work on plain text 
 
 ## Filter search
 
-Filters are widely used in apps that are based on Cognitive Search. On application pages, filters are often visualized as facets in link navigation structures for user-directed filtering. Filters are also used internally to expose slices of indexed content. For example, you might initialize a search page using a filter on a product category, or a language if an index contains fields in both English and French.
+Filters are widely used in apps that are based on Azure AI Search. On application pages, filters are often visualized as facets in link navigation structures for user-directed filtering. Filters are also used internally to expose slices of indexed content. For example, you might initialize a search page using a filter on a product category, or a language if an index contains fields in both English and French.
 
 You might also need filters to invoke a specialized query form, as described in the following table. You can use a filter with an unspecified search (**`search=*`**) or with a query string that includes terms, phrases, operators, and patterns.
 

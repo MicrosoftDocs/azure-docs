@@ -147,7 +147,7 @@ Call [Create Data Source](/rest/api/searchservice/create-data-source) to set the
 
     ```json
     {
-        "description" : "Demo files to demonstrate cognitive search capabilities.",
+        "description" : "Demo files to demonstrate Azure AI Search capabilities.",
         "type" : "azureblob",
         "credentials" : {
            "connectionString": "{{azure_storage_connection_string}}"
@@ -567,7 +567,7 @@ Recall that we started with blob content, where the entire document is packaged 
     GET /indexes/{{index_name}}/docs?search=*&$filter=organizations/any(organizations: organizations eq 'Microsoft')&$select=metadata_storage_name,organizations&$count=true&api-version=2020-06-30
    ```
 
-These queries illustrate a few of the ways you can work with query syntax and filters on new fields created by cognitive search. For more query examples, see [Examples in Search Documents REST API](/rest/api/searchservice/search-documents#bkmk_examples), [Simple syntax query examples](search-query-simple-examples.md), and [Full Lucene query examples](search-query-lucene-examples.md).
+These queries illustrate a few of the ways you can work with query syntax and filters on new fields created by Azure AI Search. For more query examples, see [Examples in Search Documents REST API](/rest/api/searchservice/search-documents#bkmk_examples), [Simple syntax query examples](search-query-simple-examples.md), and [Full Lucene query examples](search-query-lucene-examples.md).
 
 <a name="reset"></a>
 

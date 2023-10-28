@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 10/24/2023
 ---
 
-# Chunking large documents for vector search solutions in Cognitive Search
+# Chunking large documents for vector search solutions in Azure AI Search
 
 This article describes several approaches for chunking large documents so that you can generate embeddings for vector search. Chunking is only required if source documents are too large for the maximum input size imposed by models. 
 
@@ -20,7 +20,7 @@ The models used to generate embedding vectors have maximum limits on the text fr
 
 ## How chunking fits into the workflow
 
-Because there isn't a native chunking capability in either Cognitive Search or Azure OpenAI, if you have large documents, you must insert a chunking step into indexing and query workflows that breaks up large text. Some libraries that provide chunking include:
+Because there isn't a native chunking capability in either Azure AI Search or Azure OpenAI, if you have large documents, you must insert a chunking step into indexing and query workflows that breaks up large text. Some libraries that provide chunking include:
 
 + [LangChain](https://python.langchain.com/en/latest/index.html)
 + [Semantic Kernel](https://github.com/microsoft/semantic-kernel)
@@ -114,9 +114,9 @@ mountains. /n You can both ski in winter and swim in summer.
 
 ## Try it out: Chunking and vector embedding generation sample
 
-A [fixed-sized chunking and embedding generation sample](https://github.com/Azure-Samples/azure-search-power-skills/blob/main/Vector/EmbeddingGenerator/README.md) demonstrates both chunking and vector embedding generation using [Azure OpenAI](/azure/ai-services/openai/) embedding models. This sample uses a [Cognitive Search custom skill](cognitive-search-custom-skill-web-api.md) in the [Power Skills repo](https://github.com/Azure-Samples/azure-search-power-skills/tree/main#readme) to wrap the chunking step.
+A [fixed-sized chunking and embedding generation sample](https://github.com/Azure-Samples/azure-search-power-skills/blob/main/Vector/EmbeddingGenerator/README.md) demonstrates both chunking and vector embedding generation using [Azure OpenAI](/azure/ai-services/openai/) embedding models. This sample uses a [Azure AI Search custom skill](cognitive-search-custom-skill-web-api.md) in the [Power Skills repo](https://github.com/Azure-Samples/azure-search-power-skills/tree/main#readme) to wrap the chunking step.
 
-This sample is built on LangChain, Azure OpenAI, and Azure Cognitive Search.
+This sample is built on LangChain, Azure OpenAI, and Azure AI Search.
 
 ## See also
 

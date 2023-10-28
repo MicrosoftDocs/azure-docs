@@ -32,7 +32,7 @@ This article also provides:
 
   Use a table if your data is large or if you need [incremental indexing](#CaptureChangedRows) using SQL's native change detection capabilities.
 
-  Use a view if you need to consolidate data from multiple tables. Large views aren't ideal for SQL indexer. A workaround is to create a new table just for ingestion into your Cognitive Search index. You'll be able to use SQL integrated change tracking, which is easier to implement than High Water Mark.
+  Use a view if you need to consolidate data from multiple tables. Large views aren't ideal for SQL indexer. A workaround is to create a new table just for ingestion into your Azure AI Search index. You'll be able to use SQL integrated change tracking, which is easier to implement than High Water Mark.
 
 + Read permissions. Azure AI Search supports SQL Server authentication, where the user name and password are provided on the connection string. Alternatively, you can [set up a managed identity and use Azure roles](search-howto-managed-identities-sql.md).
 
@@ -118,7 +118,7 @@ In a [search index](search-what-is-an-index.md), add fields that correspond to t
 
 ### Mapping data types
 
-| SQL data type | Cognitive Search field types | Notes |
+| SQL data type | Azure AI Search field types | Notes |
 | ------------- | -------------------------------- | --- |
 | bit |Edm.Boolean, Edm.String | |
 | int, smallint, tinyint |Edm.Int32, Edm.Int64, Edm.String | |
@@ -384,7 +384,7 @@ If you're setting up a soft delete policy from the Azure portal, don't add quote
 
 **Q: Can I index Always Encrypted columns?**
 
-No. [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) columns aren't currently supported by Cognitive Search indexers.
+No. [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) columns aren't currently supported by Azure AI Search indexers.
 
 **Q: Can I use Azure SQL indexer with SQL databases running on IaaS VMs in Azure?**
 

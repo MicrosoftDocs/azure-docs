@@ -27,7 +27,7 @@ In Azure AI Search, indexers that access Azure blobs can use the [trusted servic
 + An Azure role assignment in Azure Storage that grants permissions to the search service system-assigned managed identity ([see below](#check-permissions)).
 
 > [!NOTE]
-> In Cognitive Search, a trusted service connection is limited to blobs and ADLS Gen2 on Azure Storage. It's unsupported for indexer connections to Azure Table Storage and Azure File Storage.
+> In Azure AI Search, a trusted service connection is limited to blobs and ADLS Gen2 on Azure Storage. It's unsupported for indexer connections to Azure Table Storage and Azure File Storage.
 >
 > A trusted service connection must use a system managed identity. A user-assigned managed identity isn't currently supported for this scenario.
 

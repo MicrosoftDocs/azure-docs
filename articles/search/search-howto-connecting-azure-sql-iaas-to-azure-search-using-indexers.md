@@ -24,7 +24,7 @@ A connection from Azure AI Search to SQL Server instance on a virtual machine is
 After you've installed the certificate on your VM, you're ready to complete the following steps in this article.
 
 > [!NOTE]
-> [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) columns are not currently supported by Cognitive Search indexers.
+> [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) columns are not currently supported by Azure AI Search indexers.
 
 ## Enable encrypted connections
 

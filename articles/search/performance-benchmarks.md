@@ -210,7 +210,7 @@ You can also see that performance can vary drastically between scenarios. If you
 
 ## Next steps
 
-Now that you've seen the performance benchmarks, you can learn more about how to analyze Cognitive Search's performance and key factors that influence performance.
+Now that you've seen the performance benchmarks, you can learn more about how to analyze Azure AI Search's performance and key factors that influence performance.
 
 + [Analyze performance](search-performance-analysis.md)
 + [Tips for better performance](search-performance-tips.md)

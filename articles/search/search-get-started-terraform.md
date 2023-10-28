@@ -11,7 +11,7 @@ content_well_notification:
   - AI-contribution
 ---
 
-# Quickstart: Deploy Cognitive Search service using Terraform
+# Quickstart: Deploy Azure AI Search service using Terraform
 
 This article shows how to use Terraform to create an [Azure AI Search service](./search-what-is-azure-search.md) using [Terraform](/azure/developer/terraform/quickstart-configure).
 

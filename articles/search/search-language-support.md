@@ -13,7 +13,7 @@ ms.date: 01/18/2023
 
 # Create an index for multiple languages in Azure AI Search
 
-A multilingual search application is one that provides a search experience in the user's own language. [Language support](index-add-language-analyzers.md#supported-language-analyzers) is enabled through a language analyzer assigned to string field. Cognitive Search supports Microsoft and Lucene analyzers. The language analyzer determines the linguistic rules by which content is tokenized. By default, the search engine uses Standard Lucene, which is language agnostic. If testing shows that the default analyzer is insufficient, replace it with a language analyzer.
+A multilingual search application is one that provides a search experience in the user's own language. [Language support](index-add-language-analyzers.md#supported-language-analyzers) is enabled through a language analyzer assigned to string field. Azure AI Search supports Microsoft and Lucene analyzers. The language analyzer determines the linguistic rules by which content is tokenized. By default, the search engine uses Standard Lucene, which is language agnostic. If testing shows that the default analyzer is insufficient, replace it with a language analyzer.
 
 In Azure AI Search, the two patterns for supporting a multi-lingual audience include:
 

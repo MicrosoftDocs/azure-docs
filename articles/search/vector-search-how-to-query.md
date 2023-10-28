@@ -10,9 +10,9 @@ ms.topic: how-to
 ms.date: 10/24/2023
 ---
 
-# Create a vector query in Azure Cognitive Search
+# Create a vector query in Azure AI Search
 
-In Azure Cognitive Search, if you [added vector fields](vector-search-how-to-create-index.md) to a search index, this article explains how to:
+In Azure AI Search, if you [added vector fields](vector-search-how-to-create-index.md) to a search index, this article explains how to:
 
 > [!div class="checklist"]
 > + [Query vector fields](#vector-query-request)
@@ -23,7 +23,7 @@ Code samples in the [cognitive-search-vector-pr](https://github.com/Azure/cognit
 
 ## Prerequisites
 
-+ Azure Cognitive Search, in any region and on any tier. Most existing services support vector search. For services created prior to January 2019, a small subset won't support vector search. If an index containing vector fields fails to be created or updated, this is an indicator. In this situation, a new service must be created.
++ Azure AI Search, in any region and on any tier. Most existing services support vector search. For services created prior to January 2019, a small subset won't support vector search. If an index containing vector fields fails to be created or updated, this is an indicator. In this situation, a new service must be created.
 
 + A search index containing vector fields. See [Add vector fields to a search index](vector-search-how-to-create-index.md).
 

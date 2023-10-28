@@ -18,7 +18,7 @@ In Azure AI Search, typeahead or "search-as-you-type" is enabled through a *sugg
 
 Matches on partial terms can be either an autocompleted query or a suggested match. The same suggester supports both experiences.
 
-## Typeahead experiences in Cognitive Search
+## Typeahead experiences in Azure AI Search
 
 Typeahead can be *autocomplete*, which completes a partial input for a whole term query, or *suggestions* that invite click through to a particular match. Autocomplete produces a query. Suggestions produce a matching document.
 

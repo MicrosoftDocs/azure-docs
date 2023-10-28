@@ -13,14 +13,14 @@ ms.custom: subject-monitoring
 
 # Monitoring Azure AI Search
 
-[Azure Monitor](../azure-monitor/overview.md) is enabled with every subscription to provide monitoring capabilities over all Azure resources, including Cognitive Search. When you sign up for search, Azure Monitor collects [**activity logs**](../azure-monitor/data-sources.md#azure-activity-log) and [**platform metrics**](../azure-monitor/essentials/data-platform-metrics.md) as soon as you start using the service. 
+[Azure Monitor](../azure-monitor/overview.md) is enabled with every subscription to provide monitoring capabilities over all Azure resources, including Azure AI Search. When you sign up for search, Azure Monitor collects [**activity logs**](../azure-monitor/data-sources.md#azure-activity-log) and [**platform metrics**](../azure-monitor/essentials/data-platform-metrics.md) as soon as you start using the service. 
 
 Optionally, you can enable diagnostic settings to collect [**resource logs**](../azure-monitor/essentials/resource-logs.md). Resource logs contain detailed information about search service operations that's useful for deeper analysis and investigation. 
 
 This article explains how monitoring works for Azure AI Search. It also describes the system APIs that return information about your service.
 
 > [!NOTE]
-> Cognitive Search doesn't monitor individual user access to content on the search service. If you require this level of monitoring, you'll need to implement it in your client application.
+> Azure AI Search doesn't monitor individual user access to content on the search service. If you require this level of monitoring, you'll need to implement it in your client application.
 
 ## Monitoring in Azure portal
 
@@ -39,7 +39,7 @@ In the search service pages in Azure portal, you can find the current status of 
 
 ## Get system data from REST APIs
 
-Cognitive Search REST APIs provide the **Usage** data that's visible in the portal. This information is retrieved from your search service, which you can obtain programmatically:
+Azure AI Search REST APIs provide the **Usage** data that's visible in the portal. This information is retrieved from your search service, which you can obtain programmatically:
 
 + [Service Statistics (REST)](/rest/api/searchservice/get-service-statistics)
 + [Index Statistics (REST)](/rest/api/searchservice/get-index-statistics)

@@ -84,7 +84,7 @@ The following screenshot shows options in the wizard, juxtaposed with a rendered
 
 ## Add suggestions
 
-Suggestions refer to automated query prompts that are attached to the search box. Cognitive Search supports two: *autocompletion* of a partially entered search term, and *suggestions* for a dropdown list of potential matching documents based.
+Suggestions refer to automated query prompts that are attached to the search box. Azure AI Search supports two: *autocompletion* of a partially entered search term, and *suggestions* for a dropdown list of potential matching documents based.
 
 The wizard supports suggestions, and the fields that can provide suggested results are derived from a [`Suggesters`](index-add-suggesters.md) construct in the index:
 

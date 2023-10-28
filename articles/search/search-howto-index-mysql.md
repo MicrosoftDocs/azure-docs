@@ -115,12 +115,12 @@ If the primary key in the source table matches the document key (in this case, "
 
 ### Mapping data types
 
-The following table maps the MySQL database to Cognitive Search equivalents. For more information, see [Supported data types (Azure AI Search)](/rest/api/searchservice/supported-data-types).
+The following table maps the MySQL database to Azure AI Search equivalents. For more information, see [Supported data types (Azure AI Search)](/rest/api/searchservice/supported-data-types).
 
 > [!NOTE]
 > The preview does not support geometry types and blobs. 
 
-| MySQL data types |  Cognitive Search field types |
+| MySQL data types |  Azure AI Search field types |
 | --------------- | -------------------------------- |
 | `bool`, `boolean` | Edm.Boolean, Edm.String |
 | `tinyint`, `smallint`, `mediumint`, `int`, `integer`, `year` | Edm.Int32, Edm.Int64, Edm.String |

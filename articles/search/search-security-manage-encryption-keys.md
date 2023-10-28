@@ -1,7 +1,7 @@
 ---
 title:  Encrypt data using customer-managed keys
 titleSuffix: Azure AI Search
-description: Supplement server-side encryption in Azure Cognitive Search using customer managed keys (CMK) or bring your own keys (BYOK) that you create and manage in Azure Key Vault.
+description: Supplement server-side encryption in Azure AI Search using customer managed keys (CMK) or bring your own keys (BYOK) that you create and manage in Azure Key Vault.
 
 manager: nitinme
 author: HeidiSteen
@@ -12,9 +12,9 @@ ms.date: 01/20/2023
 ms.custom: references_regions
 ---
 
-# Configure customer-managed keys for data encryption in Azure Cognitive Search
+# Configure customer-managed keys for data encryption in Azure AI Search
 
-Azure Cognitive Search automatically encrypts data at rest with [service-managed keys](../security/fundamentals/encryption-atrest.md#azure-encryption-at-rest-components). If more protection is needed, you can supplement default encryption with another encryption layer using keys that you create and manage in Azure Key Vault. 
+Azure AI Search automatically encrypts data at rest with [service-managed keys](../security/fundamentals/encryption-atrest.md#azure-encryption-at-rest-components). If more protection is needed, you can supplement default encryption with another encryption layer using keys that you create and manage in Azure Key Vault. 
 
 This article walks you through the steps of setting up customer-managed key (CMK) or "bring-your-own-key" (BYOK) encryption. Here are some points to keep in mind:
 
@@ -61,9 +61,9 @@ Although double encryption is now available in all regions, support was rolled o
 
 The following tools and services are used in this scenario.
 
-+ [Azure Cognitive Search](search-create-service-portal.md) on a [billable tier](search-sku-tier.md#tier-descriptions) (Basic or above, in any region).
++ [Azure AI Search](search-create-service-portal.md) on a [billable tier](search-sku-tier.md#tier-descriptions) (Basic or above, in any region).
 
-+ [Azure Key Vault](../key-vault/general/overview.md), you can [create a key vault using the Azure portal](../key-vault/general/quick-create-portal.md), [Azure CLI](../key-vault//general/quick-create-cli.md), or [Azure PowerShell](../key-vault//general/quick-create-powershell.md). Create the resource in the same subscription as Azure Cognitive Search. The key vault must have **soft-delete** and **purge protection** enabled.
++ [Azure Key Vault](../key-vault/general/overview.md), you can [create a key vault using the Azure portal](../key-vault/general/quick-create-portal.md), [Azure CLI](../key-vault//general/quick-create-cli.md), or [Azure PowerShell](../key-vault//general/quick-create-powershell.md). Create the resource in the same subscription as Azure AI Search. The key vault must have **soft-delete** and **purge protection** enabled.
 
 + [Microsoft Entra ID](../active-directory/fundamentals/active-directory-whatis.md). If you don't have one, [set up a new tenant](../active-directory/develop/quickstart-create-new-tenant.md).
 
@@ -86,7 +86,7 @@ If you're new to Azure Key Vault, review this quickstart to learn about basic ta
 
 As a first step, make sure [soft-delete](../key-vault/general/soft-delete-overview.md) and [purge protection](../key-vault/general/soft-delete-overview.md#purge-protection) are enabled on the key vault. Due to the nature of encryption with customer-managed keys, no one can retrieve your data if your Azure Key Vault key is deleted. 
 
-To prevent data loss caused by accidental Key Vault key deletions, soft-delete and purge protection must be enabled on the key vault. Soft-delete is enabled by default, so you'll only encounter issues if you purposely disabled it. Purge protection isn't enabled by default, but it's required for customer-managed key encryption in Cognitive Search. 
+To prevent data loss caused by accidental Key Vault key deletions, soft-delete and purge protection must be enabled on the key vault. Soft-delete is enabled by default, so you'll only encounter issues if you purposely disabled it. Purge protection isn't enabled by default, but it's required for customer-managed key encryption in Azure AI Search. 
 
 You can set both properties using the portal, PowerShell, or Azure CLI commands.
 
@@ -148,7 +148,7 @@ Skip key generation if you already have a key in Azure Key Vault that you want t
 
 1. Select **Create** to start the deployment.
 
-1. Select the key, select the current version, and then make a note of the key identifier. It's composed of the **key value Uri**, the **key name**, and the **key version**. You'll need the identifier to define an encrypted index in Azure Cognitive Search.
+1. Select the key, select the current version, and then make a note of the key identifier. It's composed of the **key value Uri**, the **key name**, and the **key version**. You'll need the identifier to define an encrypted index in Azure AI Search.
 
    :::image type="content" source="media/search-manage-encryption-keys/cmk-key-identifier.png" alt-text="Create a new key vault key" border="true":::
 
@@ -284,7 +284,7 @@ Access permissions could be revoked at any given time. Once revoked, any search 
 1. Select **Next** and **Create**.
 
 > [!Important]
-> Encrypted content in Azure Cognitive Search is configured to use a specific Azure Key Vault key with a specific **version**. If you change the key or version, the index or synonym map must be updated to use it **before** you delete the previous one. 
+> Encrypted content in Azure AI Search is configured to use a specific Azure Key Vault key with a specific **version**. If you change the key or version, the index or synonym map must be updated to use it **before** you delete the previous one. 
 > Failing to do so will render the index or synonym map unusable. You won't be able to decrypt the content if the key is lost.
 
 <a name="encrypt-content"></a>
@@ -340,7 +340,7 @@ Once you create the encrypted object on the search service, you can use it as yo
 
 ## 6 - Set up policy
 
-Azure policies help to enforce organizational standards and to assess compliance at-scale. Azure Cognitive Search has an optional [built-in policy for service-wide CMK enforcement](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F76a56461-9dc0-40f0-82f5-2453283afa2f).
+Azure policies help to enforce organizational standards and to assess compliance at-scale. Azure AI Search has an optional [built-in policy for service-wide CMK enforcement](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F76a56461-9dc0-40f0-82f5-2453283afa2f).
 
 In this section, you'll set the policy that defines a CMK standard for your search service. Then, you'll set up your search service to enforce this policy.
 
@@ -413,7 +413,7 @@ You can now send the index creation request, and then start using the index norm
 
 ### Synonym map encryption
 
-Create an encrypted synonym map using the [Create Synonym Map Azure Cognitive Search REST API](/rest/api/searchservice/create-synonym-map). Use the "encryptionKey" property to specify which encryption key to use.
+Create an encrypted synonym map using the [Create Synonym Map Azure AI Search REST API](/rest/api/searchservice/create-synonym-map). Use the "encryptionKey" property to specify which encryption key to use.
 
 ```json
 {
@@ -519,7 +519,7 @@ You can now send the indexer creation request, and then start using it normally.
 
 ## Work with encrypted content
 
-With customer-managed key encryption, you'll notice latency for both indexing and queries due to the extra encrypt/decrypt work. Azure Cognitive Search doesn't log encryption activity, but you can monitor key access through key vault logging. We recommend that you [enable logging](../key-vault/general/logging.md) as part of key vault configuration.
+With customer-managed key encryption, you'll notice latency for both indexing and queries due to the extra encrypt/decrypt work. Azure AI Search doesn't log encryption activity, but you can monitor key access through key vault logging. We recommend that you [enable logging](../key-vault/general/logging.md) as part of key vault configuration.
 
 Key rotation is expected to occur over time. Whenever you rotate keys, it's important to follow this sequence:
 

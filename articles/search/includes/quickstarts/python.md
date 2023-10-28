@@ -16,7 +16,7 @@ We used the following tools to create this quickstart.
 
 * [azure-search-documents package](https://pypi.org/project/azure-search-documents/) from the Azure SDK for Python
 
-#### Connect to Azure Cognitive Search
+#### Connect to Azure AI Search
 
 In this task, create the notebook, load the libraries, and set up your clients.
 
@@ -224,7 +224,7 @@ To load documents, create a documents collection, using an [index action](/pytho
     ]
     ```  
 
-1. In another cell, formulate the request. This upload_documents request targets the docs collection of the hotels-quickstart index and pushes the documents provided in the previous step into the Cognitive Search index.
+1. In another cell, formulate the request. This upload_documents request targets the docs collection of the hotels-quickstart index and pushes the documents provided in the previous step into the Azure AI Search index.
 
     ```python
     try:

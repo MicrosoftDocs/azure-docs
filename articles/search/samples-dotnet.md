@@ -40,7 +40,7 @@ Code samples from the Azure SDK development team demonstrate API usage. You can 
 
 ## Doc samples
 
-Code samples from the Cognitive Search team demonstrate features and workflows. All of the following samples are referenced in tutorials, quickstarts, and how-to articles that explain the code in detail. You can find these samples in [**Azure-Samples/azure-search-dotnet-samples**](https://github.com/Azure-Samples/azure-search-dotnet-samples) and in [**Azure-Samples/search-dotnet-getting-started**](https://github.com/Azure-Samples/search-dotnet-getting-started/) on GitHub.
+Code samples from the Azure AI Search team demonstrate features and workflows. All of the following samples are referenced in tutorials, quickstarts, and how-to articles that explain the code in detail. You can find these samples in [**Azure-Samples/azure-search-dotnet-samples**](https://github.com/Azure-Samples/azure-search-dotnet-samples) and in [**Azure-Samples/search-dotnet-getting-started**](https://github.com/Azure-Samples/search-dotnet-getting-started/) on GitHub.
 
 > [!TIP]
 > Try the [Samples browser](/samples/browse/?languages=csharp&products=azure-cognitive-search) to search for Microsoft code samples in GitHub, filtered by product, service, and language.
@@ -73,12 +73,12 @@ A demo repo provides proof-of-concept source code for examples or scenarios show
 
 | Samples | Repository | Description |
 |---------|------------|-------------|
-| [Covid-19 search app](https://github.com/liamca/covid19search/blob/master/README.md) | [covid19search](https://github.com/liamca/covid19search) | Source code repository for the Cognitive Search based [Covid-19 Search App](https://covid19search.azurewebsites.net/) |
+| [Covid-19 search app](https://github.com/liamca/covid19search/blob/master/README.md) | [covid19search](https://github.com/liamca/covid19search) | Source code repository for the Azure AI Search based [Covid-19 Search App](https://covid19search.azurewebsites.net/) |
 | [JFK demo](https://github.com/Microsoft/AzureSearch_JFK_Files/blob/master/README.md) | [AzureSearch_JFK_Files](https://github.com/Microsoft/AzureSearch_JFK_Files) | Learn more about the [JFK solution](https://www.microsoft.com/ai/ai-lab-jfk-files). |
 
 ## Other samples
 
-The following samples are also published by the Cognitive Search team, but aren't referenced in documentation. Associated readme files provide usage instructions.
+The following samples are also published by the Azure AI Search team, but aren't referenced in documentation. Associated readme files provide usage instructions.
 
 | Samples | Repository | Description |
 |---------|------------|-------------|

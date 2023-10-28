@@ -25,7 +25,7 @@ All features from version 10 are implemented in version 11. Key differences incl
 
 The client library's [Change Log](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/CHANGELOG.md) has an itemized list of updates. You can review a [summarized version](#WhatsNew) in this article.
 
-All C# code samples and snippets in the Cognitive Search product documentation have been revised to use the new **Azure.Search.Documents** client library.
+All C# code samples and snippets in the Azure AI Search product documentation have been revised to use the new **Azure.Search.Documents** client library.
 
 ## Why upgrade?
 
@@ -191,7 +191,7 @@ Version 11.3 additions ([change log](https://github.com/Azure/azure-sdk-for-net/
 
 + Quickstarts, tutorials, and [C# samples](samples-dotnet.md) have been updated to use the Azure.Search.Documents package. We recommend reviewing the samples and walkthroughs to learn about the new APIs before embarking on a migration exercise.
 
-+ [How to use Azure.Search.Documents](search-howto-dotnet-sdk.md) introduces the most commonly used APIs. Even  knowledgeable users of Cognitive Search might want to review this introduction to the new library as a precursor to migration.
++ [How to use Azure.Search.Documents](search-howto-dotnet-sdk.md) introduces the most commonly used APIs. Even  knowledgeable users of Azure AI Search might want to review this introduction to the new library as a precursor to migration.
 
 <a name="UpgradeSteps"></a>
 

@@ -99,7 +99,7 @@ The static web app pulls the information and files for deployment from GitHub us
 
     :::code language="yml" source="~/azure-search-javascript-samples/search-website-functions-v4/example-github-action-v4.yml"::: -->
 
-## Get Cognitive Search query key in Visual Studio Code
+## Get the Azure AI Search query key in Visual Studio Code
 
 1. In Visual Studio Code, open a new terminal window.
 
@@ -133,7 +133,7 @@ The Azure Function app won't return search data until the search secrets are in 
     |SearchIndexName|`good-books`|
     |SearchFacets|`authors*,language_code`|
 
-    Azure Cognitive Search requires different syntax for filtering collections than it does for strings. Add a `*` after a field name to denote that the field is of type `Collection(Edm.String)`. This allows the Azure Function to add filters correctly to queries.
+    Azure AI Search requires different syntax for filtering collections than it does for strings. Add a `*` after a field name to denote that the field is of type `Collection(Edm.String)`. This allows the Azure Function to add filters correctly to queries.
 
 1. Select **Save** to save the settings. 
 

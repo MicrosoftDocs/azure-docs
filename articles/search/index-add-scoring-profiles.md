@@ -96,7 +96,7 @@ To implement custom scoring behavior, add a scoring profile to the schema that d
 
 1. Paste in the [Template](#bkmk_template) provided in this article.  
 
-1. Provide a name. Scoring profiles are optional, but if you add one, the name is required. Be sure to follow Cognitive Search [naming conventions](/rest/api/searchservice/naming-rules) for fields (starts with a letter, avoids special characters and reserved words).  
+1. Provide a name. Scoring profiles are optional, but if you add one, the name is required. Be sure to follow Azure AI Search [naming conventions](/rest/api/searchservice/naming-rules) for fields (starts with a letter, avoids special characters and reserved words).  
 
 1. Specify boosting criteria. A single profile can contain [weighted fields](#weighted-fields), [functions](#functions), or both. 
 
@@ -132,7 +132,7 @@ Weighted fields are composed of a searchable field and a positive number that is
 
 ### Using functions
 
-Use functions when simple relative weights are insufficient or don't apply, as is the case of distance and freshness, which are calculations over numeric data. You can specify multiple functions per scoring profile. For more information about the EDM data types used in Cognitive Search, see [Supported data types](/rest/api/searchservice/supported-data-types).
+Use functions when simple relative weights are insufficient or don't apply, as is the case of distance and freshness, which are calculations over numeric data. You can specify multiple functions per scoring profile. For more information about the EDM data types used in Azure AI Search, see [Supported data types](/rest/api/searchservice/supported-data-types).
 
 | Function | Description |
 |-|-|

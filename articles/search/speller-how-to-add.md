@@ -12,7 +12,7 @@ ms.date: 10/20/2023
 
 ---
 
-# Add spell check to queries in Cognitive Search
+# Add spell check to queries in Azure AI Search
 
 > [!IMPORTANT]
 > Spell correction is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST APIs, and beta versions of Azure SDK libraries.
@@ -112,7 +112,7 @@ Indexes that contain non-English content often use [language analyzers](index-ad
 
 When adding spell check to content that also undergoes language analysis, you can achieve better results using the same language for each indexing and query processing step. For example, if a field's content was indexed using the "fr.microsoft" language analyzer, then queries and spell check should all use a French lexicon or language library of some form.
 
-To recap how language libraries are used in Cognitive Search:
+To recap how language libraries are used in Azure AI Search:
 
 + Language analyzers can be invoked during indexing and query execution, and are either Apache Lucene (for example, "de.lucene") or Microsoft ("de.microsoft).
 

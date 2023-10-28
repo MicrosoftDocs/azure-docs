@@ -21,7 +21,7 @@ REST samples are usually developed and tested on Postman, but you can use any cl
 
 ## Doc samples
 
-Code samples from the Cognitive Search team demonstrate features and workflows. Many of these samples are referenced in tutorials, quickstarts, and how-to articles. You can find these samples in [**Azure-Samples/azure-search-postman-samples**](https://github.com/Azure-Samples/azure-search-postman-samples) on GitHub.
+Code samples from the Azure AI Search team demonstrate features and workflows. Many of these samples are referenced in tutorials, quickstarts, and how-to articles. You can find these samples in [**Azure-Samples/azure-search-postman-samples**](https://github.com/Azure-Samples/azure-search-postman-samples) on GitHub.
 
 | Samples | Article |
 |---------|---------|
@@ -38,7 +38,7 @@ Code samples from the Cognitive Search team demonstrate features and workflows. 
 
 ## Other samples
 
-The following samples are also published by the Cognitive Search team, but are not referenced in documentation. Associated readme files provide usage instructions.
+The following samples are also published by the Azure AI Search team, but are not referenced in documentation. Associated readme files provide usage instructions.
 
 | Samples | Description |
 |---------|-------------|

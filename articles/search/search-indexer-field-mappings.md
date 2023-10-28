@@ -36,7 +36,7 @@ Field mappings apply to:
 | Use-case | Description |
 |----------|-------------|
 | Name discrepancy | Suppose your data source has a field named `_city`. Given that Azure AI Search doesn't allow field names that start with an underscore, a field mapping lets you effectively map "_city" to "city". </p>If your indexing requirements include retrieving content from multiple data sources, where field names vary among the sources, you could use a field mapping to clarify the path.|
-| Type discrepancy | Supposed you want a source integer field to be of type `Edm.String` so that it's searchable in the search index. Because the types are different, you'll need to define a field mapping in order for the data path to succeed. Note that Cognitive Search has a smaller set of [supported data types](/rest/api/searchservice/supported-data-types) than many data sources. If you're importing SQL data, a field mapping allows you to [map the SQL data type](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#mapping-data-types) you want in a search index.|
+| Type discrepancy | Supposed you want a source integer field to be of type `Edm.String` so that it's searchable in the search index. Because the types are different, you'll need to define a field mapping in order for the data path to succeed. Note that Azure AI Search has a smaller set of [supported data types](/rest/api/searchservice/supported-data-types) than many data sources. If you're importing SQL data, a field mapping allows you to [map the SQL data type](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#mapping-data-types) you want in a search index.|
 | One-to-many data paths | You can populate multiple fields in the index with content from the same source field. For example, you might want to apply different analyzers to each field to support different use cases in your client app.|
 | Encoding and decoding | You can apply [mapping functions](#mappingFunctions) to support Base64 encoding or decoding of data during indexing. |
 | Split strings or recast arrays into collections | You can apply [mapping functions](#mappingFunctions) to split a string that includes a delimiter, or to send a JSON array to a search field of type `Collection(Edm.String)`.
@@ -374,5 +374,5 @@ When errors occur that are related to document key length exceeding 1024 charact
 
 ## See also
 
-+ [Supported data types in Cognitive Search](/rest/api/searchservice/supported-data-types)
++ [Supported data types in Azure AI Search](/rest/api/searchservice/supported-data-types)
 + [SQL data type map](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#mapping-data-types)

@@ -90,7 +90,7 @@ For more information about connection properties, see [Create an Azure SQL Manag
    az rest --method put --uri https://management.azure.com/subscriptions/{{search-service-subscription-ID}}/resourceGroups/{{search service-resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}/sharedPrivateLinkResources/{{shared-private-link-name}}?api-version=2021-04-01-preview --body @create-pe.json
    ```
 
-   Provide the subscription ID, resource group name, and service name of your Cognitive Search resource.
+   Provide the subscription ID, resource group name, and service name of your Azure AI Search resource.
 
    Provide the same shared private link name that you specified in the JSON body.
 

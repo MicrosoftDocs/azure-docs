@@ -1,7 +1,7 @@
 ---
 title: Semantic ranking
 titleSuffix: Azure AI Search
-description: Learn how Cognitive Search uses deep learning semantic ranking models from Bing to make search results more intuitive.
+description: Learn how Azure AI Search uses deep learning semantic ranking models from Bing to make search results more intuitive.
 
 manager: nitinme
 author: HeidiSteen
@@ -11,9 +11,9 @@ ms.topic: conceptual
 ms.date: 10/26/2023
 ---
 
-# Semantic ranking in Azure Cognitive Search
+# Semantic ranking in Azure AI Search
 
-In Azure Cognitive Search, *semantic ranking* measurably improves search relevance by using language understanding to rerank search results. This article is a high-level introduction to semantic ranking. The [embedded video](#how-semantic-ranking-works) describes the technology, and the section at the end covers availability and pricing.
+In Azure AI Search, *semantic ranking* measurably improves search relevance by using language understanding to rerank search results. This article is a high-level introduction to semantic ranking. The [embedded video](#how-semantic-ranking-works) describes the technology, and the section at the end covers availability and pricing.
 
 Semantic ranking is a premium feature, billed by usage. We recommend this article for background, but if you'd rather get started, follow these steps:
 
@@ -24,7 +24,7 @@ Semantic ranking is a premium feature, billed by usage. We recommend this articl
 > * Add a few more query properties to also [return semantic answers](semantic-answers.md).
 
 > [!NOTE]
-> Looking for vector support and similarity search? See [Vector search in Azure Cognitive Search](vector-search-overview.md) for details.
+> Looking for vector support and similarity search? See [Vector search in Azure AI Search](vector-search-overview.md) for details.
 
 ## What is semantic ranking?
 
@@ -111,7 +111,7 @@ What semantic ranking *can't* do is rerun the query over the entire corpus to fi
 
 Although semantic ranking isn't beneficial in every scenario, certain content can benefit significantly from its capabilities. The language models in semantic ranking work best on searchable content that is information-rich and structured as prose. A knowledge base, online documentation, or documents that contain descriptive content see the most gains from semantic ranking capabilities.
 
-The underlying technology is from Bing and Microsoft Research, and integrated into the Cognitive Search infrastructure as an add-on feature. For more information about the research and AI investments backing semantic ranking, see [How AI from Bing is powering Azure Cognitive Search (Microsoft Research Blog)](https://www.microsoft.com/research/blog/the-science-behind-semantic-search-how-ai-from-bing-is-powering-azure-cognitive-search/).
+The underlying technology is from Bing and Microsoft Research, and integrated into the Azure AI Search infrastructure as an add-on feature. For more information about the research and AI investments backing semantic ranking, see [How AI from Bing is powering Azure AI Search (Microsoft Research Blog)](https://www.microsoft.com/research/blog/the-science-behind-semantic-search-how-ai-from-bing-is-powering-azure-cognitive-search/).
 
 The following video provides an overview of the capabilities.
 
@@ -126,7 +126,7 @@ When you enable semantic ranking, choose a pricing plan for the feature:
 * At lower query volumes (under 1000 monthly), semantic ranking is free.
 * At higher query volumes, choose the standard pricing plan.
 
-The [Cognitive Search pricing page](https://azure.microsoft.com/pricing/details/search/) shows you the billing rate for different currencies and intervals.
+The [Azure AI Search pricing page](https://azure.microsoft.com/pricing/details/search/) shows you the billing rate for different currencies and intervals.
 
 Charges for semantic ranking are levied when query requests include `queryType=semantic` and the search string isn't empty (for example, `search=pet friendly hotels in New York`). If your search string is empty (`search=*`), you aren't charged, even if the queryType is set to semantic.
 

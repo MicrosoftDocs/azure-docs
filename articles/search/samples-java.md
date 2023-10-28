@@ -40,7 +40,7 @@ Code samples from the Azure SDK development team demonstrate API usage. You can 
 
 ## Doc samples
 
-Code samples from the Cognitive Search team are located in [**Azure-Samples/azure-search-java-samples**](https://github.com/Azure-Samples/azure-search-java-samples) on GitHub.
+Code samples from the Azure AI Search team are located in [**Azure-Samples/azure-search-java-samples**](https://github.com/Azure-Samples/azure-search-java-samples) on GitHub.
 
 | Samples | Article | 
 |---------|-------------|
