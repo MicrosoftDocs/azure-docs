@@ -31,7 +31,7 @@ Both installing and updating the CLI require rerunning the install script. Insta
 curl -L https://aka.ms/hdionaksflinkcliinstalllinux | bash
 ```
 
-This command installs Flink CLI in the user's home directory (`$HOME/flink-cli`). The script can also be downloaded and run locally. You may have to restart your shell in order for changes to take effect.
+This command installs Flink CLI in the user's home directory (`$HOME/flink-cli`). The script can also be downloaded and run locally. You might have to restart your shell in order for changes to take effect.
 
 ## Run an Apache Flink command to test
 
@@ -85,7 +85,7 @@ Here are some examples of actions supported by Flink’s CLI tool:
 | run | This action executes jobs. It requires at least the jar containing the job. Flink- or job-related arguments can be passed if necessary. |
 | info | This action can be used to print an optimized execution graph of the passed job. Again, the jar containing the job needs to be passed. |
 | list | This action *lists all running or scheduled jobs*.|
-| savepoint | This action can be used to *create or disposing savepoints* for a given job. It may be necessary to specify a savepoint directory besides the JobID. |
+| savepoint | This action can be used to *create or disposing savepoints* for a given job. It might be necessary to specify a savepoint directory besides the JobID. |
 | cancel | This action can be used to *cancel running jobs* based on their JobID. |
 | stop | This action combines the *cancel and savepoint actions to stop* a running job but also creates a savepoint to start from again. |
 
