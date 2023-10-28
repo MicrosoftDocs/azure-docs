@@ -107,7 +107,7 @@ The wordcount.py is an example of orchestrating a Flink job submission using Apa
 
 The DAG has two tasks: 
 
-- get OAuth Token 
+- get `OAuth Token` 
 
 - Invoke HDInsight Flink Job Submission Azure REST API to submit a new job 
 
