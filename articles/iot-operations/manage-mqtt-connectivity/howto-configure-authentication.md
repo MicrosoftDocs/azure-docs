@@ -46,7 +46,7 @@ The order of authentication methods in the array determines how Azure IoT MQ aut
 
 For each method, Azure IoT MQ first checks if the client's credentials are *relevant* for that method. For example, SAT authentication requires a username starting with `sat://`, and X.509 authentication requires a client certificate. If the client's credentials are relevant, Azure IoT MQ then verifies if they're valid. For more information, see the [Configure authentication method](#configure-authentication-method) section.
 
-For custom authentication, Azure IoT MQ treats failure to communicate with the custom authentication server as *credentials not relevant*. This lets Azure IoT MQ fall back to other methods if the custom server is unreachable.
+For custom authentication, Azure IoT MQ treats failure to communicate with the custom authentication server as *credentials not relevant*. This behavior lets Azure IoT MQ fall back to other methods if the custom server is unreachable.
 
 The authentication flow ends when:
 
@@ -174,7 +174,7 @@ spec:
     - "my-listener"
   authenticationMethods:
     - usernamePassword:
-        passwordDatabase: credentials
+        secretName: credentials
 ```
 
 It might take a few minutes for the changes to take effect.
@@ -188,7 +188,7 @@ It might take a few minutes for the changes to take effect.
 - Client certificates and the issuing certificate chain in PEM files. If you don't have any, use Step CLI to generate some.
 - Familiarity with public key cryptography and terms like root CA, private key, and intermediate certificates.
 
-Both EC and RSA keys are supported, but all certificates in the chain must use the same key algorithm. If you are importing your own CA certificates, ensure that the client certificate uses the same key algorithm as the CAs.
+Both EC and RSA keys are supported, but all certificates in the chain must use the same key algorithm. If you're importing your own CA certificates, ensure that the client certificate uses the same key algorithm as the CAs.
 
 ## Enable X.509 client authentication
 
@@ -300,7 +300,7 @@ Azure IoT MQ uses *bound service account tokens* that are detailed in the [What 
 
 Launched in Kubernetes 1.13, and becoming the default format in 1.21, bound tokens address all of the limited functionality of legacy tokens, and more:
 
-* The tokens themselves are much harder to steal and misuse; they're time-bound, audience-bound, and object-bound.
+* The tokens themselves are harder to steal and misuse; they're time-bound, audience-bound, and object-bound.
 * They adopt a standardized format: OpenID Connect (OIDC), with full OIDC Discovery, making it easier for service providers to accept them.
 * They're distributed to pods more securely, using a new Kubelet projected volume type.
 
@@ -328,9 +328,9 @@ Enable the Kubernetes `TokenRequestProjection` feature to specify `audiences` (d
 
 Apply your changes with either `kubectl apply`.
 
-## Create a Service Account
+## Create a service account
 
-To create SATs, first create a Service Account. The command below creates a Service Account called `mqtt-client`.
+To create SATs, first create a service account. The following command creates a service account called `mqtt-client`.
 
 ```bash
 kubectl create serviceaccount mqtt-client
@@ -342,9 +342,9 @@ Clients authentication via SAT must have their SATs annotated with attributes to
 
 ## Test SAT authentication
 
-SAT authentication might only be used from a pod in the same cluster as Azure IoT MQ. The command below creates a pod that has the mosquitto client and mounts the SAT created in the previous steps into the pod.
+SAT authentication might only be used from a pod in the same cluster as Azure IoT MQ. The following command creates a pod that has the mosquitto client and mounts the SAT created in the previous steps into the pod.
 
-The `serviceAccountName` field in the pod configuration must match the Service Account associated with the token being used.
+The `serviceAccountName` field in the pod configuration must match the service account associated with the token being used.
 
 The `serviceAccountToken.audience` field in the pod configuration must be one of the `audiences` configured in the D-MQTT broker's `authenticationMethods`.
 
@@ -380,12 +380,12 @@ Once the pod has been created, start a shell in the pod:
 kubectl exec --stdin --tty mqtt-client -- sh
 ```
 
-The token is mounted at the path specified in the configuation `/var/run/secrets/tokens` in the previous example. Retrieve the token and use it to authenticate.
+The token is mounted at the path specified in the configuration `/var/run/secrets/tokens` in the previous example. Retrieve the token and use it to authenticate.
 
 ```bash
 token=$(cat /var/run/secrets/tokens/mqtt-client-token)
 
-mosquitto_pub -h azedge-dmqtt-frontend -V mqttv5 -t "test" -m "test" -u '$sat' -P "$token"
+mosquitto_pub -h aio-mq-dmqtt-frontend -V mqttv5 -t "test" -m "test" -u '$sat' -P "$token"
 ```
 
 The MQTT username must be set to `$sat`. The MQTT password should be set to the SAT.
@@ -446,7 +446,7 @@ spec:
         # The broker may present X.509 credentials or no credentials to the server.
         auth:
           x509:
-            secret: "custom-auth-client-cert"
+            secretName: "custom-auth-client-cert"
             namespace: "default"
         # Optional additional HTTP headers that the broker will send to the
         # custom authentication server.
