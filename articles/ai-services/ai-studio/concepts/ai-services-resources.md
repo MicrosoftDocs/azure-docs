@@ -62,7 +62,7 @@ The Azure AI resource doesn't directly contain the keys and endpoints needed to 
 > [!NOTE]
 > This Azure AI services resource is not to be confused with the standalone "Azure AI services multi-service account" resource. Their capabilities vary, and the standalone resource is not supported in Azure AI Studio. Going forward, we recommend using the Azure AI services resource that's provided with your Azure AI resource.
 
-:::image type="content" source="../media/concepts/resource-project-services-keys.png" alt-text="Screenshot of the playground page of the Azure AI Studio with the Generate product name ideas dropdown selection visible" lightbox="../media/concepts/resource-project-services-keys.png":::
+:::image type="content" source="../media/concepts/resource-project-services-keys.png" alt-text="Screenshot of the playground page of the Azure AI Studio with the Generate product name ideas dropdown selection visible." lightbox="../media/concepts/resource-project-services-keys.png":::
 
 The Azure AI services resource contains the keys and endpoints needed to authenticate your requests to Azure AI services. With the same API key, you can access all of the followig Azure AI services:
 

@@ -20,16 +20,16 @@ You can create a project in Azure AI Studio more than one way. The most direct w
 1. Select the **Build** tab at the top of the page.
 1. Select **+ New project**.
 
-    :::image type="content" source="../media/how-to/projects-create-new.png" alt-text="Screenshot of the Build tab of the Azure AI Studio with the option to create a new project visible" lightbox="../media/how-to/projects-create-new.png":::
+    :::image type="content" source="../media/how-to/projects-create-new.png" alt-text="Screenshot of the Build tab of the Azure AI Studio with the option to create a new project visible." lightbox="../media/how-to/projects-create-new.png":::
 
 1. Enter a name for the project.
 1. Select **Create a new resource** from the **Azure AI resource** dropdown and then select **Next**. This option creates a new Azure AI resource to host the project. Alternatively you can select an existing Azure AI resource from the dropdown.
 
-    :::image type="content" source="../media/how-to/projects-create-details.png" alt-text="Screenshot of the project details page within the create project dialog" lightbox="../media/how-to/projects-create-details.png":::
+    :::image type="content" source="../media/how-to/projects-create-details.png" alt-text="Screenshot of the project details page within the create project dialog." lightbox="../media/how-to/projects-create-details.png":::
 
 1. Enter a name for the Azure AI resource. 
 
-    :::image type="content" source="../media/how-to/projects-create-resource.png" alt-text="Screenshot of the create resource page within the create project dialog" lightbox="../media/how-to/projects-create-resource.png":::
+    :::image type="content" source="../media/how-to/projects-create-resource.png" alt-text="Screenshot of the create resource page within the create project dialog." lightbox="../media/how-to/projects-create-resource.png":::
 
 1. Select your **Azure subscription** from the dropdown. Choose a specific Azure subscription for your project for billing, access, or administrative reasons. For example, this grants users and service principals with subscription-level access to your project.
 
@@ -42,7 +42,7 @@ You can create a project in Azure AI Studio more than one way. The most direct w
 1. Enter the **Location** for the Azure AI resource and then select **Next**. The location is the region where the Azure AI resource is hosted. The location of the Azure AI resource is also the location of the project. 
 1. Review the project details and then select **Create a project**.
 
-    :::image type="content" source="../media/how-to/projects-create-review-finish.png" alt-text="Screenshot of the review and finish page within the create project dialog" lightbox="../media/how-to/projects-create-review-finish.png":::
+    :::image type="content" source="../media/how-to/projects-create-review-finish.png" alt-text="Screenshot of the review and finish page within the create project dialog." lightbox="../media/how-to/projects-create-review-finish.png":::
 
 
 Once a project is created, you can access the **Tools**, **Components**, and **Settings** assets in the left navigation panel. Tools and assets listed under each of those subheadings can vary depending on the type of project you've selected. For example, if you've selected a project that uses Azure OpenAI, you'll see the **Playground** navigation option under **Tools**. 
