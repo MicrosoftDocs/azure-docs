@@ -1,12 +1,12 @@
 ---
-title: Use Hive Catalog, Hive Read & Write demo on Apache Flink SQL
-description: Learn how to use Hive Catalog, Hive Read & Write demo on Apache Flink SQL
+title: Use Hive Catalog, Hive Read & Write demo on Apache Flink® 
+description: Learn how to use Hive Catalog, Hive Read & Write demo on Apache Flink® on HDInsight on AKS
 ms.service: hdinsight-aks
 ms.topic: how-to
 ms.date: 08/29/2023
 ---
 
-# How to use Hive Catalog with Apache Flink SQL
+# How to use Hive Catalog with Apache Flink® on HDInsight on AKS
 
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
@@ -15,12 +15,12 @@ This example uses Hive’s Metastore as a persistent catalog with Apache Flink�
 
 ## Prerequisites
 
-* [HDInsight on AKS Flink 1.16.0 with Hive Metastore 3.1.2](../flink/flink-create-cluster-portal.md) 
-* [HDInsight Kafka](../../hdinsight/kafka/apache-kafka-get-started.md)
-  * You're required to ensure the network settings are complete as described on [Using HDInsight Kafka](../flink/process-and-consume-data.md); that's to make sure HDInsight on AKS Flink and HDInsight Kafka are in the same VNet 
+* [Apache Flink Cluster on HDInsight on AKS with Hive Metastore 3.1.2](../flink/flink-create-cluster-portal.md) 
+* [Apache Kafka cluster on HDInsight](../../hdinsight/kafka/apache-kafka-get-started.md)
+  * You're required to ensure the network settings are complete as described on [Using Kafka](../flink/process-and-consume-data.md); that's to make sure HDInsight on AKS and HDInsight clusters are in the same VNet 
 * MySQL 8.0.33
 
-## Apache Hive on Flink
+## Apache Hive on Apache Flink
 
 Flink offers a two-fold integration with Hive.
 
@@ -279,3 +279,4 @@ FROM kafka_user_orders where product_id = 104;
 
 ### Reference
 * [Apache Hive](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/connectors/table/hive/overview/)
+* **Note** : Apache, Apache Hive, Hive, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).
