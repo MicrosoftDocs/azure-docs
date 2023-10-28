@@ -77,7 +77,20 @@ To use service principal authentication, follow these steps.
     - Application key
     - Tenant ID
 
-2. Grant the service principal at least the **Contributor** role in Microsoft Fabric workspace. 
+2. Grant the service principal at least the **Contributor** role in Microsoft Fabric workspace. Follow these steps:
+    1. Go to your Microsoft Fabric workspace, select **Manage access** on the top bar. Then select **Add people or groups**.
+    
+        :::image type="content" source="media/connector-microsoft-fabric-lakehouse/fabric-workspace-manage-access.png" alt-text="Select Fabric workspace Manage access."::: 
+
+        :::image type="content" source="media/connector-microsoft-fabric-lakehouse/manage-access-pane.png" alt-text="Select Fabric workspace Manage access."::: 
+    
+    1. In **Add people** pane, enter your service principal name, and select your service principal from the drop-down list.
+    
+    1. Specify the role as **Contributor** or higher (Admin, Member), then select **Add**.
+        
+        :::image type="content" source="media/connector-microsoft-fabric-lakehouse/select-workspace-role.png" alt-text="Select Fabric workspace Manage access."::: 
+
+    1. Your service principal is displayed on **Manage access** pane.
 
 These properties are supported for the linked service:
 
