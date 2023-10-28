@@ -167,4 +167,4 @@ You can use the Grafana dashboard to view the service and system. Trino cluster 
 
 ## Reference
 
-* **Note** : Apache, Apache Spark, Spark, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).
+* **Note** : Apache, Apache Spark, Spark, and associated open source project names are [trademarks](./trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).
