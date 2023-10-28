@@ -16,7 +16,7 @@ The prompt flow *Python* tool offers customized code snippets as self-contained 
 
 ## Build with the Python tool
 
-1. Create or open a flow in Azure AI Studio. For more information, see [Create a flow](../flow-build.md).
+1. Create or open a flow in Azure AI Studio. For more information, see [Create a flow](../flow-develop.md).
 1. Select **+ Python** to add the Python tool to your flow.
 
     :::image type="content" source="../../media/prompt-flow/python-tool.png" alt-text="Screenshot of the Python tool added to a flow in Azure AI Studio" lightbox="../../media/prompt-flow/python-tool.png":::
@@ -139,4 +139,4 @@ def my_python_tool(message:str, myconn:CustomConnection) -> str:
 
 ## Next steps
 
-- [Learn more about how to create a flow](../flow-build.md)
+- [Learn more about how to create a flow](../flow-develop.md)

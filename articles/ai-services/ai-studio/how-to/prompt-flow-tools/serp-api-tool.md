@@ -34,7 +34,7 @@ The connection is the model used to establish connections with Serp API. Get you
 
 ## Build with the Serp API tool
 
-1. Create or open a flow in Azure AI Studio. For more information, see [Create a flow](../flow-build.md).
+1. Create or open a flow in Azure AI Studio. For more information, see [Create a flow](../flow-develop.md).
 1. Select **+ More tools** > **Serp API** to add the Serp API tool to your flow.
 
     :::image type="content" source="../../media/prompt-flow/serp-api-tool.png" alt-text="Screenshot of the Serp API tool added to a flow in Azure AI Studio" lightbox="../../media/prompt-flow/serp-api-tool.png":::
@@ -71,5 +71,5 @@ The json representation from serpapi query.
 
 ## Next steps
 
-- [Learn more about how to create a flow](../flow-build.md)
+- [Learn more about how to create a flow](../flow-develop.md)
 

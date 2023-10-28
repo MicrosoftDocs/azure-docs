@@ -74,7 +74,7 @@
         - name: Submit batch run and evaluate a flow 
           href: ai-studio/how-to/flow-bulk-test-evaluation.md
         - name: Develop an evaluation flow in Prompt flow
-          href: ai-studio/how-to/flow-develop-evaluation.md.md
+          href: ai-studio/how-to/flow-develop-evaluation.md
     - name: Deploy a flow as a managed online endpoint
       href: ai-studio/how-to/flow-deploy.md
   - name: Costs and quotas

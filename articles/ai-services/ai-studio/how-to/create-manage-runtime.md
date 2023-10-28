@@ -38,21 +38,6 @@ If you do not have a compute instance, create a new one: [Create and manage comp
 1. Select compute instance you want to use as runtime.
     Because compute instances are isolated by user, you can only see your own compute instances or the ones assigned to you. To learn more, see [Create and manage compute instance](./create-manage-compute.md).
 1. Authenticate on the compute instance. You only need to do auth one time per region in 6 month.
-1. Select create new custom application or existing custom application as runtime.
-    1. Select create new custom application as runtime.
-
-        This is recommended for most users of Prompt flow. The Prompt flow system creates a new custom application on a compute instance as a runtime.
-
-        - To choose the default environment, select this option. This is the recommended choice for new users of Prompt flow.
-
-        - If you want to install other packages in your project, you should create a custom environment. To learn how to build your own custom environment, see [Customize environment with docker context for runtime](how-to-customize-environment-runtime.md#customize-environment-with-docker-context-for-runtime).
-
-
-        > [!NOTE]
-        > - We are going to perform an automatic restart of your compute instance. Please ensure that you do not have any tasks or jobs running on it, as they may be affected by the restart.
-
-    1. To use an existing custom application as a runtime, choose the option "existing".
-        This option is available if you have previously created a custom application on a compute instance. For more information on how to create and use a custom application as a runtime, learn more about [how to create custom application as runtime](how-to-customize-environment-runtime.md#create-a-custom-application-on-compute-instance-that-can-be-used-as-prompt-flow-runtime).
 
 
 

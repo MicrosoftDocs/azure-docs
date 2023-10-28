@@ -14,7 +14,7 @@ ms.custom: ignite-2023
 
 # What is Azure AI Studio?
 
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
+[!INCLUDE [Azure AI Studio preview](./includes/preview-ai-studio.md)]
 
 Azure AI Studio brings together capabilities from across multiple Azure AI services. You can build generative AI applications on an enterprise-grade platform. Directly from the studio you can interact with a project code-first via the Azure AI SDK and Azure AI CLI. 
 

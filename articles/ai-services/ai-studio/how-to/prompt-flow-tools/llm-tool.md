@@ -23,7 +23,7 @@ Prepare a prompt as described in the [prompt tool](prompt-tool.md#prerequisites)
 
 ## Build with the LLM tool
 
-1. Create or open a flow in Azure AI Studio. For more information, see [Create a flow](../flow-build.md).
+1. Create or open a flow in Azure AI Studio. For more information, see [Create a flow](../flow-develop.md).
 1. Select **+ LLM** to add the LLM tool to your flow.
 
     :::image type="content" source="../../media/prompt-flow/llm-tool.png" alt-text="Screenshot of the LLM tool added to a flow in Azure AI Studio" lightbox="../../media/prompt-flow/llm-tool.png":::
@@ -83,4 +83,4 @@ The output varies depending on the API you selected for inputs.
 
 ## Next steps
 
-- [Learn more about how to create a flow](../flow-build.md)
+- [Learn more about how to create a flow](../flow-develop.md)

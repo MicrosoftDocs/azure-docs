@@ -36,7 +36,7 @@ You can quickly start testing and evaluating your flow by following this video t
 To run a batch run and use an evaluation method, you need to have the following ready:
 
 - A test dataset for batch run. Your dataset should be in one of these formats: `.csv`, `.tsv`, `.jsonl`, or `.parquet`. Your data should also include headers that match the input names of your flow. If your flow inputs include a complex structure like a list or dictionary, you are recommended to use `jsonl` format to represent your data. 
-- An available runtime to run your batch run. A runtime is a cloud-based resource that executes your flow and generates outputs. To learn more about runtime, see [Runtime](./how-to-create-manage-runtime.md).
+- An available runtime to run your batch run. A runtime is a cloud-based resource that executes your flow and generates outputs. To learn more about runtime, see [Runtime](./create-manage-runtime.md).
 
 ## Submit a batch run and use a built-in evaluation method
 
@@ -155,10 +155,7 @@ After checking the [built-in metrics](#understand-the-built-in-evaluation-metric
   - Modify parameters of the flow
   - Modify the flow logic
 
-Prompt construction can be difficult. We provide a [Introduction to prompt engineering](../../cognitive-services/openai/concepts/prompt-engineering.md) to help you learn about the concept of constructing a prompt that can achieve your goal. You can also check the [Prompt engineering techniques](../../cognitive-services/openai/concepts/advanced-prompt-engineering.md?pivots=programming-language-chat-completions) to learn more about how to construct a prompt that can achieve your goal.
-
-System message, sometimes referred to as a metaprompt or [system prompt](../../cognitive-services/openai/concepts/advanced-prompt-engineering.md?pivots=programming-language-completions#meta-prompts) that can be used to guide an AI system’s behavior and improve system performance. Read this document on [System message framework and template recommendations for Large Language Models(LLMs)](../../cognitive-services/openai/concepts/system-message.md) to learn about how to improve your flow performance with system message.
-
+To learn more about how to construct a prompt that can achieve your goal, see [Introduction to prompt engineering](../../openai/concepts/prompt-engineering.md), [Prompt engineering techniques](../../openai/concepts/advanced-prompt-engineering.md?pivots=programming-language-chat-completions), and [System message framework and template recommendations for Large Language Models(LLMs)](../../openai/concepts/system-message.md).
 
 In this document, you learned how to submit a batch run and use a built-in evaluation method to measure the quality of your flow output. You also learned how to view the evaluation result and metrics, and how to start a new round of evaluation with a different method or subset of variants. We hope this document helps you improve your flow performance and achieve your goals with Prompt flow.
 

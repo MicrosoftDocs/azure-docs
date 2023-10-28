@@ -26,7 +26,7 @@ In this article, you'll learn how to deploy a flow as a managed online endpoint 
 
 ## Build the flow and get it ready for deployment
 
-If you already completed the [get started tutorial](get-started-prompt-flow.md), you've already tested the flow properly by submitting bulk tests and evaluating the results.
+By now you've already tested the flow properly by submitting bulk tests and evaluating the results.
 
 If you didn't complete the tutorial, you need to build a flow. Testing the flow properly by bulk tests and evaluation before deployment is a recommended best practice.
 
@@ -88,7 +88,7 @@ The **Test result** shows as following:
 For endpoints deployed from chat flow, you can test it in an immersive chat window.
 
 
-The `chat_input` was set during development of the chat flow. You can input the `chat_input` message in the input box. The **Inputs** panel on the right side is for you to specify the values for other inputs besides the `chat_input`. Learn more about [how to develop a chat flow](./how-to-develop-a-chat-flow.md).
+The `chat_input` was set during development of the chat flow. You can input the `chat_input` message in the input box. The **Inputs** panel on the right side is for you to specify the values for other inputs besides the `chat_input`. Learn more about [how to develop a chat flow](./flow-develop.md#develop-a-chat-flow).
 
 ## Consume the endpoint
 

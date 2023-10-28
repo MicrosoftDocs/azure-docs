@@ -14,22 +14,34 @@ ms.author: eur
 
 [!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
 
+In this article, you learn how to use variants to tune prompts and evaluate the performance of different variants.
+
 Crafting a good prompt is a challenging task that requires a lot of creativity, clarity, and relevance. A good prompt can elicit the desired output from a pretrained language model, while a bad prompt can lead to inaccurate, irrelevant, or nonsensical outputs. Therefore, it's necessary to tune prompts to optimize their performance and robustness for different tasks and domains.
 
-So, we introduce [the concept of variants](concept-variants.md) which can help you test the model’s behavior under different conditions, such as different wording, formatting, context, temperature, or top-k, compare and find the best prompt and configuration that maximizes the model’s accuracy, diversity, or coherence.
+Variants can help you test the model’s behavior under different conditions, such as different wording, formatting, context, temperature, or top-k, compare and find the best prompt and configuration that maximizes the model’s accuracy, diversity, or coherence.
 
-In this article, we'll show you how to use variants to tune prompts and evaluate the performance of different variants.
+## Variants in Prompt flow
 
-> [!IMPORTANT]
-> Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+With prompt flow, you can use variants to tune your prompt. A variant refers to a specific version of a tool node that has distinct settings. Currently, variants are supported only in the [LLM tool](prompt-flow-tools/llm-tool.md). For example, in the LLM tool, a new variant can represent either a different prompt content or different connection settings.
 
-## Prerequisites
+Suppose you want to generate a summary of a news article. You can set different variants of prompts and settings like this:
 
-Before reading this article, it's better to go through:
+| Variants  | Prompt                                                       | Connection settings |
+| --------- | ------------------------------------------------------------ | ------------------- |
+| Variant 0 | `Summary: {{input sentences}}`                               | Temperature = 1     |
+| Variant 1 | `Summary: {{input sentences}}`                               | Temperature = 0.7   |
+| Variant 2 | `What is the main point of this article? {{input sentences}}` | Temperature = 1     |
+| Variant 3 | `What is the main point of this article? {{input sentences}}` | Temperature = 0.7   |
 
-- [Quick Start Guide](get-started-prompt-flow.md)
-- [How to bulk test and evaluate a flow](how-to-bulk-test-evaluate-flow.md)
+By utilizing different variants of prompts and settings, you can explore how the model responds to various inputs and outputs, enabling you to discover the most suitable combination for your requirements.
+
+Benefits of using variants include:
+
+- **Enhance the quality of your LLM generation**: By creating multiple variants of the same LLM node with diverse prompts and configurations, you can identify the optimal combination that produces high-quality content aligned with your needs.
+- **Save time and effort**: Even slight modifications to a prompt can yield significantly different results. It's crucial to track and compare the performance of each prompt version. With variants, you can easily manage the historical versions of your LLM nodes, facilitating updates based on any variant without the risk of forgetting previous iterations. Variants save you time and effort in managing prompt tuning history.
+- **Boost productivity**: Variants streamline the optimization process for LLM nodes, making it simpler to create and manage multiple variations. You can achieve improved results in less time, thereby increasing your overall productivity.
+- **Facilitate easy comparison**: You can effortlessly compare the results obtained from different variants side by side, enabling you to make data-driven decisions regarding the variant that generates the best outcomes.
+
 
 ## How to tune prompts using variants?
 

@@ -19,7 +19,7 @@ The prompt flow *Embedding* tool enables you to convert text into dense vector r
 
 ## Build with the Embedding tool
 
-1. Create or open a flow in Azure AI Studio. For more information, see [Create a flow](../flow-build.md).
+1. Create or open a flow in Azure AI Studio. For more information, see [Create a flow](../flow-develop.md).
 1. Select **+ More tools** > **Embedding** to add the Embedding tool to your flow.
 
     :::image type="content" source="../../media/prompt-flow/embedding-tool.png" alt-text="Screenshot of the Embedding tool added to a flow in Azure AI Studio" lightbox="../../media/prompt-flow/embedding-tool.png":::
@@ -53,5 +53,5 @@ The output is a list of vector representations for the input text. For example:
 
 ## Next steps
 
-- [Learn more about how to create a flow](../flow-build.md)
+- [Learn more about how to create a flow](../flow-develop.md)
 
