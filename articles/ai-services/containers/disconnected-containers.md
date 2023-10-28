@@ -49,7 +49,7 @@ Access is limited to customers that meet the following requirements:
   * Organization under strict regulation of not sending any kind of data back to cloud.
 * Application completed as instructed - Please pay close attention to guidance provided throughout the application to ensure you provide all the necessary information required for approval.
 
-## Purchase a commitment plan to use containers in disconnected environments
+## Purchase a commitment tier pricing plan for disconnected environments
 
 ### Create a new resource
 
