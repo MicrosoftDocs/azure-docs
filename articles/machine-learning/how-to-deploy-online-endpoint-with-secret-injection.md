@@ -100,6 +100,9 @@ In this article, you learn to use [secret injection](concept-secret-injection.md
             az keyvault secret show --vault-name mykeyvault --name secret1 --version <secret_version>
             ```
 
+    > [!IMPORTANT]
+    > If you use Key Vault as a secret store for secret injection, you must configure the key vault's permission model as `Azure role-based access control` (RBAC). See [Azure RBAC vs access policy for Key Vault](../key-vault/general/rbac-access-policy) for more.
+
 - Choice of user identity to use to create the online endpoint and online deployment.
     - Follow [Set up authentication for Azure Machine Learning resources and workflows](how-to-setup-authentication.md) to set up the user identity. It can be a user account, a service principal account, or a managed identity in Microsoft Entra ID.
 - (Optional) Role assignment to the user identity.
