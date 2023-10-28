@@ -164,3 +164,7 @@ You can use the Grafana dashboard to view the service and system. Trino cluster 
 1. View the metric as per selection.
 
     :::image type="content" source="./media/monitor-with-prometheus-grafana/view-output.png" alt-text="Screenshot showing how to view the output." border="true" lightbox="./media/monitor-with-prometheus-grafana/view-output.png":::
+
+## Reference
+
+* **Note** : Apache, Apache Spark, Spark, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).
