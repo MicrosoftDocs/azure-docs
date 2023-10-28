@@ -12,7 +12,7 @@ For example: `san-af-<region>-prod.azurewebsites.net` should be `san-af-eastus2-
 
 To see a list of all regions, run this command:
 
-```azure-cli
+```azurecli
 az account list-locations -o table
 ```
 
