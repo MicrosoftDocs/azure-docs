@@ -1,5 +1,5 @@
 ---
-title: How to create Apache Kafka table on AApache Flink® on HDInsight on AKS
+title: How to create Apache Kafka table on an Apache Flink® on HDInsight on AKS
 description: Learn how to create Apache Kafka table on Apache Flink®
 ms.service: hdinsight-aks
 ms.topic: how-to
