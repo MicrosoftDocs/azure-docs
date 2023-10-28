@@ -3,7 +3,7 @@ title: Connect your AWS account
 description: Defend your AWS resources by using Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy
 ms.custom: devx-track-linux
-ms.date: 09/05/2023
+ms.date: 10/22/2023
 ---
 
 # Connect your AWS account to Microsoft Defender for Cloud
@@ -219,6 +219,14 @@ Deploy the CloudFormation template by using Stack (or StackSet if you have a man
       ]  
     }  
     ```
+
+    > [!NOTE]
+    > When running the CloudFormation StackSets when onboarding an AWS management account, you may encounter the following error message:
+    > `You must enable organizations access to operate a service managed stack set`
+    >
+    > This error indicates that you have noe enabled [the trusted access for AWS Organizations](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-activate-trusted-access.html).
+    >
+    > To remediate this error message, your CloudFormation StackSets page has a prompt with a button that you can select to enable trusted access. After trusted access is enabled, the CloudFormation Stack must be run again.
 
 ## Monitor your AWS resources
 
