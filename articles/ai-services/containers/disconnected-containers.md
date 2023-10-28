@@ -165,7 +165,7 @@ it will return a JSON response similar to the example below:
 }
 ```
 
-## Purchase a different commitment plan for disconnected containers
+## Purchase a commitment plan to use containers in disconnected environments
 
 Commitment plans for disconnected containers have a calendar year commitment period. When you purchase a plan, you'll be charged the full price immediately. During the commitment period, you can't change your commitment plan, however you can purchase additional unit(s) at a pro-rated price for the remaining days in the year. You have until midnight (UTC) on the last day of your commitment, to end a commitment plan.
 
