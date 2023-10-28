@@ -31,6 +31,28 @@
       href: ai-studio/how-to/model-catalog.md
     - name: Azure AI capabilities
       href: ai-studio/how-to/models-foundation-azure-ai.md
+  - name: Data indexes and connections
+    items:
+    - name: Concepts
+      items:
+      - name: Connections and access control
+        href: ai-studio/concepts/connections.md
+      - name: Retrieval augmented generation
+        href: ai-studio/concepts/retrieval-augmented-generation.md
+      - name: Vector index
+        href: ai-studio/concepts/vector-stores.md
+    - name: Create a connection
+      href: ai-studio/how-to/connections-add.md
+    - name: Create an index
+      href: ai-studio/how-to/index-add.md
+    - name: Add data to your project
+      href: ai-studio/how-to/data-add.md
+    - name: Generate synthetic data
+      items:
+      - name: Generate samples from your dataset
+        href: ai-studio/how-to/generate-data-qa.md
+      - name: Simulate interaction data with your app
+        href: ai-studio/how-to/simulator-interaction-data.md
   - name: Costs and quotas
     items:
     - name: Plan and manage costs
