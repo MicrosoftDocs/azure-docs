@@ -216,3 +216,7 @@ dfTxLog.select(col("add")("path").alias("file_path")).withColumn("version",subst
 
 :::image type="content" source="./media/azure-hdinsight-spark-on-aks-delta-lake/data-after-each-data-load.png" alt-text="Screenshot KPI data after each data load." border="true" lightbox="./media/azure-hdinsight-spark-on-aks-delta-lake/data-after-each-data-load.png":::
 
+## Reference
+
+* **Note** : Apache, Apache Spark, Spark, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).
+
