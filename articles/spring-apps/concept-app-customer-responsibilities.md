@@ -49,7 +49,7 @@ The following sections describe the version support that applies to the Enterpri
 
 You can deploy polyglot applications to the Enterprise plan with source code. To enjoy the best stability, use SDKs with LTS versions that are officially supported.
 
-When you deploy your polyglot applications to the Enterprise plan, assign specific LTS versions for the SDKs. Otherwise, the default SDK version might change during the regular upgrades for builder components. For more information about deploying polygot apps, see [How to deploy polyglot apps in the Azure Spring Apps Enterprise plan](how-to-enterprise-deploy-polyglot-apps.md).
+When you deploy your polyglot applications to the Enterprise plan, assign specific LTS versions for the SDKs. Otherwise, the default SDK version might change during the regular upgrades for builder components. For more information about deploying polyglot apps, see [How to deploy polyglot apps in the Azure Spring Apps Enterprise plan](how-to-enterprise-deploy-polyglot-apps.md).
 
 | Type   | Support policy                                                                                              |
 |--------|-------------------------------------------------------------------------------------------------------------|
