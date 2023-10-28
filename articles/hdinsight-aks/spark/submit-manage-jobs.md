@@ -264,4 +264,6 @@ An Apache Spark cluster on HDInsight on AKS. For instructions, see [Create an 
 
    :::image type="content" source="./media/submit-manage-jobs/view-logs.png" alt-text="View Logs." lightbox="./media/submit-manage-jobs/view-logs.png":::
 
+## Reference
 
+* **Note** : Apache, Apache Spark, Spark, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).
