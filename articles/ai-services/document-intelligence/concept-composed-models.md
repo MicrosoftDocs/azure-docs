@@ -13,6 +13,8 @@ ms.author: lajanuar
 # Document Intelligence composed custom models
 
 ::: moniker range="doc-intel-4.0.0"
+[!INCLUDE [preview-version-notice](includes/preview-notice.md)]
+
 [!INCLUDE [applies to v4.0](includes/applies-to-v40.md)]
 ::: moniker-end
 
