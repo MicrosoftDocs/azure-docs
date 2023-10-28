@@ -64,15 +64,15 @@ landingContent:
             url: how-to-configure-project-environment-types.md
 
   # Card
-  - title: Configure Deployment Environment from the CLI
+  - title: Configure Deployment Environments from the CLI
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Create and configure a dev center with the CLI
+          - text: Create and configure a dev center 
             url: how-to-create-configure-dev-center.md
-          - text: Create and configure a project with the CLI
+          - text: Create and configure a project 
             url: how-to-create-configure-projects.md
-          - text: Create environments with the CLI
+          - text: Create environments
             url: how-to-create-access-environments.md
         
   # Card
