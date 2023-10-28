@@ -39,7 +39,7 @@ You can configure the `AZURE_COMMUNICATION_CONNECTION_STRING` environment variab
 ##### [Windows](#tab/windows)
 
 ```console
-setx AZURE_COMMUNICATION_STRING "<yourConnectionString>"
+setx AZURE_COMMUNICATION_CONNECTION_STRING "<connectionString>"
 ```
 
 After you add the environment variable, you may need to restart any running programs that will need to read the environment variable, including the console window. For example, if you're using Visual Studio as your editor, restart Visual Studio before running the example. 
@@ -49,7 +49,7 @@ After you add the environment variable, you may need to restart any running prog
 Edit your **`.zshrc`**, and add the environment variable:
 
 ```bash
-export AZURE_COMMUNICATION_STRING="<connectionString>"
+export AZURE_COMMUNICATION_CONNECTION_STRING="<connectionString>"
 ```
 
 After you add the environment variable, run `source ~/.zshrc` from your console window to make the changes effective. If you created the environment variable with your IDE open, you may need to close and reopen the editor, IDE, or shell in order to access the variable. 
@@ -59,7 +59,7 @@ After you add the environment variable, run `source ~/.zshrc` from your console 
 Edit your **`.bash_profile`**, and add the environment variable:
 
 ```bash
-export AZURE_COMMUNICATION_STRING="<connectionString>"
+export AZURE_COMMUNICATION_CONNECTION_STRING="<connectionString>"
 ```
 
 After you add the environment variable, run `source ~/.bash_profile` from your console window to make the changes effective. If you created the environment variable with your IDE open, you may need to close and reopen the editor, IDE, or shell in order to access the variable. 

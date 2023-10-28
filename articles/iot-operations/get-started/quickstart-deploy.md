@@ -40,9 +40,11 @@ The services deployed in this quickstart include:
 
 Azure IoT Operations is a suite of data services that run on Arc-enabled Kubernetes clusters, and those services need to be managed remotely. Orchestrator is the service that helps you define, deploy, and manage these application workloads.
 
-## Configure secrets and certificates
+## Configure a secrets store on your cluster
 
-Azure IoT Operations supports Azure Key Vault for storing secrets and certificates. In this section, you create a key vault, set up a service principal to give access to the key vault, and configure the secrets that you need for the rest of this quickstart.
+Azure IoT Operations supports Azure Key Vault for storing secrets and certificates. In this section, you create a key vault and set up a service principal to give your cluster access to the key vault.
+
+Whenever you create a pipeline or process that connects to Azure resources, you'll need to create a secret. This section covers the steps to set up a secrets provider class on your cluster, 
 
 ### Create a vault
 
@@ -86,6 +88,9 @@ Azure IoT Operations supports Azure Key Vault for storing secrets and certificat
    | ----- | ----- |
    | **Name** | Call your secret `PlaceholderSecret`. |
    | **Secret value** | Provide any value for your secret. |
+
+   >[!TIP]
+   >This secret is just a placeholder secret to use while configuring your cluster. It's not going to be used for any resources in this quickstart scenario.
 
 1. Select **Create**.
 
@@ -135,7 +140,10 @@ Create a client secret that will be added to your Kubernetes cluster to authenti
 
 1. Provide an optional description for the secret, then select **Add**.
 
-1. Copy the **Value** and **Secret ID** from your new secret. You'll use these values later in the quickstart.
+1. Copy the **Value** from your new secret. You'll use this value later in the quickstart.
+
+   >[!IMPORTANT]
+   >Once you leave this page, you won't be able to view the value of the secret again.
 
 Finally, return to your key vault to grant an access policy for the service principal.
 
@@ -161,17 +169,17 @@ Finally, return to your key vault to grant an access policy for the service prin
 
 Now that your Azure resources and permissions are configured, you need to add this information to the Kubernetes cluster where you're going to deploy Azure IoT Operations. We've provided a setup script that runs these steps for you.
 
-1. Download or copy the [setup-cluster.sh](https://github.com/Azure/azure-iot-operations/blob/main/tools/setup-cluster/setup-cluster.sh) and save the file locally.
+1. Download or copy the [setup-cluster.sh](https://github.com/Azure/azure-iot-operations/blob/main/tools/setup-cluster/setup-cluster.sh) file and save it locally.
 
 1. Open the file in the text editor of your choice and update the following variables:
 
    | Variable | Value |
    | -------- | ----- |
-   | **Subscription** | Your Azure subscription ID. |
+   | **SUBSCRIPTION** | Your Azure subscription ID. |
    | **RESOURCE_GROUP** | The resource group where your Arc-enabled cluster is located. |
    | **CLUSTER_NAME** | The name of your Arc-enabled cluster. |
-   | **TENANT_ID** | Your Azure directory ID. You can find this value in the Azure portal settings page. |
-   | **AKV_SP_CLIENTID** | The client secret ID that you copied in the previous section. |
+   | **TENANT_ID** | Your Azure directory ID. You can find this value on the **Overview** page of most Azure resources in the Azure portal or on the Azure portal settings page. |
+   | **AKV_SP_CLIENTID** | The client ID of the app registration that you created in the previous section. You can find this value on the **Overview** page of your application. |
    | **AKV_SP_CLIENTSECRET** | The client secret value that you copied in the previous section. |
    | **AKV_NAME** | The name of your key vault. |
    | **PLACEHOLDER_SECRET** | (Optional) If you named your secret something other than `PlaceholderSecret`, replace the default value of this parameter. |
@@ -192,7 +200,7 @@ Now that your Azure resources and permissions are configured, you need to add th
    #### [PowerShell](#tab/powershell)
 
    ```powershell
-   bash <FILE_PATH>\setup-cluster.sh
+   bash <FILE_PATH>/setup-cluster.sh
    ```
 
    ---
@@ -231,13 +239,25 @@ Use the Azure portal to deploy Azure IoT Operations components to your Arc-enabl
 
 ## View resources in your cluster
 
+While the deployment is in progress, you can watch the resources being applied to your cluster. You can use kubectl commands to observe changes on the cluster or, since the cluster is Arc-enabled, you can use the Azure portal.
+
+To view the pods on your cluster, run the following command:
+
+```bash
+kubectl get pods -n azure-iot-operations
+```
+
+It can take several minutes for the deployment to complete. Continue running the `get pods` command to refresh your view.
+
+To view your cluster on the Azure portal, use the following steps:
+
 1. In the Azure portal, navigate to the resource group that contains your cluster.
 
 1. From the **Overview** of the resource group, select the name of your cluster.
 
 1. On your cluster, select **Extensions** from the menu.
 
-   You can see that your cluster is running extensions of the type **iotoperations**, which is the group name for all of the Azure IoT Operations components and the orchestration service.
+   You can see that your cluster is running extensions of the type **microsoft.iotoperations.x**, which is the group name for all of the Azure IoT Operations components and the orchestration service.
 
    There is also an extension called **akvsecretsprovider**. This extension is the secrets provider that you configured and installed on your cluster with the `setup-cluster.sh` script. You might delete and reinstall the Azure IoT Operations components during the course of testing, but keep the secrets provider extension on your cluster.
 
@@ -249,7 +269,7 @@ In this quickstart, you configured your Arc-enabled Kubernetes cluster so that i
 
 If you're continuing on to the next quickstart, keep all of your resources.
 
-If you want to delete the Azure IoT Operations deployment but plan on reinstalling it on your cluster, be sure to keep the secrets provider on your cluster. In your cluster on the Azure portal, select the extensions of the type **iotoperations**, then select **Uninstall**.
+If you want to delete the Azure IoT Operations deployment but plan on reinstalling it on your cluster, be sure to keep the secrets provider on your cluster. In your cluster on the Azure portal, select the extensions of the type **microsoft.iotoperations.x** and **microsoft.deviceregistry.assets**, then select **Uninstall**.
 
 If you want to delete all of the resources you created for this quickstart, delete the Kubernetes cluster that you deployed Azure IoT Operations to and remove the Azure resource group that contained the cluster.
 

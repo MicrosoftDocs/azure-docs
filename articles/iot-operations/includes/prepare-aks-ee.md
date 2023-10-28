@@ -68,8 +68,8 @@ To connect your cluster to Azure Arc:
     az provider register -n "Microsoft.ExtendedLocation"
     az provider register -n "Microsoft.Kubernetes"
     az provider register -n "Microsoft.KubernetesConfiguration"
-    az provider register -n "Microsoft.Symphony"
-    az provider register -n "Microsoft.Bluefin"
+    az provider register -n "Microsoft.IoTOperationsOrchestrator"
+    az provider register -n "Microsoft.IoTOperationsDataProcessor"
     az provider register -n "Microsoft.DeviceRegistry"
     ```
 
@@ -105,6 +105,8 @@ To connect your cluster to Azure Arc:
    ```bash
    az connectedk8s enable-features -n $CLUSTER_NAME -g $RESOURCE_GROUP --custom-locations-oid <objectId/id> --features cluster-connect custom-locations
    ```
+
+### Configure cluster network
 
 After you've deployed Azure IoT Operations Preview to your cluster, enable inbound connections to E4K distributed MQTT broker and configure port forwarding:
 
