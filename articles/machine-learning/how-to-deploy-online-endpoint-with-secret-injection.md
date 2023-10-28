@@ -202,11 +202,13 @@ In this article, you learn to use [secret injection](concept-secret-injection.md
 
 1. Initiate the creation of the deployment using the scoring script (if custom model approach is taken) or a Dockerfile (if BYOC approach is taken), specifying environment variables the user expects within the user container. If the values that are mapped to the environment variables follow certain patterns, secret retrieval and injection will be performed using the endpoint identity.
     1. Patterns
-        1. ${{azureml://connections/<connection_name>}}: The whole [List Secrets API (preview)](/rest/api/azureml/2023-08-01-preview/workspace-connections/list-secrets) response is injected into the environment variable.
-        1. ${{azureml://connections/<connection_name>/credentials/<credential_name>}}: The value of the credential is injected into the environment variable.
-        1. ${{azureml://connections/<connection_name>/metadata/<metadata_name>}}: The value of the metadata is injected into the environment variable.
-        1. ${{azureml://connections/<connection_name>/target}}: The value of the target (where applicable) is injected into the environment variable.
-        1. ${{keyvault:https://<keyvault_name>.vault.azure.net/secrets/<secret_name>/<secret_version>}}: The value of the secret version is injected into the environment variable.
+        | pattern | behavior |
+        | -- | -- |
+        | `${{azureml://connections/<connection_name>}}` | The whole [List Secrets API (preview)](/rest/api/azureml/2023-08-01-preview/workspace-connections/list-secrets) response is injected into the environment variable. |
+        | `${{azureml://connections/<connection_name>/credentials/<credential_name>}}` | The value of the credential is injected into the environment variable. |
+        | `${{azureml://connections/<connection_name>/metadata/<metadata_name>}}` | The value of the metadata is injected into the environment variable. |
+        | `${{azureml://connections/<connection_name>/target}}` | The value of the target (where applicable) is injected into the environment variable. |
+        | `${{keyvault:https://<keyvault_name>.vault.azure.net/secrets/<secret_name>/<secret_version>}}` | The value of the secret version is injected into the environment variable. |
     1. For example,
 
         Create `deployment.yaml`:
