@@ -38,7 +38,9 @@ When configured, Azure Chaos Studio uses Azure Storage, which uses the customer-
 
 ## Configure your Azure storage account
  
-When creating and/or updating your storage account to use for a CMK experiment, you need to navigate to the encryption tab and set the Encryption type to Customer-managed keys (CMK) and fill out all required information. **NOTE** The User-assigned managed identity that you use should match the one you use for the corresponding Chaos Studio CMK-enabled experiment. 
+When creating and/or updating your storage account to use for a CMK experiment, you need to navigate to the encryption tab and set the Encryption type to Customer-managed keys (CMK) and fill out all required information. 
+> [!NOTE]
+> The User-assigned managed identity that you use should match the one you use for the corresponding Chaos Studio CMK-enabled experiment. 
  
 ## Use customer-managed keys with Azure Chaos Studio
  
@@ -53,7 +55,8 @@ You can only configure customer-managed encryption keys when you create a new Az
  
 The following code sample shows an example PUT command for creating or updating a Chaos Studio experiment resource to enable customer-managed keys:
 
-**NOTE** The two parameters specific to CMK experiments are under the "CustomerDataStorage" block, in which we ask for the Subscription ID of the Azure Blob Storage Account you want to use to storage your experiment data and the name of the Blob Storage container to use or create. 
+> [!NOTE]
+>The two parameters specific to CMK experiments are under the "CustomerDataStorage" block, in which we ask for the Subscription ID of the Azure Blob Storage Account you want to use to storage your experiment data and the name of the Blob Storage container to use or create. 
  
 ```HTTP
 PUT https://management.azure.com/subscriptions/<yourSubscriptionID>/resourceGroups/exampleRG/providers/Microsoft.Chaos/experiments/exampleExperiment?api-version=2023-10-27-preview
@@ -113,11 +116,13 @@ If you run the same PUT command from the previous example on an existing CMK-ena
 
 ## Re-enable CMK on a Chaos Studio experiment
  
-If you run the same PUT command from the previous example on an an existing experiment resource using the 2023-10-27-preview REST API and populate the fields in "customerDataStorage", CMK is re-enabled on an experiment. 
+If you run the same PUT command from the previous example on an existing experiment resource using the 2023-10-27-preview REST API and populate the fields in "customerDataStorage", CMK is re-enabled on an experiment. 
 
 ## Change the user-assigned managed identity for retrieving the encryption key
  
-You can change the managed identity for customer-managed keys for an existing Chaos Studio experiment at any time. The outcome would be identical to updating the User-assigned Managed identity for any Chaos Studio experiment. **NOTE** If the User-Assigned Managed Identity does NOT have the correct permissions to retrieve the CMK from your key vault and write to the Blob Storage, the PUT command to update the UMI fails. 
+You can change the managed identity for customer-managed keys for an existing Chaos Studio experiment at any time. The outcome would be identical to updating the User-assigned Managed identity for any Chaos Studio experiment. 
+> [!NOTE]
+>If the User-Assigned Managed Identity does NOT have the correct permissions to retrieve the CMK from your key vault and write to the Blob Storage, the PUT command to update the UMI fails. 
 
 ### List whether an experiment is CMK-enabled or not
  
