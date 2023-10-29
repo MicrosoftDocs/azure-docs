@@ -195,13 +195,15 @@ In this section, you deploy the data connector agent. After you deploy the agent
 
 ### Deploy the data connector agent
 
-1. From the Microsoft Sentinel portal, select **Data connectors**.
-1. In the search bar, type *Microsoft Sentinel for SAP*.
-1. Select the **Microsoft Sentinel for SAP** connector and select **Open connector**.
+Now that you've created a VM and a Key Vault, you can create a new agent and connect to one of your SAP systems.
+
+1. From the Microsoft Sentinel navigation menu, select **Data connectors**.
+1. In the search bar, type *SAP*.
+1. Select **Microsoft Sentinel for SAP** from the search results, and select **Open connector page**.
 
     You create an agent and SAP system under the **Configuration > Add an API based collector agent** area.
     
-    :::image type="content" source="media/deploy-data-connector-agent-container/configuration-new-agent.png" alt-text="Screenshot of the Configuration > Add an API based collector agent area of the SAP data connector page." lightbox="media/deploy-data-connector-agent-container/configuration-new-agent.png":::
+    :::image type="content" source="media/deploy-data-connector-agent-container/configuration-new-agent.png" alt-text="Screenshot of the instructions to add an SAP API-based collector agent." lightbox="media/deploy-data-connector-agent-container/configuration-new-agent.png":::
 
 1. Deploy the agent. To add a system, you must add an agent first. 
     
