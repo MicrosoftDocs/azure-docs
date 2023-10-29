@@ -1,7 +1,7 @@
 ---
-title: Generate product name ideas in the Azure AI Studio playground
+title: Moderate text and images with content safety in Azure AI Studio
 titleSuffix: Azure OpenAI
-description: Use this article to generate product name ideas in the Azure AI Studio playground.
+description: Use this article to moderate text and images with content safety in Azure AI Studio.
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-services
@@ -10,7 +10,7 @@ ms.date: 10/1/2023
 ms.author: eur
 ---
 
-# QuickStart: Content Safety in Azure AI Studio
+# QuickStart: Moderate text and images with content safety in Azure AI Studio
 
 In this quickstart, get started with the [Azure AI Content Safety](/azure/ai-services/content-safety/overview) service in Azure AI Studio. Content Safety detects harmful user-generated and AI-generated content in applications and services. 
 
@@ -32,13 +32,13 @@ Azure AI Studio provides a capability for you to quickly try out text moderation
 
 1. Sign in to [Azure AI Studio](https://aka.ms/aistudio) and select **Explore** from the top menu.
 1. Select **Content safety** panel under **Responsible AI**.
-
-    :::image type="content" source="../media/quickstarts/content-safety-explore.png" alt-text="Screenshot of content safety cards in the Azure AI Studio explore tab." lightbox="../media/quickstarts/content-safety-explore.png":::
-
 1. Select **Try it out** in the **Moderate text content** panel.
+
+    :::image type="content" source="../media/quickstarts/content-safety-explore-text.png" alt-text="Screenshot of the moderate text content tool in the Azure AI Studio explore tab." lightbox="../media/quickstarts/content-safety-explore-text.png":::
+
 1. Enter text in the **Test** field, or select sample text from the panels on the page.
 
-    :::image type="content" source="../media/quickstarts/content-safety-text.png" alt-text="Screenshot of content safety cards in the Azure AI Studio explore tab." lightbox="../media/quickstarts/content-safety-text.png":::
+    :::image type="content" source="../media/quickstarts/content-safety-text.png" alt-text="Screenshot of the moderate image content page." lightbox="../media/quickstarts/content-safety-text.png":::
 
 1. Optionally, you can use slide controls in the **Configure filters** tab to modify the allowed or prohibited severity levels for each category.
 1. Select **Run test**.
@@ -53,10 +53,10 @@ Azure AI Studio provides a capability for you to quickly try out image moderatio
 
 1. Sign in to [Azure AI Studio](https://aka.ms/aistudio) and select **Explore** from the top menu.
 1. Select **Content safety** panel under **Responsible AI**.
-
-    :::image type="content" source="../media/quickstarts/content-safety-explore.png" alt-text="Screenshot of the moderate text content page." lightbox="../media/quickstarts/content-safety-explore.png":::
-
 1. Select **Try it out** in the **Moderate image content** panel.
+
+    :::image type="content" source="../media/quickstarts/content-safety-explore-image.png" alt-text="Screenshot of the moderate image content tool in the Azure AI Studio explore tab." lightbox="../media/quickstarts/content-safety-explore-image.png":::
+
 1. Select a sample image from the panels on the page, or upload your own image. The maximum size for image submissions is 4 MB, and image dimensions must be between 50 x 50 pixels and 2,048 x 2,048 pixels. Images can be in JPEG, PNG, GIF, BMP, TIFF, or WEBP formats.
 
     :::image type="content" source="../media/quickstarts/content-safety-image.png" alt-text="Screenshot of the moderate image content page." lightbox="../media/quickstarts/content-safety-image.png":::
@@ -73,7 +73,6 @@ The service returns all the categories that were detected, the severity level fo
 You can use the **View Code** feature in both *moderate text content* or *moderate image content* page to view and copy the sample code, which includes configuration for severity filtering, blocklists, and moderation functions. You can then deploy the code on your end.
 
 :::image type="content" source="../media/quickstarts/content-safety-image.png" alt-text="Screenshot of viewing the code in the moderate text content page." lightbox="../media/quickstarts/content-safety-image.png":::
-:::image type="content" source="media/viewcode.png" alt-text="Screenshot of the View code.":::
 
 
 ## Clean up resources
