@@ -110,7 +110,11 @@ The following operating system (OS) software versions are compatible with these 
 1. Under **Operating systems**, select the source of the image.
 
 
-        1. For **Database OS image**, select the OS image for the database server.
+1. If you're using Azure Marketplace OS images, use these settings: 
+
+    1. For **Application OS image**, select the OS image for the application server. 
+    
+    1. For **Database OS image**, select the OS image for the database server.
     1. If you're using [custom OS images](deploy-s4hana.md#using-custom-operating-system-image), use these settings:
         
         1. For **Application OS image**, select the Image Version from the Azure Compute Gallery.
