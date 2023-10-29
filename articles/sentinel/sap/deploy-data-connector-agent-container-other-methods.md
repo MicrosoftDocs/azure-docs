@@ -114,7 +114,7 @@ Read about the [deployment process](deploy-data-connector-agent-container.md#dat
     ```
     The script updates the OS components, installs the Azure CLI and Docker software and other required utilities (jq, netcat, curl), and prompts you for configuration parameter values. You can supply additional parameters to the script to minimize the number of prompts or to customize the container deployment. For more information on available command line options, see [Kickstart script reference](reference-kickstart.md).
 
-2. **Follow the on-screen instructions** to enter your SAP and key vault details and complete the deployment. When the deployment is complete, a confirmation message is displayed:
+1. **Follow the on-screen instructions** to enter your SAP and key vault details and complete the deployment. When the deployment is complete, a confirmation message is displayed:
 
     ```bash
     The process has been successfully completed, thank you!
@@ -122,7 +122,7 @@ Read about the [deployment process](deploy-data-connector-agent-container.md#dat
 
    Note the Docker container name in the script output. You'll use it in the next step.
 
-3. Run the following command to **configure the Docker container to start automatically**.
+1. Run the following command to **configure the Docker container to start automatically**.
 
     ```bash
     docker update --restart unless-stopped <container-name>
