@@ -19,7 +19,7 @@ After reviewing all the recommendations, decide which one to remediate first. We
 
 1. From the list, select a recommendation.
 
-1. Follow the instructions in the **Remediation steps** section. Each recommendation has its own set of instructions. The following screenshot shows remediation steps for configuring applications to only allow traffic over HTTPS.
+1. Follow the instructions in the **Remediate** section. Each recommendation has its own set of instructions. The following screenshot shows remediation steps for configuring applications to only allow traffic over HTTPS.
 
     :::image type="content" source="./media/implement-security-recommendations/security-center-remediate-recommendation.png" alt-text="Manual remediation steps for a recommendation." lightbox="./media/implement-security-recommendations/security-center-remediate-recommendation.png":::
 
@@ -31,31 +31,20 @@ To simplify remediation and improve your environment's security (and increase yo
 
 **Fix** helps you quickly remediate a recommendation on multiple resources.
 
-To implement a **Fix**:
+**To implement a Fix**:
 
-1. From the list of recommendations that have the **Fix** action icon :::image type="icon" source="media/implement-security-recommendations/fix-icon.png" border="false":::, select a recommendation.
+1. Select a recommendation from the list of recommendations.
+
+1. If the remediate section, shows a **Fix** action icon :::image type="icon" source="media/implement-security-recommendations/fix-icon.png" border="false":::.
 
     :::image type="content" source="./media/implement-security-recommendations/microsoft-defender-for-cloud-recommendations-fix-action.png" alt-text="Recommendations list highlighting recommendations with Fix action" lightbox="./media/implement-security-recommendations/microsoft-defender-for-cloud-recommendations-fix-action.png":::
 
-1. From the **Unhealthy resources** tab, select the resources that you want to implement the recommendation on, and select **Fix**.
+1. Select the **Fix** button.
 
-    > [!NOTE]
-    > Some of the listed resources might be disabled, because you don't have the appropriate permissions to modify them.
-
-1. In the confirmation box, read the remediation details and implications.
-
-    ![Quick fix.](./media/implement-security-recommendations/microsoft-defender-for-cloud-quick-fix-view.png)
-
-    > [!NOTE]
-    > The implications are listed in the grey box in the **Fixing resources** window that opens after clicking **Fix**. They list what changes happen when proceeding with the **Fix**.
-:::image type="content" source="media/implement-security-recommendations/fixing-resources-window.png" alt-text="Screenshot showing fixing resources window." lightbox="media/implement-security-recommendations/fixing-resources-window.png":::
-
-1. Insert the relevant parameters if necessary, and approve the remediation.
+1. Follow the rest of the rediation steps
 
     > [!NOTE]
     > It can take several minutes after remediation completes to see the resources in the **Healthy resources** tab. To view the remediation actions, check the [activity log](#activity-log).
-
-1. Once completed, a notification appears informing you if the remediation succeeded.
 
 <a name="activity-log"></a>
 
