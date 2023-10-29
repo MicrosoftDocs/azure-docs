@@ -96,7 +96,7 @@ The Ansible playbooks must be named according to the following naming convention
 
 ## Adding custom repositories to the SAP Deployment Automation Framework installation for Linux
 
-If you need to register additional Linux package repositories to the Virtual Machines deployed by the framework, you can add the following section to the sap-parameters-yaml file.
+If you need to register extra Linux package repositories to the Virtual Machines deployed by the framework, you can add the following section to the sap-parameters-yaml file.
 
 In this example, the repository 'epel' is registered on all the hosts in your SAP deployment that are running RedHat 8.2.
 
@@ -110,7 +110,7 @@ custom_repos:
 
 ## Adding custom packages to the SAP Deployment Automation Framework installation for Linux
 
-If you need to install additional Linux packages to the Virtual Machines deployed by the framework, you can add the following section to the sap-parameters-yaml file.
+If you need to install more Linux packages to the Virtual Machines deployed by the framework, you can add the following section to the sap-parameters-yaml file.
 
 In this example, the package 'openssl' is installed on all the hosts in your SAP deployment that are running SUSE Enterprise Linux for SAP Applications version 15.3.
 
