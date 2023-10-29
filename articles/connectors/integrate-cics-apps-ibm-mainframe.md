@@ -61,7 +61,7 @@ This operation also includes advanced parameters, which appear after you select 
 
   To invoke a mainframe program, your workflow needs to understand the mainframe program's type, parameters, and return values. The CICS connector manages the process and data conversions, which are required for providing input data from the workflow to the mainframe program and for sending any output data generated from the mainframe program to the workflow. For this process, Azure Logic Apps requires that you provide this information as metadata.
 
-  To create this metadata, use the [HIS Designer for Logic Apps](/host-integration-server/core/application-integration-ladesigner-2). With this tool, you can manually create the methods, parameters and return values that will be  used by your workflow. The tool also allows you to import COBOL or RPG program definitions (copybooks) that provide this information.
+  To create this metadata, use the [HIS Designer for Logic Apps](/host-integration-server/core/application-integration-ladesigner-2). With this tool, you can manually create the methods, parameters, and return values that you use in your workflow. The tool also allows you to import COBOL or RPG program definitions (copybooks) that provide this information.
 
   The tool generates a Host Integration Designer XML (HIDX) file that provides the necessary metadata for the connector. If you're using HIS, you can use the TI Designer to create the HIDX file.
 
