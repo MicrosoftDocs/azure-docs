@@ -1,7 +1,7 @@
 ---
-title: Deploy machine learning models to online endpoints with secret injection
+title: Access secrets from online deployment using secret injection (preview)
 titleSuffix: Azure Machine Learning
-description: Learn to use secret injection with online endpoint and deployment.
+description: Learn to use secret injection with online endpoint and deployment to access secrets like API keys.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: inferencing
@@ -14,133 +14,155 @@ ms.topic: how-to
 ms.custom: how-to, ignite-2023, sdkv2
 ---
 
-# Deploy machine learning models to online endpoints with secret injection (preview)
+# Access secrets from online deployment using secret injection (preview)
 
 [!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
-In this article, you learn to use [secret injection](concept-secret-injection.md) with online endpoint and deployment. You start by setting up the user identity and its permission, create workspace connections and/or key vaults to use as secret stores, and then create the endpoint and deployment by using the secret injection feature.
+In this article, you learn to use secret injection with an online endpoint and deployment to access secrets from a secret store. You start by setting up your user identity and its permissions, then you create workspace connections and/or key vaults to use as secret stores and, finally, you create the endpoint and deployment by using the secret injection feature.
 
 [!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## Prerequisites
 
-- Choice of secret stores to use.
-    - Workspace connections under the workspace. Later at endpoint creation time, the endpoint identity can be granted to read secrets from the workspace connections automatically, if certain conditions are met. See system-assigned identity tab from [Create an endpoint](#create-an-endpoint) for more.
-    - Key vaults that aren't necessarily under the workspace. The endpoint identity won't be granted to read secrets from these automatically. Hence, if you want to use Key Vault as a secret store, you must assign a proper role later.
+- To use Azure Machine Learning, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
-- Workspace connections to use as secret stores.
-    - Create workspace connections to use in your deployment. See [Workspace Connections - Create REST API](/rest/api/azureml/2023-08-01-preview/workspace-connections/create) for more. <!-- CLI link will be added later -->
-    - For example,
-        - Create an Azure OpenAI connection
+- Install and configure the [Azure Machine Learning CLI (v2) extension](how-to-configure-cli.md) or the [Azure Machine Learning Python SDK (v2)](https://aka.ms/sdk-v2-install).
 
-            Create `aoai_connection.yaml`:
+- An Azure Resource group, in which you (or the service principal you use) need to have `User Access Administrator` and  `Contributor` access. You'll have such a resource group if you configured your Azure Machine Learning extension as stated previously.
 
-            ```YAML
-            name: aoai_connection
-            type: azure_openai
-            target: https://<name>.openai.azure.com
-            api_version: <version>
-            credentials:
-                type: api_key
-                key: <key>
-            ```
+- An Azure Machine Learning workspace. You'll have a workspace if you configured your Azure Machine Learning extension as stated previously.
 
-            Create the connection:
+- A trained machine learning model ready for scoring and deployment.
 
-            ```azurecli
-            az ml connections create -f aoai_connection.yaml
-            ```
+## Choose a secret store
 
-        - Create a custom connection
+Choose to store your secrets (such as API keys) using either:
 
-            Create `custom_connection.yaml`:
+- Workspace connections under the workspace. Later at endpoint creation time, the endpoint identity can be granted permission to read secrets from the workspace connections automatically, if certain conditions are met. See system-assigned identity tab from [Create an endpoint](#create-an-endpoint) for more.
+- Key vaults that aren't necessarily under the workspace. The endpoint identity won't be granted permission to read secrets from these key vaults automatically. Hence, if you want to use a managed key vault service such as Microsoft Azure Key Vault as a secret store, you must assign a proper role later.
 
-            ```YAML
-            name: multi_connection_langchain
+#### Use workspace connection as a secret store
+
+You can create workspace connections to use in your deployment. For more information, see [Workspace Connections - Create REST API](/rest/api/azureml/2023-08-01-preview/workspace-connections/create) for more. <!-- CLI link will be added later --> For example, you can create a connection to Microsoft Azure OpenAI Service or create a custom connection.
+
+1. Create an Azure OpenAI connection:
+    1. Create `aoai_connection.yaml`:
+
+        ```YAML
+        name: aoai_connection
+        type: azure_openai
+        target: https://<name>.openai.azure.com
+        api_version: <version>
+        credentials:
+            type: api_key
+            key: <key>
+        ```
+
+    1. Create the connection:
+
+        ```azurecli
+        az ml connections create -f aoai_connection.yaml
+        ```
+
+1. Alternatively, you can create a custom connection:
+
+    1. Create `custom_connection.yaml`:
+
+        ```YAML
+        name: multi_connection_langchain
+        type: custom
+        credentials:
             type: custom
-            credentials:
-                type: custom
-                OPENAI_API_KEY: <key>
-                SPEECH_KEY: <key>
-            tags:
-                OPENAI_API_BASE : <aoai endpoint>
-                OPENAI_API_VERSION : <aoai version>
-                OPENAI_API_TYPE: azure
-                SPEECH__REGION : eastus
-            ```
+            OPENAI_API_KEY: <key>
+            SPEECH_KEY: <key>
+        tags:
+            OPENAI_API_BASE : <aoai endpoint>
+            OPENAI_API_VERSION : <aoai version>
+            OPENAI_API_TYPE: azure
+            SPEECH__REGION : eastus
+        ```
 
-            Create the connection:
+    1. Create the connection:
 
-            ```azurecli
-            az ml connections create -f custom_connection.yaml
-            ```
+        ```azurecli
+        az ml connections create -f custom_connection.yaml
+        ```
 
-        - Verify that the user identity can read the secrets from the workspace connection using the [Workspace Connections - List Secrets REST API (preview)](/rest/api/azureml/2023-08-01-preview/workspace-connections/list-secrets).
-- (Optional) Key Vault to use as secret stores.
-    - Create Azure Key Vault and set a secret to use in your deployment. See [Set and retrieve a secret from Azure Key Vault using Azure CLI](../key-vault/secrets/quick-create-cli.md) for more. In addition,
-        - [az keyvault CLI](/cli/azure/keyvault#az-keyvault-create) and [Set Secret REST API](/rest/api/keyvault/secrets/set-secret/set-secret) show how to set a secret.
-        - [az keyvault secret show CLI](/cli/azure/keyvault/secret#az-keyvault-secret-show) and [Get Secret Versions REST API](/rest/api/keyvault/secrets/get-secret-versions/get-secret-versions) show how to retrieve a secret version.
-    - For example,
-        - Create a key vault
-    
-            ```azurecli
-            az keyvault create --name mykeyvault --resource-group myrg --location eastus
-            ```
-        - Create a secret
+1. Verify that the user identity can read the secrets from the workspace connection, by using the [Workspace Connections - List Secrets REST API (preview)](/rest/api/azureml/2023-08-01-preview/workspace-connections/list-secrets).
 
-            ```azurecli
-            az keyvault secret set --vault-name mykeyvault --name secret1 --value <value>
-            ``` 
+#### (Optional) Use Azure Key Vault as a secret store
 
-            This command returns the secret version it creates. You can check `id` property of the response to get the secret version. For example, it looks like `https://mykeyvault.vault.azure.net/secrets/<secret_name>/<secret_version>`.
+Create the Key Vault and set a secret to use in your deployment. For more information, see [Set and retrieve a secret from Azure Key Vault using Azure CLI](../key-vault/secrets/quick-create-cli.md). Also,
+- [az keyvault CLI](/cli/azure/keyvault#az-keyvault-create) and [Set Secret REST API](/rest/api/keyvault/secrets/set-secret/set-secret) show how to set a secret.
+- [az keyvault secret show CLI](/cli/azure/keyvault/secret#az-keyvault-secret-show) and [Get Secret Versions REST API](/rest/api/keyvault/secrets/get-secret-versions/get-secret-versions) show how to retrieve a secret version.
 
-        - Verify that the user identity can read the secret from the key vault
+1. Create a key vault:
 
-            ```azurecli
-            az keyvault secret show --vault-name mykeyvault --name secret1 --version <secret_version>
-            ```
+    ```azurecli
+    az keyvault create --name mykeyvault --resource-group myrg --location eastus
+    ```
 
-    > [!IMPORTANT]
-    > If you use Key Vault as a secret store for secret injection, you must configure the key vault's permission model as `Azure role-based access control` (RBAC). See [Azure RBAC vs access policy for Key Vault](../key-vault/general/rbac-access-policy) for more.
+1. Create a secret:
 
-- Choice of user identity to use to create the online endpoint and online deployment.
-    - Follow [Set up authentication for Azure Machine Learning resources and workflows](how-to-setup-authentication.md) to set up the user identity. It can be a user account, a service principal account, or a managed identity in Microsoft Entra ID.
-- (Optional) Role assignment to the user identity.
-    - If a user wants the system-assigned identity (SAI) to be automatically granted for reading secrets from workspace connections, the _user_ needs to be assigned a role `Azure Machine Learning Workspace Connection Secret Reader` on the scope of the workspace (or higher).
-        - An admin that has `Microsoft.Authorization/roleAssignments/write` permission can run a CLI command to assign the role to the _user identity_:
+    ```azurecli
+    az keyvault secret set --vault-name mykeyvault --name secret1 --value <value>
+    ```
+
+    This command returns the secret version it creates. You can check the `id` property of the response to get the secret version. The returned response looks like `https://mykeyvault.vault.azure.net/secrets/<secret_name>/<secret_version>`.
+
+1. Verify that the user identity can read the secret from the key vault:
+
+    ```azurecli
+    az keyvault secret show --vault-name mykeyvault --name secret1 --version <secret_version>
+    ```
+
+> [!IMPORTANT]
+> If you use the Key Vault as a secret store for secret injection, you must configure the key vault's permission model as `Azure role-based access control` (RBAC). For more information, see [Azure RBAC vs access policy for Key Vault](../key-vault/general/rbac-access-policy).
+
+## Choose user identity
+
+Choose the user identity to use to create the online endpoint and online deployment.
+- You can set up a user identity by following the steps in [Set up authentication for Azure Machine Learning resources and workflows](how-to-setup-authentication.md). This user identity can be a user account, a service principal account, or a managed identity in Microsoft Entra ID.
+
+#### (Optional) Assign role to the user identity
+
+- If your user identity wants the endpoint's system-assigned identity (SAI) to be automatically granted permission to read secrets from workspace connections, the user identity needs to be assigned the `Azure Machine Learning Workspace Connection Secret Reader` role (or higher) on the scope of the workspace.
+    - An admin that has the `Microsoft.Authorization/roleAssignments/write` permission can run a CLI command to assign the role to the _user identity_:
 
         ```azurecli
         az role assignment create --assignee <UserIdentityID> --role "Azure Machine Learning Workspace Connection Secret Reader" --scope /subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/Microsoft.MachineLearningServices/workspaces/<workspaceName>
         ```
 
-        > [!NOTE]
-        > System-assigned identity of the endpoint won't be automatically granted for reading secrets from key vaults. Hence, the _user_ doesn't need to be assigned a role for the key vault. 
+    > [!NOTE]
+    > The endpoint's system-assigned identity (SAI) won't be automatically granted permission for reading secrets from key vaults. Hence, the user identity doesn't need to be assigned a role for the Key Vault.
 
-    - If you want to use user-assigned identity (UAI) for the endpoint, you don't need to assign the role to your _user identity_. Instead, you must assign the role to the _UAI_ manually if you intend to use secret injection. For example,
-        - An admin that has `Microsoft.Authorization/roleAssignments/write` permission can run below commands to assign the role to the _endpoint identity_:
+- If you want to use a user-assigned identity (UAI) for the endpoint, you don't need to assign the role to your _user identity_. Instead, if you intend to use secret injection, you must assign the role to the endpoint's UAI manually. For example,
+    - An admin that has the `Microsoft.Authorization/roleAssignments/write` permission can run the following commands to assign the role to the _endpoint identity_:
 
-        For workspace connections:
+    __For workspace connections__:
 
-        ```azurecli
-        az role assignment create --assignee <EndpointIdentityID> --role "Azure Machine Learning Workspace Connection Secret Reader" --scope /subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/Microsoft.MachineLearningServices/workspaces/<workspaceName>
-        ```
+    ```azurecli
+    az role assignment create --assignee <EndpointIdentityID> --role "Azure Machine Learning Workspace Connection Secret Reader" --scope /subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/Microsoft.MachineLearningServices/workspaces/<workspaceName>
+    ```
 
-        Or for key vaults:
+    __For key vaults__:
 
-        ```azurecli
-        az role assignment create --assignee <EndpointIdentityID> --role "Key Vault Secrets User" --scope /subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/Microsoft.KeyVault/vaults/<vaultName>
-        ```
+    ```azurecli
+    az role assignment create --assignee <EndpointIdentityID> --role "Key Vault Secrets User" --scope /subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/Microsoft.KeyVault/vaults/<vaultName>
+    ```
 
-    - To verify that an identity (either user identity or endpoint identity) has the role assigned, you can go to the resource in Azure portal (for example, Azure Machine Learning workspace, or Key Vault), click the `Access control (IAM)` tab, and `Check access` button, then find the identity. You can verify if the right role shows under the `Current role assignments` tab.
-
+- To verify that an identity (either a user identity or endpoint identity) has the role assigned, you can go to the resource in the Azure portal. For example, in the Azure Machine Learning workspace or the Key Vault:
+    1. Select the `Access control (IAM)` tab.
+    1. Select the `Check access` button and find the identity.
+    1. Verify that the right role shows up under the `Current role assignments` tab.
 
 ## Create an endpoint
 
 ### [System-assigned identity](#tab/sai)
 
-1. If you are using SAI as the endpoint identity, specify whether you want to enforce access to default secret stores (namely, workspace connections under the workspace) to the endpoint identity:
+If you're using a system-assigned identity (SAI) as the endpoint identity, specify whether you want to enforce access to default secret stores (namely, workspace connections under the workspace) to the endpoint identity:
 
-    Create `endpoint.yaml`:
+1. Create `endpoint.yaml`:
 
     ```YAML
     $schema: https://azuremlschemas.azureedge.net/latest/managedOnlineEndpoint.schema.json
@@ -150,28 +172,27 @@ In this article, you learn to use [secret injection](concept-secret-injection.md
         enforce_access_to_default_secret_stores: enabled  # default: disabled
     ```
 
-    Create the endpoint:
+1. Create the endpoint:
 
     ```azurecli
     az ml online-endpoint create -f endpoint.yaml
     ```
 
-  > [!NOTE]
-  > If you do not specify `identity` property in the endpoint definition, the endpoint will use system-assigned identity by default.
-  > 
-  > If below conditions are met, the endpoint identity will be granted with `Azure Machine Learning Workspace Connection Secret Reader` role on the scope of the workspace (or higher) automatically:
-  >  
-  > - The user identity that creates the _endpoint_ has the permissions to read secrets from workspace connections.
-  > - The endpoint uses system-assigned identity.
-  > - The endpoint is defined with a flag to enforce access to default secret stores (workspace connections under the current workspace) when creating the endpoint.
-  >
-  > The endpoint identity won't be automatically granted a role to read secrets from Key Vault. If you want to use Key Vault as a secret store, you need to assign a proper role such as `Key Vault Secrets User` to the _endpoint identity_ on the scope of the Key Vault manually. See [Azure built-in roles for Key Vault data plane operations](../key-vault/general/rbac-guide.md#azure-built-in-roles-for-key-vault-data-plane-operations) for more.
+If you don't specify the `identity` property in the endpoint definition, the endpoint will use an SAI by default.
+
+If the following conditions are met, the endpoint identity will automatically be granted the `Azure Machine Learning Workspace Connection Secret Reader` role (or higher) on the scope of the workspace:
+  
+- The user identity that creates the _endpoint_ has the permissions to read secrets from workspace connections.
+- The endpoint uses an SAI.
+- The endpoint is defined with a flag to enforce access to default secret stores (workspace connections under the current workspace) when creating the endpoint.
+
+The endpoint identity won't automatically be granted a role to read secrets from the Key Vault. If you want to use the Key Vault as a secret store, you need to manually assign a proper role such as `Key Vault Secrets User` to the _endpoint identity_ on the scope of the Key Vault. For more information, see [Azure built-in roles for Key Vault data plane operations](../key-vault/general/rbac-guide.md#azure-built-in-roles-for-key-vault-data-plane-operations).
 
 ### [User-assigned identity](#tab/uai)
 
-1. If you are using UAI as the endpoint identity, you are not allowed to specify the `enforce_access_to_default_secret_stores` flag:
+If you're using a user-assigned identity (UAI) as the endpoint identity, you're not allowed to specify the `enforce_access_to_default_secret_stores` flag:
 
-    Create `endpoint.yaml`:
+1. Create `endpoint.yaml`:
 
     ```YAML
     $schema: https://azuremlschemas.azureedge.net/latest/managedOnlineEndpoint.schema.json
@@ -182,39 +203,39 @@ In this article, you learn to use [secret injection](concept-secret-injection.md
         user_assigned_identities: /subscriptions/00000000-0000-0000-000-000000000000/resourcegroups/myrg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/my-identity 
     ```
 
-    Create the endpoint:
+1. Create the endpoint:
 
     ```azurecli
     az ml online-endpoint create -f endpoint.yaml
     ```
 
-> [!NOTE]
-  > When using user-assigned identity, you must assign any required roles to the endpoint identity manually as needed. See [prerequisites](#prerequisites) for more.
+When using a UAI, you must manually assign any required roles to the endpoint identity as described in the optional section [Assign role to the user identity](#optional-assign-role-to-the-user-identity).
 
 ---
 
-
 ## Create a deployment
 
-1. Author scoring script or Dockerfile and related scripts so that it can consume the secrets via environment variables.
+1. Author a scoring script or Dockerfile and the related scripts so that the deployment can consume the secrets via environment variables.
     1. There's no need for you to call the secret retrieval APIs for the workspace connections or key vaults. The environment variables are populated with the secrets when the user container in the deployment initiates.
-1. The value that is injected into environment variable can be one of the three types:
-    1. The whole [List Secrets API (preview)](/rest/api/azureml/2023-08-01-preview/workspace-connections/list-secrets) response. You'll need to understand the API response structure and parse it and use it in the user container.
+
+1. The value that's injected into an environment variable can be one of the three types:
+    1. The whole [List Secrets API (preview)](/rest/api/azureml/2023-08-01-preview/workspace-connections/list-secrets) response. You'll need to understand the API response structure, parse it, and use it in your user container.
     1. Individual secret or metadata from the workspace connection. You can use it without understanding the workspace connection API response structure.
-    1. Individual secret version from the key vault. You can use it without understanding the key vault API response structure.
+    1. Individual secret version from the Key Vault. You can use it without understanding the Key Vault API response structure.
 
-1. Initiate the creation of the deployment using the scoring script (if custom model approach is taken) or a Dockerfile (if BYOC approach is taken), specifying environment variables the user expects within the user container. If the values that are mapped to the environment variables follow certain patterns, secret retrieval and injection will be performed using the endpoint identity.
-    1. Patterns
-        | pattern | behavior |
-        | -- | -- |
-        | `${{azureml://connections/<connection_name>}}` | The whole [List Secrets API (preview)](/rest/api/azureml/2023-08-01-preview/workspace-connections/list-secrets) response is injected into the environment variable. |
-        | `${{azureml://connections/<connection_name>/credentials/<credential_name>}}` | The value of the credential is injected into the environment variable. |
-        | `${{azureml://connections/<connection_name>/metadata/<metadata_name>}}` | The value of the metadata is injected into the environment variable. |
-        | `${{azureml://connections/<connection_name>/target}}` | The value of the target (where applicable) is injected into the environment variable. |
-        | `${{keyvault:https://<keyvault_name>.vault.azure.net/secrets/<secret_name>/<secret_version>}}` | The value of the secret version is injected into the environment variable. |
-    1. For example,
+1. Initiate the creation of the deployment, using the scoring script (if you use a custom model) or a Dockerfile (if you take the BYOC approach to deployment), specifying environment variables the user expects within the user container. If the values that are mapped to the environment variables follow certain patterns, secret retrieval and injection will be performed using the endpoint identity.
 
-        Create `deployment.yaml`:
+    | Pattern | Behavior |
+    | -- | -- |
+    | `${{azureml://connections/<connection_name>}}` | The whole [List Secrets API (preview)](/rest/api/azureml/2023-08-01-preview/workspace-connections/list-secrets) response is injected into the environment variable. |
+    | `${{azureml://connections/<connection_name>/credentials/<credential_name>}}` | The value of the credential is injected into the environment variable. |
+    | `${{azureml://connections/<connection_name>/metadata/<metadata_name>}}` | The value of the metadata is injected into the environment variable. |
+    | `${{azureml://connections/<connection_name>/target}}` | The value of the target (where applicable) is injected into the environment variable. |
+    | `${{keyvault:https://<keyvault_name>.vault.azure.net/secrets/<secret_name>/<secret_version>}}` | The value of the secret version is injected into the environment variable. |
+
+    For example:
+
+    1. Create `deployment.yaml`:
 
         ```YAML
         $schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json
@@ -231,20 +252,21 @@ In this article, you learn to use [secret injection](concept-secret-injection.md
             USER_SECRET_KV1_KEY: ${{keyvault:https://mykeyvault.vault.azure.net/secrets/secret1/secretversion1}}
         ```
 
-        Create the deployment:
+    1. Create the deployment:
 
         ```azurecli
         az ml online-deployment create -f deployment.yaml
         ```
 
-> [!IMPORTANT]
-> - If `enforce_access_to_default_secret_stores` flag was set at the endpoint, user identity's permission to read secrets from workspace connections will be checked in both endpoint creation and deployment creation time. If the user identity does not have the permission, the creation will fail.
-> - At deployment creation time, if any environment variable is mapped to a value that follows the fore-mentioned patterns, secret retrieval and injection will be performed with the endpoint identity. This endpoint identity can be either system-assigned identity or user-assigned identity. If the endpoint identity does not have the permission to read secrets from designated secret stores (either workspace connections or key vaults), the creation will fail. If the specified secret reference does not exist in the secret stores, the creation will fail.
+
+If the `enforce_access_to_default_secret_stores` flag was set for the endpoint, the user identity's permission to read secrets from workspace connections will be checked both at endpoint creation and deployment creation time. If the user identity doesn't have the permission, the creation will fail.
+
+At deployment creation time, if any environment variable is mapped to a value that follows the afore-mentioned patterns, secret retrieval and injection will be performed with the endpoint identity (either an SAI or a UAI). If the endpoint identity does not have the permission to read secrets from designated secret stores (either workspace connections or key vaults), the creation will fail. Also, if the specified secret reference doesn't exist in the secret stores, the creation will fail.
 
 
-## Next step
+## Related content
 
-- [Secret injection in online endpoints](concept-secret-injection.md)
+- [Secret injection in online endpoints (preview)](concept-secret-injection.md)
 - [How to authenticate online endpoint](how-to-authenticate-online-endpoint.md)
 - [Deploy and score a model using an online endpoint](how-to-deploy-online-endpoints.md)
 - [Use a custom container to deploy a model using an online endpoint](how-to-deploy-custom-container.md)
