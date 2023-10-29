@@ -24,7 +24,7 @@ To configure the scaling settings Azure IoT MQ broker, you need to specify the `
 
 The `mode` field can be one of these values:
 
-- `auto`: This value indicates that Azure IoT MQ operator automatically deploys the appropriate number of pods based on the cluster hardware. *auto* is the default value and the recommended option for most scenarios.
+- `auto`: This value indicates that Azure IoT MQ operator automatically deploys the appropriate number of pods based on the cluster hardware. The default value is *auto* and used for most scenarios.
 - `distributed`: This value indicates that you can manually specify the number of frontend pods and backend chains in the `cardinality` field. This option gives you more control over the deployment, but requires more configuration.
 
 The `cardinality` field is a nested field that has these subfields:

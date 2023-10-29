@@ -5,7 +5,7 @@ description: Develop distributed applications that talk with Azure IoT MQ using 
 author: PatAltimore
 ms.author: patricka
 ms.topic: how-to
-ms.date: 10/26/2023
+ms.date: 10/29/2023
 
 #CustomerIntent: As an developer, I want to understand how to use MQTTnet to develop distributed apps that talk with Azure IoT MQ.
 ---
@@ -19,7 +19,7 @@ ms.date: 10/26/2023
 
 ## Sample
 
-The [sample code](https://github.com/microsoft/e4k-playground/blob/dot-net/samples/dotnet-client/Program.cs) does the following -
+The [sample code](https://github.com/microsoft/e4k-playground/blob/dot-net/samples/dotnet-client/Program.cs) does the following steps.
 
 Creates an MQTT client using the `MQTTFactory` class:
 
@@ -57,13 +57,13 @@ All options for the MQTT client are bundled in the class named `MqttClientOption
                 .Build();
 ```
 
-After setting up the MQTT client options, a connection can be established. The following code shows how to connect with a server. The *CancellationToken.None* can be replaced by a valid *CancellationToken*, if needed.
+After setting up the MQTT client options, a connection can be established. The following code shows how to connect with a server. You can replace the *CancellationToken.None* with a valid *CancellationToken*, if needed.
 
 ```csharp
  var response = await mqttClient.ConnectAsync(mqttClientOptions, CancellationToken.None);
 ```
 
-MQTT messages can be created using the properties directly or via using `MqttApplicationMessageBuilder`. This class has some useful overloads that allow dealing with different payload formats easily. The API of the builder is a fluent API. The following code shows how to compose an application message and publish them to a topic called `sampletopic`:
+MQTT messages can be created using the properties directly or via using `MqttApplicationMessageBuilder`. This class has some useful overloads that allow dealing with different payload formats. The API of the builder is a fluent API. The following code shows how to compose an application message and publish them to a topic called *sampletopic*:
 
 ```csharp
  var applicationMessage = new MqttApplicationMessageBuilder()
@@ -77,11 +77,11 @@ MQTT messages can be created using the properties directly or via using `MqttApp
 
 ### Pod specification
 
-The full pod specification is available in the [sample](https://github.com/microsoft/e4k-playground/blob/main/samples/dotnet-client/deploy/pod.yaml). The important sections are highlighted in this section.
+The full pod specification is available in the [GitHub sample](https://github.com/microsoft/e4k-playground/blob/main/samples/dotnet-client/deploy/pod.yaml). The important sections are highlighted in this section.
 
 The `serviceAccountName` field in the pod configuration must match the service account associated with the token being used. Also, note the `serviceAccountToken.expirationSeconds` is set to **86400 seconds**, and once it expires, you need to reload the token from disk. This logic isn't currently implemented in the sample.
 
-```yaml {hl_lines=[8,10,11,12,13,14,15,16,20,21,22]}
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -100,7 +100,7 @@ spec:
             expirationSeconds: 86400
   containers:
     - name: publisherclient
-      image: alicesprings.azurecr.io/dotnetmqttsample
+      image: e4kpreview.azurecr.io/dotnetmqttsample
       volumeMounts:
         - name: mqtt-client-token
           mountPath: /var/run/secrets/tokens
