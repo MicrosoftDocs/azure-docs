@@ -62,6 +62,7 @@ Data sensitivity settings define what's considered sensitive data in your organi
 - **Predefined sensitive information types**: Defender for Cloud uses the built-in sensitive information types in [Microsoft Purview](/microsoft-365/compliance/sensitive-information-type-learn-about). This ensures consistent classification across services and workloads. Some of these types are enabled by default in Defender for Cloud. You can modify these defaults.
 - **Custom information types/labels**: You can optionally import custom sensitive information types and [labels](/microsoft-365/compliance/sensitivity-labels) that you've defined in the Microsoft Purview compliance portal.
 - **Sensitive data thresholds**: In Defender for Cloud you can set the threshold for sensitive data labels. The threshold determines minimum confidence level for a label to be marked as sensitive in Defender for Cloud. Thresholds make it easier to explore sensitive data.
+Refer to [list of scanned sensitive info types supported by Microsoft Defender for Cloud](sensitive-info-types-supported-by-mdc.md).
 
 When discovering resources for data sensitivity, results are based on these settings.
 
@@ -72,5 +73,4 @@ Changes in sensitivity settings take effect the next time that resources are dis
 ## Next steps
 
 - [Prepare and review requirements](concept-data-security-posture-prepare.md) for data-aware security posture management.
-
-- [Understanding data aware security posture - Defender for Cloud in the Field video](episode-thirty-one.md)
+- [Understanding data aware security posture - Defender for Cloud in the Field video](episode-thirty-one.md).

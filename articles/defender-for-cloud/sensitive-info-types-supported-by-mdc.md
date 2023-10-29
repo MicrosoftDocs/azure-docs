@@ -4,7 +4,7 @@ description: List table of Sensitive information types supported by Microsoft De
 author: AlizaBernstein
 ms.author: v-bernsteina
 ms.topic: reference
-ms.date: 10/26/2023
+ms.date: 10/29/2023
 ---
 
 # Sensitive information types supported by Microsoft Defender for Cloud
@@ -156,10 +156,10 @@ The finance, PII (personally identifiable information), and credentials categori
 | [Lithuania driver's license number](/purview/sit-defn-lithuania-drivers-license-number) | Other | NO |
 | [Lithuania passport number](/purview/sit-defn-lithuania-passport-number) | Other| NO |
 | [Lithuania personal code](/purview/sit-defn-lithuania-personal-code) | PII | YES |
-| [Luxemburg driver's license number](/purview/sit-defn-luxemburg-drivers-license-number) | Other | NO |
-| [Luxemburg national identification number (natural persons)](/purview/sit-defn-luxemburg-national-identification-number-natural-persons) | PII | YES |
-| [Luxemburg national identification number (non-natural persons)](/purview/sit-defn-luxemburg-national-identification-number-non-natural-persons) | Other | NO |
-| [Luxemburg passport number](/purview/sit-defn-luxemburg-passport-number) | Other | NO |
+| [Luxembourg driver's license number](/purview/sit-defn-luxemburg-drivers-license-number) | Other | NO |
+| [Luxembourg national identification number (natural persons)](/purview/sit-defn-luxemburg-national-identification-number-natural-persons) | PII | YES |
+| [Luxembourg national identification number (non-natural persons)](/purview/sit-defn-luxemburg-national-identification-number-non-natural-persons) | Other | NO |
+| [Luxembourg passport number](/purview/sit-defn-luxemburg-passport-number) | Other | NO |
 | [Malaysia identification card number](/purview/sit-defn-malaysia-identification-card-number) | Other | NO |
 | [Malta driver's license number](/purview/sit-defn-malta-drivers-license-number) | Other | NO |
 | [Malta identity card number](/purview/sit-defn-malta-identity-card-number) | Other | NO |
