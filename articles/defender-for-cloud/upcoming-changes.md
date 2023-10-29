@@ -39,7 +39,7 @@ If you're looking for the latest release notes, you can find them in the [What's
 
 ## General availability of Containers Vulnerability Assessment powered by Microsoft Defender Vulnerability Management (MDVM) in Defender for Containers and Defender for Container Registries
 
-**Announcement date: October 29, 2023**
+**Announcement date: October 30, 2023**
 
 **Estimated date for change: November 15, 2023**
 
