@@ -28,7 +28,7 @@ The Ansible playbooks must be named according to the following naming convention
 
 'Playbook name_pre' for playbooks to be run before the SDAF playbook and 'Playbook name_post' for playbooks to be run after the SDAF playbook.
 
-> [!div class="mx-tdCol2BreakAll "]
+> [!div class="mx-tdBreakAll "]
 > | SDAF Playbook name                        | Description                                                       | Playbook name for 'pre' tasks'                | Playbook name for 'post' tasks'                |
 > | ----------------------------------------- | ----------------------------------------------------------------- | --------------------------------------------- | ---------------------------------------------- |
 > | `playbook_01_os_base_config.yaml`         | Base operating system configuration                               | `playbook_01_os_base_config_pre.yaml`         | `playbook_01_os_base_config_post.yaml`         |
