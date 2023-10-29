@@ -1,7 +1,7 @@
 ---
 title: An overview of pre-scripts and post-scripts in your Azure Update Manager
 description: This article provides an overview on pre and post scripts and its requirements.
-services: azure-update-manager
+ms.service: azure-update-manager
 ms.date: 10/29/2023
 ms.topic: conceptual
 author: SnehaSudhir 
