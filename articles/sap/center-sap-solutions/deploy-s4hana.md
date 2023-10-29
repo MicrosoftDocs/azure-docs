@@ -237,7 +237,7 @@ In this section of how to guides, you will learn how to use custom images for de
 - Please ensure the prerequisites for [deployment](#prerequisites), [downloading SAP media](/articles/sap/center-sap-solutions/get-sap-installation-media.md#prerequisites), and [installation](/articles/sap/center-sap-solutions/install-software.md#prerequisites) are met for a successful deployment of the SAP system.
 
 ### Deploying using Custom Operating System Image
-- Select **“Use a custom image”** option during deployment. Choose the image to be used for OS image for Application and Database OS.  
+- Select the **Use a custom image** option during deployment. Choose which image to use for the application and database OS.
 
 - Azure Center for SAP Solutions validates the base operating system version of the custom OS Image is available in the supportability matrix in Azure Center for SAP Solutions. If the versions are unsupported, the deployment fails. To fix this problem, delete the VIS and infrastructure resources from the resource group, then deploy again with a supported image.
 
