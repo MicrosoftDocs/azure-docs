@@ -13,19 +13,19 @@ ms.author: sudhirsneha
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
 
 Pre-scripts and post-scripts are runbooks that you can attach to your upcoming schedules for patching your machines before and after installing the updates. They enable you to:
-- Start VMs, patch them and shut them down again.
+- Start VMs patch them and shut them down again.
 - Stop a service on the machine, patch it and start the service again.
 
-For example, if there is a maintenance configuration or a schedule that you must run on a specific date and time and some of your VMs are de-allocated, you will get failed deployments. In such scenarios, you run the pre-scripts before starting the patching process to run a sequence of events.
+For example, if there's a maintenance configuration or a schedule that you must run on a specific date and time and some of your VMs are deallocated, you get failed deployments. In such scenarios, you run the pre-scripts before starting the patching process to run a sequence of events.
 
  Pre-scripts run at the beginning of the patching process. On Windows, post-scripts run at the end of the deployment and after any reboots that are configured. For Linux, post-scripts run after the end of the deployment, not after the machine reboots. 
 
 
 ## Key capabilities
 
-- **Works with various end points** - You can choose to configure additional endpoints such as Webhooks or Azure Functions or Storage accounts.
+- **Works with various end points** - You can choose to configure other endpoints such as Webhooks or Azure Functions or Storage accounts.
 
-- **Compatibility with the [Event Grid](../event-grid/overview.md)** allows you deliver the pre script and post script.
+- **Compatibility with the [Event Grid](../event-grid/overview.md)** allows you to deliver the pre script and post script.
 
 ## Pre-script and post-script parameters
 
@@ -45,7 +45,7 @@ Pre-script and post-script runbook parameters don't support boolean, object, or 
 
 If you need another object type, you can cast it to another type with your own logic in the runbook.
 
-In addition to your standard runbook parameters, the `SoftwareUpdateConfigurationRunContext` parameter (type JSON string) is provided. If you define the parameter in your pre-script or post-script runbook, it's automatically passed in by the update deployment. The parameter contains information about the update deployment, which is a subset of information returned by the [SoftwareUpdateconfigurations API](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration). Sections below define the associated properties.
+In addition to your standard runbook parameters, the `SoftwareUpdateConfigurationRunContext` parameter (type JSON string) is provided. If you define the parameter in your pre-script or post-script runbook, it's automatically passed in by the update deployment. The parameter contains information about the update deployment, which is a subset of information returned by the [SoftwareUpdateconfigurations API](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration). The following sections define the associated properties.
 
 ## Next steps
 
