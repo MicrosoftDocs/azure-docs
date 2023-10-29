@@ -107,7 +107,7 @@ The following operating system (OS) software versions are compatible with these 
 
     1. For **Application subnet** and **Database subnet**, map the IP address ranges as required. It's recommended to use a different subnet for each deployment. The names including AzureFirewallSubnet, AzureFirewallManagementSubnet, AzureBastionSubnet and GatewaySubnet are reserved names within Azure. Please do not use these as the subnet names.
 
-1. Under **Operating systems**, select the source of the image,
+1. Under **Operating systems**, select the source of the image.
     1. In case of marketplace OS image,
 
         1. For **Application OS image**, select the OS image for the application server.
