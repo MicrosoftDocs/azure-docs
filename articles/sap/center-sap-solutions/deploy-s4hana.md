@@ -241,7 +241,6 @@ In this section of how to guides, you will learn how to use custom images for de
 
 - Azure Center for SAP Solutions validates the base operating system version of the custom OS Image is available in the supportability matrix in Azure Center for SAP Solutions. If the versions are unsupported, the deployment fails. To fix this problem, delete the VIS and infrastructure resources from the resource group, then deploy again with a supported image.
 
-- In case of such an error, please delete the VIS and infrastructure resources that might be created in the Resource Group and then try deploying again with a supported image.
 
 - Make sure the image version that you're using is [compatible with the SAP software version](#deployment-types).
   
