@@ -149,31 +149,6 @@ The following table lists the data fields returned from the API response:
 | Properties.graphComponent.connections | List of connections graph components related to the attack path |
 | Properties.AttackPathID | The unique identifier of the attack path instance |
 
-## External attack surface management (EASM)
-
-An external attack surface is the entire area of an organization or system that is susceptible to an attack from an external source. An organization's attack surface is made up of all the points of access that an unauthorized person could use to enter their system. The larger your attack surface is, the harder it's to protect.
-
-While you're [investigating and remediating an attack path](#investigate-and-remediate-attack-paths), you can also view your EASM if it's available, and if you've enabled Defender EASM to your subscription.
-
-> [!NOTE]
-> To manage your EASM, you must [deploy the Defender EASM Azure resource](../external-attack-surface-management/deploying-the-defender-easm-azure-resource.md) to your subscription. Defender EASM has its own cost and is separate from Defender for Cloud. To learn more about Defender for EASM pricing options, you can check out the [pricing page](https://azure.microsoft.com/pricing/details/defender-external-attack-surface-management/).
-
-**To manage your EASM**:
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. Navigate to **Microsoft Defender for Cloud** > **Attack path analysis**.
-
-1. Select an attack path.
-
-1. Select a resource.
-
-1. Select **Insights**.
-
-1. Select **Open EASM**.
-
-1. Follow the [Using and managing discovery](../external-attack-surface-management/using-and-managing-discovery.md) instructions.
-
 ## Next Steps
 
 Learn how to [build queries with cloud security explorer](how-to-manage-cloud-security-explorer.md).

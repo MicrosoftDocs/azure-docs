@@ -2,7 +2,7 @@
 title: Improving your security posture with recommendations
 description: This document walks you through how to identify security recommendations that will help you improve your security posture.
 ms.topic: how-to
-ms.date: 01/10/2023
+ms.date: 10/29/2023
 ---
 
 # Find recommendations that can improve your security posture
@@ -13,9 +13,7 @@ To get to the list of recommendations:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Either:
-    - In the Defender for Cloud overview, select **Security posture** and then select **View recommendations** for the environment you want to improve.
-    - Go to **Recommendations** in the Defender for Cloud menu.
+1. Navigate to **Microsoft Defender for Cloud** > **Recommendations**.
 
 You can search for specific recommendations by name. Use the search box and filters above the list of recommendations to find specific recommendations. Look at the [details of the recommendation](security-policy-concept.md#security-recommendation-details) to decide whether to [remediate it](implement-security-recommendations.md), [exempt resources](exempt-resource.md), or [disable the recommendation](tutorial-security-policy.md#disable-a-security-recommendation).
 
@@ -31,7 +29,9 @@ The list of recommendations shows the **Potential score increase** that you can 
 To find recommendations that can improve your secure score:
 
 1. In the list of recommendations, use the **Potential score increase** to identify the security control that contains recommendations that will increase your secure score.
-    - You can also use the search box and filters above the list of recommendations to find specific recommendations.
+
+    You can also use the search box and filters above the list of recommendations to find specific recommendations.
+
 1. Open a security control to see the recommendations that have unhealthy resources.
 
 When you [remediate](implement-security-recommendations.md) all of the recommendations in the security control, your secure score increases by the percentage point listed for the control.

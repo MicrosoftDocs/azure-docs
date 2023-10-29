@@ -4,7 +4,7 @@ description: Learn how to assign owners and due dates to security recommendation
 services: defender-for-cloud
 ms.service: defender-for-cloud
 ms.topic: how-to
-ms.date: 01/23/2023
+ms.date: 10/29/2023
 ---
 
 # Drive remediation with security governance
@@ -130,8 +130,6 @@ You can track the assigned and overdue recommendations in:
     :::image type="content" source="./media/governance-rules/governance-in-security-posture.png" alt-text="Screenshot of governance status in the security posture.":::
 
 - The list of recommendations shows the governance status of each recommendation.
-
-    :::image type="content" source="./media/governance-rules/governance-in-recommendations.png" alt-text="Screenshot of recommendations with their governance status." lightbox="media/governance-rules/governance-in-recommendations.png":::
 
 - The governance report in the governance rules settings lets you drill down into recommendations by rule and owner.
 
