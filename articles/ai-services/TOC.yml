@@ -37,7 +37,7 @@
     items:
     - name: Connections
       items:
-      - name: Connection types
+      - name: Connections overview
         href: ai-studio/concepts/connections.md
       - name: Create a connection
         href: ai-studio/how-to/connections-add.md

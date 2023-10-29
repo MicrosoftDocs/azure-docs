@@ -18,7 +18,7 @@ Connections are a way to authenticate and consume both Microsoft and third-party
 
 ## Create a new connection
 
-1. Sign in to [Azure AI Studio](https://aka.ms/azureaistudio) and select your project via **Build** > **Projects**. If you do not have a project already, first create a project.
+1. Sign in to [Azure AI Studio](https://aka.ms/azureaistudio) and select your project via **Build** > **Projects**. If you don't have a project already, first create a project.
 1. Select **Settings** from the collapsible left menu. 
 1. Select **View all** from the **Connections** section.
 1. Select **+ Connection** under **Resource connections**.

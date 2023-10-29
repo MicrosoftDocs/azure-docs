@@ -50,10 +50,10 @@ This article shows how to create and manage data assets in Azure AI Studio.
 
 Data assets can help when you need these capabilities:
 - Versioning: Data assets support data versioning.
-- Reproducibility: Once you create a data asset version, it is immutable. It cannot be modified or deleted. Therefore, jobs or PromptFlow pipelines that consume the data asset can be reproduced.
+- Reproducibility: Once you create a data asset version, it's immutable. It can't be modified or deleted. Therefore, jobs or PromptFlow pipelines that consume the data asset can be reproduced.
 - Auditability: Because the data asset version is immutable, you can track the asset versions, who updated a version, and when the version updates occurred.
 - Lineage: For any given data asset, you can view which jobs or PromptFlow pipelines consume the data.
-- Ease-of-use: An Azure AI Studio data asset resembles web browser bookmarks (favorites). Instead of remembering long storage paths (URIs) that *reference* your frequently-used data on Azure Storage, you can create a data asset version and then access that version of the asset with a friendly name (for example: `azureml:<my_data_asset_name>:<version>`).
+- Ease-of-use: An Azure AI Studio data asset resembles web browser bookmarks (favorites). Instead of remembering long storage paths (URIs) that *reference* your frequently used data on Azure Storage, you can create a data asset version and then access that version of the asset with a friendly name (for example: `azureml:<my_data_asset_name>:<version>`).
 
 
 
@@ -289,7 +289,7 @@ To archive *all versions* of the data asset under a given name, use:
 
 #### Archive a specific data asset version
 
-Currently, archiving a specific data asset version is not supported in the Studio UI.
+Currently, archiving a specific data asset version isn't supported in the Studio UI.
 
 
 ### Restore an archived data
@@ -311,7 +311,7 @@ To restore all versions of the data asset under a given name, use:
 > [!IMPORTANT]
 > If all data asset versions were archived, you cannot restore individual versions of the data asset - you must restore all versions.
 
-Currently, restoring a specific data asset version is not supported in the Studio UI. To restore a specific data asset version, use:
+Currently, restoring a specific data asset version isn't supported in the Studio UI. To restore a specific data asset version, use:
 
 # [Azure CLI](#tab/cli)
 

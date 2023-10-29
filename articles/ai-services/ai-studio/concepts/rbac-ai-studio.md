@@ -12,7 +12,7 @@ ms.author: eur
 
 # Role-based access control in Azure AI Studio 
 
-In this article, you learn how to manage access (authorization) to an Azure AI resource. Azure role-based access control (Azure RBAC) is used to manage access to Azure resources, such as the ability to create new resources or use existing ones. Users in your Microsoft Entra ID are assigned specific roles, which grant access to resources. Azure provides both built-in roles and the ability to create custom roles. 
+In this article, you learn how to manage access (authorization) to an Azure AI resource. Azure Role-based access control is used to manage access to Azure resources, such as the ability to create new resources or use existing ones. Users in your Microsoft Entra ID are assigned specific roles, which grant access to resources. Azure provides both built-in roles and the ability to create custom roles. 
 
 > [!WARNING]
 > Applying some roles may limit UI functionality in Azure AI Studio for other users. For example, if a user's role does not have the ability to create a compute instance, the option to create a compute instance will not be available in studio. This behavior is expected, and prevents the user from attempting operations that would return an access denied error. 
@@ -32,7 +32,7 @@ Here's a table of the built-in roles and their permissions:
 | AzureML Data Scientist | User has access within a project to perform actions except create computes, use AI resources, and modify the project itself. |
 | Contributor | User has access within a project to perform actions except use AI resources and modify the project itself. |
 
-Most users who wish to use the AI Studio will find that the "Azure AI Developer" role is the best role for them. The full set of permissions for the "Azure AI Developer" role are as follows:
+The "Azure AI Developer" role is the best role for most users of AI Studio. The full set of permissions for the "Azure AI Developer" role are as follows:
 
 ```json
 {

@@ -13,7 +13,7 @@ ms.author: eur
 
 # How to generate question and answer pairs from your source dataset
 
-You can generate question and answer pairs from your source dataset using synthetic data generation. This data can them be used for a variety of purposes like unit testing for your LLM look up, evaluation and iteration of retrieval augmented generation (RAG) flows, and prompt tuning. Let's look into details of how to get this done.
+In this article, you learn how to get question and answer pairs from your source dataset using the Azure AI SDK synthetic data generation. This data can them be used for various purposes like unit testing for your LLM lookup, evaluation and iteration of retrieval augmented generation (RAG) flows, and prompt tuning. 
 
 ## Install the Synthetics Package
 
@@ -51,7 +51,7 @@ aoai_connection.set_current_environment()
 
 ## Initialize the LLM to generate data
 
-In this step we get the LLM ready to generate the data.
+In this step, we get the LLM ready to generate the data.
 
 ```python
 import os
@@ -72,11 +72,11 @@ qa_generator = QADataGenerator(model_config=model_config)
 
 ## Generate the data
 
-We will use the `QADataGenerator` which we initialized above to generate the data. Following types of Q&A data are supported.
+We use the `QADataGenerator` that we previously initialized to generate the data. The following types of question answer data are supported.
 
 |Type|Description|
 |--|--|
-|SHORT_ANSWER|Short answer QAs have answers that are only a few words long. These words are generally relevant details from text like dates, names, statistics, etc.|
+|SHORT_ANSWER|Short answer QAs have answers that are only a few words long. These words are commonly relevant details from text like dates, names, statistics, etc.|
 |LONG_ANSWER|Long answer QAs have answers that are one or more sentences long. ex. Questions where answer is a definition: What is a {topic_from_text}?|
 |BOOLEAN|Boolean QAs have answers that are either True or False.|
 |SUMMARY|Summary QAs have questions that ask to write a summary for text's title in a limited number of words. It generates just one QA.|
@@ -84,13 +84,13 @@ We will use the `QADataGenerator` which we initialized above to generate the dat
 
 ### Generate data from text
 
-Let us create some text. We will use the `generate` function in `QADataGenerator` to generate questions based on the text. In the sample below
+Let us create some text. We use the `generate` function in `QADataGenerator` to generate questions based on the text. In this example, the `generate` function takes the following parameters:
 
 * `text` is your source data.
 * `qa_type` defines the type of question and answers to be generated.
 * `num_questions` is the number of question-answer pairs to be generated for the text.
 
-To start with we will get text from a wiki page on Leonardo di ser Piero da Vinci
+To start with, we get text from a wiki page on Leonardo Da Vinci:
 
 ```python
 # uncomment below line to install wikipedia
@@ -123,9 +123,9 @@ You can check token usage as follows:
 print(f"Tokens used: {result['token_usage']}")
 ```
 
-## Using the generated data in Prompt flow
+## Using the generated data in prompt flow
 
-One of the features of Prompt flow is the ability to test and evaluate your flows on batch of inputs. This is useful for checking the quality and performance of your flows before deploying them. To use this feature, you need to provide the data in a specific (.jsonl) format that prompt flow can understand. We will prepare this data from the questions and answers that we have generated in [Generate data from text](#generate-data-from-text) step. We will then use this data to batch run and evaluation for the flow.
+One of the features of prompt flow is the ability to test and evaluate your flows on batch of inputs. This approach is useful for checking the quality and performance of your flows before deploying them. To use this feature, you need to provide the data in a specific (.jsonl) format that prompt flow can understand. We prepare this data from the questions and answers that we have generated in [Generate data from text](#generate-data-from-text) step. We use this data for batch run and flow evaluation.
 
 ### Format and save the generated data
 
@@ -157,30 +157,30 @@ data_df.to_json(output_file, lines=True, orient="records")
 
 ### Use the data for evaluation
 
-To use the "generated_qa.jsonl" file for evaluation, you need to add this file as data to your evaluation flow. You can do this by going to your desired flow in the Studio UI and click on **Evaluate**.
+To use the "generated_qa.jsonl" file for evaluation, you need to add this file as data to your evaluation flow. Go to a flow in Azure AI Studio and select **Evaluate**.
 
 1. Enter details in **Basic Settings**
-2. In the **Batch run settings**" click on **Add new data**.
+2. Select **Add new data** from **Batch run settings**.
 
     :::image type="content" source="../media/data-connections/batch-run-add-data.png" alt-text="Screenshot of flow batch run file upload." lightbox="../media/data-connections/batch-run-add-data.png":::
 
-1. Provide a name for your data, select the file from you generated, click **Add**. You can also use this name to reuse the uploaded file in other flows.
+1. Provide a name for your data, select the file that you generated, and then select **Add**. You can also use this name to reuse the uploaded file in other flows.
 
     :::image type="content" source="../media/data-connections/upload-file.png" alt-text="Screenshot of upload batch run file upload." lightbox="../media/data-connections/upload-file.png":::
 
-1. Next, you need to map the input fields to the prompt flow parameters. You can see an example of how to do this below.
+1. Next, you map the input fields to the prompt flow parameters. 
 
     :::image type="content" source="../media/data-connections/generate-qa-mappings.png" alt-text="Screenshot of input mappings." lightbox="../media/data-connections/generate-qa-mappings.png":::
 
-1. Complete the rest of the steps in the wizard and submit for evaluation.
+1. Complete the rest of the steps in the dialog and submit for evaluation.
 
 ## Generate data from files
 
-Generating data from files might be more practical for large amounts of data. You can use the `generate_async()` method OF THE `QADataGenerator` to make concurrent requests to Azure Open AI for generating data from files.
+Generating data from files might be more practical for large amounts of data. You can use the `generate_async()` function OF THE `QADataGenerator` to make concurrent requests to Azure Open AI for generating data from files.
 
-Files might have large texts that go beyond model's context lengths. They need to be split to create smaller chunks. Moreover, they should not be split mid-sentence. Such partial sentences might lead to improper QA samples. You can use LangChain's `NLTKTextSplitter` to split the files before generating data.
+Files might have large texts that go beyond model's context lengths. They need to be split to create smaller chunks. Moreover, they shouldn't be split mid-sentence. Such partial sentences might lead to improper QA samples. You can use LangChain's `NLTKTextSplitter` to split the files before generating data.
 
-Given below is an excerpt of the code needed to generate samples using `generate_async()`. 
+Here's an excerpt of the code needed to generate samples using `generate_async()`. 
 
 ```python
 import asyncio
@@ -262,11 +262,11 @@ Q: What are some subjects covered in his notebooks?
 A: In his notebooks, Leonardo da Vinci made drawings and notes on a variety of subjects, including anatomy, astronomy, cartography, and paleontology.
 ```
 
-## Results Structure of generated data
+## Results structure of generated data
 
-The results of the `generate` will be a dictionary with the following structure:
+The `generate` function results are a dictionary with the following structure:
 
-```python
+```json
 {
     "question_answers": [
         ("Who described the first rudimentary steam engine?", "Hero of Alexandria"),

@@ -22,12 +22,12 @@ This article lists some of the benefits of RAG, provides a technical overview, a
 > For a simple explanation of LLM and RAG concepts, see this [video clip](https://youtu.be/2meEvuWAyXs?t=404) from a Microsoft presentation.
 
 
-## What is RAG? Why do i need it?
+## What is RAG? Why do I need it?
 
-Some basics first. Large language models (LLMs) like ChatGPT are trained on public internet data which was available at the point in time when they were trained. They can answer questions related to the data they were trained on. This public data might not be sufficient to meet all your needs. You might want questions answered based on your private data. Or, the public data might simply have gotten out of date. The solution to this problem is Retrieval Augmented Generation (RAG), a pattern used in AI which uses an LLM to generate answers with your own data.
+Some basics first. Large language models (LLMs) like ChatGPT are trained on public internet data that was available at the point in time when they were trained. They can answer questions related to the data they were trained on. This public data might not be sufficient to meet all your needs. You might want questions answered based on your private data. Or, the public data might simply have gotten out of date. The solution to this problem is Retrieval Augmented Generation (RAG), a pattern used in AI that uses an LLM to generate answers with your own data.
 
 
-Retrieval Augmented Generation (RAG) is a pattern that works with pre-trained Large Language Models (LLM) and your own data to generate responses. It allows you to **use your data** with LLMs. So why do you need RAG?
+Retrieval Augmented Generation (RAG) is a pattern that works with pretrained Large Language Models (LLM) and your own data to generate responses. It allows you to **use your data** with LLMs. So why do you need RAG?
 
 Traditionally, a base model is trained with point-in-time data to ensure its effectiveness in performing specific tasks and adapting to the desired domain. However, sometimes you need to work with newer or more current data. Two approaches can supplement the base model: fine-tuning or further training of the base model with new data, or RAG that uses prompt engineering to supplement or guide the model in real time.
 
@@ -42,7 +42,7 @@ RAG allows businesses to achieve customized solutions while maintaining data rel
 
 ## How does RAG work?
 
-RAG is a pattern which uses your data with an LLM to generate answers specific to your data. When a user asks a question, the data store is searched based on user input. The user question is then combined with the matching results and sent to the LLM using a prompt (explicit instructions to an AI or machine learning model) to generate the desired answer. This can be illustrated as follows.
+RAG is a pattern that uses your data with an LLM to generate answers specific to your data. When a user asks a question, the data store is searched based on user input. The user question is then combined with the matching results and sent to the LLM using a prompt (explicit instructions to an AI or machine learning model) to generate the desired answer. This can be illustrated as follows.
 
 :::image type="content" source="../media/rag/rag-pattern.png" alt-text="Diagram of the basic retrieval augmented generation." lightbox="../media/rag/rag-pattern.png":::
 
@@ -67,7 +67,7 @@ Let us look at the diagram in more detail.
 
 RAG in Azure AI Studio is enabled by integration with Azure OpenAI Service for large language models and vectorization, with support for Faiss and Azure AI Search as vector stores, and support for open source offerings tools and frameworks such as LangChain for data chunking. 
 
-To implement RAG, a few key requirements must be met. First, data should be formatted in a manner that allows efficient searchability before sending it to the LLM, which ultimately reduces token consumption. To ensure the effectiveness of RAG, it's also important to regularly update your data on a periodic basis. Furthermore, having the capability to evaluate the output from the LLM using your data enables you to measure the efficacy of your techniques. Azure AI Studio not only allows you to get started easily on these aspects, but also enables you to improve and productionize RAG. Azure AI Studio offers: 
+To implement RAG, a few key requirements must be met. First, data should be formatted in a manner that allows efficient searchability before sending it to the LLM, which ultimately reduces token consumption. To ensure the effectiveness of RAG, it's also important to regularly update your data on a periodic basis. Furthermore, having the capability to evaluate the output from the LLM using your data enables you to measure the efficacy of your techniques. Azure AI Studio not only allows you to get started easily on these aspects, but also enables you to improve and use RAG in production. Azure AI Studio offers: 
 
 + Samples for starting RAG-based Q&A scenarios. 
 + Wizard-based UI experience to create and manage data and incorporate it into prompt flows. 
