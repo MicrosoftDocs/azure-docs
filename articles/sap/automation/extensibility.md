@@ -17,7 +17,7 @@ There are several ways to extend the SAP Deployment Automation Framework. You ca
 > [!NOTE]
 > If you fork the source code repository, you must maintain your fork of the code. You must also merge the changes from the source code repository into your fork of the code whenever there is a new release of the SDAF codebase.
 
-## Executing your own Ansible playbooks as part of the SAP Deployment Automation Framework Azure DevOps orchestration.
+## Executing your own Ansible playbooks as part of the Azure DevOps orchestration.
 
 You can implement your own Ansible playbooks, which are automatically be called as part of the Azure DevOps 'OS Configuration and SAP Installation' pipeline.
 
