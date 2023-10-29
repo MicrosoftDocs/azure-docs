@@ -323,7 +323,7 @@ erDiagram
 ```
 -->
 
-![Diagram showing the mapping between MqttBridgeConnector and MqttBridgeTopicMap.](../media/howto-configure-mqtt-bridge/mqtt-bridge-connector-topic-map.png)
+![Diagram showing the mapping between MqttBridgeConnector and MqttBridgeTopicMap.](../media/howto-configure-mqtt-bridge/mqtt-bridge-connector-topic-map.svg)
 
 The following example shows a MqttBridgeTopicMap configuration for bridging messages from the remote topic `my-remote-topic` to the local topic `my-local-topic`:
 
