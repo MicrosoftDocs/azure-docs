@@ -1,7 +1,7 @@
 ---
 title: Defender for Cloud glossary
 description: The glossary provides a brief description of important Defender for Cloud platform terms and concepts.
-ms.date: 07/18/2023
+ms.date: 10/29/2023
 ms.topic: article
 ---
 
@@ -139,7 +139,7 @@ Distributed denial-of-service, a type of attack where an attacker sends more req
 
 ### **EASM**
 
-External Attack Surface Management. See [EASM Overview](how-to-manage-attack-path.md#external-attack-surface-management-easm).
+External Attack Surface Management. See [EASM Overview](concept-easm.md).
 
 ### **EDR**
 
