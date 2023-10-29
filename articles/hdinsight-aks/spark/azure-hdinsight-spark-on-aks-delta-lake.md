@@ -218,5 +218,5 @@ dfTxLog.select(col("add")("path").alias("file_path")).withColumn("version",subst
 
 ## Reference
 
-* **Note** : Apache, Apache Spark, Spark, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).
+* Apache, Apache Spark, Spark, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).
 

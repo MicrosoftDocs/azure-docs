@@ -41,4 +41,4 @@ This tutorial shows how to connect to OneLake with a Jupyter notebook from an Az
 
 ## Reference
 
-* **Note** : Apache, Apache Spark, Spark, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).
+* Apache, Apache Spark, Spark, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).

@@ -64,7 +64,7 @@ When user updates a configuration in the management portal the corresponding ser
 
 ## Reference
 
-* **Note** : Apache, Apache Spark, Spark, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).
+* Apache, Apache Spark, Spark, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).
   
 ## Next steps
 * [Library management in Spark](./library-management.md)

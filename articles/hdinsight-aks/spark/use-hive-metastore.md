@@ -100,5 +100,5 @@ While you create the cluster, HDInsight service needs to connect to the external
    
 ## Reference
 
-* **Note** : Apache, Apache Spark, Spark, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).
+* Apache, Apache Spark, Spark, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).
 
