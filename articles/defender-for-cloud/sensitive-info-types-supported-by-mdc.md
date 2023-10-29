@@ -15,7 +15,7 @@ The finance, PII (personally identifiable information), and credentials categori
 
 | Sensitive information type name | Microsoft Defender for Cloud info type category | Is default in sensitivity settings? |
 |----------------|----------------|----------------|
-| [ABA routing number](https://learn.microsoft.com/purview/sit-defn-aba-routing) | Finance | YES |
+| [ABA routing number](/purview/sit-defn-aba-routing) | Finance | YES |
 | [Amazon S3 Client Secret Access Key](https://learn.microsoft.com/purview/sit-defn-amazon-s3-client-secret-access-key) | Credentials | YES |
 | [Argentina national identity (DNI) number](https://learn.microsoft.com/purview/sit-defn-argentina-national-identity-numbers) | Other | NO |
 | [ASP.NET machine Key](https://learn.microsoft.com/purview/sit-defn-asp-net-machine-key) | Credentials | YES |
@@ -23,7 +23,7 @@ The finance, PII (personally identifiable information), and credentials categori
 | [Australia business number](https://learn.microsoft.com/purview/sit-defn-australia-business-number) | Other | NO |
 | [Australia company number](https://learn.microsoft.com/purview/sit-defn-australia-business-number) | Other | NO |
 | [Australia drivers license number](https://learn.microsoft.com/purview/sit-defn-australia-drivers-license-number) | Other | NO |
-| [Australia medical account number](https://learn.microsoft.com/purview/sit-defn-australia-medical-account-number) | | Other | NO |
+| [Australia medical account number](https://learn.microsoft.com/purview/sit-defn-australia-medical-account-number) | Other | NO |
 | [Australia passport number](https://learn.microsoft.com/purview/sit-defn-australia-passport-number) | Other | NO |
 | [Australia tax file number](https://learn.microsoft.com/purview/sit-defn-australia-tax-file-number) | Other | NO |
 | [Austria drivers license number](https://learn.microsoft.com/purview/sit-defn-austria-drivers-license-number) | Other | NO |
