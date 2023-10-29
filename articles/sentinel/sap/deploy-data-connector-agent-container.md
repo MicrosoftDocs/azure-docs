@@ -198,14 +198,12 @@ In this section, you deploy the data connector agent. After you deploy the agent
 Now that you've created a VM and a Key Vault, you can create a new agent and connect to one of your SAP systems.
 
 1. From the Microsoft Sentinel navigation menu, select **Data connectors**.
+
 1. In the search bar, type *SAP*.
+
 1. Select **Microsoft Sentinel for SAP** from the search results, and select **Open connector page**.
 
-    You create an agent and SAP system under the **Configuration > Add an API based collector agent** area.
-    
-    :::image type="content" source="media/deploy-data-connector-agent-container/configuration-new-agent.png" alt-text="Screenshot of the instructions to add an SAP API-based collector agent." lightbox="media/deploy-data-connector-agent-container/configuration-new-agent.png":::
-
-1. Deploy the agent. To add a system, you must add an agent first. 
+1. To collect data from a SAP system, you must follow these two steps:
     
     1. [Create a new agent](#create-a-new-agent)
     1. [Connect the agent to a new SAP system](#connect-to-a-new-sap-system)
@@ -213,27 +211,33 @@ Now that you've created a VM and a Key Vault, you can create a new agent and con
 #### Create a new agent
 
 1. In the **Configuration** area, select **Add new agent (Preview)**.
-    
-    :::image type="content" source="media/deploy-data-connector-agent-container/create-agent.png" alt-text="Screenshot of the Create a collector agent area.":::
+
+    :::image type="content" source="media/deploy-data-connector-agent-container/configuration-new-agent.png" alt-text="Screenshot of the instructions to add an SAP API-based collector agent." lightbox="media/deploy-data-connector-agent-container/configuration-new-agent.png":::
 
 1. Under **Create a collector agent** on the right, define the agent details:
-    - Type the agent name. The agent name can include these characters: 
+
+    - Enter the **Agent name**. The agent name can include these characters: 
         - a-z
         - A-Z 
         - 0-9 
         - _ (underscore)
         - . (period)
         - \- (dash)
-    - Select the subscription and key vault.
-    - Under **NWRFC SDK zip file path on the agent VM**, type a path that contains the SAP NetWeaver Remote Function Call (RFC), Software Development Kit (SDK) archive (.zip file). For example, */src/test/NWRFC.zip*.
+
+    - Select the **Subscription** and **Key Vault** from their respective drop-downs.
+
+    - Under **NWRFC SDK zip file path on the agent VM**, type the path in your VM that contains the SAP NetWeaver Remote Function Call (RFC), Software Development Kit (SDK) archive (.zip file). For example, */src/test/NWRFC.zip*.
+
     - To ingest NetWeaver/ABAP logs over a secure connection using Secure Network Communications (SNC), select **Enable SNC connection support**. If you select this option, under **SAP Cryptographic Library path on the agent VM**, provide the path that contains the `sapgenpse` binary and `libsapcrypto.so` library.
     
-    > [!NOTE]
-    > Make sure that you select **Enable SNC connection support** at this stage if you want to use an SNC connection. You can't go back and enable an SNC connection after you finish deploying the agent.   
+        > [!NOTE]
+        > Make sure that you select **Enable SNC connection support** at this stage if you want to use an SNC connection. You can't go back and enable an SNC connection after you finish deploying the agent.   
        
-    Learn more about [deploying the connector over a SNC connection](configure-snc.md).
+        Learn more about [deploying the connector over a SNC connection](configure-snc.md).
 
     - To deploy the container and create SAP systems via managed identity, leave the default option **Managed Identity**, selected. To deploy the container and create SAP systems via a registered application, select **Application Identity**. You set up the managed identity or registered application (application identity) in the [prerequisites](#prerequisites).
+
+    :::image type="content" source="media/deploy-data-connector-agent-container/create-agent.png" alt-text="Screenshot of the Create a collector agent area.":::
 
 1. Select **Create** and review the recommendations before you complete the deployment:    
 
