@@ -43,7 +43,7 @@ By using the policies, Defender for Cloud periodically analyzes the compliance s
 Every recommendation in Defender for Cloud has an associated risk-level that represents how exploitable and impactful the security issue presents to your environments. The risk assessment engine takes into account factors such as, internet exposure, sensitivity of data, lateral movement possibilities, attack paths remediation, and more. Recommendations can be prioritized based on their risk levels.
 
 > [!NOTE]
-> Currently, risk prioritization doesn't affect the secure score.
+> Currently, [risk prioritization](how-to-manage-attack-path.md#features-of-the-attack-path-overview-page) doesn't affect the secure score.
 
 Defender for Cloud makes its security recommendations based on your chosen initiatives. When a policy from your initiative is compared against your resources and finds one or more that aren't compliant, it's presented as a recommendation in Defender for Cloud.
 

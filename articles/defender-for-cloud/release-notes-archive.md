@@ -1459,8 +1459,6 @@ You'll find these tactics wherever you access recommendation information:
 
 - **Recommendation details pages** show the mapping for all relevant recommendations:
 
-    :::image type="content" source="media/review-security-recommendations/tactics-window.png" alt-text="Screenshot of the MITRE tactics mapping for a recommendation.":::
-
 - **The recommendations page in Defender for Cloud** has a new :::image type="icon" source="media/review-security-recommendations/tactics-filter-recommendations-page.png" border="false"::: filter to select recommendations according to their associated tactic:
 
 Learn more in [Review your security recommendations](review-security-recommendations.md).

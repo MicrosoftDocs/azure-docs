@@ -4,7 +4,7 @@ title: Identify and remediate attack paths
 description: Learn how to manage your attack path analysis and build queries to locate vulnerabilities in your multicloud environment.
 ms.topic: how-to
 ms.custom: ignite-2023
-ms.date: 10/26/2023
+ms.date: 10/29/2023
 ---
 
 # Identify and remediate attack paths
@@ -31,11 +31,11 @@ The attack path page shows you an overview of all of your attack paths. You can 
 
 :::image type="content" source="media/concept-cloud-map/attack-path-homepage.png" alt-text="Screenshot of a sample attack path homepage." lightbox="media/concept-cloud-map/attack-path-homepage.png":::
 
-On this page you can organize your attack paths based on name, environment, paths count, risk categories.
+On this page you can organize your attack paths based on risk level, name, environment, paths count, risk factors, entry point, target, the number of affected resources, or the number of active recommendations. 
 
-For each attack path, you can see all of risk categories and any affected resources.
+For each attack path, you can see all of risk factors and any affected resources.
 
-The potential risk categories include credentials exposure, compute abuse, data exposure, subscription and account takeover.
+The potential risk factors include credentials exposure, compute abuse, data exposure, subscription and account takeover.
 
 Learn more about [the cloud security graph, attack path analysis, and the cloud security explorer?](concept-attack-path.md).
 

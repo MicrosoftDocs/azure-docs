@@ -50,7 +50,7 @@ The feature is turned on at the subscription level.
 
 - Each Azure subscription must be registered for the **Microsoft.Security** resource provider:
 
-    1. Sign-in to the Azure portal.
+    1. Sign in to the [Azure portal](https://portal.azure.com).
     1. Select the affected subscription.
     1. In the left-side menu, select the resource provider.
 

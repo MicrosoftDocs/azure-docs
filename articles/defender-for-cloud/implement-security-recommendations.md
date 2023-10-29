@@ -4,8 +4,9 @@ description: This article explains how to respond to recommendations in Microsof
 ms.topic: how-to
 ms.author: dacurwin
 author: dcurwin
-ms.date: 10/20/2022
+ms.date: 10/29/2023
 ---
+
 # Implement security recommendations in Microsoft Defender for Cloud
 
 Recommendations give you suggestions on how to better secure your resources. You implement a recommendation by following the remediation steps provided in the recommendation.

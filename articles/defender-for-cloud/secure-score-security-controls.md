@@ -9,6 +9,9 @@ ms.date: 06/19/2023
 
 ## Overview of secure score
 
+> [!NOTE]
+> Currently, [risk prioritization](how-to-manage-attack-path.md#features-of-the-attack-path-overview-page) doesn't affect the secure score.
+
 Microsoft Defender for Cloud has two main goals:
 
 - to help you understand your current security situation
