@@ -230,7 +230,7 @@ In this section of how to guides, you will learn how to use custom images for de
 
 - Refer to SAP installation documentation to ensure the operating system prerequisites are met for the deployment to be successful. 
 
-- Ensure the User Assigned Managed Identity has the **Reader role** on the gallery of the custom OS image, otherwise the deployment will fail.  
+- Check that the user-assignmed managed idenitty has the **Reader role** on the gallery of the custom OS image. Otherwise, the deployment will fail.  
 
 - [Create and upload a VM to a gallery in Azure Compute Gallery](/articles/virtual-machines/capture-image-portal.md#capture-a-vm-in-the-portal)  
 
