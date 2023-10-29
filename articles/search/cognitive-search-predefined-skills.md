@@ -6,7 +6,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/26/2023
+ms.date: 10/28/2023
 ---
 
 # Skills for extra processing during indexing (Azure AI Search)
@@ -48,9 +48,9 @@ Skills that call models deployed on Azure OpenAI are billed at the pay-as-you-go
 |-------|-------------|-------------|
 |[Microsoft.Skills.Text.AzureOpenAIEmbeddingSkill](cognitive-search-skill-azure-openai-embedding.md) | Connects to a deployed embedding model on Azure OpenAI for integrated vectorization. | Azure OpenAI ([pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/#pricing)) |
 
-## Azure AI Search utility skills
+## Utility skills
 
-Skills that are internal to Azure AI Search.
+Skills that execute only on Azure AI Search, iterate mostly on nodes in the enrichment cache, and are mostly non-billable.
 
 | OData type  | Description | Metered by |
 |-------|-------------|-------------|
@@ -62,7 +62,7 @@ Skills that are internal to Azure AI Search.
 
 ## Custom skills
 
-[Custom skills](cognitive-search-custom-skill-web-api.md) are modules that you design, develop, and deploy to the web. You can then call the module from within a skillset as a custom skill.
+[Custom skills](cognitive-search-custom-skill-web-api.md) wrap external code that you design, develop, and deploy to the web. You can then call the module from within a skillset as a custom skill.
 
 | Type  | Description | Metered by |
 |-------|-------------|-------------|
