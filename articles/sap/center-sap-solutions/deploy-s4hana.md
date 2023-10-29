@@ -219,14 +219,14 @@ The following operating system (OS) software versions are compatible with these 
 
 1. Wait for the infrastructure deployment to complete. Numerous resources are deployed and configured. This process takes approximately 7 minutes.
 
-## Using a custom OS image
+## Using a Custom OS Image
 
-In this section of how to guides, you will learn how to use custom images for deployment in Azure Center for SAP Solutions. Azure Center for SAP Solutions deployment with Custom OS images is supported by allowing users to pick OS images from the [Azure Compute Gallery](/articles/virtual-machines/capture-image-portal.md#capture-a-vm-in-the-portal)
+You can use custom images for deployment in Azure Center for SAP Solutions from the [Azure Compute Gallery](/articles/virtual-machines/capture-image-portal.md#capture-a-vm-in-the-portal)
 ### Custom image prerequisites
 
 - Make sure that you've met the [general SAP deployment prerequisites](#prerequisites), [downloaded the SAP media](/articles/sap/center-sap-solutions/get-sap-installation-media.md#prerequisites), and [installed the SAP software](/articles/sap/center-sap-solutions/install-software.md#prerequisites).
-- Check the [list of supported OS image](#deployment-types) versions in Azure Center for SAP Solutions. BYOI is supported on the OS version supported by Azure Center for SAP Solutions. While creating an image from Azure Marketplace for customization, ensure the base image selected is supported for SAP “For SAP”. In case you have an image version not supported by Azure Center for SAP Solutions, the deployment will fail with the following error:
-      *The resource ID provided consists of an OS image which is not supported in Azure Center for SAP Solutions. Please ensure that the OS image version is supported in Azure Center for SAP Solutions for a successful installation.* 
+- Before you use an image from Azure Marketplace for customization, check the [list of supported OS image](#deployment-types) versions in Azure Center for SAP Solutions. BYOI is supported on the OS version supported by Azure Center for SAP Solutions. Make sure that Azure Center for SAP Solutions has support for the image, or else the deployment will fail with the following error:
+   *The resource ID provided consists of an OS image which is not supported in ACSS. Please ensure that the OS image version is supported in ACSS for a successful installation.* 
 
 - Refer to SAP installation documentation to ensure the operating system prerequisites are met for the deployment to be successful. 
 
