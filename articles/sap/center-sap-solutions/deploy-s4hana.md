@@ -4,7 +4,7 @@ description: Learn how to deploy S/4HANA infrastructure with Azure Center for SA
 ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
 ms.topic: how-to
-ms.date: 02/22/2023
+ms.date: 10/30/2023
 ms.author: sagarkeswani
 author: sagarkeswani
 #Customer intent: As a developer, I want to deploy S/4HANA infrastructure using Azure Center for SAP solutions so that I can manage SAP workloads in the Azure portal.
@@ -223,6 +223,7 @@ The following operating system (OS) software versions are compatible with these 
 In this section of how to guides, you will learn how to use custom images for deployment in Azure Center for SAP Solutions. ACSS deployment with Custom OS images is supported by allowing users to pick OS images from the [Azure Compute Gallery](/articles/virtual-machines/capture-image-portal.md#capture-a-vm-in-the-portal)
 ### Prerequisites 
 
+- Make sure that you've met the [general SAP deployment prerequisites](#prerequisites), [downloaded the SAP media](/articles/sap/center-sap-solutions/get-sap-installation-media.md#prerequisites), and [installed the SAP software](/articles/sap/center-sap-solutions/install-software.md#prerequisites).
 - Check the [list of supported OS image](#deployment-types) versions in ACSS. BYOI is supported on the OS version supported by ACSS. While creating an image from Azure Marketplace for customization, ensure the base image selected is supported for SAP “For SAP”. In case you have an image version not supported by ACSS, the deployment will fail with the following error:
       *The resource ID provided consists of an OS image which is not supported in ACSS. Please ensure that the OS image version is supported in ACSS for a successful installation.* 
 
@@ -238,7 +239,6 @@ In this section of how to guides, you will learn how to use custom images for de
 
 - Check that the image VM is of the **“Standard”** security type.
 
-- Make sure that you've met the [general SAP deployment prerequisites](#prerequisites), [downloaded the SAP media](/articles/sap/center-sap-solutions/get-sap-installation-media.md#prerequisites), and [installed the SAP software](/articles/sap/center-sap-solutions/install-software.md#prerequisites).
 
 ### Deploying using Custom Operating System Image
 - Select the **Use a custom image** option during deployment. Choose which image to use for the application and database OS.
