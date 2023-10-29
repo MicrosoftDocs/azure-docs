@@ -42,9 +42,19 @@ If you're looking for the latest release notes, you can find them in the [What's
 
 **Estimated date for change: November 15, 2023**
 
-Vulnerability assessment for Linux container images in Azure container registries powered by Microsoft Defender Vulnerability Management (MDVM) will soon be released for General Availability (GA) in Defender for Containers and Defender for Container Registries.
+Vulnerability assessment (VA) for Linux container images in Azure container registries powered by Microsoft Defender Vulnerability Management (MDVM) will soon be released for General Availability (GA) in Defender for Containers and Defender for Container Registries.
 
-As part of this change, the following recommendations will also be released for GA:
+As part of this change, the following recommendations will also be released for GA and renamed:
+
+|
+|
+|Current recommendation name|Description|Assessment key|
+|Container registry images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management)|Container image vulnerability assessments scans your registry for commonly known vulnerabilities (CVEs) and provides a detailed vulnerability report for each image. Resolving vulnerabilities can greatly improve your security posture, ensuring images are safe to use prior to deployment. |c0b7cfc6-3172-465a-b378-53c7ff2cc0d5|
+|Running container images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management)|Container image vulnerability assessment scans your registry for commonly known vulnerabilities (CVEs) and provides a detailed vulnerability report for each image. This recommendation provides visibility to vulnerable images currently running in your Kubernetes clusters. Remediating vulnerabilities in container images that are currently running is key to improving your security posture, significantly reducing the attack surface for your containerized workloads.|c609cf0f-71ab-41e9-a3c6-9a1f7fe1b8d5|
+
+Once the recommendations are released for GA, they will be included in the secure score calculation, and will also incur charges as per [plan pricing](https://azure.microsoft.com/en-us/pricing/details/defender-for-cloud/?v=17.23h#pricing).  
+
+Note: Images scanned both by our container VA offering powered by Qualys and Container VA offering powered by MDVM, will only be billed once. 
 
 ## Changes to how Microsoft Defender for Cloud's costs are presented in Microsoft Cost Management
 
