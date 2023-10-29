@@ -243,7 +243,7 @@ In this section of how to guides, you will learn how to use custom images for de
 
 - In case of such an error, please delete the VIS and infrastructure resources that might be created in the Resource Group and then try deploying again with a supported image.
 
-- For successful installation of SAP Software, ensure the image version is compatible with the SAP Software version. [Learn more](#deployment-types)
+- Make sure the image version that you're using is [compatible with the SAP software version](#deployment-types).
   
 ## Confirm deployment
 
