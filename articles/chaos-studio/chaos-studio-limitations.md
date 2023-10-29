@@ -37,7 +37,8 @@ During the public preview of Azure Chaos Studio, there are a few limitations and
 - **Customer-Managed Keys** You will need to use our 2023-10-27-preview REST API via a CLI to create CMK-enabled experiments. We do not support Portal UI experiments using CMK at this time.
 - **Lockbox** At present, we do not have integration with Customer Lockbox.
 - **Java SDK** At present, we do not have a dedicated Java SDK. If this is something you would use, reach out to us with your feature request. 
-- **Built-in roles** - Chaos Studio does not currently have its own built-in roles. Permissions may be attained to run a chaos experiment by either assigning an [Azure built-in role](chaos-studio-fault-providers.md) or a created custom role to the experiment's identity. 
+- **Built-in roles** - Chaos Studio does not currently have its own built-in roles. Permissions may be attained to run a chaos experiment by either assigning an [Azure built-in role](chaos-studio-fault-providers.md) or a created custom role to the experiment's identity.
+- **Agent Service Tags** Available by end of November, 2023. 
 
 ## Known issues
 When you pick target resources for an agent-based fault in the experiment designer, it's possible to select virtual machines or virtual machine scale sets with an operating system not supported by the fault selected.
