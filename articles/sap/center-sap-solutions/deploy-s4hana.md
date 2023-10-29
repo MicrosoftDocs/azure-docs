@@ -219,7 +219,8 @@ The following operating system (OS) software versions are compatible with these 
 
 1. Wait for the infrastructure deployment to complete. Numerous resources are deployed and configured. This process takes approximately 7 minutes.
 
-## Using Custom Operating System Image
+## Using a custom OS image
+
 In this section of how to guides, you will learn how to use custom images for deployment in Azure Center for SAP Solutions. Azure Center for SAP Solutions deployment with Custom OS images is supported by allowing users to pick OS images from the [Azure Compute Gallery](/articles/virtual-machines/capture-image-portal.md#capture-a-vm-in-the-portal)
 ### Prerequisites 
 
