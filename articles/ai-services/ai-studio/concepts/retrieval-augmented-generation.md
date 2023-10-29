@@ -19,7 +19,7 @@ Retrieval Augmented Generation (RAG) is a pattern that works with pretrained Lar
 This article lists some of the benefits of RAG, provides a technical overview, and describes RAG support in Azure AI Studio.
 
 > [!TIP]
-> New to LLM and RAG concepts? This [video clip](https://youtu.be/2meEvuWAyXs?t=404) from a Microsoft presentation offers a simple explanation.
+> For a simple explanation of LLM and RAG concepts, see this [video clip](https://youtu.be/2meEvuWAyXs?t=404) from a Microsoft presentation.
 
 
 ## What is RAG? Why do i need it?

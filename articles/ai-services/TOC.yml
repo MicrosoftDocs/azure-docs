@@ -76,7 +76,7 @@
     - name: Use environment variables
       href: cognitive-services-environment-variables.md
     - name: Role-based access control in Azure AI Studio
-      href: ai-studio/how-to/rbac-ai-studio.md
+      href: ai-studio/concepts/rbac-ai-studio.md
     - name: Configure customer-managed keys
       href: ./encryption/cognitive-services-encryption-keys-portal.md
     - name: Use virtual networks

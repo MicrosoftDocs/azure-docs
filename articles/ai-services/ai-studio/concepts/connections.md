@@ -12,41 +12,53 @@ ms.author: eur
 
 # Connections in Azure AI Studio
 
-Connections in Azure AI Studio are a way to authenticate and consume both Microsoft and third-party resources within your Azure AI projects. Connections can be used for prompt flow, training, and deployments (link to connections in MIR).  
+Connections in Azure AI Studio are a way to authenticate and consume both Microsoft and third-party resources within your Azure AI projects. Connections can be used for prompt flow, training, and deployments (link to connections in MIR). [Connections can be created](../how-to/connections-add.md) exclusively for one project or shared with all projects in the same Azure AI resource. 
 
-Connections allow you to securely store credentials, authenticate access, and consume data and information. Connections can be set up as shared with all projects in the same Azure AI resource, or created exclusively for one project. Secrets associated with connections are securely persisted in the corresponding Azure Key Vault, adhering to robust security and compliance standards. As an administrator, you can audit both shared and project-scoped connections on an Azure AI resource level (link to connection rbac). 
+## Connections for Azure AI services
 
-Azure connections serve as key vault proxies, and interactions with connections are direct interactions with an Azure key vault. Azure AI Studio connections store API keys securely, as secrets, in a key vault. The key vault [Azure role-based access control (Azure RBAC)](./rbac-ai-studio.md) controls access to these connection resources. A connection references the credentials from the key vault storage location for further use. You won't need to directly deal with the credentials after they are stored in the Azure AI resource's key vault. You have the option to store the credentials in the YAML file. A CLI command or SDK can override them. We recommend that you avoid credential storage in a YAML file, because a security breach could lead to a credential leak.  
+You can create connections to Azure AI services such as Azure AI Content Safety and Azure OpenAI. You can then use the connection in a prompt flow tool such as the LLM tool.
 
-There are two connections you can use to access third party Generative AI APIs. 
+:::image type="content" source="../media/prompt-flow/llm-tool-connection.png" alt-text="Screenshot of a connection used by the LLM tool in prompt flow." lightbox="../media/prompt-flow/llm-tool-connection.png":::
+
+As another example, you can create a connection to an Azure AI Search resource. The connection can then be used by prompt flow tools such as the Vector DB Lookup tool.
+
+:::image type="content" source="../media/prompt-flow/vector-db-lookup-tool-connection.png" alt-text="Screenshot of a connection used by the Vector DB Lookup tool in prompt flow." lightbox="../media/prompt-flow/vector-db-lookup-tool-connection.png":::
+
+## Connections for third-party services
+
+Azure AI Studio supports connections to third-party services, including the following:
 - The [API key connection](../how-to/connections-add.md?tabs=api-key#service-connection-types) handles authentication to your specified target on an individual basis. This is the most common third-party connection type.
 - The [custom connection](../how-to/connections-add.md?tabs=api-key#service-connection-types) allows you to securely store and access keys while storing related properties, such as targets and versions. Custom connections are useful when you have many targets that or cases where you would not need a credential to access. LangChain scenarios are a good example where you would use custom service connections. Custom connections don't manage authentication, so you will have to manage authenticate on your own.
 
-> [!NOTE]
-> You can create connections via multiple workflows in Azure AI Studio. In this article, we will focus on creating connections from the project **Settings** page. You can also create a connection from the **Manage** page. When you create a connection from the **Manage** page, the connection is always created at the Azure AI resource level and shared accross all associated projects. 
-
 ## Connections for datastores
 
-An AI Studio Connection can be created as a *reference* to an *existing* Azure storage account or other *existing* Microsoft services.
-We support Connection to data from following Azure storage account types: Microsoft OneLake, Azure Blob, Azure Data Lake Gen2.
+Creating a connection allows you to access external data without copying it to your Azure AI Studio project. Instead, the connection provides a reference to the data source.
+
 A data connection offers these benefits:
 
-- A common, easy-to-use API that interacts with different storage types (OneLake/Blob/ADLS gen2).
+- A common, easy-to-use API that interacts with different storage types including Microsoft OneLake, Azure Blob, and Azure Data Lake Gen2.
 - Easier discovery of useful connections in team operations.
 - For credential-based access (service principal/SAS/key), AI Studio connection secures credential information. This way, you won't need to place that information in your scripts.
 
 When you create a connection with an existing Azure storage account, you can choose between two different authentication methods:
 
-- **Credential-based** - authenticate data access with a service principal, shared access signature (SAS) token, or account key. Users with *Reader* workspace access can access the credentials.
-- **Identity-based** - use your Azure Active Directory identity or managed identity to authenticate data access.
+- **Credential-based**: Authenticate data access with a service principal, shared access signature (SAS) token, or account key. Users with *Reader* project permissions can access the credentials.
+- **Identity-based**: Use your Microsoft Entra ID or managed identity to authenticate data access.
 
-The following table summarizes the Azure cloud-based storage services that an Azure Machine Learning datastore can create. Additionally, the table summarizes the authentication types that can access those services:
+The following table shows the supported Azure cloud-based storage services and authentication methods:
 
 Supported storage service | Credential-based authentication | Identity-based authentication
 |---|:----:|:---:|
 Azure Blob Container| ✓ | ✓|
 Microsoft OneLake| ✓ | ✓|
 Azure Data Lake Gen2| ✓ | ✓|
+
+
+## Key vaults and secrets
+
+Connections allow you to securely store credentials, authenticate access, and consume data and information.  Secrets associated with connections are securely persisted in the corresponding Azure Key Vault, adhering to robust security and compliance standards. As an administrator, you can audit both shared and project-scoped connections on an Azure AI resource level (link to connection rbac). 
+
+Azure connections serve as key vault proxies, and interactions with connections are direct interactions with an Azure key vault. Azure AI Studio connections store API keys securely, as secrets, in a key vault. The key vault [Azure role-based access control (Azure RBAC)](./rbac-ai-studio.md) controls access to these connection resources. A connection references the credentials from the key vault storage location for further use. You won't need to directly deal with the credentials after they are stored in the Azure AI resource's key vault. You have the option to store the credentials in the YAML file. A CLI command or SDK can override them. We recommend that you avoid credential storage in a YAML file, because a security breach could lead to a credential leak.  
 
 
 ## Next steps
