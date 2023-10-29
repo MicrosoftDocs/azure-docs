@@ -172,8 +172,6 @@ While you're [investigating and remediating an attack path](#investigate-and-rem
 
 1. Select **Open EASM**.
 
-    :::image type="content" source="media/how-to-manage-attack-path/open-easm.png" alt-text="Screenshot that shows you where on the screen you need to select open Defender EASM from." lightbox="media/how-to-manage-attack-path/easm-zoom.png":::
-
 1. Follow the [Using and managing discovery](../external-attack-surface-management/using-and-managing-discovery.md) instructions.
 
 ## Next Steps
