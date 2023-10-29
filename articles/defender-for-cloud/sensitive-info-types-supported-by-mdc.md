@@ -9,7 +9,9 @@ ms.date: 10/26/2023
 
 # Sensitive information types supported by Microsoft Defender for Cloud
 
-This article is a list of all sensitive information types supported by MDC (a subset of what's supported in Purview). The following table lists the scanned sensitive information type, the Microsoft Defender for Cloud info type category, and whether the sensitive information type is scanned by default in the sensitivity settings. Read more about [data sensitivity settings](data-sensitivity-settings.md).
+This article is a list of all sensitive information types supported by Microsoft Defender for Cloud (a subset of what's supported in Purview). The following table lists the scanned sensitive information type, the Microsoft Defender for Cloud info type category, and whether the sensitive information type is scanned by default in the sensitivity settings.
+
+The finance, PII (personally identifiable information), and credentials categories contain the default info type data that are typically sought out by attackers.
 
 | Sensitive information type name | Microsoft Defender for Cloud info type category | Is default in sensitivity settings? |
 |----------------|----------------|----------------|
@@ -158,77 +160,80 @@ This article is a list of all sensitive information types supported by MDC (a su
 | [Luxemburg national identification number (natural persons)](https://learn.microsoft.com/purview/sit-defn-luxemburg-national-identification-number-natural-persons) | PII | YES |
 | [Luxemburg national identification number (non-natural persons)](https://learn.microsoft.com/purview/sit-defn-luxemburg-national-identification-number-non-natural-persons) | Other | NO |
 | [Luxemburg passport number](https://learn.microsoft.com/purview/sit-defn-luxemburg-passport-number) | Other | NO |
-Malaysia identification card number	https://learn.microsoft.com/en-us/purview/sit-defn-malaysia-identification-card-number	Other	NO
-Malta driver's license number	https://learn.microsoft.com/en-us/purview/sit-defn-malta-drivers-license-number	Other	NO
-Malta identity card number	https://learn.microsoft.com/en-us/purview/sit-defn-malta-identity-card-number	Other	NO
-Malta passport number	https://learn.microsoft.com/en-us/purview/sit-defn-malta-passport-number	Other	NO
-Malta tax identification number	https://learn.microsoft.com/en-us/purview/sit-defn-malta-tax-identification-number	PII	YES
-Microsoft Bing maps key	https://learn.microsoft.com/en-us/purview/sit-defn-microsoft-bing-maps-key	Credentials	YES
-Netherlands citizen's service (BSN) number	https://learn.microsoft.com/en-us/purview/sit-defn-netherlands-citizens-service-number	PII	YES
-Netherlands driver's license number	https://learn.microsoft.com/en-us/purview/sit-defn-netherlands-drivers-license-number	Other	NO
-Netherlands passport number	https://learn.microsoft.com/en-us/purview/sit-defn-netherlands-passport-number	Other	NO
-Netherlands tax identification number	https://learn.microsoft.com/en-us/purview/sit-defn-netherlands-tax-identification-number	Other	NO
-Netherlands value added tax number	https://learn.microsoft.com/en-us/purview/sit-defn-netherlands-value-added-tax-number	PII	YES
-New Zealand bank account number	https://learn.microsoft.com/en-us/purview/sit-defn-new-zealand-bank-account-number	Other	NO
-New Zealand driver's license number	https://learn.microsoft.com/en-us/purview/sit-defn-new-zealand-drivers-license-number	Other	NO
-New Zealand inland revenue number	https://learn.microsoft.com/en-us/purview/sit-defn-new-zealand-inland-revenue-number	Other	NO
-New Zealand ministry of health number	https://learn.microsoft.com/en-us/purview/sit-defn-new-zealand-ministry-of-health-number	Other	NO
-New Zealand social welfare number	https://learn.microsoft.com/en-us/purview/sit-defn-new-zealand-social-welfare-number	Other	NO
-Norway identification number	https://learn.microsoft.com/en-us/purview/sit-defn-norway-identification-number	Other	NO
-Philippines passport number	https://learn.microsoft.com/en-us/purview/sit-defn-philippines-passport-number	Other	NO
-Philippines unified multi-purpose identification number	https://learn.microsoft.com/en-us/purview/sit-defn-philippines-unified-multi-purpose-identification-number	Other	NO
-Poland driver's license number	https://learn.microsoft.com/en-us/purview/sit-defn-poland-drivers-license-number	Other	NO
-Poland identity card	https://learn.microsoft.com/en-us/purview/sit-defn-poland-identity-card	Other	NO
-Poland national ID (PESEL)	https://learn.microsoft.com/en-us/purview/sit-defn-poland-national-id	PII	YES
-Poland passport number	https://learn.microsoft.com/en-us/purview/sit-defn-poland-passport-number	Other	NO
-Poland REGON number	https://learn.microsoft.com/en-us/purview/sit-defn-poland-regon-number	Other	NO
-Poland tax identification number	https://learn.microsoft.com/en-us/purview/sit-defn-poland-tax-identification-number	PII	YES
-Portugal citizen card number	https://learn.microsoft.com/en-us/purview/sit-defn-portugal-citizen-card-number	PII	YES
-Portugal driver's license number	https://learn.microsoft.com/en-us/purview/sit-defn-portugal-drivers-license-number	Other	NO
-Portugal passport number	https://learn.microsoft.com/en-us/purview/sit-defn-portugal-passport-number	Other	NO
-Portugal tax identification number	https://learn.microsoft.com/en-us/purview/sit-defn-portugal-tax-identification-number	PII	YES
-Romania driver's license number	https://learn.microsoft.com/en-us/purview/sit-defn-romania-drivers-license-number	Other	NO
-Romania passport number	https://learn.microsoft.com/en-us/purview/sit-defn-romania-passport-number	Other	NO
-Romania personal numeric code (CNP)	https://learn.microsoft.com/en-us/purview/sit-defn-romania-personal-numeric-code	PII	YES
-Russia passport number domestic	https://learn.microsoft.com/en-us/purview/sit-defn-russia-passport-number-domestic	Other	NO
-Russia passport number international	https://learn.microsoft.com/en-us/purview/sit-defn-russia-passport-number-international	Other	NO
-Saudi Arabia National ID	https://learn.microsoft.com/en-us/purview/sit-defn-saudi-arabia-national-id	Other	NO
-Singapore national registration identity card (NRIC) number	https://learn.microsoft.com/en-us/purview/sit-defn-singapore-national-registration-identity-card-number	Other	NO
-Slack access token	https://learn.microsoft.com/en-us/purview/sit-defn-slack-access-token	Credentials	YES
-Slovakia driver's license number	https://learn.microsoft.com/en-us/purview/sit-defn-slovakia-drivers-license-number	Other	NO
-Slovakia passport number	https://learn.microsoft.com/en-us/purview/sit-defn-slovakia-passport-number	Other	NO
-Slovakia personal number	https://learn.microsoft.com/en-us/purview/sit-defn-slovakia-personal-number	PII	YES
-Slovenia driver's license number	https://learn.microsoft.com/en-us/purview/sit-defn-slovenia-drivers-license-number	Other	NO
-Slovenia passport number	https://learn.microsoft.com/en-us/purview/sit-defn-slovenia-passport-number	Other	NO
-Slovenia tax identification number	https://learn.microsoft.com/en-us/purview/sit-defn-slovenia-tax-identification-number	PII	YES
-Slovenia Unique Master Citizen Number	https://learn.microsoft.com/en-us/purview/sit-defn-slovenia-unique-master-citizen-number	PII	YES
-South Africa identification number	https://learn.microsoft.com/en-us/purview/sit-defn-south-africa-identification-number	Other	NO
-South Korea resident registration number	https://learn.microsoft.com/en-us/purview/sit-defn-south-korea-resident-registration-number	Other	NO
-Spain DNI	https://learn.microsoft.com/en-us/purview/sit-defn-spain-dni	PII	YES
-Spain driver's license number	https://learn.microsoft.com/en-us/purview/sit-defn-spain-drivers-license-number	Other	NO
-Spain passport number	https://learn.microsoft.com/en-us/purview/sit-defn-spain-passport-number	Other	NO
-Spain social security number (SSN)	https://learn.microsoft.com/en-us/purview/sit-defn-spain-social-security-number	PII	YES
-Spain tax identification number	https://learn.microsoft.com/en-us/purview/sit-defn-spain-tax-identification-number	PII	YES
-Sweden driver's license number	https://learn.microsoft.com/en-us/purview/sit-defn-sweden-drivers-license-number	Other	NO
-Sweden national ID	https://learn.microsoft.com/en-us/purview/sit-defn-sweden-national-id	PII	YES
-Sweden passport number	https://learn.microsoft.com/en-us/purview/sit-defn-sweden-passport-number	Other	NO
-Sweden tax identification number	https://learn.microsoft.com/en-us/purview/sit-defn-sweden-tax-identification-number	PII	YES
-SWIFT code	https://learn.microsoft.com/en-us/purview/sit-defn-swift-code	Finance	YES
-Switzerland SSN AHV number	https://learn.microsoft.com/en-us/purview/sit-defn-switzerland-ssn-ahv-number	Other	NO
-Taiwan national identification number	https://learn.microsoft.com/en-us/purview/sit-defn-taiwan-national-identification-number	Other	NO
-Taiwan passport number	https://learn.microsoft.com/en-us/purview/sit-defn-taiwan-passport-number	Other	NO
-Taiwan-resident certificate (ARC/TARC) number	https://learn.microsoft.com/en-us/purview/sit-defn-taiwan-resident-certificate-number	Other	NO
-U.K. driver's license number	https://learn.microsoft.com/en-us/purview/sit-defn-uk-drivers-license-number	Other	NO
-U.K. electoral roll number	https://learn.microsoft.com/en-us/purview/sit-defn-uk-electoral-roll-number	Other	NO
-U.K. national health service number	https://learn.microsoft.com/en-us/purview/sit-defn-uk-national-health-service-number	PII	YES
-U.K. national insurance number (NINO)	https://learn.microsoft.com/en-us/purview/sit-defn-uk-national-insurance-number	PII	YES
-U.K. Unique Taxpayer Reference Number	https://learn.microsoft.com/en-us/purview/sit-defn-uk-unique-taxpayer-reference-number	PII	YES
-U.S. bank account number	https://learn.microsoft.com/en-us/purview/sit-defn-us-bank-account-number	Other	NO
-U.S. driver's license number	https://learn.microsoft.com/en-us/purview/sit-defn-us-drivers-license-number	PII	YES
-U.S. individual taxpayer identification number (ITIN)	https://learn.microsoft.com/en-us/purview/sit-defn-us-individual-taxpayer-identification-number	PII	YES
-U.S. social security number (SSN)	https://learn.microsoft.com/en-us/purview/sit-defn-us-social-security-number	PII	YES
-U.S./U.K. passport number	https://learn.microsoft.com/en-us/purview/sit-defn-us-uk-passport-number	PII	YES
-Ukraine passport domestic	https://learn.microsoft.com/en-us/purview/sit-defn-ukraine-passport-domestic	Other	NO
-Ukraine passport international	https://learn.microsoft.com/en-us/purview/sit-defn-ukraine-passport-international	Other	NO
-X.509 certificate private key	https://learn.microsoft.com/en-us/purview/sit-defn-x-509-certificate-private-key	Credentials	YES |
+| [Malaysia identification card number](https://learn.microsoft.com/purview/sit-defn-malaysia-identification-card-number) | Other | NO |
+| [Malta driver's license number](https://learn.microsoft.com/purview/sit-defn-malta-drivers-license-number) | Other | NO |
+| [Malta identity card number](https://learn.microsoft.com/purview/sit-defn-malta-identity-card-number) | Other | NO |
+| [Malta passport number](https://learn.microsoft.com/purview/sit-defn-malta-passport-number) | Other | NO |
+| [Malta tax identification number](https://learn.microsoft.com/purview/sit-defn-malta-tax-identification-number)| PII | YES |
+| [Microsoft Bing maps key](https://learn.microsoft.com/purview/sit-defn-microsoft-bing-maps-key) | Credentials | YES |
+| [Netherlands citizen's service (BSN) number](https://learn.microsoft.com/purview/sit-defn-netherlands-citizens-service-number) | PII | YES |
+| [Netherlands driver's license number](https://learn.microsoft.com/purview/sit-defn-netherlands-drivers-license-number) | Other | NO |
+| [Netherlands passport number](https://learn.microsoft.com/purview/sit-defn-netherlands-passport-number) | Other |NO |
+| [Netherlands tax identification number](https://learn.microsoft.com/purview/sit-defn-netherlands-tax-identification-number) | Other | NO |
+| [Netherlands value added tax number](https://learn.microsoft.com/purview/sit-defn-netherlands-value-added-tax-number) | PII | YES |
+| [New Zealand bank account number](https://learn.microsoft.com/purview/sit-defn-new-zealand-bank-account-number) | Other | NO |
+| [New Zealand driver's license number](https://learn.microsoft.com/purview/sit-defn-new-zealand-drivers-license-number) | Other | NO |
+| [New Zealand inland revenue number](https://learn.microsoft.com/purview/sit-defn-new-zealand-inland-revenue-number) | Other | NO |
+[New Zealand ministry of health number](https://learn.microsoft.com/purview/sit-defn-new-zealand-ministry-of-health-number) | Other | NO |
+| [New Zealand social welfare number](https://learn.microsoft.com/purview/sit-defn-new-zealand-social-welfare-number) | Other | NO |
+| [Norway identification number](https://learn.microsoft.com/purview/sit-defn-norway-identification-number) | Other | NO |
+| [Philippines passport number](https://learn.microsoft.com/purview/sit-defn-philippines-passport-number) | Other | NO |
+| [Philippines unified multi-purpose identification number](https://learn.microsoft.com/purview/sit-defn-philippines-unified-multi-purpose-identification-number) | Other | NO |
+| [Poland driver's license number](https://learn.microsoft.com/purview/sit-defn-poland-drivers-license-number) |  Other | NO |
+| [Poland identity card](https://learn.microsoft.com/purview/sit-defn-poland-identity-card) | Other | NO |
+| [Poland national ID (PESEL)](https://learn.microsoft.com/purview/sit-defn-poland-national-id) | PII | YES |
+| [Poland passport number](https://learn.microsoft.com/purview/sit-defn-poland-passport-number) | Other | NO |
+| [Poland REGON number](https://learn.microsoft.com/purview/sit-defn-poland-regon-number) | Other | NO |
+| [Poland tax identification number](https://learn.microsoft.com/purview/sit-defn-poland-tax-identification-number) | PII | YES |
+| [Portugal citizen card number](https://learn.microsoft.com/purview/sit-defn-portugal-citizen-card-number) | PII | YES |
+| [Portugal driver's license number](https://learn.microsoft.com/purview/sit-defn-portugal-drivers-license-number) | Other | NO |
+| [Portugal passport number](https://learn.microsoft.com/purview/sit-defn-portugal-passport-number) | Other | NO |
+| [Portugal tax identification number](https://learn.microsoft.com/purview/sit-defn-portugal-tax-identification-number) | PII | YES |
+| [Romania driver's license number](https://learn.microsoft.com/purview/sit-defn-romania-drivers-license-number) | Other | NO |
+| [Romania passport number](https://learn.microsoft.com/purview/sit-defn-romania-passport-number) | Other | NO |
+| [Romania personal numeric code (CNP)](https://learn.microsoft.com/purview/sit-defn-romania-personal-numeric-code) | PII | YES |
+| [Russia passport number domestic](https://learn.microsoft.com/purview/sit-defn-russia-passport-number-domestic) | Other | NO |
+| [Russia passport number international](https://learn.microsoft.com/purview/sit-defn-russia-passport-number-international) | Other | NO |
+| [Saudi Arabia National ID](https://learn.microsoft.com/purview/sit-defn-saudi-arabia-national-id) | Other | NO |
+| [Singapore national registration identity card (NRIC) number](https://learn.microsoft.com/purview/sit-defn-singapore-national-registration-identity-card-number) | Other | NO|
+| [Slack access token](https://learn.microsoft.com/purview/sit-defn-slack-access-token) | Credentials | YES |
+| [Slovakia driver's license number](https://learn.microsoft.com/purview/sit-defn-slovakia-drivers-license-number) | Other | NO |
+| [Slovakia passport number](https://learn.microsoft.com/purview/sit-defn-slovakia-passport-number) | Other| NO |
+| [Slovakia personal number](https://learn.microsoft.com/purview/sit-defn-slovakia-personal-number) | PII | YES |
+| [Slovenia driver's license number](https://learn.microsoft.com/purview/sit-defn-slovenia-drivers-license-number) | Other | NO |
+| [Slovenia passport number](https://learn.microsoft.com/purview/sit-defn-slovenia-passport-number) | Other | NO |
+| [Slovenia tax identification number](https://learn.microsoft.com/purview/sit-defn-slovenia-tax-identification-number) | PII | YES |
+| [Slovenia Unique Master Citizen Number](https://learn.microsoft.com/purview/sit-defn-slovenia-unique-master-citizen-number) | PII | YES |
+| [South Africa identification number](https://learn.microsoft.com/purview/sit-defn-south-africa-identification-number) | Other | NO |
+| [South Korea resident registration number](https://learn.microsoft.com/purview/sit-defn-south-korea-resident-registration-number) | Other | NO |
+| [Spain DNI](https://learn.microsoft.com/purview/sit-defn-spain-dni) | PII | YES |
+| [Spain driver's license number](https://learn.microsoft.com/purview/sit-defn-spain-drivers-license-number) | Other | NO |
+| [Spain passport number](https://learn.microsoft.com/purview/sit-defn-spain-passport-number) | Other | NO |
+| [Spain social security number (SSN)](https://learn.microsoft.com/purview/sit-defn-spain-social-security-number) | PII | YES |
+| [Spain tax identification number](https://learn.microsoft.com/purview/sit-defn-spain-tax-identification-number) | PII | YES |
+| [Sweden driver's license number](https://learn.microsoft.com/purview/sit-defn-sweden-drivers-license-number) | Other | NO |
+| [Sweden national ID](https://learn.microsoft.com/purview/sit-defn-sweden-national-id) | PII | YES |
+| [Sweden passport number](https://learn.microsoft.com/purview/sit-defn-sweden-passport-number) | Other | NO |
+| [Sweden tax identification number](https://learn.microsoft.com/purview/sit-defn-sweden-tax-identification-number) | PII | YES |
+| [SWIFT code](https://learn.microsoft.com/purview/sit-defn-swift-code) | Finance | YES |
+| [Switzerland SSN AHV number](https://learn.microsoft.com/purview/sit-defn-switzerland-ssn-ahv-number) | Other | NO |
+| [Taiwan national identification number](https://learn.microsoft.com/purview/sit-defn-taiwan-national-identification-number) | Other | NO |
+| [Taiwan passport number](https://learn.microsoft.com/purview/sit-defn-taiwan-passport-number) | Other | NO |
+| [Taiwan-resident certificate (ARC/TARC) number](https://learn.microsoft.com/purview/sit-defn-taiwan-resident-certificate-number) | Other | NO |
+| [U.K. electoral roll number](https://learn.microsoft.com/purview/sit-defn-uk-electoral-roll-number) | Other | NO |
+| [U.K. national health service number](https://learn.microsoft.com/purview/sit-defn-uk-national-health-service-number) | PII | YES |
+| [U.K. national insurance number (NINO)](https://learn.microsoft.com/purview/sit-defn-uk-national-insurance-number) | PII | YES |
+| [U.K. Unique Taxpayer Reference Number](https://learn.microsoft.com/purview/sit-defn-uk-unique-taxpayer-reference-number) | PII | YES |
+| [U.S. bank account number](https://learn.microsoft.com/purview/sit-defn-us-bank-account-number) | Other | NO |
+| [U.S. driver's license number](https://learn.microsoft.com/purview/sit-defn-us-drivers-license-number) | PII | YES |
+| [U.S. individual taxpayer identification number (ITIN)](https://learn.microsoft.com/purview/sit-defn-us-individual-taxpayer-identification-number) | PII | YES |
+| [U.S. social security number (SSN)](https://learn.microsoft.com/purview/sit-defn-us-social-security-number) | PII | YES |
+| [U.S./U.K. passport number](https://learn.microsoft.com/purview/sit-defn-us-uk-passport-number) | PII | YES |
+| [Ukraine passport domestic](https://learn.microsoft.com/purview/sit-defn-ukraine-passport-domestic) | Other | NO |
+| [Ukraine passport international](https://learn.microsoft.com/purview/sit-defn-ukraine-passport-international) | Other | NO |
+| [X.509 certificate private key](https://learn.microsoft.com/purview/sit-defn-x-509-certificate-private-key) | Credentials | YES |
 
+## Next steps
+
+- [Explore risks to sensitive data](data-security-review-risks.md).
+- Read more about [data sensitivity settings](data-sensitivity-settings.md).
