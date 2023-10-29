@@ -232,7 +232,7 @@ In this section of how to guides, you will learn how to use custom images for de
 
 - Ensure the User Assigned Managed Identity has the **Reader role** on the gallery of the custom OS image, otherwise the deployment will fail.  
 
-- Create a Virtual Machine and upload it to a gallery in **Azure Compute Gallery**. [Learn more](/articles/virtual-machines/capture-image-portal.md#capture-a-vm-in-the-portal)  
+- [Create and upload a VM to a gallery in Azure Compute Gallery](/articles/virtual-machines/capture-image-portal.md#capture-a-vm-in-the-portal)  
 
 - Before beginning the deployment, ensure the availability of the Image in the Azure Compute Gallery. 
 
