@@ -4,7 +4,7 @@ description: Describe how to extend the SAP Deployment Automation Framework.
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
-ms.date: 10/29/2024
+ms.date: 10/29/2023
 ms.topic: conceptual
 ms.service: sap-on-azure
 ms.subservice: sap-automation
