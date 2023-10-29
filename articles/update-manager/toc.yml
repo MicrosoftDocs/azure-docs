@@ -76,6 +76,8 @@
       href: manage-workbooks.md
     - name: Manage updates for customized images
       href: manage-updates-customized-images.md
+    - name: Manage pre-scripts and post-scripts
+      href: manage-pre-post-events.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot issues
