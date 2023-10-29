@@ -36,9 +36,19 @@ If you're looking for the latest release notes, you can find them in the [What's
 | [Deprecating two security incidents](#deprecating-two-security-incidents) |  | November 2023 |
 | [Defender for Cloud plan and strategy for the Log Analytics agent deprecation](#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation) |  | August 2024 |
 
+## General availability of Containers Vulnerability Assessment powered by Microsoft Defender Vulnerability Management (MDVM) in Defender for Containers and Defender for Container Registries
+
+**Announcement date: October 29, 2023**
+
+**Estimated date for change: November 15, 2023**
+
+Vulnerability assessment for Linux container images in Azure container registries powered by Microsoft Defender Vulnerability Management (MDVM) will soon be released for General Availability (GA) in Defender for Containers and Defender for Container Registries.
+
+As part of this change, the following recommendations will also be released for GA:
+
 ## Changes to how Microsoft Defender for Cloud's costs are presented in Microsoft Cost Management
 
-**Annoucement date: October 26, 2023**
+**Announcement date: October 26, 2023**
 
 **Estimated date for change: November 2023**
 
@@ -247,3 +257,4 @@ Following quality improvement process, the following security incidents are set 
 ## Next steps
 
 For all recent changes to Defender for Cloud, see [What's new in Microsoft Defender for Cloud?](release-notes.md).
+
