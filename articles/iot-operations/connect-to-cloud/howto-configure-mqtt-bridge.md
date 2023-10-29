@@ -323,9 +323,9 @@ erDiagram
 ```
 -->
 
-![Diagram showing the mapping between MqttBridgeConnector and MqttBridgeTopicMap.](../media/howto-configure-mqtt-bridge/mqtt-bridge-connector-topic-map.svg)
+![Diagram showing the mapping between MqttBridgeConnector and MqttBridgeTopicMap.](./media/howto-configure-mqtt-bridge/mqtt-bridge-connector-mapping.svg)
 
-The following example shows a MqttBridgeTopicMap configuration for bridging messages from the remote topic `my-remote-topic` to the local topic `my-local-topic`:
+The following example shows a *MqttBridgeTopicMap* configuration for bridging messages from the remote topic `my-remote-topic` to the local topic `my-local-topic`:
 
 ```yaml
 apiVersion: mq.iotoperations.azure.com/v1beta1
@@ -492,7 +492,7 @@ System-assigned managed identity is recommended for Arc-connected clusters. To m
 1. Using `az k8s-extension show`, find the principal ID for the Azure IoT MQ Arc extension. For example:
 
    ```console
-   $ az k8s-extension show -n my-e4k-extension -c friendly-broccoli -g jlian-arc -t connectedClusters
+   $ az k8s-extension show -n my-mq-extension -c friendly-broccoli -g my-arc -t connectedClusters
    {
     ...
      "identity": {
@@ -501,12 +501,12 @@ System-assigned managed identity is recommended for Arc-connected clusters. To m
        "type": "SystemAssigned"
      },
      "isSystemExtension": false,
-     "name": "my-e4k-extension",
+     "name": "my-mq-extension",
      ...
    }
    ```
 
-1. The following requirement is temporary. Create a custom role with `Microsoft.EventGrid/topicSpaces/subscribe/action` and `Microsoft.EventGrid/topicSpaces/publish/action` DataActions as appropriate. You might have to create the custom role at the resource group level. For example:
+1. The following requirement is temporary. Create a custom role with `Microsoft.EventGrid/topicSpaces/subscribe/action` and `Microsoft.EventGrid/topicSpaces/publish/action` *DataActions* as appropriate. You might have to create the custom role at the resource group level. For example:
 
    ```json
    {
@@ -519,7 +519,7 @@ System-assigned managed identity is recommended for Arc-connected clusters. To m
      ],
      "NotActions": [],
      "AssignableScopes": [
-       "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/jlian-arc"
+       "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-arc"
      ]
    }
    ```
