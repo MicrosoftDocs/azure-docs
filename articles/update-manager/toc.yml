@@ -24,6 +24,8 @@
     href: tutorial-assessment-deployment-using-policy.md
 - name: Concepts
   items:
+  - name: Use pre-scripts and post-scripts
+    href: pre-post-scripts-overview.md
   - name: Update options and orchestration
     href: updates-maintenance-schedules.md
   - name: Schedule patching configuration on Azure VMs for business continuity
