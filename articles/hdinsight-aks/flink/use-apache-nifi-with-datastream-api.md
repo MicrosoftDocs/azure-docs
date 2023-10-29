@@ -340,4 +340,4 @@ Once you have assigned a managed identity to the Azure VM, you need to make sure
 * [Azure Data Lake Storage](https://nifi.apache.org/docs/nifi-docs/components/org.apache.nifi/nifi-azure-nar/1.12.0/org.apache.nifi.processors.azure.storage.PutAzureDataLakeStorage/index.html)
 * [ADLS Credentials Controller Service](https://nifi.apache.org/docs/nifi-docs/components/org.apache.nifi/nifi-azure-nar/1.12.0/org.apache.nifi.services.azure.storage.ADLSCredentialsControllerService/index.html)
 * [Download IntelliJ IDEA for development](https://www.jetbrains.com/idea/download/#section=windows)
-* **Note** : Apache, Apache Kafka, Kafka, Apache Flink, Flink,Apache NiFi, NiFi and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).
+* Apache, Apache Kafka, Kafka, Apache Flink, Flink,Apache NiFi, NiFi and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).

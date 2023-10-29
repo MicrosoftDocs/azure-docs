@@ -66,4 +66,4 @@ ADX helps users in analysis of large volumes of data from streaming applications
 ### Reference
 
 - [Apache Flink Website](https://flink.apache.org/)
-- **Note** : Apache, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).
+- Apache, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).

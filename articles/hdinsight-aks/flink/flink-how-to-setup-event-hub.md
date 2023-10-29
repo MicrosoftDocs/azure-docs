@@ -113,4 +113,4 @@ In this article, we explore how to connect [Azure Event Hubs](/azure/event-hubs/
 ### Reference
 
 - [Apache Flink Website](https://flink.apache.org/)
-- **Note** : Apache, Apache Kafka, Kafka, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).
+- Apache, Apache Kafka, Kafka, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).

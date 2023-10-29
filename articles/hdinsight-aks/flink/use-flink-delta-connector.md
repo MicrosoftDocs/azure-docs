@@ -485,4 +485,4 @@ Once the data is in delta sink, you can run the query in Power BI desktop and cr
 
 * [Delta connectors](https://github.com/delta-io/connectors/tree/master/flink).
 * [Delta Power BI connectors](https://github.com/delta-io/connectors/tree/master/powerbi).
-* **Note** : Apache, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).
+* Apache, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).

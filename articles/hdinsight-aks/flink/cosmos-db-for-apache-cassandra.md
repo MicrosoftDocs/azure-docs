@@ -550,4 +550,4 @@ sshuser@hn0-flinkd:~$ python user.py | /usr/hdp/current/kafka-broker/bin/kafka-c
 * [Azure Cosmos DB for Apache Cassandra](../../cosmos-db/cassandra/introduction.md).
 * [Create a API for Cassandra account in Azure Cosmos DB](../../cosmos-db/cassandra/create-account-java.md)
 * [Azure Samples ](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-java-getting-started)
-* **Note** : Apache, Apache Kafka, Kafka, Apache Flink, Flink, Apache Cassandra, Cassandra and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).
+* Apache, Apache Kafka, Kafka, Apache Flink, Flink, Apache Cassandra, Cassandra and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).

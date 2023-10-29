@@ -394,4 +394,4 @@ Took 0.9531 seconds
 ## References
 * [Apache Kafka Connector](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/connectors/datastream/kafka)
 * [Download IntelliJ IDEA](https://www.jetbrains.com/idea/download/#section=windows)
-* **Note** : Apache, Apache Kafka, Kafka, Apache HBase, HBase, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).
+* Apache, Apache Kafka, Kafka, Apache HBase, HBase, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).

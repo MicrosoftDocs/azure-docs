@@ -185,4 +185,4 @@ The DAG expects to have setup for the Service Principal, as described during the
 
 - Refer to the [sample code](https://github.com/Azure-Samples/hdinsight-aks/blob/main/flink/airflow-python-sample-code).
 - [Apache Flink Website](https://flink.apache.org/)
-- **Note** : Apache, Apache Airflow, Airflow, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).
+- Apache, Apache Airflow, Airflow, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).

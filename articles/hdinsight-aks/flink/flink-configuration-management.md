@@ -128,4 +128,4 @@ Since savepoint is provided in the job, the Flink knows from where to start proc
 
 ### Reference
 - [Apache Flink Configurations](https://nightlies.apache.org/flink/flink-docs-master/docs/deployment/config/)
-- **Note** : Apache, Apache Kafka, Kafka, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).
+- Apache, Apache Kafka, Kafka, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).

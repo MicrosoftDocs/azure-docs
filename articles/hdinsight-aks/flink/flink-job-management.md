@@ -548,4 +548,5 @@ To authenticate  Flink ARM Rest API users, need to get the bearer token or acces
 ### Reference
 
 - [Apache Flink Job Scheduling](https://nightlies.apache.org/flink/flink-docs-release-1.17/docs/internals/job_scheduling/)
-- **Note** : Apache, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).
+- Apache, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).
+

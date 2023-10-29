@@ -158,4 +158,4 @@ The reason for this issue arises due to an open [Hive Jira](https://issues.apach
 
 ### Reference
 - [Hive Dialect in Apache Flink](https://nightlies.apache.org/flink/flink-docs-master/docs/connectors/table/hive/hive_dialect/#hive-dialect)
-- **Note** : Apache, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).
+- Apache, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).

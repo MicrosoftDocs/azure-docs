@@ -336,4 +336,4 @@ You can find the job in running state on your Flink Web UI
 ## Reference
 * [Apache Kafka SQL Connector](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/connectors/table/kafka)
 * [Elasticsearch SQL Connector](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/connectors/table/elasticsearch)
-* **Note** : Apache, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).
+* Apache, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).

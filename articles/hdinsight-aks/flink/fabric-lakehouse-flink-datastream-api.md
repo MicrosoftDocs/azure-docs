@@ -220,4 +220,4 @@ Let's check the output on Microsoft Fabric
 ### References
 * [Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview)
 * [Microsoft Fabric Lakehouse](/fabric/data-engineering/lakehouse-overview)
-* **Note** : Apache, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).
+* Apache, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).

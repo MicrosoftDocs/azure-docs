@@ -156,4 +156,4 @@ public class Event {
 ## Reference
 
 * [Apache Kafka Connector](https://nightlies.apache.org/flink/flink-docs-release-1.13/docs/connectors/datastream/kafka)
-* **Note** : Apache, Apache Kafka, Kafka, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).
+* Apache, Apache Kafka, Kafka, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).

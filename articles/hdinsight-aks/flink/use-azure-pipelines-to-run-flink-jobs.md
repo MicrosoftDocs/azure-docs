@@ -47,7 +47,10 @@ In this article, you'll learn how to use Azure Pipelines with HDInsight on AKS t
 ### Reference
 
 - [Apache Flink Website](https://flink.apache.org/)
-- **Note** : Apache, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).
+
+> [!NOTE]
+> Apache, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).
+
 
 ### Create a key vault
 

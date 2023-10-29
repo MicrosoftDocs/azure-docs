@@ -124,4 +124,5 @@ Flink clusters can be created once cluster pool deployment has been completed, l
 
 The **Deployment is in process** page is displayed which the cluster is created. It takes 5-10 minutes to create the cluster. Once the cluster is created, the **"Your deployment is complete"** message is displayed. If you navigate away from the page, you can check your Notifications for the current status.
 
-**Note** : Apache, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).
+> [!NOTE]
+> Apache, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).

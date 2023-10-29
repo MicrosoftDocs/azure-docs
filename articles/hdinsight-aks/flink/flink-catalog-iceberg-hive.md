@@ -90,4 +90,4 @@ You can view the Iceberg Table output on the ABFS container
 ### Reference
 
 - [Apache Flink Website](https://flink.apache.org/)
-- **Note** : Apache, Apache Hive, Hive, Apache Iceberg, Iceberg, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).
+- Apache, Apache Hive, Hive, Apache Iceberg, Iceberg, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).
