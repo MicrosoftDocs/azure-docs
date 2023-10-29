@@ -232,7 +232,7 @@ In this section of how to guides, you will learn how to use custom images for de
 
 - Ensure the image is in same Subscription as the deployment. 
 
-- Ensure the image VM has **“Standard”** Security Type. 
+- Check that the image VM is of the **“Standard”** security type.
 
 - Please ensure the prerequisites for [deployment](#prerequisites), [downloading SAP media](/articles/sap/center-sap-solutions/get-sap-installation-media.md#prerequisites), and [installation](/articles/sap/center-sap-solutions/install-software.md#prerequisites) are met for a successful deployment of the SAP system.
 
