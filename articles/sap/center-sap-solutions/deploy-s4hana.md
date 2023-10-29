@@ -234,7 +234,7 @@ You can use custom images for deployment in Azure Center for SAP Solutions from 
 
 - [Create and upload a VM to a gallery in Azure Compute Gallery](/articles/virtual-machines/capture-image-portal.md#capture-a-vm-in-the-portal)  
 
-- Before beginning the deployment, ensure the availability of the Image in the Azure Compute Gallery. 
+- Before beginning the deployment, make sure the image is available in Azure Compute Gallery. 
 
 - Ensure the image is in same Subscription as the deployment. 
 
