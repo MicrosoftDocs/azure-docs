@@ -22,6 +22,14 @@
   items:
   - name: Azure AI services and the ecosystem
     href: ai-studio/concepts/ai-services-and-ecosystem.md
+  - name: Evaluation of apps
+    items:
+    - name: Approach to generative AI evaluations
+      href: ai-studio/concepts/evaluation-approach-gen-ai.md
+    - name: Evaluation and monitoring metrics for generative AI
+      href: ai-studio/concepts/evaluation-metrics-built-in.md
+    - name: Strategies to improve evaluation results
+      href: ai-studio/concepts/evaluation-improvement-strategies.md
 - name: How-to
   expanded: true
   items:
@@ -31,6 +39,16 @@
       href: ai-studio/how-to/model-catalog.md
     - name: Azure AI capabilities
       href: ai-studio/how-to/models-foundation-azure-ai.md
+  - name: Evaluate apps
+    items:
+    - name: Evaluate your flow
+      href: ai-studio/how-to/evaluate-flow.md
+    - name: Evaluate in the Azure AI Studio Playground
+      href: ai-studio/how-to/evaluate-flow-playground.md
+    - name: Evaluate via flows in the Azure AI Studio
+      href: ai-studio/how-to/evaluate-flow-studio.md
+    - name: Evaluate with data
+      href: ai-studio/how-to/evaluate-data.md
   - name: Costs and quotas
     items:
     - name: Plan and manage costs
