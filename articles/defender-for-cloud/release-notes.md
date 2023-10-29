@@ -33,9 +33,9 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 Announcement date: October 29, 2023
 
-As part of security alert quality improvement process of Defender for Servers, and as part of the adaptive application control’s feature, the severity of the following security alert is going to be changed to “Informational”:
+As part of security alert quality improvement process of Defender for Servers, and as part of the [adaptive application controls](adaptive-application-controls.md) feature, the severity of the following security alert is going to be changed to “Informational”:
 
-| AlertDisplayName | AlertType |
+| Alert [Alert Type] | Alert Description |
 |--|--|
 | Adaptive application control policy violation was audited.[VM_AdaptiveApplicationControlWindowsViolationAudited, VM_AdaptiveApplicationControlWindowsViolationAudited] | The below users ran applications that are violating the application control policy of your organization on this machine. It can possibly expose the machine to malware or application vulnerabilities.|
 
