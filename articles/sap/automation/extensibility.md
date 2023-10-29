@@ -28,19 +28,18 @@ The Ansible playbooks must be named according to the following naming convention
 
 'Playbook name_pre' for playbooks to be run before the SDAF playbook and 'Playbook name_post' for playbooks to be run after the SDAF playbook.
 
-> [!div class="mx-tdBreakAll "]
-> | SDAF Playbook name                        | Description                                                       | Playbook name for 'pre' tasks'                | Playbook name for 'post' tasks'                |
-> | ----------------------------------------- | ----------------------------------------------------------------- | --------------------------------------------- | ---------------------------------------------- |
-> | `playbook_01_os_base_config.yaml`         | Base operating system configuration                               | `playbook_01_os_base_config_pre.yaml`         | `playbook_01_os_base_config_post.yaml`         |
-> | `playbook_02_os_sap_specific_config.yaml` | SAP specific configuration                                        | `playbook_02_os_sap_specific_config_pre.yaml` | `playbook_02_os_sap_specific_config_post.yaml` |
-> | `playbook_03_bom_processing.yaml`         | Bill of Material processing                                       | `playbook_03_bom_processing_pre.yaml`         | `playbook_03_bom_processing_post.yaml`         |
-> | `playbook_04_00_00_db_install.yaml`       | Database server installation                                      | `playbook_04_00_00_db_install_pre.yaml`       | `playbook_04_00_00_db_install_post.yaml`       |
-> | `playbook_04_00_01_db_ha.yaml`            | Database High Availability configuration                          | `playbook_04_00_01_db_ha_pre.yaml`            | `playbook_04_00_01_db_ha_post.yaml`            |
-> | `playbook_05_00_00_sap_scs_install.yaml`  | Central Services Installation and High Availability configuration | `playbook_05_00_00_sap_scs_install_pre.yaml`  | `playbook_05_00_00_sap_scs_install_post.yaml`  |
-> | `playbook_05_01_sap_dbload.yaml`          | Database load                                                     | `playbook_05_01_sap_dbload_pre.yaml`          | `playbook_05_01_sap_dbload_post.yaml`          |
-> | `playbook_05_02_sap_pas_install.yaml`     | Primary Application Server installation                           | `playbook_05_02_sap_pas_install_pre.yaml`     | `playbook_05_02_sap_pas_install_post.yaml`     |
-> | `playbook_05_03_sap_app_install.yaml`     | Additional Application Server installation                        | `playbook_05_03_sap_app_install_pre.yaml`     | `playbook_05_03_sap_app_install_post.yaml`     |
-> | `playbook_05_04_sap_web_install.yaml`     | Webdispatcher installation                                        | `playbook_05_04_sap_web_install_pre.yaml`     | `playbook_05_04_sap_web_install.yaml`          |
+| Playbook name                             | Playbook name for 'pre' tasks                 | Playbook name for 'post' tasks                 | Description                                                        |
+| ----------------------------------------- | --------------------------------------------- | ---------------------------------------------- | ----------------------------------------------------------------- |
+| `playbook_01_os_base_config.yaml`         | `playbook_01_os_base_config_pre.yaml`         | `playbook_01_os_base_config_post.yaml`         | Base operating system configuration                               |
+| `playbook_02_os_sap_specific_config.yaml` | `playbook_02_os_sap_specific_config_pre.yaml` | `playbook_02_os_sap_specific_config_post.yaml` | SAP specific configuration                                        |
+| `playbook_03_bom_processing.yaml`         | `playbook_03_bom_processing_pre.yaml`         | `playbook_03_bom_processing_post.yaml`         | Bill of Material processing                                       |
+| `playbook_04_00_00_db_install.yaml`       | `playbook_04_00_00_db_install_pre.yaml`       | `playbook_04_00_00_db_install_post.yaml`       | Database server installation                                      |
+| `playbook_04_00_01_db_ha.yaml`            | `playbook_04_00_01_db_ha_pre.yaml`            | `playbook_04_00_01_db_ha_post.yaml`            | Database High Availability configuration                          |
+| `playbook_05_00_00_sap_scs_install.yaml`  | `playbook_05_00_00_sap_scs_install_pre.yaml`  | `playbook_05_00_00_sap_scs_install_post.yaml`  | Central Services Installation and High Availability configuration |
+| `playbook_05_01_sap_dbload.yaml`          | `playbook_05_01_sap_dbload_pre.yaml`          | `playbook_05_01_sap_dbload_post.yaml`          | Database load                                                     |
+| `playbook_05_02_sap_pas_install.yaml`     | `playbook_05_02_sap_pas_install_pre.yaml`     | `playbook_05_02_sap_pas_install_post.yaml`     | Primary Application Server installation                           |
+| `playbook_05_03_sap_app_install.yaml`     | `playbook_05_03_sap_app_install_pre.yaml`     | `playbook_05_03_sap_app_install_post.yaml`     | Additional Application Server installation                        |
+| `playbook_05_04_sap_web_install.yaml`     | `playbook_05_04_sap_web_install_pre.yaml`     | `playbook_05_04_sap_web_install.yaml`          | Web dispatcher installation                                        |
 
 
 ### Sample Ansible playbook
@@ -95,16 +94,30 @@ The Ansible playbooks must be named according to the following naming convention
 
 ```
 
+## Adding custom repositories to the SAP Deployment Automation Framework installation for Linux
+
+If you need to register additional Linux package repositories to the Virtual Machines deployed by the framework, you can add the following section to the sap-parameters-yaml file.
+
+In this example, the repository 'epel' is registered on all the hosts in your SAP deployment that are running RedHat 8.2.
+
+```yaml
+
+custom_repos:
+  redhat8.2:
+    - { tier: 'ha', repo: 'epel', url: 'https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm', state: 'present' }
+
+```
+
 ## Adding custom packages to the SAP Deployment Automation Framework installation for Linux
 
-You can extend the SAP Deployment Automation Framework by adding custom packages to the SDAF installation. This is useful if there are some Linux packages that you want to install on all the hosts in your SAP landscape.
+If you need to install additional Linux packages to the Virtual Machines deployed by the framework, you can add the following section to the sap-parameters-yaml file.
 
-If you add the following section to the sap-parameters-yaml file the package 'openssl' will be installed on all the hosts in your SAP deployment.
+In this example, the package 'openssl' is installed on all the hosts in your SAP deployment that are running SUSE Enterprise Linux for SAP Applications version 15.3.
 
 ```yaml
 
 custom_packages:
-  distro:
+  sles_sap15.3:
     - { tier: 'os', package: 'openssl', node_tier: 'all', state: 'present' }
 
 ```
@@ -114,21 +127,23 @@ If you want to install a package on a specific server type (`app`, `ers`, `pas`,
 ```yaml
 
 custom_packages:
-  distro:
+  sles_sap15.3:
     - { tier: 'ha', package: 'pacemaker', node_tier: 'hana', state: 'present' }
 
 ```
 
+
+
 ## Adding custom kernel parameters to the SAP Deployment Automation Framework installation for Linux
 
-You can extend the SAP Deployment Automation Framework by adding custom kernel parameters to the SDAF installation. This is useful if there are some Linux packages that you want to install on all the hosts in your SAP landscape.
+You can extend the SAP Deployment Automation Framework by adding custom kernel parameters to the SDAF installation.
 
-If you add the following section to the sap-parameters-yaml the parameter 'fs.suid_dumpable' will be set to 0 on all the hosts in your SAP deployment.
+When you add the following section to the sap-parameters-yaml file, the parameter 'fs.suid_dumpable' is set to 0 on all the hosts in your SAP deployment.
 
 ```yaml
 
 custom_parameters:
-  distro:
+  common:
     - { tier: 'os', node_tier: 'all', name: 'fs.suid_dumpable', value: '0', state: 'present' }
 
 ```
