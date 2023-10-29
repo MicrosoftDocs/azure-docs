@@ -37,7 +37,7 @@ The feature is meant for scenarios where the lag is acceptable and meant for off
 
 ## Geo-replication
 
-You can create a read replica in a different region from your primary server. Cross-region replication can be helpful for scenarios like disaster recovery planning or bringing data closer to your users.
+A read replica can be created in the same region as the primary server as well as in a different one. Cross-region replication can be helpful for scenarios like disaster recovery planning or bringing data closer to your users.
 
 You can have a primary server in any [Azure Database for PostgreSQL region](https://azure.microsoft.com/global-infrastructure/services/?products=postgresql). A primary server can have replicas also in any global region of Azure that supports Azure Database for PostgreSQL. Currently [special Azure regions](../../virtual-machines/regions.md#special-azure-regions) are not supported.
 
@@ -53,7 +53,7 @@ While creating replicas in any supported region is possible, there are notable b
 
 * **Data Residency**: With a few exceptions, regions in a paired set reside within the same geography, meeting data residency requirements.
 
-* **Performance**: Paired regions typically boast low network latency, which can enhance data accessibility and user experience. However, if the primary aim is to serve data closer to users rather than disaster recovery, it might be worth considering creating a read replica in a non-paired region that exhibits the lowest latency. You can reference [Azure's round-trip latency figures](../../networking/azure-network-latency.md#round-trip-latency-figures) to make informed decisions.
+* **Performance**: While paired regions typically offer low network latency, enhancing data accessibility and user experience, they might not always be the regions with the absolute lowest latency. If the primary objective is to serve data closer to users rather than prioritize disaster recovery, it's crucial to evaluate all available regions for latency. In some cases, a non-paired region might exhibit the lowest latency. For a comprehensive understanding, you can reference [Azure's round-trip latency figures](../../networking/azure-network-latency.md#round-trip-latency-figures) to make an informed choice.
 
 For a deeper understanding of the advantages of paired regions, refer to [Azure's documentation on cross-region replication](../../reliability/cross-region-replication-azure.md#azure-paired-regions).
 
@@ -115,8 +115,38 @@ For both promotion methods, there are additional options to consider:
 * **Forced**: This option prioritizes speed. Instead of waiting to synchronize all the data from the primary, the server becomes operational once it processes WAL files needed to achieve the nearest consistent state.
 
 ## Virtual Endpoints
-Virtual Endpoints  read-write and read-only listener end-points that remain unchanged during geo-failovers. You do not have to change the connection string for your application after a geo-failover, because connections are automatically routed to the current primary. Whether you use manual or automatic failover activation, a geo-failover switches all secondary databases in the group to the primary role. After the geo-failover is completed, the DNS record is automatically updated to redirect the endpoints to the new region. For geo-failover RPO and RTO, see Overview of Business Continuity.
+Virtual Endpoints are read-write and read-only listener endpoints, that remain consistent irrespective of the current role of the PostgreSQL instance. This means you don't have to update your application's connection string after promoting a replica. 
 
+All operations involving virtual endpoints, whether adding, editing, or removing, are performed in the context of the primary server. In the Azure portal, you'll manage these endpoints under the primary server blade. Similarly, when using tools like the CLI, REST API, or other utilities, commands and actions will target the primary server for endpoint management.
+
+
+Virtual Endpoints offer two distinct types of connection points:
+
+1. **Writer Endpoint (Read/Write)**: This endpoint always points to the current primary server. It ensures that write operations are directed to the correct server, irrespective of any promote operations triggered by users. This endpoint cannot be changed to point to a replica.
+2. **Read-Only Endpoint**: This endpoint can be configured by users to point either to a read replica or the primary server. However, it can only target one server at a time. Load balancing between multiple servers isn't supported. The target server for this endpoint can be changed at any time. 
+
+### Virtual Endpoints and Promote Behavior
+In the event of a promote action, the behavior of these endpoints remains predictable.
+The sections below delve into the specifics of how these endpoints react to both default "Promote to primary server" and "Promote to independent server" scenarios.
+
+| **Virtual endpoint**     | **Original target** | **Behavior when "Promote to primary server" is triggered**            | **Behavior when "Promote to independent server" is triggered** |
+|--------------------------|---------------------|-----------------------------------------------------------------------|-------------------------|
+| <b> Writer endpoint      | Primary             | Points to the new primary server.	                                    | Remains unchanged.      |
+| <b> Read-Only endpoint		 | Replica             | Points to the new replica (former primary).	                          | Points to the primary server. |
+| <b> Read-Only endpoint	  | Primary             | Continues to point to the same server, which becomes a replica after the promote.	| Remains unchanged.      |
+
+
+#### Behavior when "Promote to primary server" is triggered
+* **Writer Endpoint**: This endpoint will be updated to point to the new primary server, reflecting the role switch.
+* **Read-Only endpoint**
+  * **If Read-Only Endpoint Points to Replica**: After the promote action, the read-only endpoint will point to the new replica (which was the former primary).
+  * **If Read-Only Endpoint Points to Primary**: Post-promotion, this endpoint will still be pointing to the same server. However, the server's role will have changed to replica, so now it will be pointing to a replica.
+
+#### Behavior when "Promote to independent server and remove from replication" is triggered
+* **Writer Endpoint**: This endpoint remains unchanged. It continues to direct traffic to the server holding the primary role.
+* **Read-Only endpoint**
+  * **If Read-Only Endpoint Points to Replica**: The Read-Only endpoint will be redirected from the promoted replica to point to the primary server. 
+  * **If Read-Only Endpoint Points to Primary**: The Read-Only endpoint remains unchanged, continuing to point to the same server.
 
 >[!NOTE]
 > Resetting admin password on replica server is currently not supported. Additionally, updating admin password along with promote replica operation in the same request is also not supported. If you wish to do this you must first promote the replica server then update the password on the newly promoted server separately.
