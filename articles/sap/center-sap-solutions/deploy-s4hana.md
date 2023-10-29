@@ -238,7 +238,7 @@ In this section of how to guides, you will learn how to use custom images for de
 
 - Check that the image VM is of the **“Standard”** security type.
 
-- Please ensure the prerequisites for [deployment](#prerequisites), [downloading SAP media](/articles/sap/center-sap-solutions/get-sap-installation-media.md#prerequisites), and [installation](/articles/sap/center-sap-solutions/install-software.md#prerequisites) are met for a successful deployment of the SAP system.
+- Make sure that you've met the [general SAP deployment prerequisites](#prerequisites), [downloaded the SAP media](/articles/sap/center-sap-solutions/get-sap-installation-media.md#prerequisites), and [installed the SAP software](/articles/sap/center-sap-solutions/install-software.md#prerequisites).
 
 ### Deploying using Custom Operating System Image
 - Select the **Use a custom image** option during deployment. Choose which image to use for the application and database OS.
