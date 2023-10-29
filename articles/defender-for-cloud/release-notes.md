@@ -29,7 +29,7 @@ If you're looking for items older than six months, you can find them in the [Arc
 | October 19 |[DevOps security posture management recommendations available in public preview](#devops-security-posture-management-recommendations-available-in-public-preview)
 | October 18 | [Releasing CIS Azure Foundations Benchmark v2.0.0 in Regulatory Compliance dashboard](#releasing-cis-azure-foundations-benchmark-v200-in-regulatory-compliance-dashboard) |
 
-## Changing adaptive application control’s security alert's severity
+## Changing adaptive application controls security alert's severity
 
 Announcement date: October 29, 2023
 
