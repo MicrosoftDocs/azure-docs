@@ -157,7 +157,7 @@ The `ocr.barcode` capability extracts all identified barcodes in the `barcodes` 
 | `ITF` |:::image type="content" source="media/barcodes/interleaved-two-five.png" alt-text="Screenshot of the interleaved-two-of-five barcode (ITF).":::|
 | `Data Matrix` |:::image type="content" source="media/barcodes/datamatrix.gif" alt-text="Screenshot of the Data Matrix.":::|
 
-#### Query Fields
+## Query Fields
 
 **Document Intelligence now supports query field extractions using Azure OpenAI capabilities. With query field extraction, you can add fields to the extraction process using a query request without the need for added training.
 
@@ -165,7 +165,7 @@ The `ocr.barcode` capability extracts all identified barcodes in the `barcodes` 
 >
 > Document Intelligence Studio query field extraction is currently available with the general document model starting with the `2023-10-31-preview` API and later releases.
 
-##### Query field extraction
+#### Query field extraction
 
 For query field extraction, specify the fields you want to extract and Document Intelligence analyzes the document accordingly. Here's an example:
 
@@ -181,7 +181,7 @@ For query field extraction, specify the fields you want to extract and Document 
 
 * In addition to the query fields, the response includes text, tables, selection marks, general document key-value pairs, and other relevant data.
 
-##### Query fields REST API request**
+#### Query fields REST API request**
 
 Use the query fields feature with the [general document model](concept-general-document.md), to add fields to the extraction process without having to train a custom model:
 
