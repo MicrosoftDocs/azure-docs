@@ -17,7 +17,7 @@ Resilience against disastrous outages of data processing resources is a requirem
 
 
 
-# Compare geo-replication with geo-redundant backup storage
+## Compare geo-replication with geo-redundant backup storage
 Both geo-replication with read replicas and geo-backup are solutions for geo-disaster recovery. However, they differ in the details of their offerings. To choose the right solution for your system, it's important to understand and compare their features.
 
 | **Feature**                                            | **Geo-replication** | **Geo-backup** |

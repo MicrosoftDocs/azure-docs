@@ -91,13 +91,21 @@ When you create a replica, it does inherit the firewall rules or VNet service en
 
 The replica inherits the admin account from the primary server. All user accounts on the primary server are replicated to the read replicas. You can only connect to a read replica by using the user accounts that are available on the primary server.
 
-You can connect to the replica by using its hostname and a valid user account, as you would on a regular Azure Database for PostgreSQL server. For a server named **myreplica** with the admin username **myadmin**, you can connect to the replica by using psql:
+There are two methods to connect to the replica:
+
+1. **Direct to the Replica Instance**: You can connect to the replica by using its hostname and a valid user account, as you would on a regular Azure Database for PostgreSQL server. For a server named **myreplica** with the admin username **myadmin**, you can connect to the replica by using psql:
 
 ```bash
 psql -h myreplica.postgres.database.azure.com -U myadmin postgres
 ```
 
 At the prompt, enter the password for the user account.
+
+Furthermore, to ease the connection process, the Azure portal provides ready-to-use connection strings. These can be found in the **Connect** blade. They encompass both `libpq` variables as well as connection strings tailored for bash consoles.
+
+2. **Via Virtual Endpoints**: There's an alternative connection method using virtual endpoints, as detailed in [Virtual endpoints](#virtual-endpoints) section. By leveraging virtual endpoints, you can configure the read-only endpoint to consistently point to the replica, regardless of which server currently holds the replica role.
+
+
 
 ## Promote replicas
 "Promote" refers to the process where a replica is commanded to end its replica mode and transition into full read-write operations.
