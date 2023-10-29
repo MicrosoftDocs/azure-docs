@@ -20,7 +20,7 @@ For high availability, horizontally scale Azure IoT MQ by adding more frontend r
 
 ## Configure Azure IoT MQ scaling settings with the Broker custom resource
 
-To configure the scaling settings Azure IoT MQ broker, you need to specify the `mode` and `cardinality` fields in the spec of the Broker custom resource.
+To configure the scaling settings Azure IoT MQ broker, you need to specify the `mode` and `cardinality` fields in the specification of the *Broker* custom resource.
 
 The `mode` field can be one of these values:
 
@@ -36,7 +36,7 @@ The `cardinality` field is a nested field that has these subfields:
   - `partitions`: The number of partitions to deploy. This subfield is required if the `mode` field is set to `distributed`.
   - `workers`: The number of workers to deploy, currently it must be set to `1`. This subfield is required if the `mode` field is set to `distributed`.
 
-For example, to deploy a Broker resource named **my-broker**", with **0.1.0-peview-rc2** images, and automatic cardinality settings:
+For example, to deploy a Broker resource named **my-broker**", with **0.1.0-preview-rc2** images, and automatic cardinality settings:
 
 ```yaml
 apiVersion: mq.iotoperations.azure.com/v1beta1
@@ -147,11 +147,11 @@ For high availability, you should have at least two frontend pods and two backen
 
 | Feature | Supported |
 |---|:---:|:---:|
-| Horizontal scaling | ✅ |
+| Horizontal scaling | Supported |
 | Dynamic reconfiguration of backend replicas | Currently requires restart |
-| Frontend failure handling | ✅ |
-| Frontend failure recovery | ✅ |
-| Backend failure handling | ✅ |
+| Frontend failure handling | Supported |
+| Frontend failure recovery | Supported |
+| Backend failure handling | Supported |
 
 
 Azure IoT MQ can now tolerate a backend replica failure up to the point when at least one good replica still exists.
@@ -159,7 +159,7 @@ Azure IoT MQ can now tolerate a backend replica failure up to the point when at 
 In this example, one of the frontend brokers is deleted and Azure IoT MQ recovers. The Azure IoT MQ broker can run with multiple frontend brokers and, with at least one frontend is working, can handle clients.
 
 1. Deploy and connect to Azure IoT MQ.
-1. Delete one of the frontend broker pods
+1. Delete one of the frontend broker pods.
 
     While the messages are being sent, delete one of the frontend pods.
     
