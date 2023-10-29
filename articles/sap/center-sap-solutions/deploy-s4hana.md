@@ -236,7 +236,7 @@ You can use custom images for deployment in Azure Center for SAP Solutions from 
 
 - Before beginning the deployment, make sure the image is available in Azure Compute Gallery. 
 
-- Ensure the image is in same Subscription as the deployment. 
+- Verify that the image is in same subscription as the deployment. 
 
 - Check that the image VM is of the **“Standard”** security type.
 
