@@ -56,20 +56,6 @@ Chaos Studio can't inject faults against a VM unless that VM was added to Chaos 
 
 Virtual machines have two target types. One target type enables service-direct faults (where no agent is required). The other target type enables agent-based faults (which requires the installation of an agent). The chaos agent is an application installed on your VM as a [VM extension](../virtual-machines/extensions/overview.md). You use it to inject faults in the guest operating system.
 
-### Install stress-ng (Linux only)
-
-The Chaos Studio agent for Linux requires stress-ng. This open-source application can cause various stress events on a VM. To install stress-ng, [connect to your Linux VM](../virtual-machines/ssh-keys-portal.md). Then run the appropriate installation command for your package manager. For example:
-
-```bash
-sudo apt-get update && sudo apt-get -y install unzip && sudo apt-get -y install stress-ng
-```
-
-Or:
-
-```bash
-sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm && sudo yum -y install stress-ng
-```
-
 ### Enable the chaos target and capabilities
 
 Next, set up a Microsoft-Agent target on each VM or virtual machine scale set that specifies the user-assigned managed identity that the agent uses to connect to Chaos Studio. In this example, we use one managed identity for all VMs. A target must be created via REST API. In this example, we use the `az rest` CLI command to execute the REST API calls.
@@ -95,10 +81,12 @@ Next, set up a Microsoft-Agent target on each VM or virtual machine scale set th
     ```azurecli-interactive
     az rest --method put --uri https://management.azure.com/$RESOURCE_ID/providers/Microsoft.Chaos/targets/Microsoft-Agent?api-version=2021-09-15-preview --body @target.json --query properties.agentProfileId -o tsv
     ```
+    
+    If you receive a PowerShell parsing error, switch to a Bash terminal as recommended for this tutorial or surround the referenced JSON file in single quotes (`--body '@target.json'`).
 
 1. Copy down the GUID for the **agentProfileId** returned by this command for use in a later step.
 
-1. Create the capabilities by replacing `$RESOURCE_ID` with the resource ID of the target VM or virtual machine scale set. Replace `$CAPABILITY` with the [name of the fault capability you're enabling](chaos-studio-fault-library.md).
+1. Create the capabilities by replacing `$RESOURCE_ID` with the resource ID of the target VM or virtual machine scale set. Replace `$CAPABILITY` with the [name of the fault capability you're enabling](chaos-studio-fault-library.md) (for example, `CPUPressure-1.0`).
     
     ```azurecli-interactive
     az rest --method put --url "https://management.azure.com/$RESOURCE_ID/providers/Microsoft.Chaos/targets/Microsoft-Agent/capabilities/$CAPABILITY?api-version=2021-09-15-preview" --body "{\"properties\":{}}"
