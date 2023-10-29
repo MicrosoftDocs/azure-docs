@@ -7,7 +7,7 @@ ms.author: jonels
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: overview
-ms.date: 02/28/2023
+ms.date: 10/01/2023
 ms.custom: mvc, ignite-2022, build-2023, build-2023-dataai
 recommendations: false
 ---
@@ -42,6 +42,7 @@ reviewed the following articles:
 > - Connect and query with your [app stack](quickstart-app-stacks-overview.yml).
 > - See how the [Azure Cosmos DB for PostgreSQL API](reference-overview.md) extends PostgreSQL, and try [useful diagnostic queries](howto-useful-diagnostic-queries.md).
 > - Pick the best [cluster size](howto-scale-initial.md) for your workload.
+> - Learn how to use Azure Cosmos DB for PostgreSQL as the [storage backend for multiple microservices](tutorial-design-database-microservices.md).
 > - [Monitor](howto-monitoring.md) cluster performance.
 > - Ingest data efficiently with [Azure Stream Analytics](howto-ingest-azure-stream-analytics.md)
 >   and [Azure Data Factory](howto-ingest-azure-data-factory.md).

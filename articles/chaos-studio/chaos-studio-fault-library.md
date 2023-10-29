@@ -944,7 +944,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 | Prerequisites | The AKS cluster must [have Chaos Mesh deployed](chaos-studio-tutorial-aks-portal.md). |
 | Urn | urn:csci:microsoft:azureKubernetesServiceChaosMesh:networkChaos/2.1 |
 | Parameters (key, value) |  |
-| jsonSpec | A JSON-formatted and, if created via Azure Resource Manager template, REST API, or the Azure CLI, JSON-escaped Chaos Mesh spec that uses the [NetworkChaos kind](https://chaos-mesh.org/docs/simulate-network-chaos-on-kubernetes/#create-experiments-using-the-yaml-files). You can use a YAML-to-JSON converter like [Convert YAML To JSON](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it. Then use a JSON string escape tool like [JSON Escape / Unescape](https://www.freeformatter.com/json-escape.html) to escape the JSON spec. Only include the YAML under the `jsonSpec` property. Don't include information like metadata and kind. |
+| jsonSpec | A JSON-formatted Chaos Mesh spec that uses the [NetworkChaos kind](https://chaos-mesh.org/docs/simulate-network-chaos-on-kubernetes/#create-experiments-using-the-yaml-files). You can use a YAML-to-JSON converter like [Convert YAML To JSON](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it. Use single-quotes within the JSON or escape the quotes with a backslash character. Only include the YAML under the `jsonSpec` property. Don't include information like metadata and kind. Specifying duration within the `jsonSpec` isn't necessary, but will be used if available. |
 
 ### Sample JSON
 
@@ -958,7 +958,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
       "parameters": [
         {
             "key": "jsonSpec",
-            "value": "{\"action\":\"delay\",\"mode\":\"one\",\"selector\":{\"namespaces\":[\"default\"],\"labelSelectors\":{\"app\":\"web-show\"}},\"delay\":{\"latency\":\"10ms\",\"correlation\":\"100\",\"jitter\":\"0ms\"}}"
+            "value": "{\"action\":\"delay\",\"mode\":\"one\",\"selector\":{\"namespaces\":[\"default\"]},\"delay\":{\"latency\":\"200ms\",\"correlation\":\"100\",\"jitter\":\"0ms\"}}}"
         }
     ],
       "selectorid": "myResources"
@@ -978,7 +978,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 | Prerequisites | The AKS cluster must [have Chaos Mesh deployed](chaos-studio-tutorial-aks-portal.md). |
 | Urn | urn:csci:microsoft:azureKubernetesServiceChaosMesh:podChaos/2.1 |
 | Parameters (key, value) |  |
-| jsonSpec | A JSON-formatted and, if created via Azure Resource Manager template, REST API, or the Azure CLI, JSON-escaped Chaos Mesh spec that uses the [PodChaos kind](https://chaos-mesh.org/docs/simulate-pod-chaos-on-kubernetes/#create-experiments-using-yaml-configuration-files). You can use a YAML-to-JSON converter like [Convert YAML To JSON](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it. Then use a JSON string escape tool like [JSON Escape / Unescape](https://www.freeformatter.com/json-escape.html) to escape the JSON spec. Only include the YAML under the `jsonSpec` property. Don't include information like metadata and kind. |
+| jsonSpec | A JSON-formatted Chaos Mesh spec that uses the [PodChaos kind](https://chaos-mesh.org/docs/simulate-pod-chaos-on-kubernetes/#create-experiments-using-yaml-configuration-files). You can use a YAML-to-JSON converter like [Convert YAML To JSON](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it. Use single-quotes within the JSON or escape the quotes with a backslash character. Only include the YAML under the `jsonSpec` property. Don't include information like metadata and kind. Specifying duration within the `jsonSpec` isn't necessary, but will be used if available. |
 
 ### Sample JSON
 
@@ -992,7 +992,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
       "parameters": [
         {
             "key": "jsonSpec",
-            "value": "{\"action\":\"pod-failure\",\"mode\":\"one\",\"selector\":{\"labelSelectors\":{\"app.kubernetes.io\/component\":\"tikv\"}}}"
+            "value": "{\"action\":\"pod-failure\",\"mode\":\"all\",\"selector\":{\"namespaces\":[\"default\"]}}"
         }
     ],
       "selectorid": "myResources"
@@ -1012,7 +1012,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 | Prerequisites | The AKS cluster must [have Chaos Mesh deployed](chaos-studio-tutorial-aks-portal.md). |
 | Urn | urn:csci:microsoft:azureKubernetesServiceChaosMesh:stressChaos/2.1 |
 | Parameters (key, value) |  |
-| jsonSpec | A JSON-formatted and, if created via Azure Resource Manager template, REST API, or the Azure CLI, JSON-escaped Chaos Mesh spec that uses the [StressChaos kind](https://chaos-mesh.org/docs/simulate-heavy-stress-on-kubernetes/#create-experiments-using-the-yaml-file). You can use a YAML-to-JSON converter like [Convert YAML To JSON](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it. Then use a JSON string escape tool like [JSON Escape / Unescape](https://www.freeformatter.com/json-escape.html) to escape the JSON spec. Only include the YAML under the `jsonSpec` property. Don't include information like metadata and kind. |
+| jsonSpec | A JSON-formatted Chaos Mesh spec that uses the [StressChaos kind](https://chaos-mesh.org/docs/simulate-heavy-stress-on-kubernetes/#create-experiments-using-the-yaml-file). You can use a YAML-to-JSON converter like [Convert YAML To JSON](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it. Use single-quotes within the JSON or escape the quotes with a backslash character. Only include the YAML under the `jsonSpec` property. Don't include information like metadata and kind. Specifying duration within the `jsonSpec` isn't necessary, but will be used if available. |
 
 ### Sample JSON
 
@@ -1026,7 +1026,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
       "parameters": [
         {
             "key": "jsonSpec",
-            "value": "{\"mode\":\"one\",\"selector\":{\"labelSelectors\":{\"app\":\"app1\"}},\"stressors\":{\"memory\":{\"workers\":4,\"size\":\"256MB\"}}}"
+            "value": "{\"mode\":\"one\",\"selector\":{\"namespaces\":[\"default\"]},\"stressors\":{\"cpu\":{\"workers\":1,\"load\":50},\"memory\":{\"workers\":4,\"size\":\"256MB\"}}"
         }
     ],
       "selectorid": "myResources"
@@ -1046,7 +1046,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 | Prerequisites | The AKS cluster must [have Chaos Mesh deployed](chaos-studio-tutorial-aks-portal.md). |
 | Urn | urn:csci:microsoft:azureKubernetesServiceChaosMesh:IOChaos/2.1 |
 | Parameters (key, value) |  |
-| jsonSpec | A JSON-formatted and, if created via Azure Resource Manager template, REST API, or the Azure CLI, JSON-escaped Chaos Mesh spec that uses the [IOChaos kind](https://chaos-mesh.org/docs/simulate-io-chaos-on-kubernetes/#create-experiments-using-the-yaml-files). You can use a YAML-to-JSON converter like [Convert YAML To JSON](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it. Then use a JSON string escape tool like [JSON Escape / Unescape](https://www.freeformatter.com/json-escape.html) to escape the JSON spec. Only include the YAML under the `jsonSpec` property. Don't include information like metadata and kind. |
+| jsonSpec | A JSON-formatted Chaos Mesh spec that uses the [IOChaos kind](https://chaos-mesh.org/docs/simulate-io-chaos-on-kubernetes/#create-experiments-using-the-yaml-files). You can use a YAML-to-JSON converter like [Convert YAML To JSON](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it. Use single-quotes within the JSON or escape the quotes with a backslash character. Only include the YAML under the `jsonSpec` property. Don't include information like metadata and kind. Specifying duration within the `jsonSpec` isn't necessary, but will be used if available. |
 
 ### Sample JSON
 
@@ -1060,7 +1060,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
       "parameters": [
         {
             "key": "jsonSpec",
-            "value": "{\"action\":\"latency\",\"mode\":\"one\",\"selector\":{\"labelSelectors\":{\"app\":\"etcd\"}},\"volumePath\":\"\/var\/run\/etcd\",\"path\":\"\/var\/run\/etcd\/**\/*\",\"delay\":\"100ms\",\"percent\":50}"
+            "value": "{\"action\":\"latency\",\"mode\":\"one\",\"selector\":{\"app\":\"etcd\"},\"volumePath\":\"\/var\/run\/etcd\",\"path\":\"\/var\/run\/etcd\/**\/*\",\"delay\":\"100ms\",\"percent\":50}"
         }
     ],
       "selectorid": "myResources"
@@ -1080,7 +1080,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 | Prerequisites | The AKS cluster must [have Chaos Mesh deployed](chaos-studio-tutorial-aks-portal.md). |
 | Urn | urn:csci:microsoft:azureKubernetesServiceChaosMesh:timeChaos/2.1 |
 | Parameters (key, value) |  |
-| jsonSpec | A JSON-formatted and, if created via Azure Resource Manager template, REST API, or the Azure CLI, JSON-escaped Chaos Mesh spec that uses the [TimeChaos kind](https://chaos-mesh.org/docs/simulate-time-chaos-on-kubernetes/#create-experiments-using-the-yaml-file). You can use a YAML-to-JSON converter like [Convert YAML To JSON](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it. Then use a JSON string escape tool like [JSON Escape / Unescape](https://www.freeformatter.com/json-escape.html) to escape the JSON spec. Only include the YAML under the `jsonSpec` property. Don't include information like metadata and kind. |
+| jsonSpec | A JSON-formatted Chaos Mesh spec that uses the [TimeChaos kind](https://chaos-mesh.org/docs/simulate-time-chaos-on-kubernetes/#create-experiments-using-the-yaml-file). You can use a YAML-to-JSON converter like [Convert YAML To JSON](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it. Use single-quotes within the JSON or escape the quotes with a backslash character. Only include the YAML under the `jsonSpec` property. Don't include information like metadata and kind. Specifying duration within the `jsonSpec` isn't necessary, but will be used if available. |
 
 ### Sample JSON
 
@@ -1094,7 +1094,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
       "parameters": [
         {
             "key": "jsonSpec",
-            "value": "{\"mode\":\"one\",\"selector\":{\"labelSelectors\":{\"app\":\"app1\"}},\"timeOffset\":\"-10m100ns\"}"
+            "value": "{\"mode\":\"one\",\"selector\":{\"namespaces\":[\"default\"]},\"timeOffset\":\"-10m100ns\"}"
         }
     ],
       "selectorid": "myResources"
@@ -1114,7 +1114,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 | Prerequisites | The AKS cluster must [have Chaos Mesh deployed](chaos-studio-tutorial-aks-portal.md). |
 | Urn | urn:csci:microsoft:azureKubernetesServiceChaosMesh:kernelChaos/2.1 |
 | Parameters (key, value) |  |
-| jsonSpec | A JSON-formatted and, if created via Azure Resource Manager template, REST API, or the Azure CLI, JSON-escaped Chaos Mesh spec that uses the [KernelChaos kind](https://chaos-mesh.org/docs/simulate-kernel-chaos-on-kubernetes/#configuration-file).You can use a YAML-to-JSON converter like [Convert YAML To JSON](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it. Then use a JSON string escape tool like [JSON Escape / Unescape](https://www.freeformatter.com/json-escape.html) to escape the JSON spec. Only include the YAML under the `jsonSpec` property. Don't include information like metadata and kind. |
+| jsonSpec | A JSON-formatted Chaos Mesh spec that uses the [KernelChaos kind](https://chaos-mesh.org/docs/simulate-kernel-chaos-on-kubernetes/#configuration-file). You can use a YAML-to-JSON converter like [Convert YAML To JSON](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it. Use single-quotes within the JSON or escape the quotes with a backslash character. Only include the YAML under the `jsonSpec` property. Don't include information like metadata and kind. Specifying duration within the `jsonSpec` isn't necessary, but will be used if available. |
 
 ### Sample JSON
 
@@ -1128,7 +1128,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
       "parameters": [
         {
             "key": "jsonSpec",
-            "value": "{\"mode\":\"one\",\"selector\":{\"namespaces\":[\"chaos-mount\"]},\"failKernRequest\":{\"callchain\":[{\"funcname\":\"__x64_sys_mount\"}],\"failtype\":0}}"
+            "value": "{\"mode\":\"one\",\"selector\":{\"namespaces\":[\"default\"]},\"failKernRequest\":{\"callchain\":[{\"funcname\":\"__x64_sys_mount\"}],\"failtype\":0}}"
         }
     ],
       "selectorid": "myResources"
@@ -1148,7 +1148,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 | Prerequisites | The AKS cluster must [have Chaos Mesh deployed](chaos-studio-tutorial-aks-portal.md). |
 | Urn | urn:csci:microsoft:azureKubernetesServiceChaosMesh:httpChaos/2.1 |
 | Parameters (key, value) |  |
-| jsonSpec | A JSON-formatted and, if created via Azure Resource Manager template, REST API, or the Azure CLI, JSON-escaped Chaos Mesh spec that uses the [HTTPChaos kind](https://chaos-mesh.org/docs/simulate-http-chaos-on-kubernetes/#create-experiments). You can use a YAML-to-JSON converter like [Convert YAML To JSON](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it. Then use a JSON string escape tool like [JSON Escape / Unescape](https://www.freeformatter.com/json-escape.html) to escape the JSON spec. Only include the YAML under the `jsonSpec` property. Don't include information like metadata and kind. |
+| jsonSpec | A JSON-formatted Chaos Mesh spec that uses the [HTTPChaos kind](https://chaos-mesh.org/docs/simulate-http-chaos-on-kubernetes/#create-experiments). You can use a YAML-to-JSON converter like [Convert YAML To JSON](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it. Use single-quotes within the JSON or escape the quotes with a backslash character. Only include the YAML under the `jsonSpec` property. Don't include information like metadata and kind. Specifying duration within the `jsonSpec` isn't necessary, but will be used if available. |
 
 ### Sample JSON
 
@@ -1162,7 +1162,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
       "parameters": [
         {
             "key": "jsonSpec",
-            "value": "{\"mode\":\"all\",\"selector\":{\"labelSelectors\":{\"app\":\"nginx\"}},\"target\":\"Request\",\"port\":80,\"method\":\"GET\",\"path\":\"\/api\",\"abort\":true,\"scheduler\":{\"cron\":\"@every 10m\"}}"
+            "value": "{\"mode\":\"all\",\"selector\":{\"namespaces\":[\"default\"]},\"target\":\"Request\",\"port\":80,\"method\":\"GET\",\"path\":\"/api\",\"abort\":true}"
         }
     ],
       "selectorid": "myResources"
@@ -1182,7 +1182,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 | Prerequisites | The AKS cluster must [have Chaos Mesh deployed](chaos-studio-tutorial-aks-portal.md) and the [DNS service must be installed](https://chaos-mesh.org/docs/simulate-dns-chaos-on-kubernetes/#deploy-chaos-dns-service). |
 | Urn | urn:csci:microsoft:azureKubernetesServiceChaosMesh:dnsChaos/2.1 |
 | Parameters (key, value) |  |
-| jsonSpec | A JSON-formatted and, if created via an Azure Resource Manager template, REST API, or the Azure CLI, JSON-escaped Chaos Mesh spec that uses the [DNSChaos kind](https://chaos-mesh.org/docs/simulate-dns-chaos-on-kubernetes/#create-experiments-using-the-yaml-file). You can use a YAML-to-JSON converter like [Convert YAML To JSON](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it. Then use a JSON string escape tool like [JSON Escape / Unescape](https://www.freeformatter.com/json-escape.html) to escape the JSON spec. Only include the YAML under the `jsonSpec` property. Don't include information like metadata and kind. |
+| jsonSpec | A JSON-formatted Chaos Mesh spec that uses the [DNSChaos kind](https://chaos-mesh.org/docs/simulate-dns-chaos-on-kubernetes/#create-experiments-using-the-yaml-file). You can use a YAML-to-JSON converter like [Convert YAML To JSON](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it. Use single-quotes within the JSON or escape the quotes with a backslash character. Only include the YAML under the `jsonSpec` property. Don't include information like metadata and kind. Specifying duration within the `jsonSpec` isn't necessary, but will be used if available. |
 
 ### Sample JSON
 
@@ -1196,7 +1196,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
       "parameters": [
         {
             "key": "jsonSpec",
-            "value": "{\"action\":\"random\",\"mode\":\"all\",\"patterns\":[\"google.com\",\"chaos-mesh.*\",\"github.?om\"],\"selector\":{\"namespaces\":[\"busybox\"]}}"
+            "value": "{\"action\":\"random\",\"mode\":\"all\",\"patterns\":[\"google.com\",\"chaos-mesh.*\",\"github.?om\"],\"selector\":{\"namespaces\":[\"default\"]}}"
         }
     ],
       "selectorid": "myResources"
@@ -1435,7 +1435,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 | Fault type | Continuous. |
 | Parameters (key, value) | |
 | certificateName | Name of Azure Key Vault certificate on which the fault is executed. |
-| version | Certificate version that should be updated. If not specified, the latest version is updated. |
+| version | Certificate version that should be disabled. If not specified, the latest version is disabled. |
 
 ### Sample JSON
 

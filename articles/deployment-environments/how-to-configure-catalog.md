@@ -1,7 +1,7 @@
 ---
 title: Add and configure a catalog
 titleSuffix: Azure Deployment Environments
-description: Learn how to add a catalog in your dev center to provide environment templates for your developers. Catalogs are repositories stored in GitHub or Azure DevOps.
+description: Learn how to add a catalog in your Azure Deployment Environments dev center to provide environment templates for your developers. Catalogs are repositories stored in GitHub or Azure DevOps.
 ms.service: deployment-environments
 ms.custom: ignite-2022, build-2023
 author: RoseHJM
@@ -10,9 +10,11 @@ ms.date: 04/25/2023
 ms.topic: how-to
 ---
 
-# Add and configure a catalog from GitHub or Azure DevOps
+# Add and configure a catalog from GitHub or Azure DevOps in Azure Deployment Environments
 
-Learn how to add and configure a [catalog](./concept-environments-key-concepts.md#catalogs) in your Azure Deployment Environments dev center. You can use a catalog to provide your development teams with a curated set of infrastructure as code (IaC) templates called [environment definitions](./concept-environments-key-concepts.md#environment-definitions). Your catalog is encrypted; Azure Deployment Environments supports encryption at rest with platform-managed encryption keys, which are managed by Microsoft for Azure Services.
+Learn how to add and configure a [catalog](./concept-environments-key-concepts.md#catalogs) in your Azure Deployment Environments dev center. 
+
+You can use a catalog to provide your development teams with a curated set of infrastructure as code (IaC) templates called [environment definitions](./concept-environments-key-concepts.md#environment-definitions). Your catalog is encrypted; Azure Deployment Environments supports encryption at rest with platform-managed encryption keys, which are managed by Microsoft for Azure Services.
 
 For more information about environment definitions, see [Add and configure an environment definition](./configure-environment-definition.md).
 
@@ -32,6 +34,8 @@ In this article, you learn how to:
 > - Delete a catalog.
 
 ## Add a catalog
+
+In Azure Deployment Environments, catalogs help you provide a set of curated IaC templates for your development teams to create environments. You can attach either a GitHub repository or an Azure DevOps repository as a catalog.
 
 To add a catalog, you complete these tasks:
 
@@ -159,14 +163,14 @@ Get the path to the secret you created in the key vault.
 
 If you update the Azure Resource Manager template (ARM template) contents or definition in the attached repository, you can provide the latest set of environment definitions to your development teams by syncing the catalog.
 
-To sync an updated catalog:
+To sync an updated catalog in Azure Deployment Environments:
 
 1. On the left menu for your dev center, under **Environment configuration**, select **Catalogs**,
 1. Select the specific catalog, and then select **Sync**. The service scans through the repository and makes the latest list of environment definitions available to all the associated projects in the dev center.
 
 ## Delete a catalog
 
-You can delete a catalog to remove it from the dev center. Templates in a deleted catalog aren't available to development teams when they deploy new environments. Update the environment definition reference for any existing environments that were created by using the environment definitions in the deleted catalog. If the reference isn't updated and the environment is redeployed, the deployment fails.
+You can delete a catalog to remove it from the Azure Deployment Environments dev center. Templates in a deleted catalog aren't available to development teams when they deploy new environments. Update the environment definition reference for any existing environments that were created by using the environment definitions in the deleted catalog. If the reference isn't updated and the environment is redeployed, the deployment fails.
 
 To delete a catalog:
 
