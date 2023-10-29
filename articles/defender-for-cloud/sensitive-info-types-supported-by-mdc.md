@@ -98,7 +98,7 @@ The finance, PII (personally identifiable information), and credentials categori
 | [Estonia driver's license number](/purview/sit-defn-estonia-drivers-license-number) | Other | NO |
 | [Estonia passport number](/purview/sit-defn-estonia-passport-number) | Other | NO |
 | [Estonia Personal Identification Code](/purview/sit-defn-estonia-personal-identification-code) | PII | YES |
-| [EU debit card number](/purview/sit-defn-eu-debit-card-number]) |Finance | YES |
+| [EU debit card number](/purview/sit-defn-eu-debit-card-number) |Finance | YES |
 | [Finland driver's license number](/purview/sit-defn-finland-drivers-license-number) | Other | NO |
 | [Finland european health insurance number](/purview/sit-defn-finland-european-health-insurance-number) | Other | NO |
 | [Finland national ID](/purview/sit-defn-finland-national-id) | PII | YES |
@@ -128,12 +128,12 @@ The finance, PII (personally identifiable information), and credentials categori
 | [Hungary social security number (TAJ)](/purview/sit-defn-hungary-social-security-number) | PII | YES |
 | [Hungary tax identification number](/purview/sit-defn-hungary-tax-identification-number) | Other | NO |
 | [Hungary value added tax number](/purview/sit-defn-hungary-value-added-tax-number) | Other | NO |
-| [India permanent account number (PAN)](/purview/sit-defn-india-permanent-account-numbe)  | Other | NO |
+| [India permanent account number (PAN)](/purview/sit-defn-india-permanent-account-number)  | Other | NO |
 | [India unique identification (Aadhaar) number](/purview/sit-defn-india-unique-identification-number) | Other | NO |
 | [Indonesia identity card (KTP) number](/purview/sit-defn-indonesia-identity-card-number) | Other | NO |
 | [International banking account number (IBAN)](/purview/sit-defn-international-banking-account-number) | Finance | YES |
 | [IP address](/purview/sit-defn-ip-address) | Other | NO |
-| [Ireland driver's license number](/purvew/sit-defn-ireland-drivers-license-number) | Other | NO |
+| [Ireland driver's license number](/purview/sit-defn-ireland-drivers-license-number) | Other | NO |
 | [Ireland passport number](/purview/sit-defn-ireland-passport-number) | Other | NO |
 | [Ireland personal public service (PPS) number](/purview/sit-defn-ireland-personal-public-service-number) | PII | YES |
 | [Israel bank account number](/purview/sit-defn-israel-bank-account-number) | Other | NO |
@@ -194,7 +194,7 @@ The finance, PII (personally identifiable information), and credentials categori
 | [Romania personal numeric code (CNP)](/purview/sit-defn-romania-personal-numeric-code) | PII | YES |
 | [Russia passport number domestic](/purview/sit-defn-russia-passport-number-domestic) | Other | NO |
 | [Russia passport number international](/purview/sit-defn-russia-passport-number-international) | Other | NO |
-| [Saudi Arabia National ID](m/purview/sit-defn-saudi-arabia-national-id) | Other | NO |
+| [Saudi Arabia National ID](/purview/sit-defn-saudi-arabia-national-id) | Other | NO |
 | [Singapore national registration identity card (NRIC) number](/purview/sit-defn-singapore-national-registration-identity-card-number) | Other | NO|
 | [Slack access token](/purview/sit-defn-slack-access-token) | Credentials | YES |
 | [Slovakia driver's license number](/purview/sit-defn-slovakia-drivers-license-number) | Other | NO |

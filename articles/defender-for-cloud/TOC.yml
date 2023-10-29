@@ -222,7 +222,9 @@
     - name: Support and prerequisites
       href: concept-data-security-posture-prepare.md
     - name: Data security dashboard
-      href: data-aware-security-dashboard-overview.md  
+      href: data-aware-security-dashboard-overview.md
+    - name: Supported sensitive data information types
+      href: sensitive-info-types-supported-by-mdc.md   
   - name: Improve your container security posture
     items:
     - name: Agentless container posture
