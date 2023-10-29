@@ -80,7 +80,8 @@ In this section, you deploy the data connector agent. After you deploy the agent
 
 - Follow the [Microsoft Sentinel Solution for SAP deployment prerequisites](prerequisites-for-deploying-sap-continuous-threat-monitoring.md).
 - If you plan to ingest NetWeaver/ABAP logs over a secure connection using Secure Network Communications (SNC), [deploy the Microsoft Sentinel for SAP data connector with SNC](configure-snc.md).
-- Otherwise, set up a Key Vault, using either a [managed identity](#managed-identity) or a [registered application](#registered-application). For more information on these options, see the [overview section](#data-connector-agent-deployment-overview).
+- Otherwise, set up a Key Vault, using either a [managed identity](deploy-data-connector-agent-container.md?tabs=managed-identity#create-key-vault) or a [registered application](deploy-data-connector-agent-container.md?tabs=registered-application#create-key-vault). Make sure you have the necessary permissions.
+- For more information on these options, see the [overview section](#data-connector-agent-deployment-overview).
 
 ### Create Key Vault
 
