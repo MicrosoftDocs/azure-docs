@@ -247,11 +247,11 @@ Monitoring for Azure Machine Learning endpoints is possible via integration with
 
 For more information on monitoring, see [Monitor online endpoints](how-to-monitor-online-endpoints.md).
 
-### Secret injection in online deployments
+### Secret injection in online deployments (preview)
 
-Secret injection in the context of an online deployment is a process of retrieving secrets from secret stores and injecting secrets into the user container that runs inside the online deployment. The secrets will eventually be accessible via environment variables, allowing the inference server that runs your scoring script or the inferencing stack that you bring with a BYOC approach to consume the secrets in a secured way.
+Secret injection in the context of an online deployment is a process of retrieving secrets (such as API keys) from secret stores, and injecting them into your user container that runs inside an online deployment. Secrets will eventually be accessible via environment variables, thereby providing a secure way for them to be consumed by the inference server that runs your scoring script or by the inferencing stack that you bring with a BYOC (bring your own container) deployment approach.
 
-There are two ways to inject secrets. You can inject secrets yourself, using managed identities, or you can use the secret injection feature. To learn more about the ways to inject secrets, see [Secret injection in online endpoints](concept-secret-injection.md).
+There are two ways to inject secrets. You can inject secrets yourself, using managed identities, or you can use the secret injection feature. To learn more about the ways to inject secrets, see [Secret injection in online endpoints (preview)](concept-secret-injection.md).
 
 
 ## Next steps
