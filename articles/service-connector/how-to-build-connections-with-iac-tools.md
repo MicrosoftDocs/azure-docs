@@ -9,7 +9,7 @@ ms.author: honc
 ---
 # How to translate your infrastructure to an IaC template
 
-Service Connector helps users connect their compute services to target backing services in just a few clicks or commands. When moving from a getting-started to a production stage, users also need the transition from manual configurations to Infrastructure as Code (IaC) templates in the CI/CD pipelines. In this guide, we show how to translate your Azure services with connections to IaC templates.
+Service Connector helps users connect their compute services to target backing services in just a few clicks or commands. When moving from a getting-started to a production stage, users also need to make the transition from using manual configurations to using Infrastructure as Code (IaC) templates in their CI/CD pipelines. In this guide, we show how to translate your connected Azure services to IaC templates.
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ To implement the logics to build connections, there are also two options:
 * Using Service Connector in the template.
 * Using template logics to configure source and target services directly.
 
-Combinations of these different options can produce different solutions. Due to [IaC limitations](./known-limitations.md) in Service Connector, we recommend that you implement the following solutions in the order presented below. To apply these solutions; you must understand the IaC tools and the template authoring grammar.
+Combinations of these different options can produce different solutions. Due to [IaC limitations](./known-limitations.md) in Service Connector, we recommend that you implement the following solutions in the order presented below. To apply these solutions, you must understand the IaC tools and the template authoring grammar.
 
 | Solution | Provision source and target |                     Build connection                     |                           Applicable scenario                           | Pros                                                                                           | Cons                                                                                                                                        |
 | :------: | :-------------------------: | :-------------------------------------------------------: | :----------------------------------------------------------------------: | ---------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
