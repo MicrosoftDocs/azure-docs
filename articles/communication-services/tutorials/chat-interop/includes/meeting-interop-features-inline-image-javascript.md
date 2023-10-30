@@ -318,7 +318,7 @@ Then you should see the new message being rendered along with preview images:
 
 :::image type="content" source="./media/meeting-interop-features-inline-1.png" alt-text="A screenshot of sample app shown an incoming message with inline images being presented.":::
 
-Upon clicking the preview image by the ACS user, an overlay would be shown with the full scale image sent by the Teams user:
+Upon clicking the preview image by the Azure Communication Services user, an overlay would be shown with the full scale image sent by the Teams user:
 
  :::image type="content" source="./media/meeting-interop-features-inline-2.png" alt-text="A screenshot of sample app shown an overlay of a full scale image being presented.":::
 
