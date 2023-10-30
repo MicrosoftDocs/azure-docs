@@ -36,7 +36,7 @@ The current alert rule wizard is different from the earlier experience:
 1. The **Configure signal logic** pane opens with historical data for the query that appears as a graph. You can change the **Time range** of the chart to display data from the last six hours to last week.
     If your query results contain summarized data or specific columns without the time column, the chart shows a single value.
    
-    :::image type="content" source="media/alerts-log/alerts-edit-alerts-rule.png" alt-text="Screenshot that shows the Configure signal logic pane.":::
+    :::image type="content" source="media/alerts-log/alerts-edit-alerts-rule.png" lightbox="media/alerts-log/alerts-edit-alerts-rule.png" alt-text="Screenshot that shows the Configure signal logic pane.":::
 
 1. Edit the alert rule conditions by using these sections:
     - **Search query**: In this section, you can modify your query.
@@ -56,8 +56,8 @@ The current alert rule wizard is different from the earlier experience:
         
         > [!NOTE]
         > The **Split by alert dimensions** option is only available for the current scheduledQueryRules API. If you use the legacy [Log Analytics Alert API](./api-alerts.md), you'll need to switch. [Learn more about switching](./alerts-log-api-switch.md). Resource-centric alerting at scale is only supported in the API version `2021-08-01` and later.
-
-        :::image type="content" source="media/alerts-log/aggregate-on.png" alt-text="Screenshot that shows Aggregate on.":::
+        
+        :::image type="content" source="media/alerts-log/aggregate-on.png" lightbox="media/alerts-log/aggregate-on.png" alt-text="Screenshot that shows Aggregate on.":::
 
     - **Period**: Choose the time range over which to assess the specified condition by using the [Period](./alerts-unified-log.md#query-time-range) option.
 
@@ -67,16 +67,18 @@ The current alert rule wizard is different from the earlier experience:
 1. Select **Done**.
 1. You can edit the rule **Description** and **Severity**. These details are used in all alert actions. You can also choose to not activate the alert rule on creation by selecting **Enable rule upon creation**.
 1. Use the [Suppress Alerts](./alerts-unified-log.md#state-and-resolving-alerts) option if you want to suppress rule actions for a specified time after an alert is fired. The rule will still run and create alerts, but actions won't be triggered to prevent noise. The **Mute actions** value must be greater than the frequency of the alert to be effective.
-
-   ![Screenshot that shows the Alert Details pane.](media/alerts-log/AlertsPreviewSuppress.png)
+   <!-- convertborder later -->
+   :::image type="content" source="media/alerts-log/AlertsPreviewSuppress.png" lightbox="media/alerts-log/AlertsPreviewSuppress.png" alt-text="Screenshot that shows the Alert Details pane." border="false":::
 1. To make alerts stateful, select **Automatically resolve alerts (preview)**.
 1. Specify if the alert rule should trigger one or more [action groups](./action-groups.md) when the alert condition is met.
     > [!NOTE]
-    > For limits on the actions that can be performed, see [Azure subscription service limits](../../azure-resource-manager/management/azure-subscription-service-limits.md).
+    > * For limits on the actions that can be performed, see [Azure subscription service limits](../../azure-resource-manager/management/azure-subscription-service-limits.md).
+    > * Search results were included in the payload of the triggered alert and its associated notifications. **Notice that**: The **email** included only **10 rows** from the unfiltered results while the **webhook payload** contained **1,000 unfiltered results**.
 1. (Optional) Customize actions in log alert rules:
     - **Custom email subject**: Overrides the *email subject* of email actions. You can't modify the body of the mail and this field *isn't for email addresses*.
     - **Include custom Json payload for webhook**: Overrides the webhook JSON used by action groups, assuming that the action group contains a webhook action. Learn more about [webhook actions for log alerts](./alerts-log-webhook.md).
-    ![Screenshot that shows Action overrides for log alerts.](media/alerts-log/AlertsPreviewOverrideLog.png)
+    <!-- convertborder later -->
+    :::image type="content" source="media/alerts-log/AlertsPreviewOverrideLog.png" lightbox="media/alerts-log/AlertsPreviewOverrideLog.png" alt-text="Screenshot that shows Action overrides for log alerts." border="false":::
 1. After you've finished editing all the alert rule options, select **Save**.
 
 ## Manage log alerts using PowerShell

@@ -25,25 +25,34 @@ Azure AI Spatial Analysis Video Retrieval APIs are part of Azure AI Vision and e
 
 ## Input requirements
 
-### Supported file formats
+### Supported formats
+
 | File format | Description |
 | ----------- | ----------- |
 | `asf`         | ASF (Advanced / Active Streaming Format)       |
+| `avi`         | AVI (Audio Video Interleaved)        |
 | `flv`         | FLV (Flash Video)        |
 | `matroskamm`, `webm`          | Matroska / WebM       |
-| `mov`, `mp4`, `m4a`, `3gp`, `3g2`, `mj2`   | QuickTime / MOV        |
-| `mpegts`                    | MPEG-TS (MPEG-2 Transport Stream)       |
-| `rawvideo`                  | raw video        |
-| `rm`                        | RealMedia        |
-| `rtsp`                      | RTSP input       |
+| `mov`,`mp4`,`m4a`,`3gp`,`3g2`,`mj2`   | QuickTime / MOV        |
+ 
+### Supported video codecs
 
-### Supported codecs
 | Codec       | Format |
 | ----------- | ----------- |
 | `h264`        | H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10       |
-| `rawvideo`    | raw video        |
-| `h265`        | HEVC
+| `h265`        | H.265/HEVC        |
 | `libvpx-vp9`  | libvpx VP9 (codec vp9)        |
+| `mpeg4`       | MPEG-4 part 2       |
+ 
+### Supported audio codecs
+
+| Codec       | Format |
+| ----------- | ----------- |
+| `aac`         | AAC (Advanced Audio Coding)       |
+| `mp3`         | MP3 (MPEG audio layer 3)        |
+| `pcm`         | PCM (uncompressed)        |
+| `vorbis`      | Vorbis       |
+| `wmav2`       | Windows Media Audio 2       |
 
 ## Call the Video Retrieval APIs
 
@@ -61,7 +70,7 @@ The Spatial Analysis Video Retrieval APIs allows a user to add metadata to video
 
 ### Step 1: Create an Index
 
-To begin, you need to create an index to store and organize the video files and their metadata. The example below demonstrates how to create an index named "my-video-index."
+To begin, you need to create an index to store and organize the video files and their metadata. The example below demonstrates how to create an index named "my-video-index" using the **[Create Index](https://eastus.dev.cognitive.microsoft.com/docs/services/ingestion-api-private-preview-2023-05-01-preview/operations/645db36646346106fcc4779b)** API.
 
 ```bash
 curl.exe -v -X PUT "https://<YOUR_ENDPOINT_URL>/computervision/retrieval/indexes/my-video-index?api-version=2023-05-01-preview" -H "Ocp-Apim-Subscription-Key: <YOUR_SUBSCRIPTION_KEY>" -H "Content-Type: application/json" --data-ascii "
@@ -145,7 +154,7 @@ Connection: close
 
 ### Step 2: Add video files to the index
 
-Next, you can add video files to the index with their associated metadata. The example below demonstrates how to add two video files to the index using SAS URLs to provide access.
+Next, you can add video files to the index with their associated metadata. The example below demonstrates how to add two video files to the index using SAS URLs with the **[Create Ingestion](https://eastus.dev.cognitive.microsoft.com/docs/services/ingestion-api-private-preview-2023-05-01-preview/operations/645db36646346106fcc4779f)** API.
 
 
 ```bash
@@ -195,7 +204,7 @@ Connection: close
 
 ### Step 3: Wait for ingestion to complete
 
-After you add video files to the index, the ingestion process starts. It might take some time depending on the size and number of files. To ensure the ingestion is complete before performing searches, you can use the **Get Ingestion** call to check the status. Wait for this call to return `"state" = "Completed"` before proceeding to the next step. 
+After you add video files to the index, the ingestion process starts. It might take some time depending on the size and number of files. To ensure the ingestion is complete before performing searches, you can use the **[Get Ingestion](https://eastus.dev.cognitive.microsoft.com/docs/services/ingestion-api-private-preview-2023-05-01-preview/operations/645db36646346106fcc477a0)** API to check the status. Wait for this call to return `"state" = "Completed"` before proceeding to the next step. 
 
 ```bash
 curl.exe -v _X GET "https://<YOUR_ENDPOINT_URL>/computervision/retrieval/indexes/my-video-index/ingestions?api-version=2023-05-01-preview&$top=20" -H "ocp-apim-subscription-key: <YOUR_SUBSCRIPTION_KEY>"
@@ -230,7 +239,7 @@ After you add video files to the index, you can search for specific videos using
 
 #### Search with "vision" feature
 
-To perform a search using the "vision" feature, specify the query text and any desired filters.
+To perform a search using the "vision" feature, use the [Search By Text](https://eastus.dev.cognitive.microsoft.com/docs/services/ingestion-api-private-preview-2023-05-01-preview/operations/645db36646346106fcc477a2) API with the `vision` filter, specifying the query text and any other desired filters.
 
 ```bash
 POST -v -X "https://<YOUR_ENDPOINT_URL>/computervision/retrieval/indexes/my-video-index:queryByText?api-version=2023-05-01-preview" -H "Ocp-Apim-Subscription-Key: <YOUR_SUBSCRIPTION_KEY>" -H "Content-Type: application/json" --data-ascii "
@@ -293,7 +302,7 @@ Connection: close
 
 #### Search with "speech" feature
 
-To perform a search using the "speech" feature, provide the query text and any desired filters.
+To perform a search using the "speech" feature, use the **[Search By Text](https://eastus.dev.cognitive.microsoft.com/docs/services/ingestion-api-private-preview-2023-05-01-preview/operations/645db36646346106fcc477a2)** API with the `speech` filter, providing the query text and any other desired filters.
 
 ```bash
 curl.exe -v -X POST "https://<YOUR_ENDPOINT_URL>com/computervision/retrieval/indexes/my-video-index:queryByText?api-version=2023-05-01-preview" -H "Ocp-Apim-Subscription-Key: <YOUR_SUBSCRIPTION_KEY>" -H "Content-Type: application/json" --data-ascii "

@@ -12,7 +12,7 @@ services: iot-central
 
 # What does it mean for IoT Central to have high availability, disaster recovery (HADR), and elastic scale?
 
-Azure IoT Central is an application platform as a service (aPaaS) that manages scalability and HADR for you. An IoT Central application can scale to support millions of connected devices. For more information about device and message pricing, see [Azure IoT Central pricing](https://azure.microsoft.com/pricing/details/iot-central/). For more information about the service level agreement, see [SLA for Azure IoT Central](https://azure.microsoft.com/support/legal/sla/iot-central/v1_0/).
+Azure IoT Central is an application platform as a service (aPaaS) that manages scalability and HADR for you. An IoT Central application can scale to support hundreds of thousands of connected devices. For more information about device and message pricing, see [Azure IoT Central pricing](https://azure.microsoft.com/pricing/details/iot-central/). For more information about the service level agreement, see [SLA for Azure IoT Central](https://azure.microsoft.com/support/legal/sla/iot-central/v1_0/).
 
 This article provides background information about how IoT Central scales and delivers HADR. The article also includes guidance on how to take advantage of these capabilities.
 

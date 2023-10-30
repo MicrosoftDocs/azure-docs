@@ -113,7 +113,7 @@ To change your pricing tier, follow these steps:
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. Make sure you're using the Microsoft Entra directory that contains the subscription your Azure B2C tenant and not the Azure AD B2C tenant itself:
-    1. In the Azure portal toolbar, select the **Directories + subscriptions** (:::image type="icon" source="./../active-directory/develop/media/common/portal-directory-subscription-filter.png" border="false":::) icon.
+    1. In the Azure portal toolbar, select the **Directories + subscriptions** icon.
 
     1. On the **Portal settings | Directories + subscriptions** page, find your Microsoft Entra directory in the **Directory name** list, and then select **Switch** button next to it.
 

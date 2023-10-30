@@ -36,8 +36,6 @@ Run the install command through Azure Resource Manager ARM Client tool. The comm
 ```azurepowershell-interactive
 armclient PUT /subscriptions/<subscriptionid>/resourceGroups/<resource-group-name>/providers/Microsoft.AgFoodPlatform/farmBeats/<farmbeats-resource-name>/extensions/<extensionid>?api-version=2020-05-12-preview '{}'
 ```
-For more information, see API documentation [here](/rest/api/data-manager-for-agri).
-
 > [!NOTE]
 > All values within < > is to be replaced with your respective environment values.
 >
@@ -116,4 +114,4 @@ armclient put /subscriptions/<subscriptionid>/resourceGroups/<resource-group-nam
 
 ## Step 2: Fetch weather data
 
-Once the credentials required to access the APIs is obtained, you need to call the fetch weather data API [here](/rest/api/data-manager-for-agri/dataplane-version2022-11-01-preview/weather) to fetch weather data.
+Once the credentials required to access the APIs is obtained, you need to call the fetch weather data API [here](/rest/api/data-manager-for-agri/dataplane-version2022-11-01-preview/weather-data) to fetch weather data.

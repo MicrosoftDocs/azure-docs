@@ -5,86 +5,78 @@ author: maud-lv
 ms.author: malev 
 ms.service: managed-grafana 
 ms.topic: how-to
-ms.date: 1/12/2023
+ms.date: 10/13/2023
 ---
 
 # How to configure data sources for Azure Managed Grafana
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
-- An Azure Managed Grafana instance. If you don't have one yet, [create an Azure Managed Grafana instance](./how-to-permissions.md).
-- A resource including monitoring data with  Managed Grafana monitoring permissions. Read [how to configure permissions](how-to-permissions.md) for more information.
-
-## Sign in to Azure
-
-Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.com/) with your Azure account.
+[An Azure Managed Grafana instance](./how-to-permissions.md)
 
 ## Supported Grafana data sources
 
-By design, Grafana can be configured with multiple data sources. A data source is an externalized storage backend that holds your telemetry information. Azure Managed Grafana supports many popular data sources.
+By design, Grafana can be configured with multiple *data sources*. A data source is an externalized storage backend that holds telemetry information.
 
-Azure-specific data sources available for all customers:
+Azure Managed Grafana supports many popular data sources. The table below lists the data sources that can be added to Azure Managed Grafana for each service tier.
 
-- [Azure Data Explorer](https://github.com/grafana/azure-data-explorer-datasource?utm_source=grafana_add_ds)
-- [Azure Monitor](https://grafana.com/docs/grafana/latest/datasources/azuremonitor/). Is preloaded in all Grafana instances.
+| Data sources                                                                                                                  | Essential (preview) | Standard |
+|-------------------------------------------------------------------------------------------------------------------------------|-----------|----------|
+| [Alertmanager](https://grafana.com/docs/grafana/latest/datasources/alertmanager/)                                             | -         | ✔       |
+| [AWS CloudWatch](https://grafana.com/docs/grafana/latest/datasources/aws-cloudwatch/)                                         | -         | ✔       |
+| [Azure Data Explorer](https://github.com/grafana/azure-data-explorer-datasource?utm_source=grafana_add_ds)                    | -         | ✔       |
+| [Azure Monitor](https://grafana.com/docs/grafana/latest/datasources/azuremonitor/)                                            | ✔        | ✔       |
+| [Elasticsearch](https://grafana.com/docs/grafana/latest/datasources/elasticsearch/)                                           | -         | ✔       |
+| [GitHub](https://grafana.com/docs/grafana-cloud/monitor-infrastructure/integrations/integration-reference/integration-github) | -         | ✔       |
+| [Google Cloud Monitoring](https://grafana.com/docs/grafana/latest/datasources/google-cloud-monitoring/)                       | -         | ✔       |
+| [Graphite](https://grafana.com/docs/grafana/latest/datasources/graphite/)                                                     | -         | ✔       |
+| [InfluxDB](https://grafana.com/docs/grafana/latest/datasources/influxdb/)                                                     | -         | ✔       |
+| [Jaeger](https://grafana.com/docs/grafana/latest/datasources/jaeger/)                                                         | -         | ✔       |
+| [JSON API](https://grafana.com/grafana/plugins/grafana-jira-datasource)                                                       | -         | ✔       |
+| [Loki](https://grafana.com/docs/grafana/latest/datasources/loki/)                                                             | -         | ✔       |
+| [Microsoft SQL Server](https://grafana.com/docs/grafana/latest/datasources/mssql/)                                            | -         | ✔       |
+| [MySQL](https://grafana.com/docs/grafana/latest/datasources/mysql/)                                                           | -         | ✔       |
+| [OpenTSDB](https://grafana.com/docs/grafana/latest/datasources/opentsdb/)                                                     | -         | ✔       |
+| [PostgreSQL](https://grafana.com/docs/grafana/latest/datasources/postgres/)                                                   | -         | ✔       |
+| [Prometheus](https://grafana.com/docs/grafana/latest/datasources/prometheus/)                                                 | ✔        | ✔       |
+| [Tempo](https://grafana.com/docs/grafana/latest/datasources/tempo/)                                                           | -         | ✔       |
+| [TestData](https://grafana.com/docs/grafana/latest/datasources/testdata/)                                                  | ✔        | ✔       |
+| [Zipkin](https://grafana.com/docs/grafana/latest/datasources/zipkin/)                                                         | -         | ✔       |
 
-Data sources reserved for Grafana Enterprise customers - exclusively preloaded in instances with a Grafana Enterprise subscription:
+Within the Standard service tier, users who have subscribed to the Grafana Enterprise option can also access the following data sources.
 
-- [AppDynamics](https://grafana.com/grafana/plugins/dlopes7-appdynamics-datasource)
-- [Azure Devops](https://grafana.com/grafana/plugins/grafana-azuredevops-datasource)
-- [DataDog](https://grafana.com/grafana/plugins/grafana-datadog-datasource)
-- [Dynatrace](https://grafana.com/grafana/plugins/grafana-dynatrace-datasource)
-- [Gitlab](https://grafana.com/grafana/plugins/grafana-gitlab-datasource)
-- [Honeycomb](https://grafana.com/grafana/plugins/grafana-honeycomb-datasource)
-- [Jira](https://grafana.com/grafana/plugins/grafana-jira-datasource)
-- [MongoDB](https://grafana.com/grafana/plugins/grafana-mongodb-datasource)
-- [New Relic](https://grafana.com/grafana/plugins/grafana-newrelic-datasource)
-- [Oracle Database](https://grafana.com/grafana/plugins/grafana-oracle-datasource)
-- [Salesforce](https://grafana.com/grafana/plugins/grafana-salesforce-datasource)
-- [SAP HANA®](https://grafana.com/grafana/plugins/grafana-saphana-datasource)
-- [ServiceNow](https://grafana.com/grafana/plugins/grafana-servicenow-datasource)
-- [Snowflake](https://grafana.com/grafana/plugins/grafana-snowflake-datasource)
-- [Splunk](https://grafana.com/grafana/plugins/grafana-splunk-datasource)
-- [Splunk Infrastructure monitoring (SignalFx)](https://grafana.com/grafana/plugins/grafana-splunk-monitoring-datasource)
-- [Wavefront](https://grafana.com/grafana/plugins/grafana-wavefront-datasource)
-
-Other data sources:
-
-- [Alertmanager](https://grafana.com/docs/grafana/latest/datasources/alertmanager/)
-- [CloudWatch](https://grafana.com/docs/grafana/latest/datasources/aws-cloudwatch/)
-- Direct Input
-- [Elasticsearch](https://grafana.com/docs/grafana/latest/datasources/elasticsearch/)
-- [Google Cloud Monitoring](https://grafana.com/docs/grafana/latest/datasources/google-cloud-monitoring/)
-- [Graphite](https://grafana.com/docs/grafana/latest/datasources/graphite/)
-- [InfluxDB](https://grafana.com/docs/grafana/latest/datasources/influxdb/)
-- [Jaeger](https://grafana.com/docs/grafana/latest/datasources/jaeger/)
-- [Loki](https://grafana.com/docs/grafana/latest/datasources/loki/)
-- [Microsoft SQL Server](https://grafana.com/docs/grafana/latest/datasources/mssql/)
-- [MySQL](https://grafana.com/docs/grafana/latest/datasources/mysql/)
-- [OpenTSDB](https://grafana.com/docs/grafana/latest/datasources/opentsdb/)
-- [PostgreSQL](https://grafana.com/docs/grafana/latest/datasources/postgres/)
-- [Prometheus](https://grafana.com/docs/grafana/latest/datasources/prometheus/)
-- [Tempo](https://grafana.com/docs/grafana/latest/datasources/tempo/)
-- [TestData DB](https://grafana.com/docs/grafana/latest/datasources/testdata/)
-- [Zipkin](https://grafana.com/docs/grafana/latest/datasources/zipkin/)
+* [AppDynamics](https://grafana.com/grafana/plugins/dlopes7-appdynamics-datasource)
+* [Azure Devops](https://grafana.com/grafana/plugins/grafana-azuredevops-datasource)
+* [DataDog](https://grafana.com/grafana/plugins/grafana-datadog-datasource)
+* [Dynatrace](https://grafana.com/grafana/plugins/grafana-dynatrace-datasource)
+* [GitLab](https://grafana.com/grafana/plugins/grafana-gitlab-datasource)
+* [Honeycomb](https://grafana.com/grafana/plugins/grafana-honeycomb-datasource)
+* [MongoDB](https://grafana.com/grafana/plugins/grafana-mongodb-datasource)
+* [New Relic](https://grafana.com/grafana/plugins/grafana-newrelic-datasource)
+* [Oracle Database](https://grafana.com/grafana/plugins/grafana-oracle-datasource)
+* [Salesforce](https://grafana.com/grafana/plugins/grafana-salesforce-datasource)
+* [SAP HANA®](https://grafana.com/grafana/plugins/grafana-saphana-datasource)
+* [ServiceNow](https://grafana.com/grafana/plugins/grafana-servicenow-datasource)
+* [Snowflake](https://grafana.com/grafana/plugins/grafana-snowflake-datasource)
+* [Splunk](https://grafana.com/grafana/plugins/grafana-splunk-datasource)
+* [Splunk Infrastructure monitoring (SignalFx)](https://grafana.com/grafana/plugins/grafana-splunk-monitoring-datasource)
+* [Wavefront](https://grafana.com/grafana/plugins/grafana-wavefront-datasource)
 
 For more information about data sources, go to [Data sources](https://grafana.com/docs/grafana/latest/datasources/) on the Grafana Labs website.
 
-## Add a datasource
+## Add a data source
 
-A number of data sources are added by in your Grafana instance by default. To add more data sources, follow the steps below using the Azure portal or the Azure CLI.
+A number of data sources, such as Azure Monitor, are added to your Grafana instance by default. To add more data sources, follow the steps below using the Azure portal or the Azure CLI.
 
 ### [Portal](#tab/azure-portal)
 
-1. Open the Grafana UI of your Azure Managed Grafana instance and select **Configuration** > **Data sources** from the left menu.
-1. Select **Add data source**, search for the data source you need from the available list, and select it.
+1. Open your Azure Managed Grafana instance in the Azure portal.
+1. Select **Overview** from the left menu, then open the **Endpoint** URL.
+1. In the Grafana portal, deploy the menu on the left and select **Connections**.
+1. Under Connect data, select a data source from the list, and add the data source to your instance.
 1. Fill out the form with the data source settings and select **Save and test** to validate the connection to your data source.
 
    :::image type="content" source="media/data-sources/add-data-source.png" alt-text="Screenshot of the Add data source page.":::
-
-> [!NOTE]
-> Installing Grafana plugins listed on the page **Configuration** > **Plugins** isn’t currently supported.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -113,15 +105,18 @@ az grafana data-source create --name <instance-name> --definition '{
 
 ---
 
+> [!TIP]
+> If you can't connect to a data source, you may need to [modify access permissions](how-to-permissions.md) to allow access from your Azure Managed Grafana instance.
+
 ## Update a data source
 
 ### Azure Monitor configuration
 
-The Azure Monitor data source is automatically added to all new Managed Grafana resources. To review or modify its configuration, follow these steps below in the Grafana UI of your Azure Managed Grafana instance or in the Azure CLI.
+The Azure Monitor data source is automatically added to all new Managed Grafana resources. To review or modify its configuration, follow the steps below in the Grafana portal of your Azure Managed Grafana instance or in the Azure CLI.
 
 ### [Portal](#tab/azure-portal)
 
-1. From the left menu, select **Configuration** > **Data sources**.
+1. Deploy the menu on the left and select **Connections** > **Data sources**.
 
    :::image type="content" source="media/data-sources/configuration.png" alt-text="Screenshot of the Add data sources page.":::
 
@@ -173,7 +168,7 @@ az grafana data-source update --data-source 'Azure Monitor' --name <instance-nam
 ---
 
 > [!NOTE]
-> User-assigned managed identity isn't supported currently.
+> User-assigned managed identity isn't currently supported.
 
 ### Azure Data Explorer configuration
 

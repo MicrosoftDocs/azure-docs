@@ -6,7 +6,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: microsoft-customer-agreement
 ms.topic: conceptual
-ms.date: 04/05/2023
+ms.date: 10/19/2023
 ms.author: banders
 ms.reviewer: baolcsva
 ---

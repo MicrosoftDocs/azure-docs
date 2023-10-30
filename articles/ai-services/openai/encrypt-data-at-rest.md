@@ -121,8 +121,8 @@ To delete the individual versions of a key, run the [az-keyvault-key-delete](/cl
 
 ```azurecli
 az keyvault key delete  \
-  --name <key-vault-name> \
-  --object-id $identityPrincipalID \                     
+  --vault-name <key-vault-name> \
+  --id <key-ID>                     
 ```
 
 > [!IMPORTANT]

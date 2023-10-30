@@ -503,6 +503,9 @@ Certain services (such as Azure SQL and Azure Cosmos DB) allow exceptions to the
 
 Turning on the service endpoints on the network side can lead to a connectivity drop, because the source IP changes from a public IPv4 address to a private address. Setting up virtual network ACLs on the Azure service side before turning on service endpoints on the network side can help avoid a connectivity drop.
 
+>[!NOTE]
+> If you enable Service Endpoint on certain services likes "Microsoft.AzureActiveDirectory" you can see IPV6 address connections on Sign-In Logs. Microsoft use an internal IPV6 private range for this type of connections.
+
 ### Do all Azure services reside in the Azure virtual network that the customer provides? How does a virtual network service endpoint work with Azure services?
 
 Not all Azure services reside in the customer's virtual network. Most Azure data services (such as Azure Storage, Azure SQL, and Azure Cosmos DB) are multitenant services that can be accessed over public IP addresses. For more information, see [Deploy dedicated Azure services into virtual networks](virtual-network-for-azure-services.md).
