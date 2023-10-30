@@ -29,7 +29,7 @@ Also:
 > [!div class="checklist"]
 > * How to accomplish common mapping tasks using the Azure Maps Web SDK.
 > * Best practices to improve performance and user experience.
-> * Tips on how to make your application using more advanced features available in Azure Maps.
+> * Tips on using more advanced features available in Azure Maps.
 
 If migrating an existing web application, check to see if it's using an open-source map control library. Examples of open-source map control library are: Cesium, Leaflet, and OpenLayers. You can still migrate your application, even if it uses an open-source map control library, and you don't want to use the Azure Maps Web SDK. In such case, connect your application to the Azure Maps [Render] services ([road tiles] | [satellite tiles]). The following points detail on how to use Azure Maps in some commonly used open-source map control libraries.
 
@@ -37,7 +37,7 @@ If migrating an existing web application, check to see if it's using an open-sou
 * Leaflet – Lightweight 2D map control for the web. [Leaflet code sample] \| [Leaflet documentation].
 * OpenLayers - A 2D map control for the web that supports projections. [OpenLayers documentation].
 
-If developing using a JavaScript framework, one of the following open-source projects may be useful:
+If developing using a JavaScript framework, one of the following open-source projects can be useful:
 
 * [ng-azure-maps] - Angular 10 wrapper around Azure Maps.
 * [AzureMapsControl.Components] - An Azure Maps Blazor component.
@@ -279,7 +279,7 @@ For more information on supported languages, see [Localization support in Azure 
 
 Here's an example of Azure Maps with the language set to "fr" and the user region set to "fr-FR".
 
-:::image type="content" source="./media/migrate-google-maps-web-app/azure-maps-localized-map.jpg" lightbox="./media/migrate-google-maps-web-app/azure-maps-localized-map.jpg" alt-text="A screenshot showing a localized version of an Azure Maps map with the language set to French .":::
+:::image type="content" source="./media/migrate-google-maps-web-app/azure-maps-localized-map.jpg" lightbox="./media/migrate-google-maps-web-app/azure-maps-localized-map.jpg" alt-text="A screenshot showing a localized version of an Azure Maps map with the language set to French.":::
 
 ### Setting the map view
 
@@ -445,7 +445,7 @@ For a Symbol layer, add the data to a data source. Attach the data source to the
 
 ### Adding a custom marker
 
-You may use Custom images to represent points on a map. The following map uses a custom image to display a point on the map. The point is displayed at latitude: 51.5 and longitude: -0.2. The anchor offsets the position of the marker, so that the point of the pushpin icon aligns with the correct position on the map.
+You can use Custom images to represent points on a map. The following map uses a custom image to display a point on the map. The point is displayed at latitude: 51.5 and longitude: -0.2. The anchor offsets the position of the marker, so that the point of the pushpin icon aligns with the correct position on the map.
 
 <center>
 
@@ -958,7 +958,7 @@ GeoJSON is the base data type in Azure Maps. Import it into a data source using 
 
 ### Marker clustering
 
-When visualizing many data points on the map, points may overlap each other. Overlapping makes the map look cluttered, and the map becomes difficult to read and use. Clustering point data is the process of combining data points that are near each other and representing them on the map as a single clustered data point. As the user zooms into the map, the clusters break apart into their individual data points. Cluster data points to improve user experience and map performance.
+When lots of data points appear on the map, points can overlap, making the map look cluttered and difficult to read and use. Clustering point data is the process of combining data points that are near each other and representing them on the map as a single clustered data point. As the user zooms into the map, the clusters break apart into their individual data points. Clustering data points improves the user experience and map performance.
 
 In the following examples, the code loads a GeoJSON feed of earthquake data from the past week and adds it to the map. Clusters are rendered as scaled and colored circles. The scale and color of the circles depends on the number of points they contain.
 
@@ -1046,7 +1046,7 @@ The `DataSource` class has the following helper function for accessing additiona
 
 | Method | Return type | Description |
 |--------|-------------|-------------|
-| `getClusterChildren(clusterId: number)` | Promise&lt;Array&lt;Feature&lt;Geometry, any&gt; \| Shape&gt;&gt; | Retrieves the children of the given cluster on the next zoom level. These children may be a combination of shapes and subclusters. The subclusters are features with properties matching ClusteredProperties. |
+| `getClusterChildren(clusterId: number)` | Promise&lt;Array&lt;Feature&lt;Geometry, any&gt; \| Shape&gt;&gt; | Retrieves the children of the given cluster on the next zoom level. These children can be a combination of shapes and subclusters. The subclusters are features with properties matching ClusteredProperties. |
 | `getClusterExpansionZoom(clusterId: number)` | Promise&lt;number&gt; | Calculates a zoom level at which the cluster starts expanding or break apart. |
 | `getClusterLeaves(clusterId: number, limit: number, offset: number)` | Promise&lt;Array&lt;Feature&lt;Geometry, any&gt; \| Shape&gt;&gt; | Retrieves all points in a cluster. Set the `limit` to return a subset of the points, and use the `offset` to page through the points. |
 
@@ -1329,7 +1329,7 @@ map.overlayMapTypes.insertAt(0, new google.maps.ImageMapType({
 Add a tile layer to the map similarly as any other layer. Use a formatted URL that has in x, y, zoom placeholders; `{x}`, `{y}`, `{z}`  to tell the layer where to access the tiles. Azure Maps tile layers also support `{quadkey}`, `{bbox-epsg-3857}`, and `{subdomain}` placeholders.
 
 > [!TIP]
-> In Azure Maps layers can easily be rendered below other layers, including base map layers. Often it is desirable to render tile layers below the map labels so that they are easy to read. The `map.layers.add` method takes in a second parameter which is the id of the layer in which to insert the new layer below. To insert a tile layer below the map labels, use this code: `map.layers.add(myTileLayer, "labels");`
+> In Azure Maps layers can easily be rendered beneath other layers, including base map layers. Often it is desirable to render tile layers below the map labels so that they are easy to read. The `map.layers.add` method takes in a second parameter which is the id of the layer in which to insert the new layer below. To insert a tile layer below the map labels, use this code: `map.layers.add(myTileLayer, "labels");`
 
 ```javascript
 //Create a tile layer and add it to the map below the label layer.
