@@ -266,9 +266,11 @@ With URL-based load tests in Azure Load Testing, you can use variables to refer 
 - Values from a CSV input file: use variables for the columns in a [CSV input file](./how-to-read-csv-data.md) and run a request for each row in the file
 - Response variables: extract values from a previous HTTP request
 
-The syntax for referring to a variable in a request is: `${variable-name}`.
+The syntax for referring to a variable in a request is: `${variable-name}`. 
 
-For example, if you create an environment variable `domain`, you could use `${domain}` to refer to the value in the URL of the HTTP requests.
+The following screenshot shows how to refer to a `token` variable in an HTTP header by using `${token}`.
+
+:::image type="content" source="./media/how-to-add-requests-to-url-based-test/url-load-test-request-variables.png" alt-text="Screenshot that shows the request details page in the Azure portal, highlighting a variable reference in an HTTP header." lightbox="./media/how-to-add-requests-to-url-based-test/url-load-test-request-variables.png":::
 
 > [!NOTE]
 > If you specify certificates, Azure Load Testing automatically passes the certicates in each HTTP request.
