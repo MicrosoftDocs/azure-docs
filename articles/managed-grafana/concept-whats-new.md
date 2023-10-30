@@ -11,6 +11,10 @@ ms.date: 10/23/2023
 
 # What's New in Azure Managed Grafana
 
+## October 2023
+
+* Azure Managed Grafana has a new [Essential pricing plan](overview.md#service-tiers) available in preview. This plan provides core Grafana functionalities at a reduced price and is designed to be used in non-production environments.
+
 ## September 2023
 
 * [Microsoft Entra groups](how-to-sync-teams-with-azure-ad-groups.md) is available in preview in Azure Managed Grafana.
