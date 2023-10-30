@@ -4,7 +4,7 @@ description: "Quickstart: Use Azure IoT Orchestrator to deploy Azure IoT Operati
 author: kgremban
 ms.author: kgremban
 ms.topic: quickstart
-ms.date: 10/10/2023
+ms.date: 10/30/2023
 
 #CustomerIntent: As a < type of user >, I want < what? > so that < why? >.
 ---
@@ -44,7 +44,7 @@ Azure IoT Operations is a suite of data services that run on Arc-enabled Kuberne
 
 Azure IoT Operations supports Azure Key Vault for storing secrets and certificates. In this section, you create a key vault and set up a service principal to give your cluster access to the key vault.
 
-Whenever you create a pipeline or process that connects to Azure resources, you'll need to create a secret. This section covers the steps to set up a secrets provider class on your cluster, 
+Whenever you create a pipeline or process that connects to Azure resources, you need to create a secret. This section covers the steps to set up a secrets provider class on your cluster.
 
 ### Create a vault
 
@@ -61,7 +61,7 @@ Whenever you create a pipeline or process that connects to Azure resources, you'
    | **Subscription** | Select the subscription that also contains your Arc-enabled Kubernetes cluster. |
    | **Resource group** | Select the resource group that also contains your Arc-enabled Kubernetes cluster. |
    | **Key vault name** | Provide a globally unique name for your key vault. |
-   | **Region** | Select a region close to you. |
+   | **Region** | Select a region close to you. The following regions are supported in public preview: East US, East US 2, West US, West US 2, West US 3, West Europe, North Europe. |
    | **Pricing tier** | The default **Standard** tier is suitable for this quickstart. |
 
 1. Select **Next**.
@@ -116,7 +116,7 @@ First, register an application with Microsoft Entra ID.
 
 1. Select **Register**.
 
-   When your application is created, you are directed to its resource page.
+   When your application is created, you're directed to its resource page.
 
 Next, give your application permissions for your key vault.
 
@@ -140,7 +140,7 @@ Create a client secret that will be added to your Kubernetes cluster to authenti
 
 1. Provide an optional description for the secret, then select **Add**.
 
-1. Copy the **Value** from your new secret. You'll use this value later in the quickstart.
+1. Copy the **Value** from your new secret. You use this value later in the quickstart.
 
    >[!IMPORTANT]
    >Once you leave this page, you won't be able to view the value of the secret again.
@@ -221,7 +221,7 @@ Use the Azure portal to deploy Azure IoT Operations components to your Arc-enabl
    | ----- | ----- |
    | **Subscription** | Select the subscription that contains your Arc-enabled Kubernetes cluster. |
    | **Resource group** | Select the resource group that contains your Arc-enabled Kubernetes cluster. |
-   | **Cluster name** | Select your cluster. When you do, the **Custom location** and **Deployment details** sections auto-fill. |
+   | **Cluster name** | Select your cluster. When you do, the **Custom location** and **Deployment details** sections autofill. |
    | **Secrets** | Check the box confirming that you set up the secrets provider in your cluster by following the steps in the previous sections. |
 
 1. Select **Next: Configuration**.
@@ -230,7 +230,7 @@ Use the Azure portal to deploy Azure IoT Operations components to your Arc-enabl
 
    | Field | Value |
    | ----- | ----- |
-   | **Deploy a simulated PLC** | Switch this toggle to **Yes**. The simulated PLC creates demo telemetry data that you'll use in the following quickstarts. |
+   | **Deploy a simulated PLC** | Switch this toggle to **Yes**. The simulated PLC creates demo telemetry data that you use in the following quickstarts. |
    | **Mode** | Set the MQ configuration mode to **Auto**. |
 
 1. Select **Review + create**.
@@ -259,7 +259,7 @@ To view your cluster on the Azure portal, use the following steps:
 
    You can see that your cluster is running extensions of the type **microsoft.iotoperations.x**, which is the group name for all of the Azure IoT Operations components and the orchestration service.
 
-   There is also an extension called **akvsecretsprovider**. This extension is the secrets provider that you configured and installed on your cluster with the `setup-cluster.sh` script. You might delete and reinstall the Azure IoT Operations components during the course of testing, but keep the secrets provider extension on your cluster.
+   There's also an extension called **akvsecretsprovider**. This extension is the secrets provider that you configured and installed on your cluster with the `setup-cluster.sh` script. You might delete and reinstall the Azure IoT Operations components during testing, but keep the secrets provider extension on your cluster.
 
 ## How did we solve the problem?
 

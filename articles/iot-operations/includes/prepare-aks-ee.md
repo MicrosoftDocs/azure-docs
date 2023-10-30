@@ -69,6 +69,7 @@ To connect your cluster to Azure Arc:
     az provider register -n "Microsoft.Kubernetes"
     az provider register -n "Microsoft.KubernetesConfiguration"
     az provider register -n "Microsoft.IoTOperationsOrchestrator"
+    az provider register -n "Microsoft.IoTOperationsMQ"
     az provider register -n "Microsoft.IoTOperationsDataProcessor"
     az provider register -n "Microsoft.DeviceRegistry"
     ```
@@ -108,22 +109,22 @@ To connect your cluster to Azure Arc:
 
 ### Configure cluster network
 
-After you've deployed Azure IoT Operations to your cluster, enable inbound connections to E4K distributed MQTT broker and configure port forwarding:
+After you've deployed Azure IoT Operations to your cluster, enable inbound connections to Azure IoT MQ broker and configure port forwarding:
 
-1. Enable a firewall rule for port 1883. If TLS is enabled, do the same for port 8883:
+1. Enable a firewall rule for port 8883:
 
     ```powershell
-    New-NetFirewallRule -DisplayName "Alice Springs MQTT Broker" -Direction Inbound -Protocol TCP -LocalPort 1883 -Action Allow
+    New-NetFirewallRule -DisplayName "Azure IoT MQ" -Direction Inbound -Protocol TCP -LocalPort 8883 -Action Allow
     ```
 
-1. Run the following command and make a note of the IP address for the service called `azedge-dmqtt-frontend`:
+1. Run the following command and make a note of the IP address for the service called `aio-mq-dmqtt-frontend`:
 
     ```cmd
-    kubectl get svc azedge-dmqtt-frontend -n alice-springs -o jsonpath='{.status.loadBalancer.ingress[0].ip}'
+    kubectl get svc aio-mq-dmqtt-frontend -n azure-iot-operations -o jsonpath='{.status.loadBalancer.ingress[0].ip}'
     ```
 
-1. Enable port forwarding for port 1883. If TLS is enabled, do the same for port 8883. Replace `<azedge-dmqtt-frontend IP address>` with the IP address you noted in the previous step:
+1. Enable port forwarding for port 8883. Replace `<aio-mq-dmqtt-frontend IP address>` with the IP address you noted in the previous step:
 
     ```cmd
-    netsh interface portproxy add v4tov4 listenport=1883 listenaddress=0.0.0.0 connectport=1883 connectaddress=<azedge-dmqtt-frontend IP address>
+    netsh interface portproxy add v4tov4 listenport=8883 listenaddress=0.0.0.0 connectport=8883 connectaddress=<aio-mq-dmqtt-frontend IP address>
     ```
