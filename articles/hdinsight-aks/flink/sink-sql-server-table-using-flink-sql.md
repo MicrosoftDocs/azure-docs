@@ -1,18 +1,18 @@
 ---
-title: Change Data Capture (CDC) of SQL Server using Apache Flink SQL
-description: Learn how to perform CDC of SQL Server using Apache Flink SQL
+title: Change Data Capture (CDC) of SQL Server using Apache Flink®
+description: Learn how to perform CDC of SQL Server using Apache Flink®
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/29/2023
+ms.date: 10/27/2023
 ---
 
-# Change Data Capture (CDC) of SQL Server using Apache Flink SQL
+# Change Data Capture (CDC) of SQL Server using Apache Flink®
 
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
 Change Data Capture (CDC) is a technique you can use to track row-level changes in database tables in response to create, update, and delete operations. In this article, we use [CDC Connectors for Apache Flink®](https://github.com/ververica/flink-cdc-connectors), which offer a set of source connectors for Apache Flink. The connectors integrate [Debezium®](https://nightlies.apache.org/flink/flink-docs-master/docs/connectors/table/formats/debezium/#debezium-format) as the engine to capture the data changes.  
 
-Flink supports to interpret Debezium JSON and Avro messages as INSERT/UPDATE/DELETE messages into Flink SQL system. 
+Apache Flink supports to interpret Debezium JSON and Avro messages as INSERT/UPDATE/DELETE messages into Flink SQL system. 
 
 This support is useful in many cases to:
 
@@ -24,14 +24,14 @@ This support is useful in many cases to:
 Now, let us learn how to use Change Data Capture (CDC) of SQL Server using Flink SQL. The SQLServer CDC connector allows for reading snapshot data and incremental data from SQLServer database. 
 
 ## Prerequisites
- * [HDInsight on AKS Flink 1.16.0](../flink/flink-create-cluster-portal.md) 
+ * [Flink cluster on HDInsight on AKS](../flink/flink-create-cluster-portal.md) 
  * [Azure SQL Server](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview)
 
-### Apache Flink SQLServer CDC Connector
+### SQLServer CDC Connector
 
-The SQLServer CDC connector is a Flink Source connector, which reads database snapshot first and then continues to read change events with exactly once processing even failures happen. This example uses FLINK CDC to create a SQLServerCDC table on FLINK SQL
+The SQLServer CDC connector is a Flink Source connector, which reads database snapshot first and then continues to read change events with exactly once processing even failures happen. This example uses Flink CDC to create a SQLServerCDC table on FLINK SQL
 
-### Use SSH to use Flink SQL-client
+### Use SSH to use Flink SQL client
 
 We have already covered this section in detail on how to use [secure shell](./flink-web-ssh-on-portal-to-flink-sql.md) with Flink. 
 
@@ -217,3 +217,4 @@ Monitor the table on Flink SQL
 
 ###  Reference
 * [SQLServer CDC Connector](https://ververica.github.io/flink-cdc-connectors/master/content/connectors/sqlserver-cdc.html) is licensed under [Apache 2.0 License](https://github.com/ververica/flink-cdc-connectors/blob/master/LICENSE)
+* Apache, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).
