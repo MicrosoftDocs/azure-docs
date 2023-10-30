@@ -53,6 +53,10 @@ Use the connection details below to connect compute services to Service Bus. Thi
 | -------------------------------------- | -------------------- | -------------------------------------------- |
 | AZURE_SERVICEBUS_FULLYQUALIFIEDNAMESPACE | Service Bus namespace | `<Service-Bus-namespace>.servicebus.windows.net` |
 
+#### Sample code
+Refer to the steps and code below to connect to Service Bus using a system-assigned managed identity.
+[!INCLUDE [code sample for service bus](./includes/code-servicebus-me-id.md)]
+
 ### User-assigned managed identity
 
 #### SpringBoot client type
@@ -69,6 +73,10 @@ Use the connection details below to connect compute services to Service Bus. Thi
 | AZURE_SERVICEBUS_FULLYQUALIFIEDNAMESPACE | Service Bus namespace | `<Service-Bus-namespace>.servicebus.windows.net` |
 | AZURE_SERVICEBUS_CLIENTID                | Your client ID        | `<client-ID>`                               |
 
+#### Sample code
+Refer to the steps and code below to connect to Service Bus using a user-assigned managed identity.
+[!INCLUDE [code sample for service bus](./includes/code-servicebus-me-id.md)]
+
 ### Connection string
 
 #### SpringBoot client type
@@ -84,6 +92,10 @@ Use the connection details below to connect compute services to Service Bus. Thi
 > |Default environment variable name | Description | Sample value |
 > | ----------------------------------- | ----------- | ------------ |
 > | AZURE_SERVICEBUS_CONNECTIONSTRING | Service Bus connection string | `Endpoint=sb://<Service-Bus-namespace>.servicebus.windows.net/;SharedAccessKeyName=<access-key-name>;SharedAccessKey=<access-key-value>` |
+
+#### Sample code
+Refer to the steps and code below to connect to Service Bus using a connection string.
+[!INCLUDE [code sample for service bus](./includes/code-servicebus-secret.md)]
 
 ### Service principal
 
@@ -104,6 +116,10 @@ Use the connection details below to connect compute services to Service Bus. Thi
 | AZURE_SERVICEBUS_CLIENTID                | Your client ID        | `<client-ID>`                                |
 | AZURE_SERVICEBUS_CLIENTSECRET            | Your client secret    | `<client-secret>`                            |
 | AZURE_SERVICEBUS_TENANTID                | Your tenant ID        | `<tenant-id>`                                |
+
+#### Sample code
+Refer to the steps and code below to connect to Service Bus using a service principal.
+[!INCLUDE [code sample for service bus](./includes/code-servicebus-me-id.md)]
 
 ## Next step
 

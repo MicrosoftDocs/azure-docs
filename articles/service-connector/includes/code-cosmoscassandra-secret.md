@@ -226,4 +226,4 @@ For more details, refer to [Build a Cassandra app with Node.js SDK and Azure Cos
 
 
 ### [Other](#tab/other)
-For other languages, you can use the blob storage account url and other properties that Service Connector set to the environment variables to connect the blob storage. For environment variable details, see [Integrate Azure Cosmos DB for Cassandra with Service Connector](../how-to-integrate-cosmos-cassandra.md).
+For other languages, you can use the blob storage account url and other properties that Service Connector set to the environment variables to connect the Azure Cosmos DB for Cassandra. For environment variable details, see [Integrate Azure Cosmos DB for Cassandra with Service Connector](../how-to-integrate-cosmos-cassandra.md).

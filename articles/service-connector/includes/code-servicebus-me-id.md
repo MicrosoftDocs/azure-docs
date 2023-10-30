@@ -227,4 +227,4 @@ ms.author: wchi
     ```
 
 ### [Other](#tab/other)
-For other languages, you can use the connection information that Service Connector set to the environment variables to connect compute services to Service Bus. For environment variable details, see [Integrate Service Bus with Service Connector](../how-to-integrate-service-bus.md).
+For other languages, you can use the connection information that Service Connector set to the environment variables to connect compute services to the Service Bus. For environment variable details, see [Integrate Service Bus with Service Connector](../how-to-integrate-service-bus.md).
