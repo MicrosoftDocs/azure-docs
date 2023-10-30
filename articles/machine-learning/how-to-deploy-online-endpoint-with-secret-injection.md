@@ -117,7 +117,7 @@ Create the Key Vault and set a secret to use in your deployment. For more inform
     ```
 
 > [!IMPORTANT]
-> If you use the Key Vault as a secret store for secret injection, you must configure the key vault's permission model as Azure role-based access control (RBAC). For more information, see [Azure RBAC vs access policy for Key Vault](../key-vault/general/rbac-access-policy).
+> If you use the Key Vault as a secret store for secret injection, you must configure the key vault's permission model as Azure role-based access control (RBAC). For more information, see [Azure RBAC vs. access policy for Key Vault](/azure/key-vault/general/rbac-access-policy).
 
 ## Choose user identity that will create the endpoint and deployment
 
