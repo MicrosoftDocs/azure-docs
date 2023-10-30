@@ -50,7 +50,7 @@ POST {dicom-service-url}/{version}/partitions/{PartitionName}/studies/$bulkUpdat
 ```
 
 #### Responses
-Upon successfully starting a bulk update operation, the API returns a `202` status code. The body of the response contains a reference to the operation.
+When a bulk update operation starts successfully, the API returns a `202` status code. The body of the response contains a reference to the operation.
 
 ```http
 HTTP/1.1 202 Accepted
@@ -67,7 +67,7 @@ Content-Type: application/json
 | 400 (Bad Request) |                     | Request body has invalid data                                |
 
 ### Operation Status
-The above `href` URL can be polled for the current status of the update operation until completion.  A completion state is signified by a `200` status instead of `202`.
+The above `href` URL can be polled for the current status of the update operation until completion.  A return code of `200` indicates the operation completed successfully.
 
 ```http
 GET {dicom-service-url}/{version}/operations/{operationId}
@@ -77,7 +77,7 @@ GET {dicom-service-url}/{version}/operations/{operationId}
 
 | Name        | In   | Required | Type   | Description      |
 | ----------- | ---- | -------- | ------ | ---------------- |
-| operationId | path | True     | string | The operation id |
+| operationId | path | True     | string | The operation ID |
 
 #### Responses
 
@@ -104,7 +104,7 @@ GET {dicom-service-url}/{version}/operations/{operationId}
 | 404 (Not Found) |           | Operation not found                   |
 
 ## Retrieving study versions
-The [Retrieve (WADO-RS)](dicom-services-conformance-statement-v2.md#retrieve-wado-rs) transaction allows you to retrieve both the original and latest version of a study, series, or instance.  The latest version of a study, series, or instance is always returned by default.  The original version may be returned by by setting the `msdicom-request-original` header to `true`.  An example request is shown below:
+The [Retrieve (WADO-RS)](dicom-services-conformance-statement-v2.md#retrieve-wado-rs) transaction allows you to retrieve both the original and latest version of a study, series, or instance.  The latest version of a study, series, or instance is always returned by default.  The original version is returned by setting the `msdicom-request-original` header to `true`.  An example request is shown below:
 
 ```http 
 GET {dicom-service-url}/{version}/studies/{study}/series/{series}/instances/{instance}
@@ -114,13 +114,13 @@ Content-Type: application/dicom
  ```
 
 ## Delete
-The [delete](dicom-services-conformance-statement-v2.md#delete) method will delete both the original and latest version of a study, series, or instance.  Neither the original nor latest version will be recoverable.  
+The [delete](dicom-services-conformance-statement-v2.md#delete) method deletes both the original and latest version of a study, series, or instance.
 
 ## Change feed
-The [change feed](dicom-change-feed-overview.md) will record update actions in the same manner as create and delete actions.  
+The [change feed](dicom-change-feed-overview.md) records update actions in the same manner as create and delete actions.  
 
 ## Supported DICOM modules
-Currently, any attributes in the [Patient Identification Module](https://dicom.nema.org/dicom/2013/output/chtml/part03/sect_C.2.html#table_C.2-2) and [Patient Demographic Module](https://dicom.nema.org/dicom/2013/output/chtml/part03/sect_C.2.html#table_C.2-3) that are not sequences can be updated using the bulk update operation.  Supported attributes are called out in the tables below.  
+Currently, any attributes in the [Patient Identification Module](https://dicom.nema.org/dicom/2013/output/chtml/part03/sect_C.2.html#table_C.2-2) and [Patient Demographic Module](https://dicom.nema.org/dicom/2013/output/chtml/part03/sect_C.2.html#table_C.2-3) that aren't sequences can be updated using the bulk update operation.  Supported attributes are called out in the tables below.  
 
 #### Patient Identification Module Attributes
 | Attribute Name   | Tag           | Description           |
@@ -132,14 +132,14 @@ Currently, any attributes in the [Patient Identification Module](https://dicom.n
 | Other Patient Names| (0010,1001) | Other names used to identify the patient. 
 | Patient's Birth Name| (0010,1005) | Patient's birth name. 
 | Patient's Mother's Birth Name| (0010,1060) | Birth name of patient's mother. 
-| Medical Record Locator | (0010,1090)| An identifier used to find the patient's existing medical record (e.g., film jacket). 
+| Medical Record Locator | (0010,1090)| An identifier used to find the patient's existing medical record (for example, film jacket). 
 
 #### Patient Demographic Module Attributes
 | Attribute Name   | Tag           | Description           |
 | ---------------- | --------------| --------------------- |
 | Patient's Age | (0010,1010) | Age of the Patient.  |
 | Occupation | (0010,2180) | Occupation of the Patient.  |
-| Confidentiality Constraint on Patient Data Description | (0040,3001) | Special indication to the modality operator about confidentiality of patient information (e.g., that he should not use the patients name where other patients are present).  |
+| Confidentiality Constraint on Patient Data Description | (0040,3001) | Special indication to the modality operator about confidentiality of patient information (for example, that they shouldn't use the patients name where other patients are present).  |
 | Patient's Birth Date | (0010,0030) | Date of birth of the named patient  |
 | Patient's Birth Time | (0010,0032) | Time of birth of the named patient  |
 | Patient's Sex | (0010,0040) | Sex of the named patient.  |
@@ -148,7 +148,7 @@ Currently, any attributes in the [Patient Identification Module](https://dicom.n
 | Patient's Weight | (0010,1030) | Weight of the patient in kilograms  |
 | Patient's Address | (0010,1040) | Legal address of the named patient  |
 | Military Rank | (0010,1080) | Military rank of patient  |
-| Branch of Service | (0010,1081) | Branch of the military. The country allegiance may also be included (e.g., U.S. Army).  |
+| Branch of Service | (0010,1081) | Branch of the military. The country allegiance may also be included (for example, U.S. Army).  |
 | Country of Residence | (0010,2150) | Country in which patient currently resides  |
 | Region of Residence | (0010,2152) | Region within patient's country of residence  |
 | Patient's Telephone Numbers | (0010,2154) | Telephone numbers at which the patient can be reached  |
@@ -167,6 +167,6 @@ There are a few notable limitations when using the update operation:
 
 - A maximum of 50 studies can be updated in a single operation.
 - Only one update operation can be performed at a time.
-- There is no way to delete only the latest version of a study or revert back to the original version.  
+- There's no way to delete only the latest version of a study or revert back to the original version.  
 
 [!INCLUDE [FHIR and DICOM trademark statements](../includes/healthcare-apis-fhir-dicom-trademark.md)]
