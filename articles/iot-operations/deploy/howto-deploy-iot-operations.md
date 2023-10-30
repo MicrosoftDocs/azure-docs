@@ -1,5 +1,5 @@
 ---
-title: Deploy extensions - Azure IoT Operations
+title: Deploy extensions - Azure IoT Orchestrator
 description: Use the Azure portal, Azure CLI, or GitHub Actions to deploy Azure IoT Operations extensions with the Azure IoT Orchestrator
 author: kgremban
 ms.author: kgremban
