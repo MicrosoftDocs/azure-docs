@@ -11,7 +11,7 @@ ms.custom: event-tier1-build-2022
 
 # Integrate Azure Table Storage with Service Connector
 
-This page shows the supported authentication types and client types of Azure Table Storage using Service Connector. You might still be able to connect to Azure Table Storage in other programming languages without using Service Connector. This page also shows default environment variable names and values you get when you create the service connection and the sample code of how to use them. You can learn more about [Service Connector environment variable naming convention](concept-service-connector-internals.md).
+This page shows supported authentication methods and clients, and shows sample code you can use to connect Azure Table Storage to other cloud services using Service Connector. You may still be able to connect to Azure Table Storage in other programming languages without using Service Connector. For more information about naming conventions, check the [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article.
 
 ## Supported compute service
 
@@ -30,7 +30,7 @@ Supported authentication and clients for App Service, Container Apps and Azure S
 
 ## Default environment variable names or application properties and sample code
 
-Use the connection details and sample code below, according to your connection's authentication type and client type, to connect compute services to Azure Table Storage.
+Use the connection details below to connect compute services to Azure Table Storage. This page also shows default environment variable names and values you get when you create the service connection, as well as sample code.
 
 ### System-assigned managed identity
 
