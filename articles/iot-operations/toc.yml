@@ -149,8 +149,6 @@ items:
 
     - name: Connect to the cloud
       items:
-      - name: Overview
-        href: connect-to-cloud/overview-connect-to-cloud.md
       - name: Connect to MQTT or Event Grid
         href: connect-to-cloud/howto-configure-mqtt-bridge.md
       - name: Connect to Messaging services
@@ -188,8 +186,6 @@ items:
         href: manage-layered-network/howto-configure-aks-edge-essentials-layered-network.md
     - name: Developer guide
       items:
-      - name: Overview
-        href: develop/overview-develop-customizations.md
       - name: About the MQ state store
         href: develop/concept-about-state-store.md
       - name: About the MQ state store protocol 
