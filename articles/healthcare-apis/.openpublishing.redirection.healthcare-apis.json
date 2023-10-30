@@ -487,6 +487,10 @@
         "redirect_url": "/azure/healthcare-apis/dicom/dicom-configure-azure-rbac",
         "redirect_document_id": true     
       },
+    {  "source_path_from_root": "/articles/healthcare-apis/dicom/export-dicom-files.md",
+       "redirect_url": "/azure/healthcare-apis/dicom/export-files",
+       "redirect_document_id": true     
+    },     
       {
           "source_path_from_root": "/articles/healthcare-apis/fhir/configure-azure-rbac-for-fhir.md",
           "redirect_url": "/azure/healthcare-apis/configure-azure-rbac",
