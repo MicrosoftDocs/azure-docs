@@ -54,24 +54,24 @@ Although it might seem obvious, recent [large-scale database breaches](https://t
 
 Let's look back at the preceding list. How many of those security requirements does Azure Cosmos DB provide? Every single one.
 
-Let's dig into each one in detail.
+Let's explore each one in detail.
 
 |Security requirement|Azure Cosmos DB's security approach|
 |---|---|
-|Network security|Using an IP firewall is the first layer of protection to secure your database. Azure Cosmos DB supports policy-driven IP-based access controls for inbound firewall support. The IP-based access controls are similar to the firewall rules used by traditional database systems. However, they're expanded so that an Azure Cosmos DB database account is only accessible from an approved set of machines or cloud services. Learn more in [Azure Cosmos DB firewall support](how-to-configure-firewall.md) article.<br><br>With Azure Cosmos DB, you can enable a specific IP address (168.61.48.0), an IP range (168.61.48.0/8), and combinations of IPs and ranges. <br><br>All requests originating from machines outside this allowed list are blocked by Azure Cosmos DB. Requests from approved machines and cloud services then must complete the authentication process to be given access control to the resources.<br><br> You can use [virtual network service tags](../virtual-network/service-tags-overview.md) to achieve network isolation and protect your Azure Cosmos DB resources from the general internet. Use service tags in place of specific IP addresses when you create security rules. By specifying the service tag name (for example, `AzureCosmosDB`) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service.|
-|Authorization|Azure Cosmos DB uses hash-based message authentication code (HMAC) for authorization. <br><br>Each request is hashed by using the secret account key, and the subsequent base-64 encoded hash is sent with each call to Azure Cosmos DB. To validate the request, Azure Cosmos DB uses the correct secret key and properties to generate a hash, and then it compares the value with the one in the request. If the two values match, the operation is authorized successfully and the request is processed. If they don't match, there's an authorization failure and the request is rejected.<br><br>You can use either a [primary key](#primary-keys) or a [resource token](secure-access-to-data.md#resource-tokens), allowing fine-grained access to a resource such as a document.<br><br>Learn more in [Securing access to Azure Cosmos DB resources](secure-access-to-data.md).|
-|Users and permissions|Using the primary key for the account, you can create user resources and permission resources per database. A resource token is associated with a permission in a database and determines whether the user has access (read-write, read-only, or no access) to an application resource in the database. Application resources include containers, documents, attachments, stored procedures, triggers, and UDFs. The resource token is then used during authentication to provide or deny access to the resource.<br><br>Learn more in [Securing access to Azure Cosmos DB resources](secure-access-to-data.md).|
-|Active Directory integration (Azure role-based access control)| You can also provide or restrict access to the Azure Cosmos DB account, database, container, and offers (throughput) by using access control (IAM) in the Azure portal. IAM provides role-based access control and integrates with Active Directory. You can use built-in roles or custom roles for individuals and groups. For more information, see [Active Directory integration](role-based-access-control.md).|
-|Global replication|Azure Cosmos DB offers turnkey global distribution, which enables you to replicate your data to any one of Azure's worldwide datacenters in a turnkey way. Global replication lets you scale globally and provide low-latency access to your data around the world.<br><br>In the context of security, global replication ensures data protection against regional failures.<br><br>Learn more in [Distribute data globally](distribute-data-globally.md).|
-|Regional failovers|If you've replicated your data in more than one datacenter, Azure Cosmos DB automatically rolls over your operations if a regional datacenter goes offline. You can create a prioritized list of failover regions by using the regions in which your data is replicated. <br><br>Learn more in [Regional failovers in Azure Cosmos DB](high-availability.md).|
+|Network security|Using an IP firewall is the first layer of protection to secure your database. Azure Cosmos DB supports policy-driven IP-based access controls for inbound firewall support. The IP-based access controls are similar to the firewall rules used by traditional database systems. However, they're expanded so that an Azure Cosmos DB database account is only accessible from an approved set of machines or cloud services. To learn more, see [Azure Cosmos DB firewall support](how-to-configure-firewall.md).<br><br>With Azure Cosmos DB, you can enable a specific IP address (168.61.48.0), an IP range (168.61.48.0/8), and combinations of IPs and ranges. <br><br>Azure Cosmos DB blocks all requests that originate from machines outside this allowed list. Requests from approved machines and cloud services then must complete the authentication process to be given access control to the resources.<br><br> You can use [virtual network service tags](../virtual-network/service-tags-overview.md) to achieve network isolation and protect your Azure Cosmos DB resources from the general internet. Use service tags in place of specific IP addresses when you create security rules. By specifying the service tag name (for example, `AzureCosmosDB`) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service.|
+|Authorization|Azure Cosmos DB uses hash-based message authentication code (HMAC) for authorization. <br><br>Each request is hashed by using the secret account key, and the subsequent base-64 encoded hash is sent with each call to Azure Cosmos DB. To validate the request, Azure Cosmos DB uses the correct secret key and properties to generate a hash, and then it compares the value with the one in the request. If the two values match, the operation is authorized successfully and the request is processed. If they don't match, there's an authorization failure and the request is rejected.<br><br>You can use either a [primary key](#primary-keys) or a [resource token](secure-access-to-data.md#resource-tokens), allowing fine-grained access to a resource such as a document.<br><br>To learn more, see [Secure access to Azure Cosmos DB resources](secure-access-to-data.md).|
+|Users and permissions|By using the primary key for the account, you can create user resources and permission resources per database. A resource token is associated with a permission in a database and determines whether the user has access (read-write, read-only, or no access) to an application resource in the database. Application resources include containers, documents, attachments, stored procedures, triggers, and UDFs. The resource token is then used during authentication to provide or deny access to the resource.<br><br>To learn more, see [Secure access to Azure Cosmos DB resources](secure-access-to-data.md).|
+|Active Directory integration (Azure role-based access control)| You can also provide or restrict access to the Azure Cosmos DB account, database, container, and offers (throughput) by using access control (IAM) in the Azure portal. IAM provides role-based access control and integrates with Active Directory. You can use built-in roles or custom roles for individuals and groups. To learn more, see [Active Directory integration](role-based-access-control.md).|
+|Global replication|Azure Cosmos DB offers turnkey global distribution, which enables you to replicate your data to any one of Azure's worldwide datacenters in a turnkey way. Global replication lets you scale globally and provide low-latency access to your data around the world.<br><br>In the context of security, global replication ensures data protection against regional failures.<br><br>To learn more, see [Distribute data globally](distribute-data-globally.md).|
+|Regional failovers|If you've replicated your data in more than one datacenter, Azure Cosmos DB automatically rolls over your operations if a regional datacenter goes offline. You can create a prioritized list of failover regions by using the regions in which your data is replicated. <br><br>To learn more, see [Regional failovers in Azure Cosmos DB](high-availability.md).|
 |Local replication|Even within a single datacenter, Azure Cosmos DB automatically replicates data for high availability, giving you the choice of [consistency levels](consistency-levels.md). This replication guarantees a 99.99% [availability SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db) for all single region accounts and all multi-region accounts with relaxed consistency, and 99.999% read availability on all multi-region database accounts.|
-|Automated online backups|Azure Cosmos DB databases are backed up regularly and stored in a geo-redundant store. <br><br>Learn more in [Automatic online backup and restore with Azure Cosmos DB](online-backup-and-restore.md).|
-|Restore deleted data|The automated online backups can be used to recover data you might have accidentally deleted up to ~30 days after the event. <br><br>Learn more in [Automatic online backup and restore with Azure Cosmos DB](online-backup-and-restore.md)|
+|Automated online backups|Azure Cosmos DB databases are backed up regularly and stored in a geo-redundant store. <br><br>To learn more, see [Automatic online backup and restore with Azure Cosmos DB](online-backup-and-restore.md).|
+|Restore deleted data|You can use the automated online backups to recover data you might have accidentally deleted up to ~30 days after the event. <br><br>To learn more, see [Automatic online backup and restore with Azure Cosmos DB](online-backup-and-restore.md)|
 |Protect and isolate sensitive data|All data in the regions listed in What's new? is now encrypted at rest.<br><br>Personal data and other confidential data can be isolated to specific containers and read-write, or read-only access can be limited to specific users.|
 |Monitor for attacks|By using [audit logging and activity logs](./monitor.md), you can monitor your account for normal and abnormal activity. You can view what operations were performed on your resources. This data includes who initiated the operation, when the operation occurred, the status of the operation, and much more.|
-|Respond to attacks|After you've contacted Azure support to report a potential attack, a five-step incident response process begins. The goal is to restore normal service security and operations. The process restores services as quickly as possible after an issue is detected and an investigation is started.<br><br>Learn more in [Microsoft Azure security response in the cloud](https://azure.microsoft.com/resources/shared-responsibilities-for-cloud-computing/).|
+|Respond to attacks|After you've contacted Azure support to report a potential attack, a five-step incident response process begins. The goal is to restore normal service security and operations. The process restores services as quickly as possible after an issue is detected and an investigation is started.<br><br>To learn more, see [Microsoft Azure security response in the cloud](https://azure.microsoft.com/resources/shared-responsibilities-for-cloud-computing/).|
 |Geo-fencing|Azure Cosmos DB ensures data governance for sovereign regions (for example, Germany, China, and US Government).|
-|Protected facilities|Data in Azure Cosmos DB is stored on SSDs in Azure's protected datacenters.<br><br>Learn more in [Microsoft global datacenters](https://www.microsoft.com/en-us/cloud-platform/global-datacenters).|
+|Protected facilities|Data in Azure Cosmos DB is stored on solid state drives in Azure's protected datacenters.<br><br>To learn more, see [Microsoft global datacenters](https://www.microsoft.com/en-us/cloud-platform/global-datacenters).|
 |HTTPS/SSL/TLS encryption|All connections to Azure Cosmos DB support HTTPS. Azure Cosmos DB supports TLS levels up to 1.2 (included).<br>It's possible to enforce a minimum TLS level on the server side. To do so, see the self-service guide [Self-serve minimum TLS version enforcement in Azure Cosmos DB](./self-serve-minimum-tls-enforcement.md).|
 |Encryption at rest|All data stored in Azure Cosmos DB is encrypted at rest. Learn more in [Azure Cosmos DB encryption at rest](./database-encryption-at-rest.md).|
 |Patched servers|As a managed database, Azure Cosmos DB eliminates the need to manage and patch servers because it's done for you automatically.|
@@ -92,7 +92,7 @@ Primary/secondary keys provide access to all the administrative resources for th
 - Are created during the creation of an account.
 - Can be regenerated at any time.
 
-Each account consists of two keys: a primary key and secondary key. The purpose of dual keys is so that you can regenerate, or roll, keys, providing continuous access to your account and data.
+Each account consists of two keys: a primary key and a secondary key. The purpose of dual keys is so that you can regenerate, or roll, keys, providing continuous access to your account and data.
 
 Primary/secondary keys come in two versions: read-write and read-only. The read-only keys only allow read operations on the account. They don't provide access to read permissions resources.
 
@@ -108,7 +108,7 @@ The process of key rotation and regeneration is simple. First, make sure that *y
 
 1. Select **Keys** from the left menu, and then select **Regenerate Secondary Key** from the ellipsis (**...**) on the right of your secondary key.
 
-    :::image type="content" source="./media/database-security/regenerate-secondary-key.png" alt-text="Screenshot that shows the Azure portal showing how to regenerate the secondary key." border="true":::
+    :::image type="content" source="./media/database-security/regenerate-secondary-key.png" alt-text="Screenshot showing how to regenerate the secondary key in the Azure portal when used with the NoSQL API." border="true":::
 
 1. Validate that the new secondary key works consistently against your Azure Cosmos DB account. Key regeneration can take anywhere from one minute to multiple hours depending on the size of the Azure Cosmos DB account.
 
@@ -116,15 +116,15 @@ The process of key rotation and regeneration is simple. First, make sure that *y
 
 1. Go back to the Azure portal and trigger the regeneration of the primary key.
 
-    :::image type="content" source="./media/database-security/regenerate-primary-key.png" alt-text="Screenshot that shows the Azure portal showing how to regenerate the primary key." border="true":::
+    :::image type="content" source="./media/database-security/regenerate-primary-key.png" alt-text="Screenshot showing how to regenerate the primary key in the Azure portal when used with the NoSQL API." border="true":::
 
 #### If your application is currently using the secondary key
 
 1. Go to your Azure Cosmos DB account in the Azure portal.
 
-1. Select **Keys** from the left menu, then select **Regenerate Primary Key** from the ellipsis on the right of your primary key.
+1. Select **Keys** from the left menu, and then select **Regenerate Primary Key** from the ellipsis (**...**) on the right of your primary key.
 
-    :::image type="content" source="./media/database-security/regenerate-primary-key.png" alt-text="Screenshot that shows how to regenerate the primary key in the Azure portal." border="true":::
+    :::image type="content" source="./media/database-security/regenerate-primary-key.png" alt-text="Screenshot that shows how to regenerate the primary key in the Azure portal when used with the NoSQL API." border="true":::
 
 1. Validate that the new primary key works consistently against your Azure Cosmos DB account. Key regeneration can take anywhere from one minute to multiple hours depending on the size of the Azure Cosmos DB account.
 
@@ -132,7 +132,7 @@ The process of key rotation and regeneration is simple. First, make sure that *y
 
 1. Go back to the Azure portal and trigger the regeneration of the secondary key.
 
-    :::image type="content" source="./media/database-security/regenerate-secondary-key.png" alt-text="Screenshot that shows how to regenerate the secondary key in the Azure portal." border="true":::
+    :::image type="content" source="./media/database-security/regenerate-secondary-key.png" alt-text="Screenshot that shows how to regenerate the secondary key in the Azure portal when used with the NoSQL API." border="true":::
 
 # [Azure Cosmos DB for MongoDB](#tab/mongo-api)
 
@@ -142,7 +142,7 @@ The process of key rotation and regeneration is simple. First, make sure that *y
 
 1. Select **Connection String** from the left menu, and then select **Regenerate Password** from the ellipsis (**...**) on the right of your secondary password.
 
-    :::image type="content" source="./media/database-security/regenerate-secondary-key-mongo.png" alt-text="Screenshot of the Azure portal showing how to regenerate the secondary key." border="true":::
+    :::image type="content" source="./media/database-security/regenerate-secondary-key-mongo.png" alt-text="Screenshot showing how to regenerate the secondary key in the Azure portal when used with MongoDB." border="true":::
 
 1. Validate that the new secondary key works consistently against your Azure Cosmos DB account. Key regeneration can take anywhere from one minute to multiple hours depending on the size of the Azure Cosmos DB account.
 
@@ -150,15 +150,15 @@ The process of key rotation and regeneration is simple. First, make sure that *y
 
 1. Go back to the Azure portal and trigger the regeneration of the primary key.
 
-    :::image type="content" source="./media/database-security/regenerate-primary-key-mongo.png" alt-text="Screenshot of the Azure portal showing how to regenerate the primary key." border="true":::
+    :::image type="content" source="./media/database-security/regenerate-primary-key-mongo.png" alt-text="Screenshot showing how to regenerate the primary key in the Azure portal when used with MongoDB." border="true":::
 
 #### If your application is currently using the secondary key
 
-1. Navigate to your Azure Cosmos DB account on the Azure portal.
+1. Go to your Azure Cosmos DB account on the Azure portal.
 
-1. Select **Connection String** from the left menu, then select **Regenerate Password** from the ellipsis (**...**) on the right of your primary password.
+1. Select **Connection String** from the left menu, and then select **Regenerate Password** from the ellipsis (**...**) on the right of your primary password.
 
-    :::image type="content" source="./media/database-security/regenerate-primary-key-mongo.png" alt-text="Screenshot showing how to regenerate the primary key in the Azure portal." border="true":::
+    :::image type="content" source="./media/database-security/regenerate-primary-key-mongo.png" alt-text="Screenshot that shows how to regenerate the primary key in the Azure portal when used with MongoDB." border="true":::
 
 1. Validate that the new primary key works consistently against your Azure Cosmos DB account. Key regeneration can take anywhere from one minute to multiple hours depending on the size of the Azure Cosmos DB account.
 
@@ -166,7 +166,7 @@ The process of key rotation and regeneration is simple. First, make sure that *y
 
 1. Go back to the Azure portal and trigger the regeneration of the secondary key.
 
-    :::image type="content" source="./media/database-security/regenerate-secondary-key-mongo.png" alt-text="Screenshot showing how to regenerate the secondary key in the Azure portal." border="true":::
+    :::image type="content" source="./media/database-security/regenerate-secondary-key-mongo.png" alt-text="Screenshot that shows how to regenerate the secondary key in the Azure portal when used with MongoDB." border="true":::
 
 # [API for Cassandra](#tab/cassandra-api)
 
@@ -176,7 +176,7 @@ The process of key rotation and regeneration is simple. First, make sure that *y
 
 1. Select **Connection String** from the left menu, and then select **Regenerate Secondary Read-Write Password** from the ellipsis (**...**) on the right of your secondary password.
 
-    :::image type="content" source="./media/database-security/regenerate-secondary-key-cassandra.png" alt-text="Screenshot of the Azure portal where the secondary key is regenerated." border="true":::
+    :::image type="content" source="./media/database-security/regenerate-secondary-key-cassandra.png" alt-text="Screenshot showing how to regenerate the secondary key in the Azure portal when used with Cassandra." border="true":::
 
 1. Validate that the new secondary key works consistently against your Azure Cosmos DB account. Key regeneration can take anywhere from one minute to multiple hours depending on the size of the Azure Cosmos DB account.
 
@@ -184,7 +184,7 @@ The process of key rotation and regeneration is simple. First, make sure that *y
 
 1. Go back to the Azure portal and trigger the regeneration of the primary key.
 
-    :::image type="content" source="./media/database-security/regenerate-primary-key-cassandra.png" alt-text="Screenshot of the Azure portal where the primary key is regenerated." border="true":::
+    :::image type="content" source="./media/database-security/regenerate-primary-key-cassandra.png" alt-text="Screenshot showing how to regenerate the primary key in the Azure portal when used with Cassandra." border="true":::
 
 #### If your application is currently using the secondary key
 
@@ -192,7 +192,7 @@ The process of key rotation and regeneration is simple. First, make sure that *y
 
 1. Select **Connection String** from the left menu, and then select **Regenerate Primary Read-Write Password** from the ellipsis (**...**) on the right of your primary password.
 
-    :::image type="content" source="./media/database-security/regenerate-primary-key-cassandra.png" alt-text="Screenshot that shows the Azure portal where the primary key is regenerated." border="true":::
+    :::image type="content" source="./media/database-security/regenerate-primary-key-cassandra.png" alt-text="Screenshot that shows how to regenerate the primary key in the Azure portal when used with Cassandra." border="true":::
 
 1. Validate that the new primary key works consistently against your Azure Cosmos DB account. Key regeneration can take anywhere from one minute to multiple hours depending on the size of the Azure Cosmos DB account.
 
@@ -200,7 +200,7 @@ The process of key rotation and regeneration is simple. First, make sure that *y
 
 1. Go back to the Azure portal and trigger the regeneration of the secondary key.
 
-    :::image type="content" source="./media/database-security/regenerate-secondary-key-cassandra.png" alt-text="Screenshot that shows the Azure portal where the secondary key is regenerated." border="true":::
+    :::image type="content" source="./media/database-security/regenerate-secondary-key-cassandra.png" alt-text="Screenshot that shows how to regenerate the secondary key in the Azure portal when used with Cassandra." border="true":::
 
 # [API for Gremlin](#tab/gremlin-api)
 
@@ -210,7 +210,7 @@ The process of key rotation and regeneration is simple. First, make sure that *y
 
 1. Select **Keys** from the left menu, and then select **Regenerate Secondary Key** from the ellipsis (**...**) on the right of your secondary key.
 
-    :::image type="content" source="./media/database-security/regenerate-secondary-key-gremlin.png" alt-text="Screenshot that shows the steps in the Azure portal showing how to regenerate the secondary key." border="true":::
+    :::image type="content" source="./media/database-security/regenerate-secondary-key-gremlin.png" alt-text="Screenshot showing how to regenerate the secondary key in the Azure portal when used with the Gremlin API." border="true":::
 
 1. Validate that the new secondary key works consistently against your Azure Cosmos DB account. Key regeneration can take anywhere from one minute to multiple hours depending on the size of the Azure Cosmos DB account.
 
@@ -218,7 +218,7 @@ The process of key rotation and regeneration is simple. First, make sure that *y
 
 1. Go back to the Azure portal and trigger the regeneration of the primary key.
 
-    :::image type="content" source="./media/database-security/regenerate-primary-key-gremlin.png" alt-text="Screenshot that shows the steps in the Azure portal showing how to regenerate the primary key." border="true":::
+    :::image type="content" source="./media/database-security/regenerate-primary-key-gremlin.png" alt-text="Screenshot showing how to regenerate the primary key in the Azure portal when used with the Gremlin API." border="true":::
 
 #### If your application is currently using the secondary key
 
@@ -226,7 +226,7 @@ The process of key rotation and regeneration is simple. First, make sure that *y
 
 1. Select **Keys** from the left menu, and then select **Regenerate Primary Key** from the ellipsis (**...**) on the right of your primary key.
 
-    :::image type="content" source="./media/database-security/regenerate-primary-key-gremlin.png" alt-text="Screenshot of the steps in the Azure portal showing how to regenerate the primary key." border="true":::
+    :::image type="content" source="./media/database-security/regenerate-primary-key-gremlin.png" alt-text="Screenshot that shows how to regenerate the primary key in the Azure portal when used with the Gremlin API." border="true":::
 
 1. Validate that the new primary key works consistently against your Azure Cosmos DB account. Key regeneration can take anywhere from one minute to multiple hours depending on the size of the Azure Cosmos DB account.
 
@@ -234,7 +234,7 @@ The process of key rotation and regeneration is simple. First, make sure that *y
 
 1. Go back to the Azure portal and trigger the regeneration of the secondary key.
 
-    :::image type="content" source="./media/database-security/regenerate-secondary-key-gremlin.png" alt-text="Screenshot of the steps in the Azure portal showing how to regenerate the secondary key." border="true":::
+    :::image type="content" source="./media/database-security/regenerate-secondary-key-gremlin.png" alt-text="Screenshot that shows how to regenerate the secondary key in the Azure portal when used with the Gremlin API." border="true":::
 
 # [API for Table](#tab/table-api)
 
@@ -244,7 +244,7 @@ The process of key rotation and regeneration is simple. First, make sure that *y
 
 1. Select **Connection String** from the left menu, and then select **Regenerate Secondary Key** from the ellipsis (**...**) on the right of your secondary key.
 
-    :::image type="content" source="./media/database-security/regenerate-secondary-key-table.png" alt-text="Screenshot of the Azure portal that shows where the secondary key is regenerated." border="true":::
+    :::image type="content" source="./media/database-security/regenerate-secondary-key-table.png" alt-text="Screenshot showing how to regenerate the secondary key in the Azure portal when used with the Table API." border="true":::
 
 1. Validate that the new secondary key works consistently against your Azure Cosmos DB account. Key regeneration can take anywhere from one minute to multiple hours depending on the size of the Azure Cosmos DB account.
 
@@ -252,7 +252,7 @@ The process of key rotation and regeneration is simple. First, make sure that *y
 
 1. Go back to the Azure portal and trigger the regeneration of the primary key.
 
-    :::image type="content" source="./media/database-security/regenerate-primary-key-table.png" alt-text="Screenshot of the Azure portal that shows where the primary key is regenerated." border="true":::
+    :::image type="content" source="./media/database-security/regenerate-primary-key-table.png" alt-text="Screenshot showing how to regenerate the primary key in the Azure portal when used with the Table API." border="true":::
 
 #### If your application is currently using the secondary key
 
@@ -260,7 +260,7 @@ The process of key rotation and regeneration is simple. First, make sure that *y
 
 1. Select **Connection String** from the left menu, and then select **Regenerate Primary Key** from the ellipsis (**...**) on the right of your primary key.
 
-    :::image type="content" source="./media/database-security/regenerate-primary-key-table.png" alt-text="Screenshot of the Azure portal that shows how to regenerate the primary key." border="true":::
+    :::image type="content" source="./media/database-security/regenerate-primary-key-table.png" alt-text="Screenshot that shows how to regenerate the primary key in the Azure portal when used with the Table API." border="true":::
 
 1. Validate that the new primary key works consistently against your Azure Cosmos DB account. Key regeneration can take anywhere from one minute to multiple hours depending on the size of the Azure Cosmos DB account.
 
@@ -268,13 +268,13 @@ The process of key rotation and regeneration is simple. First, make sure that *y
 
 1. Go back to the Azure portal and trigger the regeneration of the secondary key.
 
-    :::image type="content" source="./media/database-security/regenerate-secondary-key-table.png" alt-text="Screenshot of the Azure portal that shows how to regenerate the secondary key." border="true":::
+    :::image type="content" source="./media/database-security/regenerate-secondary-key-table.png" alt-text="Screenshot that shows how to regenerate the secondary key in the Azure portal when used with the Table API." border="true":::
 
 ---
 
 ## Track the status of key regeneration
 
-After you rotate or regenerate a key, you can track its status from the activity log. Use the following steps to track the status:
+After you rotate or regenerate a key, you can track its status from the activity log. Use the following steps to track the status.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to your Azure Cosmos DB account.
 
@@ -288,6 +288,6 @@ After you rotate or regenerate a key, you can track its status from the activity
 
 ## Next steps
 
-* For more information about primary keys and resource tokens, see [Securing access to Azure Cosmos DB data](secure-access-to-data.md).
+* For more information about primary keys and resource tokens, see [Secure access to Azure Cosmos DB data](secure-access-to-data.md).
 * For more information about audit logging, see [Azure Cosmos DB diagnostic logging](./monitor.md).
 * For more information about Microsoft certifications, see [Azure Trust Center](https://azure.microsoft.com/support/trust-center/).
