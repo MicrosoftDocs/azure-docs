@@ -47,7 +47,7 @@ Here, we walk through the process of creating diagnostic settings for your accou
     :::image type="content" source="media/monitor/diagnostics-settings-selection.png" lightbox="media/monitor/diagnostics-settings-selection.png" alt-text="Sreenshot of the diagnostics selection page.":::
 
     > [!IMPORTANT]
-    > You might see a prompt to "enable full-text query \[...\] for more detailed logging" if the **full-text query** feature is not enabled in your account. You can safely ignore this warning if you do not wish to enable this feature. For more information, see [monitor-resource-logs.md#enable-full-text-query-for-logging-query-text].
+    > You might see a prompt to "enable full-text query \[...\] for more detailed logging" if the **full-text query** feature is not enabled in your account. You can safely ignore this warning if you do not wish to enable this feature. For more information, see [enable full-text query](monitor-resource-logs.md#enable-full-text-query-for-logging-query-text).
 
 1. In the **Diagnostic settings** pane, fill the form with your preferred categories. Included here's a list of log categories.
 
