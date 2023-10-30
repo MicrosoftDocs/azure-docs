@@ -5,7 +5,7 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: azure-storage-mover
 ms.topic: how-to
-ms.date: 08/04/2023
+ms.date: 10/30/2023
 ---
 
 <!-- 
@@ -102,9 +102,6 @@ Refer to the [resource naming convention](../azure-resource-manager/management/r
    Recall that certain types of endpoints may be used as a source or a target, respectively.
 
    [!INCLUDE [protocol-endpoint-agent](includes/protocol-endpoint-agent.md)]
-
-   > [!IMPORTANT]
-   > Support for the SMB protocol is currently in public preview and some functionality may not yet be available. Currently, the only supported migration path consists of an SMB mount source to an Azure file share destination.
 
    :::image type="content" source="media/job-definition-create/endpoint-target-new-sml.png" alt-text="Screen capture of the Target tab illustrating the location of the New Target Endpoint fields." lightbox="media/job-definition-create/endpoint-target-new-lrg.png":::
 
