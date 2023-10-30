@@ -96,7 +96,7 @@ The Ansible playbooks must be named according to the following naming convention
 
 ## Adding custom repositories (Linux)
 
-If you need to register extra Linux package repositories to the Virtual Machines deployed by the framework, you can add the following section to the sap-parameters-yaml file.
+If you need to register extra Linux package repositories to the Virtual Machines deployed by the framework, you can add the following section to the sap-parameters.yaml file.
 
 In this example, the repository 'epel' is registered on all the hosts in your SAP deployment that are running RedHat 8.2.
 
@@ -110,7 +110,7 @@ custom_repos:
 
 ## Adding custom packages (Linux)
 
-If you need to install more Linux packages to the Virtual Machines deployed by the framework, you can add the following section to the sap-parameters-yaml file.
+If you need to install more Linux packages to the Virtual Machines deployed by the framework, you can add the following section to the sap-parameters.yaml file.
 
 In this example, the package 'openssl' is installed on all the hosts in your SAP deployment that are running SUSE Enterprise Linux for SAP Applications version 15.3.
 
@@ -122,7 +122,7 @@ custom_packages:
 
 ```
 
-If you want to install a package on a specific server type (`app`, `ers`, `pas`, `scs`, `hana`) you can add the following section to the sap-parameters-yaml file.
+If you want to install a package on a specific server type (`app`, `ers`, `pas`, `scs`, `hana`) you can add the following section to the sap-parameters.yaml file.
 
 ```yaml
 
@@ -136,7 +136,7 @@ custom_packages:
 
 You can extend the SAP Deployment Automation Framework by adding custom kernel parameters to the SDAF installation.
 
-When you add the following section to the sap-parameters-yaml file, the parameter 'fs.suid_dumpable' is set to 0 on all the hosts in your SAP deployment.
+When you add the following section to the sap-parameters.yaml file, the parameter 'fs.suid_dumpable' is set to 0 on all the hosts in your SAP deployment.
 
 ```yaml
 
@@ -150,7 +150,7 @@ custom_parameters:
 
 You can extend the SAP Deployment Automation Framework by adding logical volumes based on additional disks in your SDAF installation.
 
-When you add the following section to the sap-parameters-yaml file, a logical volume 'lv_custom' will be created on all Virtual machines with a disk with the name 'custom' in your SAP deployment. A filesystem will be mounted on the logical volume and available on '/custompath'.
+When you add the following section to the sap-parameters.yaml file, a logical volume 'lv_custom' will be created on all Virtual machines with a disk with the name 'custom' in your SAP deployment. A filesystem will be mounted on the logical volume and available on '/custompath'.
 
 
 ```yaml
@@ -172,12 +172,12 @@ custom_logical_volumes:
 
 You can extend the SAP Deployment Automation Framework by mounting additional mount points in your installation.
 
-When you add the following section to the sap-parameters-yaml file, a filesystem '/usr/custom' will be mounted from an NFS share on "xxxxxxxxx.file.core.windows.net:/xxxxxxxxx/custom".
+When you add the following section to the sap-parameters.yaml file, a filesystem '/usr/custom' will be mounted from an NFS share on "xxxxxxxxx.file.core.windows.net:/xxxxxxxxx/custom".
 
 ```yaml
 
 custom_mounts:
-    path:         "/usr/custom"
+  - path:         "/usr/custom"
     opts:         "vers=4,minorversion=1,sec=sys"
     mount:        "xxxxxxxxx.file.core.windows.net:/xxxxxxxxx/custom"
     target_nodes: "scs,pas,app"
@@ -190,7 +190,7 @@ The `target_nodes` attribute defines which nodes will have the mount defined. Us
 
 You can extend the SAP Deployment Automation Framework by adding additional folders to be exported from the Central Services virtual machine.
 
-When you add the following section to the sap-parameters-yaml file, a filesystem '/usr/custom' will be exported from the Central Services virtual machine and available via NFS.
+When you add the following section to the sap-parameters.yaml file, a filesystem '/usr/custom' will be exported from the Central Services virtual machine and available via NFS.
 
 ```yaml
 
