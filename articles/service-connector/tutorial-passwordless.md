@@ -2,13 +2,13 @@
 title: 'Tutorial: Create a passwordless connection with Service Connector'
 description: Create a passwordless connection with Service Connector
 titleSuffix: Service Connector
-author: mcleanbyron
-ms.author: mcleans
+author: maud-lv
+ms.author: malev
 ms.service: service-connector
 ms.topic: tutorial
 ms.date: 07/17/2023
 ms.devlang: azurecli
-ms.custom: passwordless-dotnet, passwordless-java
+ms.custom: passwordless-dotnet, passwordless-java, devx-track-azurecli
 zone_pivot_group_filename: service-connector/zone-pivot-groups.json
 zone_pivot_groups: passwordless
 ---
@@ -122,7 +122,7 @@ az webapp connection create postgres-flexible \
 
 ::: zone pivot="mysql"
 
-Azure Database for MySQL - Flexible Server requires a user-assigned managed identity to enable Azure Active Directory authentication. For more information, see [Set up Azure Active Directory authentication for Azure Database for MySQL - Flexible Server](../mysql/flexible-server/how-to-azure-ad.md). You can use the following command to create a user-assigned managed identity:
+Azure Database for MySQL - Flexible Server requires a user-assigned managed identity to enable Microsoft Entra authentication. For more information, see [Set up Microsoft Entra authentication for Azure Database for MySQL - Flexible Server](../mysql/flexible-server/how-to-azure-ad.md). You can use the following command to create a user-assigned managed identity:
 
 ```azurecli
 USER_IDENTITY_NAME=<YOUR_USER_ASSIGNED_MANAGEMED_IDENTITY_NAME>
@@ -236,7 +236,7 @@ az webapp connection create sql \
 This Service Connector command completes the following tasks in the background:
 
 - Enable system-assigned managed identity, or assign a user identity for the app `$APPSERVICE_NAME` hosted by Azure App Service/Azure Spring Apps/Azure Container Apps.
-- Set the Azure Active Directory admin to the current signed-in user.
+- Set the Microsoft Entra admin to the current signed-in user.
 - Add a database user for the system-assigned managed identity, user-assigned managed identity, or service principal. Grant all privileges of the database `$DATABASE_NAME` to this user. The username can be found in the connection string in preceding command output.
 - Set configurations named `AZURE_MYSQL_CONNECTIONSTRING`, `AZURE_POSTGRESQL_CONNECTIONSTRING`, or `AZURE_SQL_CONNECTIONSTRING` to the Azure resource based on the database type. 
   - For App Service, the configurations are set in the **App Settings** blade.
@@ -255,11 +255,11 @@ If you encounter any permission-related errors, confirm the Azure CLI signed-in 
 | Permission | Operation |
 | --- | --- |
 | `Microsoft.DBforPostgreSQL/flexibleServers/read` | Required to get information of database server |
-| `Microsoft.DBforPostgreSQL/flexibleServers/write` | Required to enable Azure AD authentication for database server |
+| `Microsoft.DBforPostgreSQL/flexibleServers/write` | Required to enable Microsoft Entra authentication for database server |
 | `Microsoft.DBforPostgreSQL/flexibleServers/firewallRules/write` | Required to create firewall rule in case the local IP address is blocked |
 | `Microsoft.DBforPostgreSQL/flexibleServers/firewallRules/delete` | Required to revert the firewall rule created by Service Connector to avoid security issue |
-| `Microsoft.DBforPostgreSQL/flexibleServers/administrators/read` | Required to check if Azure CLI login user is a database server Azure AD administrator |
-| `Microsoft.DBforPostgreSQL/flexibleServers/administrators/write` | Required to add Azure CLI login user as database server Azure AD administrator |
+| `Microsoft.DBforPostgreSQL/flexibleServers/administrators/read` | Required to check if Azure CLI login user is a database server Microsoft Entra administrator |
+| `Microsoft.DBforPostgreSQL/flexibleServers/administrators/write` | Required to add Azure CLI login user as database server Microsoft Entra administrator |
 
 ::: zone-end
 
@@ -271,8 +271,8 @@ If you encounter any permission-related errors, confirm the Azure CLI signed-in 
 | `Microsoft.DBforMySQL/flexibleServers/write` | Required to add the provided User assigned managed identity to database server |
 | `Microsoft.DBforMySQL/flexibleServers/firewallRules/write` | Required to create firewall rule in case the local IP address is blocked |
 | `Microsoft.DBforMySQL/flexibleServers/firewallRules/delete` | Required to revert the firewall rule created by Service Connector to avoid security issue |
-| `Microsoft.DBforMySQL/flexibleServers/administrators/read` | Required to check if Azure CLI login user is a database server Azure AD administrator |
-| `Microsoft.DBforMySQL/flexibleServers/administrators/write` | Required to add Azure CLI login user as database server Azure AD administrator |
+| `Microsoft.DBforMySQL/flexibleServers/administrators/read` | Required to check if Azure CLI login user is a database server Microsoft Entra administrator |
+| `Microsoft.DBforMySQL/flexibleServers/administrators/write` | Required to add Azure CLI login user as database server Microsoft Entra administrator |
 
 ::: zone-end
 
@@ -284,18 +284,20 @@ If you encounter any permission-related errors, confirm the Azure CLI signed-in 
 | `Microsoft.Sql/servers/read` | Required to get information of database server |
 | `Microsoft.Sql/servers/firewallRules/write` | Required to create firewall rule in case the local IP address is blocked |
 | `Microsoft.Sql/servers/firewallRules/delete` | Required to revert the firewall rule created by Service Connector to avoid security issue |
-| `Microsoft.Sql/servers/administrators/read` | Required to check if Azure CLI login user is a database server Azure AD administrator |
-| `Microsoft.Sql/servers/administrators/write` | Required to add Azure CLI login user as database server Azure AD administrator |
+| `Microsoft.Sql/servers/administrators/read` | Required to check if Azure CLI login user is a database server Microsoft Entra administrator |
+| `Microsoft.Sql/servers/administrators/write` | Required to add Azure CLI login user as database server Microsoft Entra administrator |
 
 ::: zone-end
 
 In some cases, the permissions aren't required. For example, if the Azure CLI-authenticated user is already an Active Directory Administrator on SQL server, you don't need to have the `Microsoft.Sql/servers/administrators/write` permission.
 
-#### Azure Active Directory
+<a name='azure-active-directory'></a>
 
-If you get an error `ERROR: AADSTS530003: Your device is required to be managed to access this resource.`, ask your IT department for help with joining this device to Azure Active Directory. For more information, see [Azure AD-joined devices](../active-directory/devices/concept-azure-ad-join.md).
+#### Microsoft Entra ID
 
-Service Connector needs to access Azure Active Directory to get information of your account and managed identity of hosting service. You can use the following command to check if your device can access Azure Active Directory:
+If you get an error `ERROR: AADSTS530003: Your device is required to be managed to access this resource.`, ask your IT department for help with joining this device to Microsoft Entra ID. For more information, see [Microsoft Entra joined devices](../active-directory/devices/concept-azure-ad-join.md).
+
+Service Connector needs to access Microsoft Entra ID to get information of your account and managed identity of hosting service. You can use the following command to check if your device can access Microsoft Entra ID:
 
 ```azurecli
 az ad signed-in-user show
@@ -304,21 +306,23 @@ az ad signed-in-user show
 If you don't log in interactively, you may also get the error and `Interactive authentication is needed`. To resolve the error, log in with the `az login` command.
 
 
-## Connect to database with Azure Active Directory authentication
+<a name='connect-to-database-with-azure-active-directory-authentication'></a>
 
-After creating the connection, you can use the connection string in your application to connect to the database with Azure Active Directory authentication. For example, you can use the following solutions to connect to the database with Azure Active Directory authentication.
+## Connect to database with Microsoft Entra authentication
+
+After creating the connection, you can use the connection string in your application to connect to the database with Microsoft Entra authentication. For example, you can use the following solutions to connect to the database with Microsoft Entra authentication.
 
 :::zone pivot="postgresql"
 
 
-[!INCLUDE [code sample for postgres aad connection](./includes/code-postgres-aad.md)]
+[!INCLUDE [code sample for postgres aad connection](./includes/code-postgres-me-id.md)]
 
 
 :::zone-end
 
 :::zone pivot="mysql"
 
-[!INCLUDE [code sample for mysql aad connection](./includes/code-mysql-aad.md)]
+[!INCLUDE [code sample for mysql aad connection](./includes/code-mysql-me-id.md)]
 
 
 :::zone-end
@@ -326,7 +330,7 @@ After creating the connection, you can use the connection string in your applica
 
 :::zone pivot="sql"
 
-[!INCLUDE [code sample for sql aad connection](./includes/code-sql-aad.md)]
+[!INCLUDE [code sample for sql aad connection](./includes/code-sql-me-id.md)]
 
 
 :::zone-end

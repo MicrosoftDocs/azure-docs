@@ -41,7 +41,7 @@ To instrument your Node.js application, use the [SDK](./nodejs.md).
 
 ### [Python](#tab/python)
 
-To monitor Python apps, use the [SDK](./opencensus-python.md).
+To monitor Python apps, use the [SDK](/previous-versions/azure/azure-monitor/app/opencensus-python).
 
 ---
 
@@ -208,7 +208,7 @@ If your extension deployed successfully but you're unable to see telemetry, it c
 
 - Updated Application Insights .NET/.NET Core SDK to 2.20.1 - red field.
 - Enabled SQL query collection.
-- Enabled support for Azure Active Directory authentication.
+- Enabled support for Microsoft Entra authentication.
 
 ### 2.8.42
 

@@ -5,8 +5,7 @@ description: An overview of the voice assistants on Windows, including capabilit
 services: cognitive-services
 author: cfogg6
 manager: trrwilson
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: overview
 ms.date: 02/19/2022
 ms.author: travisw

@@ -81,6 +81,8 @@ The detailed specifications of the available server types are as follows:
 |Standard_E8ads_v5	|	8	|	64	|	18000	|	10923   |   300 |
 |Standard_E16ds_v4	|	16	|	128	|	28000	|	21845   |   600 |
 |Standard_E16ads_v5	|	16	|	128	|	28000	|	21845   |   600 |
+|Standard_E20ds_v4 	|	20	|	160	|	28000	|	27306   |   750 |
+|Standard_E20ads_v5  |	20	|	160	|	28000	|	27306   |   750 |
 |Standard_E32ds_v4	|	32	|	256	|	38000	|	43691   |   1200    |
 |Standard_E32ads_v5	|	32	|	256	|	38000	|	43691   |   1200    |
 |Standard_E48ds_v4	|	48	|	384	|	48000	|	65536   |   1800    |
@@ -92,6 +94,7 @@ The detailed specifications of the available server types are as follows:
 |Standard_E4ds_v5	|	4	|	32	|	10000	|	5461    |   150 | 
 |Standard_E8ds_v5	|	8	|	64	|	18000	|	10923   |   300 |
 |Standard_E16ds_v5	|	16	|	128	|	28000	|	21845   |   600 |
+|Standard_E20ds_v5  |	20	|	160	|	28000	|	27306   |   750 |
 |Standard_E32ds_v5	|	32	|	256	|	38000	|	43691   |   1200    |
 |Standard_E48ds_v5	|	48	|	384	|	48000	|	65536   |   1800    |
 |Standard_E64ds_v5	|	64	|	512	|	64000	|	87383   |   2400    |
@@ -101,7 +104,7 @@ To get more details about the compute series available, refer to Azure VM docume
 
 
 >[!NOTE]
->For [Burstable (B-series) compute tier](../../virtual-machines/sizes-b-series-burstable.md) if the VM is started/stopped or restarted, the credits may be lost. For more information, see [Burstable (B-Series) FAQ](../../virtual-machines/sizes-b-series-burstable.md#q-why-is-my-remaining-credit-set-to-0-after-a-redeploy-or-a-stopstart).
+>For [Burstable (B-series) compute tier](../../virtual-machines/sizes-b-series-burstable.md) if the VM is started/stopped or restarted, the credits may be lost. For more information, see [Burstable (B-Series) FAQ](../../virtual-machines/sizes-b-series-burstable.md).
 
 ## Storage
 

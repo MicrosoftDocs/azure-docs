@@ -38,7 +38,7 @@ Specifically, this SharePoint List Online connector uses service principal authe
 
 The SharePoint List Online connector uses service principal authentication to connect to SharePoint. Follow these steps to set it up:
 
-1. Register an application with the Microsoft Identity platform. To learn how, see [Quickstart: Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md). Make note of these values, which you use to define the linked service:
+1. Register an application with the Microsoft identity platform. To learn how, see [Quickstart: Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md). Make note of these values, which you use to define the linked service:
 
     - Application ID
     - Application key
@@ -62,7 +62,7 @@ The SharePoint List Online connector uses service principal authentication to co
             :::image type="content" source="media/connector-sharepoint-online-list/sharepoint-online-grant-permission-admin.png" alt-text="Grant SharePoint Online site permission to your registered application when you have site admin role.":::
             
         > [!NOTE]
-        > In the context of configuring the SharePoint connector, the "App Domain" and "Redirect URL" refer to the SharePoint app that you have registered in Azure Active Directory (AAD) to allow access to your SharePoint data. The "App Domain" is the domain where your SharePoint site is hosted. For example, if your SharePoint site is located at "https://contoso.sharepoint.com", then the "App Domain" would be "contoso.sharepoint.com". The "Redirect URL" is the URL that the SharePoint app will redirect to after the user has authenticated and granted permissions to the app. This URL should be a page on your SharePoint site that the app has permission to access. For example, you could use the URL of a page that displays a list of files in a library, or a page that displays the contents of a document.
+        > In the context of configuring the SharePoint connector, the "App Domain" and "Redirect URL" refer to the SharePoint app that you have registered in Microsoft Entra ID to allow access to your SharePoint data. The "App Domain" is the domain where your SharePoint site is hosted. For example, if your SharePoint site is located at "https://contoso.sharepoint.com", then the "App Domain" would be "contoso.sharepoint.com". The "Redirect URL" is the URL that the SharePoint app will redirect to after the user has authenticated and granted permissions to the app. This URL should be a page on your SharePoint site that the app has permission to access. For example, you could use the URL of a page that displays a list of files in a library, or a page that displays the contents of a document.
 
     3. Click "Trust It" for this app.
 
@@ -104,7 +104,7 @@ The following properties are supported for a SharePoint Online List linked servi
 | ------------------- | ------------------------------------------------------------ | ------------ |
 | type                | The type property must be set to: **SharePointOnlineList**.  | Yes          |
 | siteUrl             | The SharePoint Online site url, e.g. `https://contoso.sharepoint.com/sites/siteName`. | Yes          |
-| servicePrincipalId  | The Application (client) ID of the application registered in Azure Active Directory. Refer to [Prerequisites](#prerequisites) for more details including the permission settings.| Yes          |
+| servicePrincipalId  | The Application (client) ID of the application registered in Microsoft Entra ID. Refer to [Prerequisites](#prerequisites) for more details including the permission settings.| Yes          |
 | servicePrincipalKey | The application's key. Mark this field as a **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes          |
 | tenantId            | The tenant ID under which your application resides.          | Yes          |
 | connectVia          | The [Integration Runtime](concepts-integration-runtime.md) to use to connect to the data store. If not specified, the default Azure Integration Runtime is used. | No           |
@@ -236,7 +236,7 @@ You can copy file from SharePoint Online by using **Web activity** to authentica
 
 :::image type="content" source="media/connector-sharepoint-online-list/sharepoint-online-copy-file-flow.png" alt-text="sharepoint copy file flow":::
 
-1. Follow the [Prerequisites](#prerequisites) section to create AAD application and grant permission to SharePoint Online. 
+1. Follow the [Prerequisites](#prerequisites) section to create Microsoft Entra application and grant permission to SharePoint Online. 
 
 2. Create a **Web Activity** to get the access token from SharePoint Online:
 
@@ -261,7 +261,7 @@ You can copy file from SharePoint Online by using **Web activity** to authentica
     - Configure the copy activity sink as usual.
 
 > [!NOTE]
-> Even if an Azure AD application has `FullControl` permissions on SharePoint Online, you can't copy files from document libraries with IRM enabled.
+> Even if a Microsoft Entra application has `FullControl` permissions on SharePoint Online, you can't copy files from document libraries with IRM enabled.
 
 ## Lookup activity properties
 

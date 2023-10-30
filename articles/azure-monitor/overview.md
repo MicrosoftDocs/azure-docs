@@ -86,7 +86,7 @@ Azure Monitor collects these types of data:
 |---------|-----------|
 |App/Workloads |**App**- Application performance, health, and activity data. <br/><br/>**Workloads** - IaaS workloads such as SQL server, Oracle or SAP running on a hosted Virtual Machine.|
 |Infrastructure|**Container** - Data about containers, such as [Azure Kubernetes Service](../aks/intro-kubernetes.md), [Prometheus](./essentials/prometheus-metrics-overview.md), and the applications running inside containers.<br><br>**Operating system** - Data about the guest operating system on which your application is running.|
-|Azure Platform|**Azure resource** - Data about the operation of an Azure resource from inside the resource, including changes. Resource Logs are one example. <br><br>**Azure subscription** - The operation and management of an Azure subscription, and data about the health and operation of Azure itself. The activity log is one example.<br><br>**Azure tenant** - Data about the operation of tenant-level Azure services, such as Azure Active Directory.<br> |
+|Azure Platform|**Azure resource** - Data about the operation of an Azure resource from inside the resource, including changes. Resource Logs are one example. <br><br>**Azure subscription** - The operation and management of an Azure subscription, and data about the health and operation of Azure itself. The activity log is one example.<br><br>**Azure tenant** - Data about the operation of tenant-level Azure services, such as Microsoft Entra ID.<br> |
 |Custom Sources| Data which gets into the system using the <br/> - Azure Monitor REST API <br/> - Data Collection API |
 
 For detailed information about each of the data sources, see [data sources](./data-sources.md).
@@ -118,7 +118,7 @@ For detailed information about data collection, see [data collection](./best-pra
 
 ## Data platform
 
-Azure Monitor stores data in data stores for each of the three pillars of observability, plus an addition one:
+Azure Monitor stores data in data stores for each of the three pillars of observability, plus an additional one:
  - metrics 
  - logs 
  - distributed traces  
@@ -128,7 +128,7 @@ Azure Monitor stores data in data stores for each of the three pillars of observ
 
 :::image type="content" source="media/overview/data-platform-box-opt.svg" alt-text="Diagram that shows an overview of Azure Monitor data platform." border="false" lightbox="media/overview/data-platform-blowup-type-2-opt.svg":::
 
-Click on the picture above for a to see the Data Platform in the context of the whole of Azure Monitor. 
+Select the preceding diagram to see the Data Platform in the context of the whole of Azure Monitor. 
 
 |Pillar of Observability/<br>Data Store|Description|
 |---------|---------|
@@ -240,8 +240,28 @@ You may need to integrate Azure Monitor with other systems or to build custom so
 |[API](/rest/api/monitor/)|Multiple APIs are available to read and write metrics and logs to and from Azure Monitor in addition to accessing generated alerts. You can also configure and retrieve alerts. With APIs, you have unlimited possibilities to build custom solutions that integrate with Azure Monitor.|
 |[Azure Logic Apps](../logic-apps/logic-apps-overview.md)|Azure Logic Apps is a service you can use to automate tasks and business processes by using workflows that integrate with different systems and services with little or no code. Activities are available that read and write metrics and logs in Azure Monitor. You can use Logic Apps to [customize responses and perform other actions in response to Azure Monitor alerts](alerts/alerts-logic-apps.md).  You can also perform other [more complex actions](logs/logicapp-flow-connector.md) when the Azure Monitor infrastructure doesn't already supply a built-it method.|
 |[Azure Functions](../azure-functions/functions-overview.md)| Similar to Azure Logic Apps, Azure Functions give you the ability to pre process and post process monitoring data as well as perform complex action beyond the scope of typical Azure Monitor alerts. Azure Functions uses code however providing additional flexibility over Logic Apps.
-|Azure DevOps and GitHub | Azure Monitor Application Insights gives you the ability to create [Work Item Integration](app/work-item-integration.md) with monitoring data embedding in it. Additional options include [release annotations](app/annotations.md) and [continuous monitoring](app/continuous-monitoring.md). |
+|Azure DevOps and GitHub | Azure Monitor Application Insights gives you the ability to create [Work Item Integration](app/release-and-work-item-insights.md?tabs=work-item-integration) with monitoring data embedding in it. Additional options include [release annotations](app/release-and-work-item-insights.md?tabs=release-annotations) and [continuous monitoring](app/release-and-work-item-insights.md?tabs=continuous-monitoring). |
 
+## Frequently asked questions
+
+This section provides answers to common questions.
+
+### What's the difference between Azure Monitor, Log Analytics, and Application Insights?
+
+In September 2018, Microsoft combined Azure Monitor, Log Analytics, and Application Insights into a single service to provide powerful end-to-end monitoring of your applications and the components they rely on. Features in Log Analytics and Application Insights haven't changed, although some features have been rebranded to Azure Monitor to better reflect their new scope. The log data engine and query language of Log Analytics is now referred to as Azure Monitor Logs.
+
+### How much does Azure Monitor cost?
+
+The cost of Azure Monitor is based on your usage of different features and is primarily determined by the amount of data you collect. See [Azure Monitor cost and usage](./usage-estimated-costs.md) for details on how costs are determined and [Cost optimization in Azure Monitor](./best-practices-cost.md) for recommendations on reducing your overall spend.
+
+### Is there an on-premises version of Azure Monitor?
+
+No. Azure Monitor is a scalable cloud service that processes and stores large amounts of data, although Azure Monitor can monitor resources that are on-premises and in other clouds.
+
+### Does Azure Monitor integrate with System Center Operations Manager?
+
+You can connect your existing System Center Operations Manager management group to Azure Monitor to collect data from agents into Azure Monitor Logs. This capability allows you to use log queries and solutions to analyze data collected from agents. You can also configure existing System Center Operations Manager agents to send data directly to Azure Monitor. See [Connect Operations Manager to Azure Monitor](agents/om-agents.md).
+          
 
 ## Next steps
 - [Getting started with Azure Monitor](getting-started.md)

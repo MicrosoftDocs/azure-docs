@@ -2,11 +2,11 @@
 title: 'Tutorial: Host a static website on Blob storage
 titleSuffix: Azure Storage'
 description: Learn how to configure a storage account for static website hosting, and deploy a static website to Azure Storage.
-author: normesta
-ms.service: storage
+author: stevenmatthew
+ms.service: azure-blob-storage
 ms.topic: tutorial
 ms.date: 11/04/2021
-ms.author: normesta
+ms.author: shaas
 ms.reviewer: dineshm
 #Customer intent: I want to host files for a static website in Blob storage and access the website from an Azure endpoint.
 ---

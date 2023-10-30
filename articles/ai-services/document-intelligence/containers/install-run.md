@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: Use the Docker containers for Document Intelligence on-premises to identify and extract key-value pairs, selection marks, tables, and structure from forms and documents.
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: how-to
 ms.date: 07/18/2023
 ms.author: lajanuar
@@ -51,10 +50,6 @@ In this article you learn how to download, install, and run Document Intelligenc
 
 ::: moniker-end
 
-> [!IMPORTANT]
->
-> * To use Document Intelligence containers, you must submit an online request, and have it approved. For more information, _see_ [Request approval to run container](#request-approval-to-run-container).
-
 ## Prerequisites
 
 To get started, you need an active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
@@ -87,12 +82,6 @@ You also need an **Azure AI Vision API resource to process business cards, ID do
   * **{COMPUTER_VISION_KEY}**: one of the two available resource keys.
   * **{COMPUTER_VISION_ENDPOINT_URI}**: the endpoint for the resource used to track billing information.
 :::moniker-end
-
-## Request approval to run container
-
-Complete and submit the [**Azure AI services application for Gated Services**](https://aka.ms/csgate) to request access to the container.
-
-[!INCLUDE [Request access to public preview](../../../../includes/cognitive-services-containers-request-access.md)]
 
 ## Host computer requirements
 
@@ -572,7 +561,7 @@ http {
 
 2. The following code sample is a self-contained `docker compose` example to run Document Intelligence Layout, Studio and Custom template containers together. With `docker compose`, you use a YAML file to configure your application's services. Then, with `docker-compose up` command, you create and start all the services from your configuration.
 
- ```yml
+```yml
 version: '3.3'
 services:
   nginx:
@@ -1050,7 +1039,7 @@ http {
 
 2. The following code sample is a self-contained `docker compose` example to run Document Intelligence Layout, Label Tool, Custom API, and Custom Supervised containers together. With `docker compose`, you use a YAML file to configure your application's services. Then, with `docker-compose up` command, you create and start all the services from your configuration.
 
- ```yml
+```yml
 version: '3.3'
 services:
  nginx:

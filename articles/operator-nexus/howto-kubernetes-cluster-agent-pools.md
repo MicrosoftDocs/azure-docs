@@ -31,11 +31,12 @@ Before proceeding with this how-to guide, it's recommended that you:
    * System pools must contain at least one node.
    * You can't change the VM size of a node pool after you create it.
    * Each Nexus Kubernetes cluster requires at least one system node pool.
+   * Don't run application workloads on Kubernetes control plane nodes, as they're designed only for managing the cluster, and doing so can harm its performance and stability.
 
 ## System pool
 For a system node pool, Nexus Kubernetes automatically assigns the label `kubernetes.azure.com/mode: system` to its nodes. This label causes Nexus Kubernetes to prefer scheduling system pods on node pools that contain this label. This label doesn't prevent you from scheduling application pods on system node pools. However, we recommend you isolate critical system pods from your application pods to prevent misconfigured or rogue application pods from accidentally killing system pods.
 
-You can enforce this behavior by creating a dedicated system node pool. Use the `CriticalAddonsOnly=true:NoSchedule` taint to prevent application pods from being scheduled on system node pools.
+You can enforce this behavior by creating a dedicated system node pool. Use the `CriticalAddonsOnly=true:NoSchedule` taint to prevent application pods from being scheduled on system node pools. If you intend to use the system pool for application pods (not dedicated), don't apply any application specific taints to the pool, as applying such taints can lead to cluster creation failures. 
 
 > [!IMPORTANT]
 > If you run a single system node pool for your Nexus Kubernetes cluster in a production environment, we recommend you use at least three nodes for the node pool.

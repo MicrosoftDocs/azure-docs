@@ -14,6 +14,33 @@ Go to the [Azure AD Connect - Microsoft Entra admin center](https://entra.micros
 
 Get notified about when to revisit this page for updates by copying and pasting this URL: `https://aka.ms/cloudsyncrss` into your ![RSS feed reader icon](media/active-directory-cloud-sync-version-history/feed-icon-16x16.png) feed reader.
 
+## 1.1.1365.0
+
+Release date: September 8th, 2023
+
+### New or changed functionality
+
+- Added support for Applications Kerberos Key synchronization to Provisioning Agent
+- Added support for Web Service, Windows PowerShell and custom ECMA2 connectors
+- **Query attribute** of ECMA2Host is no longer in use and removed from the ECMA2 Configuration wizard
+- Update AADCloudSyncTools module with function to disable DirSyncConfiguration Accidental Deletion Prevention
+
+### Fixed issues
+- Fixed an issue with jobs going into quarantine if an OR name attribute value points to a non-existent object
+- Fixed an issue that caused customizations to AADConnectProvisioningAgent.exe.config to reset when the agent is updated
+- Fixed provisioning agent incorrect creds if NTLM traffic is set to 'Deny-All'
+- Fixed incorrect file path to trace log
+- Fixed an issue that caused Provisioning Agent installer crashing from duplicate schema objects
+- Update Windows Server Version check as per documented prerequisites
+- Fixed for install page links visibility in 'high contrast black' mode
+- Fixed case sensitive comparison and add logging for UPN / role id checks
+- Accessibility fixes for ECMA2 Configuration wizard
+
+
+
+
+
+
 ## 1.1.1107.0
 
 Release date: December 16, 2022
@@ -53,7 +80,7 @@ Release date: August 8, 2022
  - We fixed a memory leak due to not disposing HTTP client.
  - We fixed a bug in the code for granting the "logon as a service" right to the GMSA.
  - We refined the permissions on the GMSA for CloudHR.
- - We now uninstall the Cloud Sync agent when the bundle is uninstalled.
+ - We now uninstall the cloud sync agent when the bundle is uninstalled.
  - We fixed a bug that prevents deletion of the Service Principal if not all Jobs are deleted.
  - We fixed an issue with updating of the password of a user with 'User must change password at next logon'.
  - We fixed an issue with the agent GMSA folder permissions.

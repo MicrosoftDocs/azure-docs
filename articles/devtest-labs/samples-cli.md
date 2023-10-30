@@ -5,7 +5,7 @@ ms.topic: sample
 ms.custom: devx-track-azurecli, UpdateFrequency2
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 02/02/2022
+ms.date: 09/30/2023
 ---
 
 # Azure CLI Samples for Azure DevTest Labs

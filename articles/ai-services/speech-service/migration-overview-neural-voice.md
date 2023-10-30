@@ -5,8 +5,7 @@ description: This document summarizes the benefits of migration from non-neural 
 services: cognitive-services
 author: sally-baolian
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: conceptual
 ms.date: 11/12/2021
 ms.author: v-baolianzou

@@ -55,7 +55,7 @@ python app.py
 
 ## (Optional) Prepare your audio file if you wish to use audio files for playing prompts
 
-Create an audio file, if you don't already have one, to use for playing prompts and messages to participants. The audio file must be hosted in a location that is accessible to ACS with support for authentication. Keep a copy of the URL available for you to use when requesting to play the audio file. The audio file that ACS supports needs to be **WAV, mono and 16 KHz sample rate**. 
+Create an audio file, if you don't already have one, to use for playing prompts and messages to participants. The audio file must be hosted in a location that is accessible to Azure Communication Services with support for authentication. Keep a copy of the URL available for you to use when requesting to play the audio file. Azure Communication Services supports both file types of **MP3** and **WAV files, mono 16-bit PCM at 16 KHz sample rate**. . 
 
 You can test creating your own audio file using our [Speech synthesis with Audio Content Creation tool](../../../../ai-services/Speech-Service/how-to-audio-content-creation.md).
 
@@ -81,7 +81,7 @@ Once the call has been established, there are multiple options for how you may w
 
 ### Play source - Audio file
 
-To play audio to participants using audio files, you need to make sure the audio file is a WAV file, mono and 16 KHz. To play audio files, you need to make sure you provide ACS with a uri to a file you host in a location where ACS can access it. The FileSource type in our SDK can be used to specify audio files for the play action.
+To play audio to participants using audio files, you need to make sure the audio file is a WAV file, mono and 16 KHz. To play audio files, you need to make sure you provide Azure Communication Services with a uri to a file you host in a location where Azure Communication Services can access it. The FileSource type in our SDK can be used to specify audio files for the play action.
 
 ``` python
 play_source = FileSource(url=audioUri)
@@ -130,6 +130,34 @@ call_automation_client.get_call_connection(call_connection_id).play_media(
     play_source=play_source, play_to=play_to
 )
 ```
+
+### Custom voice models
+If you wish to enhance your prompts more and include custom voice models, the play action Text-To-Speech now supports these custom voices. These are a great option if you are trying to give customers a more local, personalized experience or have situations where the default models may not cover the words and accents you're trying to pronounce. To learn more about creating and deploying custom models you can read this [guide](../../../../ai-services/speech-service/how-to-custom-voice.md).
+
+**Custom voice names regular text exmaple**
+``` python
+text_to_play = "Welcome to Contoso"
+
+# Provide VoiceName to select a specific voice. 
+play_source = TextSource(text=text_to_play, voice_name="YourCustomVoiceName", custom_voice_endpoint_id = "YourCustomEndpointId")
+play_to = [target_participant]
+call_automation_client.get_call_connection(call_connection_id).play_media(
+    play_source=play_source, play_to=play_to
+)
+```
+**Custom voice names SSML example**
+``` python
+ssmlToPlay = '<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US"><voice name="YourCustomVoiceName">Hello World!</voice></speak>'
+
+play_source = SsmlSource(ssml_text=ssmlToPlay, custom_voice_endpoint_id="YourCustomEndpointId")
+
+play_to = [target_participant]
+
+call_automation_client.get_call_connection(call_connection_id).play_media(
+    play_source=play_source, play_to=play_to
+)
+```
+
 Once you've decided on which playSource you wish to use for playing audio, you can then choose whether you want to play it to a specific participant or to all participants.
 
 ## Play audio - All participants
@@ -174,7 +202,7 @@ call_automation_client.get_call_connection(call_connection_id).play_media(
 
 ## Enhance play with audio file caching
 
-If you're playing the same audio file multiple times, your application can provide ACS with the sourceID for the audio file. ACS caches this audio file for 1 hour. 
+If you're playing the same audio file multiple times, your application can provide Azure Communication Services with the sourceID for the audio file. Azure Communication Services caches this audio file for 1 hour. 
 > [!Note]
 > Caching audio files isn't suitable for dynamic prompts. If you change the URL provided to ACS, it does not update the cached URL straight away. The update will occur after the existing cache expires.
 

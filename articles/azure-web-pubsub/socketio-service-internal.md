@@ -1,7 +1,7 @@
 ---
 title: How does Azure Web PubSub support the Socket.IO library?
 description: This article explains how Azure Web PubSub supports the Socket.IO library.
-keywords: Socket.IO, Socket.IO on Azure, multi-node Socket.IO, scaling Socket.IO
+keywords: Socket.IO, Socket.IO on Azure, multi-node Socket.IO, scaling Socket.IO, socketio, azure socketio
 author: kevinguo-ed
 ms.author: kevinguo
 ms.date: 08/1/2023

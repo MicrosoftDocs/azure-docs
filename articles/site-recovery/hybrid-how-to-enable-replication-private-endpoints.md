@@ -5,7 +5,7 @@ author: ankitaduttaMSFT
 ms.author: ankitadutta
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/30/2023
+ms.date: 08/31/2023
 ms.custom: subject-rbac-steps, engagement-fy23
 ---
 # Replicate on-premises machines by using private endpoints
@@ -40,7 +40,7 @@ then create private endpoints in the bypass network. You can choose any form of 
 - Private links are supported in Site Recovery 9.35 and later.
 - You can create private endpoints only for new Recovery Services vaults that don't have any items registered to them. Therefore, you must create private endpoints before any items are added to the vault. See [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/) for pricing information.
 - When you create a private endpoint for a vault, the vault is locked down. It can be accessed only from networks that have private endpoints.
-- Azure Active Directory doesn't currently support private endpoints. So you need to allow outbound access from the secured Azure virtual network to IPs and fully qualified domain names that are required for Azure Active Directory to work in a region. As applicable, you can also use network security group tag "Azure Active Directory" and Azure Firewall tags to allow access to Azure Active Directory.
+- Microsoft Entra ID doesn't currently support private endpoints. So you need to allow outbound access from the secured Azure virtual network to IPs and fully qualified domain names that are required for Microsoft Entra ID to work in a region. As applicable, you can also use network security group tag "Microsoft Entra ID" and Azure Firewall tags to allow access to Microsoft Entra ID.
 - Five IP addresses are required in the bypass network where you create your private endpoint. When you create a private endpoint for the vault, Site Recovery creates five private links for access to its microservices.
 - One additional IP address is required in the bypass network for private endpoint connectivity to a cache storage account. You can use any connectivity method between on-premises and your storage account endpoint. For example, you can use the internet or Azure [ExpressRoute](../expressroute/index.yml). Establishing a private link is optional. You can create private endpoints for storage only on General Purpose v2 accounts. See [Azure Page Blobs pricing](https://azure.microsoft.com/pricing/details/storage/page-blobs/) for information about pricing for data transfer on General Purpose v2 accounts.
 
@@ -55,7 +55,7 @@ When using the private link with modernized experience for VMware VMs, public ac
   | ------------------------- | -------------------------------------------|
   | portal.azure.com          | Navigate to the Azure portal.              |
   | `*.windows.net `<br>`*.msftauth.net`<br>`*.msauth.net`<br>`*.microsoft.com`<br>`*.live.com `<br>`*.office.com ` | To sign-in to your Azure subscription.  |
-  |`*.microsoftonline.com `<br>`*.microsoftonline-p.com `| Create Azure Active Directory applications for the appliance to communicate with Azure Site Recovery. |
+  |`*.microsoftonline.com `<br>`*.microsoftonline-p.com `| Create Microsoft Entra applications for the appliance to communicate with Azure Site Recovery. |
   | `management.azure.com` | Used for Azure Resource Manager deployments and operations. |
   | `*.siterecovery.windowsazure.com` | Used to connect to Site Recovery services. | 
 
@@ -65,7 +65,7 @@ Ensure the following URLs are allowed and reachable from the Azure Site Recovery
   | ------------------------------------------------------ | ---------------------------------------------------------| ----------------------------------------|
   | `login.microsoftonline.us/*` <br> `graph.windows.net ` | `login.microsoftonline.cn` <br> `graph.chinacloudapi.cn` | To sign-in to your Azure subscription.  |
   | `*.portal.azure.us`          |    `*.portal.azure.cn`           | Navigate to the Azure portal. | 
-  | `management.usgovcloudapi.net` | `management.chinacloudapi.cn` | Create Azure Active Directory applications for the appliance to communicate with the Azure Site Recovery service. |
+  | `management.usgovcloudapi.net` | `management.chinacloudapi.cn` | Create Microsoft Entra applications for the appliance to communicate with the Azure Site Recovery service. |
 
 ## Create and use private endpoints for site recovery
 
@@ -89,7 +89,7 @@ A [managed identity](../active-directory/managed-identities-azure-resources/over
 
 1. Change the **Status** to **On** and select **Save**.
 
-   An Object ID is generated. The vault is now registered with Azure Active Directory.
+   An Object ID is generated. The vault is now registered with Microsoft Entra ID.
 
 
 ### Create private endpoints for the Recovery Services vault

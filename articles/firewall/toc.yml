@@ -13,18 +13,24 @@ items:
   - name: Deploy with IP Groups - Bicep
     displayName: Resource Manager,arm,template
     href: quick-create-ipgroup-bicep.md
+  - name: Deploy with IP Groups - Terraform
+    href: quick-create-ipgroup-terraform.md
   - name: Deploy with IP Groups - ARM template
     displayName: Resource Manager
     href: quick-create-ipgroup-template.md
   - name: Deploy with multiple addresses - Bicep
     displayName: Resource Manager,ARM,template
     href: quick-create-multiple-ip-bicep.md
+  - name: Deploy with multiple addresses - Terraform
+    href: quick-create-multiple-ip-terraform.md
   - name: Deploy with multiple addresses - ARM template
     displayName: Resource Manager
     href: quick-create-multiple-ip-template.md
   - name: Deploy with Availability Zones - Bicep
     displayName: ARM, Resource Manager, Template
     href: deploy-bicep.md
+  - name: Deploy with Availability Zones - Terraform
+    href: deploy-terraform.md
   - name: Deploy with Availability Zones - ARM template
     displayName: Resource Manager
     href: deploy-template.md
@@ -123,6 +129,8 @@ items:
       href: explicit-proxy.md
     - name: Multi hub and spoke
       href: firewall-multi-hub-spoke.md
+    - name: Azure Firewall with Microsoft Sentinel
+      href: firewall-sentinel-overview.md
 - name: How-to guides
   items:
   - name: Deploy
@@ -214,6 +222,8 @@ items:
   items:
   - name: FAQ
     href: firewall-faq.yml
+  - name: Known issues
+    href: firewall-known-issues.md
   - name: Author templates
     href: ../azure-resource-manager/templates/syntax.md
   - name: Azure Roadmap

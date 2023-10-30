@@ -31,7 +31,7 @@ landingContent:
             url: /training/modules/intro-to-azure-front-door/
       - linkListType: deploy
         links:
-          - text: Secure your web application with Azure Web Application Firewall
+          - text: Secure your web app with Web Application Firewall
             url: https://mslearn.cloudguides.com/guides/Secure%20your%20web%20applications%20with%20Azure%20Web%20Application%20Firewall 
        
   # Card
@@ -47,14 +47,19 @@ landingContent:
     linkLists:
       - linkListType: architecture
         links:
-          - text: Expose Azure Spring Apps through a reverse proxy
-            url: /azure/architecture/reference-architectures/microservices/spring-cloud-reverse-proxy
           - text: CDN guidance
             url: /azure/architecture/best-practices/cdn
-          - text: Scalable and secure WordPress on Azure
-            url: /azure/architecture/example-scenario/infrastructure/wordpress
-          - text: Content Delivery Network analytics
-            url: /azure/architecture/solution-ideas/articles/content-delivery-network-azure-data-explorer
+          - text: AFD best practices
+            url: best-practices.md
+          - text: WAF best practices
+            url: ../web-application-firewall/afds/waf-front-door-best-practices.md
+          - text: Use AFD in a multitenant solution
+            url: /azure/architecture/guide/multitenant/service/front-door
+          - text: Understand AFD billing
+            url: billing.md
+          - text: FAQ
+            url: front-door-faq.yml
+          
 
   # Card
   - title: Configure Endpoint Manager
@@ -123,18 +128,30 @@ landingContent:
             url: standard-premium/how-to-enable-private-link-web-app.md
           - text: Configure WAF policy
             url: ../web-application-firewall/afds/waf-front-door-create-portal.md
+          - text: Use Firewall Manager
+            url: ../web-application-firewall/shared/manage-policies.md
+          - text: Use Microsoft Sentinel
+            url: ../web-application-firewall/waf-sentinel.md
 
   # Card
   - title: Service integration
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Azure Storage Account integration with Front Door
+          - text: Azure Storage
             url: integrate-storage-account.md
+          - text: Azure API Management
+            url: ../api-management/front-door-api-management.md
+          - text: Azure Open AI
+            url: ../web-application-firewall/afds/protect-azure-open-ai.md
+          - text: Azure Static Web Apps
+            url: ../static-web-apps/front-door-manual.md
       - linkListType: architecture
         links:
-          - text: Expose Azure Spring Apps through a reverse proxy
+          - text: Azure Spring Apps
             url: /azure/architecture/web-apps/spring-apps/guides/spring-cloud-reverse-proxy
+          - text: Scalable and secure WordPress on Azure
+            url: /azure/architecture/example-scenario/infrastructure/wordpress
 
   # Card
   - title: Configure reports, metrics, and logs
@@ -147,6 +164,8 @@ landingContent:
             url: standard-premium/how-to-monitor-metrics.md
           - text: Logging
             url: standard-premium/how-to-logs.md
+          - text: Content Delivery Network analytics
+            url: /azure/architecture/solution-ideas/articles/content-delivery-network-azure-data-explorer
 
   # Card
   - title: Configure caching and optimization

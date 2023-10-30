@@ -20,12 +20,13 @@ The following section details the parameters when creating a public IP prefix.
 
    | Setting | Required? | Details |
    | --- | --- | --- |
-   | Subscription|Yes|Must exist in the same [subscription](../../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) as the resource you want to associate the public IP address to. |
-   | Resource group|Yes|Can exist in the same, or different, [resource group](../../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) as the resource you want to associate the public IP address to. |
+   | Subscription|Yes|Must exist in the same [subscription](../../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) as the resource you want to associate the public IP address prefix to. |
+   | Resource group|Yes|Can exist in the same, or different, [resource group](../../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) as the resource you want to associate the public IP address prefix to. |
    | Name | Yes | The name must be unique within the resource group you select.|
    | Region | Yes | Must exist in the same [region](https://azure.microsoft.com/regions)as the public IP addresses assigned from the range. |
    | IP version | Yes | IP version of the prefix (v4 or v6). |
-   | Prefix size | Yes | The size of the prefix you need. A range with 16 IP addresses (/28 for v4 or /124 for v6) is the default. |
+   | Prefix ownership | Yes | Specify if the IP ranges will be owned by Microsoft or you, see [Custom IP Prefix](custom-ip-address-prefix.md) for more information on the latter case. |
+   | Prefix size | Yes | The size of the prefix you need. A range with 16 IP addresses (/28 for v4 or /124 for v6) is the default limit for Microsoft owned ranges. |
 
 Alternatively, you may use the following CLI and PowerShell commands to create a public IP address prefix.
 
@@ -38,6 +39,9 @@ Alternatively, you may use the following CLI and PowerShell commands to create a
 
 >[!NOTE]
 >In regions with availability zones, you can use PowerShell or CLI commands to create a public IP address prefix as either: non-zonal, associated with a specific zone, or to use zone-redundancy.  For API version 2020-08-01 or later, if a zone parameter is not provided, a non-zonal public IP address prefix is created. For versions of the API older than 2020-08-01, a zone-redundant public IP address prefix is created. 
+
+>[!NOTE]
+>For more information about deriving a Public IP Prefix from an onboarded Custom IP Prefix (BYOIP range), please refer to [Manage Custom IP Address Prefix](manage-custom-ip-address-prefix.md#create-a-public-ip-prefix-from-a-custom-ip-prefix).
 
 ## Create a static public IP address from a prefix
 

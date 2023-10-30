@@ -9,18 +9,18 @@ ms.author: franlanglois
 
 # Set up Logz.io single sign-on
 
-This article describes how to set up single sign-on (SSO) in Azure Active Directory. SSO for Logz.io integration is optional.
+This article describes how to set up single sign-on (SSO) in Microsoft Entra ID. SSO for Logz.io integration is optional.
 
 ## Configure single sign-on
 
 To use the Security Assertion Markup Language (SAML) SSO feature within the Logz.io resource, you must set up an enterprise application.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. From the portal menu, select **Azure Active Directory** or search for _Azure Active Directory_.
+1. From the portal menu, select **Microsoft Entra ID** or search for _Azure Active Directory_.
 1. Go to **Manage** > **Enterprise Applications** and select the **New Application** button.
-1. Search for _Logz.io_ and select SAML application named **Logz.io - Azure AD Integration** and then select **Create**.
+1. Search for _Logz.io_ and select SAML application named **Logz.io - Microsoft Entra Integration** and then select **Create**.
 
-   :::image type="content" source="./media/sso-setup/gallery.png" alt-text="Browse Azure Active Directory gallery.":::
+   :::image type="content" source="./media/sso-setup/gallery.png" alt-text="Browse Microsoft Entra gallery.":::
 
 1. From the **Overview**, copy the **Application ID** of the SSO application.
 

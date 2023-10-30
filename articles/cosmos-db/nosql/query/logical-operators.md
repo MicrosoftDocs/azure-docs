@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/31/2023
+ms.date: 09/21/2023
 ms.custom: query-reference
 ---
 
@@ -66,7 +66,7 @@ The logical operators ``OR``, ``AND``, and ``NOT`` have the precedence level ind
 
 The special operator ``*`` projects the entire item as is. When used, it must be the only projected field. A query like ``SELECT * FROM products p`` is valid, but ``SELECT VALUE * FROM products p`` or ``SELECT *, p.id FROM products p`` aren't valid.
 
-## Next steps
+## Related content
 
 - [``SELECT`` clause](select.md)
 - [Keywords](keywords.md)

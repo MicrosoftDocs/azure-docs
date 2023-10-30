@@ -4,11 +4,10 @@ titleSuffix: Azure Storage
 description: Learn about premium-performance block blob storage accounts. Block blob storage accounts are optimized for applications that use smaller, kilobyte-range objects.
 author: akashdubey-ms
 
-ms.service: azure-storage
+ms.service: azure-blob-storage
 ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: akashdubey
-ms.subservice: storage-common-concepts
 ---
 
 # Scalability targets for premium block blob storage accounts

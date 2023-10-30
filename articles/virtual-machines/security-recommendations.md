@@ -46,7 +46,7 @@ For general information about Microsoft Defender for Cloud, see [What is Microso
 
 | Recommendation | Comments | Defender for Cloud |
 |-|----|--|
-| Centralize VM authentication. | You can centralize the authentication of your Windows and Linux VMs by using [Azure Active Directory authentication](../active-directory/develop/authentication-vs-authorization.md). | - |
+| Centralize VM authentication. | You can centralize the authentication of your Windows and Linux VMs by using [Microsoft Entra authentication](../active-directory/develop/authentication-vs-authorization.md). | - |
 
 ## Monitoring
 
@@ -63,4 +63,4 @@ For general information about Microsoft Defender for Cloud, see [What is Microso
 
 ## Next steps
 
-Check with your application provider to learn about additional security requirements. For more information about developing secure applications, see [Secure-development documentation](https://azure.microsoft.com/resources/develop-secure-applications-on-azure/).
+Check with your application provider to learn about additional security requirements.

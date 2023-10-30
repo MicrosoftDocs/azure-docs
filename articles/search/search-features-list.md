@@ -8,13 +8,15 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/10/2023
+ms.date: 08/29/2023
 ---
 # Features of Azure Cognitive Search
 
-Azure Cognitive Search provides a full-text search engine, persistent storage of search indexes, integrated AI used during indexing to extract more text and structure, and APIs and tools. 
+Azure Cognitive Search provides information retrieval and uses optional AI integration to extract more text and structure content. 
 
 The following table summarizes features by category. For more information about how Cognitive Search compares with other search technologies, see [Compare search options](search-what-is-azure-search.md#compare-search-options).
+
+There's feature parity in all Azure public, private, and sovereign clouds, but some features aren't supported in specific regions. For more information, see [product availability by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=search&regions=all&rar=true).
 
 > [!NOTE]
 > Looking for preview features? See the [preview features list](search-api-preview.md).
@@ -52,7 +54,7 @@ The following table summarizes features by category. For more information about 
 |-------------------|----------|
 | Data encryption | [**Microsoft-managed encryption-at-rest**](search-security-overview.md#encryption) is built into the internal storage layer and is irrevocable. <br/><br/>[**Customer-managed encryption keys**](search-security-manage-encryption-keys.md) that you create and manage in Azure Key Vault can be used for supplemental encryption of indexes and synonym maps. For services created after August 1 2020, CMK encryption extends to data on temporary disks, for full double encryption of indexed content.|
 | Endpoint protection | [**IP rules for inbound firewall support**](service-configure-firewall.md) allows you to set up IP ranges over which the search service will accept requests.<br/><br/>[**Create a private endpoint**](service-create-private-endpoint.md) using Azure Private Link to force all requests through a virtual network. |
-| Inbound access | [**Azure role-based access control**](search-security-rbac.md) assigns roles to users and groups in Azure Active Directory for controlled access to search content and operations. You can also use [**key-based authentication**](search-security-api-keys.md) if you don't have an Azure tenant.|
+| Inbound access | [**Azure role-based access control**](search-security-rbac.md) assigns roles to users and groups in Microsoft Entra ID for controlled access to search content and operations. You can also use [**key-based authentication**](search-security-api-keys.md) if you don't have an Azure tenant.|
 | Outbound security (indexers) | [**Data access through private endpoints**](search-indexer-howto-access-private.md) allows an indexer to connect to Azure resources that are protected through Azure Private Link.<br/><br/>[**Data access using a trusted identity**](search-howto-managed-identities-data-sources.md) means that connection strings to external data sources can omit user names and passwords. When an indexer connects to the data source, the resource allows the connection if the search service was previously registered as a trusted service. |
 
 ## Portal features

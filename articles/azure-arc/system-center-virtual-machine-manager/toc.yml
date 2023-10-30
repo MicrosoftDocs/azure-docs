@@ -4,22 +4,40 @@
   items:
   - name: Azure Arc-enabled System Center Virtual Machine Manager (preview)
     href: overview.md
+  - name: Switch to the new preview version
+    href: switch-to-the-new-preview-version.md
 - name: Quickstarts
   items:
   - name: Connect a System Center Virtual Machine Manager management server to Azure Arc (preview)
     href: quickstart-connect-system-center-virtual-machine-manager-to-arc.md
-
-
+- name: Tutorials
+  items:
+  - name: Create a virtual machine on SCVMM Management server
+    href: create-virtual-machine.md
+- name: Concepts
+  items:
+  - name: Azure Arc agent
+    href: agent-overview-scvmm.md
 - name: How-to guides
   items:
-  - name: Create a virtual machine (preview)
-    href: create-virtual-machine.md
-  - name: Enable SCVMM inventory resources  
-    href: enable-scvmm-inventory-resources.md
-  - name: Enable guest management
-    href: enable-group-management.md
-  - name: Perform recovery operations
-    href: disaster-recovery.md
+  - name: Deploy
+    items:
+    - name: Enable SCVMM inventory resources in Azure
+      href: enable-scvmm-inventory-resources.md
+  - name: Use VM lifecycle and self-serve capabilities
+    items:
+    - name: Set up and manage self-service access to SCVMM resources
+      href: set-up-and-manage-self-service-access-scvmm.md
+  - name: Use Azure Management services for SCVMM VMs
+    items:
+    - name: Install Arc agent at scale for SCVMM VMs
+      href: enable-guest-management-at-scale.md
+    - name: Install Arc agents using a script
+      href: install-arc-agents-using-script.md
+  - name: Administer
+    items:
+    - name: Perform recovery operations
+      href: disaster-recovery.md
 
 - name: Reference
   items:

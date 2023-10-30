@@ -20,7 +20,7 @@ Bing Visual Search API supports more than three dozen countries/regions, many wi
 
 To specify the country/region and language, set the `mkt` (market) query parameter to a code from the **Markets** table below. The market specifies both a country/region and language. If the user prefers to see display text in a different language, set `setLang` query parameter to the appropriate language code.
 
-Alternatively, you can specify the country/region using the `cc` query parameter. If you specify a country/region, you must also specify one or more language codes using the `Accept-Language` HTTP header. The supported languages vary by country/region; they are given for each country in the Markets table.
+Alternatively, you can specify the country/region using the `cc` query parameter. If you specify a country/region, you must also specify one or more language codes using the `Accept-Language` HTTP header. The supported languages vary by country/region; they are given for each country/region in the Markets table.
 
 
 

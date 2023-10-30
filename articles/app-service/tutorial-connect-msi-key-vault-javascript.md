@@ -4,6 +4,8 @@ description: Learn how to secure connectivity to back-end Azure services that do
 ms.devlang: javascript, azurecli
 ms.topic: tutorial
 ms.date: 10/26/2021
+author: cephalin
+ms.author: cephalin
 
 ms.reviewer: madsd 
 ms.custom: devx-track-azurecli, devx-track-js, AppServiceConnectivity

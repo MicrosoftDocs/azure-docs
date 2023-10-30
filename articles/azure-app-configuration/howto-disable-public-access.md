@@ -1,8 +1,8 @@
 ---
 title: How to disable public access in Azure App Configuration
 description: How to disable public access to your Azure App Configuration store.
-author: mcleanbyron
-ms.author: mcleans
+author: maud-lv
+ms.author: malev
 ms.service: azure-app-configuration
 ms.topic: how-to 
 ms.date: 07/12/2022
