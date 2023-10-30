@@ -119,7 +119,7 @@ ms.custom: devx-track-csharp
 | ----------------------- | ------------ |
 | **Component**               | Database |
 | **SDL Phase**               | Build |
-| **Applicable Technologies** | OnPrem |
+| **Applicable Technologies** | On-premises |
 | **Attributes**              | SQL Version - All |
 | **References**              | [SQL Server - Choose an Authentication Mode](/sql/relational-databases/security/choose-an-authentication-mode) |
 | **Steps** | Windows Authentication uses Kerberos security protocol, provides password policy enforcement with regard to complexity validation for strong passwords, provides support for account lockout, and supports password expiration.|
@@ -152,7 +152,7 @@ ms.custom: devx-track-csharp
 | ----------------------- | ------------ |
 | **Component**               | Database |
 | **SDL Phase**               | Build |
-| **Applicable Technologies** | OnPrem, SQL Azure |
+| **Applicable Technologies** | On-premises, SQL Azure |
 | **Attributes**              | SQL Version - MSSQL2012, SQL Version - V12 |
 | **References**              | [Security Best Practices with Contained Databases](/sql/relational-databases/databases/security-best-practices-with-contained-databases) |
 | **Steps** | The absence of an enforced password policy might increase the likelihood of a weak credential being established in a contained database. Leverage Windows Authentication. |
@@ -161,7 +161,7 @@ ms.custom: devx-track-csharp
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Azure Event Hub |
+| **Component**               | Azure Event Hubs |
 | **SDL Phase**               | Build |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
@@ -420,7 +420,7 @@ OpenIdConnectOptions openIdConnectOptions = new OpenIdConnectOptions
 }
 ```
 
-Please note that to test the effectiveness of this configuration, login into your local OIDC-protected application and capture the request to `"/signin-oidc"` endpoint in fiddler. When the protection is not in place, replaying this request in fiddler will set a new session cookie. When the request is replayed after the TokenReplayCache protection is added, the application will throw an exception as follows: `SecurityTokenReplayDetectedException: IDX10228: The securityToken has previously been validated, securityToken: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSIsImtpZCI6Ik1uQ1......`
+Please note that to test the effectiveness of this configuration, sign in into your local OIDC-protected application and capture the request to `"/signin-oidc"` endpoint in fiddler. When the protection is not in place, replaying this request in fiddler will set a new session cookie. When the request is replayed after the TokenReplayCache protection is added, the application will throw an exception as follows: `SecurityTokenReplayDetectedException: IDX10228: The securityToken has previously been validated, securityToken: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSIsImtpZCI6Ik1uQ1......`
 
 ## <a id="msal-oauth2"></a>Use MSAL libraries to manage token requests from OAuth2 clients to Microsoft Entra ID (or on-premises AD)
 
