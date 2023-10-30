@@ -4,7 +4,7 @@ description: Prepare an Azure Arc-enabled Kubernetes cluster before you deploy A
 author: dominicbetts
 ms.author: dobett
 ms.topic: how-to
-ms.date: 10/19/2023
+ms.date: 10/30/2023
 
 #CustomerIntent: As an IT professional, I want prepare an Azure-Arc enabled Kubernetes cluster so that I can deploy Azure IoT Operations to it.
 ---
@@ -29,10 +29,6 @@ To prepare your Azure Arc-enabled Kubernetes cluster, you need:
 - Hardware that meets the [system requirements](/azure/azure-arc/kubernetes/system-requirements).
 
 ## Prepare your cluster
-
-# [AKS Edge Essentials](#tab/aks-edge-essentials)
-
-[!INCLUDE [prepare-aks-ee](../includes/prepare-aks-ee.md)]
 
 # [Ubuntu](#tab/ubuntu)
 
@@ -72,6 +68,10 @@ To set up your WSL Ubuntu environment:
     ```
 
 [!INCLUDE [prepare-ubuntu](../includes/prepare-ubuntu.md)]
+
+# [AKS Edge Essentials](#tab/aks-edge-essentials)
+
+[!INCLUDE [prepare-aks-ee](../includes/prepare-aks-ee.md)]
 
 ---
 
