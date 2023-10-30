@@ -40,12 +40,12 @@
       href: geospatial.md
     - name: High availability
       href: high-availability.md
+    - name: Failover and disaster recovery
+      href: failover-disaster-recovery.md
     - name: Migration options
       href: migration-options.md 
     - name: Security
       href: security.md
-    - name: Failover and disaster recovery
-      href: failover-disater-recovery.md
 - name: How to
   items:
     - name: Use community tools
