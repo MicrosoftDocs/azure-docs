@@ -13,7 +13,7 @@ ms.author: pafarley
 keywords: 
 ---
 
-## What is Protected Materials Detection (preview)?
+# What is Protected Materials Detection (preview)?
 
 The protected materials text describes language that matches known text content (e.g song lyrics, articles, recipes, selected web content). Protected Materials Detection with LLMs encompasses model behaviors that potentially violate ownership rights over content that is potentially protected by copyright.  
 Many customers and end users are concerned about the risk of IP infringement claims when integrating and using Generative AI.  This is due to inquiries by authors and artists regarding how their own work is being used in conjunction with AI models and services. To address the above concerns, this feature detects Protected Materials in English content including songs, news, recipes, and selected web content (i.e. WebMD).  

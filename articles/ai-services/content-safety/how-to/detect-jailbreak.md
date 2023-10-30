@@ -13,7 +13,7 @@ ms.author: pafarley
 keywords: 
 ---
 
-## Jailbreak Attack Detection (Public Preview)
+# Jailbreak Attack Detection (Public Preview)
 This new feature focuses on detecting Jailbreak Attacks, which pose significant risks to Large Language Model (LLM) deployments.  
 
 ## What is a Jailbreak Attack and why it is important to protect your Generative AI-powered product against them? 
