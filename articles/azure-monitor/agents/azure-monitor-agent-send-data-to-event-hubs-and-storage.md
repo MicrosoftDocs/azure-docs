@@ -19,7 +19,7 @@ The Azure Monitor Agent is the new, consolidated telemetry agent for collecting 
 
 **Footnotes**
 
-<a name="FN1">1</a>: Not all data types are supported; refer to [Preview scope](#preview-scope) for specifics.
+<a name="FN1">1</a>: Not all data types are supported; refer to [What's supported](#whats-supported) for specifics.
 
 ### What's supported
 
@@ -56,7 +56,7 @@ The Azure Monitor Agent is the new, consolidated telemetry agent for collecting 
 A [user-assigned managed identity](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md) associated with the following resources:
 
 - [Storage account](../../storage/common/storage-account-create.md)
-- [Event Hubs namespace and event hub]((../../event-hubs/event-hubs-create.md))
+- [Event Hubs namespace and event hub](../../event-hubs/event-hubs-create.md)
 - [Virtual machine](../../virtual-machines/overview.md)
 
 ## Create a data collection rule
@@ -668,6 +668,7 @@ Create a data collection rule for collecting events and sending to storage and e
    **Storage blob**
 
    | Value | Description |
+   |:---|:---|
    | `dataSources` | Define it per your requirements. The supported types for direct upload to storage blob for Windows are `performanceCounters`, `windowsEventLogs`, `iisLogs`, `logFiles` and for Linux, they are `performanceCounters`, `syslog` and `logFiles`. |
    | `destinations` | Use `storageBlobsDirect` for direct upload to blob storage. | 
    | `storageAccountResourceId` | The resource ID of the storage account. | 
