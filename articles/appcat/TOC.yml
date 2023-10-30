@@ -1,0 +1,14 @@
+- name: Application and Code Assessment Toolkit
+  href: index.yml
+- name: Overview
+  items: 
+  - name: About Application and Code Assessment Toolkit
+    href: overview-about.md
+  - name: Java applications
+    url: /azure/developer/java/migration/appcat
+  - name: .NET applications
+    href: dotnet.md
+- name: Resources
+  items:
+  - name: FAQ
+    href: faq.yml

@@ -1,0 +1,28 @@
+### YamlMime:Landing
+
+title: Application and Code Assessment Toolkit
+summary: Tools to assess applications' binaries and source code for cloud readiness
+
+metadata:
+  title: Application and Code Assessment Toolkit
+  description: Learn about Application and Code Assessment Toolkit
+  ms.service: appcat
+  ms.topic: landing-page
+  ms.date: 30/10/2023
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About Application and Code Assessment Toolkit
+    linkLists: 
+      - linkListType: overview
+        links: 
+          - text: What is Application and Code Assessment Toolkit?
+            url: overview.md
+          - text: Java applications
+            url: /azure/developer/java/migration/appcat
+          - text: .NET applications
+            url: dotnet.md
