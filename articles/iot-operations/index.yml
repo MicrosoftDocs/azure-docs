@@ -38,8 +38,6 @@ landingContent:
             url: manage-mqtt-connectivity/overview-iot-mq.md
           - text: Process data
             url: process-data/overview-data-processor.md
-          - text: Connect to the cloud
-            url: connect-to-cloud/overview-connect-to-cloud.md
           - text: Manage layered network
             url: manage-layered-networks/overview-layered-network.md
           - text: Visualize and analyze telemetry
@@ -51,7 +49,5 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Developer guide
-            url: develop/overview-develop-customizations.md
           - text: Administrator guide
             url: administer/overview-manage-solution.md
