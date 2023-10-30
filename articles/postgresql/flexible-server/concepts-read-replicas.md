@@ -79,7 +79,7 @@ To ensure the success of the create operation, it's recommended to avoid creatin
 > Read Replicas are currently supported for the General Purpose and Memory Optimized server compute tiers, Burstable server compute tier is not supported.
 
 > [!IMPORTANT]
-> When performing replica creation, deletion, and promotion operations, the primary server will enter an updating state. During this time, server management operations such as modifying server parameters, changing high availability options, or adding or removing firewalls will be unavailable. It's important to note that the updating state only affects server management operations and does not impact [data plane](../../azure-resource-manager/management/control-plane-and-data-plane.md#data-plane) operations. This means that your database server will remain fully functional and able to accept connections, as well as serve read and write traffic.
+> When performing replica creation, deletion, and promotion operations, the primary server will enter an **updating state**. During this time, server management operations such as modifying server parameters, changing high availability options, or adding or removing firewalls will be unavailable. It's important to note that the updating state only affects server management operations and does not impact [data plane](../../azure-resource-manager/management/control-plane-and-data-plane.md#data-plane) operations. This means that your database server will remain fully functional and able to accept connections, as well as serve read and write traffic.
 
 Learn how to [create a read replica in the Azure portal](how-to-read-replicas-portal.md).
 
@@ -93,7 +93,7 @@ The replica inherits the admin account from the primary server. All user account
 
 There are two methods to connect to the replica:
 
-1. **Direct to the Replica Instance**: You can connect to the replica by using its hostname and a valid user account, as you would on a regular Azure Database for PostgreSQL server. For a server named **myreplica** with the admin username **myadmin**, you can connect to the replica by using psql:
+1. **Direct to the Replica Instance**: You can connect to the replica by using its hostname and a valid user account, as you would on a regular Azure Database for PostgreSQL server. For a server named **myreplica** with the admin username **myadmin**, you can connect to the replica by using `psql`:
 
 ```bash
 psql -h myreplica.postgres.database.azure.com -U myadmin postgres
@@ -112,7 +112,7 @@ Furthermore, to ease the connection process, the Azure portal provides ready-to-
 
 Promotion of replicas can be done in two distinct manners:
 
-1. **Promote to Primary Server**: This action promotes the replica to serve as the primary server. Concurrently, the current primary will be demoted to the replica role, effectively swapping their roles.
+1. **Promote to Primary Server (default)**: This action promotes the replica to serve as the primary server. Concurrently, the current primary will be demoted to the replica role, effectively swapping their roles.
 
 2. **Promote to Independent Server and Remove from Replication**: By opting for this, the replica becomes an independent server and is removed from the replication process. As a result, both the primary and the promoted server will function as two independent read-write servers.
 
@@ -121,6 +121,27 @@ For both promotion methods, there are additional options to consider:
 * **Planned**: This option ensures that data is synchronized before promoting. It applies all the pending logs to ensure data consistency before accepting client connections.
 
 * **Forced**: This option prioritizes speed. Instead of waiting to synchronize all the data from the primary, the server becomes operational once it processes WAL files needed to achieve the nearest consistent state.
+
+### Configuration management
+Read replicas are treated as separate servers in terms of control plane configurations. This provides flexibility for read scale scenarios. However, when using replicas for disaster recovery purposes, users must ensure the configuration is as desired.
+
+The promote operation will not carry over certain configurations and parameters. Here are some of the notable ones:
+
+* **PgBouncer**: The built-in PgBouncer connection pooler's settings and status are not replicated during the promotion process. If PgBouncer was enabled on the primary but not on the replica, it will remain disabled on the replica after promotion. Should you want PgBouncer on the newly promoted server, you must enable it either prior to or following the promotion action.
+* **Geo-redundant backup storage**: Geo-backup settings aren't transferred. Since replicas cannot have geo-backup enabled, the promoted primary (formerly the replica) won't have it post-promotion. The feature can only be activated at the server's creation time.
+* **Server Parameters**: If their values differ on the primary and read replica, they will not be changed during promotion. It's essential to note that parameters influencing shared memory size must have the same values on both the primary and replicas. This requirement is detailed in the [Server parameters](#server-parameters) section.
+* **Microsoft Entra authentication**: If the primary had Entra configured, but the replica was set up with PostgreSQL authentication, then after promotion, the replica will not automatically switch to Entra. It retains the PostgreSQL authentication. Users need to manually configure Entra on the promoted replica either before or after the promotion process.
+* **High Availability (HA)**: Should you require HA after the promotion, it must be configured on the freshly promoted primary server, following the role reversal.
+
+### Promote to primary server
+This is the default promotion operation. The "Promote to Primary Server" action allows a replica to be elevated to serve as the primary server. Concurrently, the current primary assumes the role of a replica, leading to a switch in their roles.
+
+Before proceeding with promote action, it's essential to review the following prerequisites:
+
+* **Server symmetry**: For a successful promotion, both the primary and replica servers must share identical configurations in terms of both tier and other configuration settings. For instance, if the primary has 2vCores and the replica has 4vCores, then the only viable option is to use the "Promote to Independent Server and Remove from Replication" action.
+
+* **Geographical and organizational considerations**: A read replica server can be promoted to a primary server regardless of its location, be it the same region, a different region, within the same resource group, or a different one.
+
 
 ## Virtual Endpoints
 Virtual Endpoints are read-write and read-only listener endpoints, that remain consistent irrespective of the current role of the PostgreSQL instance. This means you don't have to update your application's connection string after promoting a replica. 
