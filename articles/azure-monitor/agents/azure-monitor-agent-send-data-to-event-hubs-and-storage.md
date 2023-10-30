@@ -21,10 +21,6 @@ The Azure Monitor Agent is the new, consolidated telemetry agent for collecting 
 
 <a name="FN1">1</a>: Not all data types are supported; refer to [Preview scope](#preview-scope) for specifics.
 
-## Preview scope
-
-This section describes what's [supported](#whats-supported) and [not supported](#whats-not-supported) in this preview. 
-
 ### What's supported
 
 #### Data types
@@ -43,21 +39,17 @@ This section describes what's [supported](#whats-supported) and [not supported](
 #### Operating systems
 
 - Environments that are supported by the Azure Monitoring Agent on Windows and Linux
-- This feature is only supported and planned to be supported for Azure VMs
-
-#### Cloud regions
-
-- Canary early access, which includes EAST US2 EUAP and Central US EUAP
+- This feature is only supported and planned to be supported for Azure VMs. There are no plans to bring this to on-prem or Azure Arc scenarios.
 
 ### What's not supported
 
 #### Data types
 
 - Windows:
-   - ETW Logs
-   - Windows Crash Dumps
-   - Application Logs
-   - .NET event source logs
+   - ETW Logs (planned for a future release)
+   - Windows Crash Dumps (not planned nor will be supported)
+   - Application Logs (not planned nor will be supported)
+   - .NET event source logs (not planned nor will be supported)
 
 ## Prerequisites
 
@@ -797,13 +789,7 @@ Use the following section to troubleshoot sending data to Event Hubs and Storage
 - Check that the managed identity is assigned to the VM.
 - Check that the AMA settings have managed identity parameter.
 
-## Questions and Feedback
-
-Participation and early access to this feature requires a quick survey. Please take a couple minutes to input any feedback so that we can make the Azure Monitoring Agent even better for your needs.
-
-## Frequently asked questions 
-
-This section provides answers to common questions.
+## AMA and WAD/LAD Convergence 
 
 ### Will the Azure Monitoring Agent support data upload to Application Insights?
 
@@ -811,15 +797,15 @@ No, this support isn't a part of the roadmap. Application Insights are now power
 
 ### Will the Azure Monitoring Agent support Windows Crash Dumps as a data type to upload?
 
-No, this support isn't a part of the roadmap. The Azure Monitoring Agent is meant for telemetry logs and not large file types. The Windows Crash Dump Team (Watson) is making plans for an AMA extension for this capability. If you’d like visibility into this development work, indicate so in the [feedback form](#questions-and-feedback).
+No, this support isn't a part of the roadmap. The Azure Monitoring Agent is meant for telemetry logs and not large file types.
 
 ### Does this mean the Linux (LAD) and Windows (WAD) Diagnostic Extensions are no longer supported/retired?
 
-No, not until Azure formally announces the deprecation of these agents, which would start a three-year clock until they're no longer supported. Currently we're planning to announce retirement for LAD and WAD in September of 2023 (subject to change) which would mean end of life in September 2026.
+No, not until Azure formally announces the deprecation of these agents, which would start a three-year clock until they're no longer supported.
 
-### Will there be a similar configuration experience as the WAD and LAD for AMA?
+### How to configure AMA for event hubs and storage data destinations
 
-TBD - The configuration and control plane experience will be Data Collection Rules for AMA. The end UX is still being researched. Product group would appreciate any input on this in the [feedback form](#questions-and-feedback).
+Today the configeration experience is by using the DCR API. A future release will have a UX experience similar to what exists today for WAD and LAd in the disganostics settings blade.
 
 ### Will you still be actively developing on WAD and LAD?
 
