@@ -17,7 +17,7 @@ ms.author: helohr
 > This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This article walks you through the process of configuring single sign-on (SSO) using Microsoft Entra authentication for Azure Virtual Desktop (preview). When you enable SSO, users will authenticate to Windows using a Microsoft Entra ID token, obtained for the Windows Cloud Login resource app. This enables them to use passwordless authentication and third-party Identity Providers that federate with Microsoft Entra ID to sign in to your Azure Virtual Desktop resources. When enabled, this feature provides a single sign-on experience when authenticating to the session host and configures the session to provide single sign-on to Microsoft Entra ID-based resources inside the session.
+This article walks you through the process of configuring single sign-on (SSO) using Microsoft Entra authentication for Azure Virtual Desktop (preview). When you enable SSO, users will authenticate to Windows using a Microsoft Entra ID token, obtained for the Microsoft Remote Desktop (changing to Windows Cloud Login beginning of 2024) resource app. This enables them to use passwordless authentication and third-party Identity Providers that federate with Microsoft Entra ID to sign in to your Azure Virtual Desktop resources. When enabled, this feature provides a single sign-on experience when authenticating to the session host and configures the session to provide single sign-on to Microsoft Entra ID-based resources inside the session.
 
 For information on using passwordless authentication within the session, see [In-session passwordless authentication (preview)](authentication.md#in-session-passwordless-authentication-preview).
 
@@ -73,13 +73,13 @@ To allow these admin accounts to connect when single sign-on is enabled:
 
 To enable single sign-on in your environment, you must:
 
-1. Enable Microsoft Entra authentication.
+1. Enable Microsoft Entra authentication for RDP.
 1. Configure the target device groups.
 1. Create a Kerberos Server object.
 1. Review your conditional access policies.
 1. Configure your host pool to enable single sign-on.
 
-### Enable Microsoft Entra authentication
+### Enable Microsoft Entra authentication for RDP
 
 > [!IMPORTANT]
 > Due to an upcoming change, the steps below should be completed for the following Microsoft Entra Apps:
