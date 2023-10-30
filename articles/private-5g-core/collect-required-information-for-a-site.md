@@ -71,6 +71,22 @@ Collect all the values in the following table to define the packet core instance
    | The virtual network name on port 3 on your Azure Stack Edge Pro 2 corresponding to the user plane interface on the access network. For 5G, this interface is the N3 interface; for 4G, it's the S1-U interface; for combined 4G and 5G, it's the N3/S1-U interface.  | **ASE N3 virtual subnet** (for 5G), **ASE S1-U virtual subnet** (for 4G), or **ASE N3/S1-U virtual subnet** (for combined 4G and 5G). |
 :::zone-end
 
+## Collect UE usage tracking values
+
+If you want to configure UE usage tracking for your site, collect all the values in the following table to define the packet core instance's associated Event Hubs instance.
+
+> [!NOTE]
+> You must already have an [Azure Event Hubs instance](/azure/event-hubs) with an associated user assigned managed identity with the **Resource Policy Contributor** role before you can collect the information in the following table.
+
+> [!NOTE]
+> Azure Private 5G Core does not support Event Hubs with a [log compaction delete cleanup policy](/azure/event-hubs/log-compaction?source=recommendations).
+
+   |Value  |Field name in Azure portal  |
+   |---------|---------|
+   |The namespace for the Azure Event Hubs instance that your site will use for UE usage tracking. |**Azure Event Hub Namespace**|
+   |The name of the Azure Event Hubs instance that your site will use for UE usage tracking.|**Event Hub name**|
+   |The user assigned managed identity that has the **Resource Policy Contributor** role for the Event Hubs instance. <br /> **Note:** The managed identity must be assigned to the Packet Core Control Plane for the site and assigned to the Event Hubs instance via the instance's **Identity and Access Management (IAM)** blade. <br /> **Note:** Only assign one managed identity to the site. This managed identity must be used for any UE usage tracking for the site after upgrade and site configuration modifications.<br /><br /> See [Use a user-assigned managed identity to capture events](/azure/event-hubs/event-hubs-capture-managed-identity) for more information on managed identities.  |**User Assigned Managed Identity**|
+
 ## Collect data network values
 
 You can configure up to ten data networks per site. During site creation, you'll be able to choose whether to attach an existing data network or create a new one.
