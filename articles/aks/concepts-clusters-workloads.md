@@ -109,6 +109,21 @@ Two types of resources are reserved:
 - **Memory**  
     Memory utilized by AKS includes the sum of two values.
 
+>[!IMPORTANT]
+> Beginning in AKS 1.28, memory reservations will shift to the following logic:
+>1. **`kubelet` daemon**   
+        By default on AKS, `kubelet` daemon has the *memory.available<100Mi* eviction rule, ensuring a node must always have at least 100Mi allocatable at all times. When a host is below that available memory threshold, the `kubelet` will trigger to terminate one of the running pods and free up memory on the host machine.
+>    
+>2. **A rate of memory reservations** set according to the lesser value of:
+> - 20MB * Max Pods supported on the Node + 50MB
+> - 25% of the total system memory resources
+>
+> Examples:
+>- If the VM provides 8GB of memory and the node supports up to 30 pods, then AKS will reserve 20MB * 30 Max Pods + 50MB = 650MB for kube-reserved.
+>  `Allocatable space = 8GB - 0.65GB (kube-reserved) - 0.1GB (eviction threshold) = 7.25GB or 90.625% allocatable.`
+>- In the case of 4GB and 70 max pods, AKS would reserve 25% * 4GB = 1000MB for kube-reserved as this is less than 20MB * 70 Max Pods + 50MB = 1450MB.
+
+For versions older than AKS 1.28:
    1. **`kubelet` daemon**   
        The `kubelet` daemon is installed on all Kubernetes agent nodes to manage container creation and termination. 
    
