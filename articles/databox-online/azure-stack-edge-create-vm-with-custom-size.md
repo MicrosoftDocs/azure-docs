@@ -51,7 +51,7 @@ Use the following steps to get custom VM sizes for Azure Stack Edge.
    [{'Name':'Custom_NonGPU','Cores':8,'MemoryMb':14336},{'Name':'Custom_GPU_A2','Cores':8,'MemoryMb':28672,'GpuCount': 1}] 
    ```
 
-## Update custom VM VM size
+## Update custom VM size
 
 1. Run the following command to update the **Custom VM size** with the `Cores` or `MemoryMb` values for a VM you deploy to your device.
  
