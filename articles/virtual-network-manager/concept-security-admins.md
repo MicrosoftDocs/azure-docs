@@ -131,7 +131,7 @@ You can create a security configuration with *Allow* rules only and deploy it to
 
 ### Nonapplication of security admin rules at subnet level
 
-Like network intent policies, there are some services that don't apply security admin rules when they're deployed in a subnet within the scope of a security configuration. Those services include:
+Similarly, there are some services that don't apply security admin rules at the subnet level when those subnets' virtual networks are a part of a network group targeted by a security admin configuration. Those services include:
 
 - Azure Application Gateway
 - Azure Bastion
