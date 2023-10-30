@@ -9,7 +9,7 @@ ms.subservice: conditions
 ms.topic: troubleshooting
 ms.workload: identity
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.date: 09/20/2023
+ms.date: 10/30/2023
 ms.author: rolyon
 ---
 
