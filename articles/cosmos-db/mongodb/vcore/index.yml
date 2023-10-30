@@ -28,10 +28,6 @@ landingContent:
             url: quickstart-portal.md
           - text: Create resources - Bicep template
             url: quickstart-bicep.md
-      - linkListType: tutorial
-        links:
-          - text: Perform assessment
-            url: tutorial-perform-assessment.md
   - title: Vector search and AI
     linkLists:
       - linkListType: concept
@@ -40,20 +36,6 @@ landingContent:
             url: vector-search.md
           - text: Build AI apps with vector search
             url: vector-search-ai.md
-          - text: Vector embeddings
-            url: vector-embeddings.md
-          - text: Vector indexes
-            url: vector-indexes.md
-          - text: Similarity search
-            url: similarity-search.md
-      - linkListType: tutorial
-        links:
-          - text: Vector search tutorial
-            url: tutorial-vector-search.md
-      - linkListType: how-to-guide
-        links:
-          - text: Similarity search
-            url: how-to-similarity-search.md
   - title: Develop applications
     linkLists:
       - linkListType: tutorial
@@ -64,12 +46,6 @@ landingContent:
         links:
           - text: Create transactions
             url: how-to-transactions.md
-          - text: Query geospatial data
-            url: how-to-query-geospatial.md
-          - text: Retrieve request metrics
-            url: how-to-retrieve-request-metrics.md
-          - text: Run command
-            url: how-to-run-command.md
           - text: Create text search index
             url: how-to-create-text-index.md
   - title: Manage a MongoDB vCore cluster
@@ -82,10 +58,6 @@ landingContent:
             url: how-to-restore-cluster.md
           - text: Monitor diagnostics logs
             url: how-to-monitor-diagnostics-logs.md
-          - text: Use role-based access control
-            url: how-to-use-rbac.md
-          - text: Use Azure Private Link
-            url: how-to-private-link.md
       - linkListType: concept
         links:
           - text: MongoDB feature support
@@ -104,15 +76,9 @@ landingContent:
         links:
           - text: Migrate using native tools
             url: how-to-migrate-native-tools.md
-          - text: Migrate using Azure Data Factory
-            url: how-to-migrate-data-factory.md
+          - text: Migrate using Azure Data Studio
+            url: /azure-data-studio/extensions/database-migration-for-mongo-extension
           - text: Migrate using Azure Database Migration Service
-            url: how-to-migrate-database-migration-service.md
-      - linkListType: reference
-        links:
-          - text: |
-              Industry: Finance
-            url: industry-finance.md
-          - text: |
-              Industry: Retail
-            url: industry-retail.md
+            url: ../../../dms/tutorial-mongodb-cosmos-db-online.md
+          - text: Migrate using Azure Database Migration Service (offline)
+            url: ../../../dms/tutorial-mongodb-cosmos-db.md
