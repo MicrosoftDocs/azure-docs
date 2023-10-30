@@ -72,6 +72,14 @@ items:
   items:
   - name: Overview of interoperability
     href: interoperability-zoom.md
+  - name: Setup
+    items:
+    - name: Connect
+      href: connect-zoom.md
+    - name: Configure test numbers
+      href: configure-test-numbers-zoom.md
+    - name: Prepare for live traffic
+      href: prepare-for-live-traffic-zoom.md
   - name: Emergency calling
     href: emergency-calling-zoom.md
 - name: Maintenance

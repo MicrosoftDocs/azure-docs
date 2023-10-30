@@ -27,7 +27,7 @@ As part of Microsoft Azure, the network elements in Azure Communications Gateway
 
 Azure Communications Gateway acts as the edge of your network. This position allows it to interwork between your network and your chosen communications services and meet the requirements of your chosen programs.
 
-To ensure availability, Azure Communications Gateway is deployed into two Azure Regions within a given Geography, as shown in the following diagram for an Operator Connect deployment. It supports both active-active and primary-backup geographic redundancy models to fit with your network design.
+To ensure availability, Azure Communications Gateway is deployed into two Azure Regions within a given Geography, as shown in the following diagram. It supports both active-active and primary-backup geographic redundancy models to fit with your network design.
 
 :::image type="content" source="media/azure-communications-gateway-network.svg" alt-text="Diagram that shows Azure Communications Gateway deployed into two Azure regions within one Azure Geography. The Azure Communications Gateway resource in each region connects to a communications service and both operator sites.":::
 

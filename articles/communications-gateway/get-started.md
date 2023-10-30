@@ -5,7 +5,7 @@ author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: how-to
-ms.date: 10/09/2023
+ms.date: 11/06/2023
 
 #CustomerIntent: As someone setting up Azure Communications Gateway, I want to understand the steps I need to carry out to have live traffic through my deployment.
 ---
@@ -59,7 +59,7 @@ Use the following procedures to deploy Azure Communications Gateway and connect 
 1. [Prepare to deploy Azure Communications Gateway](prepare-to-deploy.md) describes the steps you need to take before you can start creating your Azure Communications Gateway resource. You might need to refer to some of the articles listed in [Learn about and plan for Azure Communications Gateway](#learn-about-and-plan-for-azure-communications-gateway).
 1. [Deploy Azure Communications Gateway](deploy.md) describes how to create your Azure Communications Gateway resource in the Azure portal and connect it to your networks.
 1. [Integrate with Azure Communications Gateway's Provisioning API](integrate-with-provisioning-api.md) describes how to integrate with the Provisioning API. Integrating with the API is:
-    - Required for Microsoft Teams Direct Routing.
+    - Required for Microsoft Teams Direct Routing and Zoom Phone Cloud Peering.
     - Optional for Operator Connect: only required to add custom headers to messages entering your core network.
     - Not supported for Teams Phone Mobile.
 
@@ -74,8 +74,14 @@ Use the following procedures to integrate with Microsoft Teams Direct Routing.
 
 1. [Connect Azure Communications Gateway to Microsoft Teams Direct Routing](connect-teams-direct-routing.md) describes how to connect Azure Communications Gateway to the Microsoft Phone System for Microsoft Teams Direct Routing.
 1. [Configure a test customer for Microsoft Teams Direct Routing](configure-test-customer-teams-direct-routing.md) describes how to configure Azure Communications Gateway and Microsoft 365 with a test customer.
-1. [Configure test numbers for Microsoft Teams Direct Routing](configure-test-numbers-teams-direct-routing.md) describes how to configure Azure Communications Gateway and Microsoft 365 with a test numbers.
+1. [Configure test numbers for Microsoft Teams Direct Routing](configure-test-numbers-teams-direct-routing.md) describes how to configure Azure Communications Gateway and Microsoft 365 with test numbers.
 1. [Prepare for live traffic with Microsoft Teams Direct Routing and Azure Communications Gateway](prepare-for-live-traffic-teams-direct-routing.md) describes how to test your deployment and launch your service.
+
+Use the following procedures to integrate with Zoom Phone Cloud Peering.
+
+1. [Connect Azure Communications Gateway to Zoom Phone Cloud Peering](connect-zoom.md) describes how to connect Azure Communications Gateway to Zoom servers.
+1. [Configure test numbers for Zoom Phone Cloud Peering](configure-test-numbers-zoom.md) describes how to configure Azure Communications Gateway and Zoom with test numbers.
+1. [Prepare for live traffic with Zoom Phone Cloud Peering and Azure Communications Gateway](prepare-for-live-traffic-zoom.md) describes how to test your deployment and launch your service.
 
 ## Next steps
 

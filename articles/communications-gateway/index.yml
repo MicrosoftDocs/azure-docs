@@ -9,7 +9,7 @@ metadata:
   ms.topic: landing-page
   author: rcdun
   ms.author: rdunstan
-  ms.date: 10/02/2023
+  ms.date: 11/06/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -100,6 +100,14 @@ landingContent:
   # Card
   - title: Use Azure Communications Gateway for Zoom Phone Cloud Peering
     linkLists:
+      - linkListType: get-started
+        links:
+          - text: Connect to Zoom Phone Cloud Peering
+            url: connect-zoom.md
+          - text: Configure test numbers
+            url: configure-test-numbers-zoom.md
+          - text: Prepare for live traffic
+            url: prepare-for-live-traffic-zoom.md
       - linkListType: concept
         links:
           - text: Overview of interoperability

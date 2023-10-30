@@ -5,7 +5,7 @@ author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: how-to
-ms.date: 10/09/2023
+ms.date: 11/06/2023
 ---
 
 # Prepare to deploy Azure Communications Gateway
@@ -22,7 +22,9 @@ The following sections describe the information you need to collect and the deci
 
 ## Arrange onboarding
 
-You need an onboarding partner to deploy Azure Communications Gateway. If you're not eligible for onboarding to Microsoft Teams through Azure Communications Gateway's [Included Benefits](onboarding.md) or you haven't arranged alternative onboarding with Microsoft through a separate arrangement, you need to arrange an onboarding partner yourself.
+You need an Microsoft onboarding team to deploy Azure Communications Gateway. Azure Communications Gateway includes an onboarding program called [Included Benefits](onboarding.md). If you're not eligible for Included Benefits or you require more support, discuss your requirements with your Microsoft sales representative.
+ 
+The Operator Connect and Teams Phone Mobile programs also require an onboarding partner who manages the necessary changes to the Operator Connect or Teams Phone Mobile environments and coordinates with Microsoft Teams on your behalf. The Azure Communications Gateway Included Benefits project team fulfills this role, but you can choose a different onboarding partner to coordinate with Microsoft Teams on your behalf.
 
 ## Ensure you have a suitable support plan
 
