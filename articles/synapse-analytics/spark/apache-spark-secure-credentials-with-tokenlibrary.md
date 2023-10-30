@@ -7,7 +7,7 @@ ms.service:  synapse-analytics
 ms.topic: overview
 ms.subservice: spark
 ms.custom: devx-track-python
-ms.date: 06/28/2023
+ms.date: 10/28/2023
 ms.author: vijaysr
 ms.reviewer: shravan
 zone_pivot_groups: programming-languages-spark-all-minus-sql-r
@@ -169,9 +169,72 @@ df.show()
 
 ::: zone-end
 
-#### ADLS Gen2 storage (without linked services)
+#### ADLS Gen2 storage - without linked services
 
-Connect to ADLS Gen2 storage directly by using a SAS key use the **ConfBasedSASProvider** and provide the SAS key to the **spark.storage.synapse.sas** configuration setting.
+Connect to ADLS Gen2 storage directly by using a SAS key use the **ConfBasedSASProvider** and provide the SAS key to the **spark.storage.synapse.sas** configuration setting. SAS tokens can be set at the container level, account level or globally. We do not recommend setting SAS keys at the global level (the job will not be able to read/write from more than 1 storage account)
+
+<strong>SAS configuration per storage container</strong>
+
+::: zone pivot = "programming-language-scala"
+
+```scala
+%%spark
+sc.hadoopConfiguration.set("fs.azure.account.auth.type.<ACCOUNT>.dfs.core.windows.net", "SAS")
+sc.hadoopConfiguration.set("fs.azure.sas.token.provider.type", "com.microsoft.azure.synapse.tokenlibrary.ConfBasedSASProvider")
+spark.conf.set("spark.storage.synapse.<CONTAINER>.<ACCOUNT>.dfs.core.windows.net.sas", "<SAS KEY>")
+
+val df = spark.read.csv("abfss://<CONTAINER>@<ACCOUNT>.dfs.core.windows.net/<FILE PATH>")
+
+display(df.limit(10))
+```
+
+::: zone-end
+
+::: zone pivot = "programming-language-python"
+
+```python
+%%pyspark
+
+sc._jsc.hadoopConfiguration().set("fs.azure.account.auth.type.<ACCOUNT>.dfs.core.windows.net", "SAS")
+sc._jsc.hadoopConfiguration().set("fs.azure.sas.token.provider.type", "com.microsoft.azure.synapse.tokenlibrary.ConfBasedSASProvider")
+spark.conf.set("spark.storage.synapse.<CONTAINER>.<ACCOUNT>.dfs.core.windows.net.sas", "<SAS KEY>")
+
+df = spark.read.csv('abfss://<CONTAINER>@<ACCOUNT>.dfs.core.windows.net/<FILE PATH>')
+
+display(df.limit(10))
+```
+<strong>SAS configuration per storage account</strong>
+
+::: zone pivot = "programming-language-scala"
+
+```scala
+%%spark
+sc.hadoopConfiguration.set("fs.azure.account.auth.type.<ACCOUNT>.dfs.core.windows.net", "SAS")
+sc.hadoopConfiguration.set("fs.azure.sas.token.provider.type", "com.microsoft.azure.synapse.tokenlibrary.ConfBasedSASProvider")
+spark.conf.set("spark.storage.synapse.<ACCOUNT>.dfs.core.windows.net.sas", "<SAS KEY>")
+
+val df = spark.read.csv("abfss://<CONTAINER>@<ACCOUNT>.dfs.core.windows.net/<FILE PATH>")
+
+display(df.limit(10))
+```
+
+::: zone-end
+
+::: zone pivot = "programming-language-python"
+
+```python
+%%pyspark
+
+sc._jsc.hadoopConfiguration().set("fs.azure.account.auth.type.<ACCOUNT>.dfs.core.windows.net", "SAS")
+sc._jsc.hadoopConfiguration().set("fs.azure.sas.token.provider.type", "com.microsoft.azure.synapse.tokenlibrary.ConfBasedSASProvider")
+spark.conf.set("spark.storage.synapse.<ACCOUNT>.dfs.core.windows.net.sas", "<SAS KEY>")
+
+df = spark.read.csv('abfss://<CONTAINER>@<ACCOUNT>.dfs.core.windows.net/<FILE PATH>')
+
+display(df.limit(10))
+```
+
+<strong>SAS configuration of all storage accounts</strong>
 
 ::: zone pivot = "programming-language-scala"
 
@@ -380,12 +443,15 @@ While Azure Synapse Analytics supports a variety of linked service connections (
 | Azure Database for MySQL            | `AzureOSSDB`                          |
 | Azure Database for MariaDB          | `AzureOSSDB`                          |
 | Azure Database for PostgreSQL       | `AzureOSSDB`                          |
+
 #### Unsupported linked service access from the Spark runtime
 
 The following methods of accessing the linked services are not supported from the Spark runtime:
 
   - Passing arguments to parameterized linked service
   - Connections with User assigned managed identities (UAMI)
+  - System Assigned Managed identities are not supported on Keyvault resource
+  - For Azure Cosmos DB connections, key based access alone is supported. Token based access is not supported.
 
 While running a notebook or a Spark job, requests to get a token / secret using a linked service may fail with an error message that indicates 'BadRequest'. This is often caused by a configuration issue with the linked service. If you see this error message, please check the configuration of your linked service. If you have any questions, please contact Microsoft Azure Support at the [Azure portal](https://portal.azure.com).
 
