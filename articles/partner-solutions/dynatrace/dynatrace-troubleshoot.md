@@ -36,7 +36,7 @@ This document contains information about troubleshooting your solutions that use
 
 - Create fails because Last Name is empty. The issue happens when the user info in Microsoft Entra ID is incomplete and doesn't contain Last Name. Contact your Azure tenant's global administrator to rectify the issue and try again.
 
-### Logs not being emitted or Limit reached issue
+### Logs not being emitted or limit reached issue
 
 - Resource doesn't support sending logs. Only resource types with monitoring log categories can be configured to send logs.  For more information, see [supported categories](../../azure-monitor/essentials/resource-logs-categories.md).
 
@@ -44,20 +44,26 @@ This document contains information about troubleshooting your solutions that use
 
 - Export of Metrics data isn't supported currently by the partner solutions under Azure Monitor diagnostic settings. 
 
-
 ### Single sign-on errors
 
-- **Single sign-on configuration indicates lack of permissions**     
-   - Occurs when the user that is trying to configure single sign-on doesn't have Manage users permissions for the Dynatrace account. For a description of how to configure this permission, see [here](https://www.dynatrace.com/support/help/shortlink/azure-native-integration#setup).
-- **Unable to save single sign-on settings** 
-   - Error happens when there's another Enterprise app that is using the Dynatrace SAML identifier. To find which app is using it, select **Edit** on the Basic **SAML** configuration section.
-   To resolve this issue, either disable the other app or use the other app as the Enterprise app to set up SAML SSO.
+- **Single sign-on configuration indicates lack of permissions**
+  - Occurs when the user that is trying to configure single sign-on doesn't have Manage users permissions for the Dynatrace account. For a description of how to configure this permission, see [here](https://www.dynatrace.com/support/help/shortlink/azure-native-integration#setup).
+- **Unable to save single sign-on settings**
+  - Error happens when there's another Enterprise app that is using the Dynatrace SAML identifier. To find which app is using it, select **Edit** on the Basic **SAML** configuration section. To resolve this issue, either disable the other app or use the other app as the Enterprise app to set up SAML SSO.
 
-- **App not showing in Single sign-on settings page** - First, search for application ID. If no result is shown, check the SAML settings of the app. The grid only shows apps with correct SAML settings.
+- **App not showing in Single sign-on settings page** 
+  - First, search for application ID. If no result is shown, check the SAML settings of the app. The grid only shows apps with correct SAML settings.
 
 ### Metrics checkbox disabled
 
 - To collect metrics you must have owner permission on the subscription. If you are a contributor, refer to the contributor guide mentioned in [Configure metrics and logs](dynatrace-create.md#configure-metrics-and-logs).
+
+### Free trial errors
+
+- **Unable to create another free trial resource on Azure**
+  - During free trials, Dynatrace accounts can only have one environment, and hence, you can create only one Dynatrace resource during trial period.
+  - My Dynatrace free trial resource is deleted
+- With the free trial plan, your Dynatrace resource on Azure will get deleted after trial expiry. If you require more time, contact [sales@dynatrace.com](mzilto:sales@dynatrace.com).
 
 ## Next steps
 
