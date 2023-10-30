@@ -13,7 +13,7 @@ ms.reviewer: sidandrews
 # Create and manage container copy jobs in Azure Cosmos DB (Preview)
 [!INCLUDE[NoSQL, Cassandra, MongoDB](includes/appliesto-nosql-mongodb-cassandra.md)]
 
-[Container copy jobs](container-copy.md) help create offline copies of containers for Azure Cosmos DB accounts.
+[Container copy jobs](container-copy.md) help create offline copies of containers in Azure Cosmos DB accounts.
 
 This article describes how to create, monitor, and manage container copy jobs using Azure CLI commands.
 

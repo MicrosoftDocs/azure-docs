@@ -33,7 +33,7 @@ Container copy jobs can be [created and managed by using Azure CLI commands](how
 
 To get started, register for the relevant preview feature in the Azure portal.
 
-## Copy data across Azure Cosmos DB account
+## Copy data across Azure Cosmos DB accounts
 
 ### NoSQL API
 
