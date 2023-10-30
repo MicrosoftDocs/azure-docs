@@ -1,24 +1,24 @@
 ---
-title: Integration of Azure Data Explorer and Flink 
-description: Integration of Azure Data Explorer and Flink in HDInsight on AKS
+title: Integration of Azure Data Explorer and Apache Flink® 
+description: Integration of Azure Data Explorer and Apache Flink® in HDInsight on AKS
 ms.service: hdinsight-aks
 ms.topic: how-to
 ms.date: 09/18/2023
 ---
 
-# Integration of Azure Data Explorer and Flink 
+# Integration of Azure Data Explorer and Apache Flink®  
 
 Azure Data Explorer is a fully managed, high-performance, big data analytics platform that makes it easy to analyze high volumes of data in near real time.  
 
-ADX helps users in analysis of large volumes of data from streaming applications, websites, IoT devices, etc. Integrating Flink with ADX helps you to process real-time data and analyze it in ADX. 
+ADX helps users in analysis of large volumes of data from streaming applications, websites, IoT devices, etc. Integrating Apache Flink with ADX helps you to process real-time data and analyze it in ADX. 
 
 ## Prerequisites 
-- [Create HDInsight on AKS Flink cluster](./flink-create-cluster-portal.md) 
+- [Create Apache Flink cluster on HDInsight on AKS](./flink-create-cluster-portal.md) 
 - [Create Azure data explorer](/azure/data-explorer/create-cluster-and-database/) 
 
 ## Steps to use Azure Data Explorer as sink in Flink 
 
-1. [Create HDInsight on AKS Flink cluster](./flink-create-cluster-portal.md).
+1. [Create Flink cluster](./flink-create-cluster-portal.md).
 
 1. [Create ADX with database](/azure/data-explorer/create-cluster-and-database/) and table as required.
 
@@ -63,3 +63,7 @@ ADX helps users in analysis of large volumes of data from streaming applications
 
     There is no delay in writing the data to the Kusto table from Flink. 
 
+### Reference
+
+- [Apache Flink Website](https://flink.apache.org/)
+- Apache, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).
