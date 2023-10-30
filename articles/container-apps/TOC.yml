@@ -175,7 +175,7 @@
           href: managed-identity.md
         - name: Azure Container Registry image pull with managed identity
           href: managed-identity-image-pull.md
-- name: Resiliency
+- name: Resiliency (preview)
   items:
     - name: Application resiliency
       items:

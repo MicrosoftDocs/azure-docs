@@ -1,18 +1,18 @@
 ---
-title: Dapr component resiliency
+title: Dapr component resiliency (preview)
 titleSuffix: Azure Container Apps
 description: Learn how to make your Dapr components resilient in Azure Container Apps.
 services: container-apps
 author: hhunter-ms
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 10/23/2023
+ms.date: 10/30/2023
 ms.author: hannahhunter
 ms.custom: ignite-fall-2023
 # Customer Intent: As a developer, I'd like to learn how to make my container apps resilient using Azure Container Apps.
 ---
 
-# Dapr component resiliency
+# Dapr component resiliency (preview)
 
 If your container app is leveraging Dapr to integrate with a technology (for example, state stores, pub/sub message brokers, secret stores, etc.), you can apply resiliency policies to your Dapr components.
 

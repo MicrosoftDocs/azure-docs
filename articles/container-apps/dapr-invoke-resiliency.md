@@ -1,18 +1,18 @@
 ---
-title: Dapr service invocation API resiliency
+title: Dapr service invocation API resiliency (preview)
 titleSuffix: Azure Container Apps
 description: Learn how to apply container app to container app resiliency when using Dapr service invocation API in Azure Container Apps.
 services: container-apps
 author: hhunter-ms
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 10/17/2023
+ms.date: 10/30/2023
 ms.author: hannahhunter
 ms.custom: ignite-fall-2023
 # Customer Intent: As a developer, I'd like to learn how to make my container apps resilient using Azure Container Apps.
 ---
 
-# Dapr service invocation API resiliency
+# Dapr service invocation API resiliency (preview)
 
 With Azure Container Apps resiliency, you can proactively prevent, detect, and recover from service-to-service request failures using simple resiliency policies. 
 

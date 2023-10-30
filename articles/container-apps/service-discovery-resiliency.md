@@ -1,5 +1,5 @@
 ---
-title: Service discovery resiliency
+title: Service discovery resiliency (preview)
 titleSuffix: Azure Container Apps
 description: Learn how to apply container app to container app resiliency when using the application's service name in Azure Container Apps.
 services: container-apps
@@ -12,7 +12,7 @@ ms.custom: ignite-fall-2023
 # Customer Intent: As a developer, I'd like to learn how to make my container apps resilient using Azure Container Apps.
 ---
 
-# Service discovery resiliency
+# Service discovery resiliency (preview)
 
 With Azure Container Apps resiliency, you can proactively prevent, detect, and recover from service-to-service request failures using simple resiliency policies. 
 
