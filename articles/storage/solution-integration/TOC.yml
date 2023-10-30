@@ -35,7 +35,7 @@
     href: ./validated-partners/data-management/dobimigrate-quick-start-guide.md
   - name: Komprise getting started guide
     href: ./validated-partners/data-management/komprise-quick-start-guide.md
-    - name: Komprise tiering guide
+  - name: Komprise tiering guide
     href: ./validated-partners/data-management/komprise-tiering-guide.md
   - name: Atempo getting started guide
     href: ./validated-partners/data-management/atempo-quick-start-guide.md
