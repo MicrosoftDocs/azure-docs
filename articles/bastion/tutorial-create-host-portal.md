@@ -104,7 +104,7 @@ This section helps you deploy Azure Bastion to your virtual network. After Azure
 
    * **Tier**: The SKU. For this tutorial, select **Standard**. For information about the features available for each SKU, see [Configuration settings - SKU](configuration-settings.md#skus).
 
-   * **Instance count**: The setting for host scaling, which is available for the Standard SKU. You configure host scaling in scale unit increments. Use the slider or enter a number to configure the instance count that you want. For more information, see [Instances and host scaling](configuration-settings.md#instances-and-host-scaling) and [Azure Bastion pricing](https://azure.microsoft.com/pricing/details/azure-bastion).
+   * **Instance count**: The setting for host scaling, which is available for the Standard SKU. You configure host scaling in scale unit increments. Use the slider or enter a number to configure the instance count that you want. For more information, see [Instances and host scaling](configuration-settings.md#instance) and [Azure Bastion pricing](https://azure.microsoft.com/pricing/details/azure-bastion).
 
    :::image type="content" source="./media/tutorial-create-host-portal/instance-values.png" alt-text="Screenshot of Azure Bastion instance details." lightbox="./media/tutorial-create-host-portal/instance-values.png":::
 
