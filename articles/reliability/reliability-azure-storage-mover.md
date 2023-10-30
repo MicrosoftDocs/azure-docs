@@ -50,8 +50,6 @@ If the region supports availability zones, the instance metadata is automaticall
 
 - (Optional) If your target storage account doesn't support availability zones, and you would like to migrate the account to AZ support, see [Migrate Azure Storage accounts to availability zone support](migrate-storage.md).
 
-### Create a resource with availability zones enabled
-
 ### Zone down experience
 
 During a zone-wide outage, no action is required during zone recovery. Azure Storage Mover is designed to self-heal and re-balance itself to take advantage of the healthy zone automatically.
