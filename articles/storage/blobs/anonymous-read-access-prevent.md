@@ -59,7 +59,7 @@ To understand how disallowing anonymous access may affect client applications, w
 
 ### Monitor anonymous requests with Metrics Explorer
 
-To track anonymous requests to a storage account, use Azure Metrics Explorer in the Azure portal. For more information about Metrics Explorer, see [Getting started with Azure Metrics Explorer](../../azure-monitor/essentials/metrics-getting-started.md).
+To track anonymous requests to a storage account, use Azure Metrics Explorer in the Azure portal. For more information about Metrics Explorer, see [Analyze metrics with Azure Monitor metrics explorer](../../azure-monitor/essentials/analyze-metrics.md).
 
 Follow these steps to create a metric that tracks anonymous requests:
 
