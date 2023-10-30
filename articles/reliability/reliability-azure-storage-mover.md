@@ -156,9 +156,5 @@ You're now ready to start migration jobs using the newly deployed Storage Mover 
 
 ## Next steps
 
-Read more about any of the following features or options.
-
-| Guide | Description |
-|---|---|
-| [Azure resiliency and reliability](/azure/architecture/framework/resiliency/overview) | A detailed overview of resiliency and reliability in Azure.
-| [storage account disaster recovery](/azure/storage/common/storage-disaster-recovery-guidance) | Concepts and processes involved with a storage account failover and recovery. |
+- [Reliability in Azure](./overview.md)
+- [Storage account disaster recovery](/azure/storage/common/storage-disaster-recovery-guidance)
