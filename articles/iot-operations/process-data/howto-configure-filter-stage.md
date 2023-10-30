@@ -21,7 +21,7 @@ Use a _filter_ stage to filter out messages that you don't need for further proc
 
 ## Prerequisites
 
-To configure and use a filter pipeline stage, you need a deployed instance of Data Processor Preview.
+To configure and use a filter pipeline stage, you need a deployed instance of Azure IoT Data Processor (preview).
 
 ## Configure the stage
 
@@ -29,13 +29,13 @@ The filter stage JSON configuration defines the details of the stage. To author 
 
 | Name | Value | Required | Default | Example |
 | --- | --- | --- | --- | --- |
-| Display name  | A name to show in the Data processor UI.  | Yes | -  | `Filter1` |
+| Display name  | A name to show in the Data Processor UI.  | Yes | -  | `Filter1` |
 | Description | A user-friendly description of what the filter stage does.  | No | -  | `Filter out anomalies` |
 | Query | The [jq expression](#jq-expression)  | Yes | - | `.payload.temperature > 0 and .payload.pressure < 50` |
 
 ### jq expression
 
-Filter queries in the data processor use the [jq](concept-jq.md) language to define the filter condition:
+Filter queries in Data Processor use the [jq](concept-jq.md) language to define the filter condition:
 
 - The jq provided in the query must be syntactically valid.
 - The result of the filter query must be a boolean value.

@@ -3,7 +3,7 @@
  description: include file
  author: dominicbetts
  ms.topic: include
- ms.date: 10/19/2023
+ ms.date: 10/30/2023
  ms.author: dobett
  ms.custom: include file
 ---
@@ -42,7 +42,13 @@ To prepare a Kubernetes cluster on Ubuntu:
     sudo sysctl -p
     ```
 
-1. For better performance, make sure the [file descriptor limit](https://www.cyberciti.biz/faq/linux-increase-the-maximum-number-of-open-files/) is high enough.
+1. For better performance, increase the file descriptor limit:
+
+   ```bash
+   sudo sysctl fs.inotify.max_user_instances=8192
+   sudo sysctl fs.inotify.max_user_watches=524288
+   sudo sysctl -p
+   ```
 
 To connect your cluster to Azure Arc:
 
@@ -56,14 +62,14 @@ To connect your cluster to Azure Arc:
 
     ```bash
     # Id of the subscription where your resource group and Arc-enabled cluster will be created
-    export SUBSCRIPTION_ID=<subscription-id>
+    export SUBSCRIPTION_ID=<SUBSCRIPTION_ID>
     # Azure region where the created resource group will be located
     # Currently supported regions: "westus3" or "eastus2"
     export LOCATION="WestUS3"
     # Name of a new resource group to create which will hold the Arc-enabled cluster and Azure IoT Operations resources
-    export RESOURCE_GROUP=<resource-group-name>
+    export RESOURCE_GROUP=<NEW_RESOURCE_GROUP_NAME>
     # Name of the Arc-enabled cluster to create in your resource group
-    export CLUSTER_NAME=<cluster-name>
+    export CLUSTER_NAME=<NEW_CLUSTER_NAME>
     ```
 
 1. Set the Azure subscription context for all commands:
@@ -78,8 +84,9 @@ To connect your cluster to Azure Arc:
     az provider register -n "Microsoft.ExtendedLocation"
     az provider register -n "Microsoft.Kubernetes"
     az provider register -n "Microsoft.KubernetesConfiguration"
-    az provider register -n "Microsoft.Symphony"
-    az provider register -n "Microsoft.Bluefin"
+    az provider register -n "Microsoft.IoTOperationsOrchestrator"
+    az provider register -n "Microsoft.IoTOperationsMQ"
+    az provider register -n "Microsoft.IoTOperationsDataProcessor"
     az provider register -n "Microsoft.DeviceRegistry"
     ```
 

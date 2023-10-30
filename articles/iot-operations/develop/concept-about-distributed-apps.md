@@ -5,123 +5,96 @@ description: Learn how to develop highly available distributed applications that
 author: PatAltimore
 ms.author: patricka
 ms.topic: concept-article
-ms.date: 10/02/2023
+ms.date: 10/26/2023
 
 #CustomerIntent: As an developer, I want understand how to develop highly available distributed applications for my IoT Operations solution.
 ---
-
-<!--
-Remove all the comments in this template before you sign-off or merge to the  main branch.
-
-This template provides the basic structure of a Concept article pattern. See the [instructions - Concept](../level4/article-concept.md) in the pattern library.
-
-You can provide feedback about this template at: https://aka.ms/patterns-feedback
-
-Concept is an article pattern that defines what something is or explains an abstract idea.
-
-There are several situations that might call for writing a Concept article, including:
-
-* If there's a new idea that's central to a service or product, that idea must be explained so that customers understand the value of the service or product as it relates to their circumstances. A good recent example is the concept of containerization or the concept of scalability.
-* If there's optional information or explanations that are common to several Tutorials or How-to guides, this information can be consolidated and single-sourced in a full-bodied Concept article for you to reference.
-* If a service or product is extensible, advanced users might modify it to better suit their application. It's better that advanced users fully understand the reasoning behind the design choices and everything else "under the hood" so that their variants are more robust, thereby improving their experience.
-
--->
-
-<!-- 1. H1
------------------------------------------------------------------------------
-
-Required. Set expectations for what the content covers, so customers know the content meets their needs. The H1 should NOT begin with a verb.
-
-Reflect the concept that undergirds an action, not the action itself. The H1 must start with:
-
-* "\<noun phrase\> concept(s)", or
-* "What is \<noun\>?", or
-* "\<noun\> overview"
-
-Concept articles are primarily distinguished by what they aren't:
-
-* They aren't procedural articles. They don't show how to complete a task.
-* They don't have specific end states, other than conveying an underlying idea, and don't have concrete, sequential actions for the user to take.
-
-One clear sign of a procedural article would be the use of a numbered list. With rare exception, numbered lists shouldn't appear in Concept articles.
-
--->
 
 # Develop highly available applications
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-TODO: Add your heading
+Creating a highly available application using Azure IoT MQ involves careful consideration of session types, quality of service (QoS), message acknowledgments, parallel message processing, message retention, and shared subscriptions. Azure IoT MQ features a distributed, in-memory message broker and store that provides message retention and built-in state management with MQTT semantics.
 
-<!-- 2. Introductory paragraph
-----------------------------------------------------------
+The following sections explain the settings and features that contribute to a robust, zero message loss, and distributed application.
 
-Required. Lead with a light intro that describes what the article covers. Answer the fundamental "why would I want to know this?" question. Keep it short.
+## Quality of service (QoS)
 
-* Answer the fundamental "Why do I want this knowledge?" question.
-* Don't start the article with a bunch of notes or caveats.
-* Don't link away from the article in the introduction.
-* For definitive concepts, it's better to lead with a sentence in the form, "X is a (type of) Y that does Z."
+Both publishers and subscribers should use [QoS-1](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901236) to guarantee message delivery at least once. The broker stores and retransmits messages until it receives an acknowledgment (ACK) from the recipient, ensuring no messages are lost during transmission.
 
--->
+## Session type and Clean-Session flag
 
-[Introductory paragraph]
-TODO: Add your introductory paragraph
+To ensure zero message loss, set the [clean-start](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901039) flag to false when connecting to the Azure IoT MQ MQTT broker. This setting informs the broker to maintain the session state for the client, preserving subscriptions and unacknowledged messages between connections. If the client disconnects and later reconnects, it resumes from where it left off, receiving any unacknowledged QoS-1 messages through [message delivery retry](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901238). If configured, IoT MQ expires the client session if the client doesn't reconnect within the *Session Expiry Interval* The default is one day.
 
-<!-- 3. Prerequisites --------------------------------------------------------------------
+## Receive-Max in multithreaded applications
 
-Optional: Make **Prerequisites** your first H2 in the article. Use clear and unambiguous
-language and use a unordered list format. 
+Multithreaded applications should use [receive-max](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901049) (65,535 max) to process messages in parallel and apply flow control. This setting optimizes message processing by allowing multiple threads to work on messages concurrently and without the broker overloading the application with a high message rate above the application capacity. Each thread can process a message independently and send its acknowledgment upon completion. A typical practice is to configure *max-receive* proportionally to the number of threads that the application uses.
 
--->
+## Acknowledging messages
 
-## Prerequisites
-TODO: [List the prerequisites if appropriate]
+When a subscriber application sends an acknowledgment for a QoS-1 message, it takes ownership of the message. Upon receiving acknowledgment for a QoS-1 message, IoT MQ stops tracking the message for that application and topic. Proper transfer of ownership ensures message preservation in case of processing issues or application crashes. If an application wants to protect it from application crashes, then the application shouldn't take ownership before successfully completing its processing on that message. Applications subscribing to IoT MQ should delay acknowledging messages until processing is complete up to *receive-max* value with a maximum of 65,535. This might include relaying the message, or a derivative of the message, to IoT MQ for further dispatching.
 
-<!-- 4. H2s (Article body)
---------------------------------------------------------------------
+## Message retention and broker behavior
 
-Required: In a series of H2 sections, the article body should discuss the ideas that explain how "X is a (type of) Y that does Z":
+The broker retains messages until it receives an acknowledgment from a subscriber, ensuring zero message loss. This behavior guarantees that even if a subscriber application crashes or loses connectivity temporarily, messages won't be lost and can be processed once the application reconnects. IoT MQ messages might expire if configured by the [Message-Expiry-Interval](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901112) and a subscriber didn't consume the message.
 
-* Give each H2 a heading that sets expectations for the content that follows.
-* Follow the H2 headings with a sentence about how the section contributes to the whole.
-* Describe the concept's critical features in the context of defining what it is.
-* Provide an example of how it's used where, how it fits into the context, or what it does. If it's complex and new to the user, show at least two examples.
-* Provide a non-example if contrasting it will make it clearer to the user what the concept is.
-* Images, code blocks, or other graphical elements come after the text block it illustrates.
-* Don't number H2s.
+## Retained messages
 
--->
+[Retained messages](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901104) maintain temporary application state, such as the latest status or value for a specific topic. When a new client subscribes to a topic, it receives the last retained message, ensuring it has the most up-to-date information.
 
-## Section 1 heading
-TODO: add your content
+## Keep-Alive
 
-## Section 2 heading
-TODO: add your content
+To ensure high availability in case of connection errors or drops, set suitable [keep-alive intervals](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901045) for client-server communication. During idle periods, clients send *PINGREQs*, awaiting *PINGRESPs*. If no response, implement auto reconnect logic in the client to re-establish connections. Most clients like [Paho](https://www.eclipse.org/paho/) have retry logic built in. As IoT MQ is fault-tolerant, a reconnection succeeds if there is at least two healthy broker instances a frontend and a backend.
 
-## Section 3 heading
-TODO: add your content
+## Eventual consistency with QoS-1 subscription
 
-<!-- 5. Next step/Related content ------------------------------------------------------------------------ 
+MQTT subscriptions with QoS-1 ensure eventual consistency across identical application instances by subscribing to a shared topic. As messages are published, instances receive and replicate data with at-least-once delivery. The instances must handle duplicates and tolerate temporary inconsistencies until data is synchronized.
 
-Optional: You have two options for manually curated links in this pattern: Next step and Related content. You don't have to use either, but don't use both.
-  - For Next step, provide one link to the next step in a sequence. Use the blue box format
-  - For Related content provide 1-3 links. Include some context so the customer can determine why they would click the link. Add a context sentence for the following links.
+## Shared subscriptions
 
--->
+[Shared subscriptions](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901250) enable load balancing across multiple instances of a highly available application. Instead of each subscriber receiving a copy of every message, the messages are distributed evenly among the subscribers. IoT MQ broker currently only supports a round robin algorithm to distribute messages allowing an application to scale out. A typical use case is to deploy multiple pods using Kubernetes ReplicaSet that all subscribe to IoT MQ using the same topic filter in shared subscription.
 
-## Next step
+## Use IoT MQ's built-in key-value store (distributed HashMap)
 
-TODO: Add your next step link(s)
+IoT MQ's built-in [key-value store](concept-about-state-store.md) is a simple, replicated in-memory *HashMap* for managing application processing state. Unlike *etcd*, for example, IoT MQ prioritizes high-velocity throughput, horizontal scaling, and low latency through in-memory data structures, partitioning, and chain-replication. It allows applications to use the broker's distributed nature and fault tolerance while accessing a consistent state quickly across instances. To use the built-in key-value store provided by the distributed broker:
 
-<!-- OR -->
+* Implement ephemeral storage and retrieval operations using the broker's key-value store API, ensuring proper error handling and data consistency. Ephemeral state is a short-lived data storage used in stateful processing for fast access to intermediate results or metadata during real-time computations. In the context of HA application, an ephemeral state helps recover application states between crashes. It can be written to disk but remains temporary, as opposed to cold storage that's designed for long-term storage of infrequently accessed data.
+
+* Use the key-value store for sharing state, caching, configuration, or other essential data among multiple instances of the application, allowing them to keep a consistent view of the data.
+
+## Use IoT MQ's built-in Dapr integration
+
+For simpler use cases an application might utilize [Dapr](https://dapr.io) (Distributed Application Runtime). Dapr is an open-source, portable, event-driven runtime that simplifies building microservices and distributed applications. It offers a set of building blocks, such as service-to-service invocation, state management, and publish/subscribe messaging.
+
+[Dapr is offered as part of IoT MQ](howto-develop-dapr-apps.md), abstracting away details of MQTT session management, message QoS and acknowledgment, and built-in key-value stores, making it a practical choice for developing a highly available application for simple use cases by:
+
+* Design your application using Dapr's building blocks, such as state management for handling the key-value store, and publish/subscribe messaging for interacting with the MQTT broker. If the use case requires building blocks and abstractions that aren't supported by Dapr, consider using the before mentioned IoT MQ features.
+
+* Implement the application using your preferred programming language and framework, leveraging Dapr SDKs or APIs for seamless integration with the broker and the key-value store.
+
+## Checklist to develop a highly available application
+
+  - Choose an appropriate MQTT client library for your programming language. The client should support MQTT v5. Use a C or Rust based library if your application is sensitive to latency.
+  - Configure the client library to connect to IoT MQ broker with *clean-session* flag set to false and the desired QoS level (QoS-1).
+  - Decide a suitable value for session expiry, message expiry, and keep-alive intervals.
+  - Implement the message processing logic for the subscriber application, including sending an acknowledgment when the message has been successfully delivered or processed.
+  - For multithreaded applications, configure the *max-receive* parameter to enable parallel message processing.
+  - Utilize retained messages for keeping temporary application state.
+  - Utilize IoT MQ built-in key-value store to manage ephemeral application state.
+  - Evaluate Dapr to develop your application if your use case is simple and doesn't require detailed control over the MQTT connection or message handling.
+  - Implement shared subscriptions to distribute messages evenly among multiple instances of the application, allowing for efficient scaling.
+
+## Example
+
+The following example implements contextualization and normalization of data with a highly available northbound connector
+
+A northbound application consists of input and output stages, and an optional processing stage. The input stage subscribes to a distributed MQTT broker to receive data, while the output stage ingests messages into a cloud data-lake. The processing stage executes contextualization and normalization logic on the received data.
+
+![Diagram of a highly available app architecture.](./media/concept-about-distributed-apps/highly-available-app.png)
+
+To ensure high availability, the input stage connects to IoT MQ and sets the *clean-session* flag to false for persistent sessions, using QoS-1 for reliable message delivery, acknowledging messages post-processing by the output stage. Additionally, the application might use the built-in *HashMap* key-value store for temporary state management and the round robin algorithm to load-balance multiple instances using shared subscriptions.
 
 ## Related content
 
-TODO: Add your next step link(s)
-
-
-<!--
-Remove all the comments in this template before you sign-off or merge to the 
-main branch.
--->
+- [Azure IoT MQ state store](concept-about-state-store.md)
+- [Use Dapr to develop distributed application workloads](howto-develop-dapr-apps.md)

@@ -1,127 +1,144 @@
 ---
-title: What is the Azure IoT MQ state store
+title: About Azure IoT MQ state store
 # titleSuffix: Azure IoT MQ
-description: Learn about the Azure IoT MQ state store and MQTT5 protocol
-author: PatAltimore
-ms.author: patricka
+description: Learn about the Azure IoT MQ state store capabilities and how to start using the state store. 
+author: timlt
+ms.author: timlt
+# ms.subservice: mq
 ms.topic: concept-article
-ms.date: 10/02/2023
+ms.date: 10/26/2023
 
-#CustomerIntent: As an operator, I want understand how the state store works so that I can use it to store data in Azure IoT MQ.
+#CustomerIntent: As a developer or operator, I want understand how the state store works so that I can use it to store data in Azure IoT MQ.
 ---
 
-<!--
-Remove all the comments in this template before you sign-off or merge to the  main branch.
-
-This template provides the basic structure of a Concept article pattern. See the [instructions - Concept](../level4/article-concept.md) in the pattern library.
-
-You can provide feedback about this template at: https://aka.ms/patterns-feedback
-
-Concept is an article pattern that defines what something is or explains an abstract idea.
-
-There are several situations that might call for writing a Concept article, including:
-
-* If there's a new idea that's central to a service or product, that idea must be explained so that customers understand the value of the service or product as it relates to their circumstances. A good recent example is the concept of containerization or the concept of scalability.
-* If there's optional information or explanations that are common to several Tutorials or How-to guides, this information can be consolidated and single-sourced in a full-bodied Concept article for you to reference.
-* If a service or product is extensible, advanced users might modify it to better suit their application. It's better that advanced users fully understand the reasoning behind the design choices and everything else "under the hood" so that their variants are more robust, thereby improving their experience.
-
--->
-
-<!-- 1. H1
------------------------------------------------------------------------------
-
-Required. Set expectations for what the content covers, so customers know the content meets their needs. The H1 should NOT begin with a verb.
-
-Reflect the concept that undergirds an action, not the action itself. The H1 must start with:
-
-* "\<noun phrase\> concept(s)", or
-* "What is \<noun\>?", or
-* "\<noun\> overview"
-
-Concept articles are primarily distinguished by what they aren't:
-
-* They aren't procedural articles. They don't show how to complete a task.
-* They don't have specific end states, other than conveying an underlying idea, and don't have concrete, sequential actions for the user to take.
-
-One clear sign of a procedural article would be the use of a numbered list. With rare exception, numbered lists shouldn't appear in Concept articles.
-
--->
-
-# What is the Azure IoT MQ state store
+# Azure IoT MQ state store
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-TODO: Add your heading
+In this article, you learn the basic capabilities of Azure IoT MQ Preview state store, and you run a sample that shows how it works. Azure IoT MQ provides a distributed state store for clients to use. To compare the MQ state store to a related solution, MQTT retained messages only save the latest message per topic. In contrast, the MQ state store is a key-value store that has more capabilities, similar to a general purpose database. 
 
-<!-- 2. Introductory paragraph
-----------------------------------------------------------
+The MQ state store provides several core capabilities:
 
-Required. Lead with a light intro that describes what the article covers. Answer the fundamental "why would I want to know this?" question. Keep it short.
-
-* Answer the fundamental "Why do I want this knowledge?" question.
-* Don't start the article with a bunch of notes or caveats.
-* Don't link away from the article in the introduction.
-* For definitive concepts, it's better to lead with a sentence in the form, "X is a (type of) Y that does Z."
-
--->
-
-[Introductory paragraph]
-TODO: Add your introductory paragraph
-
-<!-- 3. Prerequisites --------------------------------------------------------------------
-
-Optional: Make **Prerequisites** your first H2 in the article. Use clear and unambiguous
-language and use a unordered list format. 
-
--->
+- The ability to set, get, and delete key/value pairs
+- Declarative security that is similar to MQTT topic security. Declarative security lets you grant clients fine-grained access to keys.
+- Can be configured to be highly available
 
 ## Prerequisites
-TODO: [List the prerequisites if appropriate]
 
-<!-- 4. H2s (Article body)
---------------------------------------------------------------------
+1. An [MQ deployment](../deploy/overview-deploy-iot-operations.md).
+1. The [.NET 7.0](https://dotnet.microsoft.com/en-us/download) compiler.
 
-Required: In a series of H2 sections, the article body should discuss the ideas that explain how "X is a (type of) Y that does Z":
+## Features supported
+The following features are supported for the Azure IoT MQ Preview state store:
 
-* Give each H2 a heading that sets expectations for the content that follows.
-* Follow the H2 headings with a sentence about how the section contributes to the whole.
-* Describe the concept's critical features in the context of defining what it is.
-* Provide an example of how it's used where, how it fits into the context, or what it does. If it's complex and new to the user, show at least two examples.
-* Provide a non-example if contrasting it will make it clearer to the user what the concept is.
-* Images, code blocks, or other graphical elements come after the text block it illustrates.
-* Don't number H2s.
+| Feature | Supported |
+|---|:---:|
+| Set | ✅ |
+| Get | ✅ |
+| Delete | ✅ |
 
--->
+## Using the state store
 
-## Section 1 heading
-TODO: add your content
+The MQ state store is available as a C# SDK and you use it as an application that runs internal or external to your K8S Cluster.
 
-## Section 2 heading
-TODO: add your content
+The main functions to call in the MQTT client are shown in the following sections.
 
-## Section 3 heading
-TODO: add your content
+### Create the MQTT client
 
-<!-- 5. Next step/Related content ------------------------------------------------------------------------ 
+Create the MQTT client using the `MQTTFactory`.
 
-Optional: You have two options for manually curated links in this pattern: Next step and Related content. You don't have to use either, but don't use both.
-  - For Next step, provide one link to the next step in a sequence. Use the blue box format
-  - For Related content provide 1-3 links. Include some context so the customer can determine why they would click the link. Add a context sentence for the following links.
+```csharp
+IMqttClient mqttClient = new MqttFactory().CreateMqttClient();
+var connectionSettings = new MqttClientOptionsBuilder()
+        .WithTcpServer("localhost", 1883)
+        .WithClientId("dss_sample")
+        .WithProtocolVersion(MqttProtocolVersion.V500)
+        .Build();
+```
 
--->
+### Initialize
 
-## Next step
+Initialize the `StateStoreClient` by passing in the MQTT client. 
 
-TODO: Add your next step link(s)
+```csharp
+StateStoreClient stateStoreClient = new StateStoreClient(mqttClient);
+await stateStoreClient.InitializeAsync().ConfigureAwait(false);
+```
 
-<!-- OR -->
+### Set
+
+Set a key-value pair in the state store.
+
+```csharp
+var stateStoreKey = new StateStoreKey("someKey");
+var stateStoreValue = new StateStoreValue("someValue");
+
+StateStoreSetResponse setResponse = 
+    await stateStoreClient.SetAsync(
+        stateStoreKey, 
+        stateStoreValue, 
+        new HybridLogicalClock()).ConfigureAwait(false);
+```
+
+### Get
+
+Get the specific key from the state store into the `StateStoreGetResponse` object. 
+
+```csharp
+StateStoreGetResponse getResponse = 
+    await stateStoreClient.GetAsync(stateStoreKey).ConfigureAwait(false);
+```
+
+### Delete
+
+Delete the specific Key/Value pair from the State Store:
+
+```csharp
+StateStoreDeleteResponse deleteResponse =
+    await stateStoreClient.DeleteAsync(stateStoreKey).ConfigureAwait(false);
+```
+
+### Dispose
+
+After you're finished, dispose of the `StateStoreClient` object. 
+
+
+```csharp
+await stateStoreClient.DisposeAsync().ConfigureAwait(false);
+```
+
+## Run the sample
+
+The following sample code connects to the MQ state store via the MQTT broker. The sample uses the previously defined function to set a string value, get the value, and then deletes the value. 
+
+https://github.com/microsoft/e4k-playground/tree/main/samples/quickstart-sample
+
+
+### Steps
+
+1. Configure the sample: 
+
+    Edit the `Program.cs` file and update the `connectionSettings` with the E4K MQTT broker hostname and port.
+
+1. Build the sample by running the following command: 
+
+    ```bash
+    dotnet build
+    ```
+
+1. Run the code and observe the output:
+
+    ```bash
+    dotnet run
+    ```
+
+    ```output
+    Successfully set key someKey with value someValue
+    Current value of key someKey in the state store is someValue
+    Successfully deleted key someKey from the state store
+    ```
 
 ## Related content
 
-TODO: Add your next step link(s)
-
-
-<!--
-Remove all the comments in this template before you sign-off or merge to the 
-main branch.
--->
+- [Azure IoT MQ overview](../manage-mqtt-connectivity/overview-iot-mq.md)
+- [Develop with Azure IoT MQ](concept-about-distributed-apps.md)

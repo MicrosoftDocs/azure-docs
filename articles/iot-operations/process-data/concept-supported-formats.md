@@ -7,7 +7,7 @@ ms.author: dobett
 ms.topic: concept-article
 ms.date: 09/07/2023
 
-#CustomerIntent: As an operator, I want understand what data formats the data processor supports so that I can serialize and deserialize messages in a pipeline.
+#CustomerIntent: As an operator, I want understand what data formats Data Processor supports so that I can serialize and deserialize messages in a pipeline.
 ---
 
 # Serialization and deserialization formats overview
@@ -78,7 +78,7 @@ Use the following configuration options to deserialize data:
 | Field | Type | Description | Required? | Default | Example |
 |-------|------|-------------|-----------|---------|---------|
 | `type` | `string enum` | The format for deserialization | No | - | `JSON` |
-| `path` | [Path](concept-jq-path.md) | The path to the portion of the data processor message where the deserialized data is written to. | (see following note)| `.payload` | `.payload.response` |
+| `path` | [Path](concept-jq-path.md) | The path to the portion of the Data Processor message where the deserialized data is written to. | (see following note)| `.payload` | `.payload.response` |
 
 > [!NOTE]
 > You don't need to specify `path` when you deserialize data in the source stage. The deserialized data is automatically placed in the `.payload` section of the message.
@@ -88,7 +88,7 @@ Use the following configuration options to serialize data:
 | Field | Type | Description | Required? | Default | Example |
 |-------|------|-------------|-----------|---------|---------|
 | `type` | `string enum` | The format for serialization | Yes | - | `JSON` |
-| `path` | [Path](concept-jq-path.md) | The path to the portion of the data processor message that should be serialized. | (see following note) | `.payload` | `.payload.response` |
+| `path` | [Path](concept-jq-path.md) | The path to the portion of the Data Processor message that should be serialized. | (see following note) | `.payload` | `.payload.response` |
 
 > [!NOTE]
 > You don't need to specify `path` when you serialize [batched](concept-configuration-patterns.md#batch) data. The default path is `.`, which represents the entire message. For unbatched data, you must specify `path`.
@@ -124,7 +124,7 @@ Use the following configuration options to deserialize Protocol Buffers (protobu
 | `descriptor` | `string` | The base64 encoded descriptor for the protobuf definition file(s). | Yes | - | `Zm9v..` |
 | `package` | `string` | The name of the package in the descriptor where the type is defined. | Yes | - | `package1..` |
 | `message` | `string` | The name of the message type that's used to format the data. | Yes | - | `message1..` |
-| `path` | [Path](concept-jq-path.md) | The path to the portion of the data processor message where the deserialized data should be written. | (see following note) | `.payload` | `.payload.gRPCResponse` |
+| `path` | [Path](concept-jq-path.md) | The path to the portion of the Data Processor message where the deserialized data should be written. | (see following note) | `.payload` | `.payload.gRPCResponse` |
 
 > [!NOTE]
 > You don't need to specify `path` when you deserialize data in the source stage. The deserialized data is automatically placed in the `.payload` section of the message.
@@ -137,7 +137,7 @@ Use the following configuration options to serialize protobuf data:
 | `descriptor` | `string` | The base64 encoded descriptor for the protobuf definition file(s). | Yes | - | `Zm9v..` |
 | `package` | `string` | The name of the package in the descriptor where the type is defined. | Yes | - | `package1..` |
 | `message` | `string` | The name of the message type that's used to format the data. | Yes | - | `message1..` |
-| `path` | [Path](concept-jq-path.md) | The path to the portion of the data processor message where data to be serialized is read from. | (see following note) | - | `.payload.gRPCRequest` |
+| `path` | [Path](concept-jq-path.md) | The path to the portion of the Data Processor message where data to be serialized is read from. | (see following note) | - | `.payload.gRPCRequest` |
 
 > [!NOTE]
 > You don't need to specify `path` when you serialize [batched](concept-configuration-patterns.md#batch) data. The default path is `.`, which represents the entire message.
@@ -178,7 +178,7 @@ Use the following configuration options to deserialize CSV data:
 | `type` | `string enum` | The format for deserialization | Yes | - | `CSV` |
 | `header` | `boolean` | This field indicates whether the input data has a CSV header row. | Yes | - | `true` |
 | `columns` | `array` | The schema definition of the CSV to read. | Yes | - | (see following table) |
-| `path` | [Path](concept-jq-path.md) | The path to the portion of the data processor message where the deserialized data should be written. | (see following note) | -| `.payload` |
+| `path` | [Path](concept-jq-path.md) | The path to the portion of the Data Processor message where the deserialized data should be written. | (see following note) | -| `.payload` |
 
 > [!NOTE]
 > You don't need to specify `path` when you deserialize data in the source stage. The deserialized data is automatically placed in the `.payload` section of the message.
@@ -198,7 +198,7 @@ Use the following configuration options to serialize CSV data:
 | `type` | `string enum` | The format for serialization | Yes | - | `CSV` |
 | `header` | `boolean` | This field indicates whether to include the header line with column names in the serialized CSV. | Yes | - | `true` |
 | `columns` | `array` | The schema definition of the CSV to write. | Yes | - | (see following table) |
-| `path` | [Path](concept-jq-path.md) | The path to the portion of the data processor message where data to be serialized is written. | (see following note) | - | `.payload` |
+| `path` | [Path](concept-jq-path.md) | The path to the portion of the Data Processor message where data to be serialized is written. | (see following note) | - | `.payload` |
 
 > [!NOTE]
 > You don't need to specify `path` when you serialize [batched](concept-configuration-patterns.md#batch) data. The default path is `.`, which represents the entire message.
@@ -318,6 +318,6 @@ The following example shows the configuration for deserializing batched CSV data
 
 ## Related content
 
-- [Data processor messages](concept-message-structure.md)
+- [Data Processor messages](concept-message-structure.md)
 - [What is partitioning?](concept-partitioning.md)
 - [What are configuration patterns?](concept-configuration-patterns.md)

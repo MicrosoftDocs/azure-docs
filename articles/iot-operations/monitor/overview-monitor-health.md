@@ -1,6 +1,6 @@
 ---
 title: Monitor service and asset health
-description: Monitor the health of your IoT Operations services and assets. Use custom Grafana dashboards hosted in Azure.
+description: Monitor the health of your Azure IoT Operations services and assets. Use custom Grafana dashboards hosted in Azure.
 author: timlt
 ms.author: timlt
 ms.topic: conceptual #Required.

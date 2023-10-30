@@ -5,7 +5,7 @@ description: Configure TLS with automatic certificate management to secure MQTT 
 author: PatAltimore
 ms.author: patricka
 ms.topic: how-to
-ms.date: 10/16/2023
+ms.date: 10/29/2023
 
 #CustomerIntent: As an operator, I want to configure IoT MQ to use TLS so that I have secure communication between the MQTT broker and client.
 ---
@@ -18,7 +18,7 @@ You can configure TLS to secure MQTT communication between the MQTT broker and c
 
 With automatic certificate management, you use cert-manager to manage the TLS server certificate.
 
-1. Cert-manager is required to manage the TLS server certificate. It must be installed prior to any IoT MQ deployment. However, since cert-manager interacts with cluster-wide resources, it's important to install it **no more than once per cluster**. Don't run the commands above if cert-manager is already installed on the cluster.
+1. Cert-manager is required to manage the TLS server certificate. It must be installed prior to any IoT MQ deployment. However, since cert-manager interacts with cluster-wide resources, it's important to install it **no more than once per cluster**. Don't run the commands if cert-manager is already installed on the cluster.
 
     Install cert-manager with the following commands:
     
@@ -71,13 +71,13 @@ The CA issuer is useful for development and testing. It must be configured with 
 
 ### Set up the root certificate as a Kubernetes secret
 
-If you have an existing CA certificate, create a Kubernetes secret with the CA certificate and private key PEM files, and this step is done.
+If you have an existing CA certificate, create a Kubernetes secret with the CA certificate and private key PEM files. Run the following command and you have set up the root certificate as a Kubernetes secret and can skip the next section.
 
 ```bash
 kubectl create secret tls test-ca --cert ca_cert.pem --key ca_cert_key.pem
 ```
 
-If you don't have a CA certificate, cert-manager can generate a root CA certificate for you. Using cert-manager to generate a root CA certificate is known as [bootstrapping](https://cert-manager.io/docs/configuration/selfsigned/#bootstrapping-ca-issuers) a CA Issuer with a self-signed certificate. 
+If you don't have a CA certificate, cert-manager can generate a root CA certificate for you. Using cert-manager to generate a root CA certificate is known as [bootstrapping](https://cert-manager.io/docs/configuration/selfsigned/#bootstrapping-ca-issuers) a CA issuer with a self-signed certificate. 
 
 1. Start by creating `ca.yaml`:
 
@@ -110,27 +110,27 @@ If you don't have a CA certificate, cert-manager can generate a root CA certific
         size: 256
     ```
     
-Create the self-signed CA certificate with the following command:
+1. Create the self-signed CA certificate with the following command:
 
-```bash
-kubectl apply -f ca.yaml
-```
+    ```bash
+    kubectl apply -f ca.yaml
+    ```
 
-cert-manager creates a CA certificate using its defaults. The properties of this certificate can be changed by modifying the Certificate spec. See [cert-manager documentation](https://cert-manager.io/docs/reference/api-docs/#cert-manager.io/v1.CertificateSpec) for a list of valid options.
+Cert-manager creates a CA certificate using its defaults. The properties of this certificate can be changed by modifying the Certificate spec. See [cert-manager documentation](https://cert-manager.io/docs/reference/api-docs/#cert-manager.io/v1.CertificateSpec) for a list of valid options.
 
 ### Distribute the root certificate
 
-The example above stores the CA certificate in a Kubernetes secret called `test-ca`. The certificate in PEM format can be retrieved with the following command:
+The prior example stores the CA certificate in a Kubernetes secret called `test-ca`. The certificate in PEM format can be retrieved with the following command:
 
 ```bash
 kubectl get secret test-ca -o json | jq -r '.data["tls.crt"]' | base64 -d
 ```
 
-This certificate must be distributed and trusted by all clients (`--cafile` for mosquitto client, for example).
+This certificate must be distributed and trusted by all clients. For example, use `--cafile` switch for a mosquitto client.
 
 ### Create Issuer based on CA certificate
 
-Cert-manager needs an Issuer based on the CA certificate generated or imported in the previous step. Create the following file as `issuer-ca.yaml`:
+Cert-manager needs an issuer based on the CA certificate generated or imported in the earlier step. Create the following file as `issuer-ca.yaml`:
 
 ```yaml
 apiVersion: cert-manager.io/v1
@@ -143,42 +143,42 @@ spec:
     secretName: test-ca
 ```
 
-2. Create the issuer with the following command:
+1. Create the issuer with the following command:
 
-```bash
-kubectl apply -f issuer-ca.yaml
-```
+    ```bash
+    kubectl apply -f issuer-ca.yaml
+    ```
 
-The command above creates an Issuer for issuing the TLS server certificates. Note the name and kind of the Issuer (`e4k-frontend-server` and `Issuer`, respectively, in the example). These values are set in `values.yaml` under `tls.issuerRef` for a configured TLS listener.
+The prior command creates an issuer for issuing the TLS server certificates. Note the name and kind of the issuer. In the example,  name `e4k-frontend-server` and kind `Issuer`. These values are set in `values.yaml` under `tls.issuerRef` for a configured TLS listener.
 
 # [Production](#tab/prod)
 
-For production, check cert-manager documentation to see which Issuer works best for you. For example, with [Vault Issuer](https://developer.hashicorp.com/vault/tutorials/kubernetes/kubernetes-cert-manager):
+For production, check cert-manager documentation to see which issuer works best for you. For example, with [Vault Issuer](https://developer.hashicorp.com/vault/tutorials/kubernetes/kubernetes-cert-manager):
 
-1. Deploy the Vault in an environment of choice, like [Kubernetes](https://developer.hashicorp.com/vault/tutorials/kubernetes/kubernetes-raft-deployment-guide). Initialize and unseal the Vault accordingly.
+1. Deploy the vault in an environment of choice, like [Kubernetes](https://developer.hashicorp.com/vault/tutorials/kubernetes/kubernetes-raft-deployment-guide). Initialize and unseal the vault accordingly.
 1. Create and configure the PKI secrets engine by importing your CA certificate.
-1. Configure Vault with role and policy for issuing server certificates.
+1. Configure vault with role and policy for issuing server certificates.
 
-   The following is an example role. Note `ExtKeyUsageServerAuth` makes the server cert work:
+    The following is an example role. Note `ExtKeyUsageServerAuth` makes the server certificate work:
 
-   ```bash
-   vault write pki/roles/e4k-frontend-server \
-     allow_any_name=true \
-     client_flag=false \
-     ext_key_usage=ExtKeyUsageServerAuth \
-     no_store=true \
-     max_ttl=240h
-   ```
+    ```bash
+    vault write pki/roles/e4k-frontend-server \
+      allow_any_name=true \
+      client_flag=false \
+      ext_key_usage=ExtKeyUsageServerAuth \
+      no_store=true \
+      max_ttl=240h
+    ```
 
-   Example policy for the role:
+    Example policy for the role:
 
-   ```hcl
-   path "pki/sign/e4k-frontend-server" {
-     capabilities = ["create", "update"]
-   }
-   ```
+    ```hcl
+    path "pki/sign/e4k-frontend-server" {
+      capabilities = ["create", "update"]
+    }
+    ```
 
-1. Set up authentication between cert-manager and Vault using a method of choice, like [SAT](https://developer.hashicorp.com/vault/docs/auth/kubernetes).
+1. Set up authentication between cert-manager and vault using a method of choice, like [SAT](https://developer.hashicorp.com/vault/docs/auth/kubernetes).
 1. [Configure the cert-manager Vault Issuer](https://cert-manager.io/docs/configuration/vault/).
 
 ---
@@ -188,7 +188,7 @@ For production, check cert-manager documentation to see which Issuer works best 
 Modify the `tls` setting in a BrokerListener resource to specify a TLS port and Issuer for the frontends.
 
 ```yaml
-apiVersion: az-edge.com/v1alpha3
+apiVersion: mq.iotoperations.azure.com/v1beta1
 kind: BrokerListener
 metadata:
   name: "tls-listener-auto"
@@ -211,7 +211,7 @@ Once the BrokerListener resource is configured, IoT MQ automatically generates t
 
 ### Optional: Configure server certificate parameters
 
-The only required parameters are `issuerRef.name` and `issuerRef.kind`. All properties of the generated TLS server certificates will be automatically chosen. However, IoT MQ allows certain properties to be customized through fields in `values.yaml`. For a full list of customizable settings, see below.
+The only required parameters are `issuerRef.name` and `issuerRef.kind`. All properties of the generated TLS server certificates are automatically chosen. However, IoT MQ allows certain properties to be customized through fields in `values.yaml`. For a full list of customizable settings, see the following example.
 
 ```yaml
 # cert-manager issuer for TLS server certificate. Required.
@@ -256,7 +256,7 @@ $ kubectl get pods
 NAME                                           READY   STATUS    RESTARTS   AGE
 azedge-e4k-operator-5d66b67dcf-d6q7n           1/1     Running   0          3m55s
 azedge-dmqtt-health-manager-0                  1/1     Running   0          3m33s
-azedge-diagnostics-probe-0                     1/1     Running   0          3m30s
+aio-mq-diagnostics-probe-0                     1/1     Running   0          3m30s
 azedge-dmqtt-frontend-64dd945945-scrjv         1/1     Running   0          3m30s
 azedge-dmqtt-backend-1                         1/1     Running   0          3m30s
 azedge-dmqtt-backend-0                         1/1     Running   0          3m30s
@@ -269,11 +269,11 @@ If frontend pods are missing, check operator logs with kubectl to see why.
 kubectl logs azedge-dmqtt-health-manager-0
 ```
 
-Then, if there's an error like:
+If there's an error like:
 
-> User "system:serviceaccount:default:azedge-dmqtt-health-manager" cannot patch resource "certificates" in API group "cert-manager.io" in the namespace "default"
+User "system:serviceaccount:default:azedge-dmqtt-health-manager" cannot patch resource "certificates" in API group "cert-manager.io" in the namespace "default"
 
-This is because IoT MQ wasn't installed with `e4koperator.operator.cert_manager_enabled=true`. To resolve, enable the setting with Helm and try again.
+This error occurs because IoT MQ wasn't installed with `e4koperator.operator.cert_manager_enabled=true`. To resolve, enable the setting with Helm and try again.
 
 ### Connect to the broker with TLS
 
@@ -287,10 +287,10 @@ The `--cafile` argument enables TLS on the mosquitto client and specifies that t
 
 Replace `$HOST` with the appropriate host:
 
-- If connecting from within the same cluster, `azedge-dmqtt-frontend` (recommended) or the service `CLUSTER-IP`.
+- If connecting from within the same cluster, `aio-mq-dmqtt-frontend` is recommended or the service `CLUSTER-IP`.
 - If connecting from outside the cluster, the service `EXTERNAL-IP`.
 
-Remember to specify authentication methods (username, password, etc.) if needed.
+Remember to specify authentication methods if needed. For example, username and password.
 
 ## Related content
 
