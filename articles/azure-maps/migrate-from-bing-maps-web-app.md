@@ -32,7 +32,7 @@ If migrating an existing web application, check to see if it's using an open-sou
 * [Leaflet] – Lightweight 2D map control for the web. [Leaflet code samples] \| [Leaflet plugin]
 * [OpenLayers] - A 2D map control for the web that supports projections. <!--[OpenLayers code samples] \|--> [OpenLayers plugin]
 
-If developing using a JavaScript framework, one of the following open-source projects may be useful:
+If developing using a JavaScript framework, one of the following open-source projects can be useful:
 
 * [ng-azure-maps] - Angular 10 wrapper around Azure maps.
 * [AzureMapsControl.Components] - An Azure Maps Blazor component.
@@ -82,7 +82,7 @@ Azure Maps more [open-source modules for the web SDK] that extend its capabiliti
 The following are some of the key differences between the Bing Maps and Azure Maps Web SDKs to be aware of:
 
 * In addition to providing a hosted endpoint for accessing the Azure Maps Web SDK, an npm package is available for embedding the Web SDK into apps if preferred. For more information, see [Use the Azure Maps map control]. This package also includes TypeScript definitions.
-* Bing Maps provides two hosted branches of their SDK; Release and Experimental. The Experimental branch may receive multiple updates a day when new development is taking place. Azure Maps only hosts a release branch, however experimental features are created as custom modules in the open-source Azure Maps code samples project. Bing Maps used to have a frozen branch as well that was updated less frequently, thus reducing the risk of breaking changes due to a release. In Azure Maps, you can use the npm module and point to any previous minor version release.
+* Bing Maps provides two hosted branches of their SDK; Release and Experimental. The Experimental branch can receive multiple updates a day when new development is taking place. Azure Maps only hosts a release branch, however experimental features are created as custom modules in the open-source Azure Maps code samples project. Bing Maps used to have a frozen branch as well that was updated less frequently, thus reducing the risk of breaking changes due to a release. In Azure Maps, you can use the npm module and point to any previous minor version release.
 
 > [!TIP]
 > Azure Maps publishes both minified and unminified versions of the SDK. Simply remove `.min` from the file names. The unminified version is useful when debugging issues but be sure to use the minified version in production to take advantage of the smaller file size.
@@ -389,7 +389,7 @@ map.markers.add(new atlas.HtmlMarker({
 }));
 ```
 
-:::image type="content" source="./media/migrate-bing-maps-web-app/azure-maps-html-marker.jpg" lightbox="./media/migrate-bing-maps-web-app/azure-maps-html-marker.jpg" alt-text="Screenshot showing an Azure Maps map with a blue pushpin with the number ten.":::
+:::image type="content" source="./media/migrate-bing-maps-web-app/azure-maps-html-marker.jpg" lightbox="./media/migrate-bing-maps-web-app/azure-maps-html-marker.jpg" alt-text="Screenshot showing an Azure Maps map with a blue pushpin with the number 10.":::
 
 **After: Azure Maps using a Symbol Layer**
 
@@ -453,7 +453,7 @@ When using a Symbol layer, the data must be added to a data source, and the data
 </html>
 ```
 
-:::image type="content" source="./media/migrate-bing-maps-web-app/azure-maps-html-marker.jpg" lightbox="./media/migrate-bing-maps-web-app/azure-maps-html-marker.jpg" alt-text="Screenshot showing an Azure Maps map with a blue pushpin with the number ten.":::
+:::image type="content" source="./media/migrate-bing-maps-web-app/azure-maps-html-marker.jpg" lightbox="./media/migrate-bing-maps-web-app/azure-maps-html-marker.jpg" alt-text="Screenshot showing an Azure Maps map with a blue pushpin with the number 10.":::
 
 **More resources**
 
@@ -515,7 +515,7 @@ map.markers.add(new atlas.HtmlMarker({
 
 Symbol layers in Azure Maps support custom images as well, but the image needs to be loaded into the map resources first and assigned a unique ID. The symbol layer can then reference this ID. The symbol can be offset to align to the correct point on the image by using the icon `offset` option. In Azure Maps, an `anchor` option is used to specify the relative position of the symbol relative to the position coordinate using one of nine defined reference points; "center", "top", "bottom", "left", "right", "top-left", "top-right", "bottom-left", "bottom-right". The content is anchored and set to "bottom" by default that is the bottom center of the HTML content. To make it easier to migrate code from Bing Maps, set the anchor to "top-left", and then use the `offset` option with the same offset used in Bing Maps. The offsets in Azure Maps move in the opposite direction of Bing Maps, so multiply them by minus one.
 
-```javascript
+```html
 <!DOCTYPE html>
 <html>
 <head>
@@ -686,7 +686,7 @@ layer.add(polygon);
 map.layers.insert(layer);
 ```
 
-<!-- ![Bing Maps polyogn](media/migrate-bing-maps-web-app/azure-maps-polygon.jpg) -->
+![Bing Maps polyogn](media/migrate-bing-maps-web-app/bing-maps-polygon.jpg)
 
 **After: Azure Maps**
 
@@ -917,7 +917,7 @@ The `DataSource` class has the following helper function for accessing additiona
 
 | Function       | Return type        | Description     |
 |----------------|--------------------|-----------------|
-| `getClusterChildren(clusterId: number)`                              | `Promise<Feature<Geometry, any> | Shape>` | Retrieves the children of the given cluster on the next zoom level. These children may be a combination of shapes and subclusters. The subclusters are features with properties matching cluster properties. |
+| `getClusterChildren(clusterId: number)`                              | `Promise<Feature<Geometry, any> | Shape>` | Retrieves the children of the given cluster on the next zoom level. These children can be a combination of shapes and subclusters. The subclusters are features with properties matching cluster properties. |
 | `getClusterExpansionZoom(clusterId: number)`                         | `Promise<number>`                            | Calculates a zoom level that the cluster starts expanding or break apart.    |
 | `getClusterLeaves(clusterId: number, limit: number, offset: number)` | `Promise<Feature<Geometry, any> | Shape>` | Retrieves all points in a cluster. Set the `limit` to return a subset of the points and use the `offset` to page through the points.    |
 
@@ -1354,7 +1354,7 @@ In Azure Maps, georeferenced images can be overlaid using the `atlas.layer.Image
 </html>
 ```
 
-![Azure Maps ground overlay](media/migrate-bing-maps-web-app/azure-maps-ground-overlay.jpg)
+:::image type="content" source="./media/migrate-bing-maps-web-app/azure-maps-ground-overlay.jpg" lightbox="./media/migrate-bing-maps-web-app/azure-maps-ground-overlay.jpg" alt-text="Screenshot showing the Azure Maps with an imaged overlaid over part of it.":::
 
 **More resources**
 
@@ -1711,7 +1711,6 @@ Learn more about migrating from Bing Maps to Azure Maps.
 [atlas.io.read function]: /javascript/api/azure-maps-spatial-io/atlas.io#read-string---arraybuffer---blob--spatialdatareadoptions-
 [atlas.layer.ImageLayer.getCoordinatesFromEdges]: /javascript/api/azure-maps-control/atlas.layer.imagelayer#getcoordinatesfromedges-number--number--number--number--number-
 [atlas.Shape]: /javascript/api/azure-maps-control/atlas.shape
-[Azure AD]: azure-maps-authentication.md#azure-ad-authentication
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [Azure Maps Glossary]: glossary.md
 [Azure Maps React Component]: https://github.com/WiredSolutions/react-azure-maps
