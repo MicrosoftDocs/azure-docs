@@ -220,7 +220,7 @@ sections:
       - question: |
           How can I try before purchasing this VM series? Is preview still available?  
         answer: |
-          The preview period for this offer has ended, and it is now generally available for purchase. You can request a quota for one of the available Azure regions to try out the new NVMe Ebsv5 or Ebdsv5 sizes. Refer to the list of regions where NVMe sizes will be available, in this FAQ.  
+          The preview period for this offer has ended, and it is now generally available for purchase. You can request a quota for one of the available Azure regions to try out the new NVMe Ebsv5 or Ebdsv5 sizes.
   - name: Known Issues
     questions:
       - question: |
