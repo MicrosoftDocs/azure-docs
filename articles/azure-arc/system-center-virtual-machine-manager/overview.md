@@ -1,7 +1,7 @@
 ---
 title:  Overview of the Azure Connected System Center Virtual Machine Manager 
 description: This article provides a detailed overview of the Azure Arc-enabled System Center Virtual Machine Manager.
-ms.date: 11/15/2023
+ms.date: 10/30/2023
 ms.topic: conceptual
 ms.services: azure-arc
 ms.subservice: azure-arc-scvmm
@@ -68,10 +68,16 @@ Azure Arc-enabled SCVMM works with VMM 2016, 2019 and 2022 versions and supports
 Azure Arc-enabled SCVMM is currently supported in the following regions:
 
 - East US
-- West US2
 - East US2
-- West Europe
+- West US2
+- West US3
+- South Central US
+- UK South
 - North Europe
+- West Europe
+- Sweden Central
+- Southeast Asia
+- Australia East
 
 ### Resource bridge networking requirements
 
