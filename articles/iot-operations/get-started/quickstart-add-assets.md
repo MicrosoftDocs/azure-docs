@@ -35,7 +35,7 @@ To create asset endpoints, assets and subscribe to OPC UA tags and events, use t
 
 When you sign in, select **Get started**. The portal displays the list of Kubernetes clusters that you have access to. Use the cluster that you deployed Azure IoT Operations to in the previous quickstart. Select the cluster that you want to use:
 
-:::image type="content" source="media/cluster-list.png" alt-text="Screenshot of Azure IoT Operations cluster list.":::
+:::image type="content" source="media/quickstart-add-assets/cluster-list.png" alt-text="Screenshot of Azure IoT Operations cluster list.":::
 
 > [!TIP]
 > If you don't see any clusters, you might not be in the right Azure Active Directory tenant. You can change the tenant from the top right menu in the portal. If you still don't see any clusters, that means you are not added to any yet. Reach out to your IT administrator to give you access to the Azure resource group the Kubernetes cluster belongs to from Azure portal. You must be in the _contributor_ role.
@@ -48,7 +48,7 @@ To add an asset endpoint:
 
 1. Select **Asset endpoints** and then **Create asset endpoint**:
 
-    :::image type="content" source="media/asset-endpoints.png" alt-text="Screenshot that shows the asset endpoints page in the Azure IoT Operations portal.":::
+    :::image type="content" source="media/quickstart-add-assets/asset-endpoints.png" alt-text="Screenshot that shows the asset endpoints page in the Azure IoT Operations portal.":::
 
 1. Enter the following endpoint information:
 
@@ -69,7 +69,7 @@ When the OPC PLC simulator is running, data flows from the simulator, to the con
 
 After you select your cluster in Azure IoT Operations portal, you see the available list of assets on the **Assets** page. If there are no assets yet, this list is empty:
 
-:::image type="content" source="media/create-asset-empty.png" alt-text="Screenshot of Azure IoT Operations empty asset list.":::
+:::image type="content" source="media/quickstart-add-assets/create-asset-empty.png" alt-text="Screenshot of Azure IoT Operations empty asset list.":::
 
 ### Create an asset
 
@@ -83,7 +83,7 @@ Enter the following asset information:
 | Asset Endpoint | `opc-ua-connector-0` |
 | Description | `A simulated thermostat asset` |
 
-:::image type="content" source="media/create-asset-details.png" alt-text="Screenshot of Azure IoT Operations asset details page.":::
+:::image type="content" source="media/quickstart-add-assets/create-asset-details.png" alt-text="Screenshot of Azure IoT Operations asset details page.":::
 
 Scroll down on the **Asset details** page and add any additional information for the asset that you want to include such as:
 
@@ -111,7 +111,7 @@ The **Observability mode** is one of: none, gauge, counter, histogram, or log.
 
 You can override the default sampling interval and queue size for each tag.
 
-:::image type="content" source="media/add-tag.png" alt-text="Screenshot of Azure IoT Operations add tag page.":::
+:::image type="content" source="media/quickstart-add-assets/add-tag.png" alt-text="Screenshot of Azure IoT Operations add tag page.":::
 
 Select **Next** to go to the **Events** page and then **Next** to go to the **Review** page.
 
@@ -119,7 +119,7 @@ Select **Next** to go to the **Events** page and then **Next** to go to the **Re
 
 Review your asset and tag details and make any adjustments you need before you select **Create**:
 
-:::image type="content" source="media/review-asset.png" alt-text="Screenshot of Azure IoT Operations create asset review page.":::
+:::image type="content" source="media/quickstart-add-assets/review-asset.png" alt-text="Screenshot of Azure IoT Operations create asset review page.":::
 
 ## How did we solve the problem?
 
