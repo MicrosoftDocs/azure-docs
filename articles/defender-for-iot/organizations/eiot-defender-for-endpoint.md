@@ -29,7 +29,7 @@ Make sure that you have:
 
     - A Microsoft 365 E5 (ME5) or E5 Security license
 
-    - Microsoft Defender for Endpoint P2, with an additional, standalone **Microsoft Defender for IoT – Enterprise IoT Device Add-on** license, available for purchase from the Microsoft 365 admin center. 
+    - Microsoft Defender for Endpoint P2, with an extra, standalone **Microsoft Defender for IoT – Enterprise IoT Device Add-on** license, available for purchase from the Microsoft 365 admin center. 
 
     > [!TIP]
     > If you have this license, you don't need to toggle on **Enterprise IoT Security** and can skip directly to [View added security value in Microsoft 365 Defender](#view-added-security-value-in-microsoft-365-defender).
@@ -49,7 +49,9 @@ Skip this procedure if you have one of the following types of licensing plans:
 
 1. In [Microsoft 365 Defender](https://security.microsoft.com/), select **Settings** \> **Device discovery** \> **Enterprise IoT**.
 
-1. Toggle the Enterprise IoT security option to **On**. 
+1. Toggle the Enterprise IoT security option to **On**. For example:
+
+    :::image type="content" source="media/enterprise-iot/eiot-toggle-on.png" alt-text="Screenshot of Enterprise IoT toggled on in Microsoft 365 Defender.":::
 
 ## View added security value in Microsoft 365 Defender
 

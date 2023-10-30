@@ -36,7 +36,7 @@ Before performing the procedures in this article, make sure that you have:
 
     - **In Microsoft Entra ID**: [Global administrator](../../active-directory/roles/permissions-reference.md#global-administrator) for your Microsoft 365 tenant
 
-    - **In Azure RBAC**:  [Security admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner) for the Azure subscription that you'll be using for the integration
+    - **In Azure RBAC**:  [Security admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner) for the Azure subscription that you're using for the integration
 
 ## Obtain a trial license
 
@@ -58,7 +58,7 @@ For more information, see [Free trial](billing.md#free-trial).
 
 Use the following procedure to calculate how many devices you need to monitor if:
 
-- You're an ME5/E5 Security customer and thinks you'll need to monitor more devices than the devices allocated per ME5/E5 Security license
+- You're an ME5/E5 Security customer and thinks you need to monitor more devices than the devices allocated per ME5/E5 Security license
 - You're a Defender for Endpoint P2 customer who's purchasing standalone enterprise IoT licenses
 
 **To calculate the number of devices you're monitoring:**:
@@ -77,9 +77,9 @@ For example:
 
 - In the Microsoft 365 Defender **Device inventory**, you have *473* network devices and *1206* IoT devices.
 - Added together, the total is *1679* devices.
-- You have 320 ME5 licenses, which covers **1600** devices
+- You have 320 ME5 licenses, which cover **1600** devices
 
-You'll need **79** standalone devices to cover the gap.
+You need **79** standalone devices to cover the gap.
 
 For more information, see the [Defender for Endpoint Device discovery overview](/microsoft-365/security/defender-endpoint/device-discovery).
 
@@ -88,7 +88,7 @@ For more information, see the [Defender for Endpoint Device discovery overview](
 
 ## Purchase standalone licenses
 
-Purchase standalone, per-device licenses if you are an ME5/E5 Security customer who needs more than the 5 devices allocated per license, or if you're a Defender for Endpoint customer who wants to add enterprise IoT security to your organization.
+Purchase standalone, per-device licenses if you're an ME5/E5 Security customer who needs more than the five devices allocated per license, or if you're a Defender for Endpoint customer who wants to add enterprise IoT security to your organization.
 
 **To purchase standalone licenses**:
 
@@ -104,7 +104,7 @@ For more information, see the [Microsoft 365 admin center help](/microsoft-365/a
 
 This procedure describes how to turn off enterprise IoT monitoring in Microsoft 365 Defender, and is supported only for customers who don't have any standalone, per-device licenses added on to Microsoft 365 Defender.
 
-Turn off the **Enterprise IoT security** option if you are no longer using the service. 
+Turn off the **Enterprise IoT security** option if you're no longer using the service. 
 
 **To turn off enterprise IoT monitoring**:
 
@@ -112,7 +112,7 @@ Turn off the **Enterprise IoT security** option if you are no longer using the s
 
 1. Toggle the option to **Off**.
 
-You'll stop getting security value in Microsoft 365 Defender, including purpose-built alerts, vulnerabilities, and recommendations.
+You stop getting security value in Microsoft 365 Defender, including purpose-built alerts, vulnerabilities, and recommendations.
 
 ### Cancel a legacy Enterprise IoT plan
 
@@ -124,7 +124,7 @@ If you have a legacy Enterprise IoT plan, are *not* an ME5/E5 Security customer,
 
 After you cancel your plan, the integration stops and you'll no longer get added security value in Microsoft 365 Defender, or detect new Enterprise IoT devices in Defender for IoT.
 
-The cancellation takes effect one hour after confirming the change.  This change will appear on your next monthly statement, and you will be charged based on the length of time the plan was in effect.
+The cancellation takes effect one hour after confirming the change.  This change appears on your next monthly statement, and you're charged based on the length of time the plan was in effect.
 
 > [!IMPORTANT]
 >

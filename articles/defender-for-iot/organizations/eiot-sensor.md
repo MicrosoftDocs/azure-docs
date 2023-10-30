@@ -12,7 +12,7 @@ This article describes how to register an Enterprise IoT network sensor in Micro
 
 Microsoft 365 Defender customers with an Enterprise IoT network sensor can see all discovered devices in the **Device inventory** in either Microsoft 365 Defender or Defender for IoT. You'll also get extra security value from more alerts, vulnerabilities, and recommendations in Microsoft 365 Defender for the newly discovered devices.
 
-If you're a Defender for IoT customer working solely in the Azure portal, an Enterprise IoT network sensor provides extra device visibility to Enterprise IoT devices, such as Voice over Internet Protocol (VoIP) devices, printers, and cameras, which may not be covered by your OT network sensors.
+If you're a Defender for IoT customer working solely in the Azure portal, an Enterprise IoT network sensor provides extra device visibility to Enterprise IoT devices, such as Voice over Internet Protocol (VoIP) devices, printers, and cameras, which might not be covered by your OT network sensors.
 
 Defender for IoT [alerts](how-to-manage-cloud-alerts.md) and [recommendations](recommendations.md) for devices discovered by the Enterprise IoT sensor only are available only in the Azure portal.
 
@@ -35,7 +35,7 @@ This section describes the prerequisites required before deploying an Enterprise
 
 ### Network requirements
 
-- Identify the devices and subnets you want to monitor so that you understand where to place an Enterprise IoT sensor in your network. You may want to deploy multiple Enterprise IoT sensors.
+- Identify the devices and subnets you want to monitor so that you understand where to place an Enterprise IoT sensor in your network. You might want to deploy multiple Enterprise IoT sensors.
 
 - Configure traffic mirroring in your network so that the traffic you want to monitor is mirrored to your Enterprise IoT sensor. Supported traffic mirroring methods are the same as for OT monitoring. For more information, see [Choose a traffic mirroring method for traffic monitoring](best-practices/traffic-mirroring-methods.md).
 
@@ -76,7 +76,7 @@ This procedure describes how to prepare your physical appliance or VM to install
 
     The system displays a list of all monitored interfaces.
 
-    Identify the interfaces that you want to monitor, which are usually the interfaces with no IP address listed. Interfaces with incoming traffic will show an increasing number of RX packets.
+    Identify the interfaces that you want to monitor, which are usually the interfaces with no IP address listed. Interfaces with incoming traffic show an increasing number of RX packets.
 
 1. For each interface you want to monitor, run the following command to enable *Promiscuous mode* in the network adapter:
 
@@ -107,7 +107,7 @@ This procedure describes how to prepare your physical appliance or VM to install
 
 ## Register an Enterprise IoT sensor in Defender for IoT
 
-This section describes how to register an Enterprise IoT sensor in Defender for IoT. When you're done registering your sensor, you'll continue on with installing the Enterprise IoT monitoring software on your sensor machine.
+This section describes how to register an Enterprise IoT sensor in Defender for IoT. When you're done registering your sensor, you continue on with installing the Enterprise IoT monitoring software on your sensor machine.
 
 **To register a sensor in the Azure portal**:
 
@@ -124,7 +124,7 @@ This section describes how to register an Enterprise IoT sensor in Defender for 
 
     :::image type="content" source="media/tutorial-get-started-eiot/successful-registration.png" alt-text="Screenshot of the successful registration of an Enterprise IoT sensor.":::
 
-1. Copy the command to a safe location, where you'll be able to copy it to your physical appliance or VM in order to [install sensor software](#install-enterprise-iot-sensor-software).
+1. Copy the command to a safe location, where you're able to copy it to your physical appliance or VM in order to [install sensor software](#install-enterprise-iot-sensor-software).
 
 ## Install Enterprise IoT sensor software
 
@@ -177,7 +177,7 @@ In the **Sites and sensors** page, Enterprise IoT sensors are all automatically 
 
 Once you've validated your setup, the Defender for IoT **Device inventory** page will start to populate with new devices detected by your sensor after 15 minutes.
 
-If you're a Defender for Endpoint customer with a [legacy Enterprise IoT plan](whats-new.md#enterprise-iot-protection-now-included-in-microsoft-365-e5-and-e5-security-licenses), you'll be able to view all detected devices in the **Device inventory** pages, in both Defender for IoT and Microsoft 365 Defender. Detected devices include both devices detected by Defender for Endpoint and devices detected by the Enterprise IoT sensor.
+If you're a Defender for Endpoint customer with a [legacy Enterprise IoT plan](whats-new.md#enterprise-iot-protection-now-included-in-microsoft-365-e5-and-e5-security-licenses), you're able to view all detected devices in the **Device inventory** pages, in both Defender for IoT and Microsoft 365 Defender. Detected devices include both devices detected by Defender for Endpoint and devices detected by the Enterprise IoT sensor.
 
 For more information, see [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md) and [Microsoft 365 Defender device discovery](/microsoft-365/security/defender-endpoint/machines-view-overview).
 

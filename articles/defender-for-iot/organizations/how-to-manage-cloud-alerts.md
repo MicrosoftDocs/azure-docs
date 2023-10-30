@@ -57,7 +57,7 @@ For more information, see [Azure user roles and permissions for Defender for IoT
         | **Destination device** | The destination IP or MAC address, or the destination device name.|
         | **First detection** | The first time the alert was detected in the network. |
         | **ID** |The unique alert ID.|
-        | **Last activity** | The last time the alert was changed, including manual updates for severity or status, or automated changes for device updates or device/alert de-duplication |
+        | **Last activity** | The last time the alert was changed, including manual updates for severity or status, or automated changes for device updates or device/alert deduplication |
         | **Protocol** | The protocol detected in the network traffic for the alert.|
         | **Sensor** |  The sensor that detected the alert.|
         | **Zone** | The zone assigned to the sensor that detected the alert.|
@@ -76,7 +76,7 @@ For example, filter alerts by **Category**:
 
 Use the **Group by** menu at the top-right to collapse the grid into subsections according to specific parameters.
 
-For example, while the total number of alerts appears above the grid, you may want more specific information about alert count breakdown, such as the number of alerts with a specific severity, protocol, or site.
+For example, while the total number of alerts appears above the grid, you might want more specific information about alert count breakdown, such as the number of alerts with a specific severity, protocol, or site.
 
 Supported grouping options include *Engine*, *Name*, *Sensor*, *Severity*, and *Site*.
 
@@ -135,7 +135,7 @@ Downloading the PCAP file can take several minutes, depending on the quality of 
 
 ## Export alerts to a CSV file
 
-You may want to export a selection of alerts to a CSV file for offline sharing and reporting.
+You might want to export a selection of alerts to a CSV file for offline sharing and reporting.
 
 1. In [Defender for IoT](https://portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) on the Azure portal, select the **Alerts** page on the left.
 

@@ -24,15 +24,15 @@ Features released earlier than nine months ago are described in the [What's new 
 
 ### Enterprise IoT protection now included in Microsoft 365 E5 and E5 Security licenses
 
-Enterprise IoT (EIoT) security with Defender for IoT discovers un-managed IoT devices and also provides added security value, including continuous monitoring, vulnerability assessments and tailored recommendations specifically designed for Enterprise IoT devices. Seamlessly integrated with Microsoft 365 Defender, Microsoft Defender Vulnerability Management, and Microsoft Defender for Endpoint on the M365 Defender portal, it ensures a holistic approach to safeguarding an organization's network.
+Enterprise IoT (EIoT) security with Defender for IoT discovers unmanaged IoT devices and also provides added security value, including continuous monitoring, vulnerability assessments and tailored recommendations specifically designed for Enterprise IoT devices. Seamlessly integrated with Microsoft 365 Defender, Microsoft Defender Vulnerability Management, and Microsoft Defender for Endpoint on the Microsoft 365 Defender portal, it ensures a holistic approach to safeguarding an organization's network.
 
-Defender for IoT EIoT monitoring is now automatically supported as part of the Microsoft 365 E5 (ME5) and E5 Security plans, covering up to 5 devices per user license. For example, if your organization possesses 500 ME5 licenses, you can use Defender for IoT to monitor up to 2500 EIoT devices. This integration represents a significant leap toward fortifying your IoT ecosystem within the Microsoft 365 environment.
+Defender for IoT EIoT monitoring is now automatically supported as part of the Microsoft 365 E5 (ME5) and E5 Security plans, covering up to five devices per user license. For example, if your organization possesses 500 ME5 licenses, you can use Defender for IoT to monitor up to 2500 EIoT devices. This integration represents a significant leap toward fortifying your IoT ecosystem within the Microsoft 365 environment.
 
 - **Customers who have ME5 or E5 Security plans but aren't yet using Defender for IoT for their EIoT devices** must [toggle on support](eiot-defender-for-endpoint.md) in the Microsoft 365 Defender portal.
 
 - **New customers** without an ME5 or E5 Security plan can purchase a standalone, **Microsoft Defender for IoT – Enterprise IoT Device Add-on** license, as an add-on to Microsoft Defender for Endpoint P2. Purchase standalone licenses from the Microsoft admin center.
 
-- **Existing customers with both legacy Enterprise IoT plans and ME5/E5 Security plans** are automatically switched to the new licensing method. Enterprise IoT monitoring is now bundled into your license, at no additional charge, and with no action item required from you.
+- **Existing customers with both legacy Enterprise IoT plans and ME5/E5 Security plans** are automatically switched to the new licensing method. Enterprise IoT monitoring is now bundled into your license, at no extra charge, and with no action item required from you.
 
 - **Customers with legacy Enterprise IoT plans and no ME5/E5 Security plans** can continue to use their existing plans until the plans expire.
 
@@ -340,7 +340,7 @@ For more information, see [Malware engine alerts](alert-engine-messages.md#malwa
 
 Starting in version 22.3.6, selected notifications on the OT sensor's **Device map** page are now automatically resolved if they aren't dismissed or otherwise handled within 14 days.
 
-After updating your sensor version, the **Inactive devices** and **New OT devices** notifications no longer appear. While any **Inactive devices** notifications that are left over from before the update are automatically dismissed, you may still have legacy **New OT devices** notifications to handle. Handle these notifications as needed to remove them from your sensor.
+After updating your sensor version, the **Inactive devices** and **New OT devices** notifications no longer appear. While any **Inactive devices** notifications that are left over from before the update are automatically dismissed, you might still have legacy **New OT devices** notifications to handle. Handle these notifications as needed to remove them from your sensor.
 
 For more information, see [Manage device notifications](how-to-work-with-the-sensor-device-map.md#manage-device-notifications).
 
@@ -742,7 +742,7 @@ For more information, see [Install OT agentless monitoring software](how-to-inst
 
 Starting in OT sensor versions 22.2.4, you can now take the following actions from the sensor console's **Device inventory** page:
 
-- **Merge duplicate devices**. You may need to merge devices if the sensor has discovered separate network entities that are associated with a single, unique device. Examples of this scenario might include a PLC with four network cards, a laptop with both WiFi and a physical network card, or a single workstation with multiple network cards.
+- **Merge duplicate devices**. You might need to merge devices if the sensor has discovered separate network entities that are associated with a single, unique device. Examples of this scenario might include a PLC with four network cards, a laptop with both WiFi and a physical network card, or a single workstation with multiple network cards.
 
 - **Delete single devices**. Now, you can delete a single device that hasn't communicated for at least 10 minutes.
 
@@ -1142,7 +1142,7 @@ For more information, see [Defender for IoT installation](how-to-install-softwar
 
 To use all of Defender for IoT's latest features, make sure to update your sensor software versions to 22.1.x.
 
-If you're on a legacy version, you may need to run a series of updates in order to get to the latest version. You'll also need to update your firewall rules and reactivate your sensor with a new activation file.
+If you're on a legacy version, you might need to run a series of updates in order to get to the latest version. You'll also need to update your firewall rules and reactivate your sensor with a new activation file.
 
 After you've upgraded to version 22.1.x, the new upgrade log can be found at the following path, accessed via SSH and the *cyberx_host* user: `/opt/sensor/logs/legacy-upgrade.log`.
 

@@ -62,7 +62,7 @@ For more information, see:
 
 When you've deployed Defender for IoT at scale, with several OT sensors, each sensor might detect different aspects of the same device. To prevent duplicated devices in your device inventory, Defender for IoT assumes that any devices found in the same zone, with a logical combination of similar characteristics, is the same device. Defender for IoT automatically consolidates these devices and lists them only once in the device inventory.
 
-For example, any devices with the same IP and MAC address detected in the same zone are consolidated and identified as a single device in the device inventory. If you have separate devices from recurring IP addresses that are detected by multiple sensors, you'll want each of these devices to be identified separately. In such cases, [onboard your OT sensors](onboard-sensors.md) to different zones so that each device is identified as a separate and unique device, even if they have the same IP address. Devices that have the same MAC addresses, but different IP addresses are not merged, and continue to be listed as unique devices.
+For example, any devices with the same IP and MAC address detected in the same zone are consolidated and identified as a single device in the device inventory. If you have separate devices from recurring IP addresses that are detected by multiple sensors, you want each of these devices to be identified separately. In such cases, [onboard your OT sensors](onboard-sensors.md) to different zones so that each device is identified as a separate and unique device, even if they have the same IP address. Devices that have the same MAC addresses, but different IP addresses aren't merged, and continue to be listed as unique devices.
 
 A *transient* device type indicates a device that was detected for only a short time. We recommend investigating these devices carefully to understand their impact on your network.
 
@@ -103,7 +103,7 @@ The following table lists the columns available in the Defender for IoT device i
 
 |Name  |Description
 |---------|---------|
-|**Authorization** *   |Editable. Determines whether or not the device is marked as *authorized*. This value may need to change as the device security changes.  |
+|**Authorization** *   |Editable. Determines whether or not the device is marked as *authorized*. This value might need to change as the device security changes.  |
 |**Business Function**     | Editable. Describes the device's business function. |
 | **Class** | Editable. The device's class. <br>Default: `IoT` |
 |**Data source** | The source of the data, such as a micro agent, OT sensor, or Microsoft Defender for Endpoint. <br>Default: `MicroAgent`|
