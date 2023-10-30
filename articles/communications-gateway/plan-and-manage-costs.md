@@ -6,7 +6,7 @@ ms.author: rdunstan
 ms.custom: subject-cost-optimization
 ms.service: communications-gateway
 ms.topic: how-to
-ms.date: 10/09/2023
+ms.date: 10/27/2023
 ---
 
 # Plan and manage costs for Azure Communications Gateway
@@ -39,12 +39,7 @@ When you deploy Azure Communications Gateway, you're charged for how you use the
 For example, if you have 28,000 users assigned to the deployment each month, you're charged for:
 * The service availability fee for each hour in the month
 * 24,001 users in the 1000-25000 tier
-* 3000 users in the 25001-100000 tier
-
-> [!TIP]
-> If you receive a quote through Microsoft Volume Licensing, pricing may be presented as aggregated so that the values are easily readable (for example showing the per-user meters in groups of 10 or 100 rather than the pricing for individual users). This does not impact the way you will be billed.
-
-If you choose to deploy the Number Management Portal by selecting the API Bridge option, you'll also be charged for the Number Management Portal. Fees work in the same way as the other meters: a service fee meter and a per-user meter. The number of users charged for the Number Management Portal is always the same as the number of users charged on the other Azure Communications Gateway meters.
+* 3000 users in the 25000+ tier
 
 > [!NOTE]
 > A Microsoft Teams Direct Routing user is any telephone number configured with Direct Routing on Azure Communications Gateway. Billing for the user starts as soon as you have configured the number.
@@ -58,6 +53,9 @@ If you choose to deploy the Number Management Portal by selecting the API Bridge
 > Azure Communications Gateway does not charge for Telephone Numbers (TNs) that are not "assigned" in the Operator Connect environment.
 
 At the end of your billing cycle, the charges for each meter are summed. Your bill or invoice shows a section for all Azure Communications Gateway costs. There's a separate line item for each meter.
+
+> [!TIP]
+> If you receive a quote through Microsoft Volume Licensing, pricing may be presented as aggregated so that the values are easily readable (for example showing the per-user meters in groups of 10 or 100 rather than the pricing for individual users). This does not impact the way you will be billed.
 
 If you've arranged any custom work with Microsoft, you might be charged an extra fee for that work. That fee isn't included in these meters.
 
