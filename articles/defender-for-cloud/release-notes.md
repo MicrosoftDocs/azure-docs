@@ -2,7 +2,7 @@
 title: Release notes
 description: This page is updated frequently with the latest updates in Defender for Cloud.
 ms.topic: overview
-ms.date: 10/29/2023
+ms.date: 10/30/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -31,9 +31,9 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 ## Changing adaptive application controls security alert's severity
 
-Announcement date: October 29, 2023
+Announcement date: October 30, 2023
 
-As part of security alert quality improvement process of Defender for Servers, and as part of the [adaptive application controls](adaptive-application-controls.md) feature, the severity of the following security alert is going to be changed to “Informational”:
+As part of security alert quality improvement process of Defender for Servers, and as part of the [adaptive application controls](adaptive-application-controls.md) feature, the severity of the following security alert is changing to “Informational”:
 
 | Alert [Alert Type] | Alert Description |
 |--|--|
