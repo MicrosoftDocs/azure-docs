@@ -11,7 +11,7 @@ ms.custom: event-tier1-build-2022, engagement-fy23
 
 # Integrate Azure SQL Database with Service Connector
 
-This page shows supported authentication methods and clients, and shows sample code you can use to connect compute services to Azure SQL Database using Service Connector. You may still be able to connect to App Configuration using other methods. For more information about naming conventions, check the [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article.
+This page shows supported authentication methods and clients, and shows sample code you can use to connect compute services to Azure SQL Database using Service Connector. You might still be able to connect to App Configuration using other methods. For more information about naming conventions, check the [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article.
 
 ## Supported compute services
 
