@@ -113,14 +113,6 @@ Create a topic that's used to hold all events published to the namespace endpoin
     az resource create --resource-group $resource_group --namespace Microsoft.EventGrid --resource-type topics --name $topic --parent namespaces/$namespace --properties "{}"
     ```
 
-## Enable managed identity in the Event Grid namespace
-
-Enable system assigned managed identity in the Event Grid namespace.
-
-```azurecli-interactive
-az eventgrid namespace update --resource-group $resource_group --name $namespace --identity {type:systemassigned}
-```
-
 ## Create a new Event Hubs resource
 
 Create an Event Hubs resource that will be used as the handler destination for the namespace topic push delivery subscription.
@@ -137,24 +129,43 @@ eventHubsEventHub="<your-event-hub-name>"
 az eventhubs eventhub create --resource-group $resourceGroup --namespace-name $eventHubsNamespace --name $eventHubsEventHub --partition-count 1
 ```
 
-## Add role assignment in Event Hubs for the Event Grid system managed identity
+## Deliver events to Event Hubs using managed identity
+
+To deliver events to event hubs in your Event Hubs namespace using managed identity, follow these steps:
+
+1. Enable system-assigned or user-assigned managed identity: [namespaces](event-grid-namespace-managed-identity.md), continue reading to the next section to find how to enable managed identity using Azure CLI.
+1. [Add the identity to the **Azure Event Hubs Data Sender** role  on the Event Hubs namespace](../event-hubs/authenticate-managed-identity.md#to-assign-azure-roles-using-the-azure-portal), continue reading to the next section to find how to add the role assignment.
+1. [Enable the **Allow trusted Microsoft services to bypass this firewall** setting on your Event Hubs namespace](../event-hubs/event-hubs-service-endpoints.md#trusted-microsoft-services).
+1. Configure the event subscription that uses an event hub as an endpoint to use the system-assigned or user-assigned managed identity.
+
+## Enable managed identity in the Event Grid namespace
+
+Enable system assigned managed identity in the Event Grid namespace.
+
+```azurecli-interactive
+az eventgrid namespace update --resource-group $resource_group --name $namespace --identity {type:systemassigned}
+```
+
+## Add role assignment in Event Hubs for the Event Grid managed identity
 
 1. Get Event Grid namespace system managed identity principal ID.
 
     ```azurecli-interactive
     principalId=(az eventgrid namespace show --resource-group $resource_group --name $namespace --query identity.principalId -o tsv)
     ```
+
 2. Get Event Hubs event hub resource ID.
 
     ```azurecli-interactive
     eventHubResourceId=(az eventhubs eventhub show --resource-group $resource_group --namespace-name $eventHubsNamespace --name $eventHubsEventHub --query id -o tsv)
     ```
+
 3. Add role assignment in Event Hubs for the Event Grid system managed identity.
 
     ```azurecli-interactive
     az role assignment create --role "Azure Event Hubs Data Sender" --assignee $principalId --scope $eventHubResourceId
     ```
-    
+
 ## Create an event subscription
 
 Create a new push delivery event subscription.
