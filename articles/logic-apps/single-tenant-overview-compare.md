@@ -290,7 +290,7 @@ For the **Standard** logic app workflow, these capabilities have changed, or the
   
     * [Custom managed connectors](../connectors/introduction.md#custom-connectors-and-apis) currently aren't currently supported. However, you can create *custom built-in operations* when you use Visual Studio Code. For more information, review [Create single-tenant based workflows using Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#enable-built-in-connector-authoring).
 
-    * Logic App Standard workflow doesn't support multiple triggers. A workflow can have only one trigger.
+    * Standard logic app workflow doesn't support multiple triggers. A Standard logic app workflow can have only one trigger.
 
 * **Authentication**: The following authentication types are currently unavailable for **Standard** workflows:
 
