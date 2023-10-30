@@ -12,6 +12,7 @@ ms.date: 9/26/2023
 # Read replicas in Azure Database for PostgreSQL - Flexible Server
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+
 > [!NOTE] Azure Database for PostgreSQL - Flexible Server is currently supporting the following features in Preview: 
 > * Promote to primary server (to maintain backward compatibility, please use promote to independent server and remove from replication, which keeps the former behavior)
 > * Virtual endpoints
