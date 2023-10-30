@@ -209,7 +209,7 @@ If the DNS resolution is incorrect, follow these steps:
 After you’ve verified the connectivity, retry the registration process.
 
 ### Validate private endpoint network connectivity 
-You can use the tnc command in PowerShell to check if the port is reachable from the appliance to the private endpoint. 
+You can use the Test-NetConnection command in PowerShell to check if the port is reachable from the appliance to the private endpoint. Ensure that you can resolve the Storage Account and the Key Vault for the Azure migrate project using the private IP address. 
 
 ![vault network connectivity](./media/troubleshoot-network-connectivity/vault_network_connectivity_test.png)
 
