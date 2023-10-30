@@ -16,7 +16,7 @@ ms.date: 10/30/2023
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
 
-Cloud connector pushes messages from local E4K's MQTT broker to a cloud endpoint, and similarly pulls messages the other way. Since [Azure Event Hub supports Kafka API](/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview), it's compatible with some restrictions.
+Cloud connector pushes messages from local Azure IoT MQ's MQTT broker to a cloud endpoint, and similarly pulls messages the other way. Since [Azure Event Hub supports Kafka API](/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview), it's compatible with some restrictions.
 
 ## What's supported
 
@@ -36,13 +36,13 @@ Cloud connector pushes messages from local E4K's MQTT broker to a cloud endpoint
 
 ## Configure Event Hub connector via Kafka endpoint
 
-By default, the connector isn't installed with E4k. It must be explicitly enabled with topic mapping and authentication credentials specified. Follow these steps to enable bidirectional communication between E4K and Azure Event Hub through its Kafka endpoint.
+By default, the connector isn't installed with E4k. It must be explicitly enabled with topic mapping and authentication credentials specified. Follow these steps to enable bidirectional communication between IoT MQ and Azure Event Hub through its Kafka endpoint.
 
 1. [Create an Event Hubs namespace](/azure/event-hubs/event-hubs-create#create-an-event-hubs-namespace).
 
 1. [Create an event hub](/azure/event-hubs/event-hubs-create#create-an-event-hub) for each Kafka topic.
 
-1. [Get the connection string to the namespace](/azure/event-hubs/event-hubs-get-connection-string#connection-string-for-a-namespace). Scoping the connection string to the namespace (as opposed to individual event hubs) allows E4K to send and receive messages from multiple different event hubs (thus Kafka topics).
+1. [Get the connection string to the namespace](/azure/event-hubs/event-hubs-get-connection-string#connection-string-for-a-namespace). Scoping the connection string to the namespace (as opposed to individual event hubs) allows IoT MQ to send and receive messages from multiple different event hubs (thus Kafka topics).
 
 1. Create a Kubernetes secret with the full connection string as the password.
 
@@ -180,7 +180,7 @@ authentication:
 
 ### Manage local broker connection
 
-Like MQTT bridge, the Event Hub connector acts as a client to the E4K MQTT broker. So if you've customized the listener port and/or authentication of your E4K MQTT broker, override the local MQTT connection configuration for the Event Hub connector as well. To learn more, see [MQTT bridge local broker connection](/docs/cloud-connectors/mqtt-bridge/#local-broker-connection).
+Like MQTT bridge, the Event Hub connector acts as a client to the IoT MQ MQTT broker. If you've customized the listener port and/or authentication of your IoT MQ MQTT broker, override the local MQTT connection configuration for the Event Hub connector as well. To learn more, see [MQTT bridge local broker connection](howto-configure-mqtt-bridge.md).
 
 ## KafkaConnectorTopicMap
 
@@ -244,7 +244,7 @@ The compression field enables compression for the messages sent to Kafka topics.
 | none | No compression or batching is applied. This is the default value if no compression is specified. |
 | gzip | GZIP compression and batching is applied. GZIP is a general-purpose compression algorithm that offers a good balance between compression ratio and speed. |
 | snappy | Snappy compression and batching is applied. Snappy is a fast compression algorithm that offers moderate compression ratio and speed. |
-| lz4 | LZ4 compression and batching is applied. LZ4 is a very fast compression algorithm that offers low compression ratio and high speed. |
+| lz4 | LZ4 compression and batching is applied. LZ4 is a fast compression algorithm that offers low compression ratio and high speed. |
 
 ### Batching
 
@@ -253,7 +253,7 @@ Aside from compression, you can also configure batching for messages before send
 | Field | Description | Required |
 | ----- | ----------- | -------- |
 | enabled | A boolean value that indicates whether batching is enabled or not. If not set, the default value is false. | Yes |
-| latencyMs | The maximum time interval in milliseconds that messages can be buffered before being sent. If this interval is reached, then all buffered messages will be sent as a batch, regardless of how many or how large they are. If not set, the default value is 5. | No |
+| latencyMs | The maximum time interval in milliseconds that messages can be buffered before being sent. If this interval is reached, then all buffered messages are sent as a batch, regardless of how many or how large they are. If not set, the default value is 5. | No |
 | maxMessages | The maximum number of messages that can be buffered before being sent. If this number is reached, then all buffered messages are sent as a batch, regardless of how large they are or how long they have been buffered. If not set, the default value is 100000.  | No |
 | maxBytes | The maximum size in bytes that can be buffered before being sent. If this size is reached, then all buffered messages are sent as a batch, regardless of how many they are or how long they have been buffered. The default value is 1000000 (1 MB). | No |
 
@@ -278,9 +278,9 @@ By default, the Kafka connector assigns messages to random partitions, using a r
 | Value | Description |
 | ----- | ----------- |
 | default | Assigns messages to random partitions, using a round-robin algorithm. This is the default value if no strategy is specified. |
-| static | Assigns messages to a fixed partition number that is derived from the instance ID of the connector. This means that each connector instance will send messages to a different partition. This can help to achieve better load balancing and data locality. |
-| topic | Uses the MQTT topic name as the key for partitioning. This means that messages with the same MQTT topic name will be sent to the same partition. This can help to achieve better message ordering and data locality. |
-| property | Uses an MQTT message property as the key for partitioning. Specify the name of the property in the `partitionKeyProperty` field. This means that messages with the same property value will be sent to the same partition. This can help to achieve better message ordering and data locality based on a custom criterion. |
+| static | Assigns messages to a fixed partition number that's derived from the instance ID of the connector. This means that each connector instance sends messages to a different partition. This can help to achieve better load balancing and data locality. |
+| topic | Uses the MQTT topic name as the key for partitioning. This means that messages with the same MQTT topic name are sent to the same partition. This can help to achieve better message ordering and data locality. |
+| property | Uses an MQTT message property as the key for partitioning. Specify the name of the property in the `partitionKeyProperty` field. This means that messages with the same property value are sent to the same partition. This can help to achieve better message ordering and data locality based on a custom criterion. |
 
 An example of using partition handling strategy is:
 
@@ -289,7 +289,7 @@ partitionStrategy: property
 partitionKeyProperty: device-id
 ```
 
-This means that messages with the same "device-id" property will be sent to the same partition.
+This means that messages with the same "device-id" property is sent to the same partition.
 
 ### Routes
 
@@ -306,7 +306,7 @@ The `mqttToKafka` field defines a route that transfers data from an MQTT topic t
 | kafkaTopic | The Kafka topic to send to. | Yes |
 | kafkaAcks | The number of acknowledgements the connector requires from the Kafka endpoint. Possible values are: `zero` , `one` (default), or `all`. | No |
 | qos | The quality of service (QoS) level for the MQTT topic subscription. Possible values are: 0 or 1 (default). QoS 2 is currently not supported. | No |
-| sharedSubscription | The configuration for using shared subscriptions for MQTT topics. Specify the `groupName`, which is a unique identifier for a group of subscribers, and the `groupMinimumShareNumber`, which is the number of subscribers in a group that will receive messages from a topic. For example, if groupName is "group1" and groupMinimumShareNumber is 3, then the connector creates 3 subscribers with the same group name to receive messages from a topic. This feature allows you to distribute messages among multiple subscribers without losing any messages or creating duplicates. | No |
+| sharedSubscription | The configuration for using shared subscriptions for MQTT topics. Specify the `groupName`, which is a unique identifier for a group of subscribers, and the `groupMinimumShareNumber`, which is the number of subscribers in a group that receive messages from a topic. For example, if groupName is "group1" and groupMinimumShareNumber is 3, then the connector creates 3 subscribers with the same group name to receive messages from a topic. This feature allows you to distribute messages among multiple subscribers without losing any messages or creating duplicates. | No |
 
 An example of using `mqttToKafka` route:
 
@@ -321,7 +321,7 @@ mqttToKafka:
     groupMinimumShareNumber: 3
 ```
 
-This means that messages from MQTT topics that match "temperature-alerts/#" will be sent to Kafka topic "receiving-event-hub" with QoS equivalent 1 and shared subscription group "group1" with share number 3.
+This means that messages from MQTT topics that match "temperature-alerts/#" are sent to Kafka topic "receiving-event-hub" with QoS equivalent 1 and shared subscription group "group1" with share number 3.
 
 #### Kafka to MQTT
 
@@ -344,7 +344,7 @@ kafkaToMqtt:
   qos: 0
 ```
 
-This means that messages from Kafka topic "sending-event-hub" will be published to MQTT topic "heater-commands" with QoS level 0.
+This means that messages from Kafka topic "sending-event-hub" are published to MQTT topic "heater-commands" with QoS level 0.
 
 ### Event hub name must match Kafka topic
 
@@ -357,3 +357,7 @@ If the connector disconnects - or is removed and reinstalled - with same Kafka c
 ### MQTT version
 
 This connector only uses MQTT v5.
+
+## Related content
+
+- [Publish and subscribe MQTT messages using Azure IoT MQ](../manage-mqtt-connectivity/overview-iot-mq.md)
