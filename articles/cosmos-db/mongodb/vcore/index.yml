@@ -64,6 +64,8 @@ landingContent:
             url: compatibility.md
           - text: High availability
             url: high-availability.md
+          - text: Failover and disaster recovery
+            url: failover-disaster-recovery.md
           - text: Migration options
             url: migration-options.md
   - title: Migrate to MongoDB vCore

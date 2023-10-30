@@ -28,6 +28,8 @@
       href: compatibility.md
     - name: High availability
       href: high-availability.md
+    - name: Failover and disaster recovery
+      href: failover-disaster-recovery.md
     - name: Migration options
       href: migration-options.md 
     - name: Security
