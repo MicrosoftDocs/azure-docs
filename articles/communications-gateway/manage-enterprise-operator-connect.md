@@ -25,9 +25,9 @@ Confirm that you have **Reader** access to your subscription and appropriate per
 
 If you don't have these permissions, ask your administrator to set them up by following [Set up user roles for Azure Communications Gateway](provision-user-roles.md).
 
-If you're assigning new numbers to an enterprise customer:
+If you're uploading new numbers for an enterprise customer:
 
-* You must know the numbers you need to assign (as E.164 numbers). Each number must:
+* You must know the numbers you need to upload (as E.164 numbers). Each number must:
     * Contain only digits (0-9), with an optional `+` at the start.
     * Include the country code.
     * Be up to 19 characters long. 
@@ -45,7 +45,7 @@ If you're assigning new numbers to an enterprise customer:
 |Country | The country for the number. Only required if you're uploading a North American Toll-Free number, otherwise optional.|
 |Ticket number (optional) |The ID of any ticket or other request that you want to associate with this number. Up to 64 characters. |
 
-If you're assigning multiple numbers, prepare a `.csv` file with the heading `Numbers` and one number per line (up to 10,000 numbers), as in the following example. You can use this file to upload multiple numbers at once with the same settings (for example, the same calling profile).
+If you're uploading multiple numbers, prepare a `.csv` file with the heading `Numbers` and one number per line (up to 10,000 numbers), as in the following example. You can use this file to upload multiple numbers at once with the same settings (for example, the same calling profile).
 
 ```
 Numbers
@@ -75,12 +75,12 @@ The Number Management Portal allows you to update the status of these consents. 
 
 ## Manage numbers for the enterprise
 
-Assigning numbers to an enterprise allows IT administrators at the enterprise to allocate those numbers to their users.
+Uploading numbers for an enterprise allows IT administrators at the enterprise to allocate those numbers to their users.
 
 1. Go to the number management page for the enterprise.
     * If you followed [Select an enterprise customer to manage](#select-an-enterprise-customer-to-manage), select **Manage numbers** from the menu.
     * Otherwise, find the **Number Management** section in the sidebar and select **Numbers**. Search for the enterprise using the enterprise's Microsoft Entra tenant ID.
-1. To add new numbers for an enterprise:
+1. To upload new numbers for an enterprise:
     1. Select **Upload numbers**.
     1. Fill in the fields based on the information you determined in [Prerequisites](#prerequisites). These settings apply to all the numbers you upload in the **Telephone numbers** section.
     1. In **Telephone numbers**, add the numbers:
