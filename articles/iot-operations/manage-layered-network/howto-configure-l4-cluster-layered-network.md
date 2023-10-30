@@ -134,6 +134,26 @@ Create the Layered Network Management custom resource.
       allowList:
         enableArcDomains: true
         domains:
+        - destinationUrl: "quay.io"
+          destinationType: external
+        - destinationUrl: "*.quay.io"
+          destinationType: external
+        - destinationUrl: "docker.io"
+          destinationType: external
+        - destinationUrl: "*.docker.io"
+          destinationType: external
+        - destinationUrl: "*.docker.com"
+          destinationType: external
+        - destinationUrl: "gcr.io"
+          destinationType: external
+        - destinationUrl: "*.googleapis.com"
+          destinationType: external
+        - destinationUrl: "login.windows.net"
+          destinationType: external
+        - destinationUrl: "graph.windows.net"
+          destinationType: external
+        - destinationUrl: "msit-onelake.pbidedicated.windows.net"
+          destinationType: external
         sourceIpRange:
         - addressPrefix: "0.0.0.0"
           prefixLen: 0

@@ -39,7 +39,7 @@ landingContent:
           - text: Process data
             url: process-data/overview-data-processor.md
           - text: Manage layered network
-            url: manage-layered-networks/overview-layered-network.md
+            url: manage-layered-network/overview-layered-network.md
           - text: Visualize and analyze telemetry
             url: analyze-telemetry/overview-analyze-telemetry.md
           - text: Monitor service and asset health

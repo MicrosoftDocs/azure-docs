@@ -5,7 +5,7 @@ description: Configure IoT Layered Network Management Level 3 cluster.
 author: PatAltimore
 ms.author: patricka
 ms.topic: how-to
-ms.date: 10/24/2023
+ms.date: 10/30/2023
 
 #CustomerIntent: As an operator, I want to configure Layered Network Management so that I have secure isolate devices.
 ---
@@ -33,13 +33,18 @@ If you're using VM to create your Windows 11 machines, use the [VM image](https:
 1. Install [Kubectl](https://kubernetes.io/docs/tasks/tools/)
 1. Install AKS Edge Essentials. Follow the steps in [Prepare your machines for AKS Edge Essentials](/azure/aks/hybrid/aks-edge-howto-setup-machine)
 1. Install Azure CLI. Follow the steps in [Install Azure CLI on Windows](/cli/azure/install-azure-cli-windows)
-1. Install connectedk8s using the following command:
+1. Install *connectedk8s* and other extensions:
 
     ```bash
     az extension add --name connectedk8s
+    az extension add --name k8s-extension
+    az extension add --name customlocation
     ```
 
 1. **Certificates:** For Level 3 and lower, you ARC onboard the cluster that isn't connected to the internet. Therefore, you need to install certificates steps in [Prerequisites for AKS Edge Essentials offline installation](/azure/aks/hybrid/aks-edge-howto-offline-install).
+1. The following is optional software if you plan to try IoT Operations quickstarts or MQTT related scenarios
+    - [MQTTUI](https://github.com/EdJoPaTo/mqttui/releases) or other MQTT client
+    - [Mosquitto](https://mosquitto.org/)
 
 ## Move the device to level 3 isolated network
 
@@ -81,11 +86,14 @@ To create the AKS Edge Essentials cluster in level 3, use the `aks-ee-config.jso
 1. Install [Helm](https://helm.sh/docs/intro/install/) 3.8.0 or later.
 1. Install [Kubectl](https://kubernetes.io/docs/tasks/tools/).
 1. Install Azure CLI. Follow the steps in [Install Azure CLI on Linux](/cli/azure/install-azure-cli-linux).
-1. Install connectedk8s using the following command:
+1. Install *connectedk8s* and other extensions:
 
     ```bash
     az extension add --name connectedk8s
+    az extension add --name k8s-extension
+    az extension add --name customlocation
     ```
+
 1. Install `nfs-common` on the host machine.
 
     ```bash
@@ -101,6 +109,10 @@ To create the AKS Edge Essentials cluster in level 3, use the `aks-ee-config.jso
     ```
 
 1. For better performance, make sure the [file descriptor limit](https://www.cyberciti.biz/faq/linux-increase-the-maximum-number-of-open-files/) is high enough.
+
+1. The following is optional software if you plan to try IoT Operations quickstarts or MQTT related scenarios
+    - [MQTTUI](https://github.com/EdJoPaTo/mqttui/releases) or other MQTT client
+    - [Mosquitto](https://mosquitto.org/)
 
 <!--  - Refer to the [Install Project Alice Springs](/docs/quickstart/install/) to fulfill prerequisite for the host. -->
 
