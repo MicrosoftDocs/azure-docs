@@ -279,7 +279,7 @@ For more information on supported languages, see [Localization support in Azure 
 
 Here's an example of Azure Maps with the language set to "fr" and the user region set to "fr-FR".
 
-![Azure Maps localization](media/migrate-google-maps-web-app/azure-maps-localization.jpg)
+:::image type="content" source="./media/migrate-google-maps-web-app/azure-maps-localized-map.jpg" lightbox="./media/migrate-google-maps-web-app/azure-maps-localized-map.jpg" alt-text="A screenshot showing a localized version of an Azure Maps map with the language set to French .":::
 
 ### Setting the map view
 
@@ -317,7 +317,7 @@ map.setStyle({
 });
 ```
 
-![Azure Maps set view](media/migrate-google-maps-web-app/azure-maps-set-view.jpg)
+:::image type="content" source="./media/migrate-google-maps-web-app/azure-maps-set-view.jpg" lightbox="./media/migrate-google-maps-web-app/azure-maps-set-view.jpg" alt-text="A screenshot of an Azure Maps map with the style property set to satellite.":::
 
 **More resources:**
 
@@ -364,7 +364,7 @@ map.markers.add(new atlas.HtmlMarker({
 }));
 ```
 
-![Azure Maps HTML marker](media/migrate-google-maps-web-app/azure-maps-html-marker.jpg)
+:::image type="content" source="./media/migrate-google-maps-web-app/azure-maps-html-marker.jpg" lightbox="./media/migrate-google-maps-web-app/azure-maps-html-marker.jpg" alt-text="A screenshot of an Azure Maps map with an html marker.":::
 
 **After: Azure Maps using a Symbol Layer**
 
@@ -428,7 +428,7 @@ For a Symbol layer, add the data to a data source. Attach the data source to the
 </html>
 ```
 
-![Azure Maps symbol layer](media/migrate-google-maps-web-app/azure-maps-symbol-layer.jpg)
+:::image type="content" source="./media/migrate-google-maps-web-app/azure-maps-symbol-layer.jpg" lightbox="./media/migrate-google-maps-web-app/azure-maps-symbol-layer.jpg" alt-text="A screenshot of an Azure Maps map with blue pin shown.":::
 
 **More resources:**
 
@@ -488,7 +488,7 @@ map.markers.add(new atlas.HtmlMarker({
 }));
 ```
 
-![Azure Maps custom HTML marker](media/migrate-google-maps-web-app/azure-maps-custom-html-marker.jpg)
+:::image type="content" source="./media/migrate-google-maps-web-app/azure-maps-custom-html-marker.jpg" lightbox="./media/migrate-google-maps-web-app/azure-maps-custom-html-marker.jpg" alt-text="A screenshot of an Azure Maps map with a yellow push pin shown.":::
 
 **After: Azure Maps using a Symbol Layer**
 
@@ -553,7 +553,7 @@ Symbol layers in Azure Maps support custom images as well. First, load the image
 </html>
 ```
 
-![Azure Maps custom icon symbol layer](media/migrate-google-maps-web-app/azure-maps-custom-icon-symbol-layer.jpg)</
+:::image type="content" source="./media/migrate-google-maps-web-app/azure-maps-custom-icon-symbol-layer.jpg" lightbox="./media/migrate-google-maps-web-app/azure-maps-custom-icon-symbol-layer.jpg" alt-text="A screenshot of an Azure Maps map with a yellow push pin shown.":::
 
 > [!TIP]
 > To render advanced custom points, use multiple rendering layers together. For example, let's say you want to have multiple pushpins that have the same icon on different colored circles. Instead of creating a bunch of images for each color overlay, add a symbol layer on top of a bubble layer. Have the pushpins reference the same data source. This approach will be more efficient than creating and maintaining a bunch of different images.
@@ -638,7 +638,7 @@ map.layers.add(new atlas.layer.LineLayer(datasource, null, {
 }));
 ```
 
-![Azure Maps polyline](media/migrate-google-maps-web-app/azure-maps-polyline.jpg)
+:::image type="content" source="./media/migrate-google-maps-web-app/azure-maps-polyline.jpg" lightbox="./media/migrate-google-maps-web-app/azure-maps-polyline.jpg" alt-text="A screenshot of an Azure Maps map with a red dashed shown to demonstrate a polyline.":::
 
 **More resources:**
 
@@ -710,6 +710,7 @@ map.layers.add(new atlas.layer.LineLayer(datasource, null, {
 ```
 
 ![Azure Maps polygon](media/migrate-google-maps-web-app/azure-maps-polygon.jpg)
+:::image type="content" source="./media/migrate-google-maps-web-app/azure-maps-polygon.jpg" lightbox="./media/migrate-google-maps-web-app/azure-maps-polyline.jpg" alt-text="A screenshot of an Azure Maps map with a solid red line forming a triangle filled with semi-transparent green shown to demonstrate a polygon.":::
 
 **More resources:**
 
@@ -778,7 +779,7 @@ map.events.add('click', marker, function () {
 });
 ```
 
-![Azure Maps popup](media/migrate-google-maps-web-app/azure-maps-popup.jpg)
+:::image type="content" source="./media/migrate-google-maps-web-app/azure-maps-popup.jpg" lightbox="./media/migrate-google-maps-web-app/azure-maps-popup.jpg" alt-text="A screenshot of an Azure Maps map with a blue pin with a popup showing hello world in it.":::
 
 > [!NOTE]
 > You may do the same thing with a symbol, bubble, line or polygon layer by passing the chosen layer to the maps event code instead of a marker.
@@ -946,7 +947,7 @@ GeoJSON is the base data type in Azure Maps. Import it into a data source using 
 </html>
 ```
 
-![Azure Maps GeoJSON](media/migrate-google-maps-web-app/azure-maps-geojson.jpg)
+:::image type="content" source="./media/migrate-google-maps-web-app/azure-maps-geojson.jpg" lightbox="./media/migrate-google-maps-web-app/azure-maps-geojson.jpg" alt-text="A screenshot of an Azure Maps map of the world with various sized red and orange circles created using the bubble layer.":::
 
 **More resources:**
 
@@ -1097,7 +1098,7 @@ Directly import GeoJSON data using the `importDataFromUrl` function on the `Data
                 map.layers.add([
                     //Create a bubble layer for rendering clustered data points.
                     new atlas.layer.BubbleLayer(datasource, null, {
-                        //Scale the size of the clustered bubble based on the number of points inthe cluster.
+                        //Scale the size of the clustered bubble based on the number of points in the cluster.
                         radius: [
                             'step',
                             ['get', 'point_count'],
@@ -1148,6 +1149,7 @@ Directly import GeoJSON data using the `importDataFromUrl` function on the `Data
 ```
 
 ![Azure Maps clustering](media/migrate-google-maps-web-app/azure-maps-clustering.jpg)
+:::image type="content" source="./media/migrate-google-maps-web-app/azure-maps-clustering.jpg" lightbox="./media/migrate-google-maps-web-app/azure-maps-clustering.jpg" alt-text="A screenshot of an Azure Maps map of the world with various sized red, green and yellow circles with numbers in them. Created using three layers, a bubble layer for drawing scaled colored circles based on the size of the clusters. A symbol layer to render the cluster size as text and a second symbol layer for rendering the unclustered points.":::
 
 **More resources:**
 
@@ -1291,7 +1293,7 @@ Load the GeoJSON data into a data source and connect the data source to a heat m
 </html>
 ```
 
-![Azure Maps heat map](media/migrate-google-maps-web-app/azure-maps-heatmap.jpg)
+:::image type="content" source="./media/migrate-google-maps-web-app/azure-maps-heatmap.jpg" lightbox="./media/migrate-google-maps-web-app/azure-maps-heatmap.jpg" alt-text="A screenshot of an Azure Maps map of the world with a heat map layer.":::
 
 **More resources:**
 
@@ -1338,7 +1340,7 @@ map.layers.add(new atlas.layer.TileLayer({
 }), 'labels');
 ```
 
-![Azure Maps tile layer](media/migrate-google-maps-web-app/azure-maps-tile-layer.jpg)
+:::image type="content" source="./media/migrate-google-maps-web-app/azure-maps-tile-layer.jpg" lightbox="./media/migrate-google-maps-web-app/azure-maps-tile-layer.jpg" alt-text="A screenshot of an Azure Maps map of the world with a tile layer.":::
 
 > [!TIP]
 > Tile requests can be captured using the `transformRequest` option of the map. This will allow you to modify or add headers to the request if desired.
@@ -1377,11 +1379,11 @@ map.setTraffic({
 });
 ```
 
-![Azure Maps traffic](media/migrate-google-maps-web-app/azure-maps-traffic.jpg)
+:::image type="content" source="./media/migrate-google-maps-web-app/azure-maps-traffic.jpg" lightbox="./media/migrate-google-maps-web-app/azure-maps-traffic.jpg" alt-text="A screenshot of an Azure Maps map showing traffic.":::
 
 If you select one of the traffic icons in Azure Maps, more information is displayed in a popup.
 
-![Azure Maps traffic incident](media/migrate-google-maps-web-app/azure-maps-traffic-incident.jpg)
+:::image type="content" source="./media/migrate-google-maps-web-app/azure-maps-traffic-popup.jpg" lightbox="./media/migrate-google-maps-web-app/azure-maps-traffic-popup.jpg" alt-text="A screenshot of an Azure Maps map showing traffic with a popup showing the details of a specific traffic incident .":::
 
 **More resources:**
 
@@ -1500,7 +1502,7 @@ Use the `atlas.layer.ImageLayer` class to overlay georeferenced images. This cla
 </html>
 ```
 
-![Azure Maps image overlay](media/migrate-google-maps-web-app/azure-maps-image-overlay.jpg)
+:::image type="content" source="./media/migrate-google-maps-web-app/azure-maps-image-overlay.jpg" lightbox="./media/migrate-google-maps-web-app/azure-maps-image-overlay.jpg" alt-text="A screenshot of an Azure Maps map showing an image overlaid over the map.":::
 
 **More resources:**
 
@@ -1513,7 +1515,7 @@ Both Azure and Google Maps can import and render KML, KMZ and GeoRSS data on the
 
 #### Before: Google Maps
 
-```javascript
+```html
 <!DOCTYPE html>
 <html>
 <head>
@@ -1644,7 +1646,7 @@ In Azure Maps, GeoJSON is the main data format used in the web SDK, more spatial
 </html>
 ```
 
-![Azure Maps KML](media/migrate-google-maps-web-app/azure-maps-kml.png)
+:::image type="content" source="./media/migrate-google-maps-web-app/azure-maps-kml.jpg" lightbox="./media/migrate-google-maps-web-app/azure-maps-kml.jpg" alt-text="A screenshot of an Azure Maps map demonstrating KML with different colored lines representing different railroad track originating from a port in Chicago to various different destinations, all data coming from the KM file.":::
 
 **More resources:**
 
