@@ -40,6 +40,8 @@ landingContent:
             url: process-data/overview-data-processor.md
           - text: Connect to the cloud
             url: connect-to-cloud/overview-connect-to-cloud.md
+          - text: Manage layered network
+            url: manage-layered-networks/overview-layered-network.md
           - text: Visualize and analyze telemetry
             url: analyze-telemetry/overview-analyze-telemetry.md
           - text: Monitor service and asset health
