@@ -50,7 +50,7 @@ Use the following steps to create a Microsoft Fabric Lakehouse linked service in
 
 2. Search for Microsoft Fabric Lakehouse and select the connector.
 
-    :::image type="content" source="media/connector-microsoft-fabric-lakehouse/microsoft-fabric-lakehouse-connector.png" alt-text="Select Microsoft Fabric Lakehouse connector.":::    
+    :::image type="content" source="media/connector-microsoft-fabric-lakehouse/microsoft-fabric-lakehouse-connector.png" alt-text="Screenshot showing select Microsoft Fabric Lakehouse connector.":::    
 
 1. Configure the service details, test the connection, and create the new linked service.
 
