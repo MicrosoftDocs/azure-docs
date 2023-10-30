@@ -39,8 +39,8 @@ Rescheduling maintenance also triggers email notifications to keep you informed.
 
 The availability of the rescheduling window isn't fixed, it often depends on the size of the overall maintenance window for the region in which your server resides. This means the reschedule options can vary based on regional operations and workload.
 
-[!NOTE]
-Maintenance Reschedule is only available for General Purpose and Business Critical service tiers.
+> [!NOTE]  
+> Maintenance Reschedule is only available for General Purpose and Business Critical service tiers.
 
 ### Considerations and limitations
 
