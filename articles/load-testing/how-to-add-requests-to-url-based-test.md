@@ -261,8 +261,8 @@ You can use variables in your HTTP request to make your tests more flexible, or 
 
 With URL-based load tests in Azure Load Testing, you can use variables to refer to the following information:
 
-- Environment variables: you can [configure environment variables](./how-to-parameterize-load-tests.md#configure-load-tests-with-environment-variables) for the load test
-- Secrets: [configure Azure Key Vault secrets in your load test](./how-to-parameterize-load-tests.md#configure-load-tests-with-secrets)
+- Environment variables: you can [configure environment variables](./how-to-parameterize-load-tests.md) for the load test
+- Secrets: [configure Azure Key Vault secrets in your load test](./how-to-parameterize-load-tests.md)
 - Values from a CSV input file: use variables for the columns in a [CSV input file](./how-to-read-csv-data.md) and run a request for each row in the file
 - Response variables: extract values from a previous HTTP request
 
