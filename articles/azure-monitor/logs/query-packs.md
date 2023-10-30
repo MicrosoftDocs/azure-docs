@@ -27,8 +27,10 @@ You can view and manage query packs in the Azure portal from the **Log Analytics
 
 [![Screenshot that shows query packs.](media/query-packs/view-query-pack.png)](media/query-packs/view-query-pack.png#lightbox)
 
-## Use multiple query packs
+## Default query pack
 Azure Monitor automatically creates a query pack called `DefaultQueryPack` in each subscription in a resource group called `LogAnalyticsDefaultResources` when you save your first query. You can save queries to this query pack or create other query packs depending on your requirements.
+
+## Use multiple query packs
 
 The default query pack is sufficient for most users to save and reuse queries. You might want to create multiple query packs for users in your organization if, for example, you want to load different sets of queries in different Log Analytics sessions and provide different permissions for different collections of queries.
 
@@ -44,17 +46,6 @@ To add query packs to your Log Analytics workspace:
 
 > [!IMPORTANT]
 > You can add up to five query packs to a Log Analytics workspace.
-
-## Query properties
-Each query in the query pack has the following properties:
-
-| Property | Description |
-|:---|:---|
-| displayName | Display name listed in Log Analytics for each query. |
-| description | Description of the query displayed in Log Analytics for each query. |
-| body        | Query written in Kusto Query Language. |
-| related     | Related categories, resource types, and solutions for the query. Used for grouping and filtering in Log Analytics by the user to help locate their query. Each query can have up to 10 of each type. Retrieve allowed values from https://api.loganalytics.io/v1/metadata?select=resourceTypes, solutions, and categories. |
-| tags        | Other tags used by the user for sorting and filtering in Log Analytics. Each tag will be added to Category, Resource Type, and Solution when you [group and filter queries](queries.md#find-and-filter-queries). |
 
 ## Create a query pack
 You can create a query pack by using the REST API or from the **Log Analytics query packs** pane in the Azure portal. To open the **Log Analytics query packs** pane in the portal, select **All services** > **Other**.
@@ -105,6 +96,16 @@ The payload of the request is the JSON that defines one or more queries and the 
     }
 }
 ```
+
+Each query in the query pack has the following properties:
+
+| Property | Description |
+|:---|:---|
+| `displayName` | Display name listed in Log Analytics for each query. |
+| `description` | Description of the query displayed in Log Analytics for each query. |
+| `body`        | Query written in Kusto Query Language. |
+| `related`    | Related categories, resource types, and solutions for the query. Used for grouping and filtering in Log Analytics by the user to help locate their query. Each query can have up to 10 of each type. Retrieve allowed values from https://api.loganalytics.io/v1/metadata?select=resourceTypes, solutions, and categories. |
+| `tags`        | Other tags used by the user for sorting and filtering in Log Analytics. Each tag will be added to Category, Resource Type, and Solution when you [group and filter queries](queries.md#find-and-filter-queries). |
 
 ### Create a request
 Use the following request to create a new query pack by using the REST API. The request should use bearer token authorization. The content type should be `application/json`.
