@@ -5,13 +5,16 @@ ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
 ms.author: alkuchar
-author: AwdotiaRomanowna
+author: AlicjaKucharczyk
 ms.date: 9/26/2023
 ---
 
 # Read replicas in Azure Database for PostgreSQL - Flexible Server
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+> [!NOTE] Azure Database for PostgreSQL - Flexible Server is currently supporting the following features in Preview: 
+> * Promote to primary server (to maintain backward compatibility, please use promote to independent server and remove from replication, which keeps the former behavior)
+> * Virtual endpoints
 
 The read replica feature allows you to replicate data from an Azure Database for PostgreSQL server to a read-only replica. Replicas are updated **asynchronously** with the PostgreSQL engine native physical replication technology. Streaming replication by using replication slots is the default operation mode. When necessary, file-based log shipping is used to catch up. You can replicate from the primary server to up to five replicas.
 
@@ -29,7 +32,7 @@ Because replicas are read-only, they don't directly reduce write-capacity burden
 
 ### Considerations
 
-The feature is meant for scenarios where the lag is acceptable and meant for offloading queries. It isn't meant for synchronous replication scenarios where the replica data is expected to be up-to-date. There will be a measurable delay between the primary and the replica. This delay can be in minutes or even hours depending on the workload and the latency between the primary and the replica. The data on the replica eventually becomes consistent with the data on the primary. Use this feature for workloads that can accommodate this delay.
+The feature is meant for scenarios where the lag is acceptable and meant for offloading queries. It isn't meant for synchronous replication scenarios where the replica data is expected to be up-to-date. There will be a measurable delay between the primary and the replica. This delay can be in minutes or even hours depending on the workload and the latency between the primary and the replica. Typically, read replicas in the same region as primary have lesser lag compared to geo-replicas, as the latter often deals with geographical distance-induced latency. For more insights into the performance implications of geo-replication, please refer to [Geo-replication](#geo-replication) section. The data on the replica eventually becomes consistent with the data on the primary. Use this feature for workloads that can accommodate this delay.
 
 > [!NOTE]
 > For most workloads read replicas offer near-real-time updates from the primary. However, with persistent heavy write-intensive primary workloads, the replication lag could continue to grow and may never be able to catch-up with the primary. This may also increase storage usage at the primary as the WAL files are not deleted until they are received at the replica. If this situation persists, deleting and recreating the read replica after the write-intensive workloads completes is the option to bring the replica back to a good state with respect to lag.
@@ -112,7 +115,7 @@ Furthermore, to ease the connection process, the Azure portal provides ready-to-
 
 Promotion of replicas can be done in two distinct manners:
 
-**Promote to primary server (default)** 
+**Promote to primary server (preview)** 
 
 This action promotes the replica to serve as the primary server. Concurrently, the current primary will be demoted to the replica role, effectively swapping their roles.
 
@@ -145,7 +148,7 @@ The promote operation will not carry over certain configurations and parameters.
 * **High Availability (HA)**: Should you require HA after the promotion, it must be configured on the freshly promoted primary server, following the role reversal.
 
 
-## Virtual Endpoints
+## Virtual Endpoints (preview)
 Virtual Endpoints are read-write and read-only listener endpoints, that remain consistent irrespective of the current role of the PostgreSQL instance. This means you don't have to update your application's connection string after promoting a replica. 
 
 All operations involving virtual endpoints, whether adding, editing, or removing, are performed in the context of the primary server. In the Azure portal, you'll manage these endpoints under the primary server blade. Similarly, when using tools like the CLI, REST API, or other utilities, commands and actions will target the primary server for endpoint management.
