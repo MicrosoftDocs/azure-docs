@@ -61,11 +61,9 @@ resource myPolicyDoc 'Microsoft.App/containerApps/resiliencyPolicies@2023-08-01-
         matches: {
             headers: [
                 {
-                    headerMatch: {
-                        header: 'x-ms-retriable'
-                        match: { 
-                            exactMatch: 'true'
-                        }
+                    header: 'x-ms-retriable'
+                    match: { 
+                        exactMatch: 'true'
                     }
                 }
             ]
@@ -208,11 +206,9 @@ properties: {
         matches: {
             headers: [
                 {
-                    headerMatch: {
-                        header: 'x-ms-retriable'
-                        match: { 
-                           exactMatch: 'true'
-                        }
+                    header: 'x-ms-retriable'
+                    match: { 
+                       exactMatch: 'true'
                     }
                 }
             ]
@@ -248,11 +244,9 @@ If you've specified the `retriable-headers` error, you can use the following hea
 matches: {
   headers: [
     { 
-      headerMatch: {
-        header: 'x-ms-retriable'
-        match: {
-          exactMatch: 'true'
-        }
+      header: 'x-ms-retriable'
+      match: {
+        exactMatch: 'true'
       }
     }
   ]
