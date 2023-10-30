@@ -2,7 +2,7 @@
 title: Prerequisites for Azure Virtual Desktop
 description: Find what prerequisites you need to complete to successfully connect your users to their Windows desktops and applications.
 ms.topic: overview
-ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
+ms.custom: references_regions
 author: dknappettmsft
 ms.author: daknappe
 ms.date: 10/25/2023
