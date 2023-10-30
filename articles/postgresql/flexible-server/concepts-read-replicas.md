@@ -220,16 +220,17 @@ For additional insight, query the primary server directly to get the replication
 > If a primary server or read replica restarts, the time it takes to restart and catch up is reflected in the Replica Lag metric.
 
 **Replication status**
+
 To keep an eye on the progress and status of the replication and promote operation, refer to the **Replication Status** column in the Azure portal. This column displays various states that provide insights into the current condition of the read replicas and it's link to the primary. Here are the possible values:
 
-| **Replication status**     | **Description** |
-|--------------------------|---------------------|
-| <b> Provisioning      | The read replica is being provisioned but the two servers aren't yet synchronized. Until provisioning completes, you can't connect to the read replica. | 
-| <b> Updating		 | ?             | 
-| <b> Active	  | Healthy state, indicating that the read replica has been successfully connected to the primary. If the servers are stopped but were successfully connected prior, the status will remain as active. | 
-| <b> Catchup	  |              | 
-| <b> Waiting for reconfigure	  | ?             | 
-| <b> Broken	  | Unhealthy state, indicating the promote operation might have failed, or the replica is unable to connect to the primary for some reason. |
+| **Replication status**     | **Description**                                                                                                                                   | **Promote order** | **Read replica creation order** |
+|--------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|-------------------|---------------------------------|
+| <b> Waiting for reconfigure	  |                                                                                                                                                   | 1                 | N/A                             |
+| <b> Provisioning      | The read replica is being provisioned and replication between the two servers hasn't started. Until provisioning completes, you can't connect to the read replica. | N/A               | 1                               |
+| <b> Updating		 | Server configuration is under preparation following a triggered action like promotion or read replica creation.| 2 | 2                               |
+| <b> Catchup	  |                                                                                                                                                   | 3 | 3                               |
+| <b> Active	  | Healthy state, indicating that the read replica has been successfully connected to the primary. If the servers are stopped but were successfully connected prior, the status will remain as active. | 4 | 4 |
+| <b> Broken	  | Unhealthy state, indicating the promote operation might have failed, or the replica is unable to connect to the primary for some reason.          | N/A | N/A |
 
 
 ## Considerations
