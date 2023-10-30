@@ -154,7 +154,7 @@ To create a compute cluster in an Azure Virtual Network in a different region th
     > [!WARNING]
     > When setting the region, if it is a different region than your workspace or datastores you may see increased network latency and data transfer costs. The latency and costs can occur when creating the cluster, and when running jobs on it.
 
-## Compute instance, compute cluster, serverless compute with no public IP
+## Compute instance/cluster or serverless compute with no public IP
 
 > [!WARNING]
 > This information is only valid when using an _Azure Virtual Network_. If you are using a _managed virtual network_, see [managed compute with a managed network](how-to-managed-network-compute.md).
