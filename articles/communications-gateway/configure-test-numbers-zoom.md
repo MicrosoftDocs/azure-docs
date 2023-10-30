@@ -30,6 +30,8 @@ Your organization must have integrated with Azure Communications Gateway's Provi
 
 You must be an owner or admin of a Zoom account that you want to use for testing.
 
+You must be able to contact your Zoom representative.
+
 ## Configure the test numbers for integration testing on Azure Communications Gateway
 
 You must provision Azure Communications Gateway with the details of the test numbers for integration testing. This provisioning allows Azure Communications Gateway to identify that the calls should have Zoom service.

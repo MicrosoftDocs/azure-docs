@@ -26,6 +26,8 @@ Your organization must have integrated with Azure Communications Gateway's Provi
 
 You must have **Reader** access to the subscription into which Azure Communications Gateway is deployed.
 
+You must be able to contact your Zoom representative.
+
 ## Find your Azure Communication Gateway's per-region domain names
 
 You need to know the FQDNs for each of Azure Communications Gateway's regions. Your Zoom representative needs these FQDNs to route calls to Azure Communications Gateway. To find these FQDNs:

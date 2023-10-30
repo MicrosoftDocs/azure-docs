@@ -15,10 +15,7 @@ Before you can launch your Zoom Phone Cloud Peering service, you and your onboar
 - Test your service.
 - Prepare for launch.
 
-In this article, you learn about the steps you and your onboarding team must take.
-
-> [!TIP]
-> In many cases, your onboarding team is from Microsoft, provided through the [Included Benefits](onboarding.md) or through a separate arrangement.
+In this article, you learn about the steps that you and your Azure Communications Gateway onboarding team must take.
 
 > [!IMPORTANT]
 > Some steps can require days or weeks to complete. We recommend that you read through these steps in advance to work out a timeline.
@@ -31,6 +28,8 @@ You must have completed the following procedures.
 - [Deploy Azure Communications Gateway](deploy.md)
 - [Connect Azure Communications Gateway to Zoom Phone Cloud Peering](connect-zoom.md)
 - [Configure test numbers for Zoom Phone Cloud Peering](configure-test-numbers-zoom.md)
+
+You must be able to contact your Zoom representative.
 
 ## Carry out integration testing and request changes
 
