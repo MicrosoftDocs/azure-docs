@@ -19,7 +19,7 @@ This article describes how to create, monitor, and manage container copy jobs us
 
 ## Prerequisites
 
-* You may use the portal [Cloud Shell](/azure/cloud-shell/quickstart?tabs=powershell) to run container copy commands. Alternately, you may run the commands locally; make sure you have [Azure CLI](/cli/azure/install-azure-cli) downloaded and installed on your machine.
+* You can use the portal [Cloud Shell](/azure/cloud-shell/quickstart?tabs=powershell) to run container copy commands. Alternately, you can run the commands locally; make sure you have [Azure CLI](/cli/azure/install-azure-cli) downloaded and installed on your machine.
 * Currently, container copy is only supported in [these regions](container-copy.md#supported-regions). Make sure your account's write region belongs to this list.
 
 
@@ -120,7 +120,7 @@ az cosmosdb copy list `
 
 ## Pause a container copy job
 
-In order to pause an ongoing container copy job, you may use the command:
+In order to pause an ongoing container copy job, you can use the command:
 
 ```azurecli-interactive
 az cosmosdb copy pause `
@@ -131,7 +131,7 @@ az cosmosdb copy pause `
 
 ## Resume a container copy job
 
-In order to resume an ongoing container copy job, you may use the command:
+In order to resume an ongoing container copy job, you can use the command:
 
 ```azurecli-interactive
 az cosmosdb copy resume `
@@ -142,7 +142,7 @@ az cosmosdb copy resume `
 
 ## Cancel a container copy job
 
-In order to cancel an ongoing container copy job, you may use the command:
+In order to cancel an ongoing container copy job, you can use the command:
 
 ```azurecli-interactive
 az cosmosdb copy cancel `
@@ -152,7 +152,7 @@ az cosmosdb copy cancel `
 ```
 
 ## Get support for container copy issues
-For issues related to Container copy, please raise a **New Support Request** from the Azure portal. Set the **Problem Type** as 'Data Migration' and **Problem subtype** as 'Container copy'.
+For issues related to Container copy, raise a **New Support Request** from the Azure portal. Set the **Problem Type** as 'Data Migration' and **Problem subtype** as 'Container copy'.
 
 
 ## Next steps
