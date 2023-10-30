@@ -3,7 +3,7 @@ title: Connect to OneLake Storage
 description: Learn how to connect to OneLake storage
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/29/2023
+ms.date: 10/27/2023
 ---
 
 # Connect to OneLake Storage
@@ -12,7 +12,7 @@ ms.date: 08/29/2023
 
 This tutorial shows how to connect to OneLake with a Jupyter notebook from an Azure HDInsight on AKS cluster.
 
-1. Create an HDInsight on AKS Spark cluster. Follow these instructions: Set up clusters in HDInsight on AKS.
+1. Create an HDInsight on AKS cluster with Apache Spark™. Follow these instructions: Set up clusters in HDInsight on AKS.
 1. While providing cluster information, remember your Cluster login Username and Password, as you need them later to access the cluster.
 1. Create a user assigned managed identity (UAMI): Create for Azure HDInsight on AKS - UAMI and choose it as the identity in the **Storage** screen.
 
@@ -26,7 +26,7 @@ This tutorial shows how to connect to OneLake with a Jupyter notebook from an Az
 1. In the Azure portal, look for your cluster and select the notebook.
     :::image type="content" source="./media/connect-to-one-lake-storage/overview-page.png" alt-text="Screenshot showing cluster overview page." lightbox="./media/connect-to-one-lake-storage/overview-page.png":::
 
-1. Create a new Spark Notebook.
+1. Create a new Notebook and select type as **pyspark**.
 1. Copy the workspace and Lakehouse names into your notebook and build your OneLake URL for your Lakehouse. Now you can read any file from this file path.
     ```
     fp = 'abfss://' + 'Workspace Name' + '@onelake.dfs.fabric.microsoft.com/' + 'Lakehouse Name' + '/Files/' 
@@ -38,3 +38,7 @@ This tutorial shows how to connect to OneLake with a Jupyter notebook from an Az
     `writecsvdf = df.write.format("csv").save(fp + "out.csv")`
    
 1. Test that your data was successfully written by checking in your Lakehouse or by reading your newly loaded file.
+
+## Reference
+
+* Apache, Apache Spark, Spark, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).
