@@ -9,12 +9,12 @@ ms.author: lajanuar
 
 * For best results, provide one clear photo or high-quality scan per document.
 
-* Supported file formats: 
+* Supported file formats:
 
-    |Model | PDF |Image: </br>JPEG/JPG, PNG, BMP, and TIFF | Microsoft Office: </br> Word (DOCX), Excel (XLSX), PowerPoint (PPTX), and HTML|
+    |Model | PDF |Image: </br>JPEG/JPG, PNG, BMP, TIFF, HEIF | Microsoft Office: </br> Word (DOCX), Excel (XLSX), PowerPoint (PPTX), and HTML|
     |--------|:----:|:-----:|:---------------:
     |Read            | ✔    | ✔    | ✔  |
-    |Layout          | ✔  | ✔ |   |
+    |Layout          | ✔  | ✔ | ✔ (2023-10-31-preview)  |
     |General&nbsp;Document| ✔  | ✔ |   |
     |Prebuilt        |  ✔  | ✔ |   |
     |Custom          |  ✔  | ✔ |   |
@@ -23,7 +23,7 @@ ms.author: lajanuar
 
 * For PDF and TIFF, up to 2000 pages can be processed (with a free tier subscription, only the first two pages are processed).
 
-* The file size for analyzing documents must be _less than_ 500 MB for paid (S0) tier and 4 MB for free (F0) tier.
+* The file size for analyzing documents is 500 MB for paid (S0) tier and 4 MB for free (F0) tier.
 
 * Image dimensions must be between 50 x 50 pixels and 10,000 px x 10,000 pixels.
 

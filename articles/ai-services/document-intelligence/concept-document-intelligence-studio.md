@@ -34,17 +34,15 @@ The following image shows the landing page for Document Intelligence Studio.
 
 :::image border="true" type="content" source="media/studio/welcome-to-studio.png" alt-text="Document Intelligence Studio Homepage":::
 
-## July 2023 (GA) features and updates
+## Analyze options
 
-✔️ **Analyze Options**</br>
-
-* Document Intelligence now supports more sophisticated analysis capabilities and the Studio allows one entry point (Analyze options button) for configuring the add-on capabilities with ease.
+* Document Intelligence supports sophisticated analysis capabilities. The Studio allows one entry point (Analyze options button) for configuring the add-on capabilities with ease.
 * Depending on the document extraction scenario, configure the analysis range, document page range, optional detection, and premium detection features.
 
-    :::image type="content" source="media/studio/analyze-options.gif" alt-text="Animated screenshot showing use of the analyze options button to configure options in Studio.":::
+    :::image type="content" source="media/studio/analyze-options.png" alt-text="Screenshot of the analyze options dialog window.":::
 
     > [!NOTE]
-    > Font extraction is not visualized in Document Intelligence Studio. However, you can check the styles seciton of the JSON output for the font detection results.
+    > Font extraction is not visualized in Document Intelligence Studio. However, you can check the styles section of the JSON output for the font detection results.
 
 ✔️ **Auto labeling documents with prebuilt models or one of your own models**
 

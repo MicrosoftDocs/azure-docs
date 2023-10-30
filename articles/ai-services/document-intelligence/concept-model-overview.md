@@ -93,6 +93,29 @@ For all models, except Business card model, Document Intelligence now supports a
 * [`ocr.font`](concept-add-on-capabilities.md#font-property-extraction)
 * [`ocr.barcode`](concept-add-on-capabilities.md#barcode-extraction)
 
+## Analysis features
+
+|Model ID|Content Extraction|Paragraphs|Paragraph Roles|Selection Marks|Tables|Key-Value Pairs|Languages|Barcodes|Document Analysis|Formulas*|Style Font*|High Resolution*|
+|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|
+|prebuilt-read|✓|✓| | | | |O|O| |O|O|O|
+|prebuilt-layout|✓|✓|✓|✓|✓| |O|O| |O|O|O|
+|prebuilt-document|✓|✓|✓|✓|✓|✓|O|O| |O|O|O|
+|prebuilt-businessCard|✓| | | | | | | |✓| | | |
+|prebuilt-idDocument|✓| | | | | |O|O|✓|O|O|O|
+|prebuilt-invoice|✓| | |✓|✓|O|O|O|✓|O|O|O|
+|prebuilt-receipt|✓| | | | | |O|O|✓|O|O|O|
+|prebuilt-healthInsuranceCard.us|✓| | | | | |O|O|✓|O|O|O|
+|prebuilt-tax.us.w2|✓| | |✓| | |O|O|✓|O|O|O|
+|prebuilt-tax.us.1098|✓| | |✓| | |O|O|✓|O|O|O|
+|prebuilt-tax.us.1098E|✓| | |✓| | |O|O|✓|O|O|O|
+|prebuilt-tax.us.1098T|✓| | |✓| | |O|O|✓|O|O|O|
+|prebuilt-contract|✓|✓|✓|✓| | |O|O|✓|O|O|O|
+|{ customModelName }|✓|✓|✓|✓|✓| |O|O|✓|O|O|O|
+
+✓ - Enabled</br>
+O - Optional</br>
+\* - Premium features incur additional costs
+
 ### Read OCR
 
 :::image type="icon" source="media/studio/read-card.png" :::
