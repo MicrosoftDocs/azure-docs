@@ -36,7 +36,10 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
    * **Resource Group**- Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group](../azure-resource-manager/management/overview.md) overview article.
    * **Cluster name** - Enter a name for your cluster.
    * **Location** - Location where your cluster will be deployed to.
-   * **Cassandra version** - Version of Apache Cassandra that will be deployed
+   * **Cassandra version** - Version of Apache Cassandra that will be deployed.
+   > [!NOTE]
+   > With Cassandra 5.0 now available in public preview, you have the option to conduct in-place major version upgrades directly from the portal or through Az CLI, Terraform, or ARM templates.
+
    * **Extention** - Extensions that will be added, including [Cassandra Lucene Index](search-lucene-index.md).
    * **Initial Cassandra admin password** - Password that is used to create the cluster.
    * **Confirm Cassandra admin password** - Reenter your password.
@@ -61,6 +64,12 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
    * **Data center name** - Type a data center name in the text field.
    * **Availability zone** - Check this box if you want availability zones to be enabled.
    * **SKU Size** - Choose from the available Virtual Machine SKU sizes.
+
+    :::image type="content" source="./media/create-cluster-portal/XXX" alt-text="Select a SKU Size." lightbox="./media/create-cluster-portal/XXXX" border="true":::
+
+    > [!IMPORTANT]
+    > We have introduced write-through caching (Public Preview) through the utilization of L-series VM SKUs. This implementation aims to minimize tail latencies and enhance read performance, particularly for intensive workloads. These specific SKUs are equipped with locally attached disks, ensuring rapid IOPS and reduced tail latency.
+
    * **No. of disks** - Choose the number of p30 disks to be attached to each Cassandra node.
    * **No. of nodes** - Choose the number of Cassandra nodes that will be deployed to this datacenter.
 

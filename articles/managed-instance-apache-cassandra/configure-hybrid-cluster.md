@@ -19,6 +19,7 @@ The Azure  Client configurator is a tool designed to assist you in configuring a
 * [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) with connectivity to your self-hosted or on-premises environment. For more information on connecting on premises environments to Azure, see the [Connect an on-premises network to Azure](/azure/architecture/reference-architectures/hybrid-networking/) article.
 
 * Ensure that both the Azure Managed Instance and on-premises Cassandra cluster are located on the same virtual network. If not, it is necessary to establish network peering or other means of connectivity (for example, express route).
+
 * The cluster name for both the Managed cluster and local cluster must be the same.
         * In the cassandra.yaml file ensure the storage port is set to 7001 and  the cluster name is same as the managed cluster:
 
@@ -52,8 +53,17 @@ python3 client_configurator.py --subscription-id <subcriptionId> --cluster-resou
 > [!NOTE]
 >
 > ```bash
-> --seed-nodes, the seed nodes of the existing datacenters in your on-premises or self-hosted Cassandra cluster.
+> --subscription-id: Azure subscription id.
+> --cluster-resource-group: Resource group which your cluster resides.
+> --cluster-name: Azure Managed Instance cluster name.
+> --initial-password: Password for your Azure Managed Instance for Apache Cassandra cluster.
+> --vnet-resource-group: The resource group attached to the virtual network.
+> --vnet-name: Name of the virtual network attached to your cluster.
+> --subnet-name: The name of the IP addressed allocated to the Cassandra cluster.
+> --location: Where your cluster is deployed.
+> --seed-nodes: The seed nodes of the existing datacenters in your on-premises or self-hosted Cassandra cluster.
 > --data-center-name: The data center name of your Azure Managed Instance cluster.
+> --sku: The virtual machine SKU size.
 > ```
 
 * The Python script produces a tar archive named `install_certs.tar.gz`.
