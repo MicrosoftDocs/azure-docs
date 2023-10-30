@@ -215,6 +215,12 @@
       - name: Troubleshoot autovacuum 
         href: flexible-server/how-to-autovacuum-tuning.md
         displayName: Autovacuum troubleshooting, tuning
+      - name: Full Vacuum Using pg_repack Extension 
+        href: flexible-server/how-to-perform-fullvacuum-pg-repack.md
+        displayName: Full vacuum using pg_repack extension
+      - name: Troubleshoot and identify slow running queries
+        href: flexible-server/how-to-identify-slow-queries.md 
+        displayName: Troubleshoot and identify slow running queries
       - name: Troubleshoot connections 
         href: flexible-server/how-to-troubleshoot-common-connection-issues.md
         displayName: Troubleshoot connections
