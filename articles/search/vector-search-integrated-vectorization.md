@@ -31,7 +31,7 @@ For queries:
 
 + A vectorizer defined in the index schema, assigned to a vector field, and used automatically at query time to convert a text query to a vector.
 
-Vector conversions are one-way: text-to-vector. There is no vector-to-text conversion for queries or results (for example, you can't convert a vector result to a human-readable string).
+Vector conversions are one-way: text-to-vector. There's no vector-to-text conversion for queries or results (for example, you can't convert a vector result to a human-readable string).
 
 ## Component diagram
 
@@ -48,11 +48,27 @@ Integrated vectorization is available as part of all Azure AI Search tiers in al
 
 ## What scenarios can integrated vectorization support?
 
-+ Subdivide large documents into chunks, useful for vector and non-vector scenarios. For vectors, chunks help you meet the input size constraints of embedding models. For non-vector scenarios, you might have a chat-style search app where GPT is assembling responses from indexed chunks.
++ Subdivide large documents into chunks, useful for vector and non-vector scenarios. For vectors, chunks help you meet the input size constraints of embedding models. For non-vector scenarios, you might have a chat-style search app where GPT is assembling responses from indexed chunks. You can use vectorized or non-vectorized chunks or chat-style search.
 
 + Build a vector store where all of the fields are vector fields, and the document ID (required for a search index) is the only string field. Query the vector index to retrieve document IDs, and then send the document's vector fields to another model.
 
 + Combine vector and text fields for hybrid search, with or without semantic ranking. Integrated vectorization simplifies all of the [scenarios supported by vector search](vector-search-overview-md#what-senarios-are-supported-by-vector-search).
+
+## When to use integrated vectorization
+
+We recommend using the built-in vectorization support of Azure AI Studio. If this approach doesn't meet your needs, you can create indexers and skillsets that invoke integrated vectorization using the programmatic interfaces of Azure AI Search.
+
+## Benefits of integrated vectorization 
+
+Here are some of the key benefits of the integrated vectorization: 
+
++ Streamlined maintenance: No separate data chunking and vectorization pipeline, thereby reducing overhead and simplifying data maintenance.  
+
++ Up-to-date results: Indexers automate indexing end-to-end. When data changes in the source (such as Azure Storage, Azure SQL, or Cosmos DB), the indexer can move those updates through the entire pipeline consisting of document cracking, optional AI-enrichment, data chunking, vectorization, and indexing.
+
++ Project or redirect chunked content to secondary indexes that are well-suited for chat-style apps and Retrieval-Augmented Generation (RAG) patterns. Secondary indexes are created as you would any search index (a schema with fields and other constructs), but they're populated in tandem with a primary index. Content from each source document flows to fields in primary and secondary indexes during the same indexing run. 
+
+  + Secondary indexes are used for data chunking and RAG apps. Assuming a large PDF as a source document, the primary index might have basic information (title, date, author, description), and a secondary index has the chunks of content. Vectorization at the data chunk level makes it easier to find relevant information and return a relevant response.
 
 ## Chunked indexes
 
