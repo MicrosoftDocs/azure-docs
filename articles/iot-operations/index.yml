@@ -38,8 +38,6 @@ landingContent:
             url: manage-mqtt-connectivity/overview-iot-mq.md
           - text: Process data
             url: process-data/overview-data-processor.md
-          - text: Connect to the cloud
-            url: connect-to-cloud/overview-connect-to-cloud.md
           - text: Visualize and analyze telemetry
             url: analyze-telemetry/overview-analyze-telemetry.md
           - text: Monitor service and asset health

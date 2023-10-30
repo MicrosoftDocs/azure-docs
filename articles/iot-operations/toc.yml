@@ -149,8 +149,6 @@ items:
 
     - name: Connect to the cloud
       items:
-      - name: Overview
-        href: connect-to-cloud/overview-connect-to-cloud.md
       - name: Connect to MQTT or Event Grid
         href: connect-to-cloud/howto-configure-mqtt-bridge.md
       - name: Connect to Messaging services
