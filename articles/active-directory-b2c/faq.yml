@@ -170,7 +170,7 @@ sections:
       - question: |
           Can end users use a time-based one-time password (TOTP) with an authenticator app to authenticate to my Azure AD B2C app?
         answer: |
-          Yes. End users need to download an authenticator app that supports TOTP verification, such as the [Microsoft Authenticator app](https://www.microsoft.com/security/mobile-authenticator-app) (recommended). For details see, [verification methods](multi-factor-authentication.md#verification-methods).
+          Yes. End users need to download any authenticator app that supports TOTP verification, such as the [Microsoft Authenticator app](https://www.microsoft.com/security/mobile-authenticator-app) (recommended). For details see, [verification methods](multi-factor-authentication.md#verification-methods).
           
       - question: |
           Why are my TOTP authenticator app codes not working?
