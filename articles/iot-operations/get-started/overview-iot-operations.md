@@ -59,9 +59,9 @@ Examples of how components in Azure IoT Operations use MQ Preview include:
 * Data Processor pipelines subscribe to MQTT topics to retrieve messages for processing.
 * North-bound cloud connectors subscribe to MQTT topics to fetch messages for forwarding to cloud services.
 
-## Process messages
+## Process data
 
-Message processing includes operations such as data normalization, data enrichment, and data filtering. You can use [Data Processor Preview](../process-data/overview-data-processor.md) pipelines to process messages.
+Message processing includes operations such as data normalization, data enrichment, and data filtering. You can use [Data Processor Preview](../process-data/overview-data-processor.md) pipelines to process data.
 
 A Data Processor pipeline typically:
 

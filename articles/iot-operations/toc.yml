@@ -10,7 +10,7 @@ items:
         href: get-started/quickstart-deploy.md
       - name: Add OPC UA assets to your cluster
         href: get-started/quickstart-add-assets.md
-      - name: Use pipelines to process messages
+      - name: Use pipelines to process data
         href: get-started/quickstart-process-telemetry.md
       - name: Get insights from your data
         href: get-started/quickstart-get-insights.md
@@ -84,7 +84,7 @@ items:
         href: manage-mqtt-connectivity/howto-configure-availability-scale.md
       - name: Configure disk buffer
         href: manage-mqtt-connectivity/howto-configure-disk-buffer.md
-    - name: Process messages
+    - name: Process data
       items:
       - name: Overview
         href: process-data/overview-data-processor.md

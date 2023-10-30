@@ -131,4 +131,4 @@ If you're not going to continue to use this deployment, delete the Kubernetes cl
 
 ## Next step
 
-[Quickstart: Use Data Processor pipelines to process messages from your OPC UA assets](quickstart-process-telemetry.md)
+[Quickstart: Use Data Processor pipelines to process data from your OPC UA assets](quickstart-process-telemetry.md)
