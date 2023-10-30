@@ -25,7 +25,7 @@ To provision VMware VMs and change their size, add disks, change network interfa
 
 You must assign this role on individual resource pool (or cluster or host), network, datastore, and template that a user or a group needs to access.   
 
-1. Go to the [**VMware vCenters (preview)** list in Arc center](https://portal.azure.com/#view/Microsoft_Azure_HybridCompute/AzureArcCenterBlade/~/vCenter).
+1. Go to the [**VMware vCenters** list in Arc center](https://portal.azure.com/#view/Microsoft_Azure_HybridCompute/AzureArcCenterBlade/~/vCenter).
 
 2. Search and select your vCenter. 
 

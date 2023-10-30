@@ -74,7 +74,7 @@ Azure Arc-enabled VMware vSphere currently works with vCenter Server versions 6.
 You can use Azure Arc-enabled VMware vSphere in these supported regions:
 
 - East US
-- East US 2
+- East US2
 - West US2
 - West US3
 - South Central US
