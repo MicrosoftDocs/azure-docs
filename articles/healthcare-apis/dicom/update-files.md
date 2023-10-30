@@ -3,7 +3,7 @@ title: Update DICOM files in the DICOM service
 description: Learn how to update DICOM files using the update API in Azure Health Data Services
 author: mmitrik
 ms.service: healthcare-apis
-ms.subservice: fhir
+ms.subservice: dicom
 ms.topic: quickstart
 ms.date: 10/27/2023
 ms.author: mmitrik
