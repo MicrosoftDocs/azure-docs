@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: mongodb-vcore
 ms.topic: conceptual
-ms.date: 10/26/2023
+ms.date: 10/30/2023
 ---
 
 # Failover for business continuity and disaster recovery with Azure Cosmos DB for MongoDB vCore
@@ -54,4 +54,3 @@ High availability can be specified when [creating a new cluster](quickstart-port
 - Read more about [feature compatibility with MongoDB](compatibility.md).
 - Review options for [migrating from MongoDB to Azure Cosmos DB for MongoDB vCore](migration-options.md)
 - Get started by [creating an account](quickstart-portal.md).
-
