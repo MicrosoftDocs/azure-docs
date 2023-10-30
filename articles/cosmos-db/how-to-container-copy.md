@@ -3,25 +3,29 @@ title: Create and manage intra-account container copy jobs in Azure Cosmos DB
 description: Learn how to create, monitor, and manage container copy jobs within an Azure Cosmos DB account using CLI commands.
 author: seesharprun
 ms.service: cosmos-db
-ms.custom: ignite-2022, devx-track-azurecli, build-2023
+ms.custom: ignite-2022, devx-track-azurecli, build-2023, ignite-2023
 ms.topic: how-to
 ms.date: 08/01/2022
 ms.author: sidandrews
 ms.reviewer: sidandrews
 ---
 
-# Create and manage intra-account container copy jobs in Azure Cosmos DB (Preview)
+# Create and manage container copy jobs in Azure Cosmos DB (Preview)
 [!INCLUDE[NoSQL, Cassandra, MongoDB](includes/appliesto-nosql-mongodb-cassandra.md)]
 
-[Container copy jobs](intra-account-container-copy.md) help create offline copies of containers within an Azure Cosmos DB account.
+[Container copy jobs](container-copy.md) help create offline copies of containers for Azure Cosmos DB accounts.
 
-This article describes how to create, monitor, and manage intra-account container copy jobs using Azure CLI commands.
+This article describes how to create, monitor, and manage container copy jobs using Azure CLI commands.
 
 ## Prerequisites
 
 * You may use the portal [Cloud Shell](/azure/cloud-shell/quickstart?tabs=powershell) to run container copy commands. Alternately, you may run the commands locally; make sure you have [Azure CLI](/cli/azure/install-azure-cli) downloaded and installed on your machine.
-* Currently, container copy is only supported in [these regions](intra-account-container-copy.md#supported-regions). Make sure your account's write region belongs to this list.
+* Currently, container copy is only supported in [these regions](container-copy.md#supported-regions). Make sure your account's write region belongs to this list.
 
+
+> [!NOTE]
+> Container copy job across Azure Cosmos DB accounts is available for NoSQL API account only. 
+> Container copy job within an Azure Cosmos DB account is available for NoSQL, MongoDB and Cassandra API accounts.
 
 ## Install the Azure Cosmos DB preview extension
 
@@ -45,54 +49,60 @@ $destinationDatabase = ""
 $destinationContainer = ""
 ```
 
-## Create an intra-account container copy job for API for NoSQL account
+## Create a container copy job for API for NoSQL account
 
 Create a job to copy a container within an Azure Cosmos DB API for NoSQL account:
 
 ```azurecli-interactive
-az cosmosdb dts copy `
+az cosmosdb copy create `
     --resource-group $resourceGroup `
-    --account-name $accountName `
     --job-name $jobName `
-    --source-sql-container database=$sourceDatabase container=$sourceContainer `
-    --dest-sql-container database=$destinationDatabase container=$destinationContainer
+    --dest-account $destAccount `
+    --src-account $srcAccount `
+    --dest-nosql database=$destinationDatabase container=$destinationContainer `
+    --src-nosql database=$sourceDatabase container=$sourceContainer
 ```
 
-## Create intra-account container copy job for API for Cassandra account
+## Create an intra-account container copy job for API for Cassandra account
 
 Create a job to copy a container within an Azure Cosmos DB API for Cassandra account:
 
 ```azurecli-interactive
-az cosmosdb dts copy `
+az cosmosdb copy create `
     --resource-group $resourceGroup `
-    --account-name $accountName `
     --job-name $jobName `
-    --source-cassandra-table keyspace=$sourceKeySpace table=$sourceTable `
-    --dest-cassandra-table keyspace=$destinationKeySpace table=$destinationTable
+    --dest-account $destAccount `
+    --src-account $srcAccount `
+    --dest-cassandra keyspace=$destinationKeySpace table=$destinationTable `
+    --src-cassandra keyspace=$sourceKeySpace table=$sourceTable 
 ```
 
-## Create intra-account container copy job for API for MongoDB account
+## Create an intra-account container copy job for API for MongoDB account
 
 Create a job to copy a container within an Azure Cosmos DB API for MongoDB account:
 
 ```azurecli-interactive
-az cosmosdb dts copy `
+az cosmosdb copy create `
     --resource-group $resourceGroup `
-    --account-name $accountName `
     --job-name $jobName `
-    --source-mongo database=$sourceDatabase collection=$sourceCollection `
-    --dest-mongo database=$destinationDatabase collection=$destinationCollection
+    --dest-account $destAccount `
+    --src-account $srcAccount `
+    --dest-mongo database=$destinationDatabase collection=$destinationCollection `
+    --src-mongo database=$sourceDatabase collection=$sourceCollection 
 ```
 
 > [!NOTE]
 > `--job-name` should be unique for each job within an account.
+
+> [!TIP]
+> --src-account parameter is optional for intra-account container copy jobs along with corresponding --src-nosql, --src-mongo and --src-cassandra database/container option for NoSQL, MongoDB, Cassandra API accounts respectively.
 
 ## Monitor the progress of a container copy job
 
 View the progress and status of a copy job:
 
 ```azurecli-interactive
-az cosmosdb dts show `
+az cosmosdb copy show `
     --resource-group $resourceGroup `
     --account-name $accountName `
     --job-name $jobName
@@ -103,7 +113,7 @@ az cosmosdb dts show `
 To list all the container copy jobs created in an account:
 
 ```azurecli-interactive
-az cosmosdb dts list `
+az cosmosdb copy list `
     --resource-group $resourceGroup `
     --account-name $accountName
 ```
@@ -113,7 +123,7 @@ az cosmosdb dts list `
 In order to pause an ongoing container copy job, you may use the command:
 
 ```azurecli-interactive
-az cosmosdb dts pause `
+az cosmosdb copy pause `
     --resource-group $resourceGroup `
     --account-name $accountName `
     --job-name $jobName
@@ -124,16 +134,27 @@ az cosmosdb dts pause `
 In order to resume an ongoing container copy job, you may use the command:
 
 ```azurecli-interactive
-az cosmosdb dts resume `
+az cosmosdb copy resume `
+    --resource-group $resourceGroup `
+    --account-name $accountName `
+    --job-name $jobName
+```
+
+## Cancel a container copy job
+
+In order to cancel an ongoing container copy job, you may use the command:
+
+```azurecli-interactive
+az cosmosdb copy cancel `
     --resource-group $resourceGroup `
     --account-name $accountName `
     --job-name $jobName
 ```
 
 ## Get support for container copy issues
-For issues related to intra-account container copy, please raise a **New Support Request** from the Azure portal. Set the **Problem Type** as 'Data Migration' and **Problem subtype** as 'Intra-account container copy'.
+For issues related to Container copy, please raise a **New Support Request** from the Azure portal. Set the **Problem Type** as 'Data Migration' and **Problem subtype** as 'Container copy'.
 
 
 ## Next steps
 
-- For more information about intra-account container copy jobs, see [Container copy jobs](intra-account-container-copy.md).
+- For more information about container copy jobs, see [Container copy jobs](container-copy.md).
