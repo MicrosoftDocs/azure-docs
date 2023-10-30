@@ -8,7 +8,7 @@ manager: KumudD
 ms.service: load-balancer
 ms.topic: quickstart
 ms.workload: infrastructure-services
-ms.date: 12/13/2022
+ms.date: 10/25/2023
 ms.author: mbender
 ms.custom: mvc, subject-armqs, mode-arm, template-quickstart, engagement-fy23, devx-track-arm-template
 #Customer intent: I want to create a load balancer by using an Azure Resource Manager template so that I can load balance internet traffic to VMs.
@@ -19,6 +19,8 @@ ms.custom: mvc, subject-armqs, mode-arm, template-quickstart, engagement-fy23, d
 Load balancing provides a higher level of availability and scale by spreading incoming requests across multiple virtual machines (VMs).
 
 This quickstart shows you how to deploy a standard load balancer to load balance virtual machines.
+
+:::image type="content" source="media/quickstart-load-balancer-standard-public-portal/public-load-balancer-resources.png" alt-text="Diagram of resources deployed for a standard public load balancer." lightbox="media/quickstart-load-balancer-standard-public-portal/public-load-balancer-resources.png":::
 
 Using an ARM template takes fewer steps comparing to other deployment methods.
 

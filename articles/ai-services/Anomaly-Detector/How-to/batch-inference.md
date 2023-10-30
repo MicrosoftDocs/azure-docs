@@ -265,11 +265,11 @@ The response contains the result status, variable information, inference paramet
 
 * **interpretation**: This field only appears when a timestamp is detected as anomalous, which contains `variables`, `contributionScore`, `correlationChanges`.
 
-* **contributors**: This is a list containing the contribution score of each variable. Higher contribution scores indicate higher possibility of the root cause. This list is often used for interpreting anomalies and diagnosing the root causes.
+* **contributionScore**: This is the contribution score of each variable. Higher contribution scores indicate a higher possibility of the root cause. This list is often used for interpreting anomalies and diagnosing the root causes.
 
-* **correlationChanges**: This field only appears when a timestamp is detected as anomalous, which included in interpretation. It contains `changedVariables` and `changedValues` that interpret which correlations between variables changed. 
+* **correlationChanges**: This field only appears when a timestamp is detected as abnormal, which is included in the interpretation. It contains `changedVariables` and `changedValues` that interpret which correlations between variables changed. 
 
-* **changedVariables**: This field will show which variables that have significant change in correlation with `variable`. The variables in this list are ranked by the extent of correlation changes.
+* **changedVariables**: This field will show which variables that have a significant change in correlation with `variable`. The variables in this list are ranked by the extent of correlation changes.
 
 > [!NOTE]
 > A common pitfall is taking all data points with `isAnomaly`=`true` as anomalies. That may end up with too many false positives.

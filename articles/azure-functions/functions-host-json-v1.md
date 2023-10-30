@@ -294,7 +294,7 @@ Configuration setting for the [SendGrind output binding](functions-bindings-send
 Configuration setting for [Service Bus triggers and bindings](functions-bindings-service-bus.md).
 
 ```json
-{ "extensions":
+{ 
     "serviceBus": {
       "maxConcurrentCalls": 16,
       "prefetchCount": 100,

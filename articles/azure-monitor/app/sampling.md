@@ -219,6 +219,8 @@ builder.Services.Configure<TelemetryConfiguration>(telemetryConfiguration =>
 
    // Alternately, the following configures adaptive sampling with 5 items per second, and also excludes DependencyTelemetry from being subject to sampling:
    // telemetryProcessorChainBuilder.UseAdaptiveSampling(maxTelemetryItemsPerSecond:5, excludedTypes: "Dependency");
+
+   telemetryProcessorChainBuilder.Build();
 });
 
 builder.Services.AddApplicationInsightsTelemetry(new ApplicationInsightsServiceOptions
@@ -333,6 +335,7 @@ In Metrics Explorer, rates such as request and exception counts are multiplied b
         // Using fixed rate sampling
         double fixedSamplingPercentage = 10;
         builder.UseSampling(fixedSamplingPercentage);
+        builder.Build();
     });
     
     builder.Services.AddApplicationInsightsTelemetry(new ApplicationInsightsServiceOptions

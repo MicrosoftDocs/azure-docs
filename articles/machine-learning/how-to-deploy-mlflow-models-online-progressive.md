@@ -318,6 +318,19 @@ So far, the endpoint is empty. There are no deployments on it. Let's create the 
         instance_count=1,
     )
     ```
+
+    If your endpoint doesn't have egress connectivity, use [model packaging (preview)](how-to-package-models.md) by including the argument `with_package=True`:
+
+    ```python
+    blue_deployment = ManagedOnlineDeployment(
+        name=blue_deployment_name,
+        endpoint_name=endpoint_name,
+        model=model,
+        instance_type="Standard_DS2_v2",
+        instance_count=1,
+        with_package=True,
+    )
+    ```
     
     # [Python (MLflow SDK)](#tab/mlflow)
 
@@ -351,6 +364,12 @@ So far, the endpoint is empty. There are no deployments on it. Let's create the 
     
     ```azurecli
     az ml online-deployment create --endpoint-name $ENDPOINT_NAME -f blue-deployment.yml --all-traffic
+    ```
+
+    If your endpoint doesn't have egress connectivity, use model packaging (preview) by including the flag `--with-package`:
+
+    ```azurecli
+    az ml online-deployment create --with-package --endpoint-name $ENDPOINT_NAME -f blue-deployment.yml --all-traffic
     ```
     
     > [!TIP]
@@ -593,6 +612,19 @@ Let's imagine that there is a new version of the model created by the developmen
         instance_count=1,
     )
     ```
+
+    If your endpoint doesn't have egress connectivity, use model packaging (preview) by including the argument `with_package=True`:
+
+    ```python
+    green_deployment = ManagedOnlineDeployment(
+        name=green_deployment_name,
+        endpoint_name=endpoint_name,
+        model=model,
+        instance_type="Standard_DS2_v2",
+        instance_count=1,
+        with_package=True,
+    )
+    ```
     
     # [Python (MLflow SDK)](#tab/mlflow)
 
@@ -626,6 +658,12 @@ Let's imagine that there is a new version of the model created by the developmen
     
     ```azurecli
     az ml online-deployment create -n $GREEN_DEPLOYMENT_NAME --endpoint-name $ENDPOINT_NAME -f green-deployment.yml
+    ```
+
+    If your endpoint doesn't have egress connectivity, use model packaging (preview) by including the flag `--with-package`:
+
+    ```azurecli
+    az ml online-deployment create --with-package -n $GREEN_DEPLOYMENT_NAME --endpoint-name $ENDPOINT_NAME -f green-deployment.yml
     ```
     
     # [Python (Azure Machine Learning SDK)](#tab/sdk)

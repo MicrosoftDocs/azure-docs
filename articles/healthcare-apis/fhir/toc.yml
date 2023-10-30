@@ -118,6 +118,8 @@ items:
       href: patient-everything.md
     - name: $purge-history operation
       href: purge-history.md  
+    - name: $bulk-delete operation
+      href: fhir-bulk-delete.md
     - name: $validate
       expanded: false
       items:
