@@ -163,7 +163,7 @@ To get the Microsoft Entra token (`aad_token`) for the control plane operation, 
 export CONTROL_PLANE_TOKEN=`(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -H Metadata:true -s)`
 ```
 
-For more information on getting tokens, see [Get a token using HTTP](/active-directory/managed-identities-azure-resources/how-to-use-vm-token.md#get-a-token-using-http).
+For more information on getting tokens, see [Get a token using HTTP](/entra/identity/managed-identities-azure-resources/how-to-use-vm-token.md#get-a-token-using-http).
 
 # [Python](#tab/python)
 
@@ -181,7 +181,7 @@ except Exception as ex:
     credential = InteractiveBrowserCredential()
 ```
 
-Refer to [Get a token using the Azure identity client library](/active-directory/managed-identities-azure-resources/how-to-use-vm-token.md#get-a-token-using-the-azure-identity-client-library) for more.
+Refer to [Get a token using the Azure identity client library](/entra/identity/managed-identities-azure-resources/how-to-use-vm-token.md#get-a-token-using-the-azure-identity-client-library) for more.
 
 # [Studio](#tab/studio)
 
@@ -465,7 +465,7 @@ To get the Microsoft Entra token (`aad_token`) for the data plane operation, get
 export DATA_PLANE_TOKEN=`(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fml.azure.com%2F' -H Metadata:true -s)`
 ```
 
-For more information, see [Get a token using HTTP](/active-directory/managed-identities-azure-resources/how-to-use-vm-token.md#get-a-token-using-http).
+For more information, see [Get a token using HTTP](/entra/identity/managed-identities-azure-resources/how-to-use-vm-token.md#get-a-token-using-http).
 
 # [Python](#tab/python)
 
@@ -513,7 +513,7 @@ except Exception as ex:
     credential = InteractiveBrowserCredential()
 ```
 
-Refer to [Get a token using the Azure identity client library](/active-directory/managed-identities-azure-resources/how-to-use-vm-token.md#get-a-token-using-the-azure-identity-client-library) for more.
+Refer to [Get a token using the Azure identity client library](/entra/identity/managed-identities-azure-resources/how-to-use-vm-token.md#get-a-token-using-the-azure-identity-client-library) for more.
 
 # [Studio](#tab/studio)
 
