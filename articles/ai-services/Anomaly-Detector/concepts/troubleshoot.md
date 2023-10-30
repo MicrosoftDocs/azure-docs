@@ -5,8 +5,7 @@ description: Learn how to remediate common error codes when you use the Azure AI
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: anomaly-detector
+ms.service: azure-ai-anomaly-detector
 ms.topic: troubleshooting
 ms.date: 04/01/2021
 ms.author: mbullwin
@@ -14,6 +13,8 @@ keywords: anomaly detection, machine learning, algorithms
 ---
 
 # Troubleshoot the multivariate API
+
+[!INCLUDE [Deprecation announcement](../includes/deprecation.md)]
 
 This article provides guidance on how to troubleshoot and remediate common error messages when you use the Azure AI Anomaly Detector multivariate API.
 

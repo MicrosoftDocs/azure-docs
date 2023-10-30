@@ -65,7 +65,7 @@ Creator usage data is incorporated in your Azure Maps usage charts and activity 
 >[!Important]
 >We recommend using:
 >
-> * Azure Active Directory (Azure AD) in all solutions that are built with an Azure Maps account using Creator services. For more information, on Azure AD, see [Azure AD authentication].
+> * Microsoft Entra ID in all solutions that are built with an Azure Maps account using Creator services. For more information, on Microsoft Entra ID, see [Microsoft Entra authentication].
 >
 >* Role-based access control settings (RBAC). Using these settings, map makers can act as the Azure Maps Data Contributor role, and Creator map data users can act as the Azure Maps Data Reader role. For more information, see [Authorization with role-based access control].
 
@@ -73,14 +73,12 @@ Creator usage data is incorporated in your Azure Maps usage charts and activity 
 
 Creator services and services that use data hosted in Creator (for example, Render service), are accessible at a geographical URL. The geographical URL determines the location selected during creation. For example, if Creator is created in a region in the United States geographical location, all calls to the Conversion service must be submitted to `us.atlas.microsoft.com/conversions`. To view mappings of region to geographical location, [see Creator service geographic scope].
 
-Also, all data imported into Creator should be uploaded into the same geographical location as the Creator resource. For example, if Creator is provisioned in the United States, all raw data should be uploaded via `us.atlas.microsoft.com/mapData/upload`.
-
 ## Next steps
 
 Introduction to Creator services for indoor mapping:
 
 > [!div class="nextstepaction"]
-> [Data upload]
+> [Upload a drawing package]
 
 > [!div class="nextstepaction"]
 > [Data conversion]
@@ -111,11 +109,11 @@ Learn how to use the Creator services to render indoor maps in your application:
 [Azure Maps pricing]: https://aka.ms/CreatorPricing
 [Azure portal]: https://portal.azure.com
 [Data conversion]: creator-indoor-maps.md#convert-a-drawing-package
-[Data upload]: creator-indoor-maps.md#upload-a-drawing-package
 [Dataset]: creator-indoor-maps.md#datasets
 [Feature State set]: creator-indoor-maps.md#feature-statesets
 [Indoor map dynamic styling]: indoor-map-dynamic-styling.md
 [Manage authentication in Azure Maps]: how-to-manage-authentication.md
 [see Creator service geographic scope]: creator-geographic-scope.md
 [Tileset]: creator-indoor-maps.md#tilesets
+[Upload a drawing package]: creator-indoor-maps.md#upload-a-drawing-package
 [Use the Indoor Maps module]: how-to-use-indoor-module.md

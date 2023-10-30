@@ -4,7 +4,7 @@ description: Review support requirements for the Defender for Containers plan in
 ms.topic: limits-and-quotas
 author: dcurwin
 ms.author: dacurwin
-ms.date: 08/20/2023
+ms.date: 09/06/2023
 ms.custom: references_regions, ignite-2022
 ---
 
@@ -19,7 +19,7 @@ This article summarizes support information for the [Defender for Containers pla
 
 | Feature | Supported Resources | Linux release state | Windows release state   | Agentless/Agent-based | Pricing Tier | Azure clouds availability |
 |--|--|--|--|--|--|--|
-| [Agentless discovery for Kubernetes](defender-for-containers-introduction.md#agentless-discovery-for-kubernetes) | ACR, AKS | GA | GA | Agentless | Defender for Containers | Azure commercial clouds |
+| [Agentless discovery for Kubernetes](defender-for-containers-introduction.md#agentless-discovery-for-kubernetes) | ACR, AKS | GA | GA | Agentless | Defender for Containers or Defender CSPM | Azure commercial clouds |
 | Compliance-Docker CIS | VM, Virtual Machine Scale Set | GA | - | Log Analytics agent | Defender for Servers Plan 2 | Commercial clouds<br><br> National clouds: Azure Government, Microsoft Azure operated by 21Vianet  |
 | [Vulnerability assessment](defender-for-containers-vulnerability-assessment-azure.md) (powered by Qualys) - registry scan [OS packages](#registries-and-images-support-for-azure---powered-by-qualys) | ACR, Private ACR | GA | Preview | Agentless | Defender for Containers  | Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
 | [Vulnerability assessment](defender-for-containers-vulnerability-assessment-azure.md) (powered by Qualys) -registry scan [language packages](#registries-and-images-support-for-azure---powered-by-qualys) | ACR, Private ACR | Preview | - | Agentless | Defender for Containers  | Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
@@ -218,6 +218,9 @@ Defender for Containers relies on the **Defender agent** for several features. T
 - Ubuntu 22.04
 
 Ensure your Kubernetes node is running on one of the verified supported operating systems. Clusters with different host operating systems, only get partial coverage.
+
+#### Defender agent limitations
+The Defender agent is currently not supported on ARM64 nodes.
 
 #### Network restrictions
 

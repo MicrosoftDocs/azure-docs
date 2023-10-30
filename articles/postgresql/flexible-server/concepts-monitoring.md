@@ -6,7 +6,7 @@ ms.author: varundhawan
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 8/30/2023
+ms.date: 9/15/2023
 ---
 
 # Monitor metrics on Azure Database for PostgreSQL - Flexible Server
@@ -22,7 +22,7 @@ Azure Database for PostgreSQL provides various metrics that give insight into th
 > [!NOTE]
 > While metrics are stored for 93 days, you can only query (in the Metrics tile) for a maximum of 30 days' worth of data on any single chart. If you see a blank chart or your chart displays only part of metric data, verify that the difference between start and end dates in the time picker doesn't exceed the 30-day interval. After you've selected a 30-day interval, you can pan the chart to view the full retention window. 
 
-### List of metrics
+### Default Metrics
 
 The following metrics are available for a flexible server instance of Azure Database for PostgreSQL:
 
@@ -51,18 +51,16 @@ The following metrics are available for a flexible server instance of Azure Data
 |**Write IOPS**                  |`write_iops`                 |Count     |Number of data disk I/O write operations per second.                                                                                                                                                                                                                                                                                                                                        |Yes            |
 
 
-## Enhanced metrics
+### Enhanced metrics
 
-You can use enhanced metrics for Azure Database for PostgreSQL - Flexible Server to get fine-grained monitoring and alerting on databases. You can configure alerts on the metrics.
+You can use enhanced metrics for Azure Database for PostgreSQL - Flexible Server to get fine-grained monitoring and alerting on databases. You can configure alerts on the metrics. Some enhanced metrics include a `Dimension` parameter that you can use to split and filter metrics data by using a dimension like database name or state.
 
-Some enhanced metrics include a `Dimension` parameter that you can use to split and filter metrics data by using a dimension like database name or state.
-
-### Enable enhanced metrics
+#### Enabling enhanced metrics
 
 - Most of these new metrics are *disabled* by default. A few exceptions are described in the next table.
 - To enable these metrics, set the server parameter `metrics.collector_database_activity` to `ON`. This parameter is dynamic and doesn't require an instance restart.
 
-### List of enhanced metrics
+##### List of enhanced metrics
 
 You can choose from the following categories of enhanced metrics:
 
@@ -73,7 +71,7 @@ You can choose from the following categories of enhanced metrics:
 - Saturation
 - Traffic
 
-#### Activity
+##### Activity
 
 |Display name|Metric ID|Unit|Description|Dimension|Default enabled|
 |---|---|---|---|---|---|
@@ -85,7 +83,7 @@ You can choose from the following categories of enhanced metrics:
 |**Oldest xmin** |`oldest_backend_xmin`|Count|The actual value of the oldest `xmin`. If `xmin` isn't increasing, it indicates that there are some long-running transactions that can potentially hold dead tuples from being removed. |Doesn't apply|No|
 |**Oldest xmin Age** |`oldest_backend_xmin_age`|Count|Age in units of the oldest `xmin`. Indicates how many transactions passed since the oldest `xmin`. |Doesn't apply|No|
 
-#### Database
+##### Database
 
 |Display name                     |Metric ID    |Unit |Description                                                                                         |Dimension   |Default enabled|
 |---------------------------------|-------------|-----|----------------------------------------------------------------------------------------------------|------------|---------------|
@@ -105,27 +103,27 @@ You can choose from the following categories of enhanced metrics:
 |**Tuples Returned**                  |`tup_returned` |Count|Number of rows that were returned by queries in this database.                                      |DatabaseName|No             |
 |**Tuples Updated**                   |`tup_updated`  |Count|Number of rows that were updated by queries in this database.                                       |DatabaseName|No             |
 
-#### Logical replication
+##### Logical replication
 
 |Display name|Metric ID|Unit|Description|Dimension|Default enabled|
 |---|---|---|---|---|---|
 |**Max Logical Replication Lag** |`logical_replication_delay_in_bytes`|Bytes|Maximum lag across all logical replication slots.|Doesn't apply|Yes |
 
-#### Replication
+##### Replication
 
 |Display name|Metric ID|Unit|Description|Dimension|Default enabled|
 |---|---|---|---|---|---|
 |**Max Physical Replication Lag** |`physical_replication_delay_in_bytes`|Bytes|Maximum lag across all asynchronous physical replication slots.|Doesn't apply|Yes |
 |**Read Replica Lag** |`physical_replication_delay_in_seconds`|Seconds|Read replica lag in seconds. |Doesn't apply|Yes |
 
-#### Saturation
+##### Saturation
 
 |Display name|Metric ID|Unit|Description|Dimension|Default enabled|
 |---|---|---|---|---|---|
 |**Disk Bandwidth Consumed Percentage**|`disk_bandwidth_consumed_percentage`|Percent|Percentage of data disk bandwidth consumed per minute.|Doesn't apply|Yes |
 |**Disk IOPS Consumed Percentage** |`disk_iops_consumed_percentage` |Percent|Percentage of data disk I/Os consumed per minute. |Doesn't apply|Yes |
 
-#### Traffic
+##### Traffic
 
 |Display name|Metric ID|Unit|Description|Dimension|Default enabled|
 |---|---|---|---|---|---|
@@ -133,26 +131,26 @@ You can choose from the following categories of enhanced metrics:
 
 ^ **Max Connections** represents the configured value for the `_max_connections_ server` parameter. This metric is pooled every 30 minutes.
 
-#### Considerations for using enhanced metrics
+##### Considerations for using enhanced metrics
 
 - Enhanced metrics that use the DatabaseName dimension have a *50-database* limit.
 - On the *Burstable* SKU, the limit is 10 databases for metrics that use the DatabaseName dimension.
 - The DatabaseName dimension limit is applied on the object identifier (OID) column, which reflects the order of creation for the database.
 - The DatabaseName in the metrics dimension is *case insensitive*. The metrics for database names that are the same except for case (for example, *contoso_database* and *Contoso_database*) will be merged and might not show accurate data.
 
-## Autovacuum metrics
+### Autovacuum metrics
 
 Autovaccum metrics can be used to monitor and tune autovaccum performance for Azure Database for PostgreSQL - Flexible Server. Each metric is emitted at a *30-minute* interval and has up to *93 days* of retention. You can create alerts for specific metrics, and you can split and filter metrics data by using the DatabaseName dimension.
 
-### Enable autovacuum metrics
+#### How to enable autovacuum metrics
 
 - Autovacuum metrics are disabled by default.
 - To enable these metrics, set the server parameter `metrics.autovacuum_diagnostics` to `ON`.
 - This parameter is dynamic, so an instance restart isn't required.
 
-### List of autovacuum metrics
+#### List of autovacuum metrics
 
-|Display name                           |Metric ID                        |Unit   |Description                                                                                                |Dimension   |Default enabled|
+|Display name                           |Metric ID                        |Unit   |Description                                                                                               |Dimension   |Default enabled|
 |---------------------------------------|---------------------------------|-------|-----------------------------------------------------------------------------------------------------------|------------|---------------|
 |**Analyze Counter User Tables**        |`analyze_count_user_tables`      |Count  |Number of times user-only tables have been manually analyzed in this database.                             |DatabaseName|No             |
 |**AutoAnalyze Counter User Tables**    |`autoanalyze_count_user_tables`  |Count  |Number of times user-only tables have been analyzed by the autovacuum daemon in this database.             |DatabaseName|No             |
@@ -161,7 +159,6 @@ Autovaccum metrics can be used to monitor and tune autovaccum performance for Az
 |**Estimated Dead Rows User Tables**    |`n_dead_tup_user_tables`         |Count  |Estimated number of dead rows for user-only tables in this database.                                       |DatabaseName|No             |
 |**Estimated Live Rows User Tables**    |`n_live_tup_user_tables`         |Count  |Estimated number of live rows for user-only tables in this database.                                       |DatabaseName|No             |
 |**Estimated Modifications User Tables**|`n_mod_since_analyze_user_tables`|Count  |Estimated number of rows that were modified since user-only tables were last analyzed.                     |DatabaseName|No             |
-|**Transactions per second (Preview)**  |`tps`                            |Count  |Number of transactions executed within a second.                                                           |DatabaseName|No             |
 |**User Tables Analyzed**               |`tables_analyzed_user_tables`    |Count  |Number of user-only tables that have been analyzed in this database.                                       |DatabaseName|No             |
 |**User Tables AutoAnalyzed**           |`tables_autoanalyzed_user_tables`|Count  |Number of user-only tables that have been analyzed by the autovacuum daemon in this database.              |DatabaseName|No             |
 |**User Tables AutoVacuumed**           |`tables_autovacuumed_user_tables`|Count  |Number of user-only tables that have been vacuumed by the autovacuum daemon in this database.              |DatabaseName|No             |
@@ -169,23 +166,23 @@ Autovaccum metrics can be used to monitor and tune autovaccum performance for Az
 |**User Tables Vacuumed**               |`tables_vacuumed_user_tables`    |Count  |Number of user-only tables that have been vacuumed in this database.                                       |DatabaseName|No             |
 |**Vacuum Counter User Tables**         |`vacuum_count_user_tables`       |Count  |Number of times user-only tables have been manually vacuumed in this database (not counting `VACUUM FULL`).|DatabaseName|No             |
 
-### Considerations for using autovacuum metrics
+#### Considerations for using autovacuum metrics
 
 - Autovacuum metrics that use the DatabaseName dimension have a *30-database* limit.
 - On the *Burstable* SKU, the limit is 10 databases for metrics that use the DatabaseName dimension.
 - The DatabaseName dimension limit is applied on the OID column, which reflects the order of creation for the database.
 
-## PgBouncer metrics
+### PgBouncer metrics
 
 You can use PgBouncer metrics to monitor the performance of the PgBouncer process, including details for active connections, idle connections, total pooled connections, and the number of connection pools. Each metric is emitted at a *30-minute* interval and has up to *93 days* of history. Customers can configure alerts on the metrics and also access the new metrics dimensions to split and filter metrics data by database name.
 
-### Enable PgBouncer metrics
+#### How to enable PgBouncer metrics
 
 - PgBouncer metrics are disabled by default.
 - For PgBouncer metrics to work, both the server parameters `pgbouncer.enabled` and `metrics.pgbouncer_diagnostics` must be enabled.
 - These parameters are dynamic and don't require an instance restart.
 
-### List of PgBouncer metrics
+#### List of PgBouncer metrics
 
 |Display name|Metric ID|Unit|Description|Dimension|Default enabled|
 |---|---|---|---|---|---|
@@ -196,13 +193,13 @@ You can use PgBouncer metrics to monitor the performance of the PgBouncer proces
 |**Total pooled connections** |`total_pooled_connections`|Count|Current number of pooled connections. |DatabaseName|No |
 |**Number of connection pools** |`num_pools` |Count|Total number of connection pools. |DatabaseName|No |
 
-### Considerations for using the PgBouncer metrics
+#### Considerations for using the PgBouncer metrics
 
 - PgBouncer metrics that use the DatabaseName dimension have a *30-database* limit.
 - On the *Burstable* SKU, the limit is 10 databases that have the DatabaseName dimension.
 - The DatabaseName dimension limit is applied to the OID column, which reflects the order of creation for the database.
 
-## Database availability metric
+### Database availability metric
 
 Is-db-alive is an database server availability metric for Azure Postgres Flexible Server, that returns `[1 for available]` and `[0 for not-available]`. Each metric is emitted at a *1 minute* frequency, and has up to *93 days* of retention. Customers can configure alerts on the metric.
 
@@ -216,7 +213,7 @@ Is-db-alive is an database server availability metric for Azure Postgres Flexibl
 - Customers have option to further aggregate these metrics with any desired frequency (5m, 10m, 30m etc.) to suit their alerting requirements and avoid any false positive.
 - Other possible aggregations are `AVG()` and `MIN()`
 
-## Filter and split on dimension metrics
+### Filter and split on dimension metrics
 
 In the preceding tables, some metrics have dimensions like DatabaseName or State. You can use [filtering](../../azure-monitor/essentials/metrics-charts.md#filters) and [splitting](../../azure-monitor/essentials/metrics-charts.md#apply-splitting) for the metrics that have dimensions. These features show how various metric segments (or *dimension values*) affect the overall value of the metric. You can use them to identify possible outliers.
 
@@ -229,9 +226,27 @@ The following example demonstrates splitting by the State dimension and filterin
 
 For more information about setting up charts for dimensional metrics, see [Metric chart examples](../../azure-monitor/essentials/metric-chart-samples.md).
 
-## Server logs
+### Metrics visualization
+
+There are several options to visualize Azure Monitor metrics
+
+|Component  |Description | Required training and/or configuration|
+|---------|---------|--------|
+|Overview page|Most Azure services have an **Overview** page in the Azure portal that includes a **Monitor** section with charts that show recent critical metrics. This information is intended for owners of individual services to quickly assess the performance of the resource. |This page is based on platform metrics that are collected automatically. No configuration is required.         |
+|[Metrics Explorer](../../azure-monitor/essentials/metrics-getting-started.md)|You can use Metrics Explorer to interactively work with metric data and create metric alerts. You need minimal training to use Metrics Explorer, but you must be familiar with the metrics you want to analyze. |- Once data collection is configured, no other configuration is required.<br>- Platform metrics for Azure resources are automatically available.<br>- Guest metrics for virtual machines are available after an Azure Monitor agent is deployed to the virtual machine.<br>- Application metrics are available after Application Insights is configured.         |
+| [Grafana](https://grafana.com/grafana/dashboards/19556-azure-azure-postgresql-flexible-server-monitoring/) | You can use Grafana for visualizing and alerting on metrics. All versions of Grafana include the [Azure Monitor datasource plug-in](../../azure-monitor/visualize/grafana-plugin.md) to visualize your Azure Monitor metrics and logs.                                                     | Some training is required for you to become familiar with Grafana dashboards,  although you can download prebuilt [Azure PostgreSQL grafana monitoring dashboard](https://grafana.com/grafana/dashboards/19556-azure-azure-postgresql-flexible-server-monitoring/) to easily all Auzre PostgreSQL srevers in your organzation.                                                                                                                                              |
+
+
+## Logs
 
 In addition to the metrics, you can use Azure Database for PostgreSQL to configure and access Azure Database for PostgreSQL standard logs. For more information, see [Logging concepts](concepts-logging.md).
+
+### Logs visualization
+
+|Component  |Description | Required training and/or configuration|
+|---------|---------|--------|
+|[Log Analytics](../../azure-monitor/logs/log-analytics-overview.md)|With Log Analytics, you can create log queries to interactively work with log data and create log query alerts.| Some training is required for you to become familiar with the query language, although you can use prebuilt queries for common requirements. |
+
 
 ## Next steps
 

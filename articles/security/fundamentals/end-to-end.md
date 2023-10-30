@@ -45,12 +45,12 @@ The [Microsoft cloud security benchmark](/security/benchmark/azure/introduction)
 |------|--------|
 | [Microsoft Defender for Cloud](../../security-center/security-center-introduction.md)| A unified infrastructure security management system that strengthens the security posture of your data centers, and provides advanced threat protection across your hybrid workloads in the cloud - whether they're in Azure or not - as well as on premises. |
 | **Identity&nbsp;&&nbsp;Access&nbsp;Management** | |
-| [Azure Active Directory (AD)](../../active-directory/fundamentals/active-directory-whatis.md)| Microsoft’s cloud-based identity and access management service.  |
-|  | [Conditional Access](../../active-directory/conditional-access/overview.md) is the tool used by Azure AD to bring identity signals together, to make decisions, and enforce organizational policies. |
-|  | [Domain Services](../../active-directory-domain-services/overview.md) is the tool used by Azure AD to provide managed domain services such as domain join, group policy, lightweight directory access protocol (LDAP), and Kerberos/NTLM authentication. |
-|  | [Privileged Identity Management (PIM)](../../active-directory/privileged-identity-management/pim-configure.md) is a service in Azure AD that enables you to manage, control, and monitor access to important resources in your organization. |
-|  | [Multi-factor authentication](../../active-directory/authentication/concept-mfa-howitworks.md) is the tool used by Azure AD to help safeguard access to data and applications by requiring a second form of authentication. |
-| [Azure AD Identity Protection](../../active-directory/identity-protection/overview-identity-protection.md) | A tool that allows organizations to automate the detection and remediation of identity-based risks, investigate risks using data in the portal, and export risk detection data to third-party utilities for further analysis. |
+| [Microsoft Entra ID](../../active-directory/fundamentals/active-directory-whatis.md)| Microsoft’s cloud-based identity and access management service.  |
+|  | [Conditional Access](../../active-directory/conditional-access/overview.md) is the tool used by Microsoft Entra ID to bring identity signals together, to make decisions, and enforce organizational policies. |
+|  | [Domain Services](../../active-directory-domain-services/overview.md) is the tool used by Microsoft Entra ID to provide managed domain services such as domain join, group policy, lightweight directory access protocol (LDAP), and Kerberos/NTLM authentication. |
+|  | [Privileged Identity Management (PIM)](../../active-directory/privileged-identity-management/pim-configure.md) is a service in Microsoft Entra ID that enables you to manage, control, and monitor access to important resources in your organization. |
+|  | [Multi-factor authentication](../../active-directory/authentication/concept-mfa-howitworks.md) is the tool used by Microsoft Entra ID to help safeguard access to data and applications by requiring a second form of authentication. |
+| [Microsoft Entra ID Protection](../../active-directory/identity-protection/overview-identity-protection.md) | A tool that allows organizations to automate the detection and remediation of identity-based risks, investigate risks using data in the portal, and export risk detection data to third-party utilities for further analysis. |
 | **Infrastructure&nbsp;&&nbsp;Network** |  |
 | [VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md) | A virtual network gateway that is used to send encrypted traffic between an Azure virtual network and an on-premises location over the public Internet and to send encrypted traffic between Azure virtual networks over the Microsoft network. |
 | [Azure DDoS Protection](../../ddos-protection/ddos-protection-overview.md) | Provides enhanced DDoS mitigation features to defend against DDoS attacks. It is automatically tuned to help protect your specific Azure resources in a virtual network. |
@@ -71,8 +71,8 @@ The [Microsoft cloud security benchmark](/security/benchmark/azure/introduction)
 | [Azure confidential computing](../../confidential-computing/overview.md) | Allows you to isolate your sensitive data while it's being processed in the cloud. |
 | [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops) | Your development projects benefit from multiple layers of security and governance technologies, operational practices, and compliance policies when stored in Azure DevOps. |
 | **Customer Access** |  |
-| [Azure AD External Identities](../../active-directory/external-identities/external-identities-overview.md) | With External Identities in Azure AD, you can allow people outside your organization to access your apps and resources, while letting them sign in using whatever identity they prefer. |
-|  | You can share your apps and resources with external users via [Azure AD B2B](../../active-directory/external-identities/what-is-b2b.md) collaboration. |
+| [Microsoft Entra External ID](../../active-directory/external-identities/external-identities-overview.md) | With External Identities in Microsoft Entra ID, you can allow people outside your organization to access your apps and resources, while letting them sign in using whatever identity they prefer. |
+|  | You can share your apps and resources with external users via [Microsoft Entra B2B](../../active-directory/external-identities/what-is-b2b.md) collaboration. |
 |  | [Azure AD B2C](../../active-directory-b2c/overview.md) lets you support millions of users and billions of authentications per day, monitoring and automatically handling threats like denial-of-service, password spray, or brute force attacks. |
 
 ## Detect threats
@@ -87,7 +87,7 @@ The [Microsoft cloud security benchmark](/security/benchmark/azure/introduction)
 | [Microsoft 365 Defender](/microsoft-365/security/defender/microsoft-365-defender) | A unified pre- and post-breach enterprise defense suite that natively coordinates detection, prevention, investigation, and response across endpoints, identities, email, and applications to provide integrated protection against sophisticated attacks. |
 |  | [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint) is an enterprise endpoint security platform designed to help enterprise networks prevent, detect, investigate, and respond to advanced threats. |
 |  | [Microsoft Defender for Identity](/defender-for-identity/what-is) is a cloud-based security solution that leverages your on-premises Active Directory signals to identify, detect, and investigate advanced threats, compromised identities, and malicious insider actions directed at your organization. |
-| [Azure AD Identity Protection](../../active-directory/identity-protection/howto-identity-protection-configure-notifications.md) | Sends two types of automated notification emails to help you manage user risk and risk detections: Users at risk detected email and Weekly digest email. |
+| [Microsoft Entra ID Protection](../../active-directory/identity-protection/howto-identity-protection-configure-notifications.md) | Sends two types of automated notification emails to help you manage user risk and risk detections: Users at risk detected email and Weekly digest email. |
 | **Infrastructure & Network** |  |
 | [Azure Firewall](../../firewall/premium-features.md#idps) | Azure Firewall Premium provides signature-based intrusion detection and prevention system (IDPS) to allow rapid detection of attacks by looking for specific patterns, such as byte sequences in network traffic, or known malicious instruction sequences used by malware. |
 | [Microsoft Defender for IoT](../../defender-for-iot/overview.md) | A unified security solution for identifying IoT/OT devices, vulnerabilities, and threats. It enables you to secure your entire IoT/OT environment, whether you need to protect existing IoT/OT devices or build security into new IoT innovations. |
@@ -106,9 +106,9 @@ The [Microsoft cloud security benchmark](/security/benchmark/azure/introduction)
 | [Microsoft Sentinel](../../sentinel/hunting.md) | Powerful search and query tools to hunt for security threats across your organization's data sources. |
 | [Azure&nbsp;Monitor&nbsp;logs&nbsp;and&nbsp;metrics](../../azure-monitor/overview.md) | Delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. Azure Monitor [collects and aggregates data](../../azure-monitor/data-platform.md#observability-data-in-azure-monitor) from a variety of sources into a common data platform where it can be used for analysis, visualization, and alerting. |
 | **Identity&nbsp;&&nbsp;Access&nbsp;Management** |  |
-| [Azure&nbsp;AD&nbsp;reports&nbsp;and&nbsp;monitoring](../../active-directory/reports-monitoring/index.yml) | [Azure AD reports](../../active-directory/reports-monitoring/overview-reports.md) provide a comprehensive view of activity in your environment. |
-|  | [Azure AD monitoring](../../active-directory/reports-monitoring/overview-monitoring.md) lets you route your Azure AD activity logs to different endpoints.|
-| [Azure AD PIM audit history](../../active-directory/privileged-identity-management/pim-how-to-use-audit-log.md) | Shows all role assignments and activations within the past 30 days for all privileged roles. |
+| [Azure&nbsp;AD&nbsp;reports&nbsp;and&nbsp;monitoring](../../active-directory/reports-monitoring/index.yml) | [Microsoft Entra reports](../../active-directory/reports-monitoring/overview-reports.md) provide a comprehensive view of activity in your environment. |
+|  | [Microsoft Entra monitoring](../../active-directory/reports-monitoring/overview-monitoring.md) lets you route your Microsoft Entra activity logs to different endpoints.|
+| [Microsoft Entra PIM audit history](../../active-directory/privileged-identity-management/pim-how-to-use-audit-log.md) | Shows all role assignments and activations within the past 30 days for all privileged roles. |
 | **Data & Application** |  |
 | [Microsoft Defender for Cloud Apps](/cloud-app-security/investigate) | Provides tools to gain a deeper understanding of what's happening in your cloud environment. |
 

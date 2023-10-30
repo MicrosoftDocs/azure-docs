@@ -4,13 +4,14 @@ description: The reward score indicates how well the personalization choice, Rew
 author: jcodella
 ms.author: jacodel
 ms.manager: nitinme
-ms.service: cognitive-services
-ms.subservice: personalizer
+ms.service: azure-ai-personalizer
 ms.date: 02/20/2020
 ms.topic: conceptual
 ---
 
 # Reward scores indicate success of personalization
+
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
 
 The reward score indicates how well the personalization choice, [RewardActionID](/rest/api/personalizer/1.0/rank/rank#response), resulted for the user. The value of the reward score is determined by your business logic, based on observations of user behavior.
 

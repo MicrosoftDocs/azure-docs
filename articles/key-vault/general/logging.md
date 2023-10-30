@@ -85,7 +85,7 @@ The following table lists the **operationName** values and corresponding REST AP
 
 | operationName | REST API command |
 | --- | --- |
-| **Authentication** |Authenticate via Azure Active Directory endpoint |
+| **Authentication** |Authenticate via Microsoft Entra endpoint |
 | **VaultGet** |[Get information about a key vault](/rest/api/keyvault/keyvault/vaults) |
 | **VaultPut** |[Create or update a key vault](/rest/api/keyvault/keyvault/vaults) |
 | **VaultDelete** |[Delete a key vault](/rest/api/keyvault/keyvault/vaults) |

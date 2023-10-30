@@ -2,7 +2,6 @@
 title: What is the Azure Machine Learning designer(v2)?
 titleSuffix: Azure Machine Learning
 description: Learn what the Azure Machine Learning designer is and what tasks you can use it for. The drag-and-drop UI enables customer to build machine learning pipeline. 
-services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
@@ -38,7 +37,7 @@ As shown in below GIF, you can build a pipeline visually by dragging and droppin
 
 The building blocks of pipeline are called assets in Azure Machine Learning, which includes:
  - [Data](./concept-data.md)
- - [Model](https://learn.microsoft.com/azure/machine-learning/how-to-manage-models?view=azureml-api-2&tabs=cli%2Cuse-local)
+ - [Model](how-to-manage-models.md?view=azureml-api-2&preserve-view=true&tabs=cli)
  - [Component](./concept-component.md)
 
 Designer has an asset library on the left side, where you can access all the assets you need to create your pipeline. It shows both the assets you created in your workspace, and the assets shared in [registry](./how-to-share-models-pipelines-across-workspaces-with-registries.md) that you have permission to access.

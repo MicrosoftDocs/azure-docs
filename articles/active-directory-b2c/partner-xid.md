@@ -19,7 +19,8 @@ In this tutorial, learn to integrate Azure Active Directory B2C (Azure AD B2C) a
 
 ## Prerequisites
 
-* An Azure AD subscription
+* An Azure subscription
+
   * If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/free/)
 * An Azure AD B2C tenant linked to the Azure subscription
   * See, [Tutorial: Create an Azure Active Directory B2C tenant](./tutorial-create-tenant.md)

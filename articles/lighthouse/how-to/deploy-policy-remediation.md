@@ -14,7 +14,7 @@ ms.topic: how-to
 
 ## Create a user who can assign roles to a managed identity in the customer tenant
 
-When you [onboard a customer to Azure Lighthouse](onboard-customer.md), you define authorizations that grant access to delegated resources in the customer tenant. Each authorization specifies a **principalId** that corresponds to an Azure AD user, group, or service principal in the managing tenant, and a **roleDefinitionId** that corresponds to the [Azure built-in role](../../role-based-access-control/built-in-roles.md) that will be granted.
+When you [onboard a customer to Azure Lighthouse](onboard-customer.md), you define authorizations that grant access to delegated resources in the customer tenant. Each authorization specifies a **principalId** that corresponds to a Microsoft Entra user, group, or service principal in the managing tenant, and a **roleDefinitionId** that corresponds to the [Azure built-in role](../../role-based-access-control/built-in-roles.md) that will be granted.
 
 To allow a **principalId** to assign roles to a managed identity in the customer tenant, you must set its **roleDefinitionId** to **User Access Administrator**. While this role is not generally supported for Azure Lighthouse, it can be used in this specific scenario. Granting this role to this **principalId** allows it to assign specific built-in roles to managed identities. These roles are defined in the **delegatedRoleDefinitionIds** property, and can include any [supported Azure built-in role](../concepts/tenants-users-roles.md#role-support-for-azure-lighthouse) except for User Access Administrator or Owner.
 

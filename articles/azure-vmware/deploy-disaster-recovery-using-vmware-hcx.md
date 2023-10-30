@@ -60,7 +60,7 @@ This guide covers the following replication scenarios:
 
    - **Enable Quiescence:** Pauses the VM to ensure a consistent copy is synced to the remote site.
 
-   - **Destination Storage:** Remote datastore for the protected VMs, and in an Azure VMware Solution private cloud, which should be the vSAN datastore.
+   - **Destination Storage:** Remote datastore for the protected VMs, and in an Azure VMware Solution private cloud, which can be a vSAN datastore or an [Azure NetApp Files datastore](attach-azure-netapp-files-to-azure-vmware-solution-hosts.md).
 
    - **Compute Container:** Remote vSphere Cluster or Resource Pool.
 

@@ -4,16 +4,28 @@ titleSuffix: Microsoft Cost Management
 description: This article provides an overview about migrating from Azure Enterprise Reporting to Microsoft Cost Management APIs.
 author: bandersmsft
 ms.author: banders
-ms.date: 12/19/2022
+ms.date: 09/15/2023
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: adwise
+ms.reviewer: jojoh
 ---
 
 # Migrate from Azure Enterprise Reporting to Microsoft Cost Management APIs overview
 
-This article helps developers that have built custom solutions using the [Azure Enterprise Reporting APIs](../manage/enterprise-api.md) to migrate to Microsoft Cost Management APIs. Service principal support is available in the newer Cost Management APIs and they are still actively being developed. Consider migrating to them instead of using the older Azure Enterprise Reporting APIs. The older APIs are being deprecated. This article helps you understand the differences between the Azure Enterprise Reporting APIs and the Cost Management APIs, what to expect when you migrate to the Cost Management APIs, and the new capabilities that are available with the Cost Management APIs.
+This article informs developers that have built custom solutions using the [Azure Enterprise Reporting APIs](../manage/enterprise-api.md) about important changes. The newer Microsoft Cost Management APIs now offer enhanced capabilities and support for service principals, making them a more robust choice for your projects.
+
+**Key points**:
+- Migration recommended - We strongly recommend that you consider migrating your custom solutions to the Microsoft Cost Management APIs. They're actively being developed and offer improved functionality.
+- Retirement date - The Azure Enterprise Reporting APIs will be retired on **May 1, 2024**. After this date, the APIs will stop responding to requests.
+
+**This article provides**:
+- An overview of the differences between [Azure Enterprise Reporting APIs](../manage/enterprise-api.md) and Cost Management APIs.
+- Guidance about what to expect when migrating to the Cost Management APIs.
+- Insight into the new capabilities available with the Cost Management APIs.
+
+**Call to action**:
+- To ensure a smooth transition, we encourage you to begin planning your migration to the Cost Management APIs well in advance of the retirement date.
 
 ## API differences
 
@@ -21,7 +33,7 @@ The following information describes the differences between the older Azure Ente
 
 | Use | Azure Enterprise Reporting APIs | Microsoft Cost Management APIs |
 | --- | --- | --- |
-| Authentication | API key provisioned in the Enterprise Agreement (EA) portal | Azure Active Directory (Azure AD) Authentication using user tokens or service principals. Service principals take the place of API keys. |
+| Authentication | API key provisioned in the Enterprise Agreement (EA) portal | Microsoft Entra authentication using user tokens or service principals. Service principals take the place of API keys. |
 | Scopes and permissions | All requests are at the enrollment scope. API Key permission assignments will determine whether data for the entire enrollment, a department, or a specific account is returned. No user authentication. | Users or service principals are assigned access to the enrollment, department, or account scope. |
 | URI Endpoint | `https://consumption.azure.com` | `https://management.azure.com` |
 | Development status | In maintenance mode. On the path to deprecation. | In active development |
@@ -64,5 +76,5 @@ After you've migrated to the Cost Management APIs for your existing reporting sc
 
 - Familiarize yourself with the [Azure Resource Manager REST APIs](/rest/api/azure).
 - If needed, determine which Enterprise Reporting APIs you use and see which Cost Management APIs to move to at [Migrate from Azure Enterprise Reporting to Microsoft Cost Management APIs](../automate/migrate-ea-reporting-arm-apis-overview.md).
-- If you're not already using Azure Resource Manager APIs, [register your client app with Azure AD](/rest/api/azure/#register-your-client-application-with-azure-ad).
-- If needed, update any of your programming code to use [Azure AD authentication](/rest/api/azure/#create-the-request) with your service principal.
+- If you're not already using Azure Resource Manager APIs, [register your client app with Microsoft Entra ID](/rest/api/azure/#register-your-client-application-with-azure-ad).
+- If needed, update any of your programming code to use [Microsoft Entra authentication](/rest/api/azure/#create-the-request) with your service principal.

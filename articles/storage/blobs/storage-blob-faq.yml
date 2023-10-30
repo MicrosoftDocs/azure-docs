@@ -3,7 +3,7 @@ metadata:
   title: Frequently asked questions - Azure Blob Storage | Microsoft Docs
   description: This article provides a list of frequently asked questions (FAQ) for Azure Blob Storage. 
   ms.topic: faq
-  ms.service: azure-storage
+  ms.service: azure-blob-storage
   ms.date: 08/10/2023
   ms.author: normesta
   author: normesta
@@ -130,7 +130,7 @@ sections:
         answer: |
          Yes. Storage account [network security rules](../common/storage-network-security.md), including IP-based and VNET firewalls, are supported for the static website endpoint, and may be used to protect your website.
       - question: |
-         Do static websites support Azure Active Directory (Azure AD)?
+         Do static websites support Microsoft Entra ID?
         answer: |
          No. A static website only supports anonymous public read access for files in the **$web** container.
       - question: |

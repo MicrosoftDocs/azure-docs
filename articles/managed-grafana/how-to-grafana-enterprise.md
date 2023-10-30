@@ -1,11 +1,11 @@
 ---
 title: Subscribe to Grafana Enterprise
 description:  Activate Grafana Enterprise to access Grafana Enterprise plugins within Azure Managed Grafana
-author: mcleanbyron
-ms.author: mcleans
+author: maud-lv
+ms.author: malev
 ms.service: managed-grafana
 ms.topic: how-to 
-ms.date: 01/09/2023
+ms.date: 10/06/2023
 ---
 
 # Enable Grafana Enterprise
@@ -14,16 +14,21 @@ In this guide, learn how to activate the Grafana Enterprise add-on in Azure Mana
 
 The Grafana Enterprise plans offered through Azure Managed Grafana enable users to access Grafana Enterprise plugins to do more with Azure Managed Grafana.
 
-Grafana Enterprise plugins, as of January 2023:
+>[!NOTE]
+> To activate the Grafana Enterprise option, your Azure Managed Grafana instance must be using the Standard plan. For more information about plans, go to [pricing plans](overview.md#service-tiers).
+
+Grafana Enterprise plugins, as of October 2023:
 
 - AppDynamics
 - Azure DevOps
-- Datadog
 - Databricks
+- Datadog
 - Dynatrace
 - GitLab
 - Honeycomb
 - Jira
+- k6 Cloud App
+- Looker
 - MongoDB
 - New Relic
 - Oracle Database
@@ -51,10 +56,11 @@ You can enable access to Grafana Enterprise plugins by selecting a Grafana Enter
 
 ## Create a workspace with Grafana Enterprise enabled
 
-To activate Grafana Enterprise plugins when creating an Azure Managed Grafana Workspace, in **Create a Grafana Workspace**, go to the **Basics** tab and follow the steps below:
+When [creating a new Azure Managed Grafana workspace](quickstart-managed-grafana-portal.md) and filling out the **Basics** tab of the creation form, follow the steps below:
 
 1. Under **Project Details**, select an Azure subscription and enter a resource group name or use the generated suggested resource group name
 1. Under **Instance Details**, select an Azure region and enter a resource name.
+1. Under **Pricing Plans**, select the **Standard** plan.
 1. Under **Grafana Enterprise**, check the box **Grafana Enterprise**, select **Free Trial - Azure Managed Grafana Enterprise Upgrade** and keep the option **Recurring billing** on **Disabled**.
 
     :::image type="content" source="media/grafana-enterprise/create-with-enterprise-plan.png" alt-text="Screenshot of the Grafana dashboard, instance creation basic details.":::
@@ -97,7 +103,7 @@ The Azure platform displays some useful links at the bottom of the page.
 
 ## Start using Grafana Enterprise plugins
 
-Grafana Enterprise gives you access to preinstalled plugins reserved for Grafana Enterprise customers. Once you've activated a Grafana Enterprise plan, go to the Grafana platform, and then select **Configuration >  Data sources** from the left menu to set up a data source.
+Grafana Enterprise gives you access to preinstalled plugins reserved for Grafana Enterprise customers. Once you've activated a Grafana Enterprise plan, go to the Grafana platform and select **Connections > Connect data** from the left menu to create a new connection using the newly accessible data sources.
 
 :::image type="content" source="media/grafana-enterprise/access-data-sources.png" alt-text="Screenshot of the Grafana dashboard. Access data sources.":::
 

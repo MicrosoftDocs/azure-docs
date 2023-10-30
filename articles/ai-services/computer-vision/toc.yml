@@ -72,7 +72,7 @@ items:
       - name: Use containers in disconnected environments
         href: ../containers/disconnected-containers.md
       - name: All Azure AI containers
-        href: ../containers/index.yml
+        href: ../cognitive-services-container-support.md
         maintainContext: true
   - name: Reference
     items:
@@ -103,7 +103,11 @@ items:
   - name: Image Analysis overview
     href: overview-image-analysis.md
   - name: Vision SDK
-    href: how-to/install-sdk.md
+    items:
+    - name: Overview
+      href: sdk/overview-sdk.md
+    - name: Install the SDK
+      href: sdk/install-sdk.md
   - name: Quickstarts
     items:
     - name: Version 4.0 quickstart (preview)
@@ -128,8 +132,6 @@ items:
         href: https://github.com/azure-samples/js-e2e-client-cognitive-services/tree/main/
       - name: Azure AI services Python SDK samples
         href: https://github.com/Azure-Samples/cognitive-services-python-sdk-samples
-      - name: Azure AI services Go SDK Samples
-        href: https://github.com/microsoft/cognitive-services-speech-sdk-go
   - name: Responsible use of AI
     items:
     - name: Transparency note
@@ -162,7 +164,7 @@ items:
           href: how-to/shelf-model-customization.md
         - name: Check planogram compliance
           href: how-to/shelf-planogram.md
-      - name: Call the Image retrieval APIs
+      - name: Call the Multi-modal embeddings APIs
         href: how-to/image-retrieval.md
       - name: Call the Background removal API
         href: how-to/background-removal.md
@@ -196,7 +198,7 @@ items:
         href: concept-model-customization.md
       - name: Product Recognition
         href: concept-shelf-analysis.md
-      - name: Image retrieval
+      - name: Multi-modal embeddings
         href: concept-image-retrieval.md
       - name: Background removal
         href: concept-background-removal.md
@@ -242,6 +244,8 @@ items:
         href: /python/api/azure-ai-vision
       - name: C++
         href: /cpp/cognitive-services/vision
+      - name: Java
+        href: /java/api/com.azure.ai.vision.imageanalysis
     - name: Version 3.2
       items:
       - name: Image Analysis REST API v3.2
@@ -292,7 +296,7 @@ items:
       href: /legal/cognitive-services/computer-vision/limited-access-identity?context=/azure/ai-services/computer-vision/context/context
   - name: How-to guides
     items:
-    - name: Face detection (open to all)
+    - name: Face detection
       items:
       - name: Detect and analyze faces
         href: how-to/identity-detect-faces.md
@@ -347,7 +351,7 @@ items:
     - name: Python
       href: /python/api/overview/azure/cognitiveservices-vision-face-readme
 - name: Spatial Analysis
-  items: 
+  items:
   - name: Spatial Analysis overview
     href: intro-to-spatial-analysis-public-preview.md
   - name: Responsible use of AI
@@ -370,6 +374,8 @@ items:
       href: /legal/cognitive-services/computer-vision/compliance-privacy-security-2?context=/azure/ai-services/computer-vision/context/context
   - name: How-to guides
     items:
+    - name: Call the Video Retrieval APIs
+      href: how-to/video-retrieval.md
     - name: Use the Spatial Analysis container
       items:
       - name: Set up the host machine and run the container
@@ -389,14 +395,18 @@ items:
       - name: Camera placement
         href: spatial-analysis-camera-placement.md
       - name: All Azure AI containers
-        href: ../containers/index.yml?context=%2fazure%2fcognitive-services%2fcomputer-vision%2fcontext%2fcontext
+        href: ../cognitive-services-container-support.md?context=%2fazure%2fai-services%2fcomputer-vision%2fcontext%2fcontext
+  - name: Reference
+    items:
+    - name: Video Retrieval REST API
+      href: https://eastus.dev.cognitive.microsoft.com/docs/services/ingestion-api-private-preview-2023-05-01-preview/operations/645db36646346106fcc4779b
 - name: How-to guides
   items:
   - name: Enterprise readiness
     items:
     - name: Set up Virtual Networks
       href: ../cognitive-services-virtual-networks.md?context=%2fazure%2fcognitive-services%2fcomputer-vision%2fcontext%2fcontext
-    - name: Use Azure AD Authentication
+    - name: Use Microsoft Entra authentication
       href: ../authentication.md?tabs=powershell%3fcontext%3d%2fazure%2fcognitive-services%2fcomputer-vision%2fcontext%2fcontext
 - name: Resources
   items: 

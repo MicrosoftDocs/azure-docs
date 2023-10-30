@@ -24,14 +24,14 @@ In this article, you learn how to allow read access to blobs based on blob index
 
 ## Prerequisites
 
-To assign custom security attributes and add role assignments conditions in your Azure AD tenant, you need:
+To assign custom security attributes and add role assignments conditions in your Microsoft Entra tenant, you need:
 
-- Azure AD Premium P1 or P2 license
+- Microsoft Entra ID P1 or P2 license
 - [Attribute Definition Administrator](../active-directory/roles/permissions-reference.md#attribute-definition-administrator) and [Attribute Assignment Administrator](../active-directory/roles/permissions-reference.md#attribute-assignment-administrator)
 - [User Access Administrator](built-in-roles.md#user-access-administrator) or [Owner](built-in-roles.md#owner)
 
 > [!IMPORTANT]
-> By default, [Global Administrator](../active-directory/roles/permissions-reference.md#global-administrator) and other administrator roles do not have permissions to read, define, or assign custom security attributes. If you do not meet these prerequisites, you won't see the principal/user attributes in the condition builder.
+> By default, [Global Administrator](../active-directory/roles/permissions-reference.md#global-administrator) and other administrator roles do not have permissions to read, define, or assign custom security attributes. If you do not meet these prerequisites, you won't see the principal/user attributes in the condition editor.
 
 ## Condition
 
@@ -63,15 +63,15 @@ For more information about conditions, see [What is Azure attribute-based access
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Click **Azure Active Directory** > **Custom security attributes (Preview)**.
+1. Click **Microsoft Entra ID** > **Custom security attributes (Preview)**.
 
-1. Add an attribute named `Project` with values of `Baker` and `Cascade`. Or use an existing attribute. For more information, see [Add or deactivate custom security attributes in Azure AD](../active-directory/fundamentals/custom-security-attributes-add.md).
+1. Add an attribute named `Project` with values of `Baker` and `Cascade`. Or use an existing attribute. For more information, see [Add or deactivate custom security attributes in Microsoft Entra ID](../active-directory/fundamentals/custom-security-attributes-add.md).
 
     ![Screenshot of adding a custom security attribute.](./media/conditions-custom-security-attributes/project-attribute-add.png)
 
 ## Step 2: Assign the custom security attribute to a user
 
-1. In Azure AD, create a security group.
+1. In Microsoft Entra ID, create a security group.
 
 1. Add a user as a member of the group.
 
@@ -366,6 +366,6 @@ You can also use Azure CLI to add role assignments conditions. The following com
 
 ## Next steps
 
-- [What are custom security attributes in Azure AD? (Preview)](../active-directory/fundamentals/custom-security-attributes-overview.md)
+- [What are custom security attributes in Microsoft Entra ID? (Preview)](../active-directory/fundamentals/custom-security-attributes-overview.md)
 - [Azure role assignment condition format and syntax (preview)](conditions-format.md)
 - [Example Azure role assignment conditions for Blob Storage (preview)](../storage/blobs/storage-auth-abac-examples.md?toc=/azure/role-based-access-control/toc.json)

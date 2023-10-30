@@ -1,8 +1,7 @@
 ---
 title: Move projects - custom question answering
 description: Moving a custom question answering project requires exporting a project from one resource, and then importing into another.
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: how-to
 author: jboback
 ms.author: jboback
@@ -24,7 +23,7 @@ You may want to create copies of your projects or sources for several reasons:
 ## Prerequisites
 
 * If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
-* A [language resource](https://aka.ms/create-language-resource) with the custom question answering feature enabled in the Azure portal. Remember your Azure Active Directory ID, Subscription, and the Language resource name you selected when you created the resource.
+* A [language resource](https://aka.ms/create-language-resource) with the custom question answering feature enabled in the Azure portal. Remember your Microsoft Entra ID, Subscription, and the Language resource name you selected when you created the resource.
 
 ## Export a project
 
@@ -70,4 +69,3 @@ There is no way to move chat logs with projects. If diagnostic logs are enabled,
 ## Next steps
 
 <!-- TODO: Replace Link-->
-

@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/26/2022
+ms.date: 10/17/2023
 ms.custom: project-no-code, devx-track-js, engagement-fy23
 ms.author: godonnell
 ms.subservice: B2C
@@ -20,7 +20,22 @@ zone_pivot_groups: b2c-policy-type
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
-With Azure Active Directory B2C (Azure AD B2C) [HTML templates](customize-ui-with-html.md), you can craft your users' identity experiences. Your HTML templates can contain only certain HTML tags and attributes. Basic HTML tags, such as &lt;b&gt;, &lt;i&gt;, &lt;u&gt;, &lt;h1&gt;, and &lt;hr&gt; are allowed. More advanced tags such as &lt;script&gt;, and &lt;iframe&gt; are removed for security reasons.
+With Azure Active Directory B2C (Azure AD B2C) [HTML templates](customize-ui-with-html.md), you can craft your users' identity experiences. Your HTML templates can contain only certain HTML tags and attributes. Basic HTML tags, such as &lt;b&gt;, &lt;i&gt;, &lt;u&gt;, &lt;h1&gt;, and &lt;hr&gt; are allowed. More advanced tags such as &lt;script&gt;, and &lt;iframe&gt; are removed for security reasons but the `<script>` tag should be added in the `<head>` tag.
+
+The `<script>` tag should be added in the `<head>` tag in two ways:  
+
+1. Adding the `defer` attribute, which specifies that the script is downloaded in parallel to parsing the page, then the script is executed after the page has finished parsing:
+
+	 ```javascript
+	<script src="my-script.js" defer></script>
+	```
+
+
+2. Adding `async` attribute that specifies that the script is downloaded in parallel to parsing the page, then the script is executed as soon as it is available (before parsing completes):
+
+	 ```javascript
+	<script src="my-script.js" async></script>	
+	```
 
 To enable JavaScript and advance HTML tags and attributes:
 
@@ -68,7 +83,7 @@ For information about the different page layout versions, see the [Page layout v
 To specify a page layout version for your custom policy pages:
 
 1. Select a [page layout](contentdefinitions.md#select-a-page-layout) for the user interface elements of your application.
-1. Define a [page layout version](contentdefinitions.md#migrating-to-page-layout) with page `contract` version for *all* of the content definitions in your custom policy. The format of the value must contain the word `contract`: _urn:com:microsoft:aad:b2c:elements:**contract**:page-name:version_. 
+1. Define a [page layout version](contentdefinitions.md#migrating-to-page-layout) with page `contract` version for *all* of the content definitions in your custom policy. The format of the value must contain the word `contract`: *urn:com:microsoft:aad:b2c:elements:**contract**:page-name:version*.
 
 The following example shows the content definition identifiers and the corresponding **DataUri** with page contract: 
 
@@ -155,6 +170,7 @@ Follow these guidelines when you customize the interface of your application usi
 - Azure AD B2C settings can be read by calling `window.SETTINGS`, `window.CONTENT` objects, such as the current UI language. Don’t change the value of these objects.
 - To customize the Azure AD B2C error message, use localization in a policy.
 - If anything can be achieved by using a policy, generally it's the recommended way.
+- We recommend that you use our existing UI controls, such as buttons, rather than hiding them and implementing click bindings on your own UI controls. This approach ensures that your user experience continues to function properly even when we release new page contract upgrades.
 
 ## JavaScript samples
 

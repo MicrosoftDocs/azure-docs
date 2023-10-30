@@ -1,7 +1,7 @@
 ---
 title: List of sample Azure Resource Graph queries by table
 description: List sample queries for Azure Resource-Graph. Tables include Resources, ResourceContainers, PolicyResources, and more.
-ms.date: 09/01/2023
+ms.date: 10/27/2023
 ms.topic: sample
 ms.custom: generated
 ---
@@ -9,7 +9,7 @@ ms.custom: generated
 # Azure Resource Graph sample queries by table
 
 This page is a collection of Azure Resource Graph sample queries grouped by table. To jump to a
-specific **table**, use the menu on the right side of the page. Otherwise, use
+specific **table**, use the links on the top of the page. Otherwise, use
 <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browser's search feature. For a list of tables and related
 details, see [Resource Graph tables](../concepts/query-language.md#resource-graph-tables).
 
@@ -31,8 +31,6 @@ details, see [Resource Graph tables](../concepts/query-language.md#resource-grap
 
 [!INCLUDE [authorization-resources-classic-administrators-key-properties](../../includes/resource-graph/query/authorization-resources-classic-administrators-key-properties.md)]
 
-[!INCLUDE [authorization-resources-summarize-count](../../includes/resource-graph/query/authorization-resources-summarize-count.md)]
-
 ## ExtendedLocationResources
 
 [!INCLUDE [azure-resource-graph-samples-table-extendedlocationresources](../../../../includes/resource-graph/samples/bytable/extendedlocationresources.md)]
@@ -48,6 +46,10 @@ details, see [Resource Graph tables](../concepts/query-language.md#resource-grap
 ## HealthResourceChanges
 
 [!INCLUDE [Azure-resource-graph-samples-table-healthresourcechanges](../../../../includes/resource-graph/samples/bytable/healthresourcechanges.md)]
+
+## InsightResources
+
+[!INCLUDE [azure-monitor-data-collection-rules-insight-resources-table](../../includes/resource-graph/query/insight-resources-monitor-data-collection-rules.md)]
 
 ## IoT Defender
 
@@ -80,6 +82,8 @@ details, see [Resource Graph tables](../concepts/query-language.md#resource-grap
 [!INCLUDE [azure-resource-graph-samples-table-resources](../../../../includes/resource-graph/samples/bytable/resources.md)]
 
 [!INCLUDE [virtual-machine-basic-sku-public-ip](../../includes/resource-graph/query/virtual-machine-basic-sku-public-ip.md)]
+
+[!INCLUDE [azure-monitor-data-collection-rules-resources-table](../../includes/resource-graph/query/resources-monitor-data-collection-rules.md)]
 
 ## SecurityResources
 

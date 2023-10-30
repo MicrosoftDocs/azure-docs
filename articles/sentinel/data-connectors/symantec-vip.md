@@ -3,7 +3,7 @@ title: "Symantec VIP connector for Microsoft Sentinel"
 description: "Learn how to install the connector Symantec VIP to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 08/28/2023
+ms.date: 10/23/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -40,13 +40,17 @@ SymantecVIP
    | top 10 by count_
    ```
 
+
+
 ## Prerequisites
 
 To integrate with Symantec VIP make sure you have: 
 
 - **Symantec VIP**: must be configured to export logs via Syslog
 
+
 ## Vendor installation instructions
+
 
 > [!NOTE]
    >  This data connector depends on a parser based on a Kusto Function to work as expected which is deployed as part of the solution. To view the function code in Log Analytics, open Log Analytics/Microsoft Sentinel Logs blade, click Functions and search for the alias Symantec VIP and load the function code or click [here](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Symantec%20VIP/Parsers/SymantecVIP.txt), on the second line of the query, enter the hostname(s) of your Symantec VIP device(s) and any other unique identifiers for the logstream. The function usually takes 10-15 minutes to activate after solution installation/update.
@@ -56,6 +60,7 @@ To integrate with Symantec VIP make sure you have:
 Typically, you should install the agent on a different computer from the one on which the logs are generated.
 
 >  Syslog logs are collected only from **Linux** agents.
+
 
 2. Configure the logs to be collected
 

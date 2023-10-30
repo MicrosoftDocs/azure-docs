@@ -16,7 +16,7 @@ This article describes how users can read data from the files stored on Azure St
 - [OPENROWSET](develop-openrowset.md) function that enables ad-hoc queries over the files in Azure Storage.
 - [External table](develop-tables-external-tables.md) that is a predefined data structure built on top of set of external files.
 
-User can use [different authentication methods](develop-storage-files-storage-access-control.md) such as Azure AD passthrough authentication (default for Azure AD principals) and SAS authentication (default for SQL principals).
+User can use [different authentication methods](develop-storage-files-storage-access-control.md) such as Microsoft Entra passthrough authentication (default for Microsoft Entra principals) and SAS authentication (default for SQL principals).
 
 ## Query files using OPENROWSET
 
@@ -29,7 +29,7 @@ SELECT * FROM
 
 User can access storage using the following access rules:
 
-- Azure AD user - `OPENROWSET` will use Azure AD identity of caller to access Azure Storage or access storage with anonymous access.
+- Microsoft Entra user - `OPENROWSET` will use Microsoft Entra identity of caller to access Azure Storage or access storage with anonymous access.
 - SQL user – `OPENROWSET` will access storage with anonymous access or can be impersonated using SAS token or Managed identity of workspace.
 
 ### [Impersonation](#tab/impersonation)
@@ -45,11 +45,11 @@ CREATE CREDENTIAL [https://<storage_account>.dfs.core.windows.net/<container>]
 GRANT REFERENCES ON CREDENTIAL::[https://<storage_account>.dfs.core.windows.net/<container>] TO sqluser
 ```
 
-If there's no server-level CREDENTIAL that matches the URL, or the SQL user doesn't have references permission for this credential, the error will be returned. SQL principals can't impersonate using some Azure AD identity.
+If there's no server-level CREDENTIAL that matches the URL, or the SQL user doesn't have references permission for this credential, the error will be returned. SQL principals can't impersonate using some Microsoft Entra identity.
 
 ### [Direct access](#tab/direct-access)
 
-No additional setup is needed to enable Azure AD users to access the files using their identities.
+No additional setup is needed to enable Microsoft Entra users to access the files using their identities.
 Any user can access Azure storage that allows anonymous access (additional setup isn't needed).
 
 ---
@@ -68,7 +68,7 @@ SELECT * FROM
  FORMAT= 'parquet') as rows
 ```
 
-The user that executes this query must be able to access the files. The users must be impersonated using [SAS token](develop-storage-files-storage-access-control.md?tabs=shared-access-signature) or [Managed Identity of workspace](develop-storage-files-storage-access-control.md?tabs=managed-identity) if they can't directly access the files using their [Azure AD identity](develop-storage-files-storage-access-control.md?tabs=user-identity) or [anonymous access](develop-storage-files-storage-access-control.md?tabs=public-access).
+The user that executes this query must be able to access the files. The users must be impersonated using [SAS token](develop-storage-files-storage-access-control.md?tabs=shared-access-signature) or [Managed Identity of workspace](develop-storage-files-storage-access-control.md?tabs=managed-identity) if they can't directly access the files using their [Microsoft Entra identity](develop-storage-files-storage-access-control.md?tabs=user-identity) or [anonymous access](develop-storage-files-storage-access-control.md?tabs=public-access).
 
 ### [Impersonation](#tab/impersonation)
 
@@ -98,7 +98,7 @@ Caller must have one of the following permissions to execute OPENROWSET function
 
 ### [Direct access](#tab/direct-access)
 
-User can create EXTERNAL DATA SOURCE without CREDENTIAL that will reference public access storage OR use Azure AD passthrough authentication:
+User can create EXTERNAL DATA SOURCE without CREDENTIAL that will reference public access storage OR use Microsoft Entra passthrough authentication:
 
 ```sql
 CREATE EXTERNAL DATA SOURCE MyAzureInvoices
@@ -122,7 +122,7 @@ FILE_FORMAT = TextFileFormat
 ) ;
 ```
 
-User that reads data from this table must be able to access the files. The users must be impersonated using [SAS token](develop-storage-files-storage-access-control.md?tabs=shared-access-signature) or [Managed Identity of workspace](develop-storage-files-storage-access-control.md?tabs=managed-identity) if they cannot directly access the files using their [Azure AD identity](develop-storage-files-storage-access-control.md?tabs=user-identity) or [anonymous access](develop-storage-files-storage-access-control.md?tabs=public-access).
+User that reads data from this table must be able to access the files. The users must be impersonated using [SAS token](develop-storage-files-storage-access-control.md?tabs=shared-access-signature) or [Managed Identity of workspace](develop-storage-files-storage-access-control.md?tabs=managed-identity) if they cannot directly access the files using their [Microsoft Entra identity](develop-storage-files-storage-access-control.md?tabs=user-identity) or [anonymous access](develop-storage-files-storage-access-control.md?tabs=public-access).
 
 ### [Impersonation](#tab/impersonation)
 
@@ -146,7 +146,7 @@ CREATE EXTERNAL DATA SOURCE AzureDataLakeStore
 
 ### [Direct access](#tab/direct-access)
 
-User can create EXTERNAL DATA SOURCE without CREDENTIAL that will reference public access storage OR use Azure AD passthrough authentication:
+User can create EXTERNAL DATA SOURCE without CREDENTIAL that will reference public access storage OR use Microsoft Entra passthrough authentication:
 
 ```sql
 CREATE EXTERNAL DATA SOURCE MyAzureInvoices

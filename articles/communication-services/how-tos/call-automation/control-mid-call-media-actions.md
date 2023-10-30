@@ -50,7 +50,7 @@ call_automation_client = CallAutomationClient.from_connection_string((("<Azure C
 -----
 
 ## Send DTMF
-You can send dtmf tones to an external participant, which may be useful when you’re already on a call and need to invite another participant who has an extension number or an IVR menu to navigate. 
+You can send DTMF tones to an external participant, which may be useful when you’re already on a call and need to invite another participant who has an extension number or an IVR menu to navigate. 
 
 >[!NOTE]
 >This is only supported for external PSTN participants and supports sending a maximum of 18 tones at a time.
@@ -198,7 +198,7 @@ app.logger.info("Started continuous DTMF recognition")
 ```
 -----
 
-When your application no longer wishes to receive DTMF tones from the participant anymore, you can use the `StopContinuousDtmfRecognitionAsync` method to let ACS know to stop detecting DTMF tones.
+When your application no longer wishes to receive DTMF tones from the participant anymore, you can use the `StopContinuousDtmfRecognitionAsync` method to let Azure Communication Services know to stop detecting DTMF tones.
 
 ### StopContinuousDtmfRecognitionAsync
 Stop detecting DTMF tones sent by participant.
@@ -279,7 +279,7 @@ if event.type == "Microsoft.Communication.ContinuousDtmfRecognitionToneReceived"
 ```
 -----
 
-ACS provides you with a `SequenceId` as part of the `ContinuousDtmfRecognitionToneReceived` event, which your application can use to reconstruct the order in which the participant entered the DTMF tones.
+Azure Communication Services provides you with a `SequenceId` as part of the `ContinuousDtmfRecognitionToneReceived` event, which your application can use to reconstruct the order in which the participant entered the DTMF tones.
 
 ### ContinuousDtmfRecognitionFailed Event
 Example of how you can handle when DTMF tone detection fails.

@@ -146,6 +146,10 @@
       items:
         - name: Easily migrate a self-hosted Socket.IO app 
           href: socketio-migrate-from-self-hosted.md
+        - name: Integrate with Azure App Service
+          href: socket-io-howto-integrate-web-app.md
+        - name: Authentication
+          href: socketio-authentication.md
         - name: Troubleshoot
           items: 
             - name: Common issues
@@ -184,7 +188,7 @@
       href: concept-performance.md
     - name: Billing model
       href: concept-billing-model.md
-    - name: Microsoft Entra ID Authorization
+    - name: Microsoft Entra Authorization
       href: concept-azure-ad-authorization.md
     - name: Metrics
       href: concept-metrics.md

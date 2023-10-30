@@ -6,8 +6,7 @@ metadata:
   services: cognitive-services
   author: eric-urban
   manager: nitinme
-  ms.service: cognitive-services
-  ms.subservice: speech-service
+  ms.service: azure-ai-speech
   ms.topic: faq
   ms.date: 03/29/2023
   ms.author: eur
@@ -46,7 +45,7 @@ sections:
       - question: |
           Can we have multiple strength for each emotions, like very sad, slightly sad and so on in?
         answer: |
-          Adjusting the style degree is supported for some voices depending on the locale. See the [mstts:express-as tag](speech-synthesis-markup-voice.md#speaking-styles-and-roles).
+          Adjusting the style degree is supported for some voices depending on the locale. See the [mstts:express-as tag](speech-synthesis-markup-voice.md#use-speaking-styles-and-roles).
       - question: |
           Is there a mapping between Viseme IDs and mouth shape?
         answer: |
