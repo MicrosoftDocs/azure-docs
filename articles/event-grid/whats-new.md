@@ -12,12 +12,12 @@ Azure Event Grid receives improvements on an ongoing basis. To stay up to date w
 
 ## November 2023 
 
-The following features have been moved from public preview to general availability (GA):
+The following features of Event Grid namespaces have been moved from public preview to general availability (GA):
 
 - [Pull style event consumption using HTTP](pull-delivery-overview.md)
 - [Message Queuing Telemetry Transport (MQTT) v3.1.1 and v5.0 support](mqtt-overview.md)
 
-The following features have been released as public preview features:
+The following features of Event Grid namespaces have been released as public preview features:
 
 - [Push style event consumption using HTTP](pull-delivery-overview.md)
 
