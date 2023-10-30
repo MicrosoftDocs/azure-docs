@@ -17,7 +17,7 @@ For those experiencing predictable daily traffic patterns and who have a reliabl
 
 While autoscaling is commonly utilized, it’s important to note that Application Gateway does not currently support pre-scheduled capacity adjustments natively.
 
-The goal is to utilize Azure Automation, a fully managed service, to establish a mechanism for scheduling runbooks, enabling adjustments to the minimum autoscaling capacity of Application Gateway to better meet traffic requirements.
+The goal is to use Azure Automation to create a schedule for running runbooks that adjust the minimum autoscaling capacity of Application Gateway to meet traffic demands.
 
 ### How to setup scheduled autoscaling 
 
@@ -27,13 +27,13 @@ The solution is straightforward and can be implemented through the following act
 3.	Create PowerShell runbooks for increasing and decreasing min autoscaling capacity for the Application Gateway resource 
 4.	Create the schedules during which the runbooks need to be executed 
 5.	Associate the runbooks with their respective schedules 
-6.	Associate the system assigned managed identity noted above (2) with the Application Gateway resource 
+6.	Associate the system assigned managed identity noted in step 2 with the Application Gateway resource 
 
 ### How to configure the setup 
 Suppose the requirement is to increase the min count to 4 during business hours and to decrease the min count to 2 during non-business hours. We create two runbooks: 
 1.	IncreaseMin - Sets the Min count of the autoscaling configuration to 4 
 2.	DecreaseMin - Sets the Min count of the autoscaling configuration to 2 
-The Powershell Runbook to adjust capacity is shown below:
+The Powershell Runbook to adjust capacity is as follows:
   ```
 # Get the context of the managed identity 
 $context = (Connect-AzAccount -Identity).Context 
@@ -44,7 +44,7 @@ $gw = Get-AzApplicationGateway -Name “<AppGwName>” -ResourceGroupName “<Re
 $gw = Set-AzApplicationGatewayAutoscaleConfiguration -ApplicationGateway $gw -MinCapacity <NumberOfRequiredInstances>
 $gw = Set-AzApplicationGateway -ApplicationGateway $gw 
 ```
-Then we create the below schedules: 
+Then we create the following schedules: 
 1.	WeekdayMorning – Run the IncreaseMin runbook from Mon-Fri at 5:00AM PST 
 2.	WeekdayEvening – Run the DecreaseMin runbook from Mon-Fri at 9:00PM PST 
 
