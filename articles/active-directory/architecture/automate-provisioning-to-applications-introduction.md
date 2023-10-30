@@ -65,7 +65,7 @@ In this example, the organization has a mix of cloud and on-premises infrastruct
 
 1. The Microsoft Entra provisioning service imports the user from Workday and creates an account in AD DS, enabling the user to access AD-integrated applications.
 
-2. Microsoft Entra Connect Cloud Sync provisions the user into Microsoft Entra ID, which enables the user to access SharePoint Online and their OneDrive files.
+2. Microsoft Entra Connect cloud sync provisions the user into Microsoft Entra ID, which enables the user to access SharePoint Online and their OneDrive files.
 
 3. The Microsoft Entra provisioning service detects a new account was created in Microsoft Entra ID. It then creates accounts in the SaaS and on-premises applications the user needs access to.
 

@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 Staged Rollout allows you to selectively test groups of users with cloud authentication capabilities like Microsoft Entra multifactor authentication, Conditional Access, Identity Protection for leaked credentials, Identity Governance, and others, before cutting over your domains. This article discusses how to make the switch. Before you begin the Staged Rollout, however, you should consider the implications if one or more of the following conditions is true:
     
--  You're currently using an on-premises multifactor authentication server. 
+-  You're currently using an on-premises Multi-Factor Authentication Server. 
 -  You're using smart cards for authentication. 
 -  Your current server offers certain federation-only features.
 

@@ -7,7 +7,7 @@
 - name: Concepts
   items:
   - name: License requirements
-    href: subscription-requirements.md
+    href: ../governance/licensing-fundamentals.md
   - name: PIM for Groups
     href: concept-pim-for-groups.md
   - name: Roles you can't manage with PIM 
@@ -111,7 +111,7 @@
   - name: Discovery & Insights for Microsoft Entra roles
     href: pim-security-wizard.md
   - name: Elevate access to manage Azure subscriptions
-    href: ../../role-based-access-control/elevate-access-global-admin.md?toc=/azure/active-directory/privileged-identity-management/toc.json
+    href: /azure/role-based-access-control/elevate-access-global-admin?toc=/azure/active-directory/privileged-identity-management/toc.json
   - name: Troubleshoot resource access denied
     href: pim-troubleshoot.md
 - name: Reference

@@ -37,9 +37,9 @@ This tutorial shows you how to use a system-assigned managed identity for a Linu
 
 - If you're not familiar with the managed identities for Azure resources feature, see this [overview](overview.md). 
 - If you don't have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before you continue.
-- To perform the required resource creation and role management, your account needs "Owner" permissions at the appropriate scope (your subscription or resource group). If you need assistance with role assignment, see [Assign Azure roles to manage access to your Azure subscription resources](../../role-based-access-control/role-assignments-portal.md).
+- To perform the required resource creation and role management, your account needs "Owner" permissions at the appropriate scope (your subscription or resource group). If you need assistance with role assignment, see [Assign Azure roles to manage access to your Azure subscription resources](/azure/role-based-access-control/role-assignments-portal).
 - To run the example scripts, you have two options:
-    - Use the [Azure Cloud Shell](../../cloud-shell/overview.md), which you can open using the **Try It** button on the top right corner of code blocks.
+    - Use the [Azure Cloud Shell](/azure/cloud-shell/overview), which you can open using the **Try It** button on the top right corner of code blocks.
     - Run scripts locally by installing the latest version of the [Azure CLI](/cli/azure/install-azure-cli), then sign in to Azure using [az login](/cli/azure/reference-index#az-login). Use an account associated with the Azure subscription in which you'd like to create resources.
 
 ## Create an Azure Cosmos DB account
@@ -111,7 +111,7 @@ The response includes the details for the role assignment created:
 
 For the remainder of the tutorial, work from the virtual machine.
 
-To complete these steps, you need an SSH client. If you are using Windows, you can use the SSH client in the [Windows Subsystem for Linux](/windows/wsl/install-win10). If you need assistance configuring your SSH client's keys, see [How to Use SSH keys with Windows on Azure](../../virtual-machines/linux/ssh-from-windows.md), or [How to create and use an SSH public and private key pair for Linux VMs in Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
+To complete these steps, you need an SSH client. If you are using Windows, you can use the SSH client in the [Windows Subsystem for Linux](/windows/wsl/install). If you need assistance configuring your SSH client's keys, see [How to Use SSH keys with Windows on Azure](/azure/virtual-machines/linux/ssh-from-windows), or [How to create and use an SSH public and private key pair for Linux VMs in Azure](/azure/virtual-machines/linux/mac-create-ssh-keys).
 
 1. In the Azure portal, navigate to **Virtual Machines**, go to your Linux virtual machine, then from the **Overview** page click **Connect** at the top. Copy the string to connect to your VM. 
 2. Connect to your VM using your SSH client.  
@@ -163,4 +163,4 @@ Now that you have the access key for the Azure Cosmos DB account, you can pass i
 In this tutorial, you learned how to use a system-assigned managed identity on a Linux virtual machine to access Azure Cosmos DB.  To learn more about Azure Cosmos DB, see:
 
 > [!div class="nextstepaction"]
->[Azure Cosmos DB overview](../../cosmos-db/introduction.md)
+>[Azure Cosmos DB overview](/azure/cosmos-db/introduction)

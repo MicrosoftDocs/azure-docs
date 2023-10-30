@@ -54,7 +54,7 @@ The **Zero Trust (TIC 3.0)** solution is also enhanced by integrations with othe
 
 - [Microsoft 365 Defender](https://www.microsoft.com/microsoft-365/security/microsoft-365-defender)
 - [Microsoft Information Protection](https://azure.microsoft.com/services/information-protection/)
-- [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory/)
 - [Microsoft Defender for Cloud](https://azure.microsoft.com/services/active-directory/)
 - [Microsoft Defender for Endpoint](https://www.microsoft.com/microsoft-365/security/endpoint-defender)
 - [Microsoft Defender for Identity](https://www.microsoft.com/microsoft-365/security/identity-defender)

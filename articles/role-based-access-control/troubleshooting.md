@@ -90,13 +90,13 @@ az role assignment create --assignee "userupn" --role "Contributor"  --scope "/s
 
 **Cause**
 
-It's likely Azure CLI is attempting to look up the assignee identity in Azure AD and the service principal can't read Azure AD by default.
+It's likely Azure CLI is attempting to look up the assignee identity in Microsoft Entra ID and the service principal can't read Microsoft Entra ID by default.
 
 **Solution**
 
 There are two ways to potentially resolve this error. The first way is to assign the [Directory Readers](../active-directory/roles/permissions-reference.md#directory-readers) role to the service principal so that it can read data in the directory.
 
-The second way to resolve this error is to create the role assignment by using the `--assignee-object-id` parameter instead of `--assignee`. By using `--assignee-object-id`, Azure CLI will skip the Azure AD lookup. You'll need to get the object ID of the user, group, or application that you want to assign the role to. For more information, see [Assign Azure roles using Azure CLI](role-assignments-cli.md#assign-a-role-for-a-new-service-principal-at-a-resource-group-scope).
+The second way to resolve this error is to create the role assignment by using the `--assignee-object-id` parameter instead of `--assignee`. By using `--assignee-object-id`, Azure CLI will skip the Microsoft Entra lookup. You'll need to get the object ID of the user, group, or application that you want to assign the role to. For more information, see [Assign Azure roles using Azure CLI](role-assignments-cli.md#assign-a-role-for-a-new-service-principal-at-a-resource-group-scope).
 
 ```azurecli
 az role assignment create --assignee-object-id 11111111-1111-1111-1111-111111111111  --role "Contributor" --scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}"
@@ -597,17 +597,17 @@ Assign an [Azure built-in role](built-in-roles.md) with write permissions for th
 
 **Cause**
 
-When you transfer an Azure subscription to a different Azure AD directory, all role assignments are **permanently** deleted from the source Azure AD directory and aren't migrated to the target Azure AD directory.
+When you transfer an Azure subscription to a different Microsoft Entra directory, all role assignments are **permanently** deleted from the source Microsoft Entra directory and aren't migrated to the target Microsoft Entra directory.
 
 **Solution**
 
-You must re-create your role assignments in the target directory. You also have to manually recreate managed identities for Azure resources. For more information, see [Transfer an Azure subscription to a different Azure AD directory](transfer-subscription.md) and [FAQs and known issues with managed identities](../active-directory/managed-identities-azure-resources/known-issues.md).
+You must re-create your role assignments in the target directory. You also have to manually recreate managed identities for Azure resources. For more information, see [Transfer an Azure subscription to a different Microsoft Entra directory](transfer-subscription.md) and [FAQs and known issues with managed identities](../active-directory/managed-identities-azure-resources/known-issues.md).
 
 ### Symptom - Unable to access subscription after transferring a subscription
 
 **Solution**
 
-If you're an Azure AD Global Administrator and you don't have access to a subscription after it was transferred between directories, use the **Access management for Azure resources** toggle to temporarily [elevate your access](elevate-access-global-admin.md) to get access to the subscription.
+If you're a Microsoft Entra Global Administrator and you don't have access to a subscription after it was transferred between directories, use the **Access management for Azure resources** toggle to temporarily [elevate your access](elevate-access-global-admin.md) to get access to the subscription.
 
 ## Classic subscription administrators
 

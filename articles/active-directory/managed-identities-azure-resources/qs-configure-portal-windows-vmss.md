@@ -32,7 +32,7 @@ In this article, using the Azure portal, you learn how to perform the following 
     > [!NOTE]
     > No additional Microsoft Entra directory role assignments required.
 
-    - [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) to enable and remove system-assigned managed identity from a virtual machine scale set.
+    - [Virtual Machine Contributor](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) to enable and remove system-assigned managed identity from a virtual machine scale set.
 
 ## System-assigned managed identity
 
@@ -42,7 +42,7 @@ In this section, you will learn how to enable and disable the system-assigned ma
 
 Currently, the Azure portal does not support enabling system-assigned managed identity during the creation of a virtual machine scale set. Instead, refer to the following virtual machine scale set creation Quickstart article to first create a virtual machine scale set, and then proceed to the next section for details on enabling system-assigned managed identity on a virtual machine scale set:
 
-- [Create a Virtual Machine Scale Set in the Azure portal](../../virtual-machine-scale-sets/quick-create-portal.md)  
+- [Create a Virtual Machine Scale Set in the Azure portal](/azure/virtual-machine-scale-sets/quick-create-portal)  
 
 ### Enable system-assigned managed identity on an existing virtual machine scale set
 
@@ -78,7 +78,7 @@ In this section, you learn how to add and remove a user-assigned managed identit
 
 Currently, the Azure portal does not support assigning a user-assigned managed identity during the creation of a virtual machine scale set. Instead, refer to the following virtual machine scale set creation Quickstart article to first create a virtual machine scale set, and then proceed to the next section for details on assigning a user-assigned managed identity to it:
 
-- [Create a Virtual Machine Scale Set in the Azure portal](../../virtual-machine-scale-sets/quick-create-portal.md)
+- [Create a Virtual Machine Scale Set in the Azure portal](/azure/virtual-machine-scale-sets/quick-create-portal)
 
 ### Assign a user-assigned managed identity to an existing virtual machine scale set
 

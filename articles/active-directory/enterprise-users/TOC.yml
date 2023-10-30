@@ -26,7 +26,7 @@
   - name: Compare default user permissions    
     href: ../fundamentals/users-default-permissions.md?context=/azure/active-directory/enterprise-users/context/ugr-context
   - name: Group-based licensing basics    
-    href: ../fundamentals/licensing-whatis-azure-portal.md?context=/azure/active-directory/enterprise-users/context/ugr-context
+    href: ../fundamentals/concept-group-based-licensing.md?context=/azure/active-directory/enterprise-users/context/ugr-context
   - name: Manage access with groups    
     href: ../fundamentals/concept-learn-about-groups.md?context=/azure/active-directory/enterprise-users/context/ugr-context
 - name: How-to guides

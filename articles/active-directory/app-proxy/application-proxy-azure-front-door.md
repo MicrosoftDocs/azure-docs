@@ -91,12 +91,12 @@ Follow these steps to configure the Front Door Service (Standard):
 
 ## Next steps
 
-To prevent false positives, learn how to [Customize Web Application Firewall rules](../../web-application-firewall/ag/application-gateway-customize-waf-rules-portal.md), configure [Web Application Firewall exclusion lists](../../web-application-firewall/ag/application-gateway-waf-configuration.md?tabs=portal), or [Web Application Firewall custom rules](../../web-application-firewall/ag/create-custom-waf-rules.md).
+To prevent false positives, learn how to [Customize Web Application Firewall rules](/azure/web-application-firewall/ag/application-gateway-customize-waf-rules-portal), configure [Web Application Firewall exclusion lists](/azure/web-application-firewall/ag/application-gateway-waf-configuration?tabs=portal), or [Web Application Firewall custom rules](/azure/web-application-firewall/ag/create-custom-waf-rules).
 
-[front-door-overview]: ../../frontdoor/front-door-overview.md
-[front-door-origin]: ../../frontdoor/origin.md?pivots=front-door-standard-premium#origin-host-header
-[front-door-tier]: ../../frontdoor/standard-premium/tier-comparison.md
-[front-door-custom-domain]: ../../frontdoor/standard-premium/how-to-add-custom-domain.md
+[front-door-overview]: /azure/frontdoor/front-door-overview
+[front-door-origin]: /azure/frontdoor/origin?pivots=front-door-standard-premium#origin-host-header
+[front-door-tier]: /azure/frontdoor/standard-premium/tier-comparison
+[front-door-custom-domain]: /azure/frontdoor/standard-premium/how-to-add-custom-domain
 [appproxy-custom-domain]: ./application-proxy-configure-custom-domain.md
-[private-dns]: ../../dns/private-dns-getstarted-portal.md
-[waf-logs]: ../../application-gateway/application-gateway-diagnostics.md#firewall-log
+[private-dns]: /azure/dns/private-dns-getstarted-portal
+[waf-logs]: /azure/application-gateway/application-gateway-diagnostics#firewall-log

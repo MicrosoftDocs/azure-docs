@@ -44,7 +44,7 @@ The **MFA gaps** workbook is currently not available as a template, but you can 
 1. Select the **Apply** button. The workbook may take a few moments to populate.
 1. Select the **Save As** button and provide the required information.
     - Provide a **Title**, **Subscription**, **Resource Group** (you must have the ability to save a workbook for the selected Resource Group), and **Location**.
-    - Optionally choose to save your workbook content to an [Azure Storage Account](../../azure-monitor/visualize/workbooks-bring-your-own-storage.md).
+    - Optionally choose to save your workbook content to an [Azure Storage Account](/azure/azure-monitor/visualize/workbooks-bring-your-own-storage).
 1. Select the **Apply** button.
 
 ## Summary

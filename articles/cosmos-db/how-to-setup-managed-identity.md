@@ -1,6 +1,6 @@
 ---
-title: Configure managed identities with Azure AD for your Azure Cosmos DB account
-description: Learn how to configure managed identities with Azure Active Directory for your Azure Cosmos DB account
+title: Configure managed identities with Microsoft Entra ID for your Azure Cosmos DB account
+description: Learn how to configure managed identities with Microsoft Entra ID for your Azure Cosmos DB account
 author: seesharprun
 ms.service: cosmos-db
 ms.custom: ignite-2022, devx-track-azurecli
@@ -9,10 +9,10 @@ ms.date: 10/15/2021
 ms.author: sidandrews
 ---
 
-# Configure managed identities with Azure Active Directory for your Azure Cosmos DB account
+# Configure managed identities with Microsoft Entra ID for your Azure Cosmos DB account
 [!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
-Managed identities for Azure resources provide Azure services with an automatically managed identity in Azure Active Directory. This article shows how to create a managed identity for Azure Cosmos DB accounts.
+Managed identities for Azure resources provide Azure services with an automatically managed identity in Microsoft Entra ID. This article shows how to create a managed identity for Azure Cosmos DB accounts.
 
 ## Prerequisites
 

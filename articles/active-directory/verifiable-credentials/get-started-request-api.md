@@ -27,7 +27,7 @@ To get an access token, your app must be registered with the Microsoft identity 
 
 ### Get an access token
 
-Use the [OAuth 2.0 client credentials grant flow](../../active-directory/develop/v2-oauth2-client-creds-grant-flow.md) to acquire the access token by using the Microsoft identity platform. Use a trusted library for this purpose. In this tutorial, we use the Microsoft Authentication Library [MSAL](../../active-directory/develop/msal-overview.md). MSAL simplifies adding authentication and authorization to an app that can call a secure web API.
+Use the [OAuth 2.0 client credentials grant flow](../develop/v2-oauth2-client-creds-grant-flow.md) to acquire the access token by using the Microsoft identity platform. Use a trusted library for this purpose. In this tutorial, we use the Microsoft Authentication Library [MSAL](../develop/msal-overview.md). MSAL simplifies adding authentication and authorization to an app that can call a secure web API.
 
 # [HTTP](#tab/http)
 

@@ -504,7 +504,7 @@ Content-Type: application/json
 
 Because the Durable Functions runtime manages state for you, you don't need to implement your own status-tracking mechanism.
 
-The Durable Functions extension exposes built-in HTTP APIs that manage long-running orchestrations. You can alternatively implement this pattern yourself by using your own function triggers (such as HTTP, a queue, or Azure Event Hubs) and the [durable client binding](durable-functions-bindings.md#orchestration-client). For example, you might use a queue message to trigger termination. Or, you might use an HTTP trigger that's protected by an Azure Active Directory authentication policy instead of the built-in HTTP APIs that use a generated key for authentication.
+The Durable Functions extension exposes built-in HTTP APIs that manage long-running orchestrations. You can alternatively implement this pattern yourself by using your own function triggers (such as HTTP, a queue, or Azure Event Hubs) and the [durable client binding](durable-functions-bindings.md#orchestration-client). For example, you might use a queue message to trigger termination. Or, you might use an HTTP trigger that's protected by a Microsoft Entra authentication policy instead of the built-in HTTP APIs that use a generated key for authentication.
 
 For more information, see the [HTTP features](durable-functions-http-features.md) article, which explains how you can expose asynchronous, long-running processes over HTTP using the Durable Functions extension.
 
@@ -1091,17 +1091,13 @@ app.get("raiseEventToOrchestration", async function (request, context) {
 # [Python](#tab/v1-model)
 
 ```python
-import azure.functions as func
 import azure.durable_functions as df
 
-myApp = df.DFApp(http_auth_level=func.AuthLevel.ANONYMOUS)
 
-# An HTTP-Triggered Function with a Durable Functions Client binding
-@myApp.route(route="orchestrators/{functionName}")
-@myApp.durable_client_input(client_name="client")
-async def main(client):
+async def main(client: str):
+    durable_client = df.DurableOrchestrationClient(client)
     is_approved = True
-    await client.raise_event(instance_id, "ApprovalEvent", is_approved)
+    await durable_client.raise_event(instance_id, "ApprovalEvent", is_approved)
 ```
 
 

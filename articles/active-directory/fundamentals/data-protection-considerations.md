@@ -29,7 +29,7 @@ The security tokens are issued by the Microsoft Entra authentication Services. I
 
 **Application Access**: Because applications can access the Application Programming Interfaces (APIs) without user context, the access check includes information about the user’s application and the scope of access requested, for example read only, read/write, etc. Many applications use OpenID Connect or OAuth to obtain tokens to access the directory on behalf of the user. These applications must be explicitly granted access to the directory or they won't receive a token from Microsoft Entra authentication Service, and they access data from the granted scope. 
 
-**Auditing**: Access is audited. For example, authorized actions such as create user and password reset create an audit trail that can be used by a tenant administrator to manage compliance efforts or investigations. Tenant administrators can generate audit reports by using the Microsoft Entra ID audit API.  
+**Auditing**: Access is audited. For example, authorized actions such as create user and password reset create an audit trail that can be used by a tenant administrator to manage compliance efforts or investigations. Tenant administrators can generate audit reports by using the Microsoft Entra audit API.  
 
 Learn more: [Audit logs in Microsoft Entra ID](../reports-monitoring/concept-audit-logs.md)
 
@@ -88,6 +88,5 @@ For more information about Secret encryption at rest, see the following table.
 ## Next steps
 
 * [Microsoft Entra ID and data residency](data-residency.md) 
-
 * [Data operational considerations](data-operational-considerations.md)
 * [Data protection considerations](data-protection-considerations.md) (You're here)

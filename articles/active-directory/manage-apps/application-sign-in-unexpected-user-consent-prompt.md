@@ -78,8 +78,8 @@ Determining whether an individual user can consent to an application can be conf
 
 ## Next steps
 
-- [Apps, permissions, and consent in Microsoft Entra ID (v1.0 endpoint)](../develop/quickstart-register-app.md)
+- [Apps, permissions, and consent in Azure Active Directory (v1.0 endpoint)](../develop/quickstart-register-app.md)
 
-- [Scopes, permissions, and consent in the Microsoft Entra ID (v2.0 endpoint)](../develop/permissions-consent-overview.md)
+- [Scopes, permissions, and consent in the Microsoft identity platform (v2.0 endpoint)](../develop/permissions-consent-overview.md)
 
 - [Unexpected error when performing consent to an application](application-sign-in-unexpected-user-consent-error.md)

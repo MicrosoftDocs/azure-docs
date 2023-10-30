@@ -104,5 +104,5 @@ You can use an API client such as [Graph Explorer](https://aka.ms/ge) to work wi
 
 ## Next steps
 
-- [Add RBAC role to the enterprise application](../../role-based-access-control/role-assignments-portal.md)
+- [Add RBAC role to the enterprise application](/azure/role-based-access-control/role-assignments-portal)
 - [Assign users to your application](add-application-portal-assign-users.md)

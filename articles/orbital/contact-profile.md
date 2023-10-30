@@ -10,7 +10,7 @@ ms.author: apoorvanori
 # Customer intent: As a satellite operator, I want to ingest data from my satellite into Azure.
 ---
 
-# Quickstart: Configure a contact profile
+# Configure a contact profile
 
 Configure a contact profile with Azure Orbital Ground Station to save and reuse contact configurations. This is required before scheduling a contact to ingest data from a satellite into Azure.
 
@@ -103,4 +103,3 @@ Sign in to the [Azure portal - Orbital](https://aka.ms/orbital/portal).
 - [How-to Receive real-time telemetry](receive-real-time-telemetry.md)
 - [Configure the RF chain](modem-chain.md)
 - [Schedule a contact](schedule-contact.md)
-- [Cancel a contact](delete-contact.md)

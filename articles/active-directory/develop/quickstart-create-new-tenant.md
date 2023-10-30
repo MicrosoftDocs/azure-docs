@@ -79,7 +79,7 @@ You'll provide the following information to create your new tenant:
 
 ## Social and local accounts
 
-To begin building external facing applications that sign in social and local accounts, create an Azure AD B2C tenant. To begin, see [Create an Azure AD B2C tenant](../../active-directory-b2c/tutorial-create-tenant.md).
+To begin building external facing applications that sign in social and local accounts, create an Azure AD B2C tenant. To begin, see [Create an Azure AD B2C tenant](/azure/active-directory-b2c/tutorial-create-tenant).
 
 ## Next steps
 

@@ -151,7 +151,7 @@ The following localization options are supported:
 |GeneralExceptionMessage|Something is not right. It could be a temporary glitch or a bug. Please, try again.|  
 |GeneralJsonExceptionMessage|Something is not right. It could be a temporary glitch or a bug. Please, reload the page and try again.|  
 |ConfirmationMessageUnsavedChanges|There are some unsaved changes. Are you sure you want to cancel and discard the changes?|  
-|AzureActiveDirectory|Azure Active Directory|  
+|AzureActiveDirectory|Microsoft Entra ID|  
 |HttpLargeRequestMessage|Http Request Body too large.|  
   
 ###  <a name="CommonStrings"></a> CommonStrings  
@@ -478,12 +478,12 @@ The following localization options are supported:
 |WebAuthenticationUserIsNotConfirm|Please confirm your registration before attempting to sign in.|  
 |WebAuthenticationInvalidEmailFormatted|Email is invalid: {0}|  
 |WebAuthenticationUserNotFound|User not found|  
-|WebAuthenticationTenantNotRegistered|Your account belongs to an Azure Active Directory tenant which is not authorized to access this portal.|  
+|WebAuthenticationTenantNotRegistered|Your account belongs to a Microsoft Entra tenant which is not authorized to access this portal.|  
 |WebAuthenticationAuthenticationFailed|Authentication has failed.|  
 |WebAuthenticationGooglePlusNotEnabled|Authentication has failed. If you authorized the application then please contact the admin to make sure that Google authentication is configured correctly.|  
 |ValidationErrorAllowedTenantIsRequired|Allowed Tenant is required|  
-|ValidationErrorTenantIsNotValid|The Azure Active Directory tenant '{0}' is not valid.|  
-|WebAuthenticationActiveDirectoryTitle|Azure Active Directory|  
+|ValidationErrorTenantIsNotValid|The Microsoft Entra tenant '{0}' is not valid.|  
+|WebAuthenticationActiveDirectoryTitle|Microsoft Entra ID|  
 |WebAuthenticationLoginUsingYourProvider|Log in using your {0} account|  
 |WebAuthenticationUserLimitNotice|This service has reached the maximum number of allowed users. Please `<a href="mailto:{0}"\>contact the administrator</a\>` to upgrade their service and re-enable user registration.|  
 |WebAuthenticationUserLimitNoticeHeader|User registration disabled|  
@@ -496,7 +496,7 @@ The following localization options are supported:
 |WebAuthenticationSignupConfirmationAlmostDone|Almost Done|  
 |WebAuthenticationSignupConfirmationEmailSent|We’ve sent an e-mail to {0}. Please follow the instructions inside the e-mail to activate your account. If the e-mail doesn’t arrive within the next few minutes, please check your junk email folder.|  
 |WebAuthenticationEmailSentNotificationMessage|Email sent successfully to {0}|  
-|WebAuthenticationNoAadTenantConfigured|No Azure Active Directory tenant configured for the service.|  
+|WebAuthenticationNoAadTenantConfigured|No Microsoft Entra tenant configured for the service.|  
 |CheckboxLabelUserRegistrationTermsConsentRequired|I agree to the `<a data-toggle="modal" href="#" data-target="#terms"\>Terms of Use</a\>`.|  
 |TextblockUserRegistrationTermsProvided|Please review `<a data-toggle="modal" href="#" data-target="#terms"\>Terms of Use.</a\>`|  
 |DialogHeadingTermsOfUse|Terms of Use|  

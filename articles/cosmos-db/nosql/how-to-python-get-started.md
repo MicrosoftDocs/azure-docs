@@ -72,7 +72,7 @@ To connect to the API for NoSQL of Azure Cosmos DB, create an instance of the [C
 
 - [Connect with an API for NoSQL endpoint and read/write key](#connect-with-an-endpoint-and-key)
 - [Connect with an API for NoSQL connection string](#connect-with-a-connection-string)
-- [Connect with Azure Active Directory](#connect-using-the-microsoft-identity-platform)
+- [Connect with Microsoft Entra ID](#connect-using-the-microsoft-identity-platform)
 
 ### Connect with an endpoint and key
 
@@ -316,9 +316,9 @@ Create a new instance of the **CosmosClient** class with the ``COSMOS_CONNECTION
 
 :::code language="python" source="~/cosmos-db-nosql-python-samples/003-how-to/app_connection_string.py" id="connection_string":::
 
-### Connect using the Microsoft Identity Platform
+### Connect using the Microsoft identity platform
 
-To connect to your API for NoSQL account using the Microsoft Identity Platform and Azure AD, use a security principal. The exact type of principal will depend on where you host your application code. The table below serves as a quick reference guide.
+To connect to your API for NoSQL account using the Microsoft identity platform and Microsoft Entra ID, use a security principal. The exact type of principal will depend on where you host your application code. The table below serves as a quick reference guide.
 
 | Where the application runs | Security principal
 |--|--|---|
@@ -351,7 +351,7 @@ In your *app.py*:
 :::code language="python" source="~/cosmos-db-nosql-python-samples/003-how-to/app_aad_default.py" id="credential":::
 
 > [!IMPORTANT]
-> For details on how to add the correct role to enable `DefaultAzureCredential` to work, see [Configure role-based access control with Azure Active Directory for your Azure Cosmos DB account](../how-to-setup-rbac.md). In particular, see the section on creating roles and assigning them to a principal ID.
+> For details on how to add the correct role to enable `DefaultAzureCredential` to work, see [Configure role-based access control with Microsoft Entra ID for your Azure Cosmos DB account](../how-to-setup-rbac.md). In particular, see the section on creating roles and assigning them to a principal ID.
 
 #### Create CosmosClient with a custom credential implementation
 
@@ -361,7 +361,7 @@ For this example, we create a [``ClientSecretCredential``](/python/api/azure-ide
 
 In your *app.py*:
 
-* Get the credential information from environment variables for a service principal. You can obtain the client ID, tenant ID, and client secret when you register an application in Azure Active Directory (AD). For more information about registering Azure AD applications, see [Register an application with the Microsoft identity platform](../../active-directory/develop/quickstart-register-app.md).
+* Get the credential information from environment variables for a service principal. You can obtain the client ID, tenant ID, and client secret when you register an application in Microsoft Entra ID. For more information about registering Microsoft Entra applications, see [Register an application with the Microsoft identity platform](../../active-directory/develop/quickstart-register-app.md).
 
 * Import the [ClientSecretCredential](/python/api/azure-identity/azure.identity.clientsecretcredential) and create an instance with the ``TENANT_ID``, ``CLIENT_ID``, and ``CLIENT_SECRET`` environment variables as parameters.
 

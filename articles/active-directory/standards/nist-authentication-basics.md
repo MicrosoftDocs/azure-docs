@@ -43,7 +43,7 @@ Use the following table to understand NIST terminology.
 
 TPM has hardware-based security-related functions: A TPM chip, or hardware TPM, is a secure cryptographic processor that helps with generating, storing, and limiting the use of cryptographic keys. 
 
-For information on TPMs and Windows, see [Trusted Platform Module](/windows/security/information-protection/tpm/trusted-platform-module-top-node). 
+For information on TPMs and Windows, see [Trusted Platform Module](/windows/security/hardware-security/tpm/trusted-platform-module-top-node). 
 
 > [!NOTE]
 > A software TPM is an emulator that mimics hardware TPM functionality. 

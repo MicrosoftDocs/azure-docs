@@ -37,7 +37,7 @@ Schedule-based scaling changes the number of nodes in your cluster based on a sc
 
 The following table describes the cluster types that are compatible with the Auto scale feature, and what’s available or planned. 
 
-|Workload	|Load Based	|Schedule Base|
+|Workload	|Load Based	|Schedule Based|
 |-|-|-|
 |Flink	|Planned	|Yes|
 |Trino	|Planned	|Yes**|

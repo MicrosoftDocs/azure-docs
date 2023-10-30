@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Deploy applications using GitOps with Flux v2"
 description: "This tutorial shows how to use GitOps with Flux v2 to manage configuration and application deployment in Azure Arc and AKS clusters."
-ms.date: 08/16/2023
+ms.date: 10/18/2023
 ms.topic: tutorial
 ms.custom: template-tutorial, devx-track-azurecli, references_regions, ignite-2022
 ---
@@ -490,6 +490,8 @@ To view detailed conditions for a configuration object, select its name.
 
 :::image type="content" source="media/tutorial-use-gitops-flux2/portal-configuration-object-conditions.png" alt-text="Screenshot showing condition details for a configuration object in the Azure portal." lightbox="media/tutorial-use-gitops-flux2/portal-configuration-object-conditions.png":::
 
+For more information, see [Monitor GitOps (Flux v2) status and activity](monitor-gitops-flux-2.md). 
+
 ---
 
 ## Work with parameters
@@ -568,6 +570,45 @@ az k8s-extension update --resource-group <resource-group> --cluster-name <cluste
 
 If you don't specify values for `memoryThreshold` and `outOfMemoryWatch`, the default memory threshold is set to 95%, with the interval at which to check the memory utilization set to 500 ms.
 
+### Workload identity in AKS clusters
+
+Starting with [`microsoft.flux` v1.8.0](extensions-release.md#flux-gitops), you can create Flux configurations in [AKS clusters with workload identity enabled](/azure/aks/workload-identity-deploy-cluster). To do so, modify the flux extension as shown in the following steps.
+
+1. Retrieve the [OIDC issuer URL](/azure/aks/workload-identity-deploy-cluster#retrieve-the-oidc-issuer-url) for your cluster.
+1. Create a [managed identity](/azure/aks/workload-identity-deploy-cluster#create-a-managed-identity) and note its client ID.
+1. Create the flux extension on the cluster, using the following command:
+
+   ```azurecli
+   az k8s-extension create --resource-group <resource_group_name> --cluster-name <aks_cluster_name> --cluster-type managedClusters --name flux --extension-type microsoft.flux --config workloadIdentity.enable=true workloadIdentity.azureClientId=<user_assigned_client_id>
+   ```
+
+1. Establish a [federated identity credential](/azure/aks/workload-identity-deploy-cluster#establish-federated-identity-credential). For example:
+
+   ```azurecli
+   # For source-controller
+   az identity federated-credential create --name ${FEDERATED_IDENTITY_CREDENTIAL_NAME} --identity-name "${USER_ASSIGNED_IDENTITY_NAME}" --resource-group "${RESOURCE_GROUP}" --issuer "${AKS_OIDC_ISSUER}" --subject system:serviceaccount:"flux-system":"source-controller" --audience api://AzureADTokenExchange
+   
+   # For image-reflector controller if you plan to enable it during extension creation, it is not deployed by default
+   az identity federated-credential create --name ${FEDERATED_IDENTITY_CREDENTIAL_NAME} --identity-name "${USER_ASSIGNED_IDENTITY_NAME}" --resource-group "${RESOURCE_GROUP}" --issuer "${AKS_OIDC_ISSUER}" --subject system:serviceaccount:"flux-system":"image-reflector-controller" --audience api://AzureADTokenExchange
+   ```
+
+1. Make sure the custom resource that needs to use workload identity has set `.spec.provider` value to `azure` in the manifest. For example:
+
+   ```json
+   apiVersion: source.toolkit.fluxcd.io/v1beta2
+   kind: HelmRepository
+   metadata:
+     name: acrrepo
+   spec:
+     interval: 10m0s
+     type: <helm_repository_type>
+     url: <helm_repository_link>
+     provider: azure
+   ```
+
+1. Be sure to provide proper permissions for workload identity for the resource that you want source-controller or image-reflector controller to pull. For example, if using Azure Container Registry, `AcrPull` permissions are required.
+
+
 ## Delete the Flux configuration and extension
 
 Use the following commands to delete your Flux configuration and, if desired, the Flux extension itself.
@@ -621,3 +662,4 @@ az k8s-extension delete -g <resource-group> -c <cluster-name> -n flux -t managed
 
 * Read more about [configurations and GitOps](conceptual-gitops-flux2.md).
 * Learn how to [use Azure Policy to enforce GitOps at scale](./use-azure-policy-flux-2.md).
+* Learn about [monitoring GitOps (Flux v2) status and activity](monitor-gitops-flux-2.md).

@@ -30,7 +30,7 @@ You'll learn how to:
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An Azure DevOps organization. [Create one for free](/azure/devops/pipelines/get-started/pipelines-sign-up).
     - To use Microsoft-hosted agents, your Azure DevOps organization must have access to Microsoft-hosted parallel jobs. [Check your parallel jobs and request a free grant](/azure/devops/pipelines/troubleshooting/troubleshooting#check-for-available-parallel-jobs).
-- A Microsoft Entra [tenant](/azure/active-directory/develop/quickstart-create-new-tenant).
+- A Microsoft Entra [tenant](./quickstart-create-new-tenant.md).
 - A [GitHub account](https://github.com) and Git [setup locally](https://docs.github.com/en/get-started/quickstart/set-up-git).
 - .NET 6.0 SDK or later.
 
@@ -193,7 +193,7 @@ Save your changes and run the pipeline.
 
 Next, add a stage to the pipeline that deploys Azure resources.  The pipeline uses an [inline script](/azure/devops/pipelines/scripts/powershell) to create the App Service instance.  In a later step, the inline script creates a Microsoft Entra app registration for App Service authentication.  An Azure CLI bash script is used because Azure Resource Manager (and Azure Pipelines tasks) can't create an app registration.
 
-The inline script runs in the context of the pipeline, assign the [Application.Administrator](/azure/active-directory/roles/permissions-reference#application-administrator) role to the app so the script can create app registrations:
+The inline script runs in the context of the pipeline, assign the [Application.Administrator](../roles/permissions-reference.md#application-administrator) role to the app so the script can create app registrations:
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
 1. Browse to **Identity** > **Roles & admins** > **Roles & admins**.

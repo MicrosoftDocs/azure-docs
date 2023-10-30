@@ -105,7 +105,7 @@ To enable TLS 1.2:
 1. Restart the server.
 
 > [!NOTE]
-> Microsoft is updating Azure services to use TLS certificates from a different set of Root Certificate Authorities (CAs). This change is being made because the current CA certificates do not comply with one of the CA/Browser Forum Baseline requirements. For more information, see [Azure TLS certificate changes](../../security/fundamentals/tls-certificate-changes.md).
+> Microsoft is updating Azure services to use TLS certificates from a different set of Root Certificate Authorities (CAs). This change is being made because the current CA certificates do not comply with one of the CA/Browser Forum Baseline requirements. For more information, see [Azure TLS certificate changes](/azure/security/fundamentals/tls-certificate-changes).
 
 ## Prepare your on-premises environment
 

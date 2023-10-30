@@ -135,7 +135,7 @@ Use the following information to understand the problem and what needs to be cor
 
 ## Microsoft Entra forums
 
-If you have general questions about Microsoft Entra ID and self-service password reset, you can ask the community for assistance on the [Microsoft Q&A question page for Microsoft Entra ID](/answers/topics/azure-active-directory.html). Members of the community include engineers, product managers, MVPs, and fellow IT professionals.
+If you have general questions about Microsoft Entra ID and self-service password reset, you can ask the community for assistance on the [Microsoft Q&A question page for Microsoft Entra ID](/answers/tags/455/entra-id). Members of the community include engineers, product managers, MVPs, and fellow IT professionals.
 
 ## Contact Microsoft support
 

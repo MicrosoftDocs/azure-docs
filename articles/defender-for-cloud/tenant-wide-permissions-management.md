@@ -7,13 +7,13 @@ ms.date: 01/08/2023
 
 # Grant and request tenant-wide visibility
 
-A user with the Azure Active Directory (AD) role of **Global Administrator** might have tenant-wide responsibilities, but lack the Azure permissions to view that organization-wide information in Microsoft Defender for Cloud. Permission elevation is required because Azure AD role assignments don't grant access to Azure resources. 
+A user with the Microsoft Entra role of **Global Administrator** might have tenant-wide responsibilities, but lack the Azure permissions to view that organization-wide information in Microsoft Defender for Cloud. Permission elevation is required because Microsoft Entra role assignments don't grant access to Azure resources. 
 
 ## Grant tenant-wide permissions to yourself
 
 **To assign yourself tenant-level permissions**:
 
-1. If your organization manages resource access with [Azure AD Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-configure.md), or any other PIM tool, the global administrator role must be active for the user.
+1. If your organization manages resource access with [Microsoft Entra Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-configure.md), or any other PIM tool, the global administrator role must be active for the user.
 
 1. As a Global Administrator user without an assignment on the root management group of the tenant, open Defender for Cloud's **Overview** page and select the **tenant-wide visibility** link in the banner. 
 
@@ -32,7 +32,7 @@ A user with the Azure Active Directory (AD) role of **Global Administrator** mig
 
 1. Sign out of the Azure portal, and then log back in again.
 
-1. Once you have elevated access, open or refresh Microsoft Defender for Cloud to verify you have visibility into all subscriptions under your Azure AD tenant. 
+1. Once you have elevated access, open or refresh Microsoft Defender for Cloud to verify you have visibility into all subscriptions under your Microsoft Entra tenant. 
 
 The process of assigning  yourself tenant-level permissions, performs many operations automatically for you:
 
@@ -42,7 +42,7 @@ The process of assigning  yourself tenant-level permissions, performs many opera
 
 - The elevated permissions are removed.
 
-For more information of the Azure AD elevation process, see [Elevate access to manage all Azure subscriptions and management groups](../role-based-access-control/elevate-access-global-admin.md).
+For more information of the Microsoft Entra elevation process, see [Elevate access to manage all Azure subscriptions and management groups](../role-based-access-control/elevate-access-global-admin.md).
 
 ## Request tenant-wide permissions when yours are insufficient
 

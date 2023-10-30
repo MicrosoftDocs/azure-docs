@@ -34,11 +34,11 @@ This sample requires the [Azure Active Directory PowerShell 2.0 for Graph module
 
 | Command | Notes |
 |---|---|
-| [Get-AzureADUser](/powershell/module/AzureAD/get-azureaduser)| Gets a user. |
-| [Get-AzureADGroup](/powershell/module/AzureAD/get-azureadgroup)| Gets a group. |
+| [Get-AzureADUser](/powershell/module/azuread/get-azureaduser)| Gets a user. |
+| [Get-AzureADGroup](/powershell/module/azuread/get-azureadgroup)| Gets a group. |
 | [Get-AzureADServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal) | Gets a service principal. |
-| [Get-AzureADUserAppRoleAssignment](/powershell/module/AzureAD/get-azureaduserapproleassignment) | Get a user application role assignment. |
-| [Get-AzureADGroupAppRoleAssignment](/powershell/module/AzureAD/get-azureadgroupapproleassignment) | Get a group application role assignment. |
+| [Get-AzureADUserAppRoleAssignment](/powershell/module/azuread/get-azureaduserapproleassignment) | Get a user application role assignment. |
+| [Get-AzureADGroupAppRoleAssignment](/powershell/module/azuread/get-azureadgroupapproleassignment) | Get a group application role assignment. |
 
 ## Next steps
 

@@ -31,7 +31,7 @@ Using Azure Monitor agent, you get immediate benefits as shown below:
   - Any change in configuration is rolled out to all agents automatically, without requiring a client side deployment.
   - Greater transparency and control of more capabilities and services, such as Microsoft Sentinel, Defender for Cloud, and VM Insights.
 - **Security and Performance**
-  - Enhanced security through Managed Identity and Azure Active Directory (Azure AD) tokens (for clients).
+  - Enhanced security through Managed Identity and Microsoft Entra tokens (for clients).
   - Higher event throughput that is 25% better than the legacy Log Analytics (MMA/OMS) agents.
 - **A single agent** that serves all data collection needs across [supported](#supported-operating-systems) servers and client devices. A single agent is the goal, although Azure Monitor Agent is currently converging with the Log Analytics agents.
 

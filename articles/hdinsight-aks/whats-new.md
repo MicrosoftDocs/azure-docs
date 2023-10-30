@@ -3,7 +3,7 @@ title: What's new in HDInsight on AKS? (Preview)
 description: An introduction to new concepts in HDInsight on AKS that aren't in HDInsight.
 ms.service: hdinsight-aks
 ms.topic: conceptual
-ms.date: 08/31/2023
+ms.date: 10/10/2023
 ---
 
 # What's new in HDInsight on AKS? (Preview)
@@ -38,7 +38,7 @@ The following table list shows the features of HDInsight on AKS that are current
 |	Logging and Monitoring	|	Log aggregation in Azure [log analytics](./how-to-azure-monitor-integration.md), for server logs,	Cluster and Service metrics via [Managed Prometheus and Grafana](./monitor-with-prometheus-grafana.md),	Support server metrics in [Azure monitor](/azure/azure-monitor/overview),	Service Status page for monitoring the [Service health](./service-health.md)	|	
 |	Auto Scale	|	Load based [Auto Scale](hdinsight-on-aks-autoscale-clusters.md#create-a-cluster-with-load-based-auto-scale), and Schedule based [Auto Scale](hdinsight-on-aks-autoscale-clusters.md#create-a-cluster-with-schedule-based-auto-scale) |
 |	Customize and Configure Clusters	|	Support for [script actions](./manage-script-actions.md) during cluster creation, Support for [library management](./spark/library-management.md), [Service configuration](./service-configuration.md) settings after cluster creation	|	
-|	Trino	|	Support for [Trino catalogs](./trino/trino-add-catalogs.md), [Trino CLI Support](./trino/trino-ui-command-line-interface.md), [DBeaver](./trino/trino-ui-dbeaver.md) support for query submission,	Add or remove plugins and [connectors](./trino/trino-connectors.md), Support for [logging query](./trino/trino-query-logging.md) events, Support for [scan query statistics](./trino/trino-scan-stats.md) for any [Connector](./trino/trino-connectors.md) in Trino dashboard, Support for Trino dashboard to monitor queries, [Query Caching](./trino/trino-caching.md), Integration with PowerBI, Integration with [Apache Superset](./trino/trino-superset.md), Redash, Support for multiple [connectors](./trino/trino-connectors.md) |
+|	Trino	|	Support for [Trino catalogs](./trino/trino-add-catalogs.md), [Trino CLI Support](./trino/trino-ui-command-line-interface.md), [DBeaver](./trino/trino-ui-dbeaver.md) support for query submission,	Add or remove [plugins](./trino/trino-custom-plugins.md) and [connectors](./trino/trino-connectors.md), Support for [logging query](./trino/trino-query-logging.md) events, Support for [scan query statistics](./trino/trino-scan-stats.md) for any [Connector](./trino/trino-connectors.md) in Trino dashboard, Support for Trino [dashboard](./trino/trino-ui.md) to monitor queries, [Query Caching](./trino/trino-caching.md), Integration with PowerBI, Integration with [Apache Superset](./trino/trino-superset.md), Redash, Support for multiple [connectors](./trino/trino-connectors.md) |
 |	Flink	|	Support for Flink native web UI, Flink support with HMS for [DStream](./flink/use-hive-metastore-datastream.md), Submit jobs to the cluster using [REST API and Azure Portal](./flink/flink-job-management.md), Run programs packaged as JAR files via the [Flink CLI](./flink/use-flink-cli-to-submit-jobs.md), Support for persistent Savepoints, Support for update the configuration options when the job is running,  Connecting to multiple Azure services: [Azure Cosmos DB](./flink/cosmos-db-for-apache-cassandra.md), [Azure Databricks](./flink/azure-databricks.md), [Azure Data Explorer](./flink/integration-of-azure-data-explorer.md), [Azure Event Hubs](./flink/flink-how-to-setup-event-hub.md), [Azure IoT Hub](./flink/azure-iot-hub.md), [Azure Pipelines](./flink/use-azure-pipelines-to-run-flink-jobs.md), [Azure Data Factory Managed Airflow](./flink/flink-job-orchestration.md), [HDInsight Kafka](./flink/process-and-consume-data.md), Submit jobs to the cluster using [Flink CLI](./flink/use-flink-cli-to-submit-jobs.md) and [CDC](./flink/monitor-changes-postgres-table-flink.md) with Flink |
 |	Spark	|	[Jupyter Notebook](./spark/submit-manage-jobs.md), Support for [Delta lake](./spark/azure-hdinsight-spark-on-aks-delta-lake.md) 2.0, Zeppelin Support, Support ATS, Support for Yarn History server interface, Job submission using SSH, Job submission using SDK and [Machine Learning Notebook](./spark/azure-hdinsight-spark-on-aks-delta-lake.md)	|		
 
@@ -63,5 +63,3 @@ The following table list shows the features of HDInsight on AKS that are current
 |	Ranger Support for Spark SQL	|	Q2 2024	|
 |	Ranger ACLs on Storage Layer	|	Q2 2024	|
 |	Support for One lake as primary container	|	Q2 2024	|
-
-

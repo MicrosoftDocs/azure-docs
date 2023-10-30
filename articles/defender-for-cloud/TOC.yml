@@ -570,7 +570,7 @@
         href: view-and-remediate-vulnerabilities-for-images-running-on-aks.md
       - name: Disable vulnerabilities on images
         href: disable-vulnerability-findings-containers.md
-      - name: Subassessment REST API
+      - name: REST API
         href: subassessment-rest-api.md 
     - name: Vulnerability assessment for AWS
       displayName: AWS, ECR, registry, images, qualys
@@ -757,6 +757,9 @@
     - name: Overview
       displayName: DevOps
       href: defender-for-devops-introduction.md
+    - name: DevOps posture management
+      displayName: DevOps posture management
+      href: concept-devops-posture-management-overview.md
     - name: Protect DevOps environments
       items: 
       - name: Connect GitHub repositories

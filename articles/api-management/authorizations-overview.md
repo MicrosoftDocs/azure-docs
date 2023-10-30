@@ -116,7 +116,7 @@ During Step 1, you configure your authorization provider. You can choose between
 > With the Generic OAuth 2.0 provider, other identity providers that support the standards of [OAuth 2.0 flow](https://oauth.net/2/) can be used.
 > 
 
-To use an authorization provider, at least one *authorization* is required. Each authorization is a separate connection to the authorization provider. The process of configuring an authorization differs based on the configured grant type. Each authorization provider configuration only supports one grant type. For example, if you want to configure Azure AD to use both grant types, two authorization provider configurations are needed. The following table summarizes the two grant types.
+To use an authorization provider, at least one *authorization* is required. Each authorization is a separate connection to the authorization provider. The process of configuring an authorization differs based on the configured grant type. Each authorization provider configuration only supports one grant type. For example, if you want to configure Microsoft Entra ID to use both grant types, two authorization provider configurations are needed. The following table summarizes the two grant types.
 
 
 |Grant type  |Description  |
@@ -130,13 +130,13 @@ For authorizations based on the authorization code grant type, you must authenti
 
 #### Step 3: Access policy
 
-You configure one or more *access policies* for each authorization. The access policies determine which [Azure AD identities](../active-directory/develop/app-objects-and-service-principals.md) can gain access to your authorizations at runtime. Authorizations currently support managed identities and service principals.
+You configure one or more *access policies* for each authorization. The access policies determine which [Microsoft Entra identities](../active-directory/develop/app-objects-and-service-principals.md) can gain access to your authorizations at runtime. Authorizations currently support managed identities and service principals.
 
 
 |Identity  |Description  | Benefits | Considerations |
 |---------|---------|-----|----|
-|Service principal     |   Identity whose tokens can be used to authenticate and grant access to specific Azure resources, when an organization is using Azure Active Directory (Azure AD). By using a service principal, organizations avoid creating fictitious users to manage authentication when they need to access a resource. A service principal is an Azure AD identity that represents a registered Azure AD application. | Permits more tightly scoped access to authorization. Isn't tied to specific API Management instance. Relies on Azure AD for permission enforcement. | Getting the [authorization context](get-authorization-context-policy.md) requires an Azure AD token.     |
-|Managed identity     |  Service principal of a special type that represents an Azure AD identity for an Azure service. Managed identities are tied to, and can only be used with, an Azure resource. Managed identities eliminate the need for you to manually create and manage service principals directly.<br/><br/>When a system-assigned managed identity is enabled, a service principal representing that managed identity is created in your tenant automatically and tied to your resource's lifecycle.|No credentials are needed.|Identity is tied to specific Azure infrastructure. Anyone with Contributor access to API Management instance can access any authorization granting managed identity permissions.    |
+|Service principal     |   Identity whose tokens can be used to authenticate and grant access to specific Azure resources, when an organization is using Microsoft Entra ID. By using a service principal, organizations avoid creating fictitious users to manage authentication when they need to access a resource. A service principal is a Microsoft Entra identity that represents a registered Microsoft Entra application. | Permits more tightly scoped access to authorization. Isn't tied to specific API Management instance. Relies on Microsoft Entra ID for permission enforcement. | Getting the [authorization context](get-authorization-context-policy.md) requires a Microsoft Entra token.     |
+|Managed identity     |  Service principal of a special type that represents a Microsoft Entra identity for an Azure service. Managed identities are tied to, and can only be used with, an Azure resource. Managed identities eliminate the need for you to manually create and manage service principals directly.<br/><br/>When a system-assigned managed identity is enabled, a service principal representing that managed identity is created in your tenant automatically and tied to your resource's lifecycle.|No credentials are needed.|Identity is tied to specific Azure infrastructure. Anyone with Contributor access to API Management instance can access any authorization granting managed identity permissions.    |
 | Managed identity `<Your API Management instance name>` | This option corresponds to a managed identity tied to your API Management instance.  |  Quick selection of system-assigned managed identity for the corresponding API management instance.  | Identity is tied to your API Management instance. Anyone with Contributor access to API Management instance can access any authorization granting managed identity permissions.     |
 
 ## Security considerations
@@ -186,4 +186,3 @@ Learn how to:
 - Configure [identity providers](authorizations-configure-common-providers.md) for authorizations
 - Configure and use an authorization for the [Microsoft Graph API](authorizations-how-to-azure-ad.md) or the [GitHub API](authorizations-how-to-github.md)
 - Configure [multiple authorization connections](configure-authorization-connection.md) for a provider
-

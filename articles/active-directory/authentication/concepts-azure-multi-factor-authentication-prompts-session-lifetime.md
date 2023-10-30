@@ -69,7 +69,7 @@ When a user selects **Yes** on the *Stay signed in?* prompt option during sign-i
 
 ![Screenshot of example prompt to remain signed in](./media/concepts-azure-multi-factor-authentication-prompts-session-lifetime/stay-signed-in-prompt.png)
 
-If you have a Microsoft Entra ID P1 or P2 1 license, we recommend using Conditional Access policy for *Persistent browser session*. This policy overwrites the *Stay signed in?* setting and provides an improved user experience. If you don't have a Microsoft Entra ID P1 or P2 1 license, we recommend enabling the stay signed in setting for your users.
+If you have a Microsoft Entra ID P1 or P2 license, we recommend using Conditional Access policy for *Persistent browser session*. This policy overwrites the *Stay signed in?* setting and provides an improved user experience. If you don't have a Microsoft Entra ID P1 or P2 license, we recommend enabling the stay signed in setting for your users.
 
 For more information on configuring the option to let users remain signed-in, see [How to manage the 'Stay signed in?' prompt](../fundamentals/how-to-manage-stay-signed-in-prompt.md).
 
@@ -83,7 +83,7 @@ This setting lets you configure values between 1-365 days and sets a persistent 
 
 While this setting reduces the number of authentications on web apps, it increases the number of authentications for modern authentication clients, such as Office clients. These clients normally prompt only after password reset or inactivity of 90 days. However, setting this value to less than 90 days shortens the default MFA prompts for Office clients, and increases reauthentication frequency. When used in combined with **Remain signed-in** or Conditional Access policies, it may increase the number of authentication requests.
 
-If you use *Remember MFA* and have Microsoft Entra ID P1 or P2 1 licenses, consider migrating these settings to Conditional Access Sign-in Frequency. Otherwise, consider using *Keep me signed in?* instead.
+If you use *Remember MFA* and have Microsoft Entra ID P1 or P2 licenses, consider migrating these settings to Conditional Access Sign-in Frequency. Otherwise, consider using *Keep me signed in?* instead.
 
 More information, see [Remember multifactor authentication](howto-mfa-mfasettings.md#remember-multi-factor-authentication).
 

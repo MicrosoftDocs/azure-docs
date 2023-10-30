@@ -29,7 +29,7 @@ The workflow leverages the [automated publishing capability](continuous-integrat
 
 ## Create a user-assigned managed identity
 
-You need credentials that authenticate and authorize GitHub Actions to deploy your ARM template to the target Data Factory. We leverage a user-assigned managed identity (UAMI) with [workload identity federation](../active-directory/workload-identities/workload-identity-federation.md). Using workload identity federation allows you to access Azure Active Directory (Azure AD) protected resources without needing to manage secrets. In this scenario, GitHub Actions are able to access the Azure resource group and deploy the target Data Factory instance. 
+You need credentials that authenticate and authorize GitHub Actions to deploy your ARM template to the target Data Factory. We leverage a user-assigned managed identity (UAMI) with [workload identity federation](../active-directory/workload-identities/workload-identity-federation.md). Using workload identity federation allows you to access Microsoft Entra protected resources without needing to manage secrets. In this scenario, GitHub Actions are able to access the Azure resource group and deploy the target Data Factory instance. 
 
 Follow the tutorial to [create a user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md#create-a-user-assigned-managed-identity). Once the UAMI is created, browse to the Overview page and take a note of the Subscription ID and Client ID. We need these values later.
 
@@ -41,7 +41,7 @@ Follow the tutorial to [create a user-assigned managed identity](../active-direc
    
     :::image type="content" source="media/continuous-integration-delivery-github-actions/add-federated-credential.png" lightbox="media/continuous-integration-delivery-github-actions/add-federated-credential.png"alt-text="Screenshot of adding Federated Credential in Azure Portal.":::
 
-2. After creating the credential, navigate to Azure Active Directory Overview page and take a note of the tenant ID. We need this value later. 
+2. After creating the credential, navigate to Microsoft Entra Overview page and take a note of the tenant ID. We need this value later. 
 
 3. Browse to the Resource Group containing the target Data Factory instance and assign the UAMI the [Data Factory Contributor role](concepts-roles-permissions.md#roles-and-requirements). 
 
@@ -59,9 +59,9 @@ You need to provide your application's Client ID, Tenant ID and Subscription ID 
    
    :::image type="content" source="media/continuous-integration-delivery-github-actions/github-secrets.png" lightbox="media/continuous-integration-delivery-github-actions/github-secrets.png" alt-text="Screenshot of navigating to GitHub Secrets.":::
 
-3. Create secrets for AZURE_CLIENT_ID, AZURE_TENANT_ID, and AZURE_SUBSCRIPTION_ID. Use these values from your Azure Active Directory application for your GitHub secrets:
+3. Create secrets for AZURE_CLIENT_ID, AZURE_TENANT_ID, and AZURE_SUBSCRIPTION_ID. Use these values from your Microsoft Entra application for your GitHub secrets:
    
-   | GitHub Secret | Azure Active Directory Application |
+   | GitHub Secret | Microsoft Entra Application |
    |---------------|----------------------------|
    | AZURE_CLIENT_ID | Application (client) ID |
    | AZURE_TENANT_ID | Directory (tenant) ID |

@@ -132,7 +132,7 @@ You can use Azure Automation accounts to identify devices through inventory coll
 
 Learn more:
 
-* [Manage inventory collection from VMs](../../automation/change-tracking/manage-inventory-vms.md)
+* [Manage inventory collection from VMs](/azure/automation/change-tracking/manage-inventory-vms)
 * [Microsoft Defender for Endpoint overview](/microsoft-365/security/defender-endpoint/machines-view-overview)
 * [Introduction to hardware inventory](/mem/configmgr/core/clients/manage/inventory/introduction-to-hardware-inventory)
 

@@ -257,7 +257,7 @@ You can also configure group claims in the [optional claims](../../develop/optio
 
    In `additionalProperties`, only one of `"sam_account_name"`, `"dns_domain_and_sam_account_name"`, or `"netbios_domain_and_sam_account_name"` is required. If more than one is present, the first is used and any others are ignored.
 
-   Some applications require group information about the user in the role claim. To change the claim type to from a group claim to a role claim, add `"emit_as_roles"` to additional properties. The group values will be emitted in the role claim.
+   Some applications require group information about the user in the role claim. To change the claim type from a group claim to a role claim, add `"emit_as_roles"` to additional properties. The group values will be emitted in the role claim.
 
    To emit group display name for cloud-only groups, you can add `"cloud_displayname"` to `additional properties`. This option will work only when `“groupMembershipClaims”` is set to `ApplicationGroup`
 

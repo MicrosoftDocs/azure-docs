@@ -36,7 +36,7 @@ If you don't already have an Azure account, [sign up for a free account](https:/
 
 After you've enabled managed identity on an Azure resource, such as an [Azure virtual machine](qs-configure-cli-windows-vm.md) or [Azure virtual machine scale set](qs-configure-cli-windows-vmss.md): 
 
-1. In this example, we are giving an Azure virtual machine access to a storage account. First we use [az resource list](/cli/azure/resource/#az-resource-list) to get the service principal for the virtual machine named myVM:
+1. In this example, we are giving an Azure virtual machine access to a storage account. First we use [az resource list](/cli/azure/resource#az-resource-list) to get the service principal for the virtual machine named myVM:
 
    ```azurecli-interactive
    spID=$(az resource list -n myVM --query [*].identity.principalId --out tsv)

@@ -286,7 +286,7 @@ For more information about Azure Policy definitions, see these topics:
 
 ## Create policy assignment
 
-Next, you need to assign the policy definition where you want to enforce the policy, for example, to a single resource group, multiple resource groups, Azure Active Directory (Azure AD) tenant, or Azure subscription. For this task, follow these steps to create a policy assignment:
+Next, you need to assign the policy definition where you want to enforce the policy, for example, to a single resource group, multiple resource groups, Microsoft Entra tenant, or Azure subscription. For this task, follow these steps to create a policy assignment:
 
 1. In the [Azure portal](https://portal.azure.com), portal search box, enter **policy**, and select **Policy**.
 

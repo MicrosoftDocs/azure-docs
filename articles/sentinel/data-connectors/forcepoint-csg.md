@@ -103,17 +103,9 @@ The integration is made available with two implementations options.
 
 Leverages docker images where the integration component is already installed with all necessary dependencies.
 
-Follow the instructions provided in the Integration Guide linked below.
-
-[Integration Guide >](https://frcpnt.com/csg-sentinel)
-
 2.2  Traditional Implementation
 
 Requires the manual deployment of the integration component inside a clean Linux machine.
-
-Follow the instructions provided in the Integration Guide  linked below.
-
-[Integration Guide >](https://frcpnt.com/csg-sentinel)
 
 3. Validate connection
 

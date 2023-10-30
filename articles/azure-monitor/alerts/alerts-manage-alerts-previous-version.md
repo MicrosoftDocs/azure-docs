@@ -72,7 +72,8 @@ The current alert rule wizard is different from the earlier experience:
 1. To make alerts stateful, select **Automatically resolve alerts (preview)**.
 1. Specify if the alert rule should trigger one or more [action groups](./action-groups.md) when the alert condition is met.
     > [!NOTE]
-    > For limits on the actions that can be performed, see [Azure subscription service limits](../../azure-resource-manager/management/azure-subscription-service-limits.md).
+    > * For limits on the actions that can be performed, see [Azure subscription service limits](../../azure-resource-manager/management/azure-subscription-service-limits.md).
+    > * Search results were included in the payload of the triggered alert and its associated notifications. **Notice that**: The **email** included only **10 rows** from the unfiltered results while the **webhook payload** contained **1,000 unfiltered results**.
 1. (Optional) Customize actions in log alert rules:
     - **Custom email subject**: Overrides the *email subject* of email actions. You can't modify the body of the mail and this field *isn't for email addresses*.
     - **Include custom Json payload for webhook**: Overrides the webhook JSON used by action groups, assuming that the action group contains a webhook action. Learn more about [webhook actions for log alerts](./alerts-log-webhook.md).

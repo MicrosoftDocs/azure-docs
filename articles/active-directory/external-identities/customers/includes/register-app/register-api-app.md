@@ -7,7 +7,7 @@ ms.date: 03/30/2023
 ms.author: kengaderdus
 ---
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Application Developer](/azure/active-directory/roles/permissions-reference#application-developer).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Application Developer](../../../../roles/permissions-reference.md#application-developer).
 
 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="../../media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to your customer tenant. 
 

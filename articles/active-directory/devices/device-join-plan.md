@@ -118,9 +118,9 @@ Review supported and unsupported policies to determine whether you can use an MD
 - Are the unsupported policies applicable in a cloud-driven deployment?
 
 If your MDM solution isn't available through the Microsoft Entra app gallery, you can add it following the process 
-outlined in [Microsoft Entra integration with MDM](/windows/client-management/mdm/azure-active-directory-integration-with-mdm). 
+outlined in [Microsoft Entra integration with MDM](/windows/client-management/azure-active-directory-integration-with-mdm). 
 
-Through co-management, you can use Microsoft Configuration Manager to manage certain aspects of your devices while policies are delivered through your MDM platform. Microsoft Intune enables co-management with Microsoft Configuration Manager. For more information on co-management for Windows 10 or newer devices, see [What is co-management?](/configmgr/core/clients/manage/co-management-overview). If you use an MDM product other than Intune, check with your MDM provider on applicable co-management scenarios.
+Through co-management, you can use Microsoft Configuration Manager to manage certain aspects of your devices while policies are delivered through your MDM platform. Microsoft Intune enables co-management with Microsoft Configuration Manager. For more information on co-management for Windows 10 or newer devices, see [What is co-management?](/mem/configmgr/comanage/overview). If you use an MDM product other than Intune, check with your MDM provider on applicable co-management scenarios.
 
 **Recommendation:** Consider MDM only management for Microsoft Entra joined devices.
 
@@ -175,7 +175,7 @@ Microsoft Entra joined devices don't support on-premises applications relying on
 
 ### Remote Desktop Services
 
-Remote desktop connection to a Microsoft Entra joined devices requires the host machine to be either Microsoft Entra joined or Microsoft Entra hybrid joined. Remote desktop from an unjoined or non-Windows device isn't supported. For more information, see [Connect to remote Microsoft Entra joined pc](/windows/client-management/connect-to-remote-aadj-pc)
+Remote desktop connection to a Microsoft Entra joined devices requires the host machine to be either Microsoft Entra joined or Microsoft Entra hybrid joined. Remote desktop from an unjoined or non-Windows device isn't supported. For more information, see [Connect to remote Microsoft Entra joined pc](/windows/client-management/client-tools/connect-to-remote-aadj-pc)
 
 Starting with the Windows 10 2004 update, users can also use remote desktop from a Microsoft Entra registered Windows 10 or newer device to another Microsoft Entra joined device. 
 

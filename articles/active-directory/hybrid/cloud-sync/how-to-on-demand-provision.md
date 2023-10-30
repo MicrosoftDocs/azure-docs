@@ -1,5 +1,5 @@
 ---
-title: 'On-demand provisioning in Microsoft Entra Connect cloud sync'
+title: 'On-demand provisioning in Microsoft Entra Cloud Sync'
 description: This article describes how to use the cloud sync feature of Microsoft Entra Connect to test configuration changes.
 services: active-directory
 author: billmath
@@ -13,7 +13,7 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 
-# On-demand provisioning in Microsoft Entra Connect cloud sync
+# On-demand provisioning in Microsoft Entra Cloud Sync
 
 You can use the cloud sync feature of Microsoft Entra Connect to test configuration changes by applying these changes to a single user. This on-demand provisioning helps you validate and verify that the changes made to the configuration were applied properly and are being correctly synchronized to Microsoft Entra ID.  
 
@@ -81,6 +81,6 @@ This process enables you to trace the attribute transformation as it moves throu
 
 ## Next steps 
 
-- [What is Microsoft Entra Connect cloud sync?](what-is-cloud-sync.md)
-- [Install Microsoft Entra Connect cloud sync](how-to-install.md)
+- [What is Microsoft Entra Cloud Sync?](what-is-cloud-sync.md)
+- [Install Microsoft Entra Cloud Sync](how-to-install.md)
  

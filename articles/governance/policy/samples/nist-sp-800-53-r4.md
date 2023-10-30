@@ -1,7 +1,7 @@
 ---
 title: Regulatory Compliance details for NIST SP 800-53 Rev. 4
 description: Details of the NIST SP 800-53 Rev. 4 Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 09/19/2023
+ms.date: 10/18/2023
 ms.topic: sample
 ms.custom: generated
 ---
@@ -624,9 +624,9 @@ initiative definition.
 |[Identify and authenticate network devices](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fae5345d5-8dab-086a-7290-db43a3272198) |CMA_0296 - Identify and authenticate network devices |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0296.json) |
 |[Protect wireless access](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd42a8f69-a193-6cbc-48b9-04a9e29961f1) |CMA_0411 - Protect wireless access |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0411.json) |
 
-### Authentication And Encryption
+### Access Control For Mobile Devices
 
-**ID**: NIST SP 800-53 Rev. 4 AC-18 (1)
+**ID**: NIST SP 800-53 Rev. 4 AC-19
 **Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |

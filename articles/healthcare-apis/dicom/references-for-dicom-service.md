@@ -11,7 +11,7 @@ ms.author: mmitrik
 
 # DICOM service open-source projects
 
-This article describes our open-source projects on GitHub that provide source code and instructions to connect DICOM service with other tools, services, and products. 
+This article describes our open-source projects on GitHub that provide source code and instructions to connect DICOM&reg; service with other tools, services, and products. 
 
 ## DICOM service GitHub projects
 
@@ -49,14 +49,6 @@ This article describes our open-source projects on GitHub that provide source co
 
 ## Next steps
 
-For more information about using the DICOM service, see
+[Deploy DICOM service to Azure](deploy-dicom-services-in-azure.md)
 
->[!div class="nextstepaction"]
->[Deploy DICOM service to Azure](deploy-dicom-services-in-azure.md)
-
-For more information about DICOM cast, see
-
->[!div class="nextstepaction"]
->[DICOM cast overview](https://github.com/microsoft/dicom-server/blob/main/docs/concepts/dicom-cast.md)
-
-FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
+[!INCLUDE [DICOM trademark statement](../includes/healthcare-apis-fhir-dicom-trademark.md)]

@@ -56,7 +56,9 @@ openai.api_version = "2023-05-15"  # subject to change
 </tr>
 </table>
 
-### Azure Active Directory authentication
+<a name='azure-active-directory-authentication'></a>
+
+### Microsoft Entra authentication
 
 <table>
 <tr>
@@ -100,7 +102,7 @@ openai.api_version = "2023-05-15"  # subject to change
 
 ## Keyword argument for model
 
-OpenAI uses the `model` keyword argument to specify what model to use. Azure OpenAI has the concept of [deployments](create-resource.md?pivots=web-portal#deploy-a-model) and uses the `deployment_id` keyword argument to describe which model deployment to use. Azure OpenAI also supports the use of `engine` interchangeably with `deployment_id`.
+OpenAI uses the `model` keyword argument to specify what model to use. Azure OpenAI has the concept of [deployments](create-resource.md?pivots=web-portal#deploy-a-model) and uses the `deployment_id` keyword argument to describe which model deployment to use. Azure OpenAI also supports the use of `engine` interchangeably with `deployment_id`. `deployment_id` corresponds to the custom name you chose for your model during model deployment. By convention in our docs, we often show `deployment_id`'s which match the underlying model name, but if you chose a different deployment name that doesn't match the model name you need to use that name when working with models in Azure OpenAI.
 
 For OpenAI `engine` still works in most instances, but it's deprecated and `model` is preferred.
 
@@ -138,20 +140,20 @@ embedding = openai.Embedding.create(
 ```python
 completion = openai.Completion.create(
     prompt="<prompt>",
-    deployment_id="text-davinci-003"
+    deployment_id="text-davinci-003" # This must match the custom deployment name you chose for your model.
     #engine="text-davinci-003" 
 )
   
 chat_completion = openai.ChatCompletion.create(
     messages="<messages>",
-    deployment_id="gpt-4"
+    deployment_id="gpt-4" # This must match the custom deployment name you chose for your model.
     #engine="gpt-4"
 
 )
 
 embedding = openai.Embedding.create(
   input="<input>",
-  deployment_id="text-embedding-ada-002"
+  deployment_id="text-embedding-ada-002" # This must match the custom deployment name you chose for your model.
   #engine="text-embedding-ada-002"
 )
 ```
@@ -190,7 +192,7 @@ inputs = ["A", "B", "C"] #max array size=16
 
 embedding = openai.Embedding.create(
   input=inputs,
-  deployment_id="text-embedding-ada-002"
+  deployment_id="text-embedding-ada-002" # This must match the custom deployment name you chose for your model.
   #engine="text-embedding-ada-002"
 )
 ```

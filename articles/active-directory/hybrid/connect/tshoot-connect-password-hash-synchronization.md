@@ -93,7 +93,7 @@ The following diagram illustrates the results of the cmdlet for a single-domain,
 
 The rest of this section describes specific results that are returned by the task and corresponding issues.
 
-#### password hash synchronization feature isn't enabled
+#### Password hash synchronization feature isn't enabled
 
 If you haven't enabled password hash synchronization by using the Microsoft Entra Connect wizard, the following error is returned:
 

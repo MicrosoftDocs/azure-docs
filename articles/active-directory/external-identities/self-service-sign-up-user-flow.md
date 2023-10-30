@@ -69,7 +69,7 @@ Next, you'll create the user flow for self-service sign-up and add it to an appl
 
 1. Select the user flow type (for example, **Sign up and sign in**), and then select the version (**Recommended** or **Preview**).
 1. On the **Create** page, enter a **Name** for the user flow. The name is automatically prefixed with **B2X_1_**.
-1. In the **Identity providers** list, select one or more identity providers that your external users can use to log into your application. **Azure Active Directory Sign up** is selected by default. (See [Before you begin](#before-you-begin) earlier in this article to learn how to add identity providers.)
+1. In the **Identity providers** list, select one or more identity providers that your external users can use to log into your application. **Microsoft Entra ID Sign up** is selected by default. (See [Before you begin](#before-you-begin) earlier in this article to learn how to add identity providers.)
 1. Under **User attributes**, choose the attributes you want to collect from the user. For more attributes, select **Show more**. For example, select **Show more**, and then choose attributes and claims for **Country/Region**, **Display Name**, and **Postal Code**. Select **OK**.
 
    :::image type="content" source="media/self-service-sign-up-user-flow/create-user-flow.png" alt-text="Screenshot of the new user flow creation page. ":::

@@ -49,7 +49,7 @@ The latest version of HDInsight is orchestrated using AKS, which enables the pla
 * Fast cluster creation and scaling.
 * Ease of maintenance and periodic security updates.
 * Cluster resiliency powered by modern cloud-native AKS.
-* Native support for modern auth with OAuth, and Microsoft Entra ID (Azure Active Directory).
+* Native support for modern auth with OAuth, and Microsoft Entra ID.
 * Deep integration with Azure Services – Azure Data Factory (ADF), Power BI, Azure Monitor.
 
 ## Connectivity to HDInsight 
@@ -67,7 +67,7 @@ HDInsight on AKS can connect seamlessly with HDInsight. You can reap the benefit
 
 ## Security architecture
 
-HDInsight on AKS is secure by default. It enables enterprises to protect enterprise data assets with Azure Virtual Network, encryption, and integration with Microsoft Entra ID (Azure Active Directory). It also meets the most popular industry and government compliance standards upholding the Azure standards. With over 30 certifications that help protect data along with periodic updates, health advisor notifications, service health analytics, along with best-in-class Azure security standards. HDInsight on AKS offers several methods to address your enterprise security needs by default.
+HDInsight on AKS is secure by default. It enables enterprises to protect enterprise data assets with Azure Virtual Network, encryption, and integration with Microsoft Entra ID. It also meets the most popular industry and government compliance standards upholding the Azure standards. With over 30 certifications that help protect data along with periodic updates, health advisor notifications, service health analytics, along with best-in-class Azure security standards. HDInsight on AKS offers several methods to address your enterprise security needs by default.
 For more information, see [HDInsight on AKS security](./concept-security.md).
 
 :::image type="content" source="./media/overview/security-concept.png" alt-text="Diagram showing the security concept.":::

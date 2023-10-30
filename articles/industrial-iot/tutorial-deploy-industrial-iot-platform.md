@@ -22,7 +22,7 @@ In this tutorial, you learn:
 
 - An Azure subscription must be created
 - Download [Git](https://git-scm.com/downloads)
-- The Microsoft Azure Active Directory (Azure AD) app registrations used for authentication require Global Administrator, Application
+- The Microsoft Entra app registrations used for authentication require Global Administrator, Application
 Administrator, or Cloud Application Administrator rights to provide tenant-wide admin consent (see below for further options)
 - The supported operating systems for deployment are Windows, Linux and Mac
 - IoT Edge supports Windows 10 IoT Enterprise LTSC and Ubuntu Linux 16.08/18.04 LTS Linux
@@ -39,7 +39,7 @@ The deployment script allows to select which set of components to deploy.
     - [Key Vault](https://azure.microsoft.com/services/key-vault/) to manage secrets and certificates
     - [Storage](https://azure.microsoft.com/product-categories/storage/) for Event Hubs checkpointing
 - Standard dependencies: Minimum +
-    - [SignalR Service](https://azure.microsoft.com/services/signalr-service/) used to scale out asynchronous API notifications, Azure AD app registrations,
+    - [SignalR Service](https://azure.microsoft.com/services/signalr-service/) used to scale out asynchronous API notifications, Microsoft Entra app registrations,
     - [Device Provisioning Service](../iot-dps/index.yml) used for deploying and provisioning the simulation gateways
     - [Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)
     - Workbook, Log Analytics, [Application Insights](https://azure.microsoft.com/services/monitor/) for operations monitoring
@@ -83,10 +83,10 @@ The deployment script allows to select which set of components to deploy.
     - `app`: Services and UI
     - `all` (default): App and simulation
 
-3. The microservices and the UI are web applications that require authentication, this requires three app registrations in the Azure AD. If the required rights are missing, there are two possible solutions:
+3. The microservices and the UI are web applications that require authentication, this requires three app registrations in the Microsoft Entra ID. If the required rights are missing, there are two possible solutions:
 
-    - Ask the Azure AD admin to grant tenant-wide admin consent for the application
-    - An Azure AD admin can create the Azure AD applications. The deploy/scripts folder contains the aad-register.ps1 script to perform the Azure AD registration separately from the deployment. The output of the script is a file containing the relevant information to be used as part of deployment and must be passed to the deploy.ps1 script in the same folder using the `-aadConfig` argument.
+    - Ask the Microsoft Entra admin to grant tenant-wide admin consent for the application
+    - A Microsoft Entra admin can create the Microsoft Entra applications. The deploy/scripts folder contains the aad-register.ps1 script to perform the Microsoft Entra registration separately from the deployment. The output of the script is a file containing the relevant information to be used as part of deployment and must be passed to the deploy.ps1 script in the same folder using the `-aadConfig` argument.
         ```bash
         cd deploy/scripts
         ./aad-register.ps1 -Name <application-name> -Output aad.json

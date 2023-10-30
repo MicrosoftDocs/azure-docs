@@ -21,7 +21,7 @@ When an app registration has a verified publisher, it means that the publisher o
 ## Quickstart
 If you are already enrolled in the [Cloud Partner Program (CPP)](/partner-center/intro-to-cloud-partner-program-membership) and have met the [pre-requisites](publisher-verification-overview.md#requirements), you can get started right away: 
 
-1. Sign into the [App Registration portal](https://aka.ms/PublisherVerificationPreview) using [multi-factor authentication](../fundamentals/concept-fundamentals-mfa-get-started.md)
+1. Sign into the [App Registration portal](https://aka.ms/PublisherVerificationPreview) using [multi-factor authentication](../authentication/concept-mfa-licensing.md)
 
 1. Choose an app and click **Branding & properties**. 
 
@@ -34,7 +34,7 @@ For more details on specific benefits, requirements, and frequently asked questi
 ## Mark your app as publisher verified
 Make sure you meet the [pre-requisites](publisher-verification-overview.md#requirements), then follow these steps to mark your app(s) as Publisher Verified.  
 
-1. Sign in using [multi-factor authentication](../fundamentals/concept-fundamentals-mfa-get-started.md) to an organizational (Microsoft Entra) account authorized to make changes to the app you want to mark as Publisher Verified and on the CPP Account in Partner Center.
+1. Sign in using [multi-factor authentication](../authentication/concept-mfa-licensing.md) to an organizational (Microsoft Entra) account authorized to make changes to the app you want to mark as Publisher Verified and on the CPP Account in Partner Center.
 
     - The Microsoft Entra user must have one of the following [roles](../roles/permissions-reference.md): Application Admin, Cloud Application Admin, or Global Administrator. 
 

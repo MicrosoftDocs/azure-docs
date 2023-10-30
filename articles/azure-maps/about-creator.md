@@ -56,10 +56,11 @@ This section provides a high-level overview of the indoor map creation workflow.
     describing the drawings. You can use the [Azure Maps Creator onboarding tool] to
     create new and edit existing [manifest files].
 
-1. **Upload**. Upload your drawing packages into your Azure Maps
-    account. Upload drawing packages using the [Data Upload API].
+1. **Upload**. Upload your drawing packages into your Azure Storage
+    account. For more information, see [How to create data registry].
 
-1. **Convert**. Once the drawing package is uploaded into your Azure Maps account,
+1. **Convert**. Once the drawing package is uploaded into your Azure Storage account,
+1. **Convert**. Once the drawing package is uploaded into your Azure Storage account,
     use the [Conversion] service to validate the data in the uploaded drawing
     package and convert it into map data.
 
@@ -116,7 +117,6 @@ This section provides a high-level overview of the indoor map creation workflow.
 [Create dataset using GeoJson package]: how-to-dataset-geojson.md
 [Custom styling for indoor maps]: how-to-create-custom-styles.md
 [custom styling]: creator-indoor-maps.md#custom-styling-preview
-[Data Upload API]: /rest/api/maps/data-v2/upload
 [dataset]: creator-indoor-maps.md#datasets
 [Drawing error visualizer]: drawing-error-visualizer.md
 [Drawing package guide]: drawing-package-guide.md?pivots=drawing-package-v2
@@ -126,6 +126,7 @@ This section provides a high-level overview of the indoor map creation workflow.
 [Facility Ontology]: creator-facility-ontology.md
 [Features API]: /rest/api/maps/2023-03-01-preview/features
 [features]: glossary.md#feature
+[How to create data registry]: how-to-create-data-registries.md
 [Implement Dynamic styling for indoor maps]: indoor-map-dynamic-styling.md
 [Indoor map concepts]: creator-indoor-maps.md
 [Indoor maps wayfinding service]: how-to-creator-wayfinding.md

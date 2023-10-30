@@ -141,7 +141,7 @@ Depending on your scenario, you can choose to bind the certificate to either the
 
     > [!NOTE]
     > 
-    > - If not using Azure Active Directory (Azure AD) pod-managed identity as your method of access, remove the line with `--set controller.podLabels.aadpodidbinding=$AAD_POD_IDENTITY_NAME` .
+    > - If not using Microsoft Entra pod-managed identity as your method of access, remove the line with `--set controller.podLabels.aadpodidbinding=$AAD_POD_IDENTITY_NAME` .
     > 
     > - Also, binding the SecretProviderClass to a pod is required for the Secrets Store CSI Driver to mount it and generate the Kubernetes secret. See [Sync mounted content with a Kubernetes secret][az-keyvault-mirror-as-secret] .
 

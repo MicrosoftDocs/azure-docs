@@ -43,7 +43,7 @@ Network Policy and Access Services gives organizations the ability to:
 
 To enhance security and provide a high level of compliance, organizations can integrate NPS with Microsoft Entra multifactor authentication to ensure that users use two-step verification to connect to the virtual port on the VPN server. For users to be granted access, they must provide their username and password combination and other information that they control. This information must be trusted and not easily duplicated. It can include a cell phone number, a landline number, or an application on a mobile device.
 
-Prior to the availability of the NPS extension for Azure, customers who wanted to implement two-step verification for integrated NPS and MFA environments had to configure and maintain a separate MFA server in an on-premises environment. This type of authentication is offered by Remote Desktop Gateway and Azure multifactor authentication Server using RADIUS.
+Prior to the availability of the NPS extension for Azure, customers who wanted to implement two-step verification for integrated NPS and MFA environments had to configure and maintain a separate MFA server in an on-premises environment. This type of authentication is offered by Remote Desktop Gateway and Azure Multi-Factor Authentication Server using RADIUS.
 
 With the NPS extension for Azure, organizations can secure RADIUS client authentication by deploying either an on-premises based MFA solution or a cloud-based MFA solution.
 
@@ -79,7 +79,7 @@ This section details the prerequisites that must be completed before you can int
 * Microsoft Entra multifactor authentication license
 * Windows Server software
 * Libraries
-* Azure Active Directory (Azure AD) synced with on-premises Active Directory
+* Microsoft Entra ID synced with on-premises Active Directory
 * Microsoft Entra GUID ID
 
 ### VPN infrastructure
@@ -113,7 +113,9 @@ The following libraries are installed automatically with the NPS extension:
 
 If the Azure Active Directory PowerShell module is not already present, it is installed with a configuration script that you run as part of the setup process. There is no need to install the module ahead of time if it is not already installed.
 
-### Azure Active Directory synced with on-premises Active Directory
+<a name='azure-active-directory-synced-with-on-premises-active-directory'></a>
+
+### Microsoft Entra ID synced with on-premises Active Directory
 
 To use the NPS extension, on-premises users must be synced with Microsoft Entra ID and enabled for MFA. This guide assumes that on-premises users are synced with Microsoft Entra ID via Microsoft Entra Connect. Instructions for enabling users for MFA are provided below.
 
@@ -465,6 +467,6 @@ For more information, see [Integrate your existing NPS infrastructure with Micro
 
 [Get Microsoft Entra multifactor authentication](concept-mfa-licensing.md)
 
-[Remote Desktop Gateway and Azure multifactor authentication Server using RADIUS](howto-mfaserver-nps-rdg.md)
+[Remote Desktop Gateway and Azure Multi-Factor Authentication Server using RADIUS](howto-mfaserver-nps-rdg.md)
 
 [Integrate your on-premises directories with Microsoft Entra ID](../hybrid/whatis-hybrid-identity.md)

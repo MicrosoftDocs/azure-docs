@@ -142,7 +142,7 @@ In a new instance of the **Windows PowerShell**, read the environment variable.
 
 ## Authenticate to Azure using Visual Studio
 
-Developers using Visual Studio 2017 or later can authenticate an Azure Active Directory account through Visual Studio. This enables you to access secrets in your key vault by signing into your Azure subscription from within the IDE.
+Developers using Visual Studio 2017 or later can authenticate a Microsoft Entra account through Visual Studio. This enables you to access secrets in your key vault by signing into your Azure subscription from within the IDE.
 
 To authenticate in Visual Studio, select **Tools** from the top navigation menu, and select **Options**. Navigate to the **Azure Service Authentication** option to sign in with your user name and password.
 
@@ -266,7 +266,7 @@ Create a new folder named `keyVaultExample`. Then use your preferred code editor
 
 ### Install Key Vault and Language service packages
 
-1. In a terminal or command prompt, navigate to your project folder and install the Azure Active Directory identity library:
+1. In a terminal or command prompt, navigate to your project folder and install the Microsoft Entra identity library:
     
     ```terminal
     pip install azure-identity

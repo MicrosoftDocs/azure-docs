@@ -231,7 +231,7 @@ For example:
     ![screenshot for to Add a new object.](./media/check-point-remote-access-vpn-tutorial/add-new-object.png)
 
 1. Enter a name and a display name, and add/edit an authentication method:
-    In case the Login Option will be use on GWs who participate in MEP, in order to allow smooth user experience the Name should start with “SAMLVPN_” prefix.
+    In case the Login Option will be use on GWs who participate in MEP, in order to allow smooth user experience the Name should start with `SAMLVPN_` prefix.
 
     ![screenshot about Login Option.](./media/check-point-remote-access-vpn-tutorial/login-option.png)
 
@@ -257,7 +257,7 @@ There are two options:
 
     4. In the top right pane, select the **Security Gateway object**.
 
-    5. In the bottom pane, go to **realms_for_blades > vpn**.
+    5. In the bottom pane, go to **realms_for_blades** > **vpn**.
 
     6. If you do not want to use an on-premises Active Directory (LDAP), set **do_ldap_fetch** to **false** and **do_generic_fetch** to **true**. Then click **OK**. If you do want to use an on-premises Active Directory (LDAP), set **do_ldap_fetch** to **true** and **do_generic_fetch** to **false**. Then click **OK**.
 

@@ -66,7 +66,7 @@ If the customer chooses to keep some or all Litware's identity infrastructure, t
 - Scenario A - Don't use *any* of Litware's identity infrastructure.
 - Scenario B - Use Litware's Active Directory forests, but not Litware's Microsoft Entra ID (if they've one)
 - Scenario C - Use Litware's Microsoft Entra ID.
-- Scenario D - Use Litware's non-Microsoft identity infrastructure (if Litware isn't using Active Directory/Azure AD) 
+- Scenario D - Use Litware's non-Microsoft identity infrastructure (if Litware isn't using Active Directory / Microsoft Entra ID) 
 
 The following table summarizes each option with the technologies for how the customer could achieve those outcomes, the constraints, and benefits of each.
 
