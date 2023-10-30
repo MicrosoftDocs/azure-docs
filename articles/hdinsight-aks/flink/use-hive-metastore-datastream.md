@@ -42,7 +42,7 @@ If you're building your own program, you need the following dependencies in your
 
 ## Connect to Hive
 
-This example illustrates various snippets of connecting to hive, using HDInsight on AKS - Flink, you're required to use `/opt/hive-conf` as hive configuration directory to connect with Hive metastore
+This example illustrates various snippets of connecting to hive, using Apache Flink on HDInsight on AKS, you're required to use `/opt/hive-conf` as hive configuration directory to connect with Hive metastore
 
 ```
 public static void main(String[] args) throws Exception
