@@ -495,7 +495,7 @@
 - name: Responsible AI
   items:
   - name: Transparency note
-    href: https://learn.microsoft.com/en-us/legal/search/transparency-note?context=/azure/search/context/context
+    href: /legal/search/transparency-note?context=/azure/search/context/context
 - name: Reference
   items:
   - name: REST
