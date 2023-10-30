@@ -149,6 +149,8 @@
     items:
     - name: Search indexes
       href: search-what-is-an-index.md
+    - name: Integrated vectorization (preview)
+      href: vector-search-integrated-vectorization.md
     - name: Vector index size limit
       href: vector-search-index-size.md
     - name: Import
