@@ -51,7 +51,7 @@ This document contains information about troubleshooting your solutions that use
 - **Unable to save single sign-on settings**
   - Error happens when there's another Enterprise app that is using the Dynatrace SAML identifier. To find which app is using it, select **Edit** on the Basic **SAML** configuration section. To resolve this issue, either disable the other app or use the other app as the Enterprise app to set up SAML SSO.
 
-- **App not showing in Single sign-on settings page** 
+- **App not showing in Single sign-on settings page**
   - First, search for application ID. If no result is shown, check the SAML settings of the app. The grid only shows apps with correct SAML settings.
 
 ### Metrics checkbox disabled
@@ -61,9 +61,9 @@ This document contains information about troubleshooting your solutions that use
 ### Free trial errors
 
 - **Unable to create another free trial resource on Azure**
-  - During free trials, Dynatrace accounts can only have one environment, and hence, you can create only one Dynatrace resource during trial period.
-  - My Dynatrace free trial resource is deleted
-- With the free trial plan, your Dynatrace resource on Azure will get deleted after trial expiry. If you require more time, contact [sales@dynatrace.com](mzilto:sales@dynatrace.com).
+  - During free trials, Dynatrace accounts can only have one environment. You can therefore create only one Dynatrace resource during the trial period.
+- **My Dynatrace free trial resource is deleted**
+  - With the free trial plan, your Dynatrace resource on Azure will get deleted after trial expiry. If you require more time, contact [sales@dynatrace.com](mailto:sales@dynatrace.com).
 
 ## Next steps
 
