@@ -2,6 +2,7 @@
 title: Trino JDBC driver
 description: Using the Trino JDBC driver.
 ms.service: hdinsight-aks
+ms.custom: devx-track-extended-java
 ms.topic: how-to
 ms.date: 10/19/2023
 ---

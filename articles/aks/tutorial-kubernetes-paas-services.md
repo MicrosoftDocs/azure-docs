@@ -3,7 +3,7 @@ title: Kubernetes on Azure tutorial - Use PaaS services with an Azure Kubernetes
 description: In this Azure Kubernetes Service (AKS) tutorial, you learn how to use the Azure Service Bus service with your AKS cluster.
 ms.topic: tutorial
 ms.date: 10/23/2023
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli, devx-track-azurepowershell
 #Customer intent: As a developer, I want to learn how to use PaaS services with an Azure Kubernetes Service (AKS) cluster so that I can deploy and manage my applications.
 ---
 
