@@ -19,7 +19,7 @@ While autoscaling is commonly utilized, it’s important to note that Applicatio
 
 The goal is to use Azure Automation to create a schedule for running runbooks that adjust the minimum autoscaling capacity of Application Gateway to meet traffic demands.
 
-### How to setup scheduled autoscaling 
+### How to set up scheduled autoscaling 
 
 The solution is straightforward and can be implemented through the following actions:
 1.	Create an Azure Automation account resource in the same tenant as the Application Gateway 
@@ -29,7 +29,7 @@ The solution is straightforward and can be implemented through the following act
 5.	Associate the runbooks with their respective schedules 
 6.	Associate the system assigned managed identity noted in step 2 with the Application Gateway resource 
 
-### How to configure the setup 
+### How to configure the set up 
 Suppose the requirement is to increase the min count to 4 during business hours and to decrease the min count to 2 during non-business hours. We create two runbooks: 
 1.	IncreaseMin - Sets the Min count of the autoscaling configuration to 4 
 2.	DecreaseMin - Sets the Min count of the autoscaling configuration to 2 
@@ -61,14 +61,14 @@ Azure Automation has a SLA of 99.9% for a timely start of jobs.
 
    | Unexecuted Job  |	Impact  | 
    | --- | --- |  
-   |IncreaseMin |	Falls back on native autoscaling ,Next execution of DecreaseMin should be no-op as the count doesn’t need to be adjusted | 
-   |DecreaseMin |	Additional cost born by the customer for the (unintended) capacity that is provisioned for those hours . Next execution of IncreaseMin should be no-op as the count doesn’t need to be adjusted | 
+   |IncreaseMin |	Falls back on native autoscaling. Next execution of DecreaseMin should be no-op as the count doesn’t need to be adjusted. | 
+   |DecreaseMin |	Additional cost born by the customer for the (unintended) capacity that is provisioned for those hours. Next execution of IncreaseMin should be no-op as the count doesn’t need to be adjusted. | 
   
 ## Next steps 
 Learn more about [Monitoring Azure Automation runbooks with metric alerts](../automation/automation-alert-metric.md)
 
 Learn more about [Azure Automation](../automation/overview.md) 
 
-Reach out to us at [agschedule-autoscale@microsoft.com](agschedule-autoscale@microsoft.com) if you have questions or need help to setup Managed scheduled autoscale for your deployments. 
+Reach out to us at [agschedule-autoscale@microsoft.com](agschedule-autoscale@microsoft.com) if you have questions or need help to set up Managed scheduled autoscale for your deployments. 
 
 
