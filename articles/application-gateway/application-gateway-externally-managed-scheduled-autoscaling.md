@@ -6,8 +6,8 @@ services: application-gateway
 author: mjyot
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 20/10/2023
-ms.author: mjyot
+ms.date: 10/30/2023
+ms.author: mjyothish
 
 ---
 # Scheduled Autoscaling for Application Gateway 
