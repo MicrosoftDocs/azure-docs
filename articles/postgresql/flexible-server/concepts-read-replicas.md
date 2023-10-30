@@ -112,9 +112,16 @@ Furthermore, to ease the connection process, the Azure portal provides ready-to-
 
 Promotion of replicas can be done in two distinct manners:
 
-1. **Promote to Primary Server (default)**: This action promotes the replica to serve as the primary server. Concurrently, the current primary will be demoted to the replica role, effectively swapping their roles.
+**Promote to primary server (default)** 
 
-2. **Promote to Independent Server and Remove from Replication**: By opting for this, the replica becomes an independent server and is removed from the replication process. As a result, both the primary and the promoted server will function as two independent read-write servers. The newly promoted server will no longer be part of any existing virtual endpoints, even if the reader endpoint was previously pointing to it. Thus, it's essential to update your application's connection string to direct to the newly promoted replica if the application should connect to it.
+This action promotes the replica to serve as the primary server. Concurrently, the current primary will be demoted to the replica role, effectively swapping their roles.
+
+**Promote to independent server and remove from replication** 
+
+By opting for this, the replica becomes an independent server and is removed from the replication process. As a result, both the primary and the promoted server will function as two independent read-write servers. The newly promoted server will no longer be part of any existing virtual endpoints, even if the reader endpoint was previously pointing to it. Thus, it's essential to update your application's connection string to direct to the newly promoted replica if the application should connect to it.
+
+> [!IMPORTANT]
+> **Server Symmetry**: For a successful promotion using the default promote operation (promote to primary server), both the primary and replica servers must have identical tiers. For instance, if the primary has 2vCores and the replica has 4vCores, the only viable option is to use the "promote to independent server and remove from replication" action. Additionally, they need to share the same values for [server parameters that allocate shared memory](#server-parameters). 
 
 For both promotion methods, there are additional options to consider:
 
@@ -136,15 +143,6 @@ The promote operation will not carry over certain configurations and parameters.
 * **Server Parameters**: If their values differ on the primary and read replica, they will not be changed during promotion. It's essential to note that parameters influencing shared memory size must have the same values on both the primary and replicas. This requirement is detailed in the [Server parameters](#server-parameters) section.
 * **Microsoft Entra authentication**: If the primary had Entra configured, but the replica was set up with PostgreSQL authentication, then after promotion, the replica will not automatically switch to Entra. It retains the PostgreSQL authentication. Users need to manually configure Entra on the promoted replica either before or after the promotion process.
 * **High Availability (HA)**: Should you require HA after the promotion, it must be configured on the freshly promoted primary server, following the role reversal.
-
-### Promote to primary server
-This is the default promotion operation. The "Promote to Primary Server" action allows a replica to be elevated to serve as the primary server. Concurrently, the current primary assumes the role of a replica, leading to a switch in their roles.
-
-Before proceeding with promote action, it's essential to review the following prerequisites:
-
-* **Server symmetry**: For a successful promotion, both the primary and replica servers must share identical configurations in terms of both tier and other configuration settings. For instance, if the primary has 2vCores and the replica has 4vCores, then the only viable option is to use the "Promote to Independent Server and Remove from Replication" action.
-
-* **Geographical and organizational considerations**: A read replica server can be promoted to a primary server regardless of its location, be it the same region, a different region, within the same resource group, or a different one.
 
 
 ## Virtual Endpoints
