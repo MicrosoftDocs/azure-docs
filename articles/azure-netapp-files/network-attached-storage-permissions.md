@@ -20,7 +20,7 @@ ms.author: anfdocs
 
 Azure NetApp Files provides several ways to secure your NAS data. One aspect of that security is permissions. In NAS, permissions can be broken down into two categories: 
 
-* **Share access permissions** limit who can mount a NAS volume. NFS controls this via IP address or hostname. SMB controls this via user and group ACLs. 
+* **Share access permissions** limit who can mount a NAS volume. NFS controls this via IP address or hostname. SMB controls this via user and group access control lists (ACLs). 
 * **File access permissions** limit what users and groups can do once a NAS volume is mounted. File access permissions are applied to individual files and folders. 
 
 Azure NetApp Files permissions rely on NAS standards, simplifying the process of security NAS volumes for administrators and end users with familiar methods. 
@@ -107,7 +107,7 @@ File and folder permissions can overrule share permissions, as most restrictive 
 
 Folders can be assigned inheritance flags, which means that parent folder permissions propagate to child objects. This can help simplify permission management on high file count environments. Inheritance can be disabled on specific files or folders as needed.
 
-* In Windows SMB shares, inheritance is controlled in the advanced permission view.•	In Windows SMB shares, inheritance is controlled in the advanced permission view.
+* In Windows SMB shares, inheritance is controlled in the advanced permission view.|	In Windows SMB shares, inheritance is controlled in the advanced permission view.
 
 :::image type="content" source="../media/azure-netapp-files/share-inheritance.png" alt-text="Screenshot of enable inheritance interface." lightbox="../media/azure-netapp-files/share-inheritance.png":::
 
@@ -372,5 +372,403 @@ Azure NetApp Files provides the ability to increase the maximum number of auxili
 
 ##### How it works 
 
-The options to extend the group limitation work just the way that the manage-gids option for other NFS servers works. Basically, rather than dumping the entire list of auxiliary GIDs a user belongs to, the option does a lookup for the GID on the file or folder and returns that value instead.
+The options to extend the group limitation work the same way the `-manage-gids` option for other NFS servers works. Rather than dumping the entire list of auxiliary GIDs a user belongs to, the option looks up the GID on the file or folder and returns that value instead.
+
+The [man page for mountd](http://man.he.net/man8/mountd) notes:
+
+```cli
+-g or --manage-gids 
+
+Accept requests from the kernel to  map  user  id  numbers  into lists  of group  id  numbers for use in access control.  An NFS request will normally except when using Kerberos or other cryptographic  authentication)  contains  a  user-id  and  a list of group-ids.  Due to a limitation in the NFS protocol, at most  16 groups ids can be listed.  If you use the -g flag, then the list of group ids received from the client will be replaced by a list of  group ids determined by an appropriate lookup on the server.
+```
+
+When an access request is made, only 16 GIDs are passed in the RPC portion of the packet.
+
+:::image type="content" source="../media/azure-netapp-files/packet-output.png" alt-text="Output of RPC packet with 16 GIDs." lightbox="../media/azure-netapp-files/packet-output.png":::
+
+Any GID beyond the limit of 16 is dropped by the protocol. Extended GIDs in Azure NetApp Files can only be used with external name services such as LDAP.
+
+#### Potential performance impacts 
+
+Extended groups have a minimal performance penalty, generally in the low single digit percentages. Higher metadata NFS workloads would likely have more effect, particularly on the system’s caches. Performance can also be affected by the speed and workload of the name service servers. Overloaded name service servers are slower to respond, causing delays in prefetching the GID. For best results, use multiple name service servers to handle large numbers of requests.
+
+#### “Allow local users with LDAP” option
+
+When a user attempts to access an Azure NetApp Files volume via NFS, the request comes in a numeric ID. By default, Azure NetApp Files supports extended group memberships for NFS users (to go beyond the standard 16 group limit to 1,024). As a result, Azure NetApp files attempts to look up the numeric ID in LDAP in an attempt to resolve the group memberships for the user rather than passing the group memberships in an RPC packet.
+
+Due to that behavior, if that numeric ID cannot be resolved to a user in LDAP, the lookup fails and access is denied, even if the requesting user has permission to access the volume or data structure.
+
+The [Allow local NFS users with LDAP option](configure-ldap-extended-groups.md) in Active Directory connections is intended to disable those LDAP lookups for NFS requests by disabling the extended group functionality. It does not provide “local user creation/management” within Azure NetApp Files.
+
+For more information about the option, including how it behaves with different volume security styles in Azure NetApp files, see [Understand the use of LDAP with Azure NetApp Files](lightweight-directory-access-protocol.md).
+
+### NFSv4.x ACLs
+
+The NFSv4.x protocol can provide access control in the form of [Access Control Lists (ACLs)](/windows/win32/secauthz/access-control-lists), which are similar in concept to those found in SMB via Windows NTFS permissions. An NFSv4.x ACL consists of individual [Access Control Entries (ACEs)](windows/win32/secauthz/access-control-entries), each of which provides an access control directive to the server. 
+
+:::image type="content" source="../media/azure-netapp-files/access-control-entity-to-client-diagram.png" alt-text="Diagram of access control entity to Azure NetApp Files." lightbox="../media/azure-netapp-files/access-control-entity-to-client-diagram.png":::
+
+Each NFSv4.x ACL is created in the following manner: `type:flags:principal:permissions`
+
+* **Type** – the type of ACL being defined. Valid choices include Access (A), Deny (D), Audit (U), Alarm (L). Azure NetApp Files supports Access, Deny and Audit ACL types, but Audit ACLs, while being able to be set, do not currently produce audit logs.
+* **Flags** – adds extra context for an ACL. There are three kinds of ACE flags: group, inheritance, and administrative. For more information on flags, see the section below.
+* **Principal** – defines the user or group that is being assigned the ACL. A principal on an NFSv4.x ACL will use the format of name@ID-DOMAIN-STRING.COM. For more detailed information on principals, see the following section.
+* **Permissions** – where the access level for the principal is defined. Each permission is designated a single letter (for instance, read gets “r”, write gets “w” and so on). Full access would incorporate each available permission letter. For more information on permissions, see the following section.
+
+A valid NFSv4.x ACL takes the form of, for example, `A:g:group1@contoso.com:rwatTnNcCy`. This ACL grants full access to the group `group1` in the contoso.com ID domain. 
+
+### NFSv4.x ACE flags
+
+An ACE flag helps provide more information about an ACE in an ACL. For instance, if a group ACE is added to an ACL, a group flag needs to be used to designate the principal is a group and not a user. This is because it is possible in Linux environments to have a user and a group name that are identical, so to ensure an ACE is properly honored, then the NFS server needs to know what type of principal is being defined.
+
+Other flags can be used to control ACEs, such as inheritance and administrative flags.
+
+#### Access and deny flags
+
+Access (A) and deny (D) flags are used to control security ACE types. An access ACE controls the level of access permissions on a file or folder for a principal. A deny ACE explicitly prohibits a principal from accessing a file or folder, even if an access ACE is set that would allow that principal to access the object. Deny ACEs always overrule access ACEs. In general, avoid using deny ACEs, as NFSv4.x ACLs follow a “default deny” model, meaning if an ACL is not added, then deny is implicit. Deny ACEs can create unnecessary complications in ACL management.
+
+#### Inheritance flags 
+
+Inheritance flags control how ACLs behave on files created below a parent directory with the inheritance flag set. When an inheritance flag is set, files and/or directories inherit the ACLs from the parent folder. Inheritance flags can only be applied to directories, so when a sub-directory is created, it inherits the flag. Files created below a parent directory with an inheritance flag inherit ACLs, but not the inheritance flags.
+
+The following table describes available inheritance flags and their behaviors.
+
+| Inheritance flag | Behavior | 
+| = | === |
+| d | - Directories below the parent directory inherit the ACL <br> - Inheritance flag is also inherited |
+| f | - Files below the parent directory inherit the ACL <br> - Files do not set inheritance flag |
+| i | Inherit-only; ACL doesn’t apply to the current directory but must apply inheritance to objects below the directory |
+| n | - No propagation of inheritance <br> After the ACL is inherited, the inherit flags are cleared on the objects below the parent |
+
+##### NFSv4.x ACL examples
+
+In the following example, there are three different ACEs with distinct inheritance flags:
+* one with directory inherit only (di)
+* one with file inherit only (fi)
+* and one with both file and directory (fdi)
+
+```bash
+# nfs4_getfacl acl-dir
+
+# file: acl-dir/
+A:di:user1@CONTOSO.COM:rwaDxtTnNcCy
+A:fdi:user2@CONTOSO.COM:rwaDxtTnNcCy
+A:fi:user3@CONTOSO.COM:rwaDxtTnNcCy
+A::OWNER@:rwaDxtTnNcCy
+A:g:GROUP@:rxtncy
+A::EVERYONE@:rxtncy
+```
+
+User1 has a directory inherit ACL only. On a subdirectory created below the parent, the ACL is inherited, but on a file below the parent, it is not.
+
+```bash
+# nfs4_getfacl acl-dir/inherit-dir
+
+# file: acl-dir/inherit-dir
+A:d:user1@CONTOSO.COM:rwaDxtTnNcCy
+A:fd:user2@CONTOSO.COM:rwaDxtTnNcCy
+A:fi:user3@CONTOSO.COM:rwaDxtTnNcCy
+A::OWNER@:rwaDxtTnNcCy
+A:g:GROUP@:rxtncy
+A::EVERYONE@:rxtncy
+
+# nfs4_getfacl acl-dir/inherit-file
+
+# file: acl-dir/inherit-file 
+                       << ACL missing
+A::user2@CONTOSO.COM:rwaxtTnNcCy
+A::user3@CONTOSO.COM:rwaxtTnNcCy
+A::OWNER@:rwatTnNcCy
+A:g:GROUP@:rtncy
+A::EVERYONE@:rtncy
+```
+
+User2 has a file and directory inherit flag. As a result, both files and directories below a directory with that ACE entry will inherit the ACL, but files won’t inherit the flag.
+
+```bash
+# nfs4_getfacl acl-dir/inherit-dir
+
+# file: acl-dir/inherit-dir
+A:d:user1@CONTOSO.COM:rwaDxtTnNcCy
+A:fd:user2@CONTOSO.COM:rwaDxtTnNcCy
+A:fi:user3@CONTOSO.COM:rwaDxtTnNcCy
+A::OWNER@:rwaDxtTnNcCy
+A:g:GROUP@:rxtncy
+A::EVERYONE@:rxtncy
+
+# nfs4_getfacl acl-dir/inherit-file
+
+# file: acl-dir/inherit-file
+A::user2@CONTOSO.COM:rwaxtTnNcCy << no flag
+A::user3@CONTOSO.COM:rwaxtTnNcCy
+A::OWNER@:rwatTnNcCy
+A:g:GROUP@:rtncy
+A::EVERYONE@:rtncy
+```
+
+User3 has only a file inherit flag. As a result, only files below the directory with that ACE entry will inherit the ACL, but they won’t inherit the flag since it can only be applied to directory ACEs.
+
+```bash
+# nfs4_getfacl acl-dir/inherit-dir
+
+# file: acl-dir/inherit-dir
+A:d:user1@CONTOSO.COM:rwaDxtTnNcCy
+A:fd:user2@CONTOSO.COM:rwaDxtTnNcCy
+A:fi:user3@CONTOSO.COM:rwaDxtTnNcCy
+A::OWNER@:rwaDxtTnNcCy
+A:g:GROUP@:rxtncy
+A::EVERYONE@:rxtncy
+
+# nfs4_getfacl acl-dir/inherit-file
+
+# file: acl-dir/inherit-file
+A::user2@CONTOSO.COM:rwaxtTnNcCy
+A::user3@CONTOSO.COM:rwaxtTnNcCy << no flag
+A::OWNER@:rwatTnNcCy
+A:g:GROUP@:rtncy
+A::EVERYONE@:rtncy
+```
+
+When a “no-propogate” (n) flag is set on an ACL, the flags clear on subsequent directory creations below the parent. In the following example, user2 has the `n` flag set. As a result, the sub-directory clears the inherit flags for that principal and objects created below that subdirectory don’t inherit user2’s ACE.
+
+```bash
+#  nfs4_getfacl /mnt/acl-dir
+
+# file: /mnt/acl-dir
+A:di:user1@CONTOSO.COM:rwaDxtTnNcCy
+A:fdn:user2@CONTOSO.COM:rwaDxtTnNcCy
+A:fd:user3@CONTOSO.COM:rwaDxtTnNcCy
+A::OWNER@:rwaDxtTnNcCy
+A:g:GROUP@:rxtncy
+A::EVERYONE@:rxtncy
+
+#  nfs4_getfacl inherit-dir/
+
+# file: inherit-dir/
+A:d:user1@CONTOSO.COM:rwaDxtTnNcCy
+A::user2@CONTOSO.COM:rwaDxtTnNcCy << flag cleared
+A:fd:user3@CONTOSO.COM:rwaDxtTnNcCy
+A::OWNER@:rwaDxtTnNcCy
+A:g:GROUP@:rxtncy
+A::EVERYONE@:rxtncy
+
+# mkdir subdir
+# nfs4_getfacl subdir
+
+# file: subdir
+A:d:user1@CONTOSO.COM:rwaDxtTnNcCy
+<< ACL not inherited
+A:fd:user3@CONTOSO.COM:rwaDxtTnNcCy
+A::OWNER@:rwaDxtTnNcCy
+A:g:GROUP@:rxtncy
+A::EVERYONE@:rxtncy
+```
+
+
+Inherit flags are a way to more easily manage your NFSv4.x ACLs, rather than needing to explicitly set an ACL each time you need one.
+
+#### Administrative flags
+
+Administrative flags in NFSv4.x ACLs are special flags that are used only with Audit and Alarm ACL types. These flags define either success or failure access attempts for actions to be performed. For instance, if it is desired to audit failed access attempts to a specific file, then an administrative flag of “F” can be used to control that behavior.
+
+This Audit ACL is an example of that, where `user1` is audited for failed access attempts for any permission level: `U:F:user1@contoso.com:rwatTnNcCy`.
+
+Azure NetApp Files only supports setting administrative flags for Audit ACEs. File access logging is not currently supported. Alarm ACEs are not supported in Azure NetApp Files.
+
+#### NFSv4.x user and group principals
+
+With NFSv4.x ACLs, user and group principals define the specific objects that an ACE should apply to. Principals generally follow a format of name@ID-DOMAIN-STRING.COM. The “name” portion of a principal can be a user or group, but that user or group must be resolvable in Azure NetApp Files via the LDAP server connection when specifying the NFSv4.x ID domain. If the name@domain is not resolvable by Azure NetApp Files, then the ACL operation fails with an “invalid argument” error.
+
+```bash
+# nfs4_setfacl -a A::noexist@CONTOSO.COM:rwaxtTnNcCy inherit-file
+Failed setxattr operation: Invalid argument
+```
+
+You can check within Azure NetApp Files if a name can be resolved under the navigation menu for **Support + Troubleshooting** > **LDAP Group ID list**.
+
+#### Local user and group access via NFSv4.x ACLs
+
+Local users and groups can also be used on an NFSv4.x ACL if only the numeric ID is specified in the ACL. User names or numeric IDs with a domain ID specified will fail.
+
+For instance:
+
+```dos
+# nfs4_setfacl -a A:fdg:3003:rwaxtTnNcCy NFSACL
+# nfs4_getfacl NFSACL/
+A:fdg:3003:rwaxtTnNcCy
+A::OWNER@:rwaDxtTnNcCy
+A:g:GROUP@:rwaDxtTnNcy
+A::EVERYONE@:rwaDxtTnNcy
+
+# nfs4_setfacl -a A:fdg:3003@CONTOSO.COM:rwaxtTnNcCy NFSACL
+Failed setxattr operation: Invalid argument
+
+# nfs4_setfacl -a A:fdg:users:rwaxtTnNcCy NFSACL
+Failed setxattr operation: Invalid argument
+```
+
+When a local user or group ACL is set, any user or group that corresponds to the numeric ID on the ACL will get access to the object. For local group ACLs, a user will pass its group memberships to Azure NetApp Files. If the numeric ID of the group with access to the file via the user’s request is shown to the Azure NetApp Files NFS server, then access will be allowed as per the ACL.
+
+The credentials passed from client to server can be seen via a packet capture as seen below.
+
+
+:::image type="content" source="../media/azure-netapp-files/client-server-credentials.png" alt-text="Image depicting sample packet capture with credentials." lightbox="../media/azure-netapp-files/client-server-credentials.png":::
+
+**Caveats:**
+
+* Using local users and groups for ACLs means that every client accessing the files/folders will need to have matching user and group IDs.
+* When using a numeric ID for an ACL, Azure NetApp Files implicitly trusts that the incoming request is valid and that the user requesting access is who they say they are and is a member of the groups they claim to be a member of. This means a user or group numeric can be spoofed if a bad actor knows the numeric ID and can access the network using a client with the ability to create users and groups locally.
+* If a user is a member of more than 16 groups, then any group after the 16th group (in alphanumeric order) will be denied access to the file or folder, unless LDAP and extended group support is used.
+* LDAP and full name@domain name strings are highly recommended when using NFSv4.x ACLs for better manageability and security. A centrally managed user and group repository is easier to maintain and harder to spoof, thus making unwanted user access less likely.
+
+#### NFSv4.x ID domain
+The ID domain is an important component of the principal, where an ID domain must match on both client and within Azure NetApp Files for user and group names (specifically, root) to show up properly on file/folder ownerships. 
+Azure NetApp Files defaults the NFSv4.x ID domain to the DNS domain settings for the volume. NFS clients also default to the DNS domain for the NFSv4.x ID domain. If the client’s DNS domain is different than the Azure NetApp Files DNS domain, then a mismatch will occur and users/groups will show up as “nobody” when listing file permissions via commands such as “ls.” 
+When a domain mismatch occurs between the NFS client and Azure NetApp Files, check the client logs for errors such as the following:
+ 
+```bash
+August 19 13:14:29 centos7 nfsidmap[17481]: nss_getpwnam: name 'root@microsoft.com' does not map into domain ‘CONTOSO.COM'
+```
+
+The NFS client’s ID domain can be overridden using the /etc/idmapd.conf file’s “Domain” setting. For example: `Domain = CONTOSO.COM`.
+
+
+Azure NetApp Files also allows you to [change the NFSv4.1 ID domain](azure-netapp-files-configure-nfsv41-domain.md). For additional details, see the video [How-to: NFSv4.1 ID Domain Configuration for Azure NetApp Files](https://www.youtube.com/watch?v=UfaJTYWSVAY).
+
+
+### NFSv4.x permissions
+
+NFSv4.x permissions are the way to control what level of access a specific user or group principal has on a file or folder. Permissions in NFSv3 only allow read/write/execute (rwx) levels of access definition, but NFSv4.x provides a slew of other granular access controls as an improvement over NFSv3 mode bits.
+
+There are 13 permissions that can be set for users, and 14 permissions that can be set for groups.
+
+| Permission letter | Permission granted | 
+| = | ==== | 
+|r	|	Read data/list files and folders |
+|w	|	Write data/create files and folders |
+|a	|	Append data/create subdirectories |
+|x	|	Execute files/traverse directories |
+|d	|	Delete files/directories |
+|D	|	Delete subdirectories (directories only) |
+|t	|	Read attributes (GETATTR) |
+|T	|	Write attributes (SETATTR/chmod) |
+|n	|	Read named attributes |
+|N	|	Write named attributes |
+|c	|	Read ACLs |
+|C	|	Write ACLs |
+|o	|	Write owner (chown) |
+|y	|	Synchronous I/O |
+
+When access permissions are set, a user or group principal will adhere to those assigned rights.
+
+##### NFSv4.x permission examples
+
+The following examples show how different permissions work with different configuration scenarios.
+
+**User with read access (r only)**
+
+With read-only access, a user can read attributes and data, but any write access (data, attributes, owner) is denied.
+
+```bash
+A::user1@CONTOSO.COM:r
+
+sh-4.2$ ls -la
+total 12
+drwxr-xr-x 3 root root 4096 Jul 12 12:41 .
+drwxr-xr-x 3 root root 4096 Jul 12 12:09 ..
+-rw-r--r-- 1 root root    0 Jul 12 12:41 file
+drwxr-xr-x 2 root root 4096 Jul 12 12:31 subdir
+sh-4.2$ touch user1-file
+touch: cannot touch ‘user1-file’: Permission denied
+sh-4.2$ chown user1 file
+chown: changing ownership of ‘file’: Operation not permitted
+sh-4.2$ nfs4_setfacl -e /mnt/acl-dir/inherit-dir
+Failed setxattr operation: Permission denied
+sh-4.2$ rm file
+rm: remove write-protected regular empty file ‘file’? y
+rm: cannot remove ‘file’: Permission denied
+sh-4.2$ cat file
+Test text
+```
+
+**User with read access (r) and write attributes (T)**
+
+In this example, permissions on the file can be changed due to the write attributes (T) permission, but no files can be created since only read access is allowed. These configuration illustrates the kind of granular controls NFSv4.x ACLs can provide.
+
+```bash 
+A::user1@CONTOSO.COM:rT
+
+sh-4.2$ touch user1-file
+touch: cannot touch ‘user1-file’: Permission denied
+sh-4.2$ ls -la
+total 60
+drwxr-xr-x  3 root     root    4096 Jul 12 16:23 .
+drwxr-xr-x 19 root     root   49152 Jul 11 09:56 ..
+-rw-r--r--  1 root     root      10 Jul 12 16:22 file
+drwxr-xr-x  3 root     root    4096 Jul 12 12:41 inherit-dir
+-rw-r--r--  1 user1    group1     0 Jul 12 16:23 user1-file
+sh-4.2$ chmod 777 user1-file
+sh-4.2$ ls -la
+total 60
+drwxr-xr-x  3 root     root    4096 Jul 12 16:41 .
+drwxr-xr-x 19 root     root   49152 Jul 11 09:56 ..
+drwxr-xr-x  3 root     root    4096 Jul 12 12:41 inherit-dir
+-rwxrwxrwx  1 user1    group1     0 Jul 12 16:23 user1-file
+sh-4.2$ rm user1-file
+rm: cannot remove ‘user1-file’: Permission denied
+```
+
+#### Translating mode bits into NFSv4.x ACL permissions
+
+When a chmod is run an an object with NFSv4.x ACLs assigned, a series of system ACLs are updated with new permissions. For instance, if the permissions are set to 755, then the system ACL files get updated. The following table shows what each numeric value in a mode bit translates to in NFSv4 ACL permissions.
+
+See [NFSv4.x permissions](#NFSv4.x-permissions) for a table outlining all the permissions.
+
+| Mode bit numeric | Corresponding NFSv4.x permissions
+| == | ===== | 
+| 1 – execute (x) | Execute, read attributes, read ACLs, sync I/O (xtcy) | 
+|  2 – write (w) | Write, append data, read attributes, write attributes, write named attributes, read ACLs, sync I/O (watTNcy) | 
+| 3 – write/execute (wx)	| Write, append data, execute, read attributes, write attributes, write named attributes, read ACLs, sync I/O (waxtTNcy) | 
+| 4 – read (r) | Read, read attributes, read named attributes, read ACLs, sync I/O (rtncy) | 
+| 5 – read/execute (rx) | Read, execute, read attributes, read named attributes, read ACLs, sync I/O (rxtncy) | 
+| 6 – read/write (rw) | Read, write, append data, read attributes, write attributes, read named attributes, write named attributes, read ACLs, sync I/O (rwatTnNcy) | 
+| 7 – read/write/execute (rwx) | Full control/all permissions | 
+
+### How NFSv4.x ACLs work with Azure NetApp Files
+
+Azure NetApp Files supports NFSv4.x ACLs natively when a volume has NFSv4.1 enabled for access. There is nothing to enable on the volume for ACL support, but for NFSv4.1 ACLs to work best, an LDAP server with UNIX users and groups is needed to ensure that Azure NetApp Files is able to resolve the principals set on the ACLs securely. Local users can be used with NFSv4.x ACLs, but they do not provide the same level of security as ACLs used with an LDAP server.
+
+There are a few considerations to keep in mind with ACL functionality in Azure NetApp Files, as covered in the following sections.
+
+#### ACL inheritance
+In Azure NetApp Files, ACL inheritance flags can be used to simplify ACL management with NFSv4.x ACLs. When an inheritance flag is set, ACLs on a parent directory can propagate down to subdirectories and files without further interaction. Azure NetApp Files implements standard ACL inherit behaviors as per [RFC-7530](https://datatracker.ietf.org/doc/html/rfc7530) For more detailed information about ACL inheritance with NFSv4.x, see the section above.
+
+#### DENY ACEs
+
+DENY ACEs in Azure NetApp Files are used to explicitly restrict a user or group from accessing a file or folder. A subset of permissions can be defined to provide granular controls over the DENY ACE. These operate in the standard methods mentioned in [RFC-7530](https://datatracker.ietf.org/doc/html/rfc7530).
+
+### ACL preservation
+
+When a chmod is performed on a file or folder in Azure NetApp Files, all existing ACEs will be preserved on the ACL other than the system ACEs (OWNER@, GROUP@, EVERYONE@). Those ACE permissions will be modified as defined by the numeric mode bits defined by the chmod command. Only ACEs that are manually modified or removed via the `nfs4_setfacl` command can be changed.
+
+#### Umask impact with NFSv4.x ACLs
+
+Dual protocol refers to the use of both SMB and NFS on the same Azure NetApp Files volume. Dual protocol access controls are determined by which security style the volume is using, but username mapping ensures that Windows users and UNIX users that successfully map to one another will have the same access permissions to data.
+When NFSv4.x ACLs are in use on UNIX security style volumes, the following behaviors will be observed when using dual protocol volumes and accessing data from SMB clients.
+
+* Windows usernames need to map properly to UNIX usernames for proper access control resolution.
+* In UNIX security style volumes (where NFSv4.x ACLs would be applied), if no valid UNIX user exists in the LDAP server for a Windows user to map to, then a default UNIX user called “pcuser” (with uid numeric 65534) is used for mapping.
+* Files written with Windows users with no valid UNIX user mapping will show as owned by numeric ID 65534, which corresponds to “nfsnobody” or “nobody” usernames in Linux clients from NFS mounts. This is different from the numeric ID 99 which is typically seen with NFSv4x ID domain issues. To verify the numeric ID in use, use the `ls -lan` command.
+* Files with incorrect owners don't provide expected results from UNIX mode bits or from NFSv4.x ACLs.
+* NFSv4.x ACLs are managed from NFS clients. SMB clients can neither view nor manage NFSv4.x ACLs.
+
+
+
+#### Umask impact with NFSv4.x ACLs
+
+For more information, see [umask](#umask).
+
+[NFSv4 ACLs provide the ability](http://linux.die.net/man/5/nfs4_acl) to offer ACL inheritance. ACL inheritance means that files or folders created beneath objects with NFSv4 ACLs set can inherit the ACLs based on the configuration of the [ACL inheritance flag](http://linux.die.net/man/5/nfs4_acl).
+
+Umask is used to control the permission level at which files and folders are created in a directory. By default, Azure NetApp Files allows umask to override inherited ACLs, which is expected behavior as per [RFC-7530](https://datatracker.ietf.org/doc/html/rfc7530).
 
