@@ -40,10 +40,10 @@ These three **implementation options** are columns in the table below, while eac
 |--------------|------------|-----------|---------------|---------------|
 | *Manager* | Configure Business Availability | Bookings | Bookings | Custom |
 | *Provider* | Managing upcoming appointments | Outlook & Teams | Outlook & Teams | Custom |
-| *Provider* | Join the appointment | Teams | Teams | ACS Calling & Chat |
-| *Consumer* | Schedule an appointment | Bookings | Bookings | ACS Rooms |
-| *Consumer*| Be reminded of an appointment | Bookings | Bookings | ACS SMS |
-| *Consumer*| Join the appointment | Teams or virtual appointments | ACS Calling & Chat | ACS Calling & Chat |
+| *Provider* | Join the appointment | Teams | Teams | Azure Communication Services Calling & Chat |
+| *Consumer* | Schedule an appointment | Bookings | Bookings | Azure Communication Services Rooms |
+| *Consumer*| Be reminded of an appointment | Bookings | Bookings | Azure Communication Services SMS |
+| *Consumer*| Join the appointment | Teams or virtual appointments | Azure Communication Services Calling & Chat | Azure Communication Services Calling & Chat |
 
 There are other ways to customize and combine Microsoft tools to deliver a virtual appointments experience:
 -  **Replace Bookings with a custom scheduling experience with Graph.** You can build your own consumer-facing scheduling experience that controls Microsoft 365 meetings with Graph APIs.
