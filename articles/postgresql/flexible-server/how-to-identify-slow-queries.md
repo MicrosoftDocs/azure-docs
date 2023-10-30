@@ -1,5 +1,5 @@
 ---
-title: Identify Slow Running Query
+title: Identify Slow Running Query for Azure Database for PostgreSQL - Flexible Server
 description: Troubleshooting guide for identifying slow running queries in Azure Database for PostgreSQL - Flexible Server
 author: sarat0681
 ms.author: sbalijepalli
