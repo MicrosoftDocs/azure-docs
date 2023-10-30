@@ -204,6 +204,21 @@
             "source_path_from_root": "/articles/virtual-desktop/install-client-per-user.md",
             "redirect_url": "/azure/virtual-desktop/install-windows-client-per-user",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/create-host-pool.md",
+            "redirect_url": "/azure/virtual-desktop/deploy-azure-virtual-desktop",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/create-application-group-workspace.md",
+            "redirect_url": "/azure/virtual-desktop/deploy-azure-virtual-desktop",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/tutorial-create-connect-personal-desktop.md",
+            "redirect_url": "/azure/virtual-desktop/tutorial-try-deploy-windows-11-desktop",
+            "redirect_document_id": true
         }
     ]
 }

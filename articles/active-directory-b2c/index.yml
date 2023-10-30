@@ -116,12 +116,6 @@ conceptualContent:
             url: session-behavior.md
             itemType: how-to-guide
 
-          - text: Authenticate users in a Node.js web app(Quick course)
-            url: /training/modules/authenticate-users-node-web-app-use-azure-active-directory-b2c/
-            itemType: learn
-          # - text: 'Quickstart: Single-page app'
-            # url: configure-authentication-sample-spa-app.md
-            # itemType: quickstart
       ## CARD 4 ######################
     - title: 'Authorize: Call and secure your APIs'
       links:
