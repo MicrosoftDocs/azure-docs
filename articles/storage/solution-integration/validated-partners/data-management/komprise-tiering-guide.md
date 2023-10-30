@@ -24,7 +24,7 @@ When looking at the storage cost of file data, consider that the cost of file da
 | 2 to 3 backups (cheaper storage + backup software)     | 1x+   |
 | TOTAL                                            | 3.6x+ |
 
-### Use the Cloud to Cut File Data Costs: Comparison of Alternatives 
+## Use the Cloud to Cut File Data Costs: Comparison of Alternatives 
 
 As file data growth accelerates, managing data growth while cutting the costs of file data storage and backup has become an enterprise IT priority. Most (typically up to 80%) of file data is cold, meaning infrequently accessed. Therefore, organizations can save significantly by tiering on-premises file data to cost-effective object storage tiers such as Azure Blob, which can be 1/10th to 1/100th the cost of file storage. Here's a breakdown of Azure Blob Archive costs compared to higher performance on-premises and cloud file storage options. 
 
@@ -47,14 +47,14 @@ Komprise Intelligent Tiering for Azure analyzes data across your file and object
 
 Komprise analyzes all your file and object data. You can set policies to transparently tier cold files to Azure and instantly visualize savings based on your costs and policies 
 
-:::image type="content" source="./media/komprise-tiering-guide/updated-icon.png" alt-text="Example of updated icon after tiering." lightbox="./media/komprise-tiering-guide/updated-icon.png":::
+:::image type="content" source="./media/komprise-tiering-guide/updated-icon.png" alt-text="Screenshot of an updated icon after tiering." lightbox="./media/komprise-tiering-guide/updated-icon.png":::
 
 Files moved by Komprise TMT appear just as they did before, without users noticing any difference, and open like normal files on the desktop. 
 No stubs. No agents. The figure shows a PDF file before and after it's tiered by Komprise.
 
 Read the Azure blog post: [How to Save 70% on File Data Costs](https://techcommunity.microsoft.com/t5/azure-storage-blog/how-to-save-70-on-file-data-costs/ba-p/3799616)
 
-### Getting Started with Komprise Intelligent Tiering for Azure
+## Getting Started with Komprise Intelligent Tiering for Azure
 
 Your local Komprise team will assist with setting up your Komprise Director console and on-premises grid. It's an easy process that includes a preinstallation review, a deployment phase and initial training. Preparation for the installation should be ~1 hour from power-up to seeing the first analysis results. 
 
@@ -80,7 +80,7 @@ Adding shares for Komprise Analysis and Tiering
 
 3. When adding a NAS share, select “Standard” for the “Storage use” and choose the appropriate platform or provider of the storage system to add. Komprise supports standard NAS protocols. Use the “Other NAS” option for storage systems not named in the list.
 
-:::image type="content" source="./media/komprise-tiering-guide/screenshot-add-nas.png" alt-text="Screenshot of the add NAS interface" lightbox="./media/komprise-tiering-guide/screenshot-add-nas.png":::
+:::image type="content" source="./media/komprise-tiering-guide/screenshot-add-nas.png" alt-text="Screenshot of the add NAS interface." lightbox="./media/komprise-tiering-guide/screenshot-add-nas.png":::
 
 4. Provide the necessary system information to enable Komprise to access the storage system. This is typically a Hostname or IP address. Larger NAS systems sometimes require an admin port and sign in. See [Komprise Admin Guide: Introduction](https://komprise.freshdesk.com/support/solutions/articles/17000048966-komprise-admin-guide-introduction) for more information. 
 
@@ -96,7 +96,7 @@ Add a target to send the tiered data.
 
 1. On the Data Stores page, select “Add data store" to add the tiering Plan Target. Select “Plan Target” for the “Storage use” and choose Azure Blob Storage as the Provider.
 
-:::image type="content" source="./media/komprise-tiering-guide/add-data-store.png" alt-text="Screenshot of the add data store tiering interface." lightbox="./media/komprise-tiering-guide/add-data-store.png":::
+:::image type="content" source="./media/komprise-tiering-guide/add-data-store-new.png" alt-text="Screenshot of the add data store tiering interface." lightbox="./media/komprise-tiering-guide/add-data-store-new.png":::
 
 2. Enter the appropriate information required to enable Komprise to connect to the Azure Blob container.
 
@@ -122,11 +122,11 @@ Komprise Plans define the policies for tiering, including identifying the shares
 
 5. Select “Files filtered by Age” to specify the age policy for tiering inactive files. The heatmap (donut chart) on right adds a purple hashed area showing the amount and number of files that Komprise estimates will move according to the Plan policy.  Mouse over the purple hash area to see the values.
 
-:::image type="content" source="./media/komprise-tiering-guide/filter-by-age.png" alt-text="Screenshot of the fiter by age interface." lightbox="./media/komprise-tiering-guide/filter-by-age.png":::
+:::image type="content" source="./media/komprise-tiering-guide/filter-by-age.png" alt-text="Screenshot of the filter by age interface." lightbox="./media/komprise-tiering-guide/filter-by-age.png":::
 
 6. You can customize the analysis to ensure accurate cost savings estimates by clicking “Edit Cost Model” at the lower right when viewing your Plan. Enter On-premises storage cost information on the left and Target storage costs information (for Azure Blob) on the right.
 
-:::image type="content" source="./media/komprise-tiering-guide/edit-cost-model.png" alt-text="Screenshot of the edit cost model interface" lightbox="./media/komprise-tiering-guide/edit-cost-model.png":::
+:::image type="content" source="./media/komprise-tiering-guide/edit-cost-model.png" alt-text="Screenshot of the edit cost model interface." lightbox="./media/komprise-tiering-guide/edit-cost-model.png":::
 
 7. These financial values are applied to the data identified for tiering and represented in the 3-Year Savings numbers and graphs below the heatmap. The following images highlight the growth rates and costs after one year. The yellow line shows estimated costs if no data is tiered whereas the blue line represents reduced costs including tiering by Komprise.
 
@@ -134,7 +134,7 @@ Komprise Plans define the policies for tiering, including identifying the shares
 
 8. Back in the Plan Editor, add the tiering Target for the tiered, aged files. For the “To Target” field, choose the Azure Blob Target added earlier.
 
-:::image type="content" source="./media/komprise-tiering-guide/set-tiering-to.png" alt-text="Screenshot of the configure tiering destination interface" lightbox="./media/komprise-tiering-guide/set-tiering-to.png":::
+:::image type="content" source="./media/komprise-tiering-guide/set-tiering-to.png" alt-text="Screenshot of the configure tiering destination interface." lightbox="./media/komprise-tiering-guide/set-tiering-to.png":::
 
 9. Select “Done Editing” to complete the Plan configuration. 
 
@@ -144,11 +144,11 @@ Komprise Plans define the policies for tiering, including identifying the shares
 
 11. Once activated, the new Plan Activity tab opens showing the tiering operation results.
 
-:::image type="content" source="./media/komprise-tiering-guide/show-activity.png" alt-text="Screenshot of the show activity display" lightbox="./media/komprise-tiering-guide/show-activity.png":::
+:::image type="content" source="./media/komprise-tiering-guide/show-activity.png" alt-text="Screenshot of the show activity display." lightbox="./media/komprise-tiering-guide/show-activity.png":::
 
 During any copy or move operations, Komprise performs full MD5 checksums for NFS and SHA-1 for SMB on your files to ensure full data integrity during the data transfers. A single Plan can span multiple NAS servers, even from different vendors. You can create different policy groups in Komprise for different departments, for example. This feature is useful when a central IT department is managing data for different business units. 
 
-### How Komprise Delivers Transparent, Native Data Access
+## How Komprise Delivers Transparent, Native Data Access
 
 Komprise tiers files from a source NAS share to Azure Blob and leaves behind a symbolic link to the file in its original source location. When a user or application attempts to read or write a file that you have tiered, they access the file using the symbolic link. The link points to a Komprise Grid Observer, which tracks where the file is stored. The Observer retrieves the file behind-the-scenes from Azure and fulfills the read/write request for the file within seconds. This way, users and applications continue accessing these files in the same location without refactoring applications to use object storage or specifying a different file share location. 
 
