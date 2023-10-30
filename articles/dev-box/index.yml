@@ -32,11 +32,23 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
+          - text: Set up Dev Box with an ARM template
+            url: quickstart-configure-dev-box-arm-template.md 
           - text: Configure Microsoft Dev Box
             url: quickstart-configure-dev-box-service.md
           - text: Create a dev box
             url: quickstart-create-dev-box.md
 
+  # Card
+  - title: Quota management
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Determine resource usage and quota
+            url: how-to-determine-your-quota-usage.md
+          - text: Request a quota limit increase
+            url: how-to-request-quota-increase.md
+            
   # Card
   - title: Connect to a dev box
     linkLists:
@@ -44,19 +56,13 @@ landingContent:
         links:              
           - text: Configure the Remote Desktop client to connect to a dev box with multiple monitors
             url: tutorial-connect-to-dev-box-with-remote-desktop-app.md
-
-  # Card
-  - title: Provide access to Microsoft Dev Box
-    linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Provide access to projects for project admins
-            url: how-to-project-admin.md
-          - text: Provide access to projects for dev box users
-            url: how-to-dev-box-user.md  
+          - text: Troubleshoot dev box connectivity issues
+            url: how-to-troubleshoot-repair-dev-box.md      
 
   # Card
-  - title: Add custom image galleries
+  - title: Customize images
     linkLists:
       - linkListType: how-to-guide
         links:
@@ -64,12 +70,18 @@ landingContent:
             url: how-to-configure-azure-compute-gallery.md
           - text: Provision a custom image by using Azure VM Image Builder
             url: how-to-customize-devbox-azure-image-builder.md
+          - text: Configure Dev Box Hibernation
+            url: how-to-configure-dev-box-hibernation.md
 
    # Card
-  - title: References
+  - title: Support & Reference
     linkLists:
-      - linkListType: reference
-        links:
+        - linkListType: how-to-guide
+          links:
+          - text: Get support for Microsoft Dev Box
+            url: how-to-get-help.md
+        - linkListType: reference
+          links:
           - text: Azure CLI
             url: https://learn.microsoft.com/en-us/azure/dev-box/cli-reference-subset
           - text: REST API
