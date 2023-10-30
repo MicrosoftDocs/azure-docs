@@ -179,7 +179,7 @@ We have a scenario where CPU utilization has spiked to 90% and would like to kno
 
       The tab shares details of all the queries that ran in the interval where 90% CPU utilization was seen. From the snapshot, it looks like the query with the slowest average execution time during the time interval was ~6.3 minutes, and the query ran 35 times during the interval. This is most likely the cause of CPU spikes.
 
-      :::image type="content" source="./media/how-to-identify-slow-queries/high-cpu-procedure.png" alt-text="Screenshot of troubleshooting guides - CPU tab." lightbox="./media/how-to-identify-slow-queries/high-cpu-procedure.png":::
+      :::image type="content" source="./media/how-to-identify-slow-queries/high-cpu-procedure.png" alt-text="Screenshot of troubleshooting guides - CPU tab - queries." lightbox="./media/how-to-identify-slow-queries/high-cpu-procedure.png":::
 
       It's important to note from the snapshot below that the query type as highlighted below is `Utility``. Generally, a utility can be a stored procedure or function running during the interval.
 
