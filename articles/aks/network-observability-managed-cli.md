@@ -232,9 +232,10 @@ az aks get-credentials --name myAKSCluster --resource-group myResourceGroup
 > [!NOTE]
 > The following section requires deployments of Azure managed Prometheus and Grafana.
 
-1. Use the following example to create a file named **`prometheus-config`**. Copy the code in the example into the file created.
 >[!WARNING]
 > File should only be named as **`prometheus-config`**. Do not add any extensions like .yaml or .txt.
+
+1. Use the following example to create a file named **`prometheus-config`**. Copy the code in the example into the file created.
 
     ```yaml
     global:
@@ -290,7 +291,7 @@ az aks get-credentials --name myAKSCluster --resource-group myResourceGroup
     kubectl port-forward -n kube-system $(kubectl get po -n kube-system -l rsName=ama-metrics -oname | head -n 1) 9090:9090
     ```
 
-1. Open `http://localhost:9090` in your browser and navigate to **Status** > **Targets**, verify the **cilium-pods** are present and state says up.
+1. Open `http://localhost:9090` in your browser and navigate to **Status** > **Targets**, verify if **cilium-pods** are present and state says up.
 
 1. Sign in to Azure Managed Grafana and import dashboard with the ID: [16611](https://grafana.com/grafana/dashboards/16611-cilium-metrics/). Also, select **Dashboards** from the left navigation menu, open **Kubernetes / Networking** dashboard under **Managed Prometheus** folder. Metrics should be visible in both these dashboards.
 
