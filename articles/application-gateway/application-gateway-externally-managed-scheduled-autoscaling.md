@@ -48,8 +48,6 @@ Then we create the below schedules:
 1.	WeekdayMorning – Run the IncreaseMin runbook from Mon-Fri at 5:00AM PST 
 2.	WeekdayEvening – Run the DecreaseMin runbook from Mon-Fri at 9:00PM PST 
 
-Video tutorial - [ScheduledAutoscaleConfigurationWithAzureAutomation.mp4 ](https://microsoft-my.sharepoint.com/:v:/p/rtapadar/EfrK-f54ilRPuJCGjVKV3hIBt1R1nHzyZ_LGyJJlo34d_A?e=iN1VhU)
-
 ## FAQS
 1. What is the SLA for timely job executions?  
 Azure Automation has a SLA of 99.9% for a timely start of jobs.  
