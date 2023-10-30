@@ -52,10 +52,6 @@ Just like role assignments, to add or update conditions, you must be signed in t
 
 ## Principal attributes
 
-> [!IMPORTANT]
-> Principal attributes are currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 To use principal attributes ([custom security attributes in Microsoft Entra ID](../active-directory/fundamentals/custom-security-attributes-overview.md)), you must have **all** of the following:
 
 - Microsoft Entra ID P1 or P2 license

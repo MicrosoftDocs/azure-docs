@@ -251,7 +251,7 @@ Depending on the selected actions, the attribute might be found in different pla
 > | Attribute source | Description | Code |
 > | --- | --- | --- |
 > | [Environment](#environment-attributes) | Indicates that the attribute is associated with the environment of the request, such as the network origin of the request or the current date and time.</br>***(Environment attributes are currently in preview.)*** | `@Environment` |
-> | [Principal](#principal-attributes) | Indicates that the attribute is a Microsoft Entra custom security attribute on the principal, such as a user, enterprise application (service principal), or managed identity.</br>***(Principal attributes are currently in preview.)*** | `@Principal` |
+> | [Principal](#principal-attributes) | Indicates that the attribute is a Microsoft Entra custom security attribute on the principal, such as a user, enterprise application (service principal), or managed identity. | `@Principal` |
 > | [Request](#request-attributes) | Indicates that the attribute is part of the action request, such as setting the blob index tag. | `@Request` |
 > | [Resource](#resource-attributes) | Indicates that the attribute is a property of the resource, such as a container name. | `@Resource` |
 
@@ -284,10 +284,6 @@ The following table lists the supported environment attributes for conditions.
 #### Principal attributes
 
 Principal attributes are Microsoft Entra custom security attributes associated with the principal requesting access to a resource. The security principal can be a user, an enterprise application (a service principal), or a managed identity.
-
-> [!IMPORTANT]
-> Principal attributes are currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 To use principal attributes, you must have **all** of the following:
 
