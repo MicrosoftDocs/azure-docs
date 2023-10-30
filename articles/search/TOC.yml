@@ -159,12 +159,12 @@
       href: search-analyzers.md
     - name: Indexers
       href: search-indexer-overview.md
+  - name: Integrated vectorization (preview)
+    href: vector-search-integrated-vectorization.md
   - name: Enrichment
     items:
     - name: Enrichment overview
       href: cognitive-search-concept-intro.md
-    - name: Integrated vectorization (preview)
-      href: vector-search-integrated-vectorization.md
     - name: Enrichment cache
       href: cognitive-search-incremental-indexing-conceptual.md
     - name: Skillsets

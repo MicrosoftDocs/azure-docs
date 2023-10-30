@@ -48,11 +48,11 @@ Integrated vectorization is available as part of all Azure AI Search tiers in al
 
 ## What scenarios can integrated vectorization support?
 
-+ Subdivide large documents into chunks, useful for vector and non-vector scenarios. For vectors, chunks help you meet the input size constraints of embedding models. For non-vector scenarios, you might have a chat-style search app where GPT is assembling responses from indexed chunks. You can use vectorized or non-vectorized chunks or chat-style search.
++ Subdivide large documents into chunks, useful for vector and non-vector scenarios. For vectors, chunks help you meet the input constraints of embedding models. For non-vector scenarios, you might have a chat-style search app where GPT is assembling responses from indexed chunks. You can use vectorized or non-vectorized chunks for chat-style search.
 
 + Build a vector store where all of the fields are vector fields, and the document ID (required for a search index) is the only string field. Query the vector index to retrieve document IDs, and then send the document's vector fields to another model.
 
-+ Combine vector and text fields for hybrid search, with or without semantic ranking. Integrated vectorization simplifies all of the [scenarios supported by vector search](vector-search-overview.md#what-senarios-are-supported-by-vector-search).
++ Combine vector and text fields for hybrid search, with or without semantic ranking. Integrated vectorization simplifies *all* of the [scenarios supported by vector search](vector-search-overview.md#what-senarios-can-vector-search-support).
 
 ## When to use integrated vectorization
 
@@ -68,7 +68,7 @@ Here are some of the key benefits of the integrated vectorization:
 
 + Project or redirect chunked content to secondary indexes that are well-suited for chat-style apps and Retrieval Augmented Generation (RAG) patterns. Secondary indexes are created as you would any search index (a schema with fields and other constructs), but they're populated in tandem with a primary index. Content from each source document flows to fields in primary and secondary indexes during the same indexing run. 
 
-  + Secondary indexes are used for data chunking and RAG apps. Assuming a large PDF as a source document, the primary index might have basic information (title, date, author, description), and a secondary index has the chunks of content. Vectorization at the data chunk level makes it easier to find relevant information and return a relevant response.
+  + Secondary indexes are used for data chunking and RAG apps. Assuming a large PDF as a source document, the primary index might have basic information (title, date, author, description), and a secondary index has the chunks of content. Vectorization at the data chunk level makes it easier to find relevant information (each chunk is searchable) and return a relevant response.
 
 ## Chunked indexes
 
