@@ -76,7 +76,7 @@ Adding shares for Komprise Analysis and Tiering
 1. Start on the Data Stores page.
 1. Use “Add data store” to identify the storage system and shares for analysis.
 
-:::image type="content" source="./media/komprise-tiering-guide/screenshot-add-data-store.png" alt-text="Add Data Store Interface" lightbox="./media/komprise-tiering-guide/screenshot-add-data-store.png":::
+:::image type="content" source="./media/komprise-tiering-guide/screenshot-add-data-store.png" alt-text="Add Data Store Screenshot" lightbox="./media/komprise-tiering-guide/screenshot-add-data-store.png":::
 
 3. When adding a NAS share, select “Standard” for the “Storage use” and choose the appropriate platform or provider of the storage system to add. Komprise supports standard NAS protocols. Use the “Other NAS” option for storage systems not named in the list.
 
@@ -144,7 +144,7 @@ Komprise Plans define the policies for tiering, including identifying the shares
 
 11. Once activated, the new Plan Activity tab opens showing the tiering operation results.
 
-:::image type="content" source="./media/komprise-tiering-guide/show-activity.png" alt-text="Test Configuration" lightbox="./media/komprise-tiering-guide/show-activity.png":::
+:::image type="content" source="./media/komprise-tiering-guide/show-activity.png" alt-text="Show Activity" lightbox="./media/komprise-tiering-guide/show-activity.png":::
 
 During any copy or move operations, Komprise performs full MD5 checksums for NFS and SHA-1 for SMB on your files to ensure full data integrity during the data transfers. A single Plan can span multiple NAS servers, even from different vendors. You can create different policy groups in Komprise for different departments, for example. This feature is useful when a central IT department is managing data for different business units. 
 
@@ -152,7 +152,7 @@ During any copy or move operations, Komprise performs full MD5 checksums for NFS
 
 Komprise tiers files from a source NAS share to Azure Blob and leaves behind a symbolic link to the file in its original source location. When a user or application attempts to read or write a file that you have tiered, they access the file using the symbolic link. The link points to a Komprise Grid Observer, which tracks where the file is stored. The Observer retrieves the file behind-the-scenes from Azure and fulfills the read/write request for the file within seconds. This way, users and applications continue accessing these files in the same location without refactoring applications to use object storage or specifying a different file share location. 
 
-By default, Komprise moves files in their native format with their contents unchanged. As files are moved to Azure, you can now access these files as objects natively within Azure. This opens many new and exciting scenarios for customers. For example, customers can use this data as the foundation for a data lake, with the potential to query and explore data using services such as [Azure Synapse Analytics](/products/synapse-analytics/) or [Azure Machine Learning](/products/machine-learning/). The possibilities are endless – and many customers are unlocking the value of their cold data in ways that they might have never considered before. 
+By default, Komprise moves files in their native format with their contents unchanged. As files are moved to Azure, you can now access these files as objects natively within Azure. This opens many new and exciting scenarios for customers. For example, customers can use this data as the foundation for a data lake, with the potential to query and explore data using services such as [Azure Synapse Analytics](https://azure.microsoft.com/en-us/products/synapse-analytics/) or [Azure Machine Learning](https://azure.microsoft.com/en-us/products/machine-learning/). The possibilities are endless – and many customers are unlocking the value of their cold data in ways that they might have never considered before. 
 
 #### Other Komprise Licensing Options 
 
