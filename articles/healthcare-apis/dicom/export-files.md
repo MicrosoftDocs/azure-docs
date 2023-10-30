@@ -3,9 +3,9 @@ title: Export DICOM files by using the export API of the DICOM service
 description: This how-to guide explains how to export DICOM files to an Azure Blob Storage account.
 author: mmitrik
 ms.service: healthcare-apis
-ms.subservice: fhir
+ms.subservice: dicom
 ms.topic: how-to
-ms.date: 10/14/2022
+ms.date: 10/30/2023
 ms.author: mmitrik
 ---
 
@@ -37,7 +37,7 @@ The first step to export data from the DICOM service is to enable a system-assig
 
 It takes a few minutes to create the system-assigned managed identity. After the system identity is enabled, an **Object (principal) ID** appears.
 
-## Give storage account permissions to the system-assigned managed identity
+## Assign storage account permissions 
 
 The system-assigned managed identity needs **Storage Blob Data Contributor** permission to write data to the destination storage account.
 
@@ -67,7 +67,7 @@ Given a *source*, the set of data to be exported, and a *destination*, the locat
 
 Any errors encountered while you attempt to export are recorded in an error log. For more information, see the [Errors](#errors) section.
 
-## Request
+#### Request
 
 The request body consists of the export source and destination.
 
@@ -90,7 +90,7 @@ The request body consists of the export source and destination.
 }
 ```
 
-### Source settings
+#### Source settings
 
 The only setting is the list of identifiers to export.
 
@@ -98,7 +98,7 @@ The only setting is the list of identifiers to export.
 | :------- | :------- | :------ | :---------- |
 | `Values` | Yes      |         | A list of one or more DICOM studies, series, and/or SOP instance identifiers in the format of `"<StudyInstanceUID>[/<SeriesInstanceUID>[/<SOPInstanceUID>]]"` |
 
-### Destination settings
+#### Destination settings
 
 The connection to the Blob Storage account is specified with `BlobContainerUri`.
 
@@ -107,7 +107,7 @@ The connection to the Blob Storage account is specified with `BlobContainerUri`.
 | `BlobContainerUri`   | No       | `""`    | The complete URI for the blob container |
 | `UseManagedIdentity` | Yes      | `false` | A required flag that indicates whether managed identity should be used to authenticate to the blob container |
 
-### Example
+#### Example
 
 The following example requests the export of the following DICOM resources to the blob container named `export` in the storage account named `dicomexport`:
 
@@ -140,7 +140,7 @@ Content-Type: application/json
 }
 ```
 
-## Response
+#### Response
 
 The export API returns a `202` status code when an export operation is started successfully. The body of the response contains a reference to the operation, while the value of the `Location` header is the URL for the export operation's status (the same as `href` in the body).
 
@@ -155,7 +155,7 @@ Content-Type: application/json
 }
 ```
 
-### Operation status
+#### Operation status
 
 Poll the preceding `href` URL for the current status of the export operation until completion. After the job has reached a terminal state, the API returns a 200 status code instead of 202. The value of its status property is updated accordingly.
 
@@ -180,7 +180,7 @@ Content-Type: application/json
 
 If there are any user errors when you export a DICOM file, the file is skipped and its corresponding error is logged. This error log is also exported alongside the DICOM files and the caller can review it. You can find the error log at `<export blob container uri>/<operation ID>/errors.log`.
 
-### Format
+#### Format
 
 Each line of the error log is a JSON object with the following properties. A given error identifier might appear multiple times in the log as each update to the log is processed *at least once*.
 
@@ -189,10 +189,5 @@ Each line of the error log is a JSON object with the following properties. A giv
 | `Timestamp`  | The date and time when the error occurred |
 | `Identifier` | The identifier for the DICOM study, series, or SOP instance in the format of `"<study instance UID>[/<series instance UID>[/<SOP instance UID>]]"` |
 | `Error`      | The detailed error message |
-
-## Next steps
-
->[!div class="nextstepaction"]
->[Overview of the DICOM service](dicom-services-overview.md)
 
 [!INCLUDE [DICOM trademark statement](../includes/healthcare-apis-dicom-trademark.md)]
