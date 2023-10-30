@@ -54,7 +54,7 @@ The alert time range is limited to a maximum of two days. Even if the query cont
 If the query requires more data than the alert evaluation, you can change the time range manually.
 If there's ago command in the query, it will be changed automatically to be 2 days (48 hours).
 
-:::image type="content" source="media/alerts-troubleshoot-log/alerts-rule-preview-advanced-options.png" alt-text="Screenshot of advanced settings for log alerts.":::
+:::image type="content" source="media/alerts-troubleshoot-log/alerts-rule-preview-advanced-options.png" lightbox="media/alerts-troubleshoot-log/alerts-rule-preview-advanced-options.png" alt-text="Screenshot of advanced settings for log alerts.":::
 
 ## Log alert fired unnecessarily
 
