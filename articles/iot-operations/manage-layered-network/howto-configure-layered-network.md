@@ -28,6 +28,9 @@ The following example configuration is a simple isolated network with minimum ph
 - **Level 4 cluster** is a single node cluster hosted on a dual network interface card (NIC) physical machine that connects to internet and the local network.
 - **Level 3 cluster** is a single node cluster hosted on a physical machine. This device cluster only connects to the local network.
 
+>[!IMPORTANT]
+> When assigning local IP addresses, avoid using the default address `192.168.0.x`. You should change the address if it's the default setting for your access point.
+
 Layered Network Management is deployed to the dual NIC cluster. The cluster in the local network connects to Layered Network Management as a proxy to access Azure and Arc services. Generally, it would need another DNS server in the local network to provide domain name resolution and point the traffic to Layered Network Management.
 
 ## Configure Isolated Network with logical segmentation
@@ -55,10 +58,10 @@ A DNS server is only needed for levels 3 and below. This example uses a [dnsmasq
     systemctl status dnsmasq
     ```
 1. Modify the `/etc/dnsmasq.conf` file as shown to route these domains to the upper level.
-    - Change the IP address from 10.104.0.10 to respective destination address for that level - IP address of the Layered Network Management service in the parent level.
+    - Change the IPv4 address from 10.104.0.10 to respective destination address for that level. In this case, the IP address of the Layered Network Management service in the parent level.
     - Verify the `interface` where you're running the *dnsmasq* and change the value as needed.
-    - As an alternative, you can put `address=/#/<IP of upper level Layered Network Management service>` in the IPV4 and IPV6 address sections.
-    - The following configuration only contains the necessary endpoints for enabling Azure IoT Operations. 
+
+The following configuration only contains the necessary endpoints for enabling Azure IoT Operations.
 
     ```conf
     # Add domains which you want to force to an IP address here.
@@ -107,6 +110,34 @@ A DNS server is only needed for levels 3 and below. This example uses a [dnsmasq
     address=/.guestnotificationservice.azure.com/fe80::20d:60ff:fe36:f833
     address=/.servicebus.windows.net/fe80::20d:60ff:fe36:f833
     address=/servicebus.windows.net/fe80::20d:60ff:fe36:f833
+    
+    # If you want dnsmasq to listen for DHCP and DNS requests only on
+    # specified interfaces (and the loopback) give the name of the
+    # interface (eg eth0) here.
+    # Repeat the line for more than one interface.
+    interface=enp1s0
+    
+    # Or you can specify which interface _not_ to listen on
+    # except-interface=
+    # Or which to listen on by address (remember to include 127.0.0.1 if
+    # you use this.)
+    listen-address=::1,127.0.0.1,10.102.0.72
+    
+    # If you don't want dnsmasq to read /etc/hosts, uncomment the
+    # following line.
+    no-hosts
+    ```
+
+As an alternative, you can put `address=/#/<IP of upper level Layered Network Management service>` in the IPv4 address section. For example:
+
+    ```conf
+    # Add domains which you want to force to an IP address here.
+    # The example below send any host in double-click.net to a local
+    # web-server.
+    address=/#/<IP of upper level Layered Network Management service>
+    
+    # --address (and --server) work with IPv6 addresses too.
+    address=/#/fe80::20d:60ff:fe36:f833
     
     # If you want dnsmasq to listen for DHCP and DNS requests only on
     # specified interfaces (and the loopback) give the name of the
