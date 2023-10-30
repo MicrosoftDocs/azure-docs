@@ -9,7 +9,7 @@ ms.date: 10/26/2023
 #CustomerIntent: As an OT user, I want to create a visual report for my processed OPC UA data that I can use to analyze and derive insights from it.
 ---
 
-# Quickstart: Get insights from Deploy Azure IoT Operations – enabled by Azure Arc Preview to an Arc-enabled Kubernetes cluster
+# Quickstart: Get insights from Deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
@@ -19,7 +19,7 @@ In this quickstart, you create a Power BI report to capture insights from your O
 
 Before you begin this quickstart, you must complete the following quickstarts:
 
-- [Quickstart: Deploy Azure IoT Operations – enabled by Azure Arc Preview to an Arc-enabled Kubernetes cluster](quickstart-deploy.md)
+- [Quickstart: Deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster](quickstart-deploy.md)
 - [Quickstart: Add OPC UA assets to your Azure IoT Operations cluster](quickstart-add-assets.md)
 - [Quickstart: Use Data Processor pipelines to process data from your OPC UA assets](quickstart-process-telemetry.md)
 

@@ -13,13 +13,13 @@ ms.date: 10/11/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-In this quickstart, you use Azure IoT Data Processor pipelines to process and enrich messages from your OPC UA assets before you send the data to a Microsoft Fabric OneLake lakehouse for storage and analysis.
+In this quickstart, you use Azure IoT Data Processor (preview) pipelines to process and enrich messages from your OPC UA assets before you send the data to a Microsoft Fabric OneLake lakehouse for storage and analysis.
 
 ## Prerequisites
 
 Before you begin this quickstart, you must complete the following quickstarts:
 
-- [Quickstart: Deploy Azure IoT Operations – enabled by Azure Arc Preview to an Arc-enabled Kubernetes cluster](quickstart-deploy.md)
+- [Quickstart: Deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster](quickstart-deploy.md)
 - [Quickstart: Add OPC UA assets to your Azure IoT Operations cluster](quickstart-add-assets.md)
 
 You also need a Microsoft Fabric subscription. You can sign up for a free [Microsoft Fabric (Preview) Trial](/fabric/get-started/fabric-trial).
@@ -396,4 +396,4 @@ You can also delete your Microsoft Fabric workspace.
 
 ## Next step
 
-[Quickstart: Deploy Azure IoT Operations – enabled by Azure Arc Preview to an Arc-enabled Kubernetes cluster](quickstart-get-insights.md)
+[Quickstart: Deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster](quickstart-get-insights.md)

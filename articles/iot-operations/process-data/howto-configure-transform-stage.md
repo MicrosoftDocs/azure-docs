@@ -31,7 +31,7 @@ The transform stage uses [jq](concept-jq.md) to support data transformation:
 
 To configure and use a transform pipeline stage, you need:
 
-- A deployed instance of Data Processor Preview.
+- A deployed instance of Azure IoT Data Processor (preview).
 - An understanding of [jq expressions](concept-jq-expression.md).
 
 ### Configure the stage
@@ -40,7 +40,7 @@ The transform stage JSON configuration defines the details of the stage. To auth
 
 | Name | Value | Required | Example |
 | --- | --- | --- | --- |
-| Name  | A name to show in the data processor UI.  | Yes | `Transform1` |
+| Name  | A name to show in the Data Processor UI.  | Yes | `Transform1` |
 | Description | A user-friendly description of what the transform stage does.  | No | `Rename Tags` |
 | Query | The transformation [jq expression](concept-jq-expression.md).  | Yes | `.payload.values |= (map({(.tag): (.numVal // .boolVal)}) | add)` |
 

@@ -26,8 +26,8 @@ Use the _gRPC call out_ stage to call an external [gRPC](https://grpc.io/docs/wh
 
 To configure and use a gRPC cal lout pipeline stage, you need:
 
-- A deployed instance of Data Processor Preview.
-- A [gRPC](https://grpc.io/docs/what-is-grpc/) server that's accessible from the Data Processor Preview instance.
+- A deployed instance of Azure IoT Data Processor (preview).
+- A [gRPC](https://grpc.io/docs/what-is-grpc/) server that's accessible from the Data Processor instance.
 - The `protoc` tool to generate the descriptor.
 
 ## Configure a gRPC call out stage
@@ -36,12 +36,12 @@ The gRPC call out stage JSON configuration defines the details of the stage. To 
 
 | Name | Type | Description | Required | Default | Example |
 | ---- | ---- | ----------- | -------- | ------- | ------- |
-| Name           | string | A name to show in the data processor UI.  | Yes | -  | `MLCall2` |
+| Name           | string | A name to show in the Data Processor UI.  | Yes | -  | `MLCall2` |
 | Description    | string | A user-friendly description of what the call out stage does.  | No |   | `Call ML endpoint 2` |
 | Server address | String | The gRPC server address. | Yes | - | `https://localhost:1313` |
 | RPC name       | string | The RPC name to call| Yes | - | `GetInsights` |
 | Descriptor<sup>1</sup>            | string | The base 64 encoded descriptor.  | Yes | - | `CuIFChxnb29nb` |
-| API request&nbsp;>&nbsp;Body path | [Path](concept-configuration-patterns.md#path) | The path to the portion of the data processor message that should be serialized and set as the request body. Leave empty if you don't need to send a request body. | No | - | `.payload.gRPCRequest` |
+| API request&nbsp;>&nbsp;Body path | [Path](concept-configuration-patterns.md#path) | The path to the portion of the Data Processor message that should be serialized and set as the request body. Leave empty if you don't need to send a request body. | No | - | `.payload.gRPCRequest` |
 | API request&nbsp;>&nbsp;Metadata&nbsp;>&nbsp;Key<sup>2</sup> | [Static/Dynamic field](concept-configuration-patterns.md#static-and-dynamic-fields) | The metadata key to set in the request. | No |  | [Static/Dynamic field](concept-configuration-patterns.md#static-and-dynamic-fields) |
 | API request&nbsp;>&nbsp;Metadata&nbsp;>&nbsp;Value<sup>2</sup> | [Static/Dynamic field](concept-configuration-patterns.md#static-and-dynamic-fields) | The metadata value to set in the request. | No |  | [Static/Dynamic field](concept-configuration-patterns.md#static-and-dynamic-fields) |
 | API response&nbsp;>&nbsp;Body path | [Path](concept-configuration-patterns.md#path) | The [Path](concept-configuration-patterns.md#path) to the property in the outgoing message to store the response in. Leave empty if you don't need the response body. | No | - | `.payload.gRPCResponse` |
