@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 03/28/2022
 ms.service: azure-arc
 ms.subservice: azure-arc-vmware-vsphere
-
+ms.custom: devx-track-azurecli
 # Customer intent: As an infrastructure admin, I want to cleanly remove my VMware vCenter environment from Azure Arc-enabled VMware vSphere.
 ---
 
