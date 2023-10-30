@@ -117,16 +117,16 @@ Create the Key Vault and set a secret to use in your deployment. For more inform
     ```
 
 > [!IMPORTANT]
-> If you use the Key Vault as a secret store for secret injection, you must configure the key vault's permission model as `Azure role-based access control` (RBAC). For more information, see [Azure RBAC vs access policy for Key Vault](../key-vault/general/rbac-access-policy).
+> If you use the Key Vault as a secret store for secret injection, you must configure the key vault's permission model as Azure role-based access control (RBAC). For more information, see [Azure RBAC vs access policy for Key Vault](../key-vault/general/rbac-access-policy).
 
-## Choose user identity
+## Choose user identity that will create the endpoint and deployment
 
 Choose the user identity to use to create the online endpoint and online deployment.
 - You can set up a user identity by following the steps in [Set up authentication for Azure Machine Learning resources and workflows](how-to-setup-authentication.md). This user identity can be a user account, a service principal account, or a managed identity in Microsoft Entra ID.
 
 #### (Optional) Assign role to the user identity
 
-- If your user identity wants the endpoint's system-assigned identity (SAI) to be automatically granted permission to read secrets from workspace connections, the user identity needs to be assigned the `Azure Machine Learning Workspace Connection Secret Reader` role (or higher) on the scope of the workspace.
+- If your user identity wants the endpoint's system-assigned identity (SAI) to be automatically granted permission to read secrets from workspace connections, the user identity __needs__ to be assigned the `Azure Machine Learning Workspace Connection Secret Reader` role (or higher) on the scope of the workspace.
     - An admin that has the `Microsoft.Authorization/roleAssignments/write` permission can run a CLI command to assign the role to the _user identity_:
 
         ```azurecli
@@ -136,7 +136,7 @@ Choose the user identity to use to create the online endpoint and online deploym
     > [!NOTE]
     > The endpoint's system-assigned identity (SAI) won't be automatically granted permission for reading secrets from key vaults. Hence, the user identity doesn't need to be assigned a role for the Key Vault.
 
-- If you want to use a user-assigned identity (UAI) for the endpoint, you don't need to assign the role to your _user identity_. Instead, if you intend to use secret injection, you must assign the role to the endpoint's UAI manually. For example,
+- If you want to use a user-assigned identity (UAI) for the endpoint, you __don't need__ to assign the role to your user identity. Instead, if you intend to use secret injection, you must assign the role to the endpoint's UAI manually. For example,
     - An admin that has the `Microsoft.Authorization/roleAssignments/write` permission can run the following commands to assign the role to the _endpoint identity_:
 
     __For workspace connections__:
@@ -152,9 +152,9 @@ Choose the user identity to use to create the online endpoint and online deploym
     ```
 
 - To verify that an identity (either a user identity or endpoint identity) has the role assigned, you can go to the resource in the Azure portal. For example, in the Azure Machine Learning workspace or the Key Vault:
-    1. Select the `Access control (IAM)` tab.
-    1. Select the `Check access` button and find the identity.
-    1. Verify that the right role shows up under the `Current role assignments` tab.
+    1. Select the __Access control (IAM)__ tab.
+    1. Select the __Check access button__ and find the identity.
+    1. Verify that the right role shows up under the __Current role assignments__ tab.
 
 ## Create an endpoint
 
@@ -182,7 +182,7 @@ If you don't specify the `identity` property in the endpoint definition, the end
 
 If the following conditions are met, the endpoint identity will automatically be granted the `Azure Machine Learning Workspace Connection Secret Reader` role (or higher) on the scope of the workspace:
   
-- The user identity that creates the _endpoint_ has the permissions to read secrets from workspace connections.
+- The user identity that creates the endpoint has the permissions to read secrets from workspace connections.
 - The endpoint uses an SAI.
 - The endpoint is defined with a flag to enforce access to default secret stores (workspace connections under the current workspace) when creating the endpoint.
 
@@ -216,14 +216,17 @@ When using a UAI, you must manually assign any required roles to the endpoint id
 ## Create a deployment
 
 1. Author a scoring script or Dockerfile and the related scripts so that the deployment can consume the secrets via environment variables.
-    1. There's no need for you to call the secret retrieval APIs for the workspace connections or key vaults. The environment variables are populated with the secrets when the user container in the deployment initiates.
+    
+    - There's no need for you to call the secret retrieval APIs for the workspace connections or key vaults. The environment variables are populated with the secrets when the user container in the deployment initiates.
 
-1. The value that's injected into an environment variable can be one of the three types:
-    1. The whole [List Secrets API (preview)](/rest/api/azureml/2023-08-01-preview/workspace-connections/list-secrets) response. You'll need to understand the API response structure, parse it, and use it in your user container.
-    1. Individual secret or metadata from the workspace connection. You can use it without understanding the workspace connection API response structure.
-    1. Individual secret version from the Key Vault. You can use it without understanding the Key Vault API response structure.
+    - The value that's injected into an environment variable can be one of the three types:
+        - The whole [List Secrets API (preview)](/rest/api/azureml/2023-08-01-preview/workspace-connections/list-secrets) response. You'll need to understand the API response structure, parse it, and use it in your user container.
+        - Individual secret or metadata from the workspace connection. You can use it without understanding the workspace connection API response structure.
+        - Individual secret version from the Key Vault. You can use it without understanding the Key Vault API response structure.
 
-1. Initiate the creation of the deployment, using the scoring script (if you use a custom model) or a Dockerfile (if you take the BYOC approach to deployment), specifying environment variables the user expects within the user container. If the values that are mapped to the environment variables follow certain patterns, secret retrieval and injection will be performed using the endpoint identity.
+1. Initiate the creation of the deployment, using the scoring script (if you use a custom model) or a Dockerfile (if you take the BYOC approach to deployment), specifying environment variables the user expects within the user container.
+
+    If the values that are mapped to the environment variables follow certain patterns, secret retrieval and injection will be performed using the endpoint identity.
 
     | Pattern | Behavior |
     | -- | -- |
@@ -261,7 +264,7 @@ When using a UAI, you must manually assign any required roles to the endpoint id
 
 If the `enforce_access_to_default_secret_stores` flag was set for the endpoint, the user identity's permission to read secrets from workspace connections will be checked both at endpoint creation and deployment creation time. If the user identity doesn't have the permission, the creation will fail.
 
-At deployment creation time, if any environment variable is mapped to a value that follows the afore-mentioned patterns, secret retrieval and injection will be performed with the endpoint identity (either an SAI or a UAI). If the endpoint identity does not have the permission to read secrets from designated secret stores (either workspace connections or key vaults), the creation will fail. Also, if the specified secret reference doesn't exist in the secret stores, the creation will fail.
+At deployment creation time, if any environment variable is mapped to a value that follows the patterns in the previous table, secret retrieval and injection will be performed with the endpoint identity (either an SAI or a UAI). If the endpoint identity does not have the permission to read secrets from designated secret stores (either workspace connections or key vaults), the creation will fail. Also, if the specified secret reference doesn't exist in the secret stores, the creation will fail.
 
 
 ## Related content
