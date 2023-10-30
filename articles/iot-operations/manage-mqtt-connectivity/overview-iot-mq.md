@@ -12,7 +12,7 @@ ms.date: 10/30/2023
 
 # Publish and subscribe MQTT messages using Azure IoT MQ
 
-Azure IoT MQ is a distributed MQTT broker that provides the messaging pipeline for Azure IoT Operations. It's a set of Kubernetes services that aggregates data from on-premises assets, provides highly available edge compute, and enables bi-directional data flow with a variety of services in the cloud.
+Azure IoT MQ is a distributed MQTT broker that provides the messaging pipeline for Azure IoT Operations. It's a set of Kubernetes services that aggregates data from on-premises assets, provides highly available edge compute, and enables bi-directional data flow with various services in the cloud.
 
 ## Messaging layer
 
@@ -54,13 +54,13 @@ Azure Arc supports deploying native Kubernetes resources via an open-source tech
 
 ## Cloud connectors
 
-You may have different messaging requirements for your cloud scenario. For example, IoT Hub supports three different protocols and provides SDKs that work with extremely constrained devices. Alternately, Event Hubs provides a simpler messaging solution at a lower cost. You may use Kafka as a solution because you want portability between cloud providers. There isn't one cloud messaging platform today.
+You might have different messaging requirements for your cloud scenario. For example, IoT Hub supports three different protocols and provides SDKs that work with constrained devices. Alternately, Event Hubs provides a simpler messaging solution at a lower cost. You might use Kafka as a solution because you want portability between cloud providers. There isn't one cloud messaging platform today.
 
 To provide flexibility, Azure IoT MQ provides Azure Connectors to Event Hubs, IoT Hub, and the Azure IoT MQ component. IoT MQ is extensible so that you can choose your preferred cloud messaging solution that works with your solution.
 
 ## Offline operation
 
-You may operate edge computing in remote locations. For example, you may operate an ocean-going vessel, offshore oil rigs, and even satellites using Azure Space SDK. Cloud connectivity at these locations is unreliable, intermittent, and expensive. You must rely on your edge computing infrastructure to reliably act on real-time data. For example, recognizing a crack in a pipe from an aerial view or predicting equipment failure before it happens.
+You might operate edge computing in remote locations. For example, you might operate an ocean-going vessel, offshore oil rigs, and even satellites using Azure Space SDK. Cloud connectivity at these locations is unreliable, intermittent, and expensive. You must rely on your edge computing infrastructure to reliably act on real-time data. For example, recognizing a crack in a pipe from an aerial view or predicting equipment failure before it happens.
 
 Azure IoT has extended offline support provides store-and-forward capability to messages received from clients that are meant for the cloud. Also, it facilitates communication between clients and enforces access control without any cloud connectivity. It offers dashboards and a user interface simplified local operation like the [Kubernetes local UI](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/) and troubleshooting via industry-standard tools like [Prometheus and Grafana](https://www.rabbitmq.com/prometheus.html). Azure IoT MQ doesn't require connection to the internet if you choose.
 
@@ -78,7 +78,7 @@ Azure IoT MQ provides an extensible interface for custom authentication for down
 
 ## Secure by default
 
-Azure IoT MQ offers a centralized method for authorization using role and attribute-based access control (RBAC/ABAC). You can define policies like *allow all devices on floor 2 to publish to the temperature topic* and avoid additional management since the evaluation is dynamic. You can sync these policies with Azure RBAC/ABAC.
+Azure IoT MQ offers a centralized method for authorization using role and attribute-based access control (RBAC/ABAC). You can define policies like *allow all devices on floor 2 to publish to the temperature topic* and avoid extra management since the evaluation is dynamic. You can sync these policies with Azure RBAC/ABAC.
 
 ## Architecture
 
