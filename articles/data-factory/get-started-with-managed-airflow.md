@@ -8,24 +8,20 @@ author: nabhishek
 ms.author: abnarain
 ms.date: 10/20/2023
 ---
+# How does Azure Managed Airflow work? 
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 > [!NOTE]
 > Managed Airflow for Azure Data Factory relies on the open source Apache Airflow application. Documentation and more tutorials for Airflow can be found on the Apache Airflow [Documentation](https://airflow.apache.org/docs/) or [Community](https://airflow.apache.org/community/) pages.
 
-
-# How does Azure Data Factory Managed Airflow work? 
-
 Managed Airflow in Azure Data Factory uses Python-based Directed Acyclic Graphs (DAGs) to run your orchestration workflows. 
-To use this feature, you need to provide your DAGs and plugins in Azure Blob Storage. You can launch the Airflow UI from ADF using a command line interface (CLI) or a software development kit (SDK) to manage your DAGs.
+To use this feature, you need to provide your DAGs and plugins in Azure Blob Storage or via Github repository. You can launch the Airflow UI from ADF using a command line interface (CLI) or a software development kit (SDK) to manage your DAGs.
 
-# How does Apache Airflow work?
-
-## 1. Create a Managed Airflow environment. 
+## Create a Managed Airflow environment. 
 Refer to: [Create a Managed Airflow environment](create-managed-airflow-environment.md)
 
-## 2. Import DAGs
+## Import DAGs
 Managed Airflow provides two distinct methods for loading DAGs from python source files into Airflow's environment. These methods are listed below:
 
 - **Git Sync:** This service allows you to synchronize your GitHub repository with Managed Airflow, enabling you to import DAGs directly from your GitHub repository. Refer to: [Sync a Github repository in Managed Airflow](airflow-sync-github-repository.md)
