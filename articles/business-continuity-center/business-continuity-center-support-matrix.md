@@ -19,7 +19,8 @@ You can use [Azure Business Continuity center](business-continuity-center-overvi
 
 Azure Business Continuity center currently supports the following region: West Central US.
 
-To manage Azure resources using Azure Business Continuity center in other regions, write to us [ABCRegionExpansion@microsoft.com](mailto:ABCRegionExpansion@microsoft.com).
+>[!Note]
+>To manage Azure resources using Azure Business Continuity center in other regions, write to us [ABCRegionExpansion@microsoft.com](mailto:ABCRegionExpansion@microsoft.com).
 
 ## Supported solutions and datasources
 
