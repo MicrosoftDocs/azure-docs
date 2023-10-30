@@ -197,7 +197,7 @@ After custom metrics are submitted to Azure Monitor, you can browse through them
 1. Select the metrics namespace for your custom metric.
 1. Select the custom metric.
 
-For more information on viewing metrics in the Azure portal, see [Getting started with Azure Metrics Explorer](./metrics-getting-started.md).
+For more information on viewing metrics in the Azure portal, see [Analyze metrics with Azure Monitor metrics explorer](./analyze-metrics.md).
 
 ## Supported regions
 

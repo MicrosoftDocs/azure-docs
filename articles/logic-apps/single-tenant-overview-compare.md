@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 08/30/2023
+ms.date: 10/30/2023
 ms.custom: ignite-fall-2021
 ---
 
@@ -289,6 +289,8 @@ For the **Standard** logic app workflow, these capabilities have changed, or the
     * The Gmail connector currently isn't supported.
   
     * [Custom managed connectors](../connectors/introduction.md#custom-connectors-and-apis) currently aren't currently supported. However, you can create *custom built-in operations* when you use Visual Studio Code. For more information, review [Create single-tenant based workflows using Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#enable-built-in-connector-authoring).
+
+    * A Standard logic app workflow can have only one trigger and doesn't support multiple triggers.
 
 * **Authentication**: The following authentication types are currently unavailable for **Standard** workflows:
 
