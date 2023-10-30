@@ -64,7 +64,7 @@ To ensure you can see the **Manage access** option in your Microsoft Fabric work
 
 1. Select **Workspaces** in the left navigation bar, then select **New Workspace**:
 
-    :::image type="content" source="media/create-fabric-workspace.png" alt-text="Screenshot that shows how to create a new Microsoft Fabric workspace.":::
+    :::image type="content" source="media/quickstart-process-telemetry/create-fabric-workspace.png" alt-text="Screenshot that shows how to create a new Microsoft Fabric workspace.":::
 
 1. Enter a name for your workspace such as _Your name AIO workspace_ and select **Apply**.
 
@@ -72,11 +72,11 @@ To grant the service principal access to your workspace:
 
 1. Navigate to your Microsoft Fabric workspace and select **Manage access**:
 
-    :::image type="content" source="media/workspace-manage-access.png" alt-text="Screenshot that shows how to access the Manage access option in a workspace.":::
+    :::image type="content" source="media/quickstart-process-telemetry/workspace-manage-access.png" alt-text="Screenshot that shows how to access the Manage access option in a workspace.":::
 
 1. Select **Add people or groups**, then paste the display name of the service principal from the previous step and grant at least **Contributor** access to it.
 
-    :::image type="content" source="media/workspace-add-service-principal.png" alt-text="Screenshot that shows how to add a service principal to a workspace and add it to the contributor role.":::
+    :::image type="content" source="media/quickstart-process-telemetry/workspace-add-service-principal.png" alt-text="Screenshot that shows how to add a service principal to a workspace and add it to the contributor role.":::
 
 1. Select **Add** to grant the service principal contributor permissions in the workspace.
 
@@ -86,7 +86,7 @@ Create a lakehouse in your Microsoft Fabric workspace:
 
 1. Navigate to **Data Engineering** and then select **Lakehouse (Preview)**:
 
-    :::image type="content" source="media/create-lakehouse.png" alt-text="Screenshot that shows how to create a lakehouse.":::
+    :::image type="content" source="media/quickstart-process-telemetry/create-lakehouse.png" alt-text="Screenshot that shows how to create a lakehouse.":::
 
 1. Enter a name for your lakehouse such as _yourname_pipeline_destination_ and select **Create**.
 
@@ -102,7 +102,7 @@ To verify data is flowing from your assets by using the **mqttui** tool:
 
 1. Verify that the thermostat asset you added in the previous quickstart is publishing data. You can find the telemetry in the `alice-springs-solution/data` topic.
 
-    :::image type="content" source="media/mqttui-output.png" alt-text="Screenshot of the mqttui topic display showing the temperature telemetry.":::
+    :::image type="content" source="media/quickstart-process-telemetry/mqttui-output.png" alt-text="Screenshot of the mqttui topic display showing the temperature telemetry.":::
 
 The sample tags you added in the previous quickstart generate messages from your asset that look like the following samples:
 
@@ -219,7 +219,7 @@ In the following steps, leave all values at their default unless otherwise speci
 
 1. Select the middle stage, and delete it. Then, use the cursor to connect the input stage to the output stage. The result looks like the following screenshot:
 
-    :::image type="content" source="media/reference-data-pipeline.png" alt-text="Screenshot that shows the reference data pipeline.":::
+    :::image type="content" source="media/quickstart-process-telemetry/reference-data-pipeline.png" alt-text="Screenshot that shows the reference data pipeline.":::
 
 1. Select **Save** to save the pipeline.
 
@@ -378,7 +378,7 @@ Create a Data Processor pipeline to process and enrich your data before it sends
 
 1. After a short time, the data from your pipeline begins to populate the table in your lakehouse.
 
-:::image type="content" source="media/lakehouse-preview.png" alt-text="Screenshot that shows data from the pipeline appearing in the lakehouse table.":::
+:::image type="content" source="media/quickstart-process-telemetry/lakehouse-preview.png" alt-text="Screenshot that shows data from the pipeline appearing in the lakehouse table.":::
 
 ## How did we solve the problem?
 
