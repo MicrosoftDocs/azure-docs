@@ -2,7 +2,7 @@
 title: Switch to the new preview version
 description: Learn to switch to the new preview version and use its capabilities
 ms.topic: how-to 
-ms.date: 08/22/2023
+ms.date: 10/30/2023
 ms.service: azure-arc
 ms.subservice: azure-arc-vmware-vsphere
 author: Farha-Bano
@@ -40,6 +40,9 @@ If you're an existing **Azure Arc-enabled VMware** customer, for VMs that are Az
 5. Once the resources are re-enabled, the VMs are auto switched to the new preview version. The VM resources will now be represented as **Machine - Azure Arc (VMware)**.
 
     :::image type=" New VM browse view" source="media/switch-to-new-preview-version/new-vm-browse-view-inline.png" alt-text="Screenshot of New VM browse view." lightbox="media/switch-to-new-preview-version/new-vm-browse-view-expanded.png":::
+
+>[!NOTE]
+>Moving VMware vCenter resources between Resource Groups and Subscriptions is currently not supported.
  
 ## Next steps
 
