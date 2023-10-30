@@ -28,7 +28,7 @@ An upload indicators API call has five components:
 
 ## Register your client application with Microsoft Entra ID
 
-In order to authenticate to Microsoft Sentinel, the request to the upload indicators API requires a valid Microsoft Entra access token. For more information on application registration, see [Register an application with the Microsoft identity platform](/entra/identity-platform/quickstart-register-app.md) or see the basic steps as part of the [upload indicators API data connector](connect-threat-intelligence-upload-api.md#register-an-azure-ad-application) setup.
+In order to authenticate to Microsoft Sentinel, the request to the upload indicators API requires a valid Microsoft Entra access token. For more information on application registration, see [Register an application with the Microsoft identity platform](/entra/identity-platform/quickstart-register-app) or see the basic steps as part of the [upload indicators API data connector](connect-threat-intelligence-upload-api.md#register-an-azure-ad-application) setup.
 
 ## Permissions
 
@@ -40,11 +40,11 @@ This section covers the first three of the five components discussed earlier. Yo
 
 ### Acquire an access token
 
-Acquire a Microsoft Entra access token with [OAuth 2.0 authentication](../active-directory/fundamentals/auth-oauth2.md). [V1.0 and V2.0](/entra/identity-platform/access-tokens.md#token-formats) are valid tokens accepted by the API.
+Acquire a Microsoft Entra access token with [OAuth 2.0 authentication](../active-directory/fundamentals/auth-oauth2.md). [V1.0 and V2.0](/entra/identity-platform/access-tokens#token-formats) are valid tokens accepted by the API.
 
 The version of the token (v1.0 or v2.0) that your application receives is determined by the `accessTokenAcceptedVersion` property in the [app manifest](/entra/identity-platform/reference-app-manifest#manifest-reference) of the API that your application is calling. If `accessTokenAcceptedVersion` is set to 1, then your application will receive a v1.0 token.
 
-Use Microsoft Authentication Library [MSAL](/entra/identity-platform/msal-overview.md) to acquire either a v1.0 or v2.0 access token.  Or, send requests to the REST API in the following format:
+Use Microsoft Authentication Library [MSAL](/entra/identity-platform/msal-overview) to acquire either a v1.0 or v2.0 access token.  Or, send requests to the REST API in the following format:
 - POST `https://login.microsoftonline.com/{{tenantId}}/oauth2/v2.0/token`
 - Headers for using Microsoft Entra App:
 - grant_type: "client_credentials"

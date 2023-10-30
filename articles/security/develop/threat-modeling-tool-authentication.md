@@ -347,7 +347,7 @@ The `<netMsmqBinding/>` element of the WCF configuration file below instructs WC
 | **SDL Phase**               | Build |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [Authentication Scenarios for Microsoft Entra ID](/entra/identity-platform/authentication-vs-authorization.md), [Microsoft Entra code Samples](/entra/identity-platform/sample-v2-code), [Microsoft Entra developer's guide](/entra/identity-platform/index.yml) |
+| **References**              | [Authentication Scenarios for Microsoft Entra ID](/entra/identity-platform/authentication-vs-authorization), [Microsoft Entra code Samples](/entra/identity-platform/sample-v2-code), [Microsoft Entra developer's guide](/entra/identity-platform/index) |
 | **Steps** | <p>Microsoft Entra ID simplifies authentication for developers by providing identity as a service, with support for industry-standard protocols such as OAuth 2.0 and OpenID Connect. Below are the five primary application scenarios supported by Microsoft Entra ID:</p><ul><li>Web Browser to Web Application: A user needs to sign in to a web application that is secured by Microsoft Entra ID</li><li>Single Page Application (SPA): A user needs to sign in to a single page application that is secured by Microsoft Entra ID</li><li>Native Application to Web API: A native application that runs on a phone, tablet, or PC needs to authenticate a user to get resources from a web API that is secured by Microsoft Entra ID</li><li>Web Application to Web API: A web application needs to get resources from a web API secured by Microsoft Entra ID</li><li>Daemon or Server Application to Web API: A daemon application or a server application with no web user interface needs to get resources from a web API secured by Microsoft Entra ID</li></ul><p>Please refer to the links in the references section for low-level implementation details</p>|
 
 ## <a id="msal-distributed-cache"></a>Override the default MSAL token cache with a distributed cache
@@ -358,7 +358,7 @@ The `<netMsmqBinding/>` element of the WCF configuration file below instructs WC
 | **SDL Phase**               | Build |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [Token cache serialization in MSAL.NET](/entra/identity-platform/msal-net-token-cache-serialization.md)  |
+| **References**              | [Token cache serialization in MSAL.NET](/entra/msal/dotnet/how-to/token-cache-serialization)  |
 | **Steps** | <p>The default cache that MSAL (Microsoft Authentication Library) uses is an in-memory cache, and is scalable. However there are different options available that you can use as an alternative, such as a distributed token cache. These have L1/L2 mechanisms, where L1 is in memory and L2 is the distributed cache implementation. These can be accordingly configured to limit L1 memory, encrypt or set eviction policies. Other alternatives include Redis, SQL Server or Azure Comsos DB caches. An implementation of a distributed token cache can be found in the following [Tutorial: Get started with ASP.NET Core MVC](/aspnet/core/tutorials/first-mvc-app/start-mvc).</p>|
 
 ## <a id="tokenreplaycache-msal"></a>Ensure that TokenReplayCache is used to prevent the replay of MSAL authentication tokens
@@ -430,7 +430,7 @@ Please note that to test the effectiveness of this configuration, sign in into y
 | **SDL Phase**               | Build |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [MSAL](/entra/identity-platform/msal-overview.md) |
+| **References**              | [MSAL](/entra/identity-platform/msal-overview) |
 | **Steps** | <p>The Microsoft Authentication Library (MSAL) enables developers to acquire security tokens from the Microsoft identity platform to authenticate users and access secured web APIs. It can be used to provide secure access to Microsoft Graph, other Microsoft APIs, third-party web APIs, or your own web API. MSAL supports many different application architectures and platforms including .NET, JavaScript, Java, Python, Android, and iOS. 
 
 MSAL gives you many ways to get tokens, with a consistent API for many platforms. There is no need to directly use the OAuth libraries or code against the protocol in your application, and can acquire tokens on behalf of a user or application (when applicable to the platform). 
