@@ -5,7 +5,7 @@ description: Configure TLS with manual certificate management to secure MQTT com
 author: PatAltimore
 ms.author: patricka
 ms.topic: how-to
-ms.date: 10/16/2023
+ms.date: 10/29/2023
 
 #CustomerIntent: As an operator, I want to configure IoT MQ to use TLS so that I have secure communication between the MQTT broker and client.
 ---
@@ -16,7 +16,7 @@ ms.date: 10/16/2023
 
 You can configure TLS to secure MQTT communication between the MQTT broker and client using a [BrokerListener resource](concept-brokerlistener.md). You can configure TLS with manual or automatic certificate management. 
 
-To manually configure Azure IoT MQ to use a specific TLS certificate, specify it in a Broker Listener resource with a reference to a Kubernetes secret. Then deploy it using kubectl. This guide shows an example to set this up with self-signed certificates for testing.
+To manually configure Azure IoT MQ to use a specific TLS certificate, specify it in a Broker Listener resource with a reference to a Kubernetes secret. Then deploy it using kubectl. This article shows an example to configure TLS with self-signed certificates for testing.
 
 ## Create certificate authority with Step CLI
 
@@ -33,15 +33,15 @@ Follow the prompts to finish setup. Use a memorable password (For example, "mqtt
 Use Step CLI to create a server certificate from the signed by the private CA.
 
 ```bash
-step certificate create azedge-dmqtt-frontend azedge-dmqtt-frontend.crt azedge-dmqtt-frontend.key \
+step certificate create aio-mq-dmqtt-frontend aio-mq-dmqtt-frontend.crt aio-mq-dmqtt-frontend.key \
 --profile leaf --ca ~/.step/certs/intermediate_ca.crt \
 --ca-key ~/.step/secrets/intermediate_ca_key \
---san azedge-dmqtt-frontend \
+--san aio-mq-dmqtt-frontend \
 --san localhost \
 --not-after 2400h --no-password --insecure
 ```
 
-Here, `azedge-dmqtt-frontend` and `localhost` are the Subject Alternative Names (SANs) for Azure IoT MQ's broker frontend in Kubernetes and local clients, respectively. To connect over the internet, add a `--san` with [an external IP](#use-external-ip-for-the-server-certificate).
+Here, `aio-mq-dmqtt-frontend` and `localhost` are the Subject Alternative Names (SANs) for Azure IoT MQ's broker frontend in Kubernetes and local clients, respectively. To connect over the internet, add a `--san` with [an external IP](#use-external-ip-for-the-server-certificate).
 
 ### Certificate key algorithm requirements
 
@@ -53,8 +53,8 @@ Create a Kubernetes secret with the certificate and key using kubectl.
 
 ```bash
 kubectl create secret tls my-secret \
---cert azedge-dmqtt-frontend.crt \
---key azedge-dmqtt-frontend.key
+--cert aio-mq-frontend.crt \
+--key aio-mq-frontend.key
 ```
 
 ## Enable TLS for a listener
@@ -62,7 +62,7 @@ kubectl create secret tls my-secret \
 Modify the `tls` setting in a BrokerListener resource to specify manual TLS configuration referencing the Kubernetes secret. Note the name of the secret used for the TLS server certificate (`my-secret` in the example previously).
 
 ```yaml
-apiVersion: az-edge.com/v1alpha3
+apiVersion: mq.iotoperations.azure.com/v1beta1
 kind: BrokerListener
 metadata:
   name: "tls-listener-manual"
@@ -74,10 +74,10 @@ spec:
   tls:
     manual:
       secret: "my-secret"
-      namespace: default # optional
+      secretNamespace: default # optional
 ```
 
-To apply the change to an already running broker, the frontends need to be restarted. This is a temporary workaround until full update support is implemented in future release.
+To apply the change to an already running broker, the frontends need to be restarted.
 
 ```bash
 kubectl delete pods -l tier=frontend
@@ -105,14 +105,14 @@ Remember to specify username, password, etc. if authentication is enabled
 
 ### Use external IP for the server certificate
 
-To connect with TLS over the internet, Azure IoT MQ's server certificate must have its external hostname as a SAN. In production, this is usually a DNS name or a well-known IP address. However, during dev/test, you might not know what hostname or external IP is assigned before deployment. There are two ways to solve this.
+To connect with TLS over the internet, Azure IoT MQ's server certificate must have its external hostname as a SAN. In production, this is usually a DNS name or a well-known IP address. However, during dev/test, you might not know what hostname or external IP is assigned before deployment. Choose one of the following two options to solve.
 
 ### Option 1: Deploy a non-TLS listener first
 
 Deploy Azure IoT MQ with a non-TLS listener first.
 
 ```yml
-apiVersion: az-edge.com/v1alpha3
+apiVersion: mq.iotoperations.azure.com/v1beta1
 kind: BrokerListener
 metadata:
   name: "non-tls-listener"
@@ -130,7 +130,7 @@ After deployment completes, use kubectl to get the `EXTERNAL-IP`.
 $ kubectl get svc
 NAME                          TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)             AGE
 ...
-azedge-dmqtt-frontend         LoadBalancer   10.43.58.212    172.18.0.2    1883:30520/TCP       17s
+aio-mq-frontend         LoadBalancer   10.43.58.212    172.18.0.2    1883:30520/TCP       17s
 ...
 ```
 
@@ -147,7 +147,7 @@ azedge-e4k-operator-655cdfc47d-2wmsl   1/1     Running   0          28s
 azedge-dmqtt-health-manager-0          1/1     Running   0          11s
 ```
 
-However, this is expected and it's okay to leave it like this while we import the server certificate.
+However, this behavior is expected and it's okay to leave it like this while we import the server certificate.
 
 The health manager logs mention Azure IoT MQ is waiting for the server certificate.
 
