@@ -41,7 +41,8 @@ First, set all of the variables that each individual script uses.
 
 ```azurecli-interactive
 $resourceGroup = "<resource-group-name>"
-$accountName = "<cosmos-account-name>"
+$srcAccount = "<cosmos-source-account-name>"
+$destAccount = "<cosmos-destination-account-name>"
 $jobName = ""
 $sourceDatabase = ""
 $sourceContainer = ""
@@ -104,7 +105,7 @@ View the progress and status of a copy job:
 ```azurecli-interactive
 az cosmosdb copy show `
     --resource-group $resourceGroup `
-    --account-name $accountName `
+    --account-name $destAccount `
     --job-name $jobName
 ```
 
@@ -115,7 +116,7 @@ To list all the container copy jobs created in an account:
 ```azurecli-interactive
 az cosmosdb copy list `
     --resource-group $resourceGroup `
-    --account-name $accountName
+    --account-name $destAccount
 ```
 
 ## Pause a container copy job
@@ -125,7 +126,7 @@ In order to pause an ongoing container copy job, you can use the command:
 ```azurecli-interactive
 az cosmosdb copy pause `
     --resource-group $resourceGroup `
-    --account-name $accountName `
+    --account-name $destAccount `
     --job-name $jobName
 ```
 
@@ -136,7 +137,7 @@ In order to resume an ongoing container copy job, you can use the command:
 ```azurecli-interactive
 az cosmosdb copy resume `
     --resource-group $resourceGroup `
-    --account-name $accountName `
+    --account-name $destAccount `
     --job-name $jobName
 ```
 
@@ -147,7 +148,7 @@ In order to cancel an ongoing container copy job, you can use the command:
 ```azurecli-interactive
 az cosmosdb copy cancel `
     --resource-group $resourceGroup `
-    --account-name $accountName `
+    --account-name $destAccount `
     --job-name $jobName
 ```
 

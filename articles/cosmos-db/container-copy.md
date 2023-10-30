@@ -33,13 +33,13 @@ Container copy jobs can be [created and managed by using Azure CLI commands](how
 
 To get started, register for the relevant preview feature in the Azure portal.
 
-## Copy data across Azure Cosmos DB accounts
+## Container copy across Azure Cosmos DB accounts
 
 ### NoSQL API
 
 To get started with cross-account offline container copy for Azure Cosmos DB for NoSQL API accounts, register for the **Cross-account offline container copy (NoSQL)** preview feature flag in [Preview Features](access-previews.md) in the Azure portal. Once the registration is complete, the preview is effective for all NoSQL API accounts in the subscription.
 
-## Copy data within an Azure Cosmos DB account
+## Container copy within an Azure Cosmos DB account
 
 ### NoSQL and Cassandra API
 
