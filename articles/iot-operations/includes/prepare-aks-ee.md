@@ -117,14 +117,14 @@ After you've deployed Azure IoT Operations to your cluster, enable inbound conne
     New-NetFirewallRule -DisplayName "Azure IoT MQ" -Direction Inbound -Protocol TCP -LocalPort 8883 -Action Allow
     ```
 
-1. Run the following command and make a note of the IP address for the service called `azedge-dmqtt-frontend`:
+1. Run the following command and make a note of the IP address for the service called `aio-mq-dmqtt-frontend`:
 
     ```cmd
-    kubectl get svc azedge-dmqtt-frontend -n azure-iot-operations -o jsonpath='{.status.loadBalancer.ingress[0].ip}'
+    kubectl get svc aio-mq-dmqtt-frontend -n azure-iot-operations -o jsonpath='{.status.loadBalancer.ingress[0].ip}'
     ```
 
-1. Enable port forwarding for port 8883. Replace `<azedge-dmqtt-frontend IP address>` with the IP address you noted in the previous step:
+1. Enable port forwarding for port 8883. Replace `<aio-mq-dmqtt-frontend IP address>` with the IP address you noted in the previous step:
 
     ```cmd
-    netsh interface portproxy add v4tov4 listenport=8883 listenaddress=0.0.0.0 connectport=8883 connectaddress=<azedge-dmqtt-frontend IP address>
+    netsh interface portproxy add v4tov4 listenport=8883 listenaddress=0.0.0.0 connectport=8883 connectaddress=<aio-mq-dmqtt-frontend IP address>
     ```
