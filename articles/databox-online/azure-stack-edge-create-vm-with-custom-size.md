@@ -23,7 +23,7 @@ Use the following steps to get custom VM sizes for Azure Stack Edge.
 
 1. Connect to the PowerShell interface of your Azure Stack Edge device. For detailed steps, see [Connect to the PowerShell interface](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface).
 
-1. Run the following command to see available VM sizes on your device, including the custom sizes:
+1. Run the following command to see available VM sizes on your device, including custom sizes:
 
    ```azurepowershell
    Get-AzVmSize -Location dbelocal 
