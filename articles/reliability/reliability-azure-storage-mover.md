@@ -85,9 +85,9 @@ Azure initiated disaster recovery is only applicable to those [regions that have
 Azure Storage Mover uses Cosmos DB for storing instance metadata. Data loss may occur only with an unrecoverable disaster in the Azure Cosmos DB . For more information, see [Region outages](/azure/cosmos-db/high-availability). Azure initiated recovery is active-passive, and full recovery of a region may be up to 24 hours.
 
 
-### Customer enabled disaster recovery
+### Customer initiated disaster recovery
 
-Customer enabled disaster recovery isn't restricted to paired regions. 
+Customer initiated disaster recovery isn't restricted to paired regions. 
 
 **Before a regional outage occurs:** 
 
