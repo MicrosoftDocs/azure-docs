@@ -1,20 +1,20 @@
 ---
-title: Use Elasticsearch along with HDInsight on AKS - Apache Flink
-description: Learn how to use Elasticsearch along HDInsight on AKS - Apache Flink
+title: Use Elasticsearch along with Apache Flink® on HDInsight on AKS
+description: Learn how to use Elasticsearch along Apache Flink® on HDInsight on AKS
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/29/2023
+ms.date: 10/27/2023
 ---
 
-# Using Elasticsearch with HDInsight on AKS - Apache Flink
+# Using Elasticsearch with Apache Flink® on HDInsight on AKS
 
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
-Flink for real-time analytics can be used to build a dashboard application that visualizes the streaming data using Elasticsearch and Kibana. 
+Apache Flink for real-time analytics can be used to build a dashboard application that visualizes the streaming data using Elasticsearch and Kibana. 
 
 Flink can be used to analyze a stream of taxi ride events and compute metrics. Metrics can include number of rides per hour, the average fare per ride, or the most popular pickup locations. You can write these metrics to an Elasticsearch index using a Flink sink and use Kibana to connect and create charts or dashboards to display metrics in real-time.
 
-In this article, learn how to Use Elastic along HDInsight Flink.
+In this article, learn how to Use Elastic along Apache Flink® on HDInsight on AKS.
 
 ## Elasticsearch and Kibana
 
@@ -34,7 +34,7 @@ For more information, refer
 
 ## Prerequisites
 
-* [HDInsight on AKS Flink 1.16.0](./flink-create-cluster-portal.md) 
+* [Create Flink 1.16.0 cluster](./flink-create-cluster-portal.md) 
 * Elasticsearch-7.13.2 
 * Kibana-7.13.2 
 * [HDInsight 5.0 - Kafka 2.4.1](../../hdinsight/kafka/apache-kafka-get-started.md)
@@ -336,3 +336,4 @@ You can find the job in running state on your Flink Web UI
 ## Reference
 * [Apache Kafka SQL Connector](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/connectors/table/kafka)
 * [Elasticsearch SQL Connector](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/connectors/table/elasticsearch)
+* Apache, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).
