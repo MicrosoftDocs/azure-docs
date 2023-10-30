@@ -183,7 +183,7 @@ In promptflow `flow.dag.yaml`, you can also specify define `requirements.txt`, w
 
 ### Add packages in private pypi repository - optional
 
-Using the following command to download your packages to local: `pip wheel <package_name> --index-url=<private pypi> --wheel-dir <local path to save packages>`
+Use the following command to download your packages to local: `pip wheel <package_name> --index-url=<private pypi> --wheel-dir <local path to save packages>`
 
 ### Create a python tool to install `requirements.txt` to runtime
 
