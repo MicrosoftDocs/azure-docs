@@ -24,7 +24,9 @@
   - name: Expand a persistent volume
     href: resize-volume.md
   - name: Clone a persistent volume
-    href: clone-volume.md       
+    href: clone-volume.md
+  - name: Enable multi-zone storage redundancy
+    href: enable-multi-zone-redundancy.md
   - name: Remove Azure Container Storage
     href: remove-container-storage.md
 - name: Concepts

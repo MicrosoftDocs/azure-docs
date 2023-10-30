@@ -4,7 +4,7 @@ description: Enable storage redundancy across multiple availability zones in Azu
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: how-to
-ms.date: 10/27/2023
+ms.date: 10/30/2023
 ms.author: kendownie
 ---
 
