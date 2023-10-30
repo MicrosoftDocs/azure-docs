@@ -24,7 +24,7 @@ Required: Use an H1 that includes the feature name and the product or service na
 
 -->
 
-# Develop customizations in Azure IoT Operations – enabled by Azure Arc Preview
+# Develop customizations in Azure IoT Operations
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 

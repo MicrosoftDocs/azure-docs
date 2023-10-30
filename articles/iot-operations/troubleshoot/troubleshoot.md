@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Azure IoT Operations – enabled by Azure Arc Preview
+title: Troubleshoot Azure IoT Operations
 description: Troubleshoot your Azure IoT Operations deployment
 author: kgremban
 ms.author: kgremban
@@ -11,7 +11,7 @@ ms.date: 09/20/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-This article contains troubleshooting tips for Azure IoT Operations – enabled by Azure Arc.
+This article contains troubleshooting tips for Azure IoT Operations Preview.
 
 ## Data Processor pipeline deployment status is failed
 

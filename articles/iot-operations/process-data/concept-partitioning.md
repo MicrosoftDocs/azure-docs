@@ -14,7 +14,7 @@ ms.date: 09/28/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-In a Data Processor Preview pipeline, partitioning divides incoming data into separate partitions to enable data parallelism. Data parallelism improves throughput and reduces latency. Partitioning also affects how pipeline stages, such as the last known value (LKV) and aggregate stages, process data.
+In an Azure IoT Data Processor (preview) pipeline, partitioning divides incoming data into separate partitions to enable data parallelism. Data parallelism improves throughput and reduces latency. Partitioning also affects how pipeline stages, such as the last known value (LKV) and aggregate stages, process data.
 
 <!-- TODO: Add links to pipeline stages in previous paragraph -->
 
@@ -50,7 +50,7 @@ Partitioning configuration includes:
 | Type | The type of logical partitioning to be used: Partition `id` or Partition `key`. | Yes | `key` | `key` |
 | Expression | The jq expression to execute against the incoming message to compute Partition `id` or Partition `key`. | Yes | N/A | `.topic` |
 
-You provide a [jq expression](concept-jq-expression.md) that applies to the entire message that arrives in the data processor pipeline to generate the partition key or partition ID. The output of this query mustn't exceed 128 characters.
+You provide a [jq expression](concept-jq-expression.md) that applies to the entire message that arrives in the Data Processor pipeline to generate the partition key or partition ID. The output of this query mustn't exceed 128 characters.
 
 ## Partitioning types
 
@@ -86,6 +86,6 @@ When you're choosing a partitioning strategy for your pipeline:
 
 ## Related content
 
-- [Data processor messages](concept-message-structure.md)
+- [Data Processor messages](concept-message-structure.md)
 - [Supported formats](concept-supported-formats.md)
 - [What are configuration patterns?](concept-configuration-patterns.md)

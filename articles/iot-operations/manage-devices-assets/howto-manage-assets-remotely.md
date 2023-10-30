@@ -13,7 +13,7 @@ ms.date: 10/24/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-An _asset_ in Azure IoT Operations is a logical entity that you create to represent a real asset. An Azure IoT Operations asset can have properties, tags, and events that describe its behavior and characteristics.
+An _asset_ in Azure IoT Operations Preview is a logical entity that you create to represent a real asset. An Azure IoT Operations asset can have properties, tags, and events that describe its behavior and characteristics.
 
 _OPC UA servers_ are software applications that communicate with assets. OPC UA servers expose _OPC UA tags_ that represent data points. OPC UA tags provide real-time or historical data about the status, performance, quality, or condition of assets.
 
@@ -28,7 +28,7 @@ These assets, tags, and events map inbound data from OPC UA servers to friendly 
 
 ## Prerequisites
 
-To configure an assets endpoint, you need a running instance of Azure IoT Operations Preview.
+To configure an assets endpoint, you need a running instance of Azure IoT Operations.
 
 ## Sign in to the Azure IoT Operations portal
 

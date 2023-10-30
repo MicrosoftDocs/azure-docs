@@ -20,7 +20,7 @@ You can join the pipeline's data to a reference dataset's data by using common t
 
 ## Prerequisites
 
-To configure and use an enrich pipeline stage, you need a deployed instance of Data Processor Preview.
+To configure and use an enrich pipeline stage, you need a deployed instance of Azure IoT Data Processor (preview).
 
 ## Configure the stage
 

@@ -20,7 +20,7 @@ The portal also lets you import and export complete pipelines as JSON files.
 
 ## Prerequisites
 
-To configure and use an aggregate pipeline stage, you need a deployed instance of Data Processor Preview.
+To configure and use an aggregate pipeline stage, you need a deployed instance of Azure IoT Data Processor (preview).
 
 ## Edit the JSON definition of a stage
 
