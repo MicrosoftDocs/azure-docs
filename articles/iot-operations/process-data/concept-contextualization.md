@@ -28,13 +28,13 @@ Contextualized data provides a more comprehensive picture of the operations, hel
 
 ## Message enrichment
 
-A Data Processor Preview pipeline contextualizes data by enriching the messages that flow through the pipeline with previously stored reference data. Contextualization uses the built-in [reference data store](howto-configure-reference.md). You can break the process of using the reference data store within a pipeline into three steps:
+An Azure IoT Data Processor (preview) pipeline contextualizes data by enriching the messages that flow through the pipeline with previously stored reference data. Contextualization uses the built-in [reference data store](howto-configure-reference.md). You can break the process of using the reference data store within a pipeline into three steps:
 
 1. Create and configure a dataset. This step creates and configures your datasets within the [reference data store](howto-configure-reference.md). The configuration includes the keys to use for joins and the reference data expiration policies.
 
 1. Ingest your reference data. After you configure your datasets, the next step is to ingest data into the reference data store. Use the output stage of the reference data pipeline to feed data into your datasets.  
 
-1. Enrich your data. In an enrich stage, use the data stored in the reference data store to enrich the data passing through the data processor pipeline. This process enhances the value and relevance of the data, providing you with richer insights and improved data analysis capabilities.
+1. Enrich your data. In an enrich stage, use the data stored in the reference data store to enrich the data passing through the Data Processor pipeline. This process enhances the value and relevance of the data, providing you with richer insights and improved data analysis capabilities.
 
 ## Related content
 

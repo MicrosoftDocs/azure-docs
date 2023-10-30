@@ -14,13 +14,13 @@ ms.date: 10/09/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-Use the _Azure Data Explorer_ destination to write data to a table in Azure Data Explorer from a [Data Processor Preview pipeline](../process-data/overview-data-processor.md). The destination stage batches messages before it sends them to Azure Data Explorer.
+Use the _Azure Data Explorer_ destination to write data to a table in Azure Data Explorer from an [Azure IoT Data Processor (preview) pipeline](../process-data/overview-data-processor.md). The destination stage batches messages before it sends them to Azure Data Explorer.
 
 ## Prerequisites
 
 To configure and use an Azure Data Explorer destination pipeline stage, you need:
 
-- A deployed instance of Data Processor Preview.
+- A deployed instance of Data Processor.
 - An [Azure Data Explorer cluster](/azure/data-explorer/create-cluster-and-database?tabs=free#create-a-cluster).
 - A [database](/azure/data-explorer/create-cluster-and-database?tabs=free#create-a-database) in your Azure Data Explorer cluster.
 
@@ -36,7 +36,7 @@ To grant admin access to your Azure Data Explorer database, run the following co
 .add database <DatabaseName> admins (<ApplicationId>) <Notes>
 ```
 
-Data processor writes to Azure Data Explorer in batches. While you batch data in data processor before sending it, Azure Data Explorer has its own default [ingestion batching policy](/azure/data-explorer/kusto/management/batchingpolicy). Therefore, you might not see your data in Azure Data Explorer immediately after the data processor writes it to the Azure Data Explorer destination.
+Data Processor writes to Azure Data Explorer in batches. While you batch data in data processor before sending it, Azure Data Explorer has its own default [ingestion batching policy](/azure/data-explorer/kusto/management/batchingpolicy). Therefore, you might not see your data in Azure Data Explorer immediately after Data Processor writes it to the Azure Data Explorer destination.
 
 To view data in Azure Data Explorer as soon as the pipeline sends it, you can set the ingestion batching policy `Count` to 1. To edit the ingestion batching policy, run the following command in your database query tab:
 

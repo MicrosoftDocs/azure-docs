@@ -1,10 +1,10 @@
 ### YamlMime:Landing
 
-title: Azure IoT Operations – enabled by Azure Arc Preview # < 60 chars
+title: Azure IoT Operations Preview – enabled by Azure Arc # < 60 chars
 summary: A unified data plane for the edge # < 160 chars
 
 metadata:
-  title: Azure IoT Operations – enabled by Azure Arc Preview # Required; page title displayed in search results. Include the brand. < 60 chars.
+  title: Azure IoT Operations Preview – enabled by Azure Arc # Required; page title displayed in search results. Include the brand. < 60 chars.
   description: A unified data plane for the edge # Required; article description that is displayed in search results. < 160 chars.
   ms.topic: landing-page # Required
   author: dominicbetts
@@ -36,7 +36,7 @@ landingContent:
             url: manage-devices-assets/overview-manage-assets.md
           - text: Publish and subscribe with MQTT
             url: manage-mqtt-connectivity/overview-iot-mq.md
-          - text: Process messages
+          - text: Process data
             url: process-data/overview-data-processor.md
           - text: Connect to the cloud
             url: connect-to-cloud/overview-connect-to-cloud.md

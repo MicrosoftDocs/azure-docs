@@ -21,7 +21,7 @@ Several types of configuration, such as durations and paths, are common to multi
 Several pipeline stages use a path to identify a location in the [message](concept-message-structure.md) where data should be read from or written to. To define these locations, you use a `Path` field that uses jq syntax:
 
 - A path is defined as a string in the UI, and uses the [jq](concept-jq-path.md) syntax.
-- A path is defined relative to the root of the data processor message. The path `.` refers to the entire message.
+- A path is defined relative to the root of the Data Processor message. The path `.` refers to the entire message.
 - All paths start with `.`.
 - Each segment of path can be:
   - `.<identifier>` for an alphanumeric object key such as `.topic`.
@@ -102,7 +102,7 @@ Duration is a string value with the following format `<number><char><number><cha
 
 Several stages require you to define a string with a mix of dynamic and static values. These stages use _template_ values.
 
-Data processor templates use [Mustache syntax](https://mustache.github.io/mustache.5.html) to define dynamic values in strings.
+Data Processor templates use [Mustache syntax](https://mustache.github.io/mustache.5.html) to define dynamic values in strings.
 
 The dynamic system values available for use in templates are:
 
@@ -153,6 +153,6 @@ Currently, you can define _batch_ based on time. To define batching, you need to
 
 ## Related content
 
-- [Data processor messages](concept-message-structure.md)
+- [Data Processor messages](concept-message-structure.md)
 - [Supported formats](concept-supported-formats.md)
 - [What is partitioning?](concept-partitioning.md)

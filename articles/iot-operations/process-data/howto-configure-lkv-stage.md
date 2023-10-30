@@ -33,7 +33,7 @@ The LKV stage enriches incoming messages with the last known values it tracks. T
 
 ## Prerequisites
 
-To configure and use an aggregate pipeline stage, you need a deployed instance of Data Processor Preview.
+To configure and use an aggregate pipeline stage, you need a deployed instance of Azure IoT Data Processor (preview).
 
 ## Configure the stage
 

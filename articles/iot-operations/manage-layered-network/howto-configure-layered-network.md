@@ -58,7 +58,7 @@ A DNS server is only needed for levels 3 and below. This example uses a [dnsmasq
     - Change the IP address from 10.104.0.10 to respective destination address for that level - IP address of the Layered Network Management service in the parent level.
     - Verify the `interface` where you're running the *dnsmasq* and change the value as needed.
     - As an alternative, you can put `address=/#/<IP of upper level Layered Network Management service>` in the IPV4 and IPV6 address sections.
-    - The following configuration only contains the necessary endpoints for enabling IoT Operations. 
+    - The following configuration only contains the necessary endpoints for enabling Azure IoT Operations. 
 
     ```conf
     # Add domains which you want to force to an IP address here.

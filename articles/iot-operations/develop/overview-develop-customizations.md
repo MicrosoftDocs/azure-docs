@@ -1,8 +1,8 @@
 ---
-title: Manage your edge solution
-description: Manage security, monitor your solution by using logs and traces, and scale your solution. Use the Azure portal to manage your Azure IoT Operations solution.
-author: dominicbetts
-ms.author: dobett
+title: Develop customizations
+description: Develop customizations to extend the capabilities of your Azure IoT Operations solution. Learn how to use Dapr to customize Azure IoT MQ.
+author: PatAltimore
+ms.author: patricka
 ms.topic: conceptual #Required.
 ms.date: 09/08/2023
 ---
@@ -24,7 +24,7 @@ Required: Use an H1 that includes the feature name and the product or service na
 
 -->
 
-# Management capabilities in Azure IoT Operations
+# Develop customizations in Azure IoT Operations
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 

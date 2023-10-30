@@ -23,8 +23,8 @@ Use the _HTTP call out_ stage to call an external HTTP endpoint  with an optiona
 
 To configure and use an aggregate pipeline stage, you need a:
 
-- Deployed instance of Data Processor Preview.
-- An HTTP server that's accessible from the Data Processor Preview instance.
+- Deployed instance of Azure IoT Data Processor (preview).
+- An HTTP server that's accessible from the Data Processor instance.
 
 ## Configure an HTTP call out stage
 
@@ -32,7 +32,7 @@ The HTTP call out stage JSON configuration defines the details of the stage. To 
 
 | Name | Type | Description | Required | Default | Example |
 | --- | --- | --- | --- | --- | --- |
-| Name  | string | A name to show in the Data processor UI.  | Yes | -  | `MLCall1` |
+| Name  | string | A name to show in the Data Processor UI.  | Yes | -  | `MLCall1` |
 | Description | string | A user-friendly description of what the call out stage does.  | No |   | `Call ML endpoint 1` |
 | Method | string enum | The HTTP method.  | No | `POST` | `GET` |
 | URL | string | The HTTP URL. | Yes | - | `http://localhost:8080` |

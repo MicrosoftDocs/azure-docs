@@ -1,5 +1,5 @@
 ---
-title: What is Azure IoT Operations Preview?
+title: What is Azure IoT Operations?
 description: Azure IoT Operations is a unified data plane for the edge. It's composed of various data services that run on Azure Arc-enabled edge Kubernetes clusters.
 author: dominicbetts
 ms.author: dobett
@@ -7,13 +7,13 @@ ms.topic: conceptual
 ms.date: 10/18/2023
 ---
 
-# What is Azure IoT Operations Preview?
+# What is Azure IoT Operations?
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-_Azure IoT Operations – enabled by Azure Arc Preview_ is a unified data plane for the edge. It's composed of a set of modular, scalable, and highly available data services that run on Azure Arc-enabled edge Kubernetes clusters. It enables data capture from various different systems and integrates with data modeling applications such as Microsoft Fabric to help organizations deploy the industrial metaverse.
+_Azure IoT Operations Preview_ is a unified data plane for the edge. It's composed of a set of modular, scalable, and highly available data services that run on Azure Arc-enabled edge Kubernetes clusters. It enables data capture from various different systems and integrates with data modeling applications such as Microsoft Fabric to help organizations deploy the industrial metaverse.
 
-Azure IoT Operations Preview:
+Azure IoT Operations:
 
 * Is built from ground up by using Kubernetes native applications.
 * Includes an industrial-grade, edge-native MQTT broker that powers event-driven architectures.
@@ -25,11 +25,11 @@ Azure IoT Operations Preview:
 
 ## Architecture overview
 
-:::image type="content" source="media/azure-iot-operations-architecture.svg" alt-text="Diagram that shows the high-level architecture of Azure IoT Operations." lightbox="media/azure-iot-operations-architecture-high-resolution.png" border="false":::
+:::image type="content" source="media/overview-iot-operations/azure-iot-operations-architecture.svg" alt-text="Diagram that shows the high-level architecture of Azure IoT Operations." lightbox="media/overview-iot-operations/azure-iot-operations-architecture-high-resolution.png" border="false":::
 
 There are two core elements in the Azure IoT Operations Preview architecture:
 
-* **Azure IoT Operations – enabled by Azure Arc Preview**. The set of data services that run on Azure Arc-enabled edge Kubernetes clusters. It includes the following services:
+* **Azure IoT Operations Preview**. The set of data services that run on Azure Arc-enabled edge Kubernetes clusters. It includes the following services:
   * **Azure IoT Data Processor Preview** - a configurable data processing service that can manage the complexities and diversity of industrial data. Use Data Processor to make data from disparate sources more understandable, usable, and valuable.
   * **Azure IoT MQ Preview** - an edge-native MQTT broker that powers event-driven architectures.
   * **Azure IoT OPC UA Broker Preview** - an OPC UA broker that handles the complexities of OPC UA communication with OPC UA servers and other leaf devices.
@@ -37,13 +37,13 @@ There are two core elements in the Azure IoT Operations Preview architecture:
 
 ## Deploy
 
-Azure IoT Operations Preview runs on Arc-enabled Kubernetes clusters on the edge. You can deploy Azure IoT Operations by using the Azure portal or the Azure CLI.
+Azure IoT Operations runs on Arc-enabled Kubernetes clusters on the edge. You can deploy Azure IoT Operations by using the Azure portal or the Azure CLI.
 
 [Azure IoT Orchestrator](../deploy/overview-deploy-iot-operations.md) manages the deployment, configuration, and update of the Azure IoT Operations components that run on your Arc-enabled Kubernetes cluster.
 
 ## Manage devices and assets
 
-Azure IoT Operations Preview can connect to various industrial devices and assets. You can use the [Azure IoT Operations portal](../manage-devices-assets/howto-manage-assets-remotely.md) to manage the devices and assets that you want to connect to.
+Azure IoT Operations can connect to various industrial devices and assets. You can use the [Azure IoT Operations portal](../manage-devices-assets/howto-manage-assets-remotely.md) to manage the devices and assets that you want to connect to.
 
 The [OPC UA Broker Preview](../manage-devices-assets/concept-opcua-broker-overview.md) component manages the connection to OPC UA servers and other leaf devices. The OPC UA Broker component publishes data from the OPC UA servers and the devices discovered by _Azure IoT Akri_ to Azure IoT MQ topics.
 
@@ -59,9 +59,9 @@ Examples of how components in Azure IoT Operations use MQ Preview include:
 * Data Processor pipelines subscribe to MQTT topics to retrieve messages for processing.
 * North-bound cloud connectors subscribe to MQTT topics to fetch messages for forwarding to cloud services.
 
-## Process messages
+## Process data
 
-Message processing includes operations such as data normalization, data enrichment, and data filtering. You can use [Data Processor Preview](../process-data/overview-data-processor.md) pipelines to process messages.
+Message processing includes operations such as data normalization, data enrichment, and data filtering. You can use [Data Processor](../process-data/overview-data-processor.md) pipelines to process messages.
 
 A Data Processor pipeline typically:
 
@@ -71,7 +71,7 @@ A Data Processor pipeline typically:
 
 ## Connect to the cloud
 
-To connect to the cloud from Azure IoT Operations Preview, you have the following options:
+To connect to the cloud from Azure IoT Operations, you have the following options:
 
 The north-bound cloud connectors let you connect MQ directly to cloud services such as:
 
@@ -100,4 +100,4 @@ To secure communication between devices and the cloud through isolated network e
 
 ## Next step
 
-Try the [Quickstart: Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](quickstart-deploy.md).
+Try the [Quickstart: Deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster](quickstart-deploy.md).

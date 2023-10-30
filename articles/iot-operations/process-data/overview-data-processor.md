@@ -1,6 +1,6 @@
 ---
 title: Process messages at the edge
-description: Use the Azure IoT Operations Data Processor to aggregate, enrich, normalize, and filter the data from your devices before you send it to the cloud.
+description: Use the Azure IoT Data Processor to aggregate, enrich, normalize, and filter the data from your devices before you send it to the cloud.
 author: dominicbetts
 ms.author: dobett
 # ms.subservice: data-processor
@@ -16,17 +16,17 @@ ms.date: 09/08/2023
 
 Industrial assets generate data in many different formats and use various communication protocols. This diversity of data sources, coupled with varying schemas and unit measures, makes it difficult to use and analyze raw industrial data effectively. Furthermore, for compliance, security, and performance reasons, you can’t upload all datasets to the cloud.
 
-To process this data traditionally requires expensive, complex, and time-consuming data engineering. Azure IoT Data Processor Preview is a configurable data processing service that can manage the complexities and diversity of industrial data. Use Data Processor to make data from disparate sources more understandable, usable, and valuable.
+To process this data traditionally requires expensive, complex, and time-consuming data engineering. Azure IoT Data Processor (preview) is a configurable data processing service that can manage the complexities and diversity of industrial data. Use Data Processor to make data from disparate sources more understandable, usable, and valuable.
 
 ## What is Azure IoT Data Processor?
 
-Data Processor is a component of Azure IoT Operations – enabled by Azure Arc Preview. Data Processor lets you aggregate, enrich, normalize, and filter the data from your devices. Data Processor is a pipeline-based data processing engine that lets you process data at the edge before you send it to the other services either at the edge or in the cloud:
+Azure IoT Data Processor (preview) is a component of Azure IoT Operations Preview. Data Processor lets you aggregate, enrich, normalize, and filter the data from your devices. Data Processor is a pipeline-based data processing engine that lets you process data at the edge before you send it to the other services either at the edge or in the cloud:
 
 :::image type="content" source="media/azure-iot-operations-architecture.svg" alt-text="Diagram of the Azure IoT Operations architecture that highlights the Data Processor component." lightbox="media/azure-iot-operations-architecture-high-resolution.png" border="false":::
 
 Data Processor ingests real-time streaming data from sources such as OPC UA servers, historians, and other industrial systems. It normalizes this data by converting various data formats into a standardized, structured format, which makes it easier to query and analyze. The data processor can also contextualize the data, enriching it with reference data or last known values (LKV) to provide a comprehensive view of your industrial operations.
 
-The output from the data processor is clean, enriched, and standardized data that's ready for downstream applications such as real-time analytics and insights tools. The data processor significantly reduces the time required to transform raw data into actionable insights.
+The output from Data Processor is clean, enriched, and standardized data that's ready for downstream applications such as real-time analytics and insights tools. The data processor significantly reduces the time required to transform raw data into actionable insights.
 
 Key Data Processor features include:
 

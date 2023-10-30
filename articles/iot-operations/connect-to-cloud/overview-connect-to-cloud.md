@@ -1,8 +1,8 @@
 ---
-title: Manage your edge solution
-description: Manage security, monitor your solution by using logs and traces, and scale your solution. Use the Azure portal to manage your Azure IoT Operations solution.
-author: dominicbetts
-ms.author: dobett
+title: Connect to the cloud
+description: Connect your Azure IoT Operations edge environment to Azure Cloud services such as Azure Event Hubs, Microsoft Fabric, and Azure Data Explorer.
+author: PatAltimore
+ms.author: patricka
 ms.topic: conceptual #Required.
 ms.date: 09/08/2023
 ---
@@ -24,7 +24,7 @@ Required: Use an H1 that includes the feature name and the product or service na
 
 -->
 
-# Management capabilities in Azure IoT Operations
+# Connect your Azure IoT Operations environment to the cloud
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
