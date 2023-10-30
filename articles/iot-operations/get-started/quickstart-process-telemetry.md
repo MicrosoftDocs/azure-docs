@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: process messages from your OPC UA assets"
-description: "Quickstart: Use a Data Processor pipeline to process messages from your OPC UA assets before sending the data to a Microsoft Fabric OneLake lakehouse."
+title: "Quickstart: process data from your OPC UA assets"
+description: "Quickstart: Use a Data Processor pipeline to process data from your OPC UA assets before sending the data to a Microsoft Fabric OneLake lakehouse."
 author: dominicbetts
 ms.author: dobett
 ms.topic: quickstart
@@ -9,7 +9,7 @@ ms.date: 10/11/2023
 #CustomerIntent: As an OT user, I want to process and enrich my OPC UA data so that I can derive insights from it when I analyze it in the cloud.
 ---
 
-# Quickstart: Use Data Processor pipelines to process messages from your OPC UA assets
+# Quickstart: Use Data Processor pipelines to process data from your OPC UA assets
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 

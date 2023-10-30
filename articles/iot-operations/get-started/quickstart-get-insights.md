@@ -21,7 +21,7 @@ Before you begin this quickstart, you must complete the following quickstarts:
 
 - [Quickstart: Deploy Azure IoT Operations – enabled by Azure Arc Preview to an Arc-enabled Kubernetes cluster](quickstart-deploy.md)
 - [Quickstart: Add OPC UA assets to your Azure IoT Operations cluster](quickstart-add-assets.md)
-- [Quickstart: Use Data Processor pipelines to process messages from your OPC UA assets](quickstart-process-telemetry.md)
+- [Quickstart: Use Data Processor pipelines to process data from your OPC UA assets](quickstart-process-telemetry.md)
 
 You'll also need either a **Power BI Pro** or **Power BI Premium Per User** license. If you don't have one of these licenses, you can try Power BI Pro for free at [Power BI Pro](https://powerbi.microsoft.com/power-bi-pro/).
 
