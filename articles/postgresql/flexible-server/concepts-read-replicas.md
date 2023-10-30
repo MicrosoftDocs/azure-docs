@@ -221,7 +221,9 @@ For additional insight, query the primary server directly to get the replication
 
 **Replication status**
 
-To keep an eye on the progress and status of the replication and promote operation, refer to the **Replication Status** column in the Azure portal. This column displays various states that provide insights into the current condition of the read replicas and it's link to the primary. Here are the possible values:
+To keep an eye on the progress and status of the replication and promote operation, refer to the **Replication Status** column in the Azure portal. This column is located in the replication blade and displays various states that provide insights into the current condition of the read replicas and their link to the primary. For users relying on the ARM API, when invoking the `GetReplica` API, the state appears as LinkState in the `replica` property bag.
+
+Here are the possible values:
 
 | **Replication status**     | **Description**                                                                                                                                   | **Promote order** | **Read replica creation order** |
 |--------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|-------------------|---------------------------------|
