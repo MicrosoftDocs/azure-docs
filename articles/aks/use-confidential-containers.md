@@ -2,7 +2,7 @@
 title: Confidential Containers (preview) with Azure Kubernetes Service (AKS)
 description: Learn about and deploy confidential Containers (preview) on an Azure Kubernetes Service (AKS) cluster to maintain security and protect sensitive information.
 ms.topic: article
-ms.date: 10/24/2023
+ms.date: 10/30/2023
 ---
 
 # Confidential Containers (preview) with Azure Kubernetes Service (AKS)
@@ -27,7 +27,7 @@ This article helps you understand the Confidential Containers feature, and how t
 * Add an annotation to your pod YAML to mark the pod as being run as a confidential container
 * Add a security policy to your pod YAML
 * Enable enforcement of the security policy
-* Deploy your application confidentially
+* Deploy your application in confidential computing
 
 ## Supported scenarios
 
@@ -100,7 +100,6 @@ az provider register --namespace "Microsoft.ContainerService"
 The following are considrations with this preview of Confidential Containers (preview):
 
 * You'll notice an increase in pod startup time compared to runc pods and kernel-isolated pods.
-* Resource requests from pod manifests are being ignored by the Kata container. It's not recommended to specify resource requests.
 * Pulling container images from a private container registry or referencing container images originating from a private container registry in a Confidential Containers pod manifest is not supported in this release.
 * ConfigMaps and secrets values cannot be changed if setting using the environment variable method after the pod is deployed.
 * Updates to secrets and ConfigMaps are not reflected in the guest.
@@ -112,15 +111,18 @@ log output from containers. `stdio` (ReadStreamRequest and WriteStreamRequest) i
 * All containers in all pods on the clusters must be configured to `imagePullPolicy: Always`.
 * The policy generator only supports pods that use IPv4 addresses.
 * Version 1 container images are not supported.
-* Resource requests from pod YAML manifest are ignored by the Kata container. Containerd does not pass requests to the shim. Use resource `limit` instead of resource `requests` to allocate memory or CPU resources for workloads or containers.
 * The local container filesystem is backed by VM memory. Writing to the container filesystem (including logging) can fill up the memory provided to the pod. This can result in potential pod crashes.
 * v1 container images are not supported.
 * Pod termination logs are not supported. While pods may write termination logs to `/dev/termination-log` or to a custom location if specified in the pod manifest, the host/kubelet can't read those logs. Changes from guest to that file are not reflected on the host.
+
+## Resource allocation overview
 
 It's important you understand the memory and processor resource allocation behavior in this release.
 
 * CPU: The shim assigns one vCPU to the base OS inside the pod. If no resource `limits` are specified, the workloads don't have separate CPU shares assigned, the vCPU is then shared with that workload. If CPU limits are specified, CPU shares are explicitly allocated for workloads.
 * Memory: The Kata-CC handler uses 2GB memory for the UVM OS and X MB memory for containers based on resource `limits` if specified (resulting in a 2GB VM when no limit is given, w/o implicit memory for containers). The Kata handler uses 256MB base memory for the UVM OS and X MB memory when resource `limits` are specified. If limits are unspecified, an implicit limit of 1,792 MB is added (resulting in a 2GB VM when no limit is given, with 1,792 MB implicit memory for containers).
+
+In this release, specifying resource requests in the pod manifests are not supported. This is caused by resource requests from pod YAML manifest being ignored by the Kata container. As a result, containerd does not pass the requests to the shim. Use resource `limit` instead of resource `requests` to allocate memory or CPU resources for workloads or containers.
 
 ## Deploy a new cluster
 
