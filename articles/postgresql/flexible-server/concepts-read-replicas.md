@@ -114,13 +114,17 @@ Promotion of replicas can be done in two distinct manners:
 
 1. **Promote to Primary Server (default)**: This action promotes the replica to serve as the primary server. Concurrently, the current primary will be demoted to the replica role, effectively swapping their roles.
 
-2. **Promote to Independent Server and Remove from Replication**: By opting for this, the replica becomes an independent server and is removed from the replication process. As a result, both the primary and the promoted server will function as two independent read-write servers.
+2. **Promote to Independent Server and Remove from Replication**: By opting for this, the replica becomes an independent server and is removed from the replication process. As a result, both the primary and the promoted server will function as two independent read-write servers. The newly promoted server will no longer be part of any existing virtual endpoints, even if the reader endpoint was previously pointing to it. Thus, it's essential to update your application's connection string to direct to the newly promoted replica if the application should connect to it.
 
 For both promotion methods, there are additional options to consider:
 
 * **Planned**: This option ensures that data is synchronized before promoting. It applies all the pending logs to ensure data consistency before accepting client connections.
 
-* **Forced**: This option prioritizes speed. Instead of waiting to synchronize all the data from the primary, the server becomes operational once it processes WAL files needed to achieve the nearest consistent state.
+* **Forced**: This option prioritizes speed. Instead of waiting to synchronize all the data from the primary, the server becomes operational once it processes WAL files needed to achieve the nearest consistent state. If you promote the replica using this option, the lag at the time you delink the replica from the primary will indicate how much data is lost.
+
+> [!IMPORTANT]
+> Promote operation is not automatic. In the event of a primary server failure, the system won't switch to the read replica on its own. An user action is always required for the promote operation.
+
 
 ### Configuration management
 Read replicas are treated as separate servers in terms of control plane configurations. This provides flexibility for read scale scenarios. However, when using replicas for disaster recovery purposes, users must ensure the configuration is as desired.
@@ -191,27 +195,6 @@ The sections below delve into the specifics of how these endpoints react to both
 When you promote a replica, the replica loses all links to its previous primary and other replicas.
 
 Learn how to [promote a replica](how-to-read-replicas-portal.md#promote-replicas).
-
-## Failover to replica
-
-In the event of a primary server failure, it is **not** automatically failed over to the read replica.
-
-Since replication is asynchronous, there could be a considerable lag between the primary and the replica(s). The amount of lag is influenced by a number of factors such as the type of workload running on the primary server and the latency between the primary and the replica server. In typical cases with nominal write workload, replica lag is expected between a few seconds to few minutes. However, in  cases where the primary runs very heavy write-intensive workload and the replica is not catching up fast enough, the lag can be much higher. 
-
-[//]: # (You can track the replication lag for each replica using the *Replica Lag* metric. This metric shows the time since the last replayed transaction at the replica. We recommend that you identify the average lag by observing the replica lag over a period of time. You can set an alert on replica lag, so that if it goes outside your expected range, you will be notified to take action.)
-
-> [!Tip]
-> If you failover to the replica, the lag at the time you delink the replica from the primary will indicate how much data is lost.
-
-Once you have decided you want to failover to a replica,
-
-1. Promote replica<br/>
-   This step is necessary to make the replica server to become a standalone server and be able to accept writes. As part of this process, the replica server will be delinked from the primary. Once you initiate promotion, the backend process typically takes few minutes to apply any residual logs that were not yet applied and to open the database as a read-writeable server. See the [Promote replicas](#promote-replicas) section of this article to understand the implications of this action.
-
-2. Point your application to the (former) replica<br/>
-   Each server has a unique connection string. Update your application connection string to point to the (former) replica instead of the primary.
-
-Once your application is successfully processing reads and writes, you have completed the failover. The amount of downtime your application experiences, will depend on when you detect an issue and complete steps 1 and 2 above.
 
 ### Disaster recovery
 
