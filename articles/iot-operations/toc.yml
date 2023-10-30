@@ -188,8 +188,6 @@ items:
         href: manage-layered-network/howto-configure-aks-edge-essentials-layered-network.md
     - name: Developer guide
       items:
-      - name: Overview
-        href: develop/overview-develop-customizations.md
       - name: About the MQ state store
         href: develop/concept-about-state-store.md
       - name: About the MQ state store protocol 

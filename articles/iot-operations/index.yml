@@ -49,7 +49,5 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Developer guide
-            url: develop/overview-develop-customizations.md
           - text: Administrator guide
             url: administer/overview-manage-solution.md
