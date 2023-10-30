@@ -45,13 +45,6 @@ sections:
           - Components in the pipeline have retries to ensure reliable delivery at the destination. Occasionally, this capability might result in duplicates for a small percentage of telemetry items.
           - If the duplicate records come from a virtual machine, you might have both the Log Analytics agent and Azure Monitor Agent installed. If you still need the Log Analytics agent installed, configure the Log Analytics workspace to no longer collect data that's also being collected by the data collection rule used by Azure Monitor Agent.
   
-  - name: Metrics
-    questions:
-      - question: |
-          Why are metrics from the guest OS of my Azure virtual machine not showing up in metrics explorer?
-        answer: |
-          [Platform metrics](essentials/monitor-azure-resource.md#monitoring-data) are collected automatically for Azure resources. You must perform some configuration, though, to collect metrics from the guest OS of a virtual machine. For a Windows VM, install the diagnostic extension and configure the Azure Monitor sink as described in [Install and configure Azure Diagnostics extension for Windows (WAD)](agents/diagnostics-extension-windows-install.md). For Linux, install the Telegraf agent as described in [Collect custom metrics for a Linux VM with the InfluxData Telegraf agent](essentials/collect-custom-metrics-linux-telegraf.md).
-
   - name: Prometheus
     questions:
       - question: |
@@ -107,37 +100,6 @@ sections:
         answer: |
            During node updates you might see a 1 to 2 minute gap in metric data for metrics collected from our cluster level collectors because the node that it runs on is being updated as part of a normal update process. This affects cluster-wide targets such as kube-state-metrics and custom application targets that are specified. This occurs when your cluster is updated manually or via auto-update. This is expected behavior that occurs due to the node it runs on being updated. None of our recommended alert rules are affected by this behavior. 
            
-  - name: Alerts
-    questions:
-      - question: |
-          What's an alert in Azure Monitor?
-        answer: |
-          Alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues before the users of your system notice them. There are multiple kinds of alerts:
-          
-          - **Metric**: Metric value exceeds a threshold.
-          - **Log query**: Results of a log query match defined criteria.
-          - **Activity log**: Activity log event matches defined criteria.
-          - **Web test**: Results of availability test match defined criteria.
-          
-          See [Overview of alerts in Azure](alerts/alerts-overview.md).
-          
-      - question: |
-          What's an action group?
-        answer: |
-          An action group is a collection of notifications and actions that can be triggered by an alert. Multiple alerts can use a single action group allowing you to use common sets of notifications and actions. See [Create and manage action groups in the Azure portal](alerts/action-groups.md).
-          
-      - question: |
-          What's an action rule?
-        answer: |
-          An action rule allows you to modify the behavior of a set of alerts that match a certain criteria. This rule allows you to perform such requirements as disabling alert actions during a maintenance window. You can also apply an action group to a set of alerts rather than applying them directly to the alert rules. See [Action rules](alerts/alerts-action-rules.md).
-          
-  - name: Visualizations
-    questions:
-      - question: |
-          Why can't I see View Designer?
-        answer: |
-          View Designer is only available for users assigned with Contributor permissions or higher in the Log Analytics workspace.
-
   - name: Container insights
   
     questions:
