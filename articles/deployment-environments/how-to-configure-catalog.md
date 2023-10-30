@@ -1,7 +1,7 @@
 ---
 title: Add and configure a catalog hosted in a GitHub or Azure DevOps repository
 titleSuffix: Azure Deployment Environments
-description: Learn how to add a catalog to your dev center to provide environment templates for developers. Catalogs are collections of IaC templates in repositories hosted by Azure DevOps or GitHub. 
+description: Learn how to add a catalog in your Azure Deployment Environments dev center to provide environment templates for your developers. Catalogs are repositories stored in GitHub or Azure DevOps.
 ms.service: deployment-environments
 ms.custom: ignite-2022, build-2023
 author: RoseHJM
@@ -10,9 +10,11 @@ ms.date: 10/23/2023
 ms.topic: how-to
 ---
 
-# Add and configure a catalog hosted in a GitHub or Azure DevOps repository
+# Add and configure a catalog from GitHub or Azure DevOps in Azure Deployment Environments
 
-In this article, you learn how to add and configure a [catalog](./concept-environments-key-concepts.md#catalogs) in your dev center. You use a catalog to provide your development teams with a curated set of infrastructure as code (IaC) templates called [environment definitions](./concept-environments-key-concepts.md#environment-definitions). To allow your dev center access to your catalog, you must configure a method of authentication, by assigning a managed identity to the dev center. You then give that identity access to the catalog by assigning permissions to a managed service identity (MSI) or by using a Personal Access Token (PAT). 
+Learn how to add and configure a [catalog](./concept-environments-key-concepts.md#catalogs) in your Azure Deployment Environments dev center. 
+
+You can use a catalog to provide your development teams with a curated set of infrastructure as code (IaC) templates called [environment definitions](./concept-environments-key-concepts.md#environment-definitions). Your catalog is encrypted; Azure Deployment Environments supports encryption at rest with platform-managed encryption keys, which are managed by Microsoft for Azure Services.
 
 Deployment Environments supports catalogs hosted in Azure Repos (the repository service in Azure, commonly referred to as Azure DevOps) and catalogs hosted in GitHub. Azure DevOps supports authentication by assigning permissions to a managed identity. Azure DevOps and GitHub both support the use of PATs for authentication. To further secure your templates, the catalog is encrypted; Azure Deployment Environments supports encryption at rest with platform-managed encryption keys, which Microsoft for Azure Services manages.
 
@@ -306,14 +308,14 @@ Get the path to the secret you created in the key vault.
 
 If you update the Azure Resource Manager template (ARM template) contents or definition in the attached repository, you can provide the latest set of environment definitions to your development teams by syncing the catalog.
 
-To sync an updated catalog:
+To sync an updated catalog in Azure Deployment Environments:
 
 1. On the left menu for your dev center, under **Environment configuration**, select **Catalogs**,
 1. Select the specific catalog, and then select **Sync**. The service scans through the repository and makes the latest list of environment definitions available to all the associated projects in the dev center.
 
 ## Delete a catalog
 
-You can delete a catalog to remove it from the dev center. Templates in a deleted catalog aren't available to development teams when they deploy new environments. Update the environment definition reference for any existing environments that were created by using the environment definitions in the deleted catalog. If the reference isn't updated and the environment is redeployed, the deployment fails.
+You can delete a catalog to remove it from the Azure Deployment Environments dev center. Templates in a deleted catalog aren't available to development teams when they deploy new environments. Update the environment definition reference for any existing environments that were created by using the environment definitions in the deleted catalog. If the reference isn't updated and the environment is redeployed, the deployment fails.
 
 To delete a catalog:
 
