@@ -4,7 +4,7 @@ description: Learn how to deploy the Azure Monitor Agent on your Azure, multiclo
 author: dcurwin
 ms.author: dacurwin
 ms.topic: how-to
-ms.date: 06/18/2023
+ms.date: 10/30/2023
 ms.custom: template-how-to, ignite-2022
 ---
 
@@ -36,35 +36,9 @@ Before you deploy AMA with Defender for Cloud, you must have the following prere
   - [Enable Defender plans on the subscriptions for your AWS VMs](quickstart-onboard-aws.md)
   - [Enable Defender plans on the subscriptions for your GCP VMs](quickstart-onboard-gcp.md)
 
-## Deploy the Azure Monitor Agent with Defender for Cloud
+## Deploy the SQL server-targeted AMA autoprovisioning process
 
-To deploy the Azure Monitor Agent with Defender for Cloud:
-
-1. From Defender for Cloud's menu, open **Environment settings**.
-1. Select the relevant subscription.
-1. In the Monitoring coverage column of the Defender for Server plan, select **Settings**.
-
-    :::image type="content" source="media/auto-deploy-azure-monitoring-agent/select-server-setting.png" alt-text="Screenshot showing selecting settings for server service plan." lightbox="media/auto-deploy-azure-monitoring-agent/select-server-setting.png":::
-
-1. Enable deployment of the Azure Monitor Agent:
-
-    1. For the **Log Analytics agent/Azure Monitor Agent**, select the **On** status.
-        :::image type="content" source="media/auto-deploy-azure-monitoring-agent/turn-on-azure-monitor-agent-auto-provision.png" alt-text="Screenshot showing turning on status for Log Analytics/Azure Monitor Agent." lightbox="media/auto-deploy-azure-monitoring-agent/turn-on-azure-monitor-agent-auto-provision.png":::
-
-        In the Configuration column, you can see the enabled agent type. When you enable Defender plans, Defender for Cloud decides which agent to provision based on your environment. In most cases, the default is the Log Analytics agent.
-
-    1. For the **Log Analytics agent/Azure Monitor Agent**, select **Edit configuration**.
-
-    1. For the Autoprovisioning configuration agent type, select **Azure Monitor Agent**.
-
-        :::image type="content" source="media/auto-deploy-azure-monitoring-agent/select-azure-monitor-agent-auto-provision.png" alt-text="Screenshot showing selecting Azure Monitor Agent for autoprovisioning." lightbox="media/auto-deploy-azure-monitoring-agent/select-azure-monitor-agent-auto-provision.png":::  
-
-    By default:
-
-    - The Azure Monitor Agent is installed on all existing machines in the selected subscription, and on all new machines created in the subscription.
-    - The Log Analytics agent isn't uninstalled from machines that already have it installed. You can [leave the Log Analytics agent](#impact-of-running-with-both-the-log-analytics-and-azure-monitor-agents) on the machine, or you can manually [remove the Log Analytics agent](../azure-monitor/agents/azure-monitor-agent-migration.md) if you don't require it for other protections.
-    - The agent sends data to the default workspace for the subscription. You can also [configure a custom workspace](#configure-custom-destination-log-analytics-workspace) to send data to.
-    - You can't enable [collection of other security events](#other-security-events-collection).
+To deploy the the SQL server-targeted AMA autoprovisioning process, follow the [steps outlined here](defender-for-sql-autoprovisioning.md#migrate-to-the-sql-server-targeted-ama-autoprovisioning-process).
 
 ## Impact of running with both the Log Analytics and Azure Monitor Agents
 
