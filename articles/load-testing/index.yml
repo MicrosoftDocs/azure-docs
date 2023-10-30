@@ -58,6 +58,8 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
+          - text: Add HTTP requests to URL-based tests
+            url: how-to-add-requests-to-url-based-test.md
           - text: Configure for high scale loads
             url: how-to-high-scale-load.md
           - text: Parameterize load tests

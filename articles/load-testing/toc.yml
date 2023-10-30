@@ -39,6 +39,8 @@ items:
   items:
     - name: Configure tests
       items:
+        - name: Add HTTP requests to URL-based tests
+          href: how-to-add-requests-to-url-based-test.md
         - name: Configure for high scale loads
           href: how-to-high-scale-load.md
         - name: Define test fail criteria
