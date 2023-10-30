@@ -96,7 +96,7 @@ Add a target to send the tiered data.
 
 1. On the Data Stores page, select “Add data store" to add the tiering Plan Target. Select “Plan Target” for the “Storage use” and choose Azure Blob Storage as the Provider.
 
-:::image type="content" source="./media/komprise-tiering-guide/add-data-store.png" alt-text="Screenshot of the add data store interface." lightbox="./media/komprise-tiering-guide/add-data-store.png":::
+:::image type="content" source="./media/komprise-tiering-guide/add-data-store.png" alt-text="Screenshot of the add data store tiering interface." lightbox="./media/komprise-tiering-guide/add-data-store.png":::
 
 2. Enter the appropriate information required to enable Komprise to connect to the Azure Blob container.
 
