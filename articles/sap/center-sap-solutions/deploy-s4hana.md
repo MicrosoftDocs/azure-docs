@@ -59,7 +59,7 @@ The following operating system (OS) software versions are compatible with these 
 | SUSE | SUSE Linux Enterprise Server (SLES) for SAP Applications 12 SP5 - x64 Gen2 latest | S/4HANA 1909 SPS 03 |
 | SUSE | SUSE Linux Enterprise Server (SLES) for SAP Applications 12 SP4 - x64 Gen2 latest | S/4HANA 1909 SPS 03 |
 
-- You can use `latest` if you want to use the latest image and not a specific older version. If the *latest* image version is newly released in marketplace and has an unforeseen issue, the deployment may fail. If you are using Portal for deployment, we recommend choosing a different image *sku train* (e.g. 12-SP4 instead of 15-SP3) till the issues are resolved. However, if deploying via API/CLI, you can provide any other *image version* which is available. To view and select the available image versions from a publisher, use below commands
+- You can use `latest` if you want to use the latest image and not a specific older version. If the *latest* image version is newly released in marketplace and has an unforeseen issue, the deployment might fail. If you are using Portal for deployment, we recommend choosing a different image *sku train* (e.g. 12-SP4 instead of 15-SP3) till the issues are resolved. However, if deploying via API/CLI, you can provide any other *image version* which is available. To view and select the available image versions from a publisher, use below commands
 
 
     ```Powershell
@@ -189,7 +189,7 @@ The following operating system (OS) software versions are compatible with these 
 
     1. Optionally, click and drag resources or containers to move them around visually.
 
-    1. Click on **Reset** to reset the visualization to its default state. That is, revert any changes you may have made to the position of resources or containers.
+    1. Click on **Reset** to reset the visualization to its default state. That is, revert any changes you might have made to the position of resources or containers.
 
     1. Click on **Scale to fit** to reset the visualization to its default zoom level.
 
