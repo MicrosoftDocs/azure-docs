@@ -23,7 +23,7 @@ As AI technology becomes increasingly integrated into our daily lives, it is cru
 
 The Azure AI Platform Responsible AI team has developed a state-of-the-art Jailbreak Attack Detection model that identifies anomalies in user prompts as potential Jailbreak Attacks. The model was developed using multiple data sources like intel sourced and curated by the Bing DIRT team. 
 
-This powerful tool enhances the security of LLM deployments by detecting Jailbreak Attacks based on their patterns and intents, rather than the outcomes or the harmful completions that might follow. Attack Classes may include user prompts that presents requests to the model to change or bypass rules in the System Message, role play, encoding attacks and more.  
+This powerful tool enhances the security of LLM deployments by detecting Jailbreak Attacks based on their patterns and intents, rather than the outcomes or the harmful completions that might follow. Attack Classes might include user prompts that present requests to the model to change or bypass rules in the System Message, role play, encoding attacks and more.  
 
 This new filter complements existing content filters and safety mechanisms that prevent AI systems from responding to inappropriate or dangerous requests. Please familiarize yourself with the documentation to better understand the risks associated with Jailbreak Attacks and the benefits of Jailbreak Attack Detection.  
 

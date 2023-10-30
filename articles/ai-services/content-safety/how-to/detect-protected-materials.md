@@ -46,13 +46,17 @@ curl --location --request POST '<endpoint>/contentsafety/text:detectJailbreak?ap
 }'
 ```
 The below fields must be included in the url:
+
 | Name      |Required  |  Description | Type   |
 | :------- |-------- |:--------------- | ------ |
 | **API Version** |Required |This is the API version to be checked. The current version is: api-version=2023-10-15. Example: `<endpoint>/contentsafety/text:detectProtectedMaterial?api-version=2023-10-15` | String |
+
 The parameters in the request body are defined in this table:
+
 | Name        | Required     | Description  | Type    |
 | :---------- | ----------- | :------------ | ------- |
 | **text**    | Required | This is the raw text to be checked. Other non-ascii characters can be included. | String  |
+
 See the following sample request body:
 ```json
 {
@@ -70,7 +74,8 @@ You should see the text moderation results displayed as JSON data in the console
 }
 ```
 The JSON fields in the output are defined here:
+
 | Name     | Description   | Type   |
 | :------------- | :--------------- | ------ |
 | **protectedMaterialAnalysis**   | Each output class that the API predicts. Classification can be multi-labeled. | String |
-| **detected** | protected Material violations were detected or not.	  | Boolean |
+| **detected** | protected Material violations were detected or not.  | Boolean |
