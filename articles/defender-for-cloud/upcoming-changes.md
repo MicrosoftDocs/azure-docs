@@ -54,7 +54,8 @@ As part of this change, the following recommendations will also be released for 
 
 Once the recommendations are released for GA, they will be included in the secure score calculation, and will also incur charges as per [plan pricing](https://azure.microsoft.com/pricing/details/defender-for-cloud/?v=17.23h#pricing).  
 
-Note: Images scanned both by our container VA offering powered by Qualys and Container VA offering powered by MDVM, will only be billed once. 
+> [!NOTE]
+> Images scanned both by our container VA offering powered by Qualys and Container VA offering powered by MDVM, will only be billed once. 
 
 ## Changes to how Microsoft Defender for Cloud's costs are presented in Microsoft Cost Management
 
