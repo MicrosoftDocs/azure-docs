@@ -33,13 +33,13 @@ If you've onboarded to **Azure Arc-enabled VMware** before August 21, 2023, for 
 
 3. Select **Remove from Azure**.  
 
-    :::image type="VM Inventory view" source="media/switch-to-new-preview-version/vm-inventory-view-inline.png" alt-text="Screenshot of VM Inventory view." lightbox="media/switch-to-new-preview-version/vm-inventory-view-expanded.png":::
+    :::image type="VM Inventory view" source="media/switch-to-new-version-vmware/vm-inventory-view-inline.png" alt-text="Screenshot of VM Inventory view." lightbox="media/switch-to-new-version-vmware/vm-inventory-view-expanded.png":::
 
 4. After successful removal from Azure, enable the same resources again in Azure.
 
 5. Once the resources are re-enabled, the VMs are auto switched to the new version. The VM resources will now be represented as **Machine - Azure Arc (VMware)**.
 
-    :::image type=" New VM browse view" source="media/switch-to-new-preview-version/new-vm-browse-view-inline.png" alt-text="Screenshot of New VM browse view." lightbox="media/switch-to-new-preview-version/new-vm-browse-view-expanded.png":::
+    :::image type=" New VM browse view" source="media/switch-to-new-version-vmware/new-vm-browse-view-inline.png" alt-text="Screenshot of New VM browse view." lightbox="media/switch-to-new-version-vmware/new-vm-browse-view-expanded.png":::
  
 ## Next steps
 
