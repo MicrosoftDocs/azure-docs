@@ -19,7 +19,8 @@ This article describes how to remove resources from a move collection, or remove
 You can remove resources in a move collection, in the Resource Mover portal as follows:
 
 1. On the **Azure Resource Mover** > **Across regions** pane, select all the resources you want to remove from the collection, and select **Remove**. 
-    :::image type="content" source="./media/remove-move-resources/across-region.png" alt-text="Screenshot of the **Across regions** pane." :::
+
+    :::image type="content" source="./media/remove-move-resources/across-region.png" alt-text="Screenshot of the **Across regions** pane." lightbox="./media/remove-move-resources/across-region.png" :::
 
     :::image type="content" source="./media/remove-move-resources/portal-select-resources.png" alt-text="Screenshot of the Button to select to remove." :::
 
@@ -105,7 +106,7 @@ Remove an entire move collection from the subscription, as follows:
     :::image type="content" source="./media/remove-move-resources/remove-collection.png" alt-text="Screenshot of output text after removing a move collection." :::
 
 > [!NOTE]
-> For removing resources in bulk where the dependency tree is not identified, use [Invoke-AzResourceMoverBulkRemove (Az.ResourceMover)](https://learn.microsoft.com/powershell/module/az.resourcemover/invoke-azresourcemoverbulkremove?). 
+> For removing resources in bulk where the dependency tree is not identified, use [Invoke-AzResourceMoverBulkRemove (Az.ResourceMover)](/powershell/module/az.resourcemover/invoke-azresourcemoverbulkremove). 
 
 ## VM resource state after removing
 
