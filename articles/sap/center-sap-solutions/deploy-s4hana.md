@@ -224,7 +224,7 @@ The following operating system (OS) software versions are compatible with these 
 You can use custom images for deployment in Azure Center for SAP Solutions from the [Azure Compute Gallery](../../virtual-machines/capture-image-portal.md#capture-a-vm-in-the-portal)
 ### Custom image prerequisites
 
-- Make sure that you've met the [general SAP deployment prerequisites](#prerequisites), [downloaded the SAP media](../../sap/center-sap-solutions/get-sap-installation-media.md#prerequisites), and [installed the SAP software](../../sap/center-sap-solutions/install-software.md#prerequisites).
+- Make sure that you've met the [general SAP deployment prerequisites](#prerequisites), [downloaded the SAP media](../../sap/center-sap-solutions/get-sap-installation-media.md#prerequisites), and [installed the SAP software](../../sap/center-sap-solutions/install-software.md#install-sap-software).
 - Before you use an image from Azure Marketplace for customization, check the [list of supported OS image](#deployment-types) versions in Azure Center for SAP Solutions. BYOI is supported on the OS version supported by Azure Center for SAP Solutions. Make sure that Azure Center for SAP Solutions has support for the image, or else the deployment will fail with the following error:
    *The resource ID provided consists of an OS image which is not supported in ACSS. Please ensure that the OS image version is supported in ACSS for a successful installation.* 
 
