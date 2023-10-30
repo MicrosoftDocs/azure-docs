@@ -15,7 +15,7 @@ ms.subservice: azure-arc-scvmm
 
 # Install Arc agents using a script
 
-In this article, you will learn how to install Arc agents on Azure-enabled SCVMM VMs using a script.
+In this article, you'll learn how to install Arc agents on Azure-enabled SCVMM VMs using a script.
 
 ## Prerequisites
 
@@ -37,9 +37,9 @@ Ensure the following before you install Arc agents using a script for SCVMM VMs:
 
 ## Steps to install Arc agents using a script
 
-1. Login to the target VM as an administrator.
+1. Log in to the target VM as an administrator.
 2. Run the Azure CLI with the `az` command from either Windows Command Prompt or PowerShell.
-3. Login to your Azure account in Azure CLI using `az login --use-device-code`
+3. Log in to your Azure account in Azure CLI using `az login --use-device-code`
 4. Run the downloaded script *arcscvmm-enable-guest-management.ps1*. The `vmmServerId` parameter should denote your VMM Server’s ARM ID.
 
 ```azurecli
