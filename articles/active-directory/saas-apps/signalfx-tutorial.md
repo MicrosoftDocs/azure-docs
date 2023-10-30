@@ -39,13 +39,11 @@ In this tutorial, you will configure and test Microsoft Entra SSO in a test envi
 
 Use these instructions to add the SignalFx application to your list of managed SaaS apps.
 
-1. Log into the Azure portal.
-1. On the left-side navigation window, select **Microsoft Entra ID**.
-1. Select **Enterprise applications**, and then select **All applications**.
-1. Select **New application**.
-1. In the **Add from the gallery** section, in the search box, enter and select **SignalFx**.
-     * You may need to wait a few minutes for the application to be added to your tenant.
-1. Leave the Azure portal open, and then open a new web tab.    
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
+1. In the **Add from the gallery** section, type **SignalFx** in the search box.
+1. Select **SignalFx** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+1. Leave the Microsoft Entra admin center open, and then open a new browser tab.
 
 ## Step 2: Begin SignalFx SSO configuration
 
@@ -69,7 +67,7 @@ Use these instructions to begin the configuration process for the SignalFx SSO.
 
 Use these instructions to enable Microsoft Entra SSO.
 
-1. Return to the Azure portal, and on the **SignalFx** application integration page, locate the **Manage** section, and then select **Single sign-on**.
+1. Return to the Microsoft Entra admin center, and on the **SignalFx** application integration page, locate the **Manage** section, and then select **Single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 

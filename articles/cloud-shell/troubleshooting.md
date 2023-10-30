@@ -60,7 +60,7 @@ This article covers troubleshooting Cloud Shell common scenarios.
 
 ### Storage Dialog - Error: 400 DisallowedOperation
 
-- **Details**: When using a Microsoft Entra ID subscription, you can't create storage.
+- **Details**: When using a Microsoft Entra subscription, you can't create storage.
 - **Resolution**: Use an Azure subscription capable of creating storage resources. Microsoft Entra
   ID subscriptions aren't able to create Azure resources.
 

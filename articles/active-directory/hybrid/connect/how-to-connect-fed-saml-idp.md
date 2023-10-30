@@ -81,7 +81,7 @@ This table shows requirements for specific attributes in the SAML 2.0 message.
 |Attribute|Description|
 | ----- | ----- |
 |NameID|The value of this assertion must be the same as the Microsoft Entra user’s ImmutableID. It can be up to 64 alpha numeric characters. Any non-html safe characters must be encoded, for example a “+” character is shown as “.2B”.|
-|IDPEmail|The User Principal Name (UPN) is listed in the SAML response as an element with the name IDPEmail The user’s UserPrincipalName (UPN) in Azure AD/Microsoft 365. The UPN is in email address format. UPN value in Windows Microsoft 365 (Microsoft Entra ID).|
+|IDPEmail|The User Principal Name (UPN) is listed in the SAML response as an element with the name IDPEmail The user’s UserPrincipalName (UPN) in Microsoft Entra ID / Microsoft 365. The UPN is in email address format. UPN value in Windows Microsoft 365 (Microsoft Entra ID).|
 |Issuer|Required to be a URI of the identity provider. Do not reuse the Issuer from the sample messages. If you have multiple top-level domains in your Microsoft Entra tenants the Issuer must match the specified URI setting configured per domain.|
 
 >[!IMPORTANT]

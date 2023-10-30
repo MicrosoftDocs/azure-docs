@@ -186,14 +186,16 @@ Run the following steps in each domain and forest in your organization that cont
 
 You can view and verify the newly created Microsoft Entra Kerberos server by using the following command:
 
+
 ```powershell
-Get-AzureADKerberosServer -Domain $domain -CloudCredential $cloudCred -DomainCredential $domainCred
+ # When prompted to provide domain credentials use the userprincipalname format for the username instead of domain\username
+Get-AzureADKerberosServer -Domain $domain -UserPrincipalName $userPrincipalName -DomainCredential (get-credential)
 ```
 
 This command outputs the properties of the Microsoft Entra Kerberos server. You can review the properties to verify that everything is in good order.
 
 > [!NOTE]
-> Running against another domain by supplying the credential will connect over NTLM, and then it fails. If the users are in the Protected Users security group in Active Directory, complete these steps to resolve the issue: Sign in as another domain user in **ADConnect** and don’t supply "-domainCredential". The Kerberos ticket of the user that's currently signed in is used. You can confirm by executing `whoami /groups` to validate whether the user has the required permissions in Active Directory to execute the preceding command.
+> Running against another domain by supplying the credential in domain\username format will connect over NTLM, and then it fails. However, using the userprincipalname format for the domain administrator will ensure RPC bind to the DC is attempted using Kerberos correctly. If the users are in the Protected Users security group in Active Directory, complete these steps to resolve the issue: Sign in as another domain user in **ADConnect** and don’t supply "-domainCredential". The Kerberos ticket of the user that's currently signed in is used. You can confirm by executing `whoami /groups` to validate whether the user has the required permissions in Active Directory to execute the preceding command.
  
 | Property | Description |
 | --- | --- |
@@ -279,7 +281,7 @@ For information about compliant security keys, see [FIDO2 security keys](concept
 
 ### What can I do if I lose my security key?
 
-To delete an enrolled security key, sign in to the [Microsoft Entra admin center](https://entra.microsoft.com), and then go to the **Security info** page.
+To delete an enrolled security key, sign in to the [myaccount.microsoft.com](https://myaccount.microsoft.com/), and then go to the **Security info** page.
 
 <a name='what-can-i-do-if-im-unable-to-use-the-fido-security-key-immediately-after-i-create-a-hybrid-azure-ad-joined-machine'></a>
 

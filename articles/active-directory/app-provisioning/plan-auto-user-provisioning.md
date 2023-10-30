@@ -305,7 +305,7 @@ Refer to the following links to troubleshoot any issues that may turn up during 
 
 * [Writing expressions for attribute mappings](../app-provisioning/functions-for-customizing-application-data.md)
 
-* [Azure AD synchronization API overview](/graph/api/resources/synchronization-overview)
+* [Microsoft Entra synchronization API overview](/graph/api/resources/synchronization-overview)
 
 * [Skip deletion of user accounts that go out of scope](skip-out-of-scope-deletions.md)
 

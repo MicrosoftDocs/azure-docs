@@ -46,7 +46,7 @@ To remediate anonymous access for one or more containers in the Azure portal, fo
 
 # [PowerShell](#tab/powershell)
 
-To remediate anonymous access for one or more containers with PowerShell, call the [Set-AzStorageContainerAcl](/powershell/module/az.storage/set-azstoragecontaineracl) command. Authorize this operation by passing in your account key, a connection string, or a shared access signature (SAS). The [Set Container ACL](/rest/api/storageservices/set-container-acl) operation that sets the container's anonymous access level does not support authorization with Azure AD. For more information, see [Permissions for calling blob and queue data operations](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-data-operations).
+To remediate anonymous access for one or more containers with PowerShell, call the [Set-AzStorageContainerAcl](/powershell/module/az.storage/set-azstoragecontaineracl) command. Authorize this operation by passing in your account key, a connection string, or a shared access signature (SAS). The [Set Container ACL](/rest/api/storageservices/set-container-acl) operation that sets the container's anonymous access level does not support authorization with Microsoft Entra ID. For more information, see [Permissions for calling blob and queue data operations](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-data-operations).
 
 The following example updates a container's anonymous access setting to make the container private. Remember to replace the placeholder values in brackets with your own values:
 
@@ -68,7 +68,7 @@ Set-AzStorageContainerAcl -Container $containerName -Permission Off -Context $ct
 
 # [Azure CLI](#tab/azure-cli)
 
-To remediate anonymous access for one or more containers with Azure CLI, call the [az storage container set permission](/cli/azure/storage/container#az-storage-container-set-permission) command. Authorize this operation by passing in your account key, a connection string, or a shared access signature (SAS). The [Set Container ACL](/rest/api/storageservices/set-container-acl) operation that sets the container's anonymous access level does not support authorization with Azure AD. For more information, see [Permissions for calling blob and queue data operations](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-data-operations).
+To remediate anonymous access for one or more containers with Azure CLI, call the [az storage container set permission](/cli/azure/storage/container#az-storage-container-set-permission) command. Authorize this operation by passing in your account key, a connection string, or a shared access signature (SAS). The [Set Container ACL](/rest/api/storageservices/set-container-acl) operation that sets the container's anonymous access level does not support authorization with Microsoft Entra ID. For more information, see [Permissions for calling blob and queue data operations](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-data-operations).
 
 The following example updates a container's anonymous access setting to make the container private. Remember to replace the placeholder values in brackets with your own values:
 

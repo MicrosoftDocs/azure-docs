@@ -85,7 +85,7 @@ Use the following actions to attempt automated remediation of the issue identifi
 
 - **IT service management (ITSM)**: Use the ITSM Connector to create work items in your ITSM tool based on alerts from Azure Monitor. You first configure the connector and then use the **ITSM** action in alert rules.
 - **Webhooks**: Send the alert to an incident management system that supports webhooks such as PagerDuty and Splunk On-Call.
-- **Secure webhook**: Integrate ITSM with Azure Active Directory Authentication.
+- **Secure webhook**: Integrate ITSM with Microsoft Entra authentication.
 
 ## Minimize alert activity
 

@@ -53,7 +53,7 @@ This feature is now available in the following Azure clouds:
 
 - Azure Global
 - Azure Government
-- Microsoft Azure operated by 21Vianetated by 21Vianet
+- Microsoft Azure operated by 21Vianet
 
 ### Operating system updates
 

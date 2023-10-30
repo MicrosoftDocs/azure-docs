@@ -12,6 +12,7 @@ ms.custom:
   - seo-lt-2019
   - fasttrack-edit
   - devx-track-azurepowershell
+  - sql-migration-content
 ---
 
 # Migrate SQL Server to SQL Managed Instance offline with PowerShell & Azure Database Migration Service

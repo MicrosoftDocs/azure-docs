@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 ## List of tools 
 
-- **Cloud sync and the provisioning agent** - Microsoft Entra Connect cloud sync is the newest offering from Microsoft designed to meet and accomplish your hybrid identity goals for synchronization of users, groups, and contacts to Microsoft Entra ID.  It uses the light-weight provisioning agent and fully configurable via through the portal.  For more information, see [What is cloud sync?](cloud-sync/what-is-cloud-sync.md) and [What is the provisioning agent?](cloud-sync/what-is-provisioning-agent.md)
+- **Cloud sync and the provisioning agent** - Microsoft Entra Cloud Sync is the newest offering from Microsoft designed to meet and accomplish your hybrid identity goals for synchronization of users, groups, and contacts to Microsoft Entra ID.  It uses the light-weight provisioning agent and fully configurable via through the portal.  For more information, see [What is cloud sync?](cloud-sync/what-is-cloud-sync.md) and [What is the provisioning agent?](cloud-sync/what-is-provisioning-agent.md)
 
 - **Connect sync** - Microsoft Entra Connect is an on-premises Microsoft application that's designed to meet and accomplish your hybrid identity goals.  For more information, see [What is Microsoft Entra Connect?](connect/whatis-azure-ad-connect-v2.md).
 

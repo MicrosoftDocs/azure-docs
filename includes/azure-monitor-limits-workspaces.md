@@ -54,7 +54,7 @@ ms.custom: "include file"
 | Maximum records returned in a single query | 500,000 | |
 | Maximum size of data returned | ~104 MB (~100 MiB)|The API returns up to 64 MB of compressed data, which translates to up to 100 MB of raw data. |
 | Maximum query running time | 10 minutes | See [Timeouts](../articles/azure-monitor/logs/api/timeouts.md) for details.|
-| Maximum request rate | 200 requests per 30 seconds per Azure Active Directory user or client IP address | See [Log queries and language](../articles/azure-monitor/service-limits.md#log-queries-and-language).|
+| Maximum request rate | 200 requests per 30 seconds per Microsoft Entra user or client IP address | See [Log queries and language](../articles/azure-monitor/service-limits.md#log-queries-and-language).|
 
 **Azure Monitor Logs connector**
 

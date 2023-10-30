@@ -54,8 +54,8 @@ ms.collection:
 
 |PCI-DSS Defined approach requirements|Microsoft Entra guidance and recommendations|
 |-|-|
-|**10.4.1** The following audit logs are reviewed at least once daily: </br> All security events. </br> Logs of all system components that store, process, or transmit cardholder data (CHD) and/or sensitive authentication data (SAD). Logs of all critical system components. </br> Logs of all servers and system components that perform security functions (for example, network security controls, intrusion-detection systems/intrusion-prevention systems (IDS/IPS), authentication servers).|Include Microsoft Entra ID logs in this process.|
-|**10.4.1.1** Automated mechanisms are used to perform audit log reviews.|Include Microsoft Entra ID logs in this process. Configure automated actions and alerting when Microsoft Entra ID logs are integrated with Azure Monitor. [Deploy Azure Monitor: Alerts and automated actions](/azure/azure-monitor/best-practices-alerts)|
+|**10.4.1** The following audit logs are reviewed at least once daily: </br> All security events. </br> Logs of all system components that store, process, or transmit cardholder data (CHD) and/or sensitive authentication data (SAD). Logs of all critical system components. </br> Logs of all servers and system components that perform security functions (for example, network security controls, intrusion-detection systems/intrusion-prevention systems (IDS/IPS), authentication servers).|Include Microsoft Entra logs in this process.|
+|**10.4.1.1** Automated mechanisms are used to perform audit log reviews.|Include Microsoft Entra logs in this process. Configure automated actions and alerting when Microsoft Entra logs are integrated with Azure Monitor. [Deploy Azure Monitor: Alerts and automated actions](/azure/azure-monitor/best-practices-alerts)|
 |**10.4.2** Logs of all other system components (those not specified in Requirement 10.4.1) are reviewed periodically.|Not applicable to Microsoft Entra ID.|
 |**10.4.2.1** The frequency of periodic log reviews for all other system components (not defined in Requirement 10.4.1) is defined in the entity’s targeted risk analysis, which is performed according to all elements specified in Requirement 12.3.1|Not applicable to Microsoft Entra ID.|
 |**10.4.3** Exceptions and anomalies identified during the review process are addressed.|Not applicable to Microsoft Entra ID.|
@@ -64,7 +64,7 @@ ms.collection:
 
 |PCI-DSS Defined approach requirements|Microsoft Entra guidance and recommendations|
 |-|-|
-|**10.5.1** Retain audit log history for at least 12 months, with at least the most recent three months immediately available for analysis.|Integrate with Azure Monitor and export the logs for long term archival. [Integrate Microsoft Entra ID logs with Azure Monitor logs](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) </br> Learn about Microsoft Entra ID logs data retention policy. [Microsoft Entra data retention](../reports-monitoring/reference-reports-data-retention.md)|
+|**10.5.1** Retain audit log history for at least 12 months, with at least the most recent three months immediately available for analysis.|Integrate with Azure Monitor and export the logs for long term archival. [Integrate Microsoft Entra logs with Azure Monitor logs](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) </br> Learn about Microsoft Entra logs data retention policy. [Microsoft Entra data retention](../reports-monitoring/reference-reports-data-retention.md)|
 
 ## 10.6 Time-synchronization mechanisms support consistent time settings across all systems.
 

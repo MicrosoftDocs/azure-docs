@@ -103,15 +103,15 @@ For **Authentication type**, select the desired types. Options are:
 
 * Azure certificate
 * RADIUS
-* Azure Active Directory
+* Microsoft Entra ID
 
 See the below table to check what authentication mechanisms are compatible with selected tunnel types.
 
 [!INCLUDE [All client articles](../../includes/vpn-gateway-vpn-multiauth-tunnel-mapping.md)]
 
 >[!NOTE]
->For tunnel type "IKEv2 and OpenVPN" and selected authentication mechanisms "Azure AD and Radius" or "Azure AD and Azure
->Certificate", Azure AD will only work for OpenVPN since it is not supported by IKEv2
+>For tunnel type "IKEv2 and OpenVPN" and selected authentication mechanisms "Microsoft Entra ID and Radius" or "Microsoft Entra ID and Azure
+>Certificate", Microsoft Entra ID will only work for OpenVPN since it is not supported by IKEv2
 >
 
 Depending on the authentication type(s) selected, you will see different configuration setting fields that will have to be filled in. Fill in the required information and select **Save** at the top of the page to save all of the configuration settings.
@@ -120,7 +120,7 @@ For more information about authentication type, see:
 
 * [Azure certificate](vpn-gateway-howto-point-to-site-resource-manager-portal.md#type)
 * [RADIUS](point-to-site-how-to-radius-ps.md)
-* [Azure Active Directory](openvpn-azure-ad-tenant.md)
+* [Microsoft Entra ID](openvpn-azure-ad-tenant.md)
 
 ## <a name="clientconfig"></a>VPN client configuration package
 

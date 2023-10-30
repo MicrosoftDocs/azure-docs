@@ -238,7 +238,7 @@ An identity used by a software workload like an application, service, script, or
 
 ## Workload identity federation
 
-Allows you to securely access Microsoft Entra ID protected resources from external apps and services without needing to manage secrets (for supported scenarios).  For more information, see [workload identity federation](../workload-identities/workload-identity-federation.md).
+Allows you to securely access Microsoft Entra protected resources from external apps and services without needing to manage secrets (for supported scenarios).  For more information, see [workload identity federation](../workload-identities/workload-identity-federation.md).
 
 ## Next steps
 

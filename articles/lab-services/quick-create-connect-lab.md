@@ -32,7 +32,7 @@ After you complete this quickstart, you'll have a lab that you can connect to an
 A lab contains the configuration and settings for creating lab VMs. All lab VMs within a lab are identical. You use the Azure Lab Services website to create a lab in the lab plan.
 
 > [!NOTE]
-> To create a lab, your Azure account needs the Lab Creator Azure Active Directory (Azure AD) role. As the owner of the lab plan, you can automatically create labs and you don't need the Lab Creator role.
+> To create a lab, your Azure account needs the Lab Creator Microsoft Entra role. As the owner of the lab plan, you can automatically create labs and you don't need the Lab Creator role.
 
 Follow these steps to add a lab to the lab plan you created earlier:
 
@@ -140,7 +140,7 @@ You can now explore and experiment within the lab virtual machine.
 
 You've successfully created a lab virtual machine for experimenting inside the VM. You created a lab plan in the Azure portal and added a lab from the Azure Lab Services website. You then published the lab to create the lab VM, and connect to it with remote desktop.
 
-Azure Lab Services supports different Azure AD roles to delegate specific tasks and responsibilities to different people in your organization. In the next tutorial, you learn how to set up a lab for classroom teaching, where you assign permissions to lab creators and invite lab users to connect to the lab VMs.
+Azure Lab Services supports different Microsoft Entra roles to delegate specific tasks and responsibilities to different people in your organization. In the next tutorial, you learn how to set up a lab for classroom teaching, where you assign permissions to lab creators and invite lab users to connect to the lab VMs.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Create a lab for classroom training](./tutorial-setup-lab.md)

@@ -5,7 +5,7 @@ description: "There are three ways to authenticate a request to an Azure AI serv
 services: cognitive-services
 author: mgreenegit
 manager: nitinme
-ms.service: cognitive-services
+ms.service: azure-ai-services
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 08/30/2023
@@ -18,7 +18,7 @@ Each request to an Azure AI service must include an authentication header. This 
 
 * Authenticate with a [single-service](#authenticate-with-a-single-service-resource-key) or [multi-service](#authenticate-with-a-multi-service-resource-key) resource key
 * Authenticate with a [token](#authenticate-with-an-access-token)
-* Authenticate with [Azure Active Directory (AAD)](#authenticate-with-azure-active-directory)
+* Authenticate with [Microsoft Entra ID](#authenticate-with-azure-active-directory)
 
 ## Prerequisites
 
@@ -160,17 +160,19 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 --data-raw '[{ "text": "How much for the cup of coffee?" }]' | json_pp
 ```
 
-## Authenticate with Azure Active Directory
+<a name='authenticate-with-azure-active-directory'></a>
+
+## Authenticate with Microsoft Entra ID
 
 > [!IMPORTANT]
-> Azure AD authentication always needs to be used together with custom subdomain name of your Azure resource. [Regional endpoints](./cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) do not support Azure AD authentication.
+> Microsoft Entra authentication always needs to be used together with custom subdomain name of your Azure resource. [Regional endpoints](./cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) do not support Microsoft Entra authentication.
 
-In the previous sections, we showed you how to authenticate against Azure AI services using a single-service or multi-service subscription key. While these keys provide a quick and easy path to start development, they fall short in more complex scenarios that require Azure [role-based access control (Azure RBAC)](../../articles/role-based-access-control/overview.md). Let's take a look at what's required to authenticate using Azure Active Directory (Azure AD).
+In the previous sections, we showed you how to authenticate against Azure AI services using a single-service or multi-service subscription key. While these keys provide a quick and easy path to start development, they fall short in more complex scenarios that require Azure [role-based access control (Azure RBAC)](../../articles/role-based-access-control/overview.md). Let's take a look at what's required to authenticate using Microsoft Entra ID.
 
 In the following sections, you'll use either the Azure Cloud Shell environment or the Azure CLI to create a subdomain, assign roles, and obtain a bearer token to call the Azure AI services. If you get stuck, links are provided in each section with all available options for each command in Azure Cloud Shell/Azure CLI.
 
 > [!IMPORTANT]
-> If your organization is doing authentication through Azure AD, you should [disable local authentication](./disable-local-auth.md) (authentication with keys) so that users in the organization must always use Azure AD.
+> If your organization is doing authentication through Microsoft Entra ID, you should [disable local authentication](./disable-local-auth.md) (authentication with keys) so that users in the organization must always use Microsoft Entra ID.
 
 ### Create a resource with a custom subdomain
 
@@ -198,7 +200,7 @@ Now that you have a custom subdomain associated with your resource, you're going
 > [!NOTE]
 > Keep in mind that Azure role assignments may take up to five minutes to propagate.
 
-1. First, let's register an [Azure AD application](/powershell/module/Az.Resources/New-AzADApplication).
+1. First, let's register an [Microsoft Entra application](/powershell/module/Az.Resources/New-AzADApplication).
 
    ```powershell-interactive
    $SecureStringPassword = ConvertTo-SecureString -String <YOUR_PASSWORD> -AsPlainText -Force
@@ -208,7 +210,7 @@ Now that you have a custom subdomain associated with your resource, you're going
 
    You're going to need the **ApplicationId** in the next step.
 
-2. Next, you need to [create a service principal](/powershell/module/az.resources/new-azadserviceprincipal) for the Azure AD application.
+2. Next, you need to [create a service principal](/powershell/module/az.resources/new-azadserviceprincipal) for the Microsoft Entra application.
 
    ```powershell-interactive
    New-AzADServicePrincipal -ApplicationId <APPLICATION_ID>
@@ -266,11 +268,11 @@ In this sample, a password is used to authenticate the service principal. The to
    $result | ConvertTo-Json
    ```
 
-Alternatively, the service principal can be authenticated with a certificate. Besides service principal, user principal is also supported by having permissions delegated through another Azure AD application. In this case, instead of passwords or certificates, users would be prompted for two-factor authentication when acquiring token.
+Alternatively, the service principal can be authenticated with a certificate. Besides service principal, user principal is also supported by having permissions delegated through another Microsoft Entra application. In this case, instead of passwords or certificates, users would be prompted for two-factor authentication when acquiring token.
 
 ## Authorize access to managed identities
  
-Azure AI services support Azure Active Directory (Azure AD) authentication with [managed identities for Azure resources](../../articles/active-directory/managed-identities-azure-resources/overview.md). Managed identities for Azure resources can authorize access to Azure AI services resources using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. By using managed identities for Azure resources together with Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud.  
+Azure AI services support Microsoft Entra authentication with [managed identities for Azure resources](../../articles/active-directory/managed-identities-azure-resources/overview.md). Managed identities for Azure resources can authorize access to Azure AI services resources using Microsoft Entra credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. By using managed identities for Azure resources together with Microsoft Entra authentication, you can avoid storing credentials with your applications that run in the cloud.  
 
 ### Enable managed identities on a VM
 
@@ -288,7 +290,7 @@ For more information about managed identities, see [Managed identities for Azure
 
 You can [use Azure Key Vault](./use-key-vault.md) to securely develop Azure AI services applications. Key Vault enables you to store your authentication credentials in the cloud, and reduces the chances that secrets may be accidentally leaked, because you won't store security information in your application.
 
-Authentication is done via Azure Active Directory. Authorization may be done via Azure role-based access control (Azure RBAC) or Key Vault access policy. Azure RBAC can be used for both management of the vaults and access data stored in a vault, while key vault access policy can only be used when attempting to access data stored in a vault.
+Authentication is done via Microsoft Entra ID. Authorization may be done via Azure role-based access control (Azure RBAC) or Key Vault access policy. Azure RBAC can be used for both management of the vaults and access data stored in a vault, while key vault access policy can only be used when attempting to access data stored in a vault.
 
 ## See also
 

@@ -1,7 +1,7 @@
 ---
-title: Azure AD API permissions for communication as Teams user
+title: Microsoft Entra API permissions for communication as Teams user
 titleSuffix: An Azure Communication Services concept document
-description: This article describes Azure AD API permissions for communication as a Teams user with Azure Communication Services.
+description: This article describes Microsoft Entra API permissions for communication as a Teams user with Azure Communication Services.
 author: tomaschladek
 manager: chpalmer
 services: azure-communication-services
@@ -12,8 +12,8 @@ ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: teams-interop
 ---
-# Azure AD permissions for communication as Teams user
-In this article, you will learn about Azure AD permissions available for communication as a Teams user in Azure Communication Services. Azure AD application for Azure Communication Services provides delegated permissions for chat and calling. Both permissions are required to exchange Azure AD access token for Communication Services access token for Teams users.
+# Microsoft Entra permissions for communication as Teams user
+In this article, you will learn about Microsoft Entra permissions available for communication as a Teams user in Azure Communication Services. Microsoft Entra application for Azure Communication Services provides delegated permissions for chat and calling. Both permissions are required to exchange Microsoft Entra access token for Communication Services access token for Teams users.
 
 ## Delegated permissions
 
@@ -32,4 +32,4 @@ None.
 - Application admin
 - Cloud application admin
 
-Find more details in [Azure Active Directory documentation](../../../../active-directory/roles/permissions-reference.md).
+Find more details in [Microsoft Entra documentation](../../../../active-directory/roles/permissions-reference.md).

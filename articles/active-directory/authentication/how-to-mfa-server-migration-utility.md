@@ -43,8 +43,8 @@ Take a look at our video for an overview of the MFA Server Migration Utility and
 
 |Phase|Steps|
 |:---------|:--------|
-|Preparations |[Identify Microsoft Entra multifactor authentication Server dependencies](#identify-azure-ad-mfa-server-dependencies) |
-||[Backup Microsoft Entra multifactor authentication Server datafile](#backup-azure-ad-mfa-server-datafile) |
+|Preparations |[Identify Azure Multi-Factor Authentication Server dependencies](#identify-azure-ad-mfa-server-dependencies) |
+||[Backup Azure Multi-Factor Authentication Server datafile](#backup-azure-ad-mfa-server-datafile) |
 ||[Install MFA Server update](#install-mfa-server-update) |
 ||[Configure MFA Server Migration Utility](#configure-the-mfa-server-migration-utility) |
 |Migrations |[Migrate user data](#migrate-user-data)|
@@ -78,7 +78,9 @@ The following sections explain the migration steps in more detail.
 
 <a name='identify-azure-ad-mfa-server-dependencies'></a>
 
-### Identify Microsoft Entra multifactor authentication Server dependencies
+<a name='identify-microsoft-entra-multifactor-authentication-server-dependencies'></a>
+
+### Identify Azure Multi-Factor Authentication Server dependencies
 
 We've worked hard to ensure that moving onto our cloud-based Microsoft Entra multifactor authentication solution will maintain and even improve your security posture. There are three broad categories that should be used to group dependencies:
 
@@ -161,19 +163,21 @@ If you enabled the [MFA Server Authentication provider in AD FS 2.0](./howto-mfa
 
 <a name='backup-azure-ad-mfa-server-datafile'></a>
 
-### Backup Microsoft Entra multifactor authentication Server datafile
-Make a backup of the MFA Server data file located at %programfiles%\multifactor authentication Server\Data\PhoneFactor.pfdata (default location) on your primary MFA Server. Make sure you have a copy of the installer for your currently installed version in case you need to roll back. If you no longer have a copy, contact Customer Support Services. 
+<a name='backup-microsoft-entra-multifactor-authentication-server-datafile'></a>
+
+### Backup Azure Multi-Factor Authentication Server datafile
+Make a backup of the MFA Server data file located at %programfiles%\Multi-Factor Authentication Server\Data\PhoneFactor.pfdata (default location) on your primary MFA Server. Make sure you have a copy of the installer for your currently installed version in case you need to roll back. If you no longer have a copy, contact Customer Support Services. 
 
 Depending on user activity, the data file can become outdated quickly. Any changes made to MFA Server, or any end-user changes made through the portal after the backup won't be captured. If you roll back, any changes made after this point won't be restored.
 
 ### Install MFA Server update
-Run the new installer on the Primary MFA Server. Before you upgrade a server, remove it from load balancing or traffic sharing with other MFA Servers. You don't need to uninstall your current MFA Server before running the installer. The installer performs an in-place upgrade using the current installation path (for example, C:\Program Files\multifactor authentication Server). If you're prompted to install a Microsoft Visual C++ 2015 Redistributable update package, accept the prompt. Both the x86 and x64 versions of the package are installed. It isn't required to install updates for User portal, Web SDK, or AD FS Adapter.
+Run the new installer on the Primary MFA Server. Before you upgrade a server, remove it from load balancing or traffic sharing with other MFA Servers. You don't need to uninstall your current MFA Server before running the installer. The installer performs an in-place upgrade using the current installation path (for example, C:\Program Files\Multi-Factor Authentication Server). If you're prompted to install a Microsoft Visual C++ 2015 Redistributable update package, accept the prompt. Both the x86 and x64 versions of the package are installed. It isn't required to install updates for User portal, Web SDK, or AD FS Adapter.
 
 >[!NOTE]
 >After you run the installer on your primary server, secondary servers may begin to log **Unhandled SB** entries. This is due to schema changes made on the primary server that will not be recognized by secondary servers. These errors are expected. In environments with 10,000 users or more, the amount of log entries can increase significantly. To mitigate this issue, you can increase the file size of your MFA Server logs, or upgrade your secondary servers. 
 
 ### Configure the MFA Server Migration Utility
-After installing the MFA Server update, open an elevated PowerShell command prompt: hover over the PowerShell icon, right-click, and click **Run as Administrator**. Run the .\Configure-MultiFactorAuthMigrationUtility.ps1 script found in your MFA Server installation directory (C:\Program Files\multifactor authentication Server by default).
+After installing the MFA Server update, open an elevated PowerShell command prompt: hover over the PowerShell icon, right-click, and click **Run as Administrator**. Run the .\Configure-MultiFactorAuthMigrationUtility.ps1 script found in your MFA Server installation directory (C:\Program Files\Multi-Factor Authentication Server by default).
 
 This script will require you to provide credentials for an Application Administrator in your Microsoft Entra tenant. The script will then create a new MFA Server Migration Utility application within Microsoft Entra ID, which will be used to write user authentication methods to each Microsoft Entra user object.
 
@@ -188,7 +192,7 @@ The script will instruct you to grant admin consent to the newly created applica
 
 :::image type="content" border="true" source="./media/how-to-mfa-server-migration-utility/permissions.png" alt-text="Screenshot of permissions.":::
 
-Once complete, navigate to the multifactor authentication Server folder, and open the **MultiFactorAuthMigrationUtilityUI** application. You should see the following screen:
+Once complete, navigate to the Multi-Factor Authentication Server folder, and open the **MultiFactorAuthMigrationUtilityUI** application. You should see the following screen:
 
 :::image type="content" border="true" source="./media/how-to-mfa-server-migration-utility/utility.png" alt-text="Screenshot of MFA Server Migration Utility.":::
 
@@ -205,7 +209,7 @@ The Configure-MultiFactorAuthMigrationUtility.ps1 script should be run on the se
 
 
 ### Migrate user data
-Migrating user data doesn't remove or alter any data in the multifactor authentication Server database. Likewise, this process won't change where a user performs MFA. This process is a one-way copy of data from the on-premises server to the corresponding user object in Microsoft Entra ID.
+Migrating user data doesn't remove or alter any data in the Multi-Factor Authentication Server database. Likewise, this process won't change where a user performs MFA. This process is a one-way copy of data from the on-premises server to the corresponding user object in Microsoft Entra ID.
 
 The MFA Server Migration utility targets a single Microsoft Entra group for all migration activities. You can add users directly to this group, or add other groups. You can also add them in stages during the migration.
 

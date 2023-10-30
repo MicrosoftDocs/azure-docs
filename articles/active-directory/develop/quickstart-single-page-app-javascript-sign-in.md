@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 09/25/2023
+ms.date: 10/06/2023
 ms.author: henrymbugua
 ms.reviewer: OwenRichards1
 ms.custom: aaddev, "scenarios:getting-started", "languages:JavaScript", devx-track-js
@@ -60,13 +60,13 @@ To obtain the sample application, you can either clone it from GitHub or downloa
 ## Configure the project
 
 1. In your IDE, open the project folder, *ms-identity-javascript-tutorial*, containing the sample.
-1. Open *1-Authentication/1-sign-in/App/authConfig.js* and replace the file contents with the following snippet:
+1. Open *1-Authentication/1-sign-in/App/authConfig.js* and update the following values with the information recorded earlier in the admin center.
 
-    :::code language="csharp" source="~/ms-identity-docs-code-javascript/js-spa/App/authConfig.js":::
+    :::code language="JavaScript" source="~/ms-identity-docs-code-javascript/js-spa/App/authConfig.js":::
 
-    * `TenantId` - The identifier of the tenant where the application is registered. Replace the text in quotes with the **Directory (tenant) ID** that was recorded earlier from the overview page of the registered application.
-    * `ClientId` - The identifier of the application, also referred to as the client. Replace the text in quotes with the **Directory (tenant) ID** value that was recorded earlier from the overview page of the registered application.
-    * `RedirectUri` - The **Redirect URI** of the application. If necessary, replace the text in quotes with the redirect URI that was recorded earlier from the overview page of the registered application.
+    * `clientId` - The identifier of the application, also referred to as the client. Replace the text in quotes with the **Application (client) ID** value that was recorded earlier.
+    * `authority` - The identifier of the tenant where the application is registered. Replace the text in quotes with the **Directory (tenant) ID** value that was recorded earlier.
+    * `redirectUri` - The **Redirect URI** of the application. If necessary, replace the text in quotes with the redirect URI that was recorded earlier.
 
 ## Run the application and sign in
 
@@ -78,18 +78,19 @@ Run the project with a web server by using Node.js:
     npm install
     npm start
     ```
+
 1. Copy the `https` URL that appears in the terminal, for example, `https://localhost:3000`, and paste it into a browser. We recommend using a private or incognito browser session.
 1. Follow the steps and enter the necessary details to sign in with your Microsoft account. You'll be requested an email address so a one time passcode can be sent to you. Enter the code when prompted.
-1. The application will request permission to maintain access to data you have given it access to, and to sign you in and read your profile. Select **Accept**.
-1. The following screenshot appears, indicating that you have signed in to the application and have accessed your profile details from the Microsoft Graph API.
+1. The application will request permission to maintain access to data you have given it access to, and to sign you in and read your profile. Select **Accept**. The following screenshot appears, indicating that you have signed in to the application and have accessed your profile details from the Microsoft Graph API.
 
     :::image type="content" source="./media/quickstarts/js-spa/quickstart-js-spa-sign-in.png" alt-text="Screenshot of JavaScript App depicting the results of the API call.":::
 
 ## Sign out from the application
 
-1. Find the **Sign out** link in the top right corner of the page, and select it.
+1. Find the **Sign out** button in the top right corner of the page, and select it.
 1. You'll be prompted to pick an account to sign out from. Select the account you used to sign in.
-1. A message appears indicating that you have signed out.
+
+A message appears indicating that you have signed out. You can now close the browser window.
 
 ## Related content
 

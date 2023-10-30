@@ -116,7 +116,7 @@ The backup authentication system is supported in all cloud environments except M
 | Ceridian Dayforce HCM | No | SAML SP-initiated |
 | Cisco AnyConnect | No | SAML SP-initiated |
 | Cisco Webex | No | SAML SP-initiated |
-| Citrix ADC SAML Connector forAzure AD | No | SAML SP-initiated |
+| Citrix ADC SAML Connector for Azure AD | No | SAML SP-initiated |
 | Clever | No | SAML SP-initiated |
 | Cloud Drive Mapper | Yes | Protected |
 | Cornerstone Single Sign-on | No | SAML SP-initiated |

@@ -74,9 +74,7 @@ var scopes = new [] {  ResourceId+"/.default"};
 
 ---
 
-<a name='azure-ad-v10-resources'></a>
-
-### Microsoft Entra ID (v1.0) resources
+### Azure AD (v1.0) resources
 
 The scope used for client credentials should always be the resource ID followed by `/.default`.
 
@@ -268,8 +266,9 @@ If you get an error message telling you that you used an invalid scope, you prob
 
 ### Did you forget to provide admin consent? Daemon apps need it!
 
-If you get an **Insufficient privileges to complete the operation** error when you call the API, the tenant administrator needs to grant permissions to the application. See step 6 of Register the client app above.
-You'll typically see an error that looks like this error:
+If you get an **Insufficient privileges to complete the operation** error when you call the API, the tenant administrator needs to grant permissions to the application. For guidance on how to grant admin consent for your application, see step 4 in [Quickstart: Acquire a token and call Microsoft Graph in a .NET Core console app](quickstart-console-app-netcore-acquire-token.md#step-4-admin-consent). 
+
+If you don't grant admin consent to your application, you'll run into the following error:
 
 ```json
 Failed to call the web API: Forbidden

@@ -13,6 +13,8 @@ keywords: personalizer, Azure AI Personalizer, machine learning
 
 # What is Personalizer?
 
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
+
 [!INCLUDE [Azure AI services rebrand](../includes/rebrand-note.md)]
 
 Azure AI Personalizer is an AI service that your applications make smarter decisions at scale using **reinforcement learning**. Personalizer processes information about the state of your application, scenario, and/or users (*contexts*), and a set of possible decisions and related attributes (*actions*) to determine the best decision to make. Feedback from your application (*rewards*) is sent to Personalizer to learn how to improve its decision-making ability in near-real time.

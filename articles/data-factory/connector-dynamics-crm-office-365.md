@@ -43,14 +43,14 @@ Refer to the following table of supported authentication types and configuration
 
 | Dynamics versions | Authentication types | Linked service samples |
 |:--- |:--- |:--- |
-| Dataverse <br/><br/> Dynamics 365 online <br/><br/> Dynamics CRM online | Azure Active Directory (Azure AD) service principal <br/><br/> Office 365 <br/><br/> User-assigned managed identity| [Dynamics online and Azure AD service-principal or Office 365 authentication](#dynamics-365-and-dynamics-crm-online) |
+| Dataverse <br/><br/> Dynamics 365 online <br/><br/> Dynamics CRM online | Microsoft Entra service principal <br/><br/> Office 365 <br/><br/> User-assigned managed identity| [Dynamics online and Microsoft Entra service principal or Office 365 authentication](#dynamics-365-and-dynamics-crm-online) |
 | Dynamics 365 on-premises with internet-facing deployment (IFD) <br/><br/> Dynamics CRM 2016 on-premises with IFD <br/><br/> Dynamics CRM 2015 on-premises with IFD | IFD | [Dynamics on-premises with IFD and IFD authentication](#dynamics-365-and-dynamics-crm-on-premises-with-ifd) |
 
 >[!NOTE]
 >With the [deprecation of regional Discovery Service](/power-platform/important-changes-coming#regional-discovery-service-is-deprecated), the service has upgraded to leverage [global Discovery Service](/powerapps/developer/data-platform/webapi/discover-url-organization-web-api#global-discovery-service) while using Office 365 Authentication.
 
 > [!IMPORTANT]
->If your tenant and user is configured in Azure Active Directory for [conditional access](../active-directory/conditional-access/overview.md) and/or Multi-Factor Authentication is required, you will not be able to use Office 365 Authentication type. For those situations, you must use an Azure Active Directory (Azure AD) service principal authentication.
+>If your tenant and user is configured in Microsoft Entra ID for [conditional access](../active-directory/conditional-access/overview.md) and/or Multi-Factor Authentication is required, you will not be able to use Office 365 Authentication type. For those situations, you must use a Microsoft Entra service principal authentication.
 
 For Dynamics 365 specifically, the following application types are supported:
 - Dynamics 365 for Sales
@@ -67,7 +67,7 @@ This connector doesn't support other application types like Finance, Operations,
 This Dynamics connector is built on top of [Dynamics XRM tooling](/dynamics365/customer-engagement/developer/build-windows-client-applications-xrm-tools).
 
 ## Prerequisites
-To use this connector with Azure AD service-principal authentication, you must set up server-to-server (S2S) authentication in Dataverse or Dynamics. First register the application user (Service Principal) in Azure Active Directory. You can find out how to do this [here](../active-directory/develop/howto-create-service-principal-portal.md). During application registration you will need to create that user in Dataverse or Dynamics and grant permissions. Those permissions can either be granted directly or indirectly by adding the application user to a team which has been granted permissions in Dataverse or Dynamics. You can find more information on how to set up an application user to authenticate with Dataverse [here](/powerapps/developer/data-platform/use-single-tenant-server-server-authentication). 
+To use this connector with Microsoft Entra service principal authentication, you must set up server-to-server (S2S) authentication in Dataverse or Dynamics. First register the application user (Service Principal) in Microsoft Entra ID. You can find out how to do this [here](../active-directory/develop/howto-create-service-principal-portal.md). During application registration you will need to create that user in Dataverse or Dynamics and grant permissions. Those permissions can either be granted directly or indirectly by adding the application user to a team which has been granted permissions in Dataverse or Dynamics. You can find more information on how to set up an application user to authenticate with Dataverse [here](/powerapps/developer/data-platform/use-single-tenant-server-server-authentication). 
 
 
 ## Get started
@@ -114,7 +114,7 @@ The following properties are supported for the Dynamics linked service.
 | deploymentType | The deployment type of the Dynamics instance. The value must be "Online" for Dynamics online. | Yes |
 | serviceUri | The service URL of your Dynamics instance, the same one you access from browser. An example is "https://\<organization-name>.crm[x].dynamics.com". | Yes |
 | authenticationType | The authentication type to connect to a Dynamics server. Valid values are "AADServicePrincipal", "Office365" and "ManagedIdentity". | Yes |
-| servicePrincipalId | The client ID of the Azure AD application. | Yes when authentication is "AADServicePrincipal" |
+| servicePrincipalId | The client ID of the Microsoft Entra application. | Yes when authentication is "AADServicePrincipal" |
 | servicePrincipalCredentialType | The credential type to use for service-principal authentication. Valid values are "ServicePrincipalKey" and "ServicePrincipalCert". | Yes when authentication is "AADServicePrincipal" |
 | servicePrincipalCredential | The service-principal credential. <br/><br/>When you use "ServicePrincipalKey" as the credential type, `servicePrincipalCredential` can be a string that the service encrypts upon linked service deployment. Or it can be a reference to a secret in Azure Key Vault. <br/><br/>When you use "ServicePrincipalCert" as the credential, `servicePrincipalCredential` must be a reference to a certificate in Azure Key Vault, and ensure the certificate content type is **PKCS #12**.| Yes when authentication is "AADServicePrincipal" |
 | username | The username to connect to Dynamics. | Yes when authentication is "Office365" |
@@ -125,7 +125,9 @@ The following properties are supported for the Dynamics linked service.
 >[!NOTE]
 >The Dynamics connector formerly used the optional **organizationName** property to identify your Dynamics CRM or Dynamics 365 online instance. While that property still works, we suggest you specify the new **serviceUri** property instead to gain better performance for instance discovery.
 
-#### Example: Dynamics online using Azure AD service-principal and key authentication
+<a name='example-dynamics-online-using-azure-ad-service-principal-and-key-authentication'></a>
+
+#### Example: Dynamics online using Microsoft Entra service principal and key authentication
 
 ```json
 {  
@@ -148,7 +150,9 @@ The following properties are supported for the Dynamics linked service.
 }  
 ```
 
-#### Example: Dynamics online using Azure AD service-principal and certificate authentication
+<a name='example-dynamics-online-using-azure-ad-service-principal-and-certificate-authentication'></a>
+
+#### Example: Dynamics online using Microsoft Entra service principal and certificate authentication
 
 ```json
 { 

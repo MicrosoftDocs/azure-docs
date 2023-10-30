@@ -16,7 +16,7 @@ When accessing your Azure Credit Subscription, you have two ways to sign in and 
 You have the opportunity to use a personal or corporate email address when signing in.  
 
 > [!NOTE]
-> The email address you use for sign in dictates what Azure Active Directory (Azure AD) Tenant your subscription is associated with.  
+> The email address you use for sign in dictates what Microsoft Entra tenant your subscription is associated with.  
 
 ## Choose the email address  
 

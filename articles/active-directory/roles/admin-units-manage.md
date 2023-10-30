@@ -50,7 +50,7 @@ You can create a new administrative unit by using either the Microsoft Entra adm
 
 1. Browse to **Identity** > **Roles & admins** > **Admin units**.
 
-    ![Screenshot of the Administrative units page in Azure AD.](./media/admin-units-manage/nav-to-admin-units.png)
+    ![Screenshot of the Administrative units page.](./media/admin-units-manage/nav-to-admin-units.png)
 
 1. Select **Add**.
 

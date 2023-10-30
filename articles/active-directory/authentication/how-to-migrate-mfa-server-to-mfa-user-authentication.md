@@ -14,7 +14,7 @@ ms.collection: M365-identity-device-management
 ---
 # Migrate to Microsoft Entra multifactor authentication and Microsoft Entra user authentication
 
-Multifactor authentication helps secure your infrastructure and assets from bad actors. Microsoft multifactor authentication Server (MFA Server) is no longer offered for new deployments. Customers who are using MFA Server should move to Microsoft Entra multifactor authentication (Microsoft Entra multifactor authentication). 
+Multifactor authentication helps secure your infrastructure and assets from bad actors. Microsoft Multi-Factor Authentication Server (MFA Server) is no longer offered for new deployments. Customers who are using MFA Server should move to Microsoft Entra multifactor authentication (Microsoft Entra multifactor authentication). 
 
 There are several options for migrating from MFA Server to Microsoft Entra ID:
 
@@ -330,7 +330,7 @@ This change ensures only Microsoft Entra multifactor authentication is used as a
 
 1. Open the **AD FS management console**.
 1. Under **Services**, right-click on **Authentication Methods**, and select **Edit multifactor authentication Methods**. 
-1. Clear the **Azure multifactor authentication Server**  checkbox. 
+1. Clear the **Azure Multi-Factor Authentication Server**  checkbox. 
 
 ### Decommission the MFA Server
 
@@ -339,7 +339,7 @@ Follow your enterprise server decommissioning process to remove the MFA Servers 
 Possible considerations when decommissions the MFA Server include: 
 
 * We recommend reviewing MFA Server logs to ensure no users or applications are using it before you remove the server.
-* Uninstall multifactor authentication Server from the Control Panel on the server.
+* Uninstall Multi-Factor Authentication Server from the Control Panel on the server.
 * Optionally clean up logs and data directories that are left behind after backing them up first. 
 * Uninstall the multifactor authentication Web Server SDK, if applicable including any files left over inetpub\wwwroot\MultiFactorAuthWebServiceSdk and/or MultiFactorAuth directories.
 * For pre-8.0.x versions of MFA Server, it may also be necessary to remove the multifactor authentication Phone App Web Service.

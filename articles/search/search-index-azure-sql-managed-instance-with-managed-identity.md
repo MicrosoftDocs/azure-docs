@@ -15,7 +15,7 @@ ms.date: 02/17/2023
 
 This article describes how to set up an Azure Cognitive Search indexer connection to [SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview) using a managed identity instead of providing credentials in the connection string.
 
-You can use a system-assigned managed identity or a user-assigned managed identity (preview). Managed identities are Azure AD logins and require Azure role assignments to access data in SQL Managed Instance.
+You can use a system-assigned managed identity or a user-assigned managed identity (preview). Managed identities are Microsoft Entra logins and require Azure role assignments to access data in SQL Managed Instance.
 
 Before learning more about this feature, it is recommended that you have an understanding of what an indexer is and how to set up an indexer for your data source. More information can be found at the following links:
 
@@ -26,9 +26,9 @@ Before learning more about this feature, it is recommended that you have an unde
 
 * [Create a managed identity](search-howto-managed-identities-data-sources.md) for your search service.
 
-* Azure AD admin role on SQL Managed Instance:
+* Microsoft Entra admin role on SQL Managed Instance:
 
-  To assign read permissions on SQL Managed Instance, you must be an Azure Global Admin with a SQL Managed Instance. See [Configure and manage Azure AD authentication with SQL Managed Instance](/azure/azure-sql/database/authentication-aad-configure) and follow the steps to provision an Azure AD admin (SQL Managed Instance). 
+  To assign read permissions on SQL Managed Instance, you must be an Azure Global Admin with a SQL Managed Instance. See [Configure and manage Microsoft Entra authentication with SQL Managed Instance](/azure/azure-sql/database/authentication-aad-configure) and follow the steps to provision a Microsoft Entra admin (SQL Managed Instance). 
 
 * [Configure a public endpoint and network security group in SQL Managed Instance](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md) to allow connections from Azure Cognitive Search. If your Azure SQL Managed Instance is configured for private connections, [create a shared private link](search-indexer-how-to-access-private-sql.md) in Cognitive Search to allow the connection.
 
@@ -41,7 +41,7 @@ Follow these steps to assign the search service system managed identity permissi
     - [Configure a point-to-site connection from on-premises](/azure/azure-sql/managed-instance/point-to-site-p2s-configure)
     - [Configure an Azure VM](/azure/azure-sql/managed-instance/connect-vm-instance-configure)
 
-1. Authenticate with your Azure AD account.
+1. Authenticate with your Microsoft Entra account.
 
    :::image type="content" source="./media/search-index-azure-sql-managed-instance-with-managed-identity/sql-login.png" alt-text="Showing screenshot of the Connect to Server dialog.":::
 
@@ -80,7 +80,7 @@ In this step you will give your Azure Cognitive Search service permission to rea
 
 
 4. Select **Reader** role.
-1. Leave **Assign access to** as **Azure AD user, group or service principal**.
+1. Leave **Assign access to** as **Microsoft Entra user, group or service principal**.
 1. If you're using a system-assigned managed identity, search for your search service, then select it. If you're using a user-assigned managed identity, search for the name of the user-assigned managed identity, then select it. Select **Save**.
 
     Example for SQL Managed Instance using a system-assigned managed identity:

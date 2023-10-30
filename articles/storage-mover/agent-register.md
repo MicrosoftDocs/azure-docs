@@ -128,7 +128,7 @@ After you've supplied these values, the agent will attempt registration. During 
 > [!IMPORTANT]
 > The Azure credentials you use for registration must have owner permissions to the specified resource group and storage mover resource.
 
- For authentication, the agent utilizes the [device authentication flow](../active-directory/develop/msal-authentication-flows.md#device-code) with Azure Active Directory.
+ For authentication, the agent utilizes the [device authentication flow](../active-directory/develop/msal-authentication-flows.md#device-code) with Microsoft Entra ID.
 
 The agent displays the device auth URL: [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin) and a unique sign-in code. Navigate to the displayed URL on an internet connected machine, enter the code, and sign into Azure with your credentials.
 
@@ -149,7 +149,7 @@ You can reference this Azure Resource Manager (ARM) resource when you want to as
 
 ### Azure Arc service
 
-The agent is also registered with the [Azure Arc service](../azure-arc/overview.md). Arc is used to assign and maintain an [Azure AD managed identity](../active-directory/managed-identities-azure-resources/overview.md) for this registered agent.
+The agent is also registered with the [Azure Arc service](../azure-arc/overview.md). Arc is used to assign and maintain an [Microsoft Entra managed identity](../active-directory/managed-identities-azure-resources/overview.md) for this registered agent.
 
 Azure Storage Mover uses a system-assigned managed identity. A managed identity is a service principal of a special type that can only be used with Azure resources. When the managed identity is deleted, the corresponding service principal is also automatically removed.
 

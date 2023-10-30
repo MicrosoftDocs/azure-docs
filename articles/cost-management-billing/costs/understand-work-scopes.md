@@ -18,7 +18,7 @@ This article helps you understand billing and resource management scopes availab
 
 ## Scopes
 
-A _scope_ is a node in the Azure resource hierarchy where Azure AD users access and manage services. Most Azure resources are created and deployed into resource groups, which are part of subscriptions. Microsoft also offers two hierarchies above Azure subscriptions that have specialized roles to manage billing data:
+A _scope_ is a node in the Azure resource hierarchy where Microsoft Entra users access and manage services. Most Azure resources are created and deployed into resource groups, which are part of subscriptions. Microsoft also offers two hierarchies above Azure subscriptions that have specialized roles to manage billing data:
 - Billing data, such as payments and invoices
 - Cloud services, such as cost and policy governance
 
@@ -52,7 +52,7 @@ Management groups allow you to organize subscriptions into a hierarchy. For exam
 
 Creating an organizational hierarchy allows cost and policy compliance to roll up organizationally. Then, each leader can view and analyze their current costs. And then they can create budgets to curb bad spending patterns and optimize costs with Advisor recommendations at the lowest level.
 
-Granting access to view costs and optionally manage cost configuration, such as budgets and exports, is done on governance scopes using Azure RBAC. You use Azure RBAC to grant Azure AD users and groups access to do a predefined set of actions. The actions are defined in a role on a specific scope and lower. For instance, a role assigned to a management group scope also grants the same permissions to nested subscriptions and resource groups.
+Granting access to view costs and optionally manage cost configuration, such as budgets and exports, is done on governance scopes using Azure RBAC. You use Azure RBAC to grant Microsoft Entra users and groups access to do a predefined set of actions. The actions are defined in a role on a specific scope and lower. For instance, a role assigned to a management group scope also grants the same permissions to nested subscriptions and resource groups.
 
 Cost Management supports the following built-in roles for each of the following scopes:
 
@@ -72,9 +72,9 @@ Cost Management Contributor is the recommended least-privilege role. The role al
 > [!NOTE]
 > Management groups aren't currently supported in Cost Management features for Microsoft Customer Agreement subscriptions. The [Cost Details API](/rest/api/cost-management/generate-cost-details-report/create-operation) also doesn't support management groups for either EA or MCA customers.
 
-Management groups are only supported if they contain up to 3,000 Enterprise Agreement (EA), Pay-as-you-go (PAYG), or Microsoft internal subscriptions. Management groups with more than 3,000 subscriptions or subscriptions with other offer types, like Microsoft Customer Agreement or Azure Active Directory subscriptions, can't view costs. 
+Management groups are only supported if they contain up to 3,000 Enterprise Agreement (EA), Pay-as-you-go (PAYG), or Microsoft internal subscriptions. Management groups with more than 3,000 subscriptions or subscriptions with other offer types, like Microsoft Customer Agreement or Microsoft Entra subscriptions, can't view costs. 
 
-If you have a mix of subscriptions, move the unsupported subscriptions to a separate arm of the management group hierarchy to enable Cost Management for the supported subscriptions. As an example, create two management groups under the root management group: **Azure AD** and **My Org**. Move your Azure AD subscription to the **Azure AD** management group and then view and manage costs using the **My Org** management group.
+If you have a mix of subscriptions, move the unsupported subscriptions to a separate arm of the management group hierarchy to enable Cost Management for the supported subscriptions. As an example, create two management groups under the root management group: **Microsoft Entra ID** and **My Org**. Move your Microsoft Entra subscription to the **Microsoft Entra ID** management group and then view and manage costs using the **My Org** management group.
 
 ### Feature behavior for each role
 
@@ -104,7 +104,7 @@ Enterprise Agreement (EA) billing accounts, also called enrollments, have the fo
 
     Resource type: `Microsoft.Billing/billingAccounts/enrollmentAccounts`
 
-Although governance scopes are bound to a single directory, EA billing scopes aren't. An EA billing account may have subscriptions across any number of Azure AD directories.
+Although governance scopes are bound to a single directory, EA billing scopes aren't. An EA billing account may have subscriptions across any number of Microsoft Entra directories.
 
 EA billing scopes support the following roles:
 
@@ -188,7 +188,7 @@ Microsoft Customer Agreement billing accounts have the following scopes:
 
 - **Customer** - Represents a group of subscriptions that are associated to a specific customer that is onboarded to a Microsoft Customer Agreement by partner. This scope is specific to Cloud Solution Providers (CSP).
 
-Unlike EA billing scopes, Customer Agreement billing accounts _are_ managed by a single directory. Microsoft Customer Agreement billing accounts can have *linked* subscriptions that could be in different Azure AD directories.
+Unlike EA billing scopes, Customer Agreement billing accounts _are_ managed by a single directory. Microsoft Customer Agreement billing accounts can have *linked* subscriptions that could be in different Microsoft Entra directories.
 
 Customer Agreement billing scopes don't apply to partners. Partner roles and permissions are documented at [Assign users roles and permissions](/partner-center/permissions-overview).
 

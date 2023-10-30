@@ -28,7 +28,7 @@ If you want to modify a packet core instance's local access configuration, follo
 
 - If you want to make changes to the attached data networks, refer to [Collect data network values](collect-required-information-for-a-site.md#collect-data-network-values) to collect the new values and make sure they're in the correct format.
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
-- If you use Azure Active Directory (Azure AD) to authenticate access to your local monitoring tools and you're making a change that requires a packet core reinstall, ensure your local machine has core kubectl access to the Azure Arc-enabled Kubernetes cluster. This requires a core kubeconfig file, which you can obtain by following [Set up kubectl access](commission-cluster.md#set-up-kubectl-access).
+- If you use Microsoft Entra ID to authenticate access to your local monitoring tools and you're making a change that requires a packet core reinstall, ensure your local machine has core kubectl access to the Azure Arc-enabled Kubernetes cluster. This requires a core kubeconfig file, which you can obtain by following [Core namespace access](set-up-kubectl-access.md#core-namespace-access).
 
 ## Plan a maintenance window
 
@@ -59,7 +59,7 @@ If you're making any of these changes to a healthy packet core instance, we reco
 The following list contains the data that will be lost over a packet core reinstall. If you're making a change that requires a reinstall, back up any information you'd like to preserve; after the reinstall, you can use this information to reconfigure your packet core instance. If your packet core instance is in **Uninstalled**, **Uninstalling** or **Failed** state, or if you're connecting an ASE device for the first time, you can skip this step and proceed to [Select the packet core instance to modify](#select-the-packet-core-instance-to-modify).
 
 1. Depending on your authentication method when signing in to the [distributed tracing](distributed-tracing.md) and [packet core dashboards](packet-core-dashboards.md):
-    - If you use Azure AD, save a copy of the Kubernetes Secret Object YAML file you created in [Create Kubernetes Secret Objects](enable-azure-active-directory.md#create-kubernetes-secret-objects).
+    - If you use Microsoft Entra ID, save a copy of the Kubernetes Secret Object YAML file you created in [Create Kubernetes Secret Objects](enable-azure-active-directory.md#create-kubernetes-secret-objects).
     - If you use local usernames and passwords and want to keep using the same credentials, save a copy of the current passwords to a secure location.
 1. All traces are deleted during upgrade and cannot be retrieved. If you want to retain any traces, [export and save](distributed-tracing-share-traces.md#export-trace-from-the-distributed-tracing-web-gui) them securely before continuing.
 1. Any customizations made to the packet core dashboards won't be carried over the reinstall. Refer to [Exporting a dashboard](https://grafana.com/docs/grafana/v6.1/reference/export_import/#exporting-a-dashboard) in the Grafana documentation to save a backed-up copy of your dashboards.
@@ -195,7 +195,7 @@ If you made changes that triggered a packet core reinstall, reconfigure your dep
 
 1. Depending on your authentication method when signing in to the [distributed tracing](distributed-tracing.md) and [packet core dashboards](packet-core-dashboards.md):
     
-    - If you use Azure AD, [reapply the Secret Object for distributed tracing and the packet core dashboards](enable-azure-active-directory.md#apply-kubernetes-secret-objects).
+    - If you use Microsoft Entra ID, [reapply the Secret Object for distributed tracing and the packet core dashboards](enable-azure-active-directory.md#apply-kubernetes-secret-objects).
     - If you use local usernames and passwords, follow [Access the distributed tracing web GUI](distributed-tracing.md#access-the-distributed-tracing-web-gui) and [Access the packet core dashboards](packet-core-dashboards.md#access-the-packet-core-dashboards) to restore access to your local monitoring tools.
 
 1. If you backed up any packet core dashboards, follow [Importing a dashboard](https://grafana.com/docs/grafana/v6.1/reference/export_import/#importing-a-dashboard) in the Grafana documentation to restore them.

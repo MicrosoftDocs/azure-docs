@@ -46,10 +46,10 @@ IT administrators and platform engineers configure the network that's used for d
 
 When you're creating a network connection, you must choose the Active Directory join type:
 
-- If your dev boxes need to connect exclusively to cloud-based resources, use native Azure Active Directory (Azure AD).
-- If your dev boxes need to connect to on-premises resources and cloud-based resources, use hybrid Azure AD.
+- If your dev boxes need to connect exclusively to cloud-based resources, use native Microsoft Entra ID.
+- If your dev boxes need to connect to on-premises resources and cloud-based resources, use hybrid Microsoft Entra ID.
 
-To learn more about native Azure AD join and hybrid Azure AD join, see [Plan your Azure Active Directory device deployment](../active-directory/devices/plan-device-deployment.md).
+To learn more about native Microsoft Entra join and Microsoft Entra hybrid join, see [Plan your Microsoft Entra device deployment](../active-directory/devices/plan-device-deployment.md).
 
 The virtual network specified in a network connection also determines the region for a dev box. You can create multiple network connections based on the regions where you support developers. You can then use those connections when you're creating dev box pools to ensure that dev box users create dev boxes in a region close to them. Using a region close to the dev box user provides the best experience.
 

@@ -101,5 +101,5 @@ As a next step, you can extend this sample in several directions:
 
 * Add [autocomplete](search-add-autocomplete-suggestions.md) for more typeahead.
 * Add or modify [facets](search-faceted-navigation.md) and [filters](search-filters.md).
-* Change the authentication and authorization model, using [Azure Active Directory](search-security-rbac.md) instead of [key-based authentication](search-security-api-keys.md).
+* Change the authentication and authorization model, using [Microsoft Entra ID](search-security-rbac.md) instead of [key-based authentication](search-security-api-keys.md).
 * Change the [indexing methodology](search-what-is-data-import.md). Instead of pushing JSON to a search index, preload a blob container with the good-books dataset and [set up a blob indexer](search-howto-indexing-azure-blob-storage.md) to ingest the data. Knowing how to work with indexers gives you more options for data ingestion and [content enrichment](cognitive-search-concept-intro.md) during indexing.

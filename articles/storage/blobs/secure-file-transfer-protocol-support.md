@@ -43,7 +43,7 @@ Different protocols are supported by the hierarchical namespace. SFTP is one of 
 
 ## SFTP permission model
 
-Azure Blob Storage doesn't support Azure Active Directory (Azure AD) authentication or authorization via SFTP. Instead, SFTP utilizes a new form of identity management called _local users_. 
+Azure Blob Storage doesn't support Microsoft Entra authentication or authorization via SFTP. Instead, SFTP utilizes a new form of identity management called _local users_. 
 
 Local users must use either a password or a Secure Shell (SSH) private key credential for authentication. You can have a maximum of 1000 local users for a storage account.
 
@@ -52,7 +52,7 @@ To set up access permissions, you'll create a local user, and choose authenticat
 > [!CAUTION]
 > Local users do not interoperate with other Azure Storage permission models such as RBAC (role based access control), ABAC (attribute based access control), and ACLs (access control lists). 
 >
-> For example, Jeff has read only permission (can be controlled via RBAC, ABAC, or ACLs) via their Azure AD identity for file _foo.txt_ stored in container _con1_. If Jeff is accessing the storage account via NFS (when not mounted as root/superuser), Blob REST, or Data Lake Storage Gen2 REST, these permissions will be enforced. However, if Jeff also has a local user identity with delete permission for data in container _con1_, they can delete _foo.txt_ via SFTP using the local user identity.
+> For example, Jeff has read only permission (can be controlled via RBAC, ABAC, or ACLs) via their Microsoft Entra identity for file _foo.txt_ stored in container _con1_. If Jeff is accessing the storage account via NFS (when not mounted as root/superuser), Blob REST, or Data Lake Storage Gen2 REST, these permissions will be enforced. However, if Jeff also has a local user identity with delete permission for data in container _con1_, they can delete _foo.txt_ via SFTP using the local user identity.
 
 For SFTP enabled storage accounts, you can use the full breadth of Azure Blob Storage security settings, to authenticate and authorize users accessing Blob Storage via Azure portal, Azure CLI, Azure PowerShell commands, AzCopy, as well as Azure SDKs, and Azure REST APIs. To learn more, see [Access control model in Azure Data Lake Storage Gen2](data-lake-storage-access-control-model.md).
 

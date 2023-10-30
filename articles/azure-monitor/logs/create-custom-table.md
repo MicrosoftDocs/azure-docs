@@ -184,7 +184,7 @@ To delete a table using PowerShell:
 You can modify the schema of custom tables and add custom columns to, or delete columns from, a standard table.  
 
 > [!NOTE]
-> Column names must start with a letter and can consist of up to 45 alphanumeric characters and underscores (`_`). The following are reserved column names: `Type`, `TenantId`, `resource`, `resourceid`, `resourcename`, `resourcetype`, `subscriptionid`, `tenanted`. 
+> Column names must start with a letter and can consist of up to 45 alphanumeric characters and underscores (`_`). `_ResourceId`, `id`, `_ResourceId`, `_SubscriptionId`, `TenantId`, `Type`, `UniqueId`, and `Title` are reserved column names. 
 
 # [Portal](#tab/azure-portal-3)
 

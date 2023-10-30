@@ -24,7 +24,7 @@ The following methods are Azure's most commonly used methods to enable outbound 
 | 1 | Use the frontend IP address(es) of a load balancer for outbound via outbound rules | Static, explicit | Yes, but not at scale | OK | 
 | 2 | Associate a NAT gateway to the subnet | Dynamic, explicit | Yes | Best | 
 | 3 | Assign a public IP to the virtual machine | Static, explicit | Yes | OK | 
-| 4 | [Default outbound access](../virtual-network/ip-services/default-outbound-access.md) use | Implicit | No | Worst |
+| 4 | [Default outbound access](../virtual-network/ip-services/default-outbound-access.md) | Implicit | No | Worst |
 
 :::image type="content" source="./media/load-balancer-outbound-connections/outbound-options.png" alt-text="Diagram of Azure outbound options.":::
 
@@ -82,21 +82,10 @@ A public IP assigned to a VM is a 1:1 relationship (rather than 1: many) and imp
 
 :::image type="content" source="./media/load-balancer-outbound-connections/default-outbound-access.png" alt-text="Diagram of default outbound access.":::
 
->[!NOTE]
-> This method is **NOT recommended** for production workloads as it adds risk of exhausting ports. Please refrain from using this method for production workloads to avoid potential connection failures. 
+In Azure, virtual machines created in a virtual network without explicit outbound connectivity defined are assigned a default outbound public IP address. This IP address enables outbound connectivity from the resources to the Internet. This access is referred to as [default outbound access](../virtual-network/ip-services/default-outbound-access.md).  This method of access is **not recommended** as it is insecure and the IP addresses are subject to change.
 
-Default outbound access is when An Azure resource is allocated a minimal number of ports for outbound. This access occurs when the resource meets any of the following conditions:
-
-- doesn't have a public IP associated to it.
-- doesn't have a load balancer with outbound Rules in front of it.
-- isn't part of Virtual Machine Scale Sets flexible orchestration mode.
-- doesn't have a NAT gateway resource associated to its subnet. 
-
-Some other examples of default outbound access are:
-
-- Use of a basic SKU load balancer
-- A virtual machine in Azure (without the associations mentioned above). In this case, outbound connectivity is provided by the default outbound access IP. This IP is a dynamic IP assigned by Azure that you can't control. Default SNAT isn't recommended for production workloads and can cause connectivity failures.
-- A virtual machine in the backend pool of a load balancer without outbound rules. As a result, you use the frontend IP address of a load balancer for outbound and inbound and are more prone to connectivity failures from SNAT port exhaustion.
+>[!Important]
+>On September 30, 2025, default outbound access for new deployments will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/).  It is reccomended to use one the explict forms of connectivity as shown in options 1-3 above.
 
 ### What are SNAT ports?
 

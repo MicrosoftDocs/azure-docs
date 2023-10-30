@@ -50,7 +50,7 @@ The following content provides the guidance from HIPAA followed by a table with 
 
 ## Person or entity authentication safeguard guidance
 
-Azure Active Directory meets identity-related practice requirements for implementing HIPAA safeguards. To be HIPAA compliant, implement the safeguards using this guidance along with any other configurations or processes needed.
+Microsoft Entra ID meets identity-related practice requirements for implementing HIPAA safeguards. To be HIPAA compliant, implement the safeguards using this guidance along with any other configurations or processes needed.
 
 For the Audit and Person and Entity Safeguard:
 

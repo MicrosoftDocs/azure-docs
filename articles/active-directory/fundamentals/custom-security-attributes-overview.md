@@ -86,7 +86,7 @@ For more information about working with extensions, see [Add custom data to reso
 
     Check that you are assigned the [Attribute Definition Administrator](../roles/permissions-reference.md#attribute-definition-administrator) or [Attribute Assignment Administrator](../roles/permissions-reference.md#attribute-assignment-administrator) roles. If not, check with your administrator to assign you the appropriate role at tenant scope or attribute set scope. By default, [Global Administrator](../roles/permissions-reference.md#global-administrator) and other administrator roles do not have permissions to read, define, or assign custom security attributes. If necessary, a Global Administrator can assign these roles to themselves.
 
-    ![Diagram showing checking permissions to add custom security attributes in Azure AD.](./media/custom-security-attributes-overview/attributes-permissions.png)
+    ![Diagram showing checking permissions to add custom security attributes in Microsoft Entra ID.](./media/custom-security-attributes-overview/attributes-permissions.png)
 
 1. **Add attribute sets**
 
@@ -213,7 +213,7 @@ Depending on whether you have a Microsoft Entra ID P1 or P2 license, here are th
 
 ## License requirements
 
-[!INCLUDE [Azure AD Premium P1 license](../../../includes/active-directory-p1-license.md)]
+[!INCLUDE [Microsoft Entra ID Premium P1 license](../../../includes/active-directory-p1-license.md)]
 
 ## Next steps
 

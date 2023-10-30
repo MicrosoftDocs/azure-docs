@@ -129,7 +129,7 @@ A PRT can get a multifactor authentication claim in specific scenarios. When an 
    * As Windows Hello for Business is considered multifactor authentication, the MFA claim is updated when the PRT itself is refreshed, so the MFA duration will continually extend when users sign in with Windows Hello for Business.
 * **MFA during WAM interactive sign in**: During a token request through WAM, if a user is required to do MFA to access the app, the PRT that is renewed during this interaction is imprinted with an MFA claim.
    * In this case, the MFA claim isn't updated continuously, so the MFA duration is based on the lifetime set on the directory.
-   * When a previous existing PRT and RT are used for access to an app, the PRT and RT are regarded as the first proof of authentication. A new AT is required with a second proof and an imprinted MFA claim. This process also issues a new PRT and RT.
+   * When a previous existing PRT and RT are used for access to an app, the PRT and RT are regarded as the first proof of authentication. A new RT is required with a second proof and an imprinted MFA claim. This process also issues a new PRT and RT.
 
 Windows 10 or newer maintain a partitioned list of PRTs for each credential. So, there’s a PRT for each of Windows Hello for Business, password, or smartcard. This partitioning ensures that MFA claims are isolated based on the credential used, and not mixed up during token requests.
 

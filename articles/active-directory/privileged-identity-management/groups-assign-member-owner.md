@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 # Assign eligibility for a group in Privileged Identity Management
 
-In Microsoft Entra ID, formerly known as Microsoft Entra ID, you can use Privileged Identity Management (PIM) to manage just-in-time membership in the group or just-in-time ownership of the group.
+In Azure Active Directory, formerly known as Microsoft Entra ID, you can use Privileged Identity Management (PIM) to manage just-in-time membership in the group or just-in-time ownership of the group.
 
 When a membership or ownership is assigned, the assignment:
 

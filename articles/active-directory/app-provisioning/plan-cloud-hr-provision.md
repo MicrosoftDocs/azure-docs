@@ -529,6 +529,6 @@ To troubleshoot any issues that might turn up during provisioning, see the follo
 ### Next steps
 
 - [Writing expressions for attribute mappings](functions-for-customizing-application-data.md)
-- [Azure AD synchronization API overview](/graph/api/resources/synchronization-overview)
+- [Microsoft Entra synchronization API overview](/graph/api/resources/synchronization-overview)
 - [Skip deletion of user accounts that go out of scope](skip-out-of-scope-deletions.md)
 - [Microsoft Entra Connect Provisioning Agent: Version release history](provisioning-agent-release-version-history.md)

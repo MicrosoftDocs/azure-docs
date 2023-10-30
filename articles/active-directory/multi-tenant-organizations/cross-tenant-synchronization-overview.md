@@ -84,7 +84,7 @@ To configure this setting using Microsoft Graph, see the [Update crossTenantAcce
 
 #### How do users know what tenants they belong to?
 
-For cross-tenant synchronization, users don't receive an email or have to accept a consent prompt. If users want to see what tenants they belong to, they can open their [My Account](https://support.microsoft.com/account-billing/my-account-portal-for-work-or-school-accounts-eab41bfe-3b9e-441e-82be-1f6e568d65fd) page and select **Organizations**. In the Microsoft Entra admin center, users can open their [Portal settings](../../azure-portal/set-preferences.md), view their **Directories + subscriptions**, and switch directories.
+For cross-tenant synchronization, users don't receive an email or have to accept a consent prompt. If users want to see what tenants they belong to, they can open their [My Account](https://support.microsoft.com/account-billing/my-account-portal-for-work-or-school-accounts-eab41bfe-3b9e-441e-82be-1f6e568d65fd) page and select **Organizations**. In the Microsoft Entra admin center, users can open their [Portal settings](/azure/azure-portal/set-preferences), view their **Directories + subscriptions**, and switch directories.
 
 For more information, including privacy information, see [Leave an organization as an external user](../external-identities/leave-the-organization.md).
 
@@ -274,7 +274,7 @@ Does cross-tenant synchronization support deprovisioning users?
 Does cross-tenant synchronization support restoring users? 
 
 - If the user in the source tenant is restored, reassigned to the app, meets the scoping condition again within 30 days of soft deletion, it will be restored in the target tenant.
-- IT admins can also manually [restore](/azure/active-directory/fundamentals/active-directory-users-restore) the user directly in the target tenant.
+- IT admins can also manually [restore](../fundamentals/users-restore.md) the user directly in the target tenant.
 
 How can I deprovision all the users that are currently in scope of cross-tenant synchronization? 
 

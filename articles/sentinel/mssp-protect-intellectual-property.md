@@ -41,7 +41,7 @@ The following image describes how the permissions described in the [previous sec
 
 In this image:
 
-- The users granted with **Owner** access to the CSP subscription are the users in the Admin Agents group, in the MSSP Azure AD tenant.
+- The users granted with **Owner** access to the CSP subscription are the users in the Admin Agents group, in the MSSP Microsoft Entra tenant.
 - Other groups from the MSSP get access to the customer environment via Azure Lighthouse.
 - Customer access to Azure resources is managed by Azure RBAC at the resource group level.
 
@@ -131,7 +131,7 @@ You can protect your playbooks as follows, depending on where the  analytic rule
 
 In both cases, if the playbook needs to access the customer’s Azure environment, use a user or service principal that has that access via Lighthouse.
 
-However, if the playbook needs to access non-Azure resources in the customer’s tenant, such as Azure AD, Office 365, or Microsoft 365 Defender, create a service principal with appropriate permissions in the customer tenant, and then add that identity in the playbook.
+However, if the playbook needs to access non-Azure resources in the customer’s tenant, such as Microsoft Entra ID, Office 365, or Microsoft 365 Defender, create a service principal with appropriate permissions in the customer tenant, and then add that identity in the playbook.
 
 > [!NOTE]
 > If you use automation rules together with your playbooks, you must set the automation rule permissions on the resource group where the playbooks live.

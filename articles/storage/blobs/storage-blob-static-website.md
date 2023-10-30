@@ -114,7 +114,9 @@ To enable metrics on your static website pages, see [Enable metrics on static we
 
 Yes. Storage account [network security rules](../common/storage-network-security.md), including IP-based and VNET firewalls, are supported for the static website endpoint, and may be used to protect your website.
 
-##### Do static websites support Azure Active Directory (Azure AD)?
+<a name='do-static-websites-support-azure-active-directory-azure-ad'></a>
+
+##### Do static websites support Microsoft Entra ID?
 
 No. A static website only supports anonymous read access for files in the **$web** container.
 

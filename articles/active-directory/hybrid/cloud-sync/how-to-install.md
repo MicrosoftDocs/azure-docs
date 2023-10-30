@@ -1,6 +1,6 @@
 ---
-title: 'Install the Microsoft Entra Connect provisioning agent'
-description: Learn how to install the Microsoft Entra Connect provisioning agent and how to configure it in the Microsoft Entra admin center.
+title: 'Install the Microsoft Entra Provisioning Agent'
+description: Learn how to install the Microsoft Entra Provisioning Agent and how to configure it in the Microsoft Entra admin center.
 services: active-directory
 author: billmath
 manager: amycolannino
@@ -13,22 +13,22 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 
-# Install the Microsoft Entra Connect provisioning agent
+# Install the Microsoft Entra Provisioning Agent
 
-This article walks you through the installation process for the Microsoft Entra Connect provisioning agent and how to initially configure it in the Microsoft Entra admin center.
+This article walks you through the installation process for the Microsoft Entra Provisioning Agent and how to initially configure it in the Microsoft Entra admin center.
 
 > [!IMPORTANT]
 > The following installation instructions assume that you've met all the [prerequisites](how-to-prerequisites.md).
 
 >[!NOTE]
->This article deals with installing the provisioning agent by using the wizard. For information about installing the Microsoft Entra Connect provisioning agent by using a CLI, see [Install the Microsoft Entra Connect provisioning agent by using a CLI and PowerShell](how-to-install-pshell.md).
+>This article deals with installing the provisioning agent by using the wizard. For information about installing the Microsoft Entra Provisioning Agent by using a CLI, see [Install the Microsoft Entra Provisioning Agent by using a CLI and PowerShell](how-to-install-pshell.md).
 
 For more information and an example, view the following video:
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWK5mR]
 
 ## Group Managed Service Accounts
-A group Managed Service Account (gMSA) is a managed domain account that provides automatic password management, simplified service principal name (SPN) management, and the ability to delegate the management to other administrators. A gMSA also extends this functionality over multiple servers. Microsoft Entra Connect cloud sync supports and recommends the use of a gMSA for running the agent. For more information, see [Group Managed Service Accounts](how-to-prerequisites.md#group-managed-service-accounts).
+A group Managed Service Account (gMSA) is a managed domain account that provides automatic password management, simplified service principal name (SPN) management, and the ability to delegate the management to other administrators. A gMSA also extends this functionality over multiple servers. Microsoft Entra Cloud Sync supports and recommends the use of a gMSA for running the agent. For more information, see [Group Managed Service Accounts](how-to-prerequisites.md#group-managed-service-accounts).
 
 
 ### Update an existing agent to use the gMSA
@@ -43,7 +43,7 @@ To update an existing agent to use the Group Managed Service Account created dur
 [!INCLUDE [active-directory-cloud-sync-how-to-verify-installation](../../../../includes/active-directory-cloud-sync-how-to-verify-installation.md)]
 
 >[!IMPORTANT]
-> After you've installed the agent, you must configure and enable it before it will start synchronizing users. To configure a new agent, see [Create a new configuration for Microsoft Entra Connect cloud sync](how-to-configure.md).
+> After you've installed the agent, you must configure and enable it before it will start synchronizing users. To configure a new agent, see [Create a new configuration for Microsoft Entra Cloud Sync](how-to-configure.md).
 
 
 
@@ -57,7 +57,7 @@ To use *password writeback* and enable the self-service password reset (SSPR) se
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Hybrid Identity Administrator](../../roles/permissions-reference.md#hybrid-identity-administrator).
  2. On the left, select **Protection**, select **Password reset**, then choose **On-premises integration**.
  3. Check the option for **Enable password write back for synced users** .
- 4. (optional) If Microsoft Entra Connect provisioning agents are detected, you can additionally check the option for **Write back passwords with Microsoft Entra Connect cloud sync**.   
+ 4. (optional) If Microsoft Entra Connect provisioning agents are detected, you can additionally check the option for **Write back passwords with Microsoft Entra Cloud Sync**.   
  5. Check the option for **Allow users to unlock accounts without resetting their password** to *Yes*.
  6. When ready, select **Save**.
 
@@ -70,11 +70,11 @@ To use *password writeback* and enable the self-service password reset (SSPR) se
    Set-AADCloudSyncPasswordWritebackConfiguration -Enable $true -Credential $(Get-Credential)
   ```
 
-For more information about using password writeback with Microsoft Entra Connect cloud sync, see [Tutorial: Enable cloud sync self-service password reset writeback to an on-premises environment (preview)](../../../active-directory/authentication/tutorial-enable-cloud-sync-sspr-writeback.md).
+For more information about using password writeback with Microsoft Entra Cloud Sync, see [Tutorial: Enable cloud sync self-service password reset writeback to an on-premises environment (preview)](../../../active-directory/authentication/tutorial-enable-cloud-sync-sspr-writeback.md).
 
 ## Install an agent in the US government cloud
 
-By default, the Microsoft Entra Connect provisioning agent is installed in the default Azure environment. If you're installing the agent for US government use, make this change in step 7 of the preceding installation procedure:
+By default, the Microsoft Entra Provisioning Agent is installed in the default Azure environment. If you're installing the agent for US government use, make this change in step 7 of the preceding installation procedure:
 
 - Instead of selecting **Open file**, select **Start** > **Run**, and then go to the *AADConnectProvisioningAgentSetup.exe* file.  In the **Run** box, after the executable, enter **ENVIRONMENTNAME=AzureUSGovernment**, and then select **OK**.
 
@@ -107,5 +107,5 @@ For information about security and FIPS, see [Microsoft Entra password hash sync
 ## Next steps 
 
 - [What is provisioning?](../what-is-provisioning.md)
-- [What is Microsoft Entra Connect cloud sync?](what-is-cloud-sync.md)
-- [Create a new configuration for Microsoft Entra Connect cloud sync](how-to-configure.md).
+- [What is Microsoft Entra Cloud Sync?](what-is-cloud-sync.md)
+- [Create a new configuration for Microsoft Entra Cloud Sync](how-to-configure.md).

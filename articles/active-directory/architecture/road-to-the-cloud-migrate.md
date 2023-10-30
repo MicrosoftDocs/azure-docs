@@ -188,7 +188,7 @@ After you move SaaS applications that were federated to Microsoft Entra ID, ther
 
 * [Move application authentication to Microsoft Entra ID](../manage-apps/migrate-adfs-apps-stages.md)
 
-* [Migrate from Microsoft Entra multifactor authentication Server to Microsoft Entra multifactor authentication](../authentication/how-to-migrate-mfa-server-to-azure-mfa.md)
+* [Migrate from Azure Multi-Factor Authentication Server to Microsoft Entra multifactor authentication](../authentication/how-to-migrate-mfa-server-to-azure-mfa.md)
 
 * [Migrate from federation to cloud authentication](../hybrid/connect/migrate-from-federation-to-cloud-authentication.md)
 
@@ -207,7 +207,7 @@ In terms of infrastructure management, on-premises environments often use a comb
 
 Active Directory is for on-premises IT environments, and Microsoft Entra ID is for cloud-based IT environments. One-to-one parity of features isn't present here, so you can manage application servers in several ways. 
 
-For example, Azure Arc helps bring many of the features that exist in Active Directory together into a single view when you use Microsoft Entra ID for identity and access management (IAM). You can also use Microsoft Entra Domain Services (Microsoft Entra DS) to domain-join servers in Microsoft Entra ID, especially when you want those servers to use GPOs for specific business or technical reasons.
+For example, Azure Arc helps bring many of the features that exist in Active Directory together into a single view when you use Microsoft Entra ID for identity and access management (IAM). You can also use Microsoft Entra Domain Services to domain-join servers in Microsoft Entra ID, especially when you want those servers to use GPOs for specific business or technical reasons.
 
 Use the following table to determine what Azure-based tools you can use to replace the on-premises environment:
 
@@ -224,9 +224,9 @@ Here's more information that you can use for application server management:
 
 * [Manage and secure your Azure VM environment](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/).
 
-* If you must wait to migrate or perform a partial migration, you can use GPOs with [Microsoft Entra DS](https://azure.microsoft.com/services/active-directory-ds/).
+* If you must wait to migrate or perform a partial migration, you can use GPOs with [Microsoft Entra Domain Services](https://azure.microsoft.com/services/active-directory-ds/).
 
-If you require management of application servers with Microsoft Configuration Manager, you can't achieve this requirement by using Microsoft Entra DS. Microsoft Configuration Manager isn't supported to run in a Microsoft Entra DS environment. Instead, you need to extend your on-premises Active Directory instance to a domain controller running on an Azure VM. Or, you need to deploy a new Active Directory instance to an Azure IaaS virtual network.
+If you require management of application servers with Microsoft Configuration Manager, you can't achieve this requirement by using Microsoft Entra Domain Services. Microsoft Configuration Manager isn't supported to run in a Microsoft Entra Domain Services environment. Instead, you need to extend your on-premises Active Directory instance to a domain controller running on an Azure VM. Or, you need to deploy a new Active Directory instance to an Azure IaaS virtual network.
 
 ### Define the migration strategy for legacy applications
 
@@ -244,17 +244,17 @@ To reduce or eliminate those dependencies, you have three main approaches.
 
 In the most preferred approach, you undertake projects to migrate from legacy applications to SaaS alternatives that use modern authentication. Have the SaaS alternatives authenticate to Microsoft Entra ID directly:
 
-1. Deploy Microsoft Entra DS into an Azure virtual network and [extend the schema](/azure/active-directory-domain-services/concepts-custom-attributes) to incorporate additional attributes needed by the applications.
+1. Deploy Microsoft Entra Domain Services into an Azure virtual network and [extend the schema](/azure/active-directory-domain-services/concepts-custom-attributes) to incorporate additional attributes needed by the applications.
 
-2. Lift and shift legacy apps to VMs on the Azure virtual network that are domain-joined to Microsoft Entra DS.
+2. Lift and shift legacy apps to VMs on the Azure virtual network that are domain-joined to Microsoft Entra Domain Services.
 
 3. Publish legacy apps to the cloud by using Microsoft Entra application proxy or a [secure hybrid access](../manage-apps/secure-hybrid-access.md) partner.
 
-4. As legacy apps retire through attrition, eventually decommission Microsoft Entra DS running in the Azure virtual network.
+4. As legacy apps retire through attrition, eventually decommission Microsoft Entra Domain Services running in the Azure virtual network.
 
 >[!NOTE]
->* Use Microsoft Entra DS if the dependencies are aligned with [common deployment scenarios for Microsoft Entra DS](../../active-directory-domain-services/scenarios.md). 
->* To validate if Microsoft Entra DS is a good fit, you might use tools like [Service Map in Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ServiceMapOMS?tab=Overview) and [automatic dependency mapping with Service Map and Live Maps](https://techcommunity.microsoft.com/t5/system-center-blog/automatic-dependency-mapping-with-service-map-and-live-maps/ba-p/351867).
+>* Use Microsoft Entra Domain Services if the dependencies are aligned with [common deployment scenarios for Microsoft Entra Domain Services](../../active-directory-domain-services/scenarios.md). 
+>* To validate if Microsoft Entra Domain Services is a good fit, you might use tools like [Service Map in Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ServiceMapOMS?tab=Overview) and [automatic dependency mapping with Service Map and Live Maps](https://techcommunity.microsoft.com/t5/system-center-blog/automatic-dependency-mapping-with-service-map-and-live-maps/ba-p/351867).
 >* Validate that your SQL Server instantiations can be [migrated to a different domain](https://social.technet.microsoft.com/wiki/contents/articles/24960.migrating-sql-server-to-new-domain.aspx). If your SQL service is running in virtual machines, [use this guidance](/azure/azure-sql/migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-individual-databases-guide).
 
 #### Approach 2
@@ -291,7 +291,7 @@ This approach enables you to decouple the app from the existing Active Directory
 
 #### Comparison of strategies
 
-| Strategy | Microsoft Entra DS | Extend Active Directory to IaaS | Independent Active Directory instance in IaaS |
+| Strategy | Microsoft Entra Domain Services | Extend Active Directory to IaaS | Independent Active Directory instance in IaaS |
 | - | - | - | - |
 | Decoupling from on-premises Active Directory| Yes| No| Yes |
 | Allowing schema extensions| No| Yes| Yes |
@@ -320,7 +320,7 @@ To simplify your environment, you can use [Microsoft Entra application proxy](..
 
 It's important to mention that enabling remote access to an application by using the preceding technologies is an interim step. You need to do more work to completely decouple the application from Active Directory. 
 
-Microsoft Entra DS allows you to migrate application servers to the cloud IaaS and decouple from Active Directory, while using Microsoft Entra application proxy to enable remote access. To learn more about this scenario, check [Deploy Microsoft Entra application proxy for Microsoft Entra Domain Services](../../active-directory-domain-services/deploy-azure-app-proxy.md).
+Microsoft Entra Domain Services allows you to migrate application servers to the cloud IaaS and decouple from Active Directory, while using Microsoft Entra application proxy to enable remote access. To learn more about this scenario, check [Deploy Microsoft Entra application proxy for Microsoft Entra Domain Services](../../active-directory-domain-services/deploy-azure-app-proxy.md).
 
 ## Next steps
 

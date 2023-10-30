@@ -27,8 +27,8 @@ The required roles and licenses may vary based on the report. Global Administrat
 |--|--|--|
 | Audit | Report Reader<br>Security Reader<br>Security Administrator<br>Global Reader | All editions of Microsoft Entra ID |
 | Sign-ins | Report Reader<br>Security Reader<br>Security Administrator<br>Global Reader | All editions of Microsoft Entra ID |
-| Provisioning | Same as audit and sign-ins, plus<br>Security Operator<br>Application Administrator<br>Cloud App Administrator<br>A custom role with `provisioningLogs` permission | Premium P1/P2 |
-| Conditional Access data in the sign-in logs | Company Administrator<br>Global Reader<br>Security Administrator<br>Security Reader<br>Conditional Access Administrator | Premium P1/P2 |
+| Provisioning | Same as audit and sign-ins, plus<br>Security Operator<br>Application Administrator<br>Cloud App Administrator<br>A custom role with `provisioningLogs` permission | Premium P1 or P2 |
+| Conditional Access data in the sign-in logs | Company Administrator<br>Global Reader<br>Security Administrator<br>Security Reader<br>Conditional Access Administrator | Premium P1 or P2 |
 
 ## How to access the activity logs in the Microsoft Entra admin center
 

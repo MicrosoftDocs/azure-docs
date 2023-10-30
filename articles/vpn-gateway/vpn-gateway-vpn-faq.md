@@ -4,7 +4,7 @@ description: Learn about frequently asked questions for VPN Gateway cross-premis
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/15/2023
+ms.date: 10/06/2023
 ms.author: cherylmc
 ---
 
@@ -64,13 +64,26 @@ No.
 
 A VPN gateway is a type of virtual network gateway. A VPN gateway sends encrypted traffic between your virtual network and your on-premises location across a public connection. You can also use a VPN gateway to send traffic between virtual networks. When you create a VPN gateway, you use the -GatewayType value 'Vpn'. For more information, see [About VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md).
 
-### What is a policy-based (static-routing) gateway?
+### Why can't I specify policy-based and route-based VPN types?
 
-Policy-based gateways implement policy-based VPNs. Policy-based VPNs encrypt and direct packets through IPsec tunnels based on the combinations of address prefixes between your on-premises network and the Azure VNet. The policy (or Traffic Selector) is usually defined as an access list in the VPN configuration.
+As of Oct 1, 2023, you no longer need to specify VPN type. All new VPN gateways will automatically be created as route-based gateways. If you already have a policy-based gateway, you don't need to upgrade your gateway to route-based.
 
-### What is a route-based (dynamic-routing) gateway?
+Previously, the older gateway SKUs didn't support IKEv1 for route-based gateways. Now, most of the current gateway SKUs support both IKEv1 and IKEv2.
 
-Route-based gateways implement the route-based VPNs. Route-based VPNs use "routes" in the IP forwarding or routing table to direct packets into their corresponding tunnel interfaces. The tunnel interfaces then encrypt or decrypt the packets in and out of the tunnels. The policy or traffic selectors for route-based VPNs are configured as any-to-any (or wild cards).
+[!INCLUDE [Route-based and policy-based table](../../includes/vpn-gateway-vpn-type-table.md)]
+
+### Can I update my policy-based VPN gateway to route-based?
+
+No. A gateway type can't be changed from policy-based to route-based, or from route-based to policy-based. To change a gateway type, the gateway must be deleted and recreated. This process takes about 60 minutes. When you create the new gateway, you can't retain the IP address of the original gateway.
+
+1. Delete any connections associated with the gateway.
+1. Delete the gateway using one of the following articles:
+
+   * [Azure portal](vpn-gateway-delete-vnet-gateway-portal.md)
+   * [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
+   * [Azure PowerShell - classic](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
+1. Create a new gateway using the gateway type that you want, and then complete the VPN setup. For steps, see the [Site-to-site tutorial](./tutorial-site-to-site-portal.md#VNetGateway).
+
 
 ### Can I specify my own policy-based traffic selectors?
 
@@ -78,18 +91,6 @@ Yes, traffic selectors can be defined via the *trafficSelectorPolicies* attribut
 
 The custom configured traffic selectors will be proposed only when an Azure VPN gateway initiates the connection. A VPN gateway will accept any traffic selectors proposed by a remote gateway (on-premises VPN device). This behavior is consistent between all connection modes (Default, InitiatorOnly, and ResponderOnly).
 
-### Can I update my policy-based VPN gateway to route-based?
-
-No. A gateway type can't be changed from policy-based to route-based, or from route-based to policy-based. To change a gateway type, the gateway must be deleted and recreated. This process takes about 60 minutes. When you create the new gateway, you can't retain the IP address of the original gateway.
-
-1. Delete any connections associated with the gateway.
-
-1. Delete the gateway using one of the following articles:
-
-   * [Azure portal](vpn-gateway-delete-vnet-gateway-portal.md)
-   * [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
-   * [Azure PowerShell - classic](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
-1. Create a new gateway using the gateway type that you want, and then complete the VPN setup. For steps, see the [Site-to-site tutorial](./tutorial-site-to-site-portal.md#VNetGateway).
 
 ### Do I need a 'GatewaySubnet'?
 

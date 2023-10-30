@@ -35,7 +35,7 @@ Regions supported:
 - Korea Central
 - Canada Central
 
-For more detailed information on availability zones in Azure, see [Regions and availability zones](/azure/reliability/availability-zones-overview). 
+For more detailed information on availability zones in Azure, see [Regions and availability zones](../reliability/availability-zones-overview.md). 
 
 ## Disaster recovery: cross-region failover 
 
@@ -53,7 +53,7 @@ You can replicate the following Deployment Environments resources in an alternat
 
 
 
-For more information on Azure disaster recovery architecture, see [Azure to Azure disaster recovery architecture](/azure/site-recovery/azure-to-azure-architecture). 
+For more information on Azure disaster recovery architecture, see [Azure to Azure disaster recovery architecture](../site-recovery/azure-to-azure-architecture.md). 
 
 ## Related content 
 

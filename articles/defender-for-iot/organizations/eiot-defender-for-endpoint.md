@@ -30,7 +30,7 @@ Make sure that you have:
 
     |Identity management  |Roles required  |
     |---------|---------|
-    |**In Azure Active Directory**     |   [Global administrator](../../active-directory/roles/permissions-reference.md#global-administrator) for your Microsoft 365 tenant      |
+    |**In Microsoft Entra ID**     |   [Global administrator](../../active-directory/roles/permissions-reference.md#global-administrator) for your Microsoft 365 tenant      |
     |**In Azure RBAC**     | [Security admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner) for the Azure subscription that you'll be using for the integration        |
 
 ## Onboard a Defender for IoT plan

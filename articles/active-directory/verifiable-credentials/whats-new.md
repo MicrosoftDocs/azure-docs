@@ -10,7 +10,7 @@ ms.date: 08/16/2022
 ms.custom: references_regions
 ms.author: barclayn
 
-#Customer intent: As an Microsoft Entra Verified ID issuer, verifier or developer, I want to know what's new in the product so that I can make full use of the functionality as it becomes available.
+#Customer intent: As a Microsoft Entra Verified ID issuer, verifier or developer, I want to know what's new in the product so that I can make full use of the functionality as it becomes available.
 
 ---
 
@@ -64,13 +64,13 @@ Instructions for setting up place of work verification on LinkedIn available [he
 ## March 2023
 
 - Admin API now supports [application access tokens](admin-api.md#authentication) and in addition to user bearer tokens.
-- Introducing the Entra Verified ID [Services partner gallery](services-partners.md) listing trusted partners that can help accelerate your Entra Verified ID implementation.
+- Introducing the Microsoft Entra Verified ID [Services partner gallery](services-partners.md) listing trusted partners that can help accelerate your Microsoft Entra Verified ID implementation.
 - Improvements to our Administrator onboarding experience in the [Admin portal](verifiable-credentials-configure-tenant.md#register-decentralized-id-and-verify-domain-ownership) based on customer feedback.
 - Updates to our samples in [github](https://github.com/Azure-Samples/active-directory-verifiable-credentials) showcasing how to dynamically display VC claims.
 
 ## February 2023
 
-- *Public preview* - Entitlement Management customers can now create access packages that leverage Entra Verified ID [learn more](../../active-directory/governance/entitlement-management-verified-id-settings.md)
+- *Public preview* - Entitlement Management customers can now create access packages that leverage Microsoft Entra Verified ID [learn more](../../active-directory/governance/entitlement-management-verified-id-settings.md)
 
 - The Request Service API can now do revocation check for verifiable credentials presented that was issued with [StatusList2021](https://w3c.github.io/vc-status-list-2021/) or the [RevocationList2020](https://w3c-ccg.github.io/vc-status-rl-2020/) status list types.
 
@@ -80,7 +80,7 @@ Instructions for setting up place of work verification on LinkedIn available [he
 
 ## November 2022
 
-- Entra Verified ID now reports events in the [Azure AD Audit Log](../../active-directory/reports-monitoring/concept-audit-logs.md). Only management changes made via the Admin API are currently logged. Issuance or presentations of verifiable credentials aren't reported in the audit log. The log entries have a service name of `Verified ID` and the activity will be `Create authority`, `Update contract`, etc.  
+- Microsoft Entra Verified ID now reports events in the [audit log](../../active-directory/reports-monitoring/concept-audit-logs.md). Only management changes made via the Admin API are currently logged. Issuance or presentations of verifiable credentials aren't reported in the audit log. The log entries have a service name of `Verified ID` and the activity will be `Create authority`, `Update contract`, etc.  
 
 ## September 2022
 
@@ -113,10 +113,10 @@ Microsoft Entra Verified ID is now generally available (GA) as the new member of
 ## June 2022
 
 - We're adding support for the [did:web](https://w3c-ccg.github.io/did-method-web/) method. Any new tenant that starts using the Verifiable Credentials Service after June 14, 2022 will have Web as a new, default, trust system when [onboarding](verifiable-credentials-configure-tenant.md#set-up-verified-id). VC Administrators can still choose to use ION when setting a tenant. If you want to use did:web instead of ION or viceversa, you need to [reconfigure your tenant](verifiable-credentials-faq.md?#how-do-i-reset-the-entra-verified-id-service).
-- We're rolling out several features to improve the overall experience of creating verifiable credentials in the Entra Verified ID platform:
+- We're rolling out several features to improve the overall experience of creating verifiable credentials in the Microsoft Entra Verified ID platform:
   - Introducing Managed Credentials, which are verifiable credentials that no longer use Azure Storage to store the [display & rules JSON definitions](rules-and-display-definitions-model.md). Their display and rule definitions are different from earlier versions.
   - Create Managed Credentials using the [new quickstart experience](how-to-use-quickstart.md).
-  - Administrators can create a Verified Employee Managed Credential using the [new quick start](how-to-use-quickstart-verifiedemployee.md). The Verified Employee is a verifiable credential of type verifiedEmployee that is based on a predefined set of claims from your tenant's Azure Active Directory.
+  - Administrators can create a Verified Employee Managed Credential using the [new quick start](how-to-use-quickstart-verifiedemployee.md). The Verified Employee is a verifiable credential of type verifiedEmployee that is based on a predefined set of claims from your tenant's directory.
 
 >[!IMPORTANT]
 > You need to migrate your Azure Storage based credentials to become Managed Credentials. We'll soon provide migration instructions.
@@ -127,7 +127,7 @@ Microsoft Entra Verified ID is now generally available (GA) as the new member of
   - (new) [How to create verifiable credentials for ID token](how-to-use-quickstart-idtoken.md).
   - (new) [How to create verifiable credentials for self-asserted claims](how-to-use-quickstart-selfissued.md). 
   - (new) [Rules and Display definition model specification](rules-and-display-definitions-model.md).
-  - (new) [Creating an Azure AD tenant for development](how-to-create-a-free-developer-account.md).
+  - (new) [Creating a tenant for development](how-to-create-a-free-developer-account.md).
 
 ## May 2022
 

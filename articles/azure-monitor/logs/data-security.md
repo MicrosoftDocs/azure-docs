@@ -174,7 +174,7 @@ You can use these additional security features to further secure your Azure Moni
 - [Customer-managed (security) keys](../logs/customer-managed-keys.md) - You can use customer-managed keys to encrypt data sent to your Log Analytics workspaces. It requires use of Azure Key Vault. 
 - [Private/customer-managed storage](./private-storage.md) - Manage your personally encrypted storage account and tell Azure Monitor to use it to store monitoring data 
 - [Private Link networking](./private-link-security.md) - Azure Private Link allows you to securely link Azure PaaS services (including Azure Monitor) to your virtual network using private endpoints. 
-- [Azure Customer Lockbox](../../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios) - Customer Lockbox for Microsoft Azure provides an interface for customers to review and approve or reject customer data access requests. It is used in cases where a Microsoft engineer needs to access customer data during a support request.
+- [Azure Customer Lockbox](../../security/fundamentals/customer-lockbox-overview.md) - Customer Lockbox for Microsoft Azure provides an interface for customers to review and approve or reject customer data access requests. It is used in cases where a Microsoft engineer needs to access customer data during a support request.
 
 ## Tamper-proofing and immutability 
 

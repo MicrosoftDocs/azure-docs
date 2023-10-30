@@ -30,7 +30,7 @@ To secure when and how users register for Microsoft Entra multifactor authentica
 > [!NOTE]
 > This policy applies only when a user accesses a combined registration page. This policy doesn't enforce MFA enrollment when a user accesses other applications.
 >
-> You can create an MFA registration policy by using [Azure Identity Protection - Configure MFA Policy](../identity-protection/howto-identity-protection-configure-mfa-policy.md).
+> You can create an MFA registration policy by using [Microsoft Entra ID Protection - Configure MFA Policy](../identity-protection/howto-identity-protection-configure-mfa-policy.md).
 
 For more information about creating trusted locations in Conditional Access, see [What is the location condition in Microsoft Entra Conditional Access?](../conditional-access/location-condition.md#named-locations)
 

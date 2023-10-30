@@ -181,6 +181,11 @@
             "redirect_document_id": true
           },
           {
+            "source_path": "articles/sentinel/review-fine-tune-overview.md",
+            "redirect_url": "/azure/sentinel/deploy-overview",
+            "redirect_document_id": true
+          },
+          {
             "source_path": "articles/sentinel/data-connectors/box-using-azure-function.md",
             "redirect_url": "/azure/sentinel/data-connectors/box-using-azure-functions",
             "redirect_document_id": true

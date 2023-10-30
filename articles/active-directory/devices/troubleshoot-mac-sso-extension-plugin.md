@@ -265,18 +265,18 @@ Now that the PRT (shared credential) has been verified, before doing any deeper 
 
 ##### Native MSAL application
 
-Scenario: An application developed to use MSAL (Example: **Microsoft To Do** client) that is running on an Apple device needs to sign the user in with their Microsoft Entra account in order to access a Microsoft Entra ID protected service (Example: **Microsoft To Do Service**).
+Scenario: An application developed to use MSAL (Example: **Microsoft To Do** client) that is running on an Apple device needs to sign the user in with their Microsoft Entra account in order to access a Microsoft Entra protected service (Example: **Microsoft To Do Service**).
 
 :::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/macos-prt-msal-app.gif" alt-text="A GIF animation showing the authentication flow of an MSAL app with a PRT.":::
 
-1. MSAL-developed applications invoke the SSO extension directly, and send the PRT to the Microsoft Entra token endpoint along with the application's request for a token for a Microsoft Entra ID protected resource
+1. MSAL-developed applications invoke the SSO extension directly, and send the PRT to the Microsoft Entra token endpoint along with the application's request for a token for a Microsoft Entra protected resource
 1. Microsoft Entra ID validates the PRT credential, and returns an application-specific token back to the SSO extension broker
-1. The SSO extension broker then passes the token to the MSAL client application, which then sends it to the Microsoft Entra ID protected resource
+1. The SSO extension broker then passes the token to the MSAL client application, which then sends it to the Microsoft Entra protected resource
 1. The user is now signed into the app and the authentication process is complete
 
 ##### Non-MSAL/Browser SSO
 
-Scenario: A user on an Apple device opens up the Safari web browser (or any Non-MSAL native app that supports the Apple Networking Stack) to sign into a Microsoft Entra ID protected resource (Example: `https://office.com`).
+Scenario: A user on an Apple device opens up the Safari web browser (or any Non-MSAL native app that supports the Apple Networking Stack) to sign into a Microsoft Entra protected resource (Example: `https://office.com`).
 
 :::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/macos-prt-non-msal-app.gif" alt-text="An animation showing the high level authentication flow of a Non-MSAL app using the SSO Extension.":::
 
@@ -284,7 +284,7 @@ Scenario: A user on an Apple device opens up the Safari web browser (or any Non-
 1. As long as the Non-MSAL application is allow-listed in the MDM payload configuration, the Apple network stack intercepts the authentication request and redirects the request to the SSO Extension broker
 1. Once the SSO extension receives the intercepted request, the PRT is sent to the Microsoft Entra token endpoint
 1. Microsoft Entra ID validates the PRT, and returns an application-specific token back to the SSO Extension
-1. The application-specific token is given to the Non-MSAL client application, and the client application sends the token to access the Microsoft Entra ID protected service
+1. The application-specific token is given to the Non-MSAL client application, and the client application sends the token to access the Microsoft Entra protected service
 1. The user now has completed the sign-in and the authentication process is complete
 
 ### Obtaining the SSO extension logs

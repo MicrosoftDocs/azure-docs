@@ -22,6 +22,8 @@
 | Back ends per back-end pool | 100 |
 | Path patterns to match for a routing rule | 25 |
 | URLs in a single cache purge call | 100 |
+| Maximum bandwidth* | 75 Gbps |
+| Maximum requests per second per profile* | 100,000 |
 | Custom web application firewall rules per policy | 100 |
 | Web application firewall policy per subscription | 100 |
 | Web application firewall match conditions per custom rule | 10 |
@@ -35,6 +37,7 @@
 | Web application firewall HTTP request body size inspected | 128 KB |
 | Web application firewall custom response body length | 32 KB |
 
+*If the traffic isn't globally distributed and concentrated in one or more regions, or if a higher quota limited is need, create an [Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 <sup>1</sup>To request a limit increase, create an [Azure Support request][azure-support]. Free subscriptions including [Azure Free Account](https://azure.microsoft.com/offers/ms-azr-0044p/) and [Azure for Students](https://azure.microsoft.com/offers/ms-azr-0170p/) aren't eligible for limit or quota increases. If you have a free subscription, you can [upgrade](../articles/cost-management-billing/manage/upgrade-azure-subscription.md) to a Pay-As-You-Go subscription.<br />
 
@@ -62,6 +65,8 @@
 | Maximum rule set per profile | 100 | 200 |
 | Maximum rules per route | 100 | 100 |
 | Maximum rules per rule set* | 100 | 100 |
+| Maximum bandwidth* | 75 Gbps | 75 Gbps |
+| Maximum requests per second per profile* | 100,000 | 100,000 |
 | Path patterns to match for a routing rule | 25 | 50 |
 | URLs in a single cache purge call | 100 | 100 |
 | Maximum security policy per profile* | 100 | 200 |
@@ -80,6 +85,8 @@
 | WAF exclusion per policy | 100 | 100 |
 | WAF HTTP request body size inspected | 128 KB | 128 KB |
 | WAF custom response body length | 32 KB | 32 KB |
+
+*If the traffic isn't globally distributed and concentrated in one or more regions, or if a higher quota limited is need, create an [Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 #### Timeout values
 

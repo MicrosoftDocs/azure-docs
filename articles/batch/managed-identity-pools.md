@@ -9,8 +9,8 @@ ms.custom: devx-track-linux
 # Configure managed identities in Batch pools
 
 [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md) eliminate
-complicated identity and credential management by providing an identity for the Azure resource in Azure Active Directory
-(Azure AD). This identity is used to obtain Azure Active Directory (Azure AD) tokens to authenticate with target
+complicated identity and credential management by providing an identity for the Azure resource in Microsoft Entra ID
+(Microsoft Entra ID). This identity is used to obtain Microsoft Entra tokens to authenticate with target
 resources in Azure.
 
 This topic explains how to enable user-assigned managed identities on Batch pools and how to use managed identities within the nodes.
@@ -118,7 +118,7 @@ see the following links:
 
 You can also manually configure your tasks so that the managed identities can directly access [Azure resources that support managed identities](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md).
 
-Within the Batch nodes, you can get managed identity tokens and use them to authenticate through Azure AD authentication via the [Azure Instance Metadata Service](../virtual-machines/windows/instance-metadata-service.md).
+Within the Batch nodes, you can get managed identity tokens and use them to authenticate through Microsoft Entra authentication via the [Azure Instance Metadata Service](../virtual-machines/windows/instance-metadata-service.md).
 
 For Windows, the PowerShell script to get an access token to authenticate is:
 

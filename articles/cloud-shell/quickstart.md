@@ -1,15 +1,32 @@
 ---
 description: Learn how to start using Azure Cloud Shell.
 ms.contributor: jahelmic
-ms.date: 03/06/2023
+ms.date: 10/09/2023
 ms.topic: article
 tags: azure-resource-manager
 title: Quickstart for Azure Cloud Shell
 ---
 # Quickstart for Azure Cloud Shell
 
-This document details how to use Bash and PowerShell in Azure Cloud Shell from the
-[Azure portal][03].
+This document details how to get started using Azure Cloud Shell.
+
+## Prerequisites
+
+Before you can use Azure Cloud Shell, you must register the **Microsoft.CloudShell** resource
+provider. Access to resources is enabled through provider namespaces that must be registered in your
+subscription. You only need to register the namespace once per subscription.
+
+To see all resource providers, and the registration status for your subscription:
+
+1. Sign in to the [Azure portal][03].
+1. On the Azure portal menu, search for **Subscriptions**. Select it from the available options.
+1. Select the subscription you want to view.
+1. On the left menu, under **Settings**, select **Resource providers**.
+1. In the search box, enter `cloudshell` to search for the resource provider.
+1. Select the **Microsoft.CloudShell** resource provider register from the provider list.
+1. Select **Register** to change the status from **unregistered** to **Registered**.
+
+   :::image type="content" source="./media/quickstart/resource-provider.png" alt-text="Screenshot of selecting resource providers in the Azure portal.":::
 
 ## Start Cloud Shell
 
@@ -31,44 +48,11 @@ Cloud Shell allows you to select either **Bash** or **PowerShell** for your comm
 
 ![Screenshot showing the shell selector.][04]
 
-### Registering your subscription with Azure Cloud Shell
-
-Azure Cloud Shell needs access to manage resources. Access is provided through namespaces that must
-be registered to your subscription. Use the following commands to register the
-**Microsoft.CloudShell** namespace in your subscription:
-
-<!-- markdownlint-disable MD023 -->
-<!-- markdownlint-disable MD024 -->
-<!-- markdownlint-disable MD051 -->
-#### [Azure CLI](#tab/azurecli)
-
-```azurecli-interactive
-az account set --subscription <Subscription Name or Id>
-az provider register --namespace Microsoft.CloudShell
-```
-
-#### [Azure PowerShell](#tab/powershell)
-
-```azurepowershell-interactive
-Select-AzSubscription -SubscriptionId <SubscriptionId>
-Register-AzResourceProvider -ProviderNamespace Microsoft.CloudShell
-```
-<!-- markdownlint-enable MD023 -->
-<!-- markdownlint-enable MD024 -->
-<!-- markdownlint-enable MD051 -->
-
----
-
-> [!NOTE]
-> You only need to register the namespace once per subscription.
-
 ### Set your subscription
 
 1. List subscriptions you have access to.
 
-<!-- markdownlint-disable MD023 -->
-<!-- markdownlint-disable MD024 -->
-<!-- markdownlint-disable MD051 -->
+   <!-- markdownlint-disable MD023 MD024 MD051-->
    #### [Azure CLI](#tab/azurecli)
 
    ```azurecli-interactive
@@ -80,17 +64,11 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.CloudShell
    ```azurepowershell-interactive
    Get-AzSubscription
    ```
-<!-- markdownlint-enable MD023 -->
-<!-- markdownlint-enable MD024 -->
-<!-- markdownlint-enable MD051 -->
-
-   ---
+   <!-- markdownlint-enable MD023 MD024 MD051-->
 
 1. Set your preferred subscription:
 
-<!-- markdownlint-disable MD023 -->
-<!-- markdownlint-disable MD024 -->
-<!-- markdownlint-disable MD051 -->
+   <!-- markdownlint-disable MD023 MD024 MD051-->
    #### [Azure CLI](#tab/azurecli)
 
    ```azurecli-interactive
@@ -102,10 +80,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.CloudShell
    ```azurepowershell-interactive
    Set-AzContext -Subscription <SubscriptionId>
    ```
-<!-- markdownlint-enable MD023 -->
-<!-- markdownlint-enable MD024 -->
-<!-- markdownlint-enable MD051 -->
-
+   <!-- markdownlint-enable MD023 MD024 MD051-->
    ---
 
 > [!TIP]
@@ -113,9 +88,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.CloudShell
 
 ### Get a list of Azure commands
 
-<!-- markdownlint-disable MD023 -->
-<!-- markdownlint-disable MD024-->
-<!-- markdownlint-disable MD051 -->
+<!-- markdownlint-disable MD023 MD024 MD051-->
 #### [Azure CLI](#tab/azurecli)
 
 Run the following command to see a list of all Azure CLI commands.
@@ -146,9 +119,7 @@ Run the following commands to get a list the Azure PowerShell commands that appl
 cd 'Azure:/My Subscription/WebApps'
 Get-AzCommand
 ```
-<!-- markdownlint-enable MD023 -->
-<!-- markdownlint-enable MD024 -->
-<!-- markdownlint-enable MD051 -->
+<!-- markdownlint-enable MD023 MD024 MD051-->
 
 ---
 

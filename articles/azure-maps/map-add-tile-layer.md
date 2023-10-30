@@ -2,8 +2,8 @@
 title: Add a tile layer to a map
 titleSuffix: Microsoft Azure Maps
 description: Learn how to superimpose images on maps. See an example that uses the Azure Maps Web SDK to add a tile layer containing a weather radar overlay to a map.
-author: dubiety
-ms.author: yuchungchen
+author: sinnypan
+ms.author: sipa
 ms.date: 06/08/2023
 ms.topic: how-to
 ms.service: azure-maps

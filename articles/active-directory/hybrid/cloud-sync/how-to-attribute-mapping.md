@@ -1,5 +1,5 @@
 ---
-title: 'Attribute mapping in Microsoft Entra Connect cloud sync'
+title: 'Attribute mapping in Microsoft Entra Cloud Sync'
 description: This article describes how to use the cloud sync feature of Microsoft Entra Connect to map attributes.
 services: active-directory
 author: billmath
@@ -13,7 +13,7 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 
-# Attribute mapping in Microsoft Entra Connect cloud sync
+# Attribute mapping in Microsoft Entra Cloud Sync
 
 You can use the cloud sync attribute mapping feature to map attributes between your on-premises user or group objects and the objects in Microsoft Entra ID. 
 
@@ -148,7 +148,7 @@ To test your attribute mapping, you can use [on-demand provisioning](how-to-on-d
 
 ## Next steps
 
-- [What is Microsoft Entra Connect cloud sync?](what-is-cloud-sync.md)
+- [What is Microsoft Entra Cloud Sync?](what-is-cloud-sync.md)
 - [Writing expressions for attribute mappings](reference-expressions.md)
 - [How to use expression builder with cloud sync](how-to-expression-builder.md)
 - [Attributes synchronized to Microsoft Entra ID](../connect/reference-connect-sync-attributes-synchronized.md)

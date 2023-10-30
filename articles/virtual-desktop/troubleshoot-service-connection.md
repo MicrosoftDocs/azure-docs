@@ -32,11 +32,11 @@ A user can start Remote Desktop clients and is able to authenticate, however the
 
 3. If the web client is being used, confirm that there are no cached credentials issues.
 
-4. If the user is part of an Azure Active Directory user group, make sure the user group is a security group instead of a distribution group. Azure Virtual Desktop doesn't support Azure AD distribution groups.
+4. If the user is part of a Microsoft Entra user group, make sure the user group is a security group instead of a distribution group. Azure Virtual Desktop doesn't support Microsoft Entra distribution groups.
 
 ## User loses existing feed and no remote resource is displayed (no feed)
 
-This error usually appears after a user moved their subscription from one Azure Active Directory tenant to another. As a result, the service loses track of their user assignments, since those are still tied to the old Azure Active Directory tenant.
+This error usually appears after a user moved their subscription from one Microsoft Entra tenant to another. As a result, the service loses track of their user assignments, since those are still tied to the old Microsoft Entra tenant.
 
 To resolve this, all you need to do is reassign the users to their application groups.
 

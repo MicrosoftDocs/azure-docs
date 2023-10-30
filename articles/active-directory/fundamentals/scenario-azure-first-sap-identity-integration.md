@@ -88,7 +88,7 @@ When your authoritative user directory is Microsoft Entra ID, we recommend setti
 
 ![SAP trust configuration](./media/scenario-azure-first-sap-identity-integration/sap-trust-configuration.png)
 
-On the trust configuration in BTP, we recommend that "Create Shadow Users During Logon" is enabled.  This way, users who haven't yet been created in BTP, automatically get an account when they sign in through IAS/Azure AD for the first time. If this setting would be disabled, only pre-provisioned users would be allowed to sign in.
+On the trust configuration in BTP, we recommend that "Create Shadow Users During Logon" is enabled.  This way, users who haven't yet been created in BTP, automatically get an account when they sign in through IAS / Microsoft Entra ID for the first time. If this setting would be disabled, only pre-provisioned users would be allowed to sign in.
 
 #### Why this recommendation?
 

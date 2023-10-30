@@ -41,10 +41,12 @@ A pipeline can have more than one activity. And, you can chain two activities (r
 * Go through [Tutorial Overview and Pre-requisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) to get an overview of the tutorial and complete the **prerequisite** steps.
 * Visual Studio 2012 or 2013 or 2015
 * Download and install [Azure .NET SDK](https://azure.microsoft.com/downloads/)
-* Azure PowerShell. Follow instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azure-powershell) article to install Azure PowerShell on your computer. You use Azure PowerShell to create an Azure Active Directory application.
+* Azure PowerShell. Follow instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azure-powershell) article to install Azure PowerShell on your computer. You use Azure PowerShell to create a Microsoft Entra application.
 
-### Create an application in Azure Active Directory
-Create an Azure Active Directory application, create a service principal for the application, and assign it to the **Data Factory Contributor** role.
+<a name='create-an-application-in-azure-active-directory'></a>
+
+### Create an application in Microsoft Entra ID
+Create a Microsoft Entra application, create a service principal for the application, and assign it to the **Data Factory Contributor** role.
 
 1. Launch **PowerShell**.
 2. Run the following command and enter the user name and password that you use to sign in to the Azure portal.
@@ -75,7 +77,7 @@ Create an Azure Active Directory application, create a service principal for the
     If the resource group already exists, you specify whether to update it (Y) or keep it as (N).
 
     If you use a different resource group, you need to use the name of your resource group in place of ADFTutorialResourceGroup in this tutorial.
-6. Create an Azure Active Directory application.
+6. Create a Microsoft Entra application.
 
     ```powershell
     $azureAdApplication = New-AzADApplication -DisplayName "ADFCopyTutotiralApp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.adfcopytutorialapp.org/example" -Password "Pass@word1"
@@ -122,7 +124,7 @@ You should have following four values from these steps:
 2. Click **Tools**, point to **NuGet Package Manager**, and click **Package Manager Console**.
 3. In the **Package Manager Console**, do the following steps:
    1. Run the following command to install Data Factory package: `Install-Package Microsoft.Azure.Management.DataFactories`
-   2. Run the following command to install Azure Active Directory package (you use Active Directory API in the code): `Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213`
+   2. Run the following command to install Microsoft Entra ID package (you use Active Directory API in the code): `Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213`
 4. Add the following **appSetttings** section to the **App.config** file. These settings are used by the helper method: **GetAuthorizationHeader**.
 
     Replace values for **&lt;Application ID&gt;**, **&lt;Password&gt;**, **&lt;Subscription ID&gt;**, and **&lt;tenant ID&gt;** with your own values.

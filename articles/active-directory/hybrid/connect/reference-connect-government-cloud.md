@@ -37,7 +37,7 @@ Before you deploy the Pass-through Authentication agent, verify whether a firewa
 > - the pass-through authentication agent
 > - [Microsoft Entra application proxy connector](../../app-proxy/what-is-application-proxy.md) 
 >
-> For information on URLS for the Microsoft Entra Connect Provisioning Agent see the [installation pre-requisites](../cloud-sync/how-to-prerequisites.md)  for cloud sync.
+> For information on URLS for the Microsoft Entra Provisioning Agent see the [installation pre-requisites](../cloud-sync/how-to-prerequisites.md)  for cloud sync.
 
 
 |URL |How it's used|

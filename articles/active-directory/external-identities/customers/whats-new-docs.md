@@ -1,6 +1,6 @@
 ---
-title: "What's new in Azure Active Directory for customers"
-description: "New and updated documentation for the Azure Active Directory for customers documentation."
+title: "What's new in Microsoft Entra ID for customers"
+description: "New and updated documentation for the Microsoft Entra ID for customers documentation."
 ms.date: 09/29/2023
 ms.service: active-directory
 ms.subservice: ciam
@@ -11,13 +11,13 @@ author: csmulligan
 manager: CelesteDG
 ---
 
-# Azure Active Directory for customers: What's new
+# Microsoft Entra ID for customers: What's new
 
-Welcome to what's new in Azure Active Directory for customers documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. 
+Welcome to what's new in Microsoft Entra ID for customers documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. 
 
 ## September 2023
 
-This month, we renamed Azure Active Directory (Azure AD) to Microsoft Entra ID. For more information about the rebranding, see the [New name for Azure Active Directory](/azure/active-directory/fundamentals/new-name) article.
+This month, we renamed Microsoft Entra ID to Microsoft Entra ID. For more information about the rebranding, see the [New name for Microsoft Entra ID](/azure/active-directory/fundamentals/new-name) article.
 
 ### Updated articles
 
@@ -45,7 +45,7 @@ This month, we renamed Azure Active Directory (Azure AD) to Microsoft Entra ID. 
 - [Quickstart: Create a tenant (preview)](quickstart-tenant-setup.md) - Get started guide update
 - [Add and manage admin accounts](how-to-manage-admin-accounts.md) - Editorial review
 - [Tutorial: Prepare a Vanilla JavaScript single-page app for authentication in a customer tenant](tutorial-single-page-app-vanillajs-prepare-app.md) - Editorial review
-- [Azure AD for customers documentation](index.yml) - Editorial review
+- [Microsoft Entra ID for customers documentation](index.yml) - Editorial review
 - [Tutorial: Sign in users in .NET MAUI app](tutorial-desktop-app-maui-sign-in-sign-out.md) - Add app roles to .NET MAUI app and receive them in the ID token
 - [Tutorial: Sign in users in .NET MAUI shell app](tutorial-mobile-app-maui-sign-in-sign-out.md) - Add app roles to .NET MAUI app and receive them in the ID token 
 
@@ -54,7 +54,7 @@ This month, we renamed Azure Active Directory (Azure AD) to Microsoft Entra ID. 
 ### New articles
 
 - [Tutorial: Prepare your customer tenant to authorize a .NET daemon application](tutorial-daemon-dotnet-call-api-prepare-tenant.md)
-- [Tutorial: Secure an ASP.NET web API registered in the Azure AD for customer's tenant](tutorial-protect-web-api-dotnet-core-build-app.md)
+- [Tutorial: Secure an ASP.NET web API registered in the Microsoft Entra ID for customer's tenant](tutorial-protect-web-api-dotnet-core-build-app.md)
 - [Tutorial: Prepare your customer tenant to authorize a Node.js daemon application](tutorial-daemon-node-call-api-prepare-tenant.md)
 - [Tutorial: Register and configure .NET browserless app authentication details in a customer tenant](tutorial-browserless-app-dotnet-sign-in-prepare-tenant.md)
 - [Sign in users in a sample WPF desktop application](sample-desktop-wpf-dotnet-sign-in.md)
@@ -74,4 +74,3 @@ This month, we renamed Azure Active Directory (Azure AD) to Microsoft Entra ID. 
 - [Tutorial: Add add sign-in and sign-out in your Node.js web application](tutorial-web-app-node-sign-in-sign-out.md) - Editorial review
 - [Tutorial: Call a web API from your Node.js daemon application](tutorial-daemon-node-call-api-build-app.md) - Editorial review
 - [Tutorial: Sign in users to your .NET browserless application](tutorial-browserless-app-dotnet-sign-in-build-app.md) - Editorial review
-

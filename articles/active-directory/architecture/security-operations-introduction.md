@@ -159,7 +159,7 @@ As part of an Azure hybrid environment, the following items should be baselined 
 
 * **Password writeback Agent** - Password writeback is a feature enabled with [Microsoft Entra Connect](../hybrid/whatis-hybrid-identity.md) that allows password changes in the cloud to be written back to an existing on-premises directory in real time. For more information on this feature, see [How does self-service password reset writeback work in Microsoft Entra ID](../authentication/concept-sspr-writeback.md).
 
-* **Microsoft Entra application proxy Connector** - Lightweight agents that sit on-premises and facilitate the outbound connection to the Application Proxy service. For more information, see [Understand Azure ADF Application Proxy connectors](../app-proxy/application-proxy-connectors.md).
+* **Microsoft Entra application proxy Connector** - Lightweight agents that sit on-premises and facilitate the outbound connection to the Application Proxy service. For more information, see [Understand Microsoft Entra Application Proxy connectors](../app-proxy/application-proxy-connectors.md).
 
 ## Components of cloud-based authentication
 

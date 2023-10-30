@@ -23,7 +23,7 @@ Many organizations want to let users sign in to Microsoft Entra ID using the sam
 
 Some organizations haven't moved to hybrid authentication for the following reasons:
 
-* By default, the Microsoft Entra User Principal Name (UPN) is set to the same value as the on-premises UPN.
+* By default, the Microsoft Entra user Principal Name (UPN) is set to the same value as the on-premises UPN.
 * Changing the Microsoft Entra UPN creates a mismatch between on-premises and Microsoft Entra environments that could cause problems with certain applications and services.
 * Due to business or compliance reasons, the organization doesn't want to use the on-premises UPN to sign in to Microsoft Entra ID.
 

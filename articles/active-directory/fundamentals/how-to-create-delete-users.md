@@ -33,13 +33,13 @@ For more information abut the differences between internal and external guests a
 
 Authentication methods vary based on the type of user you create. Internal guests and members have credentials in your Microsoft Entra tenant that can be managed by administrators. These users can also reset their own password. External members authenticate to their home Microsoft Entra tenant and your Microsoft Entra tenant authenticates the user through a federated sign-in with the external member's Microsoft Entra tenant. If external members forget their password, the administrator in their Microsoft Entra tenant can reset their password. External guests set up their own password using the link they receive in email when their account is created.
 
-Reviewing the default user permissions may also help you determine the type of user you need to create. For more information, see [Set default user permissions](users-default-permissions.md)
+Reviewing the default user permissions may also help you determine the type of user you need to create. For more information, see [Set default user permissions](users-default-permissions.md).
 
 ## Required roles
 
 The required role of least privilege varies based on the type of user you're adding and if you need to assign Microsoft Entra roles at the same time. **Global Administrator** can create users and assign roles, but whenever possible you should use the least privileged role. 
 
-| Role | Task |
+| Task | Role |
 | -- | -- |
 | Create a new user | User Administrator |
 | Invite an external guest | Guest Inviter | 
@@ -60,7 +60,7 @@ The required role of least privilege varies based on the type of user you're add
 
 The **Basics** tab contains the core fields required to create a new user. 
 
-- **User principal name**: Enter a unique username and select a domain from the menu after the @ symbol. Select **Domain not listed** if you need to create a new domain. For more information, see [Add your custom domain name](add-custom-domain.md)
+- **User principal name**: Enter a unique username and select a domain from the menu after the @ symbol. Select **Domain not listed** if you need to create a new domain. For more information, see [Add your custom domain name](add-custom-domain.md).
 - **Mail nickname**: If you need to enter an email nickname that is different from the user principal name you entered, uncheck the **Derive from user principal name** option, then enter the mail nickname.
 - **Display name**: Enter the user's name, such as Chris Green or Chris A. Green
 - **Password**: Provide a password for the user to use during their initial sign-in. Uncheck the **Auto-generate password** option to enter a different password.
@@ -152,7 +152,7 @@ If you have an environment with both Microsoft Entra ID (cloud) and Windows Serv
 
 ## Delete a user
 
-You can delete an existing user using Azure portal.
+You can delete an existing user using the [Microsoft Entra admin center](https://entra.microsoft.com/).
 
 - You must have a Global Administrator, Privileged Authentication Administrator, or User Administrator role assignment to delete users in your organization.
 - Global Administrators and Privileged Authentication Administrators can delete any users including other administrators.

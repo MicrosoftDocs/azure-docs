@@ -39,7 +39,7 @@ Applications that the recommendation identified appear in the list of **Impacted
 1. Navigate to the **Certificates & Secrets** section of the app registration.
 1. Pick the credential type that you want to rotate and navigate to either **Certificates** or **Client Secret** tab and follow the prompts.
 
-    ![Screenshot of the Certificates and secrets section of Azure AD.](media/recommendation-renew-expiring-application-credential/app-certificates-secrets.png)
+    ![Screenshot of the Certificates and secrets section of Microsoft Entra ID.](media/recommendation-renew-expiring-application-credential/app-certificates-secrets.png)
 
 1. Once the certificate or secret is successfully added, update the service code to ensure it works with the new credential and doesn't negatively affect customers.
 1. Use the Microsoft Entra sign-in logs to validate that the Key ID of the credential matches the one that was recently added.

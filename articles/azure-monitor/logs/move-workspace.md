@@ -33,7 +33,7 @@ In this article, you'll learn the steps to move a Log Analytics workspace to ano
 
 | Action | Permissions required |
 |:---|:---|
-| Verify the Azure Active Directory tenant. | `Microsoft.AzureActiveDirectory/b2cDirectories/read` permissions, as provided by the [Log Analytics Reader built-in role](./manage-access.md#log-analytics-reader), for example. |
+| Verify the Microsoft Entra tenant. | `Microsoft.AzureActiveDirectory/b2cDirectories/read` permissions, as provided by the [Log Analytics Reader built-in role](./manage-access.md#log-analytics-reader), for example. |
 | Delete a solution. | `Microsoft.OperationsManagement/solutions/delete` permissions on the solution, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example. |
 | Remove alert rules for the Start/Stop VMs solution. | `microsoft.insights/scheduledqueryrules/delete` permissions, as provided by the [Monitoring Contributor built-in role](../../role-based-access-control/built-in-roles.md#monitoring-contributor), for example. |
 | Unlink the Automation account | `Microsoft.OperationalInsights/workspaces/linkedServices/delete` permissions on the linked Log Analytics workspace, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example. |
@@ -62,12 +62,14 @@ Consider these points before you move a Log Analytics workspace:
 >   - Custom scripting
 >
 
-## Verify the Azure Active Directory tenant
-The workspace source and destination subscriptions must exist within the same Azure Active Directory tenant. Use Azure PowerShell to verify that both subscriptions have the same tenant ID.
+<a name='verify-the-azure-active-directory-tenant'></a>
+
+## Verify the Microsoft Entra tenant
+The workspace source and destination subscriptions must exist within the same Microsoft Entra tenant. Use Azure PowerShell to verify that both subscriptions have the same tenant ID.
 
 ### [Portal](#tab/azure-portal)
 
-[Find your Azure AD tenant](../../azure-portal/get-subscription-tenant-id.md#find-your-azure-ad-tenant) for the source and destination subscriptions.
+[Find your Microsoft Entra tenant](../../azure-portal/get-subscription-tenant-id.md#find-your-azure-ad-tenant) for the source and destination subscriptions.
 
 ### [REST API](#tab/rest-api)
 

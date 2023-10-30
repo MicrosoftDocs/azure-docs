@@ -30,7 +30,7 @@ The purpose of the Extension-based approach is to simplify the installation and 
 
 - **Ease of Manageability** – It offers native integration with Azure Resource Manager (ARM) identity for Hybrid Runbook Worker and provides the flexibility for governance at scale through policies and templates. 
 
-- **Azure Active Directory based authentication** – It uses a VM system-assigned managed identities provided by Azure Active Directory. This centralizes control and management of identities and resource credentials. 
+- **Microsoft Entra ID based authentication** – It uses a VM system-assigned managed identities provided by Microsoft Entra ID. This centralizes control and management of identities and resource credentials. 
 
 - **Unified experience** – It offers an identical experience for managing Azure and off-Azure Arc-enabled machines. 
 

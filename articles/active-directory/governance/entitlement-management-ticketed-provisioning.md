@@ -51,7 +51,7 @@ Provide the Azure subscription, resource group details, along with the Logic App
 
 1. In the left menu, select **Catalogs**. 
 
-1. Select the catalog for which you want to add a custom extension and then in the left menu, select **Custom Extensions (Preview)**.
+1. Select the catalog for which you want to add a custom extension and then in the left menu, select **Custom Extensions**.
 
 1. In the header navigation bar, select **Add a Custom Extension**.
 
@@ -82,7 +82,7 @@ After setting up custom extensibility in the catalog, administrators can create 
 
 1. Change to the policy tab, select the policy, and select **Edit**.
 
-1. In the policy settings, go to the **Custom Extensions (Preview)** tab.
+1. In the policy settings, go to the **Custom Extensions** tab.
 
 1. In the menu below **Stage**, select the access package event you wish to use as trigger for this custom extension (Logic App). For our scenario, to trigger the custom extension Logic App workflow when access package has been approved, select **Request is approved**.
 > [!NOTE]
@@ -252,4 +252,4 @@ The IT Support team works on the ticket create above to do necessary provisions 
 
 Advance to the next article to learn how to create...
 > [!div class="nextstepaction"]
-> [Trigger Logic Apps with custom extensions in entitlement management (Preview)](entitlement-management-logic-apps-integration.md)
+> [Trigger Logic Apps with custom extensions in entitlement management](entitlement-management-logic-apps-integration.md)

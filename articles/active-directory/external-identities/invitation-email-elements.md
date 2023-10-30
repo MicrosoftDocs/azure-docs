@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 09/30/2022
+ms.date: 10/06/2023
 
 ms.author: cmulligan
 author: csmulligan
@@ -94,9 +94,4 @@ If none of these settings are configured, the language defaults to English (US).
 
 ## Next steps
 
-See the following articles on Microsoft Entra B2B collaboration:
-
-- [What is Microsoft Entra B2B collaboration](what-is-b2b.md)
-- [How do Microsoft Entra admins add B2B collaboration users?](add-users-administrator.md)
-- [How do information workers add B2B collaboration users?](add-users-information-worker.md)
 - [B2B collaboration invitation redemption](redemption-experience.md)

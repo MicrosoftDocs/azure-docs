@@ -171,7 +171,7 @@ First, create a new project in the Google Developers Console to obtain a client 
 
 1. Select **Create credentials**, and then select **OAuth client ID**.
 
-1. In the Application type menu, select **Web application**. Give the application a suitable name, like `Azure AD B2B`. Under **Authorized redirect URIs**, add the following URIs:
+1. In the Application type menu, select **Web application**. Give the application a suitable name, like `Microsoft Entra B2B`. Under **Authorized redirect URIs**, add the following URIs:
 
     - `https://login.microsoftonline.com`
     - `https://login.microsoftonline.com/te/<tenant ID>/oauth2/authresp` <br>(where `<tenant ID>` is your tenant ID)

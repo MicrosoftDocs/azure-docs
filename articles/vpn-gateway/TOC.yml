@@ -65,7 +65,7 @@
   items:
   - name: Create and manage a VPN gateway
     items:
-    - name: Create a route-based VPN gateway
+    - name: Create a VPN gateway
       items:
       - name: Azure portal
         href: tutorial-create-gateway-portal.md
@@ -151,7 +151,7 @@
           href: point-to-site-how-to-radius-ps.md
         - name: Integrate point-to-site VPN RADIUS authentication with NPS server
           href: vpn-gateway-radius-mfa-nsp.md
-      - name: Azure AD authentication
+      - name: Microsoft Entra authentication
         items:
         - name: Configure a point-to-site VPN and tenant
           href: openvpn-azure-ad-tenant.md
@@ -201,16 +201,18 @@
           href: point-to-site-vpn-client-configuration-radius-password.md
         - name: Other authentication protocols
           href: point-to-site-vpn-client-configuration-radius-other.md
-      - name: Azure AD authentication clients
+      - name: Microsoft Entra authentication clients
         items:
         - name: Windows
           href: openvpn-azure-ad-client.md
         - name: macOS
           href: openvpn-azure-ad-client-mac.md
-        - name: Generate profile files - Azure AD
+        - name: Generate profile files - Microsoft Entra ID
           href: about-vpn-profile-download.md 
       - name: Azure VPN Client - optional settings
         href: azure-vpn-client-optional-configurations.md
+      - name: Azure VPN Client versions
+        href: azure-vpn-client-versions.md
     - name: Intune - Deploy VPN client profile
       href: vpn-profile-intune.md
   - name: Routing, BGP, and VNet Peering
@@ -291,7 +293,7 @@
         href: vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md
       - name: Point-to-site connection problems - macOS X VPN client
         href: vpn-gateway-troubleshoot-point-to-site-osx-ikev2.md
-      - name: Point-to-site - Azure AD authentication
+      - name: Point-to-site - Microsoft Entra authentication
         href: troubleshoot-ad-vpn-client.md
     - name: Site-to-site connection issues
       items:

@@ -43,4 +43,4 @@ After filtering this information, you're also able to see other information in t
 
 - [Lifecycle Workflow History](lifecycle-workflow-history.md)
 - [Check the status of a workflow](check-status-workflow.md)
-- [Microsoft Entra ID audit activity reference](../reports-monitoring/reference-audit-activities.md)
+- [Microsoft Entra audit activity reference](../reports-monitoring/reference-audit-activities.md)

@@ -32,7 +32,7 @@ Developers interested in scheduled business-to-consumer interactions should read
 The term “contact center” captures a large family of applications diverse across scale, channels, and organizational approach:
 
 -   **Scale**. Small businesses may have a small number of employees operating as agents in a limited role, for example a restaurant offering a phone number for reservations. While an airline may have thousands of employees and vendors providing a 24/7 contact center.
--   **Channel**. Organizations can reach consumers through the phone system, apps, SMS, or consumer communication platforms such as WhatsApp.
+-   **Channel**. Organizations can reach consumers through the phone system, apps, SMS, or consumer communication platforms.
 -   **Organizational approach**. Most businesses have employees operate as agents using Teams or a licensed contact center as a service software (CCaaS). Other businesses may out-source the agent role or use specialized service providers who fully operate contact centers as a service.
 
 ## User Personas

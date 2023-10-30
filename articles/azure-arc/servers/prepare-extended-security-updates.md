@@ -1,7 +1,7 @@
 ---
 title: How to prepare to deliver Extended Security Updates for Windows Server 2012 through Azure Arc
 description: Learn how to prepare to deliver Extended Security Updates for Windows Server 2012 through Azure Arc.
-ms.date: 09/27/2023
+ms.date: 10/05/2023
 ms.topic: conceptual
 ---
 
@@ -17,7 +17,7 @@ Delivering ESUs to your Windows Server 2012/2012 R2 machines provides the follow
 
 - **Pay-as-you-go:** Flexibility to sign up for a monthly subscription service with the ability to migrate mid-year.
 
-- **Azure billed:** You can draw down from your existing [Microsoft Azure Consumption Commitment](/marketplace/azure-consumption-commitment-benefit) (MACC) and analyze your costs using [Azure Cost Management and Billing](../../cost-management-billing/cost-management-billing-overview.md).
+- **Azure billed:** You can draw down from your existing [Microsoft Azure Consumption Commitment](/marketplace/azure-consumption-commitment-benefit) (MACC) and analyze your costs using [Microsoft Cost Management and Billing](../../cost-management-billing/cost-management-billing-overview.md).
 
 - **Built-in inventory:** The coverage and enrollment status of Windows Server 2012/2012 R2 ESUs on eligible Arc-enabled servers are identified in the Azure portal, highlighting gaps and status changes.
 
@@ -51,6 +51,10 @@ We recommend you deploy your machines to Azure Arc in preparation for when the r
 ### Deployment options
 
 There are several at-scale onboarding options for Azure Arc-enabled servers, including running a [Custom Task Sequence](onboard-configuration-manager-custom-task.md) through Configuration Manager and deploying a [Scheduled Task through Group Policy](onboard-group-policy-powershell.md).
+
+> [!NOTE]
+> Delivery of ESUs through Azure Arc to virtual machines running on Virtual Desktop Infrastructure (VDI) is not supported. VDI systems should use Multiple Activation Keys (MAK) to apply ESUs. See [Access your Multiple Activation Key from the Microsoft 365 Admin Center](/windows-server/get-started/extended-security-updates-deploy) to learn more.
+> 
 
 ### Networking
 

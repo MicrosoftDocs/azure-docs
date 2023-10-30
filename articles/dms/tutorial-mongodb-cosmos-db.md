@@ -11,6 +11,7 @@ ms.topic: tutorial
 ms.custom:
   - seo-lt-2019
   - ignite-2022
+  - sql-migration-content
 ---
 
 # Tutorial: Migrate MongoDB to Azure Cosmos DB for MongoDB offline

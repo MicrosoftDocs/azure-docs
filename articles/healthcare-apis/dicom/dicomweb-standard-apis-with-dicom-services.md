@@ -9,33 +9,34 @@ ms.date: 10/13/2022
 ms.author: mmitrik
 ---
 
-# Using DICOMweb&trade;Standard APIs with DICOM services
+# Access DICOMweb APIs with the DICOM service
 
-This tutorial provides an overview of how to use DICOMweb&trade; Standard APIs with the DICOM service.
+The DICOM&reg; service allows you to store, review, search, and delete DICOM objects using a subset of DICOMweb APIs, which are web-based services that follow the DICOM standard. By using these APIs, you can access and manage your organization's DICOM data in the cloud without requiring complex protocols or formats.
 
-The DICOM service supports a subset of DICOMweb&trade; Standard that includes:
+The supported services are:
 
-* [Store (STOW-RS)](dicom-services-conformance-statement-v2.md#store-stow-rs)
-* [Retrieve (WADO-RS)](dicom-services-conformance-statement-v2.md#retrieve-wado-rs)
-* [Search (QIDO-RS)](dicom-services-conformance-statement-v2.md#search-qido-rs)
-* [Delete](dicom-services-conformance-statement-v2.md#delete)
+* [Store (STOW-RS)](dicom-services-conformance-statement-v2.md#store-stow-rs): Upload DICOM objects to the server.
+* [Retrieve (WADO-RS)](dicom-services-conformance-statement-v2.md#retrieve-wado-rs): Download DICOM objects from the server.
+* [Search (QIDO-RS)](dicom-services-conformance-statement-v2.md#search-qido-rs): Find DICOM objects on the server based on criteria.
+* [Delete](dicom-services-conformance-statement-v2.md#delete): Remove DICOM objects from the server.
 
-Additionally, the following non-standard API(s) are supported:
+In addition to the subset of DICOMweb APIs, the DICOM service supports two custom APIs that are unique to Microsoft:
 
-* [Change Feed](dicom-change-feed-overview.md)
-* [Extended Query Tags](dicom-extended-query-tags-overview.md)
-
-To learn more about our support of DICOM Web Standard APIs, see the [DICOM Conformance Statement](dicom-services-conformance-statement-v2.md) reference document.
+* [Change feed](dicom-change-feed-overview.md): Track changes to DICOM data over time.
+* [Extended query tags](dicom-extended-query-tags-overview.md): Define custom tags for querying DICOM data.
 
 ## Prerequisites
 
-To use DICOMweb&trade; Standard APIs, you must have an instance of DICOM service deployed. If you haven't already deployed an instance of DICOM service, see [Deploy DICOM service using the Azure portal](deploy-dicom-services-in-azure.md).
+- **Deploy an instance of the DICOM service**. For more information, see [Deploy the DICOM service using Azure portal](deploy-dicom-services-in-azure.md).
 
-Once deployment is complete, you can use the Azure portal to navigate to the newly created DICOM service to see the details including your Service URL. The Service URL to access your DICOM service  will be: ```https://<workspacename-dicomservicename>.dicom.azurehealthcareapis.com```. Make sure to specify the version as part of the url when making requests. More information can be found in the [API Versioning for DICOM service Documentation](api-versioning-dicom-service.md).
+- **Find your Service URL**. Use Azure portal to navigate to the instance of the DICOM service to find the Service URL. The Service URL to access your DICOM service uses this format: ```https://<workspacename-dicomservicename>.dicom.azurehealthcareapis.com```. Make sure to specify the version as part of the URL when making requests. For more information, see [API versioning for the DICOM service](api-versioning-dicom-service.md).
 
-## Overview of various methods to use with DICOM service
+## Use REST API methods to interact with the DICOM service
 
-Because DICOM service is exposed as a REST API, you can access it using any modern development language. For language-agnostic information on working with the service, see [DICOM Services Conformance Statement](dicom-services-conformance-statement-v2.md).
+The DICOM service provides a web-based interface that follows REST (representational state transfer) principles. The REST API allows different applications or systems to communicate with each other using standard methods like GET, POST, PUT, and DELETE. Use any programming language that supports HTTP requests and responses to interact with the DICOM service.
+
+
+
 
 To see language-specific examples, refer to the examples below. You can view Postman collection examples in several languages including:
 
@@ -84,9 +85,8 @@ This tutorial provided an overview of the APIs supported by DICOM service. Get s
 - [Using DICOMWeb™ Standard APIs with Python](dicomweb-standard-apis-python.md)
 - [Use DICOMWeb™ Standard APIs with Postman Example Collection](https://github.com/microsoft/dicom-server/blob/main/docs/resources/Conformance-as-Postman.postman_collection.json)
 
-### Next Steps
+### Next steps
 
-For more information, see
+To learn more about our support of DICOM Web Standard APIs, see the [DICOM Conformance Statement](dicom-services-conformance-statement-v2.md) reference document.
 
->[!div class="nextstepaction"]
->[Overview of the DICOM service](dicom-services-overview.md)
+For language-agnostic information on working with the service, see [DICOM Services Conformance Statement](dicom-services-conformance-statement-v2.md).
