@@ -19,7 +19,7 @@ landingContent:
         links:
           - text: What is Azure Managed Grafana?
             url: overview.md
-          - text: What's new
+          - text: What's new?
             url: concept-whats-new.md
   
   - title: Get started
