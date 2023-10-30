@@ -263,6 +263,7 @@ Create a workspace:
 ```azurecli
 az ml workspace create -n <workspace-name> -g <resource-group-name> --serverless-compute-custom-subnet <subnet-id> --serverless-compute-no-public-ip true
 ```
+
 Update workspace:
 
 ```azurecli
@@ -296,6 +297,10 @@ workspace = Workspace(
 
 workspace = ml_client.workspaces.begin_create_or_update(workspace)
 ```
+
+# [Studio](#tab/azure-studio)
+
+Use Azure CLI or Python SDK to create or update the workspace.
 
 ---
 
@@ -444,6 +449,10 @@ workspace = Workspace(
 
 workspace = ml_client.workspaces.begin_create_or_update(workspace)
 ```
+
+# [Studio](#tab/azure-studio)
+
+Use Azure CLI or Python SDK to to configure **serverless compute** nodes with a public IP address in the VNet.
 
 ---
 
