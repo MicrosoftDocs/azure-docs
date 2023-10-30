@@ -136,7 +136,7 @@ az vm create \
   --subnet myFrontendSubnet \
   --nsg myFrontendNSG \
   --public-ip-address myPublicIPAddress \
-  --image UbuntuLTS \
+  --image Ubuntu2204 \
   --generate-ssh-keys
 ```
 
@@ -274,7 +274,7 @@ az vm create \
   --subnet myBackendSubnet \
   --public-ip-address "" \
   --nsg "" \
-  --image UbuntuLTS \
+  --image Ubuntu2204 \
   --generate-ssh-keys
 ```
 

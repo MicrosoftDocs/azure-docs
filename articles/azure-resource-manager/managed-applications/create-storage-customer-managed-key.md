@@ -13,7 +13,7 @@ This article describes how to create an Azure Managed Application that deploys a
 
 ## Prerequisites
 
-- An Azure account with an active subscription and permissions to Azure Active Directory resources like users, groups, or service principals. If you don't have an account, [create a free account](https://azure.microsoft.com/free/) before you begin.
+- An Azure account with an active subscription and permissions to Microsoft Entra resources like users, groups, or service principals. If you don't have an account, [create a free account](https://azure.microsoft.com/free/) before you begin.
 - [Visual Studio Code](https://code.visualstudio.com/) with the latest [Azure Resource Manager Tools extension](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools). For Bicep files, install the [Bicep extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep).
 - Install the latest version of [Azure PowerShell](/powershell/azure/install-azure-powershell) or [Azure CLI](/cli/azure/install-azure-cli).
 - Be familiar with how to [create](publish-service-catalog-app.md) and [deploy](deploy-service-catalog-quickstart.md) a service catalog definition.
@@ -95,7 +95,7 @@ Create another role assignment so that your account can create a new key in your
 1. Assign the following role:
    - **Role**: Key Vault Crypto Officer
    - **Assign Access to**: User, group, or service principal
-   - **Member**: Your Azure Active Directory account
+   - **Member**: Your Microsoft Entra account
 1. Select **Review + assign** to view your settings.
 1. Select **Review + assign** to create the role assignment.
 

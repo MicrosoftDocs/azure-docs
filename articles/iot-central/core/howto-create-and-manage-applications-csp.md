@@ -47,11 +47,11 @@ When you enter the name for your application, your application URL is autogenera
 
 ## Directory
 
-Azure IoT Central knows the customer you selected in the Microsoft Partner Portal, so you see just the Azure Active Directory tenant for that customer in the **Directory** field.
+Azure IoT Central knows the customer you selected in the Microsoft Partner Portal, so you see just the Microsoft Entra tenant for that customer in the **Directory** field.
 
-An Azure Active Directory tenant contains user identities, credentials, and other organizational information. Multiple Azure subscriptions can be associated with a single Azure Active Directory tenant.
+A Microsoft Entra tenant contains user identities, credentials, and other organizational information. Multiple Azure subscriptions can be associated with a single Microsoft Entra tenant.
 
-To learn more, see [Azure Active Directory](../../active-directory/index.yml).
+To learn more, see [Microsoft Entra ID](../../active-directory/index.yml).
 
 ## Azure subscription
 

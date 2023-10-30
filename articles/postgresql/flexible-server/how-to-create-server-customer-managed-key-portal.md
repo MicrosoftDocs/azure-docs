@@ -17,7 +17,7 @@ In this article, you learn how to create and manage Azure Database for PostgreSQ
 ## Setup Customer Managed Key during Server Creation
 Prerequisites:
 
-- Azure Active Directory (Azure AD) user managed identity in region where Postgres Flex Server will be created. Follow this [tutorial](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md) to create identity.
+- Microsoft Entra user managed identity in region where Postgres Flex Server will be created. Follow this [tutorial](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md) to create identity.
 
 - Key Vault with key in region where Postgres Flex Server will be created. Follow this [tutorial](../../key-vault/general/quick-create-portal.md) to create Key Vault and generate key. Follow [requirements section in concepts doc](concepts-data-encryption.md) for required Azure Key Vault settings
 
@@ -27,7 +27,7 @@ Follow the steps below to enable CMK while creating Postgres Flexible Server usi
 
 2. Provide required information on Basics and Networking tabs
 
-3. Navigate to Security tab. On the screen, provide Azure Active Directory (Azure AD)  identity that has access to the Key Vault and Key in Key Vault in the same region where you're creating this server
+3. Navigate to Security tab. On the screen, provide Microsoft Entra ID  identity that has access to the Key Vault and Key in Key Vault in the same region where you're creating this server
 
 4. On Review Summary tab, make sure that you provided correct information in Security section and press Create button
 
@@ -37,7 +37,7 @@ Follow the steps below to enable CMK while creating Postgres Flexible Server usi
 
 Prerequisites:
 
-- Azure Active Directory (Azure AD) user-managed identity in region where Postgres Flex Server will be created. Follow this [tutorial](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md) to create identity.
+- Microsoft Entra user-managed identity in region where Postgres Flex Server will be created. Follow this [tutorial](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md) to create identity.
 
 - Key Vault with key in region where Postgres Flex Server will be created. Follow this [tutorial](../../key-vault/general/quick-create-portal.md) to create Key Vault and generate key.
 

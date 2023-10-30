@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: How to get started with onboarding your data feeds to Metrics Advisor.
 author: mrbullwinkle
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: metrics-advisor
+ms.service: azure-ai-metrics-advisor
 ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 04/20/2021
@@ -13,6 +12,8 @@ ms.author: mbullwin
 ---
 
 # How-to: Onboard your metric data to Metrics Advisor
+
+[!INCLUDE [Deprecation announcement](../includes/deprecation.md)]
 
 Use this article to learn about onboarding your data to Metrics Advisor. 
 

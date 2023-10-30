@@ -78,6 +78,10 @@
       href: limited-time-us-west.md
     - name: Sweden Central select Linux VMs
       href: limited-time-central-sweden.md
+    - name: Poland Central VMs
+      href: limited-time-central-poland.md
+    - name: Poland Central SQL services
+      href: poland-limited-time-sql-services-reservations.md
   - name: Buy reservations
     items:
     - name: Buy an Azure reservation

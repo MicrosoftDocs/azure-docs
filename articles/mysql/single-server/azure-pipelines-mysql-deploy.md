@@ -1,6 +1,6 @@
 ---
 title: Azure Pipelines task for Azure Database for MySQL single server 
-description: Enable Azure Database for MySQL Flexible Server CLI  task for using with Azure Pipelines
+description: Enable Azure Database for MySQL Single Server CLI  task for using with Azure Pipelines
 ms.topic: how-to
 ms.service: mysql
 ms.subservice: single-server
@@ -10,7 +10,9 @@ author: juliakm
 ms.date: 09/14/2022
 ---
 
-# Azure Pipelines for Azure Database for MySQL single server
+# Azure Pipelines for Azure Database for MySQL - Single Server
+
+[!INCLUDE [applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
 
 Get started with Azure Database for MySQL by deploying a database update with Azure Pipelines. Azure Pipelines lets you build, test, and deploy with continuous integration (CI) and continuous delivery (CD) using [Azure DevOps](/azure/devops/). 
 

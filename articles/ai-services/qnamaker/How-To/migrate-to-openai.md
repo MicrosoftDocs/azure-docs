@@ -2,8 +2,7 @@
 title: Migrate QnA Maker to Azure OpenAI on your data 
 titleSuffix: Azure AI services
 description: Learn how to migrate your QnA Maker projects to Azure OpenAI.
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 author: aahill
 ms.author: aahi
 ms.topic: how-to
@@ -18,7 +17,7 @@ QnA Maker was designed to be a cloud-based Natural Language Processing (NLP) ser
 ## Prerequisites
 
 * A QnA Maker project. 
-* An existing Azure Open AI resource. If you don't already have an Azure Open AI resource, then [create one and deploy a model](../../openai/how-to/create-resource.md).
+* An existing Azure OpenAI resource. If you don't already have an Azure OpenAI resource, then [create one and deploy a model](../../openai/how-to/create-resource.md).
     * Azure OpenAI requires registration and is currently only available to approved enterprise customers and partners. See [Limited access to Azure OpenAI Service](/legal/cognitive-services/openai/limited-access?context=/azure/ai-services/openai/context/context) for more information. You can apply for access to Azure OpenAI by completing the form at https://aka.ms/oai/access. Open an issue on this repo to contact us if you have an issue.
     * Be sure that you are assigned at least the [Cognitive Services OpenAI Contributor role](/azure/role-based-access-control/built-in-roles#cognitive-services-openai-contributor) for the Azure OpenAI resource.
 
@@ -34,7 +33,7 @@ QnA Maker was designed to be a cloud-based Natural Language Processing (NLP) ser
 
     :::image type="content" source="../media/openai/search-service.png" alt-text="A screenshot showing a QnA Maker project's search service in the Azure portal." lightbox="../media/openai/search-service.png":::
 
-1. Select the search service and open its **Overview** section. Note down the details, such as the Azure Search resource name, subscription, and location. You will need this information when you migrate to Azure Open AI.
+1. Select the search service and open its **Overview** section. Note down the details, such as the Azure Search resource name, subscription, and location. You will need this information when you migrate to Azure OpenAI.
 
     :::image type="content" source="../media/openai/search-service-details.png" alt-text="A screenshot showing a QnA Maker project's search service details in the Azure portal." lightbox="../media/openai/search-service-details.png":::
 

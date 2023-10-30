@@ -191,7 +191,7 @@ These watchlists provide the configuration for the Microsoft Sentinel solution f
 | Playbook name | Parameters | Connections |
 | ------------- | ---------- | ----------- |
 | **SAP Incident Response - Lock user from Teams - Basic** | - SAP-SOAP-User-Password<br>- SAP-SOAP-Username<br>- SOAPApiBasePath<br>- DefaultEmail<br>- TeamsChannel | - Microsoft Sentinel<br>- Microsoft Teams |
-| **SAP Incident Response - Lock user from Teams - Advanced** | - SAP-SOAP-KeyVault-Credential-Name<br>- DefaultAdminEmail<br>- TeamsChannel | - Microsoft Sentinel<br>- Azure Monitor Logs<br>- Office 365 Outlook<br>- Azure AD<br>- Azure Key Vault<br>- Microsoft Teams |
+| **SAP Incident Response - Lock user from Teams - Advanced** | - SAP-SOAP-KeyVault-Credential-Name<br>- DefaultAdminEmail<br>- TeamsChannel | - Microsoft Sentinel<br>- Azure Monitor Logs<br>- Office 365 Outlook<br>- Microsoft Entra ID<br>- Azure Key Vault<br>- Microsoft Teams |
 | **SAP Incident Response - Reenable audit logging once deactivated** | - SAP-SOAP-KeyVault-Credential-Name<br>- DefaultAdminEmail<br>- TeamsChannel | - Microsoft Sentinel<br>- Azure Key Vault<br>- Azure Monitor Logs<br>- Microsoft Teams |
 
 

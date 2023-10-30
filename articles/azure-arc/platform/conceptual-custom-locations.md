@@ -25,7 +25,7 @@ On Arc-enabled Kubernetes clusters, a custom location represents an abstraction 
 
 ## Architecture for Arc-enabled Kubernetes
 
-When an administrator enables the custom locations feature on a cluster, a ClusterRoleBinding is created, authorizing the Azure AD application used by the Custom Locations Resource Provider (RP). Once authorized, Custom Locations RP can create ClusterRoleBindings or RoleBindings needed by other Azure RPs to create custom resources on this cluster. The cluster extensions installed on the cluster determines the list of RPs to authorize.
+When an administrator enables the custom locations feature on a cluster, a ClusterRoleBinding is created, authorizing the Microsoft Entra application used by the Custom Locations Resource Provider (RP). Once authorized, Custom Locations RP can create ClusterRoleBindings or RoleBindings needed by other Azure RPs to create custom resources on this cluster. The cluster extensions installed on the cluster determines the list of RPs to authorize.
 
 [ ![Use custom locations](../kubernetes/media/conceptual-custom-locations-usage.png) ](../kubernetes/media/conceptual-custom-locations-usage.png#lightbox)
 

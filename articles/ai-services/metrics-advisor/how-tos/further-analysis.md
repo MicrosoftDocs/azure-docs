@@ -4,14 +4,15 @@ titleSuffix: Azure AI services
 description: Learn how to leverage analysis tools to further analyze an incident. 
 author: mrbullwinkle
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: metrics-advisor
+ms.service: azure-ai-metrics-advisor
 ms.topic: how-to
 ms.date: 04/15/2021
 ms.author: mbullwin
 ---
 
 # Further analyze an incident and evaluate impact
+
+[!INCLUDE [Deprecation announcement](../includes/deprecation.md)]
 
 ## Metrics drill down by dimensions
 

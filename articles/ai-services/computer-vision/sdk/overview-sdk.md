@@ -5,12 +5,11 @@ description: This page gives you an overview of the Azure AI Vision SDK for Imag
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: computer-vision
+ms.service: azure-ai-vision
 ms.topic: overview
 ms.date: 08/01/2023
 ms.author: pafarley
-ms.custom: devx-track-python, devx-track-csharp, devx-track-dotnet
+ms.custom: devx-track-csharp
 ---
 
 # Vision SDK overview
@@ -28,6 +27,8 @@ The Vision SDK supports the following languages and platforms:
 | C# <sup>1</sup> | [quickstart](../quickstarts-sdk/image-analysis-client-library-40.md?pivots=programming-language-csharp)  | [reference](/dotnet/api/azure.ai.vision.imageanalysis) | Windows, UWP, Linux |
 | C++ <sup>2</sup> | [quickstart](../quickstarts-sdk/image-analysis-client-library-40.md?pivots=programming-language-cpp)  | [reference](/cpp/cognitive-services/vision) | Windows, Linux |
 | Python | [quickstart](../quickstarts-sdk/image-analysis-client-library-40.md?pivots=programming-language-python) | [reference](/python/api/azure-ai-vision) | Windows, Linux |
+| Java | [quickstart](../quickstarts-sdk/image-analysis-client-library-40.md?pivots=programming-language-java) | [reference](/java/api/com.azure.ai.vision.imageanalysis) | Windows, Linux |
+
 
 <sup>1 The Vision SDK for C# is based on .NET Standard 2.0. See [.NET Standard](/dotnet/standard/net-standard?tabs=net-standard-2-0#net-implementation-support) documentation.</sup>
 

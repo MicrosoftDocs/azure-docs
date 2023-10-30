@@ -1,8 +1,7 @@
 ---
 title: Troubleshooting - question answering
 description: The curated list of the most frequently asked questions regarding question answering will help you adopt the feature faster and with better results.
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 author: jboback
 ms.author: jboback
 ms.topic: troubleshooting
@@ -50,7 +49,7 @@ Sharing works at the level of the language resource, that is, all projects assoc
 </details>
 
 <details>
-<summary><b>Can you share a project with a contributor that is not in the same Azure Active Directory tenant, to modify a project?</b></summary>
+<summary><b>Can you share a project with a contributor that is not in the same Microsoft Entra tenant, to modify a project?</b></summary>
 
 **Answer**:
 Sharing is based on Azure role-based access control (Azure Role-base access control). If you can share _any_ resource in Azure with another user, you can also share question answering.

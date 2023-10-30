@@ -1,5 +1,5 @@
 ---
-title: 'Azure Monitor best practices: Alerts and automated actions'
+title: 'Plan your Alerts and automated actions'
 description: Recommendations for deployment of Azure Monitor alerts and automated actions.
 ms.topic: conceptual
 author: bwren
@@ -9,7 +9,7 @@ ms.reviewer: bwren
 
 ---
 
-# Deploy Azure Monitor: Alerts and automated actions
+# Plan your alerts and automated actions
 
 This article provides guidance on alerts in Azure Monitor. Alerts proactively notify you of important data or patterns identified in your monitoring data. You can view alerts in the Azure portal. You can create alerts that:
 
@@ -85,7 +85,7 @@ Use the following actions to attempt automated remediation of the issue identifi
 
 - **IT service management (ITSM)**: Use the ITSM Connector to create work items in your ITSM tool based on alerts from Azure Monitor. You first configure the connector and then use the **ITSM** action in alert rules.
 - **Webhooks**: Send the alert to an incident management system that supports webhooks such as PagerDuty and Splunk On-Call.
-- **Secure webhook**: Integrate ITSM with Azure Active Directory Authentication.
+- **Secure webhook**: Integrate ITSM with Microsoft Entra authentication.
 
 ## Minimize alert activity
 

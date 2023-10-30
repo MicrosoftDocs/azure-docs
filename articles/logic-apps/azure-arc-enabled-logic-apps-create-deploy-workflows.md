@@ -53,14 +53,14 @@ This section describes the common prerequisites across all the approaches and to
   - [Set up an Azure Arc-enabled Kubernetes cluster to run App Service, Functions, and Logic Apps (Preview)](../app-service/manage-create-arc-environment.md)
   - [Change the default scaling behavior](#change-scaling)
 
-- Your own Azure Active Directory (Azure AD) identity
+- Your own Microsoft Entra identity
 
-  If your workflows need to use any Azure-hosted connections, such as Office 365 Outlook or Azure Storage, your logic app must use an Azure AD identity for authentication. Azure Arc-enabled Logic Apps can run on any infrastructure but requires an identity that has permissions to use Azure-hosted connections. To set up this identity, create an app registration in Azure AD that your logic app uses as the required identity.
+  If your workflows need to use any Azure-hosted connections, such as Office 365 Outlook or Azure Storage, your logic app must use a Microsoft Entra identity for authentication. Azure Arc-enabled Logic Apps can run on any infrastructure but requires an identity that has permissions to use Azure-hosted connections. To set up this identity, create an app registration in Microsoft Entra ID that your logic app uses as the required identity.
 
   > [!NOTE]
   > Managed identity support is currently unavailable for Azure Arc-enabled Logic Apps.
 
-  To create an Azure Active Directory (Azure AD) app registration using the Azure CLI, follow these steps:
+  To create a Microsoft Entra app registration using the Azure CLI, follow these steps:
 
   1. Create an app registration by using the [`az ad sp create`](/cli/azure/ad/sp#az-ad-sp-create) command.
 
@@ -68,9 +68,9 @@ This section describes the common prerequisites across all the approaches and to
 
   1. From the output of both commands, find and save the client ID, object ID, tenant ID, and client secret values, which you need to keep for later use.
 
-  To create an Azure Active Directory (Azure AD) app registration using the Azure portal, follow these steps:
+  To create a Microsoft Entra app registration using the Azure portal, follow these steps:
 
-  1. Create a new Azure AD app registration by using the [Azure portal](../active-directory/develop/quickstart-register-app.md).
+  1. Create a new Microsoft Entra app registration by using the [Azure portal](../active-directory/develop/quickstart-register-app.md).
 
   1. After creation finishes, find the new app registration in the portal.
 
@@ -283,9 +283,9 @@ You can create, deploy, and monitor your logic app workflows from end to end in 
 
    1. Select or create a new Application Insights resource for storing application logs for your logic app.
 
-   1. If you haven't done so, set up your Azure Active Directory (Azure AD) identity so that your logic app can authenticate managed API connections. For more information, see the top-level [Prerequisites](#prerequisites).
+   1. If you haven't done so, set up your Microsoft Entra identity so that your logic app can authenticate managed API connections. For more information, see the top-level [Prerequisites](#prerequisites).
 
-   1. Enter the client ID, tenant ID, object ID, and client secret for your Azure AD identity.
+   1. Enter the client ID, tenant ID, object ID, and client secret for your Microsoft Entra identity.
 
       > [!NOTE]
       > You only have to complete this step once. Visual Studio Code updates your project's 
@@ -316,9 +316,9 @@ The portal-based designer's editing capability is currently under development fo
 
 Currently, Azure Arc-enabled Kubernetes clusters don't support using a logic app's managed identity to authenticate managed API connections. You create these Azure-hosted and managed connections when you use managed connectors in your workflows.
 
-Instead, you have to create your own app registration in Azure Active Directory (Azure AD). You can then use this app registration as an identity for logic apps deployed and running in Azure Arc-enabled Logic Apps. For more information, review the [top-level prerequisites](#prerequisites).
+Instead, you have to create your own app registration in Microsoft Entra ID. You can then use this app registration as an identity for logic apps deployed and running in Azure Arc-enabled Logic Apps. For more information, review the [top-level prerequisites](#prerequisites).
 
-From your app registration, you need the client ID, object ID, tenant ID, and client secret. If you use Visual Studio Code to deploy, you have a built-in experience for setting up your logic app with an Azure AD identity. For more information, review [Create and deploy logic app workflows - Visual Studio Code](#create-and-deploy-logic-apps).
+From your app registration, you need the client ID, object ID, tenant ID, and client secret. If you use Visual Studio Code to deploy, you have a built-in experience for setting up your logic app with a Microsoft Entra identity. For more information, review [Create and deploy logic app workflows - Visual Studio Code](#create-and-deploy-logic-apps).
 
 However, if you use Visual Studio Code for development, but you use Azure CLI or automated pipelines to deploy, follow these steps.
 
@@ -367,8 +367,8 @@ In your Azure Resource Manager template (ARM template), include the following re
 | Parameter | Description |
 |-----------|-------------|
 | <*connection-name*> | The name for your managed API connection, for example `office365` |
-| <*object-ID*> | The object ID for your Azure AD identity, previously saved from your app registration |
-| <*tenant-ID*> | The tenant ID for your Azure AD identity, previously saved from your app registration |
+| <*object-ID*> | The object ID for your Microsoft Entra identity, previously saved from your app registration |
+| <*tenant-ID*> | The tenant ID for your Microsoft Entra identity, previously saved from your app registration |
 |||
 
 ```json

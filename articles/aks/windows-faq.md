@@ -3,7 +3,7 @@ title: Windows Server node pools FAQ
 titleSuffix: Azure Kubernetes Service
 description: See the frequently asked questions when you run Windows Server node pools and application workloads in Azure Kubernetes Service (AKS).
 ms.topic: article
-ms.custom: build-2023
+ms.custom: build-2023, devx-track-azurecli
 ms.date: 04/13/2023
 #Customer intent: As a cluster operator, I want to see frequently asked questions when running Windows node pools and application workloads.
 ---
@@ -14,22 +14,6 @@ In Azure Kubernetes Service (AKS), you can create a node pool that runs Windows 
 
 This article outlines some of the frequently asked questions and OS concepts for Windows Server nodes in AKS.
 
-## Which Windows operating systems are supported?
-
-AKS uses Windows Server 2019 and Windows Server 2022 as the host OS version and only supports process isolation. Container images built by using other Windows Server versions are not supported. For more information, see [Windows container version compatibility][windows-container-compat]. For Kubernetes version 1.25 and higher, Windows Server 2022 is the default operating system. Windows Server 2019 is being retired after Kubernetes version 1.32 reaches end of life (EOL) and won't be supported in future releases. For more information about this retirement, see the [AKS release notes][aks-release-notes].
-
-## Is Kubernetes different on Windows and Linux?
-
-Windows Server node pool support includes some limitations that are part of the upstream Windows Server in Kubernetes project. These limitations are not specific to AKS. For more information on the upstream support from the Kubernetes project, see the [Supported functionality and limitations][upstream-limitations] section of the [Intro to Windows support in Kubernetes][intro-windows] document.
-
-Historically, Kubernetes is Linux-focused. Many examples used in the upstream [Kubernetes.io][kubernetes] website are intended for use on Linux nodes. When you create deployments that use Windows Server containers, the following considerations at the OS level apply:
-
-- **Identity**: Linux identifies a user by an integer user identifier (UID). A user also has an alphanumeric user name for logging on, which Linux translates to the user's UID. Similarly, Linux identifies a user group by an integer group identifier (GID) and translates a group name to its corresponding GID.
-    Windows Server uses a larger binary security identifier (SID) that's stored in the Windows Security Access Manager (SAM) database. This database is not shared between the host and containers, or between containers.
-- **File permissions**: Windows Server uses an access control list based on SIDs, rather than a bitmask of permissions and UID+GID.
-- **File paths**: The convention on Windows Server is to use \ instead of /. 
-    In pod specs that mount volumes, specify the path correctly for Windows Server containers. For example, rather than a mount point of */mnt/volume* in a Linux container, specify a drive letter and location such as */K/Volume* to mount as the *K:* drive.
-
 ## What kind of disks are supported for Windows?
 
 Azure Disks and Azure Files are the supported volume types, and are accessed as NTFS volumes in the Windows Server container.
@@ -38,26 +22,12 @@ Azure Disks and Azure Files are the supported volume types, and are accessed as 
 
 Generation 2 VMs are supported on Linux and Windows for WS2022 only. For more information, see [Support for generation 2 VMs on Azure](../virtual-machines/generation-2.md).
 
-## Can I run Windows only clusters in AKS?
-
-The master nodes (the control plane) in an AKS cluster are hosted by the AKS service. You won't be exposed to the operating system of the nodes hosting the master components. All AKS clusters are created with a default first node pool, which is Linux-based. This node pool contains system services that are needed for the cluster to function. We recommend that you run at least two nodes in the first node pool to ensure the reliability of your cluster and the ability to do cluster operations. The first Linux-based node pool can't be deleted unless the AKS cluster itself is deleted.
-
-In some cases, if you are planning to run Windows-based workloads on an AKS cluster, you should consider deploying a Linux node pool for the following reasons:
-- If you are planning to run Windows and Linux workloads, you can deploy a Windows and Linux node pool on the same AKS cluster to run the workloads side by side.
-- When deploying infrastructure-related components based on Linux, such as Ngix and others, these workloads require a Linux node pool alongside your Windows node pools. For development and test scenarios, you can use control plane nodes. For production workloads, we recommend deploying separate Linux node pools for performance and reliability.
-
 ## How do I patch my Windows nodes?
 
 To get the latest patches for Windows nodes, you can either [upgrade the node pool][nodepool-upgrade] or [upgrade the node image][upgrade-node-image]. Windows Updates are not enabled on nodes in AKS. AKS releases new node pool images as soon as patches are available, and it's the user's responsibility to upgrade node pools to stay current on patches and hotfixes. This patch process is also true for the Kubernetes version being used. [AKS release notes][aks-release-notes] indicate when new versions are available. For more information on upgrading the Windows Server node pool, see [Upgrade a node pool in AKS][nodepool-upgrade]. If you're only interested in updating the node image, see [AKS node image upgrades][upgrade-node-image].
 
 > [!NOTE]
 > The updated Windows Server image will only be used if a cluster upgrade (control plane upgrade) has been performed prior to upgrading the node pool.
-
-## What network plug-ins are supported?
-
-AKS clusters with Windows node pools must use the Azure Container Networking Interface (Azure CNI) (advanced) networking model. Kubenet (basic) networking is not supported. For more information on the differences in network models, see [Network concepts for applications in AKS][azure-network-models]. The Azure CNI network model requires extra planning and consideration for IP address management. For more information on how to plan and implement Azure CNI, see [Configure Azure CNI networking in AKS][configure-azure-cni].
-
-Windows nodes on AKS clusters also have [Direct Server Return (DSR)][dsr] enabled by default when Calico is enabled.
 
 ## Is preserving the client source IP supported?
 
@@ -274,7 +244,7 @@ To get started with Windows Server containers in AKS, see [Create a node pool th
 [azure-outbound-traffic]: ../load-balancer/load-balancer-outbound-connections.md#defaultsnat
 [nodepool-limitations]: create-node-pools.md#limitations
 [windows-container-compat]: /virtualization/windowscontainers/deploy-containers/version-compatibility?tabs=windows-server-2019%2Cwindows-10-1909
-[maximum-number-of-pods]: configure-azure-cni.md#maximum-pods-per-node
+[maximum-number-of-pods]: azure-cni-overview.md#maximum-pods-per-node
 [azure-monitor]: ../azure-monitor/containers/container-insights-overview.md#what-does-azure-monitor-for-containers-provide
 [client-source-ip]: concepts-network.md#ingress-controllers
 [upgrade-node-image]: node-image-upgrade.md

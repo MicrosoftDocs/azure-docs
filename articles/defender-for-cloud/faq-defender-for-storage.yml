@@ -29,7 +29,7 @@ sections:
       - question: |
           How long does it take for subscription-level enablement to take effect?
         answer: |
-          Enabling Defender for Storage at the subscription level may take up to 24 hours to be fully enabled across all storage accounts.
+          Enabling Defender for Storage at the subscription level might take up to 24 hours to be fully enabled across all storage accounts.
 
 
       - question: |
@@ -61,7 +61,7 @@ sections:
       - question: |
           How does Defender for Storage monitor Storage accounts?
         answer: |
-          Defender for storage uses Azure Event Grid to monitor the storage account activity. This is result in creation of an Azure Event Grid System topic of name \<StorageAccountName\>-\<Guid\> in the same resource group as the storage account. It will also create an Event Grid Subscription resource named  StorageAntimalwareSubscription.
+          Defender for storage uses Azure Event Grid to monitor the storage account activity. This is result in creation of an Azure Event Grid System topic with the name \<StorageAccountName\>-\<Guid\> in the same resource group as the storage account. It will also create an Event Grid Subscription resource named  StorageAntimalwareSubscription.
 
 
 additionalContent: |

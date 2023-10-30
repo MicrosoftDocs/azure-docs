@@ -30,7 +30,7 @@ To use Azure Virtual Desktop for Azure Stack HCI, you'll need the following thin
 
 - Azure Arc virtual machine (VM) management should be set up on the Azure Stack HCI cluster. For more information, see [VM provisioning through Azure portal on Azure Stack HCI (preview)](/azure-stack/hci/manage/azure-arc-enabled-virtual-machines).
 
-- [An on-premises Active Directory (AD) synced with Azure Active Directory](/azure/architecture/reference-architectures/identity/azure-ad). The AD domain should resolve using DNS. For more information, see [Prerequisites for Azure Virtual Desktop](prerequisites.md#network).
+- [An on-premises Active Directory (AD) synced with Microsoft Entra ID](/azure/architecture/reference-architectures/identity/azure-ad). The AD domain should resolve using DNS. For more information, see [Prerequisites for Azure Virtual Desktop](prerequisites.md#network).
 
 - A stable connection to Azure from your on-premises network.
 

@@ -32,7 +32,7 @@ After 30 September 2023, if you prefer not to update your tools, scripts, and pr
 
 * **ARM, Bicep, or Terraform templates** - Update the template to use API version 2021-08-01 or later. 
 
-* **Azure CLI** - Run `az version` to check your version. If you're running version 2.38.0 or later, no action is required. Use the `az upgrade` command to upgrade the Azure CLI if necessary. For more information, see [How to update the Azure CLI](/cli/azure/update-azure-cli).
+* **Azure CLI** - Run `az version` to check your version. If you're running version 2.42.0 or later, no action is required. Use the `az upgrade` command to upgrade the Azure CLI if necessary. For more information, see [How to update the Azure CLI](/cli/azure/update-azure-cli).
 
 * **Azure PowerShell** - Run `Get-Module -ListAvailable -Name Az` to check your version. If you're running version 8.1.0 or later, no action is required. Use `Update-Module -Name Az -Repository PSGallery` to update the module if necessary. For more information, see [Install the Azure Az PowerShell module](/powershell/azure/install-azure-powershell).
 
@@ -42,13 +42,12 @@ After 30 September 2023, if you prefer not to update your tools, scripts, and pr
     * Terraform azurerm provider: 3.0.0
     
 * **Azure SDKs** - Update the Azure API Management SDKs to the latest versions (or later): 
-
     * .NET: 8.0.0 
     * Go: 1.0.0 
     * Python: 3.0.0 
-    * JavaScript: 8.0.1 
-
-## More information
+   - JavaScript: 8.0.1 
+   - Java: 1.0.0-beta3
+   ## More information
 
 * [Azure CLI](/cli/azure/update-azure-cli)
 * [Azure PowerShell](/powershell/azure/install-azure-powershell)
@@ -60,3 +59,4 @@ After 30 September 2023, if you prefer not to update your tools, scripts, and pr
 ## Next steps
 
 See all [upcoming breaking changes and feature retirements](overview.md).
+

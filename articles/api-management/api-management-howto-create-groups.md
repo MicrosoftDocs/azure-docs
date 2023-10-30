@@ -24,7 +24,7 @@ API Management has the following immutable system groups:
 * **Developers** - Authenticated developer portal users fall into this group. Developers are the customers that build applications using your APIs. Developers are granted access to the developer portal and build applications that call the operations of an API.
 * **Guests** - Unauthenticated developer portal users, such as prospective customers visiting the developer portal of an API Management instance fall into this group. They can be granted certain read-only access, such as the ability to view APIs but not call them.
 
-In addition to these system groups, administrators can create custom groups or [use external groups in associated Azure Active Directory tenants][leverage external groups in associated Azure Active Directory tenants]. Custom and external groups can be used alongside system groups in giving developers visibility and access to API products. For example, you could create one custom group for developers affiliated with a specific partner organization and allow them access to the APIs from a product containing relevant APIs only. A user can be a member of more than one group.
+In addition to these system groups, administrators can create custom groups or [use external groups in associated Microsoft Entra tenants][leverage external groups in associated Azure Active Directory tenants]. Custom and external groups can be used alongside system groups in giving developers visibility and access to API products. For example, you could create one custom group for developers affiliated with a specific partner organization and allow them access to the APIs from a product containing relevant APIs only. A user can be a member of more than one group.
 
 This guide shows how administrators of an API Management instance can add new groups and associate them with products and developers.
 
@@ -67,7 +67,7 @@ Now that the group is created, it can be associated with products and developers
 Once a product is associated with a group, developers in that group can view and subscribe to the product.
 
 > [!NOTE]
-> To add Azure Active Directory groups, see [How to authorize developer accounts using Azure Active Directory in Azure API Management](api-management-howto-aad.md).
+> To add Microsoft Entra groups, see [How to authorize developer accounts using Microsoft Entra ID in Azure API Management](api-management-howto-aad.md).
 
 To remove a group from the product, click **Delete**.
 

@@ -42,7 +42,7 @@ This script uses the following commands:
 
 | Command | Notes |
 |---|---|
-| [Get-AzADUser](/powershell/module/az.resources/get-azaduser) | Retries the user object from Azure active directory. |
+| [Get-AzADUser](/powershell/module/az.resources/get-azaduser) | Retries the user object from Microsoft Entra ID. |
 | [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) | Assigns the specified role to the specified principal, at the specified scope. |
 
 ## Add a marketplace image to a lab

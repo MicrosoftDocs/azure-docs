@@ -26,7 +26,7 @@ Depending on your integration, start connecting to your ITSM tool with these ste
 
 - For ServiceNow ITOM events or BMC Helix, use the secure webhook action:
 
-     1. [Register your app with Azure Active Directory](./itsm-connector-secure-webhook-connections-azure-configuration.md#register-with-azure-active-directory).
+     1. [Register your app with Microsoft Entra ID](./itsm-connector-secure-webhook-connections-azure-configuration.md#register-with-azure-active-directory).
      1. [Define a service principal](./itsm-connector-secure-webhook-connections-azure-configuration.md#define-a-service-principal).
      1. [Create a secure webhook action group](./itsm-connector-secure-webhook-connections-azure-configuration.md#create-a-secure-webhook-action-group).
      1. Configure your partner environment. Secure Export supports connections with the following ITSM tools:
