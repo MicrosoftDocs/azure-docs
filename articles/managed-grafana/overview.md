@@ -44,7 +44,7 @@ Azure Managed Grafana is available in the two service tiers presented below.
 > [!NOTE]
 > The Essential plan (preview) is currently being rolled out and will be available in all cloud regions on October 30, 2023.
 
-The [Azure Managed Grafana pricing page](https://azure.microsoft.com/pricing/details/managed-grafana/) gives more information on these tiers and the following table lists which main features are supported in each tier:
+The following table lists the main features supported in each tier:
 
 | Feature                                                                                  | Essential (preview)                          | Standard                                                                                                        |
 |------------------------------------------------------------------------------------------|-------------------------------------|-----------------------------------------------------------------------------------------------------------------|
