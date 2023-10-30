@@ -2,10 +2,10 @@
 title: Create Apache Kafka for Confluent Cloud through Azure CLI
 description: This article describes how to use the Azure CLI to create an instance of Apache Kafka for Confluent Cloud.
 ms.topic: quickstart
+ms.custom: devx-track-azurecli
 ms.date: 06/07/2021
 author: flang-msft
 ms.author: franlanglois
-
 ---
 
 # QuickStart: Get started with Apache Kafka for Confluent Cloud - Azure CLI

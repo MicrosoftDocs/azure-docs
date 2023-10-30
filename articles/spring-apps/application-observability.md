@@ -6,7 +6,7 @@ ms.author: v-shilichen
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 10/02/2023
-ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, event-tier1-build-2022
+ms.custom: devx-track-java, event-tier1-build-2022
 ---
 
 # Optimize application observability for Azure Spring Apps
