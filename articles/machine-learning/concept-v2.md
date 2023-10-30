@@ -20,7 +20,7 @@ ms.custom: cliv2, sdkv2, event-tier1-build-2022, ignite-2022, devx-track-python
 
 Azure Machine Learning CLI v2 (CLI v2) and Azure Machine Learning Python SDK v2 (SDK v2) introduce a consistency of features and terminology across the interfaces. To create this consistency, the syntax of commands differs, in some cases significantly, from the first versions (v1).
 
-There are no differences in functionality between CLI v2 and SDK v2. The command line-based CLI might be more convenient in CI/CD MLOps type of scenarios, while the SDK might be more convenient for development.
+There are no differences in functionality between CLI v2 and SDK v2. The command line-based CLI might be more convenient in CI/CD MLOps types of scenarios, while the SDK might be more convenient for development.
 
 ## Azure Machine Learning CLI v2
 
@@ -37,7 +37,7 @@ A few examples of CLI v2 commands:
 
 CLI v2 is useful in the following scenarios:
 
-* On board to Machine Learning without the need to learn a specific programming language.
+* Onboard to Machine Learning without the need to learn a specific programming language.
 
     The YAML file defines the configuration of the asset or workflow, such as what is it and where should it run? Any custom logic or IP used, say data preparation, model training, and model scoring, can remain in script files. These files are referred to in the YAML but aren't part of the YAML itself. Machine Learning supports script files in Python, R, Java, Julia, or C#. All you need to learn is YAML format and command lines to use Machine Learning. You can stick with script files of your choice.
 
@@ -92,7 +92,7 @@ SDK v2 is useful in the following scenarios:
 
 ## Should I use v1 or v2?
 
-Here are some points to consider to help you decide.
+Here are some considerations to help you decide which version to use.
 
 ### CLI v2
 
