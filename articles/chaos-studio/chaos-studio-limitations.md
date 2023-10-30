@@ -29,15 +29,16 @@ During the public preview of Azure Chaos Studio, there are a few limitations and
 - **Supported browsers** - The Chaos Studio portal experience has only been tested on the following browsers:
     * **Windows:** Microsoft Edge, Google Chrome, and Firefox
     * **MacOS:** Safari, Google Chrome, and Firefox
-- **Terraform** - Chaos Studio does not support Terraform at this time.
-- **Powershell modules** - Chaos Studio does not have dedicated Powershell modules at this time. For Powershell, use our REST API
-- **Azure CLI** - Chaos Studio does not have dedicated AzCLI modules at this time. Use our REST API from AzCLI
-- **Azure Policy** - Chaos Studio does not support the applicable built-in policies for our service (audit policy for customer-managed keys and Private Link) at this time. 
-- **Private Link** To use Private Link for Agent Service, you need to have your subscription allowlisted and use our preview API version. We do not support Azure Portal UI experiments for Agent-based experiments using Private Link. These restrictions do NOT apply to our Service-direct faults
-- **Customer-Managed Keys** You will need to use our 2023-10-27-preview REST API via a CLI to create CMK-enabled experiments. We do not support Portal UI experiments using CMK at this time.
-- **Lockbox** At present, we do not have integration with Customer Lockbox.
-- **Java SDK** At present, we do not have a dedicated Java SDK. If this is something you would use, reach out to us with your feature request. 
-- **Built-in roles** - Chaos Studio does not currently have its own built-in roles. Permissions may be attained to run a chaos experiment by either assigning an [Azure built-in role](chaos-studio-fault-providers.md) or a created custom role to the experiment's identity. 
+- **Terraform** - Chaos Studio doesn't support Terraform at this time.
+- **PowerShell modules** - Chaos Studio doesn't have dedicated PowerShell modules at this time. For PowerShell, use our REST API
+- **Azure CLI** - Chaos Studio doesn't have dedicated AzCLI modules at this time. Use our REST API from AzCLI
+- **Azure Policy** - Chaos Studio doesn't support the applicable built-in policies for our service (audit policy for customer-managed keys and Private Link) at this time. 
+- **Private Link** To use Private Link for Agent Service, you need to have your subscription allowlisted and use our preview API version. We don't support Azure portal UI experiments for Agent-based experiments using Private Link. These restrictions do NOT apply to our Service-direct faults
+- **Customer-Managed Keys** You need to use our 2023-10-27-preview REST API via a CLI to create CMK-enabled experiments. We don't support portal UI experiments using CMK at this time.
+- **Lockbox** At present, we don't have integration with Customer Lockbox.
+- **Java SDK** At present, we don't have a dedicated Java SDK. If this is something you would use, reach out to us with your feature request. 
+- **Built-in roles** - Chaos Studio doesn't currently have its own built-in roles. Permissions can be attained to run a chaos experiment by either assigning an [Azure built-in role](chaos-studio-fault-providers.md) or a created custom role to the experiment's identity.
+- **Agent Service Tags** Currently we don't have service tags available for our Agent-based faults. 
 
 ## Known issues
 When you pick target resources for an agent-based fault in the experiment designer, it's possible to select virtual machines or virtual machine scale sets with an operating system not supported by the fault selected.
