@@ -1,7 +1,7 @@
 ---
 title: Load test private endpoints
 titleSuffix: Azure Load Testing
-description: Learn how to deploy Azure Load Testing in a virtual network (VNET injection) to test private application endpoints and hybrid deployments.
+description: Learn how to deploy Azure Load Testing in a virtual network (virtual network injection) to test private application endpoints and hybrid deployments.
 services: load-testing
 ms.service: load-testing
 ms.custom: devx-track-azurecli
@@ -13,7 +13,7 @@ ms.topic: how-to
 
 # Test private endpoints by deploying Azure Load Testing in an Azure virtual network
 
-In this article, learn how to test private application endpoints with Azure Load Testing. You create an Azure Load Testing resource and enable it to generate load from within your virtual network (VNET injection).
+In this article, learn how to test private application endpoints with Azure Load Testing. You create an Azure Load Testing resource and enable it to generate load from within your virtual network (virtual network injection).
 
 This functionality enables the following usage scenarios:
 
@@ -25,7 +25,7 @@ Learn more about the scenarios for [deploying Azure Load Testing in your virtual
 
 The following diagram provides a technical overview:
 
-:::image type="content" source="media/how-to-test-private-endpoint/azure-load-testing-vnet-injection.png" alt-text="Diagram that shows the Azure Load Testing VNET injection technical overview.":::
+:::image type="content" source="media/how-to-test-private-endpoint/azure-load-testing-vnet-injection.svg" alt-text="Diagram that shows the Azure Load Testing virtual network injection technical overview.":::
 
 When you start the load test, Azure Load Testing service injects the following Azure resources in the virtual network that contains the application endpoint:
 
@@ -111,14 +111,14 @@ For example, for an endpoint with IP address 10.179.0.7, in a virtual network wi
 
 ## Configure your load test
 
-To include privately hosted endpoints in your load test, you need to configure the virtual network settings for the load test. You can configure the VNET settings in the Azure portal, or specify them in the [YAML test configuration file](./reference-test-config-yaml.md) for CI/CD pipelines.
+To include privately hosted endpoints in your load test, you need to configure the virtual network settings for the load test. You can configure the virtual network settings in the Azure portal, or specify them in the [YAML test configuration file](./reference-test-config-yaml.md) for CI/CD pipelines.
 
 > [!IMPORTANT]
 > When you deploy Azure Load Testing in a virtual network, you'll incur additional charges. Azure Load Testing deploys an [Azure Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/) and a [Public IP address](https://azure.microsoft.com/pricing/details/ip-addresses/) in your subscription and there might be a cost for generated traffic. For more information, see the [Virtual Network pricing information](https://azure.microsoft.com/pricing/details/virtual-network).
 
-### Configure the VNET in the Azure portal
+### Configure the virtual network in the Azure portal
 
-You can specify the VNET configuration settings in the load test creation/update wizard.
+You can specify the virtual network configuration settings in the load test creation/update wizard.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) by using the credentials for your Azure subscription.
     
@@ -147,9 +147,9 @@ You can specify the VNET configuration settings in the load test creation/update
 
 1. Select **Review + create** and then **Create** (or **Apply**, when updating an existing test).
 
-    When the load test starts, Azure Load Testing injects the test engine VMs in your virtual network and subnet. The test script can now access the privately hosted application endpoint in your VNET.
+    When the load test starts, Azure Load Testing injects the test engine VMs in your virtual network and subnet. The test script can now access the privately hosted application endpoint in your virtual network.
 
-### Configure the VNET for CI/CD pipelines
+### Configure the virtual network for CI/CD pipelines
 
 To configure the load test with your virtual network settings, update the [YAML test configuration file](./reference-test-config-yaml.md).
 
@@ -185,7 +185,7 @@ To configure the load test with your virtual network settings, update the [YAML 
 
 1. Save the YAML configuration file, and commit your changes to the source code repository.
 
-1. After the CI/CD workflow triggers, your load test starts, and can now access the privately hosted application endpoint in your VNET.
+1. After the CI/CD workflow triggers, your load test starts, and can now access the privately hosted application endpoint in your virtual network.
 
 ## Troubleshooting
 
@@ -215,7 +215,7 @@ The subnet you're using for the load test isn't in the `Succeeded` state and isn
 
 ### Create or updating the load test fails with `Subnet is delegated to other service (ALTVNET003)`
 
-The subnet you use for deploying the load test can't be delegated to another Azure service. Either remove the existing delegation, or select another subnet that is not delegated to a service.
+The subnet you use for deploying the load test can't be delegated to another Azure service. Either remove the existing delegation, or select another subnet that isn't delegated to a service.
 
 Learn more about [adding or removing a subnet delegation](/azure/virtual-network/manage-subnet-delegation#remove-subnet-delegation-from-an-azure-service).
 
@@ -320,7 +320,7 @@ Follow these steps to [update the subnet settings](/azure/virtual-network/virtua
 
 ### Starting the load test fails with `Management Lock is enabled on Resource Group of VNET (ALTVNET015)`
 
-If there is a lock on the resource group that contains the virtual network, the service can't inject the test engine virtual machines in your virtual network. Remove the management lock before running the load test. Learn how to [configure locks in the Azure portal](/azure/azure-resource-manager/management/lock-resources?tabs=json#configure-locks).
+If there's a lock on the resource group that contains the virtual network, the service can't inject the test engine virtual machines in your virtual network. Remove the management lock before running the load test. Learn how to [configure locks in the Azure portal](/azure/azure-resource-manager/management/lock-resources?tabs=json#configure-locks).
 
 ### Starting the load test fails with `Insufficient public IP address quota in VNET subscription (ALTVNET016)`
 
