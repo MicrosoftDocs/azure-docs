@@ -5,7 +5,7 @@ author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: integration
-ms.date: 11/15/2023
+ms.date: 11/27/2023
 ms.custom:
     - template-how-to-pattern
     - has-azure-ad-ps-ref

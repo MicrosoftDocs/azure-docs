@@ -5,7 +5,7 @@ author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: how-to
-ms.date: 06/02/2023
+ms.date: 11/27/2023
 ---
 
 # Set up user roles for Azure Communications Gateway
