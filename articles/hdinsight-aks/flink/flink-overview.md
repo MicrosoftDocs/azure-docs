@@ -56,7 +56,7 @@ Apache Flink clusters in HDInsight on AKS are a fully managed service. Benefits 
 | Checkpoints | Checkpointing is enabled in HDInsight on AKS clusters by default. Default settings on HDInsight on AKS maintain the last five checkpoints in persistent storage. In case, your job fails, the job can be restarted from the latest checkpoint.|
 | Incremental Checkpoints | RocksDB supports Incremental Checkpoints. We encourage the use of incremental checkpoints for large state, you need to enable this feature manually. Setting a default in your `flink-conf.yaml: state.backend.incremental: true` enables incremental checkpoints, unless the application overrides this setting in the code. This statement is true by default. You can alternatively configure this value directly in the code (overrides the config default) ``EmbeddedRocksDBStateBackend` backend = new `EmbeddedRocksDBStateBackend(true);`` . By default, we preserve the last five checkpoints in the checkpoint dir configured.  This value can be changed by changing the configuration on configuration management section `state.checkpoints.num-retained: 5`|
 
-Apache Flink clusters in HDInsight include the following components, they are available on the clusters by default.
+Apache Flink clusters in HDInsight on AKS include the following components, they are available on the clusters by default.
 
 * [DataStreamAPI](https://nightlies.apache.org/flink/flink-docs-release-1.17/docs/dev/datastream/overview/#what-is-a-datastream)
 * [TableAPI & SQL](https://nightlies.apache.org/flink/flink-docs-release-1.17/docs/dev/table/overview/#table-api--sql). 
