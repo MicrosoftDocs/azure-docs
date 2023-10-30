@@ -20,9 +20,9 @@ In this article, you learn:
 - Tools to identify high memory utilization.
 - Reasons for high memory & remedial actions.
 
-## Troubleshoot guides
+## Troubleshooting guides
 
-Using the feature troubleshooting guides which is available on the Azure Database for PostgreSQL - Flexible Server portal the probable root cause and recommendations to the mitigate high memory scenario can be found. How to setup the troubleshooting guides to use them please follow the [setup troubleshooting guides](how-to-troubleshooting-guides.md).
+Using the feature troubleshooting guides which is available on the Azure Database for PostgreSQL - Flexible Server portal the probable root cause and recommendations to the mitigate high memory scenario can be found. How to setup the troubleshooting guides to use them please follow [setup troubleshooting guides](how-to-troubleshooting-guides.md).
 
 ## Tools to identify high memory utilization
 

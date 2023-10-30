@@ -23,9 +23,9 @@ In this article, you'll learn:
 - How to identify root causes, such as long running queries and total connections.
 - How to resolve high CPU utilization by using Explain Analyze, Connection Pooling, and Vacuuming tables.
 
-## Troubleshoot guides
+## Troubleshooting guides
 
-Using the feature troubleshooting guides which is available on the Azure Database for PostgreSQL - Flexible Server portal the probable root cause and recommendations to the mitigate high CPU scenario can be found. How to setup the troubleshooting guides to use them please follow the [setup troubleshooting guides](how-to-troubleshooting-guides.md).
+Using the feature troubleshooting guides which is available on the Azure Database for PostgreSQL - Flexible Server portal the probable root cause and recommendations to the mitigate high CPU scenario can be found. How to setup the troubleshooting guides to use them please follow [setup troubleshooting guides](how-to-troubleshooting-guides.md).
 
 ## Tools to identify high CPU utilization
 

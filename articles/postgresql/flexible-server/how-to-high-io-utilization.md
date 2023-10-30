@@ -22,9 +22,9 @@ In this article, you learn how to:
 - Identify root causes, such as long-running queries, checkpoint timings, a disruptive autovacuum daemon process, and high storage utilization.
 - Resolve high I/O utilization by using Explain Analyze, tune checkpoint-related server parameters, and tune the autovacuum daemon.
 
-## Troubleshoot guides
+## Troubleshooting guides
 
-Using the feature troubleshooting guides which is available on the Azure Database for PostgreSQL - Flexible Server portal the probable root cause and recommendations to the mitigate high IOPS utilization scenario can be found. How to setup the troubleshooting guides to use them please follow the [setup troubleshooting guides](how-to-troubleshooting-guides.md).
+Using the feature troubleshooting guides which is available on the Azure Database for PostgreSQL - Flexible Server portal the probable root cause and recommendations to the mitigate high IOPS utilization scenario can be found. How to setup the troubleshooting guides to use them please follow [setup troubleshooting guides](how-to-troubleshooting-guides.md).
 
 ## Tools to identify high I/O utilization
 
