@@ -129,7 +129,7 @@ sections:
       - question: |
           What password user flow is used for local accounts in Azure AD B2C?
         answer: |
-          The Azure AD B2C password user flow for local accounts is based on the policy for Microsoft Entra ID. Azure AD B2C's sign-up, sign-up, or sign-in and password reset user flows use the "strong" password strength and don't expire any passwords. For more information, see [Password policies and restrictions in Microsoft Entra ID](../active-directory/authentication/concept-sspr-policy.md).
+          The Azure AD B2C password user flow for local accounts is based on the policy for Microsoft Entra ID. Azure AD B2C's sign-up, sign-up or sign-in and password reset user flows use the "strong" password strength and don't expire any passwords. For more information, see [Password policies and restrictions in Microsoft Entra ID](../active-directory/authentication/concept-sspr-policy.md).
           
           For information about account lockouts and passwords, see [Mitigate credential attacks in Azure AD B2C](threat-management.md).
           
