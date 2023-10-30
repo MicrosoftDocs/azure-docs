@@ -5,11 +5,11 @@ author: maud-lv
 ms.author: malev
 ms.service: managed-grafana
 ms.topic: conceptual
-ms.date: 10/23/2023
+ms.date: 10/30/2023
 
 ---
 
-# What's New in Azure Managed Grafana
+# What's new in Azure Managed Grafana
 
 ## October 2023
 
