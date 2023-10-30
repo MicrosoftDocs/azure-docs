@@ -15,7 +15,7 @@ ms.custom: mvc, engagement-fy24
 [Azure Migrate](migrate-services-overview.md) helps you to discover, assess, and migrate on-premises servers, apps, and data to the Microsoft Azure cloud. This article summarizes new releases and features in Azure Migrate.
 
 ## Update (November 2023)
-- Public Preview: Assess your ASP.NET web apps for migration to Azure Kubernetes Service (AKS). Using this feature, you get insights such as app readiness, cluster rightsizing and cost of running these web apps on AKS. [Learn more](tutorial-assess-aspnet-aks.md). These insights are also surfaced in Business Case. [Learn more]().
+- Public Preview: Assess your ASP.NET web apps for migration to Azure Kubernetes Service (AKS). Using this feature, you get insights such as app readiness, cluster rightsizing and cost of running these web apps on AKS. [Learn more](tutorial-assess-aspnet-aks.md). These insights are also surfaced in Business Case. [Learn more](how-to-build-a-business-case.md).
 
 ## Update (September 2023)
 - Azure Migrate now supports discovery and assessment of Spring Boot apps using the Azure Migrate: Discovery and assessment tool. [Learn more](how-to-create-azure-spring-apps-assessment.md).
