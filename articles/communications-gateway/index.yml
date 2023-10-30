@@ -1,10 +1,10 @@
 ### YamlMime:Landing
 
 title: Azure Communications Gateway documentation
-summary: Learn about Azure Communications Gateway for telecommunications operators and service providers offering Operator Connect, Teams Phone Mobile or Microsoft Teams Direct Routing. Using Azure Communications Gateway for Operator Connect or Teams Phone Mobile requires a separate Operator Connect or Teams Phone Mobile agreement with Microsoft.
+summary: Learn about Azure Communications Gateway for telecommunications operators and service providers. Azure Communications Gateway allows you to provide your customers with Operator Connect, Teams Phone Mobile, Microsoft Teams Direct Routing and Zoom Phone Cloud Peering service. Launching Operator Connect, Teams Phone Mobile or Zoom Phone Cloud Peering requires additional agreements.
 metadata:
   title: Azure Communications Gateway documentation
-  description: Learn about Azure Communications Gateway. Azure Communications Gateway enables telecommunications operators to provide Operator Connect, Teams Phone Mobile and Microsoft Teams Direct Routing services.
+  description: Learn about Azure Communications Gateway. Azure Communications Gateway enables telecommunications operators to provide Operator Connect, Teams Phone Mobile, Microsoft Teams Direct Routing and Zoom Phone Cloud Peering services.
   ms.service: communications-gateway
   ms.topic: landing-page
   author: rcdun
