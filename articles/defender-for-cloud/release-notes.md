@@ -24,7 +24,7 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 |Date |Update  |
 |----------|----------|
-| October 29 | [Changing adaptive application control’s security alert's severity](#changing-adaptive-application-controls-security-alerts-severity)
+| October 30 | [Changing adaptive application control’s security alert's severity](#changing-adaptive-application-controls-security-alerts-severity)
 | October 25 | [Offline Azure API Management revisions removed from Defender for APIs](#offline-azure-api-management-revisions-removed-from-defender-for-apis) |
 | October 19 |[DevOps security posture management recommendations available in public preview](#devops-security-posture-management-recommendations-available-in-public-preview)
 | October 18 | [Releasing CIS Azure Foundations Benchmark v2.0.0 in Regulatory Compliance dashboard](#releasing-cis-azure-foundations-benchmark-v200-in-regulatory-compliance-dashboard) |
