@@ -493,7 +493,11 @@
     - name: Monitor indexer-based indexing
       href: search-howto-monitor-indexers.md
     - name: Monitor client-side interactions
-      href: search-traffic-analytics.md  
+      href: search-traffic-analytics.md 
+- name: Responsible AI
+  items:
+  - name: Transparency note
+    href: /legal/search/transparency-note?context=/azure/search/context/context
 - name: Reference
   items:
   - name: REST
