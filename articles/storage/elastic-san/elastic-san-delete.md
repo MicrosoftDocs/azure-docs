@@ -65,7 +65,7 @@ iscsiadm --mode node --target **yourStorageTargetIQN** --portal **yourStorageTar
 You may delete your SAN using the Azure portal or Azure PowerShell module. If you delete a SAN or a volume group, the corresponding child resources will be deleted along with it. The delete commands for each of the resource levels are below.
 
 
-To delete volumes, run the following commands. If you add the force-delete header, it will delete the volume regardless of whether or not you have active iSCSI connections.
+The following commands delete your volumes. `ForceDelete true` and `--x-ms-force-delete true` have been incorporated into these commands. These two parameters with these values cause volume deletions to succeed even when you have active iSCSI connections. If you don't want this to happen, set these to false.
 
 # [PowerShell](#tab/azure-powershell)
 
