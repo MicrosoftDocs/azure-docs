@@ -345,9 +345,9 @@ username = "username"
 password = "password"
 
 [agent.env]
-"RuntimeLogLevel" = "debug"
-"UpstreamProtocol" = "AmqpWs"
-"storageFolder" = "/iotedge/storage"
+RuntimeLogLevel = "debug"
+UpstreamProtocol = "AmqpWs"
+storageFolder = "/iotedge/storage"
 ```
 
 ## Daemon management and workload API endpoints
