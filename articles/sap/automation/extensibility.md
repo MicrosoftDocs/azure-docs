@@ -94,7 +94,7 @@ The Ansible playbooks must be named according to the following naming convention
 
 ```
 
-## Adding custom repositories to the SAP Deployment Automation Framework installation for Linux
+## Adding custom repositories (Linux)
 
 If you need to register extra Linux package repositories to the Virtual Machines deployed by the framework, you can add the following section to the sap-parameters-yaml file.
 
@@ -108,7 +108,7 @@ custom_repos:
 
 ```
 
-## Adding custom packages to the SAP Deployment Automation Framework installation for Linux
+## Adding custom packages (Linux)
 
 If you need to install more Linux packages to the Virtual Machines deployed by the framework, you can add the following section to the sap-parameters-yaml file.
 
@@ -132,9 +132,7 @@ custom_packages:
 
 ```
 
-
-
-## Adding custom kernel parameters to the SAP Deployment Automation Framework installation for Linux
+## Adding custom kernel parameters (Linux)
 
 You can extend the SAP Deployment Automation Framework by adding custom kernel parameters to the SDAF installation.
 
@@ -147,6 +145,62 @@ custom_parameters:
     - { tier: 'os', node_tier: 'all', name: 'fs.suid_dumpable', value: '0', state: 'present' }
 
 ```
+
+## Adding custom logical volumes (Linux)
+
+You can extend the SAP Deployment Automation Framework by adding logical volumes based on additional disks in your SDAF installation.
+
+When you add the following section to the sap-parameters-yaml file, a logical volume 'lv_custom' will be created on all Virtual machines with a disk with the name 'custom' in your SAP deployment. A filesystem will be mounted on the logical volume and available on '/custompath'.
+
+
+```yaml
+
+custom_logical_volumes:
+  - tier:       'sapos'
+    node_tier:  'all'
+    vg:         'vg_custom'
+    lv:         'lv_custom'
+    size:       '100%FREE'
+    fstype:     'xfs'
+    path:       '/custompath' 
+```
+
+> [!NOTE]
+> In order to use this functionality you need to add an additional disk named 'custom' to one or more of your Virtual machines. See [Custom disk sizing](configure-extra-disks.md) for more information.
+
+## Adding custom mount (Linux)
+
+You can extend the SAP Deployment Automation Framework by mounting additional mount points in your installation.
+
+When you add the following section to the sap-parameters-yaml file, a filesystem '/usr/custom' will be mounted from an NFS share on "xxxxxxxxx.file.core.windows.net:/xxxxxxxxx/custom".
+
+```yaml
+
+custom_mounts:
+    path:         "/usr/custom"
+    opts:         "vers=4,minorversion=1,sec=sys"
+    mount:        "xxxxxxxxx.file.core.windows.net:/xxxxxxxxx/custom"
+    target_nodes: "scs,pas,app"
+```
+
+The `target_nodes` attribute defines which nodes will have the mount defined. Use 'all' if you want all nodes to have the mount defined.
+
+
+## Adding custom export (Linux)
+
+You can extend the SAP Deployment Automation Framework by adding additional folders to be exported from the Central Services virtual machine.
+
+When you add the following section to the sap-parameters-yaml file, a filesystem '/usr/custom' will be exported from the Central Services virtual machine and available via NFS.
+
+```yaml
+
+custom_exports:
+    path:         "/usr/custom"
+
+```
+
+> [!NOTE]
+> This applies only for deployments with NFS_Provider set to 'NONE' as this makes the Central Services server an NFS Server.
 
 
 ## Next step
