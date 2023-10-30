@@ -118,18 +118,15 @@ For more information, see [Configure Azure CNI for an AKS cluster][aks-configure
 
 ### Azure CNI Overlay networking
 
-[Azure CNI Overlay][azure-cni-overlay] represents an evolution of Azure CNI, addressing scalability and planning challenges arising from the assignment of VNet IPs to pods. It achieves this by assigning private CIDR IPs to pods, which are separate from the VNet and can be reused across multiple clusters. Additionally, Azure CNI Overlay can scale beyond the 400 node limit enforced in Kubenet clusters. Azure CNI Overlay is the recommended option for large-scale clusters.
+[Azure CNI Overlay][azure-cni-overlay] represents an evolution of Azure CNI, addressing scalability and planning challenges arising from the assignment of VNet IPs to pods. It achieves this by assigning private CIDR IPs to pods, which are separate from the VNet and can be reused across multiple clusters. Additionally, Azure CNI Overlay can scale beyond the 400 node limit enforced in Kubenet clusters. Azure CNI Overlay is the recommended option for most clusters.
 
 ### Azure CNI Powered by Cilium
 
-[Azure CNI Powered by Cilium][azure-cni-powered-by-cilium] uses [Cilium](https://cilium.io) to provide high-performance networking, observability, and network policy enforcement. It integrates natively with:
-
-* [Azure CNI Overlay][azure-cni-overlay] for scalable IP address management (IPAM)
-* [AKS Network Observability][network-observability-overview] for dataplane-level metrics.
+[Azure CNI Powered by Cilium][azure-cni-powered-by-cilium] uses [Cilium](https://cilium.io) to provide high-performance networking, observability, and network policy enforcement. It integrates natively with [Azure CNI Overlay][azure-cni-overlay] for scalable IP address management (IPAM)
 
 Additionally, Cilium enforces network policies by default, without requiring a separate network policy engine. Using eBPF programs and a more efficient API object structure, Azure CNI Powered by Cilium can scale beyond [Azure Network Policy Manager's limits of 250 nodes / 20K pod][use-network-policies#scale].
 
-Azure CNI Powered by Cilium is the recommended option for large-scale clusters that require network policy enforcement.
+Azure CNI Powered by Cilium is the recommended option for clusters that require network policy enforcement.
 
 ### Bring your own CNI
 
