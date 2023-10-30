@@ -224,7 +224,7 @@ Deploy the CloudFormation template by using Stack (or StackSet if you have a man
     ```
 
     > [!NOTE]
-    > When running the CloudFormation StackSets when onboarding an AWS management account, you may encounter the following error message:
+    > When running the CloudFormation StackSets when onboarding an AWS management account, you might encounter the following error message:
     > `You must enable organizations access to operate a service managed stack set`
     >
     > This error indicates that you have noe enabled [the trusted access for AWS Organizations](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-activate-trusted-access.html).
