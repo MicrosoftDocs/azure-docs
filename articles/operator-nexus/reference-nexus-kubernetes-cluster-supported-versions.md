@@ -91,8 +91,8 @@ Note the following important changes to make before you upgrade to any of the av
 | 1.25.6             | 2              | Calico v3.26.1<br>metrics-server v0.6.3<br>Multus v3.8.0<br>CoreDNS v1.8.6<br>etcd v3.5.6-5<br>sriov-dp v3.6.0   | Mariner 2.0 (2023-06-18) |  No breaking changes    |                 |
 | 1.26.3             | 1              | Calico v3.24.0<br>metrics-server v0.6.3<br>Multus v3.8.0<br>CoreDNS v1.8.6<br>etcd v3.5.6-5<br>sriov-dp v3.5.1   | Mariner 2.0 (2023-06-18) |  No breaking changes    |                 |
 | 1.26.3             | 2              | Calico v3.26.1<br>metrics-server v0.6.3<br>Multus v3.8.0<br>CoreDNS v1.8.6<br>etcd v3.5.6-5<br>sriov-dp v3.6.0  | Mariner 2.0 (2023-06-18) |  No breaking changes    |                 |
-| 1.27.1             | 1              | Calico v3.26.1<br>metrics-server v0.6.3<br>Multus v3.8.0<br>CoreDNS v1.9.3<br>etcd v3.5.6-5<br>sriov-dp v3.5.1   | Mariner 2.0 (2023-09-21) |  Cgroupv2               | Steps to disable cgroupv2 can be found [here](./howto-disable-cgroupsv2.md)  |
-| 1.27.1             | 2              | Calico v3.24.0<br>metrics-server v0.6.3<br>Multus v3.8.0<br>CoreDNS v1.9.3<br>etcd v3.5.6-5<br>sriov-dp v3.6.0  | Mariner 2.0 (2023-09-21) |  Cgroupv2               | Steps to disable cgroupv2 can be found [here](./howto-disable-cgroupsv2.md)  |
+| 1.27.1             | 1              | Calico v3.24.0<br>metrics-server v0.6.3<br>Multus v3.8.0<br>CoreDNS v1.9.3<br>etcd v3.5.6-5<br>sriov-dp v3.5.1   | Mariner 2.0 (2023-09-21) |  Cgroupv2               | Steps to disable cgroupv2 can be found [here](./howto-disable-cgroupsv2.md)  |
+| 1.27.1             | 2              | Calico v3.26.1<br>metrics-server v0.6.3<br>Multus v3.8.0<br>CoreDNS v1.9.3<br>etcd v3.5.6-5<br>sriov-dp v3.6.0  | Mariner 2.0 (2023-09-21) |  Cgroupv2               | Steps to disable cgroupv2 can be found [here](./howto-disable-cgroupsv2.md)  |
 
 ## Upgrading Kubernetes versions
 
