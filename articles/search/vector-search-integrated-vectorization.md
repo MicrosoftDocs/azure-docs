@@ -23,13 +23,13 @@ Integrated vectorization works for vector and hybrid queries also. At query time
 
 For indexing, integrated vectorization requires:
 
-+ An indexer retrieving data from a supported data source.
-+ A skillset that calls the Text Split skill to chunk the data, and either AzureOpenAIEmbedding skill or a custom skill to vectorize the data.
-+ One or more indexes to receive the chunked and vectorized content.
++ [An indexer](search-indexer-overview.md) retrieving data from a supported data source.
++ [A skillset](cognitive-search-working-with-skillsets.md)  that calls the [Text Split skill](cognitive-search-skill-textsplit.md) to chunk the data, and either [AzureOpenAIEmbedding skill](cognitive-search-skill-azure-openai-embedding.md) or a [custom skill](cognitive-search-custom-skill-web-api.md) to vectorize the data.
++ [One or more indexes](search-what-is-an-index.md) to receive the chunked and vectorized content.
 
 For queries:
 
-+ A vectorizer defined in the index schema, assigned to a vector field, and used automatically at query time to convert a text query to a vector.
++ [A vectorizer]() defined in the index schema, assigned to a vector field, and used automatically at query time to convert a text query to a vector.
 
 Vector conversions are one-way: text-to-vector. There's no vector-to-text conversion for queries or results (for example, you can't convert a vector result to a human-readable string).
 
@@ -52,7 +52,7 @@ Integrated vectorization is available as part of all Azure AI Search tiers in al
 
 + Build a vector store where all of the fields are vector fields, and the document ID (required for a search index) is the only string field. Query the vector index to retrieve document IDs, and then send the document's vector fields to another model.
 
-+ Combine vector and text fields for hybrid search, with or without semantic ranking. Integrated vectorization simplifies all of the [scenarios supported by vector search](vector-search-overview-md#what-senarios-are-supported-by-vector-search).
++ Combine vector and text fields for hybrid search, with or without semantic ranking. Integrated vectorization simplifies all of the [scenarios supported by vector search](vector-search-overview.md#what-senarios-are-supported-by-vector-search).
 
 ## When to use integrated vectorization
 
@@ -66,18 +66,17 @@ Here are some of the key benefits of the integrated vectorization:
 
 + Up-to-date results: Indexers automate indexing end-to-end. When data changes in the source (such as Azure Storage, Azure SQL, or Cosmos DB), the indexer can move those updates through the entire pipeline consisting of document cracking, optional AI-enrichment, data chunking, vectorization, and indexing.
 
-+ Project or redirect chunked content to secondary indexes that are well-suited for chat-style apps and Retrieval-Augmented Generation (RAG) patterns. Secondary indexes are created as you would any search index (a schema with fields and other constructs), but they're populated in tandem with a primary index. Content from each source document flows to fields in primary and secondary indexes during the same indexing run. 
++ Project or redirect chunked content to secondary indexes that are well-suited for chat-style apps and Retrieval Augmented Generation (RAG) patterns. Secondary indexes are created as you would any search index (a schema with fields and other constructs), but they're populated in tandem with a primary index. Content from each source document flows to fields in primary and secondary indexes during the same indexing run. 
 
   + Secondary indexes are used for data chunking and RAG apps. Assuming a large PDF as a source document, the primary index might have basic information (title, date, author, description), and a secondary index has the chunks of content. Vectorization at the data chunk level makes it easier to find relevant information and return a relevant response.
 
 ## Chunked indexes
 
-Chunking is a process of dividing content into smaller manageable parts (chunks) that can be processed independently. Chunking is required if source documents are too large for the maximum input size of embedding or large language models, but you might find it gives you a better index structure for [RAG patterns](retrieval-augmented-generation-overvew.md) and chat-style search.
+Chunking is a process of dividing content into smaller manageable parts (chunks) that can be processed independently. Chunking is required if source documents are too large for the maximum input size of embedding or large language models, but you might find it gives you a better index structure for [RAG patterns](retrieval-augmented-generation-overview.md) and chat-style search.
 
 The following diagram shows the components of chunked indexing.
 
-:::image type="content" source="media/vector-search-integrated-vectorization/integrated-vectorization-chunked-indexes.png" alt-text="Diagram of components in an integrated vectorization workflow." border="false" lightbox="media/vector-search-integrated-vectorization/integrated-vectorization-chunked-indexes.png":::
-
+:::image type="content" source="media/vector-search-integrated-vectorization/integrated-vectorization-chunked-indexes.png" alt-text="Diagram of chunking and vectorization workflow." border="false" lightbox="media/vector-search-integrated-vectorization/integrated-vectorization-chunked-indexes.png":::
 
 ## Next steps
 
