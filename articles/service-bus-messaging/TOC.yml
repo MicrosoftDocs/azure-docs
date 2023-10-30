@@ -293,7 +293,7 @@
       href: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/TROUBLESHOOTING.md
     - name: Resource Manager exceptions
       href: service-bus-resource-manager-exceptions.md
-    - name: Service Bus exceptions (deprecated)
+    - name: Service Bus exceptions 
       href: service-bus-messaging-exceptions-latest.md
     - name: Service Bus exceptions (deprecated)
       href: service-bus-messaging-exceptions.md
