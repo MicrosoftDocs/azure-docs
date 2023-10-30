@@ -2,9 +2,8 @@
 title: Upgrade options for Azure Kubernetes Service (AKS) clusters
 description: Learn the different ways to upgrade an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
-ms.custom: event-tier1-build-2022, devx-track-azurecli
+ms.custom: event-tier1-build-2022
 ms.date: 10/19/2023
-
 ---
 
 # Upgrade options for Azure Kubernetes Service (AKS) clusters

@@ -275,7 +275,7 @@ To edit an existing alert rule:
 
 1. On the **Actions** tab, select or create the required [action groups](./action-groups.md).
 
-1. <a name="custom-props"></a>(Optional)  In the **Custom properties** section, if you've configured action groups for this alert rule, you can add your own properties to include in the alert notification payload. You can use these properties in the actions called by the action group, such as webhook, Azure function or logic app actions.
+1. <a name="custom-props"></a>(Optional)  In the **Advanced options** at **Details tab** the **Custom properties** section is added, if you've configured action groups for this alert rule. In this ection you can add your own properties to include in the alert notification payload. You can use these properties in the actions called by the action group, such as webhook, Azure function or logic app actions.
 
     The custom properties are specified as key:value pairs, using either static text, a dynamic value extracted from the alert payload, or a combination of both.
 
