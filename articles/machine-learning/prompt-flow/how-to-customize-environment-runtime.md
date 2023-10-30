@@ -179,11 +179,11 @@ Follow [this document to add custom application](../how-to-create-compute-instan
 
 In promptflow `flow.dag.yaml`, you can also specify define `requirements.txt`, which will be used when you deploy your flow as deployment.
 
-:::image type="content" source="./media/how-to-customize-environment-runtime/runtime-creation-flow-folder-requirements.png" alt-text="Screenshot of flow.dag.yaml showing requirements.txt. " lightbox = "./media/how-to-customize-environment-runtime/runtime-creation-flow-folder-requirements.png":::
+:::image type="content" source="./media/how-to-customize-environment-runtime/runtime-creation-flow-folder-requirements.png" alt-text="Screenshot of flow dag yaml file showing requirements txt file. " lightbox = "./media/how-to-customize-environment-runtime/runtime-creation-flow-folder-requirements.png":::
 
 ### Add packages in private pypi repository - optional
 
-Using the following command to download your packages to local: `pip wheel <package_name> --index-url=<private pypi> --wheel-dir <local path to save packages>`
+Use the following command to download your packages to local: `pip wheel <package_name> --index-url=<private pypi> --wheel-dir <local path to save packages>`
 
 ### Create a python tool to install `requirements.txt` to runtime
 
