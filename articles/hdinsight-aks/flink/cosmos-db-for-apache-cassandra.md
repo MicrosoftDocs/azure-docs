@@ -3,7 +3,7 @@ title: Using Azure Cosmos DB (Apache Cassandra) with HDInsight on AKS - Flink
 description: Learn how to Sink HDInsight Kafka message into Azure Cosmos DB for Apache Cassandra, with Apache Flink running on HDInsight on AKS.
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/29/2023
+ms.date: 10/30/2023
 ---
 
 # Sink Kafka messages into Azure Cosmos DB for Apache Cassandra, with HDInsight on AKS - Flink
