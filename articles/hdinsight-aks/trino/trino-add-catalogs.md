@@ -2,6 +2,7 @@
 title: Configure catalogs in Azure HDInsight on AKS
 description: Add catalogs to an existing Trino cluster in HDInsight on AKS
 ms.service: hdinsight-aks
+ms.custom: devx-track-arm-template
 ms.topic: how-to 
 ms.date: 10/19/2023
 ---
@@ -100,4 +101,3 @@ This article demonstrates how you can add a new catalog to your cluster using AR
    |values|It’s possible to specify catalog configuration using content property as single string, and using separate key-value pairs for each individual Trino catalog property as shown for memory catalog.|
 
  Deploy the updated ARM template to reflect the changes in your cluster. Learn how to [deploy an ARM template](/azure/azure-resource-manager/templates/deploy-portal).
-

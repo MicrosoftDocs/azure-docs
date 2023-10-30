@@ -27,7 +27,7 @@ These threats can result in malware uploads, data corruption, and sensitive data
 
 :::image type="content" source="media/defender-for-storage-threats-alerts/malware-risks.png" alt-text="Diagram showing common risks to data that can result from malware.":::
 
-In addition to security threats, configuration errors may inadvertently expose sensitive resources. Some common misconfiguration issues include:
+In addition to security threats, configuration errors might inadvertently expose sensitive resources. Some common misconfiguration issues include:
 
 - Inadequate access controls and networking rules, leading to unintended data exposure on the internet
 - Insufficient authentication mechanisms
