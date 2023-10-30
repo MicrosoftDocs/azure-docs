@@ -1,5 +1,5 @@
 ---
-title: How to schedule a contact on Azure Orbital Earth Observation service
+title: Azure Orbital Ground Station - schedule a contact
 description: Learn how to schedule a contact.
 author: apoorvanori
 ms.service: orbital
@@ -7,7 +7,7 @@ ms.topic: quickstart
 ms.custom: ga
 ms.date: 12/06/2022
 ms.author: apoorvanori
-# Customer intent: As a satellite operator, I want to ingest data from my satellite into Azure.
+# Customer intent: As a satellite operator, I want to schedule a contact to ingest data from my satellite into Azure.
 ---
 
 # Schedule a contact
@@ -52,6 +52,10 @@ Sign in to the [Azure portal - Orbital](https://aka.ms/orbital/portal).
 7. View scheduled contacts by selecting the spacecraft page, and navigating to **Contacts**.
 
    :::image type="content" source="media/orbital-eos-view-scheduled-contacts.png" alt-text="View scheduled contacts page" lightbox="media/orbital-eos-view-scheduled-contacts.png":::
+
+## Cancel a contact
+
+To cancel a scheduled contact, you must delete the contact resource. Learn more at [contact resource](concepts-contact.md).
 
 ## Next steps
 
