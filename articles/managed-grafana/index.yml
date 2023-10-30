@@ -61,7 +61,7 @@ landingContent:
           - text: Call Grafana APIs programmatically
             url: how-to-api-calls.md
 
-  - title: Alerts and monitoring
+  - title: Set up Grafana monitoring
     linkLists:
       - linkListType: how-to-guide
         links:
@@ -72,14 +72,12 @@ landingContent:
           - text: Use reporting and image rendering
             url: how-to-use-reporting-and-image-rendering.md
 
-  - title: Availability
+  - title: Understand availability
     linkLists:
       - linkListType: concept
         links:
           - text: Service reliability
             url: high-availability.md
-      - linkListType: concept
-        links:
           - text: Zone redundancy
             url: how-to-enable-zone-redundancy.md
 
