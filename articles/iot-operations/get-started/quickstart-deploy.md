@@ -4,7 +4,7 @@ description: "Quickstart: Use Azure IoT Orchestrator to deploy Azure IoT Operati
 author: kgremban
 ms.author: kgremban
 ms.topic: quickstart
-ms.date: 10/10/2023
+ms.date: 10/30/2023
 
 #CustomerIntent: As a < type of user >, I want < what? > so that < why? >.
 ---
@@ -61,7 +61,7 @@ Whenever you create a pipeline or process that connects to Azure resources, you'
    | **Subscription** | Select the subscription that also contains your Arc-enabled Kubernetes cluster. |
    | **Resource group** | Select the resource group that also contains your Arc-enabled Kubernetes cluster. |
    | **Key vault name** | Provide a globally unique name for your key vault. |
-   | **Region** | Select a region close to you. |
+   | **Region** | Select a region close to you. The following regions are supported in public preview: East US2, West US 3, West Europe, East US, West US, West US 2, North Europe. |
    | **Pricing tier** | The default **Standard** tier is suitable for this quickstart. |
 
 1. Select **Next**.
