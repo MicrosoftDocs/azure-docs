@@ -85,15 +85,15 @@ sections:
       - question: |
           What are the known limitations of the GPT-4V model?
         answer: |
-          1. If multiple images are uploaded in one message, augmentation will not be offered.
+          1. If multiple images are uploaded in one message, augmentation won't be offered.
           2. Image type 'image_hr' is no longer allowed in request payload.
-          3. Downloading image from a URL is not supported, images must be provided as base64 encoded string in the request payload.
+          3. Downloading image from a URL isn't supported, images must be provided as base64 encoded string in the request payload.
           4. The Chat API endpoint treats an input image as a high resolution image by default.
           5. Max allowed size of input images is 4 MB.
           6. Max token support is 16k (context+generated = 16384).
-          7. Images in CMYK colorspaces are not supported (JPEGs are supported, but JPEGs with CMYK colorspace are not supported)
+          7. Images in CMYK colorspaces aren't supported (JPEGs are supported, but JPEGs with CMYK colorspace aren't supported)
           8. Recommendation is to use PNG format with RGB colorspace.
-          9. Though images provided as input to chat API are treated as high resolution images, GPT-4V will downsample it to (2048, 2048) resolution. Teh high resolution feature may not work as expected if a very high resolution image exceeding (2048, 2048) is provided.
+          9. Though images provided as input to chat API are treated as high resolution images, GPT-4V will downsample it to (2048, 2048) resolution. The high resolution feature might not work as expected if a very high resolution image exceeding (2048, 2048) is provided.
       
       - question: |
           Where do I access pricing information for legacy models which are no longer available for new deployments? 
@@ -177,7 +177,7 @@ sections:
       - question: |
           Will my web app be overwritten when I deploy the app again from the Azure AI Studio?
         answer:
-          Your app code will not be overwritten when you update your app. The app will be updated to use the Azure OpenAI resource, Azure Cognitive Search index (if you're using Azure OpenAI on your data), and model settings selected in the Azure OpenAI Studio without any change to the appearance or functionality. 
+          Your app code won't be overwritten when you update your app. The app will be updated to use the Azure OpenAI resource, Azure Cognitive Search index (if you're using Azure OpenAI on your data), and model settings selected in the Azure OpenAI Studio without any change to the appearance or functionality. 
   - name: Using your data
     questions:
       - question: |
@@ -228,7 +228,7 @@ sections:
           If Semantic Search is enabled for my Azure Cognitive Search resource, will it be automatically applied to Azure OpenAI on your data in the Azure OpenAI Studio?
         answer:
           When you select "Azure Cognitive Search" as the data source, you can choose to apply semantic search. 
-          If you select "Azure Blob Container" or "Upload files" as the data source, you can create the index as usual. Afterwards you would re-ingest the data using the "Azure Cognitive Search" option to select the same index and apply Semantic Search. You will then be ready to chat on your data with semantic search applied.
+          If you select "Azure Blob Container" or "Upload files" as the data source, you can create the index as usual. Afterwards you would re-ingest the data using the "Azure Cognitive Search" option to select the same index and apply Semantic Search. You'll then be ready to chat on your data with semantic search applied.
       - question: |
           How can I add vector embeddings when indexing my data?
         answer:
@@ -236,7 +236,7 @@ sections:
       - question: |
           Why is index creation failing after I added an embedding model?
         answer:
-          Index creation can fail when adding embeddings to your index if the rate limit on your Ada embedding model deployment is too low, or if you have a very large set of documents. You can use this [script provided on GitHub](https://go.microsoft.com/fwlink/?linkid=2244395) to create the index with embeddings manually.
+          Index creation can fail when adding embeddings to your index if the rate limit on your Ada embedding model deployment is too low, or if you have a large set of documents. You can use this [script provided on GitHub](https://go.microsoft.com/fwlink/?linkid=2244395) to create the index with embeddings manually.
 
 additionalContent: |
 
