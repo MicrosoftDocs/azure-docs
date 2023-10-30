@@ -21,8 +21,8 @@ An alternative is to be notified through ITSMC. ITSMC gives you the option to se
 Depending on your configuration when you set up a connection, ITSMC can sync up to 120 days of incident and change request data. To get the log record schema for this data, see the [Data synced from your ITSM product](./itsmc-synced-data.md) article.
 
 You can visualize the incident and change request data by using the ITSMC dashboard:
-
-:::image type="content" source="media/itsmc-overview/itsmc-overview-sample-log-analytics.png" lightbox="media/itsmc-overview/itsmc-overview-sample-log-analytics.png" alt-text="Screenshot that shows the ITSMC dashboard.":::
+<!-- convertborder later -->
+:::image type="content" source="media/itsmc-overview/itsmc-overview-sample-log-analytics.png" lightbox="media/itsmc-overview/itsmc-overview-sample-log-analytics.png" alt-text="Screenshot that shows the ITSMC dashboard." border="false":::
 
 The dashboard also provides information about connector status. You can use that information as a starting point to analyze problems with the connections. For more information, see [Error investigation using the dashboard](./itsmc-dashboard.md).
 
@@ -35,8 +35,8 @@ Service Map automatically discovers the application components on Windows and Li
 Service Map shows connections between servers, processes, and ports across any TCP-connected architecture. Other than the installation of an agent, no configuration is required. For more information, see [Using Service Map](../vm/service-map.md).
 
 If you're using Service Map, you can view the service desk items created in IT Service Management (ITSM) solutions, as shown in this example:
-
-:::image type="content" source="media/itsmc-overview/itsmc-overview-integrated-solutions.png" lightbox="media/itsmc-overview/itsmc-overview-integrated-solutions.png" alt-text="Screenshot that shows the Log Analytics screen.":::
+<!-- convertborder later -->
+:::image type="content" source="media/itsmc-overview/itsmc-overview-integrated-solutions.png" lightbox="media/itsmc-overview/itsmc-overview-integrated-solutions.png" alt-text="Screenshot that shows the Log Analytics screen." border="false":::
 
 ## Resolve problems
 

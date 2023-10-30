@@ -47,8 +47,8 @@ The notifications include diagnostic information. Here's an example:
 ## Configure Email Notifications
 
 Smart detection notifications are enabled by default. They are sent to users that have [Monitoring Reader](../../role-based-access-control/built-in-roles.md#monitoring-reader) and [Monitoring Contributor](../../role-based-access-control/built-in-roles.md#monitoring-contributor) access to the subscription in which the Application Insights resource resides. To change the default notification, either click **Configure** in the email notification, or open **Smart detection settings** in Application Insights. 
-  
-  :::image type="content" source="media/smart-detection-performance/smart_detection_configuration.png" lightbox="media/smart-detection-performance/smart_detection_configuration.png" alt-text="Smart Detection Settings":::
+  <!-- convertborder later -->
+  :::image type="content" source="media/smart-detection-performance/smart_detection_configuration.png" lightbox="media/smart-detection-performance/smart_detection_configuration.png" alt-text="Smart Detection Settings" border="false":::
   
   * You can disable the default notification, and replace it with a specified list of emails.
 
