@@ -1,19 +1,19 @@
 ---
-title: Use Hive Metastore with Apache Flink DataStream API
-description: Use Hive Metastore with Apache Flink DataStream API
+title: Use Hive Metastore with Apache Flink® DataStream API
+description: Use Hive Metastore with Apache Flink® DataStream API
 ms.service: hdinsight-aks
 ms.topic: how-to
 ms.date: 08/29/2023
 ---
 
-# Use Hive Metastore with Apache Flink DataStream API
+# Use Hive Metastore with Apache Flink® DataStream API
 
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
 Over the years, Hive Metastore has evolved into a de facto metadata center in the Hadoop ecosystem. Many companies have a separate Hive Metastore service instance in their production environments to manage all their metadata (Hive or non-Hive metadata). For users who have both Hive and Flink deployments, HiveCatalog enables them to use Hive Metastore to manage Flink’s metadata.
 
 
-## Supported Hive versions for HDInsight on AKS - Apache Flink
+## Supported Hive versions for Apache Flink clusters on HDInsight on AKS
 
 Supported Hive Version:
 - 3.1
@@ -67,4 +67,5 @@ public static void main(String[] args) throws Exception
 ```
 
 ## References
-[Apache Flink - Hive read & write](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/connectors/table/hive/hive_read_write/)
+- [Hive read & write](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/connectors/table/hive/hive_read_write/)
+- Apache, Apache Hive, Hive, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).
