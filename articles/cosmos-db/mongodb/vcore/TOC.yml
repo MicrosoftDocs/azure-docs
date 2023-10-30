@@ -16,10 +16,6 @@
       items:
         - name: Node.js
           href: tutorial-nodejs-web-app.md
-    - name: Vector search
-      href: tutorial-vector-search.md
-    - name: Perform assessment
-      href: tutorial-perform-assessment.md
 - name: Concepts
   items:
     - name: Vector search
@@ -28,16 +24,8 @@
           href: vector-search.md
         - name: Build AI Apps with vector search
           href: vector-search-ai.md
-        - name: Vector embeddings
-          href: vector-embeddings.md
-        - name: Vector indexes
-          href: vector-indexes.md
-        - name: Similarity search
-          href: similarity-search.md
     - name: MongoDB feature support
       href: compatibility.md
-    - name: Geospatial
-      href: geospatial.md
     - name: High availability
       href: high-availability.md
     - name: Failover and disaster recovery
@@ -60,41 +48,25 @@
           href: how-to-migrate-native-tools.md
         - name: Azure Data Studio
           href: /azure-data-studio/extensions/database-migration-for-mongo-extension
-        - name: Azure Data Factory
-          href: how-to-migrate-data-factory.md
         - name: Azure Database Migration Service
-          href: how-to-migrate-database-migration-service.md
+          items:
+            - name: Offline
+              href: ../../../dms/tutorial-mongodb-cosmos-db.md
+            - name: Online
+              href: ../../../dms/tutorial-mongodb-cosmos-db-online.md
     - name: Develop applications
       items:
         - name: Create transactions
           href: how-to-transactions.md
-        - name: Query geospatial data
-          href: how-to-query-geospatial.md
-        - name: Retrieve request metrics
-          href: how-to-retrieve-request-metrics.md
-        - name: Run command
-          href: how-to-run-command.md
     - name: Scale cluster
       href: how-to-scale-cluster.md
     - name: Restore cluster
       href: how-to-restore-cluster.md
     - name: Search and query text
       href: how-to-create-text-index.md
-    - name: Similarity search
-      href: how-to-similarity-search.md
     - name: Monitor diagnostics logs
       href: how-to-monitor-diagnostics-logs.md
-    - name: Use role-based access control
-      href: how-to-use-rbac.md
-    - name: Use Azure Private Link
-      href: how-to-private-link.md
 - name: Reference
   items:
-    - name: Industries
-      items:
-        - name: Finance
-          href: industry-finance.md
-        - name: Retail
-          href: industry-retail.md
     - name: Troubleshoot common issues
       href: troubleshoot-common-issues.md
