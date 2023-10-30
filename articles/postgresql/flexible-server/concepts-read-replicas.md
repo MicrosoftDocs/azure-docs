@@ -221,6 +221,7 @@ For additional insight, query the primary server directly to get the replication
 
 **Replication status**
 To keep an eye on the progress and status of the replication and promote operation, refer to the **Replication Status** column in the Azure portal. This column displays various states that provide insights into the current condition of the read replicas and it's link to the primary. Here are the possible values:
+
 | **Replication status**     | **Description** |
 |--------------------------|---------------------|
 | <b> Provisioning      | The read replica is being provisioned but the two servers aren't yet synchronized. Until provisioning completes, you can't connect to the read replica. | 
