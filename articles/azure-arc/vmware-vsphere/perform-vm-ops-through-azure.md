@@ -2,7 +2,7 @@
 title: Perform VM operations on VMware VMs through Azure
 description: Learn how to view the operations that you can do on VMware virtual machines and install the Log Analytics agent.
 ms.topic: how-to 
-ms.date: 08/18/2023
+ms.date: 11/06/2023
 ms.service: azure-arc
 ms.subservice: azure-arc-vmware-vsphere
 ---

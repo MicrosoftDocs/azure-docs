@@ -2,7 +2,7 @@
 title: Switch to the new version of VMware vSphere
 description: Learn to switch to the new version of VMware vSphere and use its capabilities
 ms.topic: how-to 
-ms.date: 10/30/2023
+ms.date: 11/06/2023
 ms.service: azure-arc
 ms.subservice: azure-arc-vmware-vsphere
 author: Farha-Bano
