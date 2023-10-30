@@ -394,8 +394,6 @@ items:
       items:
       - name: Overview
         href: vm/vminsights-overview.md
-      - name: FAQ
-        href: /azure/azure-monitor/faq#vm-insights
       - name: Enable and configure
         items:
         - name: Overview
@@ -743,7 +741,7 @@ items:
       href: agents/azure-monitor-agent-performance.md
     - name: FAQ
       displayName: Azure Monitor agent FAQ
-      href: /azure/azure-monitor/faq#azure-monitor-agent
+      href: agents/agents-overview.md#frequently-asked-questions
     - name: Legacy agents
       items:
       - name: Log Analytics agent
@@ -1161,12 +1159,8 @@ items:
   items:
   - name: Metrics explorer
     items:
-      - name: Getting started with Metrics Explorer
-        href: essentials/metrics-getting-started.md
-      - name: Advanced features of Metrics Explorer
-        href: essentials/metrics-charts.md
-      - name: Viewing multiple resources in Metric Explorer
-        href: essentials/metrics-dynamic-scope.md
+      - name: Analyze metrics
+        href: essentials/analyze-metrics.md
       - name: Understanding metrics aggregation
         href: essentials/metrics-aggregation-explained.md
       - name: Examples of metric charts

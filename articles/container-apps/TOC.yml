@@ -112,8 +112,11 @@
           href: background-processing.md
         - name: With a job
           href: tutorial-event-driven-jobs.md
+<<<<<<< HEAD
     - name: Reliability in Azure Container Apps
       href: ../reliability/reliability-azure-container-apps.md?toc=/azure/container-apps/toc.json&bc=/azure/container-apps/breadcrumb/toc.json
+=======
+>>>>>>> 83efab44b9f3ee1d2f064ef6234324975c67f236
 - name: Observability
   items:
     - name: Overview
@@ -177,6 +180,10 @@
           href: managed-identity.md
         - name: Azure Container Registry image pull with managed identity
           href: managed-identity-image-pull.md
+- name: Reliability
+  items:
+  - name: Reliability in Azure Container Apps
+    href: ../reliability/reliability-azure-container-apps.md
 - name: Dedicated hardware
   items:
     - name: Workload profiles
@@ -249,7 +256,7 @@
           href: waf-app-gateway.md
         - name: Enable User Defined Routes (UDR)
           href: user-defined-routes.md
-        - name: Securing a custom VNET
+        - name: Securing a custom VNET with an NSG
           href: firewall-integration.md
     - name: Network proxying
       href: network-proxy.md

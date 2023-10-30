@@ -95,12 +95,13 @@ When you create a diagnostic setting, you specify which categories of logs to co
 
 ## Analyzing metrics
 
-You can analyze metrics for App Configuration with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Getting started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md) for details on using this tool. For App Configuration, the following metrics are collected: 
+You can analyze metrics for App Configuration with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Analyze metrics with Azure Monitor metrics explorer](../azure-monitor/essentials/analyze-metrics.md) for details on using this tool. For App Configuration, the following metrics are collected: 
 
 * Http Incoming Request Count 
 * Http Incoming Request Duration 
 * Throttled Http Request Count (Http status code 429 Responses)
 * Daily Storage Usage
+* Request Quota Usage
 * Replication Latency
 
 In the portal, navigate to the **Metrics** section and select the **Metric Namespaces** and **Metrics** you want to analyze. This screenshot shows you the metrics view when selecting **Http Incoming Request Count** for your configuration store.

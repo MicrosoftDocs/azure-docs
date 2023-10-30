@@ -1,0 +1,196 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "vmName": {
+            "type": "string",
+            "metadata": {
+                "description": "The name of Nexus virtual machine"
+            }
+        },
+        "location": {
+            "type": "string",
+            "metadata": {
+                "description": "The Azure region where the VM is to be deployed"
+            },
+            "defaultValue": "[resourceGroup().location]"
+        },
+        "extendedLocation": {
+            "type": "string",
+            "metadata": {
+                "description": "The custom location of the Nexus instance"
+            }
+        },
+        "tags": {
+            "type": "object",
+            "metadata": {
+                "description": "The metadata tags to be associated with the cluster resource"
+            },
+            "defaultValue": {}
+        },
+        "adminUsername": {
+            "type": "string",
+            "defaultValue": "azureuser",
+            "maxLength": 32,
+            "minLength": 1,
+            "metadata": {
+                "description": "The name of the administrator to which the ssh public keys will be added into the authorized keys."
+            }
+        },
+        "bootMethod": {
+            "type": "string",
+            "defaultValue": "UEFI",
+            "allowedValues": ["UEFI", "BIOS"],
+            "metadata": {
+                "description": "Selects the boot method for the virtual machine."
+            }
+        },
+        "cloudServicesNetworkId": {
+            "type": "string",
+            "metadata": {
+                "description": "The Cloud Services Network attachment ARM ID to attach to virtual machine."
+            }
+        },
+        "cpuCores": {
+            "type": "int",
+            "defaultValue": 2,
+            "metadata": {
+                "description": "Number of CPU cores for the virtual machine. Choose a value between 2 and 46."
+            }
+        },
+        "memorySizeGB": {
+            "type": "int",
+            "defaultValue": 4,
+            "metadata": {
+                "description": "The memory size of the virtual machine in GB (max 224 GB)"
+            }
+        },
+        "networkAttachments": {
+            "type": "array",
+            "metadata": {
+                "description": "The list of network attachments to the virtual machine."
+            }
+            /*
+            {
+                "attachedNetworkId": "string",
+                "defaultGateway": "True"/"False",
+                "ipAllocationMethod": "Dynamic"/"Static"/"Disabled",
+                "ipv4Address": "string",
+                "ipv6Address": "string",
+                "networkAttachmentName": "string"
+            }
+            */
+        },
+        "networkData": {
+            "type": "string",
+            "metadata": {
+                "description": "The Base64 encoded cloud-init network data."
+            },
+            "defaultValue": ""
+        },
+        "placementHints": {
+            "type": "array",
+            "metadata": {
+                "description": "The placement hints for the virtual machine."
+            },
+            "defaultValue": []
+            /*
+            {
+                "hintType": "Affinity",
+                "resourceId": "string",
+                "schedulingExecution": "Hard",
+                "scope": "Rack"
+            }
+            */
+        },
+        "sshPublicKeys": {
+            "type": "array",
+            "metadata": {
+                "description": "The list of SSH public keys for the virtual machine."
+            }
+            /*
+            {
+                "keyData": "string"
+            }
+            */
+        },
+        "storageProfile": {
+            "type": "object",
+            "metadata": {
+                "description": "StorageProfile represents information about a disk."
+            },
+            "defaultValue": {
+                "osDisk": {
+                    "createOption": "Ephemeral",
+                    "deleteOption": "Delete",
+                    "diskSizeGB": 64
+                }
+            }
+        },
+        "userData": {
+            "type": "string",
+            "metadata": {
+                "description": "The Base64 encoded cloud-init user data."
+            },
+            "defaultValue": ""
+        },
+        "vmDeviceModel": {
+            "type": "string",
+            "defaultValue": "T2",
+            "allowedValues": ["T1", "T2"],
+            "metadata": {
+                "description": "The type of the device model to use."
+            }
+        },
+        "vmImage": {
+            "type": "string",
+            "metadata": {
+                "description": "The virtual machine image that is currently provisioned to the OS disk, using the full URL and tag notation used to pull the image."
+            }
+        },
+        "vmImageRepositoryCredentials": {
+            "type": "object",
+            "metadata": {
+                "description": "Credentials used to login to the image repository."
+            }
+            /*
+                "password": "string",
+                "registryUrl": "string",
+                "username": "string"
+            */
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.NetworkCloud/virtualMachines",
+            "apiVersion": "2023-07-01",
+            "name": "[parameters('vmName')]",
+            "location": "[parameters('location')]",
+            "extendedLocation": {
+                "type": "CustomLocation",
+                "name": "[parameters('extendedLocation')]"
+            },
+            "tags": "[parameters('tags')]",
+            "properties": {
+                "adminUsername": "[if(empty(parameters('adminUsername')), json('null'), parameters('adminUsername'))]",
+                "bootMethod": "[if(empty(parameters('bootMethod')), json('null'), parameters('bootMethod'))]",
+                "cloudServicesNetworkAttachment": {
+                    "attachedNetworkId": "[parameters('cloudServicesNetworkId')]",
+                    "defaultGateway": "False",
+                    "ipAllocationMethod": "Dynamic"
+                },
+                "cpuCores": "[parameters('cpuCores')]",
+                "memorySizeGB": "[parameters('memorySizeGB')]",
+                "networkData": "[if(empty(parameters('networkData')), json('null'), parameters('networkData'))]",
+                "networkAttachments": "[if(empty(parameters('networkAttachments')), json('null'), parameters('networkAttachments'))]",
+                "placementHints": "[if(empty(parameters('placementHints')), json('null'), parameters('placementHints'))]",
+                "sshPublicKeys": "[if(empty(parameters('sshPublicKeys')), json('null'), parameters('sshPublicKeys'))]",
+                "storageProfile": "[if(empty(parameters('storageProfile')), json('null'), parameters('storageProfile'))]",
+                "userData": "[if(empty(parameters('userData')), json('null'), parameters('userData'))]",
+                "vmDeviceModel": "[if(empty(parameters('vmDeviceModel')), json('null'), parameters('vmDeviceModel'))]",
+                "vmImage": "[if(empty(parameters('vmImage')), json('null'), parameters('vmImage'))]",
+                "vmImageRepositoryCredentials": "[if(empty(parameters('vmImageRepositoryCredentials')), json('null'), parameters('vmImageRepositoryCredentials'))]"
+            }
+        }
+    ]
+  }

@@ -4,7 +4,7 @@
   href: overview.md
 - name: Availability zone support
   items:
-  - name: What are Azure availability zones and regions?
+  - name: What are Azure availability zones?
     href: availability-zones-overview.md
   - name: Services and regions with availability zone support
     href: availability-zones-service-support.md
@@ -138,6 +138,8 @@
       href: ../service-fabric/service-fabric-cross-availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Site Recovery
       href: ../site-recovery/site-recovery-overview.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Spring Apps
+      href: reliability-spring-apps.md
     - name: Azure Blob Storage
       href: ../storage/common/storage-disaster-recovery-guidance.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Storage Mover
@@ -380,6 +382,8 @@
       href: ../service-fabric/service-fabric-cross-availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Site Recovery
       href: ../site-recovery/site-recovery-overview.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Spring Apps
+      href: reliability-spring-apps.md
     - name: Azure Blob Storage
       href: ../storage/common/storage-disaster-recovery-guidance.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Storage Mover
