@@ -59,7 +59,7 @@ For more information, see [Connect using Microsoft Entra authentication](/sql/co
 
 ### [SpringBoot](#tab/spring)
 
-For a Spring application, if you create a connection with option `--client-type springboot`, Service Connector will set the properties `spring.datasource.url` with value format `jdbc:sqlserver://<sql-server>.database.windows.net:1433;databaseName=<sql-db>;authentication=ActiveDirectoryMSI;` to Azure Spring Apps.
+For a Spring application, if you create a connection with option `--client-type springboot`, Service Connector sets the properties `spring.datasource.url` with value format `jdbc:sqlserver://<sql-server>.database.windows.net:1433;databaseName=<sql-db>;authentication=ActiveDirectoryMSI;` to Azure Spring Apps.
 
 Update your application following the tutorial [Migrate a Java application to use passwordless connections with Azure SQL Database](/azure/developer/java/spring-framework/migrate-sql-database-to-passwordless-connection?tabs=spring%2Capp-service%2Cassign-role-service-connector#2-migrate-the-app-code-to-use-passwordless-connections). Remember to remove the `spring.datasource.password` configuration property if it was set before and add the correct dependencies.
 
@@ -99,11 +99,11 @@ Update your application following the tutorial [Migrate a Java application to us
 
 ### [Django](#tab/django)
 
-The client type `Django` is not supported for system-assigned managed identity, user-assigned managed identity and service principal.
+The client type `Django` isn't supported for system-assigned managed identity, user-assigned managed identity and service principal.
 
 ### [Go](#tab/go)
 
-The client type `Go` is not supported for system-assigned managed identity, user-assigned managed identity and service principal.
+The client type `Go` isn't supported for system-assigned managed identity, user-assigned managed identity and service principal.
 
 ### [NodeJS](#tab/nodejs)
 
@@ -111,7 +111,7 @@ The client type `Go` is not supported for system-assigned managed identity, user
     ```bash
     npm install mssql
     ```
-1. Get the Azure SQL Database connection configurations from the environment variables added by Service Connector.When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+1. Get the Azure SQL Database connection configurations from the environment variables added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
     ```javascript
     import sql from 'mssql';
     
@@ -177,11 +177,11 @@ The client type `Go` is not supported for system-assigned managed identity, user
 
 ### [PHP](#tab/php)
 
-The client type `PHP` is not supported for system-assigned managed identity, user-assigned managed identity and service principal.
+The client type `PHP` isn't supported for system-assigned managed identity, user-assigned managed identity and service principal.
 
 ### [Ruby](#tab/ruby)
 
-The client type `Ruby` is not supported for system-assigned managed identity, user-assigned managed identity and service principal.
+The client type `Ruby` isn't supported for system-assigned managed identity, user-assigned managed identity and service principal.
 
 ---
 
