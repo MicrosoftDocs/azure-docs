@@ -138,6 +138,41 @@ If you require to group costs of these different services together, we recommend
 
 You can use [Azure Cost Management](/azure/cost-management-billing/costs/quick-acm-cost-analysis) and [Azure resource tags](/azure/azure-resource-manager/management/tag-resources) to help with a detailed resource-level cost breakdown, or run [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) on the above listed resources to obtain a pricing estimate. For more information, see [Plan and manage costs for Azure AI services](../how-to/costs-plan-manage.md).
 
+## Find Azure AI Studio resources in the Azure portal
+
+In the Azure portal, you can find resources that correspond to your Azure AI project in Azure AI Studio.
+
+> [!NOTE]
+> This section assumes that the Azure AI resource and Azure AI project are in the same resource group. 
+
+In Azure AI Studio, go to **Build** > **Settings** to view your Azure AI project resources such as connections and API keys. There's a link to view the corresponding resources in the Azure portal and a link to your Azure AI resource in Azure AI Studio.
+
+:::image type="content" source="../media/concepts/azureai-project-view-ai-studio.png" alt-text="Screenshot of the Azure AI project and related resources in the Azure AI Studio." lightbox="../media/concepts/azureai-project-view-ai-studio.png":::
+
+In Azure AI Studio, go to **Manage** (or select the Azure AI resource link from the project settings page) to view your Azure AI resource, including projects and shared connections. There's also a link to view the corresponding resources in the Azure portal.
+
+:::image type="content" source="../media/concepts/azureai-resource-view-ai-studio.png" alt-text="Screenshot of the Azure AI resource and related resources in the Azure AI Studio." lightbox="../media/concepts/azureai-resource-view-ai-studio.png":::
+
+After you select **View in the Azure Portal**, you see your Azure AI resource in the Azure portal. 
+
+:::image type="content" source="../media/concepts/docs-azure-ai-resource.png" alt-text="Screenshot of the Azure AI resource in the Azure portal." lightbox="../media/concepts/docs-azure-ai-resource.png":::
+
+Select the resource group name to see all associated resources, including the Azure AI project, storage account, and key vault. 
+
+:::image type="content" source="../media/concepts/rg-docsazureairesource.png" alt-text="Screenshot of the Azure AI resource in the Azure portal." lightbox="../media/concepts/rg-docsazureairesource.png":::
+
+From the resource group, you can select the Azure AI project for more details.
+
+:::image type="content" source="../media/concepts/docs-project.png" alt-text="Screenshot of the Azure AI resource in the Azure portal." lightbox="../media/concepts/docs-project.png":::
+
+Also from the resource group, you can select the **Azure AI service** resource to see the keys and endpoints needed to authenticate your requests to Azure AI services.
+
+:::image type="content" source="../media/concepts/docs-azure-ai-resource-aiservices-keys.png" alt-text="Screenshot of the Azure AI resource in the Azure portal." lightbox="../media/concepts/docs-azure-ai-resource-aiservices-keys.png":::
+
+You can use the same API key to access all of the supported service endpoints that are listed.
+
+:::image type="content" source="../media/concepts/docs-azure-ai-resource-aiservices-keys-endpoints.png" alt-text="Screenshot of the Azure AI resource in the Azure portal." lightbox="../media/concepts/docs-azure-ai-resource-aiservices-keys-endpoints.png":::
+
 ## Next steps
 
 - [Quickstart: Generate product name ideas in the Azure AI Studio playground](../quickstarts/playground-completions.md)

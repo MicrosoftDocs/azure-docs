@@ -24,28 +24,20 @@ Cost analysis in Cost Management supports most Azure account types, but not all 
 
 Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs before you add Azure AI services.
 
-:::image type="content" source="../media/cost-management/ai-services-pricing-calculator.png" alt-text="Azure Pricing calculator for Azure AI services" border="true":::
+1. Select a product such as Azure OpenAI in the Azure pricing calculator.
+
+    :::image type="content" source="../media/cost-management/pricing-calculator-select-product.png" alt-text="Screenshot of selecting Azure OpenAI in the Azure pricing calculator." lightbox="../media/cost-management/pricing-calculator-select-product.png":::
+
+1. Enter the number of units you plan to use. For example, enter the number of tokens for prompts and completions.
+
+    :::image type="content" source="../media/cost-management/pricing-calculator-estimate.png" alt-text="Screenshot of selecting Add to estimate in the Azure pricing calculator." lightbox="../media/cost-management/pricing-calculator-estimate.png":::
+
+1. You can select more than one product to estimate costs for multiple products. For example, select Virtual Machines to add potential costs for compute resources.
+
+    :::image type="content" source="../media/cost-management/pricing-calculator-estimate.png" alt-text="Screenshot of total estimate in the Azure pricing calculator." lightbox="../media/cost-management/pricing-calculator-estimate.png":::
 
 As you add new resources to your project, return to this calculator and add the same resource here to update your cost estimates.
 
-For more information, see [Azure AI services pricing](https://azure.microsoft.com/pricing/details/cognitive-services/).
-
-
-## Understand the full billing model for Azure AI services
-
-Azure AI services run on Azure infrastructure that accrues costs along with Azure AI when you deploy the new resource. It's important to understand that additional infrastructure might accrue cost. You need to manage that cost when you make changes to deployed resources.
-
-When you create or use Azure AI services resources, you might get charged based on the services that you use. There are two billing models available for Azure AI services: 
-
-- Pay-as-you-go: Pay-As-You-Go pricing, you are billed according to the Azure AI services offering you use, based on its billing information.
-- Commitment tiers: With commitment tier pricing, you commit to using several service features for a fixed fee, enabling you to have a predictable total cost based on the needs of your workload. You are billed according to the plan you choose. See [Quickstart: purchase commitment tier pricing](../../commitment-tier.md) for information on available services, how to sign up, and considerations when purchasing a plan.
-
-> [!NOTE]
-> If you use the resource above the quota provided by the commitment plan, you will be charged for the additional usage as per the overage amount mentioned in the Azure portal when you purchase a commitment plan. 
-
-You can pay for Azure AI services charges with your Azure Prepayment (previously called monetary commitment) credit. However, you can't use Azure Prepayment credit to pay for charges for third-party products and services including those from the Azure Marketplace.
-
-For more information, see the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
 ### Costs that typically accrue with Azure AI and Azure AI Studio
 
@@ -93,11 +85,6 @@ ml_client.workspaces.begin_delete(name=ws.name, delete_dependent_resources=True)
 If you create Azure Kubernetes Service (AKS) in your workspace, or if you attach any compute resources to your workspace you must delete them separately in the Azure portal.
 ```
 
-
-### Using Azure Prepayment credit with Azure AI services
-
-You can pay for Azure AI services charges with your Azure Prepayment (previously called monetary commitment) credit. However, you can't use Azure Prepayment credit to pay for charges for third-party products and services including those from the Azure Marketplace.
-
 ## Monitor costs
 
 As you use Azure resources with Azure AI services, you incur costs. Azure resource usage unit costs vary by time intervals (seconds, minutes, hours, and days) or by unit usage (bytes, megabytes, and so on). As soon as use of an Azure AI services resource starts, costs are incurred and you can see the costs in [cost analysis](../../../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
@@ -112,13 +99,9 @@ To view Azure AI services costs in cost analysis here's an example:
 
 Actual monthly costs are shown when you initially open cost analysis. Here's an example showing all monthly usage costs.
 
-:::image type="content" source="../media/cost-management/all-costs.png" alt-text="Example showing accumulated costs for a subscription":::
+:::image type="content" source="../media/cost-management/all-costs.png" alt-text="Screenshot of selecting Azure OpenAI in the Azure pricing calculator." lightbox="../media/cost-management/all-costs.png":::
 
-- To narrow costs for a single service, like Azure AI services, select **Add filter** and then select **Service name**. Then, select **Azure AI services**.
-
-Here's an example showing costs for just Azure AI services.
-
-:::image type="content" source="../media/cost-management/cognitive-services-costs.png" alt-text="Example showing accumulated costs for Azure AI services":::
+To narrow costs for a single service, like Azure AI services, select **Add filter** and then select **Service name**. Then, select **Azure AI services**.
 
 In the preceding example, you see the current cost for the service. Costs by Azure regions (locations) and Azure AI services costs by resource group are also shown. From here, you can explore costs on your own.
 
@@ -133,6 +116,28 @@ Budgets can be created with filters for specific resources or services in Azure 
 ## Export cost data
 
 You can also [export your cost data](../../../cost-management-billing/costs/tutorial-export-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) to a storage account. This is helpful when you or others need to do more data analysis for costs. For example, finance teams can analyze the data using Excel or Power BI. You can export your costs on a daily, weekly, or monthly schedule and set a custom date range. Exporting cost data is the recommended way to retrieve cost datasets.
+
+
+## Understand the full billing model for Azure AI services
+
+Azure AI services run on Azure infrastructure that accrues costs along with Azure AI when you deploy the new resource. It's important to understand that additional infrastructure might accrue cost. You need to manage that cost when you make changes to deployed resources.
+
+When you create or use Azure AI services resources, you might get charged based on the services that you use. There are two billing models available for Azure AI services: 
+
+- Pay-as-you-go: Pay-As-You-Go pricing, you are billed according to the Azure AI services offering you use, based on its billing information.
+- Commitment tiers: With commitment tier pricing, you commit to using several service features for a fixed fee, enabling you to have a predictable total cost based on the needs of your workload. You are billed according to the plan you choose. See [Quickstart: purchase commitment tier pricing](../../commitment-tier.md) for information on available services, how to sign up, and considerations when purchasing a plan.
+
+> [!NOTE]
+> If you use the resource above the quota provided by the commitment plan, you will be charged for the additional usage as per the overage amount mentioned in the Azure portal when you purchase a commitment plan. 
+
+You can pay for Azure AI services charges with your Azure Prepayment (previously called monetary commitment) credit. However, you can't use Azure Prepayment credit to pay for charges for third-party products and services including those from the Azure Marketplace.
+
+For more information, see the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
+
+
+### Using Azure Prepayment credit with Azure AI services
+
+You can pay for Azure AI services charges with your Azure Prepayment (previously called monetary commitment) credit. However, you can't use Azure Prepayment credit to pay for charges for third-party products and services including those from the Azure Marketplace.
 
 ## Next steps
 
