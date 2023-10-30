@@ -1,6 +1,6 @@
 ---
 title: Configure a reference dataset
-description: The reference datasets within the data processor store reference data that other pipelines can use for enrichment and contextualization.
+description: The reference datasets within the Data Processor store reference data that other pipelines can use for enrichment and contextualization.
 author: dominicbetts
 # ms.subservice: data-processor
 ms.author: dobett
@@ -14,11 +14,11 @@ ms.date: 09/21/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-Reference datasets within the data processor store reference data that pipelines can use for enrichment and contextualization. The data inside the reference data store is organized into datasets, each with multiple keys.
+Reference datasets within the Azure IoT Data Processor (preview) store reference data that pipelines can use for enrichment and contextualization. The data inside the reference data store is organized into datasets, each with multiple keys.
 
 ## Prerequisites
 
-- A functioning instance of Data Processor Preview.
+- A functioning instance of Data Processor.
 - A Data Processor pipeline with an input stage that deserializes incoming data.
 
 ## Configure a reference data store
@@ -82,9 +82,9 @@ This example describes a manufacturing facility where several pieces of equipmen
 | Mixer | Tacoma | 11/15/2005 | FALSE |
 | Slicer | Seattle | 4/25/2021 | TRUE |
 
-This ERP data is a useful source of contextual data for the time series data that comes from each location. You can send this data to the data processor to store in a reference dataset and use it to enrich messages in other pipelines.
+This ERP data is a useful source of contextual data for the time series data that comes from each location. You can send this data to Data Processor to store in a reference dataset and use it to enrich messages in other pipelines.
 
-When you send the ERP data to the data processor, it deserializes it into a format that it can process. The following JSON shows an example payload that represents the ERP data:
+When you send the ERP data to Data Processor, it deserializes it into a format that it can process. The following JSON shows an example payload that represents the ERP data:
 
 ```json
 "payload": [ 
@@ -139,12 +139,12 @@ These properties are available in the enrichment stages of other pipelines where
 
 <!-- TODO: Add link to Enrich stage above -->
 
-Within the `equipment` data set, the `asset` key serves as the primary key. When th pipeline ingests new data, the data processor checks this property to determine how to handle the incoming data:
+Within the `equipment` data set, the `asset` key serves as the primary key. When th pipeline ingests new data, Data Processor checks this property to determine how to handle the incoming data:
 
-- If a message arrives with an `asset` key that doesn't yet exist in the data set (such as `Pump`), the data processor adds a new entry to the data set. This entry includes the new `asset` type and its associated data such as `location`, `installationDate`, and `isSpare`.
-- If a message arrives with an `asset` key that matches an existing entry in the data set (such as `Slicer`), the data processor updates that entry. The associated data for that equipment such as `location`, `installationDate`, and `isSpare` updates with the values from the incoming message.
+- If a message arrives with an `asset` key that doesn't yet exist in the data set (such as `Pump`), Data Processor adds a new entry to the data set. This entry includes the new `asset` type and its associated data such as `location`, `installationDate`, and `isSpare`.
+- If a message arrives with an `asset` key that matches an existing entry in the data set (such as `Slicer`), Data Processor updates that entry. The associated data for that equipment such as `location`, `installationDate`, and `isSpare` updates with the values from the incoming message.
 
-The `equipment` dataset in the reference data store is an up-to-date source of information that can enhance and contextualize the data flowing through other pipelines in the data processor using the `Enrich` stage.
+The `equipment` dataset in the reference data store is an up-to-date source of information that can enhance and contextualize the data flowing through other pipelines in Data Processor using the `Enrich` stage.
 
 ## Related content
 

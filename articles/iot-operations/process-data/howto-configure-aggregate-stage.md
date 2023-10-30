@@ -25,7 +25,7 @@ Use an aggregate stage to accumulate messages over a defined [window](#windows) 
 
 ## Prerequisites
 
-To configure and use an aggregate pipeline stage, you need a deployed instance of Data Processor Preview.
+To configure and use an aggregate pipeline stage, you need a deployed instance of Azure IoT Data Processor (preview).
 
 ## Configure the stage
 

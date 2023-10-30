@@ -1,6 +1,6 @@
 ---
 title: Prepare your Kubernetes cluster
-description: Prepare an Azure Arc-enabled Kubernetes cluster before you deploy Azure IoT Operations Preview. This article includes guidance for both Ubuntu and Windows machines.
+description: Prepare an Azure Arc-enabled Kubernetes cluster before you deploy Azure IoT Operations. This article includes guidance for both Ubuntu and Windows machines.
 author: dominicbetts
 ms.author: dobett
 ms.topic: how-to
@@ -13,7 +13,7 @@ ms.date: 10/19/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-An Azure Arc-enabled Kubernetes cluster is a prerequisite for deploying Azure IoT Operations - enabled by Azure Arc Preview. This article describes how to prepare an Azure Arc-enabled Kubernetes cluster before you deploy Azure IoT Operations Preview. This article includes guidance for both Ubuntu and Windows environments.
+An Azure Arc-enabled Kubernetes cluster is a prerequisite for deploying Azure IoT Operations Preview. This article describes how to prepare an Azure Arc-enabled Kubernetes cluster before you deploy Azure IoT Operations. This article includes guidance for both Ubuntu and Windows environments.
 
 [!INCLUDE [validated-environments](../includes/validated-environments.md)]
 
@@ -115,4 +115,4 @@ pod/metrics-agent-6588f97dc-455j8                 2/2     Running   0           
 
 ## Next steps
 
-Now that you have an Azure Arc-enabled Kubernetes cluster, you can [deploy Azure IoT Operations Preview](../get-started/quickstart-deploy.md).
+Now that you have an Azure Arc-enabled Kubernetes cluster, you can [deploy Azure IoT Operations](../get-started/quickstart-deploy.md).

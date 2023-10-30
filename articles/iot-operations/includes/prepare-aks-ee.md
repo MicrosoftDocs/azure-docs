@@ -108,7 +108,7 @@ To connect your cluster to Azure Arc:
 
 ### Configure cluster network
 
-After you've deployed Azure IoT Operations Preview to your cluster, enable inbound connections to E4K distributed MQTT broker and configure port forwarding:
+After you've deployed Azure IoT Operations to your cluster, enable inbound connections to E4K distributed MQTT broker and configure port forwarding:
 
 1. Enable a firewall rule for port 1883. If TLS is enabled, do the same for port 8883:
 

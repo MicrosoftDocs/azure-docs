@@ -11,7 +11,7 @@ ms.date: 10/25/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-Use Azure IoT Orchestrator to deploy, configure, and update the components of your Azure IoT Operations Preview - enabled by Azure Arc edge computing scenario.
+Use Azure IoT Orchestrator to deploy, configure, and update the components of your Azure IoT Operations Preview edge computing scenario.
 
 Orchestrator is a service that manages application workloads on Kubernetes clusters that have been Arc enabled. It utilizes existing tools like Helm, Kubectl, and Arc to achieve the desired state on the target cluster. Orchestrator uses an extensibility model called *providers*, which allows it to support deployments and configuration across a wide range of OS platforms and deployment mechanisms. Orchestrator also provides reconciliation and status reporting capabilities to ensure that the desired state is maintained.
 
@@ -25,7 +25,7 @@ Three types of manifests-*solution*, *target*, and *instance*-work together to d
 
 #### Solution
 
-A *solution* is a template that defines an application workload that can be deployed on one or many *targets*. A solution describes application components. Application components are resources that you want to deploy on the target cluster and that use the infrastructural components defined in the target manifest, like PowerShell scripts or Azure IoT Data Processor pipelines.
+A *solution* is a template that defines an application workload that can be deployed on one or many *targets*. A solution describes application components. Application components are resources that you want to deploy on the target cluster and that use the infrastructural components defined in the target manifest, like PowerShell scripts or Azure IoT Data Processor (preview) pipelines.
 
 #### Target
 

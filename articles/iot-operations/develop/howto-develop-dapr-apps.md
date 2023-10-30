@@ -40,7 +40,7 @@ The following steps show you how to install Dapr and the MQ plug-able components
 
 ### Install Dapr
 
-To install the Dapr runtime, use the following Helm command. You might have already installed the runtime if you used the provided Azure IoT Operations quickstart. 
+To install the Dapr runtime, use the following Helm command. You might have already installed the runtime if you used the provided Azure IoT Operations Preview quickstart.
 
 ```bash
 helm repo add dapr https://dapr.github.io/helm-charts/

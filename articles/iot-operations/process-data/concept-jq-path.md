@@ -14,18 +14,18 @@ ms.date: 09/07/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-Many pipeline stages in the data processor make use of _jq path_ expressions. Whenever you need to retrieve information from a message or to place some information into a message, you use a path. jq paths let you:
+Many pipeline stages in Azure IoT Data Processor (preview) make use of _jq path_ expressions. Whenever you need to retrieve information from a message or to place some information into a message, you use a path. jq paths let you:
 
 - Locate a piece of information in a message.
 - Identify where to place a piece of information into a message.
 
 Both cases use the same syntax and specify locations relative to the root of the message structure.
 
-The jq paths supported by the data processor are syntactically correct for [jq](https://jqlang.github.io/jq/), but have simplified semantics to make the them easier to use and to help reduce errors in the data processor. In particular, the data processor doesn't use the `?` syntax to suppress errors for misaligned data structures. Those errors are automatically suppressed for you when working with paths.
+The jq paths supported by Data Processor are syntactically correct for [jq](https://jqlang.github.io/jq/), but have simplified semantics to make the them easier to use and to help reduce errors in the Data Processor pipleline. In particular, Data Processor doesn't use the `?` syntax to suppress errors for misaligned data structures. Those errors are automatically suppressed for you when working with paths.
 
 Examples of data access within a data processor pipeline include the `inputPath` in the aggregate and last known value stages. Use the data access pattern whenever you need to access some data within a data processor message.
 
-Data update uses the same syntax as data access, but there are some special behaviors in specific update scenarios. Examples of data update within a data processor pipeline include the `outputPath` in the aggregate and last known value pipeline stages. Use the data update pattern whenever you need to place the result of an operation into the data processor message.
+Data update uses the same syntax as data access, but there are some special behaviors in specific update scenarios. Examples of data update within a data processor pipeline include the `outputPath` in the aggregate and last known value pipeline stages. Use the data update pattern whenever you need to place the result of an operation into the Data Processor message.
 
 <!-- TODO: Add links to relevant stages in previous paragraphs -->
 
