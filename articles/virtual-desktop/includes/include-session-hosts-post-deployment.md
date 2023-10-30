@@ -14,3 +14,7 @@ To ensure your session hosts have licenses applied correctly, you'll need to do 
 - If your session hosts are running a Windows Server OS, you'll also need to issue them a Remote Desktop Services (RDS) Client Access License (CAL) from a Remote Desktop Licensing Server. For more information, see [License your RDS deployment with client access licenses (CALs)](/windows-server/remote/remote-desktop-services/rds-client-access-license).
 
 <a name='azure-ad-joined-session-hosts'></a>
+
+### Microsoft Entra joined session hosts
+
+For more information about using session hosts joined to Microsoft Entra ID, see [Microsoft Entra joined session hosts](../azure-ad-joined-session-hosts.md).
