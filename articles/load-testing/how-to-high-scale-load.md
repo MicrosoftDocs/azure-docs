@@ -36,6 +36,8 @@ Depending on the type of load test, URL-based or JMeter-based, you have differen
 
 To specify the load parameters for a URL-based load test:
 
+# [Azure portal](#tab/portal)
+
 1. In the [Azure portal](https://portal.azure.com/), go to your Azure Load Testing resource.
 
 1. In the left navigation, select **Tests**  to view all tests.
@@ -61,6 +63,72 @@ To specify the load parameters for a URL-based load test:
     For each pattern, fill the corresponding configuration settings. The chart gives a visual representation of the load pattern and its configuration parameters.
 
     :::image type="content" source="media/how-to-high-scale-load/load-test-configure-load-pattern.png" alt-text="Screenshot of the 'Load' tab when editing a load test, showing how to configure the load pattern." lightbox="media/how-to-high-scale-load/load-test-configure-load-pattern.png":::
+
+# [Azure Pipelines / GitHub Actions](#tab/pipelines+github)
+
+For CI/CD workflows, you specify the load parameters for a URL-based load test in the requests JSON file, in the `testSetup` property.
+
+Depending on the load pattern (`loadType`), you can specify different load parameters:
+
+| Load pattern (`loadType`) | Parameters |
+|-|-|
+| Linear | `usersPerEngine`, `durationInSeconds`, `rampUpTimeInSeconds` |
+| Step | `usersPerEngine`, `durationInSeconds`, `rampUpTimeInSeconds`, `rampUpSteps` |
+| Spike | `usersPerEngine`, `durationInSeconds`, `spikeMultiplier`, `spikeHoldTimeInSeconds` |
+
+In the load test configuration YAML file, make sure to set the `testType` property to `URL` and set the `testPlan` property to reference the requests JSON file.
+
+The following code snippet shows an example requests JSON file for a URL-based load test. The `testSetup` specifies a linear load pattern that runs for 300 seconds, with a ramp-up time of 30 seconds and five virtual users per test engine.
+
+```json
+{
+    "version": "1.0",
+    "scenarios": {
+      "requestGroup1": {
+        "requests": [
+          {
+            "requestName": "Request1",
+            "requestType": "URL",
+            "endpoint": "http://northwind.contoso.com",
+            "queryParameters": [],
+            "headers": {},
+            "body": null,
+            "method": "GET",
+            "responseVariables": [
+                {
+                  "extractorType": "XPathExtractor",
+                  "expression": "/note/body",
+                  "variableName": "token"
+                }
+              ]
+          },
+          {
+            "requestName": "Request2",
+            "requestType": "CURL",
+            "curlCommand": "curl --location '${domain}' --header 'Ocp-Apim-Subscription-Key: ${token}"
+          }
+        ],
+        "csvDataSetConfigList": [
+            {
+              "fileName": "inputData.csv",
+              "variableNames": "domain"
+            }
+          ]
+      }
+    },
+    "testSetup": [
+      {
+        "virtualUsersPerEngine": 5,
+        "durationInSeconds": 300,
+        "loadType": "Linear",
+        "scenario": "requestGroup1",
+        "rampUpTimeInSeconds": 30
+      }
+    ]
+}
+```
+
+---
 
 ### Configure load parameters for JMeter-based tests
 
@@ -147,7 +215,7 @@ The maximum number of *requests per second* (RPS) that Azure Load Testing can ge
 
 To calculate the number of requests per second, apply the following formula: RPS = (# of VUs) * (1/latency in seconds).
 
-For example, if application latency is 20 milliseconds (0.02 second), and you're generating a load of 2,000 VUs, you can achieve around 100,000 RPS (2000 * 1/0.02s).
+For example, if application latency is 20 milliseconds (0.02 seconds), and you're generating a load of 2,000 VUs, you can achieve around 100,000 RPS (2000 * 1/0.02s).
 
 To achieve a target number of requests per second, configure the total number of virtual users for your load test.
 
