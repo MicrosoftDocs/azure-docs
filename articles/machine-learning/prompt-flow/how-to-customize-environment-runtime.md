@@ -218,7 +218,7 @@ def echo(input: str) -> str:
     return files
 ```
 
-We would recommend to put the common packages (include private wheel) in the `requirements.txt` when build image, put the packages (include private wheel) in flow folder that are only used in flow or change more rapidly in the `requirements.txt` in flow folder, the later approach is not recommended for production.
+We would recommend to put the common packages (include private wheel) in the `requirements.txt` when building the image. Put the packages (include private wheel) in flow folder that are only used in flow or change more rapidly in the `requirements.txt` in the flow folder, the later approach is not recommended for production.
 
 ## Next steps
 
