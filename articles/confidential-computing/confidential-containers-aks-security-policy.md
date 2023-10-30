@@ -19,7 +19,7 @@ One of the main components of the [Kata Containers system architecture](https://
 
 In AKS Confidential Containers, the Kata agent API self-protection is implemented using a Security Policy (also known as the Kata *agent Policy*), specified by the owners of the confidential pods. The Policy document contains rules and data corresponding to each pod, using the industry standard [Rego policy language](https://www.openpolicyagent.org/docs/latest/policy-language/). The enforcement of the Policy inside the CVM is implemented using the [Open Policy agent](https://www.openpolicyagent.org/) – a Graduated project of the [Cloud Native Computing Foundation](https://www.cncf.io/) (CNCF).
 
-:::image type="content" source="media/concept-confidential-containers-security-policy/security-policy-architecture-diagram.png" alt-text="Diagram of the AKS Confidental Containers Security Policy model.":::
+:::image type="content" source="media/confidential-containers-security-policy/security-policy-architecture-diagram.png" alt-text="Diagram of the AKS Confidental Containers Security Policy model.":::
 
 ## Policy contents
 
@@ -79,4 +79,4 @@ The Kata agent is responsible for enforcing the Policy. Microsoft contributed to
 
 ## Next steps
 
-[Deploy a confidential container on AKS](use-confidential-containers.md)
+[Deploy a confidential container on AKS](../aks/use-confidential-containers.md)

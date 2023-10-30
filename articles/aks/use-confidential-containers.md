@@ -293,7 +293,7 @@ For example, the app downloads the container image layers for each of the contai
     go run /tools/importkey/main.go -c myapplication.yml -kh encryptionKey
     ```
 
-  Upon successful import, you should see something similar to the following:
+   Upon successful import, you should see something similar to the following:
 
     ```output
     [34 71 33 117 113 25 191 84 199 236 137 166 201 103 83 20 203 233 66 236 121 110 223 2 122 99 106 20 22 212 49 224]
