@@ -181,7 +181,7 @@ drwxr-xr-x 2 root root 4096 May 15 02:43 util/
 **CassandraUtils.java**
 
 > [!NOTE]
-> Change ssl_keystore_file_path depends on the java cert location. On HDInsight on AKS Apache Flink, the path is `/usr/lib/jvm/msopenjdk-11-jre/lib/security`
+> Change ssl_keystore_file_path depends on the java cert location. Apache Flink cluster on HDInsight on AKS, the path is `/usr/lib/jvm/msopenjdk-11-jre/lib/security`
 
 ``` java
 package com.azure.cosmosdb.cassandra.util;
