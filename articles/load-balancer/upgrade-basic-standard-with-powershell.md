@@ -81,7 +81,7 @@ PS C:\> Install-Module -Name AzureBasicLoadBalancerUpgrade -Scope CurrentUser -R
 
 ### Post-migration steps
 
-- [Validate that your migration was successful](#example-validate-a-scenario)
+- [Validate that your migration was successful](#example-validate-completed-migration)
 - Test inbound application connectivity through the Load Balancer
 - Test outbound connectivity from backend pool members to the Internet
 - For Public Load Balancers with multiple backend pools, create [Outbound Rules](./outbound-rules.md) for each backend pool 
