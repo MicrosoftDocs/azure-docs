@@ -69,7 +69,7 @@ This article covers troubleshooting Cloud Shell common scenarios.
 - **Details**: Cloud Shell requires the ability to establish a websocket connection to Cloud Shell
   infrastructure.
 - **Resolution**: Confirm that your network settings to allow sending HTTPS and websocket requests
-  to domains at `*.console.azure.com`.
+  to domains at `*.console.azure.com` and `*.servicebus.windows.net`.
 
 ### Set your Cloud Shell connection to support using TLS 1.2
 
