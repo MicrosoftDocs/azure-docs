@@ -57,7 +57,7 @@ This operation also includes advanced parameters, which appear after you select 
 
 * The Host Integration Designer XML (HIDX) file that provides the necessary metadata for the **IMS Program Call** connector to execute your mainframe program.
 
-  To create this HIDX file, [download and install the HIS Designer for Azure Logic Apps](https://aka.ms/his-desiner-logicapps-download). The only prerequisite is [Microsoft .NET Framework 4.8](https://aka.ms/net-framework-download).
+  To create this HIDX file, [download and install the HIS Designer for Azure Logic Apps](https://aka.ms/his-designer-logicapps-download). The only prerequisite is [Microsoft .NET Framework 4.8](https://aka.ms/net-framework-download).
 
   To invoke a mainframe program, your workflow needs to understand the mainframe program's type, parameters, and return values. The IMS connector manages the process and data conversions, which are required for providing input data from the workflow to the mainframe program and for sending any output data generated from the mainframe program to the workflow. For this process, Azure Logic Apps requires that you provide this information as metadata.
 
