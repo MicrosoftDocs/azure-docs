@@ -2,6 +2,7 @@
 title: Deploy Azure Virtual Desktop - Azure Virtual Desktop
 description: Learn how to deploy Azure Virtual Desktop by creating a host pool, workspace, application group, session hosts, and assign users.
 ms.topic: how-to
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 author: dknappettmsft
 ms.author: daknappe
 ms.date: 10/25/2023
