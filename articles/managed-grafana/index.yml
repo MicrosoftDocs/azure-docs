@@ -72,7 +72,7 @@ landingContent:
           - text: Use reporting and image rendering
             url: how-to-use-reporting-and-image-rendering.md
 
-  - title: Understand availability
+  - title: Manage availability
     linkLists:
       - linkListType: concept
         links:
