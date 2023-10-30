@@ -166,7 +166,7 @@ items:
       href: modify-local-access-configuration.md
   - name: Network diagnostic tools
     items:
-    - name: Perform data plane packet capture on a packet core instance
+    - name: Perform packet capture on a packet core instance
       href: data-plane-packet-capture.md
     - name: Use ping and traceroute on a packet core instance
       href: ping-traceroute.md
