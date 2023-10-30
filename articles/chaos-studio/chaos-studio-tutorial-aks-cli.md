@@ -131,10 +131,14 @@ Now you can create your experiment. A chaos experiment defines the actions you w
         ```json
         {"action":"pod-failure","mode":"all","selector":{"namespaces":["default"]}}
         ```
-    1. Use a [JSON string escape tool like this one](https://www.freeformatter.com/json-escape.html) to escape the JSON spec.
+    1. Use a [JSON string escape tool like this one](https://www.freeformatter.com/json-escape.html) to escape the JSON spec, or change the double-quotes to single-quotes.
     
         ```json
         {\"action\":\"pod-failure\",\"mode\":\"all\",\"selector\":{\"namespaces\":[\"default\"]}}
+        ```
+
+        ```json
+        {'action':'pod-failure','mode':'all','selector':{'namespaces':['default']}}
         ```
 
 1. Create your experiment JSON by starting with the following JSON sample. Modify the JSON to correspond to the experiment you want to run by using the [Create Experiment API](/rest/api/chaosstudio/experiments/create-or-update), the [fault library](chaos-studio-fault-library.md), and the `jsonSpec` created in the previous step.

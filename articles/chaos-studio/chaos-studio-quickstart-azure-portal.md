@@ -39,24 +39,25 @@ Create an Azure resource and ensure that it's one of the supported [fault provid
 
    ![Screenshot that shows the Targets view in the Azure portal.](images/quickstart-virtual-machine-enabled.png)
 
-1. A notification appears and indicates that the resources selected were successfully enabled.
+1. Confirm that the desired resource is listed. Select **Review + Enable**, then **Enable**. 
+
+1. A notification appears and indicates that the resource selected was successfully enabled.
    
    ![Screenshot that shows a notification that indicates that targets were successfully enabled.](images/tutorial-service-direct-targets-enable-confirm.png)
 
 ## Create an experiment
 
 1. Select **Experiments**.
+
    ![Screenshot that shows selecting Experiments.](images/quickstart-left-experiment.png)
 
-1. Select **Add an experiment**.
-
-   ![Screenshot that shows Add an experiment in the Azure portal.](images/add-an-experiment.png)
+1. Select **Create** > **New experiment**.
 
 1. Fill in the **Subscription**, **Resource Group**, and **Location** boxes where you want to deploy the chaos experiment. Give your experiment a name. Select **Next: Experiment designer**.
 
    ![Screenshot that shows adding experiment basics.](images/quickstart-service-direct-add-basics.png)
 
-1. In the Chaos Studio experiment designer, give a friendly name to your **Step** and **Branch**. Select **Add fault**.
+1. In the Chaos Studio experiment designer, give a friendly name to your **Step** and **Branch**. Select **Add action > Add fault**.
 
    ![Screenshot that shows the Experiment designer.](images/quickstart-service-direct-add-designer.png)
 
