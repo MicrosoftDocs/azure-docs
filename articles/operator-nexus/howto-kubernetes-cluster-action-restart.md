@@ -1,6 +1,6 @@
 ---
-title: Restart estart kubernetes cluster node 
-description: Learn how to restart kubernetest cluster node via the API
+title: Restart kubernetes cluster node 
+description: Learn how to restart kubernetes cluster node via the API
 author: syzehra
 ms.author: syzehra
 ms.service: azure-operator-nexus
@@ -11,21 +11,21 @@ ms.custom: template-how-to-pattern, devx-track-azurecli
 
 # Action to restart kubernetes cluster node
 
-This article provides instruction to restart kubernetes cluster node via the networkcloud API. This action provides a way to handle the Nexus AKS VMs that have become unreachable. It improves the customer experience and reduce the amount of time and effort required to bring back the VM.
+This article provides instruction to restart kubernetes cluster node via the `networkcloud` API. This action provides a way to handle the Nexus AKS VMs that have become unreachable. It improves the customer experience and reduce the amount of time and effort required to bring back the VM.
 
 > [!NOTE]
 > This is an aggressive approach to get back the VM that has become unreachable. 
 > It doesn't make any attempt to protect the workloads. Hrnce, should be the last resort.
 
-Best practices from kubernetes standpoint is to drain the nodes first and coordinate so nothing else can get schedule  on it and then gracefully shut it down and bring it back up. 
+Best practice from kubernetes standpoint is to drain the nodes first and coordinate so nothing else can get schedule  on it and then gracefully shut it down and bring it back up. 
 
-It takes nearly 1-5 mins for the action to complete. But, it also depends on what state the virtual machine is. If the Virtual Machine is in really bad state and the restart doesn't work, it may eventually timeout. 
+It takes nearly 1-5 mins for the action to complete. But, it also depends on what state the virtual machine is. If the Virtual Machine is in bad state and the restart doesn't work, it may eventually time out. 
 
 ## Before you begin
 
 * Make sure you have the latest version of [necessary Azure CLI extensions](./howto-install-cli-extensions.md).
 * This article requires 2.49.0 or later version of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
-* The action requires 1.1.0 or later version of networkcloud extension. 
+* The action requires 1.1.0 or later version of `networkcloud` extension. 
 
 
 ## Run the CLI command to restart the kubernetes cluster node
