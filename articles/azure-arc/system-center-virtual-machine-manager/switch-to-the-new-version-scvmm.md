@@ -7,7 +7,7 @@ author: PriskeyJeronika-MS
 ms.author: v-gjeronika
 manager: jsuri
 ms.topic: how-to 
-ms.date: 11/10/2023
+ms.date: 11/15/2023
 keywords: "VMM, Arc, Azure"
 
 #Customer intent: As a VI admin, I want to switch to the new version of Arc-enabled SCVMM and leverage the associated capabilities
