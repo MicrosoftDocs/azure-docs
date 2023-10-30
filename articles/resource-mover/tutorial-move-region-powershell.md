@@ -313,7 +313,7 @@ Invoke-AzResourceMoverDiscard -ResourceGroupName "RG-MoveCollection-demoRMS" -Mo
 
 **Output**
 
-    :::image type="content" source="./media/tutorial-move-region-powershell/discard-move.png" alt-text="Screenshot of the output text after discarding the move." :::
+:::image type="content" source="./media/tutorial-move-region-powershell/discard-move.png" alt-text="Screenshot of the output text after discarding the move." :::
 
 ### Commit the move
 

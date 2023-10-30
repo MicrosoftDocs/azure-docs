@@ -105,7 +105,7 @@ Remove an entire move collection from the subscription, as follows:
     :::image type="content" source="./media/remove-move-resources/remove-collection.png" alt-text="Screenshot of output text after removing a move collection." :::
 
 > [!NOTE]
-> For removing resources in bulk where the dependency tree is not identified, use [Invoke-AzResourceMoverBulkRemove (Az.ResourceMover)](https://learn.microsoft.com/powershell/module/az.resourcemover/invoke-azresourcemoverbulkremove?view=azps-10.3.0). 
+> For removing resources in bulk where the dependency tree is not identified, use [Invoke-AzResourceMoverBulkRemove (Az.ResourceMover)](https://learn.microsoft.com/powershell/module/az.resourcemover/invoke-azresourcemoverbulkremove?). 
 
 ## VM resource state after removing
 
