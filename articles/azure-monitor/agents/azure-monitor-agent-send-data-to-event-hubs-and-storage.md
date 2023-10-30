@@ -21,9 +21,9 @@ The Azure Monitor Agent is the new, consolidated telemetry agent for collecting 
 
 <a name="FN1">1</a>: Not all data types are supported; refer to [What's supported](#whats-supported) for specifics.
 
-### What's supported
+## What's supported
 
-#### Data types
+### Data types
 
 - Windows:
    - Windows Event Logs – to eventhub and storage
@@ -36,17 +36,17 @@ The Azure Monitor Agent is the new, consolidated telemetry agent for collecting 
    - Perf counters – to eventhub and storage
    - Custom Logs / Log files – to eventhub and storage
 
-#### Operating systems
+### Operating systems
 
 - Environments that are supported by the Azure Monitoring Agent on Windows and Linux
 - This feature is only supported and planned to be supported for Azure VMs. There are no plans to bring this to on-prem or Azure Arc scenarios.
 
-### What's not supported
+## What's not supported
 
-#### Data types
+### Data types
 
 - Windows:
-   - ETW Logs (planned for a future release)
+   - ETW Logs
    - Windows Crash Dumps (not planned nor will be supported)
    - Application Logs (not planned nor will be supported)
    - .NET event source logs (not planned nor will be supported)
@@ -650,7 +650,7 @@ Create a data collection rule for collecting events and sending to storage and e
 
    | Value | Description |
    |:---|:---|
-   | `dataSources` | Define it per your requirements. The supported types for direct upload to EventHub for Windows are `performanceCounters` and `windowsEventLogs` and for Linux, they are `performanceCounters` and `syslog`. |
+   | `dataSources` | Define it per your requirements. The supported types for direct upload to Event Hub for Windows are `performanceCounters` and `windowsEventLogs` and for Linux, they're `performanceCounters` and `syslog`. |
    | `destinations` | Use `eventHubsDirect` for direct upload to the event hub. |
    | `eventHubResourceId` | Resource ID of the event hub instance.<br><br>NOTE: It isn't the event hub namespace resource ID. |
    | `dataFlows` | Under `dataFlows`, include destination name. |
@@ -659,7 +659,7 @@ Create a data collection rule for collecting events and sending to storage and e
 
    | Value | Description |
    |:---|:---|
-   | `dataSources` | Define it per your requirements. The supported types for direct upload to storage Table for Windows are `performanceCounters`, `windowsEventLogs` and for Linux, they are `performanceCounters` and `syslog`. |
+   | `dataSources` | Define it per your requirements. The supported types for direct upload to storage Table for Windows are `performanceCounters`, `windowsEventLogs` and for Linux, they're `performanceCounters` and `syslog`. |
    | `destinations` | Use `storageTablesDirect` for direct upload to table storage. |
    | `storageAccountResourceId` | Resource ID of the storage account. |
    | `tableName` | The name of the Table where JSON blob with event data is uploaded to. |
@@ -669,7 +669,7 @@ Create a data collection rule for collecting events and sending to storage and e
 
    | Value | Description |
    |:---|:---|
-   | `dataSources` | Define it per your requirements. The supported types for direct upload to storage blob for Windows are `performanceCounters`, `windowsEventLogs`, `iisLogs`, `logFiles` and for Linux, they are `performanceCounters`, `syslog` and `logFiles`. |
+   | `dataSources` | Define it per your requirements. The supported types for direct upload to storage blob for Windows are `performanceCounters`, `windowsEventLogs`, `iisLogs`, `logFiles` and for Linux, they're `performanceCounters`, `syslog` and `logFiles`. |
    | `destinations` | Use `storageBlobsDirect` for direct upload to blob storage. | 
    | `storageAccountResourceId` | The resource ID of the storage account. | 
    | `containerName` | The name of the container where JSON blob with event data is uploaded to.  |
@@ -806,7 +806,7 @@ No, not until Azure formally announces the deprecation of these agents, which wo
 
 ### How to configure AMA for event hubs and storage data destinations
 
-Today the configeration experience is by using the DCR API. A future release will have a UX experience similar to what exists today for WAD and LAd in the disganostics settings blade.
+Today the configuration experience is by using the DCR API.
 
 ### Will you still be actively developing on WAD and LAD?
 
