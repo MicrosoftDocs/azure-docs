@@ -12,7 +12,7 @@ ms.author: sudhirsneha
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
 
-Pre-scripts and post-scripts are runbooks that you can attach to your upcoming schedules for patching your machines before and after installing the updates. They enable you to:
+To achieve certain tasks automatically before and after the scheduled maintenance activity, the pre and post tasks are configured. They're the Automation runbooks that you can attach to your upcoming schedules for patching your machines before and after installing the updates. They enable you to:
 - Start VMs patch them and shut them down again.
 - Stop a service on the machine, patch it and start the service again.
 
@@ -23,9 +23,9 @@ For example, if there's a maintenance configuration or a schedule that you must 
 
 ## Key capabilities
 
+- **Customized patching** - You can customize your patching workflows with custom execution before and after a scheduled patching.
 - **Works with various end points** - You can choose to configure other endpoints such as Webhooks or Azure Functions or Storage accounts.
-
-- **Compatibility with the [Event Grid](../event-grid/overview.md)** allows you to deliver the pre script and post script.
+- **Compatibility with the [Event Grid](../event-grid/overview.md)** allows you to relieve notifications.
 
 ## Pre-script and post-script parameters
 
