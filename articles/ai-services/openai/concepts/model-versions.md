@@ -41,7 +41,7 @@ The corresponding property can also be accessed via [REST](../how-to/working-wit
 |---|---|---|
 | [REST](../how-to/working-with-models.md#model-deployment-upgrade-configuration) | Yes. If `versionUpgradeOption` is not returned it means it is `null` |Yes |
 | [PowerShell](/powershell/module/az.cognitiveservices/get-azcognitiveservicesaccountdeployment) | Yes.`VersionUpgradeOption` can be checked for `$null`| Yes |
-| [Azure CLI](/cli/azure/cognitiveservices/account/deployment#az-cognitiveservices-account-deployment-show) | Yes. It shows `null` if `versionUpgradeOption` is not set.| *No.* It is not possible to update the version upgrade option.|
+| [Azure CLI](/cli/azure/cognitiveservices/account/deployment#az-cognitiveservices-account-deployment-show) | Yes. It shows `null` if `versionUpgradeOption` is not set.| *No.* It is currently not possible to update the version upgrade option.|
 
 > [!NOTE]
 > `null` is equivalent to `AutoUpgradeWhenExpired`.
