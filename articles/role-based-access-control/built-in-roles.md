@@ -8,7 +8,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 09/13/2023
+ms.date: 10/30/2023
 ms.custom: generated
 ---
 
@@ -5649,7 +5649,7 @@ List cluster monitoring user credential action.
     "/"
   ],
   "description": "List cluster monitoring user credential action.",
-  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/1afdec4b-e479-420e-99e7-f82237c7c5e6",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/1afdec4b-e479-420e-99e7-f82237c7c5e6",
   "name": "1afdec4b-e479-420e-99e7-f82237c7c5e6",
   "permissions": [
     {

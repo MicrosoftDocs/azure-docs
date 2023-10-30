@@ -6,7 +6,7 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.workload: identity
 ms.topic: include
-ms.date: 09/13/2023
+ms.date: 10/30/2023
 ms.author: rolyon
 ms.custom: generated
 ---
@@ -125,6 +125,12 @@ Azure service: [Cognitive Services](../../../ai-services/index.yml)
 > | Microsoft.CognitiveServices/accounts/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for the resource. |
 > | Microsoft.CognitiveServices/accounts/providers/Microsoft.Insights/logDefinitions/read | Gets the available logs for Cognitive Services account |
 > | Microsoft.CognitiveServices/accounts/providers/Microsoft.Insights/metricDefinitions/read | Gets the available metrics for Cognitive Services. |
+> | Microsoft.CognitiveServices/accounts/raiBlocklists/read | Reads available blocklists under a resource. |
+> | Microsoft.CognitiveServices/accounts/raiBlocklists/write | Modifies available blocklists under a resource. |
+> | Microsoft.CognitiveServices/accounts/raiBlocklists/delete | Deletes blocklists under a resource |
+> | Microsoft.CognitiveServices/accounts/raiBlocklists/raiBlocklistItems/read | Gets blocklist items under a blocklist. |
+> | Microsoft.CognitiveServices/accounts/raiBlocklists/raiBlocklistItems/write | Modifies blocklist items under a blocklist. |
+> | Microsoft.CognitiveServices/accounts/raiBlocklists/raiBlocklistItems/delete | Deletes blocklist items under a blocklist. |
 > | Microsoft.CognitiveServices/accounts/raiPolicies/read | Gets all applicable policies under the account including default policies. |
 > | Microsoft.CognitiveServices/accounts/raiPolicies/write | Create or update a custom Responsible AI policy. |
 > | Microsoft.CognitiveServices/accounts/raiPolicies/delete | Deletes a custom Responsible AI policy that's not referenced by an existing deployment. |
@@ -223,6 +229,13 @@ Azure service: [Cognitive Services](../../../ai-services/index.yml)
 > | Microsoft.CognitiveServices/accounts/ComputerVision/detect/action | This operation Performs object detection on the specified image.  |
 > | Microsoft.CognitiveServices/accounts/ComputerVision/imageanalysis:analyze/action | Analyze the input image. The request either contains image stream with any content type ['image/*', 'application/octet-stream'], or a JSON payload which includes an url property to be used to retrieve the image stream. |
 > | Microsoft.CognitiveServices/accounts/ComputerVision/imageanalysis:segment/action | Analyze the input image.<br>The request either contains an image stream with any content type ['image/*', 'application/octet-stream'], or a JSON payload which includes a url property to be used to retrieve the image stream.<br>An image stream of content type 'image/png' is returned, where the pixel values depend on the analysis mode.<br>The returned image has the same dimensions as the input image for modes: foregroundMatting.<br>The returned image has the same aspect ratio and same dimensions as the input image up to a limit of 16 megapixels for modes: backgroundRemoval. |
+> | Microsoft.CognitiveServices/accounts/ComputerVision/imagecomposition:rectify/action | Run the image rectification operation against an image with 4 control points provided in the parameter. |
+> | Microsoft.CognitiveServices/accounts/ComputerVision/imagecomposition:stitch/action | Run the image stitching operation against a sequence of images. |
+> | Microsoft.CognitiveServices/accounts/ComputerVision/models:cancel/action | Cancel model training. |
+> | Microsoft.CognitiveServices/accounts/ComputerVision/planogramcompliance:match/action | Run the planogram matching operation against a planogram and a product understanding result. |
+> | Microsoft.CognitiveServices/accounts/ComputerVision/retrieval:vectorizeimage/action | Return vector from an image. |
+> | Microsoft.CognitiveServices/accounts/ComputerVision/retrieval:vectorizetext/action | Return vector from a text. |
+> | Microsoft.CognitiveServices/accounts/ComputerVision/grounding/action | Perform grounding on the input image with the generated text. |
 > | Microsoft.CognitiveServices/accounts/ComputerVision/batch/write | This internal operation creates a new batch with the specified name. |
 > | Microsoft.CognitiveServices/accounts/ComputerVision/batch/read | This internal operation returns the list of batches. |
 > | Microsoft.CognitiveServices/accounts/ComputerVision/batch/analyzestatus/read | This internal operation returns the status of the specified batch. |
@@ -238,13 +251,20 @@ Azure service: [Cognitive Services](../../../ai-services/index.yml)
 > | Microsoft.CognitiveServices/accounts/ComputerVision/models/:cancel/action | Cancel model training. |
 > | Microsoft.CognitiveServices/accounts/ComputerVision/models/delete | Delete a custom model. A model can be deleted if it is in one of the 'Succeeded', 'Failed', or 'Canceled' states. |
 > | Microsoft.CognitiveServices/accounts/ComputerVision/models/write | Start training a custom model. |
+> | Microsoft.CognitiveServices/accounts/ComputerVision/models/evaluations/write | Evaluate an existing model. |
+> | Microsoft.CognitiveServices/accounts/ComputerVision/models/evaluations/delete | Delete a model evaluation. A model evaluation can be deleted if it is in the 'Succeeded' or 'Failed' states. |
+> | Microsoft.CognitiveServices/accounts/ComputerVision/models/evaluations/read | Get information about a specific model evaluation. Get a list of the available evaluations for a model.* |
 > | Microsoft.CognitiveServices/accounts/ComputerVision/operations/imageanalysis:analyze/action | Analyze the input image of incoming request without deployment. The request either contains image stream |
 > | Microsoft.CognitiveServices/accounts/ComputerVision/operations/read | Get information about a specific operation. Get a list of the available operations. |
 > | Microsoft.CognitiveServices/accounts/ComputerVision/operations/contentgeneration-backgrounds:generate/action | Generates a background from a specified query, style, and size. |
+> | Microsoft.CognitiveServices/accounts/ComputerVision/productrecognition/runs/write | Run the product recognition against a model with an image. |
+> | Microsoft.CognitiveServices/accounts/ComputerVision/productrecognition/runs/delete | Delete a product recognition run. A product recognition run can be deleted if it is in the 'Succeeded' or 'Failed' states. |
+> | Microsoft.CognitiveServices/accounts/ComputerVision/productrecognition/runs/read | Get information about a specific product recognition run. List all product recognition run of a model.* |
 > | Microsoft.CognitiveServices/accounts/ComputerVision/read/analyze/action | Use this interface to perform a Read operation, employing the state-of-the-art Optical Character Recognition (OCR) algorithms optimized for text-heavy documents.<br>It can handle hand-written, printed or mixed documents.<br>When you use the Read interface, the response contains a header called 'Operation-Location'.<br>The 'Operation-Location' header contains the URL that you must use for your Get Read Result operation to access OCR results.** |
 > | Microsoft.CognitiveServices/accounts/ComputerVision/read/analyzeresults/read | Use this interface to retrieve the status and OCR result of a Read operation.  The URL containing the 'operationId' is returned in the Read operation 'Operation-Location' response header.* |
 > | Microsoft.CognitiveServices/accounts/ComputerVision/read/core/asyncbatchanalyze/action | Use this interface to get the result of a Batch Read File operation, employing the state-of-the-art Optical Character |
 > | Microsoft.CognitiveServices/accounts/ComputerVision/read/operations/read | This interface is used for getting OCR results of Read operation. The URL to this interface should be retrieved from <b>"Operation-Location"</b> field returned from Batch Read File interface. |
+> | Microsoft.CognitiveServices/accounts/ComputerVision/retrieval/index-statis/action | Get index statistics inforamtion for the given users. |
 > | Microsoft.CognitiveServices/accounts/ComputerVision/retrieval/suggest/action | Get search suggestions for the user, given the query text that the user has entered so far. |
 > | Microsoft.CognitiveServices/accounts/ComputerVision/retrieval/search/action | Perform a search using the specified search query and parameters. |
 > | Microsoft.CognitiveServices/accounts/ComputerVision/retrieval/indexes:query/action | Search indexes using the specified search query and parameters. |
@@ -1128,6 +1148,8 @@ Azure service: [Cognitive Services](../../../ai-services/index.yml)
 > | Microsoft.CognitiveServices/accounts/OpenAI/engines/generate/action | (Intended for browsers only.) Stream generated text from the model via GET request.<br>This method is provided because the browser-native EventSource method can only send GET requests.<br>It supports a more limited set of configuration options than the POST variant. |
 > | Microsoft.CognitiveServices/accounts/OpenAI/engines/completions/action | Create a completion from a chosen model |
 > | Microsoft.CognitiveServices/accounts/OpenAI/engines/completions/browser_stream/action | (Intended for browsers only.) Stream generated text from the model via GET request.<br>This method is provided because the browser-native EventSource method can only send GET requests.<br>It supports a more limited set of configuration options than the POST variant. |
+> | Microsoft.CognitiveServices/accounts/OpenAI/extensions/on-your-data/ingestion/read | Read Operations related to on-your-data feature |
+> | Microsoft.CognitiveServices/accounts/OpenAI/extensions/on-your-data/ingestion/write | Write Operations related to on-your-data feature |
 > | Microsoft.CognitiveServices/accounts/OpenAI/files/write | Upload or import files. |
 > | Microsoft.CognitiveServices/accounts/OpenAI/files/delete | Delete files. |
 > | Microsoft.CognitiveServices/accounts/OpenAI/files/read | Gets information about files. |
@@ -1135,6 +1157,8 @@ Azure service: [Cognitive Services](../../../ai-services/index.yml)
 > | Microsoft.CognitiveServices/accounts/OpenAI/fine-tunes/delete | Delete the adaptation of a model. |
 > | Microsoft.CognitiveServices/accounts/OpenAI/fine-tunes/read | Gets information about fine-tuned models. |
 > | Microsoft.CognitiveServices/accounts/OpenAI/images/generations/action | Create image generations. |
+> | Microsoft.CognitiveServices/accounts/OpenAI/management/modelscaleset/deployment/read | Get Modelscale set deployment status and info. |
+> | Microsoft.CognitiveServices/accounts/OpenAI/management/modelscaleset/deployment/write | Modify Modelscale set deployment status and info. |
 > | Microsoft.CognitiveServices/accounts/OpenAI/models/read | Gets information about models |
 > | Microsoft.CognitiveServices/accounts/OpenAI/openapi/read | Get OpenAI Info |
 > | Microsoft.CognitiveServices/accounts/Personalizer/rank/action | A personalization rank request. |
