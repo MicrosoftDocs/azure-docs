@@ -4,7 +4,7 @@ description: Learn how to connect to Azure Kubernetes Service (AKS) cluster node
 ms.topic: article
 ms.date: 10/04/2023
 ms.reviewer: mattmcinnes
-ms.custom: contperf-fy21q4, devx-track-linux, devx-track-azurecli
+ms.custom: contperf-fy21q4, devx-track-linux
 #Customer intent: As a cluster operator, I want to learn how to connect to virtual machines in an AKS cluster to perform maintenance or troubleshoot a problem.
 ---
 
