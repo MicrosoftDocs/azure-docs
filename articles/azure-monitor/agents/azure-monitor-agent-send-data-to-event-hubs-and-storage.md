@@ -39,7 +39,7 @@ The Azure Monitor Agent is the new, consolidated telemetry agent for collecting 
 ### Operating systems
 
 - Environments that are supported by the Azure Monitoring Agent on Windows and Linux
-- This feature is only supported and planned to be supported for Azure VMs. There are no plans to bring this to on-prem or Azure Arc scenarios.
+- This feature is only supported and planned to be supported for Azure VMs. There are no plans to bring this to on-premises or Azure Arc scenarios.
 
 ## What's not supported
 
@@ -650,7 +650,7 @@ Create a data collection rule for collecting events and sending to storage and e
 
    | Value | Description |
    |:---|:---|
-   | `dataSources` | Define it per your requirements. The supported types for direct upload to Event Hub for Windows are `performanceCounters` and `windowsEventLogs` and for Linux, they're `performanceCounters` and `syslog`. |
+   | `dataSources` | Define it per your requirements. The supported types for direct upload to Event Hubs for Windows are `performanceCounters` and `windowsEventLogs` and for Linux, they're `performanceCounters` and `syslog`. |
    | `destinations` | Use `eventHubsDirect` for direct upload to the event hub. |
    | `eventHubResourceId` | Resource ID of the event hub instance.<br><br>NOTE: It isn't the event hub namespace resource ID. |
    | `dataFlows` | Under `dataFlows`, include destination name. |
