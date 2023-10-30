@@ -1,9 +1,9 @@
 ---
 title: Performance and scaling best practices for small to medium workloads in Azure Kubernetes Service (AKS)
 titleSuffix: Azure Kubernetes Service
-description: Learn the best practices for performance and scaling in Azure Kubernetes Service (AKS).
+description: Learn the best practices for performance and scaling for small to medium workloads in Azure Kubernetes Service (AKS).
 ms.topic: conceptual
-ms.date: 10/24/2023
+ms.date: 10/30/2023
 ---
 
 # Best practices for performance and scaling for small to medium workloads in Azure Kubernetes Service (AKS)
@@ -23,7 +23,7 @@ In this article, you learn about:
 > * Storage and networking considerations for data plane performance.
 
 > [!NOTE]
-> This article focuses on best practices for **small to medium workloads**. For best practices for **large workloads**, see [Performance and scaling best practices for large workloads in Azure Kubernetes Service (AKS)](LINK).
+> This article focuses on best practices for **small to medium workloads**. For best practices for **large workloads**, see [Performance and scaling best practices for large workloads in Azure Kubernetes Service (AKS)](./best-practices-performance-scale-large.md).
 
 ## Cluster autoscaling
 
@@ -110,7 +110,14 @@ Ephemeral OS disks can provide dynamic IOPS and throughput for your application,
 >
 > Use Dynamic IP Allocation or CNI Overlay networking for optimal networking performance.
 
-We recommend using [Dynamic IP Allocation](LINK) or [CNI Overlay](LINK) networking. For more information, see [LINK](LINK).
+We recommend using [Dynamic IP allocation](LINK) or [CNI Overlay](LINK) networking for optimal networking performance.
+
+**Dynamic IP allocation** assigns IP addresses automatically, which helps reduce the time and effort required for manual IP address management. It also helps prevent IP address conflicts and improves scalability. **CNI Overlay** allows you to create virtual networks on top of physical networks, which helps reduce network latency and improve network throughput. It also helps simplify network configuration and management, making it easier to deploy and manage Kubernetes applications. Overall, these technologies help improve the performance and scalability of your Kubernetes workloads while also simplifying network management and reducing the risk of errors.
+
+For more information, see [Dynamic IP allocation overview](LINK) and [CNI Overlay overview](LINK).
 
 ### Pods
 
+The memory and CPU resources allocated to a VM have a direct impact on the performance of the pods running on the VM. When a pod is created, it's assigned a certain amount of memory and CPU resources, which are used to run the application. If the VM doesn't have enough memory or CPU resources available, it can cause the pods to slow down or even crash. If the VM has too much memory or CPU resources available, it can cause the pods to run inefficiently, wasting resources and increasing costs. It's important to ensure that your VMs have the appropriate amount of memory and CPU resources to ensure optimal performance of your Kubernetes pods. To help ensure optimal performance, you can monitor resource usage and adjust the allocation as needed to ensure the VM uses the resources efficiently and effectively. You can set the maximum pods per node based on your capacity planning using `--max-pods`. For more information, see [Configure maximum number of pods per node](LINK).
+
+Overprovisioning can help improve the performance and reliability of scale operations using the AKS Cluster Autoscaler. You can configure overprovisioning using deployment running pause pods with a low-assigned priority level, which keeps resources that other pods can use. If there aren't enough resources, the pause pods are preempted, new pods take their place, the pause pods become unschedulable, and the Cluster Autoscaler scales up the cluster. For more information, see [DOC](LINK).
