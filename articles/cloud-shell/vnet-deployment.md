@@ -10,7 +10,8 @@ title: Deploy Azure Cloud Shell in a virtual network with quickstart templates
 # Deploy Cloud Shell in a virtual network by using quickstart templates
 
 Before you run quickstart templates to deploy Azure Cloud Shell in a virtual network (VNet), there
-are several prerequisites to complete.
+are several prerequisites to complete. You must have the **Owner** role assignment on the
+subscription. To view and assign roles, see [List Owners of a Subscription][10].
 
 This article walks you through the following steps to configure and deploy Cloud Shell in a virtual
 network:
@@ -252,6 +253,7 @@ Cloud Shell instance.
 [07]: /azure/virtual-network/virtual-network-manage-subnet?tabs=azure-portal#change-subnet-settings
 [08]: https://aka.ms/cloudshell/docs/vnet/template
 [09]: https://azure.microsoft.com/resources/templates/cloud-shell-vnet-storage/
+[10]: /azure/role-based-access-control/role-assignments-list-portal#list-owners-of-a-subscription
 [95]: media/quickstart-deploy-vnet/container-service-search.png
 [95a]: media/quickstart-deploy-vnet/container-service-search.png#lightbox
 [96]: media/quickstart-deploy-vnet/container-service-details.png
