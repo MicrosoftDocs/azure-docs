@@ -6,6 +6,10 @@
     href: overview.md
   - name: Switch to the new version
     href: switch-to-the-new-version-scvmm.md
+- name: Concepts
+  items:
+  - name: Azure Arc agent
+    href: agent-overview-scvmm.md
 - name: Quickstarts
   items:
   - name: Connect a System Center Virtual Machine Manager management server to Azure Arc
@@ -14,10 +18,6 @@
   items:
   - name: Create a virtual machine on SCVMM Management server
     href: create-virtual-machine.md
-- name: Concepts
-  items:
-  - name: Azure Arc agent
-    href: agent-overview-scvmm.md
 - name: How-to guides
   items:
   - name: Deploy
