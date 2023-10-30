@@ -14,7 +14,7 @@ ms.date: 09/13/2023
 
 # Create and manage runtimes (preview)
 
-Prompt flow's runtime provides the computing resources required for the application to run, including a Docker image that contains all necessary dependency packages. This reliable and scalable runtime environment enables Prompt flow to efficiently execute its tasks and functions, ensuring a seamless user experience for users.
+Prompt flow's runtime provides the computing resources required for the application to run, including a Docker image that contains all necessary dependency packages. This reliable and scalable runtime environment enables prompt flow to efficiently execute its tasks and functions, ensuring a seamless user experience for users.
 
 > [!IMPORTANT]
 > Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
@@ -22,11 +22,11 @@ Prompt flow's runtime provides the computing resources required for the applicat
 
 ## Permissions/roles for runtime management
 
-To create and use a runtime for Prompt flow authoring, you need to have the `AzureML Data Scientist` role in the workspace. To learn more, see [Prerequisites](#prerequisites).
+To create and use a runtime for prompt flow authoring, you need to have the `AzureML Data Scientist` role in the workspace. To learn more, see [Prerequisites](#prerequisites).
 
 ## Permissions/roles for deployments
 
-After deploying a Prompt flow, the endpoint must be assigned the `AzureML Data Scientist` role to the workspace for successful inferencing. This can be done at any point after the endpoint has been created.
+After deploying a prompt flow, the endpoint must be assigned the `AzureML Data Scientist` role to the workspace for successful inferencing. This can be done at any point after the endpoint has been created.
 
 ## Create runtime in UI
 
@@ -47,7 +47,7 @@ After deploying a Prompt flow, the endpoint must be assigned the `AzureML Data S
 If you do not have a compute instance, create a new one: [Create and manage an Azure Machine Learning compute instance](../how-to-create-compute-instance.md).
 
 1. Select add runtime in runtime list page.
-    :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-runtime-list-add.png" alt-text="Screenshot of Prompt flow on the runtime add with compute instance runtime selected. " lightbox = "./media/how-to-create-manage-runtime/runtime-creation-runtime-list-add.png":::
+    :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-runtime-list-add.png" alt-text="Screenshot of prompt flow on the runtime add with compute instance runtime selected. " lightbox = "./media/how-to-create-manage-runtime/runtime-creation-runtime-list-add.png":::
 1. Select compute instance you want to use as runtime.
     :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-ci-runtime-select-ci.png" alt-text="Screenshot of add compute instance runtime with select compute instance highlighted. " lightbox = "./media/how-to-create-manage-runtime/runtime-creation-ci-runtime-select-ci.png":::
     Because compute instances are isolated by user, you can only see your own compute instances or the ones assigned to you. To learn more, see [Create and manage an Azure Machine Learning compute instance](../how-to-create-compute-instance.md).
@@ -57,9 +57,9 @@ If you do not have a compute instance, create a new one: [Create and manage an A
     1. Select create new custom application as runtime.
         :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-ci-runtime-select-custom-application.png" alt-text="Screenshot of add compute instance runtime with custom application highlighted. " lightbox = "./media/how-to-create-manage-runtime/runtime-creation-ci-runtime-select-custom-application.png":::
 
-        This is recommended for most users of Prompt flow. The Prompt flow system creates a new custom application on a compute instance as a runtime.
+        This is recommended for most users of prompt flow. The prompt flow system creates a new custom application on a compute instance as a runtime.
 
-        - To choose the default environment, select this option. This is the recommended choice for new users of Prompt flow.
+        - To choose the default environment, select this option. This is the recommended choice for new users of prompt flow.
         :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-runtime-list-add-default-env.png" alt-text="Screenshot of add compute instance runtime with environment highlighted. " lightbox = "./media/how-to-create-manage-runtime/runtime-creation-runtime-list-add-default-env.png":::
 
         - If you want to install other packages in your project, you should create a custom environment. To learn how to build your own custom environment, see [Customize environment with docker context for runtime](how-to-customize-environment-runtime.md#customize-environment-with-docker-context-for-runtime).
@@ -87,9 +87,9 @@ To use the runtime, assigning the `AzureML Data Scientist` role of workspace to 
 > [!NOTE]
 > This operation may take several minutes to take effect.
 
-## Using runtime in Prompt flow authoring
+## Using runtime in prompt flow authoring
 
-When you're authoring your Prompt flow, you can select and change the runtime from left top corner of the flow page.
+When you're authoring your prompt flow, you can select and change the runtime from left top corner of the flow page.
 
 :::image type="content" source="./media/how-to-create-manage-runtime/runtime-authoring-dropdown.png" alt-text="Screenshot of Chat with Wikipedia with the runtime dropdown highlighted. " lightbox = "./media/how-to-create-manage-runtime/runtime-authoring-dropdown.png":::
 
@@ -112,7 +112,7 @@ Go to the runtime details page and select the "Update" button at the top. Here y
 :::image type="content" source="./media/how-to-create-manage-runtime/runtime-update-env.png" alt-text="Screenshot of the runtime detail page with updated selected. " lightbox = "./media/how-to-create-manage-runtime/runtime-update-env.png":::
 
 > [!NOTE]
-> If you used a custom environment, you need to rebuild it using the latest Prompt flow image first, and then update your runtime with the new custom environment.
+> If you used a custom environment, you need to rebuild it using the latest prompt flow image first, and then update your runtime with the new custom environment.
 
 
 ## Next steps

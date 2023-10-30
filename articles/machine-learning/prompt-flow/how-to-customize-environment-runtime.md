@@ -1,7 +1,7 @@
 ---
-title: Customize environment for runtime in Prompt flow (preview)
+title: Customize environment for runtime in prompt flow (preview)
 titleSuffix: Azure Machine Learning
-description: Learn how to create customized environment for runtime in Prompt flow with Azure Machine Learning studio.
+description: Learn how to create customized environment for runtime in prompt flow with Azure Machine Learning studio.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -108,13 +108,13 @@ az ml environment create -f environment.yaml --subscription <sub-id> -g <resourc
 > [!NOTE]
 > Building the image may take several minutes.
 
-Go to your workspace UI page, then go to the **environment** page, and locate the custom environment you created. You can now use it to create a runtime in your Prompt flow. To learn more, see [Create compute instance runtime in UI](how-to-create-manage-runtime.md#create-compute-instance-runtime-in-ui).
+Go to your workspace UI page, then go to the **environment** page, and locate the custom environment you created. You can now use it to create a runtime in your prompt flow. To learn more, see [Create compute instance runtime in UI](how-to-create-manage-runtime.md#create-compute-instance-runtime-in-ui).
 
 To learn more about environment CLI, see [Manage environments](../how-to-manage-environments-v2.md#manage-environments).
 
-## Create a custom application on compute instance that can be used as Prompt flow runtime
+## Create a custom application on compute instance that can be used as prompt flow runtime
 
-A prompt flow runtime is a custom application that runs on a compute instance. You can create a custom application on a compute instance and then use it as a Prompt flow runtime. To create a custom application for this purpose, you need to specify the following properties:
+A prompt flow runtime is a custom application that runs on a compute instance. You can create a custom application on a compute instance and then use it as a prompt flow runtime. To create a custom application for this purpose, you need to specify the following properties:
 
 | UI             | SDK                         | Note                                                                           |
 |----------------|-----------------------------|--------------------------------------------------------------------------------|
@@ -122,7 +122,7 @@ A prompt flow runtime is a custom application that runs on a compute instance. Y
 | Target port    | EndpointsSettings.target    | Port where you want to access the application, the port inside the container   |
 | published port | EndpointsSettings.published | Port where your application is running in the image, the publicly exposed port |
 
-### Create custom application as Prompt flow runtime via SDK v2
+### Create custom application as prompt flow runtime via SDK v2
 
 ```python
 # import required libraries
@@ -161,15 +161,15 @@ ml_client.begin_create_or_update(ci_basic)
 > [!NOTE]
 > Change `newest_version`, `compute_instance_name` and `instance_type` to your own value.
 
-### Create custom application as Prompt flow runtime via Azure Resource Manager template
+### Create custom application as prompt flow runtime via Azure Resource Manager template
 
 You can use this Azure Resource Manager template to create compute instance with custom application.
 
  [![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fcloga%2Fazure-quickstart-templates%2Flochen%2Fpromptflow%2Fquickstarts%2Fmicrosoft.machinelearningservices%2Fmachine-learning-prompt-flow%2Fcreate-compute-instance-with-custom-application%2Fazuredeploy.json)
 
-To learn more, see [Azure Resource Manager template for custom application as Prompt flow runtime on compute instance](https://github.com/cloga/azure-quickstart-templates/tree/lochen/promptflow/quickstarts/microsoft.machinelearningservices/machine-learning-prompt-flow/create-compute-instance-with-custom-application). 
+To learn more, see [Azure Resource Manager template for custom application as prompt flow runtime on compute instance](https://github.com/cloga/azure-quickstart-templates/tree/lochen/promptflow/quickstarts/microsoft.machinelearningservices/machine-learning-prompt-flow/create-compute-instance-with-custom-application). 
 
-## Create custom application as Prompt flow runtime via Compute instance UI
+## Create custom application as prompt flow runtime via Compute instance UI
 
 Follow [this document to add custom application](../how-to-create-compute-instance.md#setup-other-custom-applications).
 
