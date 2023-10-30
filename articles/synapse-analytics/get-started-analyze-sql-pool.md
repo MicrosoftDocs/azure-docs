@@ -105,7 +105,7 @@ A dedicated SQL pool consumes billable resources as long as it's active. You can
     GROUP BY passenger_count;
 
     SELECT * FROM dbo.PassengerCountStats
-    ORDER BY passenger_count;
+    ORDER BY PassengerCount;
     ```
 
     This query creates a table `dbo.PassengerCountStats` with aggregate data from the `trip_distance` field, then queries the new table. The data shows how the total trip distances and average trip distance relate to the number of passengers.
