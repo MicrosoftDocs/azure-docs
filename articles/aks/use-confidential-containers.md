@@ -124,6 +124,8 @@ It's important you understand the memory and processor resource allocation behav
 
 In this release, specifying resource requests in the pod manifests are not supported. This is caused by resource requests from pod YAML manifest being ignored by the Kata container. As a result, containerd does not pass the requests to the shim. Use resource `limit` instead of resource `requests` to allocate memory or CPU resources for workloads or containers.
 
+With the local container filesystem backed by VM memory, writing to the container filesystem (including logging) can fill up the available memory provided to the pod. This condition can result in potential pod crashes.
+
 ## Deploy a new cluster
 
 1. Create an AKS cluster using the [az aks create][az-aks-create] command and specifying the following parameters:
