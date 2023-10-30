@@ -101,7 +101,7 @@ Based on the industry study and suggestions from Microsoft, we recommend custome
 | **5800** | TCP | VNC Remote Frame Buffer over HTTP |
 | **5900** | TCP | VNC Remote Frame Buffer over HTTP |
 | **11211** | UDP | Memcached |
-m
+
 ### Management at scale
 
 Azure Virtual Network Manager provides a way to manage your security policies at scale with security admin rules. When you apply a security admin configuration to a [network group](./concept-network-groups.md), a network group can contain dozens or hundreds of VNets, and all of the resources in the network groups’ scope have those security admin rules applied to them.
@@ -110,18 +110,18 @@ New resources are protected along with existing resources. For example, if you a
 
 When new security risks are identified, you can deploy them at scale by creating a security admin rule to protect against the new risk and applying it to your network groups. Once this new rule is deployed, all resources in the scope of the network groups will be protected now and in the future.
 
-## Non-application of security admin rules
+## Nonapplication of security admin rules
 
 In most instances, security admin rules are applied to all virtual networks and subnets within the scope of a network group's applied security configuration. However, there are some services that don't apply security admin rules due to the network requirements of the service. These requirements are enforced by the service's network intent policy.
 
-### Non-application at virtual network level
+### Nonapplication of security admin rules at virtual network level
 
-By default, security admin rules aren't applied when they're deployed to a virtual network containing the following services:
+By default, security admin rules aren't applied to a virtual network containing the following services:
 
 - [Azure SQL Managed Instances](/azure/azure-sql/managed-instance/connectivity-architecture-overview#mandatory-security-rules-with-service-aided-subnet-configuration)
 - Azure Databricks  
 
-When this happens, the security admin rules are skipped for all others services deployed in the virtual network. If you want *Allow* rules applied to those other services in the virtual network, you create your security configuration with the `AllowRulesOnly` field set in the [securityConfiguration.properties.applyOnNetworkIntentPolicyBasedServices](/dotnet/api/microsoft.azure.management.network.models.networkintentpolicybasedservice?view=azure-dotnet) .NET class. When set, *Allow* rules in your security configuration will be applied to other services on the virtual networks with Azure SQL Managed Instances or Azure Databricks. All *Deny* rules will be skipped for the virtual network. Virtual networks without these services can continue using *Allow* and *Deny* rules. 
+When a virtual network contains these services, the security admin rules skip this virtual network. If you want *Allow* rules applied to this virtual network, you create your security configuration with the `AllowRulesOnly` field set in the [securityConfiguration.properties.applyOnNetworkIntentPolicyBasedServices](/dotnet/api/microsoft.azure.management.network.models.networkintentpolicybasedservice?view=azure-dotnet) .NET class. When set, *Allow* rules in your security configuration will be applied to this virtual network. All *Deny* rules will not be applied on this virtual network. Virtual networks without these services can continue using *Allow* and *Deny* rules. 
 
 You can create a security configuration with *Allow* rules only and deploy it to your virtual networks with [Azure PowerShell](/powershell/module/az.network/new-aznetworkmanagersecurityadminconfiguration#example-1) and [Azure CLI](/cli/azure/network/manager/security-admin-config#az-network-manager-security-admin-config-create-examples).
 
@@ -129,7 +129,7 @@ You can create a security configuration with *Allow* rules only and deploy it to
 > When multiple Azure Virtual Network Manager instances apply different settings in the `securityConfiguration.properties.applyOnNetworkIntentPolicyBasedServices` class to the same virtual network, the setting of the network manager instance with the highest scope will be used.
 > Let's say you have two virtual network managers. The first network manager is scoped to the root management group and has a security configuration with set to *AllowRulesOnly* in the `securityConfiguration.properties.applyOnNetworkIntentPolicyBasedServices` class. The second virtual network manager is scoped to a subscription under the root management group and uses the default field of *None* in it's security configuration. When both configurations apply security admin rules to the same virtual network, the *AllowRulesOnly* setting will be applied to the virtual network.
 
-### Non-application at subnet level
+### Nonapplication of security admin rules at subnet level
 
 Like network intent policies, there are some services that don't apply security admin rules when they're deployed in a subnet within the scope of a security configuration. Those services include:
 
@@ -142,7 +142,7 @@ Like network intent policies, there are some services that don't apply security 
 - Azure ExpressRoute Gateway
 
 > [!NOTE]
-> If you want to apply security admin rules on subnets containing an [Azure Application Gateway](../application-gateway/application-gateway-private-deployment.md), ensure each subnet only contains gateways that have been provisioned with *Network Isolation* enabled. If a subnet contains an Azure Application Gateway without network isolation, security admin rules won't be applied to this subnet.
+> If you want to apply security admin rules on subnets containing an Azure Application Gateway, ensure each subnet only contains gateways that have been provisioned with [network isolation](../application-gateway/application-gateway-private-deployment.md) enabled. If a subnet contains an Azure Application Gateway without network isolation, security admin rules won't be applied to this subnet.
 
 ## Security admin fields
 
