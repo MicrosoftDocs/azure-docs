@@ -5,6 +5,7 @@ ms.topic: conceptual
 ms.date: 03/02/2023
 ms.reviewer: viviandiec
 ---
+
 # Understand monitoring costs for Container insights
 
 This article provides pricing guidance for Container insights to help you understand how to:
@@ -156,7 +157,10 @@ You must be on the ContainerLogV2 schema to configure Basic Logs. For more infor
 
 ### Prometheus metrics scraping
 
-If you use [Prometheus metric scraping](container-insights-prometheus.md), make sure that you limit the number of metrics you collect from your cluster:
+> [!NOTE] 
+> This section describes [collection of Prometheus metrics in your Log Analytics workspace](container-insights-prometheus-logs.md). This information does not apply if you're using [Managed Prometheus to scrape your Prometheus metrics](prometheus-metrics-enable.md).
+
+If you [collect Prometheus metrics in your Log Analytics workspace](container-insights-prometheus-logs.md), make sure that you limit the number of metrics you collect from your cluster:
 
 - Ensure that scraping frequency is optimally set. The default is 60 seconds. You can increase the frequency to 15 seconds, but you must ensure that the metrics you're scraping are published at that frequency. Otherwise, many duplicate metrics will be scraped and sent to your Log Analytics workspace at intervals that add to data ingestion and retention costs but are of less value.
 - Container insights supports exclusion and inclusion lists by metric name. For example, if you're scraping **kubedns** metrics in your cluster, hundreds of them might get scraped by default. But you're most likely only interested in a subset of the metrics. Confirm that you specified a list of metrics to scrape, or exclude others except for a few to save on data ingestion volume. It's easy to enable scraping and not use many of those metrics, which will only add charges to your Log Analytics bill.
@@ -166,6 +170,7 @@ If you use [Prometheus metric scraping](container-insights-prometheus.md), make 
 
 ### Metric data
 Container insights includes a predefined set of metrics and inventory items collected that are written as log data in your Log Analytics workspace. All metrics in the following table are collected every one minute.
+
 
 
 | Type | Metrics |
@@ -184,3 +189,4 @@ The following list is the cluster inventory data collected by default:
 ## Next steps
 
 To help you understand what the costs are likely to be based on recent usage patterns from data collected with Container insights, see [Analyze usage in a Log Analytics workspace](../logs/analyze-usage.md).
+
