@@ -113,7 +113,7 @@ To view the number of packets sent in one or both directions through NAT gateway
 
 ### Dropped packets
 
-The dropped packets metric shows you the amount of data packets dropped by NAT gateway when traffic goes outbound or returns inbound in response to an outbound connection. 
+The dropped packets metric shows you the number of data packets dropped by NAT gateway when traffic goes outbound or returns inbound in response to an outbound connection. 
 
 Use this metric to: 
 
@@ -127,7 +127,7 @@ Possible reasons for dropped packets:
 
 ### SNAT connection count
 
-The SNAT connection count metric shows you the number of new SNAT connections within a specified time frame. This metric can be filtered by **Attempted** and **Failed** connection states. A failed connection volume greater than zero may indicate SNAT port exhaustion.
+The SNAT connection count metric shows you the number of new SNAT connections within a specified time frame. This metric can be filtered by **Attempted** and **Failed** connection states. A failed connection volume greater than zero can indicate SNAT port exhaustion.
 
 Use this metric to: 
 
@@ -169,7 +169,7 @@ You can use this metric to:
 
 - Help assess if you're experiencing a pattern of failed outbound connections. 
 
-Reasons for why you may see failed connections:
+Possible reasons for failed connections:
 
 - A pattern of failed connections can happen for various reasons. See the [NAT gateway connectivity troubleshooting guide](/azure/nat-gateway/troubleshoot-nat-connectivity) to help you further diagnose.
 
@@ -188,7 +188,7 @@ You can use this metric to:
 
 - Isolate whether an event is related to your NAT gateway or to the underlying data plane. 
 
-Reasons for why you may see a drop in data path availability include: 
+Possible reasons for a drop in data path availability include: 
 
 - An infrastructure outage has occurred. 
 
