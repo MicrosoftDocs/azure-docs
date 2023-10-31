@@ -227,6 +227,32 @@ Remember that storage can only be scaled up, not down.
 > [!NOTE]
 > Storage auto-grow never triggers an offline increase.
 
+## Premium SSD v2
+
+Premium SSD v2 offers higher performance than Premium SSDs while also generally being less costly. You can individually tweak the performance (capacity, throughput, and IOPS) of Premium SSD v2 disks at any time, allowing workloads to be cost efficient while meeting shifting performance needs. For example, a transaction-intensive database may need a large amount of IOPS at a small size, or a gaming application may need a large amount of IOPS but only during peak hours. Because of this, for most general purpose workloads, Premium SSD v2 can provide the best price performance.You can now deploy Azure Database for PostgreSQL Flexible servers with Premium SSD v2 disk in limited regions.
+
+### Differences between Premium SSD and Premium SSD v2
+
+Unlike Premium SSDs, Premium SSD v2 doesn't have dedicated sizes. You can set a Premium SSD v2 to any supported size you prefer, and make granular adjustments to the performance without downtime. Premium SSD v2 doesn't support host caching but, benefits significantly from lower latency, which addresses some of the same core problems host caching addresses. The ability to adjust IOPS, throughput, and size at any time allows you to dynamically change your storage configuration based upon your workload needs.Premium SSD v2 capacities range from 1 GiB to 64 TiBs, in 1-GiB increments.
+
+Premium SSD v2 offers up to 32 TiBs per region per subscription by default, but supports higher capacity by request. To request an increase in capacity, request a quota increase or contact Azure Support.
+
+#### Premium SSD v2 IOPS
+
+All Premium SSD v2 disks have a baseline IOPS of 3000 that is free of charge. After 6 GiB, the maximum IOPS a disk can have increases at a rate of 500 per GiB, up to 80,000 IOPS. So an 8 GiB disk can have up to 4,000 IOPS, and a 10 GiB can have up to 5,000 IOPS. To be able to set 80,000 IOPS on a disk, that disk must have at least 160 GiBs. Increasing your IOPS beyond 3000 increases the price of your disk.
+
+#### Premium SSD v2 throughput
+
+All Premium SSD v2 disks have a baseline throughput of 125 MB/s that is free of charge. After 6 GiB, the maximum throughput that can be set increases by 0.25 MB/s per set IOPS. If a disk has 3,000 IOPS, the max throughput it can set is 750 MB/s. To raise the throughput for this disk beyond 750 MB/s, its IOPS must be increased. For example, if you increased the IOPS to 4,000, then the max throughput that can be set is 1,000. 1,200 MB/s is the maximum throughput supported for disks that have 5,000 IOPS or more. Increasing your throughput beyond 125 increases the price of your disk.
+
+#### Premium SSD v2 Limitations
+
+- Azure Database for PostgreSQL Flexible Server with Premium SSD V2 disk can be only deployed only in West Europe, East US, Switzerland North regions during preview. 
+
+- During Premium SSD V2 disk does not support High Availability, Read Replicas, Geo Redundant Backups , Customer Managed Keys, Storage Autogrow features. Support for these features is coming soon.
+
+- 
+
 ## Backup
 
 The service automatically takes backups of your server. You can select a retention period from a range of 7 to 35 days. To learn more about backups, see [Backup and restore in Azure Database for PostgreSQL - Flexible Server](concepts-backup-restore.md).
@@ -245,9 +271,6 @@ The time it takes to restart your server depends on the crash recovery process a
 To improve the restart time, we recommend that you perform scale operations during off-peak hours. That approach reduces the time needed to restart the database server.
 
 Changing the backup retention period is an online operation.
-
-## Premium SSD V2
-
 
 ## Pricing
 
