@@ -28,32 +28,28 @@ You must have **Reader** access to the subscription into which Azure Communicati
 
 You must be able to contact your Zoom representative.
 
-## Find your Azure Communication Gateway's per-region domain names
+## Ask your onboarding team for the FQDNs and IP addresses for Azure Communications Gateway
 
-You need to know the FQDNs for each of Azure Communications Gateway's regions. Your Zoom representative needs these FQDNs to route calls to Azure Communications Gateway. To find these FQDNs:
+Ask your onboarding team for:
 
-1. Sign in to the [Azure portal](https://azure.microsoft.com/).
-1. In the search bar at the top of the page, search for your Communications Gateway resource.
-1. Select your Communications Gateway resource. Check that you're on the **Overview** of your Azure Communications Gateway resource.
-1. Select **Properties**.
-1. Find the field named **Domain**. This name is your deployment's _base domain name_.
-1. In each **Service Location** section, find the **Hostname** field. This field provides the _per-region domain name_. Your deployment has two service regions and therefore two per-region domain names.
-1. Note down the per-region domain names.
+- All the IP addresses that Azure Communications Gateway could use to send signaling and media to Zoom.
+- The FQDNs (fully qualified domain names) that Zoom should use to contact each Azure Communications Gateway region.
 
-## Ask your onboarding team for the IP addresses for Azure Communications Gateway
-
-Ask your onboarding team for all the IP addresses that Azure Communications Gateway could use to send signaling and media to Zoom servers. Your Zoom representative needs these values to allow signaling and media from Azure Communications Gateway.
+Your Zoom representative needs these values to configure Zoom for Azure Communications Gateway.
 
 ## Ask your Zoom representative to configure Zoom
 
-Ask your Zoom representative to configure Zoom to connect to Azure Communications Gateway.
+Ask your Zoom representative to configure Zoom for Azure Communications Gateway using the IP addresses and FQDNs that you obtained from your onboarding team.
 
 Zoom must:
 
-- Allowlist traffic from all the IP addresses for Azure Communications Gateway.
-- Route calls to the per-region domain names for Azure Communications Gateway.
+- Allowlist traffic from the IP addresses for Azure Communications Gateway.
+- Route calls to the FQDNs for Azure Communications Gateway.
 
 You can choose whether Zoom should use an active-active or active-backup distribution of calls to the Azure Communications Gateway regions.
+
+> [!TIP]
+> Don't provide your Zoom representative with the FQDNs from the **Overview** page for your Azure Communications Gateway resource. Those FQDNs are for the connection to your networks.
 
 ## Next step
 
