@@ -10,7 +10,7 @@ ms.date: 10/30/2023
 ms.author: mjyothish
 
 ---
-# Scheduled Autoscaling for Application Gateway 
+# Scheduled autoscaling for Application Gateway 
 
 ## Overview
 For those experiencing predictable daily traffic patterns and who have a reliable estimate of the required capacity for Application Gateway, the option to preschedule the minimum capacity to better align with traffic demands might be of interest. 
@@ -19,7 +19,7 @@ While autoscaling is commonly utilized, it’s important to note that Applicatio
 
 The goal is to use Azure Automation to create a schedule for running runbooks that adjust the minimum autoscaling capacity of Application Gateway to meet traffic demands.
 
-### How to setup scheduled autoscaling 
+### How to set up scheduled autoscaling 
 
 The solution is straightforward and can be implemented through the following actions:
 1.	Create an Azure Automation account resource in the same tenant as the Application Gateway 
@@ -69,6 +69,6 @@ Learn more about [Monitoring Azure Automation runbooks with metric alerts](../au
 
 Learn more about [Azure Automation](../automation/overview.md) 
 
-Reach out to us at [agschedule-autoscale@microsoft.com](agschedule-autoscale@microsoft.com) if you have questions or need help to set up Managed scheduled autoscale for your deployments. 
+Reach out to us at agschedule-autoscale@microsoft.com if you have questions or need help to set up Managed scheduled autoscale for your deployments. 
 
 
