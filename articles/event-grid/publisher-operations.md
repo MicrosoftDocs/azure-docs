@@ -13,7 +13,7 @@ This article describes HTTP publisher operations supported by Azure Event Grid w
 
 In order to publish CloudEvents to a namespace topic using HTTP, you should have a [namespace](create-view-manage-namespaces.md) and a [topic](create-view-manage-namespace-topics.md) already created.
 
-Use the publish operation to send to an HTTP namesapce endpont a single or a batch of CloudEvents using JSON format. Here's an example of a REST API command to publish cloud events. For more information about the operation and the command, see [REST API - Publish Cloud Events](/rest/api/eventgrid/).
+Use the publish operation to send to an HTTP namespace endpoint a single or a batch of CloudEvents using JSON format. Here's an example of a REST API command to publish cloud events. For more information about the operation and the command, see [REST API - Publish Cloud Events](/rest/api/eventgrid/).
 
 ```http
 POST myNamespaceName.westus-1.eventgrid.azure.net/topics/myTopic:publish?api-version=2023-11-01

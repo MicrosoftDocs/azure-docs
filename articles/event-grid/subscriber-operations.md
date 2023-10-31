@@ -11,7 +11,7 @@ This article describes HTTP subscriber operations supported by Azure Event Grid 
 
 ## Receive cloud events
 
-Use this operation to read a single CloudEvent or a batch of CloudEvents from a queue subscription. A queue subscription is an event subscriptions that has as a *deliveryMode* the value *queue*.
+Use this operation to read a single CloudEvent or a batch of CloudEvents from a queue subscription. A queue subscription is an event subscription that has as a *deliveryMode* the value *queue*.
 
 Here's an example of a REST API command to receive events. For more information about the receive operation, see [Event Grid REST API](/rest/api/eventgrid/).
 
@@ -45,7 +45,7 @@ Here's the sample response:
 }
 ```
 
-The response include a *lockToken* property which serves as an identifier of the event received and is used when your app needs to acknowledge, release, or reject an event.
+The response includes a *lockToken* property, which serves as an identifier of the event received and is used when your app needs to acknowledge, release, or reject an event.
 
 ## Acknowledge CloudEvents
 
@@ -82,7 +82,7 @@ Here's the sample response:
 
 ## Reject CloudEvents
 
-Use this operation to signal that an event should NOT be redelivered because it's not actionable. If there's a dead-letter configured, the event is sent to the dead-letter destination. Otherwise, it is dropped.
+Use this operation to signal that an event should NOT be redelivered because it's not actionable. If there's a dead-letter configured, the event is sent to the dead-letter destination. Otherwise, it's dropped.
 
 Here's an example of the REST API command to reject events. For more information about the reject operation, see [Event Grid REST API](/rest/api/eventgrid/).
 
@@ -110,7 +110,7 @@ Here's the sample response:
 
 ## Release CloudEvents
 
-A client releases an event to be available again for delivery. The request may contain a delay time before the event is available for delivery. If the delay time isn't specified or is zero, the associated event is released immediately and hence, is immediately available for redelivery. The delay time specified must be one of the following and is bound by the subscription’s event time to live, if set, or the topic’s retention time.
+A client releases an event to be available again for delivery. The request can contain a delay time before the event is available for delivery. If the delay time isn't specified or is zero, the associated event is released immediately and hence, is immediately available for redelivery. The delay time specified must be one of the following and is bound by the subscription’s event time to live, if set, or the topic’s retention time.
 
 * 0 seconds
 * 10 seconds
@@ -146,11 +146,11 @@ Here's the sample response:
 
 ## Renew lock
 
-Once a client has received an event, that event is locked, that is, unavailable for redelivery for the amount specified in *receiveLockDurationInSeconds* on the event subscription. A client renews an event lock to extend the time they can hold on to a received message. With a non-expired lock token, a client can successfully perform such operations as release, reject, acknowledge, and renew lock.
+Once a client has received an event, that event is locked, that is, unavailable for redelivery for the amount specified in *receiveLockDurationInSeconds* on the event subscription. A client renews an event lock to extend the time they can hold on to a received message. With a nonexpired lock token, a client can successfully perform such operations as release, reject, acknowledge, and renew lock.
 
 A client requests to renew a lock within 1 hour from the time the lock was created, that is, from the time the event was first received. It's the window of time on which lock renewal requests should succeed. It isn't the effective limit for the total lock duration (through continuous lock renewals). If an event subscription’s `receiveLockDurationInSeconds` is set to 300 (5 minutes) and the request comes in at minute 00:59:59 (1 second before the 1 hour limit (right) since the lock was first created when the message was received, then the lock renewal should succeed. It results in an effective total lock time of about 1:04:59. Hence, 1 hour is NOT an absolute limit for total lock duration, but it's for the time window within which a lock renewal can be requested regardless of the `receiveLockDurationInSeconds` value. If a subsequent lock renewal request comes in when the effective total lock time is more than 1 hour, then that request should fail as the lock has been extended beyond 1 hour.
 
-Here's an example of the REST API command to renew locks. For more information about the renew lock operation, see [Event GRid REST API](/rest/api/eventgrid/).
+Here's an example of the REST API command to renew locks. For more information about the renew lock operation, see [Event Grid REST API](/rest/api/eventgrid/).
 
 ```http
 https://{namespaceName}.{region}.eventgrid.azure.net/topics/{topicResourceName}/eventsubscriptions/{eventSubscriptionName}:renewLock&api-version=2023-11-01

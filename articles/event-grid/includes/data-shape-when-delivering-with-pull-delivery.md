@@ -1,6 +1,6 @@
 ### Data shape when receiving events using pull delivery
 
-When **delivering events using pull delivery**, Event Grid includes an array of objects that in turn includes the *event* and *brokerProperties* objects. The value of the *event* property is the CloudEvent delivered in structured content mode. *brokerProperties* contains the lock token associated to the CloudEvent delivered. The following json object is a sample response from a *receive* operation that returns two events:
+When **delivering events using pull delivery**, Event Grid includes an array of objects that in turn includes the *event* and *brokerProperties* objects. The value of the *event* property is the CloudEvent delivered in structured content mode. The *brokerProperties* object contains the lock token associated to the CloudEvent delivered. The following json object is a sample response from a *receive* operation that returns two events:
 
 ```json
 {

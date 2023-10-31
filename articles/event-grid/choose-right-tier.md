@@ -14,9 +14,9 @@ Azure Event Grid has two tiers with different capabilities. This article shares 
 Azure Event Grid includes the following functionality through Event Grid namespaces:
 
 * An MQTT pub-sub broker that supports bidirectional communication using MQTT v3.1.1 and v5.0.
-* HTTP CloudEvents publication.
-* HTTP pull delivery
-* Push delivery to Event Hubs over AMQP.
+* CloudEvents publication using HTTP.
+* Pull delivery using HTTP.
+* Push delivery to Event Hubs using AMQP.
 
 Use this tier if any of the following statements is true:
 

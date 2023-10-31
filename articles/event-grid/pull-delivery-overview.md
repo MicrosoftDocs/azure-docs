@@ -33,7 +33,7 @@ Consult [CloudEvents content modes](concepts-event-grid-namespaces.md#cloudevent
 
 ### Messages and events
 
-A CloudEvent typically carries event data announcing an occurrence in a system, that is, a system state change. However, you may convey any kind of data when using CloudEvents. For example, you might want to use the CloudEvents exchange format to send a command message to request an action to a downstream application. Another example is when you're routing messages from Event Grid's MQTT broker to a topic. Under this scenario, you're routing an MQTT message wrapped up in a CloudEvents envelope.
+A CloudEvent typically carries event data announcing an occurrence in a system, that is, a system state change. However, you could convey any kind of data when using CloudEvents. For example, you might want to use the CloudEvents exchange format to send a command message to request an action to a downstream application. Another example is when you're routing messages from Event Grid's MQTT broker to a topic. Under this scenario, you're routing an MQTT message wrapped up in a CloudEvents envelope.
 
 ## Pull delivery
 
@@ -56,7 +56,7 @@ Pull delivery offers these event consumption benefits:
 
 When receiving events or using operations that manage event state, an application specifies a namespace HTTP endpoint, a topic name, and the name of a *queue* event subscription. A queue event subscription has its *deliveryMode* set to "*queue*". Queue event subscriptions are used to consume events using the pull delivery API.  For more information about how to create these resources, see create [namespaces](create-view-manage-namespaces.md), [topics](create-view-manage-namespace-topics.md), and [event subscriptions](create-view-manage-event-subscriptions.md).
 
-You use an event subscription to define the filtering criteria for events and in doing so, you effectively define the set of events that are available for consumption through that event subscription. One or more subscriber (consumer) application can connect to the same namespace endpoint and use the same topic and event subscription.
+You use an event subscription to define the filtering criteria for events and in doing so, you effectively define the set of events that are available for consumption through that event subscription. One or more subscriber (consumer) applications can connect to the same namespace endpoint and use the same topic and event subscription.
 
 :::image type="content" source="media/pull-and-push-delivery-overview/pull-delivery.png" alt-text="High-level diagram of a publisher and consumer using an event subscription. Consumer uses pull delivery." lightbox="media/pull-and-push-delivery-overview/pull-delivery-high-res.png" border="false":::
 
@@ -68,15 +68,15 @@ Your application uses the following operations when working with pull delivery.
 * A **lock token** is a kind of handle that identifies an event that you can use to control its state.
 * Once a consumer application receives an event and processes it, it  **acknowledges** that event. This operation instructs Event Grid to delete the event so it isn't redelivered to another client. The consumer application acknowledges one or more tokens with a single request by specifying their lock tokens before they expire.
 
-In some other occasions, your consumer application may want to release or reject events.
+In some other occasions, your consumer application might want to release or reject events.
 
 * Your consumer application **releases** a received event to signal Event Grid that it isn't ready to process that event and to make it available for redelivery. It does so by calling the *release* operation with the lock tokens identifying the events to be returned back to Event Grid. Your application can control if the event should be released immediately or if a delay should be used before the event is available for redelivery.
 
-* You may want to **reject** an event if there's a condition, possibly permanent, that prevents your consumer application to process the event. For example, a malformed message can be rejected as it can't be successfully parsed. Rejected events are dead-lettered, if a dead-letter destination is available. Otherwise, they're dropped.
+* You could opt to **reject** an event if there's a condition, possibly permanent, that prevents your consumer application to process the event. For example, a malformed message can be rejected as it can't be successfully parsed. Rejected events are dead-lettered, if a dead-letter destination is available. Otherwise, they're dropped.
 
 #### Scope on which pull delivery operations run
 
-When you invoke a *receive*, *acknowledge*, *release*, *reject*, or *renew lock* operation, those actions are performed in the context of the event subscription. For example, if you acknowledge an event, that event is no longer availble through the event subscription used when calling the *acknowledge* action. Other event subscription may still have the "same" event available. That is because an event subscription gets a copy of the events published. Those event copies are effectively distinct from each other across event subscriptions. Each event has its own state idenpendent of other events.
+When you invoke a *receive*, *acknowledge*, *release*, *reject*, or *renew lock* operation, those actions are performed in the context of the event subscription. For example, if you acknowledge an event, that event is no longer available through the event subscription used when calling the *acknowledge* action. Other event subscription could still have the "same" event available. That is because an event subscription gets a copy of the events published. Those event copies are effectively distinct from each other across event subscriptions. Each event has its own state independent of other events.
 
 [!INCLUDE [data-shape-of-events-delivered-with-pull-delivery](./includes/data-shape-when-delivering-with-pull-delivery.md)]
 

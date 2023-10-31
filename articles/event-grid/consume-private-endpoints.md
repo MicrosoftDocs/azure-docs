@@ -7,13 +7,13 @@ ms.date: 11/02/2023
 
 # Deliver events using private link service
 
-**Pull** delivery supports consuming events using private links. Pull delivery is a feature of Event Grid namespaces. Once you have added a private enpoint connection to a namespace, your consumer application can connect to Event Grid on a private endpoint to receive events. For more information, see [configure private endpoints for namespaces](configure-private-endpoints-pull.md) and [pull delivery overview](pull-delivery-overview.md).
+**Pull** delivery supports consuming events using private links. Pull delivery is a feature of Event Grid namespaces. Once you have added a private endpoint connection to a namespace, your consumer application can connect to Event Grid on a private endpoint to receive events. For more information, see [configure private endpoints for namespaces](configure-private-endpoints-pull.md) and [pull delivery overview](pull-delivery-overview.md).
 
-With **push** delivery isn't possible to deliver events using [private endpoints](../private-link/private-endpoint-overview.md). That is, with push delivery, either in Event Grid basic or Event Grid namespaces, your application can't receive events over private IP space. However, there is a secure alternative using managed identities with public endpoints.
+With **push** delivery isn't possible to deliver events using [private endpoints](../private-link/private-endpoint-overview.md). That is, with push delivery, either in Event Grid basic or Event Grid namespaces, your application can't receive events over private IP space. However, there's a secure alternative using managed identities with public endpoints.
 
 ## Use managed identity
 
-If you are using Event Grid basic and your requirements call for a secure way to send events using an encrypted channel and a known identity of the sender (in this case, Event Grid) using public IP space, you could deliver events to Event Hubs, Service Bus, or Azure Storage service using an Azure Event Grid custom topic or a domain with system-assigned or user-assigned managed identity. For details about delivering events using managed identity, see [Event delivery using a managed identity](managed-service-identity.md).
+If you're using Event Grid basic and your requirements call for a secure way to send events using an encrypted channel and a known identity of the sender (in this case, Event Grid) using public IP space, you could deliver events to Event Hubs, Service Bus, or Azure Storage service using an Azure Event Grid custom topic or a domain with system-assigned or user-assigned managed identity. For details about delivering events using managed identity, see [Event delivery using a managed identity](managed-service-identity.md).
 
 :::image type="content" source="./media/consume-private-endpoints/deliver-private-link-service.svg" alt-text="Deliver via private link service":::
 
