@@ -223,7 +223,7 @@
         {
             "source_path_from_root": "/articles/virtual-desktop/azure-stack-hci.md",
             "redirect_url": "/azure/virtual-desktop/deploy-azure-virtual-desktop",
-            "redirect_document_id": true
+            "redirect_document_id": false
         }
     ]
 }
