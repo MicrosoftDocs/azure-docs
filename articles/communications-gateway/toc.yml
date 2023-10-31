@@ -49,7 +49,7 @@ items:
   - name: Mobile Control Point
     href: mobile-control-point.md
   - name: Emergency calling
-    href: emergency-calling-operator-connect.md
+    href: emergency-calls-operator-connect.md
   - name: Use the Number Management Portal
     href: manage-enterprise-operator-connect.md
 - name: Integration with Microsoft Teams Direct Routing
@@ -67,7 +67,7 @@ items:
     - name: Prepare for live traffic
       href: prepare-for-live-traffic-teams-direct-routing.md
   - name: Emergency calling
-    href: emergency-calling-teams-direct-routing.md
+    href: emergency-calls-teams-direct-routing.md
 - name: Integration with Zoom Phone Cloud Peering
   items:
   - name: Overview of interoperability
@@ -81,7 +81,7 @@ items:
     - name: Prepare for live traffic
       href: prepare-for-live-traffic-zoom.md
   - name: Emergency calling
-    href: emergency-calling-zoom.md
+    href: emergency-calls-zoom.md
 - name: Maintenance
   items:
   - name: Set up user roles

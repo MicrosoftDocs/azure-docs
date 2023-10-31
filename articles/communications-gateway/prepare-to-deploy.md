@@ -66,9 +66,9 @@ For more information on these options, see [Call control integration for Teams P
 
 If you plan to route emergency calls through Azure Communications Gateway, read about emergency calling with your chosen communications service:
 
-- [Microsoft Teams Direct Routing](emergency-calling-teams-direct-routing.md)
-- [Operator Connect and Teams Phone Mobile](emergency-calling-operator-connect.md)
-- [Zoom Phone Cloud Peering](emergency-calling-zoom.md)
+- [Microsoft Teams Direct Routing](emergency-calls-teams-direct-routing.md)
+- [Operator Connect and Teams Phone Mobile](emergency-calls-operator-connect.md)
+- [Zoom Phone Cloud Peering](emergency-calls-zoom.md)
 
 ## Configure MAPS or ExpressRoute
 

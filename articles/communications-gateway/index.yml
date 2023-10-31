@@ -71,7 +71,7 @@ landingContent:
           - text: Mobile Control Point
             url: mobile-control-point.md
           - text: Emergency calling
-            url: emergency-calling-operator-connect.md
+            url: emergency-calls-operator-connect.md
       - linkListType: how-to-guide
         links:
           - text: Manage enterprises and numbers in the Number Management Portal
@@ -95,7 +95,7 @@ landingContent:
           - text: Overview of interoperability
             url: interoperability-teams-direct-routing.md
           - text: Emergency calling
-            url: emergency-calling-teams-direct-routing.md
+            url: emergency-calls-teams-direct-routing.md
 
   # Card
   - title: Use Azure Communications Gateway for Zoom Phone Cloud Peering
@@ -113,7 +113,7 @@ landingContent:
           - text: Overview of interoperability
             url: interoperability-zoom.md
           - text: Emergency calling
-            url: emergency-calling-zoom.md
+            url: emergency-calls-zoom.md
 
   # Card
   - title: Manage Azure Communications Gateway
