@@ -82,7 +82,7 @@ For more information about DevOps integration with Azure Machine Learning, see [
 
 - Complete the [Create resources to get started](../quickstart-create-resources.md) if you don't already have an Azure Machine Learning workspace.
 
-- A Python environment in which you've installed Azure Machine Learning Python SDK v2 - [install instructions](https://github.com/Azure/azureml-examples/tree/sdk-preview/sdk#getting-started). This environment is for defining and controlling your Azure Machine Learning resources and is separate from the environment used at runtime ([learn more how to manage runtime](how-to-create-manage-runtime.md)) for promptflow engineering.
+- A Python environment in which you've installed Azure Machine Learning Python SDK v2 - [install instructions](https://github.com/Azure/azureml-examples/tree/sdk-preview/sdk#getting-started). This environment is for defining and controlling your Azure Machine Learning resources and is separate from the environment used at runtime. To learn more, see [how to manage runtime](how-to-create-manage-runtime.md) for prompt flow engineering.
 
 ### Install prompt flow SDK
 
