@@ -69,6 +69,16 @@ If your workbook query does not return data with a message "You do not have quer
 -	If you have ad block enabled in your browser, you may need to pause or disable and refresh the workbook in order to view data.
 
 
+## Frequently asked questions
+
+This section provides answers to common questions.
+
+[!INCLUDE [prometheus-faq-i-am-missing-some-metrics](../includes/prometheus-faq-i-am-missing-some-metrics.md)]
+
+[!INCLUDE [prometheus-faq-i-am-missing-metrics-with-same-name-different-casing](../includes/prometheus-faq-i-am-missing-metrics-with-same-name-different-casing.md)]
+
+[!INCLUDE [prometheus-faq-i-see-gaps-in-metric-data](../includes/prometheus-faq-i-see-gaps-in-metric-data.md)]
+
 ## Next steps
 * [Collect Prometheus metrics from AKS cluster](./prometheus-metrics-enable.md)
 * [Azure Monitor workspace](./azure-monitor-workspace-overview.md)

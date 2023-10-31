@@ -73,6 +73,19 @@ This section provides answers to common questions.
 
 All data is retrieved from an Azure Monitor workspace by using queries that are written in Prometheus Query Language (PromQL). You can write your own queries, use queries from the open source community, and use Grafana dashboards that include PromQL queries. See the [Prometheus project](https://prometheus.io/docs/prometheus/latest/querying/basics/). 
 
+[!INCLUDE [prometheus-faq-can-i-view-prometheus-metrics-in-metrics-explorer](../includes/prometheus-faq-can-i-view-prometheus-metrics-in-metrics-explorer.md)]
+
+### When I use managed service for Prometheus, can I store data for more than one cluster in an Azure Monitor workspace?
+        
+Yes. Managed service for Prometheus is intended to enable scenarios where you can store data from several Azure Kubernetes Service clusters in a single Azure Monitor workspace. See [Azure Monitor workspace overview](./azure-monitor-workspace-overview.md?#azure-monitor-workspace-architecture).
+
+### What types of resources can send Prometheus metrics to managed service for Prometheus?
+        
+Our agent can be used on Azure Kubernetes Service clusters and Azure Arc-enabled Kubernetes clusters. It's installed as a managed add-on for AKS clusters and an extension for Azure Arc-enabled Kubernetes clusters and you can configure it to collect the data you want. You can also configure remote write on Kubernetes clusters running in Azure, another cloud, or on-premises by following our instructions for enabling remote write.
+
+If you use the Azure portal to enable Prometheus metrics collection and install the AKS add-on or Azure Arc-enabled Kubernetes extension from the Insights page of your cluster, it enables logs collection into Log Analytics and Prometheus metrics collection into managed service for Prometheus. For more information, see [Data sources](#data-sources).
+
+
 
 ## Next steps
 
