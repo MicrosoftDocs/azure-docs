@@ -29,12 +29,12 @@ The following Azure CLI command uses a `--client-type` parameter.
 
     ```azurecli-interactive
     az webapp connection create sql \
-        --resource-group $RESOURCE_GROUP \
-        --name $APPSERVICE_NAME \
-        --target-resource-group $RESOURCE_GROUP \
-        --server $SQL_HOST \
-        --database $DATABASE_NAME \
-        --user-identity client-id=XX subs-id=XX \
+        --resource-group <group-name> \
+        --name <server-name> \
+        --target-resource-group <sql-group-name> \
+        --server <sql-name> \
+        --database <database-name> \
+        --user-identity client-id=<client-id> subs-id=<subscription-id> \
         --client-type dotnet
     ```
 
@@ -42,11 +42,11 @@ The following Azure CLI command uses a `--client-type` parameter.
 
     ```azurecli-interactive
     az webapp connection create sql \
-        --resource-group $RESOURCE_GROUP \
-        --name $APPSERVICE_NAME \
-        --target-resource-group $RESOURCE_GROUP \
-        --server $SQL_HOST \
-        --database $DATABASE_NAME \
+        --resource-group <group-name> \
+        --name <server-name> \
+        --target-resource-group <group-name> \
+        --server <sql-name> \
+        --database <database-name> \
         --system-identity \
         --client-type dotnet
     ```
@@ -61,7 +61,7 @@ Azure Database for MySQL - Flexible Server requires a user-assigned managed iden
 USER_IDENTITY_NAME=<YOUR_USER_ASSIGNED_MANAGEMED_IDENTITY_NAME>
 IDENTITY_RESOURCE_ID=$(az identity create \
     --name $USER_IDENTITY_NAME \
-    --resource-group $RESOURCE_GROUP \
+    --resource-group <group-name> \
     --query id \
     --output tsv)
 ```
@@ -87,11 +87,11 @@ The following Azure CLI command uses a `--client-type` parameter.
 
     ```azurecli-interactive
     az webapp connection create mysql-flexible \
-        --resource-group $RESOURCE_GROUP \
-        --name $APPSERVICE_NAME \
-        --target-resource-group $RESOURCE_GROUP \
-        --server $MYSQL_HOST \
-        --database $DATABASE_NAME \
+        --resource-group <group-name> \
+        --name <server-name> \
+        --target-resource-group <group-name> \
+        --server <mysql-name> \
+        --database <database-name> \
         --user-identity client-id=XX subs-id=XX mysql-identity-id=$IDENTITY_RESOURCE_ID \
         --client-type java
     ```
@@ -100,11 +100,11 @@ The following Azure CLI command uses a `--client-type` parameter.
 
     ```azurecli-interactive
     az webapp connection create mysql-flexible \
-    --resource-group $RESOURCE_GROUP \
-    --name $APPSERVICE_NAME \
-    --target-resource-group $RESOURCE_GROUP \
-    --server $MYSQL_HOST \
-    --database $DATABASE_NAME \
+    --resource-group <group-name> \
+    --name <server-name> \
+    --target-resource-group <group-name> \
+    --server <mysql-name> \
+    --database <database-name> \
     --system-identity mysql-identity-id=$IDENTITY_RESOURCE_ID \
     --client-type java
     ```
@@ -123,11 +123,11 @@ The following Azure CLI command uses a `--client-type` parameter.
 
     ```azurecli-interactive
     az webapp connection create postgres-flexible \
-        --resource-group $RESOURCE_GROUP \
-        --name $APPSERVICE_NAME \
-        --target-resource-group $RESOURCE_GROUP \
-        --server $POSTGRESQL_HOST \
-        --database $DATABASE_NAME \
+        --resource-group <group-name> \
+        --name <server-name> \
+        --target-resource-group <group-name> \
+        --server <postgresql-name> \
+        --database <database-name> \
         --user-identity client-id=XX subs-id=XX \
         --client-type java
     ```
@@ -136,11 +136,11 @@ The following Azure CLI command uses a `--client-type` parameter.
 
     ```azurecli-interactive
     az webapp connection create postgres-flexible \
-        --resource-group $RESOURCE_GROUP \
-        --name $APPSERVICE_NAME \
-        --target-resource-group $RESOURCE_GROUP \
-        --server $POSTGRESQL_HOST \
-        --database $DATABASE_NAME \
+        --resource-group <group-name> \
+        --name <server-name> \
+        --target-resource-group <group-name> \
+        --server <postgresql-name> \
+        --database <database-name> \
         --system-identity \
         --client-type java
     ```
@@ -151,9 +151,9 @@ The following Azure CLI command uses a `--client-type` parameter.
 
 This Service Connector command completes the following tasks in the background:
 
-* Enable system-assigned managed identity, or assign a user identity for the app `$APPSERVICE_NAME` hosted by Azure App Service.
+* Enable system-assigned managed identity, or assign a user identity for the app `<server-name>` hosted by Azure App Service.
 * Set the Microsoft Entra admin to the current signed-in user.
-* Add a database user for the system-assigned managed identity, user-assigned managed identity, or service principal. Grant all privileges of the database `$DATABASE_NAME` to this user. The username can be found in the connection string in preceding command output.
+* Add a database user for the system-assigned managed identity, user-assigned managed identity, or service principal. Grant all privileges of the database `<database-name>` to this user. The username can be found in the connection string in preceding command output.
 * Set configurations named `AZURE_MYSQL_CONNECTIONSTRING`, `AZURE_POSTGRESQL_CONNECTIONSTRING`, or `AZURE_SQL_CONNECTIONSTRING` to the Azure resource based on the database type.
 * For App Service, the configurations are set in the **App Settings** blade.
 

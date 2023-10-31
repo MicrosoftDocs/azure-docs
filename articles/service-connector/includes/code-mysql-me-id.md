@@ -6,8 +6,9 @@ ms.date: 10/20/2023
 ms.author: xiaofanzhou
 ---
 
-# [.NET](#tab/dotnet-mysql-me)
-For .NET, get an access token for the managed identity or service principal using a client library such as [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/). Then use the access token as a password to connect to the database. When using the code below, make sure you uncomment the part of the code snippet that corresponds to the authentication type you want to use.
+
+### [.NET](#tab/dotnet)
+For .NET, there's not a plugin or library to support passwordless connections. You can get an access token for the managed identity or service principal using client library like [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/). Then you can use the access token as the password to connect to the database. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
 
 ```csharp
 using Azure.Core;
@@ -45,7 +46,7 @@ await connection.OpenAsync();
 // do something
 ```
 
-# [Java](#tab/java-mysql-me)
+### [Java](#tab/java)
 
 1. Add the following dependencies in your *pom.xml* file:
 
@@ -61,7 +62,6 @@ await connection.OpenAsync();
         <version>1.1.5</version>
     </dependency>
     ```
-
 1. Get the connection string from the environment variable, and add the plugin name to connect to the database:
 
     ```java
@@ -73,26 +73,24 @@ await connection.OpenAsync();
 
 For more information, see [Use Java and JDBC with Azure Database for MySQL - Flexible Server](../../mysql/flexible-server/connect-java.md?tabs=passwordless).
 
-# [SpringBoot](#tab/spring-mysql-me)
+### [SpringBoot](#tab/spring)
 
-For a Spring application, if you create a connection with the option `--client-type springboot`, Service Connector will set the properties `spring.datasource.azure.passwordless-enabled`, `spring.datasource.url`, and `spring.datasource.username` to Azure Spring Apps. 
+For a Spring application, if you create a connection with option `--client-type springboot`, Service Connector will set the properties `spring.datasource.azure.passwordless-enabled`, `spring.datasource.url`, and `spring.datasource.username` to Azure Spring Apps. 
 
 Update your application following the tutorial [Connect an Azure Database for MySQL instance to your application in Azure Spring Apps](../../spring-apps/how-to-bind-mysql.md#prepare-your-project). Remember to remove the `spring.datasource.password` configuration property if it was set before and add the correct dependencies to your Spring application.
 
 For more tutorials, see [Use Spring Data JDBC with Azure Database for MySQL](/azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-mysql?tabs=passwordless%2Cservice-connector&pivots=mysql-passwordless-flexible-server#store-data-from-azure-database-for-mysql)
 
-# [Python](#tab/python-mysql-me)
 
-1. Install dependencies.
-
+### [Python](#tab/python)
+1. Install dependencies
    ```bash
    pip install azure-identity
    # install Connector/Python https://dev.mysql.com/doc/connector-python/en/connector-python-installation.html
    pip install mysql-connector-python
    ```
+1. Authenticate with access token get via `azure-identity` library and get connection information from the environment variable added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
 
-1. Authenticate with an access token from the `azure-identity` library. Get the connection information from the environment variable added by Service Connector. When using the code below, make sure you uncomment the part of the code snippet that corresponds to the authentication type you want to use.
-    
     ```python
     from azure.identity import ManagedIdentityCredential, ClientSecretCredential
     import mysql.connector
@@ -129,15 +127,13 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for MySQL](/az
     
     ```
 
-# [Django](#tab/django-mysql-me)
-
+### [Django](#tab/django)
 1. Install dependencies.
-
    ```bash
    pip install azure-identity
    ```
+1. Get access token via `azure-identity` library with the environment variables added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
 
-1. Get an access token via the `azure-identity` library with the environment variables added by Service Connector. When using the code below, make sure you uncomment the part of the code snippet that corresponds to the authentication type you want to use.
 
     ```python
     from azure.identity import ManagedIdentityCredential, ClientSecretCredential
@@ -161,14 +157,13 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for MySQL](/az
     accessToken = cred.get_token('https://ossrdbms-aad.database.windows.net/.default')
     ```
 
-1. In the settings file, get the Azure MySQL database information from the environment variables added by Service Connector. Use the `accessToken` acquired in the previous step to access the database.
-
+1. In setting file, get Azure MySQL database information from environment variables added by Service Connector service. Use `accessToken` acquired in previous step to access the database.
     ```python
-    # in your settings file, eg. settings.py
+    # in your setting file, eg. settings.py
     host = os.getenv('AZURE_MYSQL_HOST')
     database = os.getenv('AZURE_MYSQL_NAME')
     user = os.getenv('AZURE_MYSQL_USER')
-    password = accessToken.token # this is the accessToken acquired from the above step.
+    password = accessToken.token # this is accessToken acquired from above step.
     
     DATABASES = {
         'default': {
@@ -181,17 +176,16 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for MySQL](/az
     }
     ```
 
-# [Go](#tab/go-mysql-me)
+### [Go](#tab/go)
 
 1. Install dependencies.
-
    ```bash
    go get "github.com/go-sql-driver/mysql"
    go get "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
    go get "github.com/Azure/azure-sdk-for-go/sdk/azcore"
    ```
+1. In code, get access token via `azidentity`, then connect to Azure MySQL with the token. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
 
-1. In code, get an access token via `azidentity`, then connect to Azure MySQL with the token. When using the code below, make sure you uncomment the part of the code snippet that corresponds to the authentication type you want to use.
 
    ```go
    import (
@@ -234,16 +228,14 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for MySQL](/az
    }
    ```
 
-# [NodeJS](#tab/nodejs-mysql-me)
-
-1. Install dependencies.
-
+### [NodeJS](#tab/nodejs)
+1. Install dependencies
    ```bash
    npm install --save @azure/identity
    npm install --save mysql2
    ```
+2. Get access token using `@azure/identity` and Azure MySQL database information from environment variables added by Service Connector service. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
 
-1. Get an access token using `@azure/identity` and the Azure MySQL database information from the environment variables added by Service Connector.  When using the code below, make sure you uncomment the part of the code snippet that corresponds to the authentication type you want to use.
 
    ```javascript
    import { DefaultAzureCredential,ClientSecretCredential } from "@azure/identity";
@@ -287,14 +279,13 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for MySQL](/az
    });
    ```
 
-# [PHP](#tab/php-mysql-me)
+### [PHP](#tab/php)
+For other languages, you can use the connection string and username that Service Connector set to the environment variables to connect the database. For environment variable details, see [Integrate Azure Database for MySQL with Service Connector](../how-to-integrate-mysql.md).
 
-For other languages, use the connection string and username that Service Connector set to the environment variables to connect the database. For the environment variable details, see [Integrate Azure Database for MySQL with Service Connector](../how-to-integrate-mysql.md).
+### [Ruby](#tab/ruby)
+For other languages, you can use the connection string and username that Service Connector set to the environment variables to connect the database. For environment variable details, see [Integrate Azure Database for MySQL with Service Connector](../how-to-integrate-mysql.md).
 
-# [Ruby](#tab/ruby-mysql-me)
-
-For other languages, use the connection string and username that Service Connector set to the environment variables to connect the database. For the environment variable details, see [Integrate Azure Database for MySQL with Service Connector](../how-to-integrate-mysql.md).
-
------
+---
 
 For more code samples, see [Connect to Azure databases from App Service without secrets using a managed identity](/azure/app-service/tutorial-connect-msi-azure-database?tabs=mysql#3-modify-your-code).
+
