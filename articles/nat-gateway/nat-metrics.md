@@ -269,7 +269,7 @@ To create the alert, use the following steps:
 11. Select **Create** to create the alert rule.
 
 >[!NOTE]
->SNAT port exhaustion on your NAT gateway resource is uncommon. If you see SNAT port exhaustion, check if NAT gateway's idle timeout timer is set higher than the default amount of 4 minutes. A long idle timeout timer seeting can cause SNAT ports too be in hold down for longer, which results in exhausting SNAT port inventory sooner. You can also scale your NAT gateway with additional public IPs to increase NAT gateway's overall SNAT port inventory. To troubleshoot these kinds of issues, refer to the [NAT gateway connectivity troubleshooting guide](/troubleshoot-nat-connectivity.md#snat-exhaustion-due-to-nat-gateway-configuration). 
+>SNAT port exhaustion on your NAT gateway resource is uncommon. If you see SNAT port exhaustion, check if NAT gateway's idle timeout timer is set higher than the default amount of 4 minutes. A long idle timeout timer seeting can cause SNAT ports too be in hold down for longer, which results in exhausting SNAT port inventory sooner. You can also scale your NAT gateway with additional public IPs to increase NAT gateway's overall SNAT port inventory. To troubleshoot these kinds of issues, refer to the [NAT gateway connectivity troubleshooting guide](/azure/nat-gateway/troubleshoot-nat-connectivity#snat-exhaustion-due-to-nat-gateway-configuration). 
 
 ## Network Insights
 
@@ -307,4 +307,4 @@ For more information on what each metric is showing you and how to analyze these
 * Learn about [NAT gateway resource](nat-gateway-resource.md)
 * Learn about [Azure Monitor](../azure-monitor/overview.md)
 * Learn about [troubleshooting NAT gateway resources](troubleshoot-nat.md).
-* Learn about [troubleshooting NAT gateway connectivity](/troubleshoot-nat-connectivity.md#snat-exhaustion-due-to-nat-gateway-configuration)
+* Learn about [troubleshooting NAT gateway connectivity](/azure/nat-gateway/troubleshoot-nat-connectivity)
