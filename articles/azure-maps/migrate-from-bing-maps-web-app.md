@@ -472,7 +472,7 @@ When using a Symbol layer, the data must be added to a data source, and the data
 
 Custom images can be used to represent points on a map. The following image is used in the below examples and uses a custom image to display a point on the map at (latitude: 51.5, longitude: -0.2) and offsets the position of the marker so that the point of the pushpin icon aligns with the correct position on the map.
 
-| ![Azure Maps add puspin](media/migrate-bing-maps-web-app/yellow-pushpin.png)|
+| ![Azure Maps add pushpin.](media/migrate-bing-maps-web-app/yellow-pushpin.png)|
 |:-----------------------------------------------------------------------:|
 | yellow-pushpin.png                                                        |
 
@@ -1622,7 +1622,7 @@ In Azure Maps, the drawing tools module needs to be loaded by loading the JavaSc
 </html>
 ```
 
-:::image type="content" source="./media/migrate-bing-maps-web-app/azure-maps-drawing-tools.jpg" lightbox="./media/migrate-bing-maps-web-app/azure-maps-drawing-tools-l.jpg" alt-text="Screenshot showing the Azure Maps drawing tools":::
+:::image type="content" source="./media/migrate-bing-maps-web-app/azure-maps-drawing-tools.jpg" lightbox="./media/migrate-bing-maps-web-app/azure-maps-drawing-tools-l.jpg" alt-text="Screenshot showing the Azure Maps drawing tools.":::
 
 > [!TIP]
 > In Azure Maps layers the drawing tools provide multiple ways that users can draw shapes. For example, when drawing a polygon the user can click to add each point, or hold the left mouse button down and drag the mouse to draw a path. This can be modified using the `interactionType` option of the `DrawingManager`.
