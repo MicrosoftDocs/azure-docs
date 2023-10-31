@@ -169,11 +169,11 @@ df.show()
 
 ::: zone-end
 
-#### ADLS Gen2 storage - without linked services
+#### ADLS Gen2 storage without linked services
 
-Connect to ADLS Gen2 storage directly by using a SAS key use the **ConfBasedSASProvider** and provide the SAS key to the **spark.storage.synapse.sas** configuration setting. SAS tokens can be set at the container level, account level or globally. We do not recommend setting SAS keys at the global level (the job will not be able to read/write from more than 1 storage account)
+Connect to ADLS Gen2 storage directly by using a SAS key. Use the `ConfBasedSASProvider` and provide the SAS key to the `spark.storage.synapse.sas` configuration setting. SAS tokens can be set at the container level, account level, or global. We do not recommend setting SAS keys at the global level, as the job will not be able to read/write from more than one storage account.
 
-<strong>SAS configuration per storage container</strong>
+**SAS configuration per storage container**
 
 ::: zone pivot = "programming-language-scala"
 
@@ -206,7 +206,7 @@ display(df.limit(10))
 
 ::: zone-end
 
-<strong>SAS configuration per storage account</strong>
+**SAS configuration per storage account**
 
 ::: zone pivot = "programming-language-scala"
 
@@ -239,7 +239,7 @@ display(df.limit(10))
 
 ::: zone-end
 
-<strong>SAS configuration of all storage accounts</strong>
+**SAS configuration of all storage accounts**
 
 ::: zone pivot = "programming-language-scala"
 
@@ -458,7 +458,7 @@ The following methods of accessing the linked services are not supported from th
   - System Assigned Managed identities are not supported on Keyvault resource
   - For Azure Cosmos DB connections, key based access alone is supported. Token based access is not supported.
 
-While running a notebook or a Spark job, requests to get a token / secret using a linked service may fail with an error message that indicates 'BadRequest'. This is often caused by a configuration issue with the linked service. If you see this error message, please check the configuration of your linked service. If you have any questions, please contact Microsoft Azure Support at the [Azure portal](https://portal.azure.com).
+While running a notebook or a Spark job, requests to get a token / secret using a linked service might fail with an error message that indicates 'BadRequest'. This is often caused by a configuration issue with the linked service. If you see this error message, please check the configuration of your linked service. If you have any questions, please contact Microsoft Azure Support at the [Azure portal](https://portal.azure.com).
 
 ## Next steps
 
