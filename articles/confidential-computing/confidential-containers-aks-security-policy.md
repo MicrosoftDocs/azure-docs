@@ -15,7 +15,7 @@ As described by the Confidential Computing Consortium (CCC), *"Confidential Comp
 
 ## Security policy overview
 
-One of the main components of the [Kata Containers system architecture](https://github.com/kata-containers/kata-containers/blob/main/docs/design/architecture/history.md#kata-2x-architecture) is the [Kata agent](https://github.com/kata-containers/kata-containers/blob/main/docs/design/architecture/README.md#agent). When using Kata Containers to implement Confidential Containers, the agent is executed inside the hardware-based TEE and therefore is part of the pod's Trusted Computing Base (TCB). As shown in the following diagram, the Kata agent provides a set of [ttrpc](https://github.com/containerd/ttrpc) APIs allowing the system components outside of the TEE to create and manage CVM-based Kubernetes pods. These other components (for example, the Kata Shim) are not part of the pod's TCB, therefore the agent must protect itself from potentially buggy or malicious API calls.
+One of the main components of the [Kata Containers system architecture](https://github.com/kata-containers/kata-containers/blob/main/docs/design/architecture/history.md#kata-2x-architecture) is the [Kata agent](https://github.com/kata-containers/kata-containers/blob/main/docs/design/architecture/README.md#agent). When using Kata Containers to implement Confidential Containers, the agent is executed inside the hardware-based TEE and therefore is part of the pod's Trusted Computing Base (TCB). As shown in the following diagram, the Kata agent provides a set of [ttrpc](https://github.com/containerd/ttrpc) APIs allowing the system components outside of the TEE to create and manage CVM-based Kubernetes pods. These other components (for example, the Kata Shim) aren't part of the pod's TCB, therefore the agent must protect itself from potentially buggy or malicious API calls.
 
 :::image type="content" source="media/confidential-containers-security-policy/security-policy-architecture-diagram.png" alt-text="Diagram of the AKS Confidental Containers Security Policy model.":::
 
@@ -57,17 +57,17 @@ When evaluating the Rego rules using the Policy data and API inputs as parameter
 
 * `default CreateContainerRequest := false` – means that any CreateContainer API call is rejected unless a set of Policy rules explicitly allow that call.
 
-* `default GuestDetailsRequest := true` – means that calls from outside of the TEE to the GuestDetails API are always allowed because the data returned by this API is not sensitive for confidentiality of the customer workloads.
+* `default GuestDetailsRequest := true` – means that calls from outside of the TEE to the GuestDetails API are always allowed because the data returned by this API isn't sensitive for confidentiality of the customer workloads.
 
 ## Sending the Policy to Kata agent
 
-All AKS Confidential Containers CVMs start up using a generic, default Policy that's included in the CVMs root file system. Therefore, a Policy that matches the actual customer workload must be provided to the agent at run time. The policy text is embedded in your YAML manifest file as described earlier and is provided that way to the agent early during CVM initialization. The Policy annotation travels though the kubelet, containerd, and [Kata shim](https://github.com/kata-containers/kata-containers/blob/main/src/runtime/cmd/containerd-shim-kata-v2) components of the AKS Confidential Containers system. Then the agent working together with OPA enforces the policy for all the calls to its own APIs.
+All AKS Confidential Containers CVMs start up using a generic, default Policy that's included in the CVMs root file system. Therefore, a Policy that matches the actual customer workload must be provided to the agent at run time. The policy text is embedded in your YAML manifest file as described earlier and is provided that way to the agent early during CVM initialization. The Policy annotation travels through the kubelet, containerd, and [Kata shim](https://github.com/kata-containers/kata-containers/blob/main/src/runtime/cmd/containerd-shim-kata-v2) components of the AKS Confidential Containers system. Then the agent working together with OPA enforces the policy for all the calls to its own APIs.
 
-The policy is provided using components that aren't part of your TCB, so initially this policy is not trusted. The trustworthiness of the policy must be established through Remote Attestation, as described later.
+The policy is provided using components that aren't part of your TCB, so initially this policy isn't trusted. The trustworthiness of the policy must be established through Remote Attestation, as described later.
 
 ## Establish trust in the Policy document
 
-Before creating the Pod CVM, the Kata shim computes the SHA256 hash of the Policy document and attaches that hash value to the TEE. That action creates a strong binding between the contents of the Policy and the CVM. This TEE field cannot be modified later by either the software executed inside the CVM, or outside of it.
+Before creating the Pod CVM, the Kata shim computes the SHA256 hash of the Policy document and attaches that hash value to the TEE. That action creates a strong binding between the contents of the Policy and the CVM. This TEE field can't be modified later by either the software executed inside the CVM, or outside of it.
 
 Upon receiving the Policy, the agent verifies the hash of the Policy matches the immutable TEE field. The agent rejects the incoming Policy if it detects a hash mismatch.
 
