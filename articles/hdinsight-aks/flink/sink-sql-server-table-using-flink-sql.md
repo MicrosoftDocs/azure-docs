@@ -35,7 +35,7 @@ The SQLServer CDC connector is a Flink Source connector, which reads database sn
 
 We have already covered this section in detail on how to use [secure shell](./flink-web-ssh-on-portal-to-flink-sql.md) with Flink. 
 
-## Prepare table and enable cdc feature on SQL Server sqldb
+### Prepare table and enable cdc feature on SQL Server sqldb
 
 Let us prepare a table and enable the CDC, You can refer the detailed steps listed on [SQL Documentation](/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server?)
 
@@ -120,7 +120,7 @@ VALUES ('21-FEB-2016', 1003, 1, 107);
 EXEC sys.sp_cdc_enable_table @source_schema = 'dbo', @source_name = 'orders', @role_name = NULL, @supports_net_changes = 0;
 GO
 ``` 
-## Download SQLServer CDC connector and its dependencies on SSH
+### Download SQLServer CDC connector and its dependencies on SSH
 
 **WSL to ubuntu on local to check all dependencies related *flink-sql-connector-sqlserver-cdc* jar**
 
@@ -133,7 +133,7 @@ wget https://repo1.maven.org/maven2/com/ververica/flink-sql-connector-sqlserver-
 ```sql
 bin/sql-client.sh -j flink-sql-connector-sqlserver-cdc-2.4.1.jar
 ```
-## Create SQLServer CDC table
+### Create SQLServer CDC table
 
 ``` sql
 SET 'sql-client.execution.result-mode' = 'tableau';
@@ -164,7 +164,7 @@ select * from orders;
 
 :::image type="content" source="./media/sink-sql-server-table-using-flink-sql/insert-sql-table.png" alt-text="Screenshot showing making changes on SQL Table.":::
 
-## Validation
+### Validation
 
 Monitor the table on Flink SQL
 
