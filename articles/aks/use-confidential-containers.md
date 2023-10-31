@@ -32,10 +32,10 @@ This article helps you understand the Confidential Containers feature, and how t
 
 ## Supported scenarios
 
-Confidential Containers (preview) are appropriate for deployment scenarios that involve sensitive data, for instance, personally identifiable information (PII) or any data with strong security needed for regulatory compliance. Some examples of common scenarios with containers are:
+Confidential Containers (preview) are appropriate for deployment scenarios that involve sensitive data. For instance, personally identifiable information (PII) or any data with strong security needed for regulatory compliance. Some common scenarios with containers are:
 
-- Privacy preserving big data analytics using Apache Spark analytics job for fraud pattern recognition in the financial sector.
-- Running self-hosted GitHub runners to secure code signing as part of Continuous Integration and Continuous Deployment (CI/CD) DevOps practices.
+- Run big data analytics using Apache Spark for fraud pattern recognition in the financial sector.
+- Running self-hosted GitHub runners to securely sign code as part of Continuous Integration and Continuous Deployment (CI/CD) DevOps practices.
 - Machine Learning inferencing and training of ML models using an encrypted data set from a trusted source. It only decrypts inside a confidential container environment for the purpose of privacy preserving ML inference.
 - Building big data clean rooms for ID matching as part of multi-party computation in industries like retail with digital advertising.
 - Building confidential computing Zero Trust landing zones to meet privacy regulations for application migrations to cloud.
@@ -46,7 +46,7 @@ Confidential Containers (preview) are appropriate for deployment scenarios that 
 
 - The `aks-preview` Azure CLI extension version 0.5.123 or later.
 - 
-- The `ConfCom` Confidential Container Security Policy Generator Azure CLI extension 2.62.2 or later.
+- The `confcom` Confidential Container Security Policy Generator Azure CLI extension 2.62.2 or later.
 
 - Register the `Preview` feature in your Azure subscription.
 
@@ -263,14 +263,14 @@ The Security Policy document describes all the calls to agent’s ttrpc APIs tha
 The main input to genpolicy is a standard Kubernetes (K8s) YAML file that is provided by you. The tool supports automatic Policy generation based on K8s DaemonSet, Deployment, Job, Pod, ReplicaSet, ReplicationController, and StatefulSet input YAML files. The following is an example executing this tool:
 
 ```bash
-genpolicy -y my-pod.yaml 
+az confcom katapolicygen -y my-pod.yaml
 ```
 
 To see other command line options, run the command with the `--help` argument.
 
 You can adjust the behavior of this app by making changes to the `genpolicy-settings.json` file.
 
-On successful execution, genpolicy creates the Policy document, encodes it in *base64* format, and adds it to the YAML file as an annotation, similar to:
+On successful execution, genpolicy creates the Policy document, encodes it in *base64* format, and adds it to the YAML file as an annotation. Similar to:
 
 ```output
 io.katacontainers.config.agent.policy: cGFja2FnZSBhZ2VudF9wb2xpY3kKCmlt <…>
@@ -279,7 +279,7 @@ io.katacontainers.config.agent.policy: cGFja2FnZSBhZ2VudF9wb2xpY3kKCmlt <…>
 To print information about the actions undertaken by the application while it computes the Policy, set genpolicy’s `RUST_LOG`` environment variable by running the following command:
 
 ```bash
-RUST_LOG=info genpolicy -y my-pod.yaml 
+RUST_LOG=info az confcom katapolicygen -y my-pod.yaml 
 ```
 
 For example, the app downloads the container image layers for each of the containers specified by the input YAML file. It calculates the dm-verity root hash value for each of the layers. Depending on the speed of the download from the container image repository, these actions might take a few minutes to complete.
