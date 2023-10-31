@@ -34,7 +34,7 @@ Containers|[Migrate from ContainerLog to ContainerLogV2](containers/container-in
 Containers|[Configure remote write for Azure managed service for Prometheus using Azure Active Directory workload identity (preview)](containers/prometheus-remote-write-azure-workload-identity.md)|New article Configure remote write for Azure Monitor managed service …|
 Essentials|[Migrate from diagnostic settings storage retention to Azure Storage lifecycle management](essentials/migrate-to-azure-storage-lifecycle-policy.md)|Added CLI and template tabs showing storage lifecycle setting.|
 General|[Plan your alerts and automated actions](alerts/alerts-plan.md)|Add alerts best practices article|
-General|[Azure Monitor cost and usage](usage-estimated-costs.md)|Updated information about the Cost Analysis usage report which contains both the cost for your usage, and the number of units of usage. You can use this export to see the amount of benefit you're receiving from various offers such as the [Defender for Servers data allowance](logs/cost-logs.md#workspaces-with-microsoft-defender-for-cloud) and the [Microsoft Sentinel benefit for Microsoft 365 E5, A5, F5, and G5 customers](https://azure.microsoft.com/offers/sentinel-microsoft-365-offer/). |
+General|[Azure Monitor cost and usage](cost-usage.md)|Updated information about the Cost Analysis usage report which contains both the cost for your usage, and the number of units of usage. You can use this export to see the amount of benefit you're receiving from various offers such as the [Defender for Servers data allowance](logs/cost-logs.md#workspaces-with-microsoft-defender-for-cloud) and the [Microsoft Sentinel benefit for Microsoft 365 E5, A5, F5, and G5 customers](https://azure.microsoft.com/offers/sentinel-microsoft-365-offer/). |
 Logs|[Send log data to Azure Monitor by using the HTTP Data Collector API (deprecated)](logs/data-collector-api.md)|Added deprecation notice.|
 Logs|[Azure Monitor Logs overview](logs/data-platform-logs.md)|Added code samples for the Azure Monitor Ingestion client module for Go.|
 Logs|[Set a table's log data plan to Basic or Analytics](logs/basic-logs-configure.md)|Added new Virtual Network Manager,  Dev Center, and Communication Services tables that now support Basic logs.|
@@ -43,7 +43,7 @@ Logs|[Set a table's log data plan to Basic or Analytics](logs/basic-logs-configu
 
 |Subservice| Article | Description |
 |---|---|---|
-General|[Azure Monitor cost and usage](usage-estimated-costs.md)|Added section detailing billing meter names.|
+General|[Azure Monitor cost and usage](cost-usage.md)|Added section detailing billing meter names.|
 Application-Insights|[Add, modify, and filter OpenTelemetry](app/opentelemetry-add-modify.md)|A caution has been added about using community libraries with additional information on how to request we include them in our distro.|
 Application-Insights|[Add, modify, and filter OpenTelemetry](app/opentelemetry-add-modify.md)|Support and feedback options are now available across all of our OpenTelemetry pages.|
 Application-Insights|[How many Application Insights resources should I deploy?](app/create-workspace-resource.md#how-many-application-insights-resources-should-i-deploy)|We added an important warning about additional network costs when monitoring across regions.|
@@ -655,7 +655,7 @@ Azure Monitor Workbooks documentation previously resided on an external GitHub r
 
 | Article | Description |
 |:---|:---|
-| [Azure Monitor cost and usage](usage-estimated-costs.md) | Added standard web tests to table.<br>Added explanation of billable GB calculation. |
+| [Azure Monitor cost and usage](cost-usage.md) | Added standard web tests to table.<br>Added explanation of billable GB calculation. |
 | [Azure Monitor overview](overview.md) | Updated overview diagram. |
 
 ### Agents

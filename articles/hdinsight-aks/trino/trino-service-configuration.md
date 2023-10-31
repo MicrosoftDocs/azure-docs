@@ -2,6 +2,7 @@
 title: Trino cluster configuration
 description: How to perform service configuration for Trino clusters for HDInsight on AKS.
 ms.service: hdinsight-aks
+ms.custom: devx-track-arm-template
 ms.topic: how-to
 ms.date: 10/19/2023
 ---
