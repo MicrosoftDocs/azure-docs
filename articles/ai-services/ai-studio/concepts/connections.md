@@ -58,14 +58,12 @@ A Uniform Resource Identifier (URI) represents a storage location on your local 
 
 |Storage location  | URI examples  |
 |---------|---------|
-|Azure AI Studio [connection](#datastore)  |   `azureml://datastores/<data_store_name>/paths/<folder1>/<folder2>/<folder3>/<file>.parquet`      |
+|Azure AI Studio connection  |   `azureml://datastores/<data_store_name>/paths/<folder1>/<folder2>/<folder3>/<file>.parquet`      |
 |Local files     | `./home/username/data/my_data`         |
 |Public http(s) server    |  `https://raw.githubusercontent.com/pandas-dev/pandas/main/doc/data/titanic.csv`    |
 |Blob storage    | `wasbs://<containername>@<accountname>.blob.core.windows.net/<folder>/`|
 |Azure Data Lake (gen2) | `abfss://<file_system>@<account_name>.dfs.core.windows.net/<folder>/<file>.csv`  |
 |Microsoft OneLake | `abfss://<file_system>@<account_name>.dfs.core.windows.net/<folder>/<file>.csv` `https://<accountname>.dfs.fabric.microsoft.com/<artifactname>` |
-
-
 
 
 ## Key vaults and secrets

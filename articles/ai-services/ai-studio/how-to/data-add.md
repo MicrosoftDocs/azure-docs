@@ -113,17 +113,12 @@ client = AIClient.from_config(DefaultAzureCredential())
 client.data.archive(name="<DATA ASSET NAME>")
 ```
 
-# [Studio](#tab/azure-studio)
-
-1. In the Studio UI, select **Data** from the left-hand menu.
-1. On the **Data assets** tab, select the data asset you want to archive.
-1. Select **Archive**, followed by **Archive** in the confirmation dialog box.
-
-:::image type="content" source="media/how-to-create-data-assets/data-asset-container-archive.png" alt-text="Screenshot that shows an archive of all data asset versions.":::
-
 ---
 
 ### Archive a specific data asset version
+
+> [!IMPORTANT]
+> Currently, archiving a specific data asset version is not supported in Azure AI Studio.
 
 To archive a specific data asset version, use:
 
@@ -149,11 +144,8 @@ client = AIClient.from_config(DefaultAzureCredential())
 client.data.archive(name="<DATA ASSET NAME>", version="<VERSION TO ARCHIVE>")
 ```
 
-# [Studio](#tab/azure-studio)
-
-> [!IMPORTANT]
-> Currently, archiving a specific data asset version is not supported in Azure AI Studio.
 ---
+
 
 ### Restore an archived data
 You can restore an archived data asset. If all of versions of the data asset are archived, you can't restore individual versions of the data asset - you must restore all versions.
@@ -182,15 +174,6 @@ client = AIClient.from_config(DefaultAzureCredential())
 # Create the data asset in the workspace
 client.data.restore(name="<DATA ASSET NAME>")
 ```
-
-# [Studio](#tab/azure-studio)
-
-1. In the Studio UI, select **Data** from the left-hand menu.
-1. On the **Data assets** tab, enable **Include Archived**.
-   :::image type="content" source="media/how-to-create-data-assets/data-asset-restore-incarc.png" alt-text="Screenshot showing Include archived as selected.":::
-1. Select the data asset name.
-1. Next, on the data asset details page, select **Restore**.
-   :::image type="content" source="media/how-to-create-data-assets/data-asset-restore.png" alt-text="Screenshot showing Restore as selected.":::
 
 ---
 
@@ -221,10 +204,6 @@ client = AIClient.from_config(DefaultAzureCredential())
 client.data.restore(name="<DATA ASSET NAME>", version="<VERSION TO ARCHIVE>")
 ```
 
-# [Studio](#tab/azure-studio)
-
-> [!IMPORTANT]
-> Currently, restoring a specific data asset version is not supported in Azure AI Studio.
 ---
 
 ## Data asset tagging

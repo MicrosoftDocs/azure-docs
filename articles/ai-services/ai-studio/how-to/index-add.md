@@ -84,4 +84,5 @@ You must have:
 
 ## Next steps
 
-- [Learn about vector stores](../concepts/vector-stores.md)
+- [Learn more about RAG](../concepts/retrieval-augmented-generation.md)
+
