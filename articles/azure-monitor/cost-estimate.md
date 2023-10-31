@@ -12,12 +12,12 @@ Your Azure Monitor cost will vary significantly based on your expected utilizati
 
 Since Azure Monitor has [multiple types of charges](cost-usage.md#pricing-model), its calculator has multiple categories. See the sections below for an explanation of these categories and guidance for providing estimates. See [Azure Monitor Pricing](https://azure.microsoft.com/pricing/details/monitor/) for current pricing details.
 
-Some of the values required by the calculator may be difficult to provide if you're just getting started with Azure Monitor. For example, you may have no idea of the volume of analytics logs generated from the different Azure resources that you intend to monitor. A common strategy is to enable monitoring for a small group of resources and use the observed data volumes with the calculator to determine your costs for a full environment. See [Analyze usage in Log Analytics workspace](logs/analyze-usage.md) for queries and other methods to measure the billable data in your Log Analytics workspace.
+Some of the values required by the calculator might be difficult to provide if you're just getting started with Azure Monitor. For example, you might have no idea of the volume of analytics logs generated from the different Azure resources that you intend to monitor. A common strategy is to enable monitoring for a small group of resources and use the observed data volumes with the calculator to determine your costs for a full environment. See [Analyze usage in Log Analytics workspace](logs/analyze-usage.md) for queries and other methods to measure the billable data in your Log Analytics workspace.
 
 [!INCLUDE [azure-monitor-cost-optimization](../../includes/azure-monitor-cost-optimization.md)]
 
 
-## Log Data Ingestion
+## Log data ingestion
 This section includes the ingestion and retention of data in your Log Analytics workspaces. This includes such features as Container insights and Application insights in addition to resource logs collected from your Azure resources and agents installed on your virtual machines. This is where the bulk of monitoring costs will typically be incurred in most environments.
 
 | Category | Description |
@@ -52,7 +52,7 @@ This section includes charges from [classic Application Insights resources](app/
 | Multi-step Web Test | Number of legacy [multi-step web tests](/previous-versions/azure/azure-monitor/app/availability-multistep) that you expect to run. |
 
 
-## Alert Rules 
+## Alert rules 
 This section includes charges for alert rules.
 
 | Category | Description |
@@ -60,7 +60,7 @@ This section includes charges for alert rules.
 | Metric Signals Monitored | Number of [metrics alert rules](alerts/alerts-types.md#metric-alerts) and their time series. | 
 | Log Signals Monitored | Number of [log alert rules](alerts/alerts-types.md#log-alerts) and their frequency. |
 
-## ITSM Connector - Ticket Creation/Update
+## ITSM connector - ticket creation/update
 This section includes charges for ITSM events, which are sent in response to alerts being triggered.
 
 | Category | Description |
