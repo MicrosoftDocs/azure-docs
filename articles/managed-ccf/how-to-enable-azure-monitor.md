@@ -25,7 +25,7 @@ The logs from your TypeScript and JavaScript application can be viewed in Azure 
 
 1. Navigate to the Managed CCF resource and make a note of the Resource ID from the properties page.
 
-:::image type="content" source="media/how-to/mccf-resource-properties-screen.png" alt-text="Screenshot that shows the properties of a Managed CCF resource screen.":::
+:::image type="content" source="media/how-to/managed-confidential-consortium-framework-resource-properties-screen.png" alt-text="Screenshot that shows the properties of a Managed CCF resource screen.":::
 
 ## Link the Log Analytics workspace to the Managed CCF resource
 
