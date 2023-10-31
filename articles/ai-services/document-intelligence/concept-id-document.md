@@ -55,7 +55,7 @@ Document Intelligence can analyze and extract information from government-issued
 
 ## Identity document processing
 
-Identity document processing involves extracting data from identity documents either manually or by using OCR-based technology. ID document is processing an important step in any business process that requires some proof of identity. Examples include customer verification in banks and other financial institutions, mortgage applications, medical visits, claim processing, hospitality industry, and more. Individuals provide some proof of their identity via driver licenses, passports, and other similar documents so that the business can efficiently verify them before providing services and benefits.
+Identity document processing involves extracting data from identity documents either manually or by using OCR-based technology. ID document processing is an important step in any business operation that requires proof of identity. Examples include customer verification in banks and other financial institutions, mortgage applications, medical visits, claim processing, hospitality industry, and more. Individuals provide some proof of their identity via driver licenses, passports, and other similar documents so that the business can efficiently verify them before providing services and benefits.
 
 ::: moniker range=">=doc-intel-3.0.0"
 
