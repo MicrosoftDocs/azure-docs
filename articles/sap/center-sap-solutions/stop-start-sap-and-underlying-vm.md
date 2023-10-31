@@ -1,5 +1,5 @@
 ---
-title: Start and Stop SAP and underlying VMs
+title: Start and stop SAP and underlying VMs
 description: Learn how to Stop and Start SAP and underlying VMs through the Virtual Instance for SAP solutions (VIS) resource in Azure Center for SAP solutions.
 ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
@@ -28,14 +28,14 @@ Using the [REST API](/rest/api/workloads) interfaces, you can:
 ## Prerequisites
 - An SAP system that you've [created in Azure Center for SAP solutions](prepare-network.md) or [registered with Azure Center for SAP solutions](register-existing-system.md).
 - Check that your Azure account has **Azure Center for SAP solutions administrator** or equivalent role access on the Virtual Instance for SAP solutions resources. You can learn more about the granular permissions that govern Start and Stop actions on the VIS, individual SAP instances and HANA Database [in this article](manage-with-azure-rbac.md#start-sap-system).
-- Check that the **User Assgined Managed Identity** associated with the VIS resource has **Virtual Machine Contributor** or equiavalent role access. This is needed to be able to Start and Stop VMs.
+- Check that the **User Assigned Managed Identity** associated with the VIS resource has **Virtual Machine Contributor** or equivalent role access. This is needed to be able to Start and Stop VMs.
 
 ## Unsupported scenarios
 The following scenarios are not currently supported when using the Start and Stop of SAP, individual SAP instances, HANA database and their underlying VMs:
 
 - Starting and stopping systems when multiple SIDs on the same set of Virtual Machines.
 - Starting and stopping HANA databases with MCOS (Multiple Components in One System) architecture, where multiple HANA instances run on the same set of virtual machines.
-- Starting and stopping SAP application server or central services instances where instances of multiple SIDs or multiple instances of same SID run on the same virtual machine.
+- Starting and stopping SAP application server or central services instances where instances of multiple SIDs or multiple instances of the same SID run on the same virtual machine.
 
 > [!IMPORTANT]
 > For single-server deployments, when you want to stop SAP, HANA DB and the VM, use stop VIS action to stop SAP application tier and then stop HANA database with 'deallocateVm' set to true. This ensures that SAP application and HANA database are both stopped before stopping the VM.
