@@ -118,6 +118,14 @@ For more information about deploying a polyglot app, see  [How to deploy polyglo
 
 A build task will be triggered when an app is deployed from an Azure CLI command. Build logs are streamed in real time as part of the CLI command output. For information on using build logs to diagnose problems, see [Analyze logs and metrics with diagnostics settings](./diagnostic-services.md).
 
+## Build History
+
+All Build Resources are showed in the `Builds`, shown as below picture. 
+
+:::image type="content" source="media/how-to-enterprise-build-service/build-table.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps Build Service page with 'General info' highlighted." lightbox="media/how-to-enterprise-build-service/agent-pool-size.png":::
+
+There are 9 columns in `Builds` table.
+
 ## Next steps
 
 - [Azure Spring Apps](index.yml)
