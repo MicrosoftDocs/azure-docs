@@ -26,7 +26,7 @@ Azure Monitor managed service for Prometheus is a component of Azure Monitor Met
 
 Azure Monitor managed service for Prometheus allows you to collect and analyze metrics at scale using a Prometheus-compatible monitoring solution.  This fully managed service is based on the Prometheus project from the Cloud Native Computing Foundation (CNCF). The service allows you to use the Prometheus query language (PromQL) to analyze and alert on the performance of monitored infrastructure and workloads, without having to operate the underlying infrastructure.
 
-1. Follow the steps to [enable Prometheus metrics collection from your Arc-enabled Kubernetes cluster](https://learn.microsoft.com/azure/azure-monitor/essentials/prometheus-metrics-from-arc-enabled-cluster?tabs=portal).
+1. Follow the steps to [enable Prometheus metrics collection from your Arc-enabled Kubernetes cluster](../../azure-monitor/containers/prometheus-metrics-from-arc-enabled-cluster.md).
 
 1. To create a `configmap` to configure metrics scraping from your cluster, run the following command from within your cluster: 
 
