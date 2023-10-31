@@ -80,6 +80,7 @@ az vmss create \
     --resource-group myResourceGroup \
     --name myScaleSet \
     --image Ubuntu2204 \
+    --orchestration-mode Uniform \
     --lb myLoadBalancer \
     --health-probe myProbe \
     --upgrade-policy-mode Rolling \
@@ -102,6 +103,7 @@ New-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -Location "EastUS" `
   -VMScaleSetName "myScaleSet" `
+  -OrchestrationMode "Uniform" `
   -VirtualNetworkName "myVnet" `
   -SubnetName "mySubnet" `
   -PublicIpAddressName "myPublicIPAddress" `

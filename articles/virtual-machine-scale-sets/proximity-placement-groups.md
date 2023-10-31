@@ -121,6 +121,7 @@ $scalesetName = "myVM"
 New-AzVmss `
   -ResourceGroupName $resourceGroup `
   -Location $location `
+  -OrchestrationMode "Uniform" `
   -VMScaleSetName $scalesetName `
   -VirtualNetworkName "myVnet" `
   -SubnetName "mySubnet" `

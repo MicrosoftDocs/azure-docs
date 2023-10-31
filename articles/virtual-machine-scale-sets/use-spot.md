@@ -105,7 +105,6 @@ az vmss create \
     --resource-group myResourceGroup \
     --name myScaleSet \
     --image Ubuntu2204 \
-    --upgrade-policy-mode automatic \
     --single-placement-group false \
     --admin-username azureuser \
     --generate-ssh-keys \
@@ -126,7 +125,6 @@ $vmssConfig = New-AzVmssConfig `
     -Location "East US 2" `
     -SkuCapacity 2 `
     -SkuName "Standard_DS2" `
-    -UpgradePolicyMode Automatic `
     -Priority "Spot" `
     -max-price -1 `
     -EnableSpotRestore `
