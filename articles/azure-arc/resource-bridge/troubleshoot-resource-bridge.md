@@ -1,13 +1,13 @@
 ---
-title: Troubleshoot Azure Arc resource bridge (preview) issues
-description: This article tells how to troubleshoot and resolve issues with the Azure Arc resource bridge (preview) when trying to deploy or connect to the service.
-ms.date: 03/15/2023
+title: Troubleshoot Azure Arc resource bridge issues
+description: This article tells how to troubleshoot and resolve issues with the Azure Arc resource bridge when trying to deploy or connect to the service.
+ms.date: 11/03/2023
 ms.topic: conceptual
 ---
 
-# Troubleshoot Azure Arc resource bridge (preview) issues
+# Troubleshoot Azure Arc resource bridge issues
 
-This article provides information on troubleshooting and resolving issues that may occur while attempting to deploy, use, or remove the Azure Arc resource bridge (preview). The resource bridge is a packaged virtual machine, which hosts a *management* Kubernetes cluster. For general information, see [Azure Arc resource bridge (preview) overview](./overview.md).
+This article provides information on troubleshooting and resolving issues that may occur while attempting to deploy, use, or remove the Azure Arc resource bridge. The resource bridge is a packaged virtual machine, which hosts a *management* Kubernetes cluster. For general information, see [Azure Arc resource bridge overview](./overview.md).
 
 ## General issues
 
@@ -82,16 +82,6 @@ Arc resource bridge consists of an appliance VM that is deployed to the on-premi
 
 To fix this, the credentials in the appliance VM need to be updated. For more information, see [Update credentials in the appliance VM](maintenance.md#update-credentials-in-the-appliance-vm).
 
-
-
-
-
-
-
-
-
-
-
 ## Networking issues
 
 ### Back-off pulling image error
@@ -100,7 +90,7 @@ When trying to deploy Arc resource bridge, you may see an error that contains `b
 
 ### Not able to connect to URL
 
-If you receive an error that contains `Not able to connect to https://example.url.com`, check with your network administrator to ensure your network allows all of the required firewall and proxy URLs to deploy Arc resource bridge. For more information, see [Azure Arc resource bridge (preview) network requirements](network-requirements.md). 
+If you receive an error that contains `Not able to connect to https://example.url.com`, check with your network administrator to ensure your network allows all of the required firewall and proxy URLs to deploy Arc resource bridge. For more information, see [Azure Arc resource bridge network requirements](network-requirements.md). 
 
 ### .local not supported
 
@@ -112,13 +102,13 @@ This occurs when a `.local` path is provided for a configuration setting, such a
 
 ### Azure Arc resource bridge is unreachable
 
-Azure Arc resource bridge (preview) runs a Kubernetes cluster, and its control plane requires a static IP address. The IP address is specified in the `infra.yaml` file. If the IP address is assigned from a DHCP server, the address can change if not reserved. Rebooting the Azure Arc resource bridge (preview) or VM can trigger an IP address change, resulting in failing services.
+Azure Arc resource bridge runs a Kubernetes cluster, and its control plane requires a static IP address. The IP address is specified in the `infra.yaml` file. If the IP address is assigned from a DHCP server, the address can change if not reserved. Rebooting the Azure Arc resource bridge or VM can trigger an IP address change, resulting in failing services.
 
-Intermittently, the resource bridge (preview) can lose the reserved IP configuration. This is due to the behavior described in [loss of VIPs when systemd-networkd is restarted](https://github.com/acassen/keepalived/issues/1385). When the IP address isn't assigned to the Azure Arc resource bridge (preview) VM, any call to the resource bridge API server will fail. As a result, you can't create any new resource through the resource bridge (preview), ranging from connecting to Azure Arc private cloud, create a custom location, create a VM, etc.
+Intermittently, the resource bridge can lose the reserved IP configuration. This is due to the behavior described in [loss of VIPs when systemd-networkd is restarted](https://github.com/acassen/keepalived/issues/1385). When the IP address isn't assigned to the Azure Arc resource bridge VM, any call to the resource bridge API server will fail. As a result, you can't create any new resource through the resource bridge, ranging from connecting to Azure Arc private cloud, create a custom location, create a VM, etc.
 
 Another possible cause is slow disk access. Azure Arc resource bridge uses etcd which requires 10 ms latency or less per [recommendation](https://docs.openshift.com/container-platform/4.6/scalability_and_performance/recommended-host-practices.html#recommended-etcd-practices_). If the underlying disk has low performance, it can impact the operations, and causing failures.
 
-To resolve this issue, reboot the resource bridge (preview) VM, and it should recover its IP address. If the address is assigned from a DHCP server, reserve the IP address associated with the resource bridge (preview).
+To resolve this issue, reboot the resource bridge VM, and it should recover its IP address. If the address is assigned from a DHCP server, reserve the IP address associated with the resource bridge.
 
 ### SSL proxy configuration issues
 
@@ -211,7 +201,6 @@ When deploying the resource bridge on VMware vCenter, you specify the folder in 
 ### Insufficient permissions
 
 When deploying the resource bridge on VMware vCenter, you may get an error saying that you have insufficient permission. To resolve this issue, make sure that the user account being used to deploy the resource bridge has all of the following privileges in VMware vCenter and then try again.
-
 
 **Datastore** 
 

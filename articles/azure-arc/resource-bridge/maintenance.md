@@ -1,17 +1,17 @@
 ---
-title: Azure Arc resource bridge (preview) maintenance operations
-description: Learn how to manage Azure Arc resource bridge (preview) so that it remains online and operational.
+title: Azure Arc resource bridge maintenance operations
+description: Learn how to manage Azure Arc resource bridge so that it remains online and operational.
 ms.topic: conceptual
-ms.date: 03/08/2023
+ms.date: 11/03/2023
 ---
 
-# Azure Arc resource bridge (preview) maintenance operations
+# Azure Arc resource bridge maintenance operations
 
-To keep your Azure Arc resource bridge (preview) deployment online and operational, you may need to perform maintenance operations such as updating credentials or monitoring upgrades.
+To keep your Azure Arc resource bridge deployment online and operational, you may need to perform maintenance operations such as updating credentials or monitoring upgrades.
 
-To maintain the on-premises appliance VM, the [appliance configuration files generated during deployment](deploy-cli.md#az-arcappliance-createconfig) need to be saved in a secure location and made available on the management machine. The management machine used to perform maintenance operations must meet all of [the Arc resource bridge (preview) requirements](system-requirements.md).  
+To maintain the on-premises appliance VM, the [appliance configuration files generated during deployment](deploy-cli.md#az-arcappliance-createconfig) need to be saved in a secure location and made available on the management machine. The management machine used to perform maintenance operations must meet all of [the Arc resource bridge requirements](system-requirements.md).  
 
-The following sections describe some of the most common maintenance tasks for Arc resource bridge (preview).
+The following sections describe some of the most common maintenance tasks for Arc resource bridge.
 
 ## Update credentials in the appliance VM
 
@@ -36,5 +36,6 @@ You may need to delete Arc resource bridge due to deployment failures or when no
 
 ## Next steps
 
-- Review the [Azure Arc resource bridge (preview) overview](overview.md) to understand more about requirements and technical details.
-- Learn about [system requirements for Azure Arc resource bridge (preview)](system-requirements.md).
+- Learn about [upgrading Arc resource bridge](upgrade.md).
+- Review the [Azure Arc resource bridge overview](overview.md) to understand more about requirements and technical details.
+- Learn about [system requirements for Azure Arc resource bridge](system-requirements.md).

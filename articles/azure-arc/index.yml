@@ -117,16 +117,16 @@ conceptualContent:
       links:
         - url: ./resource-bridge/overview.md
           itemType: overview
-          text: Azure Arc resource bridge (preview)
+          text: Azure Arc resource bridge
         - url: ./vmware-vsphere/overview.md
           itemType: overview
-          text: Azure Arc-enabled VMware vSphere (preview)
+          text: Azure Arc-enabled VMware vSphere
         - url: ./system-center-virtual-machine-manager/overview.md
           itemType: overview
           text: Azure Arc-enabled System Center Virtual Machine Manager (preview)
         - url: /azure-stack/hci/manage/azure-arc-vm-management-overview
           itemType: overview
-          text: Azure Arc VM management on Azure Stack HCI
+          text: Azure Arc VM management on Azure Stack HCI (preview)
       # Card
     - title: Training modules
       links:
