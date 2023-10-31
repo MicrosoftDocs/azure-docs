@@ -35,7 +35,7 @@ You can quickly start testing and evaluating your flow by following this video t
 
 To run a batch run and use an evaluation method, you need to have the following ready:
 
-- A test dataset for batch run. Your dataset should be in one of these formats: `.csv`, `.tsv`, `.jsonl`, or `.parquet`. Your data should also include headers that match the input names of your flow. If your flow inputs include a complex structure like a list or dictionary, you are recommended to use `jsonl` format to represent your data. 
+- A test dataset for batch run. Your dataset should be in one of these formats: `.csv`, `.tsv`, or `.jsonl`. Your data should also include headers that match the input names of your flow. If your flow inputs include a complex structure like a list or dictionary, you are recommended to use `jsonl` format to represent your data. 
 - An available runtime to run your batch run. A runtime is a cloud-based resource that executes your flow and generates outputs. To learn more about runtime, see [Runtime](./create-manage-runtime.md).
 
 ## Submit a batch run and use a built-in evaluation method

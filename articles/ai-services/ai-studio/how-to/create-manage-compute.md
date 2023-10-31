@@ -14,37 +14,36 @@ ms.author: eur
 
 [!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
 
-You need a compute instance to use prompt flow with Azure AI services. You also need a compute instance to open Visual Studio Code (Web) in the Azure AI Studio. You can create a compute instance in the Azure AI Studio or in the Azure portal. This article provides instructions on how to create a compute instance in the Azure AI Studio.
+In this article, you learn how to create a compute instance in Azure AI Studio. You can create a compute instance in the Azure AI Studio or in the Azure portal. 
 
-Learn how to create a compute instance in your Azure AI project.
-
-Use a compute instance as your fully configured and managed development environment in the cloud. For development and testing, you can also use the instance as a training compute target. A compute instance can run multiple jobs in parallel and has a job queue. As a development environment, a compute instance can't be shared with other users in your workspace.
-
-In this article, you learn how to create a compute instance. 
-
-You can also use a setup script to create the compute instance with your own custom environment.
+You need a compute instance to use prompt flow with Azure AI services. You also need a compute instance to open Visual Studio Code (Web) in the Azure AI Studio. You can use the same compute instance for both purposes. Note that a compute instance can't be shared. It can only be used by a single assigned user. By default, it will be assigned to the creator and you can change this to a different user in the Security step.
 
 Compute instances can run jobs securely in a virtual network environment, without requiring enterprises to open up SSH ports. The job executes in a containerized environment and packages your model dependencies in a Docker container.
 
+> [!IMPORTANT]
+> Compute instances get the latest VM images at the time of provisioning. Microsoft releases new VM images on a monthly basis. Once a compute instance is deployed, it does not get actively updated. You could query an instance's operating system version. 
+> To keep current with the latest software updates and security patches, you could: Recreate a compute instance to get the latest OS image (recommended) or regularly update OS and Python packages on the compute instance to get the latest security patches.
+
 ## Create a compute instance
 
-Creating a compute instance is a one time process for your workspace. You can reuse the compute as a development workstation or as a compute target for training. You can have multiple compute instances attached to your workspace.
+To create a compute instance in Azure AI Studio:
 
-Follow these steps to create a compute instance:
-1. Navigate to Azure AI Studio.
-1. Under Manage, select Compute.
-1. Select Compute instance at the top.
-1. If you have no compute instances, select Create in the middle of the page.
-1. If you see a list of compute resources, select +New above the list.
-1. Fill out the form:
-    - Enter a name for the compute instance.
-        - Name is required and must be between 3 to 24 characters long.
-        - Valid characters are upper and lower case letters, digits, and the - character.
-        - Name must start with a letter
-        - Name needs to be unique across all existing computes within an Azure region. You see an alert if the name you choose isn't unique
-        - If `-` character is used, then it needs to be followed by at least one letter later in the name
-    - Virtual machine type: Choose CPU or GPU. This type can't be changed after creation
+1. Sign in to [Azure AI Studio](https://ai.azure.com) and select your project from the **Build** page. If you don't have a project already, first create a project.
+1. Under **Manage**, select **Compute instances** > **+ New**.
+
+    :::image type="content" source="../media/how-to/compute-create.png" alt-text="Screenshot of the option to create a new compute instance from the manage page." lightbox="../media/how-to/compute-create.png":::
+
+1. Enter a custom name for your compute.
+
+    :::image type="content" source="../media/how-to/compute-create.png" alt-text="Screenshot of the option to create a new compute instance from the manage page." lightbox="../media/how-to/compute-create.png":::
+
+1. Select your virtual machine type and size and then select **Next**. 
+
+    - Virtual machine type: Choose CPU or GPU. The type can't be changed after creation.
     - Virtual machine size: Supported virtual machine sizes might be restricted in your region. Check the [availability list](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)
+    
+    For more information on configuration details such as CPU and RAM, see [Azure Machine Learning pricing](https://azure.microsoft.com/pricing/details/machine-learning/) and [virtual machine sizes](/azure/virtual-machines/sizes).
+
 1. Select Review + Create unless you want to configure advanced settings for the compute instance.
 1. Select Next to go to Scheduling if you want to schedule the compute to start or stop on a recurring basis. See enable idle shutdown & add schedule sections.
 1. Select Security if you want to configure security settings such as SSH, virtual network, root access, and managed identity for your compute instance. Use this section to:

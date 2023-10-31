@@ -17,7 +17,6 @@ The prompt flow *Faiss Index Lookup* tool is tailored for querying within a user
 ## Build with the Faiss Index Lookup tool
 
 1. Create or open a flow in Azure AI Studio. For more information, see [Create a flow](../flow-develop.md).
-1. Optionally (and recommended), add the [LLM tool](llm-tool.md) to your flow. The LLM tool should output a list of vectors that can be used as inputs to the Faiss Index Lookup tool. For more information, see [LLM tool](llm-tool.md).
 1. Select **+ More tools** > **Faiss Index Lookup** to add the Faiss Index Lookup tool to your flow.
 
     :::image type="content" source="../../media/prompt-flow/faiss-index-lookup-tool.png" alt-text="Screenshot of the Faiss Index Lookup tool added to a flow in Azure AI Studio" lightbox="../../media/prompt-flow/faiss-index-lookup-tool.png":::

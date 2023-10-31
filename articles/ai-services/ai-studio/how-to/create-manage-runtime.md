@@ -60,11 +60,6 @@ Try to keep your runtime up to date to get the best experience and performance.
 
 Go to the runtime details page and select the "Update" button at the top. Here you can update the environment to use in your runtime. If you select **use default environment**, system will attempt to update your runtime to the latest version.
 
-
-> [!NOTE]
-> If you used a custom environment, you need to rebuild it using the latest Prompt flow image first, and then update your runtime with the new custom environment.
-
-
 ## Next steps
 
 - [Learn more about prompt flow](./prompt-flow.md)
