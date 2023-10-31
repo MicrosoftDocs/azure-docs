@@ -163,6 +163,16 @@ To update Azure Machine Learning to use the new key, use the following steps:
         ```python
         from azure.ai.ml.entities import AzureBlobDatastore
         from azure.ai.ml import MLClient
+        from azure.identity import DefaultAzureCredential
+
+        subscription_id = '<SUBSCRIPTION_ID>'
+        resource_group = '<RESOURCE_GROUP>'
+        workspace_name = '<AZUREML_WORKSPACE_NAME>'
+
+        ml_client = MLClient(credential=DefaultAzureCredential(),
+                                subscription_id=subscription_id, 
+                                resource_group_name=resource_group,
+                                workspace_name=workspace_name)
 
         blob_datastore1 = AzureBlobDatastore(
             name="your datastore name",
