@@ -123,7 +123,7 @@ When you're done using the virtual network and the virtual machines, delete the 
 
 ## Next steps
 
-In this quickstart, you deployed Bastion using the Developer SKKU, and then connected to a virtual machine securely via Bastion. Next, you can configure more features and work with VM connections.
+In this quickstart, you deployed Bastion using the Developer SKU, and then connected to a virtual machine securely via Bastion. Next, you can configure more features and work with VM connections.
 
 > [!div class="nextstepaction"]
 > [Upgrade SKUs](upgrade-sku.md)

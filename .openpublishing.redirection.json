@@ -24662,6 +24662,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/energy-data-services/reliability-energy-data-services.md",
+            "redirect_url": "/azure/reliability/reliability-energy-data-services",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/deployment-environments/concept-environments-reliability-availability.md",
+            "redirect_url": "/azure/reliability/reliability-deployment-environments",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/spring-apps/how-to-enable-redundancy-and-disaster-recovery.md",
             "redirect_url": "/azure/reliability/reliability-spring-apps",
             "redirect_document_id": false
@@ -24835,6 +24845,6 @@
             "source_path_from_root": "/articles/orbital/delete-contact.md",
 	    "redirect_url": "/azure/orbital/spacecraft-object",
             "redirect_document_id": false
-        },
+        }
     ]
 }
