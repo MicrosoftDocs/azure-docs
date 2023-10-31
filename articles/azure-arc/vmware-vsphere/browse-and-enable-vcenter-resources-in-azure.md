@@ -53,7 +53,7 @@ In this section, you will enable resource pools, networks, and other non-VM reso
 For information on the capabilities enabled by a guest agent, see [Manage access to VMware resources through Azure RBAC](setup-and-manage-self-service-access.md).
 
 >[!NOTE]
->Moving VMware vCenter resources between Resource Groups and Subscriptions is currently not supported.
+>Currently we don't support moving VMware vCenter resources between Resource Groups and Subscriptions.
  
 ## Next steps
 
