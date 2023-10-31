@@ -9,8 +9,10 @@ items:
       href: whats-new.md
     - name: Choose the right tier
       href: choose-right-tier.md
-  - name: Event Grid namespaces
+  - name: Event Grid namespaces  
     items:
+    - name: Concepts 
+      href: concepts-event-grid-namespaces.md
     - name: MQTT broker
       items:
       - name: Overview
@@ -98,9 +100,13 @@ items:
         href: namespace-push-delivery-overview.md
       - name: Quickstarts
         items:
+        - name: Publish events using namespace topics (Java)
+          href: publish-events-to-namespace-topics-java.md      
         - name: Pull delivery
           items:
-          - name: Publish and subscribe to events using namespace topics
+          - name: Receive events from namespace topics (Java)
+            href: receive-events-from-namespace-topics-java.md         
+          - name: Publish and subscribe to events using namespace topics (CLI)
             href: publish-events-using-namespace-topics.md
           - name: Send and pull messages
             items:
@@ -126,8 +132,10 @@ items:
               href: namespace-handler-event-hubs.md
           - name: Delivery properties
             href: namespace-delivery-properties.md
-        - name: Publisher and subscriber operations
-          href: publisher-subscriber-operations.md     
+        - name: Publisher operations
+          href: publisher-operations.md
+        - name: Subscriber operations
+          href: subscriber-operations.md
         - name: Dead lettering for event subscriptions
           href: dead-letter-event-subscriptions-namespace-topics.md
         - name: Event retention
