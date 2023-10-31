@@ -81,7 +81,6 @@ Application-Insights|[Data Collection Basics of Azure Monitor Application Insigh
 Application-Insights|[Enable a framework extension for Application Insights JavaScript SDK](app/javascript-framework-extensions.md)|The "Explore your data" section has been improved.|
 Application-Insights|[Sampling overrides (preview) - Azure Monitor Application Insights for Java](app/java-standalone-sampling-overrides.md)|We've documented steps for troubleshooting sampling.|
 Logs|[Set a table's log data plan to Basic or Analytics](logs/basic-logs-configure.md)|Additional Azure tables now support low-cost basic logs, including tables for the Bare Metal Machines, Managed Lustre, Nexus Clusters, and Nexus Storage Appliances services. |
-Logs|[Create and manage a dedicated cluster in Azure Monitor Logs](logs/logs-dedicated-clusters.md)|The minimum ingestion commitment for a dedicated cluster is now 100 GB per day (previously 500 GB). |
 Logs|[Query Basic Logs in Azure Monitor](logs/basic-logs-query.md)|Basic log queries are now billable.|
 Logs|[Restore logs in Azure Monitor](logs/restore.md)|Restored logs are now billable.|
 Logs|[Run search jobs in Azure Monitor](logs/search-jobs.md)|Search jobs are now billable.|
