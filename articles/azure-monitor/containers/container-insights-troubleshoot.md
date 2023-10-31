@@ -183,6 +183,19 @@ If the preceding steps didn't resolve the installation of Azure Monitor Containe
 ## Duplicate alerts being received
 You may have enabled Prometheus alert rules without disabling Container insights recommended alerts. See [Migrate from Container insights recommended alerts to Prometheus recommended alert rules (preview)](container-insights-metric-alerts.md#migrate-from-metric-rules-to-prometheus-rules-preview).
 
+ ## I see info banner "You do not have the right cluster permissions which will restrict your access to Container Insights features. Please reach out to your cluster admin to get the right permission"
+
+Container Insights has historically allowed users to access the Azure portal experience based on the access permission of the Log Analytics workspace. It now checks cluster-level permission to provide access to the Azure portal experience. You might need your cluster admin to assign this permission.
+
+For basic read-only cluster level access, assign the **Monitoring Reader** role for the following types of clusters.
+
+- AKS without Kubernetes role-based access control (RBAC) authorization enabled
+- AKS enabled with Microsoft Entra SAML-based single sign-on
+- AKS enabled with Kubernetes RBAC authorization
+- AKS configured with the cluster role binding clusterMonitoringUser
+- [Azure Arc-enabled Kubernetes clusters](https://learn.microsoft.com/azure/azure-arc/kubernetes/overview)
+
+See [Assign role permissions to a user or group](../../aks/control-kubeconfig-access.md#assign-role-permissions-to-a-user-or-group) for details on how to assign these roles for AKS and [Access and identity options for Azure Kubernetes Service (AKS)](../../aks/concepts-identity.md) to learn more about role assignments.
 
 ## Next steps
 
