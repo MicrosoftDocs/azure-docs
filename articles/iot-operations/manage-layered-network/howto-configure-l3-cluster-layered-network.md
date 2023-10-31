@@ -22,18 +22,18 @@ You can choose to use [AKS Edge Essentials](/azure/aks/hybrid/aks-edge-overview)
 
 # [AKS Edge Essentials](#tab/aksee)
 
-## Prepare a Windows 11 Machine
+## Prepare Windows 11
 
-You should complete this step in an **internet facing environment** outside of the isolated network. Otherwise, you need to prepare the offline installation package for the following required software.
+You should complete this step in an *internet facing environment* outside of the isolated network. Otherwise, you need to prepare the offline installation package for the following required software.
 
-If you're using VM to create your Windows 11 machines, use the [VM image](https://developer.microsoft.com/windows/downloads/virtual-machines/) that includes Visual Studio preinstalled. This ensures the required certificates needed by Arc onboarding are included.
+If you're using VM to create your Windows 11 machines, use the [VM image](https://developer.microsoft.com/windows/downloads/virtual-machines/) that includes Visual Studio preinstalled. Having Visual Studio ensures the required certificates needed by Arc onboarding are included.
 
-1. Install [Windows 11](https://www.microsoft.com/software-download/windows11) on your device
-1. Install [Helm](https://helm.sh/docs/intro/install/) 3.8.0 or later
+1. Install [Windows 11](https://www.microsoft.com/software-download/windows11) on your device.
+1. Install [Helm](https://helm.sh/docs/intro/install/) 3.8.0 or later.
 1. Install [Kubectl](https://kubernetes.io/docs/tasks/tools/)
-1. Install AKS Edge Essentials. Follow the steps in [Prepare your machines for AKS Edge Essentials](/azure/aks/hybrid/aks-edge-howto-setup-machine)
-1. Install Azure CLI. Follow the steps in [Install Azure CLI on Windows](/cli/azure/install-azure-cli-windows)
-1. Install *connectedk8s* and other extensions:
+1. Install AKS Edge Essentials. Follow the steps in [Prepare your machines for AKS Edge Essentials](/azure/aks/hybrid/aks-edge-howto-setup-machine).
+1. Install Azure CLI. Follow the steps in [Install Azure CLI on Windows](/cli/azure/install-azure-cli-windows).
+1. Install *connectedk8s* and other extensions.
 
     ```bash
     az extension add --name connectedk8s
@@ -42,7 +42,7 @@ If you're using VM to create your Windows 11 machines, use the [VM image](https:
     ```
 
 1. **Certificates:** For Level 3 and lower, you ARC onboard the cluster that isn't connected to the internet. Therefore, you need to install certificates steps in [Prerequisites for AKS Edge Essentials offline installation](/azure/aks/hybrid/aks-edge-howto-offline-install).
-1. The following is optional software if you plan to try IoT Operations quickstarts or MQTT related scenarios
+1. Install the following optional software if you plan to try IoT Operations quickstarts or MQTT related scenarios.
     - [MQTTUI](https://github.com/EdJoPaTo/mqttui/releases) or other MQTT client
     - [Mosquitto](https://mosquitto.org/)
 
@@ -52,9 +52,9 @@ In your isolated network layer, the DNS server was configured in a prerequisite 
 
 After the device is moved to L3, configure the DNS setting using the following steps:
 
-1. In **Windows Control Panel** > **Network and Internet** > **Network and Sharing Center**, select the current network connection
-1. In the network properties dialog, select **Properties** > **Internet Protocol Version 4 (TCP/IPv4)** > **Properties**
-1. Check **Use the following DNS server addresses**
+1. In **Windows Control Panel** > **Network and Internet** > **Network and Sharing Center**, select the current network connection.
+1. In the network properties dialog, select **Properties** > **Internet Protocol Version 4 (TCP/IPv4)** > **Properties**.
+1. Select **Use the following DNS server addresses**.
 1. Enter the level 3 DNS server local IP address.
 
     :::image type="content" source="./media/howto-configure-l3-cluster-layered-network/windows-dns-setting.png" alt-text="Screenshot that shows Windows DNS setting with the level 3 DNS server local IP address.":::
@@ -70,7 +70,7 @@ To create the AKS Edge Essentials cluster in level 3, use the `aks-ee-config.jso
     "SkipDnsCheck": true,
     ```
 
-1. Create the AKS Edge Essentials cluster:
+1. Create the AKS Edge Essentials cluster.
 
     ```bash
     New-AksEdgeDeployment -JsonConfigFilePath .\aks-ee-config.json
@@ -86,7 +86,7 @@ To create the AKS Edge Essentials cluster in level 3, use the `aks-ee-config.jso
 1. Install [Helm](https://helm.sh/docs/intro/install/) 3.8.0 or later.
 1. Install [Kubectl](https://kubernetes.io/docs/tasks/tools/).
 1. Install Azure CLI. Follow the steps in [Install Azure CLI on Linux](/cli/azure/install-azure-cli-linux).
-1. Install *connectedk8s* and other extensions:
+1. Install *connectedk8s* and other extensions.
 
     ```bash
     az extension add --name connectedk8s
@@ -110,7 +110,7 @@ To create the AKS Edge Essentials cluster in level 3, use the `aks-ee-config.jso
 
 1. For better performance, make sure the [file descriptor limit](https://www.cyberciti.biz/faq/linux-increase-the-maximum-number-of-open-files/) is high enough.
 
-1. The following is optional software if you plan to try IoT Operations quickstarts or MQTT related scenarios
+1. Install the following optional software if you plan to try IoT Operations quickstarts or MQTT related scenarios.
     - [MQTTUI](https://github.com/EdJoPaTo/mqttui/releases) or other MQTT client
     - [Mosquitto](https://mosquitto.org/)
 
@@ -122,8 +122,8 @@ In your isolated network layer, the DNS server was configured in a prerequisite 
 
 After the device is moved to L3, configure the DNS setting using the following steps:
 
-1. Open the **Wi-Fi Settings**
-1. Select the setting of the current connection
+1. Open the **Wi-Fi Settings**.
+1. Select the setting of the current connection.
 1. In the IPv4 tab, disable the **Automatic** setting for DNS and enter the local IP of DNS server.
 
 ## Create the K3S cluster
@@ -146,9 +146,9 @@ After the device is moved to L3, configure the DNS setting using the following s
 
 ---
 
-## Provision the cluster to Arc
+## Provision the cluster to Azure Arc
 
-Before provisioning to Arc, use the following command to make sure the DNS server is working as expected.
+Before provisioning to Azure Arc, use the following command to make sure the DNS server is working as expected:
 
 ```bash
 dig login.microsoftonline.com
