@@ -52,6 +52,24 @@ Users that have been assigned the [Owner](built-in-roles.md#owner) role for a su
 
    ![Screenshot of subscription Access control and Role assignments tab.](./media/role-assignments-list-portal/sub-access-control-role-assignments-owners.png)
 
+## List or manage privileged administrator role assignments
+
+On the **Role assignments** tab, you can list and see the count of privileged administrator role assignments at the current scope. For more information, see [Privileged administrator roles](role-assignments-steps.md#privileged-administrator-roles).
+
+1. In the Azure portal, click **All services** and then select the scope. For example, you can select **Management groups**, **Subscriptions**, **Resource groups**, or a resource.
+
+1. Click the specific resource.
+
+1. Click **Access control (IAM)**.
+
+1. Click the **Role assignments** tab and then click the **Privileged** tab to list the privileged administrator role assignments at this scope.
+
+1. To see the count of privileged administrator role assignments at this scope, see the **Privileged** card.
+
+1. To manage privileged administrator role assignments, see the **Privileged** card and click **View assignments**.
+
+    On the **Manage privileged role assignments** page, you can add a condition to constrain the privileged role assignment or remove the role assignment. For more information, see [Delegate the Azure role assignment task to others with conditions (preview)](delegate-role-assignments-portal.md).
+
 ## List role assignments at a scope
 
 1. In the Azure portal, click **All services** and then select the scope. For example, you can select **Management groups**, **Subscriptions**, **Resource groups**, or a resource.

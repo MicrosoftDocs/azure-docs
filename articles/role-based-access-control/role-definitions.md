@@ -359,6 +359,23 @@ Although it's possible to create a custom role with a resource instance in `Assi
 
 For more information about `AssignableScopes` for custom roles, see [Azure custom roles](custom-roles.md).
 
+## Privileged administrator role definition
+
+Privileged administrator roles are roles that grant privileged administrator access, such as the ability to manage Azure resources or assign roles to other users. If a built-in or custom role includes any of the following actions, it is considered privileged.
+
+> [!div class="mx-tableFixed"]
+> | Action string | Description |
+> | --- | --- |
+> | `*` | Create and manage resources of all types. |
+> | `*/delete` | Delete resources of all types. |
+> | `*/write` | Write resources of all types. |
+> | `Microsoft.Authorization/denyAssignments/delete` | Delete a deny assignment at the specified scope. |
+> | `Microsoft.Authorization/denyAssignments/write` | Create a deny assignment at the specified scope. |
+> | `Microsoft.Authorization/roleAssignments/delete` | Delete a role assignment at the specified scope. |
+> | `Microsoft.Authorization/roleAssignments/write` | Create a role assignment at the specified scope. |
+> | `Microsoft.Authorization/roleDefinitions/delete` | Delete the specified custom role definition. |
+> | `Microsoft.Authorization/roleDefinitions/write` | Create or update a custom role definition with specified permissions and assignable scopes. |
+
 ## Next steps
 
 * [Understand role assignments](role-assignments.md)

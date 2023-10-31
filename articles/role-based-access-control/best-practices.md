@@ -33,6 +33,17 @@ For information about how to assign roles, see [Assign Azure roles using the Azu
 
 You should have a maximum of 3 subscription owners to reduce the potential for breach by a compromised owner. This recommendation can be monitored in Microsoft Defender for Cloud. For other identity and access recommendations in Defender for Cloud, see [Security recommendations - a reference guide](../security-center/recommendations-reference.md).
 
+## Remove or limit privileged administrator role assignments
+
+Some roles are identified as [privileged administrator roles](./role-assignments-steps.md#privileged-administrator-roles). Consider taking the following actions to improve your security posture:
+
+- Remove unnecessary privileged role assignments.
+- Avoid assigning a privileged administrator role when a [job function role](./role-assignments-steps.md#job-function-roles) can be used instead.
+- If you must assign a privileged administrator role, use a narrow scope, such as resource group or resource, instead of a broader scope, such as management group or subscription.
+- If you are assigning a role with permission to create role assignments, consider adding a condition to constrain the role assignment. For more information, see [Delegate the Azure role assignment task to others with conditions (preview)](delegate-role-assignments-portal.md).
+
+For more information, see [List or manage privileged administrator role assignments](./role-assignments-list-portal.md#list-or-manage-privileged-administrator-role-assignments).
+
 <a name='use-azure-ad-privileged-identity-management'></a>
 
 ## Use Microsoft Entra Privileged Identity Management
