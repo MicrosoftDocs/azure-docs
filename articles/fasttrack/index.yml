@@ -54,28 +54,12 @@ conceptualContent:
             - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-2-ep07-apply-well-architected-framework-to-your-solution-design
               itemType: video
               text: Apply Well-Architected Framework to your solution design
-
-            - url: 
+            - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-1-ep09-microsoft-identity-platform
               itemType: video
-              text: 
-            - url: 
-              itemType: video
-              text: 
-
-            - url: 
-              itemType: video
-              text: 
-            - url: 
-              itemType: video
-              text: 
-            - url: 
-              itemType: video
-              text: 
-
+              text: Introduction to Microsoft Identity Platform
         # Card
         - title: Infrastructure
           links:
-          
             - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-2-ep05-learn-how-azure-migrate-can-help-migrate-your-servers-to-azure-part-1
               itemType: video
               text: Learn how Azure Migrate can help migrate your servers to Azure - Part 1
@@ -84,23 +68,20 @@ conceptualContent:
               text: Learn how Azure Migrate can help migrate your servers to Azure - Part 2
             - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-2-ep08-how-to-get-started-fast-azure-virtual-desktop-for-beginners
               itemType: video
-              text: How To Get Started FAST Azure Virtual Desktop for Beginners 
+              text: How To Get Started FAST Azure Virtual Desktop for Beginners
+            # Possible addition - Azure Networking Fundamentals (replace AVD)
         # Card
         - title: "Application Development"
           links:
-          
             - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-2-ep17-azure-container-options-aks-vs-aca-vs-aci
               itemType: video
               text: Azure Container Options (AKS vs ACA vs ACI)
-            - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-1-ep01-aks-security-best-practices
-              itemType: video
-              text: AKS Security Best Practices
             - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-1-ep08-aks-operations-best-practices
               itemType: video
               text: AKS Operations Best Practices
-            - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-1-ep09-microsoft-identity-platform
+            - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-1-ep01-aks-security-best-practices
               itemType: video
-              text: Microsoft Identity Platform
+              text: AKS Security Best Practices
         # Card
         - title: Data
           links:
@@ -116,7 +97,6 @@ conceptualContent:
             - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-3-ep04-azure-database-for-postgresql-single-server-to-flexible-server-migration
               itemType: video
               text: Azure Database for PostgreSQL Single to Flexible server migration
-
         # Card
         - title: "AI & ML"
           links:
@@ -137,8 +117,7 @@ conceptualContent:
               text: Azure ML Enterprise Deployment
             - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-2-ep04-azure-ml-operations
               itemType: video
-              text: Azure ML Operations
-              
+              text: Azure ML Operations    
         # Card
         - title: Security
           links:
@@ -151,22 +130,8 @@ conceptualContent:
             - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-2-ep16-introduction-to-kusto-query-language
               itemType: video
               text: Introduction to Kusto Query Language (KQL)
-
-
+            # Possible additions - MDfC & MDfE
             
-            - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-2-ep17-azure-container-options-aks-vs-aca-vs-aci
-              itemType: video
-              text: Azure Container Options (AKS vs ACA vs ACI)
-            - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-1-ep01-aks-security-best-practices
-              itemType: video
-              text: AKS Security Best Practices
-            - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-1-ep08-aks-operations-best-practices
-              itemType: video
-              text: AKS Operations Best Practices
-            - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-1-ep09-microsoft-identity-platform
-              itemType: video
-              text: Microsoft Identity Platform
-              
 # additionalContent section
 # Card with summary style
 additionalContent:
