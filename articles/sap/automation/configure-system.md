@@ -4,7 +4,7 @@ description: Define the SAP system properties for SAP Deployment Automation Fram
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
-ms.date: 05/04/2023
+ms.date: 10/31/2023
 ms.topic: conceptual
 ms.service: sap-on-azure
 ms.subservice: sap-automation
@@ -51,15 +51,15 @@ To configure this topology, define the database tier values and set `database_hi
 This section contains the parameters that define the environment settings.
 
 > [!div class="mx-tdCol2BreakAll "]
-> | Variable                 | Description                                              | Type       | Notes                                                                                       |
-> | ------------------------ | -------------------------------------------------------- | ---------- | ------------------------------------------------------------------------------------------- |
-> | `environment`            | Identifier for the workload zone (max five characters)   | Mandatory  | For example, `PROD` for a production environment and `NP` for a nonproduction environment.  |
-> | `location`               | The Azure region in which to deploy                      | Required   |                                                                                             |
-> | `custom_prefix`          | Specifies the custom prefix used in the resource naming  | Optional   |                                                                                             |
-> | `use_prefix`             | Controls if the resource naming includes the prefix      | Optional   | DEV-WEEU-SAP01-X00_xxxx                                                                     |
-> | 'name_override_file'     | Name override file                                       | Optional   | See [Custom naming](naming-module.md).                                                      |
-> | 'save_naming_information | Creates a sample naming JSON file                        | Optional   | See [Custom naming](naming-module.md).                                                      |
-> | `tags`                   | A dictionary of tags to associate with all resources.    | Optional   |                                                                                             |
+> | Variable                  | Description                                              | Type       | Notes                                                                                       |
+> | ------------------------- | -------------------------------------------------------- | ---------- | ------------------------------------------------------------------------------------------- |
+> | `environment`             | Identifier for the workload zone (max five characters)   | Mandatory  | For example, `PROD` for a production environment and `NP` for a nonproduction environment.  |
+> | `location`                | The Azure region in which to deploy                      | Required   |                                                                                             |
+> | `custom_prefix`           | Specifies the custom prefix used in the resource naming  | Optional   |                                                                                             |
+> | `use_prefix`              | Controls if the resource naming includes the prefix      | Optional   | DEV-WEEU-SAP01-X00_xxxx                                                                     |
+> | `name_override_file`      | Name override file                                       | Optional   | See [Custom naming](naming-module.md).                                                      |
+> | `save_naming_information` | Creates a sample naming JSON file                        | Optional   | See [Custom naming](naming-module.md).                                                      |
+> | `tags`                    | A dictionary of tags to associate with all resources.    | Optional   |                                                                                             |
 
 ## Resource group parameters
 
