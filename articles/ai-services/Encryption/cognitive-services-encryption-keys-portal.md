@@ -30,7 +30,7 @@ Azure AI is built on top of multiple Azure services. While the data is stored se
 ## Limitations
 
 * The customer-managed key for resources that Azure AI depends on can't be updated after Azure AI resource creation.
-* Resources managed by Microsoft in your subscription can't transfer ownership to you.
+* Resource that are created in the Microsoft-managed Azure resource group in your subscription can't be modified by you or be provided by you at the time of creation as existing resources.
 * You can't delete Microsoft-managed resources used for customer-managed keys without also deleting your workspace.
 
 ## How workspace metadata is stored
