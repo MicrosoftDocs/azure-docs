@@ -32,7 +32,7 @@ A few key features of Managed CCF are confidentiality, customizable governance, 
 
 The nodes run inside a hardware-based Trusted Execution Environment (TEE) which ensures that the data in use is protected and encrypted, while in RAM, and during computation. The following diagram shows how the code and data is protected while in use.
 
-:::image type="content" source="media/tee-enclave-example.png" alt-text="A diagram showing a TEE enclave example.:::
+:::image type="content" source="media/tee-enclave-example.png" alt-text="A diagram showing a TEE enclave example.":::
 
 ### Customizable governance
 
