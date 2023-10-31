@@ -232,11 +232,11 @@ With Cassandra 5.0 now available in public preview, you have the option to condu
 
 1. Find the `Update` panel from the Overview tab
 
-   :::image type="content" source="./media/create-cluster-portal/cluster-version-1.png" alt-text="Screenshot of updating the data center Cassandra config." lightbox="./media/create-cluster-portal/cluster-version-1.png" border="true":::
+   :::image type="content" source="./media/create-cluster-portal/cluster-version-1.png" alt-text="Screenshot of updating the cassandra version." lightbox="./media/create-cluster-portal/cluster-version-1.png" border="true":::
 
 1. Select the Cassandra version from the dropdown.
 
-   :::image type="content" source="./media/create-cluster-portal/cluster-version.png" alt-text="Screenshot of updating the data center Cassandra config." lightbox="./media/create-cluster-portal/cluster-version.png" border="true":::
+   :::image type="content" source="./media/create-cluster-portal/cluster-version.png" alt-text="Screenshot of selecting cassandra version ." lightbox="./media/create-cluster-portal/cluster-version.png" border="true":::
 
 1. Click on update to save.
 

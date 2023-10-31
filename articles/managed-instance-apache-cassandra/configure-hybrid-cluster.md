@@ -87,7 +87,7 @@ python3 client_configurator.py --subscription-id <subcriptionId> --cluster-resou
 
 * Update and monitor data replication progress by selecting the `Data Center` pane
 
-   :::image type="content" source="./media/configure-hybrid-cluster/replication-progress.png" alt-text="Screenshot of selecting all key spaces." lightbox="./media/configure-hybrid-cluster/replication-progress.png" border="true":::
+   :::image type="content" source="./media/configure-hybrid-cluster/replication-progress.png" alt-text="Screenshot showing replication progress." lightbox="./media/configure-hybrid-cluster/replication-progress.png" border="true":::
 
 ## Next steps
 
