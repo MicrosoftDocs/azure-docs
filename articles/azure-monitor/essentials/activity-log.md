@@ -25,7 +25,7 @@ For details on how to create a diagnostic setting, see [Create diagnostic settin
 > [!NOTE]
 > * Entries in the Activity Log are system generated and can't be changed or deleted.
 > * Entries in the Activity Log are representing control plane changes like a virtual machine restart, any non related entries should be written into [Azure Resource Logs](resource-logs.md)
-> * Entries in the Activity Log are typically a result of changes (create, update or delete operations) or an action having been initiated by a user.  Operations focused on reading details of a resource are not typically captured.
+> * Entries in the Activity Log are typically a result of changes (create, update or delete operations) or an action having been initiated.  Operations focused on reading details of a resource are not typically captured.
 
 ## Retention period
 
