@@ -72,7 +72,7 @@ AddToNetworkGroup is used in Azure Virtual Network Manager to define dynamic net
 
 With network groups, your policy definition includes your conditional expression for matching virtual networks meeting your criteria, and specifies the destination network group where any matching resources are placed. The addToNetworkGroup effect is used to place resources in the destination network group.
 
-To learn more, visit [Configuring Azure Policy with network groups in Azure Virtual Network Manager](../../../virtual-network-manager/concept-azure-policy-integration.md).
+To learn more, go to [Configuring Azure Policy with network groups in Azure Virtual Network Manager](../../../virtual-network-manager/concept-azure-policy-integration.md).
 
 ## Append
 
@@ -1003,9 +1003,9 @@ is applied only when evaluating requests with API version greater or equals to `
 ```
 ## Mutate (preview)
 
-Mutation is used in Azure Policy for Kubernetes to remediate AKS cluster components (such as pods). This effect is specific to _Microsoft.Kubernetes.Data_ [policy mode](./definition-structure.md#resource-provider-modes) definitions only.
+Mutation is used in Azure Policy for Kubernetes to remediate AKS cluster components, like pods. This effect is specific to _Microsoft.Kubernetes.Data_ [policy mode](./definition-structure.md#resource-provider-modes) definitions only.
 
-To learn more, visit [Understand Azure Policy for Kubernetes clusters](./policy-for-kubernetes.md).
+To learn more, go to [Understand Azure Policy for Kubernetes clusters](./policy-for-kubernetes.md).
 
 ### Mutate properties
 - **mutationInfo** (optional)
