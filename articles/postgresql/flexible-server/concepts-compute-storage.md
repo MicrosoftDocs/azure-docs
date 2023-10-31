@@ -282,7 +282,7 @@ This feature works for storage and compute changes for both HA and Non HA server
 
 
 > [!NOTE]
-> Wherever Near Zero Downtime Scaling process does not work due to below listed limitation regular scaling is performed.
+> Near Zero Downtime Scaling process is performed wherever possible but if it can switch to regular scaling if below limitations are encountered.
 
 #### Limitations 
 
