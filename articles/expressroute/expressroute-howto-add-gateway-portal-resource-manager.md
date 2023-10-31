@@ -5,9 +5,9 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: tutorial
-ms.date: 10/27/2023
+ms.date: 10/31/2023
 ms.author: duau
-ms.custom: seodec18, template-tutorial
+ms.custom: reference_regions
 
 ---
 # Tutorial: Configure a virtual network gateway for ExpressRoute using the Azure portal
