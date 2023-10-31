@@ -12,7 +12,18 @@ ms.subservice: sap-automation
 
 # Extending the SAP Deployment Automation Framework
 
-There are several ways to extend the SAP Deployment Automation Framework. You can fork the source code repository and make the changes in your fork of the code. 
+
+Within the SAP Deployment Automation Framework (SDAF), we recognize the importance of adaptability and customization to meet the unique needs of various deployments. This document describes the ways to extend the framework's capabilities, ensuring that it aligns  with your specific requirements.
+
+Forking the Source Code Repository: One method of extending SDAF is by forking the source code repository. This approach grants you the flexibility to make tailored modifications within your own forked version of the code. By doing so, you gain control over the framework's core functionality, enabling you to tailor it precisely to your deployment objectives.
+
+Adding Stages to the SAP Configuration Pipeline: Another way to customization is by adding stages to the SAP configuration pipeline. This approach allows you to integrate specific processes or steps that are integral to your deployment workflows into the automation pipeline.
+
+Streamlined Extensibility: This capability allows you to effortlessly incorporate your existing Ansible playbooks directly into the SDAF. By using this feature, you can seamlessly integrate your Ansible automation scripts with the framework, further enhancing its versatility.
+
+Configuration extensibility: This feature allows you to extend the framework's configuration capabilities by adding custom repositories, packages, kernel parameters, logical volumes, mounts, and exports without the need to write any code.
+
+Throughout this documentation, we provide comprehensive guidance on each of these extensibility options, ensuring that you have the knowledge and tools needed to tailor the SAP Deployment Automation Framework to your specific deployment needs.
 
 > [!NOTE]
 > If you fork the source code repository, you must maintain your fork of the code. You must also merge the changes from the source code repository into your fork of the code whenever there is a new release of the SDAF codebase.
@@ -146,11 +157,29 @@ custom_parameters:
 
 ```
 
+## Adding custom services (Linux)
+
+If you need to manage additional services on the Virtual Machines deployed by the framework, you can add the following section to the sap-parameters.yaml file.
+
+In this example, the 'firewalld' service is stopped and disabled on all the hosts in your SAP deployment that are running RedHat 7.x.
+
+```yaml
+
+custom_services:
+  redhat7:
+    - { tier: 'os',          service: 'firewalld',    node_tier: 'all',     state: 'stopped'   }
+    - { tier: 'os',          service: 'firewalld',    node_tier: 'all',     state: 'disabled'  }
+
+
+```
+
+
+
 ## Adding custom logical volumes (Linux)
 
 You can extend the SAP Deployment Automation Framework by adding logical volumes based on additional disks in your SDAF installation.
 
-When you add the following section to the sap-parameters.yaml file, a logical volume 'lv_custom' will be created on all Virtual machines with a disk with the name 'custom' in your SAP deployment. A filesystem will be mounted on the logical volume and available on '/custompath'.
+When you add the following section to the sap-parameters.yaml file, a logical volume 'lv_custom' is created on all Virtual machines with a disk with the name 'custom' in your SAP deployment. A filesystem is mounted on the logical volume and available on '/custompath'.
 
 
 ```yaml
@@ -172,18 +201,18 @@ custom_logical_volumes:
 
 You can extend the SAP Deployment Automation Framework by mounting additional mount points in your installation.
 
-When you add the following section to the sap-parameters.yaml file, a filesystem '/usr/custom' will be mounted from an NFS share on "xxxxxxxxx.file.core.windows.net:/xxxxxxxxx/custom".
+When you add the following section to the sap-parameters.yaml file, a filesystem '/usr/custom' is mounted from an NFS share on "xxxxxxxxx.file.core.windows.net:/xxxxxxxxx/custom".
 
 ```yaml
 
 custom_mounts:
   - path:         "/usr/custom"
     opts:         "vers=4,minorversion=1,sec=sys"
-    mount:        "xxxxxxxxx.file.core.windows.net:/xxxxxxxxx/custom"
+    mount:        "xxxxxxxxx.file.core.windows.net:/xxxxxxxx/custom"
     target_nodes: "scs,pas,app"
 ```
 
-The `target_nodes` attribute defines which nodes will have the mount defined. Use 'all' if you want all nodes to have the mount defined.
+The `target_nodes` attribute defines which nodes have the mount defined. Use 'all' if you want all nodes to have the mount defined.
 
 
 ## Adding custom export (Linux)
