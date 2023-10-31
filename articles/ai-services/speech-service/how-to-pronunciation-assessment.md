@@ -44,13 +44,13 @@ You must create a `PronunciationAssessmentConfig` object. You need to configure 
 ::: zone pivot="programming-language-csharp"
 
 ```csharp
-var pronunciationAssessmentConfig = new PronunciationAssessmentConfig(
-    referenceText: "good morning",
-    gradingSystem: GradingSystem.HundredMark, 
-    granularity: Granularity.Phoneme, 
-    enableMiscue: true);
-pronunciationAssessmentConfig.EnableProsodyAssessment();
-pronunciationAssessmentConfig.EnableContentAssessmentWithTopic("greeting");
+var pronunciationAssessmentConfig = new PronunciationAssessmentConfig( 
+    referenceText: "", 
+    gradingSystem: GradingSystem.HundredMark,  
+    granularity: Granularity.Phoneme,  
+    enableMiscue: false); 
+pronunciationAssessmentConfig.EnableProsodyAssessment(); 
+pronunciationAssessmentConfig.EnableContentAssessmentWithTopic("greeting"); 
 ```
    
 ::: zone-end  
@@ -58,9 +58,9 @@ pronunciationAssessmentConfig.EnableContentAssessmentWithTopic("greeting");
 ::: zone pivot="programming-language-cpp"
 
 ```cpp
-auto pronunciationAssessmentConfig = PronunciationAssessmentConfig::CreateFromJson("{\"referenceText\":\"good morning\",\"gradingSystem\":\"HundredMark\",\"granularity\":\"Phoneme\",\"enableMiscue\":true}");
-pronunciationAssessmentConfig->EnableProsodyAssessment();
-pronunciationAssessmentConfig->EnableContentAssessmentWithTopic("greeting");
+auto pronunciationConfig = PronunciationAssessmentConfig::Create("", PronunciationAssessmentGradingSystem::HundredMark, PronunciationAssessmentGranularity::Phoneme, false); 
+pronunciationConfig->EnableProsodyAssessment(); 
+pronunciationConfig->EnableContentAssessmentWithTopic("greeting"); 
 ```
 
 ::: zone-end
@@ -68,9 +68,10 @@ pronunciationAssessmentConfig->EnableContentAssessmentWithTopic("greeting");
 ::: zone pivot="programming-language-java"
 
 ```Java
-PronunciationAssessmentConfig pronunciationAssessmentConfig = PronunciationAssessmentConfig.fromJson("{\"referenceText\":\"good morning\",\"gradingSystem\":\"HundredMark\",\"granularity\":\"Phoneme\",\"enableMiscue\":true}");
-pronunciationAssessmentConfig.enableProsodyAssessment();
-pronunciationAssessmentConfig.enableContentAssessmentWithTopic("greetings");
+PronunciationAssessmentConfig pronunciationConfig = new PronunciationAssessmentConfig("", 
+PronunciationAssessmentGradingSystem.HundredMark, PronunciationAssessmentGranularity.Phoneme, false); 
+pronunciationConfig.enableProsodyAssessment(); 
+pronunciationConfig.enableContentAssessmentWithTopic("greeting"); 
 ```
 
 ::: zone-end
@@ -78,9 +79,13 @@ pronunciationAssessmentConfig.enableContentAssessmentWithTopic("greetings");
 ::: zone pivot="programming-language-python"
 
 ```Python
-pronunciation_assessment_config = speechsdk.PronunciationAssessmentConfig(json_string="{\"referenceText\":\"good morning\",\"gradingSystem\":\"HundredMark\",\"granularity\":\"Phoneme\",\"EnableMiscue\":true}")
-pronunciation_assessment_config.enable_prosody_assessment()
-pronunciation_assessment_config.enable_content_assessment_with_topic("greeting")
+pronunciation_config = speechsdk.PronunciationAssessmentConfig( 
+reference_text="", 
+grading_system=speechsdk.PronunciationAssessmentGradingSystem.HundredMark, 
+granularity=speechsdk.PronunciationAssessmentGranularity.Phoneme, 
+enable_miscue=False) 
+pronunciation_config.enable_prosody_assessment() 
+pronunciation_config.enable_content_assessment_with_topic("greeting") 
 ```
 
 ::: zone-end
@@ -88,7 +93,13 @@ pronunciation_assessment_config.enable_content_assessment_with_topic("greeting")
 ::: zone pivot="programming-language-javascript"
 
 ```JavaScript
-var pronunciationAssessmentConfig = SpeechSDK.PronunciationAssessmentConfig.fromJSON("{\"referenceText\":\"good morning\",\"gradingSystem\":\"HundredMark\",\"granularity\":\"Phoneme\",\"EnableMiscue\":true,\"contentAssessmentWithTopic\":\"greeting\",\"enableProsodyAssessment\":true}");
+var pronunciationAssessmentConfig = new sdk.PronunciationAssessmentConfig( 
+referenceText: "", 
+gradingSystem: sdk.PronunciationAssessmentGradingSystem.HundredMark,  
+granularity: sdk.PronunciationAssessmentGranularity.Phoneme,  
+enableMiscue: false); 
+pronunciationAssessmentConfig.EnableProsodyAssessment(); 
+pronunciationAssessmentConfig.EnableContentAssessmentWithTopic("greeting");   
 ```
 
 ::: zone-end
@@ -96,13 +107,13 @@ var pronunciationAssessmentConfig = SpeechSDK.PronunciationAssessmentConfig.from
 ::: zone pivot="programming-language-objectivec"
 
 ```ObjectiveC
-SPXPronunciationAssessmentConfiguration *pronunciationAssessmentConfig =
-[[SPXPronunciationAssessmentConfiguration alloc] init:@"good morning"
-                            gradingSystem:SPXPronunciationAssessmentGradingSystem_HundredMark
-                            granularity:SPXPronunciationAssessmentGranularity_Phoneme
-                            enableMiscue:true
-                            contentAssessmentWithTopic:@"greeting"
-                            enableProsodyAssessment:true];
+SPXPronunciationAssessmentConfiguration *pronunicationConfig = 
+[[SPXPronunciationAssessmentConfiguration alloc] init:@"" 
+                            gradingSystem:SPXPronunciationAssessmentGradingSystem_HundredMark 
+                            granularity:SPXPronunciationAssessmentGranularity_Phoneme 
+                            enableMiscue:false]; 
+[pronunicationConfig enableProsodyAssessment]; 
+[pronunicationConfig enableContentAssessmentWithTopic:@"greeting"]; 
 ```
 
 ::: zone-end
@@ -111,14 +122,12 @@ SPXPronunciationAssessmentConfiguration *pronunciationAssessmentConfig =
 ::: zone pivot="programming-language-swift"
 
 ```swift
-var pronunciationAssessmentConfig: SPXPronunciationAssessmentConfiguration?
-do {
-    try pronunciationAssessmentConfig = SPXPronunciationAssessmentConfiguration.init(referenceText, gradingSystem: SPXPronunciationAssessmentGradingSystem.hundredMark, granularity: SPXPronunciationAssessmentGranularity.phoneme, enableMiscue: true, contentAssessmentWithTopic: "greeting", enableProsodyAssessment: true)
-} catch {
-    print("error \(error) happened")
-    pronunciationAssessmentConfig = nil
-    return
-}
+let pronAssessmentConfig = try! SPXPronunciationAssessmentConfiguration("", 
+gradingSystem: .hundredMark, 
+granularity: .phoneme, 
+enableMiscue: false) 
+pronAssessmentConfig.enableProsodyAssessment() 
+pronAssessmentConfig.enableContentAssessment(withTopic: "greeting") 
 ```
 
 ::: zone-end
