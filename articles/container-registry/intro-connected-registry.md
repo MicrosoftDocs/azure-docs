@@ -42,7 +42,7 @@ Scenarios for a connected registry include:
 
 The following image shows a typical deployment model for the connected registry.
 
-:::image type="content" source="media/intro-connected-registry/connected-registry-overview.png" alt-text="Connected registry overview":::
+:::image type="content" source="media/intro-connected-registry/connected-registry-overview.png" alt-text="Diagram of connected registry overview":::
 
 ### Deployment
 
@@ -69,7 +69,7 @@ A connected registry can work in one of two modes: *ReadWrite* or *ReadOnly*
         
   The ReadWrite mode is useful when a local development environment is in place. The images are pushed to the local connected registry and from there synchronized to the cloud.
 
-- **ReadOnly mode** - When the connected registry is in ReadOnly mode, clients may only pull (read) artifacts. This configuration is used for nested IoT Edge scenarios, or other scenarios where clients need to pull a container image to operate.
+- **ReadOnly mode** - When the connected registry is in ReadOnly mode, clients can only pull (read) artifacts. This configuration is used for nested IoT Edge scenarios, or other scenarios where clients need to pull a container image to operate.
 
 ### Registry hierarchy
 
