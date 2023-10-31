@@ -25,7 +25,7 @@ You need to set up two clusters in a basic isolated network environment to try t
 
 You can use the following steps to configure the prerequisites.
 
-1. [Configure Azure IoT Layered Network Management Environment](./howto-configure-layered-network.md). You should use physical machines. You also need to set up the DNS server.
+1. [Create sample network environment](./howto-configure-layered-network.md). You should use physical machines. You also need to set up the DNS server.
 1. [Configure IoT Layered Network Management level 4 cluster](./howto-configure-l4-cluster-layered-network.md).
 1. [Configure IoT Layered Network Management level 3 cluster](./howto-configure-l3-cluster-layered-network.md).
 
@@ -326,4 +326,4 @@ mosquitto_pub -d -h localhost -p 12345 -i "my-client-l4-pub" -t "froml4" -m "Tes
 
 ## Related content
 
-- [Configure Azure IoT Layered Network Management Environment](./howto-configure-layered-network.md)
+- [Create sample network environment](./howto-configure-layered-network.md)

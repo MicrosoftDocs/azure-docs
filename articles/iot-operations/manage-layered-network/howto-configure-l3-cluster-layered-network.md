@@ -48,7 +48,7 @@ If you're using VM to create your Windows 11 machines, use the [VM image](https:
 
 ## Move the device to level 3 isolated network
 
-In your isolated network layer, the DNS server was configured in a prerequisite step using [Configure Azure IoT Layered Network Management Environment](./howto-configure-layered-network.md). Complete the step if you haven't done so.
+In your isolated network layer, the DNS server was configured in a prerequisite step using [Create sample network environment](./howto-configure-layered-network.md). Complete the step if you haven't done so.
 
 After the device is moved to L3, configure the DNS setting using the following steps:
 
@@ -75,8 +75,6 @@ To create the AKS Edge Essentials cluster in level 3, use the `aks-ee-config.jso
     ```bash
     New-AksEdgeDeployment -JsonConfigFilePath .\aks-ee-config.json
     ```
-
-<!-- 4. **Refer to the prerequisites for Kubernetes cluster in [Install Project Alice Springs](/docs/quickstart/install/).** Most of the prerequisites should have been covered in the previous steps. However, you need to review the Alice Springs prerequisites and make sure all the steps are completed.-->
 
 # [K3S cluster](#tab/k3s)
 
@@ -114,11 +112,11 @@ To create the AKS Edge Essentials cluster in level 3, use the `aks-ee-config.jso
     - [MQTTUI](https://github.com/EdJoPaTo/mqttui/releases) or other MQTT client
     - [Mosquitto](https://mosquitto.org/)
 
-<!--  - Refer to the [Install Project Alice Springs](/docs/quickstart/install/) to fulfill prerequisite for the host. -->
+
 
 ## Move the device to level 3 isolated network
 
-In your isolated network layer, the DNS server was configured in a prerequisite step using [Configure Azure IoT Layered Network Management Environment](./howto-configure-layered-network.md). Complete the step if you haven't done so.
+In your isolated network layer, the DNS server was configured in a prerequisite step using [Create sample network environment](./howto-configure-layered-network.md). Complete the step if you haven't done so.
 
 After the device is moved to L3, configure the DNS setting using the following steps:
 
@@ -141,8 +139,6 @@ After the device is moved to L3, configure the DNS setting using the following s
     #switch to k3s context
     kubectl config use-context default
     ```
-
-<!-- **Refer to the prerequisites for Kubernetes cluster in [Install Project Alice Springs](/docs/quickstart/install/).** Most of the prerequisites should have been covered in the previous steps. However, you need to review the Alice Springs prerequisites and make sure all the steps are completed. -->
 
 ---
 
@@ -178,4 +174,4 @@ Follow the steps in [Prepare your Kubernetes cluster](../deploy/howto-prepare-cl
 
 ## Related content
 
-- [Configure Azure IoT Layered Network Management Environment](./howto-configure-layered-network.md)
+- [Create sample network environment](./howto-configure-layered-network.md)

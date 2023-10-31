@@ -193,4 +193,4 @@ After these commands are run successfully, traffic received on ports 443 and 100
 
 ## Related content
 
-- [Configure Azure IoT Layered Network Management Environment](./howto-configure-layered-network.md)
+- [Create sample network environment](./howto-configure-layered-network.md)

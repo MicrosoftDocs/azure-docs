@@ -1,7 +1,7 @@
 ---
-title: Configure Azure IoT Layered Network Management environment
+title: Create sample network environment for Azure IoT Layered Network Management
 # titleSuffix: Azure IoT Layered Network Management
-description: Configure Azure IoT Layered Network Management environment.
+description: Set up a test environmet for  Azure IoT Layered Network Management.
 author: PatAltimore
 ms.author: patricka
 ms.topic: how-to
@@ -10,7 +10,7 @@ ms.date: 10/25/2023
 #CustomerIntent: As an operator, I want to configure Layered Network Management so that I have secure isolate devices.
 ---
 
-# Configure Azure IoT Layered Network Management environment
+# Create sample network environment for Azure IoT Layered Network Management
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
