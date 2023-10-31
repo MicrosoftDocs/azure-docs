@@ -11,19 +11,16 @@ ms.author: franlanglois
 
 # How to setup Azure Native Qumulo Scalable File Service for disaster recovery ? 
 
-This article describes the options for deploying an Azure-based disaster recovery solution that provides unstructured data services at exabyte scale using the Azure Native Qumulo Scalable File Service.
+This article describes the options for deploying an Azure-based disaster recovery solution with Azure Native Qumulo Scalable File Service.
 
-Many enterprise customers are challenged to ensure that critical infrastructure and data services can be recovered quickly in the event of a sitewide or even regional service interruption. They need to be able to failover to a secondary site quickly, but they also need a cost-effective solution that delivers the capacity and performance they need.
-
-Azure Native Qumulo Scalable File Service (ANQ) provides high-performance, exabyte-scale unstructured-data storage in the cloud, with an overall TCO that’s comparable to on-premises file storage. 
-
+Many enterprise customers are challenged to ensure that critical infrastructure and data services can be recovered quickly in the event of a sitewide or even regional service interruption. They need to be able to failover to a secondary site quickly, but they also need a cost-effective solution that delivers the capacity and performance they need.Azure Native Qumulo Scalable File Service (ANQ) provides high-performance, exabyte-scale unstructured-data cost effective cloud storage for such requirements. 
 
 
 |Benefits of a Disaster Recovery solution powered by Azure Native Qumulo|Details|
 |---------|---------|
 |Scalability	|A single ANQ instance can scale to exabyte size and beyond in a single namespace. As the data footprint grows in the primary site, ANQ scales automatically on the DR side to ensure that enough capacity is always available.|
-|Cost efficiency |	ANQ’s overall TCO is comparable to on-prem file services, even at scale. Customers pay only for the capacity and throughput they use, while they use it.|
-|Performance	|ANQ outperforms other cloud-based file platforms, delivering higher throughput and lower latency for most workloads.|
+|Cost efficiency | Customers pay only for the capacity and throughput they use, while they use it.|
+|Performance	|ANQ higher throughput and lower latency for most workloads.|
 |Global reach	|ANQ can be deployed in one or more Azure regions worldwide, enabling low-latency access to users anywhere/everywhere.|
 |Security and compliance	|Provides disaster-recovery / business-continuity data services in the event of a service interruption at the primary site. For many enterprises, DR / failover capabilities are a core requirement for business or regulatory compliance.|
 |Business continuity	|Provides failover capability or data recoverability in the event of an outage in the customer’s primary facilities.|
@@ -67,7 +64,7 @@ In this scenario, the primary Qumulo storage is either on-premises or hosted on 
 4.	If a continuous replication strategy is used, then any older versions of the changed data on the secondary storage instance are overwritten during the replication process.
 5.	If snapshots with replication are used, then a snapshot is taken on the secondary cluster to preserve older versions of the data, with the number of versions determined by the applicable snapshot policy on the secondary cluster.
 6.	In the event of a service interruption at the primary site that’s sufficiently widespread or of long enough duration to warrant a failover event, then the ANQ instance that serves as the secondary storage target becomes the primary storage instance. Replication is stopped, and the read-only datasets on the secondary ANQ service instance are enabled for full read and write operations.
-7.	Affected users and workflows are redirected to the ANQ instance as the primary storage target, and service resumes
+7.	Affected users and workflows are redirected to the ANQ instance as the primary storage target, and service resumes.
 
 
 ## Components
@@ -96,8 +93,8 @@ Potential use cases:
 
 ### Scalability and Performance
 When planning an Azure Native Qumulo Scalable File Service deployment as a Disaster Recovery solution, organizations may want to factor any or all of the following into their initial capacity plans:
-- The current amount of unstructured data within the scope of the failover plan
-- If the solution is intended for use as a cloud-based backup and restore environment, the number of separate snapshots that the solution will be required to host, along with the expected rate of change within the primary dataset
+- The current amount of unstructured data within the scope of the failover plan.
+- If the solution is intended for use as a cloud-based backup and restore environment, the number of separate snapshots that the solution will be required to host, along with the expected rate of change within the primary dataset.
 - The throughput required to ensure that all changes to the primary dataset are replicated to the target ANQ service. When deploying ANQ, organizations can choose either the Standard or Premium performance tier, which offers higher throughput and lower latency for demanding workloads.
 - Data replication occurs incrementally at the block level—after the initial synchronization is complete, only changed data blocks are replicated thereafter, which minimizes data transfer.
 - In the event of a disaster scenario that requires failover to the ANQ service, the network connectivity and throughput are required to support all impacted clients for the duration of the outage event. 
