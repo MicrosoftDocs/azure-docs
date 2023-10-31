@@ -26,9 +26,9 @@ Azure Policy for Kubernetes supports the following cluster environments:
 
 By installing Azure Policy’s add-on or extension on your Kubernetes clusters, Azure Policy enacts the following functions:
 
-•	Checks with Azure Policy service for policy assignments to the cluster.
-•	Deploys policy definitions into the cluster as [constraint template](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates) and [constraint](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraints) custom resources or as a mutation template resource (depending on policy definition content).
-•	Reports auditing and compliance details back to Azure Policy service.
+-	Checks with Azure Policy service for policy assignments to the cluster.
+-	Deploys policy definitions into the cluster as [constraint template](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates) and [constraint](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraints) custom resources or as a mutation template resource (depending on policy definition content).
+-	Reports auditing and compliance details back to Azure Policy service.
 
 To enable and use Azure Policy with your Kubernetes cluster, take the following actions:
 
@@ -38,13 +38,13 @@ To enable and use Azure Policy with your Kubernetes cluster, take the following 
    > For common issues with installation, see
    > [Troubleshoot - Azure Policy Add-on](../troubleshoot/general.md#add-on-for-kubernetes-installation-errors).
 
-2. [Create or use a sample Azure Policy definition for Kubernetes](#create-a-policy-definition)
+1. [Create or use a sample Azure Policy definition for Kubernetes](#create-a-policy-definition)
 
-3. [Assign a definition to your Kubernetes cluster](#assign-a-policy-definition)
+1. [Assign a definition to your Kubernetes cluster](#assign-a-policy-definition)
 
-4. [Wait for validation](#policy-evaluation)
-5. [Logging](#logging) and [troubleshooting](#troubleshooting-the-add-on)
-6. Review [limitations](#limitations) and [recommendations in our FAQ section](#frequently-asked-questions)
+1. [Wait for validation](#policy-evaluation)
+1. [Logging](#logging) and [troubleshooting](#troubleshooting-the-add-on)
+1. Review [limitations](#limitations) and [recommendations in our FAQ section](#frequently-asked-questions)
 
 ## Install Azure Policy Add-on for AKS
 
@@ -65,11 +65,11 @@ To enable and use Azure Policy with your Kubernetes cluster, take the following 
      # Provider register: Register the Azure Policy provider
      az provider register --namespace Microsoft.PolicyInsights
      ```
-2. You need the Azure CLI version 2.12.0 or later installed and configured. Run `az --version` to
+1. You need the Azure CLI version 2.12.0 or later installed and configured. Run `az --version` to
    find the version. If you need to install or upgrade, see
    [Install the Azure CLI](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli).
    
-3. The AKS cluster must be a [supported Kubernetes version in Azure Kubernetes Service (AKS)](../../../aks/supported-kubernetes-versions.md). Use the following script to validate your AKS
+1. The AKS cluster must be a [supported Kubernetes version in Azure Kubernetes Service (AKS)](../../../aks/supported-kubernetes-versions.md). Use the following script to validate your AKS
    cluster version:
 
    ```azurecli-interactive
@@ -79,7 +79,7 @@ To enable and use Azure Policy with your Kubernetes cluster, take the following 
    az aks list
    ```
 
-4. Open ports for the Azure Policy extension. The Azure Policy extension uses these domains and ports to fetch policy
+1. Open ports for the Azure Policy extension. The Azure Policy extension uses these domains and ports to fetch policy
    definitions and assignments and report compliance of the cluster back to Azure Policy.
 
    |Domain |Port |
@@ -136,7 +136,7 @@ similar to the following output:
 ```
 ## <a name="install-azure-policy-extension-for-azure-arc-enabled-kubernetes"></a>Install Azure Policy Extension for Azure Arc enabled Kubernetes
 
-[Azure Policy for Kubernetes](./policy-for-kubernetes.md) makes it possible to manage and report on the compliance state of your Kubernetes clusters from one place. With Azure Policy's Extension for Arc-enabled Kubernetes clusters, you can govern your Arc-enabled Kubernetes cluster components, such as pods and containers. 
+[Azure Policy for Kubernetes](./policy-for-kubernetes.md) makes it possible to manage and report on the compliance state of your Kubernetes clusters from one place. With Azure Policy's Extension for Arc-enabled Kubernetes clusters, you can govern your Arc-enabled Kubernetes cluster components, like pods and containers. 
 
 This article describes how to [create](#create-azure-policy-extension), [show extension status](#show-azure-policy-extension), and [delete](#delete-azure-policy-extension) the Azure Policy for Kubernetes extension.
 
@@ -420,7 +420,7 @@ Some other considerations:
 If constraint templates have the same resource metadata name, but the policy definition references
 the source at different locations, the policy definitions are considered to be in conflict. Example:
 Two policy definitions reference the same `template.yaml` file stored at different source locations
-such as the Azure Policy template store (`store.policy.core.windows.net`) and GitHub.
+like the Azure Policy template store (`store.policy.core.windows.net`) and GitHub.
 
 When policy definitions and their constraint templates are assigned but aren't already installed on
 the cluster and are in conflict, they're reported as a conflict and aren't installed into the
@@ -586,7 +586,7 @@ The Azure Policy Add-On uses the standard [Semantic Versioning](https://semver.o
 To identify the Gatekeeper version that your Azure Policy Add-On is using, you can run the following command: 
 `kubectl get pod gatekeeper-controller-<unique-pod-identifier> -n gatekeeper-system -o json | jq '.spec.containers[0].image' `
 
-Finally, to identify the AKS cluster version that you are using, please follow the linked AKS guidance for this.
+Finally, to identify the AKS cluster version that you are using, follow the linked AKS guidance for this.
 
 ### Add-On versions available per each AKS cluster version
 
@@ -688,7 +688,7 @@ The following limitations apply only to the Azure Policy Add-on for AKS:
 ## Frequently asked questions
 
 ### What does the Azure Policy Add-On / Azure Policy Extension deploy on my cluster upon installation?
-The Azure Policy Add-on requires three Gatekeeper components to run: One audit pod and two webhook pod replicas. 
+The Azure Policy Add-on requires three Gatekeeper components to run: One audit pod and two webhook pod replicas. One Azure Policy pod and one Azure Policy webhook pod will also be installed.
 
 ### How much resource consumption should I expect the Azure Policy Add-On / Extension to use on each cluster?
 The Azure Policy for Kubernetes components that run on your cluster consume more resources as the count of Kubernetes resources and policy assignments increases in the cluster, which requires audit and enforcement operations.
@@ -697,7 +697,7 @@ The following are estimates to help you plan:
   - For more than 500 pods in a single cluster with a max of 40 constraints: three vCPUs and 600 MB of memory per component.
 
 ### Can Azure Policy for Kubernetes definitions be applied on Windows pods?
-Windows pods [don't support security contexts](https://kubernetes.io/docs/concepts/security/pod-security-standards/#what-profiles-should-i-apply-to-my-windows-pods). Thus, some of the Azure Policy definitions, such as disallowing root privileges, can't be escalated in Windows pods and only apply to Linux pods.
+Windows pods [don't support security contexts](https://kubernetes.io/docs/concepts/security/pod-security-standards/#what-profiles-should-i-apply-to-my-windows-pods). Thus, some of the Azure Policy definitions, like disallowing root privileges, can't be escalated in Windows pods and only apply to Linux pods.
 
 ### What type of diagnostic data gets collected by Azure Policy Add-on?
 The Azure Policy Add-on for Kubernetes collects limited cluster diagnostic data. This diagnostic
