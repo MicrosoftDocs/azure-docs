@@ -161,14 +161,14 @@ Perf | where ObjectName == "Memory" and (CounterName == "Available MBytes Memory
 To create a new alert rule based on a cross-service query, follow the steps in [Create a new alert rule](../alerts/alerts-create-new-alert-rule.md), selecting your Log Analytics workspace on the Scope tab.
 
 ## Limitations
-
+### General cross-service query limitations
 * Database names are case sensitive.
 * Identifying the Timestamp column in the cluster isn't supported. The Log Analytics Query API won't pass the time filter.
 * Cross-service queries support data retrieval only. 
 * [Private Link](../logs/private-link-security.md) (private endpoints) and [IP restrictions](/azure/data-explorer/security-network-restrict-public-access) do not support cross-service queries.
 * `mv-expand` is limited to 2000 records.
 
-### Azure Resource Graph cross-query limitations
+### Azure Resource Graph cross-service query limitations
 When you query Azure Resource Graph data from Azure Monitor:
 * These operators aren't supported: `smv-apply()`, `rand()`, `arg_max()`, `arg_min()`, `avg()`, `avg_if()`, `countif()`, `sumif()`, `percentile()`, `percentiles()`, `percentilew()`, `percentilesw()`, `stdev()`, `stdevif()`, `stdevp()`, `variance()`, `variancep()`, `varianceif()`.
 * The query returns the first 1000 records only.
