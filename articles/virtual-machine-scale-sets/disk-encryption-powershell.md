@@ -66,7 +66,6 @@ New-AzVmss `
     -SubnetName "mySubnet" `
     -PublicIpAddressName "myPublicIPAddress" `
     -LoadBalancerName "myLoadBalancer" `
-    -UpgradePolicy "Automatic" `
     -Credential $cred
 ```
 
