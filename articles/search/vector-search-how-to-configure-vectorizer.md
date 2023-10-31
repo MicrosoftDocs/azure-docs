@@ -121,9 +121,27 @@ Assign a profile to each vector field.
 
 ## Test a vectorizer
 
-1. [Run the indexer](search-howto-run-reset-indexers.md).
+1. [Run the indexer](search-howto-run-reset-indexers.md). When you run the indexer, the following operations occur:
 
-1. [Query the vector field](vector-search-how-to-query.md). There are no vectorizer properties to set at query time. The query uses the algorithm and vectorizer provided through the profile assignment.
+    + source data retrieval
+    + document cracking
+    + skills processing for data chunking and vectorization
+    + indexing
+
+1. [Query the vector field](vector-search-how-to-query.md) once the indexer is finished. In a query that uses integrated vectorization, set "kind" to "text", and then set "text" to the string to be vectorized. There are no vectorizer properties to set at query time. The query uses the algorithm and vectorizer provided through the profile assignment in the index.
+
+    ```json
+    "count": true,
+    "select": "title",
+    "vectorQueries": [ 
+       { 
+          "kind": "text",
+          "text": "story about horses set in Australia",
+          "fields": "synopsis",
+          "k": 5
+       }
+    ]
+    ```
 
 ## See also
 
