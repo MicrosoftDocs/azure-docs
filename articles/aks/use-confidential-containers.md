@@ -32,7 +32,7 @@ This article helps you understand the Confidential Containers feature, and how t
 
 ## Supported scenarios
 
-Confidential Containers (preview) are appropriate for deployment scenarios that involve sensitive data. For instance, personally identifiable information (PII) or any data with strong security needed for regulatory compliance. Some common scenarios with containers are:
+Confidential Containers (preview) are appropriate for deployment scenarios that involve sensitive data. For example, personally identifiable information (PII) or any data with strong security needed for regulatory compliance. Some common scenarios with containers are:
 
 - Run big data analytics using Apache Spark for fraud pattern recognition in the financial sector.
 - Running self-hosted GitHub runners to securely sign code as part of Continuous Integration and Continuous Deployment (CI/CD) DevOps practices.
@@ -344,6 +344,8 @@ kubectl delete pod pod-name
 
 <!-- EXTERNAL LINKS -->
 [kubectl]: https://kubernetes.io/docs/reference/kubectl/
+[kubectl-delete-pod]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete
+
 
 <!-- INTERNAL LINKS -->
 [pod-sandboxing-overview]: use-pod-sandboxing.md
@@ -356,3 +358,5 @@ kubectl delete pod pod-name
 [DC8as-series]: ../virtual-machines/dcasccv5-dcadsccv5-series.md
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [az-aks-nodepool-add]: /cli/azure/aks/nodepool#az_aks_nodepool_add
+[az-aks-delete]: /cli/azure/aks#az_aks_delete
+[azure-dedicated-hosts]: ../virtual-machines/dedicated-hosts.md

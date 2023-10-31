@@ -15,7 +15,7 @@ As described by the Confidential Computing Consortium (CCC), *"Confidential Comp
 
 ## Security policy overview
 
-One of the main components of the [Kata Containers system architecture](https://github.com/kata-containers/kata-containers/blob/main/docs/design/architecture/history.md#kata-2x-architecture) is the [Kata agent](https://github.com/kata-containers/kata-containers/blob/main/docs/design/architecture/README.md#agent). When using Kata Containers to implement Confidential Containers, the agent is executed inside the hardware-based TEE and therefore is part of the pod's Trusted Computing Base (TCB). As shown in the following diagram, the Kata agent provides a set of [ttrpc](https://github.com/containerd/ttrpc) APIs allowing the system components outside of the TEE to create and manage CVM-based Kubernetes pods. These other components (for example, the Kata Shim) aren't part of the pod's TCB, therefore the agent must protect itself from potentially buggy or malicious API calls.
+One of the main components of the [Kata Containers system architecture](https://github.com/kata-containers/kata-containers/blob/main/docs/design/architecture/history.md#kata-2x-architecture) is the [Kata agent](https://github.com/kata-containers/kata-containers/blob/main/docs/design/architecture/README.md#agent). When using Kata Containers to implement Confidential Containers, the agent is executed inside the hardware-based TEE and therefore is part of the pod's Trusted Computing Base (TCB). As shown in the following diagram, the Kata agent provides a set of [ttrpc](https://github.com/containerd/ttrpc) APIs allowing the system components outside of the TEE to create and manage CVM-based Kubernetes pods. These other components (for example, the Kata Shim) aren't part of the pod's TCB. Therefore, the agent must protect itself from potentially buggy or malicious API calls.
 
 :::image type="content" source="media/confidential-containers-security-policy/security-policy-architecture-diagram.png" alt-text="Diagram of the AKS Confidental Containers Security Policy model.":::
 
@@ -35,9 +35,9 @@ The Policy data is specific to each pod. It contains, for example:
 Examples of data included in the Policy document for each of the containers in a pod:
 
 * Image integrity information.
-* Command line.
+* Commands executed in the container.
 * Storage volumes and mounts.
-* Execution security context – For example, is the root file system read-only?
+* Execution security context. For example, is the root file system read-only?
 * Is the process allowed to gain new privileges?
 * Environment variables.
 * Other fields from the Open Container Initiative (OCI) container runtime configuration.
@@ -47,7 +47,7 @@ Examples of data included in the Policy document for each of the containers in a
 The Policy rules, specified in Rego format, get executed by OPA for each Kata agent API call from outside of the CVM. The agent provides all API inputs to OPA, and OPA uses the rules to check if the inputs are consistent with Policy data. If the API inputs aren't allowed by the Policy rules and data, the agent rejects the API call by returning a "blocked by policy" error message. Here are some rule examples:
 
 * Each container layer is exposed as a read-only [virtio block](https://docs.oasis-open.org/virtio/virtio/v1.1/cs01/virtio-v1.1-cs01.html#x1-2390002) device to the CVM. The integrity of those block devices is protected using the [dm-verity](https://docs.kernel.org/admin-guide/device-mapper/verity.html) technology of the Linux kernel. The expected root value of the dm-verity [hash tree](https://docs.kernel.org/admin-guide/device-mapper/verity.html#hash-tree) is included in the Policy data, and verified at runtime by the Policy rules.
-* Rules rject Container creation when an unexpected command line, storage mount, execution security context, or environment variable is detected.
+* Rules reject Container creation when an unexpected command line, storage mount, execution security context, or environment variable is detected.
 
 By default, Policy [rules](https://github.com/microsoft/kata-containers/blob/2795dae5e99bd918b7b8d0a9643e9a857e95813d/src/tools/genpolicy/rules.rego#L37) are common to all pods. The *genpolicy* tool generates the Policy data and is specific to each pod.
 
@@ -75,7 +75,7 @@ Before handling sensitive information, your workloads must perform Remote Attest
 
 ## Policy enforcement
 
-The Kata agent is responsible for enforcing the Policy. Microsoft contributed to the Kata/CoCo community the agent code responsible for checking the Policy for each agent ttrpc API call. Before carrying out the actions corresponding to the API, the agent uses the OPA REST API to check if the Policy rules and data allow or block the call.
+The Kata agent is responsible for enforcing the Policy. Microsoft contributed to the Kata and CoCo community the agent code responsible for checking the Policy for each agent ttrpc API call. Before carrying out the actions corresponding to the API, the agent uses the OPA REST API to check if the Policy rules and data allow or block the call.
 
 ## Next steps
 
