@@ -180,9 +180,14 @@ In this section, connectivity to the Azure database in your code follows the `De
 
 [!INCLUDE [code sample for mysql Microsoft Entra authentication connection](./code-mysql-me-id.md)]
 
+## 4. Grant permission to pre-created database schemas
+
+[!INCLUDE [Postgresql grant permission](./postgres-grant-permission.md)]
+
 
 # [Azure Database for PostgreSQL](#tab/postgresql-sc)
 
 [!INCLUDE [code sample for sql Microsoft Entra authentication connection](./code-postgres-me-id.md)]
 
 -----
+
