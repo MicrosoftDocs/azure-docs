@@ -25,7 +25,8 @@ landingContent:
           - text: What is Azure Managed Confidential Consortium Framework?
             url: overview.md
           - text: What is Confidential Consortium Framework?
-            url: ccf-overview.md
+            url: confidential-consortium-framework-overview.md
+
       - linkListType: get-started
         links:
           - text: Develop, test and deploy an Azure Managed CCF application
@@ -67,7 +68,7 @@ landingContent:
           - text: Manage members in an Azure Managed CCF resource
             url: how-to-manage-members.md
           - text: Set application runtime options
-            url: how-to-update-js-runtime-options.md
+            url: how-to-update-javascript-runtime-options.md
           - text: Update an application deployed on an Azure Managed CCF resource
             url: how-to-update-application.md
           - text: Backup and restore an Azure Managed CCF resource

@@ -7,7 +7,7 @@ items:
       - name: About Azure Managed Confidential Consortium Framework
         href: overview.md
       - name: About Confidential Consortium Framework
-        href: ccf-overview.md
+        href: confidential-consortium-framework-overview.md
       - name: Get started
         href: get-started.md
   - name: Quickstarts
