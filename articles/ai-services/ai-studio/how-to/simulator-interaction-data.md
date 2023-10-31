@@ -11,168 +11,234 @@ ms.date: 10/1/2023
 ms.author: eur
 ---
 
-# How to use the Azure AI simulator for interaction data
+# # Generate AI-simulated datasets with your application
 
-The Azure AI simulator allows you to simulate complex single turn and multi-turn scenarios where a human-like bot interacts with your service to generate targeted synthetic life-like interactions for evaluation. An example would be a conversation.
+Large language models are known for their few-shot and zero-shot learning abilities, allowing them to function with minimal data. However, this limited data availability impedes thorough evaluation and optimization when you may not have test datasets to evaluate the quality and effectiveness of your generative AI application. Using GPT to simulate a user interaction with your application, with configurable tone, task and characteristics can help with stress testing your application under various environments, effectively gauging how a model responds to different inputs and scenarios.
 
-## Install the Azure AI Tools SDK
-To get started we need the Azure AI Tools SDK.
-```bash
-pip install azure-ai-tools
-```
-## 1. Defining model connections
-There are two models involved for simulator to work. Here, we define a customer bot using gpt-35-turbo model deployment on azure openai.
+There are two main scenarios for generating a simulated interaction (such as as conversation with a chat bot):
+1.	Instance level with manual testing: generate one conversation at a time by manually inputting the task perameters such as name, profile, tone and task and iteratively tweaking it to see different outcomes for the simulated interaction. 
+2.	Bulk testing and evaluation orchestration: generate multiple interaction data samples (~100) at one time for a list of tasks or profiles to create an target dataset to evaluate your generative aI applications and streamline the data gathering/prep process.
+
+## Usage
+
+The simulator works by setting up a system large language model such as GPT to simulate a user and interact with your application. It takes in task parameters that specify what task you want the simulator to accomplish in interacting with your application as well as giving character and tone to the simulator.  First import the simulator package from Azure AI SDK:
+
 ```python
-from azure.ai.tools.synthetic.simulator import (
-    OpenAIChatCompletionsModel,
-    KeyVaultAPITokenManager
-)
+from azure.ai.generative import Simulator, SimulatorTemplate
+```
 
-# here, we use a token manager connecting to azure keyvault to retrieve api key to connect to an azure openai deployment
-token_manager = KeyVaultAPITokenManager(
-    secret_identifier="<azure-keyvault secret identifier>",
-    auth_header="api-key",
-    logger=logging.getLogger("assistant_bot_token_manager"),
-)
+### Initialize large language model
 
-# a bot representing a user using gpt-35-turbo model
-gpt_bot_model = OpenAIChatCompletionsModel(
-    endpoint_url="<your azure openai endpoint here>",
-    token_manager=token_manager,
-    api_version="2023-03-15-preview",
-    name="gpt-35-turbo",
-    max_tokens=300,
-    temperature=0.0,
+First we set up the system large language model which will act as the "agent" simulating a user or test case against your application.
+
+```python
+from azure.identity import DefaultAzureCredential
+from azure.ai.generative import AIClient
+from azure.ai.generative.entities import AzureOpenAIModelConfiguration
+
+credential = DefaultAzureCredential()
+# initialize aiclient. This assumes that config.json downloaded from ai workspace is present in the working directory
+ai_client = AIClient.from_config(credential)
+
+# Retrieve default aoai connection if it exists
+aoai_connection = client.get_default_aoai_connection()
+# alternatively, retrieve connection by name
+# aoai_connection = ai_client.connections.get("<name of connection>")
+
+# Specify model and deployment name
+aoai_config = AzureOpenAIModelConfiguration.from_connection(
+    connection=aoai_connection,
+    model_name="<model name>",
+    deployment_name="<deployment name>",
+    "temperature": 0.1,
+    "max_token": 300
 )
 ```
-NOTE: If using Azure Open AI GPT models, Azure Content Safety will prevent users from generating harmful content during simulation.
+`max_tokens` and `temperature` are optional, the default value for `max_tokens` is 300, the default value for `temperature` is 0.9
 
-For service model connection, a similar OpenAIChatCompletionsModel could be used. An async callback function could also be provided to the SDK connecting to your service for responses
+### Initialize simulator class 
 
-Here's an example defining an async callback function:
+`Simulator` class supports interacting between a large language model and a local app function that follows a protocol, a local flow or a large language model endpoint (just the configuration need to be passed in). 
+
+```python
+simulator = simulator(userConnection=your_target_LLM, systemConnection=aoai_config)
+```
+
+`SimulatorTemplate` class provides scenario prompt templates to simulat certain large language model scenarios such as conversations/chats or summarization.
+
+```python
+st = SimulatorTemplate()
+```
+
+Provided a local function or local flow,
+Local function
+```python
+simulator = simulator(simulate_callback=simulate_callback, systemConnection=aoai_config)
+```
+Following is an example of using `simulate_callback` function wrapping it:
 ```python
 async def simulate_callback(question, conversation_history, meta_data):
-    reply = call_app(question, chat_history, meta_data)
-    return reply["answer"]
+    from promptflow import PFClient
+    pf_client = PFClient()
+
+    inputs = {"question": question}
+    return pf_client.test(flow="<flow_folder_path>", inputs=inputs)
 ```
 
-
-## 2. Initialize Persona
-
-Create a yaml file to define your persona. In this example, save the following persona yaml to a local file named `jane.yaml`.
-
-```yaml
-meta_data:
-  customer_info: "## customer_info      name: Jane Doe    age: 28     phone_number:\
-    \ 555-987-6543     email: jane.doe@example.com     address: 789 Broadway St, Seattle,\
-    \ WA 98101      loyalty_program: True     loyalty_program Level: Bronze      \
-    \  ## recent_purchases      order_number: 5  date: 2023-05-01  item: - description:\
-    \  TrailMaster X4 Tent, quantity 1, price $250  \_ item_number: 1   order_number:\
-    \ 18  date: 2023-05-04  item: - description:  Pathfinder Pro-1 Adventure Compass,\
-    \ quantity 1, price $39.99  \_ item_number: 4   order_number: 28  date: 2023-04-15\
-    \  item: - description:  CozyNights Sleeping Bag, quantity 1, price $100  \_ item_number:\
-    \ 7"
-name: Jane
-profile: Jane Doe is a 28-year-old outdoor enthusiast who lives in Seattle, Washington.
-  She has a passion for exploring nature and loves going on camping and hiking trips
-  with her friends. She has recently become a member of the company's loyalty program
-  and has achieved Bronze level status.Jane has a busy schedule, but she always makes
-  time for her outdoor adventures. She is constantly looking for high-quality gear
-  that can help her make the most of her trips and ensure she has a comfortable experience
-  in the outdoors.Recently, Jane purchased a TrailMaster X4 Tent from the company.
-  This tent is perfect for her needs, as it is both durable and spacious, allowing
-  her to enjoy her camping trips with ease. The price of the tent was $250, and it
-  has already proved to be a great investment.In addition to the tent, Jane also bought
-  a Pathfinder Pro-1 Adventure Compass for $39.99. This compass has helped her navigate
-  challenging trails with confidence, ensuring that she never loses her way during
-  her adventures.Finally, Jane decided to upgrade her sleeping gear by purchasing
-  a CozyNights Sleeping Bag for $100. This sleeping bag has made her camping nights
-  even more enjoyable, as it provides her with the warmth and comfort she needs after
-  a long day of hiking.
-tone: happy
-```
-
-TODO: The namespace is just placeholder, these import will come from the namespace where ai.gen sits.
-
+### Simulate a conversation
+Use simulator template provided for conversations using the `SimulatorTemplate` class configure the parameters for that task.
 ```python
-from azure.ai.tools.synthetic import Persona, Simulator
-
-custom_persona = Persona(name="Random Person", profile="50 years old engineer", tone="bored", meta_data={customer_id=50, address=xxx, ...})
-# Predefined personas
-jane = Persona.load(path="./jane.yaml")
+conversation_template = st.get_template("conversation")
+conversation_parameters = st.get_template_parameters("conversation")
+print(conversation_parameters) # shows parameters needed for the prompt template
+print(conversation_template) # shows the prompt template that is used to generate conversations
 ```
 
-There are two ways to initialize Persona class, one is customizing it by passing in name, profile, tone and meta_data. The name and profile are required, tone and metat_data are optional
-
-The other way is that we will also provide predefined personas, users can leverage `Persona.load()` to load the predefined or exported persona.
-
-
-## 3. Initialize the simulator class 
-
+Configure the parameters for the simulated task (i.e. conversation) as a dictionary with the name of your simulated agent, its profile description, tone, task and any additional metadata you may want to provide as part of the persona or task. You can also configure the name of your chat application bot to ensure that the simulator knows what it is interacting with. 
 ```python
-# Subsititue gptConnection with a model of your choice
-simulator = Simulator(systemConnection=gpt_bot_model, userConnection=gpt_bot_model)
-# Using simulate_callback defined earlier for application response user's own callback
-simulator = Simulator(systemConnection=gpt_bot_model, simulate_callback=simulate_callback)
-```
-
-
-
-## 4. Simulate conversations
-- `Persona` class defines gpt's persona, user can use predefined or customized personas
-- `task` the task that persona is trying to achieve
-- `Simulator` class accepts a llm model or a customer supplied callback for systemConnection and a llm model for userConnection
-
-There is a sync and async version of simulate provided:
-```python
-conversation_result = simulator.simulate(persona = jane, task = task, max_conversation_turns = 6)
-conversation_result = await simulator.simulate_async(persona = jane, task = task, max_conversation_turns = 6)
-```
-
-### 4.1 Output
-
-The `conversation_result` will be dictionary, which contains `conversation_id`, `conversation` and `meta_data`.
-
-The `conversation` is a list of conversation turns, for each conversation turn, it contains `turn_number`, `response`, `actor`, `request`, `full_json_response`.
-Please see example in Appendix
-
-{
-    "conversation_id": "",
-    "conversation": [
-        {
-            "turn_number": 0,
-            "response": "",
-            "actor": "",
-            "request": "",
-            "full_json_response": ""
-        }
-        {
-            "turn_number": 1,
-            ...
-        }
-        ....
-    ],
-    "meta_data": "" 
+conversation_parameters = {
+    "name": "Cortana",
+    "profile":"Cortana is a enterprising businesswoman in her 30's looking for ways to improve her hiking experience outdoors in California.",
+    "tone":"friendly",
+    "metadata":{"customer_info":"Last purchased item is a OnTrail ProLite Tent on October 13, 2023"},
+    "task":"Cortana is looking to complete her camping set to go on an expedition in Patagonia, Chile.",
+    "chatbot_name":"YourChatAppNameHere"
 }
-
-- `full_json_response` is the full response from the model
-- `response` is the extracted message
-- `request` is the request to the model,
-- `meta_data` includes persona and task
-
-## 5. Additional functionality
-
-### 5.1 Save and load template
-
-```python
-# Users can print the prompt template of the persona
-print(jane.template)
-print(jane.tone)
-print(jane.profile)
-
-# Users can export persona to local
-jane.export(path="./customPersona_jane.yaml")
-
-# Users can load persona back from local persona profile
-custom_persona = Persona.load(path="./customPersona_jane.yaml")
 ```
+Simulate either synchronously or asynchronously, the `simulate` function accepts three inputs: persona, task and max_conversation_turns. 
+```python
+conversation_result = simulator.simulate(template=conversation_template, parameters=conversation_parameters, max_conversation_turns = 6, max_token = 300, temperature = 0.9)
+conversation_result = await simulator.simulate(template=conversation_template, parameters=conversation_parameters, max_conversation_turns = 6, max_token = 300, temperature = 0.9)
+```
+`max_conversation_turns` defines how many turns of converation it will generate at most. It is optional, default value is 2.
+
+### Output
+
+The `conversation_result` will be dictionary,
+
+The `conversation` is a list of conversation turns, for each conversation turn, it contains `content` which is the content of conversation, `role` which is either the user (simulated agent) or assistant,`turn_number`,`template_parameters`
+```json
+{
+    "messages": [
+        {
+            "content": "<conversation_turn_content>", 
+            "role": "<role_name>", 
+            "turn_number": "<turn_number>",
+            "template_parameters": {
+                "name": "<name_of_simulated_agent>",
+                "profile": "<description_of_simulated_agent>",
+                "tone": "<tone_description>",
+                "metadata": {
+                    "<content_key>":"<content_value>"
+                },
+                "task": "<task_description>",
+                "chatbot_name": "<name_of_chatbot>"
+            },
+            "context": {
+                "citations": [
+                    {
+                        "id": "<content_key>",
+                        "content": "<content_value>"
+                    }
+                ]
+            }
+        }
+    ]
+}
+```
+This aligns to Azure AI SDK's `evaluate` function call which takes in this chat format dataset for evaluating metrics such as groundedness, relevance, and retrieval_score if `citations` are provided.
+
+### Additional functionality
+
+#### Early termination
+
+Stop conversation earlier if the conversation meet certain criteria, such as "bye" or "goodbye" appears in the conversation. Users can customize the stopping criteria themselves as well
+
+#### Retry
+
+The scenario simulator supports retry logic, the default maximum number of retries in case the last API call failed is 3. The default number of seconds to sleep between consiquent retries in case the last API call failed is 3.
+
+User can also defines their own `api_call_retry_sleep_sec` and `api_call_retry_max_count` and pass into the `ScenarioSimulator()`
+
+#### Example of output conversation
+
+```json
+{
+    "messages": [
+        {
+            "content": "<|im_start|>user\nHi ChatBot, can you help me find the best hiking backpacks for weekend trips? I want to make an informed decision before making a purchase.",
+            "role": "user",
+            "turn_number": 0,
+            "template_parameters": {
+                "name": "Jane",
+                "profile": "Jane Doe is a 28-year-old outdoor enthusiast who lives in Seattle, Washington. She has a passion for exploring nature and loves going on camping and hiking trips with her friends. She has recently become a member of the company's loyalty program and has achieved Bronze level status.Jane has a busy schedule, but she always makes time for her outdoor adventures. She is constantly looking for high-quality gear that can help her make the most of her trips and ensure she has a comfortable experience in the outdoors.Recently, Jane purchased a TrailMaster X4 Tent from the company. This tent is perfect for her needs, as it is both durable and spacious, allowing her to enjoy her camping trips with ease. The price of the tent was $250, and it has already proved to be a great investment.In addition to the tent, Jane also bought a Pathfinder Pro-1 Adventure Compass for $39.99. This compass has helped her navigate challenging trails with confidence, ensuring that she never loses her way during her adventures.Finally, Jane decided to upgrade her sleeping gear by purchasing a CozyNights Sleeping Bag for $100. This sleeping bag has made her camping nights even more enjoyable, as it provides her with the warmth and comfort she needs after a long day of hiking.",
+                "tone": "happy",
+                "metadata": {
+                    "customer_info": "## customer_info      name: Jane Doe    age: 28     phone_number: 555-987-6543     email: jane.doe@example.com     address: 789 Broadway St, Seattle, WA 98101      loyalty_program: True     loyalty_program Level: Bronze        ## recent_purchases      order_number: 5  date: 2023-05-01  item: - description:  TrailMaster X4 Tent, quantity 1, price $250    item_number: 1   order_number: 18  date: 2023-05-04  item: - description:  Pathfinder Pro-1 Adventure Compass, quantity 1, price $39.99    item_number: 4   order_number: 28  date: 2023-04-15  item: - description:  CozyNights Sleeping Bag, quantity 1, price $100    item_number: 7"
+                },
+                "task": "Jane is trying to accomplish the task of finding out the best hiking backpacks suitable for her weekend camping trips, and how they compare with other options available in the market. She wants to make an informed decision before making a purchase from the outdoor gear company's website or visiting their physical store.Jane uses Google to search for 'best hiking backpacks for weekend trips,' hoping to find reliable and updated information from official sources or trusted websites. She expects to see a list of top-rated backpacks, their features, capacity, comfort, durability, and prices. She is also interested in customer reviews to understand the pros and cons of each backpack.Furthermore, Jane wants to see the specifications, materials used, waterproof capabilities, and available colors for each backpack. She also wants to compare the chosen backpacks with other popular brands like Osprey, Deuter, or Gregory. Jane plans to spend about 20 minutes on this task and shortlist two or three options that suit her requirements and budget.Finally, as a Bronze level member of the outdoor gear company's loyalty program, Jane might also want to contact customer service to inquire about any special deals or discounts available on her shortlisted backpacks, ensuring she gets the best value for her purchase.",
+                "chatbot_name": "ChatBot"
+            },
+            "context": {
+                "citations": [
+                    {
+                        "id": "customer_info",
+                        "content": "## customer_info      name: Jane Doe    age: 28     phone_number: 555-987-6543     email: jane.doe@example.com     address: 789 Broadway St, Seattle, WA 98101      loyalty_program: True     loyalty_program Level: Bronze        ## recent_purchases      order_number: 5  date: 2023-05-01  item: - description:  TrailMaster X4 Tent, quantity 1, price $250    item_number: 1   order_number: 18  date: 2023-05-04  item: - description:  Pathfinder Pro-1 Adventure Compass, quantity 1, price $39.99    item_number: 4   order_number: 28  date: 2023-04-15  item: - description:  CozyNights Sleeping Bag, quantity 1, price $100    item_number: 7"
+                    }
+                ]
+            }
+        },
+        {
+            "content": "Of course! I'd be happy to help you find the best hiking backpacks for weekend trips. What is your budget for the backpack?",
+            "role": "assistant",
+            "turn_number": 1,
+            "template_parameters": {
+                "name": "Jane",
+                "profile": "Jane Doe is a 28-year-old outdoor enthusiast who lives in Seattle, Washington. She has a passion for exploring nature and loves going on camping and hiking trips with her friends. She has recently become a member of the company's loyalty program and has achieved Bronze level status.Jane has a busy schedule, but she always makes time for her outdoor adventures. She is constantly looking for high-quality gear that can help her make the most of her trips and ensure she has a comfortable experience in the outdoors.Recently, Jane purchased a TrailMaster X4 Tent from the company. This tent is perfect for her needs, as it is both durable and spacious, allowing her to enjoy her camping trips with ease. The price of the tent was $250, and it has already proved to be a great investment.In addition to the tent, Jane also bought a Pathfinder Pro-1 Adventure Compass for $39.99. This compass has helped her navigate challenging trails with confidence, ensuring that she never loses her way during her adventures.Finally, Jane decided to upgrade her sleeping gear by purchasing a CozyNights Sleeping Bag for $100. This sleeping bag has made her camping nights even more enjoyable, as it provides her with the warmth and comfort she needs after a long day of hiking.",
+                "tone": "happy",
+                "metadata": {
+                    "customer_info": "## customer_info      name: Jane Doe    age: 28     phone_number: 555-987-6543     email: jane.doe@example.com     address: 789 Broadway St, Seattle, WA 98101      loyalty_program: True     loyalty_program Level: Bronze        ## recent_purchases      order_number: 5  date: 2023-05-01  item: - description:  TrailMaster X4 Tent, quantity 1, price $250    item_number: 1   order_number: 18  date: 2023-05-04  item: - description:  Pathfinder Pro-1 Adventure Compass, quantity 1, price $39.99    item_number: 4   order_number: 28  date: 2023-04-15  item: - description:  CozyNights Sleeping Bag, quantity 1, price $100    item_number: 7"
+                },
+                "task": "Jane is trying to accomplish the task of finding out the best hiking backpacks suitable for her weekend camping trips, and how they compare with other options available in the market. She wants to make an informed decision before making a purchase from the outdoor gear company's website or visiting their physical store.Jane uses Google to search for 'best hiking backpacks for weekend trips,' hoping to find reliable and updated information from official sources or trusted websites. She expects to see a list of top-rated backpacks, their features, capacity, comfort, durability, and prices. She is also interested in customer reviews to understand the pros and cons of each backpack.Furthermore, Jane wants to see the specifications, materials used, waterproof capabilities, and available colors for each backpack. She also wants to compare the chosen backpacks with other popular brands like Osprey, Deuter, or Gregory. Jane plans to spend about 20 minutes on this task and shortlist two or three options that suit her requirements and budget.Finally, as a Bronze level member of the outdoor gear company's loyalty program, Jane might also want to contact customer service to inquire about any special deals or discounts available on her shortlisted backpacks, ensuring she gets the best value for her purchase.",
+                "chatbot_name": "ChatBot"
+            },
+            "context": {
+                "citations": [
+                    {
+                        "id": "customer_info",
+                        "content": "## customer_info      name: Jane Doe    age: 28     phone_number: 555-987-6543     email: jane.doe@example.com     address: 789 Broadway St, Seattle, WA 98101      loyalty_program: True     loyalty_program Level: Bronze        ## recent_purchases      order_number: 5  date: 2023-05-01  item: - description:  TrailMaster X4 Tent, quantity 1, price $250    item_number: 1   order_number: 18  date: 2023-05-04  item: - description:  Pathfinder Pro-1 Adventure Compass, quantity 1, price $39.99    item_number: 4   order_number: 28  date: 2023-04-15  item: - description:  CozyNights Sleeping Bag, quantity 1, price $100    item_number: 7"
+                    }
+                ]
+            }
+        },
+        {
+            "content": "As Jane, my budget is around $150-$200.",
+            "role": "user",
+            "turn_number": 2,
+            "template_parameters": {
+                "name": "Jane",
+                "profile": "Jane Doe is a 28-year-old outdoor enthusiast who lives in Seattle, Washington. She has a passion for exploring nature and loves going on camping and hiking trips with her friends. She has recently become a member of the company's loyalty program and has achieved Bronze level status.Jane has a busy schedule, but she always makes time for her outdoor adventures. She is constantly looking for high-quality gear that can help her make the most of her trips and ensure she has a comfortable experience in the outdoors.Recently, Jane purchased a TrailMaster X4 Tent from the company. This tent is perfect for her needs, as it is both durable and spacious, allowing her to enjoy her camping trips with ease. The price of the tent was $250, and it has already proved to be a great investment.In addition to the tent, Jane also bought a Pathfinder Pro-1 Adventure Compass for $39.99. This compass has helped her navigate challenging trails with confidence, ensuring that she never loses her way during her adventures.Finally, Jane decided to upgrade her sleeping gear by purchasing a CozyNights Sleeping Bag for $100. This sleeping bag has made her camping nights even more enjoyable, as it provides her with the warmth and comfort she needs after a long day of hiking.",
+                "tone": "happy",
+                "metadata": {
+                    "customer_info": "## customer_info      name: Jane Doe    age: 28     phone_number: 555-987-6543     email: jane.doe@example.com     address: 789 Broadway St, Seattle, WA 98101      loyalty_program: True     loyalty_program Level: Bronze        ## recent_purchases      order_number: 5  date: 2023-05-01  item: - description:  TrailMaster X4 Tent, quantity 1, price $250    item_number: 1   order_number: 18  date: 2023-05-04  item: - description:  Pathfinder Pro-1 Adventure Compass, quantity 1, price $39.99    item_number: 4   order_number: 28  date: 2023-04-15  item: - description:  CozyNights Sleeping Bag, quantity 1, price $100    item_number: 7"
+                },
+                "task": "Jane is trying to accomplish the task of finding out the best hiking backpacks suitable for her weekend camping trips, and how they compare with other options available in the market. She wants to make an informed decision before making a purchase from the outdoor gear company's website or visiting their physical store.Jane uses Google to search for 'best hiking backpacks for weekend trips,' hoping to find reliable and updated information from official sources or trusted websites. She expects to see a list of top-rated backpacks, their features, capacity, comfort, durability, and prices. She is also interested in customer reviews to understand the pros and cons of each backpack.Furthermore, Jane wants to see the specifications, materials used, waterproof capabilities, and available colors for each backpack. She also wants to compare the chosen backpacks with other popular brands like Osprey, Deuter, or Gregory. Jane plans to spend about 20 minutes on this task and shortlist two or three options that suit her requirements and budget.Finally, as a Bronze level member of the outdoor gear company's loyalty program, Jane might also want to contact customer service to inquire about any special deals or discounts available on her shortlisted backpacks, ensuring she gets the best value for her purchase.",
+                "chatbot_name": "ChatBot"
+            },
+            "context": {
+                "citations": [
+                    {
+                        "id": "customer_info",
+                        "content": "## customer_info      name: Jane Doe    age: 28     phone_number: 555-987-6543     email: jane.doe@example.com     address: 789 Broadway St, Seattle, WA 98101      loyalty_program: True     loyalty_program Level: Bronze        ## recent_purchases      order_number: 5  date: 2023-05-01  item: - description:  TrailMaster X4 Tent, quantity 1, price $250    item_number: 1   order_number: 18  date: 2023-05-04  item: - description:  Pathfinder Pro-1 Adventure Compass, quantity 1, price $39.99    item_number: 4   order_number: 28  date: 2023-04-15  item: - description:  CozyNights Sleeping Bag, quantity 1, price $100    item_number: 7"
+                    }
+                ]
+            }
+        }
+    ],
+    "$schema": "http://azureml/sdk-2-0/ChatConversation.json"
+}
+```
+
+## Next steps
+
+- [Learn more about Azure AI Studio](../what-is-ai-studio.md)

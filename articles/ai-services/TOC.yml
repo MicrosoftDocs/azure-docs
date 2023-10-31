@@ -22,8 +22,6 @@
   items:
   - name: Azure AI services and the ecosystem
     href: ai-studio/concepts/ai-services-and-ecosystem.md
-  - name: Retrieval augmented generation
-    href: ai-studio/concepts/retrieval-augmented-generation.md
 - name: How-to
   expanded: true
   items:
@@ -43,8 +41,8 @@
         href: ai-studio/how-to/connections-add.md
     - name: Index for retrieval
       items:
-      - name: Vector index
-        href: ai-studio/concepts/vector-stores.md
+      - name: Vector index and retrieval augmented generation
+        href: ai-studio/concepts/retrieval-augmented-generation.md
       - name: Create an index
         href: ai-studio/how-to/index-add.md
     - name: Add data to your project

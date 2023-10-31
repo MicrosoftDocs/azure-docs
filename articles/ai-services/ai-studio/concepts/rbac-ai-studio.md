@@ -85,8 +85,6 @@ If the built-in roles are insufficient, you can create custom roles. Custom role
 > [!NOTE]
 > You must be an owner of the resource at that level to create custom roles within that resource. 
 
-
-
 ## Next steps
 
 - [How to create a connection in Azure AI Studio](../how-to/connections-add.md)

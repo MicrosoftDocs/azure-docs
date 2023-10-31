@@ -19,20 +19,17 @@ In this article, you learn how to create and use a vector index for performing [
 
 You must have:
 - An Azure AI project
-- A connection to an Azure AI Search resource
+- An Azure AI Search resource
 
 ## Create an index
 
 1. Sign in to Azure AI Studio and open the Azure AI project in which you want to create the index.
-1. In the project details page, select **Indexes** under Components
+1. From the collapsable menu on the left, select **Indexes** under **Components**.
 
     :::image type="content" source="../media/rag/project-left-menu.png" alt-text="Screenshot of Project Left Menu." lightbox="../media/rag/project-left-menu.png":::
 
-1. In the indexes page, select **+ Add index**
-
-    :::image type="content" source="../media/rag/add-index-button.png" alt-text="Screenshot of Add index Button." lightbox="../media/rag/add-index-button.png":::
-
-1. Choose your **Source data**. You can choose source data from a list of your recent data sources, a storage URL on the cloud or even upload files and folders from the local machine. You can also add a connection to another data source by selecting **+ Add connection**
+1. Select **+ New index**
+1. Choose your **Source data**. You can choose source data from a list of your recent data sources, a storage URL on the cloud or even upload files and folders from the local machine. You can also add a connection to another data source such as Azure Blob Storage.
 
     :::image type="content" source="../media/rag/select-source-data.png" alt-text="Screenshot of select source data." lightbox="../media/rag/select-source-data.png":::
 
@@ -75,12 +72,12 @@ You must have:
 
 1. Open your AI Studio project
 1. In Flows, create a new Flow or open an existing flow 
-1. On the top menu of the flow designer, select More tools, and then select Vector index Lookup
+1. On the top menu of the flow designer, select More tools, and then select Vector Index Lookup
 
     :::image type="content" source="../media/rag/vector-index-lookup.png" alt-text="Screenshot of Vector index Lookup from More Tools." lightbox="../media/rag/vector-index-lookup.png":::
 
 1. Provide a name for your step and select **Add**.
-1. The Vector index Lookup tool is added to the canvas. If you don't see the tool immediately, scroll to the bottom of the canvas
+1. The Vector Index Lookup tool is added to the canvas. If you don't see the tool immediately, scroll to the bottom of the canvas
 1. Enter the path to your vector index, along with the query that you want to perform against the index.
 
     :::image type="content" source="../media/rag/configure-index-lookup.png" alt-text="Screenshot of Configure Vector index Lookup." lightbox="../media/rag/configure-index-lookup.png":::

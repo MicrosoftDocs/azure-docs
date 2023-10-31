@@ -32,6 +32,20 @@ When you [create a new connection](#create-a-new-connection), you enter the foll
 > [!NOTE]
 > When you create a connection from the **Manage** page, the connection is always created at the Azure AI resource level and shared accross all associated projects. 
 
+Here's a table of the available service connection types and descriptions of the connection types:
+
+| Service connection type | Description |
+| --- | --- |
+| [Azure AI Search](#tab/azure-ai-search) | Azure AI Search is an Azure resource that supports information retrieval over your vector and textual data stored in search indexes. |
+| [Azure Blob Storage](#tab/azure-blob-storage) | Azure Blob Storage is a cloud storage solution for storing unstructured data like documents, images, videos, and application installers. |
+| [Azure Data Lake Storage Gen 2](#tab/azure-data-lake-storage-gen-2) | Azure Data Lake Storage Gen2 is a set of capabilities dedicated to big data analytics, built on Azure Blob storage. |
+| [Azure Content Safety](#tab/azure-content-safety) | Azure AI Content Safety is a service that detects potentially unsafe content in text, images, and videos. |
+| [Azure OpenAI](#tab/azure-openai) | Azure OpenAI is a service that provides access to the OpenAI GPT-3 model. |
+| [Microsoft OneLake](#tab/microsoft-onelake) | Microsoft OneLake provides open access to all of your Fabric items through Azure Data Lake Storage (ADLS) Gen2 APIs and SDKs. |
+| [Git](#tab/git) | Git is a distributed version control system that allows you to track changes to files. |
+| [API key](#tab/api-key) | API Key connections handle authentication to your specified target on an individual basis. This is the most common third-party connection type. |
+| [Custom](#tab/custom) | Custom connections allow you to securely store and access keys while storing related properties, such as targets and versions. Custom connections are useful when you have many targets that or cases where you would not need a credential to access. LangChain scenarios are a good example where you would use custom service connections. Custom connections don't manage authentication, so you will have to manage authenticate on your own. |
+
 # [Azure AI Search](#tab/azure-ai-search)
 
 

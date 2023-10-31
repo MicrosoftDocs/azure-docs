@@ -14,7 +14,7 @@ ms.author: eur
 
 Connections in Azure AI Studio are a way to authenticate and consume both Microsoft and third-party resources within your Azure AI projects. Connections can be used for prompt flow, training, and deployments (link to connections in MIR). [Connections can be created](../how-to/connections-add.md) exclusively for one project or shared with all projects in the same Azure AI resource. 
 
-## Connections for Azure AI services
+## Connections to Azure AI services
 
 You can create connections to Azure AI services such as Azure AI Content Safety and Azure OpenAI. You can then use the connection in a prompt flow tool such as the LLM tool.
 
@@ -24,15 +24,15 @@ As another example, you can create a connection to an Azure AI Search resource. 
 
 :::image type="content" source="../media/prompt-flow/vector-db-lookup-tool-connection.png" alt-text="Screenshot of a connection used by the Vector DB Lookup tool in prompt flow." lightbox="../media/prompt-flow/vector-db-lookup-tool-connection.png":::
 
-## Connections for third-party services
+## Connections to third-party services
 
 Azure AI Studio supports connections to third-party services, including the following:
 - The [API key connection](../how-to/connections-add.md?tabs=api-key#service-connection-types) handles authentication to your specified target on an individual basis. This is the most common third-party connection type.
 - The [custom connection](../how-to/connections-add.md?tabs=api-key#service-connection-types) allows you to securely store and access keys while storing related properties, such as targets and versions. Custom connections are useful when you have many targets that or cases where you would not need a credential to access. LangChain scenarios are a good example where you would use custom service connections. Custom connections don't manage authentication, so you will have to manage authenticate on your own.
 
-## Connections for datastores
+## Connections to datastores
 
-Creating a connection allows you to access external data without copying it to your Azure AI Studio project. Instead, the connection provides a reference to the data source.
+Creating a data connection allows you to access external data without copying it to your Azure AI Studio project. Instead, the connection provides a reference to the data source.
 
 A data connection offers these benefits:
 
@@ -45,6 +45,7 @@ When you create a connection with an existing Azure storage account, you can cho
 - **Credential-based**: Authenticate data access with a service principal, shared access signature (SAS) token, or account key. Users with *Reader* project permissions can access the credentials.
 - **Identity-based**: Use your Microsoft Entra ID or managed identity to authenticate data access.
 
+
 The following table shows the supported Azure cloud-based storage services and authentication methods:
 
 Supported storage service | Credential-based authentication | Identity-based authentication
@@ -52,6 +53,19 @@ Supported storage service | Credential-based authentication | Identity-based aut
 Azure Blob Container| ✓ | ✓|
 Microsoft OneLake| ✓ | ✓|
 Azure Data Lake Gen2| ✓ | ✓|
+
+A Uniform Resource Identifier (URI) represents a storage location on your local computer, Azure storage, or a publicly available http(s) location. These examples show URIs for different storage options:
+
+|Storage location  | URI examples  |
+|---------|---------|
+|Azure AI Studio [connection](#datastore)  |   `azureml://datastores/<data_store_name>/paths/<folder1>/<folder2>/<folder3>/<file>.parquet`      |
+|Local files     | `./home/username/data/my_data`         |
+|Public http(s) server    |  `https://raw.githubusercontent.com/pandas-dev/pandas/main/doc/data/titanic.csv`    |
+|Blob storage    | `wasbs://<containername>@<accountname>.blob.core.windows.net/<folder>/`|
+|Azure Data Lake (gen2) | `abfss://<file_system>@<account_name>.dfs.core.windows.net/<folder>/<file>.csv`  |
+|Microsoft OneLake | `abfss://<file_system>@<account_name>.dfs.core.windows.net/<folder>/<file>.csv` `https://<accountname>.dfs.fabric.microsoft.com/<artifactname>` |
+
+
 
 
 ## Key vaults and secrets
