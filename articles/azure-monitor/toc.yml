@@ -359,21 +359,9 @@ items:
         href: app/powershell.md
       - name: Access control
         href: app/resources-roles-access-control.md
-      - name: Application data collection, retention, and storage
-        href: app/data-retention-privacy.md
       - name: IP addresses, ports, and firewall settings
         href: app/ip-addresses.md
         displayName: firewall, firewall exceptions, whitelist
-      - name: Separate development, test, and production
-        href: app/separate-resources.md
-    - name: Tutorials
-      items:
-      - name: Application Insights SDK for ASP.NET Core applications
-        href: app/tutorial-asp-net-core.md
-      - name: Custom metrics with .NET and .NET Core
-        href: app/tutorial-asp-net-custom-metrics.md
-      - name: Dashboard with application data
-        href: app/tutorial-app-dashboards.md
     - name: Help and support
       items:
       - name: Create an Azure support ticket
@@ -406,8 +394,6 @@ items:
       items:
       - name: Overview
         href: vm/vminsights-overview.md
-      - name: FAQ
-        href: /azure/azure-monitor/faq#vm-insights
       - name: Enable and configure
         items:
         - name: Overview
@@ -697,6 +683,9 @@ items:
     - name: Overview 
       displayName: Diagnostic Settings, Platform logs, Resource logs, Activity log
       href: essentials/diagnostic-settings.md
+    - name: Create Diagnostic Settings in Azure Monitor 
+      displayName: Diagnostic Settings, Platform logs, Resource logs, Activity log
+      href: essentials/create-diagnostic-settings.md      
     - name: Create Diagnostic Settings with Azure Policy
       displayName: Diagnostic Settings, Platform logs, Resource logs, Activity log
       href: essentials/diagnostic-settings-policy.md
@@ -737,6 +726,8 @@ items:
         href: agents/data-collection-syslog.md
       - name: Forward syslog data with Sentinel
         href: ../sentinel/forward-syslog-monitor-agent.md?bc=%2fazure%2fazure-monitor%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fazure-monitor%2ftoc.json        
+      - name: Send data to Event Hubs and Storage
+        href: agents/azure-monitor-agent-send-data-to-event-hubs-and-storage.md
     - name: Define network settings
       href: agents/azure-monitor-agent-data-collection-endpoint.md
     - name: Migrate from Log Analytics Agent
@@ -752,7 +743,7 @@ items:
       href: agents/azure-monitor-agent-performance.md
     - name: FAQ
       displayName: Azure Monitor agent FAQ
-      href: /azure/azure-monitor/faq#azure-monitor-agent
+      href: agents/agents-overview.md#frequently-asked-questions
     - name: Legacy agents
       items:
       - name: Log Analytics agent
@@ -1164,20 +1155,14 @@ items:
     items:
      - name: Dashboard using log data
        href: visualize/tutorial-logs-dashboards.md
-     - name: Dashboard using application data
-       href: app/tutorial-app-dashboards.md
   - name: Power BI
     href: logs/log-powerbi.md
 - name: Analyze
   items:
   - name: Metrics explorer
     items:
-      - name: Getting started with Metrics Explorer
-        href: essentials/metrics-getting-started.md
-      - name: Advanced features of Metrics Explorer
-        href: essentials/metrics-charts.md
-      - name: Viewing multiple resources in Metric Explorer
-        href: essentials/metrics-dynamic-scope.md
+      - name: Analyze metrics
+        href: essentials/analyze-metrics.md
       - name: Understanding metrics aggregation
         href: essentials/metrics-aggregation-explained.md
       - name: Examples of metric charts
