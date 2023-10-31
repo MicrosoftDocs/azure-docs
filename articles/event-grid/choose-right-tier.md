@@ -59,7 +59,7 @@ The basic tier is focused on providing push delivery support to trigger actions 
 | Pull delivery                                                                                                                      | Yes                                                |                                        |
 | Publish and subscribe to custom events                                                                                             | Yes                                                | Yes                                    |
 | Push delivery to Event Hubs                                                                                                        | Yes                                                | Yes                                    |
-| Maximum message retention  | 7 days on namespace topics. Price included in operations price. | 1 day. Price included in operations price.
+| Maximum message retention  | 7 days on namespace topics  | 1 day
 | Push delivery to Azure services (Functions, Webhooks, Service Bus queues and topics, relay hybrid connections, and storage queues) |                                                    | Yes                                    |
 | Subscribe to Azure system events                                                                                                   |                                                    | Yes                                    |
 | Subscribe to partner events                                                                                                        |                                                    | Yes                                    |
