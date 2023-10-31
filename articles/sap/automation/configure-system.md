@@ -132,6 +132,7 @@ The database tier defines the infrastructure for the database tier. Supported da
 - `SQLSERVER`
 - `NONE` (in this case, no database tier is deployed)
 
+
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                           | Description                                                                        | Type         | Notes              |
 > | ---------------------------------- | ---------------------------------------------------------------------------------- | -----------  | ------------------ |
@@ -151,6 +152,7 @@ The database tier defines the infrastructure for the database tier. Supported da
 > | `database_vm_avset_arm_ids`        | Defines the existing availability sets Azure resource IDs                          | Optional	   | Primarily used with ANF pinning. |
 > | `database_use_premium_v2_storage   | Controls if the database tier will use premium storage v2 (HANA)                   | Optional	   |                    |
 > | `hana_dual_nics`                   | Controls if the HANA database servers will have dual network interfaces            | Optional	   | Default is true.   |
+
 
 The virtual machine and the operating system image are defined by using the following structure:
 
