@@ -450,7 +450,7 @@ To learn more about authenticating the Azure Maps Control with Microsoft Entra I
 [What is Azure Policy?]: ../governance/policy/overview.md
 [user-assigned managed identity]: ../active-directory/managed-identities-azure-resources/overview.md
 [understanding access control]: #understand-sas-token-access-control
-[Create a user-assigned managed identity]: ../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.
+[Create a user-assigned managed identity]: ../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md#create-a-user-assigned-managed-identity
 [Manage your Azure Maps account]: how-to-manage-account-keys.md
 [data-plane]: ../azure-resource-manager/management/control-plane-and-data-plane.md
 [Cross-origin resource sharing (CORS)]: https://developer.mozilla.org/docs/Web/HTTP/CORS

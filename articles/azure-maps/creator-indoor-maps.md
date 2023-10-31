@@ -344,7 +344,7 @@ The following example shows how to update a dataset, create a new tileset, and d
 [Create custom styles for indoor maps]: how-to-create-custom-styles.md
 [Drawing package requirements]: drawing-requirements.md
 [Drawing package warnings and errors]: drawing-conversion-error-codes.md
-[Microsoft Entra authentication]: /entra/fundamentals/whatis
+[Microsoft Entra authentication]: ../entra/fundamentals/whatis.md
 [How to create data registry]: how-to-create-data-registries.md
 [Indoor maps wayfinding service]: how-to-creator-wayfinding.md
 [Instantiate the Indoor Manager]: how-to-use-indoor-module.md#instantiate-the-indoor-manager
