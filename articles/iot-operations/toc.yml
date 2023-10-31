@@ -27,6 +27,10 @@ items:
           href: deploy/concept-providers.md
       - name: Prepare a cluster
         href: deploy/howto-prepare-cluster.md
+      - name: Deploy Azure IoT Operations
+        href: deploy/howto-deploy-iot-operations.md
+      = name: Deploy custom workloads
+        href: deploy/howto-deploy-custom-workloads.md
       - name: Troubleshoot
         href: deploy/howto-troubleshoot-deployment.md
         displayName: Deploy, Orchestrator
