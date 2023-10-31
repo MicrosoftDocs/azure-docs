@@ -1,13 +1,13 @@
 ---
-title: Using a PACS Vendor Neutral archive with Azure Native Qumulo Scalable File Service.
-description: In this how to guide, how to setup PACS Vendor Neutral archive with Azure Native Qumulo Scalable File Service.
+title: PACS Vendor Neutral archive and Azure Native Qumulo Scalable File Service
+description: How to use PACS Vendor Neutral archive with Azure Native Qumulo Scalable File Service.
 
 ms.topic: conceptual 
 ms.date: 10/31/2023
 
 ---
 
-# How to setup PACS vendor neutral archieve with Azure Native Qumulo ?
+# Use a picture archiving and communication system (PACS) vendor neutral archive with Azure Native Qumulo
 
 This article describes the baseline architecture for deploying a Picture Archiving and Communication System Vendor-Neutral Archive (PACS VNA), using file storage services provided by Azure Native Qumulo. A VNA solution provides a means for healthcare providers to store, use, and archive medical images and other data from one or more vendor-specific PACS  platforms. A VNA solution backed by Azure Native Qumulo for file storage provides cost effective storage solution with exabyte-plus data scalability and throughput elasticity.
 
@@ -17,9 +17,9 @@ This article describes the baseline architecture for deploying a Picture Archivi
 |Cost efficiency |Customers pay only for the capacity and throughput they use, while they use it.|
 |Performance |ANQ higher throughput and lower latency for most workloads.|
 |Global reach |ANQ can be deployed in one or more Azure regions worldwide, enabling low-latency access to users anywhere/everywhere.|
-|Cross-organisational collaboration |VNA data hosted on Azure is potentially accessible to a broader cohort of healthcare providers, research institutions, and other organizations with a shared interest in better healthcare outcomes made possible by VNA image analysis.|
+|Cross-organizational collaboration |VNA data hosted on Azure is potentially accessible to a broader cohort of healthcare providers, research institutions, and other organizations with a shared interest in better healthcare outcomes made possible by VNA image analysis.|
 
-## Hybrid Architecture
+## Hybrid architecture
 
 This hybrid solution consists of an on-premises PACS solution, paired with one or more imaging modalities (e.g., CT / MRI scanners, ultrasound and X-ray devices) and connected to an on-prem Qumulo cluster. The Azure-based portion of the solution comprises one or more VNA application servers, deployed in the customer’s Azure tenant and connected via VNet injection to the ANQ instance, which is hosted in Qumulo’s Azure tenant.
 

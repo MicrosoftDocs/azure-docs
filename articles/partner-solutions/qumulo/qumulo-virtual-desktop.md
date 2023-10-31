@@ -57,13 +57,13 @@ The Azure Virtual Desktop solution with Azure Native Qumulo file storage is depl
 The solution architecture comprises the following components:
 
 - [Azure Native Qumulo (ANQ)](https://qumulo.com/azure) to host the individual VHD-based profiles of each desktop user. In this solution, a separate ANQ instance has been deployed in each region.
-- [Qumulo Continuous Replication](https://care.qumulo.com/hc/en-us/articles/360018873374-Replication-Continuous-Replication-with-2-11-2-and-above), configured to replicate user profile data from each region’s local ANQ service instance to the ANQ instance in the other region, ensuring that user profile services will still be available in the event of a regional failover.
-- [Azure Virtual Desktop](https://learn.microsoft.com/en-us/azure/virtual-desktop/overview), deployed in two Azure regions, with a separate pool of users assigned to each region’s AVD resources as their primary site, and each region set up as the secondary site for the other region in the event of a regional service interruption.
+- [Qumulo Continuous Replication](https://care.qumulo.com/hc/articles/360018873374-Replication-Continuous-Replication-with-2-11-2-and-above), configured to replicate user profile data from each region’s local ANQ service instance to the ANQ instance in the other region, ensuring that user profile services will still be available in the event of a regional failover.
+- [Azure Virtual Desktop](/azure/virtual-desktop/overview), deployed in two Azure regions, with a separate pool of users assigned to each region’s AVD resources as their primary site, and each region set up as the secondary site for the other region in the event of a regional service interruption.
 - [Nerdio Manager](https://getnerdio.com/nerdio-manager-for-enterprise/) to simplify and streamline the process of managing AVD-related services: resource pools, connectivity, security, desktop images, applications, and service monitoring.
-- [FSLogix Profile](https://learn.microsoft.com/en-us/fslogix/overview-what-is-fslogix) [Containers](https://learn.microsoft.com/en-us/fslogix/concepts-container-types#profile-container) to connect each AVD user to their assigned profile on the ANQ storage as part of the login process.
-- [Microsoft Entra Domain Services](https://learn.microsoft.com/en-us/azure/active-directory-domain-services/overview) (formerly Azure Active Directory) to provide user authentication and manage access to Azure-based resources.
-- [Azure Virtual Networking](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview)
-- [VNet Injection](https://learn.microsoft.com/en-us/azure/spring-apps/how-to-deploy-in-azure-virtual-network?tabs=azure-portal) to connect each region’s ANQ instance to the customer’s own Azure subscription resources.
+- [FSLogix Profile](/fslogix/overview-what-is-fslogix) [Containers](/fslogix/concepts-container-types#profile-container) to connect each AVD user to their assigned profile on the ANQ storage as part of the login process.
+- [Microsoft Entra Domain Services](/azure/active-directory-domain-services/overview) (formerly Azure Active Directory) to provide user authentication and manage access to Azure-based resources.
+- [Azure Virtual Networking](/azure/virtual-network/virtual-networks-overview)
+- [VNet Injection](/azure/spring-apps/how-to-deploy-in-azure-virtual-network?tabs=azure-portal) to connect each region’s ANQ instance to the customer’s own Azure subscription resources.
 
 ## Considerations
 
@@ -96,7 +96,7 @@ Since this solution provides user-facing services, antivirus, anti-malware, and 
 
 ### Cost optimization
 
-Cost optimization refers to minimizing unnecessary expenses while maximizing the value of the actual costs incurred by the solution. For more information, visit the [Overview of the cost optimization pillar page](https://learn.microsoft.com/en-us/azure/well-architected/cost/overview).
+Cost optimization refers to minimizing unnecessary expenses while maximizing the value of the actual costs incurred by the solution. For more information, visit the [Overview of the cost optimization pillar page](/azure/well-architected/cost/overview).
 
 - Azure Native Qumulo is available in multiple tiers, giving you a choice of multiple capacity-to-throughput options to meet your specific workload needs.
 - Different users within the solution may have different requirements for the overall availability and performance of their virtual machines. If so, consider a tiered approach that ensures all workers have what they need for optimal productivity.
@@ -118,8 +118,8 @@ For specific information about the availability and recovery options for the AVD
 ## Deploy this scenario
 
 - To deploy Azure Native Qumulo Scalable File Service, visit [our website](https://qumulo.com/product/azure/).
-- For more information regarding the deployment of Azure Virtual Desktop, visit the [Azure Virtual Desktop](https://learn.microsoft.com/en-us/azure/virtual-desktop/) documentation page.
-- For more information regarding FSLogix, refer to the [FSLogix](https://learn.microsoft.com/en-us/fslogix/) documentation page.
+- For more information regarding the deployment of Azure Virtual Desktop, visit the [Azure Virtual Desktop](/azure/virtual-desktop/) documentation page.
+- For more information regarding FSLogix, refer to the [FSLogix](/fslogix/) documentation page.
 - To learn more about the use of Nerdio Manager for Enterprises or Managed Service Providers, visit the [Nerdio](https://getnerdio.com/) website.
 
 ## Next steps

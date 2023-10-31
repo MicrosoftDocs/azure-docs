@@ -1,11 +1,13 @@
 ---
-title: how to use Azure Native Qumulo Scalable File Service for video editing usecase ?
-description: In this how to guide, how to setup Azure Native Qumulo Scalable File Service for video editing usecase.
+title: Using Azure Native Qumulo Scalable File Service for video editing.
+description: In this how to guide, how to setup Azure Native Qumulo Scalable File Service for video editing.
 
 ms.topic: conceptual 
 ms.date: 10/31/2023
 
 ---
+
+# Using Azure Native Qumulo Scalable File Service for video editing
 
 This article describes a solution that provides a cloud-based remote video editing environment for 2K/ 4K / 8K content, and which has been engineered to deliver high-performance editorial capabilities using Azure-based Adobe Premiere Pro VMs with high-performance storage services provided by Azure Native Qumulo (ANQ).ANQ enables content creators, editors, and artists to work remotely on video editing projects with the high speed and efficiency.  
 

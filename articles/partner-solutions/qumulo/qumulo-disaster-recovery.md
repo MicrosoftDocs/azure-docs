@@ -72,7 +72,7 @@ The solution architecture comprises the following components:
 - [Qumulo Snapshots with Replication](https://care.qumulo.com/hc/articles/360037962693-Replication-Snapshot-Policy-Replication)
 - [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview)
 - [VNet ExpressRoute](/azure/expressroute/expressroute-introduction)
-- [Azure VPN Gateway](azure/vpn-gateway/vpn-gateway-about-vpngateways)
+- [Azure VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways)
 
 ## Considerations
 

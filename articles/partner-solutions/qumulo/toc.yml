@@ -22,10 +22,10 @@ items:
     href: qumulo-disaster-recovery.md
   - name: Setting up ANQ for video editing usecase
     href: qumulo-video-editing.md
-  - name: Setting up ANQ for pacs usecase 
-    href: qumulo-pacs-vendor-neutral-archieve.md
-  - name: Setting up ANQ for avd usecase 
-    href: qumulo-how-to-manage-qumulo-avd.md
+  - name: Using ANQ for pacs
+    href: qumulo-vendor-neutral-archive.md
+  - name: Setting up ANQ for avd usecase
+    href: qumulo-virtual-desktop.md
 - name: SDKs and command-lines
   items:
   - name: Python
