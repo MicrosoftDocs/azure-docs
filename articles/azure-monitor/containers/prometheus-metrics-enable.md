@@ -72,7 +72,7 @@ This option adds Prometheus metrics to a cluster already enabled for Container i
 See [Collect Prometheus metrics from AKS cluster (preview)](../essentials/prometheus-metrics-enable.md) for details on [verifying your deployment](../essentials/prometheus-metrics-enable.md#verify-deployment) and [limitations](../essentials/prometheus-metrics-enable.md#limitations-during-enablementdeployment)
 
 #### From an existing cluster
-This options enables Prometheus, Grafana, and Container insights on a cluster.
+This option enables Prometheus, Grafana, and Container insights on a cluster.
 
 1. Open the clusters menu in the Azure portal and  select **Insights**.
 3. Select **Configure monitoring**.
