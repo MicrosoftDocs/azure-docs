@@ -46,7 +46,7 @@ This section describes how to integrate Defender for IoT and Splunk using the le
 > [!IMPORTANT]
 > The legacy Splunk integration is supported through October 2024 using sensor version 23.1.3, and won't be supported in upcoming major software versions. For customers using the legacy integration, we recommend moving to one of the following methods:
 >
-> - If you're integrating your security solution with cloud-based systems, we recommend that you use the [OT Security Add-on for Splunk](#cloud-integrations).
+> - If you're integrating your security solution with cloud-based systems, we recommend that you use the [OT Security Add-on for Splunk](#cloud-based-integrations).
 > - For on-premises integrations, we recommend that you either configure your OT sensor to [forward syslog events, or use Defender for IoT APIs](#on-premises-integrations).
 
 Microsoft Defender for IoT was formally known as [CyberX](https://blogs.microsoft.com/blog/2020/06/22/microsoft-acquires-cyberx-to-accelerate-and-secure-customers-iot-deployments/). References to CyberX refer to Defender for IoT.
