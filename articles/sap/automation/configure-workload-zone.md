@@ -42,6 +42,7 @@ This table contains the parameters that define the environment settings.
 > | `environment`           | Identifier for the workload zone (max five characters)   | Mandatory  | For example, `PROD` for a production environment and `QA` for a Quality Assurance environment. |
 > | `location`              | The Azure region in which to deploy                      | Required   |                                                                                                |
 > | `name_override_file`    | Name override file                                       | Optional   | See [Custom naming](naming-module.md).                                                         |
+> | `tags`                  | A dictionary of tags to associate with all resources.    | Optional   |                                                                                                |
 
 ## Resource group parameters
 
@@ -251,7 +252,6 @@ ANF_service_level         = "Ultra"
 > | `diagnostics_storage_account_arm_id` | The Azure resource identifier for the diagnostics storage account.     | Required | For brown-field deployments.          |
 > | `enable_purge_control_for_keyvaults` | If purge control is enabled on the key vault.                          | Optional | Use only for test deployments.        |
 > | `place_delete_lock_on_resources`     | Places delete locks on the key vaults and the virtual network          | Optional |                                       |
-> | `tags`                               | A disctionary of tags to associate with all resources.                 | Optional |                                       |
 > | `witness_storage_account_arm_id`     | The Azure resource identifier for the witness storage account.         | Required | For brown-field deployments.          |
 
 ## iSCSI parameters
