@@ -1,5 +1,5 @@
 ---
-title: Depoy Arc-enabled Azure VMware Solution
+title: Deploy Arc-enabled Azure VMware Solution
 description: Learn how to set up and enable Arc for your Azure VMware Solution private cloud.
 ms.topic: how-to 
 ms.service: azure-vmware
@@ -9,7 +9,7 @@ ms.custom: references_regions
 
 # Deploy Arc-enabled Azure VMware Solution
 
-In this article, learn how to deploy Arc for Azure VMware Solution. Once you've set up the components needed for this public preview, you're ready to execute operations in Azure VMware Solution vCenter Server from the Azure portal. Arc-enabled Azure VMware Solution allows you to do the  actions:
+In this article, learn how to deploy Arc for Azure VMware Solution. Once you set up the components needed for this public preview, you're ready to execute operations in Azure VMware Solution vCenter Server from the Azure portal. Arc-enabled Azure VMware Solution allows you to do the  actions:
 
 - Identify your VMware vSphere resources (VMs, templates, networks, datastores, clusters/hosts/resource pools) and register them with Arc at scale. 
 - Perform different virtual machine (VM) operations directly from Azure like; create, resize, delete, and power cycle operations (start/stop/restart) on VMware VMs consistently with Azure.
@@ -71,7 +71,7 @@ Alternately, users can sign into their Subscription, navigate to the **Resource 
 
 For feature registration, users need to sign into their **Subscription**, navigate to the **Preview features** tab, and search for 'Azure Arc for Azure VMware Solution'. Once registered, no other permissions are required for users to access Arc.
 
-Users need to ensure they've registered themselves to **Microsoft.AVS/earlyAccess**. After registering, use the following feature to verify registration.
+Users need to ensure they're registered to **Microsoft.AVS/earlyAccess**. After registering, use the following feature to verify registration.
 
 ```azurecli
 az feature show --name AzureArcForAVS --namespace Microsoft.AVS
@@ -125,7 +125,7 @@ Use the following steps to guide you through the process to onboard Azure Arc fo
     } 
     ```
 
-3. Run the installation scripts. We've provided you with the option to set up this preview from a Windows or Linux-based jump box/VM. 
+3. Run the installation scripts. You can optionionally setup this preview from a Windows or Linux-based jump box/VM. 
 
     Run the following commands to execute the installation script. 
 
@@ -144,7 +144,7 @@ Use the following steps to guide you through the process to onboard Azure Arc fo
     ```
 ---
 
-4. You notice more Azure Resources have been created in your resource group.
+4. Additional Azure resources have been created in your resource group.
     - Resource bridge
     - Custom location
     - VMware vCenter
@@ -152,7 +152,7 @@ Use the following steps to guide you through the process to onboard Azure Arc fo
 > [!IMPORTANT]
 > After the successful installation of Azure Arc resource bridge, it's recommended to retain a copy of the resource bridge config.yaml files and the kubeconfig file safe and secure them in a place that facilitates easy retrieval. These files could be needed later to run commands to perform management operations on the resource bridge. You can find the 3 .yaml files (config files) and the kubeconfig file in the same folder where you ran the script.
 
-When the script has run successfully, check the status to see if Azure Arc has been configured. To verify if your private cloud is Arc-enabled, do the following actions:
+When the script is run successfully, check the status to see if Azure Arc is now configured. To verify if your private cloud is Arc-enabled, do the following actions:
 
 - In the left navigation, locate **Operations**.
 - Choose **Azure Arc**. 
@@ -173,7 +173,7 @@ When Arc appliance is successfully deployed on your private cloud, you can do th
 
 ## Enable resource pools, clusters, hosts, datastores, networks, and VM templates in Azure
 
-After you've connected your Azure VMware Solution private cloud to Azure, you can browse your vCenter inventory from the Azure portal. This section shows you how to enable resource pools, networks, and other non-VM resources in Azure.
+Once you connected your Azure VMware Solution private cloud to Azure, you can browse your vCenter inventory from the Azure portal. This section shows you how to enable resource pools, networks, and other non-VM resources in Azure.
 
 > [!NOTE]
 > Enabling Azure Arc on a VMware vSphere resource is a read-only operation on vCenter. It doesn't make changes to your resource in vCenter.
@@ -188,7 +188,7 @@ After you've connected your Azure VMware Solution private cloud to Azure, you ca
 
 ## Enable guest management and extension installation
 
-Once you've enabled VMs to be managed from Azure, you need to enable guest management on the VMware VM before you can install an extension.
+When the VMs are enabled to be managed from Azure, you need to enable guest management on the VMware VM before you can install an extension.
 
 ### Prerequisite
 
@@ -201,7 +201,7 @@ Before you can install an extension, ensure your target machine meets the follow
 
 ### Enable guest management
 
-After you've enabled VMs to be managed from Azure, you need to enable guest management on the VMware VM before you can install an extension. Use the following steps to enable guest management.
+You need to enable guest management on the VMware VM before you can install an extension. Use the following steps to enable guest management.
 
 1. Navigate to [Azure portal](https://portal.azure.com/).
 1. From the left navigation, locate **vCenter Server Inventory** and choose **Virtual Machines** to view the list of VMs.
@@ -209,7 +209,7 @@ After you've enabled VMs to be managed from Azure, you need to enable guest mana
 1. Select **Enable guest management** and provide the administrator username and password to enable guest management then select **Apply**.
 1. Locate the VMware vSphere VM you want to check for guest management and install extensions on, select the name of the VM.
 1. Select **Configuration** from the left navigation for a VMware VM.
-1. Verify **Enable guest management** has been checked.
+1. Verify **Enable guest management** is now checked.
 
 ### Install the LogAnalytics extension
 
