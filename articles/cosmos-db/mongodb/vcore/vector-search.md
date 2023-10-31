@@ -39,6 +39,7 @@ To create a vector index, use the following `createIndexes` template:
       "cosmosSearchOptions": {
         "kind": "vector-ivf",
         "numLists": <integer_value>,
+        "nProbes": <integer_value>,
         "similarity": "<string_value>",
         "dimensions": <integer_value>
       }
@@ -51,8 +52,10 @@ To create a vector index, use the following `createIndexes` template:
 | --- | --- | --- |
 | `index_name` | string | Unique name of the index. |
 | `path_to_property` | string | Path to the property that contains the vector. This path can be a top-level property or a dot notation path to the property. If a dot notation path is used, then all the nonleaf elements can't be arrays. Vectors must be a `number[]` to be indexed and return in vector search results.|
-| `kind` | string | Type of vector index to create. Currently, `vector-ivf` is the only supported index option. |
+| `kind` | string | Type of vector index to create. Currently, only `vector-ivf` is supported as GA, while `vector-hnsw` is a preview feature that requires enablement via [AFEC](../../../azure-resource-manager/management/preview-features?tabs=azure-portal).|
 | `numLists` | integer | This integer is the number of clusters that the inverted file (IVF) index uses to group the vector data. We recommend that `numLists` is set to `documentCount/1000` for up to 1 million documents and to `sqrt(documentCount)` for more than 1 million documents. Using a `numLists` value of `1` is akin to performing brute-force search, which has limited performance. |
+| `nProbes` | integer | 
+This integer controls the number of nearby clusters that are inspected in each search. A higher value may improve accuracy, however the search will be slower as a result. |
 | `similarity` | string | Similarity metric to use with the IVF index. Possible options are `COS` (cosine distance), `L2` (Euclidean distance), and `IP` (inner product). |
 | `dimensions` | integer | Number of dimensions for vector similarity. The maximum number of supported dimensions is `2000`. |
 
@@ -88,6 +91,7 @@ db.runCommand({
       cosmosSearchOptions: {
         kind: 'vector-ivf',
         numLists: 3,
+        nProbes: 1
         similarity: 'COS',
         dimensions: 3
       }
@@ -117,11 +121,12 @@ To perform a vector search, use the `$search` aggregation pipeline stage in a Mo
 
 ```json
 {
+  {
   "$search": {
     "cosmosSearch": {
         "vector": <vector_to_search>,
         "path": "<path_to_property>",
-        "k": <num_results_to_return>
+        "k": <num_results_to_return>,
       },
       "returnStoredSource": True }},
   {
@@ -211,10 +216,73 @@ In this example, `vectorIndex` is returned with all the `cosmosSearch` parameter
 ]
 ```
 
+## HNSW vector index (preview)
+
+HNSW stands for Hierarchical Navigable Small World,  a graph-based data structure that partitions vectors into clusters and subclusters. With HNSW, you can perform fast approximate nearest neighbor search at higher speeds with greater
+
+**TODO: AFEC FEATURE NAME NEEDS TO BE LISTED**
+
+As a preview feature, this must be enabled using Azure Feature Enablement Control (AFEC). [Learn more about preview features]([AFEC](../../../azure-resource-manager/management/preview-features?tabs=azure-portal)).
+
+### Create an HNSW vector index
+
+To use HNSW as your index algorithm, you need to create a vector index with the `kind` parameter set to "vector-hnsw" following the template below:
+
+```javascript
+{ 
+    "createIndexes": "<collection_name>",
+    "indexes": [
+        {
+            "name": "<index_name>",
+            "key": {
+                "<path_to_property>": "cosmosSearch"
+            },
+            "cosmosSearchOptions": { 
+                "kind": "vector-hnsw", 
+                "m": <integer_value>, 
+                "efConstruction": <integer_value>, 
+                "similarity": "<string_value>", 
+                "dimensions": <integer_value> 
+            } 
+        } 
+    ] 
+}
+```
+
+|Field    |Type     |Description  |
+|---------|---------|---------|
+| `kind` | string | Type of vector index to create. Currently, only `vector-ivf` is supported as GA, while `vector-hnsw` is a preview feature that requires enablement via [AFEC](../../../azure-resource-manager/management/preview-features?tabs=azure-portal).|
+|`m`        |integer    |The max number of connections per layer (`16` by default, minimum value is `2`, maximum value is `100`). Higher m is suitable for datasets with high dimensionality and/or high accuracy requirements.    |
+|`efConstruction` |integer    |the size of the dynamic candidate list for constructing the graph (`64` by default, minimum value is `4`, maximum value is `1000`). Higher `efConstruction` will result in better index quality and higher accuracy, but it will also increase the time required to build the index. `efConstruction` has to be at least `2 * m`    |
+|`similarity`     |string     |Similarity metric to use with the index. Possible options are `COS` (cosine distance), `L2` (Euclidean distance), and `IP` (inner product).    |
+|`dimensions`     |integer     |Number of dimensions for vector similarity. The maximum number of supported dimensions is `2000`.     |
+
+### Perform a vector search with HNSW
+To perform a vector search, use the `$search` aggregation pipeline stage the query with the `cosmosSearch` operator.
+```javascript
+{
+    "$search": {
+        "cosmosSearch": {
+            "vector": <vector_to_search>,
+            "path": "<path_to_property>",
+            "k": <num_results_to_return>,
+            "efSearch": <integer_value>
+        },
+    }
+  }
+}
+
+```
+|Field    |Type     |Description  |
+|---------|---------|---------|
+|`efSearch`     |integer    |The size of the dynamic candidate list for search (`40` by default). A higher value provides better recall at the cost of speed.     |
+|`k`        |integer    |The number of results to return. it should be less than or equal to `efSearch`    |
+
+
 ## Features and limitations
 
 - Supported distance metrics: L2 (Euclidean), inner product, and cosine.
-- Supported indexing methods: IVFFLAT.
+- Supported indexing methods: IVFFLAT (GA), and HSNW (preview)
 - Indexing vectors up to 2,000 dimensions in size.
 - Indexing applies to only one vector per document.
 
