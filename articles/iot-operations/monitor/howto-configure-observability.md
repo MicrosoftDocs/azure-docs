@@ -7,7 +7,7 @@ ms.author: timlt
 ms.topic: how-to
 ms.date: 10/31/2023
 
-# CustomerIntent: As an admin or operator, I want to be able to monitor and visualize data 
+# CustomerIntent: As an IT admin or operator, I want to be able to monitor and visualize data 
 # on the health of my industrial assets and edge environment. 
 ---
 
