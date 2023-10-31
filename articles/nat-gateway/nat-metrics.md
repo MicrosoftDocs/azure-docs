@@ -65,7 +65,7 @@ To view any one of your metrics for a given NAT gateway resource:
 
 3. In the **Aggregation** drop-down menu, select the recommended aggregation listed in the [metrics overview](#metrics-overview) table.
 
-    :::image type="content" source="./media/nat-metrics/nat-metrics-1.png" alt-text="Screenshot of the metrics setup configuration in NAT gateway resource.":::
+    :::image type="content" source="./media/nat-metrics/nat-metrics-1.png" alt-text="Screenshot of the metrics set up in NAT gateway resource.":::
 
 4. To adjust the time frame over which the chosen metric is presented on the metrics graph or to adjust how frequently the chosen metric is measured, select the **Time** window in the top right corner of the metrics page and make your adjustments.
 
@@ -101,7 +101,7 @@ To view the amount of data passing through NAT gateway:
 
 ### Packets
 
-The packets metric shows you the amount of data packets passing through NAT gateway. 
+The packets metric shows you the number of data packets passing through NAT gateway. 
 
 Use this metric to:
   
@@ -121,9 +121,9 @@ Use this metric to:
 
 - Help determine if you're experiencing a pattern of failed outbound connections or SNAT port exhaustion. 
 
-Reasons for why you may see dropped packets: 
+Possible reasons for dropped packets: 
 
-- Dropped packets may be due to outbound connectivity failure. Connectivity failure may happen for various reasons. See the [NAT gateway connectivity troubleshooting guide](/azure/nat-gateway/troubleshoot-nat-connectivity) to help you further diagnose. 
+- Outbound connectivity failure can cause packets to drop. Connectivity failure can happen for various reasons. See the [NAT gateway connectivity troubleshooting guide](/azure/nat-gateway/troubleshoot-nat-connectivity) to help you further diagnose. 
 
 ### SNAT connection count
 
@@ -202,9 +202,9 @@ For more information about how metric alerts work, see [Azure Monitor Metric Ale
 
 ### Alerts for datapath availability degradation
 
-You can set up an alert to be fired when NAT gateway hits a specific threshold in availability so you can easily detect when there are drops in the datapath.
+Set up an alert on datapath availability to help you detect issues with the health of NAT gateway.
 
-The recommended guidance is to alert on NAT gateway’s datapath availability when it drops below 90% over a 15 minute period. This configuration is indicative of a NAT gateway resource being in a degraded state.
+The recommended guidance is to alert on NAT gateway’s datapath availability when it drops below 90% over a 15-minute period. This configuration is indicative of a NAT gateway resource being in a degraded state.
 
 To set up a datapath availability alert, follow these steps:
 
@@ -218,7 +218,7 @@ To set up a datapath availability alert, follow these steps:
 
 5. From the **Aggregation type** drop-down menu, select **Average**. 
 
-6. In the **Threshold value** box, enter **90%** as the value that the datapath availability must drop below before an alert is fired.
+6. In the **Threshold value** box, enter **90%**.
 
 7. From the **Unit** drop-down menu, select **Count**. 
 
@@ -236,7 +236,7 @@ Setting the aggregation granularity to less than 5 minutes may trigger false pos
 
 ### Alerts for SNAT port exhaustion 
 
-Set up an alert on the **SNAT connection count** metric to notify you of connection failures on your NAT gateway. A failed connection volume greater than zero may indicate that you have reached the connection limit on your NAT gateway or that you have hit SNAT port exhaustion. A failed connection volume greater than zero may indicate SNAT port exhaustion. You may need to investigate further to determine the root cause of these failures.
+Set up an alert on the **SNAT connection count** metric to notify you of connection failures on your NAT gateway. A failed connection volume greater than zero can indicate that either you have reached the connection limit on your NAT gateway or that you have hit SNAT port exhaustion. Investigate further to determine the root cause of these failures.
 
 To create the alert, use the following steps:
 
@@ -269,11 +269,11 @@ To create the alert, use the following steps:
 11. Select **Create** to create the alert rule.
 
 >[!NOTE]
->SNAT port exhaustion on your NAT gateway resource is uncommon. If you see SNAT port exhaustion, your NAT gateway's idle timeout timer may be holding on to SNAT ports too long or your may need to scale with additional public IPs. To troubleshoot these kinds of issues, refer to the [NAT gateway connectivity troubleshooting guide](./troubleshoot-nat-connectivity.md#snat-exhaustion-due-to-nat-gateway-configuration). 
+>SNAT port exhaustion on your NAT gateway resource is uncommon. If you see SNAT port exhaustion, check if NAT gateway's idle timeout timer is set higher than the default amount of 4 minutes. A long idle timeout timer seeting can cause SNAT ports too be in hold down for longer, which results in exhausting SNAT port inventory sooner. You can also scale your NAT gateway with additional public IPs to increase NAT gateway's overall SNAT port inventory. To troubleshoot these kinds of issues, refer to the [NAT gateway connectivity troubleshooting guide](/troubleshoot-nat-connectivity.md#snat-exhaustion-due-to-nat-gateway-configuration). 
 
 ## Network Insights
 
-[Azure Monitor Network Insights](../network-watcher/network-insights-overview.md) allows you to visualize your Azure infrastructure setup and to review all metrics for your NAT gateway resource from a pre-configured metrics dashboard. These visual tools help you diagnose and troubleshoot any issues with your NAT gateway resource. 
+[Azure Monitor Network Insights](../network-watcher/network-insights-overview.md) allows you to visualize your Azure infrastructure setup and to review all metrics for your NAT gateway resource from a preconfigured metrics dashboard. These visual tools help you diagnose and troubleshoot any issues with your NAT gateway resource. 
 
 ### View the topology of your Azure architectural setup
 
@@ -281,7 +281,7 @@ To view a topological map of your setup in Azure:
 
 1. From your NAT gateway’s resource page, select **Insights** from the **Monitoring** section.
 
-2. On the landing page for **Insights**, there is a topology map of your NAT gateway setup. This map shows the relationship between the different components of your network (subnets, virtual machines, public IP addresses). 
+2. On the landing page for **Insights**, there's a topology map of your NAT gateway setup. This map shows the relationship between the different components of your network (subnets, virtual machines, public IP addresses). 
 
 3. Hover over any component in the topology map to view configuration information.
 
@@ -307,3 +307,4 @@ For more information on what each metric is showing you and how to analyze these
 * Learn about [NAT gateway resource](nat-gateway-resource.md)
 * Learn about [Azure Monitor](../azure-monitor/overview.md)
 * Learn about [troubleshooting NAT gateway resources](troubleshoot-nat.md).
+* Learn about [troubleshooting NAT gateway connectivity](/troubleshoot-nat-connectivity.md#snat-exhaustion-due-to-nat-gateway-configuration)
