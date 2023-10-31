@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Akri overview
-description: Understand how Azure IoT Akri Preview enables you to discover devices and assets at the edge, and expose them as resources on your cluster.
+title: Detect assets with Azure IoT Akri 
+description: Understand how Azure IoT Akri enables you to discover devices and assets at the edge, and expose them as resources on your cluster.
 author: timlt
 ms.author: timlt
 # ms.subservice: akri
@@ -11,13 +11,13 @@ ms.date: 10/26/2023
 # enables me to discover devices and assets at the edge, and expose them as resources on a Kubernetes cluster. 
 ---
 
-# Azure IoT Akri overview
+# Detect assets with Azure IoT Akri
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-Azure IoT Akri Preview is a hosting framework for discovery handlers that enables you to detect devices and assets at the edge, and expose them as resources on a Kubernetes cluster. By using Azure IoT Akri, you can simplify the process of projecting leaf devices (OPC UA devices, cameras, IoT sensors, and peripherals) into your cluster.  Azure Iot Akri projects leaf devices into a cluster by using the devices' own protocols. For administrators who attach devices to or remove them from the cluster, this capability reduces the level of coordination and manual configuration. The hosting framework is also extensible. You can use it as shipped, or you can add custom discovery and provisioning by adding protocol handlers, brokers and behaviors. Azure IoT Akri is a Microsoft-managed commercial version of [Akri](https://docs.akri.sh/), an open source Cloud Native Computing Foundation (CNCF) project.  
+Azure IoT Akri (preview) is a hosting framework for discovery handlers that enables you to detect devices and assets at the edge, and expose them as resources on a Kubernetes cluster. By using Azure IoT Akri, you can simplify the process of projecting leaf devices (OPC UA devices, cameras, IoT sensors, and peripherals) into your cluster.  Azure Iot Akri projects leaf devices into a cluster by using the devices' own protocols. For administrators who attach devices to or remove them from the cluster, this capability reduces the level of coordination and manual configuration. The hosting framework is also extensible. You can use it as shipped, or you can add custom discovery and provisioning by adding protocol handlers, brokers and behaviors. Azure IoT Akri is a Microsoft-managed commercial version of [Akri](https://docs.akri.sh/), an open source Cloud Native Computing Foundation (CNCF) project.  
 
-:::image type="content" source="media/concept-akri-overview/akri-logo.png" alt-text="Logo for the Akri project." border="false":::
+:::image type="content" source="media/overview-akri/akri-logo.png" alt-text="Logo for the Akri project." border="false":::
 
 ## The challenge of integrating IoT leaf devices at the edge
 
@@ -71,7 +71,7 @@ This section highlights the key capabilities and supported features in Azure IoT
 - **Secure credential management**. Azure IoT Akri facilitates secure access to assets and devices by integrating with services for secure distribution of credential material to brokers.
 
 ### Features supported
-The following features are supported in Azure IoT Akri Preview:
+The following features are supported in Azure IoT Akri (preview):
 
 | [CNCF Akri Features](https://docs.akri.sh/)                                                  | Supported |
 | -------------------------------------------------------- | :-------: |
@@ -100,4 +100,4 @@ To learn more about the CNCF Akri, see the following open source resources.
 In this article, you learned how Azure IoT Akri works and how it enables you to detect devices and add assets at the edge.  Here's the suggested next step: 
 
 > [!div class="nextstepaction"]
-> [Autodetect assets using Azure IoT Akri Preview](howto-autodetect-opcua-assets-using-akri.md)
+> [Autodetect assets using Azure IoT Akri](howto-autodetect-opcua-assets-using-akri.md)

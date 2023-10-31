@@ -258,4 +258,4 @@ If you installed Azure IoT Akri as described in [Prerequisites](#prerequisites),
 
 ## Related content
 
-- [Azure IoT Akri overview](concept-akri-overview.md)
+- [Azure IoT Akri overview](overview-akri.md)
