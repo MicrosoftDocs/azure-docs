@@ -10,14 +10,8 @@ ms.date: 05/24/2023
 
 # Publish to namespace topics and consume events in Azure Event Grid
 
-The article provides step-by-step instructions to publish events to Azure Event Grid in the [CloudEvents JSON format](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/formats/json-format.md) and consume those events by using the pull delivery model. To be specific, you use Azure CLI and Curl to publish events to a namespace topic in Event Grid and pull those events from an event subscription to the namespace topic. For more information about the pull delivery model, see [Pull delivery overview](pull-delivery-overview.md).
-
-
-
->[!NOTE]
-> - Namespaces, namespace topics, and event subscriptions associated to namespace topics are initially available in the following regions: East US, Central US, South Central US, West US 2, East Asia, Southeast Asia, North Europe, West Europe, UAE North
-> - The Azure [CLI Event Grid extension](/cli/azure/eventgrid) doesn't yet support namespaces and any of the resources it contains. We will use [Azure CLI resource](/cli/azure/resource) to create Event Grid resources.
-> - Azure Event Grid namespaces currently supports Shared Access Signatures (SAS) token and access keys authentication.
+This article provides a quick introduction to pull delivery using the ``curl`` bash shell command to publish, receive, and acknowledge events. Event Grid resources are created using CLI commands. This article is suitable for a quick test of the pull delivery functionality. For sample code using the data plane SDKs, see the [.Net](event-grid-dotnet-get-started-pull-delivery.md) or the Java samples. For Java, we provide the sample code in two articles: [publish events](publish-events-to-namespace-topics-java.md) and [receive events](receive-events-from-namespace-topics-java.md) quickstarts.
+ For more information about the pull delivery model, see the [concepts](concepts-event-grid-namespaces.md) and [pull delivery overview](pull-delivery-overview.md) articles.
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 

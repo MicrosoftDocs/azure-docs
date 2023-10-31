@@ -126,8 +126,10 @@ items:
               href: namespace-handler-event-hubs.md
           - name: Delivery properties
             href: namespace-delivery-properties.md
-        - name: Publisher and subscriber operations
-          href: publisher-subscriber-operations.md     
+        - name: Publisher operations
+          href: publisher-operations.md
+        - name: Subscriber operations
+          href: subscriber-operations.md
         - name: Dead lettering for event subscriptions
           href: dead-letter-event-subscriptions-namespace-topics.md
         - name: Event retention
