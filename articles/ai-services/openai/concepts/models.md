@@ -31,6 +31,7 @@ Azure OpenAI Service is powered by a diverse set of models with different capabi
 
 - `gpt-4`
 - `gpt-4-32k`
+- `gpt-4v`
 
 You can see the token context length supported by each model in the [model summary table](#model-summary-table-and-region-availability).
 
@@ -74,18 +75,23 @@ You can also use the Whisper model via Azure AI Speech [batch transcription](../
 
 ### GPT-4 models
 
-GPT-4 and GPT-4-32k models are now available to all Azure OpenAI Service customers.  Availability varies by region.  If you don't see GPT-4 in your region, please check back later.
+
+GPT-4, GPT-4-32k, and GPT-4V are now available to all Azure OpenAI Service customers.  Availability varies by region.  If you don't see GPT-4 in your region, please check back later.
+
 
 These models can only be used with the Chat Completion API.
 
-GPT-4 version 0314 is the first version of the model released.  Version 0613 is the second version of the model and adds function calling support.
+GPT-4 version 0314 is the first version of the model released.  Version 0613 is the second version of the model and adds function calling support. Version **NEED TO ADD** is the third version and adds support for visual recognition.
 
-|  Model ID  | Max Request (tokens) | Training Data (up to)  |
-|  --- |  :---: | :---: |
-| `gpt-4` (0314) | 8,192 | Sep 2021         |
-| `gpt-4-32k`(0314)  | 32,768               | Sep 2021         |
-| `gpt-4` (0613)     | 8,192                | Sep 2021         |
-| `gpt-4-32k` (0613) | 32,768               | Sep 2021         |
+
+|  Model ID  | Base model Regions   | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to)  |
+|  --- |  --- | --- | --- | --- |
+| `gpt-4` <sup>2</sup> (0314)     | East US<sup>1</sup>, France Central<sup>1</sup>  |  N/A<sup>3</sup>                 | 8,192                | September 2021         |
+| `gpt-4-32k` <sup>2</sup> (0314)  |  East US<sup>1</sup>, France Central<sup>1</sup> |  N/A<sup>3</sup>                | 32,768               | September 2021         |
+| `gpt-4` (0613)     |  Australia East<sup>1</sup>, Canada East, East US<sup>1</sup>, East US 2<sup>1</sup>, France Central<sup>1</sup>, Japan East<sup>1</sup>, Sweden Central, Switzerland North, UK South<sup>1</sup> |  N/A<sup>3</sup>                | 8,192                | September 2021         |
+| `gpt-4-32k` (0613)  |  Australia East<sup>1</sup>, Canada East, East US<sup>1</sup>, East US 2<sup>1</sup>, France Central<sup>1</sup>, Japan East<sup>1</sup>, Sweden Central, Switzerland North, UK South<sup>1</sup> |  N/A<sup>3</sup>                | 32,768               | September 2021         |
+| `gpt-4-v` (**NEED TO ADD**)  | Switzerland North |  N/A<sup>3</sup>                | 16384               | September 2021         |
+
 
 > [!NOTE]
 > Any region where GPT-4 is listed as available will always have access to both the 8K and 32K versions of the model
