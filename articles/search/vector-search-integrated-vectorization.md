@@ -63,7 +63,7 @@ On Azure AI Search, you need:
 
 Integrated vectorization availability is based on the embedding model. If you're using Azure OpenAI, check [regional availability]( https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=cognitive-services).
 
-If you are using a custom skill and Azure hosting mechanism (such as an Azure function app, Azure Web App, and Azure Kubernetes), check the product by region page. 
+If you're using a custom skill and Azure hosting mechanism (such as an Azure function app, Azure Web App, and Azure Kubernetes), check the product by region page. 
 
 Data chunking (Text Split skill) is free and available on all Azure AI services in all regions.
 
@@ -92,7 +92,7 @@ Here are some of the key benefits of the integrated vectorization:
 
 + Project or redirect chunked content to secondary indexes. Secondary indexes are created as you would any search index (a schema with fields and other constructs), but they're populated in tandem with a primary index by an indexer. Content from each source document flows to fields in primary and secondary indexes during the same indexing run. 
 
-  Secondary indexes are intended for data chunking and Retrieval Augmented Generation (RAG) apps. Assuming a large PDF as a source document, the primary index might have basic information (title, date, author, description), and a secondary index has the chunks of content. Vectorization at the data chunk level makes it easier to find relevant information (each chunk is searchable) and return a relevant response, esecially in a chat-style search app.
+  Secondary indexes are intended for data chunking and Retrieval Augmented Generation (RAG) apps. Assuming a large PDF as a source document, the primary index might have basic information (title, date, author, description), and a secondary index has the chunks of content. Vectorization at the data chunk level makes it easier to find relevant information (each chunk is searchable) and return a relevant response, especially in a chat-style search app.
 
 ## Chunked indexes
 

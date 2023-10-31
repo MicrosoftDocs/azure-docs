@@ -1,5 +1,5 @@
 ---
-title: Condfigure a suggester
+title: Configure a suggester
 titleSuffix: Azure AI Search
 description: Enable type-ahead query actions in Azure AI Search by creating suggesters and formulating requests that invoke autocomplete or autosuggested query terms.
 
