@@ -17,7 +17,7 @@ Large language models are known for their few-shot and zero-shot learning abilit
 
 There are two main scenarios for generating a simulated interaction (such as as conversation with a chat bot):
 1.	Instance level with manual testing: generate one conversation at a time by manually inputting the task parameters such as name, profile, tone and task and iteratively tweaking it to see different outcomes for the simulated interaction. 
-2.	Bulk testing and evaluation orchestration: generate multiple interaction data samples (~100) at one time for a list of tasks or profiles to create a target dataset to evaluate your generative aI applications and streamline the data gathering/prep process.
+2.	Bulk testing and evaluation orchestration: generate multiple interaction data samples (~100) at one time for a list of tasks or profiles to create a target dataset to evaluate your generative AI applications and streamline the data gathering/prep process.
 
 ## Usage
 
@@ -70,7 +70,7 @@ simulator = simulator(userConnection=your_target_LLM, systemConnection=aoai_conf
 st = SimulatorTemplate()
 ```
 
-Provided a local function or local flow:
+The following is an example of providing a local function or local flow, and wrapping it in the `simulate_callback` function:
 
 ```python
 async def simulate_callback(question, conversation_history, meta_data):
@@ -81,7 +81,7 @@ async def simulate_callback(question, conversation_history, meta_data):
     return pf_client.test(flow="<flow_folder_path>", inputs=inputs)
 ```
 
-The following is an example of using `simulate_callback` function wrapping it:
+Then pass the `simulate_callback` function in the `simulate()` function:
 
 ```python
 simulator = simulator(simulate_callback=simulate_callback, systemConnection=aoai_config)
@@ -97,7 +97,7 @@ print(conversation_parameters) # shows parameters needed for the prompt template
 print(conversation_template) # shows the prompt template that is used to generate conversations
 ```
 
-Configure the parameters for the simulated task (that is, conversation) as a dictionary with the name of your simulated agent, its profile description, tone, task and any extra metadata you want to provide as part of the persona or task. You can also configure the name of your chat application bot to ensure that the simulator knows what it's interacting with. 
+Configure the parameters for the simulated task (we support conversation and summarization) as a dictionary with the name of your simulated agent, its profile description, tone, task and any extra metadata you want to provide as part of the persona or task. You can also configure the name of your chat application bot to ensure that the simulator knows what it's interacting with. 
 
 ```python
 conversation_parameters = {
@@ -162,7 +162,7 @@ Stop conversation earlier if the conversation meets certain criteria, such as "b
 
 The scenario simulator supports retry logic, the default maximum number of retries in case the last API call failed is 3. The default number of seconds to sleep between consequent retries in case the last API call failed is 3.
 
-Users can also define their own `api_call_retry_sleep_sec` and `api_call_retry_max_count` and pass into the `ScenarioSimulator()`
+Users can also define their own `api_call_retry_sleep_sec` and `api_call_retry_max_count` and pass into the `simulator()` function.
 
 ### Example of output conversation
 
