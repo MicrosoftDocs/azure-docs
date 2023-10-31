@@ -443,7 +443,7 @@ export async function main() {
   console.log("== Get completions Sample ==");
 
   const client = new OpenAIClient(endpoint, new AzureKeyCredential(azureApiKey));
-  const deploymentId = "text-davinci-003";
+  const deploymentId = "gpt-35-turbo"; //This needs to correspond to the name you chose when you deployed the model. 
   const events = await client.listChatCompletions(deploymentId, messages, { maxTokens: 128 });
 
   for await (const event of events) {
