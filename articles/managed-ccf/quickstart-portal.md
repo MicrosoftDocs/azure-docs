@@ -57,7 +57,7 @@ Register the resource provider in your subscription using the following commands
     - **Application Type**: Choose Custom JavaScript Application.
     - **Network Node Count**: Choose the desired node count.
 
-:::image type="content" source="media/quickstart-tutorials/create-mccf-resource.png" alt-text="A screenshot of the Managed CCF create screen":::
+:::image type="content" source="media/quickstart-tutorials/create-mccf-resource.png" alt-text="A screenshot of the Managed CCF create screen.":::
 
 1. Select the **Security** tab.
 
@@ -66,15 +66,15 @@ Register the resource provider in your subscription using the following commands
     - **Member Group**: An optional group name.
     - **Certificate**: Paste the contents of the member0_cert.pem file.
 
-:::image type="content" source="media/quickstart-tutorials/create-mccf-resource-security-tab.png" alt-text="A screenshot of the Managed CCF resource security tab screen":::
+:::image type="content" source="media/quickstart-tutorials/create-mccf-resource-security-tab.png" alt-text="A screenshot of the Managed CCF resource security tab screen.":::
 
 1. Select **Review + Create**. After validation has passed, select **Create**.1.
 
-:::image type="content" source="media/quickstart-tutorials/create-mccf-resource-review-tab.png" alt-text="A screenshot of the Managed CCF resource review tab screen":::
+:::image type="content" source="media/quickstart-tutorials/create-mccf-resource-review-tab.png" alt-text="A screenshot of the Managed CCF resource review tab screen.":::
 
 When the deployment is complete, select **Go to resource**.
 
-:::image type="content" source="media/quickstart-tutorials/create-mccf-resource-overview-screen.png" alt-text="A screenshot of the Managed CCF resource properties screen":::
+:::image type="content" source="media/quickstart-tutorials/create-mccf-resource-overview-screen.png" alt-text="A screenshot of the Managed CCF resource properties screen.":::
 
 Make a note of the following properties as it is required to activate the member(s).
 
@@ -85,7 +85,7 @@ You will need these values to transact with the confidential ledger from the dat
 
 ### Clean up resources
 
-Other Azure Managed CCF articles build upon this quickstart. If you plan to continue on to work with subsequent articles, you may wish to leave these resources in place.
+Other Azure Managed CCF articles build upon this quickstart. If you plan to continue on to work with subsequent articles, you might wish to leave these resources in place.
 
 When no longer needed, delete the resource group, which deletes the Managed CCF and related resources. To delete the resource group through the portal:
 

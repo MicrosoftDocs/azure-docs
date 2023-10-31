@@ -8,7 +8,7 @@ items:
         href: overview.md
       - name: About Confidential Consortium Framework
         href: ccf-overview.md
-      - name: Get Started
+      - name: Get started
         href: get-started.md
   - name: Quickstarts
     expanded: true
@@ -30,9 +30,9 @@ items:
   - name: Concepts
     expanded: true
     items:
-      - name: Application Scenarios
+      - name: Application scenarios
         href: application-scenarios.md
-  - name: How To Guides
+  - name: How to guides
     expanded: true
     items:
       - name: FAQ
