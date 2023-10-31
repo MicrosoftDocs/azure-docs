@@ -52,7 +52,6 @@ When you create resources for an Azure AI resource, resources for other Azure se
 | [Azure Container Registry Basic account](https://azure.microsoft.com/pricing/details/container-registry) | Provides storage of private Docker container images, enabling fast, scalable retrieval, and network-close deployment of container workloads on Azure. |
 | [Azure Blob Storage](https://azure.microsoft.com/pricing/details/storage/blobs/) | Can be used to store Azure AI project files. |
 | [Key Vault](https://azure.microsoft.com/pricing/details/key-vault/) | A key vault for storing secrets. |
-| [Application Insights](https://azure.microsoft.com/pricing/details/storage/blobs/) | Helps you understand how your applications are performing and proactively identifies issues affecting them and the resources they depend on. |
 | [Azure Private Link](https://azure.microsoft.com/pricing/details/private-link/) | Azure Private Link enables you to access Azure PaaS Services (for example, Azure Storage and SQL Database) over a private endpoint in your virtual network. |
 
 ### Costs might accrue before resource deletion
@@ -75,15 +74,7 @@ After you delete an Azure AI resource in the Azure portal or with Azure CLI, the
 - Azure Container Registry
 - Azure Blob Storage
 - Key Vault
-- Application Insights
-
-To delete the Azure AI resource (also known as a workspace in this context) along with these dependent resources, use the Azure Machine Learning SDK:
-
-```python
-from azure.ai.ml.entities import Workspace
-ml_client.workspaces.begin_delete(name=ws.name, delete_dependent_resources=True)
-If you create Azure Kubernetes Service (AKS) in your workspace, or if you attach any compute resources to your workspace you must delete them separately in the Azure portal.
-```
+- Application Insights (if you enabled it for your Azure AI resource)
 
 ## Monitor costs
 
