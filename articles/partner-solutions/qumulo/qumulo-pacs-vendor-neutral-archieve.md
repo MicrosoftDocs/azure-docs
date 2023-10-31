@@ -11,19 +11,14 @@ ms.author: franlanglois
 
 # How to setup PACS vendor neutral archieve with Azure Native Qumulo ? 
 
-This article describes the baseline architecture for deploying a Picture Archiving and Communication System Vendor-Neutral Archive (PACS VNA), using file storage services provided by Azure Native Qumulo. A VNA solution provides a means for healthcare providers to store, use, and archive medical images and other data from one or more vendor-specific PACS  platforms. A VNA solution backed by Azure Native Qumulo for file storage also enables exabyte-plus data scalability, data and throughput elasticity, while delivering a total cost of ownership that’s comparable to an on-premises VNA deployment.
+This article describes the baseline architecture for deploying a Picture Archiving and Communication System Vendor-Neutral Archive (PACS VNA), using file storage services provided by Azure Native Qumulo. A VNA solution provides a means for healthcare providers to store, use, and archive medical images and other data from one or more vendor-specific PACS  platforms. A VNA solution backed by Azure Native Qumulo for file storage provides cost effective storage solution with exabyte-plus data scalability and throughput elasticity.
 
-Cloud-based PACS VNA deployments using ANQ offer a number of advantages over on-premises archiving solutions including:
-- Unlimited scalability
-- Simpler inter-organization or cross-institutional collaboration
-- Lower total-cost-of-ownership compared to data-center or private cloud hosting
-- Consumption-based billing, e.g., it is no longer necessary to purchase large volumes years ahead of when utilization reaches those levels.
 
 |Benefits of a PACS VNA solution with Azure Native Qumulo|Details|
 |---------|---------|
 |Scalability	|A single ANQ instance can scale to exabyte size and beyond in a single namespace.|
-|Cost efficiency |	ANQ’s overall TCO is comparable to on-prem file services, even at scale. Customers pay only for the capacity and throughput they use, while they use it.|
-|Performance	|ANQ outperforms other cloud-based file platforms, delivering higher throughput and lower latency for most workloads.|
+|Cost efficiency |Customers pay only for the capacity and throughput they use, while they use it.|
+|Performance	|ANQ higher throughput and lower latency for most workloads.|
 |Global reach	|ANQ can be deployed in one or more Azure regions worldwide, enabling low-latency access to users anywhere/everywhere.|
 |Cross-organisational collaboration	|VNA data hosted on Azure is potentially accessible to a broader cohort of healthcare providers, research institutions, and other organizations with a shared interest in better healthcare outcomes made possible by VNA image analysis.|
 
