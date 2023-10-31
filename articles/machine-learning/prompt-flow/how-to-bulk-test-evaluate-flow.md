@@ -61,13 +61,13 @@ Then, in the next step, you can decide to use an evaluation method to validate t
 
 You can directly select the **"Next"** button to skip this step and run the batch run without using any evaluation method to calculate metrics. In this way, this batch run only generates outputs for your dataset. You can check the outputs manually or export them for further analysis with other methods.
 
-Otherwise, if you want to run batch run with evaluation now, you can select an evaluation method from the dropdown box based on the description provided. After you selected an evaluation method, you can select **"View detail"** button to see more information about the selected method, such as the metrics it generates and the connections and inputs it requires.
+Otherwise, if you want to run batch run with evaluation now, you can select one or more evaluation methods based on the description provided. You can select **"More detail"** button to see more information about the evaluation method, such as the metrics it generates and the connections and inputs it requires.
 
-:::image type="content" source="./media/how-to-bulk-test-evaluate-flow/batch-run-evaluation-selection.png" alt-text="Screenshot of evaluation settings where you can select built-in evaluation method from drop-down box." lightbox = "./media/how-to-bulk-test-evaluate-flow/batch-run-evaluation-selection.png":::
+:::image type="content" source="./media/how-to-bulk-test-evaluate-flow/batch-run-evaluation-selection.png" alt-text="Screenshot of evaluation settings where you can select built-in evaluation method." lightbox = "./media/how-to-bulk-test-evaluate-flow/batch-run-evaluation-selection.png":::
 
-In the  **"input mapping"**  section, you need to specify the sources of the input data that are needed for the evaluation method. For example, ground truth column might come from a dataset. By default, evaluation will use the same dataset as the test dataset provided to the tested run. However, if the corresponding labels or target ground truth values are in a different dataset, you can easily switch to that one.  
+Go to the next step and configure evaluation settings. In the  **"Evaluation input mapping"**  section, you need to specify the sources of the input data that are needed for the evaluation method. For example, ground truth column might come from a dataset. By default, evaluation will use the same dataset as the test dataset provided to the tested run. However, if the corresponding labels or target ground truth values are in a different dataset, you can easily switch to that one.  
 
-Therefore, to run an evaluation, you need to indicate the sources of these required inputs. To do so, when submitting an evaluation, you'll see an  **"input mapping"**  section.
+Therefore, to run an evaluation, you need to indicate the sources of these required inputs. To do so, when submitting an evaluation, you'll see an  **"Evaluation input mapping"**  section.
 
 - If the data source is from your run output, the source is indicated as **"${run.output.[OutputName]}"**
 - If the data source is from your test dataset, the source is indicated as **"${data.[ColumnName]}"**
