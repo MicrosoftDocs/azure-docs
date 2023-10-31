@@ -35,7 +35,7 @@ The SQLServer CDC connector is a Flink Source connector, which reads database sn
 
 We have already covered this section in detail on how to use [secure shell](./flink-web-ssh-on-portal-to-flink-sql.md) with Flink. 
 
-### Prepare table and enable cdc feature on SQL Server sqldb
+### Prepare table and enable CDC feature on SQL Server SQLDB
 
 Let us prepare a table and enable the CDC, You can refer the detailed steps listed on [SQL Documentation](/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server?)
 
