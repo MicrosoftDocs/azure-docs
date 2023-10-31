@@ -40,7 +40,7 @@ items:
       - name: Manage members
         href: how-to-manage-members.md
       - name: Set application runtime options
-        href: how-to-update-js-runtime-options.md
+        href: how-to-update-javascript-runtime-options.md
       - name: Update an application
         href: how-to-update-application.md
       - name: Backup and restore a Managed CCF resource
