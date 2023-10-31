@@ -137,6 +137,7 @@ For more information about performing a geo-restore, see the [how-to guide](how-
 >
 > With the primary region down, you can still geo-restore the source server to the geo-paired region. For more information about performing a geo-restore, see the [how-to guide](how-to-restore-server-portal.md#perform-geo-restore).  
 
+
 ## Restore and networking
 
 ### Point-in-time recovery
@@ -166,6 +167,20 @@ After you restore the database, you can perform the following tasks to get your 
 - Configure alerts as appropriate.
   
 - If you restored the database configured with high availability, and if you want to configure the restored server with high availability, you can then follow [the steps](./how-to-manage-high-availability-portal.md).
+ 
+## Long Term Retention 
+
+Azure Backup and Azure PostgreSQL Services have come together to build an enterprise-class long term backup solution for Azure Database for PostgreSQL Flexible servers that retains backups for up to 10 years.  You can use long term retention independently or in addition to the automated backup solution offered by Azure PostgreSQL that offers retention up to 35 days. The automated backups are physical backups which are suited for operational recoveries, such as when you want to recover from the latest backups. Long term backups helps you with your compliance needs and are more granular in nature and are taken as logical backups using native pg_dump. Besides long-term retention, the solution offers the following capabilities:
+
+- Customer controlled scheduled and on-demand backups at the individual database level.
+
+- Central monitoring of all operations and jobs.
+
+- Backups are stored in separate security and fault domains. If the source server or subscription is compromised in any circumstances, the backups remain safe in the Backup vault (in Azure Backup managed storage accounts).
+
+- Use of pg_dump allows a greater flexibility in restores. This helps you restore across database versions
+
+- Azure backup vaults supports immutability and soft delete (preview) features.
 
 ## Frequently asked questions
 
