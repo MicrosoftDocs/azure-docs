@@ -11,7 +11,7 @@ ms.author: settiy
 ---
 # Azure Managed Confidential Consortium Framework application scenarios
 
-The Confidential Consortium Framework (CCF) is an open-source framework for building secure, highly-available, and performant applications that focus on multi-party compute and data. CFF uses the power of trusted execution environments (TEE, or enclave), decentralized systems concepts, and cryptography, to enable enterprise-ready multiparty systems. CCF is based on industry standard web technologies that allows clients to interact with CCF aware applications over HTTPS.
+The Confidential Consortium Framework (CCF) is an open-source framework for building secure, highly available, and performant applications that focus on multi-party compute and data. CFF uses the power of trusted execution environments (TEE, or enclave), decentralized systems concepts, and cryptography, to enable enterprise-ready multiparty systems. CCF is based on industry standard web technologies that allows clients to interact with CCF aware applications over HTTPS.
 
 The framework runs exclusively on hardware-backed secure enclaves, a heavily monitored and isolated runtime environment that keeps potential attacks at bay. It also runs on a minimalistic Trusted Computing Base (TCB) and limits the operator's role.
 

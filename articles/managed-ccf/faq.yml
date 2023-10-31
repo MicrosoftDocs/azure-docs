@@ -1,7 +1,7 @@
 ### YamlMime:FAQ
 metadata:
-  title: Frequently asked questions - Azure Managed CCF 
-  description: Get answers to frequently asked questions about Azure Managed CCF
+  title: Frequently asked questions - Azure Managed Confidential Consortium Framework 
+  description: Get answers to frequently asked questions about Azure Managed Confidential Consortium Framework
   services: managed-ccf
   author: msmbaldwin
   tags: azure-resource-manager
@@ -11,7 +11,7 @@ metadata:
   ms.date: 09/15/2023
   ms.author: mbaldwin
 title: Azure Managed CCF FAQ
-summary: This article answers frequently asked questions about Azure Managed CCF.
+summary: This article answers frequently asked questions about Azure Managed Confidential Consortium Framework.
 
 sections:
   - name: General
@@ -42,7 +42,7 @@ sections:
             - Transferrable statements via transaction receipts.
 
       - question: |
-          Can existing BlockChain applications work with Azure Managed CCF?
+          Can existing blockchain applications work with Azure Managed CCF?
         answer: |
           Yes, it can. A bridge application can be built and used to integrate a public chain to an application deployed on Azure Managed CCF.
 

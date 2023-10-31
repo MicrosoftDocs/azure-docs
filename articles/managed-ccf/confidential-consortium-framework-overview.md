@@ -1,5 +1,5 @@
 ---
-title: Learn about CCF
+title: Learn about the Confidential Consortium Framework
 description: An overview of Confidential Consortium Framework.
 services: managed-confidential-consortium-framework
 author: msftsettiy
@@ -12,17 +12,17 @@ ms.author: settiy
 
 # Overview of Confidential Consortium Framework
 
-The Confidential Consortium Framework (CCF) is an open-source framework for building secure, highly-available, and performant applications that focus on multi-party compute and data. CCF leverages the power of trusted execution environments (TEE, or enclave), decentralized systems concepts, and cryptography, to enable enterprise-ready multiparty systems. CCF is based on industry standard web technologies that allows clients to interact with CCF aware applications over HTTPS.
+The Confidential Consortium Framework (CCF) is an open-source framework for building secure, highly available, and performant applications that focus on multi-party compute and data. CCF leverages the power of trusted execution environments (TEE, or enclave), decentralized systems concepts, and cryptography, to enable enterprise-ready multiparty systems. CCF is based on industry standard web technologies that allows clients to interact with CCF aware applications over HTTPS.
 
 The following diagram shows a basic CCF network made of three nodes. All nodes run the same application code inside an enclave. The effects of user (business) and member (governance) transactions are eventually committed to a replicated, encrypted ledger. A consortium of members is in charge of governing the network.
 
-:::image type="content" source="media/ccf-3-node-network.png" alt-text="A CCF network made of 3 nodes":::
+:::image type="content" source="media/ccf-3-node-network.png" alt-text="A CCF network made of 3 nodes.":::
 
 ## Core Concepts
 
 ### Network and Nodes
 
-A CCF network consists of several nodes, each running on top of a Trusted Execution Environment (TEE), such as Intel SGX. A CCF network is decentralized and highly-available. Nodes are run and maintained by Operators. However, nodes must be trusted by the consortium of members before participating in a CCF network.
+A CCF network consists of several nodes, each running on top of a Trusted Execution Environment (TEE), such as Intel SGX. A CCF network is decentralized and highly available. Nodes are run and maintained by Operators. However, nodes must be trusted by the consortium of members before participating in a CCF network.
 
 To learn more about the operators, refer to the [Operators](https://microsoft.github.io/CCF/main/operations/index.html) section in the CCF documentation.
 

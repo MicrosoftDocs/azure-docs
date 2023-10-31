@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.custom: devx-track-azurecli
 ---
 
-# Build, Test and Deploy a TypeScript and JavaScript application
+# Build, test and deploy a TypeScript and JavaScript application
 
 This guide shows the steps to develop a TypeScript and JavaScript application targeting CCF, debug it locally and deploy it to a Managed CCF resource on the cloud.
 
@@ -22,9 +22,9 @@ This guide shows the steps to develop a TypeScript and JavaScript application ta
 
 > This guide uses [Visual Studio Code](https://code.visualstudio.com/) as the IDE. But, any IDE with support for Node.js, JavaScript and TypeScript application development can be used.
 
-## Project setup
+## Project set up
 
-1. Follow the [instructions](https://microsoft.github.io/CCF/main/build_apps/js_app_ts.html#conversion-to-an-app-bundle) in the CCF documenation to bootstrap the project and setup the required folder structure.
+1. Follow the [instructions](https://microsoft.github.io/CCF/main/build_apps/js_app_ts.html#conversion-to-an-app-bundle) in the CCF documentation to bootstrap the project and set up the required folder structure.
 
 ## Develop the application
 
@@ -77,9 +77,9 @@ Python environment successfully setup
 [10:40:41.490] Press Ctrl+C to shutdown the network
 ```
 
-2. The member certificate and the private key is available at /workspace/sandbox_0. The application log is available at /workspace/sandbox_0/out.
+2. The member certificate and the private key are available at /workspace/sandbox_0. The application log is available at /workspace/sandbox_0/out.
 
-:::image type="content" source="media/sandbox-workspace.png" alt-text="A picture showing the out file where the CCF node and application logs are written to":::
+:::image type="content" source="media/sandbox-workspace.png" alt-text="A picture showing the out file where the CCF node and application logs are written to.":::
 
 3. At this point, we have created a local CCF network with one member and deployed the application. The network endpoint is `https://127.0.0.1:8000`. The member can participate in governance operations like updating the application or adding more members by submitting a proposal.
 
