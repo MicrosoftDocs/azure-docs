@@ -25,7 +25,7 @@ items:
     - name: Usage scenarios
       href: concept-environments-scenarios.md
     - name: Reliability in Azure Deployment Environments
-      href: concept-environments-reliability-availability.md  
+      href: ../reliability/reliability-deployment-environments.md?toc=/azure/deployment-environments/toc.json&bc=/azure/deployment-environments/breadcrumb/toc.json  
 - name: How-to guides
   expanded: true
   items:
