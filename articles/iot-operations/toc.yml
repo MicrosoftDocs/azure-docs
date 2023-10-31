@@ -84,6 +84,8 @@ items:
         href: manage-mqtt-connectivity/howto-configure-availability-scale.md
       - name: Configure disk buffer
         href: manage-mqtt-connectivity/howto-configure-disk-buffer.md
+      - name: Configure diagnostic settings
+        href: manage-mqtt-connectivity/howto-configure-diagnostic.md
       - name: Manage secrets
         href: manage-mqtt-connectivity/howto-manage-secrets.md
     - name: Process data
