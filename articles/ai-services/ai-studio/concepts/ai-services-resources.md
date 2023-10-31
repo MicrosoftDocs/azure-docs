@@ -159,19 +159,19 @@ After you select **View in the Azure Portal**, you see your Azure AI resource in
 
 Select the resource group name to see all associated resources, including the Azure AI project, storage account, and key vault. 
 
-:::image type="content" source="../media/concepts/rg-docsazureairesource.png" alt-text="Screenshot of the Azure AI resource in the Azure portal." lightbox="../media/concepts/rg-docsazureairesource.png":::
+:::image type="content" source="../media/concepts/rg-docsazureairesource.png" alt-text="Screenshot of the Azure AI resource group in the Azure portal." lightbox="../media/concepts/rg-docsazureairesource.png":::
 
 From the resource group, you can select the Azure AI project for more details.
 
-:::image type="content" source="../media/concepts/docs-project.png" alt-text="Screenshot of the Azure AI resource in the Azure portal." lightbox="../media/concepts/docs-project.png":::
+:::image type="content" source="../media/concepts/docs-project.png" alt-text="Screenshot of the Azure AI project in the Azure portal." lightbox="../media/concepts/docs-project.png":::
 
 Also from the resource group, you can select the **Azure AI service** resource to see the keys and endpoints needed to authenticate your requests to Azure AI services.
 
-:::image type="content" source="../media/concepts/docs-azure-ai-resource-aiservices-keys.png" alt-text="Screenshot of the Azure AI resource in the Azure portal." lightbox="../media/concepts/docs-azure-ai-resource-aiservices-keys.png":::
+:::image type="content" source="../media/concepts/docs-azure-ai-resource-aiservices-keys.png" alt-text="Screenshot of the Azure AI service resource in the Azure portal." lightbox="../media/concepts/docs-azure-ai-resource-aiservices-keys.png":::
 
 You can use the same API key to access all of the supported service endpoints that are listed.
 
-:::image type="content" source="../media/concepts/docs-azure-ai-resource-aiservices-keys-endpoints.png" alt-text="Screenshot of the Azure AI resource in the Azure portal." lightbox="../media/concepts/docs-azure-ai-resource-aiservices-keys-endpoints.png":::
+:::image type="content" source="../media/concepts/docs-azure-ai-resource-aiservices-keys-endpoints.png" alt-text="Screenshot of the Azure AI service resource endpoints in the Azure portal." lightbox="../media/concepts/docs-azure-ai-resource-aiservices-keys-endpoints.png":::
 
 ## Next steps
 

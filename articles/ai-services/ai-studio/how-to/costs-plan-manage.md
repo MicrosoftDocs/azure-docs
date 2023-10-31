@@ -99,7 +99,7 @@ To view Azure AI services costs in cost analysis here's an example:
 
 Actual monthly costs are shown when you initially open cost analysis. Here's an example showing all monthly usage costs.
 
-:::image type="content" source="../media/cost-management/all-costs.png" alt-text="Screenshot of selecting Azure OpenAI in the Azure pricing calculator." lightbox="../media/cost-management/all-costs.png":::
+:::image type="content" source="../media/cost-management/all-costs.png" alt-text="Screenshot of monthly usage costs using the cost analysis tool." lightbox="../media/cost-management/all-costs.png":::
 
 To narrow costs for a single service, like Azure AI services, select **Add filter** and then select **Service name**. Then, select **Azure AI services**.
 

@@ -1,13 +1,13 @@
-- name: Azure AI services documentation
-  href: index-services.yml
+- name: Azure AI Studio documentation
+  href: index-studio.yml
 - name: Overview
   expanded: true
   items:
+  - name: What is Azure AI Studio?
+    href: ai-studio/what-is-ai-studio.md
   - name: What are Azure AI services?
     href: what-are-ai-services.md
     displayName: applied, cognitive, form recognizer
-  - name: What is Azure AI Studio?
-    href: ai-studio/what-is-ai-studio.md
   - name: Language support
     href: language-support.md
   - name: Pricing
@@ -18,12 +18,6 @@
   items:
   - name: Generate product name ideas in the Azure AI Studio playground
     href: ai-studio/quickstarts/playground-completions.md
-- name: Concepts
-  items:
-  - name: Azure AI services and the ecosystem
-    href: ai-studio/concepts/ai-services-and-ecosystem.md
-  - name: AI services resources
-    href: ai-studio/concepts/ai-services-resources.md
 - name: How-to
   expanded: true
   items:
@@ -33,8 +27,12 @@
       href: ai-studio/how-to/model-catalog.md
     - name: Azure AI capabilities
       href: ai-studio/how-to/models-foundation-azure-ai.md
-  - name: Create Azure AI projects
-    href: ai-studio/how-to/create-projects.md
+  - name: Create Azure AI projects and resources
+    items:
+    - name: Azure AI resources overview
+      href: ai-studio/concepts/ai-services-resources.md
+    - name: Create an Azure AI project
+      href: ai-studio/how-to/create-projects.md
   - name: Costs and quotas
     items:
     - name: Plan and manage costs
@@ -118,6 +116,10 @@
   items:
   - name: Using Azure AI Studio with a screen reader
     href: ai-studio/tutorials/screen-reader.md
+- name: Concepts
+  items:
+  - name: Azure AI services and the ecosystem
+    href: ai-studio/concepts/ai-services-and-ecosystem.md
 - name: Responsible AI
   items:
   - name: Overview

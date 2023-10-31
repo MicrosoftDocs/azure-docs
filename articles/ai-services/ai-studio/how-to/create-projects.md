@@ -25,6 +25,9 @@ You can create a project in Azure AI Studio more than one way. The most direct w
 1. Enter a name for the project.
 1. Select **Create a new resource** from the **Azure AI resource** dropdown and then select **Next**. This option creates a new Azure AI resource to host the project. Alternatively you can select an existing Azure AI resource from the dropdown.
 
+    > [!NOTE]
+    > To create an Azure AI resource, you must have **Owner** permissions. 
+
     :::image type="content" source="../media/how-to/projects-create-details.png" alt-text="Screenshot of the project details page within the create project dialog." lightbox="../media/how-to/projects-create-details.png":::
 
 1. Enter a name for the Azure AI resource. 
