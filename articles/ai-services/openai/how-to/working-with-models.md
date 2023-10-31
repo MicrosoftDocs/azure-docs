@@ -67,6 +67,14 @@ The corresponding property can also be accessed via [REST](../how-to/working-wit
 | [Azure PowerShell](/powershell/module/az.cognitiveservices/get-azcognitiveservicesaccountdeployment) | Yes.`VersionUpgradeOption` can be checked for `$null`| Yes |
 | [Azure CLI](/cli/azure/cognitiveservices/account/deployment#az-cognitiveservices-account-deployment-show) | Yes. It shows `null` if `versionUpgradeOption` is not set.| *No.* It is currently not possible to update the version upgrade option.|
 
+There are three distinct model deployment upgrade options:
+
+| Name | Description |
+|------|--------|
+| `OnceNewDefaultVersionAvailable` | Once a new version is designated as the default, the model deployment will automatically upgrade to the default version within two weeks of that designation change being made. |
+|`OnceCurrentVersionExpired` | Once the retirement date is reached the model deployment will automatically upgrade to the current default version. |
+|`NoAutoUpgrade` | The model deployment will never automatically upgrade. Once the retirement date is reached the model deployment will stop working. You will need to update your code referencing that deployment to point to a nonexpired model deployment. |
+
 > [!NOTE]
 > `null` is equivalent to `AutoUpgradeWhenExpired`. If the **Version update policy** option is not present in the properties for a model that supports model upgrades this indicates the value is currently `null`. Once you explicitly modify this value the property will be visible in the studio properties page as well as via the REST API.
 
@@ -97,15 +105,23 @@ New-AzCognitiveServicesAccountDeployment -ResourceGroupName {ResourceGroupName} 
 Get-AzCognitiveServicesAccountDeployment -ResourceGroupName {ResourceGroupName} -AccountName {AccountName}
 ```
 
+```powershell
+// To update to a new model version
+
+// Step 1: Get Deployment
+$deployment = Get-AzCognitiveServicesAccountDeployment -ResourceGroupName {ResourceGroupName} -AccountName {AccountName} -Name {DeploymentName}
+
+// Step 2: Show Deployment Model properties
+$deployment.Properties.Model.Version
+
+// Step 3: Update Deployed Model Version
+$deployment.Properties.Model.Version = "0613"
+New-AzCognitiveServicesAccountDeployment -ResourceGroupName {ResourceGroupName} -AccountName {AccountName} -Name {DeploymentName} -Properties $deployment.Properties -Sku $deployment.Sku
+
+// repeat step 1 and 2 to confirm the change.
+```
+
 # [REST](#tab/rest)
-
-There are three distinct model deployment upgrade options which are configurable via REST API:
-
-| Name | Description |
-|------|--------|
-| `OnceNewDefaultVersionAvailable` | Once a new version is designated as the default, the model deployment will automatically upgrade to the default version within two weeks of that designation change being made. |
-|`OnceCurrentVersionExpired` | Once the retirement date is reached the model deployment will automatically upgrade to the current default version. |
-|`NoAutoUpgrade` | The model deployment will never automatically upgrade. Once the retirement date is reached the model deployment will stop working. You will need to update your code referencing that deployment to point to a nonexpired model deployment. |
 
 To query the current model deployment settings including the deployment upgrade configuration for a given resource use [`Deployments List`](/rest/api/cognitiveservices/accountmanagement/deployments/list?tabs=HTTP#code-try-0). If the value is null you won't see a `versionUpgradeOption` property.
 
