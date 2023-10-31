@@ -52,7 +52,7 @@ This section describes how to integrate Defender for IoT and ClearPass Policy Ma
 > [!IMPORTANT]
 > The legacy Aruba ClearPass integration is supported through October 2024 using sensor version 23.1.3, and won't be supported in upcoming major software versions.. For customers using the legacy integration, we recommend moving to one of the following methods:
 > 
-> - If you're integrating your security solution with cloud-based systems, we recommend that you use data connectors through [Microsoft Sentinel](#cloud-integrations). 
+> - If you're integrating your security solution with cloud-based systems, we recommend that you use data connectors through [Microsoft Sentinel](#cloud-based-integrations). 
 > - For on-premises integrations, we recommend that you either configure your OT sensor to [forward syslog events, or use Defender for IoT APIs](#on-premises-integrations).
 >
 
