@@ -129,7 +129,7 @@ In this section, you create a Fabric-to-batch inferencing pipeline in your exist
 1. From the **New** section of the homepage, select **Data pipeline**.
 1. Name the pipeline and select **Create**.
 
-:::image type="content" source="media/how-to-use-batch-fabric/fabric-select-data-pipeline.png" alt-text="A screenshot showing where to select the data pipeline option." lightbox="media/how-to-use-batch-fabric/fabric-select-data-pipeline.png":::
+    :::image type="content" source="media/how-to-use-batch-fabric/fabric-select-data-pipeline.png" alt-text="A screenshot showing where to select the data pipeline option." lightbox="media/how-to-use-batch-fabric/fabric-select-data-pipeline.png":::
 
 1. Select the **Activities** tab from the toolbar in the designer canvas.
 1. Select more options at the end of the tab and select **Azure Machine Learning**.
@@ -173,19 +173,27 @@ For more information on batch endpoint inputs and outputs, see [Understanding in
 Configure the **Job inputs** section as follows:
 
 1. Expand the **Job inputs** section.
+
 1. Select **New** to add a new input to your endpoint.
+
 1. Name the input `input_data`. Since this is a model deployment, you can use any name. For pipeline deployments, however, you need to indicate the exact name of the input that your model is expecting.
+
 1. Select the dropdown menu next to the input you just added to open the input's property (name and value field).
+
 1. Enter `JobInputType` in the **Name** field to indicate the type of input you're creating.
+
 1. Enter `UriFolder` in the **Value** field to indicate that the input is a folder path. Other supported values for this field are **UriFile** (a file path) or **Literal** (any literal value like string or integer). You need to use the right type that your deployment expects.
+
 1. Select the plus sign next to the property to add another property for this input.
+
 1. Enter `Uri` in the **Name** field to indicate the path to the data.
+
 1. Enter `azureml://datastores/trusted_blob/datasets/uci-heart-unlabeled`, the path to locate the data, in the **Value** field. Here, you use a path that leads to the storage account that is both linked to OneLake in Fabric and to Azure Machine Learning. **azureml://datastores/trusted_blob/datasets/uci-heart-unlabeled** is the path to CSV files with the expected input data for the model that's deployed to the batch endpoint. You can also use a direct path to the storage account, such as `https://<storage-account>.dfs.azure.com`.
 
-:::image type="content" source="./media/how-to-use-batch-fabric/fabric-pipeline-configure-inputs.png" alt-text="A screenshot showing how to configure inputs in the endpoint.":::
+    :::image type="content" source="./media/how-to-use-batch-fabric/fabric-pipeline-configure-inputs.png" alt-text="A screenshot showing how to configure inputs in the endpoint.":::
 
-> [!TIP]
-> If your input is of type **Literal**, replace the property `Uri` by `Value``.
+    > [!TIP]
+    > If your input is of type **Literal**, replace the property `Uri` by `Value``.
 
 If your endpoint requires more inputs, repeat the previous steps for each of them. In this example, model deployments require exactly one input.
 
@@ -194,16 +202,24 @@ If your endpoint requires more inputs, repeat the previous steps for each of the
 Configure the **Job outputs** section as follows:
 
 1. Expand the **Job outputs** section.
+
 1. Select **New** to add a new output to your endpoint.
+
 1. Name the output `output_data`. Since this is a model deployment, you can use any name. For pipeline deployments, however, you need to indicate the exact name of the output that your model is generating.
+
 1. Select the dropdown menu next to the output you just added to open the output's property (name and value field).
+
 1. Enter `JobOutputType` in the **Name** field to indicate the type of output you're creating.
+
 1. Enter `UriFile` in the **Value** field to indicate that the output is a file path. The other supported value for this field is **UriFolder** (a folder path). Unlike the job input section, **Literal** (any literal value like string or integer) is not supported as an output.
+
 1. Select the plus sign next to the property to add another property for this output.
+
 1. Enter `Uri` in the **Name** field to indicate the path to the data.
+
 1. Enter `@concat(@concat('azureml://datastores/trusted_blob/paths/endpoints', pipeline().RunId, 'predictions.csv')`, the path to where the output should be placed, in the **Value** field. Azure Machine Learning batch endpoints only support use of data store paths as outputs. Since outputs need to be unique to avoid conflicts, you've used a dynamic expression, `@concat(@concat('azureml://datastores/trusted_blob/paths/endpoints', pipeline().RunId, 'predictions.csv')`, to construct the path.
 
-:::image type="content" source="./media/how-to-use-batch-fabric/fabric-pipeline-configure-outputs.png" alt-text="A screenshot showing how to configure outputs in the endpoint":::
+    :::image type="content" source="./media/how-to-use-batch-fabric/fabric-pipeline-configure-outputs.png" alt-text="A screenshot showing how to configure outputs in the endpoint":::
 
 If your endpoint returns more outputs, repeat the previous steps for each of them. In this example, model deployments produce exactly one output.
 
@@ -222,7 +238,7 @@ __For pipeline deployments__:
 
 | Setting | Description |
 |:----|:----|
-||`ContinueOnStepFailure`|Indicates if the pipeline should stop processing nodes after a failure.|
+|`ContinueOnStepFailure`|Indicates if the pipeline should stop processing nodes after a failure.|
 |`DefaultDatastore`|Indicates the default data store to use for outputs.|
 |`ForceRun`|Indicates if the pipeline should force all the components to run even if the output can be inferred from a previous run.|
 
