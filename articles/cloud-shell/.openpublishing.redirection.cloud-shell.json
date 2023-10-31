@@ -1,6 +1,16 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/cloud-shell/private-vnet.md",
+            "redirect_url": "/azure/cloud-shell/vnet-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/cloud-shell/quickstart-deploy-vnet.md",
+            "redirect_url": "/azure/cloud-shell/vnet-deployment",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/cloud-shell/msi-authorization.md",
             "redirect_url": "/azure/active-directory/managed-identities-azure-resources/managed-identities-status",
             "redirect_document_id": true
