@@ -82,7 +82,7 @@ The following diagram shows the architecture of the system:
 
 ## 5. Validate the app
 
-Now, you can access the RESTful API to see if it works.
+You can now access the RESTful API to see if it works.
 
 ### 5.1. Request an access token
 

@@ -86,7 +86,7 @@ Use the following steps to connect your service instances:
 
    :::image type="content" source="../../media/quickstart-deploy-restful-api-app/app-service-connector-authentication.png" alt-text="Screenshot of the Azure portal that shows the Authentication tab of the Create connection pane with the Connection string option highlighted." lightbox="../../media/quickstart-deploy-restful-api-app/app-service-connector-authentication.png":::
 
-1. Select **Next: Networking**, Use the default option **Configure firewall rules to enable access to target service.**.
+1. Select **Next: Networking**. Use the default option **Configure firewall rules to enable access to target service**.
 
 1. Select **Next: Review and Create** to review your selections, then select **Create** to create the connection.
 
@@ -96,13 +96,13 @@ Use the following steps to connect your service instances:
 
 ### 3.6. Update the application configuration
 
-[!INCLUDE [provision-postgresql-flexible](update-application-configuration.md)]
+[!INCLUDE [update-application-configuration](update-application-configuration.md)]
 
 ## 4. Deploy the app to Azure Spring Apps
 
-Now, you can deploy the app to Azure Spring Apps.
+You can now deploy the app to Azure Spring Apps.
 
-[!INCLUDE [deploy-restful-api-app-with-maven-plugin](restful-api-spring-apps-maven-plugin.md)]
+   [!INCLUDE [deploy-restful-api-app-with-maven-plugin](restful-api-spring-apps-maven-plugin.md)]
 
    ```output  
    [INFO] Deployment Status: Running

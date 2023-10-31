@@ -10,7 +10,7 @@ ms.date: 10/17/2023
 <!-- 
 To reuse the Spring Apps instance creation steps in other articles, a separate markdown file is used to describe how to expose RESTful APIs.
 
-[!INCLUDE [provision-spring-apps](../../includes/quickstart-deploy-restful-api-app/expose-restful-apis.md)]
+[!INCLUDE [expose-restful-apis](expose-restful-apis.md)]
 
 -->
 

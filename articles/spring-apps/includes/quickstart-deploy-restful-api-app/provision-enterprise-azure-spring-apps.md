@@ -10,7 +10,7 @@ ms.date: 08/09/2023
 <!-- 
 To reuse the Spring Apps instance creation steps in other articles, a separate markdown file is used to describe how to provision Spring Apps instance for RESTful API app.
 
-[!INCLUDE [provision-spring-apps](../../includes/quickstart-deploy-restful-api-app/provision-enterprise-azure-spring-apps.md)]
+[!INCLUDE [provision-enterprise-azure-spring-apps](provision-enterprise-azure-spring-apps.md)]
 
 -->
 

@@ -10,7 +10,7 @@ ms.date: 10/16/2023
 <!-- 
 Use the following line at the end of the heading Prerequisites, with blank lines before and after. App deployments with Spring Apps Maven plugin.
 
-[!INCLUDE [maven-plugin-deployment](includes/quickstart-deploy-restful-api-app/restful-api-spring-apps-maven-plugin.md)]
+[!INCLUDE [restful-api-spring-apps-maven-plugin](includes/quickstart-deploy-restful-api-app/restful-api-spring-apps-maven-plugin.md)]
 -->
 
 Use the following steps to deploy using the [Maven plugin for Azure Spring Apps](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Spring-Apps):
