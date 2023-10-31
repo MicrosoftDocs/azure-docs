@@ -14,7 +14,7 @@ ms.custom: ignite-fall-2023
 
 # Dapr component resiliency (preview)
 
-Resiliency policies proactively prevent, detect, and recover from your container app failures. In this article, you learn how to apply resiliency policies for applications that use Dapr to integrate with state stores, pub/sub message brokers, secret stores, and more. 
+Resiliency policies proactively prevent, detect, and recover from your container app failures. In this article, you learn how to apply resiliency policies for applications that use Dapr to integrate with different cloud services, like state stores, pub/sub message brokers, secret stores, and more. 
 
 You can configure resiliency policies like retries and timeouts for the following outbound and inbound operation directions via a Dapr component: 
 
@@ -26,6 +26,8 @@ You can configure resiliency policies like retries and timeouts for the followin
    - Subscriptions when delivering a message
    - Input bindings delivering an event
 
+The following screenshot shows how an application uses a retry policy to attempt to recover from failed requests. 
+
 :::image type="content" source="media/dapr-component-resiliency/dapr-component-resiliency.png" alt-text="Diagram demonstrating resiliency for container apps with Dapr components.":::
 
 ## Supported resiliency policies
@@ -35,14 +37,14 @@ You can configure resiliency policies like retries and timeouts for the followin
 
 ## Creating resiliency policies
 
-Create resiliency policies using Bicep, the CLI, and the Azure portal. 
+You have the option to create resiliency policies using Bicep, the CLI, or the Azure portal.  
 
 > [!IMPORTANT]
 > Once you've applied all the resiliency policies, restart your Dapr applications.
 
 # [Bicep](#tab/bicep)
 
-You can create your resiliency policies in Bicep. The following resiliency example demonstrates all of the available configurations. 
+The following resiliency example demonstrates all of the available configurations. 
 
 ```bicep
 resource myPolicyDoc 'Microsoft.App/managedEnvironments/daprComponents/resiliencyPolicies@2023-08-01-preview' = {
@@ -79,7 +81,7 @@ resource myPolicyDoc 'Microsoft.App/managedEnvironments/daprComponents/resilienc
 
 # [CLI](#tab/cli)
 
-Before you begin, make sure you're logged into the Azure CLI:
+To begin, log-in to the Azure CLI:
 
 ```azurecli
 az login
@@ -91,13 +93,13 @@ To create a resiliency policy with recommended settings for timeouts and retries
 az containerapp resiliency-policy create -g MyResourceGroup -n MyContainerApp –default​
 ```
 
-To create resiliency policies for your container app from a resiliency YAML you've created, run the following command:
+To apply the resiliency policies from a YAML file you've created for your container app, run the following command:
 
 ```azurecli
 az containerapp resiliency-policy create -g MyResourceGroup –n MyContainerApp –yaml MyYAMLPath
 ```
 
-This command passes a YAML file similar to the following example:
+This command passes the resiliency policy YAML file, which may look similar to the following example:
 
 ```yaml
 spec:
@@ -118,7 +120,7 @@ spec:
     tcpRetryPolicy:
       maxConnectAttempts: 3
 ```
-To show existing resiliency policies for a container app in your resource group, run:
+Use the `resiliency-policies show` command to list resiliency policies for a container app.
 
 ```azurecli
 az containerapp resiliency-policies show -g MyResourceGroup –name MyContainerApp​
@@ -163,9 +165,9 @@ properties: {
 }
 ```
 
-| Metadata | Required? | Description | Example |
+| Metadata | Required | Description | Example |
 | -------- | --------- | ----------- | ------- |
-| `responseTimeoutInSeconds` | Y | Timeout waiting for a response from the upstream container app (or Dapr component). | `15` |
+| `responseTimeoutInSeconds` | Yes | Timeout waiting for a response from the upstream container app (or Dapr component). | `15` |
 
 ### Retries
 
@@ -195,12 +197,12 @@ properties: {
 }
 ```
 
-| Metadata | Required? | Description | Example |
+| Metadata | Required | Description | Example |
 | -------- | --------- | ----------- | ------- |
-| `maxRetries` | Y | Maximum retries to be executed for a failed http-request. | `5` |
-| `retryBackOff` | Y | Monitor the requests and shut off all traffic to the impacted service when timeout and retry criteria are met. | N/A |
-| `retryBackOff.initialDelayInMilliseconds` | Y | Delay between first error and first retry. | `1000` |
-| `retryBackOff.maxIntervalInMilliseconds` | Y | Maximum delay between retries. | `10000` |
+| `maxRetries` | Yes | Maximum retries to be executed for a failed http-request. | `5` |
+| `retryBackOff` | Yes | Monitor the requests and shut off all traffic to the impacted service when timeout and retry criteria are met. | N/A |
+| `retryBackOff.initialDelayInMilliseconds` | Yes | Delay between first error and first retry. | `1000` |
+| `retryBackOff.maxIntervalInMilliseconds` | Yes | Maximum delay between retries. | `10000` |
 
 ## Resiliency observability
 
@@ -211,5 +213,5 @@ properties: {
 ## Related content
 
 See how resiliency works for:
-- [Container apps using the application's service name](./service-discovery-resiliency.md)
-- [Container apps using Dapr Service Invocation API](./dapr-invoke-resiliency.md)
+- [Service to service communication using Azure Container Apps built in service discovery](./service-discovery-resiliency.md)
+- [Service to service communication using Dapr service invocation](./dapr-invoke-resiliency.md)
