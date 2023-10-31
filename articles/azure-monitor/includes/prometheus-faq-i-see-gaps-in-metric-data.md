@@ -1,0 +1,11 @@
+---
+ms.service: azure-monitor
+ms.topic: include
+ms.date: 10/31/2023
+ms.author: edbaynash
+author: EdB-MSFT
+---
+
+### I see some gaps in metric data, why is this occurring?   
+
+During node updates you might see a 1 to 2 minute gap in metric data for metrics collected from our cluster level collectors because the node that it runs on is being updated as part of a normal update process. This affects cluster-wide targets such as kube-state-metrics and custom application targets that are specified. This occurs when your cluster is updated manually or via auto-update. This is expected behavior that occurs due to the node it runs on being updated. None of our recommended alert rules are affected by this behavior. 
