@@ -40,6 +40,8 @@ To create a load testing resource:
 
 Next, you create a load test by uploading an Apache JMeter test script (JMX file). The test script contains the application requests to simulate traffic to your application endpoints.
 
+# [Azure portal](#tab/portal)
+
 To create a load test using an existing JMeter script in the Azure portal:
 
 1. In the [Azure portal](https://portal.azure.com/), go to your Azure Load Testing resource.
@@ -67,11 +69,36 @@ To create a load test using an existing JMeter script in the Azure portal:
 
 1. Select **Review + create**. Review all settings, and then select **Create** to create the load test.
 
+# [Azure CLI](#tab/azure-cli)
+
+To create a load test using an existing JMeter script with the Azure CLI:
+
+1. Set parameter values.
+
+    Specify a unique test ID for your load test, and the name of the JMeter test script (JMX file). If you use an existing test ID, a test run is added to the existing test.
+
+    ```azurecli
+    $testId="<test-id>"
+    testPlan="<my-jmx-file>"
+    ```
+
+1. Use the `azure load create` command to create a load test:
+
+    The following command creates a load test by using uploading the JMeter test script. The test runs on one test engine instance.
+
+    ```azurecli
+    az load test create --load-test-resource  $loadTestResource --test-id $testId  --display-name "My CLI Load Test" --description "Created using Az CLI" --test-plan $testPlan --engine-instances 1
+    ```
+
+---
+
 You can update the test configuration at any time, for example to upload a different JMX file. Choose your test in the list of tests, and then select **Edit**.
 
 ## Run the load test
 
 When Azure Load Testing starts your load test, it first deploys the JMeter script, and any other files onto test engine instances, and then starts the load test.
+
+# [Azure portal](#tab/portal)
 
 If you selected **Run test after creation**, your load test will start automatically. To manually start the load test you created earlier, perform the following steps:
 
@@ -94,6 +121,33 @@ If you selected **Run test after creation**, your load test will start automatic
 
     Use the run statistics and error information to identify performance and stability issues for your application under load.
 
+# [Azure CLI](#tab/azure-cli)
+
+To run the load test you created previously with the Azure CLI:
+
+1. Set parameter values.
+
+    Specify a test run ID and test run display name. If you 
+
+    ```azurecli
+    testRunId="run_"`date +"%Y%m%d%_H%M%S"`
+    displayName="Run"`date +"%Y/%m/%d_%H:%M:%S"`
+    ```
+
+1. Use the `azure load test-run create` command to run a load test:
+
+    ```azurecli
+    az load test-run create --load-test-resource $loadTestResource --test-id $testId --test-run-id $testRunId --display-name $displayName --description "Test run from CLI"
+    ```
+
+1. Retrieve the client-side test metrics with the `az load test-run metrics list` command:
+
+```azurecli
+az load test-run metrics list --load-test-resource $loadTestResource --test-run-id $testRunId --metric-namespace LoadTestRunMetrics
+```
+
+---
+
 ## Convert a URL-based load test to a JMeter-based load test
 
 If you created a URL-based load test, you can convert the test into a JMeter-based load test. Azure Load Testing automatically generates a JMeter script when you create a URL-based load test.
@@ -112,9 +166,9 @@ To convert a URL-based load test to a JMeter-based load test:
 
 1. On the **Convert to JMeter script** page, select **Convert** to convert the test to a JMeter-based test.
 
-    Notice that the test type has changed to *JMX* in the test list.
+    Notice that the test type changed to *JMX* in the test list.
 
-    :::image type="content" source="./media/how-to-create-and-run-load-test-with-jmeter-script/test-list-jmx-test.png" alt-text="Screenshot that shows the list of tests in the Azure portal, highlighting the test type has changed to JMX for the converted test." lightbox="./media/how-to-create-and-run-load-test-with-jmeter-script/test-list-jmx-test.png":::
+    :::image type="content" source="./media/how-to-create-and-run-load-test-with-jmeter-script/test-list-jmx-test.png" alt-text="Screenshot that shows the list of tests in the Azure portal, highlighting the test type changed to JMX for the converted test." lightbox="./media/how-to-create-and-run-load-test-with-jmeter-script/test-list-jmx-test.png":::
 
 ## Related content
 

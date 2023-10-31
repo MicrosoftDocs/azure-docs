@@ -10,6 +10,8 @@ ms.topic: "include"
 ms.date: 10/11/2023
 ---
 
+# [Azure portal](#tab/portal)
+
 1. Sign in to the [Azure portal](https://portal.azure.com) by using the credentials for your Azure subscription.
 
 1. From the Azure portal menu or the **Home page**, select **Create a resource**.
@@ -43,4 +45,38 @@ ms.date: 10/11/2023
     Azure Load Testing uses role-based access control (RBAC) to manage permissions for your resource. If you encounter this message, your account doesn't have the necessary permissions to manage tests.
 
     :::image type="content" source="../../media/azure-load-testing-create-in-portal/azure-load-testing-not-authorized.png" lightbox="../../media/azure-load-testing-create-in-portal/azure-load-testing-not-authorized.png" alt-text="Screenshot that shows an error message in the Azure portal that you're not authorized to use the Azure Load Testing resource.":::
-    
+
+# [Azure CLI](#tab/azure-cli)
+
+1. Sign into Azure:
+
+    ```azurecli
+    az login
+    ```
+
+1. Set parameter values:
+
+    The following values are used in subsequent commands to create the load testing resource.
+
+    ```azurecli
+    loadTestResource="<load-testing-resource-name>"
+    resourceGroup="<resource-group-name>"
+    location="East US"
+    ```
+
+1. Create an Azure load testing resource with the `azure load create` command:
+
+    ```azurecli
+    loadTestResource="<load-testing-resource-name>"
+    resourceGroup="<resource-group-name>"
+    location="East US"
+    az load create --name $loadTestResource --resource-group $resourceGroup --location $location
+    ```
+
+1. After the resource is created, you can view the details with the `azure load show` command:
+
+    ```azurecli
+    az load show --name $loadTestResource --resource-group $resourceGroup
+    ```
+
+---
