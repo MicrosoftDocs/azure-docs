@@ -42,6 +42,17 @@ Using following steps to configure planned maintenance in Azure Spring Apps:
 
 1. Click **Apply** to submit your configuration for planned maintenance.
 
+### [Azure CLI](#tab/azure-cli)
+
+Use the following command to configure planned maintenance:
+
+```azurecli
+az spring update -g $RG -n $NAME \
+    --enable-planned-maintenance \
+    --planned-maintenance-day $DAY_OF_WEEK \
+    --planned-maintenance-start-hour $START_HOUR
+```
+
 Updating the configuration can take a few minutes. You should get a notification when the configuration is complete.
 
 ## Maintenance Notification
