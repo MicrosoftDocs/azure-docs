@@ -167,7 +167,13 @@ To create a new alert rule based on a cross-service query, follow the steps in [
 * Cross-service queries support data retrieval only. 
 * [Private Link](../logs/private-link-security.md) (private endpoints) and [IP restrictions](/azure/data-explorer/security-network-restrict-public-access) do not support cross-service queries.
 * `mv-expand` is limited to 2000 records.
-* Azure Resource Graph cross-queries do not support these operators: `smv-apply()`, `rand()`, `arg_max()`, `arg_min()`, `avg()`, `avg_if()`, `countif()`, `sumif()`, `percentile()`, `percentiles()`, `percentilew()`, `percentilesw()`, `stdev()`, `stdevif()`, `stdevp()`, `variance()`, `variancep()`, `varianceif()`.
+
+### Azure Resource Graph cross-query limitations
+When you query Azure Resource Graph data from Azure Monitor:
+* These operators aren't supported: `smv-apply()`, `rand()`, `arg_max()`, `arg_min()`, `avg()`, `avg_if()`, `countif()`, `sumif()`, `percentile()`, `percentiles()`, `percentilew()`, `percentilesw()`, `stdev()`, `stdevif()`, `stdevp()`, `variance()`, `variancep()`, `varianceif()`.
+* The query returns the first 1000 records only.
+* Azure Monitor does not return Azure Resource Graph query errors.
+* The Log Analytics query editor marks valid Azure Resource Graph queries as syntax errors.
 
 ## Next steps
 * [Write queries](/azure/data-explorer/write-queries)
