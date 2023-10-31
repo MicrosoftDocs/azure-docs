@@ -367,7 +367,7 @@ items:
       - name: Create an Azure support ticket
         href: https://azure.microsoft.com/support/create-ticket
       - name: Q&A forum (general questions)
-        href: https://learn.microsoft.com/answers/tags/20/azure-monitor
+        href: /answers/tags/20/azure-monitor
       - name: Stack Overflow (coding questions)
         href: https://stackoverflow.com/questions/tagged/azure-application-insights
       - name: Application Insights product feedback
@@ -1595,8 +1595,12 @@ items:
     href: https://azure.microsoft.com/updates/?category=management-tools
   - name: Pricing 
     items:
-    - name: View and estimate charges
-      href: usage-estimated-costs.md
+    - name: Analyze usage and cost
+      href: cost-usage.md
+    - name: Billing meters
+      href: cost-meters.md
+    - name: Estimate cost
+      href: cost-estimate.md
     - name: Azure Monitor Pricing page
       href: https://azure.microsoft.com/pricing/details/monitor/
     - name: Pricing calculator
