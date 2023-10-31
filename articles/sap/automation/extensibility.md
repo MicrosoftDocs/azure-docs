@@ -105,6 +105,30 @@ The Ansible playbooks must be named according to the following naming convention
 
 ```
 
+## Updating the user and group IDs (Linux)
+
+If you want to change the user and group IDs used by the framework, you can add the following section to the sap-parameters.yaml file.
+
+```yaml
+# User and group IDs
+sapadm_uid:   "3000"
+sidadm_uid:   "3100"
+sapinst_gid:  "300"
+sapsys_gid:   "400"
+
+```
+
+You can use the `configuration_settings` variable to let Terraform add them to sap-parameters.yaml file.
+
+```terraform
+configuration_settings = {
+  sapadm_uid           = "3000",
+  sidadm_uid           = "3100",
+  sapinst_gid          = "300",
+  sapsys_gid           = "400"
+}
+
+
 ## Adding custom repositories (Linux)
 
 If you need to register extra Linux package repositories to the Virtual Machines deployed by the framework, you can add the following section to the sap-parameters.yaml file.
@@ -173,8 +197,6 @@ custom_services:
 
 ```
 
-
-
 ## Adding custom logical volumes (Linux)
 
 You can extend the SAP Deployment Automation Framework by adding logical volumes based on additional disks in your SDAF installation.
@@ -197,6 +219,24 @@ custom_logical_volumes:
 > [!NOTE]
 > In order to use this functionality you need to add an additional disk named 'custom' to one or more of your Virtual machines. See [Custom disk sizing](configure-extra-disks.md) for more information.
 
+You can use the `configuration_settings` variable to let Terraform add them to sap-parameters.yaml file.
+
+```terraform
+configuration_settings = {
+  custom_logical_volumes = [
+    {
+      tier      = 'sapos'
+      node_tier = 'all'
+      vg        = 'vg_custom'
+      lv        = 'lv_custom'
+      size      = '100%FREE'
+      fstype    = 'xfs'
+      path      = '/custompath' 
+    }
+  ]
+}
+```
+
 ## Adding custom mount (Linux)
 
 You can extend the SAP Deployment Automation Framework by mounting additional mount points in your installation.
@@ -214,6 +254,20 @@ custom_mounts:
 
 The `target_nodes` attribute defines which nodes have the mount defined. Use 'all' if you want all nodes to have the mount defined.
 
+You can use the `configuration_settings` variable to let Terraform add them to sap-parameters.yaml file.
+
+```terraform
+configuration_settings = {
+  custom_mounts = [
+    {
+      path         = "/usr/custom",
+      opts         = "vers=4,minorversion=1,sec=sys",
+      mount        = "xxxxxxxxx.file.core.windows.net:/xxxxxxxx/custom",
+      target_nodes = "scs,pas,app"
+    }
+  ]
+}
+```
 
 ## Adding custom export (Linux)
 
@@ -228,8 +282,21 @@ custom_exports:
 
 ```
 
+You can use the `configuration_settings` variable to let Terraform add them to sap-parameters.yaml file.
+
+```terraform
+configuration_settings = {
+  custom_mounts = [
+    {
+      path         = "/usr/custom",
+    }
+  ]
+}
+```
+
 > [!NOTE]
 > This applies only for deployments with NFS_Provider set to 'NONE' as this makes the Central Services server an NFS Server.
+
 
 
 ## Next step
