@@ -73,7 +73,7 @@ To allow these admin accounts to connect when single sign-on is enabled:
 
 To enable single sign-on in your environment, you must:
 
-1. Enable Microsoft Entra authentication for RDP.
+1. Enable Microsoft Entra authentication for Remote Desktop Protocol (RDP).
 1. Configure the target device groups.
 1. Create a Kerberos Server object.
 1. Review your conditional access policies.
