@@ -9,7 +9,7 @@ ms.topic: include
 
 When you connect to a VM by using Azure Bastion, you don't need a public IP address for your VM. If you aren't using the public IP address for anything else, you can dissociate it from your VM:
 
-1. Go to your virtual machine and select **Networking**. Select **NIC Public IP**.
+1. Go to your virtual machine and select **Networking**. Click **NIC Public IP**.
 
    :::image type="content" source="./media/bastion-remove-ip/networking.png" alt-text="Screenshot of the Networking pane for a virtual network." lightbox="./media/bastion-remove-ip/networking.png" :::
 
