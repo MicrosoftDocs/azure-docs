@@ -71,7 +71,6 @@ Alternately, users can sign into their Subscription, navigate to the **Resource 
 
 For feature registration, users need to sign into their **Subscription**, navigate to the **Preview features** tab, and search for 'Azure Arc for Azure VMware Solution'. Once registered, no other permissions are required for users to access Arc.
 
-Users need to ensure they're registered to **Microsoft.AVS/earlyAccess**. After registering, use the following feature to verify registration.
 
 ```azurecli
 az feature show --name AzureArcForAVS --namespace Microsoft.AVS
