@@ -716,7 +716,7 @@ items:
       - name: Collect IIS logs
         displayName: data collection rule,Azure Monitor Agent,IIS logs
         href: agents/data-collection-iis.md
-      - name: Collect text logs
+      - name: Collect logs from text or JSON files 
         displayName: data collection rule,Azure Monitor Agent,text logs,file-based logs
         href: agents/data-collection-text-log.md
       - name: Collect SNMP traps
