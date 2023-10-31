@@ -211,32 +211,20 @@ If your endpoint returns more outputs, repeat the previous steps for each of the
 
 You can also configure the **Job settings** by adding the following properties:
 
-<table>
-    <tbody>
-        <tr>
-            <tdrowspan=2>For model deployments</td>
-            <td>`MiniBatchSize`</td>
-            <td>The size of the batch size</td>
-        </tr>
-        <tr>
-            <td>`ComputeInstanceCount`</td>
-            <td>The number of compute instances to ask from the deployment</td>
-        </tr>
-        <tr>
-            <td rowspan=2>For pipeline deployments</td>
-            <td>`ContinueOnStepFailure`</td>
-            <td>Indicates if the pipeline should stop processing nodes after a failure.</td>
-        </tr>
-        <tr>
-            <td>`DefaultDatastore`</td>
-            <td>Indicates the default data store to use for outputs. </td>
-        </tr>
-        <tr>
-            <td>`ForceRun`</td>
-            <td>Indicates if the pipeline should force all the components to run even if when the output can be inferred from a previous run.</td>
-        </tr>
-    </tbody>
-</table>
+__For model deployments__:
+
+| Setting | Description |
+|:----|:----|
+|`MiniBatchSize`|The size of the batch.|
+|`ComputeInstanceCount`|The number of compute instances to ask from the deployment.|
+
+__For pipeline deployments__:
+
+| Setting | Description |
+|:----|:----|
+||`ContinueOnStepFailure`|Indicates if the pipeline should stop processing nodes after a failure.|
+|`DefaultDatastore`|Indicates the default data store to use for outputs.|
+|`ForceRun`|Indicates if the pipeline should force all the components to run even if the output can be inferred from a previous run.|
 
 Once configured, you can test the pipeline.
 
