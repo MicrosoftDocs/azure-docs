@@ -42,26 +42,26 @@ You can use the Azure portal (**Import and vectorize data** wizard), the [2023-1
 1. Add the following JSON to your index definition. Provide valid values and remove any properties you don't need:
 
     ```json
-        "vectorizers": [
-          {
-            "name": "my_open_ai_vectorizer",
-            "kind": "azureOpenAI",
-            "azureOpenAIParameters": {
-              "resourceUri": "https://url.openai.azure.com",
-              "deploymentId": "text-embedding-ada-002",
-              "apiKey": "mytopsecretkey"
-            }
-          },
-          {
-            "name": "my_custom_vectorizer",
-            "kind": "azureOpenAI",
-            "customVectorizerParameters": {
-              "uri": "https://my-endpoint",
-              "authResourceId": " ",
-              "authIdentity": " "
-            }
+      "vectorizers": [
+        {
+          "name": "my_open_ai_vectorizer",
+          "kind": "azureOpenAI",
+          "azureOpenAIParameters": {
+            "resourceUri": "https://url.openai.azure.com",
+            "deploymentId": "text-embedding-ada-002",
+            "apiKey": "mytopsecretkey"
           }
-        ]
+        },
+        {
+          "name": "my_custom_vectorizer",
+          "kind": "azureOpenAI",
+          "customVectorizerParameters": {
+            "uri": "https://my-endpoint",
+            "authResourceId": " ",
+            "authIdentity": " "
+          }
+        }
+      ]
     ```
 
 ## Define a profile that includes a vectorizer
@@ -70,20 +70,20 @@ You can use the Azure portal (**Import and vectorize data** wizard), the [2023-1
 
 1. Add the  a profiles section that specifies combinations of algorithms and vectorizers.
 
-  ```json
-  "profiles": [ 
-      { 
-          "name": "my_open_ai_profile", 
-          "algorithm": "my_hnsw_algorithm", 
-          "vectorizer":"my_open_ai_vectorizer" 
-      }, 
-      { 
-          "name": "my_custom_profile", 
-          "algorithm": "my_hnsw_algorithm", 
-          "vectorizer":"my_custom_vectorizer" 
-      }
-  ]
-  ```
+    ```json
+    "profiles": [ 
+        { 
+            "name": "my_open_ai_profile", 
+            "algorithm": "my_hnsw_algorithm", 
+            "vectorizer":"my_open_ai_vectorizer" 
+        }, 
+        { 
+            "name": "my_custom_profile", 
+            "algorithm": "my_hnsw_algorithm", 
+            "vectorizer":"my_custom_vectorizer" 
+        }
+    ]
+    ```
 
 ## Assign a vector profile to a field
 
@@ -91,43 +91,43 @@ You can use the Azure portal (**Import and vectorize data** wizard), the [2023-1
 
 1. For each vector field in the fields collection, assign a profile.
 
-  ```json
-  "fields": [ 
-          { 
-              "name": "ID", 
-              "type": "Edm.String", 
-              "key": true, 
-              "sortable": true, 
-              "analyzer": "keyword" 
-          }, 
-          { 
-              "name": "title", 
-              "type": "Edm.String" 
-          }, 
-          { 
-              "name": "synopsis", 
-              "type": "Collection(Edm.Single)", 
-              "dimensions": 1536, 
-              "vectorSearchProfile": "my_open_ai_profile", 
-              "searchable": true, 
-              "retrievable": true, 
-              "filterable": false, 
-              "sortable": false, 
-              "facetable": false 
-          }, 
-          { 
-              "name": "reviews", 
-              "type": "Collection(Edm.Single)", 
-              "dimensions": 1024, 
-              "vectorSearchProfile": "my_custom_profile", 
-              "searchable": true, 
-              "retrievable": true, 
-              "filterable": false, 
-              "sortable": false, 
-              "facetable": false 
-          } 
-  ]
-  ```
+    ```json
+    "fields": [ 
+            { 
+                "name": "ID", 
+                "type": "Edm.String", 
+                "key": true, 
+                "sortable": true, 
+                "analyzer": "keyword" 
+            }, 
+            { 
+                "name": "title", 
+                "type": "Edm.String"
+            }, 
+            { 
+                "name": "synopsis", 
+                "type": "Collection(Edm.Single)", 
+                "dimensions": 1536, 
+                "vectorSearchProfile": "my_open_ai_profile", 
+                "searchable": true, 
+                "retrievable": true, 
+                "filterable": false, 
+                "sortable": false, 
+                "facetable": false 
+            }, 
+            { 
+                "name": "reviews", 
+                "type": "Collection(Edm.Single)", 
+                "dimensions": 1024, 
+                "vectorSearchProfile": "my_custom_profile", 
+                "searchable": true, 
+                "retrievable": true, 
+                "filterable": false, 
+                "sortable": false, 
+                "facetable": false 
+            } 
+    ]
+    ```
 
 ## Test a vectorizer
 
