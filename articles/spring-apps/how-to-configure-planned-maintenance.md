@@ -81,4 +81,4 @@ Currently, Azure Spring Apps performs one regular planned maintenance to upgrade
 
 ### Limitations
 
-- Customers can't pin the version to prevent the maintenance job to be executed. If customer has any import event during maintenance window, please contact Azure Spring Apps CSS for help.
+- Customers can't pin the version to prevent the maintenance job to be executed. If customer has any important event during maintenance window, please contact Azure Spring Apps CSS for help.
