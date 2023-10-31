@@ -35,7 +35,7 @@ npm install
 
 ## Set up and host your Azure DevTunnel
 
-[Azure DevTunnels](/azure/developer/dev-tunnels/overview) is an Azure service that enables you to share local web services hosted on the internet. Use the DevTunnel CLI commands to connect your local development environment to the public internet. We use this endpoint to notify your application of calling events from the ACS Call Automation service.
+[Azure DevTunnels](/azure/developer/dev-tunnels/overview) is an Azure service that enables you to share local web services hosted on the internet. Use the DevTunnel CLI commands to connect your local development environment to the public internet. We use this endpoint to notify your application of calling events from the Azure Communication Services Call Automation service.
 
 ```bash
 devtunnel create --allow-anonymous
@@ -47,10 +47,10 @@ devtunnel host
 
 Then update your `.env` file with following values:
 
-- `CONNECTION_STRING`: The connection string for your ACS resource. You can find your ACS connection string using the instructions [here](../../create-communication-resource.md). 
+- `CONNECTION_STRING`: The connection string for your Azure Communication Services resource. You can find your Azure Communication Services connection string using the instructions [here](../../create-communication-resource.md). 
 - `CALLBACK_URI`: Once you have your DevTunnel host initialized, update this field with that URI.
 - `TARGET_PHONE_NUMBER`: update field with the phone number you would like your application to call. This phone number should use the [E164](https://en.wikipedia.org/wiki/E.164) phone number format (e.g +18881234567)
-- `ACS_RESOURCE_PHONE_NUMBER`: update this field with the ACS phone number you have acquired. This phone number should use the [E164](https://en.wikipedia.org/wiki/E.164) phone number format (e.g +18881234567)
+- `ACS_RESOURCE_PHONE_NUMBER`: update this field with the Azure Communication Services phone number you have acquired. This phone number should use the [E164](https://en.wikipedia.org/wiki/E.164) phone number format (e.g +18881234567)
 
 
 ```dosini
@@ -119,7 +119,7 @@ if (event.type === "Microsoft.Communication.CallConnected") {
 
 ## Play welcome message and recognize 
 
-Using the `FileSource` API, you can provide the service the audio file you want to use for your welcome message. The ACS Call Automation service plays this message upon the `CallConnected` event. 
+Using the `FileSource` API, you can provide the service the audio file you want to use for your welcome message. The Azure Communication Services Call Automation service plays this message upon the `CallConnected` event. 
 
 In this code snippet, we pass the audio file into the `CallMediaRecognizeDtmfOptions` and then call `startRecognizing`. The API enables the telephony client to send DTMF tones that we can recognize.
 
@@ -140,7 +140,7 @@ await callConnection.getCallMedia().startRecognizing(callee, 1, recognizeOptions
 
 ## Recognize DTMF Events
 
-When the telephony endpoint selects a DTMF tone, ACS Call Automation triggers the webhook we have set up and notify us with the `Microsoft.Communication.RecognizeCompleted` event. This event gives us the ability to respond to a specific DTMF tone and trigger an action. 
+When the telephony endpoint selects a DTMF tone, Azure Communication Services Call Automation triggers the webhook we have set up and notify us with the `Microsoft.Communication.RecognizeCompleted` event. This event gives us the ability to respond to a specific DTMF tone and trigger an action. 
 
 ```typescript
 else if (event.type === "Microsoft.Communication.RecognizeCompleted") {
