@@ -16,12 +16,12 @@ ms.custom: ignite-fall-2023
 
 With Azure Container Apps resiliency, you can proactively prevent, detect, and recover from service-to-service request failures using simple resiliency policies. 
 
-Resiliency policies detect, mitigate, and respond to failure in your container app. You can tailor policies to the container app being called (App B in the diagram), like:
+Resiliency policies detect, mitigate, and respond to failure in your container app. You can tailor policies to the container app being called (App B in the diagram), with configurations like:
 - The number of retries;
 - Retry and timeout duration;
 - Circuit breaker consecutive errors, and others. 
  
-This article focuses on configuring Dapr's resiliency policies when using Dapr’s Service Invocation API for container app-to-container app communication. 
+In this article, you learn how to configure Dapr's resiliency policies when using Dapr’s Service Invocation API for container app-to-container app communication. 
 
 :::image type="content" source="media/dapr-invoke-resiliency/dapr-invoke-resiliency.png" alt-text="Diagram demonstrating sidecar to sidecar resiliency for container apps using Dapr service invocation API.":::
 

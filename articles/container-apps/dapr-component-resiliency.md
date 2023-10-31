@@ -14,9 +14,9 @@ ms.custom: ignite-fall-2023
 
 # Dapr component resiliency (preview)
 
-If your container app is leveraging Dapr to integrate with a technology (for example, state stores, pub/sub message brokers, secret stores, etc.), you can apply resiliency policies to your Dapr components.
+Resiliency policies proactively prevent, detect, and recover from your container app failures. In this article, you learn how to apply resiliency policies for applications that use Dapr to integrate with state stores, pub/sub message brokers, secret stores, and more. 
 
-You can configure resiliency policies for the following outbound and inbound operation directions via a Dapr component: 
+You can configure resiliency policies like retries and timeouts for the following outbound and inbound operation directions via a Dapr component: 
 
 - **Outbound operations:** Calls from the Dapr sidecar to a component, such as:
    - Persisting or retrieving state
