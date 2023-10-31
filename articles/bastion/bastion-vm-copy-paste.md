@@ -11,7 +11,7 @@ ms.author: cherylmc
 
 ---
 
-# Copy and paste to a Windows virtual machine: Azure Bastion
+# Windows VMs - copy and paste via Bastion
 
 This article helps you copy and paste text to and from virtual machines when using Azure Bastion.
 
@@ -45,7 +45,7 @@ For browsers that support the advanced Clipboard API access, you can copy and pa
 1. For direct copy and paste, your browser might prompt you for clipboard access when the Bastion session is being initialized. **Allow** the web page to access the clipboard.
 1. You can now use keyboard shortcuts as usual to copy and paste. If you're working from a Mac, the keyboard shortcut to paste is **SHIFT-CTRL-V**.
 
-### <a name="other"></a>Nonadvanced Clipboard API browsers
+### <a name="other"></a>Non-advanced Clipboard API browsers
 
 To copy text from your local computer to a virtual machine, use the following steps.
 
