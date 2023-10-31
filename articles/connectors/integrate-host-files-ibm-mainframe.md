@@ -7,10 +7,10 @@ author: haroldcampos
 ms.author: hcampos
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 10/28/2023
+ms.date: 10/30/2023
 ---
 
-# Parse and generate host files from IBM mainframes for Standard workflows in Azure Logic Apps using the IBM Host Files connector
+# Parse and generate host files from IBM mainframes for Standard workflows in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
@@ -40,9 +40,9 @@ The following diagram shows how the **IBM Host File** connector in Azure Logic A
 
 :::image type="content" source="media/integrate-host-files-ibm-mainframe/host-file-connector-overview.png" alt-text="Conceptual diagram shows how the IBM Host File connector in Azure Logic Apps works with other systems.":::
 
-To extend hybrid cloud scenarios, the **IBM Host File** connector works with the [HIS Designer for Logic Apps](/host-integration-server/core/application-integration-ladesigner-2), which you can use to create a *data definition* or *data map* of the mainframe host file, which you can then use in the non-mainframe world. For this task, the HIS Designer for Logic Apps converts that data into metadata that the **IBM Host File** connector uses when running an action from your workflow.
+To extend hybrid cloud scenarios, the **IBM Host File** connector works with the [HIS Designer for Logic Apps](/host-integration-server/core/application-integration-ladesigner-2), which you can use to create a *data definition* or *data map* of the mainframe host file. For this task, the HIS Designer converts that data into metadata that the **IBM Host File** connector uses when running an action in your workflow. The connector performs the data type conversions, which are required to receive input from preceding workflow operations and to send output for use by subsequent workflow actions. The connector also provides tabular data definition and code page translation.
 
-After you generate the metadata file as a Host Integration Designer XML (HIDX) file from the HIS Designer for Logic Apps, you can add that file directly to your Standard logic app resource or to a linked integration account in Azure. That way, your workflow can access your app's metadata when you add an **IBM Host File** connector action. The connector reads the metadata file from your logic app resource or integration account, and dynamically presents the binary file's structure for use in your workflow.
+After you generate the metadata file as a Host Integration Designer XML (HIDX) file from the HIS Designer, you can add that file as a map artifact to your Standard logic app resource or to a linked integration account in Azure. That way, your workflow can access your app's metadata when you add an **IBM Host File** connector action. The connector reads the metadata file from your logic app resource or integration account, and dynamically presents the binary file's structure to use with the **IBM Host File** connector actions in your workflow.
 
 ## Connector technical reference
 
@@ -72,9 +72,7 @@ The following section describes the operations for the **IBM Host File** connect
 
   To create this HIDX file, [download and install the HIS Designer for Azure Logic Apps](https://aka.ms/his-designer-logicapps-download). The only prerequisite is [Microsoft .NET Framework 4.8](https://aka.ms/net-framework-download).
 
-  To effectively parse and generate host files, your workflow needs to understand the host files metadata. However, as a key difference between a host file and a database table, the host file doesn't have the metadata that describes the data structure. The **IBM Host File** connector manages the data type conversions necessary to allow and send the input data to other workflow actions. The connector also provides tabular data definition and code page translation.
-
-  To create this metadata, use the [HIS Designer for Logic Apps](/host-integration-server/core/application-integration-ladesigner-2). With this tool, you can manually create the host file structure that your workflow uses. You can also import mainframe COBOL definitions (copybooks) that provide the data structures.
+  To effectively parse and generate host files, your workflow needs to understand the host file metadata. However, as a key difference between a host file and a database table, the host file doesn't have the metadata that describes the data structure. To create this metadata, use the [HIS Designer for Logic Apps](/host-integration-server/core/application-integration-ladesigner-2). With this tool, you can manually create the host file structure that your workflow uses. You can also import COBOL definitions (copybooks) that provide these data structures.
 
   The tool generates a Host Integration Designer XML (HIDX) file that provides the necessary metadata for the connector to recognize the host file data structure. If you are using HIS, you can use the TI Designer to create the HIDX file.
 
