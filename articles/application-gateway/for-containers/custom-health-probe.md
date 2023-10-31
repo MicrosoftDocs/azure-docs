@@ -35,6 +35,8 @@ The following properties make up custom health probes:
 | (http) path | the specific path of the request. If a single file should be loaded, the path may be /index.html as an example. |
 | (http -> match) statusCodes | Contains two properties, `start` and `end`, that define the range of valid HTTP status codes returned from the backend. |
 
+[ ![A diagram showing the Application Gateway for Containers using custom health probes to determine backend health.](./media/custom-health-probe/custom-health-probe.png) ](./media/custom-health-probe/custom-health-probe.png#lightbox)
+
 ## Default health probe
 Application Gateway for Containers automatically configures a default health probe when you don't define a custom probe configuration or configure a readiness probe. The monitoring behavior works by making an HTTP GET request to the IP addresses of configured backend targets. For default probes, if the backend target is configured for HTTPS, the probe uses HTTPS to test health of the backend targets.
 
