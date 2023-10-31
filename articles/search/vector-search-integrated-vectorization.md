@@ -7,7 +7,7 @@ author: heidisteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/30/2023
+ms.date: 10/31/2023
 ---
 
 # Integrated data chunking and embedding in Azure AI Search
@@ -15,11 +15,9 @@ ms.date: 10/30/2023
 > [!IMPORTANT] 
 > This feature is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [2023-10-01-Preview REST API](/rest/api/searchservice/2023-10-01-preview/skillsets/create-or-update) supports this feature.
 
-In this preview, integrated vectorization adds data chunking and text-to-vector embedding to indexing, and text-to-vector conversions to queries. 
+*Integrated vectorization* adds data chunking and text-to-vector embedding to skills in indexer-based indexing, and text-to-vector conversions to queries. 
 
-In the generally available version of vector search and in previous preview versions, data chunking and vectorization required calls to external components and coordination of each handoff, in a chain of operations from retrieval, to chunking, to embedding, to indexing. In this preview, you can streamline these steps using skills and indexers. You can set up a skillset that chunks data using the Text Split skill, and then call an embedding model using either the AzureOpenAIEmbedding skill or a custom skill. 
-
-Integrated vectorization works for vector and hybrid queries also. At query time, you can specify vectorizers to convert a text query to its vector equivalent by specifying which embedding model to use.
+This capability is preview-only. In the generally available version of [vector search](vector-search-overview.md) and in previous preview versions, data chunking and vectorization rely on external components for chunking and vectors, and your application code must handle and coordinate each step. In this preview, chunking and vectors are streamlined through skills and indexers. You can set up a skillset that chunks data using the Text Split skill, and then call an embedding model using either the AzureOpenAIEmbedding skill or a custom skill. The same vectorizers used during indexing are also called during queries to convert text to vectors.
 
 For indexing, integrated vectorization requires:
 
@@ -29,7 +27,7 @@ For indexing, integrated vectorization requires:
 
 For queries:
 
-+ [A vectorizer]() defined in the index schema, assigned to a vector field, and used automatically at query time to convert a text query to a vector.
++ [A vectorizer](vector-search-how-to-configure-vectorizer.md) defined in the index schema, assigned to a vector field, and used automatically at query time to convert a text query to a vector.
 
 Vector conversions are one-way: text-to-vector. There's no vector-to-text conversion for queries or results (for example, you can't convert a vector result to a human-readable string).
 
@@ -39,31 +37,22 @@ The following diagram shows the components of integrated vectorization.
 
 :::image type="content" source="media/vector-search-integrated-vectorization/integrated-vectorization-architecture.png" alt-text="Diagram of components in an integrated vectorization workflow." border="false" lightbox="media/vector-search-integrated-vectorization/integrated-vectorization-architecture.png":::
 
-Integrated vectorization uses capabilities inside and outside of Azure AI Search.
-
-Outside of Azure AI Search, you need:
+Here's a checklist of the components responsible for integrated vectorization:
 
 + An embedding model, deployed on Azure OpenAI or available through an HTTP endpoint.
 + A data source supported by indexers.
++ An index that specifies vector fields, and a vectorizer definition assigned to vector fields.
++ A skillset providing a Text Split skill for data chunking, and an AzureOpenAiEmbedding skill or a custom skill that points to the embedding model.
++ Index projections (also defined in a skillset) if you're using a secondary index for chunked data.
++ An indexer specifying a schedule, mappings, and properties for change detection.
 
-On Azure AI Search, you need:
-
-+ One or more indexes specifying:
-  + Vector fields.
-  + A vectorizer definition, assigned to vector fields.
-+ A skillset specifying:
-  + A Text Split skill for data chunking
-  + An AzureOpenAiEmbedding skill or a custom skill that points to the embedding model.
-  + Index projections if you're using a secondary index for chunked data.
-+ An indexer specifying:
-  + Scheduled indexing (optional)
-  + Properties for field mappings and output field mappings
+This checklist focuses on integrated vectorization, but your solution isn't limited to this list. You can add more skills for AI enrichment, create a knowledge store, add semantic ranking, add relevance tuning, and other query features.
 
 ## Availability and pricing
 
 Integrated vectorization availability is based on the embedding model. If you're using Azure OpenAI, check [regional availability]( https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=cognitive-services).
 
-If you're using a custom skill and Azure hosting mechanism (such as an Azure function app, Azure Web App, and Azure Kubernetes), check the product by region page. 
+If you're using a custom skill and an Azure hosting mechanism (such as an Azure function app, Azure Web App, and Azure Kubernetes), check the [product by region page](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/) for feature availability. 
 
 Data chunking (Text Split skill) is free and available on all Azure AI services in all regions.
 
@@ -86,9 +75,9 @@ We recommend using the built-in vectorization support of Azure AI Studio. If thi
 
 Here are some of the key benefits of the integrated vectorization: 
 
-+ Streamlined maintenance: No separate data chunking and vectorization pipeline, thereby reducing overhead and simplifying data maintenance.  
++ Streamlined maintenance: No separate data chunking and vectorization pipeline. Code is simpler to write and maintain.  
 
-+ Up-to-date results: Indexers automate indexing end-to-end. When data changes in the source (such as in Azure Storage, Azure SQL, or Cosmos DB), the indexer can move those updates through the entire pipeline, from retrieval, to document cracking, optional AI-enrichment, data chunking, vectorization, and indexing.
++ Up-to-date results: Indexers automate indexing end-to-end. When data changes in the source (such as in Azure Storage, Azure SQL, or Cosmos DB), the indexer can move those updates through the entire pipeline, from retrieval, to document cracking, through optional AI-enrichment, data chunking, vectorization, and indexing.
 
 + Project or redirect chunked content to secondary indexes. Secondary indexes are created as you would any search index (a schema with fields and other constructs), but they're populated in tandem with a primary index by an indexer. Content from each source document flows to fields in primary and secondary indexes during the same indexing run. 
 
