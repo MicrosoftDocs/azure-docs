@@ -1,5 +1,5 @@
 ---
-title: 'Azure Event Grid Namespace MQTT client establishing multiple sessions'
+title: 'MQTT client establishing multiple sessions with MQTT broker, a feature of Azure Event Grid'
 description: 'Describes how to configure MQTT clients to establish multiple sessions.'
 ms.topic: conceptual
 ms.custom: build-2023

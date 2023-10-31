@@ -31,14 +31,14 @@ landingContent:
         links:
           - text: Pull delivery
             url: pull-delivery-overview.md
-          - text: MQTT Messaging
+          - text: MQTT broker
             url: mqtt-overview.md
  # Card
   - title: MQTT broker in Namespaces
     linkLists:
       - linkListType: overview
         links:
-          - text: MQTT support overview
+          - text: MQTT broker overview
             url: mqtt-overview.md
       - linkListType: quickstart
         links:
