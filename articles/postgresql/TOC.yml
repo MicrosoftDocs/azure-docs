@@ -248,6 +248,12 @@
         href: flexible-server/tutorial-webapp-server-vnet.md
       - name: Deploy a Django app on App Service
         href: ../app-service/tutorial-python-postgresql-app.md
+  - name: Reference
+    items:
+     - name: Extensions
+     - items:
+       - name: pg_azure_storage
+       - href: reference-pg-azure-storage.md
   - name: How-to guides
     items:
     - name: Server administration
