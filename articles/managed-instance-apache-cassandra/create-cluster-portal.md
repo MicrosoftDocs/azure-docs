@@ -37,9 +37,6 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
    * **Cluster name** - Enter a name for your cluster.
    * **Location** - Location where your cluster will be deployed to.
    * **Cassandra version** - Version of Apache Cassandra that will be deployed.
-   > [!NOTE]
-   > With Cassandra 5.0 now available in public preview, you have the option to conduct in-place major version upgrades directly from the portal or through Az CLI, Terraform, or ARM templates.
-
    * **Extention** - Extensions that will be added, including [Cassandra Lucene Index](search-lucene-index.md).
    * **Initial Cassandra admin password** - Password that is used to create the cluster.
    * **Confirm Cassandra admin password** - Reenter your password.
@@ -57,6 +54,16 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
    > - Microsoft Entra ID
    > - Azure Security
 
+   * **Auto Replicate** - Choose the form of auto-replication to be utilized.
+
+   :::image type="content" source="./media/create-cluster-portal/auto-replicate.png" alt-text="Select referred option from the drop down." lightbox="./media/create-cluster-portal/auto-replicate.png" border="true":::
+
+    * **Schedule Event Strategy** - The strategy to be used by the cluster for scheduled events.
+    
+    > [!TIP]
+    > - StopANY means stop any node when there is a scheduled even for the node. 
+    > - StopByRack means only stop node in a given rack for a given Scheduled Event, e.g. if two or more events are scheduled for nodes in different racks at the same time, only nodes in one rack will be stopped whereas the other nodes in other racks are delayed.
+
 1. Next select the **Data center** tab.
 
 1. Enter the following details:
@@ -64,8 +71,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
    * **Data center name** - Type a data center name in the text field.
    * **Availability zone** - Check this box if you want availability zones to be enabled.
    * **SKU Size** - Choose from the available Virtual Machine SKU sizes.
-
-    :::image type="content" source="./media/create-cluster-portal/XXX" alt-text="Select a SKU Size." lightbox="./media/create-cluster-portal/XXXX" border="true":::
+   
+   :::image type="content" source="./media/create-cluster-portal/l-sku-sizes.png" alt-text="Select a SKU Size." lightbox="./media/create-cluster-portal/l-sku-sizes.png" border="true":::
 
     > [!IMPORTANT]
     > We have introduced write-through caching (Public Preview) through the utilization of L-series VM SKUs. This implementation aims to minimize tail latencies and enhance read performance, particularly for intensive workloads. These specific SKUs are equipped with locally attached disks, ensuring rapid IOPS and reduced tail latency.
@@ -218,6 +225,20 @@ The service allows update to Cassandra YAML configuration on a datacenter via th
    > - partitioner
    > - rpc_address
    > - rpc_interface 
+
+## Update Cassandra Version
+
+With Cassandra 5.0 now available in public preview, you have the option to conduct in-place major version upgrades directly from the portal or through Az CLI, Terraform, or ARM templates.
+
+1. Find the `Update` panel from the Overview tab
+
+   :::image type="content" source="./media/create-cluster-portal/cluster-version-1.png" alt-text="Screenshot of updating the data center Cassandra config." lightbox="./media/create-cluster-portal/cluster-version-1.png" border="true":::
+
+1. Select the Cassandra version from the dropdown.
+
+   :::image type="content" source="./media/create-cluster-portal/cluster-version.png" alt-text="Screenshot of updating the data center Cassandra config." lightbox="./media/create-cluster-portal/cluster-version.png" border="true":::
+
+1. Click on update to save.
 
 ## De-allocate cluster
 

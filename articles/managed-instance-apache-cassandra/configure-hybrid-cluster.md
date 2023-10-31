@@ -34,7 +34,7 @@ UPDATE system.local SET cluster_name = 'managed_cluster-name' where key='local';
 
 ## Installation
 
-* Download and navigate into the [client configurator folder](https://github.com/Azure-Samples/cassandra-mi-client-configurator/tree/main).
+* Download and navigate into the [client configurator folder](https://aka.ms/configurator-tool).
 * Set up a virtual environment to run the python script:
 
 ```bash
@@ -80,6 +80,14 @@ python3 client_configurator.py --subscription-id <subcriptionId> --cluster-resou
         :::image type="content" source="./media/configure-hybrid-cluster/script-result.png" alt-text="Screenshot of the result of running the script":::
 
 * Once Cassandra has finished restarting on all nodes, check `nodetool status`. Both datacenters should appear in the list, with their nodes in the UN (Up/Normal) state.
+
+* From your Azure Managed Instance for Apache Cassandra, you can then select `AllKeyspaces` to have every new data center automatically replicated with all your data.
+
+   :::image type="content" source="./media/create-cluster-portal/cluster-version.png" alt-text="Screenshot of selecting all key spaces." lightbox="./media/create-cluster-portal/cluster-version.png" border="true":::
+
+* Update and monitor data replication progress by selecting the `Data Center` pane
+
+   :::image type="content" source="./media/configure-hybrid-cluster/replication-progress.png" alt-text="Screenshot of selecting all key spaces." lightbox="./media/configure-hybrid-cluster/replication-progress.png" border="true":::
 
 ## Next steps
 
