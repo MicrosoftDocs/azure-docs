@@ -20,7 +20,7 @@ This article helps you copy and paste text to and from virtual machines when usi
 Before you proceed, make sure you have the following items.
 
 * A virtual network with [Azure Bastion](./tutorial-create-host-portal.md) deployed.
-* A Windows VM deployed to your virtual network.
+* A Windows virtual machine deployed to your virtual network.
 
 ## <a name="configure"></a> Configure the bastion host
 
@@ -41,7 +41,7 @@ For browsers that support the advanced Clipboard API access, you can copy and pa
 
 ### <a name="advanced"></a> Advanced Clipboard API browsers
 
-1. Connect to your VM.
+1. Connect to your virtual machine.
 1. For direct copy and paste, your browser might prompt you for clipboard access when the Bastion session is being initialized. **Allow** the web page to access the clipboard.
 1. You can now use keyboard shortcuts as usual to copy and paste. If you're working from a Mac, the keyboard shortcut to paste is **SHIFT-CTRL-V**.
 
@@ -60,4 +60,4 @@ To copy text from your local computer to a virtual machine, use the following st
 
 ## Next steps
 
-For more VM features, see [About VM connections and features](vm-about.md).
+For more virtual machine features, see [About VM connections and features](vm-about.md).
