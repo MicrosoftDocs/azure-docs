@@ -12,9 +12,6 @@ ms.author: jasteppe
 
 # Troubleshoot errors using the MedTech service logs
 
-> [!NOTE]
-> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
-
 This article provides troubleshooting steps and fixes for errors found in the MedTech service logs. 
 
 > [!TIP]
@@ -316,11 +313,6 @@ The expression and line with the error are specified in the error message.
 
 ## Next steps
 
-In this article, you learned how to troubleshoot and fix errors using the MedTech service logs. 
+[Frequently asked questions about the MedTech service](frequently-asked-questions.md)
 
-To learn about the MedTech service frequently asked questions (FAQs), see
-
-> [!div class="nextstepaction"]
-> [Frequently asked questions about the MedTech service](frequently-asked-questions.md)
-
-FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
+[!INCLUDE[FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]
