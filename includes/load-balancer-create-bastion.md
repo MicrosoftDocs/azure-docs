@@ -15,10 +15,7 @@
 The following procedure creates a virtual network with a resource subnet, an Azure Bastion subnet, and an Azure Bastion host.
 
 > [!IMPORTANT]
-
 > [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
-
->
 
 1. In the portal, search for and select **Virtual networks**.
 
