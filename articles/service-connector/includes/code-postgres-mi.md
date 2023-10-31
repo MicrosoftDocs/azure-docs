@@ -7,7 +7,7 @@ ms.author: xiaofanzhou
 ---
 
 # [.NET](#tab/dotnet-postgres-mi)
-For .NET, get an access token for the managed identity or service principal using a client library such as [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/). Then use the access token as a password to connect to the database. When using the code below, make sure you uncomment the part of the code snippet that corresponds to the authentication type you want to use.
+For .NET, get an access token for the managed identity using a client library such as [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/). Then use the access token as a password to connect to the database. When using the code below, make sure you uncomment the part of the code snippet that corresponds to the authentication type you want to use.
 
 ```csharp
 using Azure.Identity;
@@ -276,8 +276,6 @@ For PHP, get an access token for the managed identity and use it as the password
     For user-assigned identity and system-assigned identity, App Service and Container Apps provide an internally accessible REST endpoint to retrieve tokens for managed identities by defining two environment variables: `IDENTITY_ENDPOINT` and `IDENTITY_HEADER`. For more information, see [REST endpoint reference](/azure/container-apps/managed-identity?tabs=http#rest-endpoint-reference). 
     Get the access token by making an HTTP GET request to the identity endpoint, and use `https://ossrdbms-aad.database.windows.net` as `resource` in the query. For user-assigned identity, please include the client ID from the environment variables added by Service Connector in the query as well.
 
-    For service principal, refer to [the Azure AD service-to-service access token request](/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow#get-a-token) to see the details of how to acquire access tokens. Make the POST request the scope of `https://ossrdbms-aad.database.windows.net/.default` and use the tenant ID, client ID and client secret of the service principal from the environment variables added by Service Connector.
-
 2. Combine the access token and the PostgreSQL connection string from the environment variables added by Service Connector service to establish the connection.
 
     ```php
@@ -289,7 +287,7 @@ For PHP, get an access token for the managed identity and use it as the password
 
 # [Ruby](#tab/ruby-potgres-me)
 
-For Ruby, get an access token for the managed identity or service principal and use it as the password to connect to the database. The access token can be acquired using an Azure REST API.
+For Ruby, get an access token for the managed identity and use it as the password to connect to the database. The access token can be acquired using an Azure REST API.
 
 1. Install dependencies.
 
@@ -316,20 +314,6 @@ For Ruby, get an access token for the managed identity or service principal and 
     # uri = URI(ENV[IDENTITY_ENDPOINT] + '?resource=https://ossrdbms-aad.database.windows.net&api-version=2019-08-01&client-id=' + ENV['AZURE_POSTGRESQL_CLIENTID'])
     # res = Net::HTTP.get_response(uri, {'X-IDENTITY-HEADER' => ENV['IDENTITY_HEADER'], 'Metadata' => 'true'})  
     
-    # For service principal
-    # uri = URI('https://login.microsoftonline.com/' + ENV['AZURE_POSTGRESQL_TENANTID'] + '/oauth2/v2.0/token')
-    # params = {
-    #     :grant_type => 'client_credentials',
-    #     :client_id: => ENV['AZURE_POSTGRESQL_CLIENTID'],
-    #     :client_secret => ENV['AZURE_POSTGRESQL_CLIENTSECRET'],
-    #     :scope => 'https://ossrdbms-aad.database.windows.net/.default'
-    # }
-    # req = Net::HTTP::POST.new(uri)
-    # req.set_form_data(params)
-    # req['Content-Type'] = 'application/x-www-form-urlencoded'
-    # res = Net::HTTP.start(uri.hostname, uri.port, :use_ssl => true) do |http|
-    #   http.request(req)
-
     parsed = JSON.parse(res.body)
     access_token = parsed["access_token"]
     
@@ -338,8 +322,6 @@ For Ruby, get an access token for the managed identity or service principal and 
         connection_string: ENV['AZURE_POSTGRESQL_CONNECTIONSTRING'] + " password="  + access_token,
     )
     ```
-
-    Refer to [the Azure AD service-to-service access token request](/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow#get-a-token) to see more details on how to acquire access tokens for a service principal.
 
 -----
 

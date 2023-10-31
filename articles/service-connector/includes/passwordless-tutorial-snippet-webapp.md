@@ -175,21 +175,19 @@ In this section, connectivity to the Azure database in your code follows the `De
 
 [!INCLUDE [code sample for postgres managed identity authentication connection](./code-sql-mi.md)]
 
-
 # [Azure Database for MySQL](#tab/mysql-sc)
-
-## 3.1. Code Sample
 
 [!INCLUDE [code sample for mysql managed identity authentication connection](./code-mysql-mi.md)]
 
-## 3.2. Grant permission to pre-created database schemas
-
-[!INCLUDE [Postgresql grant permission](./postgres-grant-permission.md)]
-
-
 # [Azure Database for PostgreSQL](#tab/postgresql-sc)
 
+## 3.1. Code Sample
+
 [!INCLUDE [code sample for sql managed identity authentication connection](./code-postgres-mi.md)]
+
+## 3.2. Grant permission to pre-created tables
+
+[!INCLUDE [Postgresql grant permission](./postgres-grant-permission.md)]
 
 -----
 
