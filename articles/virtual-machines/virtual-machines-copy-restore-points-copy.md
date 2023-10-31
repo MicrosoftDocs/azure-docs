@@ -44,5 +44,5 @@ Most common restore points failures are attributed to the communication with the
 
 ## Next steps
 
-- [Copy a VM restore point](virtual-machines-copy-restore-points-how-to.md).
+- [Copy a VM restore point](virtual-machines-copy-restore-points-howto.md).
 - [Learn more](backup-recovery.md) about Backup and restore options for virtual machines in Azure.
