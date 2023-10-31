@@ -3,7 +3,7 @@ title: What's new in Azure Virtual Desktop? - Azure
 description: New features and product updates for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: release-notes
-ms.date: 10/27/2023
+ms.date: 10/31/2023
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: femila
@@ -41,7 +41,7 @@ For more information about prerequisites and configuration, see [Use Microsoft O
 
 ### Administrative template for FSLogix now available in Intune settings catalog
 
-The [administrative template for FSLogix](/fslogix/how-to-use-group-policy-templates) is now available in the [Intune settings catalog](/mem/intune/configuration/administrative-templates-windows). This enables you to configure FSLogix settings centrally for [session hosts that are enrolled in Intune](management.md#microsoft-intune).
+The [administrative template for FSLogix](/fslogix/how-to-use-group-policy-templates) is now available in the [Intune settings catalog](/mem/intune/configuration/administrative-templates-windows). This template enables you to configure FSLogix settings centrally for [session hosts that are enrolled in Intune](management.md#microsoft-intune).
 
 ## September 2023
 
