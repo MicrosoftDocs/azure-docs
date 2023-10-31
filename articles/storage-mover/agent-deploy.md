@@ -5,7 +5,7 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: azure-storage-mover
 ms.topic: how-to
-ms.date: 07/25/2023
+ms.date: 10/30/2023
 ---
 
 <!-- 
@@ -30,16 +30,16 @@ The Azure Storage Mover service utilizes agents to perform the migration jobs yo
 
 Because an agent is essentially a migration appliance, you interact with it through an agent-local administrative shell. The shell limits the operations you can perform on this machine, though network configuration and troubleshooting tasks are accessible.
 
-Use of the agent in migrations is managed through Azure. Both Azure PowerShell and CLI are supported, and graphical interaction is available within the Azure portal. The agent is made available as a disk image compatible with new Windows Hyper-V virtual machines (VM).
+Use of the agent in migrations is managed through Azure. Both Azure PowerShell and CLI are supported, and graphical interaction is available within the Azure portal. The agent is made available as a disk image compatible with either new Windows Hyper-V or VMware virtual machines (VMs).
 
 This article guides you through the steps necessary to successfully deploy a Storage Mover agent VM.
 
 ## Prerequisites
 
-- A capable Windows Hyper-V host on which to run the agent VM.<br/> See the [Recommended compute and memory resources](#recommended-compute-and-memory-resources) section in this article for details about resource requirements for the agent VM.
+- A capable Windows Hyper-V or VMware host on which to run the agent VM.<br/> See the [Recommended compute and memory resources](#recommended-compute-and-memory-resources) section in this article for details about resource requirements for the agent VM.
 
 > [!NOTE]
-> At present, Windows Hyper-V is the only supported virtualization environment for your agent VM. Other virtualization environments have not been tested and are not supported.
+> At present, Windows Hyper-V and VMware are the only supported virtualization environments for your agent VM. Other virtualization environments have not been tested and are not supported.
 
 ## Determine required resources for the VM
 
