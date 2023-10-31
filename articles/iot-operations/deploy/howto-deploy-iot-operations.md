@@ -19,9 +19,19 @@ ms.date: 10/19/2023
 
   Azure IoT Operations should work on any CNCF-conformant kubernetes cluster. Currently, Microsoft only supports K3s on Ubuntu Linux and WSL, or AKS Edge Essentials on Windows.
 
-<!-- * Azure CLI installed on your development machine. For more information, see [How to install the Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli).
+#### [Azure portal](#tab/portal)
 
-  * The commands in this article require version 2.38.0 or newer. Use the command `az --version` to check your Azure CLI version. -->
+There are no additional prerequisites for Azure portal deployments.
+
+#### [GitHub actions](#tab/github)
+
+A GitHub account.
+
+Azure CLI installed on your development machine. For more information, see [How to install the Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli).
+
+#### [Azure CLI](#tab/cli)
+
+Azure CLI installed on your development machine. For more information, see [How to install the Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli).
 
 ## Define the deployment
 
@@ -35,7 +45,7 @@ You don't need a deployment template for Azure portal deployments. Continue to t
 
 The following example is a Bicep template that deploys the Orchestrator extension, a custom location, and a resource sync rule. The Orchestrator extension is a requirement for managing the cluster with Orchestrator and deploying additional IoT Operations or custom workloads.
 
-![Sample Bicep file for deploying the Orchestrator extension](../includes/deployment-bicep-file.md)
+[!INCLUDE[Sample Bicep file for deploying the Orchestrator extension](../includes/deployment-bicep-file.md)]
 
 You can deploy the whole Azure IoT Operations suite along with the Orchestrator extension. For an example of that deployment template, see [azure-iot-operations.bicep](https://github.com/Azure/azure-iot-operations-pr/blob/main/dev/azure-iot-operations.bicep)
 
@@ -43,24 +53,112 @@ You can deploy the whole Azure IoT Operations suite along with the Orchestrator 
 
 The following example is a Bicep template that deploys the Orchestrator extension, a custom location, and a resource sync rule. The Orchestrator extension is a requirement for managing the cluster with Orchestrator and deploying additional IoT Operations or custom workloads.
 
-![Sample Bicep file for deploying the Orchestrator extension](../includes/deployment-bicep-file.md)
+[!INCLUDE[Sample Bicep file for deploying the Orchestrator extension](../includes/deployment-bicep-file.md)]
 
 You can deploy the whole Azure IoT Operations suite along with the Orchestrator extension. For an example of that deployment template, see [azure-iot-operations.bicep](https://github.com/Azure/azure-iot-operations-pr/blob/main/dev/azure-iot-operations.bicep)
 
 ---
 
-
 ## Deploy extensions
 
 #### [Azure portal](#tab/portal)
 
+Use the Azure portal to deploy Azure IoT Operations components to your Arc-enabled Kubernetes cluster.
+
+1. In the [Azure portal](https://portal.azure.com) search bar, search for and select **Azure Arc**.
+
+1. Select **Azure IoT Operations (preview)** from the **Application services** section of the Azure Arc menu.
+
+1. Select **Create**.
+
+1. On the **Basics** tab of the **Install Azure IoT Operations Arc Extension** page, provide the following information:
+
+   | Field | Value |
+   | ----- | ----- |
+   | **Subscription** | Select the subscription that contains your Arc-enabled Kubernetes cluster. |
+   | **Resource group** | Select the resource group that contains your Arc-enabled Kubernetes cluster. |
+   | **Cluster name** | Select your cluster. When you do, the **Custom location** and **Deployment details** sections autofill. |
+   | **Secrets** | Check the box confirming that you set up the secrets provider in your cluster by following the steps in the previous sections. |
+
+1. Select **Next: Configuration**.
+
+1. On the **Configuration** tab, provide the following information:
+
+   | Field | Value |
+   | ----- | ----- |
+   | **Deploy a simulated PLC** | Switch this toggle to **Yes**. The simulated PLC creates demo telemetry data that you use in the following quickstarts. |
+   | **Mode** | Set the MQ configuration mode to **Auto**. |
+
+1. Select **Review + create**.
+
+1. Wait for the validation to pass and then select **Create**.
 
 #### [GitHub actions](#tab/github)
 
+1. On GitHub, fork the [azure-iot-operations repo](https://github.com/azure/azure-iot-operations).
+
+   >[!IMPORTANT]
+   >You're going to be adding secrets to the repo to run the deployment steps. It's important that you fork the repo and do all of the following steps in your own fork.
+
+1. Create a service principal for the repository to use when deploying to your cluster. Use the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command.
+
+   ```azurecli
+   az ad sp create-for-rbac --name <NEW_SERVICE_PRINCIPAL_NAME> \
+                            --role owner \
+                            --scopes /subscriptions/<YOUR_SUBSCRIPTION_ID>
+                            --json-auth
+   ```
+
+1. Copy the JSON output from the service principal creation command.
+
+1. On GitHub, navigate to your fork of the azure-iot-operations repo.
+
+1. Select **Settings** > **Secrets and variables** > **Actions**.
+
+1. Create a repository secret named `AZURE_CREDENTIALS` and paste the service principal JSON as the secret value.
+
+1. Create a parameter file in your forked repo to specify the environment configuration for your Azure IoT Operations deployment. For example, `envrionments/parameters.json`.
+
+1. Paste the following snippet into the parameters file, replacing the `clusterName` placeholder value with your own information:
+
+   ```json
+   {
+     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+     "contentVersion": "1.0.0.0",
+     "parameters": {
+       "clusterName": {
+         "value": "<CLUSTER_NAME>"
+       }
+     }
+   }
+   ```
+
+1. Add any of the following optional parameters as needed for your deployment:
+
+   | Parameter | Type | Description |
+   | --------- | ---- | ----------- |
+   | `clusterLocation` | string | Specify the cluster's location if it's different than the resource group's location. Otherwise, this parameter defaults to the resource group's location. |
+   | `location` | string | If the resource group's location is not supported for Azure IoT Operations deployments, use this parameter to override the default and set the location for the Azure IoT Operations resources. |
+   | `simulatePLC` | Boolean | Set to `true` if you want to include a simulated component to generate test data. |
+   | `dataProcessorSecrets` | object | Pass a secret to an Azure IoT Data Processor resource. |
+   | `mqSecrets` | object | Pass a secret to an Azure IoT MQ resource. |
+   | `opcUaBrokerSecrets` | object | Pass a secret to an Azure OPC UA Broker resource. |
+
+1. Save your changes to the paramters file.
+
+1. On the GitHub repo, select **Actions** and confirm **I understand my workflows, go ahead and enable them.**
+
+1. Run the **GitOps Deployment of Azure IoT Operations** action and provide the following information:
+
+   | Parameter | Value |
+   | --------- | ----- |
+   | **Subscription** | Your Azure subscription ID. |
+   | **Resource group** | The name of the resource group that contains your Arc-enabled cluster. |
+   | **Environment parameters file** | The path to the parameters file that you created. |
 
 #### [Azure CLI](#tab/cli)
 
-Use the [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create) command 
+Use the [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create) command to deploy the bicep file with your deployment information.
 
 ```azurecli
 az deployment group create --resource-group exampleRG \
