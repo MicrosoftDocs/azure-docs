@@ -69,7 +69,7 @@ This section contains the parameters that define the resource group.
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                | Description                                              | Type       |
 > | ----------------------- | -------------------------------------------------------- | ---------- |
-> | `resourcegroup_name`    | Name of the resource group to be created                 | Optional   |  
+> | `resourcegroup_name`    | Name of the resource group to be created                 | Optional   |
 > | `resourcegroup_arm_id`  | Azure resource identifier for an existing resource group | Optional   |
 > | `resourcegroup_tags`    | Tags to be associated to the resource group              | Optional   |
 
@@ -87,10 +87,10 @@ This section contains the parameters related to the Azure infrastructure.
 > | `proximityplacementgroup_names`                | Specifies the names of the proximity placement groups.                                       |            |
 > | `resource_offset`                              | Provides an offset for resource naming.                                                      | Optional   |
 > | `use_loadbalancers_for_standalone_deployments` | Controls if load balancers are deployed for standalone installations.                        | Optional   |
-> | `use_scalesets_for_deployment`                 | Use Flexible Virtual Machine Scale Sets for the deployment                                   | Optional   |  
+> | `use_scalesets_for_deployment`                 | Use Flexible Virtual Machine Scale Sets for the deployment                                   | Optional   |
 > | `use_msi_for_clusters`                         | If defined, configures the Pacemaker cluster by using managed identities.                    | Optional   |
 > | `use_simple_mount`                             | Specifies if simple mounts are used (applicable for SLES 15 SP# or newer).                   | Optional   |
-> | `custom_disk_sizes_filename`                   | Defines the disk sizing file name, See [Custom sizing](configure-extra-disks.md).            | Optional   | 
+> | `custom_disk_sizes_filename`                   | Defines the disk sizing file name, See [Custom sizing](configure-extra-disks.md).            | Optional   |
 
 The `resource_offset` parameter controls the naming of resources. For example, if you set the `resource_offset` to 1, the first disk will be named `disk1`. The default value is 0.
 
@@ -117,7 +117,7 @@ In SAP Deployment Automation Framework, the SAP virtual hostname is defined by s
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                | Description                                              | Type       |
 > | ----------------------- | -------------------------------------------------------- | ---------- |
-> | `use_secondary_ips`     | Boolean flag that indicates if SAP should be installed by using virtual hostnames                 | Optional   |  
+> | `use_secondary_ips`     | Boolean flag that indicates if SAP should be installed by using virtual hostnames                 | Optional   |
 
 
 ### Database tier parameters
@@ -132,26 +132,28 @@ The database tier defines the infrastructure for the database tier. Supported da
 - `SQLSERVER`
 - `NONE` (in this case, no database tier is deployed)
 
+See [High-availability configuration](configure-system.md#high-availability-configuration) for information on how to configure high availability.
+
 
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                           | Description                                                                        | Type         | Notes  |
 > | ---------------------------------- | ---------------------------------------------------------------------------------- | ----------   | ------ |
-> | `database_platform`                | Defines the database back end                                                      | Required     | Supported values are `HANA`, `DB2`, `ORACLE`, `ORACLE-ASM`, `ASE`, `SQLSERVER`, and `NONE`. |
-> | `database_high_availability`       | Defines if the database tier is deployed highly available                          | Optional     | See [High-availability configuration](configure-system.md#high-availability-configuration). |
-> | `database_server_count`            | Defines the number of database servers                                             | Optional     | Default value is 1. |
-> | `database_vm_zones`                | Defines the availability zones for the database servers                            | Optional	   |                    |
+> | `database_platform`                | Defines the database back end                                                      | Required     |        |
+> | `database_high_availability`       | Defines if the database tier is deployed highly available                          | Optional     |        |
+> | `database_server_count`            | Defines the number of database servers                                             | Optional     |        |
+> | `database_vm_zones`                | Defines the availability zones for the database servers                            | Optional	   |        |
 > | `db_sizing_dictionary_key`         | Defines the database sizing information                                            | Required     | See [Custom sizing](configure-extra-disks.md). |
-> | `database_vm_use_DHCP`             | Controls if Azure subnet-provided IP addresses should be used                      | Optional     |                    |
-> | `database_vm_db_nic_ips`           | Defines the IP addresses for the database servers (database subnet)                | Optional     |                    |
-> | `database_vm_db_nic_secondary_ips` | Defines the secondary IP addresses for the database servers (database subnet)      | Optional     |                    |
-> | `database_vm_admin_nic_ips`        | Defines the IP addresses for the database servers (admin subnet)                   | Optional     |                    |
-> | `database_vm_image`	               | Defines the virtual machine image to use                                           | Optional	   |                    |
-> | `database_vm_authentication_type`  | Defines the authentication type (key/password)                                     | Optional	   |                    |
-> | `database_use_avset`               | Controls if the database servers are placed in availability sets                   | Optional	   | Default is false.  |
-> | `database_use_ppg`                 | Controls if the database servers are placed in proximity placement groups          | Optional	   | Default is true.   |
+> | `database_vm_use_DHCP`             | Controls if Azure subnet-provided IP addresses should be used                      | Optional     |        |
+> | `database_vm_db_nic_ips`           | Defines the IP addresses for the database servers (database subnet)                | Optional     |        |
+> | `database_vm_db_nic_secondary_ips` | Defines the secondary IP addresses for the database servers (database subnet)      | Optional     |        |
+> | `database_vm_admin_nic_ips`        | Defines the IP addresses for the database servers (admin subnet)                   | Optional     |        |
+> | `database_vm_image`	               | Defines the virtual machine image to use                                           | Optional	   |        |
+> | `database_vm_authentication_type`  | Defines the authentication type (key/password)                                     | Optional	   |        |
+> | `database_use_avset`               | Controls if the database servers are placed in availability sets                   | Optional	   |        |
+> | `database_use_ppg`                 | Controls if the database servers are placed in proximity placement groups          | Optional	   |        |
 > | `database_vm_avset_arm_ids`        | Defines the existing availability sets Azure resource IDs                          | Optional	   | Primarily used with ANF pinning. |
-> | `database_use_premium_v2_storage   | Controls if the database tier will use premium storage v2 (HANA)                   | Optional	   |                    |
-> | `hana_dual_nics`                   | Controls if the HANA database servers will have dual network interfaces            | Optional	   | Default is true.   |
+> | `database_use_premium_v2_storage   | Controls if the database tier will use premium storage v2 (HANA)                   | Optional	   |        |
+> | `hana_dual_nics`                   | Controls if the HANA database servers will have dual network interfaces            | Optional	   |        |
 
 
 The virtual machine and the operating system image are defined by using the following structure:
@@ -285,8 +287,8 @@ This section defines the parameters used for defining the key vault information.
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                            | Description                                                                    | Type         | Notes                               |
 > | ----------------------------------- | ------------------------------------------------------------------------------ | ------------ | ----------------------------------- |
-> | `user_keyvault_id`	                | Azure resource identifier for existing system credentials key vault            | Optional	   |                                     | 
-> | `spn_keyvault_id`                   | Azure resource identifier for existing deployment credentials (SPNs) key vault | Optional	   |                                     | 
+> | `user_keyvault_id`	                | Azure resource identifier for existing system credentials key vault            | Optional	   |                                     |
+> | `spn_keyvault_id`                   | Azure resource identifier for existing deployment credentials (SPNs) key vault | Optional	   |                                     |
 > | `enable_purge_control_for_keyvaults` | Disables the purge protection for Azure key vaults                            | Optional     | Only use for test environments. |
 
 ### Anchor virtual machine parameters
@@ -430,12 +432,12 @@ This section contains the parameters related to the cluster configuration.
 > | Variable                                       | Description                                                                    | Type       |
 > | ---------------------------------------------- | ------------------------------------------------------------------------------ | ---------- |
 > | `database_cluster_disk_lun`                    | Specifies the The LUN of the shared disk for the Database cluster.             | Optional   |
-> | `database_cluster_disk_size`                   | The size of the shared disk for the Database cluster.                          | Optional   |         
-> | `database_cluster_type`                        | Cluster quorum type; AFA (Azure Fencing Agent), ASD (Azure Shared Disk), ISCSI | Optional   |         
+> | `database_cluster_disk_size`                   | The size of the shared disk for the Database cluster.                          | Optional   |
+> | `database_cluster_type`                        | Cluster quorum type; AFA (Azure Fencing Agent), ASD (Azure Shared Disk), ISCSI | Optional   |
 > | `fencing_role_name`                            | Specifies the Azure role assignment to assign to enable fencing.               | Optional   |
 > | `scs_cluster_disk_lun`                         | Specifies the The LUN of the shared disk for the Central Services cluster.     | Optional   |
-> | `scs_cluster_disk_size`                        | The size of the shared disk for the Central Services cluster.                  | Optional   |         
-> | `scs_cluster_type`                             | Cluster quorum type; AFA (Azure Fencing Agent), ASD (Azure Shared Disk), ISCSI | Optional   |         
+> | `scs_cluster_disk_size`                        | The size of the shared disk for the Central Services cluster.                  | Optional   |
+> | `scs_cluster_type`                             | Cluster quorum type; AFA (Azure Fencing Agent), ASD (Azure Shared Disk), ISCSI | Optional   |
 > | `use_msi_for_clusters`                         | If defined, configures the Pacemaker cluster by using managed identities.      | Optional   |
 > | `use_simple_mount`                             | Specifies if simple mounts are used (applicable for SLES 15 SP# or newer).     | Optional   |
 > | `idle_timeout_scs_ers`                         | Sets the idle timeout setting for the SCS and ERS loadbalancer.                | Optional   |
