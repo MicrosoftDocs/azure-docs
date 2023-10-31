@@ -27,7 +27,7 @@ The simulator works by setting up a system large language model such as GPT to s
 from azure.ai.generative import Simulator, SimulatorTemplate
 ```
 
-### Initialize large language model
+## Initialize large language model
 
 First we set up the system large language model, which acts as the "agent" simulating a user or test case against your application.
 
@@ -56,7 +56,7 @@ aoai_config = AzureOpenAIModelConfiguration.from_connection(
 ```
 `max_tokens` and `temperature` are optional, the default value for `max_tokens` is 300, the default value for `temperature` is 0.9
 
-### Initialize simulator class 
+## Initialize simulator class 
 
 `Simulator` class supports interacting between a large language model and a local app function that follows a protocol, a local flow or a large language model endpoint (just the configuration need to be passed in). 
 
@@ -87,7 +87,7 @@ The following is an example of using `simulate_callback` function wrapping it:
 simulator = simulator(simulate_callback=simulate_callback, systemConnection=aoai_config)
 ```
 
-### Simulate a conversation
+## Simulate a conversation
 
 Use simulator template provided for conversations using the `SimulatorTemplate` class configure the parameters for that task.
 ```python
@@ -116,7 +116,7 @@ conversation_result = await simulator.simulate(template=conversation_template, p
 ```
 `max_conversation_turns` defines how many conversation turns it generates at most. It's optional, default value is 2.
 
-### Output
+## Output
 
 The `conversation_result` is a dictionary,
 
@@ -152,19 +152,19 @@ The `conversation` is a list of conversation turns, for each conversation turn, 
 ```
 This aligns to Azure AI SDK's `evaluate` function call that takes in this chat format dataset for evaluating metrics such as groundedness, relevance, and retrieval_score if `citations` are provided.
 
-### More functionality
+## More functionality
 
-#### Early termination
+### Early termination
 
 Stop conversation earlier if the conversation meets certain criteria, such as "bye" or "goodbye" appears in the conversation. Users can customize the stopping criteria themselves as well.
 
-#### Retry
+### Retry
 
 The scenario simulator supports retry logic, the default maximum number of retries in case the last API call failed is 3. The default number of seconds to sleep between consequent retries in case the last API call failed is 3.
 
 Users can also define their own `api_call_retry_sleep_sec` and `api_call_retry_max_count` and pass into the `ScenarioSimulator()`
 
-#### Example of output conversation
+### Example of output conversation
 
 ```json
 {
