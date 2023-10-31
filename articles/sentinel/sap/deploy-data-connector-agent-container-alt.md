@@ -10,18 +10,18 @@ ms.date: 01/18/2023
 
 # Deploy and configure the container hosting the SAP data connector agent (via UI)
 
-This article shows you how to deploy the container that hosts the SAP data connector agent, and how to use it to create connections to your SAP systems. This two-step process is required to ingest SAP data into Microsoft Sentinel, as part of the Microsoft Sentinel solution for SAP® applications.
+This article shows you how to deploy the container that hosts the SAP data connector agent. You do this to ingest SAP data into Microsoft Sentinel, as part of the Microsoft Sentinel solution for SAP® applications.
 
-The recommended method to deploy the container and create connections to SAP systems is via the UI. This method is explained in the article, and also demonstrated in [this video on YouTube](https://www.youtube.com/watch?v=bg0vmUvcQ5Q).
+This article shows you how to deploy the container and create SAP systems via the UI. Also see [this video](https://www.youtube.com/watch?v=bg0vmUvcQ5Q) that shows the agent deployment process via the UI.
 
-Alternatively, you can [deploy the data connector agent using other methods](deploy-data-connector-agent-container-other-methods.md): using the command line to call a *kickstart* script, or to issue individual commands to deploy the agent manually.
+Alternatively, you can [deploy the data connector agent using other methods](deploy-data-connector-agent-container-other-methods.md): Managed identity, a registered application, a configuration file, or directly on the VM.
 
 > [!IMPORTANT]
-> Deploying the container and creating connections to SAP systems via the UI is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability. 
+> Deploying the container and creating SAP systems via the UI is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability. 
 
 ## Deployment milestones
 
-Deployment of the Microsoft Sentinel solution for SAP® applications is divided into the following sections:
+Deployment of the Microsoft Sentinel solution for SAP® applications is divided into the following sections
 
 1. [Deployment overview](deployment-overview.md)
 
@@ -50,27 +50,27 @@ Deployment of the Microsoft Sentinel solution for SAP® applications is divided 
 
 For the Microsoft Sentinel solution for SAP® applications to operate correctly, you must first get your SAP data into Microsoft Sentinel. To accomplish this, you need to deploy the solution's SAP data connector agent.
 
-The data connector agent runs as a container on a Linux virtual machine (VM). This VM can be hosted either in Azure, in a third-party cloud, or on-premises. We recommend that you install and configure this container using the Microsoft Sentinel portal in Azure ("the UI"); however, you can choose to deploy the container using a *kickstart* script, or to [deploy the container manually](deploy-data-connector-agent-container-other-methods.md?tabs=deploy-manually#deploy-the-data-connector-agent-container).
+The data connector agent runs as a container on a Linux virtual machine (VM). This VM can be hosted either in Azure, in a third-party cloud, or on-premises. We recommend that you install and configure this container using a *kickstart* script; however, you can choose to [deploy the container manually](deploy-data-connector-agent-container-other-methods.md?tabs=deploy-manually#deploy-the-data-connector-agent-container).
 
-The agent connects to your SAP system to pull logs and other data from it, then sends those logs to your Microsoft Sentinel workspace. To do this, the agent has to authenticate to your SAP system&mdash;that's why you created a user and a role for the agent in your SAP system in the previous step. 
+The agent connects to your SAP system to pull logs and other data from it, then sends those logs to your Microsoft Sentinel workspace. To do this, the agent has to authenticate to your SAP system - that's why you created a user and a role for the agent in your SAP system in the previous step. 
 
-You have a few choices of how and where to store your agent configuration information, including your SAP authentication secrets. The decision of which one to use can be affected by where you deploy your VM and by which SAP authentication mechanism you decide to use. These are the options, in descending order of preference:
+Your SAP authentication mechanism, and where you deploy your VM, will determine how and where your agent configuration information, including your SAP authentication secrets, is stored. These are the options, in descending order of preference:
 
 - An **Azure Key Vault**, accessed through an Azure **system-assigned managed identity**
 - An **Azure Key Vault**, accessed through a Microsoft Entra ID **registered-application service principal**
 - A plaintext **configuration file**
 
-For any of these scenarios, you have the extra option to authenticate using SAP's Secure Network Communication (SNC) and X.509 certificates. This option provides a higher level of authentication security, but it's only a practical option in a limited set of scenarios.
+If your SAP authentication is done using SNC and X.509 certificates, your only option is to use a configuration file. Select the [**Configuration file** tab below](deploy-data-connector-agent-container-other-methods.md?tabs=config-file#deploy-the-data-connector-agent-container) for the instructions to deploy your agent container.
 
-Ideally, your SAP configuration and authentication secrets can and should be stored in an [**Azure Key Vault**](../../key-vault/general/authentication.md). How you access your key vault depends on where your VM is deployed:
+If you're not using SNC, then your SAP configuration and authentication secrets can and should be stored in an [**Azure Key Vault**](../../key-vault/general/authentication.md). How you access your key vault depends on where your VM is deployed:
 
 - **A container on an Azure VM** can use an Azure [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) to seamlessly access Azure Key Vault. Select the [**Managed identity** tab](deploy-data-connector-agent-container-other-methods.md?tabs=managed-identity#deploy-the-data-connector-agent-container) for the instructions to deploy your agent container using managed identity.
 
-    In the event that a system-assigned managed identity can't be used, the container can also authenticate to Azure Key Vault using an [Microsoft Entra registered-application service principal](../../active-directory/develop/app-objects-and-service-principals.md), or, as a last resort, a [**configuration file**](deploy-data-connector-agent-container-other-methods.md?tabs=config-file#deploy-the-data-connector-agent-container).
+    In the event that a system-assigned managed identity can't be used, the container can also authenticate to Azure Key Vault using an [Microsoft Entra registered-application service principal](../../active-directory/develop/app-objects-and-service-principals.md), or, as a last resort, a configuration file.
 
 - **A container on an on-premises VM**, or **a VM in a third-party cloud environment**, can't use Azure managed identity, but can authenticate to Azure Key Vault using an [Microsoft Entra registered-application service principal](../../active-directory/develop/app-objects-and-service-principals.md). Select the [**Registered application** tab below](deploy-data-connector-agent-container-other-methods.md?tabs=registered-application#deploy-the-data-connector-agent-container) for the instructions to deploy your agent container.
 
-- If for some reason a registered-application service principal can't be used, you can use a [**configuration file**](deploy-data-connector-agent-container-other-methods.md?tabs=config-file#deploy-the-data-connector-agent-container), though this is not preferred.
+    If for some reason a registered-application service principal can't be used, you can use a configuration file, though this is not preferred.
 
 ## Deploy the data connector agent container via the UI
 
