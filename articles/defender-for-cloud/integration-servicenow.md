@@ -4,7 +4,7 @@ description: Learn about integrating ServiceNow with Microsoft Defender for Clou
 author: dcurwin
 ms.author: justinha
 ms.topic: how-to
-ms.date: 10/30/2023
+ms.date: 10/31/2023
 ---
 
 # Integrate ServiceNow with Microsoft Defender for Cloud (preview)
@@ -113,49 +113,52 @@ The toolbar on the Integrations page includes an ‘Open in ARG’ button to exp
 
 ## Create a new ticket from Microsoft Defender for Cloud recommendation to ServiceNow
 
-- Security admins can now create and assign tickets directly from the Microsoft Defender for Cloud portal.
-- Navigate to Microsoft Defender for Cloud > Recommendations > Select any recommendation with 
-unhealthy resources that you want to create a ServiceNow ticket and assign an owner to 
-- Click on the resource/s from the unhealthy resources and click on ‘Create Assignment.’
+Security admins can now create and assign tickets directly from the Microsoft Defender for Cloud portal.
 
-- When you click on ‘Create assignment’ a new context blade will appear to fill Assignment type and 
-Assignment details. 
-- Fill in the information below. 
-  - Assignment Type – Choose ServiceNow from the dropdown.
-  - Integration Instance – Select the Integration instance you want to assign this recommendation to.
-  - ServiceNow ticket type – incident or change_request or problem.
+1. Navigate to **Microsoft Defender for Cloud** > **Recommendations** and select any recommendation with unhealthy resources that you want to create a ServiceNow ticket for and assign an owner to. 
+1. Click the resource from the unhealthy resources and click Create Assignment.
 
-NOTE: In ServiceNow, there are several types of tickets that can be used to manage and track different types of 
-incidents, requests, and tasks. Only Incidents, Change Request and Problem are supported with this Integration. 
+   :::image type="content" border="true" source="./media/integration-servicenow/create-assignment.png" alt-text="Screenshot of how to create an assignment.":::
 
-- To assign an affected recommendation to an owner who resides in ServiceNow, we provide new unified 
-experience for all platforms. 
-  Under Assignment details section, fill in the details below - 
-  - Assigned to: Choose the owner you would like to assign the affected recommendation to 
-  - Caller: Represents the user defining the assignment 
-  - Description and Short Description: As part of the default selection in the earlier step, description 
-and short description is automatically filled out 
-  - Remediation timeframe: Choose the remediation timeframe to desired deadline the 
-recommendation to be remediated. 
-  - Apply Grace Period: You can apply grace period so that the resources that’s given a due date don’t 
-affect your secure score until they’re overdue.
-  - Set Email Notifications: Ability for additional notifications to the owners and/or owner’s direct 
-manager as reminder
+1. Use the following details to complete Assignment type and Assignment details:
 
+   - Assignment Type – Choose **ServiceNow** from the dropdown.
+   - Integration Instance – Select the integration instance you want to assign this recommendation to.
+   - ServiceNow ticket type – Choose incident, change request, or problem.
 
-On a successful creation, you’d notice a Ticket ID assigned to this affected resource. The Ticket ID represents the 
-ticket created in the ServiceNow portal.
+   >[!NOTE]
+   > In ServiceNow, there are several types of tickets that can be used to manage and track different types of incidents, requests, and tasks. Only incident, change request, and problem are supported with this integration. 
 
-Clicking on the Ticket ID will directly lead you to the ServiceNow portal, to the newly created incident.
+   :::image type="content" border="true" source="./media/integration-servicenow/assignment-type.png" alt-text="Screenshot of how to complete the assignment type.":::
 
-NOTE: When integration is deleted, all the assignments will be deleted. It could take up to 24hrs. 
+   To assign an affected recommendation to an owner who resides in ServiceNow, we provide a new unified experience for all platforms. Under **Assignment details**, complete the following fields:
+   
+   - Assigned to: Choose the owner whom you would like to assign the affected recommendation to. 
+   - Caller: Represents the user defining the assignment. 
+   - Description and Short Description: If you chose a default integration earlier, description, and short description are automatically completed. 
+   - Remediation timeframe: Choose the remediation timeframe to desired deadline for the recommendation to be remediated. 
+   - Apply Grace Period: You can apply a grace period so that the resources that are given a due date don’t affect your Secure Score until they’re overdue.
+   - Set Email Notifications: You can send a remonder to the owners or the owner’s direct manager.
+
+   :::image type="content" border="true" source="./media/integration-servicenow/assignment-details.png" alt-text="Screenshot of how to complete the assignment details.":::
+
+After successfulthe assignment is created, you can see the Ticket ID assigned to this affected resource. The Ticket ID represents the ticket created in the ServiceNow portal.
+
+:::image type="content" border="true" source="./media/integration-servicenow/ticket.png" alt-text="Screenshot of a ticket ID.":::
+
+Click the Ticket ID to go to the to the newly created incident in the ServiceNow portal.
+
+:::image type="content" border="true" source="./media/integration-servicenow/incident.png" alt-text="Screenshot of an incident.":::
+
+>[!NOTE]
+>When integration is deleted, all the assignments will be deleted. It could take up to 24 hrs. 
 
 ## Bidirectional synchronization  
 
-ServiceNow and Defender for Cloud automatically synchronize the status of the tickets between the platforms, which includes:
+ServiceNow and Microsoft Defender for Cloud automatically synchronize the status of the tickets between the platforms, which includes:
 
-- A verification that a ticket is still ‘in progress’ state. If the ticket is changed to resolved, cancelled, or closed in ServiceNow, this will sync back to Microsoft Defender for Cloud and delete the assignment.
-- When the ticket owner is changed in ServiceNow, this will update the assignment owner in Microsoft Defender for Cloud. 
+- A verification that a ticket state is still **In progress**. If the ticket state is changed to **Resolved**, **Cancelled**, or **Closed** in ServiceNow, the change is synchronized to Microsoft Defender for Cloud and delete the assignment.
+- When the ticket owner is changed in ServiceNow, the assignment owner is updated in Microsoft Defender for Cloud. 
 
 >[!NOTE]
 >Synchronization occurs every 24 hrs.
