@@ -1,5 +1,5 @@
 ---
-title: Activate Members in an Azure Managed CCF resource
+title: Activate members in an Azure Managed CCF resource
 description: Learn to activate the members in an Azure Managed CCF resource
 author: msftsettiy
 ms.author: settiy
