@@ -9,58 +9,17 @@ ms.author: wchi
 ### [.NET](#tab/dotnet)
 
 1. Install dependencies
-```bash
-dotnet add package CassandraCSharpDriver --version 3.19.3
-```
+    ```bash
+    dotnet add package MongoDb.Driver
+    ```
 
-2. Get connection information from the environment variable added by Service Connector and connect to Azure Cosmos DB for Cassandra.
-```csharp
-using System;
-using System.Security.Authentication;
-using System.Net.Security;
-using System.Security.Authentication;
-using System.Security.Cryptography.X509Certificates;
-using System.Threading.Tasks;
-using Cassandra;
+2. Get the connection string from the environment variable added by Service Connector and connect to Azure Cosmos DB for MongoDB.
+    ```csharp
+    using MongoDB.Driver;
 
-public class Program
-{
-	public static async Task Main()
-	{
-        var cassandraContactPoint = Environment.GetEnvironmentVariable("AZURE_COSMOS_CONTACTPOINT");
-        var userName = Environment.GetEnvironmentVariable("AZURE_COSMOS_USERNAME");
-        var password = Environment.GetEnvironmentVariable("AZURE_COSMOS_PASSWORD");
-        var cassandraPort = Int32.Parse(Environment.GetEnvironmentVariable("AZURE_COSMOS_PORT"));
-        var cassandraKeyspace = Environment.GetEnvironmentVariable("AZURE_COSMOS_KEYSPACE");
-        
-        var options = new Cassandra.SSLOptions(SslProtocols.Tls12, true, ValidateServerCertificate);
-        options.SetHostNameResolver((ipAddress) => cassandraContactPoint);
-        Cluster cluster = Cluster
-            .Builder()
-            .WithCredentials(userName, password)
-            .WithPort(cassandraPort)
-            .AddContactPoint(cassandraContactPoint).WithSSL(options).Build();
-        ISession session = await cluster.ConnectAsync();
-    }
-
-    public static bool ValidateServerCertificate
-	(
-        object sender,
-        X509Certificate certificate,
-        X509Chain chain,
-        SslPolicyErrors sslPolicyErrors
-    )
-    {
-        if (sslPolicyErrors == SslPolicyErrors.None)
-            return true;
-
-        Console.WriteLine("Certificate error: {0}", sslPolicyErrors);
-        // Do not allow this client to communicate with unauthenticated servers.
-        return false;
-    }
-}
-
-```
+    var connectionString = Environment.GetEnvironmentVariable("AZURE_COSMOS_CONNECTIONSTRING");
+    var client = new MongoClient(connectionString);
+    ```
 
 
 ### [Java](#tab/java)
@@ -68,159 +27,85 @@ public class Program
 1. Add the following dependencies in your *pom.xml* file:
     ```xml
     <dependency>
-        <groupId>com.datastax.oss</groupId>
-        <artifactId>java-driver-core</artifactId>
-        <version>4.5.1</version>
-    </dependency>  
-    <dependency>
-        <groupId>com.datastax.oss</groupId>
-        <artifactId>java-driver-query-builder</artifactId>
-        <version>4.0.0</version>
-    </dependency>       
-    <dependency>
-        <groupId>com.datastax.cassandra</groupId>
-        <artifactId>cassandra-driver-extras</artifactId>
-        <version>3.1.4</version>
-    </dependency>
+	    <groupId>org.mongodb</groupId>
+	    <artifactId>mongo-java-driver</artifactId>
+	    <version>3.4.2</version>
+	</dependency>   
     ```
 
 1. Get the connection string from the environment variable, and add the plugin name to connect to Cosmos DB for Cassandra:
 
     ```java
-    import com.datastax.oss.driver.api.core.CqlSession;
-    import javax.net.ssl.*;
-    import java.net.InetSocketAddress;
-
-    int cassandraPort = Integer.parseInt(System.getenv("AZURE_COSMOS_PORT"));
-    String cassandraUsername = System.getenv("AZURE_COSMOS_USERNAME");
-    String cassandraHost = System.getenv("AZURE_COSMOS_CONTACTPOINT");
-    String cassandraPassword = System.getenv("AZURE_COSMOS_PASSWORD");
-    String cassandraKeyspace = System.getenv("AZURE_COSMOS_KEYSPACE");
-
-    final SSLContext sc = SSLContext.getInstance("TLSv1.2");
+    import com.mongodb.MongoClient;
+    import com.mongodb.MongoClientURI;
+    import com.mongodb.client.MongoCollection;
+    import com.mongodb.client.MongoDatabase;
+    import com.mongodb.client.model.Filters;
     
-    CqlSession session = CqlSession.builder().withSslContext(sc)
-        .addContactPoint(new InetSocketAddress(cassandraHost, cassandraPort)).withLocalDatacenter('datacenter1')
-        .withAuthCredentials(cassandraUsername, cassandraPassword).build();
+    String connectionString = System.getenv("AZURE_COSMOS_CONNECTIONSTRING");
+    MongoClientURI uri = new MongoClientURI(connectionString);
+		
+    MongoClient mongoClient = null;
+    try {
+        mongoClient = new MongoClient(uri);        
+    } finally {
+        if (mongoClient != null) {
+            mongoClient.close();
+        }
+    }
     ```
-
-For more information, see [Build a Java app to manage Azure Cosmos DB for Apache Cassandra data](/azure/cosmos-db/cassandra/manage-data-java-v4-sdk).
 
 ### [SpringBoot](#tab/spring)
-Set up your Spring App application according to [How to use Spring Data with Azure Cosmos DB for Apache Cassandra](/azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db). The connection configuration properties are added to Spring Apps by Service Connector.
+Refer to [Use Spring Data with Azure Cosmos DB for MongoDB API](/azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db) to set up your Apring application. The configuration properties `spring.data.mongodb.database` and `spring.data.mongodb.uri` are set to Spring Apps by Service Connector.
 
-
-### [Python](#tab/python)
-1. Install dependencies
-    ```bash
-    pip install Cassandra-driver 
-    pip install pyopenssl
-    ```
-
-1. Get connection information from the environment variable added by Service Connector and connect to Azure Cosmos DB for Cassandra.
-    ```python
-    from cassandra.cluster import Cluster
-    from ssl import PROTOCOL_TLSv1_2, SSLContext, CERT_NONE
-    from cassandra.auth import PlainTextAuthProvider
-
-    username = os.getenv('AZURE_COSMOS_USERNAME')
-    password = os.getenv('AZURE_COSMOS_PASSWORD')
-    contactPoint = os.getenv('AZURE_COSMOS_CONTACTPOINT')
-    port = os.getenv('AZURE_COSMOS_PORT')
-    keyspace = os.getenv('AZURE_COSMOS_KEYSPACE')
-    
-    ssl_context = SSLContext(PROTOCOL_TLSv1_2)
-    ssl_context.verify_mode = CERT_NONE
-    auth_provider = PlainTextAuthProvider(username, password)
-    cluster = Cluster([contanctPoint], port = port, auth_provider=auth_provider,ssl_context=ssl_context)
-    session = cluster.connect()
-    ```
-
-For more information, see [Build a Cassandra app with Python SDK and Azure Cosmos DB](/azure/cosmos-db/cassandra/manage-data-python)
 
 ### [Go](#tab/go)
 1. Install dependencies.
    ```bash
-   go get github.com/gocql/gocql
+   go get go.mongodb.org/mongo-driver/mongo
    ```
-2. Get connection information from the environment variable added by Service Connector and connect to Azure Cosmos DB for Cassandra.
+2. Get the connection string from the environment variable added by Service Connector and connect to Azure Cosmos DB for MongoDB.
     ```go
     import (
-        "fmt"
-        "os"
-        "context"
-        "log"
-    
-        "github.com/gocql/gocql"
+    	"context"
+    	"fmt"
+    	"log"
+    	"os"
+        
+        "go.mongodb.org/mongo-driver/bson"
+    	"go.mongodb.org/mongo-driver/mongo"
+    	"go.mongodb.org/mongo-driver/mongo/options"
     )
+
+    ctx, cancel := context.WithTimeout(context.Background(), time.Second*10)
+    defer cancel()
     
-    func GetSession() *gocql.Session {
-        cosmosCassandraContactPoint = os.Getenv("AZURE_COSMOS_CONTACTPOINT")
-        cosmosCassandraPort = os.Getenv("AZURE_COSMOS_PORT")
-        cosmosCassandraUser = os.Getenv("AZURE_COSMOS_USERNAME")
-        cosmosCassandraPassword = os.Getenv("AZURE_COSMOS_PASSWORD")
-        cosmosCassandraKeyspace = os.Getenv("AZURE_COSMOS_KEYSPACE")
+    mongoDBConnectionString = os.Getenv("AZURE_COSMOS_CONNECTIONSTRING")
+    clientOptions := options.Client().ApplyURI(mongoDBConnectionString).SetDirect(true)
     
-        clusterConfig := gocql.NewCluster(cosmosCassandraContactPoint)
-        port, err := strconv.Atoi(cosmosCassandraPort)
-        if err != nil {
-		    // error handling
-	    }
-        
-        clusterConfig.Port = port
-	    clusterConfig.ProtoVersion = 4
-        clusterConfig.Authenticator = gocql.PasswordAuthenticator{Username: cosmosCassandraUser, Password: cosmosCassandraPassword}
-        clusterConfig.SslOpts = &gocql.SslOptions{Config: &tls.Config{MinVersion: tls.VersionTLS12}}
-        
-        session, err := clusterConfig.CreateSession()
-        if err != nil {
-		    // error handling
-	    }
-        return session
+    c, err := mongo.Connect(ctx, clientOptions)
+    if err != nil {
+        log.Fatalf("unable to initialize connection %v", err)
     }
-    
-    func main() {
-        session := utils.GetSession(cosmosCassandraContactPoint, cosmosCassandraPort, cosmosCassandraUser, cosmosCassandraPassword)
-        defer session.Close()
-        ...
+
+    err = c.Ping(ctx, nil)
+    if err != nil {
+        log.Fatalf("unable to connect %v", err)
     }
     ```
 
-For more information, refer to [Build a Go app with the gocql client to manage Azure Cosmos DB for Apache Cassandra data](/azure/cosmos-db/cassandra/manage-data-go).
-
 ### [NodeJS](#tab/node)
 1. Install dependencies
-   ```bash
-   npm install cassandra-driver
-   ```
-2. Get connection information from the environment variable added by Service Connector and connect to Azure Cosmos DB for Cassandra.
-   ```javascript
-   const cassandra = require("cassandra-driver");
-
-   let username = process.env.AZURE_COSMOS_USERNAME;
-   let password = process.env.AZURE_COSMOS_PASSWORD;
-   let contactPoint = process.env.AZURE_COSMOS_CONTACTPOINT;
-   let port = process.env.AZURE_COSMOS_PASSWORD;
-   let keyspace = process.env.AZURE_COSMOS_KEYSPACE;
-
-   let authProvider = new cassandra.auth.PlainTextAuthProvider(
-      username,
-      password
-   );
-
-   let client = new cassandra.Client({
-        contactPoints: [`${contactPoint}:${port}`],
-        authProvider: authProvider,
-        localDataCenter: 'datacenter1',
-        sslOptions: {
-            secureProtocol: "TLSv1_2_method"
-        },
-    });
+    ```bash
+    npm install mongodb
+    ```
+2. Get the connection string from the environment variable added by Service Connector and connect to Azure Cosmos DB for MongoDB.
+    ```javascript
+    const { MongoClient, ObjectId } = require('mongodb');
     
-    client.connect();
-   ```
-
-For more details, refer to [Build a Cassandra app with Node.js SDK and Azure Cosmos DB](/azure/cosmos-db/cassandra/manage-data-nodejs)
+    const url = process.env.AZURE_COSMOS_CONNECTIONSTRING;
+    const client = new MongoClient(url);
+    ```
 
 
 ### [Other](#tab/other)

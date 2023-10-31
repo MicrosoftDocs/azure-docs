@@ -58,7 +58,7 @@ public class Program
         // var tokenProvider = new ClientSecretCredential(tenantId, clientId, clientSecret);
         
         // Acquire the access token. 
-        AccessToken accessToken = await sqlServerTokenProvider.GetTokenAsync(
+        AccessToken accessToken = await tokenProvider.GetTokenAsync(
             new TokenRequestContext(scopes: new string[]{ scope }));
 
         // Get the password.
@@ -160,7 +160,7 @@ public class Program
     //   .build();
     
     // Get the access token.
-    AccessToken accessToken = defaultAzureCredential.getToken(new TokenRequestContext().addScopes(new String[]{ scope })).block();
+    AccessToken accessToken = defaultCredential.getToken(new TokenRequestContext().addScopes(new String[]{ scope })).block();
     String token = accessToken.getToken();
 
     // Get the password.
