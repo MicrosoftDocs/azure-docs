@@ -18,7 +18,7 @@ Costs for Azure AI services are only a portion of the monthly costs in your Azur
 
 ## Prerequisites
 
-Cost analysis in Cost Management supports most Azure account types, but not all of them. To view the full list of supported account types, see [Understand Cost Management data](../../../cost-management-billing/costs/understand-cost-mgt-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn). To view cost data, you need at least read access for an Azure account. For information about assigning access to Azure Cost Management data, see [Assign access to data](../../../cost-management-billing/costs/assign-access-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+Cost analysis in Microsoft Cost Management supports most Azure account types, but not all of them. To view the full list of supported account types, see [Understand Cost Management data](../../../cost-management-billing/costs/understand-cost-mgt-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn). To view cost data, you need at least read access for an Azure account. For information about assigning access to Azure Cost Management data, see [Assign access to data](../../../cost-management-billing/costs/assign-access-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 
 ## Estimate costs before using Azure AI services
 
@@ -30,7 +30,7 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 1. Enter the number of units you plan to use. For example, enter the number of tokens for prompts and completions.
 
-    :::image type="content" source="../media/cost-management/pricing-calculator-estimate.png" alt-text="Screenshot of selecting Add to estimate in the Azure pricing calculator." lightbox="../media/cost-management/pricing-calculator-estimate.png":::
+    :::image type="content" source="../media/cost-management/pricing-calculator-estimate-openai.png" alt-text="Screenshot of Azure OpenAI cost estimate in the Azure pricing calculator." lightbox="../media/cost-management/pricing-calculator-estimate-openai.png":::
 
 1. You can select more than one product to estimate costs for multiple products. For example, select Virtual Machines to add potential costs for compute resources.
 
@@ -56,7 +56,7 @@ When you create resources for an Azure AI resource, resources for other Azure se
 
 ### Costs might accrue before resource deletion
 
-Before you delete an Azure AI resource in the Azure portal or with Azure CLI, the following sub resources are common costs that accumulate even when you are not actively working in the workspace. If you are planning on returning to your Azure AI resource at a later time, these resources may continue to accrue costs: 
+Before you delete an Azure AI resource in the Azure portal or with Azure CLI, the following sub resources are common costs that accumulate even when you are not actively working in the workspace. If you are planning on returning to your Azure AI resource at a later time, these resources might continue to accrue costs: 
 - Azure AI Search (for the data)
 - Virtual machines
 - Load Balancer
@@ -65,7 +65,7 @@ Before you delete an Azure AI resource in the Azure portal or with Azure CLI, th
 
 Each VM is billed per hour it is running. Cost depends on VM specifications. VMs that are running but not actively working on a dataset will still be charged via the load balancer. For each compute instance, one load balancer will be billed per day. Every 50 nodes of a compute cluster will have one standard load balancer billed. Each load balancer is billed around $0.33/day. To avoid load balancer costs on stopped compute instances and compute clusters, delete the compute resource.
 
-Compute instances also incur P10 disk costs even in stopped state. This is because any user content saved there is persisted across the stopped state similar to Azure VMs. We are working on making the OS disk size/ type configurable to better control costs. For virtual networks, one virtual network will be billed per subscription and per region. Virtual networks cannot span regions or subscriptions. Setting up private endpoints in vNet setups may also incur charges. Bandwidth is charged by usage; the more data transferred, the more you are charged.
+Compute instances also incur P10 disk costs even in stopped state. This is because any user content saved there is persisted across the stopped state similar to Azure VMs. We are working on making the OS disk size/ type configurable to better control costs. For virtual networks, one virtual network will be billed per subscription and per region. Virtual networks cannot span regions or subscriptions. Setting up private endpoints in vNet setups might also incur charges. Bandwidth is charged by usage; the more data transferred, the more you are charged.
 
 ### Costs might accrue after resource deletion
 

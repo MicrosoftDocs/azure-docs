@@ -30,7 +30,7 @@
   - name: Create Azure AI projects and resources
     items:
     - name: Azure AI resources overview
-      href: ai-studio/concepts/ai-services-resources.md
+      href: ai-studio/concepts/ai-resources.md
     - name: Create an Azure AI project
       href: ai-studio/how-to/create-projects.md
   - name: Costs and quotas

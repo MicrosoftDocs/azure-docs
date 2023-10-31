@@ -156,7 +156,7 @@ After you select **View in the Azure Portal**, you see your Azure AI resource in
 
 Select the resource group name to see all associated resources, including the Azure AI project, storage account, and key vault. 
 
-:::image type="content" source="../media/concepts/rg-docsazureairesource.png" alt-text="Screenshot of the Azure AI resource group in the Azure portal." lightbox="../media/concepts/rg-docsazureairesource.png":::
+:::image type="content" source="../media/concepts/rg-docs-azure-ai-resource.png" alt-text="Screenshot of the Azure AI resource group in the Azure portal." lightbox="../media/concepts/rg-docs-azure-ai-resource.png":::
 
 From the resource group, you can select the Azure AI project for more details.
 
