@@ -40,16 +40,13 @@ Using the CA files generated to create certificate for the client.
 ## Upload the CA certificate to the namespace
 1. In Azure portal, navigate to your Event Grid namespace.
 1. Under the MQTT section in left rail, navigate to CA certificates menu.
-
-:::image type="content" source="./media/mqtt-certificate-chain-client-authentication/event-grid-namespace-upload-certificate-authority-certificate.png" alt-text="Screenshot showing the CA certificate page under MQTT section in Event Grid namespace.":::
-
 1. Select **+ Certificate** to launch the Upload certificate page.  
-1. Add certificate name and browse to find the intermediate certificate (.step/certs/intermediate_ca.crt) and select **Upload**.
+1. Add certificate name and browse to find the intermediate certificate (.step/certs/intermediate_ca.crt) and select **Upload**. You can upload a .pem, .cer, or .crt file. 
 
-> [!NOTE]
-> - CA certificate name can be 3-50 characters long.
-> - CA certificate name can include alphanumeric, hyphen(-) and, no spaces.
-> - The name needs to be unique per namespace.
+  > [!NOTE]
+  > - CA certificate name can be 3-50 characters long.
+  > - CA certificate name can include alphanumeric, hyphen(-) and, no spaces.
+  > - The name needs to be unique per namespace.
 
 4. On the Upload certificate page, give a Certificate name and browse for the certificate file.
 5. Select **Upload** button to add the parent certificate.
