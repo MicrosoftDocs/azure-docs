@@ -225,7 +225,7 @@ Authentication type is not supported for Spring Boot.
     
     # Get the password 
     session = requests.Session()
-    session = BearerTokenCredentialPolicy(credential, scope).on_request(session)
+    session = BearerTokenCredentialPolicy(cred, scope).on_request(session)
     response = session.post(listKeyUrl)
     keys_dict = response.json()
     password = keys_dict['primaryMasterKey']
