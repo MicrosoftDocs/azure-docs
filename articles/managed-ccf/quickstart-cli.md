@@ -23,7 +23,7 @@ Azure CLI is used to create and manage Azure resources using commands or scripts
 
 ## Create a resource group
 
-[!INCLUDE [Create a resource group](./includes/cli-rg-create.md)]
+[!INCLUDE [Create a resource group](./includes/cli-resource-group-create.md)]
 
 ## Create a member
 

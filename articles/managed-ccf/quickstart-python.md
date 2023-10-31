@@ -48,7 +48,7 @@ pip install azure.mgmt.confidentialledger
 
 ### Create a resource group
 
-[!INCLUDE [Create resource group](./includes/powershell-rg-create.md)]
+[!INCLUDE [Create resource group](./includes/powershell-resource-group-create.md)]
 
 ### Register the resource provider
 

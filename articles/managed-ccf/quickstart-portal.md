@@ -33,7 +33,7 @@ Register the resource provider in your subscription using the following commands
 
 ### Create a resource group
 
-[!INCLUDE [Create resource group](./includes/powershell-rg-create.md)]
+[!INCLUDE [Create resource group](./includes/powershell-resource-group-create.md)]
 
 ### Create members
 

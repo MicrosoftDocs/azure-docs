@@ -48,7 +48,7 @@ npm install @azure/arm-confidentialledger@1.3.0-beta.1
 
 ### Create a resource group
 
-[!INCLUDE [Create resource group](./includes/powershell-rg-create.md)]
+[!INCLUDE [Create resource group](./includes/powershell-resource-group-create.md)]
 
 ### Register the resource provider
 

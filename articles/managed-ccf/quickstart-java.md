@@ -42,7 +42,7 @@ This quickstart uses the Azure Identity library, along with Azure CLI or Azure P
 
 ### Create a resource group
 
-[!INCLUDE [Create resource group](./includes/powershell-rg-create.md)]
+[!INCLUDE [Create resource group](./includes/powershell-resource-group-create.md)]
 
 ### Register the resource provider
 
