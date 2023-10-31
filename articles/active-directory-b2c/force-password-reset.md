@@ -166,7 +166,7 @@ Update-MgDomain -DomainId $domainId -BodyParameter $params
 ```
 
 > [!NOTE] 
-> `passwordValidityPeriodInDays` indicates the length of time that a password remains valid before it must be changed. `passwordNotificationWindowInDays` indicates the number of days before the password expiration date that will trigger when users will receive their first notification that their password will soon expire.
+> `passwordValidityPeriodInDays` indicates the length of time in days that a password remains valid before it must be changed. `passwordNotificationWindowInDays` indicates the length of time in days before the password expiration date when users receive their first notification to indicate that their password is about to expire.
 
 ## Next steps
 
