@@ -279,8 +279,6 @@ Support for Partial Document Update (Patch API) in the [Azure Cosmos DB JavaScri
         );
     ```
 
----
-
 ## [Python (Preview)](#tab/python)
 
 Support for Partial Document Update (Patch API) in the [Azure Cosmos DB Python SDK](nosql/sdk-python.md) is available in Preview starting with version *4.4.0b2*. You can download it from the [pip Registry](https://pypi.org/project/azure-cosmos/4.4.0b2/).
