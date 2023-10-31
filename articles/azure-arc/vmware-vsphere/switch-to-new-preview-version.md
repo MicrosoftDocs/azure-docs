@@ -41,9 +41,6 @@ If you're an existing **Azure Arc-enabled VMware** customer, for VMs that are Az
 
     :::image type=" New VM browse view" source="media/switch-to-new-preview-version/new-vm-browse-view-inline.png" alt-text="Screenshot of New VM browse view." lightbox="media/switch-to-new-preview-version/new-vm-browse-view-expanded.png":::
 
->[!NOTE]
->Moving VMware vCenter resources between Resource Groups and Subscriptions is currently not supported.
- 
 ## Next steps
 
 [Quickstart: Connect VMware vCenter Server to Azure Arc by using the helper script](/azure/azure-arc/vmware-vsphere/quick-start-connect-vcenter-to-arc-using-script).
