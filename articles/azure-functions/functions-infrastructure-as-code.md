@@ -67,11 +67,9 @@ An Azure Arc-hosted deployment typically consists of these resources:
 <sup>1</sup>An explicit hosting plan isn't required when you choose to host your function app in a [Consumption plan](./consumption-plan.md).
 :::zone-end  
 
-This article assumes that you have a basic understanding about [creating Bicep files](../azure-resource-manager/bicep/file.md) or [authoring Azure Resource Manager templates](../azure-resource-manager/templates/syntax.md). 
-
 When you deploy multiple resources in a single Bicep file or ARM template, the order in which resources are created is important. This requirement is a result of dependencies between resources. For such dependencies, make sure to use the `dependsOn` element to define the dependency in the dependent resource. For more information, see either [Define the order for deploying resources in ARM templates](../azure-resource-manager/templates/resource-dependency.md) or [Resource dependencies in Bicep](../azure-resource-manager/bicep/resource-dependencies.md). 
 
-For a broad set of example Bicep files and ARM templates, see [these function app deployment examples](samples/browse/?expanded=azure&terms=%22azure%20functions%22&products=azure-resource-manager). 
+This article assumes that you have a basic understanding about [creating Bicep files](../azure-resource-manager/bicep/file.md) or [authoring Azure Resource Manager templates](../azure-resource-manager/templates/syntax.md), and examples are shown as individual sections for specific resources. For a broad set of complete Bicep file and ARM template examples, see [these function app deployment examples](samples/browse/?expanded=azure&terms=%22azure%20functions%22&products=azure-resource-manager). 
 :::zone pivot="container-apps,azure-arc"  
 ## Prerequisites  
 :::zone-end  
@@ -87,6 +85,8 @@ This article assumes that you have already created an [App Service-enabled custo
 All function apps require an Azure storage account. You need a general purpose account that supports blobs, tables, queues, and files. For more information, see [Azure Functions storage account requirements](storage-considerations.md#storage-account-requirements).
 
 [!INCLUDE [functions-storage-access-note](../../includes/functions-storage-access-note.md)]
+
+This example section creates a Standard general-purpose v2 storage account: 
 
 ### [ARM template](#tab/json)
 
@@ -109,7 +109,7 @@ All function apps require an Azure storage account. You need a general purpose a
 ]
 ```
 
-For a complete example, see [azuredeploy.json](https://github.com/Azure-Samples/function-app-arm-templates/blob/main/function-app-linux-consumption/azuredeploy.json#L77) in the templates repository.
+For more context, see the complete [azuredeploy.json](https://github.com/Azure-Samples/function-app-arm-templates/blob/main/function-app-linux-consumption/azuredeploy.json#L77) file in the templates repository.
 
 ### [Bicep](#tab/bicep)
 
@@ -128,7 +128,7 @@ resource storageAccountName 'Microsoft.Storage/storageAccounts@2022-05-01' = {
 }
 ```
 
-For a complete example, see [main.bicep](https://github.com/Azure-Samples/function-app-arm-templates/blob/main/function-app-linux-consumption/main.bicep#L37) in the templates repository.
+For more context, see the complete [main.bicep](https://github.com/Azure-Samples/function-app-arm-templates/blob/main/function-app-linux-consumption/main.bicep#L37) file in the templates repository.
 
 ---
 
@@ -136,7 +136,7 @@ You need to set the connection string of this storage account as the `AzureWebJo
 
 ### Enable storage logs
 
-Because the storage account is used for important function app data, you should monitor the account for modification of that content. To monitor your storage account, you need to configure Azure Monitor resource logs for Azure Storage. In the following example, a Log Analytics workspace named `myLogAnalytics` is used as the destination for these logs. This same workspace can be used for the Application Insights resource defined later.
+Because the storage account is used for important function app data, you should monitor the account for modification of that content. To monitor your storage account, you need to configure Azure Monitor resource logs for Azure Storage. In this example section, a Log Analytics workspace named `myLogAnalytics` is used as the destination for these logs. 
 
 #### [ARM template](#tab/json)
 
@@ -197,27 +197,27 @@ resource storageDataPlaneLogs 'Microsoft.Insights/diagnosticSettings@2021-05-01-
 
 ---
 
-See [Monitoring Azure Storage](../storage/blobs/monitor-blob-storage.md) for instructions on how to work with these logs.
+This same workspace can be used for the Application Insights resource defined later. For more information, including how to work with these logs, see [Monitoring Azure Storage](../storage/blobs/monitor-blob-storage.md).
 
 ## Create Application Insights
 
-Application Insights is recommended for monitoring your function app executions. The Application Insights resource is defined with the type `Microsoft.Insights/components` and the kind `web`:
+Application Insights is recommended for monitoring your function app executions. In this example section, the Application Insights resource is defined with the type `Microsoft.Insights/components` and the kind `web`:
 
 ### [ARM template](#tab/json)
 
 :::code language="json" source="~/function-app-arm-templates/function-app-linux-consumption/azuredeploy.json" range="102-114":::
 
-For a complete example, see [azuredeploy.json](https://github.com/Azure-Samples/function-app-arm-templates/blob/main/function-app-linux-consumption/azuredeploy.json#L102) in the templates repository.
+For more context, see the complete [azuredeploy.json](https://github.com/Azure-Samples/function-app-arm-templates/blob/main/function-app-linux-consumption/azuredeploy.json#L102) file in the templates repository.
 
 ### [Bicep](#tab/bicep)
 
 :::code language="bicep" source="~/function-app-arm-templates/function-app-linux-consumption/main.bicep" range="60-70":::
 
-For a complete example, see [main.bicep](https://github.com/Azure-Samples/function-app-arm-templates/blob/main/function-app-linux-consumption/main.bicep#L60) in the templates repository.
+For more context, see the complete [main.bicep](https://github.com/Azure-Samples/function-app-arm-templates/blob/main/function-app-linux-consumption/main.bicep#L60) file in the templates repository.
 
 ---
 
-The connection also needs to be provided to the function app using the [`APPLICATIONINSIGHTS_CONNECTION_STRING`](functions-app-settings.md#applicationinsights_connection_string) application setting. For more information, see [Application settings](#application-configuration).
+The connection must be provided to the function app using the [`APPLICATIONINSIGHTS_CONNECTION_STRING`](functions-app-settings.md#applicationinsights_connection_string) application setting. For more information, see [Application settings](#application-configuration).
 
 The examples in this article obtain the connection string value for the created instance. Older versions might instead use [`APPINSIGHTS_INSTRUMENTATIONKEY`](functions-app-settings.md#applicationinsights_instrumentationkey) to set the instrumentation key, which is no longer recommended. 
 
@@ -229,7 +229,7 @@ Apps hosted in an Azure Functions [Premium plan](./functions-premium-plan.md) or
 :::zone pivot="premium-plan" 
 The Premium plan offers the same scaling as the Consumption plan but includes dedicated resources and extra capabilities. To learn more, see [Azure Functions Premium Plan](functions-premium-plan.md).
 
-A Premium plan is a special type of `serverfarm` resource. You can specify it by using either `EP1`, `EP2`, or `EP3` for the `Name` property value in the `sku` property. The way that you define the Functions hosting plan depends on whether your function app runs on Windows or on Linux: 
+A Premium plan is a special type of `serverfarm` resource. You can specify it by using either `EP1`, `EP2`, or `EP3` for the `Name` property value in the `sku` property. The way that you define the Functions hosting plan depends on whether your function app runs on Windows or on Linux. This example section creates an `EP1` plan: 
 
 ### [Windows](#tab/windows/bicep)
 
@@ -248,6 +248,8 @@ resource hostingPlan 'Microsoft.Web/serverfarms@2022-03-01' = {
   }
 }
 ```
+
+For more context, see the complete [main.bicep](https://github.com/Azure-Samples/function-app-arm-templates/blob/main/function-app-premium-plan/main.bicep#L62) file in the templates repository.
 
 ### [Windows](#tab/windows/json)
 
@@ -271,6 +273,8 @@ resource hostingPlan 'Microsoft.Web/serverfarms@2022-03-01' = {
 ]
 ```
 
+For more context, see the complete [azuredeploy.json](https://github.com/Azure-Samples/function-app-arm-templates/blob/main/function-app-premium-plan/azuredeploy.json#L113) file in the templates repository.
+
 ### [Linux](#tab/linux/bicep)
 
 To run your app on Linux, you must also set property `"reserved": true` for the `serverfarms` resource:
@@ -291,6 +295,8 @@ resource hostingPlan 'Microsoft.Web/serverfarms@2022-03-01' = {
   }
 }
 ```
+
+For more context, see the complete [main.bicep](https://github.com/Azure-Samples/function-app-arm-templates/blob/main/function-app-premium-plan/main.bicep#L62) file in the templates repository.
 
 ### [Linux](#tab/linux/json)
 
@@ -316,6 +322,8 @@ To run your app on Linux, you must also set property `"reserved": true` for the 
   }
 ]
 ```
+
+For more context, see the complete [azuredeploy.json](https://github.com/Azure-Samples/function-app-arm-templates/blob/main/function-app-premium-plan/azuredeploy.json#L113) file in the templates repository.
 
 ---  
 
@@ -346,6 +354,8 @@ resource hostingPlanName 'Microsoft.Web/serverfarms@2022-03-01' = {
 }
 ```
 
+For more context, see the complete [main.bicep](https://github.com/Azure-Samples/function-app-arm-templates/blob/main/function-app-dedicated-plan/main.bicep#L62) file in the templates repository.
+
 ### [Windows](#tab/windows/json)
 
 ```json
@@ -366,6 +376,8 @@ resource hostingPlanName 'Microsoft.Web/serverfarms@2022-03-01' = {
 ]
 ```
 
+For more context, see the complete [azuredeploy.json](https://github.com/Azure-Samples/function-app-arm-templates/blob/main/function-app-dedicated-plan/azuredeploy.json#L112) file in the templates repository.
+
 ### [Linux](#tab/linux/bicep)
 
 ```bicep
@@ -384,6 +396,8 @@ resource hostingPlan 'Microsoft.Web/serverfarms@2022-03-01' = {
   }
 }
 ```
+
+For more context, see the complete [main.bicep](https://github.com/Azure-Samples/function-app-arm-templates/blob/main/function-app-dedicated-plan/main.bicep#L62) file in the templates repository.
 
 ### [Linux](#tab/linux/json)
 
@@ -408,6 +422,8 @@ resource hostingPlan 'Microsoft.Web/serverfarms@2022-03-01' = {
 ]
 ```
 
+For more context, see the complete [azuredeploy.json](https://github.com/Azure-Samples/function-app-arm-templates/blob/main/function-app-dedicated-plan/azuredeploy.json#L112) file in the templates repository.
+
 ---
 
 ::: zone-end
@@ -416,7 +432,7 @@ resource hostingPlan 'Microsoft.Web/serverfarms@2022-03-01' = {
 
 You don't need to explicitly define a Consumption hosting plan resource. When you skip this resource definition, a plan is automatically either created or selected on a per-region basis when you create the function app resource itself.
 
-You can explicitly define a Consumption plan as a special type of `serverfarm` resource, which you specify using the value `Dynamic` for the `computeMode` and `sku` properties. The way that you explicitly define a hosting plan depends on whether your function app runs on Windows or on Linux.
+You can explicitly define a Consumption plan as a special type of `serverfarm` resource, which you specify using the value `Dynamic` for the `computeMode` and `sku` properties. This example section shows you how to explicitly define a consumption plan. The way that you define a hosting plan depends on whether your function app runs on Windows or on Linux. 
 
 ### [Windows](#tab/windows/bicep)
 
@@ -436,6 +452,8 @@ resource hostingPlan 'Microsoft.Web/serverfarms@2022-03-01' = {
   }
 }
 ```
+
+For more context, see the complete [main.bicep](https://github.com/Azure-Samples/function-app-arm-templates/blob/main/function-app-windows-consumption/main.bicep#L40) file in the templates repository.
 
 ### [Windows](#tab/windows/json)
 
@@ -460,6 +478,9 @@ resource hostingPlan 'Microsoft.Web/serverfarms@2022-03-01' = {
 ]
 ```
 
+For more context, see the complete [azuredeploy.json](https://github.com/Azure-Samples/function-app-arm-templates/blob/main/function-app-windows-consumption/azuredeploy.json#L67) file in the templates repository.
+
+
 ### [Linux](#tab/linux/bicep)
 
 To run your app on Linux, you must also set the property `"reserved": true` for the `serverfarms` resource:
@@ -481,6 +502,8 @@ resource hostingPlan 'Microsoft.Web/serverfarms@2022-03-01' = {
   }
 }
 ```
+
+For more context, see the complete [main.bicep](https://github.com/Azure-Samples/function-app-arm-templates/blob/main/function-app-linux-consumption/main.bicep#L46) file in the templates repository.
 
 ### [Linux](#tab/linux/json)
 
@@ -508,6 +531,9 @@ To run your app on Linux, you must also set the property `"reserved": true` for 
 ]
 ```
 
+
+For more context, see the complete [azuredeploy.json](https://github.com/Azure-Samples/function-app-arm-templates/blob/main/function-app-linux-consumption/azuredeploy.json#L115) file in the templates repository.
+
 ---
  
 ::: zone-end
@@ -515,7 +541,7 @@ To run your app on Linux, you must also set the property `"reserved": true` for 
 ## Kubernetes environment
 Azure Functions can be deployed to [Azure Arc-enabled Kubernetes](../app-service/overview-arc-integration.md) either as a code project or a containerized function app. 
 
-To create the app and plan resources, you must have already [created an App Service Kubernetes environment](../app-service/manage-create-arc-environment.md) for an Azure Arc-enabled Kubernetes cluster. The examples in this article assume you have the resource ID of the custom location (`customLocationId`) and App Service Kubernetes environment (`kubeEnvironmentId`) to which you're deploying. 
+To create the app and plan resources, you must have already [created an App Service Kubernetes environment](../app-service/manage-create-arc-environment.md) for an Azure Arc-enabled Kubernetes cluster. The examples in this article assume you have the resource ID of the custom location (`customLocationId`) and App Service Kubernetes environment (`kubeEnvironmentId`) to which you're deploying, which are set in this example: 
 
 ### [ARM template](#tab/json)
 
@@ -539,7 +565,7 @@ param customLocationId string
 
 ---
 
-Both sites and plans must reference the custom location through an `extendedLocation` field. This block sits outside of `properties`, as a peer to `kind` and `location`:
+Both sites and plans must reference the custom location through an `extendedLocation` field. As shown in this truncated example, `extendedLocation` sits outside of `properties`, as a peer to `kind` and `location`:
 
 ### [ARM template](#tab/json)
 
@@ -570,7 +596,7 @@ resource hostingPlan 'Microsoft.Web/serverfarms@2022-03-01' = {
 
 ---
 
-The plan resource should use the Kubernetes (K1) SKU, and its `kind` field should be `linux,kubernetes`. Within `properties`, `reserved` should be `true`, and `kubeEnvironmentProfile.id` should be set to the App Service Kubernetes environment resource ID. An example plan might look like:
+The plan resource should use the Kubernetes (`K1`) value for `SKU`, the `kind` field should be `linux,kubernetes`, and the `reserved` property should be `true`, since it's a Linux deployment. You must also set the `extendedLocation` and `kubeEnvironmentProfile.id` to the custom location ID and the Kubernetes environment ID, respectively, which might look like this example section:
 
 ### [ARM template](#tab/json)
 
@@ -629,12 +655,13 @@ resource hostingPlan 'Microsoft.Web/serverfarms@2022-03-01' = {
 ## Create the function app
 
 The function app resource is defined by a resource of type `Microsoft.Web/sites` and `kind` that includes `functionapp`.
-
+:::zone pivot="consumption-plan,premium-plan,dedicated-plan"
 The way that you define a function app resource depends on whether you're hosting on Linux or on Windows:
 
 ### [Windows](#tab/windows)
 
 For a list of application settings required when running on Windows, see [Application configuration](#application-configuration).
+::: zone-end
 :::zone pivot="consumption-plan"
 For a sample Bicep file/Azure Resource Manager template, see this [function app hosted on Windows in a Consumption plan](https://github.com/Azure-Samples/function-app-arm-templates/tree/main/function-app-windows-consumption).
 :::zone-end  
@@ -644,12 +671,13 @@ For a sample Bicep file/Azure Resource Manager template, see this [function app 
 :::zone pivot="dedicated-plan"
 For a sample Bicep file/Azure Resource Manager template, see this [function app hosted on Windows in a Dedicated plan](https://github.com/Azure-Samples/function-app-arm-templates/tree/main/function-app-dedicated-plan).
 :::zone-end  
-
+:::zone pivot="consumption-plan,premium-plan,dedicated-plan"
 ### [Linux](#tab/linux)
 
 When running on Linux, you must set `"kind": "functionapp,linux"` and `"reserved": true` for the function app. Linux apps must also include a `linuxFxVersion` property under `siteConfig`. If you're just deploying code, the value for this property is determined by your desired runtime stack in the format of `<runtime>|<runtimeVersion>`. For more information, see the [linuxFxVersion site setting](functions-app-settings.md#linuxfxversion) reference.
  
 For a list of application settings required when running on Linux in a Consumption plan, see [Application configuration](#application-configuration).
+::: zone-end  
 :::zone pivot="consumption-plan"
 For a sample Bicep file or ARM template, see [Azure Function App Hosted on Linux Consumption Plan](https://github.com/Azure-Samples/function-app-arm-templates/tree/main/function-app-linux-consumption).
 ::: zone-end
@@ -1434,7 +1462,6 @@ The definition of a containerized function app deployed from a private container
     "location": "[parameters('location')]",
     "dependsOn": [
       "[resourceId('Microsoft.Insights/components', parameters('applicationInsightsName'))]",
-      "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
       "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
     ],
     "properties": {
@@ -1469,9 +1496,6 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
   name: functionAppName
   kind: 'functionapp,linux,container,azurecontainerapps'
   location: location
-  extendedLocation: {
-    name: customLocationId
-  }
   properties: {
     serverFarmId: hostingPlanName
     siteConfig: {
