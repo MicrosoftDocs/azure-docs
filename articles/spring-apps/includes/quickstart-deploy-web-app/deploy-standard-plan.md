@@ -114,7 +114,7 @@ Use the following steps to connect your service instances:
 
 1. From the navigation pane, open the **Apps** pane and select **Create App**.
 
-1. On the **Create App** page, use *simple-todo-web* as the app name, and then select **Java 17** as the runtime platform.
+1. On the **Create App** page, for the app name, use *simple-todo-web* and for the runtime platform, select **Java 17**.
 
    :::image type="content" source="../../media/quickstart-deploy-web-app/create-app.png" alt-text="Screenshot of the Azure portal that shows the Create app pane." lightbox="../../media/quickstart-deploy-web-app/create-app.png":::
 

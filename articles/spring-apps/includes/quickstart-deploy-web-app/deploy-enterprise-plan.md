@@ -74,21 +74,21 @@ Use the following steps to connect your service instances:
 
 1. Fill out the **Basics** tab with the following information:
 
-    - **Service type**: **DB for PostgreSQL flexible server**
-    - **Connection name**: An automatically generated name is populated, which can be modified.
-    - **Subscription**: Select your subscription.
-    - **PostgreSQL flexible server**: *my-demo-pgsql*
-    - **PostgreSQL database**: Select the database you created.
-    - **Client type**: **SpringBoot**
+   - **Service type**: **DB for PostgreSQL flexible server**
+   - **Connection name**: Populated with an automatically generated name that you can modify.
+   - **Subscription**: Select your subscription.
+   - **PostgreSQL flexible server**: *my-demo-pgsql*
+   - **PostgreSQL database**: Select the database you created.
+   - **Client type**: **SpringBoot**
 
    :::image type="content" source="../../media/quickstart-deploy-web-app/app-service-connector-basics.png" alt-text="Screenshot of the Azure portal that shows the Basics tab of the Create connection pane for connecting to PostgreSQL." lightbox="../../media/quickstart-deploy-web-app/app-service-connector-basics.png":::
 
 1. Configure the **Next: Authentication** tab with the following information:
 
-    - **Select the authentication type you'd like to use between your compute service and target service.**: Select **Connection string**.
-    - **Continue with...**: Select **Database credentials**
-    - **Username**: *myadmin*
-    - **Password**: Enter your password.
+   - **Select the authentication type you'd like to use between your compute service and target service.**: Select **Connection string**.
+   - **Continue with...**: Select **Database credentials**
+   - **Username**: *myadmin*
+   - **Password**: Enter your password.
 
    :::image type="content" source="../../media/quickstart-deploy-web-app/app-service-connector-authentication.png" alt-text="Screenshot of the Azure portal that shows the Authentication tab of the Create connection pane with the Connection string option highlighted." lightbox="../../media/quickstart-deploy-web-app/app-service-connector-authentication.png":::
 
@@ -219,11 +219,11 @@ After the application instance and the PostgreSQL instance are created, the appl
 
 ### [Azure portal](#tab/Azure-portal-ent)
 
-[!INCLUDE [deploy-web-app-on-azure-portal](../../includes/quickstart-deploy-web-app/deploy-web-app-azure-portal.md)]
+[!INCLUDE [deploy-web-app-azure-portal](deploy-web-app-azure-portal.md)]
 
 ### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin-ent)
 
-[!INCLUDE [deploy-hello-app-with-maven-plugin](web-spring-apps-maven-plugin.md)]
+   [!INCLUDE [web-spring-apps-maven-plugin](web-spring-apps-maven-plugin.md)]
 
    ```output
    [INFO] Deployment Status: Running
