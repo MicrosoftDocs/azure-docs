@@ -34,9 +34,10 @@ Azure Monitor managed service for Prometheus allows you to collect and analyze m
    kubectl create configmap ama-metrics-prometheus-config --from-literal=prometheus-config='{"scrape_configs": [{ "job_name": "akri", "scrape_interval": "1m", "static_configs": [{ "targets": [ "akri-agent-metrics-service.alice-springs.svc.cluster.local:8080" ]}]},{ "job_name": "e4k", "scrape_interval": "1m", "static_configs": [{ "targets": [ "azedge-diagnostics-service.alice-springs.svc.cluster.local:9600" ]}]},{ "job_name": "nats", "scrape_interval": "1m", "static_configs": [{ "targets": [ "bluefin-nats-0.bluefin-nats-headless.alice-springs.svc.cluster.local:7777" ]}]},{ "job_name": "otel", "scrape_interval": "1m", "static_configs": [{ "targets": [ "otel-collector.alice-springs.svc.cluster.local:8889" ] }]}]}' -n kube-system
    ```
 1. If you're using an AKS Edge Essentials cluster, run the following extra command to have node level metrics monitored by the Managed Prometheus agent:
-  ```bash
-  Invoke-AksEdgeNodeCommand -NodeType "Linux" -command "sudo sed -i '/-A OUTPUT -j ACCEPT/i-A INPUT -p tcp -m tcp --dport 9110 -j ACCEPT' /etc/systemd/scripts/ip4save"
-  ```
+
+   ```bash
+   Invoke-AksEdgeNodeCommand -NodeType "Linux" -command "sudo sed -i '/-A OUTPUT -j ACCEPT/i-A INPUT -p tcp -m tcp --dport 9110 -j ACCEPT' /etc/systemd/scripts/ip4save"
+   ```
 
 
 ## Install Container Insights
