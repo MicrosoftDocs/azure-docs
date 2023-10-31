@@ -38,12 +38,12 @@ Use the following steps to expose your RESTful APIs in Microsoft Entra ID:
 
 1. Under **Manage**, select **Expose an API** > **Add a scope**, and then enter the following information:
 
-    - For **Scope name**, enter *ToDo.Read*.
-    - For **Who can consent**, select **Admins only**.
-    - For **Admin consent display name**, enter *Read the ToDo data*.
-    - For **Admin consent description**, enter *Allows authenticated users to read the ToDo data.*.
-    - For **State**, keep it enabled.
-    - Select **Add scope**.
+   - For **Scope name**, enter *ToDo.Read*.
+   - For **Who can consent**, select **Admins only**.
+   - For **Admin consent display name**, enter *Read the ToDo data*.
+   - For **Admin consent description**, enter *Allows authenticated users to read the ToDo data.*.
+   - For **State**, keep it enabled.
+   - Select **Add scope**.
 
 1. Repeat the previous steps to add the other two scopes: *ToDo.Write* and *ToDo.Delete*.
 

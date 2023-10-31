@@ -68,21 +68,21 @@ Use the following steps to connect your service instances:
 
 1. Fill out the **Basics** tab with the following information:
 
-    - **Service type**: **DB for PostgreSQL flexible server**
-    - **Connection name**: An automatically generated name is populated, which can also be modified.
-    - **Subscription**: Select your subscription.
-    - **PostgreSQL flexible server**: *my-demo-pgsql*
-    - **PostgreSQL database**: Select the database you created.
-    - **Client type**: **SpringBoot**
+   - **Service type**: **DB for PostgreSQL flexible server**
+   - **Connection name**: An automatically generated name is populated, which can also be modified.
+   - **Subscription**: Select your subscription.
+   - **PostgreSQL flexible server**: *my-demo-pgsql*
+   - **PostgreSQL database**: Select the database you created.
+   - **Client type**: **SpringBoot**
 
    :::image type="content" source="../../media/quickstart-deploy-restful-api-app/app-service-connector-basics.png" alt-text="Screenshot of the Azure portal that shows the Basics tab of the Create connection pane for connecting to Service Bus." lightbox="../../media/quickstart-deploy-restful-api-app/app-service-connector-basics.png":::
 
 1. Configure the **Next: Authentication** tab with the following information:
 
-    - **Select the authentication type you'd like to use between your compute service and target service.**: Select **Connection string**.
-    - **Continue with...**: Select **Database credentials**
-    - **Username**: *myadmin*
-    - **Password**: Enter your password.
+   - **Select the authentication type you'd like to use between your compute service and target service.**: Select **Connection string**.
+   - **Continue with...**: Select **Database credentials**
+   - **Username**: *myadmin*
+   - **Password**: Enter your password.
 
    :::image type="content" source="../../media/quickstart-deploy-restful-api-app/app-service-connector-authentication.png" alt-text="Screenshot of the Azure portal that shows the Authentication tab of the Create connection pane with the Connection string option highlighted." lightbox="../../media/quickstart-deploy-restful-api-app/app-service-connector-authentication.png":::
 
