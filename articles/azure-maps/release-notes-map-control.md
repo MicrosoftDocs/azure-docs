@@ -104,10 +104,9 @@ The preview is available on [npm][3.0.0-preview.10] and CDN.
 
 #### Bug fixes (3.0.0-preview.9)
 
-- Fixed an issue where accessibility-related duplicated DOM elements may result when `map.setServiceOptions` is called
+- Fixed an issue where accessibility-related duplicated DOM elements might result when `map.setServiceOptions` is called
 
-#### Installation (3.0.0-preview.9)
-
+#### Installation (3.0.0-preview.9)ight
 The preview is available on [npm][3.0.0-preview.9] and CDN.
 
 - **NPM:** Refer to the instructions at [azure-maps-control@3.0.0-preview.9][3.0.0-preview.9]
@@ -288,7 +287,7 @@ The preview is available on [npm][3.0.0-preview.3] and CDN.
 #### New features (3.0.0-preview.3)
 
 - **\[BREAKING\]** Migrated from [adal-angular] to [@azure/msal-browser] used for authentication with Microsoft Azure Active Directory ([Azure AD]).
-  Changes that may be required:
+  Changes that might be required:
   - `Platform / Reply URL` Type must be set to `Single-page application` on Azure AD App Registration portal.
   - Code change is required if a custom `authOptions.authContext` is used.
   - For more information, see [How to migrate a JavaScript app from ADAL.js to MSAL.js][migration guide].
@@ -380,7 +379,7 @@ This update is the first preview of the upcoming 3.0.0 release. The underlying [
 
 #### Bug fixes (2.3.2)
 
-- Fixed an issue where accessibility-related duplicated DOM elements may result when `map.setServiceOptions` is called.
+- Fixed an issue where accessibility-related duplicated DOM elements might result when `map.setServiceOptions` is called.
 
 - Fixed zoom control to take into account the `maxBounds` [CameraOptions].
 
@@ -392,7 +391,7 @@ This update is the first preview of the upcoming 3.0.0 release. The underlying [
 
 #### Bug fixes (2.3.1)
 
-- Fix `ImageSpriteManager` icon images may get removed during style change 
+- Fix `ImageSpriteManager` icon images might get removed during style change 
 
 #### Other changes (2.3.1)
 
