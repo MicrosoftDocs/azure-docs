@@ -17,7 +17,7 @@ ms.date: 10/23/2023
 
 This article discusses database security best practices and key features offered by Azure Cosmos DB to help you prevent, detect, and respond to database breaches.
 
-## What's new in Azure Cosmos DB security
+## What's new in Azure Cosmos DB for MongoDB vCore security
 
 Encryption at rest is now available for documents and backups stored in Azure Cosmos DB for MongoDB vCore in most Azure regions. Encryption at rest is applied automatically for both new and existing customers in these regions. There's no need to configure anything. You get the same great latency, throughput, availability, and functionality as before with the benefit of knowing your data is safe and secure with encryption at rest.  Data stored in your Azure Cosmos DB account is automatically and seamlessly encrypted with keys managed by Microsoft using service-managed keys. 
 
