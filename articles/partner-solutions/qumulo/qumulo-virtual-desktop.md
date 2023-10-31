@@ -33,7 +33,7 @@ The Azure Virtual Desktop solution with Azure Native Qumulo file storage is depl
 
 ### Solution Architecture
 
-:::image type="content" source="media/qumulo-how-to-manage-qumulo-avd/solution-architecture-qumulo-avd.png" alt-text="solution architecture AVD with Qumulo.":::
+:::image type="content" source="media/qumulo-how-to-manage-qumulo-avd/solution-architecture-qumulo-avd.png" alt-text="Screenshot of solution architecture Azure virtual desktop with Qumulo.":::
 
 ## Solution Workflow
 
@@ -50,7 +50,7 @@ The Azure Virtual Desktop solution with Azure Native Qumulo file storage is depl
 
 ### Process Workflow
 
-:::image type="content" source="media/qumulo-how-to-manage-qumulo-avd/process-wrokflow-qumulo-avd.png" alt-text="solution architecture AVD with Qumulo.":::
+:::image type="content" source="media/qumulo-how-to-manage-qumulo-avd/process-workflow-qumulo-avd.png" alt-text="Screenshot showing the process workflow for Azure virtual desktop with Qumulo.":::
 
 ## Components
 
