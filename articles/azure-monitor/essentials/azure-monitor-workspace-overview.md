@@ -72,6 +72,19 @@ Data stored in the Azure Monitor Workspace is handled in accordance with all sta
 - Data is retained for 18 months
 - For details about the Azure Monitor managed service for Prometheus' support of PII/EUII data, please see details [here](./prometheus-metrics-overview.md)
 
+## Frequently asked questions
+
+This section provides answers to common questions.
+
+### What's the difference between an Azure Monitor workspace and a Log Analytics workspace?
+
+An Azure Monitor workspace is a unique environment for data collected by Azure Monitor. Each workspace has its own data repository, configuration, and permissions. Azure Monitor workspaces will eventually contain all metrics collected by Azure Monitor, including native metrics. Currently, the only data hosted by an Azure Monitor workspace is Prometheus metrics.
+
+### Can I delete Prometheus metrics from an Azure Monitor workspace?
+        
+Data is removed from the Azure Monitor workspace according to its data retention period, which is 18 months. 
+
+
 ## Next steps
 
 - Learn more about the [Azure Monitor data platform](../data-platform.md).

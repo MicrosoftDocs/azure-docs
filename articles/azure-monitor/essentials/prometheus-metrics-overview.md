@@ -65,6 +65,15 @@ Following are links to Prometheus documentation.
 - [Writing Exporters](https://aka.ms/azureprometheus-promio-exporters)
 
 
+## Frequently asked questions
+
+This section provides answers to common questions.
+
+### How do I retrieve Prometheus metrics? 
+
+All data is retrieved from an Azure Monitor workspace by using queries that are written in Prometheus Query Language (PromQL). You can write your own queries, use queries from the open source community, and use Grafana dashboards that include PromQL queries. See the [Prometheus project](https://prometheus.io/docs/prometheus/latest/querying/basics/). 
+
+
 ## Next steps
 
 - [Enable Azure Monitor managed service for Prometheus](prometheus-metrics-enable.md).
