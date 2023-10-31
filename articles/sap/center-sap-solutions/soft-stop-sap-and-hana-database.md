@@ -43,7 +43,7 @@ Use the [Stop-AzWorkloadsSapVirtualInstance](/powershell/module/az.workloads/Sto
      Stop-AzWorkloadsSapVirtualInstance -InputObject /subscriptions/sub1/resourceGroups/rg1/providers/Microsoft.Workloads/sapVirtualInstances/DB0 --SoftStopTimeoutSecond 300 `
 ```
 
-Using REST API
+### Soft stop system using REST API
 Use this [sample payload](/rest/api/workloads/2023-04-01/sap-virtual-instances/stop?tabs=HTTP#sapvirtualinstances_stop) to soft stop an SAP system. You can specify the soft stop timeout value in seconds.
 
 ## Soft stop SAP Application server instance
@@ -52,14 +52,14 @@ You can soft stop a specific application server instance in Azure Center for SAP
 To soft stop an application server instance represented as a *App server instance for SAP solutions* resource:
 
 
-Using powerShell
+### Using powerShell
 Use the [Stop-AzWorkloadsSapApplicationInstance](/powershell/module/az.workloads/stop-azworkloadssapapplicationinstance) command:
 
 ```powershell
      Stop-AzWorkloadsSapApplicationInstance -InputObject /subscriptions/Sub1/resourceGroups/RG1/providers/Microsoft.Workloads/sapVirtualInstances/DB0/applicationInstances/app0 --SoftStopTimeoutSecond 300 `
 ```
 
-Using REST API
+### Using REST API
 Use this [sample payload](/rest/api/workloads/2023-04-01/sap-application-server-instances/stop-instance?tabs=HTTP#stop-the-sap-application-server-instance) to soft stop an application server instance. You can specify the soft stop timeout value in seconds.
 
 ## Soft stop HANA database
@@ -69,12 +69,12 @@ You can soft stop the HANA database so that the database stops gracefully after 
 > When attempting to soft stop HANA database instance using Azure Center for SAP solutions, soft stop timeout value must be greater than 0 and less than 1800 seconds.
 
 
-Using powerShell
+### Using powerShell
 Use the [Stop-AzWorkloadsSapDatabaseInstance](/powershell/module/az.workloads/stop-azworkloadssapdatabaseinstance) command:
 
 ```powershell
      Stop-AzWorkloadsSapDatabaseInstance -InputObject /subscriptions/Sub1/resourceGroups/RG1/providers/Microsoft.Workloads/sapVirtualInstances/DB0/databaseInstances/ab0 --SoftStopTimeoutSecond 300 `
 ```
 
-Using REST API
+### Using REST API
 Use this [sample payload](/rest/api/workloads/2023-04-01/sap-database-instances/stop-instance?tabs=HTTP#stop-the-database-instance-of-the-sap-system.) to soft stop HANA database. You can specify the soft stop timeout value in seconds.
