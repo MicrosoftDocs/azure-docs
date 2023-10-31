@@ -133,9 +133,9 @@ MQTT v5 currently differs from the [MQTT v5 Specification](https://docs.oasis-op
 - Message ordering isn't guaranteed.
 - Subscription Identifiers aren't supported.
 - Assigned Client Identifiers aren't supported yet.
-- The server responds to a CONNECT request with either Authentication Method or Authentication Data with a CONNACK with code 0x8C (Bad authentication method) or 0x87 (Not Authorized) respectively.
 - Topic Alias Maximum is 10. The server doesn't assign any topic aliases for outgoing messages at this time. Clients can assign and use topic aliases within set limit.
 - CONNACK doesn't return Response Information property even if the CONNECT request contains Request Response Information property.
+- User Properties on CONNECT, SUBSCRIBE, DISCONNECT, PUBACK, AUTH packets are not used by the service so they're not supported. If any of these requests include user properties, the request will fail.
 - If the server receives a PUBACK from a client with non-success response code, the connection is terminated.
 - Keep Alive Maximum is 1160 seconds.
 
