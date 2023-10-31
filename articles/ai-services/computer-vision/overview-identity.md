@@ -46,7 +46,7 @@ For a more structured approach, follow a Training module for Face.
 
 ## Example use cases
 
-**User verification**: Verify someone's identity against a government-issued ID card like a passport or driver's license or other enrollment image. You can use this verification to grant access to digital or physical services or to recover an account. Specific access scenarios include opening a new account, verifying a worker, or administering an online assessment. Verification can be done once when a person is onboarded, and repeated when they access a digital or physical service. [use case](tbd)
+**Verify user identity**: Verify a person against a trusted face image. This verification could be used to grant access to digital or physical properties, such as a bank account, access to a building, and so on. In most cases, the trusted face image could come from a government-issued ID such as a passport or driver’s license, or it could come from an enrollment photo taken in person. During verification, liveness detection can play a critical role in verifying that the image comes from a real person, not a printed photo or mask. For more details, see the [tutorial](tbd). 
 
 **Liveness detection**: Liveness detection is an anti-spoofing feature that checks whether a user is physically present in front of the camera. It's used to prevent spoofing attacks using a printed photo, video, or a 3D mask of the user's face. [Verify with liveness](use-case-verify-with-liveness.md)
 
@@ -90,7 +90,7 @@ how-to
 
 ## Face recognition
 
-Modern enterprises and apps can use the Face identification and Face verification operations to verify that a user is who they claim to be.
+Modern enterprises and apps can use the Face recognition technologies, including Face verification ("one-to-one" matching) and Face identification ("one-to-many" matching) to confirm that a user is who they claim to be.
 
 ### Identification
 
