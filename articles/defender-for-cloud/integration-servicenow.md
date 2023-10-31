@@ -38,12 +38,18 @@ To onboard ServiceNow to Defender for Cloud, you need a Client ID and Client Sec
 to create them: 
 
 1. Sign in to ServiceNow with an account that has permission to modify the Application Registry.
-1. Browse to **System OAuth**, click **Application Registry**, and 
-click **New**.
+1. Browse to **System OAuth**, click **Application Registry**.
 
    :::image type="content" border="true" source="./media/integration-servicenow/app-registry.png" alt-text="Screenshot of application registry.":::
 
+1. In the upper right corner, click **New**.
+
+   :::image type="content" border="true" source="./media/integration-servicenow/new.png" alt-text="Screenshot of where to start a new instance.":::
+
 1. Select **Create an OAuth API endpoint for external clients**.
+
+   :::image type="content" border="true" source="./media/integration-servicenow/endpoint.png" alt-text="Screenshot of where to create an OAUTH API endpoint.":::
+
 1. Complete the OAuth Client application details to create a Client ID and Client 
 Secret.
    - **Name**: A descriptive name (for example, MDCIntegrationSNOW)
@@ -137,4 +143,4 @@ ServiceNow and Defender for Cloud automatically synchronize the status of the ti
 - When the ticket owner is changed in ServiceNow, this will update the assignment owner in Microsoft Defender for Cloud. 
 
 >[!NOTE]
->The freshness interval for the synchronization is 24 hrs.
+>Synchronization occurs every 24 hrs.
