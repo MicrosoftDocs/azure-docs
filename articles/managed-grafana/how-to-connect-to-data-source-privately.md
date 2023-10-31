@@ -75,7 +75,7 @@ Once you've set up the private link service, you can create a managed private en
    > The *Private link service url* field is optional unless you need TLS. If you specify a URL, Managed Grafana will ensure that the host IP address for that URL matches the private endpoint's IP address. Due to security reasons, AMG have an allowed list of the URL.
 
 1. Click **Create** to add the managed private endpoint resource.
-1. Contact the owner of target Azure Monitor workspace to approve the connection request.
+1. Contact the owner of target private link service to approve the connection request.
 1. After the connection request is approved, click **Refresh** to see the connection status and private IP address.
 
 > [!NOTE]

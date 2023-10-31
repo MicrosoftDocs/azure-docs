@@ -12,11 +12,11 @@ ms.date: 01/17/2023
 This article shows you how to take response actions against threat actors on the spot, during the course of an incident investigation or threat hunt, without pivoting or context switching out of the investigation or hunt. You accomplish this using playbooks based on the new entity trigger.
 
 The entity trigger currently supports the following entity types:
-- [Account](entities-reference.md#user-account)
+- [Account](entities-reference.md#account)
 - [Host](entities-reference.md#host)
-- [IP](entities-reference.md#ip-address)
+- [IP](entities-reference.md#ip)
 - [URL](entities-reference.md#url)
-- [DNS](entities-reference.md#domain-name)
+- [DNS](entities-reference.md#dns-resolution)
 - [FileHash](entities-reference.md#file-hash)
 
 > [!IMPORTANT]
