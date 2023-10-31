@@ -249,6 +249,9 @@
     - name: About security alerts and incidents
       displayName: security, alerts, classification, incident, threat, detection, analytics, 
       href: alerts-overview.md
+    - name: Alerts in Microsoft 365 Defender
+      displayName: Microsoft 365 Defender, alerts, integration
+      href: concept-integration-365.md
     - name: Security alerts
       items:
       - name: Security alerts reference list

@@ -97,36 +97,11 @@ If you want to disable any of the plans, toggle the individual plan to **off**. 
 
 ## Integrate with Microsoft 365 Defender
 
-When you enable Defender for Cloud on your Azure subscription, you have automatically gained access to Microsoft 365 Defender. No further steps are needed.
+When you enable Defender for Cloud on your Azure subscription, Defender for Cloud's alerts are automatically integrated into the Microsoft 365 Defender portal. No further steps are needed.
 
-### Prerequisites
+The integration between Microsoft Defender for Cloud and Microsoft 365 Defender brings your cloud environments into Microsoft 365 Defender. With Defender for Cloud's alerts and cloud correlations integrated into Microsoft 365 Defender, SOC teams can now access all security information from a single interface. 
 
-Any of these licenses gives you access to Defender for Cloud alerts via the Microsoft 365 Defender portal without additional cost: 
-
-- Enabled Microsoft Defender for Cloud on your Azure subscription.
-- Microsoft 365 E5 or A5.
-
-To ensure access to Defender for Cloud alerts in Microsoft 365 Defender, you must have enabled at least one plan from  Defender for Cloud's paid plans.
-
-### Required permissions
-
-You must be a global administrator or a security administrator in Azure Active Directory to view Defender for Cloud alerts and correlations. For users that don't have these roles, the integration will be available only by applying [unified role-based access control (RBAC) roles](/microsoft-365/security/defender/manage-rbac?view=o365-worldwide) for Defender for Cloud.
-
-> [!NOTE]
-> Permission to view Defender for Cloud alerts and correlations is for the entire tenant. Viewing for specific subscriptions is not supported.
-
-### Investigation experience in Microsoft 365 Defender
-
-The following table describes the detection and investigation experience in Microsoft 365 Defender with Defender for Cloud alerts.
-
-| Area | Description |
-|--|--|
-| Incidents | All Defender for Cloud incidents will be integrated to Microsoft 365 Defender. <br> - Searching for cloud resource assets in the [incident queue](/microsoft-365/security/defender/incident-queue?view=o365-worldwide) is supported. <br> - The [attack story](/microsoft-365/security/defender/investigate-incidents?view=o365-worldwide#attack-story) graph will show cloud resource. <br> - The [assets tab](/microsoft-365/security/defender/investigate-incidents?view=o365-worldwide#assets) in an incident page will show the cloud resource. <br> - Each virtual machine has its own entity page containing all related alerts and activity. <br> <br> There will be no duplication of incidents from other Defender workloads. |
-| Alerts  | All Defender for Cloud alerts, including multi-cloud, internal and external providers’ alerts, will be integrated to Microsoft 365 Defender. Defender for Cloud alerts will show on the Microsoft 365 Defender [alert queue](/microsoft-365/security/defender-endpoint/alerts-queue-endpoint-detection-response?view=o365-worldwide). <br> <br> The `cloud resource` asset will show up in the Asset tab of an alert. Resources are clearly identified as an Azure, Amazon, or a Google Cloud resource. <br> <br> Defender for Cloud alerts will automatically be associated with a tenant. <br> <br> There will be no duplication of alerts from other Defender workloads.| 
-| Alert and incident correlation | Alerts and incidents are automatically correlated, providing robust context to security operations teams to understand the complete attack story in their cloud environment. |
-| Threat detection | Accurate matching of virtual entities to device entities to ensure precision and effective threat detection. |
-| Advanced hunting  |  |
-| Unified API | Defender for Cloud alerts and incidents are now included in [Microsoft 365 Defender’s public API](/microsoft-365/security/defender/api-overview?view=o365-worldwide), allowing customers to export their security alerts data into other systems using one API. |
+Learn more about Defender for Cloud's [alerts in Microsoft 365 Defender](concept-integration-365.md).
 
 ## Next steps
 
