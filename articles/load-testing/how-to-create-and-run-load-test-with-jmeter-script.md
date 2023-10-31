@@ -19,6 +19,7 @@ Use cases for creating a load test with an existing JMeter script include:
 
 - You want to reuse existing JMeter scripts to test your application.
 - You want to test endpoints that aren't HTTP-based, such as databases or message queues. Azure Load Testing supports all communication protocols that JMeter supports.
+- To use the CLI commands, Azure CLI version 2.2.0 or later. Run `az --version` to find the version that's installed on your computer. If you need to install or upgrade the Azure CLI, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
 ## Prerequisites
 
@@ -75,7 +76,7 @@ To create a load test using an existing JMeter script with the Azure CLI:
 
 1. Set parameter values.
 
-    Specify a unique test ID for your load test, and the name of the JMeter test script (JMX file). If you use an existing test ID, a test run is added to the existing test.
+    Specify a unique test ID for your load test, and the name of the JMeter test script (JMX file). If you use an existing test ID, a test run will be added to the test when you run it.
 
     ```azurecli
     $testId="<test-id>"
@@ -127,7 +128,7 @@ To run the load test you created previously with the Azure CLI:
 
 1. Set parameter values.
 
-    Specify a test run ID and test run display name. If you 
+    Specify a test run ID and display name.
 
     ```azurecli
     testRunId="run_"`date +"%Y%m%d%_H%M%S"`
@@ -142,9 +143,9 @@ To run the load test you created previously with the Azure CLI:
 
 1. Retrieve the client-side test metrics with the `az load test-run metrics list` command:
 
-```azurecli
-az load test-run metrics list --load-test-resource $loadTestResource --test-run-id $testRunId --metric-namespace LoadTestRunMetrics
-```
+    ```azurecli
+    az load test-run metrics list --load-test-resource $loadTestResource --test-run-id $testRunId --metric-namespace LoadTestRunMetrics
+    ```
 
 ---
 
