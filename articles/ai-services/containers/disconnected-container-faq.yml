@@ -31,7 +31,7 @@ sections:
           *	Azure AI Vision - Read
           *	Document Intelligence
 
-          For more information about commitment tier pricing, reach out to your Microsoft account team or contact at Microsoft. You can also email csgate@microsoft.com.
+          For more information about commitment tier pricing, reach out to your Microsoft account team or contact at Microsoft. You can also email azureaicontainergating@service.microsoft.com.
       - question: Will containers be available for other Azure AI services offerings, and what's the next set of containers I should expect?
         answer: |
           We'd like to make more Azure AI services offerings available as containers. Contact your local Microsoft account manager to get updates on new container releases and other Azure AI services announcements.
