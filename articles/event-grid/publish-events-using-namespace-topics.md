@@ -4,13 +4,12 @@ description: This article provides step-by-step instructions to publish events t
 ms.topic: quickstart
 ms.author: jafernan
 author: jfggdl
-ms.custom: references_regions, devx-track-azurecli
 ms.date: 05/24/2023
 ---
 
 # Publish to namespace topics and consume events in Azure Event Grid
 
-This article provides a quick introduction to pull delivery using the ``curl`` bash shell command to publish, receive, and acknowledge events. Event Grid resources are created using CLI commands. This article is suitable for a quick test of the pull delivery functionality. For sample code using the data plane SDKs, see the [.Net](event-grid-dotnet-get-started-pull-delivery.md) or the Java samples. For Java, we provide the sample code in two articles: [publish events](publish-events-to-namespace-topics-java.md) and [receive events](receive-events-from-namespace-topics-java.md) quickstarts.
+This article provides a quick introduction to pull delivery using the ``curl`` bash shell command to publish, receive, and acknowledge events. Event Grid resources are created using CLI commands. This article is suitable for a quick test of the pull delivery functionality. For sample code using the data plane SDKs, see the [.NET](event-grid-dotnet-get-started-pull-delivery.md) or the Java samples. For Java, we provide the sample code in two articles: [publish events](publish-events-to-namespace-topics-java.md) and [receive events](receive-events-from-namespace-topics-java.md) quickstarts.
  For more information about the pull delivery model, see the [concepts](concepts-event-grid-namespaces.md) and [pull delivery overview](pull-delivery-overview.md) articles.
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]

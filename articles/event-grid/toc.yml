@@ -9,8 +9,10 @@ items:
       href: whats-new.md
     - name: Choose the right tier
       href: choose-right-tier.md
-  - name: Event Grid namespaces
+  - name: Event Grid namespaces  
     items:
+    - name: Concepts 
+      href: concepts-event-grid-namespaces.md
     - name: MQTT broker
       items:
       - name: Overview
@@ -110,6 +112,10 @@ items:
           items:
           - name: Publish and deliver events using namespace topics
             href: publish-deliver-events-with-namespace-topics.md
+        - name: Publish events using namespace topics (Java)
+          href: publish-events-to-namespace-topics-java.md
+        - name: Receive events from namespace topics (Java)
+          href: receive-events-from-namespace-topics-java.md
       - name: Concepts
         items:
         - name: Pull delivery

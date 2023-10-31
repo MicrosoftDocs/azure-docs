@@ -4,7 +4,6 @@ description: This article provides step-by-step instructions to publish events t
 ms.topic: quickstart
 ms.author: jafernan
 author: jfggdl
-ms.custom: references_regions, devx-track-azurecli
 ms.date: 11/02/2023
 ---
 
