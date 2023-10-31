@@ -43,7 +43,7 @@ landingContent:
           - text: Visualize and analyze telemetry
             url: analyze-telemetry/overview-analyze-telemetry.md
           - text: Monitor service and asset health
-            url: monitor/overview-monitor-health.md
+            url: monitor/howto-configure-observability.md
 
   - title: Guides
     linkLists:

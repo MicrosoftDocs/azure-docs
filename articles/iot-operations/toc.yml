@@ -148,8 +148,8 @@ items:
         href: analyze-telemetry/overview-analyze-telemetry.md
     - name: Monitor service and asset health
       items:
-      - name: Overview
-        href: monitor/overview-monitor-health.md
+      - name: Configure observability
+        href: monitor/howto-configure-observability.md
       - name: Monitor Azure MQ
         href: monitor/howto-monitor-mq.md
     - name: Manage layered network
