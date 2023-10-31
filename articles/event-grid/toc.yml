@@ -100,9 +100,13 @@ items:
         href: namespace-push-delivery-overview.md
       - name: Quickstarts
         items:
+        - name: Publish events using namespace topics (Java)
+          href: publish-events-to-namespace-topics-java.md      
         - name: Pull delivery
           items:
-          - name: Publish and subscribe to events using namespace topics
+          - name: Receive events from namespace topics (Java)
+            href: receive-events-from-namespace-topics-java.md         
+          - name: Publish and subscribe to events using namespace topics (CLI)
             href: publish-events-using-namespace-topics.md
           - name: Send and pull messages
             items:
@@ -112,10 +116,6 @@ items:
           items:
           - name: Publish and deliver events using namespace topics
             href: publish-deliver-events-with-namespace-topics.md
-        - name: Publish events using namespace topics (Java)
-          href: publish-events-to-namespace-topics-java.md
-        - name: Receive events from namespace topics (Java)
-          href: receive-events-from-namespace-topics-java.md
       - name: Concepts
         items:
         - name: Pull delivery
