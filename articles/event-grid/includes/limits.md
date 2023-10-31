@@ -15,7 +15,7 @@ ms.custom: include file, ignite-2023
 
 ## Event Grid throttle limits
 
-Event Grid offers a standard tier and basic tier. Event Grid standard tier enables pub-sub using MQTT broker functionality and pull-delivery of messages through the Event Grid namespace. Event Grid basic tier enables push delivery using Event Grid custom topics, Event Grid system topics, Event domains and Event Grid partner topics. See [Choose the right Event Grid tier](../choose-right-tier.md). This article describes the quota and limits for both tiers.
+Event Grid offers a standard tier and basic tier. Event Grid standard tier enables pub-sub using MQTT broker functionality and pull-delivery of messages through the Event Grid namespace. Event Grid basic tier enables push delivery using Event Grid custom topics, Event Grid system topics, Event domains, and Event Grid partner topics. See [Choose the right Event Grid tier](../choose-right-tier.md). This article describes the quota and limits for both tiers.
 
 ## Namespace resource limits
 
@@ -35,7 +35,7 @@ The following limits apply to MQTT in Azure Event Grid namespace resource.
 |----------------------------------------------|-----------------------------------------------------------------------------------|
 | MQTT connections per namespace               | 10,000 per TU                                                                     |
 | Sessions per namespace                       | 10,000 per TU                                                                     |
-| Session Expiry Interval                      | 8 hours, [configurable on the namesapce](../mqtt-support.md#maximum-session-expiry-interval-configuration)|
+| Session Expiry Interval                      | 8 hours, [configurable on the namespace](../mqtt-support.md#maximum-session-expiry-interval-configuration)|
 | Inbound MQTT publish requests per namespace  | 1,000 messages per second                                                         |
 | Inbound MQTT bandwidth per namespace         | 1 MB per second per TU                                                            |
 | Inbound MQTT publish requests per connection | 100 messages per second                                                           |
@@ -77,16 +77,16 @@ The following limits apply to events in Azure Event Grid namespace resource.
 | Namespace topics                                      | 100 per TU                                                                         |
 | Event ingress                                         | 1,000 events per second or 1 MB per second per TU (whichever comes first)          |
 | Event egress                                          | 2,000 events per second or 2 MB per second per TU (whichever comes first)          |
-| Maximum event retention on namespace topics              | 7 days|                                                                             |
+| Maximum event retention on namespace topics           | 7 days                                                                             |
 | Subscriptions per topic                               | 100                                                                                |
 | Connected clients per namespace (queue subscriptions) | 1,000                                                                              |
 | Maximum event size                                    | 1 MB                                                                               |
 | Batch size                                            | 1 MB                                                                               |
 | Events per request                                    | 1,000                                                                              |
 
-## Custom topic, system topic and partner topic resource limits
+## Custom topic, system topic, and partner topic resource limits
 
-The following limits apply to Azure Event Grid custom topic, system topic and partner topic resources.
+The following limits apply to Azure Event Grid custom topic, system topic, and partner topic resources.
 
 | Limit description                                      | Limit                                                                                                                               |
 |--------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
