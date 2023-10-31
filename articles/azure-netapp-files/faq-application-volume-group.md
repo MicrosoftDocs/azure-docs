@@ -86,7 +86,7 @@ For optimal sizing, it's important to size for the complete landscape including 
 
 ### I received a warning message `"Not enough pool capacity"`. What can I do? 
 
-Application volume group calculates the capacity and throughput demand of all volumes based on your input of the HANA memory. When you select the capacity pool, it immediately checks if there's enough space and throughput left in the capacity pool. 
+Application volume group calculates the capacity and throughput demand of all volumes based on your input of the HANA memory. When you select the capacity pool, it immediately checks if there's enough capacity and throughput available in the capacity pool. 
 
 At the initial **SAP HANA** screen, you can ignore this message and continue with the workflow by clicking the **Next** button. And you can later adapt the proposed values for each volume individually so that all volumes fit into the capacity pool. This error message reappears when you change each individual volume until all volumes fit into the capacity pool.
 
@@ -109,10 +109,10 @@ Application volume group for SAP HANA wasn't built with a dedicated focus on mul
 The basics for multiple partitions are as follows:  
 
 * Multiple partitions mean that a single SAP HANA host is using more than one volume to store its persistence. 
-* Multiple partitions need to mount on different paths. For example, the first volume is on `/hana/SID/data/mnt00001`, and the second volume needs a different path (`/hana/SID/data2/mnt00002`). To achieve this outcome, you should adapt the naming convention manually. That is, `SID_DATA1_MNT00001; SID_DATA2_MNT00002, ...`.
-* Memory is the key for application volume group for SAP HANA to size for capacity and throughput. As such, you need to adapt the size to accommodate the number of partitions. For two partitions, you should only use 50% of the memory. For three partitions, you should use 33% of the memory, and so on. 
+* Multiple partitions need to mount on different paths. For example, the first volume is on `/hana/<SID>/data1/mnt00001`, and the second volume needs a different path (`/hana/<SID>/data2/mnt00002`). To achieve this outcome, you should adapt the naming convention manually. That is, `<SID>-DATA1-MNT00001; <SID>-DATA2-MNT00002, ...`.
+* Memory is the key for application volume group for SAP HANA to size for capacity and throughput. As such, you need to adapt the size to accommodate the number of partitions. For two partitions, you should use 50% of the memory. For three partitions, you should use 33% of the memory, and so on. 
 
-For each host and each partition you want to create, you need to rerun application volume group for SAP HANA. And you should adapt the naming proposal to meet the above recommendations.
+For each host and each partition you want to create, you need to rerun application volume group for SAP HANA, and you should adapt the naming proposal to meet the above recommendations.
 
 For more details about this topic, see [Using Azure NetApp Files AVG for SAP HANA to deploy HANA with multiple partitions](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/using-azure-netapp-files-avg-for-sap-hana-to-deploy-hana-with/ba-p/3742747). 
 
@@ -122,36 +122,36 @@ SAP defines the Key Performance Indicators (KPIs) for the HANA volumes as 400 Mi
 
 The following table describes the memory range and proposed throughput ***for the HANA data volume***:
 
-<table><thead><tr><th colspan="2">Memory range (in TB)</th><th rowspan="2">Proposed throughput</th></tr><tr><th>Minimum</th><th>Maximum</th></tr></thead><tbody><tr><td>0</td><td>1</td><td>400</td></tr><tr><td>1</td><td>2</td><td>600</td></tr><tr><td>2</td><td>4</td><td>800</td></tr><tr><td>4</td><td>6</td><td>1000</td></tr><tr><td>6</td><td>8</td><td>1200</td></tr><tr><td>8</td><td>10</td><td>1400</td></tr><tr><td>10</td><td>unlimited</td><td>1500</td></tr></tbody></table>
+<table><thead><tr><th colspan="2">Memory range (TB)</th><th rowspan="2">Proposed throughput (MB/s)</th></tr><tr><th>Minimum</th><th>Maximum</th></tr></thead><tbody><tr><td>0</td><td>1</td><td>400</td></tr><tr><td>1</td><td>2</td><td>600</td></tr><tr><td>2</td><td>4</td><td>800</td></tr><tr><td>4</td><td>6</td><td>1000</td></tr><tr><td>6</td><td>8</td><td>1200</td></tr><tr><td>8</td><td>10</td><td>1400</td></tr><tr><td>10</td><td>unlimited</td><td>1500</td></tr></tbody></table>
 
 The following table  describes the memory range and proposed throughput ***for the HANA log volume***:
 
-<table><thead><tr><th colspan="2">Memory range (in TB)</th><th rowspan="2">Proposed throughput</th></tr><tr><th>Minimum</th><th>Maximum</th></tr></thead><tbody><tr><td>0</td><td>4</td><td>250</td></tr><tr><td>4</td><td>unlimited</td><td>500</td></tr></tbody></table>
+<table><thead><tr><th colspan="2">Memory range (TB)</th><th rowspan="2">Proposed throughput (MB/s)</th></tr><tr><th>Minimum</th><th>Maximum</th></tr></thead><tbody><tr><td>0</td><td>4</td><td>250</td></tr><tr><td>4</td><td>unlimited</td><td>500</td></tr></tbody></table>
 
-Higher throughput for the database volume is most important for the database startup of larger databases when reading data into memory. At runtime, most of the I/O is write I/O, where even the KPIs show lower values. User experience shows that, for smaller databases, HANA KPI values may be higher than what’s required for most of the time. 
+Database volume throughput mostly affects the time it takes to read data into memory upon database startup. At runtime however, most of the I/O is write I/O, where even the KPIs show lower values. User experience shows that, for smaller databases, HANA KPI values may be higher than required for most of the time. 
 
 Azure NetApp Files performance of each volume can be adjusted at runtime.  As such, at any time, you can adjust the performance of your database by adjusting the data and log volume throughput to your specific requirements. For instance, you can fine-tune performance and reduce costs by allowing higher throughput at startup while reducing to KPIs during normal operation.  
 
 ### Will all the volumes be provisioned in close proximity to my SAP HANA servers?
 
-Using the proximity placement group (PPG) that you created for your SAP HANA servers ensures that the data, log, and shared volumes are created close to the SAP HANA servers to achieve the best latency and throughput. However, log-backup and data-backup volumes don’t require low latency. From a protection perspective, it makes sense to store these backup volumes in a different location from the data, log, and shared volumes. Therefore, application volume group places the backup volumes on a different storage location inside the region that has sufficient space and throughput available.
+Using the proximity placement group (PPG) that you created for your SAP HANA servers ensures that the data, log, and shared volumes are created close to the SAP HANA servers to achieve the best latency and throughput. However, log-backup and data-backup volumes don’t require low latency. From a protection perspective, it makes sense to store these backup volumes in a different location from the data, log, and shared volumes. Therefore, application volume group places the backup volumes on a different storage location inside the region that has sufficient capacity and throughput available.
 
 ### What is the relationship between AVset, VM, PPG, and Azure NetApp Files volumes? 
 
 A proximity placement group (PPG) needs to have at least one VM assigned to it, either directly or via an AVset. The purpose of the PPG is to extract the exact location of a VM and pass this information to application volume group to search for Azure NetApp Files resources in the very same data center. This setting only works when at least ONE VM in the PPG is started. Typically, you can add your database servers to the PPG.
 
-PPGs have the side effect that if all VMs are shut down, a following restart of VMs DOES NOT guarantee that they will start in the same data center as before. To prevent this situation from happening, it's strongly recommended to use an AVset where all VMs and the PPG are associated to and use the [HANA pinning workflow](https://aka.ms/HANAPINNING). The workflow not only ensures that the VMs aren't moving if restarted, it also ensures that locations are selected where enough compute and Azure NetApp Files resources are available. 
+PPGs have the side effect that if all VMs are shut down, a following restart of VMs DOES NOT guarantee that they will start in the same data center as before. To prevent this situation from happening, it's strongly recommended to use an AVset where all VMs and the PPG are associated to and use the [HANA pinning workflow](https://aka.ms/HANAPINNING). The workflow not only ensures that the VMs aren't moving when restarted, it also ensures that locations are selected where enough compute and Azure NetApp Files resources are available. 
 
 ### For a multi-host SAP HANA system, will the shared volume be resized when I add additional HANA hosts?
 
 No. This scenario is currently one of the very few cases where you need to manually adjust the size. SAP recommends that you size the shared volume as 1 x RAM for every four HANA hosts. Because you create the shared volume as part of the first SAP HANA host, it’s already sized as 1 TB. There are two options to size the share volume for SAP HANA properly.
 
-* If you know upfront that you need, for example, six hosts, you can modify the 1-TB proposal during the initial creation with the application volume group for SAP HANA. At that point, you can also increase the throughput (that is, the QoS) to accommodate six hosts.
+* If you know upfront that you need, for example, six hosts, you can modify the 1 TB proposal during the initial creation with the application volume group for SAP HANA. At that point, you can also increase the throughput (that is, the QoS) to accommodate six hosts.
 * You can always edit the shared volume and change the size and throughput individually after the volume creation. You can do so within the volume placement group or directly in the volume using the Azure resource provider or GUI.
 
 ### I want to create the data-backup volume for not only a single instance but for more than one SAP HANA database. How can I do this?
 
-Log-back and data-backup volumes are optional, and they don't require close proximity. The best way to achieve the intended outcome is to remove the data-backup or log-backup volume when you create the first volume from the application volume group for SAP HANA. You can then create your own volume as a single, independent volume using standard volume provisioning and selecting the proper capacity and throughput that meet your needs. You should use a naming convention that indicates a data-backup volume and that it's used for multiple SIDs.
+Log-back and data-backup volumes are optional, and they don't require close proximity. The best way to achieve the intended outcome is to remove the data-backup or log-backup volume when you create the first volume from the application volume group for SAP HANA. You can then create your own volume as a single, independent volume using standard volume provisioning and selecting the proper capacity and throughput to meet your needs. You should use a naming convention that indicates a data-backup volume and that it's used for multiple SIDs.
 
 
 ## FAQs about application volume group for Oracle
