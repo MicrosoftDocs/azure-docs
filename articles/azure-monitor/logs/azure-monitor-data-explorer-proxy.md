@@ -158,7 +158,7 @@ Perf | where ObjectName == "Memory" and (CounterName == "Available MBytes Memory
 
 ## Create an alert based on a cross-service query
 
-To create a new alert rule based on a cross-service query, follow the steps in [Create a new alert rule](../alerts/alerts-create-new-alert-rule.md), selecting your Log Analytics workspace on the Scope tab.
+To create a new alert rule based on a cross-service query, follow the steps in [Create a new alert rule](../alerts/alerts-create-new-alert-rule.md), selecting your Log Analytics workspace on the **Scope** tab.
 
 ## Limitations
 ### General cross-service query limitations
