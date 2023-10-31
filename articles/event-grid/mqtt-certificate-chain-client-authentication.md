@@ -42,15 +42,15 @@ Using the CA files generated to create certificate for the client.
 1. Under the MQTT section in left rail, navigate to CA certificates menu.
 1. Select **+ Certificate** to launch the Upload certificate page.  
 1. Add certificate name and browse to find the intermediate certificate (.step/certs/intermediate_ca.crt) and select **Upload**. You can upload a file of .pem, .cer, or .crt type. 
+1. On the Upload certificate page, give a Certificate name and browse for the certificate file.
+1. Select **Upload** button to add the parent certificate.
+
+  :::image type="content" source="./media/mqtt-certificate-chain-client-authentication/event-grid-namespace-parent-certificate-added.png" alt-text="Screenshot showing the added CA certificate listed in the CA certificates page.":::
 
   > [!NOTE]
   > - CA certificate name can be 3-50 characters long.
   > - CA certificate name can include alphanumeric, hyphen(-) and, no spaces.
   > - The name needs to be unique per namespace.
-5. On the Upload certificate page, give a Certificate name and browse for the certificate file.
-6. Select **Upload** button to add the parent certificate.
-
-  :::image type="content" source="./media/mqtt-certificate-chain-client-authentication/event-grid-namespace-parent-certificate-added.png" alt-text="Screenshot showing the added CA certificate listed in the CA certificates page.":::
 
 ## Configure client authentication settings
 1. Navigate to the Clients page.
