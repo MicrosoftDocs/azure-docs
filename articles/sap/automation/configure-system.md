@@ -134,6 +134,10 @@ The database tier defines the infrastructure for the database tier. Supported da
 
 See [High-availability configuration](configure-system.md#high-availability-configuration) for information on how to configure high availability.
 
+> [!div class="mx-tdCol2BreakAll "]
+> | Variable                           | Description                                                                 | Type        | Notes  |
+> | ---------------------------------- | --------------------------------------------------------------------------- | ----------- | ------ |
+> | `database_platform`                | Defines the database back end                                               | Required    |        |
 
 
 
