@@ -81,6 +81,7 @@ Links to the current and previous releases of the Windows agents are available b
    ```
 
 
+
 ---
 
 ## Upgrade the agent
@@ -416,17 +417,20 @@ Starting with agent version 1.15, you can also specify services which should **n
 
 The proxy bypass feature does not require you to enter specific URLs to bypass. Instead, you provide the name of the service(s) that should not use the proxy server. The location parameter refers to the Azure region of the Arc Server(s).
 
+Proxy bypass value when set to ArcData only bypasses the traffic of the Arc SQL Server extension and not the Arc agent.
+
 | Proxy bypass value | Affected endpoints |
 | --------------------- | ------------------ |
 | `AAD` | `login.windows.net`, `login.microsoftonline.com`, `pas.windows.net` |
 | `ARM` | `management.azure.com` |
 | `Arc` | `his.arc.azure.com`, `guestconfiguration.azure.com` , `san-af-<location>-prod.azurewebsites.net`|
+| `ArcData` | `san-af-<location>-prod.azurewebsites.net`|
 
 To send Microsoft Entra ID and Azure Resource Manager traffic through a proxy server but skip the proxy for Azure Arc traffic, run the following command:
 
 ```bash
 azcmagent config set proxy.url "http://ProxyServerFQDN:port"
-azcmagent config set proxy.bypass "Arc"
+azcmagent config set proxy. Bypass "Arc"
 ```
 
 To provide a list of services, separate the service names by commas:
@@ -501,3 +505,4 @@ If you're already using environment variables to configure the proxy server for 
 * Review the [Planning and deployment guide](plan-at-scale-deployment.md) to plan for deploying Azure Arc-enabled servers at any scale and implement centralized management and monitoring.
 
 * Learn how to manage your machine using [Azure Policy](../../governance/policy/overview.md), for such things as VM [guest configuration](../../governance/machine-configuration/overview.md), verifying the machine is reporting to the expected Log Analytics workspace, enable monitoring with [VM insights](../../azure-monitor/vm/vminsights-enable-policy.md), and much more.
+
