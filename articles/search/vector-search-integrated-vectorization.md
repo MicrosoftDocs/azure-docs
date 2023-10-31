@@ -39,7 +39,7 @@ The following diagram shows the components of integrated vectorization.
 
 :::image type="content" source="media/vector-search-integrated-vectorization/integrated-vectorization-architecture.png" alt-text="Diagram of components in an integrated vectorization workflow." border="false" lightbox="media/vector-search-integrated-vectorization/integrated-vectorization-architecture.png":::
 
-Integrated vectorization uses capabiltiies inside and outside of Azure AI Search.
+Integrated vectorization uses capabilities inside and outside of Azure AI Search.
 
 Outside of Azure AI Search, you need:
 
