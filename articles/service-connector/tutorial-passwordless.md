@@ -121,14 +121,29 @@ az ad signed-in-user show
 ```
 
 If you don't log in interactively, you may also get the error and `Interactive authentication is needed`. To resolve the error, log in with the `az login` command.
+
+<a name='connect-to-database-with-azure-active-directory-authentication'></a>
+
 #### Network connectivity
 
 ::: zone pivot="postgresql"
 
-If your database server is in a virtual network, ensure your environment that runs the Azure CLI command can access the server in the virtual network.
+If your database server is in Virtual Network, ensure your environment that runs the Azure CLI command can access the server in the Virtual Network.
 
 ::: zone-end
-<a name='connect-to-database-with-azure-active-directory-authentication'></a>
+
+::: zone pivot="mysql"
+
+If your database server is in Virtual Network, ensure your environment that runs the Azure CLI command can access the server in the Virtual Network.
+
+::: zone-end
+
+::: zone pivot="sql"
+
+If your database server disallows public access, ensure your environment that runs the Azure CLI command can access the server through the private endpoint.
+
+::: zone-end
+
 
 
 ## Next steps
