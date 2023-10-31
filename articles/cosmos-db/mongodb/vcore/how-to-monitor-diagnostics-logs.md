@@ -166,7 +166,7 @@ Common queries are shown in the resource-specific and Azure Diagnostics tables.
 
 You can navigate to Logs blade of the Cosmos DB for MongoDB vCore cluster and you will be able to find some sample queries as listed below.
 
-    :::image type="content" source="media/diagnostics/vcore-diagnostics.png" lightbox="media/diagnostics/vcore-diagnostics.png" alt-text="Sreenshot of the diagnostic queries page.":::
+:::image type="content" source="media/diagnostics/vcore-diagnostics.png" lightbox="media/diagnostics/vcore-diagnostics.png" alt-text="Sreenshot of the diagnostic queries page.":::
 
 ### Failed Mongo vCore requests
 
@@ -188,7 +188,7 @@ To count the number of failed Mongo vCore requests by error code.
 
  Get the Mongo vCore requests P99 runtime duration by operation name. 
 
-#### [Resource-specific](#tab/resource-specific)
+#### [Resource-specific] 
 
    ```Kusto
     // Mongo vCore requests P99 duration by operation 
@@ -205,7 +205,7 @@ To count the number of failed Mongo vCore requests by error code.
 
  Get the count of Mongo vCore requests grouped by total runtime duration
 
-#### [Resource-specific](#tab/resource-specific)
+#### [Resource-specific] 
 
    ```Kusto
     // Mongo vCore requests binned by duration 
@@ -223,7 +223,7 @@ To count the number of failed Mongo vCore requests by error code.
 
  Get the count of Mongo vCore requests by user agent
 
-#### [Resource-specific](#tab/resource-specific)
+#### [Resource-specific] 
 
    ```Kusto
     // Mongo vCore requests by user agent 
