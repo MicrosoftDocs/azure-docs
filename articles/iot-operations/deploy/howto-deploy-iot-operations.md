@@ -27,11 +27,13 @@ There are no additional prerequisites for Azure portal deployments.
 
 A GitHub account.
 
-Azure CLI installed on your development machine. For more information, see [How to install the Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli).
+Azure CLI installed on your development machine. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
 #### [Azure CLI](#tab/cli)
 
-Azure CLI installed on your development machine. For more information, see [How to install the Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli).
+Azure CLI installed on your development machine. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
+
+---
 
 ## Define the deployment
 
