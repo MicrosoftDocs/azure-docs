@@ -84,7 +84,7 @@ When you deploy from VM settings, Azure Bastion is automatically configured with
 
 When you create an Azure Bastion instance in the portal by using **Deploy Bastion**, you deploy Azure Bastion automatically by using default settings and the Basic SKU. You can't modify, or specify additional values for, a default deployment.
 
-After deployment finishes, you can go to the Azure Bastion host **Configuration** page to select certain additional settings and features. You can also upgrade a SKU later to add more features, but you can't downgrade a SKU after Azure Bastion is deployed. For more information, see [About Azure Bastion configuration settings](configuration-settings.md).
+After deployment finishes, you can go to the Azure Bastion host's **Configuration** page to select certain additional settings and features. You can also upgrade a SKU later to add more features, but you can't downgrade a SKU after Azure Bastion is deployed. For more information, see [About Azure Bastion configuration settings](configuration-settings.md).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the portal, go to the VM that you want to connect to. The values from the virtual network where this VM resides will be used to create the Azure Bastion deployment.
@@ -106,12 +106,12 @@ When the Azure Bastion deployment is complete, the screen changes to the **Conne
 
    :::image type="content" source="./media/quickstart-host-portal/connect-vm.png" alt-text="Screenshot shows the pane for connecting by using Azure Bastion." lightbox="./media/quickstart-host-portal/connect-vm.png":::
 
-1. The connection to this virtual machine via Azure Bastion opens directly in the Azure portal (over HTML5) by using port 443 and the Azure Bastion service. When the portal asks you for permissions to the clipboard, select **Allow**. This step lets you use the remote clipboard arrows on the left of the screen.
+1. The connection to this virtual machine via Azure Bastion opens directly in the Azure portal (over HTML5) by using port 443 and the Azure Bastion service. When the portal asks you for permissions to the clipboard, select **Allow**. This step lets you use the remote clipboard arrows on the left of the window.
 
     :::image type="content" source="./media/quickstart-host-portal/connected.png" alt-text="Screenshot that shows an RDP connection to a virtual machine." lightbox="./media/quickstart-host-portal/connected.png":::
 
-> [!NOTE]
-> When you connect, the desktop of the VM might look different from the example screenshot.
+    > [!NOTE]
+    > When you connect, the desktop of the VM might look different from the example screenshot.
 
 Using keyboard shortcut keys while you're connected to a VM might not result in the same behavior as shortcut keys on a local computer. For example, when you're connected to a Windows VM from a Windows client, Ctrl+Alt+End is the keyboard shortcut for Ctrl+Alt+Delete on a local computer. To do this from a Mac while you're connected to a Windows VM, the keyboard shortcut is Fn+Ctrl+Alt+Backspace.
 

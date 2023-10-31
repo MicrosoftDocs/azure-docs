@@ -20,13 +20,13 @@
 
    :::image type="content" source="./media/bastion-connect-vm/authentication-connect.png" alt-text="Screenshot that shows the dropdown list box for authentication type." lightbox="./media/bastion-connect-vm/authentication-connect.png":::
 
-1. To open the VM session in a new browser tab, leave **Open in a new browser tab** selected.
+1. To open the VM session in a new browser tab, leave **Open in new browser tab** selected.
 1. Select **Connect** to connect to the VM.
 1. Confirm that the connection to the virtual machine opens directly in the Azure portal (over HTML5) by using port 443 and the Azure Bastion service.
 
    :::image type="content" source="./media/bastion-vm-rdp/connection.png" alt-text="Screenshot of a computer desktop with an open connection over port 443.":::
 
-> [!NOTE]
-> When you connect, the desktop of the VM will look different from the example screenshot.
+   > [!NOTE]
+   > When you connect, the desktop of the VM will look different from the example screenshot.
 
 Using keyboard shortcut keys while you're connected to a VM might not result in the same behavior as shortcut keys on a local computer. For example, when you're connected to a Windows VM from a Windows client, Ctrl+Alt+End is the keyboard shortcut for Ctrl+Alt+Delete on a local computer. To do this from a Mac while you're connected to a Windows VM, the keyboard shortcut is Fn+Ctrl+Alt+Backspace.

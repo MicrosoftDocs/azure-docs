@@ -13,6 +13,6 @@ You can enable remote audio output for your VM. Some VMs automatically enable th
 
 To enable remote audio output on a Windows VM:
 
-1. After you're connected to the VM, on the lower-right corner of the toolbar, an audio button appears. Right-click the audio button, and then select **Sounds**.
+1. After you're connected to the VM, an audio button appears on the lower-right corner of the toolbar. Right-click the audio button, and then select **Sounds**.
 1. A pop-up message asks if you want to enable the Windows Audio Service. Select **Yes**. You can configure more audio options in **Sound preferences**.
 1. To verify sound output, hover over the audio button on the toolbar.

@@ -108,15 +108,15 @@ This section helps you deploy Azure Bastion to your virtual network. After Azure
 
    :::image type="content" source="./media/tutorial-create-host-portal/instance-values.png" alt-text="Screenshot of Azure Bastion instance details." lightbox="./media/tutorial-create-host-portal/instance-values.png":::
 
-1. Configure the **Virtual networks** settings. Select your virtual network from the dropdown list. If your virtual network isn't in the dropdown list, make sure you selected the correct **Region** value in the previous step.
+1. Configure the **Virtual networks** settings. Select your virtual network from the dropdown list. If your virtual network isn't in the dropdown list, make sure that you selected the correct **Region** value in the previous step.
 
-1. To configure **AzureBastionSubnet**, select **Manage subnet configuration**.
+1. To configure AzureBastionSubnet, select **Manage subnet configuration**.
 
    :::image type="content" source="./media/tutorial-create-host-portal/select-vnet.png" alt-text="Screenshot of the section for configuring virtual networks." lightbox="./media/tutorial-create-host-portal/select-vnet.png":::
 
 1. On the **Subnets** pane, select **+Subnet**.
 
-1. On the **Add subnet** pane, create the **AzureBastionSubnet** subnet by using the following values. Leave the other values as default.
+1. On the **Add subnet** pane, create the AzureBastionSubnet subnet by using the following values. Leave the other values as default.
 
    * The subnet name must be **AzureBastionSubnet**.
    * The subnet must be **/26** or larger (for example, **/26**, **/25**, or **/24**) to accommodate features available with the Standard SKU.
@@ -127,7 +127,9 @@ This section helps you deploy Azure Bastion to your virtual network. After Azure
 
    :::image type="content" source="./media/tutorial-create-host-portal/create-page.png" alt-text="Screenshot of the pane that lists Azure Bastion subnets."lightbox="./media/tutorial-create-host-portal/create-page.png":::
 
-1. The **Public IP address** section is where you configure the public IP address of the Azure Bastion host resource on which RDP/SSH will be accessed (over port 443). The public IP address must be in the same region as the Azure Bastion resource that you're creating. Create a new IP address. You can leave the default naming suggestion.
+1. The **Public IP address** section is where you configure the public IP address of the Azure Bastion host resource on which RDP/SSH will be accessed (over port 443). The public IP address must be in the same region as the Azure Bastion resource that you're creating.
+
+   Create a new IP address. You can leave the default naming suggestion.
 
 1. When you finish specifying the settings, select **Review + Create**. This step validates the values.
 

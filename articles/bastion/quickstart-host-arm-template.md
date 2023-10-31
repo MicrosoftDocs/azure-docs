@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Deploy Azure Bastion in a virtual network using an ARM template'
+title: 'Quickstart: Deploy Azure Bastion to a virtual network using an ARM template'
 titleSuffix: Azure Bastion
-description: Learn how to deploy Azure Bastion in a virtual network by using an Azure Resource Manager template.
+description: Learn how to deploy Azure Bastion to a virtual network by using an Azure Resource Manager template.
 author: abell
 ms.author: abell
 ms.service: bastion
@@ -12,11 +12,11 @@ ms.custom: template-quickstart, devx-track-arm-template
 ---
 
 
-# Quickstart: Deploy Azure Bastion in a virtual network by using an ARM template
+# Quickstart: Deploy Azure Bastion to a virtual network by using an ARM template
 
-This quickstart describes how to use an Azure Bastion template to deploy to a virtual network.
+This quickstart describes how to use an Azure Resource Manager template (ARM template) to deploy Azure Bastion to a virtual network.
 
-An Azure Resource Manager template (ARM template) is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax. In declarative syntax, you describe your intended deployment without writing the sequence of programming commands to create the deployment.
+An ARM template is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax. In declarative syntax, you describe your intended deployment without writing the sequence of programming commands to create the deployment.
 
 The following diagram shows the architecture of Azure Bastion.
 
@@ -53,7 +53,7 @@ By default, this template creates an Azure Bastion deployment with a resource gr
 | `vnet-name`                | Name of a new or existing virtual network to which Azure Bastion should be deployed.   |
 | `vnet-ip-prefix`           | IP prefix for available addresses in a virtual network address space.                  |
 | `vnet-new-or-existing`     | Choice of whether to deploy new virtual network or deploy to an existing one.          |
-| `bastion-subnet-ip-prefix` | Bastion subnet IP prefix, which must be within the virtual network IP prefix's address space. |
+| `bastion-subnet-ip-prefix` | Azure Bastion subnet IP prefix, which must be within the virtual network IP prefix's address space. |
 | `bastion-host-name`        | Name of the Azure Bastion resource.                                                      |
 
 > [!NOTE]
@@ -75,7 +75,7 @@ In this section, you deploy Azure Bastion by using the Azure portal. You don't c
 
    * If you're using the template for a test environment, you can use the example values that this step provides.
    * To view the template, select **Edit template**. On this page, you can adjust some of the values, such as the address space or the name of certain resources. Select **Save** to save your changes, or select **Discard** to discard them.
-   * If you decide to create your Azure Bastion host in an existing virtual network, be sure to fill in the values for the template as they are in your deployed environment, or the template will fail.
+   * If you decide to create your Azure Bastion host in an existing virtual network, be sure to fill in the values for the template as they exist in your deployed environment, or the template will fail.
 
     :::image type="content" source="./media/quickstart-host-arm-template/bastion-template-values.png" alt-text="Screenshot of example values for an Azure Bastion ARM template." lightbox="./media/quickstart-host-arm-template/bastion-template-values.png":::
 
@@ -91,7 +91,7 @@ In this section, you deploy Azure Bastion by using the Azure portal. You don't c
    | **Bastion-host-name**        | Enter **TestBastionHost**.      |
 
 1. Select the **Review + create** tab, or select the **Review + create** button. Select **Create**.
-1. The deployment finishes within 10 minutes. You can view the progress on the template **Overview** page. If you close the portal, deployment continues.
+1. The deployment finishes within 10 minutes. You can view the progress on the template **Overview** pane. If you close the portal, deployment continues.
 
 ## Validate the deployment
 
@@ -99,7 +99,7 @@ To validate the deployment of Azure Bastion:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select the **TestRG1** resource group that you created in the previous section.
-1. From the **Overview** page of the resource group, scroll down to the **Resources** tab. Validate the Azure Bastion resource.
+1. From the **Overview** pane of the resource group, scroll down to the **Resources** tab. Validate the Azure Bastion resource.
 
    :::image type="content" source="./media/quickstart-host-arm-template/bastion-validate-deployment-full.png" alt-text="Screenshot that shows the Azure Bastion resource in a resource group." lightbox="./media/quickstart-host-arm-template/bastion-validate-deployment.png":::
 
@@ -113,9 +113,10 @@ When you finish using the virtual network and the virtual machines, delete the r
 
 ## Next steps
 
-In this quickstart, you deployed Azure Bastion by using the Azure Bastion ARM template. You then connected to a virtual machine securely via Azure Bastion. Continue with the following steps if you want to copy and paste to your virtual machine.
+In this quickstart, you deployed Azure Bastion by using an ARM template. You then connected to a virtual machine securely via Azure Bastion. Continue with the following steps if you want to copy and paste to your virtual machine.
 
 > [!div class="nextstepaction"]
 > [Quickstart: Create a Windows virtual machine in the Azure portal](../virtual-machines/windows/quick-create-portal.md)
 
+> [!div class="nextstepaction"]
 > [Create an RDP connection to a Windows VM using Azure Bastion](../bastion/bastion-connect-vm-rdp-windows.md)
