@@ -21,6 +21,9 @@ Azure Database for PostgreSQL - Flexible Server supports two types of mutually e
 
 In this article, we'll focus on creation of PostgreSQL server with **Public access (allowed IP addresses)** using Azure portal and securing it **adding private networking to the server based on [Private Link](./concepts-networking-private-link.md) technology**. **[Azure Private Link](../../private-link/private-link-overview.md)** enables you to access Azure PaaS Services, such as [Azure Database for PostgreSQL - Flexible Server](./concepts-networking-private-link.md) , and Azure hosted customer-owned/partner services over a **Private Endpoint** in your virtual network. **Traffic between your virtual network and the service traverses over the Microsoft backbone network, eliminating exposure from the public Internet**. 
 
+> [!NOTE]
+> Azure Database for PostgreSQL - Flexible Server supports Private Link based networking in Preview.
+
 ## Prerequisites
 
 To add a flexible server to the  virtual network using Private Link, you need:

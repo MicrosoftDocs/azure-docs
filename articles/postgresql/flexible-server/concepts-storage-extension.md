@@ -16,6 +16,9 @@ ms.topic: conceptual
 
 A common use case for our customers today is need to be able to import\export between Azure Blob Storage and Microsoft Database for PostgreSQL – Flexible Server DB instance. To simplify this use case, we introduced new **Azure Storage Extension** (azure_storage) in Azure Database for PostgreSQL - Flexible Server, currently available in **Preview**.
 
+> [!NOTE]
+> Azure Database for PostgreSQL - Flexible Server supports Azure Storage Extension in Preview
+
 ## Azure Blob Storage
 
 Azure Blob Storage is Microsoft's object storage solution for the cloud. Blob Storage is optimized for storing massive amounts of unstructured data. Unstructured data is data that doesn't adhere to a particular data model or definition, such as text or binary data.
