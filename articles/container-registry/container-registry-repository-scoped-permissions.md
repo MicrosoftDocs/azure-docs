@@ -139,9 +139,9 @@ The output shows details about the token. By default, two passwords are generate
 > [!NOTE]
 > To regenerate token passwords and expiration periods, see [Regenerate token passwords](#regenerate-token-passwords) later in this article.
 
-### How to use scope maps to define and assign permissions for multiple repositories?
+### How to use scope maps to define and assign permissions for multiple repositories
 
-Scope maps allow for the use of wildcards to define and grant similar permissions for multiple repositories sharing a common prefix. The repository specific permissions and wildcards can be used in the same scope map. This will allow flexibility to manage permissions for multiple repositories in a single scope map.
+Scope maps allow for the use of a wildcard character to define and grant similar permissions for multiple repositories sharing a common prefix. The repository specific permissions and wildcards can be used in the same scope map. This will allow flexibility to manage permissions for multiple repositories in a single scope map.
 
 These can be created when a scope map is created and assigned to a token, or when a token is created and directly assigned to a repository.
 
