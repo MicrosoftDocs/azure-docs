@@ -31,7 +31,7 @@ This month Microsoft Worldwide Learning announced [Applied Skills](https://techc
 - **Learning path** - [Configure SIEM security operations using Microsoft Sentinel](/training/paths/configure-security-information-event-management-operations-using-microsoft-sentinel/)
   Learn at your own pace, and the modules require you to have your own Azure subscription.
 - **Applied Skill** - [Configure SIEM security operations using Microsoft Sentinel](/credentials/applied-skills/configure-siem-security-operations-using-microsoft-sentinel/)
-  A 2 hour assessment in a sandbox virtual desktop. You are provided an Azure subscription with some elements already configured.
+  <br>A 2 hour assessment is contained in a sandbox virtual desktop. You are provided an Azure subscription with some features already configured.
 
 ### Changes to the documentation table of contents
 
