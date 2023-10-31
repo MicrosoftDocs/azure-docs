@@ -4,27 +4,24 @@ description: Learn about integrating ServiceNow with Microsoft Defender for Clou
 author: dcurwin
 ms.author: justinha
 ms.topic: how-to
-ms.date: 10/23/2023
+ms.date: 10/30/2023
 ---
 
 # Integrate ServiceNow with Microsoft Defender for Cloud (preview)
 
 You can connect ServiceNow to your Microsoft Defender for Cloud environment to create or view ServiceNow tickets with links to recommendations from Microsoft Defender for Cloud. 
 
-## Common Use-Cases & Scenarios
+## Common use cases and scenarios
 
-ServiceNow Integration will enable customers using third party ticketing solutions (ServiceNow) to create, view tickets (linked to recommendations) from Microsoft Defender for Cloud. 
+ServiceNow i will enable customers using third party ticketing solutions (ServiceNow) to create, view tickets (linked to recommendations) from Microsoft Defender for Cloud. 
 
 ## Prerequisites
 
-| Aspect | Details |
-|--------|---------|
-|Required/Preferred Environmental Requirements | - Have an application registry in Service Now. [Create a ServiceNow API Client ID and Client Secret for the SCOM ServiceNow Incident Connector (opslogix.com)](https://www.opslogix.com/knowledgebase/servicenow/kb-create-a-servicenow-api-key-and-secret-for-the-scom-servicenow-incident-connector) <br>- Defender Cloud Security Posture Management (DCSPM) enabled |
-| Required Roles & Permissions | - Security Admin<br>- Contributor<br>- Owner |
-| Clouds | &#x2705; Commercial Clouds<br> &#10060; Nation/Sovereign (US Gov, China Gov, Other Gov) |
-
-## Onboarding to the Preview
-Access to the private preview will be through this Feature Flag Link - https://aka.ms/integrations
+| Prerequisite | Details |
+|--------------|---------|
+| Environment  | - Have an application registry in ServiceNow. For more information, see [Create a ServiceNow API Client ID and Client Secret for the SCOM ServiceNow Incident Connector (opslogix.com)](https://www.opslogix.com/knowledgebase/servicenow/kb-create-a-servicenow-api-key-and-secret-for-the-scom-servicenow-incident-connector) <br>- Enable Defender Cloud Security Posture Management (DCSPM) |
+| Roles  | - Security Admin<br>- Contributor<br>- Owner |
+| Cloud  | &#x2705; Azure <br> &#10060; Azure Government, Azure China 21Vianet, air-gapped clouds |
 
 
 ## Onboarding ServiceNow to Defender for Cloud
