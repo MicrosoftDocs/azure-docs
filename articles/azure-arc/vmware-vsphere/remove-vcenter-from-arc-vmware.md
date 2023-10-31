@@ -4,7 +4,7 @@ description: This article explains the steps to cleanly remove your VMware vCent
 author: snehithm
 ms.author: snmuvva
 ms.topic: how-to 
-ms.date: 03/28/2022
+ms.date: 11/06/2023
 ms.service: azure-arc
 ms.subservice: azure-arc-vmware-vsphere
 ms.custom: devx-track-azurecli
