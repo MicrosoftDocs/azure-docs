@@ -18,14 +18,11 @@ items:
     href: qumulo-troubleshoot.md
   - name: Setting up Azure Native Qumulo Scalable File Service
     href: qumulo-how-to-setup-features.md
-  - name: Setting up ANQ for disaster recovery usecase
+  - name: Using ANQ for disaster recovery
     href: qumulo-disaster-recovery.md
-  - name: Setting up ANQ for video editing usecase
+  - name: Using ANQ for video editing
     href: qumulo-video-editing.md
-  - name: Using ANQ for pacs
-    href: qumulo-vendor-neutral-archive.md
-  - name: Setting up ANQ for avd usecase
-    href: qumulo-virtual-desktop.md
+
 - name: SDKs and command-lines
   items:
   - name: Python
