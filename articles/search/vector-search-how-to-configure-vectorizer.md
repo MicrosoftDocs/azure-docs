@@ -29,7 +29,7 @@ You can use the Azure portal (**Import and vectorize data** wizard), the [2023-1
 
 + A [supported data source](search-indexer-overview.md#supported-data-sources) and a [data source definition](search-howto-create-indexers.md#prepare-a-data-source) for your indexer.
 
-+ A skillset that calls an embedding model, and optionally performs data chunking if source documents are too large for embedding model inputs. This article assumes you already know how to [create a skillset](cognitive-search-defining-skillset.md).
++ A skillset that performs data chunking and vectorization of those chunks. You can omit a skillset if you only want integrated vectorization at query time or if you don't need chunking or [index projections](index-projections-concept-intro.md). This article assumes you already know how to [create a skillset](cognitive-search-defining-skillset.md).
 
 + An index that specifies vector and non-vector fields. This article assumes you already know how to [create a vector index](vector-search-how-to-create-index.md) and covers just the steps for adding vectorizers and field assignments.
 
@@ -68,7 +68,7 @@ You can use the Azure portal (**Import and vectorize data** wizard), the [2023-1
 
 1. Use [Create or Update Index (preview)](/rest/api/searchservice/2023-10-01-preview/indexes/create-or-update) to add a profile.
 
-1. Add the  a profiles section that specifies combinations of algorithms and vectorizers.
+1. Add a profiles section that specifies combinations of algorithms and vectorizers.
 
     ```json
     "profiles": [ 
