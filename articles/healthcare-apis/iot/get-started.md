@@ -3,7 +3,7 @@ title: Get started with the MedTech service - Azure Health Data Services
 description: Learn the basic steps for deploying the MedTech service.
 author: msjasteppe
 ms.service: healthcare-apis
-ms.subservice: fhir
+ms.subservice: iomt
 ms.topic: quickstart
 ms.date: 06/06/2023
 ms.author: jasteppe
@@ -11,9 +11,6 @@ ms.custom: mode-api
 ---
 
 # Get started with the MedTech service 
-
-> [!NOTE]
-> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
 This article and diagram outlines the basic steps to get started with the MedTech service in the [Azure Health Data Services](../healthcare-apis-overview.md). These steps may help you to assess the [MedTech service deployment methods](deploy-choose-method.md) and determine which deployment method is best for you.
 
@@ -59,21 +56,8 @@ If you have successfully deployed the prerequisite resources, you're now ready t
 
 ## Next steps
 
-This article described the basic steps needed to get started deploying the MedTech service. 
+[Choose a deployment method for the MedTech service](deploy-new-choose.md)
 
-To learn about methods of deploying the MedTech service, see
+[Overview of the MedTech service FHIR destination mapping](overview-of-fhir-destination-mapping.md)
 
-> [!div class="nextstepaction"]
-> [Choose a deployment method for the MedTech service](deploy-new-choose.md)
-
-For an overview of the MedTech service device mapping, see
-
-> [!div class="nextstepaction"]
-> [Overview of the MedTech service device mapping](overview-of-device-mapping.md)
-
-For an overview of the MedTech service FHIR destination mapping, see
-
-> [!div class="nextstepaction"]
-> [Overview of the MedTech service FHIR destination mapping](overview-of-fhir-destination-mapping.md)
-
-FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
+[!INCLUDE[FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]

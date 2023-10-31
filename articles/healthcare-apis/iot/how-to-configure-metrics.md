@@ -12,9 +12,6 @@ ms.author: jasteppe
 
 # How to configure the MedTech service metrics
 
-> [!NOTE]
-> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
-
 In this article, learn how to configure the MedTech service metrics in the Azure portal. Also learn how to pin the MedTech service metrics tile to an Azure portal dashboard for later viewing.
 
 The MedTech service metrics can be used to help determine the health and performance of your MedTech service and can be useful with troubleshooting and seeing patterns and/or trends with your MedTech service. 
@@ -86,11 +83,6 @@ To learn how to create an Azure portal dashboard and pin tiles, see [Create a da
 
 ## Next steps
 
-In this article, you learned about how to configure the MedTech service metrics.
+[How to enable diagnostic settings for the MedTech service](how-to-enable-diagnostic-settings.md)
 
-To learn how to enable the MedTech service diagnostic settings to export logs and metrics to another location (for example: Azure Log Analytics workspace) for audit, backup, or troubleshooting, see
-
-> [!div class="nextstepaction"]
-> [How to enable diagnostic settings for the MedTech service](how-to-enable-diagnostic-settings.md)
-
-(FHIR&#174;) is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
+[!INCLUDE[FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]

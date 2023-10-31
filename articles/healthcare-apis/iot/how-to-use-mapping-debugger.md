@@ -15,9 +15,6 @@ ms.author: jasteppe
 > [!IMPORTANT]
 > This feature is currently in Public Preview. See [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-> [!NOTE]
-> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
-
 In this article, learn how to use the MedTech service Mapping debugger. The Mapping debugger is a self-service tool that is used for creating, updating, and troubleshooting the MedTech service [device](overview-of-device-mapping.md) and [FHIR destination](overview-of-fhir-destination-mapping.md) mappings. The Mapping debugger enables you to easily view and make inline adjustments in real-time, without ever having to leave the Azure portal. The Mapping debugger can also be used for uploading test device messages to see how they'll look after being processed into normalized messages and transformed into FHIR Observations.
 
 > [!TIP]
@@ -101,24 +98,11 @@ For this troubleshooting example, we're using a test device message that is [mes
 
 ## Next steps
 
-In this article, you were provided with an overview and learned about how to use the Mapping debugger to edit and troubleshoot the MedTech service device and FHIR destination mappings.
+[Overview of the MedTech service device mapping](overview-of-device-mapping.md)
 
-For an overview of the MedTech service device mapping, see
+[Overview of the MedTech service FHIR destination mapping](overview-of-fhir-destination-mapping.md)
 
-> [!div class="nextstepaction"]
-> [Overview of the MedTech service device mapping](overview-of-device-mapping.md)
+[Overview of the MedTech service scenario-based mappings samples](overview-of-samples.md)
 
-For an overview of the MedTech service FHIR destination mapping, see
-
-> [!div class="nextstepaction"]
-> [Overview of the MedTech service FHIR destination mapping](overview-of-fhir-destination-mapping.md)
-
-
-For an overview of the MedTech service scenario-based mappings samples, see
-
-> [!div class="nextstepaction"]
-> [Overview of the MedTech service scenario-based mappings samples](overview-of-samples.md)
-
-
-FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
+[!INCLUDE[FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]
  

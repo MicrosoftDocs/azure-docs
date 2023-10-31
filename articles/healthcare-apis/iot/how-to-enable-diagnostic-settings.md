@@ -12,9 +12,6 @@ ms.author: jasteppe
 
 # How to enable diagnostic settings for the MedTech service
 
-> [!NOTE]
-> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
-
 In this article, learn how to enable diagnostic settings for the MedTech service to:
 
 * Create a diagnostic setting to export logs and metrics for audit, analysis, or troubleshooting of the MedTech service.
@@ -165,9 +162,6 @@ The MedTech service comes with pre-defined queries that can be used anytime in y
 
 ## Next steps
 
-In this article, you learned how to enable the diagnostics settings for the MedTech service and use the Log Analytics workspace to query and view the MedTech service logs.
+[Frequently asked questions about the MedTech service](frequently-asked-questions.md)
 
-To learn about the MedTech service frequently asked questions (FAQs), see
-
-> [!div class="nextstepaction"]
-> [Frequently asked questions about the MedTech service](frequently-asked-questions.md)
+[!INCLUDE[FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]
