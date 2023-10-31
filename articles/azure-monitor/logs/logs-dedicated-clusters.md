@@ -44,7 +44,7 @@ For more information on Log Analytics permissions, see [Manage access to log dat
 Provide the following properties when creating new dedicated cluster:
 
 - **ClusterName**: Must be unique for the resource group.
-- **ResourceGroupName**: Use a central IT resource group because many teams in the organization usually share clusters. For more design considerations, review Design a Log Analytics workspace configuration(../logs/workspace-design.md).
+- **ResourceGroupName**: Use a central IT resource group because many teams in the organization usually share clusters. For more design considerations, review [Design a Log Analytics workspace configuration](../logs/workspace-design.md).
 - **Location**
 - **SkuCapacity**: You can set the commitment tier (formerly called capacity reservations) to 500, 1000, 2000 or 5000 GB/day. For more information on cluster costs, see [Dedicate clusters](./cost-logs.md#dedicated-clusters). 
 - **Managed identity**: Clusters support two [managed identity types](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types): 

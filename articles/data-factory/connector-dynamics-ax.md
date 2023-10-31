@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 11/30/2022
+ms.date: 10/20/2023
 ---
 
 # Copy data from Dynamics AX using Azure Data Factory or Synapse Analytics

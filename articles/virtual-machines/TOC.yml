@@ -1367,7 +1367,7 @@
     href: disks-scalability-targets.md
   - name: Backup and data protection
     items:
-    - name: Enable incremental snapshots
+    - name: Create incremental snapshots
       href: disks-incremental-snapshots.md
     - name: Copy incremental snapshots across regions
       href: disks-copy-incremental-snapshot-across-regions.md
@@ -1430,6 +1430,8 @@
     items:
     - name: Change disk types
       href: disks-convert-types.md
+    - name: Migrate from LRS to ZRS
+      href: disks-migrate-lrs-zrs.md
     - name: Migrate to the same or different subscription
       items:
       - name: Copy a managed disk to the same or different subscription - CLI
@@ -1776,27 +1778,27 @@
     items:
     - name: Portal
       displayName: Configured managed identies
-      href: ../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md?toc=/azure/virtual-machines/toc.json
+      href: /entra/identity/managed-identities-azure-resources/qs-configure-portal-windows-vm?toc=/azure/virtual-machines/toc.json
     - name: CLI
       displayName: Configured managed identies
-      href: ../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md?toc=/azure/virtual-machines/toc.json
+      href: /entra/identity/managed-identities-azure-resources/qs-configure-cli-windows-vm?toc=/azure/virtual-machines/toc.json
     - name: PowerShell
       displayName: Configured managed identies
-      href: ../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md?toc=/azure/virtual-machines/toc.json
+      href: /entra/identity/managed-identities-azure-resources/qs-configure-powershell-windows-vm?toc=/azure/virtual-machines/toc.json
     - name: Azure Resource Manager Template
       displayName: Configured managed identies
-      href: ../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md?toc=/azure/virtual-machines/toc.json
+      href: /entra/identity/managed-identities-azure-resources/qs-configure-template-windows-vm?toc=/azure/virtual-machines/toc.json
     - name: REST
       displayName: Configured managed identies
-      href: ../active-directory/managed-identities-azure-resources/qs-configure-rest-vm.md?toc=/azure/virtual-machines/toc.json
+      href: /entra/identity/managed-identities-azure-resources/qs-configure-rest-vm?toc=/azure/virtual-machines/toc.json
     - name: Azure SDKs
       displayName: Configured managed identies
-      href: ../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md?toc=/azure/virtual-machines/toc.json
+      href: /entra/identity/managed-identities-azure-resources/qs-configure-sdk-windows-vm?toc=/azure/virtual-machines/toc.json
   - name: Linux VMs SSH with Microsoft Entra ID
     displayName: aad, ssh, active directory
-    href: ../active-directory/devices/howto-vm-sign-in-azure-ad-linux.md?toc=/azure/virtual-machines/toc.json
+    href: /entra/identity/devices/howto-vm-sign-in-azure-ad-linux?toc=/azure/virtual-machines/toc.json
   - name: Windows VMs and Microsoft Entra ID
-    href: ../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md?toc=/azure/virtual-machines/toc.json
+    href: /entra/identity/devices/howto-vm-sign-in-azure-ad-windows?toc=/azure/virtual-machines/toc.json
     displayname: aad, active directory
 - name: Updates and maintenance
   items:

@@ -5,7 +5,7 @@ description: Learn how to deploy Azure Bastion using PowerShell.
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 06/08/2023
+ms.date: 10/05/2023
 ms.author: cherylmc
 ms.custom: ignite-fall-2021, devx-track-azurepowershell
 # Customer intent: As someone with a networking background, I want to deploy Bastion and connect to a VM.
@@ -42,7 +42,7 @@ Verify that you have an Azure subscription. If you don't already have an Azure s
 
 You can use the following example values when creating this configuration, or you can substitute your own.
 
-**Basic VNet and VM values:**
+** Example VNet and VM values:**
 
 |**Name** | **Value** |
 | --- | --- |
@@ -98,7 +98,7 @@ This section helps you create a virtual network, subnets, and deploy Azure Basti
    $vnet = Get-AzVirtualNetwork -Name "TestVNet1" -ResourceGroupName "TestRG1"
    ```
 
-   Add the subnet. 
+   Add the subnet.
 
    ```azurepowershell-interactive
    Add-AzVirtualNetworkSubnetConfig `
@@ -114,7 +114,7 @@ This section helps you create a virtual network, subnets, and deploy Azure Basti
    -AllocationMethod Static -Sku Standard
    ```
 
-1. Create a new Azure Bastion resource in the AzureBastionSubnet using the [New-AzBastion](/powershell/module/az.network/new-azbastion) command. The following example uses the **Basic SKU**. However, you can also deploy Bastion using the Standard SKU by changing the -Sku value to "Standard". The Standard SKU lets you configure more Bastion features and connect to VMs using more connection types. For more information, see [Bastion SKUs](configuration-settings.md#skus).
+1. Create a new Azure Bastion resource in the AzureBastionSubnet using the [New-AzBastion](/powershell/module/az.network/new-azbastion) command. The following example uses the **Basic SKU**. However, you can also deploy Bastion using the Standard SKU by changing the -Sku value to "Standard". The Standard SKU lets you configure more Bastion features and connect to VMs using more connection types. You can also deploy Bastion automatically using the [Developer SKU](quickstart-developer-sku.md). For more information, see [Bastion SKUs](configuration-settings.md#skus).
 
    ```azurepowershell-interactive
    New-AzBastion -ResourceGroupName "TestRG1" -Name "VNet1-bastion" `

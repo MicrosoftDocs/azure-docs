@@ -1115,7 +1115,7 @@ If you set any of these values yourself, consider removing the relevant line fro
 
 To avoid hitting the data rate limit, use [sampling](./sampling.md).
 
-To determine how long data is kept, see [Data retention and privacy](./data-retention-privacy.md).
+To determine how long data is kept, see [Data retention and privacy](/previous-versions/azure/azure-monitor/app/data-retention-privacy).
 
 ## Reference docs
 
