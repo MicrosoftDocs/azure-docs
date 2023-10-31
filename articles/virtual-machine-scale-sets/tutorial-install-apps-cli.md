@@ -62,7 +62,6 @@ az vmss create \
   --resource-group myResourceGroup \
   --name myScaleSet \
   --image Ubuntu2204 \
-  --orchestration-mode Flexible \
   --admin-username azureuser \
   --generate-ssh-keys
 ```
@@ -116,7 +115,7 @@ Enter the public IP address of the load balancer in to a web browser. The load b
 Leave the web browser open so that you can see an updated version in the next step.
 
 ## Update app deployment
-Throughout the lifecycle of a scale set, you may need to deploy an updated version of your application. With the Custom Script Extension, you can reference an updated deploy script and then reapply the extension to your scale set. When the scale set was created in a previous step, the `--upgrade-policy-mode` was set to *automatic*. This setting allows the VM instances in the scale set to automatically update and apply the latest version of your application.
+Throughout the lifecycle of a scale set, you might need to deploy an updated version of your application. With the Custom Script Extension, you can reference an updated deploy script and then reapply the extension to your scale set. When the scale set was created in a previous step, the `--upgrade-policy-mode` was set to *automatic*. This setting allows the VM instances in the scale set to automatically update and apply the latest version of your application.
 
 In your current shell, create a file named *customConfigv2.json* and paste the following configuration. This definition runs an updated *v2* version of the application install script:
 

@@ -25,7 +25,7 @@ Additionally, as your application processes traffic, there can be situations whe
 In this mode, you choose when to initiate an update to the scale set instances. Nothing happens automatically to the existing VMs when changes occur to the scale set model. New instances added to the scale set will use the most update-to-date model available.
 
 ### Automatic 
-In this mode, the scale set makes no guarantees about the order of VMs being brought down. The scale set may take down all VMs at the same time when performing upgrades. If your scale set is part of a Service Fabric cluster, *Automatic* mode is the only available mode. For more information, see [Service Fabric application upgrades](../service-fabric/service-fabric-application-upgrade.md).
+In this mode, the scale set makes no guarantees about the order of VMs being brought down. The scale set might take down all VMs at the same time when performing upgrades. If your scale set is part of a Service Fabric cluster, *Automatic* mode is the only available mode. For more information, see [Service Fabric application upgrades](../service-fabric/service-fabric-application-upgrade.md).
 
 ### Rolling
 
@@ -80,6 +80,7 @@ az vmss create \
     --resource-group myResourceGroup \
     --name myScaleSet \
     --image Ubuntu2204 \
+    --orchestration-mode Uniform \
     --lb myLoadBalancer \
     --health-probe myProbe \
     --upgrade-policy-mode Rolling \
@@ -102,6 +103,7 @@ New-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -Location "EastUS" `
   -VMScaleSetName "myScaleSet" `
+  -OrchestrationMode "Uniform" `
   -VirtualNetworkName "myVnet" `
   -SubnetName "mySubnet" `
   -PublicIpAddressName "myPublicIPAddress" `
