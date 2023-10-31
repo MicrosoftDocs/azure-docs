@@ -66,6 +66,10 @@ The following table summarizes each plan and their cloud availability.
 >
 > To enable Governance for DevOps related recommendations, the Defender CSPM plan needs to be enabled on the Azure subscription that hosts the DevOps connector.
 
+## Integrations
+
+
+
 ## Next steps
 
 Learn about Defender for Cloud's [Defender plans](defender-for-cloud-introduction.md#protect-cloud-workloads).

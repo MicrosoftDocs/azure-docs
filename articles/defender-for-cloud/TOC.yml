@@ -198,6 +198,14 @@
         displayName: security, posture, secure, score, calculate, control, improve, 
         href: secure-score-security-controls.md
       - name: Cloud Security Posture Management (CSPM)
+        items:
+          - name: Overview
+            displayName: CSPM, cloud security, posture, management
+            href: concept-cloud-security-posture-management.md
+          - name: ServiceNow
+            displayName: CSPM, cloud security, posture, management
+            href: 
+      - name: Cloud Security Posture Management (CSPM)
         displayName: CSPM, cloud security, posture, management
         href: concept-cloud-security-posture-management.md
       - name: Microsoft cloud security benchmark (MCSB)
