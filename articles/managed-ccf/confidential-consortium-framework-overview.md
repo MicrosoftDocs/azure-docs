@@ -16,8 +16,6 @@ The Confidential Consortium Framework (CCF) is an open-source framework for buil
 
 The following diagram shows a basic CCF network made of three nodes. All nodes run the same application code inside an enclave. The effects of user (business) and member (governance) transactions are eventually committed to a replicated, encrypted ledger. A consortium of members is in charge of governing the network.
 
-:::image type="content" source="media/ccf-3-node-network.png" alt-text="A CCF network made of 3 nodes.":::
-
 ## Core Concepts
 
 ### Network and Nodes

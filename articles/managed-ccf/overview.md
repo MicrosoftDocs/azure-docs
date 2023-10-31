@@ -20,13 +20,13 @@ As the name suggests, Azure Managed CCF utilizes the [Azure Confidential Computi
 
 The following diagram shows a high-level overview of the different layers of the Managed CCF platform and where the application code fits into it.
 
-:::image type="content" source="media/managed-ccf-overview.png" alt-text="A picture showing where the application code fits in the Managed CCF platform.":::
+:::image type="content" source="media/managed-confidential-consortium-framework-overview.png" alt-text="A picture showing where the application code fits in the Managed CCF platform.":::
 
 ## Key features
 
 A few key features of Managed CCF are confidentiality, customizable governance, high availability, auditability and transparency.
 
-:::image type="content" source="media/azure-mccf-key-features.png" alt-text="A diagram showing the key features.":::
+:::image type="content" source="media/azure-managed-managed-confidential-consortium-framework-key-features.png" alt-text="A diagram showing the key features.":::
 
 ### Confidentiality
 
