@@ -31,9 +31,9 @@ Azure AI is built on top of multiple Azure services. While the data is stored se
 
 * The customer-managed key for resources that Azure AI depends on can't be updated after Azure AI resource creation.
 * Resource that are created in the Microsoft-managed Azure resource group in your subscription can't be modified by you or be provided by you at the time of creation as existing resources.
-* You can't delete Microsoft-managed resources used for customer-managed keys without also deleting your workspace.
+* You can't delete Microsoft-managed resources used for customer-managed keys without also deleting your project.
 
-## How workspace metadata is stored
+## How project metadata is stored
 
 The following services are used by Azure AI to store metadata for your Azure AI resource and projects:
 
@@ -55,11 +55,11 @@ When you use a customer-managed key, these resources are _in your Azure subscrip
 > [!IMPORTANT]
 > When using a customer-managed key, the costs for your subscription will be higher because these resources are in your subscription. To estimate the cost, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
-These Microsoft-managed resources are located in a new Azure resource group is created in your subscription. This group is in addition to the resource group for your workspace. This resource group will contain the Microsoft-managed resources that your key is used with. The resource group will be named using the formula of `<Azure AI resource group name><GUID>`. It is not possible to change the naming of the resources in this managed resource group.
+These Microsoft-managed resources are located in a new Azure resource group is created in your subscription. This group is in addition to the resource group for your project. This resource group will contain the Microsoft-managed resources that your key is used with. The resource group will be named using the formula of `<Azure AI resource group name><GUID>`. It is not possible to change the naming of the resources in this managed resource group.
 
 > [!TIP]
 > * The [Request Units](../../cosmos-db/request-units.md) for the Azure Cosmos DB automatically scale as needed.
-> * If your AI resource uses a private endpoint, this resource group will also contain a Microsoft-managed Azure Virtual Network. This VNet is used to secure communications between the managed services and the workspace. You cannot provide your own VNet for use with the Microsoft-managed resources. You also cannot modify the virtual network. For example, you cannot change the IP address range that it uses.
+> * If your AI resource uses a private endpoint, this resource group will also contain a Microsoft-managed Azure Virtual Network. This VNet is used to secure communications between the managed services and the project. You cannot provide your own VNet for use with the Microsoft-managed resources. You also cannot modify the virtual network. For example, you cannot change the IP address range that it uses.
 
 > [!IMPORTANT]
 > If your subscription does not have enough quota for these services, a failure will occur.
@@ -89,7 +89,7 @@ Azure AI uses compute resources for compute instance and serverless compute when
 | Serverless compute | OS disk encrypted in Azure Storage with Microsoft-managed keys. Temporary disk is encrypted. |
 
 **Compute instance**
-The OS disk for compute instance is encrypted with Microsoft-managed keys in Azure Machine Learning storage accounts. If the workspace was created with the `hbi_workspace` parameter set to `TRUE`, the local temporary disk on compute instance is encrypted with Microsoft managed keys. Customer managed key encryption isn't supported for OS and temp disk.
+The OS disk for compute instance is encrypted with Microsoft-managed keys in Azure Machine Learning storage accounts. If the project was created with the `hbi_workspace` parameter set to `TRUE`, the local temporary disk on compute instance is encrypted with Microsoft managed keys. Customer managed key encryption isn't supported for OS and temp disk.
 
 **Serverless compute**
 The OS disk for each compute node stored in Azure Storage is encrypted with Microsoft-managed keys. This compute target is ephemeral, and clusters are typically scaled down when no jobs are queued. The underlying virtual machine is de-provisioned, and the OS disk is deleted. Azure Disk Encryption isn't supported for the OS disk. 
