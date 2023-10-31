@@ -152,10 +152,7 @@ A sample implementation of an acknowledge method along with a utility method to 
 
 ## Release events
 
-Release events to make them available for redelivery. Similar to what you did for acknowledging events, you can add the following static method and a line to invoke it to release events identified by the lock tokens passed as argument. 
-
-> [!NOTE]
->  You need the ```writeFailedLockTokens``` method for this method to compile.
+Release events to make them available for redelivery. Similar to what you did for acknowledging events, you can add the following static method and a line to invoke it to release events identified by the lock tokens passed as argument. You need the ```writeFailedLockTokens``` method for this method to compile.
  
 ```java
    private static void release(List<String> lockTokens) {
@@ -176,7 +173,7 @@ Release events to make them available for redelivery. Similar to what you did fo
 
 ## Reject events
 
-Reject events that your consumer application can't process. Conditions for which you might reject an event include a malformed event that can't be parsed or problems with the application that process the events.
+Reject events that your consumer application can't process. Conditions for which you reject an event include a malformed event that can't be parsed or problems with the application that process the events.
 
 ```java
     private static void reject(List<String> lockTokens) {
