@@ -26,11 +26,11 @@ This how-to guide describes the following aspects about the **IBM Host File** co
 
 ## Why use this connector?
 
-On IBM mainframes, *access methods*, which are special components in the operating system, handle file processing. Built in the 1970s, Virtual Storage Access Method (VSAM) was the most widely used access method on IBM mainframes. VSAM provides the following types of files: entry-sequenced datasets, key-sequenced datasets, and relative record datasets.
+On IBM mainframes, *access methods*, which are special components in the operating system, handle file processing. In the 1970s, Virtual Storage Access Method (VSAM) was built and became the most widely used access method on IBM mainframes. VSAM provides the following types of files: entry-sequenced datasets, key-sequenced datasets, and relative record datasets.
 
 Today, the market has multiple solutions that directly connect to host files and run data operations. Many solutions require that you install software on the mainframe system. Although this option works well for some customers, others want to avoid growing the footprint in their mainframe systems.
 
-[Microsoft Host Integration Server (HIS)](/host-integration-server/what-is-his) provides a managed adapter for host files and doesn't require require installing software on the mainframe. However, HIS requires that you enable the [IBM Distributed File Manager (DFM)](https://www.ibm.com/docs/en/zos/2.2.0?topic=management-distributed-file-manager) mainframe subsystem, which requires LU 6.2. This managed provider also requires you to configure an HIS System Network Architecture (SNA) gateway that provides access to the DFM.
+[Microsoft Host Integration Server (HIS)](/host-integration-server/what-is-his) provides a managed adapter for host files and doesn't require installing software on the mainframe. However, HIS requires that you enable the [IBM Distributed File Manager (DFM)](https://www.ibm.com/docs/en/zos/2.2.0?topic=management-distributed-file-manager) mainframe subsystem, which requires LU 6.2. This managed provider also requires you to configure an HIS System Network Architecture (SNA) gateway that provides access to the DFM.
 
 In most ways, the managed provider operates as a normal data provider. You can connect to a host file system, execute commands, and retrieve data. Although a great alternative for some customers, the **IBM Host File** connector requires that you make IBM host files available in binary format to Standard workflows in Azure Logic Apps. This requirement reduces the complexity of this solution and lets you use your choice of tools to access and manage data in host files. After you make the host file available in a place where the Standard workflow can use a trigger to read the file, the **IBM Host File** connector operation can parse that file.
 
@@ -74,7 +74,7 @@ The following section describes the operations for the **IBM Host File** connect
 
   To effectively parse and generate host files, your workflow needs to understand the host file metadata. However, as a key difference between a host file and a database table, the host file doesn't have the metadata that describes the data structure. To create this metadata, use the [HIS Designer for Logic Apps](/host-integration-server/core/application-integration-ladesigner-2). With this tool, you can manually create the host file structure that your workflow uses. You can also import COBOL definitions (copybooks) that provide these data structures.
 
-  The tool generates a Host Integration Designer XML (HIDX) file that provides the necessary metadata for the connector to recognize the host file data structure. If you are using HIS, you can use the TI Designer to create the HIDX file.
+  The tool generates a Host Integration Designer XML (HIDX) file that provides the necessary metadata for the connector to recognize the host file data structure. If you're using HIS, you can use the TI Designer to create the HIDX file.
 
 * The Standard logic app workflow where you want to parse or generate the host file.
 
@@ -147,19 +147,17 @@ Later in this guide, when you add the **Parse Host File Contents** action to you
    | **Schema Name** | Yes | <*schema-name*> | Select the schema in the HIDX file that you want to use. |
    | **Binary Contents** | Yes | <*binary-contents*> | Select the binary data with a fixed length record extracted from the host. |
 
-   For example:
+   For example, the following image shows Visual Studio with a sample host file HIDX file with a **CUSTOMER** table and **CUSTOMER_RECORD** schema in the HIS Designer for Logic Apps:
 
-   **The following is the HIDX file in the HIS Designer for Logic Apps**
+   :::image type="content" source="./media/integrate-host-files-ibm-mainframe/visual-studio-customers-hidx.png" alt-text="Screenshot shows Visual Studio and the host file schema in the HIDX file.":::
 
-   :::image type="content" source="./media/integrate-host-files-ibm-mainframe/visual-studio-customers-hidx.png" alt-text="Screenshot shows the host file schema in the HIDX file.":::
+   **Provide HIDX file and schema**
 
-   **Select HIDX file and structure**
+   :::image type="content" source="./media/integrate-host-files-ibm-mainframe/parse-host-file-contents-parameters.png" alt-text="Screenshot shows the Parse Host File Contents action with selected HIDX file and schema.":::
 
-   :::image type="content" source="./media/integrate-host-files-ibm-mainframe/parse-host-files-contents-parameters.png" alt-text="Screenshot shows the Parse Host File Contents action with selected HIDX file and schema.":::
+   **Select binary data to read from blob**
 
-   **Select binary data**
-
-   :::image type="content" source="./media/integrate-host-files-ibm-mainframe/parse-host-files-contents-binary.png" alt-text="Screenshot shows the Parse Host File Contents action, dynamic content list, and selecting binary data to read from JSON file in Blob Storage account.":::
+   :::image type="content" source="./media/integrate-host-files-ibm-mainframe/parse-host-file-contents-binary.png" alt-text="Screenshot shows the Parse Host File Contents action, dynamic content list, and selecting binary data to read from JSON file in Blob Storage account.":::
 
    When you're done, the **Parse Host File Contents** action looks like the following example with a subsequent action that creates a file on an SFTP server:
 
@@ -201,11 +199,9 @@ Later in this guide, when you add the **Parse Host File Contents** action to you
    |-----------|----------|-------|-------------|
    | **HIDX Name** | Yes | <*HIDX-file-name*> | Provide the name for the mainframe host file HIDX file that you want to use. |
    | **Schema Name** | Yes | <*schema-name*> | Provide name for the schema in the HIDX file that you want to use. |
-   | **Rows** | Yes | <*rows*> | Provide an array of records to convert to IBM format. To select the output from a preceding workflow operation, follow these steps: <br><br>1. Select inside the **Rows** box, and then select the dynamic content option (lightning bolt). <br>2. From the dynamic content list, select the output from a preceding action. For example, from the **Read blob content** section, select **Response from read blob action Content**. <br><br>**Tip**: To enter an entire data object in JSON format, select the **Switch to input entire array** option. |
+   | **Rows** | Yes | <*rows*> | Provide an array of records to convert to IBM format. To select the output from a preceding workflow operation, follow these steps: <br><br>1. Select inside the **Rows** box, and then select the dynamic content option (lightning bolt). <br><br>2. From the dynamic content list, select the output from a preceding action. For example, from the **Read blob content** section, select **Response from read blob action Content**. <br><br>**Tip**: To enter an entire data object in JSON format, select the **Switch to input entire array** option. |
 
-   For example:
-
-   **The following is the HIDX file in the HIS Designer for Logic Apps**
+   For example, the following image shows Visual Studio with a sample HIDX file in the HIS Designer for Logic Apps:
 
    :::image type="content" source="./media/integrate-host-files-ibm-mainframe/visual-studio-customers-hidx.png" alt-text="Screenshot shows the host file schema in the HIDX file.":::
 
@@ -213,9 +209,9 @@ Later in this guide, when you add the **Parse Host File Contents** action to you
 
    :::image type="content" source="./media/integrate-host-files-ibm-mainframe/generate-host-file-contents-parameters.png" alt-text="Screenshot shows the Generate Host File Contents action with selected HIDX file and schema.":::
 
-   **Select rows to convert**
+   **Select rows from blob to read and convert**
 
-   :::image type="content" source="./media/integrate-host-files-ibm-mainframe/generate-host-file-contents-rows.png" alt-text="Screenshot shows the Generate Host File Contents action, dynamic content list, and selecting rows to read from JSON file in Blob Storage account.":::
+   :::image type="content" source="./media/integrate-host-files-ibm-mainframe/generate-host-file-contents-rows.png" alt-text="Screenshot shows the Generate Host File Contents action, dynamic content list, and selecting rows to read and convert from JSON file in Blob Storage account.":::
 
    When you're done, the **Generate Host File Contents** action looks like the following example with a subsequent action that creates a file on an SFTP server:
 
