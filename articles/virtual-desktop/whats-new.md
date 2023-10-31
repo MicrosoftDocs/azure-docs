@@ -29,7 +29,7 @@ Here's what changed in October 2023:
 
 ### New article about Azure Virtual Desktop service architecture and resilience
 
-We've designed Azure Virtual Desktop to provide a resilient, reliable, and secure service for organizations and users. The architecture of Azure Virtual Desktop comprises many components that make up the service connecting users to their desktops and apps. Most components are Microsoft-managed, but some are customer-managed.
+We've published a new article about the service architecture for Azure Virtual Desktop and how it provides a resilient, reliable, and secure service for organizations and users. Most components are Microsoft-managed, but some are customer-managed.
 
 You can learn more at [Azure Virtual Desktop service architecture and resilience](service-architecture-resilience.md).
 
@@ -39,9 +39,9 @@ You can now use Microsoft OneDrive alongside a RemoteApp in preview. You can use
 
 For more information about prerequisites and configuration, see [Use Microsoft OneDrive with a RemoteApp in Azure Virtual Desktop (preview)](onedrive-remoteapp.md). 
 
-### Azure Virtual Desktop and FSLogix ADMX settings now available
+### Administrative template for FSLogix now available in Intune settings catalog
 
-By combining the power of Microsoft Intune and Azure Virtual Desktop, you can now configure and manage your virtual desktop infrastructure (VDI) environment within the Microsoft Cloud. Most of the Microsoft Intune configuration and management capabilities are now available for Pooled Host Pools.
+The [administrative template for FSLogix](/fslogix/how-to-use-group-policy-templates) is now available in the [Intune settings catalog](/mem/intune/configuration/administrative-templates-windows). This enables you to configure FSLogix settings centrally for [session hosts that are enrolled in Intune](management.md#microsoft-intune).
 
 ## September 2023
 
@@ -57,7 +57,7 @@ For more information about the Azure Virtual Desktop (classic) retirement, see [
 
 We've updated the overview page in the Azure Virtual Desktop administrator portal to include new visuals and tile links. These updates make it easier to navigate to documentation, find the forums for collaboration and discussion, submit feedback, and locate release notes for Azure Virtual Desktop.
 
-### Windows Enterprise multi-session images now automatically include the latest version of FSLogix
+### The latest version of FSLogix is now included in Windows Enterprise multi-session images
 
 We added the latest version of FSLogix to Windows 10 and 11 Enterprise multi-session images in the Azure Marketplace. As of September 12, 2023, all images come preinstalled with the latest version of FSLogix.
 
