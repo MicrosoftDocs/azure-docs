@@ -9,6 +9,8 @@ ms.date: 10/22/2023
 ms.custom: template-how-to-pattern, devx-track-azurecli
 ---
 
+#   Restart Azure Operator Nexus Kubernetes Cluster Node
+
 This article provides instruction to restart Azure Operator Nexus Kubernetes cluster node via the `networkcloud` API. This action provides a way to handle the Nexus Kubernetes cluster VMs that have become unreachable. It improves the customer experience and reduce the amount of time and effort required to bring back the VM.
 
 It takes nearly 1-5 mins for the action to complete. But, it also depends on what state the virtual machine is. If the Virtual Machine is in bad state and the restart doesn't work, it will eventually time out. 
