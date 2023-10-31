@@ -48,29 +48,9 @@ sections:
   - name: Prometheus
     questions:
       - question: |
-          What's an Azure Monitor workspace? 
-        answer: |
-          Prometheus metrics collected by managed service for Prometheus are stored in an Azure Monitor workspace. It's essentially a container where Prometheus metrics from various sources are stored. You might have a single Azure Monitor workspace for all of your Prometheus metrics or you might have requirements for multiple workspaces. See [Azure Monitor workspace overview](essentials/azure-monitor-workspace-overview.md?#azure-monitor-workspace-architecture).  
-      - question: |
-          What's the difference between an Azure Monitor workspace and a Log Analytics workspace?
-        answer: |
-          An Azure Monitor workspace is a unique environment for data collected by Azure Monitor. Each workspace has its own data repository, configuration, and permissions. Azure Monitor workspaces will eventually contain all metrics collected by Azure Monitor, including native metrics. Currently, the only data hosted by an Azure Monitor workspace is Prometheus metrics. See [Azure Monitor workspace overview](essentials/azure-monitor-workspace-overview.md). 
-      - question: |
-          How do I retrieve Prometheus metrics? 
-        answer: |
-          All data is retrieved from an Azure Monitor workspace by using queries that are written in Prometheus Query Language (PromQL). You can write your own queries, use queries from the open source community, and use Grafana dashboards that include PromQL queries. See the [Prometheus project](https://prometheus.io/docs/prometheus/latest/querying/basics/). 
-      - question: |
-          Can I delete Prometheus metrics from an Azure Monitor workspace?
-        answer: |
-          Data is removed from the Azure Monitor workspace according to its data retention period, which is 18 months. 
-      - question: |
           Can I view my Prometheus metrics in Azure Monitor metrics explorer? 
         answer: |
           Metrics explorer in Azure Monitor doesn't currently support visualizing Prometheus metric data. Consider using [Azure Managed Grafana](../managed-grafana/index.yml) to visualize your Prometheus metrics. 
-      - question: |
-          Can I use Azure Managed Grafana in a different region than my Azure Monitor workspace and managed service for Prometheus?
-        answer: |
-          Yes. When you use managed service for Prometheus, you can create your Azure Monitor workspace in any of the supported regions. Your Azure Kubernetes Service clusters can be in any region and send data into an Azure Monitor workspace in a different region. Azure Managed Grafana can also be in a different region than where you created your Azure Monitor workspace. 
       - question: |
           When I use managed service for Prometheus, can I store data for more than one cluster in an Azure Monitor workspace?
         answer: |
