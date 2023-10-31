@@ -289,7 +289,7 @@ For example, the app downloads the container image layers for each of the contai
 1. Generate the deployment policy by running the following command. Replace `<path to pod yaml>` with the name of the manifest saved in the previous step.
 
     ```bash
-    az confcom katapolicygen -y myapplication.yml
+    az confcom katapolicygen -y <path to pod yaml>
     ```
 
 1. Upload keys to your Managed HSM instance with a key release policy. Once the Azure Key Vault resource is ready and the deployment policy is generated, you can import `RSA-HSM` or `oct-HSM` keys into it using the `importkey` tool placed under `<parent_repo_dir>/tools/importkey. A fake encryption key is used in the following command to see the key get released. To import the key into AKV/mHSM, use the following command:
