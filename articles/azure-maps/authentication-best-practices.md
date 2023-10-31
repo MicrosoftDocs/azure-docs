@@ -64,7 +64,7 @@ For apps that run on servers (such as web services and service/daemon apps), if 
 > [Tutorial: Add app authentication to your web app running on Azure App Service]
 
 [Authentication with Azure Maps]: azure-maps-authentication.md
-[Microsoft Entra authentication]: ../entra/fundamentals/whatis.md
+[Microsoft Entra authentication]: ../active-directory/fundamentals/active-directory-whatis.md
 [Configurable token lifetimes in the Microsoft identity platform (preview)]: ../active-directory/develop/configurable-token-lifetimes.md
 [Create SAS tokens]: azure-maps-authentication.md#create-sas-tokens
 [Cross origin resource sharing (CORS)]: azure-maps-authentication.md#cross-origin-resource-sharing-cors
