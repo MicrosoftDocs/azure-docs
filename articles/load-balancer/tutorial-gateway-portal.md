@@ -33,7 +33,7 @@ In this tutorial, you learn how to:
 
 Sign in to the [Azure portal](https://portal.azure.com).
 
-[!INCLUDE [load-balancer-create-no-gateway](../../../../../../../github/azure-docs-pr/includes/load-balancer-create-no-gateway.md)]
+[!INCLUDE [load-balancer-create-no-gateway](../../includes/load-balancer-create-no-gateway.md)]
 
 ## Create NSG
 
