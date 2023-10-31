@@ -11,17 +11,17 @@ ms.date: 10/1/2023
 ms.author: eur
 ---
 
-# # Generate AI-simulated datasets with your application
+# Generate AI-simulated datasets with your application
 
-Large language models are known for their few-shot and zero-shot learning abilities, allowing them to function with minimal data. However, this limited data availability impedes thorough evaluation and optimization when you may not have test datasets to evaluate the quality and effectiveness of your generative AI application. Using GPT to simulate a user interaction with your application, with configurable tone, task and characteristics can help with stress testing your application under various environments, effectively gauging how a model responds to different inputs and scenarios.
+Large language models are known for their few-shot and zero-shot learning abilities, allowing them to function with minimal data. However, this limited data availability impedes thorough evaluation and optimization when you don't have test datasets to evaluate the quality and effectiveness of your generative AI application. Using GPT to simulate a user interaction with your application, with configurable tone, task and characteristics can help with stress testing your application under various environments, effectively gauging how a model responds to different inputs and scenarios.
 
 There are two main scenarios for generating a simulated interaction (such as as conversation with a chat bot):
-1.	Instance level with manual testing: generate one conversation at a time by manually inputting the task perameters such as name, profile, tone and task and iteratively tweaking it to see different outcomes for the simulated interaction. 
-2.	Bulk testing and evaluation orchestration: generate multiple interaction data samples (~100) at one time for a list of tasks or profiles to create an target dataset to evaluate your generative aI applications and streamline the data gathering/prep process.
+1.	Instance level with manual testing: generate one conversation at a time by manually inputting the task parameters such as name, profile, tone and task and iteratively tweaking it to see different outcomes for the simulated interaction. 
+2.	Bulk testing and evaluation orchestration: generate multiple interaction data samples (~100) at one time for a list of tasks or profiles to create a target dataset to evaluate your generative aI applications and streamline the data gathering/prep process.
 
 ## Usage
 
-The simulator works by setting up a system large language model such as GPT to simulate a user and interact with your application. It takes in task parameters that specify what task you want the simulator to accomplish in interacting with your application as well as giving character and tone to the simulator.  First import the simulator package from Azure AI SDK:
+The simulator works by setting up a system large language model such as GPT to simulate a user and interact with your application. It takes in task parameters that specify what task you want the simulator to accomplish in interacting with your application and giving character and tone to the simulator.  First import the simulator package from Azure AI SDK:
 
 ```python
 from azure.ai.generative import Simulator, SimulatorTemplate
@@ -29,7 +29,7 @@ from azure.ai.generative import Simulator, SimulatorTemplate
 
 ### Initialize large language model
 
-First we set up the system large language model which will act as the "agent" simulating a user or test case against your application.
+First we set up the system large language model, which acts as the "agent" simulating a user or test case against your application.
 
 ```python
 from azure.identity import DefaultAzureCredential
@@ -64,14 +64,14 @@ aoai_config = AzureOpenAIModelConfiguration.from_connection(
 simulator = simulator(userConnection=your_target_LLM, systemConnection=aoai_config)
 ```
 
-`SimulatorTemplate` class provides scenario prompt templates to simulat certain large language model scenarios such as conversations/chats or summarization.
+`SimulatorTemplate` class provides scenario prompt templates to simulate certain large language model scenarios such as conversations/chats or summarization.
 
 ```python
 st = SimulatorTemplate()
 ```
 
-Provided a local function or local flow,
-Local function
+Provided a local function or local flow:
+Local
 ```python
 simulator = simulator(simulate_callback=simulate_callback, systemConnection=aoai_config)
 ```
@@ -86,6 +86,7 @@ async def simulate_callback(question, conversation_history, meta_data):
 ```
 
 ### Simulate a conversation
+
 Use simulator template provided for conversations using the `SimulatorTemplate` class configure the parameters for that task.
 ```python
 conversation_template = st.get_template("conversation")
@@ -94,7 +95,8 @@ print(conversation_parameters) # shows parameters needed for the prompt template
 print(conversation_template) # shows the prompt template that is used to generate conversations
 ```
 
-Configure the parameters for the simulated task (i.e. conversation) as a dictionary with the name of your simulated agent, its profile description, tone, task and any additional metadata you may want to provide as part of the persona or task. You can also configure the name of your chat application bot to ensure that the simulator knows what it is interacting with. 
+Configure the parameters for the simulated task (that is, conversation) as a dictionary with the name of your simulated agent, its profile description, tone, task and any extra metadata you want to provide as part of the persona or task. You can also configure the name of your chat application bot to ensure that the simulator knows what it's interacting with. 
+
 ```python
 conversation_parameters = {
     "name": "Cortana",
@@ -110,11 +112,11 @@ Simulate either synchronously or asynchronously, the `simulate` function accepts
 conversation_result = simulator.simulate(template=conversation_template, parameters=conversation_parameters, max_conversation_turns = 6, max_token = 300, temperature = 0.9)
 conversation_result = await simulator.simulate(template=conversation_template, parameters=conversation_parameters, max_conversation_turns = 6, max_token = 300, temperature = 0.9)
 ```
-`max_conversation_turns` defines how many turns of converation it will generate at most. It is optional, default value is 2.
+`max_conversation_turns` defines how many conversation turns it generates at most. It's optional, default value is 2.
 
 ### Output
 
-The `conversation_result` will be dictionary,
+The `conversation_result` is a dictionary,
 
 The `conversation` is a list of conversation turns, for each conversation turn, it contains `content` which is the content of conversation, `role` which is either the user (simulated agent) or assistant,`turn_number`,`template_parameters`
 ```json
@@ -146,19 +148,19 @@ The `conversation` is a list of conversation turns, for each conversation turn, 
     ]
 }
 ```
-This aligns to Azure AI SDK's `evaluate` function call which takes in this chat format dataset for evaluating metrics such as groundedness, relevance, and retrieval_score if `citations` are provided.
+This aligns to Azure AI SDK's `evaluate` function call that takes in this chat format dataset for evaluating metrics such as groundedness, relevance, and retrieval_score if `citations` are provided.
 
-### Additional functionality
+### More functionality
 
 #### Early termination
 
-Stop conversation earlier if the conversation meet certain criteria, such as "bye" or "goodbye" appears in the conversation. Users can customize the stopping criteria themselves as well
+Stop conversation earlier if the conversation meets certain criteria, such as "bye" or "goodbye" appears in the conversation. Users can customize the stopping criteria themselves as well.
 
 #### Retry
 
-The scenario simulator supports retry logic, the default maximum number of retries in case the last API call failed is 3. The default number of seconds to sleep between consiquent retries in case the last API call failed is 3.
+The scenario simulator supports retry logic, the default maximum number of retries in case the last API call failed is 3. The default number of seconds to sleep between consequent retries in case the last API call failed is 3.
 
-User can also defines their own `api_call_retry_sleep_sec` and `api_call_retry_max_count` and pass into the `ScenarioSimulator()`
+Users can also define their own `api_call_retry_sleep_sec` and `api_call_retry_max_count` and pass into the `ScenarioSimulator()`
 
 #### Example of output conversation
 
