@@ -102,8 +102,8 @@ Use the following steps to connect your service instances:
 
 You can now deploy the app to Azure Spring Apps.
 
-   [!INCLUDE [deploy-restful-api-app-with-maven-plugin](restful-api-spring-apps-maven-plugin.md)]
-
+[!INCLUDE [deploy-restful-api-app-with-maven-plugin](restful-api-spring-apps-maven-plugin.md)]
+   
    ```output  
    [INFO] Deployment Status: Running
    [INFO]   InstanceName:simple-todo-api-default-15-xxxxxxxxx-xxxxx  Status:Running Reason:null       DiscoverStatus:N/A       

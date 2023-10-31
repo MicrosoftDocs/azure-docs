@@ -214,8 +214,8 @@ You can now deploy the app to Azure Spring Apps.
 
 ### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
 
-   [!INCLUDE [restful-api-spring-apps-maven-plugin](restful-api-spring-apps-maven-plugin.md)]
-
+[!INCLUDE [restful-api-spring-apps-maven-plugin](restful-api-spring-apps-maven-plugin.md)]
+   
    ```output
    [INFO] Deployment(default) is successfully created
    [INFO] Starting Spring App after deploying artifacts...
