@@ -16,7 +16,8 @@ Azure AI Search doesn't host vectorization models, so one of your challenges is 
 
 Dimension attributes have a minimum of 2 and a maximum of 2048 dimensions per vector field.
 
-This article applies to the generally available version of [vector search](vector-search-overview.md), which assumes your application code calls an external resource such as Azure OpenAI for vectorization. A new feature called [integrated vectorization](vector-search-integrated-vectorization.md), currently in preview, offers embedded vectorization. Integrated vectorization takes a dependency on indexers, skillsets, and either the AzureOpenAIEmbedding skill or a custom skill that points to model that executes externally from Azure AI Search.
+> [!NOTE]
+> This article applies to the generally available version of [vector search](vector-search-overview.md), which assumes your application code calls an external resource such as Azure OpenAI for vectorization. A new feature called [integrated vectorization](vector-search-integrated-vectorization.md), currently in preview, offers embedded vectorization. Integrated vectorization takes a dependency on indexers, skillsets, and either the AzureOpenAIEmbedding skill or a custom skill that points to a model that executes externally from Azure AI Search.
 
 ## How models are used
 

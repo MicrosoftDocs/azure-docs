@@ -39,9 +39,33 @@ The following diagram shows the components of integrated vectorization.
 
 :::image type="content" source="media/vector-search-integrated-vectorization/integrated-vectorization-architecture.png" alt-text="Diagram of components in an integrated vectorization workflow." border="false" lightbox="media/vector-search-integrated-vectorization/integrated-vectorization-architecture.png":::
 
+Integrated vectorization uses capabiltiies inside and outside of Azure AI Search.
+
+Outside of Azure AI Search, you need:
+
++ An embedding model, deployed on Azure OpenAI or available through an HTTP endpoint.
++ A data source supported by indexers.
+
+On Azure AI Search, you need:
+
++ One or more indexes specifying:
+  + Vector fields.
+  + A vectorizer definition, assigned to vector fields.
++ A skillset specifying:
+  + A Text Split skill for data chunking
+  + An AzureOpenAiEmbedding skill or a custom skill that points to the embedding model.
+  + Index projections if you're using a secondary index for chunked data.
++ An indexer specifying:
+  + Scheduled indexing (optional)
+  + Properties for field mappings and output field mappings
+
 ## Availability and pricing
 
-Integrated vectorization is available as part of all Azure AI Search tiers in all regions. Data chunking is free. Vectorization using Azure OpenAI is billable.
+Integrated vectorization availability is based on the embedding model. If you're using Azure OpenAI, check [regional availability]( https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=cognitive-services).
+
+If you are using a custom skill and Azure hosting mechanism (such as an Azure function app, Azure Web App, and Azure Kubernetes), check the product by region page. 
+
+Data chunking (Text Split skill) is free and available on all Azure AI services in all regions.
 
 > [!NOTE]
 > Some older search services created before January 1, 2019 are deployed on infrastructure that doesn't support vector workloads. If you try to add a vector field to a schema and get an error, it's a result of outdated services. In this situation, you must create a new search service to try out the vector feature.
@@ -52,7 +76,7 @@ Integrated vectorization is available as part of all Azure AI Search tiers in al
 
 + Build a vector store where all of the fields are vector fields, and the document ID (required for a search index) is the only string field. Query the vector index to retrieve document IDs, and then send the document's vector fields to another model.
 
-+ Combine vector and text fields for hybrid search, with or without semantic ranking. Integrated vectorization simplifies *all* of the [scenarios supported by vector search](vector-search-overview.md#what-senarios-can-vector-search-support).
++ Combine vector and text fields for hybrid search, with or without semantic ranking. Integrated vectorization simplifies all of the [scenarios supported by vector search](vector-search-overview.md#what-scenarios-can-vector-search-support).
 
 ## When to use integrated vectorization
 
@@ -64,11 +88,11 @@ Here are some of the key benefits of the integrated vectorization:
 
 + Streamlined maintenance: No separate data chunking and vectorization pipeline, thereby reducing overhead and simplifying data maintenance.  
 
-+ Up-to-date results: Indexers automate indexing end-to-end. When data changes in the source (such as Azure Storage, Azure SQL, or Cosmos DB), the indexer can move those updates through the entire pipeline consisting of document cracking, optional AI-enrichment, data chunking, vectorization, and indexing.
++ Up-to-date results: Indexers automate indexing end-to-end. When data changes in the source (such as in Azure Storage, Azure SQL, or Cosmos DB), the indexer can move those updates through the entire pipeline, from retrieval, to document cracking, optional AI-enrichment, data chunking, vectorization, and indexing.
 
-+ Project or redirect chunked content to secondary indexes that are well-suited for chat-style apps and Retrieval Augmented Generation (RAG) patterns. Secondary indexes are created as you would any search index (a schema with fields and other constructs), but they're populated in tandem with a primary index. Content from each source document flows to fields in primary and secondary indexes during the same indexing run. 
++ Project or redirect chunked content to secondary indexes. Secondary indexes are created as you would any search index (a schema with fields and other constructs), but they're populated in tandem with a primary index by an indexer. Content from each source document flows to fields in primary and secondary indexes during the same indexing run. 
 
-  + Secondary indexes are used for data chunking and RAG apps. Assuming a large PDF as a source document, the primary index might have basic information (title, date, author, description), and a secondary index has the chunks of content. Vectorization at the data chunk level makes it easier to find relevant information (each chunk is searchable) and return a relevant response.
+  Secondary indexes are intended for data chunking and Retrieval Augmented Generation (RAG) apps. Assuming a large PDF as a source document, the primary index might have basic information (title, date, author, description), and a secondary index has the chunks of content. Vectorization at the data chunk level makes it easier to find relevant information (each chunk is searchable) and return a relevant response, esecially in a chat-style search app.
 
 ## Chunked indexes
 
@@ -80,7 +104,5 @@ The following diagram shows the components of chunked indexing.
 
 ## Next steps
 
-+ [Try the quickstart](search-get-started-vector.md)
-+ [Learn more about vector indexing](vector-search-how-to-create-index.md)
-+ [Learn more about vector queries](vector-search-how-to-query.md)
-+ [Azure Cognitive Search and LangChain: A Seamless Integration for Enhanced Vector Search Capabilities](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/azure-cognitive-search-and-langchain-a-seamless-integration-for/ba-p/3901448)
++ [Configure a vectorizer in a search index](vector-search-how-to-configure-vectorizer.md)
++ [Configure index projections in a skillset](index-projections-concept-intro.md)

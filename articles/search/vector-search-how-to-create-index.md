@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 10/24/2023
+ms.date: 10/30/2023
 ---
 
 # Add vector fields to a search index
@@ -22,6 +22,9 @@ Follow these steps to index vector data:
 > + Load the index with vector data [as a separate step](#load-vector-data-for-indexing), after the index schema is defined.
 
 Code samples in the [cognitive-search-vector-pr](https://github.com/Azure/cognitive-search-vector-pr) repository demonstrate end-to-end workflows that include schema definition, vectorization, indexing, and queries.
+
+> [!NOTE]
+> This article applies to the generally available version of [vector search](vector-search-overview.md), which assumes your application code calls external resources for chunking and embedding. A new feature called [integrated vectorization](vector-search-integrated-vectorization.md), currently in preview, offers embedded vectorization. Using a preview API or beta package, you can [add vectorizations to a search index](vector-search-how-to-configure-vectorizer.md) to invoke integrated vectorization.
 
 ## Prerequisites
 
