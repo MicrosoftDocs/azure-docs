@@ -71,7 +71,7 @@ conceptualContent:
               text: How To Get Started FAST Azure Virtual Desktop for Beginners
             # Possible addition - Azure Networking Fundamentals (replace AVD)
         # Card
-        - title: "Application Development"
+        - title: Cloud Native
           links:
             - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-2-ep17-azure-container-options-aks-vs-aca-vs-aci
               itemType: video
