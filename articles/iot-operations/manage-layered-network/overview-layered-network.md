@@ -36,7 +36,7 @@ There are several ways to configure Layered Network Management to bridge the con
 - **A simplified physically isolated network** - Requires three physical devices (IoT/PC/server) and a wireless access point.
   - The wireless access point is used for setting up a local network and **doesn't** provide internet access.
   - Level 4 cluster - A single node cluster hosted on a dual NIC physical machine, connects to internet and the local network.
-  - Level 3 cluster - Another single node cluster hosted on a physical machine. This device (cluster) only connects to the local network.
+  - Level 3 cluster - Another single node cluster hosted on a physical machine. This device cluster only connects to the local network.
   - DNS server - A DNS server setup in the local network. It provides custom domain name resolution and point the network request to the IP of level 4 cluster.
 - **ISA-95 network** - You should try deploying Layered Network Management to an ISA-95 network or a preproduction environment.
 
@@ -51,15 +51,11 @@ Layered Network Management supports the Azure IoT Operations components in an is
 |Allowlist management through [Kubernetes Custom Resource](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/)|Public preview|
 |Installation: Integrated install experience of Layered Network Management and other Azure IoT Operations components|Public preview|
 |Reverse Proxy for OSI Layer4 (TCP)|Public preview|
-|Support East-West traffic forwarding for Azure IoT Operations components (manual setup)|Public Preview|
+|Support East-West traffic forwarding for Azure IoT Operations components - manual setup |Public Preview|
 |Installation: Layered Network Management deployed as an Arc extension|Public Preview|
-<!-- |Traffic Auditing - Basic: Send a copy of the traffic (encrypted) to a configured application|Post Public Preview|
-|Azure Arc portal experience for Layered Network Management|Post Public Preview|
-|Forward Proxy for OSI Layer7 (HTTP, HTTPS / MQTT over WebSockets)|Post Public Preview|
-|TLS terminating proxy for OSI Layer7 (HTTPS / MQTT over WebSockets)|Post Public Preview| -->
 
 ## Related content
 
-- [Configure Azure IoT Layered Network Management Environment](howto-configure-layered-network.md)
+- [Create sample network environment](howto-configure-layered-network.md)
 - [Configure Azure IoT MQ in an Isolated Network](howto-configure-mq-layered-network.md)
 

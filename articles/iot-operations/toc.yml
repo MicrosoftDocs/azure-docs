@@ -170,11 +170,11 @@ items:
         href: monitor/howto-monitor-mq.md
     - name: Manage layered network
       items:
-      - name: Layered Network Management overview
-        href: manage-layered-network/concept-layered-network.md
+      - name: Overview
+        href: manage-layered-network/overview-layered-network.md
       - name: Deploy to an AKS cluster
         href: manage-layered-network/howto-deploy-aks-layered-network.md
-      - name: Configure Layered Network Management
+      - name: Create sample network environment
         href: manage-layered-network/howto-configure-layered-network.md
       - name: Configure L3 cluster
         href: manage-layered-network/howto-configure-l3-cluster-layered-network.md

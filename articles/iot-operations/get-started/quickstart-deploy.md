@@ -22,7 +22,7 @@ The services deployed in this quickstart include:
 * [Azure IoT Data Processor](../process-data/overview-data-processor.md) with a demo pipeline to start routing the simulated data
 * [Azure IoT Akri](../manage-devices-assets/concept-akri-overview.md)
 * [Azure Device Registry](../manage-devices-assets/overview-manage-assets.md#manage-assets-as-azure-resources-in-a-centralized-registry)
-* [Azure IoT Layered Network Management](../manage-layered-network/concept-layered-network.md)
+* [Azure IoT Layered Network Management](../manage-layered-network/overview-layered-network.md)
 * A simulated thermostat asset to start generating data
 
 <!--* [Observability](/docs/observability/)-->

@@ -5,7 +5,7 @@ description: Configure Azure IoT MQ in an isolated network.
 author: PatAltimore
 ms.author: patricka
 ms.topic: how-to
-ms.date: 10/25/2023
+ms.date: 10/31/2023
 
 #CustomerIntent: As an operator, I want to configure Layered Network Management so that I have secure Azure IoT MQ.
 ---
@@ -25,9 +25,9 @@ You need to set up two clusters in a basic isolated network environment to try t
 
 You can use the following steps to configure the prerequisites.
 
-1. [Configure Azure IoT Layered Network Management Environment](./howto-configure-layered-network.md). It's recommended to set up with physical machines. You also need to set up the DNS server.
-1. [Configure IoT Layered Network Management level 4 cluster](./howto-configure-l4-cluster-layered-network.md)
-1. [Configure IoT Layered Network Management level 3 cluster](./howto-configure-l3-cluster-layered-network.md)
+1. [Create sample network environment](./howto-configure-layered-network.md). You should use physical machines. You also need to set up the DNS server.
+1. [Configure IoT Layered Network Management level 4 cluster](./howto-configure-l4-cluster-layered-network.md).
+1. [Configure IoT Layered Network Management level 3 cluster](./howto-configure-l3-cluster-layered-network.md).
 
 After the level 4 and level 3 cluster are both Arc-enabled, configure Iot MQ and MQTT bridge.
 
@@ -41,7 +41,7 @@ After the level 4 and level 3 cluster are both Arc-enabled, configure Iot MQ and
     helm install e4k "oci://e4kpreview.azurecr.io/helm/az-e4k" --version 0.5.0
     ```
 
-1. To set up the CR for IoT MQ, create `mq-cr.yaml` file with the following content. Run `kubectl apply -f mq-cr.yaml` and wait until all pods are ready.
+1. To set up the CR for IoT MQ, create `mq-cr.yaml` file with the following content. Run 'kubectl apply -f mq-cr.yaml` and wait until all pods are ready.
 
     ```yaml
     apiVersion: az-edge.com/v1alpha3
@@ -103,12 +103,12 @@ After the level 4 and level 3 cluster are both Arc-enabled, configure Iot MQ and
 
 ### Create TLS server certificate of MQ on level 4
 
-Follow the steps in [Configure TLS with manual certificate management to secure MQTT communication](../manage-mqtt-connectivity/howto-configure-tls-manual.md). When creating the certificate, use `azedge-dmqtt-frontend.level-4.com` as one of the Subject Alternative Names (SANs) (in --san option of step CLI).
+Follow the steps in [Configure TLS with manual certificate management to secure MQTT communication](../manage-mqtt-connectivity/howto-configure-tls-manual.md). When creating the certificate, use `azedge-dmqtt-frontend.level-4.com` as one of the Subject Alternative Names (SANs) Set the SAN using the step CLI *--san** option.
 
 ### Deploy TLS Listener for MQ on level 4
 
-1. Use the TLS certificate created in the earlier step
-1. To create the CR for TLS listener, create a file `mq-tls-listener.yaml` with follow content.
+1. Use the TLS certificate created in the earlier step.
+1. To create the CR for TLS listener, create a file `mq-tls-listener.yaml` with follow content:
 
     ```yaml
     apiVersion: az-edge.com/v1alpha3
@@ -125,7 +125,7 @@ Follow the steps in [Configure TLS with manual certificate management to secure 
           secretName: "my-secret"
     ```
 
-1. Run `kubectl apply -f mq-listener.yaml`
+1. Run `kubectl apply -f mq-listener.yaml`.
 
 ### Configure CoreDNS on level 4 Cluster
 
@@ -302,7 +302,7 @@ You can use Mosquitto clients for testing end-to-end message delivery. Download 
     kubectl port-forward -n level3 service/azedge-dmqtt-frontend 12345:1883
     ```
 
-1. Publish a message with the following command. You're publishing to topic **tol4** as specified in `MqttBridgeTopicMap`
+1. Publish a message with the following command. You're publishing to topic **tol4** as specified in `MqttBridgeTopicMap`.
 
     ```bash
     mosquitto_pub -d -h localhost -p 12345 -i "my-client-l3" -t "tol4" -m "Test"
@@ -326,4 +326,4 @@ mosquitto_pub -d -h localhost -p 12345 -i "my-client-l4-pub" -t "froml4" -m "Tes
 
 ## Related content
 
-- [Configure Azure IoT Layered Network Management Environment](./howto-configure-layered-network.md)
+- [Create sample network environment](./howto-configure-layered-network.md)

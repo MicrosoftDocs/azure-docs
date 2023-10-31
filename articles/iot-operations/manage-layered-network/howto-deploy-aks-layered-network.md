@@ -201,4 +201,4 @@ You can create a K3S Kubernetes cluster on the Linux VM to simulate a cluster in
 
 ## Related content
 
-- [Configure Azure IoT Layered Network Management Environment](./howto-configure-layered-network.md)
+- [Create sample network environment](./howto-configure-layered-network.md)
