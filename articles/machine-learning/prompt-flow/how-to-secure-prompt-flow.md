@@ -22,19 +22,19 @@ You can secure prompt flow using private networks. This article explains the req
 
 ## Involved services
 
-When you're developing your LLM application using prompt flow, you may want a secured environment. You can make the following services private via network setting.
+When you're developing your LLM application using prompt flow, you want a secured environment. You can make the following services private via network setting.
 
 - Workspace: you can make Azure Machine Learning workspace as private and limit inbound and outbound of it.
 - Compute resource: you can also limit inbound and outbound rule of compute resource in the workspace.
 - Storage account: you can limit the accessibility of the storage account to specific virtual network.
-- Container registry: you may also want to secure your container registry with virtual network.
-- Endpoint: you may want to limit Azure services or IP address to access your endpoint.
+- Container registry: you also want to secure your container registry with virtual network.
+- Endpoint: you want to limit Azure services or IP address to access your endpoint.
 - Related Azure Cognitive Services as such Azure OpenAI, Azure content safety and Azure cognitive search, you can use network config to make them as private then using private endpoint to let Azure Machine Learning services communicate with them.
-- Other non Azure resources such as SerpAPI, pinecone etc. If you have strict outbound rule, you need add FQDN rule to access them. 
+- Other non Azure resources such as SerpAPI etc. If you have strict outbound rule, you need add FQDN rule to access them. 
 
 ## Secure prompt flow with workspace managed virtual network
 
-Workspace managed virtual network is the recommended way to support network isolation in prompt flow. It provides easily configuration to secure your workspace. After you enable managed virtual network in the workspace level, resources related to workspace in the same virtual network, will use the same network setting in the workspace level. You can also configure the workspace to use private endpoint to access other Azure resources such as Azure OpenAI, Azure content safety, and Azure cognitive search. You also can configure FQDN rule to approve outbound to non-Azure resources use by your prompt flow such as OpenAI, Pinecone etc.
+Workspace managed virtual network is the recommended way to support network isolation in prompt flow. It provides easily configuration to secure your workspace. After you enable managed virtual network in the workspace level, resources related to workspace in the same virtual network, will use the same network setting in the workspace level. You can also configure the workspace to use private endpoint to access other Azure resources such as Azure OpenAI, Azure content safety, and Azure cognitive search. You also can configure FQDN rule to approve outbound to non-Azure resources use by your prompt flow such as SerpAPI etc.
 
 1. Follow [Workspace managed network isolation](../how-to-managed-network.md) to enable workspace managed virtual network.
 
@@ -46,9 +46,9 @@ Workspace managed virtual network is the recommended way to support network isol
 
 2. Add workspace MSI as `Storage File Data Privileged Contributor` and `Storage Table Data Contributor` to storage account linked with workspace.
 
-    2.1 Go to azure portal, find the workspace.
+    2.1 Go to Azure portal, find the workspace.
 
-    :::image type="content" source="./media/how-to-secure-prompt-flow/go-to-azure-portal.png" alt-text="Diagram showing how to go from AzureML portal to Azure portal." lightbox = "./media/how-to-secure-prompt-flow/go-to-azure-portal.png":::
+    :::image type="content" source="./media/how-to-secure-prompt-flow/go-to-azure-portal.png" alt-text="Diagram showing how to go from Azure Machine Learning portal to Azure portal." lightbox = "./media/how-to-secure-prompt-flow/go-to-azure-portal.png":::
 
 
     2.2 Find the storage account linked with workspace.
@@ -69,7 +69,7 @@ Workspace managed virtual network is the recommended way to support network isol
 
     > [!NOTE]
     > You need follow the same process to assign `Storage Table Data Contributor` role to workspace managed identity.
-    > This operation may take several minutes to take effect.
+    > This operation take several minutes to take effect.
 
 3. If you want to communicate with [private Azure Cognitive Services](../../ai-services/cognitive-services-virtual-networks.md), you need to add related user defined outbound rules to related resource. The Azure Machine Learning workspace creates private endpoint in the related resource with auto approve. If the status is stuck in pending, go to related resource to approve the private endpoint manually.
 
