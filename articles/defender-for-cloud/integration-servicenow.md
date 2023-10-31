@@ -9,11 +9,17 @@ ms.date: 10/30/2023
 
 # Integrate ServiceNow with Microsoft Defender for Cloud (preview)
 
+ServiceNow is a cloud-based workflow automation platform. It helps enterprises streamline and automate routine work tasks to operate more efficiently. 
+
+ServiceNow IT Service Management (ITSM) is a cloud-based, enterprise-oriented solution that enables organizations to manage and track digital workflows within a unified, robust platform. It delivers resilient services that help increase your productivity.  
+
+ServiceNow is now integrated with Microsoft Defender for Cloud that will enable customers to connect ServiceNow to their Defender for Cloud environment. As part of this connection, customers will be able to create/view ServiceNow tickets (linked to recommendations) from MDC.   
+
 You can connect ServiceNow to your Microsoft Defender for Cloud environment to create or view ServiceNow tickets with links to recommendations from Microsoft Defender for Cloud. 
 
 ## Common use cases and scenarios
 
-ServiceNow i will enable customers using third party ticketing solutions (ServiceNow) to create, view tickets (linked to recommendations) from Microsoft Defender for Cloud. 
+ServiceNow integration helps customers use third-party ticketing solutions from Microsoft Defender for Cloud to create and view tickets that are linked to recommendations. 
 
 ## Prerequisites
 
@@ -34,6 +40,9 @@ to create them:
 1. Sign in to ServiceNow with an account that has permission to modify the Application Registry.
 1. Browse to **System OAuth**, click **Application Registry**, and 
 click **New**.
+
+   :::image type="content" border="true" source="./media/integration-servicenow/app-registry.png" alt-text="Screenshot of application registry.":::
+
 1. Select **Create an OAuth API endpoint for external clients**.
 1. Complete the OAuth Client application details to create a Client ID and Client 
 Secret.
@@ -119,6 +128,13 @@ ticket created in the ServiceNow portal.
 Clicking on the Ticket ID will directly lead you to the ServiceNow portal, to the newly created incident.
 
 NOTE: When integration is deleted, all the assignments will be deleted. It could take up to 24hrs. 
-Assignment is resolved (as well as the task) when the assessment is resolved.
-The background job will listen to the assessment changes, and in case assessment is resolved, the assignment in 
-Microsoft Defender for Cloud will be deleted. In this case, the linked ticket will be resolved as well.
+
+## Bidirectional synchronization  
+
+ServiceNow and Defender for Cloud automatically synchronize the status of the tickets between the platforms, which includes:
+
+- A verification that a ticket is still ‘in progress’ state. If the ticket is changed to resolved, cancelled, or closed in ServiceNow, this will sync back to Microsoft Defender for Cloud and delete the assignment.
+- When the ticket owner is changed in ServiceNow, this will update the assignment owner in Microsoft Defender for Cloud. 
+
+>[!NOTE]
+>The freshness interval for the synchronization is 24 hrs.
