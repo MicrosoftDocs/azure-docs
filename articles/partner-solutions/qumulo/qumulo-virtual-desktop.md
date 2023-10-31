@@ -1,13 +1,13 @@
 ---
-title: Get started with Azure Native Qumulo Scalable File Service
-description: In this quickstart, learn how to create an instance of Azure Native Qumulo Scalable File Service.
+title: Using Azure Native Qumulo Scalable File Service with a virtual desktop.
+description: In this quickstart, learn how to create to use Azure Native Qumulo with a virtual desktop.
 
 ms.topic: quickstart 
 ms.date: 10/31/2023
 
 ---
 
-# Quickstart: How to setup a multi-region Azure Virtual Desktop with Azure Native Qumulo ?
+# Quickstart: How to setup a multi-region Azure Virtual Desktop with Azure Native Qumulo?
 
 This article describes a solution that delivers highly-available Azure Virtual Desktop services to on-prem and/or remote users. The solution described in this article is distributed across two separate Azure regions in an active-active configuration. ANQ and AVD can also be deployed to a single region if high availability is not required.
 

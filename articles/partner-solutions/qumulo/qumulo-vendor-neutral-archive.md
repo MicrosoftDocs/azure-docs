@@ -53,9 +53,9 @@ The solution architecture comprises the following components:
 - [Azure Native Qumulo Scalable File Service (ANQ)](https://qumulo.com/azure) to provide consolidated, cloud-based VNA archive services
 - One-way replication enabled between the on-premises Qumulo cluster(s) and the target ANQ cluster on Azure.
 - On-premises PACS application environment(s), configured to export VNA formatted data to the local Qumulo cluster
-- [Azure Virtual Network](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview)
-- [VNet ExpressRoute](https://learn.microsoft.com/en-us/azure/expressroute/expressroute-introduction)
-- [Azure VPN Gateway](https://learn.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways)
+- [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview)
+- [VNet ExpressRoute](/azure/expressroute/expressroute-introduction)
+- [Azure VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways)
 
 ## Considerations
 
@@ -113,7 +113,7 @@ For specific information about the availability and recovery options for the VNA
 ## Deploy this scenario
 
 - To deploy Azure Native Qumulo Scalable File Service, visit [our website](https://qumulo.com/product/azure/).
-- For more information regarding the replication options on Qumulo, see [Qumulo Continuous Replication](https://care.qumulo.com/hc/en-us/articles/360018873374-Replication-Continuous-Replication-with-2-11-2-and-above)
+- For more information regarding the replication options on Qumulo, see [Qumulo Continuous Replication](https://care.qumulo.com/hc/articles/360018873374-Replication-Continuous-Replication-with-2-11-2-and-above)
 - For more information regarding inbound and outbound networking, [Required Networking Ports for Qumulo Core](https://docs.qumulo.com/administrator-guide/networking/required-networking-ports.html)
 
 ## Next steps

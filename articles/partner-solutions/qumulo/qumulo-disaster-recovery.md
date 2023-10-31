@@ -1,6 +1,6 @@
 ---
-title: how to setup Azure Native Qumulo Scalable File Service for disaster recovery.
-description: In this how to guide, learn how to setup Azure Native Qumulo Scalable File Service for disaster.
+title: Using Azure Native Qumulo Scalable File Service for disaster recovery.
+description: In this how to guide, learn how to setup use Azure Native Qumulo Scalable File Service fir disaster recovery.
 
 ms.topic: conceptual 
 ms.date: 10/31/2023
@@ -68,11 +68,11 @@ In this scenario, the primary Qumulo storage is either on-premises or hosted on 
 The solution architecture comprises the following components:
 
 - [Azure Native Qumulo Scalable File Service (ANQ)](https://qumulo.com/azure)
-- [Qumulo Continuous Replication](https://care.qumulo.com/hc/en-us/articles/360018873374-Replication-Continuous-Replication-with-2-11-2-and-above)
-- [Qumulo Snapshots with Replication](https://care.qumulo.com/hc/en-us/articles/360037962693-Replication-Snapshot-Policy-Replication)
-- [Azure Virtual Network](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview)
-- [VNet ExpressRoute](https://learn.microsoft.com/en-us/azure/expressroute/expressroute-introduction)
-- [Azure VPN Gateway](https://learn.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways)
+- [Qumulo Continuous Replication](https://care.qumulo.com/hc/articles/360018873374-Replication-Continuous-Replication-with-2-11-2-and-above)
+- [Qumulo Snapshots with Replication](https://care.qumulo.com/hc/articles/360037962693-Replication-Snapshot-Policy-Replication)
+- [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview)
+- [VNet ExpressRoute](/azure/expressroute/expressroute-introduction)
+- [Azure VPN Gateway](azure/vpn-gateway/vpn-gateway-about-vpngateways)
 
 ## Considerations
 
@@ -110,7 +110,7 @@ For information about third-party attestations Qumulo has achieved, including SO
 
 ### Cost optimization
 
-Cost optimization refers to minimizing unnecessary expenses while maximizing the value of the actual costs incurred by the solution. For more information, visit the [Overview of the cost optimization pillar](https://learn.microsoft.com/en-us/azure/well-architected/cost/overview) page.
+Cost optimization refers to minimizing unnecessary expenses while maximizing the value of the actual costs incurred by the solution. For more information, visit the [Overview of the cost optimization pillar](/azure/well-architected/cost/overview) page.
 
 Azure Native Qumulo is available in multiple tiers, giving you a choice of multiple capacity-to-throughput options to meet your specific workload needs.
 
@@ -130,11 +130,11 @@ ANQ also supports any file-based backup solution to enable external data protect
 
 ## Deploy this scenario
 
-- To deploy Azure Native Qumulo Scalable File Service, visit [our website](https://qumulo.com/product/azure/).
-- For more information regarding the replication options on Qumulo, see [Qumulo Continuous Replication](https://care.qumulo.com/hc/en-us/articles/360018873374-Replication-Continuous-Replication-with-2-11-2-and-above) and [Qumulo Snapshots with Replication](https://care.qumulo.com/hc/en-us/articles/360037962693-Replication-Snapshot-Policy-Replication)
-- For more information regarding the failover/failback operations, see [Using Failover with Replication in Qumulo](https://care.qumulo.com/hc/en-us/articles/4488248924691-Using-Failover-with-Replication-in-Qumulo-Core-2-12-0-or-Higher-)
+- For more information about deploying Azure Native Qumulo Scalable File Service, see [our website](https://qumulo.com/product/azure/).
+- For more information about the replication options on Qumulo, see [Qumulo Continuous Replication](https://care.qumulo.com/hc/articles/360018873374-Replication-Continuous-Replication-with-2-11-2-and-above) and [Qumulo Snapshots with Replication](https://care.qumulo.com/hc/articles/360037962693-Replication-Snapshot-Policy-Replication)
+- For more information regarding the failover/failback operations, see [Using Failover with Replication in Qumulo](https://care.qumulo.com/hc/articles/4488248924691-Using-Failover-with-Replication-in-Qumulo-Core-2-12-0-or-Higher-)
 - For more information regarding the Qumulo solution, see [QumuloSync](https://github.com/Qumulo/QumuloSync)
-- For more information regarding the [Required Networking Ports for Qumulo Core](https://docs.qumulo.com/administrator-guide/networking/required-networking-ports.html)
+- For more information about network ports, see [Required Networking Ports for Qumulo Core](https://docs.qumulo.com/administrator-guide/networking/required-networking-ports.html)
 
 ## Next steps
 

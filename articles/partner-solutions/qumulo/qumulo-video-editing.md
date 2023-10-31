@@ -47,13 +47,13 @@ The solution architecture comprises the following components:
 
 - [Azure Native Qumulo Scalable File Service (ANQ)](https://qumulo.com/azure) to provide consolidated, cloud-based VNA archive services
 - [Leostream](https://leostream.com/media-entertainment/) connection Broker for connecting incoming clients to resource groups within the solution
-- [GPU-optimized virtual machines](https://learn.microsoft.com/en-us/azure/virtual-machines/sizes-gpu)
+- [GPU-optimized virtual machines](/azure/virtual-machines/sizes-gpu)
 - Media Asset Manager for tracking and organizing content
 - Adobe Premiere Pro video-editing software, running on virtual machines in the customer’s Azure tenant
 - [HP Anyware](https://www.teradici.com/partners/cloud-partners/microsoft) (formerly Teradici)
-- [Azure Virtual Network](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview)
-- [VNet ExpressRoute](https://learn.microsoft.com/en-us/azure/expressroute/expressroute-introduction)
-- [Azure VPN Gateway](https://learn.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways)
+- [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview)
+- [VNet ExpressRoute](/azure/expressroute/expressroute-introduction)
+- [Azure VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways)
 
 ## Considerations
 
@@ -91,7 +91,7 @@ For all other aspects of the solution, customers are responsible for planning, i
 
 ### Cost optimization
 
-Cost optimization refers to minimizing unnecessary expenses while maximizing the value of the actual costs incurred by the solution. For more information, visit the [Overview of the cost optimization pillar](https://learn.microsoft.com/en-us/azure/well-architected/cost/overview) page.
+Cost optimization refers to minimizing unnecessary expenses while maximizing the value of the actual costs incurred by the solution. For more information, visit the [Overview of the cost optimization pillar](/azure/well-architected/cost/overview) page.
 
 - Azure’s pay-as-you-go model allows you to optimize costs by scaling resources to use the capacity when needed. This helps you manage costs efficiently without over-provisioning resources.
 - The cost of the Qumulo depends on the amount of data on the Azure Native Qumulo Scalable File Service and the performance consumed. For details, see [Azure Native Qumulo Scalable File Services pricing](https://azure.qumulo.com/calculator?_gl=1*zfn19v*_ga*MTk1NTg5NjYwNy4xNjM4Mzg3MjE1*_ga_NMLSHVWEN3*MTY5NTQyMTcyNi4zMDkuMS4xNjk1NDIxNzMwLjU2LjAuMA..*_gcl_au*Njk2NjE4MjQ4LjE2ODc3OTI1NzM.).
@@ -111,7 +111,7 @@ ANQ supports replication of the data to a secondary Qumulo storage instance, whi
 - To deploy Azure Native Qumulo Scalable File Service, visit [our website](https://qumulo.com/product/azure/).
 - For more information regarding inbound and outbound networking, [Required Networking Ports for Qumulo Core](https://docs.qumulo.com/administrator-guide/networking/required-networking-ports.html)
 - For more information regarding Adobe Premiere Pro, see [Best practices for Creative Cloud deployment on VDI](https://helpx.adobe.com/enterprise/using/creative-cloud-deployment-on-vdi.html)
-- For more information regarding HPE Anyware, see [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/teradici.hp_anyware?tab=Overview).
+- For more information regarding HPE Anyware, see [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/teradici.hp_anyware?tab=Overview).
 
 ## Next steps
 
