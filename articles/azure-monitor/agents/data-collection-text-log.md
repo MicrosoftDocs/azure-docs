@@ -142,7 +142,7 @@ To create the data collection rule in the Azure portal:
  
 1. On the **Destination** tab, add one or more destinations for the data source. You can select multiple destinations of the same or different types. For instance, you can select multiple Log Analytics workspaces, which is also known as multihoming.
     <!-- convertborder later -->
-    :::image type="content" source="media/data-collection-rule-azure-monitor-agent/data-collection-rule-destination.png" lightbox="media/data-collection-rule-azure-monitor-agent/data-collection-rule-destination.png" alt-text="Screenshot that shows the destination tabe of the Add data source screen for a data collection rule in Azure portal." border="false":::
+    :::image type="content" source="media/data-collection-rule-azure-monitor-agent/data-collection-rule-destination.png" lightbox="media/data-collection-rule-azure-monitor-agent/data-collection-rule-destination.png" alt-text="Screenshot that shows the destination tab of the Add data source screen for a data collection rule in Azure portal." border="false":::
 
 1. Select **Review + create** to review the details of the data collection rule and association with the set of virtual machines.
 1. Select **Create** to create the data collection rule.
