@@ -553,7 +553,7 @@ Symbol layers in Azure Maps support custom images as well. First, load the image
 </html>
 ```
 
-:::image type="content" source="./media/migrate-google-maps-web-app/azure-maps-custom-icon-symbol-layer.jpg" lightbox="./media/migrate-google-maps-web-app/azure-maps-custom-icon-symbol-layer.jpg" alt-text="A screenshot of an Azure Maps map with a yellow push pin shown.":::
+:::image type="content" source="./media/migrate-google-maps-web-app/azure-maps-custom-icon-symbol-layer.jpg" lightbox="./media/migrate-google-maps-web-app/azure-maps-custom-icon-symbol-layer.jpg" alt-text="A screenshot of an Azure Maps map with a yellow push pin shown on the map in London.":::
 
 > [!TIP]
 > To render advanced custom points, use multiple rendering layers together. For example, let's say you want to have multiple pushpins that have the same icon on different colored circles. Instead of creating a bunch of images for each color overlay, add a symbol layer on top of a bubble layer. Have the pushpins reference the same data source. This approach will be more efficient than creating and maintaining a bunch of different images.
