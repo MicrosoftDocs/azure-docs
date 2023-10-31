@@ -16,7 +16,8 @@ ms.custom: ignite-fall-2023
 
 Using simple resiliency policies, you can proactively prevent, detect, and recover from service-to-service request failures. In this article, you learn how to configure Dapr's resiliency policies when using Dapr’s Service Invocation API for container app-to-container app communication. 
 
-You can tailor policies to the container app accepting requests with configurations like:
+Policies are in effect for each request to a container app. You can tailor policies to the container app accepting requests with configurations like:
+
 - The number of retries
 - Retry and timeout duration
 - Circuit breaker consecutive errors, and others 

@@ -114,7 +114,7 @@ To create a resiliency policy with recommended settings for timeouts and retries
 az containerapp resiliency create -g MyResourceGroup -n MyResiliencyName --container-app-name MyContainerApp --default
 ```
 
-To apply the resiliency policies from a YAML file you've created for your container app, run the following command:
+To apply the resiliency policies from a YAML file you created for your container app, run the following command:
 
 ```azurecli
 az containerapp resiliency-policy create -g MyResourceGroup –n MyContainerApp –yaml MyYAMLPath
@@ -234,13 +234,13 @@ properties: {
 | `retryBackOff.initialDelayInMilliseconds` | Yes | Delay between first error and first retry. | `1000` |
 | `retryBackOff.maxIntervalInMilliseconds` | Yes | Maximum delay between retries. | `10000` |
 | `matches` | Yes | Set match values to limit when the app should attempt a retry.  | `headers`, `httpStatusCodes`, `errors` |
-| `matches.headers` | Y* | Retry when the error response includes a specific header. *Headers are only required properties if you've specified the `retriable-headers` error property. [Learn more about available header matches.](#header-matches) | `X-Content-Type` |
-| `matches.httpStatusCodes` | Y* | Retry when the response returns a specific status code. *Status codes are only required properties if you've specified the `retriable-status-codes` error property. | `502`, `503` |
+| `matches.headers` | Y* | Retry when the error response includes a specific header. *Headers are only required properties if you specify the `retriable-headers` error property. [Learn more about available header matches.](#header-matches) | `X-Content-Type` |
+| `matches.httpStatusCodes` | Y* | Retry when the response returns a specific status code. *Status codes are only required properties if you specify the `retriable-status-codes` error property. | `502`, `503` |
 | `matches.errors` | Yes | Only retries when the app returns a specific error. [Learn more about available errors.](#errors) | `connect-failure`, `reset` |
 
 ##### Header matches
 
-If you've specified the `retriable-headers` error, you can use the following header match properties to retry when the response includes a specific header.
+If you specified the `retriable-headers` error, you can use the following header match properties to retry when the response includes a specific header.
 
 ```bicep
 matches: {
@@ -257,10 +257,10 @@ matches: {
 
 | Metadata | Description |
 | -------- | ----------- |
-| `prefixMatch` | Retries will be performed based on the prefix of the header value. |
-| `exactMatch` | Retries will be performed based on an exact match of the header value. |
-| `suffixMatch` | Retries will be performed based on the suffix of the header value. |
-| `regexMatch` | Retries will be performed based on an regular expression rule where the header value must match the regex pattern. |
+| `prefixMatch` | Retries are performed based on the prefix of the header value. |
+| `exactMatch` | Retries are performed based on an exact match of the header value. |
+| `suffixMatch` | Retries are performed based on the suffix of the header value. |
+| `regexMatch` | Retries are performed based on an regular expression rule where the header value must match the regex pattern. |
 
 ##### Errors
 
@@ -281,11 +281,11 @@ matches: {
 
 | Metadata | Description |
 | -------- | ----------- |
-| `retriable-headers` | HTTP response headers that trigger a retry. A retry will be performed if any of the header matches match the upstream response headers. Required if you'd like to retry on any matching headers. |
+| `retriable-headers` | HTTP response headers that trigger a retry. A retry are performed if any of the header matches match the upstream response headers. Required if you'd like to retry on any matching headers. |
 | `retriable-status-codes` | HTTP status codes that should trigger a retries. Required if you'd like to retry on any matching status codes. |
 | `5xx` | Retry if upstream server responds with any 5xx response codes. |
 | `reset` | Retry if the upstream server doesn't respond. |
-| `connect-failure` | Retry if request has failed due to a connection failure with the upstream container app. |
+| `connect-failure` | Retry if request failed due to a connection failure with the upstream container app. |
 | `retriable-4xx` | Retry if upstream container app responds with a retriable 4xx response code, like `409`. |
 
 #### tcpRetryPolicy
