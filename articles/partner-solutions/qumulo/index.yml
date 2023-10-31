@@ -19,6 +19,11 @@ landingContent:
         links:
           - text: What is Azure Native Qumulo Scalable File Service?
             url: qumulo-overview.md
+
+          - text: Using ANQ for disaster recovery
+            url: qumulo-disaster-recovery.md
+          - text: Using ANQ for video editing
+            url: qumulo-video-editing.md
       - linkListType: quickstart
         links:
           - text: Create an Azure Native Qumulo Scalable File Service deployment
@@ -40,12 +45,8 @@ landingContent:
             url: qumulo-how-to-manage.md
           - text: Troubleshoot Azure Native Qumulo Scalable File Service
             url: qumulo-troubleshoot.md 
-          - text: Setting up Azure Native Qumulo Scalable File Service 
+          - text: Setting up Azure Native Qumulo Scalable File Service
             url: qumulo-how-to-setup-features.md
-          - text: Using ANQ for disaster recovery
-            url: qumulo-disaster-recovery.md
-          - text: Using ANQ for video editing
-            url: qumulo-video-editing.md
 
       
   #Card
