@@ -136,24 +136,6 @@ See [High-availability configuration](configure-system.md#high-availability-conf
 
 
 
-| Variable                           | Description                                                                        | Type         | Notes  |
-| ---------------------------------- | ---------------------------------------------------------------------------------- | ----------   | ------ |
-| `database_platform`                | Defines the database back end                                                      | Required     |        |
-| `database_high_availability`       | Defines if the database tier is deployed highly available                          | Optional     |        |
-| `database_server_count`            | Defines the number of database servers                                             | Optional     |        |
-| `database_vm_zones`                | Defines the availability zones for the database servers                            | Optional     |        |
-| `db_sizing_dictionary_key`         | Defines the database sizing information                                            | Required     | See [Custom sizing](configure-extra-disks.md). |
-| `database_vm_use_DHCP`             | Controls if Azure subnet-provided IP addresses should be used                      | Optional     |        |
-| `database_vm_db_nic_ips`           | Defines the IP addresses for the database servers (database subnet)                | Optional     |        |
-| `database_vm_db_nic_secondary_ips` | Defines the secondary IP addresses for the database servers (database subnet)      | Optional     |        |
-| `database_vm_admin_nic_ips`        | Defines the IP addresses for the database servers (admin subnet)                   | Optional     |        |
-| `database_vm_image`                | Defines the virtual machine image to use                                           | Optional     |        |
-| `database_vm_authentication_type`  | Defines the authentication type (key/password)                                     | Optional     |        |
-| `database_use_avset`               | Controls if the database servers are placed in availability sets                   | Optional     |        |
-| `database_use_ppg`                 | Controls if the database servers are placed in proximity placement groups          | Optional     |        |
-| `database_vm_avset_arm_ids`        | Defines the existing availability sets Azure resource IDs                          | Optional     | Primarily used with ANF pinning. |
-| `database_use_premium_v2_storage   | Controls if the database tier will use premium storage v2 (HANA)                   | Optional     |        |
-| `hana_dual_nics`                   | Controls if the HANA database servers will have dual network interfaces            | Optional     |        |
 
 
 The virtual machine and the operating system image are defined by using the following structure:
