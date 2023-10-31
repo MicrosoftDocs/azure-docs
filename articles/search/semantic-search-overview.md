@@ -88,7 +88,7 @@ Captions and answers are always verbatim text from your index. There's no genera
 
 ### How summaries are scored
 
-Scoring is done over the caption.
+Scoring is done over the caption, and any other content from the summary string that fills out the 256 token length.
 
 1. Captions are evaluated for conceptual and semantic relevance, relative to the query provided.
 

@@ -1,5 +1,5 @@
 ---
-title: Create a suggester
+title: Configure a suggester
 titleSuffix: Azure AI Search
 description: Enable type-ahead query actions in Azure AI Search by creating suggesters and formulating requests that invoke autocomplete or autosuggested query terms.
 
@@ -12,9 +12,9 @@ ms.date: 12/02/2022
 ms.custom: devx-track-csharp, devx-track-dotnet
 ---
 
-# Create a suggester to enable autocomplete and suggested results in a query
+# Configure a suggester to enable autocomplete and suggested results in a query
 
-In Azure AI Search, typeahead or "search-as-you-type" is enabled through a *suggester*. A suggester provides a list of fields that undergo extra tokenization, generating prefix sequences to support matches on partial terms. For example, a suggester that includes a City field with a value for "Seattle" will have prefix combinations of "sea", "seat", "seatt", and "seattl" to support typeahead.
+In Azure AI Search, typeahead or "search-as-you-type" is enabled through a *suggester*. A suggester is defined in an index and provides a list of fields that undergo extra tokenization, generating prefix sequences to support matches on partial terms. For example, a suggester that includes a City field with a value for "Seattle" will have prefix combinations of "sea", "seat", "seatt", and "seattl" to support typeahead.
 
 Matches on partial terms can be either an autocompleted query or a suggested match. The same suggester supports both experiences.
 
