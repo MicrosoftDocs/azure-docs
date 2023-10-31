@@ -1,16 +1,16 @@
 ---
 title: 'App Service authentication recommendations'
-description: There are several different authentication solutions available for web apps or web APIs hosted on App Service. This article provides recommendations on which auth solution(s) can be used for specific scenarios such as quickly and simply limiting access to your web app, custom authorization, and incremental consent.  
+description: Learn how to choose between the different authentication options available for web apps or web APIs hosted on App Service. This article provides recommendations on which auth solution(s) can be used for specific scenarios such as quickly and simply limiting access to your web app, custom authorization, and incremental consent.  Learn about the benefits of the built-in App Service authentication feature, about using Azure Active Directory B2C to authenticate users in my web app, and about using Microsoft Authentication Library (MSAL) to sign in users.
 author: rwike77
 manager: CelesteDG
 ms.author: ryanwi
 ms.topic: conceptual
-ms.date: 08/10/2023
+ms.date: 10/31/2023
 ms.custom: AppServiceIdentity
 ---
 # Authentication scenarios and recommendations
 
-If you have a web app or an API running in Azure App Service, you can restrict access to it based on the identity of the users or applications that request it. App Service offers several authentication solutions to help you achieve this goal. In this article, you will learn about the different authentication solutions, their benefits and drawbacks, and which authentication solution to use for specific scenarios.
+If you have a web app or an API running in Azure App Service, you can restrict access to it based on the identity of the users or applications that request it. App Service offers several authentication solutions to help you achieve this goal. In this article, you will learn about the different authentication options, their benefits and drawbacks, and which authentication solution to use for specific scenarios.  
 
 ## Authentication solutions
 
