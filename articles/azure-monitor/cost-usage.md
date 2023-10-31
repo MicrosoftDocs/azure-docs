@@ -49,7 +49,7 @@ To get started analyzing your Azure Monitor charges, open [Cost Management + Bil
 >You might need additional access to use Cost Management data. See [Assign access to Cost Management data](../cost-management-billing/costs/assign-access-acm-data.md).
 
 
-:::image type="content" source="/media/usage-estimated-costs/010.png" lightbox="/media/usage-estimated-costs/010.png" alt-text="Screenshot that shows Azure Cost Management with cost information.":::
+:::image type="content" source="media/usage-estimated-costs/010.png" lightbox="media/usage-estimated-costs/010.png" alt-text="Screenshot that shows Azure Cost Management with cost information.":::
 
 To limit the view to Azure Monitor charges, [create a filter](../cost-management-billing/costs/group-filter.md) for the following **Service names**. See [Azure Monitor billing meter names](cost-meters.md) for the different charges that are included in each service.
 
