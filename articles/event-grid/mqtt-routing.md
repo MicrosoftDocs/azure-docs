@@ -25,14 +25,21 @@ Routing the messages from your clients to an Azure service or your custom endpoi
 
 The routing configuration enables you to send all your MQTT messages from your clients to either an [Event Grid namespace topic](concepts-pull-delivery.md#namespace-topics) or an  [Event Grid custom topic](custom-topics.md). Once the messages are in the topic, you can configure an event subscription to consume the messages from the topic. Use the following high-level steps to achieve this configuration:
 
-- Custom topic as a routing destination:
-    -  [Create an Event Grid custom topic](custom-event-quickstart-portal.md) where all MQTT messages will be routed. This topic needs to fulfill the [Event Grid custom topic requirements for routing](#event-grid-custom-topic-requirements-for-routing)
-    - Create an [Event Grid event subscription](subscribe-through-portal.md) to route these messages to one of the supported Azure services or a custom endpoint.
-    - Set the [routing configuration](#azure-portal-configuration) referring to the topic that you created in the first step.
 - Namespace topic as a routing destination:
     - [Create an Event Grid namespace topic](create-view-manage-namespace-topics.md) where all MQTT messages will be routed. 
     - Create an event subscription of push type to route these messages to one of the supported Azure services or a custom webhooks or an event subscription of queue type to pull the messages directly from the namespace topic through your application.
     - Set the [routing configuration](#azure-portal-configuration) referring to the topic that you created in the first step.
+
+:::image type="content" source="media/mqtt-routing/routing-ns-topic.png" alt-text="Diagram of the MQTT message routing to namespace topics." border="false":::
+
+- Custom topic as a routing destination:
+    -  [Create an Event Grid custom topic](custom-event-quickstart-portal.md) where all MQTT messages will be routed. This topic needs to fulfill the [Event Grid custom topic requirements for routing](#event-grid-custom-topic-requirements-for-routing)
+    - Create an [Event Grid event subscription](subscribe-through-portal.md) to route these messages to one of the supported Azure services or a custom endpoint.
+    - Set the [routing configuration](#azure-portal-configuration) referring to the topic that you created in the first step.
+
+:::image type="content" source="media/mqtt-routing/routing-custom-topic.png" alt-text="Diagram of the MQTT message routing to custom topics." border="false":::
+
+
 
 ### Difference between namespace topics and custom topics as a routing destination
 The following table shows the difference between namespace topics and custom topics as a routing destination. For a detailed breakdown of which quotas and limits are included in each Event Grid resource, see [Quotas and limits](quotas-limits.md).
