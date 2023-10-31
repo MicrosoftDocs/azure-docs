@@ -25,7 +25,7 @@ landingContent:
         links:
           - text: What is Azure AI Search?
             url: search-what-is-azure-search.md
-          - text: What is vector search?
+          - text: Vector search
             url: vector-search-overview.md
           - text: Integrated vectorization (preview)
             url: vector-search-integrated-vectorization.md

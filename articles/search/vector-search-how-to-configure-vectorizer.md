@@ -66,64 +66,68 @@ You can use the Azure portal (**Import and vectorize data** wizard), the [2023-1
 
 ## Define a profile that includes a vectorizer
 
-Add a profiles section that specifies combinations of algorithms and vectorizers.
+1. Use [Create or Update Index (preview)](/rest/api/searchservice/2023-10-01-preview/indexes/create-or-update) to add a profile.
 
-```json
-"profiles": [ 
-   { 
-        "name": "my_open_ai_profile", 
-        "algorithm": "my_hnsw_algorithm", 
-        "vectorizer":"my_open_ai_vectorizer" 
-   }, 
-   { 
-        "name": "my_custom_profile", 
-        "algorithm": "my_hnsw_algorithm", 
-        "vectorizer":"my_custom_vectorizer" 
-   }
-]
-```
+1. Add the  a profiles section that specifies combinations of algorithms and vectorizers.
+
+  ```json
+  "profiles": [ 
+      { 
+          "name": "my_open_ai_profile", 
+          "algorithm": "my_hnsw_algorithm", 
+          "vectorizer":"my_open_ai_vectorizer" 
+      }, 
+      { 
+          "name": "my_custom_profile", 
+          "algorithm": "my_hnsw_algorithm", 
+          "vectorizer":"my_custom_vectorizer" 
+      }
+  ]
+  ```
 
 ## Assign a vector profile to a field
 
-Assign a profile to each vector field.
+1. Use [Create or Update Index (preview)](/rest/api/searchservice/2023-10-01-preview/indexes/create-or-update) to add field attributes.
 
-```json
-"fields": [ 
-        { 
-            "name": "ID", 
-            "type": "Edm.String", 
-            "key": true, 
-            "sortable": true, 
-            "analyzer": "keyword" 
-        }, 
-        { 
-            "name": "title", 
-            "type": "Edm.String" 
-        }, 
-        { 
-            "name": "synopsis", 
-            "type": "Collection(Edm.Single)", 
-            "dimensions": 1536, 
-            "vectorSearchProfile": "my_open_ai_profile", 
-            "searchable": true, 
-            "retrievable": true, 
-            "filterable": false, 
-            "sortable": false, 
-            "facetable": false 
-        }, 
-        { 
-            "name": "reviews", 
-            "type": "Collection(Edm.Single)", 
-            "dimensions": 1024, 
-            "vectorSearchProfile": "my_custom_profile", 
-            "searchable": true, 
-            "retrievable": true, 
-            "filterable": false, 
-            "sortable": false, 
-            "facetable": false 
-        } 
-]
-```
+1. For each vector field in the fields collection, assign a profile.
+
+  ```json
+  "fields": [ 
+          { 
+              "name": "ID", 
+              "type": "Edm.String", 
+              "key": true, 
+              "sortable": true, 
+              "analyzer": "keyword" 
+          }, 
+          { 
+              "name": "title", 
+              "type": "Edm.String" 
+          }, 
+          { 
+              "name": "synopsis", 
+              "type": "Collection(Edm.Single)", 
+              "dimensions": 1536, 
+              "vectorSearchProfile": "my_open_ai_profile", 
+              "searchable": true, 
+              "retrievable": true, 
+              "filterable": false, 
+              "sortable": false, 
+              "facetable": false 
+          }, 
+          { 
+              "name": "reviews", 
+              "type": "Collection(Edm.Single)", 
+              "dimensions": 1024, 
+              "vectorSearchProfile": "my_custom_profile", 
+              "searchable": true, 
+              "retrievable": true, 
+              "filterable": false, 
+              "sortable": false, 
+              "facetable": false 
+          } 
+  ]
+  ```
 
 ## Test a vectorizer
 
@@ -134,7 +138,10 @@ Assign a profile to each vector field.
     + Skills processing for data chunking and vectorization
     + Indexing to one or more indexes
 
-1. [Query the vector field](vector-search-how-to-query.md) once the indexer is finished. In a query that uses integrated vectorization, set "kind" to "text", and then set "text" to the string to be vectorized. There are no vectorizer properties to set at query time. The query uses the algorithm and vectorizer provided through the profile assignment in the index.
+1. [Query the vector field](vector-search-how-to-query.md) once the indexer is finished. In a query that uses integrated vectorization:
+
+    + Set `"kind"` to `"text"`.
+    + Set `"text"` to the string to be vectorized.
 
     ```json
     "count": true,
@@ -148,6 +155,8 @@ Assign a profile to each vector field.
        }
     ]
     ```
+
+There are no vectorizer properties to set at query time. The query uses the algorithm and vectorizer provided through the profile assignment in the index.
 
 ## See also
 
