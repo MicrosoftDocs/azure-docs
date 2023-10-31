@@ -1273,6 +1273,6 @@
     - name: Microsoft Sentinel skill-up training  
       href: skill-up-resources.md
     - name: Learn modules for Microsoft Sentinel
-      href: /training/browse/?expanded=azure&filter-products=sentinel
+      href: /training/browse/?expanded=azure&products=microsoft-sentinel
     - name: Learn modules for Kusto Query Language (KQL)
       href: /training/browse/?expanded=azure&terms=kusto%20query%20language
