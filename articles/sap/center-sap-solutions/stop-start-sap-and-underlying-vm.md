@@ -50,21 +50,24 @@ You can start and stop the entire SAP application tier and underlying VMs using 
 ### Start SAP system and its VMs
 To start the virtual machines and the SAP application on it, use the following REST API with "startVm" parameter set to true. This command starts the VMs associated with Central services instance and Application server instances.
 
+```http
 POST https://management.azure.com/subscriptions/Sub1/resourceGroups/test-rg/providers/Microsoft.Workloads/sapVirtualInstances/X00/start?api-version=2023-10-01-preview
 
 {
   "startVm": true
 }
+```
 
 ### Stop SAP system and its VMs
 To stop the SAP application and its VMs, use the following REST API with "deallocateVm" parameter set to true.
 
+```http
 POST https://management.azure.com/subscriptions/Sub1/resourceGroups/test-rg/providers/Microsoft.Workloads/sapVirtualInstances/X00/stop?api-version=2023-10-01-preview
 
 {
   "deallocateVm": true
 }
-
+```
 
 ## Start and Stop HANA Database and its VMs
 You can start and stop HANA database and its underlying VMs using [REST API version 2023-10-01](/rest/api/workloads).
@@ -72,17 +75,21 @@ You can start and stop HANA database and its underlying VMs using [REST API vers
 ### Start HANA database and its VMs
 To start the virtual machines and the HANA database on it, use the following REST API with "startVm" parameter set to true.
 
+```http
 POST https://management.azure.com/subscriptions/Sub1/resourceGroups/test-rg/providers/Microsoft.Workloads/sapVirtualInstances/X00/databaseInstances/db0/start?api-version=2023-10-01-preview
 
  {
   "startVm": true
  }
+```
 
 ### Stop HANA database and its VMs
 To stop HANA database and its underlying VMs, use the following REST API with `deallocateVm` parameter set to `true`.
 
+```http
 POST https://management.azure.com/subscriptions/Sub1/resourceGroups/test-rg/providers/Microsoft.Workloads/sapVirtualInstances/X00/databaseInstances/db0/stop?api-version=2023-10-01-preview
 
  {
   "deallocateVm": true
  }
+```
