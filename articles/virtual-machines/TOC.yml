@@ -2026,7 +2026,7 @@
       - name: Portal
         href: virtual-machines-create-restore-points-portal.md
       - name: Cross region copy
-        href: virtual-machines-copy-restore-points-how-to.md        
+        href: virtual-machines-copy-restore-points-howto.md        
     - name: Support matrix
       href: concepts-restore-points.md
     - name: Troubleshooting

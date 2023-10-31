@@ -1,12 +1,12 @@
 ---
-title: Using Cross region copy of Virtual Machine Restore Points
-description: Using Cross region copy of Virtual Machine Restore Points
+title: how to copy Virtual Machine Restore Points to another region
+description: how to copy Virtual Machine Restore Points to another region
 author: aarthiv
 ms.author: aarthiv
 ms.service: virtual-machines
 ms.subservice: recovery
 ms.topic: tutorial
-ms.date: 10/17/2023
+ms.date: 10/31/2023
 ms.custom: template-tutorial
 ---
 
@@ -14,7 +14,7 @@ ms.custom: template-tutorial
 
 ## Prerequisites
 
-For copying a RestorePoint across region, you need to pre-create a RestorePoint in the target region.
+For copying a RestorePoint across region, you need to pre-create a RestorePointCollection in the target region.
 Learn more about [cross region copy and its limitation](virtual-machines-copy-restore-points-copy.md) before copying a restore points.
 
 ### Create Restore Point Collection in target region
@@ -31,8 +31,8 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 ```
 {
-    "name": "name of the copy of restorePointCollection resource",
-    "location": "location of the copy of the restorePointCollection resource",    
+    "name": "name of target restorePointCollection resource",
+    "location": "location of target restorePointCollection resource",    
     "tags": {
         "department": "finance"
     },
@@ -71,7 +71,7 @@ The operation returns a 201 during create and 200 during Update.
 ```
 
 ### Create VM Restore Point in Target Region
-Next step is to trigger creation of a RestorePoint in the target RestorePointCollection referencing the RestorePoint in the source region that needs to be copied.
+Next step is to trigger copy of a RestorePoint in the target RestorePointCollection referencing the RestorePoint in the source region that needs to be copied.
 
 #### URI request
 
