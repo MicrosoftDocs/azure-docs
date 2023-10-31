@@ -59,7 +59,7 @@ For Microsoft Teams Direct Routing:
 
 |**Value**|**Field name(s) in Azure portal**|
 |---------|---------|
-| IP addresses or address ranges (in CIDR format) in your network that should be allowed to connect to connect to Azure Communications Gateway's Provisioning API, in a comma-separated list. Use of the Provisioning API is required to provision numbers for Direct Routing. | **Options common to multiple communications services: Allowed source IP addresses/CIDR ranges for connecting to the Communications Gateway Provisioning Platform** |
+| IP addresses or address ranges (in CIDR format) in your network that should be allowed to connect to Azure Communications Gateway's Provisioning API, in a comma-separated list. Use of the Provisioning API is required to provision numbers for Direct Routing. | **Options common to multiple communications services: Allowed source IP addresses/CIDR ranges for connecting to the Communications Gateway Provisioning Platform** |
 | Whether to add a custom SIP header to messages entering your network by using Azure Communications Gateway's Provisioning API | **Options common to multiple communications services: Add custom SIP header** |
 | (Only if you choose to add a custom SIP header) The name of any custom SIP header | **Options common to multiple communications services: Custom SIP header name** |
 
@@ -105,7 +105,7 @@ For Zoom Phone Cloud Peering:
 |---------|---------|
 |The phone number for the test line, in E.164 format and including the country code. |**Phone Number**|
 
-Microsoft Teams Direct Routing does not require service verification numbers.
+Microsoft Teams Direct Routing doesn't require service verification numbers.
 
 ## Decide if you want tags
 
@@ -130,8 +130,8 @@ Use the Azure portal to create an Azure Communications Gateway resource.
 1. Use the information you collected in [Collect configuration values for service regions](#collect-configuration-values-for-service-regions) to fill out the fields in the **Service Regions** tab and then select **Next: Communications Services**.
 1. Select the communications services that you want to support in the **Communications Services** configuration tab, use the information that you collected in [Collect configuration values for each communications service](#collect-configuration-values-for-each-communications-service) to fill out the fields, and then select **Next: Test Lines**.
 1. Use the information that you collected in [Collect values for service verification numbers](#collect-values-for-service-verification-numbers) to fill out the fields in the **Test Lines** configuration tab and then select **Next: Tags**.
-    - Do not configure numbers for integration testing.
-    - Microsoft Teams Direct Routing does not require service verification numbers.
+    - Don't configure numbers for integration testing.
+    - Microsoft Teams Direct Routing doesn't require service verification numbers.
 1. (Optional) Configure tags for your Azure Communications Gateway resource: enter a **Name** and **Value** for each tag you want to create.
 1. Select **Review + create**.
 
