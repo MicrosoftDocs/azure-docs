@@ -9,20 +9,11 @@ author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Encryption of backup data using customer-managed keys
+# Encryption of backup data in the Backup vault using customer-managed keys
 
-Azure Backup allows you to encrypt your backup data using customer-managed keys (CMK) instead of platform-managed keys, which are enabled by default. Your keys that encrypt the backup data must be stored in [Azure Key Vault](../key-vault/index.yml).
+Azure Backup allows you to encrypt your backup data using customer-managed keys (CMK) instead of using platform-managed keys, which are enabled by default. Your keys to encrypt the backup data must be stored in [Azure Key Vault](../key-vault/index.yml).
 
-The encryption key used for encrypting backups may be different from the one used for the source. The data is protected using an AES 256-based data encryption key (DEK), which in turn, is protected using your key encryption keys (KEK). This provides you with full control over the data and the keys. To allow encryption, you must grant Recovery Services vault the permissions to access the encryption key in the Azure Key Vault. You can change the key when required.
-
-In this article, you'll learn how to:
-
-> [!div class="checklist"]
->
-> - Create a Recovery Services vault
-> - Configure the Recovery Services vault to encrypt the backup data using customer-managed keys (CMK)
-> - Back up to vaults encrypted using customer-managed keys
-> - Restore data from backups
+The encryption key used for encrypting backups might be different from the one used for the source. The data is protected using an AES 256-based data encryption key (DEK), which in turn, is protected using your key encryption keys (KEK). This provides you with full control over the data and the keys. To allow encryption, you must grant Backup vault the permissions to access the encryption key in the Azure Key Vault. You can change the key when required.
 
 ## Before you start
 
