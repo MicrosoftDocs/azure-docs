@@ -2,22 +2,23 @@
 title: Confidential Containers (preview) with Azure Kubernetes Service (AKS)
 description: Learn about and deploy confidential Containers (preview) on an Azure Kubernetes Service (AKS) cluster to maintain security and protect sensitive information.
 ms.topic: article
-ms.date: 10/30/2023
+ms.date: 10/31/2023
 ---
 
 # Confidential Containers (preview) with Azure Kubernetes Service (AKS)
 
-To help secure and protect your container workloads from untrusted or potentially malicious code, as part of our Zero trust cloud architecture, AKS includes Confidential Containers (preview) on Azure Kubernetes Service. Confidential Containers is based on Kata Confidential Containers and hardware-based encryption, to encrypt container memory that prevents data in memory during computation from being in clear text, readable format, and ensures data integrity. You can gain trust in the container memory encryption being enforced by hardware through attestation.
+To help secure and protect your container workloads from untrusted or potentially malicious code, as part of our Zero Trust cloud architecture, AKS includes Confidential Containers (preview) on Azure Kubernetes Service. Confidential Containers builds on Kata Confidential Containers and hardware-based encryption to encrypt container memory. This establishes a new level of data confidentiality by preventing data in memory during computation from being in clear text, readable format. Trust is earned in the container through hardware attestation, allowing access to the encrypted data by trusted entities.
 
-Together with [Pod Sandboxing][pod-sandboxing-overview], you can run sensitive workloads at this isolation level in Azure to protect your data and workloads from:
+Together with [Pod Sandboxing][pod-sandboxing-overview], you can run sensitive workloads isolated in Azure to protect your data and workloads. Confidential Containers helps significantly reduce the risk of unauthorized access from:
 
 * Your AKS cluster admin
 * The AKS control plane & daemon sets
 * The cloud and host operator
 * The AKS worker node operating system
 * Another pod running on the same VM node
-* Helps application owners enforce application security requirements (for example, deny access to Azure tenant admin, Kubernetes admin, etc).
-* Access from Cloud Service Providers (CSPs)
+* Cloud Service Providers (CSPs) and from guest applications through a separate trust model
+
+This includes enabling application owners to enforce their application security requirements (for example, deny access to Azure tenant admin, Kubernetes admin, etc.).
 
 With other security measures or data protection controls, as part of your overall architecture, these capabilities help you meet regulatory, industry, or governance compliance requirements for securing sensitive information.
 
@@ -35,9 +36,9 @@ Confidential Containers (preview) are appropriate for deployment scenarios that 
 
 - Privacy preserving big data analytics using Apache Spark analytics job for fraud pattern recognition in the financial sector.
 - Running self-hosted GitHub runners to secure code signing as part of Continuous Integration and Continuous Deployment (CI/CD) DevOps practices.
-- Machine Learning inferencing and training of ML models, using an encrypted data set from a trusted source and only decrypting inside a confidential container environment, for purposes of privacy preserving ML inference.
+- Machine Learning inferencing and training of ML models using an encrypted data set from a trusted source. It only decrypts inside a confidential container environment for the purpose of privacy preserving ML inference.
 - Building big data clean rooms for ID matching as part of multi-party computation in industries like retail with digital advertising.
-- Building confidential computing zero trust landing zones to meet privacy regulations for application migrations to cloud.
+- Building confidential computing Zero Trust landing zones to meet privacy regulations for application migrations to cloud.
 
 ## Prerequisites
 
@@ -51,7 +52,7 @@ Confidential Containers (preview) are appropriate for deployment scenarios that 
 
 - AKS supports Confidential Containers (preview) on version 1.25.0 and higher.
 
-- To create a Microsoft Entra ID workload identity and configure a federated identity credential, see their [Preqequisites][entra-id-workload-identity-prerequisites] for role assignment.
+- To create a Microsoft Entra ID workload identity and configure a federated identity credential, see their [Prerequisites][entra-id-workload-identity-prerequisites] for role assignment.
 
 - The identity you're using to create your cluster has the appropriate minimum permissions. For more information about access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)][cluster-access-and-identity-options].
 
@@ -97,32 +98,32 @@ az provider register --namespace "Microsoft.ContainerService"
 
 ## What to consider
 
-The following are considrations with this preview of Confidential Containers (preview):
+The following are considerations with this preview of Confidential Containers:
 
-* You'll notice an increase in pod startup time compared to runc pods and kernel-isolated pods.
-* Pulling container images from a private container registry or referencing container images originating from a private container registry in a Confidential Containers pod manifest is not supported in this release.
-* ConfigMaps and secrets values cannot be changed if setting using the environment variable method after the pod is deployed.
-* Updates to secrets and ConfigMaps are not reflected in the guest.
-* Ephemeral containers and other troubleshooting methods require a policy modification and redeployment. This includes `exec` in container
+* An increase in pod startup time compared to runc pods and kernel-isolated pods.
+* Pulling container images from a private container registry or container images that originate from a private container registry in a Confidential Containers pod manifest isn't supported in this release.
+* ConfigMaps and secrets values can't be changed if setting using the environment variable method after the pod is deployed.
+* Updates to secrets and ConfigMaps aren't reflected in the guest.
+* Ephemeral containers and other troubleshooting methods require a policy modification and redeployment. It includes `exec` in container
 log output from containers. `stdio` (ReadStreamRequest and WriteStreamRequest) is enabled.
-* Cronjob deployment type is not supported by the policy generator tool.
+* Cronjob deployment type isn't supported by the policy generator tool.
 * Due to container measurements being encoded in the security policy, it's not recommended to use the `latest` tag when specifying containers. This is also a restriction with the policy generator tool.
 * Services, Load Balancers, and EndpointSlices only support the TCP protocol.
 * All containers in all pods on the clusters must be configured to `imagePullPolicy: Always`.
 * The policy generator only supports pods that use IPv4 addresses.
-* Version 1 container images are not supported.
-* The local container filesystem is backed by VM memory. Writing to the container filesystem (including logging) can fill up the memory provided to the pod. This can result in potential pod crashes.
-* v1 container images are not supported.
-* Pod termination logs are not supported. While pods may write termination logs to `/dev/termination-log` or to a custom location if specified in the pod manifest, the host/kubelet can't read those logs. Changes from guest to that file are not reflected on the host.
+* Version 1 container images aren't supported.
+* The local container filesystem is backed with VM memory. Writing to the container filesystem (including logging) can fill up the memory provided to the pod. It can result in potential pod crashes.
+* v1 container images aren't supported.
+* Pod termination logs aren't supported. While pods write termination logs to `/dev/termination-log` or to a custom location if specified in the pod manifest, the host/kubelet can't read those logs. Changes from guest to that file aren't reflected on the host.
 
 ## Resource allocation overview
 
 It's important you understand the memory and processor resource allocation behavior in this release.
 
 * CPU: The shim assigns one vCPU to the base OS inside the pod. If no resource `limits` are specified, the workloads don't have separate CPU shares assigned, the vCPU is then shared with that workload. If CPU limits are specified, CPU shares are explicitly allocated for workloads.
-* Memory: The Kata-CC handler uses 2GB memory for the UVM OS and X MB memory for containers based on resource `limits` if specified (resulting in a 2GB VM when no limit is given, w/o implicit memory for containers). The Kata handler uses 256MB base memory for the UVM OS and X MB memory when resource `limits` are specified. If limits are unspecified, an implicit limit of 1,792 MB is added (resulting in a 2GB VM when no limit is given, with 1,792 MB implicit memory for containers).
+* Memory: The Kata-CC handler uses 2 GB memory for the UVM OS and X MB memory for containers based on resource `limits` if specified (resulting in a 2 GB VM when no limit is given, without implicit memory for containers). The Kata handler uses 256 MB base memory for the UVM OS and X MB memory when resource `limits` are specified. If limits are unspecified, an implicit limit of 1,792 MB is added resulting in a 2 GB VM and 1,792 MB implicit memory for containers.
 
-In this release, specifying resource requests in the pod manifests are not supported. This is caused by resource requests from pod YAML manifest being ignored by the Kata container. As a result, containerd does not pass the requests to the shim. Use resource `limit` instead of resource `requests` to allocate memory or CPU resources for workloads or containers.
+In this release, specifying resource requests in the pod manifests aren't supported. Resource requests from pod YAML manifest are ignored by the Kata container, and  as a result, containerd doesn't pass the requests to the shim. Use resource `limit` instead of resource `requests` to allocate memory or CPU resources for workloads or containers.
 
 With the local container filesystem backed by VM memory, writing to the container filesystem (including logging) can fill up the available memory provided to the pod. This condition can result in potential pod crashes.
 
@@ -259,7 +260,7 @@ Before you configure access to the Azure Key Vault Managed HSM and secret, and d
 
 The Security Policy document describes all the calls to agent’s ttrpc APIs that are expected for creating and managing a Confidential pod. The *genpolicy* application/tool can be used to generate the policy data for the pod, together with the common rules and the default values – in a Rego format text document.
 
-The main input to genpolicy is a standard Kubernetes (K8s) YAML file, that is provided by you. The tool has support for automatic Policy generation based on K8s DaemonSet, Deployment, Job, Pod, ReplicaSet, ReplicationController, and StatefulSet input YAML files. The following is an example executing this tool:
+The main input to genpolicy is a standard Kubernetes (K8s) YAML file that is provided by you. The tool supports automatic Policy generation based on K8s DaemonSet, Deployment, Job, Pod, ReplicaSet, ReplicationController, and StatefulSet input YAML files. The following is an example executing this tool:
 
 ```bash
 genpolicy -y my-pod.yaml 
@@ -275,13 +276,13 @@ On successful execution, genpolicy creates the Policy document, encodes it in *b
 io.katacontainers.config.agent.policy: cGFja2FnZSBhZ2VudF9wb2xpY3kKCmlt <…>
 ```
 
-To print out information about the actions undertaken by the application while it computes the Policy, set genpolicy’s RUST_LOG environment variable by running the following command:
+To print information about the actions undertaken by the application while it computes the Policy, set genpolicy’s `RUST_LOG`` environment variable by running the following command:
 
 ```bash
 RUST_LOG=info genpolicy -y my-pod.yaml 
 ```
 
-For example, the app downloads the container image layers for each of the containers specified by the input YAML file, and calculates the dm-verity root hash value for each of the layers. Depending on the speed of the download from the container image repository, these actions might take a few minutes to complete.
+For example, the app downloads the container image layers for each of the containers specified by the input YAML file. It calculates the dm-verity root hash value for each of the layers. Depending on the speed of the download from the container image repository, these actions might take a few minutes to complete.
 
 ## Complete the configuration
 
@@ -297,7 +298,7 @@ For example, the app downloads the container image layers for each of the contai
     go run /tools/importkey/main.go -c myapplication.yml -kh encryptionKey
     ```
 
-   Upon successful import, you should see something similar to the following:
+   After successful import, you should see something similar to the following example output:
 
     ```output
     [34 71 33 117 113 25 191 84 199 236 137 166 201 103 83 20 203 233 66 236 121 110 223 2 122 99 106 20 22 212 49 224]
@@ -321,7 +322,7 @@ For example, the app downloads the container image layers for each of the contai
     kubectl apply -f myapplication
     ```
 
-1. To verify the application is running in isolation from parent and any other pods deployed on the cluster, run the following command. (Run command to view secrets to verify it is working from the pod).
+1. To verify the application is running in isolation from parent and any other pods deployed on the cluster, run the following command. (Run command to view secrets to verify it's working from the pod).
 
 ## Cleanup
 
