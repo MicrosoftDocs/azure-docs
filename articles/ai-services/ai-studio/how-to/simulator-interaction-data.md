@@ -71,11 +71,7 @@ st = SimulatorTemplate()
 ```
 
 Provided a local function or local flow:
-Local
-```python
-simulator = simulator(simulate_callback=simulate_callback, systemConnection=aoai_config)
-```
-Following is an example of using `simulate_callback` function wrapping it:
+
 ```python
 async def simulate_callback(question, conversation_history, meta_data):
     from promptflow import PFClient
@@ -83,6 +79,12 @@ async def simulate_callback(question, conversation_history, meta_data):
 
     inputs = {"question": question}
     return pf_client.test(flow="<flow_folder_path>", inputs=inputs)
+```
+
+The following is an example of using `simulate_callback` function wrapping it:
+
+```python
+simulator = simulator(simulate_callback=simulate_callback, systemConnection=aoai_config)
 ```
 
 ### Simulate a conversation

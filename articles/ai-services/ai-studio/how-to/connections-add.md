@@ -14,7 +14,7 @@ ms.author: eur
 
 In this article, you learn how to add a new connection in Azure AI Studio.
 
-Connections are a way to authenticate and consume both Microsoft and third-party resources within your Azure AI projects. 
+Connections are a way to authenticate and consume both Microsoft and third-party resources within your Azure AI projects. For example, connections can be used for prompt flow, training data, and deployments. [Connections can be created](../how-to/connections-add.md) exclusively for one project or shared with all projects in the same Azure AI resource. 
 
 ## Create a new connection
 
@@ -108,10 +108,7 @@ Here's a table of the available service connection types and descriptions of the
 > [!TIP]
 > Custom connections allow you to securely store and access keys while storing related properties, such as targets and versions. Custom connections are useful when you have many targets that or cases where you would not need a credential to access. LangChain scenarios are a good example where you would use custom service connections. Custom connections don't manage authentication, so you will have to manage authenticate on your own.
 
-
 ---
-
-
 
 
 ## Next steps
