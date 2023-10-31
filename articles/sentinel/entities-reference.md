@@ -134,7 +134,7 @@ The following section contains a more in-depth look at the full schemas of each 
 > - LOCALSYSTEM
 > - NETWORK SERVICE
 
-[Back to list of schema types](#list-of-entity-type-schemas)
+[Back to list of entity type schemas](#list-of-entity-type-schemas) | [Back to entity identifiers table](#entity-types-and-identifiers)
 
 ### Host
 
@@ -168,7 +168,7 @@ The following section contains a more in-depth look at the full schemas of each 
 - HostName
 - NetBiosName
 
-[Back to list of schema types](#list-of-entity-type-schemas)
+[Back to list of entity type schemas](#list-of-entity-type-schemas) | [Back to entity identifiers table](#entity-types-and-identifiers)
 
 ### IP
 
@@ -187,7 +187,7 @@ The following section contains a more in-depth look at the full schemas of each 
 - **Address + AddressScope**  
 \*\* For private/internal, non-global IP addresses, the AddressScope component is required to make this a strong identifer.
 
-[Back to list of schema types](#list-of-entity-type-schemas)
+[Back to list of entity type schemas](#list-of-entity-type-schemas) | [Back to entity identifiers table](#entity-types-and-identifiers)
 
 ### Malware
 
@@ -203,7 +203,7 @@ The following section contains a more in-depth look at the full schemas of each 
 
 - **Name + Category**
 
-[Back to list of schema types](#list-of-entity-type-schemas)
+[Back to list of entity type schemas](#list-of-entity-type-schemas) | [Back to entity identifiers table](#entity-types-and-identifiers)
 
 ### File
 
@@ -226,7 +226,7 @@ The following section contains a more in-depth look at the full schemas of each 
 - **Name + *FileHash***
 - **Name + Directory + *FileHash***
 
-[Back to list of schema types](#list-of-entity-type-schemas)
+[Back to list of entity type schemas](#list-of-entity-type-schemas) | [Back to entity identifiers table](#entity-types-and-identifiers)
 
 ### Process
 
@@ -255,7 +255,7 @@ The following section contains a more in-depth look at the full schemas of each 
 - ProcessId + CreationTimeUtc + CommandLine (and no Host)
 - ProcessId + CreationTimeUtc + *ImageFile* (and no Host)
 
-[Back to list of schema types](#list-of-entity-type-schemas)
+[Back to list of entity type schemas](#list-of-entity-type-schemas) | [Back to entity identifiers table](#entity-types-and-identifiers)
 
 ### Cloud application
 
@@ -281,7 +281,7 @@ The following section contains a more in-depth look at the full schemas of each 
 
 [List of cloud application identifiers](#cloud-application-identifiers)
 
-[Back to list of schema types](#list-of-entity-type-schemas)
+[Back to list of entity type schemas](#list-of-entity-type-schemas) | [Back to entity identifiers table](#entity-types-and-identifiers)
 
 ### DNS resolution
 
@@ -303,7 +303,7 @@ The following section contains a more in-depth look at the full schemas of each 
 
 - DomainName + *HostIpAddress*
 
-[Back to list of schema types](#list-of-entity-type-schemas)
+[Back to list of entity type schemas](#list-of-entity-type-schemas) | [Back to entity identifiers table](#entity-types-and-identifiers)
 
 ### Azure resource
 
@@ -320,7 +320,7 @@ The following section contains a more in-depth look at the full schemas of each 
 
 - **ResourceId**
 
-[Back to list of schema types](#list-of-entity-type-schemas)
+[Back to list of entity type schemas](#list-of-entity-type-schemas) | [Back to entity identifiers table](#entity-types-and-identifiers)
 
 ### File hash
 
@@ -336,7 +336,7 @@ The following section contains a more in-depth look at the full schemas of each 
 
 - **Algorithm + Value**
 
-[Back to list of schema types](#list-of-entity-type-schemas)
+[Back to list of entity type schemas](#list-of-entity-type-schemas) | [Back to entity identifiers table](#entity-types-and-identifiers)
 
 ### Registry key
 
@@ -352,7 +352,7 @@ The following section contains a more in-depth look at the full schemas of each 
 
 - **Hive + Key**
 
-[Back to list of schema types](#list-of-entity-type-schemas)
+[Back to list of entity type schemas](#list-of-entity-type-schemas) | [Back to entity identifiers table](#entity-types-and-identifiers)
 
 ### Registry value
 
@@ -375,7 +375,7 @@ The following section contains a more in-depth look at the full schemas of each 
 
 - Name (without Key)
 
-[Back to list of schema types](#list-of-entity-type-schemas)
+[Back to list of entity type schemas](#list-of-entity-type-schemas) | [Back to entity identifiers table](#entity-types-and-identifiers)
 
 ### Security group
 
@@ -394,7 +394,7 @@ The following section contains a more in-depth look at the full schemas of each 
 - **SID**
 - **ObjectGuid**
 
-[Back to list of schema types](#list-of-entity-type-schemas)
+[Back to list of entity type schemas](#list-of-entity-type-schemas) | [Back to entity identifiers table](#entity-types-and-identifiers)
 
 ### URL
 
@@ -411,7 +411,7 @@ The following section contains a more in-depth look at the full schemas of each 
 
 - Url (\*\* This identifier is weak when the URL is a relative URL.)
 
-[Back to list of schema types](#list-of-entity-type-schemas)
+[Back to list of entity type schemas](#list-of-entity-type-schemas) | [Back to entity identifiers table](#entity-types-and-identifiers)
 
 ### IoT device
 
@@ -456,7 +456,7 @@ The following section contains a more in-depth look at the full schemas of each 
 
 - DeviceId (without IoTHub)
 
-[Back to list of schema types](#list-of-entity-type-schemas)
+[Back to list of entity type schemas](#list-of-entity-type-schemas) | [Back to entity identifiers table](#entity-types-and-identifiers)
 
 ### Mailbox
 
@@ -474,7 +474,7 @@ The following section contains a more in-depth look at the full schemas of each 
 
 - **MailboxPrimaryAddress**
 
-[Back to list of schema types](#list-of-entity-type-schemas)
+[Back to list of entity type schemas](#list-of-entity-type-schemas) | [Back to entity identifiers table](#entity-types-and-identifiers)
 
 ### Mail cluster
 
@@ -499,7 +499,7 @@ The following section contains a more in-depth look at the full schemas of each 
 
 - **Query + Source**
 
-[Back to list of schema types](#list-of-entity-type-schemas)
+[Back to list of entity type schemas](#list-of-entity-type-schemas) | [Back to entity identifiers table](#entity-types-and-identifiers)
 
 ### Mail message
 
@@ -530,7 +530,7 @@ The following section contains a more in-depth look at the full schemas of each 
 
 - **NetworkMessageId + Recipient**
 
-[Back to list of schema types](#list-of-entity-type-schemas)
+[Back to list of entity type schemas](#list-of-entity-type-schemas) | [Back to entity identifiers table](#entity-types-and-identifiers)
 
 ### Submission mail
 
@@ -554,7 +554,7 @@ The following section contains a more in-depth look at the full schemas of each 
 
 - **SubmissionId, Submitter, NetworkMessageId, Recipient**
 
-[Back to list of schema types](#list-of-entity-type-schemas)
+[Back to list of entity type schemas](#list-of-entity-type-schemas) | [Back to entity identifiers table](#entity-types-and-identifiers)
 
 ### Sentinel entities
 
@@ -562,7 +562,7 @@ The following section contains a more in-depth look at the full schemas of each 
 | ----- | ---- | ----------- |
 | **Entities** | String | A list of the entities identified in the alert. This list is the **entities** column from the SecurityAlert schema ([see documentation](security-alert-schema.md)). |
 
-[Back to list of schema types](#list-of-entity-type-schemas)
+[Back to list of entity type schemas](#list-of-entity-type-schemas) | [Back to entity identifiers table](#entity-types-and-identifiers)
 
 ## Cloud application identifiers
 
