@@ -17,6 +17,10 @@ VM insights monitors key operating system performance indicators related to proc
 - Support tuning and optimization to achieve efficiency.
 - Support capacity planning.
 
+> [!NOTE]
+> The network chart on the Performance tab looks different from the network chart on the Azure VM overview page because the overview page displays charts based on the host's measurement of activity in the guest VM. The network chart on the Azure VM overview only displays network traffic that will be billed. Inter-virtual network traffic isn't included. The data and charts shown for VM insights are based on data from the guest VM. The network chart displays all TCP/IP traffic that's inbound and outbound to that VM, including inter-virtual network traffic.
+
+
 ## Limitations
 Limitations in performance collection with VM insights:
 
