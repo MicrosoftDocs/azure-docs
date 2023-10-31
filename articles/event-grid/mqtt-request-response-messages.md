@@ -1,6 +1,6 @@
 ---
-title: 'How to implement MQTT Request-Response messaging pattern.'
-description: 'Implementing Request-Response messaging pattern using Azure Event Grid's MQTT broker feature' 
+title: 'How to implement MQTT Request-Response messaging pattern'
+description: 'Implementing Request-Response messaging pattern using MQTT broker, a feature of Azure Event Grid'
 ms.topic: conceptual
 ms.date: 10/29/2023
 author: veyaddan
