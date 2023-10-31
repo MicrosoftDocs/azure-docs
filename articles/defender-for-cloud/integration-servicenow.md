@@ -142,7 +142,7 @@ Security admins can now create and assign tickets directly from the Microsoft De
 
    :::image type="content" border="true" source="./media/integration-servicenow/assignment-details.png" alt-text="Screenshot of how to complete the assignment details.":::
 
-After successfulthe assignment is created, you can see the Ticket ID assigned to this affected resource. The Ticket ID represents the ticket created in the ServiceNow portal.
+After the assignment is created, you can see the Ticket ID assigned to this affected resource. The Ticket ID represents the ticket created in the ServiceNow portal.
 
 :::image type="content" border="true" source="./media/integration-servicenow/ticket.png" alt-text="Screenshot of a ticket ID.":::
 

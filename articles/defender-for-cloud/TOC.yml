@@ -411,6 +411,9 @@
     - name: Automate responses to alerts
       displayName: workflow
       href: workflow-automation.md
+    - name: Integrate overview
+      displayName: Overview
+      href: integration-overview.md
     - name: Integrate ServiceNow
       displayName: ServiceNow
       href: integration-servicenow.md
