@@ -42,6 +42,14 @@ landingContent:
             url: qumulo-troubleshoot.md 
           - text: Setting up Azure Native Qumulo Scalable File Service 
             url: qumulo-how-to-setup-features.md
+          - text: Setting up ANQ for disaster recovery usecase
+            url: qumulo-disaster-recovery.md
+          - text: Setting up ANQ for video editing usecase
+            url: qumulo-video-editing.md
+          - text: Setting up ANQ for pacs usecase 
+            url: qumulo-pacs-vendor-neutral-archieve.md
+          - text: Setting up ANQ for avd usecase 
+            url: qumulo-how-to-manage-qumulo-avd.md
  
       
   #Card
