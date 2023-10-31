@@ -261,10 +261,10 @@ curl -X PUT https://management.azure.com/subscriptions/00000000-0000-0000-0000-0
     ]
   },
   "systemData": {
-    "createdBy": "mbullwin@microsoft.com",
+    "createdBy": "docs@contoso.com",
     "createdByType": "User",
     "createdAt": "2023-02-28T02:57:15.8951706Z",
-    "lastModifiedBy": "mbullwin@microsoft.com",
+    "lastModifiedBy": "docs@contoso.com",
     "lastModifiedByType": "User",
     "lastModifiedAt": "2023-10-31T15:35:53.082912Z"
   },
