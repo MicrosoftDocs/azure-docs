@@ -6,7 +6,7 @@ services: container-apps
 author: hhunter-ms
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 10/23/2023
+ms.date: 10/30/2023
 ms.author: hannahhunter
 ms.custom: ignite-fall-2023
 # Customer Intent: As a developer, I'd like to learn how to make my container apps resilient using Azure Container Apps.
@@ -16,17 +16,18 @@ ms.custom: ignite-fall-2023
 
 With Azure Container Apps resiliency, you can proactively prevent, detect, and recover from service-to-service request failures using simple resiliency policies. 
 
-For application resiliency, policies are configured as a subresource to a container app. Resiliency policies tailored to the specific requirement of the container app being called (App B in the diagram) determine how retries timeouts and other resiliency policies are applied.  
-
-You can apply resiliency policies to two styles of service-to-service communication: 
-- A request to a container app using Azure Container Apps service discovery, for example:
-  - Container app's name
-  - Container app's fully qualified domain name (FQDN) 
-- [Dapr service invocation](./dapr-invoke-resiliency.md). 
+Resiliency policies detect, mitigate, and respond to failure in your container app. You can tailor policies to the container app being called (App B in the diagram), like:
+- The number of retries;
+- Retry and timeout duration;
+- Retry matches;
+- Circuit breaker consecutive errors, and others. 
 
 This article focuses on configuring Azure Container Apps resiliency policies when initiating requests using Azure Container Apps service discovery.
 
 :::image type="content" source="media/service-name-resiliency/service-name-resiliency.png" alt-text="Diagram demonstrating container app to container app resiliency using a container app's service name.":::
+
+> [!NOTE]
+> To configure resiliency policies for service to service communication using Dapr service invocation, refer to the [Dapr service invocation API resiliency](./dapr-invoke-resiliency.md) article. 
 
 ## Supported resiliency policies
 

@@ -118,7 +118,6 @@ spec:
     tcpRetryPolicy:
       maxConnectAttempts: 3
 ```
-
 To show existing resiliency policies for a container app in your resource group, run:
 
 ```azurecli
