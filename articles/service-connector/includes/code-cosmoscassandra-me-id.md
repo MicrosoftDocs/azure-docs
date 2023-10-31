@@ -334,7 +334,7 @@ Authentication type is not supported for Spring Boot.
     
     let username = process.env.AZURE_COSMOS_USERNAME;
     let contactPoint = process.env.AZURE_COSMOS_CONTACTPOINT;
-    let port = process.env.AZURE_COSMOS_PASSWORD;
+    let port = process.env.AZURE_COSMOS_PORT;
     let keyspace = process.env.AZURE_COSMOS_KEYSPACE;
     let listKeyUrl = process.env.AZURE_COSMOS_LISTKEYURL;
     let scope = process.env.AZURE_COSMOS_SCOPE;

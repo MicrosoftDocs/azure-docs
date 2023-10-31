@@ -202,7 +202,7 @@ For more information, refer to [Build a Go app with the gocql client to manage A
    let username = process.env.AZURE_COSMOS_USERNAME;
    let password = process.env.AZURE_COSMOS_PASSWORD;
    let contactPoint = process.env.AZURE_COSMOS_CONTACTPOINT;
-   let port = process.env.AZURE_COSMOS_PASSWORD;
+   let port = process.env.AZURE_COSMOS_PORT;
    let keyspace = process.env.AZURE_COSMOS_KEYSPACE;
 
    let authProvider = new cassandra.auth.PlainTextAuthProvider(
