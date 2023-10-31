@@ -7,7 +7,7 @@ manager: jsuri
 ms.topic: quickstart
 ms.services: azure-arc
 ms.subservice: azure-arc-scvmm
-ms.date: 10/30/2023
+ms.date: 11/15/2023
 ms.custom: references_regions
 ---
 

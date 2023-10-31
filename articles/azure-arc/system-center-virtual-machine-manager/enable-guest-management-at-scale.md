@@ -7,7 +7,7 @@ author: PriskeyJeronika-MS
 ms.author: v-gjeronika
 manager: jsuri
 ms.topic: how-to 
-ms.date: 10/30/2023
+ms.date: 11/15/2023
 keywords: "VMM, Arc, Azure"
 
 #Customer intent: As an IT infrastructure admin, I want to install arc agents to use Azure management services for SCVMM VMs.

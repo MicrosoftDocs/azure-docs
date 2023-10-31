@@ -2,7 +2,7 @@
 title: Install Arc agent using a script for SCVMM VMs
 description: Learn how to enable guest management using a script for Arc enabled SCVMM VMs. 
 ms.topic: how-to
-ms.date: 10/30/2023
+ms.date: 11/15/2023
 ms.service: azure-arc
 author: PriskeyJeronika-MS
 ms.author: v-gjeronika
