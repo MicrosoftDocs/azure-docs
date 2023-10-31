@@ -22,7 +22,7 @@ The listed features were released in the last three months. For information abou
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 ## October 2023
 
-- [Microsoft Applied Skill - Configure SIEM security operations using Microsoft Sentinel](#microsoft-applied-skill-configure-siem-security-operations-using-microsoft-sentinel)
+- [Microsoft Applied Skill - Configure SIEM security operations using Microsoft Sentinel](#microsoft-applied-skill---configure-siem-security-operations-using-microsoft-sentinel)
 - [Changes to the documentation table of contents](#changes-to-the-documentation-table-of-contents)
 
 ### Microsoft Applied Skill - Configure SIEM security operations using Microsoft Sentinel
