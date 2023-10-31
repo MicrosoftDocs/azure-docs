@@ -17,7 +17,7 @@ ms.author: helohr
 > This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This article walks you through the process of configuring single sign-on (SSO) using Microsoft Entra authentication for Azure Virtual Desktop (preview). When you enable SSO, users will authenticate to Windows using a Microsoft Entra ID token, obtained for the Microsoft Remote Desktop (changing to Windows Cloud Login beginning of 2024) resource app. This enables them to use passwordless authentication and third-party Identity Providers that federate with Microsoft Entra ID to sign in to your Azure Virtual Desktop resources. When enabled, this feature provides a single sign-on experience when authenticating to the session host and configures the session to provide single sign-on to Microsoft Entra ID-based resources inside the session.
+This article walks you through the process of configuring single sign-on (SSO) using Microsoft Entra authentication for Azure Virtual Desktop (preview). When you enable SSO, users will authenticate to Windows using a Microsoft Entra ID token, obtained for the *Microsoft Remote Desktop* resource application (changing to *Windows Cloud Login* beginning in 2024). This enables them to use passwordless authentication and third-party Identity Providers that federate with Microsoft Entra ID to sign in to your Azure Virtual Desktop resources. When enabled, this feature provides a single sign-on experience when authenticating to the session host and configures the session to provide single sign-on to Microsoft Entra ID-based resources inside the session.
 
 For information on using passwordless authentication within the session, see [In-session passwordless authentication (preview)](authentication.md#in-session-passwordless-authentication-preview).
 
@@ -89,7 +89,7 @@ To enable single sign-on in your environment, you must:
 
 Before enabling the single sign-on feature, you must first allow Microsoft Entra authentication for Windows in your Microsoft Entra tenant. This will enable issuing RDP access tokens allowing users to sign in to Azure Virtual Desktop session hosts. This is done by enabling the isRemoteDesktopProtocolEnabled property on the service principal's remoteDesktopSecurityConfiguration object for the apps listed above.
 
-Use the [Microsoft Graph API](/graph/use-the-api) to [create remoteDesktopSecurityConfiguration](/graph/api/serviceprincipal-post-remotedesktopsecurityconfiguration?view=graph-rest-beta&preserve-view=true) and set the **isRemoteDesktopProtocolEnabled** to "true" to enable Microsoft Entra authentication.
+Use the [Microsoft Graph API](/graph/use-the-api) to [create remoteDesktopSecurityConfiguration](/graph/api/serviceprincipal-post-remotedesktopsecurityconfiguration) and set the property **isRemoteDesktopProtocolEnabled** to **true** to enable Microsoft Entra authentication.
 
 ### Configure the target device groups
 
@@ -107,8 +107,8 @@ Follow these steps to hide the dialog:
 
 1. [Create a Dynamic Device Group](/entra/identity/users/groups-create-rule) in Microsoft Entra containing the devices to hide the dialog for. Remember the device group ID for the next step.
     > [!TIP]
-    > It's recommended to use a dynamic device group and configure the dynamic membership rules to includes all your Azure Virtual Desktop session hosts. This can be done using the device names or for a more secure option, you can set and use [device extension attributes](/graph/extensibility-overview?tabs=http) using [Microsoft Graph API](/graph/api/resources/device).
-1. Use the [Microsoft Graph API](/graph/use-the-api) to [create targetDeviceGroup](/graph/api/remotedesktopsecurityconfiguration-post-targetdevicegroups?view=graph-rest-beta&preserve-view=true) to suppress the prompt from these devices.
+    > It's recommended to use a dynamic device group and configure the dynamic membership rules to includes all your Azure Virtual Desktop session hosts. This can be done using the device names or for a more secure option, you can set and use [device extension attributes](/graph/extensibility-overview) using [Microsoft Graph API](/graph/api/resources/device).
+1. Use the [Microsoft Graph API](/graph/use-the-api) to [create a new targetDeviceGroup object](/graph/api/remotedesktopsecurityconfiguration-post-targetdevicegroups) to suppress the prompt from these devices.
 
 ### Create a Kerberos Server object
 
