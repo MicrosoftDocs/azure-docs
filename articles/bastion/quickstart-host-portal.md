@@ -10,7 +10,7 @@ ms.author: cherylmc
 
 ---
 
-# Quickstart: Deploy Azure Bastion automatically by using the Basic SKU
+# Quickstart: Deploy Azure Bastion automatically - Basic SKU
 
 In this quickstart, you learn how to deploy Azure Bastion automatically in the Azure portal by using default settings and the Basic SKU. After you deploy Azure Bastion, you can use SSH or RDP to connect to virtual machines (VMs) in the virtual network via Azure Bastion by using the private IP addresses of the VMs. The VMs that you connect to don't need a public IP address, client software, an agent, or a special configuration.
 
@@ -18,13 +18,13 @@ The following diagram shows the architecture of Azure Bastion.
 
 :::image type="content" source="./media/create-host/host-architecture.png" alt-text="Diagram that shows the Azure Bastion architecture." lightbox="./media/create-host/host-architecture.png":::
 
-The default tier for this type of deployment is the Basic SKU. If you want to deploy by using the Developer SKU instead, see [Quickstart: Deploy Azure Bastion by using the Developer SKU](quickstart-developer-sku.md). If you want to deploy by using the Standard SKU, see [Tutorial: Deploy Azure Bastion by using specified settings](tutorial-create-host-portal.md). For more information about Azure Bastion, see [What is Azure Bastion?](bastion-overview.md).
+The default tier for this type of deployment is the Basic SKU. If you want to deploy by using the Developer SKU instead, see [Quickstart: Deploy Azure Bastion - Developer SKU](quickstart-developer-sku.md). If you want to deploy by using the Standard SKU, see [Tutorial: Deploy Azure Bastion by using specified settings](tutorial-create-host-portal.md). For more information about Azure Bastion, see [What is Azure Bastion?](bastion-overview.md)
 
 The steps in this article help you do the following:
 
 * Deploy Azure Bastion with default settings from your VM resource by using the Azure portal. When you deploy by using default settings, the settings are based on the virtual network where Azure Bastion will be deployed.
-* Connect to your VM via the portal by using SSH or RDP connectivity and the VM's private IP address.
-* Remove your VM if it has a public IP address that you don't need for anything else.
+* Connect to your VM via the portal using SSH or RDP connectivity and the VM's private IP address.
+* Remove your VM's public IP address if you don't need it for anything else.
 
 > [!IMPORTANT]
 > [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
