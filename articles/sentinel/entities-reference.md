@@ -22,11 +22,6 @@ You can use up to three identifiers for a single entity mapping. **Strong identi
 
 Learn more about [strong and weak identifiers](entities.md#strong-and-weak-identifiers).
 
-**Table footnotes:**
-- \* These identifiers appear in the list of identifiers that can be used in entity mapping, but strictly speaking they are not part of the entity schema.
-- \*\* These identifiers are considered strong only under certain conditions. Follow the asterisks' links to see the conditions that apply, under the relevant entity's listing in the [entity schemas section below](#entity-type-schemas).
-- *Italicized identifier names* (without an asterisk) represent internal entities, which means that one entity type can have other entity types as attributes (see the [entity schemas section below](#entity-type-schemas)). Follow the identifier's link to see the internal entity's own schema.
-
 | Entity type | Identifiers | Strong identifiers | Weak identifiers |
 | - | - | - | - |
 | [**Account**](#account) | Name<br>*FullName \**<br>NTDomain<br>DnsDomain<br>UPNSuffix<br>Sid<br>AadTenantId<br>AadUserId<br>PUID<br>IsDomainJoined<br>*DisplayName \**<br>ObjectGuid | Name+UPNSuffix<br>AADUserId<br>Sid [\*\*](#strong-identifiers-of-an-account-entity)<br>Sid+*Host* [\*\*](#strong-identifiers-of-an-account-entity)<br>Name+*Host*+NTDomain [\*\*](#strong-identifiers-of-an-account-entity)<br>Name+NTDomain [\*\*](#strong-identifiers-of-an-account-entity)<br>Name+DnsDomain<br>PUID<br>ObjectGuid | Name |
@@ -48,6 +43,11 @@ Learn more about [strong and weak identifiers](entities.md#strong-and-weak-ident
 | [**Mail message**](#mail-message) | Recipient<br>Urls<br>Threats<br>Sender<br>*P1Sender \**<br>*P1SenderDisplayName \**<br>*P1SenderDomain \**<br>SenderIP<br>*P2Sender \**<br>*P2SenderDisplayName \**<br>*P2SenderDomain \**<br>ReceivedDate<br>NetworkMessageId<br>InternetMessageId<br>Subject<br>*BodyFingerprintBin1 \**<br>*BodyFingerprintBin2 \**<br>*BodyFingerprintBin3 \**<br>*BodyFingerprintBin4 \**<br>*BodyFingerprintBin5 \**<br>AntispamDirection<br>DeliveryAction<br>DeliveryLocation<br>*Language \**<br>*ThreatDetectionMethods \** | NetworkMessageId+Recipient | |
 | [**Submission mail**](#submission-mail) | NetworkMessageId<br>Timestamp<br>Recipient<br>Sender<br>SenderIp<br>Subject<br>ReportType<br>SubmissionId<br>SubmissionDate<br>Submitter | SubmissionId+NetworkMessageId+<br>&nbsp;&nbsp;&nbsp;Recipient+Submitter |  |
 | [**Sentinel entities**](#sentinel-entities) | Entities | Entities |  |
+
+**Table footnotes:**
+- \* These identifiers appear in the list of identifiers that can be used in entity mapping, but strictly speaking they are not part of the entity schema.
+- \*\* These identifiers are considered strong only under certain conditions. Follow the asterisks' links to see the conditions that apply, under the relevant entity's listing in the [entity schemas section below](#entity-type-schemas).
+- *Italicized identifier names* (without an asterisk) represent internal entities, which means that one entity type can have other entity types as attributes (see the [entity schemas section below](#entity-type-schemas)). Follow the identifier's link to see the internal entity's own schema.
 
 ## Entity type schemas
 
@@ -97,7 +97,7 @@ The following section contains a more in-depth look at the full schemas of each 
 | **IsDomainJoined** | Bool? | Indicates whether the account is a domain account. |
 | ***DisplayName*** | -- | *Not part of schema, included for backward compatibility with old version of entity mapping.* |
 | **ObjectGuid** | Guid? | The objectGUID attribute is a single-value attribute that is the unique identifier for the object, assigned by Active Directory. |
-| **CloudAppAccountId** | String | The AccountID in alerts from the CloudApp provider. Refers to account IDs in third-party apps that are not supported in other Microsoft products. ***RIGHT?*** |
+| **CloudAppAccountId** | String | The AccountID in alerts from the CloudApp provider. Refers to account IDs in third-party apps that are not supported in other Microsoft products. |
 | **IsAnonymized** | Bool? | Indicates whether the user name is anonymized. Optional. Default value: `false`. |
 | **Stream** | Stream | The source of discovery logs related to the specific account. Optional. |
 
@@ -176,7 +176,7 @@ The following section contains a more in-depth look at the full schemas of each 
 | ----- | ---- | ----------- |
 | **Type** | String | 'ip' |
 | **Address** | String | The IP address as string, for example. 127.0.0.1 (either in IPv4 or IPv6). |
-| **AddressScope** | String | Name ***(not Scope???)*** of the host, subnet, or private network for private, non-global IP addresses. Null or empty for global IP addresses (default). |
+| **AddressScope** | String | Name of the host, subnet, or private network for private, non-global IP addresses. Null or empty for global IP addresses (default). |
 | **Location** | GeoLocation | The geo-location context attached to the IP entity. <br><br>For more information, see also [Enrich entities in Microsoft Sentinel with geolocation data via REST API (Public preview)](geolocation-data-api.md). |
 | **Stream** | Stream | The source of discovery logs related to the specific IP. Optional. |
 
@@ -214,9 +214,9 @@ The following section contains a more in-depth look at the full schemas of each 
 | **Name** | String | The file name without the path (some alerts might not include path). |
 | **AlternateDataStreamName** | String | The file stream name in NTFS filesystem (null for the main stream). |
 | **Host** | Entity ([Host](#host)) | The host on which the file was stored. |
-| **HostUrl** | Entity ([URL](#url)) | URL where the file was downloaded from (MOTW). ***(?)*** |
-| **WindowsSecurityZoneType** | WindowsSecurityZone | Windows Security Zones (MOTW). ***(?)*** |
-| **ReferrerUrl** | Entity ([URL](#url)) | Referrer URL of the file download HTTP request (MOTW). ***(?)*** |
+| **HostUrl** | Entity ([URL](#url)) | URL where the file was downloaded from <br>([Mark of the Web](/deployedge/per-site-configuration-by-policy)). |
+| **WindowsSecurityZoneType** | WindowsSecurityZone | Windows Security Zone to which the URL belongs <br>([Mark of the Web](/deployedge/per-site-configuration-by-policy)). |
+| **ReferrerUrl** | Entity ([URL](#url)) | Referrer URL of the file download HTTP request <br>([Mark of the Web](/deployedge/per-site-configuration-by-policy)). |
 | **SizeInBytes** | Long? | The size of the file in bytes. |
 | **FileHashes** | List\<Entity ([FileHash](#file-hash))> | The file hashes associated with this file. |
 
@@ -426,7 +426,7 @@ The following section contains a more in-depth look at the full schemas of each 
 | **Owners** | List\<String> | The owners for the device. |
 | **IoTSecurityAgentId** | Guid? | The ID of the *Defender for IoT* agent running on the device. |
 | **DeviceType** | String | The type of the device ('temperature sensor', 'freezer', 'wind turbine' etc.). |
-| **DeviceTypeId** | String ***NOT "ENUM"?*** | A unique ID to identify each device type according to the device type schema, as the device type itself is a display name and not reliable in comparisons.<br><br>Possible values:<br>Unclassified = 0<br>Miscellaneous = 1<br>Network Device = 2<br>Printer = 3<br>Audio and Video = 4<br>Media and Surveillance = 5<br>Communication = 7<br>Smart Appliance = 9<br>Workstation = 10<br>Server = 11<br>Mobile = 12<br>Smart Facility = 13<br>Industrial = 14<br>Operational Equipment = 15 |
+| **DeviceTypeId** | String | A unique ID to identify each device type according to the device type schema, as the device type itself is a display name and not reliable in comparisons.<br><br>Possible values:<br>Unclassified = 0<br>Miscellaneous = 1<br>Network Device = 2<br>Printer = 3<br>Audio and Video = 4<br>Media and Surveillance = 5<br>Communication = 7<br>Smart Appliance = 9<br>Workstation = 10<br>Server = 11<br>Mobile = 12<br>Smart Facility = 13<br>Industrial = 14<br>Operational Equipment = 15 |
 | **Source** | String | The source (Microsoft/Vendor) of the device entity. |
 | **SourceRef** | Entity ([Url](#url)) | A URL reference to the source item where the device is managed. |
 | **Manufacturer** | String | The manufacturer of the device. |
@@ -467,7 +467,7 @@ The following section contains a more in-depth look at the full schemas of each 
 | **DisplayName** | String | The mailbox's display name. |
 | **Upn** | String | The mailbox's UPN. |
 | **AadId** | String | The mailbox's Azure AD identifier of the user. |
-| **RiskLevel** | RiskLevel? ***NOT "Enum?"?*** | The risk level of this mailbox. Possible values:<li>None<li>Low<li>Medium<li>High |
+| **RiskLevel** | RiskLevel?  | The risk level of this mailbox. Possible values:<li>None<li>Low<li>Medium<li>High |
 | **ExternalDirectoryObjectId** | Guid? | The AzureAD identifier of mailbox. Similar to AadUserId in the Account entity, but this property is specific to mailbox object on the Office side. |
 
 #### Strong identifiers of a mailbox entity
@@ -546,9 +546,9 @@ The following section contains a more in-depth look at the full schemas of each 
 | **Timestamp** | DateTime? | The Time stamp when the message is received (Mail). |
 | **Recipient** | String | The recipient of the mail. |
 | **Sender** | String | The sender of the mail. |
-| **SenderIp** | String ***NOT "ENTITY"?*** | The sender's IP. |
+| **SenderIp** | String | The sender's IP. |
 | **Subject** | String | The subject of submission mail. |
-| **ReportType** | String ***NOT "ENUM"?*** | The submission type for the given instance. Possible values are Junk, Phish, Malware, or NotJunk. |
+| **ReportType** | String | The submission type for the given instance. Possible values are Junk, Phish, Malware, or NotJunk. |
 
 #### Strong identifiers of a SubmissionMail entity
 
