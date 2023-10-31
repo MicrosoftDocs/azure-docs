@@ -134,9 +134,9 @@ The database tier defines the infrastructure for the database tier. Supported da
 
 
 > [!div class="mx-tdCol2BreakAll "]
-> | Variable                           | Description                                                                        | Type         | Notes              |
-> | ---------------------------------- | ---------------------------------------------------------------------------------- | -----------  | ------------------ |
-> | `database_platform`                | Defines the database back end                                                      | Supported values are `HANA`, `DB2`, `ORACLE`, `ASE`, `SQLSERVER`, and `NONE`. |
+> | Variable                           | Description                                                                        | Type         | Notes  |
+> | ---------------------------------- | ---------------------------------------------------------------------------------- | ----------   | ------ |
+> | `database_platform`                | Defines the database back end                                                      | Required     | Supported values are `HANA`, `DB2`, `ORACLE`, `ORACLE-ASM`, `ASE`, `SQLSERVER`, and `NONE`. |
 > | `database_high_availability`       | Defines if the database tier is deployed highly available                          | Optional     | See [High-availability configuration](configure-system.md#high-availability-configuration). |
 > | `database_server_count`            | Defines the number of database servers                                             | Optional     | Default value is 1. |
 > | `database_vm_zones`                | Defines the availability zones for the database servers                            | Optional	   |                    |
