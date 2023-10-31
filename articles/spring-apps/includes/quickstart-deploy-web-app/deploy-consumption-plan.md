@@ -123,9 +123,9 @@ Use the following steps to connect your service instances:
 
 1. Go to your Azure Spring Apps instance in the Azure portal.
 
-1. From the navigation pane, open **Apps**, and then select **Create App**.
+1. From the navigation pane, open **Apps** and then select **Create App**.
 
-1. On the **Create App** page, use *simple-todo-web* as the app name, and then select **Use quick start sample app** to create the app.
+1. On the **Create App** page, for the app name, use *simple-todo-web* and then select **Use quick start sample app** to create the app.
 
    :::image type="content" source="../../media/quickstart-deploy-web-app/consumption-create-app.png" alt-text="Screenshot of the Azure portal that shows the Create app pane." lightbox="../../media/quickstart-deploy-web-app/consumption-create-app.png":::
 
@@ -189,7 +189,7 @@ Use the following steps to create an Azure Spring Apps instance and an Azure Dat
 
 ### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
 
-[!INCLUDE [deploy-hello-app-with-maven-plugin](web-spring-apps-maven-plugin.md)]
+   [!INCLUDE [web-spring-apps-maven-plugin](web-spring-apps-maven-plugin.md)]
 
    ```output
    [INFO] Start updating app(simple-todo-web)...

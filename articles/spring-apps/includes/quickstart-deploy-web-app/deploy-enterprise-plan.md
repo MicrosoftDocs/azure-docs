@@ -24,7 +24,7 @@ The **Deploy to Azure** button in the next section launches an Azure portal expe
 
 Although you use the Azure portal in later steps, you must use the Bash command line to prepare the project locally. Use the following steps to clone and run the app locally:
 
-[!INCLUDE [prepare-project-on-azure-portal](../../includes/quickstart-deploy-web-app/prepare-web-project.md)]
+[!INCLUDE [prepare-web-project](prepare-web-project.md)]
 
 ### [Azure CLI](#tab/Azure-CLI)
 
@@ -40,11 +40,9 @@ The main resources required to run this sample are an Azure Spring Apps instance
 
 ### [Azure portal](#tab/Azure-portal-ent)
 
-[!INCLUDE [prepare-cloud-environment-on-azure-portal](../../includes/quickstart-deploy-web-app/web-prepare-cloud-environment-enterprise-azure-portal.md)]
+[!INCLUDE [web-prepare-cloud-environment-enterprise-azure-portal](web-prepare-cloud-environment-enterprise-azure-portal.md)]
 
 ### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin-ent)
-
-Use the following steps to create an Azure Spring Apps instance and an Azure Database for PostgreSQL instance:
 
 ### 3.1. Sign in to the Azure portal
 
@@ -52,11 +50,11 @@ Go to the [Azure portal](https://portal.azure.com/) and enter your credentials t
 
 ### 3.2. Create an Azure Spring Apps instance
 
-[!INCLUDE [provision-enterprise-spring-apps](provision-enterprise-azure-spring-apps.md)]
+[!INCLUDE [provision-enterprise-azure-spring-apps](provision-enterprise-azure-spring-apps.md)]
 
 ### 3.3. Prepare the PostgreSQL instance
 
-[!INCLUDE [provision-postgresql-flexible](provision-postgresql.md)]
+[!INCLUDE [provision-postgresql](provision-postgresql.md)]
 
 ### 3.4. Connect app instance to PostgreSQL instance
 
@@ -64,9 +62,9 @@ Use the following steps to connect your service instances:
 
 1. Go to your Azure Spring Apps instance in the Azure portal.
 
-1. From the navigation pane, open **Apps**, and then select **Create App**.
+1. From the navigation pane, open **Apps** and then select **Create App**.
 
-1. On the **Create App** page, use *simple-todo-web* as the app name, and leave all other with default values.
+1. On the **Create App** page, for the app name, use *simple-todo-web* and leave all the other fields with their default values.
 
 1. Select **Create** to finish creating the app and then select the app to view the details.
 
