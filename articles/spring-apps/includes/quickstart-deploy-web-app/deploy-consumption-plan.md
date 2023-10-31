@@ -189,7 +189,7 @@ Use the following steps to create an Azure Spring Apps instance and an Azure Dat
 
 ### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
 
-   [!INCLUDE [web-spring-apps-maven-plugin](web-spring-apps-maven-plugin.md)]
+[!INCLUDE [web-spring-apps-maven-plugin](web-spring-apps-maven-plugin.md)]
 
    ```output
    [INFO] Start updating app(simple-todo-web)...

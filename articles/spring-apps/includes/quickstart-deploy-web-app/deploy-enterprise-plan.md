@@ -223,7 +223,7 @@ After the application instance and the PostgreSQL instance are created, the appl
 
 ### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin-ent)
 
-   [!INCLUDE [web-spring-apps-maven-plugin](web-spring-apps-maven-plugin.md)]
+[!INCLUDE [web-spring-apps-maven-plugin](web-spring-apps-maven-plugin.md)]
 
    ```output
    [INFO] Deployment Status: Running
