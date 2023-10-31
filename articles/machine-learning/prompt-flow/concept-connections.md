@@ -33,7 +33,7 @@ Prompt flow provides various prebuilt connections, including Azure Open AI, Open
 | [Azure Open AI](https://azure.microsoft.com/products/cognitive-services/openai-service) | LLM or Python                   |
 | [Open AI](https://openai.com/)                               | LLM or Python                   |
 | [Azure Content Safety](https://aka.ms/acs-doc)               | Content Safety (Text) or Python |
-| [Cognitive Search](https://azure.microsoft.com/products/search) | Vector DB Lookup or Python      |
+| [Azure AI Search](https://azure.microsoft.com/products/search) (formerly Cognitive Search) | Vector DB Lookup or Python      |
 | [Serp](https://serpapi.com/)                                 | Serp API or Python              |
 | [Custom](./tools-reference/python-tool.md#how-to-consume-custom-connection-in-python-tool)                                                       | Python                          |
 

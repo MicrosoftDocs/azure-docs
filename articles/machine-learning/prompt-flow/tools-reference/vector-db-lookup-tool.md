@@ -18,7 +18,7 @@ Vector DB Lookup is a vector search tool that allows users to search top k simil
 
 | Name | Description |
 | --- | --- |
-| Azure Cognitive Search | Microsoft's cloud search service with built-in AI capabilities that enrich all types of information to help identify and explore relevant content at scale. |
+| Azure AI Search (formerly Cognitive Search) | Microsoft's cloud search service with built-in AI capabilities that enrich all types of information to help identify and explore relevant content at scale. |
 | Qdrant | Qdrant is a vector similarity search engine that provides a production-ready service with a convenient API to store, search and manage points (i.e. vectors) with an additional payload. |
 | Weaviate | Weaviate is an open source vector database that stores both objects and vectors. This allows for combining vector search with structured filtering. |
 
@@ -32,8 +32,8 @@ This tool will support more vector databases.
 
 The tool searches data from a third-party vector database. To use it, you should create resources in advance and establish connection between the tool and the resource.
 
-  - **Azure Cognitive Search:**
-    - Create resource [Azure Cognitive Search](../../../search/search-create-service-portal.md).
+  - **Azure AI Search:**
+    - Create resource [Azure AI Search](../../../search/search-create-service-portal.md).
     - Add "Cognitive search" connection. Fill "API key" field with "Primary admin key" from "Keys" section of created resource, and fill "API base" field with the URL, the URL format is `https://{your_serive_name}.search.windows.net`.
 
   - **Qdrant:**
@@ -50,12 +50,12 @@ The tool searches data from a third-party vector database. To use it, you should
 ## Inputs
 
 The tool accepts the following inputs:
-- **Azure Cognitive Search:**
+- **Azure AI Search:**
 
   | Name | Type | Description | Required |
   | ---- | ---- | ----------- | -------- |
-  | connection | CognitiveSearchConnection | The created connection for accessing to Cognitive Search endpoint. | Yes |
-  | index_name | string | The index name created in Cognitive Search resource. | Yes |
+  | connection | CognitiveSearchConnection | The created connection for accessing to Azure AI Search endpoint. | Yes |
+  | index_name | string | The index name created in Azure AI Search resource. | Yes |
   | text_field | string | The text field name. The returned text field will populate the text of output. | No |
   | vector_field | string | The vector field name. The target vector is searched in this vector field. | Yes |
   | search_params | dict | The search parameters. It's key-value pairs. Except for parameters in the tool input list mentioned above, additional search parameters can be formed into a JSON object as search_params. For example, use `{"select": ""}` as search_params to select the returned fields, use `{"search": ""}` to perform a [hybrid search](../../../search/search-get-started-vector.md#hybrid-search). | No |
@@ -88,9 +88,9 @@ The tool accepts the following inputs:
 ## Outputs
 
 The following is an example JSON format response returned by the tool, which includes the top-k scored entities. The entity follows a generic schema of vector search result provided by promptflow-vectordb SDK. 
-- **Azure Cognitive Search:**
+- **Azure AI Search:**
 
-  For Azure Cognitive Search, the following fields are populated:
+  For Azure AI Search, the following fields are populated:
 
   | Field Name | Type | Description |
   | ---- | ---- | ----------- |
