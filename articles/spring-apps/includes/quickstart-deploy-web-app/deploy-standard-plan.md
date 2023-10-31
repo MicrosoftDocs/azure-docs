@@ -126,12 +126,12 @@ Use the following steps to connect your service instances:
 
 1. Fill out the **Basics** tab with the following information:
 
-    - **Service type**: **DB for PostgreSQL flexible server**
-    - **Connection name**: An automatically generated name is populated, which can be modified.
-    - **Subscription**: Select your subscription.
-    - **PostgreSQL flexible server**: *my-demo-pgsql*
-    - **PostgreSQL database**: Select the database you created.
-    - **Client type**: **SpringBoot**
+   - **Service type**: **DB for PostgreSQL flexible server**
+   - **Connection name**: Populated with an automatically generated name that you can modify.
+   - **Subscription**: Select your subscription.
+   - **PostgreSQL flexible server**: *my-demo-pgsql*
+   - **PostgreSQL database**: Select the database you created.
+   - **Client type**: **SpringBoot**
 
    :::image type="content" source="../../media/quickstart-deploy-web-app/app-service-connector-basics.png" alt-text="Screenshot of the Azure portal that shows the Basics tab of the Create connection pane for connecting to PostgreSQL." lightbox="../../media/quickstart-deploy-web-app/app-service-connector-basics.png":::
 
