@@ -47,7 +47,7 @@ Azure IoT Operations can connect to various industrial devices and assets. You c
 
 The [OPC UA Broker Preview](../manage-devices-assets/concept-opcua-broker-overview.md) component manages the connection to OPC UA servers and other leaf devices. The OPC UA Broker component publishes data from the OPC UA servers and the devices discovered by _Azure IoT Akri_ to Azure IoT MQ topics.
 
-The [Azure IoT Akri Preview](../manage-devices-assets/concept-akri-overview.md) component helps you discover and connect to other types of devices and assets.
+The [Azure IoT Akri Preview](../manage-devices-assets/overview-akri.md) component helps you discover and connect to other types of devices and assets.
 
 ## Publish and subscribe with MQTT
 

@@ -84,4 +84,4 @@ For more information, see the documentation for [Controller In-depth](https://do
 
 ## Related content
 
-- [Azure IoT Akri overview](concept-akri-overview.md)
+- [Azure IoT Akri overview](overview-akri.md)
