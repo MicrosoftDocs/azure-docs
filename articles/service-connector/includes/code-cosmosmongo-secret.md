@@ -33,7 +33,7 @@ ms.author: wchi
 	</dependency>   
     ```
 
-1. Get the connection string from the environment variable, and add the plugin name to connect to Cosmos DB for Cassandra:
+1. Get the connection string from the environment variable added by Service Connector and connect to Azure Cosmos DB for MongoDB.
 
     ```java
     import com.mongodb.MongoClient;
