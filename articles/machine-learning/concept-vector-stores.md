@@ -39,15 +39,15 @@ You can use either store in prompt flow, so which one should you use?
 
 + Faiss scales with underlying compute loading index.
 
-**Azure AI Search** is a dedicated PaaS resource that you create in an Azure subscription. A single search service can host a large number of indexes, which can be queried and used in a RAG pattern. Some key points about using AI Search for your vector store:
+**Azure AI Search** is a dedicated PaaS resource that you create in an Azure subscription. A single search service can host a large number of indexes, which can be queried and used in a RAG pattern. Some key points about using Azure AI Search for your vector store:
 
 + Supports enterprise level business requirements for scale, security, and availability.
 
 + Supports hybrid information retrieval. Vector data can coexist with non-vector data, which means you can use any of the [features of Azure AI Search](/azure/search/search-features-list) for indexing and queries, including [hybrid search](/azure/search/vector-search-how-to-query) and [semantic reranking](/azure/search/semantic-ranking).
 
-+ [Vector support is in public preview](/azure/search/vector-search-overview). Currently, vectors must be generated externally and then passed to AI Search for indexing and query encoding. The prompt flow handles these transitions for you.
++ [Vector support is in public preview](/azure/search/vector-search-overview). Currently, vectors must be generated externally and then passed to Azure AI Search for indexing and query encoding. The prompt flow handles these transitions for you.
 
-To use AI Search as a vector store for Azure Machine Learning, [you must have a search service](/azure/search/search-create-service-portal). Once the service exists and you've granted access to developers, you can choose **Azure AI Search** as a vector index in a prompt flow. The prompt flow creates the index on AI Search, generates vectors from your source data, sends the vectors to the index, invokes similarity search on AI Search, and returns the response.
+To use AI Search as a vector store for Azure Machine Learning, [you must have a search service](/azure/search/search-create-service-portal). Once the service exists and you've granted access to developers, you can choose **Azure AI Search** as a vector index in a prompt flow. The prompt flow creates the index on Azure AI Search, generates vectors from your source data, sends the vectors to the index, invokes similarity search on AI Search, and returns the response.
 
 ## Next steps
 
