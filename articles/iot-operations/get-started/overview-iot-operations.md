@@ -45,7 +45,7 @@ Azure IoT Operations runs on Arc-enabled Kubernetes clusters on the edge. You ca
 
 Azure IoT Operations can connect to various industrial devices and assets. You can use the [Azure IoT Operations portal](../manage-devices-assets/howto-manage-assets-remotely.md) to manage the devices and assets that you want to connect to.
 
-The [OPC UA Broker Preview](../manage-devices-assets/concept-opcua-broker-overview.md) component manages the connection to OPC UA servers and other leaf devices. The OPC UA Broker component publishes data from the OPC UA servers and the devices discovered by _Azure IoT Akri_ to Azure IoT MQ topics.
+The [OPC UA Broker Preview](../manage-devices-assets/overview-opcua-broker.md) component manages the connection to OPC UA servers and other leaf devices. The OPC UA Broker component publishes data from the OPC UA servers and the devices discovered by _Azure IoT Akri_ to Azure IoT MQ topics.
 
 The [Azure IoT Akri Preview](../manage-devices-assets/overview-akri.md) component helps you discover and connect to other types of devices and assets.
 

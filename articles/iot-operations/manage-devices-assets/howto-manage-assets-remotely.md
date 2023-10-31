@@ -262,5 +262,5 @@ Whenever you make a change to asset, you see a notification in the Azure IoT Ope
 
 ## Related content
 
-- [Azure OPC UA Broker overview](concept-opcua-broker-overview.md)
+- [Azure OPC UA Broker overview](overview-opcua-broker.md)
 - [Azure IoT Akri overview](overview-akri.md)
