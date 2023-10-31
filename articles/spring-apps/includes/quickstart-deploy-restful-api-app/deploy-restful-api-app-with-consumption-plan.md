@@ -70,7 +70,7 @@ Use the following steps to initialize the web application from Azure Developer C
 
 ## 3. Prepare the cloud environment
 
-The main resources required to run this sample app are an Azure Spring Apps instance and an Azure Database for PostgreSQL instance. Use the following steps to create these resources.
+The main resources required to run this sample app are an Azure Spring Apps instance and an Azure Database for PostgreSQL instance. The following sections describe how to create these resources.
 
 ### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
 
@@ -156,11 +156,13 @@ Use the following steps to connect your service instances:
 
 ### 3.6. Update the application configuration
 
-[!INCLUDE [provision-postgresql-flexible](expose-restful-apis.md)]
+[!INCLUDE [update-application-configuration](update-application-configuration.md)]
 
 ### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
 ### 3.1. Prepare the Azure resources
+
+Use the following steps to provision the required Azure resources:
 
 1. Run the following command to log in to Azure with OAuth2. Ignore this step if you've already logged in.
 
@@ -202,17 +204,17 @@ Use the following steps to connect your service instances:
 
 ### 3.3. Update the application configuration
 
-[!INCLUDE [provision-postgresql-flexible](expose-restful-apis.md)]
+[!INCLUDE [update-application-configuration](update-application-configuration.md)]
 
 ---
 
 ## 4. Deploy the app to Azure Spring Apps
 
-Now, you can deploy the app to Azure Spring Apps.
+You can now deploy the app to Azure Spring Apps.
 
 ### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
 
-[!INCLUDE [deploy-restful-api-app-with-maven-plugin](restful-api-spring-apps-maven-plugin.md)]
+   [!INCLUDE [restful-api-spring-apps-maven-plugin](restful-api-spring-apps-maven-plugin.md)]
 
    ```output
    [INFO] Deployment(default) is successfully created
