@@ -4,7 +4,6 @@ description: This article provides step-by-step instructions to consume events f
 ms.topic: quickstart
 ms.author: jafernan
 author: jfggdl
-ms.custom: references_regions, devx-track-azurecli
 ms.date: 11/02/2023
 ---
 
@@ -16,7 +15,7 @@ This article provides quick, step-by-step guide to receive CloudEvents using Eve
 
 The prerequisites you need to have in place before proceeding are:
 
-* Understand what pull delivery is. For more information, see [pull delivery concepts](concepts-event-grid-namespaces.md#pull-delivery) and [pull delivery overview](pull-delivery-overview.md) for more information.
+* Understand what pull delivery is. For more information, see [pull delivery concepts](concepts-event-grid-namespaces.md#pull-delivery) and [pull delivery overview](pull-delivery-overview.md).
 
 * A namespace, topic, and event subscription.
 
@@ -153,8 +152,10 @@ A sample implementation of an acknowledge method along with a utility method to 
 
 ## Release events
 
-Release events to make them available for redelivery.
-Similar to what you did for acknowledging events, you can add the following static method and a line to invoke it to release events identified by the lock tokens passed as argument. Note: you need the ```writeFailedLockTokens``` method for this method to compile.
+Release events to make them available for redelivery. Similar to what you did for acknowledging events, you can add the following static method and a line to invoke it to release events identified by the lock tokens passed as argument. 
+
+> [!NOTE]
+>  You need the ```writeFailedLockTokens``` method for this method to compile.
  
 ```java
    private static void release(List<String> lockTokens) {
@@ -175,7 +176,7 @@ Similar to what you did for acknowledging events, you can add the following stat
 
 ## Reject events
 
-Reject events that your consumer application can't process. Conditions for which you may need to reject an event include a malformed event that can't be parsed or problems with the application that process the events.
+Reject events that your consumer application can't process. Conditions for which you might reject an event include a malformed event that can't be parsed or problems with the application that process the events.
 
 ```java
     private static void reject(List<String> lockTokens) {
