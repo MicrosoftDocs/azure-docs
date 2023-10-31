@@ -24,7 +24,7 @@ Upon expiration of the free trial, your services will be shut down and no logs o
 
 ## Dynatrace links
 
-For more help using Azure Native Dynatrace Service, visit the [Dynatrace](https://aka.ms/partners/Dynatrace/PartnerDocs) documentation.
+For more help using Azure Native Dynatrace Service, visit the [Dynatrace](https://dt-url.net/azurenativedynatraceservice) documentation.
 
 ## Next steps
 
