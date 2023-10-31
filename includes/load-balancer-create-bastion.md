@@ -15,13 +15,13 @@
 The following procedure creates a virtual network with a resource subnet, an Azure Bastion subnet, and an Azure Bastion host.
 
 > [!IMPORTANT]
-> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+> [!INCLUDE [Pricing](bastion-pricing.md)]
 
 1. In the portal, search for and select **Virtual networks**.
 
-1. On the **Virtual networks** page, select **+ Create**.
+2. On the **Virtual networks** page, select **+ Create**.
 
-1. On the **Basics** tab of **Create virtual network**, enter or select the following information:
+3. On the **Basics** tab of **Create virtual network**, enter or select the following information:
 
     | Setting | Value |
     |---|---|
@@ -34,8 +34,8 @@ The following procedure creates a virtual network with a resource subnet, an Azu
 
     :::image type="content" source="./media/load-balancer-internal-create-bastion-include/create-virtual-network-basics.png" alt-text="Screenshot of Basics tab of Create virtual network in the Azure portal.":::
 
-1. Select the **Security** tab or **Next** button at the bottom of the page.
-1. Under **Azure Bastion**, enter or select the following information:
+4. Select the **Security** tab or **Next** button at the bottom of the page.
+5. Under **Azure Bastion**, enter or select the following information:
 
     | Setting | Value |
     |---|---|
@@ -44,8 +44,8 @@ The following procedure creates a virtual network with a resource subnet, an Azu
     | Azure Bastion host name | Enter **lb-bastion**. |
     | Azure Bastion public IP address | Select **Create new**. </br> Enter **lb-bastion-ip** in Name. </br> Select **OK**. |
 
-1. Select the **IP addresses** tab, or **Next** at the bottom of the page.
-1. On **Create virtual network** page, enter or select the following information:
+6. Select the **IP addresses** tab, or **Next** at the bottom of the page.
+7. On **Create virtual network** page, enter or select the following information:
 
     | Setting | Value |
     |---|---|
@@ -61,6 +61,6 @@ The following procedure creates a virtual network with a resource subnet, an Azu
 
     :::image type="content" source="./media/load-balancer-internal-create-bastion-include/edit-subnet-window.png" alt-text="Screenshot of default subnet rename and configuration.":::
 
-2. Select **Save**.
+8. Select **Save**.
 
-3. Select **Review + create** at the bottom of the screen, and when validation passes, select **Create**.
+9. Select **Review + create** at the bottom of the screen, and when validation passes, select **Create**.
