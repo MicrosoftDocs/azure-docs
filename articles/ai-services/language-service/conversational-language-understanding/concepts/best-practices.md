@@ -121,6 +121,13 @@ Once the request is sent, you can track the progress of the training job in Lang
 > [!NOTE]
 > You have to retrain your model after updating the `confidenceThreshold` project setting. Afterwards, you'll need to republish the app for the new threshold to take effect.
 
+### A short primer on how the Lora Norm recipe works
+The Lora Norm recipe does not affect training in any way. Rather, it introduces a layer of normalization in the Inference layer. 
+
+The normalization layer normalizes the classification confidence scores to a confined range. The range selected currently is from [-a,a] where a is the square root of the number of intents.  As a result, the normalization depends on the number of intents in the app. If there is a very low number of intents, the normalization layer has a very small range to work with, vice versa with a fairly large number of intents, the normalization is more effective.
+
+If the LoraNorm recipe doesn’t seem to help the Out of Scope scenario to the extent that the confidenceThreshold can be used to filter out Out of Scope utterances, it might be related to the number of intents in the app. Consider adding on to the app with more intents or if you are using an orchestrated architecture consider merging apps that belong to the same domain together. 
+
 ## Debugging composed entities
 
 Entities are functions that emit spans in your input with an associated type. The function is defined by one or more components. You can mark components as needed, and you can decide whether to enable the *combine components* setting. When you combine components, all spans that overlap will be merged into a single span. If the setting isn't used, each individual component span will be emitted.
