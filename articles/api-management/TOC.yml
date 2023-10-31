@@ -368,8 +368,6 @@
             href: developer-portal-faq.md
           - name: Automate portal deployments
             href: automate-portal-deployments.md
-          - name: Migrate from deprecated to new developer portal
-            href: developer-portal-deprecated-migration.md
           - name: Extend portal with custom functionality
             href: developer-portal-extend-custom-functionality.md
           - name: Enable console OAuth support
@@ -623,6 +621,8 @@
               href: breaking-changes/self-hosted-gateway-v0-v1-retirement-oct-2023.md
             - name: Deprecated (legacy) developer portal (October 2023)
               items:
+                - name: Migrate from deprecated to new developer portal
+                  href: developer-portal-deprecated-migration.md                
                 - name: Deprecated portal - customize the portal
                   href: api-management-customize-styles.md
                 - name: Deprecated portal - modify pages and layouts
