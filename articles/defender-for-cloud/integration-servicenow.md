@@ -71,30 +71,45 @@ After you complete these steps, you can use this user for integrating the instan
 
 1. Sign in to [the Azure portal](https://aka.ms/integrations) and navigate to **Microsoft Defender for Cloud** > **Environment settings**.
 1. Click **Integrations** to connect your environment to a third-party ticketing system, which is ServiceNow in this scenario.
-1. Select **Add integration** > **ServiceNow**, and provide General information along with the ServiceNow information (Instance 
-URL, Username, Password, ClientID, ClientSecret) that you generated in the previous exercise.
-NOTE: You can create ‘Integration’ on (based on the relevant permissions): 
-- Management group
-- Subscription (API only, to reduce subscription level onboardings)
-- Master connector
-- Connector 
-We recommend creating the integration on the higher scope based on the user permissions for ease. For example, if 
-you have permission for a Management Group, you could create a single integration on a management group 
-instead of creating integrations in each one of the subscriptions. 
-1. Select and choose the ‘Default’ / ‘Customized’ option based on your requirement.
 
-The default option will create Title, Description and Short description in the backend.
-Customized option will let you choose additional fields like ‘Incident data’, ‘problems data’ and ‘Changes data’.
+   :::image type="content" border="true" source="./media/integration-servicenow/integrations.png" alt-text="Screenshot of integrations.":::
 
-Clicking on the drop down, you’d notice by default the ‘Assigned to’, ‘caller’, ‘Short Description’ is grayed out because 
-those are necessary fields, you’ll have options to choose more fields like ‘Assignment group’, ‘description’, ‘Impact’, 
-‘Urgency’ for customized option.
+1. Select **Add integration** > **ServiceNow**.
 
-Notice the successful creation of integration. 
+   :::image type="content" border="true" source="./media/integration-servicenow/add-servicenow.png" alt-text="Screenshot of how to add ServiceNow.":::
 
-You can review the integrations in ARG both on the individual integration or on all integrations. The toolbar on the 
-Integrations page includes an ‘Open in ARG’ button to explore the details in [Azure Resource Graph (ARG)](/azure/governance/resource-graph/), an Azure 
-service that gives you the ability to query – across multiple subscriptions.
+   Use the instance URL, name, password, client ID, and client secret that you previously created for the application registry to help complete the ServiceNow general information.
+   
+   Based on your permissions, you can create an **Integration** by using: 
+   
+   - Management group
+   - Subscription (API only, to reduce subscription level onboardings)
+   - Master connector
+   - Connector 
+
+   For simplicity, We recommend creating the integration on the higher scope based on the user permissions. For example, if you have permission for a management group, you could create a single integration of a management group rather than create integrations in each one of the subscriptions. 
+
+1. Choose **Default** or **Customized** based on your requirement.
+   
+   The default option creates a Title, Description and Short description in the backend. The customized option lets you choose other fields such as **Incident data**, **Problems data**, and **Changes data**.
+
+   :::image type="content" border="true" source="./media/integration-servicenow/customize-fields.png" alt-text="Screenshot of how to customize fields.":::
+
+   If you click the drop-down menu, you see **Assigned to**, **Caller**,  and **Short description** are grayed out because those are necessary fields. You can choose other fields such as **Assignment group**, **Description**, **Impact**, or **Urgency**.
+
+   :::image type="content" border="true" source="./media/integration-servicenow/customize-fields.png" alt-text="Screenshot of how to customize fields.":::
+
+1. A notice appears after successful creation of integration. 
+
+   :::image type="content" border="true" source="./media/integration-servicenow/notice.png" alt-text="Screenshot of notice after successful creation of integration.":::
+
+You can review the integrations in ARG both on the individual integration or on all integrations. 
+
+:::image type="content" border="true" source="./media/integration-servicenow/all-integrations.png" alt-text="Screenshot of all integrations.":::
+
+The toolbar on the Integrations page includes an ‘Open in ARG’ button to explore the details in [Azure Resource Graph (ARG)](/azure/governance/resource-graph/), an Azure service that gives you the ability to query – across multiple subscriptions.
+
+:::image type="content" border="true" source="./media/integration-servicenow/open.png" alt-text="Screenshot of how to open in ARG.":::
 
 ## Create a new ticket from Microsoft Defender for Cloud recommendation to ServiceNow
 
