@@ -51,7 +51,7 @@ Service Connector lets you quickly connect compute services to cloud services, w
 
 ## Create a service connection
 
-You can create a connection from Azure Spring Apps using an access key or a managed identity.
+Create a connection from Azure Spring Apps using an access key or a managed identity.
 
 ### [Access key](#tab/Using-access-key)
 
@@ -74,10 +74,10 @@ You can create a connection from Azure Spring Apps using an access key or a mana
 > [!TIP]
 > If you don't have a Blob Storage, you can run `az spring connection create storage-blob --new --secret` to provision a new Blob Storage and directly connect it to your application hosted by Azure Spring Apps using a connection string.
 
-### [Managed Identity](#tab/Using-Managed-Identity)
+### [Managed identity](#tab/Using-Managed-Identity)
 
 > [!IMPORTANT]
-> To use Managed Identity, you must have the permission to modify [role assignments in Microsoft Entra ID](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). Without this permission, your connection creation will fail. Ask your subscription owner to grant you a role assignment permission or use an access key to create the connection.
+> To use a managed identity, you must have the permission to modify [role assignments in Microsoft Entra ID](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). Without this permission, your connection creation will fail. Ask your subscription owner to grant you a role assignment permission or use an access key to create the connection.
 
 1. Run the `az spring connection create` command to create a service connection to a Blob Storage with a system-assigned managed identity
 
@@ -114,7 +114,7 @@ The output also displays the provisioning state of your connections: failed or s
 
 ## Next steps
 
-Check the guides below for more information about Service Connector and Azure Spring Apps:
+Check the guides below for more information about Service Connector and Azure Spring Apps.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Azure Spring Apps + MySQL](./tutorial-java-spring-mysql.md)
