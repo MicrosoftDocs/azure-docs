@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: quickstart
-ms.date: 04/13/2023
+ms.date: 10/31/2023
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
 ---
