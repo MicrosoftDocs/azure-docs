@@ -4,7 +4,7 @@ description: Configure a data collection rule to collect log data from a text or
 ms.topic: conceptual
 ms.date: 10/31/2023
 author: guywi-ms
-ms.author: jeffwolford
+ms.author: guywild
 ms.reviewer: jeffwo
 ---
 
