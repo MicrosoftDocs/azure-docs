@@ -38,23 +38,23 @@ Create two client groups, one for the cloud application client and another for a
 
     :::image type="content" source="./media/mqtt-request-response-messages/list-of-client-groups-configured.png" alt-text="Screenshot showing the list of configured client groups.":::
 
-### Topicspaces
+### Topic spaces
 
-- Create "requestDesiredProperties" topicspace with topic template "devices/+/desired" to which cloud application publishes desired-property requests.  Wildcard allows the cloud application to publish a request to any device.
-- Create "responseReportedProperties" topicspace with topic template "devices/+/reported" to which cloud application subscribes to receive reported-property responses from devices.
-- Create "deviceDesiredSub" topicspace with topic template "devices/${client.authenticationName}/desired" to which devices subscribe to receive the desired-property requests from the cloud application.  Authentication name variable is used to ensure a device can receive messages meant only for that device.
+- Create "requestDesiredProperties" topic space with topic template "devices/+/desired" to which cloud application publishes desired-property requests.  Wildcard allows the cloud application to publish a request to any device.
+- Create "responseReportedProperties" topic space with topic template "devices/+/reported" to which cloud application subscribes to receive reported-property responses from devices.
+- Create "deviceDesiredSub" topic space with topic template "devices/${client.authenticationName}/desired" to which devices subscribe to receive the desired-property requests from the cloud application.  Authentication name variable is used to ensure a device can receive messages meant only for that device.
 
     :::image type="content" source="./media/mqtt-request-response-messages/topic-space-device-desired-subscribe-configuration.png" alt-text="Screenshot showing the device desired subscribe topic space configuration.":::
 
-- Create "deviceReportedPub" topicspace with topic template "devices/${client.authenticationName}/reported" to which devices publish reported-property responses.
+- Create "deviceReportedPub" topic space with topic template "devices/${client.authenticationName}/reported" to which devices publish reported-property responses.
 
 ### Permission bindings
 Create permission bindings that allow cloud application group to publish on request topic, and subscribe to response topic.  Devices group subscribes to request topic and publishes to response topic.
 
-- Create "clientAppDesiredPub" permission binding that grants "cloudAppGrp" with publisher access to "requestDesiredProperties" topicspace.
-- Create "clientAppReportedSub" permission binding that grants "cloudAppGrp" with subscriber access to "responseReportedProperties" topicspace.
-- Create "deviceDesiredSub" permission binding that grants "devicesGrp" with subscriber access to "deviceDesiredSub" topicspace.
-- Create "deviceReportedPub" permission binding that grants "devicesGrp" with publisher access to "deviceReportedPub" topicspace.
+- Create "clientAppDesiredPub" permission binding that grants "cloudAppGrp" with publisher access to "requestDesiredProperties" topic space.
+- Create "clientAppReportedSub" permission binding that grants "cloudAppGrp" with subscriber access to "responseReportedProperties" topic space.
+- Create "deviceDesiredSub" permission binding that grants "devicesGrp" with subscriber access to "deviceDesiredSub" topic space.
+- Create "deviceReportedPub" permission binding that grants "devicesGrp" with publisher access to "deviceReportedPub" topic space.
 
     :::image type="content" source="./media/mqtt-request-response-messages/list-of-permission-bindings-configured.png" alt-text="Screenshot showing the list of configured permission bindings.":::
 
