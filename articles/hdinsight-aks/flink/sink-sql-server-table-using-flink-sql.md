@@ -120,9 +120,7 @@ VALUES ('21-FEB-2016', 1003, 1, 107);
 EXEC sys.sp_cdc_enable_table @source_schema = 'dbo', @source_name = 'orders', @role_name = NULL, @supports_net_changes = 0;
 GO
 ``` 
-### Download SQLServer CDC connector and its dependencies on SSH
-
-**WSL to ubuntu on local to check all dependencies related *flink-sql-connector-sqlserver-cdc* jar**
+### Download SQLServer CDC connector on SSH
 
 ```
 wget https://repo1.maven.org/maven2/com/ververica/flink-sql-connector-sqlserver-cdc/2.4.1/flink-sql-connector-sqlserver-cdc-2.4.1.jar
