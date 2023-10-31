@@ -8,7 +8,7 @@ ms.author: guywild
 ms.reviewer: jeffwo
 ---
 
-# Collect logs from a text or JSON file with Azure Monitor Agent
+# Collect logs from a text or JSON file with Azure Monitor Agent 
 
 Many applications log information to text or JSON files instead of standard logging services such as Windows Event log or Syslog. This article explains how to collect log data from text and JSON files on monitored machines using [Azure Monitor Agent](azure-monitor-agent-overview.md) by creating a [data collection rule (DCR)](../essentials/data-collection-rule-overview.md). 
 
