@@ -56,7 +56,7 @@ Use the following steps to connect your service instances:
 
 1. From the navigation menu, open **Apps**, and then select **Create App**.
 
-1. On the **Create App** page, fill in the app name *simple-todo-api* and then select **Java artifacts** as the deployment type.
+1. On the **Create App** page, fill in the app name *simple-todo-api*, and then select **Java artifacts** as the deployment type.
 
 1. Select **Create** to finish the app creation and then select the app to view the details.
 
