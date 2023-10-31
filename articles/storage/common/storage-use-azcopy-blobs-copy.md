@@ -133,6 +133,12 @@ Copy all containers, directories, and blobs to another storage account by using 
 azcopy copy 'https://mysourceaccount.blob.core.windows.net/' 'https://mydestinationaccount.blob.core.windows.net' --recursive
 ```
 
+**Example (Data Lake Storage endpoints)**
+
+```azcopy
+azcopy copy 'https://mysourceaccount.dfs.core.windows.net/' 'https://mydestinationaccount.dfs.core.windows.net' --recursive
+```
+
 The copy operation is synchronous so when the command returns, that indicates that all files have been copied.
 
 <a id="copy-between-accounts-and-add-index-tags"></a>
