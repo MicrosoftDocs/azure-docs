@@ -246,6 +246,9 @@ To improve the restart time, we recommend that you perform scale operations duri
 
 Changing the backup retention period is an online operation.
 
+## Premium SSD V2
+
+
 ## Pricing
 
 For the most up-to-date pricing information, see the [Azure Database for PostgreSQL pricing](https://azure.microsoft.com/pricing/details/postgresql/flexible-server/) page. The [Azure portal](https://portal.azure.com/#create/Microsoft.PostgreSQLServer) shows the monthly cost on the **Pricing tier** tab, based on the options that you select.
