@@ -1,5 +1,5 @@
 ---
-title: Arc-enabled Azure VMware Solution (Preview)
+title: Depoy Arc-enabled Azure VMware Solution
 description: Learn how to set up and enable Arc for your Azure VMware Solution private cloud.
 ms.topic: how-to 
 ms.service: azure-vmware
@@ -7,9 +7,9 @@ ms.date: 10/24/2023
 ms.custom: references_regions
 ---
 
-# Arc-enabled Azure VMware Solution (Preview)
+# Deploy Arc-enabled Azure VMware Solution
 
-In this article, learn how to deploy Arc for Azure VMware Solution. Once you've set up the components needed for this public preview, you're ready to execute operations in Azure VMware Solution vCenter Server from the Azure portal. Arc-enabled Azure VMware Solution (Preview) allows you to do the  actions:
+In this article, learn how to deploy Arc for Azure VMware Solution. Once you've set up the components needed for this public preview, you're ready to execute operations in Azure VMware Solution vCenter Server from the Azure portal. Arc-enabled Azure VMware Solution allows you to do the  actions:
 
 - Identify your VMware vSphere resources (VMs, templates, networks, datastores, clusters/hosts/resource pools) and register them with Arc at scale. 
 - Perform different virtual machine (VM) operations directly from Azure like; create, resize, delete, and power cycle operations (start/stop/restart) on VMware VMs consistently with Azure.
@@ -37,9 +37,9 @@ There should be an isolated NSX-T Data Center network segment for deploying the 
 > [!IMPORTANT]
 > You can't create the resources in a separate resource group. Ensure you use the same resource group from where the Azure VMware Solution private cloud was created to create your resources.
 
-You need the following items to ensure you're set up to begin the onboarding process to deploy Arc for Azure VMware Solution (Preview).
+You need the following items to ensure you're set up to begin the onboarding process to deploy Arc for Azure VMware Solution.
 
-- Validate the regional support before you start the onboarding process. Arc for Azure VMware Solution (Preview) is supported in all regions where Arc for VMware vSphere on-premises is supported. For details, see [Azure Arc-enabled VMware vSphere](https://learn.microsoft.com/azure/azure-arc/vmware-vsphere/overview#supported-regions).
+- Validate the regional support before you start the onboarding process. Arc for Azure VMware Solution is supported in all regions where Arc for VMware vSphere on-premises is supported. For details, see [Azure Arc-enabled VMware vSphere](https://learn.microsoft.com/azure/azure-arc/vmware-vsphere/overview#supported-regions).
 - A jump box virtual machine (VM) or a [management VM](https://learn.microsoft.com/azure/azure-arc/resource-bridge/system-requirements#management-machine-requirements) with internet access that has a direct line of site to the vCenter.
 	- From the jump box VM, verify you  have access to [vCenter Server and NSX-T manager portals](https://learn.microsoft.com/azure/azure-vmware/tutorial-access-private-cloud#connect-to-the-vcenter-server-of-your-private-cloud).
 - A resource group in the subscription where you have an owner or contributor role.
@@ -50,14 +50,9 @@ You need the following items to ensure you're set up to begin the onboarding pro
 - A resource pool or a cluster with a minimum capacity of 16 GB of RAM and four vCPUs.
 - A datastore with a minimum of 100 GB of free disk space is available through the resource pool or cluster. 
 - On the vCenter Server, allow inbound connections on TCP port 443. This action ensures that the Arc resource bridge and VMware vSphere cluster extension can communicate with the vCenter Server.
-	> [!IMPORTANT] 
-	> Only the default post of 443 is supported. If you use a different port, Appliance VM creation will fail.
-
-- Customers need to ensure kubeconfig, SSH keys and appliance config yaml files remain available as they're required at the time of upgrade, log collection, and credential update scenarios.
-
 > [!NOTE]
 > - Private endpoint is currently not supported.
-> - CHCP support isn't available to customers at this time, only static IP addresses are currently supported.
+> - DHCP support isn't available to customers at this time, only static IP addresses are currently supported.
 
 
 ## Registration to Arc for Azure VMware Solution feature set
@@ -84,7 +79,7 @@ az feature show --name AzureArcForAVS --namespace Microsoft.AVS
 
 ## Onboard process to deploy Azure Arc
 
-Use the following steps to guide you through the process to onboard Azure Arc for Azure VMware Solution (Preview).
+Use the following steps to guide you through the process to onboard Azure Arc for Azure VMware Solution.
 
 1. Sign into the jumpbox VM and extract the contents from the compressed file from the following [location](https://github.com/Azure/ArcOnAVS/releases/latest). The extracted file contains the scripts to install the preview software.
 2. Open the 'config_avs.json' file and populate all the variables.
@@ -160,7 +155,7 @@ Use the following steps to guide you through the process to onboard Azure Arc fo
 When the script has run successfully, check the status to see if Azure Arc has been configured. To verify if your private cloud is Arc-enabled, do the following actions:
 
 - In the left navigation, locate **Operations**.
-- Choose **Azure Arc (Preview)**. 
+- Choose **Azure Arc**. 
 - Azure Arc state shows as **Configured**.
 
 Recover from failed deployments 
