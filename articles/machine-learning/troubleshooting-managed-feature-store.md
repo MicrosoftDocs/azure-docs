@@ -22,7 +22,7 @@ You might encounter these issues when you create or update a feature store:
 - [ARM Throttling Error](#arm-throttling-error)
 - [RBAC Permission Errors](#rbac-permission-errors)
 - [Duplicated Materialization Identity ARM ID Issue](#duplicated-materialization-identity-arm-id-issue)
-- [Older versions of `azure-mgmt-authorization` package doesn't work with `AzureMLOnBehalfOfCredential`](#older-versions-of-azure-mgmt-authorization-package-doesnt-work-with-azuremlonbehalfofcredential)
+- [Older versions of `azure-mgmt-authorization` package don't work with `AzureMLOnBehalfOfCredential`](#older-versions-of-azure-mgmt-authorization-package-dont-work-with-azuremlonbehalfofcredential)
 
 ### ARM Throttling Error
 
@@ -121,7 +121,7 @@ Check the version of the installed `azure-mgmt-authorization` package, and verif
 ## Feature Set Spec Create Errors
 
 - [Invalid schema in feature set spec](#invalid-schema-in-feature-set-spec)
-- [Can't find transformation class](#cant-find-transformation-class)
+- [Can't find the transformation class](#cant-find-the-transformation-class)
 - [FileNotFoundError on code folder](#filenotfounderror-on-code-folder)
 
 ### Invalid schema in feature set spec
@@ -498,7 +498,7 @@ Check these configurations:
 - [Materialization Identity doesn't have the proper RBAC permission on the feature store](#materialization-identity-doesnt-have-proper-rbac-permission-on-the-feature-store)
 - [Materialization Identity doesn't have proper RBAC permission to read from the Storage](#materialization-identity-doesnt-have-proper-rbac-permission-to-read-from-the-storage)
 - [Materialization identity doesn't have RBAC permission to write data to the offline store](#materialization-identity-doesnt-have-proper-rbac-permission-to-write-data-to-the-offline-store)
-- [Streaming job results to notebook fails](#streaming-job-results-to-notebook-fails)
+- [Streaming job output to a notebook results in failure](#streaming-job-output-to-a-notebook-results-in-failure)
 - [Invalid Spark configuration](#invalid-spark-configuration)
 
 When the feature materialization job fails, follow these steps to check the job failure details:
