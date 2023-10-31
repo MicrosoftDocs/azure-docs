@@ -6,21 +6,20 @@ author: jacodel
 ms.author: sidandrews
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/30/2023
+ms.date: 10/31/2023
 ---
 
 # Using Azure Cosmos DB as a Vector Database
 
 [!INCLUDE[NoSQL, MongoDB vCore, PostgreSQL](includes/appliesto-nosql-mongodbvcore-postgresql.md)]
 
-You have probably considered augmenting your applications with Large Language Models (LLMs) that can access your own data store through Retrieval Augmented Generation (RAG). This approach allows you to
+You likely considered augmenting your applications with Large Language Models (LLMs) that can access your own data store through Retrieval Augmented Generation (RAG). This approach allows you to
 
-- Reduce incorrect information from LLMs
-- Build custom chatbots
+- Generate contextually relevant and accurate responses to user prompts from AI models
 - Overcome ChatGPT, GPT-3.5, or GPT-4’s token limits
 - Reduce the costs from frequent fine-tuning on updated data
 
-Some RAG implementation tutorials demonstrate integrating vector databases. Instead of adding a separate vector database to your existing tech stack, you can achieve the same outcome using Azure Cosmos DB in conjunction other Azure offerings like Azure OpenAI Service or Azure Cognitive Search.
+Some RAG implementation tutorials demonstrate integrating vector databases. Instead of adding a separate vector database to your existing tech stack, you can achieve the same outcome using Azure Cosmos DB with Azure OpenAI Service and optionally Azure Cognitive Search when working with multi-modal data.
 
 Here are some solutions:
 
@@ -54,8 +53,7 @@ Implement RAG patterns with Azure Cosmos DB for NoSQL and Azure Cognitive Search
 
 ### Code samples
 
-- [.NET RAG Pattern retail reference solution](https://github.com/Azure/Vector-Search-AI-Assistant-MongoDBvCore)
-- [.NET samples - Hackathon project](https://github.com/Azure/Build-Modern-AI-Apps-Hackathon)
+- [.NET RAG Pattern retail reference solution for NoSQL](https://github.com/Azure/Vector-Search-AI-Assistant-MongoDBvCore)
 - [.NET tutorial - recipe chatbot](https://github.com/microsoft/AzureDataRetrievalAugmentedGenerationSamples/tree/main/C%23/CosmosDB-NoSQL_CognitiveSearch)
 - [.NET tutorial - recipe chatbot w/ Semantic Kernel](https://github.com/microsoft/AzureDataRetrievalAugmentedGenerationSamples/tree/main/C%23/CosmosDB-NoSQL_CognitiveSearch_SemanticKernel)
 - [Python notebook tutorial - Azure product chatbot](https://github.com/microsoft/AzureDataRetrievalAugmentedGenerationSamples/tree/main/Python/CosmosDB-NoSQL_CognitiveSearch)
