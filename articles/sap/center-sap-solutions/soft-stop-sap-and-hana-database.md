@@ -47,9 +47,9 @@ Use the [Stop-AzWorkloadsSapVirtualInstance](/powershell/module/az.workloads/Sto
 Use this [sample payload](/rest/api/workloads/2023-04-01/sap-virtual-instances/stop?tabs=HTTP#sapvirtualinstances_stop) to soft stop an SAP system. You can specify the soft stop timeout value in seconds.
 
 ## Soft stop SAP Application server instance
-You can soft stop a specific application server instance in Azure Center for SAP solutions using Azure PowerShell and REST API interfaces. Once you initiate soft stop on application server instance and the operation is successfully triggered, then monitor Health and Status of the application instance to check if it has stopped.
+You can soft stop a specific application server in Azure Center for SAP solutions using Azure PowerShell and REST API interfaces. Once you initiate soft stop on application server and the operation is successfully triggered, then monitor Health and Status of the application server instance to check if it has stopped.
 
-To soft stop an application server instance represented as a *App server instance for SAP solutions* resource:
+To soft stop an application server represented as an *App server instance for SAP solutions* resource:
 
 
 ### Using PowerShell
@@ -63,7 +63,7 @@ Use the [Stop-AzWorkloadsSapApplicationInstance](/powershell/module/az.workloads
 Use this [sample payload](/rest/api/workloads/2023-04-01/sap-application-server-instances/stop-instance?tabs=HTTP#stop-the-sap-application-server-instance) to soft stop an application server instance. You can specify the soft stop timeout value in seconds.
 
 ## Soft stop HANA database
-You can soft stop the HANA database so that the database stops gracefully after all running statements have finished. You can use the Azure PowerShell and REST API interfaces to soft stop database. Once you initiate soft stop on HANA database and the operation is successfully triggered on the database instance, then monitor the status of the database instance on the VIS to check if has stopped.
+You can soft stop the HANA database so that the database stops gracefully after all running statements have finished. You can use the Azure PowerShell and REST API interfaces to soft stop database. Once you initiate soft stop on HANA database and the operation is successfully triggered on the database instance, then monitor the status of the database instance on the VIS to check if it has stopped.
 
 > [!NOTE]
 > When attempting to soft stop HANA database instance using Azure Center for SAP solutions, soft stop timeout value must be greater than 0 and less than 1800 seconds.
