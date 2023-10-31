@@ -49,7 +49,7 @@ Clients can connect to the private endpoint from the same VNet, peered VNet in s
 
 ### Limitations and Supported Features for Private Link  Preview with Azure Database for PostgreSQL - Flexible Server
 
-In  preview of Private Endpoint for PostgreSQL flexible server, there are certain limitations as explain in cross feature availability matrix below.
+In  Preview of Private Endpoint for PostgreSQL flexible server, there are certain limitations as explain in cross feature availability matrix below.
 
 Cross Feature Availability Matrix for preview of Private Endpoint in Azure Database for PostgreSQL - Flexible Server.
 
@@ -57,7 +57,6 @@ Cross Feature Availability Matrix for preview of Private Endpoint in Azure Datab
 | --- | --- | --- |
 | High Availability (HA) | Yes |Works as designed |
 | Read Replica | No | |
-| Geo Read Replica | No | |
 | Point in Time Restore (PITR) | Yes |Works as designed |
 | Allowing also public/internet access with firewall rules | Yes | Works as designed|
 | Major Version Upgrade (MVU) | Yes | Works as designed |
@@ -65,11 +64,6 @@ Cross Feature Availability Matrix for preview of Private Endpoint in Azure Datab
 | Connection pooling with PGBouncer | Yes | Works as designed |
 | Private Endpoint DNS | Yes | Works as designed and [documented](../../private-link/private-endpoint-dns.md) |
 
-There are also **following edge case limitations** that are currently not supported in Public Preview:
-- Restore from PITR backup isn't supported with PE enabled servers.
-- Private Endpoint Connection description property isn't populated. The description field shown in the PG/Networking blade is empty for the connections. Providing connection description isn't supported and if updated while connection is moved from rejected state to pending, the operation can be  blocked
-- Provisioned PE capable servers aren't to be publicly accessible outside of PE connections.
-- Currently we have an issue for private endpoint capable servers where there's an A record can't be reused when a server is dropped. This translates into a problem that will **prevent recreating the server with the same name**. This issue is expected to be fixed as soon as possible.
 
 ### Connect from an Azure VM in Peered Virtual Network 
 
