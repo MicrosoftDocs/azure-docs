@@ -109,6 +109,8 @@ items:
       href: how-to-get-configurations.md
     - name: Use Service Connector in Azure Functions
       href: how-to-use-service-connector-in-function.md
+    - name: Build connections with IaC tools
+      href: how-to-build-connections-with-iac-tools.md
     - name: Provide correct parameters
       href: how-to-provide-correct-parameters.md
     - name: Troubleshoot
