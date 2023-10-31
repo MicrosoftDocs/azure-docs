@@ -54,9 +54,7 @@ If the region supports availability zones, the instance metadata is automaticall
 
 During a zone-wide outage, no action is required during zone recovery. Azure Storage Mover is designed to self-heal and re-balance itself to take advantage of the healthy zone automatically.
 
-## Determining reliability for target storage accounts
-
-Any migration target storage account may require its own recovery steps. This requirement depends on the redundancy options chosen for each storage account. See the [storage account disaster recovery](/azure/storage/common/storage-disaster-recovery-guidance) article to determine whether more steps are necessary.
+Any migration target storage account may require its own recovery steps. This requirement depends on the redundancy options chosen for each storage account. See the [storage account disaster recovery guide](/azure/storage/common/storage-disaster-recovery-guidance) to determine whether more steps are necessary.
 
 If a local storage was chosen in lieu of redundancy options, you may need to create a new storage account for use in migrations during the outage.
 
