@@ -26,7 +26,7 @@ In this article, you learn:
 
 Azure Communications Gateway sits at the edge of your fixed line network. It connects this network to the Microsoft Phone System, allowing you to support Microsoft Teams Direct Routing. The following diagram shows where Azure Communications Gateway sits in your network.
 
-:::image type="complex" source="media/interoperability-direct-routing/azure-communications-gateway-architecture-teams-direct-routing.svg" alt-text="Architecture diagram for Azure Communications Gateway for Microsoft Teams Direct Routing.":::
+:::image type="complex" source="media/interoperability-direct-routing/azure-communications-gateway-architecture-teams-direct-routing.svg" alt-text="Architecture diagram for Azure Communications Gateway for Microsoft Teams Direct Routing." lightbox="media/interoperability-direct-routing/azure-communications-gateway-architecture-teams-direct-routing.svg":::
     Architecture diagram showing Azure Communications Gateway connecting to the Microsoft Phone System and a fixed operator network over SIP and RTP. Azure Communications Gateway and the Microsoft Phone System connect multiple customers to the operator network. Azure Communications Gateway also has a provisioning API to which a BSS client in the operator's management network must connect. Azure Communications Gateway contains certified SBC function.
 :::image-end:::
 

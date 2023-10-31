@@ -23,7 +23,7 @@ Azure Communications Gateway sits at the edge of your network. This position all
 
 Azure Communications Gateway sits at the edge of your fixed line and mobile networks. It connects these networks to one or more communications services. The following diagram shows where Azure Communications Gateway sits in your network.
 
-:::image type="complex" source="media/azure-communications-gateway-architecture.svg" alt-text="Architecture diagram for Azure Communications Gateway connecting to fixed and mobile networks":::
+:::image type="complex" source="media/azure-communications-gateway-architecture.svg" alt-text="Architecture diagram for Azure Communications Gateway connecting to fixed and mobile networks" lightbox="media/azure-communications-gateway-architecture.svg":::
     Architecture diagram showing Azure Communications Gateway connecting to the Microsoft Phone System and Zoom Phone Cloud Peering, a fixed line deployment and a mobile IMS core. Azure Communications Gateway contains SBC function, the MCP application server for anchoring Teams Phone Mobile calls and a provisioning API.
 :::image-end:::
 
@@ -49,7 +49,7 @@ Connectivity between your networks and Azure Communications Gateway must meet an
 
 The following diagram shows an operator network using MAPS or ExpressRoute (as recommended) to connect to Azure Communications Gateway.
 
-:::image type="content" source="media/azure-communications-gateway-network.svg" alt-text="Diagram that shows Azure Communications Gateway in two regions connecting to two sites in the operator network. The two sites in the operator network have cross-connects between them. The connections between the operator network use MAPS or ExpressRoute, as recommended.":::
+:::image type="content" source="media/azure-communications-gateway-network.svg" alt-text="Diagram that shows Azure Communications Gateway in two regions connecting to two sites in the operator network. The two sites in the operator network have cross-connects between them. The connections between the operator network use MAPS or ExpressRoute, as recommended." lightbox="media/azure-communications-gateway-network.svg":::
 
 For more information on how to route calls between Azure Communications Gateway and your network, see [Call routing requirements](reliability-communications-gateway.md#call-routing-requirements).
 

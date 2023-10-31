@@ -29,7 +29,7 @@ Azure Communications Gateway acts as the edge of your network. This position all
 
 To ensure availability, Azure Communications Gateway is deployed into two Azure Regions within a given Geography, as shown in the following diagram. It supports both active-active and primary-backup geographic redundancy models to fit with your network design.
 
-:::image type="content" source="media/azure-communications-gateway-network.svg" alt-text="Diagram that shows Azure Communications Gateway deployed into two Azure regions within one Azure Geography. The Azure Communications Gateway resource in each region connects to a communications service and both operator sites.":::
+:::image type="content" source="media/azure-communications-gateway-network.svg" alt-text="Diagram that shows Azure Communications Gateway deployed into two Azure regions within one Azure Geography. The Azure Communications Gateway resource in each region connects to a communications service and both operator sites." lightbox="media/azure-communications-gateway-network.svg":::
 
 For more information about the networking and call routing requirements, see [Your network and Azure Communications Gateway](role-in-network.md#network-requirements) and [Reliability in Azure Communications Gateway](reliability-communications-gateway.md).
 

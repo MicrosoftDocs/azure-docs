@@ -21,7 +21,7 @@ Azure Communications Gateway can manipulate signaling and media to meet the requ
 Azure Communications Gateway sits at the edge of your fixed line and mobile networks. It connects these networks to Zoom servers, allowing you to support the Zoom Phone Cloud Peering program. The following diagram shows where Azure Communications Gateway sits in your network.
 
 
-:::image type="complex" source="media/azure-communications-gateway-architecture-zoom.svg" alt-text="Architecture diagram for Azure Communications Gateway for Microsoft Teams Direct Routing.":::
+:::image type="complex" source="media/azure-communications-gateway-architecture-zoom.svg" alt-text="Architecture diagram for Azure Communications Gateway for Microsoft Teams Direct Routing." lightbox="media/azure-communications-gateway-architecture-zoom.svg":::
     Architecture diagram showing Azure Communications Gateway connecting to Zoom servers and a fixed operator network over SIP and RTP. Azure Communications Gateway and Zoom Phone Cloud Peering connect multiple customers to the operator network. Azure Communications Gateway also has a provisioning API to which a BSS client in the operator's management network must connect. Azure Communications Gateway contains certified SBC function.
 :::image-end:::
 
