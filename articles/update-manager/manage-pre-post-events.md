@@ -1,6 +1,6 @@
 ---
-title: Manage the pre and post maintenance configuration events (preview)
-description: The article provides the steps to manage the pre and post maintenance events.
+title: Manage the pre and post maintenance configuration events (preview) in Azure Update Manager
+description: The article provides the steps to manage the pre and post maintenance events in Azure Update Manager.
 ms.service: azure-update-manager
 ms.date: 10/29/2023
 ms.topic: how-to
@@ -8,7 +8,7 @@ ms.author: sudhirsneha
 author: SnehaSudhirG
 ---
 
-# Manage the Pre and Post maintenance events (preview)
+# Manage the pre and post maintenance events (preview)
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
 
@@ -32,7 +32,7 @@ To create a maintenance configuration, follow these steps:
 When you select a time to run a schedule, the pre maintenance events are triggered 40 minutes before the specified time. For example, if you select the time as 3:00 p.m. to run the schedule, the pre maintenance event is triggered after 2:20 p.m. (40 mins before the stipulated time). The maintenance configuration is locked at 2:20 p.m. and after this time, the prescript will run.
 
 
-## Manage Maintenance events
+## Manage maintenance events
 
 To manage the maintenance events, follow these steps:
 
