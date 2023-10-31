@@ -559,7 +559,7 @@ The parameters **destinationFilters** and **inboundDestinationFilters** use the 
 ### Limitations
 
 * The agent-based network faults currently only support IPv4 addresses.
-* The agent-based network latency fault only supports inbound destination filters (the `inboundDestinationFilters` parameter) on Windows environments. Outbound destination filters are supported in both Linux and Windows environments.
+* When running in a Linux environment, the agent-based network latency fault can only affect **outbound** traffic, not inbound traffic. The fault can affect **both inbound and outbound** traffic on Windows environments (via the `inboundDestinationFilters` and `destinationFilters` parameters).
 
 
 ## Network disconnect

@@ -24,7 +24,7 @@ During the public preview of Azure Chaos Studio, there are a few limitations and
 - **Supported VM operating systems** - If you run an experiment that makes use of the Chaos Studio agent, the virtual machine must run one of the following operating systems:
 
     - Windows Server 2019, Windows Server 2016, and Windows Server 2012 R2
-    - Red Hat Enterprise Linux 8.2, Red Hat Enterprise Linux 8 LVM, openSUSE Leap 15.2, CentOS 8, Debian 10 Buster (with unzip installation required), Oracle Linux 8.3, and Ubuntu Server 18.04 LTS
+    - Red Hat Enterprise Linux 8, Red Hat Enterprise Linux 8.2, openSUSE Leap 15.2, CentOS 8, Debian 10 Buster (with unzip installation required), Oracle Linux 8.3, and Ubuntu Server 18.04 LTS
 - **Hardened Linux untested** -  The Chaos Studio agent isn't currently tested against custom Linux distributions or hardened Linux distributions (for example, FIPS or SELinux).
 - **Supported browsers** - The Chaos Studio portal experience has only been tested on the following browsers:
     * **Windows:** Microsoft Edge, Google Chrome, and Firefox
@@ -42,7 +42,7 @@ During the public preview of Azure Chaos Studio, there are a few limitations and
 
 ## Known issues
 - When selecting target resources for an agent-based fault in the experiment designer, it's possible to select virtual machines or virtual machine scale sets with an operating system not supported by the fault selected.
-- The agent-based network latency fault (NetworkLatency-1.1) can only affect **outbound** traffic when running in a Linux environment (not inbound traffic). The fault can affect both inbound and outbound traffic on Windows environments (via the `inboundDestinationFilters` and `destinationFilters` parameters).
+- When running in a Linux environment, the agent-based network latency fault (NetworkLatency-1.1) can only affect **outbound** traffic, not inbound traffic. The fault can affect **both inbound and outbound** traffic on Windows environments (via the `inboundDestinationFilters` and `destinationFilters` parameters).
 
 ## Next steps
 Get started creating and running chaos experiments to improve application resilience with Chaos Studio by using the following links:
