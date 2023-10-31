@@ -203,6 +203,9 @@ df = spark.read.csv('abfss://<CONTAINER>@<ACCOUNT>.dfs.core.windows.net/<FILE PA
 
 display(df.limit(10))
 ```
+
+::: zone-end
+
 <strong>SAS configuration per storage account</strong>
 
 ::: zone pivot = "programming-language-scala"
@@ -233,6 +236,8 @@ df = spark.read.csv('abfss://<CONTAINER>@<ACCOUNT>.dfs.core.windows.net/<FILE PA
 
 display(df.limit(10))
 ```
+
+::: zone-end
 
 <strong>SAS configuration of all storage accounts</strong>
 
