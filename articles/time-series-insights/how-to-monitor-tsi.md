@@ -60,7 +60,7 @@ You can collect logs from the following categories for Azure Time Series Insight
 
 ## Analyzing metrics
 
-You can analyze metrics for Azure Time Series Insights, along with metrics from other Azure services, by opening Metrics from the Azure Monitor menu. See [Getting started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md) for details on using this tool.
+You can analyze metrics for Azure Time Series Insights, along with metrics from other Azure services, by opening Metrics from the Azure Monitor menu. See [Analyze metrics with Azure Monitor metrics explorer](../azure-monitor/essentials/analyze-metrics.md) for details on using this tool.
 
 For a list of the platform metrics collected, see [Monitoring Azure Time Series Insights data reference](how-to-monitor-tsi-reference.md#metrics)
 

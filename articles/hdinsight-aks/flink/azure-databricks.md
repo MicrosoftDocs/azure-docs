@@ -1,19 +1,19 @@
 ---
-title: Incorporate Flink DataStream into Azure Databricks Delta Lake Table
-description: Learn about incorporate Flink DataStream into Azure Databricks Delta Lake Table in HDInsight on AKS - Apache Flink
+title: Incorporate Apache Flink® DataStream into Azure Databricks Delta Lake Table
+description: Learn about incorporate Apache Flink® DataStream into Azure Databricks Delta Lake Table
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 10/05/2023
+ms.date: 10/27/2023
 ---
 
-# Incorporate Flink DataStream into Azure Databricks Delta Lake Table
+# Incorporate Apache Flink® DataStream into Azure Databricks Delta Lake Tables
 
-This example shows how to sink stream data landed into Azure ADLS Gen2 from HDInsight Flink cluster on AKS applications into Delta Lake tables using Azure Databricks Auto Loader.
+This example shows how to sink stream data in Azure ADLS Gen2 from Apache Flink cluster on HDInsight on AKS into Delta Lake tables using Azure Databricks Auto Loader.
 
 ## Prerequisites
 
-- [HDInsight Flink 1.16.0 on AKS](./flink-create-cluster-portal.md)
-- [HDInsight Kafka 3.2.0](../../hdinsight/kafka/apache-kafka-get-started.md)
+- [Apache Flink 1.16.0 on HDInsight on AKS](../flink/flink-create-cluster-portal.md)
+- [Apache Kafka 3.2 on HDInsight](../../hdinsight/kafka/apache-kafka-get-started.md)
 - [Azure Databricks](/azure/databricks/getting-started/) in the same VNET as HDInsight on AKS
 - [ADLS Gen2](/azure/databricks/getting-started/connect-to-azure-storage/) and Service Principal
 
@@ -23,7 +23,7 @@ Databricks Auto Loader makes it easy to stream data land into object storage fro
 
 Here are the steps how you can use data from Flink in Azure Databricks delta live tables.
 
-### Create Kafka table on Flink SQL
+### Create Apache Kafka® table on Apache Flink® SQL
 
 In this step, you can create Kafka table and ADLS Gen2 on Flink SQL. For the purpose of this document, we are using a airplanes_state_real_time table, you can use any topic of your choice. 
 
@@ -144,3 +144,7 @@ AS SELECT * FROM cloud_files("dbfs:/mnt/contosoflinkgen2/flink/airplanes_state_r
 ### Check Delta Live Table on Azure Databricks Notebook
 
 :::image type="content" source="media/azure-databricks/delta-live-table-azure.png" alt-text="Screenshot shows check Delta Live Table on Azure Databricks Notebook." lightbox="media/azure-databricks/delta-live-table-azure.png":::
+
+### Reference
+
+* Apache, Apache Kafka, Kafka, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).
