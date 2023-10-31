@@ -86,7 +86,7 @@ The following settings are configured on the Azure AI resource and shared with e
 
 |Configuration|Note|
 |---|---|
-|Managed network isolation mode|The resource and associated projects share the same [managed virtual network](/azure/machine-learning/how-to-managed-network) resource.|
+|Managed network isolation mode|The resource and associated projects share the same managed virtual network resource.|
 |Public network access|The resource and associated projects share the same managed virtual network resource.|
 |Encryption settings|One managed resource group is created for the resource and associated projects combined. Currently encryption configuration doesn't yet pass down from AI resource to AI Services provider and must be separately set up.|
 |Azure Storage account|Stores artifacts for your projects like flows and evaluations. For data isolation, storage containers are prefixed using the project GUID, and conditionally secured using Azure ABAC for the project identity.|
@@ -95,13 +95,13 @@ The following settings are configured on the Azure AI resource and shared with e
 
 ### Managed Networking
 
-Azure AI resource and projects share the same [managed virtual network](/azure/machine-learning/how-to-managed-network). After you configure the managed networking settings during the Azure AI resource creation process, all new projects created using that Azure AI resource will inherit the same network settings. Therefore, any changes to the networking settings are applied to all current and new project in that Azure AI resource. By default, Azure AI resources provide public network access.
+Azure AI resource and projects share the same managed virtual network. After you configure the managed networking settings during the Azure AI resource creation process, all new projects created using that Azure AI resource will inherit the same network settings. Therefore, any changes to the networking settings are applied to all current and new project in that Azure AI resource. By default, Azure AI resources provide public network access.
 
 ## Shared computing resources across projects
 
 When you create compute to use in Azure AI for Visual Studio Code interactive development, or for use in prompt flow, it's reusable across all projects that share the same Azure AI resource.
 
-Compute instances are managed cloud-based workstations that are bound to an individual user. To learn more on their configuration, see [compute instance in Azure Machine Learning](/azure/machine-learning/concept-compute-instance).
+Compute instances are managed cloud-based workstations that are bound to an individual user. 
 
 Every project comes with a unique fileshare that can be used to share files across all users that collaborate on a project. This fileshare gets mounted on your compute instance.
 
