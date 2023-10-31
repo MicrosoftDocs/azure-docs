@@ -3,7 +3,7 @@ title: Deploy the MedTech service using a Bicep file and Azure PowerShell or the
 description: Learn how to deploy the MedTech service using a Bicep file and Azure PowerShell or the Azure CLI.
 author: msjasteppe
 ms.service: healthcare-apis
-ms.subservice: fhir
+ms.subservice: iomt
 ms.custom: devx-track-bicep, devx-track-azurepowershell, devx-track-azurecli
 ms.topic: quickstart
 ms.date: 07/12/2023
@@ -11,9 +11,6 @@ ms.author: jasteppe
 ---
 
 # Quickstart: Deploy the MedTech service using a Bicep file and Azure PowerShell or the Azure CLI
-
-> [!NOTE]
-> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
 Bicep is a domain-specific language (DSL) that uses declarative syntax to deploy Azure resources. In a Bicep file, you define the infrastructure you want to deploy to Azure, and then use that file throughout the development lifecycle to repeatedly deploy your infrastructure. Your resources are deployed in a consistent manner Bicep provides concise syntax, reliable type safety, and support for code reuse. Bicep offers a first-class authoring experience for your infrastructure-as-code solutions in Azure.
 
@@ -173,26 +170,26 @@ When deployment is completed, the following resources and access roles are creat
 
 * Health Data Services workspace.
 
-* Health Data Services FHIR service.
+* Health Data Services FHIR&reg; service.
 
 * Health Data Services MedTech service with the required [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) roles:
 
   * For the event hub, the **Azure Events Hubs Data Receiver** role is assigned in the [Access control section (IAM)](../../role-based-access-control/overview.md) of the event hub.
 
-  * For the FHIR service, the **FHIR Data Writer** role is assigned in the [Access control section (IAM)](../../role-based-access-control/overview.md) of the FHIR service.
+  * For the FHIR&reg; service, the **FHIR Data Writer** role is assigned in the [Access control section (IAM)](../../role-based-access-control/overview.md) of the FHIR&reg; service.
   
 > [!IMPORTANT]
-> In this quickstart, the ARM template configures the MedTech service to operate in **Create** mode. A Patient resource and a Device resource are created for each device that sends data to your FHIR service.
+> In this quickstart, the ARM template configures the MedTech service to operate in **Create** mode. A Patient resource and a Device resource are created for each device that sends data to your FHIR&reg; service.
 >
 > To learn more about the MedTech service resolution types **Create** and **Lookup**, see [Configure the Destination tab](deploy-manual-portal.md#configure-the-destination-tab).
 
 ## Post-deployment mappings
 
-After you have successfully deployed an instance of the MedTech service, you'll still need to provide conforming and valid device and FHIR destination mappings.
+After you have successfully deployed an instance of the MedTech service, you'll still need to provide conforming and valid device and FHIR&reg; destination mappings.
 
 * To learn about the device mapping, see [Overview of the device mapping](overview-of-device-mapping.md).
 
-* To learn about the FHIR destination mapping, see [Overview of the FHIR destination mapping](overview-of-fhir-destination-mapping.md).
+* To learn about the FHIR&reg; destination mapping, see [Overview of the FHIR destination mapping](overview-of-fhir-destination-mapping.md).
 
 ## Clean up Azure PowerShell deployed resources
 

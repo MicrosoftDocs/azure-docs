@@ -13,15 +13,12 @@ ms.author: jasteppe
 
 # Tutorial: Receive device messages through Azure IoT Hub
 
-> [!NOTE] 
-> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
-
-The MedTech service can receive messages from devices you create and manage through an IoT hub in [Azure IoT Hub](../../iot-hub/iot-concepts-and-iot-hub.md). This tutorial uses an Azure Resource Manager template (ARM template) and a **Deploy to Azure** button to deploy a MedTech service. The template also deploys an IoT hub to create and manage devices, and message routes device messages to an event hub for the MedTech service to read and process. After device data processing, the FHIR resources are persisted in the FHIR service, which is also included in the template.
+The MedTech service can receive messages from devices you create and manage through an IoT hub in [Azure IoT Hub](../../iot-hub/iot-concepts-and-iot-hub.md). This tutorial uses an Azure Resource Manager template (ARM template) and a **Deploy to Azure** button to deploy a MedTech service. The template also deploys an IoT hub to create and manage devices, and message routes device messages to an event hub for the MedTech service to read and process. After device data processing, the FHIR&reg; resources are persisted in the FHIR&reg; service, which is also included in the template.
 
 :::image type="content" source="media\device-messages-through-iot-hub\device-message-flow-with-iot-hub.png" border="false" alt-text="Diagram of the IoT device message flow through an IoT hub and event hub, and then into the MedTech service." lightbox="media\device-messages-through-iot-hub\device-message-flow-with-iot-hub.png":::
 
 > [!TIP]
-> To learn how the MedTech service transforms and persists device data into the FHIR service as FHIR resources, see [Overview of the MedTech service device data processing stages](overview-of-device-data-processing-stages.md).
+> To learn how the MedTech service transforms and persists device data into the FHIR&reg; service as FHIR&reg; resources, see [Overview of the MedTech service device data processing stages](overview-of-device-data-processing-stages.md).
 
 In this tutorial, learn how to:
 
@@ -75,11 +72,11 @@ To begin deployment in the Azure portal, select the **Deploy to Azure** button:
 
    - **Location**: A supported Azure region for Azure Health Data Services (the value can be the same as or different from the region your resource group is in). For a list of Azure regions where Health Data Services is available, see [Products available by regions](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=health-data-services).
 
-   - **Fhir Contributor Principal Id** (optional): A Microsoft Entra user object ID to provide FHIR service read/write permissions.
+   - **Fhir Contributor Principal Id** (optional): A Microsoft Entra user object ID to provide FHIR&reg; service read/write permissions.
 
-     You can use this account to give access to the FHIR service to view the FHIR Observations that are generated in this tutorial. We recommend that you use your own Microsoft Entra user object ID so you can access the messages in the FHIR service. If you choose not to use the **Fhir Contributor Principal Id** option, clear the text box.
+     You can use this account to give access to the FHIR&reg; service to view the FHIR&reg; Observations that are generated in this tutorial. We recommend that you use your own Microsoft Entra user object ID so you can access the messages in the FHIR&reg; service. If you choose not to use the **Fhir Contributor Principal Id** option, clear the text box.
 
-     To learn how to get a Microsoft Entra user object ID, see [Find the user object ID](/partner-center/find-ids-and-domain-names#find-the-user-object-id). The user object ID that's used in this tutorial is only an example. If you use this option, use your own user object ID or the object ID of another person who you want to be able to access the FHIR service.
+     To learn how to get a Microsoft Entra user object ID, see [Find the user object ID](/partner-center/find-ids-and-domain-names#find-the-user-object-id). The user object ID that's used in this tutorial is only an example. If you use this option, use your own user object ID or the object ID of another person who you want to be able to access the FHIR&reg; service.
 
    - **Device mapping**: Leave the default values for this tutorial.
 
@@ -130,18 +127,18 @@ When the deployment completes, the following resources and access roles are crea
 
 * Health Data Services workspace.
 
-* Health Data Services FHIR service.
+* Health Data Services FHIR&reg; service.
 
 * Health Data Services MedTech service with the [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) enabled and granted the following access roles:
 
   * For the event hub, the **Azure Event Hubs Data Receiver** access role is assigned in the [Access control section (IAM)](../../role-based-access-control/overview.md) of the event hub.
 
-  * For the FHIR service, the **FHIR Data Writer** access role is assigned in the [Access control section (IAM)](../../role-based-access-control/overview.md) of the FHIR service.
+  * For the FHIR&reg; service, the **FHIR Data Writer** access role is assigned in the [Access control section (IAM)](../../role-based-access-control/overview.md) of the FHIR&reg; service.
 
-* Conforming and valid MedTech service [device](overview-of-device-mapping.md) and [FHIR destination mappings](overview-of-fhir-destination-mapping.md). **Resolution type** is set to **Create**.
+* Conforming and valid MedTech service [device](overview-of-device-mapping.md) and [FHIR&reg; destination mappings](overview-of-fhir-destination-mapping.md). **Resolution type** is set to **Create**.
 
 > [!IMPORTANT]
-> In this tutorial, the ARM template configures the MedTech service to operate in **Create** mode. A Patient resource and a Device resource are created for each device that sends data to your FHIR service.
+> In this tutorial, the ARM template configures the MedTech service to operate in **Create** mode. A Patient resource and a Device resource are created for each device that sends data to your FHIR&reg; service.
 >
 > To learn about the MedTech service resolution types **Create** and **Lookup**, see [Configure the Destination tab](deploy-manual-portal.md#configure-the-destination-tab).
 
@@ -150,8 +147,8 @@ When the deployment completes, the following resources and access roles are crea
 With your resources successfully deployed, you next connect to your IoT hub, create a device, and send a test message to the IoT hub. After you complete these steps, your MedTech service can:
 
 * Read the IoT hub-routed test message from the event hub.
-* Transform the test message into five FHIR Observations.
-* Persist the FHIR Observations into your FHIR service.
+* Transform the test message into five FHIR&reg; Observations.
+* Persist the FHIR&reg; Observations into your FHIR&reg; service.
 
 You complete the steps by using Visual Studio Code with the Azure IoT Hub extension:
 
@@ -209,7 +206,7 @@ You complete the steps by using Visual Studio Code with the Azure IoT Hub extens
 
    :::image type="content" source="media\device-messages-through-iot-hub\select-d2c-message-options.png" alt-text="Screenshot that shows Visual Studio Code with the Azure IoT Hub extension with the device message options selected." lightbox="media\device-messages-through-iot-hub\select-d2c-message-options.png":::
 
-   After you select **Send**, it might take up to five minutes for the FHIR resources to be available in the FHIR service.
+   After you select **Send**, it might take up to five minutes for the FHIR&reg; resources to be available in the FHIR&reg; service.
 
    > [!IMPORTANT]
    > To avoid device spoofing in device-to-cloud (D2C) messages, Azure IoT Hub enriches all device messages with additional properties before routing them to the event hub. For example: **SystemProperties**: `iothub-connection-device-id` and **Properties**: `iothub-creation-time-utc`. For more information, see [Anti-spoofing properties](../../iot-hub/iot-hub-devguide-messages-construct.md#anti-spoofing-properties) and [How to use IotJsonPathContent templates with the MedTech service device mapping](how-to-use-iotjsonpathcontent-templates.md). 
@@ -220,18 +217,18 @@ You complete the steps by using Visual Studio Code with the Azure IoT Hub extens
    >
    > :::image type="content" source="media\device-messages-through-iot-hub\iot-hub-enriched-message.png" alt-text="Screenshot of an Azure IoT Hub enriched device message." lightbox="media\device-messages-through-iot-hub\iot-hub-enriched-message.png":::
    >
-   > `patientIdExpression` is only required for MedTech services in the **Create** mode, however, if **Lookup** is being used, a Device resource with a matching Device Identifier must exist in the FHIR service. This example assumes your MedTech service is in a **Create** mode. The **Resolution type** for this tutorial set to **Create**. For more information on the **Destination properties**: **Create** and **Lookup**, see [Configure the Destination tab](deploy-manual-portal.md#configure-the-destination-tab). 
+   > `patientIdExpression` is only required for MedTech services in the **Create** mode, however, if **Lookup** is being used, a Device resource with a matching Device Identifier must exist in the FHIR&reg; service. This example assumes your MedTech service is in a **Create** mode. The **Resolution type** for this tutorial set to **Create**. For more information on the **Destination properties**: **Create** and **Lookup**, see [Configure the Destination tab](deploy-manual-portal.md#configure-the-destination-tab). 
 
 ## Review metrics from the test message
 
-Now that you have successfully sent a test message to your IoT hub, you can now review your MedTech service metrics. Review metrics to verify that your MedTech service received, grouped, transformed, and persisted the test message into your FHIR service. To learn more, see [How to use the MedTech service monitoring and health checks tabs](how-to-use-monitoring-and-health-checks-tabs.md#use-the-medtech-service-monitoring-tab).
+Now that you have successfully sent a test message to your IoT hub, you can now review your MedTech service metrics. Review metrics to verify that your MedTech service received, grouped, transformed, and persisted the test message into your FHIR&reg; service. To learn more, see [How to use the MedTech service monitoring and health checks tabs](how-to-use-monitoring-and-health-checks-tabs.md#use-the-medtech-service-monitoring-tab).
 
 For your MedTech service metrics, you can see that your MedTech service completed the following steps for the test message:
 
 * **Number of Incoming Messages**: Received the incoming test message from the event hub.
 * **Number of Normalized Messages**: Created five normalized messages.
 * **Number of Measurements**: Created five measurements.
-* **Number of FHIR resources**: Created five FHIR resources that are persisted into your FHIR service.
+* **Number of FHIR resources**: Created five FHIR&reg; resources that are persisted into your FHIR&reg; service.
 
 :::image type="content" source="media\device-messages-through-iot-hub\metrics-tile-one.png" alt-text="Screenshot that shows a MedTech service metrics tile and test data metrics." lightbox="media\device-messages-through-iot-hub\metrics-tile-one.png":::
 
@@ -239,27 +236,16 @@ For your MedTech service metrics, you can see that your MedTech service complete
 
 ## View test data in the FHIR service
 
-If you provided your own Microsoft Entra user object ID as the optional value for the **Fhir Contributor Principal ID** option in the deployment template, you can query FHIR resources in your FHIR service.
+If you provided your own Microsoft Entra user object ID as the optional value for the **Fhir Contributor Principal ID** option in the deployment template, you can query FHIR&reg; resources in your FHIR&reg; service.
 
-To learn how to get a Microsoft Entra access token and view FHIR resources in your FHIR service, see [Access by using Postman](../fhir/use-postman.md).
+To learn how to get a Microsoft Entra access token and view FHIR&reg; resources in your FHIR&reg; service, see [Access by using Postman](../fhir/use-postman.md).
 
 ## Next steps
 
-In this tutorial, you deployed an ARM template in the Azure portal, connected to your IoT hub, created a device, sent a test message, and reviewed your MedTech service metrics.
+[Choose a deployment method for the MedTech service](deploy-new-choose.md)
 
-To learn about methods of deploying the MedTech service, see
+[Overview of the MedTech service device data processing stages](overview-of-device-data-processing-stages.md)
 
-> [!div class="nextstepaction"]
-> [Choose a deployment method for the MedTech service](deploy-new-choose.md)
+[Frequently asked questions about the MedTech service](frequently-asked-questions.md)
 
-For an overview of the MedTech service device data processing stages, see
-
-> [!div class="nextstepaction"]
-> [Overview of the MedTech service device data processing stages](overview-of-device-data-processing-stages.md)
-
-For frequently asked questions (FAQs) about the MedTech service, see
-
-> [!div class="nextstepaction"]
-> [Frequently asked questions about the MedTech service](frequently-asked-questions.md)
-
-FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
+[!INCLUDE[FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]
