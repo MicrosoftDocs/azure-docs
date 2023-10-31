@@ -10,17 +10,17 @@ ms.topic: how-to
 ms.date: 10/26/2023
 ---
 
-# Create and access an environment by using the Azure Developer CLI
+# Create an environment by using the Azure Developer CLI
 
-In this article, you'll install the Azure Developer CLI and use it to create an environment in an Azure Deployment Environments project.
+In this article, you install the Azure Developer CLI and use it to create an environment in an Azure Deployment Environments project.
 
-Azure Developer CLI `azd` is an open-source tool that accelerates the time it takes for you to get your application from local development environment to Azure. azd provides best practice, developer-friendly commands that map to key stages in your workflow, whether you’re working in the terminal, your editor or integrated development environment (IDE), or CI/CD (continuous integration/continuous deployment).
+Azure Developer CLI `azd` is an open-source tool that accelerates the time it takes for you to get your application from local development environment to Azure. AZD provides best practice, developer-friendly commands that map to key stages in your workflow, whether you’re working in the terminal, your editor or integrated development environment (IDE), or CI/CD (continuous integration/continuous deployment).
 
 :::image type="content" source="media/how-to-create-environment-with-azd/workflow.png" alt-text="alt text":::
 
 ## Prerequisites
 
-Verify you have completed the following prerequisites to work with Azure Deployment Environments using `azd`:
+Verify your configuration meets the following prerequisites to work with Azure Deployment Environments using `azd`:
 
 * [Installed `azd` locally](/azure/developer/azure-developer-cli/install-azd) or have access to `azd` via Cloud Shell
 * [Created and configured a dev center](/azure/deployment-environments/quickstart-create-and-configure-devcenter) with a project, environment types, and an AZD template catalog.
@@ -33,8 +33,79 @@ You can configure `azd` to provision and deploy resources to your deployment env
 azd config set platform.type devcenter
 ```
 
-When `platform.type` is set to `devcenter`, all `azd` remote environment state and provisioning will leverage new dev center components. This configuration also means that the `infra` folder in your local templates will effectively be ignored. Instead, `azd` will use one of the infrastructure templates defined in your dev center catalog for resource provisioning.
+When `platform.type` is set to `devcenter`, all `azd` remote environment state and provisioning uses new dev center components. This configuration also means that the `infra` folder in your local templates is effectively ignored. Instead, `azd` uses one of the infrastructure templates defined in your dev center catalog for resource provisioning.
 
-## Clone the repo
+## Create an Azure Deployment Environment by using AZD
 
-##  
+When you meet the prerequisites and enabled Azure Deployment Environment support, you can create an environment by using `azd`. The following steps show you how to create an environment by using the `azd` CLI.
+
+1. Log in to your Azure subscription:
+   ```bash
+   azd auth login
+   ```
+
+2. Verify that you're logged in to the correct subscription:
+   ```bash
+   azd config show
+   ```
+   The output looks something like this:
+   ```
+   {
+     "defaults": {
+       "location": "eastus2",
+       "subscription": "1f62d343-a210-7897-7809-23450b730a15"
+     },
+     "platform": {
+       "type": "devcenter"
+     },
+     "template": {
+       "sources": {
+         "awesome-azd": {
+           "key": "awesome-azd",
+           "location": "https://aka.ms/awesome-azd/templates.json",
+           "name": "Awesome AZD",
+           "type": "awesome-azd"
+         }
+       }
+     }
+   }
+   ```
+   The `subscription` value should match the subscription you want to use for your environment.
+
+3. Enable dev center support:
+   ```bash
+   azd config set platform.type devcenter
+   ```
+
+4. Initialize a new project using a template from the connected AZD catalog:
+    ```bash
+    azd init
+    ```
+    You're prompted to select a template from the catalog. Select the template you want to use for your environment.
+
+5.  Package, provision, and deploy your application to Azure Deployment Environments:
+    ```bash
+    azd up
+    ```
+    This command packages your application, provisions the resources defined in your dev center catalog, and deploys your application to the environment. The process can take several minutes to complete, depending on the size of your application and the number of resources that need to be provisioned.
+
+    You can watch the environment provisioning process in the Azure portal or in the developer portal.
+
+      :::image type="content" source="media/how-to-create-environment-with-azd/dev-portal-environment-creating.png" alt-text="Screenshot of an Environment tile in the developer portal, showing a status of Creating.":::
+ 
+6. You now have a local environment where you can make changes, and a remote environment where you can test your changes. You can view your environments by using the following command:
+    ```bash
+    azd env list
+    ```
+    The output looks something like this:
+    ```
+    NAME      DEFAULT   LOCAL     REMOTE
+    ToDo      true      true      false
+    todo      false     false     true
+    ```
+
+
+## Related content
+- [Create and configure a dev center](/azure/deployment-environments/quickstart-create-and-configure-devcenter)
+- [What is the Azure Developer CLI?](/azure/developer/azure-developer-cli/overview)
+- [Install or update the Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd)
