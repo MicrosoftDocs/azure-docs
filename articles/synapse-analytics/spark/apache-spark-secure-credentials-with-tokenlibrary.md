@@ -7,7 +7,7 @@ ms.service:  synapse-analytics
 ms.topic: overview
 ms.subservice: spark
 ms.custom: devx-track-python
-ms.date: 10/28/2023
+ms.date: 10/31/2023
 ms.author: vijaysr
 ms.reviewer: shravan
 zone_pivot_groups: programming-languages-spark-all-minus-sql-r
@@ -17,7 +17,7 @@ zone_pivot_groups: programming-languages-spark-all-minus-sql-r
 
 Accessing data from external sources is a common pattern. Unless the external data source allows anonymous access, chances are you need to secure your connection with a credential, secret, or connection string.  
 
-Azure Synapse Analytics uses Microsoft Entra passthrough by default for authentication between resources. If you need to connect to a resource using other credentials, use the mssparkutils directly. The mssparkutils simplifies the process of retrieving SAS tokens, Microsoft Entra tokens, connection strings, and secrets stored in a linked service or from an Azure Key Vault.
+Azure Synapse Analytics uses Microsoft Entra passthrough by default for authentication between resources. If you need to connect to a resource using other credentials, use the mssparkutils directly. The [mssparkutils](microsoft-spark-utilities.md) package simplifies the process of retrieving SAS tokens, Microsoft Entra tokens, connection strings, and secrets stored in a linked service or from an Azure Key Vault.
 
 Microsoft Entra passthrough uses permissions assigned to you as a user in Microsoft Entra ID, rather than permissions assigned to Synapse or a separate service principal. For example, if you want to use Microsoft Entra passthrough to access a blob in a storage account, then you should go to that storage account and assign blob contributor role to yourself.
 
@@ -460,6 +460,8 @@ The following methods of accessing the linked services are not supported from th
 
 While running a notebook or a Spark job, requests to get a token / secret using a linked service might fail with an error message that indicates 'BadRequest'. This is often caused by a configuration issue with the linked service. If you see this error message, please check the configuration of your linked service. If you have any questions, please contact Microsoft Azure Support at the [Azure portal](https://portal.azure.com).
 
-## Next steps
+## Related content
 
 - [Write to dedicated SQL pool](./synapse-spark-sql-pool-import-export.md)
+- [Apache Spark in Azure Synapse Analytics](apache-spark-overview.md)
+- [Introduction to Microsoft Spark Utilities](microsoft-spark-utilities.md)
