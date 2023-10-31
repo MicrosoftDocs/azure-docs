@@ -1431,7 +1431,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 | Capability name | DisableCertificate-1.0 |
 | Target type | Microsoft-KeyVault |
 | Description | By using certificate properties, the fault disables the certificate for a specific duration (provided by the user). It enables the certificate after this fault duration. |
-| Prerequisites | For OneCert certificates, the domain must be registered with OneCert before you attempt to run the fault. |
+| Prerequisites | None. |
 | Urn | urn:csci:microsoft:keyvault:disableCertificate/1.0 |
 | Fault type | Continuous. |
 | Parameters (key, value) | |
@@ -1472,7 +1472,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 | Capability name | IncrementCertificateVersion-1.0 |
 | Target type | Microsoft-KeyVault |
 | Description | Generates a new certificate version and thumbprint by using the Key Vault Certificate client library. Current working certificate is upgraded to this version. |
-| Prerequisites | For OneCert certificates, the domain must be registered with OneCert before you attempt to run the fault. |
+| Prerequisites | None. |
 | Urn | urn:csci:microsoft:keyvault:incrementCertificateVersion/1.0 |
 | Fault type | Discrete. |
 | Parameters (key, value) | |
@@ -1507,7 +1507,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 | Capability name | UpdateCertificatePolicy-1.0        |
 | Target type | Microsoft-KeyVault        |
 | Description | Certificate policies (for example, certificate validity period, certificate type, key size, or key type) are updated based on user input and reverted after the fault duration.        |
-| Prerequisites |  For OneCert certificates, the domain must be registered with OneCert before you attempt to run the fault.       |
+| Prerequisites | None. |
 | Urn | urn:csci:microsoft:keyvault:updateCertificatePolicy/1.0        |
 | Fault type | Continuous.        |
 | Parameters (key, value) |     |    
