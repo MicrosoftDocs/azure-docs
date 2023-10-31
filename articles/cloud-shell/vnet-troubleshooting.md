@@ -16,7 +16,7 @@ Cloud Shell. For best results, and to be supportable, following the deployment i
 ## Verify you have set the correct permissions
 
 To configure Azure Cloud Shell in a virtual network, you must have the **Owner** role assignment on
-the subscription. To view and assign roles, see [List Owners of a Subscription][01]
+the subscription. To view and assign roles, see [List Owners of a Subscription][01].
 
 Unless otherwise noted, all the troubleshooting steps start in **Subscriptions** section of the
 Azure portal.
