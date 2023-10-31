@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 04/12/2023
+ms.date: 10/31/2023
 ms.author: alkohli
 ---
 # Azure Stack Edge Mini R technical specifications
@@ -27,7 +27,7 @@ The Azure Stack Edge Mini R device has the following specifications for compute 
 | Memory type             | 16 GiB 2400 MT/s SODIMM          |
 | Memory: raw             | 48 GiB RAM (3 x 16 GiB)           |
 | Memory: usable          | 32 GiB RAM                       |
-
+s
 
 ## Compute acceleration
 
@@ -59,7 +59,7 @@ The Azure Stack Edge Mini R device has the following specifications for the netw
 |----------------------|--------------------------------------------------------------------|
 |Network interfaces    |2 x 10 Gbps SFP+ <br> Shown as PORT 3 and PORT 4 in the local UI    |
 |Network interfaces    |2 x 1 Gbps RJ45 <br> Shown as PORT 1 and PORT 2 in the local UI     |
-|Wi-Fi                 |802.11ac                                                            |
+|Wi-Fi <br> **Note:** Starting in the Azure Stack Edge 2309 release, Wi-Fi functionality for Azure Stack Edge Mini R has been deprecated. The Wi-Fi feature is no longer supported on this device.  |802.11ac   |
 
 ## Routers and switches
 
