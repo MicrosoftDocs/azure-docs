@@ -27,13 +27,6 @@ Azure IoT MQ includes a diagnostics service that periodically self tests IoT MQ 
 | Prometheus endpoint | Supported |
 | Grafana dashboard for metrics, traces and logs | Supported |
 
-## Glossary
-
-| Name | Meaning |
-|---|:---:|
-
-
-
 ## Diagnostics service configuration
 
 The diagnostics service processes and collates diagnostic signals from various IoT MQ core components. You can configure it using a custom resource definition (CRD). The following table lists its properties.
@@ -102,20 +95,20 @@ The diagnostics service processes and collates diagnostic signals from various I
 
 Currently, four groups of metrics are presented on the dashboard sample:
 
-- Publish latency - the time it takes for an MQTT publish to be processed by the IoT MQ broker
-- Publish health - the correctness of the replication algorithm while processing an MQTT publish
-- Traffic - how much demand is placed on the IoT MQ broker
-- Saturation - IoT MQ broker resource utilization
+- **Publish latency**: The time it takes for an MQTT publish to be processed by the IoT MQ broker
+- **Publish health**: The correctness of the replication algorithm while processing an MQTT publish
+- **Traffic**: How much demand is placed on the IoT MQ broker
+- **Saturation**: IoT MQ broker resource utilization
 
-These metrics are available as Prometheus metrics and are sourced via built-in IoT MQ metrics, [node-exporter](https://github.com/prometheus/node_exporter) and [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics).
+These metrics are available as Prometheus metrics and are sourced via built-in IoT MQ metrics, [node-exporter](https://github.com/prometheus/node_exporter), and [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics).
 
 To deploy the sample dashboard:
 
-1. Enable metrics and traces via CRD by [following the instruction](/docs/mqtt-broker/diagnostics-settings/), save as diag.yaml and apply the yaml.
+1. Enable metrics and traces via CRD by [following the instruction](../manage-mqtt-connectivity/howto-configure-diagnostics.md), save as `diag.yaml` and apply the YAML using the following command:
 
-   ```bash
-   kubectl apply -f diag.yaml
-   ```
+    ```bash
+    kubectl apply -f diag.yaml
+    ```
 
 1. Install the sample dashboard.
 
