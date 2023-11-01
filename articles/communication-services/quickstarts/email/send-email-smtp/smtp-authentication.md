@@ -25,10 +25,9 @@ In this quick start, you learn about how to use an Entra application to create t
 
 Application developers who have built apps that send email using the SMTP protocol need to implement a secure, modern authentication configuration using Entra application service principals to leverage Azure Communication Services. Combining the Azure Communication Services Resource and the Entra application service principal's information, the SMTP services undertakes authentication with Entra on behalf of the user to ensure a secure and seamless email transmission.
 
-### Assigning a custom role to the Entra application
+### Creating a custom email role for the Entra application
 
-The Entra application must have the **Microsoft.Communication/CommunicationServices/Read** and
-**Microsoft.Communication/EmailServices/write** permissions on the Azure Communication Service Resource. This can be done either by using the **Contributor** role, or by creating a **custom role**. Follow these steps to create a custom role by cloning an existing role.
+The Entra application must be assigned a role with both the **Microsoft.Communication/CommunicationServices/Read** and the **Microsoft.Communication/EmailServices/write** permissions on the Azure Communication Service Resource. This can be done either by using the **Contributor** role, or by creating a **custom role**. Follow these steps to create a custom role by cloning an existing role.
 
 1. In the portal, a custom role can be created by first navigating to the subscription, resource group, or Azure Communication Service Resource where you want the custom role to be assignable and then open **Access control (IAM)**.
     :::image type="content" source="../media/smtp-custom-role-iam.png" alt-text="Screenshot that shows Access control.":::
@@ -46,6 +45,40 @@ The Entra application must have the **Microsoft.Communication/CommunicationServi
     :::image type="content" source="../media/smtp-custom-role-review.png" alt-text="Screenshot that shows reviewing the new custom role.":::
 
 When assigning the Entra application a role for the Azure Communication Services Resource, the new custom role will be available. For more information on creating custom roles, see [Create or update Azure custom roles using the Azure portal](../../../../role-based-access-control/custom-roles-portal.md)
+
+### Assigning the custom email role to the Entra application
+1. In the portal, navigate to the subscription, resource group, or Azure Communication Service Resource where you want the custom role to be assignable and then open **Access control (IAM)**.
+    :::image type="content" source="../media/smtp-custom-role-iam.png" alt-text="Screenshot that shows Access control.":::
+1. Click **+Add** and then select **Add role assignment**.
+    :::image type="content" source="../media/email-smtp-add-role-assignment.png" alt-text="Screenshot that shows selecting Add role assignment":::
+1. On the **Role** tab, select the custom role created for sending emails using SMTP and click **Next**.
+    :::image type="content" source="../media/email-smtp-select-custom-role.png" alt-text="Screenshot that shows selecting the custom role":::
+1. On the **Members** tab, choose **User, group, or service principal** and then click **+Select members**.
+    :::image type="content" source="../media/email-smtp-select-members.png" alt-text="Screenshot that shows choosing select members":::
+1. Use the search box to find the **Entra** application that you will use for authentication and select it. Then click **Select**.
+    :::image type="content" source="../media/email-smtp-select-entra.png" alt-text="Screenshot that shows selecting the Entra application":::
+1. After confirming the selection, click **Next**.
+    :::image type="content" source="../media/email-smtp-select-review.png" alt-text="Screenshot that shows reviewing the assignment":::
+1. After confirming the scope and members, click **Review + assign**.
+    :::image type="content" source="../media/email-smtp-select-assign.png" alt-text="Screenshot that shows assigning the custom role":::
+
+### Creating the SMTP credentials from the Entra application information.
+#### SMTP Authentication Username
+Azure Communication Services allows the credentials for an Entra application to be used as the SMTP username and password. The username consist of three pipe-delimited parts.
+1. The Azure Communication Service Resource name.
+    :::image type="content" source="../media/email-smtp-resource-name.png" alt-text="Screenshot that shows finding the resource name.":::
+1. The Entra Application ID.
+    :::image type="content" source="../media/email-smtp-entra-details.png" alt-text="Screenshot that shows finding the Entra Application ID.":::
+1. The Entra Tenant ID.
+    :::image type="content" source="../media/email-smtp-entra-tenant.png" alt-text="Screenshot that shows finding the Entra Tenant ID.":::
+
+**Format:**
+```
+username: <Azure Communication Services Resource name>|<Entra Application ID>|<Entra Tenant ID>
+```
+#### SMTP Authentication Password
+The password is one of the Entra application's client secrets.
+    :::image type="content" source="../media/email-smtp-entra-secret.png" alt-text="Screenshot that shows finding the Entra client secret.":::
 
 ### Requirements for SMTP AUTH client submission
 
@@ -66,11 +99,17 @@ Enter the following settings directly on your device or in the application as th
 |TLS / StartTLS | Enabled|
 |Username and password | Enter the Entra application credentials from an application with access to the Azure Communication Services Resource |
 
-### Creating the SMTP credentials from the Entra application information.
-The SMTP username consists of the Azure Communication Services Resource name, the Entra application client Id, and the Entra application tenant Id. The values are delimited with pipe characters. The SMTP password is the Entra application client secret.
+### Verifying credentials with Send-MailMessage
+The credentials can be verified using the Microsoft PowerShell utility Send-MailMessage. See [Send-MailMessage](https://learn.microsoft.com/powershell/module/microsoft.powershell.utility/send-mailmessage) for the syntax.
 
-**Format:**
+To store the credentials in the required PSCredential format, use the following PowerShell commands:
+```PowerShell
+$Password = ConvertTo-SecureString -AsPlainText -Force -String '<Entra Application Client Secret>'
+$Cred = New-Object -TypeName PSCredential -ArgumentList '<Azure Communication Services Resource name>|<Entra Application ID>|<Entra Tenant ID>', $Password
 ```
-username: <Azure Communication Services Resource name>|<Entra application Id>|<tenant Id>
-password: <Entra application client secret>
+
+The following PowerShell script can be used to send the email. **From** is the mail from address of your verified domain. **To** is the email address that you would like to send to.
+
+```PowerShell
+Send-MailMessage -From 'User01 <user01@fabrikam.com>' -To 'User02 <user02@fabrikam.com>' -Subject 'Test mail' -SmtpServer 'smtp.azurecomm.net' -Port 587 -Credential $Cred -UseSsl
 ```
