@@ -1,10 +1,10 @@
 ### YamlMime:Landing
 
-title: Azure AI services documentation # < 60 chars
+title: Azure AI Studio documentation # < 60 chars
 summary:  Build cutting-edge, market-ready, responsible applications for your organization with AI.
 metadata:
   title: Azure AI Studio documentation
-  description: Azure AI services help developers and organizations rapidly create intelligent, cutting-edge, market-ready, and responsible applications with out-of-the-box and pre-built and customizable APIs and models. Example applications include natural language processing for conversations, search, monitoring, translation, speech, vision, and decision-making.  
+  description: Azure AI Studio helps developers and organizations rapidly create intelligent, cutting-edge, market-ready, and responsible applications with out-of-the-box and pre-built and customizable APIs and models. Example applications include generative AI, natural language processing for conversations, search, monitoring, translation, speech, vision, and decision-making.  
   ms.service: azure-ai-services
   ms.topic: landing-page
   ms.collection: collection

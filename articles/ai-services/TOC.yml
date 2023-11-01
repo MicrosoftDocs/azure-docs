@@ -1,13 +1,13 @@
-- name: Azure AI services documentation
-  href: index-services.yml
+- name: Azure AI Studio documentation
+  href: index-studio.yml
 - name: Overview
   expanded: true
   items:
+  - name: What is Azure AI Studio?
+    href: ai-studio/what-is-ai-studio.md
   - name: What are Azure AI services?
     href: what-are-ai-services.md
     displayName: applied, cognitive, form recognizer
-  - name: What is Azure AI Studio?
-    href: ai-studio/what-is-ai-studio.md
   - name: Language support
     href: language-support.md
   - name: Pricing
@@ -20,16 +20,6 @@
     href: ai-studio/quickstarts/playground-completions.md
   - name: Moderate text and images with content safety
     href: ai-studio/quickstarts/content-safety.md
-- name: Concepts
-  items:
-  - name: Azure AI services and the ecosystem
-    href: ai-studio/concepts/ai-services-and-ecosystem.md
-  - name: Content safety
-    items:
-    - name: Content filtering
-      href: ai-studio/concepts/content-filtering.md
-    - name: System message templates
-      href: ./openai/concepts/system-message.md?context=/azure/ai-services/context/context
 - name: How-to
   expanded: true
   items:
@@ -39,6 +29,12 @@
       href: ai-studio/how-to/model-catalog.md
     - name: Azure AI capabilities
       href: ai-studio/how-to/models-foundation-azure-ai.md
+  - name: Create Azure AI projects and resources
+    items:
+    - name: Azure AI resources overview
+      href: ai-studio/concepts/ai-resources.md
+    - name: Create an Azure AI project
+      href: ai-studio/how-to/create-projects.md
   - name: Costs and quotas
     items:
     - name: Plan and manage costs
@@ -122,6 +118,16 @@
   items:
   - name: Using Azure AI Studio with a screen reader
     href: ai-studio/tutorials/screen-reader.md
+- name: Concepts
+  items:
+  - name: Azure AI services and the ecosystem
+    href: ai-studio/concepts/ai-services-and-ecosystem.md
+  - name: Content safety
+    items:
+    - name: Content filtering
+      href: ai-studio/concepts/content-filtering.md
+    - name: System message templates
+      href: ./openai/concepts/system-message.md?context=/azure/ai-services/context/context
 - name: Responsible AI
   items:
   - name: Overview
