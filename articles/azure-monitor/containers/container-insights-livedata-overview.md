@@ -120,6 +120,12 @@ Suspend or pause autoscroll for only a short period of time while you're trouble
 >[!IMPORTANT]
 >No data is stored permanently during the operation of this feature. All information captured during the session is deleted when you close your browser or navigate away from it. Data only remains present for visualization inside the five-minute window of the metrics feature. Any metrics older than five minutes are also deleted. The Live Data buffer queries within reasonable memory usage limits.
 
+## Frequently asked questions
+
+This section provides answers to common questions.
+
+[!INCLUDE [container-insights-faq-what-does-other-processes-represent](../includes/container-insights-faq-what-does-other-processes-represent.md)]
+
 ## Next steps
 
 - To continue learning how to use Azure Monitor and monitor other aspects of your AKS cluster, see [View Azure Kubernetes Service health](container-insights-analyze.md).
