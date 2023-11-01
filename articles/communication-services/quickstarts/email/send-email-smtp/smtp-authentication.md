@@ -98,18 +98,3 @@ Enter the following settings directly on your device or in the application as th
 |Port |Port 587 (recommended) or port 25|
 |TLS / StartTLS | Enabled|
 |Username and password | Enter the Entra application credentials from an application with access to the Azure Communication Services Resource |
-
-### Verifying credentials with Send-MailMessage
-The credentials can be verified using the Microsoft PowerShell utility Send-MailMessage. See [Send-MailMessage](/powershell/module/microsoft.powershell.utility/send-mailmessage) for the syntax.
-
-To store the credentials in the required PSCredential format, use the following PowerShell commands:
-```PowerShell
-$Password = ConvertTo-SecureString -AsPlainText -Force -String '<Entra Application Client Secret>'
-$Cred = New-Object -TypeName PSCredential -ArgumentList '<Azure Communication Services Resource name>|<Entra Application ID>|<Entra Tenant ID>', $Password
-```
-
-The following PowerShell script can be used to send the email. **From** is the mail from address of your verified domain. **To** is the email address that you would like to send to.
-
-```PowerShell
-Send-MailMessage -From 'User01 <user01@fabrikam.com>' -To 'User02 <user02@fabrikam.com>' -Subject 'Test mail' -Body 'test' -SmtpServer 'smtp.azurecomm.net' -Port 587 -Credential $Cred -UseSsl
-```
