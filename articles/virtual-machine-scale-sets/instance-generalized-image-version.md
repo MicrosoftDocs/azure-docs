@@ -14,8 +14,6 @@ ms.reviewer: cynthn
 
 # Create a scale set from a generalized image
 
-> [!IMPORTANT]
-> You can't currently create a Flexible Virtual Machine Scale Set from an image shared by another tenant.
 
 Create a scale set from a generalized image version stored in an [Azure Compute Gallery](../virtual-machines/shared-image-galleries.md). If you want to create a scale set using a specialized image version, see [Create scale set instances from a specialized image](instance-specialized-image-version-cli.md).
 
@@ -251,7 +249,7 @@ To list all of the image definitions that are available in a community gallery u
    --query [*]."{Name:name,ID:uniqueId,OS:osType,State:osState}" -o table
 ```
 
-Create the scale set by setting the `--image` parameter to the unique ID of the image in the community gallery. In this example, we are creating a `Flexible` scale set.
+Create the scale set by setting the `--image` parameter to the unique ID of the image in the community gallery. 
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -262,7 +260,6 @@ az vmss create \
    --resource-group myResourceGroup \
    --name myScaleSet \
    --image $imgDef \
-  --orchestration-mode Flexible
    --admin-username azureuser \
    --generate-ssh-keys
 ```

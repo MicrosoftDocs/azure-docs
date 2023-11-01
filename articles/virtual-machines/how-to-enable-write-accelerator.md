@@ -81,6 +81,9 @@ A new switch parameter, **-WriteAccelerator** has been added to the following cm
 - [Set-AzVMDataDisk](/powershell/module/az.compute/Set-AzVMDataDisk)
 - [Add-AzVmssDataDisk](/powershell/module/az.compute/Add-AzVmssDataDisk)
 
+>[!NOTE]
+> If enabling Write Accelerator on Virtual Machine Scale Sets using Flexible Orchestration Mode, you need to enable it on each individual instance. 
+
 Not giving the parameter sets the property to false and will deploy disks that have no support by Write Accelerator.
 
 A new switch parameter, **-OsDiskWriteAccelerator** was added to the following cmdlets:
