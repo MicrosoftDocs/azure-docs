@@ -2,8 +2,8 @@
 title: Using Azure Native Qumulo Scalable File Service for disaster recovery
 description: In this how to guide, learn how to setup use Azure Native Qumulo Scalable File Service fir disaster recovery.
 
-ms.topic: conceptual
-ms.date: 10/31/2023
+ms.topic: overview
+ms.date: 11/13/2003
 
 ---
 
@@ -11,20 +11,9 @@ ms.date: 10/31/2023
 
 Azure Native Qumulo Scalable File Service (ANQ) provides high-performance, exabyte-scale unstructured-data cloud storage for disaster recovery. This article describes the options for deploying an Azure-based disaster recovery solution with Azure Native Qumulo Scalable File Service.
 
-<!-- 
-|Benefits of a Disaster Recovery solution powered by Azure Native Qumulo|Details|
-|---------|---------|
-|Scalability |A single ANQ instance can scale to exabyte size and beyond in a single namespace. As the data footprint grows in the primary site, ANQ scales automatically on the DR side to ensure that enough capacity is always available.|
-|Cost efficiency | Customers pay only for the capacity and throughput they use, while they use it.|
-|Performance |ANQ higher throughput and lower latency for most workloads.|
-|Global reach |ANQ can be deployed in one or more Azure regions worldwide, enabling low-latency access to users anywhere/everywhere.|
-|Security and compliance |Provides disaster-recovery / business-continuity data services in the event of a service interruption at the primary site. For many enterprises, DR / failover capabilities are a core requirement for business or regulatory compliance.|
-|Business continuity |Provides failover capability or data recoverability in the event of an outage in the customer’s primary facilities.|
- -->
-
 ## Architecture
 
-As shown in the following diagrams, the Azure Native Qumulo for disaster recovery solution can be deployed in one or more Azure availability zones depending on the primary site configuration and the level of recoverability required.
+As shown in the following diagrams, Azure Native Qumulo for disaster recovery can be deployed in one or more Azure availability zones depending on the primary site configuration and the level of recoverability required.
 
 In all versions of this solution, the your Azure resources are deployed into your own Azure tenant, and the ANQ service instance is deployed in Qumulo’s Azure tenant in the same regions. Your access to the ANQ service instance and its data are enabled through a delegated subnet in your Azure tenant, using VNet injection to connect to the ANQ service instance.
 
@@ -40,6 +29,12 @@ In the event of a primary-site outage, critical client systems and workflows can
 
 ## Solution architecture
 
+The ANQ solution can be deployed in 3 ways:
+
+- On-premises or other cloud
+- between Azure regions
+- On-premise or Other Cloud (Multi-Region)
+
 ### ANQ disaster recovery - On-premises or other cloud
 
 In this setup, ANQ for disaster recovery is deployed into a single Azure region, with data replicating from the primary Qumulo storage instance to the ANQ service through your own Azure VPN Gateway or ExpressRoute connection.
@@ -54,7 +49,7 @@ Qumulo replication is configured for both ANQ service instances, each of which s
 
 :::image type="content" source="media/qumulo-disaster-recovery/disaster-recovery-architecture-between-regions.png" alt-text="Conceptual diagram that shows solution architecture for between region replication.":::
 
-#### ANQ disaster recovery - On-prem or Other Cloud (Multi-Region)
+### ANQ disaster recovery - On-premise or Other Cloud (Multi-Region)
 
 In this scenario, the primary Qumulo storage is either on-premises or hosted on another cloud provider. Data on the primary Qumulo cluster is replicated to two separate ANQ service instances in two Azure regions. In the event of a primary site failure or region-wide outage on Azure, the customer has additional options for recovering critical services.
 
@@ -89,7 +84,7 @@ Organizations looking to plan and implement a disaster recovery environment usin
 
 This architecture applies to businesses that want to need enterprise file services with multi-protocol access to unstructured data on a scalable architecture.
 
-Potential use cases:
+Possible use cases:
 
 - Hybrid Cloud disaster recovery:
   - Organizations can replicate their data to the cloud while also maintaining a secondary on-premises Qumulo cluster. In the event of a disaster, recovery can occur on either the cloud or the secondary on-premises cluster, depending on the circumstances of the event.
@@ -111,7 +106,7 @@ Potential use cases:
 
 ### Scalability and Performance
 
-When planning an Azure Native Qumulo Scalable File Service deployment as a Disaster Recovery solution, organizations may want to factor any or all of the following into their initial capacity plans:
+When planning an Azure Native Qumulo Scalable File Service deployment as a disaster recovery solution, organizations may want to factor any or all of the following into their initial capacity plans:
 
 - The current amount of unstructured data within the scope of the failover plan.
 - If the solution is intended for use as a cloud-based backup and restore environment, the number of separate snapshots that the solution will be required to host, along with the expected rate of change within the primary dataset.
@@ -122,8 +117,10 @@ When planning an Azure Native Qumulo Scalable File Service deployment as a Disas
 
 ### Security
 
-The Azure Native Qumulo Scalable File Service connects to your Azure environment using VNet injection, which is fully routable, inherently secure, and visible only to your resources. No IP space coordination between your environment and the ANQ service is required.
+The Azure Native Qumulo Scalable File Service connects to your Azure environment using VNet injection, which is fully routable, secure, and visible only to your resources. No IP space coordination between your environment and the ANQ service is required.
+
 In an on-premises Qumulo cluster, all data is encrypted at rest using an AES 256-bit algorithm. ANQ leverages Azure’s built-in data encryption at the disk level. All replication traffic between source and target clusters is automatically encrypted in transit.
+
 For information about third-party attestations Qumulo has achieved, including SOC 2 Type II and FIPS 140-2 Level 1, see [Qumulo Compliance Posture](https://docs.qumulo.com/administrator-guide/getting-started-qumulo-core/qumulo-compliance-posture.html) in the Qumulo Core Administrator Guide.
 
 ### Cost optimization
@@ -138,7 +135,7 @@ Different organizations can have different availability and recoverability requi
 
 #### Data and storage availability
 
-The ANQ deployment includes built-in redundancy at the data level to ensure data availability against failure of the underlying hardware. To protect the data against accidental deletion, corruption, malware, or other cyberattack, ANQ includes the ability to take snapshots at any level within the file system to create point-in-time, read-only copies of your data.
+The ANQ deployment includes built-in redundancy at the data level to ensure data availability against failure of the underlying hardware. To protect the data against accidental deletion, corruption, malware, or other cyber attack, ANQ includes the ability to take snapshots at any level within the file system to create point-in-time, read-only copies of your data.
 
 Additional data redundancy is provided as part of the solution via the replication of data from an ANQ instance in Region A or another ANQ instance in Region B.
 
