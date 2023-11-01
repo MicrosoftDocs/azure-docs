@@ -392,7 +392,7 @@
     - name: Deployment script
       href: deployment-script-bicep.md
     - name: Create deployment script dev environment
-      href: 
+      href: deployment-script-bicep-configure-dev.md
     - name: Template specs
       href: template-specs.md
     - name: Deployment stacks

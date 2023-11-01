@@ -25,6 +25,25 @@ $DeploymentScriptOutputs = @{}
 $DeploymentScriptOutputs['text'] = $output
 ```
 
+```powershell
+param([string] $name, [string] $subscription)
+$output = 'Hello {0}' -f $name
+#Write-Output $output
+
+Connect-AzAccount -UseDeviceAuthentication
+Set-AzContext -subscription $subscription
+
+$kv = Get-AzKeyVault
+#Write-Output $kv
+
+$DeploymentScriptOutputs = @{}
+$DeploymentScriptOutputs['greeting'] = $output
+$DeploymentScriptOutputs['kv'] = $kv.resourceId
+Write-Output $DeploymentScriptOutputs
+```
+
+In an Azure PowerShell deployment script, the variable `$DeploymentScriptOutputs` is used to store the output values. For more information about working with Azure PowerShell outputs, see [Work with outputs from PowerShell scripts](./deployment-script-bicep.md#work-with-outputs-from-powershell-scripts).
+
 ### Azure CLI container
 
 For an Azure CLI container image, you can create a *hello.sh* file by using the following content:
@@ -37,15 +56,11 @@ echo -n "Hello "
 echo $OUTPUT | jq -r '.name.displayName'
 ```
 
-> [!NOTE]
-> When you run an Azure CLI deployment script, an environment variable called `AZ_SCRIPTS_OUTPUT_PATH` stores the location of the script output file. The environment variable isn't available in the development environment container. For more information about working with Azure CLI outputs, see [Work with outputs from CLI script](deployment-script-bicep.md#work-with-outputs-from-cli-script).
+In an Azure CLI deployment script, an environment variable called `AZ_SCRIPTS_OUTPUT_PATH` stores the location of the script output file. The environment variable isn't available in the development environment container. For more information about working with Azure CLI outputs, see [Work with outputs from CLI scripts](deployment-script-bicep.md#work-with-outputs-from-cli-scripts).
 
 ## Use Azure PowerShell container instance
 
-To author your scripts on your computer, you need to create a storage account and mount the storage account to the container instance. So that you can upload your script to the storage account and run the script on the container instance.
-
-> [!NOTE]
-> The storage account that you create to test your script is not the same storage account that the deployment script service uses to execute the script. Deployment script service creates a unique name as a file share on every execution.
+To author Azure Powershell scripts on your computer, you need to create a storage account and mount the storage account to the container instance. So that you can upload your script to the storage account and run the script on the container instance. The storage account that you create to test your script is not the same storage account that the deployment script service uses to execute the script. Deployment script service creates a unique name as a file share on every execution.
 
 ### Create an Azure PowerShell container instance
 
@@ -145,7 +160,7 @@ The default container image specified in the Bicep file is **mcr.microsoft.com/a
 
 The Bicep file suspends the container instance after 1,800 seconds. You have 30 minutes before the container instance goes into a terminated state and the session ends.
 
-To deploy the Bicep file:
+Use the following script to deploy the Bicep file:
 
 ```azurepowershell
 $projectName = Read-Host -Prompt "Enter a project name that is used to generate resource names"
@@ -173,7 +188,7 @@ $context = (Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $st
 Set-AzStorageFileContent -Context $context -ShareName $fileShareName -Source $fileName -Force
 ```
 
-You also can upload the file by using the Azure portal or the Azure CLI.
+You can also upload the file by using the Azure portal or the Azure CLI.
 
 ### Test the deployment script
 
@@ -198,10 +213,7 @@ You also can upload the file by using the Azure portal or the Azure CLI.
 
 ## Use an Azure CLI container instance
 
-To author your scripts on your computer, create a storage account and mount the storage account to the container instance. Then, you can upload your script to the storage account and run the script on the container instance.
-
-> [!NOTE]
-> The storage account that you create to test your script isn't the same storage account that the deployment script service uses to execute the script. The deployment script service creates a unique name as a file share on every execution.
+To author Azure CLI scripts on your computer, create a storage account and mount the storage account to the container instance. Then, you can upload your script to the storage account and run the script on the container instance. The storage account that you create to test your script isn't the same storage account that the deployment script service uses to execute the script. The deployment script service creates a unique name as a file share on every execution.
 
 ### Create an Azure CLI container instance
 
@@ -297,10 +309,7 @@ resource containerGroup 'Microsoft.ContainerInstance/containerGroups@2023-05-01'
 
 The default value for the mount path is `/mnt/azscripts/azscriptinput`. This is the path in the container instance where it's mounted to the file share.
 
-The default container image specified in the Bicep file is **mcr.microsoft.com/azure-cli:2.9.1**. See a list of [supported Azure CLI versions](https://mcr.microsoft.com/v2/azure-cli/tags/list).
-
-> [!IMPORTANT]
-> The deployment script uses the available CLI images from Microsoft Container Registry (MCR). It takes about one month to certify a CLI image for a deployment script. Don't use the CLI versions that were released within 30 days. To find the release dates for the images, see [Azure CLI release notes](/cli/azure/release-notes-azure-cli). If you use an unsupported version, the error message lists the supported versions.
+The default container image specified in the Bicep file is **mcr.microsoft.com/azure-cli:2.9.1**. See a list of [supported Azure CLI versions](https://mcr.microsoft.com/v2/azure-cli/tags/list). The deployment script uses the available CLI images from Microsoft Container Registry (MCR). It takes about one month to certify a CLI image for a deployment script. Don't use the CLI versions that were released within 30 days. To find the release dates for the images, see [Azure CLI release notes](/cli/azure/release-notes-azure-cli). If you use an unsupported version, the error message lists the supported versions.
 
 The Bicep file suspends the container instance after 1,800 seconds. You have 30 minutes before the container instance goes into a terminal state and the session ends.
 
