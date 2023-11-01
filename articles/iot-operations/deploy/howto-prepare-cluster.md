@@ -3,6 +3,7 @@ title: Prepare your Kubernetes cluster
 description: Prepare an Azure Arc-enabled Kubernetes cluster before you deploy Azure IoT Operations. This article includes guidance for both Ubuntu and Windows machines.
 author: dominicbetts
 ms.author: dobett
+# ms.subservice: orchestrator
 ms.topic: how-to
 ms.date: 10/30/2023
 
