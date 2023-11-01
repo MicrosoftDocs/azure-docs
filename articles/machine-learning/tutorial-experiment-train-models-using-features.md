@@ -40,59 +40,59 @@ Before you proceed with this tutorial, be sure to complete the first tutorial in
 
    1. On the top menu, in the **Compute** dropdown list, select **Serverless Spark Compute** under **Azure Machine Learning Serverless Spark**.
 
-   1. Configure the session:
+   2. Configure the session:
 
       1. When the toolbar displays **Configure session**, select it.
-      1. On the **Python packages** tab, select **Upload Conda file**.
-      1. Upload the *conda.yml* file that you [uploaded in the first tutorial](./tutorial-get-started-with-feature-store.md#prepare-the-notebook-environment).
-      1. Optionally, increase the session time-out (idle time) to avoid frequent prerequisite reruns.
+      2. On the **Python packages** tab, select **Upload Conda file**.
+      3. Upload the *conda.yml* file that you [uploaded in the first tutorial](./tutorial-get-started-with-feature-store.md#prepare-the-notebook-environment).
+      4. Optionally, increase the session time-out (idle time) to avoid frequent prerequisite reruns.
 
-   1. Start the Spark session.
+2. Start the Spark session.
 
-      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/2. Experiment and train models using features.ipynb?name=start-spark-session)]
+   [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/2. Experiment and train models using features.ipynb?name=start-spark-session)]
 
-   1. Set up the root directory for the samples.
+3. Set up the root directory for the samples.
 
-      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/2. Experiment and train models using features.ipynb?name=root-dir)]
+   [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/2. Experiment and train models using features.ipynb?name=root-dir)]
 
-   1. Set up the CLI.
-      ### [Python SDK](#tab/python)
+4. Set up the CLI.
+   ### [Python SDK](#tab/python)
 
-      Not applicable.
+   Not applicable.
 
-      ### [Azure CLI](#tab/cli)
+   ### [Azure CLI](#tab/cli)
 
-      1. Install the Azure Machine Learning extension.
+   1. Install the Azure Machine Learning extension.
 
-         [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/2. Experiment and train models using features.ipynb?name=install-ml-ext-cli)]
+      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/2. Experiment and train models using features.ipynb?name=install-ml-ext-cli)]
 
-      1. Authenticate.
+   2. Authenticate.
 
-         [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/2. Experiment and train models using features.ipynb?name=auth-cli)]
+      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/2. Experiment and train models using features.ipynb?name=auth-cli)]
 
-      1. Set the default subscription.
+   3. Set the default subscription.
 
-         [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/2. Experiment and train models using features.ipynb?name=set-default-subs-cli)]
+      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/2. Experiment and train models using features.ipynb?name=set-default-subs-cli)]
 
-      ---
+   ---
 
-1. Initialize the project workspace variables.
+5. Initialize the project workspace variables.
 
    This is the current workspace, and the tutorial notebook runs in this resource.
 
    [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/2. Experiment and train models using features.ipynb?name=init-ws-crud-client)]
 
-1. Initialize the feature store variables.
+6. Initialize the feature store variables.
 
    Be sure to update the `featurestore_name` and `featurestore_location` values to reflect what you created in the first tutorial.
 
    [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/2. Experiment and train models using features.ipynb?name=init-fs-crud-client)]
 
-1. Initialize the feature store consumption client.
+7. Initialize the feature store consumption client.
 
    [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/2. Experiment and train models using features.ipynb?name=init-fs-core-sdk)]
 
-1. Create a compute cluster named `cpu-cluster` in the project workspace.
+8. Create a compute cluster named `cpu-cluster` in the project workspace.
 
    You need this compute cluster when you run the training/batch inference jobs.
 
@@ -129,7 +129,7 @@ You don't need to connect to a feature store. In this procedure, you create the 
 
    - `source`: A reference to a storage resource. In this case, it's a Parquet file in a blob storage resource.
 
-   - `features`: A list of features and their datatypes. With provided transformation code (see the "Day 2" section), the code must return a DataFrame that maps to the features and datatypes. Without the provided transformation code, the system builds the query to map the features and datatypes to the source. In this case, the transformation code is the generated `accounts` feature set specification, because it's precomputed.
+   - `features`: A list of features and their datatypes. With provided transformation code, the code must return a DataFrame that maps to the features and datatypes. Without the provided transformation code, the system builds the query to map the features and datatypes to the source. In this case, the generated `accounts` feature set specification doesn't contain transformation code, because features are precomputed.
 
    - `index_columns`: The join keys required to access values from the feature set.
 
@@ -141,7 +141,7 @@ You don't need to connect to a feature store. In this procedure, you create the 
 
    [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/2. Experiment and train models using features.ipynb?name=dump-accts-fset-spec)]
 
-## Locally experiment with unregistered features
+## Locally experiment with unregistered features and register with feature store when ready
 
 As you develop features, you might want to locally test and validate them before you register them with the feature store or run training pipelines in the cloud. A combination of a local unregistered feature set (`accounts`) and a feature set registered in the feature store (`transactions`) generates training data for the machine learning model.
 
@@ -152,6 +152,8 @@ As you develop features, you might want to locally test and validate them before
 1. Locally generate training data.
 
    This step generates training data for illustrative purposes. As an option, you can locally train models here. Later steps in this tutorial explain how to train a model in the cloud.
+
+   [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/2. Experiment and train models using features.ipynb?name=load-obs-data)]
 
    [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/2. Experiment and train models using features.ipynb?name=gen-training-data-locally)]
 
@@ -187,19 +189,19 @@ In the following steps, you select a list of features, run a training pipeline, 
 
    In the previous steps, you selected features from a combination of registered and unregistered feature sets, for local experimentation and testing. You can now experiment in the cloud. Your model-shipping agility increases if you save the selected features as a feature retrieval specification, and then use the specification in the machine learning operations (MLOps) or continuous integration and continuous delivery (CI/CD) flow for training and inference.
 
-1. Select features for the model.
+   1. Select features for the model.
 
-   [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/2. Experiment and train models using features.ipynb?name=select-reg-features)]
+      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/2. Experiment and train models using features.ipynb?name=select-reg-features)]
 
-1. Export selected features as a feature retrieval specification.
+   2. Export the selected features as a feature retrieval specification.
 
-   A feature retrieval specification is a portable definition of the feature list that's associated with a model. It can help streamline the development and operationalization of a machine learning model. It becomes an input to the training pipeline that generates the training data. It is then packaged with the model.
+      A feature retrieval specification is a portable definition of the feature list associated with a model. It can help streamline the development and operationalization of a machine learning model. It becomes an input to the training pipeline that generates the training data. It's then packaged with the model.
 
-   The inference phase uses the feature retrieval to look up the features. It integrates all phases of the machine learning lifecycle. Changes to the training/inference pipeline can stay at a minimum as you experiment and deploy.
+      The inference phase uses the feature retrieval to look up the features. It integrates all phases of the machine learning lifecycle. Changes to the training/inference pipeline can stay at a minimum as you experiment and deploy.
 
-   Use of the feature retrieval specification and the built-in feature retrieval component is optional. You can directly use the `get_offline_features()` API, as shown earlier. The name of the specification should be *feature_retrieval_spec.yaml* when it's packaged with the model. This way, the system can recognize it.
+      Use of the feature retrieval specification and the built-in feature retrieval component is optional. You can directly use the `get_offline_features()` API, as shown earlier. The name of the specification should be *feature_retrieval_spec.yaml* when it's packaged with the model. This way, the system can recognize it.
 
-   [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/2. Experiment and train models using features.ipynb?name=export-as-frspec)]
+      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/2. Experiment and train models using features.ipynb?name=export-as-frspec)]
 
 ## Train in the cloud with pipelines, and register the model
 

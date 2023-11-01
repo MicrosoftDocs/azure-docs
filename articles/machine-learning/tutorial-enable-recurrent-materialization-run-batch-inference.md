@@ -39,55 +39,55 @@ Before you proceed with this tutorial, be sure to complete the first and second 
 
    1. On the top menu, in the **Compute** dropdown list, select **Serverless Spark Compute** under **Azure Machine Learning Serverless Spark**.
 
-   1. Configure the session:
-  
+   2. Configure the session:
+
       1. When the toolbar displays **Configure session**, select it.
-      1. On the **Python packages** tab, select **Upload conda file**.
-      1. Upload the *conda.yml* file that you [uploaded in the first tutorial](./tutorial-get-started-with-feature-store.md#prepare-the-notebook-environment).
-      1. Optionally, increase the session time-out (idle time) to avoid frequent prerequisite reruns.
+      2. On the **Python packages** tab, select **Upload conda file**.
+      3. Upload the *conda.yml* file that you [uploaded in the first tutorial](./tutorial-get-started-with-feature-store.md#prepare-the-notebook-environment).
+      4. Optionally, increase the session time-out (idle time) to avoid frequent prerequisite reruns.
 
-   1. Start the Spark session.
+2. Start the Spark session.
 
-      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/3. Enable recurrent materialization and run batch inference.ipynb?name=start-spark-session)]
+   [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/3. Enable recurrent materialization and run batch inference.ipynb?name=start-spark-session)]
 
-   1. Set up the root directory for the samples.
+3. Set up the root directory for the samples.
 
-      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/3. Enable recurrent materialization and run batch inference.ipynb?name=root-dir)]
+   [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/3. Enable recurrent materialization and run batch inference.ipynb?name=root-dir)]
 
-   1. Set up the CLI.
-      ### [Python SDK](#tab/python)
+4. Set up the CLI.
+   ### [Python SDK](#tab/python)
 
-      Not applicable.
+   Not applicable.
 
-      ### [Azure CLI](#tab/cli)
+   ### [Azure CLI](#tab/cli)
 
-      1. Install the Azure Machine Learning extension.
+   1. Install the Azure Machine Learning extension.
 
-         [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/3. Enable recurrent materialization and run batch inference.ipynb?name=install-ml-ext-cli)]
+      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/3. Enable recurrent materialization and run batch inference.ipynb?name=install-ml-ext-cli)]
 
-      1. Authenticate.
+   2. Authenticate.
 
-         [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/3. Enable recurrent materialization and run batch inference.ipynb?name=auth-cli)]
+      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/3. Enable recurrent materialization and run batch inference.ipynb?name=auth-cli)]
 
-      1. Set the default subscription.
+   3. Set the default subscription.
 
-         [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/3. Enable recurrent materialization and run batch inference.ipynb?name=set-default-subs-cli)]
+      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/3. Enable recurrent materialization and run batch inference.ipynb?name=set-default-subs-cli)]
 
-      ---
+   ---
 
-1. Initialize the project workspace CRUD (create, read, update, and delete) client.
+5. Initialize the project workspace CRUD (create, read, update, and delete) client.
 
    The tutorial notebook runs from this current workspace.
 
    [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/3. Enable recurrent materialization and run batch inference.ipynb?name=init-ws-crud-client)]
 
-1. Initialize the feature store variables.
+6. Initialize the feature store variables.
 
    Be sure to update the `featurestore_name` value, to reflect what you created in the first tutorial.
 
    [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/3. Enable recurrent materialization and run batch inference.ipynb?name=init-fs-crud-client)]
 
-1. Initialize the feature store SDK client.
+7. Initialize the feature store SDK client.
 
    [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/3. Enable recurrent materialization and run batch inference.ipynb?name=init-fs-core-sdk)]
 

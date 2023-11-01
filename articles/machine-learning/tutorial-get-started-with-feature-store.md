@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: tutorial
 author: rsethur
 ms.author: seramasu
-ms.date: 10/28/2023
+ms.date: 11/01/2023
 ms.reviewer: franksolomon
 ms.custom: sdkv2, build-2023, ignite-2023
 #Customer intent: As a professional data scientist, I want to know how to build and deploy a model with Azure Machine Learning by using Python in a Jupyter Notebook.
@@ -175,13 +175,102 @@ This tutorial doesn't need explicit installation of these resources, because the
 
    [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/1. Develop a feature set and register with managed feature store.ipynb?name=create-fs-cli)]
 
-1. Initialize a feature store core SDK client for Azure Machine Learning.
+   > [!NOTE]
+   > The default blob store for the feature store is an ADLS Gen2 container.
+   > - A feature store is always created with an offline materialization store and a user-assigned managed identity (UAI).
+   > - If feature store is created with parameters `offline_store=None` and `materialization_identity=None` (default values), then the system performs this set-up:
+   >   - An Azure Data Lake Storage Gen 2 (ADLS Gen2) container is created as the offline store.
+   >   - A UAI is created and assigned to the feature store as the materialization identity.
+   >   - Required role-based access control (RBAC) permissions are assigned to the UAI on the offline store.
+   > - Optionally, an existing ADLS Gen2 container can be used as the offline store by defining the `offline_store` parameter. For offline materialization stores, only ADLS Gen2 containers are supported.
+   > - Optionally, an existing UAI can be provided by defining a `materialization_identity` parameter. The required RBAC permissions are assigned to the UAI on the offline store during the feature store creation.
+
+   This code sample shows the creation of a feature store with user-defined `offline_store` and `materialization_identity` parameters.
+ 
+   ```python
+      import os
+      from azure.ai.ml import MLClient
+      from azure.ai.ml.identity import AzureMLOnBehalfOfCredential
+      from azure.ai.ml.entities import (
+         ManagedIdentityConfiguration,
+         FeatureStore,
+         MaterializationStore,
+      )
+      from azure.mgmt.msi import ManagedServiceIdentityClient
+
+      # Get an existing offline store
+      storage_subscription_id = "<OFFLINE_STORAGE_SUBSCRIPTION_ID>"
+      storage_resource_group_name = "<OFFLINE_STORAGE_RESOURCE_GROUP>"
+      storage_account_name = "<OFFLINE_STORAGE_ACCOUNT_NAME>"
+      storage_file_system_name = "<OFFLINE_STORAGE_CONTAINER_NAME>"
+
+      # Get ADLS Gen2 container ARM ID
+      gen2_container_arm_id = "/subscriptions/{sub_id}/resourceGroups/{rg}/providers/Microsoft.Storage/storageAccounts/{account}/blobServices/default/containers/{container}".format(
+         sub_id=storage_subscription_id,
+         rg=storage_resource_group_name,
+         account=storage_account_name,
+         container=storage_file_system_name,
+      )
+
+      offline_store = MaterializationStore(
+         type="azure_data_lake_gen2",
+         target=gen2_container_arm_id,
+      )
+
+      # Get an existing UAI
+      uai_subscription_id = "<UAI_SUBSCRIPTION_ID>"
+      uai_resource_group_name = "<UAI_RESOURCE_GROUP>"
+      uai_name = "<FEATURE_STORE_UAI_NAME>"
+
+      msi_client = ManagedServiceIdentityClient(
+         AzureMLOnBehalfOfCredential(), uai_subscription_id
+      )
+
+      managed_identity = msi_client.user_assigned_identities.get(
+         uai_resource_group_name, uai_name
+      )
+
+      # Get UAI information
+      uai_principal_id = managed_identity.principal_id
+      uai_client_id = managed_identity.client_id
+      uai_arm_id = managed_identity.id
+
+      materialization_identity1 = ManagedIdentityConfiguration(
+         client_id=uai_client_id, principal_id=uai_principal_id, resource_id=uai_arm_id
+      )
+
+      # Create a feature store
+      featurestore_name = "<FEATURE_STORE_NAME>"
+      featurestore_location = "<AZURE_REGION>"
+      featurestore_subscription_id = os.environ["AZUREML_ARM_SUBSCRIPTION"]
+      featurestore_resource_group_name = os.environ["AZUREML_ARM_RESOURCEGROUP"]
+
+      ml_client = MLClient(
+         AzureMLOnBehalfOfCredential(),
+         subscription_id=featurestore_subscription_id,
+         resource_group_name=featurestore_resource_group_name,
+      )
+
+      # Use existing ADLS Gen2 container and UAI
+      fs = FeatureStore(
+         name=featurestore_name,
+         location=featurestore_location,
+         offline_store=offline_store,
+         materialization_identity=materialization_identity1,
+      )
+
+      fs_poller = ml_client.feature_stores.begin_update(fs)
+
+      print(fs_poller.result()) 
+   ```    
+
+2. Initialize a feature store core SDK client for Azure Machine Learning.
 
    As explained earlier in this tutorial, the feature store core SDK client is used to develop and consume features.
 
    [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/1. Develop a feature set and register with managed feature store.ipynb?name=init-fs-core-sdk)]
 
-2. Grant the "Azure Machine Learning Data Scientist" role on the feature store to your user identity. Obtain your Microsoft Entra object ID value from the Azure portal, as described in [Find the user object ID](/partner-center/find-ids-and-domain-names#find-the-user-object-id).
+3. Grant the "Azure Machine Learning Data Scientist" role on the feature store to your user identity. Obtain your Microsoft Entra object ID value from the Azure portal, as described in [Find the user object ID](/partner-center/find-ids-and-domain-names#find-the-user-object-id).
 
    Assign the **AzureML Data Scientist** role to your user identity, so that it can create resources in feature store workspace. The permissions might need some time to propagate.
 
@@ -225,7 +314,7 @@ In these steps, you build a feature set named `transactions` that has rolling wi
    The specification contains these elements:
 
    * `source`: A reference to a storage resource. In this case, it's a Parquet file in a blob storage resource.
-   * `features`: A list of features and their datatypes. If you provide transformation code (see the "Day 2" section), the code must return a DataFrame that maps to the features and datatypes.
+   * `features`: A list of features and their datatypes. If you provide transformation code, the code must return a DataFrame that maps to the features and datatypes.
    * `index_columns`: The join keys required to access values from the feature set.
 
    To learn more about the specification, see [Understanding top-level entities in managed feature store](./concept-top-level-entities-in-managed-feature-store.md) and [CLI (v2) feature set YAML schema](./reference-yaml-feature-set.md).
@@ -242,7 +331,7 @@ As a best practice, entities help enforce use of the same join key definition ac
 
 1. Initialize the feature store CRUD client.
 
-   As explained earlier in this tutorial, `MLClient` is used for creating, reading, updating, and deleting a feature store asset. The notebook code cell sample shown here searches for the feature store that you created in an earlier step. Here, you can't reuse the same `ml_client` value that you used earlier in this tutorial, because it's scoped at the resource group level. Proper scoping is a prerequisite for feature store creation.
+   As explained earlier in this tutorial, `MLClient` is used for creating, reading, updating, and deleting a feature store asset. The notebook code cell sample shown here searches for the feature store that you created in an earlier step. Here, you can't reuse the same `ml_client` value that you used earlier in this tutorial, because it is scoped at the resource group level. Proper scoping is a prerequisite for feature store creation.
 
    In this code sample, the client is scoped at feature store level.
 
@@ -287,7 +376,7 @@ Feature store asset creation and updates can happen only through the SDK and CLI
 1. From the list of accessible feature stores, select the feature store that you created earlier in this tutorial.
 
 ## Grant the Storage Blob Data Reader role access to your user account in the offline store
-If the feature data is materialized, the Storage Blob Data Reader role must read the feature data from the offline materialization store.
+The Storage Blob Data Reader role must be assigned to your user account on the offline store. This ensures that the user account can read materialized feature data from the offline materialization store.
 
 ### [SDK track](#tab/SDK-track)
 
@@ -369,7 +458,7 @@ If the feature data is materialized, the Storage Blob Data Reader role must read
    As explained earlier, materialization computes the feature values for a feature window, and it stores these computed values in a materialization store. Feature materialization increases the reliability and availability of the computed values. All feature queries now use the values from the materialization store. This step performs a one-time backfill for a feature window of 18 months.
 
    > [!NOTE]
-   > You might need to determine a backfill data window value. The window must match the window of your training data. For example, to use two years of data for training, you must retrieve features for two years. This means you should backfill for a two-year window.
+   > You might need to determine a backfill data window value. The window must match the window of your training data. For example, to use 18 months of data for training, you must retrieve features for 18 months. This means you should backfill for an 18-month window.
 
 ### [SDK track](#tab/SDK-track)
 
@@ -386,6 +475,10 @@ If the feature data is materialized, the Storage Blob Data Reader role must read
    [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/1. Develop a feature set and register with managed feature store.ipynb?name=backfill-txns-fset-cli)]  
 
 ---
+
+   > [!TIP]
+   > - The `feature_window_start_time` and `feature_window_start_time` granularity is limited to seconds. Any milliseconds provided in the `datetime` object will be ignored.
+   > - A materialization job will only be submitted if data in the feature window matches the `data_status` that is defined while submitting the backfill job.
 
    Print sample data from the feature set. The output information shows that the data was retrieved from the materialization store. The `get_offline_features()` method retrieved the training and inference data. It also uses the materialization store by default.
 
@@ -407,25 +500,25 @@ You can explore feature materialization status for a feature set in the **Materi
   - Pending (blue)
   - None (gray)
 - A *data interval* represents a contiguous portion of data with same data materialization status. For example, the earlier snapshot has 16 *data intervals* in the offline materialization store.
-- The data can have a maximum of 2,000 *data intervals*.
+- The data can have a maximum of 2,000 *data intervals*. If your data contains more than 2,000 *data intervals*, [create a customer support request](../azure-portal/supportability/how-to-create-azure-support-request.md) for guidance.
 - You can provide a list of more than one data statuses (for example, `["None", "Incomplete"]`) in a single backfill job.
 - During backfill, a new materialization job is submitted for each *data interval* that falls within the defined feature window.
-- If a materialization job is already pending, or running for a *data interval* that hasn't yet been backfilled, a new job isn't submitted for that *data interval*.
+- If a materialization job is pending, or it is running for a *data interval* that hasn't yet been backfilled, a new job isn't submitted for that *data interval*.
 - You can retry a failed materialization job.
+
+   > [!NOTE]
+   > To get the job ID of a failed materialization job:
+   >   - Navigate to the feature set **Materialization jobs** UI.
+   >   - Select the **Display name** of a specific job with **Status** of *Failed*.
+   >   - Locate the job ID under the **Name** property found on the job **Overview** page. It starts with `Featurestore-Materialization-`.  
 
 ### [SDK track](#tab/SDK-track)
 
 ```python
-from datetime import datetime
-
-st = datetime(2022, 1, 1, 0, 0, 0, 0)
-ed = datetime(2023, 6, 30, 0, 0, 0, 0)
 
 poller = fs_client.feature_sets.begin_backfill(
     name="transactions",
     version=version,
-    feature_window_start_time=st,
-    feature_window_end_time=ed,
     job_id="<JOB_ID_OF_FAILED_MATERIALIZATION_JOB>",
 )
 print(poller.result().job_ids)

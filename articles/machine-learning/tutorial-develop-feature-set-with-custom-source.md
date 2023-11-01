@@ -41,33 +41,18 @@ This tutorial uses the Python feature store core SDK (`azureml-featurestore`). T
 
 You don't need to explicitly install these resources for this tutorial, because in the set-up instructions shown here, the `conda.yml` file covers them.
 
-To prepare the notebook environment for development:
+### Configure the Azure Machine Learning Spark notebook.
 
-1. Clone the [azureml-examples](https://github.com/azure/azureml-examples) repository to your local GitHub resources with this command:
+You can create a new notebook and execute the instructions in this tutorial step by step. You can also open and run the existing notebook *featurestore_sample/notebooks/sdk_only/5. Develop a feature set with custom source.ipynb*. Keep this tutorial open and refer to it for documentation links and more explanation.
 
-   `git clone --depth 1 https://github.com/Azure/azureml-examples`
+1. On the top menu, in the **Compute** dropdown list, select **Serverless Spark Compute** under **Azure Machine Learning Serverless Spark**.
 
-   You can also download a zip file from the [azureml-examples](https://github.com/azure/azureml-examples) repository. At this page, first select the `code` dropdown, and then select `Download ZIP`. Then, unzip the contents into a folder on your local device.
+2. Configure the session:
 
-1. Upload the feature store samples directory to the project workspace
-
-   1. In the Azure Machine Learning workspace, open the Azure Machine Learning studio UI.
-   1. Select **Notebooks** in left navigation panel.
-   1. Select your user name in the directory listing.
-   1. Select ellipses (**...**) and then select **Upload folder**.
-   1. Select the feature store samples folder from the cloned directory path: `azureml-examples/sdk/python/featurestore-sample`.
-
-1. Run the tutorial
-
-   * Option 1: Create a new notebook, and execute the instructions in this document, step by step.
-   * Option 2: Open existing notebook `featurestore_sample/notebooks/sdk_only/5. Develop a feature set with custom source.ipynb`. You can keep this document open and refer to it for more explanation and documentation links.
-
-       1. Select **Serverless Spark Compute** in the top navigation **Compute** dropdown. This operation might take one to two minutes. Wait for a status bar in the top to display **Configure session**.
-       1. Select **Configure session** in the top status bar.
-       1. Select **Python packages**.
-       1. Select **Upload conda file**.
-       1. Select file `azureml-examples/sdk/python/featurestore-sample/project/env/conda.yml` located on your local device.
-       1. (Optional) Increase the session time-out (idle time in minutes) to reduce the serverless spark cluster startup time.
+    1. When the toolbar displays **Configure session**, select it.
+    2. On the **Python packages** tab, select **Upload Conda file**.
+    3. Upload the *conda.yml* file that you [uploaded in the first tutorial](./tutorial-get-started-with-feature-store.md#prepare-the-notebook-environment).
+    4. Optionally, increase the session time-out (idle time) to avoid frequent prerequisite reruns.
 
 ## Set up the root directory for the samples
 This code cell sets up the root directory for the samples. It needs about 10 minutes to install all dependencies and start the Spark session.
@@ -85,26 +70,37 @@ As mentioned earlier, this tutorial uses the Python feature store core SDK (`azu
 [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/5. Develop a feature set with custom source.ipynb?name=init-fs-core-sdk)]
 
 ## Custom source definition
-You can define your own source loading logic from any data storage with a custom source definition. Implement a source processor user-defined function (UDF) class (`CustomerTransactionsTransformer` in this tutorial) to use this feature. This class should define an `__init__(self, **kwargs)` function, and a `process(self, start_time, end_time, **kwargs)` function. The `kwargs` dictionary is supplied as a part of the feature set specification definition, which is passed to the UDF. The `start_time` and `end_time` parameters are calculated and passed to the UDF function.
+You can define your own source loading logic from any data storage that has a custom source definition. Implement a source processor user-defined function (UDF) class (`CustomSourceTransformer` in this tutorial) to use this feature. This class should define an `__init__(self, **kwargs)` function, and a `process(self, start_time, end_time, **kwargs)` function. The `kwargs` dictionary is supplied as a part of the feature set specification definition. This definition is then passed to the UDF. The `start_time` and `end_time` parameters are calculated and passed to the UDF function.
 
 This is sample code for the source processor UDF class:
 
 ```python
-class CustomTransactionsTransformer:
+from datetime import datetime
+
+class CustomSourceTransformer:
     def __init__(self, **kwargs):
-        self.default_source = "wasbs://path_to_source@account.dfs.core.windows.net
-        print("received kwargs:")
-        for k, v in kwargs.items():
-            print(f"Key: {k}, Value: {v}")
+        self.path = kwargs.get("source_path")
+        self.timestamp_column_name = kwargs.get("timestamp_column_name")
+        if not self.path:
+            raise Exception("`source_path` is not provided")
+        if not self.timestamp_column_name:
+            raise Exception("`timestamp_column_name` is not provided")
 
-        # Peform additional set up tasks here
+    def process(
+        self, start_time: datetime, end_time: datetime, **kwargs
+    ) -> "pyspark.sql.DataFrame":
+        from pyspark.sql import SparkSession
+        from pyspark.sql.functions import col, lit, to_timestamp
 
-    def process(self, start_time: datetime, end_time: datetime, **kwargs) -> "pyspark.sql.DataFrame":
-        if "source_url" in kwargs:
-            df = spark.read.parquet(kwargs["source_url"])
-            return df
-        
-        df = source.read.parquet(self.default_source)
+        spark = SparkSession.builder.getOrCreate()
+        df = spark.read.json(self.path)
+
+        if start_time:
+            df = df.filter(col(self.timestamp_column_name) >= to_timestamp(lit(start_time)))
+
+        if end_time:
+            df = df.filter(col(self.timestamp_column_name) < to_timestamp(lit(end_time)))
+
         return df
 ```
 
@@ -153,7 +149,7 @@ You should be able to successfully fetch the registered feature set as a Spark d
 If you created a resource group for the tutorial, you can delete that resource group, which deletes all the resources associated with this tutorial. Otherwise, you can delete the resources individually:
 
 - To delete the feature store, open the resource group in the Azure portal, select the feature store, and delete it.
-- To delete the user-assigned managed identity, follow [these](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md) instructions.
+- The user-assigned managed identity (UAI) assigned to the feature store workspace is not deleted when we delete the feature store. To delete the UAI, follow [these](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md) instructions.
 - To delete a storage account-type offline store, open the resource group in the Azure portal, select the storage that you created, and delete it.
 - To delete an Azure Cache for Redis instance, open the resource group in the Azure portal, select the instance that you created, and delete it.
 
