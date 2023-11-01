@@ -45,11 +45,11 @@ To connect your GCP project to Defender for Cloud by using a native connector:
 
 1. Select **Add environment** > **Google Cloud Platform**.
 
-    :::image type="content" source="media/quickstart-onboard-gcp/add-gcp-project-environment-settings.png" alt-text="Screenshot that shows selections for adding Google Cloud Platform as a connector."  lightbox="media/quickstart-onboard-gcp/google-cloud.png":::
+    :::image type="content" source="media/quickstart-onboard-gcp/add-gcp-project-environment-settings.png" alt-text="Screenshot that shows selections for adding Google Cloud Platform as a connector."  lightbox="media/quickstart-onboard-gcp/add-gcp-project-environment-settings.png":::
 
 1. Enter all relevant information.
 
-    :::image type="content" source="media/quickstart-onboard-gcp/add-gcp-project-details.png" alt-text="Screenshot of the pane for creating a GCP connector." lightbox="media/quickstart-onboard-gcp/create-connector.png":::
+    :::image type="content" source="media/quickstart-onboard-gcp/add-gcp-project-details.png" alt-text="Screenshot of the pane for creating a GCP connector." lightbox="media/quickstart-onboard-gcp/add-gcp-project-details.png":::
 
    Optionally, if you select **Organization**, a management project and an organization custom role are created on your GCP project for the onboarding process. Autoprovisioning is enabled for the onboarding of new projects.
 
