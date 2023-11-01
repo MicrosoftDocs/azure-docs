@@ -23,7 +23,7 @@ In this tutorial, you perform the following tasks:
 - If you don't have an [Azure subscription](/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing), create an [Azure free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 - If you're new to Azure Event Grid, read through [Event Grid overview](/azure/event-grid/overview) before starting this tutorial.
 - Register the Event Grid resource provider as per [Register the Event Grid resource provider](/azure/event-grid/custom-event-quickstart-portal#register-the-event-grid-resource-provider).
-- Make sure that port 8883 is open in your firewall. The sample in this tutorial uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments.
+- Make sure that port 8883 is open in your firewall. The sample in this tutorial uses MQTT protocol, which communicates over port 8883. This port might be blocked in some corporate and educational network environments.
 - An Event Grid Namespace in your Azure subscription. If you don't have a namespace yet, you can follow the steps in [Publish and subscribe on a MQTT topic](./mqtt-publish-and-subscribe-portal.md).
 - This tutorial uses Event Hubs, Event Grid custom topic, and Event Subscriptions.  You can find more information here:
 - Creating an Event Grid topic:  [Create a custom topic using portal](/azure/event-grid/custom-event-quickstart-portal).  While creating the Event Grid topic, ensure to create with Event Schema as Cloud Event Schema v1.0 in the Advanced tab.
@@ -53,26 +53,25 @@ In this tutorial, you perform the following tasks:
 1. Navigate to Routing page in your Event Grid Namespace.
 :::image type="content" source="./media/mqtt-routing-to-event-hubs-portal/event-grid-namespace-routing-configuration.png" alt-text="Screenshot showing the Event Grid routing configuration page to enable routing for the namespace.":::
 2. Select **Enable routing**
-3. Under Topic, select the Event Grid topic that you have created where all MQTT messages will be routed.
+3. For **Routing topic**, select the Event Grid topic that you have created where all MQTT messages will be routed.
 
-:::image type="content" source="./media/mqtt-routing/routing-portal-configuration.png" alt-text="Screenshot showing the routing configuration through the portal.":::
-
+    :::image type="content" source="./media/mqtt-routing/routing-portal-configuration.png" alt-text="Screenshot showing the routing configuration through the portal." lightbox="./media/mqtt-routing/routing-portal-configuration.png":::
 4. Select **Apply**
 
-> [!NOTE]
-> **Routing Event Grid topic considerations:**
-> The Event Grid topic that is used for routing has to fulfill following requirements:
-> - It needs to be set to use the Cloud Event Schema v1.0.
-> - It needs to be in the same region as the namespace.
-> - You need to assign "EventGrid Data Sender" role to yourself on the Event Grid Topic.
-> 
-> **Configuration** 
-> - Go to the Event Grid topic resource.
-> - In the "Access control (IAM)" menu item, select **Add role assignment**.
-> - In the "Role" tab, select "EventGrid Data Sender", then select **Next**.
-> - In the "Members" tab, click on **+ Select members**, then type your AD user name in the "Select" box that will appear (e.g. user@contoso.com).
-> - Select your AD user name, then select **Review + assign**.
-
+    > [!NOTE]
+    > **Routing Event Grid topic considerations:**
+    > The Event Grid topic that is used for routing has to fulfill following requirements:
+    > - It needs to be set to use the Cloud Event Schema v1.0.
+    > - It needs to be in the same region as the namespace.
+    > - You need to assign "EventGrid Data Sender" role to yourself on the Event Grid Topic.
+    > 
+    > **Configuration** 
+    > - Go to the Event Grid topic resource.
+    > - In the "Access control (IAM)" menu item, select **Add role assignment**.
+    > - In the "Role" tab, select "EventGrid Data Sender", then select **Next**.
+    > - In the "Members" tab, click on **+ Select members**, then type your AD user name in the "Select" box that will appear (e.g. user@contoso.com).
+    > - Select your AD user name, then select **Review + assign**.
+    
 ## Viewing the routed MQTT messages in Azure Event Hubs using Azure Stream Analytics query
 
 1. After configuring the routing for the namespace, publish MQTT messages among the clients (as described in the article [Publish and subscribe on an MQTT topic](./mqtt-publish-and-subscribe-portal.md).)

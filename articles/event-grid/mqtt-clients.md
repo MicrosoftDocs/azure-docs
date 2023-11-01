@@ -137,18 +137,15 @@ Example for self-signed certificate thumbprint based client authentication
 ### Azure portal configuration
 Use the following steps to create a client:
 
-- Go to your namespace in the Azure portal
-- Under Clients, select **+ Client**.
+1. Go to your namespace in the Azure portal
+2. Under Clients, select **+ Client**.
 
-:::image type="content" source="./media/mqtt-clients/mqtt-add-new-client.png" alt-text="Screenshot of adding a client.":::
-
-- Choose the client certificate authentication validation scheme.  For more information about client authentication configuration, see [client authentication](mqtt-client-authentication.md) article.
-
+    :::image type="content" source="./media/mqtt-clients/mqtt-add-new-client.png" alt-text="Screenshot of adding a client." lightbox="./media/mqtt-clients/mqtt-add-new-client.png":::
+3. Choose the client certificate authentication validation scheme.  For more information about client authentication configuration, see [client authentication](mqtt-client-authentication.md) article.
 - Add client attributes.
 
-:::image type="content" source="./media/mqtt-clients/mqtt-client-metadata-with-attributes.png" alt-text="Screenshot of client configuration.":::
-
-- Select **Create**
+    :::image type="content" source="./media/mqtt-clients/mqtt-client-metadata-with-attributes.png" alt-text="Screenshot of client configuration.":::
+4. Select **Create**
 
 
 ### Azure CLI configuration
