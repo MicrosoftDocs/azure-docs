@@ -3,7 +3,7 @@ title: Concepts - Network design considerations
 description: Learn about network design considerations for Azure VMware Solution
 ms.topic: conceptual
 ms.service: azure-vmware
-ms.date: 6/26/2023
+ms.date: 9/15/2023
 ---
 
 # Azure VMware Solution network design considerations
@@ -24,7 +24,8 @@ For AS-Path Prepend, consider the following:
 
 > [!div class="checklist"]
 > * The key point is that you must prepend **Public** ASN numbers to influence how Azure VMware Solution routes traffic back to on-premises. If you prepend using _Private_ ASN, Azure VMware Solution will ignore the prepend, and the ECMP behavior above will occur. Even if you operate a Private BGP ASN on-premises, it's still possible to configure your on-premises devices to utilize a Public ASN when prepending routes outbound, to ensure compatibility with Azure VMware Solution.
-> * Both or all circuits are connected to Azure VMware Solution through ExpressRoute Global Reach.
+> * Design your traffic path for private ASNs after the public ASN to be honored by Azure VMware Solution. The Azure VMware Solution ExpressRoute circuit doesn't strip any private ASNs that exist in the path after the public ASN is processed.
+> * Both or all circuits are connected to Azure VMware Solution through Azure ExpressRoute Global Reach.
 > * The same netblocks are being advertised from two or more circuits.
 > * You wish to use AS-Path Prepend to force Azure VMware solution to prefer one circuit over another.
 > * Use either 2-byte or 4-byte public ASN numbers.

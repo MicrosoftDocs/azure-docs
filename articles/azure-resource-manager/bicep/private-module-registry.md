@@ -50,6 +50,8 @@ A Bicep registry is hosted on [Azure Container Registry (ACR)](../../container-r
 
 > [!IMPORTANT]
 > The private container registry is only available to users with the required access. However, it's accessed through the public internet. For more security, you can require access through a private endpoint. See [Connect privately to an Azure container registry using Azure Private Link](../../container-registry/container-registry-private-link.md).
+> 
+> The private container registry must have the policy `azureADAuthenticationAsArmPolicy` set to `enabled`. If `azureADAuthenticationAsArmPolicy` is set to `disabled`, you'll get a 401 (Unauthorized) error message when publishing modules. See [Azure Container Registry introduces the Conditional Access policy](../../container-registry/container-registry-enable-conditional-access-policy.md).
 
 ## Publish files to registry
 
@@ -86,6 +88,40 @@ To see the published module in the portal:
    ![Bicep module registry artifact reference](./media/private-module-registry/bicep-module-registry-artifact-reference.png)
 
 You're now ready to reference the file in the registry from a Bicep file. For examples of the syntax to use for referencing an external module, see [Bicep modules](modules.md).
+
+---
+## Working with Bicep registry files
+
+When leveraging bicep files that are hosted in a remote registry, it's important to understand how your local machine will interact with the regsitry. When you first declare the reference to the registry, your local editor will try to communicate with the Azure Containter Registry and download a copy of the registry to your local cache.
+
+The local cache is found in:
+
+- On Windows
+
+    ```path
+    %USERPROFILE%\.bicep\br\<registry-name>.azurecr.io\<module-path\<tag>
+    ```
+
+- On Linux
+
+    ```path
+    /home/<username>/.bicep
+    ```
+
+- On Mac
+
+    ```path
+    ~/.bicep
+    ```
+
+Any changes made to the remote registry will not be recognized by your local machine until a `restore` has been ran with the specified file that includes the registry reference.
+
+```azurecli
+az bicep restore --file <bicep-file> [--force]
+```
+
+For more information refer to the [`restore` command.](bicep-cli.md#restore)
+
 
 ## Next steps
 

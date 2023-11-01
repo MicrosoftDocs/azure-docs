@@ -6,7 +6,7 @@ services: storage
 author: pauljewellmsft
 ms.author: pauljewell
 
-ms.service: azure-storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 06/28/2023
 ms.devlang: typescript
@@ -14,6 +14,8 @@ ms.custom: devx-track-ts, devguide-ts, devx-track-js
 ---
 
 # Set or change a block blob's access tier with TypeScript
+
+[!INCLUDE [storage-dev-guide-selector-access-tier](../../../includes/storage-dev-guides/storage-dev-guide-selector-access-tier.md)]
 
 This article shows how to set or change a blob's [access tier](access-tiers-overview.md) with the [Azure Storage client library for JavaScript](https://www.npmjs.com/package/@azure/storage-blob).
 
@@ -65,4 +67,4 @@ Create a [BlobBatchClient](/javascript/api/@azure/storage-blob/blobbatchclient).
 ## Next steps
 
 - [Access tiers best practices](access-tiers-best-practices.md)
-- [Blob rehydration from the Archive tier](archive-rehydrate-overview.md)
+- [Blob rehydration from the archive tier](archive-rehydrate-overview.md)

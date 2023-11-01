@@ -11,9 +11,13 @@ ms.date: 06/05/2023
 
 # Manually configure CI/CD for load tests in GitHub Actions or Azure Pipelines
 
-Get started with automating load tests in Azure Load Testing by adding it to a CI/CD pipeline. After running a load test in the Azure portal, you export the configuration files, and configure a CI/CD pipeline in GitHub Actions or Azure Pipelines.
+You can automate a load test in Azure Load Testing by creating a CI/CD pipeline. In this article, you learn how to manually configure GitHub Actions or Azure Pipelines to invoke an existing test in Azure Load Testing. Automate a load test to continuously validate your application performance and stability under load. 
 
-After you complete this quickstart, you have a CI/CD workflow that is configured to run a load test with Azure Load Testing.
+To add an existing load test to a CI/CD pipeline:
+
+- Configure service authentication to allow GitHub Actions or Azure Pipelines to connect to your Azure load testing resource.
+- Export the load test configuration files, such as the JMeter file and load test YAML configuration.
+- Update the CI/CD pipeline definition to invoke Azure Load Testing.
 
 ## Prerequisites
 
@@ -37,7 +41,7 @@ To run a load test in your CI/CD workflow, you need to grant permission to the C
 
 ### Create a service connection in Azure Pipelines
 
-In Azure Pipelines, you create a *service connection* in your Azure DevOps project to access resources in your Azure subscription. When you create the service connection, Azure DevOps creates an Azure Active Directory service principal object.
+In Azure Pipelines, you create a *service connection* in your Azure DevOps project to access resources in your Azure subscription. When you create the service connection, Azure DevOps creates a Microsoft Entra service principal object.
 
 1. Sign in to your Azure DevOps organization (`https://dev.azure.com/<your-organization>`), and select your project.
     
@@ -91,7 +95,7 @@ You can now use the service connection in your Azure Pipelines workflow definiti
 
 # [GitHub Actions](#tab/github)
 
-To access your Azure Load Testing resource from the GitHub Actions workflow, you first create an Azure Active Directory [service principal](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object). This service principal represents your GitHub Actions workflow in Azure Active Directory. 
+To access your Azure Load Testing resource from the GitHub Actions workflow, you first create a Microsoft Entra [service principal](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object). This service principal represents your GitHub Actions workflow in Microsoft Entra ID. 
 
 Next, you grant permissions to the service principal to create and run a load test with your Azure Load Testing resource.
 
@@ -346,6 +350,6 @@ If you don't plan to use any of the resources that you created, delete them so y
 
 Advance to the next article to learn how to identify performance regressions by defining test fail criteria and comparing test runs.
 
-> [!div class="nextstepaction"]
-> [Tutorial: automate regression tests](./tutorial-identify-performance-regression-with-cicd.md)
-> [Define test fail criteria](./how-to-define-test-criteria.md)
+- [Tutorial: automate regression tests](./tutorial-identify-performance-regression-with-cicd.md)
+- [Define test fail criteria](./how-to-define-test-criteria.md)
+- [View performance trends over time](./how-to-compare-multiple-test-runs.md)

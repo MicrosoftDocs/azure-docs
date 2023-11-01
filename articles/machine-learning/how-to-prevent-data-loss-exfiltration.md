@@ -22,7 +22,7 @@ Azure Machine Learning has several inbound and outbound dependencies. Some of th
 
 * __Inbound__: If your compute instance or cluster uses a public IP address, you have an inbound on `azuremachinelearning` (port 44224) service tag. You can control this inbound traffic by using a network security group (NSG) and service tags. It's difficult to disguise Azure service IPs, so there's low data exfiltration risk. You can also configure the compute to not use a public IP, which removes inbound requirements.
 
-* __Outbound__: If malicious agents don't have write access to outbound destination resources, they can't use that outbound for data exfiltration. Azure Active Directory, Azure Resource Manager, Azure Machine Learning, and Microsoft Container Registry belong to this category. On the other hand, Storage and AzureFrontDoor.frontend can be used for data exfiltration.
+* __Outbound__: If malicious agents don't have write access to outbound destination resources, they can't use that outbound for data exfiltration. Microsoft Entra ID, Azure Resource Manager, Azure Machine Learning, and Microsoft Container Registry belong to this category. On the other hand, Storage and AzureFrontDoor.frontend can be used for data exfiltration.
 
     * __Storage Outbound__: This requirement comes from compute instance and compute cluster. A malicious agent can use this outbound rule to exfiltrate data by provisioning and saving data in their own storage account. You can remove data exfiltration risk by using an Azure Service Endpoint Policy and Azure Batch's simplified node communication architecture.
 

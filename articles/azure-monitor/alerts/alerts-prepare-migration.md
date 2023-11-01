@@ -68,7 +68,7 @@ If you're using logic apps with classic alerts, you must modify your logic-app c
 
 1. Use the template "Azure Monitor - Metrics Alert Handler". This template has an **HTTP request** trigger with the appropriate schema defined.
 
-    ![Screenshot shows two buttons, Blank Logic App and Azure Monitor – Metrics Alert Handler.](media/alerts-prepare-migration/logic-app-template.png "Metric alert template")
+    :::image type="content" source="media/alerts-prepare-migration/logic-app-template.png" lightbox="media/alerts-prepare-migration/logic-app-template.png" alt-text="Screenshot shows two buttons, Blank Logic App and Azure Monitor – Metrics Alert Handler.":::
 
 1. Add an action to host your processing logic.
 
@@ -155,5 +155,4 @@ If you're using a partner integration that's not listed here, confirm with the p
 
 ## Next steps
 
-- [How to use the migration tool](alerts-using-migration-tool.md)
 - [Understand how the migration tool works](alerts-understand-migration.md)

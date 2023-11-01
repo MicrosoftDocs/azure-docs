@@ -131,7 +131,7 @@ The following table lists common errors your admins might run into.
 
 |Numeric code|Error code|Suggested solution|
 |---|---|---|
-|1322|ConnectionFailedNoMappingOfSIDinAD|The user isn't a member of Azure Active Directory. Follow the instructions in [Active Directory Administrative Center](/windows-server/identity/ad-ds/get-started/adac/active-directory-administrative-center) to add them.|
+|1322|ConnectionFailedNoMappingOfSIDinAD|The user isn't a member of Microsoft Entra ID. Follow the instructions in [Active Directory Administrative Center](/windows-server/identity/ad-ds/get-started/adac/active-directory-administrative-center) to add them.|
 |3|UnauthorizedAccess|The user who tried to run the administrative PowerShell cmdlet either doesn't have permissions to do so or mistyped their username.|
 |1000|TenantNotFound|The tenant name you entered doesn't match any existing tenants. Review the tenant name for typos and try again.|
 |1006|TenantCannotBeRemovedHasSessionHostPools|You can't delete a tenant as long it contains objects. Delete the session host pools first, then try again.|

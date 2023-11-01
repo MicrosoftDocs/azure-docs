@@ -1,8 +1,8 @@
 ---
 title: Selecting the right deployment type - Azure Database for MySQL
 description: This article describes what factors to consider before you deploy Azure Database for MySQL as either infrastructure as a service (IaaS) or platform as a service (PaaS).
-author: vivgk
-ms.author: vivgk
+author: SudheeshGH
+ms.author: sunaray
 ms.reviewer: maghan
 ms.date: 04/18/2023
 ms.service: mysql
@@ -56,7 +56,7 @@ The main differences between these options are listed in the following table:
 | Network Connectivity | - Public endpoints with server firewall.<br />- Private access with Private Link support. | - Public endpoints with server firewall.<br />- Private access with Virtual Network integration. | - Public endpoints with server firewall.<br />- Private access with Private Link support. |
 | SSL/TLS | Enabled by default with support for TLS v1.2, 1.1 and 1.0 | Enabled by default with support for TLS v1.2, 1.1 and 1.0 | Supported with TLS v1.2, 1.1 and 1.0 |
 | Data Encryption at rest | Supported with customer-managed keys (BYOK) | Supported with service managed keys | Not Supported |
-| Azure AD Authentication | Supported | Supported | Not Supported |
+| Microsoft Entra authentication | Supported | Supported | Not Supported |
 | Microsoft Defender for Cloud support | Yes | No | No |
 | Server Audit | Supported | Supported | User Managed |
 | [**Patching & Maintenance**](flexible-server/concepts-maintenance.md) | | |

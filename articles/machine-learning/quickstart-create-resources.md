@@ -1,5 +1,5 @@
 ---
-title: "Create workspace resources"
+title: "Tutorial: Create workspace resources"
 titleSuffix: Azure Machine Learning
 description: Create an Azure Machine Learning workspace and cloud resources that can be used to train machine learning models.
 services: machine-learning
@@ -9,18 +9,22 @@ ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
 ms.reviewer: sgilley
-ms.date: 03/15/2023
+ms.date: 08/17/2023
 adobe-target: true
 ms.custom: FY21Q4-aml-seo-hack, contperf-fy21q4, mode-other, ignite-2022
 #Customer intent: As a data scientist, I want to create a workspace so that I can start to use Azure Machine Learning.
 ---
 
-# Create resources you need to get started
+# Tutorial: Create resources you need to get started
 
-In this article, you'll create the resources you need to start working with Azure Machine Learning.
+In this tutorial, you will create the resources you need to start working with Azure Machine Learning.
 
-* A *workspace*.  To use Azure Machine Learning, you'll first need a workspace.  The workspace is the central place to view and manage all the artifacts and resources you create. 
-* A *compute instance*.  A compute instance is a pre-configured cloud-computing resource that you can use to train, automate, manage, and track machine learning models. A compute instance is the quickest way to start using the Azure Machine Learning SDKs and CLIs. You'll use it to run Jupyter notebooks and Python scripts in the rest of the tutorials.
+> [!div class="checklist"]
+>* A *workspace*.  To use Azure Machine Learning, you'll first need a workspace.  The workspace is the central place to view and manage all the artifacts and resources you create. 
+>* A *compute instance*.  A compute instance is a pre-configured cloud-computing resource that you can use to train, automate, manage, and track machine learning models. A compute instance is the quickest way to start using the Azure Machine Learning SDKs and CLIs. You'll use it to run Jupyter notebooks and Python scripts in the rest of the tutorials.
+
+This video shows you how to create a workspace and compute instance.  The steps are also described in the sections below.
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=a0e901d2-e82a-4e96-9c7f-3b5467859969]
 
 ## Prerequisites
 

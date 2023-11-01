@@ -36,7 +36,7 @@ An audit record is created each time a query is run. If you send the data to a L
 |:---|:---|
 | TimeGenerated         | UTC time when query was submitted. |
 | CorrelationId         | Unique ID to identify the query. Can be used in troubleshooting scenarios when contacting Microsoft for assistance. |
-| AADObjectId           | Azure Active Directory ID of the user account that started the query.  |
+| AADObjectId           | Microsoft Entra ID of the user account that started the query.  |
 | AADTenantId           | ID of the tenant of the user account that started the query.  |
 | AADEmail              | Email of the tenant of the user account that started the query.  |
 | AADClientId           | ID and resolved name of the application used to start the query. |

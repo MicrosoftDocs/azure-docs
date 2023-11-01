@@ -17,7 +17,7 @@ ms.date: 05/09/2023
 
 [!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
-You no longer need to [create and manage compute](./how-to-create-attach-compute-cluster.md) to train your model in a scalable way. Your job can instead be submitted to a new compute target type, called _serverless compute_. Serverless compute is the easiest way to run training jobs on Azure Machine Learning. Serverless compute is a fully-managed, on-demand compute. It is created, scaled, and managed by Azure Machine Learning for you. Through model training with serverless compute, machine learning  professionals can focus on their expertise of building machine learning models and not have to learn about compute infrastructure or setting it up.
+You no longer need to [create and manage compute](./how-to-create-attach-compute-cluster.md) to train your model in a scalable way. Your job can instead be submitted to a new compute target type, called _serverless compute_. Serverless compute is the easiest way to run training jobs on Azure Machine Learning. Serverless compute is a fully managed, on-demand compute. Azure Machine Learning creates, scales, and manages the compute for you. Through model training with serverless compute, machine learning  professionals can focus on their expertise of building machine learning models and not have to learn about compute infrastructure or setting it up.
 
 [!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
@@ -35,9 +35,9 @@ Serverless compute can be used to run command, sweep, AutoML, pipeline, distribu
 * You can optimize costs by specifying the exact resources each job needs at runtime in terms of instance type (VM size) and instance count. You can monitor the utilization metrics of the job to optimize the resources a job would need.
 * Reduction in steps involved to run a job
 * To further simplify job submission, you can skip the resources altogether. Azure Machine Learning defaults the instance count and chooses an instance type (VM size) based on factors like quota, cost, performance and disk size. 
-* Lesser wait times before job starts executing in some cases.
+* Lesser wait times before jobs start executing in some cases.
 * User identity and workspace user-assigned managed identity is supported for job submission. 
-* With managed network isolation you can streamline and automate your network isolation configuration.
+* With managed network isolation, you can streamline and automate your network isolation configuration. **Customer virtual network** support is coming soon
 * Admin control through quota and Azure policies
 
 ## How to use serverless compute
@@ -57,7 +57,7 @@ Serverless compute can be used to run command, sweep, AutoML, pipeline, distribu
 * When using [Azure Machine Learning designer](concept-designer.md), select **Serverless** as default compute.
 
 > [!IMPORTANT]
-> If you want to use serverless compute with a workspace that is configured for network isolation, the workspace must be using a managed network isolation (preview). For more information, see [workspace managed network isolation](how-to-managed-network.md).
+> If you want to use serverless compute with a workspace that is configured for network isolation, the workspace must be using managed network isolation. For more information, see [workspace managed network isolation](how-to-managed-network.md).
 
 
 ## Performance considerations
@@ -74,15 +74,15 @@ Serverless compute can help speed up your training in the following ways:
 
 When submitting the job, you still need sufficient Azure Machine Learning compute quota to proceed (both workspace and subscription level quota).  The default VM size for serverless jobs is selected based on this quota.  If you specify your own VM size/family:
 
-* If you have some quota for your VM size/family, but not sufficient quota for the number of instances, you'll see an error.  The error recommends decreasing the number of instances to a valid number based on your quota limit or request a quota increase for this VM family or changing the VM size
-* If you don't have quota for your specified VM size, you'll see an error.  The error recommends selecting a different VM size for which you do have quota or request quota for this VM family
-* If you do have sufficient quota for VM family to run the serverless job, but it's currently consumed by other jobs, you'll get a message that your job must wait in a queue until quota is available  
+* If you have some quota for your VM size/family, but not sufficient quota for the number of instances, you see an error.  The error recommends decreasing the number of instances to a valid number based on your quota limit or request a quota increase for this VM family or changing the VM size
+* If you don't have quota for your specified VM size, you see an error.  The error recommends selecting a different VM size for which you do have quota or request quota for this VM family
+* If you do have sufficient quota for VM family to run the serverless job, but other jobs are using the quota, you get a message that your job must wait in a queue until quota is available  
 
-When you [view your usage and quota in the Azure portal](how-to-manage-quotas.md#view-your-usage-and-quotas-in-the-azure-portal), you'll see the name "Serverless" to see all the quota consumed by serverless jobs.
+When you [view your usage and quota in the Azure portal](how-to-manage-quotas.md#view-your-usage-and-quotas-in-the-azure-portal), you see the name "Serverless" to see all the quota consumed by serverless jobs.
 
 ## Identity support and credential pass through
 
-* **User credential pass through** : Serverless compute fully supports user credential pass through. The user token of the user who is submitting the job is used for storage access. These credentials are from your Azure Active directory. 
+* **User credential pass through** : Serverless compute fully supports user credential pass through. The user token of the user who is submitting the job is used for storage access. These credentials are from your Microsoft Entra ID. 
 
     # [Python SDK](#tab/python)
 
@@ -210,7 +210,7 @@ environment:
 The compute defaults to serverless compute with:
 
 * Single node for this job.  The default number of nodes is based on the type of job.  See following sections for other job types.
-* CPU virtual machine, determined based on quota, performance, cost, and disk size.
+* CPU virtual machine, which is determined based on quota, performance, cost, and disk size.
 * Dedicated virtual machines
 * Workspace location
 
@@ -295,7 +295,7 @@ You can override these defaults.  If you want to specify the VM type or number o
 
 ## Example for all fields with command jobs
 
-Here's an example of all fields specified including identity the job should use. There's no need to specify virtual network settings as workspace level managed network isolation will be automatically used.
+Here's an example of all fields specified including identity the job should use. There's no need to specify virtual network settings as workspace level managed network isolation is automatically used.
 
 # [Python SDK](#tab/python)
 
@@ -350,7 +350,7 @@ View more examples of training with serverless compute at:-
   
 ## AutoML job
 
-There's no need to specify compute for AutoML jobs. Resources can be optionally specified. If instance count isn't specified, then it's defaulted based on max_concurrent_trials and max_nodes parameters. If you submit an AutoML image classification or NLP task with no instance type, we will automatically select a GPU VM size. It is possible to submit AutoML job through CLIs, SDK, or Studio. To submit AutoML jobs with serverless compute in studio first enable the *Guided experience for submitting training jobs with serverless compute* feature in the preview panel and then [submit a training job in studio (preview)](how-to-train-with-ui.md).
+There's no need to specify compute for AutoML jobs. Resources can be optionally specified. If instance count isn't specified, then it's defaulted based on max_concurrent_trials and max_nodes parameters. If you submit an AutoML image classification or NLP task with no instance type, the GPU VM size is automatically selected. It's possible to submit AutoML job through CLIs, SDK, or Studio. To submit AutoML jobs with serverless compute in studio first enable the *Guided experience for submitting training jobs with serverless compute* feature in the preview panel and then [submit a training job in studio (preview)](how-to-train-with-ui.md).
 
 # [Python SDK](#tab/python)
 

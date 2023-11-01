@@ -6,7 +6,7 @@ services: load-testing
 ms.service: load-testing
 ms.author: ninallam
 author: ninallam
-ms.date: 05/09/2023
+ms.date: 09/18/2023
 ms.topic: how-to
 ---
 
@@ -15,6 +15,8 @@ ms.topic: how-to
 Azure Load Testing automatically encrypts all data stored in your load testing resource with keys that Microsoft provides (service-managed keys). Optionally, you can add a second layer of security by also providing your own (customer-managed) keys. Customer-managed keys offer greater flexibility for controlling access and using key-rotation policies.
 
 The keys you provide are stored securely using [Azure Key Vault](../key-vault/general/overview.md). You can create a separate key for each Azure load testing resource you enable with customer-managed keys.
+
+When you use customer-managed encryption keys, you need to specify a user-assigned managed identity to retrieve the keys from Azure Key Vault.
 
 Azure Load Testing uses the customer-managed key to encrypt the following data in the load testing resource:
 
@@ -35,13 +37,21 @@ Azure Load Testing uses the customer-managed key to encrypt the following data i
 
 - Customer-managed keys are only available for new Azure load testing resources. You should configure the key during resource creation.
 
-- Azure Load Testing can't automatically rotate the customer-managed key to use the latest version of the encryption key. You should update the key URI in the resource after the key is rotated in the Azure Key Vault.
-
 - Once customer-managed key encryption is enabled on a resource, it can't be disabled.
+
+- Azure Load Testing can't automatically rotate the customer-managed key to use the latest version of the encryption key. You should update the key URI in the resource after the key is rotated in the Azure Key Vault.
 
 ## Configure your Azure key vault
 
-To use customer-managed encryption keys with Azure Load Testing, you need to store the key in Azure Key Vault. You can use an existing or create a new key vault. The load testing resource and key vault may be in different regions or subscriptions in the same tenant.
+To use customer-managed encryption keys with Azure Load Testing, you need to store the key in Azure Key Vault. You can use an existing key vault or create a new one. The load testing resource and key vault may be in different regions or subscriptions in the same tenant.
+
+Make sure to configure the following key vault settings when you use customer-managed encryption keys.
+
+### Configure key vault networking settings
+
+If you restricted access to your Azure key vault by a firewall or virtual networking, you need to grant access to Azure Load Testing for retrieving your customer-managed keys. Follow these steps to [grant access to trusted Azure services](/azure/key-vault/general/overview-vnet-service-endpoints#grant-access-to-trusted-azure-services).
+
+### Configure soft delete and purge protection
 
 You have to set the *Soft Delete* and *Purge Protection* properties on your key vault to use customer-managed keys with Azure Load Testing. Soft delete is enabled by default when you create a new key vault and can't be disabled. You can enable purge protection at any time. Learn more about [soft delete and purge protection in Azure Key Vault](/azure/key-vault/general/soft-delete-overview).
 
@@ -100,7 +110,7 @@ az keyvault update --subscription <subscription-id> -g <resource-group> -n <key-
 
 ---
 
-## Add a key
+## Add a customer-managed key to Azure Key Vault
 
 Next, add a key to the key vault. Azure Load Testing encryption supports RSA keys. For more information about supported key types in Azure Key Vault, see [About keys](/azure/key-vault/keys/about-keys).
 
@@ -132,7 +142,7 @@ az keyvault key create \
 
 ## Add an access policy to your key vault
 
-The user-assigned managed identity for accessing the customer-managed keys in Azure Key Vault must have appropriate permissions to access the key vault.
+When you use customer-managed encryption keys, you have to specify a user-assigned managed identity. The user-assigned managed identity for accessing the customer-managed keys in Azure Key Vault must have appropriate permissions to access the key vault.
 
 1. In the [Azure portal](https://portal.azure.com), go to the Azure key vault instance that you plan to use to host your encryption keys.
 
@@ -156,7 +166,9 @@ The user-assigned managed identity for accessing the customer-managed keys in Az
 
 1. Select **Save** on the key vault instance to save all changes.
 
-## Configure customer-managed keys for a new load testing resource
+## Use customer-managed keys with Azure Load Testing
+
+You can only configure customer-managed encryption keys when you create a new Azure load testing resource. When you specify the encryption key details, you also have to select a user-assigned managed identity to retrieve the key from Azure Key Vault.
 
 To configure customer-managed keys for a new load testing resource, follow these steps:
 
@@ -269,7 +281,7 @@ az deployment group create --resource-group <resource-group-name> --template-fil
 
 ----
 
-## Change the managed identity
+## Change the managed identity for retrieving the encryption key
 
 You can change the managed identity for customer-managed keys for an existing load testing resource at any time.
 
@@ -290,10 +302,10 @@ You can change the managed identity for customer-managed keys for an existing lo
 
 :::image type="content" source="media/how-to-configure-customer-managed-keys/change-identity-existing-azure-load-testing-resource.png" alt-text="Screenshot that shows how to change the managed identity for customer managed keys on an existing Azure load testing resource.":::
 
-> [!NOTE]
-> The selected managed identity should have access granted on the Azure Key Vault.
+> [!IMPORTANT]
+> Make sure that the selected [managed identity has access to the Azure Key Vault](#add-an-access-policy-to-your-key-vault).
 
-## Change the key
+## Update the customer-managed encryption key
 
 You can change the key that you're using for Azure Load Testing encryption at any time. To change the key with the Azure portal, follow these steps:
 
@@ -305,9 +317,12 @@ You can change the key that you're using for Azure Load Testing encryption at an
 
 1. Save your changes.
 
-## Key rotation
+## Rotate encryption keys
 
-You can rotate a customer-managed key in Azure Key Vault according to your compliance policies. To rotate a key, in Azure Key Vault, update the key version or create a new key. You can then update the load testing resource to [encrypt data using the new key URI](#change-the-key).
+You can rotate a customer-managed key in Azure Key Vault according to your compliance policies. To rotate a key:
+
+1. In Azure Key Vault, update the key version or create a new key. 
+1. [Update the customer-managed encryption key](#update-the-customer-managed-encryption-key) for your load testing resource.
 
 ## Frequently asked questions
 
@@ -331,7 +346,7 @@ You can revoke a key by disabling the latest version of the key in Azure Key Vau
 
 When you revoke the encryption key you may be able to run tests for about 10 minutes, after which the only available operation is resource deletion. It's recommended to rotate the key instead of revoking it to manage resource security and retain your data.
 
-## Next steps
+## Related content
 
 - Learn how to [Monitor server-side application metrics](./how-to-monitor-server-side-metrics.md).
-- Learn how to [Parameterize a load test](./how-to-parameterize-load-tests.md).
+- Learn how to [Parameterize a load test with secrets and environment variables](./how-to-parameterize-load-tests.md).

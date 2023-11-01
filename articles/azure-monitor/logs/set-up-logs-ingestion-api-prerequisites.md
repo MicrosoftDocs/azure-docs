@@ -23,9 +23,9 @@ The script creates these resources, if they don't already exist:
     
     You probably already have a Log Analytics workspace, in which case, provide the workspace details so the script sets up the other resources in the same region as the workspace. 
 
-- An Azure AD application to authenticate against the API and:
-    - A service principal on the Azure AD application
-    - A secret for the Azure AD application
+- A Microsoft Entra application to authenticate against the API and:
+    - A service principal on the Microsoft Entra application
+    - A secret for the Microsoft Entra application
 - A data collection endpoint (DCE) and a resource group for the data collection endpoint, in same region as Log Analytics workspace, to receive data. 
 - A resource group for data collection rules (DCR) in the same region as the Log Analytics workspace.
 
@@ -36,6 +36,7 @@ The script also grants the app `Contributor` permissions to:
 - The resource group for data collection endpoints
 
 ## PowerShell script
+
 
 
 ```powershell
@@ -120,7 +121,7 @@ $VerbosePreference                     = "SilentlyContinue"  # "Continue"
                     "Directory.AccessAsUser.All",
                     "RoleManagement.ReadWrite.Directory"
                 )
-    Connect-MgGraph -TenantId $TenantId -ForceRefresh -Scopes $MgScope
+    Connect-MgGraph -TenantId $TenantId -Scopes $MgScope
 
 #-------------------------------------------------------------------------------------------
 # (3) Prerequisites - deployment of environment (if missing)
@@ -528,7 +529,7 @@ $VerbosePreference                     = "SilentlyContinue"  # "Continue"
         Write-Output ""
         Write-Output "-------------------------------------------------"
 ```
-  
+
 ## Next steps
 
 - [Learn more about data collection rules](../essentials/data-collection-rule-overview.md)

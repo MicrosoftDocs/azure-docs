@@ -3,7 +3,7 @@ title: "Symantec VIP connector for Microsoft Sentinel"
 description: "Learn how to install the connector Symantec VIP to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 03/25/2023
+ms.date: 10/23/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---

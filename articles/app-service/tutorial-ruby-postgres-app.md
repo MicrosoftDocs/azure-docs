@@ -4,7 +4,9 @@ description: Learn how to get a Linux Ruby app working in Azure App Service, wit
 ms.devlang: ruby
 ms.topic: tutorial
 ms.date: 06/18/2020
-ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli
+ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli, AppServiceConnectivity
+author: cephalin
+ms.author: cephalin
 ---
 
 # Build a Ruby and Postgres app in Azure App Service on Linux

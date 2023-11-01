@@ -3,8 +3,7 @@ services: cognitive-services
 manager: nitinme
 author: aahill
 ms.author: aahi
-ms.service: cognitive-services
-ms.subservice: openai
+ms.service: azure-ai-openai
 ms.topic: include
 ms.date: 06/15/2023
 ---
@@ -16,7 +15,7 @@ Studio by selecting the **Deploy to** button.
 
 :::image type="content" source="../media/use-your-data/deploy-model.png" alt-text="A screenshot showing the model deployment button in Azure OpenAI Studio." lightbox="../media/use-your-data/deploy-model.png":::
 
-This gives you the option to either [deploy the model](../concepts/use-your-data.md#deploying-the-model) as a standalone web application, or to Power Virtual Agents.   
+This gives you the option to either deploy the model as a standalone web application, or Power Virtual Agents if you're [using your own data](../concepts/use-your-data.md#deploying-the-model) on the model.   
 
 As an example, if you choose to deploy a web app:
 

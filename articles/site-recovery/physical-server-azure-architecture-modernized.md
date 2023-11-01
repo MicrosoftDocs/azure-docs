@@ -46,8 +46,8 @@ If you're using a URL-based firewall proxy to control outbound connectivity, all
 | ------------------------- | -------------------------------------------|
 | portal.azure.com          | Navigate to the Azure portal.              |
 | `*.windows.net `<br>`*.msftauth.net`<br>`*.msauth.net`<br>`*.microsoft.com`<br>`*.live.com `<br>`*.office.com ` | To sign-in to your Azure subscription.  |
-|`*.microsoftonline.com `|Create Azure Active Directory (AD) apps for the appliance to communicate with Azure Site Recovery. |
-|management.azure.com |Create Azure AD apps for the appliance to communicate with the Azure Site Recovery service. |
+|`*.microsoftonline.com `|Create Microsoft Entra apps for the appliance to communicate with Azure Site Recovery. |
+|management.azure.com |Create Microsoft Entra apps for the appliance to communicate with the Azure Site Recovery service. |
 |`*.services.visualstudio.com `|Upload app logs used for internal monitoring. |
 |`*.vault.azure.net `|Manage secrets in the Azure Key Vault. Note: Ensure machines to replicate have access to this. |
 |aka.ms |Allow access to aka.ms links. Used for Azure Site Recovery appliance updates. |

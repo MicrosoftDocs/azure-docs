@@ -17,7 +17,7 @@ This quickstart describes how to create an Analysis Services server resource in 
 ## Prerequisites 
 
 * **Azure subscription**: Visit [Azure Free Trial](https://azure.microsoft.com/offers/ms-azr-0044p/) to create an account.
-* **Azure Active Directory**: Your subscription must be associated with an Azure Active Directory tenant. And, you need to be signed in to Azure with an account in that Azure Active Directory. To learn more, see [Authentication and user permissions](analysis-services-manage-users.md).
+* **Microsoft Entra ID**: Your subscription must be associated with a Microsoft Entra tenant. And, you need to be signed in to Azure with an account in that Microsoft Entra ID. To learn more, see [Authentication and user permissions](analysis-services-manage-users.md).
 
 ## Sign in to the Azure portal 
 
@@ -37,7 +37,7 @@ This quickstart describes how to create an Analysis Services server resource in 
    * **Resource group**: Create a new resource group or select one you already have. Resource groups are designed to help you manage a collection of Azure resources. To learn more, see [resource groups](../azure-resource-manager/management/overview.md).
    * **Location**: This Azure datacenter location hosts the server. Choose a location nearest your largest user base.
    * **Pricing tier**: Select a pricing tier. If you are testing and intend to install the sample model database, select the free **D1** tier. To learn more, see [Azure Analysis Services pricing](https://azure.microsoft.com/pricing/details/analysis-services/). 
-   * **Administrator**: By default, this will be the account you are logged in with. You can choose a different account from your Azure Active Directory.
+   * **Administrator**: By default, this will be the account you are logged in with. You can choose a different account from your Microsoft Entra ID.
    * **Backup Storage setting**: Optional. If you already have a [storage account](../storage/common/storage-introduction.md), you can specify it as the default for model database backup. You can also specify [backup and restore](analysis-services-backup.md) settings later.
    * **Storage key expiration**: Optional. Specify a storage key expiration period.
 

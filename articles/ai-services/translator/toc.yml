@@ -52,9 +52,9 @@ items:
       items:
       - name: C# samples
         href: https://github.com/MicrosoftTranslator/Text-Translation-Code-Samples/blob/main/C%23-Code-Samples
-      - name: Authenticate with Azure Active Directory
+      - name: Authenticate with Microsoft Entra ID
         href: https://github.com/MicrosoftTranslator/Text-Translation-Code-Samples/tree/main/Text-Translation-AAD
-      - name: Authenticate using Azure Active Directory tokens
+      - name: Authenticate using Microsoft Entra tokens
         href: https://github.com/MicrosoftTranslator/Text-Translation-Code-Samples/tree/main/Text-Translation-AzureToken
     - name: Java
       href: https://github.com/MicrosoftTranslator/Text-Translation-Code-Samples/tree/main/Java-Code-Samples
@@ -101,6 +101,9 @@ items:
       - name: Use containers in disconnected environments
         displayName: text,docker,pull,mcr,registry,commitment,parameters
         href: containers/translator-disconnected-containers.md
+      - name: Deploy user-managed glossary
+        displayName: dynamic, glossary, dictionary, case-sensitive, match
+        href: containers/deploy-user-managed-glossary.md
       - name: "Container: Translate"
         displayName: textType,text type,preview,POST,parameters,request,
         href: containers/translator-container-supported-parameters.md

@@ -28,7 +28,18 @@
       href: learn/automation-tutorial-runbook-textual.md
     - name: Create a Python 3 runbook
       href: learn/automation-tutorial-runbook-textual-python-3.md
-
+    - name: Scenarios
+      items:
+      - name: Manage databases in Azure SQL database using Azure Automation
+        href: manage-sql-server-in-automation.md
+      - name: Configure data based on STIG
+        href: automation-dsc-configuration-based-on-stig.md
+      - name: Configure data at scale
+        href: automation-dsc-config-data-at-scale.md
+      - name: Create config from existing servers
+        href: automation-dsc-config-from-server.md
+      - name: Convert configurations to composite resources
+        href: automation-dsc-create-composite.md
 - name: Concepts
   items:
     - name: Automation account authentication overview
@@ -92,17 +103,13 @@
           items:
             - name: Delete Run As account
               href: delete-run-as-account.md
-            - name: Manage Run As account
-              href: manage-runas-account.md
             - name: Migrate Run As account to managed identity
-              href: migrate-run-as-accounts-managed-identity.md
-            - name: FAQ on Migration to managed identity
-              href: automation-managed-identity-faq.md
+              href: migrate-run-as-accounts-managed-identity.md    
         - name: Use Automation extension for Visual Studio Code
           href: how-to/runbook-authoring-extension-for-vscode.md
         - name: Configure authentication with Amazon Web Services
           href: automation-config-aws-account.md
-        - name: Configure authentication with Azure AD
+        - name: Configure authentication with Microsoft Entra ID
           href: automation-use-azure-ad.md
         - name: Manage DNS records used by Automation
           href: how-to/automation-region-dns-records.md
@@ -230,16 +237,6 @@
               href: automation-dsc-extension-history.md
             - name: Troubleshoot State Configuration issues
               href: troubleshoot/desired-state-configuration.md
-            - name: Scenarios
-              items:
-                - name: Configure data based on STIG
-                  href: automation-dsc-configuration-based-on-stig.md
-                - name: Configure data at scale
-                  href: automation-dsc-config-data-at-scale.md
-                - name: Create config from existing servers
-                  href: automation-dsc-config-from-server.md
-                - name: Convert configurations to composite resources
-                  href: automation-dsc-create-composite.md
     - name: Change tracking and inventory 
       items:
         - name: Use Azure Monitoring Agent (AMA)
@@ -254,6 +251,10 @@
               href: change-tracking/manage-change-tracking-monitoring-agent.md
             - name: Configure alerts
               href: change-tracking/configure-alerts.md
+        - name: Migration guidance
+          items:
+            - name: Migration from Log Analytics to Azure Monitoring Agent version
+              href: change-tracking/guidance-migration-log-analytics-monitoring-agent.md
         - name: Use Log Analytics
           items:
             - name: Overview

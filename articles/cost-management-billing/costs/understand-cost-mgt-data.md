@@ -1,10 +1,10 @@
 ---
 title: Understand Cost Management data
 titleSuffix: Microsoft Cost Management
-description: This article helps you better understand data that's included in Cost Management and how frequently it's processed, collected, shown, and closed.
+description: This article helps you better understand data that's included in Cost Management. It also explains how frequently it's processed, collected, shown, and closed.
 author: bandersmsft
 ms.author: banders
-ms.date: 12/06/2022
+ms.date: 10/04/2023
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -49,7 +49,7 @@ _¹ For data before May 2014, visit the [Azure Enterprise portal](https://ea.azu
 
 _² Microsoft Customer Agreements started in March 2019 and don't have any historical data before this point._
 
-_³ Historical data for credit-based and pay-in-advance subscriptions might not match your invoice. See [Historical data may not match invoice](#historical-data-might-not-match-invoice) below._
+_³ Historical data for credit-based and pay-in-advance subscriptions might not match your invoice. See the following [Historical data may not match invoice](#historical-data-might-not-match-invoice) section._
 
 _⁴ Quota IDs are the same across Microsoft Customer Agreement and classic subscription offers. Classic CSP subscriptions are not supported._
 
@@ -88,10 +88,10 @@ The following tables show data that's included or isn't in Cost Management. All 
 
 | **Included** | **Not included** |
 | --- | --- |
-| Azure service usage⁵        | Support charges - For more information, see [Invoice terms explained](../understand/understand-invoice.md). |
-| Marketplace offering usage⁶ | Taxes - For more information, see [Invoice terms explained](../understand/understand-invoice.md). |
-| Marketplace purchases⁶      | Credits - For more information, see [Invoice terms explained](../understand/understand-invoice.md). |
-| Reservation purchases⁷      |  |
+| Azure service usage (including deleted resources)⁵ | Unbilled services (for example, free tier resources) |
+| Marketplace offering usage⁶ | Support charges - For more information, see [Invoice terms explained](../understand/understand-invoice.md). |
+| Marketplace purchases⁶      | Taxes - For more information, see [Invoice terms explained](../understand/understand-invoice.md). |
+| Reservation purchases⁷      | Credits - For more information, see [Invoice terms explained](../understand/understand-invoice.md). |
 | Amortization of reservation purchases⁷      |  |
 | New Commerce non-Azure products (Microsoft 365 and Dynamics 365) ⁸ | |
 
@@ -103,6 +103,8 @@ _⁷ Reservation purchases are only available for Enterprise Agreement (EA) and 
 
 _⁸ Only available for specific offers._
 
+Cost Management data only includes the usage and purchases from services and resources that are actively running. Cost data is historical and includes resources, resource groups, and subscriptions that have been stopped, deleted, or canceled and may not reflect the same resources, resource groups, and subscriptions you see in other tools, like Azure Resource Manager or Azure Resource Graph, which only show the current resources that are deployed in your subscriptions. Not all resources emit usage and therefore may not be represented in the cost data. Similarly, Azure Resource Manager doesn't track some resources so they may not be represented in subscription resources. 
+
 ## How tags are used in cost and usage data
 
 Cost Management receives tags as part of each usage record submitted by the individual services. The following constraints apply to these tags:
@@ -113,7 +115,7 @@ Cost Management receives tags as part of each usage record submitted by the indi
 - Resource tags are only included in usage data while the tag is applied – tags aren't applied to historical data.
 - Resource tags are only available in Cost Management after the data is refreshed.
 - Resource tags are only available in Cost Management when the resource is active/running and producing usage records. For example, when a VM is deallocated.
-- Managing tags requires contributor access to each resource or the [tag contributor](../../role-based-access-control/built-in-roles.md#tag-contributor) RBAC role.
+- Managing tags requires contributor access to each resource or the [tag contributor](../../role-based-access-control/built-in-roles.md#tag-contributor) Azure RBAC role.
 - Managing tag policies requires either owner or policy contributor access to a management group, subscription, or resource group.
     
 If you don't see a specific tag in Cost Management, consider the following questions:
@@ -125,7 +127,7 @@ If you don't see a specific tag in Cost Management, consider the following quest
 Here are a few tips for working with tags:
 
 - Plan ahead and define a tagging strategy that allows you to break down costs by organization, application, environment, and so on.
-- [Group and allocate costs using tag inheritance](enable-tag-inheritance.md) to apply resource group and subscription tags to child resource usage records. If you were using Azure policy to enforce tagging for cost reporting, consider enabling the tag inheritance setting for easier management and more flexibility.
+- [Group and allocate costs using tag inheritance](enable-tag-inheritance.md) to apply resource group and subscription tags to child resource usage records. If you're using Azure policy to enforce tagging for cost reporting, consider enabling the tag inheritance setting for easier management and more flexibility.
 - Use the Tags API with either Query or UsageDetails to get all cost based on the current tags.
 
 ## Cost and usage data updates and retention
@@ -141,12 +143,12 @@ Cost and usage data is typically available in Cost Management within 8-24 hours.
 
 The following examples illustrate how billing periods could end:
 
-* Enterprise Agreement (EA) subscriptions – If the billing month ends on March 31, estimated charges are updated up to 72 hours later. In this example, by midnight (UTC) April 4.
+* Enterprise Agreement (EA) subscriptions – If the billing month ends on March 31, estimated charges are updated up to 72 hours later. In this example, by midnight (UTC) April 4. There are uncommon circumstances where it may take longer than 72 hours to finalize a billing period.
 * Pay-as-you-go subscriptions – If the billing month ends on May 15, then the estimated charges might get updated up to 72 hours later. In this example, by midnight (UTC) May 19.
 
-After your billing period ends and your invoice is created, it can take up to 48 hours later for the usage data to get finalized. If the usage file isn't ready, you'll see a message on the Invoices page in the Azure portal stating `Your usage and charges file is not ready`. After the usage file is available, you can download it.
+Usage charges can continue to accrue and can change until the fifth day of the month after your current billing period ends, as Azure completes processing all data. If the usage file isn't ready, you see a message on the Invoices page in the Azure portal stating `Your usage and charges file is not ready`. After the usage file is available, you can download it.
 
-Once cost and usage data becomes available in Cost Management, it will be retained for at least seven years. Only the last 13 months are available from the portal. For historical data before 13 months, please use [Exports](tutorial-export-acm-data.md) or the [Cost Details API](../automate/usage-details-best-practices.md#cost-details-api).
+Once cost and usage data becomes available in Cost Management, it's retained for at least seven years. Only the last 13 months are available from the portal. For historical data before 13 months, use [Exports](tutorial-export-acm-data.md) or the [Cost Details API](../automate/usage-details-best-practices.md#cost-details-api).
 
 ### Rerated data
 

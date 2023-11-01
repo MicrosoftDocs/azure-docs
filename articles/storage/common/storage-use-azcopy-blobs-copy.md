@@ -4,7 +4,7 @@ description: This article contains a collection of AzCopy example commands that 
 author: normesta
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 11/08/2022
+ms.date: 10/31/2023
 ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.reviewer: dineshm
@@ -16,14 +16,14 @@ You can copy blobs, directories, and containers between storage accounts by usin
 
 To see examples for other types of tasks such as uploading files, downloading blobs, and synchronizing with Blob storage, see the links presented in the [Next Steps](#next-steps) section of this article.
 
-AzCopy uses [server-to-server](/rest/api/storageservices/put-block-from-url) [APIs](/rest/api/storageservices/put-page-from-url), so data is copied directly between storage servers. These copy operations don't use the network bandwidth of your computer.
+AzCopy uses [server-to-server](/rest/api/storageservices/put-block-from-url) [APIs](/rest/api/storageservices/put-page-from-url), so data is copied directly between storage servers.
 
 ## Get started
 
 See the [Get started with AzCopy](storage-use-azcopy-v10.md) article to download AzCopy and learn about the ways that you can provide authorization credentials to the storage service.
 
 > [!NOTE]
-> The examples in this article assume that you've provided authorization credentials by using Azure Active Directory (Azure AD) and that your Azure AD identity has the proper role assignments for both source and destination accounts. 
+> The examples in this article assume that you've provided authorization credentials by using Microsoft Entra ID and that your Microsoft Entra identity has the proper role assignments for both source and destination accounts. 
 >
 > Alternatively you can append a SAS token to either the source or destination URL in each AzCopy command. For example: `azcopy copy 'https://<source-storage-account-name>.blob.core.windows.net/<container-name>/<blob-path><SAS-token>' 'https://<destination-storage-account-name>.blob.core.windows.net/<container-name>/<blob-path><SAS-token>'`.
 
@@ -31,13 +31,11 @@ See the [Get started with AzCopy](storage-use-azcopy-v10.md) article to download
 
 Apply the following guidelines to your AzCopy commands.
 
-- If you're using Azure AD authorization for both source and destination, then both accounts must belong to the same Azure AD tenant.
+- If you're using Microsoft Entra authorization for both source and destination, then both accounts must belong to the same Microsoft Entra tenant.
 
 - Your client must have network access to both the source and destination storage accounts. To learn how to configure the network settings for each storage account, see [Configure Azure Storage firewalls and virtual networks](storage-network-security.md?toc=/azure/storage/blobs/toc.json).
 
 -  If you copy to a premium block blob storage account, omit the access tier of a blob from the copy operation by setting the `s2s-preserve-access-tier` to `false` (For example: `--s2s-preserve-access-tier=false`). Premium block blob storage accounts don't support access tiers.
-
-- If you copy to or from an account that has a hierarchical namespace, use `blob.core.windows.net` instead of `dfs.core.windows.net` in the URL syntax. [Multi-protocol access on Data Lake Storage](../blobs/data-lake-storage-multi-protocol-access.md) enables you to use `blob.core.windows.net`, and it's the only supported syntax for account to account copy scenarios.
 
 - You can increase the throughput of copy operations by setting the value of the `AZCOPY_CONCURRENCY_VALUE` environment variable. To learn more, see [Increase Concurrency](storage-use-azcopy-optimize.md#increase-concurrency).
 
@@ -52,12 +50,18 @@ Copy a blob to another storage account by using the [azcopy copy](storage-ref-az
 
 **Syntax**
 
-`azcopy copy 'https://<source-storage-account-name>.blob.core.windows.net/<container-name>/<blob-path>' 'https://<destination-storage-account-name>.blob.core.windows.net/<container-name>/<blob-path>'`
+`azcopy copy 'https://<source-storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<blob-path>' 'https://<destination-storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<blob-path>'`
 
 **Example**
 
 ```azcopy
 azcopy copy 'https://mysourceaccount.blob.core.windows.net/mycontainer/myTextFile.txt' 'https://mydestinationaccount.blob.core.windows.net/mycontainer/myTextFile.txt'
+```
+
+**Example (Data Lake Storage endpoints)**
+
+```azcopy
+azcopy copy 'https://mysourceaccount.dfs.core.windows.net/mycontainer/myTextFile.txt' 'https://mydestinationaccount.dfs.core.windows.net/mycontainer/myTextFile.txt'
 ```
 
 The copy operation is synchronous so when the command returns, that indicates that all files have been copied.
@@ -71,12 +75,18 @@ Copy a directory to another storage account by using the [azcopy copy](storage-r
 
 **Syntax**
 
-`azcopy copy 'https://<source-storage-account-name>.blob.core.windows.net/<container-name>/<directory-path>' 'https://<destination-storage-account-name>.blob.core.windows.net/<container-name>' --recursive`
+`azcopy copy 'https://<source-storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<directory-path>' 'https://<destination-storage-account-name>.<blob or dfs>.core.windows.net/<container-name>' --recursive`
 
 **Example**
 
 ```azcopy
 azcopy copy 'https://mysourceaccount.blob.core.windows.net/mycontainer/myBlobDirectory' 'https://mydestinationaccount.blob.core.windows.net/mycontainer' --recursive
+```
+
+**Example (Data Lake Storage endpoints)**
+
+```azcopy
+azcopy copy 'https://mysourceaccount.dfs.core.windows.net/mycontainer/myBlobDirectory' 'https://mydestinationaccount.dfs.core.windows.net/mycontainer' --recursive
 ```
 
 The copy operation is synchronous. All files have been copied when the command returns.
@@ -90,12 +100,18 @@ Copy a container to another storage account by using the [azcopy copy](storage-r
 
 **Syntax**
 
-`azcopy copy 'https://<source-storage-account-name>.blob.core.windows.net/<container-name>' 'https://<destination-storage-account-name>.blob.core.windows.net/<container-name>' --recursive`
+`azcopy copy 'https://<source-storage-account-name>.<blob or dfs>.core.windows.net/<container-name>' 'https://<destination-storage-account-name>.<blob or dfs>.core.windows.net/<container-name>' --recursive`
 
 **Example**
 
 ```azcopy
 azcopy copy 'https://mysourceaccount.blob.core.windows.net/mycontainer' 'https://mydestinationaccount.blob.core.windows.net/mycontainer' --recursive
+```
+
+**Example (Data Lake Storage endpoints)**
+
+```azcopy
+azcopy copy 'https://mysourceaccount.dfs.core.windows.net/mycontainer' 'https://mydestinationaccount.dfs.core.windows.net/mycontainer' --recursive
 ```
 
 The copy operation is synchronous. All files have been copied when the command returns.
@@ -109,12 +125,18 @@ Copy all containers, directories, and blobs to another storage account by using 
 
 **Syntax**
 
-`azcopy copy 'https://<source-storage-account-name>.blob.core.windows.net/' 'https://<destination-storage-account-name>.blob.core.windows.net/' --recursive`
+`azcopy copy 'https://<source-storage-account-name>.<blob or dfs>.core.windows.net/' 'https://<destination-storage-account-name>.<blob or dfs>.core.windows.net/' --recursive`
 
 **Example**
 
 ```azcopy
 azcopy copy 'https://mysourceaccount.blob.core.windows.net/' 'https://mydestinationaccount.blob.core.windows.net' --recursive
+```
+
+**Example (Data Lake Storage endpoints)**
+
+```azcopy
+azcopy copy 'https://mysourceaccount.dfs.core.windows.net/' 'https://mydestinationaccount.dfs.core.windows.net' --recursive
 ```
 
 The copy operation is synchronous so when the command returns, that indicates that all files have been copied.
@@ -125,7 +147,7 @@ The copy operation is synchronous so when the command returns, that indicates th
 
 Copy blobs to another storage account and add [blob index tags](../blobs/storage-manage-find-blobs.md) to the target blob.
 
-If you're using Azure AD authorization, your security principal must be assigned the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role, or it must be given permission to the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) via a custom Azure role. If you're using a Shared Access Signature (SAS) token, that token must provide access to the blob's tags via the `t` SAS permission.
+If you're using Microsoft Entra authorization, your security principal must be assigned the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role, or it must be given permission to the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) via a custom Azure role. If you're using a Shared Access Signature (SAS) token, that token must provide access to the blob's tags via the `t` SAS permission.
 
 To add tags, use the `--blob-tags` option along with a URL encoded key-value pair.
 

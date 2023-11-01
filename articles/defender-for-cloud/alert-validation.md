@@ -98,7 +98,7 @@ You can simulate alerts for both of the control plane, and workload alerts with 
 **Prerequisites**
 
 - Ensure the Defender for Containers plan is enabled.
-- **Arc only** - Ensure the Defender extension is installed.
+- **Arc only** - Ensure the [Defender agent](defender-for-cloud-glossary.md#defender-agent) is installed.
 - **EKS or GKE only** - Ensure the default audit log collection autoprovisioning options are enabled.
 
 **To simulate a Kubernetes control plane security alert**:
@@ -122,7 +122,7 @@ You can simulate alerts for both of the control plane, and workload alerts with 
 **Prerequisites**
 
 - Ensure the Defender for Containers plan is enabled.
-- Ensure the Defender profile\extension is installed.
+- Ensure the [Defender agent](defender-for-cloud-glossary.md#defender-agent) is installed.
 
 **To simulate a a Kubernetes workload security alert**:
 
@@ -187,7 +187,7 @@ You can simulate alerts for resources running on [App Service](/azure/app-servic
     :::image type="content" source="media/alert-validation/storage-atp-navigate-container.png" alt-text="Screenshot showing where to navigate to select a container." lightbox="media/alert-validation/storage-atp-navigate-container.png":::
 
 1. Navigate to an existing container or create a new one.
-1. Upload a file to that container. Avoid uploading any file that may contain sensitive data.
+1. Upload a file to that container. Avoid uploading any file that might contain sensitive data.
 
     :::image type="content" source="media/alert-validation/storage-atp-upload-image.png" alt-text="Screenshot showing where to upload a file to the container." lightbox="media/alert-validation/storage-atp-upload-image.png":::
 

@@ -8,7 +8,7 @@ author: jonburchel
 ms.author: jburchel 
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
-ms.date: 08/19/2022
+ms.date: 08/10/2023
 ---
 
 # Quickstart: Create an Azure Data Factory using Bicep

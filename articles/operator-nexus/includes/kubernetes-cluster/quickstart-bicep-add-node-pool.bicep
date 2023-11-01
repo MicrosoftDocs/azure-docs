@@ -25,7 +25,7 @@ param agentPoolNodeCount int = 1
 param agentPoolName string = 'nodepool-2'
 
 @description('VM size of the agent nodes')
-param agentVmSku string = 'NC_M4_v1'
+param agentVmSku string = 'NC_P10_56_v1'
 
 @description('The zones/racks used for placement of the agent pool nodes')
 param agentPoolZones array = []
@@ -77,7 +77,7 @@ param trunkedNetworks array = []
 //   pluginType: 'SRIOV|DPDK|OSDevice|MACVLAN|IPVLAN'
 // }
 
-resource agentPools 'Microsoft.NetworkCloud/kubernetesClusters/agentPools@2023-05-01-preview' = {
+resource agentPools 'Microsoft.NetworkCloud/kubernetesClusters/agentPools@2023-07-01' = {
   name: '${kubernetesClusterName}/${kubernetesClusterName}-${agentPoolName}'
   location: location
   tags: tags
@@ -93,7 +93,7 @@ resource agentPools 'Microsoft.NetworkCloud/kubernetesClusters/agentPools@2023-0
           keyData: sshPublicKey
         }
       ]
-    }: null
+    }: {}
     attachedNetworkConfiguration: {
       l2Networks: empty(l2Networks) ? null : l2Networks
       l3Networks: empty(l3Networks) ? null : l3Networks

@@ -38,6 +38,8 @@ landingContent:
              url: concepts-nexus-kubernetes-cluster.md
            - text: Observability
              url: concepts-observability.md
+           - text: Security
+             url: concepts-security.md  
            - text: Frequently asked questions
              url: azure-operator-nexus-faq.md
 #     - linkListType: how-to-guide
@@ -61,7 +63,7 @@ landingContent:
            - text: Deploy Nexus Kubernetes cluster
              url: quickstarts-kubernetes-cluster-deployment-bicep.md
            - text: Deploy Nexus virtual machine
-             url: quickstarts-tenant-workload-deployment.md
+             url: quickstarts-virtual-machine-deployment-cli.md
 #
   # Card
   - title: Observability
@@ -78,6 +80,20 @@ landingContent:
              url: howto-monitor-virtualized-network-functions-virtual-machines.md
            - text: Cluster metrics configuration management
              url: howto-cluster-metrics-configuration-management.md
+#
+  # Card
+  - title: Security
+    linkLists:
+      - linkListType: concept
+        links:
+           - text: Security concepts
+             url: concepts-security.md 
+      - linkListType: how-to-guide
+        links:
+           - text: Set up Defender for Cloud security
+             url: howto-set-up-defender-for-cloud-security.md
+           - text: Use Azure Policy to protect AKS clusters
+             url: howto-use-azure-policy-for-aks-cluster-security.md
 #
   # Card
   - title: References
@@ -142,7 +158,7 @@ landingContent:
 #            url: quickstarts-tenant-workload-prerequisites.md
 #       links:
 #          - text: Tenant workload deployment
-#            url: quickstarts-tenant-workload-deployment.md           
+#            url: quickstarts-virtual-machine-deployment-cli.md           
 #     - linkListType: how-to-guide
 #       links:
 #          - text: Bare metal operations

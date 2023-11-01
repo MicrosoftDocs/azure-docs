@@ -23,7 +23,7 @@ Azure Kubernetes Service (AKS) is now offering two pricing tiers for cluster man
 >
 > The repositioning will result in the following API changes:
 >
-> |         |Prior to 2023-02-01 API|Starting from 2023-02-01 API|
+> | SKU      |Prior to 2023-02-01 API|Starting from 2023-02-01 API|
 > |----------|-----------|------------|
 > |ManagedClusterSKUName|"Basic"|"Base"|
 > |ManagedClusterSKUTier|"Free" <br> "Paid"|"Free" <br> "Standard"|
@@ -83,7 +83,7 @@ Once the deployment completes, it returns JSON-formatted information about your 
 
 ## Update the tier of an existing AKS cluster
 
-The following example uses the [`az aks update`][az-aks-update] command to update the existing cluster.
+The following example uses the [`az aks update`](/cli/azure/aks#az_aks_update) command to update the existing cluster.
 
 ```azurecli-interactive
 # Update an existing cluster to the Free tier
@@ -95,7 +95,7 @@ az aks update --resource-group myResourceGroup --name myAKSCluster --tier free
 az aks update --resource-group myResourceGroup --name myAKSCluster --tier standard
 ```
 
-This process takes several minutes to complete. When finished, the following example JSON snippet shows updating the existing cluster to the Standard tier in the Base SKU.
+This process takes several minutes to complete. You shouldn't experience any downtime while your cluster tier is being updated. When finished, the following example JSON snippet shows updating the existing cluster to the Standard tier in the Base SKU.
 
 ```output
   },
@@ -110,22 +110,8 @@ This process takes several minutes to complete. When finished, the following exa
 * Use [Availability Zones][availability-zones] to increase high availability with your AKS cluster workloads.
 * Configure your cluster to [limit egress traffic](limit-egress-traffic.md).
 
-<!-- LINKS - External -->
-[azure-support]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest
-[region-availability]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
-
-<!-- LINKS - Internal -->
-[vm-skus]: ../virtual-machines/sizes.md
-[paid-sku-tier]: /rest/api/aks/managed-clusters/create-or-update#managedclusterskutier
-[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [manage-resource-group-cli]: ../azure-resource-manager/management/manage-resource-groups-cli.md
-[faq]: ./faq.md
 [availability-zones]: ./availability-zones.md
 [az-aks-create]: /cli/azure/aks?#az_aks_create
-[limit-egress-traffic]: ./limit-egress-traffic.md
-[az-extension-add]: /cli/azure/extension#az_extension_add
-[az-extension-update]: /cli/azure/extension#az_extension_update
-[az-aks-update]: /cli/azure/aks#az_aks_update
-[az-group-delete]: /cli/azure/group#az_group_delete
 [private-clusters]: private-clusters.md
 [install-azure-cli]: /cli/azure/install-azure-cli

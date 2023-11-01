@@ -7,7 +7,7 @@ ms.date: 05/23/2023
 author: george-guirguis
 ms.author: geguirgu
 ---
-# Topic Spaces in Azure Event Grid
+# Topic Spaces in Azure Event Grid’s MQTT broker feature
 
 A topic space represents multiple topics through a set of topic templates. Topic templates are an extension of MQTT filters that support variables, along with the MQTT wildcards. Each topic space represents the MQTT topics that the same set of clients need to use to communicate. 
 
@@ -24,7 +24,7 @@ Topic spaces are used to simplify access control management by enabling you to g
 
 An [MQTT topic filter](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html) is an MQTT topic that can include wildcards for one or more of its segments, allowing it to match multiple MQTT topics. It's used to simplify subscription requests as one topic filter can match multiple topics.
 
-Event Grid supports all the MQTT wildcards defined by the [MQTT specification](https://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html) as follows:
+MQTT broker supports all the MQTT wildcards defined by the [MQTT specification](https://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html) as follows:
 
 - +: which matches a single segment.
     - For example, topic filter: "machines/+/alert" matches the following topics:
@@ -37,7 +37,7 @@ Event Grid supports all the MQTT wildcards defined by the [MQTT specification](h
         - machines/humidity
         - machines/temp/alert etc.
 
-For more information about wildcards, see [Topic Wildcards in the MQTT spc](https://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html).
+For more information about wildcards, see [Topic Wildcards in the MQTT spec](https://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html).
 
 ## Topic templates
 
@@ -52,6 +52,7 @@ Topic Spaces can group up to 10 topic templates. Topic templates support MQTT wi
 
 **Note:**
 
+- Topics that start with $ are reserved for internal use.
 - A variable can represent a portion of a segment or an entire segment but can't cover more than one segment. For example, a topic template could include "machines/${client.authenticationName|.factory1}/temp" matches topics "machines/machine1.factory1/temp", "machines/machine2.factory1/temp", etc.
 - Topic templates use special characters \$ and | and these need to be escaped differently based on the shell being used. In PowerShell, \$ can be escaped with vehicles/${dollar}telemetry/#. If you’re using PowerShell, you can escape these special characters as shown in the following examples:
 

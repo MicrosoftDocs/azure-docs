@@ -182,4 +182,3 @@ To ensure the Spark instance is shut down, end any connected sessions(notebooks)
 
 * [Check out Synapse sample notebooks](https://github.com/Azure-Samples/Synapse/tree/main/MachineLearning) 
 * [SynapseML GitHub Repo](https://github.com/Azure/mmlspark)
-* [SynapseML documentation](https://microsoft.github.io/SynapseML/docs/documentation/transformers/transformers_cognitive/)

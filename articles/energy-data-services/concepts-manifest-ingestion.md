@@ -68,6 +68,5 @@ Once the validations are successful, the system processes the content into stora
 OSDU&trade; is a trademark of The Open Group.
 
 ## Next steps
-Advance to the manifest ingestion tutorial and learn how to perform a manifest-based file ingestion
-> [!div class="nextstepaction"]
-> [Tutorial: Sample steps to perform a manifest-based file ingestion](tutorial-manifest-ingestion.md)
+- [Tutorial: Sample steps to perform a manifest-based file ingestion](tutorial-manifest-ingestion.md)
+- [OSDU Operator Data Loading Quick Start Guide](https://community.opengroup.org/groups/osdu/platform/data-flow/data-loading/-/wikis/home#osdu-operator-data-loading-quick-start-guide)

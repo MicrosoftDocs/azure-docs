@@ -9,7 +9,7 @@ metadata:
   ms.topic: landing-page
   ms.service: azure-quotas
   ms.collection: collection
-  ms.date: 04/04/2023
+  ms.date: 08/17/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -23,6 +23,8 @@ landingContent:
         links:
           - text: What are Azure Quotas?
             url: quotas-overview.md
+          - text: How to Monitor and get Alerts for Usages
+            url: monitoring-alerting.md
          
   # Card
   - title: View quotas and request increases
@@ -37,6 +39,8 @@ landingContent:
             url: regional-quota-requests.md
           - text: Increase spot vCPU quotas
             url: spot-quota.md
+          - text: Monitoring & Alerting - How-to-Guide
+            url: how-to-guide-monitoring-alerting.md
 
   # Card
   - title: API Reference
@@ -48,13 +52,7 @@ landingContent:
           - text: Azure PowerShell
             url: /powershell/module/az.quota/
           - text: Azure REST API
-            url: /rest/api/reserved-vm-instances/quotaapi
-      - linkListType: learn
-        links:
-          - text: Use the Quota REST API
-            url: https://techcommunity.microsoft.com/t5/azure-governance-and-management/using-the-new-quota-rest-api/ba-p/2183670
-          - text: Automate quota management with the REST API
-            url: https://azure.microsoft.com/blog/automating-quota-management-with-azure-quota-rest-api/
+            url: /rest/api/quota
 
   # Card 
   - title: Get started

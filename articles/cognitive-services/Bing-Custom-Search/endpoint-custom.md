@@ -59,4 +59,4 @@ For information about configuring a Custom Search instance, see [Configure your 
 The **Bing** APIs support search actions that return results according to their type. All search endpoints return results as JSON response objects.  All endpoints support queries that return a specific language and/or location by longitude, latitude, and search radius.
 
 For complete information about the parameters supported by each endpoint, see the reference pages for each type.
-For examples of basic requests using the Custom Search API, see [Custom Search Quick-starts](/azure/cognitive-services/bing-custom-search/)
+For examples of basic requests using the Custom Search API, see [Custom Search Quick-starts](/azure/cognitive-services/bing-custom-search/quick-start)

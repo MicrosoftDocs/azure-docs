@@ -6,6 +6,8 @@ ms.topic: article
 ms.date: 02/11/2021
 ms.reviewer: byvinyal
 ms.custom: seodec18, devx-track-azurecli
+author: cephalin
+ms.author: cephalin
 ---
 
 # Configure deployment credentials for Azure App Service
@@ -83,6 +85,7 @@ For [local Git deployment](deploy-local-git.md), you can also use the [az webapp
 ```azurecli-interactive
 az webapp deployment list-publishing-credentials --resource-group <group-name> --name <app-name> --query scmUri
 ```
+Note that the returned Git remote URI doesn't contain `/<app-name>.git` at the end. When you add the remote URI, make sure to append `/<app-name>.git` to avoid an error 22 with `git-http-push`. Additionally, when using `git remote add ... ` via shells that use the dollar sign for variable interpolation (such as bash), escape any dollar signs (`\$`) in the username or password. Failure to escape this character can result in authentication errors.
 
 # [Azure PowerShell](#tab/powershell)
 
@@ -132,7 +135,7 @@ Invoke-AzResourceAction -ResourceGroupName <group-name> -ResourceType Microsoft.
 
 ## Disable basic authentication
 
-Some organizations need to meet security requirements and would rather disable access via FTP or WebDeploy. This way, the organization's members can only access its App Services through APIs that are controlled by Azure Active Directory (Azure AD).
+Some organizations need to meet security requirements and would rather disable access via FTP or WebDeploy. This way, the organization's members can only access its App Services through APIs that are controlled by Microsoft Entra ID.
 
 ### FTP
 

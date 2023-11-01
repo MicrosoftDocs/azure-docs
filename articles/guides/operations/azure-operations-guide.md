@@ -102,7 +102,7 @@ Services for storing and managing data:
 
 Services for building and operating applications:
 
-- Azure Active Directory (Azure AD)
+- Microsoft Entra ID
 
 - Azure Service Bus for connecting distributed systems
 
@@ -380,7 +380,7 @@ For more information, see [Get started with Azure Table storage](../../cosmos-db
 #### Queue storage
 Azure Queue storage provides cloud messaging between application components. In designing applications for scale, application components are often decoupled so that they can scale independently. Queue storage delivers asynchronous messaging for communication between application components, whether they are running in the cloud, on the desktop, on an on-premises server, or on a mobile device. Queue storage also supports managing asynchronous tasks and building process workflows.
 
-For more information, see [Get started with Azure Queue storage](/azure/storage/queues/storage/queues/storage-quickstart-queues-dotnet?tabs=passwordless%2Croles-azure-portal%2Cenvironment-variable-windows%2Csign-in-azure-cli).
+For more information, see [Get started with Azure Queue storage](/azure/storage/queues/).
 
 ### Deploying a storage account
 

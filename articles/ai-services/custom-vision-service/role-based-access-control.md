@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: This article will show you how to configure Azure role-based access control for your Custom Vision projects.
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: custom-vision
+ms.service: azure-ai-custom-vision
 ms.topic: how-to
 ms.date: 09/11/2020
 ms.author: pafarley

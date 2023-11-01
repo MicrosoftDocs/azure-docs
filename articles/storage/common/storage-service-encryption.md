@@ -2,12 +2,12 @@
 title: Azure Storage encryption for data at rest
 description: Azure Storage protects your data by automatically encrypting it before persisting it to the cloud. You can rely on Microsoft-managed keys for the encryption of the data in your storage account, or you can manage encryption with your own keys.
 services: storage
-author: tamram
+author: normesta
 
 ms.service: azure-storage
 ms.date: 02/09/2023
 ms.topic: conceptual
-ms.author: tamram
+ms.author: normesta
 ms.reviewer: ozgun
 ms.subservice: storage-common-concepts
 ---

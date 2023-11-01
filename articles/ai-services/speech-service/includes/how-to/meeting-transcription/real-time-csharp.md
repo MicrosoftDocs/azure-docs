@@ -1,6 +1,6 @@
 ---
 author: eric-urban
-ms.service: cognitive-services
+ms.service: azure-ai-speech
 ms.topic: include
 ms.date: 01/24/2022
 ms.author: eur
@@ -120,90 +120,90 @@ using Microsoft.CognitiveServices.Speech;
 using Microsoft.CognitiveServices.Speech.Audio;
 using Microsoft.CognitiveServices.Speech.Transcription;
 
-class transcribe_meeting
+class TranscribeMeeting
 {
-// all your other code
+    // all your other code
 
-public static async Task TranscribeMeetingsAsync(string voiceSignatureStringUser1, string voiceSignatureStringUser2)
-{
-    var subscriptionKey = "your-subscription-key";
-    var region = "your-region";
-    var filepath = "audio-file-to-transcribe.wav";
-
-    var config = SpeechConfig.FromSubscription(subscriptionKey, region);
-    config.SetProperty("MeetingTranscriptionInRoomAndOnline", "true");
-
-    // en-us by default. Adding this code to specify other languages, like zh-cn.
-    // config.SpeechRecognitionLanguage = "zh-cn";
-    var stopRecognition = new TaskCompletionSource<int>();
-
-    using (var audioInput = AudioConfig.FromWavFileInput(filepath))
+    public static async Task TranscribeMeetingsAsync(string voiceSignatureStringUser1, string voiceSignatureStringUser2)
     {
-        var meetingID = Guid.NewGuid().ToString();
-        using (var meeting = await Meeting.CreateMeetingAsync(config, meetingID))
+        var subscriptionKey = "your-subscription-key";
+        var region = "your-region";
+        var filepath = "audio-file-to-transcribe.wav";
+
+        var config = SpeechConfig.FromSubscription(subscriptionKey, region);
+        config.SetProperty("ConversationTranscriptionInRoomAndOnline", "true");
+
+        // en-us by default. Adding this code to specify other languages, like zh-cn.
+        // config.SpeechRecognitionLanguage = "zh-cn";
+        var stopRecognition = new TaskCompletionSource<int>();
+
+        using (var audioInput = AudioConfig.FromWavFileInput(filepath))
         {
-            // create a meeting transcriber using audio stream input
-            using (var meetingTranscriber = new MeetingTranscriber(audioInput))
+            var meetingID = Guid.NewGuid().ToString();
+            using (var meeting = await Meeting.CreateMeetingAsync(config, meetingID))
             {
-                meetingTranscriber.Transcribing += (s, e) =>
+                // create a meeting transcriber using audio stream input
+                using (var meetingTranscriber = new MeetingTranscriber(audioInput))
                 {
-                    Console.WriteLine($"TRANSCRIBING: Text={e.Result.Text} SpeakerId={e.Result.UserId}");
-                };
-
-                meetingTranscriber.Transcribed += (s, e) =>
-                {
-                    if (e.Result.Reason == ResultReason.RecognizedSpeech)
+                    meetingTranscriber.Transcribing += (s, e) =>
                     {
-                        Console.WriteLine($"TRANSCRIBED: Text={e.Result.Text} SpeakerId={e.Result.UserId}");
-                    }
-                    else if (e.Result.Reason == ResultReason.NoMatch)
-                    {
-                        Console.WriteLine($"NOMATCH: Speech could not be recognized.");
-                    }
-                };
+                        Console.WriteLine($"TRANSCRIBING: Text={e.Result.Text} SpeakerId={e.Result.UserId}");
+                    };
 
-                meetingTranscriber.Canceled += (s, e) =>
-                {
-                    Console.WriteLine($"CANCELED: Reason={e.Reason}");
-
-                    if (e.Reason == CancellationReason.Error)
+                    meetingTranscriber.Transcribed += (s, e) =>
                     {
-                        Console.WriteLine($"CANCELED: ErrorCode={e.ErrorCode}");
-                        Console.WriteLine($"CANCELED: ErrorDetails={e.ErrorDetails}");
-                        Console.WriteLine($"CANCELED: Did you set the speech resource key and region values?");
+                        if (e.Result.Reason == ResultReason.RecognizedSpeech)
+                        {
+                            Console.WriteLine($"TRANSCRIBED: Text={e.Result.Text} SpeakerId={e.Result.UserId}");
+                        }
+                        else if (e.Result.Reason == ResultReason.NoMatch)
+                        {
+                            Console.WriteLine($"NOMATCH: Speech could not be recognized.");
+                        }
+                    };
+
+                    meetingTranscriber.Canceled += (s, e) =>
+                    {
+                        Console.WriteLine($"CANCELED: Reason={e.Reason}");
+
+                        if (e.Reason == CancellationReason.Error)
+                        {
+                            Console.WriteLine($"CANCELED: ErrorCode={e.ErrorCode}");
+                            Console.WriteLine($"CANCELED: ErrorDetails={e.ErrorDetails}");
+                            Console.WriteLine($"CANCELED: Did you set the speech resource key and region values?");
+                            stopRecognition.TrySetResult(0);
+                        }
+                    };
+
+                    meetingTranscriber.SessionStarted += (s, e) =>
+                    {
+                        Console.WriteLine($"\nSession started event. SessionId={e.SessionId}");
+                    };
+
+                    meetingTranscriber.SessionStopped += (s, e) =>
+                    {
+                        Console.WriteLine($"\nSession stopped event. SessionId={e.SessionId}");
+                        Console.WriteLine("\nStop recognition.");
                         stopRecognition.TrySetResult(0);
-                    }
-                };
+                    };
 
-                meetingTranscriber.SessionStarted += (s, e) =>
-                {
-                    Console.WriteLine($"\nSession started event. SessionId={e.SessionId}");
-                };
+                    // Add participants to the meeting.
+                    var speaker1 = Participant.From("User1", "en-US", voiceSignatureStringUser1);
+                    var speaker2 = Participant.From("User2", "en-US", voiceSignatureStringUser2);
+                    await meeting.AddParticipantAsync(speaker1);
+                    await meeting.AddParticipantAsync(speaker2);
 
-                meetingTranscriber.SessionStopped += (s, e) =>
-                {
-                    Console.WriteLine($"\nSession stopped event. SessionId={e.SessionId}");
-                    Console.WriteLine("\nStop recognition.");
-                    stopRecognition.TrySetResult(0);
-                };
+                    // Join to the meeting and start transcribing
+                    await meetingTranscriber.JoinMeetingAsync(meeting);
+                    await meetingTranscriber.StartTranscribingAsync().ConfigureAwait(false);
 
-                // Add participants to the meeting.
-                var speaker1 = Participant.From("User1", "en-US", voiceSignatureStringUser1);
-                var speaker2 = Participant.From("User2", "en-US", voiceSignatureStringUser2);
-                await meeting.AddParticipantAsync(speaker1);
-                await meeting.AddParticipantAsync(speaker2);
-
-                // Join to the meeting and start transcribing
-                await meetingTranscriber.JoinMeetingAsync(meeting);
-                await meetingTranscriber.StartTranscribingAsync().ConfigureAwait(false);
-
-                // waits for completion, then stop transcription
-                Task.WaitAny(new[] { stopRecognition.Task });
-                await meetingTranscriber.StopTranscribingAsync().ConfigureAwait(false);
+                    // waits for completion, then stop transcription
+                    Task.WaitAny(new[] { stopRecognition.Task });
+                    await meetingTranscriber.StopTranscribingAsync().ConfigureAwait(false);
+                }
             }
-         }
-      }
-   }
+        }
+    }
 }
 ```
 

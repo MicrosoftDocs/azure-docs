@@ -1,6 +1,6 @@
 ---
-title: Join a Linux VM to an Azure Active Directory Domain | Microsoft Docs
-description: Describes how to join a Linux VM to an Azure Active Directory Domain
+title: Join a Linux VM to a Microsoft Entra Domain | Microsoft Docs
+description: Describes how to join a Linux VM to a Microsoft Entra Domain
 services: azure-netapp-files
 documentationcenter: ''
 author: b-ahibbard
@@ -16,9 +16,9 @@ ms.date: 12/20/2022
 ms.author: anfdocs
 ---
 
-# Join a Linux VM to an Azure Active Directory Domain
+# Join a Linux VM to a Microsoft Entra Domain
 
-Joining a Linux virtual machine (VM) to an [Azure Active Directory Domain Services (Azure AD DS)](../active-directory-domain-services/overview.md) managed domain enables users to sign into to VMs with one set of credentials. Once joined, the user accounts and credentials can be used to sign in, access, and manage servers. 
+Joining a Linux virtual machine (VM) to an [Microsoft Entra Domain Services](../active-directory-domain-services/overview.md) managed domain enables users to sign into to VMs with one set of credentials. Once joined, the user accounts and credentials can be used to sign in, access, and manage servers. 
 
 Refer to [Understand guidelines for Active Directory Domain Services site design and planning](understand-guidelines-active-directory-domain-service-site.md) to learn more about using Active Directory in Azure NetApp Files. 
 

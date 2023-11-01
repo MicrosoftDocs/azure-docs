@@ -94,7 +94,7 @@ First, you'll need to add custom logging code to your scoring script (`score.py`
     > [!NOTE]
     > Currently, only pandas DataFrames can be logged with the `collect()` API. If the data is not in a DataFrame when passed to `collect()`, it will not be logged to storage and an error will be reported.
 
-The following code is an example of a full scoring script (`score.py`) that uses the custom logging Python SDK:
+The following code is an example of a full scoring script (`score.py`) that uses the custom logging Python SDK. In this example, a third `Collector` called `inputs_outputs_collector` logs a joined DataFrame of the `model_inputs` and the `model_outputs`. This joined DataFrame enables additional monitoring signals (feature attribution drift, etc.). If you are not interested in those monitoring signals, please feel free to remove this `Collector`.
 
 ```python
 import pandas as pd
@@ -102,7 +102,7 @@ import json
 from azureml.ai.monitoring import Collector
 
 def init():
-  global inputs_collector, outputs_collector
+  global inputs_collector, outputs_collector, inputs_outputs_collector
 
   # instantiate collectors with appropriate names, make sure align with deployment spec
   inputs_collector = Collector(name='model_inputs')                    
@@ -172,9 +172,11 @@ data_collector:
       enabled: 'True'
     model_outputs:
       enabled: 'True'
+    model_inputs_outputs:
+      enabled: 'True'
 ```
 
-The following code is an example of a comprehensive deployment YAML for a managed online endpoint deployment. You should update the deployment YAML according to your scenario.
+The following code is an example of a comprehensive deployment YAML for a managed online endpoint deployment. You should update the deployment YAML according to your scenario. For more examples on how to format your deployment YAML for inference data logging, see [https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/data-collector](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/data-collector).
 
 ```yml
 $schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json
@@ -194,6 +196,8 @@ data_collector:
     model_inputs:
       enabled: 'True'
     model_outputs:
+      enabled: 'True'
+    model_inputs_outputs:
       enabled: 'True'
 ```
 
@@ -385,4 +389,6 @@ After enabling data collection, production inference data will be logged to your
 
 To learn how to monitor the performance of your models with the collected production inference data, see the following articles:
 
+- [What is Azure Machine Learning model monitoring?](concept-model-monitoring.md)
+- [Monitor performance of models deployed to production](how-to-monitor-model-performance.md)
 - [What are Azure Machine Learning endpoints?](concept-endpoints.md)

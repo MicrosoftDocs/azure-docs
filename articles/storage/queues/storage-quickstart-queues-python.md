@@ -33,7 +33,7 @@ Use the Azure Queue Storage client library for Python to:
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 - Azure Storage account - [create a storage account](../common/storage-account-create.md)
-- [Python](https://www.python.org/downloads/) 3.6+
+- [Python](https://www.python.org/downloads/) 3.7+
 
 ## Setting up
 
@@ -74,7 +74,7 @@ pip install azure-storage-queue azure-identity
     ```python
     import os, uuid
     from azure.identity import DefaultAzureCredential
-    from azure.storage.queue import QueueServiceClient, QueueClient, QueueMessage
+    from azure.storage.queue import QueueServiceClient, QueueClient, QueueMessage, BinaryBase64DecodePolicy, BinaryBase64EncodePolicy
 
     try:
         print("Azure Queue storage - Python quickstart sample")

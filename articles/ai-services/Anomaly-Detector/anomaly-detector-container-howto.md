@@ -5,8 +5,7 @@ description: Use the Anomaly Detector API's algorithms to find anomalies in your
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: anomaly-detector
+ms.service: azure-ai-anomaly-detector
 ms.topic: how-to
 ms.date: 01/27/2023
 ms.author: mbullwin
@@ -15,6 +14,8 @@ keywords: on-premises, Docker, container, streaming, algorithms
 ---
 
 # Install and run Docker containers for the Anomaly Detector API 
+
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
 
 [!INCLUDE [container image location note](../containers/includes/image-location-note.md)]
 
@@ -191,7 +192,7 @@ In this article, you learned concepts and workflow for downloading, installing, 
 * You must specify billing information when instantiating a container.
 
 > [!IMPORTANT]
-> Azure AI services containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information with the metering service at all times. Azure AI services containers do not send customer data (e.g., the time series data that is being analyzed) to Microsoft.
+> Azure AI containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information with the metering service at all times. Azure AI containers do not send customer data (e.g., the time series data that is being analyzed) to Microsoft.
 
 ## Next steps
 

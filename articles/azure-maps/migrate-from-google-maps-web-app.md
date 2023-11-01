@@ -3,7 +3,7 @@ title: 'Tutorial - Migrate a web app from Google Maps to Microsoft Azure Maps'
 description: Tutorial on how to migrate a web app from Google Maps to Microsoft Azure Maps
 author: eriklindeman
 ms.author: eriklind
-ms.date: 12/07/2020
+ms.date: 09/28/2023
 ms.topic: tutorial
 ms.service: azure-maps
 ms.custom:
@@ -29,18 +29,17 @@ Also:
 > [!div class="checklist"]
 > * How to accomplish common mapping tasks using the Azure Maps Web SDK.
 > * Best practices to improve performance and user experience.
-> * Tips on how to make your application using more advanced features available in Azure Maps.
+> * Tips on using more advanced features available in Azure Maps.
 
-If migrating an existing web application, check to see if it's using an open-source map control library. Examples of open-source map control library are: Cesium, Leaflet, and OpenLayers. You can still migrate your application, even if it uses an open-source map control library, and you don't want to use the Azure Maps Web SDK. In such case, connect your application to the Azure Maps tile services ([road tiles]
-\| [satellite tiles]). The following points detail on how to use Azure Maps in some commonly used open-source map control libraries.
+If migrating an existing web application, check to see if it's using an open-source map control library. Examples of open-source map control library are: Cesium, Leaflet, and OpenLayers. You can still migrate your application, even if it uses an open-source map control library, and you don't want to use the Azure Maps Web SDK. In such case, connect your application to the Azure Maps [Render] services ([road tiles] | [satellite tiles]). The following points detail on how to use Azure Maps in some commonly used open-source map control libraries.
 
 * Cesium - A 3D map control for the web. [Cesium documentation].
 * Leaflet – Lightweight 2D map control for the web. [Leaflet code sample] \| [Leaflet documentation].
 * OpenLayers - A 2D map control for the web that supports projections. [OpenLayers documentation].
 
-If developing using a JavaScript framework, one of the following open-source projects may be useful:
+If developing using a JavaScript framework, one of the following open-source projects can be useful:
 
-* [ng-azure-maps] - Angular 10 wrapper around Azure maps.
+* [ng-azure-maps] - Angular 10 wrapper around Azure Maps.
 * [AzureMapsControl.Components] - An Azure Maps Blazor component.
 * [Azure Maps React Component] - A react wrapper for the Azure Maps control.
 * [Vue Azure Maps] - An Azure Maps component for Vue application.
@@ -53,7 +52,7 @@ If you don't have an Azure subscription, create a [free account] before you begi
 * A [subscription key]
 
 > [!NOTE]
-> For more information on authentication in Azure Maps, see [manage authentication in Azure Maps].
+> For more information on authentication in Azure Maps, see [Manage authentication in Azure Maps].
 
 ## Key features support
 
@@ -82,7 +81,7 @@ The following are some key differences between the Google Maps and Azure Maps We
 * You first need to create an instance of the Map class in Azure Maps. Wait for the maps `ready` or `load` event to fire before programmatically interacting with the map. This order ensures that all the map resources have been loaded and are ready to be accessed.
 * Both platforms use a similar tiling system for the base maps. The tiles in Google Maps are 256 pixels in dimension; however, the tiles in Azure Maps are 512 pixels in dimension. To get the same map view in Azure Maps as Google Maps, subtract Google Maps zoom level by the number one in Azure Maps.
 * Coordinates in Google Maps are referred to as `latitude,longitude`, while Azure Maps uses `longitude,latitude`. The Azure Maps format is aligned with the standard `[x, y]`, which is followed by most GIS platforms.
-* Shapes in the Azure Maps Web SDK are based on the GeoJSON schema. Helper classes are exposed through the [*atlas.data* namespace]. There's also the [*atlas.Shape*] class. Use this class to wrap GeoJSON objects, to make it easy to update and maintain the data bindable way.
+* Shapes in the Azure Maps Web SDK are based on the GeoJSON schema. Helper classes are exposed through the [atlas.data] namespace. There's also the [atlas.Shape] class. Use this class to wrap GeoJSON objects, to make it easy to update and maintain the data bindable way.
 * Coordinates in Azure Maps are defined as Position objects. A coordinate is specified as a number array in the format `[longitude,latitude]`. Or, it's specified using new atlas.data.Position(longitude, latitude).
     > [!TIP]
     > The Position class has a static helper method for importing coordinates that are in "latitude, longitude" format. The [atlas.data.Position.fromLatLng] method can often be replaced with the `new google.maps.LatLng` method in Google Maps code.
@@ -121,7 +120,7 @@ Both SDKs have the same steps to load a map:
 
 **Some key differences**
 
-* Google maps requires an account key to be specified in the script reference of the API. Authentication credentials for Azure Maps are specified as options of the map class. This credential can be a subscription key or Azure Active Directory information.
+* Google Maps requires an account key to be specified in the script reference of the API. Authentication credentials for Azure Maps are specified as options of the map class. This credential can be a subscription key or Microsoft Entra information.
 * Google Maps accepts a callback function in the script reference of the API, which is used to call an initialization function to load the map. With Azure Maps, the onload event of the page should be used.
 * When referencing the `div` element in which the map renders, the `Map` class in Azure Maps only requires the `id` value while Google Maps requires a `HTMLElement` object.
 * Coordinates in Azure Maps are defined as Position objects, which can be specified as a simple number array in the format `[longitude, latitude]`.
@@ -129,7 +128,7 @@ Both SDKs have the same steps to load a map:
 * Azure Maps doesn't add any navigation controls to the map canvas. So, by default, a map doesn't have zoom buttons and map style buttons. But, there are control options for adding a map style picker, zoom buttons, compass or rotation control, and a pitch control.
 * An event handler is added in Azure Maps to monitor the `ready` event of the map instance. This event fires when the map has finished loading the WebGL context and all the needed resources. Add any code you want to run after the map completes loading, to this event handler.
 
-The basic examples below uses Google Maps to load a map centered over New York at coordinates. The longitude: -73.985, latitude: 40.747, and the map is at zoom level of 12.
+The following examples use Google Maps to load a map centered over New York at coordinates. The longitude: -73.985, latitude: 40.747, and the map is at zoom level of 12.
 
 #### Before: Google Maps
 
@@ -182,8 +181,8 @@ Load a map with the same view in Azure Maps along with a map style control and z
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
     <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
-    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
-    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
+    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.css" type="text/css" />
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.js"></script>
 
     <script type='text/javascript'>
         var map;
@@ -228,7 +227,7 @@ Running this code in a browser displays a map that looks like the following imag
 For more information on how to set up and use the Azure Maps map control in a web app, see [Use the Azure Maps map control].
 
 > [!NOTE]
-> Unlike Google Maps, Azure Maps does not require an initial center and a zoom level to load the map. If this information is not provided when loading the map, Azure maps will try to determine city of the user. It will center and zoom the map there.
+> Unlike Google Maps, Azure Maps does not require an initial center and a zoom level to load the map. If this information is not provided when loading the map, Azure Maps will try to determine city of the user. It will center and zoom the map there.
 
 **More resources:**
 
@@ -280,7 +279,7 @@ For more information on supported languages, see [Localization support in Azure 
 
 Here's an example of Azure Maps with the language set to "fr" and the user region set to "fr-FR".
 
-![Azure Maps localization](media/migrate-google-maps-web-app/azure-maps-localization.jpg)
+:::image type="content" source="./media/migrate-google-maps-web-app/azure-maps-localized-map.jpg" lightbox="./media/migrate-google-maps-web-app/azure-maps-localized-map.jpg" alt-text="A screenshot showing a localized version of an Azure Maps map with the language set to French.":::
 
 ### Setting the map view
 
@@ -318,7 +317,7 @@ map.setStyle({
 });
 ```
 
-![Azure Maps set view](media/migrate-google-maps-web-app/azure-maps-set-view.jpg)
+:::image type="content" source="./media/migrate-google-maps-web-app/azure-maps-set-view.jpg" lightbox="./media/migrate-google-maps-web-app/azure-maps-set-view.jpg" alt-text="A screenshot of an Azure Maps map with the style property set to satellite.":::
 
 **More resources:**
 
@@ -365,7 +364,7 @@ map.markers.add(new atlas.HtmlMarker({
 }));
 ```
 
-![Azure Maps HTML marker](media/migrate-google-maps-web-app/azure-maps-html-marker.jpg)
+:::image type="content" source="./media/migrate-google-maps-web-app/azure-maps-html-marker.jpg" lightbox="./media/migrate-google-maps-web-app/azure-maps-html-marker.jpg" alt-text="A screenshot of an Azure Maps map with an html marker.":::
 
 **After: Azure Maps using a Symbol Layer**
 
@@ -381,8 +380,8 @@ For a Symbol layer, add the data to a data source. Attach the data source to the
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
     <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
-    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
-    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
+    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.css" type="text/css" />
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.js"></script>
 
     <script type='text/javascript'>
         var map, datasource;
@@ -429,7 +428,7 @@ For a Symbol layer, add the data to a data source. Attach the data source to the
 </html>
 ```
 
-![Azure Maps symbol layer](media/migrate-google-maps-web-app/azure-maps-symbol-layer.jpg)
+:::image type="content" source="./media/migrate-google-maps-web-app/azure-maps-symbol-layer.jpg" lightbox="./media/migrate-google-maps-web-app/azure-maps-symbol-layer.jpg" alt-text="A screenshot of an Azure Maps map with blue pin shown.":::
 
 **More resources:**
 
@@ -446,7 +445,7 @@ For a Symbol layer, add the data to a data source. Attach the data source to the
 
 ### Adding a custom marker
 
-You may use Custom images to represent points on a map. The following map uses a custom image to display a point on the map. The point is displayed at latitude: 51.5 and longitude: -0.2. The anchor offsets the position of the marker, so that the point of the pushpin icon aligns with the correct position on the map.
+You can use Custom images to represent points on a map. The following map uses a custom image to display a point on the map. The point is displayed at latitude: 51.5 and longitude: -0.2. The anchor offsets the position of the marker, so that the point of the pushpin icon aligns with the correct position on the map.
 
 <center>
 
@@ -489,7 +488,7 @@ map.markers.add(new atlas.HtmlMarker({
 }));
 ```
 
-![Azure Maps custom HTML marker](media/migrate-google-maps-web-app/azure-maps-custom-html-marker.jpg)
+:::image type="content" source="./media/migrate-google-maps-web-app/azure-maps-custom-html-marker.jpg" lightbox="./media/migrate-google-maps-web-app/azure-maps-custom-html-marker.jpg" alt-text="A screenshot of an Azure Maps map with a yellow push pin shown.":::
 
 **After: Azure Maps using a Symbol Layer**
 
@@ -505,8 +504,8 @@ Symbol layers in Azure Maps support custom images as well. First, load the image
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
     <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
-    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
-    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
+    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.css" type="text/css" />
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.js"></script>
 
     <script type='text/javascript'>
         var map, datasource;
@@ -554,7 +553,7 @@ Symbol layers in Azure Maps support custom images as well. First, load the image
 </html>
 ```
 
-![Azure Maps custom icon symbol layer](media/migrate-google-maps-web-app/azure-maps-custom-icon-symbol-layer.jpg)</
+:::image type="content" source="./media/migrate-google-maps-web-app/azure-maps-custom-icon-symbol-layer.jpg" lightbox="./media/migrate-google-maps-web-app/azure-maps-custom-icon-symbol-layer.jpg" alt-text="A screenshot of an Azure Maps map with a yellow push pin shown on the map in London.":::
 
 > [!TIP]
 > To render advanced custom points, use multiple rendering layers together. For example, let's say you want to have multiple pushpins that have the same icon on different colored circles. Instead of creating a bunch of images for each color overlay, add a symbol layer on top of a bubble layer. Have the pushpins reference the same data source. This approach will be more efficient than creating and maintaining a bunch of different images.
@@ -639,7 +638,7 @@ map.layers.add(new atlas.layer.LineLayer(datasource, null, {
 }));
 ```
 
-![Azure Maps polyline](media/migrate-google-maps-web-app/azure-maps-polyline.jpg)
+:::image type="content" source="./media/migrate-google-maps-web-app/azure-maps-polyline.jpg" lightbox="./media/migrate-google-maps-web-app/azure-maps-polyline.jpg" alt-text="A screenshot of an Azure Maps map with a red dashed shown to demonstrate a polyline.":::
 
 **More resources:**
 
@@ -711,6 +710,7 @@ map.layers.add(new atlas.layer.LineLayer(datasource, null, {
 ```
 
 ![Azure Maps polygon](media/migrate-google-maps-web-app/azure-maps-polygon.jpg)
+:::image type="content" source="./media/migrate-google-maps-web-app/azure-maps-polygon.jpg" lightbox="./media/migrate-google-maps-web-app/azure-maps-polyline.jpg" alt-text="A screenshot of an Azure Maps map with a solid red line forming a triangle filled with semi-transparent green shown to demonstrate a polygon.":::
 
 **More resources:**
 
@@ -779,7 +779,7 @@ map.events.add('click', marker, function () {
 });
 ```
 
-![Azure Maps popup](media/migrate-google-maps-web-app/azure-maps-popup.jpg)
+:::image type="content" source="./media/migrate-google-maps-web-app/azure-maps-popup.jpg" lightbox="./media/migrate-google-maps-web-app/azure-maps-popup.jpg" alt-text="A screenshot of an Azure Maps map with a blue pin with a popup showing hello world in it.":::
 
 > [!NOTE]
 > You may do the same thing with a symbol, bubble, line or polygon layer by passing the chosen layer to the maps event code instead of a marker.
@@ -797,7 +797,7 @@ map.events.add('click', marker, function () {
 
 Google Maps supports loading and dynamically styling GeoJSON data via the `google.maps.Data` class. The functionality of this class aligns more with the data-driven styling of Azure Maps. But, there's a key difference. With Google Maps, you specify a callback function. The business logic for styling each feature it processed individually in the UI thread. But in Azure Maps, layers support specifying data-driven expressions as styling options. These expressions are processed at render time on a separate thread. The Azure Maps approach improves rendering performance. This advantage is noticed when larger data sets need to be rendered quickly.
 
-The following examples load a GeoJSON feed of all earthquakes over the last seven days from the USGS. Earthquakes data renders as scaled circles on the map. The color and scale of each circle is based on the magnitude of each earthquake, which is stored in the `"mag"` property of each feature in the data set. If the magnitude is greater than or equal to five, the circle is red. If it's greater or equal to three, but less than five, the circle is orange. If it's less than three, the circle is green. The radius of each circle will be the exponential of the magnitude multiplied by 0.1.
+The following examples load a GeoJSON feed of all earthquakes over the last seven days from the USGS. Earthquakes data renders as scaled circles on the map. The color and scale of each circle is based on the magnitude of each earthquake, which is stored in the `"mag"` property of each feature in the data set. If the magnitude is greater than or equal to five, the circle is red. If it's greater or equal to three, but less than five, the circle is orange. If it's less than three, the circle is green. The radius of each circle is the exponential of the magnitude multiplied by 0.1.
 
 #### Before: Google Maps
 
@@ -884,8 +884,8 @@ GeoJSON is the base data type in Azure Maps. Import it into a data source using 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
     <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
-    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
-    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
+    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.css" type="text/css" />
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.js"></script>
 
     <script type='text/javascript'>
         var map;
@@ -947,7 +947,7 @@ GeoJSON is the base data type in Azure Maps. Import it into a data source using 
 </html>
 ```
 
-![Azure Maps GeoJSON](media/migrate-google-maps-web-app/azure-maps-geojson.jpg)
+:::image type="content" source="./media/migrate-google-maps-web-app/azure-maps-geojson.jpg" lightbox="./media/migrate-google-maps-web-app/azure-maps-geojson.jpg" alt-text="A screenshot of an Azure Maps map of the world with various sized red and orange circles created using the bubble layer.":::
 
 **More resources:**
 
@@ -958,7 +958,7 @@ GeoJSON is the base data type in Azure Maps. Import it into a data source using 
 
 ### Marker clustering
 
-When visualizing many data points on the map, points may overlap each other. Overlapping makes the map looks cluttered, and the map becomes difficult to read and use. Clustering point data is the process of combining data points that are near each other and representing them on the map as a single clustered data point. As the user zooms into the map, the clusters break apart into their individual data points. Cluster data points to improve user experience and map performance.
+When lots of data points appear on the map, points can overlap, making the map look cluttered and difficult to read and use. Clustering point data is the process of combining data points that are near each other and representing them on the map as a single clustered data point. As the user zooms into the map, the clusters break apart into their individual data points. Clustering data points improves the user experience and map performance.
 
 In the following examples, the code loads a GeoJSON feed of earthquake data from the past week and adds it to the map. Clusters are rendered as scaled and colored circles. The scale and color of the circles depends on the number of points they contain.
 
@@ -1046,7 +1046,7 @@ The `DataSource` class has the following helper function for accessing additiona
 
 | Method | Return type | Description |
 |--------|-------------|-------------|
-| `getClusterChildren(clusterId: number)` | Promise&lt;Array&lt;Feature&lt;Geometry, any&gt; \| Shape&gt;&gt; | Retrieves the children of the given cluster on the next zoom level. These children may be a combination of shapes and subclusters. The subclusters are features with properties matching ClusteredProperties. |
+| `getClusterChildren(clusterId: number)` | Promise&lt;Array&lt;Feature&lt;Geometry, any&gt; \| Shape&gt;&gt; | Retrieves the children of the given cluster on the next zoom level. These children can be a combination of shapes and subclusters. The subclusters are features with properties matching ClusteredProperties. |
 | `getClusterExpansionZoom(clusterId: number)` | Promise&lt;number&gt; | Calculates a zoom level at which the cluster starts expanding or break apart. |
 | `getClusterLeaves(clusterId: number, limit: number, offset: number)` | Promise&lt;Array&lt;Feature&lt;Geometry, any&gt; \| Shape&gt;&gt; | Retrieves all points in a cluster. Set the `limit` to return a subset of the points, and use the `offset` to page through the points. |
 
@@ -1064,8 +1064,8 @@ Directly import GeoJSON data using the `importDataFromUrl` function on the `Data
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
     <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
-    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
-    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
+    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.css" type="text/css" />
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.js"></script>
 
     <script type='text/javascript'>
         var map, datasource;
@@ -1098,7 +1098,7 @@ Directly import GeoJSON data using the `importDataFromUrl` function on the `Data
                 map.layers.add([
                     //Create a bubble layer for rendering clustered data points.
                     new atlas.layer.BubbleLayer(datasource, null, {
-                        //Scale the size of the clustered bubble based on the number of points inthe cluster.
+                        //Scale the size of the clustered bubble based on the number of points in the cluster.
                         radius: [
                             'step',
                             ['get', 'point_count'],
@@ -1149,6 +1149,7 @@ Directly import GeoJSON data using the `importDataFromUrl` function on the `Data
 ```
 
 ![Azure Maps clustering](media/migrate-google-maps-web-app/azure-maps-clustering.jpg)
+:::image type="content" source="./media/migrate-google-maps-web-app/azure-maps-clustering.jpg" lightbox="./media/migrate-google-maps-web-app/azure-maps-clustering.jpg" alt-text="A screenshot of an Azure Maps map of the world with various sized red, green and yellow circles with numbers in them. Created using three layers, a bubble layer for drawing scaled colored circles based on the size of the clusters. A symbol layer to render the cluster size as text and a second symbol layer for rendering the unclustered points.":::
 
 **More resources:**
 
@@ -1244,8 +1245,8 @@ Load the GeoJSON data into a data source and connect the data source to a heat m
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
     <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
-    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
-    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
+    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.css" type="text/css" />
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.js"></script>
 
     <script type='text/javascript'>
         var map;
@@ -1292,7 +1293,7 @@ Load the GeoJSON data into a data source and connect the data source to a heat m
 </html>
 ```
 
-![Azure Maps heat map](media/migrate-google-maps-web-app/azure-maps-heatmap.jpg)
+:::image type="content" source="./media/migrate-google-maps-web-app/azure-maps-heatmap.jpg" lightbox="./media/migrate-google-maps-web-app/azure-maps-heatmap.jpg" alt-text="A screenshot of an Azure Maps map of the world with a heat map layer.":::
 
 **More resources:**
 
@@ -1328,7 +1329,7 @@ map.overlayMapTypes.insertAt(0, new google.maps.ImageMapType({
 Add a tile layer to the map similarly as any other layer. Use a formatted URL that has in x, y, zoom placeholders; `{x}`, `{y}`, `{z}`  to tell the layer where to access the tiles. Azure Maps tile layers also support `{quadkey}`, `{bbox-epsg-3857}`, and `{subdomain}` placeholders.
 
 > [!TIP]
-> In Azure Maps layers can easily be rendered below other layers, including base map layers. Often it is desirable to render tile layers below the map labels so that they are easy to read. The `map.layers.add` method takes in a second parameter which is the id of the layer in which to insert the new layer below. To insert a tile layer below the map labels, use this code: `map.layers.add(myTileLayer, "labels");`
+> In Azure Maps layers can easily be rendered beneath other layers, including base map layers. Often it is desirable to render tile layers below the map labels so that they are easy to read. The `map.layers.add` method takes in a second parameter which is the id of the layer in which to insert the new layer below. To insert a tile layer below the map labels, use this code: `map.layers.add(myTileLayer, "labels");`
 
 ```javascript
 //Create a tile layer and add it to the map below the label layer.
@@ -1339,7 +1340,7 @@ map.layers.add(new atlas.layer.TileLayer({
 }), 'labels');
 ```
 
-![Azure Maps tile layer](media/migrate-google-maps-web-app/azure-maps-tile-layer.jpg)
+:::image type="content" source="./media/migrate-google-maps-web-app/azure-maps-tile-layer.jpg" lightbox="./media/migrate-google-maps-web-app/azure-maps-tile-layer.jpg" alt-text="A screenshot of an Azure Maps map of the world with a tile layer.":::
 
 > [!TIP]
 > Tile requests can be captured using the `transformRequest` option of the map. This will allow you to modify or add headers to the request if desired.
@@ -1352,7 +1353,7 @@ map.layers.add(new atlas.layer.TileLayer({
 
 ### Show traffic data
 
-Traffic data can be overlaid both Azure and Google maps.
+Traffic data can be overlaid both Azure and Google Maps.
 
 #### Before: Google Maps
 
@@ -1378,11 +1379,11 @@ map.setTraffic({
 });
 ```
 
-![Azure Maps traffic](media/migrate-google-maps-web-app/azure-maps-traffic.jpg)
+:::image type="content" source="./media/migrate-google-maps-web-app/azure-maps-traffic.jpg" lightbox="./media/migrate-google-maps-web-app/azure-maps-traffic.jpg" alt-text="A screenshot of an Azure Maps map showing traffic.":::
 
 If you select one of the traffic icons in Azure Maps, more information is displayed in a popup.
 
-![Azure Maps traffic incident](media/migrate-google-maps-web-app/azure-maps-traffic-incident.jpg)
+:::image type="content" source="./media/migrate-google-maps-web-app/azure-maps-traffic-popup.jpg" lightbox="./media/migrate-google-maps-web-app/azure-maps-traffic-popup.jpg" alt-text="A screenshot of an Azure Maps map showing traffic with a popup showing the details of a specific traffic incident .":::
 
 **More resources:**
 
@@ -1391,7 +1392,7 @@ If you select one of the traffic icons in Azure Maps, more information is displa
 
 ### Add a ground overlay
 
-Both Azure and Google maps support overlaying georeferenced images on the map. Georeferenced images move and scale as you pan and zoom the map. In Google Maps, georeferenced images are known as ground overlays while in Azure Maps they're referred to as image layers. They're great for building floor plans, overlaying old maps, or imagery from a drone.
+Both Azure and Google Maps support overlaying georeferenced images on the map. Georeferenced images move and scale as you pan and zoom the map. In Google Maps, georeferenced images are known as ground overlays while in Azure Maps they're referred to as image layers. They're great for building floor plans, overlaying old maps, or imagery from a drone.
 
 #### Before: Google Maps
 
@@ -1459,8 +1460,8 @@ Use the `atlas.layer.ImageLayer` class to overlay georeferenced images. This cla
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
     <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
-    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
-    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
+    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.css" type="text/css" />
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.js"></script>
 
     <script type='text/javascript'>
         var map;
@@ -1501,7 +1502,7 @@ Use the `atlas.layer.ImageLayer` class to overlay georeferenced images. This cla
 </html>
 ```
 
-![Azure Maps image overlay](media/migrate-google-maps-web-app/azure-maps-image-overlay.jpg)
+:::image type="content" source="./media/migrate-google-maps-web-app/azure-maps-image-overlay.jpg" lightbox="./media/migrate-google-maps-web-app/azure-maps-image-overlay.jpg" alt-text="A screenshot of an Azure Maps map showing an image overlaid over the map.":::
 
 **More resources:**
 
@@ -1510,11 +1511,11 @@ Use the `atlas.layer.ImageLayer` class to overlay georeferenced images. This cla
 
 ### Add KML data to the map
 
-Both Azure and Google maps can import and render KML, KMZ and GeoRSS data on the map. Azure Maps also supports GPX, GML, spatial CSV files, GeoJSON, Well Known Text (WKT), Web-Mapping Services (WMS), Web-Mapping Tile Services (WMTS), and Web Feature Services (WFS). Azure Maps reads the files locally into memory and in most cases can handle larger KML files.
+Both Azure and Google Maps can import and render KML, KMZ and GeoRSS data on the map. Azure Maps also supports GPX, GML, spatial CSV files, GeoJSON, Well Known Text (WKT), Web-Mapping Services (WMS), Web-Mapping Tile Services (WMTS), and Web Feature Services (WFS). Azure Maps reads the files locally into memory and in most cases can handle larger KML files.
 
 #### Before: Google Maps
 
-```javascript
+```html
 <!DOCTYPE html>
 <html>
 <head>
@@ -1566,8 +1567,8 @@ In Azure Maps, GeoJSON is the main data format used in the web SDK, more spatial
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
     <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
-    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
-    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
+    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.css" type="text/css" />
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.js"></script>
 
     <!-- Add reference to the Azure Maps Spatial IO module. -->
     <script src="https://atlas.microsoft.com/sdk/javascript/spatial/0/atlas-spatial.js"></script>
@@ -1645,7 +1646,7 @@ In Azure Maps, GeoJSON is the main data format used in the web SDK, more spatial
 </html>
 ```
 
-![Azure Maps KML](media/migrate-google-maps-web-app/azure-maps-kml.png)
+:::image type="content" source="./media/migrate-google-maps-web-app/azure-maps-kml.jpg" lightbox="./media/migrate-google-maps-web-app/azure-maps-kml.jpg" alt-text="A screenshot of an Azure Maps map demonstrating KML with different colored lines representing different railroad track originating from a port in Chicago to various different destinations, all data coming from the KM file.":::
 
 **More resources:**
 
@@ -1736,8 +1737,8 @@ Learn more about migrating to Azure Maps:
 > [!div class="nextstepaction"]
 > [Migrate a web service]
 
-[*atlas.data* namespace]: /javascript/api/azure-maps-control/atlas.data
-[*atlas.Shape*]: /javascript/api/azure-maps-control/atlas.shape
+[atlas.data]: /javascript/api/azure-maps-control/atlas.data
+[atlas.Shape]: /javascript/api/azure-maps-control/atlas.shape
 [`atlas.layer.ImageLayer.getCoordinatesFromEdges`]: /javascript/api/azure-maps-control/atlas.layer.imagelayer#getcoordinatesfromedges-number--number--number--number--number-
 [Add a Bubble layer]: map-add-bubble-layer.md
 [Add a circle to the map]: map-add-shape.md#add-a-circle-to-the-map
@@ -1831,7 +1832,7 @@ Learn more about migrating to Azure Maps:
 [Load a map]: #load-a-map
 [Localization support in Azure Maps]: supported-languages.md
 [Localizing the map]: #localizing-the-map
-[manage authentication in Azure Maps]: how-to-manage-authentication.md
+[Manage authentication in Azure Maps]: how-to-manage-authentication.md
 [Marker clustering]: #marker-clustering
 [Migrate a web service]: migrate-from-google-maps-web-services.md
 [ng-azure-maps]: https://github.com/arnaudleclerc/ng-azure-maps
@@ -1844,9 +1845,10 @@ Learn more about migrating to Azure Maps:
 [Popup options]: /javascript/api/azure-maps-control/atlas.popupoptions
 [Popup with Media Content]: https://samples.azuremaps.com/?sample=popup-with-media-content
 [Popups on Shapes]: https://samples.azuremaps.com/?sample=popups-on-shapes
+[Render]:  /rest/api/maps/render-v2
 [Reusing Popup with Multiple Pins]: https://samples.azuremaps.com/?sample=reusing-popup-with-multiple-pins
-[road tiles]: /rest/api/maps/render/getmaptile
-[satellite tiles]: /rest/api/maps/render/getmapimagerytile
+[road tiles]: /rest/api/maps/render-v2/get-map-tile
+[satellite tiles]: /rest/api/maps/render-v2/get-map-static-image
 [Search Autosuggest with JQuery UI]: https://samples.azuremaps.com/?sample=search-autosuggest-and-jquery-ui
 [Search for points of interest]: map-search-location.md
 [Setting the map view]: #setting-the-map-view

@@ -2,8 +2,8 @@
 title:  Read and write spatial data
 titleSuffix:  Microsoft Azure Maps
 description: Learn how to read and write data using the Spatial IO module, provided by Azure Maps Web SDK.
-author: dubiety
-ms.author: yuchungchen
+author: sinnypan
+ms.author: sipa
 ms.date: 06/21/2023
 ms.topic: how-to
 ms.service: azure-maps
@@ -51,7 +51,7 @@ The [Load spatial data] sample shows how to read a spatial data set, and renders
 :::image type="content" source="./media/spatial-io-read-write-spatial-data/load-spatial-data.png"alt-text="A screenshot that shows the snap grid on map.":::
 
 <!--------------------------------------------------
-<iframe height='500' scrolling='no' title='Load Spatial Data Simple' src='//codepen.io/azuremaps/embed/yLNXrZx/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/yLNXrZx/'>Load Spatial Data Simple</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/yLNXrZx/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
 --------------------------------------------------->
 
 The next code demo shows how to read and load KML, or KMZ, to the map. KML can contain ground overlays, which is in the form of an `ImageLyaer` or `OgcMapLayer`. These overlays must be added on the map separately from the features. Additionally, if the data set has custom icons, those icons need to be loaded to the maps resources before the features are loaded.
@@ -61,7 +61,7 @@ The [Load KML onto map] sample shows how to load KML or KMZ files onto the map. 
 :::image type="content" source="./media/spatial-io-read-write-spatial-data/load-kml-onto-map.png"alt-text="A screenshot that shows a map with a KML ground overlay.":::
 
 <!--------------------------------------------------
-<iframe height='500' scrolling='no' title='Load KML Onto Map' src='//codepen.io/azuremaps/embed/XWbgwxX/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/XWbgwxX/'>Load KML Onto Map</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/XWbgwxX/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
 --------------------------------------------------->
 
 You may optionally provide a proxy service for accessing cross domain assets that may not have CORS enabled. The read function tries to access files on another domain using CORS first. After the first time it fails to access any resource on another domain using CORS it only requests more files if a proxy service has been provided. The read function appends the file URL to the end of the proxy URL provided. This snippet of code shows how to pass a proxy service into the read function:
@@ -140,7 +140,7 @@ function InitMap()
 :::image type="content" source="./media/spatial-io-read-write-spatial-data/read-delimited-file.png"alt-text="A screenshot that shows a map created from a CSV file.":::
 
 <!--------------------------------------------------
-<iframe height='500' scrolling='no' title='Add a Delimited File' src='//codepen.io/azuremaps/embed/ExjXBEb/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/ExjXBEb/'>Add a Delimited File</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/ExjXBEb/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
 --------------------------------------------------->
 
 ## Write spatial data
@@ -152,7 +152,7 @@ The [Spatial data write options] sample is a tool that demonstrates most the wri
 :::image type="content" source="./media/spatial-io-read-write-spatial-data/spatial-data-write-options.png"alt-text="A screenshot that shows The Spatial data write options sample that demonstrates most of the write options used with the atlas.io.write function.":::
 
 <!--------------------------------------------------
-<iframe height='700' scrolling='no' title='Spatial data write options' src='//codepen.io/azuremaps/embed/YzXxXPG/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/YzXxXPG/'>Spatial data write options</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/YzXxXPG/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true]
 --------------------------------------------------->
 
 ## Example of writing spatial data
@@ -162,7 +162,7 @@ The [Drag and drop spatial files onto map] sample allows you to drag and drop on
 :::image type="content" source="./media/spatial-io-read-write-spatial-data/drag-and-drop-spatial-files-onto-map.png" alt-text="A screenshot that shows a map with a panel to the left of the map that enables you to drag and drop one or more KML, KMZ, GeoRSS, GPX, GML, GeoJSON or CSV files onto the map.":::
 
 <!--------------------------------------------------
-<iframe height='700' scrolling='no' title='Drag and drop spatial files onto map' src='//codepen.io/azuremaps/embed/zYGdGoO/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/zYGdGoO/'>Drag and drop spatial files onto map</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/zYGdGoO/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true]
 --------------------------------------------------->
 
 You may optionally provide a proxy service for accessing cross domain assets that may not have CORS enabled. This snippet of code shows you could incorporate a proxy service:
@@ -192,7 +192,7 @@ The [Read Well Known Text] sample shows how to read the well-known text string `
 :::image type="content" source="./media/spatial-io-read-write-spatial-data/read-well-known-text.png" alt-text="A screenshot that shows how to read Well Known Text (WKT) as GeoJSON and render it on a map using a bubble layer.":::
 
 <!--------------------------------------------------
-<iframe height='500' scrolling='no' title='Read Well-Known Text' src='//codepen.io/azuremaps/embed/XWbabLd/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/XWbabLd/'>Read Well-Known Text</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/XWbabLd/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true]
 -------------------------------------------------->
 
 The [Read and write Well Known Text] sample demonstrates how to read and write Well Known Text (WKT) strings as GeoJSON. For the source code of this sample, see [Read and write Well Known Text source code].
@@ -200,7 +200,7 @@ The [Read and write Well Known Text] sample demonstrates how to read and write W
 :::image type="content" source="./media/spatial-io-read-write-spatial-data/read-and-write-well-known-text.png" alt-text="A screenshot showing the sample that demonstrates how to read and write Well Known Text (WKT) strings as GeoJSON.":::
 
 <!--------------------------------------------------
-<iframe height='700' scrolling='no' title='Read and write Well-Known Text' src='//codepen.io/azuremaps/embed/JjdyYav/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/JjdyYav/'>Read and write Well-Known Text</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/JjdyYav/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true]
 -------------------------------------------------->
 
 ## Read and write GML

@@ -1,25 +1,25 @@
 ---
 title: 'Tutorial - Web app accesses SQL Database as the user'
-description: Secure database connectivity with Azure Active Directory authentication from .NET web app, using the signed-in user. Learn how to apply it to other Azure services.
+description: Secure database connectivity with Microsoft Entra authentication from .NET web app, using the signed-in user. Learn how to apply it to other Azure services.
 author: cephalin
 
 ms.service: app-service
 ms.workload: identity
 ms.author: cephalin
 ms.devlang: csharp
-ms.custom: devx-track-azurecli, devx-track-dotnet
+ms.custom: devx-track-azurecli, devx-track-dotnet, AppServiceConnectivity
 ms.topic: tutorial
 ms.date: 04/21/2023
 ---
 # Tutorial: Connect an App Service app to SQL Database on behalf of the signed-in user
 
-This tutorial shows you how to enable [built-in authentication](overview-authentication-authorization.md) in an [App Service](overview.md) app using the Azure Active Directory authentication provider, then extend it by connecting it to a back-end Azure SQL Database by impersonating the signed-in user (also known as the [on-behalf-of flow](../active-directory/develop/v2-oauth2-on-behalf-of-flow.md)). This is a more advanced connectivity approach to [Tutorial: Access data with managed identity](tutorial-connect-msi-sql-database.md) and has the following advantages in enterprise scenarios:
+This tutorial shows you how to enable [built-in authentication](overview-authentication-authorization.md) in an [App Service](overview.md) app using the Microsoft Entra authentication provider, then extend it by connecting it to a back-end Azure SQL Database by impersonating the signed-in user (also known as the [on-behalf-of flow](../active-directory/develop/v2-oauth2-on-behalf-of-flow.md)). This is a more advanced connectivity approach to [Tutorial: Access data with managed identity](tutorial-connect-msi-sql-database.md) and has the following advantages in enterprise scenarios:
 
 - Eliminates connection secrets to back-end services, just like the managed identity approach.
 - Gives the back-end database (or any other Azure service) more control over who or how much to grant access to its data and functionality.
 - Lets the app tailor its data presentation to the signed-in user.
 
-In this tutorial, you add Azure Active Directory authentication to the sample web app you deployed in one of the following tutorials: 
+In this tutorial, you add Microsoft Entra authentication to the sample web app you deployed in one of the following tutorials: 
 
 - [Tutorial: Build an ASP.NET app in Azure with Azure SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)
 - [Tutorial: Build an ASP.NET Core and Azure SQL Database app in Azure App Service](tutorial-dotnetcore-sqldb-app.md)
@@ -41,11 +41,11 @@ What you will learn:
 > * Enable built-in authentication for Azure SQL Database
 > * Disable other authentication options in Azure SQL Database
 > * Enable App Service authentication
-> * Use Azure Active Directory as the identity provider
-> * Access Azure SQL Database on behalf of the signed-in Azure AD user
+> * Use Microsoft Entra ID as the identity provider
+> * Access Azure SQL Database on behalf of the signed-in Microsoft Entra user
 
 > [!NOTE]
->Azure AD authentication is _different_ from [Integrated Windows authentication](/previous-versions/windows/it-pro/windows-server-2003/cc758557(v=ws.10)) in on-premises Active Directory (AD DS). AD DS and Azure AD use completely different authentication protocols. For more information, see [Azure AD Domain Services documentation](../active-directory-domain-services/index.yml).
+>Microsoft Entra authentication is _different_ from [Integrated Windows authentication](/previous-versions/windows/it-pro/windows-server-2003/cc758557(v=ws.10)) in on-premises Active Directory (AD DS). AD DS and Microsoft Entra ID use completely different authentication protocols. For more information, see [Microsoft Entra Domain Services documentation](../active-directory-domain-services/index.yml).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -62,23 +62,25 @@ Prepare your environment for the Azure CLI.
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/cloud-shell-try-it-no-header.md)]
 
-## 1. Configure database server with Azure AD authentication
+<a name='1-configure-database-server-with-azure-ad-authentication'></a>
 
-First, enable Azure Active Directory authentication to SQL Database by assigning an Azure AD user as the admin of the server. This user is different from the Microsoft account you used to sign up for your Azure subscription. It must be a user that you created, imported, synced, or invited into Azure AD. For more information on allowed Azure AD users, see [Azure AD features and limitations in SQL Database](/azure/azure-sql/database/authentication-aad-overview#azure-ad-features-and-limitations).
+## 1. Configure database server with Microsoft Entra authentication
 
-1. If your Azure AD tenant doesn't have a user yet, create one by following the steps at [Add or delete users using Azure Active Directory](../active-directory/fundamentals/add-users-azure-active-directory.md).
+First, enable Microsoft Entra authentication to SQL Database by assigning a Microsoft Entra user as the admin of the server. This user is different from the Microsoft account you used to sign up for your Azure subscription. It must be a user that you created, imported, synced, or invited into Microsoft Entra ID. For more information on allowed Microsoft Entra users, see [Microsoft Entra features and limitations in SQL Database](/azure/azure-sql/database/authentication-aad-overview#azure-ad-features-and-limitations).
 
-1. Find the object ID of the Azure AD user using the [`az ad user list`](/cli/azure/ad/user#az_ad_user_list) and replace *\<user-principal-name>*. The result is saved to a variable.
+1. If your Microsoft Entra tenant doesn't have a user yet, create one by following the steps at [Add or delete users using Microsoft Entra ID](../active-directory/fundamentals/add-users-azure-active-directory.md).
+
+1. Find the object ID of the Microsoft Entra user using the [`az ad user list`](/cli/azure/ad/user#az_ad_user_list) and replace *\<user-principal-name>*. The result is saved to a variable.
 
     ```azurecli-interactive
     azureaduser=$(az ad user list --filter "userPrincipalName eq '<user-principal-name>'" --query [].id --output tsv)
     ```
 
     > [!TIP]
-    > To see the list of all user principal names in Azure AD, run `az ad user list --query [].userPrincipalName`.
+    > To see the list of all user principal names in Microsoft Entra ID, run `az ad user list --query [].userPrincipalName`.
     >
 
-1. Add this Azure AD user as an Active Directory admin using [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_create) command in the Cloud Shell. In the following command, replace *\<server-name>* with the server name (without the `.database.windows.net` suffix).
+1. Add this Microsoft Entra user as an Active Directory admin using [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_create) command in the Cloud Shell. In the following command, replace *\<server-name>* with the server name (without the `.database.windows.net` suffix).
 
     ```azurecli-interactive
     az sql server ad-admin create --resource-group <group-name> --server-name <server-name> --display-name ADMIN --object-id $azureaduser
@@ -90,11 +92,11 @@ First, enable Azure Active Directory authentication to SQL Database by assigning
     az sql server ad-only-auth enable --resource-group <group-name> --server-name <server-name>
     ```
 
-For more information on adding an Active Directory admin, see [Provision Azure AD admin (SQL Database)](/azure/azure-sql/database/authentication-aad-configure#provision-azure-ad-admin-sql-database).
+For more information on adding an Active Directory admin, see [Provision Microsoft Entra admin (SQL Database)](/azure/azure-sql/database/authentication-aad-configure#provision-azure-ad-admin-sql-database).
 
 ## 2. Enable user authentication for your app
 
-You enable authentication with Azure Active Directory as the identity provider. For more information, see [Configure Azure Active Directory authentication for your App Services application](configure-authentication-provider-aad.md).
+You enable authentication with Microsoft Entra ID as the identity provider. For more information, see [Configure Microsoft Entra authentication for your App Services application](configure-authentication-provider-aad.md).
 
 1. In the [Azure portal](https://portal.azure.com) menu, select **Resource groups** or search for and select *Resource groups* from any page.
 
@@ -102,7 +104,7 @@ You enable authentication with Azure Active Directory as the identity provider. 
 
 1. In your app's left menu, select **Authentication**, and then select **Add identity provider**.
 
-1. In the **Add an identity provider** page, select **Microsoft** as the **Identity provider** to sign in Microsoft and Azure AD identities.
+1. In the **Add an identity provider** page, select **Microsoft** as the **Identity provider** to sign in Microsoft and Microsoft Entra identities.
 
 1. Accept the default settings and select **Add**.
 
@@ -113,7 +115,7 @@ You enable authentication with Azure Active Directory as the identity provider. 
 
 ## 3. Configure user impersonation to SQL Database
 
-Currently, your Azure app connects to SQL Database uses SQL authentication (username and password) managed as app settings. In this step, you give the app permissions to access SQL Database on behalf of the signed-in Azure AD user.
+Currently, your Azure app connects to SQL Database uses SQL authentication (username and password) managed as app settings. In this step, you give the app permissions to access SQL Database on behalf of the signed-in Microsoft Entra user.
 
 1. In the **Authentication** page for the app, select your app name under **Identity provider**. This app registration was automatically generated for you. Select **API permissions** in the left menu.
 
@@ -127,7 +129,7 @@ Currently, your Azure app connects to SQL Database uses SQL authentication (user
 
 ## 4. Configure App Service to return a usable access token
 
-The app registration in Azure Active Directory now has the required permissions to connect to SQL Database by impersonating the signed-in user. Next, you configure your App Service app to give you a usable access token.
+The app registration in Microsoft Entra ID now has the required permissions to connect to SQL Database by impersonating the signed-in user. Next, you configure your App Service app to give you a usable access token.
 
 In the Cloud Shell, run the following commands on the app to add the `scope` parameter to the authentication setting `identityProviders.azureActiveDirectory.login.loginParameters`.
 
@@ -194,7 +196,7 @@ public MyDatabaseContext (DbContextOptions<MyDatabaseContext> options, IHttpCont
 1. **If you came from [Tutorial: Build an ASP.NET app in Azure with SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)**, you set a connection string in App Service using SQL authentication, with a username and password. Use the following command to remove the connection secrets, but replace *\<group-name>*, *\<app-name>*, *\<db-server-name>*, and *\<db-name>* with yours.
 
     ```azurecli-interactive
-    az webapp config connection-string set --resource-group <group-name> --name <app-name> --type SQLAzure --settings MyDbConnection="server=tcp:<db-server-name>.database.windows.net;database=<db-name>;"
+    az webapp config connection-string set --resource-group <group-name> --name <app-name> --connection-string-type SQLAzure --settings MyDbConnection="server=tcp:<db-server-name>.database.windows.net;database=<db-name>;"
     ```
 
 1. Publish your changes in Visual Studio. In the **Solution Explorer**, right-click your **DotNetAppSqlDb** project and select **Publish**.
@@ -208,7 +210,7 @@ public MyDatabaseContext (DbContextOptions<MyDatabaseContext> options, IHttpCont
 1. **If you came from [Tutorial: Build an ASP.NET Core and SQL Database app in Azure App Service](tutorial-dotnetcore-sqldb-app.md)**, you have a connection string called `defaultConnection` in App Service using SQL authentication, with a username and password. Use the following command to remove the connection secrets, but replace *\<group-name>*, *\<app-name>*, *\<db-server-name>*, and *\<db-name>* with yours.
 
     ```azurecli-interactive
-    az webapp config connection-string set --resource-group <group-name> --name <app-name> --type SQLAzure --settings defaultConnection="server=tcp:<db-server-name>.database.windows.net;database=<db-name>;"
+    az webapp config connection-string set --resource-group <group-name> --name <app-name> --connection-string-type SQLAzure --settings defaultConnection="server=tcp:<db-server-name>.database.windows.net;database=<db-name>;"
     ```
 
 1. You would have made your code changes in your GitHub fork, with Visual Studio Code in the browser. From the left menu, select **Source Control**.
@@ -219,7 +221,7 @@ public MyDatabaseContext (DbContextOptions<MyDatabaseContext> options, IHttpCont
 
 -----
 
-When the new webpage shows your to-do list, your app is connecting to the database on behalf of the signed-in Azure AD user.
+When the new webpage shows your to-do list, your app is connecting to the database on behalf of the signed-in Microsoft Entra user.
 
 ![Azure app after Code First Migration](./media/app-service-web-tutorial-dotnet-sqldatabase/this-one-is-done.png)
 
@@ -238,7 +240,7 @@ This command may take a minute to run.
 ## Frequently asked questions
 
 - [Why do I get a `Login failed for user '<token-identified principal>'.` error?](#why-do-i-get-a-login-failed-for-user-token-identified-principal-error)
-- [How do I add other Azure AD users or groups in Azure SQL Database?](#how-do-i-add-other-azure-ad-users-or-groups-in-azure-sql-database)
+- [How do I add other Microsoft Entra users or groups in Azure SQL Database?](#how-do-i-add-other-azure-ad-users-or-groups-in-azure-sql-database)
 - [How do I debug locally when using App Service authentication?](#how-do-i-debug-locally-when-using-app-service-authentication)
 - [What happens when access tokens expire?](#what-happens-when-access-tokens-expire)
 
@@ -247,15 +249,17 @@ This command may take a minute to run.
 The most common causes of this error are:
 
 - You're running the code locally, and there's no valid token in the `X-MS-TOKEN-AAD-ACCESS-TOKEN` request header. See [How do I debug locally when using App Service authentication?](#how-do-i-debug-locally-when-using-app-service-authentication).
-- Azure AD authentication isn't configured on your SQL Database.
-- The signed-in user isn't permitted to connect to the database. See [How do I add other Azure AD users or groups in Azure SQL Database?](#how-do-i-add-other-azure-ad-users-or-groups-in-azure-sql-database).
+- Microsoft Entra authentication isn't configured on your SQL Database.
+- The signed-in user isn't permitted to connect to the database. See [How do I add other Microsoft Entra users or groups in Azure SQL Database?](#how-do-i-add-other-azure-ad-users-or-groups-in-azure-sql-database).
 
-#### How do I add other Azure AD users or groups in Azure SQL Database?
+<a name='how-do-i-add-other-azure-ad-users-or-groups-in-azure-sql-database'></a>
+
+#### How do I add other Microsoft Entra users or groups in Azure SQL Database?
 
 1. Connect to your database server, such as with [sqlcmd](/azure/azure-sql/database/authentication-aad-configure#sqlcmd) or [SSMS](/azure/azure-sql/database/authentication-aad-configure#connect-to-the-database-using-ssms-or-ssdt).
-1. [Create contained users mapped to Azure AD identities](/azure/azure-sql/database/authentication-aad-configure#create-contained-users-mapped-to-azure-ad-identities) in SQL Database documentation.
+1. [Create contained users mapped to Microsoft Entra identities](/azure/azure-sql/database/authentication-aad-configure#create-contained-users-mapped-to-azure-ad-identities) in SQL Database documentation.
 
-    The following Transact-SQL example adds an Azure AD identity to SQL Server and gives it some database roles:
+    The following Transact-SQL example adds a Microsoft Entra identity to SQL Server and gives it some database roles:
 
     ```sql
     CREATE USER [<user-or-group-name>] FROM EXTERNAL PROVIDER;
@@ -285,8 +289,8 @@ What you learned:
 > * Enable built-in authentication for Azure SQL Database
 > * Disable other authentication options in Azure SQL Database
 > * Enable App Service authentication
-> * Use Azure Active Directory as the identity provider
-> * Access Azure SQL Database on behalf of the signed-in Azure AD user
+> * Use Microsoft Entra ID as the identity provider
+> * Access Azure SQL Database on behalf of the signed-in Microsoft Entra user
 
 > [!div class="nextstepaction"]
 > [Map an existing custom DNS name to Azure App Service](app-service-web-tutorial-custom-domain.md)

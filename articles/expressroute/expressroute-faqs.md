@@ -94,8 +94,9 @@ If your ExpressRoute circuit is enabled for Azure Microsoft peering, you can acc
 
 * [Microsoft 365](/microsoft-365/enterprise/azure-expressroute)
 * Power BI - Available via an Azure Regional Community, see [here](/power-bi/service-admin-where-is-my-tenant-located) for how to find out the region of your Power BI tenant.
-* Azure Active Directory
+* Microsoft Entra ID
 * [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (Azure Global Services community)
+* [Microsoft PSTN services](./using-expressroute-for-microsoft-pstn.md)
 * Azure Public IP addresses for IaaS (Virtual Machines, Virtual Network Gateways, Load Balancers, etc.)  
 * Most of the other Azure services are also supported. Check directly with the service that you want to use to verify support.
 
@@ -242,7 +243,9 @@ Yes. You can link up to 10 virtual networks in the same subscription as the circ
 
 For more information, see [sharing an ExpressRoute circuit across multiple subscriptions](expressroute-howto-linkvnet-arm.md).
 
-### I have multiple Azure subscriptions associated to different Azure Active Directory tenants or Enterprise Agreement enrollments. Can I connect virtual networks that are in separate tenants and enrollments to a single ExpressRoute circuit not in the same tenant or enrollment?
+<a name='i-have-multiple-azure-subscriptions-associated-to-different-azure-active-directory-tenants-or-enterprise-agreement-enrollments-can-i-connect-virtual-networks-that-are-in-separate-tenants-and-enrollments-to-a-single-expressroute-circuit-not-in-the-same-tenant-or-enrollment'></a>
+
+### I have multiple Azure subscriptions associated to different Microsoft Entra tenants or Enterprise Agreement enrollments. Can I connect virtual networks that are in separate tenants and enrollments to a single ExpressRoute circuit not in the same tenant or enrollment?
 
 Yes. ExpressRoute authorizations can span subscription, tenant, and enrollment boundaries with no extra configuration required. Connectivity and bandwidth charges for the dedicated circuit gets applied to the ExpressRoute circuit owner and all virtual networks share the same bandwidth.
 
@@ -385,9 +388,6 @@ ExpressRoute Local is a SKU of ExpressRoute circuit, in addition to the Standard
 
 ExpressRoute Local may not be available for an ExpressRoute Location. For peering location and supported Azure local region, see [locations and connectivity providers](expressroute-locations-providers.md#partners).
 
- > [!NOTE]
- > The restriction of Azure regions in the same metro doesn't apply for ExpressRoute Local in Virtual WAN. 
-
 ### What are the benefits of ExpressRoute Local?
 
 While you need to pay egress data transfer for your Standard or Premium ExpressRoute circuit, you don't pay egress data transfer separately for your ExpressRoute Local circuit. In other words, the price of ExpressRoute Local includes data transfer fees. ExpressRoute Local is an economical solution if you have massive amount of data to transfer and want to have your data over a private connection to an ExpressRoute peering location near your desired Azure regions. 
@@ -491,11 +491,15 @@ ExpressRoute Traffic Collector uses a sampling rate of 1:4096, which means 1 out
 
 ### How many flows can ExpressRoute Traffic Collector handle?
 
-ExpressRoute Traffic Collector can handle up to 30,000 flows a minute. In the event this limit is reached, excess flows are dropped. For more information, see [count of flows metric](expressroute-monitoring-metrics-alerts.md#count-of-flow-records-processed---split-by-instances-or-expressroute-circuit) on a circuit.
+ExpressRoute Traffic Collector can handle up to 300,000 flows a minute. In the event this limit is reached, excess flows are dropped. For more information, see [count of flows metric](expressroute-monitoring-metrics-alerts.md#count-of-flow-records-processed---split-by-instances-or-expressroute-circuit) on a circuit.
 
 ### Does ExpressRoute Traffic Collector support Virtual WAN?
 
 Yes, you can use Express Traffic Collector with ExpressRoute Direct circuits used in a Virtual WAN deployment. However, deploying ExpressRoute Traffic Collector within a Virtual WAN hub isn’t supported. You can deploy ExpressRoute Traffic collector in a spoke virtual network and ingest flow logs to a Log Analytics workspace.
+
+### Does ExpressRoute Traffic Collector support ExpressRoute provider ports?
+
+For supported ExpressRoute provider ports contact ErTCasks@microsoft.com.
 
 ### What is the effect of maintenance on flow logging?
 
@@ -508,7 +512,7 @@ ExpressRoute Traffic Collector deployment by default has availability zones enab
 
 ### How should I incorporate ExpressRoute Traffic Collector in my disaster recovery plan?
 
-You can associate a single ExpressRoute Direct circuit with multiple ExpressRoute Traffic Collectors deployed in different Azure region within a given geo-political region. It's recommended that you associate your ExpressRoute Direct circuit with multiple ExpressRoute Traffic Collectors as part of your disaster recovery and high availability plan. 
+You can associate a single ExpressRoute Direct circuit with multiple ExpressRoute Traffic Collectors deployed in different Azure region within a given geo-political region. It's recommended that you associate your ExpressRoute Direct circuit with multiple ExpressRoute Traffic Collectors as part of your disaster recovery and high availability plan.
 
 ## Privacy
 

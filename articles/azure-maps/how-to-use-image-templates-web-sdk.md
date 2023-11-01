@@ -1,8 +1,8 @@
 ---
 title: Image templates in the Azure Maps Web SDK | Microsoft Azure Maps
 description: Learn how to add image icons and pattern-filled polygons to maps by using the Azure Maps Web SDK. View available image and fill pattern templates.
-author: dubiety
-ms.author: yuchungchen 
+author: sinnypan
+ms.author: sipa
 ms.date: 8/6/2019
 ms.topic: how-to
 ms.service: azure-maps
@@ -56,10 +56,7 @@ For the source code for this sample, see [Symbol layer with built-in icon templa
 
 <!-----------------------------------------------------
 <br/>
-<iframe height="500" scrolling="no" title="Symbol layer with built-in icon template" src="//codepen.io/azuremaps/embed/VoQMPp/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/azuremaps/pen/VoQMPp/'>Symbol layer with built-in icon template</a> by Azure Maps
-  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/VoQMPp/?height=500&theme-id=0&default-tab=js,result&editable=true]
 ----------------------------------------------------->
 
 ## Use an image template along a lines path
@@ -73,10 +70,7 @@ The [Line layer with built-in icon template] demonstrates how to do this. As sho
 <!-----------------------------------------------------
 <br/>
 
-<iframe height="500" scrolling="no" title="Line layer with built-in icon template" src="//codepen.io/azuremaps/embed/KOQvJe/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/azuremaps/pen/KOQvJe/'>Line layer with built-in icon template</a> by Azure Maps
-  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/KOQvJe/?height=500&theme-id=0&default-tab=js,result&editable=true]
 ----------------------------------------------------->
 
 > [!TIP]
@@ -93,10 +87,7 @@ The [Fill polygon with built-in icon template] sample demonstrates how to render
 <!-----------------------------------------------------
 <br/>
 
-<iframe height="500" scrolling="no" title="Fill polygon with built-in icon template" src="//codepen.io/azuremaps/embed/WVMEmz/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/azuremaps/pen/WVMEmz/'>Fill polygon with built-in icon template</a> by Azure Maps
-  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/WVMEmz/?height=500&theme-id=0&default-tab=js,result&editable=true]
 ----------------------------------------------------->
 
 > [!TIP]
@@ -113,10 +104,7 @@ The [HTML Marker with built-in icon template] sample demonstrates this using the
 <!-----------------------------------------------------
 <br/>
 
-<iframe height="500" scrolling="no" title="HTML Marker with built-in icon template" src="//codepen.io/azuremaps/embed/EqQvzq/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/azuremaps/pen/EqQvzq/'>HTML Marker with built-in icon template</a> by Azure Maps
-  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/EqQvzq/?height=500&theme-id=0&default-tab=js,result&editable=true]
 ----------------------------------------------------->
 
 > [!TIP]
@@ -156,10 +144,7 @@ The [Add custom icon template to atlas namespace] sample demonstrates how to tak
 <!-----------------------------------------------------
 <br/>
 
-<iframe height="500" scrolling="no" title="Add custom icon template to atlas namespace" src="//codepen.io/azuremaps/embed/NQyvEX/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/azuremaps/pen/NQyvEX/'>Add custom icon template to atlas namespace</a> by Azure Maps
-  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/NQyvEX/?height=500&theme-id=0&default-tab=js,result&editable=true]
 ---------------------------------------------->
 
 ## List of image templates
@@ -523,10 +508,9 @@ With the following tool, you can render the different built-in image templates i
 
 <br/>
 
-<iframe height="500" scrolling="no" title="Icon template options" src="//codepen.io/azuremaps/embed/NQyaaO/?height=500&theme-id=0&default-tab=result" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/azuremaps/pen/NQyaaO/'>Icon template options</a> by Azure Maps
-  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+<!-----
+> [!VIDEO //codepen.io/azuremaps/embed/NQyaaO/?height=500&theme-id=0&default-tab=result]
+---->
 
 ## Next steps
 
