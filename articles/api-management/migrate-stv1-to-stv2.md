@@ -214,7 +214,7 @@ On successful migration, update any network dependencies including DNS, firewall
    - The [requirements for NSG configuration for stv2](./api-management-using-with-vnet.md?tabs=stv2#configure-nsg-rules) remain the same either you have firewall or not, make sure your new subnet has it
    - Firewall rules referring to the current IP address range of the API Management instance should be updated to use the  IP address range of your new subnet.
 
-1. **Is it impossible that data or configuration losses can occur by/during the migration? **
+1. **Is it impossible that data or configuration losses can occur by/during the migration?**
 
    `stv1` to `stv2` migration involves updating the compute platform alone and the internal storage layer isn't changed. Hence all the configuration is safe during the migration process.
 
