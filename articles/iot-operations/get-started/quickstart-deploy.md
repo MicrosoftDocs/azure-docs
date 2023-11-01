@@ -3,6 +3,7 @@ title: "Quickstart: Deploy Azure IoT Operations"
 description: "Quickstart: Use Azure IoT Orchestrator to deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster."
 author: kgremban
 ms.author: kgremban
+# ms.subservice: orchestrator
 ms.topic: quickstart
 ms.date: 10/30/2023
 
