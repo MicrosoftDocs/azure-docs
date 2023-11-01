@@ -15,7 +15,7 @@ ms.author: yanzh
 
 In this quickstart, you will use Azure App Configuration to centralize storage and management of application settings using the [Azure App Configuration JavaScript provider client library](https://github.com/Azure/AppConfiguration-JavaScriptProvider).
 
-The JavaScript App Configuration provider is a library running on top of the [Azure SDK for JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/appconfiguration/azure-appconfiguration), helping JavaScript developers easily consume the App Configuration service. It enables configuration settings to be used like a Map.
+The JavaScript App Configuration provider is a library running on top of the [Azure SDK for JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/appconfiguration/app-configuration), helping JavaScript developers easily consume the App Configuration service. It enables configuration settings to be used like a Map.
 
 ## Prerequisites
 
@@ -25,7 +25,7 @@ The JavaScript App Configuration provider is a library running on top of the [Az
 
 ## Add a key-value
 
-Add the following key-value to the App Configuration store and leave **Label** and **Content Type** with their default values. For more information about how to add key-values to a store using the Azure portal or the CLI, go to [Create a key-value](./quickstart-azure-app-configuration-create.md#create-a-key-value).
+Add the following key-values to the App Configuration store. For more information about how to add key-values to a store using the Azure portal or the CLI, go to [Create a key-value](./quickstart-azure-app-configuration-create.md#create-a-key-value).
 
 | Key            | Value                                  | Label       | Content type       |
 |----------------|----------------------------------------|-------------|--------------------|
@@ -57,7 +57,7 @@ Add the following key-value to the App Configuration store and leave **Label** a
 
     ```javascript
     const { load } = require("@azure/app-configuration-provider");
-    const connectionString = process.env.AZURE_APP_CONFIG_CONNECTION_STRING;
+    const connectionString = process.env.AZURE_APPCONFIG_CONNECTION_STRING;
 
     async function run() {    
         // Connect to Azure App Configuration using a connection string.
@@ -103,7 +103,7 @@ Add the following key-value to the App Configuration store and leave **Label** a
     To build and run the app locally using the Windows command prompt, run the following command and replace `<app-configuration-store-connection-string>` with the connection string of your app configuration store:
 
     ```cmd
-    setx AZURE_APPCONFIG_CONNECTION_STRING "connection-string-of-your-app-configuration-store"
+    setx AZURE_APPCONFIG_CONNECTION_STRING "app-configuration-store-connection-string"
     ```
 
     ### [PowerShell](#tab/powershell)
