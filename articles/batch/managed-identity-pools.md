@@ -10,7 +10,7 @@ ms.custom: devx-track-linux
 
 [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md) eliminate
 complicated identity and credential management by providing an identity for the Azure resource in Microsoft Entra ID
-(Microsoft Entra ID). This identity is used to obtain Microsoft Entra tokens to authenticate with target
+(Azure AD ID). This identity is used to obtain Microsoft Entra tokens to authenticate with target
 resources in Azure.
 
 This topic explains how to enable user-assigned managed identities on Batch pools and how to use managed identities within the nodes.

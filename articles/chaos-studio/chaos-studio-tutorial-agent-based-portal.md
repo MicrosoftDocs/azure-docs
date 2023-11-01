@@ -28,20 +28,6 @@ Chaos Studio can't inject faults against a VM unless that VM was added to Chaos 
 
 Virtual machines have two target types. One target type enables service-direct faults (where no agent is required). Another target type enables agent-based faults (which requires the installation of an agent). The chaos agent is an application installed on your VM as a [VM extension](../virtual-machines/extensions/overview.md). You use it to inject faults in the guest operating system.
 
-### Install stress-ng
-
-The Chaos Studio agent for Linux requires stress-ng. This open-source application can cause various stress events on a VM. To install stress-ng, [connect to your Linux VM](../virtual-machines/ssh-keys-portal.md). Then run the appropriate installation command for your package manager. For example:
-
-```bash
-sudo apt-get update && sudo apt-get -y install unzip && sudo apt-get -y install stress-ng
-```
-
-Or:
-
-```bash
-sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm && sudo yum -y install stress-ng
-```
-
 ### Enable the chaos target, capabilities, and agent
 
 > [!IMPORTANT]
@@ -71,13 +57,13 @@ You've now successfully added your Linux VM to Chaos Studio. In the **Targets** 
 ## Create an experiment
 Now you can create your experiment. A chaos experiment defines the actions you want to take against target resources. The actions are organized and run in sequential steps. The chaos experiment also defines the actions you want to take against branches, which run in parallel.
 
-1. Select the **Experiments** tab in Chaos Studio. In this view, you can see and manage all your chaos experiments. Select **Add an experiment**.
+1. Select the **Experiments** tab in Chaos Studio. In this view, you can see and manage all your chaos experiments. Select **Create** > **New experiment**.
 
    ![Screenshot that shows the Experiments view in the Azure portal.](images/tutorial-agent-based-add.png)
 1. Fill in the **Subscription**, **Resource Group**, and **Location** where you want to deploy the chaos experiment. Give your experiment a name. Select **Next: Experiment designer**.
 
    ![Screenshot that shows adding basic experiment details.](images/tutorial-agent-based-add-basics.png)
-1. You're now in the Chaos Studio experiment designer. You can build your experiment by adding steps, branches, and faults. Give a friendly name to your **Step** and **Branch**. Then select **Add fault**.
+1. You're now in the Chaos Studio experiment designer. You can build your experiment by adding steps, branches, and faults. Give a friendly name to your **Step** and **Branch**. Then select **Add action > Add fault**.
 
    ![Screenshot that shows the experiment designer.](images/tutorial-agent-based-add-designer.png)
 1. Select **CPU Pressure** from the dropdown list. Fill in **Duration** with the number of minutes to apply pressure. Fill in **pressureLevel** with the amount of CPU pressure to apply. Leave **virtualMachineScaleSetInstances** blank. Select **Next: Target resources**.

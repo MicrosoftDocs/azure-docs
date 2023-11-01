@@ -1,18 +1,18 @@
 ---
-title: DataStream API for MongoDB as a source and sink on Apache Flink
-description: Learn how to use DataStream API for MongoDB as a source and sink on Apache Flink
+title: Use DataStream API for MongoDB as a source and sink with Apache Flink®
+description: Learn how to use Apache Flink® DataStream API on HDInsight on AKS for MongoDB as a source and sink
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/29/2023
+ms.date: 10/30/2023
 ---
 
-# DataStream API for MongoDB as a source and sink on Apache Flink
+# Use Apache Flink® DataStream API on HDInsight on AKS for MongoDB as a source and sink  
 
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
 Apache Flink provides a MongoDB connector for reading and writing data from and to MongoDB collections with at-least-once guarantees.
 
-This example demonstrates on how to use HDInsight on AKS Apache Flink 1.16.0 along with your existing MongoDB as Sink and Source with Flink DataStream API MongoDB connector.
+This example demonstrates on how to use Apache Flink 1.16.0 on HDInsight on AKS along with your existing MongoDB as Sink and Source with Flink DataStream API MongoDB connector.
 
 MongoDB is a non-relational document database that provides support for JSON-like storage that helps store complex structures easily.
 
@@ -20,9 +20,9 @@ In this example, you learn how to use MongoDB to source and sink with DataStream
 
 ## Prerequisites
 
-* [HDInsight on AKS Flink 1.16.0](../flink/flink-create-cluster-portal.md)
+* [Flink cluster 1.16.0 on HDInsight on AKS](../flink/flink-create-cluster-portal.md)
 * For this demonstration, use a Window VM as maven project develop env in the same VNET as HDInsight on AKS.
-* We use the [Apache Flink - MongoDB Connector](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/connectors/datastream/mongodb/)
+* We use the [MongoDB Connector](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/connectors/datastream/mongodb/)
 * For this demonstration, use an Ubuntu VM in the same VNET as HDInsight on AKS, install a MongoDB on this VM.
 
 ## Installation of MongoDB on Ubuntu VM
@@ -408,3 +408,7 @@ test> db.click_events.find()
 **Use Mongo DB's admin.click_events collection as a source, and sink to ADLS Gen2**
 
 :::image type="content" source="./media/datastream-api-mongodb/step-5-mongodb-collection-adls-gen2.png" alt-text="Screenshot displays How to create a node and connect to web SSH." border="true" lightbox="./media/datastream-api-mongodb/step-5-mongodb-collection-adls-gen2.png":::
+
+### Reference
+
+- Apache, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).

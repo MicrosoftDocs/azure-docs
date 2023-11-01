@@ -7929,6 +7929,26 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-arc/vmware-vsphere/azure-arc-resource-bridge.md",
+            "redirect_url": "/azure/azure-arc/vmware-vsphere/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-arc/vmware-vsphere/custom-locations.md",
+            "redirect_url": "/azure/azure-arc/vmware-vsphere/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-arc/system-center-virtual-machine-manager/azure-arc-resource-bridge.md",
+            "redirect_url": "/azure/azure-arc/system-center-virtual-machine-manager/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-arc/system-center-virtual-machine-manager/custom-locations.md",
+            "redirect_url": "/azure/azure-arc/system-center-virtual-machine-manager/overview",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-arc/vmware-vsphere/manage-vmware-vms-in-azure.md",
             "redirect_url": "/azure/azure-arc/vmware-vsphere/perform-vm-ops-through-azure",
             "redirect_document_id": false
@@ -9338,6 +9358,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md",
+            "redirect_url": "/azure/vpn-gateway/add-remove-site-to-site-connections",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-howto-openvpn-clients.md",
             "redirect_url": "/azure/vpn-gateway/point-to-site-vpn-client-cert-windows",
             "redirect_document_id": false
@@ -9351,7 +9376,7 @@
          "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-forced-tunneling-rm.md",
          "redirect_url": "/azure/vpn-gateway/about-site-to-site-tunneling",
          "redirect_document_id": false
-     },
+        },
         {
             "source_path_from_root": "/articles/azure-vmware/public-ip-usage.md",
             "redirect_url": "/azure/azure-vmware/enable-public-ip-nsx-edge",
@@ -24478,7 +24503,17 @@
         },
         {
             "source_path_from_root": "/articles/operator-nexus/template-virtualized-network-function-deployment.md",
-            "redirect_url": "/azure/operator-nexus/quickstarts-tenant-workload-deployment",
+            "redirect_url": "/azure/operator-nexus/quickstarts-virtual-machine-deployment-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/operator-nexus/quickstarts-tenant-workload-deployment.md",
+            "redirect_url": "/azure/operator-nexus/quickstarts-virtual-machine-deployment-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/operator-nexus/quickstarts-tenant-workload-deployment-ps.md",
+            "redirect_url": "/azure/operator-nexus/quickstarts-virtual-machine-deployment-ps",
             "redirect_document_id": false
         },
         {
@@ -24624,6 +24659,16 @@
         {
             "source_path_from_root": "/articles/load-balancer/upgrade-basic-standard-virtual-machine-scale-sets.md",
             "redirect_url": "/azure/load-balancer/upgrade-basic-standard-with-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/energy-data-services/reliability-energy-data-services.md",
+            "redirect_url": "/azure/reliability/reliability-energy-data-services",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/deployment-environments/concept-environments-reliability-availability.md",
+            "redirect_url": "/azure/reliability/reliability-deployment-environments",
             "redirect_document_id": false
         },
         {
@@ -24800,6 +24845,6 @@
             "source_path_from_root": "/articles/orbital/delete-contact.md",
 	    "redirect_url": "/azure/orbital/spacecraft-object",
             "redirect_document_id": false
-        },
+        }
     ]
 }
