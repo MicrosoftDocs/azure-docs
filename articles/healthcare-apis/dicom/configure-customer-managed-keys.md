@@ -253,8 +253,10 @@ After you add the key, you need to update the DICOM service with the key URL.
 
 1. Select **Review + create** to deploy the updates to the key.
 
-When the deployment completes, the DICOM service data is encrypted with the key you provided.
-
 :::image type="content" source="media/configure-customer-managed-keys/cmk-arm-deploy.png" alt-text="Screenshot of the deployment template with details, including Key Encryption Key URL filled in." lightbox="media/configure-customer-managed-keys/cmk-arm-deploy.png":::
+
+When the deployment completes, the DICOM service data is encrypted with the key you provided.  You can verify the encryption settings from the Encryption page for the DICOM service.
+
+:::image type="content" source="media/configure-customer-managed-keys/dicom-encryption-view.png" alt-text="Screenshot of the encryption view with Encryption type showing Customer-managed key." lightbox="media/configure-customer-managed-keys/dicom-encryption-view.png":::
 
 [!INCLUDE [DICOM trademark statement](../includes/healthcare-apis-dicom-trademark.md)]
