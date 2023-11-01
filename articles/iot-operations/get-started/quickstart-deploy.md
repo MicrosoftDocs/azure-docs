@@ -78,43 +78,34 @@ Use the Azure CLI to deploy Azure IoT Operations components to your Arc-enabled 
    > * Open the codespace in VS Code desktop, and then run `az login` in the terminal. This opens a browser window where you can log in to Azure.
    > * After you get the localhost error on the browser, copy the URL from the browser and use `curl <URL>` in a new terminal tab. You should see a JSON response with the message "You have logged into Microsoft Azure!."
 
-1. Use the [az keyvault create](/cli/azure/keyvault#az-keyvault-create) command to create a Key Vault in the resource group that contains your cluster. Replace the following placeholders with your own information:
+
+
+
+1. Deploy Azure IoT Operations to your cluster. The `az iot ops init` command does the following steps:
+
+   * Creates a key vault in your resource group.
+   * Sets up a service principal to give your cluster access to the key vault.
+   * Configures TLS certificates.
+   * Configures a secrets store on your cluster that connects to the key vault.
+   * Deploys the Azure IoT Operations resources.
+
+   Replace the placeholder parameters in the command with your own information:
+
+
+ Replace `<YOUR_CLUSTER_NAME>` with the name of your Arc-connected Kubernetes cluster, `<YOUR_RESOURCE_GROUP_NAME>` with the name of the resource group that contains your cluster, and `<YOUR_KEYVAULT_RESOURCE_ID>` with the full resource ID of your key vault that looks like `/subscriptions/<YOUR_SUBSCRIPTION_ID>/resourceGroups/<YOUR_RESOURCE_GROUP_NAME>/providers/Microsoft.KeyVault/vaults/<YOUR_KEY_VAULT_NAME>`. The operation can take up to 10 minutes.
 
    | Parameter | Value |
    | ----- | ----- |
-   | **KEYVAULT_NAME** | A globally unique name for your key vault. Key Vault names are  string of 3 to 24 characters that can contain only numbers (0-9), letters (a-z, A-Z), and hyphens (-). |
+   | **CLUSTER_NAME** | The name of your Arc-connected Kubernetes cluster. |
    | **RESOURCE_GROUP** | The resource group that also contains your Arc-enabled Kubernetes cluster. |
-   | **REGION** | An Azure region close to you. |
-
-   ```azurecli
-   az keyvault create --name "<KEYVAULT_NAME>" --resource-group "<RESOURCE_GROUP>" --location "<REGION>"
-   ```
-
-   The output of this command shows properties of the newly created key vault. Take note of the **id** value, which you use in the next step.
-
-
-1. Deploy Azure IoT Operations to your cluster. Replace `<YOUR_CLUSTER_NAME>` with the name of your Arc-connected Kubernetes cluster, `<YOUR_RESOURCE_GROUP_NAME>` with the name of the resource group that contains your cluster, and `<YOUR_KEYVAULT_RESOURCE_ID>` with the full resource ID of your key vault that looks like `/subscriptions/<YOUR_SUBSCRIPTION_ID>/resourceGroups/<YOUR_RESOURCE_GROUP_NAME>/providers/Microsoft.KeyVault/vaults/<YOUR_KEY_VAULT_NAME>`. The operation can take up to 10 minutes.
+   | **KEYVAULT_NAME** | A globally unique name for your key vault. Key Vault names are  string of 3 to 24 characters that can contain only numbers (0-9), letters (a-z, A-Z), and hyphens (-). |
 
    ```azurecli-interactive
-   az iot ops init --cluster <YOUR_CLUSTER_NAME> --resource-group <YOUR_RESOURCE_GROUP_NAME> --kv-id <YOUR_KEYVAULT_RESOURCE_ID>
+   az iot ops init --cluster <CLUSTER_NAME> -g <RESOURCE_GROUP> --kv-id $(az keyvault create -n <KEYVAULT-NAME> -g <RESOURCE_GROUP> -o tsv --query id)
    ```
 
    > [!TIP]
-   > The above command is minimized and for getting started quickly. It automatically sets up a service principal to give your cluster access to the key vault, configures TLS certificates, secret provider class, and deploys Azure IoT Operations components to your cluster.
-   >
-   > To perform the steps separately, like to skip deployment and focus on preparing the cluster with the secrets store and certificates, use the `--no-deploy` flag. This can be useful for debugging or if you want to deploy IoT Operations with a different tool like Azure portal.
-   >
-   > ```azurecli
-   > az iot ops init --cluster <YOUR_CLUSTER_NAME> --resource-group <YOUR_RESOURCE_GROUP_NAME> --kv-id <YOUR_KEY_RESOURCE_ID> --no-deploy
-   > ```
-   >
-   > To deploy IoT Operations to your cluster that's already been prepped, add `--no-tls` and remove `--kv-id` from the command.
-   >
-   > ```azurecli
-   > az iot ops init --cluster <YOUR_CLUSTER_NAME> --resource-group <YOUR_RESOURCE_GROUP_NAME> --no-tls
-   > ```
-   >
-   > To learn more about the `az iot ops init` command, see [`az iot ops init` reference](https://github.com/Azure/azure-edge-cli-extension/wiki/Azure-IoT-Ops-Reference#az-iot-ops-init).
+   > The `az iot ops init` can be customized to perform individual deployment steps separately. To learn more, see [`az iot ops init` reference](https://github.com/Azure/azure-edge-cli-extension/wiki/Azure-IoT-Ops-Reference#az-iot-ops-init).
 
 # [Portal](#tab/azure-portal)
 
