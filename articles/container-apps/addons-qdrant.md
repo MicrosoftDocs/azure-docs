@@ -11,86 +11,122 @@ ms.author: cshoe
 
 # Tutorial: Connect to a Qdrant vector database in Azure Container Apps (preview)
 
-```bash
-export APPNAME=music-recommendations-demo-app
-export RESOURCE_GROUP=playground
-```
+TODO: Introduction
+
+1. Set up application name and resource group variables. You can change these values to your preference.
+
+    ```bash
+    export APP_NAME=music-recommendations-demo-app
+    export RESOURCE_GROUP=playground
+    ```
+
+1. Create variables to support the application. Don't change these values.
+
+    ```bash
+    export SERVICE_NAME=qdrantdb
+    export LOCATION=southcentralus
+    export ENVIRONMENT=music-recommendations-demo-environment
+    export WORKLOAD_PROFILE_TYPE=D32
+    export CPU_SIZE=8.0
+    export MEMORY_SIZE=16.0Gi
+    export IMAGE=simonj.azurecr.io/aca-ephemeral-music-recommendation-image
+    ```
+
+    | Variable | Description |
+    |---|---|
+    | `SERVICE_NAME` |  |
+    | `LOCATION` |  |
+    | `ENVIRONMENT` |  |
+    | `WORKLOAD_PROFILE_TYPE` |  |
+    | `CPU_SIZE` |  |
+    | `MEMORY_SIZE` |  |
+    | `IMAGE` |  |
+
+1. Create a resource group.
+
+    ```azurecli
+    az group create --name $RESOURCE_GROUP --location $LOCATION
+    ```
+
+1. Create an environment.
+
+    ```azurecli
+    az containerapp env create \
+      --name $ENVIRONMENT \
+      --resource-group $RESOURCE_GROUP \
+      --location $LOCATION
+    ```
+
+1. Create a workload profile.
+
+    ```azurecli
+    az containerapp env workload-profile set \
+      --name $ENVIRONMENT \
+      --resource-group $RESOURCE_GROUP \
+      --workload-profile-type $WORKLOAD_PROFILE_TYPE \
+      --workload-profile-name bigProfile \
+      --min-nodes 0 \
+      --max-nodes 2
+    ```
+
+1. Create the Qdrant add-on service.
+
+    ```azurecli
+    az containerapp service qdrant create \
+      --environment $ENVIRONMENT \
+      --resource-group $RESOURCE_GROUP \
+      --name $SERVICE_NAME
+    ```
+
+1. Create the container app.
+
+    ```azurecli
+    az containerapp create \
+      --name $APP_NAME \
+      --resource-group $RESOURCE_GROUP \
+      --environment $ENVIRONMENT \
+      --workload-profile-name bigProfile \
+      --cpu $CPU_SIZE \
+      --memory $MEMORY_SIZE \
+      --image $IMAGE \
+      --min-replicas 1 \
+      --max-replicas 1 \
+      --env-vars RESTARTABLE=yes
+    ```
+
+1. Bind the Qdrant add-on service to the container app.
+
+    ```azurecli
+    az containerapp update -n $APP_NAME -g $RESOURCE_GROUP --bind qdrantdb
+    ```
+
+1. Enable ingress on the container app.
+
+    ```azurecli
+    az containerapp ingress enable \
+      --name $APP_NAME \
+      --resource-group $RESOURCE_GROUP \
+      --type external \
+      --target-port 8888 \
+      --transport auto
+    ```
+
+1. Enable ingress on the container app.
+
+    ```azurecli
+    az containerapp ingress cors enable \
+      --name $APP_NAME \
+      --resource-group $RESOURCE_GROUP \
+      --allowed-origins *
+    ```
+
+1. Get the token.
 
 ```bash
-export LOCATION=southcentralus
-export ENVIRONMENT=music-recommendations-demo-environment
-export WORK_LOAD_PROFILE_TYPE=D32
-export CPU_SIZE=8.0
-export MEMORY_SIZE=16.0Gi
-export IMAGE=simonj.azurecr.io/aca-ephemeral-music-recommendation-image
-export SERVICE_NAME=qdrantdb
-```
-
-```azurecli
-az group create --name $RESOURCE_GROUP --location $LOCATION
-```
-
-```azurecli
-az containerapp env create \
-  --name $ENVIRONMENT \
-  --resource-group $RESOURCE_GROUP \
-  --location $LOCATION
-```
-
-```azurecli
-az containerapp env workload-profile set \
-  --name $ENVIRONMENT \
-  --resource-group $RESOURCE_GROUP \
-  --workload-profile-type $WORK_LOAD_PROFILE_TYPE \
-  --workload-profile-name bigProfile \
-  --min-nodes 0 \
-  --max-nodes 2
-```
-
-```azurecli
-az containerapp service qdrant create \
-  --environment $ENVIRONMENT \
-  --resource-group $RESOURCE_GROUP \
-  --name $SERVICE_NAME
-```
-
-```azurecli
-az containerapp create \
-  --name $APPNAME \
-  --resource-group $RESOURCE_GROUP \
-  --environment $ENVIRONMENT \
-  --workload-profile-name bigProfile \
-  --cpu $CPU_SIZE \
-  --memory $MEMORY_SIZE \
-  --image $IMAGE \
-  --min-replicas 1 \
-  --max-replicas 1 \
-  --env-vars RESTARTABLE=yes
-```
-
-```azurecli
-az containerapp update -n $APPNAME -g $RESOURCE_GROUP --bind qdrantdb
-```
-
-## enable ingress
-
-```azurecli
-az containerapp ingress enable \
-  --name $APPNAME \
-  --resource-group $RESOURCE_GROUP \
-  --type external \
-  --target-port 8888 \
-  --transport auto
-```
-
-```azurecli
-az containerapp ingress cors enable \
-  --name $APPNAME \
-  --resource-group $RESOURCE_GROUP \
-  --allowed-origins *
-```
-
-```bash
-echo your login token is: `az containerapp logs show -g $RESOURCE_GROUP --name $APPNAME --tail 300 | \
+echo your login token is: `az containerapp logs show -g $RESOURCE_GROUP --name $APP_NAME --tail 300 | \
   grep token |  cut -d= -f 2 | cut -d\" -f 1 | uniq`
 ```
+
+1. Open the site and enter the token in the dialog box.
+
+1. Open the *aca_environment.sh* file and execute the commands in the Jupyter Notebook.
