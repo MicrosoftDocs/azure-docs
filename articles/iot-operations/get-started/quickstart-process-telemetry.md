@@ -31,6 +31,12 @@ wget https://github.com/EdJoPaTo/mqttui/releases/download/v0.19.0/mqttui-v0.19.0
 sudo dpkg -i mqttui-v0.19.0-x86_64-unknown-linux-gnu.deb
 ```
 
+Install the [k9s](https://k9scli.io/) tool on the Ubuntu machine where you're running Kubernetes:
+
+```bash
+sudo snap install k9s
+```
+
 ## What problem will we solve?
 
 Before you send data to the cloud for storage and analysis, you might want to process and enrich the data. For example, you might want to add contextualized information to the data, or you might want to filter out data that isn't relevant to your analysis. Azure IoT Data Processor pipelines enable you to process and enrich data before you send it to the cloud.
@@ -68,7 +74,7 @@ To ensure you can see the **Manage access** option in your Microsoft Fabric work
 
 1. Enter a name for your workspace such as _Your name AIO workspace_ and select **Apply**.
 
-To grant the service principal access to your workspace:
+To grant the service principal access to your Microsoft Fabric workspace:
 
 1. Navigate to your Microsoft Fabric workspace and select **Manage access**:
 
@@ -90,9 +96,46 @@ Create a lakehouse in your Microsoft Fabric workspace:
 
 1. Enter a name for your lakehouse such as _yourname_pipeline_destination_ and select **Create**.
 
+## Add a secret to your cluster
+
+To access the he lakehouse from a Data Processor pipeline, you need to add a secret to your cluster that contains the service principal details you created earlier. You need to configure your Azure Key Vault with the service principal details so that the cluster can retrieve them.
+
+To add a new secret to your Azure Key Vault:
+
+1. Navigate to your Azure Key Vault in the Azure portal.
+1. Select **Access policies** and grant **Get** and **List** permissions to the service principal you created earlier.
+1. Select **Secrets** and then select **Generate/Import**.
+1. Create a secret called **AIOAccessFabric**.
+
+To add the secret to your Kubernetes cluster edit the **aio-default-spc** `secretproviderclass` to add your new secret.
+
 ## Verify data is flowing
 
 To verify data is flowing from your assets by using the **mqttui** tool:
+
+1. Run the following command to make the MQ broker accessible from your local machine:
+
+    ```bash
+    # Create Listener
+    kubectl apply -f - <<EOF
+    apiVersion: mq.iotoperations.azure.com/v1beta1
+    kind: BrokerListener
+    metadata:
+      name: az-mqtt-non-tls-listener
+      namespace: azure-iot-operations
+    spec:
+      brokerRef: broker
+      authenticationEnabled: false
+      authorizationEnabled: false
+      port: 1883
+    EOF
+    ```
+
+1. Run the following command to set up port forwarding for the MQ broker. This command blocks the terminal, for subsequent commands you need a new terminal:
+
+    ```bash
+    kubectl port-forward svc/aio-mq-dmqtt-frontend 1883:1883 -n azure-iot-operations
+    ```
 
 1. Use the following command:
 
@@ -100,7 +143,7 @@ To verify data is flowing from your assets by using the **mqttui** tool:
     mqttui -b mqtt://localhost:1883
     ```
 
-1. Verify that the thermostat asset you added in the previous quickstart is publishing data. You can find the telemetry in the `alice-springs-solution/data` topic.
+1. Verify that the thermostat asset you added in the previous quickstart is publishing data. You can find the telemetry in the `azure-iot-operations/data` topic.
 
     :::image type="content" source="media/quickstart-process-telemetry/mqttui-output.png" alt-text="Screenshot of the mqttui topic display showing the temperature telemetry.":::
 
@@ -140,9 +183,9 @@ In the following steps, leave all values at their default unless otherwise speci
     | Parameter     | Value                               |
     | ------------- | ----------------------------------- |
     | Name          | `input data`                    |
-    | Broker        | `mqtt://azedge-dmqtt-frontend:1883` |
+    | Broker        | `tls://aio-mq-dmqtt-frontend:8883` |
     | Authentication| `none`                  |
-    | Topic         | `alice-springs-solution/data/opc-ua-connector/opc-ua-connector-0/#`                    |
+    | Topic         | `azure-iot-operations/data/opc-ua-connector/opc-ua-connector-0/#`                    |
     | Data format   | `JSON`                              |
 
 1. Select **Transform** from **Pipeline Stages** as the second stage in this pipeline. Enter the following values and then select **Apply**:
@@ -159,7 +202,7 @@ In the following steps, leave all values at their default unless otherwise speci
     | Parameter      | Value                             |
     | -------------- | --------------------------------- |
     | Display name   | `output data`             |
-    | Broker         | `mqtt://azedge-dmqtt-frontend:1883` |
+    | Broker         | `tls://aio-mq-dmqtt-frontend:8883` |
     | Authentication | `none`                            |
     | Topic          | `dp-output`                 |
     | Data format    | `JSON`                              |
@@ -192,7 +235,7 @@ In the following steps, leave all values at their default unless otherwise speci
     | Parameter     | Value                               |
     | ------------- | ----------------------------------- |
     | Name          | `reference data`                    |
-    | Broker        | `mqtt://azedge-dmqtt-frontend:1883` |
+    | Broker        | `tls://aio-mq-dmqtt-frontend:8883` |
     | Authentication| `none`                  |
     | Topic         | `reference_data`                    |
     | Data format   | `JSON`                              |
@@ -244,9 +287,9 @@ Create a Data Processor pipeline to process and enrich your data before it sends
     | Parameter     | Value |
     | ------------- | ----- |
     | Display name  | `OPC UA data` |
-    | Broker        | `mqtt://azedge-dmqtt-frontend:1883` |
+    | Broker        | `tls://aio-mq-dmqtt-frontend:8883` |
     | Authentication| `none` |
-    | Topic         | `alice-springs-solution/data/opc-ua-connector/opc-ua-connector-0/thermostat` |
+    | Topic         | `azure-iot-operations/data/opc-ua-connector/opc-ua-connector-0/thermostat` |
     | Data Format   | `JSON` |
 
 1. To track the last known value (LKV) of the temperature, select **Stages**, and select **Last known values**. Use the information the following tables to configure the stage to track the LKVs of temperature for the messages that only have boiler status messages, then select **Apply**:
@@ -314,12 +357,13 @@ Create a Data Processor pipeline to process and enrich your data before it sends
     | -------------- | --------------------------------- |
     | Name           | `processed OPC UA data`                          |
     | URL            | `https://msit-onelake.pbidedicated.windows.net`  |
-    | Workspace      | The workspace ID you made a note of previously.  |
-    | Lakehouse      | The lakehouse ID you made a note of previously.  |
-    | Table          | `OPCUA`                                          |
+    | Authentication | `Service principal`     |
     | Tenant ID      | The tenant ID you made a note of previously.     |
     | Client ID      | The client ID you made a note of previously.     |
-    | Client secret  | The client secret you made a note of previously. |
+    | Secret  | The Azure Key Vault secret reference you made a note of previously. |
+    | Workspace      | The Microsoft Fabric workspace ID you made a note of previously.  |
+    | Lakehouse      | The lakehouse ID you made a note of previously.  |
+    | Table          | `OPCUA`                                          |
     | Batch path     | `.payload`                                       |
 
     Use the following configuration to set up the columns in the output:
