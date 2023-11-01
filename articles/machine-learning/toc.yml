@@ -255,6 +255,10 @@
             href: how-to-r-train-model.md
           - name: Deploy R model
             href: how-to-r-deploy-r-model.md
+      - name: Work with Microsoft Fabric
+        items:
+          - name: Access and use batch deployments from Fabric
+            href: how-to-use-batch-fabric.md
 - name: Work with data
   items:
   - name: Data concepts in Azure Machine Learning
@@ -944,6 +948,8 @@
               href: how-to-use-batch-azure-data-factory.md
             - name: Run batch endpoints from Event Grid events in storage
               href: how-to-use-event-grid-batch.md
+            - name: Run batch endpoints from Microsoft Fabric
+              href: how-to-use-batch-fabric.md
     - name: Deploy models outside Azure Machine Learning
       href: how-to-package-models-app-service.md
     - name: Model optimization
