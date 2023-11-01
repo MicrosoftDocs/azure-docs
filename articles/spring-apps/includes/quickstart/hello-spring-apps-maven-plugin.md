@@ -32,15 +32,3 @@ Use the following steps to deploy using the [Maven plugin for Azure Spring Apps]
     - **Expose public access for this app (boot-for-azure)**: Press <kbd>y</kbd>.
     - **Confirm to save all the above configurations**: Press <kbd>y</kbd>. If you press <kbd>n</kbd>, the configuration isn't saved in the POM files.
 
-1. Use the following command to deploy the app:
-
-   ```bash
-   ./mvnw azure-spring-apps:deploy
-   ```
-
-   The following list describes the command interaction:
-
-    - **OAuth2 login**: You need to authorize the sign in to Azure based on the OAuth2 protocol.
-
-   After the command is executed, you can see from the following log messages that the deployment was successful:
-
