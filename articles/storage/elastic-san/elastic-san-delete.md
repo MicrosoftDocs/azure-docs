@@ -64,33 +64,19 @@ iscsiadm --mode node --target **yourStorageTargetIQN** --portal **yourStorageTar
 
 You may delete your SAN using the Azure portal, Azure PowerShell or Azure CLI. If you delete a SAN or a volume group, the corresponding child resources will be deleted along with it. The delete commands for each of the resource levels are below.
 
-The following commands delete your volume snapshots. 
+
+The following commands delete your volumes. `ForceDelete false` and `--x-ms-force-delete false` have been incorporated into these commands for PSH and CLI respectively. These two parameters if set to true cause volume deletions to succeed even when you have active iSCSI connections. If you don't want this to happen, set keep these as false. Additionally, since deleting a volume will cause all the associated snapshots to be deleted, you must ensure that the parameters `DeleteSnapshot true` and `--x-ms-delete-snapshots true` are incorporated into the PSH and CLI commands respectively. In the below example, they have been set to false.
 
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Remove-AzElasticSanVolumeSnapshot -ResourceGroupName $resourceGroupName -ElasticSanName $sanName -VolumeGroupName $volumeGroupName -Name $snapshotName
+Remove-AzElasticSanVolume -ResourceGroupName $resourceGroupName -ElasticSanName $sanName -VolumeGroupName $volumeGroupName -Name $volumeName -ForceDelete false DeleteSnapshot false
 ```
 
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az elastic-san volume snapshot delete -e $sanName -g $resourceGroupName -v $volumeGroupName -n $snapshotName
-```
----
-
-The following commands delete your volumes. `ForceDelete false` and `--x-ms-force-delete false` have been incorporated into these commands for PSH and CLI respectively. These two parameters if set to true cause volume deletions to succeed even when you have active iSCSI connections. If you don't want this to happen, set keep these as false.
-
-# [PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-Remove-AzElasticSanVolume -ResourceGroupName $resourceGroupName -ElasticSanName $sanName -VolumeGroupName $volumeGroupName -Name $volumeName -ForceDelete false
-```
-
-# [Azure CLI](#tab/azure-cli)
-
-```azurecli
-az elastic-san volume delete -e $sanName -g $resourceGroupName -v $volumeGroupName -n $volumeName --x-ms-force-delete false
+az elastic-san volume delete -e $sanName -g $resourceGroupName -v $volumeGroupName -n $volumeName --x-ms-force-delete false --x-ms-delete-snapshots false
 ```
 ---
 
