@@ -37,11 +37,11 @@ items:
       - name: Concepts
         items: 
         - name: Akri overview
-          href: manage-devices-assets/concept-akri-overview.md
+          href: manage-devices-assets/overview-akri.md
         - name: Akri architecture
           href: manage-devices-assets/concept-akri-architecture.md
         - name: OPC UA broker overview
-          href: manage-devices-assets/concept-opcua-broker-overview.md
+          href: manage-devices-assets/overview-opcua-broker.md
       - name: How to 
         items:
         - name: Manage assets remotely
@@ -50,22 +50,6 @@ items:
           href: manage-devices-assets/howto-autodetect-opcua-assets-using-akri.md
         - name: Install or uninstall Azure IoT Akri
           href: manage-devices-assets/howto-install-akri.md
-        - name: Use OPC UA broker in standalone mode
-          items:
-          - name: Install OPC UA Broker using helm
-            href: manage-devices-assets/howto-install-opcua-broker-using-helm.md
-          - name: Connect an OPC UA server
-            href: manage-devices-assets/howto-connect-an-opcua-server.md
-          - name: Define OPC UA assets
-            href: manage-devices-assets/howto-define-opcua-assets.md
-          - name: Autodetect OPC UA assets
-            href: manage-devices-assets/howto-autodetect-opcua-assets.md
-          - name: Process telemetry using OPC UA Broker
-            href: manage-devices-assets/howto-process-telemetry-using-opcua-broker.md
-          - name: Use OPC UA Broker actions
-            href: manage-devices-assets/howto-use-opcua-broker-actions.md
-          - name: Uninstall OPC UA Broker using helm
-            href: manage-devices-assets/howto-uninstall-opcua-broker-using-helm.md    
     - name: Manage MQTT connectivity
       items:
       - name: Overview
@@ -166,17 +150,17 @@ items:
         href: analyze-telemetry/overview-analyze-telemetry.md
     - name: Monitor service and asset health
       items:
-      - name: Overview
-        href: monitor/overview-monitor-health.md
+      - name: Configure observability
+        href: monitor/howto-configure-observability.md
       - name: Monitor Azure MQ
         href: monitor/howto-monitor-mq.md
     - name: Manage layered network
       items:
-      - name: Layered Network Management overview
-        href: manage-layered-network/concept-layered-network.md
+      - name: Overview
+        href: manage-layered-network/overview-layered-network.md
       - name: Deploy to an AKS cluster
         href: manage-layered-network/howto-deploy-aks-layered-network.md
-      - name: Configure Layered Network Management
+      - name: Create sample network environment
         href: manage-layered-network/howto-configure-layered-network.md
       - name: Configure L3 cluster
         href: manage-layered-network/howto-configure-l3-cluster-layered-network.md

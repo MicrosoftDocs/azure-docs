@@ -18,13 +18,13 @@ You can configure an Arc-enabled Kubernetes cluster in an isolated network using
 
 Since Level 4 is internet facing, the configuration and installation can be completed using online commands.
 
-## Prepare a Windows 11 Machine
+## Prepare Windows 11
 
-1. Install [Windows 11](https://www.microsoft.com/software-download/windows11) on your device
-1. Install [Helm](https://helm.sh/docs/intro/install/) 3.8.0 or later
-1. Install [Kubectl](https://kubernetes.io/docs/tasks/tools/)
-1. Install AKS Edge Essentials. Follow the steps in [Prepare your machines for AKS Edge Essentials](/azure/aks/hybrid/aks-edge-howto-setup-machine)
-1. Install Azure CLI. Follow the steps in [Install Azure CLI on Windows](/cli/azure/install-azure-cli-windows)
+1. Install [Windows 11](https://www.microsoft.com/software-download/windows11) on your device.
+1. Install [Helm](https://helm.sh/docs/intro/install/) 3.8.0 or later.
+1. Install [Kubectl](https://kubernetes.io/docs/tasks/tools/).
+1. Install AKS Edge Essentials. Follow the steps in [Prepare your machines for AKS Edge Essentials](/azure/aks/hybrid/aks-edge-howto-setup-machine).
+1. Install Azure CLI. Follow the steps in [Install Azure CLI on Windows](/cli/azure/install-azure-cli-windows).
 1. Install connectedk8s using the following command:
 
     ```bash
@@ -35,7 +35,7 @@ Since Level 4 is internet facing, the configuration and installation can be comp
 
 1. To deploy AKS Edge Essentials, you need an Azure service principal that has at least **contributor** access to your subscription. For more information on how to create an Azure service principal, see [Create a Microsoft Entra application and service principal that can access resources](/entra/identity-platform/howto-create-service-principal-portal) to create a service principal. For more information on prerequisites, see [AKS Edge Essentials prerequisites](/azure/aks/hybrid/aks-edge-quickstart#prerequisites).
 1. Follow the steps in the [Single machine deployment](/azure/aks/hybrid/aks-edge-howto-single-node-deployment) article.
-1. Use the `New-AksEdgeDeployment` PowerShell command to create a file named **aks-ee-config.json**.
+1. Use the *New-AksEdgeDeployment* PowerShell command to create a file named **aks-ee-config.json**.
 1. Edit the **aks-ee-config.json** file.
 1. In the **Init** section, change the **ServiceIPRangeSize** property to **10**.
 
@@ -72,7 +72,7 @@ Since Level 4 is internet facing, the configuration and installation can be comp
 
     For more information, see [Deployment configuration JSON parameters](/azure/aks/hybrid/aks-edge-deployment-config-json). 
 
-1. Create the AKS EE cluster:
+1. Create the AKS Edge Essentials cluster.
 
     ```bash
     New-AksEdgeDeployment -JsonConfigFilePath .\aks-ee-config.json
@@ -134,14 +134,34 @@ Create the Layered Network Management custom resource.
       allowList:
         enableArcDomains: true
         domains:
+        - destinationUrl: "quay.io"
+          destinationType: external
+        - destinationUrl: "*.quay.io"
+          destinationType: external
+        - destinationUrl: "docker.io"
+          destinationType: external
+        - destinationUrl: "*.docker.io"
+          destinationType: external
+        - destinationUrl: "*.docker.com"
+          destinationType: external
+        - destinationUrl: "gcr.io"
+          destinationType: external
+        - destinationUrl: "*.googleapis.com"
+          destinationType: external
+        - destinationUrl: "login.windows.net"
+          destinationType: external
+        - destinationUrl: "graph.windows.net"
+          destinationType: external
+        - destinationUrl: "msit-onelake.pbidedicated.windows.net"
+          destinationType: external
         sourceIpRange:
         - addressPrefix: "0.0.0.0"
           prefixLen: 0
     ```
 
-    For debugging or experimentation, you can change the value of **loglevel** parameter to **debug**.  
+    For debugging or experimentation, you can change the value of **loglevel** parameter to **debug**.
 
-1. Create the Custom Resource to create a Layered Network Management instance
+1. Create the Custom Resource to create a Layered Network Management instance.
 
     ```bash
     kubectl apply -f lnm-cr.yaml
@@ -173,4 +193,4 @@ After these commands are run successfully, traffic received on ports 443 and 100
 
 ## Related content
 
-- [Configure Azure IoT Layered Network Management Environment](./howto-configure-layered-network.md)
+- [Create sample network environment](./howto-configure-layered-network.md)
