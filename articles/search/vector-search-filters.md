@@ -48,7 +48,7 @@ Outcomes were measured in Queries Per Second (QPS).
 
 + On larger datasets, prefiltering is orders of magnitude slower.
 
-+ So why is prefilter the default if it's amost always slower? Prefiltering guarantees that `k` results are returned if they exist in the index, where the bias favors recall and precision over speed.
++ So why is prefilter the default if it's almost always slower? Prefiltering guarantees that `k` results are returned if they exist in the index, where the bias favors recall and precision over speed.
 
 + Postfiltering is for customers who:
 
