@@ -686,6 +686,19 @@ The output shows results similar to the following example:
 
 :::image type="content" source="./media/container-insights-log-query/log-query-example-kubeagent-events.png" alt-text="Screenshot that shows log query results of informational events from an agent." lightbox="media/container-insights-log-query/log-query-example-kubeagent-events.png":::
 
+## Frequently asked questions
+
+This section provides answers to common questions.
+
+### Can I view metrics collected in Grafana?
+
+Container insights support viewing metrics stored in your Log Analytics workspace in Grafana dashboards. We've provided a template that you can download from the Grafana [dashboard repository](https://grafana.com/grafana/dashboards?dataSource=grafana-azure-monitor-datasource&category=docker). Use it to get started and as a reference to help you learn how to query data from your monitored clusters to visualize in custom Grafana dashboards.
+
+### Why are log lines larger than 16 KB split into multiple records in Log Analytics?
+
+The agent uses the [Docker JSON file logging driver](https://docs.docker.com/config/containers/logging/json-file/) to capture the stdout and stderr of containers. This logging driver splits log lines [larger than 16 KB](https://github.com/moby/moby/pull/22982) into multiple lines when they're copied from stdout or stderr to a file.
+          
+
 ## Next steps
 
 Container insights doesn't include a predefined set of alerts. To learn how to create recommended alerts for high CPU and memory utilization to support your DevOps or operational processes and procedures, see [Create performance alerts with Container insights](./container-insights-log-alerts.md).

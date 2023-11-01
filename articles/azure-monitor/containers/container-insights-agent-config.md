@@ -121,6 +121,16 @@ Output similar to the following example appears with the annotation schema-versi
                     schema-versions=v1 
 ```
 
+## Frequently asked questions
+
+This section provides answers to common questions.
+
+### How do I enable log collection for containers in the kube-system namespace through Helm?
+
+The log collection from containers in the kube-system namespace is disabled by default. You can enable log collection by setting an environment variable on Azure Monitor Agent. See the [Container insights](https://aka.ms/azuremonitor-containers-helm-chart) GitHub page.
+          
+
+
 ## Next steps
 
 - Container insights doesn't include a predefined set of alerts. Review the [Create performance alerts with Container insights](./container-insights-log-alerts.md) to learn how to create recommended alerts for high CPU and memory utilization to support your DevOps or operational processes and procedures.
