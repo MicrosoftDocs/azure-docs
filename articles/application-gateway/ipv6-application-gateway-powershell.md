@@ -50,7 +50,7 @@ The IPv6 Application Gateway preview is available to all public cloud regions wh
 * Existing IPv4 Application Gateways can not be upgraded to dual stack Application Gateways
 * IPv6 backends are currently not supported
 * IPv6 Private Link is not supported
-* Private only IPv6 Gateway is not supported
+* IPv6 only Application Gateway is not supported
 * Using the same port for Public and Private IPv6 listeners is not supported
 
 
