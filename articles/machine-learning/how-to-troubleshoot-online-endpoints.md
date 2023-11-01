@@ -551,7 +551,7 @@ Retrying the operation after waiting several seconds up to a minute may allow it
 
 Secret retrieval and injection during online deployment creation uses the identity associated with the online endpoint to retrieve secrets from the workspace connections and/or key vaults. This error happens when:
 
-- The endpoint identity does not have the Azure RBAC permission to read the secrets from the workspace connections and/or key vaults as specified by the deployment definition as secret references mapped to environment variables. Remember that role assignment may take time for changes to take effect.
+- The endpoint identity doesn't have the Azure RBAC permission to read the secrets from the workspace connections and/or key vaults, even though the secrets were specified by the deployment definition as references (mapped to environment variables). Remember that role assignment may take time for changes to take effect.
 - The format of the secret references are invalid, or the specified secrets do not exist in the workspace connections and/or key vaults.
 
 For more information, see [Secret injection in online endpoints (preview)](concept-secret-injection.md) and [Access secrets from online deployment using secret injection (preview)](how-to-deploy-online-endpoint-with-secret-injection.md).

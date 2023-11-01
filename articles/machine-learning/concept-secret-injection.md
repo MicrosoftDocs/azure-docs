@@ -92,8 +92,8 @@ In your deployment definition, instead of directly calling the APIs from workspa
 
 - If the endpoint was defined to enforce access to default secret stores (workspace connections under the current workspace) when creating the endpoint, your user identity that creates the deployment should have the permissions to read secrets from workspace connections.
 - The endpoint identity has permissions to read secrets from either workspace connections or the Key Vault, as referenced in the deployment definition.
-    - The endpoint identity's permission for workspace connections may already have been automatically granted, if the endpoint was successfully created with an SAI and the flag set to enforce access to default secret stores. In other cases (for example, endpoint used UAI, or the flag was not set), the endpoint identity might not have the permission for workspace connections. In this case, you need to perform the task of assigning the role for the workspace connections to the endpoint identity.
-    - The endpoint identity's permission for key vault won't be automatically granted. You need to assign the role for key vault to the endpoint identity.
+    - The endpoint identity might have automatically received permission for workspace connections if the endpoint was successfully created with an SAI and the flag set to enforce access to default secret stores. In other cases, for example, if the endpoint used a UAI, or the flag wasn't set, the endpoint identity might not have the permission for workspace connections. In such a situation, you need to perform the task of assigning the role for the workspace connections to the endpoint identity.
+    - The endpoint identity won't automatically receive permission for the Key Vault. You need to manually assign the role for the Key Vault to the endpoint identity.
 
 For more information on using secret injection, see [Deploy machine learning models to online endpoints with secret injection (preview)](how-to-deploy-online-endpoint-with-secret-injection.md).
 
