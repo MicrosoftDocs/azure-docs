@@ -5,7 +5,7 @@ author: gourdsay
 ms.author: angour 
 ms.service: data-manager-for-agri 
 ms.topic: conceptual 
-ms.date: 08/23/2023 
+ms.date: 11/1/2023 
 ms.custom: template-concept 
 ---
 
@@ -22,6 +22,11 @@ Azure Data Manager for Agriculture Preview is updated on an ongoing basis. To st
  We provide information on latest releases, bug fixes, & deprecated functionality for Azure Data Manager for Agriculture Preview monthly.
 
 [!INCLUDE [public-preview-notice.md](includes/public-preview-notice.md)]
+
+## October 2023
+
+### Azure portal experience enhancement:
+We have released a new user friendly experience to install ISV solutions that are available for Azure Data Manager for Agriculture users. You can now go to your Azure Data Manager for Agriculture instance on the Azure Portal, view and install available solutions in a seamless user experience. Today the ISV solutions available are from Bayer AgPowered services, you can see the marketplace listing [here](https://azuremarketplace.microsoft.com/marketplace/apps?search=bayer&page=1). You can learn more about installing ISV solutions [here](how-to-set-up-isv-solution.md).
 
 ## July 2023
 
