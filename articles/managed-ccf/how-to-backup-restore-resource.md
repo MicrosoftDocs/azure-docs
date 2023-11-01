@@ -91,7 +91,7 @@ curl --request POST 'https://management.azure.com/subscriptions/<subscription_id
 
 After the backup completes, you can view the files stored in your Azure Storage Fileshare.
 
-:::image type="content" source="./media/how-to/cedr-backup-fileshare.png" alt-text="Screenshot of the Azure portal in a web browser, showing a sample Fileshare folder structure.":::
+:::image type="content" source="./media/how-to/cedr-backup-file-share.png" alt-text="Screenshot of the Azure portal in a web browser, showing a sample Fileshare folder structure.":::
 
 Refer to the following articles to explore the backup files.
 
