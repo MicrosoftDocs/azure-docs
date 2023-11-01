@@ -171,57 +171,14 @@ The first step of migration is to set up the replication appliance. To set up th
 
     ![Finalize registration](./media/tutorial-migrate-physical-virtual-machines/finalize-registration.png)
 
-## Install the Mobility service
+## Install the Mobility service agent
 
-A Mobility service agent must be installed on the source AWS VMs to be migrated. The agent installers are available on the replication appliance. You find the right installer, and install the agent on each machine you want to migrate. Do as follows:
+A Mobility service agent must be pre-installed on the source AWS VMs to be migrated before you can initiate replication. The approach you choose to install the Mobility service agent may depend on your organization's preferences and existing tools, but be aware that the "push" installation method built into Azure Site Recovery is not currently supported. Approaches you may want to consider:
 
-1. Sign in to the replication appliance.
-2. Navigate to **%ProgramData%\ASR\home\svsystems\pushinstallsvc\repository**.
-3. Find the installer for the source AWS VMs operating system and version. Review [supported operating systems](../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines).
-4. Copy the installer file to the source AWS VM you want to migrate.
-5. Make sure that you have the saved passphrase text file that was created when you installed the replication appliance.
-    - If you forgot to save the passphrase, you can view the passphrase on the replication appliance with this step. From the command line, run **C:\ProgramData\ASR\home\svsystems\bin\genpassphrase.exe -v** to view the current passphrase.
-    - Now, copy this passphrase to your clipboard and save it in a temporary text file on the source VMs.
-
-### Installation guide for Windows AWS VMs
-
-1. Extract the contents of installer file to a local folder (for example C:\Temp) on the AWS VM, as follows:
-
-    ```
-    ren Microsoft-ASR_UA*Windows*release.exe MobilityServiceInstaller.exe
-    MobilityServiceInstaller.exe /q /x:C:\Temp\Extracted
-    cd C:\Temp\Extracted
-    ```  
-
-2. Run the Mobility Service Installer:
-    ```
-   UnifiedAgent.exe /Role "MS" /Silent
-    ```  
-
-3. Register the agent with the replication appliance:
-    ```
-    cd C:\Program Files (x86)\Microsoft Azure Site Recovery\agent
-    UnifiedAgentConfigurator.exe  /CSEndPoint <replication appliance IP address> /PassphraseFilePath <Passphrase File Path>
-    ```
-
-### Installation guide for Linux AWS VMs
-
-1. Extract the contents of the installer tarball to a local folder (for example /tmp/MobSvcInstaller) on the AWS VM, as follows:
-    ```
-    mkdir /tmp/MobSvcInstaller
-    tar -C /tmp/MobSvcInstaller -xvf <Installer tarball>
-    cd /tmp/MobSvcInstaller
-    ```  
-
-2. Run the installer script:
-    ```
-    sudo ./install -r MS -v VmWare -d <Install Location> -q -c CSLegacy
-    ```  
-
-3. Register the agent with the replication appliance:
-    ```
-    /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <replication appliance IP address> -P <Passphrase File Path> -c CSLegacy
-    ```
+- [AWS System Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/what-is-systems-manager.html)
+- [System Center Configuration Manager](../site-recovery/vmware-azure-mobility-install-configuration-mgr.md)
+- [Arc for Servers and Custom Script Extensions](../azure-arc/servers/overview.md)
+- [Manual installation](../site-recovery/vmware-physical-mobility-service-overview.md)
 
 ## Enable replication for AWS VMs
 

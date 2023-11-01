@@ -57,15 +57,15 @@ This article shows you how to create a static public IP address and assign it to
     > [!NOTE]
     > If you're using a *Basic* SKU load balancer in your AKS cluster, use *Basic* for the `--sku` parameter when defining a public IP. Only *Basic* SKU IPs work with the *Basic* SKU load balancer and only *Standard* SKU IPs work with *Standard* SKU load balancers.
 
-3. Get the static public IP address using the [`az network public-ip list`][az-network-public-ip-list] command. Specify the name of the node resource group and public IP address you created, and query for the `ipAddress`.
+2. Get the static public IP address using the [`az network public-ip list`][az-network-public-ip-list] command. Specify the name of the node resource group and public IP address you created, and query for the `ipAddress`.
 
     ```azurecli-interactive
-    az network public-ip show --resource-group <node resource group name> --name myAKSPublicIP --query ipAddress --output tsv
+    az network public-ip show --resource-group myNetworkResourceGroup --name myAKSPublicIP --query ipAddress --output tsv
     ```
 
 ## Create a service using the static IP address
 
-1. Ensure the cluster identity used by the AKS cluster has delegated permissions to the node resource group using the [`az role assignment create`][az-role-assignment-create] command.
+1. Ensure the cluster identity used by the AKS cluster has delegated permissions to the public IP's resource group using the [`az role assignment create`][az-role-assignment-create] command.
 
     ```azurecli-interactive
     CLIENT_ID=$(az aks show --name myAKSCluster --resource-group myNetworkResourceGroup --query identity.principalId -o tsv)
@@ -82,16 +82,15 @@ This article shows you how to create a static public IP address and assign it to
 2. Create a file named `load-balancer-service.yaml` and copy in the contents of the following YAML file, providing your own public IP address created in the previous step and the node resource group name.
 
     > [!IMPORTANT]
-    > Adding the `loadBalancerIP` property to the load balancer YAML manifest is deprecating following [upstream Kubernetes](https://github.com/kubernetes/kubernetes/pull/107235). While current usage remains the same and existing services are expected to work without modification, we **highly recommend setting service annotations** instead. To set service annotations, you can use `service.beta.kubernetes.io/azure-load-balancer-ipv4` for an IPv4 address and `service.beta.kubernetes.io/azure-load-balancer-ipv6` for an IPv6 address, as shown in the example YAML.
+    > Adding the `loadBalancerIP` property to the load balancer YAML manifest is deprecating following [upstream Kubernetes](https://github.com/kubernetes/kubernetes/pull/107235). While current usage remains the same and existing services are expected to work without modification, we **highly recommend setting service annotations** instead. To set service annotations, you can either use `service.beta.kubernetes.io/azure-pip-name` for public IP name, or use `service.beta.kubernetes.io/azure-load-balancer-ipv4` for an IPv4 address and `service.beta.kubernetes.io/azure-load-balancer-ipv6` for an IPv6 address, as shown in the example YAML.
 
     ```yaml
     apiVersion: v1
     kind: Service
     metadata:
       annotations:
-        service.beta.kubernetes.io/azure-load-balancer-resource-group: <node resource group>
-        service.beta.kubernetes.io/azure-load-balancer-ipv4: <public IP address>
-        service.beta.kubernetes.io/azure-pip-name: <public IP Name>
+        service.beta.kubernetes.io/azure-load-balancer-resource-group: myNetworkResourceGroup
+        service.beta.kubernetes.io/azure-pip-name: myAKSPublicIP
       name: azure-load-balancer
     spec:
       type: LoadBalancer
@@ -114,9 +113,8 @@ This article shows you how to create a static public IP address and assign it to
     kind: Service
     metadata:
       annotations:
-        service.beta.kubernetes.io/azure-load-balancer-resource-group: <node resource group>
-        service.beta.kubernetes.io/azure-load-balancer-ipv4: <public IP address>
-        service.beta.kubernetes.io/azure-pip-name: <public IP Name>
+        service.beta.kubernetes.io/azure-load-balancer-resource-group: myNetworkResourceGroup
+        service.beta.kubernetes.io/azure-pip-name: myAKSPublicIP
         service.beta.kubernetes.io/azure-dns-label-name: <unique-service-label>
       name: azure-load-balancer
     spec:

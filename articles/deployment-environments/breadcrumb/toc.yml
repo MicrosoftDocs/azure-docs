@@ -1,0 +1,7 @@
+items:
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+    - name: Deployment Environments
+      tocHref: /azure/reliability
