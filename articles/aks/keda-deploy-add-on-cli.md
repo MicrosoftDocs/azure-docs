@@ -19,8 +19,6 @@ This article shows you how to install the Kubernetes Event-driven Autoscaling (K
 - You need an Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
 - You need the [Azure CLI installed](/cli/azure/install-azure-cli).
 - Ensure you have firewall rules configured to allow access to the Kubernetes API server. For more information, see [Outbound network and FQDN rules for Azure Kubernetes Service (AKS) clusters][aks-firewall-requirements].
-- [Install the `aks-preview` Azure CLI extension](#install-the-aks-preview-azure-cli-extension).
-- [Register the `AKS-KedaPreview` feature flag](#register-the-aks-kedapreview-feature-flag).
 
 ## Install the KEDA add-on with Azure CLI
 
