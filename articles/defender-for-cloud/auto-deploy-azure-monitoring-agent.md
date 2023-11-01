@@ -12,12 +12,18 @@ ms.custom: template-how-to, ignite-2022
 
 To make sure that your server resources are secure, Microsoft Defender for Cloud uses agents installed on your servers to send information about your servers to Microsoft Defender for Cloud for analysis.
 
-> [!NOTE]
-> As part of the Defender for Cloud updated strategy, Azure Monitor Agent will no longer be required for the Defender for Servers offering. However, it will still be required for Defender for SQL Server on machines. As a result, the previous autoprovisioning process for both agents has been adjusted accordingly. For more information about this change, see [this announcement](upcoming-changes.md#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation). Azure Monitor Agent (AMA) is still available for deployment on your servers but is not required to receive Defender for Servers features and capabilities. To ensure your servers are secured, receive all the security content of Defender for Servers, verify [Defender for Endpoint (MDE) integration](integration-defender-for-endpoint.md) and [agentless disk scanning](concept-agentless-data-collection.md) are enabled on your subscriptions. This will ensure you’ll seamlessly be up to date and receive all the alternative deliverables once they are provided.
-
 In this article, we give an overview of AMA preferences for when you deploy Defender for SQL servers on machines.
 
+> [!NOTE]
+> As part of the Defender for Cloud updated strategy, Azure Monitor Agent will no longer be required for the Defender for Servers offering. However, it will still be required for Defender for SQL Server on machines. As a result, the previous autoprovisioning process for both agents has been adjusted accordingly. Learn more about [this announcement](upcoming-changes.md#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation). 
+
+## Azure Monitor Agent in Defender for Servers
+
+Azure Monitor Agent (AMA) is still available for deployment on your servers but is not required to receive Defender for Servers features and capabilities. To ensure your servers are secured, receive all the security content of Defender for Servers, verify [Defender for Endpoint (MDE) integration](integration-defender-for-endpoint.md) and [agentless disk scanning](concept-agentless-data-collection.md) are enabled on your subscriptions. This will ensure you’ll seamlessly be up to date and receive all the alternative deliverables once they are provided.
+
 ## Availability
+
+THe following information on availability is relevant for the [Defender for SQL](/defender-for-sql-introduction.md) plan only.
 
 [!INCLUDE [azure-monitor-agent-availability](includes/azure-monitor-agent-availability.md)]
 
@@ -25,6 +31,7 @@ In this article, we give an overview of AMA preferences for when you deploy Defe
 
 Before you deploy AMA with Defender for Cloud, you must have the following prerequisites:
 
+- [Enable Defender for SQL servers on machines](defender-for-sql-usage.md)
 - Make sure your multicloud and on-premises machines have Azure Arc installed.
   - AWS and GCP machines
     - [Onboard your AWS connector](quickstart-onboard-aws.md) and autoprovision Azure Arc.
