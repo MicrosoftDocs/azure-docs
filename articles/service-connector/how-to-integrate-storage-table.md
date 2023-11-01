@@ -11,7 +11,7 @@ ms.custom: event-tier1-build-2022
 
 # Integrate Azure Table Storage with Service Connector
 
-This page shows supported authentication methods and clients, and shows sample code you can use to connect Azure Table Storage to other cloud services using Service Connector. You may still be able to connect to Azure Table Storage in other programming languages without using Service Connector. For more information about naming conventions, check the [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article.
+This page shows supported authentication methods and clients, and shows sample code you can use to connect Azure Table Storage to other cloud services using Service Connector. You might still be able to connect to Azure Table Storage in other programming languages without using Service Connector. For more information about naming conventions, check the [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article.
 
 ## Supported compute service
 
