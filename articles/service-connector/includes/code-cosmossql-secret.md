@@ -85,4 +85,4 @@ Refer to [Spring Data Azure Cosmos DB v3 examples](/azure/cosmos-db/nosql/sample
 
 
 ### [Other](#tab/other)
-For other languages, you can use the blob storage account URL and other properties that Service Connector set to the environment variables to connect the blob storage. For environment variable details, see [Integrate Azure Blob Storage with Service Connector](../how-to-integrate-storage-blob.md).
+For other languages, you can use the endpoint URL and other properties that Service Connector sets to the environment variables to connect to Azure Cosmos DB for NoSQL. For environment variable details, see [Integrate Azure Cosmos DB for NoSQL with Service Connector](../how-to-integrate-cosmos-sql.md).
