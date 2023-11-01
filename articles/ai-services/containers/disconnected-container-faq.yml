@@ -118,7 +118,7 @@ sections:
             * [Microsoft Cognitive](https://stackoverflow.com/questions/tagged/microsoft-cognitive)
       - question: How does billing work?
         answer: |
-          Customers are charged based on the [commitment tier](../ai-studio/how-to/costs-plan-manage.md#commitment-tier) they purchase. Choose an annual commitment plan based on the needs of your workload. You can customize the "Commitment tier disconnected containers DC0" pricing tier by selecting one of several commitment tier options. 
+          Customers are charged based on the commitment tier they purchase. Choose an annual commitment plan based on the needs of your workload. You can customize the "Commitment tier disconnected containers DC0" pricing tier by selecting one of several commitment tier options. 
           
           Each commitment tier offers a discounted rate as compared to the pay-as-you-go pricing model. Commitment plans are charged annually starting from the day the resource was created. Additional units can be added at any time in the year and are charged pro-rated based on the number of days remaining in the billing year. For more information, see the following pricing pages:
           > [!TIP]
