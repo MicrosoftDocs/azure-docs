@@ -29,6 +29,7 @@ In this quickstart, you learn how to:
 - An Azure account and an active subscription. Create an [account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Visual Studio 2019 or later](https://visualstudio.microsoft.com/vs/).
 - The latest version of .NET Core. In this quickstart, we use [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1). Be sure to install the version that corresponds with your instance of Visual Studio, 32-bit or 64-bit.
+- Bot framework [SDK](https://github.com/microsoft/botframework-sdk/#readme)
 
 ## Create and deploy a bot in Azure
 
