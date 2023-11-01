@@ -106,7 +106,7 @@ PostgreSQL database version:
 - You will not be able to create new database servers for the retired version. However, you will be able to perform point-in-time recoveries and create read replicas for your existing servers.
 - New service capabilities developed by Azure Cosmos DB for PostgreSQL may only be available to supported database server versions.
 - Uptime SLAs will apply solely to Azure Cosmos DB for PostgreSQL service-related issues and not to any downtime caused by database engine-related bugs.  
-- In the extreme event of a serious threat to the service caused by the PostgreSQL database engine vulnerability identified in the retired database version, Azure may choose to stop your database server to secure the service. In such case, you will be notified to upgrade the server before bringing the server online.
+- In the extreme event of a serious threat to the service caused by the PostgreSQL database engine vulnerability identified in the retired database version, Azure may choose to stop your database server to secure the service. In such case, you will be notified [to upgrade the server](./howto-upgrade.md) before bringing the server online.
 
 ## Citus and other extension versions
 
@@ -119,3 +119,4 @@ will be installed as well. In particular, PostgreSQL 14, PostgreSQL 15, and Post
 * See which [extensions](reference-extensions.md) are installed in
   which versions.
 * Learn to [create a cluster](quickstart-create-portal.md).
+* Lean about [in-place Postgres and Citus major version upgrades](./concepts-upgrade.md).
