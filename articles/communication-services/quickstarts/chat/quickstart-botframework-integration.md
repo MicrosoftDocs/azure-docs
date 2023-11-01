@@ -42,9 +42,11 @@ To use Azure Communication Services chat as a channel in Azure Bot Service, firs
 
 ### Create an Azure Bot Service resource
 
-First, [use the Azure portal to create an Azure Bot Service resource](/azure/bot-service/abs-quickstart?tabs=userassigned).
+First, [use the Azure portal to create an Azure Bot Service resource](/azure/bot-service/abs-quickstart?tabs=userassigned).  Communication Services Chat channel supports single-tenant bots, managed identity bots, and multi-tenant bots. For the purposes of this quickstart we will use a *multi-tenant* bot. 
 
-This quickstart uses a multi-tenant bot. To use a single-tenant bot or a managed identity bot, see [Support for single-tenant and managed identity bots](#support-for-single-tenant-and-managed-identity-bots).
+To set up a single-tenant or managed identity bot, review [Bot identity information](/azure/bot-service/bot-builder-authentication?tabs=userassigned%2Caadv2%2Ccsharp#bot-identity-information).
+
+For a managed identity bot, you might have to [update the bot service identity](/azure/bot-service/bot-builder-authentication?tabs=userassigned%2Caadv2%2Ccsharp#to-update-your-app-service).
 
 ### Get the bot's app ID and app password
 
@@ -528,12 +530,6 @@ These bot activity fields are supported for user-to-bot flows.
 - `Conversation.Id` (Communication Services Chat thread ID)
 - `ChannelId` (Communication Services Chat if empty)
 - `ChannelData` (Communication Services Chat message metadata)
-
-## Support for single-tenant and managed identity bots
-
-Communication Services Chat channel supports single-tenant bots, managed identity bots, and multi-tenant bots. To set up a single-tenant or managed identity bot, review [Bot identity information](/azure/bot-service/bot-builder-authentication?tabs=userassigned%2Caadv2%2Ccsharp#bot-identity-information).
-
-For a managed identity bot, you might have to [update the bot service identity](/azure/bot-service/bot-builder-authentication?tabs=userassigned%2Caadv2%2Ccsharp#to-update-your-app-service).
 
 ## Bot handoff patterns
 
