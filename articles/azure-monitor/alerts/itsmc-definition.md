@@ -20,11 +20,11 @@ Before you create a connection, install ITSMC.
 
 1. In the Azure portal, select **Create a resource**.
 
-   ![Screenshot that shows the menu item for creating a resource.](media/itsmc-overview/azure-add-new-resource.png)
+   :::image type="content" source="media/itsmc-overview/azure-add-new-resource.png" lightbox="media/itsmc-overview/azure-add-new-resource.png" alt-text="Screenshot that shows the menu item for creating a resource.":::
 
 1. Search for **IT Service Management Connector** in Azure Marketplace. Then select **Create**.
 
-   ![Screenshot that shows the Create button in Azure Marketplace.](media/itsmc-overview/add-itsmc-solution.png)
+   :::image type="content" source="media/itsmc-overview/add-itsmc-solution.png" lightbox="media/itsmc-overview/add-itsmc-solution.png" alt-text="Screenshot that shows the Create button in Azure Marketplace.":::
 
 1. In the **Azure Log Analytics Workspace** section, select the Log Analytics workspace where you want to install ITSMC.
    > [!NOTE]
@@ -32,7 +32,7 @@ Before you create a connection, install ITSMC.
 
 1. In the **Azure Log Analytics Workspace** section, select the resource group where you want to create the ITSMC resource.
 
-   ![Screenshot that shows the Azure Log Analytics Workspace section.](media/itsmc-overview/itsmc-solution-workspace.png)
+   :::image type="content" source="media/itsmc-overview/itsmc-solution-workspace.png" lightbox="media/itsmc-overview/itsmc-solution-workspace.png" alt-text="Screenshot that shows the Azure Log Analytics Workspace section.":::
 
    > [!NOTE]
    > As part of the ongoing transition from Microsoft Operations Management Suite to Azure Monitor, Operations Management workspaces are now called *Log Analytics workspaces*.
@@ -48,17 +48,17 @@ After you've installed ITSMC, and prepped your ITSM tool, create an ITSM connect
 1. [Configure ServiceNow](./itsmc-connections-servicenow.md) to allow the connection from ITSMC.
 1. In **All resources**, look for **ServiceDesk(*your workspace name*)**.
 
-   ![Screenshot that shows recent resources in the Azure portal.](media/itsmc-definition/create-new-connection-from-resource.png)
+   :::image type="content" source="media/itsmc-definition/create-new-connection-from-resource.png" lightbox="media/itsmc-definition/create-new-connection-from-resource.png" alt-text="Screenshot that shows recent resources in the Azure portal.":::
 
 1. Under **Workspace Data Sources** on the left pane, select **ITSM Connections**.
 
-   ![Screenshot that shows the ITSM Connections menu item.](media/itsmc-overview/add-new-itsm-connection.png)
+   :::image type="content" source="media/itsmc-overview/add-new-itsm-connection.png" lightbox="media/itsmc-overview/add-new-itsm-connection.png" alt-text="Screenshot that shows the ITSM Connections menu item.":::
 
 1. Select **Add Connection**.
 1. Specify the ServiceNow connection settings.
 1. By default, ITSMC refreshes the connection's configuration data once every 24 hours. To refresh your connection's data instantly to reflect any edits or template updates that you make, select the **Sync** button on your connection's pane.
 
-    ![Screenshot that shows the Sync button on the connection's pane.](media/itsmc-overview/itsmc-connections-refresh.png)
+    :::image type="content" source="media/itsmc-overview/itsmc-connections-refresh.png" lightbox="media/itsmc-overview/itsmc-connections-refresh.png" alt-text="Screenshot that shows the Sync button on the connection's pane.":::
 
 ## Create ITSM work items from Azure alerts
 
@@ -77,18 +77,18 @@ To create an action group:
 1. In the Azure portal, select **Monitor** > **Alerts**.
 1. On the menu at the top of the screen, select **Manage actions**.
 
-    ![Screenshot that shows selecting Action groups.](media/itsmc-overview/action-groups-selection-big.png)
+    :::image type="content" source="media/itsmc-overview/action-groups-selection-big.png" lightbox="media/itsmc-overview/action-groups-selection-big.png" alt-text="Screenshot that shows selecting Action groups.":::
 
 1. On the **Action groups** screen, select **+Create**.
    The **Create action group** screen appears.
 1. Select the **Subscription** and **Resource group** where you want to create your action group. Enter values in **Action group name** and **Display name** for your action group. Then select **Next: Notifications**.
 
-    ![Screenshot that shows the Create an action group screen.](media/itsmc-overview/action-groups-details.png)
+    :::image type="content" source="media/itsmc-overview/action-groups-details.png" lightbox="media/itsmc-overview/action-groups-details.png" alt-text="Screenshot that shows the Create an action group screen.":::
 
 1. On the **Notifications** tab, select **Next: Actions**.
 1. On the **Actions** tab, select **ITSM** in the **Action type** list. For **Name**, provide a name for the action. Then select the pen button that represents **Edit details**.
 
-    ![Screenshot that shows selections for creating an action group.](media/itsmc-definition/action-group-pen.png)
+    :::image type="content" source="media/itsmc-definition/action-group-pen.png" lightbox="media/itsmc-definition/action-group-pen.png" alt-text="Screenshot that shows selections for creating an action group.":::
 
 1. In the **Subscription** list, select the subscription that contains your Log Analytics workspace. In the **Connection** list, select your ITSM Connector name. It will be followed by your workspace name. An example is *MyITSMConnector(MyWorkspace)*.
 1. In the **Work Item** type field, select the type of work item.
