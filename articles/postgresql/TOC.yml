@@ -253,7 +253,7 @@
      - name: Extensions
      - items:
        - name: pg_azure_storage
-         href: flexible-server/reference-pg-azure-storage.md
+       - href: flexible-server/reference-pg-azure-storage.md
   - name: How-to guides
     items:
     - name: Server administration
@@ -389,6 +389,10 @@
         - name: Optimize performance when using pgvector
           href: flexible-server/howto-optimize-performance-pgvector.md
           displayName: pgvector
+  - name: Extensions
+    items:
+      - name: pg_azure_storage
+      - href: flexible-server/reference-pg-azure-storage.md
 - name: Single Server
   expanded: false
   items:
