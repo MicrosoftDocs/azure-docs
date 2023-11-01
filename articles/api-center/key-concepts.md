@@ -6,7 +6,7 @@ editor: ''
  
 ms.service: api-center
 ms.topic: conceptual
-ms.date: 08/18/2023
+ms.date: 10/31/2023
 ms.author: danlep
 ms.custom: 
 ---
@@ -25,23 +25,23 @@ The following diagram shows the main entities in API Center and how they relate 
 
 ### Highlighted relationships
 
-1. Each **API** can have multiple **versions** and multiple real-world **deployments**.
-1. Each API **version** can have multiple API **definitions**.
-1. Each API **deployment** is associated with a specific **environment** and a specific API **definition** file.
+1. **APIs** have **versions** and **deployments**.
+1. Each **version** has **definitions**.
+1. **Deployments** associate a **definition** with an **environment**.
 
 ## API
 
-A top-level logical entity in API Center, an API represents any real-world API that you want to track. API Center supports APIs of any type, including REST, GraphQL, gRPC, SOAP, WebSocket, and Webhook.
+A top-level logical entity in API Center, an API represents any real-world API that you want to track. In API Center, you can include APIs of any type, including REST, GraphQL, gRPC, SOAP, WebSocket, and Webhook.
 
 An API can be managed by any API management solution (such as Azure [API Management](../api-management/api-management-key-concepts.md) or solutions from other providers), or unmanaged.
 
 ## Environment
 
-In API Center, an environment represents a location where an API runtime could be deployed, typically an API management platform, API gateway, or compute service. Each environment has a type (such as production or staging) and may include information about developer portal or management interfaces.
+An environment represents a location where an API runtime could be deployed, for example, an Azure API Management service, an Apigee service, an AKS cluster, a Web App, or an Azure Function. Each environment has a type (such as production or staging) and may include information about developer portal or management interfaces.
 
 ## API version
 
-An API can have multiple versions across lifecycle stages, each aligned with specific API changes. Some versions may introduce major or breaking changes, while others add minor improvements. An API version can be at any lifecycle stage – from design, to preview, production, or deprecated. 
+API versioning is the practice of managing changes to an API and ensuring that these changes are made without disrupting clients. An API can have multiple versions across lifecycle stages, each aligned with specific API changes. Some versions may introduce major or breaking changes, while others add minor improvements. An API version can be at any lifecycle stage – from design, to preview, production, or deprecated. 
 
 ## API definition
 
@@ -49,11 +49,13 @@ Each API version may be defined with one or more definition files, such as an Op
 
 ## Deployment
 
-In API Center, a deployment identifies a specific environment used for an API runtime. An API could have multiple deployments, for example, one deployment in a staging Azure API Management service and a second deployment in a production Azure API Management service. Each deployment is associated with a specific API definition.
+A deployment is a location (an address) where users can access an API. An API can have multiple deployments, such as different staging environments or regions. For example, one deployment could be a staging Azure API Management service and a second deployment could be a production Azure API Management service. Each deployment is associated with a specific API definition.
+
+In API Center, a deployment identifies a specific environment used for an API runtime. An API could have multiple deployments. 
 
 ## Metadata properties
 
-In API Center, you organize your APIs, deployments, and other entities by setting values of metadata properties, which can be used for searching and filtering and to enforce governance standards. API Center provides several common built-in properties such as "API type" and "Version lifecycle". An API Center owner can augment the built-in properties by defining custom properties in a metadata schema to organize their APIs, deployments, and environments according to their organization's requirements. For example, create a *Line of business* property to identify the business unit that owns an API. 
+In API Center, organize your APIs, deployments, and other entities by setting values of metadata properties, which can be used for search and filtering and to enforce governance standards. API Center provides several common built-in properties such as "API type" and "Version lifecycle". An API Center owner can augment the built-in properties by defining custom properties in a metadata schema to organize their APIs, deployments, and environments according to their organization's requirements. For example, create a *Line of business* property to identify the business unit that owns an API. 
 
 API Center supports properties of type array, boolean, number, object, predefined choices, and string. 
 
