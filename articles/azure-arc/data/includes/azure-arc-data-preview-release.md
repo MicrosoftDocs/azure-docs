@@ -45,7 +45,7 @@ Nov 2023 test release is now available.
 - Configure backups at instance level using custom schedule for Azure Arc-enabled SQL Server instances for both portal and CLI - public preview
   - Configure Automated Backups with a custom schedule and custom retention period, on an Arc enabled SQL Server.
 - Point-in-time-restore using Azure CLI and Azure portal - public preview
-  - Restore a database to a point-in-time restore of their databases, if automatic backups is enabled. Restore can be done either from Azure portal or via az CLI.
+  - Restore a database to a point-in-time restore of their databases, if automatic backups are enabled. Restore can be done either from Azure portal or via az CLI.
 
 - Monitoring | Performance dashboards of an individual Azure Arc-enabled SQL Server instance in the Azure portal - public preview
 
