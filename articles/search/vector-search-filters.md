@@ -7,7 +7,7 @@ author: heidisteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/31/2023
+ms.date: 11/01/2023
 ---
 
 # Filters in vector queries
@@ -48,7 +48,13 @@ Outcomes were measured in Queries Per Second (QPS).
 
 + On larger datasets, prefiltering is orders of magnitude slower.
 
-+ Prefilter is the default. If you're working with larger indexes, we recommend setting the `vectorFilterMode` to `postFilter`.
++ So why is prefilter the default if it's amost always slower? Prefiltering guarantees that `k` results are returned if they exist in the index, where the bias favors recall and precision over speed.
+
++ Postfiltering is for customers who:
+
+  + value speed over selection (postfiltering can return fewer than `k` results)
+  + use filters that are not overly selective
+  + have indexes of sufficient size such that prefiltering performance is unacceptable
 
 ### Details
 
@@ -64,6 +70,10 @@ Outcomes were measured in Queries Per Second (QPS).
   + When filtering more than 5% of the dataset, prefiltering was about 50% slower.
   + When filtering less than 10% of the dataset, prefiltering was about seven times slower.
 
-The following graph shows prefilter relative QPS, computed as prefilter QPS divided by postfilter QPS. The horizontal axis represents the filtering rate, or the percentage of candidate documents after applying the filter. For example, a value of 0.5 on the vertical axis means prefiltering was 50% slower than postfiltering.
+The following graph shows prefilter relative QPS, computed as prefilter QPS divided by postfilter QPS. 
 
 :::image type="content" source="media/vector-search-filters/chart.svg" alt-text="Chart showing QPS performance for small, medium, and large indexes for relative QPS." border="true" lightbox="media/vector-search-filters/chart.png":::
+
+The vertical axis is QPS of prefiltering over QPS of postfiltering. For example, a value of 0.5 on the vertical axis means prefiltering was 50% slower than postfiltering, 1.0 means prefiltering is as fast as post-filtering, 0.0 means prefiltering is 100% slower.
+
+The horizontal axis represents the filtering rate, or the percentage of candidate documents after applying the filter. For example, `1.00%` means that one percent of the search corpus was selected by the filter criteria.
