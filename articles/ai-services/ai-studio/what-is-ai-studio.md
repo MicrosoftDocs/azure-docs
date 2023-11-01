@@ -14,17 +14,16 @@ ms.custom: ignite-2023
 
 # What is Azure AI Studio?
 
-Azure AI Studio brings together capabilities from across multiple Azure AI services. You can build generative AI applications on an enterprise-grade platform. Directly from the studio you can interact with a project code-first via the Azure AI SDK and Azure AI CLI. 
+Azure AI Studio brings together capabilities from across multiple Azure AI services. Azure AI Studio is designed for developers to:
 
-Azure AI Studio is a trusted and inclusive platform that empowers developers of all abilities and preferences to innovate with AI and shape the future. Seamlessly explore, build, test, and deploy using cutting-edge AI tools and ML models, grounded in responsible AI practices. Efficiently develop innovative, LLM-powered generative AI solutions with the foundations you need, including out-of-the-box and customizable toolkits to build copilots and “intelligent search,” “speech analytics,” and content generation applications. 
+- Build generative AI applications on an enterprise-grade platform. 
+- Directly from the studio you can interact with a project code-first via the Azure AI SDK and Azure AI CLI. 
+- Azure AI Studio is a trusted and inclusive platform that empowers developers of all abilities and preferences to innovate with AI and shape the future. 
+- Seamlessly explore, build, test, and deploy using cutting-edge AI tools and ML models, grounded in responsible AI practices. 
+- Build together as one team. Your Azure AI resource provides enterprise-grade security, and a collaborative environment with shared files and connections to pre-trained models, data and compute.
+- Organize your way. Your project helps you save state, allowing you iterate from first idea, to first prototype, and then first production deployment. Also easily invite others to collaborate along this journey.
 
 With Azure AI Studio, you can evaluate large language model (LLM) responses, pinpoint areas for fine-tuning, and orchestrate prompt application components with prompt flow for better performance. With clear cost and billing, the platform facilitates scalability, transforming proof of concepts into full-fledged production with ease. Continuous monitoring and refinement supports long-term success.  
-
-## Benefits
-
-
-- Work in VS Code. Move seamlessly between Azure AI studio and VS Code Web, fully synced at all times.
-
 
 
 ## Getting around in Azure AI Studio
@@ -82,4 +81,3 @@ You can sign in to Azure AI Studio if your Azure subscription has been granted a
 
 
  
-
