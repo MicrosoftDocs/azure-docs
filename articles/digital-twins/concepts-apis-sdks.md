@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn about the Azure Digital Twins API and SDK options, including information about SDK helper classes and general usage notes.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 10/10/2023
+ms.date: 11/01/2023
 ms.topic: conceptual
 ms.service: digital-twins
 ms.custom: engagement-fy23
@@ -80,7 +80,7 @@ The available helper classes are:
 
 ## Bulk import with the Import Jobs API
 
-The [Import Jobs API](/rest/api/digital-twins/dataplane/jobs) is a data plane API that allows you to import a set of models, twins, and/or relationships in a single API call. Import Jobs API operations are also included with the [CLI commands](/cli/azure/dt/job) and [data plane SDKs](#data-plane-apis). Using the Import Jobs API requires use of [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md). 
+The [Import Jobs API](/rest/api/digital-twins/dataplane/jobs) is a data plane API that allows you to import a set of models, twins, and/or relationships in a single API call. Import Jobs API operations are also included with the [CLI commands](/cli/azure/dt/job/import) and [data plane SDKs](#data-plane-apis). Using the Import Jobs API requires use of [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md). 
 
 ### Check permissions
 
@@ -161,7 +161,7 @@ Keep the following considerations in mind while working with the Import Jobs API
 
 ## Bulk delete with the Delete Jobs API
 
-The Delete Jobs API is a data plane API that allows you to delete all models, twins, and relationships in an instance with a single API call. Delete Jobs API operations are also available as [CLI commands](/cli/azure/dt/job). Visit the API documentation to see the request details for creating a delete job and checking its status.
+The [Delete Jobs API](/rest/api/digital-twins/dataplane/jobs) is a data plane API that allows you to delete all models, twins, and relationships in an instance with a single API call. Delete Jobs API operations are also available as [CLI commands](/cli/azure/dt/job/deletion). Visit the API documentation to see the request details for creating a delete job and checking its status.
 
 To make sure all elements are deleted, follow these recommendations while using the Delete Jobs API:
 * For instructions on how to generate a bearer token to authenticate API requests, see [Get bearer token](how-to-use-postman-with-digital-twins.md#get-bearer-token).

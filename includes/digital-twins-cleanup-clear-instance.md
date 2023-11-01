@@ -3,11 +3,11 @@ author: baanders
 description: include file for clearing the models, twins, and relationships from an Azure Digital Twins instance
 ms.service: digital-twins
 ms.topic: include
-ms.date: 10/3/2023
+ms.date: 11/1/2023
 ms.author: baanders
 ---
 
-* If you want to continue using the Azure Digital Twins instance from this article, but clear out **all** of its models, twins, and relationships, run the following CLI command: 
+* If you want to continue using the Azure Digital Twins instance from this article, but clear out **all** of its models, twins, and relationships, run the following [az dt job deletion](/cli/azure/dt/job/deletion) CLI command: 
 
     ```azure-cli
     az dt job deletion create -n <name-of-Azure-Digital-Twins-instance> -y
