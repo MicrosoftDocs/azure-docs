@@ -10,7 +10,7 @@ If you haven't already, update your project to reference the latest stable versi
 - [Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/)
 - [Microsoft.Azure.Functions.Worker.Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk/)
 
-Depending on the triggers and bindings your app uses, your app may need to reference a different set of packages. The following table shows the replacements for some of the most commonly used extensions:
+Depending on the triggers and bindings your app uses, your app might need to reference a different set of packages. The following table shows the replacements for some of the most commonly used extensions:
 
 | Scenario | Changes to package references |
 | - | - |
@@ -36,7 +36,7 @@ See [Supported bindings](../articles/azure-functions/functions-triggers-bindings
 **Your isolated worker model application should not reference any packages in the `Microsoft.Azure.WebJobs.*` namespaces.** If you have any remaining references to these, they should be removed.
 
 > [!TIP]
-> Your app may also depend on Azure SDK types, either as part of your triggers and bindings or as a standalone dependency. You should take this opportunity to upgrade these as well. The latest versions of the Functions extensions work with the latest versions of the [Azure SDK for .NET](/dotnet/azure/sdk/azure-sdk-for-dotnet), almost all of the packages for which are the form `Azure.*`.
+> Your app might also depend on Azure SDK types, either as part of your triggers and bindings or as a standalone dependency. You should take this opportunity to upgrade these as well. The latest versions of the Functions extensions work with the latest versions of the [Azure SDK for .NET](/dotnet/azure/sdk/azure-sdk-for-dotnet), almost all of the packages for which are the form `Azure.*`.
 
 [blobs]: https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Storage.Blobs
 [queues]: https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Storage.Queues

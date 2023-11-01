@@ -251,7 +251,7 @@ When migrating from running in-process to running in an isolated worker process,
 }
 ```
 
-The value you have configured for `AzureWebJobsStorage`` may be different. You do not need to change its value as part of the migration.
+The value you have configured for `AzureWebJobsStorage`` might be different. You do not need to change its value as part of the migration.
 
 ### Example function migrations
 
