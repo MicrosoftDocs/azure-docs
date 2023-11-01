@@ -5,7 +5,7 @@ ms.date: 11/2/2023
 ms.topic: conceptual
 ---
 
-# What is the Azure mobile app?
+# Azure mobile app alerts and notifications
 
 Use  Azure mobile app notifications to get up-to-date alerts and information on your resources and services.
 
@@ -30,7 +30,7 @@ To enable push notifications for Service Health on specific subscriptions:
 
 ## Enable push notifications for custom alerts
 
-You can enable push notifications in the Azure mobile app for custom alerts that you define. To do so, you first [create a new alert rule](azure/monitor/alerts/alerts-create-new-alert-rule) in the Azure portal.
+You can enable push notifications in the Azure mobile app for custom alerts that you define. To do so, you first [create a new alert rule](/azure/monitor/alerts/alerts-create-new-alert-rule) in the Azure portal.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using the same Azure account information that you're using in the Azure mobile app.
 1. In the Azure portal, open **Azure Monitor**.
