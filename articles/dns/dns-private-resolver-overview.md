@@ -71,7 +71,7 @@ An inbound endpoint enables name resolution from on-premises or other private lo
 The inbound endpoint requires a subnet in the VNet where it’s provisioned. The subnet can only be delegated to **Microsoft.Network/dnsResolvers** and can't be used for other services. DNS queries received by the inbound endpoint ingress to Azure. You can resolve names in scenarios where you have Private DNS zones, including VMs that are using auto registration, or Private Link enabled services.
 
 > [!NOTE]
-> The IP address assigned to an inbound endpoint can be static or dynamic. If you select static, you can't choose a [reserved IP address in the subnet](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets). If you choose a dynamic IP address, the fifth available IP address in the subnet is assigned. For example, 10.0.0.4 is the fifth IP address in the 10.0.0.0/28 subnet. If the inbound endpoint is reprovisioned, this IP address could change, but normally the 5th IP address in the subnet is used again. The dynamic IP address does not change unless the inbound endpoint is reprovisioned.
+> The IP address assigned to an inbound endpoint can be specified as **static** or **dynamic**. For more information, see [static and dynamic endpoint IP addresses](private-resolver-endpoints-rulesets.md#static-and-dynamic-endpoint-ip-addresses).
 
 ## Outbound endpoints
 

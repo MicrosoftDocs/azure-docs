@@ -5,7 +5,7 @@ author: rboucher
 ms.author: robb
 services: azure-monitor
 ms.topic: conceptual
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.custom:
 ms.date: 10/19/2023
 ms.reviewer: lualderm
 ---
@@ -149,7 +149,7 @@ The following table provides unique requirements for each destination including 
 
 ## Controlling costs
 
-There's a cost for collecting data in a Log Analytics workspace, so you should only collect the categories you require for each service. The data volume for resource logs varies significantly between services. 
+There's a cost for collecting data in a Log Analytics workspace, so only collect the categories you require for each service. The data volume for resource logs varies significantly between services. 
 
 You might also not want to collect platform metrics from Azure resources because this data is already being collected in Metrics. Only configure your diagnostic data to collect metrics if you need metric data in the workspace for more complex analysis with log queries. Diagnostic settings don't allow granular filtering of resource logs.
 
@@ -158,5 +158,5 @@ You might also not want to collect platform metrics from Azure resources because
 ## Next steps
 
 - [Create diagnostic settings for Azure Monitor platform metrics and logs](./create-diagnostic-settings.md)
-
+- [Migrate diagnostic settings storage retention to Azure Storage lifecycle management](./migrate-to-azure-storage-lifecycle-policy.md)
 - [Read more about Azure platform logs](./platform-logs-overview.md)
