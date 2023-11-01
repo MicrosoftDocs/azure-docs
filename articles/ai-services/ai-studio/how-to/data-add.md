@@ -16,7 +16,7 @@ In this article, you learn how to add data in Azure AI Studio.
 
 When you create your data asset, you need to set the data asset type. AI Studio supports three data asset types:
 
-|Type  |**Canonical Scenarios**|
+|Type  | Canonical scenarios|
 |---------|---------|
 |**`file`**<br>Reference a single file | Read a single file on Azure Storage (the file can have any format). |
 |**`folder`**<br> Reference a folder |      Read a folder of parquet/CSV files into Pandas/Spark.<br><br>Read unstructured data (images, text, audio, etc.) located in a folder. |
@@ -44,12 +44,12 @@ Use these steps to create a Folder typed data asset in the Azure AI studio:
 
 1. Navigate to [Azure AI studio](https://ai.azure.com)
 
-1. From the collapsable menu on the left, select **Data** under **Components**.
+1. From the collapsible menu on the left, select **Data** under **Components**.
 
     :::image type="content" source="../media/data-connections/data-add-new.png" alt-text="Screenshot of selecting data from the left menu." lightbox="../media/data-connections/data-add-select-storage-url.png":::
 
 1. Select **+ Add data**
-1. Choose your **Data source**. You can choose source data from a list of your recent data sources, a storage URL on the cloud or even upload files and folders from the local machine. You can also add a connection to another data source such as Azure Blob Storage and Azure Data Lake Storage Gen 2. 
+1. Choose your **Data source**. You can choose source data from a list of your recent data sources, a storage URL on the cloud, or even upload files and folders from the local machine. You can also add a connection to another data source such as Azure Blob Storage and Azure Data Lake Storage Gen 2. 
 
     :::image type="content" source="../media/data-connections/data-add-select-storage-url.png" alt-text="Screenshot of select source data." lightbox="../media/data-connections/data-add-select-storage-url.png":::
 
@@ -68,10 +68,10 @@ If Azure AI allowed data asset deletion, it would have the following adverse eff
 - Production jobs that consume data assets that were later deleted would fail.
 - It would become more difficult to reproduce an ML experiment.
 - Job lineage would break, because it would become impossible to view the deleted data asset version.
-- You would not be able to track and audit correctly, since versions could be missing.
+- You wouldn't be able to track and audit correctly, since versions could be missing.
 
 Therefore, the *immutability* of data assets provides a level of protection when working in a team creating production workloads.
-When a data asset has been erroneously created - for example, with an incorrect name, type or path - Azure AI offers solutions to handle the situation without the negative consequences of deletion:
+When a data asset was erroneously created - for example, with an incorrect name, type or path - Azure AI offers solutions to handle the situation without the negative consequences of deletion:
 
 
 |Reason you want to delete | Solution  |

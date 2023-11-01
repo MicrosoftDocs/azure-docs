@@ -17,9 +17,6 @@ In this article, you learn how to get question and answer pairs from your source
 
 ## Install the Synthetics Package
 
-> TODO_PUBLIC_PREVIEW
-> Update install instructions
-
 ```shell
 python --version  # ensure you've >=3.8
 pip3 install azure-identity azure-ai-generative

@@ -24,7 +24,7 @@ You must have:
 ## Create an index
 
 1. Sign in to Azure AI Studio and open the Azure AI project in which you want to create the index.
-1. From the collapsable menu on the left, select **Indexes** under **Components**.
+1. From the collapsible menu on the left, select **Indexes** under **Components**.
 
     :::image type="content" source="../media/rag/project-left-menu.png" alt-text="Screenshot of Project Left Menu." lightbox="../media/rag/project-left-menu.png":::
 
@@ -39,7 +39,7 @@ You must have:
 
     :::image type="content" source="../media/rag/index-storage.png" alt-text="Screenshot of select index store." lightbox="../media/rag/index-storage.png":::
 
-    1. If you don't have an existing connection choose **Connect other Azure AI Search service**
+    1. If you don't have an existing connection, choose **Connect other Azure AI Search service**
     1. Select the subscription and the service you wish to use.
     
     :::image type="content" source="../media/rag/index-store-details.png" alt-text="Screenshot of Select index store details." lightbox="../media/rag/index-store-details.png":::
@@ -57,14 +57,14 @@ You must have:
 1. In the **Index settings**
     1. Enter a name for your index or use the autopopulated name
     1. Choose the compute where you want to run the jobs to create the index. You can
-        1. Auto select to allow Azure AI to choose an appropriate VM size that is available
-        1. Choose a VM size from a list of recommended options
-        1. Choose a VM size from a list of all possible options
+        - Auto select to allow Azure AI to choose an appropriate VM size that is available
+        - Choose a VM size from a list of recommended options
+        - Choose a VM size from a list of all possible options
         
     :::image type="content" source="../media/rag/index-settings.png" alt-text="Screenshot of configure index settings." lightbox="../media/rag/index-settings.png":::
 
 1. Select **Next** after configuring index settings
-1. Review the details you have entered and select **Create**
+1. Review the details you entered and select **Create**
 1. You're taken to the index details page where you can see the status of your index creation
 
 
