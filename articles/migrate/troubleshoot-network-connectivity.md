@@ -22,7 +22,7 @@ Make sure the private endpoint is an approved state.
 3. Select the private endpoint you want to diagnose.  
    a. Validate that the connection state is Approved.           
    b. If the connection is in a Pending state, you need to get it  approved.                         
-   c. You may also navigate to the private endpoint resource and review if the virtual network matches the Migrate project private endpoint virtual network.                                                        
+   c. You might also navigate to the private endpoint resource and review if the virtual network matches the Migrate project private endpoint virtual network.                                                        
 
       :::image type="content" source="./media/how-to-use-azure-migrate-with-private-endpoints/private-endpoint-connection.png" alt-text="Screenshot of View Private Endpoint connection.":::
 
@@ -32,7 +32,7 @@ Review the data flow metrics to verify the traffic flow through private endpoint
 
 ## Verify DNS resolution
 
-The on-premises appliance (or replication provider) will access the Azure Migrate resources using their fully qualified private link domain names (FQDNs). You may require additional DNS settings to resolve the private IP address of the private endpoints from the source environment. [See this article](../private-link/private-endpoint-dns.md#on-premises-workloads-using-a-dns-forwarder) to understand the DNS configuration scenarios that can help troubleshoot any network connectivity issues.  
+The on-premises appliance (or replication provider) will access the Azure Migrate resources using their fully qualified private link domain names (FQDNs). You might require additional DNS settings to resolve the private IP address of the private endpoints from the source environment. [See this article](../private-link/private-endpoint-dns.md#on-premises-workloads-using-a-dns-forwarder) to understand the DNS configuration scenarios that can help troubleshoot any network connectivity issues.  
 
 To validate the private link connection, perform a DNS resolution of the Azure Migrate resource endpoints (private link resource FQDNs) from the on-premises server hosting the Migrate appliance and ensure that it resolves to a private IP address. 
 
@@ -118,15 +118,15 @@ An illustrative example for the Recovery Services vault microservices DNS A reco
    [![DNS records for Recovery Services vault](./media/how-to-use-azure-migrate-with-private-endpoints/rsv-a-records-inline.png)](./media/how-to-use-azure-migrate-with-private-endpoints/rsv-a-records-expanded.png#lightbox)  
 
 >[!Note]
-> When you remove or modify an A record, the machine may still resolve to the old IP address because the TTL (Time To Live) value might not have expired yet.  
+> When you remove or modify an A record, the machine might still resolve to the old IP address because the TTL (Time To Live) value might not have expired yet.  
 
-### Items that may affect private link connectivity  
+### Items that might affect private link connectivity  
 
 This is a non-exhaustive list of items that can be found in advanced or complex scenarios:
 
 -  Firewall settings, either the Azure Firewall connected to the Virtual network or a custom firewall solution deploying in the appliance machine.  
--  Network peering, which may impact which DNS servers are used and how traffic is routed.  
--  Custom gateway (NAT) solutions may impact how traffic is routed, including traffic from DNS queries.
+-  Network peering, which might impact which DNS servers are used and how traffic is routed.  
+-  Custom gateway (NAT) solutions might impact how traffic is routed, including traffic from DNS queries.
 
 For more information, review the [troubleshooting guide for Private Endpoint connectivity problems.](../private-link/troubleshoot-private-endpoint-connectivity.md)  
 
@@ -199,9 +199,9 @@ If the DNS resolution is incorrect, follow these steps:
 1. If you use a custom DNS server, review your custom DNS settings, and validate that the DNS configuration is correct. For guidance, see 
       [private endpoint overview: DNS configuration](../private-link/private-endpoint-overview.md#dns-configuration).
 
-1. **Proxy server considerations**: If the appliance uses a proxy server for outbound connectivity, you may need to validate your network settings and configurations to ensure the private link URLs are reachable and can be routed as expected.
+1. **Proxy server considerations**: If the appliance uses a proxy server for outbound connectivity, you might need to validate your network settings and configurations to ensure the private link URLs are reachable and can be routed as expected.
 
-    - If the proxy server is for internet connectivity, you may need to add traffic forwarders or rules to bypass the proxy server for the private link FQDNs. [Learn more](./discover-and-assess-using-private-endpoints.md#set-up-prerequisites) on how to add proxy bypass rules.
+    - If the proxy server is for internet connectivity, you might need to add traffic forwarders or rules to bypass the proxy server for the private link FQDNs. [Learn more](./discover-and-assess-using-private-endpoints.md#set-up-prerequisites) on how to add proxy bypass rules.
     - Alternatively, if the proxy server is for all outbound traffic, make sure the proxy server can resolve the private link FQDNs to their respective private IP addresses. For a quick workaround, you can manually update the DNS records on the proxy server with the DNS mappings and the associated private IP addresses, as shown above. This option is recommended for testing.
 
 1. If the issue still persists, [refer to this section](#validate-the-private-dns-zone) for further troubleshooting.
@@ -294,9 +294,9 @@ If the DNS resolution is incorrect, follow these steps:
 
 1. If you use a custom DNS server, review your custom DNS settings, and validate that the DNS configuration is correct. For guidance, see [private endpoint overview: DNS configuration](../private-link/private-endpoint-overview.md#dns-configuration).
 
-1. **Proxy server considerations**: If the appliance uses a proxy server for outbound connectivity, you may need to validate your network settings and configurations to ensure the private link URLs are reachable and can be routed as expected.
+1. **Proxy server considerations**: If the appliance uses a proxy server for outbound connectivity, you might need to validate your network settings and configurations to ensure the private link URLs are reachable and can be routed as expected.
 
-    - If the proxy server is for internet connectivity, you may need to add traffic forwarders or rules to bypass the proxy server for the private link FQDNs. [Learn more](./discover-and-assess-using-private-endpoints.md#set-up-prerequisites) on how to add proxy bypass rules.
+    - If the proxy server is for internet connectivity, you might need to add traffic forwarders or rules to bypass the proxy server for the private link FQDNs. [Learn more](./discover-and-assess-using-private-endpoints.md#set-up-prerequisites) on how to add proxy bypass rules.
     - Alternatively, if the proxy server is for all outbound traffic, make sure the proxy server can resolve the private link FQDNs to their respective private IP addresses. For a quick workaround, you can manually update the DNS records on the proxy server with the DNS mappings and the associated private IP addresses, as shown above. This option is recommended for testing.
 
 1. If the issue still persists, [refer to this section](#validate-the-private-dns-zone) for further troubleshooting.
@@ -308,7 +308,7 @@ After you’ve verified the connectivity, retry the discovery process.
 The export/import/download report request fails with the error *"403: This request is not authorized to perform this operation"* for projects with private endpoint connectivity.
 
 #### Possible causes: 
-This error may occur if the export/import/download request was not initiated from an authorized network. This can happen if the import/export/download request was initiated from a client that is not connected to the Azure Migrate service (Azure virtual network) over a private network. 
+This error might occur if the export/import/download request was not initiated from an authorized network. This can happen if the import/export/download request was initiated from a client that is not connected to the Azure Migrate service (Azure virtual network) over a private network. 
 
 #### Remediation
 **Option 1** *(recommended)*:
