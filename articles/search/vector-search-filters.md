@@ -12,11 +12,13 @@ ms.date: 10/31/2023
 
 # Filters in vector queries
 
-Vector search provides [vector filter modes on query](vector-search-how-to-query.md) to specify whether you want filtering before or after query execution. This article describes each mode and explains  performance implications.
+You can set a [vector filter modes on a vector query](vector-search-how-to-query.md) to specify whether you want filtering before or after query execution. Filters are set on and iterate over string and numeric fields attributed as `filterable` in the index, but the effects of filtering determine *what* the vector query executes over: the searchable space, or the documents in the search results.
+
+This article describes each filter mode and provides guidance on when to use each one.
 
 ## Prefilter mode
 
-Prefiltering applies filters before query execution, reducing the search surface area over which the query executes. In a vector query, `preFilter` is the default.
+Prefiltering applies filters before query execution, reducing the search surface area over which the vector search algorithm looks for similar content. In a vector query, `preFilter` is the default.
 
 :::image type="content" source="media/vector-search-filters/pre-filter.svg" alt-text="Diagram of prefilters." border="true" lightbox="media/vector-search-filters/pre-filter.png":::
 
