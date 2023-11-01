@@ -13,7 +13,7 @@ ms.devlang: azurecli
 The Azure  Client configurator is a tool designed to assist you in configuring a hybrid cluster and simplifying the migration process to Azure Managed Instance for Apache Cassandra. If you currently have on-premises datacenters or are operating in a self-hosted environment, you can use Azure Managed Instance for Apache Cassandra to seamlessly incorporate other datacenters into your cluster while effectively maintaining them.
 
 > [!IMPORTANT]
-> Client Configurator is in public preview.
+> Client Configurator tool is in public preview.
 > This feature is provided without a service level agreement, and it's not recommended for production workloads.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
