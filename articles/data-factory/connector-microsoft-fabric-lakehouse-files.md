@@ -1,5 +1,5 @@
 ---
-title: Copy and Transform data in Microsoft Fabric Lakehouse Files (Preview) 
+title: Copy and transform data in Microsoft Fabric Lakehouse Files (Preview) 
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy and transform data to and from Microsoft Fabric Lakehouse Files (Preview) using Azure Data Factory or Azure Synapse Analytics pipelines.
 ms.author: jianleishen
@@ -11,11 +11,11 @@ ms.custom: synapse
 ms.date: 11/01/2023
 ---
 
-# Copy and Transform data in Microsoft Fabric Lakehouse Files (Preview) using Azure Data Factory or Azure Synapse Analytics
+# Copy and transform data in Microsoft Fabric Lakehouse Files (Preview) using Azure Data Factory or Azure Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-The Microsoft Fabric Lakehouse serves as a data architecture platform designed to store, manage, and analyse both structured and unstructured data within a single location. This article outlines how to use Copy Activity to copy data from and to Microsoft Fabric Lakehouse Files (Preview) and use Data Flow to transform data in Microsoft Fabric Lakehouse Files (Preview). To learn more, read the introductory article for [Azure Data Factory](introduction.md) or [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md).
+The Microsoft Fabric Lakehouse serves as a data architecture platform designed to store, manage, and analyze both structured and unstructured data within a single location. This article outlines how to use Copy Activity to copy data from and to Microsoft Fabric Lakehouse Files (Preview) and use Data Flow to transform data in Microsoft Fabric Lakehouse Files (Preview). To learn more, read the introductory article for [Azure Data Factory](introduction.md) or [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
 > [!IMPORTANT]
 > This connector is currently in preview. You can try it out and give us feedback. If you want to take a dependency on preview connectors in your solution, please contact [Azure support](https://azure.microsoft.com/support/).
