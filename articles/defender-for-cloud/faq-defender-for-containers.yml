@@ -32,7 +32,7 @@ sections:
       - question: |
           Do I need to install the Log Analytics VM extension on my AKS nodes for security protection?
         answer: |
-          No, AKS is a managed service, and manipulation of the IaaS resources isn't supported. The Log Analytics VM extension isn't needed and may result in extra charges.
+          No, AKS is a managed service, and manipulation of the IaaS resources isn't supported. The Log Analytics VM extension isn't needed and might result in extra charges.
 
       - question: |
           How can I use my existing Log Analytics workspace?
@@ -59,7 +59,7 @@ sections:
         answer: |
           The [Defender agent](defender-for-cloud-glossary.md#defender-agent) uses the Log analytics workspace to send data from your Kubernetes clusters to Defender for Cloud. The Defender for Cloud adds the Log analytic workspace and the resource group as a parameter for the agent to use.
 
-          However, if your organization has a policy that requires a specific tag on your resources, it may cause the agent installation to fail during the resource group or the default workspace creation stage. If it fails, you can either:
+          However, if your organization has a policy that requires a specific tag on your resources, it migbht cause the agent installation to fail during the resource group or the default workspace creation stage. If it fails, you can either:
 
           - [Assign a custom workspace](defender-for-containers-enable.md?pivots=defender-for-container-aks&tabs=aks-deploy-portal%2ck8s-deploy-asc%2ck8s-verify-asc%2ck8s-remove-arc%2caks-removeprofile-api#assign-a-custom-workspace) and add any tag your organization requires.
 
@@ -101,7 +101,7 @@ sections:
       - question: |
           Why is Defender for Cloud alerting me to vulnerabilities about an image that isn't in my registry?
         answer: |
-          Some images may reuse tags from an image that was already scanned. For example, you may reassign the tag “Latest” every time you add an image to a digest. In such cases, the 'old' image does still exist in the registry and may still be pulled by its digest. If the image has security findings and is pulled, it will expose security vulnerabilities.
+          Some images might reuse tags from an image that was already scanned. For example, you might reassign the tag “Latest” every time you add an image to a digest. In such cases, the 'old' image does still exist in the registry and might still be pulled by its digest. If the image has security findings and is pulled, it will expose security vulnerabilities.
 
       - question: |
           Does Defender for Containers scan images in Microsoft Container Registry?

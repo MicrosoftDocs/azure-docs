@@ -78,7 +78,7 @@ Metric category|Metric name|Metric description|
    > To learn how to to create an Azure portal dashboard and pin tiles, see [How to create an Azure portal dashboard and pin tiles](how-to-configure-metrics.md#how-to-create-an-azure-portal-dashboard-and-pin-tiles)
    
    > [!TIP]
-   > To learn more about advanced metrics display and sharing options, see [Getting started with Azure Metrics Explorer](../../azure-monitor/essentials/metrics-getting-started.md)
+   > To learn more about advanced metrics display and sharing options, see [Analyze metrics with Azure Monitor metrics explorer](../../azure-monitor/essentials/analyze-metrics.md).
 
 ## How to create an Azure portal dashboard and pin tiles
 
