@@ -56,7 +56,7 @@ By default, an Azure IoT Operations deployment includes a built-in OPC PLC simul
     | Field | Value |
     | --- | --- |
     | Name | `opc-ua-connector-0` |
-    | OPC UA Broker URL | `opc.tcp://opc-plc-simulator:50000` |
+    | OPC UA Broker URL | `opc.tcp://opcplc-000000:50000` |
     | User authentication | `Anonymous` |
     | Transport authentication | `Do not use transport authentication certificate` |
 
