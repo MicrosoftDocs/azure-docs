@@ -176,7 +176,7 @@ namespace MyFunctionApp
 }
 ```
 
-The [ILogger&lt;T&gt;] in this example was also obtained through dependency injection. It is registered automatically. To learn more about configuration options for logging, see [Logging](#logging).
+The [`ILogger<T>`][ILogger&lt;T&gt;] in this example was also obtained through dependency injection. It is registered automatically. To learn more about configuration options for logging, see [Logging](#logging).
 
 > [!TIP]
 > The example used a literal string for the name of the client in both `Program.cs` and the function. Consider instead using a shared constant string defined on the function class. For example, you could add `public const string CopyStorageClientName = nameof(_copyContainerClient);` and then reference `BlobCopier.CopyStorageClientName` in both locations. You could similarly define the configuration section name with the function rather than in `Program.cs`.
@@ -221,7 +221,7 @@ The following example performs clean-up actions if a cancellation request has be
 
 ## Performance optimizations
 
-This section outlines options you can enable to improve performance around [cold start](./event-driven-scaling.md#cold-start).
+This section outlines options you can enable that improve performance around [cold start](./event-driven-scaling.md#cold-start).
 
 In general, your app should use the latest versions of its core dependencies. At a minimum, you should update your project as follows:
 
@@ -398,7 +398,7 @@ Each trigger and binding extension also has its own minimum version requirement,
 
 #### ASP.NET Core integration
 
-This section shows how to work with the underlying HTTP request and response objects using types from ASP.NET Core including [HttpRequest], [HttpResponse], and [IActionResult]. Use of this feature for local testing requires [Core Tools version 4.0.5240 or later](./functions-run-local.md) and that you set `AzureWebJobsFeatureFlags` to "EnableHttpProxying" in `local.settings.json` if you are using Core Tools version 4.0.5274 and earlier. This model is not available to [apps targeting .NET Framework][supported-versions], which should instead leverage the [built-in model](#built-in-http-model).
+This section shows how to work with the underlying HTTP request and response objects using types from ASP.NET Core including [HttpRequest], [HttpResponse], and [IActionResult]. This model is not available to [apps targeting .NET Framework][supported-versions], which should instead leverage the [built-in model](#built-in-http-model).
 
 > [!NOTE]
 > Not all features of ASP.NET Core are exposed by this model. Specifically, the ASP.NET Core middleware pipeline and routing capabilities are not available.
@@ -466,7 +466,7 @@ public class MyFunction {
 
 The logger can also be obtained from a [FunctionContext] object passed to your function. Call the [GetLogger&lt;T&gt;] or [GetLogger] method, passing a string value that is the name for the category in which the logs are written. The category is usually the name of the specific function from which the logs are written. To learn more about categories, see the [monitoring article](functions-monitoring.md#log-levels-and-categories).
 
-Use the methods of [ILogger&lt;T&gt;] and [`ILogger`][ILogger] to write various log levels, such as `LogWarning` or `LogError`. To learn more about log levels, see the [monitoring article](functions-monitoring.md#log-levels-and-categories). You can customize the log levels for components added to your code by registering filters as part of the `HostBuilder` configuration:
+Use the methods of [`ILogger<T>`][ILogger&lt;T&gt;] and [`ILogger`][ILogger] to write various log levels, such as `LogWarning` or `LogError`. To learn more about log levels, see the [monitoring article](functions-monitoring.md#log-levels-and-categories). You can customize the log levels for components added to your code by registering filters as part of the `HostBuilder` configuration:
 
 ```csharp
 using Microsoft.Azure.Functions.Worker;
@@ -615,7 +615,7 @@ Azure Functions currently can be used with the following preview versions of .NE
 
 | Operating system | .NET preview version |
 | - | - |
-| Windows | .NET 8 RC1 | 
+| Windows | .NET 8 RC2 | 
 | Linux | .NET 8 RC2 |
 
 ### Using a preview .NET SDK
