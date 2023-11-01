@@ -20,7 +20,7 @@ ms.custom:
 ## Subscription not registered to use hibernation
 If you receive the error "Your subscription isn't registered to use Hibernate" and the box is greyed out in the Azure portal, make sure you have [register for the Hibernation preview.](hibernate-resume.md)
 
-![Subscription not registered](./media/hibernate-resume/subscription-not-registered.png)
+![Screenshot of the greyed-out 'enable hibernation' box with a warning below it and a link to "Learn More" about registering your subscription.](./media/hibernate-resume/subscription-not-registered.png)
 
 
 ## Unable to create a VM with hibernation enabled
@@ -60,13 +60,13 @@ If hibernation is enabled on the VM, check if hibernation is successfully enable
 
 On Linux, you can check the extension status if you used the extension to enable hibernation in the guest OS.
 
-:::image type="content" source="./media/hibernate-resume/provisioning-success-linux.png" alt-text="Provisioning Success on Linux":::
+:::image type="content" source="./media/hibernate-resume/provisioning-success-linux.png" alt-text="Screenshot of the status and status message reporting that provisioning has succeeded for a Linux VM.":::
 
 ### [Windows](#tab/troubleshootWindowsCantHiber)
 
 On Windows, you can check the status of the Hibernation extension to see if the extension was able to successfully configure the guest OS for hibernation.
 
-:::image type="content" source="./media/hibernate-resume/provisioning-success-win.png" alt-text="Provisioning Success on Windows":::
+:::image type="content" source="./media/hibernate-resume/provisioning-success-windows.png" alt-text="Screenshot of the status and status message reporting that provisioning has succeeded for a Windows VM.":::
 
 The VM instance view would have the final output of the extension:
 ```
@@ -193,7 +193,7 @@ If you encounter an issue outside of these known scenarios, the following logs c
 ### [Linux](#tab/troubleshootLinuxGuestCantHiber)
 on Linux, you can check the extension status if you used the extension to enable hibernation in the guest OS.
 
-:::image type="content" source="./media/hibernate-resume/provisioning-success-linux.png" alt-text="Successful provisioning of a Linux VM":::
+:::image type="content" source="./media/hibernate-resume/provisioning-success-linux.png" alt-text="Screenshot of the status and status message reporting that provisioning has succeeded on a Linux VM.":::
 
 If you used the hibernation-setup-tool to configure the guest for hibernation, you can check if the tool executed successfully through this command:
 
@@ -367,7 +367,7 @@ If the Windows guest fails to resume from its previous state and cold boots, the
 
 ```
 
-## Windows Guest events while resuming
+## Windows guest events while resuming
 If a guest successfully resumes, the following guest events are available: 
 ```
 Log Name:      System
