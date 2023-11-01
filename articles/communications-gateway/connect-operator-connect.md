@@ -17,6 +17,9 @@ After you have deployed Azure Communications Gateway and connected it to your co
 
 This article describes how to set up Azure Communications Gateway for Operator Connect and Teams Phone Mobile. When you have finished the steps in this article, you will be ready to [Prepare for live traffic](prepare-for-live-traffic-operator-connect.md) with Operator Connect, Teams Phone Mobile and Azure Communications Gateway.
 
+> [!TIP]
+> This article assumes that your Azure Communications Gateway onboarding team from Microsoft is also onboarding you to Operator Connect and/or Teams Phone Mobile. If you've chosen a different onboarding partner for Operator Connect or Teams Phone Mobile, you need to ask them to arrange changes to the Operator Connect and/or Teams Phone Mobile environments.
+
 ## Prerequisites
 
 You must have carried out all the steps in [Deploy Azure Communications Gateway](deploy.md).

@@ -406,6 +406,17 @@ These parameters need to be updated in the *sap-parameters.yaml* file when you d
 > | `ora_version`                      | Version of Oracle, for example, 19.0.0                                         | Mandatory    |        |
 > | `oracle_sbp_patch`                 | Oracle SBP patch file name, for example, SAP19P_2202-70004508.ZIP              | Mandatory    | Must be part of the Bill of Materials       |
 
+You can use the `configuration_settings` variable to let Terraform add them to sap-parameters.yaml file.
+
+```terraform
+configuration_settings = {
+                           ora_release          = "19",
+                           ora_version          = "19.0.0",
+                           oracle_sbp_patch     = "SAP19P_2202-70004508.ZIP",
+                           oraclegrid_sbp_patch = "GIRU19P_2202-70004508.ZIP",
+                         }
+```
+
 ## Terraform parameters
 
 This section contains the Terraform parameters. These parameters need to be entered manually if you're not using the deployment scripts.
