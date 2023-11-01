@@ -87,14 +87,6 @@ In this section, you deploy the data connector agent. After you deploy the agent
 
 # [Managed identity](#tab/managed-identity)
 
-# [Experimental tab 1](#tab/managed-identity/exp-tab-1)
-Blah blah blah 1 1 1
-
-# [Experimental tab 2](#tab/managed-identity/exp-tab-2)
-Blah blah blah 2 2 2
-
----
-
 1. Run the following command to **Create a VM** in Azure (substitute actual names for the `<placeholders>`):
 
     ```azurecli
@@ -202,6 +194,14 @@ Blah blah blah 2 2 2
 ---
 
 ### Deploy the data connector agent
+
+# [Experimental tab 1](#tab/managed-identity/exp-tab-1)
+Blah blah blah 1 1 1
+
+# [Experimental tab 2](#tab/managed-identity/exp-tab-2)
+Blah blah blah 2 2 2
+
+---
 
 Now that you've created a VM and a Key Vault, your next step is to create a new agent and connect to one of your SAP systems.
 
