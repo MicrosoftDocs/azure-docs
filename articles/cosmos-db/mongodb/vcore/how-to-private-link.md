@@ -16,14 +16,14 @@ ms.date: 11/01/2023
 
 [!INCLUDE[MongoDB vCore](../../includes/appliesto-mongodb-vcore.md)]
 
-Azure Private Link is a powerful service that allows users to connect to Azure Cosmos DB for MongoDB vCore through a designated private endpoint. This private endpoint consists of private IP addresses located in a subnet within your own virtual network, enabling you to restrict access to the Azure Cosmos DB for MongoDB vCore product solely over private IPs. By integrating Private Link with stringent NSG policies, the risk of data exfiltration is substantially reduced. For a deeper understanding of private endpoints, consider checking out [What is Azure Private Link?](../../../private-link/private-endpoint-overview.md).
+Azure Private Link is a powerful service that allows users to connect to Azure Cosmos DB for MongoDB vCore through a designated private endpoint. This private endpoint consists of private IP addresses located in a subnet within your own virtual network. The endpoint enables you to restrict access to the Azure Cosmos DB for MongoDB vCore product solely over private IPs. The risk of data exfiltration is substantially reduced, by integrating Private Link with stringent NSG policies. For a deeper understanding of private endpoints, consider checking out [What is Azure Private Link?](../../../private-link/private-endpoint-overview.md).
 
 > [!NOTE]
 > Private Link secures your connection, however, it doesn't prevent your Azure Cosmos DB endpoints from being resolved by public DNS. The filtration of incoming requests is handled at the application level, not at the transport or network level.
 
 Private Link offers the flexibility to access the Azure Cosmos DB for MongoDB vCore either from within your virtual network or from any connected peered virtual network. Additionally, resources linked to Private Link are accessible on-premises via private peering, through VPN or Azure ExpressRoute.
 
-To establish a connection, Azure Cosmos DB for MongoDB vCore with Private Link supports both automatic and manual approval methods. To delve deeper into this, the approval workflow in our Private Link documentation is an invaluable resource.
+To establish a connection, Azure Cosmos DB for MongoDB vCore with Private Link supports both automatic and manual approval methods. For more information, see [private endpoints in Azure Cosmos DB](../../how-to-configure-private-endpoints.md).
 
 ## Prerequisites
 
@@ -31,7 +31,7 @@ To establish a connection, Azure Cosmos DB for MongoDB vCore with Private Link s
   - If you don't have an Azure subscription, [create an account for free](https://azure.microsoft.com/free).
   - If you have an existing Azure subscription, [create a new Azure Cosmos DB for MongoDB vCore cluster](quickstart-portal.md).
 - Access to an active Virtual network and Subnet
-    - If you don’t have a Virtual network, [create a virtual network using the Azure portal](../../../virtual-network/quick-create-portal.md)
+  - If you don’t have a Virtual network, [create a virtual network using the Azure portal](../../../virtual-network/quick-create-portal.md)
 
 ## Create a private endpoint by using the Azure portal
 
@@ -59,11 +59,11 @@ Follow these steps to create a private endpoint for an existing Azure Cosmos DB 
 
     | Setting | Value |
     | ------- | ----- |
-    | Connection Method | Choose one of your resources or connect to someone else's resource with a resource ID or alias that they've shared with you. |
+    | Connection Method | Choose one of your resources or connect to someone else's resource with a resource ID or alias that is shared with you. |
     | Subscription | Select the subscription containing the resource you're connecting to.|
     | Resource Type | Select the resource type you're connecting to. |
     | Resource | Select the resource type you're connecting to. |
-    | Target sub-resource | Select the type of sub-resource for the resource selected above that your private endpoint will be able to access. | 
+    | Target subresource | Select the type of subresource for the resource selected previously that your private endpoint should have the ability to access. |
 
 1. Select **Next: Virtual Network**.
 
@@ -80,8 +80,8 @@ Follow these steps to create a private endpoint for an existing Azure Cosmos DB 
 
     | Setting | Value |
     | ------- | ----- |
-    |Integrate with private DNS zone |Select **Yes**. <br><br> To connect privately with your private endpoint, you need a DNS record. We recommend that you integrate your private endpoint with a private DNS zone. You can also use your own DNS servers or create DNS records by using the host files on your virtual machines. <br><br> When you select yes for this option, a private DNS zone group is also created. DNS zone group is a link between the private DNS zone and the private endpoint. This link helps you to auto update the private DNS zone when there's an update to the private endpoint. For example, when you add or remove regions, the private DNS zone is automatically updated. |
-    |Configuration name |Select your subscription and resource group. <br><br> The private DNS zone is determined automatically. You can't change it by using the Azure portal.|
+    | Integrate with private DNS zone | Select **Yes**. To connect privately with your private endpoint, you need a DNS record. We recommend that you integrate your private endpoint with a private DNS zone. You can also use your own DNS servers or create DNS records by using the host files on your virtual machines. When you select yes for this option, a private DNS zone group is also created. DNS zone group is a link between the private DNS zone and the private endpoint. This link helps you to auto update the private DNS zone when there's an update to the private endpoint. For example, when you add or remove regions, the private DNS zone is automatically updated. |
+    | Configuration name |Select your subscription and resource group. The private DNS zone is determined automatically. You can't change it by using the Azure portal.|
 
 1. Select **Next: Tags** > **Review + create**. On the **Review + create** page, Azure validates your configuration.
 
@@ -89,14 +89,15 @@ Follow these steps to create a private endpoint for an existing Azure Cosmos DB 
 
 When you have an approved Private Endpoint for an Azure Cosmos DB account, in the Azure portal, the **All networks** option in the **Firewall and virtual networks** pane is unavailable.
 
-### View private endpoints by using the Azure portal
- Follow these steps to view a private endpoint for an existing Azure Cosmos DB account by using the Azure portal:
+## View private endpoints by using the Azure portal
+
+Follow these steps to view a private endpoint for an existing Azure Cosmos DB account by using the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com), then select Private Link under Azure Services.
 
-1. Select **Private Endpoint** from the list of settings to view all Private endpoints. 
+1. Select **Private Endpoint** from the list of settings to view all Private endpoints.
 
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
-> [Try Azure Cosmos DB for free](../../try-free.md)
+> [Try Azure Cosmos DB for MongoDB vCore](quickstart-portal.md)
