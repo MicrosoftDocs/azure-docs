@@ -88,7 +88,7 @@
 - name: Development and client libraries
   items:
   - name: Development FAQs
-    href: cache-development-faq.yml      
+    href: cache-development-faq.yml
   - name: Client libraries best practices
     href: cache-best-practices-client-libraries.md
   - name: Development best practice
@@ -127,26 +127,28 @@
 
 - name: Authentication
   items:
-  - name: Role-based access control - authentication
+  - name: Role-based access control
     href: cache-configure-role-based-access-control.md
   - name: Microsoft Entra ID for authentication
     href: cache-azure-active-directory-for-authentication.md
-  - name: Managed identity for storage accounts - authentication
+  - name: Managed identity for storage accounts
     href: cache-managed-identity.md
 
 - name: Security and networking
   items:
     - name: Network isolation options
       href: cache-network-isolation.md
-    - name: Connect to cache using Private Link - networking and security
+    - name: Connect to cache using Private Link
       href: cache-private-link.md
-    - name: Migrate from VNet injection to Private Link - networking and security
+    - name: Migrate from VNet injection to Private Link
       href: cache-vnet-migration.md
-    - name: Secure your cache with a virtual network - networking 
+    - name: Secure your cache with a virtual network
       href: cache-how-to-premium-vnet.md
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: ./security-controls-policy.md
+    - name: Remove TLS 1.0 and 1.1
+      href: cache-remove-tls-10-11.md
     - name: Security baseline
       href: /security/benchmark/azure/baselines/azure-cache-for-redis-security-baseline?toc=/azure/azure-cache-for-redis/TOC.json
     - name: Connection resilience best practices
@@ -172,8 +174,6 @@
     href: cache-moving-resources.md
   - name: Publishing Azure Cache for Redis events
     href: cache-event-grid.md
-  - name: Remove TLS 1.0 and 1.1 - security?
-    href: cache-remove-tls-10-11.md
   - name: Management FAQs
     href: cache-management-faq.yml
   - name: Azure Functions
@@ -185,11 +185,11 @@
     href: cache-how-to-premium-persistence.md
   - name: Add more replicas
     href: cache-how-to-multi-replicas.md
-  - name: Enable zone redundancy - Resiliency
+  - name: Enable zone redundancy
     href: cache-how-to-zone-redundancy.md
-  - name: Set up passive geo-replication - Resiliency
+  - name: Set up passive geo-replication
     href: cache-how-to-geo-replication.md
-  - name: Set up Enterprise active geo-replication - Resiliency
+  - name: Set up Enterprise active geo-replication
     href: cache-how-to-active-geo-replication.md
   - name: Configure your cache for high availability
     href: cache-high-availability.md
