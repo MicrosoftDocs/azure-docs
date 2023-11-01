@@ -1,6 +1,6 @@
 ---
-title: Create and run a chaos experiment by using Azure Chaos Studio Preview
-description: Understand the steps to create and run an Azure Chaos Studio Preview experiment in 10 minutes.
+title: Create and run a chaos experiment by using Azure Chaos Studio
+description: Understand the steps to create and run an Azure Chaos Studio experiment in 10 minutes.
 services: chaos-studio
 author: prasha-microsoft
 ms.topic: quickstart
@@ -9,8 +9,8 @@ ms.author: prashabora
 ms.service: chaos-studio
 ms.custom: ignite-fall-2021
 ---
-# Quickstart: Create and run a chaos experiment by using Azure Chaos Studio Preview
-Get started with Azure Chaos Studio Preview by using a virtual machine (VM) shutdown service-direct experiment to make your service more resilient to that failure in real-world scenarios.
+# Quickstart: Create and run a chaos experiment by using Azure Chaos Studio
+Get started with Azure Chaos Studio by using a virtual machine (VM) shutdown service-direct experiment to make your service more resilient to that failure in real-world scenarios.
 
 ## Prerequisites
 - An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
@@ -32,7 +32,7 @@ Create an Azure resource and ensure that it's one of the supported [fault provid
 
 ## Enable Chaos Studio on the VM you created
 1. Open the [Azure portal](https://portal.azure.com).
-1. Search for **Chaos Studio (preview)** in the search bar.
+1. Search for **Chaos Studio** in the search bar.
 1. Select **Targets** and go to the VM you created.
 
 1. Select the checkbox next to your VM. Select **Enable targets** > **Enable service-direct targets** from the dropdown menu.
