@@ -137,7 +137,16 @@ Use the Azure portal to deploy Azure IoT Operations components to your Arc-enabl
    | **Resource group** | Select the resource group that contains your Arc-enabled Kubernetes cluster. |
    | **Cluster name** | Select your cluster. When you do, the **Custom location** and **Deployment details** sections autofill. |
    | **Secrets** | Check the box confirming that you set up the secrets provider in your cluster by following the steps in the previous sections. |
-   
+
+1. Select **Next: Configuration**.
+
+1. On the **Configuration** tab, provide the following information:
+
+   | Field | Value |
+   | ----- | ----- |
+   | **Deploy a simulated PLC** | Switch this toggle to **Yes**. The simulated PLC creates demo telemetry data that you use in the following quickstarts. |
+   | **Mode** | Set the MQ configuration mode to **Auto**. |
+
 1. Select **Next: Automation**.
 
 1. On the **Automation** tab, select **Pick or create an Azure Key Vault**.
