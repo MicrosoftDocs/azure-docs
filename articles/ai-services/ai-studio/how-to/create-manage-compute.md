@@ -31,11 +31,11 @@ To create a compute instance in Azure AI Studio:
 1. Sign in to [Azure AI Studio](https://ai.azure.com) and select your project from the **Build** page. If you don't have a project already, first create a project.
 1. Under **Manage**, select **Compute instances** > **+ New**.
 
-    :::image type="content" source="../media/how-to/compute-create.png" alt-text="Screenshot of the option to create a new compute instance from the manage page." lightbox="../media/how-to/compute-create.png":::
+    :::image type="content" source="../media/compute/compute-create.png" alt-text="Screenshot of the option to create a new compute instance from the manage page." lightbox="../media/compute/compute-create.png":::
 
 1. Enter a custom name for your compute.
 
-    :::image type="content" source="../media/how-to/compute-create.png" alt-text="Screenshot of the option to create a new compute instance from the manage page." lightbox="../media/how-to/compute-create.png":::
+    :::image type="content" source="../media/compute/compute-create.png" alt-text="Screenshot of the option to create a new compute instance from the manage page." lightbox="../media/compute/compute-create.png":::
 
 1. Select your virtual machine type and size and then select **Next**. 
 
@@ -46,11 +46,11 @@ To create a compute instance in Azure AI Studio:
 
 1. On the **Scheduling** page under **Auto shut down** make sure idle shutdown is enabled by default. You can opt to automatically shut down compute after the instance has been idle for a set amount of time. If you disable auto shutdown costs will continue to accrue even during periods of inactivity. For more information, see [Configure idle shutdown](#configure-idle-shutdown).
 
-    :::image type="content" source="../media/how-to/compute-scheduling.png" alt-text="Screenshot of the option to enable idle shutdown and create a schedule." lightbox="../media/how-to/compute-scheduling.png":::
+    :::image type="content" source="../media/compute/compute-scheduling.png" alt-text="Screenshot of the option to enable idle shutdown and create a schedule." lightbox="../media/compute/compute-scheduling.png":::
 
 1. You can update the schedule days and times to meet your needs. You can also add additional schedules. For example, you can create a schedule to start at 9 AM and stop at 6 PM from Monday-Thursday, and a second schedule to start at 9 AM and stop at 4 PM for Friday. You can create a total of four schedules per compute instance.
 
-    :::image type="content" source="../media/how-to/compute-schedule-add.png" alt-text="Screenshot of the available new schedule options." lightbox="../media/how-to/compute-schedule-add.png":::
+    :::image type="content" source="../media/compute/compute-schedule-add.png" alt-text="Screenshot of the available new schedule options." lightbox="../media/compute/compute-schedule-add.png":::
 
 1. On the **Security** page you can optionally configure security settings such as SSH, virtual network, root access, and managed identity for your compute instance. Use this section to:
     - **Assign to another user**: You can create a compute instance on behalf of another user. Note that a compute instance can't be shared. It can only be used by a single assigned user. By default, it will be assigned to the creator and you can change this to a different user.
@@ -64,7 +64,7 @@ Note that disabling SSH prevents SSH access from the public internet. But when a
 1. On the **Applications** page you can add custom applications to use on your compute instance, such as RStudio or Posit Workbench. Then select **Next**.
 1. On the **Tags** page you can add additional information to categorize the resources you create. Then select **Review + Create** or **Next** to review your settings.
 
-    :::image type="content" source="../media/how-to/compute-review-create.png" alt-text="Screenshot of the option to review before creating a new compute instance." lightbox="../media/how-to/compute-review-create.png":::
+    :::image type="content" source="../media/compute/compute-review-create.png" alt-text="Screenshot of the option to review before creating a new compute instance." lightbox="../media/compute/compute-review-create.png":::
 
 1. After reviewing the settings, select **Create** to create the compute instance.
 
@@ -82,7 +82,7 @@ To configure idle shutdown for existing compute instances follow these steps:
 1. In the list, select the compute instance that you want to configure.
 1. Select **Schedule and idle shutdown**.
 
-    :::image type="content" source="../media/how-to/compute-schedule-update.png" alt-text="Screenshot of the option to change the idle shutdown schedule for a compute instance." lightbox="../media/how-to/compute-schedule-update.png":::
+    :::image type="content" source="../media/compute/compute-schedule-update.png" alt-text="Screenshot of the option to change the idle shutdown schedule for a compute instance." lightbox="../media/compute/compute-schedule-update.png":::
 
 1. Update or add to the schedule. You can have a total of four schedules per compute instance. Then select **Update** to save your changes.
 
@@ -95,7 +95,7 @@ You can start or stop a compute instance from the Azure AI Studio.
 1. In the list, select the compute instance that you want to configure.
 1. Select **Stop** to stop the compute instance. Select **Start** to start the compute instance. Only stopped compute instances can be started and only started compute instances can be stopped.
 
-    :::image type="content" source="../media/how-to/compute-start-stop.png" alt-text="Screenshot of the option to start or stop a compute instance." lightbox="../media/how-to/compute-start-stop.png":::
+    :::image type="content" source="../media/compute/compute-start-stop.png" alt-text="Screenshot of the option to start or stop a compute instance." lightbox="../media/compute/compute-start-stop.png":::
 
 
 ## Next steps
