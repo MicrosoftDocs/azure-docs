@@ -15,35 +15,6 @@ summary: |
   
 
 sections:
-  - name: Monitoring data
-    questions:
-      - question: |
-          Where does Azure Monitor get its data?
-        answer: |
-          Azure Monitor collects data from various sources. These sources include logs and metrics from the Azure platform and resources, custom applications, and agents running on virtual machines. Other services such as Microsoft Defender for Cloud and Network Watcher collect data into a Log Analytics workspace so that it can be analyzed with Azure Monitor data. You can also send custom data to Azure Monitor by using the REST API for logs or metrics. See [Sources of monitoring data for Azure Monitor](data-sources.md).
-          
-      - question: |
-          What data does Azure Monitor collect?
-        answer: |
-          Azure Monitor collects data from various sources into [logs](logs/data-platform-logs.md) or [metrics](essentials/data-platform-metrics.md). Each type of data has its own relative advantages, and each supports a particular set of features in Azure Monitor. There's a single metrics database for each Azure subscription, and you can create multiple Log Analytics workspaces to collect logs depending on your requirements. See [Azure Monitor data platform](data-platform.md).
-          
-      - question: |
-          Is there a maximum amount of data that I can collect in Azure Monitor?
-        answer: |
-          There's no limit to the amount of metric data you can collect, but this data is stored for a maximum of 93 days. See [Retention of metrics](essentials/data-platform-metrics.md#retention-of-metrics). There's no limit on the amount of log data that you can collect, but the pricing tier you choose for the Log Analytics workspace might affect the limit. See [Pricing details](https://azure.microsoft.com/pricing/details/monitor/).
-          
-      - question: |
-          How do I access data collected by Azure Monitor?
-        answer: |
-          Insights and solutions provide a custom experience for working with data stored in Azure Monitor. You can work directly with log data by using a log query written in Kusto Query Language (KQL). In the Azure portal, you can write and run queries and interactively analyze data by using Log Analytics. Analyze metrics in the Azure portal with the metrics explorer. See [Analyze log data in Azure Monitor](logs/log-query-overview.md) and [Analyze metrics with Azure Monitor metrics explorer](essentials/analyze-metrics.md).
-          
-      - question: |
-          Why am I seeing duplicate records in Azure Monitor Logs?
-        answer: |
-          Occasionally, you might notice duplicate records in Azure Monitor Logs. This duplication is typically from one of the following two conditions:
-          
-          - Components in the pipeline have retries to ensure reliable delivery at the destination. Occasionally, this capability might result in duplicates for a small percentage of telemetry items.
-          - If the duplicate records come from a virtual machine, you might have both the Log Analytics agent and Azure Monitor Agent installed. If you still need the Log Analytics agent installed, configure the Log Analytics workspace to no longer collect data that's also being collected by the data collection rule used by Azure Monitor Agent.
 
   - name: SQL Insights (preview)
     questions:
