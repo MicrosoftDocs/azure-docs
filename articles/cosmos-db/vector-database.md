@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 10/31/2023
 ---
 
-# Using Azure Cosmos DB as a Vector Database
+# Using Azure Cosmos DB as a vector database
 
 [!INCLUDE[NoSQL, MongoDB vCore, PostgreSQL](includes/appliesto-nosql-mongodbvcore-postgresql.md)]
 
