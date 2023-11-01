@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.author: deeikele
 author: deeikele
 ms.reviewer: larryfr
-ms.date: 10/20/2022
+ms.date: 11/01/2023
 ms.custom: event-tier1-build-2022, ignite-2022
 monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
@@ -161,7 +161,7 @@ To update Azure Machine Learning to use the new key, use the following steps:
         :::moniker range="azureml-api-2"
 
         ```python
-        from azure.ai.ml.entities import AzureBlobDatastore
+        from azure.ai.ml.entities import AzureBlobDatastore, AccountKeyConfiguration
         from azure.ai.ml import MLClient
         from azure.identity import DefaultAzureCredential
 
