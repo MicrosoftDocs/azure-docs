@@ -89,7 +89,7 @@ Most client libraries attempt to reconnect to the cache if they're configured to
 Azure Cache for Redis publishes runtime maintenance notifications on a publish/subscribe (pub/sub) channel called `AzureRedisEvents`. Many popular Redis client libraries support subscribing to pub/sub channels. Receiving notifications from the `AzureRedisEvents` channel is usually a simple addition to your client application. For more information about maintenance events, please see [AzureRedisEvents](https://github.com/Azure/AzureCacheForRedis/blob/main/AzureRedisEvents.md).
 
 > [!NOTE]
-> The `AzureRedisEvents` channel isn't a mechanism that can notify you days or hours in advance. The channel can notify clients of any upcoming planned server maintenance events that might affect server availability.
+> The `AzureRedisEvents` channel isn't a mechanism that can notify you days or hours in advance. The channel can notify clients of any upcoming planned server maintenance events that might affect server availability. AzureRedisEvents is only available for Basic, Standard and Premium Tiers.
 
 ### Client network-configuration changes
 
