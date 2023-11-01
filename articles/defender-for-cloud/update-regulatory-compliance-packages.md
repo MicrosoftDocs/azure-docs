@@ -76,7 +76,7 @@ To add standards to your dashboard:
 - The user must have owner or policy contributor permissions
 
 > [!NOTE]
-> It may take a few hours for a newly added standard to appear in the compliance dashboard.
+> It might take a few hours for a newly added standard to appear in the compliance dashboard.
 
 ### Add a standard to your Azure subscriptions
 

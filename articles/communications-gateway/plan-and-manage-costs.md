@@ -15,7 +15,7 @@ This article describes how you're charged for Azure Communications Gateway and h
 
 After you've started using Azure Communications Gateway, you can use Cost Management features to set budgets and monitor costs. You can also review forecasted costs and identify spending trends to identify areas where you might want to act.
 
-Costs for Azure Communications Gateway are only a portion of the monthly costs in your Azure bill. Although this article explains how to plan for and manage costs for Azure Communications Gateway, you're billed for all Azure services and resources used in your Azure subscription. This billing includes third-party services.
+Costs for Azure Communications Gateway are only a portion of the monthly costs in your Azure bill. Although this article explains how to plan for and manage costs for Azure Communications Gateway, your Azure bill includes all services and resources used in your Azure subscription, including third-party Azure services.
 
 ## Prerequisites
 
@@ -31,7 +31,7 @@ When you deploy Azure Communications Gateway, you're charged for how you use the
 
 - A "Fixed Network Service Fee" or a "Mobile Network Service Fee" meter.
     - This meter is charged hourly and includes the use of 999 users for testing and early adoption.
-    - Operator Connect and Microsoft Teams Direct Routing are fixed networks.
+    - Operator Connect, Microsoft Teams Direct Routing and Zoom Phone Cloud Peering are fixed networks.
     - Teams Phone Mobile is a mobile network.
     - If your deployment includes fixed networks and mobile networks, you're charged the Mobile Network Service Fee.
 - A series of tiered per-user meters that charge based on the number of users that are assigned to the deployment. These per-user fees are based on the maximum number of users during your billing cycle, excluding the 999 users included in the service availability fee.
@@ -42,7 +42,7 @@ For example, if you have 28,000 users assigned to the deployment each month, you
 * 3000 users in the 25000+ tier
 
 > [!NOTE]
-> A Microsoft Teams Direct Routing user is any telephone number configured with Direct Routing on Azure Communications Gateway. Billing for the user starts as soon as you have configured the number.
+> A Microsoft Teams Direct Routing or Zoom Phone Cloud Peering user is any telephone number configured with Direct Routing service or Zoom service on Azure Communications Gateway. Billing for the user starts as soon as you have configured the number.
 > 
 > An Operator Connect or Teams Phone Mobile user is any telephone number that meets all the following criteria.
 >
@@ -69,6 +69,8 @@ You must pay for Azure networking costs, because these costs aren't included in 
 - If you're connecting to the public internet with ExpressRoute Microsoft Peering, you must purchase ExpressRoute circuits with a specified bandwidth and data billing model.
 - If you're connecting into Azure as a next hop, you might need to pay virtual network peering costs.
 
+You must also pay for any costs charged by the communications services to which you're connecting. These costs don't appear on your Azure bill, and you need to pay them to the communications service yourself.
+
 ### Costs if you cancel or change your deployment
 
 If you cancel Azure Communications Gateway, your final bill or invoice includes charges on service fee meters for the part of the billing cycle before you cancel. Per-user meters charge for the entire billing cycle.
@@ -79,7 +81,7 @@ If you have multiple Azure Communications Gateway deployments and you move users
 
 ### Using Azure Prepayment with Azure Communications Gateway
 
-You can pay for Azure Communications Gateway charges with your Azure Prepayment credit. However, you can't use Azure Prepayment credit to pay for charges for third party products and services including those from the Azure Marketplace.
+You can pay for Azure Communications Gateway charges with your Azure Prepayment credit. However, you can't use Azure Prepayment credit to pay for charges for third-party products and services including those from the Azure Marketplace.
 
 ## Monitor costs
 
