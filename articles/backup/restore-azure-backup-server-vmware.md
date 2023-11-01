@@ -2,7 +2,7 @@
 title: Restore VMware VMs with Azure Backup Server
 description: Use Azure Backup Server (MABS) to restore VMware VMs running on a VMware vCenter/ESXi server.
 ms.topic: how-to
-ms.date: 03/01/2023
+ms.date: 11/07/2023
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -49,7 +49,7 @@ This article explains how to use Microsoft Azure Backup Server (MABS) to restore
 You can restore individual files from a protected VM recovery point. This feature is only available for Windows Server VMs. Restoring individual files is similar to restoring the entire VM, except you browse into the VMDK and find the file(s) you want, before starting the recovery process. To recover an individual file or select files from a Windows Server VM:
 
 >[!NOTE]
->Restoring an individual file from a VM is available only for Windows VM and Disk Recovery Points.
+>Restoring an individual file from a VM, and from Disk and Online recovery Points.
 
 1. In the MABS Administrator Console, select **Recovery** view.
 
@@ -59,7 +59,13 @@ You can restore individual files from a protected VM recovery point. This featur
 
 3. In the **Recovery Points for:** pane, use the calendar to select the date that contains the desired recovery point(s). Depending on how the backup policy has been configured, dates can have more than one recovery point. Once you've selected the day when the recovery point was taken, make sure you've chosen the correct **Recovery time**. If the selected date has multiple recovery points, choose your recovery point by selecting it in the Recovery time drop-down menu. Once you chose the recovery point, the list of recoverable items appears in the **Path:** pane.
 
-4. To find the files you want to recover, in the **Path** pane, double-click the item in the **Recoverable item** column to open it. Select the file, files, or folders you want to recover. To select multiple items, press the **Ctrl** key while selecting each item. Use the **Path** pane to search the list of files or folders appearing in the **Recoverable Item** column. **Search list below** doesn't search into subfolders. To search through subfolders, double-click the folder. Use the **Up** button to move from a child folder into the parent folder. You can select multiple items (files and folders), but they must be in the same parent folder. You can't recover items from multiple folders in the same recovery job.
+4. To find the files you want to recover, in the **Path** pane, double-click the item in the **Recoverable item** column to open it. Select the file, files, or folders you want to recover.
+
+   	If you use an online recovery point, wait until the recovery point is mounted. Once the mount is complete, select the *VM*, *disk*, and the *volume* you want to restore until the files and folders are listed.
+
+
+
+   To select multiple items, press the **Ctrl** key while selecting each item. Use the **Path** pane to search the list of files or folders appearing in the **Recoverable Item** column. **Search list below** doesn't search into subfolders. To search through subfolders, double-click the folder. Use the **Up** button to move from a child folder into the parent folder. You can select multiple items (files and folders), but they must be in the same parent folder. You can't recover items from multiple folders in the same recovery job.
 
     ![Review Recovery Selection](./media/restore-azure-backup-server-vmware/vmware-rp-disk-ilr-2.png)
 
@@ -73,6 +79,12 @@ You can restore individual files from a protected VM recovery point. This featur
 
 9. On the **Specify Recovery Options** screen, choose which security setting to apply. You can opt to modify the network bandwidth usage throttling, but throttling is disabled by default. Also, **SAN Recovery** and **Notification** aren't enabled.
 10. On the **Summary** screen, review your settings and select **Recover** to start the recovery process. The **Recovery status** screen shows the progression of the recovery operation.
+
+>[!Tip]
+>You can also do item-level restore of the online recovery points for VMware VMs running Windows from **Add external DPM Server** for a quick recovery of VM files and folders.
+
+
+
 
 ## VMware parallel restore in MABS v4 (and later)
 
