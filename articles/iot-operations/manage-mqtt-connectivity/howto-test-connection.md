@@ -77,19 +77,19 @@ spec:
 1. Inside the pod's shell, run the following command to publish a message to the broker:
 
     ```console
-    $ mosquitto_pub -h aio-mq-dmqtt-frontend -p 8883 -m "hello" -t "world" -u '$sat' -P $(cat /var/run/secrets/tokens/mq-sat) -d --cafile /opt/certs/ca.crt
+    $ mosquitto_pub -h aio-mq-dmqtt-frontend -p 8883 -m "hello" -t "world" -u '$sat' -P $(cat /var/run/secrets/tokens/mq-sat) -d --cafile /var/run/certs/ca.crt
     Client (null) sending CONNECT
     Client (null) received CONNACK (0)
     Client (null) sending PUBLISH (d0, q0, r0, m1, 'world', ... (5 bytes))
     Client (null) sending DISCONNECT
     ```
 
-    The mosquitto client uses the service account token mounted at `/var/run/secrets/tokens/mq-sat` to authenticate with the broker. The token is valid for 24 hours. The client also uses the default root CA cert mounted at `/opt/certs/ca.crt` to verify the broker's TLS certificate chain.
+    The mosquitto client uses the service account token mounted at `/var/run/secrets/tokens/mq-sat` to authenticate with the broker. The token is valid for 24 hours. The client also uses the default root CA cert mounted at `/var/run/certs/ca.crt` to verify the broker's TLS certificate chain.
 
 1. To subscribe to the topic, run the following command:
 
     ```console
-    $ mosquitto_sub -h aio-mq-dmqtt-frontend -p 8883 -t "world" -u '$sat' -P $(cat /var/run/secrets/tokens/mq-sat) -d --cafile /opt/certs/ca.crt
+    $ mosquitto_sub -h aio-mq-dmqtt-frontend -p 8883 -t "world" -u '$sat' -P $(cat /var/run/secrets/tokens/mq-sat) -d --cafile /var/run/certs/ca.crt
     Client (null) sending CONNECT
     Client (null) received CONNACK (0)
     Client (null) sending SUBSCRIBE (Mid: 1, Topic: world, QoS: 0, Options: 0x00)
@@ -216,33 +216,29 @@ If you understand the risks and need to use an insecure port in a well-controlle
       namespace: azure-iot-operations
     spec:
       brokerRef: broker
+      serviceType: loadBalancer
+      serviceName: my-unique-service-name
       authenticationEnabled: false
       authorizationEnabled: false
       port: 1883
     ```
 
-    The `authenticationEnabled` and `authorizationEnabled` fields are set to `false` to turn off authentication and authorization. The `port` field is set to `1883` to use common MQTT port. However, this port isn't exposed to the internet because the `serviceType` is set to `clusterIP` by default.
+    The `authenticationEnabled` and `authorizationEnabled` fields are set to `false` to turn off authentication and authorization. The `port` field is set to `1883` to use common MQTT port.
 
 1. Wait for the service to be updated. You should see output similar to the following:
 
     ```console
-    $ kubectl get service aio-mq-dmqtt-frontend -n azure-iot-operations
-    NAME                    TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)             AGE
-    aio-mq-dmqtt-frontend   ClusterIP   10.43.107.11   <none>        8883/TCP,1883/TCP   16h
+    $ kubectl get service my-unique-service-name -n azure-iot-operations
+    NAME                     TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
+    my-unique-service-name   LoadBalancer   10.43.144.182   XXX.XX.X.X    1883:31001/TCP   5m11s
     ```
 
-    The new port 1883.
-
-1. Use port forwarding to access the broker from outside the cluster:
-
-    ```bash
-    kubectl port-forward service/aio-mq-dmqtt-frontend 1883:1883 -n azure-iot-operations
-    ```
+    The new port 1883 is available.
 
 1. Use mosquitto client to connect to the broker:
 
     ```console
-    $ mosquitto_pub -q 1 -d -h 127.0.0.1 -m hello -t world
+    $ mosquitto_pub -q 1 -d -h localhost -m hello -t world
     Client mosq-7JGM4INbc5N1RaRxbW sending CONNECT
     Client mosq-7JGM4INbc5N1RaRxbW received CONNACK (0)
     Client mosq-7JGM4INbc5N1RaRxbW sending PUBLISH (d0, q1, r0, m1, 'world', ... (5 bytes))
