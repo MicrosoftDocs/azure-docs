@@ -100,7 +100,7 @@ Azure Data Factory offers comprehensive metrics for Airflow Integration Runtimes
 5. You can set up an alert rule that triggers when specific conditions are met by your metrics.
    Refer to guide: [Overview of Azure Monitor alerts - Azure Monitor | Microsoft Learn](/azure/azure-monitor/alerts/alerts-overview)
 
-6. Click on Save to Dashboard, once your chat is complete, else your chart disappears.
+6. Click on Save to Dashboard, once your chart is complete, else your chart disappears.
    :::image type="content" source="media/diagnostics-logs-and-metrics-for-managed-airflow/save-to-dashboard.png" alt-text="Screenshot that shows save to dashboard." lightbox="media/diagnostics-logs-and-metrics-for-managed-airflow/save-to-dashboard.png":::
 
 For more information: [https://learn.microsoft.com/azure/azure-monitor/reference/supported-metrics/microsoft-datafactory-factories-metrics](/azure/azure-monitor/reference/supported-metrics/microsoft-datafactory-factories-metrics)

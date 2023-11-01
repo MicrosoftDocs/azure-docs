@@ -489,12 +489,6 @@
       "branch_mapping": {}
     },
     {
-      "path_to_root": "azureml-examples-batch-pup",
-      "url": "https://github.com/azure/azureml-examples",
-      "branch": "santiagxf/batch-pup",
-      "branch_mapping": {}
-    },
-    {
       "path_to_root": "azureml-examples-mavaisma-r-azureml",
       "url": "https://github.com/azure/azureml-examples",
       "branch": "mavaisma-r-azureml",
@@ -983,6 +977,12 @@
     {
       "path_to_root": "cosmos-db-nosql-dotnet-samples",
       "url": "https://github.com/azure-samples/cosmos-db-nosql-dotnet-samples",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "cosmos-db-nosql-dotnet-quickstart",
+      "url": "https://github.com/azure-samples/cosmos-db-nosql-dotnet-quickstart",
       "branch": "main",
       "branch_mapping": {}
     },
