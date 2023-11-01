@@ -8,7 +8,7 @@ ms.date: 09/06/2023
 ms.custom: references_regions, ignite-2022
 ---
 
-# Containers support
+# Containers support matrix
 
 This article summarizes support information for Container capabilities in Microsoft Defender for Cloud.
 
