@@ -3,7 +3,7 @@ author: jkleinschnitz-msft
 ms.author: jameskl
 ms.service: azure-arc
 ms.topic: include
-ms.date: 10/10/2023
+ms.date: 11/1/2023
 ---
 
 <!--
@@ -39,15 +39,21 @@ Nov 2023 test release is now available.
 |SQL Database version | 957 |
 
 ### Release notes
-- Arc SQL Server | Restore | Point-in-time-restore using Azure CLI and Portal | Public Preview
-  - This feature allows customers to do a point-in-time restore of their databases, if Automated Backups is enabled. Restore can be done either from Azure portal or via az CLI.
-- Arc SQL Server | Monitoring | Performance dashboards of an individual Arc-enabled SQL Server in the Azure Portal | Public Preview
-- Arc SQL Server | I can track the provision state and (extension service) status of Azure extension for SQL Server | GA
-  - With release onwards, customers can easily track the provisioning status of Azure Arc extension for SQL Server and Azure Arc guest agent in the properties tab for Arc enabled SQL Server. 
-- Arc SQL Server | Backups | Configure backups at Instance level using custom schedule for Arc enabled SQL Server for Both Portal and CLI| Public Preview
+
+#### Arc-enabled SQL Server
+-
+- Configure backups at instance level using custom schedule for Azure Arc-enabled SQL Server instances for both portal and CLI - public preview
   - Configure Automated Backups with a custom schedule and custom retention period, on an Arc enabled SQL Server.
-- Arc SQL Server | High Availability | Availability Group Management - Manual Failover | Public Preview
-  - This Public Preview feature allows customers to perform a planned, manual failover on an Always on Availability Group replica, using Azure portal.
-- Arc SQL Server | Availability Groups Upload Status - I can track the availability upload status | Public Preview
-  - Starting from this release customers can track the status and when is the last time that the Always on Availabilities inventory data is updated.  You can find two new properties, "Upload status" and "Last collected time" in the "Availability Groups" tab of the Arc-enabled SQL Server. 
-- Arc SQL Server | Add support for separate proxy bypass value for Arc SQL Server only | GA
+- Point-in-time-restore using Azure CLI and Azure portal - public preview
+  - Restore a database to a point-in-time restore of their databases, if automatic backups is enabled. Restore can be done either from Azure portal or via az CLI.
+
+- Monitoring | Performance dashboards of an individual Azure Arc-enabled SQL Server instance in the Azure portal - public preview
+
+- Track the provision state and (extension service) status of Azure extension for SQL Server - general availability
+  - Beginning with this release, you can track the provisioning status of Azure Arc extension for SQL Server and Azure Arc guest agent in the properties tab for Arc enabled SQL Server. 
+
+- High Availability | Manage Always On availability group - manual failover - public preview
+  - Perform a planned, manual failover on an availability group replica, using Azure portal.
+- Availability group status - Track the availability upload status | public preview
+  - Beginning with this release, track the status and see the last time that the availability group inventory data is updated.  The portal shows two new properties, **Upload status** and **Last collected time**" in the **Availability Groups** tab of the Arc-enabled SQL Server. 
+- Support for separate proxy bypass value for Arc SQL Server only - general availability
