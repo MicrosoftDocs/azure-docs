@@ -17,7 +17,7 @@ ms.custom: how-to, devplatv2
 
 [!INCLUDE [cli v2](includes/machine-learning-dev-v2.md)]
 
-Batch Endpoints can deploy models to run inference over large amounts of data, including OpenAI models. In this example, you learn how to create a batch endpoint to deploy ADA-002 model from OpenAI to compute embeddings at scale but you can use the same approach for completions and chat completions models. It uses Azure AD authentication to grant access to the Azure OpenAI resource.
+Batch Endpoints can deploy models to run inference over large amounts of data, including OpenAI models. In this example, you learn how to create a batch endpoint to deploy ADA-002 model from OpenAI to compute embeddings at scale but you can use the same approach for completions and chat completions models. It uses Microsoft Entra authentication to grant access to the Azure OpenAI resource.
 
 ## About this example
 
@@ -83,12 +83,12 @@ az ml compute create -n batch-cluster --type amlcompute --min-instances 0 --max-
 
 You can access the Azure OpenAI resource in two ways:
 
-* Using Azure AD authentication (recommended).
+* Using Microsoft Entra authentication (recommended).
 * Using an access key.
 
-Using Azure Active Directory is recommended because it helps you avoid managing secrets in the deployments. However, it requires extra steps to configure access to it.
+Using Microsoft Entra is recommended because it helps you avoid managing secrets in the deployments.
 
-# [Azure AD authentication](#tab/ad)
+# [Microsoft Entra authentication](#tab/ad)
 
 You can configure the identity of the compute to have access to the Azure OpenAI deployment to get predictions. In this way, you don't need to manage permissions for each of the users using the endpoint. To configure the identity of the compute cluster get access to the Azure OpenAI resource, follow these steps:
 
@@ -239,18 +239,18 @@ Model deployments in batch endpoints can only deploy registered models. You can 
     * `OPENAI_API_VERSION` is the version of the API you plan to use.
     * `OPENAI_API_TYPE` is the type of API and authentication you want to use.
 
-    # [Azure AD authentication](#tab/ad)
+    # [Microsoft Entra authentication](#tab/ad)
 
-    The environment variable `OPENAI_API_TYPE="azure_ad` instructs OpenAI to use Active Directory authentication and hence no key is required to invoke the OpenAI deployment. The identity of the cluster is used instead.
+    The environment variable `OPENAI_API_TYPE="azure_ad"` instructs OpenAI to use Active Directory authentication and hence no key is required to invoke the OpenAI deployment. The identity of the cluster is used instead.
     
     # [Access keys](#tab/keys)
 
-    To use access keys instead of Azure AD authentication, we need the following environment variables:
+    To use access keys instead of Microsoft Entra authentication, we need the following environment variables:
 
     * Use `OPENAI_API_TYPE="azure"`
     * Use `OPENAI_API_KEY="<YOUR_AZURE_OPENAI_KEY>"`
 
-1. Once we decided on the authentication and the environment variables, we can use them in the deployment. The following example shows how to use Azure AD authentication particularly:
+1. Once we decided on the authentication and the environment variables, we can use them in the deployment. The following example shows how to use Microsoft Entra authentication particularly:
 
     # [Azure CLI](#tab/cli)
 
