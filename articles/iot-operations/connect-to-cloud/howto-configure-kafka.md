@@ -1,28 +1,26 @@
 ---
-title: Send and receive messages between Azure IoT MQ and Kafka
+title: Send and receive messages between Azure IoT MQ and Azure Event Hubs or Kafka
 # titleSuffix: Azure IoT MQ
-description: 
+description: Learn how to send and receive messages between Azure IoT MQ and Azure Event Hubs or Kafka.
 author: PatAltimore
 ms.author: patricka
 ms.topic: how-to
-ms.date: 10/30/2023
+ms.date: 10/31/2023
 
-#CustomerIntent: As an operator, I want to understand 
+#CustomerIntent: As an operator, I want to understand how to configure Azure IoT MQ to send and receive messages between Azure IoT MQ and Kafka.
 ---
-
 
 # Send and receive messages between Azure IoT MQ and Kafka
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-
-Cloud connector pushes messages from local Azure IoT MQ's MQTT broker to a cloud endpoint, and similarly pulls messages the other way. Since [Azure Event Hub supports Kafka API](/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview), it's compatible with some restrictions.
+A cloud connector pushes messages from local Azure IoT MQ's MQTT broker to a cloud endpoint, and similarly pulls messages the other way. Since [Azure Event Hubs supports Kafka API](/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview), it's compatible with some restrictions.
 
 ## What's supported
 
 | Feature | Supported |
 | --- | --- |
-| Sink to Kafka deployment or Azure Event Hub's Kafka endpoint | Supported |
+| Sink to Kafka deployment or Azure Event Hubs's Kafka endpoint | Supported |
 | Bidirectional communication | Supported |
 | Checkpointing offset in Kafka | Supported |
 | Stops sending messages when offline | Supported |
@@ -31,18 +29,18 @@ Cloud connector pushes messages from local Azure IoT MQ's MQTT broker to a cloud
 | Wildcard subscription support on MQTT | Supported |
 | Store and forward when reconnect | Supported |
 | Kafka topic with >1 partitions | Supported |
-| Managed identity auth for Event Hub | Supported |
-| Support for payload > 1MB | Supported |
+| Managed identity auth for Event Hubs | Supported |
+| Support for payload > 1 MB | Supported |
 
-## Configure Event Hub connector via Kafka endpoint
+## Configure Event Hubs connector via Kafka endpoint
 
-By default, the connector isn't installed with E4k. It must be explicitly enabled with topic mapping and authentication credentials specified. Follow these steps to enable bidirectional communication between IoT MQ and Azure Event Hub through its Kafka endpoint.
+By default, the connector isn't installed with Azure IoT MQ. It must be explicitly enabled with topic mapping and authentication credentials specified. Follow these steps to enable bidirectional communication between IoT MQ and Azure Event Hubs through its Kafka endpoint.
 
 1. [Create an Event Hubs namespace](/azure/event-hubs/event-hubs-create#create-an-event-hubs-namespace).
 
 1. [Create an event hub](/azure/event-hubs/event-hubs-create#create-an-event-hub) for each Kafka topic.
 
-1. [Get the connection string to the namespace](/azure/event-hubs/event-hubs-get-connection-string#connection-string-for-a-namespace). Scoping the connection string to the namespace (as opposed to individual event hubs) allows IoT MQ to send and receive messages from multiple different event hubs (thus Kafka topics).
+1. [Get the connection string to the namespace](/azure/event-hubs/event-hubs-get-connection-string#connection-string-for-a-namespace). Scoping the connection string to the namespace as opposed to individual event hubs allows IoT MQ to send and receive messages from multiple different event hubs (thus Kafka topics).
 
 1. Create a Kubernetes secret with the full connection string as the password.
 
@@ -56,25 +54,25 @@ By default, the connector isn't installed with E4k. It must be explicitly enable
 
 1. Create a YAML file to define the [KafkaConnectorTopicMap](#kafkaconnectortopicmap) resource. 
 
-1. Apply the KafkaConnector and KafkaConnectorTopicMap resources to your Kubernetes cluster using `kubectl apply -f kafka-connector.yaml`.
+1. Apply the *KafkaConnector* and *KafkaConnectorTopicMap* resources to your Kubernetes cluster using `kubectl apply -f kafka-connector.yaml`.
 
 ## KafkaConnector
 
-The KafkaConnector custom resource (CR) allows you to configure a Kafka connector that can communicate a Kafka host and Event Hubs. The Kafka connector can transfer data between MQTT topics and Kafka topics, using the Event Hubs as a Kafka-compatible endpoint.
+The *KafkaConnector* custom resource (CR) allows you to configure a Kafka connector that can communicate a Kafka host and Event Hubs. The Kafka connector can transfer data between MQTT topics and Kafka topics, using the Event Hubs as a Kafka-compatible endpoint.
 
-The following example shows a KafkaConnector CR that connects to an Event Hubs endpoint using SASL plain authentication:
+The following example shows a *KafkaConnector* CR that connects to an Event Hubs endpoint using SASL plain authentication:
 
 ```yaml
 apiVersion: mq.iotoperations.azure.com/v1beta1
 kind: KafkaConnector
 metadata:
   name: my-eh-connector
-  namespace: <SAME NAMESPACE AS BROKER> # For example "{{% namespace %}}"
+  namespace: <SAME NAMESPACE AS BROKER> # For example "default"
 spec:
   image:
     pullPolicy: IfNotPresent
     repository: e4kpreview.azurecr.io/kafka
-    tag: {{% version %}}
+    tag: 0.1.0
   instances: 2
   clientIdPrefix: my-prefix
   kafkaConnection:
@@ -89,7 +87,8 @@ spec:
       authType:
         sasl:
           saslType: plain
-          secretName: cs-secret
+          token:
+            secretName: cs-secret
   ## Uncomment to customize local broker connection
   # localBrokerConnection:
   #   endpoint: "aio-mq-dmqtt-frontend:1883"
@@ -103,12 +102,12 @@ The following table describes the fields in the KafkaConnector CR:
 
 | Field | Description | Required |
 | ----- | ----------- | -------- |
-| image | The image of the Kafka connector. You can specify the `pullPolicy`, `repository`, and `tag` of the image. Default values are shown in example above. | Yes |
+| image | The image of the Kafka connector. You can specify the `pullPolicy`, `repository`, and `tag` of the image. Default values are shown in the prior example. | Yes |
 | instances | The number of instances of the Kafka connector to run. | Yes |
 | clientIdPrefix | The string to prepend to a client ID used by the connector. | No |
 | kafkaConnection | The connection details of the Event Hubs endpoint. See [Kafka Connection](#kafka-connection). | Yes |
 | localBrokerConnection | The connection details of the local broker that overrides the default broker connection. See [Manage local broker connection](#manage-local-broker-connection). | No |
-| logLevel | The log level of the Kafka connector. Possible values are: "trace", "debug", "info", "warn", "error", or "fatal". Default is "warn". | No |
+| logLevel | The log level of the Kafka connector. Possible values are: *trace*, *debug*, *info*, *warn*, *error*, or *fatal*. Default is *warn*. | No |
 
 ### Kafka connection
 
@@ -127,7 +126,7 @@ The `tls` field enables TLS encryption for the connection and optionally specifi
 | Field | Description | Required |
 | ----- | ----------- | -------- |
 | tlsEnabled | A boolean value that indicates whether TLS encryption is enabled or not. It must be set to true for Event Hubs communication. | Yes |
-| caConfigMap | The name of the config map that contains the CA certificate for verifying the server's identity. This field is not required for Event Hubs communication, as Event Hubs uses well-known CAs that are trusted by default. However, you can use this field if you want to use a custom CA certificate. | No |
+| caConfigMap | The name of the config map that contains the CA certificate for verifying the server's identity. This field isn't required for Event Hubs communication, as Event Hubs uses well-known CAs that are trusted by default. However, you can use this field if you want to use a custom CA certificate. | No |
 
 When specifying a trusted CA is required, create a ConfigMap containing the public potion of the CA in PEM format, and specify the name in the `caConfigMap` property.
 
@@ -148,11 +147,11 @@ The authentication field supports different types of authentication methods, suc
 
 | Field | Description | Required |
 | ----- | ----------- | -------- |
-| sasl | The configuration for SASL authentication. Specify the `saslType` which can be "plain", "scram-sha-256", or "scram-sha-512", as well as the `secretName` to reference the Kubernetes secret containing the username and password. | Yes, if using SASL authentication |
+| sasl | The configuration for SASL authentication. Specify the `saslType` which can be *plain*, *scram-sha-256*, or *scram-sha-512*, and the `secretName` to reference the Kubernetes secret containing the username and password. | Yes, if using SASL authentication |
 | x509 | The configuration for X509 authentication. Specify the `secretName` field. The `secretName` field is the name of the secret that contains the client certificate and the client key in PEM format, stored as a TLS secret. | Yes, if using X509 authentication |
-| systemAssignedManagedIdentity | The configuration for managed identity authentication. Specify the audience for the token request, which must match the Event Hub namespace (`https://<NAMESPACE>.servicebus.windows.net`) [because the connector is a Kafka client](/azure/event-hubs/authenticate-application). A system-assigned managed identity is automatically created and assigned to the connector when it's enabled. | Yes, if using managed identity authentication |
+| systemAssignedManagedIdentity | The configuration for managed identity authentication. Specify the audience for the token request, which must match the Event Hubs namespace (`https://<NAMESPACE>.servicebus.windows.net`) [because the connector is a Kafka client](/azure/event-hubs/authenticate-application). A system-assigned managed identity is automatically created and assigned to the connector when it's enabled. | Yes, if using managed identity authentication |
 
-For Event Hub, use plain SASL and `$ConnectionString` as the username and the full connection string as the password.
+For Event Hubs, use plain SASL and `$ConnectionString` as the username and the full connection string as the password.
 
 ```bash
 kubectl create secret generic cs-secret \
@@ -168,7 +167,7 @@ kubectl create secret tls my-tls-secret \
   --key=path/to/key/file
 ```
 
-To use managed identity, specify it as the only method under authentication. You also need to assign a role to the managed identity that grants permission to send and receive messages from Event Hubs, such as Azure Event Hubs Data Owner or Azure Event Hubs Data Sender/Receiver. To learn more, see [Authenticate an application with Azure Active Directory to access Event Hubs resources](/azure/event-hubs/authenticate-application#built-in-roles-for-azure-event-hubs).
+To use managed identity, specify it as the only method under authentication. You also need to assign a role to the managed identity that grants permission to send and receive messages from Event Hubs, such as Azure Event Hubs Data Owner or Azure Event Hubs Data Sender/Receiver. To learn more, see [Authenticate an application with Microsoft Entra ID to access Event Hubs resources](/azure/event-hubs/authenticate-application#built-in-roles-for-azure-event-hubs).
 
 ```yaml
 authentication:
@@ -180,18 +179,18 @@ authentication:
 
 ### Manage local broker connection
 
-Like MQTT bridge, the Event Hub connector acts as a client to the IoT MQ MQTT broker. If you've customized the listener port and/or authentication of your IoT MQ MQTT broker, override the local MQTT connection configuration for the Event Hub connector as well. To learn more, see [MQTT bridge local broker connection](howto-configure-mqtt-bridge.md).
+Like MQTT bridge, the Event Hubs connector acts as a client to the IoT MQ MQTT broker. If you've customized the listener port and/or authentication of your IoT MQ MQTT broker, override the local MQTT connection configuration for the Event Hubs connector as well. To learn more, see [MQTT bridge local broker connection](howto-configure-mqtt-bridge.md).
 
 ## KafkaConnectorTopicMap
 
-The KafkaConnectorTopicMap custom resource (CR) allows you to define the mapping between MQTT topics and Kafka topics for bi-directional data transfer. Specify a reference to a KafkaConnector CR and a list of routes. Each route can be either a MQTT to Kafka route or a Kafka to MQTT route. For example:
+The KafkaConnectorTopicMap custom resource (CR) allows you to define the mapping between MQTT topics and Kafka topics for bi-directional data transfer. Specify a reference to a KafkaConnector CR and a list of routes. Each route can be either an MQTT to Kafka route or a Kafka to MQTT route. For example:
 
 ```yaml
 apiVersion: mq.iotoperations.azure.com/v1beta1
 kind: KafkaConnectorTopicMap
 metadata:
   name: my-eh-topic-map
-  namespace: <SAME NAMESPACE AS BROKER> # For example "{{% namespace %}}"
+  namespace: <SAME NAMESPACE AS BROKER> # For example "default"
 spec:
   kafkaConnectorRef: my-eh-connector
   compression: snappy
@@ -237,11 +236,11 @@ The following table describes the fields in the KafkaConnectorTopicMap CR:
 
 ### Compression
 
-The compression field enables compression for the messages sent to Kafka topics. Compression helps to reduce the network bandwidth and storage space required for data transfer. However, compression also adds some overhead and latency to the process. The supported compression types are listed in table below.
+The compression field enables compression for the messages sent to Kafka topics. Compression helps to reduce the network bandwidth and storage space required for data transfer. However, compression also adds some overhead and latency to the process. The supported compression types are listed in the following table.
 
 | Value | Description |
 | ----- | ----------- |
-| none | No compression or batching is applied. This is the default value if no compression is specified. |
+| none | No compression or batching is applied. *none* is the default value if no compression is specified. |
 | gzip | GZIP compression and batching is applied. GZIP is a general-purpose compression algorithm that offers a good balance between compression ratio and speed. |
 | snappy | Snappy compression and batching is applied. Snappy is a fast compression algorithm that offers moderate compression ratio and speed. |
 | lz4 | LZ4 compression and batching is applied. LZ4 is a fast compression algorithm that offers low compression ratio and high speed. |
@@ -254,8 +253,8 @@ Aside from compression, you can also configure batching for messages before send
 | ----- | ----------- | -------- |
 | enabled | A boolean value that indicates whether batching is enabled or not. If not set, the default value is false. | Yes |
 | latencyMs | The maximum time interval in milliseconds that messages can be buffered before being sent. If this interval is reached, then all buffered messages are sent as a batch, regardless of how many or how large they are. If not set, the default value is 5. | No |
-| maxMessages | The maximum number of messages that can be buffered before being sent. If this number is reached, then all buffered messages are sent as a batch, regardless of how large they are or how long they have been buffered. If not set, the default value is 100000.  | No |
-| maxBytes | The maximum size in bytes that can be buffered before being sent. If this size is reached, then all buffered messages are sent as a batch, regardless of how many they are or how long they have been buffered. The default value is 1000000 (1 MB). | No |
+| maxMessages | The maximum number of messages that can be buffered before being sent. If this number is reached, then all buffered messages are sent as a batch, regardless of how large they are or how long they are buffered. If not set, the default value is 100000.  | No |
+| maxBytes | The maximum size in bytes that can be buffered before being sent. If this size is reached, then all buffered messages are sent as a batch, regardless of how many they are or how long they are buffered. The default value is 1000000 (1 MB). | No |
 
 An example of using batching is:
 
@@ -267,17 +266,17 @@ batching:
   maxBytes: 1024
 ```
 
-This means that messages are sent either when there are 100 messages in the buffer, or when there are 1024 bytes in the buffer, or when 1000 milliseconds have elapsed since the last send, whichever comes first.
+This means that messages are sent either when there are 100 messages in the buffer, or when there are 1024 bytes in the buffer, or when 1000 milliseconds elapses since the last send, whichever comes first.
 
 ### Partition handling strategy
 
-The partition handling strategy is a feature that allows you to control how messages are assigned to Kafka partitions when sending them to Kafka topics. Kafka partitions are logical segments of a Kafka topic that enable parallel processing and fault tolerance. Each message in a Kafka topic has a partition and an offset, which are used to identify and order the messages.
+The partition handling strategy is a feature that allows you to control how messages are assigned to Kafka partitions when sending them to Kafka topics. Kafka partitions are logical segments of a Kafka topic that enable parallel processing and fault tolerance. Each message in a Kafka topic has a partition and an offset that are used to identify and order the messages.
 
-By default, the Kafka connector assigns messages to random partitions, using a round-robin (?)algorithm. However, you can use different strategies to assign messages to partitions based on some criteria, such as the MQTT topic name or an MQTT message property. This can help you to achieve better load balancing, data locality, or message ordering.
+By default, the Kafka connector assigns messages to random partitions, using a round-robin algorithm. However, you can use different strategies to assign messages to partitions based on some criteria, such as the MQTT topic name or an MQTT message property. This can help you to achieve better load balancing, data locality, or message ordering.
 
 | Value | Description |
 | ----- | ----------- |
-| default | Assigns messages to random partitions, using a round-robin algorithm. This is the default value if no strategy is specified. |
+| default | Assigns messages to random partitions, using a round-robin algorithm. It's the default value if no strategy is specified. |
 | static | Assigns messages to a fixed partition number that's derived from the instance ID of the connector. This means that each connector instance sends messages to a different partition. This can help to achieve better load balancing and data locality. |
 | topic | Uses the MQTT topic name as the key for partitioning. This means that messages with the same MQTT topic name are sent to the same partition. This can help to achieve better message ordering and data locality. |
 | property | Uses an MQTT message property as the key for partitioning. Specify the name of the property in the `partitionKeyProperty` field. This means that messages with the same property value are sent to the same partition. This can help to achieve better message ordering and data locality based on a custom criterion. |
@@ -289,7 +288,7 @@ partitionStrategy: property
 partitionKeyProperty: device-id
 ```
 
-This means that messages with the same "device-id" property is sent to the same partition.
+This means that messages with the same device-id property are sent to the same partition.
 
 ### Routes
 
@@ -304,9 +303,9 @@ The `mqttToKafka` field defines a route that transfers data from an MQTT topic t
 | name | Unique name for the route. | Yes |
 | mqttTopic | The MQTT topic to subscribe from. You can use wildcard characters (`#` and `+`) to match multiple topics. | Yes |
 | kafkaTopic | The Kafka topic to send to. | Yes |
-| kafkaAcks | The number of acknowledgements the connector requires from the Kafka endpoint. Possible values are: `zero` , `one` (default), or `all`. | No |
+| kafkaAcks | The number of acknowledgments the connector requires from the Kafka endpoint. Possible values are: `zero` , `one` (default), or `all`. | No |
 | qos | The quality of service (QoS) level for the MQTT topic subscription. Possible values are: 0 or 1 (default). QoS 2 is currently not supported. | No |
-| sharedSubscription | The configuration for using shared subscriptions for MQTT topics. Specify the `groupName`, which is a unique identifier for a group of subscribers, and the `groupMinimumShareNumber`, which is the number of subscribers in a group that receive messages from a topic. For example, if groupName is "group1" and groupMinimumShareNumber is 3, then the connector creates 3 subscribers with the same group name to receive messages from a topic. This feature allows you to distribute messages among multiple subscribers without losing any messages or creating duplicates. | No |
+| sharedSubscription | The configuration for using shared subscriptions for MQTT topics. Specify the `groupName`, which is a unique identifier for a group of subscribers, and the `groupMinimumShareNumber`, which is the number of subscribers in a group that receive messages from a topic. For example, if groupName is "group1" and groupMinimumShareNumber is 3, then the connector creates three subscribers with the same group name to receive messages from a topic. This feature allows you to distribute messages among multiple subscribers without losing any messages or creating duplicates. | No |
 
 An example of using `mqttToKafka` route:
 
@@ -321,7 +320,7 @@ mqttToKafka:
     groupMinimumShareNumber: 3
 ```
 
-This means that messages from MQTT topics that match "temperature-alerts/#" are sent to Kafka topic "receiving-event-hub" with QoS equivalent 1 and shared subscription group "group1" with share number 3.
+In this example, messages from MQTT topics that match *temperature-alerts/#* are sent to Kafka topic *receiving-event-hub* with QoS equivalent 1 and shared subscription group "group1" with share number 3.
 
 #### Kafka to MQTT
 
@@ -344,15 +343,15 @@ kafkaToMqtt:
   qos: 0
 ```
 
-This means that messages from Kafka topic "sending-event-hub" are published to MQTT topic "heater-commands" with QoS level 0.
+In this example, messages from Kafka topic *sending-event-hub** are published to MQTT topic *heater-commands* with QoS level 0.
 
 ### Event hub name must match Kafka topic
 
-Each individual event hub (not the namespace) must be named exactly the same as the intended Kafka topic specified in the routes (and the connection string `EntityPath` if connection string is scoped to one event hub). This is because [Event Hubs namespace is analogous to the Kafka cluster and event hub name is analogous to a Kafka topic](/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview#kafka-and-event-hubs-conceptual-mapping), so the Kafka topic name must match the event hub name.
+Each individual event hub not the namespace must be named exactly the same as the intended Kafka topic specified in the routes. Also, the connection string `EntityPath` must match if connection string is scoped to one Event Hubs. This requirement is because [Event Hubs namespace is analogous to the Kafka cluster and event hub name is analogous to a Kafka topic](/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview#kafka-and-event-hubs-conceptual-mapping), so the Kafka topic name must match the event hub name.
 
 ### Kafka consumer group offsets
 
-If the connector disconnects - or is removed and reinstalled - with same Kafka consumer group ID, the consumer group offset (the last position from where Kafka consumer read messages) is stored in Azure Event Hub. To learn more, see [Event Hubs consumer group vs. Kafka consumer group](/azure/event-hubs/apache-kafka-frequently-asked-questions#event-hubs-consumer-group-vs--kafka-consumer-group).
+If the connector disconnects or is removed and reinstalled with same Kafka consumer group ID, the consumer group offset (the last position from where Kafka consumer read messages) is stored in Azure Event Hubs. To learn more, see [Event Hubs consumer group vs. Kafka consumer group](/azure/event-hubs/apache-kafka-frequently-asked-questions#event-hubs-consumer-group-vs--kafka-consumer-group).
 
 ### MQTT version
 
@@ -360,4 +359,4 @@ This connector only uses MQTT v5.
 
 ## Related content
 
-- [Publish and subscribe MQTT messages using Azure IoT MQ](../manage-mqtt-connectivity/overview-iot-mq.md)
+[Publish and subscribe MQTT messages using Azure IoT MQ](../manage-mqtt-connectivity/overview-iot-mq.md)

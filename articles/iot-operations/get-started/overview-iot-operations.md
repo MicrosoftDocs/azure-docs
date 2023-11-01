@@ -75,8 +75,9 @@ To connect to the cloud from Azure IoT Operations, you have the following option
 
 The north-bound cloud connectors let you connect MQ directly to cloud services such as:
 
-* [Azure Event Grid](../connect-to-cloud/howto-configure-mqtt-bridge.md)
-* [Azure Messaging Services](../connect-to-cloud/howto-use-mqtt-bridge-messaging-service.md)
+* [MQTT brokers](../connect-to-cloud/howto-configure-mqtt-bridge.md)
+* [Azure Event Hubs or Kafka](../connect-to-cloud/howto-configure-kafka.md)
+* [Azure Data Lake Storage](../connect-to-cloud/howto-configure-data-lake.md)
 
 The Data Processor pipeline destinations let you connect to cloud services such as:
 

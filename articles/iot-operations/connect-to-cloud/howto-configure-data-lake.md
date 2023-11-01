@@ -1,20 +1,20 @@
 ---
 title: Send data from Azure IoT MQ to Data Lake Storage 
 # titleSuffix: Azure IoT MQ
-description: 
+description: Learn how to send data from Azure IoT MQ to Data Lake Storage.
 author: PatAltimore
 ms.author: patricka
 ms.topic: how-to
-ms.date: 10/30/2023
+ms.date: 10/31/2023
 
-#CustomerIntent: As an operator, I want to understand 
+#CustomerIntent: As an operator, I want to understand how to configure Azure IoT MQ so that I can send data from Azure IoT MQ to Data Lake Storage.
 ---
 
 # Send data from Azure IoT MQ to Data Lake Storage
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-You can use the Data Lake connector to send data from Azure IoT MQ broker to Data Lake Storage, like Azure Data Lake Storage Gen2 (ADLSv2) and Microsoft Fabric OneLake. The connector subscribes to MQTT topics and ingests the messages into Delta tables in the Data Lake Storage account.
+You can use the data lake connector to send data from Azure IoT MQ broker to a data lake, like Azure Data Lake Storage Gen2 (ADLSv2) and Microsoft Fabric OneLake. The connector subscribes to MQTT topics and ingests the messages into Delta tables in the Data Lake Storage account.
 
 ## What's supported
 
@@ -31,26 +31,27 @@ You can use the Data Lake connector to send data from Azure IoT MQ broker to Dat
 | Create new container if doesn't exist     | Supported |
 | Signed types support                      | Supported |
 | Unsigned types support                    | Not Supported |
-<!-- | Avro message payload                      |    🔜    |
-| Support `schemaVersion` and `schemaType`  |    🔜    |
-| Delta table schema change support         |    🔜    | -->
 
 ## Prerequisites
 
-- A Data Lake Storage account in Azure with a container and a folder for your data. For more information about creating a Data Lake Storage, use one of the following quickstart:
-    - ADLSv2: [create a storage account to use with Azure Data Lake Storage Gen2](https://learn.microsoft.com/azure/storage/blobs/create-data-lake-storage-account).
-    - Microsoft Fabric OneLake: [create a workspace](https://learn.microsoft.com/fabric/onelake/create-workspace-onelake) - the default "my workspace" isn't supported - and [create a lakehouse](https://learn.microsoft.com/fabric/onelake/create-lakehouse-onelake).
-- An IoT MQ MQTT broker. For more information on how to deploy an IoT MQ MQTT broker, see [Deploy IoT MQ distributed MQTT broker](/docs/mqtt-broker/deploy/).
+- A Data Lake Storage account in Azure with a container and a folder for your data. For more information about creating a Data Lake Storage, use one of the following quickstart options:
+    - Microsoft Fabric OneLake quickstart:
+        - [Create a workspace](/fabric/get-started/create-workspaces) since the default *my workspace* isn't supported.
+        - [Create a lakehouse](/fabric/onelake/create-lakehouse-onelake).
+    - Azure Data Lake Storage Gen2 quickstart:
+        - [Create a storage account to use with Azure Data Lake Storage Gen2](/azure/storage/blobs/create-data-lake-storage-account).
+
+- An IoT MQ MQTT broker. For more information on how to deploy an IoT MQ MQTT broker, see [Quickstart: Deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md).
 
 ## Configure the Data Lake connector to send data to Microsoft Fabric OneLake using managed identity
 
-Set up a Data Lake connector to connect to Microsoft Fabric OneLake using managed identity.
+Configure a data lake connector to connect to Microsoft Fabric OneLake using managed identity.
 
-1. Ensure that the prerequisites are met, including a Microsoft Fabric workspace and lakehouse. The default "my workspace" cannot be used.
+1. Ensure that the steps in prerequisites are met, including a Microsoft Fabric workspace and lakehouse. The default *my workspace* can't be used.
 
 1. Ensure that IoT MQ Arc extension is installed and configured with managed identity.
 
-1. Get the *app ID* (**not** the object or principal ID) associated to the IoT MQ Arc extension managed identity, and note down the GUID value. One way to do this is to use the Azure CLI, by finding the object ID of the managed identity and then querying the app ID of the service principal associated to the managed identity. For example:
+1. Get the *app ID* associated to the IoT MQ Arc extension managed identity, and note down the GUID value. The *app ID* is different than the object or principal ID. You can use the Azure CLI by finding the object ID of the managed identity and then querying the app ID of the service principal associated to the managed identity. For example:
 
     ```bash
     OBJECT_ID=$(az k8s-extension show --name <IOT_MQ_EXTENSION_NAME> --cluster-name <ARC_CLUSTER_NAME> --resource-group <RESOURCE_GROUP_NAME> --cluster-type connectedClusters --query identity.principalId -o tsv)
@@ -63,19 +64,19 @@ Set up a Data Lake connector to connect to Microsoft Fabric OneLake using manage
     xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
     ```
 
-    This is the *app ID* that you need to use in the next step.
+    This GUID is the *app ID* that you need to use in the next step.
 
-1. In Microsoft Fabric workspace, use **Manage access**, then click **+ Add people or groups**. 
+1. In Microsoft Fabric workspace, use **Manage access**, then select **+ Add people or groups**.
 
-1. Search for the IoT MQ Arc extension by its name, and make sure to select the one with the app ID GUID value that you found in the previous step.
+1. Search for the IoT MQ Arc extension by its name, and make sure to select the app ID GUID value that you found in the previous step.
 
-    ![Manage access](fabric-onelake-manage-access.png)
+<!-- TODO Screenshot    ![Manage access](fabric-onelake-manage-access.png) -->
 
-1. Select **Contributor** as the role, then click **Add**.
+1. Select **Contributor** as the role, then select **Add**.
 
-    ![Add role](fabric-onelake-add-role.png)
+<!-- TODO Screenshot    ![Add role](fabric-onelake-add-role.png) -->
 
-1. Create a [DataLakeConnector](#datalakeconnector) resource that defines the the configuration and endpoint settings for the connector. You can use the YAML provided as an example, but make sure to change the following fields:
+1. Create a [DataLakeConnector](#datalakeconnector) resource that defines the configuration and endpoint settings for the connector. You can use the YAML provided as an example, but make sure to change the following fields:
 
     - `target.fabriceOneLake.names`: The names of the workspace and the lakehouse. Use either this field or `guids`, don't use both.
         - `workspaceName`: The name of the workspace.
@@ -86,12 +87,12 @@ Set up a Data Lake connector to connect to Microsoft Fabric OneLake using manage
     kind: DataLakeConnector
     metadata:
         name: my-datalake-connector
-        namespace: <SAME NAMESPACE AS BROKER> # For example "{{% namespace %}}"
+        namespace: <SAME NAMESPACE AS BROKER> # For example "default"
     spec:
         protocol: v5
         image:
         repository: e4kpreview.azurecr.io/datalake
-        tag: {{% version %}}
+        tag: 0.1.0
         pullPolicy: IfNotPresent
         instances: 2
         logLevel: info
@@ -118,33 +119,29 @@ Set up a Data Lake connector to connect to Microsoft Fabric OneLake using manage
     - `clientId`: A unique identifier for your MQTT client.
     - `mqttSourceTopic`: The name of the MQTT topic that you want data to come from.
     - `table.tableName`: The name of the table that you want to append to in the lakehouse. If the table doesn't exist, it's created automatically.
-    - `table.schema`: The schema of the Delta table, which should match the format and fields of the JSON messages that you send to the MQTT topic.
+    - `table.schema`: The schema of the Delta table that should match the format and fields of the JSON messages that you send to the MQTT topic.
 
 1. Apply the DataLakeConnector and DataLakeConnectorTopicMap resources to your Kubernetes cluster using `kubectl apply -f datalake-connector.yaml`.
 
-1. Start sending JSON messages to the MQTT topic using your MQTT publisher. The Data Lake Connector instance will subscribe to the topic and ingest the messages into the Delta table.
+1. Start sending JSON messages to the MQTT topic using your MQTT publisher. The Data Lake Connector instance subscribes to the topic and ingests the messages into the Delta table.
 
 1. Using a browser, verify that the data is imported into the lakehouse. In the Microsoft Fabric workspace, select your lakehouse and then **Tables**. You should see the data in the table.
 
-    ![Fabric OneLake table data](fabric-onelake-table-data.png)
+<!-- TODO Screenshot    ![Fabric OneLake table data](fabric-onelake-table-data.png) -->
 
+### Unidentified table
 
-### If your data shows in "Unidentified" table
+If your data shows in the *Unidentified* table:
 
-If your data shows in the "Unidentified" table:
+<!-- TODO Screenshot ![Unidentified table](fabric-onelake-unidentified-table.png) -->
 
-![Unidentified table](fabric-onelake-unidentified-table.png)
-
-It might be caused by unsupported characters in the table name. 
-
-The table name must be a valid Azure Storage container name, which means it may contain any English letter, upper or lower case, and underbar `_`, with length up to 256 characters. No dashes `-` or space characters are allowed.
-
+The cause might be unsupported characters in the table name. The table name must be a valid Azure Storage container name that means it may contain any English letter, upper or lower case, and underbar `_`, with length up to 256 characters. No dashes `-` or space characters are allowed.
 
 ## Configure the Data Lake connector to send data to Azure Data Lake Storage Gen2 using SAS token
 
-Set up a Data Lake connector to connect to an Azure Data Lake Storage Gen2 (ADLS Gen2) account using a shared access signature (SAS) token.
+Configure a Data Lake connector to connect to an Azure Data Lake Storage Gen2 (ADLS Gen2) account using a shared access signature (SAS) token.
 
-1. Get a [SAS token](https://learn.microsoft.com/azure/storage/common/storage-sas-overview) for an Azure Data Lake Storage Gen2 (ADLS Gen2) account. For example, use the Azure portal to browse to your storage account. In the menu under *Security + networking*, choose **Shared access signature**. Use the following table to set the required permissions.
+1. Get a [SAS token](/azure/storage/common/storage-sas-overview) for an Azure Data Lake Storage Gen2 (ADLS Gen2) account. For example, use the Azure portal to browse to your storage account. In the menu under *Security + networking*, choose **Shared access signature**. Use the following table to set the required permissions.
 
     | Parameter              | Value                       |
     | ---------------------- | --------------------------- |
@@ -154,36 +151,36 @@ Set up a Data Lake connector to connect to an Azure Data Lake Storage Gen2 (ADLS
 
    To optimize for least privilege, you can also choose to get the SAS for an individual container. To prevent authentication errors, make sure that the container matches the `table.tableName` value in the topic map configuration.
 
-1. Create a Kubernetes secret with the SAS token. Be careful to *not* include the question mark `?` that might be at the beginning of the token.
+1. Create a Kubernetes secret with the SAS token. Don't include the question mark `?` that might be at the beginning of the token.
 
     ```bash
     kubectl create secret generic my-sas \
     --from-literal=accessToken='sv=2022-11-02&ss=b&srt=c&sp=rwdlax&se=2023-07-22T05:47:40Z&st=2023-07-21T21:47:40Z&spr=https&sig=xDkwJUO....' 
     ```
 
-1. Create a [DataLakeConnector](#datalakeconnector) resource that defines the the configuration and endpoint settings for the connector. You can use the YAML provided as an example, but make sure to change the following fields:
+1. Create a [DataLakeConnector](#datalakeconnector) resource that defines the configuration and endpoint settings for the connector. You can use the YAML provided as an example, but make sure to change the following fields:
 
-    - `endpoint`: The Data Lake Storage endpoint of the ADLSv2 storage account in the form of `https://example.dfs.core.windows.net`. In Azure portal, find the endpoint under **Storage account > Settings > Endpoints > Data Lake Storage**.
-    - `accessTokenSecretName`: Name of the Kubernetes secret containing the SAS token (`my-sas` from above example).
+    - `endpoint`: The Data Lake Storage endpoint of the ADLSv2 storage account in the form of `https://example.blob.core.windows.net`. In Azure portal, find the endpoint under **Storage account > Settings > Endpoints > Data Lake Storage**.
+    - `accessTokenSecretName`: Name of the Kubernetes secret containing the SAS token (`my-sas` from the prior example).
 
     ```yaml
     apiVersion: mq.iotoperations.azure.com/v1beta1
     kind: DataLakeConnector
     metadata:
         name: my-datalake-connector
-        namespace: <SAME NAMESPACE AS BROKER> # For example "{{% namespace %}}"
+        namespace: <SAME NAMESPACE AS BROKER> # For example "default"
     spec:
         protocol: v5
         image:
         repository: e4kpreview.azurecr.io/datalake
-        tag: {{% version %}}
+        tag: 0.1.0
         pullPolicy: IfNotPresent
         instances: 2
         logLevel: "debug"
         databaseFormat: "delta"
         target:
         datalakeStorage:
-            endpoint: "https://example.dfs.core.windows.net"
+            endpoint: "https://example.blob.core.windows.net"
             authentication:
             accessTokenSecretName: "my-sas"
     ```
@@ -196,15 +193,15 @@ Set up a Data Lake connector to connect to an Azure Data Lake Storage Gen2 (ADLS
     - `table.tableName`: The name of the container that you want to append to in the Data Lake Storage. If the SAS token is scoped to the account, the container is automatically created if missing.
     - `table.schema`: The schema of the Delta table, which should match the format and fields of the JSON messages that you send to the MQTT topic.
 
-1. Apply the DataLakeConnector and DataLakeConnectorTopicMap resources to your Kubernetes cluster using `kubectl apply -f datalake-connector.yaml`.
+1. Apply the *DataLakeConnector* and *DataLakeConnectorTopicMap* resources to your Kubernetes cluster using `kubectl apply -f datalake-connector.yaml`.
 
-1. Start sending JSON messages to the MQTT topic using your MQTT publisher. The Data Lake Connector instance will subscribe to the topic and ingest the messages into the Delta table.
+1. Start sending JSON messages to the MQTT topic using your MQTT publisher. The Data Lake Connector instance subscribes to the topic and ingests the messages into the Delta table.
 
-1. Using Azure portal or other tools, verify that the delta table is created. The files are organized by client ID, connector instance name, MQTT topic, and time.
+1. Using Azure portal or other tools, verify that the Delta table is created. The files are organized by client ID, connector instance name, MQTT topic, and time.
 
 ### Use managed identity for authentication to ADLSv2
 
-To use managed identity, specify it as the only method under DataLakeConnector `authentication`. Use `az k8s-extension show` to find the principal ID for the IoT MQ Arc extension, then assign a role to the managed identity that grants permission to write to the storage account, such as Storage Blob Data Contributor. To learn more, see [Authorize access to blobs using Azure Active Directory](https://learn.microsoft.com/azure/storage/blobs/authorize-access-azure-active-directory).
+To use managed identity, specify it as the only method under DataLakeConnector `authentication`. Use `az k8s-extension show` to find the principal ID for the IoT MQ Arc extension, then assign a role to the managed identity that grants permission to write to the storage account, such as Storage Blob Data Contributor. To learn more, see [Authorize access to blobs using Microsoft Entra ID](/azure/storage/blobs/authorize-access-azure-active-directory).
 
 ```yaml
 authentication:
@@ -214,9 +211,9 @@ authentication:
 
 ## DataLakeConnector
 
-A DataLakeConnector is a Kubernetes custom resource that defines the configuration and properties of a Data Lake Connector instance. A Data Lake Connector ingests data from MQTT topics into Delta tables in a Data Lake Storage account.
+A *DataLakeConnector* is a Kubernetes custom resource that defines the configuration and properties of a Data Lake Connector instance. A Data Lake Connector ingests data from MQTT topics into Delta tables in a Data Lake Storage account.
 
-The spec field of a DataLakeConnector resource contains the following subfields:
+The spec field of a *DataLakeConnector* resource contains the following subfields:
 
 - `protocol`: The MQTT version. It can be one of `v5` or `v3`.
 - `image`: The image field specifies the container image of the Data Lake Connector module. It has the following subfields:
@@ -226,7 +223,7 @@ The spec field of a DataLakeConnector resource contains the following subfields:
 - `instances`: The number of replicas of the Data Lake Connector to run.
 - `logLevel`: The log level for the Data Lake Connector module. It can be one of `trace`, `debug`, `info`, `warn`, `error`, or `fatal`.
 - `databaseFormat`: The format of the data to ingest into the Data Lake Storage. It can be one of `delta` or `parquet`.
-- `target`: The target field specifies the destination of the data ingestion. It can be be `datalakeStorage`, `fabricOneLake`, or `localStorage`.
+- `target`: The target field specifies the destination of the data ingestion. It can be `datalakeStorage`, `fabricOneLake`, or `localStorage`.
     - `datalakeStorage`: Specifies the configuration and properties of the local storage Storage account. It has the following subfields:
         - `endpoint`: The URL of the Data Lake Storage account endpoint.
         - `authentication`: The authentication field specifies the type and credentials for accessing the Data Lake Storage account. It can be one of the following.
@@ -234,7 +231,7 @@ The spec field of a DataLakeConnector resource contains the following subfields:
         - `systemAssignedManagedIdentity`: For using system managed identity for authentication. It has one subfield
             - `audience`: A string in the form of `https://<my-account-name>.blob.core.windows.net` for the managed identity token audience scoped to the account level or `https://storage.azure.com` for any storage account.
     - `fabriceOneLake`: Specifies the configuration and properties of the Microsoft Fabric OneLake. It has the following subfields:
-        - `endpoint`: The URL of the Microsoft Fabric OneLake endpoint. It's usually `https://onelake.dfs.fabric.microsoft.com` because that's the OneLake global endpoint. If you're using a regional endpoint, it's in the form of `https://<region>-onelake.dfs.fabric.microsoft.com`. To learn more, see [Connecting to Microsoft OneLake](https://learn.microsoft.com/fabric/onelake/onelake-access-api).
+        - `endpoint`: The URL of the Microsoft Fabric OneLake endpoint. It's usually `https://onelake.dfs.fabric.microsoft.com` because that's the OneLake global endpoint. If you're using a regional endpoint, it's in the form of `https://<region>-onelake.dfs.fabric.microsoft.com`. To learn more, see [Connecting to Microsoft OneLake](/fabric/onelake/onelake-access-api).
         - `names`: Specifies the names of the workspace and the lakehouse. Use either this field or `guids`, don't use both. It has the following subfields:
         - `workspaceName`: The name of the workspace.
         - `lakehouseName`: The name of the lakehouse.
@@ -253,7 +250,7 @@ The spec field of a DataLakeConnector resource contains the following subfields:
 
 A DataLakeConnectorTopicMap is a Kubernetes custom resource that defines the mapping between an MQTT topic and a Delta table in a Data Lake Storage account. A DataLakeConnectorTopicMap resource references a DataLakeConnector resource that runs on the same edge device and ingests data from the MQTT topic into the Delta table.
 
-The spec field of a DataLakeConnectorTopicMap resource contains the following subfields:
+The specification field of a DataLakeConnectorTopicMap resource contains the following subfields:
 
 - `dataLakeConnectorRef`: The name of the DataLakeConnector resource that this topic map belongs to.
 - `mapping`: The mapping field specifies the details and properties of the MQTT topic and the Delta table. It has the following subfields:
@@ -264,21 +261,21 @@ The spec field of a DataLakeConnectorTopicMap resource contains the following su
     - `mqttSourceTopic`: The name of the MQTT topic(s) to subscribe to. Supports [MQTT topic wildcard notation](https://chat.openai.com/share/c6f86407-af73-4c18-88e5-f6053b03bc02).
     - `qos`: The quality of service level for subscribing to the MQTT topic. It can be one of 0 or 1.
     - `table`: The table field specifies the configuration and properties of the Delta table in the Data Lake Storage account. It has the following subfields:
-        - `tableName`: The name of the Delta table to create or append to in the Data Lake Storage account. This is also known as the container name when used with Azure Data Lake Storage Gen2. It may contain any English letter, upper or lower case, and underbar `_`, with length up to 256 characters. No dashes `-` or space characters are allowed.
-        - `schema`: The schema of the Delta table, which should match the format and fields of the message payload. It is an array of objects, each with the following subfields:
+        - `tableName`: The name of the Delta table to create or append to in the Data Lake Storage account. This field is also known as the container name when used with Azure Data Lake Storage Gen2. It can contain any English letter, upper or lower case, and underbar `_`, with length up to 256 characters. No dashes `-` or space characters are allowed.
+        - `schema`: The schema of the Delta table, which should match the format and fields of the message payload. It's an array of objects, each with the following subfields:
             - `name`: The name of the column in the Delta table.
-            - `format`: The data type of the column in the Delta table. It can be one of `boolean`, `int8`, `int16`, `int32`, `int64`, `uInt8`, `uInt16`, `uInt32`, `uInt64`, `float16`, `float32`, `float64`, `date32`, `timestamp`, `binary`, or `utf8`. Unsigned types, like `uInt8`, are not fully supported, and are treated as signed types if specified here.
+            - `format`: The data type of the column in the Delta table. It can be one of `boolean`, `int8`, `int16`, `int32`, `int64`, `uInt8`, `uInt16`, `uInt32`, `uInt64`, `float16`, `float32`, `float64`, `date32`, `timestamp`, `binary`, or `utf8`. Unsigned types, like `uInt8`, aren't fully supported, and are treated as signed types if specified here.
             - `optional`: A boolean value that indicates whether the column is optional or required. This field is optional and defaults to false.
             - `mapping`: JSON path expression that defines how to extract the value of the column from the MQTT message payload. Built-in mappings `$client_id`, `$topic`, and `$received_time` are available to use as columns to enrich the JSON in MQTT message body. This field is required.
 
-Here is an example of a *DataLakeConnectorTopicMap* resource:
+Here's an example of a *DataLakeConnectorTopicMap* resource:
 
 ```yaml
 apiVersion: mq.iotoperations.azure.com/v1beta1
 kind: DataLakeConnectorTopicMap
 metadata:
   name: datalake-topicmap
-  namespace: <SAME NAMESPACE AS BROKER> # For example "{{% namespace %}}"
+  namespace: <SAME NAMESPACE AS BROKER> # For example "default"
 spec:
   dataLakeConnectorRef: "my-datalake-connector"
   mapping:
@@ -324,7 +321,7 @@ Escaped JSON like `{"data": "{\"orderId\": 181, \"item\": \"item181\"}"}` isn't 
 }
 ```
 
-Which ends up with:
+Which maps to:
 
 | orderId | item    | clientId | mqttTopic | timestamp                      |
 | ------- | ------- | -------- | --------- | ------------------------------ |
@@ -336,7 +333,7 @@ Both delta and parquet formats are supported.
 
 ## Manage local broker connection
 
-Like MQTT bridge, the Data Lake Connector acts as a client to the IoT MQ MQTT broker. So if you've customized the listener port and/or authentication of your IoT MQ MQTT broker, override the local MQTT connection configuration for the Data Lake Connector as well. To learn more, see [MQTT bridge local broker connection](/docs/cloud-connectors/mqtt-bridge/#local-broker-connection).
+Like MQTT bridge, the Data Lake Connector acts as a client to the IoT MQ MQTT broker. If you've customized the listener port or authentication of your IoT MQ MQTT broker, override the local MQTT connection configuration for the Data Lake Connector as well. To learn more, see [MQTT bridge local broker connection](./howto-configure-mqtt-bridge.md#local-broker-connection).
 
 ## Related content
 
