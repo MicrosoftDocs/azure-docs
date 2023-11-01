@@ -112,7 +112,7 @@ C:\Users\vmadmin>powercfg /a
 
 
 ```
-If 'Hibernate' isn't listed as a supported sleep state, there should be a reason associated with it, which should help determine why hibernate isn't supported. For example, the following example would happen if guest hibernate hasn't been configured for the VM.
+If 'Hibernate' isn't listed as a supported sleep state, there should be a reason associated with it, which should help determine why hibernate isn't supported. This occurs if guest hibernate hasn't been configured for the VM.
 
 ```
 C:\Users\vmadmin>powercfg /a
@@ -155,7 +155,7 @@ Commonly seen issues where the extension fails
 | Windows failed to configure hibernation due to insufficient space for the hiberfile | Ensure that C: drive has sufficient space. You can try expanding your OS disk, your C: partition size to overcome this issue. Once you have sufficient space, trigger the Reapply operation so that the extension can retry enabling hibernation in the guest and succeeds. |
 | Extension error message: “A device attached to the system isn't functioning” | Ensure that C: drive has sufficient space. You can try expanding your OS disk, your C: partition size to overcome this issue. Once you have sufficient space, trigger the Reapply operation so that the extension can retry enabling hibernation in the guest and succeeds. |
 | Hibernation is no longer supported after Virtualization Based Security (VBS) was enabled inside the guest | Enable Virtualization in the guest to get VBS capabilities along with the ability to hibernate the guest. [Enable virtualization in the guest OS.](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v#enable-hyper-v-using-powershell) |
-| Enabling hibernate failed. Response from the powercfg command. Exit Code: 1. Error message: Hibernation failed with the following error: The request isn't supported. The following items are preventing hibernation on this system. The current Device Guard configuration has disabled hibernation. An internal system component has disabled hibernation. Hypervisor | Enable Virtualization in the guest to get VBS capabilities along with the ability to hibernate the guest. To enable virtualization in the guest, refer to [this document](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v#enable-hyper-v-using-powershell) |
+| Enabling hibernate failed. Response from the powercfg command. Exit Code: 1. Error message: Hibernation failed with the following error: The request isn't supported. The following items are preventing hibernation on this system. The current Device Guard configuration disables hibernation. An internal system component disabled hibernation. Hypervisor | Enable Virtualization in the guest to get VBS capabilities along with the ability to hibernate the guest. To enable virtualization in the guest, refer to [this document](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v#enable-hyper-v-using-powershell) |
 
 ---
 
@@ -247,7 +247,7 @@ In addition to commonly seen issues while starting VMs, certain issues are speci
 ## Windows guest resume status through VM instance view
 For Windows VMs, when you start a VM from a hibernated state, you can use the VM instance view to get more details on whether the guest successfully resumed from its previous hibernated state or if it failed to resume and instead did a cold boot. 
 
-When the guest successfully resumes, this is the VM instance view output: 
+VM instance view output when the guest successfully resumes: 
 ```
 {
   "computerName": "myVM",
@@ -378,7 +378,7 @@ Log Name:      System
     The system has resumed from sleep. 
 
 ```
-If the guest fails to resume, all or some of these events are missing. To troubleshoot why the guest failed to resume, the following logs are be needed: 
+If the guest fails to resume, all or some of these events are missing. To troubleshoot why the guest failed to resume, the following logs are needed: 
 
 1. Event logs on the guest: Microsoft-Windows-Kernel-Power, Microsoft-Windows-Kernel-General, Microsoft-Windows-Kernel-Boot.
 1. On bugcheck, a guest crash dump is needed.
