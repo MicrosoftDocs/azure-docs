@@ -72,7 +72,7 @@ To create a new rule group from the portal home page:
 
 1. In the [portal](https://portal.azure.com/), select **Monitor** > **Alerts**.
 1. Select **Prometheus Rule Groups**
-:::image type="content" source="media/prometheus-metrics-rule-groups/create-new-rule-group-alert-screen.png" alt-text="Screenshot that shows steps to create a new Prometheus rule group.":::
+:::image type="content" source="media/prometheus-metrics-rule-groups/create-new-rule-group-alert-screen.png" alt-text="Screenshot that shows how to reach Prometheus rule groups from Azure Monitor alerts screen.":::
 1. Select **+ Create** to open up the rule group creation wizard
 :::image type="content" source="media/prometheus-metrics-rule-groups/create-new-rule-group-start.png" alt-text="Screenshot that shows steps to create a new Prometheus rule group.":::
 
