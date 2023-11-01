@@ -19,9 +19,6 @@ monikerRange: '>=doc-intel-3.0.0'
 
 The General document v3.0 model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to extract key-value pairs, tables, and selection marks from documents. General document is only available with the v3.0 API.  For more information on using the v3.0 API, see our [migration guide](v3-1-migration-guide.md).
 
-> [!NOTE]
-> The ```2023-07-31``` (GA) version of the general document model adds support for **normalized keys**.
-
 ## General document features
 
 * The general document model is a pretrained model; it doesn't require labels or training.
@@ -29,8 +26,6 @@ The General document v3.0 model combines powerful Optical Character Recognition 
 * A single API extracts key-value pairs, selection marks, text, tables, and structure from documents.
 
 * The general document model supports structured, semi-structured, and unstructured documents.
-
-* Key names are spans of text within the document that are associated with a value. With the ```2023-07-31```(GA) API version, key names are normalized where applicable.
 
 * Selection marks are identified as fields with a value of ```:selected:``` or ```:unselected:```
 
