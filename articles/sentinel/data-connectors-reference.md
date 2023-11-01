@@ -255,6 +255,9 @@ Data connectors are available as part of the following offerings:
 
 - [Workplace from Facebook (using Azure Functions)](data-connectors/workplace-from-facebook-using-azure-functions.md)
 
+## Feedly, Inc.
+
+- [Feedly](data-connectors/feedly.md)
 
 ## Fireeye
 
@@ -360,6 +363,10 @@ Data connectors are available as part of the following offerings:
 
 - [Lookout (using Azure Functions)](data-connectors/lookout-using-azure-function.md)
 - [Lookout Cloud Security for Microsoft Sentinel (using Azure Functions)](data-connectors/lookout-cloud-security-for-microsoft-sentinel-using-azure-function.md)
+
+## MailGuard Pty Limited
+
+- [MailGuard 365](data-connectors/mailguard-365.md)
 
 ## MarkLogic
 

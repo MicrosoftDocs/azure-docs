@@ -6,10 +6,10 @@ items:
 - name: DICOM conformance statements
   expanded: false
   items: 
-  - name: V2
-    href: dicom-services-conformance-statement-v2.md
-  - name: V1
-    href: dicom-services-conformance-statement.md
+    - name: V2
+      href: dicom-services-conformance-statement-v2.md
+    - name: V1
+      href: dicom-services-conformance-statement.md
 - name: Get started
   expanded: true
   items: 
@@ -43,6 +43,8 @@ items:
       href: enable-diagnostic-logging.md
     - name: Import DICOM files
       href: import-files.md
+    - name: Export DICOM files
+      href: export-files.md
 - name: API reference
   expanded: true
   items: 

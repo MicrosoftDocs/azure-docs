@@ -65,9 +65,19 @@ If you receive a message indicating that "You currently do not have any Promethe
 If your workbook query does not return data with a message "You do not have query access":
 
 -	Check that you have sufficient permissions to perform **microsoft.monitor/accounts/read** assigned through Access Control (IAM) in your Azure Monitor workspace.
--	Confirm if your Networking settings support query access. You may need to enable private access through your private endpoint or change settings to allow public access.
--	If you have ad block enabled in your browser, you may need to pause or disable and refresh the workbook in order to view data.
+-	Confirm if your Networking settings support query access. You might need to enable private access through your private endpoint or change settings to allow public access.
+-	If you have ad block enabled in your browser, you might need to pause or disable and refresh the workbook in order to view data.
 
+
+## Frequently asked questions
+
+This section provides answers to common questions.
+
+[!INCLUDE [prometheus-faq-i-am-missing-some-metrics](../includes/prometheus-faq-i-am-missing-some-metrics.md)]
+
+[!INCLUDE [prometheus-faq-i-am-missing-metrics-with-same-name-different-casing](../includes/prometheus-faq-i-am-missing-metrics-with-same-name-different-casing.md)]
+
+[!INCLUDE [prometheus-faq-i-see-gaps-in-metric-data](../includes/prometheus-faq-i-see-gaps-in-metric-data.md)]
 
 ## Next steps
 * [Collect Prometheus metrics from AKS cluster](./prometheus-metrics-enable.md)

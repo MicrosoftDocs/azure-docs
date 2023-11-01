@@ -2,7 +2,7 @@
 title: Important upcoming changes
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 10/09/2023
+ms.date: 10/26/2023
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -10,7 +10,7 @@ ms.date: 10/09/2023
 > [!IMPORTANT]
 > The information on this page relates to pre-release products or features, which might be substantially modified before they are commercially released, if ever. Microsoft makes no commitments or warranties, express or implied, with respect to the information provided here.
 
-<!-- Please don't adjust this next line without getting approval from the Defender for Cloud documentation team. It is necessary for proper RSS functionality. --> 
+<!-- Please don't adjust this next line without getting approval from the Defender for Cloud documentation team. It is necessary for proper RSS functionality. -->
 
 On this page, you can learn about changes that are planned for Defender for Cloud. It describes planned modifications to the product that might affect things like your secure score or workflows.
 
@@ -25,6 +25,9 @@ If you're looking for the latest release notes, you can find them in the [What's
 
 | Planned change | Announcement date | Estimated date for change |
 |--|--|--|
+| [Consolidation of Defender for Cloud's Service Level 2 names](#consolidation-of-defender-for-clouds-service-level-2-names) | November 1, 2023 | December 2023 |
+| [General availability of Containers Vulnerability Assessment powered by Microsoft Defender Vulnerability Management (MDVM) in Defender for Containers and Defender for Container Registries](#general-availability-of-containers-vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management-mdvm-in-defender-for-containers-and-defender-for-container-registries) | October 30, 2023 | November 15, 2023 |
+| [Changes to how Microsoft Defender for Cloud's costs are presented in Microsoft Cost Management](#changes-to-how-microsoft-defender-for-clouds-costs-are-presented-in-microsoft-cost-management) | October 25, 2023 | November 2023 |
 | [Four alerts are set to be deprecated](#four-alerts-are-set-to-be-deprecated) | October 23, 2023 | November 23, 2023 |
 | [Replacing the "Key Vaults should have purge protection enabled" recommendation with combined recommendation "Key Vaults should have deletion protection enabled"](#replacing-the-key-vaults-should-have-purge-protection-enabled-recommendation-with-combined-recommendation-key-vaults-should-have-deletion-protection-enabled) |  | June 2023|
 | [Preview alerts for DNS servers to be deprecated](#preview-alerts-for-dns-servers-to-be-deprecated) |  | August 2023 |
@@ -34,6 +37,75 @@ If you're looking for the latest release notes, you can find them in the [What's
 | [Changes to Attack Path's Azure Resource Graph table scheme](#changes-to-attack-paths-azure-resource-graph-table-scheme) |  | November 2023 |
 | [Deprecating two security incidents](#deprecating-two-security-incidents) |  | November 2023 |
 | [Defender for Cloud plan and strategy for the Log Analytics agent deprecation](#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation) |  | August 2024 |
+
+## Consolidation of Defender for Cloud's Service Level 2 names
+
+**Announcement date: November 1, 2023**
+
+**Estimated date for change: December 2023**
+
+We're consolidating the legacy Service Level 2 names for all Defender for Cloud plans into a single new Service Level 2 name, **Microsoft Defender for Cloud**.
+
+Today, there are four Service Level 2 names: Azure Defender, Advanced Threat Protection, Advanced Data Security, and Security Center. The various meters for Microsoft Defender for Cloud are grouped across these separate Service Level 2 names, creating complexities when using Cost Management + Billing, invoicing, and other Azure billing-related tools.
+
+The change will simplify the process of reviewing Defender for Cloud charges and provide better clarity in cost analysis. 
+
+To ensure a smooth transition, we've taken measures to maintain the consistency of the Product/Service name, SKU, and Meter IDs. Impacted customers will receive an informational Azure Service Notification to communicate the changes. No action is necessary from customers.
+
+The change is planned to go into effect on December 1, 2023.
+
+| OLD Service Level 2 name | NEW Service Level 2 name | Service Tier - Service Level 4 (No change) |
+|--|--|--|
+|Advanced Data Security    |Microsoft Defender for Cloud|Defender for SQL|
+|Advanced Threat Protection|Microsoft Defender for Cloud|Defender for Container Registries |
+|Advanced Threat Protection|Microsoft Defender for Cloud|Defender for DNS |
+|Advanced Threat Protection|Microsoft Defender for Cloud|Defender for Key Vault|
+|Advanced Threat Protection|Microsoft Defender for Cloud|Defender for Kubernetes|
+|Advanced Threat Protection|Microsoft Defender for Cloud|Defender for MySQL|
+|Advanced Threat Protection|Microsoft Defender for Cloud|Defender for PostgreSQL|
+|Advanced Threat Protection|Microsoft Defender for Cloud|Defender for Resource Manager|
+|Advanced Threat Protection|Microsoft Defender for Cloud|Defender for Storage|
+|Azure Defender            |Microsoft Defender for Cloud|Defender for External Attack Surface Management|
+|Azure Defender            |Microsoft Defender for Cloud|Defender for Azure Cosmos DB|
+|Azure Defender            |Microsoft Defender for Cloud|Defender for Containers|
+|Azure Defender            |Microsoft Defender for Cloud|Defender for MariaDB|
+|Security Center           |Microsoft Defender for Cloud|Defender for App Service|
+|Security Center           |Microsoft Defender for Cloud|Defender for Servers|
+|Security Center           |Microsoft Defender for Cloud|Defender CSPM |
+
+
+
+## General availability of Containers Vulnerability Assessment powered by Microsoft Defender Vulnerability Management (MDVM) in Defender for Containers and Defender for Container Registries
+
+**Announcement date: October 30, 2023**
+
+**Estimated date for change: November 15, 2023**
+
+Vulnerability assessment (VA) for Linux container images in Azure container registries powered by Microsoft Defender Vulnerability Management (MDVM) will soon be released for General Availability (GA) in Defender for Containers and Defender for Container Registries.
+
+As part of this change, the following recommendations will also be released for GA and renamed:
+
+|Current recommendation name|New recommendation name|Description|Assessment key|
+|--|--|--|--|
+|Container registry images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management)|Azure registry container images should have vulnerabilities resolved (powered by Microsoft Defender Vulnerability Management)|Container image vulnerability assessments scans your registry for commonly known vulnerabilities (CVEs) and provides a detailed vulnerability report for each image. Resolving vulnerabilities can greatly improve your security posture, ensuring images are safe to use prior to deployment. |c0b7cfc6-3172-465a-b378-53c7ff2cc0d5|
+|Running container images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management)|Azure running container images should have vulnerabilities resolved (powered by Microsoft Defender Vulnerability Management|Container image vulnerability assessment scans your registry for commonly known vulnerabilities (CVEs) and provides a detailed vulnerability report for each image. This recommendation provides visibility to vulnerable images currently running in your Kubernetes clusters. Remediating vulnerabilities in container images that are currently running is key to improving your security posture, significantly reducing the attack surface for your containerized workloads.|c609cf0f-71ab-41e9-a3c6-9a1f7fe1b8d5|
+
+Once the recommendations are released for GA, they will be included in the secure score calculation, and will also incur charges as per [plan pricing](https://azure.microsoft.com/pricing/details/defender-for-cloud/?v=17.23h#pricing).  
+
+> [!NOTE]
+> Images scanned both by our container VA offering powered by Qualys and Container VA offering powered by MDVM, will only be billed once. 
+
+## Changes to how Microsoft Defender for Cloud's costs are presented in Microsoft Cost Management
+
+**Announcement date: October 26, 2023**
+
+**Estimated date for change: November 2023**
+
+In November there will be a change as to how Microsoft Defender for Cloud's costs are presented in Cost Management and in Subscriptions invoices.
+
+Costs will be presented for each protected resource instead of as an aggregation of all resources on the subscription.
+
+If a resource has a tag applied, which are often used by organizations to perform financial chargeback processes, it will be added to the appropriate billing lines.
 
 ## Four alerts are set to be deprecated
 
@@ -234,3 +306,4 @@ Following quality improvement process, the following security incidents are set 
 ## Next steps
 
 For all recent changes to Defender for Cloud, see [What's new in Microsoft Defender for Cloud?](release-notes.md).
+
