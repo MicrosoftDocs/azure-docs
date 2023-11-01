@@ -195,4 +195,9 @@ items:
     - name: Troubleshoot
       href: troubleshoot/troubleshoot.md
     - name: Reference # supporting information like APIs, tools, code libraries
+      items: 
+      - name: Available metrics for observability
+        items:
+        - name: Metrics for MQ
+          href: reference/observability-metrics-mq.md
     - name: Resources # could include links to related libraries

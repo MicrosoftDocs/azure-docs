@@ -4,7 +4,7 @@ description: "Quickstart: Use a Power BI report to capture insights from your OP
 author: baanders
 ms.author: baanders
 ms.topic: quickstart
-ms.date: 10/26/2023
+ms.date: 11/01/2023
 
 #CustomerIntent: As an OT user, I want to create a visual report for my processed OPC UA data that I can use to analyze and derive insights from it.
 ---
@@ -13,7 +13,7 @@ ms.date: 10/26/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-In this quickstart, you create a Power BI report to capture insights from your OPC UA data that you sent to the Microsoft Fabric OneLake lakehouse in the previous quickstart. You'll connect your data sources to Power BI, import a Power BI quickstart template, and configure the report to display visual graphs of your data over time.
+In this quickstart, you create a Power BI report to capture insights from your OPC UA data that you sent to the Microsoft Fabric OneLake lakehouse in the previous quickstart. You'll prepare your data to be a source for Power BI, import a report template into Power BI, and connect your data sources to Power BI so that the report displays visual graphs of your data over time.
 
 ## Prerequisites
 
@@ -110,7 +110,7 @@ With data connected from various sources at the edge being related to one anothe
 
 ## How did we solve the problem?
 
-In this quickstart, you connected your lakehouse data to Power BI, imported a Power BI report template, and configured the report to display your lakehouse data in report graphs that visually track their changing values over time. This represents the final step in the quickstart flow for using Azure IoT Operations to manage device data from deployment through analysis in the cloud.
+In this quickstart, you prepared your lakehouse data to be a source for Power BI, imported a report template into Power BI, and configured the report to display your lakehouse data in report graphs that visually track their changing values over time. This represents the final step in the quickstart flow for using Azure IoT Operations to manage device data from deployment through analysis in the cloud.
 
 ## Clean up resources
 
