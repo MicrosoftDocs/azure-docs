@@ -35,8 +35,19 @@ This procedure describes how to start using a trial, standalone license for ente
 
 Customers with ME5/E5 Security plans have support for enterprise IoT monitoring available on by default, and don't need to start a trial. For more information, see [Get started with enterprise IoT monitoring in Microsoft 365 Defender](eiot-defender-for-endpoint.md).
 
-**To start an Enterprise IoT trial**:
+Start your enterprise IoT trial using the [Microsoft Defender for IoT - EIoT Device License - add-on wizard](https://signup.microsoft.com/get-started/signup?products=b2f91841-252f-4765-94c3-75802d7c0ddb&ali=1&bac=1) or via the Microsoft 365 admin center.
 
+
+**To start an Enterprise IoT trial**:
+<!--
+**To start an Enterprise IoT trial using the wizard**:
+
+1. In a browser, go to the [Microsoft Defender for IoT - EIoT Device License - add-on wizard](https://signup.microsoft.com/get-started/signup?products=b2f91841-252f-4765-94c3-75802d7c0ddb&ali=1&bac=1)
+
+1. Enter your email address and select **Next**.
+
+1. Follow the instructions in the wizard to enter your personal information and verify the security check.
+-->
 1. Go to the [Microsoft 365 admin center](https://portal.office.com/AdminPortal/Home#/catalog) > **Marketplace**.
 
 1. Search for the **Microsoft Defender for IoT - EIoT Device License - add-on** and filter the results by **Other services**. For example:
