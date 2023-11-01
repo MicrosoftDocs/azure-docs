@@ -5,7 +5,7 @@ author: johnmarco
 ms.author: johnmarc
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
-ms.date: 08/23/2023
+ms.date: 11/01/2023
 #Customer intent: I need to understand the Azure Red Hat OpenShift support policies for OpenShift 4.0.
 ---
 
@@ -58,10 +58,6 @@ The general workflow of how a new incident is managed is described below:
 1. The incident is documented and a root cause analysis (RCA) is performed within 5 business days of the incident.
 
 1. An RCA draft document is shared with the customer within 7 business days of the incident.
-
-When necessary, support cases can be escalated by following the [Red Hat Support Case Escalation](https://access.redhat.com/support/escalation) procedure. Red Hat support recognizes various levels of severity for issues, [defined here](https://access.redhat.com/support/policy/severity).
-
-For Red Hat server level agreement details, see [Production Support Terms of Service](https://access.redhat.com/support/offerings/production/sla).
 
 ## Supported virtual machine sizes
 
