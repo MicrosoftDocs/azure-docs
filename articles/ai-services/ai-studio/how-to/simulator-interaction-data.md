@@ -15,7 +15,7 @@ ms.author: eur
 
 Large language models are known for their few-shot and zero-shot learning abilities, allowing them to function with minimal data. However, this limited data availability impedes thorough evaluation and optimization when you don't have test datasets to evaluate the quality and effectiveness of your generative AI application. Using GPT to simulate a user interaction with your application, with configurable tone, task and characteristics can help with stress testing your application under various environments, effectively gauging how a model responds to different inputs and scenarios.
 
-There are two main scenarios for generating a simulated interaction (such as as conversation with a chat bot):
+There are two main scenarios for generating a simulated interaction (such as conversation with a chat bot):
 - Instance level with manual testing: generate one conversation at a time by manually inputting the task parameters such as name, profile, tone and task and iteratively tweaking it to see different outcomes for the simulated interaction. 
 - Bulk testing and evaluation orchestration: generate multiple interaction data samples (~100) at one time for a list of tasks or profiles to create a target dataset to evaluate your generative AI applications and streamline the data gathering/prep process.
 
