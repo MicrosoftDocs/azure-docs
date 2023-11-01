@@ -5,13 +5,17 @@ author: mattmcinnes
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 10/26/2023
+ms.date: 10/31/2023
 ms.author: mattmcinnes
 ms.reviewer: jainan
 ms.custom: 
 ---
 
 # Troubleshooting VM hibernation
+
+> [!IMPORTANT]
+> Azure Virtual Machines - Hibernation is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Subscription not registered to use hibernation
 If you receive the error "Your subscription isn't registered to use Hibernate" and the box is greyed out in the Azure portal, make sure you have [register for the Hibernation preview.](hibernate-resume.md)
