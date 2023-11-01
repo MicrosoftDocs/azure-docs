@@ -81,12 +81,12 @@ To create the yaml file, use the following component definitions:
       metadata:
       - name: url
         value: "aio-mq-dmqtt-frontend:8883"
-      - name: tls
-        value: "true"  
-      - name: brokerAuthMethod
-        value: "SAT"
       - name: satTokenPath
         value: "/var/run/secrets/tokens/aio-mq-client-token"
+      - name: tls
+        value: "true"
+      - name: caTrustBundle
+        value: "/certs/aio-mq-ca-trust-bundle/ca.crt"
     ---
     # State Management component
     apiVersion: dapr.io/v1alpha1
@@ -99,12 +99,12 @@ To create the yaml file, use the following component definitions:
       metadata:
       - name: url
         value: "aio-mq-dmqtt-frontend:8883"
-      - name: tls
-        value: "true"          
-      - name: brokerAuthMethod
-        value: "SAT"
       - name: satTokenPath
         value: "/var/run/secrets/tokens/aio-mq-client-token"
+      - name: tls
+        value: "true"          
+      - name: caTrustBundle
+        value: "/certs/aio-mq-ca-trust-bundle/ca.crt"
     ```
 
 1. Apply the component yaml to your cluster by running the following command:
@@ -262,12 +262,15 @@ To start, you create a yaml file that uses the following component definitions:
                   path: aio-mq-client-token
                   audience: aio-mq-dmqtt
                   expirationSeconds: 86400
+        - name: aio-mq-ca-trust-bundle
+          configMap:
+            name: aio-mq-ca-trust-bundle                  
       containers:
-        # The dapr application 
+        # Container for the dapr quickstart application 
         - name: dapr-workload
           image: alicesprings.azurecr.io/quickstart-sample:latest
     
-        # Container for the pub/sub component
+        # Container for the Pub/sub component
         - name: aio-mq-pubsub-pluggable
           image: alicesprings.azurecr.io/dapr/mq-pubsub:latest
           volumeMounts:
@@ -275,8 +278,10 @@ To start, you create a yaml file that uses the following component definitions:
               mountPath: /tmp/dapr-components-sockets
             - name: aio-mq-client-token
               mountPath: /var/run/secrets/tokens
+            - name: aio-mq-ca-trust-bundle
+              mountPath: /certs/aio-mq-ca-trust-bundle/ca.crt
     
-        # Container for the state management component
+        # Container for the State Management component
         - name: aio-mq-statestore-pluggable
           image: alicesprings.azurecr.io/dapr/mq-statestore:latest
           volumeMounts:
@@ -284,6 +289,8 @@ To start, you create a yaml file that uses the following component definitions:
               mountPath: /tmp/dapr-components-sockets
             - name: aio-mq-client-token
               mountPath: /var/run/secrets/tokens
+            - name: aio-mq-ca-trust-bundle
+              mountPath: /certs/aio-mq-ca-trust-bundle/ca.crt
     ```
 
 2. Deploy the component by running the following command:
