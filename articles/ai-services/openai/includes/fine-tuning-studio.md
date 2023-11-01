@@ -105,7 +105,7 @@ OpenAI's CLI data preparation tool was developed for the previous generation of 
 To install the OpenAI CLI, run the following Python command:
 
 ```console
-pip install --upgrade openai 
+pip install openai==0.28.1
 ```
 
 To analyze your training data with the data preparation tool, run the following Python command. Replace the _\<LOCAL_FILE>_ argument with the full path and file name of the training data file to analyze:
