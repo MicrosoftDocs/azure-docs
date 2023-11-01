@@ -53,11 +53,11 @@ To view deprecation/expiration dates for all available models in a given region 
 
 You can check what model upgrade options are set for previously deployed models in [Azure OpenAI Studio](https://oai.azure.com). Select **Deployments** > Under the deployment name column select one of the deployment names that are highlighted in blue.
 
-:::image type="content" source="../media/how-to/working-with-models/deployments.png" alt-text="Screenshot of the deployments pane with a deployment name highlighted" lightbox="../media/how-to/working-with-models/deployments.png":::
+:::image type="content" source="../media/how-to/working-with-models/deployments.png" alt-text="Screenshot of the deployments pane with a deployment name highlighted." lightbox="../media/how-to/working-with-models/deployments.png":::
 
 This will open the **Properties** for the model deployment. You can view what upgrade options are set for your deployment under **Version update policy**:
 
-:::image type="content" source="../media/how-to/working-with-models/update-policy.png" alt-text="Screenshot of the model deployments property UI" lightbox="../media/how-to/working-with-models/update-policy.png":::
+:::image type="content" source="../media/how-to/working-with-models/update-policy.png" alt-text="Screenshot of the model deployments property UI." lightbox="../media/how-to/working-with-models/update-policy.png":::
 
 The corresponding property can also be accessed via [REST](../how-to/working-with-models.md#model-deployment-upgrade-configuration), [Azure PowerShell](/powershell/module/az.cognitiveservices/get-azcognitiveservicesaccountdeployment), and [Azure CLI](/cli/azure/cognitiveservices/account/deployment#az-cognitiveservices-account-deployment-show).
 
