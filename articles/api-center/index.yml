@@ -27,7 +27,10 @@ landingContent:
             url: overview.md
           - text: Key concepts
             url: key-concepts.md
-      - linkListType: get-started
+  # Card
+  - title: Manage your API inventory
+    linkLists:
+      - linkListType: tutorial
         links:
-          - text: Tutorial - Set up your API center
+          - text: Set up your API center
             url: set-up-api-center.md
