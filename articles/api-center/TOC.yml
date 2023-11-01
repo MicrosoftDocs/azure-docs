@@ -1,6 +1,6 @@
 - name: Azure API Center Documentation
   href: index.yml
-- name: Getting started
+- name: Get started
   expanded: true
   items:
       - name: What is API Center?
