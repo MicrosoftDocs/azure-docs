@@ -97,10 +97,6 @@ This tutorial uses Azure Cache for Redis as the online materialization store. Yo
 
       [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/4. Enable online store and run online inference.ipynb?name=reuse-redis)]
 
-1. Retrieve the user-assigned managed identity (UAI) that the feature store used for materialization. This code cell retrieves the principal ID, client ID, and ARM ID property values for the UAI used by the feature store for data materialization.
-
-      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/4. Enable online store and run online inference.ipynb?name=retrieve-uai)]
-
 ## Attach online materialization store to the feature store
 
 The feature store needs the Azure Cache for Redis as an attached resource, for use as the online materialization store. This code cell handles that step.
@@ -128,7 +124,7 @@ The `begin_backfill` function backfills data to all the materialization stores e
    [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/4. Enable online store and run online inference.ipynb?name=start-accounts-backfill)]
 
    > [!TIP]
-   > - The `feature_window_start_time` and `feature_window_start_time` granularily is limited to seconds. Any milliseconds provided in the `datetime` object will be ignored.
+   > - The `feature_window_start_time` and `feature_window_end_time` granularily is limited to seconds. Any milliseconds provided in the `datetime` object will be ignored.
    > - A materialization job will only be submitted if there is data in the feature window matching the `data_status` defined while submitting the backfill job.
 
 This code cell tracks completion of the backfill job. With the Azure Cache for Redis premium tier provisioned earlier, this step might need approximately 10 minutes to complete.
@@ -167,7 +163,7 @@ You can explore the feature materialization status for a feature set from the **
   - Pending (blue)
   - None (gray)
 - A *data interval* represents a contiguous portion of data with same data materialization status. For example, the earlier snapshot has 16 *data intervals* in the offline materialization store.
-- Your data can have a maximum of 2,000 *data intervals*. If your data contains more than 2,000 *data intervals*, [create a customer support request](../azure-portal/supportability/how-to-create-azure-support-request.md) for guidance.
+- Your data can have a maximum of 2,000 *data intervals*. If your data contains more than 2,000 *data intervals*, create a new feature set version.
 - You can provide a list of more than one data statuses (for example, `["None", "Incomplete"]`) in a single backfill job.
 - During backfill, a new materialization job is submitted for each *data interval* that falls in the defined feature window.
 - A new job is not submitted for a *data interval* if a materialization job is already pending, or is running for a *data interval* that hasn't yet been backfilled.

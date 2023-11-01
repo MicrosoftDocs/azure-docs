@@ -176,7 +176,7 @@ This tutorial doesn't need explicit installation of these resources, because the
    [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/1. Develop a feature set and register with managed feature store.ipynb?name=create-fs-cli)]
 
    > [!NOTE]
-   > The default blob store for the feature store is an ADLS Gen2 container.
+   > - The default blob store for the feature store is an ADLS Gen2 container.
    > - A feature store is always created with an offline materialization store and a user-assigned managed identity (UAI).
    > - If feature store is created with parameters `offline_store=None` and `materialization_identity=None` (default values), then the system performs this set-up:
    >   - An Azure Data Lake Storage Gen 2 (ADLS Gen2) container is created as the offline store.
@@ -477,7 +477,7 @@ The Storage Blob Data Reader role must be assigned to your user account on the o
 ---
 
    > [!TIP]
-   > - The `feature_window_start_time` and `feature_window_start_time` granularity is limited to seconds. Any milliseconds provided in the `datetime` object will be ignored.
+   > - The `feature_window_start_time` and `feature_window_end_time` granularity is limited to seconds. Any milliseconds provided in the `datetime` object will be ignored.
    > - A materialization job will only be submitted if data in the feature window matches the `data_status` that is defined while submitting the backfill job.
 
    Print sample data from the feature set. The output information shows that the data was retrieved from the materialization store. The `get_offline_features()` method retrieved the training and inference data. It also uses the materialization store by default.
@@ -500,7 +500,7 @@ You can explore feature materialization status for a feature set in the **Materi
   - Pending (blue)
   - None (gray)
 - A *data interval* represents a contiguous portion of data with same data materialization status. For example, the earlier snapshot has 16 *data intervals* in the offline materialization store.
-- The data can have a maximum of 2,000 *data intervals*. If your data contains more than 2,000 *data intervals*, [create a customer support request](../azure-portal/supportability/how-to-create-azure-support-request.md) for guidance.
+- The data can have a maximum of 2,000 *data intervals*. If your data contains more than 2,000 *data intervals*, create a new feature set version.
 - You can provide a list of more than one data statuses (for example, `["None", "Incomplete"]`) in a single backfill job.
 - During backfill, a new materialization job is submitted for each *data interval* that falls within the defined feature window.
 - If a materialization job is pending, or it is running for a *data interval* that hasn't yet been backfilled, a new job isn't submitted for that *data interval*.
