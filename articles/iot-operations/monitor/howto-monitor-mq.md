@@ -14,7 +14,7 @@ ms.date: 11/01/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-Azure IoT MQ includes a diagnostics service that periodically self tests IoT MQ components and emits metrics. Operators can use these metrics to monitor the health of the system. The diagnostics service has a Prometheus endpoint for metrics.
+Azure IoT MQ includes a diagnostics service that periodically self tests Azure IoT MQ components and emits metrics. Operators can use these metrics to monitor the health of the system. The diagnostics service has a Prometheus endpoint for metrics.
 
 ## What's supported
 
@@ -33,11 +33,11 @@ Azure IoT MQ includes a diagnostics service that periodically self tests IoT MQ 
 | --- | --- |
 | Service level indicator (SLI) | The indicators or actual metric values that are from Azure IoT MQ measurements. |
 | Service level objectives (SLO) | The objectives or targets to meet. The SLIs are used to assess if meeting SLOs. You can define SLOs based on SLI metrics.|
-| Diagnostics service | IoT MQ component that processes and collates diagnostic signals from various IoT MQ core components. |
+| Diagnostics service | Azure IoT MQ component that processes and collates diagnostic signals from various Azure IoT MQ core components. |
 
 ## Diagnostics service configuration
 
-The diagnostics service processes and collates diagnostic signals from various IoT MQ core components. You can configure it using a custom resource definition (CRD). The following table lists its properties.
+The diagnostics service processes and collates diagnostic signals from various Azure IoT MQ core components. You can configure it using a custom resource definition (CRD). The following table lists its properties.
 
 | Name | Required | Format | Default | Description |
 | --- | --- | --- | --- | --- |
