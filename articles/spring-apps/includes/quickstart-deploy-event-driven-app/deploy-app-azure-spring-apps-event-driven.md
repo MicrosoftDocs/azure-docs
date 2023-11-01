@@ -10,25 +10,27 @@ ms.date: 07/19/2023
 <!-- 
 For clarity of structure, a separate markdown file is used to describe how to prepare event-driven project.
 
-[!INCLUDE [deployment-event-driven](../../includes/quickstart-deploy-event-driven-app/deployment-event-driven.md)]
+[!INCLUDE [deployment-event-driven](deployment-event-driven.md)]
 
 -->
 
-This section provides the steps to deploy your application to Azure Spring Apps.
-
 ### [Azure portal](#tab/Azure-portal)
+
+The **Deploy to Azure** button in the previous section launches an Azure portal experience that includes application deployment, so nothing else is needed.
+
+### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
 
 Use the following steps to deploy your JAR file with the [Maven plugin for Azure Spring Apps](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Spring-Apps).
 
 1. Navigate to the sample project directory and use the following command to configure the app for Azure Spring Apps:
 
    ```bash
-   ./mvnw com.microsoft.azure:azure-spring-apps-maven-plugin:1.17.0:config
+   ./mvnw com.microsoft.azure:azure-spring-apps-maven-plugin:1.18.0:config
    ```
 
    The following list describes the command interactions:
 
-   - **OAuth2 login**: You need to authorize the login to Azure based on the OAuth2 protocol.
+   - **OAuth2 login**: You need to authorize the sign in to Azure based on the OAuth2 protocol.
    - **Select subscription**: Select the subscription list number of the Azure Spring Apps instance you created, which defaults to the first subscription in the list. If you use the default number, press <kbd>Enter</kbd>.
    - **Select Azure Spring Apps for deployment**: Select the list number of the Azure Spring Apps instance you created. If you use the default number, press <kbd>Enter</kbd>.
    - **Input the app name(simple-event-driven-app)**: Provide an app name. To use the default project artifact ID as the name, press <kbd>Enter</kbd>.
@@ -38,12 +40,12 @@ Use the following steps to deploy your JAR file with the [Maven plugin for Azure
 1. Use the following command to deploy the app:
 
    ```bash
-   ./mvnw com.microsoft.azure:azure-spring-apps-maven-plugin:1.17.0:deploy
+   ./mvnw com.microsoft.azure:azure-spring-apps-maven-plugin:1.18.0:deploy
    ```
 
    The following list describes the command interaction:
 
-   - **OAuth2 login**: You need to authorize the login to Azure based on the OAuth2 protocol.
+   - **OAuth2 login**: You need to authorize the sign in to Azure based on the OAuth2 protocol.
 
    After the command is executed, you can see the following output, which indicates that the deployment was successful.
 
@@ -62,6 +64,12 @@ Use the following steps to use AZD to package the app, provision the Azure resou
    azd package
    ```
 
+   The console outputs messages similar to the following example:
+
+   ```output
+   SUCCESS: Your application was packaged for Azure in xx seconds.
+   ```
+
 1. Use the following command to deploy the application code to those newly provisioned resources:
 
    ```bash
@@ -73,9 +81,6 @@ Use the following steps to use AZD to package the app, provision the Azure resou
    ```output
    Deploying services (azd deploy)
    
-   WARNING: Feature 'springapp' is in alpha stage.
-   To learn more about alpha features and their support, visit https://aka.ms/azd-feature-stages.
-   
    (✓) Done: Deploying service simple-event-driven-app
    - No endpoints were found
    
@@ -85,6 +90,6 @@ Use the following steps to use AZD to package the app, provision the Azure resou
    ```
 
 > [!NOTE]
-> You can also use `azd up` to combine the previous three commands: `azd package` (packages a deployable copy of your application), `azd provision` (provisions Azure resources), and `azd deploy` (deploys application code). For more information, see [Azure-Samples/ASA-Samples-Event-Driven-Application](https://github.com/Azure-Samples/ASA-Samples-Event-Driven-Application.git).
+> You can also use `azd up` to combine the previous three commands: `azd provision` (provisions Azure resources), `azd package` (packages a deployable copy of your application), and `azd deploy` (deploys application code). For more information, see [Azure-Samples/ASA-Samples-Event-Driven-Application](https://github.com/Azure-Samples/ASA-Samples-Event-Driven-Application.git).
 
 ---

@@ -40,7 +40,7 @@ If you choose to receive data into Azure SQL Database, Azure Synapse Analytics, 
 
 * An Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL DW).
 * Permission to write to databases on the SQL server, which is present in *Microsoft.Sql/servers/databases/write*. This permission exists in the **Contributor** role. 
-* **Azure Active Directory Admin** of the SQL server
+* **Microsoft Entra Admin** of the SQL server
 * SQL Server Firewall access. This can be done through the following steps: 
     1. In SQL server in Azure portal, navigate to *Firewalls and virtual networks*
     1. Select **Yes** for *Allow Azure services and resources to access this server*.
@@ -52,7 +52,7 @@ If you choose to receive data into Azure SQL Database, Azure Synapse Analytics, 
 * An Azure Synapse Analytics (workspace) dedicated SQL pool. Receiving data into serverless SQL pool isn't currently supported.
 * Permission to write to the SQL pool in Synapse workspace, which is present in *Microsoft.Synapse/workspaces/sqlPools/write*. This permission exists in the **Contributor** role.
 * Permission for the Data Share resource's managed identity to access the Synapse workspace SQL pool. This can be done through the following steps: 
-    1. In Azure portal, navigate to Synapse workspace. Select SQL Active Directory admin from left navigation and set yourself as the **Azure Active Directory admin**.
+    1. In Azure portal, navigate to Synapse workspace. Select SQL Active Directory admin from left navigation and set yourself as the **Microsoft Entra admin**.
     1. Open Synapse Studio, select *Manage* from the left navigation. Select *Access control* under Security. Assign yourself **SQL admin** or **Workspace admin** role.
     1. In Synapse Studio, select *Develop* from the left navigation. Execute the following script in SQL pool to add the Data Share resource Managed Identity as a 'db_datareader, db_datawriter, db_ddladmin'. 
     

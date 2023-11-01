@@ -3,7 +3,7 @@ title: Create a Vision resource
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
+ms.service: azure-ai-services
 ms.topic: include
 ms.date: 02/13/2023
 ms.author: pafarley

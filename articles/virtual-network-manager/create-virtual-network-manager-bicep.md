@@ -17,10 +17,7 @@ In this quickstart, you deploy three virtual networks and use Azure Virtual Netw
 
 :::image type="content" source="media/create-virtual-network-manager-portal/virtual-network-manager-resources-diagram.png" alt-text="Diagram of resources deployed for a mesh virtual network topology with Azure virtual network manager.":::
 
-> [!IMPORTANT]
-> Azure Virtual Network Manager is generally available for Virtual Network Manager and hub-and-spoke connectivity configurations. Mesh connectivity configurations and security admin rules remain in public preview.
->
-> This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+[!INCLUDE [virtual-network-manager-preview](../../includes/virtual-network-manager-preview.md)]ps://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Bicep Template Modules
 
@@ -123,7 +120,7 @@ resource connectivityConfigurationMesh 'Microsoft.Network/networkManagers/connec
 
 #### Deployment Script
 
-In order to deploy the configuration to the target network group, a Deployment Script is used to call the `Deploy-AzNetworkManagerCommit` PowerShell command. In addition to the Deployment Script, a User Assigned Identity is created and granted the 'Contributor' role on the target resources group. 
+In order to deploy the configuration to the target network group, a Deployment Script is used to call the `Deploy-AzNetworkManagerCommit`​ PowerShell command. The Deployment Script needs an identity with sufficient permissions to execute the PowerShell script against the Virtual Network Manager, so the Bicep template creates a User Managed Identity and grants it the 'Contributor' role on the target resource group. For more information on Deployment Scripts and associated identities, see [Use deployment scripts in ARM templates](../azure-resource-manager/templates/deployment-script-template.md).
 
 ```bicep
 @description('Create a Deployment Script resource to perform the commit/deployment of the Network Manager connectivity configuration.')

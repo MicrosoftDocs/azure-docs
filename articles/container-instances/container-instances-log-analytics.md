@@ -18,9 +18,6 @@ The following sections describe how to create a logging-enabled container group 
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-> [!NOTE]
-> Currently, you can only send event data from Linux container instances to Log Analytics.
-
 ## Prerequisites
 
 To enable logging in your container instances, you need the following:

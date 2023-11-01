@@ -5,6 +5,7 @@ description: How to secure outbound traffic through shared private endpoints to 
 services: signalr
 author: vicancy
 ms.service: signalr
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 12/09/2022
 ms.author: lianwei

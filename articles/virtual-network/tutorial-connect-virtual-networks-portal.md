@@ -14,6 +14,8 @@ ms.custom: template-tutorial
 
 You can connect virtual networks to each other with virtual network peering. These virtual networks can be in the same region or different regions (also known as global virtual network peering). Once virtual networks are peered, resources in both virtual networks can communicate with each other over a low-latency, high-bandwidth connection using Microsoft backbone network.
 
+:::image type="content" source="./media/tutorial-connect-virtual-networks-portal/resources-diagram.png" alt-text="Diagram of Azure resources created in tutorial." lightbox="./media/tutorial-connect-virtual-networks-portal/resources-diagram.png":::
+
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
@@ -32,18 +34,18 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 [!INCLUDE [virtual-network-create-with-bastion.md](../../includes/virtual-network-create-with-bastion.md)]
    
-12. Repeat the previous steps to create a second virtual network with the following values:
+Repeat the previous steps to create a second virtual network with the following values:
 
-    >[!NOTE]
-    >The second virtual network can be in the same region as the first virtual network or in a different region. You can skip the **Security** tab and the Bastion deployment for the second virtual network. After the network peer, you can connect to both virtual machines with the same Bastion deployment.
+>[!NOTE]
+>The second virtual network can be in the same region as the first virtual network or in a different region. You can skip the **Security** tab and the Bastion deployment for the second virtual network. After the network peer, you can connect to both virtual machines with the same Bastion deployment.
 
-    | Setting | Value |
-    | --- | --- |
-    | Name | **vnet-2** |
-    | Address space | **10.1.0.0/16** |
-    | Resource group | **test-rg** |
-    | Subnet name | **subnet-1** |
-    | Subnet address range | **10.1.0.0/24** |
+| Setting | Value |
+| --- | --- |
+| Name | **vnet-2** |
+| Address space | **10.1.0.0/16** |
+| Resource group | **test-rg** |
+| Subnet name | **subnet-1** |
+| Subnet address range | **10.1.0.0/24** |
 
 <a name="peer-virtual-networks"></a>
 

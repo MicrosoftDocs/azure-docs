@@ -247,8 +247,18 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/sap/automation/bash/prepare-region.md",
+      "redirect_url": "/azure/sap/automation/bash/deploy-controlplane",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/bash/automation-remove-region.md",
       "redirect_url": "/azure/sap/automation/bash/remove-region",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/sap/automation/bash/remove-region.md",
+      "redirect_url": "/azure/sap/automation/bash/remove-controlplane",
       "redirect_document_id": true
     },
     {
@@ -1249,7 +1259,6 @@
       "source_path_from_root": "/articles/center-sap-solutions/get-sap-installation-media.md",
       "redirect_url": "/azure/sap/center-sap-solutions/get-sap-installation-media",
       "redirect_document_id": true
-    },
-
+    }
   ]
 }

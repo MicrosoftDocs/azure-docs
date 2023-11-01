@@ -22,7 +22,7 @@ Before you begin this process, you must have the following prerequisites:
 ## Create a project
 
 1. Create a Visual Studio C# .NET console application.
-2. In the Package Manager Console, run the following commands to install the NuGet packages. The first one is the Azure Stream Analytics Management .NET SDK. The second one is the Azure Monitor SDK that will be used to enable monitoring. The last one is the Azure Active Directory client that will be used for authentication.
+2. In the Package Manager Console, run the following commands to install the NuGet packages. The first one is the Azure Stream Analytics Management .NET SDK. The second one is the Azure Monitor SDK that will be used to enable monitoring. The last one is the Microsoft Entra client that will be used for authentication.
    
    ```powershell
    Install-Package Microsoft.Azure.Management.StreamAnalytics

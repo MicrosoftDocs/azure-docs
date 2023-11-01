@@ -59,7 +59,7 @@ Global requests from clients can be processed by action group services in any re
 
         |Notification type|Description  |Fields|
         |---------|---------|---------|
-        |Email Azure Resource Manager role|Send an email to the subscription members, based on their role.<br>A notification email is sent only to the primary email address configured for the Azure AD user.<br>The email is only sent to Azure Active Directory **user** members of the selected role, not to Azure AD groups or service principals.<br> See [Email](#email-azure-resource-manager).|Enter the primary email address configured for the Azure AD user. See [Email](#email-azure-resource-manager).|
+        |Email Azure Resource Manager role|Send an email to the subscription members, based on their role.<br>A notification email is sent only to the primary email address configured for the Microsoft Entra user.<br>The email is only sent to Microsoft Entra ID **user** members of the selected role, not to Microsoft Entra groups or service principals.<br> See [Email](#email-azure-resource-manager).|Enter the primary email address configured for the Microsoft Entra user. See [Email](#email-azure-resource-manager).|
         |Email| Ensure that your email filtering and any malware/spam prevention services are configured appropriately. Emails are sent from the following email addresses:<br> * azure-noreply@microsoft.com<br> * azureemail-noreply@microsoft.com<br> * alerts-noreply@mail.windowsazure.com|Enter the email where the notification should be sent.|
         |SMS|SMS notifications support bi-directional communication. The SMS contains the following information:<br> * Shortname of the action group this alert was sent to<br> * The title of the alert.<br> A user can respond to an SMS to:<br> * Unsubscribe from all SMS alerts for all action groups or a single action group.<br> * Resubscribe to alerts<br> * Request help.<br> For more information about supported SMS replies, see [SMS replies](#sms-replies).|Enter the **Country code** and the **Phone number** for the SMS recipient. If you can't select your country/region code in the Azure portal, SMS isn't supported for your country/region. If your country/region code isn't available, you can vote to have your country/region added at [Share your ideas](https://feedback.azure.com/d365community/idea/e527eaa6-2025-ec11-b6e6-000d3a4f09d0). As a workaround until your country is supported, configure the action group to call a webhook to a third-party SMS provider that supports your country/region.|
         |Azure app Push notifications|Send notifications to the Azure mobile app. To enable push notifications to the Azure mobile app, provide the For more information about the Azure mobile app, see [Azure mobile app](https://azure.microsoft.com/features/azure-portal/mobile-app/).|In the **Azure account email** field, enter the email address that you use as your account ID when you configure the Azure mobile app. |
@@ -80,7 +80,7 @@ Global requests from clients can be processed by action group services in any re
     |Functions |Calls an existing HTTP trigger endpoint in functions. For more information, see [Azure Functions](../../azure-functions/functions-get-started.md).<br>When you define the function action, the function's HTTP trigger endpoint and access key are saved in the action definition, for example, `https://azfunctionurl.azurewebsites.net/api/httptrigger?code=<access_key>`. If you change the access key for the function, you must remove and re-create the function action in the action group.<br>Your endpoint must support the HTTP POST method.<br>The function must have access to the storage account. If it doesn't have access, keys aren't available and the function URI isn't accessible.<br>[Learn about restoring access to the storage account](../../azure-functions/functions-recover-storage-account.md).|
     |ITSM  |An ITSM action requires an ITSM connection. To learn how to create an ITSM connection, see [ITSM integration](./itsmc-overview.md). |
     |Logic apps     |You can use [Azure Logic Apps](../../logic-apps/logic-apps-overview.md) to build and customize workflows for integration and to customize your alert notifications.|
-    |Secure webhook|When you use a secure webhook action, you must use Azure AD to secure the connection between your action group and your endpoint, which is a protected web API. See [Configure authentication for Secure webhook](#configure-authentication-for-secure-webhook). Secure webhook doesn't support basic authentication. If you're using basic authentication, use the Webhook action.|
+    |Secure webhook|When you use a secure webhook action, you must use Microsoft Entra ID to secure the connection between your action group and your endpoint, which is a protected web API. See [Configure authentication for Secure webhook](#configure-authentication-for-secure-webhook). Secure webhook doesn't support basic authentication. If you're using basic authentication, use the Webhook action.|
     |Webhook| If you use the webhook action, your target webhook endpoint must be able to process the various JSON payloads that different alert sources emit.<br>You can't pass security certificates through a webhook action. To use basic authentication, you must pass your credentials through the URI.<br>If the webhook endpoint expects a specific schema, for example, the Microsoft Teams schema, use the **Logic Apps** action type to manipulate the alert schema to meet the target webhook's expectations.<br> For information about the rules used for retrying webhook actions, see [Webhook](#webhook).|
 
     :::image type="content" source="./media/action-groups/action-group-3-actions.png" alt-text="Screenshot that shows the Actions tab of the Create action group dialog. Several options are visible in the Action type list.":::
@@ -339,7 +339,7 @@ When an email address is rate limited, a notification is sent to communicate tha
 
 ## Email Azure Resource Manager
 
-When you use Azure Resource Manager for email notifications, you can send email to the members of a subscription's role. Email is only sent to Azure Active Directory (Azure AD) **user** members of the role. Email isn't sent to Azure AD groups or service principals.
+When you use Azure Resource Manager for email notifications, you can send email to the members of a subscription's role. Email is only sent to Microsoft Entra ID **user** members of the role. Email isn't sent to Microsoft Entra groups or service principals.
 
 A notification email is sent only to the primary email address.
 
@@ -365,7 +365,7 @@ When you set up the Resource Manager role:
 
 1. Assign an entity of type **User** to the role.
 1. Make the assignment at the **subscription** level.
-1. Make sure an email address is configured for the user in their **Azure AD profile**.
+1. Make sure an email address is configured for the user in their **Microsoft Entra profile**.
 
 > [!NOTE]
 >
@@ -497,9 +497,9 @@ Webhook action groups use the following rules:
  
 ### Configure authentication for Secure webhook
 
-The secure webhook action authenticates to the protected API by using a Service Principal instance in the Azure AD tenant of the "AZNS AAD Webhook" Azure AD application. To make the action group work, this Azure AD Webhook Service Principal must be added as a member of a role on the target Azure AD application that grants access to the target endpoint.
+The secure webhook action authenticates to the protected API by using a Service Principal instance in the Microsoft Entra tenant of the "AZNS Microsoft Entra Webhook" Microsoft Entra application. To make the action group work, this Microsoft Entra Webhook Service Principal must be added as a member of a role on the target Microsoft Entra application that grants access to the target endpoint.
 
-For an overview of Azure AD applications and service principals, see [Microsoft identity platform (v2.0) overview](../../active-directory/develop/v2-overview.md). Follow these steps to take advantage of the secure webhook functionality.
+For an overview of Microsoft Entra applications and service principals, see [Microsoft identity platform (v2.0) overview](../../active-directory/develop/v2-overview.md). Follow these steps to take advantage of the secure webhook functionality.
 
 > [!NOTE]
 >
@@ -507,25 +507,25 @@ For an overview of Azure AD applications and service principals, see [Microsoft 
 
 If you use the webhook action, your target webhook endpoint must be able to process the various JSON payloads that different alert sources emit. If the webhook endpoint expects a specific schema, for example, the Microsoft Teams schema, use the Logic Apps action to transform the alert schema to meet the target webhook's expectations.
 
-1. Create an Azure AD application for your protected web API. For more information, see [Protected web API: App registration](../../active-directory/develop/scenario-protected-web-api-app-registration.md). Configure your protected API to be called by a daemon app and expose application permissions, not delegated permissions. For more information about these permissions, see [If your web API is called by a service or daemon app](../../active-directory/develop/scenario-protected-web-api-app-registration.md#if-your-web-api-is-called-by-a-service-or-daemon-app).
+1. Create a Microsoft Entra application for your protected web API. For more information, see [Protected web API: App registration](../../active-directory/develop/scenario-protected-web-api-app-registration.md). Configure your protected API to be called by a daemon app and expose application permissions, not delegated permissions. For more information about these permissions, see [If your web API is called by a service or daemon app](../../active-directory/develop/scenario-protected-web-api-app-registration.md#if-your-web-api-is-called-by-a-service-or-daemon-app).
 
    > [!NOTE]
    >
-   > Configure your protected web API to accept V2.0 access tokens. For more information about this setting, see [Azure Active Directory app manifest](../../active-directory/develop/reference-app-manifest.md#accesstokenacceptedversion-attribute).
+   > Configure your protected web API to accept V2.0 access tokens. For more information about this setting, see [Microsoft Entra app manifest](../../active-directory/develop/reference-app-manifest.md#accesstokenacceptedversion-attribute).
 
-1. To enable the action group to use your Azure AD application, use the PowerShell script that follows this procedure.
+1. To enable the action group to use your Microsoft Entra application, use the PowerShell script that follows this procedure.
 
    > [!NOTE]
    >
-   > You must be assigned the [Azure AD Application Administrator role](../../active-directory/roles/permissions-reference.md#all-roles) to run this script.
+   > You must be assigned the [Microsoft Entra Application Administrator role](../../active-directory/roles/permissions-reference.md#all-roles) to run this script.
 
-   1. Modify the PowerShell script's `Connect-AzureAD` call to use your Azure AD tenant ID.
-   1. Modify the PowerShell script's `$myAzureADApplicationObjectId` variable to use the object ID of your Azure AD application.
+   1. Modify the PowerShell script's `Connect-AzureAD` call to use your Microsoft Entra tenant ID.
+   1. Modify the PowerShell script's `$myAzureADApplicationObjectId` variable to use the object ID of your Microsoft Entra application.
    1. Run the modified script.
 
    > [!NOTE]
    >
-   > The service principal must be assigned an **owner role** of the Azure AD application to be able to create or modify the secure webhook action in the action group.
+   > The service principal must be assigned an **owner role** of the Microsoft Entra application to be able to create or modify the secure webhook action in the action group.
 
 1. Configure the secure webhook action.
 

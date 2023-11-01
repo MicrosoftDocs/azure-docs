@@ -5,10 +5,9 @@ description: "This article explains which natural languages are supported by the
 services: cognitive-services
 author: jboback
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: conceptual
-ms.date: 01/04/2023
+ms.date: 10/24/2023
 ms.author: jboback
 ms.custom: language-service-health, ignite-fall-2021
 ---
@@ -19,7 +18,7 @@ Use this article to learn which natural languages are supported by Text Analytic
 
 ## Hosted API Service
 
-The hosted API service supports English language, model version 03-01-2022. Additional languages, English, Spanish, French, German Italian, Portuguese and Hebrew are supported with model version 2022-08-15-preview.
+The hosted API service supports the English, Spanish, French, German, Italian, Portuguese and Hebrew languages.
 
 When structuring the API request, the relevant language tags must be added for these languages: 
 
@@ -60,8 +59,7 @@ json
 
 ## Docker container
 
-The docker container supports English language, model version 2022-03-01. 
-Additional languages are also supported when using a docker container to deploy the API: Spanish, French, German Italian, Portuguese and Hebrew. This functionality is currently in preview, model version 2022-08-15-preview.
+The docker container supports the English, Spanish, French, German, Italian, Portuguese and Hebrew languages.
 Full details for deploying the service in a container can be found [here](../text-analytics-for-health/how-to/use-containers.md).
 
 In order to download the new container images from the Microsoft public container registry, use the following [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command.
@@ -114,14 +112,14 @@ json
     ]
 }
 ```
-## Details of the supported model versions for each language:
+## Details of the supported container tags:
 
 
-| Language Code       | Model Version: |  Featured Tag | Specific Tag |
-|:--------------------|:-------------:|:-------------------:|:------------------:|
-| `en`                  |  2022-03-01   |      latest         |   3.0.59413252-onprem-amd64    | 
-| `en`, `es`, `it`, `fr`, `de`, `pt`   |  2022-08-15-preview  |      latin         |   3.0.60903415-latin-onprem-amd64    | 
-| `he`                  |  2022-08-15-preview   |      semitic         |   3.0.60903415-semitic-onprem-amd64   | 
+| Language Code       |  Featured Tag | Specific Tag |
+|:--------------------|:-------------------:|:------------------:|
+| `en`                  |      latest         |   3.0.59413252-onprem-amd64    | 
+| `en`, `es`, `it`, `fr`, `de`, `pt`   |      latin         |   3.0.60903415-latin-onprem-amd64    | 
+| `he`                  |      semitic         |   3.0.60903415-semitic-onprem-amd64   | 
 
 
 

@@ -5,8 +5,7 @@ services: cognitive-services
 author: jcodella
 ms.author: jacodel
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: personalizer
+ms.service: azure-ai-personalizer
 ms.topic: include
 ms.date: 09/06/2022
 ---

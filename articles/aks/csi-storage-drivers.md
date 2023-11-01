@@ -17,7 +17,7 @@ The CSI storage driver support on AKS allows you to natively use:
 - [**Azure Blob storage**](azure-blob-csi.md) can be used to mount Blob storage (or object storage) as a file system into a container or pod. Using Blob storage enables your cluster to support  applications that work with large unstructured datasets like log file data, images or documents, HPC, and others. Additionally, if you ingest data into [Azure Data Lake storage](../storage/blobs/data-lake-storage-introduction.md), you can directly mount and use it in AKS without configuring another interim filesystem.
 
 > [!IMPORTANT]
-> Starting with Kubernetes version 1.26, in-tree persistent volume types *kubernetes.io/azure-disk* and *kubernetes.io/azure-file* are deprecated and will no longer be supported. Removing these drivers following their deprecation is not planned, however you should migrate to the corresponding CSI drivers *disks.csi.azure.com* and *file.csi.azure.com*. To review the migration options for your storage classes and upgrade your cluster to use Azure Disks and Azure Files CSI drivers, see [Migrate from in-tree to CSI drivers][migrate-from-in-tree-csi-drivers].
+> Starting with Kubernetes version 1.26, in-tree persistent volume types *kubernetes.io/azure-disk* and *kubernetes.io/azure-file* are deprecated and will no longer be supported. Removing these drivers following their deprecation is not planned, however you should migrate to the corresponding CSI drivers *disk.csi.azure.com* and *file.csi.azure.com*. To review the migration options for your storage classes and upgrade your cluster to use Azure Disks and Azure Files CSI drivers, see [Migrate from in-tree to CSI drivers][migrate-from-in-tree-csi-drivers].
 >
 > *In-tree drivers* refers to the storage drivers that are part of the core Kubernetes code opposed to the CSI drivers, which are plug-ins.
 
@@ -36,7 +36,7 @@ The CSI storage driver support on AKS allows you to natively use:
 
 CSI storage drivers support the following scenarios:
 
-* [Encrypted managed disks with customer-managed keys][encrypt-managed-disks-customer-managed-keys] using Azure Key Vaults stored in a different Azure Active Directory (Azure AD) tenant.
+* [Encrypted managed disks with customer-managed keys][encrypt-managed-disks-customer-managed-keys] using Azure Key Vaults stored in a different Microsoft Entra tenant.
 * Encrypt your Azure Storage disks hosting AKS OS and application data with [customer-managed keys][azure-disk-customer-managed-keys].
 
 ## Enable CSI storage drivers on an existing cluster

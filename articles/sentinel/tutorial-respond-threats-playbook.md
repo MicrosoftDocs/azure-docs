@@ -43,7 +43,7 @@ For example, if you want to stop potentially compromised users from moving aroun
 
 1. The playbook waits until a response is received from the admins, then continues with its next steps.
 
-1. If the admins choose **Block**, it sends a command to Azure AD to disable the user, and one to the firewall to block the IP address.
+1. If the admins choose **Block**, it sends a command to Microsoft Entra ID to disable the user, and one to the firewall to block the IP address.
 
 1. If the admins choose **Ignore**, the playbook closes the incident in Microsoft Sentinel, and the ticket in ServiceNow.
 
@@ -282,7 +282,7 @@ To create an automation rule:
        >      1. Click the **Configure permissions** button to open the **Manage permissions** panel mentioned above, and continue as described there.
        >
        > - If, in an **MSSP** scenario, you want to [run a playbook in a customer tenant](automate-incident-handling-with-automation-rules.md#permissions-in-a-multi-tenant-architecture) from an automation rule created while signed into the service provider tenant, you must grant Microsoft Sentinel permission to run the playbook in ***both tenants***. In the **customer** tenant, follow the instructions for the multi-tenant deployment in the preceding bullet point. In the **service provider** tenant, you must add the **Azure Security Insights** app in your Azure Lighthouse onboarding template:
-       >    1. From the Azure Portal go to **Azure Active Directory**.
+       >    1. From the Azure Portal go to **Microsoft Entra ID**.
        >    1. Click on **Enterprise Applications**.
        >    1. Select **Application Type**  and filter on **Microsoft Applications**.
        >    1. In the search box type **Azure Security Insights**.
@@ -314,7 +314,7 @@ Another way to run playbooks automatically in response to **alerts** is to call 
 
 **This method will be deprecated as of March 2026.**
 
-Beginning **June 2023**, you can no longer add playbooks to analytics rules in this way. However, you can still see the existing playbooks called from analytics rules, and these playbooks will still run until March 2006. You are strongly encouraged to [create automation rules to call these playbooks instead](migrate-playbooks-to-automation-rules.md) before then.
+Beginning **June 2023**, you can no longer add playbooks to analytics rules in this way. However, you can still see the existing playbooks called from analytics rules, and these playbooks will still run until March 2026. You are strongly encouraged to [create automation rules to call these playbooks instead](migrate-playbooks-to-automation-rules.md) before then.
 
 ## Run a playbook on demand
 

@@ -1,8 +1,7 @@
 ---
 author: eric-urban
-ms.service: cognitive-services
-ms.subservice: speech-service
-ms.date: 02/01/2023
+ms.service: azure-ai-speech
+ms.date: 10/4/2023
 ms.topic: include
 ms.author: eur
 ---
@@ -32,7 +31,7 @@ ms.author: eur
 | `bn-BD` | Bangla (Bangladesh) | `bn-BD-NabanitaNeural`<sup>2</sup> (Female)<br/>`bn-BD-PradeepNeural`<sup>2</sup> (Male) |
 | `bn-IN` | Bengali (India) | `bn-IN-TanishaaNeural`<sup>2</sup> (Female)<br/>`bn-IN-BashkarNeural`<sup>2</sup> (Male) |
 | `bs-BA` | Bosnian (Bosnia and Herzegovina) | `bs-BA-VesnaNeural`<sup>2</sup> (Female)<br/>`bs-BA-GoranNeural`<sup>2</sup> (Male) |
-| `ca-ES` | Catalan (Spain) | `ca-ES-JoanaNeural` (Female)<br/>`ca-ES-EnricNeural` (Male)<br/>`ca-ES-AlbaNeural` (Female) |
+| `ca-ES` | Catalan | `ca-ES-JoanaNeural` (Female)<br/>`ca-ES-EnricNeural` (Male)<br/>`ca-ES-AlbaNeural` (Female) |
 | `cs-CZ` | Czech (Czechia) | `cs-CZ-VlastaNeural` (Female)<br/>`cs-CZ-AntoninNeural` (Male) |
 | `cy-GB` | Welsh (United Kingdom) | `cy-GB-NiaNeural`<sup>2</sup> (Female)<br/>`cy-GB-AledNeural`<sup>2</sup> (Male) |
 | `da-DK` | Danish (Denmark) | `da-DK-ChristelNeural` (Female)<br/>`da-DK-JeppeNeural` (Male) |
@@ -52,7 +51,7 @@ ms.author: eur
 | `en-PH` | English (Philippines) | `en-PH-RosaNeural` (Female)<br/>`en-PH-JamesNeural` (Male) |
 | `en-SG` | English (Singapore) | `en-SG-LunaNeural` (Female)<br/>`en-SG-WayneNeural` (Male) |
 | `en-TZ` | English (Tanzania) | `en-TZ-ImaniNeural` (Female)<br/>`en-TZ-ElimuNeural` (Male) |
-| `en-US` | English (United States) | `en-US-JennyMultilingualNeural`<sup>3</sup> (Female)<br/>`en-US-JennyNeural` (Female)<br/>`en-US-GuyNeural` (Male)<br/>`en-US-AriaNeural` (Female)<br/>`en-US-DavisNeural` (Male)<br/>`en-US-AmberNeural` (Female)<br/>`en-US-AnaNeural` (Female, Child)<br/>`en-US-AshleyNeural` (Female)<br/>`en-US-BrandonNeural` (Male)<br/>`en-US-ChristopherNeural` (Male)<br/>`en-US-CoraNeural` (Female)<br/>`en-US-ElizabethNeural` (Female)<br/>`en-US-EricNeural` (Male)<br/>`en-US-JacobNeural` (Male)<br/>`en-US-JaneNeural` (Female)<br/>`en-US-JasonNeural` (Male)<br/>`en-US-MichelleNeural` (Female)<br/>`en-US-MonicaNeural` (Female)<br/>`en-US-NancyNeural` (Female)<br/>`en-US-RogerNeural` (Male)<br/>`en-US-SaraNeural` (Female)<br/>`en-US-SteffanNeural` (Male)<br/>`en-US-TonyNeural` (Male)<br/>`en-US-AIGenerate1Neural`<sup>1</sup> (Male)<br/>`en-US-AIGenerate2Neural`<sup>1</sup> (Female)<br/>`en-US-BlueNeural`<sup>1</sup> (Neutral)<br/>`en-US-JennyMultilingualV2Neural`<sup>1,3</sup> (Female)<br/>`en-US-RyanMultilingualNeural`<sup>1,3</sup> (Male) |
+| `en-US` | English (United States) | `en-US-JennyMultilingualNeural`<sup>3</sup> (Female)<br/>`en-US-JennyNeural` (Female)<br/>`en-US-GuyNeural` (Male)<br/>`en-US-AriaNeural` (Female)<br/>`en-US-DavisNeural` (Male)<br/>`en-US-AmberNeural` (Female)<br/>`en-US-AnaNeural` (Female, Child)<br/>`en-US-AshleyNeural` (Female)<br/>`en-US-BrandonNeural` (Male)<br/>`en-US-ChristopherNeural` (Male)<br/>`en-US-CoraNeural` (Female)<br/>`en-US-ElizabethNeural` (Female)<br/>`en-US-EricNeural` (Male)<br/>`en-US-JacobNeural` (Male)<br/>`en-US-JaneNeural` (Female)<br/>`en-US-JasonNeural` (Male)<br/>`en-US-MichelleNeural` (Female)<br/>`en-US-MonicaNeural` (Female)<br/>`en-US-NancyNeural` (Female)<br/>`en-US-RogerNeural` (Male)<br/>`en-US-SaraNeural` (Female)<br/>`en-US-SteffanNeural` (Male)<br/>`en-US-TonyNeural` (Male)<br/>`en-US-AIGenerate1Neural`<sup>1</sup> (Male)<br/>`en-US-AIGenerate2Neural`<sup>1</sup> (Female)<br/>`en-US-AndrewNeural`<sup>1</sup> (Male)<br/>`en-US-BlueNeural`<sup>1</sup> (Neutral)<br/>`en-US-BrianNeural`<sup>1</sup> (Male)<br/>`en-US-EmmaNeural`<sup>1</sup> (Female)<br/>`en-US-JennyMultilingualV2Neural`<sup>1,3</sup> (Female)<br/>`en-US-RyanMultilingualNeural`<sup>1,3</sup> (Male) |
 | `en-ZA` | English (South Africa) | `en-ZA-LeahNeural` (Female)<br/>`en-ZA-LukeNeural` (Male) |
 | `es-AR` | Spanish (Argentina) | `es-AR-ElenaNeural` (Female)<br/>`es-AR-TomasNeural` (Male) |
 | `es-BO` | Spanish (Bolivia) | `es-BO-SofiaNeural` (Female)<br/>`es-BO-MarceloNeural` (Male) |
@@ -148,7 +147,8 @@ ms.author: eur
 | `vi-VN` | Vietnamese (Vietnam) | `vi-VN-HoaiMyNeural` (Female)<br/>`vi-VN-NamMinhNeural` (Male) |
 | `wuu-CN` | Chinese (Wu, Simplified) | `wuu-CN-XiaotongNeural`<sup>2</sup> (Female)<br/>`wuu-CN-YunzheNeural`<sup>2</sup> (Male) |
 | `yue-CN` | Chinese (Cantonese, Simplified) | `yue-CN-XiaoMinNeural`<sup>1,2</sup> (Female)<br/>`yue-CN-YunSongNeural`<sup>1,2</sup> (Male) |
-| `zh-CN` | Chinese (Mandarin, Simplified) | `zh-CN-XiaoxiaoNeural` (Female)<br/>`zh-CN-YunxiNeural` (Male)<br/>`zh-CN-YunjianNeural` (Male)<br/>`zh-CN-XiaoyiNeural` (Female)<br/>`zh-CN-YunyangNeural` (Male)<br/>`zh-CN-XiaochenNeural` (Female)<br/>`zh-CN-XiaohanNeural` (Female)<br/>`zh-CN-XiaomengNeural` (Female)<br/>`zh-CN-XiaomoNeural` (Female)<br/>`zh-CN-XiaoqiuNeural` (Female)<br/>`zh-CN-XiaoruiNeural` (Female)<br/>`zh-CN-XiaoshuangNeural` (Female, Child)<br/>`zh-CN-XiaoxuanNeural` (Female)<br/>`zh-CN-XiaoyanNeural` (Female)<br/>`zh-CN-XiaoyouNeural` (Female, Child)<br/>`zh-CN-XiaozhenNeural` (Female)<br/>`zh-CN-YunfengNeural` (Male)<br/>`zh-CN-YunhaoNeural` (Male)<br/>`zh-CN-YunxiaNeural` (Male)<br/>`zh-CN-YunyeNeural` (Male)<br/>`zh-CN-YunzeNeural` (Male) |
+| `zh-CN` | Chinese (Mandarin, Simplified) | `zh-CN-XiaoxiaoNeural` (Female)<br/>`zh-CN-YunxiNeural` (Male)<br/>`zh-CN-YunjianNeural` (Male)<br/>`zh-CN-XiaoyiNeural` (Female)<br/>`zh-CN-YunyangNeural` (Male)<br/>`zh-CN-XiaochenNeural` (Female)<br/>`zh-CN-XiaohanNeural` (Female)<br/>`zh-CN-XiaomengNeural` (Female)<br/>`zh-CN-XiaomoNeural` (Female)<br/>`zh-CN-XiaoqiuNeural` (Female)<br/>`zh-CN-XiaoruiNeural` (Female)<br/>`zh-CN-XiaoshuangNeural` (Female, Child)<br/>`zh-CN-XiaoxuanNeural` (Female)<br/>`zh-CN-XiaoyanNeural` (Female)<br/>`zh-CN-XiaoyouNeural` (Female, Child)<br/>`zh-CN-XiaozhenNeural` (Female)<br/>`zh-CN-YunfengNeural` (Male)<br/>`zh-CN-YunhaoNeural` (Male)<br/>`zh-CN-YunxiaNeural` (Male)<br/>`zh-CN-YunyeNeural` (Male)<br/>`zh-CN-YunzeNeural` (Male)<br/>`zh-CN-XiaorouNeural`<sup>1</sup> (Female)<br/>`zh-CN-YunjieNeural`<sup>1</sup> (Male) |
+| `zh-CN-GUANGXI` | Chinese (Guangxi Accent Mandarin, Simplified) | `zh-CN-guangxi-YunqiNeural`<sup>1,2</sup> (Male) |
 | `zh-CN-henan` | Chinese (Zhongyuan Mandarin Henan, Simplified) | `zh-CN-henan-YundengNeural`<sup>2</sup> (Male) |
 | `zh-CN-liaoning` | Chinese (Northeastern Mandarin, Simplified) | `zh-CN-liaoning-XiaobeiNeural`<sup>1,2</sup> (Female) |
 | `zh-CN-shaanxi` | Chinese (Zhongyuan Mandarin Shaanxi, Simplified) | `zh-CN-shaanxi-XiaoniNeural`<sup>1,2</sup> (Female) |

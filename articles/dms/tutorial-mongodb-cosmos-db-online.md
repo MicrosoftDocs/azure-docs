@@ -2,15 +2,16 @@
 title: "Tutorial: Migrate MongoDB online to Azure Cosmos DB for MongoDB"
 titleSuffix: Azure Database Migration Service
 description: Learn to migrate from MongoDB on-premises to Azure Cosmos DB for MongoDB online by using Azure Database Migration Service.
-author: croblesm
-ms.author: roblescarlos
-ms.reviewer: craigg
+author: abhims14
+ms.author: abhishekum
+ms.reviewer: randolphwest
 ms.date: 09/21/2021
 ms.service: dms
 ms.topic: tutorial
 ms.custom:
   - seo-nov-2020
   - ignite-2022
+  - sql-migration-content
 ---
 
 # Tutorial: Migrate MongoDB to Azure Cosmos DB for MongoDB online using DMS

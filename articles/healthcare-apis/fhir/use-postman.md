@@ -16,7 +16,7 @@ In this article, we'll walk through the steps of accessing the Azure Health Data
 ## Prerequisites
 
 * FHIR service deployed in Azure. For information about how to deploy the FHIR service, see [Deploy a FHIR service](fhir-portal-quickstart.md).
-* A registered client application to access the FHIR service. For information about how to register a client application, see [Register a service client application in Azure Active Directory](./../register-application.md). 
+* A registered client application to access the FHIR service. For information about how to register a client application, see [Register a service client application in Microsoft Entra ID](./../register-application.md). 
 * Permissions granted to the client application and your user account, for example, "FHIR Data Contributor", to access the FHIR service. 
 * Postman installed locally. For more information about Postman, see [Get Started with Postman](https://www.getpostman.com/).
 
@@ -47,7 +47,7 @@ To access the FHIR service, we'll need to create or update the following variabl
 * **clientid** – Application client registration ID.
 * **clientsecret** – Application client registration secret.
 * **fhirurl** – The FHIR service full URL. For example, `https://xxx.azurehealthcareapis.com`. It's located from the **FHIR service overview** menu option.
-* **bearerToken** – The variable to store the Azure Active Directory (Azure AD) access token in the script. Leave it blank.
+* **bearerToken** – The variable to store the Microsoft Entra access token in the script. Leave it blank.
 
 > [!NOTE]
 > Ensure that you've configured the redirect URL, `https://www.getpostman.com/oauth2/callback`, in the client application registration.
@@ -70,9 +70,11 @@ Enter `{{fhirurl}}/metadata` in the `GET`request, and select `Send`. You should 
 
 [ ![Screenshot of save request.](media/postman/postman-save-request.png) ](media/postman/postman-save-request.png#lightbox)
 
-## Get Azure AD access token
+<a name='get-azure-ad-access-token'></a>
 
-The FHIR service is secured by Azure AD. The default authentication can't be disabled. To access the FHIR service, you must get an Azure AD access token first. For more information, see [Microsoft identity platform access tokens](../../active-directory/develop/access-tokens.md).
+## Get Microsoft Entra access token
+
+The FHIR service is secured by Microsoft Entra ID. The default authentication can't be disabled. To access the FHIR service, you must get a Microsoft Entra access token first. For more information, see [Microsoft identity platform access tokens](../../active-directory/develop/access-tokens.md).
 
 Create a new `POST` request:
 
@@ -90,7 +92,7 @@ Create a new `POST` request:
       
 3. Select the **Test** tab and enter in the text section: `pm.environment.set("bearerToken", pm.response.json().access_token);` To make the value available to the collection, use the pm.collectionVariables.set method. For more information on the set method and its scope level, see [Using variables in scripts](https://learning.postman.com/docs/sending-requests/variables/#defining-variables-in-scripts).
 4. Select **Save** to save the settings.
-5. Select **Send**. You should see a response with the Azure AD access token, which is saved to the variable `bearerToken` automatically. You can then use it in all FHIR service API requests.
+5. Select **Send**. You should see a response with the Microsoft Entra access token, which is saved to the variable `bearerToken` automatically. You can then use it in all FHIR service API requests.
 
   [ ![Screenshot of send button.](media/postman/postman-send-button.png) ](media/postman/postman-send-button.png#lightbox)
 
@@ -100,7 +102,7 @@ You can examine the access token using online tools such as [https://jwt.ms](htt
 
 ## Get FHIR resource
 
-After you've obtained an Azure AD access token, you can access the FHIR data. In a new `GET` request, enter `{{fhirurl}}/Patient`.
+After you've obtained a Microsoft Entra access token, you can access the FHIR data. In a new `GET` request, enter `{{fhirurl}}/Patient`.
 
 Select **Bearer Token** as authorization type.  Enter `{{bearerToken}}` in the **Token** section. Select **Send**. As a response, you should see a list of patients in your FHIR resource.
 
@@ -108,7 +110,7 @@ Select **Bearer Token** as authorization type.  Enter `{{bearerToken}}` in the *
 
 ## Create or update your FHIR resource
 
-After you've obtained an Azure AD access token, you can create or update the FHIR data. For example, you can create a new patient or update an existing patient.
+After you've obtained a Microsoft Entra access token, you can create or update the FHIR data. For example, you can create a new patient or update an existing patient.
  
 Create a new request, change the method to “Post”, and enter the value in the request section.
 
@@ -147,7 +149,7 @@ Select **Send**. You should see a new patient in the JSON response.
 
 ## Export FHIR data
 
-After you've obtained an Azure AD access token, you can export FHIR data to an Azure storage account.
+After you've obtained a Microsoft Entra access token, you can export FHIR data to an Azure storage account.
 
 Create a new `GET` request: `{{fhirurl}}/$export?_container=export`
 
@@ -168,5 +170,5 @@ In this article, you learned how to access the FHIR service in Azure Health Data
 >[What is FHIR service?](overview.md)
 
 
-For a starter collection of sample Postman queries, please see our [samples repo](https://github.com/Azure-Samples/azure-health-data-services-samples/tree/main/samples/sample-postman-queries) on Github.  
+For a starter collection of sample Postman queries, please see our [samples repo](https://github.com/Azure-Samples/azure-health-data-services-samples/tree/main/samples/sample-postman-queries) on GitHub.  
 FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

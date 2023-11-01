@@ -54,7 +54,7 @@ The status of a security solution can be:
 * **Healthy** (green) - no health issues.
 * **Unhealthy** (red) - there's a health issue that requires immediate attention.
 * **Stopped reporting** (orange) - the solution has stopped reporting its health.
-* **Not reported** (gray) - the solution hasn't reported anything yet and no health data is available. A solution's status may be unreported if it was connected recently and is still deploying.
+* **Not reported** (gray) - the solution hasn't reported anything yet and no health data is available. A solution's status might be unreported if it was connected recently and is still deploying.
 
 > [!NOTE]
 > If health status data is not available, Defender for Cloud shows the date and time of the last event received to indicate whether the solution is reporting or not. If no health data is available and no alerts were received within the last 14 days, Defender for Cloud indicates that the solution is unhealthy or not reporting.
@@ -73,7 +73,7 @@ Select **VIEW** for additional information and options such as:
 
 ### Discovered solutions
 
-Defender for Cloud automatically discovers security solutions running in Azure but not connected to Defender for Cloud and displays the solutions in the **Discovered solutions** section. These  solutions include Azure solutions, like [Azure AD Identity Protection](../active-directory/identity-protection/overview-identity-protection.md), and partner solutions.
+Defender for Cloud automatically discovers security solutions running in Azure but not connected to Defender for Cloud and displays the solutions in the **Discovered solutions** section. These  solutions include Azure solutions, like [Microsoft Entra ID Protection](../active-directory/identity-protection/overview-identity-protection.md), and partner solutions.
 
 > [!NOTE]
 > Enable **advanced protections** at the subscription level for the discovered solutions feature. Learn more in [Quickstart: Enable enhanced security features](enable-enhanced-security.md).

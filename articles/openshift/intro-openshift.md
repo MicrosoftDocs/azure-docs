@@ -18,13 +18,13 @@ Azure Red Hat OpenShift extends [Kubernetes](https://kubernetes.io/). Running co
 
 Azure Red Hat OpenShift is jointly engineered, operated, and supported by Red Hat and Microsoft to provide an integrated support experience. There are no virtual machines to operate, and no patching is required. Master, infrastructure, and application nodes are patched, updated, and monitored on your behalf by Red Hat and Microsoft. Your Azure Red Hat OpenShift clusters are deployed into your Azure subscription and are included on your Azure bill.
 
-You can choose your own registry, networking, storage, and CI/CD solutions, or use the built-in solutions for automated source code management, container and application builds, deployments, scaling, health management, and more. Azure Red Hat OpenShift provides an integrated sign-on experience through Azure Active Directory.
+You can choose your own registry, networking, storage, and CI/CD solutions, or use the built-in solutions for automated source code management, container and application builds, deployments, scaling, health management, and more. Azure Red Hat OpenShift provides an integrated sign-on experience through Microsoft Entra ID.
 
 To get started, complete the [Create an Azure Red Hat OpenShift cluster](tutorial-create-cluster.md) tutorial.
 
 ## Access, security, and monitoring
 
-For improved security and management, Azure Red Hat OpenShift lets you integrate with Azure Active Directory (Azure AD) and use Kubernetes role-based access control (Kubernetes RBAC). You can also monitor the health of your cluster and resources.
+For improved security and management, Azure Red Hat OpenShift lets you integrate with Microsoft Entra ID and use Kubernetes role-based access control (Kubernetes RBAC). You can also monitor the health of your cluster and resources.
 
 ## Cluster and node
 

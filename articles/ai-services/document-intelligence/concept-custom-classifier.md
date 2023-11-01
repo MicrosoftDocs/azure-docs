@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: Use the custom classification model to train a model to identify and split the documents you process within your application.
 author: vkurpad
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
 ms.date: 07/18/2023
 ms.author: lajanuar
@@ -35,7 +34,9 @@ Custom classification models can analyze a single- or multi-file documents to id
 
 * A single file containing multiple instances of the same document. For instance, a collection of scanned invoices.
 
-Training a custom classifier requires at least two distinct classes and a minimum of five samples per class. The model response contains the page ranges for each of the classes of documents identified. 
+✔️ Training a custom classifier requires at least `two` distinct classes and a minimum of `five` samples per class. The model response contains the page ranges for each of the classes of documents identified. 
+
+✔️ The maximum allowed number of classes is `500`. The maximum allowed number of samples per class is `100`.
 
 The model classifies each page of the input document to one of the classes in the labeled dataset. Use the confidence score from the response to set the threshold for your application. 
 

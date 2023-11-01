@@ -3,10 +3,9 @@ title: 'Tutorial: Configure a virtual network gateway for ExpressRoute using Pow
 description: This tutorial walks you through adding a virtual network gateway to a VNet for ExpressRoute using Azure PowerShell.
 services: expressroute
 author: duongau
-
 ms.service: expressroute
 ms.topic: tutorial
-ms.date: 07/22/2022
+ms.date: 09/11/2023
 ms.author: duau
 ms.custom: seodec18, devx-track-azurepowershell, template-tutorial
 
@@ -19,6 +18,8 @@ ms.custom: seodec18, devx-track-azurepowershell, template-tutorial
 > 
 
 This tutorial walks you through the steps to add, resize, and remove a virtual network gateway for a pre-existing virtual network (VNet) using PowerShell. The steps for this configuration apply to VNets that were created using the Resource Manager deployment model for an ExpressRoute configuration. For more information about virtual network gateways and gateway configuration settings for ExpressRoute, see [About virtual network gateways for ExpressRoute](expressroute-about-virtual-network-gateways.md).
+
+:::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/gateway-circuit.png" alt-text="Diagram showing an ExpressRoute gateway connected to the ExpressRoute circuit.":::
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -49,6 +50,10 @@ The steps for this task use a VNet based on the values in the following configur
 | Gateway Public IP Name  | *gwpip* |
 
 ## Add a gateway
+
+> [!IMPORTANT]
+> If you plan to use IPv6-based private peering over ExpressRoute, make sure to select an AZ SKU (ErGw1AZ, ErGw2AZ, ErGw3AZ) for **-GatewaySku** or use Non-AZ SKU (Standard, HighPerformance, UltraPerformance) for -GatewaySKU with Standard and Static Public IP.
+> 
 
 1. To connect with Azure, run `Connect-AzAccount`.
 
@@ -90,13 +95,11 @@ The steps for this task use a VNet based on the values in the following configur
 1. Request a public IP address. The IP address is requested before creating the gateway. You can't specify the IP address that you want to use; it’s dynamically assigned. You'll use this IP address in the next configuration section. The AllocationMethod must be Dynamic.
 
    ```azurepowershell-interactive
-   $pip = New-AzPublicIpAddress -Name $GWIPName  -ResourceGroupName $RG -Location $Location -AllocationMethod Dynamic
-   ```
-      
-   If you plan to use IPv6-based private peering over ExpressRoute, set the IP SKU to Standard and the AllocationMethod to Static:
-   ```azurepowershell-interactive
    $pip = New-AzPublicIpAddress -Name $GWIPName  -ResourceGroupName $RG -Location $Location -AllocationMethod Static -SKU Standard
    ```
+
+   > [!NOTE]
+   > Basic SKU public IP isn't supported with new ExpressRoute virtual network gateway.
    
 1. Create the configuration for your gateway. The gateway configuration defines the subnet and the public IP address to use. In this step, you're specifying the configuration that will be used when you create the gateway. Use the following sample to create your gateway configuration.
 
@@ -108,12 +111,9 @@ The steps for this task use a VNet based on the values in the following configur
    ```azurepowershell-interactive
    New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG -Location $Location -IpConfigurations $ipconf -GatewayType Expressroute -GatewaySku Standard
    ```
-> [!IMPORTANT]
-> If you plan to use IPv6-based private peering over ExpressRoute, make sure to select an AZ SKU (ErGw1AZ, ErGw2AZ, ErGw3AZ) for **-GatewaySku** or use Non-AZ SKU (Standard, HighPerformance, UltraPerformance) for -GatewaySKU with Standard and Static Public IP.
-> 
-> 
 
 ## Verify the gateway was created
+
 Use the following commands to verify that the gateway has been created:
 
 ```azurepowershell-interactive
@@ -121,6 +121,7 @@ Get-AzVirtualNetworkGateway -ResourceGroupName $RG
 ```
 
 ## Resize a gateway
+
 There are a number of [gateway SKUs](expressroute-about-virtual-network-gateways.md). You can use the following command to change the Gateway SKU at any time.
 
 ```azurepowershell-interactive

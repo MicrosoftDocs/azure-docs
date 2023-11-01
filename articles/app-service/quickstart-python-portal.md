@@ -1,6 +1,8 @@
 ---
 title: 'Quickstart: Create a Python app in the Azure portal'
 description: Get started with Azure App Service by deploying your first Python app to a Linux container in App Service by using the Azure portal.
+ms.author: msangapu
+author: msangapu-msft
 ms.topic: quickstart
 ms.date: 04/01/2021
 ms.devlang: python
