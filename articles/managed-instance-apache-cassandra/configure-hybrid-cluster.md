@@ -58,18 +58,18 @@ python3 client_configurator.py --subscription-id <subcriptionId> --cluster-resou
 ```
 
 > [!NOTE]
-> --subscription-id: Azure subscription id.
-> --cluster-resource-group: Resource group which your cluster resides.
-> --cluster-name: Azure Managed Instance cluster name.
-> --initial-password: Password for your Azure Managed Instance for Apache Cassandra cluster.
-> --vnet-resource-group: The resource group attached to the virtual network.
-> --vnet-name: Name of the virtual network attached to your cluster.
-> --subnet-name: The name of the IP addressed allocated to the Cassandra cluster.
-> --location: Where your cluster is deployed.
-> --seed-nodes: The seed nodes of the existing datacenters in your on-premises or self-hosted Cassandra cluster.
-> --mi-dc-name: The data center name of your Azure Managed Instance cluster.
-> --dc-name: The data center name of the on-prem cluster.
-> --sku: The virtual machine SKU size.
+> - subscription-id: Azure subscription id.
+> - cluster-resource-group: Resource group which your cluster resides.
+> - cluster-name: Azure Managed Instance cluster name.
+> - initial-password: Password for your Azure Managed Instance for Apache Cassandra cluster.
+> - vnet-resource-group: The resource group attached to the virtual network.
+> - vnet-name: Name of the virtual network attached to your cluster.
+> - subnet-name: The name of the IP addressed allocated to the Cassandra cluster.
+> - location: Where your cluster is deployed.
+> - seed-nodes: The seed nodes of the existing datacenters in your on-premises or self-hosted Cassandra cluster.
+> - mi-dc-name: The data center name of your Azure Managed Instance cluster.
+> - dc-name: The data center name of the on-prem cluster.
+> - sku: The virtual machine SKU size.
 
 * The Python script produces a tar archive named `install_certs.tar.gz`.
         * Unpack this folder into `/etc/cassandra/` on each node.
