@@ -751,7 +751,7 @@ DENY ACEs in Azure NetApp Files are used to explicitly restrict a user or group 
 
 When a chmod is performed on a file or folder in Azure NetApp Files, all existing ACEs will be preserved on the ACL other than the system ACEs (OWNER@, GROUP@, EVERYONE@). Those ACE permissions will be modified as defined by the numeric mode bits defined by the chmod command. Only ACEs that are manually modified or removed via the `nfs4_setfacl` command can be changed.
 
-#### Umask impact with NFSv4.x ACLs
+#### NFSv4.x ACL behaviors in dual protocol environments
 
 Dual protocol refers to the use of both SMB and NFS on the same Azure NetApp Files volume. Dual protocol access controls are determined by which security style the volume is using, but username mapping ensures that Windows users and UNIX users that successfully map to one another will have the same access permissions to data.
 When NFSv4.x ACLs are in use on UNIX security style volumes, the following behaviors will be observed when using dual protocol volumes and accessing data from SMB clients.
@@ -768,7 +768,13 @@ When NFSv4.x ACLs are in use on UNIX security style volumes, the following behav
 
 For more information, see [umask](#umask).
 
+<!-- information repeats -->
+
 [NFSv4 ACLs provide the ability](http://linux.die.net/man/5/nfs4_acl) to offer ACL inheritance. ACL inheritance means that files or folders created beneath objects with NFSv4 ACLs set can inherit the ACLs based on the configuration of the [ACL inheritance flag](http://linux.die.net/man/5/nfs4_acl).
 
 Umask is used to control the permission level at which files and folders are created in a directory. By default, Azure NetApp Files allows umask to override inherited ACLs, which is expected behavior as per [RFC-7530](https://datatracker.ietf.org/doc/html/rfc7530).
 
+
+#### Chmod/chown behavior with NFSv4.x ACLs
+
+<!-- start here -->
