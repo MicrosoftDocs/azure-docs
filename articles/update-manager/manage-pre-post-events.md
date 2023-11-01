@@ -12,12 +12,60 @@ author: SnehaSudhirG
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
 
-This article explains how to manage the pre and post maintenance events.
 
 
-## Create a maintenance configuration
+## Key capabilities
+
+- **Customized patching** - You can customize your patching workflows with custom execution before and after a scheduled patching.
+- **Multiple end points** - You can choose to configure other endpoints such as Webhooks or Azure Functions or Storage accounts.
+- **Compatibility with the [Event Grid](../event-grid/overview.md)** allows you to recieve notifications.
+
+
+## User scenarios
+The new capability ensures that by using pre and postscripts feature you can customize the patching workflows with custom execution before and after scheduled maintenance activity. Following are the scenarios where you can define the pre and post tasks:
+
+#### [Prescript user scenarios](#tab/prescript)
+
+| **Scenario**| **Description**|
+|----------|-------------|
+|Turn on machines | You must turn on the machine to apply updates.|
+|Create snapshot | Disk snaps used to recover data.| 
+|Automation tutorial with identity | Runbooks using Managed Identity| 
+|Start/configure Windows Update (WU) | Used to ensure that the WU is up and running before patching is attempted. | 
+|Enable maintenance | Puts the machine in maintenance mode. |
+|Notification email | You can send a notification alert before patching is triggered. |
+|Add network security group| Used to add the network security group.|
+|Stop services | Used to stop services like Gateway services, NPExServices, SQL services etc.| 
+
+#### [Postscript user scenarios](#tab/postscript)
+
+| **Scenario**| **Description**|
+|----------|-------------|
+|Turn off | Ensures that the machines are turned off after applying updates. | 
+|Disable maintenance | Disables the maintenance mode on machines. | 
+|Stop/Configure WU| Ensures that the WU is stopped after the patching is complete.|
+|Notifications | Send patch summary or an alert that patching is complete.|
+|Delete network security group| Deletes the network security group.|
+|Hybrid Worker| Configuration of Hybrid runbook worker. |
+|Mute VM alerts | Enable VM alerts post patching. |
+|Start services | Start services like SQL, health services etc.|
+|Reports| Post patching report.|
+|Tag change | Change tags and occasionally, turns off with tag change.|
+
+
+## Workflow to configure pre and postscript maintenance activities
+
+Review the workflow to configure the pre and post maintenance activities:
+
+1. Create a new maintenance configuration.
+1. Configure the pre/post maintenance events.
+1. Create Event Subscriptions.
+
+
+### Create maintenance configuration
 
 To create a maintenance configuration, follow these steps:
+
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to **Azure Update Manager**.
 1. Under **Manage**, select **Machines**, **Maintenance Configuration**.
 1. Select the appropriate **Subscription ID** and **Resource Group**.
@@ -32,9 +80,9 @@ To create a maintenance configuration, follow these steps:
 When you select a time to run a schedule, the pre maintenance events are triggered 40 minutes before the specified time. For example, if you select the time as 3:00 p.m. to run the schedule, the pre maintenance event is triggered after 2:20 p.m. (40 mins before the stipulated time). The maintenance configuration is locked at 2:20 p.m. and after this time, the prescript will run.
 
 
-## Manage maintenance events
+### Create Event Subscription
 
-To manage the maintenance events, follow these steps:
+To create an Event Subscription so that you can configure the pre and post scripts, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to **Azure Update Manager**.
 1. Under **Manage**, select **Machines**, **Maintenance Configurations**.
@@ -56,7 +104,7 @@ To manage the maintenance events, follow these steps:
 
   As per the time that you configured in the maintenance configuration, which is 40 minutes before the stipulated time (+2 or -3 minutes) from when the pre event notification is triggered. For example, if you want you run the schedule at 3:00 p.m. the premaintenance event is set at 2:20 p.m. and the pre-event notification is triggered between 2:17 p.m. to 2:22 p.m.
 
-### View maintenance configuration 
+#### View maintenance configuration 
 
 You can view the details of the Maintenance configuration from Azure Resource Graph (ARG) with the following query: 
 
@@ -80,7 +128,7 @@ You can view the details of the Maintenance configuration from Azure Resource Gr
 ```
   :::image type="content" source="./media/manage-pre-post-events/resource-graph-query-inline.png" alt-text="Screenshot for ARG Query." lightbox="./media/manage-pre-post-events/resource-graph-query-expanded.png" :::
 
-## Cancel the maintenance event
+### Cancel the maintenance event
 
 - To cancel the maintenance event, use the cancellation API. The error message in the JSON obtained from the Azure Resource Graph for the corresponding maintenance configuration would be **Maintenance canceled using Cancellation API**.
 
@@ -102,7 +150,6 @@ Invoke the Cancellation API as mentioned below:
 
 
 When you invoke the cancellation flow, it is honored from 40 mins prior when the premaintenance event has been triggered till the last 10 mins from the event. For example, if you select the time as 3:00 p.m. to run the schedule, you can cancel the pre-event from 2:20 pm onwards till 2:50 p.m.
-
 
 ## Next steps
 For issues and workarounds, see [troubleshoot](troubleshoot.md)
