@@ -13,7 +13,7 @@ tags: connectors
 
 # Integrate 3270 screen-driven apps on IBM mainframes with Azure using Azure Logic Apps and IBM 3270 connector
 
-[!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 To access and run IBM mainframe apps, which you usually execute by navigating through 3270 emulator screens, from Consumption and Standard workflows in Azure Logic Aps, you can use the **IBM 3270** connector. That way, you can integrate your IBM mainframe apps with Azure, Microsoft, and other apps, services, and systems by creating automated workflows with Azure Logic Apps. The connector communicates with IBM mainframes by using the TN3270 protocol. The **IBM 3270** connector is available in all Azure Logic Apps regions except for Azure Government and Microsoft Azure operated by 21Vianet.
 
@@ -43,9 +43,11 @@ The IBM 3270 connector has different versions, based on [logic app type and host
 | Logic app | Environment | Connection version |
 |-----------|-------------|--------------------|
 | **Consumption** | Multi-tenant Azure Logic Apps | Managed connector, which appears in the designer under the **Enterprise** label. This connector provides only single action and no triggers. For more information, see [IBM 3270 managed connector reference](/connectors/si3270). |
-| **Standard** | 	Single-tenant Azure Logic Apps and App Service Environment v3 (ASE v3 with Windows plans only) | Managed connector, which appears in the connector gallery under **Runtime** > **Shared**, and the built-in, [service provider-based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation) connector, which appears in the connector gallery under **Runtime** > **In-App**. The built-in version differs in the following ways: <br><br>- The built-in connector doesn't need an integration account and can directly connect to a 3270 server and access Azure virtual networks using a connection string. <br><br>- The built-in version supports both server authentication and server-client authentication with TLS (SSL) encryption for data in transit, message encoding for both the send and receive operations, and Azure virtual network integration. <br><br>For more information, see the following documentation: <br><br>- [IBM 3270 managed connector reference](/connectors/si3270) <br>- [IBM 3270 built-in connector reference](#built-inreference) |
+| **Standard** | 	Single-tenant Azure Logic Apps and App Service Environment v3 (ASE v3 with Windows plans only) | Managed connector, which appears in the connector gallery under **Runtime** > **Shared**, and the built-in, [service provider-based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation) connector, which appears in the connector gallery under **Runtime** > **In-App**. The built-in version differs in the following ways: <br><br>- The built-in connector doesn't need an integration account and can directly connect to a 3270 server and access Azure virtual networks using a connection string. <br><br>- The built-in version supports both server authentication and server-client authentication with TLS (SSL) encryption for data in transit, message encoding for both the send and receive operations, and Azure virtual network integration. <br><br>For more information, see the following documentation: <br><br>- [IBM 3270 managed connector reference](/connectors/si3270) <br>- [IBM 3270 built-in connector reference](#built-in-reference) |
 
-### Built-in connector operations
+<a name="built-in-reference"></a>
+
+### Built-in connector reference
 
 The following section describes the operations for the IBM 3270 connector, which currently includes only the following action:
 
@@ -55,6 +57,7 @@ The following section describes the operations for the IBM 3270 connector, which
 |-----------|----------|-------|-------------|
 | **HIDX Name** | Yes | String | Select the 3270 HIDX file that you want to use. |
 | **Method Name** | Yes | String | Select the method in the HIDX file that you want to use. |
+| **Advanced parameters** | No | Varies | This list appears after you select a method so that you can add other parameters to use with the selected method. The available parameters vary based on your HIDX file and the method that you select. |
 
 This operation also includes advanced parameters, which appear after you select a method, for you to select and use with the selected method. These parameters vary based on your HIDX file and the method that you select.
 
@@ -117,7 +120,11 @@ A Standard logic app workflow can use the IBM 3270 managed connector and the IBM
    | **Use TLS** | No | On or off | Turn on or turn off TLS encryption. |
    | **Validate TN3270 Server Certificate** | No | On or off | Turn on or turn off validation for the server's certificate. |
 
-1. When you're done, select **Create**.
+   For example:
+
+   :::image type="content" source="./media/integrate-3270-apps-ibm-mainframe/connection-properties-standard.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, and IBM 3270 connection properties.":::
+
+1. When you're done, select **Create New**.
 
 1. When the action information box appears, provide the necessary parameter values:
 
@@ -127,9 +134,23 @@ A Standard logic app workflow can use the IBM 3270 managed connector and the IBM
    | **Method Name** | Yes | <*method-name*> | Select the method in the HIDX file that you want to use. After you select a method, the **Add new parameter** list appears so you can select parameters to use with that method. |
    | **Advanced parameters** | No | Varies | This list appears after you select a method so that you can add other parameters to use with the selected method. The available parameters vary based on your HIDX file and the method that you select. |
 
+   For example:
+
+   **Select the HIDX file**
+
+   :::image type="content" source="./media/integrate-3270-apps-ibm-mainframe/select-hidx-file-standard.png" alt-text="Screenshot shows Standard workflow designer, 3270 action, and selected HIDX file.":::
+
+   **Select the method**
+
+   :::image type="content" source="./media/integrate-3270-apps-ibm-mainframe/select-method-standard.png" alt-text="Screenshot shows Standard workflow designer, 3270 action, and selected method.":::
+
+   **Select the parameters**
+
+   :::image type="content" source="./media/integrate-3270-apps-ibm-mainframe/add-parameters-standard.png" alt-text="Screenshot shows Standard workflow designer, 3270 action, and more parameters.":::
+
 1. When you're done, save your workflow. On designer toolbar, select **Save**.
 
-### [Consumption](#tab/consumption]
+### [Consumption](#tab/consumption)
 
 1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app resource and workflow where you've already add a trigger.
 
@@ -156,7 +177,7 @@ A Standard logic app workflow can use the IBM 3270 managed connector and the IBM
 
    For example:
 
-   ![Screenshot shows Azure portal, Consumption workflow designer, and IBM 3270 connection properties.](./media/connectors-create-api-3270/connection-properties.png)
+   :::image type="content" source="./media/integrate-3270-apps-ibm-mainframe/connection-properties-consumption.png" alt-text="Screenshot shows Azure portal, Consumption workflow designer, and IBM 3270 connection properties.":::
 
 1. When you're done, select **Create**.
 
@@ -166,21 +187,21 @@ A Standard logic app workflow can use the IBM 3270 managed connector and the IBM
    |----------|----------|-------|-------------|
    | **HIDX Name** | Yes | <*HIDX-file-name*> | Select the 3270 HIDX file that you want to use. |
    | **Method Name** | Yes | <*method-name*> | Select the method in the HIDX file that you want to use. After you select a method, the **Add new parameter** list appears so you can select parameters to use with that method. |
-   | **Advanced parameters** | No | Varies | This list appears after you select a method so that you can add other parameters to use with the selected method. The available parameters vary based on your HIDX file and the method that you select. |
+   | **Add new parameter** | No | Varies | This list appears after you select a method so that you can add other parameters to use with the selected method. The available parameters vary based on your HIDX file and the method that you select. |
 
    For example:
 
    **Select the HIDX file**
 
-   ![Screenshot shows Consumption workflow designer, 3270 action, and selected HIDX file.](./media/connectors-create-api-3270/select-hidx-file.png)
+   :::image type="content" source="./media/integrate-3270-apps-ibm-mainframe/select-hidx-file-consumption.png" alt-text="Screenshot shows Consumption workflow designer, 3270 action, and selected HIDX file.":::
 
    **Select the method**
 
-   ![Screenshot shows Consumption workflow designer, 3270 action, and selected method,](./media/connectors-create-api-3270/select-method.png)
+   :::image type="content" source="./media/integrate-3270-apps-ibm-mainframe/select-method-consumption.png" alt-text="Screenshot shows Consumption workflow designer, 3270 action, and selected method.":::
 
    **Select the parameters**
 
-   ![Screenshot shows Consumption workflow designer, 3270 action, and selected parameters.](./media/connectors-create-api-3270/add-parameters.png)
+   :::image type="content" source="./media/integrate-3270-apps-ibm-mainframe/add-parameters-consumption.png" alt-text="Screenshot shows Consumption workflow designer, 3270 action, and selected parameters.":::
 
 1. When you're done, save your workflow. On designer toolbar, select **Save**.
 
@@ -188,7 +209,7 @@ A Standard logic app workflow can use the IBM 3270 managed connector and the IBM
 
 ## Test your workflow
 
-### [Standard](#tab/standard]
+### [Standard](#tab/standard)
 
 1. To run your workflow, on the designer, select workflow menu, select **Overview**. On the **Overview** toolbar, select **Run** > **Run**.
 
@@ -202,11 +223,25 @@ A Standard logic app workflow can use the IBM 3270 managed connector and the IBM
 
 1. To review the outputs, select **See raw outputs**.
 
-### [Consumption](#tab/consumption]
+### [Consumption](#tab/consumption)
+
+1. To run your workflow, on the designer toolbar, select **Run Trigger** > **Run**.
+
+   After your workflow finishes running, your workflow's run history appears. Successful steps show check marks, while unsuccessful steps show an exclamation point (**!**).
+
+1. To review the inputs and outputs for each step, expand that step.
+
+1. To review the outputs, select **See raw outputs**.
+
+1. To review the inputs and outputs for each step, expand that step.
+
+1. To review the outputs, select **See raw outputs**.
 
 ---
 
 ## Next steps
 
-* [Managed connectors for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
-* [Built-in connectors for Azure Logic Apps](built-in.md)
+- [Monitor workflow run status, review trigger and workflow run history, and set up alerts in Azure Logic Apps](../logic-apps/monitor-logic-apps.md?tabs=standard)
+- [View metrics for workflow health and performance in Azure Logic Apps](../logic-apps/view-workflow-metrics.md?tabs=standard)
+- [Monitor and collect diagnostic data for workflows in Azure Logic Apps](../logic-apps/monitor-workflows-collect-diagnostic-data.md?tabs=standard)
+- [Enable and view enhanced telemetry in Application Insights for Standard workflows in Azure Logic Apps](../logic-apps/enable-enhanced-telemetry-standard-workflows.md)
