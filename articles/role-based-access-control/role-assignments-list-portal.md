@@ -64,11 +64,15 @@ On the **Role assignments** tab, you can list and see the count of privileged ad
 
 1. Click the **Role assignments** tab and then click the **Privileged** tab to list the privileged administrator role assignments at this scope.
 
+    :::image type="content" source="./media/role-assignments-list-portal/access-control-role-assignments-privileged.png" alt-text="Screenshot of Access control page, Role assignments tab, and Privileged tab showing privileged role assignments." lightbox="./media/role-assignments-list-portal/access-control-role-assignments-privileged.png":::
+
 1. To see the count of privileged administrator role assignments at this scope, see the **Privileged** card.
 
 1. To manage privileged administrator role assignments, see the **Privileged** card and click **View assignments**.
 
     On the **Manage privileged role assignments** page, you can add a condition to constrain the privileged role assignment or remove the role assignment. For more information, see [Delegate the Azure role assignment task to others with conditions (preview)](delegate-role-assignments-portal.md).
+
+    :::image type="content" source="./media/role-assignments-list-portal/access-control-role-assignments-privileged-manage.png" alt-text="Screenshot of Manage privileged role assignments page showing how to add conditions or remove role assignments." lightbox="./media/role-assignments-list-portal/access-control-role-assignments-privileged-manage.png":::
 
 ## List role assignments at a scope
 
