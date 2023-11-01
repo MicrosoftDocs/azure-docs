@@ -8,7 +8,7 @@
 
 1. In the [Azure portal](https://portal.azure.com), go to the virtual machine that you want to connect to. 
 1. At the top of the pane, select **Connect** > **Bastion** to go to the **Bastion** pane. You can also go to the **Bastion** pane by using the left menu.
-1. The options available on the **Bastion** pane depend on the Azure Bastion SKU. If you're using the Basic SKU, you connect to a Windows computer by using RDP and port 3389. Also for the Basic SKU, you connect to a Linux computer by using SSH and port 22. You don't have options to change the port number or the protocol. However, you can change the keyboard language for RDP by expanding **Connection Settings**.
+1. The options available on the **Bastion** pane depend on the Bastion SKU. If you're using the Basic SKU, you connect to a Windows computer by using RDP and port 3389. Also for the Basic SKU, you connect to a Linux computer by using SSH and port 22. You don't have options to change the port number or the protocol. However, you can change the keyboard language for RDP by expanding **Connection Settings**.
 
    :::image type="content" source="./media/bastion-connect-vm/basic-sku.png" alt-text="Screenshot of Azure Bastion connection settings." lightbox="./media/bastion-connect-vm/windows-rdp.png":::
 
@@ -22,7 +22,7 @@
 
 1. To open the VM session in a new browser tab, leave **Open in new browser tab** selected.
 1. Select **Connect** to connect to the VM.
-1. Confirm that the connection to the virtual machine opens directly in the Azure portal (over HTML5) by using port 443 and the Azure Bastion service.
+1. Confirm that the connection to the virtual machine opens directly in the Azure portal (over HTML5) by using port 443 and the Bastion service.
 
    :::image type="content" source="./media/bastion-vm-rdp/connection.png" alt-text="Screenshot of a computer desktop with an open connection over port 443.":::
 
