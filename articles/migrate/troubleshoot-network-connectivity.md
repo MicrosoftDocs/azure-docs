@@ -77,7 +77,7 @@ If the DNS resolution is incorrect, follow these steps:
 
 
 ## Validate the Private DNS Zone   
-If the DNS resolution is not working as described in the previous section, there might be an issue with your Private DNS Zone.  
+If the DNS resolution isn't working as described in the previous section, there might be an issue with your Private DNS Zone.  
 
 ### Confirm that the required Private DNS Zone resource exists  
 By default, Azure Migrate also creates a private DNS zone corresponding to the *privatelink* subdomain for each resource type. The private DNS zone will be created in the same Azure resource group as the private endpoint resource group. The Azure resource group should contain private DNS zone resources with the following format:
@@ -90,18 +90,18 @@ Azure Migrate automatically creates the private DNS zone (except for the cache/r
 
 [![DNS configuration screenshot](./media/how-to-use-azure-migrate-with-private-endpoints/dns-configuration-inline.png)](./media/how-to-use-azure-migrate-with-private-endpoints/dns-configuration-expanded.png#lightbox)
 
-If the DNS zone is not present (as shown below), [create a new Private DNS Zone resource.](../dns/private-dns-getstarted-portal.md)  
+If the DNS zone isn't present (as shown below), [create a new Private DNS Zone resource.](../dns/private-dns-getstarted-portal.md)  
 
 [![Create a Private DNS Zone](./media/how-to-use-azure-migrate-with-private-endpoints/create-dns-zone-inline.png)](./media/how-to-use-azure-migrate-with-private-endpoints/create-dns-zone-expanded.png#lightbox)
 
 ### Confirm that the Private DNS Zone is linked to the virtual network  
-The private DNS zone should be linked to the virtual network that contains the private endpoint for the DNS query to resolve the private IP address of the resource endpoint. If the private DNS zone is not linked to the correct Virtual Network, any DNS resolution from that virtual network will ignore the private DNS zone.   
+The private DNS zone should be linked to the virtual network that contains the private endpoint for the DNS query to resolve the private IP address of the resource endpoint. If the private DNS zone isn't linked to the correct Virtual Network, any DNS resolution from that virtual network will ignore the private DNS zone.   
 
 Navigate to the private DNS zone resource in the Azure portal and select the virtual network links from the left menu. You should see the virtual networks linked.
 
 [![View virtual network links](./media/how-to-use-azure-migrate-with-private-endpoints/virtual-network-links-inline.png)](./media/how-to-use-azure-migrate-with-private-endpoints/virtual-network-links-expanded.png#lightbox)
 
-This will show a list of links, each with the name of a virtual network in your subscription. The virtual network that contains the Private Endpoint resource must be listed here. Else, [follow this article](../dns/private-dns-getstarted-portal.md#link-the-virtual-network) to link the private DNS zone to a virtual network.    
+This shows a list of links, each with the name of a virtual network in your subscription. The virtual network that contains the Private Endpoint resource must be listed here. Else, [follow this article](../dns/private-dns-getstarted-portal.md#link-the-virtual-network) to link the private DNS zone to a virtual network.    
 
 Once the private DNS zone is linked to the virtual network, DNS requests originating from the virtual network will look for DNS records in the private DNS zone. This is required for correct address resolution to the virtual network where the private endpoint was created.   
 
@@ -131,7 +131,7 @@ This is a non-exhaustive list of items that can be found in advanced or complex 
 For more information, review the [troubleshooting guide for Private Endpoint connectivity problems.](../private-link/troubleshoot-private-endpoint-connectivity.md)  
 
 ## Common issues while using Azure Migrate with private endpoints
-In this section, we will list some of the commonly occurring issues and suggest do-it-yourself troubleshooting steps to remediate the problem.
+In this section, we'll list some of the commonly occurring issues and suggest do-it-yourself troubleshooting steps to remediate the problem.
 
 ### Appliance registration fails with the error ForbiddenToAccessKeyVault
 Azure Key Vault create or update operation failed for <_KeyVaultName_> due to the error <_ErrorMessage_>
@@ -148,7 +148,7 @@ This issue can occur if the Azure account being used to register the appliance d
 
 **Steps to troubleshoot connectivity issues to the Key Vault:**
 If you have enabled the appliance for private endpoint connectivity, use the following steps to troubleshoot network connectivity issues:
--  Ensure that the appliance is either hosted in the same virtual network or is connected to the target Azure virtual network (where the Key Vault private endpoint has been created) over a private link. The Key Vault private endpoint will be created in the virtual network selected during the project creation experience. You can verify the virtual network details in the **Azure Migrate > Properties** page.
+-  Ensure that the appliance is either hosted in the same virtual network or is connected to the target Azure virtual network (where the Key Vault private endpoint has been created) over a private link. The Key Vault private endpoint is created in the virtual network selected during the project creation experience. You can verify the virtual network details in the **Azure Migrate > Properties** page.
    ![Azure Migrate properties](./media/how-to-use-azure-migrate-with-private-endpoints/azure-migrate-properties-page.png)  
 
 -  Ensure that the appliance has network connectivity to the Key Vault over a private link. To validate the private link connectivity, perform a DNS resolution of the Key Vault resource endpoint from the on-premises server hosting the appliance and ensure that it resolves to a private IP address.
