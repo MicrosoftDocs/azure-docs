@@ -30,6 +30,10 @@ Isolated Image Builds enable defense-in-depth by limiting network access of your
 
 This is a platform level change and doesn't affect AIB's interfaces. So, your existing Image Template and Trigger resources continue to function and there's no change in the way you'll deploy new resources of these types. Similarly, customization logs continue to be available in the storage account.
 
+You may observe a few new resources temporarily appear in the staging resource group (for example, Azure Container Instance, and Private Endpoint) while some other resource will no longer appear (for example, Public IP Address). Just as earlier, these temporary resources will exist only for the duration of the build and will be deleted by Image Builder thereafter.
+
+Your image builds will automatically be migrated to Isolated Image Builds and you need to take no action to opt-in.
+
 > [!NOTE]
 > Image Builder is in the process of rolling this change out to all locations and customers. Some of these details might change as the process is fine-tuned based on service telemetry and feedback. Please refer to the [troubleshooting guide](./linux/image-builder-troubleshoot.md#troubleshoot-build-failures) for more information.
 
