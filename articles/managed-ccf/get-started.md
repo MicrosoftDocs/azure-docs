@@ -122,4 +122,4 @@ The next step is to [create a Managed CCF resource](quickstart-portal.md) and de
 - [Azure Managed CCF overview](overview.md)
 - [Quickstart: Create an Azure Managed CCF resource using the Azure portal](quickstart-portal.md)
 - [Quickstart: Deploy a JavaScript application to Azure Managed CCF](quickstart-deploy-application.md)
-- [How to: Update the JavaScript runtime options](how-to-update-js-runtime-options.md)
+- [How to: Update the JavaScript runtime options](how-to-update-javascript-runtime-options.md)

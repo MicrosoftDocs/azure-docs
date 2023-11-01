@@ -26,7 +26,7 @@ The following diagram shows a high-level overview of the different layers of the
 
 A few key features of Managed CCF are confidentiality, customizable governance, high availability, auditability and transparency.
 
-:::image type="content" source="media/azure-managed-managed-confidential-consortium-framework-key-features.png" alt-text="A diagram showing the key features.":::
+:::image type="content" source="media/managed-confidential-consortium-framework-key-features.png" alt-text="A diagram showing the key features.":::
 
 ### Confidentiality
 
