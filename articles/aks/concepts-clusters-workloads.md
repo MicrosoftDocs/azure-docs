@@ -109,12 +109,26 @@ Two types of resources are reserved:
 - **Memory**  
     Memory utilized by AKS includes the sum of two values.
 
-   1. **`kubelet` daemon**   
-       The `kubelet` daemon is installed on all Kubernetes agent nodes to manage container creation and termination. 
+    > [!IMPORTANT]
+    > AKS 1.28 will introduce certain changes to memory reservations. For more information, see [AKS 1.28 and later](#aks-128-and-later).
+
+    #### AKS 1.28 and later
+
+    1. **`kubelet` daemon** has the *memory.available<100Mi* eviction rule by default. This ensures that a node always has at least 100Mi allocatable at all times. When a host is below that available memory threshold, the `kubelet` triggers the termination of one of the running pods and frees up memory on the host machine.
+    2. **A rate of memory reservations** set according to the lesser value of: *20MB * Max Pods supported on the Node + 50MB* or *25% of the total system memory resources*.
+
+        **Examples**:
+
+       * If the VM provides 8GB of memory and the node supports up to 30 pods, AKS reserves *20MB * 30 Max Pods + 50MB = 650MB* for kube-reserved.
+       * If the VM provides 4GB of memory and the node supports up to 70 pods, AKS reserves *25% * 4GB = 1000MB* for kube-reserved, as this is less than *20MB * 70 Max Pods + 50MB = 1450MB*.
+
+    #### AKS versions prior to 1.28
+
+   1. **`kubelet` daemon** is installed on all Kubernetes agent nodes to manage container creation and termination.
    
         By default on AKS, `kubelet` daemon has the *memory.available<750Mi* eviction rule, ensuring a node must always have at least 750Mi allocatable at all times. When a host is below that available memory threshold, the `kubelet` will trigger to terminate one of the running pods and free up memory on the host machine.
 
-   2. **A regressive rate of memory reservations** for the kubelet daemon to properly function (*kube-reserved*).
+   1. **A regressive rate of memory reservations** for the kubelet daemon to properly function (*kube-reserved*).
       - 25% of the first 4 GB of memory
       - 20% of the next 4 GB of memory (up to 8 GB)
       - 10% of the next 8 GB of memory (up to 16 GB)
