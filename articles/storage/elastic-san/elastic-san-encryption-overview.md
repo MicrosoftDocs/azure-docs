@@ -1,16 +1,15 @@
 ---
-title: Azure Elastic SAN data encryption at rest
+title: Encrypt an Azure Elastic SAN Preview
 titleSuffix: Azure Elastic SAN
 description: Azure Elastic SAN protects your data by encrypting it at rest. You can use customer-managed keys to manage encryption with your own keys, or you can rely on platform-managed keys for the encryption of your Elastic SAN volumes.
 author: roygara
-ms.date: 09/29/2023
+ms.date: 11/06/2023
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: azure-elastic-san-storage
-ms.custom: references_regions
 ---
 
-# Azure Elastic SAN data encryption at rest
+# Encrypt an Azure Elastic SAN Preview
 
 Azure Elastic SAN uses server-side encryption (SSE) to automatically encrypt data stored in an Elastic SAN. SSE protects your data and helps you meet your organizational security and compliance requirements.
 

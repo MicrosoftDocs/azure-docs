@@ -1,5 +1,5 @@
 ---
-title: Configure Elastic SAN data encryption with customer-managed keys in Azure Key Vault
+title: Configure customer-managed keys-Azure Key Vault-Azure Elastic SAN Preview
 titleSuffix: Azure Elastic SAN
 description: Learn how to configure Azure Elastic SAN data encryption with customer-managed keys for an Elastic SAN volume group by using the Azure portal, PowerShell, or Azure CLI. Customer-managed keys are stored in an Azure key vault.
 services: storage
@@ -8,11 +8,11 @@ author: roygara
 ms.author: rogarana
 ms.service: azure-elastic-san-storage
 ms.topic: how-to
-ms.date: 09/29/2023
+ms.date: 11/06/2023
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
-# Configure Elastic SAN data encryption with customer-managed keys in Azure Key Vault
+# Configure customer-managed keys for An Azure Elastic SAN using Azure Key Vault
 
 All data written to an Elastic SAN volume is automatically encrypted-at-rest with a data encryption key (DEK). Azure uses *[envelope encryption](../../security/fundamentals/encryption-atrest.md#envelope-encryption-with-a-key-hierarchy)* to encrypt the DEK using a Key Encryption Key (KEK). By default, the KEK is platform-managed (managed by Microsoft), but you can create and manage your own.
 
