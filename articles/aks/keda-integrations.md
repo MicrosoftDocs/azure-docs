@@ -22,11 +22,7 @@ To learn about the available metrics, we recommend reading the [KEDA documentati
 
 ## Scalers for Azure services
 
-<<<<<<< HEAD
-KEDA can integrate with various tools and services through [a rich catalog of 62+ KEDA scalers][keda-scalers]. It supports leading cloud platforms (such as Azure) and open-source technologies such as Redis and Kafka.
-=======
-KEDA integrates with various tools and services through [a rich catalog of 50+ KEDA scalers][keda-scalers] and supports leading cloud platforms and open-source technologies.
->>>>>>> 58714361164d6dc3abe1ce6a0ed3deb4d3bd23c6
+KEDA can integrate with various tools and services through [a rich catalog of Azure KEDA scalers][keda-scalers] and supports leading cloud platforms and open-source technologies.
 
 KEDA leverages the following scalers for Azure services:
 
@@ -40,32 +36,21 @@ KEDA leverages the following scalers for Azure services:
 - [Azure Service Bus](https://keda.sh/docs/latest/scalers/azure-service-bus/)
 - [Azure Storage Queue](https://keda.sh/docs/latest/scalers/azure-storage-queue/)
 
-<<<<<<< HEAD
 As of KEDA version `2.10`, the [Prometheus scaler][prometheus-scaler] supports Azure managed service for Prometheus.
 
-Next to the built-in scalers, you can install external scalers yourself to autoscale on other Azure services:
-=======
 You can also install external scalers to autoscale on other Azure services:
->>>>>>> 58714361164d6dc3abe1ce6a0ed3deb4d3bd23c6
-
 - [Azure Cosmos DB (Change feed)](https://github.com/kedacore/external-scaler-azure-cosmos-db)
 
-These external scalers *aren't supported as part of the add-on* and rely on community support.
+> [!IMPORTANT]
+> External scalers *aren't supported as part of the add-on* and rely on community support.
 
 ## Next steps
 
-<<<<<<< HEAD
 * [Enable the KEDA add-on with an ARM template][keda-arm]
 * [Enable the KEDA add-on with the Azure CLI][keda-cli]
 * [Troubleshoot KEDA add-on problems][keda-troubleshoot]
 * [Autoscale a .NET Core worker processing Azure Service Bus Queue message][keda-sample]
 * [View the upstream KEDA docs][keda]
-=======
-- [Enable the KEDA add-on with an ARM template][keda-arm]
-- [Enable the KEDA add-on with the Azure CLI][keda-cli]
-- [Troubleshoot KEDA add-on problems][keda-troubleshoot]
-- [Autoscale a .NET Core worker processing Azure Service Bus Queue message][keda-sample]
->>>>>>> 58714361164d6dc3abe1ce6a0ed3deb4d3bd23c6
 
 <!-- LINKS - internal -->
 [aks-support-policy]: support-policies.md
