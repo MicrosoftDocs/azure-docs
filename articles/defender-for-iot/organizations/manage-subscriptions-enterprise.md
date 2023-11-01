@@ -25,20 +25,11 @@ Before performing the procedures in this article, make sure that you have:
 - One of the following sets of licenses:
 
     - A Microsoft 365 E5 (ME5) or E5 Security license and a Microsoft Defender for Endpoint P2 license
-    - A Microsoft Defender for Endpoint P2 license alone, together with standalone, per-device licenses for enterprise IoT monitoring added on
+    - A Microsoft Defender for Endpoint P2 license alone
 
 - Access to the Microsoft 365 Defender portal as a [Global administrator](../../active-directory/roles/permissions-reference.md#global-administrator)
 
-- An Azure subscription. If you need to, [sign up for a free account](https://azure.microsoft.com/free/).
-
-
-- The following user roles:
-
-    - **In Microsoft Entra ID**: [Global administrator](../../active-directory/roles/permissions-reference.md#global-administrator) for your Microsoft 365 tenant
-
-    - **In Azure RBAC**:  [Security admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner) for the Azure subscription that you're using for the integration
-
-## Obtain a trial license
+## Obtain a standalone, Enterprise IoT trial license
 
 This procedure describes how to start using a trial, standalone license for enterprise IoT monitoring, for customers who have a Microsoft Defender for Endpoint P2 license only.
 
@@ -46,11 +37,19 @@ Customers with ME5/E5 Security plans have support for enterprise IoT monitoring 
 
 **To start an Enterprise IoT trial**:
 
-1. Go to the [Microsoft 365 admin center](https://portal.office.com/AdminPortal/Home#/catalog) > **Trials**.
+1. Go to the [Microsoft 365 admin center](https://portal.office.com/AdminPortal/Home#/catalog) > **Marketplace**.
 
-1. In the **Security trials** area, locate the **Secure your IoT devices with Defender for IoT** card.
+1. Search for the **Microsoft Defender for IoT - EIoT Device License - add-on** and filter the results by **Other services**. For example:
 
-1. Select **Learn more** > **Start trial**.
+    :::image type="content" source="media/enterprise-iot/eiot-standalone.png" alt-text="Screenshot of the Marketplace search results for the EIoT Device License.":::
+
+1. Under **Microsoft Defender for IoT - EIoT Device License - add-on**, select **Details**.
+
+1. On the **Microsoft Defender for IoT - EIoT Device License - add-on** page, select **Start free trial**. On the **Check out** page, select **Try now**.
+
+> [!TIP]
+> Make sure to [assign your licenses to specific users]/microsoft-365/admin/manage/assign-licenses-to-users to start using them.
+>
 
 For more information, see [Free trial](billing.md#free-trial).
 
@@ -94,9 +93,11 @@ Purchase standalone, per-device licenses if you're an ME5/E5 Security customer w
 
 1. Go to the [Microsoft 365 admin center](https://portal.office.com/AdminPortal/Home#/catalog) **Billing > Purchase services**. If you don't have this option, select **Marketplace** instead.
 
-1. Search for **Microsoft Defender for IoT** and locate the **Microsoft Defender for IoT - Enterprise IoT** item.
+1. Search for the **Microsoft Defender for IoT - EIoT Device License - add-on** and filter the results by **Other services**. For example:
 
-1. Enter the number of licenses you want to purchase and select **Details** > **Purchase**.
+    :::image type="content" source="media/enterprise-iot/eiot-standalone.png" alt-text="Screenshot of the Marketplace search results for the EIoT Device License.":::
+
+1. On the **Microsoft Defender for IoT - EIoT Device License - add-on** page, enter your selected license quantity, select a billing frequency, and then select **Buy**.
 
 For more information, see the [Microsoft 365 admin center help](/microsoft-365/admin/).
 
@@ -139,4 +140,3 @@ For more information, see:
 - [Manage sensors with Defender for IoT in the Azure portal](how-to-manage-sensors-on-the-cloud.md)
 - [Create an additional Azure subscription](../../cost-management-billing/manage/create-subscription.md)
 - [Upgrade your Azure subscription](../../cost-management-billing/manage/upgrade-azure-subscription.md)
--
