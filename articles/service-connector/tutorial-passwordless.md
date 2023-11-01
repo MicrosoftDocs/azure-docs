@@ -65,7 +65,7 @@ Then you can check the log or call the application to see if it can connect to t
 
 #### Permission
 
-If you encounter any permission-related errors, confirm the Azure CLI signed-in user with the command `az account show`. Make sure you log in with the correct account. Next, confirm that you have the following permissions that may be required to create a passwordless connection with Service Connector.
+If you encounter any permission-related errors, confirm the Azure CLI signed-in user with the command `az account show`. Make sure you log in with the correct account. Next, confirm that you have the following permissions that might be required to create a passwordless connection with Service Connector.
 
 ::: zone pivot="postgresql"
 
@@ -120,7 +120,7 @@ Service Connector needs to access Microsoft Entra ID to get information of your 
 az ad signed-in-user show
 ```
 
-If you don't log in interactively, you may also get the error and `Interactive authentication is needed`. To resolve the error, log in with the `az login` command.
+If you don't log in interactively, you might also get the error and `Interactive authentication is needed`. To resolve the error, log in with the `az login` command.
 
 <a name='connect-to-database-with-azure-active-directory-authentication'></a>
 
