@@ -70,7 +70,7 @@ The following commands delete your volumes. `ForceDelete false` and `--x-ms-forc
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Remove-AzElasticSanVolume -ResourceGroupName $resourceGroupName -ElasticSanName $sanName -VolumeGroupName $volumeGroupName -Name $volumeName -ForceDelete false DeleteSnapshot false
+Remove-AzElasticSanVolume -ResourceGroupName $resourceGroupName -ElasticSanName $sanName -VolumeGroupName $volumeGroupName -Name $volumeName -ForceDelete false -DeleteSnapshot false
 ```
 
 # [Azure CLI](#tab/azure-cli)
