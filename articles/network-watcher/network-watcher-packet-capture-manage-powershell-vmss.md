@@ -16,7 +16,6 @@ ms.custom: devx-track-azurepowershell, engagement-fy23
 
 > [!div class="op_single_selector"]
 > - [Azure portal](network-watcher-packet-capture-manage-portal-vmss.md)
-> - [Azure REST API](network-watcher-packet-capture-manage-rest-vmss.md)
 > - [PowerShell](network-watcher-packet-capture-manage-powershell-vmss.md)
 
 
