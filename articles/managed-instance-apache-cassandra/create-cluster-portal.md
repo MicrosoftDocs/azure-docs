@@ -54,10 +54,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
    > - Microsoft Entra ID
    > - Azure Security
 
-   * **Auto Replicate** - Choose the form of auto-replication to be utilized.
-
-   :::image type="content" source="./media/create-cluster-portal/auto-replicate.png" alt-text="Select referred option from the drop down." lightbox="./media/create-cluster-portal/auto-replicate.png" border="true":::
-
+   * **Auto Replicate** - Choose the form of auto-replication to be utilized. [Learn more](#turnkey-replication)
     * **Schedule Event Strategy** - The strategy to be used by the cluster for scheduled events.
     
     > [!TIP]
@@ -226,10 +223,10 @@ The service allows update to Cassandra YAML configuration on a datacenter via th
    > - rpc_address
    > - rpc_interface 
 
-## Update Cassandra Version
+## Update Cassandra version
 
 > [!IMPORTANT]
-> Cassandra 5.0 and Turnkey Version Updates, are in public preview.
+> Cassandra 4.1, 5.0 and Turnkey Version Updates, are in public preview.
 > These features are provided without a service level agreement, and it's not recommended for production workloads.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -241,12 +238,36 @@ You have the option to conduct in-place major version upgrades directly from the
 
 1. Select the Cassandra version from the dropdown.
 
-> [!WARNING]
-> Do not skip versions. We recommend to update only from one version to another example 3.11 to 4.0, 4.0 to 4.1.
+    > [!WARNING]
+    > Do not skip versions. We recommend to update only from one version to another example 3.11 to 4.0, 4.0 to 4.1.
 
    :::image type="content" source="./media/create-cluster-portal/cluster-version.png" alt-text="Screenshot of selecting cassandra version ." lightbox="./media/create-cluster-portal/cluster-version.png" border="true":::
 
 1. Click on update to save.
+
+
+### Turnkey replication
+
+Cassandra 5.0 introduces a streamlined approach for deploying multi-region clusters, offering enhanced convenience and efficiency. Using turnkey replication functionality, setting up and managing multi-region clusters has become more accessible, allowing for smoother integration and operation across distributed environments. This update significantly reduces the complexities traditionally associated with deploying and maintaining multi-region configurations, allowing users to leverage Cassandra's capabilities with greater ease and effectiveness.
+
+:::image type="content" source="./media/create-cluster-portal/auto-replicate.png" alt-text="Select referred option from the drop down." lightbox="./media/create-cluster-portal/auto-replicate.png" border="true":::
+
+> [!TIP]
+> - None: Auto replicate is set to none.
+> - SystemKeyspaces: Auto-replicate all system keyspaces (system_auth, system_traces, system_auth)
+> - AllKeyspaces: Auto-replicate all keyspaces and monitor if new keyspaces are created and then apply auto-replicate settings automatically.
+
+#### Auto-Replication Scenarios
+
+* In the event of adding a new data center, the auto-replicate feature in Cassandra will seamlessly execute `nodetool rebuild` to ensure the successful replication of data across the added data center.
+* Removing a data center will trigger an automatic removal of the specific data center from the keyspaces.
+
+For external data centers, such as those hosted on-premise, they can be included in the keyspaces through the utilization of the external data center property. This enables Cassandra to incorporate these external data centers as sources for the rebuilding process.
+
+> [!WARNING]
+> Setting auto-replicate to AllKeyspaces will change your keyspaces replication to include 
+> `WITH REPLICATION = { 'class' : 'NetworkTopologyStrategy', 'on-prem-datacenter-1' : 3, 'mi-datacenter-1': 3 }`
+> If this is not the topology you want, you will need to use SystemKeyspaces, adjust them yourself, and run `nodetool rebuild` manually on the Azure Managed Instance for Apache Cassandra cluster.
 
 ## De-allocate cluster
 
@@ -322,6 +343,34 @@ If you want to implement client-to-node certificate authentication or mutual Tra
      --cluster-name $clusterName \
      --client-certificates /usr/csuser/clouddrive/rootCert.pem /usr/csuser/clouddrive/intermediateCert.pem
    ```
+
+### Turnkey Replication
+
+Cassandra 5.0 also makes it easier to deploy multi-region clusters with turnkey replication.
+None
+System_Keyspaces: Auto-replicate all system keyspaces
+All_Keyspaces: Auto Replicate All Keyspaces and monitor if new keyspaces are created and then apply auto-replicate settings automaticlaly.
+
+In the case of you adding a new data center auto-replicate will automatically run nodetool rebuild to make sure the data is successfully replicated.
+
+In the case of removing a data center it will automaticlaly remove the data center from the keyspaces.
+
+If you are havign external datcenters (e.g. on premise) it will also add those to the keyspaces, if they are specified in the external dataceter property.
+
+Warning: This will change your keyspaces definition dending on which Auto Replication yo sleected to include
+WITH REPLICATION = { 'class' : 'NetworkTopologyStrategy', 'on-prem-datacenter-1' : 3, 'mi-datacenter-1': 3 }
+If this is not the topology you want, you will need to adjust thiem yourself and run nodetool rebuild manually on the Cassandra MI cluster
+
+
+None
+SystemKeyspaces: Auto-replicate all system keyspaces (system_auth, system_traces, system_auth)
+AllKeyspaces: Auto-replicate all keyspaces and monitor if new keyspaces are created and then apply auto-replicate settings automatically.
+In the case of you adding a new data center auto-replicate will automatically run nodetool rebuild to make sure the data is successfully replicated.
+In the case of removing a data center it will automatically remove the data center from the keyspaces.
+If you have external datacenters (e.g. on premise) it will also add those to the keyspaces and use them as a source for rebuild. They can be specified in the external datacenter property.
+Warning: This will change your keyspaces replication if you pick AllKeyspaces to include
+WITH REPLICATION = { 'class' : 'NetworkTopologyStrategy', 'on-prem-datacenter-1' : 3, 'mi-datacenter-1': 3 }
+If this is not the topology you want, you will need to use SystemKeyspaces, adjust them yourself, and run nodetool rebuild manually on the Cassandra MI cluster.
 
 
 ## Clean up resources

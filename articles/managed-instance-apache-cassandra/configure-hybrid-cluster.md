@@ -86,9 +86,15 @@ python3 client_configurator.py --subscription-id <subcriptionId> --cluster-resou
 
 * Once Cassandra has finished restarting on all nodes, check `nodetool status`. Both datacenters should appear in the list, with their nodes in the UN (Up/Normal) state.
 
-* From your Azure Managed Instance for Apache Cassandra, you can then select `AllKeyspaces` to have every new data center automatically replicated with all your data.
+* From your Azure Managed Instance for Apache Cassandra, you can then select `AllKeyspaces` to change the replication settings in your Keyspace schema and start the migration process to Cassandra Managed Instance cluster.
 
    :::image type="content" source="./media/create-cluster-portal/cluster-version.png" alt-text="Screenshot of selecting all key spaces." lightbox="./media/create-cluster-portal/cluster-version.png" border="true":::
+
+> [!WARNING]
+> This will change all your keyspaces definition to include 
+> `WITH REPLICATION = {  'class' : 'NetworkTopologyStrategy',  'on-prem-datacenter-1' : 3, 'mi-datacenter-1': 3 }`.
+> If this is not the topology you want, you will need to adjust it and run `nodetool rebuild` manually on the Cassandra Managed Instance cluster.
+> Learn more about [Auto-Replication](https://aka.ms/auto-replication)
 
 * Update and monitor data replication progress by selecting the `Data Center` pane
 
