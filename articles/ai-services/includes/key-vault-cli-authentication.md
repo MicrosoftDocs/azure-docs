@@ -11,7 +11,7 @@ ms.manager: nitinme
 ms.custom: include
 ---
 
-Before you can grant access to your key vault, you must authenticate with your Azure Active Directory user name and password. 
+Before you can grant access to your key vault, you must authenticate with your Microsoft Entra user name and password. 
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -47,7 +47,7 @@ Create an access policy for your key vault that grants secret permissions to you
 
 # [Azure CLI](#tab/azure-cli)
 
-To set the access policy, run the [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy) command. Replace `Your-Key-Vault-Name` with the name of your key vault. Replace `user@domain.com` with your Azure Active Directory user name.
+To set the access policy, run the [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy) command. Replace `Your-Key-Vault-Name` with the name of your key vault. Replace `user@domain.com` with your Microsoft Entra user name.
 
 ```azurecli-interactive
 az keyvault set-policy --name Your-Key-Vault-Name --upn user@domain.com --secret-permissions delete get list set purge
@@ -55,7 +55,7 @@ az keyvault set-policy --name Your-Key-Vault-Name --upn user@domain.com --secret
 
 # [PowerShell](#tab/powershell)
 
-To set the access policy, run the [Set-AzKeyVaultAccessPolicy](/powershell/module/az.accounts/set-azcontext) command. Replace `Your-Key-Vault-Name` with the name of your key vault. Replace `user@domain.com` with your Azure Active Directory user name.
+To set the access policy, run the [Set-AzKeyVaultAccessPolicy](/powershell/module/az.accounts/set-azcontext) command. Replace `Your-Key-Vault-Name` with the name of your key vault. Replace `user@domain.com` with your Microsoft Entra user name.
 
 ```powershell
 Set-AzKeyVaultAccessPolicy -VaultName 'Your-Key-Vault-Name' -UserPrincipalName 'user@domain.com' -PermissionsToSecrets delete,get,list,set,purge -PassThru

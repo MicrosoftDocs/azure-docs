@@ -18,8 +18,8 @@ These are the data sources from which the UEBA engine collects and analyzes data
 
 | Data source | Events |
 | ----------- | ------ |
-| **Azure Active Directory**<br>Sign-in logs | All |
-| **Azure Active Directory**<br>Audit logs | ApplicationManagement<br>DirectoryManagement<br>GroupManagement<br>Device<br>RoleManagement<br>UserManagementCategory |
+| **Microsoft Entra ID**<br>Sign-in logs | All |
+| **Microsoft Entra ID**<br>Audit logs | ApplicationManagement<br>DirectoryManagement<br>GroupManagement<br>Device<br>RoleManagement<br>UserManagementCategory |
 | **Azure Activity logs** | Authorization<br>AzureActiveDirectory<br>Billing<br>Compute<br>Consumption<br>KeyVault<br>Devices<br>Network<br>Resources<br>Intune<br>Logic<br>Sql<br>Storage |
 | **Windows Security events**<br>*WindowsEvent* or<br>*SecurityEvent* | 4624: An account was successfully logged on<br>4625: An account failed to log on<br>4648: A logon was attempted using explicit credentials<br>4672: Special privileges assigned to new logon<br>4688: A new process has been created |
 
@@ -31,13 +31,13 @@ This section describes the enrichments UEBA adds to Microsoft Sentinel entities,
 
     The following three dynamic fields from the BehaviorAnalytics table are described in the [entity enrichments dynamic fields](#entity-enrichments-dynamic-fields) section below.
 
-    - The [UsersInsights](#usersinsights-field) and  [DevicesInsights](#devicesinsights-field) fields contain entity information from Active Directory / Azure AD and Microsoft Threat Intelligence sources.
+    - The [UsersInsights](#usersinsights-field) and  [DevicesInsights](#devicesinsights-field) fields contain entity information from Active Directory / Microsoft Entra ID and Microsoft Threat Intelligence sources.
 
     - The [ActivityInsights](#activityinsights-field) field contains entity information based on the behavioral profiles built by Microsoft Sentinel's entity behavior analytics. 
 
         <a name="baseline-explained"></a>User activities are analyzed against a baseline that is dynamically compiled each time it is used. Each activity has its defined lookback period from which the dynamic baseline is derived. The lookback period is specified in the [**Baseline**](#activityinsights-field) column in this table.
 
-- The **IdentityInfo** table is where identity information synchronized to UEBA from Azure Active Directory (and from on-premises Active Directory via Microsoft Defender for Identity) is stored.
+- The **IdentityInfo** table is where identity information synchronized to UEBA from Microsoft Entra ID (and from on-premises Active Directory via Microsoft Defender for Identity) is stored.
 
 ### BehaviorAnalytics table
 
@@ -84,7 +84,7 @@ The following table describes the enrichments featured in the **UsersInsights** 
 | **Account display name**<br>*(AccountDisplayName)* | The account display name of the user. | Admin, Hayden Cook |
 | **Account domain**<br>*(AccountDomain)* | The account domain name of the user. |  |
 | **Account object ID**<br>*(AccountObjectID)* | The account object ID of the user. | a58df659-5cab-446c-9dd0-5a3af20ce1c2 |
-| **Blast radius**<br>*(BlastRadius)* | The blast radius is calculated based on several factors: the position of the user in the org tree, and the user's Azure Active Directory roles and permissions. User must have *Manager* property populated in Azure Active Directory for *BlastRadius* to be calculated. | Low, Medium, High |
+| **Blast radius**<br>*(BlastRadius)* | The blast radius is calculated based on several factors: the position of the user in the org tree, and the user's Microsoft Entra roles and permissions. User must have *Manager* property populated in Microsoft Entra ID for *BlastRadius* to be calculated. | Low, Medium, High |
 | **Is dormant account**<br>*(IsDormantAccount)* | The account has not been used for the past 180 days. | True, False |
 | **Is local admin**<br>*(IsLocalAdmin)* | The account has local administrator privileges. | True, False |
 | **Is new account**<br>*(IsNewAccount)* | The account was created within the past 30 days. | True, False |
@@ -195,22 +195,22 @@ The following tables describe the enrichments featured in the **ActivityInsights
 | **Similar action wasn't performed in the past**<br>*(SimilarActionWasn'tPerformedInThePast)* | 30 | No action in the same resource provider was performed by the user. | True, False |
 | **Source IP location**<br>*(SourceIPLocation)* | *N/A* | The country resolved from the source IP of the action. | [Surrey, England] |
 | **Uncommon high volume of operations**<br>*(UncommonHighVolumeOfOperations)* | 7 | A user performed a burst of similar operations within the same provider | True, False |
-| **Unusual number of Azure AD conditional access failures**<br>*(UnusualNumberOfAADConditionalAccessFailures)* | 5 | An unusual number of users failed to authenticate due to conditional access | True, False |
+| **Unusual number of Microsoft Entra Conditional Access failures**<br>*(UnusualNumberOfAADConditionalAccessFailures)* | 5 | An unusual number of users failed to authenticate due to conditional access | True, False |
 | **Unusual number of devices added**<br>*(UnusualNumberOfDevicesAdded)* | 5 | A user added an unusual number of devices. | True, False |
 | **Unusual number of devices deleted**<br>*(UnusualNumberOfDevicesDeleted)* | 5 | A user deleted an unusual number of devices. | True, False |
 | **Unusual number of users added to group**<br>*(UnusualNumberOfUsersAddedToGroup)* | 5 | A user added an unusual number of users to a group. | True, False |
 
 ### IdentityInfo table
 
-After you [enable UEBA](enable-entity-behavior-analytics.md) for your Microsoft Sentinel workspace, data from your Azure Active Directory is synchronized to the **IdentityInfo** table in Log Analytics for use in Microsoft Sentinel. You can embed user data synchronized from your Azure AD in your analytics rules to enhance your analytics to fit your use cases and reduce false positives.
+After you [enable UEBA](enable-entity-behavior-analytics.md) for your Microsoft Sentinel workspace, data from your Microsoft Entra ID is synchronized to the **IdentityInfo** table in Log Analytics for use in Microsoft Sentinel. You can embed user data synchronized from your Microsoft Entra ID in your analytics rules to enhance your analytics to fit your use cases and reduce false positives.
 
 While the initial synchronization may take a few days, once the data is fully synchronized:
 
-- Changes made to your user profiles in Azure AD are updated in the **IdentityInfo** table within 15 minutes.
+- Changes made to your user profiles in Microsoft Entra ID are updated in the **IdentityInfo** table within 15 minutes.
 
-- Group and role information is synchronized between the **IdentityInfo** table and Azure AD daily.
+- Group and role information is synchronized between the **IdentityInfo** table and Microsoft Entra ID daily.
 
-- Every 14 days, Microsoft Sentinel re-synchronizes with your entire Azure AD to ensure that stale records are fully updated.
+- Every 14 days, Microsoft Sentinel re-synchronizes with your entire Microsoft Entra ID to ensure that stale records are fully updated.
 
 - Default retention time in the **IdentityInfo** table is 30 days.
 
@@ -225,30 +225,30 @@ The following table describes the user identity data included in the **IdentityI
 
 | Field                           | Type     | Description                                                |
 | ------------------------------- | -------- | ---------------------------------------------------------- |
-| **AccountCloudSID**             | string   | The Azure AD security identifier of the account.           |
+| **AccountCloudSID**             | string   | The Microsoft Entra security identifier of the account.           |
 | **AccountCreationTime**         | datetime | The date the user account was created (UTC).               |
 | **AccountDisplayName**          | string   | The display name of the user account.                      |
 | **AccountDomain**               | string   | The domain name of the user account.                       |
 | **AccountName**                 | string   | The user name of the user account.                         |
-| **AccountObjectId**             | string   | The Azure Active Directory object ID for the user account. |
+| **AccountObjectId**             | string   | The Microsoft Entra object ID for the user account. |
 | **AccountSID**                  | string   | The on-premises security identifier of the user account.   |
-| **AccountTenantId**             | string   | The Azure Active Directory tenant ID of the user account.  |
+| **AccountTenantId**             | string   | The Microsoft Entra tenant ID of the user account.  |
 | **AccountUPN**                  | string   | The user principal name of the user account.               |
 | **AdditionalMailAddresses**     | dynamic  | The additional email addresses of the user.                |
-| **AssignedRoles**               | dynamic  | The Azure AD roles the user account is assigned to.        |
-| **BlastRadius**                 | string   | A calculation based on the position of the user in the org tree and the user's Azure Active Directory roles and permissions. <br>Possible values: *Low, Medium, High* |
+| **AssignedRoles**               | dynamic  | The Microsoft Entra roles the user account is assigned to.        |
+| **BlastRadius**                 | string   | A calculation based on the position of the user in the org tree and the user's Microsoft Entra roles and permissions. <br>Possible values: *Low, Medium, High* |
 | **ChangeSource**                | string   | The source of the latest change to the entity. <br>Possible values:<br>- *AzureActiveDirectory*<br>- *ActiveDirectory*<br>- *UEBA*<br>- *Watchlist*<br>- *FullSync* |
 | **City**                        | string   | The city of the user account.                              |
 | **Country**                     | string   | The country of the user account.                           |
 | **DeletedDateTime**             | datetime | The date and time the user was deleted.                    |
 | **Department**                  | string   | The department of the user account.                        |
 | **GivenName**                   | string   | The given name of the user account.                        |
-| **GroupMembership**             | dynamic  | Azure AD Groups where the user account is a member.        |
-| **IsAccountEnabled**            | bool     | An indication as to whether the user account is enabled in Azure AD or not. |
+| **GroupMembership**             | dynamic  | Microsoft Entra groups where the user account is a member.        |
+| **IsAccountEnabled**            | bool     | An indication as to whether the user account is enabled in Microsoft Entra ID or not. |
 | **JobTitle**                    | string   | The job title of the user account.                         |
 | **MailAddress**                 | string   | The primary email address of the user account.             |
 | **Manager**                     | string   | The manager alias of the user account.                     |
-| **OnPremisesDistinguishedName** | string   | The Azure AD distinguished name (DN). A distinguished name is a sequence of relative distinguished names (RDN), connected by commas. |
+| **OnPremisesDistinguishedName** | string   | The Microsoft Entra ID distinguished name (DN). A distinguished name is a sequence of relative distinguished names (RDN), connected by commas. |
 | **Phone**                       | string   | The phone number of the user account.                      |
 | **SourceSystem**                | string   | The system where the user is managed. <br>Possible values:<br>- *AzureActiveDirectory*<br>- *ActiveDirectory*<br>- *Hybrid* |
 | **State**                       | string   | The geographical state of the user account.                |
@@ -258,7 +258,7 @@ The following table describes the user identity data included in the **IdentityI
 | **TimeGenerated**               | datetime | The time when the event was generated (UTC).               |
 | **Type**                        | string   | The name of the table.                                     |
 | **UserAccountControl**          | dynamic  | Security attributes of the user account in the AD domain. <br> Possible values (may contain more than one):<br>- *AccountDisabled*<br>- *HomedirRequired*<br>- *AccountLocked*<br>- *PasswordNotRequired*<br>- *CannotChangePassword*<br>- *EncryptedTextPasswordAllowed*<br>- *TemporaryDuplicateAccount*<br>- *NormalAccount*<br>- *InterdomainTrustAccount*<br>- *WorkstationTrustAccount*<br>- *ServerTrustAccount*<br>- *PasswordNeverExpires*<br>- *MnsLogonAccount*<br>- *SmartcardRequired*<br>- *TrustedForDelegation*<br>- *DelegationNotAllowed*<br>- *UseDesKeyOnly*<br>- *DontRequirePreauthentication*<br>- *PasswordExpired*<br>- *TrustedToAuthenticationForDelegation*<br>- *PartialSecretsAccount*<br>- *UseAesKeys* |
-| **UserState**                   | string   | The current state of the user account in Azure AD.<br>Possible values:<br>- *Active*<br>- *Disabled*<br>- *Dormant*<br>- *Lockout* |
+| **UserState**                   | string   | The current state of the user account in Microsoft Entra ID.<br>Possible values:<br>- *Active*<br>- *Disabled*<br>- *Dormant*<br>- *Lockout* |
 | **UserStateChangedOn**          | datetime | The date of the last time the account state was changed (UTC). |
 | **UserType**                    | string   | The user type.                                             |
 
@@ -269,5 +269,3 @@ This document described the Microsoft Sentinel entity behavior analytics table s
 - Learn more about [entity behavior analytics](identify-threats-with-entity-behavior-analytics.md).
 - [Enable UEBA in Microsoft Sentinel](enable-entity-behavior-analytics.md).
 - [Put UEBA to use](investigate-with-ueba.md) in your investigations.
-
-

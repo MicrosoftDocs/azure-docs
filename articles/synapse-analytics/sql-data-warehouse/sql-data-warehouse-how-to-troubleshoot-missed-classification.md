@@ -132,11 +132,11 @@ EXEC sp_droprolemember '[Resource Class]', membername;
 
 ### Some administrative users are always mapped to smallrc workload group
 
-Consider a scenario for the Azure Synapse Workspace SQL Admin login, the Azure Synapse Azure Active Directory admin (user or group member), or a database owner. These users may still have a workload classifier or have been added to a resource class role other than smallrc. All queries executed by these user will still run on smallrc resource class, even though the user is mapped to a different resource class or workload group. 
+Consider a scenario for the Azure Synapse Workspace SQL Admin login, the Azure Synapse Microsoft Entra admin (user or group member), or a database owner. These users may still have a workload classifier or have been added to a resource class role other than smallrc. All queries executed by these user will still run on smallrc resource class, even though the user is mapped to a different resource class or workload group. 
 
 **Recommendation**: These administrative users can't change their default workload group. For more information, see [workload management with resource classes](resource-classes-for-workload-management.md#default-resource-class). It is recommended that critical or performance-sensitive workloads not run as one of these administrative users in the dedicated SQL pool.
 
-The Azure Synapse Workspace SQL Admin login and the Azure Synapse Azure Active Directory admin (user or group member) are specified in the Azure portal:
+The Azure Synapse Workspace SQL Admin login and the Azure Synapse Microsoft Entra admin (user or group member) are specified in the Azure portal:
 
 :::image type="content" source="./media/sql-data-warehouse-how-to-troubleshoot-missed-classification/identify-sql-admin.png" alt-text="Identifying the service admin by looking at the Workspace SQL Admin Login field" lightbox="./media/sql-data-warehouse-how-to-troubleshoot-missed-classification/identify-sql-admin.png":::
 

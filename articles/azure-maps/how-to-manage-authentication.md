@@ -13,7 +13,7 @@ custom.ms: subject-rbac-steps
 
 # Manage authentication in Azure Maps
 
-When you create an Azure Maps account, your client ID and shared keys are created automatically. These values are required for authentication when using either [Azure Active Directory (Azure AD)] or [Shared Key authentication].
+When you create an Azure Maps account, your client ID and shared keys are created automatically. These values are required for authentication when using either [Microsoft Entra ID] or [Shared Key authentication].
 
 ## Prerequisites
 
@@ -42,10 +42,10 @@ To view your Azure Maps authentication details:
 
 ## Choose an authentication category
 
-Depending on your application needs, there are specific pathways to application security. Azure AD defines specific authentication categories to support a wide range of authentication flows. To choose the best category for your application, see [application categories].
+Depending on your application needs, there are specific pathways to application security. Microsoft Entra ID defines specific authentication categories to support a wide range of authentication flows. To choose the best category for your application, see [application categories].
 
 > [!NOTE]
-> Understanding categories and scenarios will help you secure your Azure Maps application, whether you use Azure Active Directory or shared key authentication.
+> Understanding categories and scenarios will help you secure your Azure Maps application, whether you use Microsoft Entra ID or shared key authentication.
 
 ## How to add and remove managed identities
 
@@ -68,7 +68,7 @@ You can create a user-assigned managed identity before or after creating a map a
 
 You can remove a system-assigned identity by disabling the feature through the portal or the Azure Resource Manager template in the same way that it was created. User-assigned identities can be removed individually. To remove all identities, set the identity type to `"None"`.
 
-Removing a system-assigned identity in this way also deletes it from Azure AD. System-assigned identities are also automatically removed from Azure AD when the Azure Maps account is deleted.
+Removing a system-assigned identity in this way also deletes it from Microsoft Entra ID. System-assigned identities are also automatically removed from Microsoft Entra ID when the Azure Maps account is deleted.
 
 To remove all identities by using the Azure Resource Manager template, update this section:
 
@@ -83,17 +83,17 @@ To remove all identities by using the Azure Resource Manager template, update th
 This table outlines common authentication and authorization scenarios in Azure Maps. Each scenario describes a type of app that can be used to access Azure Maps REST API. Use the links to learn detailed configuration information for each scenario.
 
 > [!IMPORTANT]
-> For production applications, we recommend implementing Azure AD with Azure role-based access control (Azure RBAC).
+> For production applications, we recommend implementing Microsoft Entra ID with Azure role-based access control (Azure RBAC).
 
-| Scenario                                             | Authentication | Authorization | Development effort | Operational effort |
-| -----------------------------------------------------| -------------- | ------------- | ------------------ | ------------------ |
-| [Trusted daemon app or non-interactive client app]   | Shared Key     | N/A           | Medium             | High               |
-| [Trusted daemon or non-interactive client app]       | Azure AD       | High          | Low                | Medium             |
-| [Web single page app with interactive single-sign-on]| Azure AD       | High          | Medium             | Medium             |
-| [Web single page app with non-interactive sign-on]   | Azure AD       | High          | Medium             | Medium             |
-| [Web app, daemon app, or non-interactive sign-on app]| SAS Token      | High          | Medium             | Low                |
-| [Web application with interactive single-sign-on]    | Azure AD       | High          | High               | Medium             |
-| [IoT device or an input constrained application]     | Azure AD       | High          | Medium             | Medium             |
+| Scenario                                             | Authentication     | Authorization | Development effort | Operational effort |
+| -----------------------------------------------------| ------------------ | ------------- | ------------------ | ------------------ |
+| [Trusted daemon app or non-interactive client app]   | Shared Key         | N/A           | Medium             | High               |
+| [Trusted daemon or non-interactive client app]       | Microsoft Entra ID | High          | Low                | Medium             |
+| [Web single page app with interactive single-sign-on]| Microsoft Entra ID | High          | Medium             | Medium             |
+| [Web single page app with non-interactive sign-on]   | Microsoft Entra ID | High          | Medium             | Medium             |
+| [Web app, daemon app, or non-interactive sign-on app]| SAS Token          | High          | Medium             | Low                |
+| [Web application with interactive single-sign-on]    | Microsoft Entra ID | High          | High               | Medium             |
+| [IoT device or an input constrained application]     | Microsoft Entra ID | High          | Medium             | Medium             |
 
 ## View built-in Azure Maps role definitions
 
@@ -125,21 +125,21 @@ The results display the current Azure Maps role assignments.
 
 ## Request tokens for Azure Maps
 
-Request a token from the Azure AD token endpoint. In your Azure AD request, use the following details:
+Request a token from the Microsoft Entra token endpoint. In your Microsoft Entra ID request, use the following details:
 
-| Azure environment      | Azure AD token endpoint             | Azure resource ID              |
+| Azure environment      | Microsoft Entra token endpoint      | Azure resource ID              |
 | ---------------------- | ----------------------------------- | ------------------------------ |
 | Azure public cloud     | `https://login.microsoftonline.com` | `https://atlas.microsoft.com/` |
 | Azure Government cloud | `https://login.microsoftonline.us`  | `https://atlas.microsoft.com/` |
 
-For more information about requesting access tokens from Azure AD for users and service principals, see [Authentication scenarios for Azure AD]. To view specific scenarios, see [the table of scenarios].
+For more information about requesting access tokens from Microsoft Entra ID for users and service principals, see [Authentication scenarios for Microsoft Entra ID]. To view specific scenarios, see [the table of scenarios].
 
 ## Manage and rotate shared keys
 
 Your Azure Maps subscription keys are similar to a root password for your Azure Maps account. Always be careful to protect your subscription keys. Use Azure Key Vault to securely manage and rotate your keys. Avoid distributing access keys to other users, hard-coding them, or saving them anywhere in plain text that's accessible to others. If you believe that your keys may have been compromised, rotate them.
 
 > [!NOTE]
-> If possible, we recommend using Azure AD instead of Shared Key to authorize requests. Azure AD has better security than Shared Key, and it's easier to use.
+> If possible, we recommend using Microsoft Entra ID instead of Shared Key to authorize requests. Microsoft Entra ID has better security than Shared Key, and it's easier to use.
 
 ### Manually rotate subscription keys
 
@@ -166,15 +166,15 @@ Find the API usage metrics for your Azure Maps account:
 > [!div class="nextstepaction"]
 > [View usage metrics]
 
-Explore samples that show how to integrate Azure AD with Azure Maps:
+Explore samples that show how to integrate Microsoft Entra ID with Azure Maps:
 
 > [!div class="nextstepaction"]
-> [Azure AD authentication samples]
+> [Microsoft Entra authentication samples]
 
 [Azure portal]: https://portal.azure.com/
-[Azure AD authentication samples]: https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples
+[Microsoft Entra authentication samples]: https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples
 [View usage metrics]: how-to-view-api-usage.md
-[Authentication scenarios for Azure AD]: ../active-directory/develop/authentication-vs-authorization.md
+[Authentication scenarios for Microsoft Entra ID]: ../active-directory/develop/authentication-vs-authorization.md
 [the table of scenarios]: how-to-manage-authentication.md#choose-an-authentication-and-authorization-scenario
 [Trusted daemon app or non-interactive client app]: how-to-secure-daemon-app.md
 [Trusted daemon or non-interactive client app]: how-to-secure-daemon-app.md
@@ -185,7 +185,7 @@ Explore samples that show how to integrate Azure AD with Azure Maps:
 [IoT device or an input constrained application]: how-to-secure-device-code.md
 [Shared access signature (SAS) token authentication]: azure-maps-authentication.md#shared-access-signature-token-authentication
 [application categories]: ../active-directory/develop/authentication-flows-app-scenarios.md#application-categories
-[Azure Active Directory (Azure AD)]: ../active-directory/fundamentals/active-directory-whatis.md
+[Microsoft Entra ID]: ../active-directory/fundamentals/active-directory-whatis.md
 [Shared Key authentication]: azure-maps-authentication.md#shared-key-authentication
 [free account]: https://azure.microsoft.com/free/
 [managed identities for Azure resources]: ../active-directory/managed-identities-azure-resources/overview.md

@@ -427,8 +427,16 @@ You can choose to use the individual policies from the preceding policy initiati
 The initiatives or policies will apply to each virtual machine as it's created. A [remediation task](../../governance/policy/how-to/remediate-resources.md) deploys the policy definitions in the initiative to existing resources, so you can configure Azure Monitor Agent for any resources that were already created.
 
 When you create the assignment by using the Azure portal, you have the option of creating a remediation task at the same time. For information on the remediation, see [Remediate non-compliant resources with Azure Policy](../../governance/policy/how-to/remediate-resources.md).
+<!-- convertborder later -->
+:::image type="content" source="media/azure-monitor-agent-install/built-in-ama-dcr-remediation.png" lightbox="media/azure-monitor-agent-install/built-in-ama-dcr-remediation.png" alt-text="Screenshot that shows initiative remediation for Azure Monitor Agent." border="false":::
 
-:::image type="content" source="media/azure-monitor-agent-install/built-in-ama-dcr-remediation.png" lightbox="media/azure-monitor-agent-install/built-in-ama-dcr-remediation.png" alt-text="Screenshot that shows initiative remediation for Azure Monitor Agent.":::
+## Frequently asked questions
+
+This section provides answers to common questions.
+
+### What impact does installing the Azure Arc Connected Machine agent have on my non-Azure machine?
+
+There's no impact to the machine after the Azure Arc Connected Machine agent is installed. It hardly uses system or network resources and is designed to have a low footprint on the host where it's run.    
 
 ## Next steps
 

@@ -40,7 +40,7 @@ Before you proceed with the following procedures, be sure to complete the first 
 
 1. Configure the Azure Machine Learning Spark notebook.
 
-   You can create a new notebook and execute the instructions in this tutorial step by step. You can also open and run the existing notebook named *3. Experiment and train models using features.ipynb* from the *featurestore_sample/notebooks* directory. You can choose *sdk_only* or *sdk_and_cli*. Keep this tutorial open and refer to it for documentation links and more explanation.
+   You can create a new notebook and execute the instructions in this tutorial step by step. You can also open and run the existing notebook named *2. Experiment and train models using features.ipynb* from the *featurestore_sample/notebooks* directory. You can choose *sdk_only* or *sdk_and_cli*. Keep this tutorial open and refer to it for documentation links and more explanation.
 
    1. On the top menu, in the **Compute** dropdown list, select **Serverless Spark Compute** under **Azure Machine Learning Serverless Spark**.
 
@@ -69,15 +69,15 @@ Before you proceed with the following procedures, be sure to complete the first 
 
       1. Install the Azure Machine Learning extension.
 
-         [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/3. Experiment and train models using features.ipynb?name=install-ml-ext-cli)]
+         [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/2. Experiment and train models using features.ipynb?name=install-ml-ext-cli)]
 
       1. Authenticate.
 
-         [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/3. Experiment and train models using features.ipynb?name=auth-cli)]
+         [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/2. Experiment and train models using features.ipynb?name=auth-cli)]
 
       1. Set the default subscription.
 
-         [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/3. Experiment and train models using features.ipynb?name=set-default-subs-cli)]
+         [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/2. Experiment and train models using features.ipynb?name=set-default-subs-cli)]
 
       ---
 

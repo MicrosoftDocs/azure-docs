@@ -63,7 +63,7 @@ To prepare the notebook environment for development:
 1. Run the tutorial
 
    * Option 1: Create a new notebook, and execute the instructions in this document, step by step.
-   * Option 2: Open existing notebook `featurestore_sample/notebooks/sdk_only/5. Enable online store and run online inference.ipynb`. You may keep this document open and refer to it for more explanation and documentation links.
+   * Option 2: Open existing notebook `featurestore_sample/notebooks/sdk_only/4. Enable online store and run online inference.ipynb`. You may keep this document open and refer to it for more explanation and documentation links.
 
        1. Select **Serverless Spark Compute** in the top navigation **Compute** dropdown. This operation might take one to two minutes. Wait for a status bar in the top to display **Configure session**.
        1. Select **Configure session** in the top status bar.
@@ -116,10 +116,6 @@ This tutorial uses Azure Cache for Redis as the online materialization store. Yo
 1. Retrieve the user-assigned managed identity (UAI) that the feature store used for materialization. This code cell retrieves the principal ID, client ID, and ARM ID property values for the UAI used by the feature store for data materialization.
 
       [!notebook-python[] (~/azureml-examples-temp-fix/sdk/python/featurestore_sample/notebooks/sdk_only/5. Enable online store and run online inference.ipynb?name=retrieve-uai)]
-
-1. Grant the `Contributor` role to the UAI on the Azure Cache for Redis. This role is required to write data into Redis during materialization. This code cell grants the `Contributor` role to the UAI on the Azure Cache for Redis.
-
-      [!notebook-python[] (~/azureml-examples-temp-fix/sdk/python/featurestore_sample/notebooks/sdk_only/5. Enable online store and run online inference.ipynb?name=uai-redis-rbac)]
 
 ## Attach online materialization store to the feature store
 

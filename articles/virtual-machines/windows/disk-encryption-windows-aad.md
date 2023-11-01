@@ -1,5 +1,5 @@
 ---
-title: Azure Disk Encryption with Azure AD for Windows VMs (previous release)
+title: Azure Disk Encryption with Microsoft Entra ID for Windows VMs (previous release)
 description: This article provides instructions on enabling Microsoft Azure Disk Encryption for Windows IaaS VMs.
 author: msmbaldwin
 ms.service: virtual-machines
@@ -11,11 +11,11 @@ ms.date: 03/15/2019
 ms.custom: seodec18, devx-track-azurepowershell, devx-track-azurecli
 ---
 
-# Azure Disk Encryption with Azure AD for Windows VMs (previous release)
+# Azure Disk Encryption with Microsoft Entra ID for Windows VMs (previous release)
 
 **Applies to:** :heavy_check_mark: Windows VMs 
 
-**The new release of Azure Disk Encryption eliminates the requirement for providing an Azure AD application parameter to enable VM disk encryption. With the new release, you are no longer required to provide Azure AD credentials during the enable encryption step. All new VMs must be encrypted without the Azure AD application parameters using the new release. To view instructions to enable VM disk encryption using the new release, see [Azure Disk Encryption for Windows VMS](disk-encryption-windows.md). VMs that were already encrypted with Azure AD application parameters are still supported and should continue to be maintained with the AAD syntax.**
+**The new release of Azure Disk Encryption eliminates the requirement for providing a Microsoft Entra application parameter to enable VM disk encryption. With the new release, you are no longer required to provide Microsoft Entra credentials during the enable encryption step. All new VMs must be encrypted without the Microsoft Entra application parameters using the new release. To view instructions to enable VM disk encryption using the new release, see [Azure Disk Encryption for Windows VMS](disk-encryption-windows.md). VMs that were already encrypted with Microsoft Entra application parameters are still supported and should continue to be maintained with the Microsoft Entra syntax.**
 
 
 You can enable many disk-encryption scenarios, and the steps may vary according to the scenario. The following sections cover the scenarios in greater detail for Windows IaaS VMs. Before you can use disk encryption, the [Azure Disk Encryption prerequisites](disk-encryption-overview-aad.md) need to be completed. 
@@ -49,7 +49,7 @@ You can enable disk encryption on new IaaS Windows VM from the Marketplace in Az
      -  Select the VM, then click on **Disks** under the **Settings** heading to verify encryption status in the portal. In the chart under **Encryption**, you'll see if it's enabled. 
            ![Azure portal - Disk Encryption Enabled](../media/disk-encryption/disk-encryption-fig2.png)
 
-The following table lists the Resource Manager template parameters for new VMs from the Marketplace scenario using Azure AD client ID:
+The following table lists the Resource Manager template parameters for new VMs from the Marketplace scenario using Microsoft Entra client ID:
 
 | Parameter | Description | 
 | --- | --- |
@@ -59,8 +59,8 @@ The following table lists the Resource Manager template parameters for new VMs f
 | vmSize | Size of the VM. Currently, only Standard A, D, and G series are supported. |
 | virtualNetworkName | Name of the VNet that the VM NIC should belong to. |
 | subnetName | Name of the subnet in the VNet that the VM NIC should belong to. |
-| AADClientID | Client ID of the Azure AD application that has permissions to write secrets to your key vault. |
-| AADClientSecret | Client secret of the Azure AD application that has permissions to write secrets to your key vault. |
+| AADClientID | Client ID of the Microsoft Entra application that has permissions to write secrets to your key vault. |
+| AADClientSecret | Client secret of the Microsoft Entra application that has permissions to write secrets to your key vault. |
 | keyVaultURL | URL of the key vault that the BitLocker key should be uploaded to. You can get it by using the cmdlet `(Get-AzKeyVault -VaultName "MyKeyVault" -ResourceGroupName "MyKeyVaultResourceGroupName").VaultURI` or the Azure CLI `az keyvault show --name "MySecureVault" --query properties.vaultUri` |
 | keyEncryptionKeyURL | URL of the key encryption key that's used to encrypt the generated BitLocker key (optional). </br> </br>KeyEncryptionKeyURL is an optional parameter. You can bring your own KEK to further safeguard the data encryption key (Passphrase secret) in your key vault. |
 | keyVaultResourceGroup | Resource group of the key vault. |
@@ -75,7 +75,7 @@ In this scenario, you can enable encryption by using a template, PowerShell cmdl
 Use the [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) cmdlet to enable encryption on a running IaaS virtual machine in Azure. 
 For information about enabling encryption with Azure Disk Encryption by using PowerShell cmdlets, see the blog posts [Explore Azure Disk Encryption with Azure PowerShell - Part 1](/archive/blogs/azuresecurity/explore-azure-disk-encryption-with-azure-powershell) and [Explore Azure Disk Encryption with Azure PowerShell - Part 2](/archive/blogs/azuresecurity/explore-azure-disk-encryption-with-azure-powershell-part-2).
 
--  **Encrypt a running VM using a client secret:** The script below initializes your variables and runs the Set-AzVMDiskEncryptionExtension cmdlet. The resource group, VM, key vault, AAD app, and client secret should have already been created as prerequisites. Replace MyKeyVaultResourceGroup, MyVirtualMachineResourceGroup, MySecureVM, MySecureVault, My-AAD-client-ID, and My-AAD-client-secret with your values.
+-  **Encrypt a running VM using a client secret:** The script below initializes your variables and runs the Set-AzVMDiskEncryptionExtension cmdlet. The resource group, VM, key vault, Microsoft Entra app, and client secret should have already been created as prerequisites. Replace MyKeyVaultResourceGroup, MyVirtualMachineResourceGroup, MySecureVM, MySecureVault, My-AAD-client-ID, and My-AAD-client-secret with your values.
      ```azurepowershell
       $KVRGname = 'MyKeyVaultResourceGroup';
       $VMRGName = 'MyVirtualMachineResourceGroup';
@@ -165,12 +165,12 @@ You can enable disk encryption on existing or running IaaS Windows VMs in Azure 
 
 2. Select the subscription, resource group, resource group location, parameters, legal terms, and agreement. Click **Purchase** to enable encryption on the existing or running IaaS VM.
 
-The following table lists the Resource Manager template parameters for existing or running VMs that use an Azure AD client ID:
+The following table lists the Resource Manager template parameters for existing or running VMs that use a Microsoft Entra client ID:
 
 | Parameter | Description |
 | --- | --- |
-| AADClientID | Client ID of the Azure AD application that has permissions to write secrets to the key vault. |
-| AADClientSecret | Client secret of the Azure AD application that has permissions to write secrets to the key vault. |
+| AADClientID | Client ID of the Microsoft Entra application that has permissions to write secrets to the key vault. |
+| AADClientSecret | Client secret of the Microsoft Entra application that has permissions to write secrets to the key vault. |
 | keyVaultName | Name of the key vault that the BitLocker key should be uploaded to. You can get it by using the cmdlet `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` or the Azure CLI command `az keyvault list --resource-group "MySecureGroup"`|
 |  keyEncryptionKeyURL | URL of the key encryption key that's used to encrypt the generated BitLocker key. This parameter is optional if you select **nokek** in the UseExistingKek drop-down list. If you select **kek** in the UseExistingKek drop-down list, you must enter the _keyEncryptionKeyURL_ value. |
 | volumeType | Type of volume that the encryption operation is performed on. Valid values are _OS_, _Data_, and _All_. |
@@ -201,7 +201,7 @@ You can [add a new disk to a Windows VM using PowerShell](attach-disk-ps.md), or
 ### Enable encryption on a newly added disk with Azure PowerShell
 When using PowerShell to encrypt a new disk for Windows VMs, a new sequence version should be specified. The sequence version has to be unique. The script below generates a GUID for the sequence version. In some cases, a newly added data disk might be encrypted automatically by the Azure Disk Encryption extension. Auto encryption usually occurs when the VM reboots after the new disk comes online. This is typically caused because "All" was specified for the volume type when disk encryption previously ran on the VM. If auto encryption occurs on a newly added data disk, we recommend running the Set-AzVmDiskEncryptionExtension cmdlet again with new sequence version. If your new data disk is auto encrypted and you do not wish to be encrypted, decrypt all drives first then re-encrypt with a new sequence version specifying OS for the volume type. 
 
--  **Encrypt a running VM using a client secret:** The script below initializes your variables and runs the Set-AzVMDiskEncryptionExtension cmdlet. The resource group, VM, key vault, AAD app, and client secret should have already been created as prerequisites. Replace MyKeyVaultResourceGroup, MyVirtualMachineResourceGroup, MySecureVM, MySecureVault, My-AAD-client-ID, and My-AAD-client-secret with your values. This example uses "All" for the -VolumeType parameter, which includes both OS and Data volumes. If you only want to encrypt the OS volume, use "OS" for the -VolumeType parameter. 
+-  **Encrypt a running VM using a client secret:** The script below initializes your variables and runs the Set-AzVMDiskEncryptionExtension cmdlet. The resource group, VM, key vault, Microsoft Entra app, and client secret should have already been created as prerequisites. Replace MyKeyVaultResourceGroup, MyVirtualMachineResourceGroup, MySecureVM, MySecureVault, My-AAD-client-ID, and My-AAD-client-secret with your values. This example uses "All" for the -VolumeType parameter, which includes both OS and Data volumes. If you only want to encrypt the OS volume, use "OS" for the -VolumeType parameter. 
 
      ```azurepowershell
       $sequenceVersion = [Guid]::NewGuid();
@@ -259,8 +259,10 @@ https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id]
      ```
 
 
-## Enable encryption using Azure AD client certificate-based authentication.
-You can use client certificate authentication with or without KEK. Before using the PowerShell scripts, you should already have the certificate uploaded to the key vault and deployed to the VM. If you're using KEK too, the KEK should already exist. For more information, see the  [Certificate-based authentication for Azure AD](disk-encryption-key-vault-aad.md#certificate-based-authentication-optional) section of the prerequisites article.
+<a name='enable-encryption-using-azure-ad-client-certificate-based-authentication'></a>
+
+## Enable encryption using Microsoft Entra client certificate-based authentication.
+You can use client certificate authentication with or without KEK. Before using the PowerShell scripts, you should already have the certificate uploaded to the key vault and deployed to the VM. If you're using KEK too, the KEK should already exist. For more information, see the  [Certificate-based authentication for Microsoft Entra ID](disk-encryption-key-vault-aad.md#certificate-based-authentication-optional) section of the prerequisites article.
 
 
 ### Enable encryption using certificate-based authentication with Azure PowerShell

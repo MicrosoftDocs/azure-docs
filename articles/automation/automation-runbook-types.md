@@ -209,6 +209,7 @@ Following are the limitations of Python runbooks
 # [Python 3.8 (GA)](#tab/py38)
 
 - You must be familiar with Python scripting.
+- Source control integration isn't supported.
 - For Python 3.8 modules, use wheel files targeting cp38-amd64.
 - To use third-party libraries, you must [import the packages](python-packages.md) into the Automation account.
 - Using **Start-AutomationRunbook** cmdlet in PowerShell/PowerShell Workflow to start a Python 3.8 runbook doesn't work. You can use **Start-AzAutomationRunbook** cmdlet from Az.Automation module or **Start-AzureRmAutomationRunbook** cmdlet from AzureRm.Automation module to work around this limitation. 
@@ -219,6 +220,7 @@ Following are the limitations of Python runbooks
 # [Python 3.10 (preview)](#tab/py10)
 
 - For Python 3.10 (preview) modules, currently, only the wheel files targeting cp310 Linux OS are supported. [Learn more](./python-3-packages.md)
+- Source control integration isn't supported.
 - Custom packages for Python 3.10 (preview) are only validated during job runtime. Job is expected to fail if the package is not compatible in the runtime or if required dependencies of packages aren't imported into automation account.
 - Currently, Python 3.10 (preview) runbooks are only supported from Azure portal. Rest API and PowerShell aren't supported.
 

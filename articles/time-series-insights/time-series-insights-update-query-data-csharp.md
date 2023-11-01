@@ -28,7 +28,7 @@ This C# example demonstrates how to query data from the [Gen2 Data Access APIs](
 The sample code below demonstrates the following features:
 
 * Support for SDK auto-generation from [Azure AutoRest](https://github.com/Azure/AutoRest).
-* How to acquire an access token through Azure Active Directory using [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/).
+* How to acquire an access token through Microsoft Entra ID using [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/).
 * How to pass that acquired access token in the `Authorization` header of subsequent Data Access API requests.
 * The sample provides a console interface demonstrating how HTTP requests are made to the following:
   * [Gen2 Environments API](/rest/api/time-series-insights/reference-environments-apis)
@@ -47,7 +47,7 @@ The sample code below demonstrates the following features:
 Complete the following steps before you compile and run the sample code:
 
 1. [Provision a Gen2 Azure Time Series Insights](./how-to-create-environment-using-portal.md) environment.
-1. Configure your Azure Time Series Insights environment for Azure Active Directory as described in [Authentication and authorization](time-series-insights-authentication-and-authorization.md).
+1. Configure your Azure Time Series Insights environment for Microsoft Entra ID as described in [Authentication and authorization](time-series-insights-authentication-and-authorization.md).
 1. Run the [GenerateCode.bat](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/gen2-sample/csharp-tsi-gen2-sample/DataPlaneClient/GenerateCode.bat) as specified in the [Readme.md](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/gen2-sample/csharp-tsi-gen2-sample/DataPlaneClient/Readme.md) to generate the Azure Time Series Insights Gen2 client dependencies.
 1. Open the `TSIPreviewDataPlaneclient.sln` solution and set `DataPlaneClientSampleApp` as the default project in Visual Studio.
 1. Install the required project dependencies using the steps described [below](#project-dependencies) and compile the example to an executable `.exe` file.

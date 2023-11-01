@@ -349,7 +349,7 @@ The connection to Active Directory Federation Services (AD FS) on the server can
 
 #### Resolution
 
-You can resolve the issue for the Orchestrator sandbox by migrating your script to use the Azure Active Directory modules instead of the MSOnline module for PowerShell cmdlets. For more information, see [Migrating from Orchestrator to Azure Automation (Beta)](../automation-orchestrator-migration.md).
+You can resolve the issue for the Orchestrator sandbox by migrating your script to use the Microsoft Entra modules instead of the MSOnline module for PowerShell cmdlets. For more information, see [Migrating from Orchestrator to Azure Automation (Beta)](../automation-orchestrator-migration.md).
 
 ​If you want to continue to use the MSOnline module cmdlets, change your script to use [Invoke-Command](/powershell/module/microsoft.powershell.core/invoke-command). Specify values for the `ComputerName` and `Credential` parameters. 
 

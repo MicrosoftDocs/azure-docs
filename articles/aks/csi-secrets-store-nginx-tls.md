@@ -141,7 +141,7 @@ Depending on your scenario, you can choose to bind the certificate to either the
 
     > [!NOTE]
     > 
-    > - If not using Azure Active Directory (Azure AD) pod-managed identity as your method of access, remove the line with `--set controller.podLabels.aadpodidbinding=$AAD_POD_IDENTITY_NAME` .
+    > - If not using Microsoft Entra pod-managed identity as your method of access, remove the line with `--set controller.podLabels.aadpodidbinding=$AAD_POD_IDENTITY_NAME` .
     > 
     > - Also, binding the SecretProviderClass to a pod is required for the Secrets Store CSI Driver to mount it and generate the Kubernetes secret. See [Sync mounted content with a Kubernetes secret][az-keyvault-mirror-as-secret] .
 
@@ -504,7 +504,7 @@ We can now deploy a Kubernetes ingress resource referencing the secret.
 [aks-cluster-secrets-csi]: ./csi-secrets-store-driver.md
 [aks-akv-instance]: ./csi-secrets-store-driver.md#create-or-use-an-existing-azure-key-vault
 [az-key-vault-certificate-import]: /cli/azure/keyvault/certificate#az-keyvault-certificate-import
-[az-keyvault-mirror-as-secret]: ./csi-secrets-store-driver.md#sync-mounted-content-with-a-kubernetes-secret
+[az-keyvault-mirror-as-secret]: ./csi-secrets-store-configuration-options.md#sync-mounted-content-with-a-kubernetes-secret
 
 <!-- LINKS EXTERNAL -->
 [kubernetes-ingress-tls]: https://kubernetes.io/docs/concepts/services-networking/ingress/#tls

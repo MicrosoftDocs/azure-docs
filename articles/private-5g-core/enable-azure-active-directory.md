@@ -71,6 +71,16 @@ If your deployment contains multiple sites, you can use the same two redirect UR
     | **Distributed tracing redirect URI root** | Make a note of the following part of the redirect URI: **https://*\<local monitoring domain\>***. | `redirect_uri_root` |
     | **Packet core dashboards redirect URI root** | Make a note of the following part of the packet core dashboards redirect URI: **https://*\<local monitoring domain\>*/grafana**. | `root_url` |
 
+## Modify local access
+
+Go to the Azure portal and navigate to your site's **Packet Core Control Plane** resource. Select the blade's **Modify local access** tab.
+
+1. If the **Authentication type** is set to **Microsoft Entra ID**, continue to [Create Kubernetes Secret Objects](#create-kubernetes-secret-objects). 
+1. Otherwise:
+    1. Select **Microsoft Entra ID** from the **Authentication type** dropdown.
+    1. Select **Review**.
+    1. Select **Submit**.
+
 ## Create Kubernetes Secret Objects
 
 To support Microsoft Entra ID on Azure Private 5G Core applications, you'll need a YAML file containing Kubernetes secrets.

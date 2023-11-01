@@ -35,13 +35,13 @@ Before you start, make sure to follow the instructions in [Set up the PowerShell
 
 Azure Virtual Desktop uses Azure role-based access control (Azure RBAC) while publishing application groups to users or user groups. The Desktop Virtualization User role is assigned to the user or user group and the scope is the application group. This role gives the user special data access on the application group.
 
-Run the following cmdlet to add Azure Active Directory users to an application group:
+Run the following cmdlet to add Microsoft Entra users to an application group:
 
 ```powershell
 New-AzRoleAssignment -SignInName <userupn> -RoleDefinitionName "Desktop Virtualization User" -ResourceName <appgroupname> -ResourceGroupName <resourcegroupname> -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups'
 ```
 
-Run the following cmdlet to add Azure Active Directory user group to an application group:
+Run the following cmdlet to add Microsoft Entra user group to an application group:
 
 ```powershell
 New-AzRoleAssignment -ObjectId <usergroupobjectid> -RoleDefinitionName "Desktop Virtualization User" -ResourceName <appgroupname> -ResourceGroupName <resourcegroupname> -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups'

@@ -59,7 +59,7 @@ Do you have an existing workspace that you can use for Microsoft Sentinel?
 
   - **If you don't have any tenant-specific logs**, continue directly with [step 4](#step-4-splitting-billing--charge-back).
 
-  - **If you *are* collecting tenant-specific logs**, use a separate Microsoft Sentinel workspace for each Azure AD tenant. Continue with [step 4](#step-4-splitting-billing--charge-back) for other considerations.
+  - **If you *are* collecting tenant-specific logs**, use a separate Microsoft Sentinel workspace for each Microsoft Entra tenant. Continue with [step 4](#step-4-splitting-billing--charge-back) for other considerations.
 
     <a name="note1"></a>[Decision tree note #1](#decision-tree): Logs specific to tenant boundaries, such as from Office 365 and Microsoft Defender for Cloud, can only be stored in the workspace within the same tenant.
 

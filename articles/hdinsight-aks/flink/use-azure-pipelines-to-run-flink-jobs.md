@@ -1,16 +1,16 @@
 ---
-title: How to use Azure Pipelines with HDInsight on AKS - Flink
-description: Learn how to use Azure Pipelines with HDInsight on AKS - Flink
+title: How to use Azure Pipelines with Apache Flink® on HDInsight on AKS
+description: Learn how to use Azure Pipelines with Apache Flink®
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 09/25/2023
+ms.date: 10/27/2023
 ---
 
-# How to use Azure Pipelines with HDInsight on AKS - Flink
+# How to use Azure Pipelines with Apache Flink® on HDInsight on AKS
 
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
-In this article, you'll learn how to use Azure Pipelines with HDInsight on AKS to submit Flink jobs via the cluster's REST API. We guide you through the process using a sample YAML pipeline and a PowerShell script, both of which streamline the automation of the REST API interactions.
+In this article, you'll learn how to use Azure Pipelines with HDInsight on AKS to submit Flink jobs with the cluster's REST API. We guide you through the process using a sample YAML pipeline and a PowerShell script, both of which streamline the automation of the REST API interactions.
 
 
 ## Prerequisites
@@ -33,7 +33,7 @@ In this article, you'll learn how to use Azure Pipelines with HDInsight on AKS t
 
 ### Create a service principal for Azure Pipelines
 
-  Create [Azure AD Service Principal](/cli/azure/ad/sp/) to access Azure – Grant permission to access HDInsight on AKS Cluster with Contributor role, make a note of appId, password, and tenant from the response.
+  Create [Microsoft Entra service principal](/cli/azure/ad/sp/) to access Azure – Grant permission to access HDInsight on AKS Cluster with Contributor role, make a note of appId, password, and tenant from the response.
   ```
   az ad sp create-for-rbac -n <service_principal_name> --role Contributor --scopes <Flink Cluster Resource ID>`
   ```
@@ -43,6 +43,14 @@ In this article, you'll learn how to use Azure Pipelines with HDInsight on AKS t
   ```
   az ad sp create-for-rbac -n azure-flink-pipeline --role Contributor --scopes /subscriptions/abdc-1234-abcd-1234-abcd-1234/resourceGroups/myResourceGroupName/providers/Microsoft.HDInsight/clusterpools/hiloclusterpool/clusters/flinkcluster`
   ```
+
+### Reference
+
+- [Apache Flink Website](https://flink.apache.org/)
+
+> [!NOTE]
+> Apache, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).
+
 
 ### Create a key vault
 

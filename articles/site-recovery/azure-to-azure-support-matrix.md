@@ -29,8 +29,8 @@ This article summarizes support and prerequisites for disaster recovery of Azure
 --- | ---
 **Move vaults across resource groups** | Not supported.
 **Move compute/storage/network resources across resource groups** | Not supported.<br/><br/> If you move a VM or associated components such as storage/network after the VM is replicating, you need to disable and then re-enable replication for the VM.
-**Replicate Azure VMs from one subscription to another for disaster recovery** | Supported within the same Azure Active Directory tenant.
-**Migrate VMs across regions within supported geographical clusters (within and across subscriptions)** | Supported within the same Azure Active Directory tenant.
+**Replicate Azure VMs from one subscription to another for disaster recovery** | Supported within the same Microsoft Entra tenant.
+**Migrate VMs across regions within supported geographical clusters (within and across subscriptions)** | Supported within the same Microsoft Entra tenant.
 **Migrate VMs within the same region** | Not supported.
 **Azure Dedicated Hosts** | Not supported.
 

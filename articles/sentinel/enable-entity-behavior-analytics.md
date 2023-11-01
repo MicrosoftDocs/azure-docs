@@ -19,7 +19,7 @@ As Microsoft Sentinel collects logs and alerts from all of its connected data so
 
 To enable or disable this feature (these prerequisites are not required to use the feature):
 
-- Your user must be assigned the **Global Administrator** or **Security Administrator** roles in Azure AD.
+- Your user must be assigned the **Global Administrator** or **Security Administrator** roles in Microsoft Entra ID.
 
 - Your user must be assigned at least one of the following **Azure roles** ([Learn more about Azure RBAC](roles.md)):
     - **Microsoft Sentinel Contributor** at the workspace or resource group levels.
@@ -48,7 +48,7 @@ To enable or disable this feature (these prerequisites are not required to use t
 1. Mark the check boxes next to the Active Directory source types from which you want to synchronize user entities with Microsoft Sentinel.
 
     - **Active Directory** on-premises (Preview)
-    - **Azure Active Directory**
+    - **Microsoft Entra ID**
 
     To sync user entities from on-premises Active Directory, your Azure tenant must be onboarded to Microsoft Defender for Identity (either standalone or as part of Microsoft 365 Defender) and you must have the MDI sensor installed on your Active Directory domain controller. See [Microsoft Defender for Identity prerequisites](/defender-for-identity/prerequisites) for more information.
 

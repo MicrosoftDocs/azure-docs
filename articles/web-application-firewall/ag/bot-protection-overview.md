@@ -5,7 +5,7 @@ description: This article provides an overview of web application firewall (WAF)
 services: web-application-firewall
 author: winthrop28
 ms.service: web-application-firewall
-ms.date: 04/21/2022
+ms.date: 10/12/2023
 ms.author: victorh
 ms.topic: conceptual
 ---
@@ -18,7 +18,7 @@ You can enable a managed bot protection rule set for your WAF to block or log re
 
 ## Use with OWASP rulesets
 
-You can use the Bot Protection ruleset alongside any of the OWASP rulesets with the Application Gateway WAF v2 SKU. Only one OWASP ruleset can be used at any given time. The bot protection ruleset contains an additional rule that appears in its own ruleset. It's titled **Microsoft_BotManagerRuleSet_1.0**, and you can  enable or disable it like the other OWASP rules.
+You can use the Bot Protection ruleset alongside any of the OWASP rulesets with the Application Gateway WAF v2 SKU. Only one OWASP ruleset can be used at any given time. The bot protection ruleset contains another rule that appears in its own ruleset. It's titled **Microsoft_BotManagerRuleSet_1.0**, and you can  enable or disable it like the other OWASP rules.
 
 :::image type="content" source="../media/bot-protection-overview/bot-ruleset.png" alt-text="Screenshot show bot protection ruleset." lightbox="../media/bot-protection-overview/bot-ruleset.png":::
 

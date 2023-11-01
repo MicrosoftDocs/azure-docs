@@ -7,7 +7,7 @@ author: mrbullwinkle
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: conceptual
-ms.date: 10/06/2023
+ms.date: 10/13/2023
 ms.author: mbullwin
 ---
 
@@ -93,6 +93,11 @@ The default quota for models varies by model and region. Default quota limits ar
   <tr>  
     <td>North Central US, Australia East, East US 2, Canada East, Japan East, UK South, Switzerland North</td>  
     <td>350 K</td>  
+  </tr>  
+<tr>  
+    <td>Fine-tuning models (babbage-002, davinci-002, gpt-35-turbo-0613)</td>  
+    <td>North Central US, Sweden Central</td>  
+    <td>50 K</td>  
   </tr>  
   <tr>  
     <td>all other models</td>  
