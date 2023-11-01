@@ -68,7 +68,7 @@ If you need to assign administrator roles in Microsoft Entra ID, see [Assign Mic
 
 1. If you want to assign a privileged administrator role, select the **Privileged administrator roles** tab to select the role.
 
-    For best practices to remove or limit privileged administrator role assignments, see [Best practices for Azure RBAC](best-practices.md#remove-or-limit-privileged-administrator-role-assignments).
+    For best practices to remove or limit privileged administrator role assignments, see [Best practices for Azure RBAC](best-practices.md#limit-privileged-administrator-role-assignments).
     
     ![Screenshot of Add role assignment page with Privileged administrator roles tab selected.](./media/shared/privileged-administrator-roles.png)
 

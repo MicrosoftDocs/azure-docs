@@ -59,7 +59,7 @@ Privileged administrator roles are roles that grant privileged administrator acc
 | [Role Based Access Administrator (Preview)](built-in-roles.md#role-based-access-control-administrator-preview) | <ul><li>Manage user access to Azure resources</li><li>Assign roles in Azure RBAC</li><li>Assign themselves or others the Owner role</li><li>Can't manage access using other ways, such as Azure Policy</li></ul> |
 | [User Access Administrator](built-in-roles.md#user-access-administrator) | <ul><li>Manage user access to Azure resources</li><li>Assign roles in Azure RBAC</li><li>Assign themselves or others the Owner role</li></ul> |
 
-For best practices to remove or limit privileged administrator role assignments, see [Best practices for Azure RBAC](best-practices.md#remove-or-limit-privileged-administrator-role-assignments). For more information, see [Privileged administrator role definition](./role-definitions.md#privileged-administrator-role-definition).
+For best practices to remove or limit privileged administrator role assignments, see [Best practices for Azure RBAC](best-practices.md#limit-privileged-administrator-role-assignments). For more information, see [Privileged administrator role definition](./role-definitions.md#privileged-administrator-role-definition).
 
 ## Step 3: Identify the needed scope
 

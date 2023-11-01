@@ -33,7 +33,7 @@ For information about how to assign roles, see [Assign Azure roles using the Azu
 
 You should have a maximum of 3 subscription owners to reduce the potential for breach by a compromised owner. This recommendation can be monitored in Microsoft Defender for Cloud. For other identity and access recommendations in Defender for Cloud, see [Security recommendations - a reference guide](../security-center/recommendations-reference.md).
 
-## Remove or limit privileged administrator role assignments
+## Limit privileged administrator role assignments
 
 Some roles are identified as [privileged administrator roles](./role-assignments-steps.md#privileged-administrator-roles). Consider taking the following actions to improve your security posture:
 
