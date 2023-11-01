@@ -348,4 +348,4 @@ Run the container with an output mount and logging enabled. These settings enabl
 ## Next steps
 
 * [Deploy the Sample Labeling tool to an Azure Container Instance (ACI)](../deploy-label-tool.md#deploy-with-azure-container-instances-aci)
-* [Change or end a commitment plan](../../../ai-services/containers/disconnected-containers.md#purchase-a-commitment-tier-pricing-plan-for-disconnected-containers)
+* [Change or end a commitment plan](../../../ai-services/containers/disconnected-containers.md#purchase-a-commitment-plan-to-use-containers-in-disconnected-environments)

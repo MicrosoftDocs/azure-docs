@@ -46,7 +46,7 @@ To use the Azure OpenAI for text completions in the playground, follow these ste
     3. VitalTracker
     ```
 
-    :::image type="content" source="../media/quickstarts/playground-completions-generate-before.png" alt-text="Screenshot of the playground page of the Azure AI Studio with the Generate product name ideas dropdown selection visible" lightbox="../media/quickstarts/playground-completions-generate-before.png":::
+    :::image type="content" source="../media/quickstarts/playground-completions-generate-before.png" alt-text="Screenshot of the playground page of the Azure AI Studio with the Generate product name ideas dropdown selection visible." lightbox="../media/quickstarts/playground-completions-generate-before.png":::
 
 1. Select `Generate`. Azure OpenAI will generate product name ideas based on . You should get a result that resembles the following:
 
@@ -66,7 +66,7 @@ To use the Azure OpenAI for text completions in the playground, follow these ste
     12. Health
     ```
 
-    :::image type="content" source="../media/quickstarts/playground-completions-generate-after.png" alt-text="Screenshot of the playground page of the Azure AI Studio with the generated completion" lightbox="../media/quickstarts/playground-completions-generate-after.png":::
+    :::image type="content" source="../media/quickstarts/playground-completions-generate-after.png" alt-text="Screenshot of the playground page of the Azure AI Studio with the generated completion." lightbox="../media/quickstarts/playground-completions-generate-after.png":::
 
 ## Playground options
 
@@ -80,7 +80,7 @@ Azure OpenAI also performs content moderation on the prompt inputs and generated
 
 In the playground you can also view python, json, C#, and curl code samples pre-filled according to your selected settings. Just select **View code** next to the examples dropdown. You can write an application to complete the same task with the OpenAI Python SDK, curl, or other REST API client.
 
-:::image type="content" source="../media/quickstarts/playground-completions-sample-python.png" alt-text="Screenshot of the playground page of the Azure AI Studio with python sample code in view" lightbox="../media/quickstarts/playground-completions-sample-python.png":::
+:::image type="content" source="../media/quickstarts/playground-completions-sample-python.png" alt-text="Screenshot of the playground page of the Azure AI Studio with python sample code in view." lightbox="../media/quickstarts/playground-completions-sample-python.png":::
 
 ## Clean up resources
 
