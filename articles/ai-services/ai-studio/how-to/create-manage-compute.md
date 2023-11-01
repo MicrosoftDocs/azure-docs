@@ -16,7 +16,7 @@ ms.author: eur
 
 In this article, you learn how to create a compute instance in Azure AI Studio. You can create a compute instance in the Azure AI Studio or in the Azure portal. 
 
-You need a compute instance to use prompt flow with Azure AI services. You also need a compute instance to open Visual Studio Code (Web) in the Azure AI Studio. You can use the same compute instance for both purposes. Note that a compute instance can't be shared. It can only be used by a single assigned user. By default, it will be assigned to the creator and you can change this to a different user in the Security step.
+You need a compute instance to use prompt flow with Azure AI services. You also need a compute instance to open Visual Studio Code (Web) in the Azure AI Studio. You can use the same compute instance for both purposes. Note that a compute instance can't be shared. It can only be used by a single assigned user. By default, it will be assigned to the creator and you can change this to a different user in the security step.
 
 Compute instances can run jobs securely in a virtual network environment, without requiring enterprises to open up SSH ports. The job executes in a containerized environment and packages your model dependencies in a Docker container.
 
@@ -44,84 +44,58 @@ To create a compute instance in Azure AI Studio:
     
     For more information on configuration details such as CPU and RAM, see [Azure Machine Learning pricing](https://azure.microsoft.com/pricing/details/machine-learning/) and [virtual machine sizes](/azure/virtual-machines/sizes).
 
-1. Select Review + Create unless you want to configure advanced settings for the compute instance.
-1. Select Next to go to Scheduling if you want to schedule the compute to start or stop on a recurring basis. See enable idle shutdown & add schedule sections.
-1. Select Security if you want to configure security settings such as SSH, virtual network, root access, and managed identity for your compute instance. Use this section to:
-    - Assign the computer to another user. For more about assigning to other users, see Create on behalf of
-    - AAssign a managed identity. See Assign managed identity.
-    - Enable SSH access. Follow the detailed SSH access instructions.
-    - Enable virtual network:
+1. On the **Scheduling** page under **Auto shut down** make sure idle shutdown is enabled by default. You can opt to automatically shut down compute after the instance has been idle for a set amount of time. If you disable auto shutdown costs will continue to accrue even during periods of inactivity. For more information, see [Configure idle shutdown](#configure-idle-shutdown).
+
+    :::image type="content" source="../media/how-to/compute-scheduling.png" alt-text="Screenshot of the option to enable idle shutdown and create a schedule." lightbox="../media/how-to/compute-scheduling.png":::
+
+1. You can update the schedule days and times to meet your needs. You can also add additional schedules. For example, you can create a schedule to start at 9 AM and stop at 6 PM from Monday-Thursday, and a second schedule to start at 9 AM and stop at 4 PM for Friday. You can create a total of four schedules per compute instance.
+
+    :::image type="content" source="../media/how-to/compute-schedule-add.png" alt-text="Screenshot of the available new schedule options." lightbox="../media/how-to/compute-schedule-add.png":::
+
+1. On the **Security** page you can optionally configure security settings such as SSH, virtual network, root access, and managed identity for your compute instance. Use this section to:
+    - **Assign to another user**: You can create a compute instance on behalf of another user. Note that a compute instance can't be shared. It can only be used by a single assigned user. By default, it will be assigned to the creator and you can change this to a different user.
+    - **Assign a managed identity**: You can attach system assigned or user assigned managed identities to grant access to resources. The name of the created system managed identity will be in the format `/workspace-name/computes/compute-instance-name` in your Microsoft Entra ID.
+    - **Enable SSH access**: Enter credentials for an administrator user account that will be created on each compute node. These can be used to SSH to the compute nodes.
+Note that disabling SSH prevents SSH access from the public internet. But when a private virtual network is used, users can still SSH from within the virtual network.
+    - **Enable virtual network**:
         - If you're using an Azure Virtual Network, specify the Resource group, Virtual network, and Subnet to create the compute instance inside an Azure Virtual Network. You can also select No public IP to prevent the creation of a public IP address, which requires a private link workspace. You must also satisfy these network requirements for virtual network setup.
         - If you're using a managed virtual network, the compute instance is created inside the managed virtual network. You can also select No public IP to prevent the creation of a public IP address. For more information, see managed compute with a managed network.
-    - Allow root access. (preview)
-1. Select Applications if you want to add custom applications to use on your compute instance, such as RStudio or Posit Workbench. See Add custom applications such as RStudio or Posit Workbench.
-1. Select Tags if you want to add additional information to categorize the compute instance.
-1. Select Review + Create to review your settings.
-1. After reviewing the settings, select Create to create the compute instance.
+
+1. On the **Applications** page you can add custom applications to use on your compute instance, such as RStudio or Posit Workbench. Then select **Next**.
+1. On the **Tags** page you can add additional information to categorize the resources you create. Then select **Review + Create** or **Next** to review your settings.
+
+    :::image type="content" source="../media/how-to/compute-review-create.png" alt-text="Screenshot of the option to review before creating a new compute instance." lightbox="../media/how-to/compute-review-create.png":::
+
+1. After reviewing the settings, select **Create** to create the compute instance.
 
 ## Configure idle shutdown
 
-To avoid getting charged for a compute instance that is switched on but inactive, you can configure when to shut down your compute instance due to inactivity.
+To avoid getting charged for a compute instance that is switched on but inactive, you can configure when to shut down your compute instance due to inactivity. 
 
 The setting can be configured during compute instance creation or for existing compute instances.
 
-### Configuring idle shutdown for a new compute instance
+For new compute instances, you can configure idle shutdown during compute instance creation. For more information, see [Create a compute instance](#create-a-compute-instance) earlier in this article.
 
-1. Select Next to advance to Scheduling after completing required settings.
-1. Select Enable idle shutdown to enable or disable.
-1. Specify the shutdown period when enabled.
+To configure idle shutdown for existing compute instances follow these steps:
 
-### Configuring idle shutdown for an existing compute instance
+1. From the top menu, select **Manage** > **Compute instances**.
+1. In the list, select the compute instance that you want to configure.
+1. Select **Schedule and idle shutdown**.
 
-1. In the left navigation bar, select Compute
-1. In the list, select the compute instance you wish to change
-1. Select the Edit pencil in the Schedules section.
-1. Screenshot: Edit idle time for a compute instance.
+    :::image type="content" source="../media/how-to/compute-schedule-update.png" alt-text="Screenshot of the option to change the idle shutdown schedule for a compute instance." lightbox="../media/how-to/compute-schedule-update.png":::
 
-### Schedule automatic start and stop
-
-Define multiple schedules for autoshutdown and autostart. For instance, create a schedule to start at 9 AM and stop at 6 PM from Monday-Thursday, and a second schedule to start at 9 AM and stop at 4 PM for Friday. You can create a total of four schedules per compute instance.
-
-Prior to a scheduled shutdown, users see a notification alerting them that the Compute Instance is about to shut down. At that point, the user can choose to dismiss the upcoming shutdown event. For example, if they are in the middle of using their Compute Instance.
-
-1. Fill out the form:
-    - Enter a name for the compute instance.
-        - Name is required and must be between 3 to 24 characters long.
-        - Valid characters are upper and lower case letters, digits, and the - character.
-        - Name must start with a letter
-        - Name needs to be unique across all existing computes within an Azure region. You see an alert if the name you choose isn't unique
-        - If `-` character is used, then it needs to be followed by at least one letter later in the name
-    - Virtual machine type: Choose CPU or GPU. This type can't be changed after creation
-    - Virtual machine size: Supported virtual machine sizes might be restricted in your region. Check the [availability list](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)
-1. Select Next to advance to Scheduling after completing required settings.
-1. Select Add schedule to add a new schedule.
-1. Select Start compute instance or Stop compute instance.
-1. Select the Time zone.
-1. Select the Startup time or Shutdown time.
-1. Select the days when this schedule is active.
-1. Select Add schedule again if you want to create another schedule.
-
-Once the compute instance is created, you can view, edit, or add new schedules from the compute instance details section.
-
-> [!NOTE]
-> Timezone labels don't account for day light savings. For instance, (UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna is actually UTC+02:00 during day light savings.
+1. Update or add to the schedule. You can have a total of four schedules per compute instance. Then select **Update** to save your changes.
 
 
-## Assign managed identity
+## Start or stop a compute instance
 
-You can assign a system- or user-assigned managed identity to a compute instance, to authenticate against other Azure resources such as storage. Using managed identities for authentication helps improve workspace security and management. For example, you can allow users to access training data only when logged in to a compute instance. Or use a common user-assigned managed identity to permit access to a specific storage account.
+You can start or stop a compute instance from the Azure AI Studio.
 
-You can create compute instance with managed identity from Azure AI Studio:
+1. From the top menu, select **Manage** > **Compute instances**.
+1. In the list, select the compute instance that you want to configure.
+1. Select **Stop** to stop the compute instance. Select **Start** to start the compute instance. Only stopped compute instances can be started and only started compute instances can be stopped.
 
-1. Fill out the form to [create a new compute instance](#create-a-compute-instance).
-1. Select Security.
-1. Enable Assign a managed identity.
-1. Select System-assigned or User-assigned under Identity type.
-1. If you selected User-assigned, select subscription and name of the identity.
-1. Once the managed identity is created, grant the managed identity at least Storage Blob Data Reader role on the storage account of the datastore, see Accessing storage services. Then, when you work on the compute instance, the managed identity is used automatically to authenticate against datastores.
-
-> [!NOTE]
-> The name of the created system managed identity will be in the format /workspace-name/computes/compute-instance-name in your Microsoft Entra ID.
+    :::image type="content" source="../media/how-to/compute-start-stop.png" alt-text="Screenshot of the option to start or stop a compute instance." lightbox="../media/how-to/compute-start-stop.png":::
 
 
 ## Next steps
