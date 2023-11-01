@@ -1,6 +1,6 @@
 ---
 title: Sensitive information types supported by Microsoft Defender for Cloud
-description: List table of Sensitive information types supported by Microsoft Defender for Cloud
+description: List table of sensitive information types supported by Microsoft Defender for Cloud
 author: AlizaBernstein
 ms.author: v-bernsteina
 ms.topic: reference
@@ -9,9 +9,9 @@ ms.date: 10/29/2023
 
 # Sensitive information types supported by Microsoft Defender for Cloud
 
-This article is a list of all sensitive information types supported by Microsoft Defender for Cloud (a subset of what's supported in Purview). The following table lists the scanned sensitive information type and whether the sensitive information type is scanned by default in the sensitivity settings.
+This article is a list of all sensitive information types supported by Microsoft Defender for Cloud (a subset of what's supported in Purview). The following table lists the scanned sensitive information type and whether the sensitive information type is scanned by default by sensitive data discovery, which is part of Defender CSPM.
 
-| Sensitive information type name | Is default in sensitivity settings? |
+| Sensitive information type name | Is default in [sensitivity settings](concept-data-security-posture.md#data-sensitivity-settings)? |
 |----------------|----------------|
 | [ABA routing number](/purview/sit-defn-aba-routing) | YES |
 | [Amazon S3 Client Secret Access Key](/purview/sit-defn-amazon-s3-client-secret-access-key) | YES |
