@@ -26,12 +26,12 @@ With Azure Managed CCF (Managed CCF), it is simple and quick to update an applic
 
 > [!NOTE]
 > This tutorial assumes that the updated application bundle is created using the instructions available [here](https://microsoft.github.io/CCF/main/build_apps/js_app_bundle.html) and saved to set_js_app.json.
-
+> 
 > Updating an application does not reset the JavaScript runtime options.
 
 [!INCLUDE [Deploy an application](./includes/deploy-update-application.md)]
 
-4. When the command completes, the application will be updated and ready to accept user transactions.
+When the command completes, the application will be updated and ready to accept user transactions.
 
 ## Next steps
 

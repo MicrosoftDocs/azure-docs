@@ -100,7 +100,7 @@ Refer to the following articles to explore the backup files.
 
 ## Restore
 
-## Create a Managed CCF resource using the backup files
+### Create a Managed CCF resource using the backup files
 
 This restores the Managed CCF resource using a copy of the files in the backup Fileshare. The resource will be restored to the same state and transaction ID at the time of the backup.
 
@@ -109,35 +109,31 @@ This restores the Managed CCF resource using a copy of the files in the backup F
 
 > [!NOTE]
 > The original Managed CCF resource must be deleted before a restore is initiated. The restore command will fail if the original instance exists. [Delete your original Managed CCF resource](/cli/azure/confidentialledger/managedccfs?#az-confidentialledger-managedccfs-delete).
-
+>
 > The **app_name** should be the same as the original Managed CCF resource.
 
 Follow these steps to perform a restore.
 
 1. [Generate a Bearer token](#generate-an-access-token) for the subscription that the Managed CCF resource is located in.
-
 2. [Generate a SAS token](#generate-a-shared-access-signature-token) for the storage account that has the backup files.
-
 3. Execute the following command to trigger a restore. You must supply a few parameters.
+    - **subscription_id**: The subscription where the Managed CCF resource is deployed.
+    - **resource_group**: The resource group name of the Managed CCF resource.
+    - **app_name**: The name of the Managed CCF resource.
+    - **sas_token**: The Shared Access Signature token.
+    - **restore_region**: An optional parameter to indicate a region where the backup would be restored. It can be ignored if you expect to restore the backup in the same region as the Managed CCF resource.
+    - **fileshare_name**: The name of the Fileshare where the backup files are located.
 
-- **subscription_id**: The subscription where the Managed CCF resource is deployed.
-- **resource_group**: The resource group name of the Managed CCF resource.
-- **app_name**: The name of the Managed CCF resource.
-- **sas_token**: The Shared Access Signature token.
-- **restore_region**: An optional parameter to indicate a region where the backup would be restored. It can be ignored if you expect to restore the backup in the same region as the Managed CCF resource.
-- **fileshare_name**: The name of the Fileshare where the backup files are located.
-
-```bash
-curl --request POST 'https://management.azure.com/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.ConfidentialLedger/ManagedCCFs/<app_name>/restore?api-version=2023-06-28-preview' \
---header 'Authorization: Bearer <bearer_token>' \
---header 'Content-Type: application/json' \
---data-raw '{
-  "uri": "<sas_token>",
-  "restoreRegion": "<restore_region>",
-  "fileShareName": "<fileshare_name>"
-}'
-```
-
+    ```bash
+    curl --request POST 'https://management.azure.com/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.ConfidentialLedger/ManagedCCFs/<app_name>/restore?api-version=2023-06-28-preview' \
+    --header 'Authorization: Bearer <bearer_token>' \
+    --header 'Content-Type: application/json' \
+    --data-raw '{
+      "uri": "<sas_token>",
+      "restoreRegion": "<restore_region>",
+      "fileShareName": "<fileshare_name>"
+    }'
+    ```
 1. At the end of the command, the Managed CCF resource is restored.
 
 ## Next steps
