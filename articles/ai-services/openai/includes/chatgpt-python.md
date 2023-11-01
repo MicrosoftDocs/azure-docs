@@ -31,7 +31,7 @@ keywords:
 Install the OpenAI Python client library with:
 
 ```console
-pip install openai
+pip install openai==0.28.1
 ```
 
 > [!NOTE]
