@@ -65,7 +65,7 @@ When creating an event subscription, follow these steps:
 
 ### Manage event subscriptions
 
-You can manage the subscription directly in the source (e.g. Key Vault resource) by selecting the **Events** blade or by accessing to the **Event Grid system topic** resource, see the following references: [blob event quickstart](blob-event-quickstart-portal#subscribe-to-the-blob-storage), and [manage the system topic](create-view-manage-system-topics.md).
+You can manage the subscription directly in the source (e.g. Key Vault resource) by selecting the **Events** blade or by accessing to the **Event Grid system topic** resource, see the following references: [blob event quickstart](blob-event-quickstart-portal.md#subscribe-to-the-blob-storage), and [manage the system topic](create-view-manage-system-topics.md).
 
 ### Fire alert instances
 
