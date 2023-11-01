@@ -35,7 +35,7 @@ To prepare your Azure Arc-enabled Kubernetes cluster, you need:
 For *exploration only*, use GitHub Codespaces to try Azure IoT Operations in your browser without installing anything on your local machine. We've prepared a pre-configured codespace with:
 
 - [K3s](https://k3s.io/) running in [K3d](https://k3d.io/) for a lightweight Kubernetes cluster
-- [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [Azure CLI](/cli/azure/install-azure-cli)
 - [Kubectl](https://kubernetes.io/docs/tasks/tools/) for managing Kubernetes resources
 - Other useful tools like [Helm](https://helm.sh/) and [k9s](https://k9scli.io/)
 
