@@ -82,7 +82,6 @@ New-AzVmssConfig `
   -Location "VMSSLocation" `
   -SkuCapacity 2 `
   -SkuName "Standard_DS2" `
-  -UpgradePolicyMode "Automatic" `
   -TerminateScheduledEvents $true `
   -TerminateScheduledEventNotBeforeTimeoutInMinutes 10
 ```
