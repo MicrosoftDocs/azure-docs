@@ -29,3 +29,7 @@ If you are using Azure Arc-enabled servers only for the purpose of Extended Secu
 |`*.his.arc.azure.us`|Metadata and hybrid identity services|Always| Private |
 |`*.guestconfiguration.azure.us`| Extension management and guest configuration services |Always| Private |
 
+#### [Azure China](#tab/azure-china)
+
+> [!NOTE]
+>  Azure Arc-enabled servers used for Extended Security Updates for Windows Server 2012 is not available in Azure China regions at this time.
