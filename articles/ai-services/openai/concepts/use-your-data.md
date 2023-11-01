@@ -65,7 +65,7 @@ There is an [upload limit](../quotas-limits.md), and there are some caveats abou
 > [!TIP]
 > For documents and datasets with long text, you should use the available [data preparation script](https://go.microsoft.com/fwlink/?linkid=2244395). The script chunks data so that your response with the service will be more accurate. This script also supports scanned PDF files and images.
 
-There are three different sources of data that you can use with Azure OpenAI on your data. 
+There are two different sources of data that you can use with Azure OpenAI on your data. 
 * Blobs in an Azure storage container that you provide
 * Local files uploaded using the Azure OpenAI Studio
 
@@ -315,7 +315,7 @@ Azure OpenAI on your data provides several search options you can use when you a
 * [Keyword search](/azure/search/search-lucene-query-architecture)
 
 * [Semantic search](/azure/search/semantic-search-overview)
-* [Vector search](/azure/search/vector-search-overview) using Ada [embedding](./understand-embeddings.md) models, available in [select regions](models.md#embeddings-models-1). 
+* [Vector search](/azure/search/vector-search-overview) using Ada [embedding](./understand-embeddings.md) models, available in [select regions](models.md#embeddings-models). 
 
     To enable vector search, you will need a `text-embedding-ada-002` deployment in your Azure OpenAI resource. Select your embedding deployment when connecting your data, then select one of the vector search types under **Data management**.  
 

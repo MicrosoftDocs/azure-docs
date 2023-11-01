@@ -50,6 +50,33 @@ The benchmarks are run on an Azure VM Standard_F8s_v2 system using AMA Linux ver
 | Network KBps    | 338 (18,033) |
 
 
+## Frequently asked questions
+
+This section provides answers to common questions.
+
+### How much data is sent per agent?
+
+The amount of data sent per agent depends on:
+          
+* The solutions you've enabled.
+* The number of logs and performance counters being collected.
+* The volume of data in the logs.
+          
+See [Analyze usage in a Log Analytics workspace](../logs/analyze-usage.md).
+          
+For computers that are able to run the WireData agent, use the following query to see how much data is being sent:
+          
+```kusto
+WireData
+| where ProcessName == "C:\\Program Files\\Microsoft Monitoring Agent\\Agent\\MonitoringHost.exe"
+| where Direction == "Outbound"
+| summarize sum(TotalBytes) by Computer 
+```
+
+### How much network bandwidth is used by the Microsoft Monitoring Agent when it sends data to Azure Monitor?
+        
+Bandwidth is a function of the amount of data sent. Data is compressed as it's sent over the network.
+
 ## Next steps
 
 - [Connect computers without internet access by using the Log Analytics gateway in Azure Monitor](gateway.md)

@@ -1304,7 +1304,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | applicationgatewaywebapplicationfirewallpolicies | No | No | No |
 > | applicationsecuritygroups | **Yes** | **Yes** | No |
 > | azurefirewalls | No | No | No |
-> | bastionhosts | No | No | No |
+> | bastionhosts | Yes | No | No |
 > | bgpservicecommunities | No | No | No |
 > | connections | **Yes** | **Yes** | No |
 > | ddoscustompolicies | **Yes** | **Yes** | No |

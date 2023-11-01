@@ -114,14 +114,14 @@ You can use many different SFTP clients to securely connect and then transfer fi
 | Key exchange |ecdh-sha2-nistp384<br>ecdh-sha2-nistp256<br>diffie-hellman-group14-sha256<br>diffie-hellman-group16-sha512<br>diffie-hellman-group-exchange-sha256|
 | Ciphers/encryption |aes128-gcm@openssh.com<br>aes256-gcm@openssh.com<br>aes128-ctr<br>aes192-ctr<br>aes256-ctr|
 | Integrity/MAC |hmac-sha2-256<br>hmac-sha2-512<br>hmac-sha2-256-etm@openssh.com<br>hmac-sha2-512-etm@openssh.com|
-| Public key |ssh-rsa <sup>2</sup><br>rsa-sha2-256<br>rsa-sha2-512<br>ecdsa-sha2-nistp256<br>ecdsa-sha2-nistp384|
+| Public key |ssh-rsa <sup>2</sup><br>rsa-sha2-256<br>rsa-sha2-512<br>ecdsa-sha2-nistp256<br>ecdsa-sha2-nistp384<br>ecdsa-sha2-nistp521|
 
 <sup>1</sup>    Host keys are published [here](secure-file-transfer-protocol-host-keys.md).
 <sup>2</sup>    RSA keys must be minimum 2048 bits in length.
 
 SFTP support for Azure Blob Storage currently limits its cryptographic algorithm support based on security considerations. We strongly recommend that customers utilize [Microsoft Security Development Lifecycle (SDL) approved algorithms](/security/sdl/cryptographic-recommendations) to securely access their data.
 
-At this time, in accordance with the Microsoft Security SDL, we don't plan on supporting the following: `ssh-dss`, `diffie-hellman-group14-sha1`, `diffie-hellman-group1-sha1`, `hmac-sha1`, `hmac-sha1-96`. Algorithm support is subject to change in the future.
+At this time, in accordance with the Microsoft Security SDL, we don't plan on supporting the following: `ssh-dss`, `diffie-hellman-group14-sha1`, `diffie-hellman-group1-sha1`, `diffie-hellman-group-exchange-sha1`, `hmac-sha1`, `hmac-sha1-96`. Algorithm support is subject to change in the future.
 
 ## Connecting with SFTP
 
