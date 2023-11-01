@@ -8,12 +8,14 @@
     href: capabilities.md
   - name: Limited access
     href: limited-access.md
-  - name: Data, privacy, and security
+  - name: Responsible AI FAQ
     href: responsible-ai-faq.md
 - name: Enhanced scenarios
   items:
   - name: Get resource information
     href: get-information-resource-graph.md
+  - name: Get monitoring information
+    href: get-monitoring-information.md
   - name: Optimize your code
     href: optimize-code-application-insights.md
 - name: Resources
