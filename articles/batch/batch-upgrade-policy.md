@@ -42,50 +42,7 @@ The image upgrade is then applied to an individual scale set in a batched manner
 6. This entire process continues until all instances within the scale set have undergone the upgrade, ensuring that all instances are running the latest OS image while minimizing disruptions and ensuring overall system health.
 
 ## Supported OS images
-Only certain OS platform images are currently supported. Custom images are supported if the pool uses custom images through [Azure Compute Gallery](../virtual-machines/shared-image-galleries.md).
-
-The following platform SKUs are currently supported (and more are added periodically):
-
-| Publisher              | OS Offer                     | Sku                                               |
-| ---------------------- | ---------------------------- | ------------------------------------------------- |
-| Canonical              | UbuntuServer                 | 18.04-LTS                                         |
-| Canonical              | UbuntuServer                 | 18_04-LTS-Gen2                                    |
-| Canonical              | 0001-com-ubuntu-server-focal | 20_04-LTS                                         |
-| Canonical              | 0001-com-ubuntu-server-focal | 20_04-LTS-Gen2                                    |
-| Canonical              | 0001-com-ubuntu-server-jammy | 22_04-LTS                                         |
-| MicrosoftCblMariner    | Cbl-Mariner                  | cbl-mariner-1                                     |
-| MicrosoftCblMariner    | Cbl-Mariner                  | 1-Gen2                                            |
-| MicrosoftCblMariner    | Cbl-Mariner                  | cbl-mariner-2                                     |
-| MicrosoftCblMariner    | Cbl-Mariner                  | cbl-mariner-2-Gen2                                |
-| MicrosoftSqlServer     | Sql2017-ws2019               | enterprise                                        |
-| MicrosoftWindowsServer | WindowsServer                | 2012-R2-Datacenter                                |
-| MicrosoftWindowsServer | WindowsServer                | 2016-Datacenter                                   |
-| MicrosoftWindowsServer | WindowsServer                | 2016-Datacenter-gensecond                         |
-| MicrosoftWindowsServer | WindowsServer                | 2016-Datacenter-gs                                |
-| MicrosoftWindowsServer | WindowsServer                | 2016-Datacenter-smalldisk                         |
-| MicrosoftWindowsServer | WindowsServer                | 2016-Datacenter-with-Containers                   |
-| MicrosoftWindowsServer | WindowsServer                | 2016-Datacenter-with-containers-gs                |
-| MicrosoftWindowsServer | WindowsServer                | 2019-Datacenter                                   |
-| MicrosoftWindowsServer | WindowsServer                | 2019-Datacenter-Core                              |
-| MicrosoftWindowsServer | WindowsServer                | 2019-Datacenter-Core-with-Containers              |
-| MicrosoftWindowsServer | WindowsServer                | 2019-Datacenter-gensecond                         |
-| MicrosoftWindowsServer | WindowsServer                | 2019-Datacenter-gs                                |
-| MicrosoftWindowsServer | WindowsServer                | 2019-Datacenter-smalldisk                         |
-| MicrosoftWindowsServer | WindowsServer                | 2019-Datacenter-with-Containers                   |
-| MicrosoftWindowsServer | WindowsServer                | 2019-Datacenter-with-Containers-gs                |
-| MicrosoftWindowsServer | WindowsServer                | 2022-Datacenter                                   |
-| MicrosoftWindowsServer | WindowsServer                | 2022-Datacenter-smalldisk                         |
-| MicrosoftWindowsServer | WindowsServer                | 2022-Datacenter-smalldisk-g2                      |
-| MicrosoftWindowsServer | WindowsServer                | 2022-Datacenter-core                              |
-| MicrosoftWindowsServer | WindowsServer                | 2022-Datacenter-core-smalldisk                    |
-| MicrosoftWindowsServer | WindowsServer                | 2022-Datacenter-g2                                |
-| MicrosoftWindowsServer | WindowsServer                | Datacenter-core-20h2-with-containers-smalldisk-gs |
-| MicrosoftWindowsServer | WindowsServer                | 2022-Datacenter-azure-edition                     |
-| MicrosoftWindowsServer | WindowsServer                | 2022-Datacenter-azure-edition-smalldisk           |
-
-## Prerequisites
-
-- **Enablement**. This feature is still in preview, so you need to submit a [support request](../azure-portal/supportability/how-to-create-azure-support-request.md) to enable this feature.
+Only certain OS platform images are currently supported for automatic upgrade. For detailed images list, you can get from [VMSS page](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md#supported-os-images).
 
 ## Requirements
 
@@ -108,6 +65,8 @@ If you intend to implement Auto OS Upgrades within a pool, it's essential to con
 
 > [!Note]
 > We strongly advise enabling the *automaticOSUpgradePolicy.osRollingUpgradeDeferral* property by setting it to 'true.' When an upgrade becomes available while a batch node is actively running a task, this property will postpone OS upgrades on the node. Once the node transitions to an idle state, Batch will issue a callback and initiate the upgrade process.
+> 
+> If you are using [user subscription](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode), it's essential to note that a subscription feature **RollingUpgradeDeferral** is required for your subscription to be registered. You cannot use osRollingUpgradeDeferral unless this feature is registered. To enable this feature, kindly initiate a [support request](../azure-portal/supportability/how-to-create-azure-support-request.md) and request its activation.
 
 ### REST API
 The following example describes how to create a pool with Auto OS Upgrade via REST API:
