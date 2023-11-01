@@ -26,6 +26,7 @@ To help protect data in the cloud, you need to account for the possible states i
 
 - At rest: This includes all information storage objects, containers, and types that exist statically on physical media, whether magnetic or optical disk.
 - In transit: When data is being transferred between components, locations, or programs, it's in transit. Examples are transfer over the network, across a service bus (from on-premises to cloud and vice-versa, including hybrid connections such as ExpressRoute), or during an input/output process.
+- In Use: When data is being processed, the specialized AMD & Intel chipset based Confidential compute VMs keep the data encrypted in memory using hardware managed keys. To learn more, [https://learn.microsoft.com/en-us/azure/confidential-computing/].
 
 ## Choose a key management solution
 

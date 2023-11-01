@@ -503,7 +503,7 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 |-|-|
 | Capability name | NetworkLatency-1.1 |
 | Target type | Microsoft-Agent |
-| Supported OS types | Windows, Linux. |
+| Supported OS types | Windows, Linux (outbound traffic only) |
 | Description | Increases network latency for a specified port range and network block. At least one destinationFilter or inboundDestinationFilter array must be provided. |
 | Prerequisites | Agent (for Windows) must run as administrator. If the agent is installed as a VM extension, it runs as administrator by default. |
 | Urn | urn:csci:microsoft:agent:networkLatency/1.1 |
@@ -559,6 +559,7 @@ The parameters **destinationFilters** and **inboundDestinationFilters** use the 
 ### Limitations
 
 * The agent-based network faults currently only support IPv4 addresses.
+* When running in a Linux environment, the agent-based network latency fault can only affect **outbound** traffic, not inbound traffic. The fault can affect **both inbound and outbound** traffic on Windows environments (via the `inboundDestinationFilters` and `destinationFilters` parameters).
 
 
 ## Network disconnect
@@ -1430,7 +1431,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 | Capability name | DisableCertificate-1.0 |
 | Target type | Microsoft-KeyVault |
 | Description | By using certificate properties, the fault disables the certificate for a specific duration (provided by the user). It enables the certificate after this fault duration. |
-| Prerequisites | For OneCert certificates, the domain must be registered with OneCert before you attempt to run the fault. |
+| Prerequisites | None. |
 | Urn | urn:csci:microsoft:keyvault:disableCertificate/1.0 |
 | Fault type | Continuous. |
 | Parameters (key, value) | |
@@ -1471,7 +1472,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 | Capability name | IncrementCertificateVersion-1.0 |
 | Target type | Microsoft-KeyVault |
 | Description | Generates a new certificate version and thumbprint by using the Key Vault Certificate client library. Current working certificate is upgraded to this version. |
-| Prerequisites | For OneCert certificates, the domain must be registered with OneCert before you attempt to run the fault. |
+| Prerequisites | None. |
 | Urn | urn:csci:microsoft:keyvault:incrementCertificateVersion/1.0 |
 | Fault type | Discrete. |
 | Parameters (key, value) | |
@@ -1506,7 +1507,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 | Capability name | UpdateCertificatePolicy-1.0        |
 | Target type | Microsoft-KeyVault        |
 | Description | Certificate policies (for example, certificate validity period, certificate type, key size, or key type) are updated based on user input and reverted after the fault duration.        |
-| Prerequisites |  For OneCert certificates, the domain must be registered with OneCert before you attempt to run the fault.       |
+| Prerequisites | None. |
 | Urn | urn:csci:microsoft:keyvault:updateCertificatePolicy/1.0        |
 | Fault type | Continuous.        |
 | Parameters (key, value) |     |    

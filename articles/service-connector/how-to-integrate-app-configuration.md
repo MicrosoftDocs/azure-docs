@@ -42,6 +42,7 @@ Use the connection details below to connect compute services to Azure App Config
 |-----------------------------------|------------------------------|------------------------------------------------|
 | AZURE_APPCONFIGURATION_ENDPOINT   | App Configuration   endpoint | `https://<App-Configuration-name>.azconfig.io` |
 
+#### Sample code
 Refer to the steps and code below to connect to Azure App Configuration using a system-assigned managed identity.
 [!INCLUDE [code sample for app config](./includes/code-appconfig-me-id.md)]
 
@@ -52,6 +53,7 @@ Refer to the steps and code below to connect to Azure App Configuration using a 
 | AZURE_APPCONFIGURATION_ENDPOINT   | App Configuration Endpoint | `https://App-Configuration-name>.azconfig.io` |
 | AZURE_APPCONFIGURATION_CLIENTID   | Your client ID             | `<client-ID>`                                 |
 
+#### Sample code
 Refer to the steps and code below to connect to Azure App Configuration using a user-assigned managed identity.
 [!INCLUDE [code sample for app config](./includes/code-appconfig-me-id.md)]
 
@@ -76,6 +78,7 @@ Refer to the steps and code below to connect to Azure App Configuration using a 
 | AZURE_APPCONFIGURATION_CLIENTSECRET | Your client secret         | `<client-secret>`                            |
 | AZURE_APPCONFIGURATION_TENANTID     | Your tenant ID             | `<tenant-ID>`                                |
 
+#### Sample code
 Refer to the steps and code below to connect to Azure App Configuration using a service principaL.
 [!INCLUDE [code sample for app config](./includes/code-appconfig-me-id.md)]
 
