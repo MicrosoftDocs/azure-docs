@@ -20,11 +20,11 @@ Azure Communications Gateway can manipulate signaling and media to meet the requ
 
 Azure Communications Gateway sits at the edge of your fixed line and mobile networks. It connects these networks to the Microsoft Phone System, allowing you to support Operator Connect (for fixed line networks) and Teams Phone Mobile (for mobile networks). The following diagram shows where Azure Communications Gateway sits in your network.
 
-:::image type="complex" source="media/azure-communications-gateway-architecture.png" alt-text="Architecture diagram for Azure Communications Gateway connecting to fixed and mobile networks":::
-    Architecture diagram showing Azure Communications Gateway connecting to the Microsoft Phone System, a softswitch in a fixed line deployment and a mobile IMS core. Azure Communications Gateway contains certified SBC function and the MCP application server for anchoring mobile calls.
+:::image type="complex" source="media/azure-communications-gateway-architecture-operator-connect.svg" alt-text="Architecture diagram for Azure Communications Gateway connecting to fixed and mobile networks" lightbox="media/azure-communications-gateway-architecture-operator-connect.svg":::
+    Architecture diagram showing Azure Communications Gateway connecting to the Microsoft Phone System, a fixed line deployment and a mobile IMS core. Azure Communications Gateway contains SBC function, the MCP application server for anchoring Teams Phone Mobile calls and a provisioning API.
 :::image-end:::
 
-Calls flow from endpoints in your networks through Azure Communications Gateway and the Microsoft Phone System into Microsoft Teams clients.
+Calls flow from Microsoft Teams clients through the Microsoft Phone System and Azure Communications Gateway into your network.
 
 ## Compliance with Certified SBC specifications
 
@@ -77,7 +77,7 @@ The Microsoft Phone System typically requires SRTP for media. Azure Communicatio
 
 ### Media handling for calls
 
-You must select the codecs that you want to support when you deploy Azure Communications Gateway. If the Microsoft Phone System doesn't support these codecs, Azure Communications Gateway can perform transcoding (converting between codecs) on your behalf.
+You must select the codecs that you want to support when you deploy Azure Communications Gateway.
 
 Operator Connect and Teams Phone Mobile require core networks to support ringback tones (ringing tones) during call transfer. Core networks must also support comfort noise. If your core networks can't meet these requirements, Azure Communications Gateway can inject media into calls.
 
