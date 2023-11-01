@@ -51,7 +51,7 @@ The backup is stored in an Azure Storage Fileshare that is owned and controlled 
 
 3. Generate a SAS token with the following configuration:
 
-:::image type="content" source="./media/how-to/cedr-sas-uri.png" alt-text="Screenshot of the Azure portal in a web browser, showing the required SAS Generation configuration.":::
+:::image type="content" source="./media/how-to/cedr-sas-uri.png" lightbox="./media/how-to/cedr-sas-uri.png" alt-text="Screenshot of the Azure portal in a web browser, showing the required SAS Generation configuration.":::
 
 4. Save the `File service SAS URL`.
 
@@ -74,24 +74,22 @@ Follow these steps to perform a backup.
 - **app_name**: The name of the Managed CCF resource.
 - **sas_token**: The Shared Access Signature token.
 - **restore_region**: An optional parameter to indicate a region where the backup would be restored. It can be ignored if you expect to restore the backup in the same region as the Managed CCF resource.
-
-```bash
-curl --request POST 'https://management.azure.com/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.ConfidentialLedger/ManagedCCFs/<app_name>/backup?api-version=2023-06-28-preview' \
---header 'Authorization: Bearer <bearer_token>' \
---header 'Content-Type: application/json' \
---data-raw '{
-  "uri": "<sas_token>",
-  "restoreRegion": "<restore_region>"
-}'
-```
-
+    ```bash
+    curl --request POST 'https://management.azure.com/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.ConfidentialLedger/ManagedCCFs/<app_name>/backup?api-version=2023-06-28-preview' \
+    --header 'Authorization: Bearer <bearer_token>' \
+    --header 'Content-Type: application/json' \
+    --data-raw '{
+      "uri": "<sas_token>",
+      "restoreRegion": "<restore_region>"
+    }'
+    ```
 1. A Fileshare is created in the Azure Storage Account with the name `<mccf_app_name>-<timestamp>`.
 
 ### Explore the backup files
 
 After the backup completes, you can view the files stored in your Azure Storage Fileshare.
 
-:::image type="content" source="./media/how-to/cedr-backup-file-share.png" alt-text="Screenshot of the Azure portal in a web browser, showing a sample Fileshare folder structure.":::
+:::image type="content" source="./media/how-to/cedr-backup-file-share.png" lightbox="./media/how-to/cedr-backup-file-share.png" alt-text="Screenshot of the Azure portal in a web browser, showing a sample Fileshare folder structure.":::
 
 Refer to the following articles to explore the backup files.
 

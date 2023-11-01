@@ -24,7 +24,7 @@ The members in an Azure Managed CCF(Managed CCF) resource can be viewed on the A
 
 1. Under Operations, select the Members link. This is a view only page. To manage the members, follow the instructions at [manage members](how-to-manage-members.md).
 
-:::image type="content" source="./media/how-to/members.png" alt-text="A screenshot showing the members in a Managed CCF resource.":::
+:::image type="content" source="./media/how-to/members.png" lightbox="./media/how-to/members.png" alt-text="A screenshot showing the members in a Managed CCF resource.":::
 
 ### Command Line Interface
 

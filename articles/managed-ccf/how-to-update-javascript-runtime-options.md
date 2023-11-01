@@ -26,33 +26,28 @@ Sometimes it is necessary to update the runtime options of the CCF JavaScript in
 [!INCLUDE [Mac instructions](./includes/macos-instructions.md)]
 
 1. Prepare a **set_js_runtime_options.json** file and submit it using this command:
-
-```Bash
-$ cat set_js_runtime_options.json
-{
-  "actions": [
+    ```Bash
+    $ cat set_js_runtime_options.json
     {
-      "name": "set_js_runtime_options",
-      "args": {
-        "max_heap_bytes": 1024,
-        "max_stack_bytes": 1024,
-        "max_execution_time_ms": 5000, // increase the request execution time
-        "log_exception_details": false,
-        "return_exception_details": false
-      }
+      "actions": [
+        {
+          "name": "set_js_runtime_options",
+          "args": {
+            "max_heap_bytes": 1024,
+            "max_stack_bytes": 1024,
+            "max_execution_time_ms": 5000, // increase the request execution time
+            "log_exception_details": false,
+            "return_exception_details": false
+          }
+        }
+      ]
     }
-  ]
-}
-
-$ proposal_id=$( (ccf_cose_sign1 --content set_js_runtime_options.json --signing-cert member0_cert.pem --signing-key member0_privk.pem --ccf-gov-msg-type proposal --ccf-gov-msg-created_at `date -Is` | curl https://confidentialbillingapp.confidential-ledger.azure.com/gov/proposals -H 'Content-Type: application/cose' --data-binary @- --cacert service_cert.pem | jq -r ‘.proposal_id’) )
-```
-
+    
+    $ proposal_id=$( (ccf_cose_sign1 --content set_js_runtime_options.json --signing-cert member0_cert.pem --signing-key member0_privk.pem --ccf-gov-msg-type proposal --ccf-gov-msg-created_at `date -Is` | curl https://confidentialbillingapp.confidential-ledger.azure.com/gov/proposals -H 'Content-Type: application/cose' --data-binary @- --cacert service_cert.pem | jq -r ‘.proposal_id’) )
+    ```
 1. The next step is to accept the proposal by submitting a vote.
-
-[!INCLUDE [Submit a vote](./includes/submit-vote.md)]
-
+    [!INCLUDE [Submit a vote](./includes/submit-vote.md)]
 1. Repeat the above step for every member in the Managed CCF resource.
-
 1. After the proposal is accepted, the runtime options will be applied to the subsequent requests.
 
 ## Next steps
