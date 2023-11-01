@@ -13,7 +13,7 @@ items:
 - name: Get started
   expanded: true
   items: 
-    - name: Create an Azure workspace
+    - name: Get started with the DICOM service
       href: get-started-with-dicom.md
     - name: Deploy the DICOM service
       href: deploy-dicom-services-in-azure.md
