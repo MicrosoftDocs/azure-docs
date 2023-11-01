@@ -37,10 +37,25 @@ The services deployed in this quickstart include:
   > [!IMPORTANT]
   > Azure IoT Operations should work on any Kubernetes cluster that conforms to the Cloud Native Computing Foundation (CNCF) standards. However, the validated environments Microsoft supports for evaluation are K3s on Ubuntu Linux and WSL, or AKS Edge Essentials on Windows. The codespace option is intended for exploration only.
 
-* An Azure Key Vault created in the same subscription and resource group as your Arc-enabled Kubernetes cluster. If you don't have one, use [Azure portal](../../key-vault/general/quick-create-portal.md) or [Azure CLI](../../key-vault/general/quick-create-cli.md) to create a key vault.
+* Azure CLI installed on your development machine. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
-* A placeholder secret in your key vault. If you don't have one, use [Azure portal](../../key-vault/secrets/quick-create-portal.md) or [Azure CLI](../../key-vault/secrets/quick-create-cli.md) to create a secret. The name of the secret must be `PlaceholderSecret`, and the value can be anything.
+  This quickstart requires Azure CLI version 2.42.0 or higher. Use `az --version` to check your version.
 
+<!-- TODO: Remove for Ignite -->
+* Install the Azure IoT Operations extension for Azure CLI.
+
+  * On Linux:
+
+   ```bash
+   az extension add --source $(curl -w "%{url_effective}\n" -I -L -s -S https://aka.ms/aziotopscli-latest -o /dev/null) -y
+   ```
+
+   * On Windows:
+
+   ```powershell
+   az extension add --source ([System.Net.HttpWebRequest]::Create('https://aka.ms/aziotopscli-latest').GetResponse().ResponseUri.AbsoluteUri) -y
+   ```
+  
 ## What problem will we solve?
 
 Azure IoT Operations is a suite of data services that run on Arc-enabled Kubernetes clusters, and those services need to be managed remotely. Orchestrator is the service that helps you define, deploy, and manage these application workloads.
@@ -51,21 +66,7 @@ Azure IoT Operations is a suite of data services that run on Arc-enabled Kuberne
 
 Use the Azure CLI to deploy Azure IoT Operations components to your Arc-enabled Kubernetes cluster. Part of the deployment process is to configure your cluster so that it can communicate securely with your Azure IoT Operations components and key vault. The Azure CLI command `az iot ops init` does this for you.
 
-1. Install the Azure IoT Operations extension for Azure CLI.
-
-   #### [Bash](#tab/bash)
-
-   ```bash
-   az extension add --source $(curl -w "%{url_effective}\n" -I -L -s -S https://aka.ms/aziotopscli-latest -o /dev/null) -y
-   ```
-
-   #### [PowerShell](#tab/powershell)
-
-   ```powershell
-   az extension add --source ([System.Net.HttpWebRequest]::Create('https://aka.ms/aziotopscli-latest').GetResponse().ResponseUri.AbsoluteUri) -y
-   ```
-
-1. Login to Azure CLI. To prevent permission potential issues later, login interactively with a browser here even if you're already logged in before.
+1. Log in to Azure CLI. To prevent permission potential issues later, log in interactively with a browser here even if you've already logged in before.
 
    ```azurecli-interactive
    az login
@@ -77,10 +78,25 @@ Use the Azure CLI to deploy Azure IoT Operations components to your Arc-enabled 
    > * Open the codespace in VS Code desktop, and then run `az login` in the terminal. This opens a browser window where you can log in to Azure.
    > * After you get the localhost error on the browser, copy the URL from the browser and use `curl <URL>` in a new terminal tab. You should see a JSON response with the message "You have logged into Microsoft Azure!."
 
-1. Deploy Azure IoT Operations to your cluster. Replace `<YOUR_CLUSTER_NAME>` with the name of your Arc-connected Kubernetes cluster, `<YOUR_RESOURCE_GROUP_NAME>` with the name of the resource group that contains your cluster, and `<YOUR_KEY_RESOURCE_ID>` with the full resource ID of your key vault that looks like `/subscriptions/<YOUR_SUBSCRIPTION_ID>/resourceGroups/<YOUR_RESOURCE_GROUP_NAME>/providers/Microsoft.KeyVault/vaults/<YOUR_KEY_VAULT_NAME>`. The operation can take up to 10 minutes.
+1. Use the [az keyvault create](/cli/azure/keyvault#az-keyvault-create) command to create a Key Vault in the resource group that contains your cluster. Replace the following placeholders with your own information:
+
+   | Parameter | Value |
+   | ----- | ----- |
+   | **KEYVAULT_NAME** | A globally unique name for your key vault. Key Vault names are  string of 3 to 24 characters that can contain only numbers (0-9), letters (a-z, A-Z), and hyphens (-). |
+   | **RESOURCE_GROUP** | The resource group that also contains your Arc-enabled Kubernetes cluster. |
+   | **REGION** | An Azure region close to you. |
+
+   ```azurecli
+   az keyvault create --name "<KEYVAULT_NAME>" --resource-group "<RESOURCE_GROUP>" --location "<REGION>"
+   ```
+
+   The output of this command shows properties of the newly created key vault. Take note of the **id** value, which you use in the next step.
+
+
+1. Deploy Azure IoT Operations to your cluster. Replace `<YOUR_CLUSTER_NAME>` with the name of your Arc-connected Kubernetes cluster, `<YOUR_RESOURCE_GROUP_NAME>` with the name of the resource group that contains your cluster, and `<YOUR_KEYVAULT_RESOURCE_ID>` with the full resource ID of your key vault that looks like `/subscriptions/<YOUR_SUBSCRIPTION_ID>/resourceGroups/<YOUR_RESOURCE_GROUP_NAME>/providers/Microsoft.KeyVault/vaults/<YOUR_KEY_VAULT_NAME>`. The operation can take up to 10 minutes.
 
    ```azurecli-interactive
-   az iot ops init --cluster <YOUR_CLUSTER_NAME> --resource-group <YOUR_RESOURCE_GROUP_NAME> --kv-id <YOUR_KEY_RESOURCE_ID>
+   az iot ops init --cluster <YOUR_CLUSTER_NAME> --resource-group <YOUR_RESOURCE_GROUP_NAME> --kv-id <YOUR_KEYVAULT_RESOURCE_ID>
    ```
 
    > [!TIP]
@@ -105,7 +121,7 @@ Use the Azure CLI to deploy Azure IoT Operations components to your Arc-enabled 
 Use the Azure portal to deploy Azure IoT Operations components to your Arc-enabled Kubernetes cluster.
 
 <!-- TODO: change to normal link for Ignite -->
-1. Use this [special link to open Azure portal](https://ms.portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Microsoft_Azure_IoTOperationsHidden).
+1. Open the [Azure portal](https://portal.azure.com).
 
 1. In the Azure portal search bar, search for and select **Azure Arc**.
 
@@ -121,17 +137,23 @@ Use the Azure portal to deploy Azure IoT Operations components to your Arc-enabl
    | **Resource group** | Select the resource group that contains your Arc-enabled Kubernetes cluster. |
    | **Cluster name** | Select your cluster. When you do, the **Custom location** and **Deployment details** sections autofill. |
    | **Secrets** | Check the box confirming that you set up the secrets provider in your cluster by following the steps in the previous sections. |
+   
+1. Select **Next: Automation**.
 
-1. Select **Next: Configuration**.
+1. On the **Automation** tab, select **Pick or create an Azure Key Vault**.
 
-1. On the **Configuration** tab, provide the following information:
+1. Provide the following information to connect a key vault:
 
    | Field | Value |
    | ----- | ----- |
-   | **Deploy a simulated PLC** | Switch this toggle to **Yes**. The simulated PLC creates demo telemetry data that you use in the following quickstarts. |
-   | **Mode** | Set the MQ configuration mode to **Auto**. |
+   | **Subscription** | Select the subscription that contains your Arc-enabled Kubernetes cluster. |
+   | **Key vault** | Choose an existing key vault from the drop-down list or select **Create new key vault**. |
 
-1. Select **Review + create**.
+1. Select **Select**.
+
+1. On the **Automation** tab, the automation commands are populated based on your chosen cluster and key vault. Copy the **Required** CLI command and run it on your development machine.
+
+1. After successfully running the `az iot ops init` command on your cluster, select **Review + Create**.
 
 1. Wait for the validation to pass and then select **Create**.
 
