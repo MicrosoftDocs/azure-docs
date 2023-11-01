@@ -39,9 +39,6 @@ The following screenshot shows how an application uses a retry policy to attempt
 
 You have the option to create resiliency policies using Bicep, the CLI, or the Azure portal.  
 
-> [!IMPORTANT]
-> Once you've applied all the resiliency policies, restart your Dapr applications.
-
 # [Bicep](#tab/bicep)
 
 The following resiliency example demonstrates all of the available configurations. 
@@ -87,16 +84,20 @@ To begin, log-in to the Azure CLI:
 az login
 ```
 
-To create a resiliency policy with recommended settings for timeouts and retries, run the following command:
+**Create policies with recommended settings**
+
+To create a resiliency policy with recommended settings for timeouts and retries, run the `resiliency create` command:
 
 ```azurecli
-az containerapp resiliency-policy create -g MyResourceGroup -n MyContainerApp –default​
+az containerapp env dapr-component resiliency create -g MyResourceGroup -n MyResiliencyName --container-app-name MyContainerApp --default
 ```
 
-To apply the resiliency policies from a YAML file you've created for your container app, run the following command:
+**Create policies with resiliency YAML**
+
+To apply the resiliency policies from a YAML file you created for your container app, run the following command:
 
 ```azurecli
-az containerapp resiliency-policy create -g MyResourceGroup –n MyContainerApp –yaml MyYAMLPath
+az containerapp env dapr-component resiliency create -g MyResourceGroup –n MyResiliencyName --container-app-name MyContainerApp –yaml MyYAMLPath
 ```
 
 This command passes the resiliency policy YAML file, which may look similar to the following example:
@@ -120,29 +121,69 @@ spec:
     tcpRetryPolicy:
       maxConnectAttempts: 3
 ```
-Use the `resiliency-policies show` command to list resiliency policies for a container app.
+
+**Update specific policies**
+
+Update your resiliency policies by targeting an individual policy. For example, to update the `timeout-response-in-seconds` policy, run the following command.
 
 ```azurecli
-az containerapp resiliency-policies show -g MyResourceGroup –name MyContainerApp​
+az containerapp env dapr-component resiliency update --name MyResiliency -g MyResourceGroup --container-app-name MyContainerApp --timeout-response-in-seconds 20
 ```
 
-To update a resiliency policy, run the following command:
+**Update policies with resiliency YAML** 
+
+You can also update existing resiliency policies by updating the resiliency YAML you created earlier.
 
 ```azurecli
-todo
+az containerapp env dapr-component resiliency update --name MyResiliency -g MyResourceGroup --container-app-name MyContainerApp --yaml MyYAMLPath
 ```
 
-To delete resiliency policies, run:
+**View policies**
+
+Use the `resiliency list` command to list all the resiliency policies attached to a container app.
 
 ```azurecli
-az containerapp resiliency-policies remove -g MyResourceGroup –name MyContainerApp​
+az containerapp env dapr-component resiliency list --group MyResourceGroup -–name MyContainerApp​
+```
+
+Use `resiliency show` command to show a single policy by name.
+
+```azurecli
+az containerapp env dapr-component resiliency show --name MyResiliency --group MyResourceGroup --container-app-name MyContainerApp
+```
+
+**Delete policies**
+
+To delete resiliency policies, run the following command. 
+
+```azurecli
+az containerapp env dapr-component resiliency delete --group MyResourceGroup –-name MyResiliencyName --container-app-name ​MyContainerApp
 ```
 
 # [Azure portal](#tab/portal)
 
-Need
+Navigate into your container app environment in the Azure portal. In the left side menu under **Settings**, select **Dapr components** to open the Dapr component pane.
+
+:::image type="content" source="media/dapr-component-resiliency/dapr-component-pane.png" alt-text="Screenshot showing where to access the Dapr components associated with your container app.":::
+
+You can add resiliency policies to an existing Dapr component by selecting **Add resiliency** for that component. 
+
+:::image type="content" source="media/dapr-component-resiliency/add-dapr-component-resiliency.png" alt-text="Screenshot showing where to click to add a resiliency policy to a Dapr component.":::
+
+In the resiliency policy pane, select **Outbound** or **Inbound** to set policies for outbound or inbound operations. For example, for outbound operations, you can set timeout and HTTP retry policies similar to the following. 
+
+:::image type="content" source="media/dapr-component-resiliency/outbound-dapr-resiliency.png" alt-text="Screenshot demonstrating how to set timeout or retry policies for an outbound operation.":::
+
+Click **Save** to save the resiliency policies.
+
+You can edit or remove the resiliency policies by selecting **Edit resiliency**. 
+
+:::image type="content" source="media/dapr-component-resiliency/edit-dapr-component-resiliency.png" alt-text="Screenshot showing how you can edit existing resiliency policies for the applicable Dapr component.":::
 
 ---
+
+> [!IMPORTANT]
+> Once you've applied all the resiliency policies, you need to restart your Dapr applications.
 
 ## Policy specifications
 
@@ -203,12 +244,6 @@ properties: {
 | `retryBackOff` | Yes | Monitor the requests and shut off all traffic to the impacted service when timeout and retry criteria are met. | N/A |
 | `retryBackOff.initialDelayInMilliseconds` | Yes | Delay between first error and first retry. | `1000` |
 | `retryBackOff.maxIntervalInMilliseconds` | Yes | Maximum delay between retries. | `10000` |
-
-## Resiliency observability
-
-### Resiliency creation via system logs
-
-### Resiliency metrics
 
 ## Related content
 

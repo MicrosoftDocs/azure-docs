@@ -24,7 +24,7 @@ Policies are in effect for each request to a container app. You can tailor polic
 
 The following screenshot shows how an application uses a retry policy to attempt to recover from failed requests. 
 
-:::image type="content" source="media/service-name-resiliency/service-name-resiliency.png" alt-text="Diagram demonstrating container app to container app resiliency using a container app's service name.":::
+:::image type="content" source="media/service-discovery-resiliency/service-discovery-resiliency.png" alt-text="Diagram demonstrating container app to container app resiliency using a container app's service name.":::
 
 > [!NOTE]
 > To configure resiliency policies for service-to-service communication using Dapr service invocation, refer to [Dapr service invocation API resiliency](./dapr-invoke-resiliency.md). 
@@ -38,7 +38,9 @@ The following screenshot shows how an application uses a retry policy to attempt
 
 ## Creating resiliency policies
 
-You have the option to create resiliency policies using Bicep, the CLI, or the Azure portal.  
+Whether you create resiliency policies using Bicep, the CLI, or the Azure portal, you can only apply one policy per container app. 
+
+When you apply a policy to a container app, the rules are applied to all requests made to that container app, _not_ to requests made from that container app. For example, a retry policy is applied to a container app named `App A`. All inbound requests made to App A automatically retry on failure. However, outbound requests sent by App A are not guaranteed to retry in failure. 
 
 # [Bicep](#tab/bicep)
 
@@ -108,16 +110,20 @@ To begin, log-in to the Azure CLI:
 az login
 ```
 
-To create a resiliency policy with recommended settings for timeouts and retries, run the following command:
+**Create policies with recommended settings**
+
+To create a resiliency policy with recommended settings for timeouts and retries, run the `resiliency create` command:
 
 ```azurecli
 az containerapp resiliency create -g MyResourceGroup -n MyResiliencyName --container-app-name MyContainerApp --default
 ```
 
+**Create policies with resiliency YAML**
+
 To apply the resiliency policies from a YAML file you created for your container app, run the following command:
 
 ```azurecli
-az containerapp resiliency-policy create -g MyResourceGroup –n MyContainerApp –yaml MyYAMLPath
+az containerapp resiliency create -g MyResourceGroup –n MyResiliencyName --container-app-name MyContainerApp –yaml MyYAMLPath
 ```
 
 This command passes the resiliency policy YAML file, which may look similar to the following example:
@@ -140,6 +146,7 @@ tcpRetryPolicy:
 circuitBreakerPolicy:
   consecutiveErrors: 5
   intervalInSeconds: 10
+  maxEjectionPercent: 50
 tcpConnectionPool:
   maxConnections: 100
 httpConnectionPool:
@@ -147,27 +154,58 @@ httpConnectionPool:
   http2MaxRequests: 1024
 ```
 
-Use the `resiliency-policies show` command to list resiliency policies for a container app.
+**Update specific policies**
+
+Update your resiliency policies by targeting an individual policy. For example, to update the `timeout-response-in-seconds` policy, run the following command.
 
 ```azurecli
-az containerapp resiliency-policies show -g MyResourceGroup –name MyContainerApp​
+az containerapp resiliency update --name MyResiliency -g MyResourceGroup --container-app-name MyContainerApp --timeout-response-in-seconds 20
 ```
 
-To update a resiliency policy, run the following command:
+**Update policies with resiliency YAML** 
+
+You can also update existing resiliency policies by updating the resiliency YAML you created earlier.
 
 ```azurecli
-todo
+az containerapp resiliency update --name MyResiliency -g MyResourceGroup --container-app-name MyContainerApp --yaml MyYAMLPath
 ```
 
-To delete resiliency policies, run:
+**View policies**
+
+Use the `resiliency list` command to list all the resiliency policies attached to a container app.
 
 ```azurecli
-az containerapp resiliency-policies remove -g MyResourceGroup –name MyContainerApp​
+az containerapp resiliency list --group MyResourceGroup -–name MyContainerApp​
+```
+
+Use `resiliency show` command to show a single policy by name.
+
+```azurecli
+az containerapp resiliency show --name MyResiliency --group MyResourceGroup --container-app-name MyContainerApp
+```
+
+**Delete policies**
+
+To delete resiliency policies, run the following command. 
+
+```azurecli
+az containerapp resiliency delete --group MyResourceGroup –-name MyResiliencyName --container-app-name ​MyContainerApp
 ```
 
 # [Azure portal](#tab/portal)
 
-Need
+Navigate into your container app in the Azure portal. In the left side menu under **Settings**, select **Resiliency (preview)** to open the resiliency pane.
+
+:::image type="content" source="media/service-discovery-resiliency/resiliency-pane.png" alt-text="Screenshot demonstrating how to access the service discovery resiliency pane.":::
+
+To add a resiliency policy, select the corresponding checkbox and enter parameters. For example, you can select **Timeouts** and enter the duration in seconds for either a connection timeout, a response timeout, or both.
+
+:::image type="content" source="media/service-discovery-resiliency/service-discovery-resiliency-example.png" alt-text="Screenshot of setting the service discovery resiliency policies.":::
+
+Select **Apply** once you've added all the policies you'd like to apply to your container app. Select **Continue** to confirm.
+
+:::image type="content" source="media/service-discovery-resiliency/confirm-apply.png" alt-text="Screenshot of pop-up window confirming applying the new resiliency policies.":::
+
 
 ---
 
@@ -321,7 +359,7 @@ properties: {
 | -------- | --------- | ----------- | ------- |
 | `consecutiveErrors` | Yes | Consecutive number of errors before an upstream container app replica is temporarily removed from load balancing. | `5` |
 | `intervalInSeconds` | Yes | Interval between evaluation to eject or restore an upstream container app replica. | `10` |
-| `maxEjectionPercent` | Yes | Maximum percent of failing container app replicas to eject from load balancing. | `50` |
+| `maxEjectionPercent` | Yes | Maximum percent of failing container app replicas to eject from load balancing. Will eject at least one host regardless of the value. | `50` |
 
 ### Connection pools
 
@@ -354,12 +392,6 @@ properties: {
 | Metadata | Required | Description | Example |
 | -------- | --------- | ----------- | ------- |
 | `maxConnections` | Yes | Maximum number of concurrent connections to an upstream container app. | `100` |
-
-## Resiliency observability
-
-### Resiliency creation via system logs
-
-### Resiliency metrics
 
 ## Related content
 
