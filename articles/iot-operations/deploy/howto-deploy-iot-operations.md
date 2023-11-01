@@ -11,6 +11,8 @@ ms.date: 10/19/2023
 
 # Deploy Azure IoT Operations extensions to a Kubernetes cluster
 
+Deploy Azure IoT Operations preview - enabled by Azure Arc to a Kubernetes cluster using the Azure portal, Azure CLI, or GitHub actions. Once you have Azure IoT Operations deployed, then you can use the Orchestrator service to manage and deploy additional workloads to your cluster.
+
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -57,7 +59,7 @@ The following example is a Bicep template that deploys the Orchestrator extensio
 
 [!INCLUDE[Sample Bicep file for deploying the Orchestrator extension](../includes/deployment-bicep-file.md)]
 
-You can deploy the whole Azure IoT Operations suite along with the Orchestrator extension. For an example of that deployment template, see [azure-iot-operations.bicep](https://github.com/Azure/azure-iot-operations-pr/blob/main/dev/azure-iot-operations.bicep)
+You can deploy the whole Azure IoT Operations suite along with the Orchestrator extension. For an example of that deployment template, see [azure-iot-operations.json](https://github.com/Azure/azure-iot-operations/blob/main/dev/azure-iot-operations.json)
 
 ---
 
