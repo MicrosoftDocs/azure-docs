@@ -173,7 +173,7 @@ $ kubectl get svc
 NAME                          TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)             AGE
 kubernetes                    ClusterIP      10.43.0.1       <none>        443/TCP             6h10m
 azedge-dmqtt-health-manager   ClusterIP      10.43.249.169   <none>        1883/TCP,8883/TCP   9m17s
-azedge-dmqtt-frontend         LoadBalancer   10.43.93.6      172.18.0.2    8883:30674/TCP      9m15s
+aio-mq-dmqtt-frontend         LoadBalancer   10.43.93.6      172.18.0.2    8883:30674/TCP      9m15s
 ```
 
 From here, follow the same steps as previously to create a server certificate and secret with this external IP in `--san`, create the Kubernetes secret in the same way. Once the secret is created, it's automatically imported to the listener. You should see the logs showing the successful import:

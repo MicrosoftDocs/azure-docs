@@ -258,7 +258,7 @@ Local Broker Connection:
       Kubernetes:
         Secret Path:                 /var/run/serviceaccount/localbroker
         Service Account Token Name:  sat-token
-    Endpoint:                        azedge-dmqtt-frontend:1883
+    Endpoint:                        aio-mq-dmqtt-frontend:1883
     Tls:
       Tls Enabled:                  false
       Trusted Ca Certificate:       <nil>
@@ -276,7 +276,7 @@ Then MqttBridgeConnector local broker connection setting must be configured to m
 ```yaml
 spec:
   localBrokerConnection:
-    endpoint: "azedge-dmqtt-frontend:8883"
+    endpoint: "aio-mq-dmqtt-frontend:8883"
     tls:
       tlsEnabled: true
       trustedCaCertificateName: "test-ca-configmap"

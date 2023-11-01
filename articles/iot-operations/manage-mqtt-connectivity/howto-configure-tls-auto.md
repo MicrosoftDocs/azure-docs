@@ -257,9 +257,9 @@ NAME                                           READY   STATUS    RESTARTS   AGE
 azedge-e4k-operator-5d66b67dcf-d6q7n           1/1     Running   0          3m55s
 azedge-dmqtt-health-manager-0                  1/1     Running   0          3m33s
 aio-mq-diagnostics-probe-0                     1/1     Running   0          3m30s
-azedge-dmqtt-frontend-64dd945945-scrjv         1/1     Running   0          3m30s
-azedge-dmqtt-backend-1                         1/1     Running   0          3m30s
-azedge-dmqtt-backend-0                         1/1     Running   0          3m30s
+aio-mq-dmqtt-frontend-64dd945945-scrjv         1/1     Running   0          3m30s
+aio-mq-dmqtt-backend-1                         1/1     Running   0          3m30s
+aio-mq-dmqtt-backend-0                         1/1     Running   0          3m30s
 azedge-dmqtt-authentication-0                  1/1     Running   0          3m30s
 ```
 
