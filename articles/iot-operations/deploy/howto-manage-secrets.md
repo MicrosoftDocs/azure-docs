@@ -3,6 +3,7 @@ title: Manage secrets - Azure IoT Operations
 description: Create, update, and manage secrets that are required to give your Arc-connected cluster access to Azure resources.
 author: kgremban
 ms.author: kgremban
+# ms.subservice: orchestrator
 ms.topic: how-to
 ms.date: 10/30/2023
 
