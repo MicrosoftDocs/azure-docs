@@ -1,6 +1,6 @@
 ---
-title: Azure Chaos Studio Preview fault and action library
-description: Understand the available actions you can use with Azure Chaos Studio Preview, including any prerequisites and parameters.
+title: Azure Chaos Studio  fault and action library
+description: Understand the available actions you can use with Azure Chaos Studio, including any prerequisites and parameters.
 services: chaos-studio
 author: prasha-microsoft 
 ms.topic: article
@@ -10,9 +10,9 @@ ms.service: chaos-studio
 ms.custom: ignite-fall-2021, ignite-2022
 ---
 
-# Azure Chaos Studio Preview fault and action library
+# Azure Chaos Studio fault and action library
 
-The faults listed in this article are currently available for use. To understand which resource types are supported, see [Supported resource types and role assignments for Azure Chaos Studio Preview](./chaos-studio-fault-providers.md).
+The faults listed in this article are currently available for use. To understand which resource types are supported, see [Supported resource types and role assignments for Azure Chaos Studio](./chaos-studio-fault-providers.md).
 
 ## Time delay
 
