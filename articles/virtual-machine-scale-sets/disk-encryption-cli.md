@@ -101,7 +101,7 @@ az vmss encryption enable \
     --volume-type DATA
 ```
 
-It may take a minute or two for the encryption process to start.
+It might take a minute or two for the encryption process to start.
 
 As the scale set is upgrade policy on the scale set created in an earlier step is set to *automatic*, the VM instances automatically start the encryption process. On scale sets where the upgrade policy is to manual, start the encryption policy on the VM instances with [az vmss update-instances](/cli/azure/vmss#az-vmss-update-instances).
 
