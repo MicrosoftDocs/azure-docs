@@ -24,7 +24,7 @@ This quickstart describes the [fitness store](https://github.com/Azure-Samples/a
 
 The following diagram shows a common application architecture:
 
-:::image type="content" source="media/quickstart-sample-app-acme-fitness-store-introduction/architecture.png" alt-text="Diagram showing the architecture of the Fitness Store application." lightbox="media/quickstart-sample-app-acme-fitness-store-introduction/architecture.png" border="false":::
+:::image type="content" source="media/quickstart-sample-app-acme-fitness-store-introduction/architecture.png" alt-text="Diagram that shows the architecture of the Fitness Store application." lightbox="media/quickstart-sample-app-acme-fitness-store-introduction/architecture.png" border="false":::
 
 This architecture shows an application composed of smaller applications with a gateway, multiple databases, security services, monitoring, and automation.
 

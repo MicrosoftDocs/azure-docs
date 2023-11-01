@@ -34,107 +34,109 @@ Azure OpenAI enables your applications to take advantage of large-scale, generat
 
 ## Provision Azure OpenAI
 
-To add AI to the application, create an Azure OpenAI Account and deploy language models. The following steps describe how to provision an Azure OpenAI Services account and deploy language models using the Azure CLI.
+To add AI to the application, create an Azure OpenAI account and deploy language models. The following steps describe how to provision an Azure OpenAI services account and deploy language models using the Azure CLI.
 
-Use the following command to create an Azure OpenAI account:
+1. Use the following command to create an Azure OpenAI account:
 
-```azurecli
-az cognitiveservices account create \
-    --resource-group <resource-group-name> \
-    --name <open-ai-service-name> \
-    --location <region> \
-    --kind OpenAI \
-    --sku s0 \
-    --custom-domain <open-ai-service-name>   
-```
+   ```azurecli
+   az cognitiveservices account create \
+       --resource-group <resource-group-name> \
+       --name <open-ai-service-name> \
+       --location <region> \
+       --kind OpenAI \
+       --sku s0 \
+       --custom-domain <open-ai-service-name>   
+   ```
 
-Use the following commands to create the model deployments for `text-embedding-ada-002` and `gpt-35-turbo-16k` in your Azure OpenAI service:
+1. Use the following commands to create the model deployments for `text-embedding-ada-002` and `gpt-35-turbo-16k` in your Azure OpenAI service:
 
-```azurecli
-az cognitiveservices account deployment create \
-    --resource-group <resource-group-name> \
-    --name <open-ai-service-name> \
-    --deployment-name text-embedding-ada-002 \
-    --model-name text-embedding-ada-002 \
-    --model-version "2"  \
-    --model-format OpenAI \
-    --sku-name "Standard" \
-    --sku-capacity 1
+   ```azurecli
+   az cognitiveservices account deployment create \
+       --resource-group <resource-group-name> \
+       --name <open-ai-service-name> \
+       --deployment-name text-embedding-ada-002 \
+       --model-name text-embedding-ada-002 \
+       --model-version "2"  \
+       --model-format OpenAI \
+       --sku-name "Standard" \
+       --sku-capacity 1
 
-az cognitiveservices account deployment create \
-    --resource-group <resource-group-name> \
-    --name <open-ai-service-name> \
-    --deployment-name gpt-35-turbo-16k \
-    --model-name gpt-35-turbo-16k \
-    --model-version "0613"  \
-    --model-format OpenAI \
-    --sku-name "Standard" \
-    --sku-capacity 1
-```
+   az cognitiveservices account deployment create \
+       --resource-group <resource-group-name> \
+       --name <open-ai-service-name> \
+       --deployment-name gpt-35-turbo-16k \
+       --model-name gpt-35-turbo-16k \
+       --model-version "0613"  \
+       --model-format OpenAI \
+       --sku-name "Standard" \
+       --sku-capacity 1
+   ```
 
 ### Deploy Assist Service to Azure Spring Apps
 
-Use the following command to create the new AI service, `assist-service`:
+Use the following steps to create, configure, and deploy the Assist Service application to Azure Spring Apps.
 
-```azurecli    
-az spring app create \
-    --resource-group <resource-group-name> \
-    --name assist-service \
-    --service <Azure-Spring-Apps-service-instance-name> \
-    --instance-count 1 \
-    --memory 1Gi
-```
+1. Use the following command to create the new AI service, `assist-service`:
 
-Use the following command to configure Spring Cloud Gateway with the Assist Service route:
+   ```azurecli
+   az spring app create \
+       --resource-group <resource-group-name> \
+       --name assist-service \
+       --service <Azure-Spring-Apps-service-instance-name> \
+       --instance-count 1 \
+       --memory 1Gi
+   ```
 
-```azurecli
-az spring gateway route-config create \
-    --resource-group <resource-group-name> \
-    --service <Azure-Spring-Apps-service-instance-name> \
-    --name assist-routes \
-    --app-name assist-service \
-    --routes-file azure-spring-apps-enterprise/resources/json/routes/assist-service.json
-```
+1. Use the following command to configure Spring Cloud Gateway with the Assist Service route:
 
-Use the following command to retrieve the REST API endpoint base URL for the Azure OpenAI Service:
+   ```azurecli
+   az spring gateway route-config create \
+       --resource-group <resource-group-name> \
+       --service <Azure-Spring-Apps-service-instance-name> \
+       --name assist-routes \
+       --app-name assist-service \
+       --routes-file azure-spring-apps-enterprise/resources/json/routes/assist-service.json
+   ```
 
-```azurecli
-export SPRING_AI_AZURE_OPENAI_ENDPOINT=$(az cognitiveservices account show \
-    --name <open-ai-service-name> \
-    --resource-group <resource-group-name> | jq -r .properties.endpoint)
-```
+1. Use the following command to retrieve the REST API endpoint base URL for the Azure OpenAI service:
 
-Use the following command to retrieve the primary API key:
+   ```azurecli
+   export SPRING_AI_AZURE_OPENAI_ENDPOINT=$(az cognitiveservices account show \
+       --name <open-ai-service-name> \
+       --resource-group <resource-group-name> | jq -r .properties.endpoint)
+   ```
 
-```azurecli
-export SPRING_AI_AZURE_OPENAI_APIKEY=$(az cognitiveservices account keys list \
-    --name <open-ai-service-name> \
-    --resource-group <resource-group-name> | jq -r .key1)
-```
+1. Use the following command to retrieve the primary API key:
 
-Use the following command to deploy the Assist Service application:
+   ```azurecli
+   export SPRING_AI_AZURE_OPENAI_APIKEY=$(az cognitiveservices account keys list \
+       --name <open-ai-service-name> \
+       --resource-group <resource-group-name> | jq -r .key1)
+   ```
 
-```azurecli
-az spring app deploy 
-    --resource-group <resource-group-name> \
-    --name assist-service \
-    --service <Azure-Spring-Apps-service-instance-name> \
-    --source-path apps/acme-assist \
-    --build-env BP_JVM_VERSION=17 \
-    --env \
-        SPRING_AI_AZURE_OPENAI_ENDPOINT=${SPRING_AI_AZURE_OPENAI_ENDPOINT} \
-        SPRING_AI_AZURE_OPENAI_APIKEY=${SPRING_AI_AZURE_OPENAI_APIKEY} \
-        SPRING_AI_AZURE_OPENAI_MODEL=gpt-35-turbo-16k \
-        SPRING_AI_AZURE_OPENAI_EMBEDDINGMODEL=text-embedding-ada-002
-```
+1. Use the following command to deploy the Assist Service application:
 
-Test the Fitness Store application in the browser again. Go to `ASK TO FITASSIST` and converse with the assistant:
+   ```azurecli
+   az spring app deploy 
+       --resource-group <resource-group-name> \
+       --name assist-service \
+       --service <Azure-Spring-Apps-service-instance-name> \
+       --source-path apps/acme-assist \
+       --build-env BP_JVM_VERSION=17 \
+       --env \
+           SPRING_AI_AZURE_OPENAI_ENDPOINT=${SPRING_AI_AZURE_OPENAI_ENDPOINT} \
+           SPRING_AI_AZURE_OPENAI_APIKEY=${SPRING_AI_AZURE_OPENAI_APIKEY} \
+           SPRING_AI_AZURE_OPENAI_MODEL=gpt-35-turbo-16k \
+           SPRING_AI_AZURE_OPENAI_EMBEDDINGMODEL=text-embedding-ada-002
+   ```
 
-:::image type="content" source="media/quickstart-fitness-store-azure-open-ai/homepage.png" alt-text="A screenshot showing the homepage of the Fitness Store application." lightbox="media/quickstart-fitness-store-azure-open-ai/homepage.png" border="false":::
+1. Now, test the Fitness Store application in the browser. Select **ASK TO FITASSIST** to converse with the Assist Service application.
 
-Enter the statement, "I need a bike for a commute to work." and observe the output that was generated by the Assist application:
+   :::image type="content" source="media/quickstart-fitness-store-azure-open-ai/homepage.png" alt-text="A screenshot that shows the homepage of the Fitness Store application." lightbox="media/quickstart-fitness-store-azure-open-ai/homepage.png" border="false":::
 
-:::image type="content" source="media/quickstart-fitness-store-azure-open-ai/fitassistQ01.png" alt-text="A screenshot showing the query 'I need a bike for a commute to work' and the response from the Fitness Store assistant." lightbox="media/quickstart-fitness-store-azure-open-ai/fitassistQ01.png" border="false":::
+1. In **FitAssist**, enter *I need a bike for a commute to work* and observe the output that was generated by the Assist Service application:
+
+   :::image type="content" source="media/quickstart-fitness-store-azure-open-ai/fitassistQ01.png" alt-text="A screenshot that shows the 'I need a bike for a commute to work' query and the response from the Fitness Store assistant." lightbox="media/quickstart-fitness-store-azure-open-ai/fitassistQ01.png" border="false":::
 
 ## Clean up resources
 
