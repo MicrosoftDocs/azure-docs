@@ -20,7 +20,7 @@ As the name suggests, Azure Managed CCF utilizes the [Azure Confidential Computi
 
 The following diagram shows a high-level overview of the different layers of the Managed CCF platform and where the application code fits into it.
 
-:::image type="content" source="media/managed-confidential-consortium-framework-overview.png" alt-text="A picture showing where the application code fits in the Managed CCF platform.":::
+:::image type="content" source="media/managed-confidential-consortium-framework-overview.png" alt-text="A diagram showing where the application code fits in the Managed CCF platform.":::
 
 ## Key features
 
@@ -58,7 +58,7 @@ Developers can use familiar development tools like Visual Studio Code and progra
 
 Customers can build applications that target the Confidential Consortium Framework (CCF) and host it themselves. But, like any other self-hosted applications, it requires regular maintenance and patching (both hardware and software) which consumes time and resource. Azure Managed CCF abstracts away the day-to-day operations, allowing teams to focus on the core business priorities. The following diagram compares and contrasts the differences between a self-hosted CCF network to Azure Managed CCF.
 
-:::image type="content" source="media/paas-vs-iaas.png" alt-text="Azure Managed CCF vs open-source CCF.":::
+:::image type="content" source="media/paas-vs-iaas.png" alt-text="A diagram showing Azure Managed CCF vs open-source CCF.":::
 
 ## Next steps
 
