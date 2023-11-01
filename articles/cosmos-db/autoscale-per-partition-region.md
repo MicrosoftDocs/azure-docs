@@ -50,7 +50,7 @@ This feature is available for new Azure Cosmos DB accounts. To enable this featu
 1. Navigate to the **Features** page.
 1. Locate and enable the **Per Region and Per Partition Autoscale** feature.
 
-    :::image type="content" source="media/autoscale-per-partition-region/enable-feature.png" alt-text="Screenshot of the 'Per Region and Per Partition Autoscale' feature in the Azure portal.":::
+    :::image type="content" source="media/autoscale-per-partition-region/enable-feature.png" lightbox="media/autoscale-per-partition-region/enable-feature.png" alt-text="Screenshot of the 'Per Region and Per Partition Autoscale' feature in the Azure portal.":::
 
 > [!IMPORTANT]
 > The feature is enabled at the account level, so all containers within the account will automatically have this capability applied. The feature is available for both shared throughput databases and containers with dedicated throughput. Provisioned throughput accounts must switch over to autoscale and then enable this feature, if interested.
