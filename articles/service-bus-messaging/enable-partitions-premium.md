@@ -16,6 +16,15 @@ Service Bus partitions enable queues and topics, or messaging entities, to be pa
 > - The assigned messaging units are always a multiplier of the amount of partitions in a namespace, and are equally distributed across the partitions. For example, in a namespace with 16MU and 4 partitions, each partition will be assigned 4MU.
 > - Multiple partitions with lower messaging units (MU) give you a better performance over a single partition with higher MUs.
 > - We do not allow creating non-partitioned entities in a partitioned namespace.
+> - The feature is currently available in the regions described below. New regions will be added regularly, we will keep this article updated with the latest regions as they become available.
+> 
+> |  |  |  |  |  |
+> |-----------------------|----------------|----------------------|------------------|-----------------|
+> | Australia   Central   | Central US     | Germany West Central | South Central US | West Central US |
+> | Australia   Southeast | East Asia      | Japan West           | South India      | West Europe     |
+> | Canada   Central      | East US        | North Central US     | UAE North        | West US         |
+> | Canada   East         | East US 2 EUAP | North Europe         | UK South         | West US 3       |
+> | Central   India       | France Central | Norway East          | UK West          |                 |
 
 ## Use Azure portal
 When creating a **namespace** in the Azure portal, set the **Partitioning** to **Enabled** and choose the number of partitions, as shown in the following image. 
