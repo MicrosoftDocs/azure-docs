@@ -1,10 +1,9 @@
 ---
 title: Identify and remediate attack paths
-
 description: Learn how to manage your attack path analysis and build queries to locate vulnerabilities in your multicloud environment.
 ms.topic: how-to
 ms.custom: ignite-2023
-ms.date: 10/29/2023
+ms.date: 11/01/2023
 ---
 
 # Identify and remediate attack paths
