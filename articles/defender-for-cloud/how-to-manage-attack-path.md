@@ -48,7 +48,7 @@ You can use Attack path analysis  to locate the biggest risks to your environmen
 
 1. Navigate to **Microsoft Defender for Cloud** > **Attack path analysis**.
 
-    :::image type="content" source="media/how-to-manage-attack-path/attack-path-blade.png" alt-text="Screenshot that shows the attack path analysis blade on the main screen." lightbox="media/how-to-manage-attack-path/attack-path-blade.png":::
+    :::image type="content" source="media/how-to-manage-attack-path/attack-path-blade.png" alt-text="Screenshot that shows the attack path analysis page on the main screen." lightbox="media/how-to-manage-attack-path/attack-path-blade.png":::
 
 1. Select an attack path.
 
@@ -75,6 +75,11 @@ Once an attack path is resolved, it can take up to 24 hours for an attack path t
 ## View all recommendations with attack path
 
 Attack path analysis also gives you the ability to see all recommendations by attack path without having to check each node individually. You can resolve all recommendations without having to view each node individually.
+
+The remediation path contains two types of recommendation:
+
+- **Recommendations** - Recommendations that mitigate the attack path.
+- **Additional recommendations** - Recommendations that reduce the exploitation risks, but don’t mitigate the attack path.
 
 **To resolve all recommendations**:
 
@@ -110,7 +115,7 @@ securityresources
 ```
 
 **Get all instances for a specific attack path**:
-For example, ‘Internet exposed VM with high severity vulnerabilities and read permission to a Key Vault’.
+For example, `Internet exposed VM with high severity vulnerabilities and read permission to a Key Vault`.
 
 ```kusto
 securityresources
@@ -128,7 +133,7 @@ The following table lists the data fields returned from the API response:
 |--|--|
 | ID | The Azure resource ID of the attack path instance|
 | Name | The Unique identifier of the attack path instance|
-| Type | The Azure resource type, always equals “microsoft.security/attackpaths”|
+| Type | The Azure resource type, always equals `microsoft.security/attackpaths`|
 | Tenant ID | The tenant ID of the attack path instance |
 | Location | The location of the attack path |
 | Subscription ID | The subscription of the attack path |
