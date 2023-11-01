@@ -49,7 +49,7 @@
         href: ai-studio/concepts/retrieval-augmented-generation.md
       - name: Create an index
         href: ai-studio/how-to/index-add.md
-    - name: Add data to your project
+    - name: Add and manage data
       href: ai-studio/how-to/data-add.md
     - name: Generate synthetic data
       items:

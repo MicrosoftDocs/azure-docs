@@ -1,19 +1,17 @@
 ---
-title: Create Data Assets
-titleSuffix: Azure Machine Learning
-description: Learn how to create Azure Machine Learning data assets
-services: machine-learning
-ms.service: machine-learning
-ms.subservice: mldata
+title: How to add and manage data in your Azure AI project
+titleSuffix: Azure AI services
+description: Learn how to add and manage data in your Azure AI project
+services: cognitive-services
+author: eric-urban
+manager: nitinme
+ms.service: azure-ai-services
 ms.topic: how-to
-ms.custom: data4ml, ignite-2022, devx-track-azurecli
-ms.author: xunwan
-author: SturgeonMi
-ms.reviewer: franksolomon
-ms.date: 06/20/2023
+ms.date: 10/1/2023
+ms.author: eur
 ---
 
-# Create and manage data
+# How to add and manage data in your Azure AI project
 
 This article shows how to create and manage data in Azure AI Studio.
 Data can be used to a source for Index in Azure AI Studio.
@@ -49,20 +47,19 @@ When you create your data, you need to set the data type. AI Studio supports thr
 
 # [Studio](#tab/azure-studio)
 
-The supported paths are shown in the Azure AI Studio UI. You can create a data from a folder or file:
+The supported source paths are shown in Azure AI Studio. You can create a data from a folder or file:
 
-- If you select folder type, you can choose the folder URL format. The supported folder URL formats are shown in the Azure AI Studio UI. You can create a data using:
+- If you select folder type, you can choose the folder URL format. The supported folder URL formats are shown in Azure AI Studio. You can create a data using:
     :::image type="content" source="../media/data-add/studio-url-folder.png" alt-text="Screenshot of folder URL format.":::
 
-- If you select file type, you can choose the file URL format. The supported file URL formats are shown in the Azure AI Studio UI. You can create a data using:
+- If you select file type, you can choose the file URL format. The supported file URL formats are shown in Azure AI Studio. You can create a data using:
     :::image type="content" source="../media/data-add/studio-url-file.png" alt-text="Screenshot of file URL format.":::
-
-
 
 # [Python SDK](#tab/python)
 
 
 If you're using SDK or CLI to create data, you must specify a `path` that points to the data location. Supported paths include:
+
 |Location  | Examples  |
 |---------|---------|
 |Local: A path on your local computer    | `./home/username/data/my_data`         |
@@ -72,14 +69,13 @@ If you're using SDK or CLI to create data, you must specify a `path` that points
 
 > [!NOTE]
 > When you create a data from a local path, it will automatically upload to the default Blob Connection.
-
-
 
 
 # [Azure CLI](#tab/cli)
 
 
 If you're using the SDK or CLI to create data, you must specify a `path` that points to the data location. Supported paths include:
+
 |Location  | Examples  |
 |---------|---------|
 |Local: A path on your local computer    | `./home/username/data/my_data`         |
@@ -90,6 +86,7 @@ If you're using the SDK or CLI to create data, you must specify a `path` that po
 > [!NOTE]
 > When you create a data from a local path, it will automatically upload to the default Blob Connection.
 
+---
 
 ### Create data: File type
 
@@ -277,7 +274,7 @@ When a data has been erroneously created - for example, with an incorrect name, 
 
 ### Archive data
 
-Archiving a data hides it by default from both list queries (for example, in the CLI `az ml data list`) and the data listing in the Studio UI. You can still continue to reference and use an archived data in your workflows. You can archive either:
+Archiving a data hides it by default from both list queries (for example, in the CLI `az ml data list`) and the data listing in Azure AI Studio. You can still continue to reference and use an archived data in your workflows. You can archive either:
 
 - *all versions* of the data under a given name, or
 - a specific data version
@@ -338,7 +335,7 @@ client.data.archive(name="<DATA NAME>", version="<VERSION TO ARCHIVE>")
 # [Studio](#tab/azure-studio)
 
 > [!IMPORTANT]
-> Currently, archiving a specific data version is not supported in the Studio UI.
+> Currently, archiving a specific data version is not supported in Azure AI Studio.
 
 ---
 
@@ -402,7 +399,7 @@ client.data.restore(name="<DATA NAME>", version="<VERSION TO ARCHIVE>")
 # [Studio](#tab/azure-studio)
 
 > [!IMPORTANT]
-> Currently, restoring a specific data version is not supported in the Studio UI.
+> Currently, restoring a specific data version is not supported in Azure AI Studio.
 
 ---
 
