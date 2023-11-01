@@ -1147,6 +1147,7 @@ Example SAN `DNS Name=eastus.metadata.azure.com, DNS Name=metadata.azure.com`
 
 > [!NOTE]
 > The certificates might not have an exact match for the domain. For this reason, the certification validation should accept any subdomain (for example, in public cloud general availability regions accept `*.metadata.azure.com`).
+
 We don't recommend certificate pinning for intermediate certs. For further guidance, see [Certificate pinning - Certificate pinning and Azure services](https://learn.microsoft.com/azure/security/fundamentals/certificate-pinning).
 Please note that the Azure Instance Metadata Service will NOT offer notifications for future Certificate Authority changes.
 Instead, you must follow the centralized [Azure Certificate Authority details](https://learn.microsoft.com/azure/security/fundamentals/azure-ca-details?tabs=root-and-subordinate-cas-list) article for all future updates.
