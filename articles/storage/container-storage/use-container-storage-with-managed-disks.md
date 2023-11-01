@@ -4,7 +4,7 @@ description: Configure Azure Container Storage Preview for use with Azure manage
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: how-to
-ms.date: 10/17/2023
+ms.date: 11/01/2023
 ms.author: kendownie
 ms.custom: references_regions
 ---
