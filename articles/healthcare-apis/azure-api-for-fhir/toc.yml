@@ -127,6 +127,8 @@
       href: patient-everything.md
     - name: $purge-history operation
       href: purge-history.md
+    - name: bulk-delete operation
+      href: bulk-delete-operation.md
     - name: $validate
       expanded: false
       items:  

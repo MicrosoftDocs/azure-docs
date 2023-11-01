@@ -1,16 +1,16 @@
 ---
-title: Apache Flink Configuration Management in HDInsight on AKS
+title: Apache Flink® Configuration Management in HDInsight on AKS
 description: Learn about Apache Flink Configuration Management in HDInsight on AKS
 ms.service: hdinsight-aks
 ms.topic: tutorial
 ms.date: 08/29/2023
 ---
 
-# Apache Flink configuration management
+# Apache Flink® Configuration management in HDInsight on AKS
 
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
-HDInsight on AKS provides a set of default configurations of Apache Flink for most properties and a few based on common application profiles. However, in case you're required to tweak Flink configuration properties to improve performance for certain applications with state usage, parallelism, or memory settings, you can change certain properties at cluster level using **Configuration management** section in HDInsight on AKS Flink.
+HDInsight on AKS provides a set of default configurations of Apache Flink for most properties and a few based on common application profiles. However, in case you're required to tweak Flink configuration properties to improve performance for certain applications with state usage, parallelism, or memory settings, you can change certain properties at cluster level using **Configuration management** section in HDInsight on AKS cluster.
 
 1. Go to **Configuration Management** section on your Apache Flink cluster page 
 
@@ -60,7 +60,7 @@ The state backend determines how Flink manages and persists the state of your ap
 
 `state.backend: <value>`
 
-By default HDInsight on AKS Flink uses rocks db
+By default Apache Flink clusters in HDInsight on AKS use Rocks db
 
 ## Checkpoint Storage Path
 
@@ -127,4 +127,5 @@ Since savepoint is provided in the job, the Flink knows from where to start proc
 
 
 ### Reference
-[Apache Flink Configurations](https://nightlies.apache.org/flink/flink-docs-master/docs/deployment/config/)
+- [Apache Flink Configurations](https://nightlies.apache.org/flink/flink-docs-master/docs/deployment/config/)
+- Apache, Apache Kafka, Kafka, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).

@@ -5,7 +5,6 @@ description: Learn how to enable custom domains in your redirect URLs for Azure 
 services: active-directory-b2c
 author: kengaderdus
 manager: CelesteDG
-
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
@@ -23,6 +22,7 @@ zone_pivot_groups: b2c-policy-type
 This article describes how to enable custom domains in your redirect URLs for Azure Active Directory B2C (Azure AD B2C). By using a verified custom domain, you've benefits such as: 
 
 - It provides a more seamless user experience. From the user's perspective, they remain in your domain during the sign in process rather than redirecting to the Azure AD B2C default domain *&lt;tenant-name&gt;.b2clogin.com*.
+-  By staying in the same domain for your application during sign-in, you mitigate the impact of [third-party cookie blocking](/azure/active-directory/develop/reference-third-party-cookies-spas). 
 
 - You increase the number of objects (user accounts and applications) you can create in your Azure AD B2C tenant from the default 1.25 million to 5.25 million. 
 
@@ -398,6 +398,9 @@ Copy the URL, change the domain name manually, and then paste it back to your br
 ### Which IP address is presented to Azure AD B2C? The user's IP address, or the Azure Front Door IP address?
 
 Azure Front Door passes the user's original IP address. It's the IP address that you'll see in the audit reporting or your custom policy.
+
+> [!IMPORTANT]
+> If the client sends an `x-forwarded-for` header to Azure Front Door, Azure AD B2C will use the originator's `x-forwarded-for` as the user's IP address for [Conditional Access Evaluation](./conditional-access-identity-protection-overview.md) and the `{Context:IPAddress}` [claims resolver](./claim-resolver-overview.md).
 
 ### Can I use a third-party Web Application Firewall (WAF) with B2C?
 
