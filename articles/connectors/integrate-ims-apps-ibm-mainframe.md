@@ -34,7 +34,7 @@ The following diagram shows how the IMS connector interacts with an IBM mainfram
 
 To extend these hybrid cloud scenarios, the IMS connector in a Standard workflow works with the [HIS Designer for Logic Apps](/host-integration-server/core/application-integration-ladesigner-2), which you can use to create a *program definition* or *program map* of the mainframe transaction program. For this task, the HIS Designer converts that information into metadata that the IMS connector uses when running an action in your workflow.
 
-After you generate the metadata file as a Host Integration Designer XML (HIDX) file from the HIS Designer, you can add that file as a map artifact to your Standard logic app resource or to a linked integration account in Azure. That way, your workflow can access your app's metadata when you add an IMS connector action. The connector reads the metadata file from your logic app resource or integration account, and dynamically presents the parameters to use with the IMS connector in your workflow. You can then provide parameters to the host application, and the connector returns the results to your workflow. As a result, you can integrate your legacy apps with Azure, Microsoft, other apps, services, and systems that Azure Logic Apps supports.
+After you generate the metadata file as a Host Integration Designer XML (HIDX) file from the HIS Designer, you can add that file as a map artifact to your Standard logic app resource. That way, your workflow can access your app's metadata when you add an IMS connector action. The connector reads the metadata file from your logic app resource, and dynamically presents the parameters to use with the IMS connector in your workflow. You can then provide parameters to the host application, and the connector returns the results to your workflow. As a result, you can integrate your legacy apps with Azure, Microsoft, other apps, services, and systems that Azure Logic Apps supports.
 
 ## Connector technical reference
 
@@ -46,8 +46,13 @@ The following section describes the operations for the IMS connector, which curr
 |-----------|----------|-------|-------------|
 | **HIDX Name** | Yes | String | Select the IMS HIDX file that you want to use. |
 | **Method Name** | Yes | String | Select the method in the HIDX file that you want to use. |
+| **Advanced parameters** | No | Varies | This list appears after you select a method so that you can add other parameters to use with the selected method. The available parameters vary based on your HIDX file and the method that you select. |
 
 This operation also includes advanced parameters, which appear after you select a method, for you to select and use with the selected method. These parameters vary based on your HIDX file and the method that you select.
+
+## Limitations
+
+Currently, this connector requires that you upload your HIDX file directly to your Standard logic app resource, not an integration account.
 
 ## Prerequisites
 
@@ -83,16 +88,7 @@ For your workflow to use the HIDX file, follow these steps:
 
 1. Go to the folder where you saved your HIDX file, and copy the file.
 
-1. In the [Azure portal](https://portal.azure.com), choose either option:
-
-   - [Upload the HIDX file as a map to your Standard logic app resource](../logic-apps/logic-apps-enterprise-integration-maps.md?tabs=standard#add-map-to-standard-logic-app-resource) 
-
-   - [Upload the HIDX file as a map to an integration account](../logic-apps/logic-apps-enterprise-integration-maps.md?tabs=standard#add-map-to-integration-account).
-
-     > [!NOTE]
-     >
-     > To use artifacts in an integration account from your workflow, make sure that the integration account is 
-     > [linked to your Standard logic app resource](../logic-apps/enterprise-integration/create-integration-account.md?tabs=azure-portal%2Cstandard).
+1. In the [Azure portal](https://portal.azure.com), [upload the HIDX file as a map to your Standard logic app resource](../logic-apps/logic-apps-enterprise-integration-maps.md?tabs=standard#add-map-to-standard-logic-app-resource).
 
 1. Now, [add an IMS action to your workflow](#add-ims-action).
 
