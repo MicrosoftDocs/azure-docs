@@ -284,12 +284,12 @@ This feature works for storage and compute changes for both HA and Non HA server
 
 
 > [!NOTE]
-> Near Zero Downtime Scaling process is performed wherever possible but if it can switch to regular scaling if below limitations are encountered.
+>  Near Zero Downtime Scaling process is the default operation. However, in cases where the following limitations are encountered, the system switches to regular scaling, which involves more downtime compared to the near zero downtime scaling.
 
 #### Limitations 
 
-- Near Zero Downtime Scaling might be impacted due to capacity /quota constraints and in that case regular scaling is performed which takes more down time.  
-
+- Near Zero Downtime Scaling will not work if there are regional capacity constraints or quota limits on customer subscriptions.
+- 
 - Near Zero Downtime Scaling does not work for replica server but supports the source server. For replica server it will automatically go through regular scaling process.
 
 - Near Zero Downtime Scaling will not work if a Vnet injected Server with delegated subnet does not have sufficient usable ip addresses. In the case of a standalone server, an additional IP address is necessary, and for a HA-enabled server, two extra IP addresses are required.
