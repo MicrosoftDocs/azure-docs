@@ -21,7 +21,7 @@ ms.date: 10/19/2023
 
 #### [Azure portal](#tab/portal)
 
-There are no additional prerequisites for Azure portal deployments.
+Azure CLI installed on your development machine. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
 #### [GitHub actions](#tab/github)
 
@@ -45,7 +45,7 @@ You don't need a deployment template for Azure portal deployments. Continue to t
 
 #### [GitHub actions](#tab/github)
 
-The following example is a Bicep template that deploys the Orchestrator extension, a custom location, and a resource sync rule. The Orchestrator extension is a requirement for managing the cluster with Orchestrator and deploying additional IoT Operations or custom workloads.
+The following example is a Bicep template that deploys the Orchestrator extension, a custom location, and a resource sync rule. The Orchestrator extension is a requirement for managing the cluster with Orchestrator and deploying Azure IoT Operations or custom workloads.
 
 [!INCLUDE[Sample Bicep file for deploying the Orchestrator extension](../includes/deployment-bicep-file.md)]
 
@@ -53,7 +53,7 @@ You can deploy the whole Azure IoT Operations suite along with the Orchestrator 
 
 #### [Azure CLI](#tab/cli)
 
-The following example is a Bicep template that deploys the Orchestrator extension, a custom location, and a resource sync rule. The Orchestrator extension is a requirement for managing the cluster with Orchestrator and deploying additional IoT Operations or custom workloads.
+The following example is a Bicep template that deploys the Orchestrator extension, a custom location, and a resource sync rule. The Orchestrator extension is a requirement for managing the cluster with Orchestrator and deploying Azure IoT Operations or custom workloads.
 
 [!INCLUDE[Sample Bicep file for deploying the Orchestrator extension](../includes/deployment-bicep-file.md)]
 
@@ -88,7 +88,7 @@ Use the Azure portal to deploy Azure IoT Operations components to your Arc-enabl
 
    | Field | Value |
    | ----- | ----- |
-   | **Deploy a simulated PLC** | Switch this toggle to **Yes**. The simulated PLC creates demo telemetry data that you use in the following quickstarts. |
+   | **Deploy a simulated PLC** | Switch this toggle to **Yes**. The simulated PLC creates demo data that you use in the following quickstarts. |
    | **Mode** | Set the MQ configuration mode to **Auto**. |
 
 1. Select **Review + create**.
@@ -140,13 +140,13 @@ Use the Azure portal to deploy Azure IoT Operations components to your Arc-enabl
    | Parameter | Type | Description |
    | --------- | ---- | ----------- |
    | `clusterLocation` | string | Specify the cluster's location if it's different than the resource group's location. Otherwise, this parameter defaults to the resource group's location. |
-   | `location` | string | If the resource group's location is not supported for Azure IoT Operations deployments, use this parameter to override the default and set the location for the Azure IoT Operations resources. |
+   | `location` | string | If the resource group's location isn't supported for Azure IoT Operations deployments, use this parameter to override the default and set the location for the Azure IoT Operations resources. |
    | `simulatePLC` | Boolean | Set to `true` if you want to include a simulated component to generate test data. |
    | `dataProcessorSecrets` | object | Pass a secret to an Azure IoT Data Processor resource. |
    | `mqSecrets` | object | Pass a secret to an Azure IoT MQ resource. |
    | `opcUaBrokerSecrets` | object | Pass a secret to an Azure OPC UA Broker resource. |
 
-1. Save your changes to the paramters file.
+1. Save your changes to the parameters file.
 
 1. On the GitHub repo, select **Actions** and confirm **I understand my workflows, go ahead and enable them.**
 
