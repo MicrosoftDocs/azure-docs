@@ -763,7 +763,7 @@ Your subscription doesn't have enough Azure Container Instances (ACI) quota for 
 #### Solution
 You can do the following:
 - Retry your failed builds in a less concurrent manner.
-- If the current ACI limits for your subscription are too low to support your image building scenarios, then you can request an increase in your ACI quota.
+- If the current ACI limits for your subscription are too low to support your image building scenarios, then you can request an increase in your [ACI quota](../../container-instances/container-instances-resource-and-quota-limits.md#next-steps).
 
 ### Isolated Image Build failure
 
