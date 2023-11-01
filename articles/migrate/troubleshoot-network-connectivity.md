@@ -80,7 +80,7 @@ If the DNS resolution is incorrect, follow these steps:
 If the DNS resolution isn't working as described in the previous section, there might be an issue with your Private DNS Zone.  
 
 ### Confirm that the required Private DNS Zone resource exists  
-By default, Azure Migrate also creates a private DNS zone corresponding to the *privatelink* subdomain for each resource type. The private DNS zone will be created in the same Azure resource group as the private endpoint resource group. The Azure resource group should contain private DNS zone resources with the following format:
+By default, Azure Migrate also creates a private DNS zone corresponding to the *privatelink* subdomain for each resource type. The private DNS zone is created in the same Azure resource group as the private endpoint resource group. The Azure resource group should contain private DNS zone resources with the following format:
 -  privatelink.vaultcore.azure.net for the key vault
 -  privatelink.blob.core.windows.net for the storage account
 -  privatelink.siterecovery.windowsazure.com for the recovery services vault (for Hyper-V and agent-based replications)
@@ -103,7 +103,7 @@ Navigate to the private DNS zone resource in the Azure portal and select the vir
 
 This shows a list of links, each with the name of a virtual network in your subscription. The virtual network that contains the Private Endpoint resource must be listed here. Else, [follow this article](../dns/private-dns-getstarted-portal.md#link-the-virtual-network) to link the private DNS zone to a virtual network.    
 
-Once the private DNS zone is linked to the virtual network, DNS requests originating from the virtual network will look for DNS records in the private DNS zone. This is required for correct address resolution to the virtual network where the private endpoint was created.   
+Once the private DNS zone is linked to the virtual network, DNS requests originating from the virtual network looks for DNS records in the private DNS zone. This is required for correct address resolution to the virtual network where the private endpoint was created.   
 
 ### Confirm that the private DNS zone contains the right A records
 
