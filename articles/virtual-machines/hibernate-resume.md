@@ -19,8 +19,7 @@ ms.custom:
 > Azure Virtual Machines - Hibernation is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Hibernation allows you pause VMs that aren't being used and save on compute costs. It's an effective cost management feature for scenarios such as :
-
+Hibernation allows you pause VMs that aren't being used and save on compute costs. It's an effective cost management feature for scenarios such as:
 - Virtual desktops, dev/test, and other scenarios where the VMs don't need to run 24/7.
 - Applications that require considerable time to load due to memory components. These applications can be initialized on VMs and hibernated. These “prewarmed” VMs can then be quickly started when needed, with the applications already up and running in the desired state.
 
@@ -96,16 +95,15 @@ The following Windows operating systems support hibernation:
 -	You can only hibernate a VM using the Azure portal, CLI, PowerShell, SDKs and API. Hibernating the VM using guest OS operations don't result in the VM moving to a hibernated state and the VM continues to be billed.
 -	You can't disable hibernation on a VM once it's enabled.
 
--	The following Azure features aren't supported with hibernation
-    -	Ephemeral OS disk
-    -	Shared disk
-    -	Availability Sets
-    -	Virtual Machine Scale Sets (VMSS) Uniform
-    -	Spot VMs
-    -	Managed images
-    -	Azure Backup
-    -	Capacity reservations
-
+### Azure Feature Limitations
+-	Ephemeral OS disks
+-	Shared disks
+-	Availability Sets
+-	Virtual Machine Scale Sets (VMSS) Uniform
+-	Spot VMs
+-	Managed images
+-	Azure Backup
+-	Capacity reservations
 
 ## Prerequisites to use hibernation
 - The hibernate feature is enabled for your subscription.
