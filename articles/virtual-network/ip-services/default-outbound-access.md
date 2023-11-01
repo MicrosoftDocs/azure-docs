@@ -59,17 +59,16 @@ If you deploy a virtual machine in Azure and it doesn't have explicit outbound c
 
 There are multiple ways to turn off default outbound access:
 
-*  Utilize the Private Subnet parameter
-
 >[!Important]
 > Private Subnet is currently in public preview.  It is provided without a service-level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+* Utilize the Private Subnet parameter
     * Creating a subnet to be Private prevents any virtual machines on the subnet from utilizing default outbound access to connect to public endpoints.
     * The parameter to create a Private Subnet can only be modified during the creation of a subnet.
     * VMs on a Private Subnet can still access the Internet using explict outbound connectivity.
 
-> [!NOTE]
-> Certain services will not function on a virtual machine in a Private Subnet without an explict method of egress (examples are Windows Activation and Windows Updates).
+    > [!NOTE]
+    > Certain services will not function on a virtual machine in a Private Subnet without an explict method of egress (examples are Windows Activation and Windows Updates).
 
 *  Add an explicit outbound connectivity method.
 
