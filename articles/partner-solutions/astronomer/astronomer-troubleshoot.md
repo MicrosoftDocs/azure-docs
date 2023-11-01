@@ -1,9 +1,7 @@
 ---
 title: Troubleshooting your Astro deployment
 description: This article provides information about getting support and troubleshooting an Apache Airflow on Astro - An Azure Native ISV Service integration.
-author: flang-msft
 
-ms.author: franlanglois
 ms.topic: how-to
 ms.date: 11/13/2023
 
