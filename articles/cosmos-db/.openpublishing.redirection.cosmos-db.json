@@ -6239,6 +6239,11 @@
       "source_path_from_root": "/articles/cosmos-db/migration-choices.md",
       "redirect_url": "/azure/cosmos-db",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/vector-search.md",
+      "redirect_url": "/azure/cosmos-db/vector-database",
+      "redirect_document_id": false
     }
   ]
 }
