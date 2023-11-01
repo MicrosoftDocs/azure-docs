@@ -57,21 +57,7 @@ This condition allows users to peek or clear messages in a queue named **sample-
 
 ![Diagram of condition showing peek and clear access to named queue.](./media/queues-auth-abac-examples/peek-clear-messages-named-queue.png)
 
-```
-(
- (
-  !(ActionMatches{'Microsoft.Storage/storageAccounts/queueServices/queues/messages/read'})
-  AND
-  !(ActionMatches{'Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete'})
- )
- OR 
- (
-  @Resource[Microsoft.Storage/storageAccounts/queueServices/queues:name] StringEquals 'sample-queue'
- )
-)
-```
-
-#### Azure portal
+# [Portal: Visual editor](#tab/portal-visual-editor)
 
 Here are the settings to add this condition using the Azure portal.
 
@@ -86,7 +72,26 @@ Here are the settings to add this condition using the Azure portal.
 
 :::image type="content" source="./media/queues-auth-abac-examples/peek-clear-messages-portal.png" alt-text="Screenshot of condition editor in Azure portal showing peek or clear access to messages in a named queue." lightbox="./media/queues-auth-abac-examples/peek-clear-messages-portal.png":::
 
-#### Azure PowerShell
+# [Portal: Code editor](#tab/portal-code-editor)
+
+To add the condition using the code editor, copy the condition code sample below and paste it into the code editor.
+
+```
+(
+ (
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/queueServices/queues/messages/read'})
+  AND
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete'})
+ )
+ OR 
+ (
+  @Resource[Microsoft.Storage/storageAccounts/queueServices/queues:name] StringEquals 'sample-queue'
+ )
+)
+```
+After entering your code, switch back to the visual editor to validate it.
+
+# [PowerShell](#tab/azure-powershell)
 
 Here's how to add this condition using Azure PowerShell.
 
