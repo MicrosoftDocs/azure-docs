@@ -50,7 +50,7 @@ For customers that use Virtual appointments, refer to our Teams Interoperability
 - The maximum message size allowed is approximately 28 KB.
 - For chat threads with more than 20 participants, read receipts and typing indicator features are not supported.
 - For Teams Interop scenarios, it is the number of Azure Communication Services users, not Teams users that must be below 20 for read receipts and typing indicator features to be supported.
-
+  
 ## Chat architecture
 
 There are two core parts to chat architecture: 1) Trusted Service and 2) Client Application.
@@ -60,6 +60,16 @@ There are two core parts to chat architecture: 1) Trusted Service and 2) Client 
  - **Trusted service:** To properly manage a chat session, you need a service that helps you connect to Communication Services by using your resource connection string. This service is responsible for creating chat threads, adding and removing participants, and issuing access tokens to users. More information about access tokens can be found in our [access tokens](../../quickstarts/identity/access-tokens.md) quickstart.
  - **Client app:**  The client application connects to your trusted service and receives the access tokens that are used by users to connect directly to Communication Services. After creating the chat thread and adding users as participants, they can use the client application to connect to the chat thread and send messages. Real-time notifications in your client application can be used to subscribe to message & thread updates from other participants.
 
+## Build intelligent, AI powered chat experiences
+
+You can use [Azure AI APIs](../../../ai-services/index.yml) with the Chat SDK to build use cases like:
+
+- Enable users to chat with each other in different languages.
+- Help a support agent prioritize tickets by detecting a negative sentiment of an incoming message from a customer.
+- Genrate a summary at the end of the conversation to send to customer via email with next steps or follow up at a later date.
+- Add a [PVA bot](../../../power-platform/release-plan/2023wave2/power-virtual-agents/bring-bot-framework-bot-power-virtual-agents) in a Azure Communication Services Chat channel with an Azure Bot and a relay bot.
+
+:::image type="content" source="../media/chat/chat-and-open-ai.svg" alt-text="Diagram showing Azure Communication Services can be paired with Azure AI services.":::
 
 ## Message types
 
@@ -119,20 +129,6 @@ For more information, see [Push Notifications](../notifications.md).
 
 > [!NOTE]
 > Currently sending chat push notifications with Notification Hub is generally available in Android version 1.1.0 and in IOS version 1.3.0.
-
-## Build intelligent, AI powered chat experiences
-
-You can use [Azure AI APIs](../../../ai-services/index.yml) with the Chat SDK to build use cases like:
-
-- Enable users to chat with each other in different languages.
-- Help a support agent prioritize tickets by detecting a negative sentiment of an incoming message from a customer.
-- Analyze the incoming messages for key detection and entity recognition, and prompt relevant info to the user in your app based on the message content.
-
-One way to achieve this is by having your trusted service act as a participant of a chat thread. Let's say you want to enable language translation. This service is responsible for listening to the messages exchanged by other participants [1], calling AI APIs to translate content to desired language[2,3] and sending the translated result as a message in the chat thread[4].
-
-This way, the message history contains both original and translated messages. In the client application, you can add logic to show the original or translated message. See [this quickstart](../../../ai-services/translator/quickstart-text-rest-api.md) to understand how to use AI APIs to translate text to different languages. 
-
-:::image type="content" source="../media/chat/cognitive-services.png" alt-text="Diagram showing Azure AI services interacting with Communication Services.":::
 
 ## Next steps
 
