@@ -316,10 +316,10 @@
     - name: Manage GCP assessments and standards
       displayName: gcp, assessment, standards, built-in, compliance, standard, custom, assessment, query
       href: how-to-manage-gcp-assessments-standards.md
-    - name: Review your security recommendations
+    - name: Review security recommendations
       displayName: security, recommendations, owner, azure, resource, graph, azure resource graph, csv report
       href: review-security-recommendations.md
-    - name: Remediate recommendations
+    - name: Implement security recommendations
       displayName: remediation, steps, recommendations, fix, actions, activity log
       href: implement-security-recommendations.md
     - name: Improve your security posture with recommendation governance

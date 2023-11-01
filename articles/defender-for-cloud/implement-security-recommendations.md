@@ -9,11 +9,33 @@ ms.date: 11/01/2023
 
 # Implement security recommendations in Microsoft Defender for Cloud
 
-Recommendations give you suggestions on how to better secure your resources. You implement a recommendation by following the remediation steps provided in the recommendation.
+Recommendations give you suggestions on how to better secure your resources. You implement a recommendation by following the remediation steps provided in the recommendation. 
+
+When you remediate your recommendations 
 
 <a name="remediation-steps"></a>
 
-## Remediation steps
+## Review recommendation
+
+### Group recommendations by risk level
+
+Before you remediate recommendations you have the ability to group your recommendations in several ways. For example, risk level, owner, environment, affected resource and more. We recommend grouping your recommendations by risk level in order to remediate the most critical recommendations first.
+
+**To group recommendations by risk level**:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. Navigate to **Microsoft Defender for Cloud** > **Recommendations**.
+
+1. Select **Group by** > **Risk level**.
+
+:::image type="content" source="media/implement-security-recommendations/group-by-risk-level.png" alt-text="Screenshot of the recommendations page that shows how to group your recommendations." lightbox="media/implement-security-recommendations/group-by-risk-level.png":::
+
+After grouping your recommendations you should review you recommendations by reading the description, understanding what the remediation steps are asking you to do and use the graph to understand the risk to your business which includes which of your resources are exploitable and what impact the recommendation has on your business.
+
+To better understand the recommendations page, you can learn how to [review your security recommendations](review-security-recommendations.md).
+
+## Remediate recommendations
 
 After reviewing all the recommendations, decide which one to remediate first. We recommend that you prioritize the security controls with the highest potential to increase your secure score.
 

@@ -1,15 +1,63 @@
 ---
-title: Improving your security posture with recommendations
+title: Review security recommendations
 description: This document walks you through how to identify security recommendations that will help you improve your security posture.
 ms.topic: how-to
-ms.date: 10/29/2023
+ms.date: 11/01/2023
 ---
 
-# Find recommendations that can improve your security posture
+# Review security recommendations
+
+Security recommendations contain details that help you understand its significance and how to handle it.
+
+:::image type="content" source="./media/security-policy-concept/recommendation-details-page.png" alt-text="Screenshot of the recommendation details page with labels for each element." lightbox="./media/security-policy-concept/recommendation-details-page.png":::
+
+The recommendation details shown are:
+
+For supported recommendations, the top toolbar shows any or all of the following buttons:
+
+- **View policy definition** to go directly to the Azure Policy entry for the underlying policy.
+- **Open query** - You can view the detailed information about the affected resources using Azure Resource Graph Explorer.
+
+The left side of the screen shows the following:
+
+- **Risk level** - Critical, High, Medium, Low
+- **Resource** - the resource that is affected
+- **Status** - if the recommendation is assigned
+- **Description** - A short description of the security issue.
+- **Attack Paths** - The number of attack paths
+- **Scope** - The affected subscription
+- **Freshness** - The freshness interval
+- **Last change date** - The date this recommendation last had a change
+- **Owner** - The person assigned to this recommendation
+- **Due date** - The assigned date the recommendation must be resolved by
+- **Risk factors** - Environmental factors of the resource affected by the recommendation, which influence the exploitability and the business impact of the underlying security issue. For example, Internet exposure, sensitive data, lateral movement potential and more.
+- **Findings by severity** - The total findings by severity
+- **Tactics & techniques** - The tactics and techniques mapped to MITRE ATT&CK.
+
+The right side of the screen shows the following:
+
+- **Take action**
+    - **Remediate** - A description of the manual steps required to remediate the security issue on the affected resources. For recommendations with the **Fix** option, you can select**View remediation logic** before applying the suggested fix to your resources
+    - **Assign owner and set due date** - Gives you the option to assign an owner and due date
+    - **Exempt** - Exempt the entire recommendation, or disable specific findings using disable rules
+    - **Workflow automation** - Set a logic app which you would like to trigger with this security recommendation
+    
+- **Graph** - Allows you to view and investigate all context that is used for risk prioritization, including attack paths. Learn how to [identify and manage attack paths](how-to-manage-attack-path.md).
+
+    :::image type="content" source="media/security-policy-concept/recommendation-graph.png" alt-text="Screenshot of the graph tab in a recommendation that shows all of the attack paths for that recommendation." lightbox="media/security-policy-concept/recommendation-graph.png":::
+
+- **Findings** - all affiliated findings
+
+    :::image type="content" source="media/security-policy-concept/recommendation-findings.png" alt-text="Screenshot of the graph tab in a recommendation that shows all of the attack paths for that recommendation." lightbox="media/security-policy-concept/recommendation-findings.png":::
+
+> [!NOTE]
+> If an option is not present on your screen or is greyed out, it is not relevant to your recommendation.
+
+## Find recommendations that can improve your security posture
 
 To improve your [secure score](secure-score-security-controls.md), you have to implement the security recommendations for your environment. From the list of recommendations, you can use filters to find the recommendations that have the most impact on your score, or the ones that you were assigned to implement.
 
-To get to the list of recommendations:
+**To get to the list of recommendations**:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -26,7 +74,7 @@ Your [secure score is calculated](secure-score-security-controls.md?branch=main#
 
 The list of recommendations shows the **Potential score increase** that you can achieve when you remediate all of the recommendations in the security control.
 
-To find recommendations that can improve your secure score:
+**To find recommendations that can improve your secure score**:
 
 1. In the list of recommendations, use the **Potential score increase** to identify the security control that contains recommendations that will increase your secure score.
 
