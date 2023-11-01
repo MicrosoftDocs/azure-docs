@@ -26,6 +26,7 @@ Limitations in performance collection with VM insights:
 
 - Available memory isn't available in all Linux versions, including Red Hat Linux (RHEL) 6 and CentOS 6. It will be available in Linux versions that use [kernel version 3.14](http://www.man7.org/linux/man-pages/man1/free.1.html) or higher. It might be available in some kernel versions between 3.0 and 3.14.
 - Metrics are only available for data disks on Linux virtual machines that use XFS filesystem or EXT filesystem family (EXT2, EXT3, EXT4).
+- Collecting performance metrics from network shared drives is unsupported.
 
 ## Multi-VM perspective from Azure Monitor
 
