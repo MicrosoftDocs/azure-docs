@@ -189,9 +189,9 @@ On successful migration, update any network dependencies including DNS, firewall
    - Are custom domains configured?
    - Is a firewall involved?
    - Any known dependencies taken by upstream/downstream on the IPs involved?
-   - Is it a Multi-geo deployment?
+   - Is it a multi-geo deployment?
    - Can we modify the existing instance or is a parallel setup required?
-   - Can there be a downtime?
+   - Can there be downtime?
    - Can the migration be done in nonbusiness hours?
 
 1. **What are the prerequisites for the migration?**
@@ -202,9 +202,9 @@ On successful migration, update any network dependencies including DNS, firewall
 
 1. **Will the migration cause a downtime?**
 
-   ***VNet-injected instances:***  there's no downtime as the old and new managed gateways are available for 48 hours, to facilitate validation and DNS update. However if the default domain names are in use, traffic is routed to the new managed gateway immediately. It's critical that all network dependencies are taken care of upfront, for the impacted APIs to be functional.
+   ***VNet-injected instances:***  there's no downtime as the old and new managed gateways are available for 48 hours, to facilitate validation and DNS update. However, if the default domain names are in use, traffic is routed to the new managed gateway immediately. It's critical that all network dependencies are taken care of upfront, for the impacted APIs to be functional.
    
-   ***Non-VNet instances:*** there's a downtime of approximately 15 minutes only if you choose to preserve the original IP address. However, there's no downtime, if you migrate with a new IP address.
+   ***Non-VNet instances:*** there's a downtime of approximately 15 minutes only if you choose to preserve the original IP address. However, there's no downtime if you migrate with a new IP address.
 
 1. **My traffic is force tunneled through a firewall. What changes are required?**
 
@@ -212,7 +212,7 @@ On successful migration, update any network dependencies including DNS, firewall
       - Enable service endpoints as described [here](./api-management-using-with-vnet.md?tabs=stv2#force-tunnel-traffic-to-on-premises-firewall-using-expressroute-or-network-virtual-appliance)
       - The UDR (user-defined route) has the hop from **ApiManagement** service tag set to "Internet" and not only to your firewall address
    - The [requirements for NSG configuration for stv2](./api-management-using-with-vnet.md?tabs=stv2#configure-nsg-rules) remain the same either you have firewall or not, make sure your new subnet has it
-   - Firewall rules referring to the current IP address range of the API Management instance should be updated to use the  IP address range of your new subnet.
+   - Firewall rules referring to the current IP address range of the API Management instance should be updated to use the IP address range of your new subnet.
 
 1. **Is it impossible that data or configuration losses can occur by/during the migration?**
 
@@ -229,7 +229,7 @@ On successful migration, update any network dependencies including DNS, firewall
 
 1. **Can I preserve the IP address of the instance?**
 
-   **VNet-injected instances:** there's no way currently to preserve the IP address if your instance is injected in a VNet
+   **VNet-injected instances:** there's no way currently to preserve the IP address if your instance is injected into a VNet
    
    **Non-VNet instances:**  the IP address can be preserved, but there will be a downtime of approximately 15 minutes.
 
@@ -239,7 +239,7 @@ On successful migration, update any network dependencies including DNS, firewall
 
 1. **What happens if the migration fails?**
 
-   If your API Management instance doesn't show the platform stv2 after its status is *"Online"* you initiated the migration, it probably failed. Your service is automatically rolled back to the old instance and no changes are made. If you have problems (such as if status is *"Updating"* for more than 2 hours), contact Azure support
+   If your API Management instance doesn't show the platform stv2 after its status is *"Online"* you initiated the migration, it probably failed. Your service is automatically rolled back to the old instance and no changes are made. If you have problems (such as if status is *"Updating"* for more than 2 hours), contact Azure support.
 
 1. **What functionality is not available during migration?**
 
@@ -263,13 +263,13 @@ On successful migration, update any network dependencies including DNS, firewall
 
 1. **Is there any change required in custom domain/private DNS zones?**
 
-   **VNet-injected instances:** you'll need to update the private DNS zones to the new VNet IP address acquired after the migration. Pay attention to update non-Azure DNS zones too (for example your on-premises DNS servers pointing to API Management private IP address). However in external mode, the migration process will automatically update the default domains if in use.
+   **VNet-injected instances:** you'll need to update the private DNS zones to the new VNet IP address acquired after the migration. Pay attention to update non-Azure DNS zones too (for example your on-premises DNS servers pointing to API Management private IP address). However, in external mode, the migration process will automatically update the default domains if in use.
    
    **Non-VNet injected instances:** No changes are required if the IP is preserved. If opted for a new IP, custom domains referring to the IP should be updated.
 
 1. **My stv1 instance is deployed to multiple Azure regions (multi-geo). How do I upgrade to stv2?**
 
-   Multi-geo deployments include more managed gateways deployed in other locations. Each location should be migrated separately by providing a new subnet and a new Public IP.  Navigate to the *Locations* blade, and perform the changes on each listed location. The instance is considered migrated to the new platform only when all the locations are migrated. Both gateways continue to operate normally throughout the migration process.
+   Multi-geo deployments include more managed gateways deployed in other locations. Each location should be migrated separately by providing a new subnet and a new Public IP.  Navigate to the *Locations* blade and perform the changes on each listed location. The instance is considered migrated to the new platform only when all the locations are migrated. Both gateways continue to operate normally throughout the migration process.
 
 
 1. **Do we need a public IP even if the APIM instance is internal only?**
@@ -278,7 +278,7 @@ On successful migration, update any network dependencies including DNS, firewall
 
 1. **Can I upgrade my stv1 instance to the same subnet?**
 
-   - You can't migrate the stv1 instance to the same subnet in a single pass and without downtime. However, you can optionally move your migrated instance back to the original subnet. More details [here](./migrate-stv1-to-stv2.md?branch=main&tabs=portal#optional-migrate-back-to-original-vnet-and-subnet).
+   - You can't migrate the stv1 instance to the same subnet in a single pass without downtime. However, you can optionally move your migrated instance back to the original subnet. More details [here](./migrate-stv1-to-stv2.md?branch=main&tabs=portal#optional-migrate-back-to-original-vnet-and-subnet).
    - The old gateway takes up to 48 hours to vacate the subnet, so that you can initiate the move. However, you can request for a faster release of the subnet by submitting the subscription IDs and the desired release time through a support ticket.
    - Releasing the old subnet calls for a purge of the old gateway, which forfeits the rollback to the old gateway if desired.
    - A new Public IP is required for each switch
@@ -292,7 +292,7 @@ On successful migration, update any network dependencies including DNS, firewall
 
 1. **Are there any considerations when using default domain name?**
 
-   Instances that are using the default DNS name in external mode has the DNS autoupdated by the migration process. Moreover, the management endpoint, which always uses the default domain name is automatically updated by the migration process. Since the switch happens immediately on a successful migration, the new instance starts receiving traffic immediately, and it's critical that any networking restrictions/dependencies are taken care of upfront to avoid impacted apis being unavailable. 
+   Instances that are using the default DNS name in external mode has the DNS autoupdated by the migration process. Moreover, the management endpoint, which always uses the default domain name is automatically updated by the migration process. Since the switch happens immediately on a successful migration, the new instance starts receiving traffic immediately, and it's critical that any networking restrictions/dependences are taken care of upfront to avoid impacted apis being unavailable. 
 
 1. **What should we consider for self hosted gateways?**
 
@@ -304,7 +304,7 @@ On successful migration, update any network dependencies including DNS, firewall
 
 1. **Is there any impact on cost once we migrated to stv2?**
 
-   The billing model remains the same for `stv2` and there  won't be any more cost incurred after the migration.
+   The billing model remains the same for `stv2` and there won't be any more cost incurred after the migration.
 
 1. **How can we get help during migration?**
 
