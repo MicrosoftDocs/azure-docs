@@ -72,9 +72,9 @@ Create permission bindings that allow cloud application group to publish on requ
     :::image type="content" source="./media/mqtt-request-response-messages/device-response-to-cloud-application.png" alt-text="Screenshot showing the response message from device to cloud application." lightbox="./media/mqtt-request-response-messages/device-response-to-cloud-application.png":::
 
 > [!NOTE]
-> These MQTT messages can be routed via Event Grid subscriptions and written to a storage or cache to keep track of the desired and current state of a device.
-> Client life cycle events such as "connected" and "disconnected" can be used to keep track of a device's availability to resend any requests as needed.
-> Request-Response message pattern can also be achieved in MQTT v3.1.1, by including the Response topic in the request message payload.  The device client needs to parse the message payload, identifies the Response topic, and publishes the response on that topic.
+> - These MQTT messages can be routed via Event Grid subscriptions and written to a storage or cache to keep track of the desired and current state of a device.
+> - Client life cycle events such as "connected" and "disconnected" can be used to keep track of a device's availability to resend any requests as needed.
+> - Request-Response message pattern can also be achieved in MQTT v3.1.1, by including the Response topic in the request message payload.  The device client needs to parse the message payload, identifies the Response topic, and publishes the response on that topic.
 
 ## Next steps
 - See [Route MQTT messages to Event Hubs](mqtt-routing-to-event-hubs-portal.md)
