@@ -43,7 +43,7 @@ The IBM 3270 connector has different versions, based on [logic app type and host
 | Logic app | Environment | Connection version |
 |-----------|-------------|--------------------|
 | **Consumption** | Multi-tenant Azure Logic Apps | Managed connector, which appears in the designer under the **Enterprise** label. This connector provides only single action and no triggers. For more information, see [IBM 3270 managed connector reference](/connectors/si3270). |
-| **Standard** | 	Single-tenant Azure Logic Apps and App Service Environment v3 (ASE v3 with Windows plans only) | Managed connector, which appears in the connector gallery under **Runtime** > **Shared**, and the built-in, [service provider-based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation) connector, which appears in the connector gallery under **Runtime** > **In-App**. The built-in version differs in the following ways: <br><br>- The built-in connector doesn't need an integration account and can directly connect to a 3270 server and access Azure virtual networks using a connection string. <br><br>- The built-in version supports both server authentication and server-client authentication with TLS (SSL) encryption for data in transit, message encoding for both the send and receive operations, and Azure virtual network integration. <br><br>For more information, see the following documentation: <br><br>- [IBM 3270 managed connector reference](/connectors/si3270) <br>- [IBM 3270 built-in connector reference](#built-in-reference) |
+| **Standard** | 	Single-tenant Azure Logic Apps and App Service Environment v3 (ASE v3 with Windows plans only) | Managed connector, which appears in the connector gallery under **Runtime** > **Shared**, and the built-in, [service provider-based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation) connector, which appears in the connector gallery under **Runtime** > **In-App**. The built-in version differs in the following ways: <br><br>- The built-in connector can directly connect to a 3270 server and access Azure virtual networks using a connection string. <br><br>- The built-in version supports both server authentication and server-client authentication with TLS (SSL) encryption for data in transit, message encoding for its operation, and Azure virtual network integration. <br><br>For more information, see the following documentation: <br><br>- [IBM 3270 managed connector reference](/connectors/si3270) <br>- [IBM 3270 built-in connector reference](#built-in-reference) |
 
 <a name="built-in-reference"></a>
 
@@ -60,6 +60,10 @@ The following section describes the operations for the IBM 3270 connector, which
 | **Advanced parameters** | No | Varies | This list appears after you select a method so that you can add other parameters to use with the selected method. The available parameters vary based on your HIDX file and the method that you select. |
 
 This operation also includes advanced parameters, which appear after you select a method, for you to select and use with the selected method. These parameters vary based on your HIDX file and the method that you select.
+
+## Limitations
+
+Currently, the 3270 built-in connector version requires that you upload your HIDX file directly to your Standard logic app resource, not an integration account.
 
 ## Prerequisites
 
@@ -79,15 +83,48 @@ This operation also includes advanced parameters, which appear after you select 
 
   The IBM 3270 connector doesn't have triggers, so use any trigger to start your workflow, such as the **Recurrence** trigger or **Request** trigger. You can then add the 3270 connector actions.
 
-- An [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md), which is an Azure resource where you can upload and store your HIDX file as a map so that your workflow can access the metadata and method definitions in that file.
+- An [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md), which is required based on the 3270 connector version that you use and is an Azure resource where you can centrally store B2B artifacts such as trading partners, agreements, maps, schemas, and certifcates to use with specific workflow actions.
 
-  - Standard workflow: You don't have to use an integration account, which is useful for centrally storing your artifacts. However, instead, you must [upload your HIDX file as a map to your Standard logic app resource](../logic-apps-enterprise-integration-maps.md?tabs=standard#add-map-to-standard-logic-app-resource). If you want to use an integration account, [link your Standard logic app resource to your integration account](../logic-apps/enterprise-integration/create-integration-account.md?tabs=azure-portal%Standard#link-to-logic-app) and then [upload the HIDX file as a map to your linked integration account](../logic-apps/logic-apps-enterprise-integration-maps.md?tabs=standard#add-map-to-integration-account).
+  | Workflow | Description |
+  |----------|-------------|
+  | Standard | - 3270 built-in connector: Upload HIDX file to Standard logic app resource. <br><br>- 3270 managed connector: Upload HIDX file to your Standard logic app resource or your [linked integration account](../logic-apps/enterprise-integration/create-integration-account.md?tabs=standard#link-to-logic-app). |
+  | Consumption | 3270 managed connector: Upload HIDX file to your [linked integration account](../logic-apps/enterprise-integration/create-integration-account.md?tabs=consumption#link-to-logic-app). |
 
-  - Consumption workflow: You must use an integration account with Consumption workflows and [link your Consumption logic app resource to your integration account](../logic-apps/enterprise-integration/create-integration-account.md?tabs=azure-portal%2Cconsumption#link-to-logic-app). You must then [upload your HIDX file as a map to your linked integration account](../logic-apps/logic-apps-enterprise-integration-maps.md?tabs=consumption#add-map-to-integration-account).
+  For more information, see [Upload the HIDX file](#upload-hidx-file).
 
-  > [!NOTE]
-  > 
-  > When you upload the HIDX file, make sure to select the map type named **HIDX**.
+<a name="upload-hidx-file"></a>
+
+## Upload the HIDX file
+
+For your workflow to use the HIDX file, follow these steps:
+
+### [Standard](#tab/standard)
+
+1. Go to the folder where you saved your HIDX file, and copy the file.
+
+1. In the [Azure portal](https://portal.azure.com), choose the following steps, based on the connector version:
+
+      - 3270 built-in connector: [Upload your HIDX file to your Standard logic app resource](../logic-apps/logic-apps-enterprise-integration-maps.md?tabs=standard#add-map-to-standard-logic-app-resource).
+
+      - 3279 managed connector:
+
+        - [Upload your HIDX file to a linked integration account](../logic-apps/logic-apps-enterprise-integration-maps.md?tabs=standard#add-map-to-integration-account). Make sure that you select **HIDX** as the **Map type**.
+
+        - [Upload your HIDX file to your Standard logic app resource](../logic-apps/logic-apps-enterprise-integration-maps.md?tabs=standard#add-map-to-standard-logic-app-resource).
+
+1. Now, [add an IBM 3270 action to your workflow](#add-ibm-3270-action).
+
+### [Consumption](#tab/consumption)
+
+1. Go to the folder where you saved your HIDX file, and copy the file.
+
+1. In the [Azure portal](https://portal.azure.com), [upload the HIDX file as a map artifact to your linked integration account](../logic-apps/logic-apps-enterprise-integration-maps.md?tabs=consumption#add-map-to-integration-account). Make sure that you select **HIDX** as the **Map type**.
+
+1. Now, [add an IBM 3270 action to your workflow](#add-ibm-3270-action).
+
+---
+
+Later in this guide, when you add an **IBM 3270** connector action to your workflow for the first time, you're prompted to create a connection between your workflow and the mainframe system. After you create the connection, you can select your previously added HIDX file, the method to run, and the parameters to use.
 
 <a name="add-ibm-3270-action"></a>
 

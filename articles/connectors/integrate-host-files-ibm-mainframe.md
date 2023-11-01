@@ -42,7 +42,7 @@ The following diagram shows how the **IBM Host File** connector in Azure Logic A
 
 To extend hybrid cloud scenarios, the **IBM Host File** connector works with the [HIS Designer for Logic Apps](/host-integration-server/core/application-integration-ladesigner-2), which you can use to create a *data definition* or *data map* of the mainframe host file. For this task, the HIS Designer converts that data into metadata that the **IBM Host File** connector uses when running an action in your workflow. The connector performs the data type conversions, which are required to receive input from preceding workflow operations and to send output for use by subsequent workflow actions. The connector also provides tabular data definition and code page translation.
 
-After you generate the metadata file as a Host Integration Designer XML (HIDX) file from the HIS Designer, you can add that file as a map artifact to your Standard logic app resource or to a linked integration account in Azure. That way, your workflow can access your app's metadata when you add an **IBM Host File** connector action. The connector reads the metadata file from your logic app resource or integration account, and dynamically presents the binary file's structure to use with the **IBM Host File** connector actions in your workflow.
+After you generate the metadata file as a Host Integration Designer XML (HIDX) file from the HIS Designer, you can add that file as a map artifact to your Standard logic app resource. That way, your workflow can access your app's metadata when you add an **IBM Host File** connector action. The connector reads the metadata file from your logic app resource, and dynamically presents the binary file's structure to use with the **IBM Host File** connector actions in your workflow.
 
 ## Connector technical reference
 
@@ -63,6 +63,10 @@ The following section describes the operations for the **IBM Host File** connect
 | **HIDX Name** | Yes | String | Select the mainframe host file HIDX file that you want to use. |
 | **Schema Name** | Yes | String | Select the host file schema in the HIDX file that you want to use. |
 | **Rows** | Yes | JSON | Select the Array or individual rows. To enter an entire data object in JSON format, you can select the **Switch to input entire array** option. |
+
+## Limitations
+
+Currently, this connector requires that you upload your HIDX file directly to your Standard logic app resource, not an integration account.
 
 ## Prerequisites
 
@@ -94,16 +98,7 @@ For your workflow to use the HIDX file, follow these steps:
 
 1. Go to the folder where you saved your HIDX file, and copy the file.
 
-1. In the [Azure portal](https://portal.azure.com), choose either option:
-
-   - [Upload the HIDX file as a map to your Standard logic app resource](../logic-apps/logic-apps-enterprise-integration-maps.md?tabs=standard#add-map-to-standard-logic-app-resource) 
-
-   - [Upload the HIDX file as a map to an integration account](../logic-apps/logic-apps-enterprise-integration-maps.md?tabs=standard#add-map-to-integration-account).
-
-     > [!NOTE]
-     >
-     > To use artifacts in an integration account from your workflow, make sure that the integration account is 
-     > [linked to your Standard logic app resource](../logic-apps/enterprise-integration/create-integration-account.md?tabs=azure-portal%2Cstandard).
+1. In the [Azure portal](https://portal.azure.com), [upload the HIDX file as a map to your Standard logic app resource](../logic-apps/logic-apps-enterprise-integration-maps.md?tabs=standard#add-map-to-standard-logic-app-resource).
 
 1. Now, [add an **IBM Host File** action to your workflow](#add-host-files-action).
 
