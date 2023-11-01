@@ -34,11 +34,12 @@ For more information about the `stv1` and `stv2` platforms and the benefits of u
 API Management platform migration from `stv1` to `stv2` involves updating the underlying compute alone and has no impact on the service/api configuration persisted in the storage layer.
 
 * The upgrade process involves creating a new compute in parallel the old compute. Both instances coexist for 48 hours. 
-* The management endpoint DNS entry is managed by the service and will point to the new compute immediately on successful migration. 
+* Azure manages the management endpoint DNS, and updates to the new compute immediately on successful migration. 
 * The Gateway DNS still points to the old compute if custom domain is in use. 
-* If custom DNS isn't in use the Gateway and Portal DNS will also point to the new compute immediately.
-* For internal instance, DNS is managed by the customer, so the DNS entries continue to point to old compute until updated by the customer
-* It's the DNS which points to either the new or the old compute and hence no downtime to the APIs (unless there's any firewall that blocks the new compute subnet access to the backends)
+* If custom DNS isn't in use, the Gateway and Portal DNS points to the new compute immediately.
+* For internal instance, customer manages the DNS, so the DNS entries continue to point to old compute until updated by the customer.
+* It's the DNS that points to either the new or the old compute and hence no downtime to the APIs.
+* Changes are required to the firewall rules if any, to allow the new compute subnet reach the backends.
 
 ## Prerequisites
 
@@ -201,9 +202,9 @@ On successful migration, update any network dependencies including DNS, firewall
 
 1. **Will the migration cause a downtime?**
 
-   ***VNet-injected instances:***  there's no downtime as the old and new managed gateways are available for 48 hours, to facilitate validation and DNS update. However if the default domain names are in use, traffic is routed to the new managed gateway immediately. It is critical that all network dependencies are taken care of upfront, for the impacted APIs to be functional.
+   ***VNet-injected instances:***  there's no downtime as the old and new managed gateways are available for 48 hours, to facilitate validation and DNS update. However if the default domain names are in use, traffic is routed to the new managed gateway immediately. It's critical that all network dependencies are taken care of upfront, for the impacted APIs to be functional.
    
-   ***Non-VNet instances:*** there is a downtime of approximately 15 minutes only if you choose to preserve the original IP address. However, there is no downtime, if you migrate with a new IP address.
+   ***Non-VNet instances:*** there's a downtime of approximately 15 minutes only if you choose to preserve the original IP address. However, there's no downtime, if you migrate with a new IP address.
 
 1. **My traffic is force tunneled through a firewall. What changes are required?**
 
@@ -223,7 +224,7 @@ On successful migration, update any network dependencies including DNS, firewall
 
 1. **Can I do the migration using the portal?**
 
-   - Yes, the [Platform migration](./migrate-stv1-to-stv2.md?tabs=portal#scenario-1-migrate-api-management-instance-not-injected-in-a-vnet) blade in Azure Portal guides through the options for non-vnet injected instances.
+   - Yes, the [Platform migration](./migrate-stv1-to-stv2.md?tabs=portal#scenario-1-migrate-api-management-instance-not-injected-in-a-vnet) blade in Azure portal guides through the options for non-vnet injected instances.
    - vnet-injected instances can be migrated by changing the subnet in the *Network* blade.
 
 1. **Can I preserve the IP address of the instance?**
@@ -256,9 +257,9 @@ On successful migration, update any network dependencies including DNS, firewall
 
    You can optionally deploy a new API Management instance with the new VNET + Subnet + VIP that you'll use for the actual migration. Navigate to the Network Status page after the deployment is completed, and verify if every endpoint connectivity status is green. If yes, you can remove this new API Management instance and proceed with the real migration with your original stv1 service.
 
-1. **Can I rollback the migration if required?**
+1. **Can I roll back the migration if required?**
 
-   Yes, you can. If there is a failure during the migration process, the instance will automatically rollback to the `stv1` platform. However, if you encounter any other issues post migration, you have 48 hours to request a rollback by contacting Azure support. You should contact support if the instance is stuck in an "Updating" status for more than 2 hours.
+   Yes, you can. If there's a failure during the migration process, the instance will automatically roll back to the `stv1` platform. However, if you encounter any other issues post migration, you have 48 hours to request a roll back by contacting Azure support. You should contact support if the instance is stuck in an "Updating" status for more than 2 hours.
 
 1. **Is there any change required in custom domain/private DNS zones?**
 
@@ -281,7 +282,7 @@ On successful migration, update any network dependencies including DNS, firewall
    - Note that the old gateway takes up to 48 hours to vacate the subnet, so that you can initiate the move. However, you can request for a faster release of the subnet by submitting the subscription IDs and the desired release time through a support ticket.
    - Also this calls for a purge of the old gateway, which will forfeit the rollback to the old gateway if desired.
    - A new Public IP is required for each switch
-   - Ensure that the old subnet networking for [nsg](,/api-management-using-with-internal-vnet.md?tabs=stv2#configure-nsg-rules) and [firewall](./api-management-using-with-vnet.md?tabs=stv2#force-tunnel-traffic-to-on-premises-firewall-using-expressroute-or-network-virtual-appliance) is updated for stv2 dependencies.
+   - Ensure that the old subnet networking for [nsg](./api-management-using-with-internal-vnet.md?tabs=stv2#configure-nsg-rules) and [firewall](./api-management-using-with-vnet.md?tabs=stv2#force-tunnel-traffic-to-on-premises-firewall-using-expressroute-or-network-virtual-appliance) is updated for stv2 dependencies.
 
 1. **Can I test the new gateway before switching the live traffic?**
 
@@ -299,7 +300,7 @@ On successful migration, update any network dependencies including DNS, firewall
 
 1. **How is the developer portal impacted by migration?**
 
-   There is no impact on Developer Portal. If custom domains are used, the DNS record should be updated with the effective IP, post migration. However, if the default domains are in use, they're automatically updated on successful migration. There's no downtime for the developer portal during the migration.
+   There's no impact on Developer Portal. If custom domains are used, the DNS record should be updated with the effective IP, post migration. However, if the default domains are in use, they're automatically updated on successful migration. There's no downtime for the developer portal during the migration.
 
 1. **Is there any impact on cost once we migrated to stv2?**
 
