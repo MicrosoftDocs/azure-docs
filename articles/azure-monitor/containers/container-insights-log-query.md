@@ -45,6 +45,10 @@ ContainerInventory
 
 ### Kubernetes events
 
+> [!NOTE]
+> By default, Normal event types aren't collected, so you won't see them when you query the KubeEvents table unless the *collect_all_kube_events* ConfigMap setting is enabled. If you need to collect Normal events, enable *collect_all_kube_events setting* in the *container-azm-ms-agentconfig* ConfigMap. See [Configure agent data collection for Container insights](./container-insights-agent-config.md) for information on how to configure the ConfigMap.
+
+
 ``` kusto
 KubeEvents
 | where not(isempty(Namespace))
