@@ -24,7 +24,7 @@ Containers enable you to run Azure AI services APIs in your own environment, and
   * [Key Phrase Extraction](../language-service/key-phrase-extraction/how-to/use-containers.md)
   * [Language Detection](../language-service/language-detection/how-to/use-containers.md)
   * [Summarization](../language-service/summarization/how-to/use-containers.md)
-  * [Named Entity Recognition](../language-service/summarization/how-to/use-containers.md)
+  * [Named Entity Recognition](../language-service/named-entity-recognition/how-to/use-containers.md)
 * [Azure AI Vision - Read](../computer-vision/computer-vision-how-to-install-containers.md)
 * [Document Intelligence](../../ai-services/document-intelligence/containers/disconnected.md)
 
