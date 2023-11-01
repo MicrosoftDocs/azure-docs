@@ -14,8 +14,6 @@ ms.custom: mode-other
 
 # Quickstart: Add a bot to your chat app
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
 Learn how to build conversational AI experiences in a chat application by using the Azure Communication Services Chat messaging channel that's available in Azure Bot Service. In this quickstart, you create a bot by using the BotFramework SDK. Then, you integrate the bot into a chat application you create by using the Communication Services Chat SDK.
 
 In this quickstart, you learn how to:
