@@ -12,11 +12,18 @@ ms.devlang: azurecli
 
 The Azure  Client configurator is a tool designed to assist you in configuring a hybrid cluster and simplifying the migration process to Azure Managed Instance for Apache Cassandra. If you currently have on-premises datacenters or are operating in a self-hosted environment, you can use Azure Managed Instance for Apache Cassandra to seamlessly incorporate other datacenters into your cluster while effectively maintaining them.
 
+> [!IMPORTANT]
+> Client Configurator is in public preview.
+> This feature is provided without a service level agreement, and it's not recommended for production workloads.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 * This article requires the Azure CLI version 2.30.0 or higher. If you are using Azure Cloud Shell, the latest version is already installed.
 
 * [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) with connectivity to your self-hosted or on-premises environment. For more information on connecting on premises environments to Azure, see the [Connect an on-premises network to Azure](/azure/architecture/reference-architectures/hybrid-networking/) article.
+
+* Python installation is required. You can check if  python is installed by running `python --version` in your terminal.
 
 * Ensure that both the Azure Managed Instance and on-premises Cassandra cluster are located on the same virtual network. If not, it is necessary to establish network peering or other means of connectivity (for example, express route).
 
@@ -51,8 +58,6 @@ python3 client_configurator.py --subscription-id <subcriptionId> --cluster-resou
 ```
 
 > [!NOTE]
->
-> ```bash
 > --subscription-id: Azure subscription id.
 > --cluster-resource-group: Resource group which your cluster resides.
 > --cluster-name: Azure Managed Instance cluster name.
@@ -64,7 +69,6 @@ python3 client_configurator.py --subscription-id <subcriptionId> --cluster-resou
 > --seed-nodes: The seed nodes of the existing datacenters in your on-premises or self-hosted Cassandra cluster.
 > --data-center-name: The data center name of your Azure Managed Instance cluster.
 > --sku: The virtual machine SKU size.
-> ```
 
 * The Python script produces a tar archive named `install_certs.tar.gz`.
         * Unpack this folder into `/etc/cassandra/` on each node.
@@ -73,7 +77,7 @@ python3 client_configurator.py --subscription-id <subcriptionId> --cluster-resou
     sudo tar -xzvf install_certs.tar.gz -C /etc/cassandra
     ```
 
-* Inside the directory from step 5, run `sudo ./install_certs.sh`.
+* Inside the `/etc/cassandra/` folder, run `sudo ./install_certs.sh`.
         *Ensure that the script is executable by running `sudo chmod +x install_certs.sh`.
         *The script installs and point Cassandra towards the new certs needed to connect to the Azure Managed Instance cluster.
         *It then prompts user to restart Cassandra.

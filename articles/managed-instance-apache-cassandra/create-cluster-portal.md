@@ -75,7 +75,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
    :::image type="content" source="./media/create-cluster-portal/l-sku-sizes.png" alt-text="Select a SKU Size." lightbox="./media/create-cluster-portal/l-sku-sizes.png" border="true":::
 
     > [!IMPORTANT]
-    > We have introduced write-through caching (Public Preview) through the utilization of L-series VM SKUs. This implementation aims to minimize tail latencies and enhance read performance, particularly for intensive workloads. These specific SKUs are equipped with locally attached disks, ensuring rapid IOPS and reduced tail latency.
+    > We have introduced write-through caching (Public Preview) through the utilization of L-series VM SKUs. This implementation aims to minimize tail latencies and enhance read performance, particularly for read intensive workloads. These specific SKUs are equipped with locally attached disks, ensuring hugely increased IOPS for read operations and reduced tail latency.
 
    * **No. of disks** - Choose the number of p30 disks to be attached to each Cassandra node.
    * **No. of nodes** - Choose the number of Cassandra nodes that will be deployed to this datacenter.
@@ -228,13 +228,21 @@ The service allows update to Cassandra YAML configuration on a datacenter via th
 
 ## Update Cassandra Version
 
-With Cassandra 5.0 now available in public preview, you have the option to conduct in-place major version upgrades directly from the portal or through Az CLI, Terraform, or ARM templates.
+> [!IMPORTANT]
+> Cassandra 5.0 and Turnkey Version Updates, are in public preview.
+> These features are provided without a service level agreement, and it's not recommended for production workloads.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+You have the option to conduct in-place major version upgrades directly from the portal or through Az CLI, Terraform, or ARM templates.
 
 1. Find the `Update` panel from the Overview tab
 
    :::image type="content" source="./media/create-cluster-portal/cluster-version-1.png" alt-text="Screenshot of updating the cassandra version." lightbox="./media/create-cluster-portal/cluster-version-1.png" border="true":::
 
 1. Select the Cassandra version from the dropdown.
+
+> [!WARNING]
+> Do not skip versions. We recommend to update only from one version to another example 3.11 to 4.0, 4.0 to 4.1.
 
    :::image type="content" source="./media/create-cluster-portal/cluster-version.png" alt-text="Screenshot of selecting cassandra version ." lightbox="./media/create-cluster-portal/cluster-version.png" border="true":::
 
