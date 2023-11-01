@@ -153,8 +153,8 @@ Anomalies like these are hard to detect just by inspecting the data, but are mor
 Currently, our algorithms look at page load times, request response times at the server, and dependency response times.  
 
 You don't have to set any thresholds or configure rules. Machine learning and data mining algorithms are used to detect abnormal patterns.
-
-:::image type="content" source="./media/smart-detection-performance/03.png" lightbox="./media/smart-detection-performance/03.png" alt-text="From the email alert, click the link to open the diagnostic report in Azure":::
+<!-- convertborder later -->
+:::image type="content" source="./media/smart-detection-performance/03.png" lightbox="./media/smart-detection-performance/03.png" alt-text="From the email alert, click the link to open the diagnostic report in Azure" border="false":::
 
 * **When** shows the time the issue was detected.
 * **What** describes the problem that was detected, and th characteristics of the set of events that we found, which displayed the problem behavior.
