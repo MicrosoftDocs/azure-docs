@@ -16,15 +16,13 @@ This article describes how Azure Event Grid delivers Azure Key Vault events as A
 
 ## Overview
 
+[Azure Monitor alerts](../azure-monitor/alerts/alerts-overview.md) help you detect and address issues before users notice them by proactively notifying you when Azure Monitor data indicates there might be a problem with your infrastructure or application.
+
 Azure Monitor alerts as a destination in Event Grid event subscriptions allow you to receive notification of critical events via Short Message Service (SMS), email, push notification, and more. You can leverage on the low latency event delivery of Event Grid with the flexibility and direct-to-customer notifications of Azure Monitor alerts.
-
-Azure Monitor alerts notify you when a resource is updated after processing the resource telemetry. For example, you can create an alert rule with the condition: “If this system topic experiences more than 100 Delivery Failed events in the last 6 hours, fire an alert.” You can then choose how the concerned people want to be notified of this alert, such as via an email or a text.
-
-The main difference between Event Grid events and Azure Monitor alerts is that alerts are fired as a result of processing telemetry, while Event Grid events are published by the source resource after the event has occurred with no need for processing. With this integration between Event Grid events and Azure Monitor alerts, you can get immediate notifications or alerts from Event Grid events.
 
 ## Azure Monitor alerts
 
-Azure Monitor alerts have three resources: alert rules, alert processing rules, and action group. Each of these resources is its own independent resource and can be mixed and matched with each other.
+Azure Monitor alerts have three resources: [alert rules](../azure-monitor/alerts/alerts-overview.md), [alert processing rules](../azure-monitor/alerts/alerts-processing-rules.md), and [action groups](../azure-monitor/alerts/action-groups.md). Each of these resources is its own independent resource and can be mixed and matched with each other.
 
 - **Alert rules**: defines a resource scope and conditions on the resources’ telemetry. If conditions are met, it fires an alert.
 - **Alert processing rules**: modify the fired alerts as they're being fired. You can use these rules to add or suppress action groups, apply filters, or have the rule processed on a predefined schedule.
@@ -61,14 +59,16 @@ When creating an event subscription, follow these steps:
     1. Select the **action group** (optional), see [Create an action group in the Azure portal](../azure-monitor/alerts/action-groups.md).
     1. Enter a **description** for the alert.
     1. Select **Confirm Selection**.
-    
-        :::image type="content" source="media/handler-azure-monitor-alerts/event-subscription.png" alt-text="Screenshot that shows Azure Monitor alerts event subscription creation." border="false" lightbox="media/handler-azure-monitor-alerts/event-subscription.png":::   
+
+        :::image type="content" source="media/handler-azure-monitor-alerts/event-subscription.png" alt-text="Screenshot that shows Azure Monitor alerts event subscription creation." border="false" lightbox="media/handler-azure-monitor-alerts/event-subscription.png":::
 1. Now, on the **Create Event Subscription** page, select **Create** to create the event subscription. For detailed steps, see [subscribe to events through portal](subscribe-through-portal.md).
 
 ## Next steps
 
 See the following articles:
 
+- [Azure Monitor alerts](../azure-monitor/alerts/alerts-overview.md)
+- [Manage Azure Monitor alert rules](../azure-monitor/alerts/alerts-manage-alert-rules.md)
 - [Pull delivery overview](pull-delivery-overview.md)
 - [Push delivery overview](push-delivery-overview.md)
 - [Concepts](concepts.md)
