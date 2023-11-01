@@ -752,6 +752,19 @@ You can do the following to make ACI quota available for Azure Image Builder:
 > [!NOTE]
 > ACI resources are required for [Isolated Image Builds](../security-isolated-image-builds-image-builder.md).
 
+### Too many Azure Container Instances deployed within a period of time
+
+#### Error
+"Too many Azure Container Instances deployed within a period of time"
+
+#### Cause
+Your subscription doesn't have enough Azure Container Instances (ACI) quota for Azure Image Builder to successfully build images concurrently.
+
+#### Solution
+You can do the following:
+- Retry your failed builds in a less concurrent manner.
+- If the current ACI limits for your subscription are too low to support your image building scenarios, then you can request an increase in your ACI quota.
+
 ### Isolated Image Build failure
 
 #### Error
