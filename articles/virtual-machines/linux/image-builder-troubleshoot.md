@@ -752,6 +752,64 @@ You can do the following to make ACI quota available for Azure Image Builder:
 > [!NOTE]
 > ACI resources are required for [Isolated Image Builds](../security-isolated-image-builds-image-builder.md).
 
+### Isolated Image Build failure
+
+#### Error
+Azure Image Builder builds are failing due to Isolated Image Build.
+
+#### Cause
+Azure Image Builder builds can fail for reasons listed elsewhere in this document. However, there's a small chance that a build fails due to Isolated Image Builds depending on your scenario, subscription quotas, or some unforeseen service error. For more information, see [Isolated Image Builds](../security-isolated-image-builds-image-builder.md).
+
+#### Solution
+If you determine that a build is failing due to Isolated Image Builds, you can do the following:
+- Ensure there's no [Azure Policy](../../governance/policy/overview.md) blocking the deployment of resources mentioned in the Prerequisites section, specifically Azure Container Instances, Azure Virtual Networks, and Azure Private Endpoints.
+- Ensure your subscription has sufficient quota of Azure Container Instances to support all your concurrent image builds. For more information, see, Azure Container Instances [quota exceeded](./image-builder-troubleshoot.md#azure-container-instances-quota-exceeded).
+
+Azure Image Builder is currently in the process of deploying Isolated Image Builds to all regions. Hence, not all builds and regions utilize Isolated Image Builds. You can do the following to temporarily run your build without Isolated Image Builds.
+- Retry your build. Specific image templates aren't tied to Isolated Image Builds and the same image template may or may not utilize Isolated Image Builds during different builds. Retrying a build has a high probability of rerunning the build without Isolated Image Builds and for it to succeed.
+- Isolated Image Builds hasn't been deployed to all regions and you can migrate your template to a different region to build it without Isolated Image Builds.
+
+The current list of regions that have Isolated Image Builds enabled is: 
+- East US
+- East US 2
+- West Central US
+- West US
+- West US 2
+- West US 3
+- South Central US
+- North Europe
+- West Europe
+- South East Asia
+- Australia Southeast
+- Australia East
+- UK South
+- UK West
+- Brazil South
+- Canada Central
+- Central India
+- Central US
+- France Central
+- Germany West Central
+- Japan East
+- North Central US
+- Norway East
+- Switzerland North
+- Jio India West
+- UAE North
+- East Asia
+- Korea Central
+- South Africa North
+- Qatar Central
+- USGov Arizona (public preview)
+- USGov Virginia (public preview)
+- China North 3 (public preview)
+- Sweden Central
+- Poland Central
+
+ If none of these solutions mitigate failing image builds, then you can contact Azure support to temporarily opt your subscription out of Isolated Image Builds. For more information, see [Create an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md).
+
+> [!NOTE]
+> Isolated Image Builds will eventually be enabled in all regions and templates. So, the above mitigations should be considered temporary and the underlying cause of build failures must be addressed.
 
 ### The build is canceled after the context cancelation context is canceled
 
