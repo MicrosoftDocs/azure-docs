@@ -30,7 +30,7 @@ The ANQ service instance used in the solution is deployed in Qumulo’s Azure te
 
 Access to the ANQ service instance is enabled through VNet injection from a dedicated subnet in your Azure tenant. All data on the ANQ service instance is accessible only through the network interfaces in your delegated subnet. Note: Qumulo has no access to any data on any ANQ instance.
 
-:::image type="content" source="media/qumulo-video-editing/solution-architecture-qumulo-video-editing.png" alt-text="Conceptual diagram that shows solution architecture for video editing using Qumulo.":::
+:::image type="content" source="media/qumulo-video-editing/solution-architecture-qumulo-video-editing.png" alt-text="Conceptual diagram that shows solution architecture for video editing using Qumulo." lightbox="media/qumulo-video-editing/solution-architecture-qumulo-video-editing.png":::
 
 ### Solution Workflow
 
@@ -88,7 +88,7 @@ HP Anyware offers secure end-to-end encryption for remote access to VMs. This he
 
 You should take care during design and implementation to ensure that the security of the solution complies with industry best practices, internal enterprise policies, and any applicable legal/regulatory requirements.
 
-For all other aspects of the solution, customers are responsible for planning, implementing, and maintaining the security of the solution to satisfy all applicable legal and regulatory requirements for their industry and location.
+For all other aspects of the solution, you are responsible for planning, implementing, and maintaining the security of the solution to satisfy all applicable legal and regulatory requirements for their industry and location.
 
 ### Cost optimization
 

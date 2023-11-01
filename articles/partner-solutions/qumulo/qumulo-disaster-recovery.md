@@ -39,7 +39,7 @@ The ANQ solution can be deployed in three ways:
 
 In this setup, ANQ for disaster recovery is deployed into a single Azure region, with data replicating from the primary Qumulo storage instance to the ANQ service through your own Azure VPN Gateway or ExpressRoute connection.
 
-:::image type="content" source="media/qumulo-disaster-recovery/disaster-recovery-architecture-on-prem-cloud.png" alt-text="Conceptual diagram that shows solution architecture for cloud add on-premises replication.":::
+:::image type="content" source="media/qumulo-disaster-recovery/disaster-recovery-architecture-on-prem-cloud.png" alt-text="Conceptual diagram that shows solution architecture for cloud add on-premises replication." lightbox="media/qumulo-disaster-recovery/disaster-recovery-architecture-on-prem-cloud.png":::
 
 ### ANQ disaster recovery - between Azure regions
 
@@ -47,13 +47,13 @@ In this scenario, two separate Azure regions are each configured as a hot standb
 
 Qumulo replication is configured for both ANQ service instances, each of which serves as the secondary storage target for the other.
 
-:::image type="content" source="media/qumulo-disaster-recovery/disaster-recovery-architecture-between-regions.png" alt-text="Conceptual diagram that shows solution architecture for between region replication.":::
+:::image type="content" source="media/qumulo-disaster-recovery/disaster-recovery-architecture-between-regions.png" alt-text="Conceptual diagram that shows solution architecture for between region replication." lightbox="media/qumulo-disaster-recovery/disaster-recovery-architecture-between-regions.png":::
 
 ### ANQ disaster recovery - on-premises or other cloud (multi-region)
 
 In this scenario, the primary Qumulo storage is either on-premises or hosted on another cloud provider. Data on the primary Qumulo cluster is replicated to two separate ANQ service instances in two Azure regions. If you have a primary site failure or region-wide outage on Azure, you have more options for recovering critical services.
 
-:::image type="content" source="media/qumulo-disaster-recovery/disaster-recovery-architecture-multi-region.png" alt-text="Conceptual diagram that show solution architecture for multi region replication.":::
+:::image type="content" source="media/qumulo-disaster-recovery/disaster-recovery-architecture-multi-region.png" alt-text="Conceptual diagram that show solution architecture for multi region replication." lightbox="media/qumulo-disaster-recovery/disaster-recovery-architecture-multi-region.png":::
 
 ## Solution workflow
 
