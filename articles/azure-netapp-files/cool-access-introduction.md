@@ -225,7 +225,7 @@ Your first six-month savings:
 																				
 Your first twelve-month savings: 
 * Cost without cool access: `5 TiB x 1024 x $0.000202/GiB/hr. x 730 hrs. x 12 months = $9,059.94`
-* Cost with cool access: `First month + Second month + … + twelfth month = $622.41 + (11 x $498.18)= $6,102.39`
+* Cost with cool access: `First month + Second month + … + twelfth month = $622.41 + (11 x $498.18) = $6,102.39`
 * Savings using cool access: **`32.64%`**
 
 #### Example 2: Coolness period is set to 35 days
