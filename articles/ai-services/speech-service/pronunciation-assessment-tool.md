@@ -40,7 +40,7 @@ At the bottom of the Assessment result, two overall scores are displayed: Pronun
 These overall scores offer a comprehensive assessment of both pronunciation and content, providing learners with valuable feedback on various aspects of their speech performance and understanding. By using these enhanced features, language learners can gain deeper insights into their advantages and areas for improvement in both pronunciation and content expression.
 
 > [!NOTE]
-> Content and prosody assessments are only available in the [en-US](./language-support.md#pronunciation-assessment) locale.
+> Content and prosody assessments are only available in the [en-US](./language-support.md?tabs=pronunciation-assessment) locale.
 
 ## Pricing
 
