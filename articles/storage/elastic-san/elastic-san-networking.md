@@ -35,7 +35,7 @@ There are no additional registration steps required.
 
 ## Configure public network access
 
-You can enable public Internet access to your Elastic SAN endpoints at the SAN level. Enabling public network access for an Elastic SAN allows you to configure public access to individual volume groups over storage service endpoints. By default, public access to individual volume groups is denied even if you allow it at the SAN level. You must explicictly configure your volume groups to permit access from specific IP address ranges and virtual network subnets.
+You can enable public Internet access to your Elastic SAN endpoints at the SAN level. Enabling public network access for an Elastic SAN allows you to configure public access to individual volume groups over storage service endpoints. By default, public access to individual volume groups is denied even if you allow it at the SAN level. You must explicitly configure your volume groups to permit access from specific IP address ranges and virtual network subnets.
 
 You can enable public network access during the creation of a new Elastic SAN, or for an existing one using the Azure Portal, PowerShell, or the Azure CLI.
 
