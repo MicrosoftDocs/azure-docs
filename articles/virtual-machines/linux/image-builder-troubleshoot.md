@@ -21,7 +21,7 @@ Use this article to troubleshoot and resolve common issues that you might encoun
 
 When you're creating a build, do the following:
 
-- The VM Image Builder service communicates to the build VM by using WinRM or Secure Shell (SSH). Do *not* disable these settings as part of the build.
+- The VM Image Builder service communicates to the build VM by using WinRM or Secure Shell (SSH). Don't* disable these settings as part of the build.
 - VM Image Builder creates resources in the staging resource group as part of the builds. Be sure to verify that Azure Policy doesn't prevent VM Image Builder from creating or using necessary resources.
   - Create an IT_ resource group.
   - Create a storage account without a firewall.
@@ -31,9 +31,9 @@ When you're creating a build, do the following:
   - Deploy [Azure Files](../../storage/files/storage-files-introduction.md).
 - Verify that Azure Policy doesn't install unintended features on the build VM, such as Azure Extensions.
 - Ensure that VM Image Builder has the correct permissions to read/write images and to connect to the storage account. For more information, review the permissions documentation for the [Azure CLI](./image-builder-permissions-cli.md) or [Azure PowerShell](./image-builder-permissions-powershell.md).
-- VM Image Builder will fail the build if the scripts or inline commands fail with errors (non-zero exit codes). Ensure that you've tested the custom scripts and verified that they run without error (exit code 0) or require user input. For more information, see [Create an Azure Virtual Desktop image by using VM Image Builder and PowerShell](../windows/image-builder-virtual-desktop.md#tips-for-building-windows-images).
+- VM Image Builder fails the build if the scripts or inline commands fail with errors (nonzero exit codes). Ensure that you've tested the custom scripts and verified that they run without error (exit code 0) or require user input. For more information, see [Create an Azure Virtual Desktop image by using VM Image Builder and PowerShell](../windows/image-builder-virtual-desktop.md#tips-for-building-windows-images).
 - Ensure your subscription has sufficient [quota](../../container-instances/container-instances-resource-and-quota-limits.md) of Azure Container Instances.
-    - Each image build may deploy up to one temporary Azure Container Instance resource (of 4 standard cores) in the staging resource group. These resources are required for [Isolated image builds](../security-isolated-image-builds-image-builder.md).
+    - Each image build may deploy up to one temporary Azure Container Instance resource (of four standard cores) in the staging resource group. These resources are required for [Isolated image builds](../security-isolated-image-builds-image-builder.md).
 
 
 VM Image Builder failures can happen in two areas:
