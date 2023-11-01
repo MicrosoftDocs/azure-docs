@@ -43,7 +43,7 @@ You can use the data lake connector to send data from Azure IoT MQ broker to a d
 
 - An IoT MQ MQTT broker. For more information on how to deploy an IoT MQ MQTT broker, see [Quickstart: Deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md).
 
-## Configure the Data Lake connector to send data to Microsoft Fabric OneLake using managed identity
+## Configure the data lake connector to send data to Microsoft Fabric OneLake using managed identity
 
 Configure a data lake connector to connect to Microsoft Fabric OneLake using managed identity.
 
@@ -119,7 +119,7 @@ Configure a data lake connector to connect to Microsoft Fabric OneLake using man
 
 1. Apply the DataLakeConnector and DataLakeConnectorTopicMap resources to your Kubernetes cluster using `kubectl apply -f datalake-connector.yaml`.
 
-1. Start sending JSON messages to the MQTT topic using your MQTT publisher. The Data Lake Connector instance subscribes to the topic and ingests the messages into the Delta table.
+1. Start sending JSON messages to the MQTT topic using your MQTT publisher. The data lake connector instance subscribes to the topic and ingests the messages into the Delta table.
 
 1. Using a browser, verify that the data is imported into the lakehouse. In the Microsoft Fabric workspace, select your lakehouse and then **Tables**. You should see the data in the table.
 
@@ -129,9 +129,9 @@ If your data shows in the *Unidentified* table:
 
 The cause might be unsupported characters in the table name. The table name must be a valid Azure Storage container name that means it can contain any English letter, upper or lower case, and underbar `_`, with length up to 256 characters. No dashes `-` or space characters are allowed.
 
-## Configure the Data Lake connector to send data to Azure Data Lake Storage Gen2 using SAS token
+## Configure the data lake connector to send data to Azure Data Lake Storage Gen2 using SAS token
 
-Configure a Data Lake connector to connect to an Azure Data Lake Storage Gen2 (ADLS Gen2) account using a shared access signature (SAS) token.
+Configure a data lake connector to connect to an Azure Data Lake Storage Gen2 (ADLS Gen2) account using a shared access signature (SAS) token.
 
 1. Get a [SAS token](/azure/storage/common/storage-sas-overview) for an Azure Data Lake Storage Gen2 (ADLS Gen2) account. For example, use the Azure portal to browse to your storage account. In the menu under *Security + networking*, choose **Shared access signature**. Use the following table to set the required permissions.
 
@@ -187,7 +187,7 @@ Configure a Data Lake connector to connect to an Azure Data Lake Storage Gen2 (A
 
 1. Apply the *DataLakeConnector* and *DataLakeConnectorTopicMap* resources to your Kubernetes cluster using `kubectl apply -f datalake-connector.yaml`.
 
-1. Start sending JSON messages to the MQTT topic using your MQTT publisher. The Data Lake Connector instance subscribes to the topic and ingests the messages into the Delta table.
+1. Start sending JSON messages to the MQTT topic using your MQTT publisher. The data lake connector instance subscribes to the topic and ingests the messages into the Delta table.
 
 1. Using Azure portal or other tools, verify that the Delta table is created. The files are organized by client ID, connector instance name, MQTT topic, and time.
 
@@ -203,17 +203,17 @@ authentication:
 
 ## DataLakeConnector
 
-A *DataLakeConnector* is a Kubernetes custom resource that defines the configuration and properties of a Data Lake Connector instance. A Data Lake Connector ingests data from MQTT topics into Delta tables in a Data Lake Storage account.
+A *DataLakeConnector* is a Kubernetes custom resource that defines the configuration and properties of a data lake connector instance. A data lake connector ingests data from MQTT topics into Delta tables in a Data Lake Storage account.
 
 The spec field of a *DataLakeConnector* resource contains the following subfields:
 
 - `protocol`: The MQTT version. It can be one of `v5` or `v3`.
-- `image`: The image field specifies the container image of the Data Lake Connector module. It has the following subfields:
+- `image`: The image field specifies the container image of the data lake connector module. It has the following subfields:
     - `repository`: The name of the container registry and repository where the image is stored.
     - `tag`: The tag of the image to use.
     - `pullPolicy`: The pull policy for the image. It can be one of `Always`, `IfNotPresent`, or `Never`.
-- `instances`: The number of replicas of the Data Lake Connector to run.
-- `logLevel`: The log level for the Data Lake Connector module. It can be one of `trace`, `debug`, `info`, `warn`, `error`, or `fatal`.
+- `instances`: The number of replicas of the data lake connector to run.
+- `logLevel`: The log level for the data lake connector module. It can be one of `trace`, `debug`, `info`, `warn`, `error`, or `fatal`.
 - `databaseFormat`: The format of the data to ingest into the Data Lake Storage. It can be one of `delta` or `parquet`.
 - `target`: The target field specifies the destination of the data ingestion. It can be `datalakeStorage`, `fabricOneLake`, or `localStorage`.
     - `datalakeStorage`: Specifies the configuration and properties of the local storage Storage account. It has the following subfields:
@@ -325,8 +325,8 @@ Both delta and parquet formats are supported.
 
 ## Manage local broker connection
 
-Like MQTT bridge, the Data Lake Connector acts as a client to the IoT MQ MQTT broker. If you've customized the listener port or authentication of your IoT MQ MQTT broker, override the local MQTT connection configuration for the Data Lake Connector as well. To learn more, see [MQTT bridge local broker connection](./howto-configure-mqtt-bridge.md#local-broker-connection).
+Like MQTT bridge, the data lake connector acts as a client to the IoT MQ MQTT broker. If you've customized the listener port or authentication of your IoT MQ MQTT broker, override the local MQTT connection configuration for the data lake connector as well. To learn more, see [MQTT bridge local broker connection](./howto-configure-mqtt-bridge.md#local-broker-connection).
 
 ## Related content
 
-- [Publish and subscribe MQTT messages using Azure IoT MQ](../manage-mqtt-connectivity/overview-iot-mq.md)
+[Publish and subscribe MQTT messages using Azure IoT MQ](../manage-mqtt-connectivity/overview-iot-mq.md)

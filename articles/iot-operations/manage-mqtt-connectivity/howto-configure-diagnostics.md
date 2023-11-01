@@ -12,7 +12,6 @@ ms.date: 10/27/2023
 
 # Configure Azure IoT MQ diagnostic settings
 
-
 Diagnostic settings allow you to enable metrics and tracing for Azure IoT MQ broker.
 
 - Metrics provide information about the resource utilization and throughput of IoT MQ broker.
@@ -65,4 +64,4 @@ spec:
 
 ## Related content
 
-- [Publish and subscribe MQTT messages using Azure IoT MQ](../manage-mqtt-connectivity/overview-iot-mq.md)
+[Publish and subscribe MQTT messages using Azure IoT MQ](../manage-mqtt-connectivity/overview-iot-mq.md)
