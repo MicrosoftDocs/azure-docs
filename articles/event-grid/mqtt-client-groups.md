@@ -63,7 +63,7 @@ Use the following steps to create a client group:
 1. Go to your namespace in the Azure portal
 2. Under Client groups, select **+ Client group**.
 
-    :::image type="content" source="./media/mqtt-client-groups/mqtt-add-new-client-group.png" alt-text="Screenshot of adding a client group." lightbox="./media/mqtt-client-groups/mqtt-add-new-client-group.png:::
+    :::image type="content" source="./media/mqtt-client-groups/mqtt-add-new-client-group.png" alt-text="Screenshot of adding a client group." lightbox="./media/mqtt-client-groups/mqtt-add-new-client-group.png":::
 1. Add client group query.
 
     :::image type="content" source="./media/mqtt-client-groups/mqtt-client-group-metadata.png" alt-text="Screenshot of client group configuration." lightbox="./media/mqtt-client-groups/mqtt-client-group-metadata.png":::
