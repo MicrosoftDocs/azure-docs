@@ -380,7 +380,10 @@ curl -i -X POST YOUR_RESOURCE_NAME/openai/deployments/YOUR_DEPLOYMENT_NAME/exten
 | `stream` | boolean | Optional | false | If set, partial message deltas will be sent, like in ChatGPT. Tokens will be sent as data-only server-sent events as they become available, with the stream terminated by a message `"messages": [{"delta": {"content": "[DONE]"}, "index": 2, "end_turn": true}]`  |
 | `stop` | string or array | Optional | null | Up to 2 sequences where the API will stop generating further tokens. |
 | `max_tokens` | integer | Optional | 1000 | 	The maximum number of tokens allowed for the generated answer. By default, the number of tokens the model can return is `4096 - prompt_tokens`.  |
-| `search_intent` | boolean | Optional | false | If set, the API will return chunks of data from the index used for generating the model's output. Intended for debugging. |
+| `retrieved_documents` | number | Optional | 3 | Specifies the number of top-scoring documents from your data index used to generate responses. |
+| `strictness` | number | Optional | 3 | Sets the threshold to categorize documents as relevant to your queries. |
+| `chunk_size` | number | Optional | TBD | Sets the number of tokens that your data will be chunked into. |
+
 
 The following parameters can be used inside of the `parameters` field inside of `dataSources`.
 
