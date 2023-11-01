@@ -8,7 +8,7 @@ ms.service: machine-learning
 ms.subservice: mldata 
 ms.custom: build-2023, ignite-2023
 ms.topic: how-to
-ms.date: 10/20/2023 
+ms.date: 10/31/2023 
 ---
 
 # Manage access control for managed feature store
@@ -17,7 +17,7 @@ This article describes how to manage access (authorization) to an Azure Machine 
 
 ## Identities and user types
 
-Azure Machine Learning supports role-based access control for the following managed feature store resources:
+Azure Machine Learning supports role-based access control for these managed feature store resources:
 
 - feature store
 - feature store entity
@@ -25,13 +25,13 @@ Azure Machine Learning supports role-based access control for the following mana
 
 To control access to these resources, consider the user types shown here. For each user type, the identity can be either a Microsoft Entra identity, a service principal, or an Azure managed identity (both system managed and user assigned).
 
-- __Feature set developers__ (for example, data scientist, data engineers, and machine learning engineers): They work primarily with the feature store workspace and they handle:
-    - Lifecycle of feature management: From creation ton archival
+- __Feature set developers__ (for example, data scientist, data engineers, and machine learning engineers): They primarily work with the feature store workspace and they handle:
+    - Feature management lifecycle, from creation to archive
     - Materialization and feature backfill set-up
     - Feature freshness and quality monitoring
-- __Feature set consumers__ (for example, data scientist and machine learning engineers): They work primarily in a project workspace and use features:
+- __Feature set consumers__ (for example, data scientist and machine learning engineers): They primarily work in a project workspace, and they use features in these ways:
     - Feature discovery for model reuse
-    - Experimentation with features during training, to see if they improve model performance
+    - Experimentation with features during training, to see if those features improve model performance
     - Set up of the training/inference pipelines that use the features
 - __Feature store Admins__: They typically handle:
     - Feature store lifecycle management (from creation to retirement)
@@ -45,13 +45,13 @@ This table describes the permissions required for each user type:
 |---------|---------|---------|
 |`feature store admin`     |who can create/update/delete feature store         | [Permissions required for the `feature store admin` role](#permissions-required-for-the-feature-store-admin-role)        |
 |`feature set consumer`     |who can use defined feature sets in their machine learning lifecycle.     |[Permissions required for the `feature set consumer` role](#permissions-required-for-the-feature-set-consumer-role)        |
-|`feature set developer`    |who can create/update feature sets, or set up materializations such as backfill and recurrent jobs.    | [Permissions required for the `feature set developer` role](#permissions-required-for-the-feature-set-developer-role)        |
+|`feature set developer`    |who can create/update feature sets, or set up materializations - for example, backfill and recurrent jobs.    | [Permissions required for the `feature set developer` role](#permissions-required-for-the-feature-set-developer-role)        |
 
 If your feature store requires materialization, these permissions are also required:
 
 |Role  |Description  |Required permissions  |
 |---------|---------|---------|
-|`feature store materialization managed identity`    | The Azure user-assigned managed identity used by feature store materialization jobs for data access. It's required if the feature store enables materialization        | [Permissions required for the `feature store materialization managed identity` role](#permissions-required-for-the-feature-store-materialization-managed-identity-role)        |
+|`feature store materialization managed identity`    | The Azure user-assigned managed identity that the feature store materialization jobs use for data access. This is required if the feature store enables materialization        | [Permissions required for the `feature store materialization managed identity` role](#permissions-required-for-the-feature-store-materialization-managed-identity-role)        |
 
 For more information about role creation, see [Create custom role](how-to-assign-roles.md#create-custom-role).
 
@@ -65,13 +65,13 @@ Granting of access involves these resources:
 
 ## Permissions required for the `feature store admin` role
 
-To create and/or delete a managed feature store, we recommend the built-in `Contributor` and `User Access Administrator` roles on the resource group. You can also create a custom `Feature store admin` role with these permissions at a minimum:
+To create and/or delete a managed feature store, we recommend the built-in `Contributor` and `User Access Administrator` roles on the resource group. You can also create a custom `Feature store admin` role with these minimum permissions:
 
 |Scope| Action/Role|
 |----|------|
-| resourceGroup (where the feature store is created) | Microsoft.MachineLearningServices/workspaces/featurestores/read  |
-| resourceGroup (where the feature store is created) | Microsoft.MachineLearningServices/workspaces/featurestores/write |
-| resourceGroup (where the feature store is created) | Microsoft.MachineLearningServices/workspaces/featurestores/delete |
+| resourceGroup (the location of the feature store creation) | Microsoft.MachineLearningServices/workspaces/featurestores/read  |
+| resourceGroup (the location of the feature store creation) | Microsoft.MachineLearningServices/workspaces/featurestores/write |
+| resourceGroup (the location of the feature store creation) | Microsoft.MachineLearningServices/workspaces/featurestores/delete |
 | the feature store | Microsoft.Authorization/roleAssignments/write |
 | the user assigned managed identity | Managed Identity Operator role |
 
@@ -90,14 +90,14 @@ Use these built-in roles to consume the feature sets defined in the feature stor
 
 |Scope| Role|
 |----|------|
-| the feature store | Azure Machine Learning Data Scientist|
-| storage accounts of source data, that is, data sources of feature sets | Blob storage data reader role |
-| storage account of feature store offline store | Blob storage data reader role |
+| the feature store | AzureML Data Scientist|
+| the source data storage accounts; in other words, the feature set data sources | Storage Blob Data Reader role |
+| the storage feature store offline store storage account | Storage Blob Data Reader role |
 
 > [!NOTE]
-> The `Azure Machine Learning Data Scientist` allows the users to create and update feature sets in the feature store.
+> The `AzureML Data Scientist` allows the users to create and update feature sets in the feature store.
 
-To avoid using the `Azure Machine Learning Data Scientist` role, you can use these individual actions:
+To avoid use of the `AzureML Data Scientist` role, you can use these individual actions:
 
 |Scope| Action/Role|
 |----|------|
@@ -113,11 +113,11 @@ To develop feature sets in the feature store, use these built-in roles:
 
 |Scope| Role|
 |----|------|
-| the feature store | Azure Machine Learning Data Scientist|
-| storage accounts of source data | Blob storage data reader role |
-| storage account of feature store offline store | Blob storage data reader role |
+| the feature store | AzureML Data Scientist|
+| the source data storage accounts | Storage Blob Data Reader role |
+| the feature store offline store storage account | Storage Blob Data Reader role |
 
-To avoid using the `Azure Machine Learning Data Scientist` role, you can use these individual actions (in addition to the actions listed for `Featureset consumer`)
+To avoid use of the `AzureML Data Scientist` role, you can use these individual actions (in addition to the actions listed for `Featureset consumer`)
 
 |Scope| Role|
 |----|------|
@@ -130,13 +130,13 @@ To avoid using the `Azure Machine Learning Data Scientist` role, you can use the
 
 ## Permissions required for the `feature store materialization managed identity` role
 
-In addition to all of the permissions that the `feature set consumer` role requires, grant the following built-in roles:
+In addition to all of the permissions that the `feature set consumer` role requires, grant these built-in roles:
 
 |Scope| Action/Role |
 |----|------|
-| feature store | Azure Machine Learning Data Scientist role |
-| storage account of feature store offline store | Blob storage data contributor role |
-| storage accounts of source data | Blob storage data reader role |
+| feature store | AzureML Data Scientist role |
+| storage account of feature store offline store | Storage Blob Data Contributor role |
+| storage accounts of source data | Storage Blob Data Reader role |
 
 ## New actions created for managed feature store
 
@@ -145,14 +145,14 @@ These new actions are created for managed feature store usage:
 |Action| Description|
 |----|------|
 | Microsoft.MachineLearningServices/workspaces/featurestores/read | List, get feature store |
-| Microsoft.MachineLearningServices/workspaces/featurestores/write | Create and update feature store (configure materialization stores, materialization compute, etc.)|
+| Microsoft.MachineLearningServices/workspaces/featurestores/write | Create and update the feature store (configure materialization stores, materialization compute, etc.)|
 | Microsoft.MachineLearningServices/workspaces/featurestores/delete | Delete feature store|
-| Microsoft.MachineLearningServices/workspaces/featuresets/read | List and show feature sets. |
+| Microsoft.MachineLearningServices/workspaces/featuresets/read | List and show feature sets |
 | Microsoft.MachineLearningServices/workspaces/featuresets/write | Create and update feature sets. Can configure materialization settings along with create or update |
 | Microsoft.MachineLearningServices/workspaces/featuresets/delete | Delete feature sets|
 | Microsoft.MachineLearningServices/workspaces/featuresets/action | Trigger actions on feature sets (for example, a backfill job) |
-| Microsoft.MachineLearningServices/workspaces/featurestoreentities/read | List and show feature store entities. |
-| Microsoft.MachineLearningServices/workspaces/featurestoreentities/write | Create and update feature store entities. |
+| Microsoft.MachineLearningServices/workspaces/featurestoreentities/read | List and show feature store entities |
+| Microsoft.MachineLearningServices/workspaces/featurestoreentities/write | Create and update feature store entities |
 | Microsoft.MachineLearningServices/workspaces/featurestoreentities/delete | Delete entities |
 | Microsoft.MachineLearningServices/workspaces/featurestoreentities/action | Trigger actions on feature store entities |
 
