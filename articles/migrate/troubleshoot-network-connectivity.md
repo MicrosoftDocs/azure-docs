@@ -211,9 +211,9 @@ After you’ve verified the connectivity, retry the registration process.
 ### Validate private endpoint network connectivity 
 You can use the Test-NetConnection command in PowerShell to check if the port is reachable from the appliance to the private endpoint. Ensure that you can resolve the Storage Account and the Key Vault for the Azure migrate project using the private IP address. 
 
-![Screenshot of Vault private endpoint connectivity](./media/troubleshoot-network-connectivity/vault-network-connectivity-test.png)
+![Screenshot of Vault private endpoint connectivity.](./media/troubleshoot-network-connectivity/vault-network-connectivity-test.png)
 
-![Screenshot of storage private endpoint connectivity](./media/troubleshoot-network-connectivity/storage-network-connectivity-test.png)
+![Screenshot of storage private endpoint connectivity.](./media/troubleshoot-network-connectivity/storage-network-connectivity-test.png)
 
 ### Start Discovery fails with the error AgentNotConnected
 The appliance could not initiate discovery as the on-premises agent is unable to communicate to the Azure Migrate service endpoint: <_URLname_> in Azure.
