@@ -29,7 +29,7 @@ Use the following table to quickly locate an example that fits your ABAC scenari
 
 | Example | Environment | Principal | Request | Resource |
 |---------|-------------|-----------|---------|----------|
-| [Peek messages in a named queue](#example-peek-messages-in-a-named-queue) | | | | tags |
+| [Peek messages in a named queue](#example-peek-messages-in-a-named-queue) | | | | queue name |
 | [Read or write blobs based on blob index tags and custom security attributes](#example-read-or-write-blobs-based-on-blob-index-tags-and-custom-security-attributes) | | ID | tags | tags |
 | [Read blobs based on blob index tags and multi-value custom security attributes](#example-read-blobs-based-on-blob-index-tags-and-multi-value-custom-security-attributes) | | ID | | tags |
 | [Allow read access to blobs after a specific date and time](#example-allow-read-access-to-blobs-after-a-specific-date-and-time) | UtcNow | | | container name |
@@ -38,20 +38,13 @@ Use the following table to quickly locate an example that fits your ABAC scenari
 | [Allow access to a container only from a specific private endpoint](#example-allow-access-to-a-container-only-from-a-specific-private-endpoint) | Private endpoint | | | container name |
 | [Example: Allow read access to highly sensitive blob data only from a specific private endpoint and by users tagged for access](#example-allow-read-access-to-highly-sensitive-blob-data-only-from-a-specific-private-endpoint-and-by-users-tagged-for-access) | Private endpoint | ID | | tags |
 
-## Queue messages
+## Queue names
 
-This section includes examples involving blob index tags.
-
-> [!IMPORTANT]
-> Although the `Read content from a blob with tag conditions` suboperation is currently supported for compatibility with conditions implemented during the ABAC feature preview, it has been deprecated and Microsoft recommends using the [`Read a blob`](storage-auth-abac-attributes.md#read-a-blob) action instead.
->
-> When configuring ABAC conditions in the Azure portal, you might see **DEPRECATED: Read content from a blob with tag conditions**. Microsoft recommends removing the operation and replacing it with the `Read a blob` action.
->
-> If you are authoring your own condition where you want to restrict read access by tag conditions, please refer to [Example: Read blobs with a blob index tag](storage-auth-abac-examples.md#example-read-blobs-with-a-blob-index-tag).
+This section includes examples showing how to restrict access to messages based on queue name.
 
 ### Example: Peek or clear messages in a named queue
 
-This condition allows users to read blobs with a [blob index tag](storage-blob-index-how-to.md) key of Project and a value of Cascade. Attempts to access blobs without this key-value tag will not be allowed.
+This condition allows users to peek or clear messages in a queue named **sample-queue**. This condition is useful for sharing specific queue data with other users in a subscription.
 
 > [!IMPORTANT]
 > For this condition to be effective for a security principal, you must add it to all role assignments for them that include the following actions.
@@ -59,10 +52,10 @@ This condition allows users to read blobs with a [blob index tag](storage-blob-i
 > [!div class="mx-tableFixed"]
 > | Action | Notes |
 > | --- | --- |
-> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |  |
-> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` | Add if role definition includes this action, such as Storage Blob Data Owner. |
+> | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/read` |  |
+> | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete` | |
 
-![Diagram of condition showing read access to blobs with a blob index tag.](./media/storage-auth-abac-examples/blob-index-tags-read.png)
+![Diagram of condition showing peek and clear access to named queue.](./media/queues-auth-abac-examples/peek-clear-messages-named-queue.png)
 
 ```
 (
@@ -91,7 +84,7 @@ Here are the settings to add this condition using the Azure portal.
 > | Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
 > | Value | {queueName} |
 
-:::image type="content" source="./media/storage-auth-abac-examples/peek-clear-messages.png" alt-text="Screenshot of condition editor in Azure portal showing peek or clear access to messages in a named queue." lightbox="./media/storage-auth-abac-examples/peek-clear-messages.png":::
+:::image type="content" source="./media/queues-auth-abac-examples/peek-clear-messages-portal.png" alt-text="Screenshot of condition editor in Azure portal showing peek or clear access to messages in a named queue." lightbox="./media/queues-auth-abac-examples/peek-clear-messages-portal.png":::
 
 #### Azure PowerShell
 
@@ -464,7 +457,7 @@ Set-AzRoleAssignment -InputObject $testRa -PassThru
 
 ---
 
-### Example: Allow access to a container only from a specific private endpoint
+### Example: Allow access to a queue only from a specific private endpoint
 
 This condition requires that all peek, put/update, clear, or get/delete operations for messages in a queue named `sample-queue` be made through a private endpoint named `privateendpoint1`. For all other containers not named `sample-queue`, access does not need to be through the private endpoint.
 
@@ -634,6 +627,6 @@ Set-AzRoleAssignment -InputObject $testRa -PassThru
 ## Next steps
 
 - [Tutorial: Add a role assignment condition to restrict access to blobs using the Azure portal](storage-auth-abac-portal.md)
-- [Actions and attributes for Azure role assignment conditions for Azure Blob Storage](storage-auth-abac-attributes.md)
+- [Actions and attributes for Azure role assignment conditions for Azure Queue Storage](queues-auth-abac-attributes.md)
 - [Azure role assignment condition format and syntax](../../role-based-access-control/conditions-format.md)
 - [Troubleshoot Azure role assignment conditions](../../role-based-access-control/conditions-troubleshoot.md)
