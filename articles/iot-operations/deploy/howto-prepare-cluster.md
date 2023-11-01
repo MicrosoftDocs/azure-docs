@@ -25,10 +25,58 @@ To prepare your Azure Arc-enabled Kubernetes cluster, you need:
 
 - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - At least **Contributor** role permissions in your subscription plus the **Microsoft.Authorization/roleAssignments/write** permission.
-- [Azure CLI version 2.38.0 or newer installed](/cli/azure/install-azure-cli) on your development machine.
+- [Azure CLI version 2.42.0 or newer installed](/cli/azure/install-azure-cli) on your development machine.
 - Hardware that meets the [system requirements](/azure/azure-arc/kubernetes/system-requirements).
 
 ## Prepare your cluster
+
+# [Codespaces](#tab/codespaces)
+
+For *exploration only*, use GitHub Codespaces to try Azure IoT Operations in your browser without installing anything on your local machine. We've prepared a pre-configured codespace with:
+
+- [K3s](https://k3s.io/) running in [K3d](https://k3d.io/) for a lightweight Kubernetes cluster
+- [Azure CLI](/cli/azure/install-azure-cli)
+- [Kubectl](https://kubernetes.io/docs/tasks/tools/) for managing Kubernetes resources
+- Other useful tools like [Helm](https://helm.sh/) and [k9s](https://k9scli.io/)
+
+> [!IMPORTANT]
+> Codespaces are easy to setup quickly and tear down later, but they're not suitable for performance evaluation or scale testing. For those scenarios, use a validated environment in the other tabs.
+>
+> Azure IoT Operations is currently in preview and not recommended for production use no matter the environment.
+
+To get started with your codespace:
+
+1. [Create GitHub codespace](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=672984976&skip_quickstart=true). Wait for the codespace to be created and the post-create script to finish running. It takes about 5 minutes.
+
+1. In the integrated terminal, log in to Azure.
+
+   ```azurecli
+   az login --use-device-code
+   ```
+
+1. Set the Azure subscription context for all commands:
+
+    ```azurecli
+    az account set -s <YOUR_SUBSCRIPTION_ID>
+    ```
+
+1. Register the required resource providers in your subscription:
+
+    ```azurecli
+    az provider register -n "Microsoft.ExtendedLocation"
+    az provider register -n "Microsoft.Kubernetes"
+    az provider register -n "Microsoft.KubernetesConfiguration"
+    az provider register -n "Microsoft.IoTOperationsOrchestrator"
+    az provider register -n "Microsoft.IoTOperationsMQ"
+    az provider register -n "Microsoft.IoTOperationsDataProcessor"
+    az provider register -n "Microsoft.DeviceRegistry"
+    ```
+
+1. Connect the Kubernetes cluster to Azure Arc. Replace `<NEW_CLUSTER_NAME>` and `<YOUR_RESOURCE_GROUP>` with your own values. Replace `<REGION>` with one of the supported regions: `eastus`, `eastus2`, `westus`, `westus2`, `westus3`, `westeurope`, or `northeurope`.
+
+   ```azurecli
+   az connectedk8s connect --name <NEW_CLUSTER_NAME> --resource-group <YOUR_RESOURCE_GROUP>  --subscription <YOUR_SUBSCRIPTION_ID> --location <REGION>
+   ```
 
 # [Ubuntu](#tab/ubuntu)
 
@@ -38,8 +86,8 @@ To prepare your Azure Arc-enabled Kubernetes cluster, you need:
 
 You can run Ubuntu in Windows Subsystem for Linux (WSL) on your Windows machine. Use WSL for testing and development purposes only.
 
->[!IMPORTANT]
->Run all of these steps in your WSL environment, including the Azure CLI steps for configuring your cluster.
+> [!IMPORTANT]
+> Run all of these steps in your WSL environment, including the Azure CLI steps for configuring your cluster.
 
 To set up your WSL Ubuntu environment:
 

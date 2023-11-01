@@ -64,6 +64,8 @@ items:
         href: manage-mqtt-connectivity/howto-configure-authentication.md
       - name: Configure authorization
         href: manage-mqtt-connectivity/howto-configure-authorization.md
+      - name: Test connection
+        href: manage-mqtt-connectivity/howto-test-connection.md  
       - name: Configure availability and scale
         href: manage-mqtt-connectivity/howto-configure-availability-scale.md
       - name: Configure disk buffer
