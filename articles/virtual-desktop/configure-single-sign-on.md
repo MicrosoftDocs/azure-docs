@@ -57,7 +57,7 @@ Disconnecting the session also ensures that when the connection is relaunched af
 
 ### Using an Active Directory domain admin account with single sign-on
 
-In environments with an Active Directory (AD) and hybrid user accounts, the default Password Replication Policy on Read-only Domain Controllers denies password replication for members of Domain Admins and Administrators security groups. This will prevent these admin accounts from signing in to Microsoft Entra hybrid joined hosts and may keep prompting them to enter their credentials. It will also prevent admin accounts from accessing on-premises resources that leverage Kerberos authentication from Microsoft Entra joined hosts.
+In environments with an Active Directory (AD) and hybrid user accounts, the default Password Replication Policy on Read-only Domain Controllers denies password replication for members of Domain Admins and Administrators security groups. This will prevent these admin accounts from signing in to Microsoft Entra hybrid joined hosts and might keep prompting them to enter their credentials. It will also prevent admin accounts from accessing on-premises resources that leverage Kerberos authentication from Microsoft Entra joined hosts.
 
 To allow these admin accounts to connect when single sign-on is enabled:
 
@@ -127,7 +127,7 @@ You must [Create a Kerberos Server object](../active-directory/authentication/ho
 
 ### Review your conditional access policies
 
-When single sign-on is enabled, a new Microsoft Entra ID app is introduced to authenticate users to the session host. If you have conditional access policies that apply when accessing Azure Virtual Desktop, review the recommendations on setting up [multi-factor authentication](set-up-mfa.md) to ensure users have the desired experience.
+When single sign-on is enabled, a new Microsoft Entra ID app is introduced to authenticate users to the session host. If you have conditional access policies that apply when accessing Azure Virtual Desktop, review the recommendations on setting up [multifactor authentication](set-up-mfa.md) to ensure users have the desired experience.
 
 ### Configure your host pool
 
