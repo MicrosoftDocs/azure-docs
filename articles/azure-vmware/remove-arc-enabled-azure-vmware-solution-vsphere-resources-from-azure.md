@@ -97,7 +97,7 @@ When you activate Arc-enabled Azure VMware Solution resources in Azure, a repres
 1. Go to the Custom location resource and select **Delete**.
 1. Go to the Azure Arc Resource bridge resources and select **Delete**. 
 
-At this point, all of your Arc-enabled VMware vSphere resources have been removed from Azure.
+At this point, all of your Arc-enabled VMware vSphere resources are removed from Azure.
 
 ## Remove Arc resource bridge related items in your vCenter
 
