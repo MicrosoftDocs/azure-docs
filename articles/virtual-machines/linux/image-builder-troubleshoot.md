@@ -735,6 +735,24 @@ The cause might be a timing issue because of the D1_V2 VM size. If customization
 
 To avoid the timing issue, you can increase the VM size or you can add a 60-second PowerShell sleep customization.
 
+### Azure Container Instances quota exceeded
+
+#### Error
+"Azure Container Instances quota exceeded"
+
+#### Cause
+Your subscription doesn't have enough Azure Container Instances (ACI) quota for Azure Image Builder to successfully build an image.
+
+#### Solution
+You can do the following to make ACI quota available for Azure Image Builder:
+- Lookup other usage of Azure Container Instances in your subscription and remove any unneeded instances to make quota available for Azure Image Builder.
+- Azure Image Builder deploys ACI only temporarily while a build is taking place. These instances are deleted once the build completes. If too many concurrent image builds are taking place in your subscription, then you can consider delaying some of the image builds. This reduces concurrent usage of ACI in your subscription. If your image templates are set up for automatic image builds using triggers, then such failed builds will automatically be retried by Azure Image Builder.
+- If the current ACI limits for your subscription are too low to support your image building scenarios, then you can request an increase in your [ACI quota](../../container-instances/container-instances-resource-and-quota-limits.md#next-steps).
+
+> [!NOTE]
+> ACI resources are required for [Isolated Image Builds](../security-isolated-image-builds-image-builder.md).
+
+
 ### The build is canceled after the context cancelation context is canceled
 
 #### Error
