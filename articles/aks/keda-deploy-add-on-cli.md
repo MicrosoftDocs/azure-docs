@@ -83,7 +83,7 @@ To install the KEDA add-on, use `--enable-keda` when creating or updating a clus
 
 ## Verify KEDA is running on your cluster
 
-- Verify the KEDA add-on is running on your cluster using the [`kubectl get pods`][kubectl] command.
+- Verify the KEDA add-on is running on your cluster using the `kubectl get pods` command.
 
     ```azurecli-interactive
     kubectl get pods -n kube-system 
