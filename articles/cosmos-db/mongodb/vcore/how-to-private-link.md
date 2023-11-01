@@ -35,9 +35,9 @@ To establish a connection, Azure Cosmos DB for MongoDB vCore with Private Link s
 
 ## Create a private endpoint by using the Azure portal
 
-Follow these steps to create a private endpoint for an existing Azure Cosmos DB account by using the Azure portal:
+Follow these steps to create a private endpoint for an existing Azure Cosmos DB for MongoDB vCore cluster by using the Azure portal:
 
-1. Sign in to the [Azure portal](https://portal.azure.com), then select an Azure Cosmos DB account.
+1. Sign in to the [Azure portal](https://portal.azure.com), then select an Azure Cosmos DB for MongoDB vCore cluster.
 
 1. Select **Networking** from the list of settings, and then select **Visit Link Center** under the **Private Endpoints** section:
 
