@@ -63,6 +63,14 @@ When creating an event subscription, follow these steps:
         :::image type="content" source="media/handler-azure-monitor-alerts/event-subscription.png" alt-text="Screenshot that shows Azure Monitor alerts event subscription creation." border="false" lightbox="media/handler-azure-monitor-alerts/event-subscription.png":::
 1. Now, on the **Create Event Subscription** page, select **Create** to create the event subscription. For detailed steps, see [subscribe to events through portal](subscribe-through-portal.md).
 
+### Manage event subscriptions
+
+You can manage the subscription directly in the source (e.g. Key Vault resource) by selecting the **Events** blade or by accessing to the **Event Grid system topic** resource, see the following references: [blob event quickstart](blob-event-quickstart-portal#subscribe-to-the-blob-storage), and [manage the system topic](create-view-manage-system-topics.md).
+
+### Fire alert instances
+
+See this article to [fire the alert instances](../azure-monitor/alerts/alerts-manage-alert-instances.md).
+
 ## Next steps
 
 See the following articles:
