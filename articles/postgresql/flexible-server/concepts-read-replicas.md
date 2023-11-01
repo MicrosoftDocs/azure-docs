@@ -90,6 +90,36 @@ To achieve a successful create operation, avoid making replicas during times of 
 
 Learn how to [create a read replica in the Azure portal](how-to-read-replicas-portal.md).
 
+### Configuration management
+When setting up read replicas for Azure Database for PostgreSQL - Flexible Server, it's essential to understand the server configurations that can be adjusted, the ones inherited from the primary, and any related limitations.
+
+**Inherited configurations**
+
+When a read replica is created, it inherits certain server configurations from the primary server. These configurations can be changed either during the replica's creation or after it has been set up. However, specific settings, like geo-backup, won't be replicated to the read replica.
+
+**Configurations during replica creation**
+
+* **Firewall rules**: Can be added, deleted, or modified.
+* **Tier, storage size**: Adjustable. For both "promote to primary server" and "promote to independent server and remove from replication" operations, it can be the same as the primary. However, for "promote to independent server and remove from replication", it can also be higher than the primary.
+* **Performance tier (IOPS)**: Adjustable.
+* **Data encryption**: Adjustable, include moving from service-managed keys to customer-managed keys.
+
+**Configurations post creation**
+
+* **Firewall rules**: Can be added, deleted, or modified.
+* **Tier, storage size**: Adjustable. For both "promote to primary server" and "promote to independent server and remove from replication" operations, it can be the same as the primary. However, for "promote to independent server and remove from replication", it can also be higher than the primary.
+* **Performance tier (IOPS)**: Adjustable.
+* **Authentication method**: Adjustable, options include switching from PostgreSQL authentication to Microsoft Entra.
+* **Server parameters**: Most are adjustable. However, those [affecting shared memory size](#server-parameters) should align with the primary, especially for potential "promote to primary server" scenarios. For the "promote to independent server and remove from replication" operation, these parameters should be the same or exceed those on the primary.
+* **Maintenance schedule**: Adjustable.
+
+**Unsupported features on read replicas**
+
+Certain functionalities are restricted to primary servers and can't be set up on read replicas. These include:
+* Backups, including geo-backups.
+* High availability (HA)
+
+
 If your source PostgreSQL server is encrypted with customer-managed keys, please see the [documentation](concepts-data-encryption.md) for additional considerations.
 
 ## Connect to a replica
@@ -110,7 +140,7 @@ At the prompt, enter the password for the user account.
 
 Furthermore, to ease the connection process, the Azure portal provides ready-to-use connection strings. These can be found in the **Connect** blade. They encompass both `libpq` variables as well as connection strings tailored for bash consoles.
 
-2. **Via Virtual Endpoints**: There's an alternative connection method using virtual endpoints, as detailed in [Virtual endpoints](#virtual-endpoints) section. By leveraging virtual endpoints, you can configure the read-only endpoint to consistently point to the replica, regardless of which server currently holds the replica role.
+2. **Via Virtual Endpoints (preview)**: There's an alternative connection method using virtual endpoints, as detailed in [Virtual endpoints](#virtual-endpoints-preview) section. By leveraging virtual endpoints, you can configure the read-only endpoint to consistently point to the replica, regardless of which server currently holds the replica role.
 
 
 
@@ -161,7 +191,7 @@ All operations involving virtual endpoints, whether adding, editing, or removing
 Virtual Endpoints offer two distinct types of connection points:
 
 1. **Writer Endpoint (Read/Write)**: This endpoint always points to the current primary server. It ensures that write operations are directed to the correct server, irrespective of any promote operations triggered by users. This endpoint cannot be changed to point to a replica.
-2. **Read-Only Endpoint**: This endpoint can be configured by users to point either to a read replica or the primary server. However, it can only target one server at a time. Load balancing between multiple servers isn't supported. The target server for this endpoint can be changed at any time. 
+2. **Read-Only Endpoint**: This endpoint can be configured by users to point either to a read replica or the primary server. However, it can only target one server at a time. Load balancing between multiple servers isn't supported. You can adjust the target server for this endpoint at any point in time, whether before or after promotion. 
 
 ### Virtual Endpoints and Promote Behavior
 In the event of a promote action, the behavior of these endpoints remains predictable.
@@ -193,8 +223,7 @@ The sections below delve into the specifics of how these endpoints react to both
 
 - Before you stop replication on a read replica, check for the replication lag to ensure the replica has all the data that you require. 
 - As the read replica has to apply all pending logs before it can be made a standalone server, RTO can be higher for write heavy workloads when the stop replication happens as there could be a significant delay on the replica. Please pay attention to this when planning to promote a replica.
-- The promoted replica server cannot be made into a replica again.
-- If you promote a replica to be a standalone server, you cannot establish replication back to the old primary server. If you want to go back to the old primary region, you can either establish a new replica server with a new name (or) delete the old primary and create a replica using the old primary name.
+
 - If you have multiple read replicas, and if you promote one of them to be your primary server, other replica servers are still connected to the old primary. You may have to recreate replicas from the new, promoted server.
 
 When you promote a replica, the replica loses all links to its previous primary and other replicas.
@@ -228,7 +257,7 @@ For additional insight, query the primary server directly to get the replication
 
 **Replication status**
 
-To keep an eye on the progress and status of the replication and promote operation, refer to the **Replication Status** column in the Azure portal. This column is located in the replication blade and displays various states that provide insights into the current condition of the read replicas and their link to the primary. For users relying on the ARM API, when invoking the `GetReplica` API, the state appears as LinkState in the `replica` property bag.
+To keep an eye on the progress and status of the replication and promote operation, refer to the **Replication status** column in the Azure portal. This column is located in the replication blade and displays various states that provide insights into the current condition of the read replicas and their link to the primary. For users relying on the ARM API, when invoking the `GetReplica` API, the state appears as LinkState in the `replica` property bag.
 
 Here are the possible values:
 
@@ -252,14 +281,32 @@ This section summarizes considerations about the read replica feature. The follo
 
 ### New replicas
 
-A read replica is created as a new Azure Database for PostgreSQL server. An existing server can't be made into a replica. You can't create a replica of another read replica.
-
-### Replica configuration
-
-During creation of read replicas firewall rules and data encryption method can be changed. Server parameters and authentication method are inherited from the primary server and cannot be changed during creation. After a replica is created, several settings can be changed including storage, compute, backup retention period, server parameters, authentication method, firewall rules etc.
+A read replica is created as a new Azure Database for PostgreSQL server. An existing server can't be made into a replica. You can't create a replica of another read replica, i.e., cascading replication is not supported.
 
 ### Resource move
 Users can create read replicas in a different resource group than the primary. However, moving read replicas to another resource group after their creation is unsupported. Additionally, moving replica(s) to a different subscription, as well as moving the primary that has read replica(s) to another resource group or subscription, is not supported.
+
+### Backup and Restore
+When managing backups and restores for your Azure Database for PostgreSQL - Flexible Server, it's important to keep in mind the current and previous role of the server in different [promotion scenarios](#promote-replicas). Here are the key points to remember:
+
+**Promote to primary server**
+1. **No backups are taken from read replicas**: Backups are never taken from read replica servers, regardless of their past role.
+2. **Preservation of past backups**: If a server was once a primary and has backups taken during that period, those backups are preserved. They'll be retained up to the user-defined retention period.
+3. **Restore Operation Restrictions**: Even if past backups exist for a server that has transitioned to a read replica, restore operations are restricted. You can only initiate a restore operation when the server has been promoted back to the primary role.
+
+For clarity, here's a table illustrating these points:
+
+| **Server role**                  | **Backup taken** | **Restore allowed** | 
+|----------------------------------|---|-----------------------|
+| Primary                          | Yes | Yes                   |
+| Read replica                     | No | No                    |
+| Read replica promoted to primary | Yes | Yes                   |
+
+
+
+**Promote to independent server and remove from replication**
+
+While the server is a read replica, no backups are taken. However, once it's promoted to an independent server, both the promoted server and the primary server will have backups taken, and restores are allowed on both.
 
 ### Replication slot issues mitigation
 
