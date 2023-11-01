@@ -38,7 +38,6 @@ az vmss create \
   --resource-group myResourceGroup \
   --name myScaleSet \
   --image <SKU Linux Image> \
-  --upgrade-policy-mode automatic \
   --admin-username azureuser \
   --generate-ssh-keys \
   --data-disk-sizes-gb 32
