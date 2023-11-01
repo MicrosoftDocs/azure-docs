@@ -26,9 +26,7 @@ _Data plane operations_ don't change the online endpoints but use data to intera
 
 ## Authentication for control plane operations
 
-For control plane operations, you have one way to authenticate a client to the workspace:
-
-- Microsoft Entra token
+For control plane operations, you have one way to authenticate a client to the workspace: by using a __Microsoft Entra token__.
 
 Depending on your use case, you can choose from several authentication flows to get this token. Your identity of choice also needs to have a proper Azure role-based access control (Azure RBAC) allowed for access to your resources. For more information on setting up authentication, see [Set up authentication for Azure Machine Learning resources and workflows](how-to-setup-authentication.md).
 
