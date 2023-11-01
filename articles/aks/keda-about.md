@@ -92,4 +92,4 @@ For GA Kubernetes versions, AKS offers full support of the corresponding KEDA mi
 [keda-scalers]: https://keda.sh/docs/scalers/
 [keda-http-add-on]: https://github.com/kedacore/http-add-on
 [keda-cosmos-db-scaler]: https://github.com/kedacore/external-scaler-azure-cosmos-db
-[azure-support-faq]: https://azure.microsoft.com/en-us/support/legal/faq/
+[azure-support-faq]: https://azure.microsoft.com/support/legal/faq/
