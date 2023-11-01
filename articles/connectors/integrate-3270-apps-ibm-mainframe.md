@@ -15,7 +15,7 @@ tags: connectors
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-To access and run IBM mainframe apps, which you usually execute by navigating through 3270 emulator screens, from Consumption and Standard workflows in Azure Logic Aps, you can use the **IBM 3270** connector. That way, you can integrate your IBM mainframe apps with Azure, Microsoft, and other apps, services, and systems by creating automated workflows with Azure Logic Apps. The connector communicates with IBM mainframes by using the TN3270 protocol. The **IBM 3270** connector is available in all Azure Logic Apps regions except for Azure Government and Microsoft Azure operated by 21Vianet.
+To access and run IBM mainframe apps, which you usually execute by navigating through 3270 emulator screens, from Consumption and Standard workflows in Azure Logic Apps, you can use the **IBM 3270** connector. That way, you can integrate your IBM mainframe apps with Azure, Microsoft, and other apps, services, and systems by creating automated workflows with Azure Logic Apps. The connector communicates with IBM mainframes by using the TN3270 protocol. The **IBM 3270** connector is available in all Azure Logic Apps regions except for Azure Government and Microsoft Azure operated by 21Vianet.
 
 This how-to guide describes the following aspects about the **IBM 3270** connector:
 
@@ -79,7 +79,7 @@ This operation also includes advanced parameters, which appear after you select 
 
   The IBM 3270 connector doesn't have triggers, so use any trigger to start your workflow, such as the **Recurrence** trigger or **Request** trigger. You can then add the 3270 connector actions.
 
-- An [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md), which is required based on the 3270 connector version that you use and is an Azure resource where you can centrally store B2B artifacts such as trading partners, agreements, maps, schemas, and certifcates to use with specific workflow actions.
+- An [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md), which is required based on the 3270 connector version that you use and is an Azure resource where you can centrally store B2B artifacts such as trading partners, agreements, maps, schemas, and certificates to use with specific workflow actions.
 
   | Workflow | Description |
   |----------|-------------|
