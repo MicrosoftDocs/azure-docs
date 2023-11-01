@@ -112,7 +112,7 @@ Try extracting text from forms and documents using the Document Intelligence Stu
 
 ## Supported extracted languages and locales
 
-The following lists include the currently GA languages in the most recent v3.0 version for Read, Layout, and Custom template (form) models.
+The following lists include the languages currently supported for the GA versions of Read, Layout, and Custom template (form) models.
 
 > [!NOTE]
 > **Language code optional**
