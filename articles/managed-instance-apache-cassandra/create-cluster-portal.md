@@ -71,8 +71,13 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
    
    :::image type="content" source="./media/create-cluster-portal/l-sku-sizes.png" alt-text="Select a SKU Size." lightbox="./media/create-cluster-portal/l-sku-sizes.png" border="true":::
 
-    > [!IMPORTANT]
+    > [!NOTE]
     > We have introduced write-through caching (Public Preview) through the utilization of L-series VM SKUs. This implementation aims to minimize tail latencies and enhance read performance, particularly for read intensive workloads. These specific SKUs are equipped with locally attached disks, ensuring hugely increased IOPS for read operations and reduced tail latency.
+
+    > [!IMPORTANT]
+    > Write-through caching, is in public preview.
+    > This feature is provided without a service level agreement, and it's not recommended for production workloads.
+    > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
    * **No. of disks** - Choose the number of p30 disks to be attached to each Cassandra node.
    * **No. of nodes** - Choose the number of Cassandra nodes that will be deployed to this datacenter.
@@ -160,7 +165,7 @@ To scale up to a more powerful SKU size for your nodes, select from the `Sku Siz
    ALTER KEYSPACE "ks" WITH REPLICATION = {'class': 'NetworkTopologyStrategy', 'dc': 3, 'dc2': 3};
    ```
 
-1. If you are adding a data center to a cluster where there is already data, you will need to run `rebuild` to replicate the historical data. In Azure CLI, run the below command to execute `nodetool rebuild` on each node of the new data center, replacing `<new dc ip address>` with the IP address of the node, and `<olddc>` with the name of your existing data center:
+1. If you are adding a data center to a cluster where there is already data, you need to run `rebuild` to replicate the historical data. In Azure CLI, run the below command to execute `nodetool rebuild` on each node of the new data center, replacing `<new dc ip address>` with the IP address of the node, and `<olddc>` with the name of your existing data center:
 
    ```azurecli-interactive
     az managed-cassandra cluster invoke-command \
@@ -243,12 +248,12 @@ You have the option to conduct in-place major version upgrades directly from the
 
    :::image type="content" source="./media/create-cluster-portal/cluster-version.png" alt-text="Screenshot of selecting Cassandra version. " lightbox="./media/create-cluster-portal/cluster-version.png" border="true":::
 
-1. Click on update to save.
+1. Select on update to save.
 
 
 ### Turnkey replication
 
-Cassandra 5.0 introduces a streamlined approach for deploying multi-region clusters, offering enhanced convenience and efficiency. Using turnkey replication functionality, setting up and managing multi-region clusters has become more accessible, allowing for smoother integration and operation across distributed environments. This update significantly reduces the complexities traditionally associated with deploying and maintaining multi-region configurations, allowing users to leverage Cassandra's capabilities with greater ease and effectiveness.
+Cassandra 5.0 introduces a streamlined approach for deploying multi-region clusters, offering enhanced convenience and efficiency. Using turnkey replication functionality, setting up and managing multi-region clusters has become more accessible, allowing for smoother integration and operation across distributed environments. This update significantly reduces the complexities traditionally associated with deploying and maintaining multi-region configurations, allowing users to use Cassandra's capabilities with greater ease and effectiveness.
 
 :::image type="content" source="./media/create-cluster-portal/auto-replicate.png" alt-text="Select referred option from the drop-down." lightbox="./media/create-cluster-portal/auto-replicate.png" border="true":::
 
@@ -257,7 +262,7 @@ Cassandra 5.0 introduces a streamlined approach for deploying multi-region clust
 > - SystemKeyspaces: Auto-replicate all system keyspaces (system_auth, system_traces, system_auth)
 > - AllKeyspaces: Auto-replicate all keyspaces and monitor if new keyspaces are created and then apply auto-replicate settings automatically.
 
-#### Auto-Replication Scenarios
+#### Auto-replication scenarios
 
 * When adding a new data center, the auto-replicate feature in Cassandra will seamlessly execute `nodetool rebuild` to ensure the successful replication of data across the added data center.
 * Removing a data center triggers an automatic removal of the specific data center from the keyspaces.
