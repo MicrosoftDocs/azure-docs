@@ -180,7 +180,7 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
 
 1. The previous command outputs the new datacenter's seed nodes:
 
-   :::image type="content" source="./media/configure-hybrid-cluster/show-datacenter.png" alt-text="Get datacenter details." lightbox="./media/configure-hybrid-cluster/show-datacenter.png" border="true":::
+   :::image type="content" source="./media/configure-hybrid-cluster/show-datacenter.png" alt-text="Screenshot of how to get datacenter details." lightbox="./media/configure-hybrid-cluster/show-datacenter.png" border="true":::
     <!-- ![image](./media/configure-hybrid-cluster/show-datacenter.png) -->
 
 1. Now add the new datacenter's seed nodes to your existing datacenter's [seed node configuration](https://docs.datastax.com/en/cassandra-oss/3.0/cassandra/configuration/configCassandra_yaml.html#configCassandra_yaml__seed_provider) within the [cassandra.yaml](https://docs.datastax.com/en/cassandra-oss/3.0/cassandra/configuration/configCassandra_yaml.html) file. And install the managed instance gossip certificates that you collected earlier to the trust store for each node in your existing cluster, using `keytool` command for each cert:
@@ -219,7 +219,7 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
 
 ## <a id="hybrid-real-time-migration"></a>Use hybrid cluster for real-time migration
 
-The above instructions provide guidance for configuring a hybrid cluster. However, this is also a great way of achieving a seamless zero-downtime migration. If you have an on-premises or other Cassandra environment that you want to decommission with zero downtime, in favour of running your workload in Azure Managed Instance for Apache Cassandra, the following steps must be completed in this order:
+The above instructions provide guidance for configuring a hybrid cluster. However, this is also a great way of achieving a seamless zero-downtime migration. If you have an on-premises or other Cassandra environment that you want to decommission with zero downtime, in favor of running your workload in Azure Managed Instance for Apache Cassandra, the following steps must be completed in this order:
 
 1. Configure hybrid cluster - follow the instructions above.
 1. Temporarily disable automatic repairs in Azure Managed Instance for Apache Cassandra for the duration of the migration:

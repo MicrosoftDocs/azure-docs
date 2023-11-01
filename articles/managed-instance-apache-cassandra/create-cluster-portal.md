@@ -69,7 +69,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
    * **Availability zone** - Check this box if you want availability zones to be enabled.
    * **SKU Size** - Choose from the available Virtual Machine SKU sizes.
    
-   :::image type="content" source="./media/create-cluster-portal/l-sku-sizes.png" alt-text="Select a SKU Size." lightbox="./media/create-cluster-portal/l-sku-sizes.png" border="true":::
+   :::image type="content" source="./media/create-cluster-portal/l-sku-sizes.png" alt-text="Screenshot of select a SKU Size." lightbox="./media/create-cluster-portal/l-sku-sizes.png" border="true":::
+
 
     > [!NOTE]
     > We have introduced write-through caching (Public Preview) through the utilization of L-series VM SKUs. This implementation aims to minimize tail latencies and enhance read performance, particularly for read intensive workloads. These specific SKUs are equipped with locally attached disks, ensuring hugely increased IOPS for read operations and reduced tail latency.
@@ -267,7 +268,8 @@ Cassandra 5.0 introduces a streamlined approach for deploying multi-region clust
 * When adding a new data center, the auto-replicate feature in Cassandra will seamlessly execute `nodetool rebuild` to ensure the successful replication of data across the added data center.
 * Removing a data center triggers an automatic removal of the specific data center from the keyspaces.
 
-For external data centers, such as those hosted on-premise, they can be included in the keyspaces through the utilization of the external data center property. This enables Cassandra to incorporate these external data centers as sources for the rebuilding process.
+For external data centers, such as those hosted on-premises, they can be included in the keyspaces through the utilization of the external data center property. This enables Cassandra to incorporate these external data centers as sources for the rebuilding process.
+
 
 > [!WARNING]
 > Setting auto-replicate to AllKeyspaces will change your keyspaces replication to include 
