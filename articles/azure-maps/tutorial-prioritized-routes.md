@@ -214,7 +214,7 @@ In this tutorial, two routes are calculated on the map. The first route is calcu
 
 3. Save **TruckRoute.html** and refresh your browser. The map is now centered over Seattle. The blue teardrop pin marks the start point. The round blue pin marks the end point.
 
-   :::image type="content" source="./media/tutorial-prioritized-routes/pins-map.png" alt-text="A screenshot that shows a map with a route containing a blue teardrop pin marking the start point and a blue round pin marking the end point.":::
+   :::image type="content" source="./media/tutorial-prioritized-routes/pins-map.png" lightbox="./media/tutorial-prioritized-routes/pins-map.png" alt-text="A screenshot that shows a map with a route containing a blue teardrop pin marking the start point and a blue round pin marking the end point.":::
 
 <a id="multipleroutes"></a>
 
