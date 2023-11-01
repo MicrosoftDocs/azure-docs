@@ -6,7 +6,7 @@ ms.author: magoedte
 author: mgoedtel
 ms.service: container-instances
 services: container-instances
-ms.date: 10/31/2023
+ms.date: 11/01/2023
 ---
 
 # Confidential containers security policy Azure Kubernetes Service 

@@ -2,7 +2,7 @@
 title: Confidential Containers (preview) with Azure Kubernetes Service (AKS)
 description: Learn about and deploy confidential Containers (preview) on an Azure Kubernetes Service (AKS) cluster to maintain security and protect sensitive information.
 ms.topic: article
-ms.date: 10/31/2023
+ms.date: 11/01/2023
 ---
 
 # Confidential Containers (preview) with Azure Kubernetes Service (AKS)
@@ -45,7 +45,7 @@ Confidential Containers (preview) are appropriate for deployment scenarios that 
 - The Azure CLI version 2.44.1 or later. Run `az --version` to find the version, and run `az upgrade` to upgrade the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
 - The `aks-preview` Azure CLI extension version 0.5.123 or later.
-- 
+
 - The `confcom` Confidential Container Security Policy Generator Azure CLI extension 2.62.2 or later.
 
 - Register the `Preview` feature in your Azure subscription.
@@ -74,6 +74,20 @@ Run the following command to update to the latest version of the extension relea
 
 ```azurecli-interactive
 az extension update --name aks-preview
+```
+
+### Install the confcom Azure CLI extension
+
+To install the confcom extension, run the following command:
+
+```azurecli-interactive
+az extension add --name confcom
+```
+
+Run the following command to update to the latest version of the extension released:
+
+```azurecli-interactive
+az extension update --name confcom
 ```
 
 ### Register the KataCcIsolationPreview feature flag
@@ -112,8 +126,6 @@ log output from containers. `stdio` (ReadStreamRequest and WriteStreamRequest) i
 * All containers in all pods on the clusters must be configured to `imagePullPolicy: Always`.
 * The policy generator only supports pods that use IPv4 addresses.
 * Version 1 container images aren't supported.
-* The local container filesystem is backed with VM memory. Writing to the container filesystem (including logging) can fill up the memory provided to the pod. It can result in potential pod crashes.
-* v1 container images aren't supported.
 * Pod termination logs aren't supported. While pods write termination logs to `/dev/termination-log` or to a custom location if specified in the pod manifest, the host/kubelet can't read those logs. Changes from guest to that file aren't reflected on the host.
 
 ## Resource allocation overview
@@ -137,7 +149,7 @@ With the local container filesystem backed by VM memory, writing to the containe
    The following example creates a cluster named *myAKSCluster* with one node in the *myResourceGroup*:
 
    ```azurecli-interactive
-   az aks create --resource-group myResourceGroup --name myManagedCluster –kubernetes-version <1.25.0 and above> --os-sku AzureLinux --workload-runtime <kataCcIsolation> --enable-oidc-issuer --enable-workload-identity --generate-ssh-keys
+   az aks create --resource-group myResourceGroup --name myManagedCluster –kubernetes-version <1.25.0 and above> --os-sku AzureLinux --workload-runtime KataCcIsolation --enable-oidc-issuer --enable-workload-identity --generate-ssh-keys
    ```
 
    After a few minutes, the command completes and returns JSON-formatted information about the cluster. The cluster created in the previous step has a single node pool. In the next step, we add a second node pool to the cluster.
@@ -151,7 +163,7 @@ With the local container filesystem backed by VM memory, writing to the containe
 3. Add a node pool to *myAKSCluster* with two nodes in *nodepool2* in the *myResourceGroup* using the [az aks nodepool add][az-aks-nodepool-add] command.
 
     ```azurecli-interactive
-    az aks nodepool add --resource-group myResourceGroup --name myManagedCluster –-cluster-name myCluster --node-count 2 --os-sku Azurelinux SKU --node-vm-size <VM sizes capable of nested SNP VM> 
+    az aks nodepool add --resource-group myResourceGroup --name myManagedCluster –-cluster-name myCluster --node-count 2 --os-sku Azurelinux --node-vm-size <VM sizes capable of nested SNP VM> 
     ```
 
 After a few minutes, the command completes and returns JSON-formatted information about the cluster.
@@ -171,14 +183,14 @@ Use the following command to enable Confidential Containers (preview) by creatin
    * **--resource-group**: Enter the name of an existing resource group to create the AKS cluster in.
    * **--cluster-name**: Enter a unique name for the AKS cluster, such as *myAKSCluster*.
    * **--name**: Enter a unique name for your clusters node pool, such as *nodepool2*.
-   * **--workload-runtime**: Specify *kataCcIsolation* to enable the feature on the node pool. Along with the `--workload-runtime` parameter, these other parameters shall satisfy the following requirements. Otherwise, the command fails and reports an issue with the corresponding parameter(s).
+   * **--workload-runtime**: Specify *KataCcIsolation* to enable the feature on the node pool. Along with the `--workload-runtime` parameter, these other parameters shall satisfy the following requirements. Otherwise, the command fails and reports an issue with the corresponding parameter(s).
      * **--os-sku**: **AzureLinux*. Only the Azure Linux os-sku supports this feature in this preview release.
    * **--node-vm-size**: Any Azure VM size that is a generation 2 VM and supports nested virtualization works. For example, [Standard_DC8as_cc_v5][DC8as-series] VMs.
 
    The following example adds a node pool to *myAKSCluster* with two nodes in *nodepool2* in the *myResourceGroup*:
 
     ```azurecli-interactive
-    az aks nodepool add --resource-group myResourceGroup --name myManagedCluster –-cluster-name myCluster --node-count 2 --os-sku Azurelinux SKU --node-vm-size <VM sizes capable of nested SNP VM> 
+    az aks nodepool add --resource-group myResourceGroup --name myManagedCluster –-cluster-name myCluster --node-count 2 --os-sku Azurelinux SKU --node-vm-size <VM sizes capable of nested SNP VM> --workload-runtime KataCcIsolation
     ```
 
     After a few minutes, the command completes and returns JSON-formatted information about the cluster.
@@ -220,7 +232,7 @@ Before you configure access to the Azure Key Vault Managed HSM and secret, and d
       labels:
         azure.workload.identity/use: "true"
     spec:
-      runtimeClassName: kata-cc
+      runtimeClassName: kata-cc-isolation
       serviceAccountName: workload-identity-sa
       selector:
         matchLabels:
@@ -267,8 +279,6 @@ az confcom katapolicygen -y my-pod.yaml
 ```
 
 To see other command line options, run the command with the `--help` argument.
-
-You can adjust the behavior of this app by making changes to the `genpolicy-settings.json` file.
 
 On successful execution, genpolicy creates the Policy document, encodes it in *base64* format, and adds it to the YAML file as an annotation. Similar to:
 
