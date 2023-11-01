@@ -3,12 +3,12 @@ title: Deploy an AI model on Azure Kubernetes Service (AKS) with the AI toolchai
 description: Learn how to enable the AI toolchain operator add-on on Azure Kubernetes Service (AKS) to simplify OSS AI model management and deployment.
 ms.topic: article
 ms.custom: azure-kubernetes-service
-ms.date: 10/30/2023
+ms.date: 11/01/2023
 ---
 
 # Deploy an AI model on Azure Kubernetes Service (AKS) with the AI toolchain operator (Preview)
 
-The AI toolchain operator is a managed add-on for AKS that simplifies the experience of running OSS AI models on your AKS clusters. The AI toolchain operator automatically provisions the necessary GPU nodes and sets up the associated inference server as an endpoint server to your application. Using this add-on reduces your onboarding time and enables you to focus on your AI model development and deployment rather than the infrastructure setup.
+The AI toolchain operator (KAITO) is a managed add-on for AKS that simplifies the experience of running OSS AI models on your AKS clusters. The AI toolchain operator automatically provisions the necessary GPU nodes and sets up the associated inference server as an endpoint server to your AI models. Using this add-on reduces your onboarding time and enables you to focus on AI model usage and development rather than infrastructure setup.
 
 This article shows you how to enable the AI toolchain operator add-on and deploy an AI model on AKS.
 
@@ -46,12 +46,8 @@ This article shows you how to enable the AI toolchain operator add-on and deploy
 
     ```azurecli-interactive
     export AZURE_SUBSCRIPTION_ID="mySubscriptionID"
-    export AZURE_TENANT_ID="myTenantID"
-    export AZURE_CLIENT_ID="myClientID"
     export AZURE_RESOURCE_GROUP="myResourceGroup"
     export CLUSTER_NAME="myClusterName"
-    export WORKLOAD_IDENTITY="myWorkloadID"
-    export FEDERATED_IDENTITY="myFederatedID"
     ```
 
 ## Enable the AI toolchain operator add-on on an AKS cluster
@@ -64,7 +60,7 @@ This article shows you how to enable the AI toolchain operator add-on and deploy
     az group create --name AZURE_RESOURCE_GROUP --location eastus
     ```
 
-2. Create an AKS cluster with the AI toolchain operator add-on enabled using the [`az aks create`][az-aks-create] command with the `--enable-ai-toolchain-operator` flag.
+2. Create an AKS cluster with the AI toolchain operator add-on enabled using the [`az aks create`][az-aks-create] command with the `--enable-ai-toolchain-operator`, `--enable-workload-identity`, and `--enable-oidc-issuer` flags.
 
     ```azurecli-interactive
     az aks create --resource-group AZURE_RESOURCE_GROUP --name CLUSTER_NAME --generate-ssh-keys --enable-managed-identity --enable-workload-identity --enable-oidc-issuer --enable-ai-toolchain-operator 
@@ -72,6 +68,8 @@ This article shows you how to enable the AI toolchain operator add-on and deploy
 
     > [!NOTE]
     > AKS creates a managed identity once you enable the AI toolchain operator add-on. The managed identity is used to access the AI toolchain operator workspace CRD. The AI toolchain operator workspace CRD is used to create and manage AI toolchain operator workspaces.
+    >
+    > AI toolchain operator enablement requires the enablement of workload identity and OIDC issuer.
 
 ## Connect to your cluster
 
@@ -100,7 +98,7 @@ This article shows you how to enable the AI toolchain operator add-on and deploy
 1. Create a new role assignment for the service principal using the [`az role assignment create`][az-role-assignment-create] command.
 
     ```azurecli-interactive
-    az role assignment create --role "Contributor" --assignee "${PRINCIPAL_ID}" --scope "/subscriptions/${AZURE_SUBSCRIPTION_ID}/resourcegroups/${AZURE_RESOURCE_GROUP}"
+    az role assignment create --role "Contributor" --assignee "${PRINCIPAL_ID}" --scope "/subscriptions/${AZURE_SUBSCRIPTION_ID}/resourcegroups/${AZURE_RESOURCE_GROUP}"/providers/Microsoft.ContainerService/managedClusters/${CLUSTER_NAME}"
     ```
 
 2. Get the AKS OIDC Issuer URL and export it as an environment variable using the following command:
@@ -111,10 +109,10 @@ This article shows you how to enable the AI toolchain operator add-on and deploy
 
 ## Establish a federated identity credential
 
-* Create the federated identity credential between the managed identity, GPU service account issuer, and subject using the [`az identity federated-credential create`][az-identity-federated-credential-create] command.
+* Create the federated identity credential between the managed identity, AKS OIDC issuer, and subject using the [`az identity federated-credential create`][az-identity-federated-credential-create] command.
 
     ```azurecli-interactive
-    az identity federated-credential create --name "${FEDERATED_IDENTITY}" --identity-name "${WORKLOAD_IDENTITY}" --resource-group "${AZURE_RESOURCE_GROUP} --issuer "${AKS_OIDC_ISSUER}" --subject system:serviceaccount:"kube-system":"gpu-provisioner" --audience api://AzureADTokenExchange --subscription "${AZURE_SUBSCRIPTION_ID}"
+    az identity federated-credential create --name "${FEDERATED_IDENTITY}" --identity-name "ai-toolchain-operator-{CLUSTER_NAME}" --resource-group "${AZURE_RESOURCE_GROUP} --issuer "${AKS_OIDC_ISSUER}" --subject system:serviceaccount:"kube-system":"gpu-provisioner" --audience api://AzureADTokenExchange --subscription "${AZURE_SUBSCRIPTION_ID}"
     ```
 
 ## Deploy a default hosted AI model
@@ -122,7 +120,7 @@ This article shows you how to enable the AI toolchain operator add-on and deploy
 1. Deploy the Falcon 7B model YAML file from the GitHub repository using the `kubectl apply` command.
 
     ```azurecli-interactive
-    kubectl apply -f https://raw.githubusercontent.com/Azure/kaito/main/examples/kaito_workspace_falcon_7b.yaml?token=GHSAT0AAAAAACGAR25X326COSHMS545JAFWZJR2ZDA
+    kubectl apply -f https://raw.githubusercontent.com/Azure/kaito/main/examples/kaito_workspace_falcon_7b.yaml
     ```
 
 2. Track the live resource changes in your workspace using the `kubectl get` command.
