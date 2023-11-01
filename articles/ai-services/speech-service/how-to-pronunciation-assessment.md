@@ -684,7 +684,7 @@ This table lists some of the key pronunciation assessment results for the unscri
 > [!NOTE]
 > VocabularyScore, GrammarScore, and TopicScore parameters roll up to the combined content assessment. 
 > 
-> Content and prosody assessments are only available in the [en-US](./language-support.md#pronunciation-assessment) locale.
+> Content and prosody assessments are only available in the [en-US](./language-support.md?tabs=pronunciation-assessment) locale.
 
 | Response parameter | Description |Granularity|
 |--------------------|-------------|-------------|
