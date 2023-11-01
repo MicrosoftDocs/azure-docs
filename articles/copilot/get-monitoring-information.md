@@ -45,9 +45,9 @@ Use Microsoft Copilot for Azure (preview) to ask questions about your Azure Moni
 ### Sample prompts
 
 - "Are there any errors in container logs?"
-- "show logs for the last day of pod <provide_pod_name> under namespace <provide_namespace>"
-- "show me container logs that include word 'error' for the last day for namespace 'xyz'"
-- "check in logs which containers keep restarting"
+- "Show logs for the last day of pod <provide_pod_name> under namespace <provide_namespace>"
+- "Show me container logs that include word 'error' for the last day for namespace 'xyz'"
+- "Check in logs which containers keep restarting"
 - "Show me all Kubernetes events"
 
 ## Next steps

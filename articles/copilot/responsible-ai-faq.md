@@ -32,13 +32,13 @@ User provided prompts and Microsoft Copilot for Azure’s responses are not reta
 
 ## What should I do if I see unexpected or offensive content?
 
-The Azure team has built Microsoft Copilot for Azure guided by our AI principles and Responsible AI Standard. We have prioritized mitigating exposing customers to offensive content. However, you may still see unexpected results. We're constantly working to improve our technology in preventing harmful content.
+The Azure team has built Microsoft Copilot for Azure guided by our AI principles and Responsible AI Standard. We have prioritized mitigating exposing customers to offensive content. However, you might still see unexpected results. We're constantly working to improve our technology in preventing harmful content.
 
 If you encounter harmful or inappropriate content in the system, please provide feedback or report a concern by selecting the downvote button on the response.
 
 ## How current is the information Microsoft Copilot for Azure provides?
 
-We frequently update Microsoft Copilot for Azure to ensure Microsoft Copilot for Azure provides the latest information to you. In most cases, the information Microsoft Copilot for Azure provides will be up to date. However, there may be some delay between new Azure announcements to the time Microsoft Copilot for Azure is updated.
+We frequently update Microsoft Copilot for Azure to ensure Microsoft Copilot for Azure provides the latest information to you. In most cases, the information Microsoft Copilot for Azure provides will be up to date. However, there might be some delay between new Azure announcements to the time Microsoft Copilot for Azure is updated.
 
 ## Do all Azure services have the same level of integration with Microsoft Copilot for Azure?
 
