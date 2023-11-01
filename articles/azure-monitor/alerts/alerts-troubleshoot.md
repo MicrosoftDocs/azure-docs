@@ -29,8 +29,8 @@ If you can see a fired alert in the Azure portal, but did not receive the email 
 1. **Was the email suppressed by an [alert processing rule](../alerts/alerts-action-rules.md)**?
 
     Check by clicking on the fired alert in the portal, and look at the history tab for suppressed [action groups](./action-groups.md):
-
-    :::image type="content" source="media/alerts-troubleshoot/history-tab-alert-processing-rule-suppression.png" lightbox="media/alerts-troubleshoot/history-tab-alert-processing-rule-suppression.png" alt-text="Screenshot of alert history tab with suppression from alert processing rule.":::
+    <!-- convertborder later -->
+    :::image type="content" source="media/alerts-troubleshoot/history-tab-alert-processing-rule-suppression.png" lightbox="media/alerts-troubleshoot/history-tab-alert-processing-rule-suppression.png" alt-text="Screenshot of alert history tab with suppression from alert processing rule." border="false":::
 
 1. **Is the type of action "Email Azure Resource Manager Role"?**
 
@@ -71,8 +71,8 @@ If you can see a fired alert in the Azure portal, but did not receive the email 
 1. **Have you been rated limited due to many emails going to a single email address?**
 
     Email is [rate limited](alerts-rate-limiting.md) to no more than 100 emails every hour to each email address. If you pass this threshold, additional email notifications are dropped.  Check if you have received a message indicating that your email address has been temporarily rate limited: 
- 
-   :::image type="content" source="media/alerts-troubleshoot/email-paused.png" lightbox="media/alerts-troubleshoot/email-paused.png" alt-text="Screenshot of an email about being rate limited.":::
+   <!-- convertborder later -->
+   :::image type="content" source="media/alerts-troubleshoot/email-paused.png" lightbox="media/alerts-troubleshoot/email-paused.png" alt-text="Screenshot of an email about being rate limited." border="false":::
 
    If you would like to receive high-volume of notifications without rate limiting, consider using a different action, such as webhook, logic app, Azure function, or automation runbooks, none of which are rate limited. 
 
@@ -83,8 +83,8 @@ If you can see a fired alert in the portal, but did not receive the SMS, voice c
 1. **Was the action suppressed by an [alert suppression rule](../alerts/alerts-action-rules.md)?**
 
     Check by clicking on the fired alert in the portal, and look at the history tab for suppressed [action groups](./action-groups.md): 
-
-    :::image type="content" source="media/alerts-troubleshoot/history-tab-alert-processing-rule-suppression.png" lightbox="media/alerts-troubleshoot/history-tab-alert-processing-rule-suppression.png" alt-text="Screenshot of alert history tab with suppression from alert processing rule.":::
+    <!-- convertborder later -->
+    :::image type="content" source="media/alerts-troubleshoot/history-tab-alert-processing-rule-suppression.png" lightbox="media/alerts-troubleshoot/history-tab-alert-processing-rule-suppression.png" alt-text="Screenshot of alert history tab with suppression from alert processing rule." border="false":::
 
    If that was unintentional, you can modify, disable, or delete the alert processing rule.
  
@@ -116,8 +116,8 @@ If you can see a fired alert in the portal, but its configured action did not tr
 1. **Was the action suppressed by an alert processing rule?**
 
     Check by clicking on the fired alert in the portal, and look at the history tab for suppressed [action groups](./action-groups.md):
-
-    :::image type="content" source="media/alerts-troubleshoot/history-tab-alert-processing-rule-suppression.png" lightbox="media/alerts-troubleshoot/history-tab-alert-processing-rule-suppression.png" alt-text="Screenshot of alert history tab with suppression from alert processing rule.":::
+    <!-- convertborder later -->
+    :::image type="content" source="media/alerts-troubleshoot/history-tab-alert-processing-rule-suppression.png" lightbox="media/alerts-troubleshoot/history-tab-alert-processing-rule-suppression.png" alt-text="Screenshot of alert history tab with suppression from alert processing rule." border="false":::
  
     If that was unintentional, you can modify, disable, or delete the alert processing rule.
 
@@ -160,8 +160,8 @@ If you have received a notification for an alert (such as an email or an SMS) mo
     When an alert is fired, each of its action groups is processed independently. So, if an action (such as an email address) appears in multiple triggered action groups, it would be called once per action group. 
 
     To check which action groups were triggered, check the alert history tab. You would see there both action groups defined in the alert rule, and action groups added to the alert by alert processing rules: 
-
-    :::image type="content" source="media/alerts-troubleshoot/action-repeated-multi-action-groups.png" lightbox="media/alerts-troubleshoot/action-repeated-multi-action-groups.png" alt-text="Screenshot of multiple action groups in an alert.":::
+    <!-- convertborder later -->
+    :::image type="content" source="media/alerts-troubleshoot/action-repeated-multi-action-groups.png" lightbox="media/alerts-troubleshoot/action-repeated-multi-action-groups.png" alt-text="Screenshot of multiple action groups in an alert." border="false":::
 
 ## Action or notification has an unexpected content
 Action Groups uses two different email providers to ensure email notification delivery. The primary email provider is very resilient and quick but occasionally suffers outages. In this case, the secondary email provider handles email requests. The secondary provider is only a fallback solution. Due to provider differences, an email sent from our secondary provider may have a degraded email experience. The degradation results in slightly different email formatting and content. Since email templates differ in the two systems, maintaining parity across the two systems is not feasible. You can know that you are receiving a degraded experience, if there is a note at the top of your email notification that says: 
@@ -175,8 +175,8 @@ If your notification does not contain this note and you have received the alert,
     Each action type (email, webhook, etc.) has two formats – the default, legacy format, and the [newer common schema format](../alerts/alerts-common-schema.md). When you create an action group, you specify the format you want per action – different actions in the action groups may have different formats. 
 
     For example, for webhook action: 
-
-    :::image type="content" source="media/alerts-troubleshoot/webhook.png" lightbox="media/alerts-troubleshoot/webhook.png" alt-text="Screenshot of webhook action schema option.":::
+    <!-- convertborder later -->
+    :::image type="content" source="media/alerts-troubleshoot/webhook.png" lightbox="media/alerts-troubleshoot/webhook.png" alt-text="Screenshot of webhook action schema option." border="false":::
 
     Check if the format specified at the action level is what you expect. For example, you may have developed code that responds to alerts (webhook, function, logic app, etc.), expecting one format, but later in the action you or another person specified a different format.  
 
@@ -208,12 +208,12 @@ If you can see a fired alert in the portal, but a related alert processing rule 
     Check if the alert processing rule has processed your alert by clicking on the fired alert in the portal, and look at the history tab.
 
     Here is an example of alert processing rule suppressing all action groups: 
- 
-     :::image type="content" source="media/alerts-troubleshoot/history-tab-alert-processing-rule-suppression.png" lightbox="media/alerts-troubleshoot/history-tab-alert-processing-rule-suppression.png" alt-text="Screenshot of alert history tab with suppression from alert processing rule.":::
+     <!-- convertborder later -->
+     :::image type="content" source="media/alerts-troubleshoot/history-tab-alert-processing-rule-suppression.png" lightbox="media/alerts-troubleshoot/history-tab-alert-processing-rule-suppression.png" alt-text="Screenshot of alert history tab with suppression from alert processing rule." border="false":::
 
     Here is an example of an alert processing rule adding another action group:
-
-    :::image type="content" source="media/alerts-troubleshoot/action-repeated-multi-action-groups.png" lightbox="media/alerts-troubleshoot/action-repeated-multi-action-groups.png" alt-text="Screenshot of action repeated in multiple action groups.":::
+    <!-- convertborder later -->
+    :::image type="content" source="media/alerts-troubleshoot/action-repeated-multi-action-groups.png" lightbox="media/alerts-troubleshoot/action-repeated-multi-action-groups.png" alt-text="Screenshot of action repeated in multiple action groups." border="false":::
  
 
 1. **Does the alert processing rule scope and filter match the fired alert?** 
@@ -232,8 +232,8 @@ To locate it, follow these steps:
 1. Click on the alert to open the alert details. 
 
 1. Scroll down in the alert fields of the first tab (the summary tab) until you locate it, and copy it. That field also includes a "Copy to clipboard" helper button you can use.  
-
-    :::image type="content" source="media/alerts-troubleshoot/get-alert-id.png" lightbox="media/alerts-troubleshoot/get-alert-id.png" alt-text="Screenshot of finding the alert ID field in the alert summary tab.":::
+    <!-- convertborder later -->
+    :::image type="content" source="media/alerts-troubleshoot/get-alert-id.png" lightbox="media/alerts-troubleshoot/get-alert-id.png" alt-text="Screenshot of finding the alert ID field in the alert summary tab." border="false":::
 
 ## Problem creating, updating, or deleting alert processing rules in the Azure portal
 
