@@ -49,7 +49,7 @@ The following table provides a comparison of the five disk types to help you dec
 | **Max IOPS** | 160,000 | 80,000 | 20,000 | 6,000 | 2,000, 3,000* |
 | **Usable as OS Disk?** | No | No | Yes | Yes | Yes |
 
-* Only applies to disks with performance plus (preview) enabled.
+*Only applies to disks with performance plus (preview) enabled.
 
 For a video that covers some high level differences for the different disk types, as well as some ways for determining what impacts your workload requirements, see [Block storage options with Azure Disk Storage and Elastic SAN](https://youtu.be/igfNfUvgaDw).
 
