@@ -78,9 +78,6 @@ Use the Azure CLI to deploy Azure IoT Operations components to your Arc-enabled 
    > * Open the codespace in VS Code desktop, and then run `az login` in the terminal. This opens a browser window where you can log in to Azure.
    > * After you get the localhost error on the browser, copy the URL from the browser and use `curl <URL>` in a new terminal tab. You should see a JSON response with the message "You have logged into Microsoft Azure!."
 
-
-
-
 1. Deploy Azure IoT Operations to your cluster. The `az iot ops init` command does the following steps:
 
    * Creates a key vault in your resource group.
@@ -91,9 +88,6 @@ Use the Azure CLI to deploy Azure IoT Operations components to your Arc-enabled 
 
    Replace the placeholder parameters in the command with your own information:
 
-
- Replace `<YOUR_CLUSTER_NAME>` with the name of your Arc-connected Kubernetes cluster, `<YOUR_RESOURCE_GROUP_NAME>` with the name of the resource group that contains your cluster, and `<YOUR_KEYVAULT_RESOURCE_ID>` with the full resource ID of your key vault that looks like `/subscriptions/<YOUR_SUBSCRIPTION_ID>/resourceGroups/<YOUR_RESOURCE_GROUP_NAME>/providers/Microsoft.KeyVault/vaults/<YOUR_KEY_VAULT_NAME>`. The operation can take up to 10 minutes.
-
    | Parameter | Value |
    | ----- | ----- |
    | **CLUSTER_NAME** | The name of your Arc-connected Kubernetes cluster. |
@@ -101,7 +95,7 @@ Use the Azure CLI to deploy Azure IoT Operations components to your Arc-enabled 
    | **KEYVAULT_NAME** | A globally unique name for your key vault. Key Vault names are  string of 3 to 24 characters that can contain only numbers (0-9), letters (a-z, A-Z), and hyphens (-). |
 
    ```azurecli-interactive
-   az iot ops init --cluster <CLUSTER_NAME> -g <RESOURCE_GROUP> --kv-id $(az keyvault create -n <KEYVAULT-NAME> -g <RESOURCE_GROUP> -o tsv --query id)
+   az iot ops init --cluster <CLUSTER_NAME> -g <RESOURCE_GROUP> --kv-id $(az keyvault create -n <KEYVAULT-NAME> -g <RESOURCE_GROUP> -o tsv --query id) --simulate-plc
    ```
 
    > [!TIP]
