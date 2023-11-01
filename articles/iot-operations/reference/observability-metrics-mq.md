@@ -254,9 +254,9 @@ For example, if a back end node restarts but fails to reconnect to its chain, K8
 
 Desired Metric | Reported Metric
 --|--
-backend_replicas | backend_replicas_current
-backend_vertical_chain | backend_vertical_chain_current
-frontend_replicas | frontend_replicas_current
+`backend_replicas` | `backend_replicas_current`
+`backend_vertical_chain` | `backend_vertical_chain_current`
+`frontend_replicas` | `frontend_replicas_current`
 
 > [!NOTE]
 > The `backend_vertical_chain_current` metric reports the chain with the least healthy nodes. For example, suppose there's an expected chain length value of `4`. If three of the chains have four healthy nodes while one chain only has two healthy nodes, the `backend_vertical_chain_current` metric reports a value of `2`.
