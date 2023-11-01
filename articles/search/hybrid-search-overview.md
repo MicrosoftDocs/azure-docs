@@ -21,7 +21,7 @@ Hybrid search is a combination of full text and vector queries that execute agai
 + Executing in parallel
 + With merged results in the query response, scored using [Reciprocal Rank Fusion (RRF)](hybrid-search-ranking.md)
 
-This article explains the concepts, benefits, and limitations of hybrid search.
+This article explains the concepts, benefits, and limitations of hybrid search. Watch this [embedded video](#benefits) for an explanation and short demos of how hybrid retrieval contributes to high quality chat-style and copilot apps. 
 
 ## How does hybrid search work?
 
@@ -36,7 +36,7 @@ Hybrid search is predicated on having a search index that contains fields of var
 A representative hybrid query might be as follows (notice the vector is trimmed for brevity):
 
 ```http
-POST https://{{searchServiceName}}.search.windows.net/indexes/hotels-vector-quickstart/docs/search?api-version=2023-07-01-Preview
+POST https://{{searchServiceName}}.search.windows.net/indexes/hotels-vector-quickstart/docs/search?api-version=2023-11-01
   content-type: application/JSON
 {
     "count": true,
@@ -126,6 +126,10 @@ A response from the above query might look like this:
 Hybrid search combines the strengths of vector search and keyword search. The advantage of vector search is finding information that's similar to your search query, even if there are no keyword matches in the inverted index. The advantage of keyword or full text search is precision, and the ability to apply semantic ranking that improves the quality of the initial results. Some scenarios - such as querying over product codes, highly specialized jargon, dates, and people's names - can perform better with keyword search because it can identify exact matches.
 
 Benchmark testing on real-world and benchmark datasets indicates that hybrid retrieval with semantic ranking offers significant benefits in search relevance.
+
+The following video explains how hybrid retrieval gives you optimal grounding data for generating useful AI responses.
+
+> [!VIDEO https://www.youtube.com/embed/Xwx1DJ0OqCk]
 
 ## See also
 

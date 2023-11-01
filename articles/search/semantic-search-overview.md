@@ -13,7 +13,7 @@ ms.date: 10/26/2023
 
 # Semantic ranking in Azure AI Search
 
-In Azure AI Search, *semantic ranking* measurably improves search relevance by using language understanding to rerank search results. This article is a high-level introduction to semantic ranking. The [embedded video](#how-semantic-ranking-works) describes the technology, and the section at the end covers availability and pricing.
+In Azure AI Search, *semantic ranking* measurably improves search relevance by using language understanding to rerank search results. This article is a high-level introduction to semantic ranking. The [embedded video](#semantic-capabilities-and-limitations) describes the technology, and the section at the end covers availability and pricing.
 
 Semantic ranking is a premium feature, billed by usage. We recommend this article for background, but if you'd rather get started, follow these steps:
 

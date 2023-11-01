@@ -444,8 +444,10 @@
       href: speller-how-to-add.md
     - name: Filters
       items:
-      - name: Filter overview
+      - name: Filters in text queries
         href: search-filters.md
+      - name: Filters in vector queries
+        href: vector-search-filters.md
       - name: Add faceted navigation
         href: search-faceted-navigation.md
       - name: Understand collection filters
