@@ -191,7 +191,7 @@ items:
       items:
         - name: Setting up Smtp Authentication
           href: quickstarts/email/send-email-smtp/smtp-authentication.md
-        - name: Send email using the .NET SmtpClient
+        - name: Smtp Send Mail Examples
           href: quickstarts/email/send-email-smtp/send-email-smtp.md
   - name: Job Router
     items: 

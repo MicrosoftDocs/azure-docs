@@ -1653,6 +1653,14 @@ groups:
     title: Visual Studio
   - id: development-environment-vscode
     title: Visual Studio Code
+- id: acs-smtp-sending-method
+  title: SMTP Sending Method
+  prompt: Choose a sending method
+  pivots:
+  - id: smtp-method-smtpclient
+    title: C# SmtpClient
+  - id: smtp-method-powershell
+    title: Windows PowerShell
 # Owner: memildin
 - id: non-azure-machines
   title: Non-Azure machines
