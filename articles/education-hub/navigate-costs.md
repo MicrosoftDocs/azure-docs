@@ -1,6 +1,6 @@
 ---
 title: Track usage and create budgets in Azure for Students
-description: Describes how to track usage and create budgets in Azure Cost Management.
+description: Describes how to track usage and create budgets in Microsoft Cost Management.
 author: vinnieangel
 ms.author: vangellotti
 ms.topic: how-to
@@ -18,7 +18,7 @@ Using the Azure Education Hub, you can keep track of your usage while on Azure f
 
 :::image type="content" source="media/budgets/usage.png" alt-text="Budgets in cost management." border="true":::
 
-Additionally, you can ‘View cost details’, which will send you into Azure Cost Management (ACM).  With ACM, you can explore in more detail your services and the usage they have accumulated.  
+Additionally, you can ‘View cost details’, which will send you into Microsoft Cost Management (MCM).  With MCM, you can explore in more detail your services and the usage they have accumulated.  
 
 :::image type="content" source="media/budgets/budget.png" alt-text="Usage in Education Hub." border="true":::
 
