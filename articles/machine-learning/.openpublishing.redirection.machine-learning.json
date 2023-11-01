@@ -306,6 +306,11 @@
         "redirect_document_id": true
     },
     {
+        "source_path_from_root": "/articles/machine-learning/tutorial-enable-materialization-backfill-data.md",
+        "redirect_url": "/azure/machine-learning/tutorial-experiment-train-models-using-features.md",
+        "redirect_document_id": false
+    },
+    {
         "source_path_from_root": "/articles/machine-learning/quickstart-run-notebooks.md",
         "redirect_url": "/azure/machine-learning/tutorial-cloud-workstation",
         "redirect_document_id": true
