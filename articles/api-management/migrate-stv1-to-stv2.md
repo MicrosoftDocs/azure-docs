@@ -198,7 +198,7 @@ On successful migration, update any network dependencies including DNS, firewall
 
    ***VNet-injected instances:*** you'll need a new subnet and public IP address to migrate (either External or Internal modes). The subnet must have an NSG attached to it following the rules for STV2 platform as described [here](./api-management-using-with-vnet.md?tabs=stv2#configure-nsg-rules).
   
-   ***Non-VNet instances:*** no prerequisites are required. If you migrate preserving your public IP address, this will render your API Management instance unresponsive for approximately 15 minutes. If you can't afford any downtime, then choose the *"New IP"* option which makes APIM available on a new IP. Network dependencies need to be updated with the new public virtual IP address.
+   ***Non-VNet instances:*** no prerequisites are required. If you migrate preserving your public IP address, this will render your API Management instance unresponsive for approximately 15 minutes. If you can't afford any downtime, then choose the *"New IP"* option that makes APIM available on a new IP. Network dependencies need to be updated with the new public virtual IP address.
 
 1. **Will the migration cause a downtime?**
 
@@ -255,15 +255,15 @@ On successful migration, update any network dependencies including DNS, firewall
 
 1. **Is there a way to validate the VNet configuration before attempting migration?**
 
-   You can optionally deploy a new API Management instance with the new VNET + Subnet + VIP that you'll use for the actual migration. Navigate to the Network Status page after the deployment is completed, and verify if every endpoint connectivity status is green. If yes, you can remove this new API Management instance and proceed with the real migration with your original stv1 service.
+   You can optionally deploy a new API Management instance with the new VNET + Subnet + VIP that you use for the actual migration. Navigate to the Network Status page after the deployment is completed, and verify if every endpoint connectivity status is green. If yes, you can remove this new API Management instance and proceed with the real migration with your original stv1 service.
 
-1. **Can I roll back the migration if required?**
+1. **Can I rollback the migration if required?**
 
-   Yes, you can. If there's a failure during the migration process, the instance will automatically roll back to the `stv1` platform. However, if you encounter any other issues post migration, you have 48 hours to request a roll back by contacting Azure support. You should contact support if the instance is stuck in an "Updating" status for more than 2 hours.
+   Yes, you can. If there's a failure during the migration process, the instance will automatically rollback to the `stv1` platform. However, if you encounter any other issues post migration, you have 48 hours to request a rollback by contacting Azure support. You should contact support if the instance is stuck in an "Updating" status for more than 2 hours.
 
 1. **Is there any change required in custom domain/private DNS zones?**
 
-   **VNet-injected instances:** you'll need to update the private DNS zones to the new VNet IP address acquired after the migration. Pay attention to update non-Azure DNS zones too (for example your on-premises DNS servers pointing to API Management private IP address). However in external mode, the default domains if in use, are automatically updated by the migration process.
+   **VNet-injected instances:** you'll need to update the private DNS zones to the new VNet IP address acquired after the migration. Pay attention to update non-Azure DNS zones too (for example your on-premises DNS servers pointing to API Management private IP address). However in external mode, the migration process will automatically update the default domains if in use.
    
    **Non-VNet injected instances:** No changes are required if the IP is preserved. If opted for a new IP, custom domains referring to the IP should be updated.
 
@@ -279,24 +279,24 @@ On successful migration, update any network dependencies including DNS, firewall
 1. **Can I upgrade my stv1 instance to the same subnet?**
 
    - You can't migrate the stv1 instance to the same subnet in a single pass and without downtime. However, you can optionally move your migrated instance back to the original subnet. More details [here](./migrate-stv1-to-stv2.md?branch=main&tabs=portal#optional-migrate-back-to-original-vnet-and-subnet).
-   - Note that the old gateway takes up to 48 hours to vacate the subnet, so that you can initiate the move. However, you can request for a faster release of the subnet by submitting the subscription IDs and the desired release time through a support ticket.
-   - Also this calls for a purge of the old gateway, which will forfeit the rollback to the old gateway if desired.
+   - The old gateway takes up to 48 hours to vacate the subnet, so that you can initiate the move. However, you can request for a faster release of the subnet by submitting the subscription IDs and the desired release time through a support ticket.
+   - Releasing the old subnet calls for a purge of the old gateway, which forfeits the rollback to the old gateway if desired.
    - A new Public IP is required for each switch
    - Ensure that the old subnet networking for [nsg](./api-management-using-with-internal-vnet.md?tabs=stv2#configure-nsg-rules) and [firewall](./api-management-using-with-vnet.md?tabs=stv2#force-tunnel-traffic-to-on-premises-firewall-using-expressroute-or-network-virtual-appliance) is updated for stv2 dependencies.
 
 1. **Can I test the new gateway before switching the live traffic?**
 
    - Post successful migration, the old and the new managed gateways are active to receive traffic. The old gateway remains active for 48 hours. 
-   - The migration process will automatically update the default domain names and if being used the traffic route to the new gateways immediately.
-   - If custom domain names are in use, the corresponding DNS records may need to be updated with the new IP address if not using CNAME. Customers can update their host file to the new APIM IP and validate the instance before making the switch. During this validation process, live traffic continues to be served by the old gateway.
+   - The migration process automatically updates the default domain names, and if being used, the traffic routes to the new gateways immediately.
+   - If custom domain names are in use, the corresponding DNS records may need to be updated with the new IP address if not using CNAME. Customers can update their host file to the new APIM IP and validate the instance before making the switch. During this validation process, the old gateway continues to serve the live traffic.
 
 1. **Are there any considerations when using default domain name?**
 
-   Instances that are using the default DNS name in external mode will have the DNS autoupdated by the migration process. Moreover, the management endpoint, which always uses the default domain name will also be updated automatically by the migration process. Since the switch happens immediately on a successful migration, the new instance starts receiving traffic immediately, and it's critical that any networking restrictions/dependencies are taken care of upfront to avoid impacted apis being unavailable. 
+   Instances that are using the default DNS name in external mode has the DNS autoupdated by the migration process. Moreover, the management endpoint, which always uses the default domain name is automatically updated by the migration process. Since the switch happens immediately on a successful migration, the new instance starts receiving traffic immediately, and it's critical that any networking restrictions/dependencies are taken care of upfront to avoid impacted apis being unavailable. 
 
 1. **What should we consider for self hosted gateways?**
 
-   You don't need to do anything in your self-hosted gateways. You just need to migrate API Management instances running in Azure that are impacted by the `stv1` platform retirement. Please note that there could be a new IP for Configuration endpoint of the APIM instance, and any networking restrictions pinned to the IP should be updated.
+   You don't need to do anything in your self-hosted gateways. You just need to migrate API Management instances running in Azure that are impacted by the `stv1` platform retirement. Note that there could be a new IP for Configuration endpoint of the APIM instance, and any networking restrictions pinned to the IP should be updated.
 
 1. **How is the developer portal impacted by migration?**
 
