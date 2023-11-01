@@ -78,6 +78,8 @@ This table lists the solutions and scenarios that are unsupported in Azure Busin
 | Actions | Re-protect action is not available for Azure Site Recovery replicated items of Azure Virtual machine. |
 | Actions | Move, delete is not available for vaults in Azure Business Continuity Center and can only be performed directly from individual vault pane. |
 
+Protection details for Azure Classic Virtual Machines and Azure Classic storage account protected by Azure Backup are currently not included in the Azure Business Continuity (preview).
+
 ## Next steps
 
 - [About Azure Business Continuity center (preview)](business-continuity-center-overview.md).
