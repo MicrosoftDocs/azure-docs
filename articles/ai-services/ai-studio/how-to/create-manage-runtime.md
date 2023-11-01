@@ -36,49 +36,39 @@ To create a prompt flow runtime in Azure AI Studio:
 
     :::image type="content" source="../media/compute/compute-runtime.png" alt-text="Screenshot of where to select prompt flow runtimes from the compute instances page." lightbox="../media/compute/compute-runtime.png":::
 
-1. Enter a custom name for your compute.
+1. Select **Create**.
 
     :::image type="content" source="../media/compute/runtime-create.png" alt-text="Screenshot of the create runtime button." lightbox="../media/compute/runtime-create.png":::
 
+1. Select a compute instance for the runtime and then select **Create**. 
 
     :::image type="content" source="../media/compute/runtime-select-compute.png" alt-text="Screenshot of the option to select a compute instance during runtime creation." lightbox="../media/compute/runtime-select-compute.png":::
 
+1. Acknowledge the warning that the compute instance will be restarted and select **Confirm**.
 
     :::image type="content" source="../media/compute/runtime-create-confirm.png" alt-text="Screenshot of the option to confirm auto restart via the runtime creation." lightbox="../media/compute/runtime-create-confirm.png":::
 
+1. You'll be taken to the runtime details page. The runtime will be in the **Not available** status until the runtime is ready. This can take a few minutes.
+
     :::image type="content" source="../media/compute/runtime-creation-in-progress.png" alt-text="Screenshot of the runtime not yet available status." lightbox="../media/compute/runtime-creation-in-progress.png":::
 
+1. When the runtime is ready, the status will change to **Running**. You might need to select **Refresh** to see the updated status.
+
     :::image type="content" source="../media/compute/runtime-running.png" alt-text="Screenshot of the runtime is running status." lightbox="../media/compute/runtime-running.png":::
+
+1. Select the runtime from the **Prompt flow runtimes** tab to see the runtime details.
 
     :::image type="content" source="../media/compute/runtime-details.png" alt-text="Screenshot of the runtime details including environment." lightbox="../media/compute/runtime-details.png":::
 
 
-
-1. Select add runtime in runtime list page.
-1. Select compute instance you want to use as runtime.
-    Because compute instances are isolated by user, you can only see your own compute instances or the ones assigned to you. To learn more, see [Create and manage compute instance](./create-manage-compute.md).
-1. Authenticate on the compute instance. You only need to do auth one time per region in 6 month.
-
-
-
-## Using runtime in prompt flow authoring
-
-When you're authoring your prompt flow, you can select and change the runtime from left top corner of the flow page.
-
-
-When performing evaluation, you can use the original runtime in the flow or change to a more powerful runtime.
-
-
 ## Update runtime from UI
 
-We regularly update our base image (`mcr.microsoft.com/azureml/promptflow/promptflow-runtime-stable`) to include the latest features and bug fixes. We recommend that you update your runtime to the [latest version](https://mcr.microsoft.com/v2/azureml/promptflow/promptflow-runtime-stable/tags/list) if possible.
+Azure AI Studio gets regular updates to the base image (`mcr.microsoft.com/azureml/promptflow/promptflow-runtime-stable`) to include the latest features and bug fixes. You should periodically update your runtime to the [latest version](https://mcr.microsoft.com/v2/azureml/promptflow/promptflow-runtime-stable/tags/list) to get the best experience and performance.
 
-Every time you open the runtime details page, we'll check whether there are new versions of the runtime. If there are new versions available, you'll see a notification at the top of the page. You can also manually check the latest version by clicking the **check version** button.
+Go to the runtime details page and select **Update**. Here you can update the runtime environment. If you select **use default environment**, system will attempt to update your runtime to the latest version.
 
+Every time you view the runtime details page, AI Studio will check whether there are new versions of the runtime. If there are new versions available, you'll see a notification at the top of the page. You can also manually check the latest version by selecting the **check version** button.
 
-Try to keep your runtime up to date to get the best experience and performance.
-
-Go to the runtime details page and select the "Update" button at the top. Here you can update the environment to use in your runtime. If you select **use default environment**, system will attempt to update your runtime to the latest version.
 
 ## Next steps
 

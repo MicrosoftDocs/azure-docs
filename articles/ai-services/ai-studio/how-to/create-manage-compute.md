@@ -16,7 +16,12 @@ ms.author: eur
 
 In this article, you learn how to create a compute instance in Azure AI Studio. You can create a compute instance in the Azure AI Studio or in the Azure portal. 
 
-You need a compute instance to use prompt flow with Azure AI services. You also need a compute instance to open Visual Studio Code (Web) in the Azure AI Studio. You can use the same compute instance for both purposes. Note that a compute instance can't be shared. It can only be used by a single assigned user. By default, it will be assigned to the creator and you can change this to a different user in the security step.
+You need a compute instance to:
+- Use prompt flow in Azure AI Studio. 
+- Create an index
+- Open Visual Studio Code (Web) in the Azure AI Studio.
+
+You can use the same compute instance for multiple scenarios and workflows. Note that a compute instance can't be shared. It can only be used by a single assigned user. By default, it will be assigned to the creator and you can change this to a different user in the security step.
 
 Compute instances can run jobs securely in a virtual network environment, without requiring enterprises to open up SSH ports. The job executes in a containerized environment and packages your model dependencies in a Docker container.
 
