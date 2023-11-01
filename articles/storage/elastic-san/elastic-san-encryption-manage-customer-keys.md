@@ -45,7 +45,7 @@ To change the key with the Azure portal, follow these steps:
 
 # [PowerShell](#tab/azure-powershell)
 
-To change the key with PowerShell, call [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) and provide the new key name and version. If the new key is in a different key vault, then you must also update the key vault URI.
+To change the key with PowerShell, call [Update-AzElasticSanVolumeGroup](/powershell/module/az.elasticsan/update-azelasticsanvolumegroup) and provide the new key name and version. If the new key is in a different key vault, then you must also update the key vault URI.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -165,23 +165,15 @@ To switch from customer-managed keys back to platform-managed keys in the Azure 
 
 # [PowerShell](#tab/azure-powershell)
 
-To switch from customer-managed keys back to platform-managed keys with PowerShell, call [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) with the `-StorageEncryption` option, as shown in the following example. Remember to replace the placeholder values in brackets with your own values and to use the variables defined in the previous examples.
+To switch from customer-managed keys back to platform-managed keys with PowerShell, call [Update-AzElasticSanVolumeGroup](/powershell/module/az.elasticsan/update-azelasticsanvolumegroup) with the `-Encryption` option, as shown in the following example. Remember to replace the placeholder values in brackets with your own values and to use the variables defined in the previous examples.
 
 ```azurepowershell
-Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
-    -AccountName $storageAccount.StorageAccountName `
-    -StorageEncryption  
+Update-AzElasticSanVolumeGroup -ResourceGroupName $rgname -ElasticSanName $esname -Name $vgname -Encryption EncryptionAtRestWithPlatformKey 
 ```
 
 # [Azure CLI](#tab/azure-cli)
 
-To switch from customer-managed keys back to platform-managed keys with the Azure CLI, call [az elastic-san volume-group update](/cli/azure/storage/account#az-storage-account-update) and set the `--encryption` parameter to `EncryptionAtRestWithPlatformKey`, as shown in the following example. Replace all placeholder text with your own values and use the same variables in all of the examples in this article:
-
-| Placeholder                      | Description |
-|----------------------------------|-------------|
-| `<ResourceGroupName>`            | The name of the resource group where the resources will be deployed. |
-| `<ElasticSanName>`               | The name of the Elastic SAN to be created.<br>*The Elastic SAN name must be between 3 and 24 characters long. The name may only contain lowercase letters, numbers, hyphens and underscores, and must begin and end with a letter or a number. Each hyphen and underscore must be preceded and followed by an alphanumeric character.* |
-| `<ElasticSanVolumeGroupName>`    | The name of the Elastic SAN Volume Group to be created. |
+To switch from customer-managed keys back to platform-managed keys with the Azure CLI, call [az elastic-san volume-group update](/cli/azure/storage/account#az-storage-account-update) and set the `--encryption` parameter to `EncryptionAtRestWithPlatformKey`, as shown in the following example. Replace all placeholder text with your own values, then run the command:
 
 ```azurecli
 az elastic-san volume-group update \
