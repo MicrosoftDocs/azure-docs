@@ -17,8 +17,8 @@ ms.date: 10/24/2023
 
 The Distributed Application Runtime (Dapr) is a portable, serverless, event-driven runtime that simplifies the process of building distributed application. Dapr enables developers to build stateful or stateless apps without worrying about how the building blocks function. Dapr provides several [building blocks](https://docs.dapr.io/developing-applications/building-blocks/): state management, service invocation, actors, pub/sub, and more.  Azure IoT MQ Preview supports two of these building blocks:
 
-- Pub/sub, powered by the MQ distributed MQTT broker
-- State management, powered by the [MQ state store](concept-about-state-store.md)
+- Publish and Subscribe, powered by [Azure IoT MQ MQTT broker](../manage-mqtt-connectivity/overview-iot-mq.md)
+- State Management, powered by the [Azure IoT MQ State Store](concept-about-state-store.md)
 
 To use Dapr pluggable components, define all the components, then add pluggable component containers to your [deployments](https://docs.dapr.io/operations/components/pluggable-components-registration/). Then, the component listens to a Unix Domain Socket placed on the shared volume, and Dapr runtime connects with each socket and discovers all services from a given building block API that the component implements. Each deployment must have its own plug-able component defined. This guide shows you how to deploy an application using the Dapr SDK and E4K pluggable components.
 
@@ -36,7 +36,8 @@ The following features are supported for using Dapr:
 > *Concurrency is *strong consistency*. The MQTT broker modifies the state and then returns the success message.
 
 ## Set up Dapr components
-The following steps show you how to install Dapr and the MQ plug-able components, and show how to create the required authorization tokens.
+
+The following steps show you how to install Dapr and the MQ pluggable components, and show how to create the required authorization tokens.
 
 ### Install Dapr
 
@@ -52,7 +53,8 @@ helm upgrade --install dapr dapr/dapr --version=1.11 --namespace dapr-system --c
 > **Dapr v1.12** is currently not supported.
 
 ### Register MQ's pluggable components
-To register MQ's pluggable pub/sub and state management components, create the component manifest yaml, and apply it to your cluster. 
+
+To register MQ's pluggable Pub/sub and State Management components, create the component manifest yaml, and apply it to your cluster. 
 
 To create the yaml file, use the following component definitions:
 
@@ -60,9 +62,10 @@ To create the yaml file, use the following component definitions:
 > | Component                     | Description                           |
 > | ----------------------------- | ------------------------------------- |
 > | `metadata.name` | The component name is important and is how [a Dapr application reaches the component](https://github.com/microsoft/e4k-playground/blob/0b9b8bc846c2567f840576ed5c6e17c469891877/samples/quickstart-sample/src/main.go#L42).  |
-> | `spec.metadata.type`  | [The type of the component](https://docs.dapr.io/operations/components/pluggable-components-registration/#define-the-component), which must be declared exactly as shown. It tells Dapr what kind of component (`pubsub` or `state`) it is and which Unix socket to use.  |
-> | `spec.metadata.url`   | The URL tells the component where the local MQ endpoint is. The shown value 1883 is MQ's default MQTT port.    |
-> | `brokerAuthMethod` / `satTokenPath`   | For [Kubernetes SAT authentication to MQ](../manage-mqtt-connectivity/howto-configure-authentication.md). This component is specific to this example. You could use another method like [X.509](../manage-mqtt-connectivity/howto-configure-tls-auto.md) |
+> | `spec.type` | [The type of the component](https://docs.dapr.io/operations/components/pluggable-components-registration/#define-the-component), which must be declared exactly as shown. It tells Dapr what kind of component (`pubsub` or `state`) it is and which Unix socket to use.  |
+> | `spec.metadata.url` | The URL tells the component where the local MQ endpoint is. The shown value `8883` is MQ's default MQTT port.    |
+> | `spec.tls` |  Define if TLS is used by the MQ MQTT broker. Defaults to `true`|
+> | `brokerAuthMethod` / `satTokenPath` | For [Kubernetes SAT authentication to MQ](../manage-mqtt-connectivity/howto-configure-authentication.md). This component is specific to this example. You could use another method like [X.509](../manage-mqtt-connectivity/howto-configure-tls-auto.md) |
 
 1. Save the following yaml, which contains the component definitions, to a file named `components.yaml`:
 
@@ -71,33 +74,37 @@ To create the yaml file, use the following component definitions:
     apiVersion: dapr.io/v1alpha1
     kind: Component
     metadata:
-      name: orderpubsub
+      name: aio-mq-pubsub
     spec:
-      type: pubsub.e4kmqtt-pluggable # Do not change
+      type: pubsub.aio-mq-pubsub-pluggable # Do not change
       version: v1
       metadata:
       - name: url
-        value: "aio-mq-dmqtt-frontend:1883"
+        value: "aio-mq-dmqtt-frontend:8883"
+      - name: tls
+        value: "true"  
       - name: brokerAuthMethod
         value: "SAT"
       - name: satTokenPath
-        value: "/var/run/secrets/tokens/mqtt-client-token"
+        value: "/var/run/secrets/tokens/aio-mq-client-token"
     ---
-    # State management component
+    # State Management component
     apiVersion: dapr.io/v1alpha1
     kind: Component
     metadata:
-      name: statestore
+      name: aio-mq-statestore
     spec:
-      type: state.e4kstatestore-pluggable # Do not change
+      type: state.aio-mq-statestore-pluggable # Do not change
       version: v1
       metadata:
       - name: url
-        value: "aio-mq-dmqtt-frontend:1883"
+        value: "aio-mq-dmqtt-frontend:8883"
+      - name: tls
+        value: "true"          
       - name: brokerAuthMethod
         value: "SAT"
       - name: satTokenPath
-        value: "/var/run/secrets/tokens/mqtt-client-token"
+        value: "/var/run/secrets/tokens/aio-mq-client-token"
     ```
 
 1. Apply the component yaml to your cluster by running the following command:
@@ -105,54 +112,35 @@ To create the yaml file, use the following component definitions:
     ```console
     $ kubectl apply -f components.yaml
     
-    component.dapr.io/orderpubsub created
-    component.dapr.io/statestore created
+    component.dapr.io/aio-mq-pubsub created
+    component.dapr.io/aio-mq-statestore created
     ```
-
-1. Optionally, adjust the component MQTT configuration by configuring the yaml as in the following example. You can configure more parameters under `spec.metadata`.
-
-    ```yml
-    spec:
-      metadata:
-      - name: clientId
-        value: "my-client"
-      - name: qos
-        value: 1
-      - name: retain
-        value: "false"
-      - name: cleanSession
-        value: "true"
-      - name: backOffMaxRetries
-        value: "0"
-      - name: keepAlive
-        value: "300"
-    ```
-
 
 ### Set up authentication between the workload and MQ
+
 Your application can authenticate to MQ using any of the [supported authentication methods](../manage-mqtt-connectivity/howto-configure-authentication.md). Make sure to enable authentication on the broker listener as well. The following example uses SAT, so to begin, you create a Kubernetes service account.
 
 1. Create a Kubernetes service account:
 
     ```console
-    $ kubectl create serviceaccount mqtt-client
+    $ kubectl create serviceaccount aio-mq-client
     
-    serviceaccount/mqtt-client created
+    serviceaccount/aio-mq-client created
     ```
 
-1. Ensure that the service account `mqtt-client` has an [authorization attribute](../manage-mqtt-connectivity/howto-configure-authentication.md#create-a-service-account):
+1. Ensure that the service account `aio-mq-client` has an [authorization attribute](../manage-mqtt-connectivity/howto-configure-authentication.md#create-a-service-account):
 
     ```console
-    $ kubectl annotate serviceaccount mqtt-client azedge-broker-auth/group=dapr-workload
+    $ kubectl annotate serviceaccount aio-mq-client aio-mq-broker-auth/group=dapr-workload
     
-    serviceaccount/mqtt-client annotated
+    serviceaccount/aio-mq-client annotated
     ```
 
 ## Set up authorization policy between the workload and MQ
+
 To configure authorization policies to the MQ DMQTT broker, first you create a [BrokerAuthorization resource](../manage-mqtt-connectivity/howto-configure-authorization.md). 
 
 To create the yaml file, use the following component definitions:
-
 
 > [!div class="mx-tdBreakAll"]
 > | Component                     | Description                           |
@@ -161,7 +149,7 @@ To create the yaml file, use the following component definitions:
 > | `odd-numbered-orders`   | The Dapr application publishes to this topic which is saved to the [MQ state store](concept-about-state-store.md).        |
 > | `response_topic`   |  The response topic for the MQ state store.       |
 
-1. Save the following yaml, which contains the component definitions, to a file named `e4k-authz.yaml`. 
+1. Save the following yaml, which contains the component definitions, to a file named `aio-mq-authz.yaml`. 
 
     ```yml
     apiVersion: mq.iotoperations.azure.com/v1alpha4
@@ -171,7 +159,7 @@ To create the yaml file, use the following component definitions:
       namespace: {{% namespace %}}
     spec:
       listenerRef:
-        - "az-mqtt-non-tls-listener"
+        - "tls-listener-manual"
       authorizationPolicies:
         enableCache: false
         rules:
@@ -206,21 +194,23 @@ To create the yaml file, use the following component definitions:
                   - "#"                                           
     ```
 
-1. Deploy the broker authorization yaml to the cluster:
+1. Apply the broker authorization yaml to the cluster:
 
     ```bash
-    kubectl apply -f e4k-authz.yaml
+    kubectl apply -f aio-mq-authz.yaml
     ```
 
 ## Create a Dapr application
+
 The first step is to write an application that uses the Dapr SDK to publish/subscribe or do state management. As an example, you can use the Dapr quickstart content:
 
-* Dapr [pub/sub quickstart](https://docs.dapr.io/getting-started/quickstarts/pubsub-quickstart/)
-* Dapr [state management quickstart](https://docs.dapr.io/getting-started/quickstarts/statemanagement-quickstart/)
+* Dapr [Publish and Subscribe quickstart](https://docs.dapr.io/getting-started/quickstarts/pubsub-quickstart/)
+* Dapr [State Management quickstart](https://docs.dapr.io/getting-started/quickstarts/statemanagement-quickstart/)
 
 This article uses the same code used for [MQ to develop distributed application workloads](howto-develop-mqttnet-apps.md). This sample is a Dapr workload that subscribes to a topic, gets the message, then publishes it back to another topic. The Dapr workload also uses the state store to store information from the messages.
 
 ## Package the application into a container
+
 After you have the Dapr application written, build it and package into a Docker container.
 
 To package the application into a container, run the following command:
@@ -235,17 +225,16 @@ docker build -t my-dapr-app .
 > For convenience, the code sample mentioned in this section is packaged and published to a container registry at `alicesprings.azurecr.io/quickstart-sample`.  You can use this container to follow along even if you haven't built your own image.
 
 ## Deploy a Dapr application
-At this point, both the pub/sub and the state management components are registered and you can deploy the Dapr application. When you register the components, that doesn't deploy the associated binary that's packaged in a container. You need to do that along with your application. To do this, you can use a [Pod](https://kubernetes.io/docs/concepts/workloads/pods/) to group the containerized Dapr application and the two components together.
+
+At this point you can deploy the Dapr application. When you register the components, that doesn't deploy the associated binary that's packaged in a container. You need to do that along with your application. To do this, you can use a [Pod](https://kubernetes.io/docs/concepts/workloads/pods/) to group the containerized Dapr application and the two components together.
 
 To start, you create a yaml file that uses the following component definitions:
-
 
 > [!div class="mx-tdBreakAll"]
 > | Component                     | Description                           |
 > | ----------------------------- | ------------------------------------- |
 > | `dapr-components-sockets`  | Referenced several times, which facilitates the communication between all parties.       |
 > | `odd-numbered-orders`   | The Dapr application publishes to this topic which is saved to the [MQ state store](concept-about-state-store.md).        |
-> | `mqtt-client`   |  Lines containing this deal with SAT authentication which aren't strictly mandatory if a different authentication method is chosen.       |
 
 1. Save the following yaml to a file named `dapr-app.yaml`:
 
@@ -262,38 +251,38 @@ To start, you create a yaml file that uses the following component definitions:
         dapr.io/app-port: "6001"      # Required for
         dapr.io/app-protocol: "http"  # Subscriber clients
     spec:
-      serviceAccountName: mqtt-client
+      serviceAccountName: aio-mq-client
       volumes:
         - name: dapr-unix-domain-socket
           emptyDir: {}
-        - name: mqtt-client-token
+        - name: aio-mq-client-token
           projected:
             sources:
               - serviceAccountToken:
-                  path: mqtt-client-token
-                  audience: azedge-dmqtt
+                  path: aio-mq-client-token
+                  audience: aio-mq-dmqtt
                   expirationSeconds: 86400
       containers:
-        # The custom dapr application 
+        # The dapr application 
         - name: dapr-workload
           image: alicesprings.azurecr.io/quickstart-sample:latest
     
         # Container for the pub/sub component
-        - name: e4kmqtt-pluggable
-          image: alicesprings.azurecr.io/dapr/mqtte4k-pubsub:latest
+        - name: aio-mq-pubsub-pluggable
+          image: alicesprings.azurecr.io/dapr/mq-pubsub:latest
           volumeMounts:
             - name: dapr-unix-domain-socket
               mountPath: /tmp/dapr-components-sockets
-            - name: mqtt-client-token
+            - name: aio-mq-client-token
               mountPath: /var/run/secrets/tokens
     
         # Container for the state management component
-        - name: e4kstatestore-pluggable
-          image: alicesprings.azurecr.io/dapr/e4k-statestore:latest
+        - name: aio-mq-statestore-pluggable
+          image: alicesprings.azurecr.io/dapr/mq-statestore:latest
           volumeMounts:
             - name: dapr-unix-domain-socket
               mountPath: /tmp/dapr-components-sockets
-            - name: mqtt-client-token
+            - name: aio-mq-client-token
               mountPath: /var/run/secrets/tokens
     ```
 
@@ -310,11 +299,12 @@ To start, you create a yaml file that uses the following component definitions:
     pod/dapr-workload created
     NAME                          READY   STATUS              RESTARTS   AGE
     ...
-    dapr-workload                 4/4     Running             0          19s
+    dapr-workload                 3/3     Running             0          30s
     ```
 
     
 ## Verify the Dapr application works
+
 In the example used for this article, the application subscribes to the `orders` topic and watches for odd number orders, then republishes them to the `odd-number-orders` topic. The simplest way to verify that the application works is to use a `mosquitto` client to publish an odd number order and see if it's republished as expected.
 
 1. To start a subscriber in the odd number orders topic, run the following command and leave it running in your terminal:
@@ -339,7 +329,7 @@ Back in the subscriber window, the message appears alongside Dapr tracing info.
   },
   "datacontenttype": "application/json",
   "id": "9d7087e1-2f13-4655-b402-f92062ffb08a",
-  "pubsubname": "orderpubsub",
+  "pubsubname": "aio-mq-pubsub",
   "source": "dapr-workload",
   "specversion": "1.0",
   "time": "2023-02-01T22:27:24Z",
@@ -352,6 +342,7 @@ Back in the subscriber window, the message appears alongside Dapr tracing info.
 ```
 
 ## Troubleshooting
+
 If the application doesn't start or you see the pods in `CrashLoopBackoff`, the logs for `daprd` are most helpful. The `daprd` is a container that's automatically deployed with your Dapr application.
 
 Run the following command to view the logs:
