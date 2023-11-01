@@ -22,8 +22,8 @@ In this article, you learn how to get question and answer pairs from your source
 
 ```shell
 python --version  # ensure you've >=3.8
-pip install azure-ai-generative>=0.0.20231017 --extra-index-url https://azuremlsdktestpypi.azureedge.net/test-azure-ai-generative
-pip install openai azureml-telemetry
+pip3 install azure-identity azure-ai-generative
+pip3 install wikipedia langchain nltk unstructured
 ```
 
 ## Connect to Azure Open AI
@@ -31,7 +31,7 @@ pip install openai azureml-telemetry
 We need to connect to Azure Open AI so that we can access the LLM to generate data for us.
 
 ```python
-from azure.ai.generative import AIClient
+from azure.ai.resources.client import AIClient 
 from azure.identity import DefaultAzureCredential
 
 subscription = "<subscription-id>" # Subscription of your AI Studio project
@@ -55,13 +55,11 @@ In this step, we get the LLM ready to generate the data.
 
 ```python
 import os
-from azure.ai.generative.synthetic.qa import QADataGenerator, QAType
+from azure.ai.generative.synthetic.qa import QADataGenerator
 
-model_name = "gpt-35-turbo" #model name: gpt-4, gpt-35-turbo
+model_name = "gpt-35-turbo" 
 
 model_config = dict(
-    api_base=os.environ["OPENAI_API_BASE"],
-    api_key=os.environ["OPENAI_API_KEY"],
     deployment=model_name, 
     model=model_name,  
     max_tokens=2000,
@@ -106,7 +104,7 @@ text
 Let us use this text to generate some question and answers
 
 ```python
-from azure.ai.tools.synthetic.qa import QAType
+from azure.ai.generative.synthetic.qa import QAType
 
 qa_type = QAType.CONVERSATION
 

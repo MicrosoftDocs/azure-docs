@@ -40,7 +40,8 @@ Azure AI Index also supports [FAISS](https://github.com/facebookresearch/faiss) 
 ## Next steps
 
 - [Create a vector index](../how-to/index-add.md)
-- [Check out the Azure AI samples for RAG and more](https://github.com/Azure-Samples/azureai-samples)
+- [Check out the Azure AI samples for RAG](https://github.com/Azure-Samples/azureai-samples/notebooks/rag)
+  
 
 
 

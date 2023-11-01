@@ -20,17 +20,21 @@ In this article, you learn how to manage access (authorization) to an Azure AI r
 
 ## Default roles 
 
-The Azure AI Studio has built-in roles that are available by default. This role can be assigned to enable users to perform all actions except manage to AI Studio resource itself. 
+The Azure AI Studio has built-in roles that are available by default. In addition to the Reader, Contributor, and Owner roles, the Azure AI Studio has a new role called Azure AI Developer. This role can be assigned to enable users to perform all actions except managing an AI Studio resource itself. Most users who wish to use the AI Studio will find that the AI Developer role is the best role for them.
 
 Here's a table of the built-in roles and their permissions:
 
 | Role | Description | 
 | --- | --- |
-| Owner | Full access to the AI Studio, including the ability to manage the resource and assign permissions. |
-| Azure AI Developer | Perform all actions except create new AI resources. For example, users can create projects, compute, and connections. Users can assign permissions within their project. Users can interact with existing AI resources such as Azure OpenAI, Azure AI Search, and Azure AI Services. |
-| Reader | Read only access to the Studio and Projects. |
-| AzureML Data Scientist | User has access within a project to perform actions except create computes, use AI resources, and modify the project itself. |
-| Contributor | User has access within a project to perform actions except use AI resources and modify the project itself. |
+| Owner | Full access to the Azure AI resource, including the ability to manage the resource and assign permissions. |
+| Contributor |	User has full access to the Azure AI resource, including the ability to create new Azure AI resources, but is not able to manage Azure AI resource permissions. |
+| Azure AI Developer | 	Perform all actions except create new Azure AI resources and manage the Azure AI resource permissions. For example, users can create projects, compute, and connections. Users can assign permissions within their project. Users can interact with existing AI resources such as Azure OpenAI, Azure AI Search, and Azure AI services. |
+| Reader | 	Read only access to the Azure AI resource and projects. |
+
+
+The key difference between Contributor and Azure AI Developer is the ability to make new Azure AI resources. If you do not want users to make new Azure AI resources (due to quota, cost, or just managing how many Azure AI resources you have), assign the AI Developer role.
+
+Only the Owner and Contributor roles allow you to make an Azure AI resource. At this time, custom roles will not grant you permission to make Azure AI resources.
 
 The "Azure AI Developer" role is the best role for most users of AI Studio. The full set of permissions for the "Azure AI Developer" role are as follows:
 
@@ -52,8 +56,6 @@ The "Azure AI Developer" role is the best role for most users of AI Studio. The 
             "Microsoft.MachineLearningServices/workspaces/listKeys/action", 
             "Microsoft.MachineLearningServices/workspaces/hubs/write", 
             "Microsoft.MachineLearningServices/workspaces/hubs/delete", 
-            "Microsoft.MachineLearningServices/workspaces/endpoints/write", 
-            "Microsoft.MachineLearningServices/workspaces/endpoints/delete", 
             "Microsoft.MachineLearningServices/workspaces/featurestores/write", 
             "Microsoft.MachineLearningServices/workspaces/featurestores/delete" 
         ], 
@@ -79,6 +81,9 @@ az role assignment create --role "Azure AI Developer" --assignee "joe@contoso.co
 ```
 
 ## Create custom role 
+
+> [!NOTE]
+> In order to make a new Azure AI resource, you need the Owner or Contributor role. At this time, a custom role, even with all actions allowed, will not enable you to make an Azure AI resource. 
 
 If the built-in roles are insufficient, you can create custom roles. Custom roles might have read, write, delete, and compute resource permissions in that AI Studio. You can make the role available at a specific project level, a specific resource group level, or a specific subscription level. 
 
