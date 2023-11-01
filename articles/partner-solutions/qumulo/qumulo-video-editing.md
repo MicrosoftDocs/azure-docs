@@ -1,24 +1,28 @@
 ---
 title: Using Azure Native Qumulo Scalable File Service for video editing.
-description: In this how to guide, how to setup Azure Native Qumulo Scalable File Service for video editing.
+description: Using Azure Native Qumulo Scalable File Service for video editing.
 
-ms.topic: conceptual 
+ms.topic: conceptual
 ms.date: 10/31/2023
 
 ---
 
 # Using Azure Native Qumulo Scalable File Service for video editing
 
-This article describes a solution that provides a cloud-based remote video editing environment for 2K/ 4K / 8K content, and which has been engineered to deliver high-performance editorial capabilities using Azure-based Adobe Premiere Pro VMs with high-performance storage services provided by Azure Native Qumulo (ANQ).ANQ enables content creators, editors, and artists to work remotely on video editing projects with the high speed and efficiency.  
+Azure Native Qumulo allows content creators, editors, and artists to work remotely on video editing projects with the high speed and efficiency. This article describes a solution that provides a cloud-based remote video editing environment for 2K, 4K, or 8K content.
 
+Using Azure Native Qumulo Scalable File Service for video editing uses Azure-based Adobe Premiere Pro VMs with storage services provided by Azure Native Qumulo (ANQ).
+
+<!-- 
 |Benefits of Video Editorial with Azure Native Qumulo|Details|
 |---------|---------|
 |Scalability |A single ANQ instance can scale to exabyte size and beyond in a single namespace. More content creators can be supported simply by provisioning new environments for them.|
-|Cost efficiency | Customers pay only for the capacity and throughput they use, while they use it.The elasticity of cloud resources means that content creators can add more power temporarily to meet critical deadlines, rather than paying for high-end compute capacity that isn’t needed for most projects.|
+|Cost efficiency | Customers pay only for the capacity and throughput they use, while they use it. The elasticity of cloud resources means that content creators can add more power temporarily to meet critical deadlines, rather than paying for high-end compute capacity that isn’t needed for most projects.|
 |Performance |Azure enables creators to temporarily increase compute power if needed to meet critical deadlines or to scale new projects quickly. ANQ also supports temporarily increased throughput as needed for burst processing.|
 |Global reach |The solution can be deployed in one or more Azure regions worldwide.|
 |Security and compliance | Content creators can easily secure data in transit with built-in, end-to-end encryption.|
-|Management simplicity|Using Azure-based compute services for video editorial, rather than high-end graphics workstations eliminates the need for purchasing, supporting and tracking per-user assets, simplifying operations overall.|
+|Management simplicity| Using Azure-based compute services for video editorial, rather than high-end graphics workstations eliminates the need for purchasing, supporting and tracking per-user assets, simplifying operations overall.|
+ -->
 
 ## Architecture
 
@@ -28,7 +32,7 @@ NOTE: Qumulo has no access to customer data on any ANQ deployment.
 
 ### Solution Architecture
 
-1. This solution is deployed into an Azure customer tenant in a single Azure region, with customer resources, including a virtual network gateway for incoming client connections, a Leostream connection broker for connecting each authenticated user to a dedicated resource group, and a Media Asset Manager virtual machine.
+1. This solution is deployed into an Azure your tenant in a single Azure region, with your resources, including a virtual network gateway for incoming client connections, a Leostream connection broker for connecting each authenticated user to a dedicated resource group, and a Media Asset Manager virtual machine.
 2. Resource groups for video editorial workflows are connected to the core resource group via VNet Peering.
 3. The ANQ service instance used in the solution is deployed in Qumulo’s Azure tenant.
 4. Access to the ANQ service instance is enabled via VNet injection from a dedicated subnet in the customer’s Azure tenant. All data on the ANQ service instance is accessible only via the network interfaces in the customer’s delegated subnet. Note: Qumulo has no access to any data on any ANQ instance.
