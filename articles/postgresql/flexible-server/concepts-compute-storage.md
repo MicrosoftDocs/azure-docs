@@ -229,8 +229,6 @@ Remember that storage can only be scaled up, not down.
 
 ## Premium SSD v2 (Preview)
 
-> [!NOTE]
-> Premium SSD v2 is currently in preview for Azure Database for PostgreSQL Flexible Server.
 
 Premium SSD v2 offers higher performance than Premium SSDs while also generally being less costly. You can individually tweak the performance (capacity, throughput, and IOPS) of Premium SSD v2 disks at any time, allowing workloads to be cost efficient while meeting shifting performance needs. For example, a transaction-intensive database may need a large amount of IOPS at a small size, or a gaming application may need a large amount of IOPS but only during peak hours. Because of this, for most general purpose workloads, Premium SSD v2 can provide the best price performance.You can now deploy Azure Database for PostgreSQL Flexible servers with Premium SSD v2 disk in limited regions.
 
@@ -247,6 +245,10 @@ All Premium SSD v2 disks have a baseline IOPS of 3000 that is free of charge. Af
 #### Premium SSD v2 throughput
 
 All Premium SSD v2 disks have a baseline throughput of 125 MB/s that is free of charge. After 6 GiB, the maximum throughput that can be set increases by 0.25 MB/s per set IOPS. If a disk has 3,000 IOPS, the max throughput it can set is 750 MB/s. To raise the throughput for this disk beyond 750 MB/s, its IOPS must be increased. For example, if you increased the IOPS to 4,000, then the max throughput that can be set is 1,000. 1,200 MB/s is the maximum throughput supported for disks that have 5,000 IOPS or more. Increasing your throughput beyond 125 increases the price of your disk.
+
+> [!NOTE]
+> Premium SSD v2 is currently in preview for Azure Database for PostgreSQL Flexible Server.
+
 
 #### Premium SSD v2 Limitations
 
@@ -289,7 +291,7 @@ This feature works for storage and compute changes for both HA and Non HA server
 #### Limitations 
 
 - Near Zero Downtime Scaling will not work if there are regional capacity constraints or quota limits on customer subscriptions.
-- 
+
 - Near Zero Downtime Scaling does not work for replica server but supports the source server. For replica server it will automatically go through regular scaling process.
 
 - Near Zero Downtime Scaling will not work if a Vnet injected Server with delegated subnet does not have sufficient usable ip addresses. In the case of a standalone server, an additional IP address is necessary, and for a HA-enabled server, two extra IP addresses are required.
