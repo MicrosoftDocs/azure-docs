@@ -114,9 +114,9 @@ You can migrate your application from the Baltimore CyberTrust Root to the DigiC
 
 Several factors can affect device reconnection behavior.
 
-Devices are configured to reverify their connection at a specific interval. The default in the Azure IoT SDKs is to reverify every 45 minutes. If you've implemented a different pattern in your solution, then your experience may vary.
+Devices are configured to reverify their connection at a specific interval. The default in the Azure IoT SDKs is to reverify every 45 minutes. If you've implemented a different pattern in your solution, then your experience might vary.
 
-Also, as part of the migration, your IoT hub may get a new IP address. If your devices use a DNS server to connect to IoT hub, it can take up to an hour for DNS servers to refresh with the new address. For more information, see [IoT Hub IP addresses](iot-hub-understand-ip-address.md).
+Also, as part of the migration, your IoT hub might get a new IP address. If your devices use a DNS server to connect to IoT hub, it can take up to an hour for DNS servers to refresh with the new address. For more information, see [IoT Hub IP addresses](iot-hub-understand-ip-address.md).
 
 ### When can I remove the Baltimore Cybertrust Root from my devices?
 
