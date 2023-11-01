@@ -39,7 +39,7 @@ There are two core elements in the Azure IoT Operations Preview architecture:
 
 Azure IoT Operations runs on Arc-enabled Kubernetes clusters on the edge. You can deploy Azure IoT Operations by using the Azure portal or the Azure CLI.
 
-[Azure IoT Orchestrator](../deploy/overview-deploy-iot-operations.md) manages the deployment, configuration, and update of the Azure IoT Operations components that run on your Arc-enabled Kubernetes cluster.
+[Azure IoT Orchestrator](../deploy/overview-deploy.md) manages the deployment, configuration, and update of the Azure IoT Operations components that run on your Arc-enabled Kubernetes cluster.
 
 ## Manage devices and assets
 
