@@ -70,11 +70,11 @@ If you can see a fired alert in the Azure portal, but did not receive the email 
  
 1. **Have you been rated limited due to many emails going to a single email address?**
 
-    Email is [rate limited](alerts-rate-limiting.md) to no more than 100 emails every hour to each email address. If you pass this threshold, additional email notifications are dropped.  Check if you received a message indicating that your email address has been temporarily rate limited: 
+    Email is [rate limited](alerts-rate-limiting.md) to no more than 100 emails every hour to each email address. If you pass this threshold, additional email notifications are dropped.  Check if you received a message indicating that your email address is temporarily rate limited: 
    <!-- convertborder later -->
    :::image type="content" source="media/alerts-troubleshoot/email-paused.png" lightbox="media/alerts-troubleshoot/email-paused.png" alt-text="Screenshot of an email about being rate limited." border="false":::
 
-   If you want to receive high-volume of notifications without rate limiting, consider using a different action, such as one of the following:
+   If you want to receive high-volume of notifications without rate limiting, consider using a different action, such as one of the following actions:
    
    - Webhook
    - Logic app
@@ -104,9 +104,9 @@ If you can see a fired alert in the portal, but did not receive the SMS, voice c
     SMS and voice calls are rate limited to no more than one notification every five minutes per phone number. If you pass this threshold, the notifications are dropped.
 
       - Voice call – check your call history and see if you had a different call from Azure in the preceding five minutes.
-      - SMS - check your SMS history for a message indicating that your phone number has been rate limited.
+      - SMS - check your SMS history for a message indicating that your phone number is rate limited.
 
-    If you want to receive high-volume of notifications without rate limiting, consider using a different action, such as one of the following:
+    If you want to receive high-volume of notifications without rate limiting, consider using a different action, such as one of the following actions:
     
       - Webhook
       - Logic app
@@ -219,7 +219,7 @@ If you can see a fired alert in the portal, but a related alert processing rule 
 
 1. **Did the alert processing rule act on your alert?** 
 
-    Check if the alert processing rule has processed your alert by clicking on the fired alert in the portal, and look at the history tab.
+    Check if the alert processing rule processed your alert by clicking on the fired alert in the portal, and look at the history tab.
 
     Here is an example of alert processing rule suppressing all action groups: 
      <!-- convertborder later -->
