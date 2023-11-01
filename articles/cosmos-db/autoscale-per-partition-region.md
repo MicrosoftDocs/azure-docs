@@ -1,5 +1,5 @@
 ---
-title: Autoscale per region/partition
+title: Per-region and per-partition autoscale (preview)
 titleSuffix: Azure Cosmos DB
 description: Configure autoscale in Azure Cosmos DB for uneven workload patterns by customizing autoscale for specific regions or partitions.
 author: tarabhatiamsft
@@ -11,9 +11,12 @@ ms.date: 04/01/2022
 # CustomerIntent: As a database adminstrator, I want to fine tune autoscaler for specific regions or partitions so that I can balance an uneven workload.
 ---
 
-# Autoscale per region or partition
+# Per-region and per-partition autoscale (preview)
 
 By default, Azure Cosmos DB autoscale scales workloads based on the most active region and partition. For nonuniform workloads that have different workload patterns across regions and partitions, this scaling can cause unnecessary scale-ups. With this improvement to autoscale, the per region and per partition autoscale feature now allows your workloads’ regions and partitions to scale independently based on usage.
+
+> [!IMPORTANT]
+> This feature is only available for Azure Cosmos DB accounts created after **November 15, 2023**.
 
 This feature is recommended for autoscale workloads that are nonuniform across regions and partitions. This feature allows you to save costs if you often experience hot partitions and/or have multiple regions. When enabled, this feature applies to all autoscale resources in the account.
 
@@ -46,6 +49,8 @@ This feature is available for new Azure Cosmos DB accounts. To enable this featu
 1. Navigate to your Azure Cosmos DB account in the [Azure portal](https://portal.azure.com).
 1. Navigate to the **Features** page.
 1. Locate and enable the **Per Region and Per Partition Autoscale** feature.
+
+    :::image type="content" source="media/autoscale-per-partition-region/enable-feature.png" alt-text="Screenshot of the 'Per Region and Per Partition Autoscale' feature in the Azure portal.":::
 
 > [!IMPORTANT]
 > The feature is enabled at the account level, so all containers within the account will automatically have this capability applied. The feature is available for both shared throughput databases and containers with dedicated throughput. Provisioned throughput accounts must switch over to autoscale and then enable this feature, if interested.
