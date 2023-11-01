@@ -92,6 +92,8 @@ If you're using the SDK or CLI to create data, you must specify a `path` that po
 
 A data that is a File (`uri_file`) type points to a *single file* on storage (for example, a CSV file). You can create a file typed data using:
 
+
+
 # [Studio](#tab/azure-studio)
 
 These steps explain how to create a File typed data in the Azure AI studio:
@@ -144,6 +146,7 @@ myfile = Data(
 client.data.create_or_update(myfile)
 ```
 
+
 # [Azure CLI](#tab/cli)
 
 Create a YAML file and copy-and-paste the following code. You must update the `<>` placeholders with the name of your data, the version, and path to a single file on a supported location.
@@ -162,11 +165,14 @@ Next, execute the following command in the CLI (update the `<filename>` placehol
 ```cli
 ai data create -f <filename>.yml
 ```
+
 ---
 
 ### Create data: Folder type
 
 A data that is a Folder (`uri_folder`) type is one that points to a *folder* on storage (for example, a folder containing several subfolders of images). You can create a folder typed data using:
+
+
 
 # [Studio](#tab/azure-studio)
 
@@ -196,7 +202,6 @@ Use these steps to create a Folder typed data in the Azure AI studio:
     :::image type="content" source="../media/data-connections/data-add-finish.png" alt-text="Screenshot of naming the data." lightbox="../media/data-connections/data-add-finish.png":::
 
 
-
 # [Python SDK](#tab/python)
 
 To create a data that is a Folder type use the following code and update the `<>` placeholders with your information.
@@ -224,6 +229,7 @@ myfolder = Data(
 
 client.data.create_or_update(myfolder)
 ```
+
 # [Azure CLI](#tab/cli)
 
 Create a YAML file and copy-and-paste the following code. You need to update the `<>` placeholders with the name of your data, the version, and path to a folder on a supported location.
@@ -243,6 +249,8 @@ Next, execute the following command in the CLI (update the `<filename>` placehol
 ```cli
 aai data create -f <filename>.yml
 ```
+
+
 ---
 
 
@@ -304,6 +312,12 @@ client = AIClient.from_config(DefaultAzureCredential())
 # Create the data in the workspace
 client.data.archive(name="<DATA NAME>")
 ```
+
+# [Studio](#tab/azure-studio)
+
+> [!IMPORTANT]
+> Currently, archiving is not supported in Azure AI Studio.
+
 ---
 
 #### Archive a specific data version
@@ -335,7 +349,8 @@ client.data.archive(name="<DATA NAME>", version="<VERSION TO ARCHIVE>")
 # [Studio](#tab/azure-studio)
 
 > [!IMPORTANT]
-> Currently, archiving a specific data version is not supported in Azure AI Studio.
+> Currently, archiving is not supported in Azure AI Studio.
+
 
 ---
 
@@ -366,6 +381,12 @@ client = AIClient.from_config(DefaultAzureCredential())
 # Create the data in the workspace
 client.data.restore(name="<DATA NAME>")
 ```
+
+# [Studio](#tab/azure-studio)
+
+> [!IMPORTANT]
+> Currently, restoring archived data is not supported in Azure AI Studio.
+
 ---
 
 #### Restore a specific data version
