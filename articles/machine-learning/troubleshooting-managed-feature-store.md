@@ -392,13 +392,13 @@ Code: AuthorizationFailed
 
 #### Solution:
 
-1. If the feature retrieval job uses a managed identity, assign the `Azure Machine Learning Data Scientist` role on the feature store to the identity.
+1. If the feature retrieval job uses a managed identity, assign the `AzureML Data Scientist` role on the feature store to the identity.
 1. If the problem happens when
 
 - the user runs code in an Azure Machine Learning Spark notebook
 - that notebook uses the user's own identity to access the Azure Machine Learning service
 
-assign the `Azure Machine Learning Data Scientist` role on the feature store to the user's Microsoft Entra identity.
+assign the `AzureML Data Scientist` role on the feature store to the user's Microsoft Entra identity.
 
 `Azure Machine Learning Data Scientist` is a recommended role. User can create their own custom role with the following actions
 - Microsoft.MachineLearningServices/workspaces/datastores/listsecrets/action
@@ -498,7 +498,7 @@ Check these configurations:
 - [Materialization Identity doesn't have the proper RBAC permission on the feature store](#materialization-identity-doesnt-have-proper-rbac-permission-on-the-feature-store)
 - [Materialization Identity doesn't have proper RBAC permission to read from the Storage](#materialization-identity-doesnt-have-proper-rbac-permission-to-read-from-the-storage)
 - [Materialization identity doesn't have RBAC permission to write data to the offline store](#materialization-identity-doesnt-have-proper-rbac-permission-to-write-data-to-the-offline-store)
-- [Streaming job output to a notebook results in failure](#streaming-job-output-to-a-notebook-results-in-failure)
+- [Streaming job execution results to a notebook results in failure](#streaming-job-output-to-a-notebook-results-in-failure)
 - [Invalid Spark configuration](#invalid-spark-configuration)
 
 When the feature materialization job fails, follow these steps to check the job failure details:
@@ -614,7 +614,7 @@ An error occurred while calling o1162.load.
 
 #### Solution
 
-Assign the `Storage Blob Data Reader` role, on the store storage, to the materialization identity (a user-assigned managed identity) of the feature store.
+Assign the `Storage Blob Data Reader` role, on the source storage, to the materialization identity (a user-assigned managed identity) of the feature store.
 
 `Storage Blob Data Contributor` is the minimum recommended access requirement. You can also assign roles with more privileges; for example, `Storage Blob Data Owner`.
 

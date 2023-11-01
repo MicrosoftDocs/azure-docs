@@ -90,14 +90,14 @@ Use these built-in roles to consume the feature sets defined in the feature stor
 
 |Scope| Role|
 |----|------|
-| the feature store | Azure Machine Learning Data Scientist|
-| the source data storage accounts; in other words, the feature set data sources | Blob storage data reader role |
-| the storage feature store offline store storage account | Blob storage data reader role |
+| the feature store | AzureML Data Scientist|
+| the source data storage accounts; in other words, the feature set data sources | Storage Blob Data Reader role |
+| the storage feature store offline store storage account | Storage Blob Data Reader role |
 
 > [!NOTE]
-> The `Azure Machine Learning Data Scientist` allows the users to create and update feature sets in the feature store.
+> The `AzureML Data Scientist` allows the users to create and update feature sets in the feature store.
 
-To avoid use of the `Azure Machine Learning Data Scientist` role, you can use these individual actions:
+To avoid use of the `AzureML Data Scientist` role, you can use these individual actions:
 
 |Scope| Action/Role|
 |----|------|
@@ -113,11 +113,11 @@ To develop feature sets in the feature store, use these built-in roles:
 
 |Scope| Role|
 |----|------|
-| the feature store | Azure Machine Learning Data Scientist|
-| the source data storage accounts | Blob storage data reader role |
-| the feature store offline store storage account | Blob storage data reader role |
+| the feature store | AzureML Data Scientist|
+| the source data storage accounts | Storage Blob Data Reader role |
+| the feature store offline store storage account | Storage Blob Data Reader role |
 
-To avoid use of the `Azure Machine Learning Data Scientist` role, you can use these individual actions (in addition to the actions listed for `Featureset consumer`)
+To avoid use of the `AzureML Data Scientist` role, you can use these individual actions (in addition to the actions listed for `Featureset consumer`)
 
 |Scope| Role|
 |----|------|
@@ -134,9 +134,9 @@ In addition to all of the permissions that the `feature set consumer` role requi
 
 |Scope| Action/Role |
 |----|------|
-| feature store | Azure Machine Learning Data Scientist role |
-| storage account of feature store offline store | Blob storage data contributor role |
-| storage accounts of source data | Blob storage data reader role |
+| feature store | AzureML Data Scientist role |
+| storage account of feature store offline store | Storage Blob Data Contributor role |
+| storage accounts of source data | Storage Blob Data Reader role |
 
 ## New actions created for managed feature store
 

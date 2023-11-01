@@ -85,7 +85,7 @@ Managed feature store provides these feature transformation capabilities:
 ### Feature materialization
 Materialization involves the computation of feature values for a given feature window, and persistence of those values in a materialization store. Now, feature data can be retrieved more quickly and reliably for training and inference purposes.
 
-- **Managed feature materialization pipeline** - You declaratively specify the materialization schedule, and the system then handles the scheduling, precompution, and materialization of the values into the materialization store.
+- **Managed feature materialization pipeline** - You declaratively specify the materialization schedule, and the system then handles the scheduling, precomputation, and materialization of the values into the materialization store.
 - **Backfill support** - You can perform on-demand materialization of feature sets for a given feature window
 - **Managed Spark support for materialization** - Azure Machine Learning managed Spark (in serverless compute instances) runs the materialization jobs. It frees you from set-up and management of the Spark infrastructure.
 

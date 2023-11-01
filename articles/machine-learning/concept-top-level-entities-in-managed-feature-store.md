@@ -48,7 +48,7 @@ After development and testing the feature set spec in your local/dev environment
 For more information about the feature set YAML specification, see [CLI (v2) feature set specification YAML schema](reference-yaml-featureset-spec.md)
 
 ## Feature retrieval specification
-A feature retrieval specification is a portable definition of a feature list associated with a model. It can help streamline machine learning model development and operationalization. A feature retrieval specification is typically an input to the training pipeline. It generates the training data, which can be packaged with the model. Additionally, inference uses it to look up the features. It integrates all phases of the machine learning lifecycle. Changes to your training and inference pipeline can be minimized as you experiment and deploy.
+A feature retrieval specification is a portable definition of a feature list associated with a model. It can help streamline machine learning model development and operationalization. A feature retrieval specification is typically an input to the training pipeline. It helps generate the training data. It can be packaged with the model. Additionally, inference step uses it to look up the features. It integrates all phases of the machine learning lifecycle. Changes to your training and inference pipeline can be minimized as you experiment and deploy.
 
 Use of a feature retrieval specification and the built-in feature retrieval component are optional. You can directly use the `get_offline_features()` API if you want.
 
