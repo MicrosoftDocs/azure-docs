@@ -28,8 +28,8 @@ The following features are supported for using Dapr:
 
 | Feature | Supported | Symbol |
 |---------| :--------:| :----: |
-| Component for pub sub | Supported | ✅ |
-| Component for state management (concurrency*) | Supported | ✅ |
+| Component for Publish Subscribe | Supported | ✅ |
+| Component for State Management (concurrency*) | Supported | ✅ |
 | [Pluggable components](https://docs.dapr.io/operations/components/pluggable-components-registration/) | Supported | ✅ |
 
 > [!NOTE]
@@ -156,7 +156,7 @@ To create the yaml file, use the following component definitions:
     kind: BrokerAuthorization
     metadata:
       name: "my-authz-policies"
-      namespace: {{% namespace %}}
+      namespace: default
     spec:
       listenerRef:
         - "tls-listener-manual"
@@ -213,13 +213,14 @@ This article uses the same code used for [MQ to develop distributed application 
 
 After you have the Dapr application written, build it and package into a Docker container.
 
-To package the application into a container, run the following command:
+1. To package the application into a container, run the following command:
 
-```bash
-cd /path/to/app/src
-docker build -t my-dapr-app .
-# Push it to docker hub or Azure Container Registry
-```
+    ```bash
+    cd /path/to/app/src
+    docker build -t my-dapr-app .
+    ```
+
+2. Push it to your Azure Container Registry
 
 > [!TIP]
 > For convenience, the code sample mentioned in this section is packaged and published to a container registry at `alicesprings.azurecr.io/quickstart-sample`.  You can use this container to follow along even if you haven't built your own image.
@@ -306,7 +307,7 @@ To start, you create a yaml file that uses the following component definitions:
     pod/dapr-workload created
     NAME                          READY   STATUS              RESTARTS   AGE
     ...
-    dapr-workload                 3/3     Running             0          30s
+    dapr-workload                 4/4     Running             0          30s
     ```
 
     
@@ -326,27 +327,27 @@ In the example used for this article, the application subscribes to the `orders`
     mosquitto_pub -h localhost -t "orders" -m '{"data": "{\"orderId\": 9, \"item\": \"item9\"}"}' -i "publisher1" -u client1 -P password
     ```
 
-Back in the subscriber window, the message appears alongside Dapr tracing info.
+1. Back in the subscriber window, the message appears alongside Dapr tracing info:
 
-```json
-{
-  "data": {
-    "item": "item9",
-    "orderId": 9
-  },
-  "datacontenttype": "application/json",
-  "id": "9d7087e1-2f13-4655-b402-f92062ffb08a",
-  "pubsubname": "aio-mq-pubsub",
-  "source": "dapr-workload",
-  "specversion": "1.0",
-  "time": "2023-02-01T22:27:24Z",
-  "topic": "odd-numbered-orders",
-  "traceid": "00-00000000000000000000000000000000-0000000000000000-00",
-  "traceparent": "00-00000000000000000000000000000000-0000000000000000-00",
-  "tracestate": "",
-  "type": "com.dapr.event.sent"
-}
-```
+    ```json
+    {
+      "data": {
+        "item": "item9",
+        "orderId": 9
+      },
+      "datacontenttype": "application/json",
+      "id": "9d7087e1-2f13-4655-b402-f92062ffb08a",
+      "pubsubname": "aio-mq-pubsub",
+      "source": "dapr-workload",
+      "specversion": "1.0",
+      "time": "2023-02-01T22:27:24Z",
+      "topic": "odd-numbered-orders",
+      "traceid": "00-00000000000000000000000000000000-0000000000000000-00",
+      "traceparent": "00-00000000000000000000000000000000-0000000000000000-00",
+      "tracestate": "",
+      "type": "com.dapr.event.sent"
+    }
+    ```
 
 ## Troubleshooting
 
