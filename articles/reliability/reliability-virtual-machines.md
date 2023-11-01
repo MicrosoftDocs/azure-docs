@@ -71,7 +71,7 @@ To run production workloads, you can use:
     
 When you create your VMs, use availability zones to protect your applications and data against unlikely datacenter failure. For more information about availability zones for VMs, see [Availability zone support](#availability-zone-support) in this document.
 
-For information on how to enable availability zones support when you create your VM, see [create availability zone support](#create-a-resource-with-availability-zone-enabled).
+For information on how to enable availability zones support when you create your VM, see [create availability zone support](#create-a-resource-with-availability-zones-enabled).
 
 For information on how to migrate your existing VMs to availability zone support, see [migrate to availability zone support](#migrate-to-availability-zone-support). 
 
@@ -407,7 +407,7 @@ To learn more about availability zone readiness options, see:
 
 Because availability zones are physically separate and provide distinct power source, network, and cooling, SLAs (Service-level agreements) increase. For more information, see the [SLA for Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9/).
 
-#### Create a resource with availability zone enabled
+### Create a resource with availability zones enabled
 
 Get started by creating a virtual machine (VM) with availability zone enabled from the following deployment options below:
 - [Azure CLI](../virtual-machines/linux/create-cli-availability-zone.md)

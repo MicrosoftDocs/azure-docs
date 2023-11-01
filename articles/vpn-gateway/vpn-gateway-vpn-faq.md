@@ -63,6 +63,10 @@ No.
 
 A VPN gateway is a type of virtual network gateway. A VPN gateway sends encrypted traffic between your virtual network and your on-premises location across a public connection. You can also use a VPN gateway to send traffic between virtual networks. When you create a VPN gateway, you use the -GatewayType value 'Vpn'. For more information, see [About VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md).
 
+### Can I create new virtual network gateways in the classic deployment model?
+
+No. The classic deployment model is a legacy deployment model. You can't create new classic virtual network gateways. Existing classic virtual network gateways are supported until August 31, 2024. To migrate to the Resource Manager deployment model, see [VPN Gateway classic to Resource Manager migration](vpn-gateway-classic-resource-manager-migration.md).
+
 ### Why can't I specify policy-based and route-based VPN types?
 
 As of Oct 1, 2023, you no longer need to specify VPN type. All new VPN gateways will automatically be created as route-based gateways. If you already have a policy-based gateway, you don't need to upgrade your gateway to route-based.
