@@ -20,7 +20,7 @@ ms.author: anfdocs
 
 Azure NetApp Files provides several ways to secure your NAS data. One aspect of that security is permissions. In NAS, permissions can be broken down into two categories: 
 
-* **Share access permissions** limit who can mount a NAS volume. NFS controls this via IP address or hostname. SMB controls this via user and group access control lists (ACLs). 
+* **Share access permissions** limit who can mount a NAS volume. NFS controls share access permissions via IP address or hostname. SMB controls this via user and group access control lists (ACLs). 
 * **File access permissions** limit what users and groups can do once a NAS volume is mounted. File access permissions are applied to individual files and folders. 
 
 Azure NetApp Files permissions rely on NAS standards, simplifying the process of security NAS volumes for administrators and end users with familiar methods. 
@@ -40,7 +40,7 @@ Since the most restrictive permissions override other permissions, and a share i
 
 Volumes in Azure NetApp Files are shared out to NFS clients by exporting a path that is accessible to a client or set of clients. Both NFSv3 and NFSv4.x use the same method to limit access to an NFS share in Azure NetApp Files: export policies. 
 
-An export policy is a container for a set of access rules that are listed in order of desired access. These rules control access to NFS shares by using client IP addresses or subnets. If a client is not listed in an export policy rule--either allowing or explicitly denying access--then that client is unable to mount the NFS export. Since the rules are read in sequential order, if a more restrictive policy rules is applied to a client (for example, by way of a subnet), then it is read and applied first. Subsequent policy rules that allow more access are ignored. This diagram shows a client that has an IP of 10.10.10.10 getting read-only access to a volume because the subnet 0.0.0.0/0 (every client in every subnet) is set to read-only and is listed first in the policy. 
+An export policy is a container for a set of access rules that are listed in order of desired access. These rules control access to NFS shares by using client IP addresses or subnets. If a client isn't listed in an export policy rule--either allowing or explicitly denying access--then that client is unable to mount the NFS export. Since the rules are read in sequential order, if a more restrictive policy rules is applied to a client (for example, by way of a subnet), then it is read and applied first. Subsequent policy rules that allow more access are ignored. This diagram shows a client that has an IP of 10.10.10.10 getting read-only access to a volume because the subnet 0.0.0.0/0 (every client in every subnet) is set to read-only and is listed first in the policy. 
 
 :::image type="content" source="../media/azure-netapp-files/export-policy-diagram.png" alt-text="Diagram modeling export policy rule hierarchy." lightbox="../media/azure-netapp-files/export-policy-diagram.png":::
 
@@ -49,7 +49,7 @@ An export policy is a container for a set of access rules that are listed in ord
 When creating an Azure NetApp Files volume, there are several options configurable for control of access to NFS volumes.
 
 * **Index**: The order in which an export policy rule is evaluated. If a client falls under multiple rules in the policy, then the first applicable rule applies to the client and subsequent rules are ignored.
-* **Allowed clients**: Specifies which clients a rule applies to. This value can be a client IP address, a comma-separated list of IP addresses, or a subnet including multiple clients. The hostname and netgroup values are not supported in Azure NetApp Files.
+* **Allowed clients**: Specifies which clients a rule applies to. This value can be a client IP address, a comma-separated list of IP addresses, or a subnet including multiple clients. The hostname and netgroup values aren't supported in Azure NetApp Files.
 * **Access**: Specifies the level of access allowed to non-root users. For NFS volumes without Kerberos enabled, the options are: Read only, Read & write, or No access. For volumes with Kerberos enabled, the options are: Kerberos 5, Kerberos 5i, or Kerberos 5p.
 * **Root access**: Specifies how the root user is treated in NFS exports for a given client. If set to "On," the root is root. If set to "Off," the [root is squashed](#root-squashing) to the anonymous user ID 65534. 
 * **chown mode**: This controls what users can run change ownership commands on the export (chown). If set to "Restricted," only the root user can run chown. If set to "Unrestricted," any user with the proper file/folder permissions can run chown commands.
@@ -84,7 +84,7 @@ Only Kerberos-enabled clients are able to access volumes with export rules speci
 
 ## Root squashing 
 
-In some scenarios, root access to an Azure NetApp Files volume may need to be restricted. Since root has unfettered access to anything in an NFS volume – even when explicitly denying access to root using mode bits or ACLs–-the only way to limit root access is to tell the NFS server that root from a specific client is no longer root.
+There are some scenarios where you want to restrict root access to an Azure NetApp Files volume. Since root has unfettered access to anything in an NFS volume – even when explicitly denying access to root using mode bits or ACLs–-the only way to limit root access is to tell the NFS server that root from a specific client is no longer root.
 
 In export policy rules, select "Root access: off" to squash root to a non-root, anonymous user ID of 65534. This means that the root on the specified clients is now user ID 65534 (typically `nfsnobody` on NFS clients) and has access to files and folders based on the ACLs/mode bits specified for that user. For mode bits, the access permissions generally falls under the “Everyone” access rights. Additionally, files written as “root” from clients impacted by root squash rules create files and folders as the `nfsnobody:65534` user. If you require root to be root, set "Root access" to "On."
 
@@ -140,7 +140,7 @@ Numeric values are applied to different segments of an access control: owner, gr
 
 :::image type="content" source="../media/azure-netapp-files/control-number-diagram.png" alt-text="." lightbox="../media/azure-netapp-files/control-number-diagram.png":::
 
-Azure NetApp Files does not support POSIX ACLs, so granular ACLs are only possible with NFSv3 when using an NTFS security style volume with valid UNIX to Windows name mappings via a name service such as Active Directory LDAP. Alternately, you can use NFSv4.1 with Azure NetApp Files and NFSv4.1 ACLs.
+Azure NetApp Files doesn't support POSIX ACLs, so granular ACLs are only possible with NFSv3 when using an NTFS security style volume with valid UNIX to Windows name mappings via a name service such as Active Directory LDAP. Alternately, you can use NFSv4.1 with Azure NetApp Files and NFSv4.1 ACLs.
 
 The following table compares the permission granularity between NFSv3 mode bits and NFSv4.x ACLs. 
 
@@ -203,7 +203,7 @@ The setgid bit can be used on both files and directories.
 With directories, setgid can be used as a way to inherit the owner group for files and folders created below the parent directory with the bit set. Like setuid, the executable bit is changed to an “s” or an “S.” 
 
 >[!NOTE]
->Capital “S” means that the executable bit was not set, such as if the permissions on the directory are “6” or “rw.”
+>Capital “S” means that the executable bit hasn't been set, such as if the permissions on the directory are “6” or “rw.”
 
 For example:
 
@@ -221,16 +221,16 @@ drwxrwxrwx 5 root  root   4096 Oct 11 16:37 ..
 -rw-r--r-- 1 root  group1    0 Oct 11 17:09 file
 ```
 
-For files, setgid behaves similarly to setuid--executables run using the group permissions of the group owner. If a user is in the owner group, said user has access to run the executable when setgid is set. If they are not in the group, they do not get access. For instance, if an administrator wants to limit which users could run the mkdir command on a client, they can use setgid.
+For files, setgid behaves similarly to setuid--executables run using the group permissions of the group owner. If a user is in the owner group, said user has access to run the executable when setgid is set. If they aren't in the group, they don't get access. For instance, if an administrator wants to limit which users could run the `mkdir` command on a client, they can use setgid.
 
-Normally, /bin/mkdir has 755 permissions with root ownership. This means anyone can run `mkdir` on a client. 
+Normally, `/bin/mkdir` has 755 permissions with root ownership. This means anyone can run `mkdir` on a client. 
 
 ```bash
 # ls -la /bin/mkdir 
 -rwxr-xr-x 1 root root 88408 Sep  5  2019 /bin/mkdir
 ```
 
-To modify the behavior to limit which users can run the mkdir command, change the group that owns the mkdir application, change the permissions for /bin/mkdir to 750, and then add the setgid bit to `mkdir`.
+To modify the behavior to limit which users can run the `mkdir` command, change the group that owns the `mkdir` application, change the permissions for `/bin/mkdir` to 750, and then add the setgid bit to `mkdir`.
 
 ```bash
 # chgrp group1 /bin/mkdir
@@ -239,9 +239,9 @@ To modify the behavior to limit which users can run the mkdir command, change th
 # ls -la /bin/mkdir
 -rwxr-s--- 1 root group1 88408 Sep  5  2019 /bin/mkdir
 ```
-As a result, the application would run with permissions for group1. If the user is not a member of group1, they would not get access to run mkdir.
+As a result, the application runs with permissions for group1. If the user isn't a member of group1, they don't get access to run `mkdir`.
 
-User1 is a member of group1, but user2 is not:
+`User1` is a member of group1, but user2 isn't:
 
 ```bash
 # id user1
@@ -249,7 +249,7 @@ uid=1001(user1) gid=1001(group1) groups=1001(group1)
 # id user2
 uid=1002(user2) gid=2002(group2) groups=2002(group2)
 ```
-After this change, user1 can run `mkdir`, but user2 cannot since user2 is not in group1.
+After this change, user1 can run `mkdir`, but user2 can't since user2 isn't in group1.
 
 ```bash
 # su user1
@@ -290,7 +290,7 @@ drwxrwxrwx 8 root     root   4096 Oct 11 19:24 ..
 
 Normally, anyone would be able to modify or delete these files. But because the parent folder has a sticky bit set, only the file owners can make changes to the files.
 
-For instance, user1 cannot modify nor delete `user2-file`:
+For instance, user1 can't modify nor delete `user2-file`:
 
 ```bash
 # su user1
@@ -301,10 +301,10 @@ Hi
 "user2-file"
 "user2-file" E212: Can't open file for writing
 $ rm user2-file 
-rm: cannot remove 'user2-file': Operation not permitted
+rm: can't remove 'user2-file': Operation not permitted
 ```
 
-Conversely, user2 cannot modify nor delete user1-file since they are not the file’s owner and the sticky bit is set on the parent directory.
+Conversely, user2 can't modify nor delete user1-file since they aren't the file’s owner and the sticky bit is set on the parent directory.
 
 ```bash
 # su user2
@@ -315,7 +315,7 @@ Hi
 "user1-file"
 "user1-file" E212: Can't open file for writing
 $ rm user1-file 
-rm: cannot remove 'user1-file': Operation not permitted
+rm: can't remove 'user1-file': Operation not permitted
 ```
 
 Root, however, still can remove the files. 
@@ -349,7 +349,7 @@ Umask is a functionality that allows an administrator to restrict the level of p
 # umask -S
 u=rwx,g=rx,o=rx 
 ```
-However, many operating systems do not allow files to be created with execute permissions, but they do allow folders to have the correct permissions. Thus, files created with a umask of 0022 might end up with permissions of 0644. The following is an example using RHEL 6.5:
+However, many operating systems don't allow files to be created with execute permissions, but they do allow folders to have the correct permissions. Thus, files created with a umask of 0022 might end up with permissions of 0644. The following is an example using RHEL 6.5:
 
 ```bash
 # umask
@@ -374,7 +374,7 @@ Azure NetApp Files provides the ability to increase the maximum number of auxili
 
 The options to extend the group limitation work the same way the `-manage-gids` option for other NFS servers works. Rather than dumping the entire list of auxiliary GIDs a user belongs to, the option looks up the GID on the file or folder and returns that value instead.
 
-The [man page for mountd](http://man.he.net/man8/mountd) notes:
+The [command reference for `mountd`](http://man.he.net/man8/mountd) notes:
 
 ```bash
 -g or --manage-gids 
@@ -396,7 +396,7 @@ Extended groups have a minimal performance penalty, generally in the low single 
 
 When a user attempts to access an Azure NetApp Files volume via NFS, the request comes in a numeric ID. By default, Azure NetApp Files supports extended group memberships for NFS users (to go beyond the standard 16 group limit to 1,024). As a result, Azure NetApp files attempts to look up the numeric ID in LDAP in an attempt to resolve the group memberships for the user rather than passing the group memberships in an RPC packet.
 
-Due to that behavior, if that numeric ID cannot be resolved to a user in LDAP, the lookup fails and access is denied, even if the requesting user has permission to access the volume or data structure.
+Due to that behavior, if that numeric ID can't be resolved to a user in LDAP, the lookup fails and access is denied, even if the requesting user has permission to access the volume or data structure.
 
 The [Allow local NFS users with LDAP option](configure-ldap-extended-groups.md) in Active Directory connections is intended to disable those LDAP lookups for NFS requests by disabling the extended group functionality. It does not provide “local user creation/management” within Azure NetApp Files.
 
@@ -410,7 +410,7 @@ The NFSv4.x protocol can provide access control in the form of [Access Control L
 
 Each NFSv4.x ACL is created in the following manner: `type:flags:principal:permissions`
 
-* **Type** – the type of ACL being defined. Valid choices include Access (A), Deny (D), Audit (U), Alarm (L). Azure NetApp Files supports Access, Deny and Audit ACL types, but Audit ACLs, while being able to be set, do not currently produce audit logs.
+* **Type** – the type of ACL being defined. Valid choices include Access (A), Deny (D), Audit (U), Alarm (L). Azure NetApp Files supports Access, Deny and Audit ACL types, but Audit ACLs, while being able to be set, don't currently produce audit logs.
 * **Flags** – adds extra context for an ACL. There are three kinds of ACE flags: group, inheritance, and administrative. For more information on flags, see the section below.
 * **Principal** – defines the user or group that is being assigned the ACL. A principal on an NFSv4.x ACL uses the format of name@ID-DOMAIN-STRING.COM. For more detailed information on principals, see the following section.
 * **Permissions** – where the access level for the principal is defined. Each permission is designated a single letter (for instance, read gets “r”, write gets “w” and so on). Full access would incorporate each available permission letter. For more information on permissions, see the following section.
@@ -425,7 +425,7 @@ Other flags can be used to control ACEs, such as inheritance and administrative 
 
 #### Access and deny flags
 
-Access (A) and deny (D) flags are used to control security ACE types. An access ACE controls the level of access permissions on a file or folder for a principal. A deny ACE explicitly prohibits a principal from accessing a file or folder, even if an access ACE is set that would allow that principal to access the object. Deny ACEs always overrule access ACEs. In general, avoid using deny ACEs, as NFSv4.x ACLs follow a “default deny” model, meaning if an ACL is not added, then deny is implicit. Deny ACEs can create unnecessary complications in ACL management.
+Access (A) and deny (D) flags are used to control security ACE types. An access ACE controls the level of access permissions on a file or folder for a principal. A deny ACE explicitly prohibits a principal from accessing a file or folder, even if an access ACE is set that would allow that principal to access the object. Deny ACEs always overrule access ACEs. In general, avoid using deny ACEs, as NFSv4.x ACLs follow a “default deny” model, meaning if an ACL isn't added, then deny is implicit. Deny ACEs can create unnecessary complications in ACL management.
 
 #### Inheritance flags 
 
@@ -436,16 +436,16 @@ The following table describes available inheritance flags and their behaviors.
 | Inheritance flag | Behavior | 
 | = | === |
 | d | - Directories below the parent directory inherit the ACL <br> - Inheritance flag is also inherited |
-| f | - Files below the parent directory inherit the ACL <br> - Files do not set inheritance flag |
+| f | - Files below the parent directory inherit the ACL <br> - Files don't set inheritance flag |
 | i | Inherit-only; ACL doesn’t apply to the current directory but must apply inheritance to objects below the directory |
 | n | - No propagation of inheritance <br> After the ACL is inherited, the inherit flags are cleared on the objects below the parent |
 
 ##### NFSv4.x ACL examples
 
 In the following example, there are three different ACEs with distinct inheritance flags:
-* one with directory inherit only (di)
-* one with file inherit only (fi)
-* and one with both file and directory (fdi)
+* directory inherit only (di)
+* file inherit only (fi)
+* both file and directory inherit (fdi)
 
 ```bash
 # nfs4_getfacl acl-dir
@@ -459,7 +459,7 @@ A:g:GROUP@:rxtncy
 A::EVERYONE@:rxtncy
 ```
 
-User1 has a directory inherit ACL only. On a subdirectory created below the parent, the ACL is inherited, but on a file below the parent, it is not.
+`User1` has a directory inherit ACL only. On a subdirectory created below the parent, the ACL is inherited, but on a file below the parent, it isn't.
 
 ```bash
 # nfs4_getfacl acl-dir/inherit-dir
@@ -483,7 +483,7 @@ A:g:GROUP@:rtncy
 A::EVERYONE@:rtncy
 ```
 
-User2 has a file and directory inherit flag. As a result, both files and directories below a directory with that ACE entry inherit the ACL, but files won’t inherit the flag.
+`User2` has a file and directory inherit flag. As a result, both files and directories below a directory with that ACE entry inherit the ACL, but files won’t inherit the flag.
 
 ```bash
 # nfs4_getfacl acl-dir/inherit-dir
@@ -573,11 +573,11 @@ Administrative flags in NFSv4.x ACLs are special flags that are used only with A
 
 This Audit ACL is an example of that, where `user1` is audited for failed access attempts for any permission level: `U:F:user1@contoso.com:rwatTnNcCy`.
 
-Azure NetApp Files only supports setting administrative flags for Audit ACEs. File access logging is not currently supported. Alarm ACEs are not supported in Azure NetApp Files.
+Azure NetApp Files only supports setting administrative flags for Audit ACEs. File access logging isn't currently supported. Alarm ACEs aren't supported in Azure NetApp Files.
 
 #### NFSv4.x user and group principals
 
-With NFSv4.x ACLs, user and group principals define the specific objects that an ACE should apply to. Principals generally follow a format of name@ID-DOMAIN-STRING.COM. The “name” portion of a principal can be a user or group, but that user or group must be resolvable in Azure NetApp Files via the LDAP server connection when specifying the NFSv4.x ID domain. If the name@domain is not resolvable by Azure NetApp Files, then the ACL operation fails with an “invalid argument” error.
+With NFSv4.x ACLs, user and group principals define the specific objects that an ACE should apply to. Principals generally follow a format of name@ID-DOMAIN-STRING.COM. The “name” portion of a principal can be a user or group, but that user or group must be resolvable in Azure NetApp Files via the LDAP server connection when specifying the NFSv4.x ID domain. If the name@domain isn't resolvable by Azure NetApp Files, then the ACL operation fails with an “invalid argument” error.
 
 ```bash
 # nfs4_setfacl -a A::noexist@CONTOSO.COM:rwaxtTnNcCy inherit-file
@@ -679,27 +679,27 @@ drwxr-xr-x 3 root root 4096 Jul 12 12:09 ..
 -rw-r--r-- 1 root root    0 Jul 12 12:41 file
 drwxr-xr-x 2 root root 4096 Jul 12 12:31 subdir
 sh-4.2$ touch user1-file
-touch: cannot touch ‘user1-file’: Permission denied
+touch: can't touch ‘user1-file’: Permission denied
 sh-4.2$ chown user1 file
 chown: changing ownership of ‘file’: Operation not permitted
 sh-4.2$ nfs4_setfacl -e /mnt/acl-dir/inherit-dir
 Failed setxattr operation: Permission denied
 sh-4.2$ rm file
 rm: remove write-protected regular empty file ‘file’? y
-rm: cannot remove ‘file’: Permission denied
+rm: can't remove ‘file’: Permission denied
 sh-4.2$ cat file
 Test text
 ```
 
 **User with read access (r) and write attributes (T)**
 
-In this example, permissions on the file can be changed due to the write attributes (T) permission, but no files can be created since only read access is allowed. These configuration illustrates the kind of granular controls NFSv4.x ACLs can provide.
+In this example, permissions on the file can be changed due to the write attributes (T) permission, but no files can be created since only read access is allowed. This configuration illustrates the kind of granular controls NFSv4.x ACLs can provide.
 
 ```bash 
 A::user1@CONTOSO.COM:rT
 
 sh-4.2$ touch user1-file
-touch: cannot touch ‘user1-file’: Permission denied
+touch: can't touch ‘user1-file’: Permission denied
 sh-4.2$ ls -la
 total 60
 drwxr-xr-x  3 root     root    4096 Jul 12 16:23 .
@@ -715,7 +715,7 @@ drwxr-xr-x 19 root     root   49152 Jul 11 09:56 ..
 drwxr-xr-x  3 root     root    4096 Jul 12 12:41 inherit-dir
 -rwxrwxrwx  1 user1    group1     0 Jul 12 16:23 user1-file
 sh-4.2$ rm user1-file
-rm: cannot remove ‘user1-file’: Permission denied
+rm: can't remove ‘user1-file’: Permission denied
 ```
 
 #### Translating mode bits into NFSv4.x ACL permissions
@@ -736,7 +736,7 @@ See [NFSv4.x permissions](#NFSv4.x-permissions) for a table outlining all the pe
 
 ### How NFSv4.x ACLs work with Azure NetApp Files
 
-Azure NetApp Files supports NFSv4.x ACLs natively when a volume has NFSv4.1 enabled for access. There is nothing to enable on the volume for ACL support, but for NFSv4.1 ACLs to work best, an LDAP server with UNIX users and groups is needed to ensure that Azure NetApp Files is able to resolve the principals set on the ACLs securely. Local users can be used with NFSv4.x ACLs, but they do not provide the same level of security as ACLs used with an LDAP server.
+Azure NetApp Files supports NFSv4.x ACLs natively when a volume has NFSv4.1 enabled for access. There isn'thing to enable on the volume for ACL support, but for NFSv4.1 ACLs to work best, an LDAP server with UNIX users and groups is needed to ensure that Azure NetApp Files is able to resolve the principals set on the ACLs securely. Local users can be used with NFSv4.x ACLs, but they don't provide the same level of security as ACLs used with an LDAP server.
 
 There are a few considerations to keep in mind with ACL functionality in Azure NetApp Files, as covered in the following sections.
 
@@ -757,8 +757,8 @@ Dual protocol refers to the use of both SMB and NFS on the same Azure NetApp Fil
 When NFSv4.x ACLs are in use on UNIX security style volumes, the following behaviors can be observed when using dual-protocol volumes and accessing data from SMB clients.
 
 * Windows usernames need to map properly to UNIX usernames for proper access control resolution.
-* In UNIX security style volumes (where NFSv4.x ACLs would be applied), if no valid UNIX user exists in the LDAP server for a Windows user to map to, then a default UNIX user called “pcuser” (with uid numeric 65534) is used for mapping.
-* Files written with Windows users with no valid UNIX user mapping display as owned by numeric ID 65534, which corresponds to “nfsnobody” or “nobody” usernames in Linux clients from NFS mounts. This is different from the numeric ID 99 which is typically seen with NFSv4x ID domain issues. To verify the numeric ID in use, use the `ls -lan` command.
+* In UNIX security style volumes (where NFSv4.x ACLs would be applied), if no valid UNIX user exists in the LDAP server for a Windows user to map to, then a default UNIX user called `pcuser` (with uid numeric 65534) is used for mapping.
+* Files written with Windows users with no valid UNIX user mapping display as owned by numeric ID 65534, which corresponds to “nfsnobody” or “nobody” usernames in Linux clients from NFS mounts. This is different from the numeric ID 99 which is typically seen with NFSv4.x ID domain issues. To verify the numeric ID in use, use the `ls -lan` command.
 * Files with incorrect owners don't provide expected results from UNIX mode bits or from NFSv4.x ACLs.
 * NFSv4.x ACLs are managed from NFS clients. SMB clients can neither view nor manage NFSv4.x ACLs.
 
@@ -778,11 +778,11 @@ Umask is used to control the permission level at which files and folders are cre
 #### Chmod/chown behavior with NFSv4.x ACLs
 
 In Azure NetApp Files, you can use change ownership (chown) and change mode bit (chmod) commands to manage file and directory permissions on NFSv3 and NFSv4.x. 
-When using NFSv4.x ACLs, the more granular controls applied to files and folder lessens the need for chmod commands. Chown still has a place, as NFSv4.x ACLs do not assign ownership.
+When using NFSv4.x ACLs, the more granular controls applied to files and folder lessens the need for chmod commands. Chown still has a place, as NFSv4.x ACLs don't assign ownership.
 
 When chmod is run in Azure NetApp Files on files and folders with NFSv4.x ACLs applied, mode bits are changed on the object. In addition, a set of system ACEs are modified to reflect those mode bits. If the system ACEs are removed, then mode bits are cleared. Examples and a more complete description can be found in the section on system ACEs below.
 
-When chown is run in Azure NetApp Files, the assigned owner can be modified. File ownership is not as critical when using NFSv4.x ACLs as when using mode bits, as ACLs can be used to control permissions in ways that basic owner/group/everyone concepts could not. Chown in Azure NetApp Files can only be run as root (either as root or by using sudo), since export controls are configured to only allow root to make ownership changes. Since this is controlled by a default export policy rule in Azure NetApp Files, NFSv4.x ACL entries that allow ownership modifications do not apply.
+When chown is run in Azure NetApp Files, the assigned owner can be modified. File ownership isn't as critical when using NFSv4.x ACLs as when using mode bits, as ACLs can be used to control permissions in ways that basic owner/group/everyone concepts could not. Chown in Azure NetApp Files can only be run as root (either as root or by using sudo), since export controls are configured to only allow root to make ownership changes. Since this is controlled by a default export policy rule in Azure NetApp Files, NFSv4.x ACL entries that allow ownership modifications don't apply.
 
 ```bash
 # su user1
@@ -867,7 +867,7 @@ To configure this, navigate to the “Export policy” menu on the volume and ch
 
 :::image type="content" source="../media/azure-netapp-files/export-policy-root-access.png" alt-text="Screenshot of export policy menu with root access off." lightbox="../media/azure-netapp-files/export-policy-root-access.png":::
 
-The effect of disabling root access root squashes to anonymous user “nfsnobody:65534”. Root access is then not able able to change ownership.
+The effect of disabling root access root squashes to anonymous user `nfsnobody:65534`. Root access is then unable to change ownership.
 
 ```bash
 root@ubuntu:/mnt/testdir# touch newfile3
