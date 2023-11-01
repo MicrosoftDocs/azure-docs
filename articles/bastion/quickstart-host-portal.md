@@ -18,23 +18,13 @@ The following diagram shows the architecture of Bastion.
 
 :::image type="content" source="./media/create-host/host-architecture.png" alt-text="Diagram that shows the Azure Bastion architecture." lightbox="./media/create-host/host-architecture.png":::
 
-<<<<<<< HEAD
-The default tier for this type of deployment is the Basic SKU. If you want to deploy by using the Developer SKU instead, see [Quickstart: Deploy Azure Bastion by using the Developer SKU](quickstart-developer-sku.md). If you want to deploy by using the Standard SKU, see [Tutorial: Deploy Azure Bastion by using specified settings](tutorial-create-host-portal.md). For more information about Bastion, see [What is Azure Bastion?](bastion-overview.md).
+The default tier for this type of deployment is the Basic SKU. If you want to deploy by using the Developer SKU instead, see [Quickstart: Deploy Azure Bastion - Developer SKU](quickstart-developer-sku.md). If you want to deploy by using the Standard SKU, see [Tutorial: Deploy Azure Bastion by using specified settings](tutorial-create-host-portal.md). For more information about Bastion, see [What is Azure Bastion?](bastion-overview.md).
 
 The steps in this article help you do the following:
 
 * Deploy Bastion with default settings from your VM resource by using the Azure portal. When you deploy by using default settings, the settings are based on the virtual network where Bastion will be deployed.
 * Connect to your VM via the portal by using SSH or RDP connectivity and the VM's private IP address.
-* Remove your VM if it has a public IP address that you don't need for anything else.
-=======
-The default tier for this type of deployment is the Basic SKU. If you want to deploy by using the Developer SKU instead, see [Quickstart: Deploy Azure Bastion - Developer SKU](quickstart-developer-sku.md). If you want to deploy by using the Standard SKU, see [Tutorial: Deploy Azure Bastion by using specified settings](tutorial-create-host-portal.md). For more information about Azure Bastion, see [What is Azure Bastion?](bastion-overview.md)
-
-The steps in this article help you do the following:
-
-* Deploy Azure Bastion with default settings from your VM resource by using the Azure portal. When you deploy by using default settings, the settings are based on the virtual network where Azure Bastion will be deployed.
-* Connect to your VM via the portal using SSH or RDP connectivity and the VM's private IP address.
 * Remove your VM's public IP address if you don't need it for anything else.
->>>>>>> dd60faa16f6de4cc3c4da173d9597a736da64024
 
 > [!IMPORTANT]
 > [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
