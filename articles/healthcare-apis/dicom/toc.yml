@@ -49,6 +49,7 @@ items:
   expanded: true
   items: 
     - name: DICOMweb APIs
+      expanded: false
       items: 
         - name: DICOMweb standard APIs
           href: dicomweb-standard-apis-with-dicom-services.md
@@ -59,12 +60,14 @@ items:
         - name: Use DICOMweb standard APIs with Python
           href: dicomweb-standard-apis-python.md
     - name: Custom APIs
+      expanded: false
       items: 
         - name: Change feed overview
           href: dicom-change-feed-overview.md
         - name: Extended query tags
           href: dicom-extended-query-tags-overview.md
     - name: API versioning
+      expanded: false
       items: 
         - name: API versioning policies
           href: api-versioning-dicom-service.md
