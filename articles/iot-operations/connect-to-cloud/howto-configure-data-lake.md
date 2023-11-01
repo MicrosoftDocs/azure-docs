@@ -70,11 +70,7 @@ Configure a data lake connector to connect to Microsoft Fabric OneLake using man
 
 1. Search for the IoT MQ Arc extension by its name, and make sure to select the app ID GUID value that you found in the previous step.
 
-<!-- TODO Screenshot    ![Manage access](fabric-onelake-manage-access.png) -->
-
 1. Select **Contributor** as the role, then select **Add**.
-
-<!-- TODO Screenshot    ![Add role](fabric-onelake-add-role.png) -->
 
 1. Create a [DataLakeConnector](#datalakeconnector) resource that defines the configuration and endpoint settings for the connector. You can use the YAML provided as an example, but make sure to change the following fields:
 
@@ -127,15 +123,11 @@ Configure a data lake connector to connect to Microsoft Fabric OneLake using man
 
 1. Using a browser, verify that the data is imported into the lakehouse. In the Microsoft Fabric workspace, select your lakehouse and then **Tables**. You should see the data in the table.
 
-<!-- TODO Screenshot    ![Fabric OneLake table data](fabric-onelake-table-data.png) -->
-
 ### Unidentified table
 
 If your data shows in the *Unidentified* table:
 
-<!-- TODO Screenshot ![Unidentified table](fabric-onelake-unidentified-table.png) -->
-
-The cause might be unsupported characters in the table name. The table name must be a valid Azure Storage container name that means it may contain any English letter, upper or lower case, and underbar `_`, with length up to 256 characters. No dashes `-` or space characters are allowed.
+The cause might be unsupported characters in the table name. The table name must be a valid Azure Storage container name that means it can contain any English letter, upper or lower case, and underbar `_`, with length up to 256 characters. No dashes `-` or space characters are allowed.
 
 ## Configure the Data Lake connector to send data to Azure Data Lake Storage Gen2 using SAS token
 

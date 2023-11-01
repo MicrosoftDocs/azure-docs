@@ -139,6 +139,10 @@ items:
       items:
       - name: Connect to MQTT or Event Grid
         href: connect-to-cloud/howto-configure-mqtt-bridge.md
+      - name: Send data to a data lake
+        href: connect-to-cloud/howto-configure-data-lake.md
+      - name: Send data to Kafka or Azure Event Hubs
+        href: connect-to-cloud/howto-configure-kafka.md
       - name: Send data to Azure Data Explorer from a pipeline
         href: connect-to-cloud/howto-configure-destination-data-explorer.md
       - name: Send data to Microsoft Fabric from a pipeline
