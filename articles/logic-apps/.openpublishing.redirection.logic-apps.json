@@ -3,7 +3,7 @@
         {
             "source_path_from_root": "/articles/connectors/connectors-run-3270-apps-ibm-mainframe-create-api-3270.md",
             "redirect_url": "https://learn.microsoft.com/connectors/integrate-3270-apps-ibm-mainframe",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/connectors/connectors-overview.md",
