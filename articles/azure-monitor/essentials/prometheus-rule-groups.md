@@ -66,12 +66,13 @@ Here's an example of how a rule group is configured to limit query to a specific
 ```
 If both cluster ID scope and `clusterName` aren't specified  for a rule group, the rules in the group query data from all the clusters in the workspace from all clusters.
 
-### Create or edit a Prometheus rule group in the Azure portal
+### Create or edit Prometheus rule group in the Azure portal (preview)
 
 To create a new rule group from the portal home page:
 
 1. In the [portal](https://portal.azure.com/), select **Monitor** > **Alerts**.
 1. Select **Prometheus Rule Groups**
+:::image type="content" source="media/prometheus-metrics-rule-groups/create-new-rule-group-alert-screen.png" alt-text="Screenshot that shows steps to create a new Prometheus rule group.":::
 1. Select **+ Create** to open up the rule group creation wizard
 :::image type="content" source="media/prometheus-metrics-rule-groups/create-new-rule-group-start.png" alt-text="Screenshot that shows steps to create a new Prometheus rule group.":::
 
@@ -89,6 +90,8 @@ On the rule group  **Scope** tab:
    * Select the **Cluster** from the list of clusters that are already connected to the selected Azure Monitor workspace.
    * The default **Cluster name** value is entered for you. You should change this value only if you've changed your cluster label value using [cluster_alias](../essentials/prometheus-metrics-scrape-configuration.md#cluster-alias).
 1. Select **Next** to configure the rule group details
+   
+:::image type="content" source="media/prometheus-metrics-rule-groups/create-new-rule-group-scope.png" alt-text="Screenshot that shows configuration of Prometheus rule group scope.":::
 
 #### Configure the rule group details 
 On the rule group  **Details** tab:
