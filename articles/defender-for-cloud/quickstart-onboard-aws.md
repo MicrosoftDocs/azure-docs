@@ -124,7 +124,7 @@ To connect your AWS to Defender for Cloud by using a native connector:
 
     :::image type="content" source="media/quickstart-onboard-aws/add-aws-account-details.png" alt-text="Screenshot that shows the tab for entering account details for an AWS account." lightbox="media/quickstart-onboard-aws/add-aws-account-details.png":::
 
-    Optionally, select **Management account** to create a connector to a management account. Connectors are created for each member account discovered under the provided management account. Auto-provisioning is enabled for all of the newly onboarded accounts.
+    Optionally, select **Management account** to create a connector to a management account. Connectors are created for each member account discovered under the provided management account. Auto-provisioning is enabled for all of the newly onboarded accounts. Choose the **AWS regions** you want Defender for Cloud to scan from the dropdown menu. All regions are selected by default.
 
 ## Select Defender plans
 
@@ -159,13 +159,7 @@ In this section of the wizard, you select the Defender for Cloud plans that you 
 
     Optionally, select **Configure** to edit the configuration as required. We recommend that you leave it set to the default configuration.
 
-1. Select **Next: Configure access**.
-
-1. On the **Configure access** tab, select **Click to download the CloudFormation template** to download the CloudFormation template.
-
-   :::image type="content" source="media/quickstart-onboard-aws/download-cloudformation-template.png" alt-text="Screenshot that shows the button to download the CloudFormation template." lightbox="media/quickstart-onboard-aws/download-cloudformation-template.png":::
-
-1. Continue to configure access by making the following selections:
+1. Continue to **Configure access** by making the following selections:
 
     a. Choose a deployment type:
 
@@ -174,7 +168,7 @@ In this section of the wizard, you select the Defender for Cloud plans that you 
 
     b. Choose a deployment method: **AWS CloudFormation** or **Terraform**.
 
-    :::image type="content" source="media/quickstart-onboard-aws/aws-configure-access.png" alt-text="Screenshot that shows deployment options and instructions for configuring access.":::
+    :::image type="content" source="media/quickstart-onboard-aws/add-aws-account-configure-access.png" alt-text="Screenshot that shows deployment options and instructions for configuring access." lightbox="media/quickstart-onboard-aws/add-aws-account-configure-access.png:::
 
     > [!NOTE]
     > If you select **Management account** to create a connector to a management account, then the tab to onboard with Terraform is not visible in the UI, but you can still onboard using Terraform, similar to what's covered at [Onboarding your AWS/GCP environment to Microsoft Defender for Cloud with Terraform - Microsoft Community Hub](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/onboarding-your-aws-gcp-environment-to-microsoft-defender-for/ba-p/3798664).
