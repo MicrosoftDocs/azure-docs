@@ -4,7 +4,7 @@ description: This article explains how to respond to recommendations in Microsof
 ms.topic: how-to
 ms.author: dacurwin
 author: dcurwin
-ms.date: 10/29/2023
+ms.date: 11/01/2023
 ---
 
 # Implement security recommendations in Microsoft Defender for Cloud

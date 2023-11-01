@@ -3,7 +3,7 @@ title: Understanding security policies, initiatives, and recommendations
 description: Learn about security policies, initiatives, and recommendations in Microsoft Defender for Cloud.
 ms.topic: conceptual
 ms.custom: ignite-2023
-ms.date: 10/26/2023
+ms.date: 11/01/2023
 ---
 
 # What are security policies, initiatives, and recommendations?
@@ -43,7 +43,7 @@ By using the policies, Defender for Cloud periodically analyzes the compliance s
 Every recommendation in Defender for Cloud has an associated risk-level that represents how exploitable and impactful the security issue presents to your environments. The risk assessment engine takes into account factors such as, internet exposure, sensitivity of data, lateral movement possibilities, attack paths remediation, and more. Recommendations can be prioritized based on their risk levels.
 
 > [!NOTE]
-> Currently, [risk prioritization](how-to-manage-attack-path.md#features-of-the-attack-path-overview-page) doesn't affect the secure score.
+> Currently, [risk prioritization](how-to-manage-attack-path.md#features-of-the-attack-path-overview-page) is in public preview and therefore doesn't affect the secure score.
 
 Defender for Cloud makes its security recommendations based on your chosen initiatives. When a policy from your initiative is compared against your resources and finds one or more that aren't compliant, it's presented as a recommendation in Defender for Cloud.
 
@@ -108,8 +108,14 @@ The right side of the screen shows the following:
     - **Assign owner and set due date** - Gives you the option to assign an owner and due date
     - **Exempt** - Exempt the entire recommendation, or disable specific findings using disable rules
     - **Workflow automation** - Set a logic app which you would like to trigger with this security recommendation
-- **Graph** - Presents all of the [identified attack paths](how-to-manage-attack-path.md)
+    
+- **Graph** - Allows you to view and investigate all context that is used for risk prioritization, including attack paths. Learn how to [identify and manage attack paths](how-to-manage-attack-path.md).
+
+    :::image type="content" source="media/security-policy-concept/recommendation-graph.png" alt-text="Screenshot of the graph tab in a recommendation that shows all of the attack paths for that recommendation." lightbox="media/security-policy-concept/recommendation-graph.png":::
+
 - **Findings** - all affiliated findings
+
+    :::image type="content" source="media/security-policy-concept/recommendation-findings.png" alt-text="Screenshot of the graph tab in a recommendation that shows all of the attack paths for that recommendation." lightbox="media/security-policy-concept/recommendation-findings.png":::
 
 > [!NOTE]
 > If an option is not present on your screen or is greyed out, it is not relevant to your recommendation.
