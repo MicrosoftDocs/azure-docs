@@ -30,7 +30,8 @@ To establish a connection, Azure Cosmos DB for MongoDB vCore with Private Link s
 - An existing Azure Cosmos DB for MongoDB vCore cluster.
   - If you don't have an Azure subscription, [create an account for free](https://azure.microsoft.com/free).
   - If you have an existing Azure subscription, [create a new Azure Cosmos DB for MongoDB vCore cluster](quickstart-portal.md).
-<!-- - {TODO: Optionally, more prerequisites} -->
+- Access to an active Virtual network and Subnet
+    - If you don’t have a Virtual network, [create a virtual network using the Azure portal](../../../virtual-network/quick-create-portal.md)
 
 ## Create a private endpoint by using the Azure portal
 
