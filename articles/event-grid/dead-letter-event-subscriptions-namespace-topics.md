@@ -216,7 +216,14 @@ After the first 5 minutes retry, the service keeps on retrying every 5 minutes u
 
 In case the dead-letter retry logic starts before the configured time to live event retention in the event subscription and the remaining time to live is less than the retry period configured (say, there are just 4 hours remaining for the event and there are 2 days configured as `deliverRetryPeriod` for the dead-letter), the broker keeps the event to honor the retry logic up to the maximum configured dead-letter’s delivery retry period.
 
-## Configure dead-letter
+## Configure dead-letter 
+Here are the steps to configure dead-letter on your event subscriptions. 
+
+1. [Enable managed identity for the namespace](event-grid-namespace-managed-identity.md).
+1. Grant identity the write access to the Azure storage account. Use the **Access control** page of the storage account in the Azure portal to add the identity of the namespace to the **Storage Blob Data Contributor** role.
+1. Configure dead letter as shown in the following sections. 
+
+### Use Resource Manager template
 
 Here's an example **Resource manager template** JSON snippet. You can also use the system assigned managed identity (`SystemAssigned`).
 
@@ -237,7 +244,7 @@ Here's an example **Resource manager template** JSON snippet. You can also use t
 }
 ```
 
-## Use Azure portal to configure dead letter
+### Use Azure portal
 
 When creating an event subscription, you can enable dead-lettering and configure it as shown in the following image.
 
