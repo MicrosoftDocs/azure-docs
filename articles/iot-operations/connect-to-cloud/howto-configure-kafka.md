@@ -303,8 +303,8 @@ The `mqttToKafka` field defines a route that transfers data from an MQTT topic t
 | name | Unique name for the route. | Yes |
 | mqttTopic | The MQTT topic to subscribe from. You can use wildcard characters (`#` and `+`) to match multiple topics. | Yes |
 | kafkaTopic | The Kafka topic to send to. | Yes |
-| kafkaAcks | The number of acknowledgments the connector requires from the Kafka endpoint. Possible values are: `zero` , `one` (default), or `all`. | No |
-| qos | The quality of service (QoS) level for the MQTT topic subscription. Possible values are: 0 or 1 (default). QoS 2 is currently not supported. | No |
+| kafkaAcks | The number of acknowledgments the connector requires from the Kafka endpoint. Possible values are: `zero` , `one`, or `all`. | No |
+| qos | The quality of service (QoS) level for the MQTT topic subscription. Possible values are: 0 or 1 (default). QoS 2 is currently not supported. | Yes |
 | sharedSubscription | The configuration for using shared subscriptions for MQTT topics. Specify the `groupName`, which is a unique identifier for a group of subscribers, and the `groupMinimumShareNumber`, which is the number of subscribers in a group that receive messages from a topic. For example, if groupName is "group1" and groupMinimumShareNumber is 3, then the connector creates three subscribers with the same group name to receive messages from a topic. This feature allows you to distribute messages among multiple subscribers without losing any messages or creating duplicates. | No |
 
 An example of using `mqttToKafka` route:
