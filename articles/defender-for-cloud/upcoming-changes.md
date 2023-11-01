@@ -42,6 +42,8 @@ If you're looking for the latest release notes, you can find them in the [What's
 
 **Announcement date: November 1, 2023**
 
+**Estimated date for change: December 2023**
+
 We're consolidating the legacy Service Level 2 names for all Defender for Cloud plans into a single new Service Level 2 name, **Microsoft Defender for Cloud**.
 
 Today, there are four Service Level 2 names: Azure Defender, Advanced Threat Protection, Advanced Data Security, and Security Center. The various meters for Microsoft Defender for Cloud are grouped across these separate Service Level 2 names, creating complexities when using Cost Management + Billing, invoicing, and other Azure billing-related tools.
