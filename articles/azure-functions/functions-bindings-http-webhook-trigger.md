@@ -52,10 +52,6 @@ The code in this article defaults to .NET Core syntax, used in Functions version
 
 # [Isolated worker model](#tab/isolated-process)
 
-The following example shows an HTTP trigger that returns a "hello world" response as an [HttpResponseData](/dotnet/api/microsoft.azure.functions.worker.http.httpresponsedata) object:
-
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Http/HttpFunction.cs" id="docsnippet_http_trigger":::
-
 The following example shows an HTTP trigger that returns a "hello, world" response as an [IActionResult], using [ASP.NET Core integration in .NET Isolated]:
 
 ```csharp
@@ -68,6 +64,10 @@ public IActionResult Run(
 ```
 
 [IActionResult]: /dotnet/api/microsoft.aspnetcore.mvc.iactionresult
+
+The following example shows an HTTP trigger that returns a "hello world" response as an [HttpResponseData](/dotnet/api/microsoft.azure.functions.worker.http.httpresponsedata) object:
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Http/HttpFunction.cs" id="docsnippet_http_trigger":::
 
 # [In-process model](#tab/in-process)    
 
@@ -535,9 +535,9 @@ For Python v2 functions defined using a decorator, the following properties for 
 
 | Property    | Description |
 |-------------|-----------------------------|
-| `route` | Route for the http endpoint, if None, it will be set to function name if present or user defined python function name. |
-| `trigger_arg_name` | Argument name for HttpRequest, defaults to 'req'. |
-| `binding_arg_name` | Argument name for HttpResponse, defaults to '$return'. |
+| `route` | Route for the http endpoint. If None, it will be set to function name if present or user defined python function name. |
+| `trigger_arg_name` | Argument name for HttpRequest. The default value is 'req'. |
+| `binding_arg_name` | Argument name for HttpResponse. The default value is '$return'. |
 | `methods` | A tuple of the HTTP methods to which the function responds. |
 | `auth_level` | Determines what keys, if any, need to be present on the request in order to invoke the function. |
 
@@ -651,11 +651,11 @@ The trigger input type is declared as one of the following types:
 
 | Type              | Description | 
 |-|-|
-| [HttpRequestData] | A projection of the full request object. |
 | [HttpRequest]     | _Use of this type requires that the app is configured with [ASP.NET Core integration in .NET Isolated]._<br/>This gives you full access to the request object and overall HttpContext. |
+| [HttpRequestData] | A projection of the request object. |
 | A custom type     | When the body of the request is JSON, the runtime will try to parse it to set the object properties. |
 
-When using `HttpRequestData` or `HttpRequest`, custom types can also be bound to additional parameters using `Microsoft.Azure.Functions.Worker.Http.FromBodyAttribute`. Use of this attribute requires [`Microsoft.Azure.Functions.Worker.Extensions.Http` version 3.1.0 or later](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Http). Note that this is a different type than the similar attribute in `Microsoft.AspNetCore.Mvc`, and when using ASP.NET Core integration, you will need a fully qualified reference or `using` statement. The following example shows how to use the attribute to get just the body contents while still having access to the full `HttpRequest`, using the ASP.NET Core integration:
+When the trigger parameter is an `HttpRequestData`  an `HttpRequest`, custom types can also be bound to additional parameters using `Microsoft.Azure.Functions.Worker.Http.FromBodyAttribute`. Use of this attribute requires [`Microsoft.Azure.Functions.Worker.Extensions.Http` version 3.1.0 or later](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Http). Note that this is a different type than the similar attribute in `Microsoft.AspNetCore.Mvc`, and when using ASP.NET Core integration, you will need a fully qualified reference or `using` statement. The following example shows how to use the attribute to get just the body contents while still having access to the full `HttpRequest`, using the ASP.NET Core integration:
 
 ```csharp
 using Microsoft.AspNetCore.Http;
@@ -1121,9 +1121,9 @@ The `webHookType` binding property indicates the type if webhook supported by th
 
 | Type value | Description |
 | --- | --- |
-| **genericJson**| A general-purpose webhook endpoint without logic for a specific provider. This setting restricts requests to only those using HTTP POST and with the `application/json` content type.|
-| **[github](#github-webhooks)** | The function responds to [GitHub webhooks](https://developer.github.com/webhooks/). Don't use the  `authLevel` property with GitHub webhooks. | 
-| **[slack](#slack-webhooks)** | The function responds to [Slack webhooks](https://api.slack.com/outgoing-webhooks). Don't use the `authLevel` property with Slack webhooks. |
+| **`genericJson`**| A general-purpose webhook endpoint without logic for a specific provider. This setting restricts requests to only those using HTTP POST and with the `application/json` content type.|
+| **[`github`](#github-webhooks)** | The function responds to [GitHub webhooks](https://developer.github.com/webhooks/). Don't use the  `authLevel` property with GitHub webhooks. | 
+| **[`slack`](#slack-webhooks)** | The function responds to [Slack webhooks](https://api.slack.com/outgoing-webhooks). Don't use the `authLevel` property with Slack webhooks. |
 
 When setting the `webHookType` property, don't also set the `methods` property on the binding. 
 
