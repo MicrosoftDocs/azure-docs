@@ -7,7 +7,9 @@ ms.date: 11/01/2023
 
 # Confidential Containers (preview) with Azure Kubernetes Service (AKS)
 
-To help secure and protect your container workloads from untrusted or potentially malicious code, as part of our Zero Trust cloud architecture, AKS includes Confidential Containers (preview) on Azure Kubernetes Service. Confidential Containers builds on Kata Confidential Containers and hardware-based encryption to encrypt container memory. This establishes a new level of data confidentiality by preventing data in memory during computation from being in clear text, readable format. Trust is earned in the container through hardware attestation, allowing access to the encrypted data by trusted entities.
+Confidential containers provide a set of features and capabilities to further secure your standard container workloads to achieve higher data security, data privacy and runtime code integrity goals. AKS includes Confidential Containers (preview) on Azure Kubernetes Service.
+
+Confidential Containers builds on Kata Confidential Containers and hardware-based encryption to encrypt container memory. It establishes a new level of data confidentiality by preventing data in memory during computation from being in clear text, readable format. Trust is earned in the container through hardware attestation, allowing access to the encrypted data by trusted entities.
 
 Together with [Pod Sandboxing][pod-sandboxing-overview], you can run sensitive workloads isolated in Azure to protect your data and workloads. Confidential Containers helps significantly reduce the risk of unauthorized access from:
 
@@ -18,7 +20,7 @@ Together with [Pod Sandboxing][pod-sandboxing-overview], you can run sensitive w
 * Another pod running on the same VM node
 * Cloud Service Providers (CSPs) and from guest applications through a separate trust model
 
-This includes enabling application owners to enforce their application security requirements (for example, deny access to Azure tenant admin, Kubernetes admin, etc.).
+Confidential Containers also enables application owners to enforce their application security requirements (for example, deny access to Azure tenant admin, Kubernetes admin, etc.).
 
 With other security measures or data protection controls, as part of your overall architecture, these capabilities help you meet regulatory, industry, or governance compliance requirements for securing sensitive information.
 
@@ -58,7 +60,7 @@ Confidential Containers (preview) are appropriate for deployment scenarios that 
 
 - To manage a Kubernetes cluster, use the Kubernetes command-line client [kubectl][kubectl]. Azure Cloud Shell comes with `kubectl`. You can install kubectl locally using the [az aks install-cli][az-aks-install-cmd] command.
 
-- Confidential containers on AKS provide a sidecar open source container for attestation and secure key release. The sidecar integrates with a Key Management Service (KMS), like Azure Key Vault, for releasing a key to the container group after validation has been completed. Deploying an [Azure Key Vault Managed HSM][azure-key-vault-managed-hardware-security-module] (Hardware Security Module) is optional but recommended to support container-level integrity and attestation. See [Provision and activate a Managed HSM][create-managed-hsm] to deploy Managed HSM.
+- Confidential containers on AKS provide a sidecar open source container for attestation and secure key release. The sidecar integrates with a Key Management Service (KMS), like Azure Key Vault, for releasing a key to the container group after validation is completed. Deploying an [Azure Key Vault Managed HSM][azure-key-vault-managed-hardware-security-module] (Hardware Security Module) is optional but recommended to support container-level integrity and attestation. See [Provision and activate a Managed HSM][create-managed-hsm] to deploy Managed HSM.
 
 ### Install the aks-preview Azure CLI extension
 
@@ -120,8 +122,8 @@ The following are considerations with this preview of Confidential Containers:
 * Updates to secrets and ConfigMaps aren't reflected in the guest.
 * Ephemeral containers and other troubleshooting methods require a policy modification and redeployment. It includes `exec` in container
 log output from containers. `stdio` (ReadStreamRequest and WriteStreamRequest) is enabled.
-* Cronjob deployment type isn't supported by the policy generator tool.
-* Due to container measurements being encoded in the security policy, it's not recommended to use the `latest` tag when specifying containers. This is also a restriction with the policy generator tool.
+* The policy generator tool doesn't support cronjob deployment types.
+* Due to container measurements being encoded in the security policy, we don't recommend using the `latest` tag when specifying containers. It is also a restriction with the policy generator tool.
 * Services, Load Balancers, and EndpointSlices only support the TCP protocol.
 * All containers in all pods on the clusters must be configured to `imagePullPolicy: Always`.
 * The policy generator only supports pods that use IPv4 addresses.
@@ -133,9 +135,9 @@ log output from containers. `stdio` (ReadStreamRequest and WriteStreamRequest) i
 It's important you understand the memory and processor resource allocation behavior in this release.
 
 * CPU: The shim assigns one vCPU to the base OS inside the pod. If no resource `limits` are specified, the workloads don't have separate CPU shares assigned, the vCPU is then shared with that workload. If CPU limits are specified, CPU shares are explicitly allocated for workloads.
-* Memory: The Kata-CC handler uses 2 GB memory for the UVM OS and X MB memory for containers based on resource `limits` if specified (resulting in a 2 GB VM when no limit is given, without implicit memory for containers). The Kata handler uses 256 MB base memory for the UVM OS and X MB memory when resource `limits` are specified. If limits are unspecified, an implicit limit of 1,792 MB is added resulting in a 2 GB VM and 1,792 MB implicit memory for containers.
+* Memory: The Kata-CC handler uses 2-GB memory for the UVM OS and X MB memory for containers based on resource `limits` if specified (resulting in a 2-GB VM when no limit is given, without implicit memory for containers). The Kata handler uses 256-MB base memory for the UVM OS and X MB memory when resource `limits` are specified. If limits are unspecified, an implicit limit of 1,792-MB is added resulting in a 2-GB VM and 1,792-MB implicit memory for containers.
 
-In this release, specifying resource requests in the pod manifests aren't supported. Resource requests from pod YAML manifest are ignored by the Kata container, and  as a result, containerd doesn't pass the requests to the shim. Use resource `limit` instead of resource `requests` to allocate memory or CPU resources for workloads or containers.
+In this release, specifying resource requests in the pod manifests aren't supported. The Kata container ignores resource requests from pod YAML manifest, and as a result, containerd doesn't pass the requests to the shim. Use resource `limit` instead of resource `requests` to allocate memory or CPU resources for workloads or containers.
 
 With the local container filesystem backed by VM memory, writing to the container filesystem (including logging) can fill up the available memory provided to the pod. This condition can result in potential pod crashes.
 
@@ -316,7 +318,7 @@ For example, the app downloads the container image layers for each of the contai
     {"version":"0.2","anyOf":[{"authority":"https://sharedeus2.eus2.test.attest.azure.net","allOf":[{"claim":"x-ms-sevsnpvm-hostdata","equals":"aaa7***7cc09d"},{"claim":"x-ms-compliance-status","equals":"azure-compliant-uvm"},{"claim":"x-ms-sevsnpvm-is-debuggable","equals":"false"}]}]}
     ```
 
-1. Run the following commands to verify the key has been successfully imported:
+1. Run the following commands to verify the key was successfully imported:
 
     ```azurecli-interactive
     az account set --subscription "Subscription ID"
