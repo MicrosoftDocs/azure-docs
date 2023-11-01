@@ -18,7 +18,7 @@ Diagnostic settings allow you to enable metrics and tracing for Azure IoT MQ bro
 - Metrics provide information about the resource utilization and throughput of IoT MQ broker.
 - Tracing provides detailed information about the requests and responses handled by IoT MQ broker.
 
-For enable these features, you must first deploy the [**Diagnostic service**](/docs/observability/1-install/#diagnostics-service-configuration).
+For enable these features, you must first deploy the diagnostic service. For more information about deploying the diagnostic service, see [Monitor Azure IoT MQ](../monitor/howto-monitor-mq.md).
 
 To override default diagnostic settings for IoT MQ broker, update the `spec.diagnostics` section in  the Broker CR. You also need to specify the diagnostic service endpoint, which is the address of the service that collects and stores the metrics and traces. The default endpoint is `azedge-diagnostics-service:9700`.
 
