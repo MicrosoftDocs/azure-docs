@@ -166,8 +166,6 @@ items:
       items:
       - name: Configure observability
         href: monitor/howto-configure-observability.md
-      - name: Monitor Azure MQ
-        href: monitor/howto-monitor-mq.md
     - name: Manage layered network
       items:
       - name: Overview
