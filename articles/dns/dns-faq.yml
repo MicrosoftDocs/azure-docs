@@ -192,7 +192,7 @@ sections:
       - question: |
           How long does it take for DNS changes to take effect?
         answer: |
-          New or updated DNS zones and DNS records typically appear in the Azure DNS name servers within 60 seconds. 
+          New or updated DNS zones and DNS records appear in the Azure DNS name servers within 60 seconds. 
           
           For changes to existing records, DNS caching by DNS clients and DNS recursive resolvers outside of Azure DNS can affect timing. To control this cache duration, use the Time-To-Live (TTL) property of each record set.
           
