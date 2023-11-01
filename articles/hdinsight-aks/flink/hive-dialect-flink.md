@@ -1,20 +1,20 @@
 ---
-title: Hive dialect in Flink
-description: Hive dialect in Flink HDInsight on AKS
+title: Hive dialect in Apache Flink® clusters on HDInsight on AKS
+description: how to use Hive dialect in Apache Flink® clusters on HDInsight on AKS
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 09/18/2023
+ms.date: 10/27/2023
 ---
 
-# Hive dialect in Flink
+# Hive dialect in Apache Flink® clusters on HDInsight on AKS
 
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
-In this article, learn how to use Hive dialect in HDInsight on AKS - Flink.
+In this article, learn how to use Hive dialect in Apache Flink clusters on HDInsight on AKS.
 
 ## Introduction
 
-The user cannot change the default `flink` dialect to hive dialect for their usage on HDInsight on AKS - Flink. All the SQL operations fail once changed to hive dialect with the following error.
+The user cannot change the default `flink` dialect to hive dialect for their usage on HDInsight on AKS clusters. All the SQL operations fail once changed to hive dialect with the following error.
 
 ```Caused by: 
 
@@ -155,3 +155,7 @@ The reason for this issue arises due to an open [Hive Jira](https://issues.apach
   :::image type="content" source="./media/hive-dialect-flink/flink-container-table-2.png" alt-text="Screenshot shows container table 2." lightbox="./media/hive-dialect-flink/flink-container-table-2.png":::
 
   :::image type="content" source="./media/hive-dialect-flink/flink-container-table-3.png" alt-text="Screenshot shows container table 3." lightbox="./media/hive-dialect-flink/flink-container-table-3.png":::
+
+### Reference
+- [Hive Dialect in Apache Flink](https://nightlies.apache.org/flink/flink-docs-master/docs/connectors/table/hive/hive_dialect/#hive-dialect)
+- Apache, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).

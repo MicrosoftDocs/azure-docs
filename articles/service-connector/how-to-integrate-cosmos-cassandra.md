@@ -11,7 +11,7 @@ ms.custom: event-tier1-build-2022, ignite-2022
 
 # Integrate Azure Cosmos DB for Cassandra with Service Connector
 
-This page shows the supported authentication types and client types for the Azure Cosmos DB for Apache Cassandra using Service Connector. You might still be able to connect to the Azure Cosmos DB for Cassandra in other programming languages without using Service Connector. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create the service connection. You can learn more about [Service Connector environment variable naming convention](concept-service-connector-internals.md).
+This page shows the supported authentication types and client types for the Azure Cosmos DB for Apache Cassandra using Service Connector. You might still be able to connect to the Azure Cosmos DB for Cassandra in other programming languages without using Service Connector. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create the service connection and sample code showing how to use them. For more information about naming conventions, check the [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article.
 
 ## Supported compute services
 
