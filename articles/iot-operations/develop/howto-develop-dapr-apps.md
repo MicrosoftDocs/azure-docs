@@ -82,7 +82,7 @@ To create the yaml file, use the following component definitions:
       - name: url
         value: "aio-mq-dmqtt-frontend:8883"
       - name: satTokenPath
-        value: "/var/run/secrets/tokens/aio-mq-client-token"
+        value: "/var/run/secrets/tokens/mqtt-client-token"
       - name: tls
         value: "true"
       - name: caTrustBundle
@@ -100,7 +100,7 @@ To create the yaml file, use the following component definitions:
       - name: url
         value: "aio-mq-dmqtt-frontend:8883"
       - name: satTokenPath
-        value: "/var/run/secrets/tokens/aio-mq-client-token"
+        value: "/var/run/secrets/tokens/mqtt-client-token"
       - name: tls
         value: "true"          
       - name: caTrustBundle
@@ -127,13 +127,13 @@ Your application can authenticate to MQ using any of the [supported authenticati
 1. Create a Kubernetes service account:
 
     ```bash
-    kubectl create serviceaccount aio-mq-client
+    kubectl create serviceaccount mqtt-client-token
     ```
 
-1. Ensure that the service account `aio-mq-client` has an [authorization attribute](../manage-mqtt-connectivity/howto-configure-authentication.md#create-a-service-account):
+1. Ensure that the service account `mqtt-client-token` has an [authorization attribute](../manage-mqtt-connectivity/howto-configure-authentication.md#create-a-service-account):
 
     ```bash
-    kubectl annotate serviceaccount aio-mq-client aio-mq-broker-auth/group=dapr-workload
+    kubectl annotate serviceaccount mqtt-client-token aio-mq-broker-auth/group=dapr-workload
     ```
 
 ## Set up authorization policy between the workload and MQ
@@ -256,11 +256,11 @@ To start, you create a yaml file that uses the following component definitions:
       volumes:
         - name: dapr-unix-domain-socket
           emptyDir: {}
-        - name: aio-mq-client-token
+        - name: mqtt-client-token
           projected:
             sources:
               - serviceAccountToken:
-                  path: aio-mq-client-token
+                  path: mqtt-client-token
                   audience: aio-mq-dmqtt
                   expirationSeconds: 86400
         - name: aio-mq-ca-trust-bundle
@@ -277,7 +277,7 @@ To start, you create a yaml file that uses the following component definitions:
           volumeMounts:
             - name: dapr-unix-domain-socket
               mountPath: /tmp/dapr-components-sockets
-            - name: aio-mq-client-token
+            - name: mqtt-client-token
               mountPath: /var/run/secrets/tokens
             - name: aio-mq-ca-trust-bundle
               mountPath: /certs/aio-mq-ca-trust-bundle/ca.crt
@@ -288,7 +288,7 @@ To start, you create a yaml file that uses the following component definitions:
           volumeMounts:
             - name: dapr-unix-domain-socket
               mountPath: /tmp/dapr-components-sockets
-            - name: aio-mq-client-token
+            - name: mqtt-client-token
               mountPath: /var/run/secrets/tokens
             - name: aio-mq-ca-trust-bundle
               mountPath: /certs/aio-mq-ca-trust-bundle/ca.crt
