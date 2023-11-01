@@ -55,7 +55,7 @@ To add an asset endpoint:
     | Field | Value |
     | --- | --- |
     | Name | `opc-ua-connector-0` |
-    | OPC UA Broker URL | `opc.tcp://opc-plc-simulator:50000` |
+    | OPC UA Broker URL | `opc.tcp://opcplc-000000:50000` |
     | User authentication | `Anonymous` |
     | Transport authentication | `Do not use transport authentication certificate` |
 
@@ -64,6 +64,53 @@ To add an asset endpoint:
 This configuration deploys a new module called `opc-ua-connector-0` to the cluster. After you define an asset, an OPC UA connector pod discovers it. The pod uses the asset endpoint that you specify in the asset definition to connect to an OPC UA server.
 
 When the OPC PLC simulator is running, data flows from the simulator, to the connector, to the OPC UA broker, and finally to the MQ broker.
+
+<!-- TODO: REmove after bugbash -->
+
+To enable the asset endpoint to use an untrusted certificate:
+
+1. On the machine where your Kubernetes cluster is running, create a file called _doe.yaml_ with the following content:
+
+    ```yaml
+    apiVersion: deviceregistry.microsoft.com/v1beta1
+    kind: AssetEndpointProfile
+    metadata:
+      name: doe-opc-ua-connector-0
+      namespace: azure-iot-operations
+    spec:
+      additionalConfiguration: |-
+        {
+          "applicationName": "opcua-connector-0",
+          "defaults": {
+            "publishingIntervalMilliseconds": 1000,
+            "samplingIntervalMilliseconds": 500,
+            "queueSize": 15,
+          },
+          "session": {
+            "timeout": 60000
+          },
+          "subscription": {
+            "maxItems": 1000,
+          },
+          "security": {
+            "autoAcceptUntrustedServerCertificates": true
+          }
+        }
+      targetAddress: opc.tcp://opcplc-000000.azure-iot-operations:50000
+      transportAuthentication:
+        ownCertificates: []
+      userAuthentication:
+        mode: Anonymous
+      uuid: doe-opc-ua-connector-0
+    ```
+
+1. Run the following command to apply the configuration:
+
+    ```bash
+    kubectl apply -f doe.yaml
+    ```
+
+1. Restart the `aio-opc-supervisor` pod.
 
 ## Manage your assets
 

@@ -16,7 +16,7 @@ ms.date: 10/29/2023
 
 [Node-RED](https://nodered.org/) enables low-code programming for event-driven applications. It's a programming tool for wiring together hardware devices, APIs and online services in new and interesting ways. It provides a browser-based editor that connects together flows using the wide range of nodes in the palette that can be deployed to its runtime in a single step.
 
-Before you begin, [verify Azure Iot MQ is installed and running](../deploy/overview-deploy-iot-operations.md).
+Before you begin, [verify Azure Iot MQ is installed and running](../deploy/overview-deploy.md).
 
 ## Connect Node-RED
 
@@ -48,11 +48,11 @@ spec:
 
     ```Output
     NAME                                    READY   STATUS    RESTARTS       AGE
-    azedge-dmqtt-backend-0                  1/1     Running   13 (15m ago)   9d
+    aio-mq-dmqtt-backend-0                  1/1     Running   13 (15m ago)   9d
     azedge-diagnostics-574b6b8896-22qd2     1/1     Running   13 (15m ago)   9d
     node-red                                1/1     Running   8 (15m ago)    8d
     azedge-dmqtt-health-manager-0           1/1     Running   13 (15m ago)   9d
-    azedge-dmqtt-backend-1                  1/1     Running   13 (15m ago)   9d
+    aio-mq-dmqtt-backend-1                  1/1     Running   13 (15m ago)   9d
     azedge-dmqtt-authentication-0           1/1     Running   13 (15m ago)   9d
     azedge-spiffe-server-5499775dff-gjtp8   2/2     Running   26 (15m ago)   9d
     azedge-spiffe-agent-bbxds               1/1     Running   13 (15m ago)   9d

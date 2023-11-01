@@ -118,10 +118,11 @@ The following table summarizes identity scenarios that Azure Virtual Desktop cur
 | Microsoft Entra ID + Microsoft Entra Domain Services | Joined to Microsoft Entra ID | In Microsoft Entra ID and Microsoft Entra Domain Services, synchronized|
 | Microsoft Entra-only | Joined to Microsoft Entra ID | In Microsoft Entra ID |
 
-To use [FSLogix Profile Container](/fslogix/configure-profile-container-tutorial) when joining your session hosts to Microsoft Entra ID, you need to [store profiles on Azure Files](create-profile-container-azure-ad.md) and your user accounts must be [hybrid identities](../active-directory/hybrid/whatis-hybrid-identity.md). You must create these accounts in AD DS and synchronize them to Microsoft Entra ID. To learn more about deploying FSLogix Profile Container with different identity scenarios, see the following articles:
+To use [FSLogix Profile Container](/fslogix/configure-profile-container-tutorial) when joining your session hosts to Microsoft Entra ID, you need to [store profiles on Azure Files](create-profile-container-azure-ad.md) or [Azure NetApp Files](create-fslogix-profile-container.md) and your user accounts must be [hybrid identities](../active-directory/hybrid/whatis-hybrid-identity.md). You must create these accounts in AD DS and synchronize them to Microsoft Entra ID. To learn more about deploying FSLogix Profile Container with different identity scenarios, see the following articles:
 
 - [Set up FSLogix Profile Container with Azure Files and Active Directory Domain Services or Microsoft Entra Domain Services](fslogix-profile-container-configure-azure-files-active-directory.md).
 - [Set up FSLogix Profile Container with Azure Files and Microsoft Entra ID](create-profile-container-azure-ad.md).
+- [Set up FSLogix Profile Container with Azure NetApp Files](create-fslogix-profile-container.md)
 
 > [!IMPORTANT]
 > The user account must exist in the Microsoft Entra tenant you use for Azure Virtual Desktop. Azure Virtual Desktop doesn't support [B2B](../active-directory/external-identities/what-is-b2b.md), [B2C](../active-directory-b2c/overview.md), or personal Microsoft accounts.

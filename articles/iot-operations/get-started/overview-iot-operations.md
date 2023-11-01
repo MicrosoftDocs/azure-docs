@@ -39,7 +39,7 @@ There are two core elements in the Azure IoT Operations Preview architecture:
 
 Azure IoT Operations runs on Arc-enabled Kubernetes clusters on the edge. You can deploy Azure IoT Operations by using the Azure portal or the Azure CLI.
 
-[Azure IoT Orchestrator](../deploy/overview-deploy-iot-operations.md) manages the deployment, configuration, and update of the Azure IoT Operations components that run on your Arc-enabled Kubernetes cluster.
+[Azure IoT Orchestrator](../deploy/overview-deploy.md) manages the deployment, configuration, and update of the Azure IoT Operations components that run on your Arc-enabled Kubernetes cluster.
 
 ## Manage devices and assets
 
@@ -75,8 +75,9 @@ To connect to the cloud from Azure IoT Operations, you have the following option
 
 The north-bound cloud connectors let you connect MQ directly to cloud services such as:
 
-* [Azure Event Grid](../connect-to-cloud/howto-configure-mqtt-bridge.md)
-* [Azure Messaging Services](../connect-to-cloud/howto-use-mqtt-bridge-messaging-service.md)
+* [MQTT brokers](../connect-to-cloud/howto-configure-mqtt-bridge.md)
+* [Azure Event Hubs or Kafka](../connect-to-cloud/howto-configure-kafka.md)
+* [Azure Data Lake Storage](../connect-to-cloud/howto-configure-data-lake.md)
 
 The Data Processor pipeline destinations let you connect to cloud services such as:
 

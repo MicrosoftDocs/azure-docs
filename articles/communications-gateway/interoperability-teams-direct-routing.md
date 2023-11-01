@@ -26,11 +26,11 @@ In this article, you learn:
 
 Azure Communications Gateway sits at the edge of your fixed line network. It connects this network to the Microsoft Phone System, allowing you to support Microsoft Teams Direct Routing. The following diagram shows where Azure Communications Gateway sits in your network.
 
-:::image type="complex" source="media/interoperability-direct-routing/azure-communications-gateway-architecture-teams-direct-routing.svg" alt-text="Architecture diagram for Azure Communications Gateway for Microsoft Teams Direct Routing.":::
+:::image type="complex" source="media/interoperability-direct-routing/azure-communications-gateway-architecture-teams-direct-routing.svg" alt-text="Architecture diagram for Azure Communications Gateway for Microsoft Teams Direct Routing." lightbox="media/interoperability-direct-routing/azure-communications-gateway-architecture-teams-direct-routing.svg":::
     Architecture diagram showing Azure Communications Gateway connecting to the Microsoft Phone System and a fixed operator network over SIP and RTP. Azure Communications Gateway and the Microsoft Phone System connect multiple customers to the operator network. Azure Communications Gateway also has a provisioning API to which a BSS client in the operator's management network must connect. Azure Communications Gateway contains certified SBC function.
 :::image-end:::
 
-Calls flow from endpoints in your networks through Azure Communications Gateway and the Microsoft Phone System into Microsoft Teams clients.
+Calls flow from Microsoft Teams clients through the Microsoft Phone System and Azure Communications Gateway into your network.
 
 ## Compliance with Certified SBC specifications
 
@@ -135,7 +135,7 @@ The Microsoft Phone System typically requires SRTP for media. Azure Communicatio
 
 ### Media handling for calls
 
-You must select the codecs that you want to support when you deploy Azure Communications Gateway. If the Microsoft Phone System doesn't support these codecs, Azure Communications Gateway can perform transcoding (converting between codecs) on your behalf.
+You must select the codecs that you want to support when you deploy Azure Communications Gateway.
 
 Microsoft Teams Direct Routing requires core networks to support ringback tones (ringing tones) during call transfer. Core networks must also support comfort noise. If your core networks can't meet these requirements, Azure Communications Gateway can inject media into calls.
 
