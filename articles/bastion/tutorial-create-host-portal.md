@@ -13,7 +13,7 @@ ms.author: cherylmc
 
 This tutorial helps you deploy Azure Bastion from the Azure portal by using your own manual settings and a SKU (product tier) that you specify. The SKU determines the features and connections that are available for your deployment. For more information about SKUs, see [Configuration settings - SKUs](configuration-settings.md#skus).
 
-In the Azure portal, when you use the **Configure manually** option to deploy Azure Bastion, you can specify configuration values such as instance counts and SKUs at the time of deployment. After Azure Bastion is deployed, you can use SSH or RDP to connect to virtual machines (VMs) in the virtual network via Azure Bastion by using the private IP addresses of the VMs. When you connect to a VM, it doesn't need a public IP address, client software, an agent, or a special configuration.
+In the Azure portal, when you use the **Configure manually** option to deploy Azure Bastion, you can specify configuration values such as instance counts and SKUs at the time of deployment. After Azure Bastion is deployed, you can use SSH or RDP to connect to virtual machines (VMs) in the virtual network via Azure Bastion using the private IP addresses of the VMs. When you connect to a VM, it doesn't need a public IP address, client software, an agent, or a special configuration.
 
 The following diagram shows the architecture of Azure Bastion.
 
@@ -80,7 +80,7 @@ You can use the following example values when creating this configuration, or yo
 
 ## <a name="createhost"></a>Deploy Azure Bastion
 
-This section helps you deploy Azure Bastion to your virtual network. After Azure Bastion is deployed, you can connect securely to any VM in the virtual network by using its private IP address.
+This section helps you deploy Azure Bastion to your virtual network. After Azure Bastion is deployed, you can connect securely to any VM in the virtual network using its private IP address.
 
 > [!IMPORTANT]
 > [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
