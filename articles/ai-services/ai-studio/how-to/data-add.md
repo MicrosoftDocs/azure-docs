@@ -79,7 +79,7 @@ If you're using SDK or CLI to create data, you must specify a `path` that points
 # [Azure CLI](#tab/cli)
 
 
-If you're are using SDK or CLI to create data, you must specify a `path` that points to the data location. Supported paths include:
+If you're using the SDK or CLI to create data, you must specify a `path` that points to the data location. Supported paths include:
 |Location  | Examples  |
 |---------|---------|
 |Local: A path on your local computer    | `./home/username/data/my_data`         |
@@ -108,13 +108,13 @@ These steps explain how to create a File typed data in the Azure AI studio:
     
     :::image type="content" source="../media/data-add/select-connection.png" alt-text="This screenshot shows the existing connections.":::
     
-    1. **Existing Connections**: You can select an existing connection and browse into this connection and choose a file you need. If the existing connections don't work for you, you can click the right button to **Add connection**. 
+    1. **Existing Connections**: You can select an existing connection and browse into this connection and choose a file you need. If the existing connections don't work for you, you can select the right button to **Add connection**. 
     :::image type="content" source="../media/data-add/choose-file.png" alt-text="This screenshot shows the step to choose a file from existing connection.":::
 
     1. **Get data with Storage URL**: You can choose the **Type** as "File", and provide a URL based on the supported URL formats listed in the page.
     :::image type="content" source="../media/data-add/file-url.png" alt-text="This screenshot shows the step to provide a URL pointing to a file.":::
 
-    1. **Upload files/folders**: You can click **Upload files or folder**, and click **Upload files**, and choose the local file to upload. The file will be uploaded into the default "workspaceblobstore" connection.
+    1. **Upload files/folders**: You can select **Upload files or folder**, and select **Upload files**, and choose the local file to upload. The file is uploaded into the default "workspaceblobstore" connection.
     :::image type="content" source="../media/data-add/upload.png" alt-text="This screenshot shows the step to upload files/folders.":::
 
 1. Select **Next** after choosing the data source.
@@ -177,25 +177,27 @@ Use these steps to create a Folder typed data in the Azure AI studio:
 
 1. Navigate to [Azure AI studio](https://ai.azure.com/)
 
-1. From the collapsable menu on the left, select **Data** under **Components**. Click **Add Data**.
+1. From the collapsible menu on the left, select **Data** under **Components**. Select **Add Data**.
 :::image type="content" source="../media/data-add/add-data.png" alt-text="Screenshot highlights Add Data in the Data tab.":::
 
-1. Choose your **Data source**. You have 3 options of choosing data source. (1) You can select data from **Existing Connections**. (2) You can **Get data with Storage URL** if you have a direct URL to a storage account or a public accessible HTTPS server. (3) You can choose **Upload files/folders** to upload a folder from your local drive.
+1. Choose your **Data source**. You have three options of choosing data source. (a) You can select data from **Existing Connections**. (b) You can **Get data with Storage URL** if you have a direct URL to a storage account or a public accessible HTTPS server. (c) You can choose **Upload files/folders** to upload a folder from your local drive.
 :::image type="content" source="../media/data-add/select-connection.png" alt-text="This screenshot shows the existing connections.":::
 
-1. **Existing Connections**
-You can click an existing connection and browse into this connection and choose a file you need. If the existing connections don't work for you, you can click the right button to **Add connection**. 
+    1. **Existing Connections**: You can select an existing connection and browse into this connection and choose a file you need. If the existing connections don't work for you, you can select the right button to **Add connection**. 
 :::image type="content" source="../media/data-add/choose-folder.png" alt-text="This screenshot shows the step to choose a folder from existing connection.":::
 
-1. **Get data with Storage URL**
-You can choose the **Type** as "File", and provide a URL based on the supported URL formats listed in the page.
+    1. **Get data with Storage URL**: You can choose the **Type** as "Folder", and provide a URL based on the supported URL formats listed in the page.
 :::image type="content" source="../media/data-add/folder-url.png" alt-text="This screenshot shows the step to provide a URL pointing to a folder.":::
 
-1. **Upload files/folders**
-You can click **Upload files or folder**, and click **Upload files**, and choose the local file to upload. The file will be uploaded into the default "workspaceblobstore" connection.
+    1. **Upload files/folders**: You can select **Upload files or folder**, and select **Upload files**, and choose the local file to upload. The file is uploaded into the default "workspaceblobstore" connection.
 :::image type="content" source="../media/data-add/upload.png" alt-text="This screenshot shows the step to upload files/folders.":::
 
-1. Name your data and then select **Create** on the last page.
+1. Select **Next** after choosing the data source.
+
+1. Enter a custom name for your data, and then select **Create**.
+
+    :::image type="content" source="../media/data-connections/data-add-finish.png" alt-text="Screenshot of naming the data." lightbox="../media/data-connections/data-add-finish.png":::
+
 
 
 # [Python SDK](#tab/python)
