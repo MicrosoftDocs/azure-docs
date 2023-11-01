@@ -100,7 +100,7 @@ Enter the following settings directly on your device or in the application as th
 |Username and password | Enter the Entra application credentials from an application with access to the Azure Communication Services Resource |
 
 ### Verifying credentials with Send-MailMessage
-The credentials can be verified using the Microsoft PowerShell utility Send-MailMessage. See [Send-MailMessage](https://learn.microsoft.com/powershell/module/microsoft.powershell.utility/send-mailmessage) for the syntax.
+The credentials can be verified using the Microsoft PowerShell utility Send-MailMessage. See [Send-MailMessage](/powershell/module/microsoft.powershell.utility/send-mailmessage) for the syntax.
 
 To store the credentials in the required PSCredential format, use the following PowerShell commands:
 ```PowerShell
