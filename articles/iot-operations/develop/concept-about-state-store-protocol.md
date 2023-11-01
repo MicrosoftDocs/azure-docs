@@ -18,8 +18,6 @@ ms.date: 11/1/2023
 
 The MQ state store is a distributed storage system that resides in the DMQTT cluster. The state store offers the same high availability guarantees as MQTT messages in DMQTT. According to the MQTT5/RPC protocol guidelines, clients should interact with the MQ state store by using MQTT5. This article provides protocol guidance for developers who need to implement their own Azure IoT MQ state store clients. 
 
-Microsoft recommends that developers use the MQ Client SDKs whenever possible (for supported languages) to communicate with the MQ state store. When you use an MQ Client SDK, it simplifies your development by handling all the protocol details described in this document. The MQ Client SDKs are tested and updated whenever the state store adds new features. Developers can use the SDKs to avoid the cost of having to repeatedly update custom code to handle the state store protocol. 
-
 ## State store protocol overview
 The MQ state store currently supports the following actions:
 
