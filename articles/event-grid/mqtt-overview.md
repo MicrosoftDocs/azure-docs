@@ -31,7 +31,7 @@ The following are a list of key concepts involved in Azure Event Grid’s MQTT b
 
 ### MQTT
 
-MQTT is a publish-subscribe messaging transport protocol that was designed for constrained environments. It has become the go-to communication standard for IoT scenarios due to efficiency, scalability, and reliability. MQTT broker enables clients to publish and subscribe to messages over MQTT v3.1.1, MQTT v3.1.1 over WebSockets, MQTT v5, and MQTT v5 over WebSockets protocols. The following list shows some of the feature highlights of MQTT broker:
+MQTT is a publish-subscribe messaging transport protocol that was designed for constrained environments. It is the go-to communication standard for IoT scenarios due to efficiency, scalability, and reliability. MQTT broker enables clients to publish and subscribe to messages over MQTT v3.1.1, MQTT v3.1.1 over WebSockets, MQTT v5, and MQTT v5 over WebSockets protocols. The following list shows some of the feature highlights of MQTT broker:
 - MQTT v5 features: 
 	- **User properties** allow you to add custom key-value pairs in the message header to provide more context about the message. For example, include the purpose or origin of the message so the receiver can handle the message efficiently.
 	- **Request-response pattern** enables your clients to take advantage of the standard request-response asynchronous pattern, specifying the response topic and correlation ID in the request for the client to respond without prior configuration. 
@@ -72,7 +72,7 @@ IoT applications are software designed to interact with and process data from Io
 
 ### Client authentication
 
-Event Grid has a client registry that stores information about the clients permitted to connect to it. Before a client can connect, there must be an entry for that client in the client registry. As a client connects to MQTT broker, it needs to authenticate with MQTT broker based on credentials stored in the identity registry. MQTT broker supports X.509 certificate authentication that is the industry authentication standard in IoT devices and [Microsoft Entra ID (formerly Azure Active Directory)](mqtt-client-azure-ad-token-and-rbac.md) that is Azure's authentication standard for applications.[Learn more about MQTT client authentication.](mqtt-client-authentication.md) 
+Event Grid has a client registry that stores information about the clients permitted to connect to it. Before a client can connect, there must be an entry for that client in the client registry. As a client connects to MQTT broker, it needs to authenticate with MQTT broker based on credentials stored in the identity registry. MQTT broker supports X.509 certificate authentication that is the industry authentication standard in IoT devices and [Microsoft Entra ID (formerly Azure Active Directory)](mqtt-client-azure-ad-token-and-rbac.md) that is Azure's authentication standard for applications.[Learn more about MQTT client authentication.](mqtt-client-authentication.md)
 
 ### Access control
 
@@ -86,9 +86,12 @@ Topic spaces also provide granular access control by allowing you to control the
 
 ### Routing
 
-Event Grid allows you to route your MQTT messages to Azure services or webhooks for further processing. Accordingly, you can build end-to-end solutions by using your IoT data for data analysis, storage, and visualizations, among other use cases. The routing configuration enables you to send all your messages from your clients to an [Event Grid custom topic](custom-topics.md), and configuring [Event Grid event subscriptions](subscribe-through-portal.md) to route the messages from that Event Grid topic to the [supported event handlers](event-handlers.md). For example, this functionality enables you to use Event Grid to route telemetry from your IoT devices to Event Hubs and then to Azure Stream Analytics to gain insights from your device telemetry. [Learn more about routing.](mqtt-routing.md)
+Event Grid allows you to route your MQTT messages to Azure services or webhooks for further processing. Accordingly, you can build end-to-end solutions by using your IoT data for data analysis, storage, and visualizations, among other use cases. The routing configuration enables you to send all your MQTT messages from your clients to either an [Event Grid namespace topic](concepts-pull-delivery.md#namespace-topics) or an  [Event Grid custom topic](custom-topics.md). Once the messages are in the topic, you can configure an event subscription to consume the messages from the topic. For example, this functionality enables you to use Event Grid to route telemetry from your IoT devices to Event Hubs and then to Azure Stream Analytics to gain insights from your device telemetry. [Learn more about routing.](mqtt-routing.md)
 
 :::image type="content" source="media/mqtt-overview/routing-high-res.png" alt-text="Diagram of the MQTT message routing." border="false":::
+
+### Edge MQTT broker integration
+Event Grid integrates with [Azure IoT MQ](https://aka.ms/iot-mq) to bridge its MQTT broker capability on the edge with Event Grid’s MQTT broker capability in the cloud. Azure IoT MQ is a new distributed MQTT broker for edge computing, running on Arc enabled Kubernetes clusters. It can connect to Event Grid MQTT broker with Microsoft Entra ID (formerly Azure Active Directory) authentication using system-assigned managed identity, which simplifies credential management. Azure IoT MQ provides high availability, scalability, and security for your IoT devices and applications. It's now available in [public preview](https://aka.ms/iot-mq-preview) as part of Azure IoT Operations.
 
 ### MQTT Clients Life Cycle Events 
 
