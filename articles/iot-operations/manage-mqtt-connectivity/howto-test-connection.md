@@ -14,7 +14,7 @@ ms.date: 11/01/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-By default, IoT MQ deploys a [TLS-enabled listener](concept-brokerlistener.md) on port 8883 with ClusterIp as the service type. This means that the broker is accessible only from within the Kubernetes cluster. To access the broker from outside the cluster, you must configure a service of type LoadBalancer or NodePort.
+By default, IoT MQ deploys a [TLS-enabled listener](concept-brokerlistener.md) on port 8883 with ClusterIp as the service type. ClusterIp means that the broker is accessible only from within the Kubernetes cluster. To access the broker from outside the cluster, you must configure a service of type LoadBalancer or NodePort.
 
 Also, by default, IoT MQ only accepts [Kubernetes service accounts for authentication](howto-configure-authentication.md) for connections from within the cluster. To connect from outside the cluster, you must configure a different authentication method.
 
@@ -24,7 +24,7 @@ Before you begin, [install or deploy IoT Operations](../get-started/quickstart-d
 
 ## Connect from a pod within the cluster with default configuration
 
-The first option is to connect from within the cluster. This option uses the default configuration and requires no additional updates. The following examples show how to connect from within the cluster using plain Alpine Linux and a commonly used MQTT client, leveraging the service account and default root CA cert. 
+The first option is to connect from within the cluster. This option uses the default configuration and requires no extra updates. The following examples show how to connect from within the cluster using plain Alpine Linux and a commonly used MQTT client, using the service account and default root CA cert.
 
 ```yaml
 apiVersion: v1
@@ -101,7 +101,7 @@ To use mqttui, the command is similar:
 $ mqttui -b mqtts://aio-mq-dmqtt-frontend:8883 -u '$sat' --password $(cat /var/run/secrets/tokens/mqtt-client-token) --insecure
 ```
 
-With the above command, mqttui connects to the broker using the service account token. The `--insecure` flag is required because mqttui does not support TLS certificate chain verification with a custom root CA cert.
+With the above command, mqttui connects to the broker using the service account token. The `--insecure` flag is required because mqttui doesn't support TLS certificate chain verification with a custom root CA cert.
 
 Lastly, to remove the pod, run `kubectl delete pod mqtt-client -n azure-iot-operations`.
 
@@ -119,7 +119,7 @@ Then, use the `ca.crt` file to configure your client to trust the broker's TLS c
 
 ### Authenticate with the broker
 
-By default, IoT MQ only accepts Kubernetes service accounts for authentication for connections from within the cluster. To connect from outside the cluster, you must configure a different authentication method like X.509 or username/password. See [Configure authentication](howto-configure-authentication.md) for more information.
+By default, IoT MQ only accepts Kubernetes service accounts for authentication for connections from within the cluster. To connect from outside the cluster, you must configure a different authentication method like X.509 or username/password. For more information, see [Configure authentication](howto-configure-authentication.md).
 
 #### Turn off authentication is for testing purposes only
 
@@ -140,7 +140,7 @@ Some Kubernetes distributions can [expose](https://k3d.io/v5.1.0/usage/exposing_
 k3d cluster create -p '8883:8883@loadbalancer'
 ```
 
-But for this to work with IoT MQ, you must configure it to use a load balancer instead of cluster IP. To do so, edit the `BrokerListener` resource and change the `serviceType` field to `loadBalancer`:
+But for this method to work with IoT MQ, you must configure it to use a load balancer instead of cluster IP. To do so, edit the `BrokerListener` resource and change the `serviceType` field to `loadBalancer`:
   
 ```bash
 kubectl patch brokerlistener listener -n azure-iot-operations --type='json' -p='[{"op": "replace", "path": "/spec/serviceType", "value": "loadBalancer"}]'
@@ -154,7 +154,7 @@ NAME                    TYPE           CLUSTER-IP     EXTERNAL-IP   PORT(S)     
 aio-mq-dmqtt-frontend   LoadBalancer   10.43.107.11   XXX.XX.X.X    8883:30366/TCP   14h
 ```
 
-Then use the external IP address to connect to IoT MQ from outside the cluster. If you used the K3d command above, you can use `localhost` to connect to IoT MQ. For example, to connect with mosquitto client:
+Then use the external IP address to connect to IoT MQ from outside the cluster. If you used the K3d command with port forwarding, you can use `localhost` to connect to IoT MQ. For example, to connect with mosquitto client:
 
 ```bash
 mosquitto_pub -q 1 -d -h localhost -m hello -t world -u client1 -P password --cafile ca.crt --insecure
@@ -179,15 +179,15 @@ With [minikube](https://minikube.sigs.k8s.io/docs/), [kind](https://kind.sigs.k8
 kubectl port-forward service/aio-mq-dmqtt-frontend 8883:mqtts-8883 -n azure-iot-operations
 ```
 
-Then, use 127.0.0.1 to connect to the broker at port 8883 with the same authentication and TLS configuration as above.
+Then, use 127.0.0.1 to connect to the broker at port 8883 with the same authentication and TLS configuration as the example without port forwarding.
 
-This is also useful for testing IoT MQ locally on your development machine without having to modify the broker's configuration.
+Port forwarding is also useful for testing IoT MQ locally on your development machine without having to modify the broker's configuration.
 
 To learn more, see [Use Port Forwarding to Access Applications in a Cluster](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/) for minikube.
 
 ## Caution zone: no TLS and no authentication
 
-The reason that IoT MQ uses TLS and service accounts authentication by default is to provide a secure-by-default experience that minimizes inadvertent exposure of your IoT solution to attackers. As warned above, exposing IoT MQ to the internet without authentication and TLS can lead to unauthorized access and even DDOS attacks.
+The reason that IoT MQ uses TLS and service accounts authentication by default is to provide a secure-by-default experience that minimizes inadvertent exposure of your IoT solution to attackers. As warned, exposing IoT MQ to the internet without authentication and TLS can lead to unauthorized access and even DDOS attacks.
 
 If you understand the risks and still need to use an insecure port in a well-controlled environment, create a new `BrokerListener` resource without TLS settings:
 
@@ -204,7 +204,7 @@ spec:
   port: 1883
 ```
 
-Here, the `authenticationEnabled` and `authorizationEnabled` fields are set to `false` to turn off authentication and authorization. The `port` field is set to `1883` to use common MQTT port. However, this port is not exposed to the internet because the `serviceType` is set to `clusterIP` by default.
+Here, the `authenticationEnabled` and `authorizationEnabled` fields are set to `false` to turn off authentication and authorization. The `port` field is set to `1883` to use common MQTT port. However, this port isn't exposed to the internet because the `serviceType` is set to `clusterIP` by default.
 
 Then, wait for the service to be updated:
 
