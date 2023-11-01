@@ -76,7 +76,7 @@ The following table compares features available in the managed gateway versus th
 | [CA root certificates](api-management-howto-ca-certificates.md) for certificate validation |  ✔️ |  ❌ | ✔️<sup>3</sup> |  
 | [Managed domain certificates](configure-custom-domain.md?tabs=managed#domain-certificate-options) |  ✔️ | ✔️ | ❌ |
 | [TLS settings](api-management-howto-manage-protocols-ciphers.md) |  ✔️ | ✔️ | ✔️ |
-| **HTTP/2** (Client-to-gateway) |  ✔️ | ❌ | ✔️ |
+| **HTTP/2** (Client-to-gateway) | ✔️<sup>4</sup> | ❌ | ✔️ |
 | **HTTP/2** (Gateway-to-backend) |  ❌ | ❌ | ✔️ |
 | API threat detection with [Defender for APIs](protect-with-defender-for-apis.md) | ✔️ |  ❌ | ❌ |
 
