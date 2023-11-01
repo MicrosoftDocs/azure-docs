@@ -22,17 +22,36 @@ Prompt flow runtime has the computing resources required for the application to 
 
 A runtime requires a compute instance. If you don't have a compute instance, you can [create one in Azure AI Studio](./create-manage-compute.md).
 
-
 To create a prompt flow runtime in Azure AI Studio:
 
 1. Sign in to [Azure AI Studio](https://ai.azure.com) and select your project from the **Build** page. If you don't have a project already, first create a project.
-1. Under **Manage**, select **Compute instances**.
 
-    :::image type="content" source="../media/compute/compute-create.png" alt-text="Screenshot of the option to create a new compute instance from the manage page." lightbox="../media/compute/compute-create.png":::
+1. From the collapsible left menu, select **Settings**.
+1. In the **Compute instances** section, select **View all**.
+
+    :::image type="content" source="../media/compute/compute-view-settings.png" alt-text="Screenshot of project settings with the option to view all compute instances." lightbox="../media/compute/compute-view-settings.png":::
+
+1. Make sure that you have a compute instance available and running. If you don't have a compute instance, you can [create one in Azure AI Studio](./create-manage-compute.md).
+1. Select the **Prompt flow runtimes** tab.
+
+    :::image type="content" source="../media/compute/compute-runtime.png" alt-text="Screenshot of where to select prompt flow runtimes from the compute instances page." lightbox="../media/compute/compute-runtime.png":::
 
 1. Enter a custom name for your compute.
 
-    :::image type="content" source="../media/compute/compute-create.png" alt-text="Screenshot of the option to create a new compute instance from the manage page." lightbox="../media/compute/compute-create.png":::
+    :::image type="content" source="../media/compute/runtime-create.png" alt-text="Screenshot of the create runtime button." lightbox="../media/compute/runtime-create.png":::
+
+
+    :::image type="content" source="../media/compute/runtime-select-compute.png" alt-text="Screenshot of the option to select a compute instance during runtime creation." lightbox="../media/compute/runtime-select-compute.png":::
+
+
+    :::image type="content" source="../media/compute/runtime-create-confirm.png" alt-text="Screenshot of the option to confirm auto restart via the runtime creation." lightbox="../media/compute/runtime-create-confirm.png":::
+
+    :::image type="content" source="../media/compute/runtime-creation-in-progress.png" alt-text="Screenshot of the runtime not yet available status." lightbox="../media/compute/runtime-creation-in-progress.png":::
+
+    :::image type="content" source="../media/compute/runtime-running.png" alt-text="Screenshot of the runtime is running status." lightbox="../media/compute/runtime-running.png":::
+
+    :::image type="content" source="../media/compute/runtime-details.png" alt-text="Screenshot of the runtime details including environment." lightbox="../media/compute/runtime-details.png":::
+
 
 
 1. Select add runtime in runtime list page.
