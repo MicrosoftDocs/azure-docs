@@ -43,17 +43,17 @@ The following table provides a comparison of the five disk types to help you dec
 |         | Ultra disk | Premium SSD v2 | Premium SSD | Standard SSD | <nobr>Standard HDD</nobr> |
 | ------- | ---------- | ----------- | ------------ | ------------ | ------------ |
 | **Disk type** | SSD | SSD |SSD | SSD | HDD |
-| **Scenario**  | IO-intensive workloads such as [SAP HANA](workloads/sap/hana-vm-operations-storage.md), top tier databases (for example, SQL, Oracle), and other transaction-heavy workloads. | Production and performance-sensitive workloads that consistently require low latency and high IOPS and throughput | Production and performance sensitive workloads | Web servers, lightly used enterprise applications and dev/test | Backup, non-critical, infrequent access |
+| **Scenario**  | IO-intensive workloads such as SAP HANA, top tier databases (for example, SQL, Oracle), and other transaction-heavy workloads. | Production and performance-sensitive workloads that consistently require low latency and high IOPS and throughput | Production and performance sensitive workloads | Web servers, lightly used enterprise applications and dev/test | Backup, non-critical, infrequent access |
 | **Max disk size** | 65,536 GiB | 65,536 GiB |32,767 GiB | 32,767 GiB | 32,767 GiB |
 | **Max throughput** | 4,000 MB/s | 1,200 MB/s | 900 MB/s | 750 MB/s | 500 MB/s |
 | **Max IOPS** | 160,000 | 80,000 | 20,000 | 6,000 | 2,000, 3,000* |
 | **Usable as OS Disk?** | No | No | Yes | Yes | Yes |
 
-\* Only applies to disks with performance plus (preview) enabled.
+* Only applies to disks with performance plus (preview) enabled.
 
 For more help deciding which disk type suits your needs, this decision tree should help with typical scenarios:
 
-:::image type="content" source="../virtual-machines/media/disks-types/managed-disk-decision-tree.png" alt-text="Diagram of a decision tree for managed disk types." lightbox="media/disks-types/managed-disk-decision-tree.png":::
+:::image type="content" source="../../virtual-machines/media/disks-types/managed-disk-decision-tree.png" alt-text="Diagram of a decision tree for managed disk types." lightbox="media/disks-types/managed-disk-decision-tree.png":::
 
 For a video that covers some high level differences for the different disk types, as well as some ways for determining what impacts your workload requirements, see [Block storage options with Azure Disk Storage and Elastic SAN](https://youtu.be/igfNfUvgaDw).
 
