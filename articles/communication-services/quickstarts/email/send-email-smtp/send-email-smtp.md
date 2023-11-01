@@ -10,7 +10,7 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-smtp-sending-method
 ---
-# Quickstart: Send email with attachments
+# Quickstart: Send email with SMTP
 
 In this quick start, you'll learn about how to send email using SMTP.
 
