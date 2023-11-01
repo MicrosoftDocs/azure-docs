@@ -13,7 +13,7 @@ ms.author: wchi
     dotnet add package Azure.Data.Tables
     ```
 
-1. Get table storage connection string from the environment variable added by Service Connector.
+1. Get the table storage connection string from the environment variable added by Service Connector.
 
     ```csharp
     using Azure.Data.Tables;
@@ -33,7 +33,7 @@ ms.author: wchi
         <version>12.2.1</version>
     </dependency>
     ```
-1. Get Azure Table Storage connection string from the environment variable added by service connector.
+1. Get the Azure Table Storage connection string from the environment variable added by service connector.
 
     ```java
     String connectionStr = System.getenv("AZURE_STORAGETABLE_CONNECTIONSTRING");
@@ -48,7 +48,7 @@ ms.author: wchi
     ```bash
     pip install azure-data-tables
     ```
-1. Get Azure Table Storage connection string from the environment variable added by Service Connector.
+1. Get the Azure Table Storage connection string from the environment variable added by Service Connector.
     ```python
     from azure.data.tables import TableServiceClient
     import os
@@ -63,7 +63,7 @@ ms.author: wchi
     ```bash
     npm install @azure/data-tables
     ```
-2. Get Azure Table Storage connection string from the environment variable added by Service Connector.
+2. Get the Azure Table Storage connection string from the environment variable added by Service Connector.
     ```javascript
     const { TableClient } = require("@azure/data-tables");
 
@@ -72,4 +72,4 @@ ms.author: wchi
     ```
 
 ### [Other](#tab/other)
-For other languages, you can use the table storage account url and other properties that Service Connector set to the environment variables to connect to Azure Table Storage. For environment variable details, see [Integrate Azure Table Storage with Service Connector](../how-to-integrate-storage-table.md).
+For other languages, you can use the table storage account URL and other properties that Service Connector sets to the environment variables to connect to Azure Table Storage. For environment variable details, see [Integrate Azure Table Storage with Service Connector](../how-to-integrate-storage-table.md).

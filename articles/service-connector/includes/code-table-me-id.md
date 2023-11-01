@@ -14,7 +14,7 @@ ms.author: wchi
     dotnet add package Azure.Identity
     dotnet add package Azure.Data.Tables
     ```
-1. You can use [`azure-identity`](https://www.nuget.org/packages/Azure.Identity/) to authenticate using a managed identity or a service principal. Get Azure Table Storage endpoint url from the environment variable added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+1. You can use [`azure-identity`](https://www.nuget.org/packages/Azure.Identity/) to authenticate using a managed identity or a service principal. Get the Azure Table Storage endpoint URL from the environment variable added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
 
     ```csharp
     using Azure.Identity;
@@ -61,7 +61,7 @@ ms.author: wchi
         <version>1.1.5</version>
     </dependency>
     ```
-1. Authenticate using `azure-identity` and get the endpoint url from the environment variable added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+1. Authenticate using `azure-identity` and get the endpoint URL from the environment variable added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
 
 
     ```java
@@ -95,7 +95,7 @@ ms.author: wchi
    pip install azure-identity
    pip install azure-data-tables
    ```
-1. Authenticate using `azure-identity` library and get Azure Table Storage endpoint URL from the environment variable added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+1. Authenticate using the `azure-identity` library and get the Azure Table Storage endpoint URL from the environment variable added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
 
 
     ```python
@@ -128,7 +128,7 @@ ms.author: wchi
    npm install --save @azure/identity
    npm install @azure/data-tables
    ```
-2. Authenticate using `@azure/identity` library and get Azure Table Storage endpoint URL from the environment variable added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+2. Authenticate using the `@azure/identity` library and get the Azure Table Storage endpoint URL from the environment variable added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
 
 
     ```javascript
@@ -157,4 +157,4 @@ ms.author: wchi
     ```
 
 ### [Other](#tab/other)
-For other languages, you can use the table storage account url and other properties that Service Connector set to the environment variables to connect the table storage. For environment variable details, see [Integrate Azure Table Storage with Service Connector](../how-to-integrate-storage-table.md).
+For other languages, you can use the table storage account URL and other properties that Service Connector sets to the environment variables to connect the table storage. For environment variable details, see [Integrate Azure Table Storage with Service Connector](../how-to-integrate-storage-table.md).
