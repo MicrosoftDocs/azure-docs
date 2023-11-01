@@ -3,7 +3,7 @@ title: Performance and scaling best practices for large workloads in Azure Kuber
 titleSuffix: Azure Kubernetes Service
 description: Learn the best practices for performance and scaling for large workloads in Azure Kubernetes Service (AKS).
 ms.topic: conceptual
-ms.date: 10/30/2023
+ms.date: 11/01/2023
 ---
 
 # Best practices for performance and scaling for large workloads in Azure Kubernetes Service (AKS)
