@@ -78,7 +78,7 @@ In this section, you deploy the data connector agent. After you deploy the agent
 
 ### Prerequisites
 
-- Follow the [Microsoft Sentinel Solution for SAP deployment prerequisites](prerequisites-for-deploying-sap-continuous-threat-monitoring.md).
+- Follow the [Prerequisites for deploying Microsoft Sentinel solution for SAP® applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md).
 - If you plan to ingest NetWeaver/ABAP logs over a secure connection using Secure Network Communications (SNC), [deploy the Microsoft Sentinel for SAP data connector with SNC](configure-snc.md).
 - Otherwise, set up a Key Vault, using either a [managed identity](deploy-data-connector-agent-container.md?tabs=managed-identity#create-key-vault) or a [registered application](deploy-data-connector-agent-container.md?tabs=registered-application#create-key-vault). Make sure you have the necessary permissions.
 - For more information on these options, see the [overview section](#data-connector-agent-deployment-overview).
@@ -86,6 +86,14 @@ In this section, you deploy the data connector agent. After you deploy the agent
 ### Create Key Vault
 
 # [Managed identity](#tab/managed-identity)
+
+# [Experimental tab 1](#tab/exp-tab-1)
+Blah blah blah 1 1 1
+
+# [Experimental tab 2](#tab/exp-tab-2)
+Blah blah blah 2 2 2
+
+---
 
 1. Run the following command to **Create a VM** in Azure (substitute actual names for the `<placeholders>`):
 
@@ -195,7 +203,7 @@ In this section, you deploy the data connector agent. After you deploy the agent
 
 ### Deploy the data connector agent
 
-Now that you've created a VM and a Key Vault, you can create a new agent and connect to one of your SAP systems.
+Now that you've created a VM and a Key Vault, your next step is to create a new agent and connect to one of your SAP systems.
 
 1. From the Microsoft Sentinel navigation menu, select **Data connectors**.
 
@@ -226,9 +234,9 @@ Now that you've created a VM and a Key Vault, you can create a new agent and con
 
     - Select the **Subscription** and **Key Vault** from their respective drop-downs.
 
-    - Under **NWRFC SDK zip file path on the agent VM**, type the path in your VM that contains the SAP NetWeaver Remote Function Call (RFC), Software Development Kit (SDK) archive (.zip file). For example, */src/test/NWRFC.zip*.
+    - Under **NWRFC SDK zip file path on the agent VM**, type the path in your VM that contains the SAP NetWeaver Remote Function Call (RFC) Software Development Kit (SDK) archive (.zip file). For example, */src/test/NWRFC.zip*.
 
-    - To ingest NetWeaver/ABAP logs over a secure connection using Secure Network Communications (SNC), select **Enable SNC connection support**. If you select this option, under **SAP Cryptographic Library path on the agent VM**, provide the path that contains the `sapgenpse` binary and `libsapcrypto.so` library.
+    - To ingest NetWeaver/ABAP logs over a secure connection using Secure Network Communications (SNC), select **Enable SNC connection support**. If you select this option, enter the path that contains the `sapgenpse` binary and `libsapcrypto.so` library, under **SAP Cryptographic Library path on the agent VM**.
     
         > [!NOTE]
         > Make sure that you select **Enable SNC connection support** at this stage if you want to use an SNC connection. You can't go back and enable an SNC connection after you finish deploying the agent.   
