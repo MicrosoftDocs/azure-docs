@@ -18,7 +18,7 @@ When you ask Microsoft Copilot in Azure (preview) to provide these recommendatio
 
 Use Microsoft Copilot for Azure (preview) to ask questions about your Azure Monitor metrics. When asked about metrics for a particular resource Copilot will generate a graph, summarize the results, and allow you to further explore the data in Metrics Explorer. When asked about what metrics are available, Microsoft Copilot for Azure (preview) will describe the platform metrics available for the given resource type. For example, when reviewing platform metrics for an AKS cluster you can optionally choose to run an anomaly analysis to analyze spikes in metrics and see recommendations to address the issue.
 
-## Sample prompts
+### Sample prompts
 
 - "What platform metrics are available for my VM?"
 - "Show me the memory usage trend for my VM"
