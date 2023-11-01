@@ -1,6 +1,6 @@
 ---
-title: Microsoft Sentinel solution for SAP® applications - deploy and configure the SAP data connector agent container (via UI)
-description: This article shows you how to use the UI to deploy the container that hosts the SAP data connector agent. You do this to ingest SAP data into Microsoft Sentinel, as part of the Microsoft Sentinel Solution for SAP.
+title: Microsoft Sentinel solution for SAP® applications - deploy and configure the SAP data connector agent container (via UI) (Alternate)
+description: This article shows you how to use the UI to deploy the container that hosts the SAP data connector agent. You do this to ingest SAP data into Microsoft Sentinel, as part of the Microsoft Sentinel Solution for SAP. (Alternate)
 author: limwainstein
 ms.author: lwainstein
 ms.topic: how-to
@@ -8,7 +8,7 @@ ms.custom: devx-track-azurecli
 ms.date: 01/18/2023
 ---
 
-# Deploy and configure the container hosting the SAP data connector agent (via UI)
+# Deploy and configure the container hosting the SAP data connector agent (via UI) (Alternate)
 
 This article shows you how to deploy the container that hosts the SAP data connector agent. You do this to ingest SAP data into Microsoft Sentinel, as part of the Microsoft Sentinel solution for SAP® applications.
 

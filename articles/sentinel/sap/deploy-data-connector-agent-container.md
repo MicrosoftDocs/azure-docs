@@ -195,11 +195,17 @@ In this section, you deploy the data connector agent. After you deploy the agent
 
 ### Deploy the data connector agent
 
-# [Experimental tab 1](#tab/managed-identity/exp-tab-1)
-Blah blah blah 1 1 1
+# [Experimental tab 1](#tab/exp-tab-1/managed-identity)
+Blah blah blah Managed identity 1 1 1
 
-# [Experimental tab 2](#tab/managed-identity/exp-tab-2)
-Blah blah blah 2 2 2
+# [Experimental tab 1](#tab/exp-tab-1/registered-application)
+Blah blah blah Registered application 1 1 1
+
+# [Experimental tab 2](#tab/exp-tab-2/managed-identity)
+Blah blah blah Managed identity 2 2 2
+
+# [Experimental tab 2](#tab/exp-tab-2/registered-application)
+Blah blah blah Registered application 2 2 2
 
 ---
 
