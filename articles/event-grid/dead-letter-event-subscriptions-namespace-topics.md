@@ -237,13 +237,22 @@ Here's an example **Resource manager template** JSON snippet. You can also use t
 }
 ```
 
-In the Azure portal:
+## Use Azure portal to configure dead letter
+
+When creating an event subscription, you can enable dead-lettering and configure it as shown in the following image.
+
+:::image type="content" source="./media/dead-letter-event-subscriptions-namespace-topics/create-subscription-dead-letter-setting.png" alt-text="Screenshot that shows the Create Subscription page that shows the dead letter settings.":::
+
+For an existing subscription: 
 
 1. Navigate to the **Event Subscription** page for your namespace topic.
-1. Switch to the **Advanced Features** tab. 
+1. Select **Configuration** on the left menu.
+1. Select **Enable dead-lettering** to enable the feature.
 1. Select the **Azure subscription** that has the Azure Storage account where the dead-lettered events are stored. 
 1. Select the **blob container** that holds the blobs with dead-lettered events.
 1. To use a managed identity, for **Managed identity type**, select the type of managed identity that you want to use to connect to the storage account, and configure it. 
+
+    :::image type="content" source="./media/dead-letter-event-subscriptions-namespace-topics/existing-subscription-dead-letter-settings.png" alt-text="Screenshot that shows the Configuration tab of Event Subscription page that shows the dead letter settings.":::
 
 
 ## Next steps
