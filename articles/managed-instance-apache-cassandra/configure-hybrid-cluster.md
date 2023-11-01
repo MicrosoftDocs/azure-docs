@@ -54,7 +54,7 @@ python3 -m pip install -r requirements.txt
 * Run the python script within the client folder with information from the existing (on-premises) cluster:
 
 ```python
-python3 client_configurator.py --subscription-id <subcriptionId> --cluster-resource-group <clusterResourceGroup> --cluster-name <clusterName> --initial-password <initialPassword> --vnet-resource-group <vnetResourceGroup> --vnet-name <vnetName> --subnet-name <subnetName> --location <location> --seed-nodes <seed1 seed2 seed3> --data-center-name <dataCenterName> --sku <sku>
+python3 client_configurator.py --subscription-id <subcriptionId> --cluster-resource-group <clusterResourceGroup> --cluster-name <clusterName> --initial-password <initialPassword> --vnet-resource-group <vnetResourceGroup> --vnet-name <vnetName> --subnet-name <subnetName> --location <location> --seed-nodes <seed1 seed2 seed3> --mi-dc-name <managedInstanceDataCenterName> --dc-name <onPremDataCenterName> --sku <sku>
 ```
 
 > [!NOTE]
@@ -67,7 +67,8 @@ python3 client_configurator.py --subscription-id <subcriptionId> --cluster-resou
 > --subnet-name: The name of the IP addressed allocated to the Cassandra cluster.
 > --location: Where your cluster is deployed.
 > --seed-nodes: The seed nodes of the existing datacenters in your on-premises or self-hosted Cassandra cluster.
-> --data-center-name: The data center name of your Azure Managed Instance cluster.
+> --mi-dc-name: The data center name of your Azure Managed Instance cluster.
+> --dc-name: The data center name of the on-prem cluster.
 > --sku: The virtual machine SKU size.
 
 * The Python script produces a tar archive named `install_certs.tar.gz`.
