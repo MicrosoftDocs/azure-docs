@@ -3,8 +3,7 @@ services: cognitive-services
 manager: nitinme
 author: glharper
 ms.author: glharper
-ms.service: cognitive-services
-ms.subservice: openai
+ms.service: azure-ai-openai
 ms.topic: include
 ms.date: 09/06/2023
 ---

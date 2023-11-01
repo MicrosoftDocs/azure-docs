@@ -44,7 +44,7 @@ If your operation goes over the quota limit, you can do one of the following thi
 
 ### Error: Can't see user assignments in application groups.
 
-**Cause**: This error usually happens after you've moved the subscription from one Azure Active Directory tenant to another. If your old assignments are still tied to the previous Azure Active Directory tenant, the Azure portal will lose track of them.
+**Cause**: This error usually happens after you've moved the subscription from one Microsoft Entra tenant to another. If your old assignments are still tied to the previous Microsoft Entra tenant, the Azure portal will lose track of them.
 
 **Fix**: You'll need to reassign users to application groups.
 

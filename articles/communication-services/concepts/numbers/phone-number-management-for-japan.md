@@ -20,8 +20,8 @@ Use the below tables to find all the relevant information on number availability
 
 | Number Type | Send SMS             | Receive SMS          | Make Calls           | Receive Calls          |
 | :---------- | :------------------- | :------------------- | :------------------- | :--------------------- |
-| Toll-Free   |-                     | -                    | Public Preview       | Public Preview\* |
-| National       | -                    | -                    | Public Preview       | Public Preview\* |
+| Toll-Free   |-                     | -                    | Public Preview      | Public Preview\* |
+| National       | -                    | -                    | Public Preview      | Public Preview\* |
 
 \* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
 

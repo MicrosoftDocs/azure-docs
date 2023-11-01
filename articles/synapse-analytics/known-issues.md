@@ -22,7 +22,6 @@ To learn more about Azure Synapse Analytics, see the [Azure Synapse Analytics Ov
 
 |Azure Synapse Component|Status|Issue|
 |---------|---------|---------|
-|Azure Synapse serverless SQL pool|[Queries using Azure AD authentication fails after 1 hour](#queries-using-azure-ad-authentication-fails-after-1-hour)|Has Workaround|
 |Azure Synapse serverless SQL pool|[Query failures from serverless SQL pool to Azure Cosmos DB analytical store](#query-failures-from-serverless-sql-pool-to-azure-cosmos-db-analytical-store)|Has Workaround|
 |Azure Synapse serverless SQL pool|[Azure Cosmos DB analytical store view propagates wrong attributes in the column](#azure-cosmos-db-analytical-store-view-propagates-wrong-attributes-in-the-column)|Has Workaround|
 |Azure Synapse dedicated SQL pool|[Queries failing with Data Exfiltration Error](#queries-failing-with-data-exfiltration-error)|Has Workaround|
@@ -30,16 +29,6 @@ To learn more about Azure Synapse Analytics, see the [Azure Synapse Analytics Ov
 |Azure Synapse Workspace|[Failed to delete Synapse workspace & Unable to delete virtual network](#failed-to-delete-synapse-workspace--unable-to-delete-virtual-network)|Has Workaround|
 
 ## Azure Synapse Analytics serverless SQL pool active known issues summary
-
-### Queries using Azure AD authentication fails after 1 hour
-
-SQL connections using Azure AD authentication that remain active for more than 1 hour will start to fail. This includes querying storage using Azure AD pass-through authentication and statements that interact with Azure AD, like CREATE EXTERNAL PROVIDER. This affects every tool that keeps connections active, like query editor in SSMS and ADS. Tools that open new connection to execute queries aren't affected, like Synapse Studio.
-
-**Workaround**: The engineering team is currently aware of this behavior and working on a fix. <br>
-Following steps can be followed to work around the problem. 
-
-1) It's recommended switching to Service Principal, Managed Identity or Shared Access Signature instead of using user identity for long running queries. 
-2) Restarting client (SSMS/ADS) acquires new token to establish the connection.
 
 ### Query failures from serverless SQL pool to Azure Cosmos DB analytical store
 
@@ -107,14 +96,29 @@ Deleting a Synapse workspace fails with the error message:
 
 **Workaround**: The problem can be mitigated by retrying the delete operation. The engineering team is aware of this behavior and working on a fix.
 
+### REST API PUT operations or ARM/Bicep templates to update network settings fail
+
+When using an ARM template, Bicep template, or direct REST API PUT operation to change the public network access settings and/or firewall rules for a Synapse workspace, the operation can fail.
+
+**Workaround**: The problem can be mitigated by using a REST API PATCH operation or the Azure Portal UI to reverse and retry the desired configuration changes. The engineering team is aware of this behavior and working on a fix.
+
 ## Recently Closed Known issues
 
 |Synapse Component|Issue|Status|Date Resolved
 |---------|---------|---------|---------|
+|Azure Synapse serverless SQL pool|[Queries using Microsoft Entra authentication fails after 1 hour](#queries-using-azure-ad-authentication-fails-after-1-hour)|Resolved|August 2023
 |Azure Synapse serverless SQL pool|[Query failures while reading Cosmos DB data using OPENROWSET](#query-failures-while-reading-azure-cosmos-db-data-using-openrowset)|Resolved|March 2023
 |Azure Synapse Apache Spark pool|[Failed to write to SQL Dedicated Pool from Synapse Spark using Azure Synapse Dedicated SQL Pool Connector for Apache Spark when using notebooks in pipelines](#failed-to-write-to-sql-dedicated-pool-from-synapse-spark-using-azure-synapse-dedicated-sql-pool-connector-for-apache-spark-when-using-notebooks-in-pipelines)|Resolved|June 2023
 
 ## Azure Synapse Analytics serverless SQL pool recently closed known issues summary
+
+<a name='queries-using-azure-ad-authentication-fails-after-1-hour'></a>
+
+### Queries using Microsoft Entra authentication fails after 1 hour
+
+SQL connections using Microsoft Entra authentication that remain active for more than 1 hour will start to fail. This includes querying storage using Microsoft Entra pass-through authentication and statements that interact with Microsoft Entra ID, like CREATE EXTERNAL PROVIDER. This affects every tool that keeps connections active, like query editor in SSMS and ADS. Tools that open new connection to execute queries aren't affected, like Synapse Studio.
+
+**Status**: Resolved
 
 ### Query failures while reading Azure Cosmos DB data using OPENROWSET
 

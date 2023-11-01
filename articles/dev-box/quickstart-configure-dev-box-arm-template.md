@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to configure the Microsoft Dev Bo
 services: dev-box
 ms.service: dev-box
 ms.topic: quickstart-arm
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-arm-template
 author: RoseHJM
 ms.author: rosemalcolm
 ms.date: 09/20/2023
@@ -26,7 +26,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - Owner or Contributor role on an Azure subscription or resource group.
-- Entra AD. Your organization must use Entra AD for identity and access management.
+- Microsoft Entra AD. Your organization must use Microsoft Entra AD for identity and access management.
 
 ## Review the template 
 
@@ -48,7 +48,7 @@ Multiple Azure resources are defined in the template:
 
 To find more templates that are related to Microsoft Dev Box, see [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.devcenter).
 
-For example, the [Dev Box with customized image](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.devcenter/devbox-with-customized-image) template creates the following Dev Box resources: dev center, project, network connection, dev box definition, and dev box pool. You can then go to the [developer portal](https://aka.ms/devbox-portal) to [create your dev box](/azure/dev-box/quickstart-create-dev-box).
+For example, the [Dev Box with customized image](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.devcenter/devbox-with-customized-image) template creates the following Dev Box resources: dev center, project, network connection, dev box definition, and dev box pool. You can then go to the [developer portal](https://aka.ms/devbox-portal) to [create your dev box](quickstart-create-dev-box.md).
 
 Next, you can use a template to [add other customized images for Base, Java, .NET and Data](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.devcenter/devbox-with-customized-image#add-other-customized-image-for-base-java-net-and-data). These images have the following software and tools installed:
 
@@ -88,7 +88,7 @@ It takes about 10 minutes to deploy the template. When completed, the output is 
 
  :::image type="content" source="media/quickstart-configure-dev-box-arm-template/dev-box-template-output.png" alt-text="Screenshot showing the output of the template.":::
 
-Azure PowerShell is used to deploy the template. You can also use the Azure portal and Azure CLI. To learn other deployment methods, see [Deploy templates](/azure/azure-resource-manager/templates/deploy-portal). 
+Azure PowerShell is used to deploy the template. You can also use the Azure portal and Azure CLI. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-portal.md). 
 
 #### Depending on your configuration, you may want to change the following parameters:  
 
@@ -120,5 +120,5 @@ When you no longer need them, delete the resource group: Go to the Azure portal,
 
  ## Next steps
 
-- [Quickstart: Create a dev box](/azure/dev-box/quickstart-create-dev-box)
+- [Quickstart: Create a dev box](quickstart-create-dev-box.md)
 - [Configure Azure Compute Gallery for Microsoft Dev Box](how-to-configure-azure-compute-gallery.md)

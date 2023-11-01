@@ -114,7 +114,7 @@ Now add the Azure Event Grid trigger, which you use to monitor the resource grou
 
    ![Screenshot that shows the workflow designer with the selected Azure Event Grid trigger.](./media/monitor-virtual-machine-changes-logic-app/logic-app-trigger.png)
 
-1. When prompted, sign in to Azure Event Grid with your Azure account credentials. In the **Tenant** list, which shows the Azure Active Directory tenant that's associated with your Azure subscription, check that the correct tenant appears, for example:
+1. When prompted, sign in to Azure Event Grid with your Azure account credentials. In the **Tenant** list, which shows the Microsoft Entra tenant that's associated with your Azure subscription, check that the correct tenant appears, for example:
 
    ![Screenshot that shows the workflow designer with the Azure sign-in prompt to connect to Azure Event Grid.](./media/monitor-virtual-machine-changes-logic-app/sign-in.png)
 
@@ -123,7 +123,7 @@ Now add the Azure Event Grid trigger, which you use to monitor the resource grou
    > If you're signed in with a personal Microsoft account, such as @outlook.com or @hotmail.com, 
    > the Azure Event Grid trigger might not appear correctly. As a workaround, select 
    > [Connect with Service Principal](../active-directory/develop/howto-create-service-principal-portal.md), 
-   > or authenticate as a member of the Azure Active Directory that's associated with 
+   > or authenticate as a member of the Microsoft Entra that's associated with 
    > your Azure subscription, for example, *user-name*@emailoutlook.onmicrosoft.com.
 
 1. Now subscribe your logic app to events from the publisher. Provide the details about your event subscription as described in the following table, for example:

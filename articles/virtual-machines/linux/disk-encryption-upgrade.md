@@ -12,7 +12,7 @@ ms.custom: seodec18, devx-track-linux
 
 # Upgrading the Azure Disk Encryption version
 
-The first version of Azure Disk Encryption (ADE) relied on Azure Active Directory (Azure AD) for authentication; the current version does not.  We strongly encourage the use of the newest version.
+The first version of Azure Disk Encryption (ADE) relied on Microsoft Entra ID for authentication; the current version does not.  We strongly encourage the use of the newest version.
 
 ## Determine ADE version
 
@@ -56,12 +56,12 @@ Choose the "AzureDiskEncryption" extension for Windows or "AzureDiskEncryptionFo
 
 ## How to migrate
 
-Migration from Azure Disk Encryption (with Azure AD) to Azure Disk Encryption (without Azure AD) is only available through Azure PowerShell. Ensure you have the latest version of Azure PowerShell and at least the [Azure PowerShell Az module version 5.9.0](/powershell/azure/new-azureps-module-az) installed .
+Migration from Azure Disk Encryption (with Microsoft Entra ID) to Azure Disk Encryption (without Microsoft Entra ID) is only available through Azure PowerShell. Ensure you have the latest version of Azure PowerShell and at least the [Azure PowerShell Az module version 5.9.0](/powershell/azure/new-azureps-module-az) installed .
 
-To upgrade from Azure Disk Encryption (with Azure AD) to Azure Disk Encryption (without Azure AD), use the [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) PowerShell cmdlet.
+To upgrade from Azure Disk Encryption (with Microsoft Entra ID) to Azure Disk Encryption (without Microsoft Entra ID), use the [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) PowerShell cmdlet.
 
 > [!WARNING]
-> The Set-AzVMDiskEncryptionExtension cmdlet must only be used on VMs encrypted with Azure Disk Encryption (with Azure AD). Attempting to migrate an unencrypted VM, or a VM encrypted with Azure Disk Encryption (without Azure AD), will result in a terminal error.
+> The Set-AzVMDiskEncryptionExtension cmdlet must only be used on VMs encrypted with Azure Disk Encryption (with Microsoft Entra ID). Attempting to migrate an unencrypted VM, or a VM encrypted with Azure Disk Encryption (without Microsoft Entra ID), will result in a terminal error.
 
 ```azurepowershell-interactive
 Set-AzVMDiskEncryptionExtension -ResourceGroupName <resourceGroupName> -VMName <vmName> -Migrate

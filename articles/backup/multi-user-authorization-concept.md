@@ -2,17 +2,17 @@
 title: Multi-user authorization using Resource Guard
 description: An overview of Multi-user authorization using Resource Guard.
 ms.topic: conceptual
-ms.date: 09/15/2022
+ms.date: 09/25/2023
 ms.service: backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
-# Multi-user authorization using Resource Guard
+# About Multi-user authorization using Resource Guard
 
 Multi-user authorization (MUA) for Azure Backup allows you to add an additional layer of protection to critical operations on your Recovery Services vaults and Backup vaults. For MUA, Azure Backup uses another Azure resource called the Resource Guard to ensure critical operations are performed only with applicable authorization.
 
 >[!Note]
->Multi-user authorization using Resource Guard for Backup vault is in preview.
+>Multi-user authorization using Resource Guard for Backup vault is now generally available.
 
 ## How does MUA for Backup work?
 
@@ -41,7 +41,7 @@ Modify protection (reduced retention) | Optional
 Stop protection with delete data | Optional
 Change MARS security PIN | Optional
 
-# [Backup vault (preview)](#tab/backup-vault)
+# [Backup vault](#tab/backup-vault)
 
 **Operation** | **Mandatory/ Optional**
 --- | ---
@@ -77,7 +77,7 @@ Here's the flow of events in a typical scenario:
 
    If the Backup admin didn't have the required permissions/roles, the request would have failed.
 
-1. The security admin ensures that the privileges to perform critical operations are revoked after authorized actions are performed or after a defined duration. Using JIT tools  [Azure Active Directory Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md) may be useful in ensuring this.
+1. The security admin ensures that the privileges to perform critical operations are revoked after authorized actions are performed or after a defined duration. Using JIT tools  [Microsoft Entra Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md) may be useful in ensuring this.
 
 >[!NOTE]
 >MUA provides protection on the above listed operations performed on the vaulted backups only. Any operations performed directly on the data source (that is, the Azure resource/workload that is protected) are beyond the scope of the Resource Guard. 
@@ -91,7 +91,7 @@ The following table lists the scenarios for creating your Resource Guard and vau
 
 **Usage scenario** | **Protection due to MUA** | **Ease of implementation** | **Notes**
 --- | --- |--- |--- |
-Vault and Resource Guard are **in the same subscription.** </br> The Backup admin does't have access to the Resource Guard. | Least isolation between the Backup admin and the Security admin. | Relatively easy to implement since only one subscription is required. | Resource level permissions/ roles need to be ensured are correctly assigned.
+Vault and Resource Guard are **in the same subscription.** </br> The Backup admin doesn't have access to the Resource Guard. | Least isolation between the Backup admin and the Security admin. | Relatively easy to implement since only one subscription is required. | Resource level permissions/ roles need to be ensured are correctly assigned.
 Vault and Resource Guard are **in different subscriptions but the same tenant.** </br> The Backup admin doesn't have access to the Resource Guard or the corresponding subscription. | Medium isolation between the Backup admin and the Security admin. | Relatively medium ease of implementation since two subscriptions (but a single tenant) are required. | Ensure that that permissions/ roles are correctly assigned for the resource or the subscription.
 Vault and Resource Guard are **in different tenants.** </br> The Backup admin doesn't have access to the Resource Guard, the corresponding subscription, or the corresponding tenant.| Maximum isolation between the Backup admin and the Security admin, hence, maximum security. | Relatively difficult to test since requires two tenants or directories to test. | Ensure that permissions/ roles are correctly assigned for the resource, the subscription or the directory.
 

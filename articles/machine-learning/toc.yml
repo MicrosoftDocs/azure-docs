@@ -86,7 +86,7 @@
         # end v1
         - name: Use Visual Studio Code
           href: tutorial-train-deploy-image-classification-model-vscode.md
-    - name: Develop and operationalize features
+    - name: Managed feature store
       items:
         - name: Develop and register a feature set with managed feature store
           href: tutorial-get-started-with-feature-store.md
@@ -616,6 +616,8 @@
               href: ./prompt-flow/concept-model-monitoring-generative-ai-evaluation-metrics.md
         - name: Get started in Prompt flow
           href: ./prompt-flow/get-started-prompt-flow.md
+        - name: Prompt flow Ecosystem
+          href: ./prompt-flow/community-ecosystem.md
         - name: Set up infrastructure
           items:
             - name: Create and manage runtime
@@ -648,8 +650,6 @@
           href: ./prompt-flow/how-to-deploy-for-real-time-inference.md
         - name: "Code first: Dev to Prod"
           items:
-            - name: Community Ecosystem
-              href: ./prompt-flow/community-ecosystem.md
             - name: Integrate Prompt Flow with LLM-based application DevOps 
               href: ./prompt-flow/how-to-integrate-with-llm-app-devops.md
             - name: Deploy a flow to online endpoint for real-time inference with CLI 
@@ -670,20 +670,22 @@
               href: ./prompt-flow/tools-reference/prompt-tool.md
             - name: Python tool
               href: ./prompt-flow/tools-reference/python-tool.md
-            - name: Azure Translator tool
-              href: ./prompt-flow/tools-reference/azure-translator-tool.md
+            - name: Embedding tool
+              href: ./prompt-flow/tools-reference/embedding-tool.md
             - name: Vector Index Lookup tool
               href: ./prompt-flow/tools-reference/vector-index-lookup-tool.md
             - name: Content Safety (text) tool
               href: ./prompt-flow/tools-reference/content-safety-text-tool.md
             - name: Faiss Index Lookup tool
               href: ./prompt-flow/tools-reference/faiss-index-lookup-tool.md
-            - name: Azure Language Detector tool
-              href: ./prompt-flow/tools-reference/azure-language-detector-tool.md
             - name: Vector DB Lookup tool
               href: ./prompt-flow/tools-reference/vector-db-lookup-tool.md
             - name: SERP API tool
               href: ./prompt-flow/tools-reference/serp-api-tool.md
+            - name: Open Source LLM tool
+              href: ./prompt-flow/tools-reference/open-source-llm-tool.md
+            - name: More tools
+              href: ./prompt-flow/tools-reference/more-tools.md
             - name: Troubleshoot Guidance
               href: ./prompt-flow/tools-reference/troubleshoot-guidance.md
     - name: Retrieval Augmented Generation (RAG)
@@ -702,7 +704,6 @@
           href: how-to-secure-rag-workflows.md
         - name: RAG cloud to local 
           href: how-to-retrieval-augmented-generation-cloud-to-local.md
-
 - name: Responsibly develop & monitor
   items:
   - name: Responsible AI overview
@@ -854,6 +855,8 @@
           href: how-to-deploy-online-endpoints.md
         - name: Deploy models with safe rollout strategy
           href: how-to-safely-rollout-online-endpoints.md
+        - name: Deploy model packages to online endpoints
+          href: how-to-package-models-moe.md
         - name: Autoscale online endpoints
           href: how-to-autoscale-endpoints.md
         - name: Managed online endpoints VM SKU list
@@ -945,8 +948,12 @@
               href: how-to-use-batch-azure-data-factory.md
             - name: Run batch endpoints from Event Grid events in storage
               href: how-to-use-event-grid-batch.md
-    - name: Model portability (ONNX)
-      href: concept-onnx.md
+    - name: Deploy models outside Azure Machine Learning
+      href: how-to-package-models-app-service.md
+    - name: Model optimization
+      items:
+        - name: Accelerate inference with ONNX 
+          href: concept-onnx.md
     - name: Prebuilt Docker images for inference
       href: concept-prebuilt-docker-images-inference.md
     # v1
@@ -1053,8 +1060,12 @@
           href: how-to-share-data-across-workspaces-with-registries.md
     - name: Model Deployment
       items:
-        - name: Endpoints
+        - name: Endpoints for inferencing
           href: concept-endpoints.md
+        - name: Packages for model deployment
+          href: concept-package-models.md
+        - name: How to package models for deployment
+          href: how-to-package-models.md
     - name: Automation
       items:
         - name: Schedule Job
@@ -1307,6 +1318,8 @@
           href: how-to-troubleshoot-kubernetes-compute.md
         - name: Reference for configuring Kubernetes cluster
           href: reference-kubernetes.md
+        - name: Monitor Kubernetes Online Endpoint inference server logs
+          href: how-to-monitor-kubernetes-online-enpoint-inference-server-log.md
     - name: Plan and manage costs
       displayName: low priority VM
       href: concept-plan-manage-cost.md
@@ -1386,6 +1399,12 @@
             href: ./known-issues/workspace-move-compute-instance-same-name.md
           - name: Application Sharing Policy isn't supported 
             href: ./known-issues/application-sharing-policy-not-supported.md 
+        - name: Inferencing known issues
+          items:
+          - name: Existing Kubernetes compute cannot be updated
+            href: ./known-issues/inferencing-updating-kubernetes-compute-appears-to-succeed.md
+          - name: Invalid certificate error during deployment
+            href: ./known-issues/inferencing-invalid-certificate.md
 - name: Samples
   items:
     - name: Jupyter Notebooks

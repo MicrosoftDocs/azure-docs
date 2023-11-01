@@ -61,7 +61,7 @@ Continuous export always outputs data to an Azure Storage account, so you need t
     ![Screenshot of add continuous export then choose event types.](./media/app-insights-export-sql-stream-analytics/085-types.png)
 
 
-1. Let some data accumulate. Sit back and let people use your application for a while. Telemetry will come in and you'll see statistical charts in [metric explorer](../azure-monitor/essentials/metrics-charts.md) and individual events in [diagnostic search](../azure-monitor/app/diagnostic-search.md). 
+1. Let some data accumulate. Sit back and let people use your application for a while. Telemetry will come in and you'll see statistical charts in [metric explorer](../azure-monitor/essentials/metrics-charts.md) and individual events in [diagnostic search](../azure-monitor/app/search-and-transaction-diagnostics.md?tabs=transaction-search). 
    
     And also, the data will export to your storage. 
 2. Inspect the exported data, either in the portal - choose **Browse**, select your storage account, and then **Containers** - or in Visual Studio. In Visual Studio, choose **View / Cloud Explorer**, and open Azure / Storage. (If you don't have this menu option, you need to install the Azure SDK: Open the New Project dialog and open Visual C# / Cloud / Get Microsoft Azure SDK for .NET.)
@@ -248,7 +248,7 @@ FROM [dbo].[PageViewsTable]
 
 <!--Link references-->
 
-[diagnostic]: ../azure-monitor/app/diagnostic-search.md
+[diagnostic]: ../azure-monitor/app/search-and-transaction-diagnostics.md?tabs=transaction-search
 [export]: /previous-versions/azure/azure-monitor/app/export-telemetry
 [metrics]: ../azure-monitor/essentials/metrics-charts.md
 [start]: ../azure-monitor/app/app-insights-overview.md

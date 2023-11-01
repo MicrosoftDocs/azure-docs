@@ -19,7 +19,7 @@ Use vector search in Azure Cosmos DB for MongoDB vCore to seamlessly integrate y
 
 ## What is vector search?
 
-Vector search is a method that helps you find similar items based on their data characteristics rather than by exact matches on a property field. This technique is useful in applications such as searching for similar text, finding related images, making recommendations, or even detecting anomalies. It works by taking the [vector representations](../../../ai-services/openai/concepts/understand-embeddings.md) (lists of numbers) of your data that you created by using a machine learning model by using or an embeddings API. Examples of embeddings APIs are [Azure OpenAI Embeddings](/azure/ai-services/openai/how-to/embeddings) or [Hugging Face on Azure](https://azure.microsoft.com/solutions/hugging-face-on-azure/). It then measures the distance between the data vectors and your query vector. The data vectors that are closest to your query vector are the ones that are found to be most similar semantically.
+Vector search is a method that helps you find similar items based on their data characteristics rather than by exact matches on a property field. This technique is useful in applications such as searching for similar text, finding related images, making recommendations, or even detecting anomalies. It works by taking the [vector representations](../../../ai-services/openai/concepts/understand-embeddings.md) (lists of numbers) of your data that you created by using a machine learning model by using an embeddings API. Examples of embeddings APIs are [Azure OpenAI Embeddings](/azure/ai-services/openai/how-to/embeddings) or [Hugging Face on Azure](https://azure.microsoft.com/solutions/hugging-face-on-azure/). It then measures the distance between the data vectors and your query vector. The data vectors that are closest to your query vector are the ones that are found to be most similar semantically.
 
 By integrating vector search capabilities natively, you can unlock the full potential of your data in applications that are built on top of the [OpenAI API](../../../ai-services/openai/concepts/understand-embeddings.md). You can also create custom-built solutions that use vector embeddings.
 
@@ -122,13 +122,19 @@ To perform a vector search, use the `$search` aggregation pipeline stage in a Mo
         "vector": <vector_to_search>,
         "path": "<path_to_property>",
         "k": <num_results_to_return>
-      }
-    ...
+      },
+      "returnStoredSource": True }},
+  {
+    "$project": { "<custom_name_for_similarity_score>": {
+           "$meta": "searchScore" },
+            "document" : "$$ROOT"
+        }
   }
 }
 ```
+To retrieve the similarity score (`searchScore`) along with the documents found by the vector search, use the `$project` operator to include `searchScore` and rename it as `<custom_name_for_similarity_score>` in the results. Then the document is also projected as nested object. Note that the similarity score is calculated using the metric defined in the vector index.
 
-### Query a vector index by using $search
+### Query vectors and vector distances (aka similarity scores) using $search"
 
 Continuing with the last example, create another vector, `queryVector`. Vector search measures the distance between `queryVector` and the vectors in the `vectorContent` path of your documents. You can set the number of results that the search returns by setting the parameter `k`, which is set to `2` here.
 
@@ -142,8 +148,12 @@ db.exampleCollection.aggregate([
         "path": "vectorContent",
         "k": 2
       },
-    "returnStoredSource": true
-    }
+    "returnStoredSource": true }},
+  {
+    "$project": { "similarityScore": {
+           "$meta": "searchScore" },
+            "document" : "$$ROOT"
+        }
   }
 ]);
 ```
@@ -153,16 +163,22 @@ In this example, a vector search is performed by using `queryVector` as an input
 ```javascript
 [
   {
-    _id: ObjectId("645acb54413be5502badff94"),
-    name: 'Eugenia Lopez',
-    bio: 'Eugenia is the CEO of AdvenureWorks.',
-    vectorContent: [ 0.51, 0.12, 0.23 ]
+    similarityScore: 0.9465376,
+    document: {
+      _id: ObjectId("645acb54413be5502badff94"),
+      name: 'Eugenia Lopez',
+      bio: 'Eugenia is the CEO of AdvenureWorks.',
+      vectorContent: [ 0.51, 0.12, 0.23 ]
+    }
   },
   {
-    _id: ObjectId("645acb54413be5502badff97"),
-    name: 'Rory Nguyen',
-    bio: 'Rory Nguyen is the founder of AdventureWorks and the president of the Our Planet initiative.',
-    vectorContent: [ 0.91, 0.76, 0.83 ]
+    similarityScore: 0.9006955,
+    document: {
+      _id: ObjectId("645acb54413be5502badff97"),
+      name: 'Rory Nguyen',
+      bio: 'Rory Nguyen is the founder of AdventureWorks and the president of the Our Planet initiative.',
+      vectorContent: [ 0.91, 0.76, 0.83 ]
+    }
   }
 ]
 ```

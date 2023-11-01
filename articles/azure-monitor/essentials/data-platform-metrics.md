@@ -41,7 +41,7 @@ The differences between each of the metrics are summarized in the following tabl
 | Aggregation | pre-aggregated | pre-aggregated | raw data |
 | Analyze | [Metrics Explorer](metrics-charts.md) | [Metrics Explorer](metrics-charts.md) | PromQL<br>Grafana dashboards |
 | Alert  | [metrics alert rule](../alerts/tutorial-metric-alert.md) | [metrics alert rule](../alerts/tutorial-metric-alert.md) | [Prometheus alert rule](../essentials/prometheus-rule-groups.md) |
-| Visualize | [Workbooks](../visualize/workbooks-overview.md)<br>[Azure dashboards](../app/tutorial-app-dashboards.md)<br>[Grafana](../visualize/grafana-plugin.md) | [Workbooks](../visualize/workbooks-overview.md)<br>[Azure dashboards](../app/tutorial-app-dashboards.md)<br>[Grafana](../visualize/grafana-plugin.md) | [Grafana](../../managed-grafana/overview.md) |
+| Visualize | [Workbooks](../visualize/workbooks-overview.md)<br>[Azure dashboards](../app/overview-dashboard.md#create-custom-kpi-dashboards-using-application-insights)<br>[Grafana](../visualize/grafana-plugin.md) | [Workbooks](../visualize/workbooks-overview.md)<br>[Azure dashboards](../app/overview-dashboard.md#create-custom-kpi-dashboards-using-application-insights)<br>[Grafana](../visualize/grafana-plugin.md) | [Grafana](../../managed-grafana/overview.md) |
 | Retrieve | [Azure CLI](/cli/azure/monitor/metrics)<br>[Azure PowerShell cmdlets](/powershell/module/az.monitor)<br>[REST API](./rest-api-walkthrough.md) or client library<br>[.NET](/dotnet/api/overview/azure/Monitor.Query-readme)<br>[Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/monitor/azquery)<br>[Java](/java/api/overview/azure/monitor-query-readme)<br>[JavaScript](/javascript/api/overview/azure/monitor-query-readme)<br>[Python](/python/api/overview/azure/monitor-query-readme) | [Azure CLI](/cli/azure/monitor/metrics)<br>[Azure PowerShell cmdlets](/powershell/module/az.monitor)<br>[REST API](./rest-api-walkthrough.md) or client library<br>[.NET](/dotnet/api/overview/azure/Monitor.Query-readme)<br>[Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/monitor/azquery)<br>[Java](/java/api/overview/azure/monitor-query-readme)<br>[JavaScript](/javascript/api/overview/azure/monitor-query-readme)<br>[Python](/python/api/overview/azure/monitor-query-readme) | [Grafana](../../managed-grafana/overview.md) |
 
 
@@ -76,7 +76,7 @@ Use [Metrics Explorer](metrics-charts.md) to interactively analyze the data in y
 
 ![Screenshot that shows an example graph in Metrics Explorer that displays server requests, server response time, and failed requests.](media/data-platform-metrics/metrics-explorer.png)
 
-For more information, see [Getting started with Azure Monitor Metrics Explorer](./metrics-getting-started.md).
+For more information, see [Analyze metrics with Azure Monitor metrics explorer](./analyze-metrics.md).
 
 ## Data structure
 
@@ -94,7 +94,7 @@ One of the challenges to metric data is that it often has limited information to
 
 Metric dimensions are name/value pairs that carry more data to describe the metric value. For example, a metric called _Available disk space_ might have a dimension called _Drive_ with values _C:_ and _D:_. That dimension would allow viewing available disk space across all drives or for each drive individually.
 
-See [Apply dimension filters and splitting](metrics-getting-started.md?#apply-dimension-filters-and-splitting) for details on viewing metric dimensions in metrics explorer.
+See [Apply dimension filters and splitting](analyze-metrics.md?#use-dimension-filters-and-splitting) for details on viewing metric dimensions in metrics explorer.
 
 ### Nondimensional metric
 The following table shows sample data from a nondimensional metric, network throughput. It can only answer a basic question like "What was my network throughput at a given time?"

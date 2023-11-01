@@ -58,3 +58,6 @@ To learn more about Service Bus messaging, see the following topics:
 * [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
 * [How to use Service Bus topics and subscriptions](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 
+## Additional resource
+
+* [A blog post that describes techniques for reordering messages that arrive out of order](https://particular.net/blog/you-dont-need-ordered-delivery)

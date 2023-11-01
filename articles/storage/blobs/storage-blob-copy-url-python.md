@@ -57,7 +57,7 @@ For large objects, you may choose to work with individual blocks. The following 
 
 ## Copy a blob from a source within Azure
 
-If you're copying a blob from a source within Azure, access to the source blob can be authorized via Azure Active Directory (Azure AD), a shared access signature (SAS), or an account key.
+If you're copying a blob from a source within Azure, access to the source blob can be authorized via Microsoft Entra ID, a shared access signature (SAS), or an account key.
 
 The following example shows a scenario for copying a source blob within Azure. The [upload_blob_from_url](/python/api/azure-storage-blob/azure.storage.blob.blobclient#azure-storage-blob-blobclient-upload-blob-from-url) method can optionally accept a Boolean parameter to indicate whether an existing blob should be overwritten, as shown in the example.
 

@@ -4,8 +4,7 @@ description: Customize a C# .NET chat bot with a Personalizer loop to provide th
 author: jcodella
 ms.author: jacodel
 ms.manager: nitinme
-ms.service: cognitive-services
-ms.subservice: personalizer
+ms.service: azure-ai-personalizer
 ms.topic: tutorial
 ms.date: 05/17/2021
 ms.devlang: csharp
@@ -13,6 +12,8 @@ ms.custom: devx-track-csharp, devx-track-dotnet
 ---
 
 # Tutorial: Use Personalizer in .NET chat bot
+
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
 
 Use a C# .NET chat bot with a Personalizer loop to provide the correct content to a user. This chat bot suggests a specific coffee or tea to a user. The user can accept or reject that suggestion. This gives Personalizer information to help make the next suggestion more appropriate.
 

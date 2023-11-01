@@ -16,7 +16,7 @@ ms.custom: subject-rbac-steps,
 
 This article explains how to set up an indexer connection to an Azure Cosmos DB database using a managed identity instead of providing credentials in the connection string.'
 
-You can use a system-assigned managed identity or a user-assigned managed identity (preview). Managed identities are Azure Active Directory logins and require Azure role assignments to access data in Azure Cosmos DB. 
+You can use a system-assigned managed identity or a user-assigned managed identity (preview). Managed identities are Microsoft Entra logins and require Azure role assignments to access data in Azure Cosmos DB. 
 
 ## Prerequisites
 

@@ -16,7 +16,7 @@ ms.date: 05/03/2023
 
 [!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
-This article shows you how to use a user-assigned identity for an Azure Virtual Machine (VM) to access an Azure Database for MySQL server. Managed Service Identities are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication, without needing to insert credentials into your code. 
+This article shows you how to use a user-assigned identity for an Azure Virtual Machine (VM) to access an Azure Database for MySQL server. Managed Service Identities are automatically managed by Azure and enable you to authenticate to services that support Microsoft Entra authentication, without needing to insert credentials into your code. 
 
 You learn how to:
 
@@ -33,7 +33,7 @@ You learn how to:
 - If you're not familiar with the managed identities for Azure resources feature, see this [overview](../../../articles/active-directory/managed-identities-azure-resources/overview.md). If you don't have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before you continue.
 - To do the required resource creation and role management, your account needs "Owner" permissions at the appropriate scope (your subscription or resource group). If you need assistance with role assignment, see [Assign Azure roles to manage access to your Azure subscription resources](../../../articles/role-based-access-control/role-assignments-portal.md).
 - You need an Azure VM (for example running Ubuntu Linux) that you'd like to use for access your database using Managed Identity
-- You need an Azure Database for MySQL database server that has [Azure AD authentication](how-to-configure-sign-in-azure-ad-authentication.md) configured
+- You need an Azure Database for MySQL database server that has [Microsoft Entra authentication](how-to-configure-sign-in-azure-ad-authentication.md) configured
 - To follow the C# example, first complete the guide how to [Connect using C#](connect-csharp.md)
 
 ## Creating a user-assigned managed identity for your VM
@@ -71,7 +71,7 @@ echo $CLIENT_ID
 
 ## Creating a MySQL user for your Managed Identity
 
-Now, connect as the Azure AD administrator user to your MySQL database, and run the following SQL statements:
+Now, connect as the Microsoft Entra administrator user to your MySQL database, and run the following SQL statements:
 
 ```sql
 SET aad_auth_validate_oids_in_tenant = OFF;
@@ -110,7 +110,7 @@ You are now connected to the database you've configured earlier.
 
 ## Connecting using Managed Identity in C#
 
-This section shows how to get an access token using the VM's user-assigned managed identity and use it to call Azure Database for MySQL. Azure Database for MySQL natively supports Azure AD authentication, so it can directly accept access tokens obtained using managed identities for Azure resources. When creating a connection to MySQL, you pass the access token in the password field.
+This section shows how to get an access token using the VM's user-assigned managed identity and use it to call Azure Database for MySQL. Azure Database for MySQL natively supports Microsoft Entra authentication, so it can directly accept access tokens obtained using managed identities for Azure resources. When creating a connection to MySQL, you pass the access token in the password field.
 
 Here's a .NET code example of opening a connection to MySQL using an access token. This code must run on the VM to access the VM's user-assigned managed identity's endpoint. .NET Framework 4.6 or higher or .NET Core 2.2 or higher is required to use the access token method. Replace the values of HOST, USER, DATABASE, and CLIENT_ID.
 
@@ -214,4 +214,4 @@ MySQL version: 5.7.27
 
 ## Next steps
 
-- Review the overall concepts for [Azure Active Directory authentication with Azure Database for MySQL](concepts-azure-ad-authentication.md)
+- Review the overall concepts for [Microsoft Entra authentication with Azure Database for MySQL](concepts-azure-ad-authentication.md)

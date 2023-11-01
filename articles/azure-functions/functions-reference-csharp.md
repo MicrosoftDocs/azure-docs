@@ -386,14 +386,14 @@ The following assemblies are automatically added by the Azure Functions hosting 
 
 The following assemblies may be referenced by simple-name, by runtime version:
 
-# [v2.x+](#tab/functionsv2)
+### [v2.x+](#tab/functionsv2)
 
 * `Newtonsoft.Json`
 * `Microsoft.WindowsAzure.Storage`<sup>*</sup>
 
 <sup>*</sup>Removed in version 4.x of the runtime.
 
-# [v1.x](#tab/functionsv1)
+### [v1.x](#tab/functionsv1)
 
 * `Newtonsoft.Json`
 * `Microsoft.WindowsAzure.Storage`
@@ -428,7 +428,7 @@ The directory that contains the function script file is automatically watched fo
 
 The way that both binding extension packages and other NuGet packages are added to your function app depends on the [targeted version of the Functions runtime](functions-versions.md).
 
-# [v2.x+](#tab/functionsv2)
+### [v2.x+](#tab/functionsv2)
 
 By default, the [supported set of Functions extension NuGet packages](functions-triggers-bindings.md#supported-bindings) are made available to your C# script function app by using extension bundles. To learn more, see [Extension bundles](functions-bindings-register.md#extension-bundles). 
 
@@ -449,7 +449,7 @@ By default, Core Tools reads the function.json files and adds the required packa
 > [!NOTE]
 > For C# script (.csx), you must set `TargetFramework` to a value of `netstandard2.0`. Other target frameworks, such as `net6.0`, aren't supported.
 
-# [v1.x](#tab/functionsv1)
+### [v1.x](#tab/functionsv1)
 
 Version 1.x of the Functions runtime uses a *project.json* file to define dependencies. Here's an example *project.json* file:
 
@@ -491,6 +491,66 @@ public static string GetEnvironmentVariable(string name)
         System.Environment.GetEnvironmentVariable(name, EnvironmentVariableTarget.Process);
 }
 ```
+
+## Retry policies
+
+Functions supports two built-in retry policies. For more information, see [Retry policies](functions-bindings-error-pages.md#retry-policies).
+
+### [Fixed delay](#tab/fixed-delay)
+
+Here's the retry policy in the *function.json* file:
+
+```json
+{
+    "disabled": false,
+    "bindings": [
+        {
+            ....
+        }
+    ],
+    "retry": {
+        "strategy": "fixedDelay",
+        "maxRetryCount": 4,
+        "delayInterval": "00:00:10"
+    }
+}
+```
+
+|*function.json*&nbsp;property  | Description |
+|---------|-------------|
+|strategy|Use `fixedDelay`.|
+|maxRetryCount|Required. The maximum number of retries allowed per function execution. `-1` means to retry indefinitely.|
+|delayInterval|The delay that's used between retries. Specify it as a string with the format `HH:mm:ss`.|
+
+### [Exponential backoff](#tab/exponential-backoff)
+
+Here's the retry policy in the *function.json* file:
+
+```json
+{
+    "disabled": false,
+    "bindings": [
+        {
+            ....
+        }
+    ],
+    "retry": {
+        "strategy": "exponentialBackoff",
+        "maxRetryCount": 5,
+        "minimumInterval": "00:00:10",
+        "maximumInterval": "00:15:00"
+    }
+}
+```
+
+|*function.json*&nbsp;property  | Description |
+|---------|-------------|
+|strategy|Use `exponentialBackoff`.|
+|maxRetryCount|Required. The maximum number of retries allowed per function execution. `-1` means to retry indefinitely.|
+|minimumInterval|The minimum retry delay. Specify it as a string with the format `HH:mm:ss`.|
+|maximumInterval|The maximum retry delay. Specify it as a string with the format `HH:mm:ss`.|
+
+---
 
 <a name="imperative-bindings"></a>
 
@@ -930,6 +990,37 @@ public static void Run(string myQueueItem, string myInputBlob, out string myOutp
     log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
     myOutputBlob = myInputBlob;
 }
+```
+
+### RabbitMQ trigger
+
+The following example shows a RabbitMQ trigger binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function reads and logs the RabbitMQ message.
+
+Here's the binding data in the *function.json* file:
+
+```json
+{​​
+    "bindings": [
+        {​​
+            "name": "myQueueItem",
+            "type": "rabbitMQTrigger",
+            "direction": "in",
+            "queueName": "queue",
+            "connectionStringSetting": "rabbitMQConnectionAppSetting"
+        }​​
+    ]
+}​​
+```
+
+Here's the C# script code:
+
+```C#
+using System;
+
+public static void Run(string myQueueItem, ILogger log)
+{​​
+    log.LogInformation($"C# Script RabbitMQ trigger function processed: {​​myQueueItem}​​");
+}​​
 ```
 
 ### Queue trigger
@@ -1592,7 +1683,7 @@ The following table explains the binding configuration properties that you set i
 |**connection**|  The name of an app setting or setting collection that specifies how to connect to Service Bus. See [Connections](./functions-bindings-service-bus-trigger.md#connections).|
 |**accessRights**| Access rights for the connection string. Available values are `manage` and `listen`. The default is `manage`, which indicates that the `connection` has the **Manage** permission. If you use a connection string that does not have the **Manage** permission, set `accessRights` to "listen". Otherwise, the Functions runtime might fail trying to do operations that require manage rights. In Azure Functions version 2.x and higher, this property is not available because the latest version of the Service Bus SDK doesn't support manage operations.|
 |**isSessionsEnabled**| `true` if connecting to a [session-aware](../service-bus-messaging/message-sessions.md) queue or subscription. `false` otherwise, which is the default value.|
-|**autoComplete**| `true` when the trigger should automatically call complete after processing, or if the function code will manually call complete.<br/><br/>Setting to `false` is only supported in C#.<br/><br/>If set to `true`, the trigger completes the message automatically if the function execution completes successfully, and abandons the message otherwise.<br/><br/>When set to `false`, you are responsible for calling [MessageReceiver](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver) methods to complete, abandon, or deadletter the message. If an exception is thrown (and none of the `MessageReceiver` methods are called), then the lock remains. Once the lock expires, the message is re-queued with the `DeliveryCount` incremented and the lock is automatically renewed.<br/><br/>This property is available only in Azure Functions 2.x and higher. |
+|**autoComplete**| `true` when the trigger should automatically call complete after processing, or if the function code will manually call complete.<br/><br/>Setting to `false` is only supported in C#.<br/><br/>If set to `true`, the trigger completes the message automatically if the function execution completes successfully, and abandons the message otherwise.<br/><br/When set to `false`, you are responsible for calling [ServiceBusReceiver](/dotnet/api/azure.messaging.servicebus.servicebusreceiver) methods to complete, abandon, or deadletter the message, session, or batch. When an exception is thrown (and none of the `ServiceBusReceiver` methods are called), then the lock remains. Once the lock expires, the message is re-queued with the `DeliveryCount` incremented and the lock is automatically renewed.<br/><br/>This property is available only in Azure Functions 2.x and higher. |
 
 The following example shows a Service Bus trigger binding in a *function.json* file and a C# script function that uses the binding. The function reads message metadata and logs a Service Bus queue message.
 
@@ -1695,7 +1786,7 @@ public static async Task Run(TimerInfo myTimer, ILogger log, IAsyncCollector<str
 }
 ```
 
-### Cosmos DB trigger
+### Azure Cosmos DB v2 trigger
 
 This section outlines support for the [version 4.x+ of the extension](./functions-bindings-cosmosdb-v2.md?tabs=in-process%2Cextensionv4) only.
 
@@ -1741,7 +1832,7 @@ Here's the C# script code:
     }
 ```
 
-### Cosmos DB input
+### Azure Cosmos DB v2 input
 
 This section outlines support for the [version 4.x+ of the extension](./functions-bindings-cosmosdb-v2.md?tabs=in-process%2Cextensionv4) only.
 
@@ -2107,7 +2198,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, Docume
 }
 ```
 
-### Cosmos DB output
+### Azure Cosmos DB v2 output
 
 This section outlines support for the [version 4.x+ of the extension](./functions-bindings-cosmosdb-v2.md?tabs=in-process%2Cextensionv4) only.
 
@@ -2244,6 +2335,1339 @@ public static async Task Run(ToDoItem[] toDoItemsIn, IAsyncCollector<ToDoItem> t
     }
 }
 ```
+
+### Azure Cosmos DB v1 trigger
+
+The following example shows an Azure Cosmos DB trigger binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function writes log messages when Azure Cosmos DB records are modified.
+
+Here's the binding data in the *function.json* file:
+
+```json
+{
+    "type": "cosmosDBTrigger",
+    "name": "documents",
+    "direction": "in",
+    "leaseCollectionName": "leases",
+    "connectionStringSetting": "<connection-app-setting>",
+    "databaseName": "Tasks",
+    "collectionName": "Items",
+    "createLeaseCollectionIfNotExists": true
+}
+```
+
+Here's the C# script code:
+
+```cs
+    #r "Microsoft.Azure.Documents.Client"
+    
+    using System;
+    using Microsoft.Azure.Documents;
+    using System.Collections.Generic;
+    
+
+    public static void Run(IReadOnlyList<Document> documents, TraceWriter log)
+    {
+        log.Info("Documents modified " + documents.Count);
+        log.Info("First document Id " + documents[0].Id);
+    }
+```
+
+### Azure Cosmos DB v1 input
+
+This section contains the following examples:
+
+* [Queue trigger, look up ID from string](#queue-trigger-look-up-id-from-string-c-script)
+* [Queue trigger, get multiple docs, using SqlQuery](#queue-trigger-get-multiple-docs-using-sqlquery-c-script)
+* [HTTP trigger, look up ID from query string](#http-trigger-look-up-id-from-query-string-c-script)
+* [HTTP trigger, look up ID from route data](#http-trigger-look-up-id-from-route-data-c-script)
+* [HTTP trigger, get multiple docs, using SqlQuery](#http-trigger-get-multiple-docs-using-sqlquery-c-script)
+* [HTTP trigger, get multiple docs, using DocumentClient](#http-trigger-get-multiple-docs-using-documentclient-c-script)
+
+The HTTP trigger examples refer to a simple `ToDoItem` type:
+
+```cs
+namespace CosmosDBSamplesV1
+{
+    public class ToDoItem
+    {
+        public string Id { get; set; }
+        public string Description { get; set; }
+    }
+}
+```
+
+<a id="queue-trigger-look-up-id-from-string-c-script"></a>
+
+#### Queue trigger, look up ID from string
+
+The following example shows an Azure Cosmos DB input binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function reads a single document and updates the document's text value.
+
+Here's the binding data in the *function.json* file:
+
+```json
+{
+    "name": "inputDocument",
+    "type": "documentDB",
+    "databaseName": "MyDatabase",
+    "collectionName": "MyCollection",
+    "id" : "{queueTrigger}",
+    "partitionKey": "{partition key value}",
+    "connection": "MyAccount_COSMOSDB",
+    "direction": "in"
+}
+```
+
+Here's the C# script code:
+
+```cs
+    using System;
+
+    // Change input document contents using Azure Cosmos DB input binding
+    public static void Run(string myQueueItem, dynamic inputDocument)
+    {
+        inputDocument.text = "This has changed.";
+    }
+```
+
+<a id="queue-trigger-get-multiple-docs-using-sqlquery-c-script"></a>
+
+#### Queue trigger, get multiple docs, using SqlQuery
+
+The following example shows an Azure Cosmos DB input binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function retrieves multiple documents specified by a SQL query, using a queue trigger to customize the query parameters.
+
+The queue trigger provides a parameter `departmentId`. A queue message of `{ "departmentId" : "Finance" }` would return all records for the finance department.
+
+Here's the binding data in the *function.json* file:
+
+```json
+{
+    "name": "documents",
+    "type": "documentdb",
+    "direction": "in",
+    "databaseName": "MyDb",
+    "collectionName": "MyCollection",
+    "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}",
+    "connection": "CosmosDBConnection"
+}
+```
+
+Here's the C# script code:
+
+```csharp
+    public static void Run(QueuePayload myQueueItem, IEnumerable<dynamic> documents)
+    {
+        foreach (var doc in documents)
+        {
+            // operate on each document
+        }
+    }
+
+    public class QueuePayload
+    {
+        public string departmentId { get; set; }
+    }
+```
+
+<a id="http-trigger-look-up-id-from-query-string-c-script"></a>
+
+#### HTTP trigger, look up ID from query string
+
+The following example shows a [C# script function](functions-reference-csharp.md) that retrieves a single document. The function is triggered by an HTTP request that uses a query string to specify the ID to look up. That ID is used to retrieve a `ToDoItem` document from the specified database and collection.
+
+Here's the *function.json* file:
+
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "name": "$return",
+      "type": "http",
+      "direction": "out"
+    },
+    {
+      "type": "documentDB",
+      "name": "toDoItem",
+      "databaseName": "ToDoItems",
+      "collectionName": "Items",
+      "connection": "CosmosDBConnection",
+      "direction": "in",
+      "Id": "{Query.id}"
+    }
+  ],
+  "disabled": true
+}
+```
+
+Here's the C# script code:
+
+```cs
+using System.Net;
+
+public static HttpResponseMessage Run(HttpRequestMessage req, ToDoItem toDoItem, TraceWriter log)
+{
+    log.Info("C# HTTP trigger function processed a request.");
+
+    if (toDoItem == null)
+    {
+        log.Info($"ToDo item not found");
+    }
+    else
+    {
+        log.Info($"Found ToDo item, Description={toDoItem.Description}");
+    }
+    return req.CreateResponse(HttpStatusCode.OK);
+}
+```
+
+<a id="http-trigger-look-up-id-from-route-data-c-script"></a>
+
+#### HTTP trigger, look up ID from route data
+
+The following example shows a [C# script function](functions-reference-csharp.md) that retrieves a single document. The function is triggered by an HTTP request that uses route data to specify the ID to look up. That ID is used to retrieve a `ToDoItem` document from the specified database and collection.
+
+Here's the *function.json* file:
+
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in",
+      "methods": [
+        "get",
+        "post"
+      ],
+      "route":"todoitems/{id}"
+    },
+    {
+      "name": "$return",
+      "type": "http",
+      "direction": "out"
+    },
+    {
+      "type": "documentDB",
+      "name": "toDoItem",
+      "databaseName": "ToDoItems",
+      "collectionName": "Items",
+      "connection": "CosmosDBConnection",
+      "direction": "in",
+      "Id": "{id}"
+    }
+  ],
+  "disabled": false
+}
+```
+
+Here's the C# script code:
+
+```cs
+using System.Net;
+
+public static HttpResponseMessage Run(HttpRequestMessage req, ToDoItem toDoItem, TraceWriter log)
+{
+    log.Info("C# HTTP trigger function processed a request.");
+
+    if (toDoItem == null)
+    {
+        log.Info($"ToDo item not found");
+    }
+    else
+    {
+        log.Info($"Found ToDo item, Description={toDoItem.Description}");
+    }
+    return req.CreateResponse(HttpStatusCode.OK);
+}
+```
+
+<a id="http-trigger-get-multiple-docs-using-sqlquery-c-script"></a>
+
+#### HTTP trigger, get multiple docs, using SqlQuery
+
+The following example shows a [C# script function](functions-reference-csharp.md) that retrieves a list of documents. The function is triggered by an HTTP request. The query is specified in the `SqlQuery` attribute property.
+
+Here's the *function.json* file:
+
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "name": "$return",
+      "type": "http",
+      "direction": "out"
+    },
+    {
+      "type": "documentDB",
+      "name": "toDoItems",
+      "databaseName": "ToDoItems",
+      "collectionName": "Items",
+      "connection": "CosmosDBConnection",
+      "direction": "in",
+      "sqlQuery": "SELECT top 2 * FROM c order by c._ts desc"
+    }
+  ],
+  "disabled": false
+}
+```
+
+Here's the C# script code:
+
+```cs
+using System.Net;
+
+public static HttpResponseMessage Run(HttpRequestMessage req, IEnumerable<ToDoItem> toDoItems, TraceWriter log)
+{
+    log.Info("C# HTTP trigger function processed a request.");
+
+    foreach (ToDoItem toDoItem in toDoItems)
+    {
+        log.Info(toDoItem.Description);
+    }
+    return req.CreateResponse(HttpStatusCode.OK);
+}
+```
+
+<a id="http-trigger-get-multiple-docs-using-documentclient-c-script"></a>
+
+#### HTTP trigger, get multiple docs, using DocumentClient
+
+The following example shows a [C# script function](functions-reference-csharp.md) that retrieves a list of documents. The function is triggered by an HTTP request. The code uses a `DocumentClient` instance provided by the Azure Cosmos DB binding to read a list of documents. The `DocumentClient` instance could also be used for write operations.
+
+Here's the *function.json* file:
+
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "name": "$return",
+      "type": "http",
+      "direction": "out"
+    },
+    {
+      "type": "documentDB",
+      "name": "client",
+      "databaseName": "ToDoItems",
+      "collectionName": "Items",
+      "connection": "CosmosDBConnection",
+      "direction": "inout"
+    }
+  ],
+  "disabled": false
+}
+```
+
+Here's the C# script code:
+
+```cs
+#r "Microsoft.Azure.Documents.Client"
+
+using System.Net;
+using Microsoft.Azure.Documents.Client;
+using Microsoft.Azure.Documents.Linq;
+
+public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, DocumentClient client, TraceWriter log)
+{
+    log.Info("C# HTTP trigger function processed a request.");
+
+    Uri collectionUri = UriFactory.CreateDocumentCollectionUri("ToDoItems", "Items");
+    string searchterm = req.GetQueryNameValuePairs()
+        .FirstOrDefault(q => string.Compare(q.Key, "searchterm", true) == 0)
+        .Value;
+
+    if (searchterm == null)
+    {
+        return req.CreateResponse(HttpStatusCode.NotFound);
+    }
+
+    log.Info($"Searching for word: {searchterm} using Uri: {collectionUri.ToString()}");
+    IDocumentQuery<ToDoItem> query = client.CreateDocumentQuery<ToDoItem>(collectionUri)
+        .Where(p => p.Description.Contains(searchterm))
+        .AsDocumentQuery();
+
+    while (query.HasMoreResults)
+    {
+        foreach (ToDoItem result in await query.ExecuteNextAsync())
+        {
+            log.Info(result.Description);
+        }
+    }
+    return req.CreateResponse(HttpStatusCode.OK);
+}
+```
+
+### Azure Cosmos DB v1 output
+
+This section contains the following examples:
+
+* Queue trigger, write one doc
+* Queue trigger, write docs using `IAsyncCollector`
+
+#### Queue trigger, write one doc
+
+The following example shows an Azure Cosmos DB output binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function uses a queue input binding for a queue that receives JSON in the following format:
+
+```json
+{
+    "name": "John Henry",
+    "employeeId": "123456",
+    "address": "A town nearby"
+}
+```
+
+The function creates Azure Cosmos DB documents in the following format for each record:
+
+```json
+{
+    "id": "John Henry-123456",
+    "name": "John Henry",
+    "employeeId": "123456",
+    "address": "A town nearby"
+}
+```
+
+Here's the binding data in the *function.json* file:
+
+```json
+{
+    "name": "employeeDocument",
+    "type": "documentDB",
+    "databaseName": "MyDatabase",
+    "collectionName": "MyCollection",
+    "createIfNotExists": true,
+    "connection": "MyAccount_COSMOSDB",
+    "direction": "out"
+}
+```
+
+Here's the C# script code:
+
+```cs
+    #r "Newtonsoft.Json"
+
+    using Microsoft.Azure.WebJobs.Host;
+    using Newtonsoft.Json.Linq;
+
+    public static void Run(string myQueueItem, out object employeeDocument, TraceWriter log)
+    {
+        log.Info($"C# Queue trigger function processed: {myQueueItem}");
+
+        dynamic employee = JObject.Parse(myQueueItem);
+
+        employeeDocument = new {
+            id = employee.name + "-" + employee.employeeId,
+            name = employee.name,
+            employeeId = employee.employeeId,
+            address = employee.address
+        };
+    }
+```
+
+#### Queue trigger, write docs using IAsyncCollector
+
+To create multiple documents, you can bind to `ICollector<T>` or `IAsyncCollector<T>` where `T` is one of the supported types.
+
+This example refers to a simple `ToDoItem` type:
+
+```cs
+namespace CosmosDBSamplesV1
+{
+    public class ToDoItem
+    {
+        public string Id { get; set; }
+        public string Description { get; set; }
+    }
+}
+```
+
+Here's the function.json file:
+
+```json
+{
+  "bindings": [
+    {
+      "name": "toDoItemsIn",
+      "type": "queueTrigger",
+      "direction": "in",
+      "queueName": "todoqueueforwritemulti",
+      "connection": "AzureWebJobsStorage"
+    },
+    {
+      "type": "documentDB",
+      "name": "toDoItemsOut",
+      "databaseName": "ToDoItems",
+      "collectionName": "Items",
+      "connection": "CosmosDBConnection",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+```
+
+Here's the C# script code:
+
+```cs
+using System;
+
+public static async Task Run(ToDoItem[] toDoItemsIn, IAsyncCollector<ToDoItem> toDoItemsOut, TraceWriter log)
+{
+    log.Info($"C# Queue trigger function processed {toDoItemsIn?.Length} items");
+
+    foreach (ToDoItem toDoItem in toDoItemsIn)
+    {
+        log.Info($"Description={toDoItem.Description}");
+        await toDoItemsOut.AddAsync(toDoItem);
+    }
+}
+```
+
+### Azure SQL trigger
+
+More samples for the Azure SQL trigger are available in the [GitHub repository](https://github.com/Azure/azure-functions-sql-extension/tree/main/samples/samples-csx).
+
+
+The example refers to a `ToDoItem` class and a corresponding database table:
+
+:::code language="csharp" source="~/functions-sql-todo-sample/ToDoModel.cs" range="6-16":::
+
+:::code language="sql" source="~/functions-sql-todo-sample/sql/create.sql" range="1-7":::
+
+[Change tracking](./functions-bindings-azure-sql-trigger.md#set-up-change-tracking-required) is enabled on the database and on the table:
+
+```sql
+ALTER DATABASE [SampleDatabase]
+SET CHANGE_TRACKING = ON
+(CHANGE_RETENTION = 2 DAYS, AUTO_CLEANUP = ON);
+
+ALTER TABLE [dbo].[ToDo]
+ENABLE CHANGE_TRACKING;
+```
+
+The SQL trigger binds to a `IReadOnlyList<SqlChange<T>>`, a list of `SqlChange` objects each with two properties:
+- **Item:** the item that was changed. The type of the item should follow the table schema as seen in the `ToDoItem` class.
+- **Operation:** a value from `SqlChangeOperation` enum. The possible values are `Insert`, `Update`, and `Delete`.
+
+The following example shows a SQL trigger in a function.json file and a [C# script function](functions-reference-csharp.md) that is invoked when there are changes to the `ToDo` table:
+
+The following is binding data in the function.json file:
+
+```json
+{
+    "name": "todoChanges",
+    "type": "sqlTrigger",
+    "direction": "in",
+    "tableName": "dbo.ToDo",
+    "connectionStringSetting": "SqlConnectionString"
+}
+```
+The following is the C# script function:
+
+```csharp
+#r "Newtonsoft.Json"
+
+using System.Net;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Primitives;
+using Newtonsoft.Json;
+
+public static void Run(IReadOnlyList<SqlChange<ToDoItem>> todoChanges, ILogger log)
+{
+    log.LogInformation($"C# SQL trigger function processed a request.");
+
+    foreach (SqlChange<ToDoItem> change in todoChanges)
+    {
+        ToDoItem toDoItem = change.Item;
+        log.LogInformation($"Change operation: {change.Operation}");
+        log.LogInformation($"Id: {toDoItem.Id}, Title: {toDoItem.title}, Url: {toDoItem.url}, Completed: {toDoItem.completed}");
+    }
+}
+```
+
+### Azure SQL input
+
+More samples for the Azure SQL input binding are available in the [GitHub repository](https://github.com/Azure/azure-functions-sql-extension/tree/main/samples/samples-csx).
+
+This section contains the following examples:
+
+* [HTTP trigger, get row by ID from query string](#http-trigger-look-up-id-from-query-string-csharpscript)
+* [HTTP trigger, delete rows](#http-trigger-delete-one-or-multiple-rows-csharpscript)
+
+The examples refer to a `ToDoItem` class and a corresponding database table:
+
+:::code language="csharp" source="~/functions-sql-todo-sample/ToDoModel.cs" range="6-16":::
+
+:::code language="sql" source="~/functions-sql-todo-sample/sql/create.sql" range="1-7":::
+
+<a id="http-trigger-look-up-id-from-query-string-csharpscript"></a>
+#### HTTP trigger, get row by ID from query string
+
+The following example shows an Azure SQL input binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function is triggered by an HTTP request that uses a query string to specify the ID. That ID is used to retrieve a `ToDoItem` record with the specified query.
+
+> [!NOTE]
+> The HTTP query string parameter is case-sensitive.
+>
+
+Here's the binding data in the *function.json* file:
+
+```json
+{
+    "authLevel": "anonymous",
+    "type": "httpTrigger",
+    "direction": "in",
+    "name": "req",
+    "methods": [
+        "get"
+    ]
+},
+{
+    "type": "http",
+    "direction": "out",
+    "name": "res"
+},
+{
+    "name": "todoItem",
+    "type": "sql",
+    "direction": "in",
+    "commandText": "select [Id], [order], [title], [url], [completed] from dbo.ToDo where Id = @Id",
+    "commandType": "Text",
+    "parameters": "@Id = {Query.id}",
+    "connectionStringSetting": "SqlConnectionString"
+}
+```
+
+Here's the C# script code:
+
+```cs
+#r "Newtonsoft.Json"
+
+using System.Net;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Primitives;
+using Newtonsoft.Json;
+using System.Collections.Generic;
+
+public static IActionResult Run(HttpRequest req, ILogger log, IEnumerable<ToDoItem> todoItem)
+{
+    return new OkObjectResult(todoItem);
+}
+```
+
+
+<a id="http-trigger-delete-one-or-multiple-rows-csharpscript"></a>
+#### HTTP trigger, delete rows
+
+The following example shows an Azure SQL input binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding to execute a stored procedure with input from the HTTP request query parameter. In this example, the stored procedure deletes a single record or all records depending on the value of the parameter.
+
+The stored procedure `dbo.DeleteToDo` must be created on the SQL database.
+
+:::code language="sql" source="~/functions-sql-todo-sample/sql/create.sql" range="11-25":::
+
+Here's the binding data in the *function.json* file:
+
+```json
+{
+    "authLevel": "anonymous",
+    "type": "httpTrigger",
+    "direction": "in",
+    "name": "req",
+    "methods": [
+        "get"
+    ]
+},
+{
+    "type": "http",
+    "direction": "out",
+    "name": "res"
+},
+{
+    "name": "todoItems",
+    "type": "sql",
+    "direction": "in",
+    "commandText": "DeleteToDo",
+    "commandType": "StoredProcedure",
+    "parameters": "@Id = {Query.id}",
+    "connectionStringSetting": "SqlConnectionString"
+}
+```
+
+:::code language="csharp" source="~/functions-sql-todo-sample/DeleteToDo.cs" range="4-30":::
+
+Here's the C# script code:
+
+```cs
+#r "Newtonsoft.Json"
+
+using System.Net;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Primitives;
+using Newtonsoft.Json;
+using System.Collections.Generic;
+
+public static IActionResult Run(HttpRequest req, ILogger log, IEnumerable<ToDoItem> todoItems)
+{
+    return new OkObjectResult(todoItems);
+}
+```
+
+### Azure SQL output
+
+More samples for the Azure SQL output binding are available in the [GitHub repository](https://github.com/Azure/azure-functions-sql-extension/tree/main/samples/samples-csx).
+
+This section contains the following examples:
+
+* [HTTP trigger, write records to a table](#http-trigger-write-records-to-table-csharpscript)
+* [HTTP trigger, write to two tables](#http-trigger-write-to-two-tables-csharpscript)
+
+The examples refer to a `ToDoItem` class and a corresponding database table:
+
+:::code language="csharp" source="~/functions-sql-todo-sample/ToDoModel.cs" range="6-16":::
+
+:::code language="sql" source="~/functions-sql-todo-sample/sql/create.sql" range="1-7":::
+
+
+<a id="http-trigger-write-records-to-table-csharpscript"></a>
+#### HTTP trigger, write records to a table
+
+The following example shows a SQL output binding in a function.json file and a [C# script function](functions-reference-csharp.md) that adds records to a table, using data provided in an HTTP POST request as a JSON body.
+
+The following is binding data in the function.json file:
+
+```json
+{
+    "authLevel": "anonymous",
+    "type": "httpTrigger",
+    "direction": "in",
+    "name": "req",
+    "methods": [
+        "post"
+    ]
+},
+{
+    "type": "http",
+    "direction": "out",
+    "name": "res"
+},
+{
+    "name": "todoItem",
+    "type": "sql",
+    "direction": "out",
+    "commandText": "dbo.ToDo",
+    "connectionStringSetting": "SqlConnectionString"
+}
+```
+
+The following is sample C# script code:
+
+```cs
+#r "Newtonsoft.Json"
+
+using System.Net;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Primitives;
+using Newtonsoft.Json;
+
+public static IActionResult Run(HttpRequest req, ILogger log, out ToDoItem todoItem)
+{
+    log.LogInformation("C# HTTP trigger function processed a request.");
+
+    string requestBody = new StreamReader(req.Body).ReadToEnd();
+    todoItem = JsonConvert.DeserializeObject<ToDoItem>(requestBody);
+
+    return new OkObjectResult(todoItem);
+}
+```
+
+<a id="http-trigger-write-to-two-tables-csharpscript"></a>
+#### HTTP trigger, write to two tables
+
+The following example shows a SQL output binding in a function.json file and a [C# script function](functions-reference-csharp.md) that adds records to a database in two different tables (`dbo.ToDo` and `dbo.RequestLog`), using data provided in an HTTP POST request as a JSON body and multiple output bindings.
+
+The second table, `dbo.RequestLog`, corresponds to the following definition:
+
+```sql
+CREATE TABLE dbo.RequestLog (
+    Id int identity(1,1) primary key,
+    RequestTimeStamp datetime2 not null,
+    ItemCount int not null
+)
+```
+
+The following is binding data in the function.json file:
+
+```json
+{
+    "authLevel": "anonymous",
+    "type": "httpTrigger",
+    "direction": "in",
+    "name": "req",
+    "methods": [
+        "post"
+    ]
+},
+{
+    "type": "http",
+    "direction": "out",
+    "name": "res"
+},
+{
+    "name": "todoItem",
+    "type": "sql",
+    "direction": "out",
+    "commandText": "dbo.ToDo",
+    "connectionStringSetting": "SqlConnectionString"
+},
+{
+    "name": "requestLog",
+    "type": "sql",
+    "direction": "out",
+    "commandText": "dbo.RequestLog",
+    "connectionStringSetting": "SqlConnectionString"
+}
+```
+
+The following is sample C# script code:
+
+```cs
+#r "Newtonsoft.Json"
+
+using System.Net;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Primitives;
+using Newtonsoft.Json;
+
+public static IActionResult Run(HttpRequest req, ILogger log, out ToDoItem todoItem, out RequestLog requestLog)
+{
+    log.LogInformation("C# HTTP trigger function processed a request.");
+
+    string requestBody = new StreamReader(req.Body).ReadToEnd();
+    todoItem = JsonConvert.DeserializeObject<ToDoItem>(requestBody);
+
+    requestLog = new RequestLog();
+    requestLog.RequestTimeStamp = DateTime.Now;
+    requestLog.ItemCount = 1;
+
+    return new OkObjectResult(todoItem);
+}
+
+public class RequestLog {
+    public DateTime RequestTimeStamp { get; set; }
+    public int ItemCount { get; set; }
+}
+```
+
+### RabbitMQ output
+
+The following example shows a RabbitMQ output binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function reads in the message from an HTTP trigger and outputs it to the RabbitMQ queue.
+
+Here's the binding data in the *function.json* file:
+
+```json
+{
+    "bindings": [
+        {
+            "type": "httpTrigger",
+            "direction": "in",
+            "authLevel": "function",
+            "name": "input",
+            "methods": [
+                "get",
+                "post"
+            ]
+        },
+        {
+            "type": "rabbitMQ",
+            "name": "outputMessage",
+            "queueName": "outputQueue",
+            "connectionStringSetting": "rabbitMQConnectionAppSetting",
+            "direction": "out"
+        }
+    ]
+}
+```
+
+Here's the C# script code:
+
+```C#
+using System;
+using Microsoft.Extensions.Logging;
+
+public static void Run(string input, out string outputMessage, ILogger log)
+{
+    log.LogInformation(input);
+    outputMessage = input;
+}
+```
+### SendGrid output
+
+The following example shows a SendGrid output binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding.
+
+Here's the binding data in the *function.json* file:
+
+```json 
+{
+    "bindings": [
+        {
+          "type": "queueTrigger",
+          "name": "mymsg",
+          "queueName": "myqueue",
+          "connection": "AzureWebJobsStorage",
+          "direction": "in"
+        },
+        {
+          "type": "sendGrid",
+          "name": "$return",
+          "direction": "out",
+          "apiKey": "SendGridAPIKeyAsAppSetting",
+          "from": "{FromEmail}",
+          "to": "{ToEmail}"
+        }
+    ]
+}
+```
+
+Here's the C# script code:
+
+```csharp
+#r "SendGrid"
+
+using System;
+using SendGrid.Helpers.Mail;
+using Microsoft.Azure.WebJobs.Host;
+
+public static SendGridMessage Run(Message mymsg, ILogger log)
+{
+    SendGridMessage message = new SendGridMessage()
+    {
+        Subject = $"{mymsg.Subject}"
+    };
+    
+    message.AddContent("text/plain", $"{mymsg.Content}");
+
+    return message;
+}
+public class Message
+{
+    public string ToEmail { get; set; }
+    public string FromEmail { get; set; }
+    public string Subject { get; set; }
+    public string Content { get; set; }
+}
+```
+
+### SignalR trigger
+
+Here's example binding data in the *function.json* file:
+
+```json
+{
+    "type": "signalRTrigger",
+    "name": "invocation",
+    "hubName": "SignalRTest",
+    "category": "messages",
+    "event": "SendMessage",
+    "parameterNames": [
+        "message"
+    ],
+    "direction": "in"
+}
+```
+
+And, here's the code:
+
+```cs
+#r "Microsoft.Azure.WebJobs.Extensions.SignalRService"
+using System;
+using Microsoft.Azure.WebJobs.Extensions.SignalRService;
+using Microsoft.Extensions.Logging;
+
+public static void Run(InvocationContext invocation, string message, ILogger logger)
+{
+    logger.LogInformation($"Receive {message} from {invocationContext.ConnectionId}.");
+}
+```
+
+### SignalR input
+
+The following example shows a SignalR connection info input binding in a *function.json* file and a [C# Script function](functions-reference-csharp.md) that uses the binding to return the connection information.
+
+Here's binding data in the *function.json* file:
+
+Example function.json:
+
+```json
+{
+    "type": "signalRConnectionInfo",
+    "name": "connectionInfo",
+    "hubName": "chat",
+    "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
+    "direction": "in"
+}
+```
+
+Here's the C# Script code:
+
+```cs
+#r "Microsoft.Azure.WebJobs.Extensions.SignalRService"
+using Microsoft.Azure.WebJobs.Extensions.SignalRService;
+
+public static SignalRConnectionInfo Run(HttpRequest req, SignalRConnectionInfo connectionInfo)
+{
+    return connectionInfo;
+}
+```
+
+You can set the `userId` property of the binding to the value from either header using a [binding expression](./functions-bindings-signalr-service-input.md#binding-expressions-for-http-trigger): `{headers.x-ms-client-principal-id}` or `{headers.x-ms-client-principal-name}`.
+
+Example function.json:
+
+```json
+{
+    "type": "signalRConnectionInfo",
+    "name": "connectionInfo",
+    "hubName": "chat",
+    "userId": "{headers.x-ms-client-principal-id}",
+    "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
+    "direction": "in"
+}
+```
+
+Here's the C# Script code:
+
+```cs
+#r "Microsoft.Azure.WebJobs.Extensions.SignalRService"
+using Microsoft.Azure.WebJobs.Extensions.SignalRService;
+
+public static SignalRConnectionInfo Run(HttpRequest req, SignalRConnectionInfo connectionInfo)
+{
+    // connectionInfo contains an access key token with a name identifier
+    // claim set to the authenticated user
+    return connectionInfo;
+}
+```
+
+### SignalR output
+
+Here's binding data in the *function.json* file:
+
+Example function.json:
+
+```json
+{
+  "type": "signalR",
+  "name": "signalRMessages",
+  "hubName": "<hub_name>",
+  "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
+  "direction": "out"
+}
+```
+
+Here's the C# Script code:
+
+```cs
+#r "Microsoft.Azure.WebJobs.Extensions.SignalRService"
+using Microsoft.Azure.WebJobs.Extensions.SignalRService;
+
+public static Task Run(
+    object message,
+    IAsyncCollector<SignalRMessage> signalRMessages)
+{
+    return signalRMessages.AddAsync(
+        new SignalRMessage
+        {
+            Target = "newMessage",
+            Arguments = new [] { message }
+        });
+}
+```
+
+You can send a message only to connections that have been authenticated to a user by setting the *user ID* in the SignalR message.
+
+Example function.json:
+
+```json
+{
+  "type": "signalR",
+  "name": "signalRMessages",
+  "hubName": "<hub_name>",
+  "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
+  "direction": "out"
+}
+```
+
+Here's the C# script code:
+
+```cs
+#r "Microsoft.Azure.WebJobs.Extensions.SignalRService"
+using Microsoft.Azure.WebJobs.Extensions.SignalRService;
+
+public static Task Run(
+    object message,
+    IAsyncCollector<SignalRMessage> signalRMessages)
+{
+    return signalRMessages.AddAsync(
+        new SignalRMessage
+        {
+            // the message will only be sent to this user ID
+            UserId = "userId1",
+            Target = "newMessage",
+            Arguments = new [] { message }
+        });
+}
+```
+
+You can send a message only to connections that have been added to a group by setting the *group name* in the SignalR message.
+
+Example function.json:
+
+```json
+{
+  "type": "signalR",
+  "name": "signalRMessages",
+  "hubName": "<hub_name>",
+  "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
+  "direction": "out"
+}
+```
+
+Here's the C# Script code:
+
+```cs
+#r "Microsoft.Azure.WebJobs.Extensions.SignalRService"
+using Microsoft.Azure.WebJobs.Extensions.SignalRService;
+
+public static Task Run(
+    object message,
+    IAsyncCollector<SignalRMessage> signalRMessages)
+{
+    return signalRMessages.AddAsync(
+        new SignalRMessage
+        {
+            // the message will be sent to the group with this name
+            GroupName = "myGroup",
+            Target = "newMessage",
+            Arguments = new [] { message }
+        });
+}
+```
+
+SignalR Service allows users or connections to be added to groups. Messages can then be sent to a group. You can use the `SignalR` output binding to manage groups.
+
+The following example adds a user to a group.
+
+Example *function.json*
+
+```json
+{
+    "type": "signalR",
+    "name": "signalRGroupActions",
+    "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
+    "hubName": "chat",
+    "direction": "out"
+}
+```
+
+*Run.csx*
+
+```cs
+#r "Microsoft.Azure.WebJobs.Extensions.SignalRService"
+using Microsoft.Azure.WebJobs.Extensions.SignalRService;
+
+public static Task Run(
+    HttpRequest req,
+    ClaimsPrincipal claimsPrincipal,
+    IAsyncCollector<SignalRGroupAction> signalRGroupActions)
+{
+    var userIdClaim = claimsPrincipal.FindFirst(ClaimTypes.NameIdentifier);
+    return signalRGroupActions.AddAsync(
+        new SignalRGroupAction
+        {
+            UserId = userIdClaim.Value,
+            GroupName = "myGroup",
+            Action = GroupAction.Add
+        });
+}
+```
+
+The following example removes a user from a group.
+
+Example *function.json*
+
+```json
+{
+    "type": "signalR",
+    "name": "signalRGroupActions",
+    "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
+    "hubName": "chat",
+    "direction": "out"
+}
+```
+
+*Run.csx*
+
+```cs
+#r "Microsoft.Azure.WebJobs.Extensions.SignalRService"
+using Microsoft.Azure.WebJobs.Extensions.SignalRService;
+
+public static Task Run(
+    HttpRequest req,
+    ClaimsPrincipal claimsPrincipal,
+    IAsyncCollector<SignalRGroupAction> signalRGroupActions)
+{
+    var userIdClaim = claimsPrincipal.FindFirst(ClaimTypes.NameIdentifier);
+    return signalRGroupActions.AddAsync(
+        new SignalRGroupAction
+        {
+            UserId = userIdClaim.Value,
+            GroupName = "myGroup",
+            Action = GroupAction.Remove
+        });
+}
+```
+
+### Twilio output
+
+The following example shows a Twilio output binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function uses an `out` parameter to send a text message.
+
+Here's binding data in the *function.json* file:
+
+Example function.json:
+
+```json
+{
+  "type": "twilioSms",
+  "name": "message",
+  "accountSidSetting": "TwilioAccountSid",
+  "authTokenSetting": "TwilioAuthToken",
+  "from": "+1425XXXXXXX",
+  "direction": "out",
+  "body": "Azure Functions Testing"
+}
+```
+
+Here's C# script code:
+
+```cs
+#r "Newtonsoft.Json"
+#r "Twilio"
+#r "Microsoft.Azure.WebJobs.Extensions.Twilio"
+
+using System;
+using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
+using Microsoft.Azure.WebJobs.Extensions.Twilio;
+using Twilio.Rest.Api.V2010.Account;
+using Twilio.Types;
+
+public static void Run(string myQueueItem, out CreateMessageOptions message,  ILogger log)
+{
+    log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
+
+    // In this example the queue item is a JSON string representing an order that contains the name of a
+    // customer and a mobile number to send text updates to.
+    dynamic order = JsonConvert.DeserializeObject(myQueueItem);
+    string msg = "Hello " + order.name + ", thank you for your order.";
+
+    // You must initialize the CreateMessageOptions variable with the "To" phone number.
+    message = new CreateMessageOptions(new PhoneNumber("+1704XXXXXXX"));
+
+    // A dynamic message can be set instead of the body in the output binding. In this example, we use
+    // the order information to personalize a text message.
+    message.Body = msg;
+}
+```
+
+You can't use out parameters in asynchronous code. Here's an asynchronous C# script code example:
+
+```cs
+#r "Newtonsoft.Json"
+#r "Twilio"
+#r "Microsoft.Azure.WebJobs.Extensions.Twilio"
+
+using System;
+using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
+using Microsoft.Azure.WebJobs.Extensions.Twilio;
+using Twilio.Rest.Api.V2010.Account;
+using Twilio.Types;
+
+public static async Task Run(string myQueueItem, IAsyncCollector<CreateMessageOptions> message,  ILogger log)
+{
+    log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
+
+    // In this example the queue item is a JSON string representing an order that contains the name of a
+    // customer and a mobile number to send text updates to.
+    dynamic order = JsonConvert.DeserializeObject(myQueueItem);
+    string msg = "Hello " + order.name + ", thank you for your order.";
+
+    // You must initialize the CreateMessageOptions variable with the "To" phone number.
+    CreateMessageOptions smsText = new CreateMessageOptions(new PhoneNumber("+1704XXXXXXX"));
+
+    // A dynamic message can be set instead of the body in the output binding. In this example, we use
+    // the order information to personalize a text message.
+    smsText.Body = msg;
+
+    await message.AddAsync(smsText);
+}
+```
+
+### Warmup trigger
+
+The following example shows a warmup trigger in a *function.json* file and a [C# script function](functions-reference-csharp.md) that runs on each new instance when it's added to your app.
+
+Not supported for version 1.x of the Functions runtime.
+
+Here's the *function.json* file:
+
+```json
+{
+    "bindings": [
+        {
+            "type": "warmupTrigger",
+            "direction": "in",
+            "name": "warmupContext"
+        }
+    ]
+}
+```
+
+```cs
+public static void Run(WarmupContext warmupContext, ILogger log)
+{
+    log.LogInformation("Function App instance is warm.");  
+}
+```
+
 
 ## Next steps
 

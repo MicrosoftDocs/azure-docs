@@ -23,9 +23,9 @@ The script creates these resources, if they don't already exist:
     
     You probably already have a Log Analytics workspace, in which case, provide the workspace details so the script sets up the other resources in the same region as the workspace. 
 
-- An Azure AD application to authenticate against the API and:
-    - A service principal on the Azure AD application
-    - A secret for the Azure AD application
+- A Microsoft Entra application to authenticate against the API and:
+    - A service principal on the Microsoft Entra application
+    - A secret for the Microsoft Entra application
 - A data collection endpoint (DCE) and a resource group for the data collection endpoint, in same region as Log Analytics workspace, to receive data. 
 - A resource group for data collection rules (DCR) in the same region as the Log Analytics workspace.
 
@@ -534,4 +534,3 @@ $VerbosePreference                     = "SilentlyContinue"  # "Continue"
 
 - [Learn more about data collection rules](../essentials/data-collection-rule-overview.md)
 - [Learn more about writing transformation queries](../essentials//data-collection-transformations.md)
-

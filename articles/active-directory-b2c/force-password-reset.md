@@ -9,10 +9,10 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/26/2023
+ms.date: 10/31/2023
 ms.author: kengaderdus
 ms.subservice: B2C
-ms.custom: b2c-support, has-azure-ad-ps-ref
+ms.custom: b2c-support, has-azure-ad-ps-ref,azure-ad-ref-level-one-done
 zone_pivot_groups: b2c-policy-type
 ---
 
@@ -149,8 +149,26 @@ Once a password expiration policy has been set, you must also configure force pa
 
 ### Password expiry duration
 
-By default, the password is set not to expire. However, the value is configurable by using the [Set-MsolPasswordPolicy](/powershell/module/msonline/set-msolpasswordpolicy) cmdlet from the Azure AD Module for Windows PowerShell. This command updates the tenant, so that all users' passwords expire after number of days you configure.
+By default, the password is set not to expire. However, the value is configurable by using the [Update-MgDomain](/powershell/module/microsoft.graph.identity.directorymanagement/update-mgdomain) cmdlet from the Microsoft Graph PowerShell module. This command updates the tenant so that all users' passwords expire after a number of days you configure. For example:
+
+```powershell
+Import-Module Microsoft.Graph.Identity.DirectoryManagement
+
+Connect-MgGraph  -Scopes 'Domain.ReadWrite.All'
+
+$domainId = "contoso.com"
+$params = @{
+	passwordValidityPeriodInDays = 90
+	passwordNotificationWindowInDays = 15
+}
+
+Update-MgDomain -DomainId $domainId -BodyParameter $params
+```
+
+> [!NOTE] 
+> `passwordValidityPeriodInDays` indicates the length of time in days that a password remains valid before it must be changed. `passwordNotificationWindowInDays` indicates the length of time in days before the password expiration date when users receive their first notification to indicate that their password is about to expire.
 
 ## Next steps
 
 Set up a [self-service password reset](add-password-reset-policy.md).
+

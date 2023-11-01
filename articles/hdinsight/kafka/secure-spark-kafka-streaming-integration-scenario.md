@@ -14,7 +14,7 @@ In this document, you'll learn how to execute a Spark job in a secure Spark clus
 
 **Pre-requisites**
 
-* Create a secure Kafka cluster and secure spark cluster with the same Microsoft Azure Active Directory Domain Services (Azure AD DS) domain and same vnet. If you prefer not to create both clusters in the same vnet, you can create them in two separate vnets and pair the vnets also. If you prefer not to create both clusters in the same vnet.
+* Create a secure Kafka cluster and secure spark cluster with the same Microsoft Entra Domain Services domain and same vnet. If you prefer not to create both clusters in the same vnet, you can create them in two separate vnets and pair the vnets also. If you prefer not to create both clusters in the same vnet.
 * If your clusters are in different vnets, see here [Connect virtual networks with virtual network peering using the Azure portal](../../virtual-network/tutorial-connect-virtual-networks-portal.md)
 * Create key tabs for two users.  For example, `alicetest` and `bobadmin`. 
 

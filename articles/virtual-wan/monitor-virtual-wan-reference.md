@@ -22,7 +22,7 @@ The following metric is available for virtual hub router within a virtual hub:
 
 | Metric | Description|
 | --- | --- |
-| **Virtual Hub Data Processed** | Data on how much traffic traverses the virtual hub router in a given time period. Note that only the following flows use the virtual hub router: VNet to VNet (same hub) and VPN/ExpressRoute branch to VNet (interhub).|
+| **Virtual Hub Data Processed** | Data on how much traffic traverses the virtual hub router in a given time period. Note that only the following flows use the virtual hub router: VNet to VNet (same hub and interhub) and VPN/ExpressRoute branch to VNet (interhub). If a virtual hub is secured with routing intent, then these flows will traverse the firewall instead of the hub router. |
 
 #### PowerShell steps
 

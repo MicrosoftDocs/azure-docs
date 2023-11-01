@@ -5,7 +5,7 @@ author: johnmarco
 ms.author: johnmarc
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
-ms.date: 09/11/2023
+ms.date: 10/26/2023
 #Customer intent: I need to understand the Azure Red Hat OpenShift support policies for OpenShift 4.0.
 ---
 
@@ -21,10 +21,10 @@ Certain configurations for Azure Red Hat OpenShift 4 clusters can affect your cl
 ### Compute
 
 * The cluster must have a minimum of three worker nodes and three master nodes.
-* Don't scale the cluster workers to zero, or attempt a cluster shutdown. Deallocating or powering down any virtual machine in the cluster resource group is not supported.
-* If you are making use of infrastructure nodes, do not run any undesignated workloads on them as this may affect the Service Level Agreement and cluster stability. Also, it is strongly recommended to have at least 3 infrastructure nodes; one in each availability zone. See [Deploy infrastructure nodes in an Azure Red Hat OpenShift (ARO) cluster](howto-infrastructure-nodes.md) for more information.
+* Don't scale the cluster workers to zero, or attempt a cluster shutdown. Deallocating or powering down any virtual machine in the cluster resource group isn't supported.
+* If you're making use of infrastructure nodes, don't run any undesignated workloads on them as this can affect the Service Level Agreement and cluster stability. Also, it's recommended to have at least three infrastructure nodes; one in each availability zone. See [Deploy infrastructure nodes in an Azure Red Hat OpenShift (ARO) cluster](howto-infrastructure-nodes.md) for more information.
 * Non-RHCOS compute nodes aren't supported. For example, you can't use a RHEL compute node.
-* Don't attempt to remove or replace a master node. These are high risk operations that can cause issues with etcd, permanent network loss, as well as loss of access and manageability by ARO SRE. If you feel that a master node should be replaced or removed, please contact support before making any changes.
+* Don't attempt to remove or replace a master node. These are high risk operations that can cause issues with etcd, permanent network loss, and loss of access and manageability by ARO SRE. If you feel that a master node should be replaced or removed, please contact support before making any changes.
 
 ### Operators
 
@@ -34,7 +34,7 @@ Certain configurations for Azure Red Hat OpenShift 4 clusters can affect your cl
 
 * Don't add taints that would prevent any default OpenShift components from being scheduled.
 * To avoid disruption resulting from cluster maintenance, in-cluster workloads should be configured with high availability practices, including but not limited to pod affinity and anti-affinity, pod disruption budgets, and adequate scaling.
-* Don't run extra workloads on the control plane nodes. While they can be scheduled on the control plane nodes, it will cause extra resource usage and stability issues that can affect the entire cluster.
+* Don't run extra workloads on the control plane nodes. While they can be scheduled on the control plane nodes, it causes extra resource usage and stability issues that can affect the entire cluster.
 
 ### Logging and monitoring
 
@@ -80,7 +80,6 @@ Azure Red Hat OpenShift 4 supports node instances on the following virtual machi
 |Dasv5|Standard_D8as_v5|8|32|
 |Dasv5|Standard_D16as_v5|16|64|
 |Dasv5|Standard_D32as_v5|32|128|
-|Easv4|Standard_E4as_v4|4|32|
 |Easv4|Standard_E8as_v4|8|64|
 |Easv4|Standard_E16as_v4|16|128|
 |Easv4|Standard_E20as_v4|20|160|
@@ -118,8 +117,9 @@ Azure Red Hat OpenShift 4 supports node instances on the following virtual machi
 
 \*Standard_M128ms' does not support encryption at host
 
+### Worker nodes
 
-### General purpose
+#### General purpose
 
 |Series|Size|vCPU|Memory: GiB|
 |-|-|-|-|
@@ -135,7 +135,6 @@ Azure Red Hat OpenShift 4 supports node instances on the following virtual machi
 |Dasv5|Standard_D32as_v5|32|128|
 |Dasv5|Standard_D64as_v5|64|256|
 |Dasv5|Standard_D96as_v5|96|384|
-|Dsv2|Standard_D2s_v3|2|8|
 |Dsv3|Standard_D4s_v3|4|16|
 |Dsv3|Standard_D8s_v3|8|32|
 |Dsv3|Standard_D16s_v3|16|64|
@@ -153,7 +152,7 @@ Azure Red Hat OpenShift 4 supports node instances on the following virtual machi
 |Dsv5|Standard_D96s_v5|96|384|
 
 
-### Memory optimized
+#### Memory optimized
 
 |Series|Size|vCPU|Memory: GiB|
 |-|-|-|-|
@@ -176,7 +175,6 @@ Azure Red Hat OpenShift 4 supports node instances on the following virtual machi
 |Esv3|Standard_E8s_v3|8|64|
 |Esv3|Standard_E16s_v3|16|128|
 |Esv3|Standard_E32s_v3|32|256|
-|Esv4|Standard_E2s_v4|2|16|
 |Esv4|Standard_E4s_v4|4|32|
 |Esv4|Standard_E8s_v4|8|64|
 |Esv4|Standard_E16s_v4|16|128|
@@ -184,7 +182,6 @@ Azure Red Hat OpenShift 4 supports node instances on the following virtual machi
 |Esv4|Standard_E32s_v4|32|256|
 |Esv4|Standard_E48s_v4|48|384|
 |Esv4|Standard_E64s_v4|64|504|
-|Esv5|Standard_E2s_v5|2|16|
 |Esv5|Standard_E4s_v5|4|32|
 |Esv5|Standard_E8s_v5|8|64|
 |Esv5|Standard_E16s_v5|16|128|
@@ -201,7 +198,7 @@ Azure Red Hat OpenShift 4 supports node instances on the following virtual machi
 |Eidsv5|Standard_E104ids_v5|104|672|
 
 
-### Compute optimized
+#### Compute optimized
 
 |Series|Size|vCPU|Memory: GiB|
 |-|-|-|-|
@@ -212,7 +209,7 @@ Azure Red Hat OpenShift 4 supports node instances on the following virtual machi
 |Fsv2|Standard_F72s_v2|72|144|
 
 
-### Memory and compute optimized
+#### Memory and compute optimized
 
 |Series|Size|vCPU|Memory: GiB|
 |-|-|-|-|
@@ -221,7 +218,7 @@ Azure Red Hat OpenShift 4 supports node instances on the following virtual machi
 \*Standard_M128ms' does not support encryption at host
 
 
-### Storage optimized
+#### Storage optimized
 |Series|Size|vCPU|Memory: GiB|
 |-|-|-|-|
 |L4s|Standard_L4s|4|32|
@@ -240,7 +237,7 @@ Azure Red Hat OpenShift 4 supports node instances on the following virtual machi
 |L64s_v3|Standard_L64s_v3|64|512|
 
 
-### GPU workload
+#### GPU workload
 |Series|Size|vCPU|Memory: GiB|
 |-|-|-|-|
 |NC4asT4v3|Standard_NC4as_T4_v3|4|28|
@@ -251,15 +248,3 @@ Azure Red Hat OpenShift 4 supports node instances on the following virtual machi
 |NC24sV3|Standard_NC24s_v3|24|448|
 |NC24rsV3|Standard_NC24rs_v3|24|448|
 |NC64asT4v3|Standard_NC64as_T4_v3|64|440|
-
-<!--
-### Memory and storage optimized
-
-|Series|Size|vCPU|Memory: GiB|
-|-|-|-|-|
-|G*|Standard_G5|32|448|
-|G|Standard_GS5|32|448|
-
-
-\*Does not support Premium_LRS OS Disk, StandardSSD_LRS is used instead
--->

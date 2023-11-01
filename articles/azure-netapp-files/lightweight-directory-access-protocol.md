@@ -22,7 +22,7 @@ Lightweight directory access protocol (LDAP) is a standard directory access prot
 
 LDAP models define how to communicate with the LDAP directory store, how to find an object in the directory, how to describe the objects in the store, and the security that is used to access the directory. LDAP allows customization and extension of the objects that are described in the store. Therefore, you can use an LDAP store to store many types of diverse information. Many of the initial LDAP deployments focused on the use of LDAP as a directory store for applications such as email and web applications and to store employee information. Many companies are replacing or have replaced Network Information Service (NIS) with LDAP as a network directory store.
 
-An LDAP server provides UNIX user and group identities for use with NAS volumes. In Azure NetApp Files, Active Directory is the only currently supported LDAP server that can be used. This support includes both Active Directory Domain Services (AD DS) and Azure Active Directory Domain Services (Azure AD DS).
+An LDAP server provides UNIX user and group identities for use with NAS volumes. In Azure NetApp Files, Active Directory is the only currently supported LDAP server that can be used. This support includes both Active Directory Domain Services (AD DS) and Microsoft Entra Domain Services.
 
 LDAP requests can be broken down into two main operations.
 

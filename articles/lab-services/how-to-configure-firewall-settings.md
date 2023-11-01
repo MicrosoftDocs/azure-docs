@@ -13,12 +13,9 @@ This article covers how to find the specific public IP address used by a lab in 
 
 Each organization or school configures their own network in a way that best fits their needs. Sometimes that includes setting firewall rules that block Remote Desktop Protocol (RDP) or Secure Shell (SSH) connections to machines outside their own network.  Because Azure Lab Services runs in the public cloud, some extra configuration maybe needed to allow lab users to access their VM when connecting from the local network.
 
-Each lab uses single public IP address and multiple ports.  All VMs, both the template VM and lab VMs, use this public IP address.  The public IP address doesn't change for a lab.  Each VM is assigned a different port number. The port ranges for SSH connections are 4980-4989 and 5000-6999.  The port ranges for RDP connections are 4990-4999 and 7000-8999.  The combination of public IP address and port number is used to connect lab creators and lab users to the correct VM.
+Each lab uses a single public IP address and multiple ports. The public IP address for each lab is different.  All VMs, both the template VM and lab VMs, use this public IP address.  The public IP address doesn't change for a lab.  Each VM is assigned a different port number. The port ranges for SSH connections are 4980-4989 and 5000-6999.  The port ranges for RDP connections are 4990-4999 and 7000-8999.  The combination of public IP address and port number is used to connect lab creators and lab users to the correct VM.
 
-If you're using a version of Azure Lab Services prior to the [August 2022 Update](lab-services-whats-new.md), see [Firewall settings for labs when using lab accounts](how-to-configure-firewall-settings-1.md).
-
->[!IMPORTANT]
->Each lab has a different public IP address.
+If you're using [lab accounts](concept-lab-accounts-versus-lab-plans.md), see [Firewall settings for labs when using lab accounts](how-to-configure-firewall-settings-1.md).
 
 > [!NOTE]
 > If your organization needs to perform content filtering, such as for compliance with the [Children's Internet Protection Act (CIPA)](https://www.fcc.gov/consumers/guides/childrens-internet-protection-act), you need to use 3rd party software.  For more information, read guidance on [content filtering with Lab Services](./administrator-guide.md#content-filtering).

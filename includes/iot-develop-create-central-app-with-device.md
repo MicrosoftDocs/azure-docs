@@ -23,7 +23,7 @@ To create a new application:
 1. Leave **Application template** set to *Custom application*. 
 1. Select a **Pricing plan** option. 
     - Select one of the standard pricing plans. Select your **Directory**, **Azure subscription**, and **Location**. To learn about pricing, see [Azure IoT Central pricing](https://azure.microsoft.com/pricing/details/iot-central/).
-        - **Directory** is the Azure Active Directory in which you create your application. An Azure Active Directory contains user identities, credentials, and other organizational information. If you don't have an Azure Active Directory, one is created when you create an Azure subscription.
+        - **Directory** is the Microsoft Entra ID in which you create your application. A Microsoft Entra ID contains user identities, credentials, and other organizational information. If you don't have a Microsoft Entra ID, one is created when you create an Azure subscription.
         - An **Azure subscription** enables you to create instances of Azure services. IoT Central provisions resources in your subscription. If you don't have a subscription, you can create one for [free](https://aka.ms/createazuresubscription). If you have a subscription, you can select it in the dropdown.
         - **Location** is the [Azure geography](https://azure.microsoft.com/global-infrastructure/geographies/) in which you create an application. Select a location that's physically closest to your devices to get optimal performance. After you choose a location, you can't move the application to a different location.
 

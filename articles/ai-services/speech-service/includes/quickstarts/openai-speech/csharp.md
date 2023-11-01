@@ -1,6 +1,6 @@
 ---
 author: eric-urban
-ms.service: cognitive-services
+ms.service: azure-ai-speech
 ms.topic: include
 ms.date: 04/15/2022
 ms.author: eur
@@ -41,7 +41,7 @@ Follow these steps to create a new console application.
     ```
 1. Replace the contents of `Program.cs` with the following code. 
 
-    ```csharp
+ ```csharp
     using System;
     using System.IO;
     using System.Threading.Tasks;
@@ -64,42 +64,67 @@ Follow these steps to create a new console application.
         // This example requires environment variables named "SPEECH_KEY" and "SPEECH_REGION"
         static string speechKey = Environment.GetEnvironmentVariable("SPEECH_KEY");
         static string speechRegion = Environment.GetEnvironmentVariable("SPEECH_REGION");
-    
+
+        // Sentence end symbols for splitting the response into sentences.
+        static List<string> sentenceSaperators = new() { ".", "!", "?", ";", "。", "！", "？", "；", "\n" };
+
+        private static object consoleLock = new();
+
         // Prompts Azure OpenAI with a request and synthesizes the response.
         async static Task AskOpenAI(string prompt)
         {
+            var speechConfig = SpeechConfig.FromSubscription(speechKey, speechRegion);
+            // The language of the voice that speaks.
+            speechConfig.SpeechSynthesisVoiceName = "en-US-JennyMultilingualNeural";
+            var audioOutputConfig = AudioConfig.FromDefaultSpeakerOutput();
+            using var speechSynthesizer = new SpeechSynthesizer(speechConfig, audioOutputConfig);
+            speechSynthesizer.Synthesizing += (sender, args) =>
+            {
+                lock (consoleLock)
+                {
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.Write($"[Audio]");
+                    Console.ResetColor();
+                }
+            };
+            
             // Ask Azure OpenAI
             OpenAIClient client = new(new Uri(openAIEndpoint), new AzureKeyCredential(openAIKey));
             var completionsOptions = new CompletionsOptions()
             {
                 Prompts = { prompt },
                 MaxTokens = 100,
+                
             };
-            Response<Completions> completionsResponse = client.GetCompletions(engine, completionsOptions);
-            string text = completionsResponse.Value.Choices[0].Text.Trim();
-            Console.WriteLine($"Azure OpenAI response: {text}");
-     
-            var speechConfig = SpeechConfig.FromSubscription(speechKey, speechRegion);
-            // The language of the voice that speaks.
-            speechConfig.SpeechSynthesisVoiceName = "en-US-JennyMultilingualNeural"; 
-            var audioOutputConfig = AudioConfig.FromDefaultSpeakerOutput();
-    
-            using (var speechSynthesizer = new SpeechSynthesizer(speechConfig, audioOutputConfig))
+            var responseStream = await client.GetCompletionsStreamingAsync(engine, completionsOptions);
+            using var streamingCompletions = responseStream.Value;
+            StringBuilder gptBuffer = new();
+            await foreach (var choice in streamingCompletions.GetChoicesStreaming())
             {
-                var speechSynthesisResult = await speechSynthesizer.SpeakTextAsync(text).ConfigureAwait(true);
-    
-                if (speechSynthesisResult.Reason == ResultReason.SynthesizingAudioCompleted)
+                await foreach (var message in choice.GetTextStreaming())
                 {
-                    Console.WriteLine($"Speech synthesized to speaker for text: [{text}]");
-                }
-                else if (speechSynthesisResult.Reason == ResultReason.Canceled)
-                {
-                    var cancellationDetails = SpeechSynthesisCancellationDetails.FromResult(speechSynthesisResult);
-                    Console.WriteLine($"Speech synthesis canceled: {cancellationDetails.Reason}");
-    
-                    if (cancellationDetails.Reason == CancellationReason.Error)
+                    if (string.IsNullOrEmpty(message))
                     {
-                        Console.WriteLine($"Error details: {cancellationDetails.ErrorDetails}");
+                        continue;
+                    }
+        
+                    lock (consoleLock)
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkBlue;
+                        Console.Write($"{message}");
+                        Console.ResetColor();
+                    }
+        
+                    gptBuffer.Append(message);
+                    
+                    if (sentenceSaperators.Any(message.Contains))
+                    {
+                        var sentence = gptBuffer.ToString().Trim();
+                        if (!string.IsNullOrEmpty(sentence))
+                        {
+                            await speechSynthesizer.SpeakTextAsync(sentence).ConfigureAwait(true);
+                            gptBuffer.Clear();
+                        }
                     }
                 }
             }
@@ -164,7 +189,7 @@ Follow these steps to create a new console application.
             }
         }
     }
-    ```
+```
 
 1. To increase or decrease the number of tokens returned by Azure OpenAI, change the `MaxTokens` property in the `CompletionsOptions` class instance. For more information tokens and cost implications, see [Azure OpenAI tokens](/azure/ai-services/openai/overview#tokens) and [Azure OpenAI pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/).
 

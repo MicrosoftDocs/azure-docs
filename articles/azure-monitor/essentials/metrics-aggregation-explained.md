@@ -32,7 +32,7 @@ Let's define a few terms clearly first:
 
 ## Summary of process
 
-Metrics are a series of values stored with a time-stamp. In Azure, most metrics are stored in the Azure Metrics time-series database. When you plot a chart, the values of the selected metrics are retrieved from the database and then separately aggregated based on the chosen time granularity (also known as time grain). You select the size of the time granularity using the [Metrics Explorer time picker panel](../essentials/metrics-getting-started.md#select-a-time-range). If you don’t make an explicit selection, the time granularity is automatically selected based on the currently selected time range. Once selected, the metric values that were captured during each time granularity interval are aggregated and placed onto the chart - one datapoint per interval.
+Metrics are a series of values stored with a time-stamp. In Azure, most metrics are stored in the Azure Metrics time-series database. When you plot a chart, the values of the selected metrics are retrieved from the database and then separately aggregated based on the chosen time granularity (also known as time grain). You select the size of the time granularity using the [metrics explorer time picker](../essentials/analyze-metrics.md#configure-the-time-range). If you don’t make an explicit selection, the time granularity is automatically selected based on the currently selected time range. Once selected, the metric values that were captured during each time granularity interval are aggregated and placed onto the chart - one datapoint per interval.
 
 ## Aggregation types 
 
@@ -283,5 +283,4 @@ You can also see that the NULLs give a better calculation of average than if zer
 
 ## Next steps
 
-- [Getting started with metrics explorer](../essentials/metrics-getting-started.md)
-- [Advanced Metrics explorer](../essentials/metrics-charts.md)
+- [Analyze metrics with Azure Monitor metrics explorer](../essentials/analyze-metrics.md)

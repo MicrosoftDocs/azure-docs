@@ -55,7 +55,7 @@ In order to access the expressRouteCrossConnections API, the partner subscriptio
 
 ### 3. Set up authentication for Azure Resource Manager REST API calls
 
-Most Azure services require client code to authenticate with Resource Manager, using valid credentials, prior to calling service APIs. Authentication is coordinated between the various actors by Azure AD and provides the client with an access token as proof of authentication.
+Most Azure services require client code to authenticate with Resource Manager, using valid credentials, prior to calling service APIs. Authentication is coordinated between the various actors by Microsoft Entra ID and provides the client with an access token as proof of authentication.
 
 The authentication process involves two main steps:
 
@@ -70,7 +70,7 @@ Once authentication has been successfully configured, you need to grant Network 
 2. Navigate to Access Control (IAM)
 3. Add Role Assignment
 4. Select the Network Contributor Role
-5. Assign Access to Azure AD User, Group, or Service Principal
+5. Assign Access to Microsoft Entra user, group, or service principal
 6. Select your client application
 7. Save changes
 

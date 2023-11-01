@@ -21,7 +21,7 @@ This table lists the Azure services that you can use with Azure Data Lake Storag
 > [!NOTE]
 > Support level refers only to how the service is supported with Data Lake Storage Gen 2.
 
-|Azure service |Support level |Azure AD |Shared Key| Related articles |
+|Azure service |Support level |Microsoft Entra ID |Shared Key| Related articles |
 |---------------|-------------------|---|---|---|
 |Azure Data Factory|Generally available|Yes|Yes|<ul><li>[Load data into Azure Data Lake Storage Gen2 with Azure Data Factory](../../data-factory/load-azure-data-lake-storage-gen2.md?toc=/azure/storage/blobs/toc.json)</li></ul>|
 |Azure Databricks|Generally available|Yes|Yes|<ul><li>[Use with Azure Databricks](/azure/databricks/data/data-sources/azure/azure-datalake-gen2)</li><br><li>[Tutorial: Extract, transform, and load data by using Azure Databricks](/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse)</li><br><li>[Tutorial: Access Data Lake Storage Gen2 data with Azure Databricks using Spark](data-lake-storage-use-databricks-spark.md)</li></ul>|

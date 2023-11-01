@@ -6,8 +6,7 @@ services: cognitive-services
 author: rwallerms
 manager: guillasi
 
-ms.service: applied-ai-services
-ms.subservice: immersive-reader
+ms.service: azure-ai-immersive-reader
 ms.custom: devx-track-js
 ms.topic: release-notes
 ms.date: 11/15/2021
