@@ -27,7 +27,7 @@ To build and deploy your container app, you add the [`azure/container-apps-deplo
 The action supports the following scenarios:
 
 * Build from a Dockerfile and deploy to Container Apps
-* Build from source code without a Dockerfile and deploy to Container Apps. Supported languages include .NET, Node.js, PHP, Python, and Ruby
+* Build from source code without a Dockerfile and deploy to Container Apps. Supported languages include .NET, Java, Node.js, PHP, Python, and Ruby
 * Deploy an existing container image to Container Apps
 
 ### Usage examples

@@ -254,8 +254,7 @@ Use the following git command to clone your forked repo into the *code-to-cloud*
 ```git
 git clone https://github.com/$GITHUB_USERNAME/containerapps-albumapi-java.git code-to-cloud
 ```
-
-::: zone-end
+:::zone-end
 
 # [JavaScript](#tab/javascript)
 
