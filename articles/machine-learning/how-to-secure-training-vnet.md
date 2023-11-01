@@ -18,10 +18,11 @@ ms.devlang: azurecli
 
 [!INCLUDE [SDK v2](includes/machine-learning-sdk-v2.md)]
 
+[!INCLUDE [managed network](includes/managed-vnet-note.md)]
 
 Azure Machine Learning compute instance and compute cluster can be used to securely train models in an Azure Virtual Network. When planning your environment, you can configure the compute instance/cluster with or without a public IP address. The general differences between the two are:
 
-* **No public IP**: Reduces costs as it doesn't have the same networking resource requirements. Improves security by removing the requirement for inbound traffic from the internet. However, there are additional configuration changes required to enable outbound access to required resources (Azure Active Directory, Azure Resource Manager, etc.).
+* **No public IP**: Reduces costs as it doesn't have the same networking resource requirements. Improves security by removing the requirement for inbound traffic from the internet. However, there are additional configuration changes required to enable outbound access to required resources (Microsoft Entra ID, Azure Resource Manager, etc.).
 * **Public IP**: Works by default, but costs more due to additional Azure networking resources. Requires inbound communication from the Azure Machine Learning service over the public internet.
 
 The following table contains the differences between these configurations:
@@ -33,11 +34,6 @@ The following table contains the differences between these configurations:
 | Azure networking resources | Public IP address, load balancer, network interface | None |
 
 You can also use Azure Databricks or HDInsight to train models in a virtual network.
-
-> [!TIP]
-> Azure Machine Learning also provides **managed virtual networks** (preview). With a managed virtual network, Azure Machine Learning handles the job of network isolation for your workspace and managed computes. You can also add private endpoints for resources needed by the workspace, such as Azure Storage Account. 
->
-> At this time, the managed virtual networks preview **doesn't** support no public IP configuration for compute resources. For more information, see [Workspace managed network isolation](how-to-managed-network.md).
 
 > [!IMPORTANT]
 > Items marked (preview) in this article are currently in public preview.
@@ -159,6 +155,9 @@ To create a compute cluster in an Azure Virtual Network in a different region th
 
 ## Compute instance/cluster with no public IP
 
+> [!WARNING]
+> This information is only valid when using an _Azure Virtual Network_. If you are using a _managed virtual network_, see [managed compute with a managed network](how-to-managed-network-compute.md).
+
 > [!IMPORTANT]
 > If you have been using compute instances or compute clusters configured for no public IP without opting-in to the preview, you will need to delete and recreate them after January 20, 2023 (when the feature is generally available).
 > 
@@ -255,6 +254,9 @@ ml_client.begin_create_or_update(entity=compute)
 ---
 
 ## Compute instance/cluster with public IP
+
+> [!IMPORTANT]
+> This information is only valid when using an _Azure Virtual Network_. If you are using a _managed virtual network_, see [managed compute with a managed network](how-to-managed-network-compute.md).
 
 The following configurations are in addition to those listed in the [Prerequisites](#prerequisites) section, and are specific to **creating** compute instances/clusters that have a public IP:
 

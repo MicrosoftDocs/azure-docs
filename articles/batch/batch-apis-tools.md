@@ -20,7 +20,7 @@ You can efficiently process large-scale workloads for your organization, or prov
 
 When you develop Batch solutions, you use the following accounts in your Azure subscription:
 
-- **Batch account**: Azure Batch resources, including pools, compute nodes, jobs, and tasks, are associated with an Azure [Batch account](accounts.md). When your application makes a request against the Batch service, it authenticates the request using the Azure Batch account name, the URL of the account, and either an access key or an Azure Active Directory token. You can [create a Batch account](batch-account-create-portal.md) in the Azure portal or programmatically.
+- **Batch account**: Azure Batch resources, including pools, compute nodes, jobs, and tasks, are associated with an Azure [Batch account](accounts.md). When your application makes a request against the Batch service, it authenticates the request using the Azure Batch account name, the URL of the account, and either an access key or a Microsoft Entra token. You can [create a Batch account](batch-account-create-portal.md) in the Azure portal or programmatically.
 - **Storage account**: Batch includes built-in support for working with files in [Azure Storage](../storage/index.yml). Nearly every Batch scenario uses Azure Blob storage for staging the programs that your tasks run and the data that they process, and for the storage of output data that they generate. Each Batch account is usually associated with a corresponding storage account.
 
 ## Service-level and management-level APIs

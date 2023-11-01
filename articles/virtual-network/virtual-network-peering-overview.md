@@ -28,7 +28,7 @@ The benefits of using virtual network peering, whether local or global, include:
 
 * The ability for resources in one virtual network to communicate with resources in a different virtual network.
 
-* The ability to transfer data between virtual networks across Azure subscriptions, Azure Active Directory tenants, deployment models, and Azure regions.
+* The ability to transfer data between virtual networks across Azure subscriptions, Microsoft Entra tenants, deployment models, and Azure regions.
 
 * The ability to peer virtual networks created through the Azure Resource Manager.
 
@@ -68,7 +68,6 @@ Synching of virtual network peers can be performed through the Azure portal or w
 > [!IMPORTANT]
 > This feature doesn't support scenarios where the virtual network to be updated is peered with: 
 > * A classic virtual network
-> * A managed virtual network such as the Azure VWAN hub
 
 ## Service chaining
 
@@ -110,7 +109,7 @@ The following constraints apply only when virtual networks are globally peered:
 
 * Resources in one virtual network can't communicate with the front-end IP address of a Basic Load Balancer (internal or public)  in a globally peered virtual network.
 
-* Some services that use a Basic load balancer don't work over global virtual network peering. For more information, see [What are the constraints related to Global VNet Peering and Load Balancers?](virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers).
+* Some services that use a Basic load balancer don't work over global virtual network peering. For more information, see [What are the constraints related to Global VNet Peering and Load Balancers?](virtual-networks-faq.md#what-are-the-constraints-related-to-global-virtual-network-peering-and-load-balancers).
 
 For more information, see [Requirements and constraints](virtual-network-manage-peering.md#requirements-and-constraints). To learn more about the supported number of peerings, see [Networking limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
@@ -142,4 +141,4 @@ Gateway Transit is a peering property that enables a virtual network to utilize 
 
 * To learn about all virtual network peering settings, see [Create, change, or delete a virtual network peering](virtual-network-manage-peering.md).
 
-* For answers to common virtual network peering and global virtual network peering questions, see [VNet Peering](virtual-networks-faq.md#vnet-peering).
+* For answers to common virtual network peering and global virtual network peering questions, see [VNet Peering](virtual-networks-faq.md#virtual-network-peering).

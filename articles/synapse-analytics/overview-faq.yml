@@ -131,14 +131,14 @@ sections:
       - question: |
           What is the difference between Apache Spark for Synapse and Apache Spark?
         answer: |
-          Apache Spark for Synapse is Apache Spark with added support for integrations with other services (Azure AD, AzureML, etc.) and additional libraries (mssparktuils, Hummingbird) and pre-tuned performance configurations.
+          Apache Spark for Synapse is Apache Spark with added support for integrations with other services (Microsoft Entra ID, AzureML, etc.) and additional libraries (mssparktuils, Hummingbird) and pre-tuned performance configurations.
           
           Any workload that is currently running on Apache Spark will run on Apache Spark for Azure Synapse without change. 
           
       - question: |
           What versions of Spark are available?
         answer: |
-          As of May 2021, Azure Synapse Apache Spark fully supports Spark 2.4 and Spark 3.1. As of April 2022, Spark 3.2 is in preview. For a full list of core components and currently supported versions see [Apache Spark version support](./spark/apache-spark-version-support.md).
+          As of September 2023, Azure Synapse Apache Spark fully supports Spark 3.3. For a full list of core components and currently supported versions see [Apache Spark version support](./spark/apache-spark-version-support.md).
           
       - question: |
           Is there an equivalent of DButils in Azure Synapse Spark?

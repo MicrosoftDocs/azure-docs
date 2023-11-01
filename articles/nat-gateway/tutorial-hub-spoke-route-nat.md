@@ -87,47 +87,53 @@ The hub virtual network is the central network of the solution. The hub network 
     | Name | Enter **vnet-hub**. |
     | Region | Select **East US 2**. |
 
-1. Select **Next: IP Addresses**.
+1. Select **Next** to proceed to the **Security** tab.
 
-1. In the **IP Addresses** tab in **IPv4 address space**, select the trash can to delete the address space that is auto populated.
+1. Select **Enable Bastion** in the **Azure Bastion** section of the **Security** tab.
 
-1. In **IPv4 address space** enter **10.0.0.0/16**.
+    Azure Bastion uses your browser to connect to VMs in your virtual network over secure shell (SSH) or remote desktop protocol (RDP) by using their private IP addresses. The VMs don't need public IP addresses, client software, or special configuration. For more information about Azure Bastion, see [Azure Bastion](/azure/bastion/bastion-overview)
+
+    >[!NOTE]
+    >[!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+
+1. Enter or select the following information in **Azure Bastion**:
+
+    | Setting | Value |
+    |---|---|
+    | Azure Bastion host name | Enter **bastion**. |
+    | Azure Bastion public IP address | Select **Create a public IP address**. </br> Enter **public-ip** in Name. </br> Select **OK**. |
+
+1. Select **Next** to proceed to the **IP Addresses** tab.
+
+1. In the address space box in **Subnets**, select the **default** subnet.
+
+1. In **Edit subnet**, enter or select the following information:
+
+    | Setting | Value |
+    |---|---|
+    | **Subnet details** |  |
+    | Subnet template | Leave the default **Default**. |
+    | Name | Enter **subnet-private**. |
+    | Starting address | Leave the default of **10.0.0.0**. |
+    | Subnet size | Leave the default of **/24(256 addresses)**. |
+
+1. Select **Save**.
 
 1. Select **+ Add subnet**.
 
-1. In **Add subnet** enter or select the following information:
+1. In **Add subnet**, enter or select the following information:
 
     | Setting | Value |
-    | ------- | ----- |
-    | Subnet name | Enter **subnet-private**. |
-    | Subnet address range | Enter **10.0.0.0/24**. |
-
-1. Select **Add**.
-
-1. Select **+ Add subnet**.
-
-1. In **Add subnet** enter or select the following information:
-
-    | Setting | Value |
-    | ------- | ----- |
-    | Subnet name | Enter **subnet-public**. |
-    | Subnet address range | Enter **10.0.253.0/28**. |
-    | **NAT GATEWAY** |   |
+    |---|---|
+    | **Subnet details** |  |
+    | Subnet template | Leave the default **Default**. |
+    | Name | Enter **subnet-public**. |
+    | Starting address | Enter **10.0.253.0**. |
+    | Subnet size | Select **/28(16 addresses)**. |
+    | **Security** |   |
     | NAT gateway | Select **nat-gateway**. |
 
 1. Select **Add**.
-
-1. Select **Next: Security**.
-
-1. In the **Security** tab in **BastionHost**, select **Enable**.
-
-1. Enter or select the following information:
-
-    | Setting | Value |
-    | ------- | ----- |
-    | Bastion name | Enter **bastion**. |
-    | AzureBastionSubnet address space | Enter **10.0.1.0/26**. |
-    | Public IP address | Select **Create new**. </br> In **Name** enter **public-ip**. </br> Select **OK**. |
 
 1. Select **Review + create**.
 
@@ -199,7 +205,7 @@ The IP configuration of the primary network interface of the virtual machine is 
 
 1. In the network interface properties, select **IP configurations** in **Settings**.
 
-1. In **IP forwarding** select **Enabled**.
+1. Select the box next to **Enable IP forwarding**.
 
 1. Select **Apply**.
 
@@ -207,7 +213,7 @@ The IP configuration of the primary network interface of the virtual machine is 
 
 1. In **Assignment** in **ipconfig1** select **Static**.
 
-1. In **IP address** enter **10.0.253.10**.
+1. In **Private IP address** enter **10.0.253.10**.
 
 1. Select **Save**.
 
@@ -215,7 +221,7 @@ The IP configuration of the primary network interface of the virtual machine is 
 
 1. In **Networking** of **vm-nva** select **Attach network interface**.
 
-1. Select **Create network interface**.
+1. Select **Create and attach network interface**.
 
 1. In **Create network interface** enter or select the following information:
 
@@ -245,7 +251,7 @@ The routing for the simulated NVA uses IP tables and internal NAT in the Ubuntu 
 
 1. When the virtual machine is completed booting, continue with the next steps.
 
-1. Select **Connect** then **Bastion**. Select **Use Bastion**.
+1. In **Operations**, select **Bastion**.
 
 1. Enter the username and password you entered when the virtual machine was created.
 
@@ -384,22 +390,27 @@ Create another virtual network in a different region for the first spoke of the 
     | Resource group | Select **test-rg**. |
     | **Instance details** |   |
     | Name | Enter **vnet-spoke-1**. |
-    | Region | Select **South Central US**. |
+    | Region | Select **(US) South Central US**. |
 
-1. Select **Next: IP Addresses**.
+1. Select **Next** to proceed to the **Security** tab.
+
+1. Select **Next** to proceed to the **IP addresses** tab.
 
 1. In the **IP Addresses** tab in **IPv4 address space**, select the trash can to delete the address space that is auto populated.
 
-1. In **IPv4 address space** enter **10.1.0.0/16**.
+1. In **IPv4 address space** enter **10.1.0.0**. Leave the default of **/16 (65,536 addresses)** in the mask selection.
 
-1. Select **+ Add subnet**.
+1. Select **+ Add a subnet**.
 
-1. In **Add subnet** enter or select the following information:
+1. In **Add a subnet** enter or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
-    | Subnet name | Enter **subnet-private**. |
-    | Subnet address range | Enter **10.1.0.0/24**. |
+    | **Subnet details** |  |
+    | Subnet template | Leave the default **Default**. |
+    | Name | Enter **subnet-private**. |
+    | Starting address | Enter **10.1.0.0**. |
+    | Subnet size | Leave the default of **/24(256 addresses)**. |
 
 1. Select **Add**.
 
@@ -425,18 +436,20 @@ A virtual network peering is used to connect the hub to spoke one and spoke one 
     | ------- | ----- |
     | **This virtual network** |   |
     | Peering link name | Enter **vnet-hub-to-vnet-spoke-1**. |
-    | Traffic to remote virtual network | Leave the default of **Allow (default)**. |
-    | Traffic forwarded from remote virtual network | Leave the default of **Allow (default)**. |
-    | Virtual network gateway or Route Server | Leave the default of **None**. |
+    | Allow 'vnet-hub' to access 'vnet-spoke-1' | Leave the default of **Selected**. |
+    | Allow 'vnet-hub' to receive forwarded traffic from 'vnet-spoke-1' | **Select** the checkbox. |
+    | Allow gateway in 'vnet-hub' to forward traffic to 'vnet-spoke-1' | Leave the default of **Unselected**. |
+    | Enable 'vnet-hub' to use 'vnet-spoke-1's' remote gateway | Leave the default of **Unselected**. |
     | **Remote virtual network** |   |
     | Peering link name | Enter **vnet-spoke-1-to-vnet-hub**. |
     | Virtual network deployment model | Leave the default of **Resource manager**. |
     | Subscription | Select your subscription. |
     | Virtual network | Select **vnet-spoke-1**. |
-    | Traffic to remote virtual network | Leave the default of **Allow (default)**. |
-    | Traffic forwarded from remote virtual network | Leave the default of **Allow (default)**. |
-    | Virtual network gateway or Route Server | Leave the default of **None**. |
-
+    | Allow 'vnet-spoke-1' to access 'vnet-hub' | Leave the default of **Selected**. |
+    | Allow 'vnet-spoke-1' to receive forwarded traffic from 'vnet-hub' | **Select** the checkbox. |
+    | Allow gateway in 'vnet-spoke-1' to forward traffic to 'vnet-hub' | Leave the default of **Unselected**. |
+    | Enable 'vnet-spoke-1' to use 'vnet-hub's' remote gateway | Leave the default of **Unselected**. |
+    
 1. Select **Add**.
 
 1. Select **Refresh** and verify **Peering status** is **Connected**.
@@ -603,22 +616,27 @@ Create the second virtual network for the second spoke of the hub and spoke netw
     | Resource group | Select **test-rg**. |
     | **Instance details** |   |
     | Name | Enter **vnet-spoke-2**. |
-    | Region | Select **West US 2**. |
+    | Region | Select **(US) West US 2**. |
 
-1. Select **Next: IP Addresses**.
+1. Select **Next** to proceed to the **Security** tab.
+
+1. Select **Next** to proceed to the **IP addresses** tab.
 
 1. In the **IP Addresses** tab in **IPv4 address space**, select the trash can to delete the address space that is auto populated.
 
-1. In **IPv4 address space** enter **10.2.0.0/16**.
+1. In **IPv4 address space** enter **10.2.0.0**. Leave the default of **/16 (65,536 addresses)** in the mask selection.
 
-1. Select **+ Add subnet**.
+1. Select **+ Add a subnet**.
 
-1. In **Add subnet** enter or select the following information:
+1. In **Add a subnet** enter or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
-    | Subnet name | Enter **subnet-private**. |
-    | Subnet address range | Enter **10.2.0.0/24**. |
+    | **Subnet details** |  |
+    | Subnet template | Leave the default **Default**. |
+    | Name | Enter **subnet-private**. |
+    | Starting address | Enter **10.2.0.0**. |
+    | Subnet size | Leave the default of **/24(256 addresses)**. |
 
 1. Select **Add**.
 
@@ -638,24 +656,34 @@ Create a two-way virtual network peer between the hub and spoke two.
 
 1. Select **+ Add**.
 
+1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
+
+1. Select **vnet-hub**.
+
+1. Select **Peerings** in **Settings**.
+
+1. Select **+ Add**.
+
 1. Enter or select the following information in **Add peering**:
 
     | Setting | Value |
     | ------- | ----- |
     | **This virtual network** |   |
     | Peering link name | Enter **vnet-hub-to-vnet-spoke-2**. |
-    | Traffic to remote virtual network | Leave the default of **Allow (default)**. |
-    | Traffic forwarded from remote virtual network | Leave the default of **Allow (default)**. |
-    | Virtual network gateway or Route Server | Leave the default of **None**. |
+    | Allow 'vnet-hub' to access 'vnet-spoke-2' | Leave the default of **Selected**. |
+    | Allow 'vnet-hub' to receive forwarded traffic from 'vnet-spoke-2' | **Select** the checkbox. |
+    | Allow gateway in 'vnet-hub' to forward traffic to 'vnet-spoke-2' | Leave the default of **Unselected**. |
+    | Enable 'vnet-hub' to use 'vnet-spoke-2's' remote gateway | Leave the default of **Unselected**. |
     | **Remote virtual network** |   |
     | Peering link name | Enter **vnet-spoke-2-to-vnet-hub**. |
     | Virtual network deployment model | Leave the default of **Resource manager**. |
     | Subscription | Select your subscription. |
     | Virtual network | Select **vnet-spoke-2**. |
-    | Traffic to remote virtual network | Leave the default of **Allow (default)**. |
-    | Traffic forwarded from remote virtual network | Leave the default of **Allow (default)**. |
-    | Virtual network gateway or Route Server | Leave the default of **None**. |
-
+    | Allow 'vnet-spoke-1' to access 'vnet-hub' | Leave the default of **Selected**. |
+    | Allow 'vnet-spoke-1' to receive forwarded traffic from 'vnet-hub' | **Select** the checkbox. |
+    | Allow gateway in 'vnet-spoke-1' to forward traffic to 'vnet-hub' | Leave the default of **Unselected**. |
+    | Enable 'vnet-spoke-1' to use 'vnet-hub's' remote gateway | Leave the default of **Unselected**. |
+    
 1. Select **Add**.
 
 1. Select **Refresh** and verify **Peering status** is **Connected**.
@@ -825,7 +853,7 @@ Use Microsoft Edge on the Windows Server 2022 virtual machine to connect to http
 
 1. Select **vm-spoke-1**.
 
-1. Select **Connect** then **Bastion**. Select **Use Bastion**.
+1. In **Operations**, select **Bastion**.
 
 1. Enter the username and password you entered when the virtual machine was created.
 
@@ -849,7 +877,7 @@ Use Microsoft Edge on the Windows Server 2022 virtual machine to connect to http
 
 1. Select **vm-spoke-2**.
 
-1. Select **Connect** then **Bastion**. Select **Use Bastion**.
+1. In **Operations**, select **Bastion**.
 
 1. Enter the username and password you entered when the virtual machine was created.
 

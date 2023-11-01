@@ -1,30 +1,30 @@
 ---
-title: Add autocomplete to a search box
+title: Autocomplete or typeahead
 titleSuffix: Azure Cognitive Search
-description: Enable search-as-you-type query actions in Azure Cognitive Search by creating suggesters and formulating requests that autocomplete a search box with finished terms or phrases. You can also return suggested matches.
+description: Enable search-as-you-type query actions in Azure Cognitive Search by creating suggesters and queries that autocomplete a search string with finished terms or phrases. You can also return suggested matches.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.topic: conceptual
-ms.date: 09/12/2022
-ms.custom: devx-track-csharp
+ms.topic: how-to
+ms.date: 10/03/2023
+
 ---
 
-# Add autocomplete and suggestions to client apps using Azure Cognitive Search
+# Add autocomplete and search suggestions in client apps
 
 Search-as-you-type is a common technique for improving query productivity. In Azure Cognitive Search, this experience is supported through *autocomplete*, which finishes a term or phrase based on partial input (completing "micro" with "microsoft"). A second user experience is *suggestions*, or a short list of matching documents (returning book titles with an ID so that you can link to a detail page about that book). Both autocomplete and suggestions are predicated on a match in the index. The service won't offer queries that return zero results.
 
-To implement these experiences in Azure Cognitive Search, you will need:
+To implement these experiences in Azure Cognitive Search:
 
-+ A *suggester* definition that's embedded in the index schema.
-+ A *query* specifying [Autocomplete](/rest/api/searchservice/autocomplete) or [Suggestions](/rest/api/searchservice/suggestions) API on the request.
-+ A *UI control* to handle search-as-you-type interactions in your client app. We recommend using an existing JavaScript library for this purpose.
++ Add a `suggester` to an index schema
++ Build a query that calls the [Autocomplete](/rest/api/searchservice/autocomplete) or [Suggestions](/rest/api/searchservice/suggestions) API on the request.
++ Add a UI control to handle search-as-you-type interactions in your client app. We recommend using an existing JavaScript library for this purpose.
 
 In Azure Cognitive Search, autocompleted queries and suggested results are retrieved from the search index, from selected fields that you have registered with a suggester. A suggester is part of the index, and it specifies which fields will provide content that either completes a query, suggests a result, or does both. When the index is created and loaded, a suggester data structure is created internally to store prefixes used for matching on partial queries. For suggestions, choosing suitable fields that are unique, or at least not repetitive, is essential to the experience. For more information, see [Create a suggester](index-add-suggesters.md).
 
-The remainder of this article is focused on queries and client code. It uses JavaScript and C# to illustrate key points. REST API examples are used to concisely present each operation. For links to end-to-end code samples, see [Next steps](#next-steps).
+The remainder of this article is focused on queries and client code. It uses JavaScript and C# to illustrate key points. REST API examples are used to concisely present each operation. For end-to-end code samples, see [Next steps](#next-steps).
 
 ## Set up a request
 

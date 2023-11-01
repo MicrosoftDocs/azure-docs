@@ -6,7 +6,6 @@ services: security
 documentationcenter: na
 author: TerryLanfear
 manager: rkarlin
-editor: TomSh
 
 ms.assetid:
 ms.service: security
@@ -14,7 +13,7 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/08/2022
+ms.date: 08/29/2023
 ms.author: terrylan
 
 ---
@@ -46,7 +45,7 @@ The following table lists the most important types of logs available in Azure:
 | ------------ | -------- | ------ | ----------- |
 |[Activity logs](../../azure-monitor/essentials/platform-logs-overview.md)|Control-plane events on Azure Resource Manager resources|	Provides insight into the operations that were performed on resources in your subscription.|	REST API, [Azure Monitor](../../azure-monitor/essentials/platform-logs-overview.md)|
 |[Azure Resource logs](../../azure-monitor/essentials/platform-logs-overview.md)|Frequent data about the operation of Azure Resource Manager resources in subscription|	Provides insight into operations that your resource itself performed.| Azure Monitor|
-|[Azure Active Directory reporting](../../active-directory/reports-monitoring/overview-reports.md)|Logs and reports | Reports user sign-in activities and system activity information about users and group management.|[Microsoft Graph](/graph/overview)|
+|[Microsoft Entra ID reporting](../../active-directory/reports-monitoring/overview-reports.md)|Logs and reports | Reports user sign-in activities and system activity information about users and group management.|[Microsoft Graph](/graph/overview)|
 |[Virtual machines and cloud services](../../azure-monitor/vm/monitor-virtual-machine.md)|Windows Event Log service and Linux Syslog|	Captures system data and logging data on the virtual machines and transfers that data into a storage account of your choice.|	Windows (using [Azure Diagnostics](../../azure-monitor/agents/diagnostics-extension-overview.md)] storage) and Linux in Azure Monitor|
 |[Azure Storage Analytics](/rest/api/storageservices/fileservices/storage-analytics)|Storage logging, provides metrics data for a storage account|Provides insight into trace requests, analyzes usage trends, and diagnoses issues with your storage account.|	REST API or the [client library](/dotnet/api/overview/azure/storage)|
 |[Network security group (NSG) flow logs](../../network-watcher/network-watcher-nsg-flow-logging-overview.md)|JSON format, shows outbound and inbound flows on a per-rule basis|Displays information about ingress and egress IP traffic through a Network Security Group.|[Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md)|

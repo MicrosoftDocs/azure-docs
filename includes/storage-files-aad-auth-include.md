@@ -13,5 +13,5 @@
 Azure Files supports identity-based authentication for Windows file shares over Server Message Block (SMB) using the Kerberos authentication protocol through the following methods:
 
 - On-premises Active Directory Domain Services (AD DS)
-- Azure Active Directory Domain Services (Azure AD DS)
-- Azure Active Directory (Azure AD) Kerberos for hybrid user identities
+- Microsoft Entra Domain Services
+- Microsoft Entra Kerberos for hybrid user identities

@@ -5,7 +5,7 @@ description: Azure AI services that are available with Limited Access are descri
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
+ms.service: azure-ai-services
 ms.topic: conceptual
 ms.date: 10/27/2022
 ms.author: pafarley
@@ -29,7 +29,7 @@ The following services are Limited Access:
 - [Speaker Recognition](/legal/cognitive-services/speech-service/speaker-recognition/limited-access-speaker-recognition?context=/azure/ai-services/speech-service/context/context): All features 
 - [Face API](/legal/cognitive-services/computer-vision/limited-access-identity?context=/azure/ai-services/computer-vision/context/context): Identify and Verify features, face ID property
 - [Azure AI Vision](/legal/cognitive-services/computer-vision/limited-access?context=/azure/ai-services/computer-vision/context/context): Celebrity Recognition feature 
-- [Azure AI Video Indexer](../azure-video-indexer/limited-access-features.md): Celebrity Recognition and Face Identify features
+- [Azure AI Video Indexer](/azure/azure-video-indexer/limited-access-features): Celebrity Recognition and Face Identify features
 - [Azure OpenAI](/legal/cognitive-services/openai/limited-access): Azure OpenAI Service, modified abuse monitoring, and modified content filters
 
 Features of these services that aren't listed above are available without registration. 

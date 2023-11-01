@@ -2,7 +2,7 @@
 title: Back up an SAP HANA database to Azure with Azure Backup 
 description: In this article, learn how to back up an SAP HANA database to Azure virtual machines with the Azure Backup service.
 ms.topic: how-to
-ms.date: 05/24/2023
+ms.date: 11/02/2023
 ms.service: backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -23,7 +23,7 @@ Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and t
 
 ### Establish network connectivity
 
-For all operations, an SAP HANA database running on an Azure VM requires connectivity to the Azure Backup service, Azure Storage, and Azure Active Directory. This can be achieved by using private endpoints or by allowing access to the required public IP addresses or FQDNs. Not allowing proper connectivity to the required Azure services may lead to failure in operations like database discovery, configuring backup, performing backups, and restoring data.
+For all operations, an SAP HANA database running on an Azure VM requires connectivity to the Azure Backup service, Azure Storage, and Microsoft Entra ID. This can be achieved by using private endpoints or by allowing access to the required public IP addresses or FQDNs. Not allowing proper connectivity to the required Azure services might lead to failure in operations like database discovery, configuring backup, performing backups, and restoring data.
 
 The following table lists the various alternatives you can use for establishing connectivity:
 
@@ -32,9 +32,9 @@ The following table lists the various alternatives you can use for establishing 
 | Private endpoints                 | Allow backups over private IPs inside the virtual network  <br><br>   Provide granular control on the network and vault side | Incurs standard private endpoint [costs](https://azure.microsoft.com/pricing/details/private-link/) |
 | NSG service tags                  | Easier to manage as range changes are automatically merged   <br><br>   No additional costs | Can be used with NSGs only  <br><br>    Provides access to the entire service |
 | Azure Firewall FQDN tags          | Easier to manage since the required FQDNs are automatically managed | Can be used with Azure Firewall only                         |
-| Allow access to service FQDNs/IPs | No additional costs.   <br><br>  Works with all network security appliances and firewalls. <br><br> You can also use service endpoints for *Storage*. However, for *Azure Backup* and *Azure Active Directory*, you need to assign the access to the corresponding IPs/FQDNs. | A broad set of IPs or FQDNs may be required to be accessed.   |
-| [Virtual Network Service Endpoint](../virtual-network/virtual-network-service-endpoints-overview.md)    |     Can be used for Azure Storage.     <br><br>     Provides large benefit to optimize performance of data plane traffic.          |         Can't be used for Azure AD, Azure Backup service.    |
-| Network Virtual Appliance      |      Can be used for Azure Storage, Azure AD, Azure Backup service. <br><br> **Data plane**   <ul><li>      Azure Storage: `*.blob.core.windows.net`, `*.queue.core.windows.net`, `*.blob.storage.azure.net`  </li></ul>   <br><br>     **Management plane**  <ul><li>  Azure AD: Allow access to FQDNs mentioned in sections 56 and 59 of [Microsoft 365 Common and Office Online](/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide&preserve-view=true#microsoft-365-common-and-office-online). </li><li>   Azure Backup service: `.backup.windowsazure.com` </li></ul> <br>Learn more about [Azure Firewall service tags](../firewall/fqdn-tags.md).       |  Adds overhead to data plane traffic and decrease throughput/performance.  |
+| Allow access to service FQDNs/IPs | No additional costs.   <br><br>  Works with all network security appliances and firewalls. <br><br> You can also use service endpoints for *Storage*. However, for *Azure Backup* and *Microsoft Entra ID*, you need to assign the access to the corresponding IPs/FQDNs. | A broad set of IPs or FQDNs might be required to be accessed.   |
+| [Virtual Network Service Endpoint](../virtual-network/virtual-network-service-endpoints-overview.md)    |     Can be used for Azure Storage.     <br><br>     Provides large benefit to optimize performance of data plane traffic.          |         Can't be used for Microsoft Entra ID, Azure Backup service.    |
+| Network Virtual Appliance      |      Can be used for Azure Storage, Microsoft Entra ID, Azure Backup service. <br><br> **Data plane**   <ul><li>      Azure Storage: `*.blob.core.windows.net`, `*.queue.core.windows.net`, `*.blob.storage.azure.net`  </li></ul>   <br><br>     **Management plane**  <ul><li>  Microsoft Entra ID: Allow access to FQDNs mentioned in sections 56 and 59 of [Microsoft 365 Common and Office Online](/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide&preserve-view=true#microsoft-365-common-and-office-online). </li><li>   Azure Backup service: `.backup.windowsazure.com` </li></ul> <br>Learn more about [Azure Firewall service tags](../firewall/fqdn-tags.md).       |  Adds overhead to data plane traffic and decrease throughput/performance.  |
 
 More details around using these options are shared below:
 
@@ -43,11 +43,11 @@ More details around using these options are shared below:
 Private endpoints allow you to connect securely from servers inside a virtual network to your Recovery Services vault. The private endpoint uses an IP from the VNET address space for your vault. The network traffic between your resources inside the virtual network and the vault travels over your virtual network and a private link on the Microsoft backbone network. This eliminates exposure from the public internet. Read more on private endpoints for Azure Backup [here](./private-endpoints.md).
 
 > [!NOTE]
-> Private endpoints are supported for Azure Backup and Azure storage. Azure AD has support private end-points in private preview. Until they are generally available, Azure backup supports setting up proxy for Azure AD so that no outbound connectivity is required for HANA VMs. For more information, see the [proxy support section](#use-an-http-proxy-server-to-route-traffic).
+> Private endpoints are supported for Azure Backup and Azure storage. Microsoft Entra ID has support private end-points in private preview. Until they are generally available, Azure backup supports setting up proxy for Microsoft Entra ID so that no outbound connectivity is required for HANA VMs. For more information, see the [proxy support section](#use-an-http-proxy-server-to-route-traffic).
 
 #### NSG tags
 
-If you use Network Security Groups (NSG), use the *AzureBackup* service tag to allow outbound access to Azure Backup. In addition to the Azure Backup tag, you also need to allow connectivity for authentication and data transfer by creating similar [NSG rules](../virtual-network/network-security-groups-overview.md#service-tags) for Azure AD (*AzureActiveDirectory*) and Azure Storage(*Storage*).  The following steps describe the process to create a rule for the Azure Backup tag:
+If you use Network Security Groups (NSG), use the *AzureBackup* service tag to allow outbound access to Azure Backup. In addition to the Azure Backup tag, you also need to allow connectivity for authentication and data transfer by creating similar [NSG rules](../virtual-network/network-security-groups-overview.md#service-tags) for Microsoft Entra ID (*AzureActiveDirectory*) and Azure Storage(*Storage*).  The following steps describe the process to create a rule for the Azure Backup tag:
 
 1. In **All Services**, go to **Network security groups** and select the network security group.
 
@@ -57,7 +57,7 @@ If you use Network Security Groups (NSG), use the *AzureBackup* service tag to a
 
 1. Select **Add**  to save the newly created outbound security rule.
 
-You can similarly create NSG outbound security rules for Azure Storage and Azure AD. For more information on service tags, see [this article](../virtual-network/service-tags-overview.md).
+You can similarly create NSG outbound security rules for Azure Storage and Microsoft Entra ID. For more information on service tags, see [this article](../virtual-network/service-tags-overview.md).
 
 #### Azure Firewall tags
 
@@ -65,7 +65,7 @@ If you're using Azure Firewall, create an application rule by using the *AzureBa
 
 #### Allow access to service IP ranges
 
-If you choose to allow access service IPs, refer to the IP ranges in the JSON file available [here](https://www.microsoft.com/download/confirmation.aspx?id=56519). You'll need to allow access to IPs corresponding to Azure Backup, Azure Storage, and Azure Active Directory.
+If you choose to allow access service IPs, refer to the IP ranges in the JSON file available [here](https://www.microsoft.com/download/confirmation.aspx?id=56519). You'll need to allow access to IPs corresponding to Azure Backup, Azure Storage, and Microsoft Entra ID.
 
 #### Allow access to service FQDNs
 
@@ -80,9 +80,11 @@ You can also use the following FQDNs to allow access to the required services fr
 #### Use an HTTP proxy server to route traffic
 
 > [!NOTE]
-> Currently, we only support HTTP Proxy for Azure Active Directory (Azure AD) traffic for SAP HANA. If you need to remove outbound connectivity requirements (for Azure Backup and Azure Storage traffic) for database backups via Azure Backup in HANA VMs, use other options, such as private endpoints.
+> Currently, we only support HTTP Proxy for Microsoft Entra traffic for SAP HANA. If you need to remove outbound connectivity requirements (for Azure Backup and Azure Storage traffic) for database backups via Azure Backup in HANA VMs, use other options, such as private endpoints.
 
-##### Using an HTTP proxy server for Azure AD traffic
+<a name='using-an-http-proxy-server-for-azure-ad-traffic'></a>
+
+##### Using an HTTP proxy server for Microsoft Entra traffic
 
 1. Go to the "opt/msawb/bin" folder
 2. Create a new JSON file named "ExtensionSettingsOverrides.json"
@@ -104,7 +106,27 @@ You can also use the following FQDNs to allow access to the required services fr
     chown root:msawb ExtensionSettingsOverrides.json
     ```
 
-5. No restart of any service is required. The Azure Backup service will attempt to route the Azure AD traffic via the proxy server mentioned in the JSON file.
+5. No restart of any service is required. The Azure Backup service will attempt to route the Microsoft Entra traffic via the proxy server mentioned in the JSON file.
+
+
+##### Use outbound rules
+
+If the Firewall or NSG settings block the `“management.azure.com”` domain from Azure Virtual Machine, snapshot backups will fail.
+
+Create the following outbound rule and allow the domain name to do the database backup. Learn hot to [create outbound rules](../machine-learning/how-to-access-azureml-behind-firewall.md).
+
+- **Source**: IP address of the VM.
+- **Destination**: Service Tag.
+- **Destination Service Tag**: `AzureResourceManager`
+
+:::image type="content" source="./media/backup-azure-sap-hana-database/outbound-rule-hana-backups.png" alt-text="Screenshot shows the outbound rule settings."  lightbox="./media/backup-azure-sap-hana-database/outbound-rule-hana-backups.png":::
+
+
+
+
+
+
+
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 

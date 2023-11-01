@@ -5,8 +5,8 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: azure-storage-mover
 ms.topic: how-to
-ms.date: 08/18/2023
-ms.custom: template-how-to
+ms.date: 10/12/2023
+ms.custom: template-how-to, devx-track-azurepowershell
 ---
 
 <!-- 
@@ -115,7 +115,12 @@ The following steps describe the process of creating a source endpoint.
 
       :::image type="content" source="media/endpoint-manage/endpoint-source-create.png" alt-text="Screenshot of the Endpoint Overview page highlighting the location of the Create Endpoint link." lightbox="media/endpoint-manage/endpoint-source-create-lrg.png":::
 
-   1. Within the **Create source endpoint** pane, provide values for the required **Host name or IP** and **Share name** values. The host name or IP address value must be either an IPv4 address, or fully qualified domain or host name. You may also add an optional **Description** value of up to 1024 characters in length. Next, select **Protocol version** to expand the protocol selection menu and select the appropriate option for your source target.
+   1. Within the **Create source endpoint** pane, provide values for the required **Host name or IP** and **Share name** values. The host name or IP address value must be either an IPv4 address, or fully qualified domain or host name.
+
+      > [!IMPORTANT]
+      > Depending on your DNS configuration, you may need to use your fully qualified domain name (FQDN) instead of your hostname.
+
+       You may also add an optional **Description** value of up to 1024 characters in length. Next, select **Protocol version** to expand the protocol selection menu and select the appropriate option for your source target.
 
       Storage mover agents use secrets stored within Key Vault to connect to SMB endpoints. When you create an SMB source endpoint, you need to provide both the name of the Key Vault containing the secrets and the names of the secrets themselves.
 
@@ -158,7 +163,12 @@ The following steps describe the process of creating a source endpoint.
    > [!CAUTION]
    > Renaming endpoint resources is not supported. It's a good idea to ensure that you've named the project appropriately since you won't be able to change much of the endpoint name after it is provisioned. You may, however, choose to create a new endpoint with the same properties and a different name as shown in a later section. Refer to the [resource naming convention](../azure-resource-manager/management/resource-name-rules.md#microsoftstoragesync) to choose a supported name.
 
-   1. It's always a good idea to create and use variables to store lengthy or potentially complex strings. Copy the sample code block and supply values for the required parameters. The `-Description` parameter is optional and is added in the [View and edit an endpoint's properties](#view-and-edit-an-endpoints-properties) section.
+   1. It's always a good idea to create and use variables to store lengthy or potentially complex strings. 
+
+      > [!IMPORTANT]
+      > Depending on your DNS configuration, you may need to use your fully qualified domain name (FQDN) instead of your hostname.
+
+      Copy the sample code block and supply values for the required parameters. The `-Description` parameter is optional and is added in the [View and edit an endpoint's properties](#view-and-edit-an-endpoints-properties) section.
 
       ```powershell
       

@@ -78,7 +78,7 @@ Azure Event Hubs supports the following dimensions for metrics in Azure Monitor.
 
 |Dimension name|Description|
 | ------------------- | ----------------- |
-|Entity Name| Name of the event hub. With the 'Incoming Requests' metric, the Entity Name dimension will see a value of '-NamespaceOnlyMetric-' in addition to all your Event Hubs. This represents request which were made at the namespace level. Examples include a  request to list all Event Hubs under the namespace or requests to entities which failed authentication or authorization.|
+|Entity Name| Name of the event hub. With the 'Incoming Requests' metric, the Entity Name dimension has a value of '-NamespaceOnlyMetric-' in addition to all your event hubs. It represents the requests that were made at the namespace level. Examples include a  request to list all event hubs in the namespace or requests to entities that failed authentication or authorization.|
 
 ## Resource logs
 [!INCLUDE [event-hubs-diagnostic-log-schema](./includes/event-hubs-diagnostic-log-schema.md)]
@@ -100,8 +100,8 @@ Name | Description
 `Timestamp` | Aggregation time.
 `Status` | Status of the activity (success or failure).
 `Protocol` | Type of the protocol associated with the operation.
-`AuthType` | Type of authentication (Azure Active Directory or SAS Policy).
-`AuthKey` | Azure Active Directory application ID or SAS policy name that's used to authenticate to a resource.
+`AuthType` | Type of authentication (Microsoft Entra ID or SAS Policy).
+`AuthKey` | Microsoft Entra application ID or SAS policy name that's used to authenticate to a resource.
 `NetworkType` | Type of the network access: `Public` or `Private`.
 `ClientIP` | IP address of the client application.
 `Count` | Total number of operations performed during the aggregated period of 1 minute. 
@@ -132,7 +132,7 @@ Here's an example of a runtime audit log entry:
 Application metrics logs capture the aggregated information on certain metrics related to data plane operations. The captured information includes the following runtime metrics. 
 
 > [!NOTE] 
-> Application metrics logs are available only in **premium** and **dedicated** tiers. Application Metric logs for following metrics- **IncomingBytes**. **IncomingMessages** ,**OutgoingBytes** ,**OutgoingMessages** are only generated if you have already created [Application Groups](resource-governance-overview.md#application-groups),in your environment. Application Groups should have the same security context - AAD ID or SAS key, which is being used to send/receive data to Azure Event Hubs.
+> Application metrics logs are available only in **premium** and **dedicated** tiers. 
 
 Name | Description
 ------- | -------
@@ -144,6 +144,9 @@ Name | Description
 `IncomingBytes` | Details of Publisher throughput sent to Event Hubs
 `OutgoinMessages` | Details of number of messages consumed from Event Hubs. 
 `OutgoingBytes` | Details of Consumer throughput from Event Hubs.
+`OffsetCommit` | Number of offset commit calls made to the event hub 
+`OffsetFetch` | Number of offset fetch calls made to the event hub.
+
 
 
 ## Azure Monitor Logs tables

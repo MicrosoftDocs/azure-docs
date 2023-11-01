@@ -2,7 +2,7 @@
 title: Azure subscription limits and quotas
 description: Provides a list of common Azure subscription and service limits, quotas, and constraints. This article includes information on how to increase limits along with maximum values.
 ms.topic: conceptual
-ms.date: 08/24/2023
+ms.date: 09/26/2023
 ---
 
 # Azure subscription and service limits, quotas, and constraints
@@ -55,14 +55,15 @@ The following limits apply when you use Azure Resource Manager and Azure resourc
 
 [!INCLUDE [azure-resource-groups-limits](../../../includes/azure-resource-groups-limits.md)]
 
-## Azure Active Directory limits
+<a name='azure-active-directory-limits'></a>
+
+## Microsoft Entra ID limits
 
 [!INCLUDE [AAD-service-limits](../../../includes/active-directory-service-limits-include.md)]
 
 ## API Center (preview) limits
 
 [!INCLUDE [api-center-service-limits](../../api-center/includes/api-center-service-limits.md)]
-
 
 ## API Management limits
 
@@ -127,6 +128,8 @@ Azure Communications Gateway also has limits on the SIP signaling.
 ## Azure Container Apps limits
 
 For Azure Container Apps limits, see [Quotas in Azure Container Apps](../../container-apps/quotas.md).
+
+[!INCLUDE [container-apps-limits](../../../includes/container-apps/container-apps-limits.md)]
 
 ## Azure Cosmos DB limits
 
@@ -443,47 +446,7 @@ The latest values for Microsoft Purview quotas can be found in the [Microsoft Pu
 
 ## Microsoft Sentinel limits
 
-[!INCLUDE [sentinel-service-limits](../../sentinel/includes/sentinel-limits-analytics-rules.md)]
-
-### Incident limits
-
-[!INCLUDE [sentinel-service-limits](../../sentinel/includes/sentinel-limits-incidents.md)]
-
-### Machine learning-based limits
-
-[!INCLUDE [sentinel-service-limits](../../sentinel/includes/sentinel-limits-machine-learning.md)]
-
-### Multi workspace limits
-
-[!INCLUDE [sentinel-service-limits](../../sentinel/includes/sentinel-limits-multi-workspace.md)]
-
-### Notebook limits
-
-[!INCLUDE [sentinel-service-limits](../../sentinel/includes/sentinel-limits-notebooks.md)]
-
-### Repositories limits
-
-[!INCLUDE [sentinel-service-limits](../../sentinel/includes/sentinel-limits-repositories.md)]
-
-### Threat intelligence limits
-
-[!INCLUDE [sentinel-service-limits](../../sentinel/includes/sentinel-limits-threat-intelligence.md)]
-
-## TI upload indicators API limits
-
-[!INCLUDE [sentinel-service-limits](../../sentinel/includes/sentinel-limits-ti-upload-api.md)]
-
-### User and Entity Behavior Analytics (UEBA) limits
-
-[!INCLUDE [sentinel-service-limits](../../sentinel/includes/sentinel-limits-ueba.md)]
-
-### Watchlist limits
-
-[!INCLUDE [sentinel-service-limits](../../sentinel/includes/sentinel-limits-watchlists.md)]
-
-### Workbook limits
-
-[!INCLUDE [sentinel-service-limits](../../sentinel/includes/sentinel-limits-workbooks.md)]
+For Microsoft Sentinel limits, see [Service limits for Microsoft Sentinel](../../sentinel/sentinel-service-limits.md)
 
 ## Service Bus limits
 

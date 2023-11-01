@@ -41,7 +41,7 @@ items:
     href: /azure/data-explorer/kusto/api/tds/clients?context=/azure/synapse-analytics/context/context
   - name: Linked server
     href: /azure/data-explorer/kusto/api/tds/linkedserver?context=/azure/synapse-analytics/context/context
-  - name: Azure Active Directory
+  - name: Microsoft Entra ID
     displayName: AAD, Azure AD
     href: /azure/data-explorer/kusto/api/tds/aad?context=/azure/synapse-analytics/context/context
   - name: Known issues

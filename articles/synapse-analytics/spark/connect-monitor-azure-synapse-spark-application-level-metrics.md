@@ -22,7 +22,7 @@ This tutorial also introduces the Azure Synapse REST metrics APIs. You can fetch
 ## Use Azure Synapse Prometheus connector for your on-premises Prometheus servers
 
 [Azure Synapse Prometheus connector](https://github.com/microsoft/azure-synapse-spark-metrics) is an open-source project. The Synapse Prometheus connector uses a file-based service discovery method to allow you to:
- - Authenticate to Synapse workspace via an AAD service principal.
+ - Authenticate to Synapse workspace via a Microsoft Entra service principal.
  - Fetch workspace Apache Spark applications list. 
  - Pull Apache Spark application metrics through Prometheus file-based configuration. 
 
@@ -139,7 +139,7 @@ Wait for a few seconds and the connector should start working. And you can see t
 ## Use Azure Synapse Prometheus or REST metrics APIs to collect metrics data
 
 ### 1. Authentication
-You can use the client credentials flow to get an access token. To access the metrics API, you should get an Azure AD access token for the service principal, which has proper permission to access the APIs.
+You can use the client credentials flow to get an access token. To access the metrics API, you should get a Microsoft Entra access token for the service principal, which has proper permission to access the APIs.
 
 | Parameter     | Required | Description                                                                                                   |
 | ------------- | -------- | ------------------------------------------------------------------------------------------------------------- |

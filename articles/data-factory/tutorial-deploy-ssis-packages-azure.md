@@ -49,7 +49,7 @@ In this tutorial, you complete the following steps:
 
   - Add the IP address of the client machine, or a range of IP addresses that includes the IP address of the client machine, to the client IP address list in the firewall settings for the database server. For more information, see [Azure SQL Database server-level and database-level firewall rules](/azure/azure-sql/database/firewall-configure).
 
-  - You can connect to the database server by using SQL authentication with your server admin credentials, or by using Azure Active Directory (Azure AD) authentication with the specified system/user-assigned managed identity for your data factory. For the latter, you need to add the specified system/user-assigned managed identity for your data factory into an Azure AD group with access permissions to the database server. For more information, see [Create an Azure-SSIS IR with Azure AD authentication](./create-azure-ssis-integration-runtime.md).
+  - You can connect to the database server by using SQL authentication with your server admin credentials, or by using Microsoft Entra authentication with the specified system/user-assigned managed identity for your data factory. For the latter, you need to add the specified system/user-assigned managed identity for your data factory into a Microsoft Entra group with access permissions to the database server. For more information, see [Create an Azure-SSIS IR with Microsoft Entra authentication](./create-azure-ssis-integration-runtime.md).
 
   - Confirm that your database server doesn't have an SSISDB instance already. The provisioning of an Azure-SSIS IR doesn't support using an existing SSISDB instance.
 
@@ -120,9 +120,16 @@ On the **Deployment settings** page of **Integration runtime setup** pane, you h
 
 #### Creating SSISDB
 
-On the **Deployment settings** page of **Integration runtime setup** pane, if you want to deploy your packages into SSISDB (Project Deployment Model), select the **Create SSIS catalog (SSISDB) hosted by Azure SQL Database server/Managed Instance to store your projects/packages/environments/execution logs** check box. Alternatively, if you want to deploy your packages into file system, Azure Files, or SQL Server database (MSDB) hosted by Azure SQL Managed Instance (Package Deployment Model), no need to create SSISDB nor select the check box.
+On the **Deployment settings** page of **Integration runtime setup** pane, select the **Create SSIS catalog (SSISDB) hosted by Azure SQL Database server/Managed Instance to store your projects/packages/environments/execution logs** check box in below scenarios:
+ - Project Deployment Model. You deploy your packages into SSISDB.
+ - Regardless of deployment model, using SQL Server Agent hosted by Azure SQL Managed Instance to orchestrate/schedule your package executions. 
+ 
+    For more information, see [Schedule SSIS package executions via  Azure SQL Managed Instance Agent](./how-to-invoke-ssis-package-managed-instance-agent.md).
 
-Regardless of your deployment model, if you want to use SQL Server Agent hosted by Azure SQL Managed Instance to orchestrate/schedule your package executions, it's enabled by SSISDB, so select the check box anyway. For more information, see [Schedule SSIS package executions via  Azure SQL Managed Instance Agent](./how-to-invoke-ssis-package-managed-instance-agent.md).
+In below scenario, there is no need to create SSISDB nor select the check box:
+ - Package Deployment Model and not using SQL Server Agent hosted by Azure SQL Managed Instance to orchestrate/schedule your package execution. 
+ 
+    You deploy your packages into file system, Azure Files, or SQL Server database (MSDB) hosted by Azure SQL Managed Instance (Package Deployment Model), and use Data Factory pipeline to orchestrate/schedule your package executions.
    
 If you select the check box, complete the following steps to bring your own database server to host SSISDB that we'll create and manage on your behalf.
 
@@ -138,9 +145,9 @@ If you select the check box, complete the following steps to bring your own data
 
       If you select an Azure SQL Database server with IP firewall rules/virtual network service endpoints or a managed instance with private endpoint to host SSISDB, or if you require access to on-premises data without configuring a self-hosted IR, you need to join your Azure-SSIS IR to a virtual network. For more information, see [Create an Azure-SSIS IR in a virtual network](./create-azure-ssis-integration-runtime.md).
 
-   1. Select either the **Use AAD authentication with the system managed identity for Data Factory** or **Use AAD authentication with a user-assigned managed identity for Data Factory** check box to choose Azure AD authentication method for Azure-SSIS IR to access your database server that hosts SSISDB. Don't select any of the check boxes to choose SQL authentication method instead.
+   1. Select either the **Use Microsoft Entra authentication with the system managed identity for Data Factory** or **Use Microsoft Entra authentication with a user-assigned managed identity for Data Factory** check box to choose Microsoft Entra authentication method for Azure-SSIS IR to access your database server that hosts SSISDB. Don't select any of the check boxes to choose SQL authentication method instead.
 
-      If you select any of the check boxes, you'll need to add the specified system/user-assigned managed identity for your data factory into an Azure AD group with access permissions to your database server. If you select the **Use AAD authentication with a user-assigned managed identity for Data Factory** check box, you can then select any existing credentials created using your specified user-assigned managed identities or create new ones. For more information, see [Create an Azure-SSIS IR with Azure AD authentication](./create-azure-ssis-integration-runtime.md).
+      If you select any of the check boxes, you'll need to add the specified system/user-assigned managed identity for your data factory into a Microsoft Entra group with access permissions to your database server. If you select the **Use Microsoft Entra authentication with a user-assigned managed identity for Data Factory** check box, you can then select any existing credentials created using your specified user-assigned managed identities or create new ones. For more information, see [Create an Azure-SSIS IR with Microsoft Entra authentication](./create-azure-ssis-integration-runtime.md).
 
    1. For **Admin Username**, enter the SQL authentication username for your database server that hosts SSISDB. 
 

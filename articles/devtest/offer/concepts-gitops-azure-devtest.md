@@ -3,9 +3,10 @@ title: GitOps & Azure Dev/Test offer
 description: Use GitOps in association with Azure Dev/Test
 author: jenp
 ms.author: jenp
-ms.prod: visual-studio-windows
+ms.prod: visual-studio-family
+ms.technology: vs-subscriptions
 ms.topic: how-to 
-ms.date: 10/20/2021
+ms.date: 10/18/2023
 ms.custom: devtestoffer
 ---
 # Using GitOps with Azure Dev/Test offer to optimize and secure applications
@@ -31,7 +32,7 @@ To deploy a new application or update an existing one, you only need to update t
 
 ## Use GitOps with Dev/Test  
 
-GitOps as a process and framework should be applied to your non-production instances. It can be verified or used in your DevTest environments. You can use GitOps principles to improve your DevOps processes. Use your DevTest benefits and environments with GitOps principles to optimize your activities and maintain the security and reliability of your applications.  
+GitOps as a process and framework should be applied to your nonproduction instances. It can be verified or used in your DevTest environments. You can use GitOps principles to improve your DevOps processes. Use your DevTest benefits and environments with GitOps principles to optimize your activities and maintain the security and reliability of your applications.  
 
 GitOps combines automation and commonly used collaboration frameworks like git. They can be combined to provide rapid delivery of cloud infrastructure while complying with enterprise security standards.  
 

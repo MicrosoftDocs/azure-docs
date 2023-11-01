@@ -39,7 +39,7 @@ You can configure the `AZURE_COMMUNICATION_CONNECTION_STRING` environment variab
 ##### [Windows](#tab/windows)
 
 ```console
-setx AZURE_COMMUNICATION_STRING "<yourConnectionString>"
+setx AZURE_COMMUNICATION_CONNECTION_STRING "<connectionString>"
 ```
 
 After you add the environment variable, you may need to restart any running programs that will need to read the environment variable, including the console window. For example, if you're using Visual Studio as your editor, restart Visual Studio before running the example. 
@@ -49,7 +49,7 @@ After you add the environment variable, you may need to restart any running prog
 Edit your **`.zshrc`**, and add the environment variable:
 
 ```bash
-export AZURE_COMMUNICATION_STRING="<connectionString>"
+export AZURE_COMMUNICATION_CONNECTION_STRING="<connectionString>"
 ```
 
 After you add the environment variable, run `source ~/.zshrc` from your console window to make the changes effective. If you created the environment variable with your IDE open, you may need to close and reopen the editor, IDE, or shell in order to access the variable. 
@@ -59,7 +59,7 @@ After you add the environment variable, run `source ~/.zshrc` from your console 
 Edit your **`.bash_profile`**, and add the environment variable:
 
 ```bash
-export AZURE_COMMUNICATION_STRING="<connectionString>"
+export AZURE_COMMUNICATION_CONNECTION_STRING="<connectionString>"
 ```
 
 After you add the environment variable, run `source ~/.bash_profile` from your console window to make the changes effective. If you created the environment variable with your IDE open, you may need to close and reopen the editor, IDE, or shell in order to access the variable. 
@@ -77,7 +77,7 @@ az communication rooms create --presenter-participants "<participantId>" --consu
 ```
 
 - Use `<participantId>` optionally to specify the type of participant as presenter-participants, consumer-participants, or attendee-participants. If you do not specify a value, the default is empty. 
-- Replace `<connection-string>` with your ACS connection string. 
+- Replace `<connection-string>` with your Azure Communication Services connection string. 
 - Use `<valid-from>` optionally to specify the timestamp when the room is open for joining, in ISO8601 format, ex: 2022-07-14T10:21. 
 - Use `<valid-until>` optionally to specify the timestamp when the room can no longer be joined, in ISO8601 format, ex: 2022-07-14T10:21. 
 
@@ -110,7 +110,7 @@ az communication rooms update --valid-from "<valid-from>" --valid-until "<valid-
   
 ### List all active rooms
 
-The `rooms list` command returns all active rooms belonging to your ACS resource.
+The `rooms list` command returns all active rooms belonging to your Azure Communication Services resource.
 
 ```azurecli-interactive
 az communication rooms list
@@ -132,7 +132,7 @@ Add a user as a participant to the room
 az communication rooms participant add-or-update --attendee-participant "<participantId>" --room "<roomId>"
 ```
 
-- Replace `<participantId>` with your participant ID. If the <participantId> does not exist in the room, the participant will be added to the room as an attendee role. Otherwise, the participant's role is updated to an attendee role.
+- Replace `<participantId>` with your participant ID. If the `<participantId>` does not exist in the room, the participant will be added to the room as an attendee role. Otherwise, the participant's role is updated to an attendee role.
 - Replace `<roomId>` with your room ID.
 
 ### Get list of participants in a room

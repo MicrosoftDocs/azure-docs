@@ -30,7 +30,7 @@ For more information about how to deploy an Azure Spring Apps instance in your v
 
 Support for 1000 app instances is currently in the preview stage. The following sections describe the restrictions that you should understand when you try this feature.
 
-### VMware Tanzu® Build Service™
+### VMware Tanzu Build Service
 
 VMware Tanzu Build Service automates container creation, management, and governance at enterprise scale. Tanzu Build Service uses the buildpacks project to turn application source code into container images.
 

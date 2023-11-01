@@ -17,7 +17,7 @@ ms.subservice: calling
 [!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include.md)]
 
 > [!NOTE]
-> This document delves into the Data Channel feature present in the ACS Calling SDK.
+> This document delves into the Data Channel feature present in the Azure Communication Services Calling SDK.
 > While the Data Channel in this context bears some resemblance to the Data Channel in WebRTC, it's crucial to recognize subtle differences in their specifics.
 > Throughout this document, we use terms *Data Channel API* or *API* to denote the Data Channel API within the SDK.
 > When referring to the Data Channel API in WebRTC, we explicitly use the term *WebRTC Data Channel API* for clarity and precision.
@@ -142,5 +142,5 @@ These measures are in place to prevent flooding when a significant number of par
 ## Next steps
 For more information, see the following articles:
 
-- Learn about [QuickStart - Add messaging to your calling app](../../quickstarts/voice-video-calling/get-started-data-channel.md)
+- Learn about [QuickStart - Add data channel to your calling app](../../quickstarts/voice-video-calling/get-started-data-channel.md)
 - Learn more about [Calling SDK capabilities](../../quickstarts/voice-video-calling/getting-started-with-calling.md)

@@ -1,8 +1,8 @@
 ---
 title: Azure Government Security
 description: Customer guidance and best practices for securing Azure workloads.
-author: stevevi
-ms.author: stevevi
+author: EliotSeattle
+ms.author: eliotgra
 ms.service: azure-government
 ms.topic: article
 recommendations: false
@@ -34,13 +34,13 @@ These principles are applicable to both Azure and Azure Government. As described
 Mitigating risk and meeting regulatory obligations are driving the increasing focus and importance of data encryption. Use an effective encryption implementation to enhance current network and application security measures and decrease the overall risk of your cloud environment. Azure has extensive support to safeguard customer data using [data encryption](../security/fundamentals/encryption-overview.md), including various encryption models:
 
 - Server-side encryption that uses service-managed keys, customer-managed keys (CMK) in Azure, or CMK in customer-controlled hardware.
-- Client-side encryption that enables you to manage and store keys on-premises or in another secure location. Client-side encryption is built into the Java and .NET storage client libraries, which can use Azure Key Vault APIs, making the implementation straightforward. You can use Azure Active Directory to provide specific individuals with access to Azure Key Vault secrets.
+- Client-side encryption that enables you to manage and store keys on-premises or in another secure location. Client-side encryption is built into the Java and .NET storage client libraries, which can use Azure Key Vault APIs, making the implementation straightforward. You can use Microsoft Entra ID to provide specific individuals with access to Azure Key Vault secrets.
 
 Data encryption provides isolation assurances that are tied directly to encryption key access. Since Azure uses strong ciphers for data encryption, only entities with access to encryption keys can have access to data. Deleting or revoking encryption keys renders the corresponding data inaccessible. 
 
 ### Encryption at rest
 
-Azure provides extensive options for [encrypting data at rest](../security/fundamentals/encryption-atrest.md) to help you safeguard your data and meet your compliance needs using both Microsoft-managed encryption keys and customer-managed encryption keys. This process relies on multiple encryption keys and services such as Azure Key Vault and Azure Active Directory to ensure secure key access and centralized key management. For more information about Azure Storage service encryption and Azure disk encryption, see [Data encryption at rest](./azure-secure-isolation-guidance.md#data-encryption-at-rest).
+Azure provides extensive options for [encrypting data at rest](../security/fundamentals/encryption-atrest.md) to help you safeguard your data and meet your compliance needs using both Microsoft-managed encryption keys and customer-managed encryption keys. This process relies on multiple encryption keys and services such as Azure Key Vault and Microsoft Entra ID to ensure secure key access and centralized key management. For more information about Azure Storage service encryption and Azure disk encryption, see [Data encryption at rest](./azure-secure-isolation-guidance.md#data-encryption-at-rest).
 
 ### Encryption in transit
 
@@ -206,7 +206,7 @@ Azure Monitor collects data from each of the following tiers:
 - **Guest OS monitoring data:** Data about the operating system on which your application is running. The application could be running in Azure, another cloud, or on-premises. 
 - **Azure resource monitoring data:** Data about the operation of an Azure resource.
 - **Azure subscription monitoring data:** Data about the operation and management of an Azure subscription and data about the health and operation of Azure itself. 
-- **Azure tenant monitoring data:** Data about the operation of tenant-level Azure services, such as Azure Active Directory.
+- **Azure tenant monitoring data:** Data about the operation of tenant-level Azure services, such as Microsoft Entra ID.
 
 With Azure Monitor, you can get a 360-degree view of your applications, infrastructure, and network with advanced analytics, dashboards, and visualization maps. Azure Monitor provides intelligent insights and enables better decisions with AI. You can analyze, correlate, and monitor data from various sources using a powerful query language and built-in machine learning constructs. Moreover, Azure Monitor provides out-of-the-box integration with popular DevOps, IT Service Management (ITSM), and Security Information and Event Management (SIEM) tools.
   

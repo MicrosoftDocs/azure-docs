@@ -2,13 +2,13 @@
 title: Microsoft Azure Data Box Blob storage requirements| Microsoft Docs
 description: Learn about the supported versions for APIs, SDKs, and client libraries for Azure Data Box Blob storage
 services: databox
-author: alkohli
+author: stevenmatthew
 
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
 ms.date: 10/05/2020
-ms.author: alkohli
+ms.author: shaas
 ---
 # Azure Data Box Blob storage requirements
 

@@ -4,7 +4,7 @@ description: This article shows how to use the VM insights Map feature. It disco
 ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
-ms.date: 06/08/2022
+ms.date: 09/28/2023
 
 ---
 
@@ -12,6 +12,13 @@ ms.date: 06/08/2022
 In VM insights, you can view discovered application components on Windows and Linux virtual machines (VMs) that run in Azure or your environment. You can observe the VMs in two ways. You can view a map directly from a VM. You can also view a map from Azure Monitor to see the components across groups of VMs. This article helps you to understand these two viewing methods and how to use the Map feature.
 
 For information about configuring VM insights, see [Enable VM insights](vminsights-enable-overview.md).
+
+## Limitations
+
+- If you're duplicating IP ranges either with VMs or Azure Virtual Machine Scale Sets across subnets and virtual networks, VM insights Map might display incorrect information. This issue is known. We're investigating options to improve this experience.
+- The Map feature currently only supports IPv4. We're investigating support for IPv6. We also support IPv4 that's tunnelled inside IPv6.
+- A map for a resource group or other large group might be difficult to view. Although we've made improvements to Map to handle large and complex configurations, we realize a map can have many nodes, connections, and nodes working as a cluster. We're committed to continuing to enhance support to increase scalability.
+- In the Free pricing tier, the VM insights Map feature supports only five machines that are connected to a Log Analytics workspace.
 
 ## Prerequisites
 To enable the Map feature in VM insights, the virtual machine requires one of the following agents:

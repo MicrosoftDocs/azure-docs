@@ -6,7 +6,7 @@ author: jonels-msft
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: reference
-ms.date: 11/01/2022
+ms.date: 09/29/2023
 ---
 
 # Azure Cosmos DB for PostgreSQL functions
@@ -20,9 +20,53 @@ distributed functionality to Azure Cosmos DB for PostgreSQL.
 > [!NOTE]
 >
 > clusters running older versions of the Citus Engine may not
-> offer all the functions listed below.
+> offer all the functions listed on this page.
 
 ## Table and Shard DDL
+
+### citus\_schema\_distribute
+
+Converts existing regular schemas into distributed schemas. Distributed schemas are autoassociated with individual colocation groups. Tables created in those schemas are converted to colocated distributed tables without a shard key. The process of distributing the schema automatically assigns and moves it to an existing node in the cluster.
+
+#### Arguments
+
+**schemaname:** Name of the schema, which needs to be distributed.
+
+#### Return value
+
+N/A
+
+#### Example
+
+```postgresql
+SELECT citus_schema_distribute('tenant_a');
+SELECT citus_schema_distribute('tenant_b');
+SELECT citus_schema_distribute('tenant_c');
+```
+
+For more examples, see how-to [design for microservices](tutorial-design-database-microservices.md).
+
+### citus\_schema\_undistribute
+
+Converts an existing distributed schema back into a regular schema. The process results in the tables and data being moved from the current node back to the coordinator node in the cluster.
+
+#### Arguments
+
+**schemaname:** Name of the schema, which needs to be distributed.
+
+#### Return value
+
+N/A
+
+#### Example
+
+```postgresql
+SELECT citus_schema_undistribute('tenant_a');
+SELECT citus_schema_undistribute('tenant_b');
+SELECT citus_schema_undistribute('tenant_c');
+```
+
+For more examples, see how-to [design for microservices](tutorial-design-database-microservices.md).
 
 ### create\_distributed\_table
 
@@ -68,15 +112,14 @@ If a new distributed table isn't related to other tables, it's best to
 specify `colocate_with => 'none'`.
 
 **shard\_count:** (Optional) the number of shards to create for the new
-distributed table. When specifying `shard_count` you can’t specify a value of
+distributed table. When specifying `shard_count` you can't specify a value of
 `colocate_with` other than none. To change the shard count of an existing table
-or colocation group, use the [alter_distributed_table](#alter_distributed_table
-function.
+or colocation group, use the [alter_distributed_table](#alter_distributed_table) function.
 
 Possible values for `shard_count` are between 1 and 64000. For guidance on
 choosing the optimal value, see [Shard Count](howto-shard-count.md).
 
-#### Return Value
+#### Return value
 
 N/A
 
@@ -132,7 +175,7 @@ distribution.
 **table_name:** Name of the distributed table whose local counterpart on the
 coordinator node should be truncated.
 
-#### Return Value
+#### Return value
 
 N/A
 
@@ -155,7 +198,7 @@ worker node.
 **table\_name:** Name of the small dimension or reference table that
 needs to be distributed.
 
-#### Return Value
+#### Return value
 
 N/A
 
@@ -166,6 +209,32 @@ defined as a reference table
 
 ```postgresql
 SELECT create_reference_table('nation');
+```
+
+### citus\_add\_local\_table\_to\_metadata
+
+Adds a local Postgres table into Citus metadata. A major use-case for this function is to make local tables on the coordinator accessible from any node in the cluster. The data associated with the local table stays on the coordinator – only its schema and metadata are sent to the workers.
+
+Adding local tables to the metadata comes at a slight cost. When you add the table, Citus must track it in the [partition table](reference-metadata.md#partition-table). Local tables that are added to metadata inherit the same limitations as reference tables.
+
+When you undistribute the table, Citus removes the resulting local tables from metadata, which eliminates such limitations on those tables.
+
+#### Arguments
+
+**table\_name:** Name of the table on the coordinator to be added to Citus metadata.
+
+**cascade\_via\_foreign\_keys**: (Optional) When this argument set to “true,” citus_add_local_table_to_metadata adds other tables that are in a foreign key relationship with given table into metadata automatically. Use caution with this parameter, because it can potentially affect many tables.
+
+#### Return value
+
+N/A
+
+#### Example
+
+This example informs the database that the nation table should be defined as a coordinator-local table, accessible from any node:
+
+```postgresql
+SELECT citus_add_local_table_to_metadata('nation');
 ```
 
 ### alter_distributed_table
@@ -192,7 +261,7 @@ tables that were previously colocated with the table, and the colocation will
 be preserved. If it is "false", the current colocation of this table will be
 broken.
 
-#### Return Value
+#### Return value
 
 N/A
 
@@ -231,7 +300,7 @@ This function doesn't move any data around physically.
 If you want to break the colocation of a table, you should specify
 `colocate_with => 'none'`.
 
-#### Return Value
+#### Return value
 
 N/A
 
@@ -288,7 +357,7 @@ undistribute_table also undistributes all tables that are related to table_name
 through foreign keys. Use caution with this parameter, because it can
 potentially affect many tables.
 
-#### Return Value
+#### Return value
 
 N/A
 
@@ -337,7 +406,7 @@ a distributed table (or, more generally, colocation group), be sure to name
 that table using the `colocate_with` parameter. Then each invocation of the
 function will run on the worker node containing relevant shards.
 
-#### Return Value
+#### Return value
 
 N/A
 
@@ -391,11 +460,11 @@ overridden with these GUCs:
 **table_name:** Name of the columnar table.
 
 **chunk_row_count:** (Optional) The maximum number of rows per chunk for
-newly inserted data. Existing chunks of data won't be changed and may have
+newly inserted data. Existing chunks of data won't be changed and might have
 more rows than this maximum value. The default value is 10000.
 
 **stripe_row_count:** (Optional) The maximum number of rows per stripe for
-newly inserted data. Existing stripes of data won't be changed and may have
+newly inserted data. Existing stripes of data won't be changed and might have
 more rows than this maximum value. The default value is 150000.
 
 **compression:** (Optional) `[none|pglz|zstd|lz4|lz4hc]` The compression type
@@ -431,7 +500,7 @@ The alter_table_set_access_method() function changes access method of a table
 
 **access_method:** Name of the new access method.
 
-#### Return Value
+#### Return value
 
 N/A
 
@@ -460,7 +529,7 @@ will contain the point end_at, and no later partitions will be created.
 **start_from:** (timestamptz, optional) pick the first partition so that it
 contains the point start_from. The default value is `now()`.
 
-#### Return Value
+#### Return value
 
 True if it needed to create new partitions, false if they all existed already.
 
@@ -493,7 +562,7 @@ be partitioned on one column, of type date, timestamp, or timestamptz.
 **older_than:** (timestamptz) drop partitions whose upper range is less than or
 equal to older_than.
 
-#### Return Value
+#### Return value
 
 N/A
 
@@ -519,10 +588,10 @@ timestamptz.
 **older_than:** (timestamptz) change partitions whose upper range is less than
 or equal to older_than.
 
-**new_access_method:** (name) either ‘heap’ for row-based storage, or
-‘columnar’ for columnar storage.
+**new_access_method:** (name) either 'heap' for row-based storage, or
+'columnar' for columnar storage.
 
-#### Return Value
+#### Return value
 
 N/A
 
@@ -554,7 +623,7 @@ doesn't work for the append distribution.
 
 **distribution\_value:** The value of the distribution column.
 
-#### Return Value
+#### Return value
 
 The shard ID Azure Cosmos DB for PostgreSQL associates with the distribution column value
 for the given table.
@@ -586,7 +655,7 @@ column](howto-choose-distribution-column.md).
 **column\_var\_text:** The value of `partkey` in the `pg_dist_partition`
 table.
 
-#### Return Value
+#### Return value
 
 The name of `table_name`'s distribution column.
 
@@ -620,7 +689,7 @@ visibility map and free space map for the shards.
 
 **logicalrelid:** the name of a distributed table.
 
-#### Return Value
+#### Return value
 
 Size in bytes as a bigint.
 
@@ -645,7 +714,7 @@ excluding indexes (but including TOAST, free space map, and visibility map).
 
 **logicalrelid:** the name of a distributed table.
 
-#### Return Value
+#### Return value
 
 Size in bytes as a bigint.
 
@@ -670,7 +739,7 @@ distributed table, including all indexes and TOAST data.
 
 **logicalrelid:** the name of a distributed table.
 
-#### Return Value
+#### Return value
 
 Size in bytes as a bigint.
 
@@ -697,7 +766,7 @@ all stats, call both functions.
 
 N/A
 
-#### Return Value
+#### Return value
 
 None
 
@@ -710,7 +779,7 @@ host names and port numbers.
 
 N/A
 
-#### Return Value
+#### Return value
 
 List of tuples where each tuple contains the following information:
 
@@ -764,7 +833,7 @@ placement is present (\"target\" node).
 **target\_node\_port:** The port on the target worker node on which the
 database server is listening.
 
-#### Return Value
+#### Return value
 
 N/A
 
@@ -824,7 +893,7 @@ command. The possible values are:
 > -   `block_writes`: Use COPY (blocking writes) for tables lacking
 >     primary key or replica identity.
 
-#### Return Value
+#### Return value
 
 N/A
 
@@ -849,16 +918,16 @@ distributing to equalize the cost across workers is the same as equalizing the
 number of shards on each. The constant cost strategy is called
 \"by\_shard\_count\" and is the default rebalancing strategy.
 
-The default strategy is appropriate under these circumstances:
+The "by\_shard\_count" strategy is appropriate under these circumstances:
 
 *  The shards are roughly the same size
 *  The shards get roughly the same amount of traffic
 *  Worker nodes are all the same size/type
 *  Shards haven't been pinned to particular workers
 
-If any of these assumptions don't hold, then the default rebalancing
-can result in a bad plan. In this case you may customize the strategy,
-using the `rebalance_strategy` parameter.
+If any of these assumptions don’t hold, then rebalancing “by_shard_count” can result in a bad plan.
+
+The default rebalancing strategy is “by_disk_size”. You can always customize the strategy, using the `rebalance_strategy` parameter.
 
 It's advisable to call
 [get_rebalance_table_shards_plan](#get_rebalance_table_shards_plan) before
@@ -906,7 +975,7 @@ other shards.
 If this argument is omitted, the function chooses the default strategy, as
 indicated in the table.
 
-#### Return Value
+#### Return value
 
 N/A
 
@@ -941,7 +1010,7 @@ The same arguments as rebalance\_table\_shards: relation, threshold,
 max\_shard\_moves, excluded\_shard\_list, and drain\_only. See
 documentation of that function for the arguments' meaning.
 
-#### Return Value
+#### Return value
 
 Tuples containing these columns:
 
@@ -963,7 +1032,7 @@ executed by `rebalance_table_shards()`.
 
 N/A
 
-#### Return Value
+#### Return value
 
 Tuples containing these columns:
 
@@ -1023,7 +1092,7 @@ precisely the cumulative shard cost should be balanced between nodes
 minimum value allowed for the threshold argument of
 rebalance\_table\_shards(). Its default value is 0
 
-#### Return Value
+#### Return value
 
 N/A
 
@@ -1038,7 +1107,7 @@ when rebalancing shards.
 
 **name:** the name of the strategy in pg\_dist\_rebalance\_strategy
 
-#### Return Value
+#### Return value
 
 N/A
 
@@ -1064,7 +1133,7 @@ SELECT * from citus_remote_connection_stats();
 ```
 
 ```
-	hostname    | port | database_name | connection_count_to_node
+    hostname    | port | database_name | connection_count_to_node
 ----------------+------+---------------+--------------------------
  citus_worker_1 | 5432 | postgres      |                        3
 (1 row)
@@ -1073,7 +1142,7 @@ SELECT * from citus_remote_connection_stats();
 ### isolate\_tenant\_to\_new\_shard
 
 This function creates a new shard to hold rows with a specific single value in
-the distribution column. It's especially handy for the multi-tenant
+the distribution column. It's especially handy for the multitenant
 use case, where a large tenant can be placed alone on its own shard and
 ultimately its own physical node.
 
@@ -1088,7 +1157,7 @@ assigned to the new shard.
 from all tables in the current table's [colocation
 group](concepts-colocation.md).
 
-#### Return Value
+#### Return value
 
 **shard\_id:** The function returns the unique ID assigned to the newly
 created shard.

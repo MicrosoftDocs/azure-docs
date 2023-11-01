@@ -45,16 +45,16 @@ If you don't already have one, create an instance of Application Insights in you
 To use an existing instance of Application Insights in your subscription, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the Azure AD directory that has your Azure subscription, and not your Azure AD B2C directory. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD directory in the **Directory name** list, and then select **Switch**.
+1. Make sure you're using the Microsoft Entra directory that has your Azure subscription, and not your Azure AD B2C directory. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Microsoft Entra directory in the **Directory name** list, and then select **Switch**.
 1. Open the Application Insights resource that you created earlier.
 1. On the **Overview** page, and record the **Instrumentation Key**
 
 To create an instance of Application Insights in your subscription, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the Azure AD directory that has your Azure subscription, and not your Azure AD B2C directory. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD directory in the **Directory name** list, and then select **Switch**.
+1. Make sure you're using the Microsoft Entra directory that has your Azure subscription, and not your Azure AD B2C directory. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Microsoft Entra directory in the **Directory name** list, and then select **Switch**.
 1. Select **Create a resource** in the left-hand navigation menu.
 1. Search for and select **Application Insights**, then select **Create**.
 1. Complete the form, select **Review + create**, and then select **Create**.
@@ -136,7 +136,7 @@ For more information about querying, see [Overview of log queries in Azure Monit
 We recommend you to install the [Azure AD B2C extension](https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c) for [VS Code](https://code.visualstudio.com/). With the Azure AD B2C extension, the logs are organized for you by the policy name, correlation ID (the application insights presents the first digit of the correlation ID), and the log timestamp. This feature helps you to find the relevant log based on the local timestamp and see the user journey as executed by Azure AD B2C.
 
 > [!NOTE]
-> The community has developed the vs code extension for Azure AD B2C to help identity developers. The extension is not supported by Microsoft, and is made available strictly as-is.
+> The community has developed the VS Code extension to help people implementing and maintaining Azure AD B2C solutions. The extension is not supported by Microsoft, and is made available strictly as-is.
 
 ### Set Application Insights API access
 
