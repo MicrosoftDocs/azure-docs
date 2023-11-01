@@ -281,6 +281,8 @@ To perform a vector search, use the `$search` aggregation pipeline stage the que
 |`efSearch`     |integer    |The size of the dynamic candidate list for search (`40` by default). A higher value provides better recall at the cost of speed.     |
 |`k`        |integer    |The number of results to return. it should be less than or equal to `efSearch`    |
 
+## Use as a vector database with LangChain
+You can now use LangChain to orchestrate your information retrieval from Azure Cosmos DB for MongoDB vCore and your LLM. Learn more [here](https://python.langchain.com/docs/integrations/vectorstores/azure_cosmos_db).
 
 ## Features and limitations
 
