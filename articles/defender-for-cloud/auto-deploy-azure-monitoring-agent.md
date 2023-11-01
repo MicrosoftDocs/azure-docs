@@ -23,7 +23,7 @@ Azure Monitor Agent (AMA) is still available for deployment on your servers but 
 
 ## Availability
 
-THe following information on availability is relevant for the [Defender for SQL](/defender-for-sql-introduction.md) plan only.
+The following information on availability is relevant for the [Defender for SQL](defender-for-sql-introduction.md) plan only.
 
 [!INCLUDE [azure-monitor-agent-availability](includes/azure-monitor-agent-availability.md)]
 
