@@ -1,6 +1,12 @@
 - name: NoSQL query documentation
   displayName: sql query, query basics
   href: index.yml
+- name: Copilot (preview)
+  items:
+    - name: Use query Copilot (preview)
+      href: how-to-enable-use-copilot.md
+    - name: Transparency FAQ
+      href: ../../copilot-faq.yml
 - name: Clauses
   items:
     - name: SELECT
