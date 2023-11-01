@@ -91,7 +91,6 @@ New-AzVmss `
    -Credential $cred `
    -VMScaleSetName myScaleSet `
    -ImageName $imageDefinition.Id `
-   -UpgradePolicyMode Automatic `
    -ResourceGroupName myVMSSRG
 ```
 
