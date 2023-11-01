@@ -1,102 +1,295 @@
 ---
-title: How to add data in Azure AI Studio
-titleSuffix: Azure AI services
-description: Learn how to add data in Azure AI Studio
-author: eric-urban
-manager: nitinme
-ms.service: azure-ai-services
+title: Create Data Assets
+titleSuffix: Azure Machine Learning
+description: Learn how to create Azure Machine Learning data assets
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: mldata
 ms.topic: how-to
-ms.date: 10/1/2023
-ms.author: eur
+ms.custom: data4ml, ignite-2022, devx-track-azurecli
+ms.author: xunwan
+author: SturgeonMi
+ms.reviewer: franksolomon
+ms.date: 06/20/2023
 ---
 
-# How to add data in Azure AI Studio
+# Create and manage data
 
-In this article, you learn how to add data in Azure AI Studio.
+This article shows how to create and manage data in Azure AI Studio.
+Data can be used to a source for Index in Azure AI Studio.
+And Data can help when you need these capabilities:
 
-When you create your data asset, you need to set the data asset type. AI Studio supports three data asset types:
+> [!div class="checklist"]
+> - **Versioning:** Data support data versioning.
+> - **Reproducibility:** Once you create a data version, it is *immutable*. It cannot be modified or deleted. Therefore, jobs or PromptFlow pipelines that consume the data can be reproduced.
+> - **Auditability:** Because the data version is immutable, you can track the asset versions, who updated a version, and when the version updates occurred.
+> - **Lineage:** For any given data, you can view which jobs or PromptFlow pipelines consume the data.
+> - **Ease-of-use:** An Azure AI Studio data resembles web browser bookmarks (favorites). Instead of remembering long storage paths that *reference* your frequently-used data on Azure Storage, you can create a data *version* and then access that version of the asset with a friendly name.
 
-|Type  | Canonical scenarios|
+
+## Prerequisites
+
+To create and work with data, you need:
+
+* An Azure subscription. If you don't have one, create a free account before you begin.
+
+* An Azure AI Studio project.
+
+* The [Azure Gen AI CLI/SDK installed].
+
+## Create data
+
+When you create your data, you need to set the data type. AI Studio supports three data types:
+
+|Type  |**Canonical Scenarios**|
 |---------|---------|
 |**`file`**<br>Reference a single file | Read a single file on Azure Storage (the file can have any format). |
 |**`folder`**<br> Reference a folder |      Read a folder of parquet/CSV files into Pandas/Spark.<br><br>Read unstructured data (images, text, audio, etc.) located in a folder. |
-|**`table`**<br> Reference a data table |   You have a complex schema subject to frequent changes, or you need a subset of large tabular data.<br><br>Read unstructured data (images, text, audio, etc.) data that is spread across **multiple** storage locations. |
 
-Also, you must specify a `path` parameter that points to the data asset location. Supported paths include:
 
+# [Studio](#tab/azure-studio)
+
+The supported paths are shown in the Azure AI Studio UI. You can create a data from a folder or file:
+
+- If you select folder type, you can choose the folder URL format. The supported folder URL formats are shown in the Azure AI Studio UI. You can create a data using:
+    :::image type="content" source="../media/data-add/studio-url-folder.png" alt-text="Screenshot of folder URL format.":::
+
+- If you select file type, you can choose the file URL format. The supported file URL formats are shown in the Azure AI Studio UI. You can create a data using:
+    :::image type="content" source="../media/data-add/studio-url-file.png" alt-text="Screenshot of file URL format.":::
+
+
+
+# [Python SDK](#tab/python)
+
+
+If you're using SDK or CLI to create data, you must specify a `path` that points to the data location. Supported paths include:
 |Location  | Examples  |
 |---------|---------|
 |Local: A path on your local computer    | `./home/username/data/my_data`         |
 |Connection: A path on a Data Connection  |   `azureml://datastores/<data_store_name>/paths/<path>`      |
 |Direct URL: a path on a public http(s) server   |  `https://raw.githubusercontent.com/pandas-dev/pandas/main/doc/data/titanic.csv`    |
-|Direct URL: a path on Azure Storage    |(Blob) `http[s]://<account_name>.blob.core.windows.net/<container_name>/<path>`<br>`wasbs://<containername>@<accountname>.blob.core.windows.net/<path>/`<br>(ADLS gen2) `http[s]://<accountname>.dfs.core.windows.net/<path>`<br>`abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>` <br>(OneLake Lakehouse)	`abfss://<workspace-name>@onelake.dfs.fabric.microsoft.com/<LakehouseName>.Lakehouse/Files/<path>` <br>(OneLake Warehouse)	`abfss://<workspace-name>@onelake.dfs.fabric.microsoft.com/<warehouseName>.warehouse/Files/<path>` |
+|Direct URL: a path on Azure Storage    |(Blob) `wasbs://<containername>@<accountname>.blob.core.windows.net/<path>/`<br>(ADLS gen2) `abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>` <br>(OneLake Lakehouse)	`abfss://<workspace-name>@onelake.dfs.fabric.microsoft.com/<LakehouseName>.Lakehouse/Files/<path>` <br>(OneLake Warehouse)	`abfss://<workspace-name>@onelake.dfs.fabric.microsoft.com/<warehouseName>.warehouse/Files/<path>` |
 
 > [!NOTE]
-> When you create a data asset from a local path, it will automatically upload to the default Blob Connection.
+> When you create a data from a local path, it will automatically upload to the default Blob Connection.
 
 
-## Add data from a folder
 
-Use these steps to create a Folder typed data asset in the Azure AI studio:
 
-> [!IMPORTANT]
-> Data deletion is not supported. Instead, you can archive data assets. For more information, see [Archive data](#archive-data).
+# [Azure CLI](#tab/cli)
 
-1. Navigate to [Azure AI studio](https://ai.azure.com)
 
-1. From the collapsible menu on the left, select **Data** under **Components**.
+If you're are using SDK or CLI to create data, you must specify a `path` that points to the data location. Supported paths include:
+|Location  | Examples  |
+|---------|---------|
+|Local: A path on your local computer    | `./home/username/data/my_data`         |
+|Connection: A path on a Data Connection  |   `azureml://datastores/<data_store_name>/paths/<path>`      |
+|Direct URL: a path on a public http(s) server   |  `https://raw.githubusercontent.com/pandas-dev/pandas/main/doc/data/titanic.csv`    |
+|Direct URL: a path on Azure Storage    |(Blob) `wasbs://<containername>@<accountname>.blob.core.windows.net/<path>/`<br>(ADLS gen2) `abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>` <br>(OneLake Lakehouse)	`abfss://<workspace-name>@onelake.dfs.fabric.microsoft.com/<LakehouseName>.Lakehouse/Files/<path>` <br>(OneLake Warehouse)	`abfss://<workspace-name>@onelake.dfs.fabric.microsoft.com/<warehouseName>.warehouse/Files/<path>` |
 
-    :::image type="content" source="../media/data-connections/data-add-new.png" alt-text="Screenshot of selecting data from the left menu." lightbox="../media/data-connections/data-add-select-storage-url.png":::
+> [!NOTE]
+> When you create a data from a local path, it will automatically upload to the default Blob Connection.
 
-1. Select **+ Add data**
-1. Choose your **Data source**. You can choose source data from a list of your recent data sources, a storage URL on the cloud, or even upload files and folders from the local machine. You can also add a connection to another data source such as Azure Blob Storage and Azure Data Lake Storage Gen 2. 
 
-    :::image type="content" source="../media/data-connections/data-add-select-storage-url.png" alt-text="Screenshot of select source data." lightbox="../media/data-connections/data-add-select-storage-url.png":::
+### Create data: File type
 
-1. Select **Next** after choosing the data source and uploading files as needed.
+A data that is a File (`uri_file`) type points to a *single file* on storage (for example, a CSV file). You can create a file typed data using:
+
+# [Studio](#tab/azure-studio)
+
+These steps explain how to create a File typed data in the Azure AI studio:
+
+1. Navigate to [Azure AI studio](https://ai.azure.com/)
+
+1. From the collapsible menu on the left, select **Data** under **Components**. Select **Add Data**.
+:::image type="content" source="../media/data-add/add-data.png" alt-text="Screenshot highlights Add Data in the Data tab.":::
+
+1. Choose your **Data source**. You have 3 options of choosing data source. (a) You can select data from **Existing Connections**. (b) You can **Get data with Storage URL** if you have a direct URL to a storage account or a public accessible HTTPS server. (c) You can choose **Upload files/folders** to upload a folder from your local drive.
+    
+    :::image type="content" source="../media/data-add/select-connection.png" alt-text="This screenshot shows the existing connections.":::
+    
+    1. **Existing Connections**: You can select an existing connection and browse into this connection and choose a file you need. If the existing connections don't work for you, you can click the right button to **Add connection**. 
+    :::image type="content" source="../media/data-add/choose-file.png" alt-text="This screenshot shows the step to choose a file from existing connection.":::
+
+    1. **Get data with Storage URL**: You can choose the **Type** as "File", and provide a URL based on the supported URL formats listed in the page.
+    :::image type="content" source="../media/data-add/file-url.png" alt-text="This screenshot shows the step to provide a URL pointing to a file.":::
+
+    1. **Upload files/folders**: You can click **Upload files or folder**, and click **Upload files**, and choose the local file to upload. The file will be uploaded into the default "workspaceblobstore" connection.
+    :::image type="content" source="../media/data-add/upload.png" alt-text="This screenshot shows the step to upload files/folders.":::
+
+1. Select **Next** after choosing the data source.
 
 1. Enter a custom name for your data, and then select **Create**.
 
     :::image type="content" source="../media/data-connections/data-add-finish.png" alt-text="Screenshot of naming the data." lightbox="../media/data-connections/data-add-finish.png":::
 
-## Archive data
+
+# [Python SDK](#tab/python)
+
+To create a data that is a File type, use the following code and update the `<>` placeholders with your information.
+
+```python
+from azure.ai.generative import AIClient
+from azure.ai.generative.entities import Data
+from azure.ai.generative.constants import AssetTypes
+from azure.identity import DefaultAzureCredential
+
+client = AIClient.from_config(DefaultAzureCredential())
+
+path = "<SUPPORTED PATH>"
+
+myfile = Data(
+    name="my-file",
+    path=path,
+    type=AssetTypes.FILE
+)
+
+client.data.create_or_update(myfile)
+```
+
+# [Azure CLI](#tab/cli)
+
+Create a YAML file and copy-and-paste the following code. You must update the `<>` placeholders with the name of your data, the version, and path to a single file on a supported location.
+
+```yaml
+$schema: https://azuremlschemas.azureedge.net/latest/data.schema.json
+
+type: file
+name: <NAME OF DATA>
+version: <VERSION>
+path: <SUPPORTED PATH>
+```
+
+Next, execute the following command in the CLI (update the `<filename>` placeholder to the YAML filename):
+
+```cli
+ai data create -f <filename>.yml
+```
+---
+
+### Create data: Folder type
+
+A data that is a Folder (`uri_folder`) type is one that points to a *folder* on storage (for example, a folder containing several subfolders of images). You can create a folder typed data using:
+
+# [Studio](#tab/azure-studio)
+
+Use these steps to create a Folder typed data in the Azure AI studio:
+
+1. Navigate to [Azure AI studio](https://ai.azure.com/)
+
+1. From the collapsable menu on the left, select **Data** under **Components**. Click **Add Data**.
+:::image type="content" source="../media/data-add/add-data.png" alt-text="Screenshot highlights Add Data in the Data tab.":::
+
+1. Choose your **Data source**. You have 3 options of choosing data source. (1) You can select data from **Existing Connections**. (2) You can **Get data with Storage URL** if you have a direct URL to a storage account or a public accessible HTTPS server. (3) You can choose **Upload files/folders** to upload a folder from your local drive.
+:::image type="content" source="../media/data-add/select-connection.png" alt-text="This screenshot shows the existing connections.":::
+
+1. **Existing Connections**
+You can click an existing connection and browse into this connection and choose a file you need. If the existing connections don't work for you, you can click the right button to **Add connection**. 
+:::image type="content" source="../media/data-add/choose-folder.png" alt-text="This screenshot shows the step to choose a folder from existing connection.":::
+
+1. **Get data with Storage URL**
+You can choose the **Type** as "File", and provide a URL based on the supported URL formats listed in the page.
+:::image type="content" source="../media/data-add/folder-url.png" alt-text="This screenshot shows the step to provide a URL pointing to a folder.":::
+
+1. **Upload files/folders**
+You can click **Upload files or folder**, and click **Upload files**, and choose the local file to upload. The file will be uploaded into the default "workspaceblobstore" connection.
+:::image type="content" source="../media/data-add/upload.png" alt-text="This screenshot shows the step to upload files/folders.":::
+
+1. Name your data and then select **Create** on the last page.
+
+
+# [Python SDK](#tab/python)
+
+To create a data that is a Folder type use the following code and update the `<>` placeholders with your information.
+
+```python
+from azure.ai.generative import AIClient
+from azure.ai.generative.entities import Data
+from azure.ai.generative.constants import AssetTypes
+from azure.identity import DefaultAzureCredential
+
+client = AIClient.from_config(DefaultAzureCredential())
+
+# Set the path, supported paths include:
+# local: './<path>/<file>' (this will be automatically uploaded to cloud storage)
+# blob:  'wasbs://<container_name>@<account_name>.blob.core.windows.net/<path>/<file>'
+# ADLS gen2: 'abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>/<file>'
+# Connection: 'azureml://datastores/<data_store_name>/paths/<path>/<file>'
+path = "<SUPPORTED PATH>"
+
+myfolder = Data(
+    name="my-folder",
+    path=path,
+    type=AssetTypes.FOLDER
+)
+
+client.data.create_or_update(myfolder)
+```
+# [Azure CLI](#tab/cli)
+
+Create a YAML file and copy-and-paste the following code. You need to update the `<>` placeholders with the name of your data, the version, and path to a folder on a supported location.
+
+```yaml
+$schema: https://azuremlschemas.azureedge.net/latest/data.schema.json
+
+type: uri_folder
+name: <NAME OF DATA>
+version: <VERSION>
+description: <DESCRIPTION>
+path: <SUPPORTED PATH>
+```
+
+Next, execute the following command in the CLI (update the `<filename>` placeholder to the filename to the YAML filename):
+
+```cli
+aai data create -f <filename>.yml
+```
+---
+
+
+## Manage data
+
+### Delete data
 
 > [!IMPORTANT]
-> Data deletion is not supported. Instead, you can archive data assets. Archiving a data asset hides it by default from both list queries (for example, in the CLI `az ml data list`) and the data asset listing in Azure AI Studio. You can still continue to reference and use an archived data asset in your workflows.
+> ***By design*, data deletion is not supported.**
+>
+> If Azure AI allowed data deletion, it would have the following adverse effects:
+>
+> - **Production jobs** that consume data that were later deleted would fail.
+> - It would become more difficult to **reproduce** an ML experiment.
+> - Job **lineage** would break, because it would become impossible to view the deleted data version.
+> - You would not be able to **track and audit** correctly, since versions could be missing.
+>
+> Therefore, the *immutability* of data provides a level of protection when working in a team creating production workloads.
 
-If Azure AI allowed data asset deletion, it would have the following adverse effects:
-- Production jobs that consume data assets that were later deleted would fail.
-- It would become more difficult to reproduce an ML experiment.
-- Job lineage would break, because it would become impossible to view the deleted data asset version.
-- You wouldn't be able to track and audit correctly, since versions could be missing.
+When a data has been erroneously created - for example, with an incorrect name, type or path - Azure AI offers solutions to handle the situation without the negative consequences of deletion:
 
-Therefore, the *immutability* of data assets provides a level of protection when working in a team creating production workloads.
-When a data asset was erroneously created - for example, with an incorrect name, type or path - Azure AI offers solutions to handle the situation without the negative consequences of deletion:
-
-
-|Reason you want to delete | Solution  |
+|*I want to delete this data because...* | Solution  |
 |---------|---------|
-|The **name** is incorrect     |  Archive the data asset       |
-|The team **no longer uses** the data asset | Archive the data asset  |
-|It **clutters the data asset listing** | Archive the data asset  |
-|The **path** is incorrect     |  Create a *new version* of the data asset (same name) with the correct path.      |
-|It has an incorrect **type**  |  Currently, Azure AI doesn't allow the creation of a new version with a *different* type compared to the initial version.<br>(1) Archive the data asset <br>(2) Create a new data asset under a different name with the correct type.    |
+|The **name** is incorrect     |  [Archive the data](#archive-data)       |
+|The team **no longer uses** the data | [Archive the data](#archive-data) |
+|It **clutters the data listing** | [Archive the data](#archive-data) |
+|The **path** is incorrect     |  Create a *new version* of the data (same name) with the correct path. For more information, read [Create data](#create-data).       |
+|It has an incorrect **type**  |  Currently, Azure AI doesn't allow the creation of a new version with a *different* type compared to the initial version.<br>(1) [Archive the data](#archive-data)<br>(2) [Create a new data](#create-data) under a different name with the correct type.    |
 
-You can archive either:
+### Archive data
 
-- *all versions* of the data asset under a given name, or
-- a specific data asset version
+Archiving a data hides it by default from both list queries (for example, in the CLI `az ml data list`) and the data listing in the Studio UI. You can still continue to reference and use an archived data in your workflows. You can archive either:
 
-### Archive all versions of a data asset
+- *all versions* of the data under a given name, or
+- a specific data version
 
-To archive *all versions* of the data asset under a given name, use:
+#### Archive all versions of a data
+
+To archive *all versions* of the data under a given name, use:
 
 # [Azure CLI](#tab/cli)
 
-Execute the following command (update the `<>` placeholder with the name of your data asset):
+Execute the following command (update the `<>` placeholder with the name of your data):
 
 ```azurecli
-ai data archive --name <NAME OF DATA ASSET>
+ai data archive --name <NAME OF DATA>
 ```
 
 # [Python SDK](#tab/python)
@@ -109,57 +302,57 @@ from azure.identity import DefaultAzureCredential
 
 client = AIClient.from_config(DefaultAzureCredential())
 
-# Create the data asset in the workspace
-client.data.archive(name="<DATA ASSET NAME>")
+# Create the data in the workspace
+client.data.archive(name="<DATA NAME>")
 ```
-
 ---
 
-### Archive a specific data asset version
+#### Archive a specific data version
+
+To archive a specific data version, use:
+
+# [Azure CLI](#tab/cli)
+
+Execute the following command (update the `<>` placeholders with the name of your data and version):
+
+```azurecli
+ai data archive --name <NAME OF DATA> --version <VERSION TO ARCHIVE>
+```
+
+# [Python SDK](#tab/python)
+
+```python
+from azure.ai.generative import AIClient
+from azure.ai.generative.entities import Data
+from azure.ai.generative.constants import AssetTypes
+from azure.identity import DefaultAzureCredential
+
+client = AIClient.from_config(DefaultAzureCredential())
+
+# Create the data in the workspace
+client.data.archive(name="<DATA NAME>", version="<VERSION TO ARCHIVE>")
+```
+
+# [Studio](#tab/azure-studio)
 
 > [!IMPORTANT]
-> Currently, archiving a specific data asset version is not supported in Azure AI Studio.
-
-To archive a specific data asset version, use:
-
-# [Azure CLI](#tab/cli)
-
-Execute the following command (update the `<>` placeholders with the name of your data asset and version):
-
-```azurecli
-ai data archive --name <NAME OF DATA ASSET> --version <VERSION TO ARCHIVE>
-```
-
-# [Python SDK](#tab/python)
-
-```python
-from azure.ai.generative import AIClient
-from azure.ai.generative.entities import Data
-from azure.ai.generative.constants import AssetTypes
-from azure.identity import DefaultAzureCredential
-
-client = AIClient.from_config(DefaultAzureCredential())
-
-# Create the data asset in the workspace
-client.data.archive(name="<DATA ASSET NAME>", version="<VERSION TO ARCHIVE>")
-```
+> Currently, archiving a specific data version is not supported in the Studio UI.
 
 ---
-
 
 ### Restore an archived data
-You can restore an archived data asset. If all of versions of the data asset are archived, you can't restore individual versions of the data asset - you must restore all versions.
+You can restore an archived data. If all of versions of the data are archived, you can't restore individual versions of the data - you must restore all versions.
 
-### Restore all versions of a data asset
+#### Restore all versions of a data
 
-To restore *all versions* of the data asset under a given name, use:
+To restore *all versions* of the data under a given name, use:
 
 # [Azure CLI](#tab/cli)
 
-Execute the following command (update the `<>` placeholder with the name of your data asset):
+Execute the following command (update the `<>` placeholder with the name of your data):
 
 ```azurecli
-ai data restore --name <NAME OF DATA ASSET>
+ai data restore --name <NAME OF DATA>
 ```
 
 # [Python SDK](#tab/python)
@@ -171,24 +364,24 @@ from azure.ai.generative.constants import AssetTypes
 from azure.identity import DefaultAzureCredential
 
 client = AIClient.from_config(DefaultAzureCredential())
-# Create the data asset in the workspace
-client.data.restore(name="<DATA ASSET NAME>")
+# Create the data in the workspace
+client.data.restore(name="<DATA NAME>")
 ```
-
 ---
 
-### Restore a specific data asset version
+#### Restore a specific data version
 
 > [!IMPORTANT]
-> If all data asset versions were archived, you cannot restore individual versions of the data asset - you must restore all versions.
-To restore a specific data asset version, use:
+> If all data versions were archived, you cannot restore individual versions of the data - you must restore all versions.
+
+To restore a specific data version, use:
 
 # [Azure CLI](#tab/cli)
 
-Execute the following command (update the `<>` placeholders with the name of your data asset and version):
+Execute the following command (update the `<>` placeholders with the name of your data and version):
 
 ```azurecli
-ai data restore --name <NAME OF DATA ASSET> --version <VERSION TO ARCHIVE>
+ai data restore --name <NAME OF DATA> --version <VERSION TO ARCHIVE>
 ```
 
 # [Python SDK](#tab/python)
@@ -200,25 +393,26 @@ from azure.ai.generative.constants import AssetTypes
 from azure.identity import DefaultAzureCredential
 
 client = AIClient.from_config(DefaultAzureCredential())
-# Create the data asset in the workspace
-client.data.restore(name="<DATA ASSET NAME>", version="<VERSION TO ARCHIVE>")
+# Create the data in the workspace
+client.data.restore(name="<DATA NAME>", version="<VERSION TO ARCHIVE>")
 ```
+
+# [Studio](#tab/azure-studio)
+
+> [!IMPORTANT]
+> Currently, restoring a specific data version is not supported in the Studio UI.
 
 ---
 
-## Data asset tagging
+### Data tagging
 
-Data assets support tagging, which is extra metadata applied to the data asset in the form of a key-value pair. Data tagging provides many benefits:
+Data support tagging, which is extra metadata applied to the data in the form of a key-value pair. Data tagging provides many benefits:
 
 - Data quality description. For example, if your organization uses a *medallion lakehouse architecture* you can tag assets with `medallion:bronze` (raw), `medallion:silver` (validated) and `medallion:gold` (enriched).
 - Provides efficient searching and filtering of data, to help data discovery.
 - Helps identify sensitive personal data, to properly manage and govern data access. For example, `sensitivity:PII`/`sensitivity:nonPII`.
 - Identify whether data is approved from a responsible AI (RAI) audit. For example, `RAI_audit:approved`/`RAI_audit:todo`.
 
-You can add tags to data assets as part of their creation flow, or you can add tags to existing data assets. This section shows both.
-
+You can add tags to existing data.
 
 ## Next steps
-
-- [How to create vector indexes](../how-to/index-add.md)
-
