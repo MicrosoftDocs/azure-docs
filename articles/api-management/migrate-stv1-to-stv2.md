@@ -33,7 +33,8 @@ For more information about the `stv1` and `stv2` platforms and the benefits of u
 
 API Management platform migration from `stv1` to `stv2` involves updating the underlying compute alone and has no impact on the service/api configuration persisted in the storage layer.
 
-* The upgrade process involves creating a new compute in parallel the old compute. Both instances coexist for 48 hours. 
+* The upgrade process involves creating a new compute in parallel the old compute. Both instances coexist for 48 hours.
+* The API Management status in the Portal will be "Updating".
 * Azure manages the management endpoint DNS, and updates to the new compute immediately on successful migration. 
 * The Gateway DNS still points to the old compute if custom domain is in use. 
 * If custom DNS isn't in use, the Gateway and Portal DNS points to the new compute immediately.
