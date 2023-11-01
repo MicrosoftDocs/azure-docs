@@ -16,7 +16,7 @@ ms.date: 10/29/2023
 
 [Node-RED](https://nodered.org/) enables low-code programming for event-driven applications. It's a programming tool for wiring together hardware devices, APIs and online services in new and interesting ways. It provides a browser-based editor that connects together flows using the wide range of nodes in the palette that can be deployed to its runtime in a single step.
 
-Before you begin, [verify Azure Iot MQ is installed and running](../deploy/overview-deploy-iot-operations.md).
+Before you begin, [verify Azure Iot MQ is installed and running](../deploy/overview-deploy.md).
 
 ## Connect Node-RED
 

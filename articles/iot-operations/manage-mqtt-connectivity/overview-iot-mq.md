@@ -119,4 +119,4 @@ The association between the custom resources is done by specifying the **name** 
 
 ## Next steps
 
-[Deploy a solution in Azure IoT Operations](../deploy/overview-deploy-iot-operations.md)
+[Deploy a solution in Azure IoT Operations](../deploy/overview-deploy.md)
