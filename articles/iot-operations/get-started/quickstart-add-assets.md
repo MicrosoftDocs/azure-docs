@@ -65,6 +65,53 @@ This configuration deploys a new module called `opc-ua-connector-0` to the clust
 
 When the OPC PLC simulator is running, data flows from the simulator, to the connector, to the OPC UA broker, and finally to the MQ broker.
 
+<!-- TODO: REmove after bugbash -->
+
+To enable the asset endpoint to use an untrusted certificate:
+
+1. On the machine where your Kubernetes cluster is running, create a file called _doe.yaml_ with the following content:
+
+    ```yaml
+    apiVersion: deviceregistry.microsoft.com/v1beta1
+    kind: AssetEndpointProfile
+    metadata:
+      name: doe-opc-ua-connector-0
+      namespace: azure-iot-operations
+    spec:
+      additionalConfiguration: |-
+        {
+          "applicationName": "opcua-connector-0",
+          "defaults": {
+            "publishingIntervalMilliseconds": 1000,
+            "samplingIntervalMilliseconds": 500,
+            "queueSize": 15,
+          },
+          "session": {
+            "timeout": 60000
+          },
+          "subscription": {
+            "maxItems": 1000,
+          },
+          "security": {
+            "autoAcceptUntrustedServerCertificates": true
+          }
+        }
+      targetAddress: opc.tcp://opcplc-000000.azure-iot-operations:50000
+      transportAuthentication:
+        ownCertificates: []
+      userAuthentication:
+        mode: Anonymous
+      uuid: doe-opc-ua-connector-0
+    ```
+
+1. Run the following command to apply the configuration:
+
+    ```bash
+    kubectl apply -f doe.yaml
+    ```
+
+1. Restart the `aio-opc-supervisor` pod.
+
 ## Manage your assets
 
 After you select your cluster in Azure IoT Operations portal, you see the available list of assets on the **Assets** page. If there are no assets yet, this list is empty:
