@@ -16,8 +16,16 @@
     href: ai-studio/faq.yml
 - name: Quickstarts
   items:
-  - name: Generate product name ideas in the Azure AI Studio playground
+  - name: Generate product name ideas in the playground
     href: ai-studio/quickstarts/playground-completions.md
+  - name: Moderate text and images with content safety
+    href: ai-studio/quickstarts/content-safety.md
+  - name: Content safety
+    items:
+    - name: Content filtering
+      href: ai-studio/concepts/content-filtering.md
+    - name: System message templates
+      href: ./openai/concepts/system-message.md?context=/azure/ai-services/context/context
 - name: How-to
   expanded: true
   items:
