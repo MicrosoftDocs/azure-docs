@@ -182,7 +182,6 @@ This section shows you examples of storage and network transfer costs with varyi
 In these examples, assume:   
 * The hot tier storage cost is $0.000202/GiB/hr. The cool tier storage cost is $0.000082/GiB/hr.  
 * Network transfer cost (including read or write activities from the cool tier) is $0.020000/GiB.
-* You have a 4-TiB volume enabled for cool access.
 * You have a 5-TiB capacity pool with cool access enabled.
 * You have 1-TiB of unallocated capacity within the capacity pool
 * You have a 4-TiB volume enabled for cool access.
