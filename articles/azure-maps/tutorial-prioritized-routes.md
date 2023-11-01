@@ -131,7 +131,7 @@ The following steps show you how to create and display the Map control in a web 
 
 2. Save the **MapTruckRoute.html** file and refresh the page in your browser. If you zoom into any city, like Los Angeles, the streets display with current traffic flow data.
 
-    :::image type="content" source="./media/tutorial-prioritized-routes/traffic-map.png" alt-text="A screenshot that shows a map of Los Angeles, with the streets displaying traffic flow data.":::
+    :::image type="content" source="./media/tutorial-prioritized-routes/traffic-map.png" lightbox="./media/tutorial-prioritized-routes/traffic-map.png" alt-text="A screenshot that shows a map of Los Angeles, with the streets displaying traffic flow data.":::
 
 <a id="queryroutes"></a>
 
@@ -303,7 +303,7 @@ This section shows you how to use the Azure Maps Route service to get directions
 
 4. Save the **TruckRoute.html** file and refresh your web browser. The map should now display both the truck and car routes.
 
-    :::image type="content" source="./media/tutorial-prioritized-routes/prioritized-routes.png" alt-text="A screenshot that displays both a private as well as a commercial vehicle route on a map using the Azure Route Service.":::
+    :::image type="content" source="./media/tutorial-prioritized-routes/prioritized-routes.png" lightbox="./media/tutorial-prioritized-routes/prioritized-routes.png" alt-text="A screenshot that displays both a private as well as a commercial vehicle route on a map using the Azure Route Service.":::
 
     * The truck route is displayed using a thick blue line and the car route is displayed using a thin purple line.
     * The car route goes across Lake Washington via I-90, passing through tunnels beneath residential areas. Because the tunnels are in residential areas, hazardous waste cargo is restricted. The truck route, which specifies a `USHazmatClass2` cargo type, is directed to use a different route that doesn't have this restriction.
