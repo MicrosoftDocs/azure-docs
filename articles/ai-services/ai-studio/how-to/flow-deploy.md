@@ -51,18 +51,21 @@ The Prompt flow supports you to deploy endpoints from a flow, or a bulk test run
 
 ### If you're using AI Studio UI:
 1. Follow [the promptflow instruction](https://github.com/Azure/azureai-insiders/blob/aistudio-preview/previews/aistudio/how-to/build_with_promptflow.md) to create a promptflow.
-2. Select **Deploy** on the flow editor.
-3. Once you're redirected to the deployment details page, **look for the endpoint name** in URL (`EndpointName.region.inference.ml.azure.com/score`). You need this for step 9 (enabling access to secrets).
-4. Go to Project details page (`Projects` > `Details`).
-5. Select the **YourResourceGroupName** link on the Details page.
-6. Once you're redirected to the Azure Resource Group page, Select **Access control (IAM)** on the left navigation menu.
-7. Select **Add role assignment**.
-8. Select **Azure ML Data Scientist** and select **Next**.
-9. Select **+ select members** and search for your endpoint name. Tip: use your project name as a search keyword to find the endpoint quickly. 
-10. Select **Select**.
-11. Select **Review + Assign**.
-12. Return to AI Studio and go to the deployment details page (`Deployments` > `YourDeploymentName`).
-13. Test the promptflow deployment (`YourDeploymentName` > `Test`)
+1. Select **Deploy** on the flow editor.
+1. Fill out the basic settings such as **Endpoint name**, **Deployment name** and **Content safty**.
+1. If you are satisfied with the basic settings, then you can click **Deploy** and continue. However, if you want to add more customization such as **Authentication type** and **Identity type**, select **Advanced settings**. 
+1. Select **Deploy** to start the deployment. You can check the deployment status in the **Deployments** tab. On the left pane, you will see attributes related to the deployment, while the right-hand side shows the endpoint attributes. If you turned on your data **Monitoring**, it will also show up on the right-hand side.
+1. Once you're redirected to the deployment details page, **look for the endpoint name** in URL (`EndpointName.region.inference.ml.azure.com/score`). You need this for step 9 (enabling access to secrets).
+1. Go to Project details page (`Projects` > `Details`).
+1. Select the **YourResourceGroupName** link on the Details page.
+1. Once you're redirected to the Azure Resource Group page, Select **Access control (IAM)** on the left navigation menu.
+1. Select **Add role assignment**.
+1. Select **Azure ML Data Scientist** and select **Next**.
+1. Select **+ select members** and search for your endpoint name. Tip: use your project name as a search keyword to find the endpoint quickly. 
+1. Select **Select**.
+1. Select **Review + Assign**.
+1. Return to AI Studio and go to the deployment details page (`Deployments` > `YourDeploymentName`).
+1. Test the promptflow deployment (`YourDeploymentName` > `Test`)
 
 
 ## Check the status of the endpoint
@@ -79,8 +82,6 @@ In the endpoint detail page, switch to the **Test** tab.
 If you select **Allow sharing sample input data for testing purpose only** when you deploy the endpoint, you can see the input data values are already preloaded.
 
 If there's no sample value, you'll need to input a URL.
-
-The **Test result** shows as following: 
 
 
 ### Test the endpoint deployed from a chat flow

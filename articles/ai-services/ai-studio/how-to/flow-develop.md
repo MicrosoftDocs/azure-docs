@@ -15,7 +15,7 @@ ms.author: eur
 
 [!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
 
-Prompt flow is a development tool designed to streamline the entire development cycle of AI applications powered by Large Language Models (LLMs). As the momentum for LLM-based AI applications continues to grow across the globe, prompt flow provides a comprehensive solution that simplifies the process of prototyping, experimenting, iterating, and deploying your AI applications.
+Prompt flow is a development tool designed to streamline the entire development cycle of AI applications powered by Large Language Models (LLMs). Prompt flow provides a comprehensive solution that simplifies the process of prototyping, experimenting, iterating, and deploying your AI applications.
 
 With prompt flow, you'll be able to:
 
@@ -25,30 +25,64 @@ With prompt flow, you'll be able to:
 
 In this article, you'll learn how to create and develop your first prompt flow in Azure AI Studio.
 
+## Prerequisites
+
+- If you don't have a project already, first [create a project](create-projects.md).
+- Prompt flow requires a runtime. If you don't have a runtime, you can [create one in Azure AI Studio](./create-manage-runtime.md).
+- You need a deployed model.
+
 ## Create and develop your Prompt flow
 
-On your Studio, select **Prompt flow** tab in the left navigation bar. Select **Create** to create your first Prompt flow. You can create a flow by either cloning the samples available in the gallery or creating a flow from scratch. If you already have flow files in local or file share, you can also import the files to create a flow.
+You can create a flow by either cloning the samples available in the gallery or creating a flow from scratch. If you already have flow files in local or file share, you can also import the files to create a flow.
+
+To create a prompt flow from the gallery in Azure AI Studio:
+
+1. Sign in to [Azure AI Studio](https://ai.azure.com) and select your project from the **Build** page. 
+1. From the collapsible left menu, select **Flows**.
+1. In the **Standard flows** tile, select **Create**.
+1. On the **Create a new flow** page, enter a folder name and then select **Create**.
+
+    :::image type="content" source="../media/prompt-flow/create-standard-flow.png" alt-text="Screenshot of selecting and creating a standard flow." lightbox="../media/prompt-flow/create-standard-flow.png":::
+
+1. The prompt flow authoring page opens. You can start authoring your flow now. By default you'll see a sample flow. This example flow has nodes for the LLM and Python tools. 
+
+    :::image type="content" source="../media/prompt-flow/create-flow-in-out.png" alt-text="Screenshot of flow input and output on the edit prompt flow page." lightbox="../media/prompt-flow/create-flow-in-out.png":::
+
+    > [!NOTE]
+    > The graph view for visualization only. It shows the flow structure you're developing. You cannot edit the graph view directly, but you can zoom in, zoom out, and scroll. You can select a node in the graph view to highlight and navigate to the node in the tool edit view.
+
+1. Optionally, you can add more tools to the flow. The visible tool options are **LLM**, **Prompt**, and **Python**. To view more tools, select **+ More tools**. 
+
+    :::image type="content" source="../media/prompt-flow/create-flow-more-tools.png" alt-text="Screenshot of where you can find more tools on the edit prompt flow page." lightbox="../media/prompt-flow/create-flow-more-tools.png":::
+
+1. Select a connection and deployment in the LLM tool editor.
+
+    :::image type="content" source="../media/prompt-flow/create-flow-connection.png" alt-text="Screenshot of the selected connection and deployment in the LLM tool on the edit prompt flow page." lightbox="../media/prompt-flow/create-flow-connection.png":::
+
+1. Select **Run** to run the flow. 
+
+    :::image type="content" source="../media/prompt-flow/create-flow-run.png" alt-text="Screenshot of where to select run on the edit prompt flow page." lightbox="../media/prompt-flow/create-flow-run.png":::
+
+1. The flow run status is shown as **Running**. 
+
+    :::image type="content" source="../media/prompt-flow/create-flow-running.png" alt-text="Screenshot of the flow in the running state on the edit prompt flow page." lightbox="../media/prompt-flow/create-flow-running.png":::
+
+1. Once the flow run is completed, select **View outputs** to view the flow results.
+
+    :::image type="content" source="../media/prompt-flow/create-flow-outputs-view.png" alt-text="Screenshot of where you can select to view flow results from the edit prompt flow page." lightbox="../media/prompt-flow/create-flow-outputs-view.png":::
+
+1. You can view the flow run status and output in the **Outputs** section.
+
+    :::image type="content" source="../media/prompt-flow/create-flow-outputs-view-joke.png" alt-text="Screenshot of the output details." lightbox="../media/prompt-flow/create-flow-outputs-view-joke.png":::
+
+
 
 
 ### Authoring the flow
 
-At the left, it's the flatten view, the main working area where you can author the flow, for example add tools in your flow, edit the prompt, set the flow input data, run your flow, view the output, etc. 
-
-
-On the top right, it's the flow files view. Each flow can be represented by a folder that contains a `flow.dag.yaml`` file, source code files, and system folders. You can add new files, edit existing files, and delete files. You can also export the files to local, or import files from local. 
+Each flow can be represented by a folder that contains a `flow.dag.yaml`` file, source code files, and system folders. You can add new files, edit existing files, and delete files. You can also export the files to local, or import files from local. 
 
 In addition to inline editing the node in flatten view, you can also turn on the **Raw file mode** toggle and select the file name to edit the file in the opening file tab.
-
-On the bottom right, it's the graph view for visualization only. It shows the flow structure you're developing. You can zoom in, zoom out, auto layout, etc.
-
-> [!NOTE]
-> You cannot edit the graph view directly, but you can click the node to locate to the corresponding node card in the flatten view, then do the inline editing.
-
-### Runtime: Select existing runtime or create a new one
-
-Before you start authoring, you should first select a runtime. Runtime serves as the compute resource required to run the prompt flow, which includes a Docker image that contains all necessary dependency packages. It's a must-have for flow execution. 
-
-You can select an existing runtime from the dropdown or click on the **Add runtime** button. This will open up a Runtime creation wizard. Select an existing compute instance from the dropdown or create a new one. After this, you will have to select an environment to create the runtime. We recommend using default environment to get started quickly. 
 
 
 ### Flow input and output
@@ -57,22 +91,6 @@ Flow input is the data passed into the flow as a whole. Define the input schema 
 
 Flow output is the data produced by the flow as a whole, which summarizes the results of the flow execution. You can view and export the output table after the flow run or batch run is completed.  Define flow output value by referencing the flow single node output using syntax `${[node name].output}` or `${[node name].output.[field name]}`.
 
-
-### Develop the flow using different tools
-
-In a flow, you can consume different kinds of tools, for example, LLM, Python, Serp API, Content Safety, etc.
-
-By selecting a tool, you'll add a new node to flow. You should specify the node name, and set necessary configurations for the node. 
-
-For example, for LLM node, you need to select a connection, a deployment, set the prompt, etc. Connection helps securely store and manage secret keys or other sensitive credentials required for interacting with Azure OpenAI. If you do not already have a connection, you should create it first, and make sure your Azure OpenAI resource has the chat or completion deployments. LLM and Prompt tool supports you to use **Jinja** as templating language to dynamically generate the prompt. For example, you can use `{{}}` to enclose your input name, instead of fixed text, so it can be replaced on the fly.
-
-To use Python tool, you need to set the Python script, set the input value, etc. You should define a Python function with inputs and outputs as follows.
-
-
-After you finish composing the prompt or Python script, you can click **Validate and parse input** so the system will automatically parse the node input based on the prompt template and python function input. The node input value can be set in following ways:
-* Set the value directly in the input box
-* Reference the flow input using `${input.[input name]}` syntax
-* Reference the node output using `${[node name].output}` or `${[node name].output.[field name]}` syntax
 
 ### Link nodes together
 By referencing the node output, you can link nodes together. For example, you can reference the LLM node output in the Python node input, so the Python node can consume the LLM node output, and in the graph view you can see the the two nodes are linked together.
