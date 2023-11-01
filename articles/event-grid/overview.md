@@ -96,9 +96,12 @@ Integrate data from your MQTT clients by routing MQTT messages to Azure services
 
 ### Push delivery of discrete events
 
-Event Grid can be configured to send events to a diverse set of Azure services or webhooks using push event delivery. Event sources include your custom applications, Azure services, and partner (SaaS) services that publish events announcing system state changes (also known as "discrete" events). In turn, Event Grid delivers those events to configured subscribers’ destinations. 
+Event Grid can be configured to send events to a diverse set of Azure services or webhooks using push event delivery. Event sources include your custom applications, Azure services, and partner (SaaS) services that publish events announcing system state changes (also known as "discrete" events). In turn, Event Grid delivers those events to configured subscribers’ destinations.
 
 Event Grid’s push delivery allows you to realize the following use cases.
+
+> [!NOTE]
+> Push delivery of discrete events is available in Event Grid basic tier and Event Grid standard tier, to learn more about the differences see [choose the right Event Grid tier for your solution](choose-right-tier.md).
 
 #### Build event-driven serverless solutions
 :::image type="content" source="media/overview/build-event-serverless.png" alt-text="Diagram that shows Azure Functions publishing events to Event Grid using HTTP. Event Grid then sends those events to Azure Logic Apps." lightbox="media/overview/build-event-serverless-high-res.png" border="false":::
