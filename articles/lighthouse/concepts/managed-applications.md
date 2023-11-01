@@ -21,7 +21,7 @@ This table illustrates some high-level differences that may impact whether you m
 |Typical user     |Service providers or enterprises managing multiple tenants         |Independent Software Vendors (ISVs)         |
 |Scope of cross-tenant access     |Subscription(s) or resource group(s)         |Resource group (scoped to a single application)         |
 |Purchasable in Azure Marketplace     |No (offers can be published to Azure Marketplace, but customers are billed separately)        |Yes         |
-|IP protection     |Yes (IP can remain in the service provider's tenant)        |Yes (by design, resource group is locked to customers)         |
+|IP protection |Yes (IP can remain in the service provider's tenant) |Yes (If the ISV chooses to restrict customer access with deny assignments, the managed resource group is locked to customers) |
 |Deny assignments     |No         |Yes        |
 
 ### Azure Lighthouse
@@ -34,9 +34,9 @@ Azure Lighthouse is typically used when a service provider will perform manageme
 
 ### Azure managed applications
 
-[Azure managed applications](../../azure-resource-manager/managed-applications/overview.md) allow a service provider or ISV to offer cloud solutions that are easy for customers to deploy and use in their own subscriptions.
+[Azure managed applications](../../azure-resource-manager/managed-applications/overview.md) allow an ISV/publisher to offer cloud solutions that are easy for customers to deploy and use in their own subscriptions.
 
-In a managed application, the resources used by the application are bundled together and deployed to a resource group that's managed by the publisher. This resource group is present in the customer's subscription, but an identity in the publisher's tenant has access to it. The ISV continues to manage and maintain the managed application, while the customer does not have direct access to work in its resource group, or any access to its resources.
+In a managed application, the resources used by the application are bundled together and deployed to a resource group that can be managed by the ISV/publisher. This 'managed resource group' is present in the customer's subscription, but identities in the publisher's tenant can have access to it. When publishing an offer in Microsoft Partner Center, the publisher can choose whether they enable or disable management access by the publisher itself. In addition, the publisher can restrict customer access (using deny assignments), or grant the customer full access.
 
 Managed applications support [customized Azure portal experiences](../../azure-resource-manager/managed-applications/concepts-view-definition.md) and [integration with custom providers](../../azure-resource-manager/managed-applications/tutorial-create-managed-app-with-custom-provider.md). These options can be used to deliver a more customized and integrated experience, making it easier for customers to perform some management tasks themselves.
 
