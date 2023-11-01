@@ -99,27 +99,7 @@ sections:
            I see some gaps in metric data, why is this occurring?   
         answer: |
            During node updates you might see a 1 to 2 minute gap in metric data for metrics collected from our cluster level collectors because the node that it runs on is being updated as part of a normal update process. This affects cluster-wide targets such as kube-state-metrics and custom application targets that are specified. This occurs when your cluster is updated manually or via auto-update. This is expected behavior that occurs due to the node it runs on being updated. None of our recommended alert rules are affected by this behavior. 
-           
-  - name: Container insights
-  
-    questions:
-         
-                        
-      - question: |
-          Is there support for collecting Kubernetes audit logs for ARO clusters?
-        answer:
-          No. Container insights don't support collection of Kubernetes audit logs.
-
-      - question: |
-          Why don't I see Normal event types when I query the KubeEvents table?
-        answer:
-          By default, Normal event types aren't collected unless the *collect_all_kube_events* ConfigMap setting is enabled. If you need to collect Normal events, enable *collect_all_kube_events setting* in the *container-azm-ms-agentconfig* ConfigMap. See [Configure agent data collection for Container insights](containers/container-insights-agent-config.md) for information on how to configure the ConfigMap.
-
-      - question: |
-          Does Container Insights support pod sandboxing?
-        answer: |
-          Yes, Container Insights supports pod sandboxing through support for Kata Containers. For more details on pod sandboxing in AKS, [refer to the AKS docs](/azure/aks/use-pod-sandboxing).
-          
+                     
   - name: SQL Insights (preview)
     questions:
       - question: |
