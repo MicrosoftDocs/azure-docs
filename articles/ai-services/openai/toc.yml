@@ -39,6 +39,8 @@ items:
       href: ./concepts/content-filter.md
     - name: Embeddings
       href: ./concepts/understand-embeddings.md
+    - name: Fine-tuning
+      href: ./concepts/fine-tuning-considerations.md
     - name: Red teaming large language models (LLMs)
       href: ./concepts/red-teaming.md
     - name: Intro to prompt engineering

@@ -32,12 +32,17 @@ The architecture for Azure DNS Private Resolver is summarized in the following f
 
 As the name suggests, inbound endpoints ingress to Azure. Inbound endpoints provide an IP address to forward DNS queries from on-premises and other locations outside your virtual network. DNS queries sent to the inbound endpoint are resolved using Azure DNS. Private DNS zones that are linked to the virtual network where the inbound endpoint is provisioned are resolved by the inbound endpoint. 
 
-The IP address associated with an inbound endpoint is always part of the private virtual network address space where the private resolver is deployed.  No other resources can exist in the same subnet with the inbound endpoint. The following screenshot shows an inbound endpoint with a virtual IP address (VIP) of **10.10.0.4** inside the subnet `snet-E-inbound` provisioned within a virtual network with address space of 10.10.0.0/16.
+The IP address associated with an inbound endpoint is always part of the private virtual network address space where the private resolver is deployed.  No other resources can exist in the same subnet with the inbound endpoint.
 
-![View inbound endpoints](./media/private-resolver-endpoints-rulesets/east-inbound-endpoint.png)
+### Static and dynamic endpoint IP addresses
 
-> [!NOTE]
-> The IP address assigned to an inbound endpoint can be static or dynamic. If you select static, you can't choose a [reserved IP address in the subnet](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets). If you choose a dynamic IP address, the fifth available IP address in the subnet is assigned. For example, 10.0.0.4 is the fifth IP address in the 10.0.0.0/28 subnet. If the inbound endpoint is reprovisioned, this IP address could change, but normally the 5th IP address in the subnet is used again. The dynamic IP address does not change unless the inbound endpoint is reprovisioned.
+The IP address assigned to an inbound endpoint can be static or dynamic. If you select static, you can't choose a [reserved IP address in the subnet](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets). If you choose a dynamic IP address, the fifth available IP address in the subnet is assigned. For example, 10.10.0.4 is the fifth IP address in the 10.10.0.0/28 subnet (.0, .1, .2, .3, .4). If the inbound endpoint is reprovisioned, this IP address could change, but normally the 5th IP address in the subnet is used again. The dynamic IP address does not change unless the inbound endpoint is reprovisioned. The following example specifies a static IP address:
+
+<br><img src="./media/private-resolver-endpoints-rulesets/static-inbound-endpoint.png" alt="A screenshot displaying how to choose a static IP address." width="60%">
+
+The following example shows provisioning of an inbound endpoint with a virtual IP address (VIP) of **10.10.0.4** inside the subnet `snet-E-inbound` within a virtual network with address space of 10.10.0.0/16.
+
+![A screenshot showing inbound endpoints.](./media/private-resolver-endpoints-rulesets/east-inbound-endpoint.png)
 
 ## Outbound endpoints
 
