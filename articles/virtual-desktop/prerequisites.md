@@ -121,7 +121,7 @@ To use [FSLogix Profile Container](/fslogix/configure-profile-container-tutorial
 - [Set up FSLogix Profile Container with Azure Files and Active Directory Domain Services or Microsoft Entra Domain Services](fslogix-profile-container-configure-azure-files-active-directory.md).
 - [Set up FSLogix Profile Container with Azure Files and Microsoft Entra ID](create-profile-container-azure-ad.md).
 - [Set up FSLogix Profile Container with Azure NetApp Files](create-fslogix-profile-container.md)
-W
+
 > [!IMPORTANT]
 > The user account must exist in the Microsoft Entra tenant you use for Azure Virtual Desktop. Azure Virtual Desktop doesn't support [B2B](../active-directory/external-identities/what-is-b2b.md), [B2C](../active-directory-b2c/overview.md), or personal Microsoft accounts.
 >
