@@ -60,13 +60,13 @@ Creating a backup of the Managed CCF resource creates a Fileshare in the storage
 Follow these steps to perform a backup.
 
 1. [Generate and save a bearer token](#generate-an-access-token) generated for the subscription that your Managed CCF resource is located in.
-2. [Generate a SAS token](#generate-a-shared-access-signature-token) for the Storage Account to store the backup.
-3. Execute the following command to trigger a backup. You must supply a few parameters:
-- **subscription_id**: The subscription where the Managed CCF resource is deployed.
-- **resource_group**: The resource group name of the Managed CCF resource.
-- **app_name**: The name of the Managed CCF resource.
-- **sas_token**: The Shared Access Signature token.
-- **restore_region**: An optional parameter to indicate a region where the backup would be restored. It can be ignored if you expect to restore the backup in the same region as the Managed CCF resource.
+1. [Generate a SAS token](#generate-a-shared-access-signature-token) for the Storage Account to store the backup.
+1. Execute the following command to trigger a backup. You must supply a few parameters:
+   - **subscription_id**: The subscription where the Managed CCF resource is deployed.
+   - **resource_group**: The resource group name of the Managed CCF resource.
+   - **app_name**: The name of the Managed CCF resource.
+   - **sas_token**: The Shared Access Signature token.
+   - **restore_region**: An optional parameter to indicate a region where the backup would be restored. It can be ignored if you expect to restore the backup in the same region as the Managed CCF resource.
     ```bash
     curl --request POST 'https://management.azure.com/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.ConfidentialLedger/ManagedCCFs/<app_name>/backup?api-version=2023-06-28-preview' \
     --header 'Authorization: Bearer <bearer_token>' \
