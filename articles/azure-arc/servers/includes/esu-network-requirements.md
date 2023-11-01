@@ -6,7 +6,7 @@ ms.date: 11/01/2023
 
 If you are using Azure Arc-enabled servers only for the purpose of Extended Security Updates for Windows Server 2012, you can enable the following subset of endpoints:
 
-#### [Azure Government](#tab/azure-government)
+#### [Azure Cloud](#tab/azure-cloud)
 
 | Agent resource | Description | When required| Endpoint used with private link |
 |---------|---------|--------|---------|
@@ -29,7 +29,7 @@ If you are using Azure Arc-enabled servers only for the purpose of Extended Secu
 |`*.his.arc.azure.us`|Metadata and hybrid identity services|Always| Private |
 |`*.guestconfiguration.azure.us`| Extension management and guest configuration services |Always| Private |
 
-#### [Azure China](#tab/azure-china)
+#### [Microsoft Azure operated by 21Vianet](#tab/azure-china)
 
 > [!NOTE]
->  Azure Arc-enabled servers used for Extended Security Updates for Windows Server 2012 is not available in Azure China regions at this time.
+> Azure Arc-enabled servers used for Extended Security Updates for Windows Server 2012 is not available in Microsoft Azure operated by 21Vianet regions at this time.
