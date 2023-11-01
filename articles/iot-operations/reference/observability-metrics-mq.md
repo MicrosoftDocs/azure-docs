@@ -17,7 +17,7 @@ ms.date: 11/1/2023
 
 Azure IoT MQ Preview provides a set of observability metrics that you can use to monitor and analyze the health of your solution.  This article lists the available metrics for MQ, and describes the meaning and usage details of each metric. 
 
-## Available metric
+## Available metrics
 The following tables list the related sets of available metrics. To see more information about a metric, select the link for the metric. 
 
 Messaging metrics:
