@@ -109,9 +109,13 @@ To create the yaml file, use the following component definitions:
 
 1. Apply the component yaml to your cluster by running the following command:
 
-    ```console
-    $ kubectl apply -f components.yaml
-    
+    ```bash
+    kubectl apply -f components.yaml
+    ```
+
+    Verify the following output:
+
+    ```output
     component.dapr.io/aio-mq-pubsub created
     component.dapr.io/aio-mq-statestore created
     ```
@@ -122,18 +126,14 @@ Your application can authenticate to MQ using any of the [supported authenticati
 
 1. Create a Kubernetes service account:
 
-    ```console
-    $ kubectl create serviceaccount aio-mq-client
-    
-    serviceaccount/aio-mq-client created
+    ```bash
+    kubectl create serviceaccount aio-mq-client
     ```
 
 1. Ensure that the service account `aio-mq-client` has an [authorization attribute](../manage-mqtt-connectivity/howto-configure-authentication.md#create-a-service-account):
 
-    ```console
-    $ kubectl annotate serviceaccount aio-mq-client aio-mq-broker-auth/group=dapr-workload
-    
-    serviceaccount/aio-mq-client annotated
+    ```bash
+    kubectl annotate serviceaccount aio-mq-client aio-mq-broker-auth/group=dapr-workload
     ```
 
 ## Set up authorization policy between the workload and MQ
@@ -302,7 +302,7 @@ To start, you create a yaml file that uses the following component definitions:
 
     The workload pod should report all pods running after a short interval, as shown in the following example output:
 
-    ```console
+    ```output
     pod/dapr-workload created
     NAME                          READY   STATUS              RESTARTS   AGE
     ...
