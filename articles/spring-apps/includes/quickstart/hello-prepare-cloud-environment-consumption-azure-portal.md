@@ -7,7 +7,7 @@ ms.date: 08/11/2023
 ---
 
 <!--
-For clarity of structure, a separate markdown file is used to describe how to prepare cloud env (consumption plan) using Azure Portal.
+For clarity of structure, a separate markdown file is used to describe how to prepare cloud env (Standard consumption & dedicated plan) using Azure Portal.
 
 [!INCLUDE [hello-prepare-cloud-environment-standard-on-azure-portal](../../includes/quickstart/hello-prepare-cloud-env-consumption-azure-portal.md)]
 
