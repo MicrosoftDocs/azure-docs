@@ -217,6 +217,8 @@
     items:
     - name: Resize a gateway SKU
       href: gateway-sku-resize.md
+    - name: Change a gateway SKU
+      href: gateway-sku-change.md
     - name: Manage legacy gateway SKUs
       href: vpn-gateway-about-skus-legacy.md
   - name: Routing, BGP, and VNet Peering
