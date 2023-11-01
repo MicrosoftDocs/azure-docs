@@ -1,21 +1,21 @@
 - name: Azure API Center Documentation
   href: index.yml
-- name: Overview
+- name: Getting started
   expanded: true
   items:
       - name: What is API Center?
         displayName: Overview
         href: overview.md
+      - name: Key concepts
+        href: key-concepts.md  
       - name: Service limits
         href: ../azure-resource-manager/management/azure-subscription-service-limits.md#api-center-preview-limits
-- name: Concepts
-  items:
-      - name: Key concepts
-        href: key-concepts.md
-- name: Tutorials
+- name: API inventory
   items:
       - name: Set up an API center
         href: set-up-api-center.md
+#- name: API governance
+#- name: API discovery and consumption
 - name: Reference
   items:
       - name: REST API
