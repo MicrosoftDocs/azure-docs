@@ -87,10 +87,10 @@ In this section, you deploy the data connector agent. After you deploy the agent
 
 # [Managed identity](#tab/managed-identity)
 
-## [Experimental tab 1](#tab/exp-tab-1)
+# [Experimental tab 1](#tab/managed-identity/exp-tab-1)
 Blah blah blah 1 1 1
 
-## [Experimental tab 2](#tab/exp-tab-2)
+# [Experimental tab 2](#tab/managed-identity/exp-tab-2)
 Blah blah blah 2 2 2
 
 ---
