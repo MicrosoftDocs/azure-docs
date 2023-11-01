@@ -20,11 +20,6 @@ ms.custom: references_regions, ignite-fall-2021, engagement-fy23
 
 For current region support, refer to [products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=virtual-network-manager).
 
-### Which Azure regions support security admin rules?
-
-The following regions support security admin rules:
--
-
 > [!NOTE]
 > All regions have [Availability Zones](../availability-zones/az-overview.md#azure-regions-with-availability-zones), except France Central.
 
