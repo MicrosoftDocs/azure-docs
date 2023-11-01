@@ -1138,6 +1138,7 @@ Example SAN `DNS Name=eastus.metadata.azure.com, DNS Name=metadata.azure.com`
 
 > [!NOTE]
 > The domain for the public cloud and each sovereign cloud will be different.
+
 | Cloud | Domain in SAN |
 |-------|-------------|
 | [All generally available global Azure regions](https://azure.microsoft.com/regions/) | *.metadata.azure.com
