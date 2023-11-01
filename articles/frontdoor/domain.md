@@ -125,6 +125,10 @@ Sometimes, you might need to provide your own TLS certificates. Common scenarios
 * You need to use the same TLS certificate on multiple systems.
 * You use [wildcard domains](front-door-wildcard-domain.md). Azure Front Door doesn't provide managed certificates for wildcard domains.
 
+> [!NOTE]
+> * As of September 2023, Azure Front Door supports Bring Your Own Certificates (BYOC) for domain ownership validation. Front Door approves the domain ownership if the Certificate Name (CN) or Subject Alternative Name (SAN) of the certificate matches the custom domain. If you select Azure managed certificate, the domain validation uses the DNS TXT record.
+> * For custom domains created before BYOC based validation, and the domain validation status is not **Approved**, you need to trigger the auto approval of the domain ownership validation by selecting the **Validation State** and clicking on the **Revalidate** button in the portal. If you use the command line tool, you can trigger domain validation by sending an empty PATCH request to the domain API.
+
 #### Certificate requirements
 
 To use your certificate with Azure Front Door, it must meet the following requirements:
