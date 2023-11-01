@@ -32,7 +32,7 @@ Welcome to what's new in Azure Active Directory B2C documentation. This article 
 - [Secure your API used an API connector in Azure AD B2C](secure-rest-api.md) - Editorial updates
 - [Azure AD B2C: Frequently asked questions (FAQ)'](faq.yml) - Editorial updates
 - [Define an ID token hint technical profile in an Azure Active Directory B2C custom policy](id-token-hint.md) - Editorial updates
-- [Set up sign-in for multi-tenant Microsoft Entra ID using custom policies in Azure Active Directory B2C](identity-provider-azure-ad-multi-tenant.md) - Editorial updates
+- [Set up sign-in for multitenant Microsoft Entra ID using custom policies in Azure Active Directory B2C](identity-provider-azure-ad-multi-tenant.md) - Editorial updates
 - [Set up sign-in for a specific Microsoft Entra organization in Azure Active Directory B2C](identity-provider-azure-ad-single-tenant.md) - Editorial updates
 - [Localization string IDs](localization-string-ids.md) - Editorial updates
 - [Define a Microsoft Entra multifactor authentication technical profile in an Azure AD B2C custom policy](multi-factor-auth-technical-profile.md) - Editorial updates
