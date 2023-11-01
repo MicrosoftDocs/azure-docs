@@ -80,6 +80,9 @@ These models can only be used with the Chat Completion API.
 
 GPT-4 version 0314 is the first version of the model released.  Version 0613 is the second version of the model and adds function calling support.
 
+> [!NOTE]
+> Version `0314` of `gpt-4` and `gpt-4-32k` will be retired no earlier than July 5, 2024.  See [model updates](../how-to/working-with-models.md#model-updates) for model upgrade behavior.
+
 |  Model ID  | Max Request (tokens) | Training Data (up to)  |
 |  --- |  :---: | :---: |
 | `gpt-4` (0314) | 8,192 | Sep 2021         |
@@ -88,14 +91,14 @@ GPT-4 version 0314 is the first version of the model released.  Version 0613 is 
 | `gpt-4-32k` (0613) | 32,768               | Sep 2021         |
 
 > [!NOTE]
-> Any region where GPT-4 is listed as available will always have access to both the 8K and 32K versions of the model
+> Regions where GPT-4 is listed as available have access to both the 8K and 32K versions of the model
 
 ### GPT-4 model availability
 
 | Model Availability | gpt-4 (0314) | gpt-4 (0613) |
 |---|:---|:---|
-| Available to all subscriptions with Azure OpenAI access | | Canada East <br> Sweden Central <br> Switzerland North |
-| Available to subscriptions with current access to the model version in the region | East US <br> France Central <br> South Central US <br> UK South | Australia East <br> East US <br> East US 2 <br> France Central <br> Japan East <br> UK South |
+| Available to all subscriptions with Azure OpenAI access | | Canada East <br> France Central <br> Sweden Central <br> Switzerland North |
+| Available to subscriptions with current access to the model version in the region | East US <br> France Central <br> South Central US <br> UK South | Australia East <br> East US <br> East US 2 <br> Japan East <br> UK South |
 
 ### GPT-3.5 models
 
