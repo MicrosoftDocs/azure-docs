@@ -104,6 +104,7 @@ az rest --method post --uri "$APIM_RESOURCE_ID/migrateToStv2?api-version=2023-03
 # Alternate call to migrate to stv2 and preserve VIP address
 # az rest --method post --uri "$APIM_RESOURCE_ID/migrateToStv2?api-version=2023-03-01-preview" --body '{"mode": "PreserveIp"}'
 ```
+---
 
 ### Verify migration
 
@@ -112,8 +113,6 @@ To verify that the migration was successful, when the status changes to `Online`
 ### Update Network Dependencies
 
 On successful migration, update any network dependencies including DNS, firewall rules, and VNets to use the new VIP address.
-
----
 
 ## Scenario 2: Migrate a network-injected API Management instance
 
