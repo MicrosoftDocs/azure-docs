@@ -10,6 +10,21 @@ ms.topic: include
 ms.service: azure-communication-services
 ---
 
+## Prerequisites
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
+- The latest version [.NET Core client library](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
+- An Azure Communication Email Resource created and ready with a provisioned domain [Get started with Creating Email Communication Resource](../create-email-communication-resource.md)
+- An active Azure Communication Services Resource connected with Email Domain and a Connection String. [Get started by Connecting Email Resource with a Communication Resource](../connect-email-communication-resource.md)
+- Smtp credentials created using an Entra application with access to the Azure Communication Services Resource. [How to create authentication credentials for sending emails using Smtp](./smtp-authentication.md)
+
+Completing this quick start incurs a small cost of a few USD cents or less in your Azure account.
+
+> [!NOTE]
+> We can also send an email from our own verified domain. [Add custom verified domains to Email Communication Service](../add-azure-managed-domains.md).
+
+In this quick start, you'll learn about how to send email with Azure Communication Services using SMTP.
+
 ### Prerequisite check
 
 - In a terminal or command window, run the `dotnet` command to check that the .NET client library is installed.
