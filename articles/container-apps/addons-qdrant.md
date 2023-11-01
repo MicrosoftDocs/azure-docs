@@ -122,11 +122,23 @@ TODO: Introduction
 
 1. Get the token.
 
-```bash
-echo your login token is: `az containerapp logs show -g $RESOURCE_GROUP --name $APP_NAME --tail 300 | \
-  grep token |  cut -d= -f 2 | cut -d\" -f 1 | uniq`
-```
+    ```bash
+    echo Your login token is: `az containerapp logs show -g $RESOURCE_GROUP --name $APP_NAME --tail 300 | \
+      grep token |  cut -d= -f 2 | cut -d\" -f 1 | uniq`
+    ```
 
-1. Open the site and enter the token in the dialog box.
+    When you run this command, your token is printed to the terminal. Your message should look like the following example.
+
+    ```bash
+    Your login token is: 348c8aed080b44f3aaab646287624c70aed080b44f
+    ```
+
+    Copy your token value to your text editor to use to sign-in to the Jupyter Notebook.
+
+1. Open a web browser and paste in the URL for your container app you set aside in a text editor.
+
+    Next to the *Password to token* label, enter your token in the input box and select **Login**.
+
+1. Enter the token value into the dialog box.
 
 1. Open the *aca_environment.sh* file and execute the commands in the Jupyter Notebook.
