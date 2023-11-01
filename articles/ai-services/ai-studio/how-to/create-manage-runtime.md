@@ -14,25 +14,26 @@ ms.author: eur
 
 [!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
 
-Prompt flow's runtime provides the computing resources required for the application to run, including a Docker image that contains all necessary dependency packages. This reliable and scalable runtime environment enables Prompt flow to efficiently execute its tasks and functions, ensuring a seamless user experience for users.
+In Azure AI Studio, you can create and manage prompt flow runtimes. You need a runtime to use prompt flow. 
 
-## Concepts
-
-In prompt flow, the execution of flows is facilitated by using runtimes.
-
-## Runtimes
-
-In prompt flow, runtimes serve as computing resources that enable customers to execute their flows seamlessly. A runtime is equipped with a prebuilt Docker image that includes our built-in tools, ensuring that all necessary tools are readily available for execution.
-
-Within the Azure AI project, users have the option to create a runtime using the predefined default environment. This default environment is set up to reference the prebuilt Docker image, providing users with a convenient and efficient way to get started. We regularly update the default environment to ensure it aligns with the latest version of the Docker image.
-
-For users seeking further customization, Prompt flow offers the flexibility to create a custom execution environment. By utilizing our prebuilt Docker image as a foundation, users can easily customize their environment by adding their preferred packages, configurations, or other dependencies. Once customized, the environment can be published as a custom environment within the Azure AI project, allowing users to create a runtime based on their custom environment.
-
-In addition to flow execution, the runtime is also utilized to validate and ensure the accuracy and functionality of the tools incorporated within the flow, when users make updates to the prompt or code content.
+Prompt flow runtime has the computing resources required for the application to run, including a Docker image that contains all necessary dependency packages. In addition to flow execution, the runtime is also utilized to validate and ensure the accuracy and functionality of the tools incorporated within the flow, when you make updates to the prompt or code content.
 
 ## Create a runtime
 
-If you do not have a compute instance, create a new one: [Create and manage compute instance](./create-manage-compute.md).
+A runtime requires a compute instance. If you don't have a compute instance, you can [create one in Azure AI Studio](./create-manage-compute.md).
+
+
+To create a prompt flow runtime in Azure AI Studio:
+
+1. Sign in to [Azure AI Studio](https://ai.azure.com) and select your project from the **Build** page. If you don't have a project already, first create a project.
+1. Under **Manage**, select **Compute instances**.
+
+    :::image type="content" source="../media/compute/compute-create.png" alt-text="Screenshot of the option to create a new compute instance from the manage page." lightbox="../media/compute/compute-create.png":::
+
+1. Enter a custom name for your compute.
+
+    :::image type="content" source="../media/compute/compute-create.png" alt-text="Screenshot of the option to create a new compute instance from the manage page." lightbox="../media/compute/compute-create.png":::
+
 
 1. Select add runtime in runtime list page.
 1. Select compute instance you want to use as runtime.
@@ -41,9 +42,9 @@ If you do not have a compute instance, create a new one: [Create and manage comp
 
 
 
-## Using runtime in Prompt flow authoring
+## Using runtime in prompt flow authoring
 
-When you're authoring your Prompt flow, you can select and change the runtime from left top corner of the flow page.
+When you're authoring your prompt flow, you can select and change the runtime from left top corner of the flow page.
 
 
 When performing evaluation, you can use the original runtime in the flow or change to a more powerful runtime.
