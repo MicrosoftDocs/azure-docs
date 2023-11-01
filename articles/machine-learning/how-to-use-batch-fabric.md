@@ -1,7 +1,7 @@
 ---
-title: "Consume models deployed in Azure Machine Learning from Fabric using Batch Endpoints"
+title: "Consume models deployed in Azure Machine Learning from Fabric, using Batch Endpoints"
 titleSuffix: Azure Machine Learning
-description: Learn how to deploy a machine learning model in batch endpoints to then consume it from within Fabric
+description: Learn how to deploy a machine learning model in batch endpoints to then consume it from within Fabric.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: inferencing
@@ -13,31 +13,27 @@ ms.reviewer: mopeakande
 ms.custom: devplatv2
 ---
 
-# Run Azure Machine Learning models from Fabric using Batch Endpoints
+# Run Azure Machine Learning models from Fabric, using batch endpoints
 
 [!INCLUDE [ml v2](includes/machine-learning-dev-v2.md)]
 
-In this article, you learn how to consume Azure Machine Learning batch deployments from Microsoft Fabric. Although the workflow uses models that are deployed to batch endpoints, it also supports batch pipeline deployment if you need to utilize Azure Machine Learning pipelines from Fabric.
+In this article, you learn how to consume Azure Machine Learning batch deployments from Microsoft Fabric. Although the workflow uses models that are deployed to batch endpoints, it also supports the use of batch pipeline deployments from Fabric.
 
 ## Prerequisites
 
-- Get a [Microsoft Fabric subscription](/fabric/enterprise/licenses). Or sign up for a free [Microsoft Fabric trial](/fabric/get-started/fabric-trial.md).
+- Get a [Microsoft Fabric subscription](/fabric/enterprise/licenses). Or sign up for a free [Microsoft Fabric trial](/fabric/get-started/fabric-trial).
 - Sign in to Microsoft Fabric.
 - An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
-- An Azure Machine Learning workspace. If you don't have one, use the steps in the [How to manage workspaces](../how-to-manage-workspace.md) to create one.
+- An Azure Machine Learning workspace. If you don't have one, use the steps in [How to manage workspaces](how-to-manage-workspace.md) to create one.
     - Ensure that you have the following permissions in the workspace:
         - Create/manage batch endpoints and deployments: Use roles Owner, contributor, or custom role allowing `Microsoft.MachineLearningServices/workspaces/batchEndpoints/*`.
         - Create ARM deployments in the workspace resource group: Use roles Owner, contributor, or custom role allowing `Microsoft.Resources/deployments/write` in the resource group where the workspace is deployed.
 - A model deployed to a batch endpoint. If you don't have one, use the steps in [Deploy models for scoring in batch endpoints](how-to-use-batch-model-deployments.md) to create one.
-- Download the _heart-unlabeled.csv_ sample dataset that you'll use for scoring. [[@facundo: where is this dataset stored?]]
-
-<!-- * Switch to the Data Science experience by using the experience switcher icon on the left side of your home page.
-
-   :::image type="content" source="../media/tutorial-data-science-prepare-system/switch-to-data-science.png" alt-text="Screenshot of the experience switcher menu, showing where to select Data Science." lightbox="../media/tutorial-data-science-prepare-system/switch-to-data-science.png"::: -->
+- Download the _heart-unlabeled.csv_ sample dataset to use for scoring. [[@facundo: where is this dataset stored?]]
 
 ## Architecture
 
-Azure Machine Learning can't directly access data that's stored in Fabric's [OneLake](/fabric/onelake/onelake-overview). However, you can use OneLake's capability to create shortcuts within a Lakehouse to read and write data that's stored in [Azure Data Lake Gen2](/azure/storage/blobs/data-lake-storage-introduction). Since Azure Machine Learning supports Azure Data Lake Gen2 storage, this setup allows you to use Fabric and Azure Machine Learning together. The data architecture is as follows:
+Azure Machine Learning can't directly access data stored in Fabric's [OneLake](/fabric/onelake/onelake-overview). However, you can use OneLake's capability to create shortcuts within a Lakehouse to read and write data stored in [Azure Data Lake Gen2](/azure/storage/blobs/data-lake-storage-introduction). Since Azure Machine Learning supports Azure Data Lake Gen2 storage, this setup allows you to use Fabric and Azure Machine Learning together. The data architecture is as follows:
 
 :::image type="content" source="./media/how-to-use-batch-fabric/fabric-azureml-data-architecture.png" alt-text="A diagram showing how Azure Storage accounts are used to connect Fabric with Azure Machine Learning." lightbox="media/how-to-use-batch-fabric/fabric-azureml-data-architecture.png":::
 
@@ -51,7 +47,7 @@ In this section, you create or identify a storage account to use for storing the
 
 1. Open the **Synapse Data Engineering** experience in Fabric.
 1. From the left-side panel, select your Fabric workspace to open it.
-1. Open the lakehouse that you'll use to configure the connection. If you don't have a lakehouse already, go to the **Data Engineering** experience to [create a lakehouse](/fabric/data-engineering/create-lakehouse). In this example you use a lakehouse named **trusted**.
+1. Open the lakehouse that you'll use to configure the connection. If you don't have a lakehouse already, go to the **Data Engineering** experience to [create a lakehouse](/fabric/data-engineering/create-lakehouse). In this example, you use a lakehouse named **trusted**.
 1. In the left-side navigation bar, open _more options_ for **Files**, and then select **New shortcut** to bring up the wizard.
 
     :::image type="content" source="./media/how-to-use-batch-fabric/fabric-lakehouse-new-shortcut.png" alt-text="A screenshot showing how to create a new shortcut in a lakehouse." lightbox="media/how-to-use-batch-fabric/fabric-lakehouse-new-shortcut.png":::
@@ -99,7 +95,7 @@ In this section, you create or identify a storage account to use for storing the
 
     1. Select **Create**.
 
-1. Ensure that the compute where the batch endpoint is running has permission to mount the data in this storage account. Even though access is still granted by the identity that invokes the endpoint, the compute where the batch endpoint runs needs to have permission to mount the storage account that you provide. For more information, see [Accessing storage services](how-to-identity-based-service-authentication.md#accessing-storage-services).
+1. Ensure that the compute where the batch endpoint is running has permission to mount the data in this storage account. Although access is still granted by the identity that invokes the endpoint, the compute where the batch endpoint runs needs to have permission to mount the storage account that you provide. For more information, see [Accessing storage services](how-to-identity-based-service-authentication.md#accessing-storage-services).
 
 #### Upload sample dataset
 
@@ -118,7 +114,7 @@ Upload some sample data for the endpoint to use as input:
 
     :::image type="content" source="./media/how-to-use-batch-fabric/fabric-lakehouse-upload-data.png" alt-text="A screenshot showing how to upload a file to OneLake." lightbox="media/how-to-use-batch-fabric/fabric-lakehouse-upload-data.png":::
 
-1. The sample file is ready to be consumed. Note the path to the location where it's saved.
+1. The sample file is ready to be consumed. Note the path to the location where you saved it.
 
 ## Create a Fabric to batch inferencing pipeline
 
@@ -142,7 +138,7 @@ In this section, you create a Fabric-to-batch inferencing pipeline in your exist
 
         :::image type="content" source="./media/how-to-use-batch-fabric/fabric-pipeline-add-connection.png" alt-text="A screenshot of the configuration section of the activity showing how to create a new connection." lightbox="media/how-to-use-batch-fabric/fabric-pipeline-add-connection.png":::
 
-    1. In the **Connection settings** section of the creation wizard, specify the values of the __subscription ID__, __Resource group name__, and __Workspace name__, where you endpoint is deployed.
+    1. In the **Connection settings** section of the creation wizard, specify the values of the __subscription ID__, __Resource group name__, and __Workspace name__, where your endpoint is deployed.
 
         :::image type="content" source="./media/how-to-use-batch-fabric/fabric-pipeline-add-connection-ws.png" alt-text="A screenshot showing examples of the values for  subscription ID, resource group name, and workspace name." lightbox="media/how-to-use-batch-fabric/fabric-pipeline-add-connection-ws.png":::
 
@@ -158,7 +154,7 @@ In this section, you create a Fabric-to-batch inferencing pipeline in your exist
 
     The **Batch deployment** section automatically populates with the available deployments under the endpoint.
 
-1. For **Batch deployment**, select a specific deployment from the list, if needed. If you don't select a deployment, Fabric will invoke the **Default** deployment under the endpoint, allowing the batch endpoint creator to decide which deployment is called. In most scenarios, you'd want to keep this default behavior.
+1. For **Batch deployment**, select a specific deployment from the list, if needed. If you don't select a deployment, Fabric invokes the **Default** deployment under the endpoint, allowing the batch endpoint creator to decide which deployment is called. In most scenarios, you'd want to keep this default behavior.
 
     :::image type="content" source="./media/how-to-use-batch-fabric/fabric-pipeline-configure-deployment.png" alt-text="A screenshot showing how to configure the endpoint to use the default deployment." lightbox="media/how-to-use-batch-fabric/fabric-pipeline-configure-deployment.png":::
 
@@ -176,7 +172,7 @@ Configure the **Job inputs** section as follows:
 
 1. Select **New** to add a new input to your endpoint.
 
-1. Name the input `input_data`. Since this is a model deployment, you can use any name. For pipeline deployments, however, you need to indicate the exact name of the input that your model is expecting.
+1. Name the input `input_data`. Since you're using a model deployment, you can use any name. For pipeline deployments, however, you need to indicate the exact name of the input that your model is expecting.
 
 1. Select the dropdown menu next to the input you just added to open the input's property (name and value field).
 
@@ -188,7 +184,7 @@ Configure the **Job inputs** section as follows:
 
 1. Enter `Uri` in the **Name** field to indicate the path to the data.
 
-1. Enter `azureml://datastores/trusted_blob/datasets/uci-heart-unlabeled`, the path to locate the data, in the **Value** field. Here, you use a path that leads to the storage account that is both linked to OneLake in Fabric and to Azure Machine Learning. **azureml://datastores/trusted_blob/datasets/uci-heart-unlabeled** is the path to CSV files with the expected input data for the model that's deployed to the batch endpoint. You can also use a direct path to the storage account, such as `https://<storage-account>.dfs.azure.com`.
+1. Enter `azureml://datastores/trusted_blob/datasets/uci-heart-unlabeled`, the path to locate the data, in the **Value** field. Here, you use a path that leads to the storage account that is both linked to OneLake in Fabric and to Azure Machine Learning. **azureml://datastores/trusted_blob/datasets/uci-heart-unlabeled** is the path to CSV files with the expected input data for the model that is deployed to the batch endpoint. You can also use a direct path to the storage account, such as `https://<storage-account>.dfs.azure.com`.
 
     :::image type="content" source="./media/how-to-use-batch-fabric/fabric-pipeline-configure-inputs.png" alt-text="A screenshot showing how to configure inputs in the endpoint.":::
 
@@ -205,13 +201,13 @@ Configure the **Job outputs** section as follows:
 
 1. Select **New** to add a new output to your endpoint.
 
-1. Name the output `output_data`. Since this is a model deployment, you can use any name. For pipeline deployments, however, you need to indicate the exact name of the output that your model is generating.
+1. Name the output `output_data`. Since you're using a model deployment, you can use any name. For pipeline deployments, however, you need to indicate the exact name of the output that your model is generating.
 
 1. Select the dropdown menu next to the output you just added to open the output's property (name and value field).
 
 1. Enter `JobOutputType` in the **Name** field to indicate the type of output you're creating.
 
-1. Enter `UriFile` in the **Value** field to indicate that the output is a file path. The other supported value for this field is **UriFolder** (a folder path). Unlike the job input section, **Literal** (any literal value like string or integer) is not supported as an output.
+1. Enter `UriFile` in the **Value** field to indicate that the output is a file path. The other supported value for this field is **UriFolder** (a folder path). Unlike the job input section, **Literal** (any literal value like string or integer) **isn't** supported as an output.
 
 1. Select the plus sign next to the property to add another property for this output.
 
