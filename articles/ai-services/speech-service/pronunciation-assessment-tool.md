@@ -20,7 +20,7 @@ Pronunciation assessment uses the Speech to text capability to provide subjectiv
 
 This article describes how to use the pronunciation assessment tool without writing any code through the [Speech Studio](https://speech.microsoft.com). For information about how to integrate pronunciation assessment in your speech applications, see [How to use pronunciation assessment](how-to-pronunciation-assessment.md).
 
-In addition to the baseline scores of accuracy, fluency, and completeness, the pronunciation asessment feature in Speech Studio includes more comprehensive scores to provide detailed feedback on various aspects of speech performance and understanding. The enhanced scores are as follows: Prosody score, Vocabulary score, Grammar score, and Topic score. These scores offer valuable insights into speech prosody, vocabulary usage, grammar correctness, and topic understanding. 
+In addition to the baseline scores of accuracy, fluency, and completeness, the pronunciation assessment feature in Speech Studio includes more comprehensive scores to provide detailed feedback on various aspects of speech performance and understanding. The enhanced scores are as follows: Prosody score, Vocabulary score, Grammar score, and Topic score. These scores offer valuable insights into speech prosody, vocabulary usage, grammar correctness, and topic understanding. 
 
  :::image type="content" source="media/pronunciation-assessment/speaking-score.png" alt-text="Screenshot of overall pronunciation score and overall content score on Speech Studio.":::
 
@@ -32,7 +32,7 @@ At the bottom of the Assessment result, two overall scores are displayed: Pronun
 - **Completeness score**: Reflects the number of words pronounced correctly.
 - **Prosody score**: Assesses the use of appropriate intonation, rhythm, and stress. Several additional error types related to prosody assessment are introduced, such as Unexpected break, Missing break, and Monotone. These error types provide more detailed information about pronunciation errors compared to the previous engine.
 
-**Content Score**: This score provides an aggregated assessment of the content of the speech and includes three sub-aspects. This score is only available in the speaking tab for an unscriped assessment.
+**Content Score**: This score provides an aggregated assessment of the content of the speech and includes three sub-aspects. This score is only available in the speaking tab for an unscripted assessment.
 - **Vocabulary score**: Evaluates the speaker's effective usage of words and their appropriateness within the given context to express ideas accurately, as well as the level of lexical complexity.
 - **Grammar score**: Evaluates the correctness of grammar usage and variety of sentence patterns. It considers lexical accuracy, grammatical accuracy, and diversity of sentence structures, providing a more comprehensive evaluation of language proficiency.
 - **Topic score**: Assesses the level of understanding and engagement with the topic discussed in the speech. It evaluates the speaker's ability to effectively express thoughts and ideas related to the given topic.
@@ -118,7 +118,7 @@ If you want to conduct an unscripted assessment, select the Speaking tab. This a
    
 1. Next, you have the option to select from sample topics provided or enter your own topic. This choice allows you to assess your ability to speak on a given subject without a predefined script.
 
-   :::image type="content" source="media/pronunciation-assessment/input-topic.png" alt-text="Screenshot of inputting a topic on speaking tab to assess your bility to speak on a given subject without a predefined script.":::
+   :::image type="content" source="media/pronunciation-assessment/input-topic.png" alt-text="Screenshot of inputting a topic on speaking tab to assess your ability to speak on a given subject without a predefined script.":::
 
    When recording your speech for pronunciation assessment, it's important to ensure that your recording time falls within the recommended range of 15 seconds (equivalent to more than 50 words) to 10 minutes. This time range is optimal for evaluating the content of your speech accurately. To receive a topic score, your spoken audio should contain at least 3 sentences. 
 
@@ -132,7 +132,7 @@ You can also check the pronunciation assessment result in JSON. The word-level, 
 
 ### [Display](#tab/display)
 
-:::image type="content" source="media/pronunciation-assessment/assessment-result.png" alt-text="Screenshot of showing assessment result on Display window which inlcudes transcipt and feedback on your speech.":::
+:::image type="content" source="media/pronunciation-assessment/assessment-result.png" alt-text="Screenshot of showing assessment result on Display window which includes transcript and feedback on your speech.":::
 
 The complete transcription is shown in the **Display** window. The word will be highlighted according to the error type. The error types in the pronunciation assessment are represented using different colors. This visual distinction makes it easier to identify and analyze specific errors. It provides a clear overview of the error types and frequencies in the spoken audio, helping you focus on areas that need improvement. You can toggle on/off each error type to focus on specific types of errors or exclude certain types from the display. This feature provides flexibility in how you review and analyze the errors in your spoken audio. While hovering over each word, you can see accuracy scores for the whole word or specific phonemes. 
 
