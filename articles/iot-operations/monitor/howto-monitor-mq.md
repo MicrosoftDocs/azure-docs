@@ -14,7 +14,7 @@ ms.date: 11/01/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-Azure IoT MQ includes a diagnostics service that periodically self tests IoT MQ components and emits metrics. These metrics can be used by operators to monitor the health of the system. The diagnostics service has a Prometheus endpoint for metrics.
+Azure IoT MQ includes a diagnostics service that periodically self tests IoT MQ components and emits metrics. Operators can use these metrics to monitor the health of the system. The diagnostics service has a Prometheus endpoint for metrics.
 
 ## What's supported
 
@@ -55,4 +55,4 @@ The diagnostics service processes and collates diagnostic signals from various I
 
 ## Related content
 
-[Configure observability](howto-config-observability.md)
+[Configure observability](howto-configure-observability.md)
