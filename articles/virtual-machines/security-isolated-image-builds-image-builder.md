@@ -17,7 +17,7 @@ Isolated Image Builds is a feature of Azure Image Builder (AIB). It transitions 
 
 ## Advantages of Isolated Image Builds
 
-Isolated Image Builds enable defense-in-depth by putting strict boundaries around access of your data outside your subscription and by limiting network access of your build VM to just your subscription. Isolated Image Builds also provide you with more transparency by allowing your inspection of the processing done by Image Builder to customize/validate your VM image. Further, Isolated Image Builds eases viewing of live build logs. Specifically:
+Isolated Image Builds enable defense-in-depth by limiting network access of your build VM to just your subscription. Isolated Image Builds also provide you with more transparency by allowing your inspection of the processing done by Image Builder to customize/validate your VM image. Further, Isolated Image Builds eases viewing of live build logs. Specifically:
 
 1. **Compute Isolation:** Isolated Image Builds perform major portion of image building processing in Azure Container Instances resources in your subscription instead of on AIB's shared platform resources. ACI provides hypervisor isolation for each container group to ensure containers run in isolation without sharing a kernel.
 2. **Network Isolation:**  Isolated Image Builds remove all direct network WinRM/ssh communication between your build VM and Image Builder service. 
