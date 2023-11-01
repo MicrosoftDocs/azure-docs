@@ -68,6 +68,10 @@ items:
         href: manage-mqtt-connectivity/howto-configure-availability-scale.md
       - name: Configure disk buffer
         href: manage-mqtt-connectivity/howto-configure-disk-buffer.md
+      - name: Configure diagnostic settings
+        href: manage-mqtt-connectivity/howto-configure-diagnostics.md
+      - name: Manage secrets
+        href: manage-mqtt-connectivity/howto-manage-secrets.md
     - name: Process data
       items:
       - name: Overview
@@ -135,8 +139,10 @@ items:
       items:
       - name: Connect to MQTT or Event Grid
         href: connect-to-cloud/howto-configure-mqtt-bridge.md
-      - name: Connect to Messaging services
-        href: connect-to-cloud/howto-use-mqtt-bridge-messaging-service.md
+      - name: Send data to a data lake
+        href: connect-to-cloud/howto-configure-data-lake.md
+      - name: Send data to Kafka or Azure Event Hubs
+        href: connect-to-cloud/howto-configure-kafka.md
       - name: Send data to Azure Data Explorer from a pipeline
         href: connect-to-cloud/howto-configure-destination-data-explorer.md
       - name: Send data to Microsoft Fabric from a pipeline
