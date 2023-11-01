@@ -4,7 +4,7 @@ description: Integrate 3270 screen-driven apps with workflows in Azure Logic App
 services: logic-apps
 ms.suite: integration
 author: haroldcampos
-ms.author: haroldcampos
+ms.author: hcampos
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 10/31/2023
