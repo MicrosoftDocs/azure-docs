@@ -35,7 +35,7 @@ Supported authentication and clients for App Service, Container Apps and Azure S
 
 ## Default environment variable names or application properties and sample code
 
-Use the connection details below to connect your compute services to the Azure Cosmos DB for Apache Gremlin. For each example below, replace the placeholder texts `<Azure-Cosmos-DB-account>`, `<database>`, `<collection or graphs>`, `<username>`, `<password>`, `<resource-group-name>`, `<subscription-ID>`, `<client-ID>`,`<client-secret>`, and `<tenant-id>` with your own information. For more information about naming conventions, check the [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article.
+Use the connection details below to connect your compute services to Azure Cosmos DB for Apache Gremlin. For each example below, replace the placeholder texts `<Azure-Cosmos-DB-account>`, `<database>`, `<collection or graphs>`, `<username>`, `<password>`, `<resource-group-name>`, `<subscription-ID>`, `<client-ID>`,`<client-secret>`, and `<tenant-id>` with your own information. For more information about naming conventions, check the [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article.
 
 
 ### System-assigned managed identity

@@ -9,13 +9,13 @@ ms.author: wchi
 
 ### [.NET](#tab/dotnet)
 
-1. Install dependencies
+1. Install dependencies.
     ```bash
     dotnet add package Gremlin.Net
     dotnet add package Azure.Identity
     ```
 
-2. Get an access token for the managed identity or service principal using client library [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/). Use the access token and `AZURE_COSMOS_LISTKEYURL` to get the password. Get the connection information from the environment variables added by Service Connector and connect to Azure Cosmos DB for Apache Gremlin. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+1. Get an access token for the managed identity or service principal using client library [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/). Use the access token and `AZURE_COSMOS_LISTKEYURL` to get the password. Get the connection information from the environment variables added by Service Connector and connect to Azure Cosmos DB for Apache Gremlin. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
 
     ```csharp
     using System;
@@ -154,7 +154,7 @@ ms.author: wchi
     ```
 
 ### [Python](#tab/python)
-1. Install dependencies
+1. Install dependencies.
     ```bash
     pip install gremlinpython
     ```
@@ -205,12 +205,12 @@ ms.author: wchi
     ```
 
 ### [NodeJS](#tab/node)
-1. Install dependencies
+1. Install dependencies.
    ```bash
    npm install gremlin
    npm install --save @azure/identity
    ```
-2. In code, get the access token via `@azure/identity`, then use it to acquire the password. Get connection information from the environment variable added by Service Connector and connect to Azure Cosmos DB for Apache Gremlin. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+2. In code, get the access token using `@azure/identity`, then use it to acquire the password. Get connection information from the environment variable added by Service Connector and connect to Azure Cosmos DB for Apache Gremlin. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
 
     ```javascript
     import { DefaultAzureCredential,ClientSecretCredential } from "@azure/identity";

@@ -10,12 +10,12 @@ ms.author: wchi
 
 ### [.NET](#tab/dotnet)
 
-1. Install dependencies
+1. Install dependencies.
     ```bash
     dotnet add package Gremlin.Net
     ```
 
-2. Get the connection information from the environment variables added by Service Connector and connect to Azure Cosmos DB for Apache Gremlin.
+1. Get the connection information from the environment variables added by Service Connector and connect to Azure Cosmos DB for Apache Gremlin.
     ```csharp
     using System;
     using Gremlin.Net.Driver;
@@ -70,7 +70,7 @@ ms.author: wchi
     ```
 
 ### [Python](#tab/python)
-1. Install dependencies
+1. Install dependencies.
     ```bash
     pip install gremlinpython
     ```
@@ -93,8 +93,6 @@ ms.author: wchi
         message_serializer=serializer.GraphSONSerializersV2d0(),
     )
     ```
-
-For more information, see [Build a Apache Gremlin app with Python SDK and Azure Cosmos DB](/azure/cosmos-db/cassandra/manage-data-python)
 
 ### [NodeJS](#tab/node)
 1. Install dependencies
@@ -149,4 +147,4 @@ $db = new Connection([
 
 
 ### [Other](#tab/other)
-For other languages, you can use the Apache Gremlin endpoint and other properties that Service Connector sets to the environment variables to connect the Azure Cosmos DB for Apache Gremlin resource. For environment variable details, see [Integrate Azure Cosmos DB for Apache Gremlin with Service Connector](../how-to-integrate-cosmos-cassandra.md).
+For other languages, you can use the Apache Gremlin endpoint and other properties that Service Connector sets to the environment variables to connect the Azure Cosmos DB for Apache Gremlin resource. For environment variable details, see [Integrate Azure Cosmos DB for Apache Gremlin with Service Connector](../how-to-integrate-cosmos-gremlin.md).
