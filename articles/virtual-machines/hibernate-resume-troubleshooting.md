@@ -17,6 +17,8 @@ ms.custom:
 > Azure Virtual Machines - Hibernation is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
+Hibernating a virtual machine allows you to persist the VM state to the OS disk. This article describes how to troubleshoot issues with the hibernation feature, issues creating hibernation enabled VMs, and issues with hibernating a VM.
+
 ## Subscription not registered to use hibernation
 If you receive the error "Your subscription isn't registered to use Hibernate" and the box is greyed out in the Azure portal, make sure you have [register for the Hibernation preview.](hibernate-resume.md)
 
@@ -37,7 +39,7 @@ If you're unable to create a VM with hibernation enabled, ensure that you're usi
 | OperationNotAllowed | Referencing a Capacity Reservation Group isn't supported for a VM with Hibernation capability. |  |
 | OperationNotAllowed | Enabling/disabling hibernation on an existing VM requires the VM to be stopped (deallocated) first. | Stop-deallocate the VM, patch with VM to enable hibernation and then start the VM |
 | OperationNotAllowed | Hibernation can't be enabled on Virtual Machine since the OS Disk Size ({0} bytes) should at least be greater than the VM memory ({1} bytes). | Ensure the OS disk has enough space to be able to persist the RAM contents once the VM is hibernated |
-| OperationNotAllowed | Hibernation can't be enabled on Virtual Machines created in an Availability Set. | Hibernation is only supported for standalone VMs & Virtual Machine Scale Sets (VMSS) Flex VMs |
+| OperationNotAllowed | Hibernation can't be enabled on Virtual Machines created in an Availability Set. | Hibernation is only supported for standalone VMs & Virtual Machine Scale Sets Flex VMs |
 
 
 ## Unable to hibernate a VM
@@ -230,7 +232,7 @@ If the guest OS isn't configured for hibernation, take the appropriate action to
 | InternalOperationError | The fabric operation failed. | This is usually a transient issue. Retry the Hibernate operation after 5mins. |
 | OperationNotAllowed | Operation 'HibernateAndDeallocate' isn't allowed on VM 'Z0000ZYH000' since VM has extension 'AzureHibernateExtension' in failed state | Customer issue. Confirm that VM creation with hibernation enabled  succeeded, and that the extension is in a healthy state |
 | OperationNotAllowed | The Hibernate-Deallocate Operation can only be triggered on a VM that is successfully provisioned and is running. | Customer error. Ensure that the VM is successfully running before attempting to Hibernate-Deallocate the VM. |
-| OperationNotAllowed | The Hibernate-Deallocate Operation can only be triggered on a VM that is enabled for hibernation. Enable the property additionalCapabilities.hibernationEnabled during VM creation, or after stop-deallocating the VM. | Customer error. |
+| OperationNotAllowed | The Hibernate-Deallocate Operation can only be triggered on a VM that is enabled for hibernation. Enable the property additionalCapabilities.hibernationEnabled during VM creation, or after stopping and deallocating the VM. | Customer error. |
 | VMHibernateFailed | Hibernating the VM 'hiber_vm_res_5' failed due to an internal error. Retry later. | Retry after 5mins. If it continues to fail after multiple retries, check if the guest is correctly configured to support hibernation or contact Azure support. |
 | VMHibernateNotSupported | The VM 'Z0000ZYJ000' doesn't support hibernation. Ensure that the VM is correctly configured to support hibernation. | Hibernating a VM immediately after boot isn't supported. Retry hibernating the VM after a few minutes. |
 
@@ -379,6 +381,5 @@ Log Name:      System
 
 ```
 If the guest fails to resume, all or some of these events are missing. To troubleshoot why the guest failed to resume, the following logs are needed: 
-
-1. Event logs on the guest: Microsoft-Windows-Kernel-Power, Microsoft-Windows-Kernel-General, Microsoft-Windows-Kernel-Boot.
-1. On bugcheck, a guest crash dump is needed.
+- Event logs on the guest: Microsoft-Windows-Kernel-Power, Microsoft-Windows-Kernel-General, Microsoft-Windows-Kernel-Boot.
+- On bugcheck, a guest crash dump is needed.

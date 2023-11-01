@@ -30,7 +30,7 @@ When you hibernate a VM, Azure signals the VM's operating system to perform a su
 Once a VM is in a hibernated state, you aren't billed for the VM usage. Your account is only billed for the storage (OS disk, data disks) and networking resources (IPs, etc.) attached to the VM.
 
 When hibernating a VM:
-- Hibernation is triggered on a VM using the Azure portal, CLI, PS, SDKs, and APIs, Azure signals the guest operating system to perform suspend-to-disk (S4). 
+- Hibernation is triggered on a VM using the Azure portal, CLI, PowerShell, SDKs, and APIs, Azure signals the guest operating system to perform suspend-to-disk (S4). 
 - The VM's memory contents are stored on the OS disk. The VM is then deallocated, releases the lease on the underlying hardware, and is powered off. Refer to VM [states and billing](states-billing.md) for more details on the VM deallocated state.
 - Data in the temporary disk isn't persisted. 
 - The OS disk, data disks, and NICs remain attached to your VM. Any static IPs remain unchanged. 
@@ -99,7 +99,7 @@ The following Windows operating systems support hibernation:
 -	Ephemeral OS disks
 -	Shared disks
 -	Availability Sets
--	Virtual Machine Scale Sets (VMSS) Uniform
+-	Virtual Machine Scale Sets Uniform
 -	Spot VMs
 -	Managed images
 -	Azure Backup
@@ -540,7 +540,7 @@ To create VMs with hibernation enabled using Gallery images, you'll first need t
 #### [Portal](#tab/PortalImageGallery)
 To create an image definition with the hibernation property enabled, select the checkmark for 'Enable hibernation'.
 
-![Screenshot of the option to enable hibernation in the Azure portal while creating a virtual machine.](./media/hibernate-resume/hibernate-images-support.png)
+![Screenshot of the option to enable hibernation in the Azure portal while creating a VM image definition.](./media/hibernate-resume/hibernate-images-support.png)
 
 
 #### [CLI](#tab/CLIImageGallery)
