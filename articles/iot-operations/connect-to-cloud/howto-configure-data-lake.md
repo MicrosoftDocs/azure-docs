@@ -5,7 +5,7 @@ description: Learn how to send data from Azure IoT MQ to Data Lake Storage.
 author: PatAltimore
 ms.author: patricka
 ms.topic: how-to
-ms.date: 10/31/2023
+ms.date: 11/01/2023
 
 #CustomerIntent: As an operator, I want to understand how to configure Azure IoT MQ so that I can send data from Azure IoT MQ to Data Lake Storage.
 ---
@@ -139,7 +139,7 @@ Configure a data lake connector to connect to an Azure Data Lake Storage Gen2 (A
     | ---------------------- | --------------------------- |
     | Allowed services       | Blob                        |
     | Allowed resource types | Object, Container           |
-    | Allowed permissions    | Read, Write, Delete, Create |
+    | Allowed permissions    | Read, Write, Delete, List, Create |
 
    To optimize for least privilege, you can also choose to get the SAS for an individual container. To prevent authentication errors, make sure that the container matches the `table.tableName` value in the topic map configuration.
 
@@ -189,7 +189,7 @@ Configure a data lake connector to connect to an Azure Data Lake Storage Gen2 (A
 
 1. Start sending JSON messages to the MQTT topic using your MQTT publisher. The data lake connector instance subscribes to the topic and ingests the messages into the Delta table.
 
-1. Using Azure portal or other tools, verify that the Delta table is created. The files are organized by client ID, connector instance name, MQTT topic, and time.
+1. Using Azure portal, verify that the Delta table is created. The files are organized by client ID, connector instance name, MQTT topic, and time. In your storage account > **Containers**, open the container that you specified in the *DataLakeConnectorTopicMap*. Verify *_delta_log* exists and parque files show MQTT traffic. Open a parque file to confirm the payload matches what was sent and defined in the schema. 
 
 ### Use managed identity for authentication to ADLSv2
 
@@ -318,6 +318,9 @@ Which maps to:
 | orderId | item    | clientId | mqttTopic | timestamp                      |
 | ------- | ------- | -------- | --------- | ------------------------------ |
 | 181     | item181 | id       | orders    | 2023-07-28T12:45:59.324310806Z |
+
+> [!IMPORTANT]
+> If the data schema is updated, for example a data type is changed or a name is changed, transformation of incoming data might stop working. You need to change the data table name if a schema change occurs.
 
 ## Delta or parquet
 
