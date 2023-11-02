@@ -118,7 +118,7 @@ The following Windows operating systems support hibernation:
 Use the following steps to enable this feature for your subscription:
 
 ### [Portal](#tab/enablehiberPortal)
-1. In your Azure subscription, to to the Settings section and select 'Preview features'. 
+1. In your Azure subscription, go to the Settings section and select 'Preview features'. 
 1. Search for 'hibernation'. 
 1. Check the 'Hibernation Preview' item.
 1. Click 'Register'.
