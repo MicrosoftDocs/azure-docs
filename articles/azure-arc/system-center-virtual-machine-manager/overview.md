@@ -61,7 +61,7 @@ The following scenarios are supported in Azure Arc-enabled SCVMM:
 
 ### Supported VMM versions
 
-Azure Arc-enabled SCVMM works with VMM 2016, 2019 and 2022 versions and supports SCVMM management servers with a maximum of 3500 VMs.
+Azure Arc-enabled SCVMM works with VMM 2019 and 2022 versions and supports SCVMM management servers with a maximum of 15000 VMs.
 
 ### Supported regions
 

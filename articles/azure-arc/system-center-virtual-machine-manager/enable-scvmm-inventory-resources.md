@@ -60,6 +60,9 @@ To enable the existing virtual machines in Azure, follow these steps:
 
 1. Select **Enable** to start the deployment of the VM represented in Azure.
 
+>[!NOTE]
+>Moving SCVMM resources between Resource Groups and Subscriptions is currently not supported.
+
 ## Next steps
 
 [Connect virtual machines to Arc](quickstart-connect-system-center-virtual-machine-manager-to-arc.md)
