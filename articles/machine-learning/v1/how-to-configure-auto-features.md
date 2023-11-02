@@ -158,7 +158,7 @@ featurization_config.blocked_transformers = ['LabelEncoder']
 featurization_config.drop_columns = ['aspiration', 'stroke']
 featurization_config.add_column_purpose('engine-size', 'Numeric')
 featurization_config.add_column_purpose('body-style', 'CategoricalHash')
-#default strategy mean, add transformer param for for 3 columns
+#default strategy mean, add transformer param for 3 columns
 featurization_config.add_transformer_params('Imputer', ['engine-size'], {"strategy": "median"})
 featurization_config.add_transformer_params('Imputer', ['city-mpg'], {"strategy": "median"})
 featurization_config.add_transformer_params('Imputer', ['bore'], {"strategy": "most_frequent"})

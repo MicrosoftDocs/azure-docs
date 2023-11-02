@@ -132,7 +132,7 @@ You need to add the following script files.
 
 This sample renders an animated 3D parrot on the map.
 
-![A screenshot showing an an animated 3D parrot on the map.](./media/how-to-webgl-custom-layer/3d-parrot.gif)
+![A screenshot showing an animated 3D parrot on the map.](./media/how-to-webgl-custom-layer/3d-parrot.gif)
 
 For a fully functional sample with source code, see [Three custom WebGL layer] in the Azure Maps Samples.
 

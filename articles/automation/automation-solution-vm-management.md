@@ -111,7 +111,7 @@ Use one of the following mechanisms to access the enabled feature:
 
 * From your Automation account, select **Start/Stop VM** under **Related Resources**. On the Start/Stop VM page, select **Manage the solution** under **Manage Start/Stop VM Solutions**.
 
-* Navigate to the Log Analytics workspace linked to your Automation account. After after selecting the workspace, choose **Solutions** from the left pane. On the Solutions page, select **Start-Stop-VM[workspace]** from the list.  
+* Navigate to the Log Analytics workspace linked to your Automation account. After selecting the workspace, choose **Solutions** from the left pane. On the Solutions page, select **Start-Stop-VM[workspace]** from the list.  
 
 Selecting the feature displays the **Start-Stop-VM[workspace]** page. Here you can review important details, such as the information in the **StartStopVM** tile. As in your Log Analytics workspace, this tile displays a count and a graphical representation of the runbook jobs for the feature that have started and have finished successfully.
 

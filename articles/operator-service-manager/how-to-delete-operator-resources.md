@@ -46,7 +46,7 @@ In this how-to guide, you learn how to delete operator resources that include Si
     :::image type="content" source="media/how-to-delete-operator-resource-confirm-prompt.png" alt-text="Diagram showing the Confirmation prompt with a warning message.":::
 
 > [!NOTE]
-> Deleting a Site Network Service (SNS) can be time consuming. It it important to inform the user in advance that deletions may take between 5 minutes to over an hour.
+> Deleting a Site Network Service (SNS) can be time consuming. It is important to inform the user in advance that deletions may take between 5 minutes to over an hour.
 
 ### Troubleshoot deletion errors
 

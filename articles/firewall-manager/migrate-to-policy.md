@@ -184,7 +184,7 @@ If ($azfw.NetworkRuleCollections.Count -gt 0)
 #Translate NatRuleCollection
 # Hierarchy for NAT rule collection is different for AZFW and FirewallPolicy. In AZFW you can have a NatRuleCollection with multiple NatRules
 # where each NatRule will have its own set of source , dest, translated IPs and ports.
-# In FirewallPolicy a NatRuleCollection has a a set of rules which has one condition (source and dest IPs and Ports) and the translated IP and ports
+# In FirewallPolicy a NatRuleCollection has a set of rules which has one condition (source and dest IPs and Ports) and the translated IP and ports
 # as part of NatRuleCollection.
 # So when translating NAT rules we will have to create separate ruleCollection for each rule in AZFW and every ruleCollection will have only 1 rule.
 Write-Host "creating " $azfw.NatRuleCollections.Count " NAT rule collections"

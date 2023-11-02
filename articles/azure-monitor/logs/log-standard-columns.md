@@ -11,7 +11,7 @@ ms.date: 02/18/2022
 # Standard columns in Azure Monitor Logs
 Data in Azure Monitor Logs is [stored as a set of records in either a Log Analytics workspace or Application Insights application](../logs/data-platform-logs.md), each with a particular data type that has a unique set of columns. Many data types will have standard columns that are common across multiple types. This article describes these columns and provides examples of how you can use them in queries.
 
-Workspace-based applications in Application Insights store their data in a Log Analytics workspace and use the same standard columns as other other tables in the workspace. Classic applications store their data separately and have different standard columns as specified in this article.
+Workspace-based applications in Application Insights store their data in a Log Analytics workspace and use the same standard columns as other tables in the workspace. Classic applications store their data separately and have different standard columns as specified in this article.
 
 > [!NOTE]
 > Some of the standard columns will not show in the schema view or intellisense in Log Analytics, and they won't show in query results unless you explicitly specify the column in the output.

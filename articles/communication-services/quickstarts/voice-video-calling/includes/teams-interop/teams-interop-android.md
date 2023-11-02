@@ -235,7 +235,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Shows recording status status bar
+     * Shows recording status bar
      */
     private void setRecordingStatus(boolean status) {
         if (status == true) {

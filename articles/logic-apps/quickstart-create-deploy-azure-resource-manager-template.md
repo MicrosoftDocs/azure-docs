@@ -83,7 +83,7 @@ Follow the option that you want to use for deploying the quickstart template:
 #### [CLI](#tab/azure-cli)
 
 ```azurecli-interactive
-read -p "Enter a project name name to use for generating resource names:" projectName &&
+read -p "Enter a project name to use for generating resource names:" projectName &&
 read -p "Enter the location, such as 'westus':" location &&
 templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.logic/logic-app-create/azuredeploy.json" &&
 resourceGroupName="${projectName}rg" &&

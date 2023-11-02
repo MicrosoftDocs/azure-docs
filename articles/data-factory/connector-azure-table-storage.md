@@ -69,7 +69,7 @@ The following sections provide details about properties that are used to define 
 
 ### Use an account key
 
-You can create an Azure Storage linked service by using the account key. It provides the the service with global access to Storage. The following properties are supported.
+You can create an Azure Storage linked service by using the account key. It provides the service with global access to Storage. The following properties are supported.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |

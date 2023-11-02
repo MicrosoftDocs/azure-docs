@@ -161,7 +161,7 @@ $db_name = 'testdb';
      die ('Connect error (' . mysqli_connect_errno() . '): ' . mysqli_connect_error() . "\n");
   }
   else {
-    echo $db->host_info, "\n"; //if redirection succeeds, the host_info differs from the hostname you used used to connect
+    echo $db->host_info, "\n"; //if redirection succeeds, the host_info differs from the hostname you used to connect
     $res = $db->query('SHOW TABLES;'); //test query with the connection
     print_r ($res);
     $db->close();

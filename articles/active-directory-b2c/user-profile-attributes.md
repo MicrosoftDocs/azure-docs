@@ -145,7 +145,7 @@ For federated identities, depending on the identity provider, the **issuerAssign
 
 ## Password profile property
 
-For a local identity, the **passwordProfile** attribute is required, and contains the user's password. The `forceChangePasswordNextSignIn` attribute indicates whether a user must reset the password at the next sign-in. To handle a forced password reset, us the the instructions in [set up forced password reset flow](force-password-reset.md).
+For a local identity, the **passwordProfile** attribute is required, and contains the user's password. The `forceChangePasswordNextSignIn` attribute indicates whether a user must reset the password at the next sign-in. To handle a forced password reset, use the instructions in [set up forced password reset flow](force-password-reset.md).
 
 For a federated (social) identity, the **passwordProfile** attribute is not required.
 

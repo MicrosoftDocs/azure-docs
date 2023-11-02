@@ -223,7 +223,7 @@ For more information, see [Azure Monitor metrics](../azure-monitor/essentials/da
 | TotalLatency | The total time from the client request received by CDN **until the last response byte send from CDN to client**. |Endpoint </br> Client country. </br> Client region. </br> HTTP status. </br> HTTP status group. |
 
 > [!NOTE]
-> If a request to the the origin timeout, the value for HttpStatusCode is set to **0**.
+> If a request to the origin timeout, the value for HttpStatusCode is set to **0**.
 
 ***Bytes Hit Ratio = (egress from edge - egress from origin)/egress from edge**
 

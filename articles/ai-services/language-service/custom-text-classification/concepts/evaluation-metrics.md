@@ -128,7 +128,7 @@ After you trained your model, you will see some guidance and recommendation on h
 > [!Important]
 > Confusion matrix is not available for multi-label classification projects.
 A Confusion matrix is an N x N matrix used for model performance evaluation, where N is the number of classes.
-The matrix compares the the expected labels with the ones predicted by the model.
+The matrix compares the expected labels with the ones predicted by the model.
 This gives a holistic view of how well the model is performing and what kinds of errors it is making.
 
 You can use the Confusion matrix to identify classes that are too close to each other and often get mistaken (ambiguity). In this case consider merging these classes together. If that isn't possible, consider labeling more documents with both classes to help the model differentiate between them.
