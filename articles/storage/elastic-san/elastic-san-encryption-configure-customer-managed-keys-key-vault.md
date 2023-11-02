@@ -27,10 +27,7 @@ To learn how to configure encryption with customer-managed keys stored in a mana
 ## Prerequisites
 
 To perform the operations described in this article, you must prepare your Azure account and the management tools you plan to use. Preparation includes installing the necessary modules, logging in to your account, and setting variables for PowerShell and the Azure CLI. The same set of variables are used throughout this article, so setting them now allows you to use the same ones in all of the samples.
-
-### [Azure portal](#tab/azure-portal)
-
-Sign in to your Azure subscription with an account that includes the [Elastic SAN Volume Group Owner](../../role-based-access-control/built-in-roles.md#elastic-san-volume-group-owner) role.
+md#elastic-san-volume-group-owner) role.
 
 ### [PowerShell](#tab/azure-powershell)
 
@@ -140,18 +137,6 @@ There are 2 steps involved in preparing a key vault as a store for your volume g
 > * Create a new key vault with soft delete and purge protection enabled, or enable purge protection for an existing one.
 > * Assign the role of Key Vault Crypto Officer to your account to be able to create a key in the vault.
 
-# [Azure portal](#tab/azure-portal)
-
-To learn how to create a key vault with the Azure portal, see [Quickstart: Create a key vault using the Azure portal](../../key-vault/general/quick-create-portal.md). When you create the key vault, select **Enable purge protection**, as shown in the following image.
-
-:::image type="content" source="media/customer-managed-keys-configure-key-vault/configure-key-vault-portal.png" alt-text="Screenshot showing how to enable purge protection when creating a key vault.":::
-
-To enable purge protection on an existing key vault, follow these steps:
-
-1. Navigate to your key vault in the Azure portal.
-1. Under **Settings**, choose **Properties**.
-1. In the **Purge protection** section, choose **Enable purge protection**.
-
 # [PowerShell](#tab/azure-powershell)
 
 The following example:
@@ -232,10 +217,6 @@ For more information on how to assign an RBAC role with Azure CLI, see [Assign A
 Next, add a key to the key vault. Before you add the key, make sure that you have assigned to yourself the **Key Vault Crypto Officer** role.
 
 Azure Storage and Elastic SAN encryption support RSA and RSA-HSM keys of sizes 2048, 3072 and 4096. For more information about supported key types, see [About keys](../../key-vault/keys/about-keys.md).
-
-# [Azure portal](#tab/azure-portal)
-
-To learn how to add a key with the Azure portal, see [Quickstart: Set and retrieve a key from Azure Key Vault using the Azure portal](../../key-vault/keys/quick-create-portal.md).
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -323,18 +304,6 @@ A user-assigned managed identity is a standalone Azure resource. To learn more a
 
 The user-assigned managed identity must have permissions to access the key in the key vault. Assign the **Key Vault Crypto Service Encryption User** role to the user-assigned managed identity with key vault scope to grant these permissions.
 
-### [Azure portal](#tab/azure-portal)
-
-Before you can configure customer-managed keys with a user-assigned managed identity, you must assign the **Key Vault Crypto Service Encryption User** role to the user-assigned managed identity, scoped to the key vault. This role grants the user-assigned managed identity permissions to access the key in the key vault. For more information on assigning Azure RBAC roles with the Azure portal, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
-
-When you configure customer-managed keys with the Azure portal, you can select an existing user-assigned identity through the portal user interface.
-
-There are 2 steps involved in configuring a user-assigned managed identity to have access to the key vault that contains the KEK:
-
-> [!div class="checklist"]
-> * Create a new user-assigned managed identity.
-> * Assign the required RBAC role to the new identity, scoped to the key vault.
-
 ### [PowerShell](#tab/azure-powershell)
 
 The following example shows how to:
@@ -415,12 +384,6 @@ The system-assigned managed identity must have permissions to access the key in 
 
 When a volume group is created, a system-assigned identity is automatically created for it if the `-IdentityType "SystemAssigned"` parameter is specified with the `New-AzElasticSanVolumeGroup` command. The system-assigned identity is not available until after the volume group has been created. You must also assign the **Key Vault Crypto Service Encryption User** role to the identity before it can access the encryption key in the key vault. So, you cannot configure customer-managed keys to use a system-assigned identity during creation of a volume group. Only existing Elastic SAN volume groups can be configured to use a system-assigned identity to authorize access to the key vault. New volume groups must use a user-assigned identity, if customer-managed keys are to be configured during volume group creation.
 
-#### [Azure portal](#tab/azure-portal)
-
-Before you can configure customer-managed keys with a system-assigned managed identity, you must assign the **Key Vault Crypto Service Encryption User** role to the system-assigned managed identity, scoped to the key vault. This role grants the system-assigned managed identity permissions to access the key in the key vault. For more information on assigning Azure RBAC roles with the Azure portal, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
-
-When you configure customer-managed keys with the Azure portal with a system-assigned managed identity, the system-assigned managed identity is assigned to the volume group for you under the covers.
-
 #### [PowerShell](#tab/azure-powershell)
 
 Use this sample code to assign the required RBAC role to the system-assigned managed identity, scoped to the key vault. Use the same [variables you defined previously](#create-variables-to-be-used-in-the-powershell-samples-in-this-article) in this article.
@@ -477,45 +440,11 @@ az role assignment create --assignee-object-id $PrincipalId \
 
 Select the Azure portal, PowerShell, or the Azure CLI tab for instructions on how to configure customer-managed encryption keys using your preferred management tool. Then select the tab that corresponds to whether you want to configure the settings during creation of a new volume group, or update the settings for an existing one. Each set of tabs includes instructions for how to configure customer-managed encryption keys for automatic and manual updating of the key version.
 
-### [Azure portal](#tab/azure-portal)
-
 ### [PowerShell](#tab/azure-powershell)
 
 ### [Azure CLI](#tab/azure-cli)
 
 ---
-
-### [New volume group](#tab/new-vg/azure-portal)
-
-Use the instructions below to configure customer-managed keys during creation of a new volume group using the Azure portal.
-
-> [!TIP]
-> if you plan to use a [system-assigned identity](#use-a-system-assigned-managed-identity-to-authorize-access) to authenticate to the key vault that contains the key, create the volume group with the default setting of **Platform-managed key** first, then select the tab for **Existing volume group** above and follow the instructions for configuring customer-managed keys for an existing account. See [Choose a managed identity to authorize access to the key vault](#choose-a-managed-identity-to-authorize-access-to-the-key-vault).
-
-Use the instructions below to configure customer-managed keys with automatic updating of the key version during creation of a new volume group using the Azure portal.
-
-1. During the process of creating your volume group, on the **Basics** tab, for **Key management** select **Customer-managed key**.
-1. Under **Key selection**, for **Encryption key** select **Select from key vault**.
-1. Select your **Subscription** and the **Key vault** where the key resides, or create a ney key vault.
-1. Select the desired **Key** or create a new key.
-1. For **User-assigned identity** select the identity to use to authenticate access to the key vault.
-1. Select **Next** and finish creating the volume group.
-
-This image demonstrates the configuration process:
-
-:::image type="content" source="media/customer-managed-keys-configure-key-vault/customer-managed-keys-configure-key-vault-auto-new-portal.png" alt-text="Screenshot of creation flow with automatic key version updating." lightbox="media/customer-managed-keys-configure-key-vault/customer-managed-keys-configure-key-vault-auto-new-portal.png":::
-
-Use the instructions below to configure customer-managed keys with manual updating of the key version during creation of a new volume group using the Azure portal.
-
-1. During the process of creating your volume group, on the **Basics** tab, for **Key management** select **Customer-managed key**.
-1. Under **Key selection**, for **Encryption key** select **Enter key URI**.
-1. Paste [the key URI you copied](#manual-key-version-rotation) from the key version you want to use into the **Key URI** field.
-1. For **User-assigned identity** select the identity to use to authenticate access to the key vault.
-1. Select **Next** and finish creating the volume group.
-
-This image demonstrates the configuration process:
-
-:::image type="content" source="media/customer-managed-keys-configure-key-vault/customer-managed-keys-configure-key-vault-manual-new-portal.png" alt-text="Screenshot of creation flow with manual key version updating." lightbox="media/customer-managed-keys-configure-key-vault/customer-managed-keys-configure-key-vault-manual-new-portal.png":::
 
 ### [New volume group](#tab/new-vg/azure-powershell)
 
@@ -598,45 +527,6 @@ az elastic-san volume-group update \
     --encryption-key-source Microsoft.Keyvault \
     --encryption-key-vault $KeyVaultUri
 ```
-
-### [Existing volume group](#tab/existing-vg/azure-portal)
-
-Use the instructions below to configure customer-managed keys with automatic updating of the key version for an existing volume group using the Azure portal.
-
-1. On the **Basics** tab, for **Key management** select **Customer-managed key**.
-1. Under **Key selection**, for **Encryption key** select **Select from key vault**.
-1. Select your **Subscription** and the **Key vault** where the key resides, or create a ney key vault.
-1. Select the desired **Key** or create a new key.
-1. For **Identity type**, select **System-assigned** (the default) or **User-assigned**. To learn more about each type of managed identity, see [Choose a managed identity to authorize access to the key vault](#choose-a-managed-identity-to-authorize-access-to-the-key-vault).
-
-The images below demonstrate the configuration process:
-
-:::image type="content" source="media/customer-managed-keys-configure-key-vault/customer-managed-keys-configure-key-vault-auto-existing-portal.png" alt-text="Screenshot of updating encrytion to use customer-managed keys with auto version updating." lightbox="media/customer-managed-keys-configure-key-vault/customer-managed-keys-configure-key-vault-auto-existing-portal.png":::
-
-After you've specified the key, the Azure portal indicates that automatic updating of the key version is enabled and displays the key version currently in use for encryption. The portal also displays the type of managed identity used to authorize access to the key vault and the principal ID for the managed identity.
-
-(Image here)
-
-Use the instructions below to configure customer-managed keys with manual updating of the key version  for an existing volume group using the Azure portal.
-
-> [!TIP]
-> if you plan to use a [system-assigned identity](#use-a-system-assigned-managed-identity-to-authorize-access) to authenticate to the key vault that contains the key, create the volume group with the default setting of **Platform-managed key** first, then select the tab for **Existing volume group** above and follow those instructions.
-
-1. On the **Basics** tab, for **Key management** select **Customer-managed key**.
-1. Under **Key selection**, for **Encryption key** select **Enter key URI**.
-1. Paste [the key URI you copied](#manual-key-version-rotation) from the key version you want to use into the **Key URI** field.
-1. For **User-assigned identity** select the identity to use to authenticate access to the key vault. The options include **System-assigned** (the default) or **User-assigned**. To learn more about each type of managed identity, see [Managed identity types](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types).
-
-    1. If you select **System-assigned**, the system-assigned managed identity for the volume group is created under the covers, if it doesn't already exist.
-    1. If you select **User-assigned**, then you must select an existing user-assigned identity that has permissions to access the key vault. To learn how to create a user-assigned identity, see [Manage user-assigned managed identities](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md).
-
-The images below demonstrate the configuration process:
-
-:::image type="content" source="media/customer-managed-keys-configure-key-vault/customer-managed-keys-configure-key-vault-manual-existing-portal.png" alt-text="Screenshot of updating encrytion to use customer-managed keys with manual version updating." lightbox="media/customer-managed-keys-configure-key-vault/customer-managed-keys-configure-key-vault-manual-existing-portal.png":::
-
-After you've specified the key, the Azure portal indicates that automatic updating of the key version is enabled and displays the key version currently in use for encryption. The portal also displays the type of managed identity used to authorize access to the key vault and the principal ID for the managed identity.
-
-(Image here)
 
 ### [Existing volume group](#tab/existing-vg/azure-powershell)
 
