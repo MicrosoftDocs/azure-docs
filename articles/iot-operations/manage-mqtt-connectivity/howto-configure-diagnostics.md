@@ -17,8 +17,6 @@ Diagnostic settings allow you to enable metrics and tracing for Azure IoT MQ bro
 - Metrics provide information about the resource utilization and throughput of IoT MQ broker.
 - Tracing provides detailed information about the requests and responses handled by IoT MQ broker.
 
-<!-- For enable these features, you must first deploy the diagnostic service. For more information about deploying the diagnostic service, see [Diagnostic service](#diagnostics-service). -->
-
 To override default diagnostic settings for IoT MQ broker, update the `spec.diagnostics` section in  the Broker CR. You also need to specify the diagnostic service endpoint, which is the address of the service that collects and stores the metrics and traces. The default endpoint is `azedge-diagnostics-service:9700`.
 
 You can also adjust the log level of IoT MQ broker to control the amount and detail of information that's logged. The log level can be set for different components of IoT MQ broker. The default log level is `info`.
@@ -182,6 +180,15 @@ spec:
     storage: true
     subresources: {}
 ```
+
+To configure Azure IoT MQ diagnostics service:
+
+1. Update the example YAML custom resource definition with the desired values and save as a file named `diag.yaml`.
+1. Apply the configuration using the following command:
+
+    ```bash
+    kubectl apply -f diag.yaml
+    ```
 
 ## Related content
 
