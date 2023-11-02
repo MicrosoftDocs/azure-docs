@@ -7,47 +7,63 @@ ms.author: patricka
 ms.topic: reference
 ms.date: 11/02/2023
 
-# CustomerIntent: As an IT admin or operator, I want to learn about the Azure IoT Operations CLI so that I can manage my IoT deployments.
+#CustomerIntent: As an IT admin or operator, I want to learn about the Azure IoT Operations CLI so that I can manage my IoT deployments.
 ---
 
 # Azure IoT Operations CLI
 
-Some kind of intro.
+The Azure IoT Operations command-line interface (CLI) is a set of commands used to create and manage Azure IoT resources.
 
-## Login
+Use the `az iot ops --help` for up to date help on the available commands.
 
-Run `az login` and follow the prompts for standard interactive login.
+## az iot ops init
 
-The following commands **require** `az login`
+This command is used for the deployment orchestration of Azure IoT Operations.
 
-- `az iot ops init`
+> [!IMPORTANT]
+> *aziot ops init* requires an active login to Azure. Run `az login` and follow the prompts for standard interactive login. Verify the correct subscription is set by running `az account set --subscription '<sub Id>'`
 
-## K8s cluster
+You can choose what aspects run:
 
-To maintain minimum friction between k8s tools, the `az iot ops` k8s side commands are designed to make use of your existing kubeconfig (typically located at `~/.kube/config`).
+- `--kv-id` **enables** `KeyVault CSI driver` workflows.
+- `--no-tls` **disables** TLS workflows.
+- `--no-deploy` **disables** Azure IoT Operations service deployment workflows.
+- `--no-block` returns immediately after starting the Azure IoT Operations deployment workflow.
 
-All k8s interaction commands include an optional `--context` param. If none is provided `current_context` as defined in the kube config will be used.
+### Examples
 
-The init command requires k8s cluster access for the CSI driver and TLS config workflows.
+Minimum input for complete deployment.
 
-The following commands **do not** require `az login`
+```bash
+az iot ops init --cluster <cluster name> -g <resource group> --kv-id <keyvault resource ID>
+```
 
-- `az iot ops check`
-- `az iot ops mq stats`
-- `az iot ops support create-bundle`
+You can combine other commands. In this example, you create a KeyVault and pass the ID to `init`.
 
-## Configure subscription
+```bash
+az iot ops init --cluster <cluster name> -g <resource group> --kv-id $(az keyvault create -n mykeyvault -g myrg -o tsv --query id)
+```
 
-Use `az account` commands to manage your default tenant and subscriptions.
+You can use an existing app ID and a flag to include a simulated PLC server as part of the deployment. Including the app ID prevents `init` from creating an app registration.
 
-Use `az account show` to see what the current default is and `az account list` to iterate all subscriptions/tenants you have access to.
+```bash
+az iot ops init --cluster <cluster name> -g <resource group> --kv-id <Key Vault resource ID> --sp-app-id <app registration GUID> --simulate-plc
+```
 
-Use `az account set -s <sub id>` to set your default.
+To skip deployment and focus only on the Azure Key Vault Container Storage Interface driver and TLS config workflows, use `--no-deploy`. This can be useful when you want to deploy from a different tool such as the Azure portal.
 
-## Commands
+```bash
+az iot ops init --cluster <cluster name> -g <resource group> --kv-id <Key Vault resource ID> --sp-app-id <app registration GUID> --no-deploy
+```
 
-Remember `--help` and `--debug` are your friends.
+To only deploy Azure IoT Operations on a cluster that has already been created, omit `--kv-id` and include `--no-tls`.
 
-Ensure your desired subscription is activated as default by running `az account set --subscription '<sub Id>'`
+```bash
+az iot ops init --cluster <cluster name> -g <resource group> --no-tls
+```
 
-The provided commands are meant as a starting point to get you going faster. In many cases commands include various options, switches and modes to support advanced usage scenarios.
+Use `--no-block` to avoid waiting for the deployment to finish before continuing.
+
+```bash
+az iot ops init --cluster <cluster name> -g <resource group> --kv-id <Key Vault resource ID> --sp-app-id <app registration GUID> --no-block
+```
