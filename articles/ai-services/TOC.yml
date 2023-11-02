@@ -57,6 +57,52 @@
         href: ai-studio/how-to/generate-data-qa.md
       - name: Simulate interaction data with your app
         href: ai-studio/how-to/simulator-interaction-data.md
+  - name: Build apps with prompt flow
+    items:
+    - name: Prompt flow overview
+      href: ai-studio/how-to/prompt-flow.md
+    - name: Set up infrastructure
+      items:
+      - name: Create and manage compute
+        href: ai-studio/how-to/create-manage-compute.md
+      - name: Create and manage runtime
+        href: ai-studio/how-to/create-manage-runtime.md
+    - name: Develop flows
+      items:
+      - name: Create a flow
+        href: ai-studio/how-to/flow-develop.md
+      - name: Create an evaluation flow
+        href: ai-studio/how-to/flow-develop-evaluation.md
+      - name: Tune prompts using variants
+        href: ai-studio/how-to/flow-tune-prompts-using-variants.md
+    - name: Use prompt flow tools
+      items:
+      - name: LLM tool
+        href: ai-studio/how-to/prompt-flow-tools/llm-tool.md
+      - name: Prompt tool
+        href: ai-studio/how-to/prompt-flow-tools/prompt-tool.md
+      - name: Python tool
+        href: ai-studio/how-to/prompt-flow-tools/python-tool.md
+      - name: Content Safety tool
+        href: ai-studio/how-to/prompt-flow-tools/content-safety-tool.md
+      - name: Vector DB Lookup tool
+        href: ai-studio/how-to/prompt-flow-tools/vector-db-lookup-tool.md
+      - name: Embedding tool
+        href: ai-studio/how-to/prompt-flow-tools/embedding-tool.md
+      - name: Faiss Index Lookup tool
+        href: ai-studio/how-to/prompt-flow-tools/faiss-index-lookup-tool.md
+      - name: Vector Index Lookup tool
+        href: ai-studio/how-to/prompt-flow-tools/vector-index-lookup-tool.md
+      - name: Serp API tool
+        href: ai-studio/how-to/prompt-flow-tools/serp-api-tool.md
+    - name: Evaluate flows
+      items:
+        - name: Submit batch run and evaluate a flow 
+          href: ai-studio/how-to/flow-bulk-test-evaluation.md
+        - name: Develop an evaluation flow in Prompt flow
+          href: ai-studio/how-to/flow-develop-evaluation.md
+    - name: Deploy a flow as a managed online endpoint
+      href: ai-studio/how-to/flow-deploy.md
   - name: Costs and quotas
     items:
     - name: Plan and manage costs
