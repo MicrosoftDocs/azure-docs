@@ -32,10 +32,10 @@ You can choose what aspects run:
 
 ### Examples
 
-Minimum input for complete deployment.
+This example has the minimum input parameters for a complete deployment.
 
 ```bash
-az iot ops init --cluster <cluster name> -g <resource group> --kv-id <keyvault resource ID>
+az iot ops init --cluster <cluster name> -g <resource group> --kv-id <Key Vault resource ID>
 ```
 
 You can combine other commands. In this example, you create a KeyVault and pass the ID to `init`.
