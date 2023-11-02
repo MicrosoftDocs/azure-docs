@@ -80,13 +80,15 @@
     href: chaos-studio-set-up-azure-monitor.md
   - name: Set up your Agent-Based Chaos Experiment to emit telemetry to App Insights
     href: chaos-studio-set-up-app-insights.md
+  - name: Configure an experiment using customer-managed keys (CMK)
+    href: chaos-studio-configure-customer-managed-keys.md
 - name: Reference
   items:
   - name: Fault library
     href: chaos-studio-fault-library.md
   - name: Fault providers
     href: chaos-studio-fault-providers.md
-  - name: Preview limitations and known issues
+  - name: Limitations and known issues
     href: chaos-studio-limitations.md
   - name: Service limits
     href: chaos-studio-service-limits.md
