@@ -18,7 +18,7 @@ Hybrid search is a combination of full text and vector queries that execute agai
 + Executing in parallel
 + With merged results in the query response, scored using [Reciprocal Rank Fusion (RRF)](hybrid-search-ranking.md)
 
-This article explains the concepts, benefits, and limitations of hybrid search. Watch this [embedded video](#benefits) for an explanation and short demos of how hybrid retrieval contributes to high quality chat-style and copilot apps. 
+This article explains the concepts, benefits, and limitations of hybrid search. Watch this [embedded video](#why-choose-hybrid-search) for an explanation and short demos of how hybrid retrieval contributes to high quality chat-style and copilot apps. 
 
 ## How does hybrid search work?
 
@@ -118,9 +118,9 @@ A response from the above query might look like this:
 }
 ```
 
-## Benefits
+## Why choose hybrid search?
 
-Hybrid search combines the strengths of vector search and keyword search. The advantage of vector search is finding information that's similar to your search query, even if there are no keyword matches in the inverted index. The advantage of keyword or full text search is precision, and the ability to apply semantic ranking that improves the quality of the initial results. Some scenarios - such as querying over product codes, highly specialized jargon, dates, and people's names - can perform better with keyword search because it can identify exact matches.
+Hybrid search combines the strengths of vector search and keyword search. The advantage of vector search is finding information that's conceptually similar to your search query, even if there are no keyword matches in the inverted index. The advantage of keyword or full text search is precision, with the ability to apply semantic ranking that improves the quality of the initial results. Some scenarios - such as querying over product codes, highly specialized jargon, dates, and people's names - can perform better with keyword search because it can identify exact matches.
 
 Benchmark testing on real-world and benchmark datasets indicates that hybrid retrieval with semantic ranking offers significant benefits in search relevance.
 
