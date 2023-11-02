@@ -25,22 +25,18 @@ Azure AI Studio brings together capabilities from across multiple Azure AI servi
 
 With Azure AI Studio, you can evaluate large language model (LLM) responses, pinpoint areas for fine-tuning, and orchestrate prompt application components with prompt flow for better performance. With clear cost and billing, the platform facilitates scalability, transforming proof of concepts into full-fledged production with ease. Continuous monitoring and refinement supports long-term success.  
 
-## Benefits
-
-
-- Work in VS Code. Move seamlessly between Azure AI studio and VS Code Web, fully synced at all times.
-
-
-
 ## Getting around in Azure AI Studio
 
 The Azure AI Studio is organized into four main sections: [Home](#home), [Explore](#explore), [Build](#build), and [Manage](#manage).
 
-### Home
+:::image type="content" source="./media/explore/ai-studio-home.png" alt-text="Screenshot of speech capability cards in the Azure AI Studio explore tab." lightbox="./media/explore/ai-studio-home.png":::
+
+
+# [Home](#tab/home)
 
 The introduction to Azure AI, with information about what's new, access to any existing projects, a curated selection of Azure AI experiences, and links to learning resources. 
 
-### Explore
+# [Explore](#tab/explore)
 
 This is where you can find a model, service, or solution to start working on. The goal is that you can find, and try, all of Azure AI from here. Explore is stateless, so when you want to save settings and assets such as data you create a project and continue on the [Build](#build) page. 
 
@@ -49,7 +45,7 @@ This is where you can find a model, service, or solution to start working on. Th
 - Test AI solutions with your app code and data and receive guidance on standardized methods to evaluate the model, prompt, and overall application pipeline.
 - The try-out and model catalog cards provide an easy way to spin up a new project or add to an existing project.
 
-### Build
+# [Build](#tab/build)
 
 Developers will spend most time here. Some assets can be shared across projects, so a flow or content safety filter created in one project can be used by another. Your dataset or index can be shared. The custom projects from AI Services are here.
 
@@ -60,12 +56,14 @@ Developers will spend most time here. Some assets can be shared across projects,
 - Deploy infrastructure as code with your app code and desire version control and code management support 
 - Evaluate, deploy, and continuously monitor your AI application and app performance 
 
-### Manage
+# [Manage](#tab/manage)
 
 Admins will mainly use this section to look at access control, usage, billing, etcetera.
 
 - Centralized backend infrastructure to reduce complexity for developers
 - A single Azure AI resource for enterprise configuration, unified data story, and built-in governance
+
+---
 
 ## Pricing and Billing
 
@@ -82,6 +80,7 @@ You can sign in to Azure AI Studio if your Azure subscription has been granted a
 
 ## Next steps 
 
+- [Create a project in Azure AI Studio](how-to/create-project.md)
 - [Quickstart: Generate product name ideas in the Azure AI Studio playground](quickstarts/playground-completions.md)
 - [Tutorial: Using Azure AI Studio with a screen reader](tutorials/screen-reader.md)
 

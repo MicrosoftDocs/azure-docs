@@ -117,13 +117,13 @@
     },
     {
       "source_path_from_root": "/articles/cognitive-services/manage-resources.md",
-      "redirect_url": "/azure/ai-services/recover-purge-resources",
+      "redirect_url": "/azure/ai-services/diagnostic-logging",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/ai-services/manage-resources.md",
-      "redirect_url": "/azure/ai-services/recover-purge-resources",
-      "redirect_document_id": true
+      "redirect_url": "/azure/ai-services/diagnostic-logging",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/plan-manage-costs.md",
