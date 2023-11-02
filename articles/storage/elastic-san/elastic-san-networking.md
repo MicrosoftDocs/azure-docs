@@ -1,5 +1,5 @@
 ---
-title: Configure networking for an Azure Elastic SAN Preview
+title: Configure networking for Azure Elastic SAN Preview
 description: Learn how to configure access to an Azure Elastic SAN Preview.
 author: roygara
 ms.service: azure-elastic-san-storage
@@ -9,7 +9,7 @@ ms.author: rogarana
 ms.custom: references_regions
 ---
 
-# Configure networking for an Elastic SAN Preview
+# Configure networking access for Azure Elastic SAN Preview
 
 Azure Elastic storage area network (SAN) Preview allows you to secure and control the level of access to your Elastic SAN volumes that your applications and enterprise environments require.
 
