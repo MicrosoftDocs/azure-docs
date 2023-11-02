@@ -12,7 +12,7 @@ ms.author: eur
 
 # Serp API tool for flows in Azure AI Studio
 
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
+[!INCLUDE [Azure AI Studio preview](../../includes/preview-ai-studio.md)]
 
 The prompt flow *Serp API* tool provides a wrapper to the [SerpAPI Google Search Engine Results API](https://serpapi.com/search-api) and [SerpApi Bing Search Engine Results API](https://serpapi.com/bing-search-api). 
 

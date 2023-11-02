@@ -10,7 +10,7 @@ ms.date: 10/1/2023
 ms.author: eur
 ---
 
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
+[!INCLUDE [Azure AI Studio preview](../../includes/preview-ai-studio.md)]
 
 # Embedding tool for flows in Azure AI Studio
 

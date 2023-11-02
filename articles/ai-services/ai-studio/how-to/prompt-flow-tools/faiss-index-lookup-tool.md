@@ -10,8 +10,7 @@ ms.date: 10/1/2023
 ms.author: eur
 ---
 
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
-
+[!INCLUDE [Azure AI Studio preview](../../includes/preview-ai-studio.md)]
 # Faiss Index Lookup tool for flows in Azure AI Studio
 
 The prompt flow *Faiss Index Lookup* tool is tailored for querying within a user-provided Faiss-based vector store. In combination with the [Large Language Model (LLM) tool](llm-tool.md), it can help to extract contextually relevant information from a domain knowledge base.

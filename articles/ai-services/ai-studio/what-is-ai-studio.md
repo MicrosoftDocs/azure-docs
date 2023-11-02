@@ -14,7 +14,7 @@ ms.custom: ignite-2023
 
 # What is Azure AI Studio?
 
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
+[!INCLUDE [Azure AI Studio preview](./includes/preview-ai-studio.md)]
 
 Azure AI Studio brings together capabilities from across multiple Azure AI services. 
 
