@@ -9,10 +9,10 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/26/2023
+ms.date: 10/31/2023
 ms.author: kengaderdus
 ms.subservice: B2C
-ms.custom: b2c-support, has-azure-ad-ps-ref
+ms.custom: b2c-support, has-azure-ad-ps-ref,azure-ad-ref-level-one-done
 zone_pivot_groups: b2c-policy-type
 ---
 
@@ -171,3 +171,4 @@ Update-MgDomain -DomainId $domainId -BodyParameter $params
 ## Next steps
 
 Set up a [self-service password reset](add-password-reset-policy.md).
+

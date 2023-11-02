@@ -12,7 +12,7 @@ ms.devlang: azurecli
 
 # Create a chaos experiment that uses an agent-based fault with the Azure CLI
 
-You can use a chaos experiment to verify that your application is resilient to failures by causing those failures in a controlled environment. In this article, you cause a high CPU event on a Linux virtual machine (VM) by using a chaos experiment and Azure Chaos Studio Preview. Run this experiment to help you defend against an application from becoming resource starved.
+You can use a chaos experiment to verify that your application is resilient to failures by causing those failures in a controlled environment. In this article, you cause a high CPU event on a Linux virtual machine (VM) by using a chaos experiment and Azure Chaos Studio. Run this experiment to help you defend against an application from becoming resource starved.
 
 You can use these same steps to set up and run an experiment for any agent-based fault. An *agent-based* fault requires setup and installation of the chaos agent. A service-direct fault runs directly against an Azure resource without any need for instrumentation.
 
@@ -79,7 +79,7 @@ Next, set up a Microsoft-Agent target on each VM or virtual machine scale set th
 1. Create the target by replacing `$RESOURCE_ID` with the resource ID of the target VM or virtual machine scale set. Replace `target.json` with the name of the JSON file you created in the previous step.
 
     ```azurecli-interactive
-    az rest --method put --uri https://management.azure.com/$RESOURCE_ID/providers/Microsoft.Chaos/targets/Microsoft-Agent?api-version=2021-09-15-preview --body @target.json --query properties.agentProfileId -o tsv
+    az rest --method put --uri https://management.azure.com/$RESOURCE_ID/providers/Microsoft.Chaos/targets/Microsoft-Agent?api-version=2023-11-01 --body @target.json --query properties.agentProfileId -o tsv
     ```
     
     If you receive a PowerShell parsing error, switch to a Bash terminal as recommended for this tutorial or surround the referenced JSON file in single quotes (`--body '@target.json'`).
@@ -89,13 +89,13 @@ Next, set up a Microsoft-Agent target on each VM or virtual machine scale set th
 1. Create the capabilities by replacing `$RESOURCE_ID` with the resource ID of the target VM or virtual machine scale set. Replace `$CAPABILITY` with the [name of the fault capability you're enabling](chaos-studio-fault-library.md) (for example, `CPUPressure-1.0`).
     
     ```azurecli-interactive
-    az rest --method put --url "https://management.azure.com/$RESOURCE_ID/providers/Microsoft.Chaos/targets/Microsoft-Agent/capabilities/$CAPABILITY?api-version=2021-09-15-preview" --body "{\"properties\":{}}"
+    az rest --method put --url "https://management.azure.com/$RESOURCE_ID/providers/Microsoft.Chaos/targets/Microsoft-Agent/capabilities/$CAPABILITY?api-version=2023-11-01" --body "{\"properties\":{}}"
     ```
 
     For example, if you're enabling the CPU Pressure capability:
 
     ```azurecli-interactive
-    az rest --method put --url "https://management.azure.com/subscriptions/b65f2fec-d6b2-4edd-817e-9339d8c01dc4/resourceGroups/myRG/providers/Microsoft.Compute/virtualMachines/myVM/providers/Microsoft.Chaos/targets/Microsoft-Agent/capabilities/CPUPressure-1.0?api-version=2021-09-15-preview" --body "{\"properties\":{}}"
+    az rest --method put --url "https://management.azure.com/subscriptions/b65f2fec-d6b2-4edd-817e-9339d8c01dc4/resourceGroups/myRG/providers/Microsoft.Compute/virtualMachines/myVM/providers/Microsoft.Chaos/targets/Microsoft-Agent/capabilities/CPUPressure-1.0?api-version=2023-11-01" --body "{\"properties\":{}}"
     ```
 
 ### Install the Chaos Studio virtual machine extension
@@ -107,8 +107,8 @@ The chaos agent is an application that runs in your VM or virtual machine scale 
 - Optionally, an Application Insights instrumentation key that enables the agent to send diagnostic events to Application Insights.
 
 1. Before you begin, make sure you have the following details:
-    * **agentProfileId**: The property returned when you create the target. If you don't have this property, you can run `az rest --method get --uri https://management.azure.com/$RESOURCE_ID/providers/Microsoft.Chaos/targets/Microsoft-Agent?api-version=2021-09-15-preview` and copy the `agentProfileId` property.
-    * **ClientId**: The client ID of the user-assigned managed identity used in the target. If you don't have this property, you can run `az rest --method get --uri https://management.azure.com/$RESOURCE_ID/providers/Microsoft.Chaos/targets/Microsoft-Agent?api-version=2021-09-15-preview` and copy the `clientId` property.
+    * **agentProfileId**: The property returned when you create the target. If you don't have this property, you can run `az rest --method get --uri https://management.azure.com/$RESOURCE_ID/providers/Microsoft.Chaos/targets/Microsoft-Agent?api-version=2023-11-01` and copy the `agentProfileId` property.
+    * **ClientId**: The client ID of the user-assigned managed identity used in the target. If you don't have this property, you can run `az rest --method get --uri https://management.azure.com/$RESOURCE_ID/providers/Microsoft.Chaos/targets/Microsoft-Agent?api-version=2023-11-01` and copy the `clientId` property.
     * **(Optionally) AppInsightsKey**: The instrumentation key for your Application Insights component, which you can find on the Application Insights page in the portal under **Essentials**.
 
 1. Install the Chaos Studio VM extension. Replace `$VM_RESOURCE_ID` with the resource ID of your VM or replace `$SUBSCRIPTION_ID`, `$RESOURCE_GROUP`, and `$VMSS_NAME` with those properties for your virtual machine scale set. Replace `$AGENT_PROFILE_ID` with the agent Profile ID. Replace `$USER_IDENTITY_CLIENT_ID` with the client ID of your managed identity. Replace `$APP_INSIGHTS_KEY` with your Application Insights instrumentation key. If you aren't using Application Insights, remove that key/value pair.
@@ -223,7 +223,7 @@ After you've successfully deployed your VM, now you can create your experiment. 
 1. Create the experiment by using the Azure CLI. Replace `$SUBSCRIPTION_ID`, `$RESOURCE_GROUP`, and `$EXPERIMENT_NAME` with the properties for your experiment. Make sure you've saved and uploaded your experiment JSON. Update `experiment.json` with your JSON filename.
 
     ```azurecli-interactive
-    az rest --method put --uri https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.Chaos/experiments/$EXPERIMENT_NAME?api-version=2021-09-15-preview --body @experiment.json
+    az rest --method put --uri https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.Chaos/experiments/$EXPERIMENT_NAME?api-version=2023-11-01 --body @experiment.json
     ```
 
     Each experiment creates a corresponding system-assigned managed identity. Note the principal ID for this identity in the response for the next step.
@@ -243,7 +243,7 @@ You're now ready to run your experiment. To see the effect, we recommend that yo
 1. Start the experiment by using the Azure CLI. Replace `$SUBSCRIPTION_ID`, `$RESOURCE_GROUP`, and `$EXPERIMENT_NAME` with the properties for your experiment.
 
     ```azurecli-interactive
-    az rest --method post --uri https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.Chaos/experiments/$EXPERIMENT_NAME/start?api-version=2021-09-15-preview
+    az rest --method post --uri https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.Chaos/experiments/$EXPERIMENT_NAME/start?api-version=2023-11-01
     ```
 
 1. The response includes a status URL that you can use to query experiment status as the experiment runs.
