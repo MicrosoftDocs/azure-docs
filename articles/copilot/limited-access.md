@@ -11,15 +11,19 @@ author: JnHs
 
 # Limited access to Microsoft Copilot for Azure (preview)
 
-We currently limit the access and use of Microsoft Copilot for Azure (preview).
+As part of Microsoft's commitment to responsible AI, we are designing and releasing Microsoft Copilot for Azure (preview) with the intention of protecting the rights of individuals and society and fostering transparent human-computer interaction. For this reason, we are currently limiting the access and use of Microsoft Copilot for Azure (preview).
 
 ## Registration process
 
-Microsoft Copilot for Azure (preview) requires registration. Customers who wish to use Microsoft Copilot in Azure (preview) are required to submit a registration form and must acknowledge that they have read and understand the Azure terms of service for Microsoft Copilot for Azure (preview).
+Microsoft Copilot for Azure requires registration (preview) and is currently only available to approved enterprise customers and partners. Customers who wish to use Microsoft Copilot for Azure (preview) are required to submit a registration form.
 
-Microsoft Copilot for Azure (preview) is made available to customers under the terms governing their subscription to Microsoft Azure Services. Please review these terms carefully as they contain important conditions and obligations governing your use of Microsoft Copilot for Azure (preview).
+Access to Microsoft Copilot for Azure (preview) is subject to Microsoft's sole discretion based on eligibility criteria and a vetting process, and customers must acknowledge that they have read and understand the Azure terms of service for Microsoft Copilot for Azure (preview).
+
+Microsoft Copilot for Azure (preview) is made available to customers under the terms governing their subscription to Microsoft Azure Services, including the Microsoft Copilot for Azure (preview) section of the Microsoft Product Terms. Please review these terms carefully as they contain important conditions and obligations governing your use of Microsoft Copilot for Azure (preview).
+
 
 ## Important links
 
-- Register to use Microsoft Copilot for Azure (preview)
-- Responsible AI FAQ for Microsoft Copilot in Azure (preview)
+- [Register to use Microsoft Copilot for Azure (preview)](https://aka.ms/MSCopilotforAzurePreview)
+- [Learn more about Microsoft Copilot for Azure (preview)](overview.md)
+- [Responsible AI FAQ for Microsoft Copilot in Azure (preview)](responsible-ai-faq.md)
