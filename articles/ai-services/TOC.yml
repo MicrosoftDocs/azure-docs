@@ -111,7 +111,7 @@
         href: ai-studio/concepts/evaluation-approach-gen-ai.md
       - name: Evaluation and monitoring metrics for generative AI
         href: ai-studio/concepts/evaluation-metrics-built-in.md
-      - name: Strategies to improve evaluation results
+      - name: Harms mitigation strategies with Azure AI
         href: ai-studio/concepts/evaluation-improvement-strategies.md
     - name: Evaluate your flow
       href: ai-studio/how-to/evaluate-flow.md

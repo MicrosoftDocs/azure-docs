@@ -12,6 +12,8 @@ ms.author: eur
 
 # How to evaluate from flows in Azure AI Studio
 
+[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
+
 Evaluate from flows in Azure AI Studio 
 
 

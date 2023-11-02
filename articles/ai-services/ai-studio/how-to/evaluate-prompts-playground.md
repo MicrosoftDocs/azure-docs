@@ -13,6 +13,8 @@ ms.author: eur
 
 # Evaluate prompts from the Azure AI Studio playground 
 
+[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
+
 When you get started with prompt engineering, you should test different inputs one at a time to evaluate the effectiveness of the prompt can be very time intensive. This is because it's important to check whether the content filters are working appropriately, whether the response is accurate, and more. 
 
 To make this process simpler, you can utilize manual evaluation in Azure AI Studio, an evaluation tool enabling you to continuously iterate and evaluate your prompt against your test data in a single interface. You can also manually rate the outputs, the model’s responses, to help you gain confidence in your prompt.  

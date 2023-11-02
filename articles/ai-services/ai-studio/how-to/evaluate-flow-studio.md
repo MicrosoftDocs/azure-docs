@@ -13,6 +13,8 @@ ms.author: eur
 
 # How to evaluate prompt flow results via flows in the Azure AI Studio
 
+[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
+
 Visualize and View Evaluation Results  
 
 Overview 
