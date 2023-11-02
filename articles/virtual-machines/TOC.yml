@@ -312,6 +312,8 @@
         href: sizes-gpu.md
       - name: NC-series
         href: nc-series.md
+      - name: NCads_H100_v5-series
+        href: ncads-h100-v5.md
       - name: NCv2-series
         href: ncv2-series.md
       - name: NCv3-series
