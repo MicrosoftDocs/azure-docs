@@ -84,6 +84,8 @@ Links to the current and previous releases of the Windows agents are available b
 
 
 
+
+
 ---
 
 ## Upgrade the agent
@@ -425,10 +427,13 @@ Proxy bypass value when set to ArcData only bypasses the traffic of the Arc SQL 
 | --------------------- | ------------------ |
 | `AAD` | `login.windows.net`, `login.microsoftonline.com`, `pas.windows.net` |
 | `ARM` | `management.azure.com` |
-| `Arc` | `his.arc.azure.com`, `guestconfiguration.azure.com` , `san-af-<location>-prod.azurewebsites.net`|
-| `ArcData` | `san-af-<location>-prod.azurewebsites.net`|
+| `Arc` | `his.arc.azure.com`, `guestconfiguration.azure.com` , `san-af-<location>-prod.azurewebsites.net` , `telemetry.<location>.arcdataservices.com`|
+| `ArcData` | `san-af-<location>-prod.azurewebsites.net` , `telemetry.<location>.arcdataservices.com`|
 
 To send Microsoft Entra ID and Azure Resource Manager traffic through a proxy server but skip the proxy for Azure Arc traffic, run the following command:
+
+
+
 
 
 ```bash
@@ -508,4 +513,5 @@ If you're already using environment variables to configure the proxy server for 
 * Review the [Planning and deployment guide](plan-at-scale-deployment.md) to plan for deploying Azure Arc-enabled servers at any scale and implement centralized management and monitoring.
 
 * Learn how to manage your machine using [Azure Policy](../../governance/policy/overview.md), for such things as VM [guest configuration](../../governance/machine-configuration/overview.md), verifying the machine is reporting to the expected Log Analytics workspace, enable monitoring with [VM insights](../../azure-monitor/vm/vminsights-enable-policy.md), and much more.
+
 
