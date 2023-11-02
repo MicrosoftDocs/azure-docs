@@ -118,8 +118,8 @@ Static or fixed cache rules are more specific and do not use wildcards. They can
 
 **Example 1**:
 
-Existing cache rule: `contoso.azurecr.io/*` => `mcr.microsoft.com/*`
-New cache being added: `contoso.azurecr.io/library/dotnet` => `docker.io/library/dotnet`
+Existing cache rule: `contoso.azurecr.io/*` => `mcr.microsoft.com/*`<br>
+New cache being added: `contoso.azurecr.io/library/dotnet` => `docker.io/library/dotnet`<br>
 
 The addition of the new cache rule is allowed because `contoso.azurecr.io/library/dotnet` is a static path and can overlap with the wildcard cache rule `contoso.azurecr.io/*`.
 
