@@ -60,7 +60,7 @@ Once you are connected to a cluster via Arc for Kuberentes, you can connect to i
 
     This privileged container gives access to the node. Execute commands on the baremetal host machine by running `chroot /host` at the command line. 
 
-3. When you are done with a debugging pod, enter the `exit` command to end the interactive shell session. After the interactive container session closes, delete the pod used for access with `kubectl delete pod`.
+3. When you are done with a debugging pod, enter the `exit` command to end the interactive shell session. After exiting the shell, make sure to delete the pod:
 
     ```bash
     kubectl delete pod node-debugger-cluster-01-627e99ee-agentpool1-md-chfwd-694gg 
