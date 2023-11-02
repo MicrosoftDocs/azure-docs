@@ -203,7 +203,7 @@
             displayName: CSPM, cloud security, posture, management
             href: concept-cloud-security-posture-management.md
           - name: ServiceNow
-            displayName: CSPM, cloud security, posture, management
+            displayName: CSPM, cloud security, posture, management, ServiceNow
             href: integration-servicenow.md
       - name: Cloud Security Posture Management (CSPM)
         displayName: CSPM, cloud security, posture, management
