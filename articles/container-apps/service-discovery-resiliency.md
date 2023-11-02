@@ -16,6 +16,9 @@ ms.custom: ignite-fall-2023
 
 With Azure Container Apps resiliency, you can proactively prevent, detect, and recover from service request failures using simple resiliency policies. In this article, you learn how to configure Azure Container Apps resiliency policies when initiating requests using Azure Container Apps service discovery.
 
+> [!NOTE]
+> Currently, resiliency policies can't be applied to requests made using the Dapr Service Invocation API. 
+
 Policies are in effect for each request to a container app. You can tailor policies to the container app accepting requests with configurations like:
 - The number of retries
 - Retry and timeout duration
@@ -25,9 +28,6 @@ Policies are in effect for each request to a container app. You can tailor polic
 The following screenshot shows how an application uses a retry policy to attempt to recover from failed requests. 
 
 :::image type="content" source="media/service-discovery-resiliency/service-discovery-resiliency.png" alt-text="Diagram demonstrating container app to container app resiliency using a container app's service name.":::
-
-> [!NOTE]
-> Currently, resiliency policies can't be applied to requests made using the Dapr Service Invocation API. 
 
 ## Supported resiliency policies
 
