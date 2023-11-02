@@ -6,7 +6,7 @@ services: container-apps
 author: hhunter-ms
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 10/30/2023
+ms.date: 11/02/2023
 ms.author: hannahhunter
 ms.custom: ignite-fall-2023
 # Customer Intent: As a developer, I'd like to learn how to make my container apps resilient using Azure Container Apps.
@@ -217,6 +217,4 @@ properties: {
 
 ## Related content
 
-See how resiliency works for:
-- [Service to service communication using Azure Container Apps built in service discovery](./service-discovery-resiliency.md)
-- [Service to service communication using Dapr service invocation](./dapr-invoke-resiliency.md)
+See how resiliency works for [Service to service communication using Azure Container Apps built in service discovery](./service-discovery-resiliency.md)

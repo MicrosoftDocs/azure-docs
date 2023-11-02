@@ -6,7 +6,7 @@ services: container-apps
 author: hhunter-ms
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 10/30/2023
+ms.date: 11/02/2023
 ms.author: hannahhunter
 ms.custom: ignite-fall-2023
 # Customer Intent: As a developer, I'd like to learn how to make my container apps resilient using Azure Container Apps.
@@ -27,7 +27,7 @@ The following screenshot shows how an application uses a retry policy to attempt
 :::image type="content" source="media/service-discovery-resiliency/service-discovery-resiliency.png" alt-text="Diagram demonstrating container app to container app resiliency using a container app's service name.":::
 
 > [!NOTE]
-> To configure resiliency policies for service-to-service communication using Dapr service invocation, refer to [Dapr service invocation API resiliency](./dapr-invoke-resiliency.md). 
+> Currently, resiliency policies can't be applied to requests made using the Dapr Service Invocation API. 
 
 ## Supported resiliency policies
 
@@ -40,7 +40,7 @@ The following screenshot shows how an application uses a retry policy to attempt
 
 Whether you create resiliency policies using Bicep, the CLI, or the Azure portal, you can only apply one policy per container app. 
 
-When you apply a policy to a container app, the rules are applied to all requests made to that container app, _not_ to requests made from that container app. For example, a retry policy is applied to a container app named `App A`. All inbound requests made to App A automatically retry on failure. However, outbound requests sent by App A are not guaranteed to retry in failure. 
+When you apply a policy to a container app, the rules are applied to all requests made to that container app, _not_ to requests made from that container app. For example, a retry policy is applied to a container app named `App B`. All inbound requests made to App B automatically retry on failure. However, outbound requests sent by App B are not guaranteed to retry in failure. 
 
 # [Bicep](#tab/bicep)
 
@@ -395,6 +395,4 @@ properties: {
 
 ## Related content
 
-See how resiliency works for:
-- [Service to service communication using Dapr service invocation](./dapr-invoke-resiliency.md)
-- [Dapr components in Azure Container Apps](./dapr-component-resiliency.md)
+See how resiliency works for [Dapr components in Azure Container Apps](./dapr-component-resiliency.md).

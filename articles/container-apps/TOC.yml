@@ -177,12 +177,8 @@
           href: managed-identity-image-pull.md
 - name: Resiliency (preview)
   items:
-    - name: Application resiliency
-      items:
-      - name: Service discovery
-        href: service-discovery-resiliency.md
-      - name: Dapr service invocation API
-        href: dapr-invoke-resiliency.md
+    - name: Service discovery resiliency
+      href: service-discovery-resiliency.md
     - name: Dapr component resiliency
       href: dapr-component-resiliency.md
 - name: Reliability
