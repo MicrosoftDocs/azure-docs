@@ -125,13 +125,13 @@ ARG is designed to provide efficient resource exploration with the ability to qu
 
 Using the [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/), you can cross-reference Defender for Cloud data with other resource properties.
 
-For example, this recommendation details page shows 1 affected resource:
+For example, this recommendation details page shows several affected resource:
 
-:::image type="content" source="./media/review-security-recommendations/open-query.png" alt-text="The Open Query button on the recommendation details page.":::
+:::image type="content" source="./media/review-security-recommendations/open-query.png" alt-text="The Open Query button on the recommendation details page." lightbox="media/review-security-recommendations/open-query.png":::
 
-When you open the underlying query, and run it, Azure Resource Graph Explorer returns the same 15 resources and their health status for this recommendation:
+When you open the underlying query, and run it, Azure Resource Graph Explorer returns the same affected resources and their for this recommendation:
 
-:::image type="content" source="./media/review-security-recommendations/run-query.png" alt-text="Azure Resource Graph Explorer showing the results for the recommendation shown in the previous screenshot.":::
+:::image type="content" source="./media/review-security-recommendations/run-query.png" alt-text="Azure Resource Graph Explorer showing the results for the recommendation shown in the previous screenshot." lightbox="media/review-security-recommendations/run-query.png":::
 
 ## Recommendation insights
 
