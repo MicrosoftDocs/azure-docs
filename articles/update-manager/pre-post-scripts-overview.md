@@ -1,51 +1,59 @@
 ---
-title: An overview of pre-scripts and post-scripts in your Azure Update Manager
-description: This article provides an overview on pre and post scripts and its requirements.
+title: An overview of pre and post events in your Azure Update Manager
+description: This article provides an overview on pre and post events and its requirements.
 ms.service: azure-update-manager
-ms.date: 10/29/2023
+ms.date: 11/02/2023
 ms.topic: conceptual
 author: SnehaSudhir 
 ms.author: sudhirsneha
 ---
 
-# About pre-scripts and post-scripts
+# About pre and post events
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
 
-To achieve certain tasks automatically before and after the scheduled maintenance activity, the pre and post tasks are configured. They're the Automation runbooks that you can attach to your upcoming schedules for patching your machines before and after installing the updates. They enable you to:
+The pre and post events in Azure Update Manager allows you to perform certain tasks automatically before and after the scheduled maintenance configuration. For example, they can enable you to:
+
 - Start VMs patch them and shut them down again.
 - Stop a service on the machine, patch it and start the service again.
 
-For example, if there's a maintenance configuration or a schedule that you must run on a specific date and time and some of your VMs are deallocated, you get failed deployments. In such scenarios, you run the pre-scripts before starting the patching process to run a sequence of events.
+Pre-events run before the patch installation begins and post-events run after the patch installation ends. If the VM requires a reboot, it will happen before the post-event begins.
 
- Pre-scripts run at the beginning of the patching process. On Windows, post-scripts run at the end of the deployment and after any reboots that are configured. For Linux, post-scripts run after the end of the deployment, not after the machine reboots. 
+Update Manager uses [Event Grid](../event-grid/overview.md) to create and manage pre and post events on scheduled maintenance configurations. In the Event Grid, you can choose from Azure Webhooks, Azure Functions, Storage accounts, and Event hub to trigger your pre activity. If you are using pre and post scripts in Azure Automation Update management and plan to move to Azure Update Manager, we recommend that you use Azure Webhooks linked to Automation Runbooks.
 
+## User Scenrios
 
-## Key capabilities
+The following are the scenarios where you can define pre and post events:
 
-- **Customized patching** - You can customize your patching workflows with custom execution before and after a scheduled patching.
-- **Works with various end points** - You can choose to configure other endpoints such as Webhooks or Azure Functions or Storage accounts.
-- **Compatibility with the [Event Grid](../event-grid/overview.md)** allows you to relieve notifications.
+#### [Prescript user scenarios](#tab/prescript)
 
-## Pre-script and post-script parameters
+| **Scenario**| **Description**|
+|----------|-------------|
+|Turn on machines | Turn on the machine to apply updates.|
+|Create snapshot | Disk snaps used to recover data.| 
+|Automation tutorial with identity | Runbooks using Managed Identity| 
+|Start/configure Windows Update (WU) | Ensures that the WU is up and running before patching is attempted. | 
+|Enable maintenance | Puts the machine in maintenance mode. |
+|Notification email | Send a notification alert before patching is triggered. |
+|Add network security group| Add the network security group.|
+|Stop services | To stop services like Gateway services, NPExServices, SQL services etc.| 
 
-When you configure pre-scripts and post-scripts, you can pass in parameters just like scheduling a runbook. Parameters are defined at the time of update deployment creation. Pre-scripts and post-scripts support the following types:
+#### [Postscript user scenarios](#tab/postscript)
 
-* [char]
-* [byte]
-* [int]
-* [long]
-* [decimal]
-* [single]
-* [double]
-* [DateTime]
-* [string]
+| **Scenario**| **Description**|
+|----------|-------------|
+|Turn off | Turn off the machines after applying updates. | 
+|Disable maintenance | Disable the maintenance mode on machines. | 
+|Stop/Configure WU| Ensures that the WU is stopped after the patching is complete.|
+|Notifications | Send patch summary or an alert that patching is complete.|
+|Delete network security group| Delete the network security group.|
+|Hybrid Worker| Configuration of Hybrid runbook worker. |
+|Mute VM alerts | Enable VM alerts post patching. |
+|Start services | Start services like SQL, health services etc.|
+|Reports| Post patching report.|
+|Tag change | Change tags and occasionally, turns off with tag change.|
 
-Pre-script and post-script runbook parameters don't support boolean, object, or array types. These values cause the runbooks to fail. 
-
-If you need another object type, you can cast it to another type with your own logic in the runbook.
-
-In addition to your standard runbook parameters, the `SoftwareUpdateConfigurationRunContext` parameter (type JSON string) is provided. If you define the parameter in your pre-script or post-script runbook, it's automatically passed in by the update deployment. The parameter contains information about the update deployment, which is a subset of information returned by the [SoftwareUpdateconfigurations API](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration). The following sections define the associated properties.
+---
 
 ## Next steps
 
