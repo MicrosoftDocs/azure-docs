@@ -39,7 +39,7 @@ After you complete the steps within this article, you'll be able to create and m
 
 Within the Azure Storage Mover resource hierarchy, a migration project is used to organize migration jobs into logical tasks or components. A migration project in turn contains at least one job definition, which describes both the source and target locations for your migration project. The [Understanding the Storage Mover resource hierarchy](resource-hierarchy.md) article contains more detailed information about the relationships between a Storage Mover, its endpoints, and its projects.
 
-Because a migration requires both a well-defined source and target, endpoints are parented to the top-level storage mover resource. This placement allows you to reuse endpoints across any number of job definitions. While there's only a single endpoint resource, the properties of each endpoint may vary based on its type. For example, NFS (Network File System) shares, SMB  shares, and Azure Storage blob container endpoints each require fundamentally different information.
+Because a migration requires both a well-defined source and target, endpoints are parented to the top-level storage mover resource. This placement allows you to reuse endpoints across any number of job definitions. While only a single endpoint resource exists, the properties of each individual endpoint may vary based on its type. For example, NFS (Network File System) shares, SMB  shares, and Azure Storage blob container endpoints each require fundamentally different information.
 
 [!INCLUDE [protocol-endpoint-agent](includes/protocol-endpoint-agent.md)]
 

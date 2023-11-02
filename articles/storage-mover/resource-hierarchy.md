@@ -114,7 +114,7 @@ Learn more about telemetry, metrics and logs in the job definition monitoring ar
 
 Migrations require well defined source and target locations. While the term *endpoint* is often used in networking, here it describes a storage location to a high level of detail. An endpoint contains the path to the storage location and additional information.
 
-While there's a single endpoint resource, the properties of each endpoint may vary, based on the type of endpoint. For example, NFS shares, SMB shares, and Azure Storage blob container endpoints each require fundamentally different information.
+While only a single endpoint resource exists, the properties of each individual endpoint may vary, based on the type of endpoint. For example, NFS shares, SMB shares, and Azure Storage blob container endpoints each require fundamentally different information.
 
 Endpoints are used in the creation of a job definition. Only certain types of endpoints may be used as a source or a target, respectively. Refer to the [Supported sources and targets](service-overview.md#supported-sources-and-targets) section in the Azure Storage Mover overview article.
 

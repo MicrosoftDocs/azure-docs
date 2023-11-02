@@ -24,11 +24,11 @@ EDIT PASS: not started
 
 # Plan a successful Azure Storage Mover deployment
 
-Deploying Azure Storage Mover in one of your Azure subscriptions is the first step in realizing your migration goals. Azure Storage Mover can help you with the migration of your files and folders into Azure Storage. This article discusses the important decisions and best practices for a Storage Mover deployment.
+Deploying Azure Storage Mover in one of your Azure subscriptions is the first step in realizing your migration goals. Azure Storage Mover can help you migrate your files and folders into Azure Storage. This article discusses the important decisions and best practices for a Storage Mover deployment.
 
 ## Make sure the service works for your scenario
 
-Azure Storage Mover aspires to work for a wide range of migration scenarios. However, the service is new and therefore supports a relatively limited number of migration scenarios. Ensure that the service works for you by consulting the [supported sources and targets section](service-overview.md#supported-sources-and-targets) in the [Azure Storage Mover overview article](service-overview.md).
+Azure Storage Mover aspires to work for a wide range of migration scenarios. However, the service is relatively new and therefore presently supports a limited number of migration scenarios. Ensure that the service works for your specific scenario by consulting the [supported sources and targets section](service-overview.md#supported-sources-and-targets) in the [Azure Storage Mover overview article](service-overview.md).
 
 ## Deployment basics
 
