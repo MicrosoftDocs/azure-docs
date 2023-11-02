@@ -20,7 +20,8 @@ Language service provides each container with a common configuration framework, 
 * Language Detection
 * Key Phrase Extraction
 * Text Analytics for Health
-* Summarization 
+* Summarization
+* Named Entity Recognition (NER)
 
 ## Configuration settings
 
