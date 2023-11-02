@@ -43,10 +43,10 @@ The **serp api** tool supports following parameters:
 | Name     | Type    | Description                                                   | Required |
 |----------|---------|---------------------------------------------------------------|----------|
 | query    | string  | The search query to be executed.                              | Yes      |
-| engine   | string  | The search engine to use for the search. Default is 'google'. | Yes      |
+| engine   | string  | The search engine to use for the search. Default is 'google.' | Yes      |
 | num      | integer | The number of search results to return. Default is 10.         | No      |
 | location | string  | The geographic location to execute the search from.           | No       |
-| safe     | string  | The safe search mode to use for the search. Default is 'off'. | No       |
+| safe     | string  | The safe search mode to use for the search. Default is 'off.' | No       |
 
 
 ## Outputs
