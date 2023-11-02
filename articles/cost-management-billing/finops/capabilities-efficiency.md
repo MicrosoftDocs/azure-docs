@@ -42,6 +42,7 @@ When you first start managing cost in the cloud, you use the native tools to dri
   - Review service documentation to learn about any cost-related features that could help you optimize your environment or improve cost visibility. Some examples:
     - Choose [spot VMs](/azure/well-architected/cost/optimize-vm#spot-vms) for low priority, interruptible workloads.
     - Avoid [cross-region data transfer](/azure/well-architected/cost/design-regions#traffic-across-billing-zones-and-regions).
+- Use and customize the [Cost optimization workbook](cost-optimization-workbook.md). The Cost Optimization workbook is a central point for some of the most often used tools that can help achieve utilization and efficiency goals.
 
 ## Building on the basics
 
