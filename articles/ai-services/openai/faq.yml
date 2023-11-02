@@ -85,15 +85,15 @@ sections:
       - question: |
           What are the known limitations of the GPT-4V model?
         answer: |
-          1. If multiple images are uploaded in one message, augmentation won't be offered.
-          2. Image type 'image_hr' is no longer allowed in request payload.
-          3. Downloading image from a URL isn't supported, images must be provided as base64 encoded string in the request payload.
+          1. If multiple images are uploaded in one message, augmentation won't be available.
+          2. Image type `image_hr` is no longer allowed in request payload.
+          3. Accessing an image by URL isn't supported. Images must be provided as base64 encoded string in the request payload.
           4. The Chat API endpoint treats an input image as a high resolution image by default.
           5. Max allowed size of input images is 4 MB.
-          6. Max token support is 16k (context+generated = 16384).
-          7. Images in CMYK colorspaces aren't supported (JPEGs are supported, but JPEGs with CMYK colorspace aren't supported)
-          8. Recommendation is to use PNG format with RGB colorspace.
-          9. Though images provided as input to chat API are treated as high resolution images, GPT-4V will downsample it to (2048, 2048) resolution. The high resolution feature might not work as expected if a very high resolution image exceeding (2048, 2048) is provided.
+          6. Max token support is 16k (context+generated = 16,384).
+          7. Images in CMYK color spaces aren't supported (JPEGs are supported, but JPEGs with CMYK color space aren't supported).
+          8. We recommend you use PNG format with RGB color space.
+          9. Although images provided as input to chat API are treated as high resolution images, GPT-4V will down-sample it to (2048, 2048) resolution. The high resolution feature might not work as expected if a very high resolution image exceeding (2048, 2048) is provided.
       
       - question: |
           Where do I access pricing information for legacy models which are no longer available for new deployments? 

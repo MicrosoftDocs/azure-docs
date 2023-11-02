@@ -81,7 +81,7 @@ GPT-4, GPT-4-32k, and GPT-4V are now available to all Azure OpenAI Service custo
 
 These models can only be used with the Chat Completion API.
 
-GPT-4 version 0314 is the first version of the model released.  Version 0613 is the second version of the model and adds function calling support. Version **NEED TO ADD** is the third version and adds support for visual recognition.
+GPT-4 version 0314 is the first version of the model released.  Version 0613 is the second version of the model and adds function calling support. Version TBD is the third version and adds support for visual recognition.
 
 
 |  Model ID  | Base model Regions   | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to)  |
@@ -90,7 +90,7 @@ GPT-4 version 0314 is the first version of the model released.  Version 0613 is 
 | `gpt-4-32k` <sup>2</sup> (0314)  |  East US<sup>1</sup>, France Central<sup>1</sup> |  N/A<sup>3</sup>                | 32,768               | September 2021         |
 | `gpt-4` (0613)     |  Australia East<sup>1</sup>, Canada East, East US<sup>1</sup>, East US 2<sup>1</sup>, France Central<sup>1</sup>, Japan East<sup>1</sup>, Sweden Central, Switzerland North, UK South<sup>1</sup> |  N/A<sup>3</sup>                | 8,192                | September 2021         |
 | `gpt-4-32k` (0613)  |  Australia East<sup>1</sup>, Canada East, East US<sup>1</sup>, East US 2<sup>1</sup>, France Central<sup>1</sup>, Japan East<sup>1</sup>, Sweden Central, Switzerland North, UK South<sup>1</sup> |  N/A<sup>3</sup>                | 32,768               | September 2021         |
-| `gpt-4-v` (**NEED TO ADD**)  | Switzerland North |  N/A<sup>3</sup>                | 16384               | September 2021         |
+| `gpt-4-v` (TBD)  | Switzerland North |  N/A<sup>3</sup>                | 16384               | September 2021         |
 
 
 > [!NOTE]

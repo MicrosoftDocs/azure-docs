@@ -16,17 +16,15 @@ keywords:
 
 ## November 2023
 
-### GPT-4V now available through the Azure Open AI Service
+### GPT-4V now available
+
+TBD desc
 
 - Explore the capabilities of GPT-4V in a no-code experience using the [Azure Open AI Playground](https://oai.azure.com/). Learn more in the [Quickstart guide].
-
-- Video augmentation using GPT-4V is now available in the [Azure Open AI Playground](https://oai.azure.com/) and includes support for Optical Character Recognition, visualization with Object Detection, image support for "add your data", and support for Video Q&A. 
-
-- Make calls to the chat API directly using the [REST API](Add link to the REST API reference).
-
-- Region availability currently limited to Sweden Central, Switzerland North.
-
-- Learn more about the [known limitations of GPT-4V](Add link to FAQ page).
+- Video augmentation using GPT-4V is now available in the [Azure Open AI Playground](https://oai.azure.com/) and includes support for Optical Character Recognition, visualization with Object Detection, image support for "add your data," and support for Video Q&A. 
+- Make calls to the chat API directly using the [REST API](tbd).
+- Region availability is currently limited to `SwedenCentral` and `SwitzerlandNorth`.
+- Learn more about the [known limitations of GPT-4V](tbd).
 
 ## October 2023
 
