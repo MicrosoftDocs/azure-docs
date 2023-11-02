@@ -3,7 +3,7 @@ title: Use deployment scripts in Bicep | Microsoft Docs
 description: use deployment scripts in Bicep.
 ms.custom: devx-track-bicep
 ms.topic: conceptual
-ms.date: 10/04/2023
+ms.date: 11/02/2023
 ---
 
 # Use deployment scripts in Bicep

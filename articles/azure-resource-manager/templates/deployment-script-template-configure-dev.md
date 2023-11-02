@@ -38,7 +38,7 @@ echo $OUTPUT | jq -r '.name.displayName'
 ```
 
 > [!NOTE]
-> When you run an Azure CLI deployment script, an environment variable called `AZ_SCRIPTS_OUTPUT_PATH` stores the location of the script output file. The environment variable isn't available in the development environment container. For more information about working with Azure CLI outputs, see [Work with outputs from CLI script](deployment-script-template.md#work-with-outputs-from-cli-script).
+> When you run an Azure CLI deployment script, an environment variable called `AZ_SCRIPTS_OUTPUT_PATH` stores the location of the script output file. The environment variable isn't available in the development environment container. For more information about working with Azure CLI outputs, see [Work with outputs from CLI script](deployment-script-template.md#work-with-outputs-from-cli-scripts).
 
 ## Use Azure PowerShell container instance
 

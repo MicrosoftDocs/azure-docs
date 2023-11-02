@@ -2,7 +2,7 @@
 title: Configure development environment for deployment scripts in Bicep | Microsoft Docs
 description: Configure development environment for deployment scripts in Bicep.
 ms.topic: conceptual
-ms.date: 10/27/2023
+ms.date: 11/02/2023
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-bicep
 ms.devlang: azurecli
 ---
