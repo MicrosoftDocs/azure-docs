@@ -28,7 +28,7 @@ The following table describes the detection and investigation experience in Micr
 | Advanced hunting  |  |
 | Unified API | Defender for Cloud alerts and incidents are now included in [Microsoft 365 Defender’s public API](/microsoft-365/security/defender/api-overview?view=o365-worldwide), allowing customers to export their security alerts data into other systems using one API. |
 
-Learn more about handling alerts in Microsoft 365 Defender. **INSERT LINK TO DIANNE GALI PAGE HERE**.
+Learn more about [handling alerts in Microsoft 365 Defender](/microsoft-365/security/defender/microsoft-365-security-center-defender-cloud?view=o365-worldwide).
 
 ## Next steps
 
