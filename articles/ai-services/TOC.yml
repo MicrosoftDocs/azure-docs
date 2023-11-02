@@ -35,6 +35,28 @@
       href: ai-studio/concepts/ai-resources.md
     - name: Create an Azure AI project
       href: ai-studio/how-to/create-projects.md
+  - name: Data and connections
+    items:
+    - name: Connections
+      items:
+      - name: Connections overview
+        href: ai-studio/concepts/connections.md
+      - name: Create a connection
+        href: ai-studio/how-to/connections-add.md
+    - name: Index for retrieval
+      items:
+      - name: Vector index and retrieval augmented generation
+        href: ai-studio/concepts/retrieval-augmented-generation.md
+      - name: Create an index
+        href: ai-studio/how-to/index-add.md
+    - name: Add and manage data
+      href: ai-studio/how-to/data-add.md
+    - name: Generate synthetic data
+      items:
+      - name: Generate samples from your dataset
+        href: ai-studio/how-to/generate-data-qa.md
+      - name: Simulate interaction data with your app
+        href: ai-studio/how-to/simulator-interaction-data.md
   - name: Costs and quotas
     items:
     - name: Plan and manage costs
@@ -55,6 +77,8 @@
       href: rotate-keys.md
     - name: Use environment variables
       href: cognitive-services-environment-variables.md
+    - name: Role-based access control in Azure AI Studio
+      href: ai-studio/concepts/rbac-ai-studio.md
     - name: Configure customer-managed keys
       href: ./encryption/cognitive-services-encryption-keys-portal.md
     - name: Use virtual networks
