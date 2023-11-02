@@ -101,6 +101,9 @@ Use the following git command to clone your forked repo into the *code-to-cloud*
 git clone https://github.com/$GITHUB_USERNAME/containerapps-albumapi-java.git code-to-cloud
 ```
 
+> [!NOTE]
+> The Java sample only supports a Maven build, which results in an executable JAR file. The build uses the default settings, as passing in environment variables is not supported.
+
 # [JavaScript](#tab/javascript)
 
 Select the **Fork** button at the top of the [album API repo](https://github.com/azure-samples/containerapps-albumapi-javascript) to fork the repo to your account.
