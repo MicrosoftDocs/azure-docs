@@ -14,9 +14,11 @@ Microsoft Copilot for Azure (preview) can generate Azure CLI scripts that you ca
 
 When you tell Microsoft Copilot for Azure (preview) about a task you want to perform by using Azure CLI, it provides a script with the necessary commands. You'll see which placeholder values that you need to update with the actual values based on your environment.
 
+[!INCLUDE [scenario-note](includes/scenario-note.md)]
+
 ## Sample prompts
 
-Here are a few examples of the kinds of prompts you can use to use Code Optimizations. Modify these as needed based on your real-life scenarios, or try additional prompts about specific areas for optimization.
+Here are a few examples of the kinds of prompts you can use to generate Azure CLI scripts. Modify these prompts based on your real-life scenarios, or try additional prompts to create different kinds of queries.
 
 - "I want to create a virtual machine using Azure CLI"
 - "I want to use azure CLI to deploy and manage AKS using a private service endpoint"

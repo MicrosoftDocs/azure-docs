@@ -20,6 +20,8 @@
     href: optimize-code-application-insights.md
   - name: Understand service health
     href: understand-service-health.md
+  - name: Generate Azure CLI scripts
+    href: generate-cli-scripts.md
 - name: Resources
   items:
   - name: Azure updates

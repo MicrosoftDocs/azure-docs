@@ -20,6 +20,7 @@ Use Microsoft Copilot for Azure (preview) to perform many basic tasks. There are
 - [Get information about Azure Monitor metrics and logs](get-monitoring-information.md)
 - [Discover performance recommendations with Code Optimizations](optimize-code-application-insights.md)
 - [Understand service health events and status](understand-service-health.md)
+- [Generate Azure CLI scripts](generate-cli-scripts.md)
 
 ## Get information
 
