@@ -213,7 +213,19 @@ In most cases, migrating requires you to add the following program.cs file to yo
 
 # [.NET 6 (isolated)](#tab/net6-isolated)
 
-:::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/Program.cs" range="23-29":::
+```csharp
+using Microsoft.Extensions.Hosting;
+
+var host = new HostBuilder()
+    .ConfigureFunctionsWebApplication()
+    .ConfigureServices(services => {
+        services.AddApplicationInsightsTelemetryWorkerService();
+        services.ConfigureFunctionsApplicationInsights();
+    })
+    .Build();
+
+host.Run();
+```
 
 # [.NET 6 (in-process)](#tab/net6-in-proc)
 
@@ -221,15 +233,62 @@ A program.cs file isn't required when running in-process.
 
 # [.NET 7](#tab/net7)
 
-:::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/Program.cs" range="23-29":::
+```csharp
+using Microsoft.Extensions.Hosting;
+
+var host = new HostBuilder()
+    .ConfigureFunctionsWebApplication()
+    .ConfigureServices(services => {
+        services.AddApplicationInsightsTelemetryWorkerService();
+        services.ConfigureFunctionsApplicationInsights();
+    })
+    .Build();
+
+host.Run();
+```
 
 # [.NET Framework 4.8](#tab/netframework48)
 
-:::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/Program.cs" range="2-20":::
+```csharp
+using Microsoft.Extensions.Hosting;
+using Microsoft.Azure.Functions.Worker;
+
+namespace Company.FunctionApp
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            FunctionsDebugger.Enable();
+
+            var host = new HostBuilder()
+                .ConfigureFunctionsWorkerDefaults()
+                .ConfigureServices(services => {
+                    services.AddApplicationInsightsTelemetryWorkerService();
+                    services.ConfigureFunctionsApplicationInsights();
+                })
+                .Build();
+            host.Run();
+        }
+    }
+}
+```
 
 # [.NET 8 Preview (isolated)](#tab/net8)
 
-:::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/Program.cs" range="23-29":::
+```csharp
+using Microsoft.Extensions.Hosting;
+
+var host = new HostBuilder()
+    .ConfigureFunctionsWebApplication()
+    .ConfigureServices(services => {
+        services.AddApplicationInsightsTelemetryWorkerService();
+        services.ConfigureFunctionsApplicationInsights();
+    })
+    .Build();
+
+host.Run();
+```
 
 ---
 
@@ -408,7 +467,34 @@ In version 4.x, the HTTP trigger template looks like the following example:
 
 # [.NET 6 (isolated)](#tab/net6-isolated)
 
-:::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-CSharp-Isolated/HttpTriggerCSharp.cs":::
+```csharp
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.Extensions.Logging;
+
+namespace Company.Function
+{
+    public class HttpTriggerCSharp
+    {
+        private readonly ILogger<HttpTriggerCSharp> _logger;
+
+        public HttpTriggerCSharp(ILogger<HttpTriggerCSharp> logger)
+        {
+            _logger = logger;
+        }
+
+        [Function("HttpTriggerCSharp")]
+        public IActionResult Run(
+            [HttpTrigger(AuthorizationLevel.Function, "get")] HttpRequest req)
+        {
+            _logger.LogInformation("C# HTTP trigger function processed a request.");
+
+            return new OkObjectResult($"Welcome to Azure Functions, {req.Query["name"]}!");
+        }
+    }
+}
+```
 
 # [.NET 6 (in-process)](#tab/net6-in-proc)
 
@@ -416,15 +502,100 @@ In version 4.x, the HTTP trigger template looks like the following example:
 
 # [.NET 7](#tab/net7)
 
-:::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-CSharp-Isolated/HttpTriggerCSharp.cs":::
+```csharp
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.Extensions.Logging;
+
+namespace Company.Function
+{
+    public class HttpTriggerCSharp
+    {
+        private readonly ILogger<HttpTriggerCSharp> _logger;
+
+        public HttpTriggerCSharp(ILogger<HttpTriggerCSharp> logger)
+        {
+            _logger = logger;
+        }
+
+        [Function("HttpTriggerCSharp")]
+        public IActionResult Run(
+            [HttpTrigger(AuthorizationLevel.Function, "get")] HttpRequest req)
+        {
+            _logger.LogInformation("C# HTTP trigger function processed a request.");
+
+            return new OkObjectResult($"Welcome to Azure Functions, {req.Query["name"]}!");
+        }
+    }
+}
+```
 
 # [.NET Framework 4.8](#tab/netframework48)
 
-:::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-CSharp-Isolated/HttpTriggerCSharp.cs":::
+```csharp
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.Azure.Functions.Worker.Http;
+using Microsoft.Extensions.Logging;
+using System.Net;
+
+namespace Company.Function
+{
+    public class HttpTriggerCSharp
+    {
+        private readonly ILogger<HttpTriggerCSharp> _logger;
+
+        public HttpTriggerCSharp(ILogger<HttpTriggerCSharp> logger)
+        {
+            _logger = logger;
+        }
+
+        [Function("HttpTriggerCSharp")]
+        public HttpResponseData Run([HttpTrigger(AuthorizationLevel.Function, "get")] HttpRequestData req)
+        {
+            _logger.LogInformation("C# HTTP trigger function processed a request.");
+
+            var response = req.CreateResponse(HttpStatusCode.OK);
+            response.Headers.Add("Content-Type", "text/plain; charset=utf-8");
+
+            response.WriteString($"Welcome to Azure Functions, {req.Query["name"]}!");
+
+            return response;
+        }
+    }
+}
+```
 
 # [.NET 8 Preview (isolated)](#tab/net8)
 
-:::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-CSharp-Isolated/HttpTriggerCSharp.cs":::
+```csharp
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.Extensions.Logging;
+
+namespace Company.Function
+{
+    public class HttpTriggerCSharp
+    {
+        private readonly ILogger<HttpTriggerCSharp> _logger;
+
+        public HttpTriggerCSharp(ILogger<HttpTriggerCSharp> logger)
+        {
+            _logger = logger;
+        }
+
+        [Function("HttpTriggerCSharp")]
+        public IActionResult Run(
+            [HttpTrigger(AuthorizationLevel.Function, "get")] HttpRequest req)
+        {
+            _logger.LogInformation("C# HTTP trigger function processed a request.");
+
+            return new OkObjectResult($"Welcome to Azure Functions, {req.Query["name"]}!");
+        }
+    }
+}
+```
 
 ---
 
