@@ -18,7 +18,7 @@ When you ask Microsoft Copilot in Azure (preview) to provide these recommendatio
 
 ## Sample prompts
 
-Here are a few examples of the kinds of prompts you can use to use Code Optimizations. Modify these prompts based on your real-life scenarios, or try additional prompts about specific areas for optimization.
+Here are a few examples of the kinds of prompts you can use with Code Optimizations. Modify these prompts based on your real-life scenarios, or try additional prompts about specific areas for optimization.
 
 - "Show my code performance recommendations"
 - "Any available app code optimizations?"
