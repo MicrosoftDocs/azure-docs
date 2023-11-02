@@ -30,7 +30,7 @@ IMS systems were one of the first mission-critical systems that run on mainframe
 
 The following diagram shows how the IMS connector interacts with an IBM mainframe system:
 
-:::image type="content" source="media/integrate-ims-apps-ibm-mainframe/ims-connector-overview.png" alt-text="Conceptual diagram shows how the IMS Program Call connector works with IBM mainframe system.":::
+:::image type="content" source="media/integrate-ims-apps-ibm-mainframe/ims-connector-overview.png" alt-text="Conceptual diagram shows how the IMS Program Call connector works with IBM mainframe system." lightbox="media/integrate-ims-apps-ibm-mainframe/ims-connector-overview.png":::
 
 To extend these hybrid cloud scenarios, the IMS connector in a Standard workflow works with the [HIS Designer for Logic Apps](/host-integration-server/core/application-integration-ladesigner-2), which you can use to create a *program definition* or *program map* of the mainframe transaction program. For this task, the HIS Designer converts that information into metadata that the IMS connector uses when running an action in your workflow.
 
@@ -129,7 +129,7 @@ Later in this guide, when you add a **IMS Program Call** connector action to you
 
    For example:
 
-   :::image type="content" source="./media/integrate-ims-apps-ibm-mainframe/ims-connection.png" alt-text="Screenshot shows IMS action's connection properties.":::
+   :::image type="content" source="./media/integrate-ims-apps-ibm-mainframe/ims-connection.png" alt-text="Screenshot shows IMS action's connection properties." lightbox="./media/integrate-ims-apps-ibm-mainframe/ims-connection.png":::
 
 1. When you're done, select **Create New**.
 
@@ -145,11 +145,11 @@ Later in this guide, when you add a **IMS Program Call** connector action to you
 
    **Select HIDX file and method**
 
-   :::image type="content" source="./media/integrate-ims-apps-ibm-mainframe/action-parameters.png" alt-text="Screenshot shows IMS action with selected HIDX file and method.":::
+   :::image type="content" source="./media/integrate-ims-apps-ibm-mainframe/action-parameters.png" alt-text="Screenshot shows IMS action with selected HIDX file and method." lightbox="./media/integrate-ims-apps-ibm-mainframe/action-parameters.png":::
 
    **Select advanced parameters**
 
-   :::image type="content" source="./media/integrate-ims-apps-ibm-mainframe/action-advanced-parameters.png" alt-text="Screenshot shows IMS action with all parameters.":::
+   :::image type="content" source="./media/integrate-ims-apps-ibm-mainframe/action-advanced-parameters.png" alt-text="Screenshot shows IMS action with all parameters." lightbox="./media/integrate-ims-apps-ibm-mainframe/action-advanced-parameters.png":::
 
 1. When you're done, save your workflow. On designer toolbar, select **Save**.
 
