@@ -49,7 +49,7 @@ Only certain OS platform images are currently supported for automatic upgrade. F
 * The version property of the image must be set to **latest**. 
 * Use Batch API version 2023-11-01 or higher. 
 * Ensure that external resources specified in the pool are available and updated. Examples include SAS URI for bootstrapping payload in VM extension properties, payload in storage account, reference to secrets in the model, and more. 
-* If you are using the property *virtualMachineConfiguration.windowsConfiguration.enableAutomaticUpdates*, this property must set to false in the pool definition. The enableAutomaticUpdates property enables in-VM patching where "Windows Update" applies operating system patches without replacing the OS disk. With automatic OS image upgrades enabled, an extra patching process through Windows Update is not required.
+* If you are using the property *virtualMachineConfiguration.windowsConfiguration.enableAutomaticUpdates*, this property must set to 'false' in the pool definition. The enableAutomaticUpdates property enables in-VM patching where "Windows Update" applies operating system patches without replacing the OS disk. With automatic OS image upgrades enabled, an extra patching process through Windows Update is not required.
 
 ### Additional requirements for custom images
 
@@ -66,7 +66,7 @@ If you intend to implement Auto OS Upgrades within a pool, it's essential to con
 > [!Note]
 > We strongly advise enabling the *automaticOSUpgradePolicy.osRollingUpgradeDeferral* property by setting it to 'true.' When an upgrade becomes available while a batch node is actively running a task, this property will postpone OS upgrades on the node. Once the node transitions to an idle state, Batch will issue a callback and initiate the upgrade process.
 > 
-> If you are using [user subscription](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode), it's essential to note that a subscription feature **RollingUpgradeDeferral** is required for your subscription to be registered. You cannot use osRollingUpgradeDeferral unless this feature is registered. To enable this feature, kindly initiate a [support request](../azure-portal/supportability/how-to-create-azure-support-request.md) and request its activation.
+> If you are using [user subscription](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode), it's essential to note that a subscription feature **RollingUpgradeDeferral** is required for your subscription to be registered. You cannot use *osRollingUpgradeDeferral* unless this feature is registered. To enable this feature, kindly initiate a [support request](../azure-portal/supportability/how-to-create-azure-support-request.md) and request its activation.
 
 ### REST API
 The following example describes how to create a pool with Auto OS Upgrade via REST API:
