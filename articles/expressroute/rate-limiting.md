@@ -91,6 +91,8 @@ To enable rate limiting for an existing ExpressRoute Direct circuit, follow thes
     
     1. From the drop-down, under **Circuit Qos**, select **DroppedInBitsPerSecond**. Then select **Add metrics** and select **DroppedOutBitsPerSecond**. You now see the chart metric for traffic that is dropped for ingress and egress.
 
+    :::image type="content" source="./media/rate-limiting/drop-bits-metric.png" alt-text="Screenshot of the drop bits per seconds metrics for an ExpressRoute Direct circuit.":::
+
 1. How can I change my circuit bandwidth? 
 
     To change your circuit bandwidth, follow these steps:
