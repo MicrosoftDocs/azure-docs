@@ -38,7 +38,7 @@ API Management platform migration from `stv1` to `stv2` involves updating the un
 * Azure manages the management endpoint DNS, and updates to the new compute immediately on successful migration. 
 * The Gateway DNS still points to the old compute if custom domain is in use. 
 * If custom DNS isn't in use, the Gateway and Portal DNS points to the new compute immediately.
-* For internal instance, customer manages the DNS, so the DNS entries continue to point to old compute until updated by the customer.
+* For an instance in internal VNet mode, customer manages the DNS, so the DNS entries continue to point to old compute until updated by the customer.
 * It's the DNS that points to either the new or the old compute and hence no downtime to the APIs.
 * Changes are required to your firewall rules, if any, to allow the new compute subnet reach the backends.
 
