@@ -21,7 +21,7 @@ Pre-events run before the patch installation begins and post-events run after th
 
 Update Manager uses [Event Grid](../event-grid/overview.md) to create and manage pre and post events on scheduled maintenance configurations. In the Event Grid, you can choose from Azure Webhooks, Azure Functions, Storage accounts, and Event hub to trigger your pre activity. If you are using pre and post scripts in Azure Automation Update management and plan to move to Azure Update Manager, we recommend that you use Azure Webhooks linked to Automation Runbooks.
 
-## User Scenrios
+## User scenarios
 
 The following are the scenarios where you can define pre and post events:
 
