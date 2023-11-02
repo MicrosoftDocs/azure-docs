@@ -31,7 +31,7 @@ With Azure AI Studio, you can evaluate large language model (LLM) responses, pin
 
 ## Getting around in Azure AI Studio
 
-The Azure AI Studio is organized into four main sections: [Home](?tabs=home), [Explore](?tabs=explore), [Build](?tabs=build), and [Manage](?tabs=manage).
+Wherever you're at or going in Azure AI Studio, use the Home, Explore, Build, and Manage tabs to find your way around.
 
 
 # [Home](#tab/home)
