@@ -35,14 +35,6 @@ This article tells you how to manage your customer-managed KEKs.
 
 You can change the key that you are using for Azure Elastic SAN encryption at any time.
 
-# [Azure portal](#tab/azure-portal)
-
-To change the key with the Azure portal, follow these steps:
-
-1. Navigate to your Elastic SAN volume group.
-1. Under **Encryption type** select the key vault and choose a new key.
-1. Select **Save**.
-
 # [PowerShell](#tab/azure-powershell)
 
 To change the key with PowerShell, call [Update-AzElasticSanVolumeGroup](/powershell/module/az.elasticsan/update-azelasticsanvolumegroup) and provide the new key name and version. If the new key is in a different key vault, then you must also update the key vault URI.
@@ -94,18 +86,6 @@ After the key has been disabled, clients can't call operations that read from or
 > [!CAUTION]
 > When you disable the key in the key vault, the data in your Azure Elastic SAN volume group remains encrypted, but it becomes inaccessible until you reenable the key.
 
-# [Azure portal](#tab/azure-portal)
-
-To disable a customer-managed key with the Azure portal, follow these steps:
-
-1. Navigate to the key vault that contains the key.
-1. Under **Objects**, select **Keys**.
-1. Right-click the key and select **Disable**.
-
-<!--- 
-    :::image type="content" source="../articles/storage/common/media/customer-managed-keys-configure-common/portal-disable-customer-managed-keys.png" alt-text="Screenshot showing how to disable a customer-managed key in the key vault.":::
---->
-
 # [PowerShell](#tab/azure-powershell)
 
 To revoke a customer-managed key with PowerShell, call the [Update-AzKeyVaultKey](/powershell/module/az.keyvault/update-azkeyvaultkey) command, as shown in the following example. Remember to replace the placeholder values in brackets with your own values to define the variables, or use the variables defined in the previous examples.
@@ -149,19 +129,7 @@ az keyvault key set-attributes \
 
 ## Switch back to platform-managed keys
 
-You can switch from customer-managed keys back to platform-managed keys at any time, using the Azure portal, PowerShell, or the Azure CLI.
-
-# [Azure portal](#tab/azure-portal)
-
-To switch from customer-managed keys back to platform-managed keys in the Azure portal, follow these steps:
-
-1. Navigate to your Elastic SAN volume group.
-1. Change **Encryption type** to **Platform-managed keys**.
-1. Select **Save**.
-
-<!--- 
-    :::image type="content" source="../articles/storage/common/media/customer-managed-keys-configure-common/portal-enable-microsoft-managed-keys.png" alt-text="Screenshot showing how to switch to Microsoft-managed keys for a Elastic SAN volume group.":::
---->
+You can switch from customer-managed keys back to platform-managed keys at any time, using the Azure PowerShell module or the Azure CLI.
 
 # [PowerShell](#tab/azure-powershell)
 
