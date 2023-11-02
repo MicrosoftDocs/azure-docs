@@ -1,5 +1,5 @@
 ---
-title: Vector Index Lookup tool in Azure Machine Learning prompt flow (preview)
+title: Vector Index Lookup tool in Azure Machine Learning prompt flow
 titleSuffix: Azure Machine Learning
 description: Vector Index Lookup is a tool tailored for querying within an Azure Machine Learning Vector Index. It empowers users to extract contextually relevant information from a domain knowledge base.
 services: machine-learning
@@ -9,16 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.reviewer: lagayhar
-ms.date: 06/30/2023
+ms.date: 11/02/2023
 ---
 
-# Vector index lookup (preview)
+# Vector index lookup
 
 Vector index lookup is a tool tailored for querying within an Azure Machine Learning vector index. It empowers users to extract contextually relevant information from a domain knowledge base.
-
-> [!IMPORTANT]
-> Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
