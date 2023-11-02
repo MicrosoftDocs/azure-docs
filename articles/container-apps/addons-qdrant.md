@@ -15,7 +15,15 @@ Azure Container Apps uses [add-ons](services.md) to make it easy to connect to v
 
 For a full list of supported services, see [Connect to services in Azure Container Apps](services.md).
 
-TODO: Describe sample application.
+The sample application deployed in this tutorial allows you to interface with a music recommendation engine based on the Qdrant vector database. The container image hosts a Jupyter Notebook that contains the code that you can run against the database to:
+
+- Interface with song data
+- Generate embeddings for each song
+- View song recommendations
+
+Once deployed, under the *Notebooks* section, you select the **Python 3** option to launch the notebook.
+
+:::image type="content" source="media/addon-qdrant/azure-container-apps-qdrant-jupyter-notebook.png" alt-text="Screenshot of the Jupyter Notebook deployed in the container image.":::
 
 In this tutorial you:
 
@@ -125,7 +133,10 @@ Now that you have an existing environment and workload profile, you can create y
       --min-replicas 1 \
       --max-replicas 1 \
       --env-vars RESTARTABLE=yes
+      --query properties.outputs.fqdn
     ```
+
+    This command returns the fully qualified domain name (FQDN) of your container app. Copy this location to a text editor as you need it in an upcoming step.
 
 1. Bind the Qdrant add-on service to the container app.
 
@@ -163,14 +174,14 @@ Now that your container app is running and connected to Qdrant, you can configur
 1. Request an access token for the hosted Jupyter Notebook.
 
     ```bash
-    echo Your login token is: `az containerapp logs show -g $RESOURCE_GROUP --name $APP_NAME --tail 300 | \
+    echo Your authentication token is: `az containerapp logs show -g $RESOURCE_GROUP --name $APP_NAME --tail 300 | \
       grep token |  cut -d= -f 2 | cut -d\" -f 1 | uniq`
     ```
 
     When you run this command, your token is printed to the terminal. The message should look like the following example.
 
     ```text
-    Your login token is: 348c8aed080b44f3aaab646287624c70aed080b44f
+    Your authentication token is: 348c8aed080b44f3aaab646287624c70aed080b44f
     ```
 
     Copy your token value to your text editor to use to sign-in to the Jupyter Notebook.
@@ -179,11 +190,24 @@ Now that your container app is running and connected to Qdrant, you can configur
 
 1. Open a web browser and paste in the URL for your container app you set aside in a text editor.
 
-    Next to the *Password to token* label, enter your token in the input box and select **Login**.
+    When the page loads, you're presented with an input box to enter your authentication token.
 
-1. Enter the token value into the dialog box.
+1. Next to the *Password to token* label, enter your token in the input box and select **Login**.
 
-1. Open the *aca_environment.sh* file and execute the commands in the Jupyter Notebook.
+1. Once you authenticate, under the *Notebooks* section, select the **Python 3** option to launch the notebook.
+
+    :::image type="content" source="media/addon-qdrant/azure-container-apps-qdrant-jupyter-notebook.png" alt-text="Screenshot of the deployed Jupyter Notebook in the container image.":::
+
+    With the notebook launched, follow the instructions to interact with the code and data.
+
+## Clean up resources
+
+The resources created in this tutorial have an effect on your Azure bill. If you aren't going to use these services long-term, run the following command to remove everything created in this tutorial.
+
+```azurecli
+az group delete \
+  --resource-group $RESOURCE_GROUP
+```
 
 ## Next steps
 
