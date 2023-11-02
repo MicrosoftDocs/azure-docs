@@ -33,7 +33,7 @@ In **Explore** you can explore the different capabilities of Azure AI before cre
 
 Within **Explore**, you'll be able to explore many capabilities found within the secondary navigation. These include model catalog, model leaderboard, and pages for Azure AI services such as Speech, Vision, and Content Safety. 
 - Model catalog contains three main areas: Announcements, Models and Filters. You can use Search and Filters to narrow down model selection 
-- Azure AI service pages such as Speech consist of many cards containing links. These cards lead you to demo experiences where you can sample our AI capabilities and may link out to another webpage. 
+- Azure AI service pages such as Speech consist of many cards containing links. These cards lead you to demo experiences where you can sample our AI capabilities and might link out to another webpage. 
 
 ## Projects 
 
