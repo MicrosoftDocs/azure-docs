@@ -81,22 +81,24 @@ Wildcard use asterisks (*) to match multiple paths within the container image re
 The registry level wildcard allows you to cache all repositories from an upstream registry.
 
 
-| Cache Rule                                    | Mapping                                          | Example                                                                                                                               |
-| ------------------------------------------- | ------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------- |
+| Cache Rule                                  | Mapping                                  | Example                                                                                                                                |
+| ------------------------------------------- | ---------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
 | contoso.azurecr.io/* => mcr.microsoft.com/* | Mapping for all images under ACR to MCR. | contoso.azurecr.io/myapp/image1 => mcr.microsoft.com/myapp/image1<br>contoso.azurecr.io/myapp/image2 => mcr.microsoft.com/myapp/image2 |
 
 ### Repository Level Wildcard
 
 The repository level wildcard allows you to cache all repositories from an upstream registry mapping to the repository prefix.
 
-| Cache Rule                                                                                                                              | Mapping                                                                                     | Example                                                                                                                                                                                                                                                                                                                                                                              |
-| --------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| contoso.azurecr.io/dotnet/* => mcr.microsoft.com/dotnet/*                                                                               | Mapping specific repositories under ACR to corresponding repositories in MCR.               | contoso.azurecr.io/dotnet/sdk => mcr.microsoft.com/dotnet/sdk<br>contoso.azurecr.io/dotnet/runtime => mcr.microsoft.com/dotnet/runtime                                                                                                                                                                                                                                               |
-| contoso.azurecr.io/library/dotnet/* => mcr.microsoft.com/dotnet/* <br>contoso.azurecr.io/library/python/* => docker.io/library/python/* | Mapping specific repositories under ACR to repositories from different upstream registries. | contoso.azurecr.io/library/dotnet/app1 => mcr.microsoft.com/dotnet/app1<br>contoso.azurecr.io/library/python/app3 => docker.io/library/python/app3|
+| Cache Rule                                                                                                                              | Mapping                                                                                     | Example                                                                                                                                            |
+| --------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| contoso.azurecr.io/dotnet/* => mcr.microsoft.com/dotnet/*                                                                               | Mapping specific repositories under ACR to corresponding repositories in MCR.               | contoso.azurecr.io/dotnet/sdk => mcr.microsoft.com/dotnet/sdk<br>contoso.azurecr.io/dotnet/runtime => mcr.microsoft.com/dotnet/runtime             |
+| contoso.azurecr.io/library/dotnet/* => mcr.microsoft.com/dotnet/* <br>contoso.azurecr.io/library/python/* => docker.io/library/python/* | Mapping specific repositories under ACR to repositories from different upstream registries. | contoso.azurecr.io/library/dotnet/app1 => mcr.microsoft.com/dotnet/app1<br>contoso.azurecr.io/library/python/app3 => docker.io/library/python/app3 |
 
 ### Limitations for Wildcard based cache rules
 
-Wildcard-based cache rules use asterisks (*) to match multiple paths within the container image registry. These rules cannot overlap with other wildcard-based cache rules. In other words, if you have a wildcard-based cache rule for a certain registry path, you cannot add another wildcard-based rule that overlaps with it. Here are some examples of overlapping rules:
+Wildcard cache rules use asterisks (*) to match multiple paths within the container image registry. These rules cannot overlap with other wildcard cache rules. In other words, if you have a wildcard cache rule for a certain registry path, you cannot add another wildcard rule that overlaps with it. 
+
+Here are some examples of overlapping rules:
 
 **Example 1**:
 
