@@ -1,0 +1,48 @@
+---
+title: "Enable Artifact Streaming- Portal"
+description: "Artifact Streaming is a feature in Azure Container Registry to enhance and supercharge managing, scaling, and deploying artifacts through containerized platforms."
+ms.author: tejaswikolli-web
+ms.service: container-registry
+ms.topic: tutorial  #Don't change.
+ms.date: 10/31/2023
+
+---
+# Enable Artifact Streaming - Azure portal
+
+Enable Artifact Streaming with a series of Azure portal steps for pushing, importing, and generating streaming artifacts for container images in an Azure Container Registry (ACR). These steps outline the process for creating a premium ACR, importing an image, generating a streaming artifact, and managing the artifact streaming operation. Make sure to replace the placeholders with your actual values where necessary.
+
+This article is part three in a four-part tutorial series. In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * Push/Import the image and generate the streaming artifact  - Azure portal.
+
+## Prerequisites
+
+* Sign in to the [Azure portal](https://ms.portal.azure.com/). 
+
+* [Navigate to the Azure portal](https://ms.portal.azure.com/#create/Microsoft.KubernetesService) and create an AKS cluster in the same region as the ACR registry and attach to it.
+
+## Push/Import the image and generate the streaming artifact - Azure portal
+
+Artifact Streaming is available in the **Premium** container registry service tier. To enable Artifact Streaming, update a registry using the Azure portal.
+
+1. Convert the image and create Artifact Streaming in Azure portal.
+
+    :::image type="content" source="./media/container-registry-artifact-streaming/01-create-artifact-streaming.png" alt-text="Screenshot for Create Artifact Streaming.":::
+
+1. Check the streaming artifact generated from the image in Referrers tab.     
+    
+    :::image type="content" source="./media/container-registry-artifact-streaming/02-artifact-streaming-generated.png" alt-text="Screenshot to verify Artifact Streaming for an image.":::
+
+1. You can also delete the Artifact streaming from the repository blade. 
+
+    :::image type="content" source="./media/container-registry-artifact-streaming/04-delete-artifact-streaming.png" alt-text="Screenshot to delete Artifact Streaming.":::
+
+1. You can also enable auto-conversion on the repository blade. Active means auto-conversion is enabled on the repository. Inactive means auto-conversion is disabled on the repository. 
+
+    :::image type="content" source="./media/container-registry-artifact-streaming/03-start-artifact-streaming.png" alt-text="Screenshot to enable auto-conversion.":::
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Troubleshoot Artifact Streaming](tutorial-artifact-streaming-troubleshoot.md)
