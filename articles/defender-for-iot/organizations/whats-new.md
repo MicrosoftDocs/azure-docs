@@ -32,7 +32,7 @@ The legacy Aruba ClearPass, Palo Alto Panorama, and Splunk integrations are supp
 
 For customers using legacy integration methods, we recommend moving your integrations to newly recommended methods. For more information, see:
 
-- [Integrate ClearPass with Microsoft Defender for IoT (on-premises integration)](tutorial-clearpass.md)
+- [Integrate ClearPass with Microsoft Defender for IoT](tutorial-clearpass.md)
 - [Integrate Palo Alto with Microsoft Defender for IoT](tutorial-palo-alto.md)
 - [Integrate Splunk with Microsoft Defender for IoT](tutorial-splunk.md)
 - [Integrations with Microsoft and partner services](integrate-overview.md)

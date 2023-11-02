@@ -2,7 +2,7 @@
 title: Create a new Azure Monitor Application Insights workspace-based resource
 description: Learn about the steps required to enable the new Azure Monitor Application Insights workspace-based resources. 
 ms.topic: conceptual
-ms.date: 04/12/2023
+ms.date: 11/02/2023
 ms.reviewer: cogoodson
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
@@ -255,8 +255,6 @@ When you're developing the next version of a web application, you don't want to 
 
 To avoid confusion, send the telemetry from different development stages to separate Application Insights resources with separate instrumentation keys.
 
-To make it easier to change the instrumentation key as a version moves from one stage to another, it can be useful to [set the instrumentation key dynamically in code](#dynamic-instrumentation-key) instead of in the configuration file.
-
 If your system is an instance of Azure Cloud Services, there's [another method of setting separate instrumentation keys](../../azure-monitor/app/azure-web-apps-net-core.md).
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
@@ -290,24 +288,6 @@ Be aware that:
 - You might need to add custom code to ensure that meaningful values are set into the [Cloud_RoleName](./app-map.md?tabs=net#set-or-override-cloud-role-name) attribute. Without meaningful values set for this attribute, none of the portal experiences will work.
 - For Azure Service Fabric applications and classic cloud services, the SDK automatically reads from the Azure Role Environment and sets these services. For all other types of apps, you'll likely need to set this explicitly.
 - Live Metrics doesn't support splitting by role name.
-
-### <a name="dynamic-instrumentation-key"></a> Dynamic instrumentation key
-
-To make it easier to change the instrumentation key as the code moves between stages of production, reference the key dynamically in code instead of using a hardcoded or static value.
-
-Set the key in an initialization method, such as `global.asax.cs`, in an ASP.NET service:
-
-```csharp
-protected void Application_Start()
-{
-  Microsoft.ApplicationInsights.Extensibility.
-    TelemetryConfiguration.Active.InstrumentationKey = 
-      // - for example -
-      WebConfigurationManager.AppSettings["ikey"];
-  ...
-```
-
-In this example, the instrumentation keys for the different resources are placed in different versions of the web configuration file. Swapping the web configuration file, which you can do as part of the release script, swaps the target resource.
 
 #### Webpages
 The instrumentation key is also used in your app's webpages, in the [script that you got from the quickstart pane](../../azure-monitor/app/javascript.md). Instead of coding it literally into the script, generate it from the server state. For example, in an ASP.NET app:
