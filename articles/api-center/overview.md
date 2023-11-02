@@ -55,7 +55,9 @@ For more information about the information you can manage and the capabilities i
              
 ## API Center and the API ecosystem
 
-API Center can serve a key role in an organization's API ecosystem. Consider the hypothetical Contoso organization, which has adopted an API-first strategy, emphasizing the importance of APIs in their software development and integration. See the following diagram and explanation.
+API Center can serve a key role in an organization's API ecosystem. Consider the hypothetical Contoso organization, which has adopted an API-first strategy, emphasizing the importance of APIs in their software development and integration. 
+
+Contoso's API developers, app developers, API program managers, and API managers collaborate through Azure API Center to ensure the effective development and integration of APIs into their applications. See the following diagram and explanation.
 
 :::image type="content" source="media/overview/api-ecosystem-example.png" alt-text="Diagram showing API Center in an example API ecosystem.":::
 
