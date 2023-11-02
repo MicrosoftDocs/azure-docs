@@ -196,7 +196,7 @@ On successful migration, update any network dependencies including DNS, firewall
 
 1. **What are the prerequisites for the migration?**
 
-   ***VNet-injected instances:*** you'll need a new subnet and public IP address to migrate (either External or Internal modes). The subnet must have an NSG attached to it following the rules for STV2 platform as described [here](./api-management-using-with-vnet.md?tabs=stv2#configure-nsg-rules).
+   ***VNet-injected instances:*** you'll need a new subnet and public IP address to migrate (either External or Internal modes). The subnet must have an NSG attached to it following the rules for `stv2` platform as described [here](./api-management-using-with-vnet.md?tabs=stv2#configure-nsg-rules).
   
    ***Non-VNet instances:*** no prerequisites are required. If you migrate preserving your public IP address, this will render your API Management instance unresponsive for approximately 15 minutes. If you can't afford any downtime, then choose the *"New IP"* option that makes APIM available on a new IP. Network dependencies need to be updated with the new public virtual IP address.
 
