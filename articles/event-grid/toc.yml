@@ -122,14 +122,12 @@ items:
         items:
         - name: Terminology 
           href: concepts-event-grid-namespaces.md
-        - name: Push delivery
+        - name: Event handlers (Push delivery)
           items:
-          - name: Event handlers
-            items:
-            - name: Event Hubs
-              href: namespace-handler-event-hubs.md
-          - name: Delivery properties
-            href: namespace-delivery-properties.md
+          - name: Event Hubs
+            href: namespace-handler-event-hubs.md
+        - name: Delivery properties
+          href: namespace-delivery-properties.md
         - name: Publisher operations
           href: publisher-operations.md
         - name: Subscriber operations
