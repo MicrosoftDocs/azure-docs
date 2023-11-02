@@ -257,7 +257,7 @@ Supporting script files can be called from both inline scripts and primary scrip
 
 The supporting files are copied to `azscripts/azscriptinput` at the runtime. Use relative path to reference the supporting files from inline scripts and primary script files.
 
-## Work with outputs from PowerShell script
+## Work with outputs from PowerShell scripts
 
 The following template shows how to pass values between two `deploymentScripts` resources:
 
@@ -269,7 +269,7 @@ In the first resource, you define a variable called `$DeploymentScriptOutputs`, 
 reference('<ResourceName>').outputs.text
 ```
 
-## Work with outputs from CLI script
+## Work with outputs from CLI scripts
 
 In contrast to the Azure PowerShell deployment scripts, CLI/bash doesn't expose a common variable for storing script outputs. Instead, it utilizes an environment variable named `AZ_SCRIPTS_OUTPUT_PATH` to indicate the location of the script outputs file. When executing a deployment script within a Bicep file, the Bash shell automatically configures this environment variable for you. Its predefined value is set as */mnt/azscripts/azscriptoutput/scriptoutputs.json*. The outputs are required to conform to a valid JSON string object structure. The file's contents should be formatted as a key-value pair. For instance, an array of strings should be saved as { "MyResult": [ "foo", "bar"] }. Storing only the array results, such as [ "foo", "bar" ], is considered invalid.
 
