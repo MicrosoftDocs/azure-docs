@@ -1,15 +1,15 @@
 ### YamlMime:Landing
 
 title: Azure Communications Gateway documentation
-summary: Learn about Azure Communications Gateway for telecommunications operators and service providers. If you have signed an Operator Connect or Teams Phone Mobile agreement with Microsoft, you can use Azure Communications Gateway to provide these services.
+summary: Learn about Azure Communications Gateway for telecommunications operators and service providers. Azure Communications Gateway allows you to provide your customers with Operator Connect, Teams Phone Mobile, Microsoft Teams Direct Routing and Zoom Phone Cloud Peering service. Launching Operator Connect, Teams Phone Mobile or Zoom Phone Cloud Peering requires additional agreements.
 metadata:
   title: Azure Communications Gateway documentation
-  description: Learn about Azure Communications Gateway. Azure Communications Gateway enables telecommunications operators to provide Operator Connect and Teams Phone Mobile services.
+  description: Learn about Azure Communications Gateway. Azure Communications Gateway enables telecommunications operators to provide Operator Connect, Teams Phone Mobile, Microsoft Teams Direct Routing and Zoom Phone Cloud Peering services.
   ms.service: communications-gateway
   ms.topic: landing-page
   author: rcdun
   ms.author: rdunstan
-  ms.date: 07/17/2023
+  ms.date: 11/06/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -52,6 +52,8 @@ landingContent:
             url: prepare-to-deploy.md
           - text: Deploy Azure Communications Gateway
             url: deploy.md
+          - text: Integrate with Azure Communications Gateway's Provisioning API
+            url: integrate-with-provisioning-api.md
 
   # Card
   - title: Use Azure Communications Gateway for Operator Connect and Teams Phone Mobile
@@ -69,12 +71,49 @@ landingContent:
           - text: Mobile Control Point
             url: mobile-control-point.md
           - text: Emergency calling
-            url: emergency-calling-operator-connect.md
+            url: emergency-calls-operator-connect.md
       - linkListType: how-to-guide
         links:
           - text: Manage enterprises and numbers in the Number Management Portal
             url: manage-enterprise-operator-connect.md
 
+  # Card
+  - title: Use Azure Communications Gateway for Microsoft Teams Direct Routing
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Connect to Microsoft Teams Direct Routing
+            url: connect-teams-direct-routing.md
+          - text: Configure a test customer
+            url: configure-test-customer-teams-direct-routing.md
+          - text: Configure test numbers
+            url: configure-test-numbers-teams-direct-routing.md
+          - text: Prepare for live traffic
+            url: prepare-for-live-traffic-teams-direct-routing.md
+      - linkListType: concept
+        links:
+          - text: Overview of interoperability
+            url: interoperability-teams-direct-routing.md
+          - text: Emergency calling
+            url: emergency-calls-teams-direct-routing.md
+
+  # Card
+  - title: Use Azure Communications Gateway for Zoom Phone Cloud Peering
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Connect to Zoom Phone Cloud Peering
+            url: connect-zoom.md
+          - text: Configure test numbers
+            url: configure-test-numbers-zoom.md
+          - text: Prepare for live traffic
+            url: prepare-for-live-traffic-zoom.md
+      - linkListType: concept
+        links:
+          - text: Overview of interoperability
+            url: interoperability-zoom.md
+          - text: Emergency calling
+            url: emergency-calls-zoom.md
 
   # Card
   - title: Manage Azure Communications Gateway

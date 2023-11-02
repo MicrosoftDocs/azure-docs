@@ -30,6 +30,8 @@ Fragmentation occurs when a packet is sent that exceeds the MTU of a network int
 
 Network devices in the path between a source and destination can either drop packets that exceed the MTU or fragment the packet into smaller pieces.
 
+IP fragmentation is not supported in Azure. There are some scenarios where IP fragmentation may work. However, it should not be relied upon.
+
 #### The Don’t Fragment bit in an IP packet
 
 The Don’t Fragment (DF) bit is a flag in the IP protocol header. The DF bit indicates that network devices on the path between the sender and receiver must not fragment the packet. This bit could be set for many reasons. (See the "Path MTU Discovery" section of this article for one example.) When a network device receives a packet with the Don’t Fragment bit set, and that packet exceeds the device's interface MTU, the standard behavior is for the device to drop the packet. The device sends an ICMP Fragmentation Needed message back to the original source of the packet.

@@ -6,7 +6,7 @@ services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-content-safety
-ms.custom: build-2023, devx-track-python, devx-track-dotnet
+ms.custom: build-2023, devx-track-python, devx-track-dotnet, devx-track-extended-java, devx-track-js
 ms.topic: quickstart
 ms.date: 07/18/2023
 ms.author: pafarley
@@ -37,6 +37,18 @@ Get started with the Content Safety Studio, REST API, or client SDKs to do basic
 ::: zone pivot="programming-language-python"
 
 [!INCLUDE [Python SDK quickstart](./includes/quickstarts/python-quickstart-text.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-java"
+
+[!INCLUDE [Python SDK quickstart](./includes/quickstarts/java-quickstart-text.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+
+[!INCLUDE [Python SDK quickstart](./includes/quickstarts/javascript-quickstart-text.md)]
 
 ::: zone-end
 

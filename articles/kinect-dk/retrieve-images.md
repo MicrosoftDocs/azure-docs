@@ -62,6 +62,7 @@ By default, the API will only return a capture once it has received all of the r
 
 ```C
 // Capture a depth frame
+k4a_capture_t capture = NULL;
 switch (k4a_device_get_capture(device, &capture, TIMEOUT_IN_MS))
 {
 case K4A_WAIT_RESULT_SUCCEEDED:

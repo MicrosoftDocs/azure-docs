@@ -66,4 +66,4 @@ For advanced scenarios where the business logic must be adjusted to access the U
 * [Standard tests](availability-standard-tests.md)
 * [Availability alerts](availability-alerts.md)
 * [Application Map](./app-map.md)
-* [Transaction diagnostics](./transaction-diagnostics.md)
+* [Transaction diagnostics](./search-and-transaction-diagnostics.md?tabs=transaction-diagnostics)

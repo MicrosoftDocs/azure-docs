@@ -8,12 +8,14 @@ author: yahnoosh
 ms.author: jlembicz
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/27/2023
+ms.date: 10/09/2023
 ---
 
 # Full text search in Azure Cognitive Search
 
-This article is for developers who need a deeper understanding of how full text search works in Azure Cognitive Search. For text queries, Azure Cognitive Search seamlessly delivers expected results in most scenarios, but occasionally you might get a result that seems "off" somehow. In these situations, having a background in the four stages of Lucene query execution (query parsing, lexical analysis, document matching, scoring) can help you identify specific changes to query parameters or index configuration that produce the desired outcome. 
+Full text search is an approach in information retrieval that matches on plain text content stored in an index. For example, given a query string "hotels in San Diego on the beach", the search engine looks for content containing those terms. To make scans more efficient, query strings undergo lexical analysis: lower-casing all terms, removing stop words like "the", and reducing terms to primitive root forms. When matching terms are found, the search engine retrieves documents, ranks them in order of relevance, and returns the top results.
+
+Query execution can be complex. This article is for developers who need a deeper understanding of how full text search works in Azure Cognitive Search. For text queries, Azure Cognitive Search seamlessly delivers expected results in most scenarios, but occasionally you might get a result that seems "off" somehow. In these situations, having a background in the four stages of Lucene query execution (query parsing, lexical analysis, document matching, scoring) can help you identify specific changes to query parameters or index configuration that produce the desired outcome. 
 
 > [!NOTE]
 > Azure Cognitive Search uses [Apache Lucene](https://lucene.apache.org/) for full text search, but Lucene integration is not exhaustive. We selectively expose and extend Lucene functionality to enable the scenarios important to Azure Cognitive Search. 

@@ -107,6 +107,9 @@ items:
           href: how-to-custom-speech-model-and-endpoint-lifecycle.md
         - name: CI/CD for Custom Speech
           href: how-to-custom-speech-continuous-integration-continuous-deployment.md
+    - name: How to use Pronunciation Assessment
+      href: how-to-pronunciation-assessment.md
+      displayName: pronounce, language learn, assess pron, scripted, unscripted
     - name: Improve recognition with phrase list
       href: improve-accuracy-phrase-list.md
     - name: Display text formatting
@@ -241,11 +244,8 @@ items:
         href: language-learning-overview.md
       - name: Pronunciation Assessment with speech to text
         items:
-        - name: Pronunciation Assessment in Speech Studio
+        - name: Reading and speaking assessment in Speech Studio
           href: pronunciation-assessment-tool.md
-          displayName: pronounce, learn language, assess pron
-        - name: How to use Pronunciation Assessment
-          href: how-to-pronunciation-assessment.md
           displayName: pronounce, learn language, assess pron
     - name: Azure OpenAI speech to speech chat
       href: openai-speech.md
@@ -270,7 +270,7 @@ items:
         - name: Voice assistants FAQ
           href: faq-voice-assistants.yml
         - name: Voice Assistants Samples (GitHub)
-          href: http://aka.ms/speech/va-samples
+          href: https://aka.ms/speech/va-samples
         - name: Custom Commands
           items:
             - name: Custom Commands overview
@@ -342,9 +342,9 @@ items:
         href: how-to-select-audio-input-devices.md
     - name: Access control and authentication
       items:
-      - name: Role-based access with Azure Active Directory 
+      - name: Role-based access with Microsoft Entra ID 
         href: role-based-access-control.md
-      - name: Use Azure Active Directory Authentication
+      - name: Use Microsoft Entra authentication
         href: how-to-configure-azure-ad-auth.md
     - name: Endpoint connections
       items:

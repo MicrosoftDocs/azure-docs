@@ -139,7 +139,7 @@ Successfully packaged chart and saved it to: /my/path/hello-world-0.1.0.tgz
 
 Run  `helm registry login` to authenticate with the registry. You may pass [registry credentials](container-registry-authentication.md) appropriate for your scenario, such as service principal credentials, user identity, or a repository-scoped token.
 
-- Authenticate with an Azure Active Directory [service principal with pull and push permissions](container-registry-auth-service-principal.md#create-a-service-principal) (AcrPush role) to the registry.
+- Authenticate with a Microsoft Entra [service principal with pull and push permissions](container-registry-auth-service-principal.md#create-a-service-principal) (AcrPush role) to the registry.
   ```azurecli
   SERVICE_PRINCIPAL_NAME=<acr-helm-sp>
   ACR_REGISTRY_ID=$(az acr show --name $ACR_NAME --query id --output tsv)
@@ -149,7 +149,7 @@ Run  `helm registry login` to authenticate with the registry. You may pass [regi
             --query "password" --output tsv)
   USER_NAME=$(az identity show -n $SERVICE_PRINCIPAL_NAME -g $RESOURCE_GROUP_NAME --subscription $SUBSCRIPTION_ID --query "clientId" -o tsv)
   ```
-- Authenticate with your [individual Azure AD identity](container-registry-authentication.md?tabs=azure-cli#individual-login-with-azure-ad) to push and pull Helm charts using an AD token.
+- Authenticate with your [individual Microsoft Entra identity](container-registry-authentication.md?tabs=azure-cli#individual-login-with-azure-ad) to push and pull Helm charts using an AD token.
   ```azurecli
   USER_NAME="00000000-0000-0000-0000-000000000000"
   PASSWORD=$(az acr login --name $ACR_NAME --expose-token --output tsv --query accessToken)

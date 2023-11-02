@@ -1,12 +1,12 @@
 ---
-title: OCR for documents - Document Intelligence (formerly Form Recognizer)
+title: Read model OCR data extraction - Document Intelligence (formerly Form Recognizer)
 titleSuffix: Azure AI services
 description: Extract print and handwritten text from scanned and digital documents with Document Intelligence's Read OCR model.
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
-ms.date: 07/18/2023
+ms.date: 11/01/2023
 ms.author: lajanuar
 monikerRange: '>=doc-intel-3.0.0'
 ---
@@ -80,7 +80,7 @@ Try extracting text from forms and documents using the Document Intelligence Stu
 
 ## Supported extracted languages and locales
 
-The following lists include the currently GA languages in the most recent v3.0 version for Read, Layout, and Custom template (form) models.
+The following lists include the languages currently supported for the GA versions of Read, Layout, and Custom template (form) models.
 
 > [!NOTE]
 > **Language code optional**

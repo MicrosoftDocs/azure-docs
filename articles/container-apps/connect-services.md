@@ -223,7 +223,7 @@ The following steps bind your application to an existing instance of Azure Cache
     ```
 
     > [!NOTE]
-    > Environment variable names used for dev mode services and managed service vary slightly.
+    > Environment variable names used for [add-ons](services.md) and managed services vary slightly.
     >
     > If you'd like to see the sample code used for this tutorial please see https://github.com/Azure-Samples/sample-service-redis.
 

@@ -220,7 +220,6 @@ display(translated_df)
 Paste the following code in the sixth cell and then run it. No modifications are required.
 
 This code loads [AzureSearchWriter](https://microsoft.github.io/SynapseML/docs/Explore%20Algorithms/AI%20Services/Overview/#azure-cognitive-search-sample). It consumes a tabular dataset and infers a search index schema that defines one field for each column. The translations structure is an array, so it's articulated in the index as a complex collection with subfields for each language translation. The generated index will have a document key and use the default values for fields created using the [Create Index REST API](/rest/api/searchservice/create-index).
-This code loads [AzureSearchWriter](). It consumes a tabular dataset and infers a search index schema that defines one field for each column. The translations structure is an array, so it's articulated in the index as a complex collection with subfields for each language translation. The generated index will have a document key and use the default values for fields created using the [Create Index REST API](/rest/api/searchservice/create-index).
 
 ```python
 from synapse.ml.cognitive import *

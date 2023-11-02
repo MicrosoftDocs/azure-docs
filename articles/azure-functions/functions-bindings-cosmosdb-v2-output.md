@@ -2,7 +2,7 @@
 title: Azure Cosmos DB output binding for Functions 2.x and higher
 description: Learn to use the Azure Cosmos DB output binding in Azure Functions.
 ms.topic: reference
-ms.date: 03/02/2023
+ms.date: 10/05/2023
 ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: devx-track-csharp, devx-track-python, ignite-2022, devx-track-extended-java, devx-track-js
 zone_pivot_groups: programming-languages-set-functions
@@ -44,11 +44,11 @@ Unless otherwise noted, examples in this article target version 3.x of the [Azur
 
 The following code defines a `MyDocument` type:
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/CosmosDB/CosmosDBFunction.cs" range="37-46":::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/CosmosDB/CosmosDBFunction.cs" range="49-58":::
 
 In the following example, the return type is an [`IReadOnlyList<T>`](/dotnet/api/system.collections.generic.ireadonlylist-1), which is a modified list of documents from trigger binding parameter:
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/CosmosDB/CosmosDBFunction.cs" range="4-35":::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/CosmosDB/CosmosDBFunction.cs" range="4-47":::
 
 # [In-process model](#tab/in-process)
 
@@ -707,7 +707,7 @@ See the [Example section](#example) for complete examples.
 
 ## Usage
 
-By default, when you write to the output parameter in your function, a document is created in your database. This document has an automatically generated GUID as the document ID. You can specify the document ID of the output document by specifying the `id` property in the JSON object passed to the output parameter.
+By default, when you write to the output parameter in your function, a document is created in your database. You should specify the document ID of the output document by specifying the `id` property in the JSON object passed to the output parameter.
 
 > [!NOTE]  
 > When you specify the ID of an existing document, it gets overwritten by the new output document.

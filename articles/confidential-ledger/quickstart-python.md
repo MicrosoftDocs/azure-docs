@@ -37,7 +37,7 @@ This quickstart uses the Azure Identity library, along with Azure CLI or Azure P
 
 In a terminal or command prompt, create a suitable project folder, and then create and activate a Python virtual environment as described on [Use Python virtual environments](/azure/developer/python/configure-local-development-environment?tabs=cmd#use-python-virtual-environments).
 
-Install the Azure Active Directory identity client library:
+Install the Microsoft Entra identity client library:
 
 ```terminal
 pip install azure-identity

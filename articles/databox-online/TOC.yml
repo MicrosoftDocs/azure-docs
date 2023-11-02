@@ -264,15 +264,15 @@
       - name: What are VMs?
         href: azure-stack-edge-gpu-virtual-machine-overview.md
       - name: View supported VMs
-        href: azure-stack-edge-gpu-virtual-machine-sizes.md              
+        href: azure-stack-edge-gpu-virtual-machine-sizes.md
+      - name: Create a VM with custom VM size
+        href: azure-stack-edge-create-vm-with-custom-size.md
       - name: View supported API profiles
         href: azure-stack-edge-profiles-azure-resource-manager-versions.md
       - name: What are GPU VMs?
         href: azure-stack-edge-gpu-overview-gpu-virtual-machines.md
       - name: Create VM image
         items:
-        - name: Create custom VM image
-          href: azure-stack-edge-create-vm-with-custom-size.md
         - name: Custom image from Azure VM
           href: azure-stack-edge-gpu-create-virtual-machine-image.md
         - name: Windows generalized image from VHD
@@ -281,8 +281,10 @@
           href: azure-stack-edge-gpu-prepare-windows-generalized-image-iso.md
         - name: Use specialized image
           href: azure-stack-edge-gpu-deploy-vm-specialized-image-powershell.md 
-        - name: Use Azure Marketplace image
+        - name: Using Azure Marketplace image via portal
           href: azure-stack-edge-create-a-vm-from-azure-marketplace.md 
+        - name: Using Azure Marketplace image via Azure CLI
+          href: azure-stack-edge-gpu-create-virtual-machine-marketplace-image.md
       - name: Deploy
         items:
         - name: VMs - Azure portal (preview)

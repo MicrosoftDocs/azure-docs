@@ -1,7 +1,7 @@
 ---
 author: areddish
 ms.author: areddish
-ms.service: cognitive-services
+ms.service: azure-ai-custom-vision
 ms.date: 10/26/2020
 ms.custom:
 ms.topic: include

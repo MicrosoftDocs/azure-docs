@@ -83,7 +83,7 @@ The certificate provided for Service principal access might have expired.
     at Microsoft.IdentityModel.Clients.ActiveDirectory.HttpWebRequestWrapper.<GetResponseSyncOrAsync>d__2.MoveNext()
     ```
 
-1. Any other Azure Active Directory related errors/certificate related errors can be recognized by pinging the gateway url to get the OAuth token.
+1. Any other Microsoft Entra related errors/certificate related errors can be recognized by pinging the gateway url to get the OAuth token.
 
 1. If you are getting following error when attempting to access ADLS from the HDI Cluster. Check if the Certificate has Expired by following the steps mentioned above.
 

@@ -332,7 +332,7 @@ You can delete the ExpressRoute Direct resource by running the following command
 
 The following scenario is in public preview:
 
-ExpressRoute Direct and ExpressRoute circuit(s) in different subscriptions or Azure Active Directory tenants. You'll create an authorization for your ExpressRoute Direct resource, and redeem the authorization to create an ExpressRoute circuit in a different subscription or Azure Active Directory tenant.
+ExpressRoute Direct and ExpressRoute circuit(s) in different subscriptions or Microsoft Entra tenants. You'll create an authorization for your ExpressRoute Direct resource, and redeem the authorization to create an ExpressRoute circuit in a different subscription or Microsoft Entra tenant.
 
 ### Enable ExpressRoute Direct and circuits in different subscriptions
 
@@ -391,7 +391,7 @@ ExpressRoute Direct and ExpressRoute circuit(s) in different subscriptions or Az
         CircuitResourceUri     :on  
     ```
 
-1. Redeem the authorization to create the ExpressRoute Direct circuit in different subscription or Azure Active Directory tenant with the following command:
+1. Redeem the authorization to create the ExpressRoute Direct circuit in different subscription or Microsoft Entra tenant with the following command:
 
     ```powershell
     Select-AzSubscription -Subscription "<SubscriptionID or SubscriptionName>"

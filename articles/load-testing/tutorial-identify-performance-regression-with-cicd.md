@@ -127,7 +127,7 @@ Now that you have load testing resource and a load test for the sample applicati
     :::image type="content" source="media/tutorial-identify-performance-regression-with-cicd/set-up-cicd-pipeline.png" alt-text="Screenshot that shows the settings to be configured to set up a CI/CD pipeline." lightbox="media/tutorial-identify-performance-regression-with-cicd/set-up-cicd-pipeline.png":::
 
     > [!IMPORTANT]
-    > If you're getting an error creating a PAT token, or you don't see any repositories, make sure to [connect your Azure DevOps organization to Azure Active Directory (Azure AD)](/azure/devops/organizations/accounts/connect-organization-to-azure-ad). Make sure the directory in Azure DevOps matches the directory you're using for Azure Load Testing. After connecting to Azure AD, close and reopen your browser window.
+    > If you're getting an error creating a PAT token, or you don't see any repositories, make sure to [connect your Azure DevOps organization to Microsoft Entra ID](/azure/devops/organizations/accounts/connect-organization-to-azure-ad). Make sure the directory in Azure DevOps matches the directory you're using for Azure Load Testing. After connecting to Microsoft Entra ID, close and reopen your browser window.
 
 1. Select **Create Pipeline** to start creating the pipeline definition.
 
