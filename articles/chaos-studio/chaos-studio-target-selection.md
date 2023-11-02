@@ -11,7 +11,7 @@ ms.custom: template-concept, ignite-fall-2021
 
 # Target selection in Azure Chaos Studio
 
-Every chaos experiment is made up of a different combination of faults and targets, building up to a unique outage scenario to test your system's resilience against. You may want to select a fixed set of targets for your chaos experiment, or provide a rule in which all matching fault-onboarded resources are included as targets in your experiment. Chaos Studio enables you to do both by providing both manual and query-based target selection.
+Every chaos experiment is made up of a different combination of faults and targets, building up to a unique outage scenario to test your system's resilience against. You can select a fixed set of targets for your chaos experiment, or provide a rule in which all matching fault-onboarded resources are included as targets in your experiment. Chaos Studio enables you to do both by providing both manual and query-based target selection.
 
 ## List-based manual target selection
 
@@ -23,7 +23,7 @@ List-based manual target selection allows you to select a fixed set of onboarded
 
 Query-based dynamic target selection allows you to input a KQL query that selects all onboarded targets that match the query result set. Using your query, you can filter targets based on common Azure resource parameters including type, region, name, and more. Upon experiment creation time, only the query itself is added to your chaos experiment. 
 
-The inputted query runs and adds onboarded targets to your experiment that match its result set upon experiment execution time. Thus, any resources onboarded to Chaos Studio after experiment creation time that match the query result set upon experiment execution time are targeted by your experiment. You may preview your query's result set when adding it to your experiment, but it may not match the result set at experiment execution time. An example of a possible dynamic target query is shown below.
+The inputted query runs and adds onboarded targets to your experiment that match its result set upon experiment execution time. Thus, any resources onboarded to Chaos Studio after experiment creation time that match the query result set upon experiment execution time are targeted by your experiment. You can preview your query's result set when adding it to your experiment, but it may not match the result set at experiment execution time. An example of a possible dynamic target query is shown below.
 
 [ ![Screenshot that shows the query-based dynamic target selection option in the Azure portal.](images/dynamic-target-selection-preview.png) ](images/dynamic-target-selection-preview.png#lightbox)
 
