@@ -46,7 +46,7 @@ For a more structured approach, follow a Training module for Face.
 
 ## Example use cases
 
-**Verify user identity**: Verify a person against a trusted face image. This verification could be used to grant access to digital or physical properties, such as a bank account, access to a building, and so on. In most cases, the trusted face image could come from a government-issued ID such as a passport or driver’s license, or it could come from an enrollment photo taken in person. During verification, liveness detection can play a critical role in verifying that the image comes from a real person, not a printed photo or mask. For more details, see the [tutorial](tbd). 
+**Verify user identity**: Verify a person against a trusted face image. This verification could be used to grant access to digital or physical properties, such as a bank account, access to a building, and so on. In most cases, the trusted face image could come from a government-issued ID such as a passport or driver’s license, or it could come from an enrollment photo taken in person. During verification, liveness detection can play a critical role in verifying that the image comes from a real person, not a printed photo or mask. For more details, see the [tutorial](tbd). TBD add link to the quickstart too. It's the same thing kind of.
 
 **Liveness detection**: Liveness detection is an anti-spoofing feature that checks whether a user is physically present in front of the camera. It's used to prevent spoofing attacks using a printed photo, video, or a 3D mask of the user's face. [Verify with liveness](use-case-verify-with-liveness.md)
 
