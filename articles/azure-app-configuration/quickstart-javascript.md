@@ -1,6 +1,6 @@
 ---
 title: Using Azure App Configuration in JavaScript apps with the Azure SDK for JavaScript | Microsoft Docs
-description: This document shows examples of how to use the Azure SDK for JavaScript to access your data in Azure App Configuration.
+description: This document shows examples of how to use the Azure SDK for JavaScript to access key-values in Azure App Configuration.
 services: azure-app-configuration
 author: maud-lv
 ms.service: azure-app-configuration
@@ -13,7 +13,7 @@ ms.author: malev
 ---
 # Create a Node.js app with the Azure SDK for JavaScript
 
-This document shows examples of how to use the [Azure SDK for JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/appconfiguration/app-configuration) to access your data in Azure App Configuration.
+This document shows examples of how to use the [Azure SDK for JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/appconfiguration/app-configuration) to access key-values in Azure App Configuration.
 
 >[!TIP]
 > App Configuration offers a JavaScript provider library that is built on top of the JavaScript SDK and is designed to be easier to use with richer features. It enables configuration settings to be used like a Map object, and offers other features like configuration composition from multiple labels, key name trimming, and automatic resolution of Key Vault references. Go to the [JavaScript quickstart](./quickstart-javascript-provider.md) to learn more.
@@ -345,7 +345,7 @@ Key: TestApp:Settings:NewSetting, Value: Value has been updated!
 
 ## Next steps
 
-This guide showed you how to use the Azure SDK for JavaScript to access your data in Azure App Configuration.
+This guide showed you how to use the Azure SDK for JavaScript to access key-values in Azure App Configuration.
 
 For additional code samples, visit:
 

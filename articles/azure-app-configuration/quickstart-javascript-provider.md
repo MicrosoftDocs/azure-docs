@@ -47,7 +47,7 @@ Add the following key-values to the App Configuration store. For more informatio
     cd app-configuration-quickstart
     ```
 
-1. Install the Azure App Configuration client library by using the `npm install` command.
+1. Install the Azure App Configuration provider by using the `npm install` command.
 
     ```console
     npm install @azure/app-configuration-provider
@@ -186,7 +186,7 @@ Add the following key-values to the App Configuration store. For more informatio
 
 ## Next steps
 
-In this quickstart, you created a new App Configuration store and learned how to access key-values from a Node.js app.
+In this quickstart, you created a new App Configuration store and learned how to access key-values using the App Configuration Javascript provider in a Node.js app.
 
 For additional code samples, visit:
 
