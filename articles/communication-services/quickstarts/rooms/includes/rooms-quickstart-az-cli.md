@@ -73,19 +73,36 @@ After you add the environment variable, run `source ~/.bash_profile` from your c
 Use the `rooms create` command to create a room. 
 
 ```azurecli-interactive
-az communication rooms create --presenter-participants "<participantId>" --consumer-participants "<participantId>" --attendee-participant "<participantId>" --valid-from "<valid-from>" --valid-until "<valid-until>" --connection-string "<connection-string>"
+az communication rooms create --presenter-participants "<participantId>" --consumer-participants "<participantId>" --attendee-participant "<participantId>" --valid-from "<valid-from>" --valid-until "<valid-until>" --pstn-dial-out-enabled "<pstn-dial-out-enabled>" --connection-string "<connection-string>"
 ```
 
 - Use `<participantId>` optionally to specify the type of participant as presenter-participants, consumer-participants, or attendee-participants. If you do not specify a value, the default is empty. 
 - Replace `<connection-string>` with your Azure Communication Services connection string. 
 - Use `<valid-from>` optionally to specify the timestamp when the room is open for joining, in ISO8601 format, ex: 2022-07-14T10:21. 
 - Use `<valid-until>` optionally to specify the timestamp when the room can no longer be joined, in ISO8601 format, ex: 2022-07-14T10:21. 
+- Use `<pstn-dial-out-enabled>`* optionally by setting this flag ("True" or "False") to enable or disable PSTN dial out for a room. By default, this flag is set to "False" when creating a room.
+
+*`<pstn-dial-out-enabled>` is currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 If you've stored the connection string in environment variables as stated above, you won't need to pass them to the command.
 
 ```azurecli-interactive
 az communication rooms create 
 ```
+
+### Enable PSTN Dial Out Capability for a Room (Currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/))
+The PSTN dial out can be enabled during `rooms create` by defining the `--pstn-dial-out-enabled` parameter as "True". This capability may also be modified during `rooms update` by specifying the `--pstn-dial-out-enabled` parameter.
+
+```azurecli-interactive
+az communication rooms create --pstn-dial-out-enabled "<pstn-dial-out-enabled>" --connection-string "<connection-string>"
+```
+
+```azurecli-interactive
+az communication rooms update --pstn-dial-out-enabled "<pstn-dial-out-enabled>" --room "<roomId>"
+```
+
+- Use `<pstn-dial-out-enabled>` set this flag ("True" or "False") to enable or disable PSTN dial out for a room.
+
 ### Get the rooms 
 
 The `rooms get` command returns the attributes of an existing room.
@@ -101,11 +118,12 @@ az communication rooms get --room "<roomId>"
 You can update the timestamp of a room. Before calling the `room update` command, ensure that you've acquired a new room with a valid timeframe. 
 
 ```azurecli-interactive
-az communication rooms update --valid-from "<valid-from>" --valid-until "<valid-until>" --room "<roomId>"
+az communication rooms update --valid-from "<valid-from>" --valid-until "<valid-until>" --pstn-dial-out-enabled "<pstn-dial-out-enabled>" --room "<roomId>"
 ```
 
 - Replace `<valid-from>` with the timestamp in ISO8601 format, ex: 2022-07-14T10:21, to specify when the room is open for joining. Should be used together with `--valid-until`.
 - Replace `<valid-until>` with the timestamp in ISO8601 format, ex: 2022-07-14T10:21, to specify when the room can no longer be joined. Should be used together with `--valid-from`.
+- Replace `<pstn-dial-out-enabled>` set this flag ("True" or "False") to enable or disable PSTN dial out for a room. Should be used together with `--pstn-dial-out-enabled`.
 - Replace `<roomId>` with your room ID.
   
 ### List all active rooms
