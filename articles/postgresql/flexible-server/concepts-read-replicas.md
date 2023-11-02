@@ -161,6 +161,8 @@ For both promotion methods, there are additional options to consider:
 > [!IMPORTANT]
 > Promote operation is not automatic. In the event of a primary server failure, the system won't switch to the read replica on its own. An user action is always required for the promote operation.
 
+In the Planned promotion scenario, if the replica server status is anything other than "Available" (e.g., "Updating" or "Restarting"), an error will be presented. However, using the Forced method, the promotion is designed to proceed, regardless of the replica server's current status, to quickly address potential regional disasters. It's essential to note that if the server transitions to an irrecoverable state during this process, the only recourse will be to recreate the replica.
+
 
 ### Configuration management
 Read replicas are treated as separate servers in terms of control plane configurations. This provides flexibility for read scale scenarios. However, when using replicas for disaster recovery purposes, users must ensure the configuration is as desired.
