@@ -5,7 +5,7 @@ author: guywi-ms
 ms.author: guywild
 ms.reviewer: adi.biran
 ms.topic: conceptual
-ms.date: 10/01/2022
+ms.date: 11/02/2023
 ---
 
 # Query Basic Logs in Azure Monitor
