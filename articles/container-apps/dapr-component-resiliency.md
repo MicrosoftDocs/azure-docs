@@ -84,37 +84,12 @@ To begin, log-in to the Azure CLI:
 az login
 ```
 
-### Create policies with recommended settings
-
-To create a resiliency policy with recommended settings for timeouts and retries, run the `resiliency create` command:
-
-```azurecli
-az containerapp env dapr-component resiliency create -g MyResourceGroup -n MyResiliencyName --container-app-name MyContainerApp --default
-```
-
-### Create policies with resiliency YAML
+### Create
 
 To apply the resiliency policies from a YAML file you created for your container app, run the following command:
 
 ```azurecli
 az containerapp env dapr-component resiliency create -g MyResourceGroup -n MyDaprResiliency --env-name MyEnvironment --dapr-component-name MyDaprComponentName --yaml MyYAMLFile
-```
-
-This command passes the resiliency policy YAML file, which may look similar to the following example:
-
-```yaml
-spec:
-  policies:
-    timeoutPolicy:
-      responseTimeoutInSeconds: 30
-      connectionTimeoutInSeconds: 5
-    httpRetryPolicy:
-      maxRetries: 5
-      retryBackOff:
-        initialDelayInMilliseconds: 1000
-        maxIntervalInMilliseconds: 10000
-    tcpRetryPolicy:
-      maxConnectAttempts: 3
 ```
 
 ### Update specific policies
