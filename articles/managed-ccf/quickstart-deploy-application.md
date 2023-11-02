@@ -35,5 +35,5 @@ When the command completes, the application is deployed to the Managed CCF resou
 ## Next steps
 
 - [Azure Managed CCF overview](overview.md)
-- [Quickstart: Update the JavaScript runtime options](how-to-update-js-runtime-options.md)
+- [Quickstart: Update the JavaScript runtime options](how-to-update-javascript-runtime-options.md)
 - [Quickstart: Deploy an Azure Managed CCF application](quickstart-deploy-application.md)
