@@ -20,8 +20,6 @@
     href: ai-studio/quickstarts/playground-completions.md
   - name: Moderate text and images with content safety
     href: ai-studio/quickstarts/content-safety.md
-  - name: Chat with your data via the Azure AI CLI
-    href: ai-studio/quickstarts/chat-ai-cli.md
 - name: How-to
   expanded: true
   items:
@@ -33,7 +31,7 @@
       href: ai-studio/how-to/models-foundation-azure-ai.md
   - name: Setup your development environment
     items:
-    - name: Install the Azure AI SDK
+    - name: Get started with the Azure AI SDK
       href: ai-studio/how-to/sdk-install.md
     - name: Install the Azure AI CLI
       href: ai-studio/how-to/cli-install.md

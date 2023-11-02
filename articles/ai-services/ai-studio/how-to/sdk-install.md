@@ -1,7 +1,7 @@
 ---
-title: How to install the Azure AI SDK
+title: How to get started with the Azure AI SDK
 titleSuffix: Azure AI services
-description: This article provides instructions on how to install the Azure AI SDK.
+description: This article provides instructions on how to get started with the Azure AI SDK.
 services: cognitive-services
 author: eric-urban
 manager: nitinme
@@ -11,13 +11,13 @@ ms.date: 10/1/2023
 ms.author: eur
 ---
 
-# How to install the Azure AI SDK
+# How to get started with the Azure AI SDK
 
-To use the Azure AI SDK for generative AI applications, you can either:
+The Azure AI SDK is a family of packages that provide access to Azure AI services such as Azure OpenAI and Speech. 
+
+In this article, you'll learn how to get started with the Azure AI SDK for generative AI applications. You can either:
 - [Install the SDK into an existing development environment](#install-the-sdk-into-an-existing-development-environment) or
 - [Use the Azure AI SDK without installing it](#use-the-azure-ai-sdk-without-installing-it)
-
-Start with a containerized development environment. The prebuilt development environments are based on a docker container that has the Azure AI Generative SDK and Azure AI CLI, and configured to run Visual Studio Code remotely inside of the container.
 
 ## Install the SDK into an existing development environment
 
@@ -73,42 +73,16 @@ conda activate ai_env
 
 Currently to use the generative packages of the Azure AI SDK, you install a set of packages as described in this section. A single `azure-ai-generative` installation package will be available soon.
 
-Copy the following text into a `requirements.txt` file. You can also copy the latest `requirements.txt` file from the [Azure/aistudio-copilot-sample](https://github.com/Azure/aistudio-copilot-sample/blob/main/requirements.txt) repository on GitHub.
+> [!CAUTION]
+> It's recommended to run this command either in a virtual environment, conda environment, or docker container. If you do not do this, you may run into dependency issues with the packages you have installed on your system. For more information, see [Install Python](#install-python-via-virtual-environments).
 
-```txt
-# other app dependencies
-ipykernel
-python-dotenv 
+1. Create a new text file named `requirements.txt` in your project directory.
+1. Copy the content from the [Azure/aistudio-copilot-sample requirements.txt](https://github.com/Azure/aistudio-copilot-sample/blob/main/requirements.txt) repository on GitHub into your `requirements.txt` file.
+1. Enter the following command to install the packages from the `requirements.txt` file:
 
-# generative ai SDK dependencies
-openai
-pydantic<2
-azureml-metrics[prompt-flow,evaluate] @https://azuremlsdktestpypi.blob.core.windows.net/repo/sdk-release/master/588E708E0DF342C4A80BD954289657CF/azureml_metrics-0.1.0.105204596-py3-none-any.whl
-azure-ai-generative @https://azuremlsdktestpypi.blob.core.windows.net/repo/test-azure-ai-generative/azure_ai_generative-0.7.0-py3-none-any.whl
-azureml-rag[document_parsing,cognitive_search]==0.2.10
-azureml-telemetry
-
-# promptflow dependencies, these should be optional in the future
-# hardcoded the version of azureml-mlflow here for faster Docker image building speed
-azureml-mlflow==1.53.0
-promptflow[azure]==0.1.0b7.post1
-promptflow-tools==0.1.0b8
-keyring
-pytest
-
-# langchain dependencies, it's used in chat demo notebook
-langchain==0.0.312
-semantic-kernel
-```
-
-Enter the following command to install the packages from the `requirements.txt` file:
-
-> [!IMPORTANT]
-> It's recommended to run this command either in a virtual environment, conda environment, or docker container. If you do not do this, you may run into dependency issues with the packages you have installed on your system.
-
-```bash
-pip install -r requirements.txt
-```
+    ```bash
+    pip install -r requirements.txt
+    ```
 
 The Azure AI SDK should now be installed and ready to use!
 
@@ -142,5 +116,5 @@ The Azure AI code samples in GitHub Codespaces help you quickly get started with
 
 ## Next steps
 
-- [Quickstart: Chat with your data via the Azure AI CLI](../quickstarts/chat-ai-cli.md)
+- [Try the Azure AI CLI from Azure AI Studio in a browser](vscode-web.md)
 - [Azure SDK for Python reference documentation](/python/api/overview/azure)

@@ -34,12 +34,8 @@ The following set of commands are provided for a few popular operating systems.
 
 To install the .NET SDK, Azure CLI, and Azure AI CLI, run the following commands in a PowerShell terminal. Skip any that you don't need. 
 
-```pwsh
-winget install Microsoft.AzureCLI
-winget install Microsoft.DotNet.SDK.7
-Start-BitsTransfer -Source https://csspeechstorage.blob.core.windows.net/drop/private/ai/Azure.AI.CLI.1.0.0-alpha1018.1.nupkg
-dotnet tool install --global --add-source . Azure.AI.CLI --version 1.0.0-alpha1018.1
-Remove-Item Azure.AI.CLI.1.0.0-alpha1018.1.nupkg
+```bash
+dotnet tool install --global Microsoft.Azure.AI.CLI
 ```
 
 # [Linux](#tab/linux)
@@ -54,22 +50,13 @@ curl -sL https://aka.ms/InstallAzureAICLIDeb | bash
 
 On macOS, you can use *homebrew* and *wget*. For example, run the following commands in a terminal:
 
+
 ```bash
-brew install azure-cli
-brew install dotnet
-curl -O https://csspeechstorage.blob.core.windows.net/drop/private/ai/Azure.AI.CLI.1.0.0-alpha1018.1.nupkg
-dotnet tool install --global --add-source . Azure.AI.CLI --version 1.0.0-alpha1018.1
-rm Azure.AI.CLI.1.0.0-alpha1018.1.nupkg
+dotnet tool install --global Microsoft.Azure.AI.CLI
 ```
 
 ---
 
-## Try the Azure AI CLI
-
-Now that you have the Azure AI CLI installed, you can try the following quickstart:
-
-> [!div class="nextstepaction"]
-> [Quickstart: Chat with your data via the Azure AI CLI](../quickstarts/chat-ai-cli.md)
 
 ## Run the Azure AI CLI without installing it
 
@@ -94,9 +81,77 @@ You can run the Azure AI CLI in a Docker container using VS Code Dev Containers:
 1. Select the **Reopen in Dev Containers** button. If it doesn't appear, open the command palette (`Ctrl+Shift+P` on Windows and Linux, `Cmd+Shift+P` on Mac) and run the `Dev Containers: Reopen in Container` command.
 
 
+## Try the Azure AI CLI
+
+### AI init
+
+The `ai init` command allows interactive and non-interactive selection or creation of Azure AI resources. When an AI resource is selected or created using this command, the associated resource keys and region are retrieved and automatically stored in the local AI configuration datastore.
+
+You can initialize the Azure AI CLI by running the following command:
+
+```bash
+ai init
+```
+
+Follow the prompts to: 
+- Select or create an Azure subscription
+- Select or create an Azure AI resource
+- Select or create a resource group
+- Select a model
+- Select or create a deployment
+
+
+### AI chat
+
+Once you have initialized resources and have a deployment, you can chat interactively or non-interactively with the AI language model using the `ai chat` command.
+
+# [Terminal](#tab/terminal)
+
+Here's an example of interactive chat:
+
+```bash
+ai chat --interactive --system @prompt.txt
+```
+
+Here's an example of non-interactive chat:
+
+```bash
+ai chat --system @prompt.txt --user "Tell me about Azure AI Studio"
+```
+
+
+# [PowerShell](#tab/powershell)
+
+Here's an example of interactive chat:
+
+```powershell
+ai --% chat --interactive --system @prompt.txt
+```
+
+Here's an example of non-interactive chat:
+
+```powershell
+ai --% chat --system @prompt.txt --user "Tell me about Azure AI Studio"
+```
+
+> [!NOTE]
+> If you're using PowerShell, use the `--%` stop-parsing token to prevent the terminal from interpreting the `@` symbol as a special character. 
+
+---
+
+
+### AI help
+
+You can interactively browse and explore the Azure AI CLI commands and options by running the following command:
+
+```bash
+ai help
+```
+
+
 ## Next steps
 
-- [Quickstart: Chat with your data via the Azure AI CLI](../quickstarts/chat-ai-cli.md)
+- [Try the Azure AI CLI from Azure AI Studio in a browser](vscode-web.md)
 
 
 

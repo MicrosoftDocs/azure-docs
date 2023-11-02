@@ -85,5 +85,5 @@ For cross-language compatibility and seamless integration of Azure AI capabiliti
 
 ## Next steps
 
-- [Quickstart: Chat with your data via the Azure AI CLI](../quickstarts/chat-ai-cli.md)
+- [Get started with the Azure AI CLI](cli-install.md)
 - [Quickstart: Generate product name ideas in the Azure AI Studio playground](../quickstarts/playground-completions.md)
