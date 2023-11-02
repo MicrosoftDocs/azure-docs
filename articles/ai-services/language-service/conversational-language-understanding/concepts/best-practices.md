@@ -127,7 +127,7 @@ Model version 2023-04-15, conversational language understanding provides normali
 
 The normalization layer normalizes the classification confidence scores to a confined range. The range selected currently is from `[-a,a]` where "a" is the square root of the number of intents.  As a result, the normalization depends on the number of intents in the app. If there is a very low number of intents, the normalization layer has a very small range to work with. With a fairly large number of intents, the normalization is more effective.
 
-If the LoraNorm recipe doesn’t seem to help the Out of Scope scenario to the extent that the confidenceThreshold can be used to filter out Out of Scope utterances, it might be related to the number of intents in the app. Consider adding on to the app with more intents or if you are using an orchestrated architecture consider merging apps that belong to the same domain together. 
+If this normalization doesn’t seem to help intents that are out of scope to the extent that the confidence threshold can be used to filter out of scope utterances, it might be related to the number of intents in the app. Consider adding more intents to the app, or if you are using an orchestrated architecture, consider merging apps that belong to the same domain together. 
 
 ## Debugging composed entities
 
