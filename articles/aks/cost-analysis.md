@@ -50,15 +50,15 @@ The AKS cost analysis addon is built on top of [OpenCost](https://www.opencost.i
 
 Install the `aks-preview` Azure CLI extension using the [`az extension add`][az-extension-add] command.
 
-    ```azurecli-interactive
-    az extension add --name aks-preview
-    ```
+```azurecli-interactive
+az extension add --name aks-preview
+```
 
 If you need to update the extension version, you can do this using the [`az extension update`][az-extension-update] command.
 
-    ```azurecli-interactive
-    az extension update --name aks-preview
-    ```
+```azurecli-interactive
+az extension update --name aks-preview
+```
 
 ### Register the 'ClusterCostAnalysis' feature flag
 
