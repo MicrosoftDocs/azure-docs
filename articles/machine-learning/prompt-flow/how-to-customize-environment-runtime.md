@@ -1,5 +1,5 @@
 ---
-title: Customize environment for runtime in prompt flow (preview)
+title: Customize environment for runtime in prompt flow
 titleSuffix: Azure Machine Learning
 description: Learn how to create customized environment for runtime in prompt flow with Azure Machine Learning studio.
 services: machine-learning
@@ -9,14 +9,10 @@ ms.topic: how-to
 author: cloga
 ms.author: lochen
 ms.reviewer: lagayhar
-ms.date: 09/12/2023
+ms.date: 11/02/2023
 ---
 
-# Customize environment for runtime (preview)
-
-> [!IMPORTANT]
-> Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Customize environment for runtime
 
 ## Customize environment with docker context for runtime
 
