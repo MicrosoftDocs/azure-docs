@@ -27,7 +27,7 @@ When your application experiences higher load, autoscale adds resources to handl
 
 For example, scale out your application by adding VMs when the average CPU usage per VM is above 70%. Scale it back by removing VMs when CPU usage drops to 40%.
 
-:::image type="content" source="./media/autoscale-overview/AutoscaleConcept.png" alt-text="A diagram that shows scaling out by adding virtual machine instances.":::
+:::image type="content" source="./media/autoscale-overview/AutoscaleConcept.png" lightbox="./media/autoscale-overview/AutoscaleConcept.png" alt-text="A diagram that shows scaling out by adding virtual machine instances.":::
 
 When the conditions in the rules are met, one or more autoscale actions are triggered, adding or removing VMs. You can also perform other actions like sending email, notifications, or webhooks to trigger processes in other systems.
 
@@ -37,7 +37,7 @@ Autoscale scales in and out, or horizontally. Scaling horizontally is an increas
 
 In contrast, scaling up and down, or vertical scaling, keeps the same number of resource instances constant but gives them more capacity in terms of memory, CPU speed, disk space, and network. Vertical scaling is limited by the availability of larger hardware, which eventually reaches an upper limit. Hardware size availability varies in Azure by region. Vertical scaling might also require a restart of the VM during the scaling process. Autoscale does not support vertical scaling.
 
-:::image type="content" source="./media/autoscale-overview/vertical-scaling.png" alt-text="A diagram that shows scaling up by adding CPU and memory to a virtual machine.":::
+:::image type="content" source="./media/autoscale-overview/vertical-scaling.png" lightbox="./media/autoscale-overview/vertical-scaling.png" alt-text="A diagram that shows scaling up by adding CPU and memory to a virtual machine.":::
 
 When the conditions in the rules are met, one or more autoscale actions are triggered, adding or removing VMs. You can also perform other actions like sending email, notifications, or webhooks to trigger processes in other systems.
 
