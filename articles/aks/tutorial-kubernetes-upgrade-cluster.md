@@ -2,7 +2,7 @@
 title: Kubernetes on Azure tutorial - Upgrade an Azure Kubernetes Service (AKS) cluster
 description: In this Azure Kubernetes Service (AKS) tutorial, you learn how to upgrade an existing AKS cluster to the latest available Kubernetes version.
 ms.topic: tutorial
-ms.date: 10/23/2023
+ms.date: 11/02/2023
 ms.custom: mvc, devx-track-azurepowershell, event-tier1-build-2022
 #Customer intent: As a developer or IT pro, I want to learn how to upgrade an Azure Kubernetes Service (AKS) cluster so that I can use the latest version of Kubernetes and features.
 ---
@@ -360,3 +360,4 @@ For more information on AKS, see the [AKS overview][aks-intro]. For guidance on 
 [aks-auto-upgrade]: ./auto-upgrade-cluster.md
 [auto-upgrade-node-image]: ./auto-upgrade-node-image.md
 [node-image-upgrade]: ./node-image-upgrade.md
+[az-aks-update]: /cli/azure/aks#az_aks_update
