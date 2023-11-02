@@ -23,7 +23,7 @@ Machine learning professionals can specify the resources the job needs. Azure Ma
 
 Enterprises can also reduce costs by specifying optimal resources for each job. IT Admins can still apply control by specifying cores quota at subscription and workspace level and apply Azure policies.
 
-Serverless compute can be used to fine-tune foundation models in the model catalog. Serverless compute can be used to run all types of jobs from Azure Machine Learning studio, SDK and CLI.  Serverless compute can also be used for building environment images. Serverless jobs consume the same quota as Azure Machine Learning compute quota. You can choose standard (dedicated) tier or spot (low-priority) VMs. Managed identity and user identity are supported for serverless jobs. Billing model is the same as Azure Machine Learning compute.
+Serverless compute can be used to fine-tune models in the model catalog. Serverless compute can be used to run all types of jobs from Azure Machine Learning studio, SDK and CLI.  Serverless compute can also be used for building environment images. Serverless jobs consume the same quota as Azure Machine Learning compute quota. You can choose standard (dedicated) tier or spot (low-priority) VMs. Managed identity and user identity are supported for serverless jobs. Billing model is the same as Azure Machine Learning compute.
 
 ## Advantages of serverless compute
 
