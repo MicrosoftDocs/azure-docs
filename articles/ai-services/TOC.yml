@@ -115,8 +115,8 @@
         href: ai-studio/concepts/evaluation-improvement-strategies.md
     - name: Evaluate your flow
       href: ai-studio/how-to/evaluate-flow.md
-    - name: Evaluate in the Azure AI Studio Playground
-      href: ai-studio/how-to/evaluate-flow-playground.md
+    - name: Evaluate prompts from the Azure AI Studio playground 
+      href: ai-studio/how-to/evaluate-prompts-playground.md
     - name: Evaluate via flows in the Azure AI Studio
       href: ai-studio/how-to/evaluate-flow-studio.md
     - name: Evaluate with data
