@@ -13,7 +13,7 @@ manager: jsuri
 
 # Azure Arc agent
 
-When you [enable guest management](enable-guest-management-at-scale.md) on VMware VMs, Azure Arc agent is installed on the VMs. The Azure Connected Machine agent enables you to manage your Windows and Linux machines hosted outside of Azure on your corporate network or other cloud providers. This article provides an architectural overview of Azure connected machine agent.
+When you [enable guest management](enable-guest-management-at-scale.md) on VMware VMs, Azure Connected Machine agent is installed on the VMs. This is the same agent Arc-enabled servers use. The Azure Connected Machine agent enables you to manage your Windows and Linux machines hosted outside of Azure on your corporate network or other cloud providers. This article provides an architectural overview of Azure connected machine agent.
 
 ## Agent components
 
