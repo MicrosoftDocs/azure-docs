@@ -18,11 +18,11 @@ This article contains known issues for Azure IoT Operations Preview.
 
 - QoS0 is not currently supported.
 
-- You must use the Azure CLI interactive login `az login`. If you don't you may see an error such as _ERROR: AADSTS530003: Your device is required to be managed to access this resource_.
+- You must use the Azure CLI interactive login `az login`. If you don't you might see an error such as _ERROR: AADSTS530003: Your device is required to be managed to access this resource_.
 
 ## Azure IoT MQ (preview)
 
-- You can only access the default deployment only accessible by using the cluster IP, TLS, and an a service account token.
+- You can only access the default deployment only accessible by using the cluster IP, TLS, and a service account token.
 
 - Clients outside the cluster need additional configuration before they can connect.
 
