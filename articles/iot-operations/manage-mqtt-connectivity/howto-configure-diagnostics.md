@@ -17,7 +17,7 @@ Diagnostic settings allow you to enable metrics and tracing for Azure IoT MQ bro
 - Metrics provide information about the resource utilization and throughput of IoT MQ broker.
 - Tracing provides detailed information about the requests and responses handled by IoT MQ broker.
 
-For enable these features, you must first deploy the diagnostic service. For more information about deploying the diagnostic service, see [Monitor Azure IoT MQ](../monitor/howto-monitor-mq.md).
+<!-- For enable these features, you must first deploy the diagnostic service. For more information about deploying the diagnostic service, see [Diagnostic service](#diagnostics-service). -->
 
 To override default diagnostic settings for IoT MQ broker, update the `spec.diagnostics` section in  the Broker CR. You also need to specify the diagnostic service endpoint, which is the address of the service that collects and stores the metrics and traces. The default endpoint is `azedge-diagnostics-service:9700`.
 
@@ -62,6 +62,127 @@ spec:
     logLevel: debug,hyper=off,kube_client=off,tower=off,conhash=off,h2=off
 ```
 
+## Diagnostics service
+
+Azure IoT MQ includes a diagnostics service that periodically self tests Azure IoT MQ components and emits metrics. Operators can use these metrics to monitor the health of the system. The diagnostics service has a Prometheus endpoint for metrics.
+
+The diagnostics service emits service level indicators (SLI) that are the actual metric values from Azure IoT MQ measurements. You can use these SLIs to define service level objectives (SLO) that are the targets to meet. The SLIs are used to assess if meeting SLOs. You can define SLOs based on SLI metrics.
+
+### What's supported
+
+| Feature | Supported |
+| --- | --- |
+| Metrics | Supported |
+| Traces | Supported |
+| Logs | Supported |
+| SLI metrics | Supported |
+| Prometheus endpoint | Supported |
+| Grafana dashboard for metrics, traces and logs | Supported |
+
+### Diagnostics service configuration
+
+The diagnostics service processes and collates diagnostic signals from various Azure IoT MQ core components. You can configure it using a custom resource definition (CRD). The following table lists its properties.
+
+| Name | Required | Format | Default | Description |
+| --- | --- | --- | --- | --- |
+| dataExportFrequencySeconds | false | Int32 | `10` | Frequency in seconds for data export |
+| repository | true | String | N/A | Docker image name |
+| tag | true | String | N/A | Docker image tag |
+| pullPolicy | false | String | N/A | Image pull policy to use |
+| pullSecrets | false | String | N/A | Kubernetes secret containing docker authentication details |
+| logFormat | false | String | `json` | Log format. `json` or `text` |
+| logLevel | false | String | `info` | Log level. `trace`, `debug`, `info`, `warn`, or `error`. |
+| maxDataStorageSize | false | Unsigned integer | `16` | Maximum data storage size in MiB |
+| metricsPort | false | Int32 | `9600` | Port for metrics |
+| openTelemetryCollectorAddr | false | String | `null` | Endpoint URL of the OpenTelemetry collector |
+| staleDataTimeoutSeconds | false | Int32 | `600` | Data timeouts in seconds |
+
+The following example is a *DiagnosticsService* custom resource definition:
+
+```yaml
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  name: diagnosticservices.mq.iotoperations.azure.com
+spec:
+  group: mq.iotoperations.azure.com
+  names:
+    categories: []
+    kind: DiagnosticService
+    plural: diagnosticservices
+    shortNames: []
+    singular: diagnosticservice
+  scope: Namespaced
+  versions:
+  - additionalPrinterColumns: []
+    name: v1beta1
+    schema:
+      openAPIV3Schema:
+        description: Auto-generated derived type for DiagnosticServiceSpec via `CustomResource`
+        properties:
+          spec:
+            properties:
+              dataExportFrequencySeconds:
+                default: 10
+                format: uint16
+                maximum: 65535.0
+                minimum: 0.0
+                type: integer
+              image:
+                properties:
+                  pullPolicy:
+                    nullable: true
+                    type: string
+                  pullSecrets:
+                    nullable: true
+                    type: string
+                  repository:
+                    type: string
+                  tag:
+                    type: string
+                required:
+                - repository
+                - tag
+                type: object
+              logFormat:
+                default: json
+                type: string
+              logLevel:
+                default: info
+                type: string
+              maxDataStorageSize:
+                default: 16
+                format: uint32
+                maximum: 4294967295.0
+                minimum: 0.0
+                type: integer
+              metricsPort:
+                default: 9600
+                format: uint16
+                maximum: 65535.0
+                minimum: 0.0
+                type: integer
+              openTelemetryTracesCollectorAddr:
+                nullable: true
+                type: string
+              staleDataTimeoutSeconds:
+                default: 600
+                format: uint16
+                maximum: 65535.0
+                minimum: 0.0
+                type: integer
+            required:
+            - image
+            type: object
+        required:
+        - spec
+        title: DiagnosticService
+        type: object
+    served: true
+    storage: true
+    subresources: {}
+```
+
 ## Related content
 
-[Publish and subscribe MQTT messages using Azure IoT MQ](../manage-mqtt-connectivity/overview-iot-mq.md)
+[Configure observability](../monitor/howto-configure-observability.md)

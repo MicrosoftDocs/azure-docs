@@ -35,9 +35,9 @@ Once your OPC UA data has been processed and enriched in the cloud, you'll have 
 
 This section prepares your lakehouse data to be a source for Power BI. You'll create a new dataset in your lakehouse that contains the contextualized telemetry table you created in the [previous quickstart](quickstart-process-telemetry.md).
 
-1. In the lakehouse menu, select **New Power BI dataset**.
+1. In the lakehouse menu, select **New semantic model**.
 
-    :::image type="content" source="media/quickstart-get-insights/new-power-bi-dataset.png" alt-text="Screenshot of a Fabric lakehouse showing the New Power BI dataset button.":::
+    :::image type="content" source="media/quickstart-get-insights/new-semantic-model.png" alt-text="Screenshot of a Fabric lakehouse showing the New Semantic Model button.":::
 
 1. Select *OPCUA*, the contextualized telemetry table from the previous quickstart, and confirm. This action creates a new dataset and opens a new page.
 
@@ -69,8 +69,8 @@ These steps are for Power BI Desktop, so open that application now.
 1. Download the following Power BI template: [insightsTemplate.pbit](https://github.com/Azure/azure-iot-operations/tree/main/samples/insightsTemplate.pbit).
 1. Open a new instance of Power BI Desktop.
 1. Exit the startup screen and select **File** > **Import** > **Power BI template**. Select the file you downloaded to import it.
-1. A menu pops up asking you to input an Azure subscription and resource group. Enter the Azure subscription ID and resource group where you've created your assets and select **Load**. This loads your sample Asset Registry data into Power BI using a custom [Power Query M](/powerquery-m/) script.  
-1. Optional: To view the script, right select **Asset** > **Edit query**.
+1. A dialog box pops up asking you to input an Azure subscription and resource group. Enter the Azure subscription ID and resource group where you've created your assets and select **Load**. This loads your sample Asset Registry data into Power BI using a custom [Power Query M](/powerquery-m/) script.  
+1. Optional: To view the script, right select **Asset** from the Data panel on the right side of the screen, and choose **Edit query**.
 
     :::image type="content" source="media/quickstart-get-insights/power-bi-edit-query.png" alt-text="Screenshot of Power BI showing the Edit query button.":::
     

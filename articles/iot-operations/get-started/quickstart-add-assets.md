@@ -29,7 +29,7 @@ The data that OPC UA servers expose can have a complex structure and can be diff
 
 ## Sign into the Azure IoT Operations portal
 
-To create asset endpoints, assets and subscribe to OPC UA tags and events, use the Azure IoT Operations (preview) portal. Navigate to the [Azure IoT Operations](https://digitaloperations.azure.com) portal in your browser and sign with your Microsoft Entra ID credentials.
+To create asset endpoints, assets and subscribe to OPC UA tags and events, use the Azure IoT Operations (preview) portal. Navigate to the [Azure IoT Operations](https://aka.ms/iot-operations-portal) portal in your browser and sign with your Microsoft Entra ID credentials.
 
 ## Select your cluster
 
@@ -65,7 +65,7 @@ This configuration deploys a new module called `opc-ua-connector-0` to the clust
 
 When the OPC PLC simulator is running, data flows from the simulator, to the connector, to the OPC UA broker, and finally to the MQ broker.
 
-<!-- TODO: REmove after bugbash -->
+<!-- TODO: Verify if this is still required -->
 
 To enable the asset endpoint to use an untrusted certificate:
 
