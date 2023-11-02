@@ -4,20 +4,18 @@ description: This article explains how to respond to recommendations in Microsof
 ms.topic: how-to
 ms.author: dacurwin
 author: dcurwin
-ms.date: 11/01/2023
+ms.date: 11/02/2023
 ---
 
-# Implement security recommendations in Microsoft Defender for Cloud
+# Implement security recommendations
 
 Recommendations give you suggestions on how to better secure your resources. You implement a recommendation by following the remediation steps provided in the recommendation. 
 
-When you remediate your recommendations 
-
-<a name="remediation-steps"></a>
-
 ## Review recommendation
 
-### Group recommendations by risk level
+Before you attempt tp remediate a recommendation you should review all of the aspects of th recommendation. If you do not know all of the features of the recommendations page you can learn how to [review security recommendations](review-security-recommendations.md).
+
+## Group recommendations by risk level
 
 Before you remediate recommendations you have the ability to group your recommendations in several ways. For example, risk level, owner, environment, affected resource and more. We recommend grouping your recommendations by risk level in order to remediate the most critical recommendations first.
 
