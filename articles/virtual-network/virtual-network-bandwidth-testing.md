@@ -178,6 +178,7 @@ NTTTCP for Linux 1.4.0
 ```
 
 ---
+
 ## Test throughput between a Windows VM and a Linux VM
 
 To run NTTTCP throughput tests between a Windows VM and a Linux VM, enable no-sync mode by using the `-ns` flag on Windows or the `-N` flag on Linux.
@@ -189,6 +190,7 @@ To test with the Windows VM as the receiver, run the following command:
 ```cmd
 ntttcp -r -m [<number of VM cores> x 2],*,<Linux VM IP address> -t 300
 ```
+
 To test with the Windows VM as the sender, run the following command:
 
 ```cmd
@@ -208,11 +210,15 @@ To test with the Linux VM as the sender, run the following command:
 ```bash
 ntttcp -s -m [<number of VM cores> x 2],*,<Windows VM IP address> -N -t 300
 ```
+
 ---
 
 ## Next steps
 
 - [Optimize network throughput for Azure virtual machines](virtual-network-optimize-network-bandwidth.md).
+
 - [Virtual machine network bandwidth](virtual-machine-network-throughput.md).
+
 - [Test VM network latency](virtual-network-test-latency.md)
+
 - [Azure Virtual Network frequently asked questions (FAQ)](virtual-networks-faq.md)
