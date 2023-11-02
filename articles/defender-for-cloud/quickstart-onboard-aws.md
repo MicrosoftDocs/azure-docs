@@ -157,7 +157,7 @@ In this section of the wizard, you select the Defender for Cloud plans that you 
 
 1. By default, the **Databases** plan is set to **On**. This setting is necessary to extend coverage of Defender for SQL to AWS EC2 and RDS Custom for SQL Server.
 
-    Optionally, select **Configure** to edit the configuration as required. We recommend that you leave it set to the default configuration.
+    (Optional) Select **Configure** to edit the configuration as required. We recommend that you leave it set to the default configuration.
 
 1. Continue to **Configure access** by making the following selections:
 
