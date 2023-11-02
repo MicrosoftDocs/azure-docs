@@ -82,7 +82,7 @@ Those security modes include:
 
 Only Kerberos-enabled clients are able to access volumes with export rules specifying Kerberos; no `AUTH_SYS` access is allowed when Kerberos is enabled.
 
-## Root squashing 
+### Root squashing 
 
 There are some scenarios where you want to restrict root access to an Azure NetApp Files volume. Since root has unfettered access to anything in an NFS volume – even when explicitly denying access to root using mode bits or ACLs–-the only way to limit root access is to tell the NFS server that root from a specific client is no longer root.
 
@@ -91,6 +91,84 @@ In export policy rules, select "Root access: off" to squash root to a non-root, 
 To learn more about managing export policies, see [Configure export policies for NFS or dual-protocol volumes](azure-netapp-files-configure-export-policy.md).
 
 ## SMB shares 
+
+SMB shares enable end users can access SMB or dual-protocol volumes in Azure NetApp Files. Access controls for SMB shares are limited in the Azure NetApp Files control plane to only SMB security options such as Access Based Enumeration and Non-Browsable Share functionality. These security options are configured during volume creation with the **Edit volume** functionality. 
+
+:::image type="content" source="../media/azure-netapp-files/share-level-permissions.png" alt-text="Screenshot of share-level permissions." lightbox="../media/azure-netapp-files/share-level-permissions.png":::
+
+Share-level permission ACLs are managed through a Windows MMC console rather than through Azure NetApp Files. For more information, see the sections below.
+
+### Security-related share properties
+
+Azure NetApp Files offers multiple share properties to enhance security for administrators. 
+
+#### Access-based enumeration 
+
+[Access-based enumeration](azure-netapp-files-create-volumes-smb#access-based-enumeration.md) is an Azure NetApp Files SMB volume feature that limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user does not have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn't show up in directory listings. In the following example, a user (`smbuser`) does not have access to read a folder named “ABE” in an Azure NetApp Files SMB volume. Only `contosoadmin` has access.
+
+:::image type="content" source="../media/azure-netapp-files/access-based-enumeration-properties.png" alt-text="Screenshot of share-level permissions." lightbox="../media/azure-netapp-files/access-based-enumeration-properties.png":::
+
+In the below example, access-based enumeration is disabled, so the user has access to the `ABE` directory of `SMBVolume`.
+
+:::image type="content" source="../media/azure-netapp-files/directory-listing-access.png" alt-text="Screenshot of directory with two sub-directories." lightbox="../media/azure-netapp-files/directory-listing-access.png":::
+
+In the below example, access-based enumeration is enabled, so the `ABE` directory of `SMBVolume` does not display for the user.
+
+:::image type="content" source="../media/azure-netapp-files/directory-listing-no-access.png" alt-text="Screenshot of directory with two sub-directories." lightbox="../media/azure-netapp-files/directory-listing-no-access.png":::
+
+The permissions also extend to individual files. In the below example, access-based enumeration is disabled and `ABE-file` displays to the user. 
+
+:::image type="content" source="../media/azure-netapp-files/file-with-access.png" alt-text="Screenshot of directory with two-files." lightbox="../media/azure-netapp-files/file-with-access.png":::
+
+With access-based enumeration enabled, `ABE-file` doesn't display to the user. 
+
+:::image type="content" source="../media/azure-netapp-files/file-no-access.png" alt-text="Screenshot of directory with one file." lightbox="../media/azure-netapp-files/file-no-access.png":::
+
+#### Non-browsable shares
+
+Non-browsable shares is an Azure NetApp Files SMB volume feature that limits clients from browsing for an SMB share by hiding the share from view in Windows Explorer or when listing shares in "net view." Only end users that know the absolute paths to the share are able to find the share. 
+
+In the following image, the non-browsable share property isn't enabled for `SMBVolume`, so it displays in the listing of the file server (using `\\servername`).
+
+
+:::image type="content" source="../media/azure-netapp-files/directory-with-smb-volume.png" alt-text="Screenshot of a directory that includes folder SMBVolume." lightbox="../media/azure-netapp-files/directory-with-smb-volume.png":::
+
+With non-browsable shares enabled on `SMBVolume` in Azure NetApp Files, the same view of the file server excludes `SMBVolume`.
+
+In the next image, the share “SMBVolume” has non-browsable shares enabled in Azure NetApp Files. When that is enabled, this is the view of the top level of the file server.
+
+:::image type="content" source="../media/azure-netapp-files/directory-no-smb-volume.png" alt-text="Screenshot of a directory that excludes folder SMBVolume from display." lightbox="../media/azure-netapp-files/directory-with-no-volume.png":::
+
+Even though the volume in the listing cannot be seen, it remains accessible if the user knows the file path. 
+
+:::image type="content" source="../media/azure-netapp-files/smb-volume-file-path.png" alt-text="Screenshot of Windows Explorer with file path highlighted." lightbox="../media/azure-netapp-files/smb-volume-file-path.png":::
+
+#### SMB3 Encryption
+
+SMB3 encryption is an Azure NetApp Files SMB volume feature that enforces encryption over the wire for SMB clients for greater security in NAS environments. The following image shows a screen capture of network traffic when SMB encryption is disabled. Sensitive information, such as file names and file handles is visible.
+
+:::image type="content" source="../media/azure-netapp-files/packet-capture-encryption.png" alt-text="Screenshot of packet capture with SMB encryption disabled." lightbox="../media/azure-netapp-files/packet-capture-encryption.png":::
+
+When SMB Encryption is enabled, the packets are marked as encrypted and no sensitive information can be seen. Instead, it’s shown as "Encrypted SMB3 data."
+
+:::image type="content" source="../media/azure-netapp-files/packet-capture-encryption-enabled.png" alt-text="Screenshot of packet capture with SMB encryption enabled." lightbox="../media/azure-netapp-files/packet-capture-encryption-enabled.png":::
+
+#### SMB share ACLs
+
+SMB shares can control access to who can mount and access a share, as well as control access levels to users and groups in an Active Directory domain. The first level of permissions that get evaluated are share access control lists (ACLs). 
+
+SMB share permissions are more basic than file permissions: they only apply read, change or full control. Share permissions can be overridden by file permissions and file permissions can be overridden by share permissions; the most restrictive permission is the one abided by. For instance, if the group “Everyone” is given full control on the share (the default behavior), and specific users have read-only access to a folder via a file-level ACL, then read access is applied to those users. Any other users not listed explicitly in the ACL have full control 
+
+Conversely, if the share permission is set to “Read” for a specific user, but the file-level permission is set to full control for that user, “Read” access is enforced.
+
+In dual=protocol NAS environments, SMB share ACLs only apply to SMB users. NFS clients leverage export policies and rules for share access rules. As such, controlling permissions at the file and folder level is preferred over share-level ACLs, especially for dual=protocol NAS volumes.
+
+#### How to manage share ACLs in Azure NetApp Files
+
+Share ACLs in Azure NetApp Files can be viewed one of two ways.
+
+
+## File access permissions 
 
 To control access to specific files and folders in a file system, permissions can be applied. File and folder permissions are more granular than share permissions. The following table shows the differences in permission attributes that file and share permissions can apply.
 
@@ -107,7 +185,7 @@ File and folder permissions can overrule share permissions, as most restrictive 
 
 Folders can be assigned inheritance flags, which means that parent folder permissions propagate to child objects. This can help simplify permission management on high file count environments. Inheritance can be disabled on specific files or folders as needed.
 
-* In Windows SMB shares, inheritance is controlled in the advanced permission view.|	In Windows SMB shares, inheritance is controlled in the advanced permission view.
+* In Windows SMB shares, inheritance is controlled in the advanced permission view. In Windows SMB shares, inheritance is controlled in the advanced permission view.
 
 :::image type="content" source="../media/azure-netapp-files/share-inheritance.png" alt-text="Screenshot of enable inheritance interface." lightbox="../media/azure-netapp-files/share-inheritance.png":::
 
@@ -151,11 +229,11 @@ The following table compares the permission granularity between NFSv3 mode bits 
 
 For more information on NFSv4.1 ACLs, see .
 
-### Sticky bits, setuid, and setgid 
+#### Sticky bits, setuid, and setgid 
 
 When using mode bits with NFS mounts, the ownership of files and folders is based on the uid and gid of the user that created the files and folders. Additionally, when a process runs, it runs as the user that kicked it off, and thus, would have the corresponding permissions. With special permissions (such as setuid, setgid, sticky bit), this behavior can be controlled.
 
-#### Setuid 
+##### Setuid 
 
 The setuid bit (designated by an “s” in the execute portion of the owner bit of a permission) allows an executable file to be run as the owner of the file rather than as the user attempting to execute the file. For instance, the /bin/passwd application has the setuid bit enabled by default. This means the application run as root when a user tries to change their password.
 
@@ -196,7 +274,7 @@ passwd: password updated successfully
 
 Setuid has no effect on directories.
 
-#### Setgid 
+##### Setgid 
 
 The setgid bit can be used on both files and directories.
 
@@ -261,7 +339,7 @@ drwxr-xr-x  2 user1 group1     4096 Oct 11 18:48 test
 $ mkdir user2-test
 bash: /usr/bin/mkdir: Permission denied
 ```
-#### Sticky bit 
+##### Sticky bit 
 
 The sticky bit is used for directories only and, when used, controls which files can be modified in that directory regardless of their mode bit permissions. When a sticky bit is set, only file owners (and root) can modify files, even if file permissions are shown as “777.”
 
@@ -326,7 +404,7 @@ Root, however, still can remove the files.
 
 To change the ability of root to modify files, you must squash root to a different user by way of an Azure NetApp Files export policy rule. See [“root squashing”](#root-squashing) for more information.
 
-#### Umask 
+### Umask 
 
 In NFS operations, permissions can be controlled through mode bits, which leverage numerical attributes to determine file and folder access. These mode bits determine read, write, execute, and special attributes. Numerically, these are represented as:
 
@@ -364,13 +442,13 @@ drwxr-xr-x.  2 root     root         4096 Apr 23 14:39 umask_dir
 -rw-r--r--.  1 root     root            0 Apr 23 14:39 umask_file
 ```
 
-#### Auxiliary/supplemental group limitations with NFS
+### Auxiliary/supplemental group limitations with NFS
 
 NFS has a specific limitation for the maximum number of auxiliary GIDs (secondary groups) that can be honored in a single NFS request. The maximum for [AUTH_SYS/AUTH_UNIX](http://tools.ietf.org/html/rfc5531) is 16. For AUTH_GSS (Kerberos), the maximum is 32. This is a known protocol limitation of NFS. 
 
 Azure NetApp Files provides the ability to increase the maximum number of auxiliary groups to 1,024. This is performed by avoiding truncation of the group list in the NFS packet by prefetching the requesting user’s group from a name service, such as LDAP.
 
-##### How it works 
+#### How it works 
 
 The options to extend the group limitation work the same way the `-manage-gids` option for other NFS servers works. Rather than dumping the entire list of auxiliary GIDs a user belongs to, the option looks up the GID on the file or folder and returns that value instead.
 
@@ -417,17 +495,17 @@ Each NFSv4.x ACL is created in the following manner: `type:flags:principal:permi
 
 A valid NFSv4.x ACL takes the form of, for example, `A:g:group1@contoso.com:rwatTnNcCy`. This ACL grants full access to the group `group1` in the contoso.com ID domain. 
 
-### NFSv4.x ACE flags
+#### NFSv4.x ACE flags
 
 An ACE flag helps provide more information about an ACE in an ACL. For instance, if a group ACE is added to an ACL, a group flag needs to be used to designate the principal is a group and not a user. This is because it is possible in Linux environments to have a user and a group name that are identical, so to ensure an ACE is properly honored, then the NFS server needs to know what type of principal is being defined.
 
 Other flags can be used to control ACEs, such as inheritance and administrative flags.
 
-#### Access and deny flags
+##### Access and deny flags
 
 Access (A) and deny (D) flags are used to control security ACE types. An access ACE controls the level of access permissions on a file or folder for a principal. A deny ACE explicitly prohibits a principal from accessing a file or folder, even if an access ACE is set that would allow that principal to access the object. Deny ACEs always overrule access ACEs. In general, avoid using deny ACEs, as NFSv4.x ACLs follow a “default deny” model, meaning if an ACL isn't added, then deny is implicit. Deny ACEs can create unnecessary complications in ACL management.
 
-#### Inheritance flags 
+##### Inheritance flags 
 
 Inheritance flags control how ACLs behave on files created below a parent directory with the inheritance flag set. When an inheritance flag is set, files and/or directories inherit the ACLs from the parent folder. Inheritance flags can only be applied to directories, so when a sub-directory is created, it inherits the flag. Files created below a parent directory with an inheritance flag inherit ACLs, but not the inheritance flags.
 
@@ -567,7 +645,7 @@ A::EVERYONE@:rxtncy
 
 Inherit flags are a way to more easily manage your NFSv4.x ACLs, rather than needing to explicitly set an ACL each time you need one.
 
-#### Administrative flags
+##### Administrative flags
 
 Administrative flags in NFSv4.x ACLs are special flags that are used only with Audit and Alarm ACL types. These flags define either success or failure access attempts for actions to be performed. For instance, if it is desired to audit failed access attempts to a specific file, then an administrative flag of “F” can be used to control that behavior.
 
@@ -586,7 +664,7 @@ Failed setxattr operation: Invalid argument
 
 You can check within Azure NetApp Files if a name can be resolved under the navigation menu for **Support + Troubleshooting** > **LDAP Group ID list**.
 
-#### Local user and group access via NFSv4.x ACLs
+##### Local user and group access via NFSv4.x ACLs
 
 Local users and groups can also be used on an NFSv4.x ACL if only the numeric ID is specified in the ACL. User names or numeric IDs with a domain ID specified fail.
 
@@ -718,7 +796,7 @@ sh-4.2$ rm user1-file
 rm: can't remove ‘user1-file’: Permission denied
 ```
 
-#### Translating mode bits into NFSv4.x ACL permissions
+##### Translating mode bits into NFSv4.x ACL permissions
 
 When a chmod is run an an object with NFSv4.x ACLs assigned, a series of system ACLs are updated with new permissions. For instance, if the permissions are set to 755, then the system ACL files get updated. The following table shows what each numeric value in a mode bit translates to in NFSv4 ACL permissions.
 
@@ -747,7 +825,7 @@ In Azure NetApp Files, ACL inheritance flags can be used to simplify ACL managem
 
 DENY ACEs in Azure NetApp Files are used to explicitly restrict a user or group from accessing a file or folder. A subset of permissions can be defined to provide granular controls over the DENY ACE. These operate in the standard methods mentioned in [RFC-7530](https://datatracker.ietf.org/doc/html/rfc7530).
 
-### ACL preservation
+#### ACL preservation
 
 When a chmod is performed on a file or folder in Azure NetApp Files, all existing ACEs are preserved on the ACL other than the system ACEs (OWNER@, GROUP@, EVERYONE@). Those ACE permissions are modified as defined by the numeric mode bits defined by the chmod command. Only ACEs that are manually modified or removed via the `nfs4_setfacl` command can be changed.
 
@@ -761,8 +839,6 @@ When NFSv4.x ACLs are in use on UNIX security style volumes, the following behav
 * Files written with Windows users with no valid UNIX user mapping display as owned by numeric ID 65534, which corresponds to “nfsnobody” or “nobody” usernames in Linux clients from NFS mounts. This is different from the numeric ID 99 which is typically seen with NFSv4.x ID domain issues. To verify the numeric ID in use, use the `ls -lan` command.
 * Files with incorrect owners don't provide expected results from UNIX mode bits or from NFSv4.x ACLs.
 * NFSv4.x ACLs are managed from NFS clients. SMB clients can neither view nor manage NFSv4.x ACLs.
-
-
 
 #### Umask impact with NFSv4.x ACLs
 
@@ -890,3 +966,9 @@ chown: changing ownership of 'newfile3': Operation not permitted
 ```
 
 Alternatively, in dual-protocol environments, NTFS ACLs can be used to granularly limit root access.
+
+## Next steps
+
+* [Configure export policy for NFS or dual-protocol volumes](azure-netapp-files-configure-export-policy.md)
+* [Understand NAS](network-attached-storage-concept.md)
+* [Understand NAS permissions](network-attached-storage-permissions.md)
