@@ -5,7 +5,7 @@ author: kgremban
 ms.author: kgremban
 # ms.subservice: orchestrator
 ms.topic: quickstart
-ms.date: 10/30/2023
+ms.date: 11/02/2023
 
 #CustomerIntent: As a < type of user >, I want < what? > so that < why? >.
 ---
@@ -20,14 +20,12 @@ The services deployed in this quickstart include:
 
 * [Azure IoT Orchestrator](../deploy/overview-deploy.md)
 * [Azure IoT MQ](../manage-mqtt-connectivity/overview-iot-mq.md)
+* [Azure IoT OPC UA broker](../manage-devices-assets/overview-opcua-broker.md) with simulated thermostat asset to start generating data
 * [Azure IoT Data Processor](../process-data/overview-data-processor.md) with a demo pipeline to start routing the simulated data
 * [Azure IoT Akri](../manage-devices-assets/overview-akri.md)
 * [Azure Device Registry](../manage-devices-assets/overview-manage-assets.md#manage-assets-as-azure-resources-in-a-centralized-registry)
 * [Azure IoT Layered Network Management](../manage-layered-network/overview-layered-network.md)
-* A simulated thermostat asset to start generating data
-
-<!--* [Observability](/docs/observability/)-->
-<!-- * [Azure IoT OPC UA broker](../manage-devices-assets/concept-opcua-broker-overview.md) with simulated thermostat asset to start generating data -->
+* [Observability](../monitor/howto-configure-observability.md)
 
 ## Prerequisites
 
@@ -42,7 +40,7 @@ The services deployed in this quickstart include:
 
   This quickstart requires Azure CLI version 2.42.0 or higher. Use `az --version` to check your version.
 
-<!-- TODO: Remove for Ignite -->
+<!-- TODO: Update for Ignite -->
 * Install the Azure IoT Operations extension for Azure CLI.
 
   * On Linux:
@@ -51,11 +49,11 @@ The services deployed in this quickstart include:
    az extension add --source $(curl -w "%{url_effective}\n" -I -L -s -S https://aka.ms/aziotopscli-latest -o /dev/null) -y
    ```
 
-   * On Windows:
+  * On Windows:
 
-   ```powershell
-   az extension add --source ([System.Net.HttpWebRequest]::Create('https://aka.ms/aziotopscli-latest').GetResponse().ResponseUri.AbsoluteUri) -y
-   ```
+  ```powershell
+  az extension add --source ([System.Net.HttpWebRequest]::Create('https://aka.ms/aziotopscli-latest').GetResponse().ResponseUri.AbsoluteUri) -y
+  ```
   
 ## What problem will we solve?
 
@@ -63,11 +61,15 @@ Azure IoT Operations is a suite of data services that run on Arc-enabled Kuberne
 
 ## Configure cluster and deploy Azure IoT Operations
 
+Part of the deployment process is to configure your cluster so that it can communicate securely with your Azure IoT Operations components and key vault. The Azure CLI command `az iot ops init` does this for you.
+
+Once your cluster is configured, then you can deploy Azure IoT Operations.
+
 # [Azure CLI](#tab/azure-cli)
 
-Use the Azure CLI to deploy Azure IoT Operations components to your Arc-enabled Kubernetes cluster. Part of the deployment process is to configure your cluster so that it can communicate securely with your Azure IoT Operations components and key vault. The Azure CLI command `az iot ops init` does this for you.
+Use the Azure CLI to deploy Azure IoT Operations components to your Arc-enabled Kubernetes cluster.
 
-1. Log in to Azure CLI. To prevent permission potential issues later, log in interactively with a browser here even if you've already logged in before.
+1. Log in to Azure CLI. To prevent potential permission issues later, log in interactively with a browser here even if you've already logged in before.
 
    ```azurecli-interactive
    az login
@@ -106,8 +108,39 @@ Use the Azure CLI to deploy Azure IoT Operations components to your Arc-enabled 
 
 Use the Azure portal to deploy Azure IoT Operations components to your Arc-enabled Kubernetes cluster.
 
-<!-- TODO: change to normal link for Ignite -->
+### Create a key vault
+
+You can use an existing key vault for your secrets, but verify that the **Permission model** is set to **Vault access policy**. You can check this setting in the **Access configuration** section of an existing key vault.
+
 1. Open the [Azure portal](https://portal.azure.com).
+
+1. In the search bar, search for and select **Key vaults**.
+
+1. Select **Create**.
+
+1. On the **Basics** tab of the **Create a key vault** page, provide the following information:
+
+   | Field | Value |
+   | ----- | ----- |
+   | **Subscription** | Select the subscription that also contains your Arc-enabled Kubernetes cluster. |
+   | **Resource group** | Select the resource group that also contains your Arc-enabled Kubernetes cluster. |
+   | **Key vault name** | Provide a globally unique name for your key vault. |
+   | **Region** | Select a region close to you. The following regions are supported in public preview: East US2, West US 3, West Europe, East US, West US, West US 2, North Europe. |
+   | **Pricing tier** | The default **Standard** tier is suitable for this quickstart. |
+
+1. Select **Next**.
+
+1. On the **Access configuration** tab, provide the following information:
+
+   | Field | Value |
+   | ----- | ----- |
+   | **Permission model** | Select **Vault access policy**. |
+
+1. Select **Review + create**.
+
+1. Select **Create**.
+
+### Deploy Azure IoT Operations
 
 1. In the Azure portal search bar, search for and select **Azure Arc**.
 
@@ -142,7 +175,7 @@ Use the Azure portal to deploy Azure IoT Operations components to your Arc-enabl
    | Field | Value |
    | ----- | ----- |
    | **Subscription** | Select the subscription that contains your Arc-enabled Kubernetes cluster. |
-   | **Key vault** | Choose an existing key vault from the drop-down list or select **Create new key vault**. |
+   | **Key vault** | Choose the key vault that you created in the previous section from the drop-down list. |
 
 1. Select **Select**.
 

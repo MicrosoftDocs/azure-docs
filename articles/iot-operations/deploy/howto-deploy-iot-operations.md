@@ -22,47 +22,9 @@ Deploy Azure IoT Operations preview - enabled by Azure Arc to a Kubernetes clust
 
   Azure IoT Operations should work on any CNCF-conformant kubernetes cluster. Currently, Microsoft only supports K3s on Ubuntu Linux and WSL, or AKS Edge Essentials on Windows.
 
-#### [Azure portal](#tab/portal)
+* Azure CLI installed on your development machine. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
-Azure CLI installed on your development machine. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
-
-#### [GitHub actions](#tab/github)
-
-A GitHub account.
-
-Azure CLI installed on your development machine. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
-
-#### [Azure CLI](#tab/cli)
-
-Azure CLI installed on your development machine. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
-
----
-
-## Define the deployment
-
-For deployments using GitHub actions or Azure CLI, use a Bicep template to define the deployment details.
-
-#### [Azure portal](#tab/portal)
-
-You don't need a deployment template for Azure portal deployments. Continue to the next section.
-
-#### [GitHub actions](#tab/github)
-
-The following example is a Bicep template that deploys the Orchestrator extension, a custom location, and a resource sync rule. The Orchestrator extension is a requirement for managing the cluster with Orchestrator and deploying Azure IoT Operations or custom workloads.
-
-[!INCLUDE[Sample Bicep file for deploying the Orchestrator extension](../includes/deployment-bicep-file.md)]
-
-You can deploy the whole Azure IoT Operations suite along with the Orchestrator extension. For an example of that deployment template, see [azure-iot-operations.bicep](https://github.com/Azure/azure-iot-operations-pr/blob/main/dev/azure-iot-operations.bicep)
-
-#### [Azure CLI](#tab/cli)
-
-The following example is a Bicep template that deploys the Orchestrator extension, a custom location, and a resource sync rule. The Orchestrator extension is a requirement for managing the cluster with Orchestrator and deploying Azure IoT Operations or custom workloads.
-
-[!INCLUDE[Sample Bicep file for deploying the Orchestrator extension](../includes/deployment-bicep-file.md)]
-
-You can deploy the whole Azure IoT Operations suite along with the Orchestrator extension. For an example of that deployment template, see [azure-iot-operations.json](https://github.com/Azure/azure-iot-operations/blob/main/dev/azure-iot-operations.json)
-
----
+* An [Azure Key Vault](../../key-vault/general/overview.md) that has the **Permission model** set to **Vault access policy**. You can check this setting in the **Access configuration** section of an existing key vault.
 
 ## Deploy extensions
 
@@ -70,7 +32,7 @@ You can deploy the whole Azure IoT Operations suite along with the Orchestrator 
 
 Use the Azure portal to deploy Azure IoT Operations components to your Arc-enabled Kubernetes cluster.
 
-1. In the [Azure portal](https://portal.azure.com) search bar, search for and select **Azure Arc**.
+1. In the Azure portal search bar, search for and select **Azure Arc**.
 
 1. Select **Azure IoT Operations (preview)** from the **Application services** section of the Azure Arc menu.
 
@@ -91,14 +53,35 @@ Use the Azure portal to deploy Azure IoT Operations components to your Arc-enabl
 
    | Field | Value |
    | ----- | ----- |
-   | **Deploy a simulated PLC** | Switch this toggle to **Yes**. The simulated PLC creates demo data that you use in the following quickstarts. |
+   | **Deploy a simulated PLC** | Switch this toggle to **Yes**. The simulated PLC creates demo telemetry data that you use in the following quickstarts. |
    | **Mode** | Set the MQ configuration mode to **Auto**. |
 
-1. Select **Review + create**.
+1. Select **Next: Automation**.
+
+1. On the **Automation** tab, select **Pick or create an Azure Key Vault**.
+
+1. Provide the following information to connect a key vault:
+
+   | Field | Value |
+   | ----- | ----- |
+   | **Subscription** | Select the subscription that contains your Arc-enabled Kubernetes cluster. |
+   | **Key vault** | Choose an existing key vault from the drop-down list or create a new one by selecting **Create new key vault**. |
+
+1. Select **Select**.
+
+1. On the **Automation** tab, the automation commands are populated based on your chosen cluster and key vault. Copy the **Required** CLI command and run it on your development machine.
+
+1. After successfully running the `az iot ops init` command on your cluster, select **Review + Create**.
 
 1. Wait for the validation to pass and then select **Create**.
 
 #### [GitHub actions](#tab/github)
+
+The following example is a Bicep template that deploys the Orchestrator extension, a custom location, and a resource sync rule. The Orchestrator extension is a requirement for managing the cluster with Orchestrator and deploying Azure IoT Operations or custom workloads.
+
+[!INCLUDE[Sample Bicep file for deploying the Orchestrator extension](../includes/deployment-bicep-file.md)]
+
+You can deploy the whole Azure IoT Operations suite along with the Orchestrator extension. For an example of that deployment template, see [azure-iot-operations.bicep](https://github.com/Azure/azure-iot-operations-pr/blob/main/dev/azure-iot-operations.bicep)
 
 1. On GitHub, fork the [azure-iot-operations repo](https://github.com/azure/azure-iot-operations).
 
@@ -163,19 +146,65 @@ Use the Azure portal to deploy Azure IoT Operations components to your Arc-enabl
 
 #### [Azure CLI](#tab/cli)
 
-Use the [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create) command to deploy the bicep file with your deployment information.
+Use the Azure CLI to deploy Azure IoT Operations components to your Arc-enabled Kubernetes cluster.
 
-```azurecli
-az deployment group create --resource-group exampleRG \
-                           --template-file ./main.bicep \
-                           --parameters \
-                             clusterName=<EXISTING_CLUSTER_NAME> \
-                             clusterLocation=<EXISTING_CLUSTER_LOCATION> \
-                             clusterNamespace=<NAMESPACE_ON_CLUSTER> \
-                             customLocationName=<CUSTOM_LOCATION_NAME>
+Log in to Azure CLI. To prevent potential permission issues later, log in interactively with a browser here even if you've already logged in before.
+
+```azurecli-interactive
+az login
 ```
 
+> [!NOTE]
+> When you use a GitHub codespace in a browser, `az login` returns a localhost error in the browser window after logging in. To fix, either:
+>
+> * Open the codespace in VS Code desktop, and then run `az login` in the terminal. This opens a browser window where you can log in to Azure.
+> * After you get the localhost error on the browser, copy the URL from the browser and use `curl <URL>` in a new terminal tab. You should see a JSON response with the message "You have logged into Microsoft Azure!".
+
+Deploy Azure IoT Operations to your cluster. The `az iot ops init` command does the following steps:
+
+* Creates a key vault in your resource group.
+* Sets up a service principal to give your cluster access to the key vault.
+* Configures TLS certificates.
+* Configures a secrets store on your cluster that connects to the key vault.
+* Deploys the Azure IoT Operations resources.
+
+```azurecli-interactive
+az iot ops init --cluster <CLUSTER_NAME> -g <RESOURCE_GROUP> --kv-id <KEYVAULT_RESOURCE_ID>
+```
+
+Use optional flags to customize the `az iot ops init` command. To learn more, see [`az iot ops init` reference](https://github.com/Azure/azure-edge-cli-extension/wiki/Azure-IoT-Ops-Reference#az-iot-ops-init). For example:
+
+| Parameter | Description |
+| --------- | ----------- |
+| `--no-tls` | Disable TLS workflows. |
+| `--no-deploy` | Disable Azure IoT Operations deployment workflows. |
+| `--sp-app-id` | Provide an existing app registration ID to disable the command from creating an app registration. |
+
 ---
+
+## View resources in your cluster
+
+While the deployment is in progress, you can watch the resources being applied to your cluster. You can use kubectl commands to observe changes on the cluster or, since the cluster is Arc-enabled, you can use the Azure portal.
+
+To view the pods on your cluster, run the following command:
+
+```bash
+kubectl get pods -n azure-iot-operations
+```
+
+It can take several minutes for the deployment to complete. Continue running the `get pods` command to refresh your view.
+
+To view your cluster on the Azure portal, use the following steps:
+
+1. In the Azure portal, navigate to the resource group that contains your cluster.
+
+1. From the **Overview** of the resource group, select the name of your cluster.
+
+1. On your cluster, select **Extensions** from the menu.
+
+   You can see that your cluster is running extensions of the type **microsoft.iotoperations.x**, which is the group name for all of the Azure IoT Operations components and the orchestration service.
+
+   There's also an extension called **akvsecretsprovider**. This extension is the secrets provider that you configured and installed on your cluster with the `az iot ops init` command. You might delete and reinstall the Azure IoT Operations components during testing, but keep the secrets provider extension on your cluster.
 
 ## Next steps
 
