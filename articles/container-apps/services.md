@@ -11,7 +11,7 @@ ms.author: cshoe
 
 # Connect to services in Azure Container Apps (preview)
 
-As you develop applications in Azure Container Apps, you often need to connect to different services. Rather than creating services ahead of time and manually connecting them to your container app, you can quickly create instances of development-grade services that are designed for nonproduction environments known as "add-ons".
+As you develop applications in Azure Container Apps, you often need to connect to different services. Rather than creating services ahead of time and manually connecting them to your container app, you can quickly create instances of development-grade services that are designed for nonproduction environments known as add-ons.
 
 Add-ons allow you to use OSS services without the burden of manual downloads, creation, and configuration.
 
@@ -49,7 +49,7 @@ See the service-specific features for managed services.
 
 ## Binding
 
-Both add-ons and managed services connect to a container via a "binding".
+Both add-ons and managed services connect to a container via a binding.
 
 The Container Apps runtime binds a container app to a service by:
 
@@ -117,9 +117,9 @@ For more information on the service commands and arguments, see the
 
 ## Limitations
 
-- Add ons are in public preview.
-- Any container app created before May 23, 2023 isn't eligible to use add ons.
-- Add ons come with minimal guarantees. For instance, they're automatically restarted if they crash, however there's no formal quality of service or high-availability guarantees associated with them. For production workloads, use Azure-managed services.
+- Add-ons are in public preview.
+- Any container app created before May 23, 2023 isn't eligible to use add-ons.
+- Add-ons come with minimal guarantees. For instance, they're automatically restarted if they crash, however there's no formal quality of service or high-availability guarantees associated with them. For production workloads, use Azure-managed services.
 
 ## Next steps
 
