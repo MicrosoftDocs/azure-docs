@@ -57,7 +57,7 @@ The [Machine Learning studio](https://ml.azure.com) offers multiple authoring ex
 * **Notebooks**: Write and run your own code in managed Jupyter Notebook servers that are directly integrated in the studio.
 * **Visualize run metrics**: Analyze and optimize your experiments with visualization.
 
-    :::image type="content" source="media/overview-what-is-azure-machine-learning/metrics.png" alt-text="Screenshot that shows metrics for a training run.":::
+    :::image type="content" source="media/how-to-log-view-metrics/metrics.png" alt-text="Screenshot that shows metrics for a training run.":::
 
 * **Azure Machine Learning designer**: Use the designer to train and deploy ML models without writing any code. Drag and drop datasets and components to create ML pipelines.
 * **Automated machine learning UI**: Learn how to create [automated ML experiments](tutorial-first-experiment-automated-ml.md) with an easy-to-use interface.
