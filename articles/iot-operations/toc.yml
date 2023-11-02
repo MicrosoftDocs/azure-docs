@@ -17,7 +17,7 @@ items:
     - name: Deploy
       items:
       - name: Overview
-        href: deploy/overview-deploy-iot-operations.md
+        href: deploy/overview-deploy.md
         displayName: Deploy, Orchestrator
       - name: Concepts
         items:
@@ -27,6 +27,14 @@ items:
           href: deploy/concept-providers.md
       - name: Prepare a cluster
         href: deploy/howto-prepare-cluster.md
+      - name: Deploy Azure IoT Operations
+        href: deploy/howto-deploy-iot-operations.md
+      - name: Deploy custom workloads
+        items:
+        - name: K8s custom resources
+          href: deploy/howto-k8s.md
+        - name: Helm charts
+          href: deploy/howto-helm.md
       - name: Troubleshoot
         href: deploy/howto-troubleshoot-deployment.md
         displayName: Deploy, Orchestrator
