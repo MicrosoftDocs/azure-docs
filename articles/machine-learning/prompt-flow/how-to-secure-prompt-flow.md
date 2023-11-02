@@ -1,5 +1,5 @@
 ---
-title: Network isolation in prompt flow (preview)
+title: Network isolation in prompt flow 
 titleSuffix: Azure Machine Learning
 description: Learn how to secure prompt flow with virtual network.
 services: machine-learning
@@ -9,16 +9,12 @@ ms.topic: how-to
 author: cloga
 ms.author: lochen
 ms.reviewer: lagayhar
-ms.date: 09/12/2023
+ms.date: 11/02/2023
 ---
 
-# Network isolation in prompt flow (preview)
+# Network isolation in prompt flow 
 
 You can secure prompt flow using private networks. This article explains the requirements to use prompt flow in an environment secured by private networks.
-
-> [!IMPORTANT]
-> Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Involved services
 
