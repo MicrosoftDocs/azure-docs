@@ -191,6 +191,82 @@ In this section, you deploy the data connector agent. After you deploy the agent
 
     This policy will allow the VM to list, read, and write secrets from/to the key vault.
 
+# [Configuration file](#tab/config-file)
+
+1. Transfer the [SAP NetWeaver SDK](https://aka.ms/sap-sdk-download) to the machine on which you want to install the agent.
+
+1. Run the following commands to **download the deployment Kickstart script** from the Microsoft Sentinel GitHub repository and **mark it executable**:
+
+    ```bash
+    wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/sapcon-sentinel-kickstart.sh
+    chmod +x ./sapcon-sentinel-kickstart.sh
+    ```
+    
+1. **Run the script**:
+
+    ```bash
+    ./sapcon-sentinel-kickstart.sh --keymode cfgf
+    ```
+
+    The script updates the OS components, installs the Azure CLI and Docker software and other required utilities (jq, netcat, curl), and prompts you for configuration parameter values. You can supply additional parameters to the script to minimize the amount of prompts or to customize the container deployment. For more information on available command line options, see [Kickstart script reference](reference-kickstart.md).
+
+1. **Follow the on-screen instructions** to enter the requested details and complete the deployment. When the deployment is complete, a confirmation message is displayed:
+
+    ```bash
+    The process has been successfully completed, thank you!
+    ```
+
+   Note the Docker container name in the script output. You'll use it in the next step.
+
+1. Run the following command to **configure the Docker container to start automatically**.
+
+    ```bash
+    docker update --restart unless-stopped <container-name>
+    ```
+
+    To view a list of the available containers use the command: `docker ps -a`.
+
+# [Manual deployment](#tab/deploy-manually)
+
+1. Transfer the [SAP NetWeaver SDK](https://aka.ms/sap-sdk-download) to the machine on which you want to install the agent.
+
+1. Install [Docker](https://www.docker.com/) on the VM, following the [recommended deployment steps](https://docs.docker.com/engine/install/) for the chosen operating system.
+
+1. Use the following commands (replacing `<SID>` with the name of the SAP instance) to create a folder to store the container configuration and metadata, and to download a sample systemconfig.ini file into that folder.
+
+   ```bash
+   sid=<SID>
+   mkdir -p /opt/sapcon/$sid
+   cd /opt/sapcon/$sid
+   wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/template/systemconfig.ini 
+
+   ```
+
+1. Edit the systemconfig.ini file to [configure the relevant settings](reference-systemconfig.md).
+
+1. Run the following commands (replacing `<SID>` with the name of the SAP instance) to retrieve the latest container image, create a new container, and configure it to start automatically.
+
+   ```bash
+   sid=<SID>
+   docker pull mcr.microsoft.com/azure-sentinel/solutions/sapcon:latest
+   docker create --restart unless-stopped --name my-container mcr.microsoft.com/azure-sentinel/solutions/sapcon   
+   ```
+
+1. Run the following command to copy the SDK into the container. Replace `<SID>` with the name of the SAP instance and `<sdkfilename>` with full filename of the SAP NetWeaver SDK.
+
+   ```bash
+   sdkfile=<sdkfilename> 
+   sid=<SID>
+   docker cp $sdkfile sapcon-$sid:/sapcon-app/inst/
+   ```
+
+1. Run the following command (replacing `<SID>` with the name of the SAP instance) to start the container.
+
+   ```bash
+   sid=<SID>
+   docker start sapcon-$sid
+   ```
+
 ---
 
 ### Deploy the data connector agent
@@ -311,6 +387,7 @@ Blah blah blah Registered application / Azure portal
     :::image type="content" source="media/deploy-data-connector-agent-container/finish-agent-deployment.png" alt-text="Screenshot of the final stage of the agent deployment.":::
 
 1. Under **Just one step before we finish**, select **Copy** :::image type="content" source="media/deploy-data-connector-agent-container/copy-icon.png" alt-text="Screenshot of the Copy icon." border="false"::: next to **Agent command**.
+
 1. In your target VM (the VM where you plan to install the agent), open a terminal and run the command you copied in the previous step.
 
     The relevant agent information is deployed into Azure Key Vault, and the new agent is visible in the table under **Add an API based collector agent**. 
@@ -323,10 +400,9 @@ Blah blah blah Registered application / Azure portal
     
     If you need to copy your command again, select **View** :::image type="content" source="media/deploy-data-connector-agent-container/view-icon.png" border="false" alt-text="Screenshot of the View icon."::: to the right of the **Health** column and copy the command next to **Agent command** on the bottom right.
 
-
-
 # [Command line](#tab/command-line/managed-identity)
 Managed identity / Command line
+
 1. **Download and run the deployment Kickstart script**:
     For public cloud, the command is:
     ```bash
