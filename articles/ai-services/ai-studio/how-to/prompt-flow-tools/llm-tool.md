@@ -12,6 +12,8 @@ ms.author: eur
 
 # LLM tool for flows in Azure AI Studio
 
+[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
+
 The prompt flow *LLM* tool enables you to use large language models (LLM) for natural language processing.
 
 > [!NOTE]

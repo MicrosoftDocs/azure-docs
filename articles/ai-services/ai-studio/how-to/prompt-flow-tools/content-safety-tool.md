@@ -10,6 +10,8 @@ ms.date: 10/1/2023
 ms.author: eur
 ---
 
+[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
+
 # Content safety tool for flows in Azure AI Studio
 
 The prompt flow *Content Safety* tool enables you to use Azure AI Content Safety in Azure AI Studio.

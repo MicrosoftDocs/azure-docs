@@ -12,6 +12,8 @@ ms.author: eur
 
 # Vector index lookup tool for flows in Azure AI Studio
 
+[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
+
 The prompt flow *Vector index lookup* tool is tailored for querying within vector index such as Azure AI Search. You can extract contextually relevant information from a domain knowledge base.
 
 ## Build with the Vector index lookup tool

@@ -12,6 +12,8 @@ ms.author: eur
 
 # Python tool for flows in Azure AI Studio
 
+[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
+
 The prompt flow *Python* tool offers customized code snippets as self-contained executable nodes. You can quickly create Python tools, edit code, and verify results.
 
 ## Build with the Python tool
