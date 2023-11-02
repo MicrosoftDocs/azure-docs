@@ -60,7 +60,7 @@ In an Azure CLI deployment script, an environment variable called `AZ_SCRIPTS_OU
 
 ## Use Azure PowerShell container instance
 
-To author Azure Powershell scripts on your computer, you need to create a storage account and mount the storage account to the container instance. So that you can upload your script to the storage account and run the script on the container instance. The storage account that you create to test your script is not the same storage account that the deployment script service uses to execute the script. Deployment script service creates a unique name as a file share on every execution.
+To author Azure PowerShell scripts on your computer, you need to create a storage account and mount the storage account to the container instance. So that you can upload your script to the storage account and run the script on the container instance. The storage account that you create to test your script is not the same storage account that the deployment script service uses to execute the script. Deployment script service creates a unique name as a file share on every execution.
 
 ### Create an Azure PowerShell container instance
 
