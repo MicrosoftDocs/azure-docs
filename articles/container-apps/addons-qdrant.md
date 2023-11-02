@@ -176,17 +176,19 @@ Now that your container app is running and connected to Qdrant, you can configur
       --allowed-origins *
     ```
 
-1. Request an access token for the hosted Jupyter Notebook.
+    The next step instructs you to request an access token to log into the application hosted by the container app. Wait 3 to 5 minutes before you attempt to execute the next step to give the container app enough time to set up all required resources.
+
+1. Once you've waited three to five minutes for the app to complete the setup operations, request an access token for the hosted Jupyter Notebook.
 
     ```bash
-    echo Your authentication token is: `az containerapp logs show -g $RESOURCE_GROUP --name $APP_NAME --tail 300 | \
+    echo Your access token is: `az containerapp logs show -g $RESOURCE_GROUP --name $APP_NAME --tail 300 | \
       grep token |  cut -d= -f 2 | cut -d\" -f 1 | uniq`
     ```
 
     When you run this command, your token is printed to the terminal. The message should look like the following example.
 
     ```text
-    Your authentication token is: 348c8aed080b44f3aaab646287624c70aed080b44f
+    Your access token is: 348c8aed080b44f3aaab646287624c70aed080b44f
     ```
 
     Copy your token value to your text editor to use to sign-in to the Jupyter Notebook.
@@ -195,7 +197,7 @@ Now that your container app is running and connected to Qdrant, you can configur
 
 1. Open a web browser and paste in the URL for your container app you set aside in a text editor.
 
-    When the page loads, you're presented with an input box to enter your authentication token.
+    When the page loads, you're presented with an input box to enter your access token.
 
 1. Next to the *Password to token* label, enter your token in the input box and select **Login**.
 
