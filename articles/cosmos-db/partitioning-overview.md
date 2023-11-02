@@ -140,7 +140,10 @@ Some things to consider when selecting the *item ID* as the partition key includ
 
 * If the *item ID* is the partition key, it becomes a unique identifier throughout your entire container. You can't create items that have duplicate *item IDs*.
 * If you have a read-heavy container with many [physical partitions](partitioning-overview.md#physical-partitions), queries are more efficient if they have an equality filter with the *item ID*.
-* You can't run stored procedures or triggers that target multiple logical partitions.
+* You can't run stored procedures or triggers that target multiple items in a single logical partition.
+
+>[!NOTE]
+> Transactions (in stored procedures or triggers) are allowed only against items in a single logical partition.
 
 ## Next steps
 
