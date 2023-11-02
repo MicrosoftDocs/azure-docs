@@ -111,12 +111,12 @@ Additionally, the feature also adds support for .NET, Go, Python and Java stack 
 Below are two screenshots which demonstrate Multi-line logging at work for Go exception stack trace:
 
 Multi-line logging disabled scenario:
-
-:::image type="content" source="./media/container-insights-logging-v2/multi-line-disabled-go.png" lightbox="./media/container-insights-logging-v2/multi-line-disabled-go.png" alt-text="Screenshot that shows Multi-line logging disabled.":::
+<!-- convertborder later -->
+:::image type="content" source="./media/container-insights-logging-v2/multi-line-disabled-go.png" lightbox="./media/container-insights-logging-v2/multi-line-disabled-go.png" alt-text="Screenshot that shows Multi-line logging disabled." border="false":::
 
 Multi-line logging enabled scenario:
-
-:::image type="content" source="./media/container-insights-logging-v2/multi-line-enabled-go.png" lightbox="./media/container-insights-logging-v2/multi-line-enabled-go.png" alt-text="Screenshot that shows Multi-line enabled.":::
+<!-- convertborder later -->
+:::image type="content" source="./media/container-insights-logging-v2/multi-line-enabled-go.png" lightbox="./media/container-insights-logging-v2/multi-line-enabled-go.png" alt-text="Screenshot that shows Multi-line enabled." border="false":::
 
 Similarly, below screenshots depict Multi-line logging enabled scenarios for Java and Python stack traces:
 
