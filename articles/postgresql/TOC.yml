@@ -123,8 +123,10 @@
       items:
       - name: Azure AI Extension
         items:
-        - name: Azure AI
+        - name: Overview
           href: flexible-server/generative-ai-azure-overview.md
+        - name: Azure OpenAI
+          href: flexible-server/generative-ai-azure-openai.md
       - name: Vector similarity search (pgvector)
         items:
         - name: Basics of pgvector

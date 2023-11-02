@@ -19,7 +19,7 @@ Azure Database for PostgreSQL extension for Azure AI enables you to use large la
 
 Before you can enable `azure_ai` on your Flexible Server, you need to add it to your allowlist as described in [how to use PostgreSQL extensions](./concepts-extensions.md#how-to-use-postgresql-extensions) and check if correctly added by running `SHOW azure.extensions;`.
 
-> [!Note]
+> [!TIP]
 > You might also want to enable the [`pgvector` extension](./how-to-use-pgvector.md) as it is commonly used with `azure_ai`.
 
 Then you can install the extension, by connecting to your target database and running the [CREATE EXTENSION](https://www.postgresql.org/docs/current/static/sql-createextension.html) command. You need to repeat the command separately for every database you want the extension to be available in.
@@ -28,7 +28,7 @@ Then you can install the extension, by connecting to your target database and ru
 CREATE EXTENSION azure_ai;
 ```
 
-> [!Note]
+> [!NOTE]
 > To remove the extension from the currently connected database use `DROP EXTENSION vector;`.
 
 Installing the extension `azure_ai` creates the following three schemas:
@@ -122,3 +122,8 @@ select azure_ai.version();
 ## Permissions
 
 The `azure_ai` extension defines a role called `azure_ai_settings_manager`, which enables reading and writing of settings related to the extension.  Only superusers and members of the `azure_ai_settings_manager` role can invoke the `azure_ai.get_settings` and `azure_ai.set_settings` functions. In PostgreSQL Flexible Server, all admin users have the `azure_ai_settings_manager` role assigned.
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Generate vector embeddings with Azure OpenAI](./generative-ai-azure-openai.md)
