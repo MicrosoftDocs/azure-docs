@@ -392,7 +392,7 @@
   - name: Extensions
     items:
       - name: pg_azure_storage
-        href: flexible-server/reference-pg-azure-storage.md
+        href: flexible-server/reference-pg-azure-storage.md 
 - name: Single Server
   expanded: false
   items:
