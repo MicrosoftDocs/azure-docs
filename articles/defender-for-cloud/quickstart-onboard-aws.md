@@ -159,14 +159,14 @@ In this section of the wizard, you select the Defender for Cloud plans that you 
 
     (Optional) Select **Configure** to edit the configuration as required. We recommend that you leave it set to the default configuration.
 
-1. Continue to **Configure access** by making the following selections:
+1. Select **Configure access** and select the following:
 
-    a. Choose a deployment type:
+    a. Select a deployment type:
 
     - **Default access**: Allows Defender for Cloud to scan your resources and automatically include future capabilities.
     - **Least privilege access**: Grants Defender for Cloud access only to the current permissions needed for the selected plans. If you select the least privileged permissions, you'll receive notifications on any new roles and permissions that are required to get full functionality for connector health.
 
-    b. Choose a deployment method: **AWS CloudFormation** or **Terraform**.
+    b. Select a deployment method: **AWS CloudFormation** or **Terraform**.
 
     :::image type="content" source="media/quickstart-onboard-aws/add-aws-account-configure-access.png" alt-text="Screenshot that shows deployment options and instructions for configuring access." lightbox="media/quickstart-onboard-aws/add-aws-account-configure-access.png":::
 

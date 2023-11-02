@@ -65,14 +65,14 @@ In this section of the wizard, you select the Defender for Cloud plans that you 
 
     If you choose to turn on the Microsoft Defender for Containers plan, ensure that you meet the [network requirements](defender-for-containers-enable.md?tabs=defender-for-container-gcp#network-requirements) for it.
 
-1. Continue to **Configure access** by making the following selections:
+1. Select **Configure access** and make the following selections:
 
-    1. Choose the deployment type:
+    1. Select the deployment type:
 
         - **Default access**: Allows Defender for Cloud to scan your resources and automatically include future capabilities.
         - **Least privilege access**: Grants Defender for Cloud access to only the current permissions needed for the selected plans. If you select the least privileged permissions, you'll receive notifications on any new roles and permissions that are required to get full functionality for connector health.
 
-    1. Choose the deployment method: **GCP Cloud Shell** or **Terraform**.
+    1. Select the deployment method: **GCP Cloud Shell** or **Terraform**.
 
     :::image type="content" source="media/quickstart-onboard-gcp/add-gcp-project-configure-access.png" alt-text="Screenshot that shows deployment options and instructions for configuring access.":::
 
@@ -83,7 +83,13 @@ In this section of the wizard, you select the Defender for Cloud plans that you 
 1. Select **Create**.
 
    > [!NOTE]
-   > For the discovery of GCP resources and for the authentication process, you must enable the following APIs: `iam.googleapis.com`, `sts.googleapis.com`, `cloudresourcemanager.googleapis.com`, `iamcredentials.googleapis.com`, and `compute.googleapis.com`. If you don't enable these APIs, we'll enable them during the onboarding process by running the GCloud script.
+   > The following APIs must be enabled in order to discover your GCP resources and allow the authentication process to occur: 
+   > - `iam.googleapis.com`
+   > - `sts.googleapis.com`
+   > - `cloudresourcemanager.googleapis.com`
+   > - `iamcredentials.googleapis.com`
+   > - `compute.googleapis.com`
+   > If you don't enable these APIs at this time, you can enable them during the onboarding process by running the GCloud script.
 
 After you create the connector, a scan starts on your GCP environment. New recommendations appear in Defender for Cloud after up to 6 hours. If you enabled autoprovisioning, Azure Arc and any enabled extensions are installed automatically for each newly detected resource.
 
