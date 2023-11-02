@@ -241,7 +241,7 @@ AKS regularly provides new node images. Linux node images are updated weekly, an
 * View the upgrade events in the default namespaces using the `kubectl get events` command.
 
     ```console
-    kubectl get events 
+    kubectl get events --field-selector source=upgrader
     ```
 
     The following example output shows some of the above events listed during an upgrade:
