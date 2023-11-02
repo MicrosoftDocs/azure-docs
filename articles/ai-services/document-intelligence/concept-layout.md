@@ -809,15 +809,15 @@ For large multi-page documents, use the `pages` query parameter to indicate spec
 
 The Layout API can output the extracted text in markdown format. Use the `outputContentFormat=markdown` to specify the output format in markdown. The markdown content will be output as part of the `content` section.
 
-```json
-"analyzeResult": {
-"apiVersion": "2023-10-31-preview",
-"modelId": "prebuilt-layout",
-"contentFormat": "markdown",
-"content": "# CONTOSO LTD...",
-...
-}
-```
+  ```json
+  "analyzeResult": {
+  "apiVersion": "2023-10-31-preview",
+  "modelId": "prebuilt-layout",
+  "contentFormat": "markdown",
+  "content": "# CONTOSO LTD...",
+  ...
+                    }
+  ```
 
 ::: moniker-end
 

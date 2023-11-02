@@ -595,6 +595,11 @@
       "source_path_from_root": "/articles/ai-services/document-intelligence/resource-customer-stories.md",
       "redirect_url": "/azure/ai-services/document-intelligence/overview",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/ai-services/document-intelligence/language-support.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/language-support-ocr.md",
+      "redirect_document_id": true
     }
   ]
 }
