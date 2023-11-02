@@ -4,7 +4,7 @@ description: Use encryption at host to enable end-to-end encryption on your Azur
 author: roygara
 ms.service: azure-disk-storage
 ms.topic: how-to
-ms.date: 03/28/2023
+ms.date: 11/02/2023
 ms.author: rogarana
 ms.custom: references_regions
 ---
@@ -20,6 +20,10 @@ Temporary disks and ephemeral OS disks are encrypted at rest with platform-manag
 ## Restrictions
 
 [!INCLUDE [virtual-machines-disks-encryption-at-host-restrictions](../../includes/virtual-machines-disks-encryption-at-host-restrictions.md)]
+
+## Regional availability
+
+[!INCLUDE [virtual-machines-disks-encryption-at-host-regions](../../includes/virtual-machines-disks-encryption-at-host-regions.md)]
 
 ### Supported VM sizes
 
