@@ -78,7 +78,7 @@ To begin, log-in to the Azure CLI:
 az login
 ```
 
-**Create policies with recommended settings**
+### Create policies with recommended settings
 
 To create a resiliency policy with recommended settings for timeouts and retries, run the `resiliency create` command:
 
@@ -86,7 +86,7 @@ To create a resiliency policy with recommended settings for timeouts and retries
 az containerapp resiliency create -g MyResourceGroup -n MyResiliencyName --container-app-name MyContainerApp --default
 ```
 
-**Create policies with resiliency YAML**
+### Create policies with resiliency YAML
 
 To apply the resiliency policies from a YAML file you created for your container app, run the following command:
 
@@ -110,7 +110,7 @@ circuitBreakerPolicy:
   intervalInSeconds: 10
 ```
 
-**Update specific policies**
+### Update specific policies
 
 Update your resiliency policies by targeting an individual policy. For example, to update the `timeout-response-in-seconds` policy, run the following command.
 
@@ -118,7 +118,7 @@ Update your resiliency policies by targeting an individual policy. For example, 
 az containerapp resiliency update --name MyResiliency -g MyResourceGroup --container-app-name MyContainerApp --timeout-response-in-seconds 20
 ```
 
-**Update policies with resiliency YAML** 
+### Update policies with resiliency YAML
 
 You can also update existing resiliency policies by updating the resiliency YAML you created earlier.
 
@@ -126,7 +126,7 @@ You can also update existing resiliency policies by updating the resiliency YAML
 az containerapp resiliency update --name MyResiliency -g MyResourceGroup --container-app-name MyContainerApp --yaml MyYAMLPath
 ```
 
-**View policies**
+### View policies
 
 Use the `resiliency list` command to list all the resiliency policies attached to a container app.
 
@@ -140,7 +140,7 @@ Use `resiliency show` command to show a single policy by name.
 az containerapp resiliency show --name MyResiliency --group MyResourceGroup --container-app-name MyContainerApp
 ```
 
-**Delete policies**
+### Delete policies
 
 To delete resiliency policies, run the following command. 
 
@@ -154,12 +154,12 @@ Navigate into your container app in the Azure portal. In the left side menu unde
 
 :::image type="content" source="media/dapr-invoke-resiliency/resiliency-pane.png" alt-text="Screenshot demonstrating how to access the service discovery resiliency pane.":::
 
-To add a resiliency policy, select the corresponding checkbox and enter parameters. For example, you can select **Timeouts** and enter the duration in seconds for either a connection timeout, a response timeout, or both.
+To add a resiliency policy, select the corresponding checkbox and enter parameters. For example, you can set a timeout policy by selecting **Timeouts** and entering the duration in seconds for either a connection timeout, a response timeout, or both.
 
 :::image type="content" source="media/dapr-invoke-resiliency/dapr-invoke-resiliency-example.png" alt-text="Screenshot of setting the service discovery resiliency policies.":::
 
 > [!NOTE]
-> Dapr service invocation API resiliency does not support TCP retries, HTTP connection pools, or TCP connection pools. 
+> Dapr service invocation API resiliency **only** supports timeouts, HTTP retries, and circuit breakers. 
 
 Select **Apply** once you've added all the policies you'd like to apply to your container app. Select **Continue** to confirm.
 
