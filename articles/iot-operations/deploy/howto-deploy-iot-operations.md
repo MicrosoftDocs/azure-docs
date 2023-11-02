@@ -22,21 +22,9 @@ Deploy Azure IoT Operations preview - enabled by Azure Arc to a Kubernetes clust
 
   Azure IoT Operations should work on any CNCF-conformant kubernetes cluster. Currently, Microsoft only supports K3s on Ubuntu Linux and WSL, or AKS Edge Essentials on Windows.
 
-#### [Azure portal](#tab/portal)
+* Azure CLI installed on your development machine. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
-Azure CLI installed on your development machine. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
-
-#### [GitHub actions](#tab/github)
-
-A GitHub account.
-
-Azure CLI installed on your development machine. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
-
-#### [Azure CLI](#tab/cli)
-
-Azure CLI installed on your development machine. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
-
----
+* An [Azure Key Vault](../../key-vault/general/overview.md) that has the **Permission model** set to **Vault access policy**. You can check this setting in the **Access configuration** section of an existing key vault.
 
 ## Define the deployment
 
@@ -70,7 +58,7 @@ You can deploy the whole Azure IoT Operations suite along with the Orchestrator 
 
 Use the Azure portal to deploy Azure IoT Operations components to your Arc-enabled Kubernetes cluster.
 
-1. In the [Azure portal](https://portal.azure.com) search bar, search for and select **Azure Arc**.
+1. In the Azure portal search bar, search for and select **Azure Arc**.
 
 1. Select **Azure IoT Operations (preview)** from the **Application services** section of the Azure Arc menu.
 
@@ -91,10 +79,25 @@ Use the Azure portal to deploy Azure IoT Operations components to your Arc-enabl
 
    | Field | Value |
    | ----- | ----- |
-   | **Deploy a simulated PLC** | Switch this toggle to **Yes**. The simulated PLC creates demo data that you use in the following quickstarts. |
+   | **Deploy a simulated PLC** | Switch this toggle to **Yes**. The simulated PLC creates demo telemetry data that you use in the following quickstarts. |
    | **Mode** | Set the MQ configuration mode to **Auto**. |
 
-1. Select **Review + create**.
+1. Select **Next: Automation**.
+
+1. On the **Automation** tab, select **Pick or create an Azure Key Vault**.
+
+1. Provide the following information to connect a key vault:
+
+   | Field | Value |
+   | ----- | ----- |
+   | **Subscription** | Select the subscription that contains your Arc-enabled Kubernetes cluster. |
+   | **Key vault** | Choose an existing key vault from the drop-down list or create a new one by selecting **Create new key vault**. |
+
+1. Select **Select**.
+
+1. On the **Automation** tab, the automation commands are populated based on your chosen cluster and key vault. Copy the **Required** CLI command and run it on your development machine.
+
+1. After successfully running the `az iot ops init` command on your cluster, select **Review + Create**.
 
 1. Wait for the validation to pass and then select **Create**.
 
@@ -176,5 +179,3 @@ az deployment group create --resource-group exampleRG \
 ```
 
 ---
-
-
