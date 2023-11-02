@@ -95,6 +95,46 @@ Run the test for 300 seconds, or five minutes, on both the sender and receiver V
 
 1. Wait for the results.
 
+When the test is complete, the output should be similar as the following example:
+   
+```output
+C:\tools>ntttcp -s -m 4,*,10.0.0.5 -t 300
+Copyright Version 5.39
+Network activity progressing...
+
+
+Thread  Time(s) Throughput(KB/s) Avg B / Compl
+======  ======= ================ =============
+     0  300.006        29617.328     65536.000
+     1  300.006        29267.468     65536.000
+     2  300.006        28978.834     65536.000
+     3  300.006        29016.806     65536.000
+
+
+#####  Totals:  #####
+
+
+   Bytes(MEG)    realtime(s) Avg Frame Size Throughput(MB/s)
+================ =========== ============== ================
+    34243.000000     300.005       1417.829          114.141
+
+
+Throughput(Buffers/s) Cycles/Byte       Buffers
+===================== =========== =============
+             1826.262       7.036    547888.000
+
+
+DPCs(count/s) Pkts(num/DPC)   Intr(count/s) Pkts(num/intr)
+============= ============= =============== ==============
+     4218.744         1.708        6055.769          1.190
+
+
+Packets Sent Packets Received Retransmits Errors Avg. CPU %
+============ ================ =========== ====== ==========
+    25324915          2161992       60412      0     15.075
+
+```    
+
 # [Linux](#tab/linux)
 
 ### Prepare VMs and install NTTTCP-for-Linux
@@ -151,7 +191,7 @@ Run the NTTTCP test for 300 seconds, or five minutes, on both the sender VM and 
 When the test is complete, the output should be similar as the following example:
 
 ```output
-azureuser@vm-3:~/ntttcp-for-linux/src$ ntttcp -s -m 4,*,10.0.0.7 -t 300
+azureuser@vm-3:~/ntttcp-for-linux/src$ ntttcp -s -m 4,*,10.0.0.5 -t 300
 NTTTCP for Linux 1.4.0
 ---------------------------------------------------------
 23:59:01 INFO: 4 threads created
