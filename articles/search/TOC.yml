@@ -23,6 +23,8 @@
     items:
     - name: Create an index
       href: search-get-started-portal.md
+    - name: Vectorize data (preview)
+      href: search-get-started-integrated-vectors.md
     - name: Create a demo app
       href: search-create-app-portal.md
     - name: Create a skillset
