@@ -82,6 +82,8 @@ Use the following steps to configure routing:
         - If User-assigned identity was selected, a drop-down appears to enable you to select the desired identity.
 - Select Apply.
 
+:::image type="content" source="./media/mqtt-routing/routing-portal-configuration.png" alt-text="Screenshot showing the routing configuration through the portal.":::
+
 For enrichments configuration instructions, go to [Enrichment portal configuration](mqtt-routing-enrichment.md#azure-portal-configuration).
 
 ### Azure CLI configuration
