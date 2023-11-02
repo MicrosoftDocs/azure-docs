@@ -5,7 +5,7 @@ author: haroldcampos
 ms.author: hcampos
 ms.service: logic-apps
 ms.topic: conceptual
-ms.date: 10/26/2023
+ms.date: 11/02/2023
 
 #CustomerIntent: As an integration developer, I need to learn about mainframe and midrange system integration with Standard workflows in Azure Logic Apps.
 ---
@@ -46,7 +46,7 @@ The following sections describe the [built-in, service provider-based connectors
 
 #### IBM 3270
 
-This Azure Logic Apps connector for 3270 allows Standard workflows to access and run IBM mainframe applications that you usually drive by navigating through 3270 emulator screens. The connector uses the TN3270 stream. For more information, see [Integrate 3270 screen-driven apps on IBM mainframes with Azure by using Azure Logic Apps and IBM 3270 connector](../connectors/connectors-run-3270-apps-ibm-mainframe-create-api-3270.md).
+This Azure Logic Apps connector for 3270 allows Standard workflows to access and run IBM mainframe applications that you usually drive by navigating through 3270 emulator screens. The connector uses the TN3270 stream. For more information, see [Integrate 3270 screen-driven apps on IBM mainframes with Azure by using Azure Logic Apps and IBM 3270 connector](../connectors/integrate-3270-apps-ibm-mainframe.md).
 
 #### IBM Customer Information Control System (CICS)
 
