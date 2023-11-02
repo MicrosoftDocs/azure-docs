@@ -1,7 +1,7 @@
 ---
 title: Overview of the Microsoft Defender for APIs plan
 description: Learn about the benefits of the Microsoft Defender for APIs plan in Microsoft Defender for Cloud
-ms.date: 10/24/2023
+ms.date: 11/02/2023
 author: dcurwin
 ms.author: dacurwin
 ms.topic: overview
