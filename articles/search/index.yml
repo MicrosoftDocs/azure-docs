@@ -45,6 +45,8 @@ landingContent:
         links:
           - text: Create a search service
             url: search-create-service-portal.md
+          - text: Create a vector index
+            url: search-get-started-vector.md
           - text: Create a search index
             url: search-get-started-portal.md
           - text: Create a demo app
