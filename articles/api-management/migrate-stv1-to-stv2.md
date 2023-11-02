@@ -308,7 +308,7 @@ On successful migration, update any network dependencies including DNS, firewall
 
 1. **How can we get help during migration?**
 
-   Check details [here](./migrate-stv1-to-stv2.md?tabs=portal#help-and-support).
+   Check details [here](#help-and-support).
 
 
 ## Related content
