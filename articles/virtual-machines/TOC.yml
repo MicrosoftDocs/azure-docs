@@ -2012,7 +2012,7 @@
       - name: Create VM restore points
         href: create-restore-points.md
       - name: VMSnapshot extension
-        href: virtual-machines-restore-points-vmsnapshot-extension.md
+        href: virtual-machines-restore-points-vm-snapshot-extension.md
       - name: Cross-region copy
         href: virtual-machines-restore-points-copy.md        
     - name: Manage VM restore points

@@ -1,12 +1,12 @@
 ---
-title: Using cross-region copy of Virtual Machine Restore Points
-description: Using cross-region copy of Virtual Machine Restore Points
+title: Using cross-region copy of virtual machine restore points
+description: Using cross-region copy of virtual machine restore points
 author: aarthiv
 ms.author: aarthiv
 ms.service: virtual-machines
 ms.subservice: recovery
 ms.topic: conceptual
-ms.date: 10/31/2023
+ms.date: 11/2/2023
 ms.custom: conceptual
 ---
 
