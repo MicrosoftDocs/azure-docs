@@ -300,7 +300,7 @@ On successful migration, update any network dependencies including DNS, firewall
 
 1. **How is the developer portal impacted by migration?**
 
-   There's no impact on Developer Portal. If custom domains are used, the DNS record should be updated with the effective IP, post migration. However, if the default domains are in use, they're automatically updated on successful migration. There's no downtime for the developer portal during the migration.
+   There's no impact on developer portal. If custom domains are used, the DNS record should be updated with the effective IP, post migration. However, if the default domains are in use, they're automatically updated on successful migration. There's no downtime for the developer portal during the migration.
 
 1. **Is there any impact on cost once we migrated to stv2?**
 
