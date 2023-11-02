@@ -244,6 +244,23 @@ New-AzResourceGroupDeployment `
   -TemplateParameterUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/azuredeploy.parameters.json
 ```
 
+For more information about parameters file, see [Create Resource Manager parameters file](./parameter-files.md).
+
+### Bicep parameter files
+
+With Azure PowerShell version 10.4.0 or later, and Bicep CLI version 0.22.6 or later, you can deploy an ARM template file by utilizing a [Bicep parameter file](../bicep/parameter-files.md). With the `using` statement within the Bicep parameters file, there is no need to provide the `-TemplateFile` switch when specifying a Bicep parameter file for the `-TemplateParameterFile` switch. 
+
+The following example shows a parameters file named _storage.bicepparam_. The file is in the same directory where the command is run.
+
+```powershell
+New-AzResourceGroupDeployment `
+  -Name ExampleDeployment `
+  -ResourceGroupName ExampleResourceGroup `
+  -TemplateParameterFile storage.bicepparam
+```
+
+For more information about Bicep parameters file, see [Bicep arameters file](../bicep/parameter-files.md).
+
 ## Next steps
 
 - To roll back to a successful deployment when you get an error, see [Rollback on error to successful deployment](rollback-on-error.md).
