@@ -210,4 +210,6 @@ items:
           href: reference/observability-metrics-akri.md
         - name: Azure IoT OPC UA Broker
           href: reference/observability-metrics-opcua-broker.md
+        - name: Azure IoT Layered Network Management
+          href: reference/observability-metrics-layered-network.md
 
