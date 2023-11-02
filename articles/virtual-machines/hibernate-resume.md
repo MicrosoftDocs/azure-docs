@@ -119,7 +119,6 @@ Use the following steps to enable this feature for your subscription:
 
 ### [Portal](#tab/enablehiberPortal)
 1. In your Azure subscription, to to the Settings section and select 'Preview features'. 
-
 1. Search for 'hibernation'. 
 1. Check the 'Hibernation Preview' item.
 1. Click 'Register'.
@@ -137,6 +136,12 @@ az feature register --name VMHibernationPreview --namespace Microsoft.Compute
 ---
 
 Confirm that the registration state is Registered (registration takes a few minutes) using the following command before trying out the feature.
+
+### [Portal](#tab/checkhiberPortal)
+In the Azure portal under 'Preview features', select 'Hibernation Preview'. The registration state should show as 'Registered'.
+
+![Screenshot showing the Azure subscription preview portal with the hibernation feature listed as registered.](./media/hibernate-resume/hibernate-is-registered-preview-feature.png)
+
 ### [PowerShell](#tab/checkhiberPS)
 ```powershell
 Get-AzProviderFeature -FeatureName " VMHibernationPreview " -ProviderNamespace "Microsoft.Compute"
