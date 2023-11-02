@@ -30,7 +30,7 @@ When you create a new AKS cluster in the Azure portal, you can enable Prometheus
 
 :::image type="content" source="media/prometheus-metrics-enable/aks-integrations.png" lightbox="media/prometheus-metrics-enable/aks-integrations.png" alt-text="Screenshot of integrations tab for new AKS cluster.":::
 
-### From existing cluster+
+### From existing cluster
 
 This options enables Container insights on a cluster and gives you the option of also enabling [Managed Prometheus and Managed Grafana](./prometheus-metrics-enable.md) for the cluster.
 
@@ -138,10 +138,10 @@ Replace and use the managed cluster resources in [Deploy an Azure Kubernetes Ser
 
 1.	Download Terraform template file depending on whether you want to enable Syslog collection.
 
-   **Syslog**
+    **Syslog**
    - [https://aka.ms/enable-monitoring-msi-syslog-terraform](https://aka.ms/enable-monitoring-msi-syslog-terraform)
 
-   **No Syslog** 
+    **No Syslog** 
    - [https://aka.ms/enable-monitoring-msi-terraform](https://aka.ms/enable-monitoring-msi-terraform)
 
 2.	Adjust the `azurerm_kubernetes_cluster` resource in *main.tf* based on what cluster settings you're going to have.
@@ -272,33 +272,6 @@ The command will return JSON-formatted information about the solution. The `addo
   }
 ```
 
-## Enable private link
-Use the following procedures to enable network isolation by connecting your cluster to the Log Analytics workspace using [Azure Private Link](../logs/private-link-security.md).
-
-1. Follow the steps in [Enable network isolation for the Azure Monitor agent](../agents/azure-monitor-agent-data-collection-endpoint.md#enable-network-isolation-for-azure-monitor-agent) to create a data collection endpoint and add it to your Azure Monitor private link service.
-
-1. Create an association between the cluster and the data collection endpoint by using the following API call. For information on this call, see [Data collection rule associations - Create](/rest/api/monitor/data-collection-rule-associations/create). The DCR association name must be **configurationAccessEndpoint**, and `resourceUri` is the resource ID of the AKS cluster.
-
-    ```rest
-    PUT https://management.azure.com/{cluster-resource-id}/providers/Microsoft.Insights/dataCollectionRuleAssociations/configurationAccessEndpoint?api-version=2021-04-01
-    {
-    "properties": {
-        "dataCollectionEndpointId": "{data-collection-endpoint-resource-id}"
-        }
-    }
-    ```
-
-    For example:
-
-    ```rest
-    PUT https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/my-aks-cluster/providers/Microsoft.Insights/dataCollectionRuleAssociations/configurationAccessEndpoint?api-version=2021-04-01
-
-    {
-    "properties": {
-        "dataCollectionEndpointId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Insights/dataCollectionEndpoints/myDataCollectionEndpoint"
-        }
-    }
-    ```
 
 
 ## Limitations

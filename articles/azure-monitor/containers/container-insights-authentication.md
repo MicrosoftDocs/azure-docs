@@ -77,33 +77,6 @@ AKS clusters must first disable monitoring and then upgrade to managed identity.
 ---
 
 
-### Private link without managed identity authentication
-Use the following procedures to enable network isolation by connecting your cluster to the Log Analytics workspace using [Azure Private Link](../logs/private-link-security.md) if your cluster is not using managed identity authentication. This requires a [private AKS cluster](../../aks/private-clusters.md).
-
-1. Create a private AKS cluster following the guidance in [Create a private Azure Kubernetes Service cluster](../../aks/private-clusters.md).
-
-2. Disable public Ingestion on your Log Analytics workspace. 
-
-    Use the following command to disable public ingestion on an existing workspace.
-
-    ```cli
-    az monitor log-analytics workspace update --resource-group <azureLogAnalyticsWorkspaceResourceGroup> --workspace-name <azureLogAnalyticsWorkspaceName>  --ingestion-access Disabled
-    ```
-
-    Use the following command to create a new workspace with public ingestion disabled.
-
-    ```cli
-    az monitor log-analytics workspace create --resource-group <azureLogAnalyticsWorkspaceResourceGroup> --workspace-name <azureLogAnalyticsWorkspaceName>  --ingestion-access Disabled
-    ```
-
-3. Configure private link by following the instructions at [Configure your private link](../logs/private-link-configure.md). Set ingestion access to public and then set to private after the private endpoint is created but before monitoring is enabled. The private link resource region must be same as AKS cluster region. 
-
-4. Enable monitoring for the AKS cluster.
-
-    ```cli
-    az aks enable-addons -a monitoring --resource-group <AKSClusterResourceGorup> --name <AKSClusterName> --workspace-resource-id <workspace-resource-id>
-    ```
-
 ## Timeline  
 Any new clusters being created or being onboarded now default to Managed Identity authentication. However, existing clusters with legacy solution-based authentication are still supported.  
 
