@@ -19,7 +19,7 @@ Observability provides visibility into every layer of your Azure IoT Operations 
 
 ## Prerequisites
 
-- Azure IoT Operations Preview installed. The installation includes Azure IoT Akri Preview. For more information, see [Quickstart: Deploy Azure IoT Operations – to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md).
+- Azure IoT Operations Preview installed. For more information, see [Quickstart: Deploy Azure IoT Operations – to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md).
 
 ## Install Azure Monitor managed service for Prometheus
 Azure Monitor managed service for Prometheus is a component of Azure Monitor Metrics. This managed service provides flexibility in the types of metric data that you can collect and analyze with Azure Monitor. Prometheus metrics share some features with platform and custom metrics.  Prometheus metrics also use some different features to better support open source tools such as PromQL and Grafana.
