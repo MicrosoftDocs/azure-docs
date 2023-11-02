@@ -55,7 +55,7 @@ Example (single-turn):
 Whether you need quick answers, data-driven responses, or open-ended conversations, the following built-in measurements could help you evaluate the safety and quality of your generative AI applications. 
 # Supported metrics
 
-As described in the [methods for evaluating large language models](aka.ms/azureaistudioevaluation), there are manual and automated approaches to measurement. Automated measurement is useful for measuring at a large scale with increased coverage to supply more comprehensive results. It's also helpful for ongoing measurement to monitor for any regression as the system, usage, and mitigations evolve. We support two main methods for automated measurement of generative AI applications: Traditional machine learning metrics and AI-assisted metrics. AI-assisted measurements utilize language models like GPT-4 to assess AI-generated content, especially in situations where expected answers are unavailable due to the absence of a defined ground truth. Traditional machine learning metrics, like Exact Match, gauge the similarity between AI-generated responses and the anticipated answers, focusing on determining if the AI's response precisely matches the expected response. We support the following metrics for the above scenarios:
+As described in the [methods for evaluating large language models](https://aka.ms/azureaistudioevaluation), there are manual and automated approaches to measurement. Automated measurement is useful for measuring at a large scale with increased coverage to supply more comprehensive results. It's also helpful for ongoing measurement to monitor for any regression as the system, usage, and mitigations evolve. We support two main methods for automated measurement of generative AI applications: Traditional machine learning metrics and AI-assisted metrics. AI-assisted measurements utilize language models like GPT-4 to assess AI-generated content, especially in situations where expected answers are unavailable due to the absence of a defined ground truth. Traditional machine learning metrics, like Exact Match, gauge the similarity between AI-generated responses and the anticipated answers, focusing on determining if the AI's response precisely matches the expected response. We support the following metrics for the above scenarios:
 
 | Task type | AI-assisted metrics  | Traditional machine learning metrics  | 
 | --- | --- | --- |
@@ -432,10 +432,6 @@ Think through step by step:
 
 ## Next steps
 
-Learn more about how to evaluate your generative AI applications:
-+ [Evaluate your generative AI apps via the playground](aka.ms/evaluateplayground)
-+ [Evaluate your generative AI flows](aka.ms/evaluateflows)
-+ [Evaluate your collected conversation dataset](aka.ms/evaluatedata)
-+ [Monitor your generative AI app in production](aka.ms/azureaistudiomonitoring)
-
-Learn more about [harm mitigation techniques](aka.ms/azureaistudioharmsmitigations).
+- [Evaluate your generative AI apps via the playground](../how-to/evaluate-prompts-playground.md)
+- [Evaluate your generative AI apps with the Azure AI Studio or SDK](../how-to/evaluate-generative-ai-app.md)
+- [View the evaluation results](../how-to/view-evaluation-results.md)

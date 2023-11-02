@@ -20,7 +20,7 @@ Mitigating harms presented by large language models (LLMs) such as the Azure Ope
 
  ## Model layer
 
-At the model level, it's important to understand the model(s) you are using and what fine-tuning steps might have been taken by the model developers to align the model towards its intended uses and to reduce the risk of potentially harmful uses and outcomes. Azure AI studio's model catalog enables you to explore models from Azure OpenAI Service, Meta, etc., organized by collection and task. In the [model catalog](aka.ms/aistudiomodelcatalog), you can explore model cards to understand model capabilities and limitations, experiment with sample inferences, and assess model performance. You can further compare multiple models side-by-side through benchmarks to select the best one for your use case. Then, you can enhance model performance by fine-tuning with your training data. 
+At the model level, it's important to understand the model(s) you are using and what fine-tuning steps might have been taken by the model developers to align the model towards its intended uses and to reduce the risk of potentially harmful uses and outcomes. Azure AI studio's model catalog enables you to explore models from Azure OpenAI Service, Meta, etc., organized by collection and task. In the [model catalog](https://aka.ms/aistudiomodelcatalog), you can explore model cards to understand model capabilities and limitations, experiment with sample inferences, and assess model performance. You can further compare multiple models side-by-side through benchmarks to select the best one for your use case. Then, you can enhance model performance by fine-tuning with your training data. 
 
 ## Metaprompt and grounding layer
 
@@ -201,10 +201,6 @@ If the search results do not contain sufficient information to answer the user m
 
 ## Next steps
 
-Learn more about how to evaluate your generative AI applications:
-+ [Evaluate your generative AI apps via the playground](aka.ms/evaluateplayground)
-+ [Evaluate your generative AI flows](aka.ms/evaluateflows)
-+ [Evaluate your collected conversation dataset](aka.ms/evaluatedata)
-+ [Monitor your generative AI app in production](aka.ms/azureaistudiomonitoring)
-
-Learn more about [generative AI applications' evaluation and monitoring](aka.ms/azureaistudioevaluation).
+- [Evaluate your generative AI apps via the playground](../how-to/evaluate-prompts-playground.md)
+- [Evaluate your generative AI apps with the Azure AI Studio or SDK](../how-to/evaluate-generative-ai-app.md)
+- [View the evaluation results](../how-to/view-evaluation-results.md)

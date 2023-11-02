@@ -113,14 +113,12 @@
         href: ai-studio/concepts/evaluation-metrics-built-in.md
       - name: Harms mitigation strategies with Azure AI
         href: ai-studio/concepts/evaluation-improvement-strategies.md
-    - name: Evaluate your flow
-      href: ai-studio/how-to/evaluate-flow.md
+    - name: Evaluate your generative AI app
+      href: ai-studio/how-to/evaluate-generative-ai-app.md
     - name: Evaluate prompts from the Azure AI Studio playground 
       href: ai-studio/how-to/evaluate-prompts-playground.md
-    - name: Evaluate via flows in the Azure AI Studio
-      href: ai-studio/how-to/evaluate-flow-studio.md
-    - name: Evaluate with data
-      href: ai-studio/how-to/evaluate-data.md
+    - name: Evaluate prompt flow results
+      href: ai-studio/how-to/evaluate-flow-results.md
   - name: Costs and quotas
     items:
     - name: Plan and manage costs

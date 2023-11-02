@@ -68,8 +68,7 @@ You can also compare the thumbs up and down ratings across your different manual
 ## Next steps
 
 Learn more about how to evaluate your generative AI applications:
-+ [Evaluate your collected conversation dataset](aka.ms/evaluatedata)
-+ [Evaluate your generative AI flows](aka.ms/evaluateflows)
-+ [Monitor your generative AI app in production](aka.ms/azureaistudiomonitoring)
+- [Evaluate your generative AI apps with the Azure AI Studio or SDK](../how-to/evaluate-generative-ai-app.md)
+- [View the evaluation results](../how-to/view-evaluation-results.md)
 
-Learn more about [harm mitigation techniques](aka.ms/azureaistudioharmsmitigations).
+Learn more about [harm mitigation techniques](../concepts/evaluation-improvement-strategies.md).
