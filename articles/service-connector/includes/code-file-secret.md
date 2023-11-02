@@ -21,7 +21,7 @@ ms.author: wchi
     using Azure.Storage.Files.Shares.Models;
     
     var connectionString = Environment.GetEnvironmentVariable("AZURE_STORAGEFILE_CONNECTIONSTRING");
-    ShareClient share = new ShareClient(connectionString, "<shareName>");
+    ShareServiceClient service = new ShareServiceClient(connectionString)
     ```
     
 ### [Java](#tab/java)
@@ -39,9 +39,8 @@ ms.author: wchi
     import com.azure.storage.file.share.*;
     
     String connectionString = System.getenv("AZURE_STORAGEFILE_CONNECTIONSTRING");
-    ShareClient shareClient = new ShareClientBuilder()
-        .connectionString(connectString).shareName("<shareName>")
-        .buildClient();
+    ShareServiceClient fileServiceClient = new ShareServiceClientBuilder()
+        .connectionString(CONNECTION_STRING).buildClient();
     ```
 
 ### [SpringBoot](#tab/spring)
