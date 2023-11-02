@@ -25,56 +25,52 @@ Most Azure AI Studio pages are composed of the following structure:
 - Secondary navigation 
 - Main page content 
     - Contains a breadcrumb navigation element 
-    - Also contains a command toolbar 
+    - Usually contains a command toolbar 
 
-For efficient navigation, the following shortcuts might be helpful: 
-- To move focus to the tabs in primary navigation, press *Ctrl+Alt+1* (Home), *Ctrl+Alt+2* (Explore), *Ctrl+Alt+3* (Build) and *Ctrl+Alt+4* (Manage) 
-- To cycle between elements in the main view (secondary navigation, command toolbar and main page content), press *Ctrl+F6* or *Ctrl+Shift+F6*.
-
-For more information about keyboard shortcuts, see [Keyboard shortcuts in Azure AI Studio](../reference/keyboard-shortcuts.md).
+For efficient navigation, it might be helpful to navigate by landmarks to move between these sections on the page.
 
 ## Explore 
 
-In **Explore** you can explore the different capabilities of Azure AI before creating a project. Press *Ctrl+Alt+2* to navigate to the Explore tab. 
+In **Explore** you can explore the different capabilities of Azure AI before creating a project. You can find this in the primary navigation landmark.
 
 Within **Explore**, you'll be able to explore many capabilities found within the secondary navigation. These include model catalog, model leaderboard, and pages for Azure AI services such as Speech, Vision, and Content Safety. 
 - Model catalog contains three main areas: Announcements, Models and Filters. You can use Search and Filters to narrow down model selection 
-- Azure AI service pages such as Speech consist of a number of cards containing links. These lead you to demo experiences where you can sample our AI capabilities and might link out to another webpage. 
+- Azure AI service pages such as Speech consist of many cards containing links. These cards lead you to demo experiences where you can sample our AI capabilities and might link out to another webpage. 
 
 ## Projects 
 
 To work within the Azure AI Studio, you must first create a project: 
-1. Navigate to the Build tab in the primary navigation using *Ctrl+Alt+3*. 
-1. Press the Tab key (or Ctrl+F6) until you hear *New project* and select this button.  
+1. Navigate to the Build tab in the primary navigation.
+1. Press the Tab key until you hear *New project* and select this button.  
 1. Enter the information requested in the **Create a new project** dialog.  
 
-You'll then get taken to the project details page. 
+You then get taken to the project details page. 
 
-Within a project, you'll be able to explore many capabilities found within the secondary navigation. These include playground, prompt flow, evaluation, and deployments. 
+Within a project, you'll be able to explore many capabilities found within the secondary navigation. These include playground, prompt flow, evaluation, and deployments. The secondary navigation contains an H2 heading with the project title, which can be used for efficient navigation.
 
 ## Using the playground 
 
 The playground is where you can chat with models and experiment with different prompts and parameters.  
 
-From the **Build** tab, navigate to the secondary navigation landmark by pressing *Ctrl+F6* and press the down arrow until you hear *playground*.  
+From the **Build** tab, navigate to the secondary navigation landmark and press the down arrow until you hear *playground*.  
 
 ### Playground structure 
 
 When you first arrive the playground mode dropdown is set to **Chat** by default. In this mode the playground is composed of the command toolbar and three main panes: **Assistant setup**, **Chat session**, and **Configuration**. If you have added your own data in the playground, the **Citations** pane will also appear when selecting a citation as part of the model response. 
 
-Press *Ctrl+F6* (or *Ctrl+Shift+F6*) to navigate through the different panes in the playground. Alternatively, you can navigate by heading as each pane has its own H2 heading. 
+You can navigate by heading to move between these panes, as each pane has its own H2 heading. 
 
 ### Assistant setup pane 
 
 This is where you can set up the chat assistant according to your organization's needs. 
 
-Note that once you edit the system message or examples, your changes don't save automatically. Press the **Save changes** button to ensure your changes are saved. 
+Once you edit the system message or examples, your changes don't save automatically. Press the **Save changes** button to ensure your changes are saved. 
 
 ### Chat session pane  
 
 This is where you can chat to the model and test out your assistant 
-- After you send a message, the model might take some time to respond, especially if the response is long. You'll hear a screen reader announcement "Message received from the chatbot" when the model has finished composing a response.  
-- Content in the chatbot will follow this format: 
+- After you send a message, the model might take some time to respond, especially if the response is long. You hear a screen reader announcement "Message received from the chatbot" when the model has finished composing a response.  
+- Content in the chatbot follows this format: 
 
     ```
     [message from user] [user image] 
@@ -84,18 +80,19 @@ This is where you can chat to the model and test out your assistant
 
 ## Using Prompt flow 
 
-Prompt flows is a tool to create executable flows, linking LLMs, prompts and Python tools through a visualized graph. You can use this to prototype, experiment and iterate on your AI applications before deploying.  
+Prompt flow is a tool to create executable flows, linking LLMs, prompts and Python tools through a visualized graph. You can use this to prototype, experiment and iterate on your AI applications before deploying.  
 
-With the Build tab selected, navigate to the secondary navigation landmark by using Ctrl+F6 and press the down arrow until you hear *flows*.  
+With the Build tab selected, navigate to the secondary navigation landmark and press the down arrow until you hear *flows*.  
 
-The Prompt flow UI in Azure AI Studio is composed of the following main sections: Command toolbar, Flow (includes list of the flow nodes), Files and the Graph view. 
+The Prompt flow UI in Azure AI Studio is composed of the following main sections: Command toolbar, Flow (includes list of the flow nodes), Files and the Graph view. The Flow, Files and Graph sections each have their own H2 headings that can be used for navigation.
 
 
 ### Flow 
 
 - This is the main working area where you can edit your flow, for example adding a new node, editing the prompt, selecting input data 
 - You can also choose to work in code instead of the editor by navigating to the **Raw file mode** toggle button to view the flow in code. 
-- You can also open your flow in VS Code Web by selecting the **Work in VS Code Web** button, or pressing *Ctrl+Alt+V*.  
+- You can also open your flow in VS Code Web by selecting the **Work in VS Code Web** button.
+- Each node has its own H3 heading, which can be used for navigation.  
 
 ### Files 
 
@@ -105,7 +102,7 @@ The Prompt flow UI in Azure AI Studio is composed of the following main sections
 ### Graph view 
 
 - The graph is a visual representation of the flow. This view isn't editable or interactive. 
-- You hear the following alt text to describe the graph: “ "Graph view of [flow name] – for visualization only. We don't currently provide a full screen reader description for this graphical chart. To get all equivalent information, you can read and edit the flow by navigating to Flow, or by toggling on the Raw file view.  
+- You hear the following alt text to describe the graph: "Graph view of [flow name] – for visualization only." We don't currently provide a full screen reader description for this graphical chart. To get all equivalent information, you can read and edit the flow by navigating to Flow, or by toggling on the Raw file view.  
 
  
 ### Evaluations  
@@ -116,14 +113,14 @@ Evaluation is a tool to help you evaluate the performance of your generative AI 
 
 To review evaluation metrics, you must first create an evaluation.  
 
-1. Navigate to the Build tab in the primary navigation by pressing *Ctrl+Alt+3*.
-1. Navigate to the secondary navigation landmark by pressing Ctrl+F6 and press the down arrow until you hear *evaluations*.
-1. Press the Tab key (or Ctrl+F6) until you hear *new evaluation* and select this button.  
+1. Navigate to the Build tab in the primary navigation.
+1. Navigate to the secondary navigation landmark and press the down arrow until you hear *evaluations*.
+1. Press the Tab key until you hear *new evaluation* and select this button.  
 1. Enter the information requested in the **Create a new evaluation** dialog. Once complete, your focus is returned to the evaluations list. 
 
 ### Viewing evaluations 
 
-Once you have created an evaluation, you can access it from the list of evaluations.  
+Once you create an evaluation, you can access it from the list of evaluations.  
 
 Evaluation runs are listed as links within the Evaluations grid. Selecting a link takes you to a dashboard view with information about your specific evaluation run. 
 
@@ -134,7 +131,7 @@ There's also a dashboard view provided to allow you to compare evaluation runs. 
  
 ## Technical support for customers with disabilities 
 
-Microsoft wants to provide the best possible experience for all our customers. If you have a disability or questions related to accessibility, please contact the Microsoft Disability Answer Desk for technical assistance. The Disability Answer Desk support team is trained in using many popular assistive technologies and can offer assistance in English, Spanish, French, and American Sign Language. Please go to the Microsoft Disability Answer Desk site to find out the contact details for your region. 
+Microsoft wants to provide the best possible experience for all our customers. If you have a disability or questions related to accessibility, please contact the Microsoft Disability Answer Desk for technical assistance. The Disability Answer Desk support team is trained in using many popular assistive technologies and can offer assistance in English, Spanish, French, and American Sign Language. Go to the Microsoft Disability Answer Desk site to find out the contact details for your region. 
 
 If you're a government, commercial, or enterprise customer, please contact the enterprise Disability Answer Desk. 
 

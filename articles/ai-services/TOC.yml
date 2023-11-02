@@ -113,20 +113,26 @@
       href: commitment-tier.md
   - name: Infrastructure & security
     items:
+    - name: Identity & access management
+      items:
+      - name: Role-based access control in Azure AI Studio
+        href: ai-studio/concepts/rbac-ai-studio.md
+    - name: Data protection & encryption
+      items:
+      - name: Rotate keys
+        href: rotate-keys.md
+      - name: Configure customer-managed keys
+        href: ./encryption/cognitive-services-encryption-keys-portal.md
+  - name: Azure AI services infrastructure
+    items:
     - name: Security features
       href: security-features.md
     - name: Authenticate requests
       href: authentication.md
     - name: Disable local authentication
       href: disable-local-auth.md
-    - name: Rotate keys
-      href: rotate-keys.md
     - name: Use environment variables
       href: cognitive-services-environment-variables.md
-    - name: Role-based access control in Azure AI Studio
-      href: ai-studio/concepts/rbac-ai-studio.md
-    - name: Configure customer-managed keys
-      href: ./encryption/cognitive-services-encryption-keys-portal.md
     - name: Use virtual networks
       href: cognitive-services-virtual-networks.md
     - name: Custom subdomains for Azure AI services
@@ -141,21 +147,19 @@
       href: ./security-controls-policy.md
     - name: Diagnostic logging
       href: diagnostic-logging.md
-  - name: Create multi-service resources
-    items:
-    - name: Create a multi-service resource
-      href: multi-service-resource.md
-      displayName: cognitive
-    - name: Create a new resource using Bicep
-      displayName: Resource Manager, ARM, Template
-      href: create-account-bicep.md
-    - name: Create a new resource using an ARM template
-      displayName: Resource Manager
-      href: create-account-resource-manager-template.md  
-    - name: Create a new resource using Terraform
-      href: create-account-terraform.md
-    - name: Recover or purge deleted resources
-      href: recover-purge-resources.md
+    - name: Create multi-service resources
+      items:
+      - name: Create a multi-service resource
+        href: multi-service-resource.md
+        displayName: cognitive
+      - name: Create a new resource using Bicep
+        displayName: Resource Manager, ARM, Template
+        href: create-account-bicep.md
+      - name: Create a new resource using an ARM template
+        displayName: Resource Manager
+        href: create-account-resource-manager-template.md  
+      - name: Create a new resource using Terraform
+        href: create-account-terraform.md
   - name: Deploy containers
     items:
     - name: Azure AI containers overview
@@ -213,8 +217,6 @@
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-reference.md
-  - name: Keyboard shortcuts in Azure AI Studio
-    href: ai-studio/reference/keyboard-shortcuts.md
 - name: Resources
   items:
   - name: Support & help options
