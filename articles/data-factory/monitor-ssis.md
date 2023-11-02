@@ -29,7 +29,7 @@ To send all metrics and logs generated from SSIS IR operations and SSIS package 
 
 SSIS operational [metrics](../azure-monitor/essentials/data-platform-metrics.md) are performance counters or numerical values that describe the status of SSIS IR start and stop operations, as well as SSIS package executions at a particular point in time. They're part of [ADF metrics in Azure Monitor](monitor-metrics-alerts.md).
 
-When you configure diagnostic settings and workspace for your ADF on Azure Monitor, selecting the _AllMetrics_ check box will make SSIS operational metrics available for [interactive analysis using Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md), [presentation on Azure dashboard](../azure-monitor/app/overview-dashboard.md#create-custom-kpi-dashboards-using-application-insights), and [near-real time alerts](../azure-monitor/alerts/alerts-metric.md).
+When you configure diagnostic settings and workspace for your ADF on Azure Monitor, selecting the _AllMetrics_ check box will make SSIS operational metrics available for [interactive analysis using Azure metrics explorer](../azure-monitor/essentials/analyze-metrics.md), [presentation on Azure dashboard](../azure-monitor/app/tutorial-app-dashboards.md), and [near-real time alerts](../azure-monitor/alerts/alerts-metric.md).
 
 :::image type="content" source="media/data-factory-monitor-oms/monitor-oms-image2.png" alt-text="Name your settings and select a log-analytics workspace":::
 
