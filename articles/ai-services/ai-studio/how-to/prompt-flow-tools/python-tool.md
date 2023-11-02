@@ -19,7 +19,7 @@ The prompt flow *Python* tool offers customized code snippets as self-contained 
 1. Create or open a flow in Azure AI Studio. For more information, see [Create a flow](../flow-develop.md).
 1. Select **+ Python** to add the Python tool to your flow.
 
-    :::image type="content" source="../../media/prompt-flow/python-tool.png" alt-text="Screenshot of the Python tool added to a flow in Azure AI Studio" lightbox="../../media/prompt-flow/python-tool.png":::
+    :::image type="content" source="../../media/prompt-flow/python-tool.png" alt-text="Screenshot of the Python tool added to a flow in Azure AI Studio." lightbox="../../media/prompt-flow/python-tool.png":::
 
 1. Enter values for the Python tool input parameters described [here](#inputs). For example, in the **Code** input text box you can enter the following Python code:
 

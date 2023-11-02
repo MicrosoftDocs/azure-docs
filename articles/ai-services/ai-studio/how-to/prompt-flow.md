@@ -66,7 +66,7 @@ By following this structured and methodical approach, prompt flow empowers you t
 
 In Azure AI Studio, you can start a new flow by selecting a flow type or a template from the gallery. 
 
-:::image type="content" source="../media/prompt-flow/init-type-or-gallery.png" alt-text="Screenshot of example flow types and templates from the gallery" lightbox="../media/prompt-flow/init-type-or-gallery.png":::
+:::image type="content" source="../media/prompt-flow/init-type-or-gallery.png" alt-text="Screenshot of example flow types and templates from the gallery." lightbox="../media/prompt-flow/init-type-or-gallery.png":::
 
 Here are some examples of flow types:
 
@@ -83,7 +83,7 @@ Within a flow, nodes take center stage, representing specific tools with unique 
 
 To facilitate node configuration and fine-tuning, a visual representation of the workflow structure is provided through a DAG (Directed Acyclic Graph) graph. This graph showcases the connectivity and dependencies between nodes, providing a clear overview of the entire workflow.
 
-:::image type="content" source="../media/prompt-flow/dag-graph-example.png" alt-text="Screenshot of an example directed acyclic graph in prompt flow editor" lightbox="../media/prompt-flow/dag-graph-example.png":::
+:::image type="content" source="../media/prompt-flow/dag-graph-example.png" alt-text="Screenshot of an example directed acyclic graph in prompt flow editor." lightbox="../media/prompt-flow/dag-graph-example.png":::
 
 With the flow feature in Prompt flow, you have the power to design, customize, and optimize the logic of your AI application. The cohesive arrangement of nodes ensures efficient data processing and effective flow management, empowering you to create robust and advanced applications.
 
@@ -93,7 +93,7 @@ Tools are the fundamental building blocks of a flow.
 
 In Azure AI Studio, tool options include the [LLM tool](../how-to/prompt-flow-tools/llm-tool.md), [Prompt tool](../how-to/prompt-flow-tools/prompt-tool.md), [Python tool](../how-to/prompt-flow-tools/python-tool.md), and more.
 
-:::image type="content" source="../media/prompt-flow/tool-options.png" alt-text="Screenshot of tool options in prompt flow editor" lightbox="../media/prompt-flow/tool-options.png":::
+:::image type="content" source="../media/prompt-flow/tool-options.png" alt-text="Screenshot of tool options in prompt flow editor." lightbox="../media/prompt-flow/tool-options.png":::
 
 Each tool is a simple, executable unit with a specific function. By combining different tools, you can create a flow that accomplishes a wide range of goals. For example, you can use the LLM tool to generate text or summarize an article and the Python tool to process the text to inform the next flow component or result.
 

@@ -26,7 +26,7 @@ Prepare a prompt as described in the [prompt tool](prompt-tool.md#prerequisites)
 1. Create or open a flow in Azure AI Studio. For more information, see [Create a flow](../flow-develop.md).
 1. Select **+ LLM** to add the LLM tool to your flow.
 
-    :::image type="content" source="../../media/prompt-flow/llm-tool.png" alt-text="Screenshot of the LLM tool added to a flow in Azure AI Studio" lightbox="../../media/prompt-flow/llm-tool.png":::
+    :::image type="content" source="../../media/prompt-flow/llm-tool.png" alt-text="Screenshot of the LLM tool added to a flow in Azure AI Studio." lightbox="../../media/prompt-flow/llm-tool.png":::
 
 1. Select the connection to one of your provisioned resources. For example, select **Default_AzureOpenAI**.
 1. From the **Api** drop-down list, select *chat* or *completion*. 

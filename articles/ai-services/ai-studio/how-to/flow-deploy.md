@@ -14,9 +14,9 @@ ms.author: eur
 
 [!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
 
-After you build a flow and test it properly, you may want to deploy it as an endpoint so that you can invoke the endpoint for real-time inference.
+After you build a flow and test it properly, you might want to deploy it as an endpoint so that you can invoke the endpoint for real-time inference.
 
-In this article, you'll learn how to deploy a flow as a managed online endpoint for real-time inference. The steps you'll take are:
+In this article, you learn how to deploy a flow as a managed online endpoint for real-time inference. The steps you take are:
 
 - Test your flow and get it ready for deployment
 - Create an online deployment
@@ -24,23 +24,15 @@ In this article, you'll learn how to deploy a flow as a managed online endpoint 
 - Test the endpoint
 - Consume the endpoint
 
-## Build the flow and get it ready for deployment
-
-By now you've already tested the flow properly by submitting bulk tests and evaluating the results.
-
-If you didn't complete the tutorial, you need to build a flow. Testing the flow properly by bulk tests and evaluation before deployment is a recommended best practice.
-
-We'll use the sample flow **Web Classification** as example to show how to deploy the flow. This sample flow is a standard flow. Deploying chat flows is similar. Evaluation flow doesn't support deployment.
+We use the sample flow **Web Classification** as example to show how to deploy the flow. This sample flow is a standard flow. Deploying chat flows is similar. Evaluation flow doesn't support deployment.
 
 ## Define the environment used by deployment
 
-When you deploy prompt flow to managed online endpoint in UI, by default the deployment will use the environment created based on the latest prompt flow image and dependencies specified in the `requirements.txt` of the flow. You can specify extra packages you needed in `requirements.txt`. You can find `requirements.txt` in the root folder of your flow folder.
-
-
+When you deploy prompt flow to managed online endpoint in UI, by default the deployment uses the environment created based on the latest prompt flow image and dependencies specified in the `requirements.txt` of the flow. You can specify extra packages you needed in `requirements.txt`. You can find `requirements.txt` in the root folder of your flow folder.
 
 ## Prerequisites
 
-In order to make the chat playground to respond to your query, you must grant permissions to the endpoint entity after the promptflow deployment is created. This is a subscription owner level action, so if needed, ask your subscription owner to do it for you. 
+In order to make the chat playground to respond to your query, you must grant permissions to the endpoint entity after the prompt flow deployment is created. This is a subscription owner level action, so if needed, ask your subscription owner to do it for you. 
 
 ## Create an online deployment
 
@@ -50,11 +42,11 @@ The Prompt flow supports you to deploy endpoints from a flow, or a bulk test run
 
 
 ### If you're using AI Studio UI:
-1. Follow [the promptflow instruction](https://github.com/Azure/azureai-insiders/blob/aistudio-preview/previews/aistudio/how-to/build_with_promptflow.md) to create a promptflow.
+1. Follow [the prompt flow instruction](https://github.com/Azure/azureai-insiders/blob/aistudio-preview/previews/aistudio/how-to/build_with_promptflow.md) to create a prompt flow.
 1. Select **Deploy** on the flow editor.
-1. Fill out the basic settings such as **Endpoint name**, **Deployment name** and **Content safty**.
-1. If you are satisfied with the basic settings, then you can click **Deploy** and continue. However, if you want to add more customization such as **Authentication type** and **Identity type**, select **Advanced settings**. 
-1. Select **Deploy** to start the deployment. You can check the deployment status in the **Deployments** tab. On the left pane, you will see attributes related to the deployment, while the right-hand side shows the endpoint attributes. If you turned on your data **Monitoring**, it will also show up on the right-hand side.
+1. Fill out the basic settings such as **Endpoint name**, **Deployment name** and **Content safety**.
+1. If you're satisfied with the basic settings, then you can select **Deploy** and continue. However, if you want to add more customization such as **Authentication type** and **Identity type**, select **Advanced settings**. 
+1. Select **Deploy** to start the deployment. You can check the deployment status in the **Deployments** tab. On the left pane, you'll see attributes related to the deployment, while the right-hand side shows the endpoint attributes. 
 1. Once you're redirected to the deployment details page, **look for the endpoint name** in URL (`EndpointName.region.inference.ml.azure.com/score`). You need this for step 9 (enabling access to secrets).
 1. Go to Project details page (`Projects` > `Details`).
 1. Select the **YourResourceGroupName** link on the Details page.
@@ -65,7 +57,7 @@ The Prompt flow supports you to deploy endpoints from a flow, or a bulk test run
 1. Select **Select**.
 1. Select **Review + Assign**.
 1. Return to AI Studio and go to the deployment details page (`Deployments` > `YourDeploymentName`).
-1. Test the promptflow deployment (`YourDeploymentName` > `Test`)
+1. Test the prompt flow deployment (`YourDeploymentName` > `Test`)
 
 
 ## Check the status of the endpoint
@@ -93,7 +85,7 @@ The `chat_input` was set during development of the chat flow. You can input the 
 
 ## Consume the endpoint
 
-In the endpoint detail page, switch to the **Consume** tab. You can find the REST endpoint and key/token to consume your endpoint. There is also sample code for you to consume the endpoint in different languages.
+In the endpoint detail page, switch to the **Consume** tab. You can find the REST endpoint and key/token to consume your endpoint. There's also sample code for you to consume the endpoint in different languages.
 
 
 ## Clean up resources
@@ -101,7 +93,7 @@ In the endpoint detail page, switch to the **Consume** tab. You can find the RES
 If you aren't going use the endpoint after completing this tutorial, you should delete the endpoint.
 
 > [!NOTE]
-> The complete deletion may take approximately 20 minutes.
+> The complete deletion might take up to 20 minutes.
 
 ## Next Steps
 

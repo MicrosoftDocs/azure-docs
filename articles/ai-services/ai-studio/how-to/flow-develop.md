@@ -17,13 +17,13 @@ ms.author: eur
 
 Prompt flow is a development tool designed to streamline the entire development cycle of AI applications powered by Large Language Models (LLMs). Prompt flow provides a comprehensive solution that simplifies the process of prototyping, experimenting, iterating, and deploying your AI applications.
 
-With prompt flow, you'll be able to:
+With prompt flow, you're able to:
 
 * Orchestrate executable flows with LLMs, prompts, and Python tools through a visualized graph.
 * Test, debug, and iterate your flows with ease.
 * Create prompt variants and compare their performance.
 
-In this article, you'll learn how to create and develop your first prompt flow in Azure AI Studio.
+In this article, you learn how to create and develop your first prompt flow in Azure AI Studio.
 
 ## Prerequisites
 
@@ -44,7 +44,7 @@ To create a prompt flow from the gallery in Azure AI Studio:
 
     :::image type="content" source="../media/prompt-flow/create-standard-flow.png" alt-text="Screenshot of selecting and creating a standard flow." lightbox="../media/prompt-flow/create-standard-flow.png":::
 
-1. The prompt flow authoring page opens. You can start authoring your flow now. By default you'll see a sample flow. This example flow has nodes for the LLM and Python tools. 
+1. The prompt flow authoring page opens. You can start authoring your flow now. By default you see a sample flow. This example flow has nodes for the LLM and Python tools. 
 
     :::image type="content" source="../media/prompt-flow/create-flow-in-out.png" alt-text="Screenshot of flow input and output on the edit prompt flow page." lightbox="../media/prompt-flow/create-flow-in-out.png":::
 
@@ -80,7 +80,7 @@ To create a prompt flow from the gallery in Azure AI Studio:
 
 ### Authoring the flow
 
-Each flow can be represented by a folder that contains a `flow.dag.yaml`` file, source code files, and system folders. You can add new files, edit existing files, and delete files. You can also export the files to local, or import files from local. 
+Each flow is represented by a folder that contains a `flow.dag.yaml`` file, source code files, and system folders. You can add new files, edit existing files, and delete files. You can also export the files to local, or import files from local. 
 
 In addition to inline editing the node in flatten view, you can also turn on the **Raw file mode** toggle and select the file name to edit the file in the opening file tab.
 
@@ -93,24 +93,24 @@ Flow output is the data produced by the flow as a whole, which summarizes the re
 
 
 ### Link nodes together
-By referencing the node output, you can link nodes together. For example, you can reference the LLM node output in the Python node input, so the Python node can consume the LLM node output, and in the graph view you can see the the two nodes are linked together.
+By referencing the node output, you can link nodes together. For example, you can reference the LLM node output in the Python node input, so the Python node can consume the LLM node output, and in the graph view you can see that the two nodes are linked together.
 
 ### Enable conditional control to the flow
 Prompt Flow offers not just a streamlined way to execute the flow, but it also brings in a powerful feature for developers - conditional control, which allows users to set conditions for the execution of any node in a flow.
 
-At its core, conditional control provides the capability to associate each node in a flow with an **activate config**. This configuration is essentially a "when" statement that determine when a node should be executed. The power of this feature is realized when you have complex flows where the execution of certain tasks depends on the outcome of previous tasks. By leveraging the conditional control, you can configure your specific nodes to execute only when the specified conditions are met.
+At its core, conditional control provides the capability to associate each node in a flow with an **activate config**. This configuration is essentially a "when" statement that determines when a node should be executed. The power of this feature is realized when you have complex flows where the execution of certain tasks depends on the outcome of previous tasks. By using the conditional control, you can configure your specific nodes to execute only when the specified conditions are met.
 
 Specifically, you can set the activate config for a node by clicking the **Activate config** button in the node card. You can add "when" statement and set the condition.
 You can set the conditions by referencing the flow input, or node output. For example, you can set the condition `${input.[input name]}` as specific value or `${[node name].output}` as specific value. 
 
-If the condition is not met, the node will be skipped. The node status is shown as "Bypassed".
+If the condition isn't met, the node is skipped. The node status is shown as "Bypassed".
 
 ### Test the flow
 You can test the flow in two ways: run single node or run the whole flow. 
 
 To run a single node, select the **Run** icon on node in flatten view. Once running is completed, check output in node output section.
 
-To run the whole flow, select the **Run** button at the right top. Then you can check the run status and output of each node, as well as the results of flow outputs defined in the flow. You can always change the flow input value and run the flow again.
+To run the whole flow, select the **Run** button at the right top. Then you can check the run status and output of each node, and the results of flow outputs defined in the flow. You can always change the flow input value and run the flow again.
 
 ## Develop a chat flow
 Chat flow is designed for conversational application development, building upon the capabilities of standard flow and providing enhanced support for chat inputs/outputs and chat history management. With chat flow, you can easily create a chatbot that handles chat input and output.

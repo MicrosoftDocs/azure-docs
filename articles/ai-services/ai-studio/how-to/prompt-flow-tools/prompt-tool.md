@@ -41,7 +41,7 @@ For more information and best practices, see [prompt engineering techniques](../
 1. Create or open a flow in Azure AI Studio. For more information, see [Create a flow](../flow-develop.md).
 1. Select **+ Prompt** to add the Prompt tool to your flow.
 
-    :::image type="content" source="../../media/prompt-flow/prompt-tool.png" alt-text="Screenshot of the Prompt tool added to a flow in Azure AI Studio" lightbox="../../media/prompt-flow/prompt-tool.png":::
+    :::image type="content" source="../../media/prompt-flow/prompt-tool.png" alt-text="Screenshot of the Prompt tool added to a flow in Azure AI Studio." lightbox="../../media/prompt-flow/prompt-tool.png":::
 
 1. Enter values for the Prompt tool input parameters described [here](#inputs). For information about how to prepare the prompt input, see [prerequisites](#prerequisites).
 1. Add more tools (such as the [LLM tool](llm-tool.md)) to your flow as needed, or select **Run** to run the flow.

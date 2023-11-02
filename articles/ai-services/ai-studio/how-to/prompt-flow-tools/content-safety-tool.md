@@ -29,7 +29,7 @@ Create an Azure Content Safety connection:
 1. Create or open a flow in Azure AI Studio. For more information, see [Create a flow](../flow-develop.md).
 1. Select **+ More tools** > **Content Safety (Text)** to add the Content Safety tool to your flow.
 
-    :::image type="content" source="../../media/prompt-flow/content-safety-tool.png" alt-text="Screenshot of the Content Safety tool added to a flow in Azure AI Studio" lightbox="../../media/prompt-flow/content-safety-tool.png":::
+    :::image type="content" source="../../media/prompt-flow/content-safety-tool.png" alt-text="Screenshot of the Content Safety tool added to a flow in Azure AI Studio." lightbox="../../media/prompt-flow/content-safety-tool.png":::
 
 1. Select the connection to one of your provisioned resources. For example, select **AzureAIContentSafetyConnection** if you created a connection with that name. For more information, see [Prerequisites](#prerequisites).
 1. Enter values for the Content Safety tool input parameters described [here](#inputs).

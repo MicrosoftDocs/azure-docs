@@ -38,8 +38,8 @@ In Prompt flow, a flow is a sequence of nodes that process an input and generate
 Some special features of evaluation methods are:
 
 1. They usually run after the run to be tested, and receive outputs from that run.
-2. Apart from the outputs from the run to be tested, they can receive an optional additional dataset which may contain corresponding ground truths. 
-3. They may have an aggregation node that calculates the overall performance of the flow being tested based on the individual scores.
+2. Apart from the outputs from the run to be tested, they can receive an optional additional dataset which might contain corresponding ground truths. 
+3. They might have an aggregation node that calculates the overall performance of the flow being tested based on the individual scores.
 4. They can log metrics using log_metric() function.
 
 We'll introduce how the inputs and outputs should be defined in developing evaluation methods.
@@ -48,7 +48,7 @@ We'll introduce how the inputs and outputs should be defined in developing evalu
 
 An evaluation runs after another run to assess how well the outputs of that run align with specific criteria and goals. Therefore, evaluation receives the outputs generated from that run.
 
-Other inputs may also be required, such as ground truth, which may come from a dataset. By default, evaluation will use the same dataset as the test dataset provided to the tested run. However, if the corresponding labels or target ground truth values are in a different dataset, you can easily switch to that one.  
+Other inputs might also be required, such as ground truth, which might come from a dataset. By default, evaluation will use the same dataset as the test dataset provided to the tested run. However, if the corresponding labels or target ground truth values are in a different dataset, you can easily switch to that one.  
 
 Therefore, to run an evaluation, you need to indicate the sources of these required inputs. To do so, when submitting an evaluation, you'll see an  **"input mapping"**  section.
 
@@ -72,7 +72,7 @@ Then this description is displayed to when using this evaluation method in batch
 
 ### Outputs and metrics
 
-The outputs of an evaluation are the results that measure the performance of the flow being tested. The output usually contains metrics such as scores, and may also include text for reasoning and suggestions.
+The outputs of an evaluation are the results that measure the performance of the flow being tested. The output usually contains metrics such as scores, and might also include text for reasoning and suggestions.
 
 #### Instance-level scores — outputs
 
@@ -96,7 +96,7 @@ In this way, you can calculate and process all the scores of each flow output an
 
 You can log metrics in an aggregation node using **Prompt flow_sdk.log_metrics()**. The metrics should be numerical (float/int). String type metrics logging isn't supported.
 
-We calculate this score in `aggregate` node, which you can create and edit from scratch when creating by type. You can also replace this python node with a LLM node to use LLM to calculate the score. See the following example for using the log_metric API in an evaluation flow:
+We calculate this score in `aggregate` node, which you can create and edit from scratch when creating by type. You can also replace this python node with an LLM node to use LLM to calculate the score. See the following example for using the log_metric API in an evaluation flow:
 
 
 ```python

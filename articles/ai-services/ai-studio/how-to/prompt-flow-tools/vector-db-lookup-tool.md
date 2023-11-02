@@ -42,7 +42,7 @@ The tool searches data from a third-party vector database. To use it, you should
 1. Create or open a flow in Azure AI Studio. For more information, see [Create a flow](../flow-develop.md).
 1. Select **+ More tools** > **Vector DB Lookup** to add the Vector DB Lookup tool to your flow.
 
-    :::image type="content" source="../../media/prompt-flow/vector-db-lookup-tool.png" alt-text="Screenshot of the Vector DB Lookup tool added to a flow in Azure AI Studio" lightbox="../../media/prompt-flow/embedding-tool.png":::
+    :::image type="content" source="../../media/prompt-flow/vector-db-lookup-tool.png" alt-text="Screenshot of the Vector DB Lookup tool added to a flow in Azure AI Studio." lightbox="../../media/prompt-flow/embedding-tool.png":::
 
 1. Select the connection to one of your provisioned resources. For example, select **CognitiveSearchConnection**.
 1. Enter values for the Vector DB Lookup tool input parameters described [here](#inputs-and-outputs).
