@@ -1,15 +1,16 @@
 ---
 title: SMB performance - Azure Files
-description: Learn about different ways to improve performance for SMB Azure file shares, including SMB Multichannel.
+description: Learn about different ways to improve performance for premium SMB Azure file shares, including SMB Multichannel and metadata caching.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 08/31/2023
+ms.date: 11/15/2023
 ms.author: kendownie
+ms.custom: references_regions
 ---
 
 # Improve SMB Azure file share performance
-This article explains how you can improve performance for SMB Azure file shares, including using SMB Multichannel.
+This article explains how you can improve performance for premium SMB Azure file shares, including using SMB Multichannel and metadata caching.
 
 ## Applies to
 | File share type | SMB | NFS |
@@ -139,6 +140,64 @@ The load was generated against a single 128 GiB file. With SMB Multichannel enab
 - On a single NIC with larger average I/O size (> ~16k), there were significant improvements in both reads and writes.
 - For smaller I/O sizes, there was a slight impact of ~10% on performance with SMB Multichannel enabled. This could be mitigated by spreading the load over multiple files, or disabling the feature.
 - Performance is still bound by [single file limits](storage-files-scale-targets.md#file-scale-targets).
+
+## Metadata caching for premium SMB file shares (preview)
+
+Metadata caching introduces a layer of cache to the Azure Files service to reduce metadata latency, increase available IOPS, and boost network throughput. To onboard, [sign up for the limited public preview](https://aka.ms/PremiumFilesMetadataCachingPreview) and we'll provide you with additional details. Currently this preview feature is only available for premium SMB file shares (file shares in the FileStorage storage account kind). There are no additional costs associated with using this feature.
+
+### Regional availability
+
+Currently the metadata caching preview is available in the following Azure regions.
+
+| **Region** | **Region Pair** |
+|------------|-----------------|
+| East US 2 | Central US |
+| West US 2 | West Central US |
+| UK West | UK South |
+| France Central | France South |
+| Germany West Central | Germany North |
+| Japan West | Japan East |
+| Australia Southeast | Australia East |
+| Australia Central | Australia Central 2 |
+| Korea Central | Korea South |
+| Norway East | Norway West |
+| South Africa North | South Africa West |
+| Sweden Central | Sweden South |
+| UAE North | UAE Central |
+| China North 2 | China East 2 |
+| China North 3 | China East 3 |
+| East Asia | Southeast Asia |
+
+### Performance improvements with metadata caching
+
+Most workloads or usage patterns that contain metadata can benefit from metadata caching. To determine if your workload contains metadata, you can [use Azure Monitor](analyze-files-metrics.md#monitor-utilization) to split the transactions by API dimension.
+
+Typical metadata-heavy workloads and usage patterns include:
+
+- Web/app services
+- DevOps tasks
+- Indexing/batch jobs
+- Virtual desktops with home directories or other workloads that are primarily interacting with many small files, directories, or handles
+
+The following diagrams depict potential results.
+
+#### Reduce metadata latency
+
+By caching file and directory paths for future lookups, metadata caching can reduce latency on frequently accessed files and directories by 30% or more for metadata-heavy workloads at scale.
+
+:::image type="content" source="media/smb-performance/metadata-caching-latency.jpg" alt-text="Chart showing latency in milliseconds with and without metadata caching." border="false":::
+
+#### Increase available IOPS
+
+Metadata caching can increase available IOPS by more than 60% for metadata-heavy workloads at scale.
+
+:::image type="content" source="media/smb-performance/metadata-caching-iops.jpg" alt-text="Chart showing available IOPS with and without metadata caching." border="false":::
+
+#### Increase network throughput
+
+Metadata caching can increase network throughput by more than 60% for metadata-heavy workloads at scale.
+
+:::image type="content" source="media/smb-performance/metadata-caching-throughput.jpg" alt-text="Chart showing network throughput with and without metadata caching." border="false":::
 
 ## Next steps
 - [Enable SMB Multichannel](files-smb-protocol.md#smb-multichannel)
