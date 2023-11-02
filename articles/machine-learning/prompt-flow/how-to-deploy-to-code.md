@@ -1,5 +1,5 @@
 ---
-title: Deploy a flow to online endpoint for real-time inference with CLI (preview)
+title: Deploy a flow to online endpoint for real-time inference with CLI
 titleSuffix: Azure Machine Learning
 description: Learn how to deploy your flow to a managed online endpoint or Kubernetes online endpoint in Azure Machine Learning prompt flow.
 services: machine-learning
@@ -10,10 +10,10 @@ ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.reviewer: lagayhar
-ms.date: 10/25/2023
+ms.date: 11/02/2023
 ---
 
-# Deploy a flow to online endpoint for real-time inference with CLI (preview)
+# Deploy a flow to online endpoint for real-time inference with CLI
 
 In this article, you'll learn to deploy your flow to a [managed online endpoint](../concept-endpoints-online.md#managed-online-endpoints-vs-kubernetes-online-endpoints) or a [Kubernetes online endpoint](../concept-endpoints-online.md#managed-online-endpoints-vs-kubernetes-online-endpoints) for use in real-time inferencing with Azure Machine Learning v2 CLI.
 
@@ -21,10 +21,6 @@ Before beginning make sure that you have tested your flow properly, and feel con
 
 - For the **CLI** experience, all the sample yaml files can be found in the [Prompt flow CLI GitHub folder](https://aka.ms/pf-deploy-mir-cli). This article will cover how to use the CLI experience.
 - For the **Python SDK** experience, sample notebook is [Prompt flow SDK GitHub folder](https://aka.ms/pf-deploy-mir-sdk). The Python SDK isn't covered in this article, see the GitHub sample notebook instead. To use the Python SDK, you must have The Python SDK v2 for Azure Machine Learning. To learn more, see [Install the Python SDK v2 for Azure Machine Learning](/python/api/overview/azure/ai-ml-readme).
-
-> [!IMPORTANT]
-> Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
