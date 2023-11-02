@@ -19,8 +19,10 @@ Use Microsoft Copilot for Azure (preview) to perform many basic tasks. There are
 - [Get resource information through Azure Resource Graph queries](get-information-resource-graph.md)
 - [Get information about Azure Monitor metrics and logs](get-monitoring-information.md)
 - [Discover performance recommendations with Code Optimizations](optimize-code-application-insights.md)
-- [Understand service health events and status](understand-service-health.md)
+- [Work smarter with Azure Stack HCI](work-smarter-edge.md)
 - [Generate Azure CLI scripts](generate-cli-scripts.md)
+- [Understand service health events and status](understand-service-health.md)
+
 
 ## Get information
 

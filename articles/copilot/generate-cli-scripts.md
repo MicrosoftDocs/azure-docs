@@ -42,3 +42,4 @@ For a more detailed scenario, you can say "I want to use Azure CLI to deploy and
 
 - Explore [capabilities](capabilities.md) of Microsoft Copilot for Azure (preview).
 - Learn more about [Azure CLI](/azure/cli).
+- [Request access](https://aka.ms/MSCopilotforAzurePreview) to Microsoft Copilot for Azure (preview).

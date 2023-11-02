@@ -18,10 +18,12 @@
     href: get-monitoring-information.md
   - name: Optimize your code
     href: optimize-code-application-insights.md
-  - name: Understand service health
-    href: understand-service-health.md
+  - name: Work smarter with Azure Stack HCI
+    href: work-smarter-edge.md
   - name: Generate Azure CLI scripts
     href: generate-cli-scripts.md
+  - name: Understand service health
+    href: understand-service-health.md
 - name: Resources
   items:
   - name: Azure updates
