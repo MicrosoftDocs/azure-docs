@@ -64,7 +64,9 @@ Create and assign persistent environment variables for your key and endpoint.
 
 2. Replace the contents of quickstart.py with the following code. Modify the code to add your key, endpoint, and deployment name: 
 
-    ```python
+# [Python 0.28.1](#tab/python)
+
+```python
     import os
     import requests
     import json
@@ -83,10 +85,33 @@ Create and assign persistent environment variables for your key and endpoint.
     response = openai.Completion.create(engine=deployment_name, prompt=start_phrase, max_tokens=10)
     text = response['choices'][0]['text'].replace('\n', '').replace(' .', '.').strip()
     print(start_phrase+text)
-    ```
+```
 
-    > [!IMPORTANT]
-    > For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). For more information about credential security, see the Azure AI services [security](../../security-features.md) article.
+# [Python 1.0](#tab/python-new)
+
+```python
+    import os
+    from openai import AzureOpenAI
+    
+    client = AzureOpenAI(
+      api_key=os.getenv("AZURE_OPENAI_KEY"),  
+      api_version="2023-10-01-preview",
+      azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
+    )
+    
+    deployment_name='gpt-35-turbo-instruct' #This will correspond to the custom name you chose for your deployment when you deployed a model. 
+    
+    # Send a completion call to generate an answer
+    print('Sending a test completion job')
+    start_phrase = 'Write a tagline for an ice cream shop. '
+    response = client.completions.create(model=deployment_name, prompt=start_phrase, max_tokens=10)
+    print(response.choices[0].text)
+```
+
+---
+
+> [!IMPORTANT]
+> For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). For more information about credential security, see the Azure AI services [security](../../security-features.md) article.
 
 1. Run the application with the `python` command on your quickstart file:
 
