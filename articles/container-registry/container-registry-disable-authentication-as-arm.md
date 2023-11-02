@@ -1,7 +1,7 @@
 ---
 title: Disable authentication as ARM template
 description: "Disabling azureADAuthenticationAsArmPolicy will force the registry to use ACR audience token."
-ms.author: tejaswikolli-web
+ms.author: tejaswikolli
 ms.service: container-registry
 ms.topic: tutorial  #Don't change.
 ms.date: 11/02/2023
@@ -104,4 +104,4 @@ Azure Container Registry has two built-in policy definitions to disable authenti
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create and configure a Conditional Access policy](container-registry-configure-condtional-access.md)
+> [Create and configure a Conditional Access policy](container-registry-configure-conditional-access.md)

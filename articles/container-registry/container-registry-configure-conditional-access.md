@@ -17,8 +17,7 @@ The Conditional Access policy applies after the first-factor authentication to t
 The [Conditional Access policy](../active-directory/conditional-access/overview.md) is designed to enforce strong authentication. The policy enables the security to meet the organizations compliance requirements and keep the data and user accounts safe.
 
 >[!IMPORTANT]
-> To configure Conditional Access policy for the registry, you must disable `authentication-as-arm` for all the registries within the desired tenant. 
-[!INCLUDE [container-registry-disable-authentication-as-arm](../../includes/container-registry-disable-authentication-as-arm.md)
+> To configure Conditional Access policy for the registry, you must disable [`authentication-as-arm`](container-registry-disable-authentication-as-arm.md) for all the registries within the desired tenant. 
 
 ## Conditional Access policy security measures
 
