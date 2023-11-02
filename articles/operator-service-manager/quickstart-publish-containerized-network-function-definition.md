@@ -39,7 +39,6 @@ Here's sample input-cnf-nfd.json file:
 
 ```json
 {
-   {
     "publisher_name": "nginx-publisher",
     "publisher_resource_group_name": "nginx-publisher-rg",
     "nf_name": "nginx",
