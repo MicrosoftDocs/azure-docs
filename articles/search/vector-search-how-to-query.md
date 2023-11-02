@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 10/31/2023
+ms.date: 11/02/2023
 ---
 
 # Create a vector query in Azure AI Search
@@ -18,6 +18,7 @@ In Azure AI Search, if you [added vector fields](vector-search-how-to-create-ind
 > + [Query vector fields](#vector-query-request)
 > + [Filter a vector query](#vector-query-with-filter)
 > + [Query multiple vector fields at once](#multiple-vector-fields)
+> + [Query with integrated vectorization (preview)]()
 
 Code samples in the [cognitive-search-vector](https://github.com/Azure/cognitive-search-vector-pr) repository demonstrate end-to-end workflows that include schema definition, vectorization, indexing, and queries.
 
@@ -93,6 +94,8 @@ The actual response for this POST call to the deployment model includes 1536 emb
     }
 }
 ```
+
+Your application code is responsible for handling this response and providing the embedding in the query request.
 
 ## Vector query request
 
@@ -478,6 +481,69 @@ The following query example looks for similarity in both `myImageVector` and `my
 ```
 
 Search results would include a combination of text and images, assuming your search index includes a field for the image file (a search index doesn't store images).
+
+## Query with integrated vectorization (preview)
+
+Using [**2023-10-01-Preview** REST API](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2023-10-01-preview&preserve-view=true) or beta Azure SDK packages that have been updated to use the feature, your text queries can be vectorized internally, where Azure AI Search makes the call to Azure OpenAI or another vectorization agent, and uses the embedding that comes back in the query.
+
++ Queries that use [integrated vectorization](vector-search-integrated-vectorization.md) provide `text` strings instead of vectors, and specify `text` as the kind of vector query.
+
++ A vectorizer that's [configured and assigned to a vector field](vector-search-how-to-configure-vectorizer.md) in the search index determines the embedding model used at query time.
+
+Here's a simple example of a query that's vectorized at query time. The vectorized string is used to query the descriptionVector field.
+
+```http
+POST https://{{search-service}}.search.windows.net/indexes/{{index}}/docs/search?api-version=2023-10-01-preview
+{
+    "select": "title, genre, description",
+    "vectorQueries": [
+        {
+            "kind": "text"
+            "text": "mystery novel set in London",
+            "fields": "descriptionVector",
+            "k": 5
+        }
+    ]
+}
+```
+
+Here's a [hybrid query](hybrid-search-how-to-query.md), with multiple vector fields and queries and semantic ranking. Again, the differences are the `kind` of vector query and the `text` string instead of a vector.
+
+In this example, the search engine makes three vectorization calls to the vectorizers assigned to descriptionVector, synopsisVector, and authorBioVector in the index. The resulting vectors are used to retrieve documents against their respective fields. The search engine also executes the `search` query. 
+
+```http
+POST https://{{search-service}}.search.windows.net/indexes/{{index}}/docs/search?api-version=2023-10-01-preview
+Content-Type: application/json
+api-key: {{admin-api-key}}
+{
+    "search":"mystery novel set in London", 
+    "searchFields":"description, synopsis", 
+    "semanticConfiguration":"my-semantic-config", 
+    "queryType":"semantic" 
+    "select": "title, author, synopsis",
+    "filter": "genre eq 'mystery'",
+    "vectorFilterMode": "postFilter",
+    "vectorQueries": [
+        {
+            "kind": "text"
+            "text": "mystery novel set in London",
+            "fields": "descriptionVector, synopsisVector",
+            "k": 5
+        },
+        {
+            "kind": "text"
+            "text": "living english author",
+            "fields": "authorBioVector",
+            "k": 5
+        }
+    ]
+}
+```
+
+The scored results from all four queries are fused using [RRF ranking](hybrid-search-ranking.md). Secondary [semantic ranking](semantic-search-overview.md) is invoked over the fused search results, but on the `searchFields` only, boosting results that are the most semantically aligned to `"search":"mystery novel set in London"`.
+
+> [!NOTE]
+> Vectorizers are used during indexing and querying. If you don't need data chunking and vectorization in the index, you can skip steps like creating an indexer, skillset, and data source. In this scenario, the vectorizer is used only at query time to convert a text string to an embedding.
 
 ## Configure a query response
 
