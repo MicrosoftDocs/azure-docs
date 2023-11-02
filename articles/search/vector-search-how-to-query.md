@@ -427,19 +427,23 @@ POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/d
 Content-Type: application/json
 api-key: {{admin-api-key}}
 {
-    "vectors": [{
-        "value": [
-            -0.009154141,
-            0.018708462,
-            -0.0016989828,
-            -0.0117696095,
-            -0.013770515,
-        . . .
-        ],
-        "fields": "contentVector, titleVector",
-        "k": 5
-    }],
-    "select": "title, content, category"
+    "count": true,
+    "select": "title, content, category",
+    "vectorQueries": [
+        {
+            "kind": "vector"
+            "vector": [
+                -0.009154141,
+                0.018708462,
+                . . . 
+                -0.02178128,
+                -0.00086512347
+            ],
+            "exhaustive": true,
+            "fields": "contentVector, titleVector",
+            "k": 5
+        }
+    ]
 }
 ```
 
@@ -453,21 +457,26 @@ The following query example looks for similarity in both `myImageVector` and `my
 + `vectors.fields` contains the image vectors and text vectors in the search index. This is the searchable data.
 + `vectors.k` is the number of nearest neighbor matches to include in results.
 
-```http
+```json
 {
-    "vectors": [ 
+    "count": true,
+    "select": "title, content, category",
+    "vectorQueries": [
         {
-            "value": [
-                -0.001111111,
+            "kind": "vector"
+            "vector": [
+                -0.009154141,
                 0.018708462,
-                -0.013770515,
-            . . .
+                . . . 
+                -0.02178128,
+                -0.00086512347
             ],
             "fields": "myimagevector",
             "k": 5
         },
         {
-            "value": [
+            "kind": "vector"
+            "vector": [
                 -0.002222222,
                 0.018708462,
                 -0.013770515,
