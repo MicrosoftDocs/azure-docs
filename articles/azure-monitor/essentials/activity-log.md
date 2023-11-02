@@ -33,16 +33,16 @@ Activity log events are retained in Azure for *90 days* and then deleted. There'
 ## View the activity log
 
 You can access the activity log from most menus in the Azure portal. The menu that you open it from determines its initial filter. If you open it from the **Monitor** menu, the only filter is on the subscription. If you open it from a resource's menu, the filter is set to that resource. You can always change the filter to view all other entries. Select **Add Filter** to add more properties to the filter.
-
-:::image type="content" source="./media/activity-log/view-activity-log.png" lightbox="./media/activity-log/view-activity-log.png" alt-text="Screenshot that shows the activity log.":::
+<!-- convertborder later -->
+:::image type="content" source="./media/activity-log/view-activity-log.png" lightbox="./media/activity-log/view-activity-log.png" alt-text="Screenshot that shows the activity log." border="false":::
 
 For a description of activity log categories, see [Azure activity log event schema](activity-log-schema.md#categories).
 
 ## Download the activity log
 
 Select **Download as CSV** to download the events in the current view.
-
-:::image type="content" source="media/activity-log/download-activity-log.png" lightbox="media/activity-log/download-activity-log.png" alt-text="Screenshot that shows downloading the activity log.":::
+<!-- convertborder later -->
+:::image type="content" source="media/activity-log/download-activity-log.png" lightbox="media/activity-log/download-activity-log.png" alt-text="Screenshot that shows downloading the activity log." border="false":::
 
 ### View change history
 

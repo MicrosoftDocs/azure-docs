@@ -73,8 +73,8 @@ Secure connection is established between the agent and the Azure Monitor service
 ## Metrics Explorer
 
 Use [Metrics Explorer](metrics-charts.md) to interactively analyze the data in your metric database and chart the values of multiple metrics over time. You can pin the charts to a dashboard to view them with other visualizations. You can also retrieve metrics by using the [Azure monitoring REST API](./rest-api-walkthrough.md).
-
-:::image type="content" source="media/data-platform-metrics/metrics-explorer.png" lightbox="media/data-platform-metrics/metrics-explorer.png" alt-text="Screenshot that shows an example graph in Metrics Explorer that displays server requests, server response time, and failed requests.":::
+<!-- convertborder later -->
+:::image type="content" source="media/data-platform-metrics/metrics-explorer.png" lightbox="media/data-platform-metrics/metrics-explorer.png" alt-text="Screenshot that shows an example graph in Metrics Explorer that displays server requests, server response time, and failed requests." border="false":::
 
 For more information, see [Analyze metrics with Azure Monitor metrics explorer](./analyze-metrics.md).
 

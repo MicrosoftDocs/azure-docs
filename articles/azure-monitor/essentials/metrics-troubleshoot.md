@@ -76,7 +76,8 @@ Azure metrics charts use dashed line style to indicate that there's a missing va
   :::image type="content" source="./media/metrics-troubleshoot/dashed-line.png" lightbox="./media/metrics-troubleshoot/dashed-line.png" alt-text="Screenshot that shows how when the data is missing on the rightmost or leftmost side of the chart, the dashed line expands to the direction of the missing data point.":::
 
 **Solution:** This behavior is by design. It's useful for identifying missing data points. The line chart is a superior choice for visualizing trends of high-density metrics but may be difficult to interpret for the metrics with sparse values, especially when corelating values with time grain is important. The dashed line makes reading of these charts easier but if your chart is still unclear, consider viewing your metrics with a different chart type. For example, a scattered plot chart for the same metric clearly shows each time grain by only visualizing a dot when there's a value and skipping the data point altogether when the value is missing:
-  :::image type="content" source="./media/metrics-troubleshoot/scatter-plot.png" lightbox="./media/metrics-troubleshoot/scatter-plot.png" alt-text="Screenshot that highlights the Scatter chart menu option.":::
+  <!-- convertborder later -->
+  :::image type="content" source="./media/metrics-troubleshoot/scatter-plot.png" lightbox="./media/metrics-troubleshoot/scatter-plot.png" alt-text="Screenshot that highlights the Scatter chart menu option." border="false":::
 
    > [!NOTE]
    > If you still prefer a line chart for your metric, moving mouse over the chart may help to assess the time granularity by highlighting the data point at the location of the mouse pointer.
@@ -120,7 +121,8 @@ IEC uses binary
 ## Chart shows unexpected drop in values
 
 In many cases, the perceived drop in the metric values is a misunderstanding of the data shown on the chart. You can be misled by a drop in sums or counts when the chart shows the most-recent minutes because Azure hasn't received or processed the last metric data points yet. Depending on the service, the latency of processing metrics can be within a couple minutes range. For charts showing a recent time range with a 1- or 5- minute granularity, a drop of the value over the last few minutes becomes more noticeable:
-    :::image type="content" source="./media/metrics-troubleshoot/unexpected-dip.png" lightbox="./media/metrics-troubleshoot/unexpected-dip.png" alt-text="Screenshot that shows a drop of the value over the last few minutes.":::
+    <!-- convertborder later -->
+    :::image type="content" source="./media/metrics-troubleshoot/unexpected-dip.png" lightbox="./media/metrics-troubleshoot/unexpected-dip.png" alt-text="Screenshot that shows a drop of the value over the last few minutes." border="false":::
 
 **Solution:** This behavior is by design. We believe that showing data as soon as we receive it's beneficial even when the data is *partial* or *incomplete*. Doing so allows you to make important conclusion sooner and start investigation right away. For example, for a metric that shows the number of failures, seeing a partial value X tells you that there were at least X failures on a given minute. You can start investigating the problem right away, rather than wait to see the exact count of failures that happened on this minute, which might not be as important. The chart updates once we receive the entire set of data, but at that time it may also show new incomplete data points from more recent minutes.
 
