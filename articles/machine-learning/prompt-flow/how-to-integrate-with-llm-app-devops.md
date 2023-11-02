@@ -1,5 +1,5 @@
 ---
-title: Integrate Prompt Flow with LLM-based application DevOps (preview)
+title: Integrate Prompt Flow with LLM-based application DevOps
 titleSuffix: Azure Machine Learning
 description: Learn about integration of Prompt Flow with LLM-based application DevOps in Azure Machine Learning
 services: machine-learning
@@ -9,10 +9,10 @@ ms.topic: how-to
 author: jiaochenlu
 ms.author: chenlujiao
 ms.reviewer: lagayhar
-ms.date: 09/12/2023
+ms.date: 11/02/2023
 ---
 
-# Integrate Prompt Flow with LLM-based application DevOps (preview)
+# Integrate Prompt Flow with LLM-based application DevOps
 
 In this article, you'll learn about the integration of prompt flow with LLM-based application DevOps in Azure Machine Learning. Prompt flow offers a developer-friendly and easy-to-use code-first experience for flow developing and iterating with your entire LLM-based application development workflow.
 
@@ -21,10 +21,6 @@ It provides an **prompt flow SDK and CLI**, an **VS code extension**, and the ne
 This documentation focuses on how to effectively combine the capabilities of prompt flow code experience and DevOps to enhance your LLM-based application development workflows.
 
 :::image type="content" source="./media/how-to-integrate-with-llm-app-devops/devops-process.png" alt-text="Diagram of the showing the following flow: create flow, develop and test flow, versioning in code repo, submit runs to cloud, and debut and iteration. " lightbox = "./media/how-to-integrate-with-llm-app-devops/devops-process.png":::
-
-> [!IMPORTANT]
-> Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Introduction of code-first experience in Prompt Flow
 
