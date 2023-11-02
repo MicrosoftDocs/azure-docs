@@ -289,6 +289,8 @@
       href: tutorial-secure-ntier-app.md
     - name: Isolate network traffic (tutorial)
       href: tutorial-networking-isolate-vnet.md
+    - name: Disable basic auth
+      href: configure-basic-auth-disable.md
     - name: Security
       items:
         - name: Security recommendations
