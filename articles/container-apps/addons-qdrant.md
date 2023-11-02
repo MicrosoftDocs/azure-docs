@@ -96,7 +96,8 @@ Execute the following commands to create your resource group, container apps env
     az containerapp env create \
       --name $ENVIRONMENT \
       --resource-group $RESOURCE_GROUP \
-      --location $LOCATION
+      --location $LOCATION \
+      --enable-workload-profiles
     ```
 
 1. Create a dedicated workload profile with enough resources to work with a vector database.
