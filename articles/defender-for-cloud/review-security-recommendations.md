@@ -48,7 +48,7 @@ The right side of the screen shows the following:
 
 - **Findings** - all affiliated findings
 
-    :::image type="content" source="media/security-policy-concept/recommendation-findings.png" alt-text="Screenshot of the graph tab in a recommendation that shows all of the attack paths for that recommendation." lightbox="media/security-policy-concept/recommendation-findings.png":::
+    :::image type="content" source="media/security-policy-concept/recommendation-findings.png" alt-text="Screenshot of the findings tab in a recommendation that shows all of the attack paths for that recommendation." lightbox="media/security-policy-concept/recommendation-findings.png":::
 
     > [!NOTE]
     > If an option is not present on your screen or is greyed out, it is not relevant to your recommendation.
@@ -63,7 +63,7 @@ To improve your [secure score](secure-score-security-controls.md), you have to i
 
 1. Navigate to **Microsoft Defender for Cloud** > **Recommendations**.
 
-You can search for specific recommendations by name. Use the search box and filters above the list of recommendations to find specific recommendations. Look at the [details of the recommendation](security-policy-concept.md#security-recommendation-details) to decide whether to [remediate it](implement-security-recommendations.md#remediate-recommendations), [exempt resources](exempt-resource.md), or [disable the recommendation](tutorial-security-policy.md#disable-a-security-recommendation).
+You can search for specific recommendations by name. Use the search box and filters above the list of recommendations to find specific recommendations. Look at the [details of the recommendation](review-security-recommendations.md) to decide whether to [remediate it](implement-security-recommendations.md#remediate-recommendations), [exempt resources](exempt-resource.md), or [disable the recommendation](tutorial-security-policy.md#disable-a-security-recommendation).
 
 You can learn more by watching this video from the Defender for Cloud in the Field video series:
 - [Security posture management improvements](episode-four.md)
