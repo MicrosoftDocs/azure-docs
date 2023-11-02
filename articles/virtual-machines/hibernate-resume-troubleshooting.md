@@ -6,8 +6,8 @@ ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 10/31/2023
-ms.author: mattmcinnes
-ms.reviewer: jainan
+ms.author: jainan
+ms.reviewer: mattmcinnes
 ms.custom: 
 ---
 

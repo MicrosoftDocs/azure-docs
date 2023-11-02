@@ -1,7 +1,7 @@
 ---
 title: Compatibility and feature support
 titleSuffix: Azure Cosmos DB for MongoDB vCore
-description: Review Azure Cosmos DB for MongoDB vCore supported features and syntax including; commands, query support, datatypes, aggregation, and operators.
+description: Review Azure Cosmos DB for MongoDB vCore supported features and syntax including; commands, query support, datatypes, aggregation, operators and indexes.
 author: suvishodcitus
 ms.author: suvishod
 ms.reviewer: abramees
@@ -30,13 +30,14 @@ Azure Cosmos DB for MongoDB provides comprehensive support for MongoDB query lan
 > [!NOTE]
 > This article only lists the supported server commands, and excludes client-side wrapper functions. Client-side wrapper functions such as `deleteMany()` and `updateMany()` internally utilize the `delete()` and `update()` server commands. Functions utilizing supported server commands are compatible with the Azure Cosmos DB for MongoDB.
 
+
 ## Database commands
 
 Azure Cosmos DB for MongoDB vCore supports the following database commands:
 
 <table>
-<tr><td>Category</td><td>Command</td><td>Supported</td></tr>
-<tr><td rowspan="4">Aggregation Commands</td><td><code>aggregate</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes" alt="Yes">Yes</td></tr>
+<tr><td><b>Category</b></td><td><b>Command</b></td><td><b>Supported</b></td></tr>
+<tr><td rowspan="4">Aggregation Commands</td><td><code>aggregate</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 <tr><td><code>count</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 <tr><td><code>distinct</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 <tr><td><code>mapReduce</code></td><td>Deprecated</td></tr>
@@ -47,128 +48,128 @@ Azure Cosmos DB for MongoDB vCore supports the following database commands:
 
 <tr><td rowspan="1">Geospatial Commands</td><td><code>geoSearch</code></td><td>Deprecated</td></tr>
 
-<tr><td rowspan="1">Query Plan Cache Commands</td><td></td>td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td rowspan="1">Query Plan Cache Commands</td><td></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
 
-<tr><td rowspan="32">Administrative Commands</td><td>cloneCollectionAsCapped</td><td><img src="media/compatibility/no-icon.svg" alt="No">No. Capped collections are currently not supported.</td></tr>
-<tr><td>collMod</td><td><img src="media/compatibility/yes-icon.svg" alt="Partial">Partial</td></tr>
-<tr><td>compact</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>connPoolSync</td><td>Deprecated</td></tr>
-<tr><td>convertToCapped</td><td><img src="media/compatibility/no-icon.svg" alt="No">No. Capped collections are currently not supported.</td></tr>
-<tr><td>create</td><td><img src="media/compatibility/yes-icon.svg" alt="Partial">Partial</td></tr>
-<tr><td>createIndexes</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>currentOp</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>drop</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>dropDatabase</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>dropConnections</td><td>As a PaaS service, this will be managed by Azure.</td></tr>
-<tr><td>dropIndexes</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>filemd5</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>fsync</td><td>As a PaaS service, this will be managed by Azure.</td></tr>
-<tr><td>fsyncUnlock</td><td>As a PaaS service, this will be managed by Azure.</td></tr>
-<tr><td>getDefaultRWConcern</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>getClusterParameter</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>getParameter</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>killCursors</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>killOp</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>listCollections</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>listDatabases</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>listIndexes</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>logRotate</td><td>As a PaaS service, this will be managed by Azure.</td></tr>
-<tr><td>reIndex</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>renameCollection</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>rotateCertificates</td><td>As a PaaS service, this will be managed by Azure.</td></tr>
-<tr><td>setFeatureCompatibilityVersion</td><td>As a PaaS service, this will be managed by Azure.</td></tr>
-<tr><td>setIndexCommitQuorum</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>setParameter</td><td><img src="media/compatibility/yes-icon.svg" alt="Partial">Partial</td></tr>
-<tr><td>setDefaultRWConcern</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>shutdown</td><td>As a PaaS service, this will be managed by Azure.</td></tr>
+<tr><td rowspan="32">Administrative Commands</td><td><code>cloneCollectionAsCapped</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No. Capped collections are currently not supported.</td></tr>
+<tr><td><code>collMod</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Partial</td></tr>
+<tr><td><code>compact</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>connPoolSync</code></td><td>Deprecated</td></tr>
+<tr><td><code>convertToCapped</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No. Capped collections are currently not supported.</td></tr>
+<tr><td><code>create</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Partial</td></tr>
+<tr><td><code>createIndexes</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>currentOp</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>drop</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>dropDatabase</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>dropConnections</code></td><td>As a PaaS service, this will be managed by Azure.</td></tr>
+<tr><td><code>dropIndexes</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>filemd5</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>fsync</code></td><td>As a PaaS service, this will be managed by Azure.</td></tr>
+<tr><td><code>fsyncUnlock</code></td><td>As a PaaS service, this will be managed by Azure.</td></tr>
+<tr><td><code>getDefaultRWConcern</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>getClusterParameter</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>getParameter</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>killCursors</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>killOp</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>listCollections</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>listDatabases</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>listIndexes</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>logRotate</code></td><td>As a PaaS service, this will be managed by Azure.</td></tr>
+<tr><td><code>reIndex</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>renameCollection</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>rotateCertificates</code></td><td>As a PaaS service, this will be managed by Azure.</td></tr>
+<tr><td><code>setFeatureCompatibilityVersion</code></td><td>As a PaaS service, this will be managed by Azure.</td></tr>
+<tr><td><code>setIndexCommitQuorum</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>setParameter</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Partial</td></tr>
+<tr><td><code>setDefaultRWConcern</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>shutdown</code></td><td>As a PaaS service, this will be managed by Azure.</td></tr>
 
 <tr><td rowspan="1">User & Role Management Commands</td><td></td><td>Not supported today, but will be made available through Azure Active Directory in the future.</td></tr>
 
 <tr><td rowspan="1">Replication Commands</td><td></td><td>Azure manages replication, removing the necessity for customers to replicate manually.</td></tr>
 
-<tr><td rowspan="35">Sharding Commands</td><td>enableSharding</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>isdbgrid</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>reshardCollection</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>shardCollection</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>unsetSharding</td><td>Deprecated</td></tr>
-<tr><td>addShard</td><td rowspan="29">As a Platform-as-a-Service (PaaS) offering, Azure manages shard management and rebalancing. Users only need to specify the sharding strategy for the collections and Azure will handle the rest.</td></tr>
-<tr><td>addShardToZone</td></tr>
-<tr><td>clearJumboFlag</td></tr>
-<tr><td>cleanupOrphaned</td></tr>
-<tr><td>removeShard</td></tr>
-<tr><td>removeShardFromZone</td></tr>
-<tr><td>setShardVersion</td></tr>
-<tr><td>mergeChunks</td></tr>
-<tr><td>checkShardingIndex</td></tr>
-<tr><td>getShardMap</td></tr>
-<tr><td>getShardVersion</td></tr>
-<tr><td>medianKey</td></tr>
-<tr><td>splitVector</td></tr>
-<tr><td>shardingState</td></tr>
-<tr><td>cleanupReshardCollection</td></tr>
-<tr><td>flushRouterConfig</td></tr>
-<tr><td>balancerCollectionStatus</td></tr>
-<tr><td>balancerStart</td></tr>
-<tr><td>balancerStatus</td></tr>
-<tr><td>balancerStop</td></tr>
-<tr><td>configureCollectionBalancing</td></tr>
-<tr><td>listShards</td></tr>
-<tr><td>split</td></tr>
-<tr><td>moveChunk</td></tr>
-<tr><td>updateZoneKeyRange</td></tr>
-<tr><td>movePrimary</td></tr>
-<tr><td>abortReshardCollection</td></tr>
-<tr><td>commitReshardCollection</td></tr>
-<tr><td>refineCollectionShardKey</td></tr>
-<tr><td>reshardCollection</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td rowspan="35">Sharding Commands</td><td><code>enableSharding</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>isdbgrid</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>reshardCollection</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>shardCollection</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>unsetSharding</code></td><td>Deprecated</td></tr>
+<tr><td><code>addShard</code></td><td rowspan="29">As a Platform-as-a-Service (PaaS) offering, Azure manages shard management and rebalancing. Users only need to specify the sharding strategy for the collections and Azure will handle the rest.</td></tr>
+<tr><td><code>addShardToZone</code></td></tr>
+<tr><td><code>clearJumboFlag</code></td></tr>
+<tr><td><code>cleanupOrphaned</code></td></tr>
+<tr><td><code>removeShard</code></td></tr>
+<tr><td><code>removeShardFromZone</code></td></tr>
+<tr><td><code>setShardVersion</code></td></tr>
+<tr><td><code>mergeChunks</code></td></tr>
+<tr><td><code>checkShardingIndex</code></td></tr>
+<tr><td><code>getShardMap</code></td></tr>
+<tr><td><code>getShardVersion</code></td></tr>
+<tr><td><code>medianKey</code></td></tr>
+<tr><td><code>splitVector</code></td></tr>
+<tr><td><code>shardingState</code></td></tr>
+<tr><td><code>cleanupReshardCollection</code></td></tr>
+<tr><td><code>flushRouterConfig</code></td></tr>
+<tr><td><code>balancerCollectionStatus</code></td></tr>
+<tr><td><code>balancerStart</code></td></tr>
+<tr><td><code>balancerStatus</code></td></tr>
+<tr><td><code>balancerStop</code></td></tr>
+<tr><td><code>configureCollectionBalancing</code></td></tr>
+<tr><td><code>listShards</code></td></tr>
+<tr><td><code>split</code></td></tr>
+<tr><td><code>moveChunk</code></td></tr>
+<tr><td><code>updateZoneKeyRange</code></td></tr>
+<tr><td><code>movePrimary</code></td></tr>
+<tr><td><code>abortReshardCollection</code></td></tr>
+<tr><td><code>commitReshardCollection</code></td></tr>
+<tr><td><code>refineCollectionShardKey</code></td></tr>
+<tr><td><code>reshardCollection</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
 
-<tr><td rowspan="9">Query and Write Operation Commands</td><td>change streams</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>delete</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>find</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>findAndModify</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>getLastError</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>getMore</td><td><img src="media/compatibility/yes-icon.svg" alt="Partial">Partial</td></tr>
-<tr><td>insert</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>resetError</td><td>Deprecated</td></tr>
-<tr><td>update</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td rowspan="9">Query and Write Operation Commands</td><td><code>change streams</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>delete</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>find</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>findAndModify</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>getLastError</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>getMore</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Partial</td></tr>
+<tr><td><code>insert</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>resetError</code></td><td>Deprecated</td></tr>
+<tr><td><code>update</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 
-<tr><td rowspan="8">Session Commands</td><td>abortTransaction</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>commitTransaction</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>endSessions</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>killAllSessions</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>killAllSessionsByPattern</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>killSessions</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>refreshSessions</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>startSession</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td rowspan="8">Session Commands</td><td><code>abortTransaction</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>commitTransaction</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>endSessions</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>killAllSessions</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>killAllSessionsByPattern</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>killSessions</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>refreshSessions</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>startSession</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 
-<tr><td rowspan="25">Diagnostic Commands</td><td>availableQueryOptions</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>buildInfo</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>collStats</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>connPoolStats</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>connectionStatus</td><td><img src="media/compatibility/yes-icon.svg" alt="Partial">Partial</td></tr>
-<tr><td>dataSize</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>dbHash</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>dbStats</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>driverOIDTest</td><td>As a PaaS service, this will be managed by Azure.</td></tr>
-<tr><td>explain</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>features</td><td>As a PaaS service, this will be managed by Azure.</td></tr>
-<tr><td>getCmdLineOpts</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>getLog</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>hostInfo</td><td><img src="media/compatibility/yes-icon.svg" alt="Partial">Partial</td></tr>
-<tr><td>_isSelf</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>listCommands</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>lockInfo</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>netstat</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>ping</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>profile</td><td>As a PaaS service, this will be managed by Azure.</td></tr>
-<tr><td>serverStatus</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>shardConnPoolStats</td><td>Deprecated</td></tr>
-<tr><td>top</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>validate</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>whatsmyuri</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td rowspan="25">Diagnostic Commands</td><td><code>availableQueryOptions</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>buildInfo</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>collStats</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>connPoolStats</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>connectionStatus</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Partial</td></tr>
+<tr><td><code>dataSize</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>dbHash</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>dbStats</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>driverOIDTest</code></td><td>As a PaaS service, this will be managed by Azure.</td></tr>
+<tr><td><code>explain</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>features</code></td><td>As a PaaS service, this will be managed by Azure.</td></tr>
+<tr><td><code>getCmdLineOpts</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>getLog</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>hostInfo</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Partial</td></tr>
+<tr><td><code>_isSelf</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>listCommands</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>lockInfo</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>netstat</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>ping</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>profile</code></td><td>As a PaaS service, this will be managed by Azure.</td></tr>
+<tr><td><code>serverStatus</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>shardConnPoolStats</code></td><td>Deprecated</td></tr>
+<tr><td><code>top</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>validate</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>whatsmyuri</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 
 
-<tr><td rowspan="1">System Events Auditing Commands</td><td>logApplicationMessage</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td rowspan="1">System Events Auditing Commands</td><td><code>logApplicationMessage</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
 
 </table>
 
@@ -178,311 +179,344 @@ Azure Cosmos DB for MongoDB vCore supports the following database commands:
 Below are the list of operators currently supported on Azure Cosmos DB for MongoDB vCore:
 
 <table>
-<tr><td>Category</td><td>Operator</td><td>Supported</td></tr>
-<tr><td rowspan="8">Comparison Query Operators</td><td>$eq</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$gt</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$gte</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$in</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$lt</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$lte</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$ne</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$nin</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><b>Category</b></td><td><b>Operator</b></td><td><b>Supported</b></td></tr>
+<tr><td rowspan="8">Comparison Query Operators</td><td><code>$eq</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$gt</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$gte</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$in</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$lt</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$lte</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$ne</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$nin</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 
-<tr><td rowspan="4">Logical Query Operators</td><td>$and</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$not</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$nor</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$or</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td rowspan="4">Logical Query Operators</td><td><code>$and</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$not</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$nor</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$or</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 
-<tr><td rowspan="2">Element Query Operators</td><td>$exists</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$type</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td rowspan="2">Element Query Operators</td><td><code>$exists</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$type</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 
-<tr><td rowspan="6">Evaluation Query Operators</td><td>$expr</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$jsonSchema</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>$mod</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$regex</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$text</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$where</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td rowspan="6">Evaluation Query Operators</td><td><code>$expr</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$jsonSchema</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>$mod</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$regex</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$text</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$where</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
 
 <tr><td rowspan="1">Geospatial Operators</td><td></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
 
-<tr><td rowspan="3">Array Query Operators</td><td>$all</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$elemMatch</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$size</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td rowspan="3">Array Query Operators</td><td><code>$all</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$elemMatch</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$size</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 
-<tr><td rowspan="4">Bitwise Query Operators</td><td>$bitsAllClear</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$bitsAllSet</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$bitsAnyClear</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$bitsAnySet</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td rowspan="4">Bitwise Query Operators</td><td><code>$bitsAllClear</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$bitsAllSet</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$bitsAnyClear</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$bitsAnySet</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 
-<tr><td rowspan="4">Projection Operators</td><td>$</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$elemMatch</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$meta</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$slice</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td rowspan="4">Projection Operators</td><td><code>$</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$elemMatch</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$meta</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$slice</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 
-<tr><td rowspan="3">Miscellaneous Query Operators</td><td>$comment</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>$rand</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$natural</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td rowspan="3">Miscellaneous Query Operators</td><td><code>$comment</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>$rand</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$natural</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
 
-<tr><td rowspan="9">Field Update Operators</td><td>$currentDate</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$inc</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$min</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$max</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$mul</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$rename</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$set</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$setOnInsert</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$unset</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td rowspan="9">Field Update Operators</td><td><code>$currentDate</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$inc</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$min</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$max</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$mul</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$rename</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$set</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$setOnInsert</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$unset</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 
-<tr><td rowspan="12">Array Update Operators</td><td>$</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$[]</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$[identifier]</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$addToSet</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$pop</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$pull</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$push</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$pullAll</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$each</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$position</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$slice</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$sort</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td rowspan="12">Array Update Operators</td><td><code>$</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$[]</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$[identifier]</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$addToSet</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$pop</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$pull</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$push</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$pullAll</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$each</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$position</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$slice</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$sort</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 
-<tr><td rowspan="1">Bitwise Update Operators</td><td>$bit</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td rowspan="1">Bitwise Update Operators</td><td><code>$bit</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 
-<tr><td rowspan="16">Arithmetic Expression Operators</td><td>$abs</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$add</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$ceil</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$divide</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$exp</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$floor</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$ln</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$log</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$log10</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$mod</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$multiply</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$pow</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$round</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$sqrt</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$subtract</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$trunc</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td rowspan="16">Arithmetic Expression Operators</td><td><code>$abs</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$add</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$ceil</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$divide</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$exp</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$floor</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$ln</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$log</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$log10</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$mod</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$multiply</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$pow</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$round</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$sqrt</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$subtract</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$trunc</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 
-<tr><td rowspan="20">Array Expression Operators</td><td>$arrayElemAt</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$arrayToObject</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$concatArrays</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$filter</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$firstN</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$in</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$indexOfArray</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>$isArray</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$lastN</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$map</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>$maxN</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>$minN</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>$objectToArray</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$range</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$reduce</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>$reverseArray</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$size</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$slice</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$sortArray</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>$zip</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td rowspan="20">Array Expression Operators</td><td><code>$arrayElemAt</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$arrayToObject</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$concatArrays</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$filter</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$firstN</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$in</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$indexOfArray</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>$isArray</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$lastN</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$map</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>$maxN</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>$minN</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>$objectToArray</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$range</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$reduce</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>$reverseArray</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$size</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$slice</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$sortArray</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>$zip</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
 
-<tr><td rowspan="4">Bitwise Operators</td><td>$bitAnd</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$bitNot</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$bitOr</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$bitXor</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td rowspan="4">Bitwise Operators</td><td><code>$bitAnd</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$bitNot</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$bitOr</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$bitXor</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 
-<tr><td rowspan="3">Boolean Expression Operators</td><td>$and</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$not</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$or</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td rowspan="3">Boolean Expression Operators</td><td><code>$and</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$not</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$or</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 
-<tr><td rowspan="7">Comparison Expression Operators</td><td>$cmp</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$eq</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$gt</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$gte</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$lt</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$lte</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$ne</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td rowspan="7">Comparison Expression Operators</td><td><code>$cmp</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$eq</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$gt</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$gte</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$lt</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$lte</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$ne</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 
 <tr><td rowspan="1">Custom Aggregation Expression Operators</td><td colspan="2">Not supported.</td></tr>
 
-<tr><td rowspan="2">Data Size Operators</td><td>$bsonSize</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$binarySize</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td rowspan="2">Data Size Operators</td><td><code>$bsonSize</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$binarySize</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
 
-<tr><td rowspan="22">Date Expression Operators</td><td>$dateAdd</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>$dateDiff</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>$dateFromParts</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>$dateFromString</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>$dateSubtract</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>$dateToParts</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$dateToString</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$dateTrunc</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>$dayOfMonth</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$dayOfWeek</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$dayOfYear</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$hour</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$isoDayOfWeek</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$isoWeek</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$isoWeekYear</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$millisecond</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$minute</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$month</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$second</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$toDate</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$week</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$year</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td rowspan="22">Date Expression Operators</td><td><code>$dateAdd</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>$dateDiff</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>$dateFromParts</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>$dateFromString</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>$dateSubtract</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>$dateToParts</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$dateToString</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$dateTrunc</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>$dayOfMonth</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$dayOfWeek</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$dayOfYear</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$hour</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$isoDayOfWeek</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$isoWeek</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$isoWeekYear</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$millisecond</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$minute</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$month</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$second</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$toDate</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$week</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$year</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 
-<tr><td rowspan="1">Literal Expression Operator</td><td>$literal</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td rowspan="1">Literal Expression Operator</td><td><code>$literal</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 
-<tr><td rowspan="3">Miscellaneous Operators</td><td>$getField</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>$rand</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$sampleRate</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td rowspan="3">Miscellaneous Operators</td><td><code>$getField</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>$rand</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$sampleRate</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
 
-<tr><td rowspan="3">Object Expression Operators</td><td>$mergeObjects</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$objectToArray</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$setField</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td rowspan="3">Object Expression Operators</td><td><code>$mergeObjects</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$objectToArray</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$setField</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
 
-<tr><td rowspan="7">Set Expression Operators</td><td>$allElementsTrue</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$anyElementTrue</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$setDifference</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$setEquals</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$setIntersection</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$setIsSubset</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$setUnion</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td rowspan="7">Set Expression Operators</td><td><code>$allElementsTrue</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$anyElementTrue</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$setDifference</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$setEquals</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$setIntersection</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$setIsSubset</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$setUnion</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 
-<tr><td rowspan="23">String Expression Operators</td><td>$concat</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$dateFromString</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>$dateToString</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$indexOfBytes</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$indexOfCP</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$ltrim</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$regexFind</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$regexFindAll</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$regexMatch</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$replaceOne</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$replaceAll</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$rtrim</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$split</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$strLenBytes</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$strLenCP</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$strcasecmp</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$substr</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$substrBytes</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$substrCP</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$toLower</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$toString</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$trim</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$toUpper</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td rowspan="23">String Expression Operators</td><td><code>$concat</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$dateFromString</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>$dateToString</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$indexOfBytes</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$indexOfCP</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$ltrim</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$regexFind</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$regexFindAll</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$regexMatch</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$replaceOne</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$replaceAll</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$rtrim</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$split</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$strLenBytes</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$strLenCP</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$strcasecmp</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$substr</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$substrBytes</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$substrCP</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$toLower</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$toString</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$trim</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$toUpper</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 
-<tr><td rowspan="1">Text Expression Operator</td><td>$meta</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td rowspan="1">Text Expression Operator</td><td><code>$meta</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 
 <tr><td rowspan="1">Timestamp Expression Operators</td><td colspan="2">Not supported.</td></tr>
 
 <tr><td rowspan="1">Trigonometry Expression Operators</td><td colspan="2">Not supported.</td></tr>
 
-<tr><td rowspan="11">Type Expression Operators</td><td>$convert</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$isNumber</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$toBool</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$toDate</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$toDecimal</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$toDouble</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$toInt</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$toLong</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$toObjectId</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$toString</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$type</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td rowspan="11">Type Expression Operators</td><td><code>$convert</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$isNumber</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$toBool</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$toDate</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$toDecimal</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$toDouble</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$toInt</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$toLong</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$toObjectId</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$toString</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$type</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 
-<tr><td rowspan="22">Accumulators ($group, $bucket, $bucketAuto, $setWindowFields)</td><td>$accumulator</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>$addToSet</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>$avg</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$bottom</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>$bottomN</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>$count</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$first</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$firstN</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$last</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$lastN</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$max</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$maxN</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>$median</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>$mergeObjects</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>$min</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$percentile</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>$push</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>$stdDevPop</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>$stdDevSamp</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>$sum</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$top</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>$topN</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td rowspan="22">Accumulators ($group, $bucket, $bucketAuto, $setWindowFields)</td><td><code>$accumulator</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>$addToSet</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>$avg</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$bottom</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>$bottomN</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>$count</code>/td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$first</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$firstN</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$last</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$lastN</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$max</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$maxN</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>$median</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>$mergeObjects</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>$min</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$percentile</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>$push</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>$stdDevPop</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>$stdDevSamp</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>$sum</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$top</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>$topN</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
 
-<tr><td rowspan="10">Accumulators (in Other Stages)</td><td>$avg</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>$first</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$last</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$max</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>$median</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>$min</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>$percentile</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>$stdDevPop</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>$stdDevSamp</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>$sum</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td rowspan="10">Accumulators (in Other Stages)</td><td><code>$avg</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>$first</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$last</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$max</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>$median</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>$min</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>$percentile</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>$stdDevPop</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>$stdDevSamp</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>$sum</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
 
 <tr><td rowspan="1">Variable Expression Operators</td><td colspan="2">Not supported.</td></tr>
 
 <tr><td rowspan="1">Window Operators</td><td colspan="2">Not supported.</td></tr>
 
-<tr><td rowspan="3">Conditional Expression Operators</td><td>$cond</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$ifNull</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$switch</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td rowspan="3">Conditional Expression Operators</td><td><code>$cond</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$ifNull</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$switch</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 
-<tr><td rowspan="44">Aggregation Pipeline Stages</td><td>$addFields</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$bucket</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>$bucketAuto</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>$changeStream</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>$changeStreamSplitLargeEvent</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>$collStats</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$count</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$densify</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>$documents</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>$facet</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$fill</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>$geoNear</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>$graphLookup</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>$group</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$indexStats</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$limit</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$listSampledQueries</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>$listSearchIndexes</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>$listSessions</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>$lookup</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$match</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$merge</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>$out</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>$planCacheStats</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>$project</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$redact</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>$replaceRoot</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$replaceWith</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$sample</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$search</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$searchMeta</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$set</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$setWindowFields</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>$skip</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$sort</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$sortByCount</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$unionWith</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$unset</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$unwind</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$shardedDataDistribution</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>$changeStream</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>$currentOp</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>$listLocalSessions</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td>$documents</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td rowspan="44">Aggregation Pipeline Stages</td><td><code>$addFields</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$bucket</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>$bucketAuto</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>$changeStream</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>$changeStreamSplitLargeEvent</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>$collStats</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$count</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$densify</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>$documents</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>$facet</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$fill</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>$geoNear</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>$graphLookup</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>$group</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$indexStats</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$limit</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$listSampledQueries</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>$listSearchIndexes</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>$listSessions</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>$lookup</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$match</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$merge</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>$out</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>$planCacheStats</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>$project</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$redact</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>$replaceRoot</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$replaceWith</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$sample</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$search</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$searchMeta</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$set</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$setWindowFields</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>$skip</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$sort</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$sortByCount</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$unionWith</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$unset</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$unwind</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$shardedDataDistribution</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>$changeStream</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>$currentOp</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$listLocalSessions</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>$documents</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
 
 > [!NOTE]
 > The `$lookup` aggregation does not yet support using variable expressions using 'let'.
 > AvgObjsize and size in "collStats" works with document size less than 2KB only.
 
+</table>
 
+## Indexes and index properties
+
+Azure Cosmos DB for MongoDB vCore supports the following indexes and index properties:
+
+> [!NOTE]
+> Creating a **unique index** obtains an exclusive lock on the collection for the entire duration of the build process. This blocks read and write operations on the collection until the operation is completed.
+
+### Indexes
+
+<table>
+<tr><td>Command</td><td>Supported</td></tr>
+<tr><td>Single Field Index</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td>Compound Index</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td>Multikey Index</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td>Text Index</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td>Geospatial Index</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td>Hashed Index</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td>Vector Index (only available in Cosmos DB)</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes, with [vector search](vector-search.md)</td></tr>
+</table>
+
+
+### Index properties
+
+<table>
+<tr><td>Command</td><td>Supported</td></tr>
+<tr><td>TTL</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td>Unique</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td>Partial</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td>Case Insensitive</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td>Sparse</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+ <tr><td>Background</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+</td></tr>
 </table>
 
 
