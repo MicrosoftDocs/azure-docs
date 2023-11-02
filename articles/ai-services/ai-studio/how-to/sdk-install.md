@@ -108,7 +108,7 @@ You can run the Azure AI SDK in a Docker container using VS Code Dev Containers:
     ```
 1. Select the **Reopen in Dev Containers** button. If it doesn't appear, open the command palette (`Ctrl+Shift+P` on Windows and Linux, `Cmd+Shift+P` on Mac) and run the `Dev Containers: Reopen in Container` command.
 
-### OPTION 1: GitHub Codespaces
+### OPTION 3: GitHub Codespaces
 
 The Azure AI code samples in GitHub Codespaces help you quickly get started without having to install anything locally.
 
