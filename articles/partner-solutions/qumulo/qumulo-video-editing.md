@@ -9,13 +9,13 @@ ms.date: 11/13/2003
 
 # What is Azure Native Qumulo Scalable File Service for video editing?
 
-Azure Native Qumulo (ANQ) allows content creators, editors, and artists to work remotely on video editing projects with the high speed and efficiency. This article describes a solution that provides a cloud-based remote video editing environment for 2 K, 4K, or 8K content.
+Azure Native Qumulo (ANQ) allows content creators, editors, and artists to work remotely on video editing projects with the high speed and efficiency. This article describes a solution that provides a cloud-based remote video editing environment for 2K, 4K, or 8K content.
 
 Using Azure Native Qumulo Scalable File Service for video editing uses Azure-based Adobe Premiere Pro VMs with storage services provided by Azure Native Qumulo (ANQ).
 
 ## Architecture
 
-As shown in the following diagram, Azure Native Qumulo for video editing is deployed on Azure with selectable performance options and combines Qumulo’s file data platform and HP Anyware PCoIP services. Deploying ANQ in this way lets creative teams store, manage, and create projects with Adobe Premiere Pro. Data services are hosted on the ANQ service and accessed through SMB.
+Azure Native Qumulo for video editing is deployed on Azure with selectable performance options and combines Qumulo’s file data platform and HP Anyware PCoIP services. Deploying ANQ in this way lets creative teams store, manage, and create projects with Adobe Premiere Pro. Data services are hosted on the ANQ service and accessed through SMB.
 
 > [!NOTE]
 > Qumulo has no access to any of your data on any ANQ deployment.
@@ -30,9 +30,9 @@ The ANQ service instance used in the solution is deployed in Qumulo’s Azure te
 
 Access to the ANQ service instance is enabled through VNet injection from a dedicated subnet in your Azure tenant. All data on the ANQ service instance is accessible only through the network interfaces in your delegated subnet. Note: Qumulo has no access to any data on any ANQ instance.
 
-:::image type="content" source="media/qumulo-video-editing/solution-architecture-qumulo-video-editing.png" alt-text="Conceptual diagram that shows solution architecture for video editing using Qumulo." lightbox="media/qumulo-video-editing/solution-architecture-qumulo-video-editing.png":::
+<!-- :::image type="content" source="media/qumulo-video-editing/solution-architecture-qumulo-video-editing.png" alt-text="Conceptual diagram that shows solution architecture for video editing using Qumulo." lightbox="media/qumulo-video-editing/solution-architecture-qumulo-video-editing.png"::: -->
 
-### Solution Workflow
+### Solution workflow
 
 1. The user connects with ANQ solution through HP Anyware PCoIP client, which comes in multiple versions: thin clients, mobile clients, and Windows / Mac / Linux clients.
 1. Access between the HP Anyware client software and the Azure-based environment can be through Azure VPN Gateway or through an ExpressRoute connection.

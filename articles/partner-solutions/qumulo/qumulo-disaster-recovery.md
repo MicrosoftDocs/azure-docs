@@ -13,7 +13,7 @@ Azure Native Qumulo Scalable File Service (ANQ) provides high-performance, exaby
 
 ## Architecture
 
-As shown in the following diagrams, Azure Native Qumulo for disaster recovery can be deployed in one or more Azure availability zones depending on the primary site configuration and the level of recoverability required.
+Azure Native Qumulo for disaster recovery can be deployed in one or more Azure availability zones depending on the primary site configuration and the level of recoverability required.
 
 In all versions of this solution, your Azure resources are deployed into your own Azure tenant, and the ANQ service instance is deployed in Qumulo’s Azure tenant in the same regions. Your access to the ANQ service instance and its data are enabled through a delegated subnet in your Azure tenant, using virtual network (VNet) injection to connect to the ANQ service instance.
 
@@ -35,11 +35,11 @@ The ANQ solution can be deployed in three ways:
 - between Azure regions
 - On-premises or other cloud (multi-region)
 
-### ANQ disaster recovery - On-premises or other cloud
+### ANQ disaster recovery - on-premises or other cloud
 
 In this setup, ANQ for disaster recovery is deployed into a single Azure region, with data replicating from the primary Qumulo storage instance to the ANQ service through your own Azure VPN Gateway or ExpressRoute connection.
 
-:::image type="content" source="media/qumulo-disaster-recovery/disaster-recovery-architecture-on-prem-cloud.png" alt-text="Conceptual diagram that shows solution architecture for cloud add on-premises replication." lightbox="media/qumulo-disaster-recovery/disaster-recovery-architecture-on-prem-cloud.png":::
+<!-- :::image type="content" source="media/qumulo-disaster-recovery/disaster-recovery-architecture-on-prem-cloud.png" alt-text="Conceptual diagram that shows solution architecture for cloud add on-premises replication." lightbox="media/qumulo-disaster-recovery/disaster-recovery-architecture-on-prem-cloud.png"::: -->
 
 ### ANQ disaster recovery - between Azure regions
 
@@ -47,13 +47,13 @@ In this scenario, two separate Azure regions are each configured as a hot standb
 
 Qumulo replication is configured for both ANQ service instances, each of which serves as the secondary storage target for the other.
 
-:::image type="content" source="media/qumulo-disaster-recovery/disaster-recovery-architecture-between-regions.png" alt-text="Conceptual diagram that shows solution architecture for between region replication." lightbox="media/qumulo-disaster-recovery/disaster-recovery-architecture-between-regions.png":::
+<!-- :::image type="content" source="media/qumulo-disaster-recovery/disaster-recovery-architecture-between-regions.png" alt-text="Conceptual diagram that shows solution architecture for between region replication." lightbox="media/qumulo-disaster-recovery/disaster-recovery-architecture-between-regions.png"::: -->
 
 ### ANQ disaster recovery - on-premises or other cloud (multi-region)
 
 In this scenario, the primary Qumulo storage is either on-premises or hosted on another cloud provider. Data on the primary Qumulo cluster is replicated to two separate ANQ service instances in two Azure regions. If you have a primary site failure or region-wide outage on Azure, you have more options for recovering critical services.
 
-:::image type="content" source="media/qumulo-disaster-recovery/disaster-recovery-architecture-multi-region.png" alt-text="Conceptual diagram that show solution architecture for multi region replication." lightbox="media/qumulo-disaster-recovery/disaster-recovery-architecture-multi-region.png":::
+<!-- :::image type="content" source="media/qumulo-disaster-recovery/disaster-recovery-architecture-multi-region.png" alt-text="Conceptual diagram that show solution architecture for multi region replication." lightbox="media/qumulo-disaster-recovery/disaster-recovery-architecture-multi-region.png"::: -->
 
 ## Solution workflow
 
@@ -106,7 +106,7 @@ Possible use cases:
 - Cloud disaster recovery for Remote Offices/Branch Offices (ROBO):
   - Organizations can deploy Qumulo clusters at their ROBO locations and replicate data to a centralized disaster recovery repository on an ANQ service. If you have a disaster at any remote site, organizations can continue to support the impacted site from the ANQ instance until a new Qumulo cluster can be deployed at the affected site, ensuring business continuity and data availability.
 
-### Scalability and Performance
+### Scalability and performance
 
 When planning an Azure Native Qumulo Scalable File Service deployment as a disaster recovery solution, consider the following factors in capacity plans:
 
