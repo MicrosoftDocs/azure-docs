@@ -276,7 +276,7 @@ The default retention for Application Insights resources is 90 days. You can sel
 
 To change the retention, from your Application Insights resource, go to the **Usage and estimated costs** page and select the **Data retention** option.
 
-![Screenshot that shows where to change the data retention period.](../app/media/pricing/pricing-005.png)
+:::image type="content" source="../app/media/pricing/pricing-005.png" lightbox="../app/media/pricing/pricing-005.png" alt-text="Screenshot that shows where to change the data retention period.":::
 
 A several-day grace period begins when the retention is lowered before the oldest data is removed.
 

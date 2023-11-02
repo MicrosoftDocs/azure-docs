@@ -50,7 +50,7 @@ You can delete a workspace by using [PowerShell](/powershell/module/azurerm.oper
 1. If you want to permanently delete the workspace and remove the option to later recover it, select the **Delete the workspace permanently** checkbox.
 1. Enter the name of the workspace to confirm and then select **Delete**.
 
-   ![Screenshot that shows confirming the deletion of a workspace.](media/delete-workspace/workspace-delete.png)
+   :::image type="content" source="media/delete-workspace/workspace-delete.png" lightbox="media/delete-workspace/workspace-delete.png" alt-text="Screenshot that shows confirming the deletion of a workspace.":::
 
 ### PowerShell
 ```PowerShell
@@ -90,11 +90,11 @@ You can recover your workspace during the soft-delete period, including its data
 1. In the Azure portal, select **All services**. In the list of resources, enter **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics workspaces**. You see the list of workspaces you have in the selected scope.
 1. Select **Recover** on the top left menu to open a page with workspaces in a soft-delete state that can be recovered.
 
-   ![Screenshot that shows the Log Analytics workspaces screen and Open recycle bin on the menu bar.](media/delete-workspace/recover-menu.png)
+   :::image type="content" source="media/delete-workspace/recover-menu.png" lightbox="media/delete-workspace/recover-menu.png" alt-text="Screenshot that shows the Log Analytics workspaces screen and Open recycle bin on the menu bar.":::
 
 1. Select the workspace. Then select **Recover** to recover the workspace.
 
-   ![Screenshot that shows the Recycle bin with a workspace and the Recover button.](media/delete-workspace/recover-workspace.png)
+   :::image type="content" source="media/delete-workspace/recover-workspace.png" lightbox="media/delete-workspace/recover-workspace.png" alt-text="Screenshot that shows the Recycle bin with a workspace and the Recover button.":::
 
 ### PowerShell
 ```PowerShell
