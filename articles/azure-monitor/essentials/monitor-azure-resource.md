@@ -59,7 +59,7 @@ The **Overview** page includes details about the resource and often its current 
 
 To learn how to use Metrics Explorer, see [Analyze metrics for an Azure resource](../essentials/tutorial-metrics.md).
 
-![Screenshot that shows the Overview page.](media/monitor-azure-resource/overview-page.png)
+:::image type="content" source="media/monitor-azure-resource/overview-page.png" lightbox="media/monitor-azure-resource/overview-page.png" alt-text="Screenshot that shows the Overview page.":::
 
 ### Activity log
 
