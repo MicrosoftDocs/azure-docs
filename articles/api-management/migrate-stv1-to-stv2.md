@@ -185,7 +185,7 @@ On successful migration, update any network dependencies including DNS, firewall
 
 1. **What information do we need to choose a migration path?**
     
-   - What is the Network mode of the APIM instance?
+   - What is the Network mode of the API Management instance?
    - Are custom domains configured?
    - Is a firewall involved?
    - Any known dependencies taken by upstream/downstream on the IPs involved?
