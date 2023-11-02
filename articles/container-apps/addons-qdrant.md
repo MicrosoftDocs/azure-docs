@@ -83,6 +83,7 @@ Execute the following commands to create your resource group, container apps env
 
     ```azurecli
     az login
+    ```
 
 1. Create a resource group.
 
@@ -138,7 +139,10 @@ Now that you have an existing environment and workload profile, you can create y
       --image $IMAGE \
       --min-replicas 1 \
       --max-replicas 1 \
-      --env-vars RESTARTABLE=yes
+      --env-vars RESTARTABLE=yes \
+      --ingress external \
+      --target-port 8888 \
+      --transport auto \
       --query properties.outputs.fqdn
     ```
 
@@ -157,27 +161,16 @@ Now that you have an existing environment and workload profile, you can create y
 
 Now that your container app is running and connected to Qdrant, you can configure your container app to accept incoming requests.
 
-1. Enable ingress on the container app.
-
-    ```azurecli
-    az containerapp ingress enable \
-      --name $APP_NAME \
-      --resource-group $RESOURCE_GROUP \
-      --type external \
-      --target-port 8888 \
-      --transport auto
-    ```
-
 1. Configure CORS settings on the container app.
 
     ```azurecli
     az containerapp ingress cors enable \
       --name $APP_NAME \
       --resource-group $RESOURCE_GROUP \
-      --allowed-origins *
+      --allowed-origins "*"
     ```
 
-    The next step instructs you to request an access token to log into the application hosted by the container app. Wait 3 to 5 minutes before you attempt to execute the next step to give the container app enough time to set up all required resources.
+    The next step instructs you to request an access token to log into the application hosted by the container app. Wait three to five minutes before you attempt to execute the next step to give the container app enough time to set up all required resources.
 
 1. Once you've waited three to five minutes for the app to complete the setup operations, request an access token for the hosted Jupyter Notebook.
 
