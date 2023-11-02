@@ -211,7 +211,7 @@ On successful migration, update any network dependencies including DNS, firewall
    - First of all, make sure that the new subnet you created for the migration retains the following configuration (they should be already configured in your current subnet):
       - Enable service endpoints as described [here](./api-management-using-with-vnet.md?tabs=stv2#force-tunnel-traffic-to-on-premises-firewall-using-expressroute-or-network-virtual-appliance)
       - The UDR (user-defined route) has the hop from **ApiManagement** service tag set to "Internet" and not only to your firewall address
-   - The [requirements for NSG configuration for stv2](./api-management-using-with-vnet.md?tabs=stv2#configure-nsg-rules) remain the same either you have firewall or not, make sure your new subnet has it
+   - The [requirements for NSG configuration for stv2](./api-management-using-with-vnet.md?tabs=stv2#configure-nsg-rules) remain the same whether you have firewall or not; make sure your new subnet has it
    - Firewall rules referring to the current IP address range of the API Management instance should be updated to use the IP address range of your new subnet.
 
 1. **Is it impossible that data or configuration losses can occur by/during the migration?**
