@@ -18,7 +18,7 @@ This article describes on the key capabilities of pre and post scripts, the appl
 
 - **Customized patching** - You can customize your patching workflows with custom execution before and after a scheduled patching.
 - **Multiple end points** - You can choose to configure other endpoints such as Webhooks or Azure Functions or Storage accounts.
-- **Integration with the [Event Grid](../event-grid/overview.md)** to recieve notifications.
+- **Integration with the [Event Grid](../event-grid/overview.md)** to receive notifications.
 
 ## Workflow to configure pre and postscript maintenance activities
 
