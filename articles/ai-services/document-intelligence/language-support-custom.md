@@ -11,17 +11,13 @@ ms.date: 11/15/2023
 
 ## Custom model language detection and extraction
 
-### [Custom classifier](#tab/custom-classifier)
-
-##### Language support: custom classifier model
+## [Custom classifier](#tab/custom-classifier)
 
 | Model | Language—Locale code | Default |
 |--------|:----------------------|:---------|
 |**custom-classification**| English (United States)—en-US| English (United States)—en-US|
 
-### [Custom neural](#tab/custom-neural)
-
-##### Language support: custom neural model
+## [Custom neural](#tab/custom-neural)
 
 |Language| Code (optional) |
 |:-----|:----:|
@@ -88,9 +84,7 @@ Neural models support added languages for the `v3.1` and later APIs.
 
 :::moniker-end
 
-### [Custom template](#tab/custom-template)
-
-#### Language support: custom template model
+## [Custom template](#tab/custom-template)
 
 #### Handwritten text
 

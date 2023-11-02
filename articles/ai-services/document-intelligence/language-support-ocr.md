@@ -1426,8 +1426,15 @@ The following table lists layout model language support for extracting and analy
 
 ---
 
-::: moniker range=">=doc-intel-4.0.0"
+:::moniker range="doc-intel-4.0.0"
 
+> [!IMPORTANT]
+> Starting with Document Intelligence **v4.0:2023-10-31-preview** and going forward, the general document model (prebuilt-document) is deprecated. To extract key-value pairs, selection marks, text, tables, and structure from documents, use the following models:
+
+| Feature   | version| Model ID |
+|----------  |---------|--------|
+|Layout model with **`features=keyValuePairs`** specified.|&bullet; v4:2023-10-31-preview</br>&bullet; v3.1:2023-07-31 (GA) |**`prebuilt-layout`**|
+|General document model|&bullet; v3.1:2023-07-31 (GA)</br>&bullet; v3.0:2022-08-31 (GA)</br>&bullet; v2.1 (GA)|**`prebuilt-document`**|
 :::moniker-end
 
 :::moniker range="doc-intel-3.1.0 || doc-intel-3.0.0"

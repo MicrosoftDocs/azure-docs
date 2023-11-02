@@ -12,11 +12,9 @@ ms.date: 11/15/2023
 ## Prebuilt model language detection and extraction
 
 :::moniker range=">=doc-intel-3.1.0"
-### [Business card](#tab/business-card)
+## [Business card](#tab/business-card)
 
-##### Prebuilt business card model
-
-| Model | Language—Locale code | Default |
+| Model ID | Language—Locale code | Default |
 |--------|:----------------------|:---------|
 |**prebuilt-businessCard** (v3.0 API)| &bullet; English (United States)—en-US</br>&bullet;  English (Australia)—en-AU</br>&bullet; English (Canada)—en-CA</br>&bullet; English (United Kingdom)—en-GB</br>&bullet; English (India)—en-IN</br>&bullet; English (Japan)—en-JP</br>&bullet; Japanese (Japan)—ja-JP  | Autodetected (en-US or ja-JP) |
 |Business card (v2.1 API)| &bullet; English (United States)—en-US</br>&bullet;  English (Australia)—en-AU</br>&bullet; English (Canada)—en-CA</br>&bullet; English (United Kingdom)—en-GB</br>&bullet; English (India)—en-IN</li> | Autodetected |
@@ -24,11 +22,9 @@ ms.date: 11/15/2023
 
 :::moniker range="<=doc-intel-3.1.0"
 
-### [Contract](#tab/contract)
+## [Contract](#tab/contract)
 
-##### Prebuilt contract model
-
-| Model | Language—Locale code | Default |
+| Model ID | Language—Locale code | Default |
 |--------|:----------------------|:---------|
 |**prebuilt-contract**| English (United States)—en-US| English (United States)—en-US|
 
@@ -36,23 +32,19 @@ ms.date: 11/15/2023
 
 :::moniker range=">=doc-intel-3.0.0"
 
-### [Health insurance card](#tab/health-insurance-card)
+## [Health insurance card](#tab/health-insurance-card)
 
-##### Prebuilt health insurance card model
-
-| Model | Language—Locale code | Default |
+| Model ID| Language—Locale code | Default |
 |--------|:----------------------|:---------|
 |**prebuilt-healthInsuranceCard.us**| English (United States)|English (United States)—en-US|
 
 :::moniker-end
 
-### [ID document](#tab/id-document)
+## [ID document](#tab/id-document)
 
-##### Prebuilt ID document model
+#### Supported document types
 
-Supported document types
-
-|Model| Region | Document types |
+|Model ID| Region | Document types |
 |-----|--------|----------------|
 |**prebuilt-idDocument**|||
 ||Worldwide|Passport Book, Passport Card|
@@ -62,9 +54,7 @@ Supported document types
 ||Canada|Driver License, Identification Card, Residency Permit (Maple Card)|
 ||Australia|Driver License, Photo Card, Key-pass ID (including digital version)|
 
-### [Invoice](#tab/invoice)
-
-##### Prebuilt invoice model
+## [Invoice](#tab/invoice)
 
 :::moniker range=">=doc-intel-3.1.0"
 
@@ -158,9 +148,7 @@ Supported document types
 | &bullet; USD | United States (`us`) |
 :::moniker-end
 
-### [Receipt](#tab/receipt)
-
-##### Prebuilt receipt model
+## [Receipt](#tab/receipt)
 
 ##### Model ID: **prebuilt-receipt**
 
@@ -252,9 +240,7 @@ Supported document types
 
 ### [Tax Documents](#tab/tax)
 
-##### Prebuilt tax form models
-
- Model | Language—Locale code | Default |
+ Model ID | Language—Locale code | Default |
 |--------|:----------------------|:---------|
 |**prebuilt-tax.us.w2**|English (United States)|English (United States)—en-US|
 |**prebuilt-tax.us.1098**|English (United States)|English (United States)—en-US|
