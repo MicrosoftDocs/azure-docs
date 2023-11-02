@@ -4,7 +4,7 @@ description: Learn how to deploy the Azure Monitor Agent on your Azure, multiclo
 author: dcurwin
 ms.author: dacurwin
 ms.topic: how-to
-ms.date: 10/30/2023
+ms.date: 11/02/2023
 ms.custom: template-how-to, ignite-2022
 ---
 
@@ -15,7 +15,7 @@ To make sure that your server resources are secure, Microsoft Defender for Cloud
 In this article, we give an overview of AMA preferences for when you deploy Defender for SQL servers on machines.
 
 > [!NOTE]
-> As part of the Defender for Cloud updated strategy, Azure Monitor Agent will no longer be required for the Defender for Servers offering. However, it will still be required for Defender for SQL Server on machines. As a result, the previous autoprovisioning process for both agents has been adjusted accordingly. Learn more about [this announcement](upcoming-changes.md#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation). 
+> As part of the Defender for Cloud updated strategy, Azure Monitor Agent will no longer be required for the Defender for Servers offering. However, it will still be required for Defender for SQL Server on machines. As a result, the previous autoprovisioning process for both agents has been adjusted accordingly. Learn more about [this announcement](upcoming-changes.md#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation).
 
 ## Azure Monitor Agent in Defender for Servers
 
@@ -31,7 +31,6 @@ The following information on availability is relevant for the [Defender for SQL]
 
 Before you deploy AMA with Defender for Cloud, you must have the following prerequisites:
 
-- [Enable Defender for SQL servers on machines](defender-for-sql-usage.md)
 - Make sure your multicloud and on-premises machines have Azure Arc installed.
   - AWS and GCP machines
     - [Onboard your AWS connector](quickstart-onboard-aws.md) and autoprovision Azure Arc.
@@ -39,6 +38,7 @@ Before you deploy AMA with Defender for Cloud, you must have the following prere
   - On-premises machines
     - [Install Azure Arc](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
 - Make sure the Defender plans that you want the Azure Monitor Agent to support are enabled:
+  - [Enable Defender for SQL servers on machines](defender-for-sql-usage.md)  
   - [Enable Defender plans on the subscriptions for your AWS VMs](quickstart-onboard-aws.md)
   - [Enable Defender plans on the subscriptions for your GCP VMs](quickstart-onboard-gcp.md)
 
