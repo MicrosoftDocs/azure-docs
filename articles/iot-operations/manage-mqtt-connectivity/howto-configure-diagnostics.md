@@ -17,8 +17,6 @@ Diagnostic settings allow you to enable metrics and tracing for Azure IoT MQ bro
 - Metrics provide information about the resource utilization and throughput of IoT MQ broker.
 - Tracing provides detailed information about the requests and responses handled by IoT MQ broker.
 
-<!-- For enable these features, you must first deploy the diagnostic service. For more information about deploying the diagnostic service, see [Diagnostic service](#diagnostics-service). -->
-
 To override default diagnostic settings for IoT MQ broker, update the `spec.diagnostics` section in  the Broker CR. You also need to specify the diagnostic service endpoint, which is the address of the service that collects and stores the metrics and traces. The default endpoint is `azedge-diagnostics-service:9700`.
 
 You can also adjust the log level of IoT MQ broker to control the amount and detail of information that's logged. The log level can be set for different components of IoT MQ broker. The default log level is `info`.
@@ -96,92 +94,6 @@ The diagnostics service processes and collates diagnostic signals from various A
 | metricsPort | false | Int32 | `9600` | Port for metrics |
 | openTelemetryCollectorAddr | false | String | `null` | Endpoint URL of the OpenTelemetry collector |
 | staleDataTimeoutSeconds | false | Int32 | `600` | Data timeouts in seconds |
-
-The following example is a *DiagnosticsService* custom resource definition:
-
-```yaml
-apiVersion: apiextensions.k8s.io/v1
-kind: CustomResourceDefinition
-metadata:
-  name: diagnosticservices.mq.iotoperations.azure.com
-spec:
-  group: mq.iotoperations.azure.com
-  names:
-    categories: []
-    kind: DiagnosticService
-    plural: diagnosticservices
-    shortNames: []
-    singular: diagnosticservice
-  scope: Namespaced
-  versions:
-  - additionalPrinterColumns: []
-    name: v1beta1
-    schema:
-      openAPIV3Schema:
-        description: Auto-generated derived type for DiagnosticServiceSpec via `CustomResource`
-        properties:
-          spec:
-            properties:
-              dataExportFrequencySeconds:
-                default: 10
-                format: uint16
-                maximum: 65535.0
-                minimum: 0.0
-                type: integer
-              image:
-                properties:
-                  pullPolicy:
-                    nullable: true
-                    type: string
-                  pullSecrets:
-                    nullable: true
-                    type: string
-                  repository:
-                    type: string
-                  tag:
-                    type: string
-                required:
-                - repository
-                - tag
-                type: object
-              logFormat:
-                default: json
-                type: string
-              logLevel:
-                default: info
-                type: string
-              maxDataStorageSize:
-                default: 16
-                format: uint32
-                maximum: 4294967295.0
-                minimum: 0.0
-                type: integer
-              metricsPort:
-                default: 9600
-                format: uint16
-                maximum: 65535.0
-                minimum: 0.0
-                type: integer
-              openTelemetryTracesCollectorAddr:
-                nullable: true
-                type: string
-              staleDataTimeoutSeconds:
-                default: 600
-                format: uint16
-                maximum: 65535.0
-                minimum: 0.0
-                type: integer
-            required:
-            - image
-            type: object
-        required:
-        - spec
-        title: DiagnosticService
-        type: object
-    served: true
-    storage: true
-    subresources: {}
-```
 
 ## Related content
 
