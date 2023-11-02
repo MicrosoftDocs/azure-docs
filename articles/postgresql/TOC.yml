@@ -127,6 +127,8 @@
           href: flexible-server/generative-ai-azure-overview.md
         - name: Azure OpenAI
           href: flexible-server/generative-ai-azure-openai.md
+        - name: Azure Cognitive Services
+          href: flexible-server/generative-ai-azure-cognitive.md
       - name: Vector similarity search (pgvector)
         items:
         - name: Basics of pgvector

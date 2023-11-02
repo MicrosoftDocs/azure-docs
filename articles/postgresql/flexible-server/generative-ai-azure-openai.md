@@ -33,23 +33,31 @@ select azure_ai.set_setting('azure_openai.endpoint','https://<endpoint>.openai.a
 select azure_ai.set_setting('azure_openai.subscription_key', '<API Key>'); 
 ```
 
-## `azure_ai.create_embeddings`
+## `azure_openai.create_embeddings`
 
 Invokes the Azure Open AI API to create embeddings using the provided deployment over the given input.
 
 ```postgresql
-azure_openai.create_embeddings(deployment_name TEXT, input TEXT);
+azure_openai.create_embeddings(deployment_name text, input text, timeout_ms integer DEFAULT 3600000, throw_on_error boolean DEFAULT true)
 ```
 
 ### Arguments
 
 #### `deployment_name`
 
-`TEXT` name of the deployment in Azure OpenAI studio that contains the model.
+`text` name of the deployment in Azure OpenAI studio that contains the model.
 
 #### `input`
 
-`TEXT` input used to create embeddings.
+`text` input used to create embeddings.
+
+#### `timeout_ms`
+
+`integer DEFAULT 3600000` timeout in milliseconds after which the operation is stopped.
+
+#### `throw_on_error`
+
+`boolean DEFAULT true` on error should the function throw an exception resulting in a rollback of wrapping transactions.
 
 ### Return type
 
@@ -114,3 +122,8 @@ ORDER BY
     E.Session_embedding <=> azure_openai.create_embeddings('text-embedding-ada-002', 'intelligent apps')::vector 
 LIMIT 5; 
 ```
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Learn more about vector similarity search using `pgvector`](./how-to-use-pgvector.md)
