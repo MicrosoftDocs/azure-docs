@@ -84,7 +84,7 @@ To begin, log-in to the Azure CLI:
 az login
 ```
 
-### Create
+### Create policies
 
 To apply the resiliency policies from a YAML file you created for your container app, run the following command:
 
