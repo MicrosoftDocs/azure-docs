@@ -36,7 +36,7 @@ ms.author: lajanuar
 ::: moniker-end
 
 ::: moniker range=">=doc-intel-2.1.0"
- Azure AI Document Intelligence supports a wide variety of models that enable you to add intelligent document processing to your apps and flows. You can use a prebuilt document analysis or domain specific model or train a custom model tailored to your specific business needs and use cases. Document Intelligence can be used with the REST API or Python, C#, Java, and JavaScript SDKs.
+ Azure AI Document Intelligence supports a wide variety of models that enable you to add intelligent document processing to your apps and flows. You can use a prebuilt domain-specific model or train a custom model tailored to your specific business need and use cases. Document Intelligence can be used with the REST API or Python, C#, Java, and JavaScript SDKs.
 ::: moniker-end
 
 ## Model overview

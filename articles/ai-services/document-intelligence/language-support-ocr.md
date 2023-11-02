@@ -1432,7 +1432,6 @@ The following table lists layout model language support for extracting and analy
 
 :::moniker range="doc-intel-3.1.0 || doc-intel-3.0.0"
 
-
 ### [General document](#tab/general)
 
 The following table lists general document model language support. </br>
@@ -1443,4 +1442,3 @@ The following table lists general document model language support. </br>
 :::moniker-end
 
 ---
-
