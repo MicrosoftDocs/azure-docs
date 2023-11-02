@@ -13,11 +13,13 @@ ms.topic: release-notes
 
 This page presents the latest feature, improvement, bug fix, and known issue release notes for Custom Translator service.
 
-## 2023-Nov release
+## 2023-November release
 
 ### November 2023 model updates
 
-Current supported language pairs, including direct language models, are listed in the following tables. For higher quality, we encourage you to retrain your models accordingly.
+* The current supported language pairs, including direct language models, are listed in the following tables. 
+
+* For higher quality, we encourage you to retrain your models accordingly.
 
 #### Direct language models
 
@@ -54,7 +56,7 @@ Current supported language pairs, including direct language models, are listed i
 |Sovenian (`sl-si`)|English (`en-us`)|
 |Ukranian (`uk-ua`)|English (`en-us`)|
 
-#### English target/source ←→ source/target language models
+#### English `target/source ↔ source/target` language models
 
 |Source |Target|
 |:----|:----|
