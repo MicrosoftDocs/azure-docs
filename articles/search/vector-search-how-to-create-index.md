@@ -28,7 +28,7 @@ Code samples in the [cognitive-search-vector](https://github.com/Azure/cognitive
 
 ## Prerequisites
 
-+ Azure AI Search, in any region and on any tier. Most existing services support vector search. For services created prior to January 2019, there's a small subset that doesn't support vector search. If an index containing vector fields fails to be created or updated, this is an indicator. In this situation, a new service must be created.
++ Azure AI Search, in any region and on any tier. Most existing services support vector search. For services created prior to January 2019, there's a small subset that support vector search. If an index containing vector fields fails to be created or updated, this is an indicator. In this situation, a new service must be created.
 
 + Pre-existing vector embeddings in your source documents. Azure AI Search doesn't generate vectors. We recommend [Azure OpenAI embedding models](/azure/ai-services/openai/concepts/models#embeddings-models) but you can use any model for vectorization. For more information, see [Create and use embeddings for search queries and documents](vector-search-how-to-generate-embeddings.md).
 
@@ -572,7 +572,7 @@ You can use either [push or pull methodologies](search-what-is-data-import.md) f
 
 ### [**Push APIs**](#tab/push)
 
-Use [Index Documents (2023-11-01](/rest/api/searchservice/2023-11-01/documents/), [Index Documents (2023-10-01-Preview)](/rest/api/searchservice/2023-10-01-preview/documents/), or the [Add, Update, or Delete Documents (2023-07-01-Preview)](/rest/api/searchservice/preview-api/add-update-delete-documents) to push documents containing vector data.
+Use [Index Documents (2023-11-01)](/rest/api/searchservice/2023-11-01/documents/), [Index Documents (2023-10-01-Preview)](/rest/api/searchservice/2023-10-01-preview/documents/), or the [Add, Update, or Delete Documents (2023-07-01-Preview)](/rest/api/searchservice/preview-api/add-update-delete-documents) to push documents containing vector data.
 
 ```http
 POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/index?api-version=2023-11-01

@@ -71,7 +71,7 @@ The following diagram illustrates a hybrid query that invokes keyword and vector
 
 :::image type="content" source="media/hybrid-search/searchscoringflow.svg" alt-text="Diagram of prefilters." border="true" lightbox="media/hybrid-search/searchscoringflow.png":::
 
-A query that generates a workflow with these components might look like this:
+A query that generates the previous workflow might look like this:
 
 ```http
 POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2023-11-01
