@@ -155,10 +155,10 @@ az login
 ```
 
 > [!NOTE]
-> When using a Github codespace in a browser, `az login` returns a localhost error in the browser window after logging in. To fix, either:
+> When you use a GitHub codespace in a browser, `az login` returns a localhost error in the browser window after logging in. To fix, either:
 >
 > * Open the codespace in VS Code desktop, and then run `az login` in the terminal. This opens a browser window where you can log in to Azure.
-> * After you get the localhost error on the browser, copy the URL from the browser and use `curl <URL>` in a new terminal tab. You should see a JSON response with the message "You have logged into Microsoft Azure!."
+> * After you get the localhost error on the browser, copy the URL from the browser and use `curl <URL>` in a new terminal tab. You should see a JSON response with the message "You have logged into Microsoft Azure!".
 
 Deploy Azure IoT Operations to your cluster. The `az iot ops init` command does the following steps:
 
