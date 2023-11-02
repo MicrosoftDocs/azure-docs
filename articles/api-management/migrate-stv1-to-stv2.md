@@ -176,7 +176,7 @@ You can optionally migrate back to the original VNet and subnet you used in each
 * To verify that the migration was successful, when the status changes to `Online`, check the [platform version](compute-infrastructure.md#how-do-i-know-which-platform-hosts-my-api-management-instance) of your API Management instance. After successful migration, the value is `stv2`. 
 * Additionally check the Network status to ensure connectivity of the instance to its dependencies. In the portal, in the left-hand menu, under **Deployment and infrastructure**, select **Network** > **Network status**.
 
-### Update Network Dependencies
+### Update network dependencies
 
 On successful migration, update any network dependencies including DNS, firewall rules, and VNets to use the new VIP address/subnet address space.
 [!INCLUDE [api-management-migration-support](../../includes/api-management-migration-support.md)]
