@@ -74,7 +74,7 @@ To try more Azure AI services, go to the following studio links:
 You can conveniently access these links from a menu at the top-right corner of AI Studio.
 
 
-### Prompt samples
+## Prompt samples
 
 Prompt engineering is an important aspect of working with generative AI models as it allows users to have greater control, customization, and influence over the outputs. By skillfully designing prompts, users can harness the capabilities of generative AI models to generate desired content, address specific requirements, and cater to various application domains.   
 
