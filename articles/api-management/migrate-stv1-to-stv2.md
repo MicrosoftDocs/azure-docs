@@ -257,7 +257,7 @@ On successful migration, update any network dependencies including DNS, firewall
 
    You can optionally deploy a new API Management instance with the new VNET + Subnet + VIP that you use for the actual migration. Navigate to the Network Status page after the deployment is completed, and verify if every endpoint connectivity status is green. If yes, you can remove this new API Management instance and proceed with the real migration with your original stv1 service.
 
-1. **Can I rollback the migration if required?**
+1. **Can I roll back the migration if required?**
 
    Yes, you can. If there's a failure during the migration process, the instance will automatically roll back to the `stv1` platform. However, if you encounter any other issues post migration, you have 48 hours to request a rollback by contacting Azure support. You should contact support if the instance is stuck in an "Updating" status for more than 2 hours.
 
