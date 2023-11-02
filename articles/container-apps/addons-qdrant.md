@@ -15,6 +15,8 @@ Azure Container Apps uses [add-ons](services.md) to make it easy to connect to v
 
 For a full list of supported services, see [Connect to services in Azure Container Apps](services.md).
 
+TODO: Describe sample application.
+
 In this tutorial you:
 
 > [!div class="checklist"]
@@ -36,6 +38,10 @@ To complete this project, you need the following items:
 
 ## Setup
 
+Before you begin to work with the Qdrant database, you first need to create your container app and the required resources.
+
+Execute the following commands to create your resource group, container apps environment, and workload profile.
+
 1. Set up application name and resource group variables. You can change these values to your preference.
 
     ```bash
@@ -43,7 +49,7 @@ To complete this project, you need the following items:
     export RESOURCE_GROUP=playground
     ```
 
-1. Create variables to support the application. Don't change these values.
+1. Create variables to support your application configuration. These values are provided for you for the purposes of this lesson. Don't change these values.
 
     ```bash
     export SERVICE_NAME=qdrantdb
@@ -60,10 +66,10 @@ To complete this project, you need the following items:
     | `SERVICE_NAME` | The name of the add-on service created for your container app. In this case, you create a development-grade instance of a Qdrant database.  |
     | `LOCATION` | The Azure region location where you create your container app and add-on. |
     | `ENVIRONMENT` | The Azure Container Apps environment name for your demo application. |
-    | `WORKLOAD_PROFILE_TYPE` | The workload profile  |
-    | `CPU_SIZE` |  |
-    | `MEMORY_SIZE` |  |
-    | `IMAGE` |  |
+    | `WORKLOAD_PROFILE_TYPE` | The workload profile type used for your container app. This example uses a general purpose workload profile with 32 cores 128 GiB of memory. |
+    | `CPU_SIZE` | The allocated size of the CPU. |
+    | `MEMORY_SIZE` | The allocated amount of memory. |
+    | `IMAGE` | The container image used in this tutorial. This container image includes the Jupyter Notebook that allows you to interact with data in the Qdrant database. |
 
 1. Create a resource group.
 
@@ -71,7 +77,7 @@ To complete this project, you need the following items:
     az group create --name $RESOURCE_GROUP --location $LOCATION
     ```
 
-1. Create an environment.
+1. Create your container apps environment.
 
     ```azurecli
     az containerapp env create \
@@ -80,7 +86,7 @@ To complete this project, you need the following items:
       --location $LOCATION
     ```
 
-1. Create a workload profile.
+1. Create a dedicated workload profile with enough resources to work with a vector database.
 
     ```azurecli
     az containerapp env workload-profile set \
@@ -93,6 +99,8 @@ To complete this project, you need the following items:
     ```
 
 ## Use the Qdrant add-on
+
+Now that you have an existing environment and workload profile, you can create your container app and bind it to an add-on instance of Qdrant.
 
 1. Create the Qdrant add-on service.
 
@@ -130,6 +138,8 @@ To complete this project, you need the following items:
 
 ## Configure the container app
 
+Now that your container app is running and connected to Qdrant, you can configure your container app to accept incoming requests.
+
 1. Enable ingress on the container app.
 
     ```azurecli
@@ -141,7 +151,7 @@ To complete this project, you need the following items:
       --transport auto
     ```
 
-1. Enable ingress on the container app.
+1. Configure CORS settings on the container app.
 
     ```azurecli
     az containerapp ingress cors enable \
@@ -150,7 +160,7 @@ To complete this project, you need the following items:
       --allowed-origins *
     ```
 
-1. Get the token.
+1. Request an access token for the hosted Jupyter Notebook.
 
     ```bash
     echo Your login token is: `az containerapp logs show -g $RESOURCE_GROUP --name $APP_NAME --tail 300 | \
@@ -174,3 +184,8 @@ To complete this project, you need the following items:
 1. Enter the token value into the dialog box.
 
 1. Open the *aca_environment.sh* file and execute the commands in the Jupyter Notebook.
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Learn about other add-on services](services.md)
