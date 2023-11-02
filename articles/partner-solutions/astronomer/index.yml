@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Apache Airflow on Astro – An Azure Native ISV Service
-summary: Apache Airflow on Astro – An Azure Native ISV Service is part of Marketplace and combines the benefits of Apache Airflow on Astro and the Azure cloud. You can learn how to create an Apache Airflow on Astro resource, manage it, and get support for your deployment.
+summary: Seamless cloud-native data orchestration using Apache Airflow
 
 metadata:
   title: Apache Airflow on Astro – An Azure Native ISV Service
@@ -17,7 +17,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Apache Airflow on Astro – An Azure Native ISV Service
+          - text: What is 
             url: astronomer-overview.md
       - linkListType: how-to-guide
         links:
