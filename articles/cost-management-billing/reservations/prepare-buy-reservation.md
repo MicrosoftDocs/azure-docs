@@ -101,7 +101,7 @@ You can purchase reservations from Azure portal, APIs, PowerShell, CLI. Read the
 
 You can pay for reservations with monthly payments. Unlike an up-front purchase where you pay the full amount, the monthly payment option divides the total cost of the reservation evenly over each month of the term. The total cost of up-front and monthly reservations is the same and you don't pay any extra fees when you choose to pay monthly.
 
-If reservation is purchased using Microsoft customer agreement (MCA), your monthly payment amount may vary, depending on the current month's market exchange rate for your local currency.
+If reservation is purchased using Microsoft customer agreement (MCA), your monthly payment amount might vary, depending on the current month's market exchange rate for your local currency.
 
 Monthly payments aren't available for: Databricks, Synapse Analytics - Prepurchase, SUSE Linux reservations, Red Hat Plans and Azure Red Hat OpenShift Licenses.
 
