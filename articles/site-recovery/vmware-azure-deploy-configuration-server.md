@@ -7,7 +7,7 @@ manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ankitadutta
-ms.date: 05/27/2021
+ms.date: 11/01/2023
 ---
 
 # Deploy a configuration server
