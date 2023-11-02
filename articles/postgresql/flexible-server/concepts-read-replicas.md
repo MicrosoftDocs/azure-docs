@@ -276,11 +276,11 @@ Being prepared for potential regional disasters is critical to ensure the uninte
 Being proactive and preparing in advance for regional disasters will ensure the resilience and reliability of your applications and data.
 
 ### When outages impact your SLA
-If you experience a prolonged outage with Azure Database for PostgreSQL in a specific region that threatens your application's service-level agreement (SLA), consider the following steps:
+In the event of a prolonged outage with Azure Database for PostgreSQL - Flexible Server in a specific region that threatens your application's service-level agreement (SLA), be aware that both the actions discussed below aren't service-driven. User intervention is required for both. It's a best practice to automate the entire process as much as possible and to have robust monitoring in place. For more information about what information is provided during an outage, refer to the [Service outage](concepts-business-continuity.md#service-outage) page. Only a forced promote is possible in a region down scenario, meaning the amount of data loss is roughly equal to the current lag between the replica and primary. Hence, it's crucial to [monitor the lag](#monitor-replication). Consider the following steps:
 
 **Promote to primary server (preview)**
 
-Use this action if your server fulfills the server symmetry criteria. This option won't require updating the connection strings in your application, provided virtual endpoints are configured. Once activated, the writer endpoint will repoint to the new primary in a different region. Once the affected region is restored, the former primary server will automatically resume, but now in a replica role. During the regional outage, the [replication status](#monitor-replication) column in the Azure portal will display "Waiting for reconfigure."
+Use this action if your server fulfills the server symmetry criteria. This option won't require updating the connection strings in your application, provided virtual endpoints are configured. Once activated, the writer endpoint will repoint to the new primary in a different region and the [replication status](#monitor-replication) column in the Azure portal will display "Waiting for reconfigure". Once the affected region is restored, the former primary server will automatically resume, but now in a replica role.
 
 **Promote to independent server and remove from replication**
 
