@@ -41,6 +41,8 @@ items:
       href: quickstart-sample-app-acme-fitness-store-introduction.md
     - name: Build and deploy apps
       href: quickstart-deploy-apps-enterprise.md
+    - name: Integrate Azure OpenAI
+      href: quickstart-fitness-stores-azure-openai.md
     - name: Configure single sign-on
       href: quickstart-configure-single-sign-on-enterprise.md
     - name: Integrate Azure Database for PostgreSQL and Azure Cache for Redis
