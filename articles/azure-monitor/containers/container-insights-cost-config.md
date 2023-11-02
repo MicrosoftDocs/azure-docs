@@ -35,7 +35,7 @@ You can use the Azure portal to enable cost optimization on your existing cluste
 
 1. Select the cluster in the Azure portal.
 2. Select the **Insights** option in the **Monitoring** section of the menu.
-3. If Container insights has already been enabled on the cluster, select the **Monitoring Settings** button. If not, select **Configure Azure Monitor** and see [Enable monitoring on your Kubernetes cluster with Azure Monitor](monitor-onboard.md) for details on enabling monitoring. 
+3. If Container insights has already been enabled on the cluster, select the **Monitoring Settings** button. If not, select **Configure Azure Monitor** and see [Enable monitoring on your Kubernetes cluster with Azure Monitor](container-insights-onboard.md) for details on enabling monitoring. 
 
     :::image type="content" source="media/container-insights-cost-config/monitor-settings-button.png" alt-text="Screenshot of AKS cluster with monitor settings button." lightbox="media/container-insights-cost-config/monitor-settings-button.png" :::
 
