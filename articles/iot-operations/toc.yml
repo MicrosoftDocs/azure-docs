@@ -158,10 +158,6 @@ items:
       - name: Send data to Microsoft Fabric from a pipeline
         href: connect-to-cloud/howto-configure-destination-fabric.md
 
-    - name: Visualize and analyze telemetry
-      items:
-      - name: Overview
-        href: analyze-telemetry/overview-analyze-telemetry.md
     - name: Monitor service and asset health
       items:
       - name: Configure observability
@@ -198,16 +194,13 @@ items:
         href: develop/howto-develop-mqttnet-apps.md
       - name: Develop Node-RED apps
         href: develop/howto-develop-node-red-apps.md
-    - name: Administrator guide
-      items:
-      - name: Overview
-        href: administer/overview-manage-solution.md
     - name: Troubleshoot
       href: troubleshoot/troubleshoot.md
+    - name: Known issues
+      href: troubleshoot/known-issues.md
     - name: Reference # supporting information like APIs, tools, code libraries
       items: 
       - name: Available metrics for observability
         items:
         - name: Metrics for MQ
           href: reference/observability-metrics-mq.md
-    - name: Resources # could include links to related libraries
