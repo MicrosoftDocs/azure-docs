@@ -21,7 +21,7 @@ The sample application deployed in this tutorial allows you to interface with a 
 - Generate embeddings for each song
 - View song recommendations
 
-Once deployed, under the *Notebooks* section, you select the **Python 3** option to launch the notebook.
+Once deployed, you'll have the opportunity to run code in the Jupyter Notebook to interface with song data in the database.
 
 :::image type="content" source="media/addon-qdrant/azure-container-apps-qdrant-jupyter-notebook.png" alt-text="Screenshot of the Jupyter Notebook deployed in the container image.":::
 
@@ -196,7 +196,7 @@ Now that your container app is running and connected to Qdrant, you can configur
 
 1. Next to the *Password to token* label, enter your token in the input box and select **Login**.
 
-1. Once you authenticate, under the *Notebooks* section, select the **Python 3** option to launch the notebook.
+    Once you authenticate, you'll be able to interact with the code and data in the Jupyter Notebook.
 
     :::image type="content" source="media/addon-qdrant/azure-container-apps-qdrant-jupyter-notebook.png" alt-text="Screenshot of the deployed Jupyter Notebook in the container image.":::
 
