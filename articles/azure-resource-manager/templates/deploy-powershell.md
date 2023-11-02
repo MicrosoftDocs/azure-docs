@@ -259,7 +259,7 @@ New-AzResourceGroupDeployment `
   -TemplateParameterFile storage.bicepparam
 ```
 
-For more information about Bicep parameters file, see [Bicep arameters file](../bicep/parameter-files.md).
+For more information about Bicep parameters file, see [Bicep parameters file](../bicep/parameter-files.md).
 
 ## Next steps
 
