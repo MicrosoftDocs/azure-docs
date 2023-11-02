@@ -14,7 +14,7 @@ ms.custom: ignite-fall-2023
 
 # Service discovery resiliency (preview)
 
-With Azure Container Apps resiliency, you can proactively prevent, detect, and recover from service-to-service request failures using simple resiliency policies. In this article, you learn how to configure Azure Container Apps resiliency policies when initiating requests using Azure Container Apps service discovery.
+With Azure Container Apps resiliency, you can proactively prevent, detect, and recover from service request failures using simple resiliency policies. In this article, you learn how to configure Azure Container Apps resiliency policies when initiating requests using Azure Container Apps service discovery.
 
 Policies are in effect for each request to a container app. You can tailor policies to the container app accepting requests with configurations like:
 - The number of retries
