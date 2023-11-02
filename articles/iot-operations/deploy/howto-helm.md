@@ -16,7 +16,7 @@ Once you have Azure IoT Operations deployed to a connected cluster, you can use 
 
 ## Prerequisites
 
-* An Arc-enabled Kubernetes cluster with Azure IoT Orchestrator deployed to it. For more information, see [Deploy Azure IoT Operations](./howto-deploy-iot-operations.md) for more information.
+* An Arc-enabled Kubernetes cluster with Azure IoT Orchestrator deployed to it. For more information, see [Deploy Azure IoT Operations](./howto-deploy-iot-operations.md).
 
 ## Deploy a helm chart with override values
 

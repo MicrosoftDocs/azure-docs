@@ -177,4 +177,6 @@ az deployment group create --resource-group exampleRG \
 
 ---
 
+## Next steps
 
+If your components need to connect to Azure endpoints like SQL or Fabric, learn how to [Manage secrets for your Azure IoT Operations deployment](../deploy/howto-manage-secrets.md).
