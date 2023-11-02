@@ -131,7 +131,7 @@ All Build Resources are showed in the `Builds`, shown as below picture.
 * `Latest Build Result`: the latest build result image tag of the build.
 * `Latest Build Result Provisioning State`: the latest build result provisioning state of the build. The possible values are `Queuing`, `Building`, `Succeeded` and `Failed`.
 * `Latest Build Result Last Transition Time`: the last transition time for the latest build result of the build.
-* `Latest Build Result Last Transition Reason`: the last transition Reason for the latest build result of the build. The possible values are `CONFIG`, `STACK` and `BUILDPACKS`. 
+* `Latest Build Result Last Transition Reason`: the last transition Reason for the latest build result of the build. The possible values are `CONFIG`, `STACK` and `BUILDPACK`. The `CONFIG` means the build result changed by builder updates or a new source code deploy operation. The `Stack` means the build result changed by stack upgrade. The `BUILDPACK` means the build result changed by buildpack upgrade.
 * `Latest Build Result Last Transition Status`: the last transition time for the latest build result of the build. The possible values are `True` or `False`.
 
 ## Next steps
