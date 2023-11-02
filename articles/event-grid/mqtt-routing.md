@@ -23,7 +23,7 @@ Routing the messages from your clients to an Azure service or your custom endpoi
 
 ## Routing configuration:
 
-The routing configuration enables you to send all your MQTT messages from your clients to either an [Event Grid namespace topic](concepts-pull-delivery.md#namespace-topics) or an  [Event Grid custom topic](custom-topics.md). Once the messages are in the topic, you can configure an event subscription to consume the messages from the topic. Use the following high-level steps to achieve this configuration:
+The routing configuration enables you to send all your MQTT messages from your clients to either an [Event Grid namespace topic](concepts-event-grid-namespaces.md#namespace-topics) or an  [Event Grid custom topic](custom-topics.md). Once the messages are in the topic, you can configure an event subscription to consume the messages from the topic. Use the following high-level steps to achieve this configuration:
 
 - Namespace topic as a routing destination:
     - [Create an Event Grid namespace topic](create-view-manage-namespace-topics.md) where all MQTT messages will be routed. 

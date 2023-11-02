@@ -88,7 +88,7 @@ This article shows you how to create, view, and manage event subscriptions to na
 
 ### Simplified resource model
 
-The event subscriptions under a [Namespace Topic](concepts-pull-delivery.md#namespace-topics) feature a simplified filtering configuration model when compared to that of event subscriptions to domains and to custom, system, partner, and domain topics. The filtering capabilities are the same except for the scenarios documented in the following sections.
+The event subscriptions under a [Namespace Topic](concepts-event-grid-namespaces.md#namespace-topics) feature a simplified filtering configuration model when compared to that of event subscriptions to domains and to custom, system, partner, and domain topics. The filtering capabilities are the same except for the scenarios documented in the following sections.
 
 #### Filter on event data
 

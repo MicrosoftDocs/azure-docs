@@ -11,8 +11,6 @@ items:
       href: choose-right-tier.md
   - name: Event Grid namespaces  
     items:
-    - name: Concepts 
-      href: concepts-event-grid-namespaces.md
     - name: MQTT broker
       items:
       - name: Overview
@@ -39,8 +37,6 @@ items:
           href: mqtt-client-authentication.md                
         - name: Access control for MQTT clients
           href: mqtt-access-control.md
-        - name: Network security (MQTT)
-          href: network-security-mqtt.md
         - name: MQTT clients
           href: mqtt-clients.md
         - name: Client groups
@@ -63,7 +59,17 @@ items:
         - name: JWT authentication and RBAC authorization for clients with Azure AD identity
           href: mqtt-client-azure-ad-token-and-rbac.md
         - name: High availability and disaster recovery
-          href: high-availability-disaster-recovery.md          
+          href: high-availability-disaster-recovery.md 
+        - name: Security
+          items:
+          - name: Security baseline
+            href: /security/benchmark/azure/baselines/event-grid-security-baseline?toc=/azure/event-grid/toc.json
+          - name: Security controls by Azure Policy
+            href: ./security-controls-policy.md
+          - name: Azure Policy built-ins
+            displayName: samples, policies, definitions
+          - name: Network security (MQTT)
+            href: network-security-mqtt.md
         - name: Use cases
           items:
           - name: Automotive Messaging
@@ -118,22 +124,16 @@ items:
           items:
           - name: Publish and deliver events using namespace topics
             href: publish-deliver-events-with-namespace-topics.md
-      - name: Concepts
+      - name: Concepts        
         items:
-        - name: Pull delivery
+        - name: Terminology 
+          href: concepts-event-grid-namespaces.md
+        - name: Event handlers (Push delivery)
           items:
-          - name: Terminology
-            href: concepts-pull-delivery.md         
-        - name: Push delivery
-          items:
-          - name: Terminology
-            href: concepts-namespace-push-delivery.md
-          - name: Event handlers
-            items:
-            - name: Event Hubs
-              href: namespace-handler-event-hubs.md
-          - name: Delivery properties
-            href: namespace-delivery-properties.md
+          - name: Event Hubs
+            href: namespace-handler-event-hubs.md
+        - name: Delivery properties
+          href: namespace-delivery-properties.md
         - name: Publisher operations
           href: publisher-operations.md
         - name: Subscriber operations
@@ -146,6 +146,14 @@ items:
           href: namespace-delivery-retry.md
         - name: Event filtering
           href: namespace-event-filtering.md            
+        - name: Security
+          items:
+          - name: Security baseline
+            href: /security/benchmark/azure/baselines/event-grid-security-baseline?toc=/azure/event-grid/toc.json
+          - name: Security controls by Azure Policy
+            href: ./security-controls-policy.md
+          - name: Azure Policy built-ins
+            displayName: samples, policies, definitions          
       - name: How-to
         items:
         - name: Create, view, and manage namespaces
@@ -166,12 +174,12 @@ items:
             href: monitor-pull-reference.md
           - name: Push delivery data reference
             href: monitor-namespace-push-reference.md
-      - name: Secure
-        items:
-        - name: Allow access from specific IP addresses
-          href: configure-firewall-mqtt.md
-        - name: Allow access via private endpoints
-          href: configure-private-endpoints-pull.md
+        - name: Secure
+          items:
+          - name: Allow access from specific IP addresses
+            href: configure-firewall-mqtt.md
+          - name: Allow access via private endpoints
+            href: configure-private-endpoints-pull.md
   - name: Event Grid basic
     items:
     - name: Overview
