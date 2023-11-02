@@ -120,6 +120,8 @@
       href: ../../virtual-machines/prepay-dedicated-hosts-reserved-instances.md
     - name: Disk Storage
       href: ../../virtual-machines/disks-reserved-capacity.md
+    - name: Microsoft Fabric
+      href: fabric-capacity.md
     - name: SAP HANA Large Instances
       href: prepay-hana-large-instances-reserved-capacity.md
     - name: Software plans
