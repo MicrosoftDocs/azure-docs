@@ -12,6 +12,8 @@ ms.author: eur
 
 # Content safety tool for flows in Azure AI Studio
 
+[!INCLUDE [Azure AI Studio preview](../../includes/preview-ai-studio.md)]
+
 The prompt flow *Content Safety* tool enables you to use Azure AI Content Safety in Azure AI Studio.
 
 Azure AI Content Safety is a content moderation service that helps detect harmful content from different modalities and languages. For more information, see [Azure AI Content Safety](/azure/ai-services/content-safety/).

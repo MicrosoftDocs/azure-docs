@@ -12,6 +12,8 @@ ms.author: eur
 
 # Embedding tool for flows in Azure AI Studio
 
+[!INCLUDE [Azure AI Studio preview](../../includes/preview-ai-studio.md)]
+
 The prompt flow *Embedding* tool enables you to convert text into dense vector representations for various natural language processing tasks
 
 > [!NOTE]

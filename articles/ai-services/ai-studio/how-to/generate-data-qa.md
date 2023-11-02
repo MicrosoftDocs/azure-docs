@@ -13,6 +13,8 @@ ms.author: eur
 
 # How to generate question and answer pairs from your source dataset
 
+[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
+
 In this article, you learn how to get question and answer pairs from your source dataset using the Azure AI SDK synthetic data generation. This data can them be used for various purposes like unit testing for your LLM lookup, evaluation and iteration of retrieval augmented generation (RAG) flows, and prompt tuning. 
 
 ## Install the Synthetics Package
