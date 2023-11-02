@@ -14,8 +14,9 @@ You can ask Microsoft Copilot for Azure (preview) questions about your Azure res
 
 You don't need to be familiar with KQL in order to use Microsoft Copilot for Azure to retrieve information about your Azure resources and environment from anywhere in the Azure portal. Experienced KQL authors can also use Microsoft Copilot for Azure to help streamline your query generation process.
 
-> [!NOTE]
-> While a high level of accuracy is typical, we strongly advise you to review the generated queries to ensure they meet your expectations.
+While a high level of accuracy is typical, we strongly advise you to review the generated queries to ensure they meet your expectations.
+
+[!INCLUDE [scenario-note](includes/scenario-note.md)]
 
 ## Sample prompts
 
