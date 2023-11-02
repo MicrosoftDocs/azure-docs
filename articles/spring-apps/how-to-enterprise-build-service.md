@@ -122,9 +122,17 @@ A build task will be triggered when an app is deployed from an Azure CLI command
 
 All Build Resources are showed in the `Builds`, shown as below picture. 
 
-:::image type="content" source="media/how-to-enterprise-build-service/build-table.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps Build Service page with 'General info' highlighted." lightbox="media/how-to-enterprise-build-service/agent-pool-size.png":::
+:::image type="content" source="media/how-to-enterprise-build-service/build-table.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps Build Service page with 'Builds' highlighted." lightbox="media/how-to-enterprise-build-service/build-table.png":::
 
-There are 9 columns in `Builds` table.
+* `Name`: the name of the build.
+* `Provisioning State`: the provision state of the build. The possible values are `Succeeded`, `Failed`, `Updating` and `Creating`. When the provisioning state is `Updating` or `Creating`, the build can't be updated. When the provision state is `Failed`, it means your latest source code build failed to generate a new build result.
+* `Resource Quota`: the resource quota in build pod of the build.
+* `Builder`: the builder used in the build.
+* `Latest Build Result`: the latest build result image tag of the build.
+* `Latest Build Result Provisioning State`: the latest build result provisioning state of the build. The possible values are `Queuing`, `Building`, `Succeeded` and `Failed`.
+* `Latest Build Result Last Transition Time`: the last transition time for the latest build result of the build.
+* `Latest Build Result Last Transition Reason`: the last transition Reason for the latest build result of the build. The possible values are `CONFIG`, `STACK` and `BUILDPACKS`. 
+* `Latest Build Result Last Transition Status`: the last transition time for the latest build result of the build. The possible values are `True` or `False`.
 
 ## Next steps
 
