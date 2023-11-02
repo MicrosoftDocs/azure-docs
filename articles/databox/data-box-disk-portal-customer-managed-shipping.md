@@ -28,7 +28,7 @@ Self-managed shipping is available as an option when you [Order Azure Data Box D
 * Singapore
 * South Korea
 * South Africa
-* India (Preview)
+* India
 * Brazil
 
 ## Use self-managed shipping
