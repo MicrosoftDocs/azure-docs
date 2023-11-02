@@ -169,7 +169,7 @@ Current supported language pairs, including direct language models, are listed i
 
 * Custom Translator version v2.0 is generally available and ready for use in your production applications.
 
-* Upload history has been added to the workspace, next to Projects and Documents tabs.
+* Upload history is added to the workspace, next to Projects and Documents tabs.
 
 #### November language model updates
 
