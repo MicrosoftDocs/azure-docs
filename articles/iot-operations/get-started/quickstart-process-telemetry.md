@@ -409,53 +409,16 @@ Create a Data Processor pipeline to process and enrich your data before it sends
 
     Use the following configuration to set up the columns in the output:
 
-    | Parameter      | Value                             |
-    | -------------- | --------------------------------- |
-    | Name           | `Timestamp`          |
-    | Type           | `timestamp` |
-    | Path           | `.Timestamp`                |
-
-    | Parameter      | Value                             |
-    | -------------- | --------------------------------- |
-    | Name           | `AssetName`         |
-    | Type           | `string` |
-    | Path           | `.assetName`               |
-
-    | Parameter      | Value                             |
-    | -------------- | --------------------------------- |
-    | Name           | `Customer`          |
-    | Type           | `string` |
-    | Path           | `.Customer`               |
-
-    | Parameter      | Value                             |
-    | -------------- | --------------------------------- |
-    | Name           | `Batch`         |
-    | Type           | `integer` |
-    | Path           | `.Batch`              |
-
-    | Parameter      | Value                             |
-    | -------------- | --------------------------------- |
-    | Name           | `CurrentTemperature`          |
-    | Type           | `float` |
-    | Path           | `.CurrentTemperature`             |
-
-    | Parameter      | Value                             |
-    | -------------- | --------------------------------- |
-    | Name           | `LastKnownTemperature`          |
-    | Type           | `float` |
-    | Path           | `.LastKnownTemperature`           |
-
-    | Parameter      | Value                             |
-    | -------------- | --------------------------------- |
-    | Name           | `Pressure`          |
-    | Type           | `float` |
-    | Path           | `.Pressure`           |
-
-    | Parameter      | Value                             |
-    | -------------- | --------------------------------- |
-    | Name           | `IsSpare`          |
-    | Type           | `boolean` |
-    | Path           | `.IsSpare`           |
+    | Name | Type | Path |
+    | ---- | ---- | ---- |
+    | Timestamp | timestamp | `.Timestamp` |
+    | AssetName | string | `.assetName` |
+    | Customer | string | `.Customer` |
+    | Batch | integer | `.Batch` |
+    | CurrentTemperature | float | `.CurrentTemperature` |
+    | LastKnownTemperature | float | `.LastKnownTemperature` |
+    | Pressure | float | `.Pressure` |
+    | IsSpare | boolean | `.IsSpare` |
 
 1. Select the pipeline name, **\<pipeline-name\>**, and change it to _contextualized-data-pipeline_. Select **Apply**.
 
