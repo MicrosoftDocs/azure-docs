@@ -230,10 +230,10 @@ The icons in the status field indicate the online status of the containers.
 
 | Icon | Status |
 |--------|-------------|
-| ![Ready running status icon.](./media/container-insights-analyze/containers-ready-icon.png) | Running (Ready)|
-| ![Waiting or Paused status icon.](./media/container-insights-analyze/containers-waiting-icon.png) | Waiting or Paused|
-| ![Last reported running status icon.](./media/container-insights-analyze/containers-grey-icon.png) | Last reported running but hasn't responded for more than 30 minutes|
-| ![Successful status icon.](./media/container-insights-analyze/containers-green-icon.png) | Successfully stopped or failed to stop|
+| :::image type="content" source="./media/container-insights-analyze/containers-ready-icon.png" lightbox="./media/container-insights-analyze/containers-ready-icon.png" alt-text="Ready running status icon.":::|
+| :::image type="content" source="./media/container-insights-analyze/containers-waiting-icon.png" lightbox="./media/container-insights-analyze/containers-waiting-icon.png" alt-text="Waiting or Paused status icon."::: | Waiting or Paused|
+| :::image type="content" source="./media/container-insights-analyze/containers-grey-icon.png" lightbox="./media/container-insights-analyze/containers-grey-icon.png" alt-text="Last reported running status icon."::: | Last reported running but hasn't responded for more than 30 minutes|
+| :::image type="content" source="./media/container-insights-analyze/containers-green-icon.png" lightbox="./media/container-insights-analyze/containers-green-icon.png" alt-text="Successful status icon."::: | Successfully stopped or failed to stop|
 
 The status icon displays a count based on what the pod provides. It shows the worst two states. When you hover over the status, it displays a rollup status from all pods in the container. If there isn't a ready state, the status value displays **(0)**.
 
@@ -267,11 +267,11 @@ The icons in the status field indicate the online statuses of pods, as described
 
 | Icon | Status |
 |--------|-------------|
-| ![Ready running status icon.](./media/container-insights-analyze/containers-ready-icon.png) | Running (Ready)|
-| ![Waiting or Paused status icon.](./media/container-insights-analyze/containers-waiting-icon.png) | Waiting or Paused|
-| ![Last reported running status icon.](./media/container-insights-analyze/containers-grey-icon.png) | Last reported running but hasn't responded in more than 30 minutes|
-| ![Terminated status icon.](./media/container-insights-analyze/containers-terminated-icon.png) | Successfully stopped or failed to stop|
-| ![Failed status icon.](./media/container-insights-analyze/containers-failed-icon.png) | Failed state |
+| :::image type="content" source="./media/container-insights-analyze/containers-ready-icon.png" lightbox="./media/container-insights-analyze/containers-ready-icon.png" alt-text="Ready running status icon.":::|
+| :::image type="content" source="./media/container-insights-analyze/containers-waiting-icon.png" lightbox="./media/container-insights-analyze/containers-waiting-icon.png" alt-text="Waiting or Paused status icon."::: | Waiting or Paused|
+| :::image type="content" source="./media/container-insights-analyze/containers-grey-icon.png" lightbox="./media/container-insights-analyze/containers-grey-icon.png" alt-text="Last reported running status icon."::: | Last reported running but hasn't responded in more than 30 minutes|
+| :::image type="content" source="./media/container-insights-analyze/containers-terminated-icon.png" lightbox="./media/container-insights-analyze/containers-terminated-icon.png" alt-text="Terminated status icon."::: | Successfully stopped or failed to stop|
+| :::image type="content" source="./media/container-insights-analyze/containers-failed-icon.png" lightbox="./media/container-insights-analyze/containers-failed-icon.png" alt-text="Failed status icon."::: | Failed state |
 
 ## Monitor and visualize network configurations
 
