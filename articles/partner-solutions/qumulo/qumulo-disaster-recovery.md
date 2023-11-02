@@ -80,7 +80,7 @@ The solution architecture comprises the following components:
 
 ## Considerations
 
-Organizations looking to plan and implement a disaster recovery environment using Azure Native Qumulo Scalable File Service should consider potential use case in their planning and design processes. Scalability and performance are also considerations.
+If your organization plans to implement a disaster recovery environment using Azure Native Qumulo Scalable File Service, you should consider potential use cases in your planning and design processes. Scalability and performance are also considerations.
 
 ### Potential use cases
 
@@ -112,7 +112,7 @@ When planning an Azure Native Qumulo Scalable File Service deployment as a disas
 
 - The current amount of unstructured data within the scope of the failover plan.
 - If the solution is intended for use as a cloud-based backup and restore environment, the number of separate snapshots that the solution is required to host, along with the expected rate of change within the primary dataset.
-- The throughput required to ensure that all changes to the primary dataset are replicated to the target ANQ service. When you deploy ANQ, your organizations can choose either the Standard or Premium performance tier, which offers higher throughput and lower latency for demanding workloads.
+- The throughput required to ensure that all changes to the primary dataset are replicated to the target ANQ service. When you deploy ANQ, you can choose either the Standard or Premium performance tier, which offers higher throughput and lower latency for demanding workloads.
 - Data replication occurs incrementally at the block level—after the initial synchronization is complete, only changed data blocks are replicated thereafter, which minimizes data transfer.
 - If you have a disaster scenario that requires failover to the ANQ service, the network connectivity and throughput are required to support all impacted clients during the outage event.
 - Depending on the specific configuration, an ANQ service can support anywhere from 2GB/s-20GB/s max throughput and tens to hundreds of thousands of IOPS. Consult the Qumulo Sizing Tool for specific guidance on planning the initial size of an ANQ deployment.
