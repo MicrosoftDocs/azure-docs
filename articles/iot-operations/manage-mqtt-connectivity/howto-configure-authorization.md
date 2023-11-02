@@ -36,7 +36,7 @@ The specification of a *BrokerAuthorization* resource has the following fields:
 | attributes |  | A list of key-value pairs that match the attributes of the clients. The attributes are case-sensitive and must match the attributes provided by the clients during authentication. |
 | brokerResources | Yes | This subfield defines the objects that represent the actions or topics. |
 | method | Yes | The type of action that the clients can perform on the broker. This subfield is required and can be one of these values: **Connect**: This value indicates that the clients can connect to the broker. - **Publish**: This value indicates that the clients can publish messages to topics on the broker. - **Subscribe**: This value indicates that the clients can subscribe to topics on the broker. |
-| topics | No | A list of topics or topic patterns that match the topics that the clients can publish or subscribe to. This subfield is required if the method is Connect or Publish. |
+| topics | No | A list of topics or topic patterns that match the topics that the clients can publish or subscribe to. This subfield is required if the method is Subscribe or Publish. |
 
 The following example shows how to create a *BrokerAuthorization* resource that defines the authorization policies for a listener named *my-listener*.
 
@@ -171,7 +171,7 @@ Azure IoT MQ Broker provides a [distributed key-value (KV) store](../develop/con
 
 To set up authorization for clients that use the key-value store, give it:
 
-- Permission to publish to the system KV store `$store/<key>/#` topic
+- Permission to publish to the system key value store `$services/statestore/_any_/command/invoke/request` topic
 - Permission to subscribe to the response-topic (set during initial publish as a parameter) `<response_topic>/#`
 
 ## Update authorization
