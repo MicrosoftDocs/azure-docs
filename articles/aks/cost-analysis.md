@@ -30,7 +30,7 @@ As a result, you might have used third-party solutions, like Kubecost or OpenCos
 
 To address this challenge, AKS has integrated with MCM to offer detailed cost drill down scoped to Kubernetes constructs, such as cluster and namespace, in addition to Azure Compute, Network, and Storage categories.
 
-The AKS cost analysis addon is built on top of OpenCost, an open-source Cloud Native Computing Foundation Sandbox project for usage data collection, which gets reconciled with your Azure invoice data. Post-processed data is visible directly in the MCM Cost Analysis portal experience.
+The AKS cost analysis addon is built on top of [OpenCost](https://www.opencost.io/), an open-source Cloud Native Computing Foundation Sandbox project for usage data collection, which gets reconciled with your Azure invoice data. Post-processed data is visible directly in the [MCM Cost Analysis portal experience](/azure/cost-management-billing/costs/quick-acm-cost-analysis).
 
 ## Prerequisites and limitations
 
@@ -45,6 +45,20 @@ The AKS cost analysis addon is built on top of OpenCost, an open-source Cloud Na
 * If using the Azure CLI, you must have version `2.44.0` or later installed, and the `aks-preview` Azure CLI extension version `0.5.155` or later installed.
 
 * The `ClusterCostAnalysis` feature flag must be registered on your subscription.
+
+### Install or update the `aks-preview` Azure CLI extension
+
+Install the `aks-preview` Azure CLI extension using the [`az extension add`][az-extension-add] command.
+
+    ```azurecli-interactive
+    az extension add --name aks-preview
+    ```
+
+If you need to update the extension version, you can do this using the [`az extension update`][az-extension-update] command.
+
+    ```azurecli-interactive
+    az extension update --name aks-preview
+    ```
 
 ### Register the 'ClusterCostAnalysis' feature flag
 
@@ -65,22 +79,6 @@ When the status reflects *Registered*, refresh the registration of the *Microsof
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
 ```
-
-az upgrade
-az extension add --name aks-preview
-az extension update --name aks-preview
-
-//register the ‘ClusterCostAnalysis’ feature flag
-az feature register --namespace Microsoft.ContainerService -n ClusterCostAnalysis
-
-//check status is “Registered”. It may take a few minutes.
-az feature show --namespace "Microsoft.ContainerService" --name "ClusterCostAnalysis"
-
-//create a new cluster and enable Cost Analysis
-az aks create --resource-group={resource_group} --name={name} --location={location} --enable-managed-identity --generate-ssh-keys --node-count=1 --tier standard --enable-cost-analysis
-
-//update an existing cluster to enable Cost Analysis
-az aks update --resource-group={resource_group} --name={name} --enable-cost-analysis
 
 ## Limitations
 
@@ -106,14 +104,14 @@ az aks create --name myAKSCluster --resource-group myResourceGroup --tier Standa
 
 ## Disable cost analysis
 
-You can disable cost analysis at any time. When you disable it, you retain access to past cost data that was collected during the duration when cost analysis was enabled, but no new data will be populated. Should you re-enable the feature, there will be a gap in data for the period in which cost analysis was disabled, but historical and new data won't be impacted.
-
-> [!NOTE]
-> If you intend to downgrade your cluster from the `Standard` or `Premium` tiers to the `Free` tier while cost analysis is enabled, you must first explicitly disable cost analysis as shown here.
+You can disable cost analysis at any time using `az aks update`.
 
 ```azurecli-interactive
 az aks update --name myAKSCluster --resource-group myResourceGroup –-disable-cost-analysis
 ```
+
+> [!NOTE]
+> If you intend to downgrade your cluster from the `Standard` or `Premium` tiers to the `Free` tier while cost analysis is enabled, you must first explicitly disable cost analysis as shown here.
 
 ## View cost information
 
@@ -144,3 +142,7 @@ You can view cost information from the Azure portal.
 1. Expand each section for a more detailed view of each asset group.
 
     :::image type="content" source="./media/cost-analysis/cost-analysis-asset-breakdown-inline.png" alt-text="The Azure portal page for cost analysis is shown, with the 'Kubernetes assets' view expanded and individual sections for each Kubernetes asset expanded." lightbox="./media/cost-analysis/cost-analysis-asset-breakdown.png":::
+
+<!-- LINKS -->
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update
