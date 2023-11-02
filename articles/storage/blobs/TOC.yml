@@ -207,8 +207,10 @@ items:
         href: ../common/storage-disaster-recovery-guidance.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Data redundancy
         href: ../common/storage-redundancy.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: How customer-managed failover works
+      - name: Failover to recover from an outage
         href: ../common/storage-failover-customer-managed-unplanned.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      - name: Failover for testing and compliance
+        href: ../common/storage-failover-customer-managed-planned.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Failover considerations for storage accounts with private endpoints
         href: ../common/storage-failover-private-endpoints.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: Access tiers and lifecycle management
