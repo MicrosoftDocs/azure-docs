@@ -1,4 +1,3 @@
-
 ---
 title: About Azure IoT Operations CLI
 # titleSuffix: Azure IoT Operations
@@ -29,7 +28,7 @@ To maintain minimum friction between k8s tools, the `az iot ops` k8s side comman
 
 All k8s interaction commands include an optional `--context` param. If none is provided `current_context` as defined in the kube config will be used.
 
-The [init](#az-iot-ops-init) command requires k8s cluster access for the CSI driver and TLS config workflows.
+The init command requires k8s cluster access for the CSI driver and TLS config workflows.
 
 The following commands **do not** require `az login`
 
