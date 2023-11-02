@@ -143,7 +143,7 @@ Azure Front Door doesn’t support disabling or configuring specific cipher suit
 
 * [Understand custom domains](domain.md) on Azure Front Door.
 * [Configure a custom domain](standard-premium/how-to-add-custom-domain.md) on Azure Front Door using the Azure portal.
-* Learn about [End-to-end TLS with Azure Front Door](../end-to-end-tls.md).
+* Learn about [End-to-end TLS with Azure Front Door](end-to-end-tls.md).
 
 ::: zone-end
 
