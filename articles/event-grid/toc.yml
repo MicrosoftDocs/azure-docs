@@ -37,8 +37,6 @@ items:
           href: mqtt-client-authentication.md                
         - name: Access control for MQTT clients
           href: mqtt-access-control.md
-        - name: Network security (MQTT)
-          href: network-security-mqtt.md
         - name: MQTT clients
           href: mqtt-clients.md
         - name: Client groups
@@ -63,7 +61,17 @@ items:
         - name: JWT authentication and RBAC authorization for clients with Azure AD identity
           href: mqtt-client-azure-ad-token-and-rbac.md
         - name: High availability and disaster recovery
-          href: high-availability-disaster-recovery.md          
+          href: high-availability-disaster-recovery.md 
+        - name: Security
+          items:
+          - name: Security baseline
+            href: /security/benchmark/azure/baselines/event-grid-security-baseline?toc=/azure/event-grid/toc.json
+          - name: Security controls by Azure Policy
+            href: ./security-controls-policy.md
+          - name: Azure Policy built-ins
+            displayName: samples, policies, definitions
+          - name: Network security (MQTT)
+            href: network-security-mqtt.md
         - name: Use cases
           items:
           - name: Automotive Messaging
@@ -138,6 +146,14 @@ items:
           href: namespace-delivery-retry.md
         - name: Event filtering
           href: namespace-event-filtering.md            
+        - name: Security
+          items:
+          - name: Security baseline
+            href: /security/benchmark/azure/baselines/event-grid-security-baseline?toc=/azure/event-grid/toc.json
+          - name: Security controls by Azure Policy
+            href: ./security-controls-policy.md
+          - name: Azure Policy built-ins
+            displayName: samples, policies, definitions          
       - name: How-to
         items:
         - name: Create, view, and manage namespaces
