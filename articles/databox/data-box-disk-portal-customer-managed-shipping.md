@@ -9,6 +9,7 @@ ms.subservice: disk
 ms.topic: how-to
 ms.date: 06/07/2022
 ms.author: shaas
+ms.custom: references_regions 
 ---
 
 # Use self-managed shipping for Azure Data Box Disk in the Azure portal
