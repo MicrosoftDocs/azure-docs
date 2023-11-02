@@ -36,9 +36,34 @@ To understand the conditions under which one filter mode performs better than th
 + Medium (1 million documents, 25-GB index, 1536 dimensions)
 + Large (1 billion documents, 1.9-TB index, 96 dimensions)
 
-Indexes had an identical construction: one key field, one vector field, one filter field.
+For the small and medium workloads, we used a Standard 2 (S2) service with one partition and one replica. For the large workload, we used a Standard 3 (S3) service with 12 partitions and one replica.
 
-In queries, we used an identical filter for both prefilter and postfilter operations. We used a simple filter to ensure that variations in performance were due to filtering mode, and not filter complexity.
+Indexes had an identical construction: one key field, one vector field, one text field, and one numeric filterable field.
+
+```python
+def get_index_schema(self, index_name, dimensions):
+    return {
+        "name": index_name,
+        "fields": [
+            {"name": "id", "type": "Edm.String", "key": True, "searchable": True},
+            {"name": "myvector", "type": "Collection(Edm.Single)", "dimensions": dimensions,
+              "searchable": True, "retrievable": True, "filterable": False, "facetable": False, "sortable": False,
+              "vectorSearchConfiguration": "defaulthnsw"},
+            {"name": "text", "type": "Edm.String", "searchable": True, "filterable": False, "retrievable": True,
+              "sortable": False, "facetable": False, "key": False},
+            {"name": "score", "type": "Edm.Double", "searchable": False, "filterable": True,
+              "retrievable": True, "sortable": True, "facetable": True, "key": False}
+        ],
+        "vectorSearch":
+        {
+            "algorithmConfigurations": [
+                {"name": "defaulthnsw", "kind": "hnsw", "hnswParameters": {"metric": "euclidean"}}
+            ]
+        }
+    }
+```
+
+In queries, we used an identical filter for both prefilter and postfilter operations. We used a simple filter to ensure that variations in performance were due to filtering mode, and not filter complexity. 
 
 Outcomes were measured in Queries Per Second (QPS).
 
@@ -74,6 +99,6 @@ The following graph shows prefilter relative QPS, computed as prefilter QPS divi
 
 :::image type="content" source="media/vector-search-filters/chart.svg" alt-text="Chart showing QPS performance for small, medium, and large indexes for relative QPS." border="true" lightbox="media/vector-search-filters/chart.png":::
 
-The vertical axis is QPS of prefiltering over QPS of postfiltering. For example, a value of 0.5 on the vertical axis means prefiltering was 50% slower than postfiltering, 1.0 means prefiltering is as fast as post-filtering, 0.0 means prefiltering is 100% slower.
+The vertical axis is QPS of prefiltering over QPS of postfiltering. For example, a value of 0.0 means prefiltering is 100% slower, 0.5 on the vertical axis means prefiltering is 50% slower, 1.0 means prefiltering and post filtering are equivalent.
 
 The horizontal axis represents the filtering rate, or the percentage of candidate documents after applying the filter. For example, `1.00%` means that one percent of the search corpus was selected by the filter criteria.
