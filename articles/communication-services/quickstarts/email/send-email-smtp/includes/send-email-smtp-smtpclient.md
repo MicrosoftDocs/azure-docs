@@ -70,9 +70,9 @@ string body = "This email message is sent from Azure Communication Service Email
 
 To send an email message, you need to:
 
-- Create an SmtpClient using the Azure Communication Services host Url and the Smtp Authentication credentials.
-- Create a MailMessage..
-- Send using the SmtpClient's Send method.
+1. Create an SmtpClient using the Azure Communication Services host Url and the Smtp Authentication credentials.
+1. Create a MailMessage.
+1. Send using the SmtpClient's Send method.
 
 ```csharp
 using System.Net;
