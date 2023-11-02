@@ -1,5 +1,5 @@
 ---
-title: Stop Azure Kubernetes Service (AKS) cluster upgrades automatically on API breaking changes (Preview)
+title: Stop Azure Kubernetes Service (AKS) cluster upgrades automatically on API breaking changes
 description: Learn how to stop Azure Kubernetes Service (AKS) cluster upgrades automatically on API breaking changes.
 ms.topic: article
 ms.custom: azure-kubernetes-service

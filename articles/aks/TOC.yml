@@ -628,7 +628,11 @@
     - name: Upgrade
       items:
         - name: Upgrade options
-          href: upgrade-cluster.md
+          items:
+          - name: Upgrade options
+            href: upgrade-cluster.md
+          - name: Stop cluster upgrades automatically on API breaking changes
+            href: stop-cluster-upgrade-api-breaking-changes.md
           items:
           - name: Perform manual upgrades
             items:
@@ -646,8 +650,6 @@
                 href: auto-upgrade-cluster.md
               - name: Use Planned Maintenance to schedule and control upgrades
                 href: planned-maintenance.md
-              - name: Stop cluster upgrades automatically on API breaking changes
-                href: stop-cluster-upgrade-api-breaking-changes.md
               - name: Automatically upgrade AKS cluster node operating system images
                 href: auto-upgrade-node-image.md
               - name: Upgrade the node image automatically with GitHub Actions
