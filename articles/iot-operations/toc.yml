@@ -35,6 +35,8 @@ items:
           href: deploy/howto-k8s.md
         - name: Helm charts
           href: deploy/howto-helm.md
+      - name: Manage secrets
+        href: deploy/howto-manage-secrets.md
       - name: Troubleshoot
         href: deploy/howto-troubleshoot-deployment.md
         displayName: Deploy, Orchestrator
