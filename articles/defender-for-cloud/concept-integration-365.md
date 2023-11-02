@@ -1,11 +1,11 @@
 ---
-title: Alerts in Microsoft 365 Defender
+title: Alerts and incidents in Microsoft 365 Defender
 description: Learn about the benefits of receiving Microsoft Defender for Cloud's alerts in Microsoft 365 Defender 
 ms.topic: conceptual
-ms.date: 10/31/2023
+ms.date: 11/02/2023
 ---
 
-# Alerts in Microsoft 365 Defender
+# Alerts and incidents in Microsoft 365 Defender
 
 Microsoft Defender for Cloud's itegration with Microsoft 365 Defender allows security teams to access Defender for Cloud alerts and incidents within the Microsoft 365 Defender portal. This integration provides richer context to investigations that span cloud resources, devices, and identities. 
 

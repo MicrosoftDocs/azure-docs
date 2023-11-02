@@ -4,7 +4,7 @@ description: Learn how data is managed and safeguarded in Microsoft Defender for
 ms.topic: overview
 ms.author: dacurwin
 author: dcurwin
-ms.date: 10/31/2023
+ms.date: 11/02/2023
 ---
 # Microsoft Defender for Cloud data security
 

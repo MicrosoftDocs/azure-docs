@@ -2,7 +2,7 @@
 title: Connect your Azure subscriptions
 description: Learn how to connect your Azure subscriptions to Microsoft Defender for Cloud 
 ms.topic: install-set-up-deploy
-ms.date: 10/31/2023
+ms.date: 11/02/2023
 ms.custom: mode-other
 ---
 
@@ -97,7 +97,7 @@ If you want to disable any of the plans, toggle the individual plan to **off**. 
 
 ## Integrate with Microsoft 365 Defender
 
-When you enable Defender for Cloud on your Azure subscription, Defender for Cloud's alerts are automatically integrated into the Microsoft 365 Defender portal. No further steps are needed.
+When you enable Defender for Cloud, Defender for Cloud's alerts are automatically integrated into the Microsoft 365 Defender portal. No further steps are needed.
 
 The integration between Microsoft Defender for Cloud and Microsoft 365 Defender brings your cloud environments into Microsoft 365 Defender. With Defender for Cloud's alerts and cloud correlations integrated into Microsoft 365 Defender, SOC teams can now access all security information from a single interface. 
 
