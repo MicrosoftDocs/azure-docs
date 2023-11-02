@@ -82,7 +82,7 @@ az communication rooms create --presenter-participants "<participantId>" --consu
 - Use `<valid-until>` optionally to specify the timestamp when the room can no longer be joined, in ISO8601 format, ex: 2022-07-14T10:21. 
 - Use `<pstn-dial-out-enabled>`* optionally by setting this flag ("True" or "False") to enable or disable PSTN dial out for a room. By default, this flag is set to "False" when creating a room.
 
-*`<pstn-dial-out-enabled>` is currently in public preview
+*`<pstn-dial-out-enabled>` is currently in [public preview](https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/)
 
 If you've stored the connection string in environment variables as stated above, you won't need to pass them to the command.
 
