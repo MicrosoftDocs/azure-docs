@@ -9,14 +9,14 @@ ms.author: prashabora
 ms.service: chaos-studio
 ---
 
-# Azure Chaos Studio Preview limitations and known issues
+# Azure Chaos Studio limitations and known issues
 
-During the public preview of Azure Chaos Studio, there are a few limitations and known issues that the team is aware of and working to resolve.
+The following are known limitations in Chaos Studio. 
 
 ## Limitations
 
-- **Supported regions** - The target resources must be in [one of the regions supported by the Azure Chaos Studio Preview](https://azure.microsoft.com/global-infrastructure/services/?products=chaos-studio).
-- **Resource Move not supported** - Azure Chaos Studio tracked resources (for example, Experiments) currently do not support Resource Move. Experiments can be easily copied (by copying Experiment JSON) for use in other subscriptions, resource groups, or regions. Experiments can also already target resources across regions. Extension resources (Targets and Capabilities) do support Resource Move. 
+- **Supported regions** - The target resources must be in [one of the regions supported by the Azure Chaos Studio](https://azure.microsoft.com/global-infrastructure/services/?products=chaos-studio).
+- **Resource Move not supported** - Azure Chaos Studio tracked resources (for example, Experiments) currently do NOT support Resource Move. Experiments can be easily copied (by copying Experiment JSON) for use in other subscriptions, resource groups, or regions. Experiments can also already target resources across regions. Extension resources (Targets and Capabilities) do support Resource Move. 
 - **VMs require network access to Chaos studio** - For agent-based faults, the virtual machine must have outbound network access to the Chaos Studio agent service:
     - Regional endpoints to allowlist are listed in [Permissions and security in Azure Chaos Studio](chaos-studio-permissions-security.md#network-security).
     - If you're sending telemetry data to Application Insights, the IPs in [IP addresses used by Azure Monitor](../azure-monitor/app/ip-addresses.md) are also required.

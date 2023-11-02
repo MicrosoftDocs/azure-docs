@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 08/10/2023
+ms.date: 10/11/2023
 ms.author: cshoe
 ms.custom: references_regions
 ---
@@ -33,6 +33,9 @@ For each Dedicated workload profile in your environment, you can:
 
 You can configure each of your apps to run on any of the workload profiles defined in your Container Apps environment. This configuration is ideal for deploying microservices where each app can run on the appropriate compute infrastructure.
 
+> [!NOTE]
+> You can only apply a GPU workload profile to an environment as the environment is created.
+
 ## Profile types
 
 There are different types and sizes of workload profiles available by region. By default, each Dedicated plan includes a consumption profile, but you can also add any of the following profiles:
@@ -48,6 +51,9 @@ There are different types and sizes of workload profiles available by region. By
 | Dedicated-E8 | E8 | 8 | 64 | Memory optimized | per node |
 | Dedicated-E16 | E16 | 16 | 128 | Memory optimized | per node |
 | Dedicated-E32 | E32 | 32 | 256 | Memory optimized | per node |
+| Dedicated-A100 (preview) | A100 | ?? | [Based on support request](https://azure.microsoft.com/support/create-ticket/)<sup>\*</sup> | Memory optimized | per node |
+
+<sup>\* Capacity is allocated on a per-case basis. Submit a [support ticket](https://azure.microsoft.com/support/create-ticket/) to request the capacity amount required for your application.</sup>
 
 Select a workload profile and use the *Name* field when you run `az containerapp env workload-profile set` for the `--workload-profile-type` option.
 
