@@ -46,7 +46,7 @@ The feature is meant for scenarios where the lag is acceptable and meant for off
 
 A read replica can be created in the same region as the primary server as well as in a different one. Cross-region replication can be helpful for scenarios like disaster recovery planning or bringing data closer to your users.
 
-You can have a primary server in any [Azure Database for PostgreSQL region](https://azure.microsoft.com/global-infrastructure/services/?products=postgresql). A primary server can have replicas also in any global region of Azure that supports Azure Database for PostgreSQL. Currently [special Azure regions](../../virtual-machines/regions.md#special-azure-regions) are not supported.
+You can have a primary server in any [Azure Database for PostgreSQL region](https://azure.microsoft.com/global-infrastructure/services/?products=postgresql). A primary server can have replicas also in any global region of Azure that supports Azure Database for PostgreSQL. Currently [special Azure regions](../../virtual-machines/regions.md#special-azure-regions) aren't supported.
 
 ### Use paired regions for disaster recovery purposes
 
@@ -65,22 +65,14 @@ While creating replicas in any supported region is possible, there are notable b
 For a deeper understanding of the advantages of paired regions, refer to [Azure's documentation on cross-region replication](../../reliability/cross-region-replication-azure.md#azure-paired-regions).
 
 
-[//]: # (### Paired regions)
-
-[//]: # ()
-[//]: # (In addition to the universal replica regions, you can create a read replica in the Azure paired region of your primary server. If you don't know your region's pair, you can learn more from the [Azure Paired Regions article]&#40;../../availability-zones/cross-region-replication-azure.md&#41;.)
-
-[//]: # ()
-[//]: # (If you are using cross-region replicas for disaster recovery planning, we recommend you create the replica in the paired region instead of one of the other regions. Paired regions avoid simultaneous updates and prioritize physical isolation and data residency.)
-
 ## Create a replica
-A primary server for Azure Database for PostgreSQL - Flexible Server can be deployed in [any region that supports the service](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=postgresql&regions=all). You can create replicas of the primary server within the same region or across different global Azure regions where Azure Database for PostgreSQL - Flexible Server is available. However, it is important to note that replicas cannot be created in [special Azure regions](../../virtual-machines/regions.md#special-azure-regions), regardless of whether they are in-region or cross-region.
+A primary server for Azure Database for PostgreSQL - Flexible Server can be deployed in [any region that supports the service](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=postgresql&regions=all). You can create replicas of the primary server within the same region or across different global Azure regions where Azure Database for PostgreSQL - Flexible Server is available. However, it's important to note that replicas can't be created in [special Azure regions](../../virtual-machines/regions.md#special-azure-regions), regardless of whether they're in-region or cross-region.
 
 When you start the create replica workflow, a blank Azure Database for PostgreSQL server is created. The new server is filled with the data that was on the primary server. For creation of replicas in the same region snapshot approach is used, therefore the time of creation doesn't depend on the size of data. Geo-replicas are created using base backup of the primary instance, which is then transmitted over the network therefore time of creation might range from minutes to several hours depending on the primary size. 
 
 In Azure Database for PostgreSQL - Flexible Server, the create operation of replicas is considered successful only when the entire backup of the primary instance copies to the replica destination, and the transaction logs synchronize up to the threshold of a maximum 1GB lag.
 
-To achieve a successful create operation, avoid making replicas during times of high transactional load. For example, it's best to avoid creating replicas during migrations from other sources to Azure Database for PostgreSQL - Flexible Server, or during excessive bulk load operations. If you are currently in the process of performing a migration or bulk load operation, it's recommended that you wait until the operation has completed before proceeding with the creation of replicas. Once the migration or bulk load operation has finished, check whether the transaction log size has returned to its normal size. Typically, the transaction log size should be close to the value defined in the max_wal_size server parameter for your instance. You can track the transaction log storage footprint using the [Transaction Log Storage Used](concepts-monitoring.md#default-metrics) metric, which provides insights into the amount of storage used by the transaction log. By monitoring this metric, you can ensure that the transaction log size is within the expected range and that the replica creation process might be started. 
+To achieve a successful create operation, avoid making replicas during times of high transactional load. For example, it's best to avoid creating replicas during migrations from other sources to Azure Database for PostgreSQL - Flexible Server, or during excessive bulk load operations. If you're currently in the process of performing a migration or bulk load operation, it's recommended that you wait until the operation has completed before proceeding with the creation of replicas. Once the migration or bulk load operation has finished, check whether the transaction log size has returned to its normal size. Typically, the transaction log size should be close to the value defined in the max_wal_size server parameter for your instance. You can track the transaction log storage footprint using the [Transaction Log Storage Used](concepts-monitoring.md#default-metrics) metric, which provides insights into the amount of storage used by the transaction log. By monitoring this metric, you can ensure that the transaction log size is within the expected range and that the replica creation process might be started. 
 
 > [!IMPORTANT]
 > Read Replicas are currently supported for the General Purpose and Memory Optimized server compute tiers, Burstable server compute tier is not supported.
@@ -173,12 +165,12 @@ For both promotion methods, there are additional options to consider:
 ### Configuration management
 Read replicas are treated as separate servers in terms of control plane configurations. This provides flexibility for read scale scenarios. However, when using replicas for disaster recovery purposes, users must ensure the configuration is as desired.
 
-The promote operation will not carry over certain configurations and parameters. Here are some of the notable ones:
+The promote operation won't carry over certain configurations and parameters. Here are some of the notable ones:
 
-* **PgBouncer**: [The built-in PgBouncer](concepts-pgbouncer.md) connection pooler's settings and status are not replicated during the promotion process. If PgBouncer was enabled on the primary but not on the replica, it will remain disabled on the replica after promotion. Should you want PgBouncer on the newly promoted server, you must enable it either prior to or following the promotion action.
-* **Geo-redundant backup storage**: Geo-backup settings aren't transferred. Since replicas cannot have geo-backup enabled, the promoted primary (formerly the replica) won't have it post-promotion. The feature can only be activated at the server's creation time.
-* **Server Parameters**: If their values differ on the primary and read replica, they will not be changed during promotion. It's essential to note that parameters influencing shared memory size must have the same values on both the primary and replicas. This requirement is detailed in the [Server parameters](#server-parameters) section.
-* **Microsoft Entra authentication**: If the primary had [Microsoft Entra authentication](concepts-azure-ad-authentication.md) configured, but the replica was set up with PostgreSQL authentication, then after promotion, the replica will not automatically switch to Microsoft Entra authentication. It retains the PostgreSQL authentication. Users need to manually configure Microsoft Entra authentication on the promoted replica either before or after the promotion process.
+* **PgBouncer**: [The built-in PgBouncer](concepts-pgbouncer.md) connection pooler's settings and status aren't replicated during the promotion process. If PgBouncer was enabled on the primary but not on the replica, it will remain disabled on the replica after promotion. Should you want PgBouncer on the newly promoted server, you must enable it either prior to or following the promotion action.
+* **Geo-redundant backup storage**: Geo-backup settings aren't transferred. Since replicas can't have geo-backup enabled, the promoted primary (formerly the replica) won't have it post-promotion. The feature can only be activated at the server's creation time.
+* **Server Parameters**: If their values differ on the primary and read replica, they won't be changed during promotion. It's essential to note that parameters influencing shared memory size must have the same values on both the primary and replicas. This requirement is detailed in the [Server parameters](#server-parameters) section.
+* **Microsoft Entra authentication**: If the primary had [Microsoft Entra authentication](concepts-azure-ad-authentication.md) configured, but the replica was set up with PostgreSQL authentication, then after promotion, the replica won't automatically switch to Microsoft Entra authentication. It retains the PostgreSQL authentication. Users need to manually configure Microsoft Entra authentication on the promoted replica either before or after the promotion process.
 * **High Availability (HA)**: Should you require [HA](concepts-high-availability.md) after the promotion, it must be configured on the freshly promoted primary server, following the role reversal.
 
 
@@ -190,7 +182,7 @@ All operations involving virtual endpoints, whether adding, editing, or removing
 
 Virtual Endpoints offer two distinct types of connection points:
 
-1. **Writer Endpoint (Read/Write)**: This endpoint always points to the current primary server. It ensures that write operations are directed to the correct server, irrespective of any promote operations triggered by users. This endpoint cannot be changed to point to a replica.
+1. **Writer Endpoint (Read/Write)**: This endpoint always points to the current primary server. It ensures that write operations are directed to the correct server, irrespective of any promote operations triggered by users. This endpoint can't be changed to point to a replica.
 2. **Read-Only Endpoint**: This endpoint can be configured by users to point either to a read replica or the primary server. However, it can only target one server at a time. Load balancing between multiple servers isn't supported. You can adjust the target server for this endpoint at any point in time, whether before or after promotion. 
 
 ### Virtual Endpoints and Promote Behavior
@@ -231,7 +223,7 @@ When you promote a replica, the replica loses all links to its previous primary 
 Learn how to [promote a replica](how-to-read-replicas-portal.md#promote-replicas).
 
 ## Monitor replication
-Read replica feature in Azure Database for PostgreSQL - Flexible Server relies on replication slots mechanism. The main advantage of replication slots is the ability to automatically adjust the number of transaction logs (WAL segments) needed by all replica servers and therefore avoid situations when one or more replicas going out of sync because WAL segments that were not yet sent to the replicas are being removed on the primary. The disadvantage of the approach is the risk of going out of space on the primary in case replication slot remains inactive for a long period of time. In such situations primary will accumulate WAL files causing incremental growth of the storage usage. When the storage usage reaches 95% or if the available capacity is less than 5 GiB, the server is automatically switched to read-only mode to avoid errors associated with disk-full situations. 
+Read replica feature in Azure Database for PostgreSQL - Flexible Server relies on replication slots mechanism. The main advantage of replication slots is the ability to automatically adjust the number of transaction logs (WAL segments) needed by all replica servers and therefore avoid situations when one or more replicas going out of sync because WAL segments that weren't yet sent to the replicas are being removed on the primary. The disadvantage of the approach is the risk of going out of space on the primary in case replication slot remains inactive for a long period of time. In such situations primary will accumulate WAL files causing incremental growth of the storage usage. When the storage usage reaches 95% or if the available capacity is less than 5 GiB, the server is automatically switched to read-only mode to avoid errors associated with disk-full situations. 
 Therefore, monitoring the replication lag and replication slots status is crucial for read replicas.
 
 We recommend setting alert rules for storage used or storage percentage, as well as for replication lags, when they exceed certain thresholds so that you can proactively act, increase the storage size and delete lagging read replicas. For example, you can set an alert if the storage percentage exceeds 80% usage, as well on the replica lag being higher than 1h. The [Transaction Log Storage Used](concepts-monitoring.md#default-metrics) metric will show you if the WAL files accumulation is the main reason of the excessive storage usage. 
@@ -288,7 +280,7 @@ If you experience a prolonged outage with Azure Database for PostgreSQL in a spe
 
 **Promote to primary server (preview)**
 
-Use this action if your server fulfills the server symmetry criteria. This option will not require updating the connection strings in your application, provided virtual endpoints are configured. Once activated, the writer endpoint will repoint to the new primary in a different region. Once the affected region is restored, the former primary server will automatically resume, but now in a replica role. During the regional outage, the [replication status](#monitor-replication) column in the Azure portal will display "Waiting for reconfigure."
+Use this action if your server fulfills the server symmetry criteria. This option won't require updating the connection strings in your application, provided virtual endpoints are configured. Once activated, the writer endpoint will repoint to the new primary in a different region. Once the affected region is restored, the former primary server will automatically resume, but now in a replica role. During the regional outage, the [replication status](#monitor-replication) column in the Azure portal will display "Waiting for reconfigure."
 
 **Promote to independent server and remove from replication**
 
@@ -306,10 +298,10 @@ This section summarizes considerations about the read replica feature. The follo
 
 ### New replicas
 
-A read replica is created as a new Azure Database for PostgreSQL server. An existing server can't be made into a replica. You can't create a replica of another read replica, i.e., cascading replication is not supported.
+A read replica is created as a new Azure Database for PostgreSQL server. An existing server can't be made into a replica. You can't create a replica of another read replica, i.e., cascading replication isn't supported.
 
 ### Resource move
-Users can create read replicas in a different resource group than the primary. However, moving read replicas to another resource group after their creation is unsupported. Additionally, moving replica(s) to a different subscription, as well as moving the primary that has read replica(s) to another resource group or subscription, is not supported.
+Users can create read replicas in a different resource group than the primary. However, moving read replicas to another resource group after their creation is unsupported. Additionally, moving replica(s) to a different subscription, as well as moving the primary that has read replica(s) to another resource group or subscription, isn't supported.
 
 ### Backup and Restore
 When managing backups and restores for your Azure Database for PostgreSQL - Flexible Server, it's important to keep in mind the current and previous role of the server in different [promotion scenarios](#promote-replicas). Here are the key points to remember:
@@ -343,17 +335,17 @@ It is essential to monitor storage usage and replication lag closely, and take n
 
 ### Server parameters
 
-When a read replica is created, it inherits the server parameters from primary server. This is to ensure a consistent and reliable starting point. However, any changes to the server parameters on the primary server, made post the creation of the read replica, are not automatically replicated. This behavior offers the advantage of individual tuning of the read replica, such as enhancing its performance for read-intensive operations, without modifying the primary server's parameters. While this provides flexibility and customization options, it also necessitates careful and manual management to maintain consistency between the primary and its replica when uniformity of server parameters is required.
+When a read replica is created, it inherits the server parameters from primary server. This is to ensure a consistent and reliable starting point. However, any changes to the server parameters on the primary server, made post the creation of the read replica, aren't automatically replicated. This behavior offers the advantage of individual tuning of the read replica, such as enhancing its performance for read-intensive operations, without modifying the primary server's parameters. While this provides flexibility and customization options, it also necessitates careful and manual management to maintain consistency between the primary and its replica when uniformity of server parameters is required.
 
-Administrators can change server parameters on read replica server and set different values than on the primary server. The only exception are parameters that might affect recovery of the replica, mentioned also in the "Scaling" section below: `max_connections`, `max_prepared_transactions`, `max_locks_per_transaction`, `max_wal_senders`, `max_worker_processes`. To ensure the read replica’s recovery is seamless and it does not encounter shared memory limitations, these particular parameters should always be set to values that are either equivalent to or [greater than those configured on the primary server](https://www.postgresql.org/docs/current/hot-standby.html#HOT-STANDBY-ADMIN).
+Administrators can change server parameters on read replica server and set different values than on the primary server. The only exception are parameters that might affect recovery of the replica, mentioned also in the "Scaling" section below: `max_connections`, `max_prepared_transactions`, `max_locks_per_transaction`, `max_wal_senders`, `max_worker_processes`. To ensure the read replica’s recovery is seamless and it doesn't encounter shared memory limitations, these particular parameters should always be set to values that are either equivalent to or [greater than those configured on the primary server](https://www.postgresql.org/docs/current/hot-standby.html#HOT-STANDBY-ADMIN).
 
 ### Scaling
 
-You are free to scale up and down compute (vCores), changing the service tier from General Purpose to Memory Optimized (or vice versa) as well as scaling up the storage, but the following caveats do apply.
+You're free to scale up and down compute (vCores), changing the service tier from General Purpose to Memory Optimized (or vice versa) as well as scaling up the storage, but the following caveats do apply.
 
 For compute scaling: 
 
-* PostgreSQL requires several parameters on replicas to be [greater than or equal to the setting on the primary](https://www.postgresql.org/docs/current/hot-standby.html#HOT-STANDBY-ADMIN) to ensure that the replica does not run out of shared memory during recovery. The parameters affected are: `max_connections`, `max_prepared_transactions`, `max_locks_per_transaction`, `max_wal_senders`, `max_worker_processes`.
+* PostgreSQL requires several parameters on replicas to be [greater than or equal to the setting on the primary](https://www.postgresql.org/docs/current/hot-standby.html#HOT-STANDBY-ADMIN) to ensure that the replica doesn't run out of shared memory during recovery. The parameters affected are: `max_connections`, `max_prepared_transactions`, `max_locks_per_transaction`, `max_wal_senders`, `max_worker_processes`.
 
 * **Scaling up**: First scale up a replica's compute, then scale up the primary.
 
