@@ -292,7 +292,7 @@ On successful migration, update any network dependencies including DNS, firewall
 
 1. **Are there any considerations when using default domain name?**
 
-   Instances that are using the default DNS name in external mode has the DNS autoupdated by the migration process. Moreover, the management endpoint, which always uses the default domain name is automatically updated by the migration process. Since the switch happens immediately on a successful migration, the new instance starts receiving traffic immediately, and it's critical that any networking restrictions/dependences are taken care of upfront to avoid impacted apis being unavailable. 
+   Instances that are using the default DNS name in external mode has the DNS autoupdated by the migration process. Moreover, the management endpoint, which always uses the default domain name is automatically updated by the migration process. Since the switch happens immediately on a successful migration, the new instance starts receiving traffic immediately, and it's critical that any networking restrictions/dependencies are taken care of upfront to avoid impacted apis being unavailable. 
 
 1. **What should we consider for self hosted gateways?**
 
