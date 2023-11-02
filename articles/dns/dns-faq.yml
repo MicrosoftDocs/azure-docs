@@ -6,7 +6,7 @@ metadata:
   author: greg-lindsay
   ms.service: dns
   ms.topic: faq
-  ms.date: 05/22/2023
+  ms.date: 11/01/2023
   ms.author: greglin
 title: Azure DNS FAQ
 summary: |
@@ -192,9 +192,9 @@ sections:
       - question: |
           How long does it take for DNS changes to take effect?
         answer: |
-          New DNS zones and DNS records typically appear in the Azure DNS name servers quickly. The timing is a few seconds.
+          New or updated DNS zones and DNS records appear in the Azure DNS name servers within 60 seconds. 
           
-          Changes to existing DNS records can take a little longer. They typically appear in the Azure DNS name servers within 60 seconds. DNS caching by DNS clients and DNS recursive resolvers outside of Azure DNS also can affect timing. To control this cache duration, use the Time-To-Live (TTL) property of each record set.
+          For changes to existing records, DNS caching by DNS clients and DNS recursive resolvers outside of Azure DNS can affect timing. The cache duration is dependent on the [Time-To-Live (TTL)](dns-zones-records.md#time-to-live) property of each record set.
           
       - question: |
           How can I protect my DNS zones against accidental deletion?
