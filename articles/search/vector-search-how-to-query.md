@@ -528,7 +528,7 @@ api-key: {{admin-api-key}}
     "search":"mystery novel set in London", 
     "searchFields":"description, synopsis", 
     "semanticConfiguration":"my-semantic-config", 
-    "queryType":"semantic" 
+    "queryType":"semantic",
     "select": "title, author, synopsis",
     "filter": "genre eq 'mystery'",
     "vectorFilterMode": "postFilter",
