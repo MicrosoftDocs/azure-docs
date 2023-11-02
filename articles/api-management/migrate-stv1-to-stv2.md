@@ -281,7 +281,7 @@ On successful migration, update any network dependencies including DNS, firewall
    - You can't migrate the stv1 instance to the same subnet in a single pass without downtime. However, you can optionally move your migrated instance back to the original subnet. More details [here](./migrate-stv1-to-stv2.md?branch=main&tabs=portal#optional-migrate-back-to-original-vnet-and-subnet).
    - The old gateway takes up to 48 hours to vacate the subnet, so that you can initiate the move. However, you can request for a faster release of the subnet by submitting the subscription IDs and the desired release time through a support ticket.
    - Releasing the old subnet calls for a purge of the old gateway, which forfeits the rollback to the old gateway if desired.
-   - A new Public IP is required for each switch
+   - A new public IP is required for each switch
    - Ensure that the old subnet networking for [nsg](./api-management-using-with-internal-vnet.md?tabs=stv2#configure-nsg-rules) and [firewall](./api-management-using-with-vnet.md?tabs=stv2#force-tunnel-traffic-to-on-premises-firewall-using-expressroute-or-network-virtual-appliance) is updated for stv2 dependencies.
 
 1. **Can I test the new gateway before switching the live traffic?**
