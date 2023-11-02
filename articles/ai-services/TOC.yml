@@ -18,18 +18,6 @@
   items:
   - name: Generate product name ideas in the playground
     href: ai-studio/quickstarts/playground-completions.md
-- name: Concepts
-  items:
-  - name: Azure AI services and the ecosystem
-    href: ai-studio/concepts/ai-services-and-ecosystem.md
-  - name: Evaluation of apps
-    items:
-    - name: Approach to generative AI evaluations
-      href: ai-studio/concepts/evaluation-approach-gen-ai.md
-    - name: Evaluation and monitoring metrics for generative AI
-      href: ai-studio/concepts/evaluation-metrics-built-in.md
-    - name: Strategies to improve evaluation results
-      href: ai-studio/concepts/evaluation-improvement-strategies.md
   - name: Moderate text and images with content safety
     href: ai-studio/quickstarts/content-safety.md
 - name: How-to
@@ -41,8 +29,22 @@
       href: ai-studio/how-to/model-catalog.md
     - name: Azure AI capabilities
       href: ai-studio/how-to/models-foundation-azure-ai.md
+  - name: Create Azure AI projects and resources
+    items:
+    - name: Azure AI resources overview
+      href: ai-studio/concepts/ai-resources.md
+    - name: Create an Azure AI project
+      href: ai-studio/how-to/create-projects.md
   - name: Evaluate apps
     items:
+    - name: Evaluations concepts
+      items:
+      - name: Approach to generative AI evaluations
+        href: ai-studio/concepts/evaluation-approach-gen-ai.md
+      - name: Evaluation and monitoring metrics for generative AI
+        href: ai-studio/concepts/evaluation-metrics-built-in.md
+      - name: Strategies to improve evaluation results
+        href: ai-studio/concepts/evaluation-improvement-strategies.md
     - name: Evaluate your flow
       href: ai-studio/how-to/evaluate-flow.md
     - name: Evaluate in the Azure AI Studio Playground
@@ -51,12 +53,6 @@
       href: ai-studio/how-to/evaluate-flow-studio.md
     - name: Evaluate with data
       href: ai-studio/how-to/evaluate-data.md
-  - name: Create Azure AI projects and resources
-    items:
-    - name: Azure AI resources overview
-      href: ai-studio/concepts/ai-resources.md
-    - name: Create an Azure AI project
-      href: ai-studio/how-to/create-projects.md
   - name: Costs and quotas
     items:
     - name: Plan and manage costs
