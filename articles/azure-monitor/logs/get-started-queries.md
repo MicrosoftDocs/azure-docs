@@ -4,6 +4,7 @@ description: This article provides a tutorial for getting started writing log qu
 ms.topic: tutorial
 author: guywi-ms
 ms.author: guywild
+ms.reviewer: ilanawaitser
 ms.date: 10/31/2023
 
 ---
@@ -241,6 +242,18 @@ Perf
 To make the output clearer, you can select to display it as a time chart, which shows the available memory over time.
 
 ![Screenshot that shows the values of a query memory over time.](media/get-started-queries/chart.png)
+
+## Frequently asked questions
+
+This section provides answers to common questions.
+
+### Why am I seeing duplicate records in Azure Monitor Logs?
+
+Occasionally, you might notice duplicate records in Azure Monitor Logs. This duplication is typically from one of the following two conditions:
+          
+- Components in the pipeline have retries to ensure reliable delivery at the destination. Occasionally, this capability might result in duplicates for a small percentage of telemetry items.
+- If the duplicate records come from a virtual machine, you might have both the Log Analytics agent and Azure Monitor Agent installed. If you still need the Log Analytics agent installed, configure the Log Analytics workspace to no longer collect data that's also being collected by the data collection rule used by Azure Monitor Agent.
+
 
 ## Next steps
 
