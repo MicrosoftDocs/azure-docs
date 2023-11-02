@@ -224,7 +224,7 @@ On successful migration, update any network dependencies including DNS, firewall
 
 1. **Can I do the migration using the portal?**
 
-   - Yes, the [Platform migration](./migrate-stv1-to-stv2.md?tabs=portal#scenario-1-migrate-api-management-instance-not-injected-in-a-vnet) blade in Azure portal guides through the options for non-vnet injected instances.
+   - Yes, the [Platform migration](./migrate-stv1-to-stv2.md?tabs=portal#scenario-1-migrate-api-management-instance-not-injected-in-a-vnet) blade in Azure portal guides through the options for non-VNet injected instances.
    - vnet-injected instances can be migrated by changing the subnet in the *Network* blade.
 
 1. **Can I preserve the IP address of the instance?**
