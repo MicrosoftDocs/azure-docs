@@ -68,7 +68,7 @@ resource syncRule 'Microsoft.ExtendedLocation/customLocations/resourceSyncRules@
     targetResourceGroup: resourceGroup().id
     selector: {
       matchLabels: {
-        'management.azure.com/provider-name': 'microsoft.symphony'
+        'management.azure.com/provider-name': 'microsoft.iotoperationsorchestrator'
       }
     }
   }

@@ -12,7 +12,7 @@ ms.date: 10/25/2023
 
 # Orchestrator manifests
 
-The Symphony orchestration service extends the resource management capabilities of Azure beyond the cloud. Through the orchestration service, customers are able to define and manage their edge infrastructure using the same Arm manifest files they use to manage cloud resources today. There are two main types of resources use for orchestration: targets and solutions. Together these resources define the desired state of an edge environment.
+The Azure IoT Orchestrator service extends the resource management capabilities of Azure beyond the cloud. Through the orchestration service, customers are able to define and manage their edge infrastructure using the same Arm manifest files they use to manage cloud resources today. There are two main types of resources use for orchestration: targets and solutions. Together these resources define the desired state of an edge environment.
 
 ## Target
 
@@ -22,10 +22,10 @@ To create a target resource for an Arc-enabled K8s cluster, add the resource def
 
 ```json
 {
-  "type": "Microsoft.Symphony/targets",
+  "type": "Microsoft.iotoperationsorchestrator/targets",
   "name": "myTarget",
   "location": "eastus",
-  "apiVersion": "2023-05-22-preview",
+  "apiVersion": "2023-10-04-preview",
   "extendedLocation": { ... },
   "tags": {},
   "properties": {
@@ -92,16 +92,14 @@ To create a target resource for an Arc-enabled K8s cluster, add the resource def
 }
 ```
 
-For another target manifest example, see [target.json](https://github.com/rojohn-ms/bp-pp-contoso/blob/main/target/target.json).
-
 ### Target parameters
 
 | Parameter | Description |
 | ---------------- | ----------- |
-| type             | Resource type: *Microsoft.Symphony/target*. |
+| type             | Resource type: *Microsoft.IoTOperationsOrchestrator/target*. |
 | name             | Name for the target resource. |
 | location         | Name of the region where the target resource will be created. |
-| apiVersion       | Resource API version: *2023-05-22-preview*. |
+| apiVersion       | Resource API version: *2023-10-04-preview*. |
 | extendedLocation | An abstraction of a namespace that resides on the ARC-enabled cluster. To create any resources on the ARC-enabled cluster, one must create a custom location first. |
 | tags             | Optional [resource tags](../../azure-resource-manager/management/tag-resources.md). |
 | properties       | List of properties for the target resource. For more information, see the following [properties parameters table](#target-properties-parameters). |
@@ -133,10 +131,10 @@ To create a solution resource, add the resource definition JSON to an Azure Reso
 
 ```json
 {
-  "type": "Microsoft.Symphony/solutions",
+  "type": "Microsoft.iotoperationsorchestrator/solutions",
   "name": "mySolution",
   "location": "eastus",
-  "apiVersion": "2023-05-22-preview",
+  "apiVersion": "2023-10-04-preview",
   "extendedLocation": { ... },
   "tags": {},
   "properties": {
@@ -175,16 +173,14 @@ To create a solution resource, add the resource definition JSON to an Azure Reso
 }
 ```
 
-For another solution manifest example, see [solution.json](https://github.com/microsoft/e4k-playground/blob/main/solution/solution.json).
-
 ### Solution parameters
 
 | Parameter | Description |
 | ---------------- | ----------- |
-| type             | Resource type: *Microsoft.Symphony/solutions*. |
+| type             | Resource type: *Microsoft.IoTOperationsOrchestrator/solutions*. |
 | name             | Name for the solution resource. |
 | location         | Name of the region where the solution resource will be created. |
-| apiVersion       | Resource API version: *2023-05-22-preview*. |
+| apiVersion       | Resource API version: *2023-10-04-preview*. |
 | extendedLocation | An abstraction of a namespace that resides on the ARC-enabled cluster. To create any resources on the ARC-enabled cluster, one must create a custom location first. |
 | tags             | Optional [resource tags](../../azure-resource-manager/management/tag-resources.md). |
 | properties       | List of properties for the solution resource. For more information, see the following [properties parameters table](#solution-properties-parameters). |
@@ -204,10 +200,10 @@ To create an instance resource, add the resource definition JSON to an Azure Res
 
 ```json
 {
-  "type": "Microsoft.Symphony/instances",
+  "type": "Microsoft.iotoperationsorchestrator/instances",
   "name": "myInstance",
   "location": "eastus",
-  "apiVersion": "2023-05-22-preview",
+  "apiVersion": "2023-10-04-preview",
   "extendedLocation": { ... },
   "tags": {},
   "properties": {
@@ -221,16 +217,14 @@ To create an instance resource, add the resource definition JSON to an Azure Res
 }
 ```
 
-For another instance manifest example, see [manifest.json](https://github.com/rojohn-ms/bp-pp-contoso/blob/main/manifest.json).
-
 ### Instance parameters
 
 | Parameter | Description |
 | --------- | ----------- |
-| type             | Resource type: *Microsoft.Symphony/instances*. |
+| type             | Resource type: *Microsoft.IoTOperationsOrchestrator/instances*. |
 | name             | Name for the instance resource. |
 | location         | Name of the region where the instance resource will be created. |
-| apiVersion       | Resource API version: *2023-05-22-preview*. |
+| apiVersion       | Resource API version: *2023-10-04-preview*. |
 | extendedLocation | An abstraction of a namespace that resides on the ARC-enabled cluster. To create any resources on the ARC-enabled cluster, one must create a custom location first. |
 | tags             | Optional [resource tags](../../azure-resource-manager/management/tag-resources.md). |
 | properties       | List of properties for the instance resource. For more information, see the following [properties parameters table](#instance-properties-parameters). |
