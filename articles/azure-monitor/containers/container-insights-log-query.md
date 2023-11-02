@@ -658,8 +658,8 @@ InsightsMetrics
 ```
 
 The output will show results similar to the following example.
-
-![Screenshot that shows the log query results of data ingestion volume.](media/container-insights-log-query/log-query-example-usage-03.png)
+<!-- convertborder later -->
+:::image type="content" source="media/container-insights-log-query/log-query-example-usage-03.png" lightbox="media/container-insights-log-query/log-query-example-usage-03.png" alt-text="Screenshot that shows the log query results of data ingestion volume." border="false":::
 
 To estimate what each metrics size in GB is for a month to understand if the volume of data ingested received in the workspace is high, the following query is provided.
 
@@ -673,8 +673,8 @@ InsightsMetrics
 ```
 
 The output will show results similar to the following example.
-
-![Screenshot that shows log query results of data ingestion volume.](./media/container-insights-log-query/log-query-example-usage-02.png)
+<!-- convertborder later -->
+:::image type="content" source="./media/container-insights-log-query/log-query-example-usage-02.png" lightbox="./media/container-insights-log-query/log-query-example-usage-02.png" alt-text="Screenshot that shows log query results of data ingestion volume." border="false":::
 
 
 
