@@ -20,6 +20,8 @@ This article shows you how to install the Kubernetes Event-driven Autoscaling (K
 - You need the [Azure CLI installed](/cli/azure/install-azure-cli).
 - Ensure you have firewall rules configured to allow access to the Kubernetes API server. For more information, see [Outbound network and FQDN rules for Azure Kubernetes Service (AKS) clusters][aks-firewall-requirements].
 
+[!INCLUDE [KEDA workload ID callout](./includes/keda/keda-workload-identity-callout.md)]
+
 ## Install the KEDA add-on with Azure CLI
 
 To install the KEDA add-on, use `--enable-keda` when creating or updating a cluster.

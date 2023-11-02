@@ -58,6 +58,8 @@ The KEDA AKS add-on has the following limitations:
 
 For general KEDA questions, we recommend [visiting the FAQ overview][keda-faq].
 
+[!INCLUDE [Current version callout](./includes/keda/keda-workload-identity-callout.md)]
+
 ## Supported Kubernetes and KEDA versions
 
 Your cluster Kubernetes version determines what KEDA version will be installed on your AKS cluster. To see which KEDA version maps to each AKS version, see the **AKS managed add-ons** column of the [Kubernetes component version table](./supported-kubernetes-versions.md#aks-components-breaking-changes-by-version). 

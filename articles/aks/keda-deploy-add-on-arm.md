@@ -22,6 +22,8 @@ This article shows you how to deploy the Kubernetes Event-driven Autoscaling (KE
 - Ensure you have firewall rules configured to allow access to the Kubernetes API server. For more information, see [Outbound network and FQDN rules for Azure Kubernetes Service (AKS) clusters][aks-firewall-requirements].
 - [Create an SSH key pair](#create-an-ssh-key-pair).
 
+[!INCLUDE [KEDA workload ID callout](./includes/keda/keda-workload-identity-callout.md)]
+
 ## Install the KEDA add-on with Azure Resource Manager (ARM) templates
 
 ### Create an SSH key pair
