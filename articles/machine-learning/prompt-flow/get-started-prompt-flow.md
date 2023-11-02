@@ -212,7 +212,7 @@ As you might know, accuracy isn't the only metric that can evaluate a classifica
 
 ## Deployment
 
-After you build a flow and test it properly, you may want to deploy it as an endpoint so that you can invoke the endpoint for real-time inference.
+After you build a flow and test it properly, you might want to deploy it as an endpoint so that you can invoke the endpoint for real-time inference.
 
 ### Configure the endpoint
 
