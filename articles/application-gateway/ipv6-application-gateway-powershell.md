@@ -46,13 +46,13 @@ The IPv6 Application Gateway preview is available to all public cloud regions wh
 
 ## Limitations
 
-* IPv6 is currently supported for v2 SKU only
+* IPv6 frontend is currently supported for v2 SKU only
 * IPv6 backends are currently not supported
-* IPv6 Private Link is not supported
-* IPv6 only Application Gateway is not supported
-* Deleting front end IPs is not supported
-* Existing IPv4 Application Gateways can not be upgraded to dual stack Application Gateways
-* Using the same port for Public and Private IPv6 listeners is not supported
+* IPv6 private Link is currently not supported
+* IPv6-only Application Gateway is currently not supported
+* Deletion of frontend IP addresses are not supported
+* Existing IPv4 Application Gateways cannot be upgraded to dual stack Application Gateways
+* Using the same port for Public and Private IPv6 listeners currently not  supported
 
 
 ## Register to the preview
