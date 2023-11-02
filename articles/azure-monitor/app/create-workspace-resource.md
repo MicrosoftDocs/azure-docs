@@ -289,23 +289,6 @@ Be aware that:
 - For Azure Service Fabric applications and classic cloud services, the SDK automatically reads from the Azure Role Environment and sets these services. For all other types of apps, you'll likely need to set this explicitly.
 - Live Metrics doesn't support splitting by role name.
 
-#### Webpages
-The instrumentation key is also used in your app's webpages, in the [script that you got from the quickstart pane](../../azure-monitor/app/javascript.md). Instead of coding it literally into the script, generate it from the server state. For example, in an ASP.NET app:
-
-```javascript
-<script type="text/javascript">
-// Standard Application Insights webpage script:
-var appInsights = window.appInsights || function(config){ ...
-// Modify this part:
-}({instrumentationKey:  
-  // Generate from server property:
-  "@Microsoft.ApplicationInsights.Extensibility.
-     TelemetryConfiguration.Active.InstrumentationKey"
-  }
- )
-//...
-```
-
 ### Create more Application Insights resources
 
 To create an Applications Insights resource, see [Create an Application Insights resource](#workspace-based-application-insights-resources).
