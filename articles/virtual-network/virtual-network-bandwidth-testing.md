@@ -113,20 +113,20 @@ To measure throughput from Linux machines, use [NTTTCP-for-Linux](https://github
 
    - For **Ubuntu**, install `build-essential` and `git`.
 
-     ``` bash
+     ```bash
      sudo apt-get -y install build-essential  
      sudo apt-get -y install git
      ```
 
    - For **SUSE**, install `git-core`, `gcc`, and `make`.
 
-     ``` bash
+     ```bash
      sudo zypper in -y git-core gcc make
      ```
 
 1. Make and install NTTTCP-for-Linux.
 
-   ``` bash
+   ```bash
    git clone https://github.com/Microsoft/ntttcp-for-linux
    cd ntttcp-for-linux/src
    sudo make && sudo make install
@@ -138,13 +138,13 @@ Run the NTTTCP test for 300 seconds, or five minutes, on both the sender VM and 
 
 1. On the receiver VM, run the following command:
 
-   ``` bash
+   ```bash
    ntttcp -r -m 4,*,10.0.0.5 -t 300
    ```
 
 1. On the sender VM, run the following command. This example shows a sender command for a receiver IP address of `10.0.0.5`.
 
-   ``` bash
+   ```bash
    ntttcp -s -m 4,*,10.0.0.5 -t 300
    ```
 
@@ -209,16 +209,6 @@ To test with the Linux VM as the sender, run the following command:
 ntttcp -s -m [<number of VM cores> x 2],*,<Windows VM IP address> -N -t 300
 ```
 ---
-
-## Test Cloud Service instances
-
-Add the following section to *ServiceDefinition.csdef*:
-
-```xml
-<Endpoints>
-  <InternalEndpoint name="Endpoint3" protocol="any" />
-</Endpoints> 
-```
 
 ## Next steps
 
