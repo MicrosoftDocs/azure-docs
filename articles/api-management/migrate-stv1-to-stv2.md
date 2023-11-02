@@ -296,7 +296,7 @@ On successful migration, update any network dependencies including DNS, firewall
 
 1. **What should we consider for self hosted gateways?**
 
-   You don't need to do anything in your self-hosted gateways. You just need to migrate API Management instances running in Azure that are impacted by the `stv1` platform retirement. Note that there could be a new IP for Configuration endpoint of the APIM instance, and any networking restrictions pinned to the IP should be updated.
+   You don't need to do anything in your self-hosted gateways. You just need to migrate API Management instances running in Azure that are impacted by the `stv1` platform retirement. Note that there could be a new IP for the Configuration endpoint of the API Management instance, and any networking restrictions pinned to the IP should be updated.
 
 1. **How is the developer portal impacted by migration?**
 
