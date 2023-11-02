@@ -1339,7 +1339,7 @@ productDirectory:
       url: private-5g-core/index.yml
       # Card
     - title: Azure Operator Service Manager
-      summary: TBD
+      summary: Manage your networks across cloud platforms
       imageSrc: ./media/index/operator-service-manager.svg
       azureCategories:
         - networking
@@ -1347,7 +1347,7 @@ productDirectory:
       url: operator-service-manager/index.yml
       # Card
     - title: Azure Operator Insights
-      summary: TBD
+      summary: Analyze massive network data for operator insights
       imageSrc: ./media/index/operator-insights.svg
       azureCategories:
         - networking
