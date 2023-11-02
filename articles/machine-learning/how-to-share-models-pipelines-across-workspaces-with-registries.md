@@ -8,7 +8,7 @@ ms.subservice: mlops
 ms.author: kritifaujdar
 author: fkriti
 ms.reviewer: larryfr
-ms.date: 05/23/2022
+ms.date: 11/02/2023
 ms.topic: how-to
 ms.custom: ignite-2022, devx-track-azurecli, build-2023
 ---
@@ -80,8 +80,6 @@ The code examples in this article are based on the `nyc_taxi_data_regression` sa
 ```bash
 git clone https://github.com/Azure/azureml-examples
 cd azureml-examples
-# changing branch is temporary until samples merge to main
-git checkout mabables/registry
 ```
 
 # [Azure CLI](#tab/cli)

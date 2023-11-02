@@ -381,7 +381,7 @@ To deploy the application, you use a manifest file to create all the objects req
 3. Deploy the application using the `kubectl apply` command and specify the name of your YAML manifest:
 
     ```console
-    kubectl apply -f azure-vote.yaml
+    kubectl apply -f aks-store-quickstart.yaml
     ```
 
     The following example output shows the deployments and services:

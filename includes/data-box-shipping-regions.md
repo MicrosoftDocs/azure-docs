@@ -9,8 +9,8 @@ ms.custom: references_regions
 ---
 Self-managed shipping is only available in the following regions:
 
-| Region        | Region         | Region         | Region    | Region    |
-|---------------|----------------|----------------|-----------|-----------|
-| US Government | United Kingdom | Western Europe | Japan     | Singapore |
-| South Korea   | India          | South Africa   | Australia | Brazil    |
-| Norway        |
+| Region        | Region         | Region         | Region         | Region    |
+|---------------|----------------|----------------|----------------|-----------|
+| US Government | United States  | United Kingdom | Western Europe | Japan     |
+| Singapore     | South Korea    | India          | South Africa   | Australia |
+| Brazil        | Norway         |
