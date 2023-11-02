@@ -14,14 +14,13 @@ ms.date: 10/18/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-The **diskBackedMessageBufferSettings** feature is used for efficient management of message queues within the Azure IoT MQ distributed MQTT broker. Thie benefits include:
+The **diskBackedMessageBufferSettings** feature is used for efficient management of message queues within the Azure IoT MQ distributed MQTT broker. The benefits include:
 
 - **Efficient queue management**: In an MQTT broker, each subscriber is associated with a message queue. The speed a subscriber processes messages directly impacts the size of the queue. If a subscriber processes messages slowly or if they disconnect but request an MQTT persistent session, the queue can grow larger than the available memory.
 
 - **Data preservation for persistent sessions**: The **diskBackedMessageBufferSettings** feature ensures that when a queue exceeds the available memory, it's seamlessly buffered to disk. This prevents data loss and supports MQTT persistent sessions, allowing subscribers to resume their sessions with their message queues intact upon reconnection. The disk is used as ephemeral storage and serves as a spillover from memory. Data written to disk isn't durable and is lost when the pod exits.
 
 - **Handling connectivity challenges**: Cloud connectors are treated as subscribers with persistent sessions, which can face connectivity challenges when unable to communicate with external systems like Event Grid MQTT broker due to network disconnect. In such scenarios, messages (PUBLISHes) accumulate. The Azure IoT MQ broker intelligently buffers these messages to memory or disk until connectivity is restored, ensuring message integrity.
-
 
 In rare cases where numerous slow subscribers or connectors face extended communication challenges, the disk space allocated for queue buffering can become a limitation. [Configuring the `memoryProfile` to `low`](./howto-configure-availability-scale.md) temporarily offers a solution, optimizing memory usage until the persistence feature is fully implemented and enhancing system resilience. Currently, it's not possible to disable disk-backed message buffering.
 
