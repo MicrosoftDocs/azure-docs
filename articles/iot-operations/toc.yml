@@ -202,6 +202,10 @@ items:
         href: reference/about-iot-operations-cli.md
       - name: Available metrics for observability
         items:
-        - name: Metrics for MQ
+        - name: Azure IoT MQ
           href: reference/observability-metrics-mq.md
+        - name: Azure IoT Akri
+          href: reference/observability-metrics-akri.md
+        - name: Azure IoT OPC UA Broker
+          href: reference/observability-metrics-opcua-broker.md
 
