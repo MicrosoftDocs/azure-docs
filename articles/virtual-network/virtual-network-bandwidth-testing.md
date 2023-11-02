@@ -43,7 +43,7 @@ You can test throughput from Windows VMs by using [NTTTCP](https://github.com/mi
 
 1. Open the Windows command line and navigate to the folder where you downloaded **ntttcp.exe**.
 
-1. On the receiver VM, create a Windows Defender Firewall `allow` rule to allow the NTTTCP traffic to arrive. It's easier to allow **nttcp.exe** by name than to allow specific inbound TCP ports. Run the following command, replacing `c:\tools` with your download path for **ntttcp.exe** if different.
+1. On the receiver VM, create a Windows Firewall `allow` rule to allow the NTTTCP traffic to arrive. It's easier to allow **nttcp.exe** by name than to allow specific inbound TCP ports. Run the following command, replacing `c:\tools` with your download path for **ntttcp.exe** if different.
 
     ```cmd
     netsh advfirewall firewall add rule program=c:\tools\ntttcp.exe name="ntttcp" protocol=any dir=in action=allow enable=yes profile=ANY
@@ -148,7 +148,7 @@ Run the NTTTCP test for 300 seconds, or five minutes, on both the sender VM and 
    ntttcp -s -m 4,*,10.0.0.5 -t 300
    ```
 
-When the test is complete you should receive an output similar to the following:
+When the test is complete, the output should be similar as the following example:
 
 ```output
 azureuser@vm-3:~/ntttcp-for-linux/src$ ntttcp -s -m 4,*,10.0.0.7 -t 300
