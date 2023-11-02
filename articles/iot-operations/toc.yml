@@ -202,3 +202,5 @@ items:
         items:
         - name: Metrics for MQ
           href: reference/observability-metrics-mq.md
+        - name: Azure IoT Operations CLI
+          href: reference/about-iot-operations-cli.md
