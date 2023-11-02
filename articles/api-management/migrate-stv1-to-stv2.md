@@ -239,7 +239,7 @@ On successful migration, update any network dependencies including DNS, firewall
 
 1. **What happens if the migration fails?**
 
-   If your API Management instance doesn't show the platform stv2 after its status is *"Online"* you initiated the migration, it probably failed. Your service is automatically rolled back to the old instance and no changes are made. If you have problems (such as if status is *"Updating"* for more than 2 hours), contact Azure support.
+   If your API Management instance doesn't show the platform version as `stv2` and status as *"Online"* after you initiated the migration, it probably failed. Your service is automatically rolled back to the old instance and no changes are made. If you have problems (such as if status is *"Updating"* for more than 2 hours), contact Azure support.
 
 1. **What functionality is not available during migration?**
 
@@ -269,7 +269,7 @@ On successful migration, update any network dependencies including DNS, firewall
 
 1. **My stv1 instance is deployed to multiple Azure regions (multi-geo). How do I upgrade to stv2?**
 
-   Multi-geo deployments include more managed gateways deployed in other locations. Each location should be migrated separately by providing a new subnet and a new Public IP.  Navigate to the *Locations* blade and perform the changes on each listed location. The instance is considered migrated to the new platform only when all the locations are migrated. Both gateways continue to operate normally throughout the migration process.
+   Multi-geo deployments include more managed gateways deployed in other locations. Each location should be migrated separately by providing a new subnet and a new public IP.  Navigate to the *Locations* blade and perform the changes on each listed location. The instance is considered migrated to the new platform only when all the locations are migrated. Both gateways continue to operate normally throughout the migration process.
 
 
 1. **Do we need a public IP even if the API Management instance is VNet injected in internal mode only?**
@@ -278,7 +278,7 @@ On successful migration, update any network dependencies including DNS, firewall
 
 1. **Can I upgrade my stv1 instance to the same subnet?**
 
-   - You can't migrate the stv1 instance to the same subnet in a single pass without downtime. However, you can optionally move your migrated instance back to the original subnet. More details [here](./migrate-stv1-to-stv2.md?branch=main&tabs=portal#optional-migrate-back-to-original-vnet-and-subnet).
+   - You can't migrate the stv1 instance to the same subnet in a single pass without downtime. However, you can optionally move your migrated instance back to the original subnet. More details [here](#optional-migrate-back-to-original-vnet-and-subnet).
    - The old gateway takes up to 48 hours to vacate the subnet, so that you can initiate the move. However, you can request for a faster release of the subnet by submitting the subscription IDs and the desired release time through a support ticket.
    - Releasing the old subnet calls for a purge of the old gateway, which forfeits the rollback to the old gateway if desired.
    - A new public IP is required for each switch
