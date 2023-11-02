@@ -46,7 +46,7 @@ The following table lists all supported scenarios:
 | Governance | View and assign built-in and custom Azure Policies under category Azure Backup and Azure Site Recovery. | N/A |	N/A |
 | Manage | View all protection policies – backup policies for Azure Backup and Replication policies for Azure Site Recovery. | All solutions and datasource types given in the above table. | Same as previous. |
 | Manage | View all vaults. | All solutions and datasource types given in the above table. | Same as previous. |
-| Action | Configure protection (backup and replication). | All solutions and datasource types given in the above table. | See support matrices for [Azure Backup](/azure/backup/backup-support-matrix) and [Azure Site Recovery](/en-us/azure/site-recovery/azure-to-azure-support-matrix). |
+| Action | Configure protection (backup and replication). | All solutions and datasource types given in the above table.   <br><br> **Azure Backup** <br><br>  - Azure Virtual Machine <br>   - Azure disk backup    <br>  - Azure Database for PostgreSQL Server backup   <br> - Azure Kubernetes services    <br><br> **Azure Site Recovery**   <br><br>  - Azure Virtual Machine | See support matrices for [Azure Backup](/azure/backup/backup-support-matrix) and [Azure Site Recovery](/en-us/azure/site-recovery/azure-to-azure-support-matrix). |
 | Action | Enhance protection (configure backup or replication existing protected item). | Only for Azure Virtual Machine. |         |
 | Action | Recover action is a collection of all actions related to recovery like: <br><br> - For backup: restore, restore to secondary region, file recovery. <br> - For replication: Failover, test failover, test failover cleanup. | Depends on the datasource type chosen. [Learn more](#supported-scenarios) about each action to recover. |             |
 Action | Restore. | Only for Azure Backup supported datasources given in the above table. |         |
@@ -77,6 +77,9 @@ This table lists the solutions and scenarios that are unsupported in Azure Busin
 | Actions | Configuring vault settings at scale is currently not supported from Backup center |
 | Actions | Re-protect action is not available for Azure Site Recovery replicated items of Azure Virtual machine. |
 | Actions | Move, delete is not available for vaults in Azure Business Continuity Center and can only be performed directly from individual vault pane. |
+
+>[!Note]
+>Protection details for Azure Classic Virtual Machines and Azure Classic storage account protected by Azure Backup are currently not included in the Azure Business Continuity (preview).
 
 ## Next steps
 
