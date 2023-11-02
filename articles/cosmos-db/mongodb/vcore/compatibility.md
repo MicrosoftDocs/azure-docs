@@ -82,7 +82,7 @@ Azure Cosmos DB for MongoDB vCore supports the following database commands:
 <tr><td>setDefaultRWConcern</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
 <tr><td>shutdown</td><td>As a PaaS service, this will be managed by Azure.</td></tr>
 
-<tr><td rowspan="1">User & Role Management Commands</td><td></td><td>Not supported today, but will be made available through Azure Active Directory (AAD) in the future.</td></tr>
+<tr><td rowspan="1">User & Role Management Commands</td><td></td><td>Not supported today, but will be made available through Azure Active Directory in the future.</td></tr>
 
 <tr><td rowspan="1">Replication Commands</td><td></td><td>Azure manages replication, removing the necessity for customers to replicate manually.</td></tr>
 
@@ -168,7 +168,7 @@ Azure Cosmos DB for MongoDB vCore supports the following database commands:
 <tr><td>whatsmyuri</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 
 
-<tr><td rowspan="1">System Events Autiting Commands</td><td>logApplicationMessage</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td rowspan="1">System Events Auditing Commands</td><td>logApplicationMessage</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
 
 </table>
 
