@@ -79,6 +79,11 @@ Execute the following commands to create your resource group, container apps env
     | `MEMORY_SIZE` | The allocated amount of memory. |
     | `IMAGE` | The container image used in this tutorial. This container image includes the Jupyter Notebook that allows you to interact with data in the Qdrant database. |
 
+1. Log in to Azure with the Azure CLI.
+
+    ```azurecli
+    az login
+
 1. Create a resource group.
 
     ```azurecli
