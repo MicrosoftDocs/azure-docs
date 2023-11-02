@@ -112,8 +112,8 @@ Follow the following to grant admin access:
 > You must upload the certificate as a secret. You must use Azure CLI to upload certificates as secrets to your key vault.
 > Your Azure Stream Analytics job will fail when the certificate used for authentication expires. To resolve this, you must update/replace the certificate in your key vault and restart your Azure Stream Analytics job.
 
+Make sure you have Azure CLI configured locally with PowerShell.
 You can visit this page to get guidance on setting up Azure CLI: [Get started with Azure CLI](https://learn.microsoft.com/cli/azure/get-started-with-azure-cli#how-to-sign-into-the-azure-cli)
-The following command can upload the certificate as a secret to your key vault. You must have "**Key Vault Administrator**" permissions access to your Key vault for this command to work properly.
 
 **Login to Azure CLI:**
 ```PowerShell
@@ -126,8 +126,11 @@ az account set --subscription <subscription name>
 ```
 
 **The following command can upload the certificate as a secret to your key vault:**
+
+The `<your key vault>` is the name of the key vault you want to upload the certificate to. `<name of the secret>` is any name you want to give to your secret and how it will show up in the key vault. Note the name; you will use it to configure your kafka output in your ASA job. `<file path to certificate>` is the path to where you have downloaded your certificate. 
+
 ```PowerShell
-az keyvault secret set --vault-name <your key vault> --name <name of the secret> --file <file path to secret>
+az keyvault secret set --vault-name <your key vault> --name <name of the secret> --file <file path to certificate>
 ```
 
 
