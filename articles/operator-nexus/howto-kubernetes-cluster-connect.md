@@ -36,7 +36,7 @@ When operating in connected mode, it's possible to connect to the cluster's kube
 [!INCLUDE [quickstart-cluster-connect](./includes/kubernetes-cluster/cluster-connect.md)]
 
 ### Access to cluster nodes via Azure Arc for Kubernetes
-Once you are connected to a cluster via Arc, create an interactive shell connection to a individual node by use the `kubectl debug` command to run a privileged container on your node.
+Once you are connected to a cluster via Arc for Kuberentes, you can connect to individual Kubernetes Node using the `kubectl debug` command to run a privileged container on your node.
 
 1. To list your nodes, use the `kubectl get nodes` command:
 
