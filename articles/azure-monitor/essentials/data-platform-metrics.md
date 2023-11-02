@@ -28,7 +28,7 @@ There are multiple types of metrics supported by Azure Monitor Metrics:
   - Custom metrics are collected from different sources that you configure including applications and agents running on virtual machines.
 - Prometheus metrics are collected from Kubernetes clusters including Azure Kubernetes service (AKS) and use industry standard tools for analyzing and alerting such as PromQL and Grafana.
 
-![Diagram that shows sources and uses of metrics.](media/data-platform-metrics/metrics-overview.png)
+:::image type="content" source="media/data-platform-metrics/metrics-overview.png" lightbox="media/data-platform-metrics/metrics-overview.png" alt-text="Diagram that shows sources and uses of metrics.":::
 
 The differences between each of the metrics are summarized in the following table.
 
@@ -73,8 +73,8 @@ Secure connection is established between the agent and the Azure Monitor service
 ## Metrics Explorer
 
 Use [Metrics Explorer](metrics-charts.md) to interactively analyze the data in your metric database and chart the values of multiple metrics over time. You can pin the charts to a dashboard to view them with other visualizations. You can also retrieve metrics by using the [Azure monitoring REST API](./rest-api-walkthrough.md).
-
-![Screenshot that shows an example graph in Metrics Explorer that displays server requests, server response time, and failed requests.](media/data-platform-metrics/metrics-explorer.png)
+<!-- convertborder later -->
+:::image type="content" source="media/data-platform-metrics/metrics-explorer.png" lightbox="media/data-platform-metrics/metrics-explorer.png" alt-text="Screenshot that shows an example graph in Metrics Explorer that displays server requests, server response time, and failed requests." border="false":::
 
 For more information, see [Analyze metrics with Azure Monitor metrics explorer](./analyze-metrics.md).
 
