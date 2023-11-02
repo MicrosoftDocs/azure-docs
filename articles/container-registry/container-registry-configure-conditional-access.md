@@ -1,7 +1,7 @@
 ---
 title: Configure conditional access to your Azure Container Registry.
 description: Learn how to configure conditional access to your registry by using Azure CLI and Azure portal.
-ms.author: tejaswikolli-web
+ms.author: tejaswikolli
 ms.service: container-registry
 ms.topic: tutorial  #Don't change.
 ms.date: 11/02/2023
