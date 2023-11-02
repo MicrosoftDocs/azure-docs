@@ -1,5 +1,5 @@
 ---
-title: SerpAPI tool in Azure Machine Learning prompt flow (preview)
+title: SerpAPI tool in Azure Machine Learning prompt flow
 titleSuffix: Azure Machine Learning
 description: The SerpAPI API is a Python tool that provides a wrapper to the SerpAPI Google Search Engine Results API and SerpApi Bing Search Engine Results API.
 services: machine-learning
@@ -10,18 +10,14 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.reviewer: lagayhar
-ms.date: 06/30/2023
+ms.date: 11/02/2023
 ---
 
-# SerpAPI tool (preview)
+# SerpAPI tool
 
 The SerpAPI API is a Python tool that provides a wrapper to the [SerpAPI Google Search Engine Results API](https://serpapi.com/search-api) and [SerpApi Bing Search Engine Results API](https://serpapi.com/bing-search-api).
 
 We could use the tool to retrieve search results from many different search engines, including Google and Bing, and you can specify a range of search parameters, such as the search query, location, device type, and more.
-
-> [!IMPORTANT]
-> Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisite
 
