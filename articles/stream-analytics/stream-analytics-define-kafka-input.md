@@ -26,7 +26,7 @@ The following table lists the property names and their description for creating 
 
 > [!IMPORTANT]
 > To configure your Kafka cluster as an input, the timestamp type of the input topic should be **LogAppendTime**. The only timestamp type Azure Stream Analytics supports is **LogAppendTime**.
->
+> Azure Stream Analytics supports only numerical decimal format.
 
 | Property name                | Description                                                                                                             |
 |------------------------------|-------------------------------------------------------------------------------------------------------------------------|
@@ -60,6 +60,8 @@ Confluent uses TLS certificates from Let’s Encrypt, an open certificate author
 
 > [!IMPORTANT]
 >  You must use Azure CLI to upload the certificate as a secret to your key vault. You cannot use Azure Portal to upload a certificate that has multiline secrets to key vault.
+> The default timestamp type for a topic in a confluent cloud kafka cluster is **CreateTime**, make sure you update it to **LogAppendTime**.
+> Azure Stream Analytics supports only numerical decimal format.
 
 To authenticate using the API Key confluent offers, you must use the SASL_SSL protocol and complete the configuration as follows:
 
