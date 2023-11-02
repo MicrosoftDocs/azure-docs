@@ -33,7 +33,7 @@ Lab deployments:
 
 - Use a single Azure region, which means there's no geographic redundancy.
 - Don't have an availability service-level agreement (SLA).
-- Are limited to 200 concurrent calls.
+- Are limited to 200 users.
 
 For Operator Connect and Teams Phone Mobile, lab deployments connect to the same Microsoft Entra tenant as production deployments. Microsoft Teams configuration for your tenant shows configuration for your lab deployments and production deployments together.
 
