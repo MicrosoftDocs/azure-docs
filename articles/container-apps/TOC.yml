@@ -71,7 +71,7 @@
               - name: PostgreSQL
                 href: tutorial-dev-services-postgresql.md
               - name: Qdrant
-                href: addon-qdrant.md
+                href: addons-qdrant.md
               - name: Redis
                 href: connect-services.md
         - name: Connect multiple apps
