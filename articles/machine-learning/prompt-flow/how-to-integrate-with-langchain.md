@@ -1,5 +1,5 @@
 ---
-title: Integrate with LangChain in Prompt flow (preview)
+title: Integrate with LangChain in Prompt flow
 titleSuffix: Azure Machine Learning
 description: Learn how to integrate with LangChain in Prompt flow with Azure Machine Learning studio.
 services: machine-learning
@@ -9,18 +9,14 @@ ms.topic: how-to
 author: jiaochenlu
 ms.author: chenlujiao
 ms.reviewer: lagayhar
-ms.date: 06/30/2023
+ms.date: 11/02/2023
 ---
 
-# Integrate with LangChain (preview)
+# Integrate with LangChain
 
 Prompt Flow can also be used together with the [LangChain](https://python.langchain.com) python library, which is the framework for developing applications powered by LLMs, agents and dependency tools. In this document, we'll show you how to supercharge your LangChain development on our Prompt Flow.
 
 :::image type="content" source="./media/how-to-integrate-with-langchain/flow.png" alt-text="Screenshot of flows with the LangChain python library. " lightbox = "./media/how-to-integrate-with-langchain/flow.png":::
-
-> [!IMPORTANT]
-> Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 We introduce the following sections:
 * [Benefits of LangChain integration](#benefits-of-langchain-integration)
