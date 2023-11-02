@@ -53,7 +53,7 @@ Follow these steps to prepare your system.
     
     ---
     
-    This article uses the example in the folder **endpoints/online/deploy-packages/mlflow-model**.
+    This article uses the example in the folder **endpoints/online/deploy-with-packages/mlflow-model**.
 
 1. Connect to the Azure Machine Learning workspace where you'll do your work.
 
@@ -97,21 +97,11 @@ Follow these steps to prepare your system.
    
     # [Azure CLI](#tab/cli)
     
-    ```azurecli
-    MODEL_NAME='heart-classifier-mlflow'
-    MODEL_PATH='model'
-    az ml model create --name $MODEL_NAME --path $MODEL_PATH --type mlflow_model
-    ```
+    :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/online/deploy-with-packages/mlflow-model/deploy.sh" ID="register_model" :::
     
     # [Python](#tab/sdk)
     
-    ```python
-    model_name = "heart-classifier-mlflow"
-    model_path = "model"
-    model = ml_client.models.create_or_update(
-        Model(name=model_name, path=model_path, type=AssetTypes.MLFLOW_MODEL)
-    )
-    ```
+    [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/online/deploy-with-packages/mlflow-model/sdk-deploy-and-test.ipynb?name=register_model)]
     
 ## Deploy a model package to the Azure App Service
 
@@ -125,26 +115,11 @@ In this section, you package the previously registered MLflow model and deploy i
     
     __package-external.yml__
     
-    ```yml
-    $schema: http://azureml/sdk-2-0/ModelVersionPackage.json
-    target_environment_name: heart-classifier-mlflow-pkg
-    inferencing_server: 
-        type: azureml_online
-    model_configuration:
-        mode: copy
-    ```
+    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/deploy-with-packages/mlflow-model/package-external.yml" :::
     
     # [Python](#tab/sdk)
     
-    ```python
-    package_config = ModelPackage(
-        target_environment_name="heart-classifier-mlflow-pkg",
-        inferencing_server=AzureMLOnlineInferencingServer(),
-        model_configuration=ModelConfiguration(
-            mode="copy"
-        )
-    )
-    ```
+    [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/online/deploy-with-packages/mlflow-model/sdk-deploy-and-test.ipynb?name=configure_package_copy)]
     ---
     
     > [!TIP]
@@ -154,15 +129,11 @@ In this section, you package the previously registered MLflow model and deploy i
 
     # [Azure CLI](#tab/cli)
     
-    ```azurecli
-    az ml model package -n $MODEL_NAME -l latest --file package-external.yml
-    ```
+    :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/online/deploy-with-packages/mlflow-model/deploy.sh" ID="build_package_copy" :::
     
     # [Python](#tab/sdk)
     
-    ```python
-    model_package = ml_client.models.begin_package(model_name, model.version, package_config)
-    ```
+    [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/online/deploy-with-packages/mlflow-model/sdk-deploy-and-test.ipynb?name=build_package_copy)]
 
 1. The result of the package operation is an environment in Azure Machine Learning. The advantage of having this environment is that each environment has a corresponding docker image that you can use in an external deployment. Images are hosted in the Azure Container Registry. The following steps show how you get the name of the generated image:
 
@@ -216,6 +187,10 @@ In this section, you package the previously registered MLflow model and deploy i
     1. Select **Create**. The model is now deployed in the App Service you created.
 
     1. The way you invoke and get predictions depends on the inference server you used. In this example, you used the Azure Machine Learning inferencing server, which creates predictions under the route `/score`. For more information about the input formats and features, see the details of the package [azureml-inference-server-http](https://pypi.org/project/azureml-inference-server-http/).
+  
+    1. Prepare the request payload. The format for an MLflow model deployed with Azure Machine Learning inferencing server is as follows:
+
+       :::code language="json" source="~/azureml-examples-main/cli/endpoints/online/deploy-with-packages/mlflow-model/sample-request.json" ::: 
 
     1. Test the model deployment to see if it works. 
 
