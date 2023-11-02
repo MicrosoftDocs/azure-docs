@@ -5,7 +5,7 @@ description: Bridge Azure IoT MQ to another MQTT broker.
 author: PatAltimore
 ms.author: patricka
 ms.topic: how-to
-ms.date: 10/29/2023
+ms.date: 11/02/2023
 
 #CustomerIntent: As an operator, I want to bridge Azure IoT MQ to another MQTT broker so that I can integrate Azure IoT MQ with other messaging systems.
 ---
@@ -492,7 +492,7 @@ System-assigned managed identity is recommended for Arc-connected clusters. To m
 1. Using `az k8s-extension show`, find the principal ID for the Azure IoT MQ Arc extension. For example:
 
    ```console
-   $ az k8s-extension show -n my-mq-extension -c friendly-broccoli -g my-arc -t connectedClusters
+   $ az k8s-extension show -resource-group <RESOURCE_GROUP> --cluster-name <CLUSTER_NAME> --name <IOT_MQ_EXTENSION_NAME> --cluster-type connectedClusters
    {
     ...
      "identity": {
