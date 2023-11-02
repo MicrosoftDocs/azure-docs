@@ -1,5 +1,5 @@
 ---
-title: Submit batch run and evaluate a flow in Prompt flow (preview)
+title: Submit batch run and evaluate a flow in Prompt flow
 titleSuffix: Azure Machine Learning
 description: Learn how to submit batch run and use built-in evaluation methods in prompt flow to evaluate how well your flow performs with a large dataset with Azure Machine Learning studio.
 services: machine-learning
@@ -12,7 +12,7 @@ ms.reviewer: lagayhar
 ms.date: 10/23/2023
 ---
 
-# Submit batch run and evaluate a flow (preview)
+# Submit batch run and evaluate a flow
 
 To evaluate how well your flow performs with a large dataset, you can submit batch run and use built-in evaluation methods in Prompt flow.
 
@@ -26,10 +26,6 @@ In this article you'll learn to:
 - Ways to Improve Flow Performance
 
 You can quickly start testing and evaluating your flow by following this video tutorial [submit batch run and evaluate a flow video tutorial](https://www.youtube.com/watch?v=5Khu_zmYMZk).
-
-> [!IMPORTANT]
-> Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
