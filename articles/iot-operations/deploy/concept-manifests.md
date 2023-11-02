@@ -25,7 +25,7 @@ To create a target resource for an Arc-enabled K8s cluster, add the resource def
   "type": "Microsoft.iotoperationsorchestrator/targets",
   "name": "myTarget",
   "location": "eastus",
-  "apiVersion": "2023-05-22-preview",
+  "apiVersion": "2023-10-04-preview",
   "extendedLocation": { ... },
   "tags": {},
   "properties": {
@@ -99,7 +99,7 @@ To create a target resource for an Arc-enabled K8s cluster, add the resource def
 | type             | Resource type: *Microsoft.IoTOperationsOrchestrator/target*. |
 | name             | Name for the target resource. |
 | location         | Name of the region where the target resource will be created. |
-| apiVersion       | Resource API version: *2023-05-22-preview*. |
+| apiVersion       | Resource API version: *2023-10-04-preview*. |
 | extendedLocation | An abstraction of a namespace that resides on the ARC-enabled cluster. To create any resources on the ARC-enabled cluster, one must create a custom location first. |
 | tags             | Optional [resource tags](../../azure-resource-manager/management/tag-resources.md). |
 | properties       | List of properties for the target resource. For more information, see the following [properties parameters table](#target-properties-parameters). |
@@ -134,7 +134,7 @@ To create a solution resource, add the resource definition JSON to an Azure Reso
   "type": "Microsoft.iotoperationsorchestrator/solutions",
   "name": "mySolution",
   "location": "eastus",
-  "apiVersion": "2023-05-22-preview",
+  "apiVersion": "2023-10-04-preview",
   "extendedLocation": { ... },
   "tags": {},
   "properties": {
@@ -180,7 +180,7 @@ To create a solution resource, add the resource definition JSON to an Azure Reso
 | type             | Resource type: *Microsoft.IoTOperationsOrchestrator/solutions*. |
 | name             | Name for the solution resource. |
 | location         | Name of the region where the solution resource will be created. |
-| apiVersion       | Resource API version: *2023-05-22-preview*. |
+| apiVersion       | Resource API version: *2023-10-04-preview*. |
 | extendedLocation | An abstraction of a namespace that resides on the ARC-enabled cluster. To create any resources on the ARC-enabled cluster, one must create a custom location first. |
 | tags             | Optional [resource tags](../../azure-resource-manager/management/tag-resources.md). |
 | properties       | List of properties for the solution resource. For more information, see the following [properties parameters table](#solution-properties-parameters). |
@@ -203,7 +203,7 @@ To create an instance resource, add the resource definition JSON to an Azure Res
   "type": "Microsoft.iotoperationsorchestrator/instances",
   "name": "myInstance",
   "location": "eastus",
-  "apiVersion": "2023-05-22-preview",
+  "apiVersion": "2023-10-04-preview",
   "extendedLocation": { ... },
   "tags": {},
   "properties": {
@@ -224,7 +224,7 @@ To create an instance resource, add the resource definition JSON to an Azure Res
 | type             | Resource type: *Microsoft.IoTOperationsOrchestrator/instances*. |
 | name             | Name for the instance resource. |
 | location         | Name of the region where the instance resource will be created. |
-| apiVersion       | Resource API version: *2023-05-22-preview*. |
+| apiVersion       | Resource API version: *2023-10-04-preview*. |
 | extendedLocation | An abstraction of a namespace that resides on the ARC-enabled cluster. To create any resources on the ARC-enabled cluster, one must create a custom location first. |
 | tags             | Optional [resource tags](../../azure-resource-manager/management/tag-resources.md). |
 | properties       | List of properties for the instance resource. For more information, see the following [properties parameters table](#instance-properties-parameters). |
