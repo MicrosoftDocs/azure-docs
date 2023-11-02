@@ -1,15 +1,14 @@
 ---
-title: Configure customer-managed keys-Managed HSM-Azure Elastic SAN Preview
+title: Use a managed HSM with Azure Elastic SAN Preview
 titleSuffix: Azure Elastic SAN
-description: Learn how to configure Azure Elastic SAN data encryption with customer-managed keys stored in an HSM by using the Azure portal, PowerShell, or Azure CLI. Customer-managed keys are stored in an Azure key vault.
+description: Learn how to configure Azure Elastic SAN encryption with customer-managed keys stored in an HSM by using the Azure CLI.
 author: roygara
 
 ms.author: rogarana
 ms.service: azure-elastic-san-storage
 ms.topic: how-to
 ms.date: 11/06/2023
-ms.reviewer: jaylansdaal
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-azurecli
 ---
 
 # Configure Elastic SAN data encryption with customer-managed keys in Managed HSM

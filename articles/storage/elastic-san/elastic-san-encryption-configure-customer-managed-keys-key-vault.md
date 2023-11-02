@@ -1,7 +1,7 @@
 ---
-title: Configure customer-managed keys-Azure Key Vault-Azure Elastic SAN Preview
+title: Use customer-managed keys with an Azure Elastic SAN Preview
 titleSuffix: Azure Elastic SAN
-description: Learn how to configure Azure Elastic SAN data encryption with customer-managed keys for an Elastic SAN volume group by using the Azure portal, PowerShell, or Azure CLI. Customer-managed keys are stored in an Azure key vault.
+description: Learn how to configure Azure Elastic SAN encryption with customer-managed keys for an Elastic SAN volume group by using the Azure portal, PowerShell, or Azure CLI.
 services: storage
 author: roygara
 

@@ -1,7 +1,7 @@
 ---
-title: Encrypt an Azure Elastic SAN Preview
+title: Encryption options for Azure Elastic SAN Preview
 titleSuffix: Azure Elastic SAN
-description: Azure Elastic SAN protects your data by encrypting it at rest. You can use customer-managed keys to manage encryption with your own keys, or you can rely on platform-managed keys for the encryption of your Elastic SAN volumes.
+description: Azure Elastic SAN protects your data by encrypting it at rest. You can use platform-managed keys for the encryption of your Elastic SAN volumes or use customer-managed keys to manage encryption with your own keys.
 author: roygara
 ms.date: 11/06/2023
 ms.topic: conceptual
