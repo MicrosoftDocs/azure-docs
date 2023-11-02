@@ -29,7 +29,7 @@ Here are a few examples of the kinds of prompts you can use to generate Kusto qu
 
 ## Examples
 
-Ask "What resources do I use the most?" Microsoft Copilot in Azure (preview) generates a query and shows some of your most frequently used resources.
+Ask "What resources do I use the most?" Microsoft Copilot for Azure (preview) will generate a query and list some of your most frequently-used resources.
 
 :::image type="content" source="media/get-information-resource-graph/azure-resource-graph-most-used-copilot.png" lightbox="media/get-information-resource-graph/azure-resource-graph-most-used-copilot.png" alt-text="Screenshot of Microsoft Copilot for Azure responding to a query about which resources are used most.":::
 

@@ -10,9 +10,9 @@ author: JnHs
 
 # Discover performance recommendations with Code Optimizations using Microsoft Copilot for Azure (preview)
 
-Microsoft Copilot in Azure (preview) can provide [Code Optimizations](/azure/azure-monitor/insights/code-optimizations) for Application Insights resources that have an active [Application Insights Profiler](/azure/azure-monitor/profiler/profiler-settings). This lets you view recommendations tailored to your app to help optimize its performance.
+Microsoft Copilot for Azure (preview) can provide [Code Optimizations](/azure/azure-monitor/insights/code-optimizations) for Application Insights resources that have an active [Application Insights Profiler](/azure/azure-monitor/profiler/profiler-settings). This lets you view recommendations tailored to your app to help optimize its performance.
 
-When you ask Microsoft Copilot in Azure (preview) to provide these recommendations, it automatically pulls context from an open Application Insights blade or App Service blade to display available recommendations specific to that app. If the context isn't clear, you'll be prompted to choose an Application Insights resource from a resource selector page.
+When you ask Microsoft Copilot for Azure (preview) to provide these recommendations, it automatically pulls context from an open Application Insights blade or App Service blade to display available recommendations specific to that app. If the context isn't clear, you'll be prompted to choose an Application Insights resource from a resource selector page.
 
 [!INCLUDE [scenario-note](includes/scenario-note.md)]
 
@@ -28,7 +28,7 @@ Here are a few examples of the kinds of prompts you can use with Code Optimizati
 
 ## Examples
 
-In this example, Microsoft Copilot in Azure (preview) responds to the question, "Any code performance recommendations?" The response notes that there are 12 recommendations, providing the option to view either the top recommendation or all recommendations at once.
+In this example, Microsoft Copilot for Azure (preview) responds to the question, "Any code performance recommendations?" The response notes that there are 12 recommendations, providing the option to view either the top recommendation or all recommendations at once.
 
 This screenshot shows that the top recommendation was selected. Details about the issue are shown, along with suggested recommendations on how to resolve it.
 

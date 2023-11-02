@@ -12,7 +12,7 @@ author: JnHs
 
 You can ask Microsoft Copilot for Azure (preview) questions about metrics and logs collected by [Azure Monitor](/azure/azure-monitor/).
 
-When you ask Microsoft Copilot in Azure (preview) to provide these recommendations, it automatically pulls context when possible, based on the previous conversation or on the page you're viewing in the Azure portal. If the context isn't clear, you'll be prompted to specify the resource for which you want information.
+When you ask Microsoft Copilot for Azure (preview) to provide these recommendations, it automatically pulls context when possible, based on the previous conversation or on the page you're viewing in the Azure portal. If the context isn't clear, you'll be prompted to specify the resource for which you want information.
 
 [!INCLUDE [scenario-note](includes/scenario-note.md)]
 
