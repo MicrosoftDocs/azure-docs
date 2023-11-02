@@ -52,7 +52,7 @@ As you move from development to production, you can move from an add-on to a man
 
 The following table shows you which service to use in development, and which service to use in production.
 
-| Functionality | dev service | Production managed service |
+| Functionality | Add on | Production managed service |
 |---|---|---|
 | Cache | Open-source Redis | Azure Cache for Redis |
 | Database | N/A | Azure Cosmos DB |
@@ -104,9 +104,9 @@ For more information on the service commands and arguments, see the
 
 ## Limitations
 
-- dev services are in public preview.
-- Any container app created before May 23, 2023 isn't eligible to use dev services.
-- dev services come with minimal guarantees. For instance, they're automatically restarted if they crash, however there's no formal quality of service or high-availability guarantees associated with them. For production workloads, use Azure-managed services.
+- Add ons are in public preview.
+- Any container app created before May 23, 2023 isn't eligible to use add ons.
+- Add ons come with minimal guarantees. For instance, they're automatically restarted if they crash, however there's no formal quality of service or high-availability guarantees associated with them. For production workloads, use Azure-managed services.
 
 ## Next steps
 
