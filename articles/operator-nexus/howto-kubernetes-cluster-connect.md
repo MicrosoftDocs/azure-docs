@@ -40,13 +40,8 @@ Once you are connected to a cluster via Arc for Kuberentes, you can connect to i
 
 1. List the nodes in your Nexus Kubernetes cluster:
 
-    ```bash
-    kubectl get nodes
-    ```
-
-    The following example resembles output from the command:
-
-    ```output
+    ```console
+    $> kubectl get nodes
     NAME                                     STATUS   ROLES           AGE    VERSION
     cluster-01-627e99ee-agentpool1-md-chfwd   Ready    <none>          125m   v1.27.1
     cluster-01-627e99ee-agentpool1-md-kfw4t   Ready    <none>          125m   v1.27.1
