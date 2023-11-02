@@ -111,7 +111,7 @@ az rest --method post --uri "$APIM_RESOURCE_ID/migrateToStv2?api-version=2023-03
 
 To verify that the migration was successful, when the status changes to `Online`, check the [platform version](compute-infrastructure.md#how-do-i-know-which-platform-hosts-my-api-management-instance) of your API Management instance. After successful migration, the value is `stv2`.
 
-### Update Network Dependencies
+### Update network dependencies
 
 On successful migration, update any network dependencies including DNS, firewall rules, and VNets to use the new VIP address.
 
