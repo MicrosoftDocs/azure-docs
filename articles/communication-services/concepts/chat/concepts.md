@@ -65,9 +65,10 @@ There are two core parts to chat architecture: 1) Trusted Service and 2) Client 
 You can use [Azure AI APIs](../../../ai-services/index.yml) with the Chat SDK to build use cases like:
 
 - Enable users to chat with each other in different languages.
+- Configure a bot to run on [one or more](../../../bot-service/bot-service-manage-channels?view=azure-bot-service-4.0&source=recommendations) channels 
 - Help a support agent prioritize tickets by detecting a negative sentiment of an incoming message from a customer.
 - Genrate a summary at the end of the conversation to send to customer via email with next steps or follow up at a later date.
-- Add a [PVA bot](../../../power-platform/release-plan/2023wave2/power-virtual-agents/bring-bot-framework-bot-power-virtual-agents) in a Azure Communication Services Chat channel with an Azure Bot and a relay bot.
+- Add a [PVA bot](../../../power-platform/release-plan/2023wave2/power-virtual-agents/bring-bot-framework-bot-power-virtual-agents) in a Azure Communication Services Chat channel with an Azure Bot and a [relay bot](../../../power-virtual-agents/publication-connect-bot-to-azure-bot-service-channels#manage-conversation-sessions-with-your-power-virtual-agents-bot).
 
 :::image type="content" source="../media/chat/chat-and-open-ai.svg" alt-text="Diagram showing Azure Communication Services can be paired with Azure AI services.":::
 
