@@ -198,9 +198,10 @@ items:
       href: troubleshoot/known-issues.md
     - name: Reference # supporting information like APIs, tools, code libraries
       items: 
+      - name: Azure IoT Operations CLI
+        href: reference/about-iot-operations-cli.md
       - name: Available metrics for observability
         items:
         - name: Metrics for MQ
           href: reference/observability-metrics-mq.md
-        - name: Azure IoT Operations CLI
-          href: reference/about-iot-operations-cli.md
+
