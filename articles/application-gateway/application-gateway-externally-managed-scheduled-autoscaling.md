@@ -38,7 +38,7 @@ Two runbooks are created:
 1.	IncreaseMin - Sets the min count of the autoscaling configuration to 4 
 2.	DecreaseMin - Sets the min count of the autoscaling configuration to 2 
 
-Use the following Powershell Runbook to adjust capacity:
+Use the following PowerShell runbook to adjust capacity:
 
   ```Azure PowerShell
 # Get the context of the managed identity 
@@ -63,8 +63,8 @@ A: Azure Automation has a SLA of 99.9% for a timely start of jobs.
 
 2. Q: What happens if jobs are interrupted during execution?
    
-    a. A: If the job already sends the request to AppGW before getting interrupted, then the request goes through .  
-    b. A: If the job gets interrupted before sending the request to Application Gateway , then it will be one of the scenarios described in next section.  
+    a. A: If the job already sends the request to AppGW before getting interrupted, then the request goes through.  
+    b. A: If the job gets interrupted before sending the request to Application Gateway, then it will be one of the scenarios described in next section.  
 
 3. Q: What happens if job tasks don’t occur? 
 
