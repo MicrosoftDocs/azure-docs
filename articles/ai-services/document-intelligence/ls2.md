@@ -30,30 +30,60 @@ ms.date: 11/15/2023
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD006 -->
+<!-- markdownlint-disable MD051 -->
 
 Azure AI Document Intelligence models support many languages. Our language support capabilities enable your users to communicate with your applications in natural ways and empower global outreach. The following tables list the available language and locale by model and feature:
 
-* [**Data analysis models**](#data-analysis-models)
+* [**Document analysis models**](#document-analysis-models)
 
 * [**Prebuilt models**](#prebuilt-models)
 
 * [**Custom models**](#custom-models)
 
-## Data Analysis models
-
-**Choose a model**
-
-### [Read](#tab/read)
-
-The following lists include the currently supported languages for the most recent GA version for the Read model.
-
 > [!NOTE]
 > **Language code optional**
 >
-> Document Intelligence's deep learning based universal models extract all multi-lingual text in your documents, including text lines with mixed languages, and do not require specifying a language code. Do not provide the language code as the parameter unless you are sure about the language and want to force the service to apply only the relevant model. Otherwise, the service may return incomplete and incorrect text.
+> * Document Intelligence's deep learning based universal models extract all multi-lingual text in your documents, including text lines with mixed languages, and don't require specifying a language code.
+> * Don't provide the language code as the parameter unless you are sure about the language and want to force the service to apply only the relevant model. Otherwise, the service may return incomplete and incorrect text.
+>
+> * aLSO, It's not necessary to specify a locale. This is an optional parameter. The Document Intelligence deep-learning technology will auto-detect the text language in your image.
+
+## Document Analysis models
+
+### [Read](#tab/read)
+
+##### Language support: prebuilt read model
 
 #### Handwritten text
 
+:::moniker range="doc-intel-4.0.0"
+The following table lists the supported languages for extracting handwritten texts.
+
+|Language| Language code (optional) | Language| Language code (optional) |
+|:-----|:----:|:-----|:----:|
+|English|`en`|Japanese  |`ja`|
+|Chinese Simplified   |`zh-Hans`|Korean |`ko`|
+|French  |`fr`|Portuguese |`pt`|
+|German  |`de`|Spanish  |`es`|
+|Italian  |`it`| Russian (preview) | `ru` |
+|Thai (preview) | `th` | Arabic (preview) | `ar` |
+:::moniker-end
+
+::: moniker range="doc-intel-3.1.0"
+The following table lists the supported languages for extracting handwritten texts.</br>
+
+##### Model ID: **prebuilt-read**
+
+|Language| Language code (optional) | Language| Language code (optional) |
+|:-----|:----:|:-----|:----:|
+|English|`en`|Japanese  |`ja`|
+|Chinese Simplified   |`zh-Hans`|Korean |`ko`|
+|French  |`fr`|Portuguese |`pt`|
+|German  |`de`|Spanish  |`es`|
+|Italian  |`it`|
+:::moniker-end
+
+::: moniker range="doc-intel-3.0.0"
 The following table lists the supported languages for extracting handwritten texts.
 
 |Language| Language code (optional) | Language| Language code (optional) |
@@ -64,7 +94,11 @@ The following table lists the supported languages for extracting handwritten tex
 |German  |`de`|Spanish  |`es`|
 |Italian  |`it`|
 
+:::moniker-end
+
 #### Print text
+
+:::moniker range=">=doc-intel-3.1.0"
 
 The following table lists the supported languages for print text by the most recent GA version.
 
@@ -387,17 +421,247 @@ The following table lists the supported languages for print text by the most rec
   |Zulu|zu|
    :::column-end:::
 :::row-end:::
+:::moniker-end
+
+::: moniker range="doc-intel-3.0.0"
+
+The following table lists the supported languages for print text by the most recent GA version.
+
+:::row:::
+   :::column span="":::
+      |Language| Code (optional) |
+  |:-----|:----:|
+  |Afrikaans|af|
+  |Angika|anp|
+  |Arabic|ar|
+  |Asturian|ast|
+  |Awadhi|awa|
+  |Azerbaijani|az|
+  |Belarusian (Cyrillic)|be, be-cyrl|
+  |Belarusian (Latin)|be-latn|
+  |Bagheli|bfy|
+  |Mahasu Pahari|bfz|
+  |Bulgarian|bg|
+  |Haryanvi|bgc|
+  |Bhojpuri|bho|
+  |Bislama|bi|
+  |Bundeli|bns|
+  |Breton|br|
+  |Braj|bra|
+  |Bodo|brx|
+  |Bosnian|bs|
+  |Buriat|bua|
+  |Catalan|ca|
+  |Cebuano|ceb|
+  |Chamorro|ch|
+  |Montenegrin (Latin)|cnr, cnr-latn|
+  |Montenegrin (Cyrillic)|cnr-cyrl|
+  |Corsican|co|
+  |Crimean Tatar|crh|
+  |Czech|cs|
+  |Kashubian|csb|
+  |Welsh|cy|
+  |Danish|da|
+  |German|de|
+  |Dhimal|dhi|
+  |Dogri|doi|
+  |Lower Sorbian|dsb|
+  |English|en|
+  |Spanish|es|
+  |Estonian|et|
+  |Basque|eu|
+  |Persian|fa|
+  |Finnish|fi|
+:::column-end:::
+   :::column span="":::
+      |Language| Code (optional) |
+  |:-----|:----:|
+  |Filipino|fil|
+  |Fijian|fj|
+  |Faroese|fo|
+  |French|fr|
+  |Friulian|fur|
+  |Western Frisian|fy|
+  |Irish|ga|
+  |Gagauz|gag|
+  |Scottish Gaelic|gd|
+  |Gilbertese|gil|
+  |Galician|gl|
+  |Gondi|gon|
+  |Manx|gv|
+  |Gurung|gvr|
+  |Hawaiian|haw|
+  |Hindi|hi|
+  |Halbi|hlb|
+  |Chhattisgarhi|hne|
+  |Hani|hni|
+  |Ho|hoc|
+  |Croatian|hr|
+  |Upper Sorbian|hsb|
+  |Haitian|ht|
+  |Hungarian|hu|
+  |Interlingua|ia|
+  |Indonesian|id|
+  |Icelandic|is|
+  |Italian|it|
+  |Inuktitut|iu|
+  |Japanese|
+  |Jaunsari|jns|
+  |Javanese|jv|
+  |Kara-Kalpak (Latin)|kaa, kaa-latn|
+  |Kara-Kalpak (Cyrillic)|kaa-cyrl|
+  |Kachin|kac|
+  |Kabuverdianu|kea|
+  |Korku|kfq|
+  |Khasi|kha|
+  |Kazakh (Latin)|kk, kk-latn|
+  |Kazakh (Cyrillic)|kk-cyrl|
+  |Kalaallisut|kl|
+  :::column-end:::
+   :::column span="":::
+      |Language| Code (optional) |
+  |:-----|:----:|
+  |Khaling|klr|
+  |Malto|kmj|
+  |Korean|
+  |Kosraean|kos|
+  |Koryak|kpy|
+  |Karachay-Balkar|krc|
+  |Kurukh|kru|
+  |Kölsch|ksh|
+  |Kurdish (Latin)|ku, ku-latn|
+  |Kurdish (Arabic)|ku-arab|
+  |Kumyk|kum|
+  |Cornish|kw|
+  |Kirghiz|ky|
+  |Latin|la|
+  |Luxembourgish|lb|
+  |Lakota|lkt|
+  |Lithuanian|lt|
+  |Maori|mi|
+  |Mongolian|mn|
+  |Marathi|mr|
+  |Malay|ms|
+  |Maltese|mt|
+  |Hmong Daw|mww|
+  |Erzya|myv|
+  |Neapolitan|nap|
+  |Nepali|ne|
+  |Niuean|niu|
+  |Dutch|nl|
+  |Norwegian|no|
+  |Nogai|nog|
+  |Occitan|oc|
+  |Ossetian|os|
+  |Panjabi|pa|
+  |Polish|pl|
+  |Dari|prs|
+  |Pushto|ps|
+  |Portuguese|pt|
+  |K'iche'|quc|
+  |Camling|rab|
+  |Romansh|rm|
+ :::column-end:::
+   :::column span="":::
+      |Language| Code (optional) |
+  |:-----|:----:|
+  |Romanian|ro|
+  |Russian|ru|
+  |Sanskrit|sa|
+  |Santali|sat|
+  |Sadri|sck|
+  |Scots|sco|
+  |Slovak|sk|
+  |Slovenian|sl|
+  |Samoan|sm|
+  |Southern Sami|sma|
+  |Northern Sami|sme|
+  |Lule Sami|smj|
+  |Inari Sami|smn|
+  |Skolt Sami|sms|
+  |Somali|so|
+  |Albanian|sq|
+  |Serbian (Latin)|sr, sr-latn|
+  |Sirmauri|srx|
+  |Swedish|sv|
+  |Swahili|sw|
+  |Tetum|tet|
+  |Tajik|tg|
+  |Thangmi|thf|
+  |Turkmen|tk|
+  |Tonga|to|
+  |Turkish|tr|
+  |Tatar|tt|
+  |Tuvinian|tyv|
+  |Uighur|ug|
+  |Urdu|ur|
+  |Uzbek (Latin)|uz, uz-latn|
+  |Uzbek (Cyrillic)|uz-cyrl|
+  |Uzbek (Arabic)|uz-arab|
+  |Volapük|vo|
+  |Walser|wae|
+  |Kangri|xnr|
+  |Sherpa|xsr|
+  |Yucateco|yua|
+  |Zhuang|za|
+  |Chinese (Han (Simplified variant))|zh, zh-hans|
+  |Chinese (Han (Traditional variant))|zh-hant|
+  |Zulu|zu||Romanian|ro|
+  |Russian|ru|
+  |Sanskrit|sa|
+  |Santali|sat|
+  |Sadri|sck|
+  |Scots|sco|
+  |Slovak|sk|
+  |Slovenian|sl|
+  |Samoan|sm|
+  |Southern Sami|sma|
+  |Northern Sami|sme|
+  |Lule Sami|smj|
+  |Inari Sami|smn|
+  |Skolt Sami|sms|
+  |Somali|so|
+  |Albanian|sq|
+  |Serbian (Latin)|sr, sr-latn|
+  |Sirmauri|srx|
+  |Swedish|sv|
+  |Swahili|sw|
+  |Tetum|tet|
+  |Tajik|tg|
+  |Thangmi|thf|
+  |Turkmen|tk|
+  |Tonga|to|
+  |Turkish|tr|
+  |Tatar|tt|
+  |Tuvinian|tyv|
+  |Uighur|ug|
+  |Urdu|ur|
+  |Uzbek (Latin)|uz, uz-latn|
+  |Uzbek (Cyrillic)|uz-cyrl|
+  |Uzbek (Arabic)|uz-arab|
+  |Volapük|vo|
+  |Walser|wae|
+  |Kangri|xnr|
+  |Sherpa|xsr|
+  |Yucateco|yua|
+  |Zhuang|za|
+  |Chinese (Han (Simplified variant))|zh, zh-hans|
+  |Chinese (Han (Traditional variant))|zh-hant|
+  |Zulu|zu|
+   :::column-end:::
+:::row-end:::
+
+:::moniker-end
+
 
 #### Detected languages: Read API
 
 The [Read API](concept-read.md) supports detecting the following languages in your documents. This list can include languages not currently supported for text extraction.
 
-> [!NOTE]
+> [!IMPORTANT]
 > **Language detection**
 >
 > * Document Intelligence read model can _detect_ possible presence of languages and returns language codes for detected languages.
-> * To determine if text can also be
-> extracted for a given language, see previous sections.
 >
 > **Detected languages vs extracted languages**
 >
@@ -532,14 +796,13 @@ The [Read API](concept-read.md) supports detecting the following languages in yo
 
 ### [Layout](#tab/layout)
 
-The following lists include the currently supported languages for the most recent GA version for Read, Layout, and Custom template (form) models.
+##### Language support: prebuilt layout model
 
-> [!NOTE]
-> **Language code optional**
->
-> Document Intelligence's deep learning based universal models extract all multi-lingual text in your documents, including text lines with mixed languages, and do not require specifying a language code. Do not provide the language code as the parameter unless you are sure about the language and want to force the service to apply only the relevant model. Otherwise, the service may return incomplete and incorrect text.
+##### Model ID: **prebuilt-layout**
 
 #### Handwritten text
+
+:::moniker range="doc-intel-4.0.0"
 
 The following table lists the supported languages for extracting handwritten texts.
 
@@ -549,15 +812,47 @@ The following table lists the supported languages for extracting handwritten tex
 |Chinese Simplified   |`zh-Hans`|Korean |`ko`|
 |French  |`fr`|Portuguese |`pt`|
 |German  |`de`|Spanish  |`es`|
+|Italian  |`it`| Russian (preview) | `ru` |
+|Thai (preview) | `th` | Arabic (preview) | `ar` |
+:::moniker-end
+
+:::moniker range="doc-intel-3.1.0"
+
+The following table lists the language support for extracting handwritten texts.
+
+|Language| Language code (optional) | Language| Language code (optional) |
+|:-----|:----:|:-----|:----:|
+|English|`en`|Japanese  |`ja`|
+|Chinese Simplified   |`zh-Hans`|Korean |`ko`|
+|French  |`fr`|Portuguese |`pt`|
+|German  |`de`|Spanish  |`es`|
 |Italian  |`it`|
 
+:::moniker-end
+
+:::moniker range="doc-intel-3.0.0"
+
+The following table lists the supported languages for extracting handwritten texts.
+
+|Language| Language code (optional) | Language| Language code (optional) |
+|:-----|:----:|:-----|:----:|
+|English|`en`|Japanese  |`ja`|
+|Chinese Simplified   |`zh-Hans`|Korean |`ko`|
+|French  |`fr`|Portuguese |`pt`|
+|German  |`de`|Spanish  |`es`|
+|Italian  |`it`| Russian (preview) | `ru` |
+|Thai (preview) | `th` | Arabic (preview) | `ar` |
+:::moniker-end
+
 #### Print text
+
+:::moniker range=">=doc-intel-3.1.0":::
 
 The following table lists the supported languages for print text by the most recent GA version.
 
 :::row:::
    :::column span="":::
-      |Language| Code (optional) |
+  |Language| Code (optional) |
   |:-----|:----:|
   |Abaza|abq|
   |Abkhazian|ab|
@@ -874,15 +1169,243 @@ The following table lists the supported languages for print text by the most rec
   |Zulu|zu|
    :::column-end:::
 :::row-end:::
+:::moniker-end
+
+:::moniker range="doc-intel-3.0.0"
+The following table lists the supported languages for print text by the most recent GA version.
+
+:::row:::
+   :::column span="":::
+      |Language| Code (optional) |
+  |:-----|:----:|
+  |Afrikaans|af|
+  |Angika|anp|
+  |Arabic|ar|
+  |Asturian|ast|
+  |Awadhi|awa|
+  |Azerbaijani|az|
+  |Belarusian (Cyrillic)|be, be-cyrl|
+  |Belarusian (Latin)|be-latn|
+  |Bagheli|bfy|
+  |Mahasu Pahari|bfz|
+  |Bulgarian|bg|
+  |Haryanvi|bgc|
+  |Bhojpuri|bho|
+  |Bislama|bi|
+  |Bundeli|bns|
+  |Breton|br|
+  |Braj|bra|
+  |Bodo|brx|
+  |Bosnian|bs|
+  |Buriat|bua|
+  |Catalan|ca|
+  |Cebuano|ceb|
+  |Chamorro|ch|
+  |Montenegrin (Latin)|cnr, cnr-latn|
+  |Montenegrin (Cyrillic)|cnr-cyrl|
+  |Corsican|co|
+  |Crimean Tatar|crh|
+  |Czech|cs|
+  |Kashubian|csb|
+  |Welsh|cy|
+  |Danish|da|
+  |German|de|
+  |Dhimal|dhi|
+  |Dogri|doi|
+  |Lower Sorbian|dsb|
+  |English|en|
+  |Spanish|es|
+  |Estonian|et|
+  |Basque|eu|
+  |Persian|fa|
+  |Finnish|fi|
+:::column-end:::
+   :::column span="":::
+      |Language| Code (optional) |
+  |:-----|:----:|
+  |Filipino|fil|
+  |Fijian|fj|
+  |Faroese|fo|
+  |French|fr|
+  |Friulian|fur|
+  |Western Frisian|fy|
+  |Irish|ga|
+  |Gagauz|gag|
+  |Scottish Gaelic|gd|
+  |Gilbertese|gil|
+  |Galician|gl|
+  |Gondi|gon|
+  |Manx|gv|
+  |Gurung|gvr|
+  |Hawaiian|haw|
+  |Hindi|hi|
+  |Halbi|hlb|
+  |Chhattisgarhi|hne|
+  |Hani|hni|
+  |Ho|hoc|
+  |Croatian|hr|
+  |Upper Sorbian|hsb|
+  |Haitian|ht|
+  |Hungarian|hu|
+  |Interlingua|ia|
+  |Indonesian|id|
+  |Icelandic|is|
+  |Italian|it|
+  |Inuktitut|iu|
+  |Japanese|
+  |Jaunsari|jns|
+  |Javanese|jv|
+  |Kara-Kalpak (Latin)|kaa, kaa-latn|
+  |Kara-Kalpak (Cyrillic)|kaa-cyrl|
+  |Kachin|kac|
+  |Kabuverdianu|kea|
+  |Korku|kfq|
+  |Khasi|kha|
+  |Kazakh (Latin)|kk, kk-latn|
+  |Kazakh (Cyrillic)|kk-cyrl|
+  |Kalaallisut|kl|
+  :::column-end:::
+   :::column span="":::
+      |Language| Code (optional) |
+  |:-----|:----:|
+  |Khaling|klr|
+  |Malto|kmj|
+  |Korean|
+  |Kosraean|kos|
+  |Koryak|kpy|
+  |Karachay-Balkar|krc|
+  |Kurukh|kru|
+  |Kölsch|ksh|
+  |Kurdish (Latin)|ku, ku-latn|
+  |Kurdish (Arabic)|ku-arab|
+  |Kumyk|kum|
+  |Cornish|kw|
+  |Kirghiz|ky|
+  |Latin|la|
+  |Luxembourgish|lb|
+  |Lakota|lkt|
+  |Lithuanian|lt|
+  |Maori|mi|
+  |Mongolian|mn|
+  |Marathi|mr|
+  |Malay|ms|
+  |Maltese|mt|
+  |Hmong Daw|mww|
+  |Erzya|myv|
+  |Neapolitan|nap|
+  |Nepali|ne|
+  |Niuean|niu|
+  |Dutch|nl|
+  |Norwegian|no|
+  |Nogai|nog|
+  |Occitan|oc|
+  |Ossetian|os|
+  |Panjabi|pa|
+  |Polish|pl|
+  |Dari|prs|
+  |Pushto|ps|
+  |Portuguese|pt|
+  |K'iche'|quc|
+  |Camling|rab|
+  |Romansh|rm|
+ :::column-end:::
+   :::column span="":::
+      |Language| Code (optional) |
+  |:-----|:----:|
+  |Romanian|ro|
+  |Russian|ru|
+  |Sanskrit|sa|
+  |Santali|sat|
+  |Sadri|sck|
+  |Scots|sco|
+  |Slovak|sk|
+  |Slovenian|sl|
+  |Samoan|sm|
+  |Southern Sami|sma|
+  |Northern Sami|sme|
+  |Lule Sami|smj|
+  |Inari Sami|smn|
+  |Skolt Sami|sms|
+  |Somali|so|
+  |Albanian|sq|
+  |Serbian (Latin)|sr, sr-latn|
+  |Sirmauri|srx|
+  |Swedish|sv|
+  |Swahili|sw|
+  |Tetum|tet|
+  |Tajik|tg|
+  |Thangmi|thf|
+  |Turkmen|tk|
+  |Tonga|to|
+  |Turkish|tr|
+  |Tatar|tt|
+  |Tuvinian|tyv|
+  |Uighur|ug|
+  |Urdu|ur|
+  |Uzbek (Latin)|uz, uz-latn|
+  |Uzbek (Cyrillic)|uz-cyrl|
+  |Uzbek (Arabic)|uz-arab|
+  |Volapük|vo|
+  |Walser|wae|
+  |Kangri|xnr|
+  |Sherpa|xsr|
+  |Yucateco|yua|
+  |Zhuang|za|
+  |Chinese (Han (Simplified variant))|zh, zh-hans|
+  |Chinese (Han (Traditional variant))|zh-hant|
+  |Zulu|zu||Romanian|ro|
+  |Russian|ru|
+  |Sanskrit|sa|
+  |Santali|sat|
+  |Sadri|sck|
+  |Scots|sco|
+  |Slovak|sk|
+  |Slovenian|sl|
+  |Samoan|sm|
+  |Southern Sami|sma|
+  |Northern Sami|sme|
+  |Lule Sami|smj|
+  |Inari Sami|smn|
+  |Skolt Sami|sms|
+  |Somali|so|
+  |Albanian|sq|
+  |Serbian (Latin)|sr, sr-latn|
+  |Sirmauri|srx|
+  |Swedish|sv|
+  |Swahili|sw|
+  |Tetum|tet|
+  |Tajik|tg|
+  |Thangmi|thf|
+  |Turkmen|tk|
+  |Tonga|to|
+  |Turkish|tr|
+  |Tatar|tt|
+  |Tuvinian|tyv|
+  |Uighur|ug|
+  |Urdu|ur|
+  |Uzbek (Latin)|uz, uz-latn|
+  |Uzbek (Cyrillic)|uz-cyrl|
+  |Uzbek (Arabic)|uz-arab|
+  |Volapük|vo|
+  |Walser|wae|
+  |Kangri|xnr|
+  |Sherpa|xsr|
+  |Yucateco|yua|
+  |Zhuang|za|
+  |Chinese (Han (Simplified variant))|zh, zh-hans|
+  |Chinese (Han (Traditional variant))|zh-hant|
+  |Zulu|zu|
+   :::column-end:::
+:::row-end:::
+:::moniker-end
 
 ### [General document](#tab/read)
 
->[!NOTE]
-> It's not necessary to specify a locale. This is an optional parameter. The Document Intelligence deep-learning technology will auto-detect the language of the text in your image.
+##### Language support: prebuilt document model
 
 | Model | Language—Locale code | Default |
 |--------|:----------------------|:---------|
-|General document| <ul><li>English (United States)—en-US</li></ul>| English (United States)—en-US|
+|**prebuilt-document**| English (United States)—en-US| English (United States)—en-US|
 
 ---
 
@@ -890,48 +1413,52 @@ The following table lists the supported languages for print text by the most rec
 
 ### [Business card](#tab/business-card)
 
->[!NOTE]
-> It's not necessary to specify a locale. This is an optional parameter. The Document Intelligence deep-learning technology will auto-detect the language of the text in your image.
+##### Language support: prebuilt business card model
 
 | Model | Language—Locale code | Default |
 |--------|:----------------------|:---------|
-|Business card (v3.0 API)| &bullet; English (United States)—en-US<br>&bullet;  English (Australia)—en-AU<br>&bullet; English (Canada)—en-CA<br>&bullet; English (United Kingdom)—en-GB<br>&bullet; English (India)—en-IN<br>&bullet; English (Japan)—en-JP<br>&bullet; Japanese (Japan)—ja-JP  | Autodetected (en-US or ja-JP) |
-|Business card (v2.1 API)| &bullet; English (United States)—en-US<br>&bullet;  English (Australia)—en-AU<br>&bullet; English (Canada)—en-CA<br>&bullet; English (United Kingdom)—en-GB<br>&bullet; English (India)—en-IN</li> | Autodetected |
+|**prebuilt-businessCard** (v3.0 API)| &bullet; English (United States)—en-US</br>&bullet;  English (Australia)—en-AU</br>&bullet; English (Canada)—en-CA</br>&bullet; English (United Kingdom)—en-GB</br>&bullet; English (India)—en-IN</br>&bullet; English (Japan)—en-JP</br>&bullet; Japanese (Japan)—ja-JP  | Autodetected (en-US or ja-JP) |
+|Business card (v2.1 API)| &bullet; English (United States)—en-US</br>&bullet;  English (Australia)—en-AU</br>&bullet; English (Canada)—en-CA</br>&bullet; English (United Kingdom)—en-GB</br>&bullet; English (India)—en-IN</li> | Autodetected |
 
 ### [Contract](#tab/contract)
 
->[!NOTE]
-> Document Intelligence auto-detects language and locale data.
-
-| Supported languages | Details |
-|:----------------------|:---------|
-| English (en) | United States (us)|
-
-### [Health insurance card](#tab/health-insurance-card)
+##### Language support: prebuilt contract model
 
 | Model | Language—Locale code | Default |
 |--------|:----------------------|:---------|
-|prebuilt-healthInsuranceCard.us| <ul><li>English (United States)</li></ul>|English (United States)—en-US|
+|**prebuilt-contract**| English (United States)—en-US| English (United States)—en-US|
+
+### [Health insurance card](#tab/health-insurance-card)
+
+##### Language support: prebuilt health insurance card model
+
+| Model | Language—Locale code | Default |
+|--------|:----------------------|:---------|
+|**prebuilt-healthInsuranceCard.us**| English (United States)|English (United States)—en-US|
 
 ### [ID document](#tab/id-document)
 
+##### Language support: prebuilt ID document model
+
 Supported document types
 
-| Region | Document types |
-|--------|----------------|
-|Worldwide|Passport Book, Passport Card|
-|United States|Driver License, Identification Card, Residency Permit (Green card), Social Security Card, Military ID|
-|Europe|Driver License, Identification Card, Residency Permit|
-|India|Driver License, PAN Card, Aadhaar Card|
-|Canada|Driver License, Identification Card, Residency Permit (Maple Card)|
-|Australia|Driver License, Photo Card, Key-pass ID (including digital version)|
+|Model| Region | Document types |
+|-----|--------|----------------|
+|**prebuilt-idDocument**|||
+||Worldwide|Passport Book, Passport Card|
+||United States|Driver License, Identification Card, Residency Permit (Green card), Social Security Card, Military ID|
+||Europe|Driver License, Identification Card, Residency Permit|
+||India|Driver License, PAN Card, Aadhaar Card|
+||Canada|Driver License, Identification Card, Residency Permit (Maple Card)|
+||Australia|Driver License, Photo Card, Key-pass ID (including digital version)|
 
 ### [Invoice](#tab/invoice)
 
->[!NOTE]
-> Document Intelligence auto-detects language and locale data.
+##### Language support: prebuilt invoice model
 
 :::moniker range="doc-intel-3.1.0"
+
+##### Model ID: **prebuilt-invoice**
 
 | Supported languages | Details |
 |:----------------------|:---------|
@@ -1023,8 +1550,9 @@ Supported document types
 
 ### [Receipt](#tab/receipt)
 
->[!NOTE]
-> Document Intelligence auto-detects language and locale data.
+##### Language support: prebuilt receipt model
+
+##### Model ID: **prebuilt-receipt**
 
 #### Thermal receipts (retail, meal, parking, etc.)
 
@@ -1106,37 +1634,38 @@ Supported document types
 
 ### Supported languages and locales v2.1
 
->[!NOTE]
- > It's not necessary to specify a locale. This is an optional parameter. The Document Intelligence deep-learning technology will auto-detect the language of the text in your image.
-
 | Model | Language—Locale code | Default |
 |--------|:----------------------|:---------|
-|Receipt| <ul><li>English (United States)—en-US</li><li> English (Australia)—en-AU</li><li>English (Canada)—en-CA</li><li>English (United Kingdom)—en-GB</li><li>English (India)—en-IN</li></ul>  | Autodetected |
+|Receipt| &bullet; English (United States)—en-US</br> &bullet; English (Australia)—en-AU</br> &bullet; English (Canada)—en-CA</br> &bullet; English (United Kingdom)—en-GB</br> &bullet; English (India)—en-IN  | Autodetected |
 
 ::: moniker-end
->[!NOTE]
-> Document Intelligence auto-detects language and locale data.
 
-| Supported languages | Details |
-|:----------------------|:---------|
-| English (en) | United States (us)|
+### [Tax Documents](#tab/tax)
 
-#### Tax Documents
+##### Language support: prebuilt tax form models
+
+ Model | Language—Locale code | Default |
+|--------|:----------------------|:---------|
+|**prebuilt-tax.us.w2**|English (United States)|English (United States)—en-US|
+|**prebuilt-tax.us.1098**|English (United States)|English (United States)—en-US|
+|**prebuilt-tax.us.1098E**|English (United States)|English (United States)—en-US|
+|**prebuilt-tax.us.1098T**|English (United States)|English (United States)—en-US|
 
 ---
 
-**Choose a model**
-
 ## Custom models
 
-### [Custom classification](#tab/custom-classifier)
+### [Custom classifier](#tab/custom-classifier)
 
-Classification models currently only support English language documents.
+##### Language support: custom classifier model
+
+| Model | Language—Locale code | Default |
+|--------|:----------------------|:---------|
+|**custom-classification**| English (United States)—en-US| English (United States)—en-US|
 
 ### [Custom neural](#tab/custom-neural)
 
->[!NOTE]
-> Document Intelligence auto-detects language and locale data.
+##### Language support: custom neural model
 
 |Language| Code (optional) |
 |:-----|:----:|
@@ -1205,12 +1734,7 @@ Neural models support added languages for the `v3.1` and later APIs.
 
 ### [Custom template](#tab/custom-template)
 
-The following lists include the currently supported languages for the most recent GA version for Read, Layout, and Custom template (form) models.
-
-> [!NOTE]
-> **Language code optional**
->
-> Document Intelligence's deep learning based universal models extract all multi-lingual text in your documents, including text lines with mixed languages, and do not require specifying a language code. Do not provide the language code as the parameter unless you are sure about the language and want to force the service to apply only the relevant model. Otherwise, the service may return incomplete and incorrect text.
+#### Language support: custom template model
 
 #### Handwritten text
 
