@@ -69,7 +69,7 @@ An Azure Arc-hosted deployment typically consists of these resources:
 
 When you deploy multiple resources in a single Bicep file or ARM template, the order in which resources are created is important. This requirement is a result of dependencies between resources. For such dependencies, make sure to use the `dependsOn` element to define the dependency in the dependent resource. For more information, see either [Define the order for deploying resources in ARM templates](../azure-resource-manager/templates/resource-dependency.md) or [Resource dependencies in Bicep](../azure-resource-manager/bicep/resource-dependencies.md). 
 
-This article assumes that you have a basic understanding about [creating Bicep files](../azure-resource-manager/bicep/file.md) or [authoring Azure Resource Manager templates](../azure-resource-manager/templates/syntax.md), and examples are shown as individual sections for specific resources. For a broad set of complete Bicep file and ARM template examples, see [these function app deployment examples](samples/browse/?expanded=azure&terms=%22azure%20functions%22&products=azure-resource-manager). 
+This article assumes that you have a basic understanding about [creating Bicep files](../azure-resource-manager/bicep/file.md) or [authoring Azure Resource Manager templates](../azure-resource-manager/templates/syntax.md), and examples are shown as individual sections for specific resources. For a broad set of complete Bicep file and ARM template examples, see [these function app deployment examples](/samples/browse/?expanded=azure&terms=%22azure%20functions%22&products=azure-resource-manager). 
 :::zone pivot="container-apps,azure-arc"  
 ## Prerequisites  
 :::zone-end  
@@ -219,7 +219,7 @@ For more context, see the complete [main.bicep](https://github.com/Azure-Samples
 
 The connection must be provided to the function app using the [`APPLICATIONINSIGHTS_CONNECTION_STRING`](functions-app-settings.md#applicationinsights_connection_string) application setting. For more information, see [Application settings](#application-configuration).
 
-The examples in this article obtain the connection string value for the created instance. Older versions might instead use [`APPINSIGHTS_INSTRUMENTATIONKEY`](functions-app-settings.md#applicationinsights_instrumentationkey) to set the instrumentation key, which is no longer recommended. 
+The examples in this article obtain the connection string value for the created instance. Older versions might instead use [`APPINSIGHTS_INSTRUMENTATIONKEY`](functions-app-settings.md#appinsights_instrumentationkey) to set the instrumentation key, which is no longer recommended. 
 
 :::zone pivot="premium-plan,dedicated-plan"  
 ## Create the hosting plan
@@ -657,40 +657,48 @@ resource hostingPlan 'Microsoft.Web/serverfarms@2022-03-01' = {
 The function app resource is defined by a resource of type `Microsoft.Web/sites` and `kind` that includes `functionapp`.
 :::zone pivot="consumption-plan,premium-plan,dedicated-plan"
 The way that you define a function app resource depends on whether you're hosting on Linux or on Windows:
-
+::: zone-end
+::: zone pivot="consumption-plan"
 ### [Windows](#tab/windows)
 
-For a list of application settings required when running on Windows, see [Application configuration](#application-configuration).
-::: zone-end
-:::zone pivot="consumption-plan"
-For a sample Bicep file/Azure Resource Manager template, see this [function app hosted on Windows in a Consumption plan](https://github.com/Azure-Samples/function-app-arm-templates/tree/main/function-app-windows-consumption).
-:::zone-end  
-:::zone pivot="premium-plan"
-For a sample Bicep file/Azure Resource Manager template, see this [function app hosted on Windows in a Premium plan](https://github.com/Azure-Samples/function-app-arm-templates/tree/main/function-app-premium-plan).
-:::zone-end  
-:::zone pivot="dedicated-plan"
-For a sample Bicep file/Azure Resource Manager template, see this [function app hosted on Windows in a Dedicated plan](https://github.com/Azure-Samples/function-app-arm-templates/tree/main/function-app-dedicated-plan).
-:::zone-end  
-:::zone pivot="consumption-plan,premium-plan,dedicated-plan"
+For a list of application settings required when running on Windows, see [Application configuration](#application-configuration). For a sample Bicep file/Azure Resource Manager template, see the [function app hosted on Windows in a Consumption plan](https://github.com/Azure-Samples/function-app-arm-templates/tree/main/function-app-windows-consumption) template. 
+
 ### [Linux](#tab/linux)
 
-When running on Linux, you must set `"kind": "functionapp,linux"` and `"reserved": true` for the function app. Linux apps must also include a `linuxFxVersion` property under `siteConfig`. If you're just deploying code, the value for this property is determined by your desired runtime stack in the format of `<runtime>|<runtimeVersion>`. For more information, see the [linuxFxVersion site setting](functions-app-settings.md#linuxfxversion) reference.
+[!INCLUDE [functions-arm-linux-intro](../../includes/functions-arm-linux-intro.md)]
  
-For a list of application settings required when running on Linux in a Consumption plan, see [Application configuration](#application-configuration).
+For a sample Bicep file or ARM template, see the [function app hosted on Linux Consumption Plan](https://github.com/Azure-Samples/function-app-arm-templates/tree/main/function-app-linux-consumption) template.
+
+---
 ::: zone-end  
-:::zone pivot="consumption-plan"
-For a sample Bicep file or ARM template, see [Azure Function App Hosted on Linux Consumption Plan](https://github.com/Azure-Samples/function-app-arm-templates/tree/main/function-app-linux-consumption).
-::: zone-end
-:::zone pivot="premium-plan"
-For a sample Bicep file or ARM template, see [Azure Function App Hosted on Linux Consumption Plan](https://github.com/Azure-Samples/function-app-arm-templates/tree/main/function-app-linux-consumption).
-::: zone-end
-:::zone pivot="dedicated-plan"
-For a sample Bicep file or ARM template, see [Azure Function App Hosted on Linux Consumption Plan](https://github.com/Azure-Samples/function-app-arm-templates/tree/main/function-app-linux-consumption).
-::: zone-end
+::: zone pivot="premium-plan"  
+### [Windows](#tab/windows)
+
+For a list of application settings required when running on Windows, see [Application configuration](#application-configuration). For a sample Bicep file/Azure Resource Manager template, see the [function app hosted in a Premium plan](https://github.com/Azure-Samples/function-app-arm-templates/tree/main/function-app-premium-plan) template. 
+
+### [Linux](#tab/linux)
+
+[!INCLUDE [functions-arm-linux-intro](../../includes/functions-arm-linux-intro.md)]
+
+For a sample Bicep file or ARM template, see [Azure Function App Hosted on a Premium Plan](https://github.com/Azure-Samples/function-app-arm-templates/tree/main/function-app-premium-plan).
 
 ---
 
-:::zone pivot="consumption-plan"
+::: zone-end  
+:::zone pivot="dedicated-plan"
+### [Windows](#tab/windows)
+
+For a list of application settings required when running on Windows, see [Application configuration](#application-configuration). For a sample Bicep file/Azure Resource Manager template, see the [function app hosted in a Dedicated plan](https://github.com/Azure-Samples/function-app-arm-templates/tree/main/function-app-dedicated-plan) template. 
+
+### [Linux](#tab/linux)
+
+[!INCLUDE [functions-arm-linux-intro](../../includes/functions-arm-linux-intro.md)]
+
+For a sample Bicep file/Azure Resource Manager template, see the [function app hosted in a Dedicated plan](https://github.com/Azure-Samples/function-app-arm-templates/tree/main/function-app-dedicated-plan) template. 
+
+---
+::: zone-end  
+:::zone pivot="consumption-plan"  
 >[!NOTE]  
 >If you choose to optionally define your Consumption plan, you must set the `serverFarmId` property on the app so that it points to the resource ID of the plan. Make sure that the function app has a `dependsOn` setting that also references the plan. If you didn't explicitly define a plan, one gets created for you. 
 ::: zone-end
