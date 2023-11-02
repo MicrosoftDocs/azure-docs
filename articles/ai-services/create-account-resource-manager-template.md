@@ -129,8 +129,6 @@ az group delete --name $resourceGroupName
 
 ---
 
-If you need to recover a deleted resource, see [Recover or purge deleted Azure AI services resources](recover-purge-resources.md).
-
 ## See also
 
 * See [Authenticate requests to Azure AI services](authentication.md) on how to securely work with Azure AI services.
