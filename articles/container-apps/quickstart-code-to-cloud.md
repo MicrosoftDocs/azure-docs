@@ -254,7 +254,11 @@ Use the following git command to clone your forked repo into the *code-to-cloud*
 ```git
 git clone https://github.com/$GITHUB_USERNAME/containerapps-albumapi-java.git code-to-cloud
 ```
+
 :::zone-end
+
+> [!NOTE]
+> The Java sample only supports a Maven build, which results in an executable JAR file. The build uses the default settings, as passing in environment variables is not supported.
 
 # [JavaScript](#tab/javascript)
 
