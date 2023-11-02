@@ -154,7 +154,7 @@ To create a compute cluster in an Azure Virtual Network in a different region th
     > [!WARNING]
     > When setting the region, if it is a different region than your workspace or datastores you may see increased network latency and data transfer costs. The latency and costs can occur when creating the cluster, and when running jobs on it.
 
-## Compute instance/cluster or serverless with no public IP
+## Compute instance/cluster or serverless compute with no public IP
 
 > [!WARNING]
 > This information is only valid when using an _Azure Virtual Network_. If you are using a _managed virtual network_, see [managed compute with a managed network](how-to-managed-network-compute.md).
@@ -261,13 +261,28 @@ Use the following information to configure **serverless compute** nodes with no 
 Create a workspace:
 
 ```azurecli
-az ml workspace create -n <workspace-name> -g <resource-group-name> --serverless-compute-custom-subnet <subnet-id> --serverless-compute-no-public-ip true
+az ml workspace create -n <workspace-name> -g <resource-group-name> --file serverlesscomputevnetsettings.yml
+```
+
+```yaml
+name: testserverlesswithnpip
+location: eastus
+public_network_access: Disabled
+serverless_compute:
+  custom_subnet: /subscriptions/<sub id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<vnet name>/subnets/<subnet name>
+  no_public_ip: true
 ```
 
 Update workspace:
 
 ```azurecli
-az ml workspace update -n <workspace-name> -g <resource-group-name> --serverless-compute-custom-subnet <subnet-id> --serverless-compute-no-public-ip true
+az ml workspace update -n <workspace-name> -g <resource-group-name> -file serverlesscomputevnetsettings.yml
+```
+
+```yaml
+serverless_compute:
+  custom_subnet: /subscriptions/<sub id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<vnet name>/subnets/<subnet name>
+  no_public_ip: true
 ```
 
 # [Python SDK](#tab/python)
@@ -304,7 +319,7 @@ Use Azure CLI or Python SDK to configure **serverless compute** nodes with no pu
 
 ---
 
-## <a name="compute-instancecluster-with-public-ip"></a>Compute instance/cluster or serverless with public IP
+## <a name="compute-instancecluster-with-public-ip"></a>Compute instance/cluster or serverless compute with public IP
 
 > [!IMPORTANT]
 > This information is only valid when using an _Azure Virtual Network_. If you are using a _managed virtual network_, see [managed compute with a managed network](how-to-managed-network-compute.md).
@@ -414,12 +429,27 @@ Use the following information to configure **serverless compute** nodes with a p
 Create a workspace:
 
 ```azurecli
-az ml workspace create -n <workspace-name> -g <resource-group-name> --serverless-compute-custom-subnet <subnet-id> 
+az ml workspace create -n <workspace-name> -g <resource-group-name> --file serverlesscomputevnetsettings.yml
 ```
+
+```yaml
+name: testserverlesswithvnet
+location: eastus
+serverless_compute:
+  custom_subnet: /subscriptions/<sub id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<vnet name>/subnets/<subnet name>
+  no_public_ip: false
+```
+
 Update workspace:
 
 ```azurecli
-az ml workspace update -n <workspace-name> -g <resource-group-name> --serverless-compute-custom-subnet <subnet-id> --serverless-compute-no-public-ip false
+az ml workspace update -n <workspace-name> -g <resource-group-name> -file serverlesscomputevnetsettings.yml
+```
+
+```yaml
+serverless_compute:
+  custom_subnet: /subscriptions/<sub id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<vnet name>/subnets/<subnet name>
+  no_public_ip: false
 ```
 
 # [Python SDK](#tab/python)
