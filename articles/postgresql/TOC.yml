@@ -251,9 +251,9 @@
   - name: Reference
     items:
      - name: Extensions
-     - items:
+       items:
        - name: pg_azure_storage
-       - href: flexible-server/reference-pg-azure-storage.md
+         href: flexible-server/reference-pg-azure-storage.md
   - name: How-to guides
     items:
     - name: Server administration
