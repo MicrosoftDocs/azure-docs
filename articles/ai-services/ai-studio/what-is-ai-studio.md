@@ -27,7 +27,7 @@ With Azure AI Studio, you can evaluate large language model (LLM) responses, pin
 
 ## Getting around in Azure AI Studio
 
-The Azure AI Studio is organized into four main sections: [Home](?tabs=home#home), [Explore](?tabs=explore#explore), [Build](?tabs=build#build), and [Manage](?tabs=manage#manage).
+The Azure AI Studio is organized into four main sections: [Home](?tabs=home), [Explore](?tabs=explore), [Build](?tabs=build), and [Manage](?tabs=manage).
 
 :::image type="content" source="./media/explore/ai-studio-home.png" alt-text="Screenshot of speech capability cards in the Azure AI Studio explore tab." lightbox="./media/explore/ai-studio-home.png":::
 
@@ -38,7 +38,7 @@ The introduction to Azure AI, with information about what's new, access to any e
 
 # [Explore](#tab/explore)
 
-This is where you can find a model, service, or solution to start working on. The goal is that you can find, and try, all of Azure AI from here. Explore is stateless, so when you want to save settings and assets such as data you create a project and continue on the [Build](?tabs=build#build) page. 
+This is where you can find a model, service, or solution to start working on. The goal is that you can find, and try, all of Azure AI from here. Explore is stateless, so when you want to save settings and assets such as data you create a project and continue on the [Build](?tabs=build) page. 
 
 - Growing suite of tools, patterns, and guidance on how to build with AI so that enterprise can scale PoCs with a paved path to full production
 - Guidance about how to select the right models and tools based on your use case.
