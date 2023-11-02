@@ -4,6 +4,7 @@ description: This article provides a tutorial for getting started writing log qu
 ms.topic: tutorial
 author: guywi-ms
 ms.author: guywild
+ms.reviewer: ilanawaitser
 ms.date: 10/31/2023
 
 ---
