@@ -29,7 +29,7 @@ The inputted query runs and adds onboarded targets to your experiment that match
 
 ## Target scoping
 
-Certain faults in Chaos Studio allow you to further target specific functionality within your Azure resouces. If scope selection is available for a target and not configured, the resource will be targeted fully by the selected fault. An example of scope selection on a Virtual Machine Scale Sets instance being targeted by the **VMSS Shutdown (version 2.0)** fault is shown below.
+Certain faults in Chaos Studio allow you to further target specific functionality within your Azure resources. If scope selection is available for a target and not configured, the resource will be targeted fully by the selected fault. An example of scope selection on a Virtual Machine Scale Sets instance being targeted by the **VMSS Shutdown (version 2.0)** fault is shown below.
 
 [ ![Screenshot that shows scope selection being done on a target.](images/tutorial-dynamic-targets-fault-zones.png) ](images/tutorial-dynamic-targets-fault-zones.png#lightbox)
 
