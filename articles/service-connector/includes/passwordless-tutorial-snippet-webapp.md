@@ -147,6 +147,10 @@ The following Azure CLI command uses a `--client-type` parameter.
 
     -----
 
+1. Grant permission to pre-created tables
+
+[!INCLUDE [Postgresql grant permission](./postgres-grant-permission.md)]
+
 -----
 
 This Service Connector command completes the following tasks in the background:
@@ -181,13 +185,8 @@ In this section, connectivity to the Azure database in your code follows the `De
 
 # [Azure Database for PostgreSQL](#tab/postgresql-sc)
 
-### 3.1. Code Sample
-
 [!INCLUDE [code sample for sql managed identity authentication connection](./code-postgres-mi.md)]
 
-### 3.2. Grant permission to pre-created tables
-
-[!INCLUDE [Postgresql grant permission](./postgres-grant-permission.md)]
 
 -----
 
