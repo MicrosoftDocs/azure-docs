@@ -88,7 +88,7 @@ Once the build is complete, examine the generated files to gain a better underst
 
 
 
-|File  |Description  |
+|Directory/File  |Description  |
 |---------|---------|
 |configMappings     |    Maps the deployment parameters for the Network Function Definition Version (NFDV) to the values required for the helm chart.    |
 |generatedValuesMappings    |   The yaml output of interactive mode that created configMappings. Edit and rerun the command if necessary.      |
