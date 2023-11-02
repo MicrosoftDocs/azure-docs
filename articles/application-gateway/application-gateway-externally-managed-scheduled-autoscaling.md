@@ -20,7 +20,7 @@ While autoscaling is commonly utilized, it’s important to note that Applicatio
 
 The goal is to use Azure Automation to create a schedule for running runbooks that adjust the minimum autoscaling capacity of Application Gateway to meet traffic demands.
 
-### Set up scheduled autoscaling 
+## Set up scheduled autoscaling 
 
 To implement scheduled autoscaling:
 1.	Create an Azure Automation account resource in the same tenant as the Application Gateway. 
@@ -30,7 +30,7 @@ To implement scheduled autoscaling:
 5.	Associate the runbooks with their respective schedules.
 6.	Associate the system assigned managed identity noted in step 2 with the Application Gateway resource.
 
-### Configure automation
+## Configure automation
 
 Suppose the requirement is to increase the min count to 4 during business hours and to decrease the min count to 2 during non business hours. 
 
