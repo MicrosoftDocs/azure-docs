@@ -11,7 +11,19 @@ ms.author: cshoe
 
 # Tutorial: Connect to a Qdrant vector database in Azure Container Apps (preview)
 
-TODO: Introduction
+Azure Container Apps uses [add-ons](services.md) to make it easy to connect to various development-grade cloud services. Rather than creating instances of services ahead of time to establish connections with complex configuration settings, you can use an add-on to connect your container app to a database like Qdrant.
+
+For a full list of supported services, see [Connect to services in Azure Container Apps](services.md).
+
+In this tutorial you:
+
+> [!div class="checklist"]
+> * Create a container app
+> * Use a Container Apps add-on to connect to a Qdrant database
+> * Interact with a Jupyter Notebook to explore the data
+
+> [!IMPORTANT]
+> This tutorial uses services that can affect your Azure bill. If you decide to follow along step-by-step, make sure you deactivate or delete the resources featured in this article to avoid unexpected billing.
 
 ## Prerequisites
 
@@ -40,10 +52,10 @@ TODO:
 
     | Variable | Description |
     |---|---|
-    | `SERVICE_NAME` |  |
-    | `LOCATION` |  |
-    | `ENVIRONMENT` |  |
-    | `WORKLOAD_PROFILE_TYPE` |  |
+    | `SERVICE_NAME` | The name of the add-on service created for your container app. In this case, you create a development-grade instance of a Qdrant database.  |
+    | `LOCATION` | The Azure region location where you create your container app and add-on. |
+    | `ENVIRONMENT` | The Azure Container Apps environment name for your demo application. |
+    | `WORKLOAD_PROFILE_TYPE` | The workload profile  |
     | `CPU_SIZE` |  |
     | `MEMORY_SIZE` |  |
     | `IMAGE` |  |
