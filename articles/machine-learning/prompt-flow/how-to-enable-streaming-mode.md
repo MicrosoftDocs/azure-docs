@@ -1,5 +1,5 @@
 ---
-title: How to use streaming endpoints deployed from Prompt Flow (preview)
+title: How to use streaming endpoints deployed from Prompt Flow
 titleSuffix: Azure Machine Learning
 description: Learn how use streaming when you consume the endpoints in Azure Machine Learning prompt flow.
 services: machine-learning
@@ -10,10 +10,10 @@ ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.reviewer: lagayhar
-ms.date: 09/12/2023
+ms.date: 11/02/2023
 ---
 
-# How to use streaming endpoints deployed from Prompt Flow (preview)
+# How to use streaming endpoints deployed from Prompt Flow
 
 In Prompt Flow, you can [deploy flow to an Azure Machine Learning managed online endpoint](how-to-deploy-for-real-time-inference.md) for real-time inference.
 
@@ -22,10 +22,6 @@ When consuming the endpoint by sending a request, the default behavior is that t
 To avoid this, you can use streaming when you consume the endpoints. Once streaming enabled, you don't have to wait for the whole response to be ready. Instead, the server will send back the response in chunks as they're generated. The client can then display the response progressively, with less waiting time and more interactivity.
 
 This article will describe the scope of streaming, how streaming works, and how to consume streaming endpoints.
-
-> [!IMPORTANT]
-> Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Create a streaming enabled flow
 
