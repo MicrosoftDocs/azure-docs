@@ -53,6 +53,8 @@ The following table describes the HTTP endpoint source configuration parameters:
 | Request interval | [Duration](concept-configuration-patterns.md#duration) | String representation of the time to wait before the next API call. | Required | `10s`| `24h` |
 | Partitioning | [Partitioning](#configure-partitioning) | Partitioning configuration for the source stage. | Required | NA | See [partitioning](#configure-partitioning) |
 
+<!-- TODO: Add link to AKV secret article -->
+
 ## Select data format
 
 [!INCLUDE [data-processor-data-format](../includes/data-processor-data-format.md)]

@@ -49,6 +49,19 @@ To view data in Azure Data Explorer as soon as the pipeline sends it, you can se
 }
 ```
 
+## Configure your secret
+
+For the destination stage to connect to Azure Data Explorer, it needs access to a secret that contains the authentication details. To create a secret:
+
+1. Use the following command to add a secret to your Azure Key Vault that contains the client secret you made a note of when you created the service principal:
+
+    ```azurecli
+    az keyvault secret set --vault-name <your-key-vault-name> --name AccessADXSecret --value <client-secret>
+    ```
+
+<!-- TODO: Add link to AKV/secret article -->
+1. Add the secret reference to your Kubernetes cluster.
+
 ## Configure the destination stage
 
 The Azure Data Explorer destination stage JSON configuration defines the details of the stage. To author the stage, you can either interact with the form-based UI, or provide the JSON configuration on the **Advanced** tab:
@@ -65,13 +78,13 @@ The Azure Data Explorer destination stage JSON configuration defines the details
 | Columns&nbsp;>&nbsp;Name | string | The name of the column. | Yes | | `temperature` |
 | Columns&nbsp;>&nbsp;Path | [Path](../process-data/concept-configuration-patterns.md#path) | The location within each record of the data where the value of the column should be read from. | No | `.{{name}}` | `.temperature` |
 
-Authentication<sup>1</sup>: Currently, the destination stage supports service principal based authentication when it connects to Azure Data Explorer. In your Azure Data Explorer destination, provide the following values to authenticate. You made a note of these values when you created the service principal.
+Authentication<sup>1</sup>: Currently, the destination stage supports service principal based authentication when it connects to Azure Data Explorer. In your Azure Data Explorer destination, provide the following values to authenticate. You made a note of these values when you created the service principal and added the secret reference to your cluster.
 
 | Field | Description | Required |
 | --- | --- | --- |
 | TenantId  | The tenant ID.  | Yes |
-| ClientId | The client ID.  | Yes |
-| Client secret | The client secret (This value isn't the secret ID).   | Yes |
+| ClientId | The app ID you made a note of when you created the service principal that has access to the database.  | Yes |
+| Secret | The secret reference you created in your cluster.   | Yes |
 
 ## Related content
 

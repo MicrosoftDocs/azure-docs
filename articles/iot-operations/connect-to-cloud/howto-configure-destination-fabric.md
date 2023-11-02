@@ -50,6 +50,19 @@ To add the service principal to your Microsoft Fabric workspace:
 
 1. Grant your service principal admin access to the workspace.
 
+## Configure your secret
+
+For the destination stage to connect to Microsoft Fabric, it needs access to a secret that contains the authentication details. To create a secret:
+
+1. Use the following command to add a secret to your Azure Key Vault that contains the client secret you made a note of when you created the service principal:
+
+    ```azurecli
+    az keyvault secret set --vault-name <your-key-vault-name> --name AccessFabricSecret --value <client-secret>
+    ```
+
+<!-- TODO: Add link to AKV/secret article -->
+1. Add the secret reference to your Kubernetes cluster.
+
 ## Configure the destination stage
 
 The _Fabric Lakehouse_ destination stage JSON configuration defines the details of the stage. To author the stage, you can either interact with the form-based UI, or provide the JSON configuration on the **Advanced** tab:
@@ -87,13 +100,13 @@ Batching<sup>2</sup>: Batching is mandatory when you write data to Microsoft Fab
 
 If you don't configure a batching interval, the stage uses 60 seconds as the default.
 
-Authentication<sup>3</sup>: Currently, the destination stage supports service principal based authentication when it connects to Microsoft Fabric. In your Azure Data Explorer destination, provide the following values to authenticate. You made a note of these values when you created the service principal.
+Authentication<sup>3</sup>: Currently, the destination stage supports service principal based authentication when it connects to Microsoft Fabric. In your Microsoft Fabric destination, provide the following values to authenticate. You made a note of these values when you created the service principal and added the secret reference to your cluster.
 
 | Field | Description | Required |
 | --- | --- | --- |
 | TenantId  | The tenant ID.  | Yes |
-| ClientId | The client ID.  | Yes |
-| Client secret | The client secret (This value isn't the secret ID).   | Yes |
+| ClientId | The app ID you made a note of when you created the service principal that has access to the database.  | Yes |
+| Secret | The secret reference you created in your cluster.   | Yes |
 
 Type<sup>4</sup>: The data processor writes to Microsoft Fabric by using the delta format. The data processor supports all [delta primitive data types](https://github.com/delta-io/delta/blob/master/PROTOCOL.md#primitive-types) except for `decimal` and `timestamp without time zone`.
 

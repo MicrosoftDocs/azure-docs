@@ -100,16 +100,11 @@ Create a lakehouse in your Microsoft Fabric workspace:
 
 To access the lakehouse from a Data Processor pipeline, you need to enable your cluster to access the service principal details you created earlier. You need to configure your Azure Key Vault with the service principal details so that the cluster can retrieve them.
 
-To add a new secret to your Azure Key Vault:
+Use the following command to add a secret to your Azure Key Vault that contains the client secret you made a note of when you created the service principal:
 
-1. Navigate to your Azure Key Vault in the Azure portal.
-1. Select **Secrets** and then select **Generate/Import**.
-1. Create a new secret with the following values:
-
-    | Parameter     | Value                               |
-    | ------------- | ----------------------------------- |
-    | Name          | `AIOFabricSecret`                   |
-    | Secret value  | The password from the service principal you created previously. This is the service principal that has access to your Microsoft Fabric workspace. |
+```azurecli
+az keyvault secret set --vault-name <your-key-vault-name> --name AIOFabricSecret --value <client-secret>
+```
 
 To add the secret reference to your Kubernetes cluster, edit the **aio-default-spc** `secretproviderclass` resource:
 
