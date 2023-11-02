@@ -108,12 +108,10 @@ landingContent:
         links:
           - text: Pull delivery
             url: pull-delivery-overview.md
-          - text: Concepts (Pull delivery)
-            url: concepts-pull-delivery.md
+          - text: Concepts 
+            url: concepts-event-grid-namespaces.md
           - text: Push delivery
             url: namespace-push-delivery-overview.md
-          - text: Concepts (Push delivery)
-            url: concepts-namespace-push-delivery.md
       - linkListType: quickstart
         links:
           - text: Publish and subscribe to events using namespace topics (Pull)
