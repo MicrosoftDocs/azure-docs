@@ -5,7 +5,7 @@ author: HollyCl
 ms.author: HollyCl
 ms.service: operator-insights
 ms.topic: how-to #Required; leave this attribute/value as-is
-ms.date: 10/30/2023
+ms.date: 11/02/2023
 ---
 
 # Manage MCC EDR Ingestion Agents for Azure Operator Insights
@@ -22,7 +22,7 @@ To upgrade to a new release of the agent, repeat the following steps on each VM 
 
 1. Copy the RPM to the VM.  In an SSH session, change to the directory where the RPM was copied.
 
-1. Save a copy of the existing `/etc/az-mcc-edr-uploader/config.yaml` configuration file.
+1. Save a copy of the existing */etc/az-mcc-edr-uploader/config.yaml* configuration file.
 
 1. Upgrade the RPM: `sudo dnf install \*.rpm`.  Answer 'y' when prompted.  
 
@@ -32,6 +32,7 @@ To upgrade to a new release of the agent, repeat the following steps on each VM 
 
 1. Once the agent is running, make sure it will automatically start on a reboot: `sudo systemctl enable az-mcc-edr-uploader.service`
 1. Verify that the agent is running and that EDRs are being routed to it as described in [Monitor and troubleshoot MCC EDR Ingestion Agents for Azure Operator Insights](troubleshoot-mcc-edr-agent.md).
+
 ### Agent Configuration Update
 
 > [!WARNING]
@@ -39,7 +40,7 @@ To upgrade to a new release of the agent, repeat the following steps on each VM 
 
 If you need to change the agent's configuration, perform the following steps:
 
-1. Save a copy of the original configuration file `/etc/az-mcc-edr-uploader/config.yaml`
+1. Save a copy of the original configuration file */etc/az-mcc-edr-uploader/config.yaml*
 
 1. Edit the configuration file to change the config values.  
 
@@ -49,21 +50,21 @@ If you need to change the agent's configuration, perform the following steps:
 
 If an upgrade or configuration change fails:
 
-1. Copy the backed-up configuration file from before the change to the `/etc/az-mcc-edr-uploader/config.yaml` file.
+1. Copy the backed-up configuration file from before the change to the */etc/az-mcc-edr-uploader/config.yaml* file.
 
-1. If this was a software upgrade, downgrade back to the original RPM.
+1. If a software upgrade failed, downgrade back to the original RPM.
 
 1. Restart the agent: `sudo systemctl restart az-mcc-edr-uploader.service`
 
-1. If this was a software upgrade, make sure it will automatically start on a reboot: `sudo systemctl enable az-mcc-edr-uploader.service`
+1. If this was software upgrade, make sure it will automatically start on a reboot: `sudo systemctl enable az-mcc-edr-uploader.service`
 
 ## Certificate Rotation
 
-You must refresh your Service Principal credentials before they expire.
+You must refresh your service principal credentials before they expire.
 
 To do so:
 
-1. Create a new certificate, and add it to the Service Principal. For instructions, refer to [Upload a trusted certificate issued by a certificate authority](/entra/identity-platform/howto-create-service-principal-portal).
+1. Create a new certificate, and add it to the service principal. For instructions, refer to [Upload a trusted certificate issued by a certificate authority](/entra/identity-platform/howto-create-service-principal-portal).
 
 1. Obtain the new certificate and private key in the base64-encoded PKCS12 format, as described in [Create and configure MCC EDR Ingestion Agents for Azure Operator Insights](how-to-install-mcc-edr-agent.md).
 

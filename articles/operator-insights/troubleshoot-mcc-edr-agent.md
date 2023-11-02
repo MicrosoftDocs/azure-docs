@@ -16,7 +16,7 @@ Because the ingestion bus agents are software packages, their diagnostics are li
 
 The diagnostics provided by the MCCs, or by Azure Operator Insights itself in Azure Monitor, are expected to be sufficient for most other use cases.
 
-The agent writes logs and metrics to files under `/var/log/az-mcc-edr-uploader/`.  If the agent is failing to start for any reason, such as misconfiguration, the stdout.log file contains human-readable logs explaining the issue.
+The agent writes logs and metrics to files under */var/log/az-mcc-edr-uploader/*.  If the agent is failing to start for any reason, such as misconfiguration, the stdout.log file contains human-readable logs explaining the issue.
 
 Metrics are reported in a simple human-friendly form.  They're provided primarily for Microsoft support to have telemetry for debugging unexpected issues.  The diagnostics provided by the MCCs, or by Azure Operator Insights itself in Azure Monitor, are expected to be sufficient for most other use cases.
 
@@ -26,7 +26,8 @@ Microsoft Support may request diagnostic packages when investigating an issue.
 
 To collect a diagnostics package, SSH to the Virtual Machine and run the command `/usr/bin/microsoft/az-ingestion-gather-diags`.  This command generates a date-stamped zip file in the current directory that you can copy from the system.
 
-Diagnostics packages don't contain any customer data or the value of the Azure Storage connection string.
+> [!NOTE]
+> Diagnostics packages don't contain any customer data or the value of the Azure Storage connection string.
 
 ## Troubleshooting common issues
 
@@ -40,9 +41,9 @@ Symptoms: `sudo systemctl status az-mcc-edr-uploader` shows that the service is 
 
 Steps to remediate:
 
-- Ensure the service is running: sudo systemctl start az-mcc-edr-uploader.
+- Ensure the service is running: `sudo systemctl start az-mcc-edr-uploader`.
 
-- Look at the /var/log/az-mcc-edr-uploader/stdout.log file and check for any reported errors.  Fix any issues with the configuration file and start the agent again.
+- Look at the */var/log/az-mcc-edr-uploader/stdout.log* file and check for any reported errors.  Fix any issues with the configuration file and start the agent again.
 
 ### MCC cannot connect
 

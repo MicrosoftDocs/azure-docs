@@ -10,9 +10,9 @@ ms.topic: conceptual
 ---
 # MCC EDR Ingestion Agents configuration reference
 
-This reference documents the complete set of configuration for the agent, by listing all fields with examples and explanatory comments.
+This reference provides the complete set of configuration for the agent, listing all fields with examples and explanatory comments.
 
-``` json
+``` 
 # The name of the site this agent lives in 
 site_id: london-lab01 
 # The identifier for this agent 
