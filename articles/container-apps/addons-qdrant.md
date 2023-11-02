@@ -138,7 +138,7 @@ Now that you have an existing environment and workload profile, you can create y
       --image $IMAGE \
       --min-replicas 1 \
       --max-replicas 1 \
-      --env-vars RESTARTABLE=yes
+      --env-vars RESTARTABLE=yes \
       --query properties.outputs.fqdn
     ```
 
@@ -174,7 +174,8 @@ Now that your container app is running and connected to Qdrant, you can configur
     az containerapp ingress cors enable \
       --name $APP_NAME \
       --resource-group $RESOURCE_GROUP \
-      --allowed-origins *
+      --allowed-origins * \
+      --allow-credentials true
     ```
 
 1. Request an access token for the hosted Jupyter Notebook.
