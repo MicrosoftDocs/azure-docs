@@ -11,8 +11,6 @@ items:
       href: choose-right-tier.md
   - name: Event Grid namespaces  
     items:
-    - name: Concepts 
-      href: concepts-event-grid-namespaces.md
     - name: MQTT broker
       items:
       - name: Overview
