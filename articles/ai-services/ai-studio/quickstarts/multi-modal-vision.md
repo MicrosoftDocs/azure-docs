@@ -134,15 +134,15 @@ Now that you have a basic conversation select View code from under Assistant set
 
  
 
-Try a chat session to analyze video 
+## Try a chat session to analyze video 
 
 In this chat session, you will be instructing the assistant to aid in understanding videos that you input. 
 
 You will be required to select a Computer Vision resource to try the enhanced Vision API. This resource must be in the East US region to try video, but for image only can be in any of the GPT-4V supported regions, including East US, Switzerland North, Sweden Central, Central US, West US, and Australia East. Select your resource, and “Save". 
 
-Provide this prompt to guide the assistant: “You are an AI assistant that summarizes video, paying attention to important events, people, and objects in the video." You can tailor the prompt the image or scenario that you are uploading. 
+1. Provide this prompt to guide the assistant: “You are a car insurance and accident expert. Extract detailed information about the car's make, model, damage extent, license plate, airbag deployment status, mileage, and any other observations." You can tailor the prompt the image or scenario that you are uploading. 
 
-In the chat session pane, enter a question about the video like: "Describe this video in detail. Focus on brands, technology and people", and upload a video using the “Add media" button and then select Send. 
+In the chat session pane, enter a question about the video like: "Provide details from this car accident video.", and upload a video using the “Add media" button and then select Send. 
  
 Note: Currently the chat playground supports videos that are less than 3 minutes in length.   
 
