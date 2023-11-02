@@ -5,14 +5,90 @@ description: Custom Translator releases, improvements, bug fixes, and known issu
 author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
-ms.date: 07/18/2023
+ms.date: 11/15/2023
 ms.author: lajanuar
 ms.topic: release-notes
-ms.custom: cogserv-non-critical-translator
 ---
 # Custom Translator release notes
 
 This page presents the latest feature, improvement, bug fix, and known issue release notes for Custom Translator service.
+
+## 2023-Nov release
+
+### November 2023 model updates
+
+Current supported language pairs, including direct language models, are listed in the following tables. For higher quality, we encourage you to retrain your models accordingly.
+
+#### Direct language models
+
+|Source |Target|
+|:----|:----|
+|Amharic (am-et)|English (en-us)|
+|Arabic (ar-sa)|English (en-us)|
+|Catalan (ca-es)|English (en-us)|
+|Chinese Traditional (zh-hant)|English (en-us)|
+|English (en-us)|Lingala (ln)|
+|English (en-us)|Shona (sn-latn-zw)|
+|English (en-us)|Estonian (et-ee)|
+|English (en-us)|Bulgarian (bg-bg)|
+|English (en-us)|Catalan (ca-es)|
+|English (en-us)|Romanian (ro-ro)|
+|English (en-us)|Icelandic (is-is)|
+|English (en-us)|Slovenian (sl-si)|
+|English (en-us)|Kannada (kn-in)|
+|English (en-us)|Marathi (mr-in)|
+|English (en-us)|Punjabi (pa-in)|
+|English (en-us)|Turkish (tr-tr)|
+|English (en-us)|Dutch (nl-nl)|
+|English (en-us)|Chinese Traditional (zh-hant)|
+|Finnish (fi-fi)|English (en-us)|
+|Hebrew (he-il)|English (en-us)|
+|Icelandic (is-is)|English (en-us)|
+|Kannada (kn-in)|English (en-us)|
+|Lingala (ln)|English (en-us)|
+|Nyanja (nya)|English (en-us)|
+|Punjabi (pa-in)|English (en-us)|
+|Romanian (ro-ro)|English (en-us)|
+|Shona (sn-latn-zw)|English (en-us)|
+|Slovak (sk-sk)|English (en-us)|
+|Sovenian (sl-si)|English (en-us)|
+|Ukranian (uk-ua)|English (en-us)|
+
+#### English target/source ←→ source/target language models
+
+|Source |Target|
+|:----|:----|
+|Amharic (am-et)|English (en-us)|
+|Arabic (ar-sa)|English (en-us)|
+|Catalan (ca-es)|English (en-us)|
+|Chinese Traditional (zh-hant)|English (en-us)|
+|English (en-us)|Lingala (ln)|
+|English (en-us)|Shona (sn-latn-zw)|
+|English (en-us)|Estonian (et-ee)|
+|English (en-us)|Bulgarian (bg-bg)|
+|English (en-us)|Catalan (ca-es)|
+|English (en-us)|Romanian (ro-ro)|
+|English (en-us)|Icelandic (is-is)|
+|English (en-us)|Slovenian (sl-si)|
+|English (en-us)|Kannada (kn-in)|
+|English (en-us)|Marathi (mr-in)|
+|English (en-us)|Punjabi (pa-in)|
+|English (en-us)|Turkish (tr-tr)|
+|English (en-us)|Dutch (nl-nl)|
+|English (en-us)|Chinese Traditional (zh-hant)|
+|Finnish (fi-fi)|English (en-us)|
+|Hebrew (he-il)|English (en-us)|
+|Icelandic (is-is)|English (en-us)|
+|Kannada (kn-in)|English (en-us)|
+|Lingala (ln)|English (en-us)|
+|Nyanja (nya)|English (en-us)|
+|Punjabi (pa-in)|English (en-us)|
+|Romanian (ro-ro)|English (en-us)|
+|Shona (sn-latn-zw)|English (en-us)|
+|Slovak (sk-sk)|English (en-us)|
+|Sovenian (sl-si)|English (en-us)|
+|Ukranian (uk-ua)|English (en-us)|
+
 
 ## 2023-June release
 
