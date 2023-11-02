@@ -48,7 +48,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Deploy Resources with Azure for Students
-            url: deploy-resources-a4s.md
+            url: deploy-resources-azure-for-students.md
       - linkListType: how-to-guide
         links:
           - text: How to Track Usage and Create Budgets in Azure for Students
