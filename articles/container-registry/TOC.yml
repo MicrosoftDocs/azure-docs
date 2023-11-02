@@ -64,6 +64,16 @@
         href: tutorial-enable-artifact-cache-auth-cli.md
       - name: Troubleshoot 
         href: tutorial-troubleshoot-artifact-cache.md
+    - name: Artifact Streaming (preview)
+      items:
+       - name: Tutorial Artifact Streaming in Azure Container Registry (Preview)
+         href: tutorial-artifact-streaming.md
+       - name: Enable Artifact Streaming - Azure portal
+         href: tutorial-enable-artifact-streaming.md
+       - name: Enable Artifact Streaming - Azure CLI
+         href: tutorial-enable-artifact-streaming-cli.md
+       - name: Troubleshoot
+         href: tutorial-troubleshoot-artifact-streaming.md
   - name: Samples
     items:
     - name: Azure Resource Graph queries
@@ -163,6 +173,10 @@
         href: container-registry-firewall-access-rules.md
       - name: Enable conditional access policy
         href: container-registry-enable-conditional-access-policy.md
+      - name: Configure conditional access to your Azure Container Registry.
+        href: container-registry-configure-conditional-access.md
+      - name: Disable authentication as ARM template
+        href: container-registry-disable-authentication-as-arm.md
       - name: Authentication
         items:
         - name: Authentication overview
