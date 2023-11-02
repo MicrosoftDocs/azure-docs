@@ -59,8 +59,7 @@ For the destination stage to connect to Azure Data Explorer, it needs access to 
     az keyvault secret set --vault-name <your-key-vault-name> --name AccessADXSecret --value <client-secret>
     ```
 
-<!-- TODO: Add link to AKV/secret article -->
-1. Add the secret reference to your Kubernetes cluster.
+1. Add the secret reference to your Kubernetes cluster by following the steps in [Manage secrets for your Azure IoT Operations deployment](../deploy/howto-manage-secrets.md).
 
 ## Configure the destination stage
 
