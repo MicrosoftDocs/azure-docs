@@ -1,5 +1,5 @@
 ---
-title: Create and Configure MCC EDR Ingestion Agents
+title: Create and configure MCC EDR Ingestion Agents
 description: Learn how to create and configure MCC EDR Ingestion Agents for Azure Operator Insights 
 author: HollyCl
 ms.author: HollyCl
@@ -137,7 +137,7 @@ Repeat these steps for each VM onto which you want to install the agent:
 
 1. Save a copy of the delivered RPM – you'll need it to reinstall or to back out any future upgrades.
 
-### Configure Affirmed MCCs
+### Configure affirmed MCCs
 
 Once the agents are installed and running, configure the MCCs to send EDRs to them.
 
@@ -151,7 +151,7 @@ Once the agents are installed and running, configure the MCCs to send EDRs to th
         - encoding: protobuf
         - keep-alive: 2 seconds
 
-## Important Considerations
+## Important considerations
 
 ### Security
 
@@ -169,7 +169,7 @@ The VM used for the MCC EDR agent should be set up following best practice for s
 
   - Access to the certificate and private key for the service principal
 
-### Deploying for Fault Tolerance
+### Deploying for fault tolerance
 
 The MCC EDR agent is designed to be highly reliable and resilient to low levels of network disruption. If an unexpected error occurs, the agent restarts and provides service again as soon as it's running.
 
@@ -177,7 +177,7 @@ The agent doesn't buffer data, so if a persistent error or extended connectivity
 
 For additional fault tolerance, you can deploy multiple instances of the MCC EDR agent and configure the MCC to switch to a different instance if the original instance becomes unresponsive, or to shared EDR traffic across a pool of agents. For more information, refer to the [Affirmed Networks Active Intelligent vProbe System Administration Guide](https://manuals.metaswitch.com/vProbe/13.1/vProbe_System_Admin/Content/02%20AI-vProbe%20Configuration/Generating_SESSION__BEARER__FLOW__and_HTTP_Transac.htm)(2) or speak to the Affirmed Networks Support Team.
 
-## Related Content
+## Related content
 
 [Manage MCC EDR Ingestion Agents for Azure Operator Insights](how-to-manage-mcc-edr-agent.md)
 
