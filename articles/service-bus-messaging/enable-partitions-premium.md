@@ -8,14 +8,16 @@ ms.devlang: azurecli
 ---
 
 # Enable partitioning for an Azure Service Bus Premium namespace
-Service Bus partitions enable queues and topics, or messaging entities, to be partitioned across multiple message brokers. Partitioning means that the overall throughput of a partitioned entity is no longer limited by the performance of a single message broker. In addition, a temporary outage of a messaging store doesn't render a partitioned queue or topic unavailable. Partitioned queues and topics can contain all advanced Service Bus features, such as support for transactions and sessions. For more information, see [Partitioned queues and topics](service-bus-partitioning.md). This article shows you different ways to enable duplicate partitioning for a Service Bus Premium namespace. All entities in this namespace will be partitioned.
+Service Bus partitions enable queues and topics, or messaging entities, to be partitioned across multiple message brokers. Partitioning means that the overall throughput of a partitioned entity is no longer limited by the performance of a single message broker. Partitioned queues and topics can contain all advanced Service Bus features, such as support for transactions and sessions. For more information, see [Partitioned queues and topics](service-bus-partitioning.md). This article shows you different ways to enable partitioning for a Service Bus Premium namespace. All entities in this namespace will be partitioned.
 
 > [!NOTE]
-> - Partitioning is available at entity creation for namespaces in the Premium SKU.
-> - It's not possible to change the partitioning option on any existing namespace. You can only set the number of partitions when you create a namespace.
-> - The assigned messaging units are always a multiplier of the amount of partitions in a namespace, and are equally distributed across the partitions. For example, in a namespace with 16MU and 4 partitions, each partition will be assigned 4MU.
-> - Multiple partitions with lower messaging units (MU) give you a better performance over a single partition with higher MUs.
+> - Partitioning can be enabled during namespace creation in the Premium SKU.
 > - We do not allow creating non-partitioned entities in a partitioned namespace.
+> - It's not possible to change the partitioning option on any existing namespace. The number of partitions can only be set during namespace creation.
+> - The assigned messaging units are always a multiplier of the amount of partitions in a namespace, and are equally distributed across the partitions. For example, in a namespace with 16MU and 4 partitions, each partition will be assigned 4MU.
+> - When creating a partitioned namespace in a region [that supports Availability Zones](service-bus-outages-disasters.md#availability-zones), the Availability Zones feature will automatically enabled on the namespace.
+> - Multiple partitions with lower messaging units (MU) give you a better performance over a single partition with higher MUs.
+> - When using the Service Bus [Geo-disaster recovery](service-bus-geo-dr.md) feature, ensure not to pair a partitioned namespace with a non-partitioned namespace.
 > - The feature is currently available in the regions described below. New regions will be added regularly, we will keep this article updated with the latest regions as they become available.
 > 
 > |  |  |  |  |  |
