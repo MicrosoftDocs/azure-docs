@@ -57,10 +57,6 @@ You shouldn't use the VPA in conjunction with the HPA on the same CPU or memory 
 
 Implementing cluster autoscaling is useful if your existing nodes lack sufficient capacity, as it helps with scaling up and provisioning new nodes.
 
-In cases where your cluster handles substantial, but infrequent workloads with a primary focus on performance, we recommend increasing the scan interval and the utilization threshold. This adjustment helps batch multiple scaling operations into a single call, optimizing scale time and use of compute read/write quotas. This configuration also helps mitigate the risk of swift scale down operations on underutilized nodes, enhancing pod scheduling efficiency. For clusters with daemonset pods, we recommend setting `ignore-daemonset-utilization` to `true` to minimize unnecessary scale down operations.
-
-If you want a cost-optimized profile, we recommend reducing the node unneeded time, utilization threshold, and scale-down delay after add operations. You can also increase *Max-bulk-delete* to help delete nodes in bulk. This configuration helps reduce the number of nodes in the cluster, which reduces the cost of the cluster. However, this configuration can also increase the time it takes to scale up the cluster.
-
 When considering cluster autoscaling, the decision of when to remove a node involves a tradeoff between optimizing resource utilization and ensuring resource availability. Eliminating underutilized nodes enhances cluster utilization but might result in new workloads having to wait for resources to be provisioned before they can be deployed. It's important to find a balance between these two factors that aligns with your cluster and workload requirements and [configure the cluster autoscaler profile settings accordingly](./cluster-autoscaler.md#change-the-cluster-autoscaler-settings).
 
 The Cluster Autoscaler profile settings apply universally to all autoscaler-enabled node pools in your cluster. This means that any scaling actions occurring in one autoscaler-enabled node pool might impact the autoscaling behavior in another node pool. It's important to apply consistent and synchronized profile settings across all relevant node pools to ensure that the autoscaler behaves as expected.
@@ -69,11 +65,19 @@ The Cluster Autoscaler profile settings apply universally to all autoscaler-enab
 
 Overprovisioning is a strategy that helps mitigate the risk of application pressure by ensuring there's an excess of readily available resources. This approach is especially useful for applications that experience highly variable loads and cluster scaling patterns that show frequent scale ups and scale downs.
 
-To determine the optimal amount of overprovisioning, you can use the following formula: $1-buffer/1+traffic$
+To determine the optimal amount of overprovisioning, you can use the following formula:
 
-For example, let's say you want to avoid hitting 100% CPU utilization in your cluster. You might opt for a 30% buffer to maintain a safety margin. If you anticipate an average traffic growth rate of 40%, you might consider overprovisioning by 50%, as calculated by the formula: $1-30/1+40=50$
+```txt
+1-buffer/1+traffic
+```
 
-An effective overprovisioning method involves the use of *pause pods*. Pause pods are low-priority deployments that can be easily replaced by high-priority deployments. You create low-priority pods that serve the sole purpose of reserving buffer space. When a high-priority pod requires space, the pause pods are removed and rescheduled on another node or a new node to accommodate the high-priority pod.
+For example, let's say you want to avoid hitting 100% CPU utilization in your cluster. You might opt for a 30% buffer to maintain a safety margin. If you anticipate an average traffic growth rate of 40%, you might consider overprovisioning by 50%, as calculated by the formula:
+
+```txt
+1-30%/1+40%=50%
+```
+
+An effective overprovisioning method involves the use of *pause pods*. Pause pods are low-priority deployments that can be easily replaced by high-priority deployments. You create low priority pods that serve the sole purpose of reserving buffer space. When a high-priority pod requires space, the pause pods are removed and rescheduled on another node or a new node to accommodate the high priority pod.
 
 The following YAML shows an example pause pod manifest:
 
