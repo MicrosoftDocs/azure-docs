@@ -12,7 +12,7 @@ ms.date: 10/25/2023
 
 # Providers and components
 
-Providers are an extensibility model in the Symphony orchestration service that allows it to support deployments and configuration across a wide range of OS platforms and deployment mechanisms. Providers are responsible for executing the actions required to achieve the desired state of a resource.
+Providers are an extensibility model in the Azure IoT Orchestrator service that allows it to support deployments and configuration across a wide range of OS platforms and deployment mechanisms. Providers are responsible for executing the actions required to achieve the desired state of a resource.
 
 A provider encapsulates platform specific knowledge and implements a specific capability. In other words, the provider forms an API layer on top of the individual target resources like helm charts, ARC extensions etc., bundles them into a single entity and performs operations like installations, deletions and updates on them. A separate provider to handle each of these target resources.
 
