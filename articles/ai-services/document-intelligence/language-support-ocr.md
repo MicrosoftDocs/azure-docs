@@ -34,8 +34,6 @@ ms.date: 11/15/2023
 
 Azure AI Document Intelligence models support many languages. Our language support capabilities enable your users to communicate with your applications in natural ways and empower global outreach. The following tables list the available language and locale by model and feature:
 
-## Document analysis models
-
 Document analysis models enable text extraction from forms and documents and return structured business-ready content ready for your organization's action, use, or progress. Here's a list of supported models:
 
 ::: moniker range=">=doc-intel-3.0.0"
@@ -55,6 +53,8 @@ Document analysis models enable text extraction from forms and documents and ret
 
 ::: moniker-end
 
+## Read model
+
 > [!NOTE]
 > **Language code optional**
 >
@@ -63,16 +63,13 @@ Document analysis models enable text extraction from forms and documents and ret
 >
 > * aLSO, It's not necessary to specify a locale. This is an optional parameter. The Document Intelligence deep-learning technology will auto-detect the text language in your image.
 
-## Document Analysis models
-
 ### [Read: handwritten text](#tab/read-hand)
 
-##### Read model: handwritten text
+:::moniker range="doc-intel-4.0.0"
 
 ##### Model ID: **prebuilt-read**
 
-:::moniker range="doc-intel-4.0.0"
-The following table lists the supported languages for extracting handwritten texts.
+The following table lists read model language support for extracting and analyzing handwritten text.</br>
 
 |Language| Language code (optional) | Language| Language code (optional) |
 |:-----|:----:|:-----|:----:|
@@ -85,9 +82,10 @@ The following table lists the supported languages for extracting handwritten tex
 :::moniker-end
 
 ::: moniker range="doc-intel-3.1.0"
-The following table lists the supported languages for extracting handwritten texts.</br>
 
 ##### Model ID: **prebuilt-read**
+
+The following table lists read model language support for extracting and analyzing handwritten text.</br>
 
 |Language| Language code (optional) | Language| Language code (optional) |
 |:-----|:----:|:-----|:----:|
@@ -99,7 +97,7 @@ The following table lists the supported languages for extracting handwritten tex
 :::moniker-end
 
 ::: moniker range="doc-intel-3.0.0"
-The following table lists the supported languages for extracting handwritten texts.
+The following table lists read model language support for extracting and analyzing handwritten text.</br>
 
 |Language| Language code (optional) | Language| Language code (optional) |
 |:-----|:----:|:-----|:----:|
@@ -113,13 +111,11 @@ The following table lists the supported languages for extracting handwritten tex
 
 ### [Read: printed text](#tab/read-print)
 
-##### Read model: printed text
-
-##### Model ID: **prebuilt-read**
-
 :::moniker range=">=doc-intel-3.1.0"
 
-The following table lists the supported languages for print text by the most recent GA version.
+The following table lists read model language support for extracting and analyzing printed text. </br>
+
+##### Model ID: **prebuilt-read**
 
 :::row:::
    :::column span="":::
@@ -444,7 +440,9 @@ The following table lists the supported languages for print text by the most rec
 
 ::: moniker range="doc-intel-3.0.0"
 
-The following table lists the supported languages for print text by the most recent GA version.
+The following table lists read model language support for extracting and analyzing printed text. </br>
+
+##### Model ID: **prebuilt-read**
 
 :::row:::
    :::column span="":::
@@ -674,8 +672,6 @@ The following table lists the supported languages for print text by the most rec
 
 ### [Read: language detection](#tab/read-detection)
 
-##### Read model: language detection
-
 ##### Model ID: **prebuilt-read**
 
 The [Read model API](concept-read.md) supports language detection for the following languages in your documents. This list can include languages not currently supported for text extraction.
@@ -816,15 +812,15 @@ The [Read model API](concept-read.md) supports language detection for the follow
    :::column-end:::
 :::row-end:::
 
-### [Layout: handwritten text](#tab/layout-hand)
+---
 
-##### Layout model: handwritten text
+### [Layout: handwritten text](#tab/layout-hand)
 
 ##### Model ID: **prebuilt-layout**
 
 :::moniker range="doc-intel-4.0.0"
 
-The following table lists the supported languages for extracting handwritten texts.
+The following table lists layout model language support for extracting and analyzing handwritten text. </br>
 
 |Language| Language code (optional) | Language| Language code (optional) |
 |:-----|:----:|:-----|:----:|
@@ -838,7 +834,9 @@ The following table lists the supported languages for extracting handwritten tex
 
 :::moniker range="doc-intel-3.1.0"
 
-The following table lists the language support for extracting handwritten texts.
+##### Model ID: **prebuilt-layout**
+
+The following table lists layout model language support for extracting and analyzing handwritten text. </br>
 
 |Language| Language code (optional) | Language| Language code (optional) |
 |:-----|:----:|:-----|:----:|
@@ -852,7 +850,9 @@ The following table lists the language support for extracting handwritten texts.
 
 :::moniker range="doc-intel-3.0.0"
 
-The following table lists the supported languages for extracting handwritten texts.
+##### Model ID: **prebuilt-layout**
+
+The following table lists layout model language support for extracting and analyzing handwritten text. </br>
 
 |Language| Language code (optional) | Language| Language code (optional) |
 |:-----|:----:|:-----|:----:|
@@ -866,13 +866,11 @@ The following table lists the supported languages for extracting handwritten tex
 
 ### [Layout: printed text](#tab/layout-print)
 
-##### Layout model: printed text
+:::moniker range=">=doc-intel-3.1.0":::
 
 ##### Model ID: **prebuilt-layout**
 
-:::moniker range=">=doc-intel-3.1.0":::
-
-The following table lists the supported languages for print text by the most recent GA version.
+The following table lists layout model language support for extracting and analyzing printed text. </br>
 
 :::row:::
    :::column span="":::
@@ -1196,7 +1194,10 @@ The following table lists the supported languages for print text by the most rec
 :::moniker-end
 
 :::moniker range="doc-intel-3.0.0"
-The following table lists the supported languages for print text by the most recent GA version.
+
+##### Model ID: **prebuilt-layout**
+
+The following table lists layout model language support for extracting and analyzing printed text. </br>
 
 :::row:::
    :::column span="":::
@@ -1423,13 +1424,20 @@ The following table lists the supported languages for print text by the most rec
 :::row-end:::
 :::moniker-end
 
+---
+
+::: moniker range=">=doc-intel-4.0.0"
+
+:::moniker-end
+
 :::moniker range="doc-intel-3.1.0 || doc-intel-3.0.0"
+
 
 ### [General document](#tab/general)
 
-##### Language support: prebuilt document model
+The following table lists general document model language support. </br>
 
-| Model | Language—Locale code | Default |
+| Model ID | Language—Locale code | Default |
 |--------|:----------------------|:---------|
 |**prebuilt-document**| English (United States)—en-US| English (United States)—en-US|
 :::moniker-end

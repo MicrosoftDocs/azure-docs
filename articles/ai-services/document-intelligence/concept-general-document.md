@@ -35,8 +35,6 @@ ms.author: lajanuar
 
 The General document model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to extract key-value pairs, tables, and selection marks from documents. General document is available with the v3.1 and v3.0 APIs.  For more information, _see_ our [migration guide](v3-1-migration-guide.md).
 
-> [!NOTE]
-> The ```2023-07-31``` (GA) and later versions of the general document model adds support for **normalized keys**.
 
 ## General document features
 
