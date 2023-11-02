@@ -1,5 +1,5 @@
 ---
-title: Deploy a flow as a managed online endpoint for real-time inference (preview)
+title: Deploy a flow as a managed online endpoint for real-time inference
 titleSuffix: Azure Machine Learning
 description: Learn how to deploy a flow as a managed online endpoint for real-time inference with Azure Machine Learning studio.
 services: machine-learning
@@ -9,11 +9,11 @@ ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.reviewer: lagayhar
-ms.date: 10/25/2023
+ms.date: 11/02/2023
 ---
 
 
-# Deploy a flow as a managed online endpoint for real-time inference (preview)
+# Deploy a flow as a managed online endpoint for real-time inference
 
 After you build a flow and test it properly, you might want to deploy it as an endpoint so that you can invoke the endpoint for real-time inference.
 
@@ -24,10 +24,6 @@ In this article, you'll learn how to deploy a flow as a managed online endpoint 
 - [Grant permissions to the endpoint](#grant-permissions-to-the-endpoint)
 - [Test the endpoint](#test-the-endpoint-with-sample-data)
 - [Consume the endpoint](#consume-the-endpoint)
-
-> [!IMPORTANT]
-> Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
