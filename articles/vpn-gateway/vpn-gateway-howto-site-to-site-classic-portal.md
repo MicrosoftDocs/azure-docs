@@ -50,7 +50,7 @@ The examples in this article use the following values. You can use these values 
 
 When you create a virtual network to use for a S2S connection, you need to make sure that the address spaces that you specify don't overlap with any of the client address spaces for the local sites that you want to connect to. If you have overlapping subnets, your connection won't work properly.
 
-* If you already have a VNet, verify that the settings are compatible with your VPN gateway design. Pay particular attention to any subnets that may overlap with other networks.
+* If you already have a VNet, verify that the settings are compatible with your VPN gateway design. Pay particular attention to any subnets that might overlap with other networks.
 
 * If you don't already have a virtual network, create one. Screenshots are provided as examples. Be sure to replace the values with your own.
 

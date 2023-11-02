@@ -32,7 +32,7 @@ The VNets you connect can be in different subscriptions and different regions. Y
 
 ### <a name="why"></a>Why connect virtual networks?
 
-You may want to connect virtual networks for the following reasons:
+You might want to connect virtual networks for the following reasons:
 
 * **Cross region geo-redundancy and geo-presence**
 
@@ -150,7 +150,7 @@ The local site typically refers to your on-premises location. It contains the IP
 
    * **Size:** This is the gateway SKU that you use to create your virtual network gateway. Classic VPN gateways use the old (legacy) gateway SKUs. For more information about the legacy gateway SKUs, see [Working with virtual network gateway SKUs (old SKUs)](vpn-gateway-about-skus-legacy.md). You can select **Standard** for this exercise.
 
-   * **Gateway subnet:** The size of the gateway subnet that you specify depends on the VPN gateway configuration that you want to create. While it is possible to create a gateway subnet as small as /29, we recommend that you use /27 or /28. This creates a larger subnet that includes more addresses. Using a larger gateway subnet allows for enough IP addresses to accommodate possible future configurations.
+   * **Gateway subnet:** The size of the gateway subnet that you specify depends on the VPN gateway configuration that you want to create. While it's possible to create a gateway subnet as small as /29, we recommend that you use /27 or /28. This creates a larger subnet that includes more addresses. Using a larger gateway subnet allows for enough IP addresses to accommodate possible future configurations.
 
 1. Select **Review + create** at the bottom of the page to validate your settings. Select **Create** to deploy. It can take up to 45 minutes to create a virtual network gateway, depending on the gateway SKU that you selected.
 1. You can start proceed to the next step while this gateway is creating.
