@@ -5,9 +5,9 @@ items:
   items:
   - name: What is Azure Native Qumulo Scalable File Service?
     href: qumulo-overview.md
-  - name: Using ANQ for disaster recovery
+  - name: What is ANQ for disaster recovery?
     href: qumulo-disaster-recovery.md
-  - name: Using ANQ for video editing
+  - name: What is ANQ for video editing?
     href: qumulo-video-editing.md
 - name: Quickstart
   expanded: true
