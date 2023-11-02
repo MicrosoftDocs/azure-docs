@@ -18,7 +18,7 @@ In Azure AI Search, if you [added vector fields](vector-search-how-to-create-ind
 > + [Query vector fields](#vector-query-request)
 > + [Filter a vector query](#vector-query-with-filter)
 > + [Query multiple vector fields at once](#multiple-vector-fields)
-> + [Query with integrated vectorization (preview)]()
+> + [Query with integrated vectorization (preview)](#query-with-integrated-vectorization-preview)
 
 Code samples in the [cognitive-search-vector](https://github.com/Azure/cognitive-search-vector-pr) repository demonstrate end-to-end workflows that include schema definition, vectorization, indexing, and queries.
 
@@ -34,7 +34,7 @@ Code samples in the [cognitive-search-vector](https://github.com/Azure/cognitive
 
 The stable version (**2023-11-01**) doesn't provide built-in vectorization of the query input string. Encoding (text-to-vector) of the query string requires that you pass the query string to an external embedding model for vectorization. You would then pass the response to the search engine for similarity search over vector fields.
 
-The preview version (**2023-10-01-Preview**) adds [integrated vectorization](vector-search-integrated-vectorization.md). If you want to explore this feature, [create and assign a vectorizer](vector-search-how-to-configure-vectorizer.md) to get built-in embedding of query strings.
+The preview version (**2023-10-01-Preview**) adds [integrated vectorization](vector-search-integrated-vectorization.md). If you want to explore this feature, [create and assign a vectorizer](vector-search-how-to-configure-vectorizer.md) to get built-in embedding of query strings. Then, [update your query](#query-with-integrated-vectorization-preview) to provide a text string to the vectorizer.
 
 All results are returned in plain text, including vectors in fields marked as `retrievable`. Because numeric vectors aren't useful in search results, choose other fields in the index as a proxy for the vector match. For example, if an index has "descriptionVector" and "descriptionText" fields, the query can match on "descriptionVector" but the search result can show "descriptionText". Use the `select` parameter to specify only human-readable fields in the results.
 
@@ -99,7 +99,7 @@ Your application code is responsible for handling this response and providing th
 
 ## Vector query request
 
-You can use the Azure portal, REST APIs, or the beta packages of the Azure SDKs to query vectors.
+This section shows you the basic structure of a vector query. You can use the Azure portal, REST APIs, or the beta packages of the Azure SDKs to query vectors.
 
 ### [**2023-11-01**](#tab/query-2023-11-01)
 
@@ -141,7 +141,7 @@ api-key: {{admin-api-key}}
 REST API version [**2023-10-01-Preview**](/rest/api/searchservice/search-service-api-versions#2023-10-01-Preview) introduces breaking changes to the vector query definition in [Search Documents](/rest/api/searchservice/2023-10-01-preview/documents/search-post). This version adds:
 
 + `vectorQueries` for specifying a vector to search for, vector fields to search in, and the k-number of nearest neighbors to return.
-+ `kind` as a parameter of `vectorQueries`. It can only be set to `vector` in this preview.
++ `kind` as a parameter of `vectorQueries`. This example specifies `vector`. See [query with integrated vectorization](#query-with-integrated-vectorization-preview) if you want `text`.
 + `exhaustive` can be set to true or false, and invokes exhaustive KNN at query time, even if you indexed the field for HNSW.
 
 In the following example, the vector is a representation of this query string: `"what Azure services support full text search"`. The query targets the "contentVector" field. The actual vector has 1536 embeddings, so it's trimmed in this example for readability.

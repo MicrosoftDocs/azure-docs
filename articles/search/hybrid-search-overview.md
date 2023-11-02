@@ -18,7 +18,7 @@ Hybrid search is a combination of full text and vector queries that execute agai
 + Executing in parallel
 + With merged results in the query response, scored using [Reciprocal Rank Fusion (RRF)](hybrid-search-ranking.md)
 
-This article explains the concepts, benefits, and limitations of hybrid search. Watch this [embedded video](#benefits) for an explanation and short demos of how hybrid retrieval contributes to high quality chat-style and copilot apps. 
+This article explains the concepts, benefits, and limitations of hybrid search. Watch this [embedded video](#why-choose-hybrid-search) for an explanation and short demos of how hybrid retrieval contributes to high quality chat-style and copilot apps. 
 
 ## How does hybrid search work?
 
