@@ -14,7 +14,7 @@ This article describes the main Event Grid concepts related to push delivery.
 
 ## Events
 
-An event is the smallest amount of information that fully describes something that happened in a system. Every event has common information like `source` of the event, `time` the event took place, and a unique identifier. Every event also has specific information that is only relevant to the specific type of event. For example, an event about a new file being created in Azure Storage has details about the file, such as the `lastTimeModified` value. An Event Hubs event has the `URL` of the Capture file. An event about a new order in your Orders microservice may have an `orderId` attribute and a `URL` attribute to the order’s state representation. 
+An event is the smallest amount of information that fully describes something that happened in a system. Every event has common information like `source` of the event, `time` the event took place, and a unique identifier. Every event also has specific information that is only relevant to the specific type of event. For example, an event about a new file being created in Azure Storage has details about the file, such as the `lastTimeModified` value. An Event Hubs event has the `URL` of the Capture file. An event about a new order in your Orders microservice might have an `orderId` attribute and a `URL` attribute to the order’s state representation. 
 
 ## CloudEvents
 
@@ -35,7 +35,7 @@ Event Grid also supports the proprietary [Event Grid schema](event-schema.md) fo
 
 ## Publishers
 
-A publisher is the application that sends events to Event Grid. It may be the same application where the events originated, the [event source](#event-sources). Azure services publish events to Event Grid to announce an occurrence in their service. You can publish events from your own application. Organizations that host services outside of Azure can publish events through Event Grid too.
+A publisher is the application that sends events to Event Grid. It can be the same application where the events originated, the [event source](#event-sources). Azure services publish events to Event Grid to announce an occurrence in their service. You can publish events from your own application. Organizations that host services outside of Azure can publish events through Event Grid too.
 
 ## Event sources
 
@@ -53,7 +53,7 @@ A topic holds events that have been published to Event Grid. You typically use a
 
 Custom topics are also topics that are used with your applications. They were the first kind of topic designed to build event-driven integrations for custom applications. As a self-standing resource, they expose their own endpoint to which events are published.
 
-Custom topics support [push delivery](push-delivery-overview.md). Consult [when to use pull or push delivery](pull-delivery-overview.md#when-to-use-push-delivery-vs-pull-delivery) to help you decide if push delivery is the right approach given your requirements. You may also want to refer to article [Custom topics](custom-topics.md).
+Custom topics support [push delivery](push-delivery-overview.md). Consult [when to use pull or push delivery](pull-delivery-overview.md#when-to-use-push-delivery-vs-pull-delivery) to help you decide if push delivery is the right approach given your requirements. You might also want to refer to article [Custom topics](custom-topics.md).
 
 ## System topics
 
