@@ -19,7 +19,7 @@ SSE is enabled by default and can't be disabled. SSE can't be disabled, doesn't 
 
 ## About encryption key management
 
-There are two kinds of encryption keys available: platform-managed keys and customer-managed keys. Data written to an Elastic SAN volume is encrypted with platform-managed (Microsoft-managed) keys by default. If you prefer, you can use *[Customer-managed keys](elastic-san-encryption-overview.md#customer-managed-keys-for-azure-elastic-san-data-encryption)* instead, if you have specific organizational security and compliance requirements.
+There are two kinds of encryption keys available: platform-managed keys and customer-managed keys. Data written to an Elastic SAN volume is encrypted with platform-managed (Microsoft-managed) keys by default. If you prefer, you can use [Customer-managed keys](#customer-managed-keys) instead, if you have specific organizational security and compliance requirements.
 
 When you configure a volume group, you can choose to use either platform-managed or customer-managed keys. All volumes in a volume group inherit the volume group's configuration. You can switch between customer-managed and platform-managed keys at any time. If you switch between these key types, the Elastic SAN service re-encrypts the data encryption key with the new KEK. The protection of the data encryption key changes, but the data in your Elastic SAN volumes always remains encrypted. There's no extra action required on your part to ensure that your data is protected. 
 
