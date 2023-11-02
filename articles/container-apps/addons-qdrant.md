@@ -5,13 +5,19 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 11/01/2023
+ms.date: 11/02/2023
 ms.author: cshoe
 ---
 
 # Tutorial: Connect to a Qdrant vector database in Azure Container Apps (preview)
 
 TODO: Introduction
+
+## Prerequisites
+
+TODO:
+
+## Setup
 
 1. Set up application name and resource group variables. You can change these values to your preference.
 
@@ -69,6 +75,8 @@ TODO: Introduction
       --max-nodes 2
     ```
 
+## Use the Qdrant add-on
+
 1. Create the Qdrant add-on service.
 
     ```azurecli
@@ -97,8 +105,13 @@ TODO: Introduction
 1. Bind the Qdrant add-on service to the container app.
 
     ```azurecli
-    az containerapp update -n $APP_NAME -g $RESOURCE_GROUP --bind qdrantdb
+    az containerapp update \
+      --name $APP_NAME \
+      -resource-group $RESOURCE_GROUP \
+      --bind qdrantdb
     ```
+
+## Configure the container app
 
 1. Enable ingress on the container app.
 
@@ -127,13 +140,15 @@ TODO: Introduction
       grep token |  cut -d= -f 2 | cut -d\" -f 1 | uniq`
     ```
 
-    When you run this command, your token is printed to the terminal. Your message should look like the following example.
+    When you run this command, your token is printed to the terminal. The message should look like the following example.
 
-    ```bash
+    ```text
     Your login token is: 348c8aed080b44f3aaab646287624c70aed080b44f
     ```
 
     Copy your token value to your text editor to use to sign-in to the Jupyter Notebook.
+
+## Use the Jupyter Notebook
 
 1. Open a web browser and paste in the URL for your container app you set aside in a text editor.
 
