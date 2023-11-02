@@ -91,8 +91,7 @@ Before your applications can interact with Azure AD B2C, they must be registered
 To register a web application in your Azure AD B2C tenant, use our new unified app registration experience. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Select **App registrations**, and then select **New registration**.
 1. Enter a **Name** for the application. For example, *jwt ms*.
@@ -125,9 +124,7 @@ If you register this app and configure it with `https://jwt.ms/` app for testing
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
 
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 
 1. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
 
@@ -212,9 +209,7 @@ Store the client secret that you previously generated in [step 1](#step-1-onboar
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 
@@ -460,12 +455,7 @@ In the following example, for the `Trusona Authentication Cloud` user journey, t
 
 1. Sign in to the [Azure portal](https://portal.azure.com/#home).
 
-1. Make sure you're using the directory that contains your Azure AD B2C tenant:
-
-   a. Select the **Directories + subscriptions** icon in the portal toolbar.
-
-   b. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
-
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. In the [Azure portal](https://portal.azure.com/#home), search for and select **Azure AD B2C**.
 
 1. Under Policies, select **Identity Experience Framework**.
