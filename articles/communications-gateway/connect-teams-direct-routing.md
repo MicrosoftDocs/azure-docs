@@ -5,7 +5,7 @@ author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: integration
-ms.date: 11/22/2023
+ms.date: 01/08/2024
 ms.custom:
     - template-how-to-pattern
 ---
@@ -52,8 +52,10 @@ Microsoft Teams only sends traffic to domains that you confirm that you own. You
 1. Select your Communications Gateway resource. Check that you're on the **Overview** of your Azure Communications Gateway resource.
 1. Select **Properties**.
 1. Find the field named **Domain**. This name is your deployment's _base domain name_.
-1. In each **Service Location** section, find the **Hostname** field. This field provides the _per-region domain name_. Your deployment has two service regions and therefore two per-region domain names.
-1. Note down the base domain name and the per-region domain names. You'll need these values in the next steps.
+1. In each **Service Location** section, find the **Hostname** field. This field provides the _per-region domain name_.
+    - A production deployment has two service regions and therefore two per-region domain names.
+    - A lab deployment has one service region and therefore one per-region domain name.
+1. Note down the base domain name and the per-region domain name(s). You'll need these values in the next steps.
 
 ## Register the base domain name for Azure Communications Gateway in your tenant
 
@@ -103,9 +105,12 @@ To activate the base domain in Microsoft 365, you must have at least one user or
 
 ## Connect your tenant to Azure Communications Gateway
 
-You most configure your Microsoft 365 tenant with two SIP trunks to Azure Communications Gateway. Each trunk connects to one of the per-region domain names that you found in [Find your Azure Communication Gateway's domain names](#find-your-azure-communication-gateways-domain-names).
+You must configure your Microsoft 365 tenant with SIP trunks to Azure Communications Gateway. Each trunk connects to one of the per-region domain names that you found in [Find your Azure Communication Gateway's domain names](#find-your-azure-communication-gateways-domain-names).
 
-Follow [Connect your Session Border Controller (SBC) to Direct Routing](/microsoftteams/direct-routing-connect-the-sbc), using the following configuration settings.
+Use [Connect your Session Border Controller (SBC) to Direct Routing](/microsoftteams/direct-routing-connect-the-sbc) and the following configuration settings to set up the trunks.
+
+- For a production deployment, set up two trunks.
+- For a lab deployment, set up one trunk.
 
 | Teams Admin Center setting | PowerShell parameter | Value to use (Admin Center / PowerShell) |
 | -------------------------- | -------------------- | ------------ |
