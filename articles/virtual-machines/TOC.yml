@@ -871,6 +871,13 @@
       href: attach-os-disk.md
   - name: Auto-shutdown the VM
     href: auto-shutdown-vm.md
+  - name: Hibernating Virtual Machines
+    items:
+      - name: Hibernate the VM
+        href: hibernate-resume.md
+      - name: Troubleshoot VM hibernation
+        href: hibernate-resume-troubleshooting.md
+    href: hibernate-resume.md
   - name: Delete a VM and its resources
     href: delete.md
   - name: Connect to Virtual Machines
