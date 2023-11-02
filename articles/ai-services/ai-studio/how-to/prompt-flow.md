@@ -101,26 +101,6 @@ One of the key benefit of Prompt flow tools is their seamless integration with t
 
 If the prompt flow tools in Azure AI Studio don't meet your requirements, you can follow [this guide](https://microsoft.github.io/promptflow/how-to-guides/develop-a-tool/create-and-use-tool-package.html) to develop your own custom tool and make it a tool package. To discover more custom tools developed by the open source community, visit [this page](https://microsoft.github.io/promptflow/integrations/tools/index.html).
 
-## Explore the Prompt Catalog in Azure AI Studio 
-
-Prompt engineering is an important aspect of working with generative AI models as it allows users to have greater control, customization, and influence over the outputs. By skillfully designing prompts, users can harness the capabilities of generative AI models to generate desired content, address specific requirements, and cater to various application domains.   
-
-A prompt catalog is a collection of prompts that are designed to assist AI studio users in finding and utilizing prompts for common use-cases. Users can explore the catalog, view available prompts, and easily open them in a playground for further customization and fine-tuning. 
-
-:::image type="content" source="../media/prompt-flow/explore-catalog.png" alt-text="Screenshot prompt flow catalog from the Explore tab" lightbox="../media/prompt-flow/explore-catalog.png":::
-
-Note that these prompts serve as starting points to help users get started and we recommend users to tune and evaluate before using in production. 
-
-Filter by Modalities, Industries or Tasks 
-
-You can filter the prompt catalog by modalities, industries, or task to find the prompt that best suits your use-case. 
-
-Modalities: You can filter the prompt catalog by modalities to find prompts for modalities like Completion, Chat, Image and Video.  
-
-Industries: You can filter the prompt catalog by industries to find prompts examples from specific domains.  
-
-Tasks: The task filter allows you to filter prompts by the task they are best suited for, such as translation, question answering, or classification. 
-
 
 ## Next steps
 
