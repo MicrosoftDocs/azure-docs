@@ -2,7 +2,7 @@
 title: Review TrackAvailability() test results
 description: This article explains how to review data logged by TrackAvailability() tests
 ms.topic: conceptual
-ms.date: 09/12/2023
+ms.date: 11/02/2023
 ---
 
 # Review TrackAvailability() test results
@@ -61,7 +61,7 @@ You can use Log Analytics to view your availability results, dependencies, and m
           :::image type="content" source="media/availability-azure-functions/app-insights-resource.png" alt-text="Screenshot that shows selecting your existing Application Insights resource on the Monitoring tab.":::
 
     - If you don't have an Application Insights resource created yet for your timer-triggered function:
-        - By default, when you're creating your Azure Functions application, it will create an Application Insights resource for you. Follow the instructions on how to [create an Azure Functions resource](../../azure-functions/functions-create-scheduled-function.md#create-a-function-app).
+        - By default, when you're creating your Azure Functions application, it creates an Application Insights resource for you. Follow the instructions on how to [create an Azure Functions resource](../../azure-functions/functions-create-scheduled-function.md#create-a-function-app).
 
     > [!NOTE]
     > You can host your functions on a Consumption, Premium, or App Service plan. If you're testing behind a virtual network or testing nonpublic endpoints, you'll need to use the Premium plan in place of the Consumption plan. Select your plan on the **Hosting** tab. Ensure the latest .NET version is selected when you create the function app.
@@ -118,7 +118,7 @@ To create a new file, right-click under your timer trigger function (for example
     az account list-locations -o table
     ```
 
-1. Copy the following code into the **run.csx** file. (You'll replace the preexisting code.)
+1. Copy the following code into the **run.csx** file. (You replace the pre-existing code.)
 
     ```csharp
     #load "runAvailabilityTest.csx" 
