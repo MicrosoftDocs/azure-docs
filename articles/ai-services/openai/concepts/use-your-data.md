@@ -117,7 +117,7 @@ Resolution:
 This means the storage account is not accessible with the given credentials. In this case, please review the storage account credentials passed to the API and ensure the storage account is not hidden behind a private endpoint (if a private endpoint is not configured for this resource). 
 ## Custom parameters
 
-In the **Data parameters** section in Azure OpenAI Studio, you can modify following additional settings. 
+You can modify the following additional settings in the **Data parameters** section in Azure OpenAI Studio and [the API](../reference.md#completions-extensions).
 
 
 |Parameter name  | Description  |
