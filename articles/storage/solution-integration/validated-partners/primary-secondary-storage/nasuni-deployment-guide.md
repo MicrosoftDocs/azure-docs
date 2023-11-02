@@ -12,17 +12,18 @@ ms.subservice: storage-partner-integration
 
 # Nasuni Configuration Guide for Microsoft Azure
 
-Nasuni® enables organizations to store, protect, synchronize, and collaborate on unstructured file data across all locations. Built for the cloud and powered by UniFS, the world’s only global file system, the Nasuni File Data Platform couples the performance of local file servers with the infinite scale of the cloud to provide a global file-sharing platform at half the cost of traditional file infrastructures.
+Nasuni uses cost-effective Azure Blob object and an intelligent caching architecture to deliver high performance SMB and NFS file shares across multiple Azure regions and on-premises locations. With effortless scalability, up-to-the-minute recovery points, instant recoveries, real-time ransomware detection, zero-latency edge performance, remote/hybrid worker support, and more, Nasuni with Azure Blob is the enterprise-class solution for moving traditional file server and NAS workloads into the cloud.
 
 How Nasuni works:
-- Stores all files and metadata in private (on-premises) or public cloud object storage.
-- Provides unlimited primary or archive file storage capacity.
-- Intelligently caches just the active data on lightweight Nasuni Edge Appliances.
-- Intelligently caches just the active data on lightweight Nasuni Edge Appliances.
+- Stores all files and metadata in Azure Blob Cool or Cold object storage using Nasuni’s cloud-native UniFS® global file system.
+- Caches copies the actively used file data from Azure Blob on lightweight Nasuni Edge Appliance virtual machines that can be deployed in any on-premises location or Azure region for high performance read/write access. Caching also minimizes Azure egress fees, since any cached files can be accessed repeatedly without having to be retrieved from Azure Blob.
+- Protects file data with snapshots taken as often as every minute and stored as an infinite, immutable versioned timeline in Azure Blob.
+- Synchronizes all Nasuni Edge caches from the gold copies of file data in Azure Blob to present a global file system and unified namespace across multiple locations.
+- Provides Global File Lock so that multiple authors can edit the same files in different locations without version conflict.
+- Detects ransomware in real time at each edge location, stops attacks with automated mitigation policies, and restores only infected files from the most recent healthy snapshot.
+- Provides VPN-less access to file shares for remote/hybrid workers and enables secure external file sharing with authorized third parties.
 
-Microsoft Azure is a cloud computing service created by Microsoft for building, testing, deploying, and managing applications and services through Microsoft-managed data centers. It provides software as a service (SaaS), platform as a service (PaaS) and infrastructure as a service (IaaS) and supports many different programming languages, tools, and frameworks, including both Microsoft-specific and third-party software and systems.
-
-Azure Blob storage is Microsoft's object storage solution for the cloud. Blob storage is optimized for storing massive amounts of unstructured data. Unstructured data is data that doesn't adhere to a particular data model or definition, such as text or binary data.
+Azure Blob storage is Microsoft's object storage solution for the cloud. Blob storage is optimized for storing massive amounts of unstructured data and offers superior durability and scalability at the lowest cost of any Azure storage account. With the capabilities listed above, Nasuni makes Azure Blob the best target for enterprises that want to move traditional NAS and Windows file server workloads to the cloud using standard SMB (CIFS) and NFS protocols, without having to rewrite applications for object storage.
 
 > [!TIP]
 >  For Microsoft Azure configuration suggestions to prevent accidental or malicious deletion of data, see [Deletion Security](https://b.link/Nasuni_Deletion_Security)
@@ -36,7 +37,7 @@ Azure Blob storage is Microsoft's object storage solution for the cloud. Blob st
 >  Selecting the “Secure transfer required” feature for an Azure Storage account does not affect the operation of the Nasuni Edge Appliance
 
 > [!TIP]
-> In the Nasuni model, customers provide their own cloud accounts for the storage of their data. Customers should leverage their cloud provider's role-based access and identity access management features as part of their overall security strategy. Such features can be used to limit or prohibit administrative access to the cloud account, based on customer policies
+> In the Nasuni model, customers provide their own cloud accounts for the storage of their data. Customers should leverage Azure's role-based access and identity access management features as part of their overall security strategy. Such features can be used to limit or prohibit administrative access to the cloud account, based on customer policies
 
 ### Introduction
 This document describes how to deploy a Nasuni environment in Microsoft Azure, using Azure Blob storage to store your file data.
