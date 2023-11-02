@@ -189,6 +189,8 @@ In this section, you package the previously registered MLflow model and deploy i
     1. The way you invoke and get predictions depends on the inference server you used. In this example, you used the Azure Machine Learning inferencing server, which creates predictions under the route `/score`. For more information about the input formats and features, see the details of the package [azureml-inference-server-http](https://pypi.org/project/azureml-inference-server-http/).
   
     1. Prepare the request payload. The format for an MLflow model deployed with Azure Machine Learning inferencing server is as follows:
+  
+        __sample-request.json__
 
        :::code language="json" source="~/azureml-examples-main/cli/endpoints/online/deploy-with-packages/mlflow-model/sample-request.json" ::: 
 
