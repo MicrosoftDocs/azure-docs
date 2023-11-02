@@ -37,6 +37,8 @@ Some prerequisites differ depending on the version (`stv2` or `stv1`) of the [co
 
   * When changing from an external to internal virtual network (or vice versa), changing subnets in the network, or updating availability zones for the API Management instance, you must configure a different public IP address.
 
+* For certain scenarios, enable [service endpoints](../virtual-network/virtual-network-service-endpoints-overview) in the subnet to dependent services such as Azure Storage or Azure SQL. For more information, see [Force tunnel traffic to on-premises firewall using ExpressRoute or network virtual appliance](#force-tunnel-traffic-to-on-premises-firewall-using-expressroute-or-network-virtual-appliance), later in this article.   
+
 ### [stv1](#tab/stv1)
 
 + **An API Management instance.** For more information, see [Create an Azure API Management instance](../articles/api-management/get-started-create-service-instance.md).
@@ -44,4 +46,6 @@ Some prerequisites differ depending on the version (`stv2` or `stv1`) of the [co
 * **A virtual network and subnet** in the same region and subscription as your API Management instance.
   * The subnet used to connect to the API Management instance must be dedicated to API Management. It can't contain other Azure resource types, or the deployment will fail.
   * The subnet used to connect to the API Management instance should not have any delegations enabled. The **Delegate subnet to a service** setting for the subnet should be set to *None*. 
+
+* For certain scenarios, enable [service endpoints](../virtual-network/virtual-network-service-endpoints-overview) in the subnet to dependent services such as Azure Storage or Azure SQL. For more information, see [Force tunnel traffic to on-premises firewall using ExpressRoute or network virtual appliance](#force-tunnel-traffic-to-on-premises-firewall-using-expressroute-or-network-virtual-appliance), later in this article. 
 ---
