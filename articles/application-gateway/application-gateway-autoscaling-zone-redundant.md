@@ -30,6 +30,7 @@ For scale-in events, Application Gateway will drain existing connections for 5 m
 
 ## Next steps
 
+- Learn how to [Schedule autoscaling for Application Gateway](application-gateway-externally-managed-scheduled-autoscaling.md)
 - Learn more about [Application Gateway v2](overview-v2.md)
 - [Create an autoscaling, zone redundant application gateway with a reserved virtual IP address using Azure PowerShell](tutorial-autoscale-ps.md)
 
