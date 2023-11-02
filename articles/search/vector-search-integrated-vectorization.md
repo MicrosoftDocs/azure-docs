@@ -71,6 +71,28 @@ Data chunking (Text Split skill) is free and available on all Azure AI services 
 
 We recommend using the built-in vectorization support of Azure AI Studio. If this approach doesn't meet your needs, you can create indexers and skillsets that invoke integrated vectorization using the programmatic interfaces of Azure AI Search.
 
+## How to use integrated vectorization
+
+For those who already have vectors in a search index and only need text-to-vector conversion at query time:
+
+1. [Add a vectorizer](vector-search-how-to-configure-vectorizer.md) to the search index. Make sure it's the same vectorizer (embedding model) used to create embeddings in the index.
+1. Assign the vectorizer to the vector field.
+1. [Formulate a vector query](vector-search-how-to-query.md#query-with-integrated-vectorization-preview) that specifies the text string to vectorize.
+
+A more common scenario is to also require data chunking and vectorization during indexing:
+
+1. Create a data source connection to a supported data source for indexer-based indexing.
+1. Create a skillset that calls [Text Split skill](cognitive-search-skill-textsplit.md) for chunking and [AzureOpenAIEmbeddingModel](cognitive-search-skill-azure-openai-embedding.md) or a custom skill to vectorize the chunks.
+1. Create an index that [specifies a vectorizer](vector-search-how-to-configure-vectorizer.md) for query time, and assign it to vector fields.
+1. Create an indexer to drive everything, from data retrieval, to skillset execution, through indexing.
+
+Optionally, consider [creating secondary indexes](index-projections-concept-intro.md) for advanced scenarios where you want chunked content in one index, and non-chunked in another index. Chunked indexes (or secondary indexes) are useful for RAG apps.
+
+> [!TIP]
+> Use the **Import and vectorize data** wizard in the Azure portal to try out integrated vectorization before writing any code.
+>
+> Next, configure a Jupyter notebook to run the same workflow, cell by cell, to see how each step works.
+
 ## Benefits of integrated vectorization 
 
 Here are some of the key benefits of the integrated vectorization: 
