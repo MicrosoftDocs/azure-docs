@@ -1,5 +1,5 @@
 ---
-title: Open source LLM tool in Azure Machine Learning prompt flow (preview)
+title: Open source LLM tool in Azure Machine Learning prompt flow
 titleSuffix: Azure Machine Learning
 description: The Prompt flow Open Source LLM tool enables you to utilize various Open Source and Foundational Models.
 services: machine-learning
@@ -10,10 +10,10 @@ ms.topic: reference
 author: gjwoods
 ms.author: GEWOODS
 ms.reviewer: lagayhar
-ms.date: 10/16/2023
+ms.date: 11/02/2023
 ---
 
-# Open Source LLM (preview)
+# Open Source LLM
 The Prompt flow Open Source LLM tool enables you to utilize various Open Source and Foundational Models, such as [Falcon](https://aka.ms/AAlc25c) or [Llama 2](https://aka.ms/AAlc258) for natural language processing, in PromptFlow.
 
 Here's how it looks in action on the Visual Studio Code Prompt flow extension. In this example, the tool is being used to call a LlaMa-2 chat endpoint and asking "What is CI?".
@@ -24,10 +24,6 @@ This Prompt flow supports two different LLM API types:
 
 - **Chat**: Shown in the example above. The chat API type facilitates interactive conversations with text-based inputs and responses.
 - **Completion**: The Completion API type is used to generate single response text completions based on provided prompt input.
-
-> [!IMPORTANT]
-> Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Quick Overview: How do I use Open Source LLM Tool?
 
