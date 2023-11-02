@@ -2018,6 +2018,10 @@
       items:
       - name: Create VM restore points
         href: create-restore-points.md
+      - name: VMSnapshot extension
+        href: virtual-machines-restore-points-vm-snapshot-extension.md
+      - name: Cross-region copy
+        href: virtual-machines-restore-points-copy.md        
     - name: Manage VM restore points
       href: manage-restore-points.md
     - name: Tutorials
@@ -2028,6 +2032,8 @@
         href: virtual-machines-create-restore-points-powershell.md
       - name: Portal
         href: virtual-machines-create-restore-points-portal.md
+      - name: How to copy VM restore points to another region
+        href: virtual-machines-copy-restore-points-how-to.md        
     - name: Support matrix
       href: concepts-restore-points.md
     - name: Troubleshooting
