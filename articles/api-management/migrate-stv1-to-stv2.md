@@ -274,7 +274,7 @@ On successful migration, update any network dependencies including DNS, firewall
 
 1. **Do we need a public IP even if the API Management instance is VNet injected in internal mode only?**
 
-   APIM `stv1` uses an Azure managed public IP even in an internal mode for management traffic. However `stv2` requires a user managed public IP for the same purpose. This public IP is only used for Azure internal management operations and not to expose your instance to the internet. More details [here](./api-management-howto-ip-addresses.md#ip-addresses-of-api-management-service-in-vnet).
+   API Management `stv1` uses an Azure managed public IP even in an internal mode for management traffic. However `stv2` requires a user managed public IP for the same purpose. This public IP is only used for Azure internal management operations and not to expose your instance to the internet. More details [here](./api-management-howto-ip-addresses.md#ip-addresses-of-api-management-service-in-vnet).
 
 1. **Can I upgrade my stv1 instance to the same subnet?**
 
