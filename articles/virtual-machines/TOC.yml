@@ -869,11 +869,11 @@
     - name: Create from an existing OS disk or VHD
       displayName: attach
       href: attach-os-disk.md
-  - name: Auto-shutdown the VM
+  - name: Auto-shutdown a VM
     href: auto-shutdown-vm.md
   - name: Hibernating Virtual Machines
     items:
-      - name: Hibernate the VM
+      - name: Hibernate a VM
         href: hibernate-resume.md
       - name: Troubleshoot VM hibernation
         href: hibernate-resume-troubleshooting.md
