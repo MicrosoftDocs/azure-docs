@@ -5,7 +5,7 @@ description: Learn how to use a public load balancer with a Standard SKU to expo
 ms.subservice: aks-networking
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 07/14/2023
+ms.date: 10/30/2023
 ms.author: allensu
 author: asudbring
 #Customer intent: As a cluster operator or developer, I want to learn how to create a service in AKS that uses an Azure Load Balancer with a Standard SKU.
@@ -84,7 +84,7 @@ NAMESPACE     NAME          TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S
 default       public-svc    LoadBalancer   10.0.39.110    52.156.88.187   80:32068/TCP    52s
 ```
 
-When you view the service details, the public IP address created for this service on the load balancer is shown in the *EXTERNAL-IP* column. It may take a few minutes for the IP address to change from *\<pending\>* to an actual public IP address.
+When you view the service details, the public IP address created for this service on the load balancer is shown in the *EXTERNAL-IP* column. It might take a few minutes for the IP address to change from *\<pending\>* to an actual public IP address.
 
 For more detailed information about your service, use the following command.
 
@@ -312,7 +312,7 @@ az aks create \
 
 > [!IMPORTANT]
 >
-> If you have applications on your cluster that can establish a large number of connections to small set of destinations, like many instances of a frontend application connecting to a database, you may have a scenario susceptible to encounter SNAT port exhaustion. SNAT port exhaustion happens when an application runs out of outbound ports to use to establish a connection to another application or host. If you have a scenario susceptible to encounter SNAT port exhaustion, we highly recommended you increase the allocated outbound ports and outbound frontend IPs on the load balancer.
+> If you have applications on your cluster that can establish a large number of connections to small set of destinations, like many instances of a frontend application connecting to a database, you might have a scenario susceptible to encounter SNAT port exhaustion. SNAT port exhaustion happens when an application runs out of outbound ports to use to establish a connection to another application or host. If you have a scenario susceptible to encounter SNAT port exhaustion, we highly recommended you increase the allocated outbound ports and outbound frontend IPs on the load balancer.
 >
 > For more information on SNAT, see [Use SNAT for outbound connections](../load-balancer/load-balancer-outbound-connections.md).
 
@@ -343,7 +343,7 @@ When calculating the number of outbound ports and IPs and setting the values, ke
 * The number of outbound ports per node is fixed based on the value you set.
 * The value for outbound ports must be a multiple of 8.
 * Adding more IPs doesn't add more ports to any node, but it provides capacity for more nodes in the cluster.
-* You must account for nodes that may be added as part of upgrades, including the count of nodes specified via [maxSurge values][maxsurge].
+* You must account for nodes that might be added as part of upgrades, including the count of nodes specified via [maxSurge values][maxsurge].
 
 The following examples show how the values you set affect the number of outbound ports and IP addresses:
 
@@ -397,7 +397,7 @@ If you expect to have numerous short-lived connections and no long-lived connect
 When setting *IdleTimeoutInMinutes* to a different value than the default of 30 minutes, consider how long your workloads need an outbound connection. Also consider that the default timeout value for a *Standard* SKU load balancer used outside of AKS is 4 minutes. An *IdleTimeoutInMinutes* value that more accurately reflects your specific AKS workload can help decrease SNAT exhaustion caused by tying up connections no longer being used.
 
 > [!WARNING]
-> Altering the values for *AllocatedOutboundPorts* and *IdleTimeoutInMinutes* may significantly change the behavior of the outbound rule for your load balancer and shouldn't be done lightly. Check the [SNAT Troubleshooting section][troubleshoot-snat] and review the [Load Balancer outbound rules][azure-lb-outbound-rules-overview] and [outbound connections in Azure][azure-lb-outbound-connections] before updating these values to fully understand the impact of your changes.
+> Altering the values for *AllocatedOutboundPorts* and *IdleTimeoutInMinutes* might significantly change the behavior of the outbound rule for your load balancer and shouldn't be done lightly. Check the [SNAT Troubleshooting section][troubleshoot-snat] and review the [Load Balancer outbound rules][azure-lb-outbound-rules-overview] and [outbound connections in Azure][azure-lb-outbound-connections] before updating these values to fully understand the impact of your changes.
 
 ## Restrict inbound traffic to specific IP ranges
 
@@ -446,34 +446,32 @@ spec:
 
 The following annotations are supported for Kubernetes services with type `LoadBalancer`, and they only apply to **INBOUND** flows.
 
-| Annotation | Value | Description
-| ----------------------------------------------------------------- | ------------------------------------- | ------------------------------------------------------------
-| `service.beta.kubernetes.io/azure-load-balancer-internal`         | `true` or `false`                     | Specify whether the load balancer should be internal. If not set, it defaults to public.
-| `service.beta.kubernetes.io/azure-load-balancer-internal-subnet`  | Name of the subnet                    | Specify which subnet the internal load balancer should be bound to. If not set, it defaults to the subnet configured in cloud config file.
-| `service.beta.kubernetes.io/azure-dns-label-name`                 | Name of the DNS label on Public IPs   | Specify the DNS label name for the **public** service. If it's set to an empty string, the DNS entry in the Public IP isn't used.
-| `service.beta.kubernetes.io/azure-shared-securityrule`            | `true` or `false`                     | Specify that the service should be exposed using an Azure security rule that may be shared with another service. Trade specificity of rules for an increase in the number of services that can be exposed. This annotation relies on the Azure [Augmented Security Rules](../virtual-network/network-security-groups-overview.md#augmented-security-rules) feature of Network Security groups.
-| `service.beta.kubernetes.io/azure-load-balancer-resource-group`   | Name of the resource group            | Specify the resource group of load balancer public IPs that aren't in the same resource group as the cluster infrastructure (node resource group).
-| `service.beta.kubernetes.io/azure-allowed-service-tags`           | List of allowed service tags          | Specify a list of allowed [service tags][service-tags] separated by commas.
-| `service.beta.kubernetes.io/azure-load-balancer-tcp-idle-timeout` | TCP idle timeouts in minutes          | Specify the time in minutes for TCP connection idle timeouts to occur on the load balancer. The default and minimum value is 4. The maximum value is 30. The value must be an integer.
-| `service.beta.kubernetes.io/azure-load-balancer-ipv4`             | IPv4 address                          | Specify the IPv4 address to assign to the load balancer.
-| `service.beta.kubernetes.io/azure-load-balancer-ipv6`             | IPv6 address                          | Specify the IPv6 address to assign to the load balancer.
-
-> [!NOTE]
-> `service.beta.kubernetes.io/azure-load-balancer-disable-tcp-reset` was deprecated in Kubernetes 1.18 and removed in 1.20.
+| Annotation                                                         | Value                               | Description                                                                                                                                                                                                  |
+|--------------------------------------------------------------------|-------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `service.beta.kubernetes.io/azure-load-balancer-internal`          | `true` or `false`                   | Specify whether the load balancer should be internal. If not set, it defaults to public.                                                                                                                     |
+| `service.beta.kubernetes.io/azure-load-balancer-internal-subnet`   | Name of the subnet                  | Specify which subnet the internal load balancer should be bound to. If not set, it defaults to the subnet configured in cloud config file.                                                                   |
+| `service.beta.kubernetes.io/azure-dns-label-name`                  | Name of the DNS label on Public IPs | Specify the DNS label name for the **public** service. If it's set to an empty string, the DNS entry in the Public IP isn't used.                                                                            |
+| `service.beta.kubernetes.io/azure-shared-securityrule`             | `true` or `false`                   | Specify exposing the service through a potentially shared Azure security rule to increase service exposure, utilizing Azure [Augmented Security Rules][augmented-security-rules] in Network Security groups. |
+| `service.beta.kubernetes.io/azure-load-balancer-resource-group`    | Name of the resource group          | Specify the resource group of load balancer public IPs that aren't in the same resource group as the cluster infrastructure (node resource group).                                                           |
+| `service.beta.kubernetes.io/azure-allowed-service-tags`            | List of allowed service tags        | Specify a list of allowed [service tags][service-tags] separated by commas.                                                                                                                                  |
+| `service.beta.kubernetes.io/azure-load-balancer-tcp-idle-timeout`  | TCP idle timeouts in minutes        | Specify the time in minutes for TCP connection idle timeouts to occur on the load balancer. The default and minimum value is 4. The maximum value is 30. The value must be an integer.                       |
+| `service.beta.kubernetes.io/azure-load-balancer-disable-tcp-reset` | `true` or `false`                   | Specify whether the load balancer should disable TCP reset on idle timeout.                                                                                                                                  |
+| `service.beta.kubernetes.io/azure-load-balancer-ipv4`              | IPv4 address                        | Specify the IPv4 address to assign to the load balancer.                                                                                                                                                     |
+| `service.beta.kubernetes.io/azure-load-balancer-ipv6`              | IPv6 address                        | Specify the IPv6 address to assign to the load balancer.                                                                                                                                                     |
 
 ### Customize the load balancer health probe
-| Annotation | Value | Description |
-| ---------- | ----- | ----------- |
-| `service.beta.kubernetes.io/azure-load-balancer-health-probe-interval`          | Health probe interval                                       |                                                                       |
-| `service.beta.kubernetes.io/azure-load-balancer-health-probe-num-of-probe`      | The minimum number of unhealthy responses of health probe   |                                                                       | 
-| `service.beta.kubernetes.io/azure-load-balancer-health-probe-request-path`      | Request path of the health probe                            |                                                                       |
-| `service.beta.kubernetes.io/port_{port}_no_lb_rule`                             | true/false                                                  | {port} is the port number in the service. When it is set to true, no lb rule and health probe rule for this port will be generated. health check service should not be exposed to the public internet(e.g. istio/envoy health check service)|
-| `service.beta.kubernetes.io/port_{port}_no_probe_rule`                          | true/false                                                  | {port} is the port number in the service. When it is set to true, no health probe rule for this port will be generated.                                                                                                                                                                                                              | 
-| `service.beta.kubernetes.io/port_{port}_health-probe_protocol`                  | Health probe protocol                                       | {port} is the port number in the service. Explicit protocol for the health probe for the service port {port}, overriding port.appProtocol if set.|
-| `service.beta.kubernetes.io/port_{port}_health-probe_port`                      | port number or port name in service manifest                | {port} is the port number in the service. Explicit port for the health probe for the service port {port}, overriding the default value.                                                                                                                                                                                                                  | 
-| `service.beta.kubernetes.io/port_{port}_health-probe_interval`                  | Health probe interval                                       | {port} is port number of service.                                     |
-| `service.beta.kubernetes.io/port_{port}_health-probe_num-of-probe`              | The minimum number of unhealthy responses of health probe   | {port} is port number of service.                                     |
-| `service.beta.kubernetes.io/port_{port}_health-probe_request-path`              | Request path of the health probe                            | {port} is port number of service.                                     | 
+| Annotation                                                                 | Value                                                     | Description                                                                                                                                                                                                           |
+|----------------------------------------------------------------------------|-----------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `service.beta.kubernetes.io/azure-load-balancer-health-probe-interval`     | Health probe interval                                     |                                                                                                                                                                                                                       |
+| `service.beta.kubernetes.io/azure-load-balancer-health-probe-num-of-probe` | The minimum number of unhealthy responses of health probe |                                                                                                                                                                                                                       |
+| `service.beta.kubernetes.io/azure-load-balancer-health-probe-request-path` | Request path of the health probe                          |                                                                                                                                                                                                                       |
+| `service.beta.kubernetes.io/port_{port}_no_lb_rule`                        | true/false                                                | {port} is service port number. When set to true, no lb rule or health probe rule for this port is generated. Health check service should not be exposed to the public internet(e.g. istio/envoy health check service) |
+| `service.beta.kubernetes.io/port_{port}_no_probe_rule`                     | true/false                                                | {port} is service port number. When set to true, no health probe rule for this port is generated.                                                                                                                     |
+| `service.beta.kubernetes.io/port_{port}_health-probe_protocol`             | Health probe protocol                                     | {port} is service port number. Explicit protocol for the health probe for the service port {port}, overriding port.appProtocol if set.                                                                                |
+| `service.beta.kubernetes.io/port_{port}_health-probe_port`                 | port number or port name in service manifest              | {port} is service port number. Explicit port for the health probe for the service port {port}, overriding the default value.                                                                                          |
+| `service.beta.kubernetes.io/port_{port}_health-probe_interval`             | Health probe interval                                     | {port} is service port number.                                                                                                                                                                                        |
+| `service.beta.kubernetes.io/port_{port}_health-probe_num-of-probe`         | The minimum number of unhealthy responses of health probe | {port} is service port number.                                                                                                                                                                                        |
+| `service.beta.kubernetes.io/port_{port}_health-probe_request-path`         | Request path of the health probe                          | {port} is service port number.                                                                                                                                                                                        |
 
 As documented [here](../load-balancer/load-balancer-custom-probe-overview.md), Tcp, Http and Https are three protocols supported by load balancer service.
 
@@ -494,7 +492,7 @@ Since v1.20, service annotation `service.beta.kubernetes.io/azure-load-balancer-
 Note that the request path would be ignored when using TCP or the `spec.ports.appProtocol` is empty. More specifically:
 
 | loadbalancer sku | `externalTrafficPolicy` | spec.ports.Protocol | spec.ports.AppProtocol | `service.beta.kubernetes.io/azure-load-balancer-health-probe-request-path` | LB Probe Protocol                 | LB Probe Request Path       |
-| ---------------- | ----------------------- | ------------------- | ---------------------- | -------------------------------------------------------------------------- | --------------------------------- | --------------------------- |
+|------------------|-------------------------|---------------------|------------------------|----------------------------------------------------------------------------|-----------------------------------|-----------------------------|
 | standard         | local                   | any                 | any                    | any                                                                        | http                              | `/healthz`                  |
 | standard         | cluster                 | udp                 | any                    | any                                                                        | null                              | null                        |
 | standard         | cluster                 | tcp                 |                        | (ignored)                                                                  | tcp                               | null                        |
@@ -513,12 +511,12 @@ Since v1.21, two service annotations `service.beta.kubernetes.io/azure-load-bala
 
 
 ### Custom Load Balancer health probe for port
-Different ports in a service may require different health probe configurations. This could be because of service design (such as a single health endpoint controlling multiple ports), or Kubernetes features like the [MixedProtocolLBService](https://kubernetes.io/docs/concepts/services-networking/service/#load-balancers-with-mixed-protocol-types).
+Different ports in a service can require different health probe configurations. This could be because of service design (such as a single health endpoint controlling multiple ports), or Kubernetes features like the [MixedProtocolLBService](https://kubernetes.io/docs/concepts/services-networking/service/#load-balancers-with-mixed-protocol-types).
 
 The following annotations can be used to customize probe configuration per service port.
 
 | port specific annotation                                         | global probe annotation                                                  | Usage                                                                        |
-| ---------------------------------------------------------------- | ------------------------------------------------------------------------ | ---------------------------------------------------------------------------- |
+|------------------------------------------------------------------|--------------------------------------------------------------------------|------------------------------------------------------------------------------|
 | service.beta.kubernetes.io/port_{port}_no_lb_rule                | N/A (no equivalent globally)                                             | if set true, no lb rules and probe rules will be generated                   |
 | service.beta.kubernetes.io/port_{port}_no_probe_rule             | N/A (no equivalent globally)                                             | if set true, no probe rules will be generated                                |
 | service.beta.kubernetes.io/port_{port}_health-probe_protocol     | N/A (no equivalent globally)                                             | Set the health probe protocol for this service port (e.g. Http, Https, Tcp)  |
@@ -527,7 +525,7 @@ The following annotations can be used to customize probe configuration per servi
 | service.beta.kubernetes.io/port_{port}_health-probe_num-of-probe | service.beta.kubernetes.io/azure-load-balancer-health-probe-num-of-probe | Number of consecutive probe failures before the port is considered unhealthy |
 | service.beta.kubernetes.io/port_{port}_health-probe_interval     | service.beta.kubernetes.io/azure-load-balancer-health-probe-interval     | The amount of time between probe attempts                                    |
 
-For following manifest, probe rule for port httpsserver is different from the one for httpserver because annoations for port httpsserver are specified.
+For following manifest, probe rule for port httpsserver is different from the one for httpserver because annotations for port httpsserver are specified.
 
 ```yaml
 apiVersion: v1
@@ -686,6 +684,7 @@ To learn more about using internal load balancer for inbound traffic, see the [A
 [aks-quickstart-portal]: ./learn/quick-kubernetes-deploy-portal.md
 [aks-quickstart-powershell]: ./learn/quick-kubernetes-deploy-powershell.md
 [aks-sp]: kubernetes-service-principal.md#delegate-access-to-other-azure-resources
+[augmented-security-rules]: ../virtual-network/network-security-groups-overview.md#augmented-security-rules
 [az-aks-show]: /cli/azure/aks#az_aks_show
 [az-aks-create]: /cli/azure/aks#az_aks_create
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
@@ -714,6 +713,6 @@ To learn more about using internal load balancer for inbound traffic, see the [A
 [use-multiple-node-pools]: use-multiple-node-pools.md
 [troubleshoot-snat]: #troubleshooting-snat
 [service-tags]: ../virtual-network/network-security-groups-overview.md#service-tags
-[maxsurge]: upgrade-cluster.md#customize-node-surge-upgrade
+[maxsurge]: ./upgrade-aks-cluster.md#customize-node-surge-upgrade
 [az-lb]: ../load-balancer/load-balancer-overview.md
 [alb-outbound-rules]: ../load-balancer/outbound-rules.md

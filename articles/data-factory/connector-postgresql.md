@@ -7,13 +7,10 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/25/2022
+ms.date: 10/20/2023
 ms.author: jianleishen
 ---
 # Copy data from PostgreSQL using Azure Data Factory or Synapse Analytics
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](v1/data-factory-onprem-postgresql-connector.md)
-> * [Current version](connector-postgresql.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data from a PostgreSQL database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.

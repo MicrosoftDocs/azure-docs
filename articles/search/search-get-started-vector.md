@@ -615,7 +615,7 @@ Because this is a hybrid query, results are RRF-ranked. RRF evaluates search sco
 }
 ```
 
-Because RRF merges results, it helps to review the inputs. The following results are from just the full text query. Top two results are Sublime Cliff Hotel and History Lion Resort, with Sublime Cliff Hotel having a much stronger relevance score.
+Because RRF merges results, it helps to review the inputs. The following results are from just the full text query. Top two results are Sublime Cliff Hotel and History Lion Resort, with Sublime Cliff Hotel having a much stronger BM25 relevance score.
 
 ```http
         {
@@ -630,7 +630,7 @@ Because RRF merges results, it helps to review the inputs. The following results
         },
 ```
 
-In the vector-only query, Sublime Cliff Hotel drops to position four. But Historic Lion, which was second in full text search and third in vector search, doesn't experience the same range of fluctuation and thus appears as a top match in a homogenized result set.
+In the vector-only query using HNSW for finding matches, Sublime Cliff Hotel drops to position four. But Historic Lion, which was second in full text search and third in vector search, doesn't experience the same range of fluctuation and thus appears as a top match in a homogenized result set.
 
 ```http
     "value": [

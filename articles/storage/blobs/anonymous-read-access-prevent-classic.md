@@ -2,12 +2,12 @@
 title: Remediate anonymous read access to blob data (classic deployments)
 titleSuffix: Azure Storage
 description: Learn how to prevent anonymous requests against a classic storage account by disabling anonymous access to containers.
-author: akashdubey-ms
-
+author: pauljewellmsft
+ms.author: pauljewell
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 09/12/2023
-ms.author: akashdubey
+
 ms.reviewer: nachakra
 ms.devlang: powershell, azurecli
 ms.custom: devx-track-azurepowershell, engagement-fy23
