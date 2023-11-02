@@ -56,7 +56,7 @@ The solution architecture comprises the following components:
 
 ## Considerations
 
-Enterprises planning a video editorial solution using Azure Native Qumulo with Adobe Premiere Pro and HP Anyware clients should include the following considerations in their planning and design processes.
+When you are planning a video editorial solution using Azure Native Qumulo with Adobe Premiere Pro and HP Anyware clients, consider the following factors in your planning and design processes.
 
 ### Potential use cases
 
@@ -73,12 +73,16 @@ Here are some possible use cases:
 
 ### Scalability and Performance
 
-When planning a video editing solution using Qumulo and Adobe Premiere Pro, consider the following list:
+When planning a video editing solution using Qumulo and Adobe Premiere Pro, consider the following factors:
 
-- Capacity and growth: ANQ scales on demand, allowing you to add as much capacity as needed simply by creating or migrating data.
-- Performance: Azure provides scalable compute and storage as needed, allowing you to easily adjust the computing resources allocated to your Adobe Premiere Pro workstation VMs.
-- Throughput: ANQ allows you to adjust throughput on demand, in 1-GB increments, to ensure the availability of throughput you always need. Use and pay only for the throughput required by the number of Adobe Premiere editors using ANQ.
-- Latency: Latency between the Adobe Premiere Pro workstation VMs and the ANQ storage is minimal for editing purposes. Latency between the user’s local client and the Azure environment can be optimized through the HP Anyware client.
+- Capacity and growth
+  - ANQ scales on demand, allowing you to add as much capacity as needed simply by creating or migrating data.
+- Performance
+  - Azure provides scalable compute and storage as needed, allowing you to easily adjust the computing resources allocated to your Adobe Premiere Pro workstation VMs.
+- Throughput
+  - ANQ allows you to adjust throughput on demand, in 1-GB increments, to ensure the availability of throughput you always need. Use and pay only for the throughput required by the number of Adobe Premiere editors using ANQ.
+- Latency
+  - Latency between the Adobe Premiere Pro workstation VMs and the ANQ storage is minimal for editing purposes. Latency between the user’s local client and the Azure environment can be optimized through the HP Anyware client.
 
 ### Security
 

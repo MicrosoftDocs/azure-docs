@@ -84,7 +84,7 @@ Organizations looking to plan and implement a disaster recovery environment usin
 
 ### Potential use cases
 
-This architecture applies to businesses that want to need enterprise file services with multi-protocol access to unstructured data on a scalable architecture.
+This architecture applies to businesses that want enterprise level file services with multi-protocol access to unstructured data on a scalable architecture.
 
 Possible use cases:
 
@@ -108,7 +108,7 @@ Possible use cases:
 
 ### Scalability and Performance
 
-When planning an Azure Native Qumulo Scalable File Service deployment as a disaster recovery solution, you should consider the following list in capacity plans:
+When planning an Azure Native Qumulo Scalable File Service deployment as a disaster recovery solution, consider the following factors in capacity plans:
 
 - The current amount of unstructured data within the scope of the failover plan.
 - If the solution is intended for use as a cloud-based backup and restore environment, the number of separate snapshots that the solution is required to host, along with the expected rate of change within the primary dataset.
