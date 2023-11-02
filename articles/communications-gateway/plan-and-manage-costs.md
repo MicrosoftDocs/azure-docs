@@ -6,16 +6,16 @@ ms.author: rdunstan
 ms.custom: subject-cost-optimization
 ms.service: communications-gateway
 ms.topic: how-to
-ms.date: 10/27/2023
+ms.date: 01/08/2024
 ---
 
 # Plan and manage costs for Azure Communications Gateway
 
 This article describes how you're charged for Azure Communications Gateway and how you can plan for and manage these costs.
 
-After you've started using Azure Communications Gateway, you can use Cost Management features to set budgets and monitor costs. You can also review forecasted costs and identify spending trends to identify areas where you might want to act.
+After you start using Azure Communications Gateway, you can use Cost Management features to set budgets and monitor costs. You can also review forecasted costs and identify spending trends to identify areas where you might want to act.
 
-Costs for Azure Communications Gateway are only a portion of the monthly costs in your Azure bill. Although this article explains how to plan for and manage costs for Azure Communications Gateway, your Azure bill includes all services and resources used in your Azure subscription, including third-party Azure services.
+Costs for Azure Communications Gateway are only a portion of the monthly costs in your Azure bill. Although this article explains how to plan for and manage costs for Azure Communications Gateway, your Azure bill includes all services and resources used in your Azure subscription, including non-Microsoft Azure services.
 
 ## Prerequisites
 
@@ -27,7 +27,9 @@ Azure Communications Gateway runs on Azure infrastructure that accrues costs whe
 
 ### How you're charged for Azure Communications Gateway
 
-When you deploy Azure Communications Gateway, you're charged for how you use the voice features of the product. The charges are based on the number of users assigned to the platform by a series of Azure Communications Gateway meters. The meters include:
+When you deploy Azure Communications Gateway, you're charged for how you use the voice features of the product. The charges are based on a series of Azure Communications Gateway meters and the number of users assigned to the platform.
+
+The meters for production deployments include:
 
 - A "Fixed Network Service Fee" or a "Mobile Network Service Fee" meter.
     - This meter is charged hourly and includes the use of 999 users for testing and early adoption.
@@ -36,10 +38,12 @@ When you deploy Azure Communications Gateway, you're charged for how you use the
     - If your deployment includes fixed networks and mobile networks, you're charged the Mobile Network Service Fee.
 - A series of tiered per-user meters that charge based on the number of users that are assigned to the deployment. These per-user fees are based on the maximum number of users during your billing cycle, excluding the 999 users included in the service availability fee.
 
-For example, if you have 28,000 users assigned to the deployment each month, you're charged for:
-* The service availability fee for each hour in the month
-* 24,001 users in the 1000-25000 tier
-* 3000 users in the 25000+ tier
+For example, if you have 28,000 users assigned to a production deployment each month, you're charged for:
+- The service availability fee for each hour in the month
+- 24,001 users in the 1000-25000 tier
+- 3000 users in the 25000+ tier
+
+Lab deployments are charged on a "Lab - Fixed or Mobile Fee" service availability meter. The meter includes 200 users.
 
 > [!NOTE]
 > A Microsoft Teams Direct Routing or Zoom Phone Cloud Peering user is any telephone number configured with Direct Routing service or Zoom service on Azure Communications Gateway. Billing for the user starts as soon as you have configured the number.
@@ -57,7 +61,7 @@ At the end of your billing cycle, the charges for each meter are summed. Your bi
 > [!TIP]
 > If you receive a quote through Microsoft Volume Licensing, pricing may be presented as aggregated so that the values are easily readable (for example showing the per-user meters in groups of 10 or 100 rather than the pricing for individual users). This does not impact the way you will be billed.
 
-If you've arranged any custom work with Microsoft, you might be charged an extra fee for that work. That fee isn't included in these meters.
+If you arrange any custom work with Microsoft, you might be charged an extra fee for that work. That fee isn't included in these meters.
 
 If your Azure subscription has a spending limit, Azure prevents you from spending over your credit amount. As you create and use Azure resources, your credits are used. When you reach your credit limit, the resources that you deployed are disabled for the rest of that billing period. You can't change your credit limit, but you can remove it. For more information about spending limits, see [Azure spending limit](../cost-management-billing/manage/spending-limit.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 
@@ -81,7 +85,7 @@ If you have multiple Azure Communications Gateway deployments and you move users
 
 ### Using Azure Prepayment with Azure Communications Gateway
 
-You can pay for Azure Communications Gateway charges with your Azure Prepayment credit. However, you can't use Azure Prepayment credit to pay for charges for third-party products and services including those from the Azure Marketplace.
+You can pay for Azure Communications Gateway charges with your Azure Prepayment credit. However, you can't use Azure Prepayment credit to pay for charges for non-Microsoft products and services including those from the Azure Marketplace.
 
 ## Monitor costs
 
