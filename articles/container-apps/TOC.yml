@@ -205,7 +205,7 @@
       href: microservices-dapr-bindings.md
     - name: Microservices communication using Dapr Service Invocation
       href: microservices-dapr-service-invoke.md
-    - name: Dapr component resiliency
+    - name: Dapr component resiliency (preview)
       href: dapr-component-resiliency.md
     - name: Scale Dapr apps with KEDA using Bicep
       href: dapr-keda-scaling.md
