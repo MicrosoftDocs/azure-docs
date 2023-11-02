@@ -121,8 +121,9 @@ Once the request is sent, you can track the progress of the training job in Lang
 > [!NOTE]
 > You have to retrain your model after updating the `confidenceThreshold` project setting. Afterwards, you'll need to republish the app for the new threshold to take effect.
 
-### A short primer on how the Lora Norm recipe works
-The Lora Norm recipe does not affect training in any way. Rather, it introduces a layer of normalization in the Inference layer. 
+### Normalization in model version 2023-04-15
+
+Model version 2023-04-15, conversational language understanding provides normalization in the inference layer that doesn't affect training. 
 
 The normalization layer normalizes the classification confidence scores to a confined range. The range selected currently is from [-a,a] where a is the square root of the number of intents.  As a result, the normalization depends on the number of intents in the app. If there is a very low number of intents, the normalization layer has a very small range to work with, vice versa with a fairly large number of intents, the normalization is more effective.
 
