@@ -39,7 +39,7 @@ az extension add --name aosm
 
 ## Register and verify required resource providers
 
-Before you begin using the Azure Operator Service Manager, make sure to register the required resource provider. Execute the following commands. This registration process can take up to 5 minutes.
+Before you begin using the Azure Operator Service Manager, execute the following commands to register the required resource provider. This registration process can take up to 5 minutes.
 
 ```azurecli
 # Register Resource Provider

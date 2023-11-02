@@ -272,6 +272,12 @@
         href: flexible-server/tutorial-webapp-server-vnet.md
       - name: Deploy a Django app on App Service
         href: ../app-service/tutorial-python-postgresql-app.md
+  - name: Reference
+    items:
+     - name: Extensions
+       items:
+       - name: pg_azure_storage
+         href: flexible-server/reference-pg-azure-storage.md
   - name: How-to guides
     items:
     - name: Server administration
@@ -399,6 +405,10 @@
       - name: Azure REST API
         href: flexible-server/how-to-read-replicas-rest-api.md
         displayName: replica rest api
+  - name: Extensions
+    items:
+      - name: pg_azure_storage
+        href: flexible-server/reference-pg-azure-storage.md 
 - name: Single Server
   expanded: false
   items:
