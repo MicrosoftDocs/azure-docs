@@ -60,7 +60,7 @@ For the destination stage to connect to Microsoft Fabric, it needs access to a s
     az keyvault secret set --vault-name <your-key-vault-name> --name AccessFabricSecret --value <client-secret>
     ```
 
-<!-- TODO: Add link to AKV/secret article -->
+   <!-- TODO: Add link to AKV/secret article -->
 1. Add the secret reference to your Kubernetes cluster.
 
 ## Configure the destination stage
