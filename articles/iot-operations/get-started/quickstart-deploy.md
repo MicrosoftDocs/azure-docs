@@ -5,7 +5,7 @@ author: kgremban
 ms.author: kgremban
 # ms.subservice: orchestrator
 ms.topic: quickstart
-ms.date: 10/30/2023
+ms.date: 11/02/2023
 
 #CustomerIntent: As a < type of user >, I want < what? > so that < why? >.
 ---
@@ -20,7 +20,7 @@ The services deployed in this quickstart include:
 
 * [Azure IoT Orchestrator](../deploy/overview-deploy.md)
 * [Azure IoT MQ](../manage-mqtt-connectivity/overview-iot-mq.md)
-* [Azure IoT OPC UA broker](../manage-devices-assets/concept-opcua-broker-overview.md) with simulated thermostat asset to start generating data
+* [Azure IoT OPC UA broker](../manage-devices-assets/overview-opcua-broker.md) with simulated thermostat asset to start generating data
 * [Azure IoT Data Processor](../process-data/overview-data-processor.md) with a demo pipeline to start routing the simulated data
 * [Azure IoT Akri](../manage-devices-assets/overview-akri.md)
 * [Azure Device Registry](../manage-devices-assets/overview-manage-assets.md#manage-assets-as-azure-resources-in-a-centralized-registry)
