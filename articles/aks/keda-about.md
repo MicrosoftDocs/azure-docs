@@ -42,7 +42,7 @@ KEDA provides the following capabilities and features:
 - Autoscale job-like workloads with `ScaledJobs`
 - Use production-grade security by decoupling autoscaling authentication from workloads
 - Bring-your-own external scaler to use tailor-made autoscaling decisions
-- Integrate with [workload identity][workload-identity] for authentication
+- Integrate with [Microsoft Entra Workload ID][workload-identity] for authentication
 
 > [!NOTE]
 > If you plan to use workload identity, [enable the workload identity add-on][workload-identity-deploy] before enabling the KEDA add-on.

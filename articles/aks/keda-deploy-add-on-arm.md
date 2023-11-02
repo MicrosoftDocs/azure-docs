@@ -12,6 +12,8 @@ ms.author: nickoman
 
 This article shows you how to deploy the Kubernetes Event-driven Autoscaling (KEDA) add-on to Azure Kubernetes Service (AKS) using an [ARM template](../azure-resource-manager/templates/index.yml).
 
+[!INCLUDE [Current version callout](./includes/keda/current-version-callout.md)]
+
 ## Before you begin
 
 - You need an Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
