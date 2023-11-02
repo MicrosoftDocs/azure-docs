@@ -94,7 +94,7 @@ The repository level wildcard allows you to cache all repositories from an upstr
 | contoso.azurecr.io/dotnet/* => mcr.microsoft.com/dotnet/*                                                                               | Mapping specific repositories under ACR to corresponding repositories in MCR.               | contoso.azurecr.io/dotnet/sdk => mcr.microsoft.com/dotnet/sdk<br>contoso.azurecr.io/dotnet/runtime => mcr.microsoft.com/dotnet/runtime                                                                                                                                                                                                                                               |
 | contoso.azurecr.io/library/dotnet/* => mcr.microsoft.com/dotnet/* <br>contoso.azurecr.io/library/python/* => docker.io/library/python/* | Mapping specific repositories under ACR to repositories from different upstream registries. | contoso.azurecr.io/library/dotnet/app1 => mcr.microsoft.com/dotnet/app1<br>contoso.azurecr.io/library/python/app3 => docker.io/library/python/app3|
 
-### Wildcard based cache rules limitations
+### Limitations for Wildcard based cache rules
 
 Wildcard-based cache rules use asterisks (*) to match multiple paths within the container image registry. These rules cannot overlap with other wildcard-based cache rules. In other words, if you have a wildcard-based cache rule for a certain registry path, you cannot add another wildcard-based rule that overlaps with it. Here are some examples of overlapping rules:
 
@@ -112,7 +112,7 @@ New cache being added: `contoso.azurecr.io/library/dotnet/*` => `docker.io/libra
 
 The addition of the new cache rule is blocked because the target repository path `contoso.azurecr.io/library/dotnet/*` overlaps with the existing wildcard rule  `contoso.azurecr.io/library/*`.
 
-### Static/fixed cache rules limitations
+### Limitations for Static/fixed cache rules
 
 Static or fixed cache rules are more specific and do not use wildcards. They can overlap with wildcard-based cache rules. If a cache rule specifies a fixed repository path, then it's allowed to overlap with a wildcard-based cache rule.
 
