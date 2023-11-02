@@ -605,6 +605,8 @@ Finally, to identify the AKS cluster version that you are using, follow the link
 - Kubernetes 1.24+ 
 - Gatekeeper 3.11.1 
 
+#### 1.0.0
+Azure Policy for Kubernetes now supports mutation to remediate AKS clusters at-scale! 
 
 ## Remove the add-on
 
