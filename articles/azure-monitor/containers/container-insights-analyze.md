@@ -148,7 +148,7 @@ Azure Container Instances virtual nodes that run the Linux OS are shown after th
 
 From an expanded node, you can drill down from the pod or container that runs on the node to the controller to view performance data filtered for that controller. Select the value under the **Controller** column for the specific node.
 
-:::image type="content" source="./media/container-insights-analyze/drill-down-node-controller.png" alt-text="Screenshot that shows the drill-down from node to controller in the performance view." lightbox="media/container-insights-analyze/drill-down-node-controller.png" border="false":::
+:::image type="content" source="./media/container-insights-analyze/drill-down-node-controller.png" alt-text="Screenshot that shows the drill-down from node to controller in the performance view." lightbox="media/container-insights-analyze/drill-down-node-controller.png":::
 
 Select controllers or containers at the top of the page to review the status and resource utilization for those objects. To review memory utilization, in the **Metric** dropdown list, select **Memory RSS** or **Memory working set**. **Memory RSS** is supported only for Kubernetes version 1.8 and later. Otherwise, you view values for **Min&nbsp;%** as *NaN&nbsp;%*, which is a numeric data type value that represents an undefined or unrepresentable value.
 
@@ -210,7 +210,7 @@ The row hierarchy starts with a controller. When you expand a controller, you vi
 
 Select the value under the **Node** column for the specific controller.
 
-:::image type="content" source="./media/container-insights-analyze/drill-down-controller-node.png" alt-text="Screenshot that shows an example drill-down from controller to node in the performance view." lightbox="media/container-insights-analyze/drill-down-controller-node.png" border="false":::
+:::image type="content" source="./media/container-insights-analyze/drill-down-controller-node.png" alt-text="Screenshot that shows an example drill-down from controller to node in the performance view." lightbox="media/container-insights-analyze/drill-down-controller-node.png":::
 
 The information that's displayed when you view controllers is described in the following table.
 
@@ -247,7 +247,7 @@ Here you can view the performance health of your AKS and Container Instances con
 
 From a container, you can drill down to a pod or node to view performance data filtered for that object. Select the value under the **Pod** or **Node** column for the specific container.
 
-:::image type="content" source="./media/container-insights-analyze/drill-down-container-node.png" alt-text="Screenshot that shows an example drill-down from node to containers in the performance view." lightbox="media/container-insights-analyze/drill-down-controller-node.png" border="false":::
+:::image type="content" source="./media/container-insights-analyze/drill-down-container-node.png" alt-text="Screenshot that shows an example drill-down from node to containers in the performance view." lightbox="media/container-insights-analyze/drill-down-controller-node.png":::
 
 The information that's displayed when you view containers is described in the following table.
 
