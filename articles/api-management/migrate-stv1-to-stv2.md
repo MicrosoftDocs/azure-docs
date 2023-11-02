@@ -272,7 +272,7 @@ On successful migration, update any network dependencies including DNS, firewall
    Multi-geo deployments include more managed gateways deployed in other locations. Each location should be migrated separately by providing a new subnet and a new Public IP.  Navigate to the *Locations* blade and perform the changes on each listed location. The instance is considered migrated to the new platform only when all the locations are migrated. Both gateways continue to operate normally throughout the migration process.
 
 
-1. **Do we need a public IP even if the APIM instance is internal only?**
+1. **Do we need a public IP even if the API Management instance is VNet injected in internal mode only?**
 
    APIM `stv1` uses an Azure managed public IP even in an internal mode for management traffic. However `stv2` requires a user managed public IP for the same purpose. This public IP is only used for Azure internal management operations and not to expose your instance to the internet. More details [here](./api-management-howto-ip-addresses.md#ip-addresses-of-api-management-service-in-vnet).
 
