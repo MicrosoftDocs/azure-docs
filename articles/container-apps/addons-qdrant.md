@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Connect to a Qdrant vector database in Azure Container Apps (preview)'
-description: Learn to use a Container Apps add on to quickly connect to a Qdrant vector database.
+description: Learn to use a the Container Apps Qdrant vector database add-on.
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
@@ -167,7 +167,12 @@ Now that your container app is running and connected to Qdrant, you can configur
     az containerapp ingress cors enable \
       --name $APP_NAME \
       --resource-group $RESOURCE_GROUP \
+<<<<<<< HEAD
       --allowed-origins "*"
+=======
+      --allowed-origins * \
+      --allow-credentials true
+>>>>>>> 1eb848e49be1ff98a63bebe7abbfa979f6c35f3a
     ```
 
     The next step instructs you to request an access token to log into the application hosted by the container app. Wait three to five minutes before you attempt to execute the next step to give the container app enough time to set up all required resources.
