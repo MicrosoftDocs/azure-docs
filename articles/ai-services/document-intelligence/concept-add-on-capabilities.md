@@ -28,8 +28,6 @@ monikerRange: 'doc-intel-3.1.0'
 
 Document Intelligence supports more sophisticated analysis capabilities. These optional features can be enabled and disabled depending on the scenario of the document extraction. The following add-on capabilities are available for `2023-07-31 (GA)` and later releases:
 
-Document Intelligence now supports more sophisticated analysis capabilities. These optional capabilities can be enabled and disabled depending on the scenario of the document extraction. The following add-on capabilities are available for `2023-07-31 (GA)` and later releases:
-
 * [`ocr.highResolution`](#high-resolution-extraction)
 
 * [`ocr.formula`](#formula-extraction)
