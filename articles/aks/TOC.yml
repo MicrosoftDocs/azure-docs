@@ -282,8 +282,10 @@
                         href: /troubleshoot/azure/azure-kubernetes/troubleshoot-kubernetes-event-driven-autoscaling-add-on?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
     - name: Containers
       items:
-        - name: Confidential Containers
-          href: use-confidential-containers.md
+        - name: Confidential Containers overview
+          href: confidential-containers-overview.md
+        - name: Deploy Confidential Containers with default policy
+          href: deploy-confidential-containers-default-policy.md
     - name: Nodes
       items:
         - name: Cluster nodes

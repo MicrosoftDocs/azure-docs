@@ -1,46 +1,24 @@
 ---
-title: Confidential Containers (preview) with Azure Kubernetes Service (AKS)
-description: Learn about and deploy confidential Containers (preview) on an Azure Kubernetes Service (AKS) cluster to maintain security and protect sensitive information.
-ms.topic: article
-ms.date: 11/01/2023
+title: Deploy an AKS cluster with Confidential Containers (preview)
+description: Learn how to create an Azure Kubernetes Service (AKS) cluster with Confidential Containers (preview) and a default security policy by using the Azure CLI.
+ms.topic: quickstart
+ms.date: 11/02/2023
+ms.custom: devx-track-azurecli, ignite-fall-2023, mode-api, devx-track-linux
 ---
 
-# Confidential Containers (preview) with Azure Kubernetes Service (AKS)
+# Deploy an AKS cluster with Confidential Containers and a default policy
 
-Confidential containers provide a set of features and capabilities to further secure your standard container workloads to achieve higher data security, data privacy and runtime code integrity goals. AKS includes Confidential Containers (preview) on Azure Kubernetes Service.
+In this article, you'll use the Azure CLI to deploy an Azure Kubernetes Service (AKS) cluster and configure Confidential Containers (preview) with a default security policy. You'll then deploy an application as a Confidential container.
 
-Confidential Containers builds on Kata Confidential Containers and hardware-based encryption to encrypt container memory. It establishes a new level of data confidentiality by preventing data in memory during computation from being in clear text, readable format. Trust is earned in the container through hardware attestation, allowing access to the encrypted data by trusted entities.
+AKS is a managed Kubernetes service that enables developers or cluster operators to quickly deploy and manage clusters. To learn more, read the [introduction to AKS][aks-intro] and the [overview of AKS Confidential Containers][overview-confidential-containers].
 
-Together with [Pod Sandboxing][pod-sandboxing-overview], you can run sensitive workloads isolated in Azure to protect your data and workloads. Confidential Containers helps significantly reduce the risk of unauthorized access from:
-
-* Your AKS cluster admin
-* The AKS control plane & daemon sets
-* The cloud and host operator
-* The AKS worker node operating system
-* Another pod running on the same VM node
-* Cloud Service Providers (CSPs) and from guest applications through a separate trust model
-
-Confidential Containers also enables application owners to enforce their application security requirements (for example, deny access to Azure tenant admin, Kubernetes admin, etc.).
-
-With other security measures or data protection controls, as part of your overall architecture, these capabilities help you meet regulatory, industry, or governance compliance requirements for securing sensitive information.
-
-This article helps you understand the Confidential Containers feature, and how to implement and configure the following:
+In general, getting started with AKS Confidential Containers involves the following steps.
 
 * Deploy or upgrade an AKS cluster using the Azure CLI
-* Add an annotation to your pod YAML to mark the pod as being run as a confidential container
-* Add a security policy to your pod YAML
+* Add an annotation to your pod YAML manifest to mark the pod as being run as a confidential container
+* Add a security policy to your pod YAML manifest
 * Enable enforcement of the security policy
 * Deploy your application in confidential computing
-
-## Supported scenarios
-
-Confidential Containers (preview) are appropriate for deployment scenarios that involve sensitive data. For example, personally identifiable information (PII) or any data with strong security needed for regulatory compliance. Some common scenarios with containers are:
-
-- Run big data analytics using Apache Spark for fraud pattern recognition in the financial sector.
-- Running self-hosted GitHub runners to securely sign code as part of Continuous Integration and Continuous Deployment (CI/CD) DevOps practices.
-- Machine Learning inferencing and training of ML models using an encrypted data set from a trusted source. It only decrypts inside a confidential container environment for the purpose of privacy preserving ML inference.
-- Building big data clean rooms for ID matching as part of multi-party computation in industries like retail with digital advertising.
-- Building confidential computing Zero Trust landing zones to meet privacy regulations for application migrations to cloud.
 
 ## Prerequisites
 
@@ -48,13 +26,13 @@ Confidential Containers (preview) are appropriate for deployment scenarios that 
 
 - The `aks-preview` Azure CLI extension version 0.5.123 or later.
 
-- The `confcom` Confidential Container Security Policy Generator Azure CLI extension 2.62.2 or later.
+- The `confcom` Confidential Container Security Policy Generator Azure CLI extension 2.62.2 or later. This is required to generate a [security policy][confidential-containers-security-policy].
 
 - Register the `Preview` feature in your Azure subscription.
 
 - AKS supports Confidential Containers (preview) on version 1.25.0 and higher.
 
-- To create a Microsoft Entra ID workload identity and configure a federated identity credential, see their [Prerequisites][entra-id-workload-identity-prerequisites] for role assignment.
+- A workload identity and a federated identity credential. If you aren't familiar with Microsoft Entra Workload ID, see the [Microsoft Entra Workload ID overview][entra-id-workload-identity-overview] and review how [Workload Identity works with AKS][aks-workload-identity-overview].
 
 - The identity you're using to create your cluster has the appropriate minimum permissions. For more information about access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)][cluster-access-and-identity-options].
 
@@ -111,35 +89,6 @@ When the status reflects *Registered*, refresh the registration of the *Microsof
 ```azurecli-interactive
 az provider register --namespace "Microsoft.ContainerService"
 ```
-
-## What to consider
-
-The following are considerations with this preview of Confidential Containers:
-
-* An increase in pod startup time compared to runc pods and kernel-isolated pods.
-* Pulling container images from a private container registry or container images that originate from a private container registry in a Confidential Containers pod manifest isn't supported in this release.
-* ConfigMaps and secrets values can't be changed if setting using the environment variable method after the pod is deployed.
-* Updates to secrets and ConfigMaps aren't reflected in the guest.
-* Ephemeral containers and other troubleshooting methods require a policy modification and redeployment. It includes `exec` in container
-log output from containers. `stdio` (ReadStreamRequest and WriteStreamRequest) is enabled.
-* The policy generator tool doesn't support cronjob deployment types.
-* Due to container measurements being encoded in the security policy, we don't recommend using the `latest` tag when specifying containers. It is also a restriction with the policy generator tool.
-* Services, Load Balancers, and EndpointSlices only support the TCP protocol.
-* All containers in all pods on the clusters must be configured to `imagePullPolicy: Always`.
-* The policy generator only supports pods that use IPv4 addresses.
-* Version 1 container images aren't supported.
-* Pod termination logs aren't supported. While pods write termination logs to `/dev/termination-log` or to a custom location if specified in the pod manifest, the host/kubelet can't read those logs. Changes from guest to that file aren't reflected on the host.
-
-## Resource allocation overview
-
-It's important you understand the memory and processor resource allocation behavior in this release.
-
-* CPU: The shim assigns one vCPU to the base OS inside the pod. If no resource `limits` are specified, the workloads don't have separate CPU shares assigned, the vCPU is then shared with that workload. If CPU limits are specified, CPU shares are explicitly allocated for workloads.
-* Memory: The Kata-CC handler uses 2-GB memory for the UVM OS and X MB memory for containers based on resource `limits` if specified (resulting in a 2-GB VM when no limit is given, without implicit memory for containers). The Kata handler uses 256-MB base memory for the UVM OS and X MB memory when resource `limits` are specified. If limits are unspecified, an implicit limit of 1,792-MB is added resulting in a 2-GB VM and 1,792-MB implicit memory for containers.
-
-In this release, specifying resource requests in the pod manifests aren't supported. The Kata container ignores resource requests from pod YAML manifest, and as a result, containerd doesn't pass the requests to the shim. Use resource `limit` instead of resource `requests` to allocate memory or CPU resources for workloads or containers.
-
-With the local container filesystem backed by VM memory, writing to the container filesystem (including logging) can fill up the available memory provided to the pod. This condition can result in potential pod crashes.
 
 ## Deploy a new cluster
 
@@ -224,7 +173,10 @@ Before you configure access to the Azure Key Vault Managed HSM and secret, and d
     az keyvault set-policy --name "${KEYVAULT_NAME}" --secret-permissions get --spn "${USER_ASSIGNED_CLIENT_ID}"
     ```
 
-1. Configure the application to be deployed as a Confidential container (preview) by copying the following YAML file and save it as `myapplication.yml`.
+1. Configure the application to be deployed as a Confidential container (preview) by copying the following YAML file and save it as `myapplication.yml`. 
+
+   >[!IMPORTANT]
+   > While you can use your own deployment YAML manifest, it's important you review and understand the [limitations][confidential-containers-limnitations] with this preview before proceeding.
 
     ```yml
     apiVersion: apps/v1
@@ -272,9 +224,9 @@ Before you configure access to the Azure Key Vault Managed HSM and secret, and d
 
 ## Create the security policy
 
-The Security Policy document describes all the calls to agent’s ttrpc APIs that are expected for creating and managing a Confidential pod. The *genpolicy* application/tool can be used to generate the policy data for the pod, together with the common rules and the default values – in a Rego format text document.
+The Security Policy document describes all the calls to agent’s ttrpc APIs that are expected for creating and managing a Confidential pod. The *genpolicy* application/tool can be used to generate the policy data for the pod, together with the common rules and the default values, in a Rego format text document.
 
-The main input to genpolicy is a standard Kubernetes (K8s) YAML file that is provided by you. The tool supports automatic Policy generation based on K8s DaemonSet, Deployment, Job, Pod, ReplicaSet, ReplicationController, and StatefulSet input YAML files. The following is an example executing this tool:
+The main input to genpolicy is a standard Kubernetes (K8s) YAML file that is provided by you. The genpolicy tool supports automatic Policy generation based on Kubernetes DaemonSet, Deployment, Job, Pod, ReplicaSet, ReplicationController, and StatefulSet input YAML files. The following is an example executing this tool:
 
 ```bash
 az confcom katapolicygen -y my-pod.yaml
@@ -288,7 +240,7 @@ On successful execution, genpolicy creates the Policy document, encodes it in *b
 io.katacontainers.config.agent.policy: cGFja2FnZSBhZ2VudF9wb2xpY3kKCmlt <…>
 ```
 
-To print information about the actions undertaken by the application while it computes the Policy, set genpolicy’s `RUST_LOG`` environment variable by running the following command:
+To print information about the actions undertaken by the application while it computes the Policy, set genpolicy’s `RUST_LOG` environment variable by running the following command:
 
 ```bash
 RUST_LOG=info az confcom katapolicygen -y my-pod.yaml 
@@ -352,23 +304,29 @@ kubectl delete pod pod-name
 
 ## Next steps
 
-* Learn more about [Azure Dedicated hosts][azure-dedicated-hosts] for nodes with your AKS cluster to use hardware isolation and control over Azure platform maintenance events.
-
 <!-- EXTERNAL LINKS -->
-[kubectl]: https://kubernetes.io/docs/reference/kubectl/
 [kubectl-delete-pod]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete
-
+[kubectl]: https://kubernetes.io/docs/reference/kubectl/
 
 <!-- INTERNAL LINKS -->
-[pod-sandboxing-overview]: use-pod-sandboxing.md
-[azure-key-vault-managed-hardware-security-module]: ../key-vault/managed-hsm/overview.md
-[create-managed-hsm]: ../key-vault/managed-hsm/quick-create-cli.md
 [upgrade-cluster-enable-workload-identity]: workload-identity-deploy-cluster.md#update-an-existing-aks-cluster
 [deploy-and-configure-workload-identity]: workload-identity-deploy-cluster.md
-[entra-id-workload-identity-prerequisites]: ../active-directory/workload-identities/workload-identity-federation-create-trust-user-assigned-managed-identity.md
-[cluster-access-and-identity-options]: concepts-identity.md
+[install-azure-cli]: /cli/azure/install-azure-cli
+[entra-id-workload-identity-overview]: ../../active-directory/workload-identities/workload-identities-overview.md
+[aks-workload-identity-overview]: workload-identity-overview.md
+[cluster-access-and-identity-options]: /concepts-identity.md
 [DC8as-series]: ../virtual-machines/dcasccv5-dcadsccv5-series.md
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-feature-show]: /cli/azure/feature#az-feature-show
 [az-aks-nodepool-add]: /cli/azure/aks/nodepool#az_aks_nodepool_add
 [az-aks-delete]: /cli/azure/aks#az_aks_delete
-[azure-dedicated-hosts]: ../virtual-machines/dedicated-hosts.md
+[az-aks-create]: /cli/azure/aks#az_aks_create
+[aks-intro]: ../intro-kubernetes.md
+[overview-confidential-containers]: confidential-containers-overview.md
+[azure-key-vault-managed-hardware-security-module]: ../key-vault/managed-hsm/overview.md
+[create-managed-hsm]: ../key-vault/managed-hsm/quick-create-cli.md
+[entra-id-workload-identity-prerequisites]: ../active-directory/workload-identities/workload-identity-federation-create-trust-user-assigned-managed-identity.md
+[confidential-containers-security-policy]: ../confidential-computing/confidential-containers-aks-security-policy.md
+[confidential-containers-limnitations]: confidential-containers-overview.md#limitations

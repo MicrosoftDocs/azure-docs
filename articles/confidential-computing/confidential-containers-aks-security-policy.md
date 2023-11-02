@@ -1,5 +1,5 @@
 ---
-title: Confidential containers security policy Azure Kubernetes Service 
+title: Security Policy for Confidential Containers on Azure Kubernetes Service 
 description: Understand the Security Policy implemented to provide self-protection of the container hosted on Azure Kubernetes Service
 ms.topic: conceptual
 ms.author: magoedte
@@ -9,7 +9,7 @@ services: container-instances
 ms.date: 11/01/2023
 ---
 
-# Confidential containers security policy Azure Kubernetes Service 
+# Security Policy for Confidential Containers on Azure Kubernetes Service
 
 As described by the Confidential Computing Consortium (CCC), *"Confidential Computing is the protection of data in use by performing computation in a hardware-based, attested Trusted Execution Environment (TEE)."* AKS Confidential Containers are designed to protect Kubernetes pods data in use from unauthorized access from outside of these pods. Each pod is executed in a Confidential Virtual Machine (CVM) protected by the [AMD SEV-SNP TEE](https://www.amd.com/content/dam/amd/en/documents/epyc-business-docs/white-papers/SEV-SNP-strengthening-vm-isolation-with-integrity-protection-and-more.pdf) by encrypting data in use and prevent access to the data by the Host Operating System (OS). Microsoft engineers collaborated with the [Confidential Containers](https://github.com/confidential-containers) (CoCo) and [Kata Containers](https://github.com/kata-containers/) open-source communities on the design and implementation of the Confidential Containers.  
 
@@ -30,7 +30,7 @@ The Security Policy describes all the calls to agent’s ttrpc APIs (and the par
 The Policy data is specific to each pod. It contains, for example:
 
 * A list of Containers expected to be created in the pod.
-* A list of APIs blocked by the Policy by default (for confidentiality reasons). However, a user can choose to enable for their pod. For example, an AKS Confidential Containers user could enable the ReadStream API of the agent to collect pod logs remotely.
+* A list of APIs blocked by the Policy by default (for confidentiality reasons). 
 
 Examples of data included in the Policy document for each of the containers in a pod:
 
@@ -63,7 +63,7 @@ When evaluating the Rego rules using the Policy data and API inputs as parameter
 
 All AKS Confidential Containers CVMs start up using a generic, default Policy that's included in the CVMs root file system. Therefore, a Policy that matches the actual customer workload must be provided to the agent at run time. The policy text is embedded in your YAML manifest file as described earlier and is provided that way to the agent early during CVM initialization. The Policy annotation travels through the kubelet, containerd, and [Kata shim](https://github.com/kata-containers/kata-containers/blob/main/src/runtime/cmd/containerd-shim-kata-v2) components of the AKS Confidential Containers system. Then the agent working together with OPA enforces the policy for all the calls to its own APIs.
 
-The policy is provided using components that aren't part of your TCB, so initially this policy isn't trusted. The trustworthiness of the policy must be established through Remote Attestation, as described later.
+The policy is provided using components that aren't part of your TCB, so initially this policy isn't trusted. The trustworthiness of the policy must be established through Remote Attestation, as described in the following section.
 
 ## Establish trust in the Policy document
 
@@ -79,4 +79,4 @@ The Kata agent is responsible for enforcing the Policy. Microsoft contributed to
 
 ## Next steps
 
-[Deploy a confidential container on AKS](../aks/use-confidential-containers.md)
+[Deploy a confidential container on AKS](../aks/deploy-confidential-containers-default-policy.md)
