@@ -47,7 +47,7 @@ The following table lists [dimensions](../azure-monitor/essentials/data-platform
 
 ## Resource logs
 
-AKS implements control plane logs for the cluster as [resource logs in Azure Monitor.](../azure-monitor/essentials/resource-logs.md). See [Resource logs](monitor-aks.md#resource-logs) for details on creating a diagnostic setting to collect these logs and [Sample queries](monitor-aks-reference.md#resource-logs) for query examples.
+AKS implements control plane logs for the cluster as [resource logs in Azure Monitor.](../azure-monitor/essentials/resource-logs.md). See [Resource logs](monitor-aks.md#aks-control-planeresource-logs) for details on creating a diagnostic setting to collect these logs and [Sample queries](monitor-aks-reference.md#resource-logs) for query examples.
 
 The following table lists the resource log categories you can collect for AKS. It also includes the table the logs for each category are sent to when you send the logs to a Log Analytics workspace using [resource-specific mode](../azure-monitor/essentials/resource-logs.md#resource-specific). In [Azure diagnostics mode](../azure-monitor/essentials/resource-logs.md#azure-diagnostics-mode), all logs are written to the [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table.
 
