@@ -1,5 +1,5 @@
 ---
-title: "Face detection and attributes - Face"
+title: "Face detection, attributes, and input data - Face"
 titleSuffix: Azure AI services
 description: Learn more about face detection; face detection is the action of locating human faces in an image and optionally returning different kinds of face-related data.
 services: cognitive-services
@@ -13,7 +13,7 @@ ms.date: 07/04/2023
 ms.author: pafarley
 ---
 
-# Face detection and attributes
+# Face detection, attributes, and input data
 
 [!INCLUDE [Gate notice](./includes/identity-gate-notice.md)]
 

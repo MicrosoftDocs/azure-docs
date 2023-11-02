@@ -327,7 +327,7 @@ items:
 
   - name: Concepts
     items:
-    - name: Face detection and analysis
+    - name: Face detection, attributes, and input data
       href: concept-face-detection.md
     - name: Face recognition
       href: concept-face-recognition.md
