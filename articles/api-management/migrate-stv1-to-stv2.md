@@ -288,7 +288,7 @@ On successful migration, update any network dependencies including DNS, firewall
 
    - Post successful migration, the old and the new managed gateways are active to receive traffic. The old gateway remains active for 48 hours. 
    - The migration process automatically updates the default domain names, and if being used, the traffic routes to the new gateways immediately.
-   - If custom domain names are in use, the corresponding DNS records may need to be updated with the new IP address if not using CNAME. Customers can update their host file to the new APIM IP and validate the instance before making the switch. During this validation process, the old gateway continues to serve the live traffic.
+   - If custom domain names are in use, the corresponding DNS records may need to be updated with the new IP address if not using CNAME. Customers can update their host file to the new API Management IP and validate the instance before making the switch. During this validation process, the old gateway continues to serve the live traffic.
 
 1. **Are there any considerations when using default domain name?**
 
