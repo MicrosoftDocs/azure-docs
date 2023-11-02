@@ -32,14 +32,37 @@ Here are the key capabilities provided by the Astro integration:
 ## Find Astro in the Azure Marketplace
 
 1. Use the [Azure portal](https://portal.azure.com) to go to Azure Marketplace. Find Apache Airflow on Astro - An Azure Native ISV Service application.
-2. Go to Marketplace and search for **"Apache Airflow on Astro - An Azure Native ISV Service"**.
-3. Subscribe to the corresponding service. You see a **Create an Astro organization** page open up.
+1. Go to Marketplace and search for **"Apache Airflow on Astro - An Azure Native ISV Service"**.
+1. Subscribe to the corresponding service. You see a **Create an Astro organization** page open up.
 
-<!-- ## Astronomer Resources
+## Astronomer Resources
 
- Will get content from the partner and populate 
+To learn more about Astro:
 
--->
+[About Astro](https://docs.astronomer.io/astro/astro-architecture)
+[Astro Features](https://docs.astronomer.io/astro/features)
+[Astro Pricing](https://www.astronomer.io/pricing/)
+
+To get started on Astro:
+
+[Run your first DAG](https://docs.astronomer.io/astro/run-first-dag)
+[Create a Deployment](https://docs.astronomer.io/astro/create-deployment)
+[Connect Astro to Azure data sources](https://docs.astronomer.io/astro/connect-azure)
+[Develop your Astro Project](https://docs.astronomer.io/astro/cli/develop-project)
+[Deploy DAGs to Astro](https://docs.astronomer.io/astro/deploy-code)
+
+To learn more about how Astronomer can help your team make the most of Airflow:
+
+[Astronomer Support Team](https://support.astronomer.io/)
+[Book Office Hours](https://calendly.com/d/yy2-tvp-xtv/astro-data-engineering-office-hours-ade)
+[Astronomer Academy](https://academy.astronomer.io/)
+
+If you’re using Apache Airflow with other Azure data services:
+
+[Create an Azure Blob Storage connection in Airflow](https://docs.astronomer.io/learn/connections/azure-blob-storage)
+[Run a task in Azure Container Instances with Airflow](https://docs.astronomer.io/learn/airflow-azure-container-instances)
+[Run an Azure Data Explorer query with Airflow](https://docs.astronomer.io/learn/airflow-azure-data-explorer)
+[Integrate Airflow with Azure Data Factory](https://docs.astronomer.io/learn/category/azure-data-factory)
 
 ## Next steps
 
