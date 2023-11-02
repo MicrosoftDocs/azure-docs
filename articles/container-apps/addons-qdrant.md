@@ -143,7 +143,7 @@ Now that you have an existing environment and workload profile, you can create y
     ```azurecli
     az containerapp update \
       --name $APP_NAME \
-      -resource-group $RESOURCE_GROUP \
+      --resource-group $RESOURCE_GROUP \
       --bind qdrantdb
     ```
 
