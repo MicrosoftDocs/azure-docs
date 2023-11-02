@@ -65,7 +65,7 @@ This configuration deploys a new module called `opc-ua-connector-0` to the clust
 
 When the OPC PLC simulator is running, data flows from the simulator, to the connector, to the OPC UA broker, and finally to the MQ broker.
 
-<!-- TODO: REmove after bugbash -->
+<!-- TODO: Verify if this is still required -->
 
 To enable the asset endpoint to use an untrusted certificate:
 
