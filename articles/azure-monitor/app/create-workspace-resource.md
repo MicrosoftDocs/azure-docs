@@ -253,15 +253,13 @@ The legacy continuous export functionality isn't supported for workspace-based r
 
 When you're developing the next version of a web application, you don't want to mix up the [Application Insights](../../azure-monitor/app/app-insights-overview.md) telemetry from the new version and the already released version.
 
-To avoid confusion, send the telemetry from different development stages to separate Application Insights resources with separate instrumentation keys.
+To avoid confusion, send the telemetry from different development stages to separate Application Insights resources with separate connection strings.
 
-If your system is an instance of Azure Cloud Services, there's [another method of setting separate instrumentation keys](../../azure-monitor/app/azure-web-apps-net-core.md).
+If your system is an instance of Azure Cloud Services, there's [another method of setting separate connection strings](../../azure-monitor/app/azure-web-apps-net-core.md).
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+### About resources and connection strings
 
-### About resources and instrumentation keys
-
-When you set up Application Insights monitoring for your web app, you create an Application Insights resource in Azure. You open this resource in the Azure portal to see and analyze the telemetry collected from your app. The resource is identified by an instrumentation key. When you install the Application Insights package to monitor your app, you configure it with the instrumentation key so that it knows where to send the telemetry.
+When you set up Application Insights monitoring for your web app, you create an Application Insights resource in Azure. You open this resource in the Azure portal to see and analyze the telemetry collected from your app. The resource is identified by a connection string. When you install the Application Insights package to monitor your app, you configure it with the connection string so that it knows where to send the telemetry.
 
 Each Application Insights resource comes with metrics that are available out of the box. If separate components report to the same Application Insights resource, it might not make sense to alert on these metrics.
 
@@ -296,10 +294,10 @@ To create an Applications Insights resource, see [Create an Application Insights
 > [!WARNING]
 > You might incur additional network costs if your Application Insights resource is monitoring an Azure resource (i.e., telemetry producer) in a different region. Costs will vary depending on the region the telemetry is coming from and where it is going. Refer to [Azure bandwidth pricing](https://azure.microsoft.com/pricing/details/bandwidth/) for details.
 
-#### Get the instrumentation key
-The instrumentation key identifies the resource that you created.
+#### Get the connection string
+The connection string identifies the resource that you created.
 
-You need the instrumentation keys of all the resources to which your app will send data.
+You need the connection strings of all the resources to which your app will send data.
 
 ### Filter on the build number
 When you publish a new version of your app, you'll want to be able to separate the telemetry from different builds.
@@ -367,9 +365,9 @@ This section provides answers to common questions.
 
 Moving existing Application Insights resources from one region to another is *currently not supported*. Historical data that you've collected *can't be migrated* to a new region. The only partial workaround is to:
           
-1. Create a new Application Insights resource ([classic](/previous-versions/azure/azure-monitor/app/create-new-resource) or [workspace based](#workspace-based-application-insights-resources)) in the new region.
+1. Create a new workspace-based Application Insights resource in the new region.
 1. Re-create all unique customizations specific to the original resource in the new resource.
-1. Modify your application to use the new region resource's [instrumentation key](/previous-versions/azure/azure-monitor/app/create-new-resource#copy-the-instrumentation-key) or [connection string](./sdk-connection-string.md).
+1. Modify your application to use the new region resource's [connection string](./sdk-connection-string.md).
 1. Test to confirm that everything is continuing to work as expected with your new Application Insights resource.
 1. At this point, you can either keep or delete the original Application Insights resource. If you delete a classic Application Insights resource, *all historical data is lost*. If the original resource was workspace based, its data remains in Log Analytics. Keeping the original Application Insights resource allows you to access its historical data until its data retention settings run out.
           
