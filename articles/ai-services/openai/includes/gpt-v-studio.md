@@ -83,5 +83,4 @@ If you want to clean up and remove an Azure OpenAI resource, you can delete the 
 
 ## Next steps
 
-* Learn more in this [Azure OpenAI overview](../overview.md).
-* Try examples in the [Azure OpenAI Samples GitHub repository](https://github.com/Azure/openai-samples).
+* Learn more in the [Azure OpenAI overview](../overview.md).

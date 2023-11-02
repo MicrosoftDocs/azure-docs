@@ -26,6 +26,6 @@ zone_pivot_groups: openai-quickstart-gpt-v
 
 ::: zone pivot="rest-api"
 
-[!INCLUDE [REST API quickstart](includes/tbd)]
+[!INCLUDE [REST API quickstart](includes/gpt-v-rest.md)]
 
 ::: zone-end
