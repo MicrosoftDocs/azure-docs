@@ -1,5 +1,5 @@
 ---
-title: Runtimes in Azure Machine Learning prompt flow (preview)
+title: Runtimes in Azure Machine Learning prompt flow
 titleSuffix: Azure Machine Learning
 description: Learn about how in Azure Machine Learning prompt flow, the execution of flows is facilitated by using runtimes.
 services: machine-learning
@@ -12,13 +12,9 @@ ms.reviewer: lagayhar
 ms.date: 06/30/2023
 ---
 
-# Runtimes in Prompt flow (preview)
+# Runtimes in Prompt flow
 
 In Azure Machine Learning prompt flow, the execution of flows is facilitated by using runtimes.
-
-> [!IMPORTANT]
-> Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Runtimes
 
