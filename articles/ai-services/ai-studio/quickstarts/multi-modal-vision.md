@@ -13,13 +13,13 @@ ms.author: eur
 
 # Quickstart: Get started using GPT-4V on your images and video with the Azure AI Studio 
 
-Use this article to get started making your first calls to Azure OpenAI.
+Use this article to get started using Azure AI Studio to deploy and test the GPT-4(V)ision model. 
 
 GPT-4V and Azure AI Vision offer advanced functionality including:
 
-•Optical character recognition (OCR): Extracts text from images and combines it with the user's prompt and image to expand the context.
-•Object visualization: Complements GPT-4V’s text response with object grounding and outlines salient objects in the input images
-•Video chat: Enables GPT-4V to answer questions by retrieving the video frames most relevant to the user's prompt
+- Optical character recognition (OCR): Extracts text from images and combines it with the user's prompt and image to expand the context. 
+- Object visualization: Complements the GPT-4V text response with object grounding and outlines salient objects in the input images.
+- Video chat: GPT-4V can answer questions by retrieving the video frames most relevant to the user's prompt.
 
 Additional usage fees may apply for using GPT-4V with Azure AI Vision functionality.
 
@@ -30,103 +30,58 @@ Additional usage fees may apply for using GPT-4V with Azure AI Vision functional
 - Access granted to Azure OpenAI in the desired Azure subscription.
 
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
-- An Azure OpenAI resource with the GPT-4V models deployed in one of these regions: Australia East, Switzerland North, Sweden Central, or West US. For more information about model deployment, see the [resource deployment guide](../../openai/how-to/create-resource.md).
 
-> [!NOTE]
-> Supported regions for GPT-4V include: Australia East, Switzerland North, Sweden Central, West US 
+- An Azure OpenAI resource with the GPT-4V models deployed in one of these regions: East US, Switzerland North, Sweden Central, Central US, West US, and Australia East. 
+- For video chat you *also* need an Azure AI Vision resource in the East US region. 
 
+You also need an image to complete the quickstart. You can use the following image or any other image you have available. 
 
-
-
-
-Use this article to get started using Azure AI Studio to deploy and test the GPT-4(V)ision model. 
-
-## Prerequisites 
-
-An Azure subscription - Create one for free. 
-
-Access granted to Azure AI Studio in the desired Azure subscription. 
-
-Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at https://aka.ms/oai/access.  
-
-An Azure AI resource with the GPT-4V models deployed. For more information about model deployment, see the resource deployment guide. 
-
-NOTE: Supported regions for GPT-4V include: Australia East, Switzerland North, Sweden Central, West US 
- 
-
-Go to Azure AI Studio 
-
-Navigate to Azure AI Studio at https://ml.azure.com/ and sign-in with credentials that have access to your Azure AI resource. During or after the sign-in workflow, select the appropriate directory and Azure subscription. Follow the steps below to create your project, or refer to [Create an Azure AI Project in Azure AI Studio]( Create an Azure AI project in Azure AI Studio - Azure AI services | Microsoft Learn) for more information. 
-
-From the Azure AI Studio landing page, select Build in the top left corner. 
-
-A screenshot of a computer
-
-Description automatically generated 
-
-From the Build tab, select “Create project”.  
-
-Give your project a friendly name and select the Azure AI resource that you created in the prerequisites. 
-
-Once your project is created, select the “Playground” tab under the “Tools” section in the left-hand navigation to get started.  
-
- 
-## Playground 
-
-Start exploring Azure AI capabilities with a no-code approach through the Azure AI Studio Chat playground. From this page, you can quickly iterate and experiment with the capabilities. 
-
- 
-
-For help with assistant setup, chat sessions, settings, and panels, refer to [Get started using GPT-35-Turbo and GPT-4 with Azure OpenAI Service] (How to work with the GPT-35-Turbo and GPT-4 models - Azure OpenAI Service | Microsoft Learn). 
-
+:::image type="content" source="../media/quickstarts/playground/car-accident.png" alt-text="Screenshot of the image that's used in the quickstart." lightbox="../media/quickstarts/playground/car-accident.png":::
  
 ## Start a chat session to analyze images 
 
-In this chat session, you will be instructing the assistant to aid in understanding images that you input. 
+In this chat session, you instruct the assistant to aid in understanding images that you input. 
 
 1. Sign in to [Azure AI Studio](https://aka.ms/aistudio).
-1. Select **Build** from the top menu and then select **Playground**.
-1. In the chat session pane, enter the following question: "Describe this image”, and upload an image. Then select Send.  
+1. Select **Build** from the top menu and then select **Playground** from the collapsible left menu.
+1. Make sure that **Chat** is selected from the **Mode** dropdown. Select your deployed GPT-4V model from the **Deployment** dropdown. Under the chat session text box, you should now see the option to select a file.
 
-    :::image type="content" source="../media/quickstarts/playground/car-accident.png" alt-text="Screenshot of the playground." lightbox="../media/quickstarts/playground/car-accident.png":::
+    :::image type="content" source="../media/quickstarts/playground/chat-multi-modal-land.png" alt-text="Screenshot of the chat playground with the select deployment and file options in view." lightbox="../media/quickstarts/playground/chat-multi-modal-land.png":::
 
+1. In the chat session pane, select a file and upload an image. 
 
+    :::image type="content" source="../media/quickstarts/playground/chat-car-accident.png" alt-text="Screenshot of the chat playground." lightbox="../media/quickstarts/playground/chat-car-accident.png":::
 
-    :::image type="content" source="../media/quickstarts/playground/chat-car-accident-follow-up-question.png" alt-text="Screenshot of the playground." lightbox="../media/quickstarts/playground/chat-car-accident-follow-up-question.png":::
+1. Enter enter the following question: "Describe this image", and then select the send arrow icon to the far right of the file upload button.
 
-
-    :::image type="content" source="../media/quickstarts/playground/chat-car-accident-prompt.png" alt-text="Screenshot of the playground." lightbox="../media/quickstarts/playground/chat-car-accident-prompt.png":::
-
-
-    :::image type="content" source="../media/quickstarts/playground/chat-car-accident-reply-insurance-long.png" alt-text="Screenshot of the playground." lightbox="../media/quickstarts/playground/chat-car-accident-reply-insurance-long.png":::
+    :::image type="content" source="../media/quickstarts/playground/chat-car-accident-prompt.png" alt-text="Screenshot of the chat playground." lightbox="../media/quickstarts/playground/chat-car-accident-prompt.png":::
 
 
-    :::image type="content" source="../media/quickstarts/playground/chat-car-accident-reply-license.png" alt-text="Screenshot of the playground." lightbox="../media/quickstarts/playground/chat-car-accident-reply-license.png":::
+    :::image type="content" source="../media/quickstarts/playground/chat-car-accident-reply-license.png" alt-text="Screenshot of the chat playground." lightbox="../media/quickstarts/playground/chat-car-accident-reply-license.png":::
+
+    :::image type="content" source="../media/quickstarts/playground/chat-car-accident-follow-up-question.png" alt-text="Screenshot of the chat playground." lightbox="../media/quickstarts/playground/chat-car-accident-follow-up-question.png":::
 
 
-    :::image type="content" source="../media/quickstarts/playground/chat-car-accident.png" alt-text="Screenshot of the playground." lightbox="../media/quickstarts/playground/chat-car-accident.png":::
-
-
-
-    :::image type="content" source="../media/quickstarts/playground/chat-multi-modal-file-selectpng" alt-text="Screenshot of the playground." lightbox="../media/quickstarts/playground/chat-multi-modal-file-select.png":::
-
-
-
-    :::image type="content" source="../media/quickstarts/playground/chat-multi-modal-image-select.png" alt-text="Screenshot of the playground." lightbox="../media/quickstarts/playground/chat-multi-modal-image-select.png":::
-
-
-    :::image type="content" source="../media/quickstarts/playground/chat-multi-modal-land-focus.png" alt-text="Screenshot of the playground." lightbox="../media/quickstarts/playground/chat-multi-modal-land-focus.png":::
-
-
-    :::image type="content" source="../media/quickstarts/playground/chat-multi-modal-land.png" alt-text="Screenshot of the playground." lightbox="../media/quickstarts/playground/chat-multi-modal-land.png":::
-
-
-    :::image type="content" source="../media/quickstarts/playground/chat-multi-modal-mic-select.png" alt-text="Screenshot of the playground." lightbox="../media/quickstarts/playground/chat-multi-modal-mic-select.png":::
+    :::image type="content" source="../media/quickstarts/playground/chat-car-accident-reply-insurance-long.png" alt-text="Screenshot of the chat playground." lightbox="../media/quickstarts/playground/chat-car-accident-reply-insurance-long.png":::
 
 
 
 
-To start, provide this prompt to guide the assistant: “You are an AI assistant that helps people find information.” You can tailor the prompt the image or scenario that you are uploading. 
+    :::image type="content" source="../media/quickstarts/playground/chat-multi-modal-file-selectpng" alt-text="Screenshot of the chat playground." lightbox="../media/quickstarts/playground/chat-multi-modal-file-select.png":::
+
+
+
+    :::image type="content" source="../media/quickstarts/playground/chat-multi-modal-image-select.png" alt-text="Screenshot of the chat playground." lightbox="../media/quickstarts/playground/chat-multi-modal-image-select.png":::
+
+
+    :::image type="content" source="../media/quickstarts/playground/chat-multi-modal-land-focus.png" alt-text="Screenshot of the chat playground." lightbox="../media/quickstarts/playground/chat-multi-modal-land-focus.png":::
+
+
+
+
+
+
+To start, provide this prompt to guide the assistant: “You are an AI assistant that helps people find information." You can tailor the prompt the image or scenario that you are uploading. 
 
 Save your changes, and when prompted to see if you want to update the system message, select Continue. 
 
@@ -154,13 +109,13 @@ A screenshot of a computer
 Description automatically generated 
  
 
-You will be required to select a Computer Vision resource to try the enhanced Vision API. This resource must be in the East US region to try video, but for image only can be in any of the GPT-4V supported regions, including East US, Switzerland North, Sweden Central, Central US, West US, and Australia East. Select your resource, and “Save”. 
+You will be required to select a Computer Vision resource to try the enhanced Vision API. This resource must be in the East US region to try video, but for image only can be in any of the GPT-4V supported regions, including East US, Switzerland North, Sweden Central, Central US, West US, and Australia East. Select your resource, and “Save". 
 
-Provide this prompt to guide the assistant: “You are an AI assistant that helps people find information.” You can tailor the prompt the image or scenario that you are uploading. 
+Provide this prompt to guide the assistant: “You are an AI assistant that helps people find information." You can tailor the prompt the image or scenario that you are uploading. 
 
 Save your changes, and when prompted to see if you want to update the system message, select Continue. 
 
-In the chat session pane, enter the following question: "Describe this image”, and upload an image. Then select Send.  
+In the chat session pane, enter the following question: "Describe this image", and upload an image. Then select Send.  
 
 You should receive a response similar to: 
 
@@ -169,7 +124,7 @@ A car with a broken front end
 Description automatically generated 
  
 
-Enter a follow-up question such as: “What should I highlight about this image to my insurance company?” 
+Enter a follow-up question such as: “What should I highlight about this image to my insurance company?" 
 A screenshot of a phone
 
 Description automatically generated 
@@ -183,11 +138,11 @@ Try a chat session to analyze video
 
 In this chat session, you will be instructing the assistant to aid in understanding videos that you input. 
 
-You will be required to select a Computer Vision resource to try the enhanced Vision API. This resource must be in the East US region to try video, but for image only can be in any of the GPT-4V supported regions, including East US, Switzerland North, Sweden Central, Central US, West US, and Australia East. Select your resource, and “Save”. 
+You will be required to select a Computer Vision resource to try the enhanced Vision API. This resource must be in the East US region to try video, but for image only can be in any of the GPT-4V supported regions, including East US, Switzerland North, Sweden Central, Central US, West US, and Australia East. Select your resource, and “Save". 
 
-Provide this prompt to guide the assistant: “You are an AI assistant that summarizes video, paying attention to important events, people, and objects in the video.” You can tailor the prompt the image or scenario that you are uploading. 
+Provide this prompt to guide the assistant: “You are an AI assistant that summarizes video, paying attention to important events, people, and objects in the video." You can tailor the prompt the image or scenario that you are uploading. 
 
-In the chat session pane, enter a question about the video like: "Describe this video in detail. Focus on brands, technology and people”, and upload a video using the “Add media” button and then select Send. 
+In the chat session pane, enter a question about the video like: "Describe this video in detail. Focus on brands, technology and people", and upload a video using the “Add media" button and then select Send. 
  
 Note: Currently the chat playground supports videos that are less than 3 minutes in length.   
 
@@ -197,7 +152,7 @@ Note: Currently the chat playground supports videos that are less than 3 minutes
 You'll receive a response similar to:  
  
 
-You can ask a follow-up question like “How does the AI4Bharat app work?”  
+You can ask a follow-up question like “How does the AI4Bharat app work?"  
 
   
 
