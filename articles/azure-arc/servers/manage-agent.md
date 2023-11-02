@@ -432,10 +432,6 @@ Proxy bypass value when set to ArcData only bypasses the traffic of the Arc SQL 
 
 To send Microsoft Entra ID and Azure Resource Manager traffic through a proxy server but skip the proxy for Azure Arc traffic, run the following command:
 
-
-
-
-
 ```bash
 azcmagent config set proxy.url "http://ProxyServerFQDN:port"
 azcmagent config set proxy.bypass "Arc"
