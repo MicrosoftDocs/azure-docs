@@ -175,6 +175,7 @@ az iot ops init --cluster <CLUSTER_NAME> -g <RESOURCE_GROUP> --kv-id <KEYVAULT_R
 Use optional flags to customize the `az iot ops init` command. To learn more, see [`az iot ops init` reference](https://github.com/Azure/azure-edge-cli-extension/wiki/Azure-IoT-Ops-Reference#az-iot-ops-init). For example:
 
 | Parameter | Description |
+| --------- | ----------- |
 | `--no-tls` | Disable TLS workflows. |
 | `--no-deploy` | Disable Azure IoT Operations deployment workflows. |
 | `--sp-app-id` | Provide an existing app registration ID to disable the command from creating an app registration. |
