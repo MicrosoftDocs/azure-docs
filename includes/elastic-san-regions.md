@@ -5,11 +5,11 @@
  author: roygara
  ms.service: azure-storage
  ms.topic: include
- ms.date: 12/09/2022
+ ms.date: 11/02/2023
  ms.author: rogarana
  ms.custom: include file
 ---
-Currently, Elastic SAN (preview) is only available in the following regions with the following redundancies:
+Currently, Elastic SAN Preview is only available in the following regions with the following redundancies:
 
 - France Central - LRS & ZRS
 - Southeast Asia - LRS

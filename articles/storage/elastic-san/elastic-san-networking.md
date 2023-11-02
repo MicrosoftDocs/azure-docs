@@ -4,14 +4,14 @@ description: Learn how to configure access to an Azure Elastic SAN Preview.
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: conceptual
-ms.date: 10/31/2023
+ms.date: 11/06/2023
 ms.author: rogarana
 ms.custom: references_regions
 ---
 
-# Configure networking access for Azure Elastic SAN Preview
+# Configure network access for Azure Elastic SAN Preview
 
-Azure Elastic storage area network (SAN) Preview allows you to secure and control the level of access to your Elastic SAN volumes that your applications and enterprise environments require.
+You can control access to your Azure Elastic storage area network (SAN) Preview volumes. Controlling access allows you to secure your data and meet the needs of your applications and enterprise environments.
 
 This article describes how to configure your Elastic SAN to allow access from your Azure virtual network infrastructure.
 
@@ -35,13 +35,13 @@ There are no extra registration steps required.
 
 ## Configure public network access
 
-You can enable public Internet access to your Elastic SAN endpoints at the SAN level. Enabling public network access for an Elastic SAN allows you to configure public access to individual volume groups over storage service endpoints. By default, public access to individual volume groups is denied even if you allow it at the SAN level. You must explicitly configure your volume groups to permit access from specific IP address ranges and virtual network subnets.
+You enable public Internet access to your Elastic SAN endpoints at the SAN level. Enabling public network access for an Elastic SAN allows you to configure public access to individual volume groups over storage service endpoints. By default, public access to individual volume groups is denied even if you allow it at the SAN level. You must explicitly configure your volume groups to permit access from specific IP address ranges and virtual network subnets.
 
-You can enable public network access during the creation of a new Elastic SAN, or for an existing one using the Azure portal, PowerShell, or the Azure CLI.
+You can enable public network access when you create an elastic SAN, or enable it for an existing SAN using the Azure portal, PowerShell, or the Azure CLI.
 
 # [Portal](#tab/azure-portal)
 
-To enable public network access during creation of a new Elastic SAN, on the **Networking** tab, select **Enable from virtual networks** as shown in this image:
+To enable public network access when you create a new Elastic SAN, proceed through the deployment. On the **Networking** tab, select **Enable from virtual networks** as shown in this image:
 
 :::image type="content" source="media/elastic-san-networking/elastic-san-public-network-access-create-san.png" alt-text="Screenshot showing how to enable public network access during creation of a new Elastic SAN." lightbox="media/elastic-san-networking/elastic-san-public-network-access-create-san.png":::
 
