@@ -58,7 +58,7 @@ You can set up autoscale via:
 
 The following diagram shows the autoscale architecture.
 
- ![Diagram that shows autoscale flow.](./media/autoscale-overview/Autoscale_Overview_v4.png)
+ :::image type="content" source="./media/autoscale-overview/Autoscale_Overview_v4.png" lightbox="./media/autoscale-overview/Autoscale_Overview_v4.png" alt-text="Diagram that shows autoscale flow.":::
 
 ### Resource metrics
 
@@ -109,7 +109,7 @@ Autoscale uses the following terminology and structure.
 | Schedule         | recurrence   | Indicates when autoscale should put this scale condition or profile into effect. You can have multiple scale conditions, which allow you to handle different and overlapping requirements. For example, you can have different scale conditions for different times of day or days of the week. |
 | Notify           | notification | Defines the notifications to send when an autoscale event occurs. Autoscale can notify one or more email addresses or make a call by using one or more webhooks. You can configure multiple webhooks in the JSON but only one in the UI.                               |
 
-![Diagram that shows Azure autoscale setting, profile, and rule structure.](./media/autoscale-overview/azure-resource-manager-rule-structure-3.png)
+:::image type="content" source="./media/autoscale-overview/azure-resource-manager-rule-structure-3.png" lightbox="./media/autoscale-overview/azure-resource-manager-rule-structure-3.png" alt-text="Diagram that shows Azure autoscale setting, profile, and rule structure.":::
 
 The full list of configurable fields and descriptions is available in the [Autoscale REST API](/rest/api/monitor/autoscalesettings).
 

@@ -47,15 +47,15 @@ Let's review the metrics from the autoscale service.
 
 The following chart shows a **Percentage CPU** metric for a virtual machine scale set.
 
-![Screenshot that shows a virtual machine scale set percentage CPU example.](media/autoscale-troubleshoot/autoscale-vmss-CPU-ex-full-1.png)
+:::image type="content" source="media/autoscale-troubleshoot/autoscale-vmss-CPU-ex-full-1.png" lightbox="media/autoscale-troubleshoot/autoscale-vmss-CPU-ex-full-1.png" alt-text="Screenshot that shows a virtual machine scale set percentage CPU example.":::
 
 The next chart shows the **Observed Metric Value** metric for an autoscale setting.
 
-![Screenshot that shows another virtual machine scale set percentage CPU example.](media/autoscale-troubleshoot/autoscale-vmss-CPU-ex-full-2.png)
+:::image type="content" source="media/autoscale-troubleshoot/autoscale-vmss-CPU-ex-full-2.png" lightbox="media/autoscale-troubleshoot/autoscale-vmss-CPU-ex-full-2.png" alt-text="Screenshot that shows another virtual machine scale set percentage CPU example.":::
 
 The final chart shows the **Metric Threshold** and **Observed Capacity** metrics. The **Metric Threshold** metric at the top for the scale-out rule is 70. The **Observed Capacity** metric at the bottom shows the number of active instances, which is currently 3.
 
-![Screenshot that shows Metric Threshold and Observed Capacity.](media/autoscale-troubleshoot/autoscale-metric-threshold-capacity-ex-full.png)
+:::image type="content" source="media/autoscale-troubleshoot/autoscale-metric-threshold-capacity-ex-full.png" lightbox="media/autoscale-troubleshoot/autoscale-metric-threshold-capacity-ex-full.png" alt-text="Screenshot that shows Metric Threshold and Observed Capacity.":::
 
 > [!NOTE]
 > You can filter **Metric Threshold** by the metric trigger rule dimension scale-out (increase) rule to see the scale-out threshold and by the scale-in rule (decrease).
@@ -72,7 +72,7 @@ The following screenshots show two metric charts.
 
 The **Avg Outbound Flows** chart shows the value of the **Outbound Flows** metric. The actual value is 6.
 
-![Screenshot that shows the Average Outbound Flows page with an example of a virtual machine scale set autoscale metrics chart.](media/autoscale-troubleshoot/autoscale-vmss-metric-chart-ex-1.png)
+:::image type="content" source="media/autoscale-troubleshoot/autoscale-vmss-metric-chart-ex-1.png" lightbox="media/autoscale-troubleshoot/autoscale-vmss-metric-chart-ex-1.png" alt-text="Screenshot that shows the Average Outbound Flows page with an example of a virtual machine scale set autoscale metrics chart.":::
 
 The following chart shows a few values:
 
@@ -80,7 +80,7 @@ The following chart shows a few values:
  - The **Observed Capacity** metric at the bottom shows the instance count seen by an autoscale engine.
  - The **Metric Threshold** metric at the top is set to 10.
 
-   ![Screenshot that shows a virtual machine scale set autoscale metrics charts example.](media/autoscale-troubleshoot/autoscale-vmss-metric-chart-ex-2.png)
+   :::image type="content" source="media/autoscale-troubleshoot/autoscale-vmss-metric-chart-ex-2.png" lightbox="media/autoscale-troubleshoot/autoscale-vmss-metric-chart-ex-2.png" alt-text="Screenshot that shows a virtual machine scale set autoscale metrics charts example.":::
 
 If there are multiple scale action rules, you can use splitting or the **add filter** option in the metrics explorer chart to look at a metric by a specific source or rule. For more information on splitting a metric chart, see [Advanced features of metric charts - splitting](../essentials/metrics-charts.md#apply-splitting).
 
@@ -88,7 +88,7 @@ If there are multiple scale action rules, you can use splitting or the **add fil
 
 In the autoscale setting screen, go to the **Run history** tab to see the most recent scale actions. The tab also shows the change in **Observed Capacity** over time. To find more information about all autoscale actions, including operations such as update/delete autoscale settings, view the activity log and filter by autoscale operations.
 
-![Screenshot that shows autoscale settings run history.](media/autoscale-troubleshoot/autoscale-setting-run-history-smaller.png)
+:::image type="content" source="media/autoscale-troubleshoot/autoscale-setting-run-history-smaller.png" lightbox="media/autoscale-troubleshoot/autoscale-setting-run-history-smaller.png" alt-text="Screenshot that shows autoscale settings run history.":::
 
 ## Autoscale resource logs
 
@@ -103,7 +103,7 @@ As with any Azure Monitor supported service, you can use [diagnostic settings](.
 - Azure Event Hubs and then to non-Azure tools.
 - Your Azure Storage account for archive.
 
-![Screenshot that shows autoscale diagnostic settings.](media/autoscale-troubleshoot/diagnostic-settings.png)
+:::image type="content" source="media/autoscale-troubleshoot/diagnostic-settings.png" lightbox="media/autoscale-troubleshoot/diagnostic-settings.png" alt-text="Screenshot that shows autoscale diagnostic settings.":::
 
 The preceding screenshot shows the Azure portal autoscale **Diagnostics settings** pane. There you can select the **Diagnostic/Resource Logs** tab and enable log collection and routing. You can also perform the same action by using the REST API, the Azure CLI, PowerShell, and Azure Resource Manager templates for diagnostic settings by choosing the resource type as **Microsoft.Insights/AutoscaleSettings**.
 
