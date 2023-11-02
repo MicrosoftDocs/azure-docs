@@ -21,16 +21,16 @@ When you tell Microsoft Copilot for Azure (preview) about a task you want to per
 Here are a few examples of the kinds of prompts you can use to generate Azure CLI scripts. Modify these prompts based on your real-life scenarios, or try additional prompts to create different kinds of queries.
 
 - "I want to create a virtual machine using Azure CLI"
-- "I want to use azure CLI to deploy and manage AKS using a private service endpoint"
+- "I want to use Azure CLI to deploy and manage AKS using a private service endpoint"
 - "I want to create a web app using Azure CLI"
 
 ## Examples
 
 In this example, using the prompt "I want to use Azure CLI to create a web application" provides a list of steps along with the necessary Azure CLI commands.
 
-:::image type="content" source="media/generate-cli-scripts/cli-webapp.png" alt-text="Screenshot of Microsoft Copilot for Azure (preview) providing Azure CLI commands to create a web app.":::
+:::image type="content" source="media/generate-cli-scripts/cli-web-app.png" alt-text="Screenshot of Microsoft Copilot for Azure (preview) providing Azure CLI commands to create a web app.":::
 
-Similarly, you can say "I want to create a virtual machine using azure cli" to get a step-by-step guide with commands.
+Similarly, you can say "I want to create a virtual machine using Azure cli" to get a step-by-step guide with commands.
 
 :::image type="content" source="media/generate-cli-scripts/cli-vm.png" alt-text="Screenshot of Microsoft Copilot for Azure (preview) providing Azure CLI commands to create a VM.":::
 
