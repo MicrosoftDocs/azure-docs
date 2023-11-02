@@ -255,7 +255,7 @@ On successful migration, update any network dependencies including DNS, firewall
 
 1. **Is there a way to validate the VNet configuration before attempting migration?**
 
-   You can optionally deploy a new API Management instance with the new VNET + Subnet + VIP that you use for the actual migration. Navigate to the Network Status page after the deployment is completed, and verify if every endpoint connectivity status is green. If yes, you can remove this new API Management instance and proceed with the real migration with your original stv1 service.
+   You can optionally deploy a new API Management instance with the new VNet, subnet, and VIP that you use for the actual migration. Navigate to the **Network status** page after the deployment is completed, and verify if every endpoint connectivity status is green. If yes, you can remove this new API Management instance and proceed with the real migration with your original `stv1` service.
 
 1. **Can I roll back the migration if required?**
 
