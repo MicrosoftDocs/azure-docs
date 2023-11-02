@@ -1,5 +1,5 @@
 ---
-title: How use Smtp to send an email with Azure Communication Services.
+title: How to use SMTP to send an email with Azure Communication Services.
 titleSuffix: An Azure Communication Services quick start guide.
 description: Learn about how to use SMTP to send emails to Email Communication Services.
 author: ddouglas
@@ -12,7 +12,7 @@ zone_pivot_groups: acs-smtp-sending-method
 ---
 # Quickstart: Send email with SMTP
 
-In this quick start, you'll learn about how to send email using SMTP.
+In this quick start, you learn about how to send email using SMTP.
 
 ::: zone pivot="smtp-method-smtpclient"
 [!INCLUDE [Send a message with SMTP and SmtpClient](./includes/send-email-smtp-smtpclient.md)]

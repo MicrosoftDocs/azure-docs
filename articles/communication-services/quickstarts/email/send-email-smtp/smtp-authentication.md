@@ -23,7 +23,7 @@ In this quick start, you learn about how to use an Entra application to create t
 
 ## Using a Microsoft Entra application with access to the Azure Communication Services Resource for SMTP
 
-Application developers who have built apps that send email using the SMTP protocol need to implement a secure, modern authentication configuration using Entra application service principals to leverage Azure Communication Services. Combining the Azure Communication Services Resource and the Entra application service principal's information, the SMTP services undertakes authentication with Entra on behalf of the user to ensure a secure and seamless email transmission.
+Application developers who build apps that send email using the SMTP protocol need to implement secure, modern authentication. Azure Communication Services does this by leveraging Entra application service principals. Combining the Azure Communication Services Resource and the Entra application service principal's information, the SMTP services undertakes authentication with Entra on the user's behalf to ensure a secure and seamless email transmission.
 
 ### Creating a custom email role for the Entra application
 
@@ -90,7 +90,7 @@ The password is one of the Entra application's client secrets.
 
 ### How to set up SMTP AUTH client submission
 
-Enter the following settings directly on your device or in the application as their guide instructs (it might use different terminology than this article). Provided your scenario aligns with the prerequisites for SMTP AUTH client submission, these settings will empower you to send emails from your device or application using SMTP Commands.
+Enter the following settings directly on your device or in the application as their guide instructs (it might use different terminology than this article). Provided your scenario aligns with the prerequisites for SMTP AUTH client submission, these settings allow you to send emails from your device or application using SMTP Commands.
 
 | Device or Application setting | Value |
 |--|--|
