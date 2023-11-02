@@ -1,5 +1,5 @@
 ---
-title: Develop an evaluation flow in Prompt flow (preview)
+title: Develop an evaluation flow in Prompt flow
 titleSuffix: Azure Machine Learning
 description: Learn how to customize or create your own evaluation flow tailored to your tasks and objectives, and then use in a batch run as an evaluation method in Prompt flow with Azure Machine Learning studio.
 services: machine-learning
@@ -9,10 +9,10 @@ ms.topic: how-to
 author: ZikeiWong
 ms.author: ziqiwang
 ms.reviewer: lagayhar
-ms.date: 09/12/2023
+ms.date: 11/02/2023
 ---
 
-# Develop an evaluation flow (preview)
+# Develop an evaluation flow
 
 Evaluation flows are special types of flows that assess how well the outputs of a run align with specific criteria and goals.
 
@@ -22,10 +22,6 @@ In Prompt flow, you can customize or create your own evaluation flow tailored to
 - Understand evaluation in Prompt flow
   - Inputs
   - Outputs and Metrics Logging
-
-> [!IMPORTANT]
-> Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Starting to develop an evaluation method
 
