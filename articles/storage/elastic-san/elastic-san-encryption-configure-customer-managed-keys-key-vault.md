@@ -74,24 +74,22 @@ To perform the operations described in this article using PowerShell:
 
 Copy the sample code and replace all placeholder text with your own values. Use the same variables in all of the examples in this article:
 
-| Placeholder                      | Description |
-|----------------------------------|-------------|
-| `<ResourceGroupName>`            | The name of the resource group where the resources will be deployed. |
-| `<Location>`                     | The region where the new resources will be created. |
-| `<ElasticSanName>`               | The name of the Elastic SAN that contains the volume group to be configured. |
-| `<ElasticSanVolumeGroupName>`    | The name of the Elastic SAN volume group to be configured. |
-| `<KeyVaultName>`                 | The name of the Azure Key Vault that will contain the KEK. |
-| `<KeyName>`                      | The name of the Azure Key Vault key that is the KEK. |
-| `<ManagedUserName>`              | The name of the user-assigned managed identity, [if applicable](#choose-a-managed-identity-to-authorize-access-to-the-key-vault). |
 
 ```azurepowershell
-# Define some variables.
+# Define some variables
+# The name of the resource group where the resources will be deployed.
 $RgName          = "<ResourceGroupName>"
+# The name of the Elastic SAN that contains the volume group to be configured.
 $EsanName        = "<ElasticSanName>"
-$EsanVgName      = "<ElasticSanVolumeGroupName>"
+# The name of the Elastic SAN volume group to be configured.
+$EsanVgName      = "<ElasticSanVolumeGroupName>
+# The region where the new resources will be created.
 $Location        = "<Location>"
+# The name of the Azure Key Vault that will contain the KEK.
 $KvName          = "<KeyVaultName>"
+# The name of the Azure Key Vault key that is the KEK.
 $KeyName         = "<KeyName>"
+# The name of the user-assigned managed identity, [if applicable](#choose-a-managed-identity-to-authorize-access-to-the-key-vault).
 $ManagedUserName = "<ManagedUserName>"
 ```
 
@@ -106,26 +104,23 @@ To use the Azure CLI to configure Elastic SAN encryption:
 
 Copy the sample code and replace all placeholder text with your own values. Use the same variables in all of the examples in this article:
 
-| Placeholder                      | Description |
-|----------------------------------|-------------|
-| `<ResourceGroupName>`            | The name of the resource group where the resources will be deployed. |
-| `<Location>`                     | The region where the new resources will be created. |
-| `<ElasticSanName>`               | The name of the Elastic SAN that contains the volume group to be configured. |
-| `<ElasticSanVolumeGroupName>`    | The name of the Elastic SAN volume group to be configured. |
-| `<KeyVaultName>`                 | The name of the Azure Key Vault that will contain the KEK. |
-| `<KeyName>`                      | The name of the Azure Key Vault key that is the KEK. |
-| `<AdminUpn>`                     | The User Principal Name (UPN) of the administrator (you) who will create the KEK in the vault. |
-| `<ManagedUserName>`              | The name of the user-assigned managed identity, [if applicable](#choose-a-managed-identity-to-authorize-access-to-the-key-vault). |
-
 ```azurecli
 # Define some variables.
+# The name of the resource group where the resources will be deployed.
 RgName="<ResourceGroupName>"
+# The name of the Elastic SAN that contains the volume group to be configured.
 EsanName="<ElasticSanName>"
+# The name of the Elastic SAN volume group to be configured.
 EsanVgName="<ElasticSanVolumeGroupName>"
+# The region where the new resources will be created.
 Location="<Location>"
+# The name of the Azure Key Vault that will contain the KEK.
 KvName="<KeyVaultName>"
+# The name of the Azure Key Vault key that is the KEK.
 KeyName="<KeyName>"
+# The name of the user-assigned managed identity, [if applicable](#choose-a-managed-identity-to-authorize-access-to-the-key-vault).
 ManagedUserName="<ManagedUserName>"
+# The User Principal Name (UPN) of the administrator (you) who will create the KEK in the vault.
 AdminUpn="<AdminUpn>"
 ```
 
