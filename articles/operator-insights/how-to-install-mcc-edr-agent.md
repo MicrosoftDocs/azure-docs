@@ -72,7 +72,7 @@ Repeat these steps for each VM onto which you want to install the agent:
 1. Verify that the VM has the following ports open:
     - Port 36001/TCP inbound from the MCCs
     - Port 443/TCP outbound to Azure
-    - 
+    
     These ports must be open both in cloud network security groups and in any firewall running on the VM itself (such as firewalld or iptables).
 1. Install systemd, logrotate and zip on the VM, if not already present.
 1. Obtain the ingestion agent RPM and copy it to the VM.
