@@ -23,71 +23,71 @@ Current supported language pairs, including direct language models, are listed i
 
 |Source |Target|
 |:----|:----|
-|Amharic (am-et)|English (en-us)|
-|Arabic (ar-sa)|English (en-us)|
-|Catalan (ca-es)|English (en-us)|
-|Chinese Traditional (zh-hant)|English (en-us)|
-|English (en-us)|Lingala (ln)|
-|English (en-us)|Shona (sn-latn-zw)|
-|English (en-us)|Estonian (et-ee)|
-|English (en-us)|Bulgarian (bg-bg)|
-|English (en-us)|Catalan (ca-es)|
-|English (en-us)|Romanian (ro-ro)|
-|English (en-us)|Icelandic (is-is)|
-|English (en-us)|Slovenian (sl-si)|
-|English (en-us)|Kannada (kn-in)|
-|English (en-us)|Marathi (mr-in)|
-|English (en-us)|Punjabi (pa-in)|
-|English (en-us)|Turkish (tr-tr)|
-|English (en-us)|Dutch (nl-nl)|
-|English (en-us)|Chinese Traditional (zh-hant)|
-|Finnish (fi-fi)|English (en-us)|
-|Hebrew (he-il)|English (en-us)|
-|Icelandic (is-is)|English (en-us)|
-|Kannada (kn-in)|English (en-us)|
-|Lingala (ln)|English (en-us)|
-|Nyanja (nya)|English (en-us)|
-|Punjabi (pa-in)|English (en-us)|
-|Romanian (ro-ro)|English (en-us)|
-|Shona (sn-latn-zw)|English (en-us)|
-|Slovak (sk-sk)|English (en-us)|
-|Sovenian (sl-si)|English (en-us)|
-|Ukranian (uk-ua)|English (en-us)|
+|Amharic (`am-et`)|English (`en-us`)|
+|Arabic (`ar-sa`)|English (`en-us`)|
+|Catalan (`ca-es`)|English (`en-us`)|
+|Chinese Traditional (`zh-hant`)|English (`en-us`)|
+|English (`en-us`)|Lingala (`ln`)|
+|English (`en-us`)|Shona (`sn-latn-zw`)|
+|English (`en-us`)|Estonian (`et-ee`)|
+|English (`en-us`)|Bulgarian (`bg-bg`)|
+|English (`en-us`)|Catalan (`ca-es`)|
+|English (`en-us`)|Romanian (`ro-ro`)|
+|English (`en-us`)|Icelandic (`is-is`)|
+|English (`en-us`)|Slovenian (`sl-si`)|
+|English (`en-us`)|Kannada (`kn-in`)|
+|English (`en-us`)|Marathi (`mr-in`)|
+|English (`en-us`)|Punjabi (`pa-in`)|
+|English (`en-us`)|Turkish (`tr-tr`)|
+|English (`en-us`)|Dutch (`nl-nl`)|
+|English (`en-us`)|Chinese Traditional (`zh-hant`)|
+|Finnish (`fi-fi`)|English (`en-us`)|
+|Hebrew (`he-il`)|English (`en-us`)|
+|Icelandic (`is-is`)|English (`en-us`)|
+|Kannada (`kn-in`)|English (`en-us`)|
+|Lingala (`ln`)|English (`en-us`)|
+|Nyanja (`nya`)|English (`en-us`)|
+|Punjabi (`pa-in`)|English (`en-us`)|
+|Romanian (`ro-ro`)|English (`en-us`)|
+|Shona (`sn-latn-zw`)|English (`en-us`)|
+|Slovak (`sk-sk`)|English (`en-us`)|
+|Sovenian (`sl-si`)|English (`en-us`)|
+|Ukranian (`uk-ua`)|English (`en-us`)|
 
 #### English target/source ←→ source/target language models
 
 |Source |Target|
 |:----|:----|
-|Amharic (am-et)|English (en-us)|
-|Arabic (ar-sa)|English (en-us)|
-|Catalan (ca-es)|English (en-us)|
-|Chinese Traditional (zh-hant)|English (en-us)|
-|English (en-us)|Lingala (ln)|
-|English (en-us)|Shona (sn-latn-zw)|
-|English (en-us)|Estonian (et-ee)|
-|English (en-us)|Bulgarian (bg-bg)|
-|English (en-us)|Catalan (ca-es)|
-|English (en-us)|Romanian (ro-ro)|
-|English (en-us)|Icelandic (is-is)|
-|English (en-us)|Slovenian (sl-si)|
-|English (en-us)|Kannada (kn-in)|
-|English (en-us)|Marathi (mr-in)|
-|English (en-us)|Punjabi (pa-in)|
-|English (en-us)|Turkish (tr-tr)|
-|English (en-us)|Dutch (nl-nl)|
-|English (en-us)|Chinese Traditional (zh-hant)|
-|Finnish (fi-fi)|English (en-us)|
-|Hebrew (he-il)|English (en-us)|
-|Icelandic (is-is)|English (en-us)|
-|Kannada (kn-in)|English (en-us)|
-|Lingala (ln)|English (en-us)|
-|Nyanja (nya)|English (en-us)|
-|Punjabi (pa-in)|English (en-us)|
-|Romanian (ro-ro)|English (en-us)|
-|Shona (sn-latn-zw)|English (en-us)|
-|Slovak (sk-sk)|English (en-us)|
-|Sovenian (sl-si)|English (en-us)|
-|Ukranian (uk-ua)|English (en-us)|
+|Amharic (`am-et`)|English (`en-us`)|
+|Arabic (`ar-sa`)|English (`en-us`)|
+|Catalan (`ca-es`)|English (`en-us`)|
+|Chinese Traditional (`zh-hant`)|English (`en-us`)|
+|English (`en-us`)|Lingala (`ln`)|
+|English (`en-us`)|Shona (`sn-latn-zw`)|
+|English (`en-us`)|Estonian (`et-ee`)|
+|English (`en-us`)|Bulgarian (`bg-bg`)|
+|English (`en-us`)|Catalan (`ca-es`)|
+|English (`en-us`)|Romanian (`ro-ro`)|
+|English (`en-us`)|Icelandic (`is-is`)|
+|English (`en-us`)|Slovenian (`sl-si`)|
+|English (`en-us`)|Kannada (`kn-in`)|
+|English (`en-us`)|Marathi (`mr-in`)|
+|English (`en-us`)|Punjabi (`pa-in`)|
+|English (`en-us`)|Turkish (`tr-tr`)|
+|English (`en-us`)|Dutch (`nl-nl`)|
+|English (`en-us`)|Chinese Traditional (`zh-hant`)|
+|Finnish (`fi-fi`)|English (`en-us`)|
+|Hebrew (`he-il`)|English (`en-us`)|
+|Icelandic (`is-is`)|English (`en-us`)|
+|Kannada (`kn-in`)|English (`en-us`)|
+|Lingala (ln)|English (`en-us`)|
+|Nyanja (nya)|English (`en-us`)|
+|Punjabi (`pa-in`)|English (`en-us`)|
+|Romanian (`ro-ro`)|English (`en-us`)|
+|Shona (`sn-latn-zw`)|English (`en-us`)|
+|Slovak (`sk-sk`)|English (`en-us`)|
+|Sovenian (`sl-si`)|English (`en-us`)|
+|Ukranian (`uk-ua`)|English (`en-us`)|
 
 
 ## 2023-June release
@@ -112,54 +112,54 @@ Current supported language pairs, including direct language models, are listed i
 
 |Source Language|Target Language|
 |:----|:----|
-| Czech (cs-cz)     | English (en-us) |
-| Danish (da-dk)     | English (en-us) |
-| German (de-&#8203;de)     | English (en-us) |
-| Greek (el-gr)     | English (en-us) |
-| English (en-us)     | Arabic (ar-sa) |
-| English (en-us)     | Czech (cs-cz) |
-| English (en-us)     | Danish (da-dk) |
-| English (en-us)     | German (de-&#8203;de) |
-| English (en-us)     | Greek (el-gr) |
-| English (en-us)     | Spanish (es-es) |
-| English (en-us)     | French (fr-fr) |
-| English (en-us)     | Hebrew (he-il) |
-| English (en-us)     | Hindi (hi-in) |
-| English (en-us)     | Croatian (hr-hr) |
-| English (en-us)     | Hungarian (hu-hu) |
-| English (en-us)     | Indonesian (id-id) |
-| English (en-us)     | Italian (it-it) |
-| English (en-us)     | Japanese (ja-jp) |
-| English (en-us)     | Korean (ko-kr) |
-| English (en-us)     | Lithuanian (lt-lt) |
-| English (en-us)     | Latvian (lv-lv) |
-| English (en-us)     | Norwegian (nb-no) |
-| English (en-us)     | Polish (pl-pl) |
-| English (en-us)     | Portuguese (pt-pt) |
-| English (en-us)     | Russian (ru-ru) |
-| English (en-us)     | Slovak (sk-sk) |
-| English (en-us)     | Swedish (sv-se) |
-| English (en-us)     | Ukrainian (uk-ua) |
-| English (en-us)     | Vietnamese (vi-vn) |
-| English (en-us)     | Chinese Simplified (zh-cn) |
-| Spanish (es-es)     | English (en-us) |
-| French (fr-fr)     | English (en-us) |
-| Hindi (hi-in)     | English (en-us) |
-| Hungarian (hu-hu)     | English (en-us) |
-| Indonesian (id-id)     | English (en-us) |
-| Italian (it-it)     | English (en-us) |
-| Japanese (ja-jp)     | English (en-us) |
-| Korean (ko-kr)     | English (en-us) |
-| Norwegian (nb-no)     | English (en-us) |
-| Dutch (nl-nl)     | English (en-us) |
-| Polish (pl-pl)     | English (en-us) |
-| Portuguese (pt-br)     | English (en-us) |
-| Russian (ru-ru)     | English (en-us) |
-| Swedish (sv-se)     | English (en-us) |
-| Thai (th-th)     | English (en-us) |
-| Turkish (tr-tr)     | English (en-us) |
-| Vietnamese (vi-vn)     | English (en-us) |
-| Chinese Simplified (zh-cn)     | English (en-us) |
+| Czech (`cs-cz`)     | English (`en-us`) |
+| Danish (`da-dk`)     | English (`en-us`) |
+| German (de-&#8203;de)     | English (`en-us`) |
+| Greek (`el-gr`)     | English (`en-us`) |
+| English (`en-us`)     | Arabic (`ar-sa`) |
+| English (`en-us`)     | Czech (`cs-cz`) |
+| English (`en-us`)     | Danish (`da-dk`) |
+| English (`en-us`)     | German (de-&#8203;de) |
+| English (`en-us`)     | Greek (`el-gr`) |
+| English (`en-us`)     | Spanish (`es-es`) |
+| English (`en-us`)     | French (`fr-fr`) |
+| English (`en-us`)     | Hebrew (`he-il`) |
+| English (`en-us`)     | Hindi (`hi-in`) |
+| English (`en-us`)     | Croatian (`hr-hr`) |
+| English (`en-us`)     | Hungarian (`hu-hu`) |
+| English (`en-us`)     | Indonesian (`id-id`) |
+| English (`en-us`)     | Italian (`it-it`) |
+| English (`en-us`)     | Japanese (`ja-jp`) |
+| English (`en-us`)     | Korean (`ko-kr`) |
+| English (`en-us`)     | Lithuanian (`lt-lt`) |
+| English (`en-us`)     | Latvian (`lv-lv`) |
+| English (`en-us`)     | Norwegian (`nb-no`) |
+| English (`en-us`)     | Polish (`pl-pl`) |
+| English (`en-us`)     | Portuguese (`pt-pt`) |
+| English (`en-us`)     | Russian (`ru-ru`) |
+| English (`en-us`)     | Slovak (`sk-sk`) |
+| English (`en-us`)     | Swedish (`sv-se`) |
+| English (`en-us`)     | Ukrainian (`uk-ua`) |
+| English (`en-us`)     | Vietnamese (`vi-vn`) |
+| English (`en-us`)     | Chinese Simplified (`zh-cn`) |
+| Spanish (`es-es`)     | English (`en-us`) |
+| French (`fr-fr`)     | English (`en-us`) |
+| Hindi (`hi-in`)     | English (`en-us`) |
+| Hungarian (`hu-hu`)     | English (`en-us`) |
+| Indonesian (`id-id`)     | English (`en-us`) |
+| Italian (`it-it`)     | English (`en-us`) |
+| Japanese (`ja-jp`)     | English (`en-us`) |
+| Korean (`ko-kr`)     | English (`en-us`) |
+| Norwegian (`nb-no`)     | English (`en-us`) |
+| Dutch (`nl-nl`)     | English (`en-us`) |
+| Polish (`pl-pl`)     | English (`en-us`) |
+| Portuguese (`pt-br`)     | English (`en-us`) |
+| Russian (`ru-ru`)     | English (`en-us`) |
+| Swedish (`sv-se`)     | English (`en-us`) |
+| Thai (`th-th`)     | English (`en-us`) |
+| Turkish (`tr-tr`)     | English (`en-us`) |
+| Vietnamese (`vi-vn`)     | English (`en-us`) |
+| Chinese Simplified (`zh-cn`)     | English (`en-us`) |
 
 ## 2022-November release
 
@@ -177,26 +177,26 @@ Current supported language pairs, including direct language models, are listed i
 
 |Source Language|Target Language|
 |:----|:----|
-|Chinese Simplified (zh-Hans)|English (en-us)|
-|Chinese Traditional (zh-Hant)|English (en-us)|
-|Czech (cs)|English (en-us)|
-|Dutch (nl)|English (en-us)|
-|English (en-us)|Chinese Simplified (zh-Hans)|
-|English (en-us)|Chinese Traditional (zh-Hant)|
-|English (en-us)|Czech (cs)|
-|English (en-us)|Dutch (nl)|
-|English (en-us)|French (fr)|
-|English (en-us)|German (de)|
-|English (en-us)|Italian (it)|
-|English (en-us)|Polish (pl)|
-|English (en-us)|Romanian (ro)|
-|English (en-us)|Russian (ru)|
-|English (en-us)|Spanish (es)|
-|English (en-us)|Swedish (sv)|
-|German (de)|English (en-us)|
-|Italian (it)|English (en-us)|
-|Russian (ru)|English (en-us)|
-|Spanish (es)|English (en-us)|
+|Chinese Simplified (zh-Hans)|English (`en-us`)|
+|Chinese Traditional (zh-Hant)|English (`en-us`)|
+|Czech (cs)|English (`en-us`)|
+|Dutch (nl)|English (`en-us`)|
+|English (`en-us`)|Chinese Simplified (zh-Hans)|
+|English (`en-us`)|Chinese Traditional (zh-Hant)|
+|English (`en-us`)|Czech (cs)|
+|English (`en-us`)|Dutch (nl)|
+|English (`en-us`)|French (fr)|
+|English (`en-us`)|German (de)|
+|English (`en-us`)|Italian (it)|
+|English (`en-us`)|Polish (pl)|
+|English (`en-us`)|Romanian (ro)|
+|English (`en-us`)|Russian (ru)|
+|English (`en-us`)|Spanish (es)|
+|English (`en-us`)|Swedish (sv)|
+|German (de)|English (`en-us`)|
+|Italian (it)|English (`en-us`)|
+|Russian (ru)|English (`en-us`)|
+|Spanish (es)|English (`en-us`)|
 
 #### Security update
 
@@ -222,78 +222,78 @@ Current supported language pairs, including direct language models, are listed i
 
 | Source Language   | Target Language |
 |-------------------|-----------------|
-| Arabic (`ar`) | English (`en-us`)|
-| Brazilian Portuguese (`pt`)    | English (`en-us`)|
-| Bulgarian (`bg`)    | English (`en-us`)|
-| Chinese Simplified (`zh-Hans`)    | English (`en-us`)|
-| Chinese Traditional (`zh-Hant`)    | English (`en-us`)|
-| Croatian (`hr`)    | English (`en-us`)|
-| Czech (`cs`)    | English (`en-us`)|
-| Danish (`da`)    | English (`en-us`)|
-| Dutch (nl)    | English (`en-us`)|
-| English (`en-us`)    | Arabic (`ar`)|
-| English (`en-us`)    | Bulgarian (`bg`)|
-| English (`en-us`)    | Chinese Simplified (`zh-Hans`|
-| English (`en-us`)    | Chinese Traditional (`zh-Hant`|
-| English (`en-us`)    | Czech (`cs)`|
-| English (`en-us`)    | Danish (`da`)|
-| English (`en-us`)    | Dutch (`nl`)|
-| English (`en-us`)    | Estonian (`et`)|
-| English (`en-us`)    | Fijian (`fj`)|
-| English (`en-us`)    | Finnish (`fi`)|
-| English (`en-us`)    | French (`fr`)|
-| English (`en-us`)    | Greek (`el`)|
-| English (`en-us`)    | Hindi (`hi`) |
-| English (`en-us`)    | Hungarian (`hu`)|
-| English (`en-us`)    | Icelandic (`is`)|
-| English (`en-us`)    | Indonesian (`id`)|
-| English (`en-us`)    | Inuktitut (`iu`)|
-| English (`en-us`)    | Irish (`ga`)|
-| English (`en-us`)    | Italian (`it`)|
-| English (`en-us`)    | Japanese (`ja`)|
-| English (`en-us`)    | Korean (`ko`)|
-| English (`en-us`)    | Lithuanian (`lt`)|
-| English (`en-us`)    | Norwegian (`nb`)|
-| English (`en-us`)    | Polish (`pl`)|
-| English (`en-us`)    | Romanian (`ro`)|
-| English (`en-us`)    | Samoan (`sm`)|
-| English (`en-us`)    | Slovak (`sk`)|
-| English (`en-us`)    | Spanish (`es`)|
-| English (`en-us`)    | Swedish (`sv`)|
-| English (`en-us`)    | Tahitian (`ty`)|
-| English (`en-us`)    | Thai (`th`)|
-| English (`en-us`)    | Tongan (`to`)|
-| English (`en-us`)    | Turkish (`tr`)|
-| English (`en-us`)    | Ukrainian (`uk`) |
-| English (`en-us`)    | Welsh (`cy`)|
-| Estonian (`et`)    | English (`en-us`)|
-| Fijian (`fj`)   | English (`en-us`)|
-| Finnish (`fi`)    | English (`en-us`)|
-| German (`de`)    | English (`en-us`)|
-| Greek (`el`)    | English (`en-us`)|
-| Hungarian (`hu`)    | English (`en-us`)|
-| Icelandic (`is`)    | English (`en-us`)|
-| Indonesian (`id`)    | English (`en-us`)
-| Inuktitut (`iu`)    | English (`en-us`)|
-| Irish (`ga`)    | English (`en-us`)|
-| Italian (`it`)    | English (`en-us`)|
-| Japanese (`ja`)    | English (`en-us`)|
-| Kazakh (`kk`)    | English (`en-us`)|
-| Korean (`ko`)    | English (`en-us`)|
-| Lithuanian (`lt`)    | English (`en-us`)|
-| Malagasy (`mg`)    | English (`en-us`)|
-| Maori (`mi`)    | English (`en-us`)|
-| Norwegian (`nb`)    | English (`en-us`)|
-| Persian (`fa`)    | English (`en-us`)|
-|  Polish (`pl`)    | English (`en-us`)|
-| Romanian (`ro`)    | English (`en-us`)|
-| Russian (`ru`)    | English (`en-us`)|
-| Slovak (`sk`)    | English (`en-us`)|
-| Spanish (`es`)    | English (`en-us`)|
-| Swedish (`sv`)    | English (`en-us`)|
-| Tahitian (`ty`)    | English (`en-us`)|
-| Thai (`th`)    | English (`en-us`)|
-| Tongan (`to`)    | English (`en-us`)|
-| Turkish (`tr`)    | English (`en-us`)|
-| Vietnamese (`vi`)    | English (`en-us`)|
-| Welsh (`cy`)    | English (`en-us`)|
+| Arabic (`ar`) | English (``en-us``)|
+| Brazilian Portuguese (`pt`)    | English (``en-us``)|
+| Bulgarian (`bg`)    | English (``en-us``)|
+| Chinese Simplified (`zh-Hans`)    | English (``en-us``)|
+| Chinese Traditional (`zh-Hant`)    | English (``en-us``)|
+| Croatian (`hr`)    | English (``en-us``)|
+| Czech (`cs`)    | English (``en-us``)|
+| Danish (`da`)    | English (``en-us``)|
+| Dutch (nl)    | English (``en-us``)|
+| English (``en-us``)    | Arabic (`ar`)|
+| English (``en-us``)    | Bulgarian (`bg`)|
+| English (``en-us``)    | Chinese Simplified (`zh-Hans`|
+| English (``en-us``)    | Chinese Traditional (`zh-Hant`|
+| English (``en-us``)    | Czech (`cs)`|
+| English (``en-us``)    | Danish (`da`)|
+| English (``en-us``)    | Dutch (`nl`)|
+| English (``en-us``)    | Estonian (`et`)|
+| English (``en-us``)    | Fijian (`fj`)|
+| English (``en-us``)    | Finnish (`fi`)|
+| English (``en-us``)    | French (`fr`)|
+| English (``en-us``)    | Greek (`el`)|
+| English (``en-us``)    | Hindi (`hi`) |
+| English (``en-us``)    | Hungarian (`hu`)|
+| English (``en-us``)    | Icelandic (`is`)|
+| English (``en-us``)    | Indonesian (`id`)|
+| English (``en-us``)    | Inuktitut (`iu`)|
+| English (``en-us``)    | Irish (`ga`)|
+| English (``en-us``)    | Italian (`it`)|
+| English (``en-us``)    | Japanese (`ja`)|
+| English (``en-us``)    | Korean (`ko`)|
+| English (``en-us``)    | Lithuanian (`lt`)|
+| English (``en-us``)    | Norwegian (`nb`)|
+| English (``en-us``)    | Polish (`pl`)|
+| English (``en-us``)    | Romanian (`ro`)|
+| English (``en-us``)    | Samoan (`sm`)|
+| English (``en-us``)    | Slovak (`sk`)|
+| English (``en-us``)    | Spanish (`es`)|
+| English (``en-us``)    | Swedish (`sv`)|
+| English (``en-us``)    | Tahitian (`ty`)|
+| English (``en-us``)    | Thai (`th`)|
+| English (``en-us``)    | Tongan (`to`)|
+| English (``en-us``)    | Turkish (`tr`)|
+| English (``en-us``)    | Ukrainian (`uk`) |
+| English (``en-us``)    | Welsh (`cy`)|
+| Estonian (`et`)    | English (``en-us``)|
+| Fijian (`fj`)   | English (``en-us``)|
+| Finnish (`fi`)    | English (``en-us``)|
+| German (`de`)    | English (``en-us``)|
+| Greek (`el`)    | English (``en-us``)|
+| Hungarian (`hu`)    | English (``en-us``)|
+| Icelandic (`is`)    | English (``en-us``)|
+| Indonesian (`id`)    | English (``en-us``)
+| Inuktitut (`iu`)    | English (``en-us``)|
+| Irish (`ga`)    | English (``en-us``)|
+| Italian (`it`)    | English (``en-us``)|
+| Japanese (`ja`)    | English (``en-us``)|
+| Kazakh (`kk`)    | English (``en-us``)|
+| Korean (`ko`)    | English (``en-us``)|
+| Lithuanian (`lt`)    | English (``en-us``)|
+| Malagasy (`mg`)    | English (``en-us``)|
+| Maori (`mi`)    | English (``en-us``)|
+| Norwegian (`nb`)    | English (``en-us``)|
+| Persian (`fa`)    | English (``en-us``)|
+|  Polish (`pl`)    | English (``en-us``)|
+| Romanian (`ro`)    | English (``en-us``)|
+| Russian (`ru`)    | English (``en-us``)|
+| Slovak (`sk`)    | English (``en-us``)|
+| Spanish (`es`)    | English (``en-us``)|
+| Swedish (`sv`)    | English (``en-us``)|
+| Tahitian (`ty`)    | English (``en-us``)|
+| Thai (`th`)    | English (``en-us``)|
+| Tongan (`to`)    | English (``en-us``)|
+| Turkish (`tr`)    | English (``en-us``)|
+| Vietnamese (`vi`)    | English (``en-us``)|
+| Welsh (`cy`)    | English (``en-us``)|
