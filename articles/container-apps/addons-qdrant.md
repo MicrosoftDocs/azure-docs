@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Connect to a Qdrant vector database in Azure Container Apps (preview)'
-description: Learn to use a the Container Apps Qdrant vector database add-on.
+description: Learn to use the Container Apps Qdrant vector database add-on.
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
@@ -79,7 +79,7 @@ Execute the following commands to create your resource group, container apps env
     | `MEMORY_SIZE` | The allocated amount of memory. |
     | `IMAGE` | The container image used in this tutorial. This container image includes the Jupyter Notebook that allows you to interact with data in the Qdrant database. |
 
-1. Log in to Azure with the Azure CLI.
+1. Login to Azure with the Azure CLI.
 
     ```azurecli
     az login
@@ -148,6 +148,8 @@ Now that you have an existing environment and workload profile, you can create y
 
     This command returns the fully qualified domain name (FQDN) of your container app. Copy this location to a text editor as you need it in an upcoming step.
 
+    An upcoming step instructs you to request an access token to log into the application hosted by the container app. Make sure to wait three to five minutes before you attempt to execute the request for the access token after creating the container app to give enough time to set up all required resources.
+
 1. Bind the Qdrant add-on service to the container app.
 
     ```azurecli
@@ -167,17 +169,11 @@ Now that your container app is running and connected to Qdrant, you can configur
     az containerapp ingress cors enable \
       --name $APP_NAME \
       --resource-group $RESOURCE_GROUP \
-<<<<<<< HEAD
-      --allowed-origins "*"
-=======
-      --allowed-origins * \
+      --allowed-origins "*" \
       --allow-credentials true
->>>>>>> 1eb848e49be1ff98a63bebe7abbfa979f6c35f3a
     ```
 
-    The next step instructs you to request an access token to log into the application hosted by the container app. Wait three to five minutes before you attempt to execute the next step to give the container app enough time to set up all required resources.
-
-1. Once you've waited three to five minutes for the app to complete the setup operations, request an access token for the hosted Jupyter Notebook.
+1. Once you wait three to five minutes for the app to complete the setup operations, request an access token for the hosted Jupyter Notebook.
 
     ```bash
     echo Your access token is: `az containerapp logs show -g $RESOURCE_GROUP --name $APP_NAME --tail 300 | \
