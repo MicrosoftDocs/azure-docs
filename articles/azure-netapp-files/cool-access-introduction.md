@@ -166,6 +166,7 @@ When you create volumes in the capacity pool and start tiering data to the cool 
 * Assume that you create two volumes with 1 TiB each. Each volume has 0.25 TiB of the volume capacity on the hot tier, and 0.75 TiB of the volume capacity in the cool tier. The billing calculation is as follows: 
 
     * 0.5-TiB capacity at the hot tier rate
+    * 2-TiB unallocated capacity at the hot tier rate 
     * 1.5-TiB capacity at the cool tier rate
     * Network transfer between the hot tier and the cool tier at the rate determined by the markup on top of the transaction cost (`GET`, `PUT`) on blob storage and private link transfer in either direction between the hot tiers.
 
