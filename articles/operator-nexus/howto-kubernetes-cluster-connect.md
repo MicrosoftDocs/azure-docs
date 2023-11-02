@@ -38,7 +38,7 @@ When operating in connected mode, it's possible to connect to the cluster's kube
 ### Access to cluster nodes via Azure Arc for Kubernetes
 Once you are connected to a cluster via Arc for Kuberentes, you can connect to individual Kubernetes Node using the `kubectl debug` command to run a privileged container on your node.
 
-1. To list your nodes, use the `kubectl get nodes` command:
+1. List the nodes in your Nexus Kubernetes cluster:
 
     ```bash
     kubectl get nodes
