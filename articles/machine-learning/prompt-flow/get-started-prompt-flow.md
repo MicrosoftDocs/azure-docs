@@ -220,7 +220,7 @@ Select batch run link, then you're directed to the batch run detail page, select
 
 ### Test the endpoint
 
-You can go to your endpoint detail page from the notification or by navigating to **Endpoints** in AzureML left navigation then selectin your endpoint in **Real-time endpoints** tab. It takes several minutes to deploy the endpoint. After the endpoint is deployed successfully, you can test it in the **Test** tab. 
+You can go to your endpoint detail page from the notification or by navigating to **Endpoints** in the left navigation of studio then select your endpoint in **Real-time endpoints** tab. It takes several minutes to deploy the endpoint. After the endpoint is deployed successfully, you can test it in the **Test** tab. 
 
 Put the url you want to test in the input box, and select **Test**, then you'll see the result predicted by your endpoint.
 
