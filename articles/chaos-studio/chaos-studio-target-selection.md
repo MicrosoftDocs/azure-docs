@@ -27,7 +27,7 @@ The inputted query will run and add onboarded targets that match its result set 
 
 [ ![Screenshot that shows the query-based dynamic target selection option in the Azure portal.](images/dynamic-target-selection-preview.png) ](images/dynamic-target-selection-preview.png#lightbox)
 
-## Target scopes
+## Target scoping
 
 Certain faults in Chaos Studio allow you to further target specific functionality within your Azure resouces. If scope selection is available for a target and not configured, the resource will be targeted fully by the selected fault. An example of scope selection on a Virtual Machine Scale Sets instance being targeted by the **VMSS Shutdown (version 2.0)** fault is shown below.
 
