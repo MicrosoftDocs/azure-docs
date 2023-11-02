@@ -18,7 +18,7 @@ Service Bus partitions enable queues and topics, or messaging entities, to be pa
 > - When creating a partitioned namespace in a region [that supports Availability Zones](service-bus-outages-disasters.md#availability-zones), this will automatically enabled on the namespace.
 > - Multiple partitions with lower messaging units (MU) give you a better performance over a single partition with higher MUs.
 > - When using the Service Bus [Geo-disaster recovery](service-bus-geo-dr.md) feature, ensure not to pair a partitioned namespace with a non-partitioned namespace.
-> - The feature is currently available in the regions described below. New regions will be added regularly, we will keep this article updated with the latest regions as they become available.
+> - The feature is currently available in the regions noted below. New regions will be added regularly, we will keep this article updated with the latest regions as they become available.
 > 
 > |  |  |  |  |  |
 > |-----------------------|----------------|----------------------|------------------|-----------------|
