@@ -1,5 +1,5 @@
 ---
-title: What are flows in Azure Machine Learning prompt flow (preview)
+title: What are flows in Azure Machine Learning prompt flow
 titleSuffix: Azure Machine Learning
 description: Learn about how a flow in Prompt flow serves as an executable workflow that streamlines the development of your LLM-based AI application. It provides a comprehensive framework for managing data flow and processing within your application.
 services: machine-learning
@@ -12,13 +12,9 @@ ms.reviewer: lagayhar
 ms.date: 06/30/2023
 ---
 
-# Flows in Prompt flow (preview)?
+# Flows in Prompt flow?
 
 In Azure Machine Learning prompt flow, users have the capability to develop a LLM-based AI application by engaging in the stages of developing, testing, tuning, and deploying a flow. This comprehensive workflow allows users to harness the power of Large Language Models (LLMs) and create sophisticated AI applications with ease.
-
-> [!IMPORTANT]
-> Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Flows
 
