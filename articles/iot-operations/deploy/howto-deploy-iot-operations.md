@@ -206,3 +206,6 @@ To view your cluster on the Azure portal, use the following steps:
 
    There's also an extension called **akvsecretsprovider**. This extension is the secrets provider that you configured and installed on your cluster with the `az iot ops init` command. You might delete and reinstall the Azure IoT Operations components during testing, but keep the secrets provider extension on your cluster.
 
+## Next steps
+
+If your components need to connect to Azure endpoints like SQL or Fabric, learn how to [Manage secrets for your Azure IoT Operations deployment](../deploy/howto-manage-secrets.md).

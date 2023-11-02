@@ -372,8 +372,8 @@ Create a Data Processor pipeline to process and enrich your data before it sends
 
     ```jq
     .payload = {
-        assetName: .payload.DataSetWriterName,
-        Timestamp: .payload.Timestamp,
+        assetName: .payload.dataSetWriterName,
+        Timestamp: .payload.timestamp,
         Customer: .payload.enrich?.customer,
         Batch: .payload.enrich?.batch,
         Equipment: .payload.enrich?.equipment,
