@@ -24,7 +24,8 @@ The specific template code depends on how your function app is hosted, whether y
 | [Azure Container Apps](functions-infrastructure-as-code.md?pivots=premium-plan) | Container-only | [Container Apps hosting of Azure Functions](functions-container-apps-hosting.md)|
 | [Azure Arc](functions-infrastructure-as-code.md?pivots=premium-plan) | Code \| Container | [App Service, Functions, and Logic Apps on Azure Arc (Preview)](../app-service/overview-arc-integration.md)| 
 
-:::zone pivot="premium-plan,dedicated-plan"  
+## Required resources  
+:::zone pivot="premium-plan,dedicated-plan" 
 An Azure Functions-hosted deployment typically consists of these resources:
 
 | Resource  | Requirement | Syntax and properties reference |
