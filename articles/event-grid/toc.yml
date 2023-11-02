@@ -160,12 +160,12 @@ items:
             href: monitor-pull-reference.md
           - name: Push delivery data reference
             href: monitor-namespace-push-reference.md
-      - name: Secure
-        items:
-        - name: Allow access from specific IP addresses
-          href: configure-firewall-mqtt.md
-        - name: Allow access via private endpoints
-          href: configure-private-endpoints-pull.md
+        - name: Secure
+          items:
+          - name: Allow access from specific IP addresses
+            href: configure-firewall-mqtt.md
+          - name: Allow access via private endpoints
+            href: configure-private-endpoints-pull.md
   - name: Event Grid basic
     items:
     - name: Overview
