@@ -55,7 +55,7 @@ You can also view status information for connected devices in the Azure portal.
 
 ## Assign SIM policies
 
-SIMs need an assigned SIM policy before they can use your private mobile network. You may want to assign a SIM policy to an existing SIM that doesn't already have one, or you may want to change the assigned SIM policy for an existing SIM. For information on configuring SIM policies, see [Configure a SIM policy](configure-sim-policy-azure-portal.md).
+SIMs need an assigned SIM policy before they can use your private mobile network. You might want to assign a SIM policy to an existing SIM that doesn't already have one, or you might want to change the assigned SIM policy for an existing SIM. For information on configuring SIM policies, see [Configure a SIM policy](configure-sim-policy-azure-portal.md).
 
 To assign a SIM policy to one or more SIMs:
 
@@ -79,7 +79,7 @@ To assign a SIM policy to one or more SIMs:
 
 ## Assign static IP addresses
 
-Static IP address allocation ensures that a UE receives the same IP address every time it connects to the private mobile network. This is useful when you want Internet of Things (IoT) applications to be able to consistently connect to the same device. For example, you may configure a video analysis application with the IP addresses of the cameras providing video streams. If these cameras have static IP addresses, you won't need to reconfigure the video analysis application with new IP addresses each time the cameras restart.
+Static IP address allocation ensures that a UE receives the same IP address every time it connects to the private mobile network. This is useful when you want Internet of Things (IoT) applications to be able to consistently connect to the same device. For example, you can configure a video analysis application with the IP addresses of the cameras providing video streams. If these cameras have static IP addresses, you won't need to reconfigure the video analysis application with new IP addresses each time the cameras restart.
 
 If you've configured static IP address allocation for your packet core instance(s), you can assign static IP addresses to the SIMs you've provisioned. If you have multiple data networks in your private mobile network, you can assign a different static IP address for each data network to the same SIM.
 

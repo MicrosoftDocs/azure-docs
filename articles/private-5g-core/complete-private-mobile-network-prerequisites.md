@@ -135,7 +135,7 @@ Azure Private 5G Core supports the following IP address allocation methods for U
 
 - Dynamic. Dynamic IP address allocation automatically assigns a new IP address to a UE each time it connects to the private mobile network.
 
-- Static. Static IP address allocation ensures that a UE receives the same IP address every time it connects to the private mobile network. Static IP addresses are useful when you want Internet of Things (IoT) applications to be able to consistently connect to the same device. For example, you might configure a video analysis application with the IP addresses of the cameras providing video streams. If these cameras have static IP addresses, you won't need to reconfigure the video analysis application with new IP addresses each time the cameras restart. You'll allocate static IP addresses to a UE as part of [provisioning its SIM](provision-sims-azure-portal.md).
+- Static. Static IP address allocation ensures that a UE receives the same IP address every time it connects to the private mobile network. Static IP addresses are useful when you want Internet of Things (IoT) applications to be able to consistently connect to the same device. For example, you can configure a video analysis application with the IP addresses of the cameras providing video streams. If these cameras have static IP addresses, you won't need to reconfigure the video analysis application with new IP addresses each time the cameras restart. You'll allocate static IP addresses to a UE as part of [provisioning its SIM](provision-sims-azure-portal.md).
 
 You can choose to support one or both of these methods for each data network in your site.
 

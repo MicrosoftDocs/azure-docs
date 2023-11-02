@@ -85,7 +85,7 @@ To perform packet capture using the command line, you must:
     - To run capture packets for the N3 interface and the N6 interface for a single data network, enter the UPF-PP troubleshooter pod in two separate windows. In one window run `upftdump -i n3trace -w n3.pcap` and in the other window run `upftdump -i <N6 interface> -w n6.pcap` (use the N6 interface for the data network as identified in step 2).
 
     > [!IMPORTANT]
-    > Packet capture files may be large, particularly when running packet capture on all interfaces. Specify filters when running packet capture to reduce the file size - see the tcpdump documentation for the available filters.
+    > Packet capture files might be large, particularly when running packet capture on all interfaces. Specify filters when running packet capture to reduce the file size - see the tcpdump documentation for the available filters.
 
 1. Leave the container:
 
@@ -99,7 +99,7 @@ To perform packet capture using the command line, you must:
     kubectl cp -n core core-upf-pp-0:<path to output file> <location to copy to> -c troubleshooter
     ```
 
-    The `tcpdump` may have been stopped in the middle of writing a packet, which can cause this step to produce an error stating `unexpected EOF`. However, your file should have copied successfully, but you can check your target output file to confirm.
+    The `tcpdump` might have been stopped in the middle of writing a packet, which can cause this step to produce an error stating `unexpected EOF`. However, your file should have copied successfully, but you can check your target output file to confirm.
 
 1. Remove the output files:
 

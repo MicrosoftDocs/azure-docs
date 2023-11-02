@@ -172,7 +172,7 @@ This change will require a manual packet core reinstall to take effect, see [Nex
 
 ## Remove data network resource
 
-If you removed an attached data network from the packet core and it is no longer attached to any packet cores or referenced by any SIM policies, you may remove the data network from the resource group:  
+If you removed an attached data network from the packet core and it is no longer attached to any packet cores or referenced by any SIM policies, you can remove the data network from the resource group:  
 > [!NOTE]
 > The data network that you want to delete must have no SIM policies associated with it. If the data network has one or more associated SIM policies data network removal will be prevented.
 
