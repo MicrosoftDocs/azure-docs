@@ -325,6 +325,10 @@ For clarity, here's a table illustrating these points:
 
 While the server is a read replica, no backups are taken. However, once it's promoted to an independent server, both the promoted server and the primary server will have backups taken, and restores are allowed on both.
 
+
+### Networking
+Read replicas support both private access, via VNet integration, and public access, through allowed IP addresses. However, please note that private endpoint is not currently supported. For more information about how to configure private access (VNet integration) for your read replicas and understand the implications for replication across Azure regions and virtual networks within a private networking context, refer to the [Replication across Azure regions and virtual networks with private networking](concepts-networking-private.md#replication-across-azure-regions-and-virtual-networks-with-private-networking) page.
+
 ### Replication slot issues mitigation
 
 In rare cases, high lag caused by replication slots can lead to an increase in storage usage on the primary server due to the accumulation of WAL files. If the storage usage reaches 95% or the available capacity falls below 5 GiB, the server automatically switches to read-only mode to prevent disk-full errors.
