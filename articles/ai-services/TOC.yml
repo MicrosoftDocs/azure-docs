@@ -67,7 +67,11 @@
       href: commitment-tier.md
   - name: Infrastructure & security
     items:
-    - name: Data Protection & encryption
+    - name: Identity & access management
+      items:
+      - name: Role-based access control in Azure AI Studio
+        href: ai-studio/concepts/rbac-ai-studio.md
+    - name: Data protection & encryption
       items:
       - name: Rotate keys
         href: rotate-keys.md
@@ -83,8 +87,6 @@
       href: disable-local-auth.md
     - name: Use environment variables
       href: cognitive-services-environment-variables.md
-    - name: Role-based access control in Azure AI Studio
-      href: ai-studio/concepts/rbac-ai-studio.md
     - name: Use virtual networks
       href: cognitive-services-virtual-networks.md
     - name: Custom subdomains for Azure AI services
