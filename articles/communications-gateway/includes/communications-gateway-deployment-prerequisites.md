@@ -3,7 +3,7 @@ author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: include
-ms.date: 10/09/2023
+ms.date: 08/01/2024
 ---
 
 > [!IMPORTANT]
@@ -19,10 +19,10 @@ The following table describes how many numbers you need to allocate.
 
 Service | Numbers for integration testing | Service verification numbers |
 |---------|---------|---------|
-|Operator Connect | 1 (minimum)| 6 |
-|Teams Phone Mobile | 1 (minimum) | 6 |
+|Operator Connect | 1 (minimum) | - Production deployments: 6<br/> - Lab deployments: 3 |
+|Teams Phone Mobile | 1 (minimum) | - Production deployments: 6<br/> - Lab deployments: 3 |
 |Microsoft Teams Direct Routing | 1 (minimum) |  None (not applicable) |
-|Zoom Phone Cloud Peering | 1 (minimum) | - 6 (US and Canada)<br>- 2 (rest of world)|
+|Zoom Phone Cloud Peering | 1 (minimum) | - US and Canada: 6<br/>- Rest of world: 2 |
 
 > [!IMPORTANT]
 > Service verification numbers must be usable throughout the lifetime of your deployment.
