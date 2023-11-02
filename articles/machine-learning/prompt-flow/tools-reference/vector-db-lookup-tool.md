@@ -1,5 +1,5 @@
 ---
-title: Vector DB Lookup tool in Azure Machine Learning prompt flow (preview)
+title: Vector DB Lookup tool in Azure Machine Learning prompt flow
 titleSuffix: Azure Machine Learning
 description: Vector DB Lookup is a vector search tool that allows users to search top k similar vectors from vector database. This tool is a wrapper for multiple third-party vector databases. The list of current supported databases is as follows.
 services: machine-learning
@@ -9,10 +9,10 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.reviewer: lagayhar
-ms.date: 06/30/2023
+ms.date: 11/02/2023
 ---
 
-# Vector DB Lookup tool (preview)
+# Vector DB Lookup tool
 
 Vector DB Lookup is a vector search tool that allows users to search top k similar vectors from vector database. This tool is a wrapper for multiple third-party vector databases. The list of current supported databases is as follows.
 
@@ -23,10 +23,6 @@ Vector DB Lookup is a vector search tool that allows users to search top k simil
 | Weaviate | Weaviate is an open source vector database that stores both objects and vectors. This allows for combining vector search with structured filtering. |
 
 This tool will support more vector databases.
-
-> [!IMPORTANT]
-> Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
