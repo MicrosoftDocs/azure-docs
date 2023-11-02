@@ -62,7 +62,7 @@ For a complete list of data sources that can send data to Azure Monitor Metrics,
 Azure Monitor provides REST APIs that allow you to get data in and out of Azure Monitor Metrics.
 - **Custom metrics API** - [Custom metrics](./metrics-custom-overview.md) allow you to load your own metrics into the Azure Monitor Metrics database. Those metrics can then be used by the same analysis tools that process Azure Monitor platform metrics. 
 - **Azure Monitor Metrics REST API** - Allows you to access Azure Monitor platform metrics definitions and values. For more information, see [Azure Monitor REST API](/rest/api/monitor/).  For information on how to use the API, see the [Azure monitoring REST API walkthrough](./rest-api-walkthrough.md).
-- **Azure Monitor Metrics Data plane REST API**  - [Azure Monitor Metrics data plane API](/rest/api/monitor/metrics-data-plane/) is a high-volume API designed for customers with large volume metrics queries. It's similar to the existing standard Azure Monitor Metrics REST API, but provides the capability to retrieve metric data for up to 50 resource IDs in the same subscription and region in a single batch API call. This improves query throughput and reduces the risk of throttling.   
+- **Azure Monitor Metrics Batch REST API**  - [Azure Monitor Metrics Batch API](/rest/api/monitor/metrics-batch/) is a high-volume API designed for customers with large volume metrics queries. It's similar to the existing standard Azure Monitor Metrics REST API, but provides the capability to retrieve metric data for up to 50 resource IDs in the same subscription and region in a single batch API call. This improves query throughput and reduces the risk of throttling.   
 
 ## Security
 
