@@ -69,7 +69,7 @@ For more information, see [How to work with search results](search-pagination-pa
 
 The following diagram illustrates a hybrid query that invokes keyword and vector search, with boosting through scoring profiles, and semantic ranking.
 
-:::image type="content" source="media/hybrid-search/searchscoringflow.svg" alt-text="Diagram of prefilters." border="true" lightbox="media/hybrid-search/searchscoringflow.png":::
+:::image type="content" source="media/hybrid-search/search-scoring-flow.svg" alt-text="Diagram of prefilters." border="true" lightbox="media/hybrid-search/search-scoring-flow.png":::
 
 A query that generates the previous workflow might look like this:
 
