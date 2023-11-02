@@ -29,7 +29,7 @@ Make sure that you have:
 
     - A Microsoft 365 E5 (ME5) or E5 Security license
 
-    - Microsoft Defender for Endpoint P2, with an extra, standalone **Microsoft Defender for IoT – Enterprise IoT Device Add-on** license, available for purchase from the Microsoft 365 admin center. 
+    - Microsoft Defender for Endpoint P2, with an extra, standalone **Microsoft Defender for IoT - EIoT Device License - add-on** license, available for purchase from the Microsoft 365 admin center. 
 
     > [!TIP]
     > If you have this license, you don't need to toggle on **Enterprise IoT Security** and can skip directly to [View added security value in Microsoft 365 Defender](#view-added-security-value-in-microsoft-365-defender).

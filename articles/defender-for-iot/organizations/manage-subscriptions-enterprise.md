@@ -39,15 +39,7 @@ Start your enterprise IoT trial using the [Microsoft Defender for IoT - EIoT Dev
 
 
 **To start an Enterprise IoT trial**:
-<!--
-**To start an Enterprise IoT trial using the wizard**:
 
-1. In a browser, go to the [Microsoft Defender for IoT - EIoT Device License - add-on wizard](https://signup.microsoft.com/get-started/signup?products=b2f91841-252f-4765-94c3-75802d7c0ddb&ali=1&bac=1)
-
-1. Enter your email address and select **Next**.
-
-1. Follow the instructions in the wizard to enter your personal information and verify the security check.
--->
 1. Go to the [Microsoft 365 admin center](https://portal.office.com/AdminPortal/Home#/catalog) > **Marketplace**.
 
 1. Search for the **Microsoft Defender for IoT - EIoT Device License - add-on** and filter the results by **Other services**. For example:
