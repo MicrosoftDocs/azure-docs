@@ -100,14 +100,14 @@ When a read replica is created, it inherits certain server configurations from t
 **Configurations during replica creation**
 
 * **Firewall rules**: Can be added, deleted, or modified.
-* **Tier, storage size**: Adjustable. For both "promote to primary server" and "promote to independent server and remove from replication" operations, it can be the same as the primary. However, for "promote to independent server and remove from replication", it can also be higher than the primary.
+* **Tier, storage size**: For both "promote to primary server" and "promote to independent server and remove from replication" operations, it can be the same as the primary. However, for "promote to independent server and remove from replication", it can also be higher than the primary.
 * **Performance tier (IOPS)**: Adjustable.
 * **Data encryption**: Adjustable, include moving from service-managed keys to customer-managed keys.
 
 **Configurations post creation**
 
 * **Firewall rules**: Can be added, deleted, or modified.
-* **Tier, storage size**: Adjustable. For both "promote to primary server" and "promote to independent server and remove from replication" operations, it can be the same as the primary. However, for "promote to independent server and remove from replication", it can also be higher than the primary.
+* **Tier, storage size**: For both "promote to primary server" and "promote to independent server and remove from replication" operations, it can be the same as the primary. However, for "promote to independent server and remove from replication", it can also be higher than the primary.
 * **Performance tier (IOPS)**: Adjustable.
 * **Authentication method**: Adjustable, options include switching from PostgreSQL authentication to Microsoft Entra.
 * **Server parameters**: Most are adjustable. However, those [affecting shared memory size](#server-parameters) should align with the primary, especially for potential "promote to primary server" scenarios. For the "promote to independent server and remove from replication" operation, these parameters should be the same or exceed those on the primary.
@@ -158,7 +158,7 @@ This action promotes the replica to serve as the primary server. Concurrently, t
 By opting for this, the replica becomes an independent server and is removed from the replication process. As a result, both the primary and the promoted server will function as two independent read-write servers. The newly promoted server will no longer be part of any existing virtual endpoints, even if the reader endpoint was previously pointing to it. Thus, it's essential to update your application's connection string to direct to the newly promoted replica if the application should connect to it.
 
 > [!IMPORTANT]
-> **Server Symmetry**: For a successful promotion using the default promote operation (promote to primary server), both the primary and replica servers must have identical tiers. For instance, if the primary has 2vCores and the replica has 4vCores, the only viable option is to use the "promote to independent server and remove from replication" action. Additionally, they need to share the same values for [server parameters that allocate shared memory](#server-parameters). 
+> **Server Symmetry**: For a successful promotion using the default promote operation (promote to primary server), both the primary and replica servers must have identical tiers and storage sizes. For instance, if the primary has 2vCores and the replica has 4vCores, the only viable option is to use the "promote to independent server and remove from replication" action. Additionally, they need to share the same values for [server parameters that allocate shared memory](#server-parameters). 
 
 For both promotion methods, there are additional options to consider:
 
@@ -230,12 +230,6 @@ When you promote a replica, the replica loses all links to its previous primary 
 
 Learn how to [promote a replica](how-to-read-replicas-portal.md#promote-replicas).
 
-### Disaster recovery
-
-When there is a major disaster event such as availability zone-level or regional failures, you can perform disaster recovery operation by promoting your read replica. From the UI portal, you can navigate to the read replica server. Then select the replication tab, and you can promote the replica to become an independent server. 
-
-[//]: # (Alternatively, you can use the [Azure CLI]&#40;/cli/azure/postgres/server/replica#az-postgres-server-replica-stop&#41; to stop and promote the replica server.)
-
 ## Monitor replication
 Read replica feature in Azure Database for PostgreSQL - Flexible Server relies on replication slots mechanism. The main advantage of replication slots is the ability to automatically adjust the number of transaction logs (WAL segments) needed by all replica servers and therefore avoid situations when one or more replicas going out of sync because WAL segments that were not yet sent to the replicas are being removed on the primary. The disadvantage of the approach is the risk of going out of space on the primary in case replication slot remains inactive for a long period of time. In such situations primary will accumulate WAL files causing incremental growth of the storage usage. When the storage usage reaches 95% or if the available capacity is less than 5 GiB, the server is automatically switched to read-only mode to avoid errors associated with disk-full situations. 
 Therefore, monitoring the replication lag and replication slots status is crucial for read replicas.
@@ -269,6 +263,25 @@ Here are the possible values:
 | <b> Catchup	  |    WAL files are being applied on the replica. The duration for this phase during promotion depends on the data sync option chosen - planned or forced.	 | 3 | 3                               |
 | <b> Active	  | Healthy state, indicating that the read replica has been successfully connected to the primary. If the servers are stopped but were successfully connected prior, the status will remain as active. | 4 | 4 |
 | <b> Broken	  | Unhealthy state, indicating the promote operation might have failed, or the replica is unable to connect to the primary for some reason.          | N/A | N/A |
+
+
+## Regional Failures and Recovery
+Azure facilities across various regions are designed to be highly reliable. However, under rare circumstances, an entire region can become inaccessible due to reasons ranging from network failures to severe scenarios like natural disasters. Azure's capabilities allow for creating applications that are distributed across multiple regions, ensuring that a failure in one region doesn't affect others.
+
+### Preparing for Regional Disasters
+Being prepared for potential regional disasters is critical to ensure the uninterrupted operation of your applications and services. If you're considering a robust contingency plan for your Azure Database for PostgreSQL - Flexible Server, here are the key steps and considerations:
+
+1. **Establish a geo-replicated read replica**: It's essential to have a read replica set up in a separate region from your primary. This ensures continuity in case the primary region faces an outage. More details can be found in the [geo-replication](#geo-replication) section.
+2. **Ensure server symmetry**: The "promote to primary server" action is the most recommended for handling regional outages, but it comes with a [server symmetry](#configuration-management) requirement. This means both the primary and replica servers must have identical configurations of certain settings. The advantages of using this action include:
+  * No need to modify application connection strings if you use [virtual endpoints](#virtual-endpoints-preview).
+  * It provides a seamless recovery process where, once the affected region is back online, the original primary server automatically resumes its function, but in a new replica role.
+3. **Set up virtual endpoints**: Virtual endpoints allow for a smooth transition of your application to another region in case of an outage. They eliminate the need for any changes in the connection strings of your application.
+4. **Configure the read replica**: Not all settings from the primary server are replicated over to the read replica. It's crucial to ensure that all necessary configurations and features (e.g., PgBouncer) are appropriately set up on your read replica. For more guidance, consult the [Configuration management](#configuration-management-1) section.
+5. **Prepare for High Availability (HA)**: If your setup requires high availability, it won't be automatically enabled on a promoted replica. Be ready to activate it post-promotion. Consider automating this step to minimize downtime.
+6. **Regular testing**: Regularly simulate regional disaster scenarios to validate existing thresholds, targets, and configurations. Ensure that your application responds as expected during these test scenarios. 
+7. **Follow Azure's general guidance**: Azure provides comprehensive guidance on reliability and disaster preparedness. It's highly beneficial to consult these resources and integrate best practices into your preparedness plan.
+
+Being proactive and preparing in advance for regional disasters will ensure the resilience and reliability of your applications and data.
 
 
 ## Considerations
