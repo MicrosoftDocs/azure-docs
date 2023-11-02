@@ -10,9 +10,9 @@ ms.author: cephalin
 
 # Disable basic authentication in App Service deployments
 
-This article shows you how to disable basic authentication as the authenticaiton when deploying code to App Service apps.
+This article shows you how to disable basic authentication (username and password authentication) when deploying code to App Service apps.
 
-App Service provides basic authentication for FTP and WebDeploy clients to connect to it by using [deployment credentials](deploy-configure-credentials.md). These APIs are great for browsing your site’s file system, uploading drivers and utilities, and deploying with MsBuild. However, enterprises often have stricter security requirements and must disable access through basic authentication, and only allow deployment by using methods that are backed by Entra ID (see [Authentication types by deployment methods in Azure App Service](deploy-authentication-types.md)). [ELABORATE on why Entra ID is more secure]
+App Service provides basic authentication for FTP and WebDeploy clients to connect to it by using [deployment credentials](deploy-configure-credentials.md). These APIs are great for browsing your site’s file system, uploading drivers and utilities, and deploying with MsBuild. However, enterprises often require more secure deployment methods than basic authentication, such as ones that are backed by [Microsoft Entra ID](/entra/fundamentals/whatis) (see [Authentication types by deployment methods in Azure App Service](deploy-authentication-types.md)). Entra ID uses OAuth 2.0 token-based authorization and has many benefits and improvements that help mitigate the issues in basic authentication. For example, OAuth access tokens have a limited usable lifetime, and are specific to the applications and resources for which they are issued, so they cannot be reused. Entra ID also lets you deploy from other Azure services using managed identities.
 
 ## Disable basic authentication
 
@@ -32,17 +32,19 @@ There are two different settings to configure when you disable basic authenticat
 
 #### Disable for FTP
 
-To disable FTP access using basic authentication, you must have owner-level access to the app. Run the following CLI command by replacing the placeholders with your resource group and app name:
+To disable FTP access using basic authentication, you must have owner-level access to the app. Run the following CLI command by replacing the placeholders with your resource group name and app name:
 
 ```azurecli-interactive
 az resource update --resource-group <group-name> --name ftp --namespace Microsoft.Web --resource-type basicPublishingCredentialsPolicies --parent sites/<app-name> --set properties.allow=false
 ```
 
-#### Disable WebDeploy and Git
+#### Disable for WebDeploy and Git
 
-To disable basic authentication access to the WebDeploy port and the Git deploy URL (https://<app-name>.scm.azurewebsites.net), run the following CLI command. Replace the placeholders with your resource group and site name.
+To disable basic authentication access to the WebDeploy port and the Git deploy URL (https://\<app-name>.scm.azurewebsites.net), run the following CLI command. Replace the placeholders with your resource group name and app name.
 
-az resource update --resource-group <resource-group> --name scm --namespace Microsoft.Web --resource-type basicPublishingCredentialsPolicies --parent sites/<site-name> --set properties.allow=false
+```azurecli-interactive
+az resource update --resource-group <resource-group> --name scm --namespace Microsoft.Web --resource-type basicPublishingCredentialsPolicies --parent sites/<app-name> --set properties.allow=false
+```
 
 -----
 
@@ -80,7 +82,7 @@ To prevent a lower-priveldged user from enabling basic authentication for any ap
 
     Your Permissions tab should look like the following screenshot:
 
-    :::image type="content" source="media/configure-basic-auth-disable/custom-role-no-basic-auth.png" alt-text="A screenshot showing the creation of a custom role with all basic authentication premissions excluded.":::
+    :::image type="content" source="media/configure-basic-auth-disable/custom-role-no-basic-auth.png" alt-text="A screenshot showing the creation of a custom role with all basic authentication permissions excluded.":::
 
 1. Select **Review + create**, then select **Create**.
 
@@ -109,7 +111,7 @@ az role definition create --role-definition '{
 
 You can now assign this role to your organization’s users.
 
-For more information, see [Create or update Azure custom roles using Azure CLI](../role-based-access-control/custom-roles-cli.md)
+For more information, see [Create or update Azure custom roles using Azure CLI](../role-based-access-control/custom-roles-cli.md).
 
 -----
 
@@ -136,7 +138,7 @@ To confirm that the logs are shipped to your selected service(s), try logging in
 
 ## Basic authentication related policies
 
-[Azure Policy](../governance/policy/overview.md) can help you enforce organizational standards and to assess compliance at-scale. You can use Azure Policy to audit for any apps that haven't disabled basic authentication, and remediate any non-compliant resources. The following are built-in policies for auditing and remediating basic authentication on App Service:
+[Azure Policy](../governance/policy/overview.md) can help you enforce organizational standards and to assess compliance at-scale. You can use Azure Policy to audit for any apps that haven't disabled basic authentication, and remediate any noncompliant resources. The following are built-in policies for auditing and remediating basic authentication on App Service:
 
 - [Audit policy for FTP](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F871b205b-57cf-4e1e-a234-492616998bf7)
 - [Audit policy for SCM](https://ms.portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faede300b-d67f-480a-ae26-4b3dfb1a1fdc)
