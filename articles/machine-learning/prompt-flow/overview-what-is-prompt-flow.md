@@ -1,5 +1,5 @@
 ---
-title: What is Azure Machine Learning prompt flow (preview)
+title: What is Azure Machine Learning prompt flow
 titleSuffix: Azure Machine Learning
 description: Azure Machine Learning prompt flow is a development tool designed to streamline the entire development cycle of AI applications powered by Large Language Models (LLMs).
 services: machine-learning
@@ -9,10 +9,10 @@ ms.topic: conceptual
 author: henry-zeng
 ms.author: yozen
 ms.reviewer: lagayhar
-ms.date: 06/30/2023
+ms.date: 11/02/2023
 ---
 
-# What is Azure Machine Learning prompt flow (preview)
+# What is Azure Machine Learning prompt flow
 
 Azure Machine Learning prompt flow is a development tool designed to streamline the entire development cycle of AI applications powered by Large Language Models (LLMs). As the momentum for LLM-based AI applications continues to grow across the globe, Azure Machine Learning prompt flow provides a comprehensive solution that simplifies the process of prototyping, experimenting, iterating, and deploying your AI applications.
 
@@ -24,10 +24,6 @@ With Azure Machine Learning prompt flow, you'll be able to:
 - Deploy a real-time endpoint that unlocks the full power of LLMs for your application.
 
 If you're looking for a versatile and intuitive development tool that will streamline your LLM-based AI application development, then Azure Machine Learning prompt flow is the perfect solution for you. Get started today and experience the power of streamlined development with Azure Machine Learning prompt flow.
-
-> [!IMPORTANT]
-> Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Benefits of using Azure Machine Learning prompt flow
 

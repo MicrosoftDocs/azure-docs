@@ -1,5 +1,5 @@
 ---
-title: Submit batch run and evaluate a flow in Prompt flow (preview)
+title: Submit batch run and evaluate a flow in Prompt flow
 titleSuffix: Azure Machine Learning
 description: Learn how to submit batch run and use built-in evaluation methods in prompt flow to evaluate how well your flow performs with a large dataset with Azure Machine Learning studio.
 services: machine-learning
@@ -9,10 +9,10 @@ ms.topic: how-to
 author: ZikeiWong
 ms.author: ziqiwang
 ms.reviewer: lagayhar
-ms.date: 09/12/2023
+ms.date: 10/23/2023
 ---
 
-# Submit batch run and evaluate a flow (preview)
+# Submit batch run and evaluate a flow
 
 To evaluate how well your flow performs with a large dataset, you can submit batch run and use built-in evaluation methods in Prompt flow.
 
@@ -28,14 +28,9 @@ In this article you'll learn to:
 
 You can quickly start testing and evaluating your flow by following this video tutorial [submit batch run and evaluate a flow video tutorial](https://www.youtube.com/watch?v=5Khu_zmYMZk).
 
-> [!IMPORTANT]
-> Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## Prerequisites
 
 To run a batch run and use an evaluation method, you need to have the following ready:
-
 - A test dataset for batch run. Your dataset should be in one of these formats: `.csv`, `.tsv`, or `.jsonl`. Your data should also include headers that match the input names of your flow. Further Reading: If you are building your own copilot, we recommend referring to [Guidance for creating Golden Datasets used for Copilot quality assurance](#further-reading-guidance-for-creating-golden-datasets-used-for-copilot-quality-assurance).
 - An available runtime to run your batch run. A runtime is a cloud-based resource that executes your flow and generates outputs. To learn more about runtime, see [Runtime](./how-to-create-manage-runtime.md).
 
@@ -43,7 +38,7 @@ To run a batch run and use an evaluation method, you need to have the following 
 
 A batch run allows you to run your flow with a large dataset and generate outputs for each data row. You can also choose an evaluation method to compare the output of your flow with certain criteria and goals. An evaluation method  **is a special type of flow**  that calculates metrics for your flow output based on different aspects. An evaluation run will be executed to calculate the metrics when submitted with the batch run.
 
-To start a batch run with evaluation, you can select on the **"Batch run"** button on the top right corner of your flow page.
+To start a batch run with evaluation, you can select on the **"Evaluate"** button on the top right corner of your flow page.
 
 :::image type="content" source="./media/how-to-bulk-test-evaluate-flow/batch-run-button.png" alt-text="Screenshot of Web Classification with batch run highlighted. " lightbox = "./media/how-to-bulk-test-evaluate-flow/batch-run-button.png":::
 
@@ -62,13 +57,13 @@ Then, in the next step, you can decide to use an evaluation method to validate t
 
 You can directly select the **"Next"** button to skip this step and run the batch run without using any evaluation method to calculate metrics. In this way, this batch run only generates outputs for your dataset. You can check the outputs manually or export them for further analysis with other methods.
 
-Otherwise, if you want to run batch run with evaluation now, you can select an evaluation method from the dropdown box based on the description provided. After you selected an evaluation method, you can select **"View detail"** button to see more information about the selected method, such as the metrics it generates and the connections and inputs it requires.
+Otherwise, if you want to run batch run with evaluation now, you can select one or more evaluation methods based on the description provided. You can select **"More detail"** button to see more information about the evaluation method, such as the metrics it generates and the connections and inputs it requires.
 
-:::image type="content" source="./media/how-to-bulk-test-evaluate-flow/batch-run-evaluation-selection.png" alt-text="Screenshot of evaluation settings where you can select built-in evaluation method from drop-down box." lightbox = "./media/how-to-bulk-test-evaluate-flow/batch-run-evaluation-selection.png":::
+:::image type="content" source="./media/how-to-bulk-test-evaluate-flow/batch-run-evaluation-selection.png" alt-text="Screenshot of evaluation settings where you can select built-in evaluation method." lightbox = "./media/how-to-bulk-test-evaluate-flow/batch-run-evaluation-selection.png":::
 
-In the  **"input mapping"**  section, you need to specify the sources of the input data that are needed for the evaluation method. For example, ground truth column may come from a dataset. By default, evaluation will use the same dataset as the test dataset provided to the tested run. However, if the corresponding labels or target ground truth values are in a different dataset, you can easily switch to that one.  
+Go to the next step and configure evaluation settings. In the  **"Evaluation input mapping"**  section, you need to specify the sources of the input data that are needed for the evaluation method. For example, ground truth column might come from a dataset. By default, evaluation will use the same dataset as the test dataset provided to the tested run. However, if the corresponding labels or target ground truth values are in a different dataset, you can easily switch to that one.  
 
-Therefore, to run an evaluation, you need to indicate the sources of these required inputs. To do so, when submitting an evaluation, you'll see an  **"input mapping"**  section.
+Therefore, to run an evaluation, you need to indicate the sources of these required inputs. To do so, when submitting an evaluation, you'll see an  **"Evaluation input mapping"**  section.
 
 - If the data source is from your run output, the source is indicated as **"${run.output.[OutputName]}"**
 - If the data source is from your test dataset, the source is indicated as **"${data.[ColumnName]}"**
@@ -86,8 +81,6 @@ If an evaluation method uses Large Language Models (LLMs) to measure the perform
 > Some evaluation methods require GPT-4 or GPT-3 to run. You must provide valid connections for these evaluation methods before using them.
 
 After you finish the input mapping, select on  **"Next"**  to review your settings and select on  **"Submit"**  to start the batch run with evaluation.
-
-:::image type="content" source="./media/how-to-bulk-test-evaluate-flow/batch-run-review.png" alt-text="Screenshot of review where you can review the setting of the batch run submission. " lightbox = "./media/how-to-bulk-test-evaluate-flow/batch-run-review.png":::
 
 ## View the evaluation result and metrics
 

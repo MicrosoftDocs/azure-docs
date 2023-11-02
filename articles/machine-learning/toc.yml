@@ -91,7 +91,7 @@
         - name: Develop and register a feature set with managed feature store
           href: tutorial-get-started-with-feature-store.md
         - name: Enable materialization and backfill feature data
-          href: tutorial-enable-materialization-backfill-data.md
+          href: tutorial-experiment-train-models-using-features.md
         - name: Experiment and train models using features
           href: tutorial-experiment-train-models-using-features.md
         - name: Enable recurrent materialization and run batch inference
@@ -380,7 +380,7 @@
     - name: Develop and register a feature set
       href: tutorial-get-started-with-feature-store.md
     - name: Enable materialization and backfill feature data
-      href: tutorial-enable-materialization-backfill-data.md
+      href: tutorial-experiment-train-models-using-features.md
     - name: Experiment and train models using features
       href: tutorial-experiment-train-models-using-features.md
     - name: Enable recurrent materialization
@@ -630,10 +630,8 @@
               href: ./prompt-flow/how-to-secure-prompt-flow.md
         - name: Develop flows
           items:
-            - name: Develop a standard flow
-              href: ./prompt-flow/how-to-develop-a-standard-flow.md
-            - name: Develop a chat flow
-              href: ./prompt-flow/how-to-develop-a-chat-flow.md
+            - name: Develop a flow
+              href: ./prompt-flow/how-to-develop-flow.md
             - name: Integrate Langchain in prompt flow
               href: ./prompt-flow/how-to-integrate-with-langchain.md
             - name: Tune prompts using variants

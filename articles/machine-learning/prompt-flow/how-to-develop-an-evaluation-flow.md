@@ -1,5 +1,5 @@
 ---
-title: Develop an evaluation flow in Prompt flow (preview)
+title: Develop an evaluation flow in Prompt flow
 titleSuffix: Azure Machine Learning
 description: Learn how to customize or create your own evaluation flow tailored to your tasks and objectives, and then use in a batch run as an evaluation method in Prompt flow with Azure Machine Learning studio.
 services: machine-learning
@@ -9,60 +9,27 @@ ms.topic: how-to
 author: ZikeiWong
 ms.author: ziqiwang
 ms.reviewer: lagayhar
-ms.date: 09/12/2023
+ms.date: 11/02/2023
 ---
 
-# Develop an evaluation flow (preview)
+# Develop an evaluation flow
 
 Evaluation flows are special types of flows that assess how well the outputs of a run align with specific criteria and goals.
 
-In Prompt flow, you can customize or create your own evaluation flow tailored to your tasks and objectives, and then use in a batch run as an evaluation method. This document you'll learn:
+In Prompt flow, you can customize or create your own evaluation flow tailored to your tasks and objectives, and then use it to evaluate other flows. This document you'll learn:
 
 - How to develop an evaluation method
-  - Customize built-in evaluation Method
-  - Create new evaluation Flow from Scratch
 - Understand evaluation in Prompt flow
   - Inputs
   - Outputs and Metrics Logging
-
-> [!IMPORTANT]
-> Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Starting to develop an evaluation method
 
 There are two ways to develop your own evaluation methods:
 
-- **Customize a Built-in Evaluation Flow:** Modify a built-in evaluation method based on your needs.
-- **Create a New Evaluation Flow from Scratch:**  Develop a brand-new evaluation method from the ground up.
+- **Customize a Built-in Evaluation Flow:** Modify a built-in evaluation flow. Find the built-in evaluation flow from the flow creation wizard - flow gallery, select “Clone” to do customization.  
 
-The process of customizing and creating evaluation methods is similar to that of a standard flow.
-
-### Customize a built-in evaluation method to measure the performance of a flow
-
-Find the built-in evaluation methods by selecting the  **"Create"**  button on the homepage and navigating to the Create from gallery -\> Evaluation tab. You can view more details about an evaluation method by selecting  **"View details"**.
-
-If you want to customize this evaluation method, you can select the **"Clone"** button.
-
-:::image type="content" source="./media/how-to-develop-an-evaluation-flow/create-from-gallery.png" alt-text="Screenshot of the Prompt flow gallery with the evaluation tab selected. " lightbox = "./media/how-to-develop-an-evaluation-flow/create-from-gallery.png":::
-
-By the name of the flow, you can see an **"evaluation"** tag, indicating you're building an evaluation flow. Similar to cloning a sample flow from gallery, you'll be able to view and edit the flow and the codes and prompts of the evaluation method.
-
-:::image type="content" source="./media/how-to-develop-an-evaluation-flow/evaluation-tag.png" alt-text="Screenshot of Classification Accuracy Evaluation with the evaluation tag underlined. " lightbox = "./media/how-to-develop-an-evaluation-flow/evaluation-tag.png":::
-
-Alternatively, you can customize a built-in evaluation method from a completed run by selecting the  **"Clone"**  icon when viewing its snapshot from the run detail page.
-
-:::image type="content" source="./media/how-to-develop-an-evaluation-flow/clone-from-snapshot.png" alt-text="Gif of cloning a Web Classification batch run. " lightbox = "./media/how-to-develop-an-evaluation-flow/clone-from-snapshot.png":::
-
-### Create new evaluation flow from scratch
-
-To create your evaluation method from scratch, select the  **"Create"** button on the homepage and select  **"Evaluation"** as the flow type. You'll enter the flow authoring page.
-
-:::image type="content" source="./media/how-to-develop-an-evaluation-flow/create-by-type.png" alt-text="Screenshot of tiles from the Prompt flow gallery with the create button highlighted on evaluation flow. " lightbox = "./media/how-to-develop-an-evaluation-flow/create-by-type.png":::
-
-Then, you can see a template of evaluation flow containing two nodes: line_process and aggregate.
-
-:::image type="content" source="./media/how-to-develop-an-evaluation-flow/evaluation-template.png" alt-text="Screenshot of evaluation flow created with template. " lightbox = "./media/how-to-develop-an-evaluation-flow/evaluation-template.png":::
+- **Create a New Evaluation Flow from Scratch:** Develop a brand-new evaluation method from the ground up. In flow creation wizard, select “Create” Evaluation flow, then, you can see a template of evaluation flow. 
 
 ## Understand evaluation in Prompt flow
 
@@ -85,8 +52,8 @@ Other inputs may also be required, such as ground truth, which may come from a d
 
 Therefore, to run an evaluation, you need to indicate the sources of these required inputs. To do so, when submitting an evaluation, you'll see an  **"input mapping"**  section.
 
-- If the data source is from your run output, the source is indicated as "${run.output.[OutputName]}"
-- If the data source is from your test dataset, the source is indicated as "${data.[ColumnName]}"
+- If the data source is from your run output, the source is indicated as `${run.output.[OutputName]}`
+- If the data source is from your test dataset, the source is indicated as `${data.[ColumnName]}`
 
 
 :::image type="content" source="./media/how-to-develop-an-evaluation-flow/bulk-test-evaluation-input-mapping.png" alt-text="Screenshot of evaluation input mapping." lightbox = "./media/how-to-develop-an-evaluation-flow/bulk-test-evaluation-input-mapping.png":::
@@ -122,7 +89,7 @@ We calculate this score in `line_process` node, which you can create and edit fr
 
 :::image type="content" source="./media/how-to-develop-an-evaluation-flow/line-process.png" alt-text="Screenshot of line process node in the template. " lightbox = "./media/how-to-develop-an-evaluation-flow/line-process.png":::
 
-When this evaluation method is used in a batch run, the instance-level score can be viewed in the **Overview ->Output** tab.
+When this evaluation method is used to evaluate another flow, the instance-level score can be viewed in the **Overview ->Output** tab.
 
 :::image type="content" source="./media/how-to-develop-an-evaluation-flow/evaluation-output-bulk.png" alt-text="Screenshot of the output tab with evaluation result appended and highlighted. " lightbox = "./media/how-to-develop-an-evaluation-flow/evaluation-output-bulk.png":::
 

@@ -14,14 +14,14 @@ ms.date: 10/20/2023
 
 # What is managed feature store?
 
-In our vision for managed feature store, we want to empower machine learning professionals to independently develop and protectionize features. Provide a feature set specification, and let the system handle serving, securing, and monitoring of your features. It frees you from the overhead of underlying feature engineering pipeline set-up and management.
+In our vision for managed feature store, we want to empower machine learning professionals to independently develop and productionize features. You provide a feature set specification, and then let the system handle serving, securing, and monitoring of the features. This frees you from the overhead of underlying feature engineering pipeline set-up and management.
 
-With integration of our feature store across the machine learning life cycle, you can experiment and ship models faster, increase the reliability of your models, and reduce your operational costs. The redefinition of the machine learning experience provides these advantages.
+Thanks to integration of our feature store across the machine learning life cycle, you can experiment and ship models faster, increase the reliability of their models, and reduce your operational costs. The redefinition of the machine learning experience provides these advantages.
 
 For more information on top level entities in feature store, including feature set specifications, see [Understanding top-level entities in managed feature store](concept-top-level-entities-in-managed-feature-store.md).
 
 ## What are features?
-Features serve as the input data for your model. For data-driven use cases in an enterprise context, features often transform historical data (simple aggregates, window aggregates, row level transforms, etc.). For example, consider a customer churn machine learning model. The model inputs could include customer interaction data like `7day_transactions_sum` (number of transactions in the past 30 days) or `7day_complaints_sum` (number of complaints in the past seven days). Both of these aggregate functions are computed on the previous seven-day data.
+Features serve as the input data for your model. For data-driven use cases in an enterprise context, features often transform historical data (simple aggregates, window aggregates, row level transforms, etc.). For example, consider a customer churn machine learning model. The model inputs could include customer interaction data like `7day_transactions_sum` (number of transactions in the past seven days) or `7day_complaints_sum` (number of complaints in the past seven days). Both of these aggregate functions are computed on the previous seven-day data.
 
 ## Problems solved by feature store
 To better understand managed feature store, you should first understand the problems that feature store can solve.
@@ -36,7 +36,7 @@ To better understand managed feature store, you should first understand the prob
 
 ## Share managed feature store
 
-:::image type="content" source="./media/concept-what-is-managed-feature-store\share-feature-store.png" alt-text="Diagram that shows how you can share a feature store among multiple users and workspaces":::
+:::image type="content" source="./media/concept-what-is-managed-feature-store/share-feature-store.png" alt-text="Diagram that shows how you can share a feature store among multiple users and workspaces":::
 
 Feature store is a new type of workspace that multiple project workspaces can use. You can consume features from Spark-based environments other than Azure Machine Learning, such as Azure Databricks. You can also perform local development and testing of features.
 
@@ -65,10 +65,10 @@ For managed feature store, you provide a feature set specification. Then, the s
 
 ### Discover and manage features
 
-Managed feature store provides these capabilities for discovering and managing features:
+Managed feature store provides these capabilities for feature discovery and management:
 
 - **Search and reuse features** - You can search and reuse features across feature stores
-- **Versioning support** - Feature sets are versioned and immutable, thereby allowing you to independently manage the feature set lifecycle. You can deploy new model versions with different feature versions, and avoid disruption of the older model version.
+- **Versioning support** - Feature sets are versioned and immutable, which allows you to independently manage the feature set lifecycle. You can deploy new model versions with different feature versions, and avoid disruption of the older model version
 - **View cost at feature store level** - The primary cost associated with feature store usage involves managed Spark materialization jobs. You can see this cost at the feature store level
 - **Feature set usage** - You can see the list of registered models using the feature sets.
 
@@ -85,7 +85,7 @@ Managed feature store provides these feature transformation capabilities:
 ### Feature materialization
 Materialization involves the computation of feature values for a given feature window, and persistence of those values in a materialization store. Now, feature data can be retrieved more quickly and reliably for training and inference purposes.
 
-- **Managed feature materialization pipeline** - You declaratively specify the materialization schedule, and the system handles the scheduling, precompution, and materialization of the values into the materialization store.
+- **Managed feature materialization pipeline** - You declaratively specify the materialization schedule, and the system then handles the scheduling, precomputation, and materialization of the values into the materialization store.
 - **Backfill support** - You can perform on-demand materialization of feature sets for a given feature window
 - **Managed Spark support for materialization** - Azure Machine Learning managed Spark (in serverless compute instances) runs the materialization jobs. It frees you from set-up and management of the Spark infrastructure.
 

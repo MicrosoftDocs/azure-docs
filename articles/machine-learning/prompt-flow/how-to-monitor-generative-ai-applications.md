@@ -20,7 +20,7 @@ ms.custom: devplatv2
 Monitoring models in production is an essential part of the AI lifecycle. Changes in data and consumer behavior can influence your generative AI application over time, resulting in outdated systems that negatively affect business outcomes and expose organizations to compliance, economic, and reputational risks. 
 
 > [!IMPORTANT]
-> Monitoring and Promptflow features are currently in public preview. These previews are provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> Monitoring is currently in public preview. These previews are provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Azure Machine Learning model monitoring for generative AI applications makes it easier for you to monitor your LLM applications in production for safety and quality on a cadence to ensure it's delivering maximum business impact. Monitoring ultimately helps maintain the quality and safety of your generative AI applications. Capabilities and integrations include: 

@@ -1,5 +1,5 @@
 ---
-title: Tune prompts using variants in Prompt flow (preview)
+title: Tune prompts using variants in Prompt flow
 titleSuffix: Azure Machine Learning
 description: Learn how to tune prompts using variants in Prompt flow with Azure Machine Learning studio.
 services: machine-learning
@@ -9,20 +9,16 @@ ms.topic: how-to
 author: ishinzhang
 ms.author: yijunzhang
 ms.reviewer: lagayhar
-ms.date: 09/12/2023
+ms.date: 11/02/2023
 ---
 
-# Tune prompts using variants (preview)
+# Tune prompts using variants
 
 Crafting a good prompt is a challenging task that requires a lot of creativity, clarity, and relevance. A good prompt can elicit the desired output from a pretrained language model, while a bad prompt can lead to inaccurate, irrelevant, or nonsensical outputs. Therefore, it's necessary to tune prompts to optimize their performance and robustness for different tasks and domains.
 
 So, we introduce [the concept of variants](concept-variants.md) which can help you test the model’s behavior under different conditions, such as different wording, formatting, context, temperature, or top-k, compare and find the best prompt and configuration that maximizes the model’s accuracy, diversity, or coherence.
 
 In this article, we'll show you how to use variants to tune prompts and evaluate the performance of different variants.
-
-> [!IMPORTANT]
-> Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
@@ -132,8 +128,8 @@ When you run the variants with a few single pieces of data and check the results
 You can submit a batch run, which allows you test the variants with a large amount of data and evaluate them with metrics, to help you find the best fit.
 
 1. First you need to prepare a dataset, which is representative enough of the real-world problem you want to solve with Prompt flow. In this example, it's a list of URLs and their classification ground truth. We'll use accuracy to evaluate the performance of variants.
-2. Select **Batch run** on the top right of the page.
-3. A wizard for **Submit batch run** occurs. The first step is to select a node to run all its variants.
+2. Select **Evaluate** on the top right of the page.
+3. A wizard for **Batch run & Evaluate** occurs. The first step is to select a node to run all its variants.
   
     To test how well different variants work for each node in a flow, you need to run a batch run for each node with variants one by one. This helps you avoid the influence of other nodes' variants and focus on the results of this node's variants. This follows the rule of the controlled experiment, which means that you only change one thing at a time and keep everything else the same.
 

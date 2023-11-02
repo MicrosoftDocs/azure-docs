@@ -1,5 +1,5 @@
 ---
-title: Set up end-to-end LLMOps with Prompt Flow and GitHub (preview)
+title: Set up end-to-end LLMOps with Prompt Flow and GitHub
 titleSuffix: Azure Machine Learning
 description: Learn about using Azure Machine Learning to set up an end-to-end LLMOps pipeline that runs a web classification flow that classifies a website based on a given URL.
 services: machine-learning
@@ -11,7 +11,7 @@ ms.author: osomorog
 ms.reviewer: lagayhar
 ms.date: 09/12/2023
 ---
-# Set up end-to-end LLMOps with prompt flow and GitHub (preview)
+# Set up end-to-end LLMOps with prompt flow and GitHub
 
 Azure Machine Learning allows you to integrate with [GitHub Actions](https://docs.github.com/actions) to automate the machine learning lifecycle. Some of the operations you can automate are:
 
@@ -24,10 +24,6 @@ In this article, you learn about using Azure Machine Learning to set up an end-t
 
 > [!TIP]
 > We recommend you understand how we integrate [LLMOps with Prompt flow](how-to-integrate-with-llm-app-devops.md).
-
-> [!IMPORTANT]
-> Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
