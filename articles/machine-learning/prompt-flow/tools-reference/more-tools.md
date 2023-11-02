@@ -9,15 +9,11 @@ ms.topic: reference
 author: ChenJieting
 ms.author: chenjieting
 ms.reviewer: lagayhar
-ms.date: 10/24/2023
+ms.date: 11/02/2023
 ---
 
-# More tools in Prompt flow (preview)
+# More tools in Prompt flow
 This table provides an index of more tools. If existing tools can't meet your requirements, you can [develop your own custom tool and make a tool package](https://microsoft.github.io/promptflow/how-to-guides/develop-a-tool/create-and-use-tool-package.html). 
-
-> [!IMPORTANT]
-> Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 | Tool name | Description | Environment | Package Name |
 |------|-----------|-------------|--------------|
