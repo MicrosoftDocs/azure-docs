@@ -60,8 +60,6 @@ items:
           href: mqtt-support.md
         - name: MQTT clients life cycle events
           href: mqtt-client-life-cycle-events.md
-        - name: MQTT Request Response messaging
-          href: mqtt-request-response-messages.md       
         - name: JWT authentication and RBAC authorization for clients with Azure AD identity
           href: mqtt-client-azure-ad-token-and-rbac.md
         - name: High availability and disaster recovery
@@ -82,6 +80,8 @@ items:
           href: mqtt-establishing-multiple-sessions-per-client.md
         - name: Enable managed identity for namespace
           href: event-grid-namespace-managed-identity.md 
+        - name: MQTT Request Response messaging
+          href: mqtt-request-response-messages.md                
         - name: Troubleshoot MQTT runtime issues
           href: mqtt-troubleshoot-errors.md
         - name: Monitor
