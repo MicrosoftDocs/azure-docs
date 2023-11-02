@@ -267,7 +267,7 @@ When you specify the tables to collect using CLI or ARM, you specify a stream na
 
 ## Impact on visualizations and alerts
 
-If you are currently using the above tables for other custom alerts or charts, then modifying your data collection settings may degrade those experiences. If you are excluding namespaces or reducing data collection frequency, review your existing alerts, dashboards, and workbooks using this data.
+If you're currently using the above tables for other custom alerts or charts, then modifying your data collection settings may degrade those experiences. If you're excluding namespaces or reducing data collection frequency, review your existing alerts, dashboards, and workbooks using this data.
 
 To scan for alerts that may be referencing these tables, run the following Azure Resource Graph query:
 
@@ -288,6 +288,6 @@ Reference the [Limitations](./container-insights-cost-config.md#limitations) sec
 
 ## Limitations
 
-- Recommended alerts will not work as intended if the Data collection interval is configured more than 1-minute interval. To continue using Recommended alerts, please migrate to the [Prometheus metrics addon](../essentials/prometheus-metrics-overview.md)
+- Recommended alerts don't work as intended if the Data collection interval is configured more than 1-minute interval. To continue using Recommended alerts, migrate to the [Prometheus metrics addon](../essentials/prometheus-metrics-overview.md)
 - There may be gaps in Trend Line Charts of Deployments workbook if configured Data collection interval more than time granularity of the selected Time Range.
 

@@ -123,8 +123,8 @@ The tables below provide a comparison of Azure Monitor Agent with the legacy the
 |	**Data sent to**	|		|		|		|		|
 |		|	Azure Monitor Logs	| ✓ | ✓ |		|
 |		|	Azure Monitor Metrics<sup>1</sup>	|	✓ (Public preview)	|		|	✓ (Public preview)	|
-|		|	Azure Storage	|		|		| ✓ |
-|		|	Event Hubs	|		|		| ✓ |
+|		|	Azure Storage	|	✓ (Preview)	|		| ✓ |
+|		|	Event Hubs	|	✓ (Preview)	|		| ✓ |
 |	**Services and features supported**	|		|		|		|		|
 |		|	Microsoft Sentinel 	|	✓ ([View scope](./azure-monitor-agent-migration.md#migrate-additional-services-and-features))	| ✓ |		|
 |		|	VM Insights	|	✓ | ✓ |		|
@@ -150,8 +150,8 @@ The tables below provide a comparison of Azure Monitor Agent with the legacy the
 |	**Data sent to**	|		|		|		|		|		|
 |		|	Azure Monitor Logs	| ✓ | ✓ |		|		|
 |		|	Azure Monitor Metrics<sup>1</sup>	|	✓ (Public preview)	|		|		|	✓ (Public preview)	|
-|		|	Azure Storage	|		|		| ✓ |		|
-|		|	Event Hubs	|		|		| ✓ |		|
+|		|	Azure Storage	|	✓ (Preview)	|		| ✓ |		|
+|		|	Event Hubs	|	✓ (Preview)	|		| ✓ |		|
 |	**Services and features supported**	|		|		|		|		|		|
 |		|	Microsoft Sentinel 	|	✓ ([View scope](./azure-monitor-agent-migration.md#migrate-additional-services-and-features))	| ✓ |		|
 |		|	VM Insights	| ✓ |	✓ 	|		|
@@ -214,8 +214,8 @@ View [supported operating systems for Azure Arc Connected Machine agent](../../a
 | Oracle Linux 7                                              | ✓ | ✓ | ✓ |
 | Oracle Linux 6.4+                                           |   |  | ✓ |
 | Red Hat Enterprise Linux Server 9+                          | ✓ |  |   |
-| Red Hat Enterprise Linux Server 8.6+                        | ✓<sup>3</sup> | ✓<sup>2</sup> | ✓<sup>2</sup> |
-| Red Hat Enterprise Linux Server 8.0-8.5                     | ✓ | ✓<sup>2</sup> | ✓<sup>2</sup> |
+| Red Hat Enterprise Linux Server 8.6+                        | ✓<sup>3</sup> | ✓ | ✓<sup>2</sup> |
+| Red Hat Enterprise Linux Server 8.0-8.5                     | ✓ | ✓ | ✓<sup>2</sup> |
 | Red Hat Enterprise Linux Server 7                           | ✓ | ✓ | ✓ |
 | Red Hat Enterprise Linux Server 6.7+                        |   |  | ✓ |
 | Rocky Linux 8                                               | ✓ | ✓ |   |
