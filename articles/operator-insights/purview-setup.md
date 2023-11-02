@@ -32,7 +32,7 @@ To begin to catalog a data product in this account, [create a collection](../pur
 
 Provide your User-Assigned-Managed-Identity (UAMI) with necessary roles in the Microsoft Purview compliance portal. The UAMI you enter is the one that was set up when creating an AOI Data Product. For information on how to set up this UAMI, refer to [Set up user-assigned managed identity](data-product-create.md#set-up-user-assigned-managed-identity). At the desired collection, assign this UAMI to the **Collection admin**, **Data source admin**, and **Data curator** roles. Alternately, you can apply the UAMI at the root collection/account level. All collections would inherit these role assignments by default.
 
-:::image type="content" source="media/purview-setup/data-product-role-assignments.png" alt-text="Screenshot of collections with Role assignment tab open and icon to add the UAMI to the collection admins role highlighted":::
+:::image type="content" source="media/purview-setup/data-product-role-assignments.png" alt-text="Screenshot of collections with Role assignment tab open and icon to add the UAMI to the collection admins role highlighted.":::
 
 Assign roles to your users using effective role-based access control (RBAC). There are multiple roles that can be assigned, and assignments can be done on an account root and collection level. For more information, see how to [add roles and restrict access through collections](../purview/how-to-create-and-manage-collections.md#add-roles-and-restrict-access-through-collections).
 
