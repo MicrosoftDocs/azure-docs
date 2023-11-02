@@ -58,7 +58,7 @@ Once you are connected to a cluster via Arc for Kuberentes, you can connect to i
     root [ / ]#
     ```
 
-    This privileged container gives access to the node. You can interact with the node session by running `chroot /host` from the privileged container.
+    This privileged container gives access to the node. Execute commands on the baremetal host machine by running `chroot /host` at the command line. 
 
 3. When you are done with a debugging pod, enter the `exit` command to end the interactive shell session. After the interactive container session closes, delete the pod used for access with `kubectl delete pod`.
 
