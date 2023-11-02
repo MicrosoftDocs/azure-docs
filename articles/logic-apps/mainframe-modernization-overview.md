@@ -5,7 +5,7 @@ author: haroldcampos
 ms.author: hcampos
 ms.service: logic-apps
 ms.topic: conceptual
-ms.date: 10/26/2023
+ms.date: 11/02/2023
 
 #CustomerIntent: As an integration developer, I need to learn about mainframe and midrange system integration with Standard workflows in Azure Logic Apps.
 ---
@@ -22,7 +22,7 @@ When enterprise developers build integration workflows with Azure Logic Apps, th
 
 Since 1990, Microsoft has provided integration with mainframe and midrange systems through Microsoft Communications Server. Further evolution of Microsoft Communications Server created Host Integration Server (HIS) in 2000. While HIS started as a System Network Architecture (SNA) Gateway, HIS expanded to include IBM data stores (DB2, VSAM, and Informix), IBM transaction systems (CICS, IMS, and IBMi), and IBM messaging (MQ Series). Microsoft's strategic customers have used these technologies for more than 20 years. To empower customers that run applications and data on Azure to continue using these technologies, Azure Logic Apps and Visual Studio have gradually incorporated these capabilities. For example, Visual Studio includes the following designers: HIS Designer for Logic Apps and the 3270 Design Tool.
 
-:::image type="content" source="media/mainframe-modernization-overview/mainframe-modernization.png" alt-text="Conceptual diagram showing Microsoft cloud native capabilities for mainframe integration.":::
+:::image type="content" source="media/mainframe-modernization-overview/mainframe-modernization.png" alt-text="Conceptual diagram showing Microsoft cloud native capabilities for mainframe integration." lightbox="media/mainframe-modernization-overview/mainframe-modernization.png":::
 
 For more information about the Microsoft's capabilities for mainframe and midrange integration, continue to the following sections.
 
@@ -46,7 +46,7 @@ The following sections describe the [built-in, service provider-based connectors
 
 #### IBM 3270
 
-This Azure Logic Apps connector for 3270 allows Standard workflows to access and run IBM mainframe applications that you usually drive by navigating through 3270 emulator screens. The connector uses the TN3270 stream. For more information, see [Integrate 3270 screen-driven apps on IBM mainframes with Azure by using Azure Logic Apps and IBM 3270 connector](../connectors/connectors-run-3270-apps-ibm-mainframe-create-api-3270.md).
+This Azure Logic Apps connector for 3270 allows Standard workflows to access and run IBM mainframe applications that you usually drive by navigating through 3270 emulator screens. The connector uses the TN3270 stream. For more information, see [Integrate 3270 screen-driven apps on IBM mainframes with Azure by using Azure Logic Apps and IBM 3270 connector](../connectors/integrate-3270-apps-ibm-mainframe.md).
 
 #### IBM Customer Information Control System (CICS)
 
@@ -96,7 +96,7 @@ The choice between these paths depends on your organization's needs and scenario
 
 A big bang migration typically has the following phases:
 
-:::image type="content" source="media/mainframe-modernization-overview/waterfall-mainframe.png" alt-text="Conceptual diagram showing big bang migration phases approach.":::
+:::image type="content" source="media/mainframe-modernization-overview/waterfall-mainframe.png" alt-text="Conceptual diagram showing big bang migration phases approach." lightbox="media/mainframe-modernization-overview/waterfall-mainframe.png":::
 
 1. **Envisioning**: Kickoff
 
@@ -126,7 +126,7 @@ An Agile approach is results oriented and focused on building software and not p
 
 An Agile waves migration typically has the following sprints:
 
-:::image type="content" source="media/mainframe-modernization-overview/mainframe-waves.png" alt-text="Conceptual diagram showing mainframe migration with Agile waves approach.":::
+:::image type="content" source="media/mainframe-modernization-overview/mainframe-waves.png" alt-text="Conceptual diagram showing mainframe migration with Agile waves approach." lightbox="media/mainframe-modernization-overview/mainframe-waves.png":::
 
 - Sprint zero (0)
 
@@ -138,7 +138,7 @@ An Agile waves migration typically has the following sprints:
 
   Each sprint has a goal where the team maintains a shipping mindset, meaning that they focus on completing migration goals and releasing deliverables to production. The team can use a group of sprints to deliver a specific feature or a wave of features. Each feature includes slices of integration workloads.
 
-:::image type="content" source="media/mainframe-modernization-overview/mainframe-streams.png" alt-text="Conceptual diagram showing mainframe migration with Agile waves per streams.":::
+:::image type="content" source="media/mainframe-modernization-overview/mainframe-streams.png" alt-text="Conceptual diagram showing mainframe migration with Agile waves per streams." lightbox="media/mainframe-modernization-overview/mainframe-streams.png":::
 
 Shared elements, such as jobs and interdependencies, exist and have impact across the entire environment. A successful strategy focuses on partially enabling jobs, redesigning applications for modernization, and leaving the systems with most interdependencies until the end to first reduce the amount of migration work and then complete the scope of the modernization effort.
 
@@ -152,7 +152,7 @@ The Azure Architecture Center provides tested [design and implementation pattern
 
 Regardless which modernization approach that you select, you need to implement an "anti-corruption layer" using Azure Logic Apps. This service becomes the façade or adapter layer between the mainframe legacy system and Azure. For an effective approach, identify the mainframe workloads to integrate or coexist as mainframe integration workloads. Create a strategy for each integration workload, which is the set of interfaces that you need to enable for migrating a mainframe application. 
 
-:::image type="content" source="media/mainframe-modernization-overview/anti-corruption-pattern.png" alt-text="Conceptual diagram showing the Anti-corruption Layer pattern.":::
+:::image type="content" source="media/mainframe-modernization-overview/anti-corruption-pattern.png" alt-text="Conceptual diagram showing the Anti-corruption Layer pattern." lightbox="media/mainframe-modernization-overview/anti-corruption-pattern.png":::
 
 For more information, see [Anti-corruption Layer](/azure/architecture/patterns/anti-corruption-layer).
 
@@ -162,7 +162,7 @@ After you implement the anti-corruption layer, modernization progressively happe
 
 Eventually, after you replace all the workloads or features in the mainframe system with your new system, you'll finish the migration process, which means that you can decommission your legacy system.
 
-:::image type="content" source="media/mainframe-modernization-overview/strangler-fig-pattern.png" alt-text="Conceptual diagram showing the Strangler Fig pattern.":::
+:::image type="content" source="media/mainframe-modernization-overview/strangler-fig-pattern.png" alt-text="Conceptual diagram showing the Strangler Fig pattern." lightbox="media/mainframe-modernization-overview/strangler-fig-pattern.png":::
 
 For more information, see [Strangler Fig pattern](/azure/architecture/patterns/strangler-fig).
 
