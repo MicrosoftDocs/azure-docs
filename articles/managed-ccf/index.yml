@@ -1,0 +1,87 @@
+### YamlMime:Landing
+
+title: Azure Managed Confidential Consortium Framework
+summary: Learn how to use Azure Managed Confidential Consortium Framework
+metadata:
+  title: Azure Managed Confidential Consortium Framework documentation
+  description: Learn how to use Azure Managed Confidential Consortium Framework
+  services: azure-managed-confidential-consortium-framework
+  ms.service: azure-managed-confidential-consortium-framework
+  ms.topic: landing-page
+  author: msftsettiy
+  ms.author: settiy
+  ms.date: 09/29/2023
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About Azure Managed Confidential Consortium Framework
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Managed Confidential Consortium Framework?
+            url: overview.md
+          - text: What is Confidential Consortium Framework?
+            url: confidential-consortium-framework-overview.md
+
+      - linkListType: get-started
+        links:
+          - text: Develop, test and deploy an Azure Managed CCF application
+            url: get-started.md
+      - linkListType: concept
+        links:
+          - text: Application scenarios
+            url: application-scenarios.md
+
+  # Card
+  - title: Quickstarts
+    linkLists:
+      - linkListType: deploy
+        links:
+          - text: Azure portal quickstart
+            url: quickstart-portal.md
+          - text: CLI quickstart
+            url: quickstart-cli.md
+          - text: Deploy a JavaScript application
+            url: quickstart-deploy-application.md
+          - text: Python quickstart
+            url: quickstart-python.md
+          - text: .NET quickstart
+            url: quickstart-net.md
+          - text: Go quickstart
+            url: quickstart-go.md
+          - text: TypeScript quickstart  
+            url: quickstart-typescript.md
+          - text: Java quickstart
+            url: quickstart-java.md
+
+  # Card
+  - title: How-to-guides
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Activate members
+            url: how-to-activate-members.md
+          - text: Manage members in an Azure Managed CCF resource
+            url: how-to-manage-members.md
+          - text: Set application runtime options
+            url: how-to-update-javascript-runtime-options.md
+          - text: Update an application deployed on an Azure Managed CCF resource
+            url: how-to-update-application.md
+          - text: Backup and restore an Azure Managed CCF resource
+            url: how-to-backup-restore-resource.md
+          - text: View application logs in Azure Monitor
+            url: how-to-enable-azure-monitor.md
+          - text: View the members in an Azure Managed CCF resource
+            url: how-to-view-members.md
+
+  # Card
+  - title: References
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Frequently asked questions
+            url: faq.yml
