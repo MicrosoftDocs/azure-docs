@@ -158,4 +158,3 @@ The following list is the cluster inventory data collected by default:
 ## Next steps
 
 To help you understand what the costs are likely to be based on recent usage patterns from data collected with Container insights, see [Analyze usage in a Log Analytics workspace](../logs/analyze-usage.md).
-
