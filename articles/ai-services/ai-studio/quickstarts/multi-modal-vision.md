@@ -31,14 +31,27 @@ Additional usage fees may apply for using GPT-4V with Azure AI Vision functional
 
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
 
-- An Azure OpenAI resource with the GPT-4V models deployed in one of these regions: East US, Switzerland North, Sweden Central, Central US, West US, and Australia East. 
-- For video chat you *also* need an Azure AI Vision resource in the East US region. 
+You need an Azure OpenAI resource with the GPT-4V models deployed in a supported region. For enhanced image and video chat, you also need an Azure AI Vision resource.
 
-You also need an image to complete the quickstart. You can use the following image or any other image you have available. 
+Here's a table of the supported regions for each chat type:
+
+| Chat type | Azure OpenAI GPT-4V deployment | Azure AI Vision region |
+| --- | --- | --- |
+| Basic image chat | Australia East, Switzerland North, Sweden Central, West US | N/A |
+| Enhanced image chat | Australia East, Switzerland North, Sweden Central, West US | Australia East, Switzerland North, Sweden Central, West US |
+| Enhanced video chat | Australia East, Switzerland North, Sweden Central, West US | East US |
+
+You need an image to complete the image quickstarts. You can use the following image or any other image you have available. 
 
 :::image type="content" source="../media/quickstarts/playground/car-accident.png" alt-text="Screenshot of the image that's used in the quickstart." lightbox="../media/quickstarts/playground/car-accident.png":::
- 
+
+You need a video up to three minutes in length to complete the video quickstart. 
+
+
 ## Start a chat session to analyze images 
+
+
+# [Image chat](#tab/image-chat)
 
 In this chat session, you instruct the assistant to aid in understanding images that you input. 
 
@@ -109,7 +122,7 @@ A screenshot of a computer
 Description automatically generated 
  
 
-You will be required to select a Computer Vision resource to try the enhanced Vision API. This resource must be in the East US region to try video, but for image only can be in any of the GPT-4V supported regions, including East US, Switzerland North, Sweden Central, Central US, West US, and Australia East. Select your resource, and “Save". 
+You will be required to select a Computer Vision resource to try the enhanced Vision API. This resource must be in the East US region to try video, but for image only can be in any of the GPT-4V supported regions, including Australia East, Switzerland North, Sweden Central, West US. Select your resource, and “Save". 
 
 Provide this prompt to guide the assistant: “You are an AI assistant that helps people find information." You can tailor the prompt the image or scenario that you are uploading. 
 
@@ -138,7 +151,7 @@ Now that you have a basic conversation select View code from under Assistant set
 
 In this chat session, you will be instructing the assistant to aid in understanding videos that you input. 
 
-You will be required to select a Computer Vision resource to try the enhanced Vision API. This resource must be in the East US region to try video, but for image only can be in any of the GPT-4V supported regions, including East US, Switzerland North, Sweden Central, Central US, West US, and Australia East. Select your resource, and “Save". 
+You will be required to select a Computer Vision resource to try the enhanced Vision API. This resource must be in the East US region to try video, but for image only can be in any of the GPT-4V supported regions, including Australia East, Switzerland North, Sweden Central, West US. Select your resource, and “Save". 
 
 1. Upload a video using the “Add media" button and then select Send. 
 
