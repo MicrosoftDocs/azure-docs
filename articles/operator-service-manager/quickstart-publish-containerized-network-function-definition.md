@@ -51,7 +51,7 @@ Here's sample input-cnf-nfd.json file:
     "helm_packages": [
         {
             "name": "nginxdemo",
-            "path_to_chart": "../nginxdemo-0.1.0.tgz",
+            "path_to_chart": "nginxdemo-0.1.0.tgz",
             "path_to_mappings": "",
             "depends_on": []
         }
