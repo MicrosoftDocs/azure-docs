@@ -29,9 +29,19 @@ keywords:
 
 Install the OpenAI Python client library with:
 
+# [OpenAI Python 0.28.1](#tab/python)
+
 ```console
 pip install openai==0.28.1
 ```
+
+# [OpenAI Python 1.0](#tab/python-new)
+
+```console
+pip install openai
+```
+
+---
 
 > [!NOTE]
 > This library is maintained by OpenAI and is currently in preview. Refer to the [release history](https://github.com/openai/openai-python/releases) or the [version.py commit history](https://github.com/openai/openai-python/commits/main/openai/version.py) to track the latest updates to the library.
@@ -64,48 +74,46 @@ Create and assign persistent environment variables for your key and endpoint.
 
 2. Replace the contents of quickstart.py with the following code. Modify the code to add your key, endpoint, and deployment name: 
 
-# [Python 0.28.1](#tab/python)
+# [OpenAI Python 0.28.1](#tab/python)
 
 ```python
-    import os
-    import requests
-    import json
-    import openai
+import os
+import openai
 
-    openai.api_key = os.getenv("AZURE_OPENAI_KEY")
-    openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT") # your endpoint should look like the following https://YOUR_RESOURCE_NAME.openai.azure.com/
-    openai.api_type = 'azure'
-    openai.api_version = '2023-05-15' # this may change in the future
+openai.api_key = os.getenv("AZURE_OPENAI_KEY")
+openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT") # your endpoint should look like the following https://YOUR_RESOURCE_NAME.openai.azure.com/
+openai.api_type = 'azure'
+openai.api_version = '2023-05-15' # this may change in the future
 
-    deployment_name='REPLACE_WITH_YOUR_DEPLOYMENT_NAME' #This will correspond to the custom name you chose for your deployment when you deployed a model. 
+deployment_name='REPLACE_WITH_YOUR_DEPLOYMENT_NAME' #This will correspond to the custom name you chose for your deployment when you deployed a model. 
 
-    # Send a completion call to generate an answer
-    print('Sending a test completion job')
-    start_phrase = 'Write a tagline for an ice cream shop. '
-    response = openai.Completion.create(engine=deployment_name, prompt=start_phrase, max_tokens=10)
-    text = response['choices'][0]['text'].replace('\n', '').replace(' .', '.').strip()
-    print(start_phrase+text)
+# Send a completion call to generate an answer
+print('Sending a test completion job')
+start_phrase = 'Write a tagline for an ice cream shop. '
+response = openai.Completion.create(engine=deployment_name, prompt=start_phrase, max_tokens=10)
+text = response['choices'][0]['text'].replace('\n', '').replace(' .', '.').strip()
+print(start_phrase+text)
 ```
 
-# [Python 1.0](#tab/python-new)
+# [OpenAI Python 1.0](#tab/python-new)
 
 ```python
-    import os
-    from openai import AzureOpenAI
+import os
+from openai import AzureOpenAI
     
-    client = AzureOpenAI(
-      api_key=os.getenv("AZURE_OPENAI_KEY"),  
-      api_version="2023-10-01-preview",
-      azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
+client = AzureOpenAI(
+    api_key=os.getenv("AZURE_OPENAI_KEY"),  
+    api_version="2023-10-01-preview",
+    azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
     )
     
-    deployment_name='gpt-35-turbo-instruct' #This will correspond to the custom name you chose for your deployment when you deployed a model. 
+deployment_name='REPLACE_WITH_YOUR_DEPLOYMENT_NAME' #This will correspond to the custom name you chose for your deployment when you deployed a model. 
     
-    # Send a completion call to generate an answer
-    print('Sending a test completion job')
-    start_phrase = 'Write a tagline for an ice cream shop. '
-    response = client.completions.create(model=deployment_name, prompt=start_phrase, max_tokens=10)
-    print(response.choices[0].text)
+# Send a completion call to generate an answer
+print('Sending a test completion job')
+start_phrase = 'Write a tagline for an ice cream shop. '
+response = client.completions.create(model=deployment_name, prompt=start_phrase, max_tokens=10)
+print(response.choices[0].text)
 ```
 
 ---
