@@ -1,6 +1,6 @@
 ---
 title: Target selection in Azure Chaos Studio
-description: Understand two different ways to select experiment targets in Azure Chaos Studio.
+description: Understand two different ways to select experiment targets and target scoping in Azure Chaos Studio.
 author: prasha-microsoft
 ms.author: prashabora
 ms.service: chaos-studio
@@ -26,6 +26,12 @@ Query-based dynamic target selection allows you to input a KQL query that will s
 The inputted query will run and add onboarded targets that match its result set upon experiment execution time. Thus, any resources onboarded to Chaos Studio after experiment creation time that match the query result set upon experiment execution time will be targeted by your experiment. You may your query's result set when adding it to your experiment, but be aware that it may not match the result set at experiment execution time. An example of a possible dynamic target query is shown below.
 
 [ ![Screenshot that shows the query-based dynamic target selection option in the Azure portal.](images/dynamic-target-selection-preview.png) ](images/dynamic-target-selection-preview.png#lightbox)
+
+## Target scopes
+
+Certain faults in Chaos Studio allow you to further target specific functionality within your Azure resouces. If scope selection is available for a target and not configured, the resource will be targeted fully by the selected fault. An example of scope selection on a Virtual Machine Scale Sets instance being targeted by the **VMSS Shutdown (version 2.0)** fault is shown below.
+
+[ ![Screenshot that shows scope selection being done on a target.](images/tutorial-dynamic-targets-fault-zones.png) ](images/tutorial-dynamic-targets-fault-zones.png#lightbox)
 
 ## Next steps
 Now that you understand both ways to select targets within a chaos experiment, you're ready to:
