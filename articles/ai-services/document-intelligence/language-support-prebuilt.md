@@ -1,5 +1,5 @@
 ---
-title: Language and locale support for prebuilt - Document Intelligence (formerly Form Recognizer)
+title: Language and locale support for prebuilt models - Document Intelligence (formerly Form Recognizer)
 titleSuffix: Azure AI services
 description: Document Intelligence prebuilt / pretrained model language support
 author: laujan
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 11/15/2023
 ---
 
-## Prebuilt models
+## Prebuilt model language detection and extraction
 
 :::moniker range=">=doc-intel-3.1.0"
 ### [Business card](#tab/business-card)
