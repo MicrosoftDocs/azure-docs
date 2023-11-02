@@ -23,7 +23,7 @@ Machine learning professionals can specify the resources the job needs. Azure Ma
 
 Enterprises can also reduce costs by specifying optimal resources for each job. IT Admins can still apply control by specifying cores quota at subscription and workspace level and apply Azure policies.
 
-Serverless compute can be used to fine-tune models in the model catalog. Serverless compute can be used to run all types of jobs from Azure Machine Learning studio, SDK and CLI.  Serverless compute can also be used for building environment images. Serverless jobs consume the same quota as Azure Machine Learning compute quota. You can choose standard (dedicated) tier or spot (low-priority) VMs. Managed identity and user identity are supported for serverless jobs. Billing model is the same as Azure Machine Learning compute.
+Serverless compute can be used to fine-tune models in the model catalog such as LLAMA 2. Serverless compute can be used to run all types of jobs from Azure Machine Learning studio, SDK and CLI.  Serverless compute can also be used for building environment images. Serverless jobs consume the same quota as Azure Machine Learning compute quota. You can choose standard (dedicated) tier or spot (low-priority) VMs. Managed identity and user identity are supported for serverless jobs. Billing model is the same as Azure Machine Learning compute.
 
 ## Advantages of serverless compute
 
@@ -385,3 +385,4 @@ You can also set serverless compute as the default compute in Designer.
 View more examples of training with serverless compute at:-
 * [Quick Start](https://github.com/Azure/azureml-examples/blob/main/tutorials/get-started-notebooks/quickstart.ipynb)
 * [Train Model](https://github.com/Azure/azureml-examples/blob/main/tutorials/get-started-notebooks/train-model.ipynb)
+* [Fine Tune LLAMA 2](https://github.com/Azure/azureml-examples/blob/bd799ecf31b60cec650e3b0ea2ea790fe0c99c4e/sdk/python/foundation-models/system/finetune/Llama-notebooks/text-classification/emotion-detection-llama-serverless-compute.ipynb)
