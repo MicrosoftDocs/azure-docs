@@ -20,9 +20,9 @@ Here are a few examples of the kinds of prompts you can use to get service healt
 
 - "Am I impacted by any service health events?"
 - "Is there any outage impacting me?"
-- "Can you tell me more about this tracking id {0}?"
-- "Is the event with tracking id {0} still active?"
-- "What is the status of the event with tracking id {0}"
+- "Can you tell me more about this tracking ID {0}?"
+- "Is the event with tracking ID {0} still active?"
+- "What is the status of the event with tracking ID {0}"
 
 ## Examples
 

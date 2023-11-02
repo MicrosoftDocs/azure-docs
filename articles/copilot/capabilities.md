@@ -35,7 +35,7 @@ Use Microsoft Copilot for Azure (preview) to confirm your settings selection or 
 
 ## Current limitations
 
-While Microsoft Copilot for Azure (preview) can perform many types of tasks, it's important to understand what not to expect. In some cases, Microsoft Copilot for Azure (preview) may not be able to complete your request. In these cases, you'll generally see an explanation along with more information about how you can carry out the intended action.
+While Microsoft Copilot for Azure (preview) can perform many types of tasks, it's important to understand what not to expect. In some cases, Microsoft Copilot for Azure (preview) might not be able to complete your request. In these cases, you'll generally see an explanation along with more information about how you can carry out the intended action.
 
 Keep in mind these current limitations:
 
