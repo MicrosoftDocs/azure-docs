@@ -269,8 +269,8 @@ The collection settings can be modified through the input of the `dataCollection
 2. From the resource pane on the left, select the 'Insights' item under the 'Monitoring' section.
 3. If you have not configured Container Insights, select the 'Configure Azure Monitor' button. For clusters already onboarded to Insights, select the "Monitoring Settings" button in the toolbar.
 :::image type="content" source="media/container-insights-cost-config/cost-settings-onboarding.png" lightbox="media/container-insights-cost-config/cost-settings-onboarding.png" alt-text="Screenshot that shows the onboarding options.":::
-4. Using the dropdown, choose one of the "Cost presets", for more configuration, you may select the "Edit collection settings"
-:::image type="content" source="media/container-insights-cost-config/advanced-collection-settings.png" lightbox="media/container-insights-cost-config/advanced-collection-settings.png" alt-text="Screenshot that shows the collection settings.":::.
+4. Using the dropdown, choose one of the "Cost presets", for more configuration, you may select the "Edit collection settings".
+:::image type="content" source="media/container-insights-cost-config/advanced-collection-settings.png" lightbox="media/container-insights-cost-config/advanced-collection-settings.png" alt-text="Screenshot that shows the collection settings.":::
 5. Click the blue "Configure" button to finish.
 
 
@@ -336,10 +336,10 @@ The collection settings can be modified through the input of the `dataCollection
 1. In the Azure portal, select the Arc cluster that you wish to monitor.
 2. From the resource pane on the left, select the 'Insights' item under the 'Monitoring' section.
 3. If you have not configured Container Insights, select the 'Configure Azure Monitor' button. For clusters already onboarded to Insights, select the "Monitoring Settings" button in the toolbar.    
-4. If you're configuring Container Insights for the first time, select the "Use managed identity" checkbox
-:::image type="content" source="media/container-insights-cost-config/cost-settings-onboarding.png" lightbox="media/container-insights-cost-config/cost-settings-onboarding.png" alt-text="Screenshot that shows the onboarding options.":::.
-5. Using the dropdown, choose one of the "Cost presets", for more configuration, you may select the "Edit advanced collection settings"
-:::image type="content" source="media/container-insights-cost-config/advanced-collection-settings.png" lightbox="media/container-insights-cost-config/advanced-collection-settings.png" alt-text="Screenshot that shows the collection settings.":::.
+4. If you're configuring Container Insights for the first time, select the "Use managed identity" checkbox.
+:::image type="content" source="media/container-insights-cost-config/cost-settings-onboarding.png" lightbox="media/container-insights-cost-config/cost-settings-onboarding.png" alt-text="Screenshot that shows the onboarding options.":::
+5. Using the dropdown, choose one of the "Cost presets", for more configuration, you may select the "Edit advanced collection settings".
+:::image type="content" source="media/container-insights-cost-config/advanced-collection-settings.png" lightbox="media/container-insights-cost-config/advanced-collection-settings.png" alt-text="Screenshot that shows the collection settings.":::
 6. Click the blue "Configure" button to finish.
 
 
