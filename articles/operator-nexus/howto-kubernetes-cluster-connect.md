@@ -49,15 +49,10 @@ Once you are connected to a cluster via Arc for Kuberentes, you can connect to i
     cluster-01-627e99ee-control-plane-5scjz   Ready    control-plane   129m   v1.27.1
     ```
 
-2. Use the `kubectl debug` command to run a container image on the node to connect to it. The following command starts a privileged container on your node and connects to it.
+2. Start a privileged container on your node and connect to it:
 
-    ```bash
-    kubectl debug node/cluster-01-627e99ee-agentpool1-md-chfwd -it --image=mcr.microsoft.com/cbl-mariner/base/core:2.0
-    ```
-
-    The following example resembles output from the command:
-
-    ```output
+    ```console
+    $> kubectl debug node/cluster-01-627e99ee-agentpool1-md-chfwd -it --image=mcr.microsoft.com/cbl-mariner/base/core:2.0
     Creating debugging pod node-debugger-cluster-01-627e99ee-agentpool1-md-chfwd-694gg with container debugger on node cluster-01-627e99ee-agentpool1-md-chfwd.
     If you don't see a command prompt, try pressing enter.
     root [ / ]#
