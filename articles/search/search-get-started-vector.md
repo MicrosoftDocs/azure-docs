@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 10/26/2023
+ms.date: 11/02/2023
 ---
 
 # Quickstart: Vector search using REST APIs
@@ -17,7 +17,7 @@ Get started with vector search in Azure AI Search using the **2023-11-01** REST 
 Search indexes can have vector fields in the fields collection. When querying the search index, you can build vector-only queries, or create hybrid queries that target vector fields *and* textual fields configured for filters, sorts, facets, and semantic ranking.
 
 > [!NOTE]
-> This quickstart has been updated to use the fictitious hotels sample data set. Looking for the previous quickstart that used Azure product descriptions? See this [Postman collection](https://github.com/Azure/cognitive-search-vector-pr/tree/main/postman-collection) and review the example queries in [Create a vector query](vector-search-how-to-query.md) and [Create a hybrid query](hybrid-search-how-to-query.md).
+> Looking for built-in data chunking and vectorization? Try [Get started with integrated vectorization (preview)](search-get-started-integrated-vectors.md) and the **Import and vectorize data** wizard in Azure portal.
 
 ## Prerequisites
 
@@ -31,10 +31,10 @@ Search indexes can have vector fields in the fields collection. When querying th
 
 + [Sample Postman collection](https://github.com/Azure-Samples/azure-search-postman-samples/tree/main/Quickstart-vectors), with requests targeting the **2023-11-01** API version of Azure AI Search.
 
-+ Optional. The Postman collection includes a **Generate Embedding** request that can generate vectors from text. To send this request, you need [Azure OpenAI](https://aka.ms/oai/access) with a deployment of **text-embedding-ada-002**. For this request only, provide your Azure OpenAI endpoint, Azure OpenAI key, model deployment name, and API version in the collection variables.
++ Optional. The Postman collection includes a **Generate Embedding** request that can generate vectors from text. The collection provides a ready-to-use vector, but if you want to replace it, provide an [Azure OpenAI](https://aka.ms/oai/access) endpoint with a deployment of **text-embedding-ada-002**. The step for generating a custom embedding is the only step that requires an Azure OpenAI endpoint, Azure OpenAI key, model deployment name, and API version in the collection variables.
 
 > [!NOTE]
-> Integrated vectorization is currently in public preview. It automates data chunking and vectorization, providing you supply the connection information to Azure OpenAI or another vectorization agent.  
+> This quickstart is for the generally available version of [vector search](vector-search-overview.md). If you want to try integrated vectorization, currently in public preview, try [this quickstart](search-get-started-integrated-vectors.md) instead.  
 
 ## About the sample data and queries
 
@@ -703,7 +703,6 @@ api-key: {{admin-api-key}}
     "facets": [ "Address/StateProvince"],
     "top": 7,
     "queryType": "semantic",
-    "queryLanguage": "en-us",
     "answers": "extractive|count-3",
     "captions": "extractive|highlight-true",
     "semanticConfiguration": "my-semantic-config",
