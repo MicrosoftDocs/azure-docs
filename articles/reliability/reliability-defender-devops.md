@@ -44,18 +44,18 @@ The single region disaster recovery process for Defender for DevOps is based on 
 When a region goes down, your configurations for the connector of that region is lost. Lost configurations include customer tokens, auto discovery configurations, and ADO annotations configurations. To recover, you'll need to recreate a new connector in a new region.  
 
 >[!TIP]
->You can use an existing connector in the new region, as long as it's authenticated to have access to the Source Code Management (SCM) orgs of the old connector.
+>You can use an existing connector in the new region, as long as it's authenticated to have access to the Source Code Management (SCM) organizations of the old connector.
 
 To create a new connector in a new region:
 
 1. Copy the Resource ID of the old connector of the region that has the outage.
 
-1. Open a ticket on Defender for DevOps to release ownership of the Source Code Management (SCM) orgs of the old connector. You can specify specific orgs or all orgs.
+1. Open a ticket on Defender for DevOps to release ownership of the Source Code Management (SCM) organizations of the old connector. You can specify specific organizations or all organizations.
 
-1. Once the old SCM orgs have been released and new entities appear for the new connector, recreate the annotation configuration if needed.
+1. Once the old SCM organizations have been released and new entities appear for the new connector, recreate the annotation configuration if needed.
 
     >[!NOTE]
-    >The time it takes to recreate the annotation configuration is proportional for how long it takes for the new connector to discover all the SCM orgs.
+    >The time it takes to recreate the annotation configuration is proportional for how long it takes for the new connector to discover all the SCM organizations.
 
 1. When the old region recovers from the outage, the new connector is made primary and you can safely delete the old connector.
 
