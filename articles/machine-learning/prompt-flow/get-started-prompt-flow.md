@@ -121,7 +121,7 @@ For each LLM node, you need to select a connection to set your LLM API keys.
 
 :::image type="content" source="./media/get-started-prompt-flow/select-a-connection.png" alt-text="Screenshot of Web classification showing the connection drop-down." lightbox = "./media/get-started-prompt-flow/select-a-connection.png":::
 
-For this example, please make sure API type to be **chat** since the prompt example we provide is for chat API. To learn the prompt format difference of chat and completion API, please refer to [this doc](./how-to-develop-a-standard-flow.md) . 
+For this example, make sure API type is **chat** since the prompt example we provide is for chat API. To learn the prompt format difference of chat and completion API, see  [Develop a flow](./how-to-develop-flow.md). 
 
 
 Then depending on the connection type you selected, you need to select a deployment or a model. If you use AzureOpenAI connection, you need to select a deployment in drop-down (If you don't have a deployment, create one in AzureOpenAI portal by following [Create a resource and deploy a model using Azure OpenAI](../../cognitive-services/openai/how-to/create-resource.md?pivots=web-portal#deploy-a-model)). If you use OpenAI connection, you need to select a model.
