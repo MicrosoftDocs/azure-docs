@@ -17,11 +17,11 @@ You can save money with Fabric capacity reservation by committing to a reservati
 
 To purchase a Fabric capacity reservation, you choose an Azure region, size, and then add the Fabric capacity SKU to your cart. Then you choose the quantity of capacity units (CUs) that you want to purchase.
 
-When you purchase a reservation, the Fabric capacity usage that matches the reservation attributes is no longer charged at the pay-as-you go rates.
+When you purchase a reservation, the Fabric capacity usage that matches the reservation attributes is no longer charged at the pay-as-you-go rates.
 
 A reservation doesn't cover storage or networking charges associated with the Microsoft Fabric usage, it only covers Fabric capacity usage.
 
-When the reservation expires, Fabric capacity workloads continue to run but are billed at the pay-as-you go rate. Reservations don't renew automatically.
+When the reservation expires, Fabric capacity workloads continue to run but are billed at the pay-as-you-go rate. Reservations don't renew automatically.
 
 You can choose to enable automatic reservation renewal by selecting the option in the renewal settings. With automatic renewal, a replacement reservation is purchased when the reservation expires. By default, the replacement reservation has the same attributes as the expiring reservation. You can optionally change the billing frequency, term, or quantity in the renewal settings. Any user with owner access on the reservation and the subscription used for billing can set up renewal.
 
@@ -117,7 +117,7 @@ After purchase, the reservation is matched to Fabric capacity usage emitted by r
 The following examples show how the Fabric capacity reservation discount applies, depending on the deployments.
 
 - **Example 1** - You purchase a Fabric capacity reservation of 64 CUs. You deploy one hour of Power BI using 32 CUs per hour and you also deploy Synapse Data Warehouse using 32 CUs per hour. In this case, both usage events get reservation discounts. No usage is charged using pay-as-you-go rates.
-- **Example 2** - This example explains the relationship between smoothing and reservations. Smoothing is enabled for Fabric capacity reservations. Smoothing spreads usage spikes into 24-hour intervals (except for interactive usage such as reports read from Power BI or KQL). Therefore, reservations examine the average CU consumption over a 24-hour interval. You purchase a Fabric capacity reservation of two CUs, and you enable smoothing for Fabric capacity. Assume that your usage spikes to 4 CUs within an hour. You pay the pay-as-you-go rate only if the CU consumption exceeds an average of two CU per hour during the 24-hour interval.
+- **Example 2** - This example explains the relationship between smoothing and reservations. [Smoothing](/fabric/enterprise/throttling#balance-between-performance-and-reliability) is enabled for Fabric capacity reservations. Smoothing spreads usage spikes into 24-hour intervals (except for interactive usage such as reports read from Power BI or KQL). Therefore, reservations examine the average CU consumption over a 24-hour interval. You purchase a Fabric capacity reservation of two CUs, and you enable smoothing for Fabric capacity. Assume that your usage spikes to 4 CUs within an hour. You pay the pay-as-you-go rate only if the CU consumption exceeds an average of two CU per hour during the 24-hour interval.
 
 ## Increase the size of a Fabric Capacity reservation
 
