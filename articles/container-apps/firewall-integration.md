@@ -43,7 +43,7 @@ The following tables describe how to configure a collection of NSG allow rules. 
 | TCP | Your client IPs | \* | Your container app's subnet<sup>1</sup> | `443` | Allow your Client IPs to access Azure Container Apps.  |
 | TCP | Your client IPs | \* | `staticIP`of your container app's environment | `443` | Allow your Client IPs to access Azure Container Apps.  |
 | TCP | AzureLoadBalancer | \* | Your container app's subnet | `30,000-32,676`<sup>2</sup> | Allow Azure Load Balancer to probe backend pools. | 
-| TCP | Your container app's subnet | \* | Your container app's subnet | \* | Required to allow the envoy sidecar to connect to envoy. |
+| TCP | Your container app's subnet | \* | Your container app's subnet | \* | Required to allow the container app envoy sidecar to connect to envoy service. |
 ---
 
 <sup>1</sup> This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`.   
