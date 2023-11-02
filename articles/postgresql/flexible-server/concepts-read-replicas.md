@@ -279,9 +279,21 @@ Being prepared for potential regional disasters is critical to ensure the uninte
 4. **Configure the read replica**: Not all settings from the primary server are replicated over to the read replica. It's crucial to ensure that all necessary configurations and features (e.g., PgBouncer) are appropriately set up on your read replica. For more guidance, consult the [Configuration management](#configuration-management-1) section.
 5. **Prepare for High Availability (HA)**: If your setup requires high availability, it won't be automatically enabled on a promoted replica. Be ready to activate it post-promotion. Consider automating this step to minimize downtime.
 6. **Regular testing**: Regularly simulate regional disaster scenarios to validate existing thresholds, targets, and configurations. Ensure that your application responds as expected during these test scenarios. 
-7. **Follow Azure's general guidance**: Azure provides comprehensive guidance on reliability and disaster preparedness. It's highly beneficial to consult these resources and integrate best practices into your preparedness plan.
+7. **Follow Azure's general guidance**: Azure provides comprehensive guidance on [reliability and disaster preparedness](../../reliability/overview.md). It's highly beneficial to consult these resources and integrate best practices into your preparedness plan.
 
 Being proactive and preparing in advance for regional disasters will ensure the resilience and reliability of your applications and data.
+
+### When outages impact your SLA
+If you experience a prolonged outage with Azure Database for PostgreSQL in a specific region that threatens your application's service-level agreement (SLA), consider the following steps:
+
+**Promote to primary server (preview)**
+
+Use this action if your server fulfills the server symmetry criteria. This option will not require updating the connection strings in your application, provided virtual endpoints are configured. Once activated, the writer endpoint will repoint to the new primary in a different region. Once the affected region is restored, the former primary server will automatically resume, but now in a replica role. During the regional outage, the [replication status](#monitor-replication) column in the Azure portal will display "Waiting for reconfigure."
+
+**Promote to independent server and remove from replication**
+
+If your server doesn't meet the [server symmetry](#configuration-management) requirement (e.g., the geo-replica has a higher tier or more storage than the primary), this is the only viable option. After promoting the server, you'll need to update your application's connection strings. Once the original region is restored, the old primary might become active again. Ensure to remove it to avoid incurring unnecessary costs. If you wish to maintain the previous topology, recreate the read replica.
+
 
 
 ## Considerations
