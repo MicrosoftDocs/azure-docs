@@ -56,11 +56,10 @@ You can use four types of security protocols to connect to your Kafka clusters:
 ### Connect to Confluent Cloud using API key
 
 The ASA Kafka input is a librdkafka-based client, and to connect to confluent cloud, you need TLS certificates that confluent cloud uses for server auth.
-Confluent uses TLS certificates from Let’s Encrypt, an open certificate authority (CA) You can download the ISRG Root X1 certificate in PEM format on the site of [LetsEncrypt](https://letsencrypt.org/certificates/).
+Confluent uses TLS certificates from Let’s Encrypt, an open certificate authority (CA). You can download the ISRG Root X1 certificate in PEM format on the site of [LetsEncrypt](https://letsencrypt.org/certificates/).
 
 > [!IMPORTANT]
-> You must upload the certificate as a secret.
-> You must use Azure CLI to upload the certificate as a secret to your key vault.
+>  You must use Azure CLI to upload the certificate as a secret to your key vault. You cannot use Azure Portal to upload a certificate that has multiline secrets to key vault.
 
 To authenticate using the API Key confluent offers, you must use the SASL_SSL protocol and complete the configuration as follows:
 
@@ -71,8 +70,8 @@ To authenticate using the API Key confluent offers, you must use the SASL_SSL pr
  | KeyVault | Name of Azure Key vault with Uploaded certificate from Let’s Encrypt |
  | Certificate | name of the certificate uploaded to KeyVault downloaded from Let’s Encrypt (Download the ISRG Root X1 certificate in PEM format). Note: you must upload the certificate as a secret using Azure CLI. Refer to the **Key vault integration** guide below |
 
- > [!NOTE]
-> Depending on how your confluent cloud kafka cluster is configured, you may need a certificate different from the standard certificate confluent cloud uses for server authenticate. Confirm with the admin of the confluent cloud kafka cluster to verify what certificate to use.
+> [!NOTE]
+> Depending on how your confluent cloud kafka cluster is configured, you may need a certificate different from the standard certificate confluent cloud uses for server authentication. Confirm with the admin of the confluent cloud kafka cluster to verify what certificate to use.
 >
 
 ## Key vault integration
@@ -111,7 +110,7 @@ Follow the following to grant admin access:
 > [!IMPORTANT]
 > You must have "**Key Vault Administrator**" permissions access to your Key vault for this command to work properly
 > You must upload the certificate as a secret. You must use Azure CLI to upload certificates as secrets to your key vault.
-> Your Azure Stream Analytics job will fail when the certificate used for authentication expires. To resolve this, you must update/replace the certificate in your key vault and restart your Azure Stream Analytics job
+> Your Azure Stream Analytics job will fail when the certificate used for authentication expires. To resolve this, you must update/replace the certificate in your key vault and restart your Azure Stream Analytics job.
 
 You can visit this page to get guidance on setting up Azure CLI: [Get started with Azure CLI](https://learn.microsoft.com/cli/azure/get-started-with-azure-cli#how-to-sign-into-the-azure-cli)
 The following command can upload the certificate as a secret to your key vault. You must have "**Key Vault Administrator**" permissions access to your Key vault for this command to work properly.
