@@ -198,7 +198,7 @@ Then select **Review + submit** to submit a batch run and the selected evaluatio
 
 When your run have been submitted successfully, select **View run list** to navigate to the batch run list of this flow.
 
-The batch run may take a while to finish. You can **Refresh** the page to load the latest status. 
+The batch run might take a while to finish. You can **Refresh** the page to load the latest status. 
 
 After the batch run is completed, select the run, then **Visualize outputs** to view the result of your batch run. Select **View outputs** (eye icon) to append evaluation results to the table of batch run results. You can see the total token count and overall accuracy, then in the table you will see the results for each row of data: input, flow output and evaluation results (which cases are predicted correctly and which are not.).
 
