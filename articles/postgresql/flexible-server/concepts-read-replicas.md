@@ -150,7 +150,7 @@ This action promotes the replica to serve as the primary server. Concurrently, t
 By opting for this, the replica becomes an independent server and is removed from the replication process. As a result, both the primary and the promoted server will function as two independent read-write servers. The newly promoted server will no longer be part of any existing virtual endpoints, even if the reader endpoint was previously pointing to it. Thus, it's essential to update your application's connection string to direct to the newly promoted replica if the application should connect to it.
 
 > [!IMPORTANT]
-> **Server Symmetry**: For a successful promotion using the default promote operation (promote to primary server), both the primary and replica servers must have identical tiers and storage sizes. For instance, if the primary has 2vCores and the replica has 4vCores, the only viable option is to use the "promote to independent server and remove from replication" action. Additionally, they need to share the same values for [server parameters that allocate shared memory](#server-parameters). 
+> **Server Symmetry**: For a successful promotion using the promote to primary server operation, both the primary and replica servers must have identical tiers and storage sizes. For instance, if the primary has 2vCores and the replica has 4vCores, the only viable option is to use the "promote to independent server and remove from replication" action. Additionally, they need to share the same values for [server parameters that allocate shared memory](#server-parameters). 
 
 For both promotion methods, there are additional options to consider:
 
@@ -187,13 +187,13 @@ Virtual Endpoints offer two distinct types of connection points:
 
 ### Virtual Endpoints and Promote Behavior
 In the event of a promote action, the behavior of these endpoints remains predictable.
-The sections below delve into the specifics of how these endpoints react to both default "Promote to primary server" and "Promote to independent server" scenarios.
+The sections below delve into the specifics of how these endpoints react to both "Promote to primary server" and "Promote to independent server" scenarios.
 
-| **Virtual endpoint**     | **Original target** | **Behavior when "Promote to primary server" is triggered**            | **Behavior when "Promote to independent server" is triggered** |
-|--------------------------|---------------------|-----------------------------------------------------------------------|-------------------------|
-| <b> Writer endpoint      | Primary             | Points to the new primary server.	                                    | Remains unchanged.      |
-| <b> Read-Only endpoint		 | Replica             | Points to the new replica (former primary).	                          | Points to the primary server. |
-| <b> Read-Only endpoint	  | Primary             | Continues to point to the same server, which becomes a replica after the promote.	| Remains unchanged.      |
+| **Virtual endpoint**     | **Original target** | **Behavior when "Promote to primary server" is triggered** | **Behavior when "Promote to independent server" is triggered** |
+|--------------------------|---------------------|------------------------------------------------------------|-------------------------|
+| <b> Writer endpoint      | Primary             | Points to the new primary server.	                         | Remains unchanged.      |
+| <b> Read-Only endpoint		 | Replica             | Points to the new replica (former primary).	               | Points to the primary server. |
+| <b> Read-Only endpoint	  | Primary             | Not supported.	                                            | Remains unchanged.      |
 
 
 #### Behavior when "Promote to primary server" is triggered
@@ -327,7 +327,11 @@ While the server is a read replica, no backups are taken. However, once it's pro
 
 
 ### Networking
-Read replicas support both private access, via VNet integration, and public access, through allowed IP addresses. However, please note that private endpoint is not currently supported. For more information about how to configure private access (VNet integration) for your read replicas and understand the implications for replication across Azure regions and virtual networks within a private networking context, refer to the [Replication across Azure regions and virtual networks with private networking](concepts-networking-private.md#replication-across-azure-regions-and-virtual-networks-with-private-networking) page.
+Read replicas support both private access, via VNet integration, and public access, through allowed IP addresses. However, please note that private endpoint is not currently supported. 
+
+Bi-directional communication between the primary server and read replicas is crucial for the Azure Database for PostgreSQL - Flexible Server setup. There must be a provision for both to send and receive traffic on destination port 5432 within the Azure virtual network subnet. This requirement not only facilitates the synchronization process but also ensures proper functioning of the failover mechanism where replicas may need to communicate in reverse order — from replica to primary — especially during promote to primary operations. Moreover, connections to the Azure storage account that stores Write-Ahead Logging (WAL) archives must be permitted to uphold data durability and enable efficient recovery processes.
+
+For more information about how to configure private access (VNet integration) for your read replicas and understand the implications for replication across Azure regions and virtual networks within a private networking context, refer to the [Replication across Azure regions and virtual networks with private networking](concepts-networking-private.md#replication-across-azure-regions-and-virtual-networks-with-private-networking) page.
 
 ### Replication slot issues mitigation
 
