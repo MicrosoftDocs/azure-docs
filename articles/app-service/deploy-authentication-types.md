@@ -12,7 +12,7 @@ ms.author: cephalin
 Azure App Service lets you deploy your web application code and configuration by using multiple options. These deployment options may support one or more authentication mechanisms. This article provides details about various authentication mechanisms supported by different deployment methods. 
 
 > [!NOTE]
-> To disable basic authentication for your App Service app, see [Configure deployment credentials](deploy-configure-credentials.md). 
+> To disable basic authentication for your App Service app, see [Disable basic authentication in App Service deployments](configure-basic-auth-disable.md). 
 
 |Deployment method|Authentication  |Reference Documents |
 |:----|:----|:----|
