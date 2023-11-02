@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: azure-ai-services
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.topic: how-to
-ms.date: 08/10/2023
+ms.date: 10/27/2023
 ms.author: aahi
 ---
 
@@ -171,7 +171,7 @@ You can manage default network access rules for Azure AI services resources thro
 
 You can configure Azure AI services resources to allow access from specific subnets only. The allowed subnets might belong to a virtual network in the same subscription or in a different subscription. The other subscription can belong to a different Microsoft Entra tenant.
 
-Enable a *service endpoint* for Azure AI services within the virtual network. The service endpoint routes traffic from the virtual network through an optimal path to the Azure AI services service. For more information, see [Virtual Network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md).
+Enable a *service endpoint* for Azure AI services within the virtual network. The service endpoint routes traffic from the virtual network through an optimal path to the Azure AI service. For more information, see [Virtual Network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md).
 
 The identities of the subnet and the virtual network are also transmitted with each request. Administrators can then configure network rules for the Azure AI services resource to allow requests from specific subnets in a virtual network. Clients granted access by these network rules must continue to meet the authorization requirements of the Azure AI services resource to access the data.
 
@@ -505,13 +505,13 @@ You can use [private endpoints](../private-link/private-endpoint-overview.md) fo
 
 Private endpoints for Azure AI services resources let you:
 
-- Secure your Azure AI services resource by configuring the firewall to block all connections on the public endpoint for the Azure AI services service.
+- Secure your Azure AI services resource by configuring the firewall to block all connections on the public endpoint for the Azure AI service.
 - Increase security for the virtual network, by enabling you to block exfiltration of data from the virtual network.
 - Securely connect to Azure AI services resources from on-premises networks that connect to the virtual network by using [Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) or [ExpressRoutes](../expressroute/expressroute-locations.md) with private-peering.
 
 ### Understand private endpoints
 
-A private endpoint is a special network interface for an Azure resource in your [virtual network](../virtual-network/virtual-networks-overview.md). Creating a private endpoint for your Azure AI services resource provides secure connectivity between clients in your virtual network and your resource. The private endpoint is assigned an IP address from the IP address range of your virtual network. The connection between the private endpoint and the Azure AI services service uses a secure private link.
+A private endpoint is a special network interface for an Azure resource in your [virtual network](../virtual-network/virtual-networks-overview.md). Creating a private endpoint for your Azure AI services resource provides secure connectivity between clients in your virtual network and your resource. The private endpoint is assigned an IP address from the IP address range of your virtual network. The connection between the private endpoint and the Azure AI service uses a secure private link.
 
 Applications in the virtual network can connect to the service over the private endpoint seamlessly. Connections use the same connection strings and authorization mechanisms that they would use otherwise. The exception is Speech Services, which require a separate endpoint. For more information, see [Private endpoints with the Speech Services](#use-private-endpoints-with-the-speech-service) in this article. Private endpoints can be used with all protocols supported by the Azure AI services resource, including REST.
 
@@ -559,6 +559,42 @@ For more information on configuring your own DNS server to support private endpo
 
 - [Name resolution that uses your own DNS server](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)
 - [DNS configuration](../private-link/private-endpoint-overview.md#dns-configuration)
+
+## Grant access to trusted Azure services for Azure OpenAI
+
+You can grant a subset of trusted Azure services access to Azure OpenAI, while maintaining network rules for other apps. These trusted services will then use managed identity to authenticate your Azure OpenAI service. The following table lists the services that can access Azure OpenAI if the managed identity of those services have the appropriate role assignment.
+
+
+|Service  |Resource provider name  |
+|---------|---------|
+|Azure AI Services     | `Microsoft.CognitiveServices`   |
+|Azure Machine Learning     |`Microsoft.MachineLearningServices`         |
+|Azure Cognitive Search     | `Microsoft.Search`         |
+
+
+You can grant networking access to trusted Azure services by creating a network rule exception using the REST API:
+```bash
+
+accessToken=$(az account get-access-token --resource https://management.azure.com --query "accessToken" --output tsv)
+rid="/subscriptions/<your subscription id>/resourceGroups/<your resource group>/providers/Microsoft.CognitiveServices/accounts/<your Azure AI resource name>"
+
+curl -i -X PATCH https://management.azure.com$rid?api-version=2023-10-01-preview \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer $accessToken" \
+-d \
+'
+{
+    "properties":
+    {
+        "networkAcls": {
+            "bypass": "AzureServices"
+        }
+    }
+}
+'
+```
+
+To revoke the exception, set `networkAcls.bypass` to `None`. 
 
 ### Pricing
 
