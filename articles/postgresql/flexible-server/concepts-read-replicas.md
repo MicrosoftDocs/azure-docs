@@ -100,14 +100,14 @@ When a read replica is created, it inherits certain server configurations from t
 **Configurations during replica creation**
 
 * **Firewall rules**: Can be added, deleted, or modified.
-* **Tier, storage size**: For both "promote to primary server" and "promote to independent server and remove from replication" operations, it can be the same as the primary. However, for "promote to independent server and remove from replication", it can also be higher than the primary.
+* **Tier, storage size**: For the "promote to primary server" operation, it must be the same as the primary. For the "promote to independent server and remove from replication" operation, it can be the same or higher than the primary.
 * **Performance tier (IOPS)**: Adjustable.
 * **Data encryption**: Adjustable, include moving from service-managed keys to customer-managed keys.
 
 **Configurations post creation**
 
 * **Firewall rules**: Can be added, deleted, or modified.
-* **Tier, storage size**: For both "promote to primary server" and "promote to independent server and remove from replication" operations, it can be the same as the primary. However, for "promote to independent server and remove from replication", it can also be higher than the primary.
+* **Tier, storage size**: For the "promote to primary server" operation, it must be the same as the primary. For the "promote to independent server and remove from replication" operation, it can be the same or higher than the primary.
 * **Performance tier (IOPS)**: Adjustable.
 * **Authentication method**: Adjustable, options include switching from PostgreSQL authentication to Microsoft Entra.
 * **Server parameters**: Most are adjustable. However, those [affecting shared memory size](#server-parameters) should align with the primary, especially for potential "promote to primary server" scenarios. For the "promote to independent server and remove from replication" operation, these parameters should be the same or exceed those on the primary.
@@ -175,11 +175,11 @@ Read replicas are treated as separate servers in terms of control plane configur
 
 The promote operation will not carry over certain configurations and parameters. Here are some of the notable ones:
 
-* **PgBouncer**: The built-in PgBouncer connection pooler's settings and status are not replicated during the promotion process. If PgBouncer was enabled on the primary but not on the replica, it will remain disabled on the replica after promotion. Should you want PgBouncer on the newly promoted server, you must enable it either prior to or following the promotion action.
+* **PgBouncer**: [The built-in PgBouncer](concepts-pgbouncer.md) connection pooler's settings and status are not replicated during the promotion process. If PgBouncer was enabled on the primary but not on the replica, it will remain disabled on the replica after promotion. Should you want PgBouncer on the newly promoted server, you must enable it either prior to or following the promotion action.
 * **Geo-redundant backup storage**: Geo-backup settings aren't transferred. Since replicas cannot have geo-backup enabled, the promoted primary (formerly the replica) won't have it post-promotion. The feature can only be activated at the server's creation time.
 * **Server Parameters**: If their values differ on the primary and read replica, they will not be changed during promotion. It's essential to note that parameters influencing shared memory size must have the same values on both the primary and replicas. This requirement is detailed in the [Server parameters](#server-parameters) section.
-* **Microsoft Entra authentication**: If the primary had Entra configured, but the replica was set up with PostgreSQL authentication, then after promotion, the replica will not automatically switch to Entra. It retains the PostgreSQL authentication. Users need to manually configure Entra on the promoted replica either before or after the promotion process.
-* **High Availability (HA)**: Should you require HA after the promotion, it must be configured on the freshly promoted primary server, following the role reversal.
+* **Microsoft Entra authentication**: If the primary had [Microsoft Entra authentication](concepts-azure-ad-authentication.md) configured, but the replica was set up with PostgreSQL authentication, then after promotion, the replica will not automatically switch to Microsoft Entra authentication. It retains the PostgreSQL authentication. Users need to manually configure Microsoft Entra authentication on the promoted replica either before or after the promotion process.
+* **High Availability (HA)**: Should you require [HA](concepts-high-availability.md) after the promotion, it must be configured on the freshly promoted primary server, following the role reversal.
 
 
 ## Virtual Endpoints (preview)
@@ -345,7 +345,7 @@ It is essential to monitor storage usage and replication lag closely, and take n
 
 When a read replica is created, it inherits the server parameters from primary server. This is to ensure a consistent and reliable starting point. However, any changes to the server parameters on the primary server, made post the creation of the read replica, are not automatically replicated. This behavior offers the advantage of individual tuning of the read replica, such as enhancing its performance for read-intensive operations, without modifying the primary server's parameters. While this provides flexibility and customization options, it also necessitates careful and manual management to maintain consistency between the primary and its replica when uniformity of server parameters is required.
 
-Administrators can change server parameters on read replica server and set different values than on the primary server. The only exception are parameters that might affect recovery of the replica, mentioned also in the "Scaling" section below: max_connections, `max_prepared_transactions`, max_locks_per_transaction, max_wal_senders, max_worker_processes. To ensure the read replica’s recovery is seamless and it does not encounter shared memory limitations, these particular parameters should always be set to values that are either equivalent to or [greater than those configured on the primary server](https://www.postgresql.org/docs/current/hot-standby.html#HOT-STANDBY-ADMIN).
+Administrators can change server parameters on read replica server and set different values than on the primary server. The only exception are parameters that might affect recovery of the replica, mentioned also in the "Scaling" section below: `max_connections`, `max_prepared_transactions`, `max_locks_per_transaction`, `max_wal_senders`, `max_worker_processes`. To ensure the read replica’s recovery is seamless and it does not encounter shared memory limitations, these particular parameters should always be set to values that are either equivalent to or [greater than those configured on the primary server](https://www.postgresql.org/docs/current/hot-standby.html#HOT-STANDBY-ADMIN).
 
 ### Scaling
 
