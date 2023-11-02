@@ -1,5 +1,5 @@
 ---
-title: Prompt flow ecosystem (preview)
+title: Prompt flow ecosystem
 titleSuffix: Azure Machine Learning
 description: Introduction to the Prompt flow ecosystem, which includes the Prompt flow open source project, tutorials, SDK, CLI and VS Code extension.
 services: machine-learning
@@ -12,17 +12,12 @@ ms.reviewer: lagayhar
 ms.date: 09/12/2023
 ---
 
-# Prompt flow ecosystem (preview)
+# Prompt flow ecosystem
 
 The Prompt flow ecosystem aims to provide a comprehensive set of tutorials, tools and resources for developers who want to leverage the power of Prompt flow to experimentally tune their prompts and develop their LLM-based application in pure local environment, without any dependencies on Azure resources binding. This article provides an overview of the key components within the ecosystem, which include:
  - **Prompt flow open source project** in GitHub.
  - **Prompt flow SDK and CLI** for seamless flow execution and integration with CI/CD pipeline.
  - **VS Code extension** for convenient flow authoring and development within a local environment.
-
-> [!IMPORTANT]
-> Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 
 ## Prompt flow SDK/CLI
 
