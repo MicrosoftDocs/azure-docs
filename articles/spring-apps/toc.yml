@@ -35,7 +35,7 @@ items:
 - name: Tutorials
   expanded: true
   items:
-  - name: "Run polyglot apps on Enterprise plan (ACME Fitness Store)"
+  - name: Run polyglot apps on Enterprise plan
     items:
     - name: Introduction to Fitness Store sample
       href: quickstart-sample-app-acme-fitness-store-introduction.md
