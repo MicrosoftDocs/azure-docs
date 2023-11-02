@@ -148,7 +148,7 @@ Azure Container Instances virtual nodes that run the Linux OS are shown after th
 
 From an expanded node, you can drill down from the pod or container that runs on the node to the controller to view performance data filtered for that controller. Select the value under the **Controller** column for the specific node.
 
-:::image type="content" source="./media/container-insights-analyze/drill-down-node-controller.png" alt-text="Screenshot that shows the drill-down from node to controller in the performance view." lightbox="media/container-insights-analyze/drill-down-node-controller.png" border="false":::
+:::image type="content" source="./media/container-insights-analyze/drill-down-node-controller.png" alt-text="Screenshot that shows the drill-down from node to controller in the performance view." lightbox="media/container-insights-analyze/drill-down-node-controller.png":::
 
 Select controllers or containers at the top of the page to review the status and resource utilization for those objects. To review memory utilization, in the **Metric** dropdown list, select **Memory RSS** or **Memory working set**. **Memory RSS** is supported only for Kubernetes version 1.8 and later. Otherwise, you view values for **Min&nbsp;%** as *NaN&nbsp;%*, which is a numeric data type value that represents an undefined or unrepresentable value.
 
@@ -210,7 +210,7 @@ The row hierarchy starts with a controller. When you expand a controller, you vi
 
 Select the value under the **Node** column for the specific controller.
 
-:::image type="content" source="./media/container-insights-analyze/drill-down-controller-node.png" alt-text="Screenshot that shows an example drill-down from controller to node in the performance view." lightbox="media/container-insights-analyze/drill-down-controller-node.png" border="false":::
+:::image type="content" source="./media/container-insights-analyze/drill-down-controller-node.png" alt-text="Screenshot that shows an example drill-down from controller to node in the performance view." lightbox="media/container-insights-analyze/drill-down-controller-node.png":::
 
 The information that's displayed when you view controllers is described in the following table.
 
@@ -230,10 +230,10 @@ The icons in the status field indicate the online status of the containers.
 
 | Icon | Status |
 |--------|-------------|
-| ![Ready running status icon.](./media/container-insights-analyze/containers-ready-icon.png) | Running (Ready)|
-| ![Waiting or Paused status icon.](./media/container-insights-analyze/containers-waiting-icon.png) | Waiting or Paused|
-| ![Last reported running status icon.](./media/container-insights-analyze/containers-grey-icon.png) | Last reported running but hasn't responded for more than 30 minutes|
-| ![Successful status icon.](./media/container-insights-analyze/containers-green-icon.png) | Successfully stopped or failed to stop|
+| :::image type="content" source="./media/container-insights-analyze/containers-ready-icon.png" alt-text="Ready running status icon.":::|
+| :::image type="content" source="./media/container-insights-analyze/containers-waiting-icon.png" alt-text="Waiting or Paused status icon."::: | Waiting or Paused|
+| :::image type="content" source="./media/container-insights-analyze/containers-grey-icon.png" alt-text="Last reported running status icon."::: | Last reported running but hasn't responded for more than 30 minutes|
+| :::image type="content" source="./media/container-insights-analyze/containers-green-icon.png" alt-text="Successful status icon."::: | Successfully stopped or failed to stop|
 
 The status icon displays a count based on what the pod provides. It shows the worst two states. When you hover over the status, it displays a rollup status from all pods in the container. If there isn't a ready state, the status value displays **(0)**.
 
@@ -247,7 +247,7 @@ Here you can view the performance health of your AKS and Container Instances con
 
 From a container, you can drill down to a pod or node to view performance data filtered for that object. Select the value under the **Pod** or **Node** column for the specific container.
 
-:::image type="content" source="./media/container-insights-analyze/drill-down-container-node.png" alt-text="Screenshot that shows an example drill-down from node to containers in the performance view." lightbox="media/container-insights-analyze/drill-down-controller-node.png" border="false":::
+:::image type="content" source="./media/container-insights-analyze/drill-down-container-node.png" alt-text="Screenshot that shows an example drill-down from node to containers in the performance view." lightbox="media/container-insights-analyze/drill-down-controller-node.png":::
 
 The information that's displayed when you view containers is described in the following table.
 
@@ -267,11 +267,11 @@ The icons in the status field indicate the online statuses of pods, as described
 
 | Icon | Status |
 |--------|-------------|
-| ![Ready running status icon.](./media/container-insights-analyze/containers-ready-icon.png) | Running (Ready)|
-| ![Waiting or Paused status icon.](./media/container-insights-analyze/containers-waiting-icon.png) | Waiting or Paused|
-| ![Last reported running status icon.](./media/container-insights-analyze/containers-grey-icon.png) | Last reported running but hasn't responded in more than 30 minutes|
-| ![Terminated status icon.](./media/container-insights-analyze/containers-terminated-icon.png) | Successfully stopped or failed to stop|
-| ![Failed status icon.](./media/container-insights-analyze/containers-failed-icon.png) | Failed state |
+| :::image type="content" source="./media/container-insights-analyze/containers-ready-icon.png" alt-text="Ready running status icon.":::|
+| :::image type="content" source="./media/container-insights-analyze/containers-waiting-icon.png" alt-text="Waiting or Paused status icon."::: | Waiting or Paused|
+| :::image type="content" source="./media/container-insights-analyze/containers-grey-icon.png" alt-text="Last reported running status icon."::: | Last reported running but hasn't responded in more than 30 minutes|
+| :::image type="content" source="./media/container-insights-analyze/containers-terminated-icon.png" alt-text="Terminated status icon."::: | Successfully stopped or failed to stop|
+| :::image type="content" source="./media/container-insights-analyze/containers-failed-icon.png" alt-text="Failed status icon."::: | Failed state |
 
 ## Monitor and visualize network configurations
 
