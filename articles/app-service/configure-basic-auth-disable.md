@@ -12,7 +12,7 @@ ms.author: cephalin
 
 This article shows you how to disable basic authentication (username and password authentication) when deploying code to App Service apps.
 
-App Service provides basic authentication for FTP and WebDeploy clients to connect to it by using [deployment credentials](deploy-configure-credentials.md). These APIs are great for browsing your site’s file system, uploading drivers and utilities, and deploying with MsBuild. However, enterprises often require more secure deployment methods than basic authentication, such as ones that are backed by [Microsoft Entra ID](/entra/fundamentals/whatis) (see [Authentication types by deployment methods in Azure App Service](deploy-authentication-types.md)). Entra ID uses OAuth 2.0 token-based authorization and has many benefits and improvements that help mitigate the issues in basic authentication. For example, OAuth access tokens have a limited usable lifetime, and are specific to the applications and resources for which they are issued, so they cannot be reused. Entra ID also lets you deploy from other Azure services using managed identities.
+App Service provides basic authentication for FTP and WebDeploy clients to connect to it by using [deployment credentials](deploy-configure-credentials.md). These APIs are great for browsing your site’s file system, uploading drivers and utilities, and deploying with MsBuild. However, enterprises often require more secure deployment methods than basic authentication, such as [Microsoft Entra ID](/entra/fundamentals/whatis) authentication (see [Authentication types by deployment methods in Azure App Service](deploy-authentication-types.md)). Entra ID uses OAuth 2.0 token-based authorization and has many benefits and improvements that help mitigate the issues in basic authentication. For example, OAuth access tokens have a limited usable lifetime, and are specific to the applications and resources for which they're issued, so they can't be reused. Entra ID also lets you deploy from other Azure services using managed identities.
 
 ## Disable basic authentication
 
@@ -119,7 +119,7 @@ For more information, see [Create or update Azure custom roles using Azure CLI](
 
 All successful and attempted logins are logged to the Azure Monitor `AppServiceAuditLogs` log type. To audit the attempted and successful logins on FTP and WebDeploy, follow the steps at [Send logs to Azure Monitor](troubleshoot-diagnostic-logs.md#send-logs-to-azure-monitor) and enable shipping of the `AppServiceAuditLogs` log type.
 
-To confirm that the logs are shipped to your selected service(s), try logging in via FTP or WebDeploy. An example Storage Account log is shown below.
+To confirm that the logs are shipped to your selected service(s), try logging in via FTP or WebDeploy. The following example shows a Storage Account log.
 
 <pre>
 {
@@ -138,7 +138,7 @@ To confirm that the logs are shipped to your selected service(s), try logging in
 
 ## Basic authentication related policies
 
-[Azure Policy](../governance/policy/overview.md) can help you enforce organizational standards and to assess compliance at-scale. You can use Azure Policy to audit for any apps that haven't disabled basic authentication, and remediate any noncompliant resources. The following are built-in policies for auditing and remediating basic authentication on App Service:
+[Azure Policy](../governance/policy/overview.md) can help you enforce organizational standards and to assess compliance at-scale. You can use Azure Policy to audit for any apps that still use basic authentication, and remediate any noncompliant resources. The following are built-in policies for auditing and remediating basic authentication on App Service:
 
 - [Audit policy for FTP](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F871b205b-57cf-4e1e-a234-492616998bf7)
 - [Audit policy for SCM](https://ms.portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faede300b-d67f-480a-ae26-4b3dfb1a1fdc)
