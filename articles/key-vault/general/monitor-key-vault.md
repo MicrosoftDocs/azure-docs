@@ -60,7 +60,7 @@ To create a diagnostic setting for you key vault, see [Enable Key Vault logging]
 
 ## Analyzing metrics
 
-You can analyze metrics for Key Vault with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Getting started with Azure Metrics Explorer](../../azure-monitor/essentials/metrics-getting-started.md) for details on using this tool.
+You can analyze metrics for Key Vault with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Analyze metrics with Azure Monitor metrics explorer](../../azure-monitor/essentials/analyze-metrics.md) for details on using this tool.
 
 For a list of the platform metrics collected for Key Vault, see [Monitoring Key Vault data reference metrics](monitor-key-vault-reference.md#metrics)  
 
@@ -188,7 +188,7 @@ Here are some queries that you can enter into the **Log search** bar to help you
 
 Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system preemptively. You can set alerts on [metrics](../../azure-monitor/alerts/alerts-metric-overview.md), [logs](../../azure-monitor/alerts/alerts-unified-log.md), and the [activity log](../../azure-monitor/alerts/activity-log-alerts.md).  
 
-If you are creating or running an application which runs on Azure Key Vault, [Azure Monitor Application Insights](../../azure-monitor/overview.md#application-insights) may offer additional types of alerts.
+If you are creating or running an application which runs on Azure Key Vault, [Azure Monitor Application Insights](../../azure-monitor/app/app-insights-overview.md) may offer additional types of alerts.
 
 Here are some common and recommended alert rules for Azure Key Vault -
 
@@ -204,4 +204,4 @@ See [Alerting for Azure Key Vault](alert.md) for more details.
 
 - See [Monitoring Azure Key Vault data reference](monitor-key-vault-reference.md) for a reference of the metrics, logs, and other important values created by Key Vault.
 - See [Monitoring Azure resources with Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.
-- Seem [Alerting for Azure Key Vault](alert.md)
+- See [Alerting for Azure Key Vault](alert.md)

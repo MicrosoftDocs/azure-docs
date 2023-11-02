@@ -15,7 +15,7 @@ author: seesharprun
 > [!IMPORTANT]
 > A breaking change has been introduced with the 1.0 release of our encryption packages. If you created data encryption keys and encryption-enabled containers with prior versions, you will need to re-create your databases and containers after migrating your client code to 1.0 packages.
 
-Always Encrypted is a feature designed to protect sensitive data, such as credit card numbers or national identification numbers (for example, U.S. social security numbers), stored in Azure Cosmos DB. Always Encrypted allows clients to encrypt sensitive data inside client applications and never reveal the encryption keys to the database.
+Always Encrypted is a feature designed to protect sensitive data, such as credit card numbers or national/regional identification numbers (for example, U.S. social security numbers), stored in Azure Cosmos DB. Always Encrypted allows clients to encrypt sensitive data inside client applications and never reveal the encryption keys to the database.
 
 Always Encrypted brings client-side encryption capabilities to Azure Cosmos DB. Encrypting your data client-side can be required in the following scenarios:
 
@@ -54,11 +54,6 @@ For each property that you want to encrypt, the encryption policy defines:
 - An encryption type. It can be either randomized or deterministic.
 - The encryption algorithm to use when encrypting the property. The specified algorithm can override the algorithm defined when creating the key if they are compatible.
 
-> [!NOTE]
-> The following properties can't be encrypted:
-> - ID
-> - The container's partition key
-
 #### Randomized vs. deterministic encryption
 
 The Azure Cosmos DB service never sees the plain text of properties encrypted with Always Encrypted. However, it still supports some querying capabilities over the encrypted data, depending on the encryption type used for a property. Always Encrypted supports the following two types of encryptions:
@@ -77,12 +72,12 @@ The first step to get started with Always Encrypted is to create your CMKs in Az
 1. Create a new key in the **Keys** section.
 1. Once the key is created, browse to its current version, and copy its full key identifier:<br>`https://<my-key-vault>.vault.azure.net/keys/<key>/<version>`. If you omit the key version at the end of the key identifier, the latest version of the key is used.
 
-Next, you need to configure how the Azure Cosmos DB SDK will access your Azure Key Vault instance. This authentication is done through an Azure Active Directory (AD) identity. Most likely, you'll use the identity of an Azure AD application or a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) as the proxy between your client code and your Azure Key Vault instance, although any kind of identity could be used. Use the following steps to use your Azure AD identity as the proxy:
+Next, you need to configure how the Azure Cosmos DB SDK will access your Azure Key Vault instance. This authentication is done through a Microsoft Entra identity. Most likely, you'll use the identity of a Microsoft Entra application or a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) as the proxy between your client code and your Azure Key Vault instance, although any kind of identity could be used. Use the following steps to use your Microsoft Entra identity as the proxy:
 
 1. From your Azure Key Vault instance, browse to the **Access policies** section, and add a new policy:
 
    1. In **Key permissions**, select **Get**, **List**, **Unwrap Key**, **Wrap Key**, **Verify** and **Sign**.
-   1. In **Select principal**, search for your Azure AD identity.
+   1. In **Select principal**, search for your Microsoft Entra identity.
 
 ### Protect your CMK from accidental deletion
 
@@ -108,7 +103,7 @@ If you're using an existing Azure Key Vault instance, you can verify that these 
 
 To use Always Encrypted, an instance of a `KeyResolver` must be attached to your Azure Cosmos DB SDK instance. This class, defined in the `Azure.Security.KeyVault.Keys.Cryptography` namespace, is used to interact with the key store hosting your CMKs.
 
-The following snippets use the `DefaultAzureCredential` class to retrieve the Azure AD identity to use when accessing your Azure Key Vault instance. You can find examples of creating different kinds of `TokenCredential` classes [here](/dotnet/api/overview/azure/identity-readme#credential-classes).
+The following snippets use the `DefaultAzureCredential` class to retrieve the Microsoft Entra identity to use when accessing your Azure Key Vault instance. You can find examples of creating different kinds of `TokenCredential` classes [here](/dotnet/api/overview/azure/identity-readme#credential-classes).
 
 > [!NOTE]
 > You will need the additional [Azure.Identity package](https://www.nuget.org/packages/Azure.Identity/) to access the `TokenCredential` classes.
@@ -124,7 +119,7 @@ var client = new CosmosClient("<connection-string>")
 
 To use Always Encrypted, an instance of a `KeyEncryptionKeyClientBuilder` must be attached to your Azure Cosmos DB SDK instance. This class, defined in the `com.azure.security.keyvault.keys.cryptography` namespace, is used to interact with the key store hosting your CMKs.
 
-The following snippets use the `DefaultAzureCredential` class to retrieve the Azure AD identity to use when accessing your Azure Key Vault instance. You can find examples of creating different kinds of `TokenCredential` classes [here](/java/api/overview/azure/identity-readme#credential-classes).
+The following snippets use the `DefaultAzureCredential` class to retrieve the Microsoft Entra identity to use when accessing your Azure Key Vault instance. You can find examples of creating different kinds of `TokenCredential` classes [here](/java/api/overview/azure/identity-readme#credential-classes).
 
 ```java
 TokenCredential tokenCredential = new DefaultAzureCredentialBuilder()

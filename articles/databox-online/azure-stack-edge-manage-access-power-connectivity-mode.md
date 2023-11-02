@@ -9,7 +9,7 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 06/24/2019
 ms.author: alkohli 
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ---
 
 # Manage access, power, and connectivity mode for your Azure Stack Edge Pro FPGA

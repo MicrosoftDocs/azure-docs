@@ -1,6 +1,6 @@
 ---
-title: Azure Policy samples for onboarding resources in Azure Chaos Studio
-description: Sample Azure policies to onboard resources to Azure Chaos Studio using targets and capabilities
+title: Azure Policy samples for adding resources to Chaos Studio
+description: Sample Azure policies to add resources to Azure Chaos Studio by using targets and capabilities.
 services: chaos-studio
 author: prasha-microsoft 
 ms.topic: sample
@@ -9,10 +9,10 @@ ms.author: prashabora
 ms.service: chaos-studio
 ---
 
-# Azure Policy samples for onboarding resources to Azure Chaos Studio
-This article includes sample [Azure policy](../governance/policy/overview.md) definitions that create [targets and capabilities](chaos-studio-targets-capabilities.md) for a specific resource type. You can automatically onboard resources to Chaos Studio by [deploying these samples as custom policy definitions](../governance/policy/tutorials/create-custom-policy-definition.md) and [assigning the policy](../governance/policy/assign-policy-portal.md) to a scope.
+# Azure Policy samples for adding resources to Azure Chaos Studio
+This article includes sample [Azure Policy](../governance/policy/overview.md) definitions that create [targets and capabilities](chaos-studio-targets-capabilities.md) for a specific resource type. You can automatically add resources to Azure Chaos Studio. First, you [deploy these samples as custom policy definitions](../governance/policy/tutorials/create-custom-policy-definition.md). Then you [assign the policy](../governance/policy/assign-policy-portal.md) to a scope.
 
-In these samples, we onboard service-direct targets and capabilities for each [supported resource type](chaos-studio-fault-providers.md) using [targets and capabilities](chaos-studio-targets-capabilities.md).
+In these samples, we add service-direct targets and capabilities for each [supported resource type](chaos-studio-fault-providers.md) by using [targets and capabilities](chaos-studio-targets-capabilities.md).
 
 ## Azure Cache for Redis policy definition
 
@@ -70,14 +70,14 @@ In these samples, we onboard service-direct targets and capabilities for each [s
               "resources": [
                 {
                   "type": "Microsoft.Cache/Redis/providers/targets",
-                  "apiVersion": "2021-09-15-preview",
+                  "apiVersion": "2023-11-01",
                   "name": "[concat(parameters('resourceName'), '/', 'Microsoft.Chaos/Microsoft-AzureCacheForRedis')]",
                   "location": "[parameters('location')]",
                   "properties": {}
                 },
                 {
                   "type": "Microsoft.Cache/Redis/providers/targets/capabilities",
-                  "apiVersion": "2021-09-15-preview",
+                  "apiVersion": "2023-11-01",
                   "name": "[concat(parameters('resourceName'), '/', 'Microsoft.Chaos/Microsoft-AzureCacheForRedis/Reboot-1.0')]",
                   "location": "[parameters('location')]",
                   "dependsOn": [
@@ -160,14 +160,14 @@ In these samples, we onboard service-direct targets and capabilities for each [s
               "resources": [
                 {
                   "type": "Microsoft.DocumentDB/databaseAccounts/providers/targets",
-                  "apiVersion": "2021-09-15-preview",
+                  "apiVersion": "2023-11-01",
                   "name": "[concat(parameters('resourceName'), '/', 'Microsoft.Chaos/Microsoft-CosmosDB')]",
                   "location": "[parameters('location')]",
                   "properties": {}
                 },
                 {
                   "type": "Microsoft.DocumentDB/databaseAccounts/providers/targets/capabilities",
-                  "apiVersion": "2021-09-15-preview",
+                  "apiVersion": "2023-11-01",
                   "name": "[concat(parameters('resourceName'), '/', 'Microsoft.Chaos/Microsoft-CosmosDB/Failover-1.0')]",
                   "location": "[parameters('location')]",
                   "dependsOn": [
@@ -250,14 +250,14 @@ In these samples, we onboard service-direct targets and capabilities for each [s
               "resources": [
                 {
                   "type": "Microsoft.ContainerService/managedClusters/providers/targets",
-                  "apiVersion": "2021-09-15-preview",
+                  "apiVersion": "2023-11-01",
                   "name": "[concat(parameters('resourceName'), '/', 'Microsoft.Chaos/Microsoft-AzureKubernetesServiceChaosMesh')]",
                   "location": "[parameters('location')]",
                   "properties": {}
                 },
                 {
                   "type": "Microsoft.ContainerService/managedClusters/providers/targets/capabilities",
-                  "apiVersion": "2021-09-15-preview",
+                  "apiVersion": "2023-11-01",
                   "name": "[concat(parameters('resourceName'), '/', 'Microsoft.Chaos/Microsoft-AzureKubernetesServiceChaosMesh/NetworkChaos-2.1')]",
                   "location": "[parameters('location')]",
                   "dependsOn": [
@@ -267,7 +267,7 @@ In these samples, we onboard service-direct targets and capabilities for each [s
                 },
                 {
                   "type": "Microsoft.ContainerService/managedClusters/providers/targets/capabilities",
-                  "apiVersion": "2021-09-15-preview",
+                  "apiVersion": "2023-11-01",
                   "name": "[concat(parameters('resourceName'), '/', 'Microsoft.Chaos/Microsoft-AzureKubernetesServiceChaosMesh/PodChaos-2.1')]",
                   "location": "[parameters('location')]",
                   "dependsOn": [
@@ -277,7 +277,7 @@ In these samples, we onboard service-direct targets and capabilities for each [s
                 },
                 {
                   "type": "Microsoft.ContainerService/managedClusters/providers/targets/capabilities",
-                  "apiVersion": "2021-09-15-preview",
+                  "apiVersion": "2023-11-01",
                   "name": "[concat(parameters('resourceName'), '/', 'Microsoft.Chaos/Microsoft-AzureKubernetesServiceChaosMesh/StressChaos-2.1')]",
                   "location": "[parameters('location')]",
                   "dependsOn": [
@@ -287,7 +287,7 @@ In these samples, we onboard service-direct targets and capabilities for each [s
                 },
                 {
                   "type": "Microsoft.ContainerService/managedClusters/providers/targets/capabilities",
-                  "apiVersion": "2021-09-15-preview",
+                  "apiVersion": "2023-11-01",
                   "name": "[concat(parameters('resourceName'), '/', 'Microsoft.Chaos/Microsoft-AzureKubernetesServiceChaosMesh/IOChaos-2.1')]",
                   "location": "[parameters('location')]",
                   "dependsOn": [
@@ -297,7 +297,7 @@ In these samples, we onboard service-direct targets and capabilities for each [s
                 },
                 {
                   "type": "Microsoft.ContainerService/managedClusters/providers/targets/capabilities",
-                  "apiVersion": "2021-09-15-preview",
+                  "apiVersion": "2023-11-01",
                   "name": "[concat(parameters('resourceName'), '/', 'Microsoft.Chaos/Microsoft-AzureKubernetesServiceChaosMesh/TimeChaos-2.1')]",
                   "location": "[parameters('location')]",
                   "dependsOn": [
@@ -307,7 +307,7 @@ In these samples, we onboard service-direct targets and capabilities for each [s
                 },
                 {
                   "type": "Microsoft.ContainerService/managedClusters/providers/targets/capabilities",
-                  "apiVersion": "2021-09-15-preview",
+                  "apiVersion": "2023-11-01",
                   "name": "[concat(parameters('resourceName'), '/', 'Microsoft.Chaos/Microsoft-AzureKubernetesServiceChaosMesh/KernelChaos-2.1')]",
                   "location": "[parameters('location')]",
                   "dependsOn": [
@@ -317,7 +317,7 @@ In these samples, we onboard service-direct targets and capabilities for each [s
                 },
                 {
                   "type": "Microsoft.ContainerService/managedClusters/providers/targets/capabilities",
-                  "apiVersion": "2021-09-15-preview",
+                  "apiVersion": "2023-11-01",
                   "name": "[concat(parameters('resourceName'), '/', 'Microsoft.Chaos/Microsoft-AzureKubernetesServiceChaosMesh/DNSChaos-2.1')]",
                   "location": "[parameters('location')]",
                   "dependsOn": [
@@ -327,7 +327,7 @@ In these samples, we onboard service-direct targets and capabilities for each [s
                 },
                 {
                   "type": "Microsoft.ContainerService/managedClusters/providers/targets/capabilities",
-                  "apiVersion": "2021-09-15-preview",
+                  "apiVersion": "2023-11-01",
                   "name": "[concat(parameters('resourceName'), '/', 'Microsoft.Chaos/Microsoft-AzureKubernetesServiceChaosMesh/HTTPChaos-2.1')]",
                   "location": "[parameters('location')]",
                   "dependsOn": [
@@ -354,7 +354,7 @@ In these samples, we onboard service-direct targets and capabilities for each [s
 }
 ```
 
-## Azure Network Security Group policy definition
+## Azure network security group policy definition
 
 ```json
 {
@@ -410,14 +410,14 @@ In these samples, we onboard service-direct targets and capabilities for each [s
               "resources": [
                 {
                   "type": "Microsoft.Network/networkSecurityGroups/providers/targets",
-                  "apiVersion": "2021-09-15-preview",
+                  "apiVersion": "2023-11-01",
                   "name": "[concat(parameters('resourceName'), '/', 'Microsoft.Chaos/Microsoft-NetworkSecurityGroup')]",
                   "location": "[parameters('location')]",
                   "properties": {}
                 },
                 {
                   "type": "Microsoft.Network/networkSecurityGroups/providers/targets/capabilities",
-                  "apiVersion": "2021-09-15-preview",
+                  "apiVersion": "2023-11-01",
                   "name": "[concat(parameters('resourceName'), '/', 'Microsoft.Chaos/Microsoft-NetworkSecurityGroup/SecurityRule-1.0')]",
                   "location": "[parameters('location')]",
                   "dependsOn": [
@@ -500,14 +500,14 @@ In these samples, we onboard service-direct targets and capabilities for each [s
               "resources": [
                 {
                   "type": "Microsoft.Compute/virtualMachines/providers/targets",
-                  "apiVersion": "2021-09-15-preview",
+                  "apiVersion": "2023-11-01",
                   "name": "[concat(parameters('resourceName'), '/', 'Microsoft.Chaos/Microsoft-VirtualMachine')]",
                   "location": "[parameters('location')]",
                   "properties": {}
                 },
                 {
                   "type": "Microsoft.Compute/virtualMachines/providers/targets/capabilities",
-                  "apiVersion": "2021-09-15-preview",
+                  "apiVersion": "2023-11-01",
                   "name": "[concat(parameters('resourceName'), '/', 'Microsoft.Chaos/Microsoft-VirtualMachine/Shutdown-1.0')]",
                   "location": "[parameters('location')]",
                   "dependsOn": [
@@ -590,14 +590,14 @@ In these samples, we onboard service-direct targets and capabilities for each [s
               "resources": [
                 {
                   "type": "Microsoft.Compute/virtualMachineScaleSets/providers/targets",
-                  "apiVersion": "2021-09-15-preview",
+                  "apiVersion": "2023-11-01",
                   "name": "[concat(parameters('resourceName'), '/', 'Microsoft.Chaos/Microsoft-VirtualMachineScaleSet')]",
                   "location": "[parameters('location')]",
                   "properties": {}
                 },
                 {
                   "type": "Microsoft.Compute/virtualMachineScaleSets/providers/targets/capabilities",
-                  "apiVersion": "2021-09-15-preview",
+                  "apiVersion": "2023-11-01",
                   "name": "[concat(parameters('resourceName'), '/', 'Microsoft.Chaos/Microsoft-VirtualMachineScaleSet/Shutdown-1.0')]",
                   "location": "[parameters('location')]",
                   "dependsOn": [
@@ -626,5 +626,5 @@ In these samples, we onboard service-direct targets and capabilities for each [s
 
 ## Next steps
 
-* [Learn more about Chaos Studio](chaos-studio-overview.md).
-* [Learn more about targets and capabilities](chaos-studio-targets-capabilities.md).
+* [Learn more about Chaos Studio](chaos-studio-overview.md)
+* [Learn more about targets and capabilities](chaos-studio-targets-capabilities.md)

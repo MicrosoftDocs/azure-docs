@@ -2,11 +2,9 @@
 title: Azure DDoS Protection features
 description: Learn Azure DDoS Protection features
 services: ddos-protection
-documentationcenter: na
 author: AbdullahBell
 ms.service: ddos-protection
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.custom: ignite-2022
 ms.workload: infrastructure-services
 ms.date: 10/12/2022
@@ -82,4 +80,4 @@ Learn how your services will respond to an attack by [testing through simulation
 
 ## Next steps
 
-- Learn how to [create an Azure DDoS Protection plan](manage-ddos-protection.md).
+- Learn more about [reference architectures](ddos-protection-reference-architectures.md).

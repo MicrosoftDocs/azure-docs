@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: reference
 ms.date: 08/20/2022
-ms.custom: devx-track-js
+ms.custom:
 ---
 
 # Schema reference guide for trigger and action types in Azure Logic Apps
@@ -79,8 +79,8 @@ Each trigger type has a different interface and inputs that define the trigger's
 
 | Trigger type | Description | 
 |--------------|-------------| 
-| [**ApiConnection**](#apiconnection-trigger) | Checks or *polls* an endpoint by using [Microsoft-managed APIs](../connectors/apis-list.md). | 
-| [**ApiConnectionWebhook**](#apiconnectionwebhook-trigger) | Creates a callable endpoint for your logic app by calling [Microsoft-managed APIs](../connectors/apis-list.md) to subscribe and unsubscribe. | 
+| [**ApiConnection**](#apiconnection-trigger) | Checks or *polls* an endpoint by using [Microsoft-managed APIs or "connectors"](../connectors/introduction.md). | 
+| [**ApiConnectionWebhook**](#apiconnectionwebhook-trigger) | Creates a callable endpoint for your logic app workflow by calling [Microsoft-managed APIs or "connectors"](../connectors/introduction.md) to subscribe and unsubscribe. | 
 ||| 
 
 ## Triggers - Detailed reference
@@ -89,7 +89,7 @@ Each trigger type has a different interface and inputs that define the trigger's
 
 ### APIConnection trigger  
 
-This trigger checks or *polls* an endpoint by using [Microsoft-managed APIs](../connectors/apis-list.md) so the parameters for this trigger can differ based on the endpoint. Many sections in this trigger definition are optional. The trigger's behavior depends on whether or not sections are included.
+This trigger checks or *polls* an endpoint by using [Microsoft-managed APIs or "connectors"](../connectors/introduction.md) so the parameters for this trigger can differ based on the endpoint. Many sections in this trigger definition are optional. The trigger's behavior depends on whether or not sections are included.
 
 ```json
 "<APIConnection_trigger_name>": {
@@ -186,7 +186,7 @@ This trigger definition checks for email every day inside the inbox for a work o
 
 ### ApiConnectionWebhook trigger
 
-This trigger sends a subscription request to an endpoint by using a [Microsoft-managed API](../connectors/apis-list.md), provides a *callback URL* to where the endpoint can send a response, and waits for the endpoint to respond. For more information, see [Endpoint subscriptions](#subscribe-unsubscribe).
+This trigger sends a subscription request to an endpoint by using a [Microsoft-managed API](../connectors/introduction.md), provides a *callback URL* to where the endpoint can send a response, and waits for the endpoint to respond. For more information, see [Endpoint subscriptions](#subscribe-unsubscribe).
 
 ```json
 "<ApiConnectionWebhook_trigger_name>": {
@@ -842,8 +842,8 @@ Here are some commonly used action types:
 
 | Action type | Description | 
 |-------------|-------------|  
-| [**ApiConnection**](#apiconnection-action) | Calls an HTTP endpoint by using a [Microsoft-managed API](../connectors/apis-list.md). | 
-| [**ApiConnectionWebhook**](#apiconnectionwebhook-action) | Works like HTTP Webhook but uses a [Microsoft-managed API](../connectors/apis-list.md). | 
+| [**ApiConnection**](#apiconnection-action) | Calls an HTTP endpoint by using a [Microsoft-managed API](../connectors/introduction.md). | 
+| [**ApiConnectionWebhook**](#apiconnectionwebhook-action) | Works like HTTP Webhook but uses a [Microsoft-managed API](../connectors/introduction.md). | 
 ||| 
 
 <a name="control-workflow-actions"></a>
@@ -867,7 +867,7 @@ These actions help you control workflow execution and include other actions. Fro
 
 ### APIConnection action
 
-This action sends an HTTP request to a [Microsoft-managed API](../connectors/apis-list.md) and requires information about the API and parameters plus a reference to a valid connection. 
+This action sends an HTTP request to a [Microsoft-managed API](../connectors/introduction.md) and requires information about the API and parameters plus a reference to a valid connection. 
 
 ``` json
 "<action-name>": {
@@ -938,7 +938,7 @@ This definition describes the **Send an email** action for Office 365 Outlook co
 
 ### APIConnectionWebhook action
 
-This action sends a subscription request over HTTP to an endpoint by using a [Microsoft-managed API](../connectors/apis-list.md), provides a *callback URL* to where the endpoint can send a response, 
+This action sends a subscription request over HTTP to an endpoint by using a [Microsoft-managed API](../connectors/introduction.md), provides a *callback URL* to where the endpoint can send a response, 
 and waits for the endpoint to respond. For more information, see [Endpoint subscriptions](#subscribe-unsubscribe).
 
 ```json
@@ -2402,7 +2402,7 @@ You can change the default behavior for triggers and actions with the `operation
 | Operation option | Type | Description | Trigger or action | 
 |------------------|------|-------------|-------------------| 
 | `DisableAsyncPattern` | String | Run HTTP-based actions synchronously, rather than asynchronously. <p><p>To set this option, see [Run actions synchronously](#disable-asynchronous-pattern). | Actions: <p>[ApiConnection](#apiconnection-action), <br>[HTTP](#http-action), <br>[Response](#response-action) | 
-| `IncludeAuthorizationHeadersInOutputs` | String | For logic apps that [enable Azure Active Directory Open Authentication (Azure AD OAuth)](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth) to authorize access for inbound calls to a request-based trigger endpoint, include the `Authorization` header from the OAuth access token in the trigger outputs. For more information, see [Include 'Authorization' header in request trigger outputs](../logic-apps/logic-apps-securing-a-logic-app.md#include-auth-header). | Triggers: <p>[Request](#request-trigger), <br>[HTTP Webhook](#http-webhook-trigger) | 
+| `IncludeAuthorizationHeadersInOutputs` | String | For logic apps that [enable OAuth with Microsoft Entra ID](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth) to authorize access for inbound calls to a request-based trigger endpoint, include the `Authorization` header from the OAuth access token in the trigger outputs. For more information, see [Include 'Authorization' header in request trigger outputs](../logic-apps/logic-apps-securing-a-logic-app.md#include-auth-header). | Triggers: <p>[Request](#request-trigger), <br>[HTTP Webhook](#http-webhook-trigger) | 
 | `Sequential` | String | Run "for each" loop iterations one at a time, rather than all at the same time in parallel. <p>This option works the same way as setting the `runtimeConfiguration.concurrency.repetitions` property to `1`. You can set either property, but not both. <p><p>To set this option, see [Run "for each" loops sequentially](#sequential-for-each).| Action: <p>[Foreach](#foreach-action) | 
 | `SingleInstance` | String | Run the trigger for each logic app instance sequentially and wait for the previously active run to finish before triggering the next logic app instance. <p><p>This option works the same way as setting the `runtimeConfiguration.concurrency.runs` property to `1`. You can set either property, but not both. <p>To set this option, see [Trigger instances sequentially](#sequential-trigger). | All triggers | 
 | `SuppressWorkflowHeaders` | String | Don't send `x-ms-*` metadata headers in outbound requests. By default, the Azure Logic Apps service includes extra metadata headers with the `x-ms-` prefix in the header name as part of outbound requests. However, some legacy services won't accept requests with extra unknown headers, resulting in failed requests. | Actions: <p>[HTTP](#http-action), <br>[Function](#function-action), <br>APIManagement | 

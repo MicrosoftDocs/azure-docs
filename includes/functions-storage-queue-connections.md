@@ -8,7 +8,7 @@ ms.author: mahender
 
 ## Connections
 
-The `connection` property is a reference to environment configuration which specifies how the app should connect to Azure Queues. It may specify:
+The `connection` property is a reference to environment configuration that specifies how the app should connect to Azure Queues. It may specify:
 
 - The name of an application setting containing a [connection string](#connection-string)
 - The name of a shared prefix for multiple application settings, together defining an [identity-based connection](#identity-based-connections).
@@ -25,17 +25,17 @@ If the app setting name begins with "AzureWebJobs", you can specify only the rem
 
 ### Identity-based connections
 
-If you are using [version 5.x or higher of the extension](../articles/azure-functions/functions-bindings-storage-queue.md#storage-extension-5x-and-higher), instead of using a connection string with a secret, you can have the app use an [Azure Active Directory identity](../articles/active-directory/fundamentals/active-directory-whatis.md). To do this, you would define settings under a common prefix which maps to the `connection` property in the trigger and binding configuration.
+If you're using [version 5.x or higher of the extension](../articles/azure-functions/functions-bindings-storage-queue.md#storage-extension-5x-and-higher), instead of using a connection string with a secret, you can have the app use an [Microsoft Entra identity](../articles/active-directory/fundamentals/active-directory-whatis.md). To use an identity, you define settings under a common prefix that maps to the `connection` property in the trigger and binding configuration.
 
-If you are setting `connection` to "AzureWebJobsStorage", see [Connecting to host storage with an identity](../articles/azure-functions/functions-reference.md#connecting-to-host-storage-with-an-identity-preview). For all other connections, the extension requires the following properties: 
+If you're setting `connection` to "AzureWebJobsStorage", see [Connecting to host storage with an identity](../articles/azure-functions/functions-reference.md#connecting-to-host-storage-with-an-identity). For all other connections, the extension requires the following properties: 
 
 | Property                  | Environment variable template                       |Description                                | Example value |
 |---------------------------|-----------------------------------------------------|--------------------------------------------|---------|
-| Queue Service URI | `<CONNECTION_NAME_PREFIX>__queueServiceUri`<sup>1</sup>  | The data plane URI of the queue service to which you are connecting, using the HTTPS scheme. | https://<storage_account_name>.queue.core.windows.net |
+| Queue Service URI | `<CONNECTION_NAME_PREFIX>__queueServiceUri`<sup>1</sup>  | The data plane URI of the queue service to which you're connecting, using the HTTPS scheme. | https://<storage_account_name>.queue.core.windows.net |
 
-<sup>1</sup> `<CONNECTION_NAME_PREFIX>__serviceUri` can be used as an alias. If both forms are provided, the `queueServiceUri` form will be used. The `serviceUri` form cannot be used when the overall connection configuration is to be used across blobs, queues, and/or tables.
+<sup>1</sup> `<CONNECTION_NAME_PREFIX>__serviceUri` can be used as an alias. If both forms are provided, the `queueServiceUri` form is used. The `serviceUri` form can't be used when the overall connection configuration is to be used across blobs, queues, and/or tables.
 
-Additional properties may be set to customize the connection. See [Common properties for identity-based connections](../articles/azure-functions/functions-reference.md#common-properties-for-identity-based-connections).
+Other properties may be set to customize the connection. See [Common properties for identity-based connections](../articles/azure-functions/functions-reference.md#common-properties-for-identity-based-connections).
 
 [!INCLUDE [functions-identity-based-connections-configuration](./functions-identity-based-connections-configuration.md)]
 

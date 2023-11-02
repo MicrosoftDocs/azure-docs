@@ -1,23 +1,26 @@
 ---
-title: Azure Synapse Runtime for Apache Spark 2.4 (EOLA)
-description: Supported versions of Spark, Scala, Python, and .NET for Apache Spark 2.4.
-author: eskot 
+title: Azure Synapse Runtime for Apache Spark 2.4 (unsupported)
+description: Versions of Spark, Scala, Python, and .NET for Apache Spark 2.4.
+author: ekote 
 ms.service: synapse-analytics 
 ms.topic: reference
 ms.subservice: spark
 ms.date: 04/18/2022 
 ms.author: eskot 
-ms.custom: has-adal-ref
+ms.custom: has-adal-ref, devx-track-dotnet, devx-track-extended-java, devx-track-python
 ---
 
-# Azure Synapse Runtime for Apache Spark 2.4 (EOLA)
+# Azure Synapse Runtime for Apache Spark 2.4 (unsupported)
 
 Azure Synapse Analytics supports multiple runtimes for Apache Spark. This document will cover the runtime components and versions for the Azure Synapse Runtime for Apache Spark 2.4.
 
-> [!IMPORTANT]
-> * End of life announced (EOLA) for Azure Synapse Runtime for Apache Spark 2.4 has been announced July 29, 2022.
-> * In accordance with the Synapse runtime for Apache Spark lifecycle policy, Azure Synapse runtime for Apache Spark 2.4 will be retired as of September 29, 2023. End of life announced (EOLA) runtime will not have bug and feature fixes. Security fixes will be backported based on risk assessment.
-> * We recommend that you upgrade your Apache Spark 2.4 workloads to version 3.2 or 3.3 at your earliest convenience. 
+> [!WARNING]
+> End of Support Notification for Azure Synapse Runtime for Apache Spark 2.4
+> * Effective September 29, 2023, the Azure Synapse will discontinue official support for Spark 2.4 Runtimes. 
+> * Post September 29, we will not be addressing any support tickets related to Spark 2.4. There will be no release pipeline in place for bug or security fixes for Spark 2.4. Utilizing Spark 2.4 post the support cutoff date is undertaken at one's own risk. We strongly discourage its continued use due to potential security and functionality concerns.
+> * Recognizing that certain customers may need additional time to transition to a higher runtime version, we are temporarily extending the usage option for Spark 2.4, but we will not provide any official support for it.
+> * We strongly advise to proactively upgrade their workloads to a more recent version of the runtime (e.g., [Azure Synapse Runtime for Apache Spark 3.3 (GA)](./apache-spark-33-runtime.md)).
+
 
 ## Component versions
 |  Component   | Version   |  

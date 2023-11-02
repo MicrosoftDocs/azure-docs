@@ -4,12 +4,10 @@ description: In this quickstart, you will learn how to use the Azure Blob Storag
 author: pauljewellmsft
 ms.author: pauljewell
 ms.date: 11/09/2022
-ms.service: storage
-ms.subservice: blobs
+ms.service: azure-blob-storage
 ms.topic: quickstart
 ms.devlang: csharp
-ms.custom: devx-track-csharp, mode-api, passwordless-dotnet
-ROBOTS: NOINDEX
+ms.custom: devx-track-csharp, mode-api, passwordless-dotnet, devx-track-dotnet
 ---
 
 # Quickstart: Azure Blob Storage client library for .NET
@@ -22,7 +20,7 @@ Get started with the Azure Blob Storage client library for .NET. Azure Blob Stor
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 - Azure storage account - [create a storage account](../common/storage-account-create.md)
-- Current [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) for your operating system. Be sure to get the SDK and not the runtime.
+- Current [.NET SDK](https://dotnet.microsoft.com/download/dotnet) for your operating system. Be sure to get the SDK and not the runtime.
 
 ## Setting up
 

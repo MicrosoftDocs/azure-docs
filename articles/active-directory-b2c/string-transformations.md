@@ -408,7 +408,7 @@ Formats multiple claims according to a provided localized format string. This tr
 | OutputClaim | outputClaim | string | The claim that is produced after this claims transformation has been invoked. |
 
 > [!NOTE]
-> String format maximum allowed size is 4000.
+> There is no limit to the number of input claims that you can specify, but the maximum length of the formatted string is 4000.
 
 To use the FormatLocalizedString claims transformation:
 
@@ -1145,7 +1145,7 @@ Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/c
 
 ### Example of StringJoin
 
-The following example takes a string collection of user roles, and converts it to a comma delimiter string. You can use this method to store a string collection in Azure AD user account. Later, when you read the account from the directory, use the `StringSplit` to convert the comma delimiter string back to string collection.
+The following example takes a string collection of user roles, and converts it to a comma delimiter string. You can use this method to store a string collection in an Azure AD B2C user account. Later, when you read the account from the directory, use the `StringSplit` to convert the comma delimiter string back to string collection.
 
 ```xml
 <ClaimsTransformation Id="ConvertRolesStringCollectionToCommaDelimiterString" TransformationMethod="StringJoin">

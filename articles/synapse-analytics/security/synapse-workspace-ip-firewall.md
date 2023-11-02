@@ -16,7 +16,7 @@ This article will explain IP firewall rules and teach you how to configure them 
 
 ## IP firewall rules
 
-IP firewall rules grant or deny access to your Azure Synapse workspace based on the originating IP address of each request. You can configure IP firewall rules for your workspace. IP firewall rules configured at the workspace level apply to all public endpoints of the workspace (dedicated SQL pools, serverless SQL pool, and development).
+IP firewall rules grant or deny access to your Azure Synapse workspace based on the originating IP address of each request. You can configure IP firewall rules for your workspace. IP firewall rules configured at the workspace level apply to all public endpoints of the workspace (dedicated SQL pools, serverless SQL pool, and development). The maximum number of IP firewall rules is limited to 128. If you have the **Allow Azure Services and resources to access this server** setting enabled, this counts as a single firewall rule for the workspace.
 
 ## Create and manage IP firewall rules
 

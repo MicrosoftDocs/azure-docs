@@ -4,7 +4,7 @@ titleSuffix: Azure HDInsight
 description: This article describes the two layers of encryption available for data at rest on Azure HDInsight clusters.
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/14/2022
+ms.date: 05/23/2023
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
 ---
@@ -115,6 +115,36 @@ You're now ready to create a new HDInsight cluster. Customer-managed keys can on
 Beginning with the November 2020 release, HDInsight supports the creation of clusters using both versioned and version-less key URIs. If you create the cluster with a version-less key URI, then the HDInsight cluster will try to perform key auto-rotation when the key is updated in your Azure Key Vault. If you create the cluster with a versioned key URI, you will have to perform a manual key rotation as discussed in [Rotating the encryption key](#rotating-the-encryption-key).
 
 For clusters created before the November 2020 release, you will have to perform key rotation manually using the versioned key URI.
+
+### VM types that support disk encryption
+
+| Size | vCPU | Memory: GiB |
+|-------------------|-----------|-------------|
+| Standard_D4a_v4 | 4    | 16
+| Standard_D8a_v4 | 8    | 32
+| Standard_D16a_v4 | 16  | 64
+| Standard_D32a_v4 | 32  | 128
+| Standard_D48a_v4 | 48  | 192
+| Standard_D64a_v4 | 64  | 256
+| Standard_D96a_v4 | 96  | 384
+| Standard_E64is_v3 | 64  | 432
+| Standard_E20s_V3 | 20  | 160
+| Standard_E2s_V3 | 2  | 16
+| Standard_E2a_v4 | 2  | 16
+| Standard_E4a_v4 | 4  | 32
+| Standard_E8a_v4 | 8  | 64
+| Standard_E16a_v4 | 16  | 128
+| Standard_E20a_v4 | 20  | 160
+| Standard_E32a_v4 | 32  | 256
+| Standard_E48a_v4 | 48  | 384
+| Standard_E64a_v4 | 64  | 512
+| Standard_E96a_v4 | 96  | 672
+| Standard_DS3_v2 | 4  | 14
+| Standard_DS4_v2 | 8  | 28
+| Standard_DS5_v2 | 16  | 56
+| Standard_DS12_v2 | 4  | 28
+| Standard_DS13_v2 | 8  | 56
+| Standard_DS14_v2 | 16  | 112
 
 #### Using the Azure portal
 

@@ -3,6 +3,7 @@ title: Azure Virtual Desktop (classic) host pool Azure Resource Manager - Azure
 description: How to create a host pool in Azure Virtual Desktop (classic) with an Azure Resource Manager template.
 author: Heidilohr
 ms.topic: how-to
+ms.custom: devx-track-arm-template
 ms.date: 03/30/2020
 ms.author: helohr
 manager: femila
@@ -12,7 +13,7 @@ manager: femila
 >[!IMPORTANT]
 >This content applies to Azure Virtual Desktop (classic), which doesn't support Azure Resource Manager Azure Virtual Desktop objects.
 
-Host pools are a collection of one or more identical virtual machines within Azure Virtual Desktop tenant environments. Each host pool can contain an app group that users can interact with as they would on a physical desktop.
+Host pools are a collection of one or more identical virtual machines within Azure Virtual Desktop tenant environments. Each host pool can contain an application group that users can interact with as they would on a physical desktop.
 
 Follow this section's instructions to create a host pool for a Azure Virtual Desktop tenant with an Azure Resource Manager template provided by Microsoft. This article will tell you how to create a host pool in Azure Virtual Desktop, create a resource group with VMs in an Azure subscription, join those VMs to the AD domain, and register the VMs with Azure Virtual Desktop.
 
@@ -62,7 +63,7 @@ After that, add users to the desktop application group with this cmdlet:
 Add-RdsAppGroupUser <tenantname> <hostpoolname> "Desktop Application Group" -UserPrincipalName <userupn>
 ```
 
-The user's UPN should match the user's identity in Azure Active Directory (for example, user1@contoso.com). If you want to add multiple users, you must run this cmdlet for each user.
+The user's UPN should match the user's identity in Microsoft Entra ID (for example, user1@contoso.com). If you want to add multiple users, you must run this cmdlet for each user.
 
 After you've completed these steps, users added to the desktop application group can sign in to Azure Virtual Desktop with supported Remote Desktop clients and see a resource for a session desktop.
 

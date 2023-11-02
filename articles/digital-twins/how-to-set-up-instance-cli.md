@@ -1,5 +1,4 @@
 ---
-# Mandatory fields.
 title: Set up an instance and authentication (CLI)
 titleSuffix: Azure Digital Twins
 description: See how to set up an instance of the Azure Digital Twins service using the CLI
@@ -8,12 +7,11 @@ ms.author: baanders # Microsoft employees only
 ms.date: 11/17/2022
 ms.topic: how-to
 ms.service: digital-twins
-ms.custom: contperf-fy22q2, engagement-fy23
+ms.custom: contperf-fy22q2, engagement-fy23, devx-track-azurecli
 ms.devlang: azurecli
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
@@ -50,7 +48,7 @@ There are several optional parameters that can be added to the command to specif
 
 ### Create the instance with a managed identity
 
-When you enable a [managed identity](concepts-security.md#managed-identity-for-accessing-other-resources) on your Azure Digital Twins instance, an identity is created for it in [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md). That identity can then be used to authenticate to other services. You can enable a managed identity for an Azure Digital Twins instance while the instance is being created, or [later on an existing instance](#enabledisable-managed-identity-for-the-instance).
+When you enable a [managed identity](concepts-security.md#managed-identity-for-accessing-other-resources) on your Azure Digital Twins instance, an identity is created for it in [Microsoft Entra ID](../active-directory/fundamentals/active-directory-whatis.md). That identity can then be used to authenticate to other services. You can enable a managed identity for an Azure Digital Twins instance while the instance is being created, or [later on an existing instance](#enabledisable-managed-identity-for-the-instance).
 
 Use the CLI command below for your chosen type of managed identity.
 
@@ -97,7 +95,7 @@ You now have an Azure Digital Twins instance ready to go. Next, you will give th
 
 To give a user permission to manage an Azure Digital Twins instance, you must assign them the **Azure Digital Twins Data Owner** role within the instance.
 
-Use the following command to assign the role (must be run by a user with [sufficient permissions](#prerequisites-permission-requirements) in the Azure subscription). The command requires you to pass in the *user principal name* on the Azure AD account for the user that should be assigned the role. In most cases, this value will match the user's email on the Azure AD account.
+Use the following command to assign the role (must be run by a user with [sufficient permissions](#prerequisites-permission-requirements) in the Azure subscription). The command requires you to pass in the *user principal name* on the Microsoft Entra account for the user that should be assigned the role. In most cases, this value will match the user's email on the Microsoft Entra account.
 
 ```azurecli-interactive
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<Azure-AD-user-principal-name-of-user-to-assign>" --role "Azure Digital Twins Data Owner"
@@ -110,7 +108,7 @@ The result of this command is outputted information about the role assignment th
 >
 > Assign the role using the user's Object ID instead. This may happen for users on personal [Microsoft accounts (MSAs)](https://account.microsoft.com/account). 
 >
-> Use the [Azure portal page of Azure Active Directory users](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) to select the user account and open its details. Copy the user's **Object ID**:
+> Use the [Azure portal page of Microsoft Entra users](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) to select the user account and open its details. Copy the user's **Object ID**:
 >
 > :::image type="content" source="media/includes/user-id.png" alt-text="Screenshot of the user page in Azure portal highlighting the GUID in the 'Object ID' field." lightbox="media/includes/user-id.png":::
 >
@@ -158,9 +156,9 @@ az dt identity remove --dt-name <name-of-existing-instance> --resource-group <re
 
 ### Considerations for disabling managed identities
 
-It's important to consider the effects that any changes to the identity or its roles can have on the resources that use it. If you're [using managed identities with your Azure Digital Twins endpoints](how-to-route-with-managed-identity.md) or for [data history](how-to-use-data-history.md) and the identity is disabled, or a necessary role is removed from it, the endpoint or data history connection can become inaccessible and the flow of events will be disrupted.
+It's important to consider the effects that any changes to the identity or its roles can have on the resources that use it. If you're [using managed identities with your Azure Digital Twins endpoints](how-to-create-endpoints.md#endpoint-options-identity-based-authentication) or for [data history](concepts-data-history.md) and the identity is disabled, or a necessary role is removed from it, the endpoint or data history connection can become inaccessible and the flow of events will be disrupted.
 
-To continue using an endpoint that was set up with a managed identity that's now been disabled, you'll need to delete the endpoint and [re-create it](how-to-manage-routes.md#create-an-endpoint-for-azure-digital-twins) with a different authentication type. It may take up to an hour for events to resume delivery to the endpoint after this change.
+To continue using an endpoint that was set up with a managed identity that's now been disabled, you'll need to delete the endpoint and [re-create it](how-to-create-endpoints.md) with a different authentication type. It may take up to an hour for events to resume delivery to the endpoint after this change.
 
 ## Next steps
 

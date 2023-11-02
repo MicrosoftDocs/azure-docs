@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 10/07/2021
+ms.date: 04/05/2023
 ms.author: banders
 ---
 
@@ -23,7 +23,7 @@ If you're unable to see your billing account in the Azure portal, try the follow
 
 ## Sign in to a different tenant
 
-Your billing account is associated with a single Azure Active Directory tenant. You won't see your billing account on the Cost Management + Billing page if you're signed in to an incorrect tenant. Use the following steps to switch to another tenant in the Azure portal and view your billing accounts in that tenant.
+Your billing account is associated with a single Microsoft Entra tenant. You won't see your billing account on the Cost Management + Billing page if you're signed in to an incorrect tenant. Use the following steps to switch to another tenant in the Azure portal and view your billing accounts in that tenant.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select your profile (email address) at the top right of the page.

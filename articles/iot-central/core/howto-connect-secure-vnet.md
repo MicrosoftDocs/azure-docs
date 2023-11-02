@@ -1,9 +1,9 @@
 ---
-title: Export IoT Central data to a secure VNet | Microsoft Docs
-description: Learn how to use IoT Central data export to send data to a destination in a secure VNet. Data export destinations include Azure Blob Storage, Azure Event Hubs, and Azure Service Bus Messaging.
+title: Export IoT Central data to a secure VNet
+description: Learn how to use IoT Central data export to send data to a destination in a secure VNet. Data export destinations include Blob Storage and Azure Event Hubs.
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/25/2022
+ms.date: 05/22/2023
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -13,7 +13,7 @@ services: iot-central
 
 # Export data to a secure destination on an Azure Virtual Network
 
-Data export in IoT Central lets you continuously stream device data to destinations such as Azure Blob Storage, Azure Event Hubs, Azure Service Bus Messaging. You may choose to lock down these destinations by using an Azure Virtual Network (VNet) and private endpoints.
+Data export in IoT Central lets you continuously stream device data to destinations such as Azure Blob Storage, Azure Event Hubs, Azure Service Bus Messaging, or Azure Data Explorer. You can lock down these destinations by using an Azure Virtual Network (VNet) and private endpoints.
 
 Currently, it's not possible to connect an IoT Central application directly to VNet for data export. However, because IoT Central is a trusted Azure service, it's possible to configure an exception to the firewall rules and connect to a secure destination on a VNet. In this scenario, you typically use a managed identity to authenticate and authorize with the destination.
 
@@ -21,7 +21,7 @@ Currently, it's not possible to connect an IoT Central application directly to V
 
 - An IoT Central application. To learn more, see [Create an IoT Central application](howto-create-iot-central-application.md).
 
-- Data export configured in your IoT Central application to send device data to a destination such as Azure Blob Storage, Azure Event Hubs, or Azure Service Bus. The destination is configured to use a managed identity. To learn more, see  [Export IoT data to cloud destinations using Blob Storage](howto-export-to-blob-storage.md).
+- Data export configured in your IoT Central application to send device data to a destination such as Azure Blob Storage, Azure Event Hubs, Azure Service Bus, or Azure Data Explorer. The destination must be configured to use a managed identity. To learn more, see  [Export IoT data to cloud destinations using Blob Storage](howto-export-to-blob-storage.md).
 
 ## Configure the destination service
 

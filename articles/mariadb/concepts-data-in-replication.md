@@ -2,13 +2,15 @@
 title: Data-in replication - Azure Database for MariaDB
 description: Learn about using data-in replication to synchronize from an external server into the Azure Database for MariaDB service.
 ms.service: mariadb
-author: savjani
-ms.author: pariks
+author: VandhanaMehta
+ms.author: vamehta
 ms.topic: conceptual
 ms.date: 06/24/2022
 ---
 
 # Replicate data into Azure Database for MariaDB
+
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
 
 Data-in Replication allows you to synchronize data from a MariaDB server running on-premises, in virtual machines, or database services hosted by other cloud providers into the Azure Database for MariaDB service. Data-in Replication is based on the binary log (binlog) file position-based replication native to MariaDB. To learn more about binlog replication, see the [binlog replication overview](https://mariadb.com/kb/en/library/replication-overview/).
 

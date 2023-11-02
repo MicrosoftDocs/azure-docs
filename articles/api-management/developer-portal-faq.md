@@ -10,7 +10,7 @@ ms.service: api-management
 ms.topic: troubleshooting
 ms.date: 02/04/2022
 ms.author: danlep 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-arm-template
 ---
 
 # API Management developer portal - frequently asked questions
@@ -56,7 +56,7 @@ After you update the domain, you need to [republish the portal](api-management-h
 
 ## I added an identity provider and I can't see it in the portal
 
-After you configure an identity provider (for example, Azure AD, Azure AD B2C), you need to [republish the portal](api-management-howto-developer-portal-customize.md#publish) for the changes to take effect. Make sure your developer portal pages include the OAuth buttons widget.
+After you configure an identity provider (for example, Microsoft Entra ID, Azure AD B2C), you need to [republish the portal](api-management-howto-developer-portal-customize.md#publish) for the changes to take effect. Make sure your developer portal pages include the OAuth buttons widget.
 
 ## I set up delegation and the portal doesn't use it
 

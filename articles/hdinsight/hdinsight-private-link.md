@@ -5,7 +5,7 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.author: piyushgupta
 author: piyush-gupta1999
-ms.date: 02/02/2023
+ms.date: 03/30/2023
 ---
 
 # Enable Private Link on an HDInsight cluster
@@ -79,7 +79,7 @@ For more information on setting up a firewall, see [Control network traffic in A
 
 ## <a name="deployCluster"></a>Step 4: Deploy private link cluster
 
-At this point, all prerequisites should be taken care of and you're ready to deploy the Private Link cluster. The following diagram shows an example of the networking configuration that's required before you create the cluster. In this example, all outbound traffic is forced to Azure Firewall through a user-defined route. The required outbound dependencies should be allowed on the firewall before cluster creation. For Enterprise Security Package clusters, virtual network peering can provide the network connectivity to Azure Active Directory Domain Services.
+At this point, all prerequisites should be taken care of and you're ready to deploy the Private Link cluster. The following diagram shows an example of the networking configuration that's required before you create the cluster. In this example, all outbound traffic is forced to Azure Firewall through a user-defined route. The required outbound dependencies should be allowed on the firewall before cluster creation. For Enterprise Security Package clusters, virtual network peering can provide the network connectivity to Microsoft Entra Domain Services.
 
 :::image type="content" source="media/hdinsight-private-link/before-cluster-creation.png" alt-text="Diagram of the Private Link environment before cluster creation.":::
 
@@ -140,8 +140,9 @@ To create the private endpoints:
 Once the private endpoints are created, you’re done with this phase of the setup. If you didn’t make a note of the private IP addresses assigned to the endpoints, follow the steps below:
 
 1. Open the client VNET in the Azure portal. 
-1. Click the 'Overview' tab.
-1. You should see both the Ambari and ssh Network interfaces listed and their private IP Addresses. 
+1. Click on 'Private endpoints' tab.
+1. You should see both the Ambari and ssh Network interfaces listed. 
+1. Click on each one and navigate to the ‘DNS configuration’ blade to see the private IP address. 
 1. Make a note of these IP addresses because they are required to connect to the cluster and properly configure DNS.
 
 ## <a name="ConfigureDNS"></a>Step 6: Configure DNS to connect over private endpoints
@@ -199,7 +200,7 @@ To configure DNS resolution through a Private DNS zone:
     1. Open the private DNS zone in the Azure portal.
     1. Click the 'Virtual network links' tab.
     1. Click the 'Add' button.
-    1. Fill in the details: Link name, Subscription, and Virtual Network
+    1. Fill in the details: Link name, Subscription, and Virtual Network (your client VNET) 
     1. Click **Save**.
    
     :::image type="content" source="media/hdinsight-private-link/virtual-network-link.png" alt-text="Diagram of virtual-network-link.":::

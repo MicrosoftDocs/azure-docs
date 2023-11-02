@@ -1,8 +1,8 @@
 ---
-title: Private Network Access overview - Azure Database for MySQL Flexible Server
+title: Private Network Access overview - Azure Database for MySQL - Flexible Server
 description: Learn about private access networking option in the Flexible Server deployment option for Azure Database for MySQL
-author: vivgk
-ms.author: vivgk
+author: SudheeshGH
+ms.author: sunaray
 ms.reviewer: maghan
 ms.date: 11/21/2022
 ms.service: mysql
@@ -14,7 +14,7 @@ ms.topic: conceptual
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-This article describes the private connectivity option for Azure MySQL Flexible Server. You learn in detail the virtual network concepts for Azure Database for MySQL Flexible server to create a server securely in Azure.
+This article describes the private connectivity option for Azure MySQL Flexible Server. You learn in detail the virtual network concepts for Azure Database for MySQL - Flexible Server to create a server securely in Azure.
 
 ## Private access (VNet Integration)
 
@@ -56,7 +56,7 @@ Here are some concepts to be familiar with when using virtual networks with MySQ
 
    A virtual network contains subnets (subnetworks). Subnets enable you to segment your virtual network into smaller address spaces. Azure resources are deployed into specific subnets within a virtual network.
 
-   Your MySQL flexible server must be in a subnet that is **delegated** for MySQL flexible server use only. This delegation means that only Azure Database for MySQL Flexible Servers can use that subnet. No other Azure resource types can be in the delegated subnet. You delegate a subnet by assigning its delegation property as Microsoft.DBforMySQL/flexibleServers.
+   Your MySQL flexible server must be in a subnet that is **delegated** for MySQL flexible server use only. This delegation means that only Azure Database for MySQL - Flexible Servers can use that subnet. No other Azure resource types can be in the delegated subnet. You delegate a subnet by assigning its delegation property as Microsoft.DBforMySQL/flexibleServers.
 
 - **Network security groups (NSG)**
 
@@ -72,11 +72,11 @@ Here are some concepts to be familiar with when using virtual networks with MySQ
 
 ## Use Private DNS Zone
 
-- If you use the Azure portal or the Azure CLI to create flexible servers with VNET, a new private DNS zone is auto-provisioned per server in your subscription using the server name provided. Alternatively, if you want to set up your own private DNS zone with the flexible server, see the [private DNS overview](../../dns/private-dns-overview.md) documentation.
+- If you use the Azure portal or the Azure CLI to create flexible servers with VNET, a new private DNS zone ending with `mysql.database.azure.com` is auto-provisioned per server in your subscription using the server name provided. Alternatively, if you want to set up your own private DNS zone with the flexible server, see the [private DNS overview](../../dns/private-dns-overview.md) documentation.
 - If you use Azure API, an Azure Resource Manager template (ARM template), or Terraform, create private DNS zones that end with `mysql.database.azure.com` and use them while configuring flexible servers with private access. For more information, see the [private DNS zone overview](../../dns/private-dns-overview.md).
 
    > [!IMPORTANT]  
-   > Private DNS zone names must end with `mysql.database.azure.com`. If you are connecting to an Azure Database for MySQL flexible server with SSL and you're using an option to perform full verification (sslmode=VERTIFY_IDENTITY) with certificate subject name, use \<servername\>.mysql.database.azure.com in your connection string.
+   > Private DNS zone names must end with `mysql.database.azure.com`. If you are connecting to an Azure Database for MySQL flexible server with SSL and you're using an option to perform full verification (sslmode=VERIFY_IDENTITY) with certificate subject name, use \<servername\>.mysql.database.azure.com in your connection string.
 
 Learn how to create a flexible server with private access (VNet integration) in [the Azure portal](how-to-manage-virtual-network-portal.md) or [the Azure CLI](how-to-manage-virtual-network-cli.md).
 
@@ -107,6 +107,9 @@ To configure correctly, you need the following resources:
 - Use DNS forwarder [168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md) deployed in Azure
 
 You can then use the flexible servername (FQDN) to connect from the client application in peered virtual network or on-premises network to flexible server.
+
+> [!NOTE]  
+> We recommend you use the fully qualified domain name (FQDN) `<servername>.mysql.database.azure.com` in connection strings when connecting to your flexible server. The server's IP address is not guaranteed to remain static. Using the FQDN will help you avoid making changes to your connection string.
 
 ## Unsupported virtual network scenarios
 

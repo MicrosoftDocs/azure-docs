@@ -4,6 +4,7 @@ description: In this quickstart, you follow the steps to enable the Resource Gra
 ms.date: 07/09/2021
 ms.topic: quickstart
 ms.devlang: golang
+ms.custom: devx-track-go
 ---
 # Quickstart: Run your first Resource Graph query using Go
 

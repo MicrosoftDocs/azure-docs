@@ -6,7 +6,7 @@ ms.author: sidandrews
 ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.custom: ignite-2022
+ms.custom: ignite-2022, devx-track-azurecli
 ms.topic: sample
 ms.date: 02/21/2022
 ---
@@ -50,6 +50,9 @@ This script uses the following commands. Each command in the table links to comm
 | [az cosmosdb sql database create](/cli/azure/cosmosdb/sql/database#az-cosmosdb-sql-database-create) | Creates an Azure Cosmos DB for NoSQL database. |
 | [az cosmosdb sql container create](/cli/azure/cosmosdb/sql/container#az-cosmosdb-sql-container-create) | Creates an Azure Cosmos DB for NoSQL container. |
 | [az group delete](/cli/azure/resource#az-resource-delete) | Deletes a resource group including all nested resources. |
+
+> [!IMPORTANT]
+> Use `az cosmsodb sql database create` to create a NoSQL database. The `az cosmosdb database create` command is deprecated.
 
 ## Next steps
 

@@ -44,10 +44,9 @@ Consent can be obtained in a variety of ways, such as:
  
 Regardless of how consent is obtained, you and your customers must ensure that the consent is unambiguous. The scope of the consent should clear to the recipient.
 
-
 ### Consent requirements:
 
-- Provide a “Call to Action” before obtaining consent. You and your customers should provide potential message recipients with a “call to action” that invites them to opt-in to your messaging program. The call to action should include, at a minimum: (1) the identity of the message sender, (2) clear opt-in instructions, (3) opt-out instructions, and (4) any associated messaging fees.
+- Provide a “Call to Action” before obtaining consent. You and your customers should provide potential message recipients with a “call to action” that invites them to opt in to your messaging program. The call to action should include, at a minimum: (1) the identity of the message sender, (2) clear opt-in instructions, (3) opt-out instructions, and (4) any associated messaging fees.
 - Consent isn't transferable or assignable. Any consent that an individual provides to you cannot be transferred or sold to an unaffiliated third party. If you collect an individual’s consent for a third party, then you must clearly identify the third party to the individual. You must also state that the consent you obtained applies only to communications from the third party.
 - Consent is limited in purpose. An individual who provides their number or an email address for a particular purpose consents to receive communications only for that specific purpose and from that specific message sender. Before obtaining consent, you should clearly notify the intended message recipient if you'll send recurring messages or messages from an affiliate.
 
@@ -66,7 +65,6 @@ In addition to the messaging requirements discussed above, you may want to imple
   - Screen captures
   - The session ID or IP address of the consenting individual.
 - Privacy and security policies. Developers are encouraged to provide straightforward privacy policies that message recipients can review before their consent is obtained. We also recommend maintaining proactive security controls to safeguard individuals’ private information.
-
 
 ## Double opt-In consent:
 
@@ -116,7 +114,7 @@ In addition to keywords, other common opt-out mechanisms include providing custo
 
 ### How we handle opt-out requests for SMS
 
-If an individual requests to opt-out of future messages on an Azure Communication Services toll-free number, then all further traffic from that number will be automatically stopped. However, you must still ensure that you do not send additional messages for that messaging campaign from new or different numbers. If you have separately obtained express consent for a different messaging campaign, then you may continue to send messages from a different number for that campaign. Check out our FAQ section to learn more on [Opt-out handling](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/communication-services/concepts/sms/sms-faq.md#how-can-i-receive-messages-using-azure-communication-services)
+If an individual requests to opt-out of future messages on an Azure Communication Services toll-free number or short code, then all further traffic from that number will be automatically stopped. However, you must still ensure that you do not send additional messages for that messaging campaign from new or different numbers. If you have separately obtained express consent for a different messaging campaign, then you must ask the customer to respond with a START message to resubscribe or may continue to send messages from a different number for that campaign. For alphanumeric sender ID, you are required to provide alternative mechanisms like email/call support or opt-out link for the customer to opt out. Check out our FAQ section to learn more on [Opt-out handling](./sms-faq.md#opt-out-handling).
 
 ### How we handle opt-out requests for email
 
@@ -128,7 +126,7 @@ If an individual requests to opt out of future messages on Azure Communication S
 
 Message content that includes elements of sex, hate, alcohol, firearms, tobacco, gambling, or sweepstakes and contests can trigger additional requirements. This content is expressly prohibited in some jurisdictions. If you send a message that includes this content, then it is your duty to abide by all applicable laws of the jurisdictions in which the communications are received. At the request of law enforcement or Azure Communication Services, you must be prepared to provide proof of consent with local laws that regulate adult content.
 
-Even where such content is not unlawful, you should include an age verification mechanism at opt-in to age-gate the intended message recipient from adult content. In the United States, additional legal requirements apply to marketing communications directed at children under the age of 13. 
+Even where such content is not unlawful, you should include an age verification mechanism at opt in to age-gate the intended message recipient from adult content. In the United States, additional legal requirements apply to marketing communications directed at children under the age of 13. 
 
 ### Prohibited practices:
 

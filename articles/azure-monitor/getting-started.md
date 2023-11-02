@@ -4,7 +4,7 @@ description: Guidance and recommendations for deploying Azure Monitor.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/18/2021
+ms.date: 05/31/2023
 ms.reviewer: bwren
 ---
 
@@ -28,11 +28,23 @@ These articles provide detailed information about each of the main steps you'll 
 
 | Article | Description |
 |:---|:---|
-| [Planning](best-practices-plan.md)  | Things that you should consider before starting your implementation. Includes design decisions and information about your organization and requirements that you should gather. |
-| [Configure data collection](best-practices-data-collection.md) | Tasks required to collect monitoring data from your Azure and hybrid applications and resources. |
-| [Analysis and visualizations](best-practices-analysis.md) | Standard features and additional visualizations that you can create to analyze collected monitoring data. |
-| [Alerts and automated responses](best-practices-alerts.md) | Configure notifications and processes that are automatically triggered when an alert is created. |
+| [Plan your implementation](best-practices-plan.md)  |Things that you should consider before starting your implementation. Includes design decisions and information about your organization and requirements that you should gather. |
+| [Configure data collection](best-practices-data-collection.md) |Tasks required to collect monitoring data from your Azure and hybrid applications and resources. |
+| [Analysis and visualizations](best-practices-analysis.md) |Get to know the standard features and additional visualizations that you can create to analyze collected monitoring data. |
+| [Configure alerts and automated responses](best-practices-alerts.md) |Configure notifications and processes that are automatically triggered when an alert is fired. |
 | [Optimize costs](best-practices-cost.md) | Reduce your cloud monitoring costs by implementing and managing Azure Monitor in the most cost-effective manner. |
+
+## Frequently asked questions
+
+This section provides answers to common questions.
+
+### How do I enable Azure Monitor?
+
+Azure Monitor is enabled the moment that you create a new Azure subscription, and [activity log](./essentials/platform-logs-overview.md) and platform [metrics](essentials/data-platform-metrics.md) are automatically collected. Create [diagnostic settings](essentials/diagnostic-settings.md) to collect more detailed information about the operation of your Azure resources, and add [monitoring solutions](/previous-versions/azure/azure-monitor/insights/solutions) and [insights](./monitor-reference.md) to provide extra analysis on collected data for particular services.
+
+### How do I access Azure Monitor?
+
+Access all Azure Monitor features and data from the **Monitor** menu in the Azure portal. The **Monitoring** section of the menu for different Azure services provides access to the same tools with data filtered to a particular resource. Azure Monitor data is also accessible for various scenarios by using the Azure CLI, PowerShell, and a REST API.
 
 
 ## Next steps

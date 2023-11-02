@@ -7,7 +7,7 @@ ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp, contperf-fy21q1, mode-other, engagement-fy23
 ms.topic: quickstart
-ms.date: 01/04/2023
+ms.date: 03/27/2023
 ms.author: zhenlwa
 #Customer intent: As an ASP.NET Core developer, I want to learn how to manage all my app settings in one place.
 ---
@@ -17,26 +17,23 @@ In this quickstart, you'll use Azure App Configuration to externalize storage an
 
 ## Prerequisites
 
-* Azure subscription - [create one for free](https://azure.microsoft.com/free/dotnet)
-* [.NET Core SDK](https://dotnet.microsoft.com/download)
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
+- An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
+- [.NET Core SDK](https://dotnet.microsoft.com/download)
 
 > [!TIP]
 > The Azure Cloud Shell is a free, interactive shell that you can use to run the command line instructions in this article. It has common Azure tools preinstalled, including the .NET Core SDK. If you're logged in to your Azure subscription, launch your [Azure Cloud Shell](https://shell.azure.com) from shell.azure.com. You can learn more about Azure Cloud Shell by [reading our documentation](../cloud-shell/overview.md)
 
-## Create an App Configuration store
+## Add key-values
 
-[!INCLUDE[Azure App Configuration resource creation steps](../../includes/azure-app-configuration-create.md)]
+Add the following key-values to the App Configuration store and leave **Label** and **Content Type** with their default values. For more information about how to add key-values to a store using the Azure portal or the CLI, go to [Create a key-value](./quickstart-azure-app-configuration-create.md#create-a-key-value).
 
-9. Select **Operations** > **Configuration explorer** > **Create** > **Key-value** to add the following key-value pairs:
-
-    | Key                                | Value                               |
-    |------------------------------------|-------------------------------------|
-    | `TestApp:Settings:BackgroundColor` | *white*                             |
-    | `TestApp:Settings:FontColor`       | *black*                             |
-    | `TestApp:Settings:FontSize`        | *24*                                |
-    | `TestApp:Settings:Message`         | *Data from Azure App Configuration* |
-
-    Leave **Label** and **Content type** empty for now. Select **Apply**.
+| Key                                | Value                               |
+|------------------------------------|-------------------------------------|
+| *TestApp:Settings:BackgroundColor* | *white*                             |
+| *TestApp:Settings:FontColor*       | *black*                             |
+| *TestApp:Settings:FontSize*        | *24*                                |
+| *TestApp:Settings:Message*         | *Data from Azure App Configuration* |
 
 ## Create an ASP.NET Core web app
 
@@ -76,7 +73,7 @@ dotnet new webapp --output TestAppConfig --framework netcoreapp3.1
     > [!TIP]
     > Some shells will truncate the connection string unless it's enclosed in quotes. Ensure that the output of the `dotnet user-secrets list` command shows the entire connection string. If it doesn't, rerun the command, enclosing the connection string in quotes.
 
-    Secret Manager stores the secret outside of your project tree, which helps prevent the accidental sharing of secrets within source code. It's used only to test the web app locally. When the app is deployed to Azure like [App Service](../app-service/overview.md), use the *Connection strings*, *Application settings* or environment variables to store the connection string. Alternatively, to avoid connection strings all together, you can [connect to App Configuration using managed identities](./howto-integrate-azure-managed-service-identity.md) or your other [Azure AD identities](./concept-enable-rbac.md).
+    Secret Manager stores the secret outside of your project tree, which helps prevent the accidental sharing of secrets within source code. It's used only to test the web app locally. When the app is deployed to Azure like [App Service](../app-service/overview.md), use the *Connection strings*, *Application settings* or environment variables to store the connection string. Alternatively, to avoid connection strings all together, you can [connect to App Configuration using managed identities](./howto-integrate-azure-managed-service-identity.md) or your other [Microsoft Entra identities](./concept-enable-rbac.md).
 
 1. Open *Program.cs* and add Azure App Configuration as an extra configuration source by calling the `AddAzureAppConfiguration` method.
 
@@ -213,7 +210,7 @@ In this example, you'll update a web page to display its content using the setti
 
         h1 {
             color: @Model.Settings.FontColor;
-            font-size: @Model.Settings.FontSize;
+            font-size: @(Model.Settings.FontSize)px;
         }
     </style>
 

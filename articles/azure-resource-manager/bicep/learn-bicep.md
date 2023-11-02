@@ -2,6 +2,7 @@
 title: Learn modules for Bicep
 description: Provides an overview of the Learn modules for Bicep.
 ms.topic: conceptual
+ms.custom: devx-track-bicep
 ms.date: 09/05/2022
 ---
 # Learn modules for Bicep

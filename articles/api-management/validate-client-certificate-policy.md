@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 
 ms.service: api-management
-ms.topic: reference
+ms.topic: article
 ms.date: 12/08/2022
 ms.author: danlep
 ---
@@ -52,12 +52,11 @@ For more information about custom CA certificates and certificate authorities, s
 
 | Name                            | Description      | Required |  Default    |
 | ------------------------------- | -----------------| -------- | ----------- |
-| validate-revocation  | Boolean. Specifies whether certificate is validated against online revocation list.  | No  | `true`  |
-| validate-trust | Boolean. Specifies if validation should fail in case chain cannot be successfully built up to trusted CA. | No | `true` |
-| validate-not-before | Boolean. Validates value against current time. | No | `true` |
-| validate-not-after  | Boolean. Validates value against current time. | No | `true`|
-| ignore-error  | Boolean. Specifies if policy should proceed to the next handler or jump to on-error upon failed validation. | No | `false` |
-| identity | String. Combination of certificate claim values that make certificate valid. | Yes | N/A |
+| validate-revocation  | Boolean. Specifies whether certificate is validated against online revocation list. Policy expressions aren't allowed.  | No  | `true`  |
+| validate-trust | Boolean. Specifies if validation should fail in case chain cannot be successfully built up to trusted CA. Policy expressions aren't allowed. | No | `true` |
+| validate-not-before | Boolean. Validates value against current time. Policy expressions aren't allowed.| No | `true` |
+| validate-not-after  | Boolean. Validates value against current time. Policy expressions aren't allowed.| No | `true`|
+| ignore-error  | Boolean. Specifies if policy should proceed to the next handler or jump to on-error upon failed validation. Policy expressions aren't allowed. | No | `false` |
 
 ## Elements
 
@@ -81,7 +80,7 @@ For more information about custom CA certificates and certificate authorities, s
 ## Usage
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
-- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
+- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
 - [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
 
 ## Example

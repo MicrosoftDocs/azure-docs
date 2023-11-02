@@ -1,9 +1,9 @@
 ---
-title: Defender for Cloud Planning multicloud security determine data residency requirements GDPR agent considerations guidance
+title: Planning multicloud security determine data residency requirements GDPR agent considerations guidance
 description: Learn about determining data residency requirements when planning multicloud deployment with Microsoft Defender for Cloud.
 ms.topic: how-to
-author: bmansheim
-ms.author: benmansheim
+author: dcurwin
+ms.author: dacurwin
 ms.custom: ignite-2022
 ms.date: 10/03/2022
 ---
@@ -48,8 +48,8 @@ Agents are used in the Defender for Servers plan as follows:
 - Log Analytics workspace:
   - You define the Log Analytics workspace you use at the subscription level. It can be either a default workspace, or a custom-created workspace.
   - There are [several reasons](../azure-monitor/logs/workspace-design.md) to select the default workspace rather than the custom workspace.
-  - The location of the default workspace depends on your Azure Arc machine region. [Learn more](https://learn.microsoft.com/azure/defender-for-cloud/faq-data-collection-agents#where-is-the-default-log-analytics-workspace-created-).
-  - The location of the custom-created workspace is set by your organization. [Learn more](https://learn.microsoft.com/azure/defender-for-cloud/faq-data-collection-agents#how-can-i-use-my-existing-log-analytics-workspace-) about using a custom workspace.
+  - The location of the default workspace depends on your Azure Arc machine region. [Learn more](/azure/defender-for-cloud/faq-data-collection-agents#where-is-the-default-log-analytics-workspace-created-).
+  - The location of the custom-created workspace is set by your organization. [Learn more](/azure/defender-for-cloud/faq-data-collection-agents#how-can-i-use-my-existing-log-analytics-workspace-) about using a custom workspace.
 
 ## Defender for Containers plan
 
@@ -64,9 +64,9 @@ Defender for Containers has both agent-based and agentless components.
 
 - **Agentless collection of Kubernetes audit log data**:  [Amazon CloudWatch](https://aws.amazon.com/cloudwatch/) or GCP Cloud Logging enables and collects audit log data, and sends the collected information to Defender for Cloud for further analysis. Data storage is based on the EKS cluster AWS region, in accordance with GDPR - EU and US.
 - **Agent-based Azure Arc-enabled Kubernetes**: Connects your EKS and GKE clusters to Azure using [Azure Arc agents](../azure-arc/kubernetes/conceptual-agent-overview.md), so that they’re treated as Azure Arc resources.
-- **Microsoft Defender extension**: A DaemonSet that collects signals from hosts using eBPF technology, and provides runtime protection. The extension is registered with a Log Analytics workspace and used as a data pipeline. The audit log data isn't stored in the Log Analytics workspace.
-- **Azure Policy extension**: configuration information is collected by the Azure Policy add-on.
-  - The Azure Policy add-on extends the open-source Gatekeeper v3 admission controller webhook for Open Policy Agent.
+- **[Defender agent](defender-for-cloud-glossary.md#defender-agent)**: A DaemonSet that collects signals from hosts using eBPF technology, and provides runtime protection. The extension is registered with a Log Analytics workspace and used as a data pipeline. The audit log data isn't stored in the Log Analytics workspace.
+- **Azure Policy for Kubernetes**: configuration information is collected by Azure Policy for Kubernetes.
+  - Azure Policy for Kubernetes extends the open-source Gatekeeper v3 admission controller webhook for Open Policy Agent.
   - The extension registers as a web hook to Kubernetes admission control and makes it possible to apply at-scale enforcement, safeguarding your clusters in a centralized, consistent manner.
 
 ## Defender for Databases plan

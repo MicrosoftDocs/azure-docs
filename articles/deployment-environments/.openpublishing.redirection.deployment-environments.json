@@ -1,0 +1,34 @@
+{
+  "redirections": [
+    {
+      "source_path_from_root": "/articles/deployment-environments/how-to-configure-environment-types.md",
+      "redirect_url": "/azure/deployment-environments/how-to-configure-project-environment-types",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/deployment-environments/tutorial-create-and-configure-devcenter.md",
+      "redirect_url": "/azure/deployment-environments/quickstart-create-and-configure-devcenter",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/deployment-environments/tutorial-create-and-configure-projects.md",
+      "redirect_url": "/azure/deployment-environments/quickstart-create-and-configure-projects",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/deployment-environments/how-to-configure-use-cli.md",
+      "redirect_url": "https://aka.ms/CLI-reference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/deployment-environments/configure-catalog-item.md",
+      "redirect_url": "/azure/deployment-environments/configure-environment-definition",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/deployment-environments/concept-common-components.md",
+      "redirect_url": "/azure/deployment-environments/overview-what-is-azure-deployment-environments#components-shared-with-microsoft-dev-box",
+      "redirect_document_id": false
+    }
+  ]
+}

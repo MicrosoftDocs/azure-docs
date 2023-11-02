@@ -2,7 +2,6 @@
 title: Indexer connection to SQL Server on Azure VMs
 titleSuffix: Azure Cognitive Search
 description: Enable encrypted connections and configure the firewall to allow connections to SQL Server on an Azure virtual machine (VM) from an indexer on Azure Cognitive Search.
-
 author: gmndrg
 ms.author: gimondra
 manager: nitinme
@@ -65,7 +64,7 @@ After you set up the encrypted connection required by Azure Cognitive Search, yo
 
 It isn't unusual to configure the [network security group](../virtual-network/network-security-groups-overview.md) and corresponding Azure endpoint or Access Control List (ACL) to make your Azure VM accessible to other parties. Chances are you've done this before to allow your own application logic to connect to your SQL Azure VM. It's no different for an Azure Cognitive Search connection to your SQL Azure VM. 
 
-The links below provide instructions on NSG configuration for VM deployments. Use these instructions to ACL an Azure Cognitive Search endpoint based on its IP address.
+The links below provide instructions on NSG configuration for VM deployments. Use these instructions to ACL a search service endpoint based on its IP address.
 
 1. Obtain the IP address of your search service. See the [following section](#restrict-access-to-the-azure-cognitive-search) for instructions.
 

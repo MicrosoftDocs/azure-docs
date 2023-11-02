@@ -2,7 +2,6 @@
 title: 'Tutorial: create a custom analyzer'
 titleSuffix: Azure Cognitive Search
 description: Learn how to build a custom analyzer to improve the quality of search results in Azure Cognitive Search.
-
 author: gmndrg
 ms.author: gimondra
 ms.service: cognitive-search
@@ -28,7 +27,7 @@ This tutorial uses Postman and Azure Cognitive Search's [REST APIs](/rest/api/se
 
 The following services and tools are required for this tutorial.
 
-+ [Postman desktop app](https://www.getpostman.com/)
++ [Postman app](https://www.postman.com/downloads/)
 + [Create](search-create-service-portal.md) or [find an existing search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)
 
 ## Download files

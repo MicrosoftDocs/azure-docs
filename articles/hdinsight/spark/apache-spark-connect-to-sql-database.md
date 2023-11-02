@@ -1,10 +1,10 @@
 ---
 title: Use Apache Spark to read and write data to Azure SQL Database 
-description: Learn how to set up a connection between HDInsight Spark cluster and Azure SQL Database. To read data, write data, and stream data into a SQL database
+description: Learn how to set up a connection between HDInsight Spark cluster and Azure SQL Database. To read data, write data, and stream data into an SQL database
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
-ms.date: 04/08/2022
+ms.date: 05/26/2023
 ---
 
 # Use HDInsight Spark cluster to read and write data to Azure SQL Database
@@ -68,7 +68,7 @@ In this section, you read data from a table (for example, **SalesLT.Address**) t
    ```
 
     Press **SHIFT + ENTER** to run the code cell.  
-1. Use the snippet below to build a JDBC URL that you can pass to the Spark dataframe APIs. The code creates a `Properties` object to hold the parameters. Paste the snippet in a code cell and press **SHIFT + ENTER** to run.
+1. Use the following snippet to build a JDBC URL that you can pass to the Spark dataframe APIs. The code creates a `Properties` object to hold the parameters. Paste the snippet in a code cell and press **SHIFT + ENTER** to run.
 
    ```scala
    import java.util.Properties
@@ -79,7 +79,7 @@ In this section, you read data from a table (for example, **SalesLT.Address**) t
    connectionProperties.put("password", s"${jdbcPassword}")
    ```
 
-1. Use the snippet below to create a dataframe with the data from a table in your database. In this snippet, we use a `SalesLT.Address` table that is available as part of the **AdventureWorksLT** database. Paste the snippet in a code cell and press **SHIFT + ENTER** to run.
+1. Use the following snippet to create a dataframe with the data from a table in your database. In this snippet, we use a `SalesLT.Address` table that is available as part of the **AdventureWorksLT** database. Paste the snippet in a code cell and press **SHIFT + ENTER** to run.
 
    ```scala
    val sqlTableDF = spark.read.jdbc(jdbc_url, "SalesLT.Address", connectionProperties)
@@ -157,7 +157,7 @@ In this section, we use a sample CSV file available on the cluster to create a t
 
 1. Connect to the Azure SQL Database using SSMS and verify that you see a `dbo.hvactable` there.
 
-    a. Start SSMS and connect to the Azure SQL Database by providing connection details as shown in the screenshot below.
+    a. Start SSMS and connect to the Azure SQL Database by providing connection details as shown in the following screenshot.
 
     :::image type="content" source="./media/apache-spark-connect-to-sql-database/connect-to-sql-db-ssms.png " alt-text="Connect to SQL Database using SSMS1" border="true":::
 

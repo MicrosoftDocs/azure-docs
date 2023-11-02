@@ -6,18 +6,17 @@ services: storage
 author: pauljewellmsft
 ms.author: pauljewell
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 07/15/2022
 
-ms.subservice: blobs
 ms.custom: template-how-to, devx-track-js, devguide-js
 
 ---
 
 # Create a user delegation SAS token with Azure Blob Storage and JavaScript
 
-This article shows you how to create a user delegation SAS token in the Azure Blob Storage client library v12 for JavaScript. A [user delegation SAS](/rest/api/storageservices/delegate-access-with-shared-access-signature#types-of-shared-access-signatures), introduced with version 2018-11-09, is secured with Azure AD credentials and is supported for the Blob service only to:
+This article shows you how to create a user delegation SAS token in the Azure Blob Storage client library v12 for JavaScript. A [user delegation SAS](/rest/api/storageservices/delegate-access-with-shared-access-signature#types-of-shared-access-signatures), introduced with version 2018-11-09, is secured with Microsoft Entra credentials and is supported for the Blob service only to:
 
 * Grant access to an existing **container**.
 * Grant access to create, use, and delete **blobs**.

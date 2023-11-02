@@ -2,7 +2,8 @@
 title: Template functions - numeric
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to work with numbers.
 ms.topic: conceptual
-ms.date: 03/10/2022
+ms.custom: devx-track-arm-template
+ms.date: 05/22/2023
 ---
 
 # Numeric functions for ARM templates
@@ -299,7 +300,7 @@ The output from the preceding example with the default values is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| mulResult | Int | 15 |
+| mulResult | Int | 45 |
 
 ## sub
 

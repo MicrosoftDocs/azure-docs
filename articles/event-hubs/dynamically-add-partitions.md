@@ -22,10 +22,10 @@ You can specify the number of partitions at the time of creating an event hub. I
 This section shows you how to update partition count of an event hub in different ways (PowerShell, CLI, and so on.).
 
 ### PowerShell
-Use the [Set-AzureRmEventHub](/powershell/module/azurerm.eventhub/Set-AzureRmEventHub) PowerShell command to update partitions in an event hub. 
+Use the [Set-AzEventHub](/powershell/module/az.eventhub/set-azeventhub) PowerShell command to update partitions in an event hub. 
 
 ```azurepowershell-interactive
-Set-AzureRmEventHub -ResourceGroupName MyResourceGroupName -Namespace MyNamespaceName -Name MyEventHubName -partitionCount 12
+Set-AzEventHub -ResourceGroupName MyResourceGroupName -Namespace MyNamespaceName -Name MyEventHubName -partitionCount 12
 ```
 
 ### CLI
@@ -76,6 +76,8 @@ Event Hubs provides direct receivers and an easy consumer library called the [Ev
 - **Event processor host** – This client doesn't automatically refresh the entity metadata. So, it wouldn't pick up on partition count increase. Recreating an event processor instance will cause an entity metadata fetch, which in turn will create new blobs for the newly added partitions. Pre-existing blobs won't be affected. Restarting all event processor instances is recommended to ensure that all instances are aware of the newly added partitions, and load-balancing is handled correctly among consumers.
 
     If you're using the old version of .NET SDK ([WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/)), the event processor host removes an existing checkpoint upon restart if partition count in the checkpoint doesn't match the partition count fetched from the service. This behavior may have an impact on your application. 
+    
+    [!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
 
 ## Apache Kafka clients
 This section describes how Apache Kafka clients that use the Kafka endpoint of Azure Event Hubs behave when the partition count is updated for an event hub. 

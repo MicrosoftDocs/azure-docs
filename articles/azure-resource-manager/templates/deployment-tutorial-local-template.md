@@ -1,10 +1,9 @@
 ---
 title: Tutorial - Deploy a local Azure Resource Manager template
 description: Learn how to deploy an Azure Resource Manager template (ARM template) from your local computer
-ms.date: 02/10/2021
+ms.date: 10/05/2023
 ms.topic: tutorial
-ms.author: jgao
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-arm-template
 ---
 
 # Tutorial: Deploy a local ARM template
@@ -21,7 +20,7 @@ Let's start by making sure you have the tools you need to deploy templates.
 
 You  need either Azure PowerShell or Azure CLI to deploy the template. For the installation instructions, see:
 
-- [Install Azure PowerShell](/powershell/azure/install-az-ps)
+- [Install Azure PowerShell](/powershell/azure/install-azure-powershell)
 - [Install Azure CLI on Windows](/cli/azure/install-azure-cli-windows)
 - [Install Azure CLI on Linux](/cli/azure/install-azure-cli-linux)
 - [Install Azure CLI on macOS](/cli/azure/install-azure-cli-macos)

@@ -7,7 +7,7 @@ author: jonels-msft
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: how-to
-ms.date: 08/03/2021
+ms.date: 05/24/2023
 ---
 
 # Troubleshoot read-only access to Azure Cosmos DB for PostgreSQL
@@ -23,13 +23,16 @@ almost full. Preventing writes stops the disk from continuing to fill, and
 keeps the node available for reads. During the read-only state, you can take
 measures to free more disk space.
 
-Specifically, a node becomes read-only when it has less than
-5 GiB of free storage left. When the server becomes read-only, all existing
-sessions are disconnected, and uncommitted transactions are rolled back. Any
-write operations and transaction commits will fail, while read queries will
-continue to work.
+> [!IMPORTANT]
+>
+> Even in the RO state in-flight transactions may continue writing to the database 
+> thus decreasing further available storage. If available storage size continues 
+> to decrease after the node was set to read-only, all existing sessions 
+> would be disconnected and uncommitted transactions would be rolled back.
 
 ## Ways to recover write-access
+
+If a node was set to RO state, you need to free some disk space to unblock writes on the node. Write access is re-enabled when node has more than 16 GiB of free storage on nodes with 256 GiB or greater and more than 7% of free storage on nodes with 128 GiB or smaller storage.
 
 ### On the coordinator node
 

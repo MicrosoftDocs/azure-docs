@@ -4,8 +4,8 @@ description: 'Learn about read replicas in Azure Database for MySQL: choosing re
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: conceptual
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.custom: references_regions
 ms.date: 06/20/2022
 ---
@@ -40,7 +40,7 @@ The read replica feature uses MySQL asynchronous replication. The feature isn't 
 
 You can create a read replica in a different region from your source server. Cross-region replication can be helpful for scenarios like disaster recovery planning or bringing data closer to your users.
 
-You can have a source server in any [Azure Database for MySQL region](https://azure.microsoft.com/global-infrastructure/services/?products=mysql).  A source server can have a replica in its [paired region](../../availability-zones/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies) or the universal replica regions. The following picture shows which replica regions are available depending on your source region.
+You can have a source server in any [Azure Database for MySQL region](https://azure.microsoft.com/global-infrastructure/services/?products=mysql).  A source server can have a replica in its [paired region](../../availability-zones/cross-region-replication-azure.md#azure-paired-regions) or the universal replica regions. The following picture shows which replica regions are available depending on your source region.
 
 ### Universal replica regions
 
@@ -77,7 +77,7 @@ You can create a read replica in any of the following regions, regardless of whe
 | UAE North* | :heavy_check_mark: | 
 | South Africa North* | :heavy_check_mark: |
 
-> [!Note] 
+> [!NOTE] 
 > *Regions where Azure Database for MySQL has General purpose storage v2 in Public Preview  <br /> 
 > *For these Azure regions, you will have an option to create server in both General purpose storage v1 and v2. For the servers created with General purpose storage v2 in public preview, you are limited to create replica server only in the Azure regions which support General purpose storage v2.
 

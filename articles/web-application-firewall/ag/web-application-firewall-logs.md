@@ -5,10 +5,8 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
-ms.date: 10/25/2019
+ms.date: 08/24/2023
 ms.author: victorh 
-ms.custom: devx-track-azurepowershell
-
 ---
 # Resource logs for Azure Web Application Firewall
 
@@ -18,7 +16,7 @@ You can monitor Web Application Firewall resources using logs. You can save perf
 
 ## Diagnostic logs
 
-You can use different types of logs in Azure to manage and troubleshoot application gateways. You can access some of these logs through the portal. All logs can be extracted from Azure Blob storage and viewed in different tools, such as [Azure Monitor logs](../../azure-monitor/insights/azure-networking-analytics.md), Excel, and Power BI. You can learn more about the different types of logs from the following list:
+You can use different types of logs in Azure to manage and troubleshoot application gateways. You can access some of these logs through the portal. All logs can be extracted from Azure Blob storage and viewed in different tools, such as [Azure Monitor logs](/previous-versions/azure/azure-monitor/insights/azure-networking-analytics), Excel, and Power BI. You can learn more about the different types of logs from the following list:
 
 * **Activity log**: You can use [Azure activity logs](../../azure-monitor/essentials/activity-log.md) to view all operations that are submitted to your Azure subscription, and their status. Activity log entries are collected by default, and you can view them in the Azure portal.
 * **Access Resource log**: You can use this log to view Application Gateway access patterns and analyze important information. This includes the caller's IP, requested URL, response latency, return code, and bytes in and out. This log contains individual records for each request and associates that request to the unique Application Gateway that processed the request. Unique Application Gateway instances can be identified by the property instanceId.
@@ -53,7 +51,7 @@ Activity logging is automatically enabled for every Resource Manager resource. Y
     ```
 
 > [!TIP]
->Activity logs do not require a separate storage account. The use of storage for access and performance logging incurs service charges.
+>Activity logs do not *require* a separate storage account. The use of storage for access and performance logging incurs service charges.
 
 ### Enable logging through the Azure portal
 
@@ -65,13 +63,12 @@ Activity logging is automatically enabled for every Resource Manager resource. Y
    * Performance log
    * Firewall log
 
-2. To start collecting data, select **Turn on diagnostics**.
+2. Select **Add diagnostic setting**.
 
-   ![Turning on diagnostics][1]
 
-3. The **Diagnostics settings** page provides the settings for the resource logs. In this example, Log Analytics stores the logs. You can also use event hubs and a storage account to save the resource logs.
+3. The **Diagnostic setting** page provides the settings for the resource logs. In this example, Log Analytics stores the logs. You can also use an event hub, a storage account, or a partner solution to save the resource logs.
 
-   ![Starting the configuration process][2]
+   :::image type="content" source="../media/web-application-firewall-logs/figure2.png" alt-text="Screenshot showing Diagnostic settings.":::
 
 5. Type a name for the settings, confirm the settings, and select **Save**.
 
@@ -215,7 +212,7 @@ The performance log is generated only if you have enabled it on each Application
 
 ## Firewall log
 
-The firewall log is generated only if you have enabled it for each application gateway, as detailed in the preceding steps. This log also requires that the web application firewall is configured on an application gateway. The data is stored in the storage account that you specified when you enabled the logging. The following data is logged:
+The firewall log is generated only if you have enabled it for each application gateway, as detailed in the preceding steps. This log also requires that the web application firewall is configured on an application gateway. The data is stored in the destination that you specified when you enabled the logging. The following data is logged:
 
 
 |Value  |Description  |
@@ -285,7 +282,7 @@ You can view and analyze activity log data by using any of the following methods
 
 ## View and analyze the access, performance, and firewall logs
 
-[Azure Monitor logs](../../azure-monitor/insights/azure-networking-analytics.md) can collect the counter and event log files from your Blob storage account. It includes visualizations and powerful search capabilities to analyze your logs.
+[Azure Monitor logs](/previous-versions/azure/azure-monitor/insights/azure-networking-analytics) can collect the counter and event log files from your Blob storage account. It includes visualizations and powerful search capabilities to analyze your logs.
 
 You can also connect to your storage account and retrieve the JSON log entries for access and performance logs. After you download the JSON files, you can convert them to CSV and view them in Excel, Power BI, or any other data-visualization tool.
 
@@ -300,17 +297,7 @@ We have published a Resource Manager template that installs and runs the popular
 
 ## Next steps
 
-* Visualize counter and event logs by using [Azure Monitor logs](../../azure-monitor/insights/azure-networking-analytics.md).
+* Visualize counter and event logs by using [Azure Monitor logs](/previous-versions/azure/azure-monitor/insights/azure-networking-analytics).
 * [Visualize your Azure activity log with Power BI](https://powerbi.microsoft.com/blog/monitor-azure-audit-logs-with-power-bi/) blog post.
 * [View and analyze Azure activity logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) blog post.
 
-[1]: ../media/web-application-firewall-logs/figure1.png
-[2]: ../media/web-application-firewall-logs/figure2.png
-[3]: ./media/application-gateway-diagnostics/figure3.png
-[4]: ./media/application-gateway-diagnostics/figure4.png
-[5]: ./media/application-gateway-diagnostics/figure5.png
-[6]: ./media/application-gateway-diagnostics/figure6.png
-[7]: ./media/application-gateway-diagnostics/figure7.png
-[8]: ./media/application-gateway-diagnostics/figure8.png
-[9]: ./media/application-gateway-diagnostics/figure9.png
-[10]: ./media/application-gateway-diagnostics/figure10.png

@@ -7,15 +7,13 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 06/29/2022
 ms.author: migreene
-ms.custom: devx-track-azurepowershell
-
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 # How to connect using Secure Shell (SSH) and sign on to an Azure virtual machine running Windows
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
 
-The [Win32 OpenSSH](https://github.com/PowerShell/Win32-OpenSSH) project makes remote connectivity
-using Secure Shell ubiquitous by providing native support in Windows. The capability is provided in
+The [Win32 OpenSSH](https://github.com/PowerShell/Win32-OpenSSH) project makes remote connectivity with Secure Shell ubiquitous by providing native support in Windows. The capability is provided in
 Windows Server version 2019 and later, and can be added to older versions of Windows using a virtual
 machine (VM) extension.
 
@@ -28,7 +26,7 @@ The examples below use variables. You can set variables in your environment as f
 
 ## Enable SSH
 
-First, you will need to enable SSH in your Windows machine.
+First, you'll need to enable SSH in your Windows machine.
 
 **Windows Server 2019 and newer**
 
@@ -114,7 +112,7 @@ Set-AzVMExtension -ResourceGroupName $myResourceGroup -VMName $myVM -Name 'OpenS
   "properties": {
     "publisher": "Microsoft.Azure.OpenSSH",
     "type": "WindowsOpenSSH",
-    "typeHandlerVersion": "3.0",
+    "typeHandlerVersion": "3.0"
   }
 }
 ```
@@ -208,7 +206,7 @@ resource allowSSH 'Microsoft.Network/networkSecurityGroups/securityRules@2021-08
 
 ## Authentication
 
-You can authenticate to Windows machines using either username and password or SSH keys. Azure does not support provisioning public keys to Windows machines automatically, however you can copy the key using the RunCommand extension.
+You can authenticate to Windows machines using either username and password or SSH keys. Azure doesn't support provisioning public keys to Windows machines automatically, however you can copy the key using the RunCommand extension.
 
 [!INCLUDE [virtual-machines-common-ssh-overview](../../../includes/virtual-machines-common-ssh-overview.md)]
 
@@ -272,7 +270,7 @@ Connect to Windows machines using `Az SSH` commands.
 az ssh vm  -g $myResourceGroup -n $myVM --local-user $myUsername
 ```
 
-It is also possible to create a network tunnel for specific TCP ports through the SSH connection. A good use case for this is Remote Desktop which defaults to port 3389.
+It's also possible to create a network tunnel for specific TCP ports through the SSH connection. A good use case for this is Remote Desktop which defaults to port 3389.
 
 ```azurecli-interactive
 az ssh vm  -g $myResourceGroup -n $myVM --local-user $myUsername -- -L 3389:localhost:3389
@@ -283,7 +281,7 @@ az ssh vm  -g $myResourceGroup -n $myVM --local-user $myUsername -- -L 3389:loca
 1. Go to the [Azure portal](https://portal.azure.com/) to connect to a VM. Search for and select **Virtual machines**.
 2. Select the virtual machine from the list.
 3. Select **Connect** from the left menu.
-4. Select the **SSH** tab. If the VM has a just-in-time policy set, you first need to select the **Request access** button to request access before you can download the RDP file. For more information about the just-in-time policy, see [Manage virtual machine access using the just in time policy](../../security-center/security-center-just-in-time.md).
+4. Select the option that fits with your preferred way of connecting. The portal helps walk you through the prerequisites for connecting.
 
 
 ## Next steps

@@ -7,15 +7,12 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: devx-track-azurepowershell, synapse
-ms.date: 07/04/2022
+ms.custom: synapse
+ms.date: 07/13/2023
 ---
 
 # Copy data to and from Azure Table storage using Azure Data Factory or Synapse Analytics
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](v1/data-factory-azure-table-connector.md)
-> * [Current version](connector-azure-table-storage.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 

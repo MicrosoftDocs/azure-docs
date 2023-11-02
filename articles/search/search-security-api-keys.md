@@ -43,7 +43,7 @@ Best practices for using hard-coded keys in source files include:
 
 + During early development and proof-of-concept testing when security is looser, use sample or public data.
 
-+ For mature solutions or production scenarios, switch to [Azure Active Directory and role-based access](search-security-rbac.md) to eliminate the need for having hard-coded keys. Or, if you want to continue using API keys, be sure to always monitor [who has access to your API keys](#secure-api-keys) and [regenerate API keys](#regenerate-admin-keys) on a regular cadence.
++ For mature solutions or production scenarios, switch to [Microsoft Entra ID and role-based access](search-security-rbac.md) to eliminate the need for having hard-coded keys. Or, if you want to continue using API keys, be sure to always monitor [who has access to your API keys](#secure-api-keys) and [regenerate API keys](#regenerate-admin-keys) on a regular cadence.
 
 ### [**Portal**](#tab/portal-use)
 
@@ -140,12 +140,12 @@ az search query-key list --resource-group <myresourcegroup> --service-name <myse
 
 ### [**REST API**](#tab/rest-find)
 
-Use [List Admin Keys](/rest/api/searchmanagement/2020-08-01/admin-keys) or [List Query Keys](/rest/api/searchmanagement/2020-08-01/query-keys/list-by-search-service) in the Management REST API to return API keys.
+Use [List Admin Keys](/rest/api/searchmanagement/2022-09-01/admin-keys) or [List Query Keys](/rest/api/searchmanagement/2022-09-01/query-keys/list-by-search-service) in the Management REST API to return API keys.
 
 You must have a [valid role assignment](#permissions-to-view-or-manage-api-keys) to return or update API keys. See [Manage your Azure Cognitive Search service with REST APIs](search-manage-rest.md) for guidance on meeting role requirements using the REST APIs.
 
 ```rest
-POST https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{resource-group}}/providers//Microsoft.Search/searchServices/{{search-service-name}}/listAdminKeys?api-version=2021-04-01-preview
+POST https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{resource-group}}/providers//Microsoft.Search/searchServices/{{search-service-name}}/listAdminKeys?api-version=2022-09-01
 ```
 
 ---
@@ -176,12 +176,12 @@ A script example showing query key usage can be found at [Create or delete query
 
 ### [**REST API**](#tab/rest-query)
 
-Use [Create Query Keys](/rest/api/searchmanagement/2020-08-01/query-keys/create) in the Management REST API.
+Use [Create Query Keys](/rest/api/searchmanagement/2022-09-01/query-keys/create) in the Management REST API.
 
 You must have a [valid role assignment](#permissions-to-view-or-manage-api-keys) to create or manage API keys. See [Manage your Azure Cognitive Search service with REST APIs](search-manage-rest.md) for guidance on meeting role requirements using the REST APIs.
 
 ```rest
-POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Search/searchServices/{searchServiceName}/createQueryKey/{name}?api-version=2020-08-01
+POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Search/searchServices/{searchServiceName}/createQueryKey/{name}?api-version=2022-09-01
 ```
 
 ---

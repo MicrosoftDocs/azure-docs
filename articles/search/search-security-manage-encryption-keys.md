@@ -9,7 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
 ms.date: 01/20/2023
-ms.custom: references_regions, devx-track-azurepowershell 
+ms.custom: references_regions
 ---
 
 # Configure customer-managed keys for data encryption in Azure Cognitive Search
@@ -24,6 +24,9 @@ This article walks you through the steps of setting up customer-managed key (CMK
 
 + CMK encryption becomes operational when an object is created. You can't encrypt objects that already exist. CMK encryption occurs whenever an object is saved to disk, either data at rest for long-term storage or temporary data for short-term storage. With CMK, the disk never sees unencrypted data.
 
+> [!NOTE]
+> If an index is CMK encrypted, it is only accessible if the search service has access the key. If access to the key is revoked, the index is unusable and the service cannot be scaled until the index is deleted or access to the key is restored.
+
 ## CMK encrypted objects
 
 Objects that can be encrypted include indexes, synonym lists, indexers, data sources, and skillsets. Encryption is computationally expensive to decrypt so only sensitive content is encrypted.
@@ -32,7 +35,7 @@ Encryption is performed over the following content:
 
 + All content within indexes and synonym lists, including descriptions.
 
-+ For indexers, data sources, and skillsets, only those fields that store connection strings, descriptions, keys, and user inputs are encrypted. For example, skillsets have Cognitive Services keys, and some skills accept user inputs, such as custom entities. In both cases, keys and user inputs into skills are encrypted.
++ For indexers, data sources, and skillsets, only those fields that store connection strings, descriptions, keys, and user inputs are encrypted. For example, skillsets have Azure AI services keys, and some skills accept user inputs, such as custom entities. In both cases, keys and user inputs into skills are encrypted.
 
 ## Full double encryption
 
@@ -60,9 +63,9 @@ The following tools and services are used in this scenario.
 
 + [Azure Cognitive Search](search-create-service-portal.md) on a [billable tier](search-sku-tier.md#tier-descriptions) (Basic or above, in any region).
 
-+ [Azure Key Vault](../key-vault/general/overview.md), you can create key vault using [Azure portal](../key-vault//general/quick-create-portal.md), [Azure CLI](../key-vault//general/quick-create-cli.md), or [Azure PowerShell](../key-vault//general/quick-create-powershell.md). Create the resource in the same subscription as Azure Cognitive Search. The key vault must have **soft-delete** and **purge protection** enabled.
++ [Azure Key Vault](../key-vault/general/overview.md), you can [create a key vault using the Azure portal](../key-vault/general/quick-create-portal.md), [Azure CLI](../key-vault//general/quick-create-cli.md), or [Azure PowerShell](../key-vault//general/quick-create-powershell.md). Create the resource in the same subscription as Azure Cognitive Search. The key vault must have **soft-delete** and **purge protection** enabled.
 
-+ [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md). If you don't have one, [set up a new tenant](../active-directory/develop/quickstart-create-new-tenant.md).
++ [Microsoft Entra ID](../active-directory/fundamentals/active-directory-whatis.md). If you don't have one, [set up a new tenant](../active-directory/develop/quickstart-create-new-tenant.md).
 
 You should have a search client that can create the encrypted object. Into this code, you'll reference a key vault key and Active Directory registration information. This code could be a working app, or prototype code such as the [C# code sample DotNetHowToEncryptionUsingCMK](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToEncryptionUsingCMK).
 
@@ -89,7 +92,7 @@ You can set both properties using the portal, PowerShell, or Azure CLI commands.
 
 ### [**Azure portal**](#tab/portal-pp)
 
-1. [Sign in to Azure portal](https://portal.azure.com) and open your key vault overview page.
+1. Sign in to the [Azure portal](https://portal.azure.com) and open your key vault overview page.
 
 1. On the **Overview** page under **Essentials**, enable **Soft-delete** and **Purge protection**.
 
@@ -135,7 +138,7 @@ You can set both properties using the portal, PowerShell, or Azure CLI commands.
 
 Skip key generation if you already have a key in Azure Key Vault that you want to use, but collect the key identifier. You'll need this information when creating an encrypted object.
 
-1. [Sign in to Azure portal](https://portal.azure.com) and open your key vault overview page.
+1. Sign in to the [Azure portal](https://portal.azure.com) and open your key vault overview page.
 
 1. Select **Keys** on the left, and then select **+ Generate/Import**.
 
@@ -153,7 +156,7 @@ Skip key generation if you already have a key in Azure Key Vault that you want t
 
 You have several options for accessing the encryption key at run time. The simplest approach is to retrieve the key using the managed identity and permissions of your search service. You can use either a system or user-managed identity. Doing so allows you to omit the steps for application registration and application secrets, and simplifies the encryption key definition.
 
-Alternatively, you can create and register an Azure Active Directory application. The search service will provide the application ID on requests.
+Alternatively, you can create and register a Microsoft Entra application. The search service will provide the application ID on requests.
 
 A managed identity enables your search service to authenticate to Azure Key Vault without storing credentials (ApplicationID or ApplicationSecret) in code. The lifecycle of this type of managed identity is tied to the lifecycle of your search service, which can only have one managed identity. For more information about how managed identities work, see [What are managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
 
@@ -176,7 +179,7 @@ Conditions that will prevent you from adopting this approach include:
 > 
 > The REST API version 2021-04-30-Preview and [Management REST API 2021-04-01-Preview](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update) provide this feature.
 
-1. [Sign into Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **+ Create a new resource**.
 
@@ -236,7 +239,7 @@ Conditions that will prevent you from adopting this approach include:
 
 ### [**Register an app**](#tab/register-app)
 
-1. In [Azure portal](https://portal.azure.com), find the Azure Active Directory resource for your subscription.
+1. In the [Azure portal](https://portal.azure.com), find the Microsoft Entra resource for your subscription.
 
 1. On the left, under **Manage**, select **App registrations**, and then select **New registration**.
 
@@ -312,7 +315,7 @@ Encryption keys are added when you create an object. To add a customer-managed k
     }
     ```
 
-    The second example includes "accessCredentials", necessary if you registered an application in Azure AD:
+    The second example includes "accessCredentials", necessary if you registered an application in Microsoft Entra ID:
 
     ```json
     {
@@ -348,7 +351,7 @@ In this section, you'll set the policy that defines a CMK standard for your sear
 
    :::image type="content" source="media/search-security-manage-encryption-keys/assign-policy.png" alt-text="Screenshot of assigning built-in CMK policy." border="true":::
 
-1. Set up the [policy scope](../governance/policy/concepts/scope.md). In the **Parameters** section, uncheck **Only show parameters...** and set **Effect** to [**Deny**](/azure/governance/policy/concepts/effects#deny). 
+1. Set up the [policy scope](../governance/policy/concepts/scope.md). In the **Parameters** section, uncheck **Only show parameters...** and set **Effect** to [**Deny**](../governance/policy/concepts/effects.md#deny). 
 
    During evaluation of the request, a request that matches a deny policy definition is marked as non-compliant. Assuming the standard for your service is CMK encryption, "deny" means that requests that *don't* specify CMK encryption are non-compliant.
 

@@ -1,7 +1,7 @@
 ---
 title:  View quotas
 description: Learn how to view quotas in the Azure portal.
-ms.date: 07/25/2022
+ms.date: 05/02/2023
 ms.topic: how-to
 ---
 
@@ -31,4 +31,4 @@ In the list of quotas, you can toggle the arrow shown next to **Quota** to expan
 
 - Learn more in [Quota overview](quotas-overview.md).
 - about [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md).
-- Learn how to request increases for [VM-family vCPU quotas](per-vm-quota-requests.md), [vCPU quotas by region](regional-quota-requests.md), and [spot vCPU quotas](spot-quota.md).
+- Learn how to request increases for [VM-family vCPU quotas](per-vm-quota-requests.md), [vCPU quotas by region](regional-quota-requests.md), [spot vCPU quotas](spot-quota.md), and [storage accounts](storage-account-quota-requests.md).

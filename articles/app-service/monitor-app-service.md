@@ -35,9 +35,12 @@ See [Create diagnostic setting to collect platform logs and metrics in Azure](..
 
 The metrics and logs you can collect are discussed in the following sections.
 
+[!INCLUDE [audit log categories tip](../azure-monitor/includes/azure-monitor-log-category-groups-tip.md)]
+
+
 ## Analyzing metrics
 
-You can analyze metrics for *App Service* with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Getting started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md) for details on using this tool. 
+You can analyze metrics for *App Service* with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Analyze metrics with Azure Monitor metrics explorer](../azure-monitor/essentials/analyze-metrics.md) for details on using this tool. 
 
 For a list of platform metrics collected for App Service, see [Monitoring App Service data reference metrics](monitor-app-service-reference.md#metrics)  
 
@@ -93,7 +96,7 @@ See [Azure Monitor queries for App Service](https://github.com/microsoft/AzureMo
 
 Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](../azure-monitor/alerts/alerts-metric-overview.md), [logs](../azure-monitor/alerts/alerts-unified-log.md), and the [activity log](../azure-monitor/alerts/activity-log-alerts.md).
 
-If you're running an application on App Service [Azure Monitor Application Insights](../azure-monitor/overview.md#application-insights) offers more types of alerts.
+If you're running an application on App Service [Azure Monitor Application Insights](../azure-monitor/app/app-insights-overview.md) offers more types of alerts.
 
 The following table lists common and recommended alert rules for App Service.
 

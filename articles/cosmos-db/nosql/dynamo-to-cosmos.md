@@ -4,6 +4,7 @@ description: Learn how to migrate your .NET application from Amazon's DynamoDB t
 author: manishmsfte
 ms.service: cosmos-db
 ms.subservice: nosql
+ms.custom: devx-track-dotnet
 ms.topic: how-to
 ms.date: 05/02/2020
 ms.author: mansha
@@ -85,10 +86,6 @@ The following JSON object represents the data format in Azure Cosmos DB
 "Tags": ""
 }
 ```
-
-## Migrate your data
-
-There are various options available to migrate your data to Azure Cosmos DB. To learn more, see the [Options to migrate your on-premises or cloud data to Azure Cosmos DB](../migration-choices.md) article.
 
 ## Migrate your code
 
@@ -520,4 +517,3 @@ As you can see, Azure Cosmos DB supports natural queries (SQL), operations are a
 - Learn about [performance optimization](performance-tips.md).
 - Learn about [optimize reads and writes](../key-value-store-cost.md)
 - Learn about [Monitoring in Azure Cosmos DB](../monitor.md)
-

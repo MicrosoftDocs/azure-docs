@@ -24,7 +24,7 @@ Anyone who creates an Azure Active Directory B2C (Azure AD B2C) becomes the *Glo
 
 - If you haven't already created your own [Azure AD B2C Tenant](tutorial-create-tenant.md), create one now. You can use an existing Azure AD B2C tenant.   
 
-## Restrict non-admin users from creating Azure AD B2C tenants (preview)
+## Restrict non-admin users from creating Azure AD B2C tenants
 
 As a *Global Administrator* in an Azure AD B2C tenant, you can restrict non-admin users from creating tenants. To do so, use the following steps:
 
@@ -36,7 +36,7 @@ As a *Global Administrator* in an Azure AD B2C tenant, you can restrict non-admi
     
     1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 
-1. In the Azure portal, search for and select **Azure Active Directory**.
+1. In the Azure portal, search for and select **Microsoft Entra ID**.
 
 1. Under **Manage**, select **User Settings**.
 
@@ -44,7 +44,7 @@ As a *Global Administrator* in an Azure AD B2C tenant, you can restrict non-admi
 
 1. At the top of the **User Settings** page, select **Save**. 
 
-## Check tenant creation permission (preview)
+## Check tenant creation permission
 
 Before you create an Azure AD B2C tenant, make sure that you've the permission to do so. Use these steps to check that you've the permission to create a tenant: 
 
@@ -56,7 +56,7 @@ Before you create an Azure AD B2C tenant, make sure that you've the permission t
     
     1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 
-1. In the Azure portal, search for and select **Azure Active Directory**.
+1. In the Azure portal, search for and select **Microsoft Entra ID**.
 
 1. Under **Manage**, select **User Settings**.
 

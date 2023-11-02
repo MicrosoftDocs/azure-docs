@@ -2,8 +2,8 @@
 title: Packet core dashboards
 titleSuffix: Azure Private 5G Core
 description: Information on the packet core dashboards, which can be used to monitor key statistics in an Azure Private 5G Core deployment. 
-author: djrmetaswitch
-ms.author: drichards
+author: robswain
+ms.author: robswain
 ms.service: private-5g-core
 ms.topic: conceptual
 ms.date: 01/19/2022
@@ -21,9 +21,11 @@ The packet core dashboards are powered by *Grafana*, an open-source, metric anal
 > [!TIP]
 > When signing in, if you see a warning in your browser that the connection isn't secure, you may be using a self-signed certificate to attest access to your local monitoring tools. We recommend following [Modify the local access configuration in a site](modify-local-access-configuration.md) to configure a custom HTTPS certificate signed by a globally known and trusted certificate authority.
 
-### Azure Active Directory
+<a name='azure-active-directory'></a>
 
-To sign in to the packet core dashboards if you enabled Azure Active Directory authentication:
+### Microsoft Entra ID
+
+To sign in to the packet core dashboards if you enabled Microsoft Entra authentication:
 
 1. In your browser, enter https://*\<local monitoring domain\>*/grafana, where *\<local monitoring domain\>* is the domain name for your local monitoring tools that you set up in [Configure domain system name (DNS) for local monitoring IP](enable-azure-active-directory.md#configure-domain-system-name-dns-for-local-monitoring-ip).
 1. Follow the prompts to sign in with your account credentials.
@@ -89,6 +91,14 @@ You can access the following packet core dashboards:
     - The **4G Interfaces dashboard** displays request and response statistics recorded by each of the packet core instance's 4G interfaces. Note that this dashboard is only available for packet core instances supporting 4G devices.
 
     :::image type="content" source="media/packet-core-dashboards/packet-core-4g-interfaces-dashboard.png" alt-text="Screenshot of the 4G Interfaces dashboard. Panels related to activity on the packet core instance's 4G interfaces are shown." lightbox="media/packet-core-dashboards/packet-core-4g-interfaces-dashboard.png":::  
+
+#### Filter by data network
+
+Some packet core dashboards can be filtered to show statistics for specific data networks on certain panels.
+
+Where supported, at the top left of the dashboard, a **Data Network** dropdown displays all the data networks for the deployment. Selecting one or more checkboxes next to the data network names applies a filter to the panels that support it. By default all data networks are displayed.
+
+:::image type="content" source="media/packet-core-dashboards/packet-core-data-network-filter.png" alt-text="Screenshot of a dashboard showing a Data Networks dropdown." lightbox="media/packet-core-dashboards/packet-core-data-network-filter.png":::
 
 ## Panels and rows
 

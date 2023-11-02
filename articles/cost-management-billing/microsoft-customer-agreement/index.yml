@@ -11,7 +11,7 @@ metadata:
   ms.collection: collection
   author: bandersmsft
   ms.author: banders
-  ms.date: 03/22/2022
+  ms.date: 09/05/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -24,31 +24,31 @@ landingContent:
     - linkListType: overview
       links:
       - text: What is a Microsoft Customer Agreement?
-        url: ../understand/mca-overview.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+        url: ../understand/mca-overview.md
     - linkListType: get-started
       links:
-      - text: Key next steps after accepting agreement
-        url: microsoft-customer-agreement-get-started.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+      - text: Onboard to the Microsoft Customer Agreement
+        url: onboard-microsoft-customer-agreement.md
     - linkListType: how-to-guide
       links:
 #      - text: Access subscriptions (placeholder)
 #        url: ../manage/create-subscription.md
       - text: Transfer billing ownership from MOSA to MCA
-        url: ../manage/mca-request-billing-ownership.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+        url: ../manage/mca-request-billing-ownership.md
       - text: Transfer billing ownership from EA to MCA
-        url: ../manage/mca-setup-account.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+        url: ../manage/mca-setup-account.md
     - linkListType: reference
       links:
       - text: APIs overview - Migrating from EA to MCA
-        url: ../costs/migrate-cost-management-api.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+        url: ../costs/migrate-cost-management-api.md
       - text: API differences between EA and MCA
         url: /rest/api/billing/
       - text: Cost Management Power BI connector
-        url: /power-bi/connect-data/desktop-connect-azure-cost-management?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+        url: /power-bi/connect-data/desktop-connect-azure-cost-management
       - text: Export Cost Management data
-        url: ../costs/tutorial-export-acm-data.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+        url: ../costs/tutorial-export-acm-data.md
       - text: Microsoft Customer Agreement FAQ
-        url: microsoft-customer-agreement-faq.yml?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+        url: microsoft-customer-agreement-faq.yml
 
 
   # Card (optional)
@@ -61,17 +61,17 @@ landingContent:
     - linkListType: tutorial
       links:
       - text: Receive a bill under my agreement
-        url: ../understand/review-customer-agreement-bill.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+        url: ../understand/review-customer-agreement-bill.md
     - linkListType: how-to-guide
       links:
       - text: What is a billing profile and how do I manage it?
-        url: ../manage/mca-section-invoice.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+        url: ../manage/mca-section-invoice.md
       - text: How to pay my bill
-        url: ../understand/pay-bill.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+        url: ../understand/pay-bill.md
       - text: Set up an administrator to manage billing
-        url: ../manage/understand-mca-roles.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+        url: ../manage/understand-mca-roles.md
       - text: Start billing for my agreement
-        url: ../manage/mca-request-billing-ownership.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+        url: ../manage/mca-request-billing-ownership.md
     - linkListType: video
       links:
       - text: Organize costs
@@ -90,15 +90,15 @@ landingContent:
     - linkListType: concept
       links:
       - text: What is Active Directory?
-        url: ../../active-directory/fundamentals/active-directory-whatis.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+        url: ../../active-directory/fundamentals/active-directory-whatis.md
       - text: Manage tenants
         url: manage-tenants.md
       - text: Add, change, or find subscription administrators
-        url: ../manage/add-change-subscription-administrator.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+        url: ../manage/add-change-subscription-administrator.md
       - text: Create new subscriptions
-        url: ../manage/create-subscription.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+        url: ../manage/create-subscription.md
       - text: Troubleshoot subscription access
-        url: troubleshoot-subscription-access.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+        url: troubleshoot-subscription-access.md
 
 #      - text: Manage subscriptions in multiple tenants (placeholder)
 #        url: ../manage/create-subscription.md

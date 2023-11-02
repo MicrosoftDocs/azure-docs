@@ -1,14 +1,38 @@
 ---
  title: include file
  description: include file
- services: storage
  author: roygara
- ms.service: storage
+ ms.service: azure-disk-storage
  ms.topic: include
- ms.date: 07/14/2022
+ ms.date: 03/16/2023
  ms.author: rogarana
- ms.custom: include file
+ ms.custom: include file, references_regions
 ---
 Currently only available in the following regions:
-- US East
-- West Europe
+- South Africa North (Three availability zones)
+- East Asia (Three availability zones)
+- Southeast Asia (Two availability zones)
+- Australia East (Three availability zones)
+- Brazil South (Two availability zones)
+- Canada Central (Three availability zones)
+- China North 3 (Three availability zones)
+- North Europe (Three availability zones)
+- West Europe (Three availability zones)
+- France Central (Three availability zones)
+- Central India (Three availability zones)
+- Japan East (Two availability zones)
+- Korea Central (Two availability zones)
+- Norway East (Three availability zones)
+- Poland Central (Two availability zones)
+- Sweden Central (Three availability zones)
+- Switzerland North (Three availability zones)
+- UAE North (Three availability zones)
+- UK South (Three availability zones)
+- Central US (One availability zone)
+- East US (Three availability zones)
+- East US 2 (Three availability zones)
+- South Central US (Three availability zones)
+- West US 2 (Three availability zones)
+- West US 3 (Three availability zones)
+- US Gov Virginia (Three availability zones)
+  

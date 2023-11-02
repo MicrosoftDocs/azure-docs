@@ -1,31 +1,33 @@
 ---
-title: Set up Azure Active Directory for client authentication in the Azure portal
-description: Learn how to set up Azure Active Directory (Azure AD) to authenticate clients for Service Fabric clusters by using the Azure portal.
+title: Set up Microsoft Entra ID for client authentication in the Azure portal
+description: Learn how to set up Microsoft Entra ID to authenticate clients for Service Fabric clusters by using the Azure portal.
 ms.topic: conceptual
 ms.date: 8/8/2022
 ms.custom: ignite-fall-2021
 ---
 
-# Set up Azure Active Directory for client authentication in the Azure portal
+# Set up Microsoft Entra ID for client authentication in the Azure portal
 
-For clusters running on Azure, you can use Azure Active Directory (Azure AD) to help secure access to management endpoints. This article describes how to set up Azure AD to authenticate clients for an Azure Service Fabric cluster in the Azure portal.
+For clusters running on Azure, you can use Microsoft Entra ID to help secure access to management endpoints. This article describes how to set up Microsoft Entra ID to authenticate clients for an Azure Service Fabric cluster in the Azure portal.
 
-In this article, the term *application* generally refers to [Azure AD applications](../active-directory/develop/developer-glossary.md#client-application), not Service Fabric applications. Azure AD enables organizations (known as *tenants*) to manage user access to applications.
+In this article, the term *application* generally refers to [Microsoft Entra applications](../active-directory/develop/developer-glossary.md#client-application), not Service Fabric applications. Microsoft Entra ID enables organizations (known as *tenants*) to manage user access to applications.
 
-A Service Fabric cluster offers several entry points to its management functionality, including the web-based [Service Fabric Explorer][service-fabric-visualizing-your-cluster] and [Visual Studio][service-fabric-manage-application-in-visual-studio]. As a result, you'll create two Azure AD applications to control access to the cluster: one web application and one native application. After you create the applications, you'll assign users to read-only and admin roles.
+A Service Fabric cluster offers several entry points to its management functionality, including the web-based [Service Fabric Explorer][service-fabric-visualizing-your-cluster] and [Visual Studio][service-fabric-manage-application-in-visual-studio]. As a result, you'll create two Microsoft Entra applications to control access to the cluster: one web application and one native application. After you create the applications, you'll assign users to read-only and admin roles.
 
 > [!NOTE]
-> - On Linux, you must complete the following steps before you create the cluster. On Windows, you also have the option to [configure Azure AD authentication for an existing cluster](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Security/Configure%20Azure%20Active%20Directory%20Authentication%20for%20Existing%20Cluster.md).
-> - It's a [known issue](https://github.com/microsoft/service-fabric/issues/399) that applications and nodes on Linux Azure AD-enabled clusters can't be viewed in the Azure portal.
-> - Azure AD now requires an application's (app registration) publisher domain to be verified or use a default scheme. For more information, see [Configure an application's publisher domain](../active-directory/develop/howto-configure-publisher-domain.md) and [AppId URI in single-tenant applications will require use of default scheme or verified domains](../active-directory/develop/reference-breaking-changes.md#appid-uri-in-single-tenant-applications-will-require-use-of-default-scheme-or-verified-domains).
+> - On Linux, you must complete the following steps before you create the cluster. On Windows, you also have the option to [configure Microsoft Entra authentication for an existing cluster](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Security/Configure%20Azure%20Active%20Directory%20Authentication%20for%20Existing%20Cluster.md).
+> - It's a [known issue](https://github.com/microsoft/service-fabric/issues/399) that applications and nodes on Linux Microsoft Entra ID-enabled clusters can't be viewed in the Azure portal.
+> - Microsoft Entra ID now requires an application's (app registration) publisher domain to be verified or use a default scheme. For more information, see [Configure an application's publisher domain](../active-directory/develop/howto-configure-publisher-domain.md) and [AppId URI in single-tenant applications will require use of default scheme or verified domains](../active-directory/develop/reference-breaking-changes.md#appid-uri-in-single-tenant-applications-will-require-use-of-default-scheme-or-verified-domains).
 
 ## Prerequisites
 
 This article assumes that you've already created a tenant. If you haven't, start by reading [Quickstart: Set up a tenant][active-directory-howto-tenant].
 
-## Register an Azure AD cluster app
+<a name='register-an-azure-ad-cluster-app'></a>
 
-Open the Azure AD [App registrations](https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/RegisteredApps) pane in the Azure portal and select **+ New registration**.
+## Register a Microsoft Entra ID cluster app
+
+Open the Microsoft Entra ID [App registrations](https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/RegisteredApps) pane in the Azure portal and select **+ New registration**.
 
 ![Screenshot of the pane for cluster app registrations and the button for a new registration.](media/service-fabric-cluster-creation-setup-azure-ad-via-portal/portal-app-registration.png)
 
@@ -96,9 +98,11 @@ Enter the following information for a read-only user, and then select **Apply**:
 
 ![Screenshot of selections for creating a read-only user role in the portal.](media/service-fabric-cluster-creation-setup-azure-ad-via-portal/portal-cluster-roles-readonly.png)
 
-## Register an Azure AD client app
+<a name='register-an-azure-ad-client-app'></a>
 
-Open the Azure AD [App registrations](https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/RegisteredApps) pane in the Azure portal, and then select **+ New registration**.
+## Register a Microsoft Entra client app
+
+Open the Microsoft Entra ID [App registrations](https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/RegisteredApps) pane in the Azure portal, and then select **+ New registration**.
 
 ![Screenshot of the pane for client app registrations and the button for a new registration.](media/service-fabric-cluster-creation-setup-azure-ad-via-portal/portal-app-registration.png)
 
@@ -142,11 +146,17 @@ Select **Properties**, and then select **No** for **Assignment required?**.
 
 ![Screenshot of properties for client app registration in the portal.](media/service-fabric-cluster-creation-setup-azure-ad-via-portal/portal-app-registration-client-properties.png)
 
+For the cluster app registration only, go to the [Enterprise Applications](https://portal.azure.com/#view/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/~/AppAppsPreview/menuId~/null) pane. 
+
+Select **Properties**, and then select **Yes** for **Assignment required?**.
+
+![Screenshot of properties for cluster app registration in the portal.](media/service-fabric-cluster-creation-setup-azure-ad-via-portal/portal-app-registration-cluster-properties.png)
+
 ## Assign application roles to users
 
-After you create Azure AD app registrations for Service Fabric, you can modify Azure AD users to use app registrations to connect to a cluster by using Azure AD. 
+After you create Microsoft Entra app registrations for Service Fabric, you can modify Microsoft Entra users to use app registrations to connect to a cluster by using Microsoft Entra ID. 
 
-For both the read-only and admin roles, you use Azure AD cluster app registration. You don't use Azure AD client app registration for role assignments. Instead, you assign roles from the [Enterprise applications](https://portal.azure.com/#view/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/~/AppAppsPreview/menuId~/null) pane. 
+For both the read-only and admin roles, you use Microsoft Entra ID cluster app registration. You don't use Microsoft Entra client app registration for role assignments. Instead, you assign roles from the [Enterprise applications](https://portal.azure.com/#view/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/~/AppAppsPreview/menuId~/null) pane. 
 
 ### Remove filters
 
@@ -160,13 +170,15 @@ The following screenshot shows the enterprise apps with the filters removed.
 
 ![Screenshot of enterprise apps with filters removed.](media/service-fabric-cluster-creation-setup-azure-ad-via-portal/portal-enterprise-apps-no-filter.png)
 
-### Add role assignments to Azure AD users
+<a name='add-role-assignments-to-azure-ad-users'></a>
 
-To add applications to existing Azure AD users, go to **Enterprise Applications** and find the Azure AD cluster app registration that you created.
+### Add role assignments to Microsoft Entra users
 
-Select **Users and groups** > **+ Add user/group** to add an existing Azure AD user role assignment. 
+To add applications to existing Microsoft Entra users, go to **Enterprise Applications** and find the Microsoft Entra ID cluster app registration that you created.
 
-![Screenshot of selections for adding an existing Azure AD user role assignment in the portal.](media/service-fabric-cluster-creation-setup-azure-ad-via-portal/portal-enterprise-apps-add-user.png)
+Select **Users and groups** > **+ Add user/group** to add an existing Microsoft Entra user role assignment. 
+
+![Screenshot of selections for adding an existing Microsoft Entra user role assignment in the portal.](media/service-fabric-cluster-creation-setup-azure-ad-via-portal/portal-enterprise-apps-add-user.png)
 
 Under **Users**, select the **None Selected** link.
 
@@ -182,22 +194,24 @@ For users who need full read/write access, find each user, and then under **Sele
 
 ![Screenshot of the pane for users and groups, with roles assigned.](media/service-fabric-cluster-creation-setup-azure-ad-via-portal/portal-enterprise-apps-user-assignments.png)
 
-## Configure clusters with Azure AD registrations
+<a name='configure-clusters-with-azure-ad-registrations'></a>
+
+## Configure clusters with Microsoft Entra registrations
 
 In the Azure portal, open the [Service Fabric Clusters](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.ServiceFabric%2Fclusters) pane.
 
 ### Service Fabric managed cluster configuration
 
 Open the managed cluster resource and select **Security**.
-Select the **Enable Azure Active Directory** checkbox.
+Select the **Enable Microsoft Entra ID** checkbox.
 
 Enter the following information, and then select **Apply**:
 
 - **Tenant ID**: Enter the tenant ID. 
-- **Cluster application**: Enter the ID for the Azure AD cluster app registration. This is also known as the web application.
-- **Client application**: Enter the ID for the Azure AD client app registration. This is also known as the native application.
+- **Cluster application**: Enter the ID for the Microsoft Entra ID cluster app registration. This is also known as the web application.
+- **Client application**: Enter the ID for the Microsoft Entra client app registration. This is also known as the native application.
 
-![Screenshot of selections for enabling Azure AD for a managed cluster.](media/service-fabric-cluster-creation-setup-azure-ad-via-portal/portal-managed-cluster-azure-ad.png)
+![Screenshot of selections for enabling Microsoft Entra ID for a managed cluster.](media/service-fabric-cluster-creation-setup-azure-ad-via-portal/portal-managed-cluster-azure-ad.png)
 
 ### Service Fabric cluster configuration
 
@@ -208,18 +222,22 @@ Then select **+ Add**.
 
 Enter the following information, and then select **Add**:
 
-- **Authentication type**: Select **Azure Active Directory**.
+- **Authentication type**: Select **Microsoft Entra ID**.
 - **TenantID**: Enter the tenant ID.
-- **Cluster application**: Enter the ID for the Azure AD cluster app registration. This is also known as the web application.
-- **Client application**: Enter the ID for the Azure AD client app registration. This is also known as the native application.
+- **Cluster application**: Enter the ID for the Microsoft Entra ID cluster app registration. This is also known as the web application.
+- **Client application**: Enter the ID for the Microsoft Entra client app registration. This is also known as the native application.
 
 ![Screenshot of selections on the Add pane.](media/service-fabric-cluster-creation-setup-azure-ad-via-portal/portal-cluster-azure-ad-settings.png)
 
-## Connect to a cluster with Azure AD
+<a name='connect-to-a-cluster-with-azure-ad'></a>
+
+## Connect to a cluster with Microsoft Entra ID
 
 To learn more about the code in the following examples, see [Connect-ServiceFabricCluster cmdlet](/powershell/module/servicefabric/connect-servicefabriccluster).
 
-### Connect to a Service Fabric cluster by using Azure AD authentication via PowerShell
+<a name='connect-to-a-service-fabric-cluster-by-using-azure-ad-authentication-via-powershell'></a>
+
+### Connect to a Service Fabric cluster by using Microsoft Entra authentication via PowerShell
 
 To use PowerShell to connect to a Service Fabric cluster, you must run the commands from a machine that has the Service Fabric SDK installed. The SDK includes nodes currently in a cluster. 
 
@@ -236,7 +254,9 @@ Connect-ServiceFabricCluster -ConnectionEndpoint $clusterEndpoint `
   -Verbose
 ```
 
-### Connect to a Service Fabric managed cluster by using Azure AD authentication via PowerShell
+<a name='connect-to-a-service-fabric-managed-cluster-by-using-azure-ad-authentication-via-powershell'></a>
+
+### Connect to a Service Fabric managed cluster by using Microsoft Entra authentication via PowerShell
 
 To connect to a managed cluster, the Az.Resources PowerShell module is also required to query the dynamic cluster server certificate thumbprint that needs to be enumerated and used. 
 
@@ -258,67 +278,74 @@ Connect-ServiceFabricCluster -ConnectionEndpoint $clusterEndpoint `
   -Verbose
 ```
 
-## Troubleshoot setting up Azure Active Directory
-Setting up Azure AD and using it can be challenging. Here are some pointers on what you can do to debug problems.
+<a name='troubleshoot-setting-up-azure-active-directory'></a>
+
+## Troubleshoot setting up Microsoft Entra ID
+Setting up Microsoft Entra ID and using it can be challenging. Here are some pointers on what you can do to debug problems.
 
 ### Service Fabric Explorer prompts you to select a certificate
 #### Problem
-After you sign in successfully to Azure AD in Service Fabric Explorer, the browser returns to the home page but a message prompts you to select a certificate.
+After you sign in successfully to Microsoft Entra ID in Service Fabric Explorer, the browser returns to the home page but a message prompts you to select a certificate.
 
 ![Screenshot of a Service Fabric Explorer dialog for selecting a certificate.][sfx-select-certificate-dialog]
 
 #### Reason
-The user is not assigned a role in the Azure AD cluster application, so Azure AD authentication fails on the Service Fabric cluster. Service Fabric Explorer falls back to certificate authentication.
+The user is not assigned a role in the Microsoft Entra ID cluster application, so Microsoft Entra authentication fails on the Service Fabric cluster. Service Fabric Explorer falls back to certificate authentication.
 
 #### Solution
-Follow the instructions for setting up Azure AD, and assign user roles. Also, we recommend that you turn on **User assignment required to access app**, as `SetupApplications.ps1` does.
+Follow the instructions for setting up Microsoft Entra ID, and assign user roles. Also, we recommend that you turn on **User assignment required to access app**, as `SetupApplications.ps1` does.
 
 ### Connection with PowerShell fails with an error: "The specified credentials are invalid"
 #### Problem
-When you use PowerShell to connect to the cluster by using `AzureActiveDirectory` security mode, after you sign in successfully to Azure AD, the connection fails with an error: "The specified credentials are invalid."
+When you use PowerShell to connect to the cluster by using `AzureActiveDirectory` security mode, after you sign in successfully to Microsoft Entra ID, the connection fails with an error: "The specified credentials are invalid."
 
 #### Solution
-Follow the instructions for setting up Azure AD, and assign user roles. Also, we recommend that you turn on **User assignment required to access app**, as `SetupApplications.ps1` does.
+Follow the instructions for setting up Microsoft Entra ID, and assign user roles. Also, we recommend that you turn on **User assignment required to access app**, as `SetupApplications.ps1` does.
 
 ### Service Fabric Explorer returns an error when you sign in: "AADSTS50011"
 #### Problem
-When you try to sign in to Azure AD in Service Fabric Explorer, the page returns an error: "AADSTS50011: The reply address &lt;url&gt; does not match the reply addresses configured for the application: &lt;guid&gt;."
+When you try to sign in to Microsoft Entra ID in Service Fabric Explorer, the page returns an error: "AADSTS50011: The reply address &lt;url&gt; does not match the reply addresses configured for the application: &lt;guid&gt;."
 
 ![Screenshot of a Service Fabric Explorer sign-in error that says the reply addresses don't match.][sfx-reply-address-not-match]
 
 #### Reason
-The cluster (web) application that represents Service Fabric Explorer tries to authenticate against Azure AD. As part of the request, it provides the redirect return URL. But the URL isn't listed in the **Redirect URIs** list for the Azure AD application.
+The cluster (web) application that represents Service Fabric Explorer tries to authenticate against Microsoft Entra ID. As part of the request, it provides the redirect return URL. But the URL isn't listed in the **Redirect URIs** list for the Microsoft Entra application.
 
 #### Solution
-On the Azure AD app registration page for your cluster, select **Authentication**. In the **Redirect URIs** section, add the Service Fabric Explorer URL to the list. Save your change.
+On the Microsoft Entra app registration page for your cluster, select **Authentication**. In the **Redirect URIs** section, add the Service Fabric Explorer URL to the list. Save your change.
 
 ![Screenshot of setting up reply URL for a web application.][web-application-reply-url]
 
-### Connecting to the cluster by using Azure AD authentication via PowerShell gives an error when you sign in: "AADSTS50011"
+<a name='connecting-to-the-cluster-by-using-azure-ad-authentication-via-powershell-gives-an-error-when-you-sign-in-aadsts50011'></a>
+
+### Connecting to the cluster by using Microsoft Entra authentication via PowerShell gives an error when you sign in: "AADSTS50011"
 #### Problem
-When you try to connect to a Service Fabric cluster by using Azure AD via PowerShell, the sign-in page returns an error: "AADSTS50011: The reply url specified in the request does not match the reply urls configured for the application: &lt;guid&gt;."
+When you try to connect to a Service Fabric cluster by using Microsoft Entra ID via PowerShell, the sign-in page returns an error: "AADSTS50011: The reply url specified in the request does not match the reply urls configured for the application: &lt;guid&gt;."
 
 #### Reason
-PowerShell attempts to authenticate against Azure AD, which provides a redirect URL that isn't listed in the **Reply URIs** list for the Azure AD application.  
+PowerShell attempts to authenticate against Microsoft Entra ID, which provides a redirect URL that isn't listed in the **Reply URIs** list for the Microsoft Entra application.  
 
 #### Solution
-On the Azure AD app registration page for your cluster, select **Authentication**. In the **Redirect URIs** section, set the URL to `urn:ietf:wg:oauth:2.0:oob`. This URL is a special redirect for command-line authentication.
+On the Microsoft Entra app registration page for your cluster, select **Authentication**. In the **Redirect URIs** section, set the URL to `urn:ietf:wg:oauth:2.0:oob`. This URL is a special redirect for command-line authentication.
 
 ## FAQ
 
-### Can I reuse the same Azure AD tenant in multiple clusters?
+<a name='can-i-reuse-the-same-azure-ad-tenant-in-multiple-clusters'></a>
+
+### Can I reuse the same Microsoft Entra tenant in multiple clusters?
 Yes. But remember to add the URL of Service Fabric Explorer to your cluster (web) application. Otherwise, Service Fabric Explorer doesn't work.
 
-### Why do I still need a server certificate while Azure AD is enabled?
-`FabricClient` and `FabricGateway` perform a mutual authentication. During Azure AD authentication, Azure AD integration provides a client identity to the server, and the client uses the server certificate to verify the server's identity. For more information about Service Fabric certificates, see [X.509 certificates and Service Fabric][x509-certificates-and-service-fabric].
+<a name='why-do-i-still-need-a-server-certificate-while-azure-ad-is-enabled'></a>
+
+### Why do I still need a server certificate while Microsoft Entra ID is enabled?
+`FabricClient` and `FabricGateway` perform a mutual authentication. During Microsoft Entra authentication, Microsoft Entra integration provides a client identity to the server, and the client uses the server certificate to verify the server's identity. For more information about Service Fabric certificates, see [X.509 certificates and Service Fabric][x509-certificates-and-service-fabric].
 
 ## Next steps
-After you set up Azure Active Directory applications and set roles for users, [configure and deploy a cluster](service-fabric-cluster-creation-via-arm.md).
+After you set up Microsoft Entra applications and set roles for users, [configure and deploy a cluster](service-fabric-cluster-creation-via-arm.md).
 
 <!-- Links -->
 
 [azure-cli]: /cli/azure/get-started-with-azure-cli
-[azure-portal]: https://portal.azure.com/
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [active-directory-howto-tenant]:../active-directory/develop/quickstart-create-new-tenant.md
 [service-fabric-visualizing-your-cluster]: service-fabric-visualizing-your-cluster.md

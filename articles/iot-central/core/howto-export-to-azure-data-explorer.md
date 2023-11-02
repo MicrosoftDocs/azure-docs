@@ -1,10 +1,10 @@
 ---
-title: Export data to Azure Data Explorer IoT Central | Microsoft Docs
-description: How to use the new data export to export your IoT data to Azure Data Explorer
+title: Export data to Azure Data Explorer IoT Central
+description: Learn how to use the IoT Central data export capability to continuously export your IoT data to Azure Data Explorer
 services: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/28/2022
+ms.date: 05/22/2023
 ms.topic: how-to
 ms.service: iot-central
 ---
@@ -17,7 +17,7 @@ This article describes how to configure data export to send data to the Azure Da
 
 ## Set up an Azure Data Explorer export destination
 
-You can use an [Azure Data Explorer cluster](/azure/data-explorer/data-explorer-overview) or an [Azure Synapse Data Explorer pool](../../synapse-analytics/data-explorer/data-explorer-overview.md). To learn more, see [What is the difference between Azure Synapse Data Explorer and Azure Data Explorer?](../..//synapse-analytics/data-explorer/data-explorer-compare.md).
+You can use an [Azure Data Explorer cluster](/azure/data-explorer/data-explorer-overview) or an [Azure Synapse Data Explorer pool](../../synapse-analytics/data-explorer/data-explorer-overview.md). To learn more, see [What is the difference between Azure Synapse Data Explorer and Azure Data Explorer?](../../synapse-analytics/data-explorer/data-explorer-compare.md).
 
 IoT Central exports data in near real time to a database table in the Azure Data Explorer cluster. The data is in the message body and is in JSON format encoded as UTF-8. You can add a [Transform](howto-transform-data-internally.md) in IoT Central to export data that matches the table schema.
 
@@ -33,13 +33,9 @@ Azure Data Explorer destinations let you configure the connection with a *servic
 
 [!INCLUDE [iot-central-managed-identities](../../../includes/iot-central-managed-identities.md)]
 
-This article shows how to create a managed identity using the Azure CLI. You can also use the Azure portal to create a manged identity.
-
----
+### Create an Azure Data Explorer destination
 
 # [Service principal](#tab/service-principal)
-
-### Create an Azure Data Explorer destination
 
 If you don't have an existing Azure Data Explorer database to export to, follow these steps:
 
@@ -105,11 +101,11 @@ To create the Azure Data Explorer destination in IoT Central on the **Data expor
     > [!TIP]
     > The cluster URL for a standalone Azure Data Explorer looks like `https://<ClusterName>.<AzureRegion>.kusto.windows.net`. The cluster URL for an Azure Synapse Data Explorer pool looks like `https://<DataExplorerPoolName>.<SynapseWorkspaceName>.kusto.azuresynapse.net`.
 
-    :::image type="content" source="media/howto-export-data/export-destination.png" alt-text="Screenshot of Azure Data Explorer export destination.":::
+    :::image type="content" source="media/howto-export-data/export-destination.png" alt-text="Screenshot of Azure Data Explorer export destination that uses a service principal.":::
 
 # [Managed identity](#tab/managed-identity)
 
-### Create an Azure Data Explorer destination
+This article shows how to create a managed identity using the Azure CLI. You can also use the Azure portal to create a managed identity.
 
 If you don't have an existing Azure Data Explorer database to export to, follow these steps. You have two choices to create an Azure Data Explorer database:
 
@@ -180,7 +176,9 @@ To create the Azure Data Explorer destination in IoT Central on the **Data expor
     > [!TIP]
     > The cluster URL for a standalone Azure Data Explorer looks like `https://<ClusterName>.<AzureRegion>.kusto.windows.net`. The cluster URL for an Azure Synapse Data Explorer pool looks like `https://<DataExplorerPoolName>.<SynapseWorkspaceName>.kusto.azuresynapse.net`.
 
-    :::image type="content" source="media/howto-export-data/export-destination-managed.png" alt-text="Azure Data Explorer export destination.":::
+    :::image type="content" source="media/howto-export-data/export-destination-managed.png" alt-text="Screenshot of Azure Data Explorer export destination that uses a managed identity.":::
+
+If you don't see data arriving in your destination service, see [Troubleshoot issues with data exports from your Azure IoT Central application](troubleshoot-data-export.md).
 
 ---
 

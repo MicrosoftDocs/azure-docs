@@ -20,7 +20,7 @@ This document contains information about troubleshooting your solutions that use
 
 * The EA subscription doesn't allow Marketplace purchases.
 
-  Use a different subscription. Or, check if your EA subscription is enabled for Marketplace purchase. For more information, see [Enable Marketplace purchases](/azure/cost-management-billing/manage/ea-azure-marketplace#enabling-azure-marketplace-purchases). If those options don't solve the problem, contact [Datadog support](https://www.datadoghq.com/support).
+  Use a different subscription. Or, check if your EA subscription is enabled for Marketplace purchase. For more information, see [Enable Marketplace purchases](../../cost-management-billing/manage/ea-azure-marketplace.md#enabling-azure-marketplace-purchases). If those options don't solve the problem, contact [Datadog support](https://www.datadoghq.com/support).
 
 ## Unable to create Datadog - An Azure Native ISV Service resource
 
@@ -84,3 +84,10 @@ If the Datadog agent has been configured with an incorrect key, navigate to the 
 ## Next steps
 
 - Learn about [managing your instance](manage.md) of Datadog.
+- Get started with Datadog – An Azure Native ISV Service on
+
+  > [!div class="nextstepaction"]
+  > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Datadog%2Fmonitors)
+
+  > [!div class="nextstepaction"]
+  > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/datadog1591740804488.dd_liftr_v2?tab=Overview)

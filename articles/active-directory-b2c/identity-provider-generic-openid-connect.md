@@ -81,6 +81,7 @@ Define the OpenId Connect identity provider by adding it to the **ClaimsProvider
             <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="email" />
             <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" AlwaysUseDefaultValue="true" />
             <OutputClaim ClaimTypeReferenceId="identityProvider" PartnerClaimType="iss" />
+            <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="oid"/>
           </OutputClaims>
           <OutputClaimsTransformations>
             <OutputClaimsTransformation ReferenceId="CreateRandomUPNUserName"/>
@@ -308,6 +309,9 @@ If the sign-in process is successful, your browser is redirected to `https://jwt
 1. From the sign-up or sign-in page, select **Contoso** to sign in with Google account.
 
 If the sign-in process is successful, your browser is redirected to `https://jwt.ms`, which displays the contents of the token returned by Azure AD B2C.
+
+## Known Issues
+* Azure AD B2C does not support JWE (JSON Web Encryption) for exchanging encrypted tokens with OpenID connect identity providers. 
 
 ## Next steps
 

@@ -1,0 +1,85 @@
+### YamlMime:Landing
+
+title: Azure AI Immersive Reader documentation
+summary: Immersive Reader is a tool that implements proven techniques to improve reading comprehension for emerging readers, language learners, and people with learning differences. You can use Immersive Reader in your web application by using the Immersive Reader SDK.
+
+metadata:
+  title: Azure AI Immersive Reader documentation
+  description: Immersive Reader is a tool that implements proven techniques to improve reading comprehension for emerging readers, language learners, and people with learning differences. You can use Immersive Reader in your web application by using the Immersive Reader SDK.
+  services: service
+  ms.service: azure-ai-immersive-reader
+  ms.topic: landing-page
+  ms.collection: collection
+  author: rwallerms
+  ms.author: rwaller
+  ms.date: 11/15/2021
+
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+  - title: About Immersive Reader
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Immersive Reader?
+            url: overview.md
+          - text: What are Azure AI services?
+            url: ../../ai-services/what-are-ai-services.md
+      - linkListType: video
+        links:
+          - text: Getting started - short engineering videos
+            url: https://aka.ms/ImmersiveReaderSDKVideos
+
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+        - text: Use C# (ASP.NET Core)
+          url: ./quickstarts/client-libraries.md?pivots=programming-language-csharp
+        - text: Use Node.js
+          url: ./quickstarts/client-libraries.md?pivots=programming-language-nodejs
+        - text: Use Java (Android)
+          url: ./quickstarts/client-libraries.md?pivots=programming-language-java-android
+        - text: Use Kotlin (Android)
+          url: ./quickstarts/client-libraries.md?pivots=programming-language-kotlin
+        - text: Use Swift (iOS)
+          url: ./quickstarts/client-libraries.md?pivots=programming-language-swift
+  - title: Explore Immersive Reader
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Create an Immersive Reader Resource
+            url: how-to-create-immersive-reader.md
+          - text: Launch the Immersive Reader
+            url: how-to-launch-immersive-reader.md
+          - text: Prepare HTML content
+            url: how-to-prepare-html.md
+          - text: Customize the launch button
+            url: how-to-customize-launch-button.md
+          - text: Set the cookie policy
+            url: how-to/set-cookie-policy.md
+          - text: Display math
+            url: how-to/display-math.md
+          - text: Configure Read Aloud
+            url: how-to-configure-read-aloud.md
+          - text: Configure Translation
+            url: how-to-configure-translation.md          
+          - text: Use multiple Immersive Reader resources
+            url: how-to-multiple-resources.md
+          - text: Cache the authentication token
+            url: how-to-cache-token.md
+      - linkListType: reference
+        links:
+          - text: JavaScript SDK
+            url: reference.md
+          - text: Security Advisory - Update Role Assignment for Microsoft Entra authentication
+            url: security-how-to-update-role-assignment.md            
+          - text: Release notes
+            url: release-notes.md
+  - title: Help and feedback
+    linkLists:
+    - linkListType: reference
+      links:
+        - text: Support and help options
+          url: ../../ai-services/cognitive-services-support-options.md?context=/azure/ai-services/immersive-reader/context/context

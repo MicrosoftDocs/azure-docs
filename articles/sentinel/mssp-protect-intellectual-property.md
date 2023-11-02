@@ -11,7 +11,7 @@ ms.author: lwainstein
 
 This article describes the methods that managed security service providers (MSSPs) can use to protect intellectual property they've developed in Microsoft Sentinel, such as Microsoft Sentinel analytics rules, hunting queries, playbooks, and workbooks.
 
-The method you choose will depend on how each of your customers buy Azure; whether you act as a [Cloud Solutions Provider (CSP)](#cloud-solutions-providers-csp), or the customer has an [Enterprise Agreement (EA)/Pay-as-you-go (PAYG)](#enterprise-agreements-ea--pay-as-you-go-payg) account. The sections below describe each of these methods separately.
+The method you choose depends on how each of your customers buys Azure; whether you act as a [Cloud Solutions Provider (CSP)](#cloud-solutions-providers-csp), or the customer has an [Enterprise Agreement (EA)/Pay-as-you-go (PAYG)](#enterprise-agreements-ea--pay-as-you-go-payg) account. The following sections describe each of these methods separately.
 
 ## Cloud Solutions Providers (CSP)
 
@@ -27,7 +27,7 @@ For example:
 
 - Use this method to enable customers to view selected workbooks and playbooks, which are separate resources that can reside in their own resource group.
 
-Even with granting access at the resource group level, customers will still have access to log data for the resources they can access, such as logs from a VM, even without access to Microsoft Sentinel. For more information, see [Manage access to Microsoft Sentinel data by resource](resource-context-rbac.md).
+Even with granting access at the resource group level, customers have access to log data for the resources they can access, such as logs from a VM, even without access to Microsoft Sentinel. For more information, see [Manage access to Microsoft Sentinel data by resource](resource-context-rbac.md).
 
 > [!TIP]
 > If you need to provide your customers with access to the entire subscription, you may want to see the guidance in [Enterprise Agreements (EA) / Pay-as-you-go (PAYG)](#enterprise-agreements-ea--pay-as-you-go-payg).
@@ -41,7 +41,7 @@ The following image describes how the permissions described in the [previous sec
 
 In this image:
 
-- The users granted with **Owner** access to the CSP subscription are the users in the Admin Agents group, in the MSSP Azure AD tenant.
+- The users granted with **Owner** access to the CSP subscription are the users in the Admin Agents group, in the MSSP Microsoft Entra tenant.
 - Other groups from the MSSP get access to the customer environment via Azure Lighthouse.
 - Customer access to Azure resources is managed by Azure RBAC at the resource group level.
 
@@ -51,17 +51,17 @@ For more information, also see the [Azure Lighthouse documentation](../lighthous
 
 ## Enterprise Agreements (EA) / Pay-as-you-go (PAYG)
 
-If your customer is buying directly from Microsoft, the customer already has full access to the Azure environment, and you cannot hide anything that's in the customer's Azure subscription.
+If your customer is buying directly from Microsoft, the customer already has full access to the Azure environment, and you can't hide anything that's in the customer's Azure subscription.
 
 Instead, protect your intellectual property that you've developed in Microsoft Sentinel as follows, depending on the type of resource you need to protect:
 
 ### Analytics rules and hunting queries
 
-Analytics rules and hunting queries are both contained within Microsoft Sentinel, and therefore cannot be separated from the Microsoft Sentinel workspace.
+Analytics rules and hunting queries are both contained within Microsoft Sentinel, and therefore can't be separated from the Microsoft Sentinel workspace.
 
-Even if a user only has Microsoft Sentinel Reader permissions, they'll still be able to view the query. In this case, we recommend hosting your Analytics rules and hunting queries in your own MSSP tenant, instead of the customer tenant.
+Even if a user only has Microsoft Sentinel Reader permissions, they can view the query. In this case, we recommend hosting your Analytics rules and hunting queries in your own MSSP tenant, instead of the customer tenant.
 
-To do this, you'll need a workspace in your own tenant with Microsoft Sentinel enabled, and you'll also need to see the customer workspace via [Azure Lighthouse](multiple-tenants-service-providers.md).
+To do this, you need a workspace in your own tenant with Microsoft Sentinel enabled, and you also need to see the customer workspace via [Azure Lighthouse](multiple-tenants-service-providers.md).
 
 To create an analytic rule or hunting query in the MSSP tenant that references data in the customer tenant, you must use the `workspace` statement as follows:
 
@@ -72,9 +72,9 @@ workspace('<customer-workspace>').SecurityEvent
 
 When adding a `workspace` statement to your analytics rules, consider the following:
 
-- **No alerts in the customer workspace**. Rules created in this manner, won’t create alerts or incidents in the customer workspace. Both alerts and incidents will exist in your MSSP workspace only.
+- **No alerts in the customer workspace**. Rules created in this manner, don't create alerts or incidents in the customer workspace. Both alerts and incidents exist in your MSSP workspace only.
 
-- **Create separate alerts for each customer**. When you use this method, we also recommend that you use separate alert rules for each customer and detection, as the workspace statement will be different in each case.
+- **Create separate alerts for each customer**. When you use this method, we also recommend that you use separate alert rules for each customer and detection, as the workspace statement is different in each case.
 
     You can add the customer name to the alert rule name to easily identify the customer where the alert is triggered. Separate alerts may result in a large number of rules, which you might want to manage using scripting, or [Microsoft Sentinel as Code](https://techcommunity.microsoft.com/t5/azure-sentinel/deploying-and-managing-azure-sentinel-as-code/ba-p/1131928).
 
@@ -102,7 +102,7 @@ For example:
 
 :::image type="content" source="media/mssp-protect-intellectual-property/cross-workspace-workbook.png" alt-text="Cross-workspace workbooks":::
 
-For more information, see [Cross-workspace workbooks](extend-sentinel-across-workspaces-tenants.md#cross-workspace-workbooks).
+For more information, see [Cross-workspace workbooks](extend-sentinel-across-workspaces-tenants.md#use-cross-workspace-workbooks).
 
 If you want the customer to be able to view the workbook visualizations, while still keeping the code secret, we recommend that you export the workbook to Power BI.
 
@@ -131,7 +131,7 @@ You can protect your playbooks as follows, depending on where the  analytic rule
 
 In both cases, if the playbook needs to access the customer’s Azure environment, use a user or service principal that has that access via Lighthouse.
 
-However, if the playbook needs to access non-Azure resources in the customer’s tenant, such as Azure AD, Office 365, or Microsoft 365 Defender, you'll need to create a service principal with appropriate permissions in the customer tenant, and then add that identity in the playbook.
+However, if the playbook needs to access non-Azure resources in the customer’s tenant, such as Microsoft Entra ID, Office 365, or Microsoft 365 Defender, create a service principal with appropriate permissions in the customer tenant, and then add that identity in the playbook.
 
 > [!NOTE]
 > If you use automation rules together with your playbooks, you must set the automation rule permissions on the resource group where the playbooks live.

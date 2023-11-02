@@ -1,5 +1,5 @@
 ---
-title: Use the REST API to manage deployment manifests in Azure IoT Central
+title: Azure IoT Central deployment manifests and the REST API
 description: How to use the IoT Central REST API to manage IoT Edge deployment manifests in an IoT Central application.
 author: dominicbetts
 ms.author: dobett
@@ -288,70 +288,15 @@ The response to this request looks like the following example:
 PATCH https://{your app subdomain}/api/deploymentManifests/{deploymentManifestId}?api-version=2022-10-31-preview
 ```
 
-The following sample request body updates the deployment manifest but leaves the display name unchanged:
+The following sample request body updates the `SendInterval` desired property setting for the `SimuatedTemperatureSetting` module:
 
 ```json
 {
   "data": {
     "modulesContent": {
-      "$edgeAgent": {
-        "properties.desired": {
-          "schemaVersion": "1.0",
-          "runtime": {
-            "type": "docker",
-            "settings": {
-              "minDockerVersion": "v1.25",
-              "loggingOptions": "",
-              "registryCredentials": {}
-            }
-          },
-          "systemModules": {
-            "edgeAgent": {
-              "type": "docker",
-              "settings": {
-                "image": "mcr.microsoft.com/azureiotedge-agent:1.4",
-                "createOptions": "{}"
-              }
-            },
-            "edgeHub": {
-              "type": "docker",
-              "status": "running",
-              "restartPolicy": "always",
-              "settings": {
-                "image": "mcr.microsoft.com/azureiotedge-hub:1.4",
-                "createOptions": "{}"
-              }
-            }
-          },
-          "modules": {
-            "SimulatedTemperatureSensor": {
-              "version": "1.0",
-              "type": "docker",
-              "status": "running",
-              "restartPolicy": "always",
-              "settings": {
-                "image": "mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.2",
-                "createOptions": "{}"
-              }
-            }
-          }
-        }
-      },
-      "$edgeHub": {
-        "properties.desired": {
-          "schemaVersion": "1.0",
-          "routes": {
-            "route": "FROM /* INTO $upstream"
-          },
-          "storeAndForwardConfiguration": {
-            "timeToLiveSecs": 7200
-          }
-        }
-      },
       "SimulatedTemperatureSensor": {
         "properties.desired": {
-          "SendData": true,
-          "SendInterval": 10
+          "SendInterval": 30
         }
       }
     }
@@ -423,7 +368,7 @@ The response to this request looks like the following example:
       "SimulatedTemperatureSensor": {
         "properties.desired": {
           "SendData": true,
-          "SendInterval": 10
+          "SendInterval": 30
         }
       }
     }

@@ -4,7 +4,7 @@ description: Learn how to configure outbound network traffic restriction for Azu
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
-ms.date: 03/31/2022
+ms.date: 04/24/2023
 ---
 
 # Configure outbound network traffic for Azure HDInsight clusters using Firewall

@@ -33,19 +33,19 @@ When you create or use Search resources, you're charged for the following meters
 
 + The charge is applied per the number of search units (SU) allocated to the service. Search units are [units of capacity](search-capacity-planning.md). Total SU is the product of replicas and partitions (R x P = SU) used by your service.
 
-Billing is based on capacity (SUs) and the costs of running premium features, such as [AI enrichment](cognitive-search-concept-intro.md), [Semantic search](semantic-search-overview.md), and [Private endpoints](service-create-private-endpoint.md). Meters associated with premium features are listed in the following table.
+Billing is based on capacity (SUs) and the costs of running premium features, such as [AI enrichment](cognitive-search-concept-intro.md), [Semantic ranking](semantic-search-overview.md), and [Private endpoints](service-create-private-endpoint.md). Meters associated with premium features are listed in the following table.
 
 | Meter | Unit |
 |-------|------|
 | Image extraction (AI enrichment) <sup>1, 2</sup> | Per 1000 images. See the [pricing page](https://azure.microsoft.com/pricing/details/search/#pricing). |
 | Custom Entity Lookup skill (AI enrichment) <sup>1</sup> | Per 1000 text records. See the [pricing page](https://azure.microsoft.com/pricing/details/search/#pricing) |
-| Built-in skills  (AI enrichment) <sup>1</sup> | Number of transactions, billed at the same rate as if you had performed the task by calling Cognitive Services directly. You can process 20 documents per indexer per day for free. Larger or more frequent workloads require a multi-resource Cognitive Services key. |
-| Semantic Search <sup>1</sup> | Number of queries of "queryType=semantic", billed at a progressive rate. See the [pricing page](https://azure.microsoft.com/pricing/details/search/#pricing). |
-| Private Endpoints <sup>1</sup> | Billed as long as the endpoint exists, and billed for bandwidth. |
+| [Built-in skills](cognitive-search-predefined-skills.md)  (AI enrichment) <sup>1</sup> | Number of transactions, billed at the same rate as if you had performed the task by calling Azure AI services directly. You can process 20 documents per indexer per day for free. Larger or more frequent workloads require a multi-resource Azure AI services key. |
+| [Semantic ranking](semantic-search-overview.md) <sup>1</sup> | Number of queries of "queryType=semantic", billed at a progressive rate. See the [pricing page](https://azure.microsoft.com/pricing/details/search/#pricing). |
+| [Shared private link](search-indexer-howto-access-private.md) <sup>1</sup> | [Billed for bandwidth](https://azure.microsoft.com/pricing/details/private-link/) as long as the shared private link exists and is used. |
 
 <sup>1</sup> Applies only if you use or enable the feature.
 
-<sup>2</sup> In an [indexer configuration](/rest/api/searchservice/create-indexer#indexer-parameters), "imageAction" is the parameter that triggers image extraction. If "imageAction" is set to "none" (the default), you won't be charged for image extraction. 
+<sup>2</sup> In an [indexer configuration](/rest/api/searchservice/create-indexer#indexer-parameters), "imageAction" is the parameter that triggers image extraction. If "imageAction" is set to "none" (the default), you won't be charged for image extraction. Costs are incurred when "imageAction" parameter is set *and* you include OCR, Image Analysis, or Document Extraction in a skillset.
 
 There is no meter on the number of queries, query responses, or documents ingested, although [service limits](search-limits-quotas-capacity.md) do apply at each tier.
 
@@ -55,9 +55,9 @@ Several premium features such as [knowledge store](knowledge-store-concept-intro
 
 [Customer-managed keys](search-security-manage-encryption-keys.md) provide double encryption of sensitive content. This feature requires a billable [Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/)).
 
-Skillsets can include [billable built-in skills](cognitive-search-predefined-skills.md), non-billable built-in utility skills, and custom skills. Non-billable utility skills include Conditional, Shaper, Text Merge, Text Split. There is no billing impact when using them, no Cognitive Services key requirement, and no 20 document limit. 
+Skillsets can include [billable built-in skills](cognitive-search-predefined-skills.md), non-billable built-in utility skills, and custom skills. Non-billable utility skills include Conditional, Shaper, Text Merge, Text Split. There is no billing impact when using them, no Azure AI services key requirement, and no 20 document limit. 
 
-A custom skill is functionality you provide. The cost of using a custom skill depends entirely on whether custom code is calling other metered services.  There is no Cognitive Services key requirement and no 20 document limit on custom skills.
+A custom skill is functionality you provide. The cost of using a custom skill depends entirely on whether custom code is calling other metered services.  There is no Azure AI services key requirement and no 20 document limit on custom skills.
 
 ## Monitor costs
 

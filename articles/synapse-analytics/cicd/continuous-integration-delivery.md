@@ -8,21 +8,7 @@ ms.topic: conceptual
 ms.date: 10/08/2021
 ms.author: liud 
 ms.reviewer: pimorano
-ms.search.keywords:  
-    - CICD
-    - Synapse
-    - source control
-ms.search.form: 
-    - CICD
-    - source control 1
-ms.search.features:  
-    - CICD
-    - source control 2
-searchScope: 
-    - Deployment   
-    - CICD
-    - Azure  
-tags: CICD, source control 1
+
 ---
 
 # Continuous integration and delivery for an Azure Synapse Analytics workspace
@@ -42,9 +28,9 @@ To automate the deployment of an Azure Synapse workspace to multiple environment
 - Prepare an Azure DevOps project for running the release pipeline.
 - [Grant any users who will check in code Basic access at the organization level](/azure/devops/organizations/accounts/add-organization-users?view=azure-devops&tabs=preview-page&preserve-view=true), so they can see the repository.
 - Grant Owner permission to the Azure Synapse repository.
-- Make sure that you've created a self-hosted Azure DevOps VM agent or use an Azure DevOps hosted agent.
+- Make sure that you've created a self-hosted Azure DevOps VM agent or use an Azure DevOps hosted agent. 
 - Grant permissions to [create an Azure Resource Manager service connection for the resource group](/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml&preserve-view=true).
-- An Azure Active Directory (Azure AD) administrator must [install the Azure DevOps Synapse Workspace Deployment Agent extension in the Azure DevOps organization](/azure/devops/marketplace/install-extension).
+- A Microsoft Entra administrator must [install the Azure DevOps Synapse Workspace Deployment Agent extension in the Azure DevOps organization](/azure/devops/marketplace/install-extension).
 - Create or nominate an existing service account for the pipeline to run as. You can use a personal access token instead of a service account, but your pipelines won't work after the user account is deleted.
 
 ### GitHub
@@ -52,11 +38,13 @@ To automate the deployment of an Azure Synapse workspace to multiple environment
 - Create a GitHub repository that contains the Azure Synapse workspace artifacts and the workspace template. 
 - Make sure that you've created a self-hosted runner or use a GitHub-hosted runner.
 
-### Azure Active Directory
+<a name='azure-active-directory'></a>
 
-- If you're using a service principal, in Azure AD, create a service principal to use for deployment. 
+### Microsoft Entra ID
+
+- If you're using a service principal, in Microsoft Entra ID, create a service principal to use for deployment. 
 - If you're using a managed identity, enable the system-assigned managed identity on your VM in Azure as the agent or runner, and then add it to Azure Synapse Studio as Synapse admin.
-- Use the Azure AD admin role to complete these actions.
+- Use the Microsoft Entra admin role to complete these actions.
 
 ### Azure Synapse Analytics
 
@@ -197,9 +185,12 @@ The deployment task supports 3 types of operations,  validate only, deploy and v
           TargetWorkspaceName: '<target workspace name>'    
 ``` 
 
-**Deploy**  The inputs of the operation deploy include Synapse workspace template and parameter template, which can be created after publishing in the workspace publish branch or after the validation. It is same as the version 1.x. 
-
 **Validate and deploy** can be used to directly deploy the workspace from non-publish branch with the artifact root folder. 
+
+   > [!NOTE]
+   > The deployment task needs to download dependency JS files from this endpoint **web.azuresynapse.net** when the operation type is selected as **Validate** or **Validate and deploy**. Please ensure the endpoint **web.azuresynapse.net** is allowed if network policies are enabled on the VM.
+
+**Deploy**  The inputs of the operation deploy include Synapse workspace template and parameter template, which can be created after publishing in the workspace publish branch or after the validation. It is same as the version 1.x. 
 
 You can choose the operation types based on the use case. Following part is an example of the deploy.
 
@@ -547,7 +538,3 @@ The artifact in synapse can be referenced by another one. If you have parameteri
 ####  10. Failed to fetch the deployment status in notebook deployment 
 
 The notebook you are trying to deploy is attached to a spark pool in the workspace template file, while in the deployment the pool does not exist in the target workspace. If you don't parameterize the pool name, please make sure that having the same name for the pools between environments. 
-
-
-
-

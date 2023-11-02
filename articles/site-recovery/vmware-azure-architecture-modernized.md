@@ -3,7 +3,7 @@ title: VMware VM disaster recovery architecture in Azure Site Recovery - Moderni
 description: This article provides an overview of components and architecture used when setting up disaster recovery of on-premises VMware VMs to Azure with Azure Site Recovery - Modernized
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/21/2022
+ms.date: 04/04/2023
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ---
@@ -47,8 +47,8 @@ If you're using a URL-based firewall proxy to control outbound connectivity, all
 | ------------------------- | -------------------------------------------|
 | portal.azure.com          | Navigate to the Azure portal.              |
 | `*.windows.net `<br>`*.msftauth.net`<br>`*.msauth.net`<br>`*.microsoft.com`<br>`*.live.com `<br>`*.office.com ` | To sign-in to your Azure subscription.  |
-|`*.microsoftonline.com `|Create Azure Active Directory (AD) apps for the appliance to communicate with Azure Site Recovery. |
-|management.azure.com |Create Azure AD apps for the appliance to communicate with the Azure Site Recovery service. |
+|`*.microsoftonline.com `|Create Microsoft Entra apps for the appliance to communicate with Azure Site Recovery. |
+|management.azure.com |Create Microsoft Entra apps for the appliance to communicate with the Azure Site Recovery service. |
 |`*.services.visualstudio.com `|Upload app logs used for internal monitoring. |
 |`*.vault.azure.net `|Manage secrets in the Azure Key Vault. Note: Ensure that machines to be replicated have access to this. |
 |aka.ms |Allow access to "also known as" links. Used for Azure Site Recovery appliance updates. |
@@ -160,4 +160,4 @@ After replication is set up and you run a disaster recovery drill (test failover
 
 ## Next steps
 
-Follow [this tutorial](vmware-azure-tutorial.md) to enable VMware to Azure replication.
+Follow [this tutorial](vmware-azure-set-up-replication-tutorial-modernized.md) to enable VMware to Azure replication.

@@ -33,7 +33,7 @@ In Azure Cognitive Search, indexers that access Azure blobs can use the [trusted
 
 ## Check service identity
 
-1. [Sign in to Azure portal](https://portal.azure.com) and [find your search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/).
+1. Sign in to the [Azure portal](https://portal.azure.com) and [find your search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/).
 
 1. On the **Identity** page, make sure that a [system assigned identity is enabled](search-howto-managed-identities-data-sources.md). Remember that user-assigned managed identities, currently in preview, won't work for a trusted service connection.
 
@@ -41,7 +41,7 @@ In Azure Cognitive Search, indexers that access Azure blobs can use the [trusted
 
 ## Check network settings
 
-1. [Sign in to Azure portal](https://portal.azure.com) and [find your storage account](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/).
+1. Sign in to the [Azure portal](https://portal.azure.com) and [find your storage account](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/).
 
 1. In the left navigation pane under **Security + networking**, select **Networking**.
 
@@ -57,7 +57,7 @@ In Azure Cognitive Search, indexers that access Azure blobs can use the [trusted
 
 ## Check permissions
 
-A system managed identity is an Azure AD login. The assignment needs **Storage Blob Data Reader** at a minimum.
+A system managed identity is a Microsoft Entra login. The assignment needs **Storage Blob Data Reader** at a minimum.
 
 1. In the left navigation pane under **Access Control**, view all role assignments and make sure that **Storage Blob Data Reader** is assigned to the search service system identity.
 
@@ -80,5 +80,5 @@ The easiest way to test the connection is by running the Import data wizard.
 + [Connect to other Azure resources using a managed identity](search-howto-managed-identities-data-sources.md)
 + [Azure Blob indexer](search-howto-indexing-azure-blob-storage.md)
 + [Azure Data Lake Storage Gen2 indexer](search-howto-index-azure-data-lake-storage.md)
-+ [Authenticate with Azure Active Directory](/azure/architecture/framework/security/design-identity-authentication)
-+ [About managed identities (Azure Active Directory)](../active-directory/managed-identities-azure-resources/overview.md)
++ [Authenticate with Microsoft Entra ID](/azure/architecture/framework/security/design-identity-authentication)
++ [About managed identities (Microsoft Entra ID)](../active-directory/managed-identities-azure-resources/overview.md)

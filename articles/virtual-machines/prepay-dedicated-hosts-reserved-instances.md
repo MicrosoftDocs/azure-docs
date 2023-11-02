@@ -6,7 +6,7 @@ author: yashar
 ms.service: azure-dedicated-host
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 02/28/2020
+ms.date: 06/05/2023
 ms.author: banders
 ms.reviewer: mattmcinnes
 ---

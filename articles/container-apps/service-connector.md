@@ -6,13 +6,13 @@ ms.author: malev
 ms.service: container-apps
 ms.topic: how-to
 ms.date: 06/16/2022
-ms.custom: service-connector
+ms.custom: service-connector, devx-track-azurecli
 # Customer intent: As an app developer, I want to connect a containerized app to a storage account in the Azure portal using Service Connector.
 ---
 
 # Connect a container app to a cloud service with Service Connector
 
-Azure Container Apps allows you to use Service Connector to connect to cloud services in just a few steps. Service Connector manages the configuration of the network settings and connection information between different services. To view all supported services, [learn more about Service Connector](../service-connector/overview.md#what-services-are-supported-in-service-connector).
+Azure Container Apps allows you to use Service Connector to connect to cloud services in just a few steps. Service Connector manages the configuration of the network settings and connection information between different services. To view all supported services, [learn more about Service Connector](../service-connector/overview.md#what-services-are-supported-by-service-connector).
 
 In this article, you learn to connect a container app to Azure Blob Storage.
 
@@ -109,7 +109,7 @@ The following steps create a service connection using an access key or a system-
     - **Name of the storage account**: the name of the storage account that contains your blob.
 
     > [!IMPORTANT]
-    > To use Managed Identity, you must have the permission to manage [Azure Active Directory role assignments](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). If you don't have this permission, you won't be able to create a connection. You can ask your subscription owner to grant you this permission or use an access key instead to create the connection.
+    > To use Managed Identity, you must have the permission to manage [Microsoft Entra role assignments](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). If you don't have this permission, you won't be able to create a connection. You can ask your subscription owner to grant you this permission or use an access key instead to create the connection.
 
     > [!NOTE]
     > If you don't have a Blob Storage, you can run `az containerapp connection create storage-blob --new --secret` to provision a new one.

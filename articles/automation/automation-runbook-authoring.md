@@ -5,7 +5,7 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/10/2023
 ms.topic: conceptual
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ---
 
 # Runbook authoring through VS Code in Azure Automation
@@ -28,7 +28,7 @@ The test matrix includes the following operating systems:
 1. **Ubuntu** 20.04 with PowerShell Core 7.2.7
 
 >[!NOTE]
->- The extension should work anywhere in VS Code and it supports [PowerShell 7.2 or higher](https://learn.microsoft.com/powershell/scripting/install/PowerShell-Support-Lifecycle?view=powershell-7.3). For Windows PowerShell, only version 5.1 is supported.
+>- The extension should work anywhere in VS Code and it supports [PowerShell 7.2 or higher](/powershell/scripting/install/PowerShell-Support-Lifecycle?view=powershell-7.3&preserve-view=true). For Windows PowerShell, only version 5.1 is supported.
 >-  PowerShell Core 6 is end-of-life and not supported.
 
 
@@ -47,7 +47,7 @@ The test matrix includes the following operating systems:
 ## Key Features of v1.0.8
 
 - **Local directory configuration settings** - You can define the working directory that you want to save runbooks locally.
-   - **Change Directory:Base Path** - You use the changed directory path when you reopen Visual Studio code IDE. To change the directory using the Command Palette, use **Ctrl+Shift+P -> select Change Directory**. To change the base path from extension configuration settings, select **Manage** icon in the activity bar on the left and go to **Settings > Extensions > Azure Automation > Directory:Base Path**.
+   - **Change Directory:Base Path** - You use the changed directory path when you reopen Visual Studio Code IDE. To change the directory using the Command Palette, use **Ctrl+Shift+P -> select Change Directory**. To change the base path from extension configuration settings, select **Manage** icon in the activity bar on the left and go to **Settings > Extensions > Azure Automation > Directory:Base Path**.
    - **Change Directory:Folder Structure** - You can change the local directory folder structure from *vscodeAutomation/accHash* to *subscription/resourceGroup/automationAccount*. Select **Manage** icon in the activity bar on the left and go to **Settings > Extensions > Azure Automation > Directory:Folder Structure**. You can change the default configuration setting from *vscodeAutomation/accHash* to *subscription/resourceGroupe/automationAccount* format.
     >[!NOTE]
     >If your automation account is integrated with source control you can provide the runbook folder path of your GitHub repo as the directory path. For example: changing directory to *C:\abc* would store runbooks in *C:\abc\vscodeAutomation..* or *C:\abc//subscriptionName//resourceGroupName//automationAccountName//runbookname.ps1*. 
@@ -76,4 +76,3 @@ Currently, the following features aren't supported:
 ## Next steps
 
 - For Runbook management operations and to test runbook and jobs, see [Use Azure Automation extension for Visual Studio Code](../automation/how-to/runbook-authoring-extension-for-vscode.md)
-

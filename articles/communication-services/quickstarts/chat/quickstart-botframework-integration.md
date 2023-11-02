@@ -135,7 +135,7 @@ Now that your bot is created and deployed, create a Communication Services resou
 
 1. Complete the steps to [create a Communication Services resource](../../quickstarts/create-communication-resource.md).
 
-1. Create a Communication Services user and issue a [user access token](../../quickstarts/access-tokens.md). Be sure to set the scope to **chat**. *Copy the token string and the user ID string*.
+1. Create a Communication Services user and issue a [user access token](../../quickstarts/identity/access-tokens.md). Be sure to set the scope to **chat**. *Copy the token string and the user ID string*.
 
 ## Enable the Communication Services Chat channel
 
@@ -153,7 +153,7 @@ When you have a Communication Services resource, you can set up a Communication 
 
    :::image type="content" source="./media/smaller-bot-choose-resource.png" alt-text="Screenshot that shows how to save the selected Communication Service resource to create a new Communication Services user ID." lightbox="./media/bot-choose-resource.png":::
 
-1. When the resource details are verified, a bot ID is shown in the **Bot ACS Id** column. You can use the bot ID to represent the bot in a chat thread by using the Communication Services Chat AddParticipant API. After you add the bot to a chat as participant, the bot starts to receive chat-related activities, and it can respond in the chat thread.
+1. When the resource details are verified, a bot ID is shown in the **Bot Azure Communication Services Id** column. You can use the bot ID to represent the bot in a chat thread by using the Communication Services Chat AddParticipant API. After you add the bot to a chat as participant, the bot starts to receive chat-related activities, and it can respond in the chat thread.
 
    :::image type="content" source="./media/smaller-acs-chat-channel-saved.png" alt-text="Screenshot that shows the new Communication Services user ID assigned to the bot." lightbox="./media/acs-chat-channel-saved.png":::
 
@@ -350,6 +350,9 @@ namespace Microsoft.BotBuilderSamples.Bots
 
 ### Send an adaptive card
 
+> [!NOTE] 
+> Adaptive cards are only supported within Azure Communication Services use cases where all chat participants are ACS users, and not for Teams interoprability use cases.
+
 You can send an adaptive card to the chat thread to increase engagement and efficiency. An adaptive card also helps you communicate with users in various ways. You can send an adaptive card from a bot by adding the card as a bot activity attachment.
 
 Here's an example of how to send an adaptive card:
@@ -543,7 +546,7 @@ In some use cases, two bots need to be added to the same chat thread to provide 
 
 You can verify the Communication Services user identity of a message sender in the activity's `From.Id` property. Check to see whether it belongs to another bot. Then, take the required action to prevent a bot-to-bot communication flow. If this type of scenario results in high call volumes, the Communication Services Chat channel throttles the requests and a bot can't send and receive messages.
 
-Learn more about [throttle limits](/azure/communication-services/concepts/service-limits#chat).
+Learn more about [throttle limits](../../concepts/service-limits.md#chat).
 
 ## Troubleshoot
 

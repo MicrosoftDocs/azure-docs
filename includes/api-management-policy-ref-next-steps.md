@@ -2,10 +2,10 @@
 author: dlepow
 ms.service: api-management
 ms.topic: include
-ms.date: 03/04/2022
+ms.date: 10/18/2023
 ms.author: danlep
 ---
-## Next steps
+## Related content
 
 For more information about working with policies, see:
 
@@ -14,4 +14,4 @@ For more information about working with policies, see:
 + [Policy expressions](../articles/api-management/api-management-policy-expressions.md)
 + [Set or edit policies](../articles/api-management/set-edit-policies.md)
 + [Reuse policy configurations](../articles/api-management/policy-fragments.md)
-+ [Policy samples](../articles/api-management/policies/index.md)	
++ [Policy snippets repo](https://github.com/Azure/api-management-policy-snippets)	

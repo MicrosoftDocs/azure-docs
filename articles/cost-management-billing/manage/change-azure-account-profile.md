@@ -7,16 +7,15 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 03/22/2022
+ms.date: 03/04/2023
 ms.author: banders
-ms.custom: contperf-fy21q4
 ---
 
 # Change contact information for an Azure billing account
 
 This article helps you update contact information for a *billing account* in the Azure portal. The instructions to update the contact information vary by the billing account type. To learn more about billing accounts and identify your billing account type, see [View billing accounts in Azure portal](view-all-accounts.md). An Azure billing account is separate from your Azure user account and [Microsoft account](https://account.microsoft.com/).
 
-If you want to update your Azure Active Directory user profile information, only a user administrator can make the changes. If you're not assigned the user administrator role, contact your user administrator. For more information about changing a user's profile, see [Add or update a user's profile information using Azure Active Directory](../../active-directory/fundamentals/active-directory-users-profile-azure-portal.md).
+If you want to update your Microsoft Entra user profile information, only a user administrator can make the changes. If you're not assigned the user administrator role, contact your user administrator. For more information about changing a user's profile, see [Add or update a user's profile information using Microsoft Entra ID](../../active-directory/fundamentals/active-directory-users-profile-azure-portal.md).
 
 *Sold-to address* - The sold-to address is the address and the contact information of the organization or the individual, who is responsible for a billing account. It's displayed in all the invoices generated for the billing account.
 

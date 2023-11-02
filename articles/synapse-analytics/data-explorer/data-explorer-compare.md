@@ -29,7 +29,7 @@ We recommend starting with Synapse Data Explorer if you are looking for a unifie
 | **Business Continuity** | Availability Zones | Optional | Enabled by default where Availability Zones are available |
 | **SKU** | Compute options | 22+ Azure VM SKUs to choose from | Simplified to Synapse workload types SKUs |
 | **Integrations** | Built-in ingestion pipelines | Event Hub, Event Grid, IoT Hub | Event Hub, Event Grid, and IoT Hub supported via the Azure portal for non-managed VNet |
-|  | Spark integration | Azure Data Explorer linked service: Built-in Kusto Spark integration with support for Azure Active Directory pass-though authentication, Synapse Workspace MSI, and Service Principal | Built-in Kusto Spark connector integration with support for Azure Active Directory pass-though authentication, Synapse Workspace MSI, and Service Principal |
+|  | Spark integration | Azure Data Explorer linked service: Built-in Kusto Spark integration with support for Microsoft Entra pass-through authentication, Synapse Workspace MSI, and Service Principal | Built-in Kusto Spark connector integration with support for Microsoft Entra pass-through authentication, Synapse Workspace MSI, and Service Principal |
 |  | KQL artifacts management | ✗ | Save KQL queries and integrate with Git |
 |  | Metadata sync | ✗ | ✗ |
 | **Features** | KQL queries | ✓ | ✓ |

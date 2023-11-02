@@ -1,7 +1,8 @@
 ---
 title: "Upgrade Azure Arc-enabled Kubernetes agents"
-ms.date: 09/09/2022
+ms.date: 08/28/2023
 ms.topic: how-to
+ms.custom: devx-track-azurecli
 description: "Control agent upgrades for Azure Arc-enabled Kubernetes"
 ---
 
@@ -20,6 +21,9 @@ az connectedk8s connect --name AzureArcTest1 --resource-group AzureArcTest
 ```
 
 With automatic upgrade enabled, the agent polls Azure hourly to check for a newer version. When a newer version becomes available, it triggers a Helm chart upgrade for the Azure Arc agents.
+
+> [!IMPORTANT]
+> Be sure you allow [connectivity to all required endpoints](network-requirements.md). In particular, connectivity to `dl.k8s.io` is required for automatic upgrades.
 
 To opt out of automatic upgrade, specify the `--disable-auto-upgrade` parameter while connecting the cluster to Azure Arc.
 
@@ -85,7 +89,7 @@ Azure Arc-enabled Kubernetes follows the standard [semantic versioning scheme](h
 
 While the schedule may vary, a new minor version of Azure Arc-enabled Kubernetes agents is released approximately once per month.
 
-The following command upgrades the agent to version 1.8.14:
+The following command manually upgrades the agent to version 1.8.14:
 
 ```azurecli
 az connectedk8s upgrade -g AzureArcTest1 -n AzureArcTest --agent-version 1.8.14

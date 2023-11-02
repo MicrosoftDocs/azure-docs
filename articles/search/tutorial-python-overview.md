@@ -1,5 +1,5 @@
 ---
-title: "Python tutorial: Search integration overview"
+title: "Add search to web sites (Python tutorial)"
 titleSuffix: Azure Cognitive Search
 description: Technical overview and setup for adding search to a website with Python and deploying to Azure Static Web App. 
 manager: nitinme
@@ -7,7 +7,7 @@ author: diberry
 ms.author: diberry
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 11/02/2022
+ms.date: 07/18/2023
 ms.custom: devx-track-python
 ms.devlang: python
 ---
@@ -42,6 +42,7 @@ Install the following for your local development environment.
 - [Git](https://git-scm.com/downloads)
 - [Visual Studio Code](https://code.visualstudio.com/) and the following extensions
     - [Azure Static Web App](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) 
+    - Use the integrated terminal for command line operations.
 - Optional:
     - This tutorial doesn't run the Azure Function API locally but if you intend to run it locally, you need to install [azure-functions-core-tools](../azure-functions/functions-run-local.md?tabs=linux%2ccsharp%2cbash).
 
@@ -58,7 +59,7 @@ Forking the sample repository is critical to be able to deploy the static web ap
     Replace `YOUR-GITHUB-ALIAS` with your GitHub alias. 
 
     ```bash
-    git clone https://github.com/YOUR-GITHUB-ALIAS/azure-search-python-samples
+    git clone https://github.com/YOUR-GITHUB-ALIAS/azure-search-python-samples.git
     ```
 
 1. In Visual Studio Code, open your local folder of the cloned repository. The remaining tasks are accomplished from Visual Studio Code, unless specified.

@@ -1,21 +1,15 @@
 ---
-title: TCP/IP performance tuning for Azure VMs | Microsoft Docs
+title: TCP/IP performance tuning for Azure VMs
 description: Learn various common TCP/IP performance tuning techniques and their relationship to Azure VMs. 
 services: virtual-network
-documentationcenter: na
 author: asudbring
 manager: paragk
-editor: ''
-
-ms.assetid:
 ms.service: virtual-network
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/02/2019
 ms.author: allensu
 ms.reviewer: dgoddard, stegag, steveesp, minale, btalb, prachank
-
 ---
 
 # TCP/IP performance tuning for Azure VMs
@@ -35,6 +29,8 @@ The maximum transmission unit (MTU) is the largest size frame (packet), specifie
 Fragmentation occurs when a packet is sent that exceeds the MTU of a network interface. The TCP/IP stack will break the packet into smaller pieces (fragments) that conform to the interface's MTU. Fragmentation occurs at the IP layer and is independent of the underlying protocol (such as TCP). When a 2,000-byte packet is sent over a network interface with an MTU of 1,500, the packet will be broken down into one 1,500-byte packet and one 500-byte packet.
 
 Network devices in the path between a source and destination can either drop packets that exceed the MTU or fragment the packet into smaller pieces.
+
+IP fragmentation is not supported in Azure. There are some scenarios where IP fragmentation may work. However, it should not be relied upon.
 
 #### The Don’t Fragment bit in an IP packet
 
@@ -80,7 +76,7 @@ We don't encourage customers to increase VM MTUs. This discussion is meant to ex
 
 > [!IMPORTANT]
 >Increasing MTU isn't known to improve performance and could have a negative effect on application performance.
->
+>Hybrid networking services, such as VPN, ExpressRoute, and vWAN, support a maximum MTU of 1400 bytes.
 >
 
 #### Large send offload

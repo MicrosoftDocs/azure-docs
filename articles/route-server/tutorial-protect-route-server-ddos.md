@@ -1,8 +1,8 @@
 ---
 title: 'Tutorial: Protect your Route Server with Azure DDoS protection'
-description: Learn how to set up a route server and protect it with Azure DDoS protection
-author: asudbring
-ms.author: allensu
+description: Learn how to set up a route server and protect it with Azure DDoS protection.
+author: halkazwini
+ms.author: halkazwini
 ms.service: route-server
 ms.topic: tutorial
 ms.date: 12/21/2022
@@ -89,7 +89,7 @@ In this section, you'll create an Azure Route Server. The virtual network and pu
 
 ## Enable DDoS protection
 
-Azure DDoS protection Standard is enabled at the virtual network where the resource you want to protect reside. 
+Azure DDoS Network is enabled at the virtual network where the resource you want to protect reside. 
 
 1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
 

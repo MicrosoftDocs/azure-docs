@@ -2,7 +2,7 @@
 title: Downtime, SLA, and outages workbook - Application Insights
 description: Calculate and report SLA for web test through a single pane of glass across your Application Insights resources and Azure subscriptions.
 ms.topic: conceptual
-ms.date: 05/4/2021
+ms.date: 03/22/2023
 ms.reviwer: casocha
 ---
 
@@ -70,4 +70,4 @@ The report can be shared with your teams and leadership or pinned to a dashboard
 
 - Learn some [Log Analytics query optimization tips](../logs/query-optimization.md).
 - Learn how to [create a chart in workbooks](../visualize/workbooks-chart-visualizations.md).
-- Learn how to monitor your website with [availability tests](monitor-web-app-availability.md).
+- Learn how to monitor your website with [availability tests](availability-overview.md).

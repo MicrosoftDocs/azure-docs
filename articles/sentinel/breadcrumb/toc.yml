@@ -18,3 +18,6 @@
     - name: Microsoft Sentinel
       tocHref: /azure/data-explorer/kusto/
       topicHref: /azure/sentinel/index
+    - name: Microsoft Sentinel
+      tocHref: /azure/defender-for-iot/organizations/
+      topicHref: /azure/sentinel/index

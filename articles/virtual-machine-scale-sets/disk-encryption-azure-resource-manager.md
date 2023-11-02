@@ -8,8 +8,7 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: disks
 ms.date: 11/22/2022
 ms.reviewer: mimckitt
-ms.custom: mimckitt
-
+ms.custom: mimckitt, devx-track-arm-template
 ---
 
 # Encrypt Virtual Machine Scale Sets with Azure Resource Manager

@@ -224,7 +224,7 @@ This approach could be taken one step further by persisting an association betwe
 
 For more information:
 
-* [Microsoft Power Automate Template for OneDrive to Azure Storage Replication](https://flow.microsoft.com/galleries/public/templates/2f90b5d3-029b-4e2e-ad37-1c0fe6d187fe/when-a-file-is-uploaded-to-onedrive-copy-it-to-azure-storage-container/)
+* [Microsoft Power Automate Template for OneDrive to Azure Storage Replication](https://make.powerautomate.com/galleries/public/templates/2f90b5d3-029b-4e2e-ad37-1c0fe6d187fe/when-a-file-is-uploaded-to-onedrive-copy-it-to-azure-storage-container/)
 * [OneDrive File Storage API Overview](/graph/onedrive-concept-overview)
 
 ### Direct CAD access
@@ -272,6 +272,6 @@ For authentication, it’s wise to move as much of the ARR authentication and se
 
 For more information:
 
-* [Azure AD Service Authentication](../../../../spatial-anchors/concepts/authentication.md?tabs=csharp#azure-ad-service-authentication)
+* [Microsoft Entra service Authentication](../../../../spatial-anchors/concepts/authentication.md?tabs=csharp#azure-ad-service-authentication)
 * [Strengthen Your Security Posture with Azure](https://azure.microsoft.com/overview/security/)
 * [Cloud Security](https://azure.microsoft.com/product-categories/security/)

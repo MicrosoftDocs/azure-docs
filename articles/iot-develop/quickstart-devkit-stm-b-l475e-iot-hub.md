@@ -1,12 +1,13 @@
 ---
-title: Connect an STMicroelectronics B-L475E-IOT01A to Azure IoT Hub quickstart
-description: Use Azure RTOS embedded software to connect an STMicroelectronics B-L475E-IOT01A device to Azure IoT Hub and send telemetry.
+title: Quickstart - Connect an STMicroelectronics B-L475E-IOT01A to Azure IoT Hub
+description: A quickstart that uses Azure RTOS embedded software to connect an STMicroelectronics B-L475E-IOT01A device to Azure IoT Hub and send telemetry.
 author: timlt
 ms.author: timlt
 ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
-ms.date: 11/18/2022
+ms.date: 06/27/2023
+# CustomerIntent: As an embedded device developer, I want to use Azure RTOS to connect my device to Azure IoT Hub, so that I can learn about device connectivity and development. 
 ---
 
 # Quickstart: Connect an STMicroelectronics B-L475E-IOT01A Discovery kit to IoT Hub
@@ -18,28 +19,26 @@ ms.date: 11/18/2022
 
 In this quickstart, you use Azure RTOS to connect the STMicroelectronics [B-L475E-IOT01A](https://www.st.com/en/evaluation-tools/b-l475e-iot01a.html) Discovery kit (from now on, the STM DevKit) to Azure IoT.
 
-You'll complete the following tasks:
+You complete the following tasks:
 
 * Install a set of embedded development tools for programming the STM DevKit in C
 * Build an image and flash it onto the STM DevKit
-* Use Azure CLI to create and manage an Azure IoT hub that the STM DevKit will securely connect to
+* Use Azure CLI to create and manage an Azure IoT hub that the STM DevKit securely connects to
 * Use Azure IoT Explorer to register a device with your IoT hub, view device properties, view device telemetry, and call direct commands on the device
 
 ## Prerequisites
 
 * A PC running Windows 10 or Windows 11
+* An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 * [Git](https://git-scm.com/downloads) for cloning the repository
 * Azure CLI. You have two options for running Azure CLI commands in this quickstart:
     * Use the Azure Cloud Shell, an interactive shell that runs CLI commands in your browser. This option is recommended because you don't need to install anything. If you're using Cloud Shell for the first time, sign in to the [Azure portal](https://portal.azure.com). Follow the steps in [Cloud Shell quickstart](../cloud-shell/quickstart.md) to **Start Cloud Shell** and **Select the Bash environment**.
     * Optionally, run Azure CLI on your local machine. If Azure CLI is already installed, run `az upgrade` to upgrade the CLI and extensions to the current version. To install Azure CLI, see [Install Azure CLI](/cli/azure/install-azure-cli).
-
-* [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer/releases): Cross-platform utility to  monitor and manage Azure IoT 
 * Hardware
 
     * The [B-L475E-IOT01A](https://www.st.com/en/evaluation-tools/b-l475e-iot01a.html) (STM DevKit)
     * Wi-Fi 2.4 GHz
     * USB 2.0 A male to Micro USB male cable
-* An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prepare the development environment
 
@@ -78,104 +77,11 @@ To install the tools:
     cmake --version
     ```
 
-## Create the cloud components
-
-### Create an IoT hub
-
-You can use Azure CLI to create an IoT hub that handles events and messaging for your device.
-
-To create an IoT hub:
-
-1. Launch your CLI app. To run the CLI commands in the rest of this quickstart, copy the command syntax, paste it into your CLI app, edit variable values, and press Enter.
-    - If you're using Cloud Shell, right-click the link for [Cloud Shell](https://shell.azure.com/bash), and select the option to open in a new tab.
-    - If you're using Azure CLI locally, start your CLI console app and sign in to Azure CLI.
-
-1. Run [az extension add](/cli/azure/extension#az-extension-add) to install or upgrade the *azure-iot* extension to the current version.
-
-    ```azurecli-interactive
-    az extension add --upgrade --name azure-iot
-    ```
-
-1. Run the [az group create](/cli/azure/group#az-group-create) command to create a resource group. The following command creates a resource group named *MyResourceGroup* in the *centralus* region.
-
-    > [!NOTE] 
-    > You can optionally set an alternate `location`. To see available locations, run [az account list-locations](/cli/azure/account#az-account-list-locations).
-
-    ```azurecli
-    az group create --name MyResourceGroup --location centralus
-    ```
-
-1. Run the [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) command to create an IoT hub. It might take a few minutes to create an IoT hub.
-
-    *YourIotHubName*. Replace this placeholder below with the name you chose for your IoT hub. An IoT hub name must be globally unique in Azure. This placeholder is used in the rest of this quickstart to represent your unique IoT hub name.
-
-    The `--sku F1` parameter creates the IoT hub in the Free tier. Free tier hubs have a limited feature set and are used for proof of concept applications. For more information on IoT Hub tiers, features, and pricing, see [Azure IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub). 
-
-    ```azurecli
-    az iot hub create --resource-group MyResourceGroup --name {YourIoTHubName} --sku F1 --partition-count 2
-    ```
-
-1. After the IoT hub is created, view the JSON output in the console, and copy the `hostName` value to use in a later step. The `hostName` value looks like the following example:
-
-    `{Your IoT hub name}.azure-devices.net`
-
-### Configure IoT Explorer
-
-In the rest of this quickstart, you'll use IoT Explorer to register a device to your IoT hub, to view the device properties and telemetry, and to send commands to your device. In this section, you configure IoT Explorer to connect to the IoT hub you  created, and to read plug and play models from the public model repository. 
-
-To add a connection to your IoT hub:
-
-1. In your CLI app, run the [az iot hub connection-string show](/cli/azure/iot/hub/connection-string#az-iot-hub-connection-string-show) command to get the connection string for your IoT hub.
-
-    ```azurecli
-    az iot hub connection-string  show --hub-name {YourIoTHubName}
-    ```
-
-1. Copy the connection string without the surrounding quotation characters.
-1. In Azure IoT Explorer, select **IoT hubs** on the left menu.
-1. Select **+ Add connection**. 
-1. Paste the connection string into the **Connection string** box.
-1. Select **Save**.
-
-    :::image type="content" source="media/quickstart-devkit-stm-b-l475e-iot-hub/iot-explorer-add-connection.png" alt-text="Screenshot of adding a connection in IoT Explorer.":::
-
-If the connection succeeds, IoT Explorer switches to the **Devices** view.
-
-To add the public model repository:
-
-1. In IoT Explorer, select **Home** to return to the home view.
-1. On the left menu, select **IoT Plug and Play Settings**, then select **+Add** and select **Public repository** from the drop-down menu.
-1. An entry appears for the public model repository at `https://devicemodels.azure.com`.
-
-    :::image type="content" source="media/quickstart-devkit-stm-b-l475e-iot-hub/iot-explorer-add-public-repository.png" alt-text="Screenshot of adding the public model repository in IoT Explorer.":::
-
-1. Select **Save**.
-
-### Register a device
-
-In this section, you create a new device instance and register it with the IoT hub you created. You'll use the connection information for the newly registered device to securely connect your physical device in a later section.
-
-To register a device:
-
-1. From the home view in IoT Explorer, select **IoT hubs**.
-1. The connection you previously added should appear. Select **View devices in this hub** below the connection properties.
-1. Select **+ New** and enter a device ID for your device; for example, `mydevice`. Leave all other properties the same.
-1. Select **Create**.
-
-    :::image type="content" source="media/quickstart-devkit-stm-b-l475e-iot-hub/iot-explorer-device-created.png" alt-text="Screenshot of Azure IoT Explorer device identity.":::
-
-1. Use the copy buttons to copy the **Device ID** and **Primary key** fields.
-
-Before continuing to the next section, save each of the following values retrieved from earlier steps, to a safe location. You use these values in the next section to configure your device. 
-
-* `hostName`
-* `deviceId`
-* `primaryKey`
-
+[!INCLUDE [iot-develop-create-cloud-components](../../includes/iot-develop-create-cloud-components.md)]
 
 ## Prepare the device
 
-To connect the STM DevKit to Azure, you'll modify a configuration file for Wi-Fi and Azure IoT settings, rebuild the image, and flash the image to the device.
+To connect the STM DevKit to Azure, you modify a configuration file for Wi-Fi and Azure IoT settings, rebuild the image, and flash the image to the device.
 
 ### Add configuration
 
@@ -186,7 +92,7 @@ To connect the STM DevKit to Azure, you'll modify a configuration file for Wi-Fi
 1. Comment out the following line near the top of the file as shown:
 
     ```c
-    // #define ENABLE_DPS 
+    // #define ENABLE_DPS
     ```
 
 1. Set the Wi-Fi constants to the following values from your local environment.
@@ -259,39 +165,39 @@ You can use the **Termite** app to monitor communication and confirm that your d
 
     ```output
     Starting Azure thread
-    
-    
+
+
     Initializing WiFi
-    	Module: ISM43362-M3G-L44-SPI
-    	MAC address: ****************
-    	Firmware revision: C3.5.2.5.STM
+        Module: ISM43362-M3G-L44-SPI
+        MAC address: ****************
+        Firmware revision: C3.5.2.5.STM
     SUCCESS: WiFi initialized
-    
+
     Connecting WiFi
-    	Connecting to SSID 'iot'
-    	Attempt 1...
+        Connecting to SSID 'iot'
+        Attempt 1...
     SUCCESS: WiFi connected
-    
+
     Initializing DHCP
-    	IP address: 192.168.0.35
-    	Mask: 255.255.255.0
-    	Gateway: 192.168.0.1
+        IP address: 192.168.0.35
+        Mask: 255.255.255.0
+        Gateway: 192.168.0.1
     SUCCESS: DHCP initialized
-    
+
     Initializing DNS client
-    	DNS address 1: ************
-    	DNS address 2: ************
+        DNS address 1: ************
+        DNS address 2: ************
     SUCCESS: DNS client initialized
-    
+
     Initializing SNTP time sync
-    	SNTP server 0.pool.ntp.org
-    	SNTP time update: Nov 18, 2022 0:56:56.127 UTC 
+        SNTP server 0.pool.ntp.org
+        SNTP time update: Nov 18, 2022 0:56:56.127 UTC
     SUCCESS: SNTP initialized
-    
+
     Initializing Azure IoT Hub client
-    	Hub hostname: *******.azure-devices.net
-    	Device id: mydevice
-    	Model id: dtmi:azurertos:devkit:gsgstml4s5;2
+        Hub hostname: *******.azure-devices.net
+        Device id: mydevice
+        Model id: dtmi:azurertos:devkit:gsgstml4s5;2
     SUCCESS: Connected to IoT Hub
     ```
     > [!IMPORTANT]
@@ -302,7 +208,7 @@ Keep Termite open to monitor device output in the following steps.
 
 ## View device properties
 
-You can use Azure IoT Explorer to view and manage the properties of your devices. In the following sections, you'll use the Plug and Play capabilities that are visible in IoT Explorer to manage and interact with the STM DevKit. These capabilities rely on the device model published for the STM DevKit in the public model repository. You configured IoT Explorer to search this repository for device models earlier in this quickstart. In many cases, you can perform the same action without using plug and play by selecting IoT Explorer menu options. However, using plug and play often provides an enhanced experience. IoT Explorer can read the device model specified by a plug and play device and present information specific to that device.  
+You can use Azure IoT Explorer to view and manage the properties of your devices. In the following sections, you use the Plug and Play capabilities that are visible in IoT Explorer to manage and interact with the STM DevKit. These capabilities rely on the device model published for the STM DevKit in the public model repository. You configured IoT Explorer to search this repository for device models earlier in this quickstart. In many cases, you can perform the same action without using plug and play by selecting IoT Explorer menu options. However, using plug and play often provides an enhanced experience. IoT Explorer can read the device model specified by a plug and play device and present information specific to that device.
 
 To access IoT Plug and Play components for the device in IoT Explorer:
 
@@ -329,7 +235,7 @@ To access IoT Plug and Play components for the device in IoT Explorer:
 
 To view device properties using Azure IoT Explorer:
 
-1. Select the **Properties (read-only)** tab. There's a single read-only property to indicate whether the led is on or off. 
+1. Select the **Properties (read-only)** tab. There's a single read-only property to indicate whether the led is on or off.
 1. Select the **Properties (writable)** tab. It displays the interval that telemetry is sent.
 1. Change the `telemetryInterval` to *5*, and then select **Update desired value**. Your device now uses this interval to send telemetry.
 
@@ -337,7 +243,7 @@ To view device properties using Azure IoT Explorer:
 
 1. IoT Explorer responds with a notification. You can also observe the update in Termite.
 1. Set the telemetry interval back to 10.
- 
+
 To use Azure CLI to view device properties:
 
 1. Run the [az iot hub device-twin show](/cli/azure/iot/hub/device-twin#az-iot-hub-device-twin-show) command.
@@ -423,7 +329,7 @@ To use Azure CLI to call a method:
     {
         "payload": {},
         "status": 200
-    }    
+    }
     ```
 
 1. Check your device to confirm the LED state.
@@ -443,33 +349,13 @@ If you experience issues building the device code, flashing the device, or conne
 
 For debugging the application, see [Debugging with Visual Studio Code](https://github.com/azure-rtos/getting-started/blob/master/docs/debugging.md).
 
-## Clean up resources
+[!INCLUDE [iot-develop-cleanup-resources](../../includes/iot-develop-cleanup-resources.md)]
 
-If you no longer need the Azure resources created in this quickstart, you can use the Azure CLI to delete the resource group and all of its resources.
-
-> [!IMPORTANT] 
-> Deleting a resource group is irreversible. The resource group and all the resources contained in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources.
-
-To delete a resource group by name:
-
-1. Run the [az group delete](/cli/azure/group#az-group-delete) command. This command removes the resource group, the IoT Hub, and the device registration you created.
-
-    ```azurecli-interactive
-    az group delete --name MyResourceGroup
-    ```
-
-1. Run the [az group list](/cli/azure/group#az-group-list) command to confirm the resource group is deleted.  
-
-    ```azurecli-interactive
-    az group list
-    ```
-
-
-## Next steps
+## Next step
 
 In this quickstart, you built a custom image that contains Azure RTOS sample code, and then flashed the image to the STM DevKit device. You connected the STM DevKit to Azure, and carried out tasks such as viewing telemetry and calling a method on the device.
 
-As a next step, explore the following articles to learn more about using the IoT device SDKs, or Azure RTOS to connect devices to Azure IoT. 
+As a next step, explore the following articles to learn more about using the IoT device SDKs, or Azure RTOS to connect devices to Azure IoT.
 
 > [!div class="nextstepaction"]
 > [Connect a simulated device to IoT Hub](quickstart-send-telemetry-iot-hub.md)

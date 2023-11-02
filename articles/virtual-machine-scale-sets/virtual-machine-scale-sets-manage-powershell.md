@@ -12,6 +12,9 @@ ms.custom: mimckitt, devx-track-azurepowershell
 ---
 # Manage a Virtual Machine Scale Set with Azure PowerShell
 
+> [!NOTE]
+> Many of the steps listed in this document apply to Virtual Machine Scale Sets using Uniform Orchestration mode. We recommend using Flexible Orchestration for new workloads. For more information, see [Orchesration modes for Virtual Machine Scale Sets in Azure](virtual-machine-scale-sets-orchestration-modes.md).
+
 Throughout the lifecycle of a Virtual Machine Scale Set, you may need to run one or more management tasks. Additionally, you may want to create scripts that automate various lifecycle-tasks. This article details some of the common Azure PowerShell cmdlets that let you perform these tasks.
 
 If you need to create a Virtual Machine Scale Set, you can [create a scale set with Azure PowerShell](quick-create-powershell.md).

@@ -82,7 +82,7 @@ The metrics and logs you can collect are discussed in the following sections.
 <!-- REQUIRED. Please keep headings in this order 
 If you don't support metrics, say so. Some services may be only onboarded to logs -->
 
-You can analyze metrics for Azure Application Gateway with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Getting started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md) for details on using this tool. 
+You can analyze metrics for Azure Application Gateway with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Analyze metrics with Azure Monitor metrics explorer](../azure-monitor/essentials/analyze-metrics.md) for details on using this tool. 
 
 <!-- Point to the list of metrics available in your monitor-service-reference article. -->
 For a list of the platform metrics collected for Azure Application Gateway, see [Monitoring Application Gateway data reference metrics](monitor-application-gateway-reference.md#metrics).  
@@ -171,7 +171,7 @@ Azure Monitor alerts proactively notify you when important conditions are found 
 
 <!-- only include next line if applications run on your service and work with App Insights. --> 
 
-If you're creating or running an application which use Application Gateway [Azure Monitor Application Insights](../azure-monitor/overview.md#application-insights) may offer additional types of alerts.
+If you're creating or running an application which use Application Gateway [Azure Monitor Application Insights](../azure-monitor/app/app-insights-overview.md) may offer additional types of alerts.
 <!-- end -->
 
 The following tables list common and recommended alert rules for Application Gateway.

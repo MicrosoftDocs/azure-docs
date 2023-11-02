@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: sidandrews
 ms.reviewer: mjbrown 
-ms.custom: devx-track-azurecli, devx-track-csharp, ignite-2022
+ms.custom: devx-track-azurecli, devx-track-csharp, ignite-2022, devx-track-dotnet
 ---
 
 # Provision standard (manual) throughput on a database in Azure Cosmos DB - API for NoSQL
@@ -22,7 +22,7 @@ If you are using a different API, see [API for MongoDB](../mongodb/how-to-provis
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. [Create a new Azure Cosmos DB account](quickstart-dotnet.md#create-account), or select an existing Azure Cosmos DB account.
+1. [Create a new Azure Cosmos DB account](how-to-create-account.md), or select an existing Azure Cosmos DB account.
 
 1. Open the **Data Explorer** pane, and select **New Database**. Provide the following details:
 

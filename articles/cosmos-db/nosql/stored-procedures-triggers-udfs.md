@@ -4,7 +4,7 @@ description: This article introduces the concepts such as stored procedures, tri
 author: seesharprun
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.custom: ignite-2022
+ms.custom: ignite-2022, devx-track-js
 ms.topic: conceptual
 ms.date: 08/26/2021
 ms.author: sidandrews
@@ -37,6 +37,9 @@ Writing stored procedures, triggers, and user-defined functions (UDFs) in JavaSc
 > [!TIP]
 > Stored procedures are best suited for operations that are write-heavy and require a transaction across a partition key value. When deciding whether to use stored procedures, optimize around encapsulating the maximum amount of writes possible. Generally speaking, stored procedures are not the most efficient means for doing large numbers of read or query operations, so using stored procedures to batch large numbers of reads to return to the client will not yield the desired benefit. For best performance, these read-heavy operations should be done on the client-side, using the Azure Cosmos DB SDK. 
 
+> [!NOTE]
+> Server-side JavaScript features including stored procedures, triggers, and user-defined functions do not support importing modules.
+
 ## Transactions
 
 Transaction in a typical database can be defined as a sequence of operations performed as a single logical unit of work. Each transaction provides **ACID property guarantees**. ACID is a well-known acronym that stands for: **A**tomicity, **C**onsistency, **I**solation, and **D**urability. 
@@ -50,6 +53,9 @@ Transaction in a typical database can be defined as a sequence of operations per
 * Durability ensures that any change that is committed in a database will always be present.
 
 In Azure Cosmos DB, JavaScript runtime is hosted inside the database engine. Hence, requests made within the stored procedures and the triggers execute in the same scope as the database session. This feature enables Azure Cosmos DB to guarantee ACID properties for all operations that are part of a stored procedure or a trigger. For examples, see [how to implement transactions](how-to-write-stored-procedures-triggers-udfs.md#transactions) article.
+
+> [!TIP]
+> For transaction support in Azure Cosmos DB for NoSQL, you can also implement a transactional batch using your preferred client SDK. For more information, see [Transactional batch operations in Azure Cosmos DB for NoSQL](transactional-batch.md).
 
 ### Scope of a transaction
 
@@ -91,7 +97,7 @@ Similar to pre-triggers, post-triggers, are also associated with an operation on
 
 ## <a id="udfs"></a>User-defined functions
 
-[User-defined functions](query/udfs.md) (UDFs) are used to extend the API for NoSQL query language syntax and implement custom business logic easily. They can be called only within queries. UDFs do not have access to the context object and are meant to be used as compute only JavaScript. Therefore, UDFs can be run on secondary replicas. For examples, see [How to write user-defined functions](how-to-write-stored-procedures-triggers-udfs.md#udfs) article.
+User-defined functions (UDFs) are used to extend the API for NoSQL query language syntax and implement custom business logic easily. They can be called only within queries. UDFs do not have access to the context object and are meant to be used as compute only JavaScript. Therefore, UDFs can be run on secondary replicas.
 
 ## <a id="jsqueryapi"></a>JavaScript language-integrated query API
 

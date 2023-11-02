@@ -10,7 +10,7 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
 zone_pivot_groups: acs-plat-web-ios-android-windows
-ms.custom: mode-other
+ms.custom: mode-other, devx-track-js
 ---
 
 # Quickstart: Add raw media access to your app

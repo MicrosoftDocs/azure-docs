@@ -49,7 +49,7 @@ This version of this article goes through these steps manually, one by one, usin
 Here are the additional options you can configure during setup, using the other tabs in the **Create Resource** process.
 
 * **Networking**: In this tab, you can enable private endpoints with [Azure Private Link](../private-link/private-link-overview.md) to eliminate public network exposure to your instance. For instructions, see [Enable private access with Private Link](./how-to-enable-private-link.md?tabs=portal#add-a-private-endpoint-during-instance-creation).
-* **Advanced**: In this tab, you can enable a system-assigned [managed identity](concepts-security.md#managed-identity-for-accessing-other-resources) for your instance. When this is enabled, Azure automatically creates an identity for the instance in [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md), which can be used to authenticate to other services. You can enable that system-assigned managed identity while you're creating the instance here, or [later on an existing instance](#enabledisable-managed-identity-for-the-instance). If you want to enable a user-assigned managed identity instead, you'll need to do it later on an existing instance.
+* **Advanced**: In this tab, you can enable a system-assigned [managed identity](concepts-security.md#managed-identity-for-accessing-other-resources) for your instance. When this is enabled, Azure automatically creates an identity for the instance in [Microsoft Entra ID](../active-directory/fundamentals/active-directory-whatis.md), which can be used to authenticate to other services. You can enable that system-assigned managed identity while you're creating the instance here, or [later on an existing instance](#enabledisable-managed-identity-for-the-instance). If you want to enable a user-assigned managed identity instead, you'll need to do it later on an existing instance.
 * **Tags**: In this tab, you can add tags to your instance to help you organize it among your Azure resources. For more about Azure resource tags, see [Tag resources, resource groups, and subscriptions for logical organization](../azure-resource-manager/management/tag-resources.md).
 
 ### Verify success and collect important values
@@ -150,7 +150,7 @@ Start by opening the [Azure portal](https://portal.azure.com) in a browser.
 
 ### Considerations for disabling managed identities
 
-It's important to consider the effects that any changes to the identity or its roles can have on the resources that use it. If you're [using managed identities with your Azure Digital Twins endpoints](how-to-route-with-managed-identity.md) or for [data history](how-to-use-data-history.md) and the identity is disabled, or a necessary role is removed from it, the endpoint or data history connection can become inaccessible and the flow of events will be disrupted.
+It's important to consider the effects that any changes to the identity or its roles can have on the resources that use it. If you're [using managed identities with your Azure Digital Twins endpoints](how-to-create-endpoints.md#endpoint-options-identity-based-authentication) or for [data history](how-to-create-data-history-connection.md) and the identity is disabled, or a necessary role is removed from it, the endpoint or data history connection can become inaccessible and the flow of events will be disrupted.
 
 ## Next steps
 

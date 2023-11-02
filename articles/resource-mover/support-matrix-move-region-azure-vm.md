@@ -5,9 +5,9 @@ author: ankitaduttaMSFT
 manager: evansma
 ms.service: resource-mover
 ms.topic: how-to
-ms.date: 05/11/2022
+ms.date: 03/21/2023
 ms.author: ankitadutta
-ms.custom: engagement-fy23
+ms.custom: engagement-fy23, UpdateFrequency.5
 
 ---
 
@@ -169,7 +169,7 @@ Azure VMs that you want to move need outbound access.
 **Name** | **Azure public cloud** | **Details** 
 --- | --- | --- 
 Storage | `*.blob.core.windows.net`  | Allows data to be written from the VM to the cache storage account in the source region. 
-Azure Active Directory | `login.microsoftonline.com`  | Provides authorization and authentication to Site Recovery service URLs. 
+Microsoft Entra ID | `login.microsoftonline.com`  | Provides authorization and authentication to Site Recovery service URLs. 
 Replication | `*.hypervrecoverymanager.windowsazure.com` | Allows the VM to communicate with the Site Recovery service. 
 Service Bus | `*.servicebus.windows.net` | Allows the VM to write Site Recovery monitoring and diagnostics data. 
 

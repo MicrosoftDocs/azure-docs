@@ -1,0 +1,40 @@
+### YamlMime:FAQ
+metadata:
+  title: Virtual Network encryption frequently asked questions
+  description: Answers to common questions about using Azure Virtual Network encryption.
+  ms.topic: faq
+
+title: Frequently asked questions for Azure Virtual Network encryption
+summary: |
+  Here are some answers to common questions about using Azure Virtual Network encryption.
+
+sections:
+  - name: Single section - ignored
+    questions:
+      - question: Can I enable virtual network encryption on an existing virtual network, virtual machine, network interface, or NSG? 
+        answer: |
+          Yes.
+      
+      - question: How do I verify my data is encrypted?
+        answer: |
+          Encryption verification is limited to the status of the network interface resource, vnetEncryptionSupported, and Accelerated networking during public preview. After public preview, virtual network flow logs can be used to see the encrypted and unencrypted flows between virtual machines.
+      
+      - question: Is there data not encrypted?
+        answer: |
+          Fragmented packets aren't offloaded to hardware and don't get encrypted. Use an MTU of 1500 in the network configuration of your virtual machines.
+
+      - question: What certificate is used for the DTLS establishment on the Azure Host? 
+        answer: |
+          Microsoft manages and has created certificates for each region. Customer provided certificates are a feature on the road map.
+      
+      - question: What is the performance effect?
+        answer: |
+          There's a minimal performance effect to throughput/bandwidth. The crypto operations are offloaded to a crypto-specialized FPGA. There's a minimal effect to an initial connection between two virtual machines, because a tunnel needs to be established.
+      
+      - question: Is VPN gateway, Application gateway, Azure Firewall, or PaaS supported? 
+        answer: |
+          It depends on the underlying VM size that the PaaS uses, and requires Accelerated Networking enabled.
+
+      - question: Where is the encryption terminated? 
+        answer: |
+          The encryption is terminated at the SmartNIC/FPGA on the Azure Host. 

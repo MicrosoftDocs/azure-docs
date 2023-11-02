@@ -4,6 +4,7 @@ description: Use Azure ExpressRoute for replication with the Migration and moder
 author: vijain
 ms.author: vijain
 ms.topic: how-to
+ms.service: azure-migrate
 ms.date: 12/12/2022
 ms.custom: engagement-fy23
 ---
@@ -131,9 +132,8 @@ To manually create a private DNS zone:
     1. On the **Create private DNS zone** page, fill in the required details. Enter the name of the private DNS zone as **_privatelink_.blob.core.windows.net**.
     1. On the **Review + create** tab, review and create the DNS zone.
 
-1. Link the private DNS zone to your virtual network.
-
-    The private DNS zone you created must be linked to the virtual network that the private endpoint is attached to.
+1. Link the private DNS zone to your virtual network. 
+   The private DNS zone you created must be linked to the virtual network that the private endpoint is attached to.
 
     1. Go to the private DNS zone created in the previous step, and go to virtual network links on the left side of the page. Select **+ Add**.
     1. Fill in the required details. The **Subscription** and **Virtual network** fields must be filled with the corresponding details of the virtual network where your private endpoint is attached. The other fields can be left as is.
@@ -185,7 +185,7 @@ Even with replication data going over the Microsoft peered circuit, you still ne
 
 - Regional BGP community for the source Azure region (Azure Migrate Project region)
 - Regional BGP community for the target Azure region (region for migration)
-- BGP community for Azure Active Directory (12076:5060)
+- BGP community for Microsoft Entra ID (12076:5060)
 
 Learn more about [route filters](../expressroute/how-to-routefilter-portal.md) and the list of [BGP communities for ExpressRoute](../expressroute/expressroute-routing.md#bgp).
 

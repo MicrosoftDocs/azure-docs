@@ -19,10 +19,10 @@ Schema references outline the fields that comprise each schema. ASIM currently d
 | ------ | ------- | ------ |
 | [Audit Event](normalization-schema-audit.md) | 0.1 | Preview |
 | [Authentication Event](normalization-schema-authentication.md) | 0.1.3 | Preview |
-| [DNS Activity](normalization-schema-dns.md) | 0.1.6 | Preview |
+| [DNS Activity](normalization-schema-dns.md) | 0.1.7 | Preview |
 | [DHCP Activity](normalization-schema-dhcp.md) | 0.1 | Preview |
-| [File Activity](normalization-schema-file-event.md) | 0.2 | Preview |
-| [Network Session](normalization-schema.md) | 0.2.5 | Preview |
+| [File Activity](normalization-schema-file-event.md) | 0.2.1 | Preview |
+| [Network Session](normalization-schema.md) | 0.2.6 | Preview |
 | [Process Event](normalization-schema-process-event.md) | 0.1.4 | Preview |
 | [Registry Event](normalization-schema-registry-event.md) | 0.1.2 | Preview |
 | [User Management](normalization-schema-user-management.md) | 0.1 | Preview |
@@ -103,8 +103,8 @@ Users are central to activities reported by events. The fields listed in this se
 | Field | Class | Type | Description |
 |-------|-------|------|-------------|
 | <a name="userid"></a>**UserId** | Optional | String | A machine-readable, alphanumeric, unique representation of the  user.  |
-| <a name="userscope"></a>**UserScope** | Optional | string | The scope in which [UserId](#userid) and [Username](#username) are defined. For example, an Azure AD tenant domain name. The [UserIdType](#useridtype) field represents also the type of the associated with this field. |
-| <a name="userscopeid"></a>**UserScopeId** | Optional | string | The ID of the scope in which [UserId](#userid) and [Username](#username) are defined. For example, an Azure AD tenant directory ID. The [UserIdType](#useridtype) field represents also the type of the associated with this field. |
+| <a name="userscope"></a>**UserScope** | Optional | string | The scope in which [UserId](#userid) and [Username](#username) are defined. For example, a Microsoft Entra tenant domain name. The [UserIdType](#useridtype) field represents also the type of the associated with this field. |
+| <a name="userscopeid"></a>**UserScopeId** | Optional | string | The ID of the scope in which [UserId](#userid) and [Username](#username) are defined. For example, a Microsoft Entra tenant directory ID. The [UserIdType](#useridtype) field represents also the type of the associated with this field. |
 | <a name="useridtype"></a>**UserIdType** | Optional | UserIdType | The type of the ID stored in the [UserId](#userid) field. |
 | **UserSid**, **UserUid**, **UserAadId**, **UserOktaId**, **UserAWSId**, **UserPuid** | Optional | String | Fields used to store specific user IDs. Select the ID most associated with the event as the primary ID stored in [UserId](#userid). Populate the relevant specific ID field, in addition to [UserId](#userid), even if the event has only one ID. |
 | **UserAADTenant**, **UserAWSAccount** | Optional | String | Fields used to store specific scopes. Use the [UserScope](#userscope) field for the scope associated with the ID stored in the [UserId](#userid) field.  Populate the relevant specific scope field, in addition to [UserScope](#userscope), even if the event has only one ID. | 
@@ -115,10 +115,11 @@ The allowed values for a user ID type are:
 | ---- | ------- | ------------- |
 | **SID** | A Windows user ID. | `S-1-5-21-1377283216-344919071-3415362939-500` |
 | **UID** | A Linux user ID. | `4578` |
-| **AADID**| An Azure Active Directory user ID.| `9267d02c-5f76-40a9-a9eb-b686f3ca47aa` |
+| **AADID**| A Microsoft Entra user ID.| `9267d02c-5f76-40a9-a9eb-b686f3ca47aa` |
 | **OktaId** | An Okta user ID. |  `00urjk4znu3BcncfY0h7` |
 | **AWSId** | An AWS user ID. | `72643944673` |
-| **PUID** | A Microsoft 365 User ID. | `10032001582F435C` |
+| **PUID** | A Microsoft 365 user ID. | `10032001582F435C` |
+| **SalesforceId** | A Salesforce user ID. | `00530000009M943` |
 
 #### The user name
 
@@ -143,7 +144,7 @@ The allowed values for a username type are:
 
 | Field | Class | Type | Description |
 |-------|-------|------|-------------|
-| <a name="usertype"></a>**UserType** | Optional | UserType | The type of source user. Supported values include: `Regular`, `Machine`, `Admin`, `System`, `Application`, `Service Principal`, and `Other`. The value might be provided in the source record by using different terms, which should be normalized to these values. Store the original value in the [OriginalUserType](#originalusertype) field. |
+| <a name="usertype"></a>**UserType** | Optional | UserType | The type of source user. Supported values include:<br> - `Regular`<br> - `Machine`<br> - `Admin`<br> - `System`<br> - `Application`<br> - `Service Principal`<br> - `Service`<br> - `Anonymous`<br> - `Other`.<br><br> The value might be provided in the source record by using different terms, which should be normalized to these values. Store the original value in the [OriginalUserType](#originalusertype) field. |
 | <a name="originalusertype"></a>**OriginalUserType** | Optional | String | The original destination user type, if provided by the reporting device. |
 
 

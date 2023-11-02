@@ -1,31 +1,17 @@
 ---
-title: Tutorial - Connect a generic client app to Azure IoT Central | Microsoft Docs
-description: This tutorial shows you how to connect a device running either a C, C#, Java, JavaScript, or Python client app to your Azure IoT Central application. You modify the automatically generated device template by adding views that let an operator interact with a connected device.
+title: Tutorial - Connect a client app to Azure IoT Central
+description: This tutorial shows you how to connect a device running either a C, C#, Java, JavaScript, or Python client app to your Azure IoT Central application.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/26/2022
+ms.date: 06/06/2023
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.custom: [mqtt, device-developer]
+ms.custom: mqtt, device-developer, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-azurecli
 zone_pivot_groups: programming-languages-set-twenty-six
 
 #- id: programming-languages-set-twenty-six
-## Owner: dobett
-#  title: Programming languages
-#  prompt: Choose a programming language
-#  pivots:
-#  - id: programming-language-ansi-c
-#    title: C
-#  - id: programming-language-csharp
-#    title: C#
-#  - id: programming-language-java
-#    title: Java
-#  - id: programming-language-javascript
-#    title: JavaScript
-#  - id: programming-language-python
 #    title: Python
-
 #Customer intent: As a device developer, I want to try out using device code that uses one of the the Azure IoT device SDKs. I want to understand how to send telemetry from a device, synchronize properties with the device, and control the device using commands.
 ---
 

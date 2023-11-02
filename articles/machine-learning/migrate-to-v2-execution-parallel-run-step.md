@@ -11,6 +11,7 @@ ms.author: alainli
 ms.date: 09/16/2022
 ms.reviewer: sgilley
 ms.custom: migration
+monikerRange: 'azureml-api-1 || azureml-api-2'
 ---
 
 # Upgrade parallel run step to SDK v2
@@ -32,8 +33,8 @@ This article gives a comparison of scenario(s) in SDK v1 and SDK v2. In the foll
 
 ## Prerequisites
 
- - Prepare your SDK v2 environment: [Install the Azure ML SDK v2 for Python](/python/api/overview/azure/ai-ml-readme)
- - Understand the basis of SDK v2 pipeline: [How to create Azure ML pipeline with Python SDK v2](how-to-create-component-pipeline-python.md)
+ - Prepare your SDK v2 environment: [Install the Azure Machine Learning SDK v2 for Python](/python/api/overview/azure/ai-ml-readme)
+ - Understand the basis of SDK v2 pipeline: [How to create Azure Machine Learning pipeline with Python SDK v2](how-to-create-component-pipeline-python.md)
 
 
 ## Create parallel step

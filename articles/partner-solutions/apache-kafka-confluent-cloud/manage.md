@@ -2,6 +2,8 @@
 title: Manage a Confluent Cloud
 description: This article describes management of a Confluent Cloud on the Azure portal. How to set up single sign-on, delete a Confluent organization, and get support.
 ms.topic: conceptual
+ms.custom: devx-track-azurecli
+
 ms.date: 06/07/2021
 author: flang-msft
 ms.author: franlanglois
@@ -13,7 +15,7 @@ This article describes how to manage your instance of Apache Kafka for Confluent
 
 ## Single sign-on
 
-To implement SSO for your organization, your tenant administrator can import the gallery application. This step is optional. For information importing an application, see [Quickstart: Add an application to your Azure Active Directory (Azure AD) tenant](../../active-directory/manage-apps/add-application-portal.md). When the tenant administrator imports the application, users don't need to explicitly consent to allow access for the Confluent Cloud portal.
+To implement SSO for your organization, your tenant administrator can import the gallery application. This step is optional. For information importing an application, see [Quickstart: Add an application to your Microsoft Entra tenant](../../active-directory/manage-apps/add-application-portal.md). When the tenant administrator imports the application, users don't need to explicitly consent to allow access for the Confluent Cloud portal.
 
 To enable SSO, follow these steps:
 
@@ -27,7 +29,7 @@ To enable SSO, follow these steps:
 
    :::image type="content" source="media/manage/permissions-requested.png" alt-text="Grant permissions.":::
 
-1. Choose an Azure AD account for single sign-on to the Confluent Cloud portal.
+1. Choose a Microsoft Entra account for single sign-on to the Confluent Cloud portal.
 1. After consent is provided, you're redirected to the Confluent Cloud portal.
 
 ## Set up cluster
@@ -80,6 +82,14 @@ You're billed for prorated usage up to the time of cluster deletion. After your 
 
 ## Next steps
 
-For help with troubleshooting, see [Troubleshooting Apache Kafka for Confluent Cloud solutions](troubleshoot.md).
+- For help with troubleshooting, see [Troubleshooting Apache Kafka on Confluent Cloud solutions](troubleshoot.md).
 
-If you need to contact support, see [Get support for Confluent Cloud resource](get-support.md).
+- If you need to contact support, see [Get support for Confluent Cloud resource](get-support.md).
+
+- Get started with Apache Kafka on Confluent Cloud - Azure Native ISV Service on
+
+    > [!div class="nextstepaction"]
+    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Confluent%2Forganizations)
+
+    > [!div class="nextstepaction"]
+    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/confluentinc.confluent-cloud-azure-prod?tab=Overview)

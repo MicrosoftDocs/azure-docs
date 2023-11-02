@@ -6,6 +6,7 @@ ms.author: sidandrews
 ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.subservice: nosql
+ms.custom: devx-track-azurecli
 ms.topic: sample
 ms.date: 02/21/2022
 ---

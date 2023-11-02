@@ -5,7 +5,7 @@ description: Learn about the Azure private multi-access edge compute (MEC) solut
 author: niravi-msft
 ms.service: private-multi-access-edge-compute-mec
 ms.topic: overview
-ms.date: 06/16/2021
+ms.date: 06/16/2023
 ms.author: kumud
 
 ---
@@ -61,8 +61,6 @@ For more information, see [Azure Private 5G Core](../private-5g-core/private-5g-
 ### Azure Stack hardware and services
 **Azure Stack Edge**: Azure Stack Edge offers a portfolio of devices that bring compute, storage, and intelligence to the edge right where data is created. The devices are 1U rack-mountable appliances that come with 1-2 NVIDIA T4 GPUs. Azure IoT Edge allows you to deploy and manage containers from IoT Hub and integrate with Azure IoT solutions on the Azure Stack Edge. The Azure Stack Edge Pro SKU is certified to run Network Functions at the edge. For more information, see [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/).
 
-**Azure Stack HCI**: Azure Stack HCI is a new hyper-converged infrastructure (HCI) operating system delivered as an Azure service that provides the latest security, performance, and feature updates. Deploy and run Windows and Linux virtual machines (VMs) in your datacenter, or, at the edge using your existing tools and processes. Extend your datacenter to the cloud with Azure Backup, Azure Monitor, and Microsoft Defender for Cloud. For more information, see [Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci/).
-
 ### Application services
 
 **Azure IoT Edge Runtime**: Azure IoT Edge Runtime enables cloud workloads to be managed and deployed across edge compute appliances using the same tools and security posture as cloud native workloads. For more information, see [Azure IoT Edge Runtime](/windows/ai/windows-ml-container/iot-edge-runtime).
@@ -74,4 +72,8 @@ For more information, see [Azure Private 5G Core](../private-5g-core/private-5g-
 **Azure Digital Twins**: Azure Digital Twins enables device sensors to be modeled in their business context considering spatial relationships, usage patterns, and other business context that turns a fleet of devices into a digital replica of a physical asset or environment. For more information, see [Azure Digital Twins](https://azure.microsoft.com/services/digital-twins/).
 
 ## Next steps
+- Learn more about [Azure Private 5G Core](/azure/private-5g-core/private-5g-core-overview)
+- Learn more about [Azure Network Function Manager](/azure/network-function-manager/overview)
+- Learn more about [Azure Kubernetes Service (AKS) hybrid deployment](/azure/aks/hybrid/)
+- Learn more about [Azure Stack Edge](/azure/databox-online/)
 - Learn more about [Affirmed Private Network Service](affirmed-private-network-service-overview.md)

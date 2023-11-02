@@ -1,18 +1,14 @@
 ---
-title: Watermarking in Azure Virtual Desktop (preview)
-description: Learn how to enable watermarking in Azure Virtual Desktop (preview) to help prevent sensitive information from being captured on client endpoints.
+title: Watermarking in Azure Virtual Desktop
+description: Learn how to enable watermarking in Azure Virtual Desktop to help prevent sensitive information from being captured on client endpoints.
 author: dknappettmsft
 ms.topic: how-to
-ms.date: 10/27/2022
+ms.date: 07/31/2023
 ms.author: daknappe
 ---
-# Watermarking in Azure Virtual Desktop (preview)
+# Watermarking in Azure Virtual Desktop
 
-> [!IMPORTANT]
-> Watermarking is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-Watermarking (preview), alongside [screen capture protection](screen-capture-protection.md), helps prevent sensitive information from being captured on client endpoints. When you enable watermarking, QR code watermarks appear as part of remote desktops. The QR code contains the *connection ID* of a remote session that admins can use to trace the session. Watermarking is configured on session hosts and enforced by the Remote Desktop client.
+Watermarking, alongside [screen capture protection](screen-capture-protection.md), helps prevent sensitive information from being captured on client endpoints. When you enable watermarking, QR code watermarks appear as part of remote desktops. The QR code contains the *connection ID* of a remote session that admins can use to trace the session. Watermarking is configured on session hosts and enforced by the Remote Desktop client.
 
 Here's a screenshot showing what watermarking looks like when it's enabled:
 
@@ -21,7 +17,7 @@ Here's a screenshot showing what watermarking looks like when it's enabled:
 > [!IMPORTANT]
 > - Once watermarking is enabled on a session host, only clients that support watermarking can connect to that session host. If you try to connect from an unsupported client, the connection will fail and you'll get an error message that is not specific.
 >
-> - Watermarking is for remote desktops only. With remote apps, watermarking is not applied and the connection is allowed.
+> - Watermarking is for remote desktops only. With RemoteApp, watermarking is not applied and the connection is allowed.
 >
 > - If you connect to a session host directly (not through Azure Virtual Desktop) using the Remote Desktop Connection app (`mstsc.exe`), watermarking is not applied and the connection is allowed.
 
@@ -32,16 +28,17 @@ You'll need the following things before you can use watermarking:
 - A Remote Desktop client that supports watermarking. The following clients currently support watermarking:
 
   - [Windows Desktop client](users/connect-windows.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json), version 1.2.3317 or later, on Windows 10 and later.
+  - [Web client](users/connect-web.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json).
 
 - [Azure Virtual Desktop Insights](azure-monitor.md) configured for your environment.
 
 ## Enable watermarking
 
-To enable watermarking, follow the steps below:
+To enable watermarking:
 
-1. Follow the steps to download and add the [Administrative template for Azure Virtual Desktop](administrative-template.md).
+1. Follow the steps to make the [Administrative template for Azure Virtual Desktop](administrative-template.md) available.
 
-1. Once you've verified that the Azure Virtual Desktop administrative template is available, open the policy setting **Enable watermarking** and set it to **Enabled**.
+1. Once you've verified that the administrative template is available, open the policy setting **Enable watermarking** and set it to **Enabled**.
 
 1. You can configure the following options:
 
@@ -57,7 +54,7 @@ To enable watermarking, follow the steps below:
 
 1. Apply the policy settings to your session hosts by running a Group Policy update or Intune device sync.
 
-1. Connect to a remote session, where you should see QR codes appear. For any changes you make to the policy and apply to the session host, you'll need to disconnect and reconnect to your remote session to see the difference.
+1. Connect to a remote session with a supported client, where you should see QR codes appear. Any existing sessions will need to sign out and back in again for the change to take effect.
 
 ## Find session information
 

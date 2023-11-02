@@ -2,11 +2,10 @@
 title: Map enrichments in indexers
 titleSuffix: Azure Cognitive Search
 description: Export the enriched content created by a skillset by mapping its output fields to fields in a search index.
-
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.custom: ignite-2022
+ms.custom: 
 ms.topic: conceptual
 ms.date: 09/14/2022
 ---
@@ -258,7 +257,7 @@ The result is the following sample search document, similar to the original in A
 
 An alternative rendering in a search index is to flatten individual nodes in the source's nested structure into a string collection in a search index.
 
-To accomplish this task, you'll need an `outputFieldMapping` that maps an in-memory node to a string collection in the index. Although output field mappings primarily apply to skill outputs, you can also use them to address nodes after ["document cracking"](search-indexer-overview.md#stage-1-document-cracking) where the indexer opens a source document and reads it into memory.
+To accomplish this task, you'll need an `outputFieldMappings` that maps an in-memory node to a string collection in the index. Although output field mappings primarily apply to skill outputs, you can also use them to address nodes after ["document cracking"](search-indexer-overview.md#stage-1-document-cracking) where the indexer opens a source document and reads it into memory.
 
 Below is a sample index definition in Cognitive Search, using string collections to receive flattened output:
 

@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: nosql
 ms.devlang: csharp
 ms.topic: reference
-ms.date: 03/22/2022
+ms.date: 03/20/2023
 ms.author: sidandrews
 ms.reviewer: mjbrown
 ms.custom: devx-track-dotnet, ignite-2022
@@ -20,7 +20,7 @@ ms.custom: devx-track-dotnet, ignite-2022
 |---|---|
 |**Release notes**|[Release notes](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/changelog.md)|
 |**SDK download**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/)|
-|**API documentation**|[.NET API reference documentation](/dotnet/api/overview/azure/cosmosdb)|
+|**API documentation**|[.NET API reference documentation](/dotnet/api/microsoft.azure.cosmos)|
 |**Samples**|[.NET code samples](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage)|
 |**Get started**|[Get started with the Azure Cosmos DB .NET SDK](quickstart-dotnet.md)|
 |**Best Practices**|[Best Practices for Azure Cosmos DB .NET SDK](best-practice-dotnet.md)|
@@ -34,7 +34,7 @@ Release history is maintained in the Azure Cosmos DB .NET SDK source repo. For a
 
 ## <a name="recommended-version"></a> Recommended version
 
-Different sub versions of .NET SDKs are available under the 3.x.x version. **The minimum recommended version is 3.31.0**.
+Different sub versions of .NET SDKs are available under the 3.x.x version. **The minimum recommended version is 3.33.0**.
 
 ## <a name="known-issues"></a> Known issues
 

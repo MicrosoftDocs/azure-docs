@@ -140,7 +140,7 @@ The rest of this section will guide you through using the pair of tools you sele
 1. To create a BSON data dump of your MongoDB instance, open a terminal on the MongoDB instance machine. If it is a Linux machine, type
 
     ```bash
-    mongodump --host HOST:PORT --authenticationDatabase admin -u USERNAME -p PASSWORD --db edx --collection query --out edx-dump
+    mongodump --host HOST:PORT --authenticationDatabase admin -u USERNAME -p PASSWORD --db edx --collection query --ssl --out edx-dump
     ```
 
     *HOST*, *PORT*, *USERNAME*, and *PASSWORD* should be filled in based on the properties of your existing MongoDB database instance. You should see that an `edx-dump` directory is produced and that the directory structure of `edx-dump` reproduces the resource hierarchy (database and collection structure) of your source MongoDB instance. Each collection is represented by a BSON file:
@@ -175,4 +175,4 @@ After you migrate the data stored in MongoDB database to Azure Cosmos DB’s API
 
 ## Next steps
 
-* Review  migration guidance for additional scenarios in the Microsoft [Database Migration Guide](https://datamigration.microsoft.com/).
+* Review  migration guidance for additional scenarios in the Microsoft [Database Migration Guide](/data-migration/).

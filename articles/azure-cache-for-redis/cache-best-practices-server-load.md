@@ -37,8 +37,7 @@ Redis server is a single-threaded system. Long running commands can cause late
 
 ## Monitor Server Load
 
-Add monitoring on server load to ensure you get notifications when high server load occurs. Monitoring can help you understand your application constraints. Then, you can work proactively to mitigate issues. We recommend trying to keep server load under 80% to avoid negative performance effects.
-
+Add monitoring on server load to ensure you get notifications when high server load occurs. Monitoring can help you understand your application constraints. Then, you can work proactively to mitigate issues. We recommend trying to keep server load under 80% to avoid negative performance effects. Sustained server load over 80% can lead to unplanned failovers. 
 Currently, Azure Cache For Redis exposes two metrics in **Insights** under **Monitoring** on the Resource menu on the left of the portal: **CPU** and **Server Load**. Understanding what is measured by each metric is important when monitoring server load.
 
 The **CPU** metric indicates the CPU usage for the node that hosts the cache. The CPU metric also includes processes that aren't strictly Redis server processes. CPU includes background processes for anti-malware and others. As a result, the CPU metric can sometimes spike and might not be a perfect indicator of CPU usage for the Redis server.
@@ -60,3 +59,4 @@ For standard and premium SKUs, each cache is hosted on two nodes. A load balance
   - [Configure appropriate timeouts](cache-best-practices-connection.md#configure-appropriate-timeouts).
 - [Memory management](cache-best-practices-memory-management.md)
   - [Configure your maxmemory-reserved setting](cache-best-practices-memory-management.md#configure-your-maxmemory-reserved-setting)
+

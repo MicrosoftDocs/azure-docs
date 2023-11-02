@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Edge and Azure IoT Central | Microsoft Docs
-description: Understand how to use Azure IoT Edge with an IoT Central application.
+title: Azure IoT Edge and Azure IoT Central
+description: Understand how to use Azure IoT Edge with an IoT Central application including the different gateway patterns and IoT Edge management capabilities.
 author: dominicbetts
 ms.author: dobett
 ms.date: 10/11/2022

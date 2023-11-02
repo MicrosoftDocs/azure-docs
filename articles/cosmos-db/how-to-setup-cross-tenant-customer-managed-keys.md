@@ -4,7 +4,7 @@ description: Learn how to configure encryption with customer-managed keys for Az
 author: seesharprun
 ms.author: sidandrews
 ms.service: cosmos-db
-ms.custom: ignite-2022
+ms.custom: ignite-2022, devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template
 ms.topic: how-to
 ms.date: 09/27/2022
 ms.reviewer: turao
@@ -43,7 +43,7 @@ Deploy an ARM template with the following specific parameters:
 | --- | --- | --- |
 | `keyVaultKeyUri` | Identifier of the customer-managed key residing in the service provider's key vault. | `https://my-vault.vault.azure.com/keys/my-key` |
 | `identity` | Object specifying that the managed identity should be assigned to the Azure Cosmos DB account. | `"identity":{"type":"UserAssigned","userAssignedIdentities":{"/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/Microsoft.ManagedIdentity/userAssignedIdentities/my-identity":{}}}` |
-| `defaultIdentity` | Combination of the resource ID of the managed identity and the application ID of the multi-tenant Azure Active Directory application. | `UserAssignedIdentity=/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/Microsoft.ManagedIdentity/userAssignedIdentities/my-identity&FederatedClientId=11111111-1111-1111-1111-111111111111` |
+| `defaultIdentity` | Combination of the resource ID of the managed identity and the application ID of the multi-tenant Microsoft Entra application. | `UserAssignedIdentity=/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/Microsoft.ManagedIdentity/userAssignedIdentities/my-identity&FederatedClientId=11111111-1111-1111-1111-111111111111` |
 
 Here's an example of a template segment with the three parameters configured:
 

@@ -1,0 +1,276 @@
+items:
+- name: Azure AI Document Intelligence Documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: What is Azure AI Document Intelligence?
+    displayName: models, develop, development, cognitive, applied, form recognizer, form, recognizer
+    href: overview.md
+  - name: Choose a model?
+    href: choose-model-feature.md
+  - name: Document Intelligence Studio
+    displayName: get started
+    href: studio-overview.md
+  - name: Document Intelligence SDKs
+    expanded: true
+    items:
+      - name: "v3.1 targets: REST API 2023-07-31 latest (GA)"
+        displayName: get started, installation, downloads, documentAnalysisClient, document analysis client, Azure AD, Azure Active Directory, identity, changelog, package, version,AzureKeyCredential, Azure key credential, key, endpoint
+        href: sdk-overview-v3-1.md
+      - name:  "v3.0 targets: REST API 2022-08-31 (GA)"
+        displayName: get started, installation, downloads, documentAnalysisClient, document analysis client, Azure AD, Azure Active Directory, identity, changelog, package, version,AzureKeyCredential, Azure key credential, key, endpoint
+        href: sdk-overview-v3-0.md
+      - name: Changelog and release history
+        displayName: latest, update, beta, package, preview, version
+        href: changelog-release-history.md
+  - name: Language support
+    displayName: locale, handwritten, handwriting, text, detect, detection
+    href: language-support.md
+  - name: Pricing
+    displayName: cost, free, F0, tiers, standard, S0
+    href: https://azure.microsoft.com/pricing/details/form-recognizer/
+  - name: Service limits
+    displayName: quota, tiers, throttle, max, adjustments, requests, support, ocr
+    href: service-limits.md
+  - name: What's new
+    displayName: changelog, release, updates, previews, beta, packages, ga, cognitive, applied, form recognizer, form, recognizer
+    href: whats-new.md
+  - name: Document Intelligence FAQ
+    displayName: storage, security, privacy, help, support, versions, development, migrate, migration, cognitive, applied, form recognizer, form, recognizer
+    href: faq.yml
+- name: Quickstarts
+  items:
+    - name: Document Intelligence Studio
+      displayName: get started, cors, blob, storage, upload, labels, custom, dynamic, fixed, signatures
+      href: quickstarts/try-document-intelligence-studio.md
+    - name: "Get started with Document Intelligence"
+      displayName: formRecognizerClient, Document Intelligence client, boundingBox, box, begin_recognize
+      href: quickstarts/get-started-sdks-rest-api.md
+    - name: Sample Labeling tool
+      displayName: tables, labels, ocr, bounding box
+      href: quickstarts/try-sample-label-tool.md
+- name: How-to guides
+  items:
+  - name: Use Document Intelligence models
+    displayName: documentAnalysisClient, document analysis client, polygon, boundingPolygon, begin_analyze_document,ormRecognizerClient, Document Intelligence client, boundingBox, box, begin_recognize, v2.1
+    href: how-to-guides/use-sdk-rest-api.md
+  - name: Create a Document Intelligence resource
+    displayName: endpoint, key, portal
+    href:  create-document-intelligence-resource.md
+  - name: Migrate to Document Intelligence v3.1
+    displayName: get started, confidence, bounding box, boundingBox, polygon, analyze, AnalyzeResult, train, build, sas, compose, copy
+    href: v3-1-migration-guide.md
+  - name: Check my usage and estimate the cost
+    displayName: price, metrics, dashboard, check, estimate
+    href: how-to-guides/estimate-cost.md
+  - name: Create SAS tokens for storage containers
+    displayName: blob, delegation, shared, explorer
+    href:  create-sas-tokens.md
+  - name: Custom models
+    items:
+    - name: Build a custom extraction model
+      displayName: tables, labels, ocr, input, train, training, sets, testing
+      href: how-to-guides/build-a-custom-model.md
+    - name: Build a custom classification model
+      displayName: custom, classifier, splitter
+      href: how-to-guides/build-a-custom-classifier.md
+    - name: Project sharing with custom models
+      displayName: project, share, sharing
+      href: how-to-guides/project-share-custom-models.md
+    - name: Compose custom extraction models
+      displayName: custom, models, modelId, model ID, train, dataset, data set, label, ocr, upload
+      href: how-to-guides/compose-custom-models.md
+    - name: Deploy the sample-labeling tool
+      displayName: FOTT, migration, containers, docker
+      href: deploy-label-tool.md
+    - name: Train a custom model with the sample-labeling tool
+      displayName: FOTT, migration, containers, docker
+      href: label-tool.md
+    - name: Use table tags to train your custom model
+      displayName: FOTT, migration, dynamic
+      href: supervised-table-tags.md
+  - name: Back up and recover models
+    displayName: disaster, recovery, region, copy, modelId, model ID
+    href: disaster-recovery.md
+  - name: Use containers
+    items:
+    - name: Install and run containers
+      displayName: docker, docker-compose, container, compose, packages, az, acr, cli, import, pull, Azure AI Vision, kubernetes, cpu, EULA, billing
+      href: containers/install-run.md
+    - name: Configure containers
+      displayName: docker, docker-compose, compose, containers, run, billing, keys, logging, EULA, telemetry, proxy
+      href: containers/configuration.md
+    - name: Container image tags
+      displayName: registry, mcr
+      href: containers/image-tags.md
+    - name: Disconnected containers
+      displayName: docker, commitment, plan, environment, usage
+      href: containers/disconnected.md
+  - name: Configure secure communications
+    items:
+    - name: Set up Virtual Networks
+      displayName: firewall, security, subdomain, VNet, virtual network, az, regions, cli
+      href: ../../ai-services/cognitive-services-virtual-networks.md?context=/azure/ai-services/document-intelligence/context/context
+    - name: Create and use managed identities
+      displayName: azure RBAC, role based access control, sas, private, assigned, system assigned, role, blob
+      href: managed-identities.md
+    - name: Configure managed identities with private endpoints
+      displayName: Azure RBAC, role based access control, sas, private, assigned, system assigned, role, blob, virtual, firewalls, VNet, virtual networks, endpoints, storage
+      href: managed-identities-secured-access.md
+    - name: Use customer-managed keys
+      displayName: encrypt, encryption, key vault
+      href: encrypt-data-at-rest.md
+    - name: Use Microsoft Entra authentication
+      displayName: headers, subscription, access token, azure active directory, subdomain, role, service principal
+      href: ../../ai-services/authentication.md?context=/azure/ai-services/document-intelligence/context/context
+- name: Samples
+  items:
+  - name: "C#/.NET"
+    href: /samples/azure/azure-sdk-for-net/azure-form-recognizer-client-sdk-samples/
+  - name: "Java"
+    href: /java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-stable&preserve-view=true#examples
+  - name: "Python"
+    href: /samples/azure/azure-sdk-for-python/formrecognizer-samples/
+  - name: "JavaScript"
+    href: /samples/azure/azure-sdk-for-js/ai-form-recognizer-javascript/
+- name: Responsible use of AI
+  items:
+  - name: Transparency notes
+    items:
+    - name: Document Intelligence scenarios
+      href: /legal/cognitive-services/document-intelligence/transparency-note?toc=/azure/ai-services/document-intelligence/toc.json&bc=/azure/ai-services/document-intelligence/breadcrumb/toc.json
+    - name: Characteristics and limitations
+      href: /legal/cognitive-services/document-intelligence/characteristics-and-limitations?toc=/azure/ai-services/document-intelligence/toc.json&bc=/azure/ai-services/document-intelligence/breadcrumb/toc.json
+  - name: Integration and responsible use
+    href: /legal/cognitive-services/document-intelligence/guidance-integration-responsible-use?toc=/azure/ai-services/document-intelligence/toc.json&bc=/azure/ai-services/document-intelligence/breadcrumb/toc.json
+  - name: Data, privacy, and security
+    href: /legal/cognitive-services/document-intelligence/data-privacy-security?toc=/azure/ai-services/document-intelligence/toc.json&bc=/azure/ai-services/document-intelligence/breadcrumb/toc.json
+- name: Concepts
+  items:
+  - name: Model overview
+    displayName: get started, prebuilt, extraction, input
+    href: concept-model-overview.md
+  - name: Document Intelligence Studio
+    href: concept-document-intelligence-studio.md
+  - name: Accuracy and confidence scores
+    displayName: tables, labels, ocr, performance, signatures
+    href: concept-accuracy-confidence.md
+  - name: Analyze document API response
+    displayName: words, lines, pages, bounding regions, documents
+    href: concept-analyze-document-response.md
+  - name: Read OCR model
+    displayName: text
+    href: concept-read.md
+  - name: General document model
+    displayName: key value pairs, selection marks, structured
+    href: concept-general-document.md
+  - name: Layout model
+    displayName: tables, selection marks, structure, paragraph roles, text, headers, page numbers
+    href: concept-layout.md
+  - name: Contract model
+    displayName: contracts, agreements, legal, terms, conditions, clauses, parties, dates, signatures
+    href: concept-contract.md
+  - name: Tax document models
+    displayName: tax, forms, 1098, 1098-E, 1098-T, W-2, wages, taxes, salary, employees, tuition, loan, interest, mortgage
+    href: concept-tax-document.md
+  - name: Health insurance card model
+    displayName: health, proof, hospital
+    href: concept-health-insurance-card.md
+  - name: Invoice model
+    displayName: sales, vendors, VAT
+    href: concept-invoice.md
+  - name: Receipt model
+    displayName: sales, merchants
+    href: concept-receipt.md
+  - name: ID document model
+    displayName: passport, visa, ID, social security, green card
+    href: concept-id-document.md
+  - name: Business card model
+    displayName: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument
+    href: concept-business-card.md
+  - name: Query field extraction
+    displayName: queries, fields, OpenAI, chat
+    href: concept-query-fields.md
+  - name: Add-on capabilities
+    displayName: extract, formula, font, styles, fontStyle, ocr.highResolution, ocr.formula, high resolution, background color, inline, display
+    href: concept-add-on-capabilities.md
+  - name: Custom models
+    items:
+    - name: Custom model overview
+      displayName: table, label, ocr, confidence, template, neural
+      href: concept-custom.md
+    - name: Custom model lifecycle
+      displayName: custom, train, modelId, model ID
+      href: concept-custom-lifecycle.md
+    - name: Custom template model
+      displayName: structure, selection, labels, tables, tabular, train, template, neural, build mode, signatures, custom
+      href: concept-custom-template.md
+    - name: Custom neural model
+      displayName: selection, structure, tables, tabular, train, template, neural, build mode, signatures, custom
+      href: concept-custom-neural.md
+    - name: Custom classification model
+      displayName: custom, train, classification, splitting
+      href: concept-custom-classifier.md
+    - name: Custom labels
+      displayName: structure, selection, labels, tables, tabular, train
+      href: concept-custom-label.md
+    - name: Custom labeling tips
+      displayName: structure, selection, labels, tables, tabular, train, tips
+      href: concept-custom-label-tips.md
+    - name: Composed models
+      displayName: custom, assign, modelId, model ID
+      href:  concept-composed-models.md
+    - name: Custom model lifecycle
+      displayName: custom, model, expiration, train, build
+      href:  concept-custom-lifecycle.md
+- name: Tutorials
+  items:
+  - name: Create workflows using Azure Logic Apps
+    displayName: connectors, automate, automation, workflows
+    href: tutorial-logic-apps.md
+  - name: Use managed identities to access Azure storage
+    href: ../../app-service/scenario-secure-app-access-storage.md?bc=%2fazure%2fapplied-ai-services%2fform-recognizer%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fapplied-ai-services%2fform-recognizer%2ftoc.json
+  - name: "Create Document Intelligence workflows with AI Builder"
+    expanded: true
+    items:
+    - name:  Custom
+      href: /ai-builder/create-form-processing-model?toc=/azure/ai-services/document-intelligence/toc.json&bc=/azure/ai-services/document-intelligence/breadcrumb/toc.json
+    - name:  Invoice
+      href: /ai-builder/flow-invoice-processing?toc=/azure/ai-services/document-intelligence/toc.json&bc=/azure/ai-services/document-intelligence/breadcrumb/toc.json
+    - name: Receipt
+      href: /ai-builder/flow-receipt-processing?toc=/azure/ai-services/document-intelligence/toc.json&bc=/azure/ai-services/document-intelligence/breadcrumb/toc.json
+    - name: ID document
+      href: /ai-builder/id-reader?toc=/azure/ai-services/document-intelligence/toc.json&bc=/azure/ai-services/applied-ai-services/breadcrumb/toc.json
+    - name: Business card
+      href: /ai-builder/flow-business-card-reader?toc=/azure/ai-services/document-intelligence/toc.json&bc=/azure/ai-services/document-intelligence/breadcrumb/toc.json
+  - name: Use Azure AI Document Intelligence with Cognitive Search
+    href: ../../search/cognitive-search-custom-skill-form.md
+  - name: Use Azure AI Document Intelligence with Azure Functions
+    href: tutorial-azure-function.md
+- name: Reference
+  items:
+    - name: REST API v3.1
+      href: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument
+    - name: REST API v3.0
+      href: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument
+    - name: Error codes and messages v3.0
+      href: v3-error-guide.md
+    - name: REST API v2.1
+      href: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm
+    - name: REST API versions
+      href: https://westus.dev.cognitive.microsoft.com/docs/services?pattern=form
+- name: Resources
+  items:
+  - name:  Customer spotlight
+    href: resource-customer-stories.md
+  - name: Enterprise readiness
+    items:
+    - name: Region support
+      href: https://go.microsoft.com/fwlink/?linkid=2087185
+    - name: Compliance and certification
+      href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
+  - name: Support and help options
+    href: ../../ai-services/cognitive-services-support-options.md?context=/azure/ai-services/document-intelligence/context/context
+  - name: Privacy and cookies
+    href: https://privacy.microsoft.com/en-US/privacystatement

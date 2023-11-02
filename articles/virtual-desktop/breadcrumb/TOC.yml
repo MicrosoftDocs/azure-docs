@@ -6,7 +6,7 @@
     tocHref: /azure/virtual-desktop
     topicHref: /azure/virtual-desktop/index
     items: 
-     - name: Remote app streaming
+     - name: RemoteApp streaming
        tocHref: /azure/virtual-desktop/remote-app-streaming
        topicHRef: /azure/virtual-desktop/remote-app-streaming   
      - name: Reference

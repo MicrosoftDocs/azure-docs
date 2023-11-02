@@ -3,8 +3,8 @@ title: Script Sample - Register an on-premises Windows server or client machine 
 description: Learn about how to use a script to registering an on-premises Windows Server or client machine with a Recovery Services vault.
 ms.topic: sample
 ms.date: 06/23/2021
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # PowerShell Script to register an on-premises Windows server or a client machine with Recovery Services vault

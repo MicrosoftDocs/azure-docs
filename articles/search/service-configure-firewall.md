@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 01/31/2022
+ms.date: 02/08/2023
 ---
 
 # Configure an IP firewall for Azure Cognitive Search
@@ -34,7 +34,7 @@ You can set IP rules in the Azure portal, as described in this article, or use t
 
 1. Set **Public Network Access** to **Selected Networks**. If your connectivity is set to **Disabled**, you can only access your search service via a [private endpoint](service-create-private-endpoint.md).
 
-   :::image type="content" source="media/service-configure-firewall/azure-portal-firewall.png" alt-text="Screenshot showing how to configure the IP firewall in the Azure portal" border="true":::
+   :::image type="content" source="media/service-configure-firewall/azure-portal-firewall.png" alt-text="Screenshot showing how to configure the IP firewall in the Azure portal." border="true":::
 
    The Azure portal provides the ability to specify IP addresses and IP address ranges in the CIDR format. An example of CIDR notation is 8.8.8.0/24, which represents the IPs that range from 8.8.8.0 to 8.8.8.255.
 
@@ -78,7 +78,7 @@ For ping, the request will time out, but the IP address will be visible in the r
 Providing IP addresses for clients ensures that the request isn't rejected outright, but for successful access to content and operations, authorization is also necessary. Use one of the following methodologies to authenticate your request:
 
 + [Key-based authentication](search-security-api-keys.md), where an admin or query API key is provided on the request
-+ [Role-based authorization](search-security-rbac.md), where the caller is a member of a security role on a search service, and the [registered app presents an OAuth token](search-howto-aad.md) from Azure Active Directory.
++ [Role-based authorization](search-security-rbac.md), where the caller is a member of a security role on a search service, and the [registered app presents an OAuth token](search-howto-aad.md) from Microsoft Entra ID.
 
 ## Next steps
 

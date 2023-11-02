@@ -7,8 +7,7 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: ankitadutta 
-ms.custom: devx-track-azurepowershell
-
+ms.custom:
 ---
 # Delete a Site Recovery Services vault
 

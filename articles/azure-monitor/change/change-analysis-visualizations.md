@@ -7,7 +7,7 @@ author: hhunter-ms
 ms.contributor: cawa
 ms.date: 01/12/2023
 ms.subservice: change-analysis
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ms.reviewer: cawa
 ---
 
@@ -98,7 +98,7 @@ Use the [View change history](../essentials/activity-log.md#view-change-history)
 
 - Resource level changes from [Azure Resource Graph](../../governance/resource-graph/overview.md).
 - Resource properties from [Azure Resource Manager](../../azure-resource-manager/management/overview.md).
-- In-guest changes from PaaS services, such as App Services web app.
+- In-guest changes from PaaS services, such as a web app.
 
 1. From within your resource, select **Activity Log** from the side menu.
 1. Select a change from the list.

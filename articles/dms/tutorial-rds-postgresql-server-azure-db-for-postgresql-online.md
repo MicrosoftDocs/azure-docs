@@ -2,16 +2,15 @@
 title: "Tutorial: Migrate RDS PostgreSQL online to Azure Database for PostgreSQL"
 titleSuffix: Azure Database Migration Service
 description: Learn to perform an online migration from RDS PostgreSQL to Azure Database for PostgreSQL by using the Azure Database Migration Service.
-services: dms
-author: croblesm
-ms.author: roblescarlos
-manager: craigg
-ms.reviewer: craigg
-ms.service: dms
-ms.workload: data-services
-ms.custom: "seo-lt-2019"
-ms.topic: tutorial
+author: apduvuri
+ms.author: adityaduvuri
+ms.reviewer: randolphwest
 ms.date: 04/11/2020
+ms.service: dms
+ms.topic: tutorial
+ms.custom:
+  - seo-lt-2019
+  - sql-migration-content
 ---
 
 # Tutorial: Migrate RDS PostgreSQL to Azure DB for PostgreSQL online using DMS

@@ -8,10 +8,8 @@ ms.topic: tutorial
 ms.date: 01/17/2023
 ms.author: mbaldwin
 ms.devlang: python
-ms.custom: mvc, devx-track-python, devx-track-azurecli
-
+ms.custom: mvc, devx-track-python, devx-track-azurecli, devx-track-azurepowershell
 # Customer intent: As a developer I want to use Azure Key vault to store secrets for my app, so that they are kept secure.
-
 ---
 
 # Tutorial: Use Azure Key Vault with a virtual machine in Python
@@ -70,7 +68,7 @@ To create a Linux VM using the Azure CLI, use the [az vm create](/cli/azure/vm) 
 az vm create \
   --resource-group myResourceGroup \
   --name myVM \
-  --image UbuntuLTS \
+  --image Ubuntu2204 \
   --admin-username azureuser \
   --generate-ssh-keys
 ```
@@ -133,15 +131,15 @@ On the virtual machine, create a Python file called **sample.py**. Edit the file
 from azure.keyvault.secrets import SecretClient
 from azure.identity import DefaultAzureCredential
 
-keyVaultName = "<your-unique-keyvault-name>"
-KVUri = f"https://{keyVaultName}.vault.azure.net"
-secretName = "mySecret"
+key_vault_name = "<your-unique-keyvault-name>"
+key_vault_uri = f"https://{key_vault_name}.vault.azure.net"
+secret_name = "mySecret"
 
 credential = DefaultAzureCredential()
-client = SecretClient(vault_url=KVUri, credential=credential)
-retrieved_secret = client.get_secret(secretName)
+client = SecretClient(vault_url=key_vault_uri, credential=credential)
+retrieved_secret = client.get_secret(secret_name)
 
-print(f"The value of secret '{secretName}' in '{keyVaultName}' is: '{retrieved_secret.value}'")
+print(f"The value of secret '{secret_name}' in '{key_vault_name}' is: '{retrieved_secret.value}'")
 ```
 
 ## Run the sample Python app

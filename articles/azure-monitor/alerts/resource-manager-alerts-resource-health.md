@@ -2,10 +2,10 @@
 title: Resource Manager template samples for resource health alerts
 description: Sample Azure Resource Manager templates to deploy Azure Monitor resource health alerts.
 ms.topic: sample
+ms.custom: devx-track-arm-template
 author: AbbyMSFT
 ms.author: abbyweisberg
 ms.date: 05/11/2022
-
 ---
 
 # Resource Manager template samples for resource health alert rules in Azure Monitor

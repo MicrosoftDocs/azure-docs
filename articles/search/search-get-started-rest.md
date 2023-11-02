@@ -17,13 +17,13 @@ ms.custom: mode-api
 
 This article explains how to formulate requests interactively using the [Azure Cognitive Search REST APIs](/rest/api/searchservice) and a REST client for sending and receiving requests. 
 
-The article uses the Postman desktop application. You can [download and import a Postman collection](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Quickstart) if you prefer to use predefined requests.
+The article uses the Postman app. You can [download and import a Postman collection](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Quickstart) if you prefer to use predefined requests.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
-+ [Postman desktop app](https://www.getpostman.com/), used for sending requests to Azure Cognitive Search.
++ [Postman app](https://www.postman.com/downloads/), used for sending requests to Azure Cognitive Search.
 
 + [Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
 
@@ -31,7 +31,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 REST calls require the service URL and an access key on every request. A search service is created with both, so if you added Azure Cognitive Search to your subscription, follow these steps to get the necessary information:
 
-1. [Sign in to the Azure portal](https://portal.azure.com/), and in your search service **Overview** page, get the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
+1. Sign in to the [Azure portal](https://portal.azure.com), and in your search service **Overview** page, get the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
 
 1. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
 
@@ -53,7 +53,7 @@ Request header composition includes two elements: `Content-Type` and the `api-ke
 
 For the requests to succeed, you'll need to provide the service name and api-key as collection variables.
 
-1. Open the Postman Desktop app and import the collection.
+1. Open the Postman app and import the collection.
 
 1. Select the collection's access menu, select **Edit**, and provide the service name and key of your search service.
 
@@ -219,7 +219,7 @@ In a few seconds, you should see an HTTP 201 response in the session list. This 
 If you get a 207, at least one document failed to upload. If you get a 404, you have a syntax error in either the header or body of the request: verify you changed the endpoint to include `/docs/index`.
 
 > [!TIP]
-> For selected data sources, you can choose the alternative *indexer* approach which simplifies and reduces the amount of code required for indexing. For more information, see [Indexer operations](/rest/api/searchservice/indexer-operations).
+> For selected data sources, you can [create an indexer](/rest/api/searchservice/create-indexer), which simplifies and reduces the amount of code required for indexing.
 
 ## 3 - Search an index
 

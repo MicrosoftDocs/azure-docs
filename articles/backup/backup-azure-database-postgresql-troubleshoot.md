@@ -4,8 +4,8 @@ description: Troubleshooting information for backing up Azure Database for Postg
 ms.topic: troubleshooting
 ms.date: 06/07/2022
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Troubleshoot PostgreSQL database backup using Azure Backup
@@ -40,15 +40,15 @@ Steps:
 
 ## UserErrorBackupUserAuthFailed
 
-Create a database backup user that can authenticate with Azure Active Directory:
+Create a database backup user that can authenticate with Microsoft Entra ID:
 
-This error may come from an absence of an Azure Active Directory admin for the PostgreSQL server, or in absence of a backup user that can authenticate using Azure Active Directory.
+This error may come from an absence of a Microsoft Entra admin for the PostgreSQL server, or in absence of a backup user that can authenticate using Microsoft Entra ID.
 
 Steps:
 
 Add an Active Directory Admin to the OSS server:
 
-This step is required to connect to the database through a user that can authenticate with Azure Active Directory instead of a password. The Azure AD Admin user in Azure Database for PostgreSQL will have the role **azure_ad_admin**. Only an **azure_ad_admin** role can create new database users that can authenticate with Azure AD.
+This step is required to connect to the database through a user that can authenticate with Microsoft Entra ID instead of a password. The Microsoft Entra Admin user in Azure Database for PostgreSQL will have the role **azure_ad_admin**. Only an **azure_ad_admin** role can create new database users that can authenticate with Microsoft Entra ID.
 
 1. Go to the Active Directory Admin tab in the left navigation pane of the server view, and add yourself (or someone else) as the Active Directory admin.
 

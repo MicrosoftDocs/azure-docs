@@ -50,7 +50,7 @@ To get your Azure AD B2C tenant ID, follow these steps:
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
 1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
-1. In the Azure portal, search for and select **Azure Active Directory**.
+1. In the Azure portal, search for and select **Microsoft Entra ID**.
 1. In the **Overview**, copy the **Tenant ID**.
 
 ![Screenshot demonstrates how to get the Azure AD B2C tenant ID.](./media/tenant-management/get-azure-ad-b2c-tenant-id.png)  

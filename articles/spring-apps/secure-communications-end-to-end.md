@@ -2,7 +2,7 @@
 title: Secure communications end-to-end for Spring Boot apps in a Zero Trust environment
 titleSuffix: Azure Spring Apps
 description: Describes how to secure communications end-to-end or terminate transport-level security at any communication point for Spring Boot apps.
-author: karlerickson
+author: KarlErickson
 ms.service: spring-apps
 ms.topic: conceptual
 ms.date: 08/15/2022
@@ -28,7 +28,7 @@ Zero Trust is based on the principle of "never trust, always verify, and credent
 
 To securely load certificates from [Azure Key Vault](../key-vault/index.yml), Spring Boot apps use [managed identities](../active-directory/managed-identities-azure-resources/overview.md) and [Azure role-based access control (RBAC)](../role-based-access-control/index.yml). Azure Spring Apps uses a provider [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) and Azure role-based access control. This secure loading is powered using the Azure Key Vault Java Cryptography Architecture (JCA) Provider. For more information, see [Azure Key Vault JCA client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/keyvault/azure-security-keyvault-jca).
 
-With Azure Key Vault, you control the storage and distribution of certificates to reduce accidental leakage. Applications and services can securely access certificates. Key Vault uses Azure role-based access control to lock down access to only those requiring access, such as an admin, but also apps, using the principle of least privilege. Applications and services authenticate and authorize, using Azure Active Directory and Azure role-based access control, to access certificates. You can monitor the access and use of certificates in Key Vault through its full audit trail.
+With Azure Key Vault, you control the storage and distribution of certificates to reduce accidental leakage. Applications and services can securely access certificates. Key Vault uses Azure role-based access control to lock down access to only those requiring access, such as an admin, but also apps, using the principle of least privilege. Applications and services authenticate and authorize, using Microsoft Entra ID and Azure role-based access control, to access certificates. You can monitor the access and use of certificates in Key Vault through its full audit trail.
 
 ## Secure communications end-to-end or terminate TLS at any point
 
@@ -50,7 +50,7 @@ The following sections describe this architecture in more detail.
 
 The first segment (segment 1 in the diagram) represents communications from consumers to the ingress controller in Azure Spring Apps. These consumers include browsers, mobile phones, desktops, kiosks, or network access points like Azure Front Door, Azure App Gateway, F5 BIG-IP Local Traffic Manager, Azure API Management, and Apigee API Management.
 
-By default, this segment is secured using a Microsoft-supplied TLS/SSL certificate for the `*.azuremicroservices.io` domain. You can apply your own TLS/SSL certificate in Azure Key Vault by binding a custom domain to your app in Azure Spring Apps. No code is necessary. For more information, see [Tutorial: Map an existing custom domain to Azure Spring Apps](tutorial-custom-domain.md).
+By default, this segment is secured using a Microsoft-supplied TLS/SSL certificate for the `*.azuremicroservices.io` domain. You can apply your own TLS/SSL certificate in Azure Key Vault by binding a custom domain to your app in Azure Spring Apps. No code is necessary. For more information, see [Tutorial: Map an existing custom domain to Azure Spring Apps](how-to-custom-domain.md).
 
 ### Segment 2: Secure communications from ingress controller to apps
 
@@ -118,5 +118,5 @@ Azure Spring Apps is jointly built, operated, and supported by Microsoft and VMw
 
 - [Deploy Spring microservices to Azure](/training/modules/azure-spring-cloud-workshop/)
 - [Azure Key Vault Certificates Spring Cloud Azure Starter (GitHub.com)](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/spring-cloud-azure-starter-keyvault-certificates/pom.xml)
-- [Azure Spring Apps reference architecture](reference-architecture.md)
+- [Azure Spring Apps architecture design](/azure/architecture/web-apps/spring-apps?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json)
 - Migrate your [Spring Boot](/azure/developer/java/migration/migrate-spring-boot-to-azure-spring-apps), [Spring Cloud](/azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-apps), and [Tomcat](/azure/developer/java/migration/migrate-tomcat-to-azure-spring-apps) applications to Azure Spring Apps

@@ -8,8 +8,7 @@ ms.topic: conceptual
 author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 01/04/2023
-
-ms.custom: seodec18, devx-track-azurecli
+ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Creating and configuring a key vault for Azure Disk Encryption
@@ -20,7 +19,7 @@ Azure Disk Encryption uses Azure Key Vault to control and manage disk encryption
 
 
 > [!WARNING]
-> - If you have previously used Azure Disk Encryption with Azure AD to encrypt a VM, you must continue use this option to encrypt your VM. See [Creating and configuring a key vault for Azure Disk Encryption with Azure AD (previous release)](disk-encryption-key-vault-aad.md) for details.
+> - If you have previously used Azure Disk Encryption with Microsoft Entra ID to encrypt a VM, you must continue use this option to encrypt your VM. See [Creating and configuring a key vault for Azure Disk Encryption with Microsoft Entra ID (previous release)](disk-encryption-key-vault-aad.md) for details.
 
 Creating and configuring a key vault for use with Azure Disk Encryption involves three steps:
 

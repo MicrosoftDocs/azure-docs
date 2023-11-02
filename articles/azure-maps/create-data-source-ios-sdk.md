@@ -1,8 +1,8 @@
 ---
 title: Create a data source for iOS maps | Microsoft Azure Maps
 description: "Find out how to create a data source for a map. Learn about the data sources that the Azure Maps iOS SDK uses: GeoJSON sources and vector tiles."
-author: stevemunk
-ms.author: v-munksteve
+author: sinnypan
+ms.author: sipa
 ms.date: 10/22/2021
 ms.topic: how-to
 ms.service: azure-maps
@@ -47,7 +47,7 @@ feature.addProperty("custom-property", value: "value")
 source.add(feature: feature)
 ```
 
-Alternatively the properties can be loaded into a dictionary (JSON) first then passed into the feature when creating it, as shown below.
+Alternatively the properties can be loaded into a dictionary (JSON) first then passed into the feature when creating it, as the following code demonstrates:
 
 ```swift
 //Create a dictionary to store properties for the feature.
@@ -108,7 +108,7 @@ let featureCollection = FeatureCollection(features)
 
 ### Serialize and deserialize GeoJSON
 
-The feature collection, feature, and geometry classes all have `fromJson(_:)` and `toJson()` static methods, which help with serialization. The formatted valid JSON String passed through the `fromJson()` method will create the geometry object. This `fromJson()` method also means you can use `JSONSerialization` or other serialization/deserialization strategies. The following code shows how to take a stringified GeoJSON feature and deserialize it into the `Feature` class, then serialize it back into a GeoJSON string.
+The feature collection, feature, and geometry classes all have `fromJson(_:)` and `toJson()` static methods, which help with serialization. The formatted valid JSON String passed through the `fromJson()` method creates the geometry object. This `fromJson()` method also means you can use `JSONSerialization` or other serialization/deserialization strategies. The following code shows how to take a stringified GeoJSON feature and deserialize it into the `Feature` class, then serialize it back into a GeoJSON string.
 
 ```swift
 // Take a stringified GeoJSON object.
@@ -138,7 +138,7 @@ let featureString = feature.toJson()
 
 Most GeoJSON files contain a `FeatureCollection`. Read GeoJSON files as strings and use the `FeatureCollection.fromJson(_:)` method to deserialize it.
 
-The `DataSource` class has a built in method called `importData(fromURL:)` that can load in GeoJSON files using a URL to a file on the web or the device.
+The `DataSource` class has a built-in method called `importData(fromURL:)` that can load in GeoJSON files using a URL to a file on the web or the device.
 
 ```swift
 // Create a data source.
@@ -156,7 +156,7 @@ source.importData(fromURL: url)
 map.sources.add(source)
 ```
 
-The `importData(fromURL:)` method provides an easily way to load a GeoJSON feed into a data source but provides limited control on how the data is loaded and what happens after its been loaded. The following code is a reusable class for importing data from the web or assets folder and returning it to the UI thread via a callback function. In the callback you can then add additional post load logic to process the data, add it to the map, calculate its bounding box, and update the maps camera.
+The `importData(fromURL:)` method provides a way to load a GeoJSON feed into a data source but provides limited control on how the data is loaded and what happens after it's been loaded. The following code is a reusable class for importing data from the web or assets folder and returning it to the UI thread via a callback function. In the callback, you can then add more post load logic to process the data, add it to the map, calculate its bounding box, and update the maps camera.
 
 ```swift
 import Foundation
@@ -182,7 +182,7 @@ public class Utils: NSObject {
 }
 ```
 
-The code below shows how to use this utility to import GeoJSON data as a string and return it to the main thread via a callback. In the callback, the string data can be serialized into a GeoJSON Feature collection and added to the data source. Optionally, update the maps camera to focus in on the data.
+The following code shows how to use this utility to import GeoJSON data as a string and return it to the main thread via a callback. In the callback, the string data can be serialized into a GeoJSON Feature collection and added to the data source. Optionally, update the maps camera to focus in on the data.
 
 ```swift
 // Create a data source and add it to the map.
@@ -229,7 +229,7 @@ Utils.importData(fromURL: url) { result in
 
 ### Update a feature
 
-The `DataSource` class makes its easy to add and remove features. Updating the geometry or properties of a feature requires replacing the feature in the data source. There are two methods that can be used to update a feature(s):
+The `DataSource` class makes it easy to add and remove features. Updating the geometry or properties of a feature requires replacing the feature in the data source. There are two methods that can be used to update a feature(s):
 
 1. Create the new feature(s) with the desired updates and replace all features in the data source using the `set` method. This method works well when you want to update all features in a data source.
 
@@ -307,15 +307,15 @@ A vector tile source describes how to access a vector tile layer. Use the `Vecto
 - Changing the style of the data in the vector maps doesn't require downloading the data again, since the new style can be applied on the client. In contrast, changing the style of a raster tile layer typically requires loading tiles from the server then applying the new style.
 - Since the data is delivered in vector form, there's less server-side processing required to prepare the data. As a result, the newer data can be made available faster.
 
-Azure Maps adheres to the [Mapbox Vector Tile Specification](https://github.com/mapbox/vector-tile-spec), an open standard. Azure Maps provides the following vector tiles services as part of the platform:
+Azure Maps adheres to the [Mapbox Vector Tile Specification], an open standard. Azure Maps provides the following vector tiles services as part of the platform:
 
-- Road tiles [documentation](/rest/api/maps/render-v2/get-map-tile) | [data format details](https://developer.tomtom.com/maps-api/maps-api-documentation-vector/tile)
-- Traffic incidents [documentation](/rest/api/maps/traffic/gettrafficincidenttile) | [data format details](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-incidents/vector-incident-tiles)
-- Traffic flow [documentation](/rest/api/maps/traffic/gettrafficflowtile) | [data format details](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-flow/vector-flow-tiles)
-- Azure Maps Creator also allows custom vector tiles to be created and accessed through the [Render V2-Get Map Tile API](/rest/api/maps/render-v2/get-map-tile)
+- [Road tiles]
+- [Traffic incidents]
+- [Traffic flow]
+- Azure Maps Creator also allows custom vector tiles to be created and accessed through the [Render - Get Map Tile] API
 
 > [!TIP]
-> When using vector or raster image tiles from the Azure Maps render service with the iOS SDK, you can replace `atlas.microsoft.com` with the `AzureMap`'s property' `domainPlaceholder`. This placeholder will be replaced with the same domain used by the map and will automatically append the same authentication details as well. This greatly simplifies authentication with the render service when using Azure Active Directory authentication.
+> When using vector or raster image tiles from the Azure Maps render service with the iOS SDK, you can replace `atlas.microsoft.com` with the `AzureMap`'s property' `domainPlaceholder`. This placeholder will be replaced with the same domain used by the map and will automatically append the same authentication details as well. This greatly simplifies authentication with the render service when using Microsoft Entra authentication.
 
 To display data from a vector tile source on the map, connect the source to one of the data rendering layers. All layers that use a vector source must specify a `sourceLayer` value in the options. The following code loads the Azure Maps traffic flow vector tile service as a vector tile source, then displays it on a map using a line layer. This vector tile source has a single set of data in the source layer called "Traffic flow". The line data in this data set has a property called `traffic_level` that is used in this code to select the color and scale the size of lines.
 
@@ -375,13 +375,13 @@ map.layers.insertLayer(layer, below: "labels")
 
 ## Connect a data source to a layer
 
-Data is rendered on the map using rendering layers. A single data source can be referenced by one or more rendering layers. The following rendering layers require a data source:
+Data is rendered on the map using rendering layers. One or more rendering layers can reference a single data source. The following rendering layers require a data source:
 
-- [Bubble layer](add-bubble-layer-map-ios.md) - renders point data as scaled circles on the map.
-- [Symbol layer](add-symbol-layer-ios.md) - renders point data as icons or text.
-- [Heat map layer](add-heat-map-layer-ios.md) - renders point data as a density heat map.
-- [Line layer](add-line-layer-map-ios.md) - render a line and or render the outline of polygons.
-- [Polygon layer](add-polygon-layer-map-ios.md) - fills the area of a polygon with a solid color or image pattern.
+- [Bubble layer] - renders point data as scaled circles on the map.
+- [Symbol layer]- renders point data as icons or text.
+- [Heat map layer] - renders point data as a density heat map.
+- [Line layer] - render a line and or render the outline of polygons.
+- [Polygon layer] - fills the area of a polygon with a solid color or image pattern.
 
 The following code shows how to create a data source, add it to the map, import GeoJSON point data from a remote location into the data source, and then connect it to a bubble layer.
 
@@ -406,9 +406,9 @@ let layer = BubbleLayer(source: source)
 map.layers.addLayer(layer)
 ```
 
-There are additional rendering layers that don't connect to these data sources, but they directly load the data for rendering.
+There are other rendering layers that don't connect to these data sources, but they directly load the data for rendering.
 
-- [Tile layer](add-tile-layer-map-ios.md) - superimposes a raster tile layer on top of the map.
+- [Tile layer] - superimposes a raster tile layer on top of the map.
 
 ## One data source with multiple layers
 
@@ -418,7 +418,7 @@ Multiple layers can be connected to a single data source. There are many differe
 
 In most mapping platforms, you would need a polygon object, a line object, and a pin for each position in the polygon. As the polygon is modified, you would need to manually update the line and pins, which can quickly become complex.
 
-With Azure Maps, all you need is a single polygon in a data source as shown in the code below.
+With Azure Maps, all you need is a single polygon in a data source as shown in the following code.
 
 ```swift
 // Create a data source and add it to the map.
@@ -471,10 +471,33 @@ map.layers.addLayers([polygonLayer, lineLayer, bubbleLayer])
 
 See the following articles for more code samples to add to your maps:
 
-- [Cluster point data](clustering-point-data-ios-sdk.md)
-- [Add a symbol layer](Add-symbol-layer-ios.md)
-- [Add a bubble layer](add-bubble-layer-map-ios.md)
-- [Add a line layer](add-line-layer-map-ios.md)
-- [Add a polygon layer](Add-polygon-layer-map-ios.md)
-- [Add a heat map](Add-heat-map-layer-ios.md)
-- [Web SDK Code samples](/samples/browse/?products=azure-maps)
+- [Cluster point data]
+- [Add a symbol layer]
+- [Add a bubble layer]
+- [Add a line layer]
+- [Add a polygon layer]
+- [Add a heat map]
+- [Web SDK Code samples]
+
+<!---------   learn.microsoft.com links     --------------->
+[Cluster point data]: clustering-point-data-ios-sdk.md
+[Add a symbol layer]: Add-symbol-layer-ios.md
+[Add a bubble layer]: add-bubble-layer-map-ios.md
+[Add a line layer]: add-line-layer-map-ios.md
+[Add a polygon layer]: Add-polygon-layer-map-ios.md
+[Add a heat map]: Add-heat-map-layer-ios.md
+[Web SDK Code samples]: /samples/browse/?products=azure-maps
+<!---------   learn.microsoft.com links     --------------->
+[Bubble layer]: add-bubble-layer-map-ios.md
+[Symbol layer]: Add-symbol-layer-ios.md
+[Heat map layer]: Add-heat-map-layer-ios.md
+[Line layer]: add-line-layer-map-ios.md
+[Polygon layer]: Add-polygon-layer-map-ios.md
+[Tile layer]: how-to-add-tile-layer-android-map.md
+<!---------   REST API Links     --------------->
+[Road tiles]: /rest/api/maps/render-v2/get-map-tile
+[Traffic incidents]: /rest/api/maps/traffic/gettrafficincidenttile
+[Traffic flow]: /rest/api/maps/traffic/gettrafficflowtile
+[Render - Get Map Tile]: /rest/api/maps/render-v2/get-map-tile
+<!---------   External Links     --------------->
+[Mapbox Vector Tile Specification]: https://github.com/mapbox/vector-tile-spec
