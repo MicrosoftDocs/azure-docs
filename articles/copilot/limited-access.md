@@ -21,7 +21,6 @@ Access to Microsoft Copilot for Azure (preview) is subject to Microsoft's sole d
 
 Microsoft Copilot for Azure (preview) is made available to customers under the terms governing their subscription to Microsoft Azure Services, including the Microsoft Copilot for Azure (preview) section of the Microsoft Product Terms. Please review these terms carefully as they contain important conditions and obligations governing your use of Microsoft Copilot for Azure (preview).
 
-
 ## Important links
 
 - [Register to use Microsoft Copilot for Azure (preview)](https://aka.ms/MSCopilotforAzurePreview)

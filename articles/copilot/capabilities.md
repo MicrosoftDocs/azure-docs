@@ -19,11 +19,15 @@ Use Microsoft Copilot for Azure (preview) to perform many basic tasks. There are
 - [Get resource information through Azure Resource Graph queries](get-information-resource-graph.md)
 - [Get information about Azure Monitor metrics and logs](get-monitoring-information.md)
 - [Discover performance recommendations with Code Optimizations](optimize-code-application-insights.md)
+- [Work smarter with Azure Stack HCI](work-smarter-edge.md)
+- [Generate Azure CLI scripts](generate-cli-scripts.md)
 - [Understand service health events and status](understand-service-health.md)
 
 ## Get information
 
 From anywhere in the Azure portal, you can ask Microsoft Copilot for Azure (preview) to explain more about Azure concepts, services, or offerings. You can ask questions to learn which services are best suited for your workloads, or learn which configurations best meet your budgets, security, and scale requirements. Copilot can guide you to the right user experience or even author scripts and other artifacts that you can use to deploy your solutions. Answers are grounded in the latest Azure documentation, so you can get up-to-date guidance just by asking a question.
+
+Asking questions to understand more can be especially helpful when you're troubleshooting problems. Describe the problem, and Microsoft Copilot for Azure (preview) will provide some suggestions on how you might be able to resolve the issue. For example, you can say things like "Cluster stuck in upgrading state while performing update operation" or "Azure database unable to connect from Power BI". You'll see information about the problem and possible resolution options.
 
 ## Navigation
 

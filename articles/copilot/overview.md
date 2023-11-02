@@ -24,4 +24,4 @@ To access Microsoft Copilot for Azure (preview), [complete the registration form
 ## Next steps
 
 - Learn about [some of the things you can do with Microsoft Copilot for Azure](capabilities.md).
-- Review our [Responsible AI FAQ for Microsoft Copilot in Azure](responsible-ai-faq.md).
+- Review our [Responsible AI FAQ for Microsoft Copilot for Azure](responsible-ai-faq.md).
