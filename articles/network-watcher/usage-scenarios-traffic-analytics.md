@@ -141,7 +141,7 @@ In this article, you learn how to get insights about your traffic after configur
 - You can zoom-in and zoom-out while viewing Virtual Network Topology using mouse scroll wheel. Left-click and moving the mouse lets you drag the topology in desired direction. You can also use keyboard shortcuts to achieve these actions: A (to drag left), D (to drag right), W (to drag up), S (to drag down), + (to zoom in), - (to zoom out), R (to zoom reset).
 - The Subnet Topology shows the traffic distribution to a virtual network regarding flows (Allowed/Blocked/Inbound/Outbound/Benign/Malicious), application protocol, and NSGs, for example:
 
-    :::image type="content" source="./media/traffic-analytics/subnet-topology-showcasing-traffic-distribution-to-a-virtual-subnet-with-regards-to-flows.png" alt-text="Screenshot of subnet topology showcasing traffic distribution a virtual network subnet with regards to flows.":::
+    :::image type="content" source="./media/traffic-analytics/subnet-topology-showcasing-traffic-distribution-to-a-virtual-subnet-with-regards-to-flows.png" alt-text="Screenshot of subnet topology showcasing traffic distribution to a virtual network subnet with regards to flows.":::
 
 **Look for**
 
