@@ -7,17 +7,8 @@ ms.author: tomkerkhove
 ---
 
 > [!IMPORTANT]
-> The KEDA add-on installs a version of KEDA that corresponds to the Kubernetes version of your cluster.
+> Your cluster Kubernetes version determines what KEDA version will be installed on your AKS cluster. To see which KEDA version maps to each AKS version, see the **AKS managed add-ons** column of the [Kubernetes component version table](./supported-kubernetes-versions.md#aks-components-breaking-changes-by-version). 
 >
-> The following AKS GA minor versions and the corresponding KEDA minor versions are fully supported. AKS preview versions and the latest KEDA patch versions will be supported on a best effort basis.
->
-> | AKS | KEDA |
-> | --- | ---- |
-> |1.24 , 1.25 | 2.9 |
-> |1.26 | 2.10 |
-> |1.27 | 2.11 |
->
-> Refer to following links for more info on Add-on versioning
-> • [ KEDA's Kubernetes Compatibility policy ](https://keda.sh/docs/latest/operate/cluster/#kubernetes-compatibility)
-> • [Add-on version Policy](/azure/aks/integrations#add-ons)
-> Follow the [release notes](https://github.com/Azure/AKS/releases) to be notified of additional Kubernetes version support.
+> For GA Kubernetes versions, AKS offers full support of the corresponding KEDA minor version in the table. Kubernetes preview versions and the latest KEDA patch are partially covered by customer support on a best-effort basis. As such, these features aren't meant for production use. For more information, see the following support articles:
+> - [AKS support policies](/azure/aks/support-policies)
+> - [Azure support FAQ](https://azure.microsoft.com/support/legal/faq/)
