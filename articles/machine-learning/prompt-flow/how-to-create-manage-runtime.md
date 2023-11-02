@@ -1,5 +1,5 @@
 ---
-title: Create and manage runtimes in Prompt flow (preview)
+title: Create and manage runtimes in Prompt flow
 titleSuffix: Azure Machine Learning
 description: Learn how to create and manage runtimes in Prompt flow with Azure Machine Learning studio.
 services: machine-learning
@@ -12,13 +12,9 @@ ms.reviewer: lagayhar
 ms.date: 09/13/2023
 ---
 
-# Create and manage runtimes (preview)
+# Create and manage runtimes
 
 Prompt flow's runtime provides the computing resources required for the application to run, including a Docker image that contains all necessary dependency packages. This reliable and scalable runtime environment enables prompt flow to efficiently execute its tasks and functions, ensuring a seamless user experience for users.
-
-> [!IMPORTANT]
-> Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Permissions/roles for runtime management
 
