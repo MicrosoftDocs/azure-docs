@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 10/11/2023
+ms.date: 11/02/2023
 ms.author: cshoe
 ---
 
@@ -15,12 +15,25 @@ As you develop applications in Azure Container Apps, you often need to connect t
 
 Add-ons allow you to use OSS services without the burden of manual downloads, creation, and configuration.
 
+Once you're ready for your app to use a production level service, you can connect your application to an Azure managed service.
+
 Services available as an add-on include:
 
-- Open-source Redis
-- Open-source PostgreSQL
+| Title | Service name |
+|---|---|
+| Kafka | `kafka` |
+| MariaDB | `mariadb` |
+| Open-source PostgreSQL | `postgres` |
+| Qdrant | `qdrant` |
+| Open-source Redis | `redis` |
 
-Once you're ready for your app to use a production level service, you can connect your application to an Azure managed service.
+You can get most recent list of add-on services by running the following command:
+
+```azurecli
+az containerapp service --help
+```
+
+See the section on how to [manage a service](#manage-a-service) for usage instructions.
 
 ## Features
 
@@ -64,7 +77,7 @@ You're responsible for data continuity between development and production enviro
 
 To connect a service to an application, you first need to create the service.
 
-Use the `service` command with `containerapp create` to create a new service.
+Use the `container app create service` command with the service name to create a new service.
 
 ``` CLI
 az containerapp service redis create \
