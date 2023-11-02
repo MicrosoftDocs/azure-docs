@@ -14,6 +14,8 @@ You can ask Microsoft Copilot for Azure (preview) questions about metrics and lo
 
 When you ask Microsoft Copilot in Azure (preview) to provide these recommendations, it automatically pulls context when possible, based on the previous conversation or on the page you're viewing in the Azure portal. If the context isn't clear, you'll be prompted to specify the resource for which you want information.
 
+[!INCLUDE [scenario-note](includes/scenario-note.md)]
+
 ## Answer questions about Azure Monitor platform metrics
 
 Use Microsoft Copilot for Azure (preview) to ask questions about your Azure Monitor metrics. When asked about metrics for a particular resource Copilot will generate a graph, summarize the results, and allow you to further explore the data in Metrics Explorer. When asked about what metrics are available, Microsoft Copilot for Azure (preview) will describe the platform metrics available for the given resource type. For example, when reviewing platform metrics for an AKS cluster you can optionally choose to run an anomaly analysis to analyze spikes in metrics and see recommendations to address the issue.
@@ -54,3 +56,5 @@ Use Microsoft Copilot for Azure (preview) to ask questions about your Azure Moni
 
 - Explore [capabilities](capabilities.md) of Microsoft Copilot for Azure (preview).
 - Learn more about [Azure Monitor](/azure/azure-monitor/).
+- [Request access](https://aka.ms/MSCopilotforAzurePreview) to Microsoft Copilot for Azure (preview).
+

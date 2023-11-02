@@ -14,9 +14,11 @@ Microsoft Copilot in Azure (preview) can provide [Code Optimizations](/azure/azu
 
 When you ask Microsoft Copilot in Azure (preview) to provide these recommendations, it automatically pulls context from an open Application Insights blade or App Service blade to display available recommendations specific to that app. If the context isn't clear, you'll be prompted to choose an Application Insights resource from a resource selector page.
 
+[!INCLUDE [scenario-note](includes/scenario-note.md)]
+
 ## Sample prompts
 
-Here are a few examples of the kinds of prompts you can use to use Code Optimizations. Modify these as needed based on your real-life scenarios, or try additional prompts about specific areas for optimization.
+Here are a few examples of the kinds of prompts you can use with Code Optimizations. Modify these prompts based on your real-life scenarios, or try additional prompts about specific areas for optimization.
 
 - "Show my code performance recommendations"
 - "Any available app code optimizations?"
@@ -36,3 +38,5 @@ This screenshot shows that the top recommendation was selected. Details about th
 
 - Explore [capabilities](capabilities.md) of Microsoft Copilot for Azure (preview).
 - Learn more about [Code Optimizations](/azure/azure-monitor/insights/code-optimizations).
+- [Request access](https://aka.ms/MSCopilotforAzurePreview) to Microsoft Copilot for Azure (preview).
+
