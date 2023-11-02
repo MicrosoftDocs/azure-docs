@@ -520,14 +520,11 @@ Microsoft and its customers operate under the [Shared Responsibility Model](./av
 
 For deploying virtual machines, you can use [flexible orchestration](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#scale-sets-with-flexible-orchestration) mode on Virtual Machine Scale Sets. All VM sizes can be used with flexible orchestration mode. Flexible orchestration mode also offers high availability guarantees (up to 1000 VMs) by spreading VMs across fault domains either within a region or within an availability zone.
 
-## Additional guidance
+## Next steps
 
 - [Well-Architected Framework for virtual machines](/azure/architecture/framework/services/compute/virtual-machines/virtual-machines-review)
 - [Azure to Azure disaster recovery architecture](/azure/site-recovery/azure-to-azure-architecture)
 - [Accelerated networking with Azure VM disaster recovery](/azure/site-recovery/azure-vm-disaster-recovery-with-accelerated-networking)
 - [Express Route with Azure VM disaster recovery](../site-recovery/azure-vm-disaster-recovery-with-expressroute.md)
 - [Virtual Machine Scale Sets](../virtual-machine-scale-sets/index.yml)
-
-## Next steps
-> [!div class="nextstepaction"]
-> [Reliability in Azure](/azure/reliability/availability-zones-overview)
+- [Reliability in Azure](/azure/reliability/availability-zones-overview)
