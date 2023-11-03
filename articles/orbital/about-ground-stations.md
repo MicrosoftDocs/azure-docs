@@ -34,6 +34,7 @@ In addition, we support public satellites for downlink-only operations that util
 
 Azure Orbital Ground Station offers a common data plane and API to access all antenna in the global network. An active contract with the partner network(s) you wish to integrate with Azure Orbital Ground Station is required to onboard with a partner.
 
-## Next Steps
+## Next steps
 
+- [Get started with Azure Orbital Ground Station](get-started.md)
 - [Support all mission phases](mission-phases.md)
