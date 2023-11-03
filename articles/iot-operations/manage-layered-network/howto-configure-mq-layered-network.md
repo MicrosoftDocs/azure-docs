@@ -103,7 +103,7 @@ After the level 4 and level 3 cluster are both Arc-enabled, configure Iot MQ and
 
 ### Create TLS server certificate of MQ on level 4
 
-Follow the steps in [Configure TLS with manual certificate management to secure MQTT communication](../manage-mqtt-connectivity/howto-configure-tls-manual.md). When creating the certificate, use `azedge-dmqtt-frontend.level-4.com` as one of the Subject Alternative Names (SANs) Set the SAN using the step CLI *--san** option.
+Follow the steps in [Configure TLS with manual certificate management to secure MQTT communication](../manage-mqtt-connectivity/howto-configure-tls-manual.md). When creating the certificate, use `aio-mq-dmqtt-frontend.level-4.com` as one of the Subject Alternative Names (SANs) Set the SAN using the step CLI *--san** option.
 
 ### Deploy TLS Listener for MQ on level 4
 
@@ -147,19 +147,19 @@ To direct incoming traffic from MQTT bridge at level 3 to the in-cluster IoT MQ 
     data:
       Corefile: |
 
-        # Here azedge-dmqtt-frontend.level-4.com is the san name used while creating the certificate.
+        # Here aio-mq-dmqtt-frontend.level-4.com is the san name used while creating the certificate.
         # If you used any other name, specify that name here. Copy just this server block to your coredns configmap
 
-        azedge-dmqtt-frontend.level-4.com:53 {
+        aio-mq-dmqtt-frontend.level-4.com:53 {
             hosts {
-                10.43.164.168 azedge-dmqtt-frontend.level-4.com
+                10.43.164.168 aio-mq-dmqtt-frontend.level-4.com
                 fallthrough
             }
         }
 
     ```
 
-    This configuration resolves `azedge-dmqtt-frontend.level-4.com` to the `ClusterIP` 10.43.164.168 of the `azedge-dmqtt-frontend` service. Make sure to use correct *ClusterIP* address in this configuration.
+    This configuration resolves `aio-mq-dmqtt-frontend.level-4.com` to the `ClusterIP` 10.43.164.168 of the `aio-mq-dmqtt-frontend` service. Make sure to use correct *ClusterIP* address in this configuration.
 
 ## Level 3 configuration
 
@@ -245,7 +245,7 @@ For **MqttBridgeConnector**, in `remoteBrokerConnection` section of the yaml fil
 ```yaml
 remoteBrokerConnection:
   # Remote broker endpoint URL with port.
-  endpoint: "azedge-dmqtt-frontend.level-4.com:8883"
+  endpoint: "aio-mq-dmqtt-frontend.level-4.com:8883"
   # Specifies if connection is encrypted with TLS and trusted CA cert
   tls:
     # TLS enabled or not.
@@ -285,7 +285,7 @@ You can use Mosquitto clients for testing end-to-end message delivery. Download 
 1. Run the following command to port-forward the MQ service:
 
     ```bash
-    kubectl port-forward service/azedge-dmqtt-frontend 12345:1883
+    kubectl port-forward service/aio-mq-dmqtt-frontend 12345:mqtt-1883
     ```
 
 1. Run the following command to subscribe to a topic. The topic you're subscribing to is **froml3** as specified in `MqttBridgeTopicMap` earlier.
@@ -299,7 +299,7 @@ You can use Mosquitto clients for testing end-to-end message delivery. Download 
 1. Run the following command to port-forward the IoT MQ service.
 
     ```bash
-    kubectl port-forward -n level3 service/azedge-dmqtt-frontend 12345:1883
+    kubectl port-forward -n level3 service/aio-mq-dmqtt-frontend 12345:mqtt-1883
     ```
 
 1. Publish a message with the following command. You're publishing to topic **tol4** as specified in `MqttBridgeTopicMap`.
