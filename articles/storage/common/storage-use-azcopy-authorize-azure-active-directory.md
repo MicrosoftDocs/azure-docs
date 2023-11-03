@@ -4,7 +4,7 @@ description: You can provide authorization credentials for AzCopy operations by 
 author: normesta
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 09/29/2023
+ms.date: 11/03/2023
 ms.author: normesta
 ms.subservice: storage-common-concepts
 ---
@@ -15,7 +15,9 @@ You can provide AzCopy with authorization credentials by using Microsoft Entra I
 
 Start by verifying your role assignments. Then, choose what type of *security principal* you want to authorize. A [user identity](../../active-directory/fundamentals/add-users-azure-active-directory.md), a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md), and a [service principal](../../active-directory/develop/app-objects-and-service-principals.md) are each a type of security principal.
 
-A user identity is any user that has an identity in Microsoft Entra ID. It's the easiest security principal to authorize. Managed identities and service principals are great options if you plan to use AzCopy inside of a script that runs without user interaction. A managed identity is better suited for scripts that run from an Azure Virtual Machine (VM), and a service principal is better suited for scripts that run on-premises.
+If you've already authorized your security principal by signing in with Azure CLI or Azure PowerShell, then you won't need to authorize your security principal separately to use AzCopy. If your Azure CLI or PowerShell sessions are still active, then AzCopy can use the OAuth token granted to those sessions to authorize transfers.
+
+If you have authorized Azure CLI or PowerShell sessions active, you'll have to authorize your security principal before using AzCopy to transfer data. A user identity is the easiest security principal to authorize. Managed identities and service principals are great options if you plan to use AzCopy inside of a script that runs without user interaction. A managed identity is better suited for scripts that run from an Azure Virtual Machine (VM), and a service principal is better suited for scripts that run on-premises.
 
 To authorize access, you'll set in-memory environment variables. Then run any AzCopy command. AzCopy will retrieve the Auth token required to complete the operation. After the operation completes, the token disappears from memory.
 
@@ -47,6 +49,27 @@ To learn how to verify and assign roles, see [Assign an Azure role for access to
 You don't need to have one of these roles assigned to your security principal if your security principal is added to the access control list (ACL) of the target container or directory. In the ACL, your security principal needs write permission on the target directory, and execute permission on container and each parent directory.
 
 To learn more, see [Access control model in Azure Data Lake Storage Gen2](../blobs/data-lake-storage-access-control-model.md).
+
+## Authorize with the OAuth token of an Azure CLI session
+
+Type the following command, and then press the ENTER key.
+
+```bash
+export AZCOPY_AUTO_LOGIN_TYPE=AzCLI
+```
+
+Before you run an AzCopy command, make sure that you've signed in with Azure CLI by using a security principal that has been given the necessary authorization level for the commands to run successfully. For more information about how to sign in with the Azure CLI, see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
+
+## Authorize with the OAuth token of an Azure PowerShell session
+
+Type the following command, and then press the ENTER key.
+
+```bash
+export AZCOPY_AUTO_LOGIN_TYPE=PSCREDS
+```
+
+Before you run an AzCopy command, make sure that you've in with Azure PowerShell by using a security principal that has been given the necessary authorization level for the commands to run successfully. For more information about how to sign in with the Azure PowerShell, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
+
 
 <a id="authorize-without-a-secret-store"></a>
 
