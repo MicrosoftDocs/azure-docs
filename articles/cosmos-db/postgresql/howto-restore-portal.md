@@ -28,7 +28,8 @@ a custom restore point within your retention period.
 > [!NOTE]
 > While cluster backups are always stored for 35 days, you may need to 
 > open a support request to restore the cluster to a point that is earlier
-> than the latest failover time. 
+> than the latest failover time. Maintenance or compute / storage scaling use
+> failovers to minimize downtime during these operations.
 
 ## Select type of cluster backup
 Enabling geo-redundant backup is possible during cluster creation on the **Scale** screen that can be accessed on the **Basics** tab. Click the **Save** button to apply your selection. 
