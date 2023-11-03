@@ -70,6 +70,7 @@ To use the Azure CLI to configure Elastic SAN encryption:
 
 1. Install the [latest version](/cli/azure/install-azure-cli).
 1. Run `az extension add -n elastic-san` to install the extension for Elastic SAN.
+1. (Optional) if you already have the elastic-san extension installed, run `az extension update -n elastic-san` to install the latest.
 
 #### Create variables to be used in the CLI samples in this article
 
@@ -327,10 +328,10 @@ Use the same [variables you defined previously](#create-variables-to-be-used-in-
 
 ```azurecli
 # Create a new user-assigned managed identity.
-UserIdentity=az identity create \
+UserIdentity=$(az identity create \
     --resource-group $RgName \
     --name $ManagedUserName \
-    --location $Location
+    --location $Location)
 
 identityResourceId=$(az identity show --name $ManagedUserName \
     --resource-group $RgName \
@@ -392,7 +393,7 @@ To authenticate access to the key vault with a system-assigned managed identity,
 az elastic-san volume-group update \
     --name $EsanVgName \
     --resource-group $RgName \
-    --assign-identity
+    --identity
 ```
 
 Next, assign to the system-assigned managed identity the required RBAC role, scoped to the key vault. Use the sample below and [the same variables you created previously in this article](#create-variables-to-be-used-in-the-cli-samples-in-this-article):
