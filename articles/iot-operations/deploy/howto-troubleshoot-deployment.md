@@ -65,10 +65,3 @@ The following sections provide details about specific error codes that you may r
 | Check resource status failed | Failed to check the resource status within the timeout period | Verify that the name of the resource being used exists.<br><br> Check the cluster where the resource exists and pass that as a component property. |
 | YAML or resource property not found | Component doesn't have a YAML or resource property | Set the YAML or resource property for the component. The kubectl provider requires at least one of the two property values to be defined.<br><br> Check the configuration setting for the correct property value. |
 
-### Script provider error codes
-
-| Error code | Description | Steps to resolve |
-| ---------- | ----------- | ---------------- |
-| Validate failed | Failed to validate the component type, properties, or metadata | Set the required component types, properties, and metadata. |
-| Apply script failed | Failed to run the apply script | Rerun the apply script and if the error still exists then update the apply script or check for any errors in the script. |
-| Remove script failed | Failed to run the remove script | Rerun the remove script and if the error still exists then update the remove script or check for any errors in the script. |
