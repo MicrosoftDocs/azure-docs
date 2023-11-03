@@ -220,5 +220,5 @@ See these articles to configure settings, optimize performance, and troubleshoot
 - [Optimize the performance of AzCopy](storage-use-azcopy-optimize.md)
 - [Find errors and resume jobs by using log and plan files in AzCopy](storage-use-azcopy-configure.md)
 - [Troubleshoot problems with AzCopy v10](storage-use-azcopy-troubleshoot.md)
-- [Use AzCopy to copy blobs between Azure storage accounts with network restrictions](https://learn.microsoft.com/troubleshoot/azure/azure-storage/copy-blobs-between-storage-accounts-network-restriction)
+- [Use AzCopy to copy blobs between Azure storage accounts with network restrictions](/troubleshoot/azure/azure-storage/copy-blobs-between-storage-accounts-network-restriction?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json)
 
