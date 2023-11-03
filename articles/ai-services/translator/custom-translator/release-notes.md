@@ -17,20 +17,39 @@ This page presents the latest feature, improvement, bug fix, and known issue rel
 
 ### November 2023 model updates
 
-* The current supported language pairs, including direct language models, are listed in the following tables. 
-
+* The current supported language pairs, including direct language models, are listed in the following tables.
 * For higher quality, we encourage you to retrain your models accordingly.
 
 #### Direct language models
+
+|Source Direct|Target Direct|
+|:----|:----|
+|Chinese Simplified (`zh-hans`)|Korean (`ko-kr`)|
+|Chinese Simplified (`zh-hans`)|German (`de-de`)|
+|Dutch (`nl-nl`)|French (`fr-fr`)|
+|French (`fr-fr`)|Italian (`it-it`)|
+|French (`fr-fr`)|Dutch (`nl-nl`)|
+|French (`fr-fr`)|German (`de-de`)|
+|German (`de-de`)|French (`fr-fr`)|
+|German (`de-de`)|Portuguese Portugal (`pt-pt`)|
+|German (`de-de`)|Spanish (`es-es`)|
+|German (`de-de`)|Italian (`it-it`)|
+|German (`de-de`)|Chinese Simplified (`zh-hans`)|
+|Italian (`it-it`)|French (`fr-fr`)|
+|Italian (`it-it`)|German (`de-de`)|
+|Korean (`ko-kr`)|Chinese Simplified (`zh-hans`)|
+|Spanish (`es-es`)|German (`de-de`)|
+
+#### English `target/source ↔ source/target` language models
 
 |Source |Target|
 |:----|:----|
 |Amharic (`am-et`)|English (`en-us`)|
 |Arabic (`ar-sa`)|English (`en-us`)|
 |Catalan (`ca-es`)|English (`en-us`)|
-|Chinese Traditional (`zh-hant`)|English (`en-us`)|
+|Chinese Traditional (zh-hant)|English (`en-us`)|
 |English (`en-us`)|Lingala (`ln`)|
-|English (`en-us`)|Shona (`sn-latn-zw`)|
+|English (`en-us`)|Shona (sn-latn-zw)|
 |English (`en-us`)|Estonian (`et-ee`)|
 |English (`en-us`)|Bulgarian (`bg-bg`)|
 |English (`en-us`)|Catalan (`ca-es`)|
@@ -55,42 +74,6 @@ This page presents the latest feature, improvement, bug fix, and known issue rel
 |Slovak (`sk-sk`)|English (`en-us`)|
 |Sovenian (`sl-si`)|English (`en-us`)|
 |Ukranian (`uk-ua`)|English (`en-us`)|
-
-#### English `target/source ↔ source/target` language models
-
-|Source |Target|
-|:----|:----|
-|Amharic (`am-et`)|English (`en-us`)|
-|Arabic (`ar-sa`)|English (`en-us`)|
-|Catalan (`ca-es`)|English (`en-us`)|
-|Chinese Traditional (`zh-hant`)|English (`en-us`)|
-|English (`en-us`)|Lingala (`ln`)|
-|English (`en-us`)|Shona (`sn-latn-zw`)|
-|English (`en-us`)|Estonian (`et-ee`)|
-|English (`en-us`)|Bulgarian (`bg-bg`)|
-|English (`en-us`)|Catalan (`ca-es`)|
-|English (`en-us`)|Romanian (`ro-ro`)|
-|English (`en-us`)|Icelandic (`is-is`)|
-|English (`en-us`)|Slovenian (`sl-si`)|
-|English (`en-us`)|Kannada (`kn-in`)|
-|English (`en-us`)|Marathi (`mr-in`)|
-|English (`en-us`)|Punjabi (`pa-in`)|
-|English (`en-us`)|Turkish (`tr-tr`)|
-|English (`en-us`)|Dutch (`nl-nl`)|
-|English (`en-us`)|Chinese Traditional (`zh-hant`)|
-|Finnish (`fi-fi`)|English (`en-us`)|
-|Hebrew (`he-il`)|English (`en-us`)|
-|Icelandic (`is-is`)|English (`en-us`)|
-|Kannada (`kn-in`)|English (`en-us`)|
-|Lingala (ln)|English (`en-us`)|
-|Nyanja (nya)|English (`en-us`)|
-|Punjabi (`pa-in`)|English (`en-us`)|
-|Romanian (`ro-ro`)|English (`en-us`)|
-|Shona (`sn-latn-zw`)|English (`en-us`)|
-|Slovak (`sk-sk`)|English (`en-us`)|
-|Sovenian (`sl-si`)|English (`en-us`)|
-|Ukranian (`uk-ua`)|English (`en-us`)|
-
 
 ## 2023-June release
 
@@ -179,11 +162,11 @@ This page presents the latest feature, improvement, bug fix, and known issue rel
 
 |Source Language|Target Language|
 |:----|:----|
-|Chinese Simplified (zh-Hans)|English (`en-us`)|
+|Chinese Simplified (`zh-hans`)|English (`en-us`)|
 |Chinese Traditional (zh-Hant)|English (`en-us`)|
 |Czech (cs)|English (`en-us`)|
 |Dutch (nl)|English (`en-us`)|
-|English (`en-us`)|Chinese Simplified (zh-Hans)|
+|English (`en-us`)|Chinese Simplified (`zh-hans`)|
 |English (`en-us`)|Chinese Traditional (zh-Hant)|
 |English (`en-us`)|Czech (cs)|
 |English (`en-us`)|Dutch (nl)|
@@ -227,7 +210,7 @@ This page presents the latest feature, improvement, bug fix, and known issue rel
 | Arabic (`ar`) | English (``en-us``)|
 | Brazilian Portuguese (`pt`)    | English (``en-us``)|
 | Bulgarian (`bg`)    | English (``en-us``)|
-| Chinese Simplified (`zh-Hans`)    | English (``en-us``)|
+| Chinese Simplified (``zh-hans``)    | English (``en-us``)|
 | Chinese Traditional (`zh-Hant`)    | English (``en-us``)|
 | Croatian (`hr`)    | English (``en-us``)|
 | Czech (`cs`)    | English (``en-us``)|
@@ -235,7 +218,7 @@ This page presents the latest feature, improvement, bug fix, and known issue rel
 | Dutch (nl)    | English (``en-us``)|
 | English (``en-us``)    | Arabic (`ar`)|
 | English (``en-us``)    | Bulgarian (`bg`)|
-| English (``en-us``)    | Chinese Simplified (`zh-Hans`|
+| English (``en-us``)    | Chinese Simplified (``zh-hans``|
 | English (``en-us``)    | Chinese Traditional (`zh-Hant`|
 | English (``en-us``)    | Czech (`cs)`|
 | English (``en-us``)    | Danish (`da`)|
