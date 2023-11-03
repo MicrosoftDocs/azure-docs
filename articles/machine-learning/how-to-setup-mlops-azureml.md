@@ -8,7 +8,7 @@ ms.author: osomorog
 ms.service: machine-learning
 ms.reviewer: larryfr
 ms.subservice: mlops
-ms.date: 11/29/2022
+ms.date: 11/03/2023
 ms.topic: conceptual
 ms.custom: cli-v2, sdk-v2
 ---
