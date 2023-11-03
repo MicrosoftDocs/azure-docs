@@ -47,7 +47,7 @@ For *exploration only*, use GitHub Codespaces to try Azure IoT Operations in you
 
 To get started with your codespace:
 
-1. [Create GitHub codespace](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=672984976&skip_quickstart=true). Wait for the codespace to be created and the post-create script to finish running. It takes about 5 minutes.
+1. [Create GitHub codespace](https://codespaces.new/Azure-Samples/explore-iot-operations?quickstart=1). Wait for the codespace to be created and the post-create script to finish running. It takes about 5 minutes.
 
 1. In the integrated terminal, log in to Azure.
 
