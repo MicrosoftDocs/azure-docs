@@ -5,12 +5,12 @@ ms.topic: how-to
 ms.author: nickoman
 author: nickomang
 ms.custom: devx-track-linux
-ms.date: 08/18/2023
+ms.date: 11/03/2023
 ---
 
 # Migrate from HTTP application routing to the application routing add-on
 
-In this article, you'll learn how to migrate your Azure Kubernetes Service (AKS) cluster from HTTP application routing feature to the [application routing add-on](./app-routing.md). The HTTP application routing add-on has been retired and won't work on any cluster Kubernetes version currently in support, so we recommend migrating as soon as possible to maintain a supported configuration.
+In this article, you learn how to migrate your Azure Kubernetes Service (AKS) cluster from HTTP application routing feature to the [application routing add-on](./app-routing.md). The HTTP application routing add-on has been retired and doesn't work on any cluster Kubernetes version currently in support. We recommend migrating as soon as possible to maintain a supported configuration.
 
 ## Prerequisites
 
@@ -19,7 +19,7 @@ Azure CLI version `2.49.0` or later. If you haven't yet, follow the instructions
 > [!NOTE]
 > These steps detail migrating from an unsupported configuration. As such, AKS cannot offer support for issues that arise during the migration process.
 
-## Update your cluster's add-ons, ingresses, and IP usage
+## Update your cluster's add-ons, Ingresses, and IP usage
 
 1. Enable the application routing add-on.
 
@@ -27,7 +27,7 @@ Azure CLI version `2.49.0` or later. If you haven't yet, follow the instructions
     az aks enable-addons -g <ResourceGroupName> -n <ClusterName> --addons web_application_routing
     ```
 
-2. Update your ingresses, setting `ingressClassName` to `webapprouting.kubernetes.azure.com`. Remove the `kubernetes.io/ingress.class` annotation. You'll also need to update the host to one that you own, as the application routing add-on doesn't have a managed cluster DNS zone. If you don't have a DNS zone, follow instructions to [create][app-routing-dns-create] and [configure][app-routing-dns-configure] one.
+2. Update your Ingresses, setting `ingressClassName` to `webapprouting.kubernetes.azure.com`. Remove the `kubernetes.io/ingress.class` annotation. You also need to update the host to one that you own, as the application routing add-on doesn't have a managed cluster DNS zone. If you don't have a DNS zone, follow instructions to [create][app-routing-dns-create] and [configure][app-routing-dns-configure] one.
 
     Initially, your ingress configuration will look something like this:
 
@@ -52,7 +52,7 @@ Azure CLI version `2.49.0` or later. If you haven't yet, follow the instructions
                   number: 80
     ```
 
-    After you've properly updated, the same configuration will look like the following:
+    After you've properly updated, the same configuration looks like the following:
 
     ```yaml
     apiVersion: networking.k8s.io/v1
@@ -74,7 +74,7 @@ Azure CLI version `2.49.0` or later. If you haven't yet, follow the instructions
                   number: 80
     ```
 
-3. Update the ingress controller's IP (such as in DNS records) with the new IP address. You can find the new IP by using `kubectl get`. For example:
+3. Update the Ingress controller's IP (such as in DNS records) with the new IP address. You can find the new IP by using `kubectl get`. For example:
 
     ```bash
     kubectl get svc nginx --namespace app-routing-system -o jsonpath='{.status.loadBalancer.ingress[0].ip}'
@@ -88,7 +88,7 @@ Azure CLI version `2.49.0` or later. If you haven't yet, follow the instructions
 
 ## Remove and delete all HTTP application routing resources
 
-1. After the HTTP application routing add-on is disabled, some related Kubernetes resources may remain in your cluster. These resources include *configmaps* and *secrets* that are created in the *kube-system* namespace. To maintain a clean cluster, you may want to remove these resources. Look for *addon-http-application-routing* resources using the following [`kubectl get`][kubectl-get] commands:
+1. After the HTTP application routing add-on is disabled, some related Kubernetes resources might remain in your cluster. These resources include *configmaps* and *secrets* that are created in the *kube-system* namespace. To maintain a clean cluster, you can remove these resources. Look for *addon-http-application-routing* resources using the following [`kubectl get`][kubectl-get] commands:
 
     ```bash
     kubectl get deployments --namespace kube-system
@@ -116,15 +116,13 @@ Azure CLI version `2.49.0` or later. If you haven't yet, follow the instructions
 
 ## Next steps
 
-After migrating to the application routing add-on, learn how to [monitor ingress controller metrics with Prometheus and Grafana](./app-routing-nginx-prometheus.md).
+After migrating to the application routing add-on, learn how to [monitor Ingress controller metrics with Prometheus and Grafana](./app-routing-nginx-prometheus.md).
 
 <!-- INTERNAL LINKS -->
 [install-azure-cli]: /cli/azure/install-azure-cli
-[ingress-https]: ./ingress-tls.md
-[app-routing-dns-create]: ./app-routing.md?tabs=without-osm#create-an-azure-dns-zone
-[app-routing-dns-configure]: ./app-routing.md?tabs=without-osm#configure-the-add-on-to-use-azure-dns-to-manage-dns-zones
+[app-routing-dns-create]: ./app-routing-configuration.md#create-a-global-azure-dns-zone
+[app-routing-dns-configure]: ./app-routing-configuration.md#configure-the-add-on-to-use-azure-dns-to-manage-dns-zones
 
 <!-- EXTERNAL LINKS -->
-[dns-pricing]: https://azure.microsoft.com/pricing/details/dns/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-delete]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete
