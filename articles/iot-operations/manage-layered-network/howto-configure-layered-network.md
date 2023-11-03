@@ -37,7 +37,7 @@ Layered Network Management is deployed to the dual NIC cluster. The cluster in t
 
 The following example is an isolated network environment where each level is logically segmented with subnets. In this test environment, there are multiple clusters one at each level. The clusters can be AKS Edge Essentials or K3S. The Kubernetes cluster in the level 4 network has direct internet access. The Kubernetes clusters in level 3 and below don't have internet access.
 
-<!--![Diagram of a logical segmentation isolated network](./media/howto-configure-layered-network/nested-edge-diagram.png)-->
+![Diagram of a logical segmentation isolated network](./media/howto-configure-layered-network/nested-edge.png)
 
 The multiple levels of networks in this test setup are accomplished using subnets within a network:
 
@@ -61,100 +61,91 @@ A DNS server is only needed for levels 3 and below. This example uses a [dnsmasq
     - Change the IPv4 address from 10.104.0.10 to respective destination address for that level. In this case, the IP address of the Layered Network Management service in the parent level.
     - Verify the `interface` where you're running the *dnsmasq* and change the value as needed.
 
-The following configuration only contains the necessary endpoints for enabling Azure IoT Operations.
+    The following configuration only contains the necessary endpoints for enabling Azure IoT Operations.
 
-```conf
-# Add domains which you want to force to an IP address here.
-# The example below send any host in double-click.net to a local
-# web-server.
-address=/management.azure.com/10.104.0.10
-address=/dp.kubernetesconfiguration.azure.com/10.104.0.10
-address=/.dp.kubernetesconfiguration.azure.com/10.104.0.10
-address=/login.microsoftonline.com/10.104.0.10
-address=/.login.microsoft.com/10.104.0.10
-address=/.login.microsoftonline.com/10.104.0.10
-address=/login.microsoft.com/10.104.0.10
-address=/mcr.microsoft.com/10.104.0.10
-address=/.data.mcr.microsoft.com/10.104.0.10
-address=/gbl.his.arc.azure.com/10.104.0.10
-address=/.his.arc.azure.com/10.104.0.10
-address=/k8connecthelm.azureedge.net/10.104.0.10
-address=/guestnotificationservice.azure.com/10.104.0.10
-address=/.guestnotificationservice.azure.com/10.104.0.10
-address=/sts.windows.nets/10.104.0.10
-address=/k8sconnectcsp.azureedge.net/10.104.0.10
-address=/.servicebus.windows.net/10.104.0.10
-address=/servicebus.windows.net/10.104.0.10
-address=/obo.arc.azure.com/10.104.0.10
-address=/.obo.arc.azure.com/10.104.0.10
-address=/adhs.events.data.microsoft.com/10.104.0.10
-address=/dc.services.visualstudio.com/10.104.0.10
-address=/go.microsoft.com/10.104.0.10
-address=/onegetcdn.azureedge.net/10.104.0.10
-address=/www.powershellgallery.com/10.104.0.10
-address=/self.events.data.microsoft.com/10.104.0.10
-address=/psg-prod-eastus.azureedge.net/10.104.0.10
-address=/.azureedge.net/10.104.0.10
-address=/api.segment.io/10.104.0.10
-address=/nw-umwatson.events.data.microsoft.com/10.104.0.10
-address=/sts.windows.net/10.104.0.10
-address=/.azurecr.io/10.104.0.10
-address=/.blob.core.windows.net/10.104.0.10
-address=/global.metrics.azure.microsoft.scloud/10.104.0.10
-address=/.prod.hot.ingestion.msftcloudes.com/10.104.0.10
-address=/.prod.microsoftmetrics.com/10.104.0.10
-address=/global.metrics.azure.eaglex.ic.gov/10.104.0.10
+    ```conf
+    # Add domains which you want to force to an IP address here.
+    address=/management.azure.com/10.104.0.10
+    address=/dp.kubernetesconfiguration.azure.com/10.104.0.10
+    address=/.dp.kubernetesconfiguration.azure.com/10.104.0.10
+    address=/login.microsoftonline.com/10.104.0.10
+    address=/.login.microsoft.com/10.104.0.10
+    address=/.login.microsoftonline.com/10.104.0.10
+    address=/login.microsoft.com/10.104.0.10
+    address=/mcr.microsoft.com/10.104.0.10
+    address=/.data.mcr.microsoft.com/10.104.0.10
+    address=/gbl.his.arc.azure.com/10.104.0.10
+    address=/.his.arc.azure.com/10.104.0.10
+    address=/k8connecthelm.azureedge.net/10.104.0.10
+    address=/guestnotificationservice.azure.com/10.104.0.10
+    address=/.guestnotificationservice.azure.com/10.104.0.10
+    address=/sts.windows.nets/10.104.0.10
+    address=/k8sconnectcsp.azureedge.net/10.104.0.10
+    address=/.servicebus.windows.net/10.104.0.10
+    address=/servicebus.windows.net/10.104.0.10
+    address=/obo.arc.azure.com/10.104.0.10
+    address=/.obo.arc.azure.com/10.104.0.10
+    address=/adhs.events.data.microsoft.com/10.104.0.10
+    address=/dc.services.visualstudio.com/10.104.0.10
+    address=/go.microsoft.com/10.104.0.10
+    address=/onegetcdn.azureedge.net/10.104.0.10
+    address=/www.powershellgallery.com/10.104.0.10
+    address=/self.events.data.microsoft.com/10.104.0.10
+    address=/psg-prod-eastus.azureedge.net/10.104.0.10
+    address=/.azureedge.net/10.104.0.10
+    address=/api.segment.io/10.104.0.10
+    address=/nw-umwatson.events.data.microsoft.com/10.104.0.10
+    address=/sts.windows.net/10.104.0.10
+    address=/.azurecr.io/10.104.0.10
+    address=/.blob.core.windows.net/10.104.0.10
+    address=/global.metrics.azure.microsoft.scloud/10.104.0.10
+    address=/.prod.hot.ingestion.msftcloudes.com/10.104.0.10
+    address=/.prod.microsoftmetrics.com/10.104.0.10
+    address=/global.metrics.azure.eaglex.ic.gov/10.104.0.10
 
-# --address (and --server) work with IPv6 addresses too.
-address=/guestnotificationservice.azure.com/fe80::20d:60ff:fe36:f83
-address=/.guestnotificationservice.azure.com/fe80::20d:60ff:fe36:f833
-address=/.servicebus.windows.net/fe80::20d:60ff:fe36:f833
-address=/servicebus.windows.net/fe80::20d:60ff:fe36:f833
+    # --address (and --server) work with IPv6 addresses too.
+    address=/guestnotificationservice.azure.com/fe80::20d:60ff:fe36:f83
+    address=/.guestnotificationservice.azure.com/fe80::20d:60ff:fe36:f833
+    address=/.servicebus.windows.net/fe80::20d:60ff:fe36:f833
+    address=/servicebus.windows.net/fe80::20d:60ff:fe36:f833
 
-# If you want dnsmasq to listen for DHCP and DNS requests only on
-# specified interfaces (and the loopback) give the name of the
-# interface (eg eth0) here.
-# Repeat the line for more than one interface.
-interface=enp1s0
+    # If you want dnsmasq to listen for DHCP and DNS requests only on
+    # specified interfaces (and the loopback) give the name of the
+    # interface (eg eth0) here.
+    # Repeat the line for more than one interface.
+    interface=enp1s0
 
-# Or you can specify which interface _not_ to listen on
-# except-interface=
-# Or which to listen on by address (remember to include 127.0.0.1 if
-# you use this.)
-listen-address=::1,127.0.0.1,10.102.0.72
+    listen-address=::1,127.0.0.1,10.102.0.72
 
-# If you don't want dnsmasq to read /etc/hosts, uncomment the
-# following line.
-no-hosts
-```
+    no-hosts
+    ```
 
-As an alternative, you can put `address=/#/<IP of upper level Layered Network Management service>` in the IPv4 address section. For example:
+1. As an alternative, you can put `address=/#/<IP of upper level Layered Network Management service>` in the IPv4 address section. For example:
 
-```conf
-# Add domains which you want to force to an IP address here.
-# The example below send any host in double-click.net to a local
-# web-server.
-address=/#/<IP of upper level Layered Network Management service>
+    ```conf
+    # Add domains which you want to force to an IP address here.
+    address=/#/<IP of upper level Layered Network Management service>
 
-# --address (and --server) work with IPv6 addresses too.
-address=/#/fe80::20d:60ff:fe36:f833
+    # --address (and --server) work with IPv6 addresses too.
+    address=/#/fe80::20d:60ff:fe36:f833
 
-# If you want dnsmasq to listen for DHCP and DNS requests only on
-# specified interfaces (and the loopback) give the name of the
-# interface (eg eth0) here.
-# Repeat the line for more than one interface.
-interface=enp1s0
+    # If you want dnsmasq to listen for DHCP and DNS requests only on
+    # specified interfaces (and the loopback) give the name of the
+    # interface (eg eth0) here.
+    # Repeat the line for more than one interface.
+    interface=enp1s0
 
-# Or you can specify which interface _not_ to listen on
-# except-interface=
-# Or which to listen on by address (remember to include 127.0.0.1 if
-# you use this.)
-listen-address=::1,127.0.0.1,10.102.0.72
+    listen-address=::1,127.0.0.1,10.102.0.72
 
-# If you don't want dnsmasq to read /etc/hosts, uncomment the
-# following line.
-no-hosts
-```
+    no-hosts
+    ```
+
+1. Restart the *dnsmasq* service to apply the changes.
+
+    ```bash
+    sudo systemctl restart dnsmasq
+    systemctl status dnsmasq
+    ```
 
 ## Related content
 

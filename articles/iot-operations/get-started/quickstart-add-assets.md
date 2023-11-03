@@ -168,9 +168,61 @@ Review your asset and tag details and make any adjustments you need before you s
 
 :::image type="content" source="media/quickstart-add-assets/review-asset.png" alt-text="Screenshot of Azure IoT Operations create asset review page.":::
 
+## Autodetect assets
+
+In the previous section, you saw how to add assets manually. You can also use Akri to automatically discover assets that are available on an OPC UA server.
+
+When you deploy Azure IoT Operations, the deployment includes the Akri discovery handler pods. To verify these pods are running, run the following command:
+
+```bash
+kubectl get pods -n azure-iot-operations | grep akri
+```
+
+The output from the previous command looks like the following example:
+
+```text
+akri-opcua-asset-discovery-daemonset-h47zk     1/1     Running   3 (4h15m ago)    2d23h
+aio-akri-otel-collector-5c775f745b-g97qv       1/1     Running   3 (4h15m ago)    2d23h
+aio-akri-agent-daemonset-mp6v7                 1/1     Running   3 (4h15m ago)    2d23h
+```
+
+On the machine where your Kubernetes cluster is running, create a file called _opcua-configuration.yaml_ with the following content:
+
+```yaml
+apiVersion: akri.sh/v0
+kind: Configuration
+metadata:
+  name: akri-opcua-asset
+spec:
+  discoveryHandler: 
+    name: opcua-asset
+    discoveryDetails: "opcuaDiscoveryMethod:\n  - asset:\n      endpointUrl: \"	opc.tcp://opcplc-000000:50000\"\n      useSecurity: false\n      autoAcceptUntrustedCertificates: true\n"
+  brokerProperties: {}
+  capacity: 1
+```
+
+1. Run the following command to apply the configuration:
+
+    ```bash
+    kubectl apply -f opcua-configuration.yaml
+    ```
+
+To verify the configuration, run the following command:
+
+```bash
+kubectl get akrii -A
+```
+
+The output from the previous command looks like the following example:
+
+```text
+NAMESPACE              NAME                      CONFIG             SHARED   NODES            AGE
+azure-iot-operations   akri-opcua-asset-dbdef0   akri-opcua-asset   true     ["dom-aio-vm"]   35m
+```
+
 ## How did we solve the problem?
 
-In this quickstart, you added an asset endpoint and then defined an asset and tags. The assets and tags model data from the OPC UA server to make the data easier to use in an MQTT broker and other downstream processes.
+In this quickstart, you added an asset endpoint and then defined an asset and tags. The assets and tags model data from the OPC UA server to make the data easier to use in an MQTT broker and other downstream processes. You use the thermostat asset you defined in the next quickstart.
 
 ## Clean up resources
 

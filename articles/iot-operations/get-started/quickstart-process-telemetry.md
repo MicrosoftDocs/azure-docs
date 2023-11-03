@@ -116,7 +116,7 @@ To add the secret reference to your Kubernetes cluster, edit the **aio-default-s
 
 1. In `k9s` type `:` to open the command bar.
 
-1. In the command bar, type `secretproviderclass` and the press _Enter_. Then select the `aio-default-spc` resource.
+1. In the command bar, type `secretproviderclass` and then press _Enter_. Then select the `aio-default-spc` resource.
 
 1. Type `e` to edit the resource. The editor that opens is `vi`, use `i` to insert content and `:wq` to save and exit.
 
@@ -170,13 +170,13 @@ To verify data is flowing from your assets by using the **mqttui** tool:
 1. Run the following command to set up port forwarding for the MQ broker. This command blocks the terminal, for subsequent commands you need a new terminal:
 
     ```bash
-    kubectl port-forward svc/aio-mq-dmqtt-frontend 1883:1883 -n azure-iot-operations
+    kubectl port-forward svc/aio-mq-dmqtt-frontend 1883:mqtt-1883 -n azure-iot-operations
     ```
 
-1. Use the following command:
+1. In a separate terminal window, run the following command to connect to the MQ broker using the mqttui tool:
 
     ```bash
-    mqttui -b mqtt://localhost:1883
+    mqttui -b mqtt://127.0.0.1:1883
     ```
 
 1. Verify that the thermostat asset you added in the previous quickstart is publishing data. You can find the telemetry in the `azure-iot-operations/data` topic.
@@ -189,7 +189,7 @@ The sample tags you added in the previous quickstart generate messages from your
 {
     "Timestamp": "2023-08-10T00:54:58.6572007Z", 
     "MessageType": "ua-deltaframe",
-    "Payload": {
+    "payload": {
       "temperature": {
         "SourceTimestamp": "2023-08-10T00:54:58.2543129Z",
         "Value": 7109
@@ -233,7 +233,7 @@ In the following steps, leave all values at their default unless otherwise speci
 
     This simple JQ transformation passes through the incoming message unchanged.
 
-1. Finally, select **Add destination**, select **E4K** from the list of destinations, enter the following information and then select **Apply**:
+1. Finally, select **Add destination**, select **MQ** from the list of destinations, enter the following information and then select **Apply**:
 
     | Parameter      | Value                             |
     | -------------- | --------------------------------- |
@@ -249,7 +249,7 @@ In the following steps, leave all values at their default unless otherwise speci
 1. Connect to the MQ broker using your MQTT client again. This time, specify the topic `dp-output`.
 
     ```bash
-    mqttui "dp-output"
+    mqttui -b mqtt://127.0.0.1:1883 "dp-output"
     ```
 
 1. You see the same data flowing as previously. This behavior is expected because the deployed _passthrough data pipeline_ doesn't transform the data. The pipeline routes data from one MQTT topic to another.
@@ -305,7 +305,7 @@ In the following steps, leave all values at their default unless otherwise speci
 To store the reference data, publish it as an MQTT message to the `reference_data` topic by using the mqttui tool:
 
 ```bash
-mqttui publish "reference_data" '{ "customer": "Contoso", "batch": 102, "equipment": "Boiler", "location": "Seattle", "isSpare": true }'
+mqttui -b mqtt://127.0.0.1:1883 publish "reference_data" '{ "customer": "Contoso", "batch": 102, "equipment": "Boiler", "location": "Seattle", "isSpare": true }'
 ```
 
 After you publish the message, the pipeline receives the message and stores the data in the equipment data reference dataset.
@@ -338,14 +338,14 @@ Create a Data Processor pipeline to process and enrich your data before it sends
 
     | Parameter         | Value |
     | ----------------- | ----- |
-    | Input path        | `.payload.Payload["temperature"]` |
-    | Output path       | `.payload.Payload.temperature_lkv` |
+    | Input path        | `.payload.payload["temperature"]` |
+    | Output path       | `.payload.payload.temperature_lkv` |
     | Expiration time    | `01h` |
 
     | Parameter         | Value |
     | ----------------- | ----- |
-    | Input path        | `.payload.Payload["Tag 10"]` |
-    | Output path       | `.payload.Payload.tag1_lkv` |
+    | Input path        | `.payload.payload["Tag 10"]` |
+    | Output path       | `.payload.payload.tag1_lkv` |
     | Expiration time    | `01h` |
 
     This stage enriches the incoming messages with the latest `temperature` and `Tag 10` values if they're missing. The tracked latest values are retained for 1 hour. If the tracked properties appear in the message, the tracked latest value is updated to ensure that the values are always up to date.
@@ -362,7 +362,7 @@ Create a Data Processor pipeline to process and enrich your data before it sends
 
     Because you don't provide any conditions, the message is enriched with all the reference data. You can use ID-based joins (`KeyMatch`) and timestamp-based joins (`PastNearest` and `FutureNearest`) to filter the enriched reference data based on the provided conditions.
 
-1. To transform the data, select **Transform** from **Pipeline Stages**. Configure the stage by using the values in the following table and then select **Apply**
+1. To transform the data, select **Transform** from **Pipeline Stages**. Configure the stage by using the values in the following table and then select **Apply**:
 
     | Parameter     | Value       |
     | ------------- | ----------- |
@@ -406,14 +406,14 @@ Create a Data Processor pipeline to process and enrich your data before it sends
 
     | Name | Type | Path |
     | ---- | ---- | ---- |
-    | Timestamp | timestamp | `.Timestamp` |
-    | AssetName | string | `.assetName` |
-    | Customer | string | `.Customer` |
-    | Batch | integer | `.Batch` |
-    | CurrentTemperature | float | `.CurrentTemperature` |
-    | LastKnownTemperature | float | `.LastKnownTemperature` |
-    | Pressure | float | `.Pressure` |
-    | IsSpare | boolean | `.IsSpare` |
+    | Timestamp | Timestamp | `.Timestamp` |
+    | AssetName | String | `.assetName` |
+    | Customer | String | `.Customer` |
+    | Batch | Integer | `.Batch` |
+    | CurrentTemperature | Float | `.CurrentTemperature` |
+    | LastKnownTemperature | Float | `.LastKnownTemperature` |
+    | Pressure | Float | `.Pressure` |
+    | IsSpare | Boolean | `.IsSpare` |
 
 1. Select the pipeline name, **\<pipeline-name\>**, and change it to _contextualized-data-pipeline_. Select **Apply**.
 

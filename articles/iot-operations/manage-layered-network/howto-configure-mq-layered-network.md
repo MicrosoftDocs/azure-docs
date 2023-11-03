@@ -44,7 +44,7 @@ After the level 4 and level 3 cluster are both Arc-enabled, configure Iot MQ and
 1. To set up the CR for IoT MQ, create `mq-cr.yaml` file with the following content. Run 'kubectl apply -f mq-cr.yaml` and wait until all pods are ready.
 
     ```yaml
-    apiVersion: az-edge.com/v1alpha3
+    apiVersion: mq.iotoperations.azure.com/v1beta1
     kind: Broker
     metadata:
       name: "my-broker"
@@ -52,16 +52,16 @@ After the level 4 and level 3 cluster are both Arc-enabled, configure Iot MQ and
     spec:
       authImage:
         pullPolicy: Always
-        repository: alicesprings.azurecr.io/dmqtt-authentication
-        tag: 0.5.0
+        repository: e4kpreview.azurecr.io/dmqtt-authentication
+        tag: 0.1.0
       brokerImage:
         pullPolicy: Always
-        repository: alicesprings.azurecr.io/dmqtt-pod
-        tag: 0.5.0
+        repository: e4kpreview.azurecr.io/dmqtt-pod
+        tag: 0.1.0
       healthManagerImage:
         pullPolicy: Always
-        repository: alicesprings.azurecr.io/dmqtt-operator
-        tag: 0.5.0
+        repository: e4kpreview.azurecr.io/dmqtt-operator
+        tag: 0.1.0
       mode: distributed
       cardinality:
         frontend:
@@ -77,7 +77,7 @@ After the level 4 and level 3 cluster are both Arc-enabled, configure Iot MQ and
         logLevel: info,hyper=off,kube_client=off,tower=off,conhash=off,h2=off
         enableSelfCheck: true
     ---
-    apiVersion: az-edge.com/v1alpha3
+    apiVersion: mq.iotoperations.azure.com/v1beta1
     kind: BrokerListener
     metadata:
       name: "az-mqtt-non-tls-listener"
@@ -88,7 +88,7 @@ After the level 4 and level 3 cluster are both Arc-enabled, configure Iot MQ and
       authorizationEnabled: false
       port: 1883
     ---
-    apiVersion: az-edge.com/v1alpha3
+    apiVersion: mq.iotoperations.azure.com/v1beta1
     kind: DiagnosticService
     metadata:
       name: azedge-diagnostics-service
@@ -97,7 +97,7 @@ After the level 4 and level 3 cluster are both Arc-enabled, configure Iot MQ and
       image:
         pullPolicy: Always
         repository: alicesprings.azurecr.io/diagnostics-service
-        tag: 0.5.0
+        tag: 0.1.0
       logFormat: "text"
     ```
 
@@ -111,7 +111,7 @@ Follow the steps in [Configure TLS with manual certificate management to secure 
 1. To create the CR for TLS listener, create a file `mq-tls-listener.yaml` with follow content:
 
     ```yaml
-    apiVersion: az-edge.com/v1alpha3
+    apiVersion: mq.iotoperations.azure.com/v1beta1
     kind: BrokerListener
     metadata:
       name: "tls-listener-manual"
@@ -129,7 +129,10 @@ Follow the steps in [Configure TLS with manual certificate management to secure 
 
 ### Configure CoreDNS on level 4 Cluster
 
-To direct incoming traffic from MQTT bridge at level 3 to the in-cluster IoT MQ service, you need to modify the *coredns* running on level 4.
+To direct incoming traffic from MQTT bridge at level 3 to the in-cluster IoT MQ service, you need to modify the *coreDNS* running on level 4.
+
+> [!IMPORTANT]
+> The *coreDNS* configuration might reset after a Kubernetes service restart. If your changes are reset, you need to set the *configmap* again.
 
 1. Run the following command:
 
@@ -167,36 +170,33 @@ On level 3, you need to deploy IoT MQ and MQTT Bridge. MQTT Bridge is the compon
 
 ### Deploy IoT MQ on level 3
 
-> [!NOTE]
-> Change level 3 to level 4 namespace for MQ.
-
 1. Run the following command to deploy IoT MQ. This command installs the MQ Operator and Health Manager.
 
     ```bash
-    helm install e4k "oci://e4kpreview.azurecr.io/helm/az-e4k" --version 0.5.0
+    helm install e4k "oci://e4kpreview.azurecr.io/helm/az-e4k" --version 0.1.0
     ```
 
 1. To set up the CR for IoT MQ, create `mq-cr.yaml` file with the following content. Run `kubectl apply -f mq-cr.yaml` and wait until all pods are ready.
 
     ```yaml
-    apiVersion: az-edge.com/v1alpha3
+    apiVersion: mq.iotoperations.azure.com/v1beta1
     kind: Broker
     metadata:
       name: "my-broker"
-      namespace: default
+      namespace: level3
     spec:
       authImage:
         pullPolicy: Always
-        repository: alicesprings.azurecr.io/dmqtt-authentication
-        tag: 0.5.0
+        repository: e4kpreview.azurecr.io/dmqtt-authentication
+        tag: 0.1.0
       brokerImage:
         pullPolicy: Always
-        repository: alicesprings.azurecr.io/dmqtt-pod
-        tag: 0.5.0
+        repository: e4kpreview.azurecr.io/dmqtt-pod
+        tag: 0.1.0
       healthManagerImage:
         pullPolicy: Always
-        repository: alicesprings.azurecr.io/dmqtt-operator
-        tag: 0.5.0
+        repository: e4kpreview.azurecr.io/dmqtt-operator
+        tag: 0.1.0
       mode: distributed
       cardinality:
         frontend:
@@ -212,7 +212,7 @@ On level 3, you need to deploy IoT MQ and MQTT Bridge. MQTT Bridge is the compon
         logLevel: info,hyper=off,kube_client=off,tower=off,conhash=off,h2=off
         enableSelfCheck: true
     ---
-    apiVersion: az-edge.com/v1alpha3
+    apiVersion: mq.iotoperations.azure.com/v1beta1
     kind: BrokerListener
     metadata:
       name: "az-mqtt-non-tls-listener"
@@ -223,7 +223,7 @@ On level 3, you need to deploy IoT MQ and MQTT Bridge. MQTT Bridge is the compon
       authorizationEnabled: false
       port: 1883
     ---
-    apiVersion: az-edge.com/v1alpha3
+    apiVersion: mq.iotoperations.azure.com/v1beta1
     kind: DiagnosticService
     metadata:
       name: azedge-diagnostics-service
@@ -231,8 +231,8 @@ On level 3, you need to deploy IoT MQ and MQTT Bridge. MQTT Bridge is the compon
     spec:
       image:
         pullPolicy: Always
-        repository: alicesprings.azurecr.io/diagnostics-service
-        tag: 0.5.0
+        repository: e4kpreview.azurecr.io/diagnostics-service
+        tag: 0.1.0
       logFormat: "text"
     ```
 
@@ -256,7 +256,7 @@ remoteBrokerConnection:
 For **MqttBridgeTopicMap**, use the following example content of yaml file for testing end to end message delivery.
 
 ```yaml
-apiVersion: az-edge.com/v1alpha3
+apiVersion: mq.iotoperations.azure.com/v1beta1
 kind: MqttBridgeTopicMap
 metadata:
   name: "my-topic-map"

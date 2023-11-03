@@ -55,7 +55,7 @@ Azure IoT Layered Network Management Preview provides a set of observability met
 > | idle_timeout | The total number of connections closed due to idle timeout. |
 > | max_downstream_connection_duration | The total number of connections closed due to `max_downstream_connection_duration` timeout. |
 > | on_demand_cluster_attempt | The total number of connections that requested on demand cluster. |
-> | on_demand_cluster_attempt | The total number of connections closed due to on demand cluster is missing. |
+> | on_demand_cluster_missing | The total number of connections closed due to on demand cluster is missing. |
 > | on_demand_cluster_success | The total number of connections that requested and received an on-demand cluster. |
 > | on_demand_cluster_timeout | The total number of connections closed due to an on-demand cluster lookup timeout. |
 > | upstream_flush_total | The total number of connections that continued to flush upstream data after the downstream connection was closed. |

@@ -115,7 +115,6 @@ All metadata that's not part of the primary data becomes top-level properties wi
 | `properties` | The logical partition key defined at the input stage.  | Map | The property bag is always added.  |
 | `userProperties` | User defined properties.   | Array | The property bag is always added. The content can be empty if no user properties are present in the message.   |
 
-<!-- TODO: Clarify with Mohsina how properties field works. -->
 
 ## Related content
 

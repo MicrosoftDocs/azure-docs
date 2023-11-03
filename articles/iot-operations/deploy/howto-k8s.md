@@ -37,7 +37,7 @@ param customLocationName string
 
 var k8sConfigMap = loadYamlContent('config-map.yml')
 
-resource k8sResource 'Microsoft.Symphony/targets@2023-05-22-preview' = {
+resource k8sResource 'Microsoft.iotoperationsorchestrator/targets@2023-05-22-preview' = {
   name: 'k8s-resource'
   location: clusterLocation
   extendedLocation: {
