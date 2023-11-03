@@ -41,6 +41,6 @@ For more information on limitations and frequently asked questions related to cu
 
 [!INCLUDE [Remove assignment](../../includes/vpn-gateway-customer-controlled-gateway-maintenance-article-remove-assignment.md)]
 
-## Next Steps
+## Next steps
 
 For more information, see the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md#customer-controlled).
