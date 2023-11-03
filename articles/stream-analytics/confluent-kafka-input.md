@@ -27,12 +27,12 @@ This articles describes how to connect your Azure Stream Analytics job directly 
 Azure Stream Analytics requires you to configure managed identity to access key vault.
 You can configure your stream analytics job to use managed identity by navigating to the **Managed Identity** tab on the left side under **Configure**.
 
-    :::image type="content" source="./media/common/stream-analytics-enable-managed-identity-new.png" alt-text="Screenshot showing how to configure managed identity for an ASA job" lightbox="./media/common/stream-analytics-enable-managed-identity-new.png" :::
+:::image type="content" source="./media/common/stream-analytics-enable-managed-identity-new.png" alt-text="Screenshot showing how to configure managed identity for an ASA job" lightbox="./media/common/stream-analytics-enable-managed-identity-new.png" :::
 
 1.	Click on the **managed identity tab** under **configure**.
 2.	Select on **Switch Identity** and select the identity to use with the job: system-assigned identity or user-assigned identity.
 3.	For user-assigned identity, select the subscription where your user-assigned identity is located and select the name of your identity.
-4.	Review and **save**.
+4.	Review and **save**.   
 
 
 ## Download Certificate from LetsEncrypt
