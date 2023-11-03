@@ -99,8 +99,8 @@ Next, add a virtual network to the resource group that you created, and configur
 5. Next to **IP address assignment**, select **Static**.
 6. Next to IP address, enter **10.0.0.4** and then select **Save**.
 
-> [!NOTE]
-> You can choose a static or dynamic IP address for the inbound endpoint. A dynamic IP address is used by default. Typically the first available [non-reserved](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets) IP address is assigned (example: 10.0.0.4). This dynamic IP address does not change unless the endpoint is deleted and reprovisioned (for example using a different subnet). In this example **Static** is selected and the first available IP address is entered.
+   > [!NOTE]
+   > You can choose a static or dynamic IP address for the inbound endpoint. A dynamic IP address is used by default. Typically the first available [non-reserved](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets) IP address is assigned (example: 10.0.0.4). This dynamic IP address does not change unless the endpoint is deleted and reprovisioned (for example using a different subnet). In this example **Static** is selected and the first available IP address is entered.
 
 5. Select the **Outbound Endpoints** tab, select **Add an endpoint**, and then enter a name next to **Endpoint name** (ex: myoutboundendpoint).
 6. Next to **Subnet**, select the outbound endpoint subnet you created (ex: snet-outbound, 10.1.1.0/28) and then select **Save**.
