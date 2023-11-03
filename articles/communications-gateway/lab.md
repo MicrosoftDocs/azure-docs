@@ -19,11 +19,11 @@ You must have deployed a standard deployment or be about to deploy a standard de
 
 ## Uses of lab deployments
 
-You can use a lab deployment to:
+Lab deployments allow you to make changes and test them without affecting your production deployment. For example, you can:
 
-- Test your configuration changes to Azure Communications Gateway before they're released to the production deployment.
-- Test new Azure Communications Gateway features and services before they're enabled and configured for the production deployment (for example, configuring Microsoft Teams Direct Routing or Zoom Phone Cloud Peering).
-- Test changes in your network before you release them to your production network.
+- Test configuration changes to Azure Communications Gateway.
+- Test new Azure Communications Gateway features and services (for example, configuring Microsoft Teams Direct Routing or Zoom Phone Cloud Peering).
+- Test changes in your preproduction network, before rolling them out to your production networks.
 
 Lab deployments support all the communications services supported by production deployments.
 
