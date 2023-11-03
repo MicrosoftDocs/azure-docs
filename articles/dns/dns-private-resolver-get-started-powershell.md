@@ -51,7 +51,7 @@ Connect PowerShell to Azure cloud.
 Connect-AzAccount -Environment AzureCloud
 ```
 
-If multiple subscriptions are present, the first subscription ID will be used. To specify a different subscription ID, use the following command.
+If multiple subscriptions are present, the first subscription ID is used. To specify a different subscription ID, use the following command.
 
 ```Azure PowerShell
 Select-AzSubscription -SubscriptionObject (Get-AzSubscription -SubscriptionId <your-sub-id>)
@@ -114,7 +114,7 @@ Create an inbound endpoint to enable name resolution from on-premises or another
 
 > [!TIP]
 > Using PowerShell, you can specify the inbound endpoint IP address to be dynamic or static.<br> 
-> If the endpoint IP address is specified as dynamic, the address does not change unless the endpoint is deleted and reprovisioned. Typically the same IP address will be assigned again during reprovisioning.<br>
+> If the endpoint IP address is specified as dynamic, the address does not change unless the endpoint is deleted and reprovisioned. Typically the same IP address is assigned again during reprovisioning.<br>
 > If the endpoint IP address is static, it can be specified and reused if the endpoint is reprovisioned. The IP address that you choose can't be a [reserved IP address in the subnet](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets).
 
 #### Dynamic IP address
