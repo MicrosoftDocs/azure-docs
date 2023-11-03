@@ -68,7 +68,7 @@ Follow the instructions to configure an existing ConfigMap or to use a new one.
 
 ## [CLI](#tab/configure-CLI)
 
-1. For configuring via CLI, use the corresponding [config file](./container-insights-cost-config.md&tabs=cli#enable-cost-settings), update the `enableContainerLogV2` field in the config file to be true.
+1. For configuring via CLI, use the corresponding [config file](./container-insights-cost-config.md?tabs=cli#enable-cost-settings), update the `enableContainerLogV2` field in the config file to be true.
 
 
 ---
