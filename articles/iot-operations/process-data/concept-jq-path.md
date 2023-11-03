@@ -23,11 +23,9 @@ Both cases use the same syntax and specify locations relative to the root of the
 
 The jq paths supported by Data Processor are syntactically correct for [jq](https://jqlang.github.io/jq/), but have simplified semantics to make the them easier to use and to help reduce errors in the Data Processor pipleline. In particular, Data Processor doesn't use the `?` syntax to suppress errors for misaligned data structures. Those errors are automatically suppressed for you when working with paths.
 
-Examples of data access within a data processor pipeline include the `inputPath` in the aggregate and last known value stages. Use the data access pattern whenever you need to access some data within a data processor message.
+Examples of data access within a data processor pipeline include the `inputPath` in the [aggregate](howto-configure-aggregate-stage.md) and [last known value](howto-configure-lkv-stage.md) stages. Use the data access pattern whenever you need to access some data within a data processor message.
 
-Data update uses the same syntax as data access, but there are some special behaviors in specific update scenarios. Examples of data update within a data processor pipeline include the `outputPath` in the aggregate and last known value pipeline stages. Use the data update pattern whenever you need to place the result of an operation into the Data Processor message.
-
-<!-- TODO: Add links to relevant stages in previous paragraphs -->
+Data update uses the same syntax as data access, but there are some special behaviors in specific update scenarios. Examples of data update within a data processor pipeline include the `outputPath` in the [aggregate](howto-configure-aggregate-stage.md) and [last known value](howto-configure-lkv-stage.md) pipeline stages. Use the data update pattern whenever you need to place the result of an operation into the Data Processor message.
 
 > [!NOTE]
 > A data processor message contains more than just the body of your message. A data processor message includes any properties and metadata that you sent and other relevant system information. The primary payload containing the data sent into the processing pipeline is placed in a `payload` field at the root of the message. This is why many of the examples in this guide include paths that start with `.payload`.
