@@ -1,13 +1,13 @@
 ---
 title: Technical onboarding guide for 42Crunch
-description: Learn using 42Crunch with Microsoft Defender.
+description: Learn how to use 42Crunch with Microsoft Defender.
 ms.date: 11/05/2023
 author: dcurwin
 ms.author: dacurwin
 ms.topic: overview
 ---
 
-# Overview
+# 42Crunch technical onboarding guide
 
 42Crunch enables a standardized approach to securing APIs that automates the enforcement of API security compliance across distributed development and security teams. The 42Crunch API security platform empowers developers to build security from the integrated development environment (IDE) into the CI/CD pipeline. This seamless DevSecOps approach to API security reduces governance costs and accelerates the delivery of secure APIs.
 
