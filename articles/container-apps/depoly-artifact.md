@@ -1,6 +1,6 @@
 ---
-title: 'Build and deploy JAR files to Azure Container Apps'
-description: Build your java application to a JAR file and deploy it to Azure Container Apps.
+title: 'Deploy an artifact file to Azure Container Apps'
+description: Use a prebuilt artifact file to deploy to Azure Container Apps.
 services: container-apps
 author: craigshoemaker
 ms.author: cshoe
@@ -10,9 +10,11 @@ ms.date: 11/03/2023
 ms.custom: ignite-2023
 ---
 
-# Quickstart: Build and deploy JAR to Azure Container Apps
+# Quickstart: Deploy an artifact file to Azure Container Apps
 
-This article demonstrates how to build and deploy a JAR file to Azure Container Apps. JAR files are archive files that include a Java-specific manifest file. They're built on the ZIP format and typically have a *.jar* file extension.
+This article demonstrates how to deploy a container app from a prebuilt artifact file.
+
+The following example deploys a Java application using a JAR file, which include a Java-specific manifest file.
 
 In this quickstart, you create a backend web API service that returns a static collection of music albums.  After completing this quickstart, you can continue to [Tutorial: Communication between microservices in Azure Container Apps](communicate-between-microservices.md) to learn how to deploy a front end application that calls the API.
 
@@ -81,7 +83,7 @@ az extension add --name containerapp --upgrade
 
 ---
 
-Register the `Microsoft.App` and `Microsoft.OperationalInsights` namespaces if you haven't already registered them in your Azure subscription.
+Register the `Microsoft.App` and `Microsoft.OperationalInsights` namespaces they're not already registered in your Azure subscription.
 
 # [Bash](#tab/bash)
 
@@ -119,7 +121,7 @@ API_NAME="album-api"
 SUBSCRIPTION=<YOUR_SUBSCRIPTION_ID>
 ```
 
-You can check your subscription ID with:
+If necessary, you can query for your subscription ID.
 
 ```azurecli
 az account list --output table
@@ -137,7 +139,7 @@ $API_NAME="album-api"
 $SUBSCRIPTION=<YOUR_SUBSCRIPTION_ID>
 ```
 
-You can check your subscription ID with:
+If necessary, you can query for your subscription ID.
 
 ```powershell
 az account list --output table
@@ -147,7 +149,7 @@ az account list --output table
 
 ## Prepare the GitHub repository
 
-Now you can clone the sample repository.
+Begin by cloning the sample repository.
 
 Use the following git command to clone the sample app into the *code-to-cloud* folder:
 
@@ -196,19 +198,21 @@ java -jar target\containerapps-albumapi-java-0.0.1-SNAPSHOT.jar
 
 ---
 
-Test run the project on the localhost: http://localhost:8080/albums, you should be able to see the returned list of the JSON objects.
+To verify application is running, open a browser and go to `http://localhost:8080/albums`. The page returns a list of the JSON objects.
 
-## Deploy the JAR file to Azure Container Apps
+## Deploy the artifact
 
-Build and deploy your first container app from your local JAR file with the `containerapp up` command. This command will:
+Build and deploy your first container app from your local JAR file with the `containerapp up` command.
 
-- Create the resource group
-- Create an Azure Container Registry
-- Build the container image and push it to the registry
-- Create the Container Apps environment with a Log Analytics workspace
-- Create and deploy the container app using a public container image
+This command:
 
-The `up` command uses the Docker file in the root of the repository to build the container image.  The target port is defined by the EXPOSE instruction in the Docker file.  A Docker file isn't required to build a container app.
+- Creates the resource group
+- Creates an Azure Container Registry
+- Builds the container image and push it to the registry
+- Creates the Container Apps environment with a Log Analytics workspace
+- Creates and deploys the container app using a public container image
+
+The `up` command uses the Docker file in the root of the repository to build the container image.  The `EXPOSE` instruction in the Docker file defines the target port. A Docker file, however, isn't required to build a container app.
 
 # [Bash](#tab/bash)
 
@@ -252,11 +256,21 @@ If you're not going to continue to use this application, you can delete the Azur
 
 Follow these steps in the Azure portal to remove the resources you created:
 
-1. Select the **msdocscontainerapps** resource group from the *Overview* section.
-1. Select the **Delete resource group** button at the top of the resource group *Overview*.
-1. Enter the resource group name **msdocscontainerapps** in the *Are you sure you want to delete "my-container-apps"* confirmation dialog.
-1. Select **Delete**.
-    The process to delete the resource group may take a few minutes to complete.
+# [Bash](#tab/bash)
+
+```azurecli
+az group delete \
+  --resource-group $RESOURCE_GROUP
+```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurecli
+az group delete `
+  --resource-group $RESOURCE_GROUP
+```
+
+---
 
 > [!TIP]
 > Having issues? Let us know on GitHub by opening an issue in the [Azure Container Apps repo](https://github.com/microsoft/azure-container-apps).
