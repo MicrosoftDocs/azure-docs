@@ -59,7 +59,7 @@ The `mltable` parameter is an abstraction for tabular data that's used for autom
 
 Machine Learning datastores securely keep the connection information to your data storage on Azure so that you don't have to code it in your scripts. You can register and create a datastore to easily connect to your storage account and access the data in your underlying storage service. The Azure Machine Learning CLI v2 and SDK v2 support the following types of cloud-based storage services:
 
-* Azure Blob container
+* Azure Blob Storage container
 * Azure Files share
 * Azure Data Lake Storage
 * Azure Data Lake Storage Gen2
