@@ -75,7 +75,7 @@ To view the available datasets:
 
 ## Example
 
-This example describes a manufacturing facility where several pieces of equipment are installed at different locations. An ERP system tracks the installations, stored the data in database and records the following details for each piece of equipment: name, location, installation date, and a boolean that indicates whether it's a spare. For example:
+This example describes a manufacturing facility where several pieces of equipment are installed at different locations. An ERP system tracks the installations, stores the data in database, and records the following details for each piece of equipment: name, location, installation date, and a boolean that indicates whether it's a spare. For example:
 
 | equipment | location | installationDate | isSpare |
 |---|---|---|---|
@@ -85,7 +85,7 @@ This example describes a manufacturing facility where several pieces of equipmen
 
 This ERP data is a useful source of contextual data for the time series data that comes from each location. You can send this data to Data Processor to store in a reference dataset and use it to enrich messages in other pipelines.
 
-When you send data from a database (like Microsoft SQL server) to Data Processor, it deserializes it into a format that it can process. The following JSON shows an example payload that represents the data in database within Data Processor:
+When you send data from a database, such as Microsoft SQL server, to Data Processor, it deserializes it into a format that it can process. The following JSON shows an example payload that represents the data from a database within Data Processor:
 
 ```json
 {
