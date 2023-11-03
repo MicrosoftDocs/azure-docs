@@ -168,34 +168,34 @@
         href: create-account-resource-manager-template.md  
       - name: Create a new resource using Terraform
         href: create-account-terraform.md
-  - name: Deploy containers
-    items:
-    - name: Azure AI containers overview
-      href: cognitive-services-container-support.md
-    - name: General container FAQ
-      href: ./containers/container-faq.yml
-    - name: Use containers in disconnected environments
-      href: ./containers/disconnected-containers.md
-    - name: Disconnected containers FAQ
-      href: ./containers/disconnected-container-faq.yml
-    - name: Container recipes
+    - name: AI services containers
       items:
-      - name: Container Reuse
-        href: ./containers/container-reuse-recipe.md
-      - name: Deploy to Azure Container Instance
-        href: ./containers/azure-container-instance-recipe.md
-      - name: Deploy to Azure Kubernetes
-        href: ./containers/azure-kubernetes-recipe.md
-      - name: Deploy with Docker Compose
-        href: ./containers/docker-compose-recipe.md
-    - name: Other Container Services
-      items:
-      - name: Azure Container Instances
-        href: ../container-instances/container-instances-tutorial-prepare-app.md
-      - name: Azure Container Registry
-        href: ../container-registry/container-registry-get-started-azure-cli.md
-      - name: Azure Kubernetes Service (AKS)
-        href: ../aks/tutorial-kubernetes-prepare-app.md
+      - name: Azure AI containers overview
+        href: cognitive-services-container-support.md
+      - name: General container FAQ
+        href: ./containers/container-faq.yml
+      - name: Use containers in disconnected environments
+        href: ./containers/disconnected-containers.md
+      - name: Disconnected containers FAQ
+        href: ./containers/disconnected-container-faq.yml
+      - name: Container recipes
+        items:
+        - name: Container Reuse
+          href: ./containers/container-reuse-recipe.md
+        - name: Deploy to Azure Container Instance
+          href: ./containers/azure-container-instance-recipe.md
+        - name: Deploy to Azure Kubernetes
+          href: ./containers/azure-kubernetes-recipe.md
+        - name: Deploy with Docker Compose
+          href: ./containers/docker-compose-recipe.md
+      - name: Other Container Services
+        items:
+        - name: Azure Container Instances
+          href: ../container-instances/container-instances-tutorial-prepare-app.md
+        - name: Azure Container Registry
+          href: ../container-registry/container-registry-get-started-azure-cli.md
+        - name: Azure Kubernetes Service (AKS)
+          href: ../aks/tutorial-kubernetes-prepare-app.md
 - name: Tutorials
   items:
   - name: Using Azure AI Studio with a screen reader
