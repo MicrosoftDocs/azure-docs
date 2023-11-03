@@ -545,13 +545,10 @@
           items:
             - name: CSI storage drivers overview
               href: csi-storage-drivers.md
-            - name: Azure Container Storage 
-              href: ../storage/container-storage/container-storage-introduction.md
+           
             - name: Migrate from in-tree to CSI driver
               href: csi-migrate-in-tree-volumes.md
-        - name: Shared file storage
-          items:
-            - name: Block storage
+        - name: Block storage
               items:
                 - name: Provision Azure Disks storage
                   href: azure-csi-disk-storage-provision.md
@@ -563,6 +560,10 @@
                   href: use-ultra-disks.md
                 - name: Bring your own keys for disks
                   href: azure-disk-customer-managed-keys.md
+                - name: Azure Container Storage 
+                  href: ../storage/container-storage/container-storage-introduction.md
+        - name: Shared file storage
+          items:
             - name: Azure Files storage
               items:
                 - name: Azure Files CSI driver
