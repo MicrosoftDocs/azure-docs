@@ -64,7 +64,8 @@ Available configuration parameters are:
 >limit 10;
 >```
 
-Final result caching produces **JMX metrics** which can be viewed using [Managed Prometheus and Grafana](../monitoring-with-prometheus-and-grafana.md). The following metrics are available:
+Final result caching produces **JMX metrics** which can be viewed using [Managed Prometheus and Grafana](../monitor-with-prometheus-grafana.md). The following metrics are available:
+
 |Metric|Description|
 |---|---|
 |`trino_cache_cachestats_requestcount`|Total number of queries going through cache layer. This number doesn't include queries executed with cache off.|
