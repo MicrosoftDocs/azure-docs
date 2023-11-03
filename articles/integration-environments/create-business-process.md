@@ -16,11 +16,15 @@ ms.date: 11/15/2023
 
 After you create an integration environment and an application group with existing Azure resources, you can add business context about these resources by visually defining one or more business processes. After you create these processes, you can add tracking for key business data by mapping business process stages to operations and data in Standard logic app workflows.
 
-For example, suppose you're the power company, and your customer service team has the following business process to res power outages:
+For example, suppose you're the power company, and your customer service team has the following business process to resolve customer tickets for power outages:
 
-:::image type="content" source="media/business-process-stages-example.png" alt-text="{alt-text}" lightbox="business-process-stages-example.png":::
+:::image type="content" source="media/create-business-process/business-process-stages-example.png" alt-text="Conceptual diagram shows example power outage business process stages for customer service at a power company." lightbox="media/business-process-stages-example.png":::
 
-This busines process spans multiple Standard logic app resources and their workflows:
+With the business process designer in your integration environment, you can visually describe this business process, for example:
+
+:::image type="content" source="media/create-business-process/business-process-stages-complete.png" alt-text="Screenshot shows business process designer in the busines process tracking feature in an integration environment." lightbox="media/create-business-process/business-process-stages-complete.png":::
+
+. This busines process spans multiple Standard logic app resources and their workflows:
 
 ## Prerequisites
 
@@ -44,10 +48,10 @@ This busines process spans multiple Standard logic app resources and their workf
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
-   | **Name** | Yes | <*process-name*> | Name for your business process |
+   | **Name** | Yes | <*process-name*> | Name for your business process. This name can contain only alphanumeric characters, hyphens, underscores, parentheses, and periods. <br><br>This example uses **Track-Power-Outages**. |
    | **Description** | No | <*process-description*> | Purpose for your business process |
-   | **Business identifier** | Yes | <*business-ID*> | This important string or integer ID uniquely identifies a transaction, such as an order number, ticket number, case number, or another similar identifier. |
-   | **Type** | Yes | <*ID-data-type*> | Data type for your business identifier: **String** or **Integer** |
+   | **Business identifier** | Yes | <*business-ID*> | This important and unique ID identifies a transaction, such as an order number, ticket number, case number, or another similar identifier. <br><brThis example uses the **TicketNumber** property value as the identifier. |
+   | **Type** | Yes | <*ID-data-type*> | Data type for your business identifier: **String** or **Integer**. <br><brThis example uses the **String** data type. |
 
 1. When you're done, select **Create**.
 
@@ -57,9 +61,36 @@ This busines process spans multiple Standard logic app resources and their workf
 
 ## Add a business process stage
 
-In your business process, add stages and define key business data properties for each stage so that you can get insights into your business process.
+After you create your business process, add stages and define key business data properties for each stage so that you can get insights into your business process.
 
-1. In the 
+1. From the **Business processes** list, select your business process to open the business process designer.
+
+1. On the designer, select **Add stage**. On the **Add stage** pane, provide the following information:
+
+   > [!TIP]
+   >
+   > To quickly draft the stages in your business process, just provide 
+   > the name, and then update the remaining values later.
+
+   | Property | Required | Value | Description |
+   |----------|----------|-------|-------------|
+   | **Name** | Yes | <*stage-name*> | Name for this process stage. This name can contain only alphanumeric characters, hyphens, underscores, parentheses, and periods. | 
+   | **Description** | No | <*stage-description*> | Purpose for this stage |
+   | **Show data source** | No | True or false | Show or hide the available data sources: <br><br>- **Logic app**: Name for an available Standard logic app resource <br>- **Workflow**: Name for the workflow in the selected Standard logic app resource <br>= **Action**: Name for the operation that you want to select and map to this stage <br><br>**Note**: If no options appear, no Standard logic apps are available in your Azure subscription. |
+   | **Add property** | No | True or false | Informatin about the properties and key business data that your organization wants to track: <br><br>- **Property**: Name for the property, for example, **SiteID** and **Timestamp** <br>**Type**: Property's data type, which is either a **String** or **Integer** <br><br> Data type for the property's value |
+   | **Business identifier** | Yes | <*business-ID*> | This unique ID identifies a transaction, such as an order number, ticket number, case number, or another similar identifier. In this example, the **TicketNumber** property is prepopulated from when you defined the parent business process. |
+
+1. When you're done, select **Add**.
+
+1. To add another stage, choose one of the following options:
+
+   - Under the last stage, select **Add stage**. 
+ 
+   - Between stages, select the plus sign (**+**), and then select either **Add stage** or **Add a parallel stage**, which creates a decision branch in your business process.
+
+1. Repeat the steps to add a stage as necessary.
+
+1. When you're done, on the toolbar, select **Save**.
 
 ## Next steps
 

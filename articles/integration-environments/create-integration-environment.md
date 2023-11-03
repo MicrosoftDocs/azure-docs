@@ -36,7 +36,7 @@ To centrally and logically organize and manage Azure resources associated with y
    |----------|----------|-------|-------------|
    | **Subscription** | Yes |  <*Azure-subscription*> | Same Azure subscription as the Azure resources to organize |
    | **Resource group** | Yes | <*Azure-resource-group*> | New or existing Azure resource group to use |
-   | **Name** | Yes | <*integration-environment-name*> | Name for your integration environment |
+   | **Name** | Yes | <*integration-environment-name*> | Name for your integration environment. This name can contain only alphanumeric characters, hyphens, underscores, and periods. |
    | **Description** | No | <*integration-environment-description*> | Purpose for your integration environment |
    | **Region** | Yes | <*Azure-region*> | Azure deployment region |
 

@@ -44,7 +44,7 @@ After you create an integration environment, create one or more application grou
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
-   | **Name** | Yes | <*application-name*> | Name for your application group |
+   | **Name** | Yes | <*application-name*> | Name for your application group. This name can contain only alphanumeric characters, hyphens, underscores, and periods. |
    | **Description** | No | <*application-description*> | Purpose for your application group |
 
 1. Select the **Resources** tab, and then select **Add resource**.
