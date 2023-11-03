@@ -2,7 +2,7 @@
 title: Quickstart - Connect hybrid machine with Azure Arc-enabled servers
 description: In this quickstart, you connect and register a hybrid machine with Azure Arc-enabled servers.
 ms.topic: quickstart
-ms.date: 05/04/2023
+ms.date: 11/03/2023
 ms.custom: mode-other
 ---
 
