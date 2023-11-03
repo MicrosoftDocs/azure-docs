@@ -65,12 +65,6 @@ Azure service: [Azure Cache for Redis](../../../azure-cache-for-redis/index.yml)
 > | Microsoft.Cache/redis/privateEndpointConnections/write | Write a private endpoint connection |
 > | Microsoft.Cache/redis/privateEndpointConnections/delete | Delete a private endpoint connection |
 > | Microsoft.Cache/redis/privateLinkResources/read | Read 'groupId' of redis subresource that a private link can be connected to |
-> | Microsoft.Cache/redis/roleAssignments/read | Read role assignments on a Redis Cache |
-> | Microsoft.Cache/redis/roleAssignments/write | Create or update role assignments on a Redis Cache |
-> | Microsoft.Cache/redis/roleAssignments/delete | Delete All Redis Role Assignments |
-> | Microsoft.Cache/redis/roles/read | Read roles on a Redis Cache |
-> | Microsoft.Cache/redis/roles/write | Create or update role on a Redis Cache |
-> | Microsoft.Cache/redis/roles/delete | Delete role on a Redis Cache |
 > | Microsoft.Cache/redisEnterprise/delete | Delete the entire Redis Enterprise cache |
 > | Microsoft.Cache/redisEnterprise/read | View the Redis Enterprise cache's settings and configuration in the management portal |
 > | Microsoft.Cache/redisEnterprise/write | Modify the Redis Enterprise cache's settings and configuration in the management portal |
