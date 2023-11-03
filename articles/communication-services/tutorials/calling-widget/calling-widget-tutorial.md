@@ -58,14 +58,14 @@ cd ui-library-calling-widget-app
 
 ### Get your dependencies
 
-Then you need to update the dependency array in the `package.json` to include some beta packages from Azure Communication Services for the widget experience we are going to build to work:
+Then you need to update the dependency array in the `package.json` to include some packages from Azure Communication Services for the widget experience we are going to build to work:
 
 ```json
-"@azure/communication-calling": "1.17.1-beta.5",
+"@azure/communication-calling": "1.19.1-beta.2",
 "@azure/communication-chat": "1.4.0-beta.1",
-"@azure/communication-react": "1.9.0-beta.1",
+"@azure/communication-react": "1.10.0-beta.1",
 "@azure/communication-calling-effects": "1.0.1",
-"@azure/communication-common": "2.2.1",
+"@azure/communication-common": "2.3.0",
 "@fluentui/react-icons": "~2.0.203",
 "@fluentui/react": "~8.98.3",
 ```
@@ -180,7 +180,7 @@ function App() {
         />
       </Stack>
     </Stack>
-  );;
+  );
 }
 
 export default App;
@@ -210,9 +210,9 @@ import {
     callingWidgetContainerStyles,
     callIconStyles,
     logoContainerStyles,
-    collapseButtonStyles
+    collapseButtonStyles,
+    callingWidgetInCallContainerStyles
 } from '../styles/CallingWidgetComponent.styles';
-
 import { AzureCommunicationTokenCredential, CommunicationIdentifier, MicrosoftTeamsAppIdentifier } from '@azure/communication-common';
 import {
     CallAdapter,
@@ -220,10 +220,7 @@ import {
     useAzureCommunicationCallAdapter,
     AzureCommunicationCallAdapterArgs
 } from '@azure/communication-react';
-// lets add to our react imports as well
 import { useCallback, useMemo } from 'react';
-
-import { callingWidgetInCallContainerStyles } from '../styles/CallingWidgetComponent.styles';
 
 /**
  * Properties needed for our widget to start a call.
@@ -328,8 +325,7 @@ export const CallingWidgetComponent = (
                     onClick={() => {
                       if (displayName && consentToData && adapter && widgetAdapterArgs.teamsAppIdentifier) {
                           setWidgetState('inCall');
-                          console.log(callAdapterArgs.locator);
-                          adapter.startCall([`28:orgid:${widgetAdapterArgs.teamsAppIdentifier.teamsAppId}`]);
+                          adapter.startCall([widgetAdapterArgs.teamsAppIdentifier]);
                       }
                     }}
                 >
