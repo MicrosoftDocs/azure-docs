@@ -69,7 +69,7 @@ Contoso's API ecosystem includes the following:
 
 * **API management** - Contoso uses Azure API Management to manage, publish, and secure their APIs. They use separate instances for Development, Test, and Production, each with a distinct name: APIM-DEV, APIM-TEST and APIM-PROD. 
 
-* **API hub** - Contoso has adopted Azure API Center as their centralized hub for API discovery, governance, and consumption. Azure API Center serves as a single source of truth for API-related information and is intended to be used by API developers, app developers, and API program managers. 
+* **API center** - Contoso has adopted Azure API Center as their centralized hub for API discovery, governance, and consumption. Azure API Center serves as a structured and organized API hub that provides comprehensive information about all organizational APIs. API Center is the centralized catalog for all APIs that maintains API metadata including versions and associated deployments. 
 
 ## Frequently asked questions
 
@@ -86,7 +86,7 @@ While both services provide tools for governing APIs, they serve different purpo
 
 A: API Center is a stand-alone Azure service that's complementary to Azure API Management and API management services from other providers. API Center provides a unified API inventory for all APIs in the organization, including APIs that don't run in API gateways (such as those that are still in design) and those that are managed with different API management solutions.
 
-For APIs that are managed using an API management solution, API Center can track the runtime environment and deployment details. 
+For APIs that are managed using an API management solution, API Center can store metadata such the runtime environment and deployment details. 
 
 ### Q: Is my data encrypted in API Center?
 
