@@ -37,7 +37,7 @@ You can configure your stream analytics job to use managed identity by navigatin
 
 ## Download Certificate from LetsEncrypt
 
-The stream analytics kafka input is a librdkafka-based client, and to connect to confluent cloud, you need TLS certificates that confluent cloud uses for server authentication. Confluent cloud uses TLS certificates from Let’s Encrypt, an open certificate authority (CA). 
+Azure stream analytics is a librdkafka-based client, and to connect to confluent cloud, you need TLS certificates that confluent cloud uses for server authentication. Confluent cloud uses TLS certificates from Let’s Encrypt, an open certificate authority (CA). 
 
 Download the ISRG Root X1 certificate in **PEM** format on the site of [LetsEncrypt](https://letsencrypt.org/certificates/).
 
@@ -109,7 +109,7 @@ az keyvault secret set --vault-name mykeyvault --name confluentsecret --file C:\
 ## Grant the Stream Analytics job permissions to access the certificate in the key vault
 
 For your Azure Stream Analytics job to read the secret in your key vault, the job must have permission to access the key vault.
-Follow the instructions below to grant special permissions to your stream analytics job:
+Use the following steps to grant special permissions to your stream analytics job:
 
 1. In your key vault, select **Access control (IAM)**.
 
