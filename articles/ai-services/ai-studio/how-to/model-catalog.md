@@ -12,6 +12,8 @@ ms.author: eur
 
 # Explore the model catalog in Azure AI Studio
 
+[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
+
 The model catalog in AI Studio is a hub for discovering foundation models. The catalog includes some of the most popular large language and vision foundation models curated by Microsoft, Hugging Face, and Meta. These models are packaged for out-of-the-box usage and are optimized for use in Azure AI Studio. 
 
 > [!NOTE]

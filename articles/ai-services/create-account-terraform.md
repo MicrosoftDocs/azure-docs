@@ -126,5 +126,4 @@ In this article, you learn how to:
 
 ## Next steps
 
-> [!div class="nextstepaction"] 
-> [Recover or purge deleted Azure AI services resources](recover-purge-resources.md)
+- [Learn more about Azure AI resources](../ai-services/ai-studio/concepts/ai-resources.md)

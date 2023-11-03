@@ -12,6 +12,8 @@ ms.author: eur
 
 # Quickstart: Generate product name ideas in the Azure AI Studio playground
 
+[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
+
 Use this article to get started making your first calls to Azure OpenAI.
 
 ## Prerequisites
@@ -74,7 +76,7 @@ You've now successfully generated product name ideas using Azure OpenAI. You can
 - Select the **Undo** button to undo the prior generation call.
 - Select the **Regenerate** button to complete an undo and generation call together.
 
-Azure OpenAI also performs content moderation on the prompt inputs and generated outputs. The prompts or responses might be filtered if harmful content is detected. For more information, see the [content filter](../../openai/concepts/content-filter.md) article.
+Azure OpenAI also performs content moderation on the prompt inputs and generated outputs. The prompts or responses can be filtered if harmful content is detected. For more information, see the [content filter](../../openai/concepts/content-filter.md) article.
 
 In the playground you can also view python, json, C#, and curl code samples prefilled according to your selected settings. Just select **View code** next to the examples dropdown. You can write an application to complete the same task with the OpenAI Python SDK, curl, or other REST API client.
 

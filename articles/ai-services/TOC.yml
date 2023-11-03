@@ -43,6 +43,74 @@
       href: ai-studio/concepts/ai-resources.md
     - name: Create an Azure AI project
       href: ai-studio/how-to/create-projects.md
+  - name: Data and connections
+    items:
+    - name: Connections
+      items:
+      - name: Connections overview
+        href: ai-studio/concepts/connections.md
+      - name: Create a connection
+        href: ai-studio/how-to/connections-add.md
+    - name: Index for retrieval
+      items:
+      - name: Vector index and retrieval augmented generation
+        href: ai-studio/concepts/retrieval-augmented-generation.md
+      - name: Create an index
+        href: ai-studio/how-to/index-add.md
+    - name: Add and manage data
+      href: ai-studio/how-to/data-add.md
+    - name: Generate synthetic data
+      items:
+      - name: Generate samples from your dataset
+        href: ai-studio/how-to/generate-data-qa.md
+      - name: Simulate interaction data with your app
+        href: ai-studio/how-to/simulator-interaction-data.md
+  - name: Build apps with prompt flow
+    items:
+    - name: Prompt flow overview
+      href: ai-studio/how-to/prompt-flow.md
+    - name: Set up infrastructure
+      items:
+      - name: Create and manage compute
+        href: ai-studio/how-to/create-manage-compute.md
+      - name: Create and manage runtime
+        href: ai-studio/how-to/create-manage-runtime.md
+    - name: Develop flows
+      items:
+      - name: Create a flow
+        href: ai-studio/how-to/flow-develop.md
+      - name: Create an evaluation flow
+        href: ai-studio/how-to/flow-develop-evaluation.md
+      - name: Tune prompts using variants
+        href: ai-studio/how-to/flow-tune-prompts-using-variants.md
+    - name: Use prompt flow tools
+      items:
+      - name: LLM tool
+        href: ai-studio/how-to/prompt-flow-tools/llm-tool.md
+      - name: Prompt tool
+        href: ai-studio/how-to/prompt-flow-tools/prompt-tool.md
+      - name: Python tool
+        href: ai-studio/how-to/prompt-flow-tools/python-tool.md
+      - name: Content Safety tool
+        href: ai-studio/how-to/prompt-flow-tools/content-safety-tool.md
+      - name: Vector DB Lookup tool
+        href: ai-studio/how-to/prompt-flow-tools/vector-db-lookup-tool.md
+      - name: Embedding tool
+        href: ai-studio/how-to/prompt-flow-tools/embedding-tool.md
+      - name: Faiss Index Lookup tool
+        href: ai-studio/how-to/prompt-flow-tools/faiss-index-lookup-tool.md
+      - name: Vector Index Lookup tool
+        href: ai-studio/how-to/prompt-flow-tools/vector-index-lookup-tool.md
+      - name: Serp API tool
+        href: ai-studio/how-to/prompt-flow-tools/serp-api-tool.md
+    - name: Evaluate flows
+      items:
+        - name: Submit batch run and evaluate a flow 
+          href: ai-studio/how-to/flow-bulk-test-evaluation.md
+        - name: Develop an evaluation flow in Prompt flow
+          href: ai-studio/how-to/flow-develop-evaluation.md
+    - name: Deploy a flow as a managed online endpoint
+      href: ai-studio/how-to/flow-deploy.md
   - name: Costs and quotas
     items:
     - name: Plan and manage costs
@@ -53,18 +121,26 @@
       href: commitment-tier.md
   - name: Infrastructure & security
     items:
+    - name: Identity & access management
+      items:
+      - name: Role-based access control in Azure AI Studio
+        href: ai-studio/concepts/rbac-ai-studio.md
+    - name: Data protection & encryption
+      items:
+      - name: Rotate keys
+        href: rotate-keys.md
+      - name: Configure customer-managed keys
+        href: ./encryption/cognitive-services-encryption-keys-portal.md
+  - name: Azure AI services infrastructure
+    items:
     - name: Security features
       href: security-features.md
     - name: Authenticate requests
       href: authentication.md
     - name: Disable local authentication
       href: disable-local-auth.md
-    - name: Rotate keys
-      href: rotate-keys.md
     - name: Use environment variables
       href: cognitive-services-environment-variables.md
-    - name: Configure customer-managed keys
-      href: ./encryption/cognitive-services-encryption-keys-portal.md
     - name: Use virtual networks
       href: cognitive-services-virtual-networks.md
     - name: Custom subdomains for Azure AI services
@@ -79,21 +155,19 @@
       href: ./security-controls-policy.md
     - name: Diagnostic logging
       href: diagnostic-logging.md
-  - name: Create multi-service resources
-    items:
-    - name: Create a multi-service resource
-      href: multi-service-resource.md
-      displayName: cognitive
-    - name: Create a new resource using Bicep
-      displayName: Resource Manager, ARM, Template
-      href: create-account-bicep.md
-    - name: Create a new resource using an ARM template
-      displayName: Resource Manager
-      href: create-account-resource-manager-template.md  
-    - name: Create a new resource using Terraform
-      href: create-account-terraform.md
-    - name: Recover or purge deleted resources
-      href: recover-purge-resources.md
+    - name: Create multi-service resources
+      items:
+      - name: Create a multi-service resource
+        href: multi-service-resource.md
+        displayName: cognitive
+      - name: Create a new resource using Bicep
+        displayName: Resource Manager, ARM, Template
+        href: create-account-bicep.md
+      - name: Create a new resource using an ARM template
+        displayName: Resource Manager
+        href: create-account-resource-manager-template.md  
+      - name: Create a new resource using Terraform
+        href: create-account-terraform.md
   - name: Deploy containers
     items:
     - name: Azure AI containers overview
@@ -151,8 +225,6 @@
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-reference.md
-  - name: Keyboard shortcuts in Azure AI Studio
-    href: ai-studio/reference/keyboard-shortcuts.md
 - name: Resources
   items:
   - name: Support & help options

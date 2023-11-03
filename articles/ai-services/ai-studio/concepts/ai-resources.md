@@ -12,6 +12,8 @@ ms.author: eur
 
 # Azure AI resources
 
+[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
+
 In Azure, resources enable access to Azure services for individuals and teams. Access to many Azure AI capabilities is available via a unified resource called Azure AI. 
 
 An Azure AI resource can be used to access multiple Azure AI services. The Azure AI resource provides a hosted environment for teams to organize their [Azure AI project](#project-assets) work in, and is configurable with enterprise-grade security controls, which are passed down to each project environment. The Azure AI resource doesn't directly contain the keys and endpoints needed to authenticate your requests to Azure AI services. Instead, the Azure AI resource contains an [Azure AI services](#azure-ai-services-resource-keys) resource with keys and endpoints that you use to access Azure AI services.
