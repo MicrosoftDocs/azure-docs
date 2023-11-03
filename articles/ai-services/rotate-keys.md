@@ -11,7 +11,7 @@ ms.date: 11/08/2022
 ms.author: pafarley
 ---
 
-# Rotate subscription keys in Azure AI services
+# Rotate Azure AI services API keys
 
 Each Azure AI services resource has two API keys to enable secret rotation. This is a security precaution that lets you regularly change the keys that can access your service, protecting the privacy of your resource if a key gets leaked.
 

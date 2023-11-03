@@ -20,10 +20,10 @@ We have two network isolation aspects. One is the network isolation to access an
 
 You get several Azure AI default resources in your resource group. You need to configure following network isolation configurations.
 
-1. Disable public network access flag of Azure AI default resources such as Storage, Key Vault, Container Registry, Azure AI Services and Azure AI Search.
-1. Establish private endpoint connection to Azure AI.
-1. Establish private endpoint connection to Azure AI Services created with your Azure AI. For more information, see [this article](/azure/ai-services/cognitive-services-virtual-networks?tabs=portal#use-private-endpoints).
-1. (Optional) Private endpoint connection to Storage created with your Azure AI or your own Azure AI Search if you need direct access to them. Not required if you interact with them in Azure AI.
+- Disable public network access flag of Azure AI default resources such as Storage, Key Vault, Container Registry, Azure AI services and Azure AI Search.
+- Establish private endpoint connection to Azure AI resource.
+- Establish private endpoint connection to Azure AI services created with your Azure AI resource. For more information, see [this article](/azure/ai-services/cognitive-services-virtual-networks?tabs=portal#use-private-endpoints).
+- (Optional) Private endpoint connection to Storage created with your Azure AI or your own Azure AI Search if you need direct access to them. Not required if you interact with them in Azure AI.
 
 ## Prerequisites
 

@@ -20,10 +20,10 @@ We have two network isolation aspects. One is the network isolation to access an
 
 You need to configure following network isolation configurations.
 
-1. Choose network isolation mode. You have two options: allow internet outbound mode or allow only approved outbound mode.
-2. Create private endpoint outbound rules to your private Azure AI services, Azure AI Search and any other private Azure resources you need to access.
-3. If you use Visual Studio Code integration with allow only approved outbound mode, create FQDN outbound rules described [here](#scenario-use-visual-studio-code).
-4. If you use HuggingFace models in Models with allow only approved outbound mode, create FQDN outbound rules described [here](#scenario-use-huggingface-models).
+- Choose network isolation mode. You have two options: allow internet outbound mode or allow only approved outbound mode.
+- Create private endpoint outbound rules to your private Azure AI services, Azure AI Search and any other private Azure resources you need to access.
+- If you use Visual Studio Code integration with allow only approved outbound mode, create FQDN outbound rules described [here](#scenario-use-visual-studio-code).
+- If you use HuggingFace models in Models with allow only approved outbound mode, create FQDN outbound rules described [here](#scenario-use-huggingface-models).
 
 ## Network isolation architecture and isolation modes
 
