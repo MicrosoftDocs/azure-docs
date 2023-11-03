@@ -110,7 +110,7 @@
       - name: Confidential containers AKS security policy
         href: confidential-containers-aks-security-policy.md
       - name: Confidential containers with Azure Kubernetes Service
-        href: ../aks/use-confidential-containers.md
+        href: ../aks/confidential-containers-overview.md
       - name: Confidential containers with Azure Container Instances (ACI)
         href: confidential-containers.md#vm-isolated-confidential-containers-on-azure-container-instances-aci
       - name: Confidential containers with Intel SGX enclaves
