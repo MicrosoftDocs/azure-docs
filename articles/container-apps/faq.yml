@@ -72,7 +72,7 @@ sections:
 
           - **Specific compute requirements**: The platform supports 4 GB per container app. Memory limits overrides are evaluated on a per-case basis.
 
-          - **Business reasoning for scaling**: You may be eligible for a quota increase request if the platform limits are blocking your workload demands. Scale limits overrides are evaluated on a per-case basis.
+          - **Business reasoning for scaling**: You might be eligible for a quota increase request if the platform limits are blocking your workload demands. Scale limits overrides are evaluated on a per-case basis.
 
   - name: Dapr
     questions:
