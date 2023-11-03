@@ -42,7 +42,7 @@ Container insights relies on a containerized [Azure Monitor agent](../agents/age
 ### Data collection rule
 [Data collection rules (DCR)](../essentials/data-collection-rule-overview.md) contain the definition of data that should be collected by Azure Monitor agent.  When you enable Container insights on a cluster, a DCR is created with the name *MSCI-\<cluster-region\>-<\cluster-name\>*. Currently, this name can't be modified.
 
-Since 03/01/2023 Container insights uses a semver compliant agent version. The agent version is *mcr.microsoft.com/azuremonitor/containerinsights/ciprod:3.1.4* or later. It's represented by the format is mcr.microsoft.com/azuremonitor/containerinsights/ciprod:\<semver compatible version\>. When a new version of the agent is released, it's automatically upgraded on your managed Kubernetes clusters that are hosted on AKS. To track which versions are released, see [Agent release announcements](https://github.com/microsoft/Docker-Provider/blob/ci_prod/ReleaseNotes.md). 
+Since March 1, 2023 Container insights uses a semver compliant agent version. The agent version is *mcr.microsoft.com/azuremonitor/containerinsights/ciprod:3.1.4* or later. It's represented by the format mcr.microsoft.com/azuremonitor/containerinsights/ciprod:\<semver compatible version\>. When a new version of the agent is released, it's automatically upgraded on your managed Kubernetes clusters that are hosted on AKS. To track which versions are released, see [Agent release announcements](https://github.com/microsoft/Docker-Provider/blob/ci_prod/ReleaseNotes.md). 
 
 > [!NOTE]
 > Ingestion Transformations are not currently supported with the [Container insights DCR](../essentials/data-collection-transformations.md).
@@ -73,7 +73,7 @@ The main differences in monitoring a Windows Server cluster compared to a Linux 
 
 The containerized Linux agent (replicaset pod) makes API calls to all the Windows nodes on Kubelet secure port (10250) within the cluster to collect node and container performance-related metrics. Kubelet secure port (:10250) should be opened in the cluster's virtual network for both inbound and outbound for Windows node and container performance-related metrics collection to work.
 
-If you have a Kubernetes cluster with Windows nodes, review and configure the network security group and network policies to make sure the Kubelet secure port (:10250) is opened for both inbound and outbound in the cluster's virtual network.
+If you have a Kubernetes cluster with Windows nodes, review and configure the network security group and network policies to make sure the Kubelet secure port (:10250) is open for both inbound and outbound in the cluster's virtual network.
 
 
 ## Network firewall requirements
@@ -119,7 +119,7 @@ The following table lists the extra firewall configuration required for managed 
 
 The following table lists the proxy and firewall configuration information for Azure US Government.
 
-| Endpopint | Purpose | Port | 
+| Endpoint | Purpose | Port | 
 |--------------|------|-------------|
 | `*.ods.opinsights.azure.us` | Data ingestion | 443 |
 | `*.oms.opinsights.azure.us` | OMS onboarding | 443 |
@@ -134,7 +134,7 @@ The following table lists the extra firewall configuration required for managed 
 
 
 ## Troubleshooting
-If you have registered your cluster and/or configured HCI Insights before November, 2023, features that use the AMA agent on HCI, such as Arc for Servers Insights, VM Insights, Container Insights, Defender for Cloud or Sentinel may not be collecting logs and event data properly. See [Repair AMA agent for HCI](/azure-stack/hci/manage/monitor-hci-single?tabs=22h2-and-later) for steps to reconfigure the AMA agent and HCI Insights.
+If you registered your cluster and/or configured HCI Insights before November 2023, features that use the AMA agent on HCI, such as Arc for Servers Insights, VM Insights, Container Insights, Defender for Cloud or Sentinel might not be collecting logs and event data properly. See [Repair AMA agent for HCI](/azure-stack/hci/manage/monitor-hci-single?tabs=22h2-and-later) for steps to reconfigure the AMA agent and HCI Insights.
 
 ## Next steps
 
