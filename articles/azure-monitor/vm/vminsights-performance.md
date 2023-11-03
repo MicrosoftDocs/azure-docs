@@ -42,7 +42,7 @@ To access from Azure Monitor:
 
 On the **Top N Charts** tab, if you have more than one Log Analytics workspace, select the workspace enabled with the solution from the **Workspace** selector at the top of the page. The **Group** selector returns subscriptions, resource groups, [computer groups](../logs/computer-groups.md), and virtual machine scale sets of computers related to the selected workspace that you can use to further filter results presented in the charts on this page and across the other pages. Your selection only applies to the Performance feature and doesn't carry over to Health or Map.
 
-By default, the charts show the last 24 hours. By using the **TimeRange** selector, you can query for historical time ranges of up to 30 days to show how performance looked in the past.
+By default, the charts show performance counters for the last hour. By using the **TimeRange** selector, you can query for historical time ranges of up to 30 days to show how performance looked in the past.
 
 Five capacity utilization charts are shown on the page:
 
