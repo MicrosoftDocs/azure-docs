@@ -132,7 +132,7 @@ For your Azure Stream Analytics job to access the certificate in your key vault 
 
 1. In your stream analytics job, select **Inputs** under **Job Topology**
 
-1. Select **Add input ** > **Kafka** to open the **Kafka New input** configuration blade.
+1. Select **Add input** > **Kafka** to open the **Kafka New input** configuration blade.
 
 1. Use the following configuration:
 
