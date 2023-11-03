@@ -61,7 +61,7 @@ To create the yaml file, use the following component definitions:
 > [!div class="mx-tdBreakAll"]
 > | Component | Description |
 > |-|-|
-> | `metadata.name` | The component name is important and is how [a Dapr application reaches the component](https://github.com/microsoft/e4k-playground/blob/0b9b8bc846c2567f840576ed5c6e17c469891877/samples/quickstart-sample/src/main.go#L42). |
+> | `metadata.name` | The component name is important and is how [a Dapr application reaches the component](https://github.com/Azure-Samples/explore-iot-operations/samples/dapr-quickstart-go/main.go#L41). |
 > | `spec.type` | [The type of the component](https://docs.dapr.io/operations/components/pluggable-components-registration/#define-the-component), which must be declared exactly as shown. It tells Dapr what kind of component (`pubsub` or `state`) it is and which Unix socket to use.  |
 > | `spec.metadata.url` | The URL tells the component where the local MQ endpoint is. The shown value `8883` is MQ's default MQTT port. |
 > | `spec.metadata.satTokenPath` | TBD |
@@ -210,16 +210,21 @@ To create the yaml file, use the following component definitions:
     kubectl apply -f aio-mq-authz.yaml
     ```
 
-## Create a Dapr application
+## Creating a Dapr application
 
-The first step is to write an application that uses the Dapr SDK to publish/subscribe or do state management. As an example, you can use the Dapr quickstart content:
+> [!TIP]
+> For convenience, we have published a quickstart sample to a container registry at `alicesprings.azurecr.io/quickstart-sample`. You can use this container to follow along even if you haven't built your own image and you can view the [source code here](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/dapr-quickstart-go).
+
+### Building the application
+
+The first step is to write an application that uses the Dapr SDK to publish/subscribe or do state management. 
 
 * Dapr [Publish and Subscribe quickstart](https://docs.dapr.io/getting-started/quickstarts/pubsub-quickstart/)
 * Dapr [State Management quickstart](https://docs.dapr.io/getting-started/quickstarts/statemanagement-quickstart/)
 
 This article uses the same code used for [MQ to develop distributed application workloads](howto-develop-mqttnet-apps.md). This sample is a Dapr workload that subscribes to a topic, gets the message, then publishes it back to another topic. The Dapr workload also uses the state store to store information from the messages.
 
-## Package the application into a container
+### Package the application
 
 After you have the Dapr application written, build it and package into a Docker container.
 
@@ -230,10 +235,7 @@ After you have the Dapr application written, build it and package into a Docker 
     docker build -t my-dapr-app .
     ```
 
-2. Push it to your Azure Container Registry
-
-> [!TIP]
-> For convenience, the code sample mentioned in this section is packaged and published to a container registry at `alicesprings.azurecr.io/quickstart-sample`.  You can use this container to follow along even if you haven't built your own image.
+2. Push it to your Container Registry.
 
 ## Deploy a Dapr application
 
