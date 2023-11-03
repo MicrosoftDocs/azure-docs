@@ -13,9 +13,9 @@ ms.date: 11/02/2023
 # Quickstart: Integrated vectorization (preview)
 
 > [!IMPORTANT] 
-> The **Import and vectorize data** wizard is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It targets the [2023-10-01-Preview REST API](/rest/api/searchservice/2023-10-01-preview/skillsets/create-or-update).
+> **Import and vectorize data** wizard is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It targets the [2023-10-01-Preview REST API](/rest/api/searchservice/2023-10-01-preview/skillsets/create-or-update).
 
-Get started with integrated vectorization using the **Import and vectorize data** wizard in the Azure portal.
+Get started with [integrated vectorization](vector-search-integrated-vectorization.md) using the **Import and vectorize data** wizard in the Azure portal.
 
 In this preview version of the wizard:
 
@@ -42,7 +42,7 @@ In this preview version of the wizard:
 
 + Blobs providing text content, unstructured docs only, and metadata. In this preview, your data source must be Azure blobs.
 
-+ Read permissions in Azure Storage. A storage connection string that includes an access key gives you read access to storage content. If instead you're using Microsoft Entra logins and roles, make sure the [search service's managed identity](search-howto-managed-identities-data-sources.md) has **Storage Blob Data Reader** permissions.
++ Read permissions in Azure Storage. A storage connection string that includes an access key gives you read access to storage content. If instead you're using Microsoft Entra logins and roles, make sure the [search service's managed identity](search-howto-managed-identities-data-sources.md) has [**Storage Blob Data Reader**](/azure/storage/blobs/assign-azure-role-data-access) permissions.
 
 ## Check for space
 
@@ -58,7 +58,7 @@ This section points you to data that works for this quickstart.
 
 1. Create a new container and then upload the [health-plan PDF documents](https://github.com/Azure-Samples/azure-search-sample-data/tree/main/health-plan) used for this quickstart.
 
-1. Before leaving the Azure Storage account in the Azure portal, [grant Storage Blob Data Reader permissions](search-howto-managed-identities-data-sources.md#assign-a-role) on the container, assuming you want role-based access.
+1. Before leaving the Azure Storage account in the Azure portal, [grant Storage Blob Data Reader permissions](search-howto-managed-identities-data-sources.md#assign-a-role) on the container, assuming you want role-based access. Or, get a connection string to the storage account from the **Access keys** page.
 
 <a name="connect-to-azure-openai"></a>
 <!-- This bookmark is used in an FWLINK. Do not change. -->
@@ -124,6 +124,8 @@ This step creates the following objects:
 ## Check results
 
 Search explorer accepts text strings as input and then vectorizes the text for vector query execution.
+
+1. Select your index.
 
 1. Make sure the API version is **2023-10-01-preview**.
 
