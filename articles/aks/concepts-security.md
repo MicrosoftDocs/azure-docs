@@ -158,7 +158,7 @@ For more information on core Kubernetes and AKS concepts, see:
 <!-- LINKS - Internal -->
 [microsoft-defender-for-containers]: ../defender-for-cloud/defender-for-containers-introduction.md
 [azure-confidential-containers]: ../confidential-computing/confidential-containers.md
-[confidential-containers]: use-confidential-containers.md
+[confidential-containers]: confidential-containers-overview.md
 [pod-sandboxing]: use-pod-sandboxing.md
 [isolated-vm-size]: ../virtual-machines/isolation.md
 [aks-upgrade-cluster]: upgrade-cluster.md

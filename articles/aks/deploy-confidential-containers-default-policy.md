@@ -176,7 +176,7 @@ Before you configure access to the Azure Key Vault Managed HSM and secret, and d
 1. Configure the application to be deployed as a Confidential container (preview) by copying the following YAML file and save it as `myapplication.yml`. 
 
    >[!IMPORTANT]
-   > While you can use your own deployment YAML manifest, it's important you review and understand the [limitations][confidential-containers-limnitations] with this preview before proceeding.
+   > While you can use your own deployment YAML manifest, it's important you review and understand the [considerations][confidential-containers-considerations] with this preview before proceeding.
 
     ```yml
     apiVersion: apps/v1
@@ -312,9 +312,9 @@ kubectl delete pod pod-name
 [upgrade-cluster-enable-workload-identity]: workload-identity-deploy-cluster.md#update-an-existing-aks-cluster
 [deploy-and-configure-workload-identity]: workload-identity-deploy-cluster.md
 [install-azure-cli]: /cli/azure/install-azure-cli
-[entra-id-workload-identity-overview]: ../../active-directory/workload-identities/workload-identities-overview.md
+[entra-id-workload-identity-overview]: ../active-directory/workload-identities/workload-identities-overview.md
 [aks-workload-identity-overview]: workload-identity-overview.md
-[cluster-access-and-identity-options]: /concepts-identity.md
+[cluster-access-and-identity-options]: concepts-identity.md
 [DC8as-series]: ../virtual-machines/dcasccv5-dcadsccv5-series.md
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [az-feature-register]: /cli/azure/feature#az_feature_register
@@ -323,10 +323,10 @@ kubectl delete pod pod-name
 [az-aks-nodepool-add]: /cli/azure/aks/nodepool#az_aks_nodepool_add
 [az-aks-delete]: /cli/azure/aks#az_aks_delete
 [az-aks-create]: /cli/azure/aks#az_aks_create
-[aks-intro]: ../intro-kubernetes.md
+[aks-intro]: intro-kubernetes.md
 [overview-confidential-containers]: confidential-containers-overview.md
 [azure-key-vault-managed-hardware-security-module]: ../key-vault/managed-hsm/overview.md
 [create-managed-hsm]: ../key-vault/managed-hsm/quick-create-cli.md
 [entra-id-workload-identity-prerequisites]: ../active-directory/workload-identities/workload-identity-federation-create-trust-user-assigned-managed-identity.md
 [confidential-containers-security-policy]: ../confidential-computing/confidential-containers-aks-security-policy.md
-[confidential-containers-limnitations]: confidential-containers-overview.md#limitations
+[confidential-containers-considerations]: confidential-containers-overview.md#considerations

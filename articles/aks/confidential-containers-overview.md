@@ -42,7 +42,7 @@ Confidential Containers (preview) are appropriate for deployment scenarios that 
 - Building big data clean rooms for ID matching as part of multi-party computation in industries like retail with digital advertising.
 - Building confidential computing Zero Trust landing zones to meet privacy regulations for application migrations to cloud.
 
-## What to consider
+## Considerations
 
 The following are considerations with this preview of Confidential Containers:
 
