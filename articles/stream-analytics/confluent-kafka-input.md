@@ -41,7 +41,7 @@ The stream analytics kafka input is a librdkafka-based client, and to connect to
 
 Download the ISRG Root X1 certificate in **PEM** format on the site of [LetsEncrypt](https://letsencrypt.org/certificates/).
 
-:::image type="content" source="./media/kafka/lets-encrypt-certificate.png" alt-text="Screenshot showing the certificate to download from the website of letsencrypt." lightbox="./media/kafka/lets-encrypt-certificate.png" :::
+:::image type="content" source="./media/kafka/lets-encrypt-certificate.png" alt-text="Screenshot showing the certificate to download from the website of lets encrypt." lightbox="./media/kafka/lets-encrypt-certificate.png" :::
 
 
 ## Configure KeyVault with Permissions
@@ -109,7 +109,7 @@ az keyvault secret set --vault-name mykeyvault --name confluentsecret --file C:\
 ## Grant the Stream Analytics job permissions to access the certificate in the key vault
 
 For your Azure Stream Analytics job to read the secret in your key vault, the job must have permission to access the key vault.
-You can do this by configuring the service principal of your stream analytics job to have special permissions to the key vault. 
+Follow the instructions below to grant special permissions to your stream analytics job:
 
 1. In your key vault, select **Access control (IAM)**.
 
@@ -172,7 +172,7 @@ A successful connection shows in the portal if your stream analytics can connect
 ### Limitations
 
 * The certificate uploaded to key vault must be PEM format. 
-* The minimum version of Kafka you can configure Azure Stream Analytics to connect to is kafka version 0.10.
+* The minimum version of kafka must be version 0.10.
 * Azure Stream Analytics doesn't support authentication to confluent cloud using OAuth or SAML single sign-on (SSO). You must use API Key via the SASL_SSL protocol.
 * You must use Azure CLI to upload the certificate as a secret to key vault. You can't upload certificates with multiline secrets to key vault using the Azure portal.
 
