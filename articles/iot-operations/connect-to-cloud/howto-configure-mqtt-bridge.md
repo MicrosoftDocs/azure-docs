@@ -117,7 +117,7 @@ The `remoteBrokerConnection` field defines the connection details to bridge to t
 | --- | --- | --- |
 | endpoint | Yes | Remote broker endpoint URL with port. For example, `example.westeurope-1.ts.eventgrid.azure.net:8883`. |
 | tls | Yes | Specifies if connection is encrypted with TLS and trusted CA certificate. See [TLS support](#tls-support) |
-| authentication | Yes | Authentication details for Azure IoT MQ to use with the broker. Must be one of the following values: system-assigned managed identity, X.509, or basic (username/password). See [Authentication](#authentication). |
+| authentication | Yes | Authentication details for Azure IoT MQ to use with the broker. Must be one of the following values: system-assigned managed identity or X.509. See [Authentication](#authentication). |
 
 #### Authentication
 
@@ -127,7 +127,6 @@ The authentication field defines the authentication method for Azure IoT MQ to u
 | --- | --- | --- |
 | systemAssignedManagedIdentity | No | Authenticate with system-assigned managed identity. See [Managed identity](#managed-identity). |
 | x509 | No | Authentication details using X.509 certificates. See [X.509](#x509). |
-| basic | No | Authenticate with username/password. See [Username/password](#usernamepassword). |
 
 #### Managed identity
 
@@ -182,38 +181,6 @@ spec:
         secretName: "bridge-client-cert"
 ```
 
-#### Username/password 
-
-The `basic` field includes the following fields:
-
-| Field | Required | Description |
-| --- | --- | --- |
-| anonymous | Yes | Boolean value defining whether to use anonymous authentication. |
-| k8sSecretName | No | The Kubernetes secret containing the username and password. |
-| usernameKey | No | The key in the Kubernetes secret that contains the username. |
-| passwordKey | No | The key in the Kubernetes secret that contains the password. |
-
-Many MQTT brokers, like HiveMQ, support username and password authentication. Azure IoT MQ's MQTT bridge can present a username and password to authenticate with the remote broker. Use a Kubernetes secret to store the username and password. The secret should be in the same namespace as the MqttBridgeConnector CR.
-
-```bash 
-kubectl create secret generic bridge-user-pass \
-  --from-literal=username=value1 \
-  --from-literal=password=value2
-```  
-
-Then, reference it with `k8sSecretName`, `usernameKey`, and `passwordKey`:
-
-```yaml
-spec:
-  remoteBrokerConnection:
-    authentication:
-      basic:
-        anonymous: false
-        k8sSecretName: "bridge-user-pass"
-        passwordKey: "password"
-        usernameKey: "username"
-```
-
 ### Local broker connection
 
 The `localBrokerConnection` field defines the connection details to bridge to the local broker. 
@@ -222,7 +189,7 @@ The `localBrokerConnection` field defines the connection details to bridge to th
 | --- | --- | --- |
 | endpoint | Yes | Remote broker endpoint URL with port. |
 | tls | Yes | Specifies if connection is encrypted with TLS and trusted CA certificate. See [TLS support](#tls-support) |
-| authentication | Yes | Authentication details for Azure IoT MQ to use with the broker. The two supported methods are: Kubernetes service account token (SAT) and basic (username and password) authentication. To use SAT, specify `kubernetes: {}`. To use basic authentication, follow the format in [Username/password](#usernamepassword).
+| authentication | Yes | Authentication details for Azure IoT MQ to use with the broker. The only supported methods is Kubernetes service account token (SAT). To use SAT, specify `kubernetes: {}`. |
 | protocol | No | String value defining to use MQTT or MQTT over WebSockets. Can be `mqtt` or `webSocket`. Default is `mqtt`. |
 
 By default, if not configured, the MQTT bridge connector authenticates with Azure IoT MQ broker with Kubernetes SAT via the 1883 port and TLS disabled.
