@@ -55,7 +55,7 @@ To access archived data, you must first retrieve data from it in an Analytics Lo
 | [Search jobs](search-jobs.md) | Retrieve data matching particular criteria. |
 | [Restore](restore.md) | Retrieve data from a particular time range. |
 
-:::image type="content" source="media/log-analytics-workspace-overview/workspace-plan-overview.png" alt-text="Diagram that shows an overview of data plans and archive.":::
+:::image type="content" source="media/log-analytics-workspace-overview/workspace-plan-overview.png" lightbox="media/log-analytics-workspace-overview/workspace-plan-overview.png" alt-text="Diagram that shows an overview of data plans and archive.":::
 
 ## Permissions
 
