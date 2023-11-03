@@ -190,12 +190,12 @@ ErGwScale is free of charge during public preview. For information about Express
 
 ## Next steps
 
-For more information about available connection configurations, see [ExpressRoute Overview](expressroute-introduction.md).
+* For more information about available connection configurations, see [ExpressRoute Overview](expressroute-introduction.md).
 
-For more information about creating ExpressRoute gateways, see [Create a virtual network gateway for ExpressRoute](expressroute-howto-add-gateway-resource-manager.md).
+* For more information about creating ExpressRoute gateways, see [Create a virtual network gateway for ExpressRoute](expressroute-howto-add-gateway-resource-manager.md).
 
-For more information on how to deploy ErGwScale, see [How to configure ErGwScale]().
+* For more information on how to deploy ErGwScale, see [How to configure ErGwScale]().
 
-For more information about configuring zone-redundant gateways, see [Create a zone-redundant virtual network gateway](../../articles/vpn-gateway/create-zone-redundant-vnet-gateway.md).
+* For more information about configuring zone-redundant gateways, see [Create a zone-redundant virtual network gateway](../../articles/vpn-gateway/create-zone-redundant-vnet-gateway.md).
 
-For more information about FastPath, see [About FastPath](about-fastpath.md).
+* For more information about FastPath, see [About FastPath](about-fastpath.md).
