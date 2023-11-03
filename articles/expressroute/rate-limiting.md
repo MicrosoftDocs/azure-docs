@@ -18,14 +18,14 @@ Rate limiting is a feature that enables you to control the traffic volume betwee
 Before you enable rate limiting for your ExpressRoute Direct circuit, ensure that you satisfy the following prerequisites:
 
 - **Azure subscription:** You need an active Azure subscription with the required permissions to configure ExpressRoute Direct circuits. 
-- **ExpressRoute Direct links:** You must have established ExpressRoute Direct links between your on-premises network and Azure. 
+- **ExpressRoute Direct links:** You need to establish ExpressRoute Direct links between your on-premises network and Azure.
 - **Knowledge:** You should have a good understanding of Azure networking concepts, including ExpressRoute.
 
 ## Enable rate limiting
 
 ### New ExpressRoute Direct circuits
 
-You can enable rate limiting for an ExpressRoute Direct circuit, either during the creation of the circuit or after it's created.
+You can enable rate limiting for an ExpressRoute Direct circuit, either during the creation of the circuit or after it creates.
 
 > [!NOTE]
 > - Currently, the only way to enable rate limiting is through the Azure portal.
@@ -89,7 +89,7 @@ To enable rate limiting for an existing ExpressRoute Direct circuit, follow thes
 
     1. Select **Metrics** from under *Monitoring* on the left side menu pane of the circuit.
     
-    1. From the drop-down, under **Circuit Qos**, select **DroppedInBitsPerSecond**. Then select **Add metrics** and select **DroppedOutBitsPerSecond**. You now see the chart metric for traffic that is dropped for ingress and egress.
+    1. From the drop-down, under **Circuit QoS**, select **DroppedInBitsPerSecond**. Then select **Add metrics** and select **DroppedOutBitsPerSecond**. You now see the chart metric for traffic that is dropped for ingress and egress.
 
     :::image type="content" source="./media/rate-limiting/drop-bits-metric.png" alt-text="Screenshot of the drop bits per seconds metrics for an ExpressRoute Direct circuit.":::
 
