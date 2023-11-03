@@ -1,7 +1,7 @@
 ---
 title: "Consume models deployed in Azure Machine Learning from Fabric, using Batch Endpoints (preview)"
 titleSuffix: Azure Machine Learning
-description: Learn how to deploy a machine learning model in batch endpoints to then consume it from within Fabric.
+description: Learn to consume an Azure machine learning batch model deployment while working in Microsoft Fabric.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: inferencing
