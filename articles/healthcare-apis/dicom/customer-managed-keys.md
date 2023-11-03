@@ -52,15 +52,59 @@ In any scenario where the DICOM service can't access the key, API requests retur
 
 If key access is lost for less than 30 minutes, data is automatically recovered. After access is re-enabled, allow 5 to 10 minutes for your DICOM service to become available again.
 
-If key access is lost for more than 30 minutes, you need to contact customer support to help recover your data.
+If key access is lost for more than 30 minutes, you can recover by following these steps:
 
-## Limitations
+1. Complete the steps to re-enable key access, such as restoring lost permissions. 
 
-The DICOM service has some limitations when it uses customer-managed keys:
+2. Get the currently configured properties of your DICOM service. 
 
-- The key vault must be located in the same Azure tenant as your DICOM service.
-  
-- When using a key vault with a firewall to disable public access, the option to **Allow trusted Microsoft services to bypass this firewall** must be enabled.
+3. Perform an update to your DICOM service by deploying an ARM template with any additional configured properties added.  For example:
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "name": {
+            "type": "String"
+        },
+        "location": {
+            "type": "String"
+        },
+        "tags": {
+            "type": "Object"
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.HealthcareApis/workspaces/dicomservices",
+            "apiVersion": "2023-11-01",
+            "name": "[parameters('name')]",
+            "location": "[parameters('location')]",
+            "tags": "[parameters('tags')]",
+            "identity": {
+                <insert configured identity>
+            },
+            "properties": {
+                <insert any additional configured properties>,
+                "encryption": {
+                    "customerManagedKeyEncryption": {
+                        "keyEncryptionKeyUrl": ""
+                    }
+                }
+            }
+        }
+    ]
+}
+```
+
+After the deployment completes, the key will be re-validated automatically and the DICOM service will return to normal operation.
+
+## Key vault location
+The key vault must be located in the same Azure tenant as your DICOM service.
+
+## Firewall settings
+When using a key vault with a firewall to disable public access, the option to **Allow trusted Microsoft services to bypass this firewall** must be enabled.
 
 ## Next steps
 
