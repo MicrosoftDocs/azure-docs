@@ -14,11 +14,11 @@ zone_pivot_groups: azure-ai-studio-sdk
 # How to evaluate your generative AI applications with the Azure AI
 
 ::: zone pivot="ai-studio"
-[!INCLUDE [Azure AI Studio include](../includes/evaluations/studio.md)]
+[!INCLUDE [Azure AI Studio include](../includes/evaluations/from-data/studio.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-[!INCLUDE [Python include](../includes/evaluations/python.md)]
+[!INCLUDE [Python include](../includes/evaluations/from-data/python.md)]
 ::: zone-end
 
 ## Next steps
