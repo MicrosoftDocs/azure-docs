@@ -24,6 +24,8 @@
     href: generate-cli-scripts.md
   - name: Understand service health
     href: understand-service-health.md
+  - name: Analyze costs
+    href: analyze-cost-management.md
 - name: Resources
   items:
   - name: Azure updates
