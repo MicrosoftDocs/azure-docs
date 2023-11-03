@@ -39,7 +39,7 @@ az aks get-credentials -g <ResourceGroupName> -n <ClusterName>
 
 ## Terminate HTTPS traffic
 
-Before proceeding, the following is required:
+To enable support for HTTPS traffic, see the following prerequisites:
   
 * **azure-keyvault-secrets-provider**: The [Secret Store CSI provider][secret-store-csi-provider] for Azure Key Vault is required to retrieve the certificates from Azure Key Vault.
 
@@ -127,14 +127,14 @@ az keyvault set-policy --name <KeyVaultName> --object-id $MANAGEDIDENTITY_OBJECT
 
 ## Configure the add-on to use Azure DNS to manage DNS zones
 
-Before proceeding, the following is required:
+To enable support for DNS zones, see the following prerequisites:
 
-* The app routing add-on can be configured to automatically create records on one or more Azure public and private DNS zones for hosts defined on Ingress resources. All public Azure DNS zones need to be in the same resource group, and all private Azure DNS zones need to be in the same resource group. If you don't have an Azure DNS zone, you can [create one][create-an-azure-dns-zone].
+* The app routing add-on can be configured to automatically create records on one or more Azure public and private DNS zones for hosts defined on Ingress resources. All global Azure DNS zones need to be in the same resource group, and all private Azure DNS zones need to be in the same resource group. If you don't have an Azure DNS zone, you can [create one][create-an-azure-dns-zone].
 
    > [!NOTE]
    > If you plan to use Azure DNS, you need to update the add-on to include the `--dns-zone-resource-ids` argument. You can pass a comma separated list of multiple public or private Azure DNS zone resource IDs.
 
-### Create a Public Azure DNS zone
+### Create a global Azure DNS zone
 
 1. Create an Azure DNS zone using the [`az network dns zone create`][az-network-dns-zone-create] command.
 
