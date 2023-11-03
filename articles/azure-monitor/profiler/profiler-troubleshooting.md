@@ -127,7 +127,7 @@ It ends like `https://<kudu-url>/DiagnosticServices`.
 
 A status page appears similar to the following example.
 
-![Screenshot that shows the Diagnostic Services status page.](../app/media/diagnostic-services-site-extension/status-page.png)
+:::image type="content" source="../app/media/diagnostic-services-site-extension/status-page.png" lightbox="../app/media/diagnostic-services-site-extension/status-page.png" alt-text="Screenshot that shows the Diagnostic Services status page.":::
 
 > [!NOTE]
 > Codeless installation of Application Insights Profiler follows the .NET Core support policy. For more information about supported runtimes, see [.NET Core support policy](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).

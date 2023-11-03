@@ -95,7 +95,7 @@ Run the [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription/)
 1. Select the solutions to remove.
 1. Select **Delete Resources** and then confirm the resources to be removed by selecting **Delete**.
 
-   [![Screenshot that shows deleting solutions.](media/move-workspace/delete-solutions.png)](media/move-workspace/delete-solutions.png#lightbox)
+   :::image type="content" source="media/move-workspace/delete-solutions.png" lightbox="media/move-workspace/delete-solutions.png" alt-text="Screenshot that shows deleting solutions.":::
 
 ### [REST API](#tab/rest-api)
 
@@ -139,7 +139,7 @@ To remove the **Start/Stop VMs** solution, you also need to remove the alert rul
    - ScheduledStartStop_Parent
    - SequencedStartStop_Parent
 
-    [![Screenshot that shows deleting rules.](media/move-workspace/delete-rules.png)](media/move-workspace/delete-rules.png#lightbox)
+    :::image type="content" source="media/move-workspace/delete-rules.png" lightbox="media/move-workspace/delete-rules.png" alt-text="Screenshot that shows deleting rules.":::
 
 ### [REST API](#tab/rest-api)
 
@@ -213,7 +213,7 @@ Not supported.
 1. Select a destination **Subscription** and **Resource group**. If you're moving the workspace to another resource group in the same subscription, you won't see the **Subscription** option.
 1. Select **OK** to move the workspace and selected resources.
 
-    [![Screenshot that shows the Overview pane in the Log Analytics workspace with options to change the resource group and subscription name.](media/move-workspace/portal.png)](media/move-workspace/portal.png#lightbox)
+    :::image type="content" source="media/move-workspace/portal.png" lightbox="media/move-workspace/portal.png" alt-text="Screenshot that shows the Overview pane in the Log Analytics workspace with options to change the resource group and subscription name.":::
 
 ### [ REST API](#tab/rest-api)
 

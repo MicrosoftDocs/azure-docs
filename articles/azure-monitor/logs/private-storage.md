@@ -34,7 +34,7 @@ For the storage account to connect to your private link, it must:
 * Be located on the same region as the workspace it's linked to.
 * Allow Azure Monitor to access the storage account. To allow only specific networks to access your storage account, select the exception **Allow trusted Microsoft services to access this storage account**.
 
-  ![Screenshot that shows Storage account trust Microsoft services.](./media/private-storage/storage-trust.png)
+  :::image type="content" source="./media/private-storage/storage-trust.png" lightbox="./media/private-storage/storage-trust.png" alt-text="Screenshot that shows Storage account trust Microsoft services.":::
 
 If your workspace handles traffic from other networks, configure the storage account to allow incoming traffic coming from the relevant networks/internet.
 
@@ -73,11 +73,11 @@ To configure your Azure Storage account to use CMKs with Key Vault, use the [Azu
 ### Use the Azure portal
 On the Azure portal, open your workspace menu and select **Linked storage accounts**. A pane shows the linked storage accounts by the use cases previously mentioned (ingestion over Private Link, applying CMKs to saved queries or to alerts).
 
-![Screenshot that shows the Linked storage accounts pane.](./media/private-storage/all-linked-storage-accounts.png)
+:::image type="content" source="./media/private-storage/all-linked-storage-accounts.png" lightbox="./media/private-storage/all-linked-storage-accounts.png" alt-text="Screenshot that shows the Linked storage accounts pane.":::
 
 Selecting an item on the table opens its storage account details, where you can set or update the linked storage account for this type.
 
-![Screenshot that shows the Link storage account pane.](./media/private-storage/link-a-storage-account-blade.png)
+:::image type="content" source="./media/private-storage/link-a-storage-account-blade.png" lightbox="./media/private-storage/link-a-storage-account-blade.png" alt-text="Screenshot that shows the Link storage account pane.":::
 You can use the same account for different use cases if you prefer.
 
 ### Use the Azure CLI or REST API
