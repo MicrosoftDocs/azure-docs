@@ -119,29 +119,29 @@ You can view cost information from the Azure portal.
 
 1. In the Azure portal, search for *Cost* and select *Cost analysis*.
 
-    :::image type="content" source="./media/cost-analysis/cost-analysis-entry-inline.png" alt-text="The default Azure portal page is shown, with 'Cost' entered into the search field and 'Cost analysis' highlighted in the results." lightbox="./media/cost-analysis/cost-analysis-entry.png":::
+    :::image type="content" source="./media/cost-analysis/cost-analysis-entry-inline.png" alt-text="A screenshot of the default Azure portal page is shown, with 'Cost' entered into the search field and 'Cost analysis' highlighted in the results." lightbox="./media/cost-analysis/cost-analysis-entry.png":::
 
 1. Several views are shown. Expand the section for *Kubernetes views* to see cost across your clusters or namespaces.
 
-    :::image type="content" source="./media/cost-analysis/cost-analysis-overview-inline.png" alt-text="The Azure portal cost analysis overview page is shown with the 'Kubernetes views' section highlighted." lightbox="./media/cost-analysis/cost-analysis-overview.png":::
+    :::image type="content" source="./media/cost-analysis/cost-analysis-overview-inline.png" alt-text="A screenshot of the Azure portal cost analysis overview page is shown with the 'Kubernetes views' section highlighted." lightbox="./media/cost-analysis/cost-analysis-overview.png":::
 
     1. After selecting *Kubernetes namespaces*, you'll see costs associated with your various Kubernetes namespaces.
 
-        :::image type="content" source="./media/cost-analysis/cost-analysis-namespaces-inline.png" alt-text="The Azure portal page for cost analysis is shown with the `Kubernetes namespaces`` view expanded." lightbox="./media/cost-analysis/cost-analysis-namespaces.png":::
+        :::image type="content" source="./media/cost-analysis/cost-analysis-namespaces-inline.png" alt-text="A screenshot of the Azure portal page for cost analysis is shown with the `Kubernetes namespaces`` view expanded." lightbox="./media/cost-analysis/cost-analysis-namespaces.png":::
 
     1. After selecting *Kubernetes clusters*, you'll see costs associated with each cluster.
 
-        :::image type="content" source="./media/cost-analysis/cost-analysis-clusters-inline.png" alt-text="The Azure portal page for cost analysis is shown with the 'Kubernetes clusters' view expanded." lightbox="./media/cost-analysis/cost-analysis-clusters.png":::
+        :::image type="content" source="./media/cost-analysis/cost-analysis-clusters-inline.png" alt-text="A screenshot of the Azure portal page for cost analysis is shown with the 'Kubernetes clusters' view expanded." lightbox="./media/cost-analysis/cost-analysis-clusters.png":::
 
 1. From the clusters page, hover over a cluster and select *...*, then select *Kubernetes assets* to get a granular breakdown of compute, storage, networking, and more associated with that cluster.
 
-    :::image type="content" source="./media/cost-analysis/cost-analysis-cluster-select-inline.png" alt-text="The Azure portal page for cost analysis is shown with the 'Kubernetes clusters' view expanded. A cluster has been selected and options for 'Kubernetes assets' and 'Namespaces' are highlighted." lightbox="./media/cost-analysis/cost-analysis-cluster-select.png":::
+    :::image type="content" source="./media/cost-analysis/cost-analysis-cluster-select-inline.png" alt-text="A screenshot of the Azure portal page for cost analysis is shown with the 'Kubernetes clusters' view expanded. A cluster has been selected and options for 'Kubernetes assets' and 'Namespaces' are highlighted." lightbox="./media/cost-analysis/cost-analysis-cluster-select.png":::
 
-    :::image type="content" source="./media/cost-analysis/cost-analysis-assets-inline.png" alt-text="The Azure portal page for cost analysis is shown, with the 'Kubernetes assets' view expanded." lightbox="./media/cost-analysis/cost-analysis-assets.png":::
+    :::image type="content" source="./media/cost-analysis/cost-analysis-assets-inline.png" alt-text="A screenshot of the Azure portal page for cost analysis is shown, with the 'Kubernetes assets' view expanded." lightbox="./media/cost-analysis/cost-analysis-assets.png":::
 
 1. Expand each section for a more detailed view of each asset group.
 
-    :::image type="content" source="./media/cost-analysis/cost-analysis-asset-breakdown-inline.png" alt-text="The Azure portal page for cost analysis is shown, with the 'Kubernetes assets' view expanded and individual sections for each Kubernetes asset expanded." lightbox="./media/cost-analysis/cost-analysis-asset-breakdown.png":::
+    :::image type="content" source="./media/cost-analysis/cost-analysis-asset-breakdown-inline.png" alt-text="A screenshot of the Azure portal page for cost analysis is shown, with the 'Kubernetes assets' view expanded and individual sections for each Kubernetes asset expanded." lightbox="./media/cost-analysis/cost-analysis-asset-breakdown.png":::
 
 <!-- LINKS -->
 [az-extension-add]: /cli/azure/extension#az-extension-add
