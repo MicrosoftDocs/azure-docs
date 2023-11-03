@@ -56,12 +56,12 @@ Creating a query using Basic Logs is the same as any other query in Log Analytic
 In the Azure portal, select **Monitor** > **Logs** > **Tables**.
 
 In the list of tables, you can identify Basic Logs tables by their unique icon: 
-
-:::image type="content" source="./media/basic-logs-configure/table-icon.png" lightbox="./media/basic-logs-configure/table-icon.png" alt-text="Screenshot of the Basic Logs table icon in the table list.":::
+<!-- convertborder later -->
+:::image type="content" source="./media/basic-logs-configure/table-icon.png" lightbox="./media/basic-logs-configure/table-icon.png" alt-text="Screenshot of the Basic Logs table icon in the table list." border="false":::
 
 You can also hover over a table name for the table information view, which will specify that the table is configured as Basic Logs:
-
-:::image type="content" source="./media/basic-logs-configure/table-info.png" lightbox="./media/basic-logs-configure/table-info.png" alt-text="Screenshot of the Basic Logs table indicator in the table details.":::
+<!-- convertborder later -->
+:::image type="content" source="./media/basic-logs-configure/table-info.png" lightbox="./media/basic-logs-configure/table-info.png" alt-text="Screenshot of the Basic Logs table indicator in the table details." border="false":::
 
 When you add a table to the query, Log Analytics will identify a Basic Logs table and align the authoring experience accordingly. The following example shows when you attempt to use an operator that isn't supported by Basic Logs.
 
