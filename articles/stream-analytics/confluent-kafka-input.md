@@ -147,23 +147,20 @@ For your Azure Stream Analytics job to access the certificate in your key vault 
 > [!IMPORTANT]
 > Confluent Cloud supports authentication using API Keys, OAuth, or SAML single sign-on (SSO). Azure Stream Analytics does not support authentication using OAuth or SAML single sign-on (SSO).
 > You can connect to confluent cloud using an API Key that has topic-level access via the SASL_SSL security protocol.
-To authenticate to confluent cloud you will need to use SASL_SSL and configure you job to authenticate to confluent cloud using your API key .
+To authenticate to confluent cloud you will need to use SASL_SSL and configure your job to authenticate to confluent cloud using your API key.
 
 Use the following configuration:
 
 | Setting | Value |
  | --- | --- |
- | Username | Key/ Username from API Key |
- | Password | Secret/ Password from API key |
- | KeyVault | Name of Azure Key vault with Uploaded certificate |
- | Certificate | name of the certificate uploaded to KeyVault |
+ | Username | confluent cloud API key |
+ | Password | confluent cloud API secret |
+ | Key vault name | name of Azure Key vault with uploaded certificate |
+ | Truststore certificates | name of the Key Vault Secret that holds the ISRG Root X1 certificate |
 
 
 :::image type="content" source="./media/kafka/kafka-input.png" alt-text="Screenshot showing how to configure kafka input for a stream analytics job" lightbox="./media/kafka/kafka-input.png" :::
 
-
-
-## Save your configuration
 
 Save your configuration. Your Azure Stream Analytics job will automatically validate using the configuration provided.
 A successful connection will show up in the portal if your stream analytics can connect to your kafka cluster.
