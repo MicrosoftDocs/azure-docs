@@ -145,6 +145,8 @@ Promotion of replicas can be done in two distinct manners:
 
 This action promotes the replica to serve as the primary server. Concurrently, the current primary will be demoted to the replica role, effectively swapping their roles.
 
+:::image type="content" source="./media/concepts-read-replica/promote-to-primary-server.png" alt-text="Promote to primary server":::
+
 **Promote to independent server and remove from replication** 
 
 By opting for this, the replica becomes an independent server and is removed from the replication process. As a result, both the primary and the promoted server will function as two independent read-write servers. The newly promoted server will no longer be part of any existing virtual endpoints, even if the reader endpoint was previously pointing to it. Thus, it's essential to update your application's connection string to direct to the newly promoted replica if the application should connect to it.
