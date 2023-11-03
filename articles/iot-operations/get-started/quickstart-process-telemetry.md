@@ -170,13 +170,13 @@ To verify data is flowing from your assets by using the **mqttui** tool:
 1. Run the following command to set up port forwarding for the MQ broker. This command blocks the terminal, for subsequent commands you need a new terminal:
 
     ```bash
-    kubectl port-forward svc/aio-mq-dmqtt-frontend 1883:1883 -n azure-iot-operations
+    kubectl port-forward svc/aio-mq-dmqtt-frontend 1883:mqtt-1883 -n azure-iot-operations
     ```
 
-1. Use the following command:
+1. In a separate terminal window, run the following command to connect to the MQ broker using the mqttui tool:
 
     ```bash
-    mqttui -b mqtt://localhost:1883
+    mqttui -b mqtt://127.0.0.1:1883
     ```
 
 1. Verify that the thermostat asset you added in the previous quickstart is publishing data. You can find the telemetry in the `azure-iot-operations/data` topic.
@@ -249,7 +249,7 @@ In the following steps, leave all values at their default unless otherwise speci
 1. Connect to the MQ broker using your MQTT client again. This time, specify the topic `dp-output`.
 
     ```bash
-    mqttui "dp-output"
+    mqttui -b mqtt://127.0.0.1:1883 "dp-output"
     ```
 
 1. You see the same data flowing as previously. This behavior is expected because the deployed _passthrough data pipeline_ doesn't transform the data. The pipeline routes data from one MQTT topic to another.
@@ -305,7 +305,7 @@ In the following steps, leave all values at their default unless otherwise speci
 To store the reference data, publish it as an MQTT message to the `reference_data` topic by using the mqttui tool:
 
 ```bash
-mqttui publish "reference_data" '{ "customer": "Contoso", "batch": 102, "equipment": "Boiler", "location": "Seattle", "isSpare": true }'
+mqttui -b mqtt://127.0.0.1:1883 publish "reference_data" '{ "customer": "Contoso", "batch": 102, "equipment": "Boiler", "location": "Seattle", "isSpare": true }'
 ```
 
 After you publish the message, the pipeline receives the message and stores the data in the equipment data reference dataset.
