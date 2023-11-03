@@ -27,7 +27,7 @@ Single sign-on (SSO) is already enabled when you created your Astro resource. To
 
 ## Delete an Astro deployment
 
-Once the Astro resource is deleted, all billing stops for that resource through Azure Marketplace. If you are done using your resource and would like to delete the same, follow these steps:
+Once the Astro resource is deleted, all billing stops for that resource through Azure Marketplace. If you're done using your resource and would like to delete the same, follow these steps:
 
 1. From the Resource menu, select the Astro deployment you would like to delete.
 

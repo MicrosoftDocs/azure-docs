@@ -13,7 +13,7 @@ In this quickstart, you use the Azure portal and Marketplace to find and create 
 
 ## Prerequisites
 
-- An Azure account. If you don't have an active Azure subscription, [create a free account](https://azure.microsoft.com/free/). Make sure you are an _Owner_ or a _Contributor_ in the subscription.
+- An Azure account. If you don't have an active Azure subscription, [create a free account](https://azure.microsoft.com/free/). Make sure you're an _Owner_ or a _Contributor_ in the subscription.
 
 ## Create a new Astro resource
 
@@ -62,7 +62,7 @@ You can specify custom tags for the new Astro resource in Azure by adding custom
 
     :::image type="content" source="media/astronomer-create/astronomer-review-and-create.png" alt-text="Screenshot showing the Review and Create pane in the create process.":::
 
-1. After you've reviewed all the information, select **Create**. Azure now deploys the Astro resource.
+1. After you review all the information, select **Create**. Azure now deploys the Astro resource.
 
    :::image type="content" source="media/astronomer-create/astronomer-deploy.png" alt-text="Screenshot showing Astronomer deployment in process.":::
 
@@ -76,7 +76,7 @@ You can specify custom tags for the new Astro resource in Azure by adding custom
 
     :::image type="content" source="media/astronomer-create/astronomer-overview-pane.png" alt-text="Screenshot of information on the Astronomer resource overview.":::
 
-1. Now click on the **SSO Url** to redirect to the newly created Astro organization.
+1. Now select on the **SSO Url** to redirect to the newly created Astro organization.
 
 ## Next steps
 
