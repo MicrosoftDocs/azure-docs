@@ -56,7 +56,7 @@ The solution architecture comprises the following components:
 
 ## Considerations
 
-When you are planning a video editorial solution using Azure Native Qumulo with Adobe Premiere Pro and HP Anyware clients, consider the following factors in your planning and design processes.
+When you're planning a video editorial solution using Azure Native Qumulo with Adobe Premiere Pro and HP Anyware clients, consider the following factors in your planning and design processes.
 
 ### Potential use cases
 
@@ -92,7 +92,7 @@ HP Anyware offers secure end-to-end encryption for remote access to VMs. This he
 
 You should take care during design and implementation to ensure that the security of the solution complies with industry best practices, internal enterprise policies, and any applicable legal/regulatory requirements.
 
-For all other aspects of the solution, you are responsible for planning, implementing, and maintaining the security of the solution to satisfy all applicable legal and regulatory requirements for their industry and location.
+For all other aspects of the solution, you're responsible for planning, implementing, and maintaining the security of the solution to satisfy all applicable legal and regulatory requirements for their industry and location.
 
 ### Cost optimization
 
