@@ -7,7 +7,7 @@ author: heidisteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/31/2023
+ms.date: 11/03/2023
 ---
 
 # Integrated data chunking and embedding in Azure AI Search
@@ -89,9 +89,15 @@ A more common scenario is to also require data chunking and vectorization during
 Optionally, consider [creating secondary indexes](index-projections-concept-intro.md) for advanced scenarios where you want chunked content in one index, and non-chunked in another index. Chunked indexes (or secondary indexes) are useful for RAG apps.
 
 > [!TIP]
-> Use the **Import and vectorize data** wizard in the Azure portal to try out integrated vectorization before writing any code.
+> Use the [**Import and vectorize data** wizard](search-get-started-portal-import-vectors.md) in the Azure portal to try out integrated vectorization before writing any code.
 >
 > Next, configure a Jupyter notebook to run the same workflow, cell by cell, to see how each step works.
+
+## Limitations
+
++ [Customer-managed encryption keys](search-security-manage-encryption-keys.md) aren't currently supported.
++ [Shared private link connections](search-indexer-howto-access-private.md) to a vectorizer aren't currently supported.
++ Currently, there's no batching for integrated data chunking and vectorization.
 
 ## Benefits of integrated vectorization 
 

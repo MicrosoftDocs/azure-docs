@@ -12,7 +12,23 @@ ms.date: 11/02/2023
 
 # Quickstart: Integrated vectorization (preview)
 
+> [!IMPORTANT] 
+> The **Import and vectorize data** wizard is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It targets the [2023-10-01-Preview REST API](/rest/api/searchservice/2023-10-01-preview/skillsets/create-or-update).
+
 Get started with integrated vectorization using the **Import and vectorize data** wizard in the Azure portal.
+
+In this preview version of the wizard:
+
++ Source data is blob only, using the default parsing mode (one search document per blob),
++ Index schema is non-configurable. Fields include `content` and a metadata field for the document key.
++ Vectorization is Azure OpenAI only.
++ Chunking is non-configurable. The effective settings are:
+
+  ```json
+  textSplitMode: "pages",
+  maximumPageLength: 2000,
+  pageOverlapLength: 50
+  ```
 
 ## Prerequisites
 
@@ -20,7 +36,7 @@ Get started with integrated vectorization using the **Import and vectorize data*
 
 + Azure AI Search, in any region and on any tier. Most existing services support vector search. For a small subset of services created prior to January 2019, an index containing vector fields will fail on creation. In this situation, a new service must be created.
 
-+ [Azure OpenAI](https://aka.ms/oai/access) endpoint with a deployment of **text-embedding-ada-002** and [Cognitive Services OpenAI User](/azure/ai-services/openai/how-to/role-based-access-control#azure-openai-roles) permissions to upload data. You can only choose one vectorizer in this preview.
++ [Azure OpenAI](https://aka.ms/oai/access) endpoint with a deployment of **text-embedding-ada-002** and an API key or [**Cognitive Services OpenAI User**](/azure/ai-services/openai/how-to/role-based-access-control#azure-openai-roles) permissions to upload data. You can only choose one vectorizer in this preview, and the vectorizer must be Azure OpenAI.
 
 + [Azure Storage account](/azure/storage/common/storage-account-overview), standard performance (general-purpose v2), Hot and Cool access tiers.
 
@@ -28,16 +44,36 @@ Get started with integrated vectorization using the **Import and vectorize data*
 
 + Read permissions in Azure Storage. A storage connection string that includes an access key gives you read access to storage content. If instead you're using Microsoft Entra logins and roles, make sure the [search service's managed identity](search-howto-managed-identities-data-sources.md) has **Storage Blob Data Reader** permissions.
 
-
-Chunking cannot be customized, only the most recommended values will be set by default as per: https://techcommunity.microsoft.com/t5/azure-ai-services-blog/azure-cognitive-search-outperforming-vector-search-with-hybrid/ba-p/3929167 
-
-### Check for space
+## Check for space
 
 Many customers start with the free service. The free tier is limited to three indexes, three data sources, three skillsets, and three indexers. Make sure you have room for extra items before you begin. This quickstart creates one of each object.
 
-<!-- ## Prepare sample data
+## Prepare sample data
 
-This section points you to data that works for this quickstart. -->
+This section points you to data that works for this quickstart.
+
+1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure account, and go to your Azure Storage account.
+
+1. In the navigation pane, under **Data Storage**, select **Containers**.
+
+1. Create a new container and then upload the [health-plan PDF documents](https://github.com/Azure-Samples/azure-search-sample-data/tree/main/health-plan) used for this quickstart.
+
+1. Before leaving the Azure Storage account in the Azure portal, [grant Storage Blob Data Reader permissions](search-howto-managed-identities-data-sources.md#assign-a-role) on the container, assuming you want role-based access.
+
+<a name="connect-to-azure-openai"></a>
+<!-- This bookmark is used in an FWLINK. Do not change. -->
+
+## Get connection details for Azure OpenAI
+
+The wizard needs an endpoint, a deployment of **text-embedding-ada-002**, and either an API key or a search service managed identity with [**Cognitive Services OpenAI User**](/azure/ai-services/openai/how-to/role-based-access-control#azure-openai-roles) permissions.
+
+1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure account, and go to your Azure OpenAI resource.
+
+1. Under **Keys and management**, copy the endpoint.
+
+1. On the same page, copy a key or check **Access control** to assign role members to your search service identity.
+
+1. Under **Model deployments**, select **Manage deployments** to open Azure AI Studio. Copy the deployment name of text-embedding-ada-002.
 
 ## Start the wizard
 
@@ -51,9 +87,11 @@ To get started, browse to your Azure AI Search service in the Azure portal and o
 
 The next step is to connect to a data source to use for the search index.
 
-1. In the **Import data** wizard on the **Connect to your data** tab, expand the **Data Source** dropdown list and select **Samples**.
+1. In the **Import data** wizard on the **Connect to your data** tab, expand the **Data Source** dropdown list and select **Azure Blob Storage**.
 
-1. In the list of built-in samples, select **hotels-sample**.
+1. Specify the Azure subscription, storage account, and container that provides the data.
+
+1. For the connection, either provide a full access connection string that includes a key, or [specify a managed identity](search-howto-managed-identities-storage.md) that has **Storage Blob Data Reader** permissions on the container.
 
 1. Select **Next: Vectorize and Enrich** to continue.
 
