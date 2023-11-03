@@ -121,7 +121,7 @@ The first section of the workbook is based on log query data. The second section
 
 The behavior is possible through use of the **When an item is selected, export a parameter** advanced settings, which are enabled in the table's log query.
 
-:::image type="content" source="media/vminsights-workbooks/009-settings-export.png" lightbox="media/vminsights-workbooks/009-settings-export.png" alt-text="Screenshot that shows the Advanced Settings dialog for a Virtual Machines workbook with the "When an item is selected, export a parameter" option checked.":::
+:::image type="content" source="media/vminsights-workbooks/009-settings-export.png" lightbox="media/vminsights-workbooks/009-settings-export.png" alt-text="Screenshot that shows the Advanced Settings dialog for a Virtual Machines workbook with the 'When an item is selected, export a parameter' option checked.":::
 
 The second log query then utilizes the exported values when a row is selected to create a set of values that are used by the section heading and charts. If no row is selected, it hides the section heading and charts.
 
