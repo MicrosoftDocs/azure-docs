@@ -20,7 +20,7 @@ As an Azure Government Enterprise Agreement (EA) customer, you can now manage yo
 
 > [!NOTE]
 > On November 15, 2023, the Azure Enterprise portal is retiring for EA enrollments in the Commercial cloud and is becoming read-only for EA enrollments in the Azure Government cloud.
-> Customers and Partners should use Cost Management + Billing in the Azure portal to manage their enrollments. For more information about enrollment management in the Azure portal, see [Get started with EA billing in the Azure portal](../cost-management-billing/manage/ea-direct-portal-get-started.mdea-direct-portal-get-started.md).
+> Customers and Partners should use Cost Management + Billing in the Azure portal to manage their enrollments. For more information about enrollment management in the Azure portal, see [Get started with EA billing in the Azure portal](../cost-management-billing/manage/ea-direct-portal-get-started.md).
 
 ## Access the Azure Government portal
 
