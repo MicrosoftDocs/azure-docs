@@ -7,11 +7,11 @@ documentationcenter: ''
 ms.service: azure-government
 author: bandersmsft
 ms.author: banders
-ms.reviewer: prsaini
+ms.reviewer: sapnakeshari
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 05/08/2023
+ms.date: 11/03/2023
 ---
 
 # Access your EA billing account in the Azure Government portal
@@ -19,7 +19,8 @@ ms.date: 05/08/2023
 As an Azure Government Enterprise Agreement (EA) customer, you can now manage your EA billing account directly from [Azure Government portal](https://portal.azure.us/). This article helps you to get started with your billing account on the Azure Government portal.
 
 > [!NOTE]
-> The Azure Enterprise (EA) portal is getting retired. We recommend that both direct and indirect EA Azure Government customers use Cost Management + Billing in the Azure Government portal to manage their enrollment and billing instead of using the EA portal.
+> On November 15, 2023, the Azure Enterprise portal is retiring for EA enrollments in the Commercial cloud and is becoming read-only for EA enrollments in the Azure Government cloud.
+> Customers and Partners should use Cost Management + Billing in the Azure portal to manage their enrollments. For more information about enrollment management in the Azure portal, see [Get started with EA billing in the Azure portal](../cost-management-billing/manage/ea-direct-portal-get-started.md).
 
 ## Access the Azure Government portal
 
