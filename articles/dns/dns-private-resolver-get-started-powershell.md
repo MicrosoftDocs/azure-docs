@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to create and manage your first p
 services: dns
 author: greg-lindsay
 ms.author: greglin
-ms.date: 07/19/2023
+ms.date: 11/03/2023
 ms.topic: quickstart
 ms.service: dns
 ms.custom: devx-track-azurepowershell, mode-api, ignite-2022
@@ -81,7 +81,7 @@ New-AzResourceGroup -Name myresourcegroup -Location westcentralus
 Create a virtual network in the resource group that you created.
 
 ```Azure PowerShell
-New-AzVirtualNetwork -Name myvnet -ResourceGroupName myresourcegroup -Location westcentralus -AddressPrefix "10.0.0.0/8"
+New-AzVirtualNetwork -Name myvnet -ResourceGroupName myresourcegroup -Location westcentralus -AddressPrefix "10.0.0.0/16"
 ```
 
 Create a DNS resolver in the virtual network that you created.
@@ -117,11 +117,15 @@ Create an inbound endpoint to enable name resolution from on-premises or another
 > If the endpoint IP address is specified as dynamic, the address does not change unless the endpoint is deleted and reprovisioned. Typically the same IP address will be assigned again during reprovisioning.<br>
 > If the endpoint IP address is static, it can be specified and reused if the endpoint is reprovisioned. The IP address that you choose can't be a [reserved IP address in the subnet](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets).
 
+#### Dynamic IP address
+
 The following commands provision a dynamic IP address:
 ```Azure PowerShell
 $ipconfig = New-AzDnsResolverIPConfigurationObject -PrivateIPAllocationMethod Dynamic -SubnetId /subscriptions/<your sub id>/resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/snet-inbound
 New-AzDnsResolverInboundEndpoint -DnsResolverName mydnsresolver -Name myinboundendpoint -ResourceGroupName myresourcegroup -Location westcentralus -IpConfiguration $ipconfig
 ```
+
+#### Static IP address
 
 Use the following commands to specify a static IP address. Do not use both the dynamic and static sets of commands. 
 
@@ -211,7 +215,7 @@ $virtualNetworkLink.ToJsonString()
 Create a second virtual network to simulate an on-premises or other environment.
 
 ```Azure PowerShell
-$vnet2 = New-AzVirtualNetwork -Name myvnet2 -ResourceGroupName myresourcegroup -Location westcentralus -AddressPrefix "12.0.0.0/8"
+$vnet2 = New-AzVirtualNetwork -Name myvnet2 -ResourceGroupName myresourcegroup -Location westcentralus -AddressPrefix "10.1.0.0/16"
 $vnetlink2 = New-AzDnsForwardingRulesetVirtualNetworkLink -DnsForwardingRulesetName $dnsForwardingRuleset.Name -ResourceGroupName myresourcegroup -VirtualNetworkLinkName "vnetlink2" -VirtualNetworkId $vnet2.Id -SubscriptionId <your sub id>
 ```
 

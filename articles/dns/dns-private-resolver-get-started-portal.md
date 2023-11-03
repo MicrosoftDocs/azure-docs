@@ -4,7 +4,7 @@ description: In this quickstart, you create and test a private DNS resolver in A
 services: dns
 author: greg-lindsay
 ms.author: greglin
-ms.date: 10/20/2023
+ms.date: 11/03/2023
 ms.topic: quickstart
 ms.service: dns
 ms.custom: mode-ui, ignite-2022
@@ -20,7 +20,7 @@ Azure DNS Private Resolver enables you to query Azure DNS private zones from an 
 ## In this article: 
 
 - Two VNets are created: **myvnet** and **myvnet2**.
-- An Azure DNS Private Resolver is created in the first VNet with an inbound endpoint at **10.10.0.4**.
+- An Azure DNS Private Resolver is created in the first VNet with an inbound endpoint at **10.0.0.4**.
 - A DNS forwarding ruleset is created for the private resolver.
 - The DNS forwarding ruleset is linked to the second VNet.
 - Example rules are added to the DNS forwarding ruleset.
@@ -60,14 +60,14 @@ Next, add a virtual network to the resource group that you created, and configur
 
 1. Select the resource group you created, select **Create**, select **Networking** from the list of categories, and then next to **Virtual network**, select **Create**.
 2. On the **Basics** tab, enter a name for the new virtual network and select the **Region** that is the same as your resource group.
-3. On the **IP Addresses** tab, modify the **IPv4 address space** to be 10.0.0.0/8.
+3. On the **IP Addresses** tab, modify the **IPv4 address space** to be 10.0.0.0/16.
 4. Select **Add subnet** and enter the subnet name and address range:
     - Subnet name: snet-inbound
     - Subnet address range: 10.0.0.0/28
     - Select **Add** to add the new subnet.
 5. Select **Add subnet** and configure the outbound endpoint subnet:
     - Subnet name: snet-outbound
-    - Subnet address range: 10.1.1.0/28
+    - Subnet address range: 10.0.1.0/28
     - Select **Add** to add this subnet.
 6. Select **Review + create** and then select **Create**.
 
@@ -125,10 +125,10 @@ Create a second virtual network to simulate an on-premises or other environment.
 2. Select **Create**, and then on the **Basics** tab select your subscription and choose the same resource group that you have been using in this guide (ex: myresourcegroup).
 3. Next to **Name**, enter a name for the new virtual network (ex: myvnet2).
 4. Verify that the **Region** selected is the same region used previously in this guide (ex: West Central US).
-5. Select the **IP Addresses** tab and edit the default IP address space. Replace the address space with a simulated on-premises address space (ex: 12.0.0.0/8). 
+5. Select the **IP Addresses** tab and edit the default IP address space. Replace the address space with a simulated on-premises address space (ex: 10.1.0.0/16). 
 6. Select **Add subnet** and enter the following:
     - Subnet name: backendsubnet
-    - Subnet address range: 12.2.0.0/24
+    - Subnet address range: 10.1.0.0/24
 7. Select **Add**, select **Review + create**, and then select **Create**.
 
     ![second vnet review](./media/dns-resolver-getstarted-portal/vnet-review.png)
