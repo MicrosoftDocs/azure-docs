@@ -35,7 +35,7 @@ Here are the key capabilities provided by the Astro integration:
 1. Alternatively, you can also find Apache Airflow on Astro – An Azure Native ISV Service in the [Azure portal](https://ms.portal.azure.com/?Azure_Marketplace_Astronomer_assettypeoptions=%7B%22Astronomer%22%3A%7B%22options%22%3A%22%22%7D%7D#browse/Astronomer.Astro%2Forganizations)
 1. Subscribe to the corresponding service. You see a **Create an Astro organization** page open up.
 
-## Astronomer Resources
+## Astronomer resources
 
 To learn more about Astro:
 
