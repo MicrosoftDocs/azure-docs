@@ -20,7 +20,7 @@ This article describes how to configure data retention and archiving.
 
 Each workspace has a default retention setting that's applied to all tables. You can configure a different retention setting on individual tables.
 
-:::image type="content" source="media/data-retention-configure/retention-archive.png" alt-text="Diagram that shows an overview of data retention and archive periods.":::
+:::image type="content" source="media/data-retention-configure/retention-archive.png" lightbox="media/data-retention-configure/retention-archive.png" alt-text="Diagram that shows an overview of data retention and archive periods.":::
 
 During the interactive retention period, data is available for monitoring, troubleshooting, and analytics. When you no longer use the logs, but still need to keep the data for compliance or occasional investigation, archive the logs to save costs.
 
