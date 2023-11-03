@@ -1,5 +1,5 @@
 ---
-title: Stream data from Azure Stream Analytics into Kafka
+title: Stream data from Azure Stream Analytics into confluent cloud kafka
 description: Learn about how to set up an Azure Stream Analytics job as a producer to confluent cloud kafka
 author: enkrumah
 ms.author: ebnkruma
@@ -10,15 +10,15 @@ ms.date: 11/02/2023
 
 # Stream data from Azure Stream Analytics into confluent cloud
 
-This articles describes how to connect your Azure Stream Analytics job directly to confluent cloud kafka as an output.
+This article describes how to connect your Azure Stream Analytics job directly to confluent cloud kafka as an output.
 
 
 ## Prerequisites
 
 - You have a confluent cloud kafka cluster.
-- You have an API Key file for your kafka cluster which contains the API key to use as a username, API Secret to use as a password and the Bootstrap server address.
-- You have an Azure Stream Analytics job. You an create an Azure Stream Analytics job by following the documentation: [Quickstart: Create a Stream Analytics job by using the Azure portal](stream-analytics-quick-create-portal.md)
-- Your confluent cloud kafka cluster must be publicly accessible and not behind a firewall or secured in an virtual network.
+- You have an API Key file for your kafka cluster, which contains the API key to use as a username, API Secret to use as a password, and the Bootstrap server address.
+- You have an Azure Stream Analytics job. You Can create an Azure Stream Analytics job by following the documentation: [Quickstart: Create a Stream Analytics job by using the Azure portal](stream-analytics-quick-create-portal.md)
+- Your confluent cloud kafka cluster must be publicly accessible and not behind a firewall or secured in a virtual network.
 - You should have an existing key vault. You can create a key vault resource by following the documentation [Quickstart: Create a key vault using the Azure portal](../key-vault/general/quick-create-portal.md)
 
 
@@ -27,7 +27,7 @@ This articles describes how to connect your Azure Stream Analytics job directly 
 Azure Stream Analytics requires you to configure managed identity to access key vault.
 You can configure your ASA job to use managed identity by navigating to the **Managed Identity** tab on the left side under **Configure**.
 
-    :::image type="content" source="./media/common/stream-analytics-enable-managed-identity-new.png" alt-text="Screenshot showing how to configure managed identity for an ASA job" lightbox="./media/common/stream-analytics-enable-managed-identity-new.png" :::
+:::image type="content" source="./media/common/stream-analytics-enable-managed-identity-new.png" alt-text="Screenshot showing how to configure managed identity for an ASA job" lightbox="./media/common/stream-analytics-enable-managed-identity-new.png" :::
 
 1.	Click on the **managed identity tab** under **configure**.
 2.	Select on **Switch Identity** and select the identity to use with the job: system-assigned identity or user-assigned identity.
@@ -41,14 +41,14 @@ The stream analytics kafka output is a librdkafka-based client, and to connect t
 
 Download the ISRG Root X1 certificate in **PEM** format on the site of [LetsEncrypt](https://letsencrypt.org/certificates/).
 
-    :::image type="content" source="./media/kafka/lets-encrypt-certificate.png" alt-text="Screenshot showing the certificate to download from the website of letsencrypt" lightbox="./media/kafka/lets-encrypt-certificate.png" :::
+:::image type="content" source="./media/kafka/lets-encrypt-certificate.png" alt-text="Screenshot showing the certificate to download from the website of letsencrypt" lightbox="./media/kafka/lets-encrypt-certificate.png" :::
 
 
-## Configure KeyVault with Permissions
+## Configure Key vault with permissions
 
-Azure Stream Analytics integrates seamlessly with Azure Key vault to access stored secrets needed for authentication and encryption when using mTLS or SASL_SSL security protocols. Your Azure Stream Analytics job connects to your Azure Key vault using managed identity to ensure a secure connection and avoid the exfiltration of secrets. To be able to use the certificate you downloaded, you must upload it to key vault first.
+Azure Stream Analytics integrates seamlessly with Azure Key vault to access stored secrets needed for authentication and encryption when using mTLS or SASL_SSL security protocols. Your Azure Stream Analytics job connects to your Azure Key vault using managed identity to ensure a secure connection and avoid the exfiltration of secrets. To use the certificate you downloaded, you must upload it to key vault first.
 
-To be able to upload certificates, you must have "**Key Vault Administrator**"  access to your Key vault. Follow the following to grant admin access:
+To upload certificates, you must have "**Key Vault Administrator**"  access to your Key vault. Follow the following to grant admin access:
 
 > [!NOTE]
 > You must have "**Owner**" permissions to grant other key vault permissions.
@@ -66,7 +66,7 @@ To be able to upload certificates, you must have "**Key Vault Administrator**"  
  | Members | \<Your account information or email> |
 
 
-## Upload Certificate to Key vault as a secret via Azure CLI
+## Upload certificate to Key vault as a secret via Azure CLI
 
 > [!IMPORTANT]
 > You must have "**Key Vault Administrator**" permissions access to your Key vault for this command to work properly
@@ -160,15 +160,15 @@ Use the following configuration:
  | Certificate | name of the certificate uploaded to KeyVault |
 
 
-    :::image type="content" source="./media/kafka/kafka-output.png" alt-text="Screenshot showing how to configure kafka input for a stream analytics job" lightbox="./media/kafka/kafka-output.png" :::
+:::image type="content" source="./media/kafka/kafka-output.png" alt-text="Screenshot showing how to configure kafka input for a stream analytics job" lightbox="./media/kafka/kafka-output.png" :::
 
 
 ## Save your configuration
 
 Save your configuration. Your Azure Stream Analytics job will automatically validate using the configuration provided.
-A successful connection will show up in the portal if you stream analytics is able to connect to your kafka cluster.
+A successful connection will show up in the portal if you stream analytics can connect to your kafka cluster.
 
-    :::image type="content" source="./media/kafka/kafka-output-test-connection.png" alt-text="Screenshot showing successful test connection confluent kafka input" lightbox="./media/kafka/kafka-output-test-connection.png" :::
+:::image type="content" source="./media/kafka/kafka-output-test-connection.png" alt-text="Screenshot showing successful test connection confluent kafka input" lightbox="./media/kafka/kafka-output-test-connection.png" :::
    
 
 ### Limitations
