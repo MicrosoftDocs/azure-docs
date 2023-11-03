@@ -234,7 +234,20 @@ Premium SSD v2 offers higher performance than Premium SSDs while also generally 
 
 ### Differences between Premium SSD and Premium SSD v2
 
-Unlike Premium SSDs, Premium SSD v2 doesn't have dedicated sizes. You can set a Premium SSD v2 to any supported size you prefer, and make granular adjustments to the performance without downtime. Premium SSD v2 doesn't support host caching but, benefits significantly from lower latency, which addresses some of the same core problems host caching addresses. The ability to adjust IOPS, throughput, and size at any time allows you to dynamically change your storage configuration based upon your workload needs.Premium SSD v2 capacities range from 1 GiB to 64 TiBs, in 1-GiB increments.
+Unlike Premium SSDs, Premium SSD v2 doesn't have dedicated sizes. You can set a Premium SSD v2 to any supported size you prefer, and make granular adjustments (1-GiB increments) as per your workload requirements. Premium SSD v2 doesn't support host caching but still provides significantly lower latency that Premium SSD. Premium SSD v2 capacities range from 1 GiB to 64 TiBs.
+
+The following table provides a comparison of the five disk types to help you decide which to use.
+
+|         |  Premium SSD v2 | Premium SSD | 
+| ------- | ----------------| ----------- | 
+| **Disk type** | SSD | SSD |
+| **Scenario**  | Production and performance-sensitive workloads that consistently require low latency and high IOPS and throughput | Production and performance sensitive workloads | 
+| **Max disk size** | 65,536 GiB |32,767 GiB |
+| **Max throughput**  | 1,200 MB/s | 900 MB/s | 
+| **Max IOPS** | 80,000 | 20,000 |
+| **Usable as OS Disk?** | No | Yes | Yes | Yes |
+
+
 
 Premium SSD v2 offers up to 32 TiBs per region per subscription by default, but supports higher capacity by request. To request an increase in capacity, request a quota increase or contact Azure Support.
 
@@ -250,13 +263,13 @@ All Premium SSD v2 disks have a baseline throughput of 125 MB/s that is free of 
 > Premium SSD v2 is currently in preview for Azure Database for PostgreSQL Flexible Server.
 
 
-#### Premium SSD v2 Limitations
+#### Premium SSD v2 Early Preview Limitations
 
-- Azure Database for PostgreSQL Flexible Server with Premium SSD V2 disk can be only deployed only in West Europe, East US, Switzerland North regions during preview. 
+- Azure Database for PostgreSQL Flexible Server with Premium SSD V2 disk can be deployed only in West Europe, East US, Switzerland North regions during early preview. Support for more regions is coming soon.
 
-- During Premium SSD V2 disk does not support High Availability, Read Replicas, Geo Redundant Backups , Customer Managed Keys, Storage Autogrow features. Support for these features is coming soon.
+- During early preview, SSD V2 disk will not have not support High Availability, Read Replicas, Geo Redundant Backups , Customer Managed Keys, Storage Autogrow features.These features will be supported soon on Premium SSD V2.
 
-- During preview, it is not possible to switch between Premium SSD V2 and Premium SSD storage types.
+- During early preview, it is not possible to switch between Premium SSD V2 and Premium SSD storage types.
 
 - You can enable Premium SSD V2 only for newly created servers. Support for existing servers is coming soon.
 
