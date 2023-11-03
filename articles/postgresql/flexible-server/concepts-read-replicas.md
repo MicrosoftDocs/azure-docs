@@ -150,13 +150,16 @@ This action promotes the replica to serve as the primary server. Concurrently, t
 By opting for this, the replica becomes an independent server and is removed from the replication process. As a result, both the primary and the promoted server will function as two independent read-write servers. The newly promoted server will no longer be part of any existing virtual endpoints, even if the reader endpoint was previously pointing to it. Thus, it's essential to update your application's connection string to direct to the newly promoted replica if the application should connect to it.
 
 > [!IMPORTANT]
+> The **Promote to primary server** action is currently in preview. The **Promote to independent server and remove from replication** action is backward compatible with the previous promote functionality.
+
+> [!IMPORTANT]
 > **Server Symmetry**: For a successful promotion using the promote to primary server operation, both the primary and replica servers must have identical tiers and storage sizes. For instance, if the primary has 2vCores and the replica has 4vCores, the only viable option is to use the "promote to independent server and remove from replication" action. Additionally, they need to share the same values for [server parameters that allocate shared memory](#server-parameters). 
 
 For both promotion methods, there are additional options to consider:
 
 * **Planned**: This option ensures that data is synchronized before promoting. It applies all the pending logs to ensure data consistency before accepting client connections.
 
-* **Forced**: This option prioritizes speed. Instead of waiting to synchronize all the data from the primary, the server becomes operational once it processes WAL files needed to achieve the nearest consistent state. If you promote the replica using this option, the lag at the time you delink the replica from the primary will indicate how much data is lost.
+* **Forced**: This option is designed for rapid recovery in scenarios such as regional outages. Instead of waiting to synchronize all the data from the primary, the server becomes operational once it processes WAL files needed to achieve the nearest consistent state. If you promote the replica using this option, the lag at the time you delink the replica from the primary will indicate how much data is lost.
 
 > [!IMPORTANT]
 > Promote operation is not automatic. In the event of a primary server failure, the system won't switch to the read replica on its own. An user action is always required for the promote operation.
@@ -243,20 +246,20 @@ For additional insight, query the primary server directly to get the replication
 > [!NOTE]
 > If a primary server or read replica restarts, the time it takes to restart and catch up is reflected in the Replica Lag metric.
 
-**Replication status**
+**Replication state**
 
-To keep an eye on the progress and status of the replication and promote operation, refer to the **Replication status** column in the Azure portal. This column is located in the replication blade and displays various states that provide insights into the current condition of the read replicas and their link to the primary. For users relying on the ARM API, when invoking the `GetReplica` API, the state appears as LinkState in the `replica` property bag.
+To keep an eye on the progress and status of the replication and promote operation, refer to the **Replication state** column in the Azure portal. This column is located in the replication blade and displays various states that provide insights into the current condition of the read replicas and their link to the primary. For users relying on the ARM API, when invoking the `GetReplica` API, the state appears as ReplicationState in the `replica` property bag.
 
 Here are the possible values:
 
-| **Replication status**     | **Description**                                                                                                                                   | **Promote order** | **Read replica creation order** |
-|--------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|-------------------|---------------------------------|
-| <b> Waiting for reconfigure	  |   Awaiting start of the replica-primary link. It may remain longer if the replica or its region is unavailable, e.g., due to a disaster.  | 1                 | N/A                             |
-| <b> Provisioning      | The read replica is being provisioned and replication between the two servers hasn't started. Until provisioning completes, you can't connect to the read replica. | N/A               | 1                               |
-| <b> Updating		 | Server configuration is under preparation following a triggered action like promotion or read replica creation.| 2 | 2                               |
-| <b> Catchup	  |    WAL files are being applied on the replica. The duration for this phase during promotion depends on the data sync option chosen - planned or forced.	 | 3 | 3                               |
-| <b> Active	  | Healthy state, indicating that the read replica has been successfully connected to the primary. If the servers are stopped but were successfully connected prior, the status will remain as active. | 4 | 4 |
-| <b> Broken	  | Unhealthy state, indicating the promote operation might have failed, or the replica is unable to connect to the primary for some reason.          | N/A | N/A |
+| **Replication state**        | **Description**                                                                                                                                   | **Promote order** | **Read replica creation order** |
+|------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|-------------------|---------------------------------|
+| <b> Waiting for reconfigure	 |   Awaiting start of the replica-primary link. It may remain longer if the replica or its region is unavailable, e.g., due to a disaster.  | 1                 | N/A                             |
+| <b> Provisioning             | The read replica is being provisioned and replication between the two servers hasn't started. Until provisioning completes, you can't connect to the read replica. | N/A               | 1                               |
+| <b> Updating		               | Server configuration is under preparation following a triggered action like promotion or read replica creation.| 2 | 2                               |
+| <b> Catchup	                 |    WAL files are being applied on the replica. The duration for this phase during promotion depends on the data sync option chosen - planned or forced.	 | 3 | 3                               |
+| <b> Active	                  | Healthy state, indicating that the read replica has been successfully connected to the primary. If the servers are stopped but were successfully connected prior, the status will remain as active. | 4 | 4 |
+| <b> Broken	                  | Unhealthy state, indicating the promote operation might have failed, or the replica is unable to connect to the primary for some reason.          | N/A | N/A |
 
 
 ## Regional Failures and Recovery
@@ -282,7 +285,7 @@ In the event of a prolonged outage with Azure Database for PostgreSQL - Flexible
 
 **Promote to primary server (preview)**
 
-Use this action if your server fulfills the server symmetry criteria. This option won't require updating the connection strings in your application, provided virtual endpoints are configured. Once activated, the writer endpoint will repoint to the new primary in a different region and the [replication status](#monitor-replication) column in the Azure portal will display "Waiting for reconfigure". Once the affected region is restored, the former primary server will automatically resume, but now in a replica role.
+Use this action if your server fulfills the server symmetry criteria. This option won't require updating the connection strings in your application, provided virtual endpoints are configured. Once activated, the writer endpoint will repoint to the new primary in a different region and the [replication state](#monitor-replication) column in the Azure portal will display "Waiting for reconfigure". Once the affected region is restored, the former primary server will automatically resume, but now in a replica role.
 
 **Promote to independent server and remove from replication**
 
