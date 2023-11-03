@@ -1,6 +1,6 @@
 ---
 title: Create integration environments for Azure resources
-description: Create an integration environment to centrally organize and manage Azure resources related to integration solutions.
+description: Create an integration environment so you can centrally organize, manage, and track existing Azure resources for your integration solutions.
 ms.service: azure
 ms.topic: how-to
 ms.reviewer: estfan, azla

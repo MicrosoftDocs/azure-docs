@@ -1,6 +1,6 @@
 ---
 title: Create application groups to organize Azure resources
-description: Create an application group to organize and manage Azure resources related to integration solutions as logical groups.
+description: Create an application group so you can logically organize, manage, and track existing Azure resources for your integration solutions.
 ms.service: azure
 ms.topic: how-to
 ms.reviewer: estfan, azla
@@ -58,8 +58,8 @@ After you create an integration environment, create one or more application grou
       | Resource type | Properties |
       |---------------|------------|
       | **Logic App** | **Name**: Name for the logic app |
-      | **API** | -**Name**: Name for the API Management instance <br><br>- **API**: Name for the API |
-      | **Service Bus** | -**Name**: Name for the service bus to add <br><br>- **Topic**: Name for the topic <br><br>- **Queue**: Name for the queue to add |
+      | **API** | -**Name**: Name for the API Management instance <br>- **API**: Name for the API |
+      | **Service Bus** | -**Name**: Name for the service bus to add <br>- **Topic**: Name for the topic <br>- **Queue**: Name for the queue to add |
 
 1. When you're done, select **Add**.
 
