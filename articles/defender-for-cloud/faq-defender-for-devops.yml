@@ -49,7 +49,7 @@ sections:
       - question: |
           Why am I getting an error while trying to connect?
         answer: |
-          When you select the *Authorize* button, the account that you're logged in with is used. That account can have the same email but may have a different tenant. Make sure you have the right account/tenant combination selected in the popup consent screen and Visual Studio.
+          When you select the *Authorize* button, the account that you're logged in with is used. That account can have the same email but might have a different tenant. Make sure you have the right account/tenant combination selected in the popup consent screen and Visual Studio.
 
           You can [check which account is signed in](https://app.vssps.visualstudio.com/profile/view).
 
@@ -77,7 +77,7 @@ sections:
       - question: |
           Why don’t I see the generated SARIF file in the path I chose to drop it?
         answer: |
-          If you don’t see SARIF file in the expected path, you may have chosen a different drop path than the `CodeAnalysisLogs/msdo.sarif` one. Currently you should drop your SARIF files to `CodeAnalysisLogs/msdo.sarif`.
+          If you don’t see SARIF file in the expected path, you might have chosen a different drop path than the `CodeAnalysisLogs/msdo.sarif` one. Currently you should drop your SARIF files to `CodeAnalysisLogs/msdo.sarif`.
 
 
       - question: |

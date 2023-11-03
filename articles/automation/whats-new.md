@@ -23,9 +23,16 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 ## October 2023
 
+
 ## General Availability: Automation extension for Visual Studio Code
 
  Azure Automation now provides an advanced editing experience for PowerShell and Python scripts along with [runbook management operations](how-to/runbook-authoring-extension-for-vscode.md). For more information, see the [Key features and limitations](automation-runbook-authoring.md).
+
+
+### General Availability: Change Tracking using Azure Monitoring Agent
+
+Azure Automation announces General Availability of Change Tracking using Azure Monitoring Agent. [Learn more](change-tracking/guidance-migration-log-analytics-monitoring-agent.md).
+
 
 ### Retirement of Run As accounts
 

@@ -28,7 +28,7 @@ There are multiple types of metrics supported by Azure Monitor Metrics:
   - Custom metrics are collected from different sources that you configure including applications and agents running on virtual machines.
 - Prometheus metrics are collected from Kubernetes clusters including Azure Kubernetes service (AKS) and use industry standard tools for analyzing and alerting such as PromQL and Grafana.
 
-![Diagram that shows sources and uses of metrics.](media/data-platform-metrics/metrics-overview.png)
+:::image type="content" source="media/data-platform-metrics/metrics-overview.png" lightbox="media/data-platform-metrics/metrics-overview.png" alt-text="Diagram that shows sources and uses of metrics.":::
 
 The differences between each of the metrics are summarized in the following table.
 
@@ -62,7 +62,7 @@ For a complete list of data sources that can send data to Azure Monitor Metrics,
 Azure Monitor provides REST APIs that allow you to get data in and out of Azure Monitor Metrics.
 - **Custom metrics API** - [Custom metrics](./metrics-custom-overview.md) allow you to load your own metrics into the Azure Monitor Metrics database. Those metrics can then be used by the same analysis tools that process Azure Monitor platform metrics. 
 - **Azure Monitor Metrics REST API** - Allows you to access Azure Monitor platform metrics definitions and values. For more information, see [Azure Monitor REST API](/rest/api/monitor/).  For information on how to use the API, see the [Azure monitoring REST API walkthrough](./rest-api-walkthrough.md).
-- **Azure Monitor Metrics Data plane REST API**  - [Azure Monitor Metrics data plane API](/rest/api/monitor/metrics-data-plane/) is a high-volume API designed for customers with large volume metrics queries. It's similar to the existing standard Azure Monitor Metrics REST API, but provides the capability to retrieve metric data for up to 50 resource IDs in the same subscription and region in a single batch API call. This improves query throughput and reduces the risk of throttling.   
+- **Azure Monitor Metrics Batch REST API**  - [Azure Monitor Metrics Batch API](/rest/api/monitor/metrics-batch/) is a high-volume API designed for customers with large volume metrics queries. It's similar to the existing standard Azure Monitor Metrics REST API, but provides the capability to retrieve metric data for up to 50 resource IDs in the same subscription and region in a single batch API call. This improves query throughput and reduces the risk of throttling.   
 
 ## Security
 
@@ -73,10 +73,10 @@ Secure connection is established between the agent and the Azure Monitor service
 ## Metrics Explorer
 
 Use [Metrics Explorer](metrics-charts.md) to interactively analyze the data in your metric database and chart the values of multiple metrics over time. You can pin the charts to a dashboard to view them with other visualizations. You can also retrieve metrics by using the [Azure monitoring REST API](./rest-api-walkthrough.md).
+<!-- convertborder later -->
+:::image type="content" source="media/data-platform-metrics/metrics-explorer.png" lightbox="media/data-platform-metrics/metrics-explorer.png" alt-text="Screenshot that shows an example graph in Metrics Explorer that displays server requests, server response time, and failed requests." border="false":::
 
-![Screenshot that shows an example graph in Metrics Explorer that displays server requests, server response time, and failed requests.](media/data-platform-metrics/metrics-explorer.png)
-
-For more information, see [Getting started with Azure Monitor Metrics Explorer](./metrics-getting-started.md).
+For more information, see [Analyze metrics with Azure Monitor metrics explorer](./analyze-metrics.md).
 
 ## Data structure
 
@@ -94,7 +94,7 @@ One of the challenges to metric data is that it often has limited information to
 
 Metric dimensions are name/value pairs that carry more data to describe the metric value. For example, a metric called _Available disk space_ might have a dimension called _Drive_ with values _C:_ and _D:_. That dimension would allow viewing available disk space across all drives or for each drive individually.
 
-See [Apply dimension filters and splitting](metrics-getting-started.md?#apply-dimension-filters-and-splitting) for details on viewing metric dimensions in metrics explorer.
+See [Apply dimension filters and splitting](analyze-metrics.md?#use-dimension-filters-and-splitting) for details on viewing metric dimensions in metrics explorer.
 
 ### Nondimensional metric
 The following table shows sample data from a nondimensional metric, network throughput. It can only answer a basic question like "What was my network throughput at a given time?"
