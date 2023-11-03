@@ -35,8 +35,6 @@ Secured storage accounts with firewall are supported. You can enhance security a
 
 ## Prerequisites
 
-## Prerequisites
-
 Data export is available for various Azure account types, including [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) and [Microsoft Customer Agreement](get-started-partners.md) customers. To view the full list of supported account types, see [Understand Cost Management data](understand-cost-mgt-data.md). The following Azure permissions, or scopes, are supported per subscription for data export by user and group. For more information about scopes, see [Understand and work with scopes](understand-work-scopes.md).
 
 - Owner - Can create, modify, or delete scheduled exports for a subscription.
@@ -153,7 +151,7 @@ Cost and usage details supports the following options.
 - Cost and usage details (FOCUS) – Select this option to export cost and usage details using the open-source FinOps Open Cost and Usage Specification ([FOCUS](https://focus.finops.org/)) format. It combines actual and amortized costs. This format reduces data processing time and storage and compute charges for exports.
 - Cost and usage details (usage only) – Select this option to export standard usage charges without purchase information. Although you can't use this option when creating new exports, existing exports using this option are still supported.
 
-Agreement types, scopes, and required roles are explained at [Understand and work with scopes](https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/understand-work-scopes).
+Agreement types, scopes, and required roles are explained at [Understand and work with scopes](understand-work-scopes.md).
 
 | **Agreement type** | **Export scope**   | **Required role**   | **Supported actions**   |
 | --- | --- | --- | --- |
