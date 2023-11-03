@@ -24,13 +24,13 @@ With the business process designer in your integration environment, you can visu
 
 :::image type="content" source="media/create-business-process/business-process-stages-complete.png" alt-text="Screenshot shows business process designer in the busines process tracking feature in an integration environment." lightbox="media/create-business-process/business-process-stages-complete.png":::
 
-. This busines process spans multiple Standard logic app resources and their workflows:
+Although this example shows a sequential business process, your process can also have parallel branches to represent decision paths.
 
 ## Prerequisites
 
 - An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- An [integration environment](create-integration-environment.md) that includes at least one [application group](create-application-group.md) with existing Azure resources
+- An [integration environment](create-integration-environment.md) that includes at least one [application group](create-application-group.md) with existing Azure resources.
 
 ## Create a business process
 
@@ -48,9 +48,9 @@ With the business process designer in your integration environment, you can visu
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
-   | **Name** | Yes | <*process-name*> | Name for your business process. This name can contain only alphanumeric characters, hyphens, underscores, parentheses, and periods. <br><br>This example uses **Track-Power-Outages**. |
+   | **Name** | Yes | <*process-name*> | Name for your business process that uses only alphanumeric characters, hyphens, underscores, parentheses, or periods. <br><br>**Note**: When you deploy your business process, the platform uses this name to create a table in the Data Explorer database that's associated with your application group. Although you can use the same name as an existing table, which updates that table, for security purposes, create a unique and separate table for each business process. This practice helps you avoid mixing sensitive data with non-sensitive data and is useful for redeployment scenarios. <br><br>This example uses **Track-Power-Outages**. |
    | **Description** | No | <*process-description*> | Purpose for your business process |
-   | **Business identifier** | Yes | <*business-ID*> | This important and unique ID identifies a transaction, such as an order number, ticket number, case number, or another similar identifier. <br><brThis example uses the **TicketNumber** property value as the identifier. |
+   | **Business identifier** | Yes | <*business-ID*> | This important and unique ID identifies a transaction, such as an order number, ticket number, case number, or another similar identifier. <br><br>This example uses the **TicketNumber** property value as the identifier. |
    | **Type** | Yes | <*ID-data-type*> | Data type for your business identifier: **String** or **Integer**. <br><brThis example uses the **String** data type. |
 
 1. When you're done, select **Create**.
@@ -74,11 +74,11 @@ After you create your business process, add stages and define key business data 
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
-   | **Name** | Yes | <*stage-name*> | Name for this process stage. This name can contain only alphanumeric characters, hyphens, underscores, parentheses, and periods. | 
+   | **Name** | Yes | <*stage-name*> | Name for this process stage that uses only alphanumeric characters, hyphens, underscores, parentheses, or periods. |
    | **Description** | No | <*stage-description*> | Purpose for this stage |
-   | **Show data source** | No | True or false | Show or hide the available data sources: <br><br>- **Logic app**: Name for an available Standard logic app resource <br>- **Workflow**: Name for the workflow in the selected Standard logic app resource <br>= **Action**: Name for the operation that you want to select and map to this stage <br><br>**Note**: If no options appear, no Standard logic apps are available in your Azure subscription. |
-   | **Add property** | No | True or false | Informatin about the properties and key business data that your organization wants to track: <br><br>- **Property**: Name for the property, for example, **SiteID** and **Timestamp** <br>**Type**: Property's data type, which is either a **String** or **Integer** <br><br> Data type for the property's value |
-   | **Business identifier** | Yes | <*business-ID*> | This unique ID identifies a transaction, such as an order number, ticket number, case number, or another similar identifier. In this example, the **TicketNumber** property is prepopulated from when you defined the parent business process. |
+   | **Show data source** | No | True or false | Show or hide the available data sources: <br><br>- **Logic app**: Name for an available Standard logic app resource <br><br>- **Workflow**: Name for the workflow in the selected Standard logic app resource <br><br>= **Action**: Name for the operation that you want to select and map to this stage <br><br>**Note**: If no options appear, the designer didn't find any Standard logic apps in your application group. |
+   | **Add property** | No | None | Add the properties and values for the key business data that your organization wants to track: <br><br>- **Property**: Name for the property, for example, **CustomerName**, **CustomerPhone**, and **CustomerEmail** and **SiteID**. <br><br>**Note**: The platform automatically captures the transaction timestamp, so you don't have to add this value for tracking. <br><br>- **Type**: Property value's data type, which is either a **String** or **Integer** |
+   | **Business identifier** | Yes | <*business-ID*>, read-only | This unique ID identifies a transaction, such as an order number, ticket number, case number, or another similar identifier. In this example, the **TicketNumber** identifier is prepopulated from when you defined the parent business process. |
 
 1. When you're done, select **Add**.
 
