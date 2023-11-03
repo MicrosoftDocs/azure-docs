@@ -41,8 +41,6 @@ landingContent:
             url: ./tutorial-discover-import.md
           - text: Assess SQL instances for migration to Azure SQL
             url: ./tutorial-assess-sql.md
-          - text: Assess ASP.NET web apps for migration to Azure Kubernetes Service (AKS)
-            url: ./tutorial-assess-aspnet-aks.md
           - text: Migrate VMware VMs with Migration and modernization
             url: ./server-migrate-overview.md
           - text: Migrate Hyper-V VMs with Migration and modernization
