@@ -155,7 +155,7 @@ The interactive Azure Maps map controls use vector tiles in the map styles to po
 | `road` | Partial | Yes | The main colorful road map style in Azure Maps. Due to the number of different colors and possible overlapping color combinations, it's nearly impossible to make it 100% accessible. That said, this map style goes through regular accessibility testing and is improved as needed to make labels clearer to read. |
 | `road_shaded_relief` | Partial | Yes | Similar to the main road map style, but has an added tile layer in the background that adds shaded relief of mountains and land cover coloring when zoomed out. |
 | `satellite` | N/A | Yes | Purely satellite and aerial imagery, no labels, or road lines. The vector tiles are loaded behind the scenes to power the screen reader and to make for a smoother transition when switching to `satellite_with_roads`. |
-| `satellite_with_roads` | No | Yes | Satellite and aerial imagery, with labels and road lines overlaid. On a global scale, there's an unlimited number of color combinations that may occur between the overlaid data and the imagery. A focus on making labels readable in most common scenarios, however, in some places the color contrast with the background imagery may make labels difficult to read. |
+| `satellite_with_roads` | No | Yes | Satellite and aerial imagery, with labels and road lines overlaid. On a global scale, there's an unlimited number of color combinations that might occur between the overlaid data and the imagery. A focus on making labels readable in most common scenarios, however, in some places the color contrast with the background imagery might make labels difficult to read. |
 
 ## Next steps
 
