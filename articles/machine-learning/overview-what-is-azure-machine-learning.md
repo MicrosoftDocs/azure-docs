@@ -81,7 +81,7 @@ Other integrations with Azure services support an ML project from end to end. Th
 
 * Azure Synapse Analytics, which is used to process and stream data with Spark.
 * Azure Arc, where you can run Azure services in a Kubernetes environment.
-* Storage and database options, such as Azure SQL Database and Azure Storage Blobs.
+* Storage and database options, such as Azure SQL Database and Azure Blob Storage.
 * Azure App Service, which you can use to deploy and manage ML-powered apps.
 * [Microsoft Purview, which allows you to discover and catalog data assets across your organization](../purview/register-scan-azure-machine-learning.md).
 
