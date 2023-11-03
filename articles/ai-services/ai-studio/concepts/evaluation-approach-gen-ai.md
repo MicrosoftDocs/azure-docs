@@ -72,4 +72,4 @@ After assessing your applications, flows, or data from any of these channels, yo
 
 - [Evaluate your generative AI apps via the playground](../how-to/evaluate-prompts-playground.md)
 - [Evaluate your generative AI apps with the Azure AI Studio or SDK](../how-to/evaluate-generative-ai-app.md)
-- [View the evaluation results](../how-to/view-evaluation-results.md)
+- [View the evaluation results](../how-to/evaluate-flow-results.md)
