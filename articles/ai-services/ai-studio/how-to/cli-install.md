@@ -19,8 +19,6 @@ The Azure AI command-line interface (CLI) is a cross-platform command-line tool 
 
 You can easily use the Azure AI CLI to experiment with key Azure AI service features and see how they work with your use cases. Within minutes, you can set up all the required Azure resources needed, and build a customized Copilot using OpenAI's chat completions APIs and your own data. You can try it out interactively, or script larger processes to automate your own workflows and evaluations as part of your CI/CD system.
 
-In the future, you can use the Azure AI CLI to dynamically create code in the programming language of your choice to integrate with your own applications.
-
 ## Prerequisites
 
 To use the Azure AI CLI, you need to install the prerequisites: 

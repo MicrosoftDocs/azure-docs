@@ -73,7 +73,7 @@ conda activate ai_env
 
 ### Install the Azure AI Generative SDK
 
-Currently to use the generative packages of the Azure AI SDK, you install a set of packages as described in this section. A single `azure-ai-generative` installation package will be available soon.
+Currently to use the generative packages of the Azure AI SDK, you install a set of packages as described in this section. 
 
 > [!CAUTION]
 > It's recommended to run this command either in a virtual environment, conda environment, or docker container. If you do not do this, you may run into dependency issues with the packages you have installed on your system. For more information, see [Install Python](#install-python-via-virtual-environments).
