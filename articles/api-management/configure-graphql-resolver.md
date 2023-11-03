@@ -100,7 +100,7 @@ The `context` variable that is passed through the request and response pipeline 
 
 ### context.GraphQL.parent
 
-The `context.ParentResult` is set to the parent object for the current resolver execution.  Consider the following partial schema:
+The `context.GraphQL.parent` is set to the parent object for the current resolver execution.  Consider the following partial schema:
 
 ``` graphql
 type Comment {
