@@ -14,7 +14,7 @@
     - name: Distributed relational
       href: distributed-relational.md
     - name: Integrate Vector Search with Azure OpenAI
-      href: vector-search.md
+      href: vector-database.md
 - name: NoSQL
   href: nosql/toc.yml
 - name: MongoDB

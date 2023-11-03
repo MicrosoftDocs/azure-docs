@@ -115,6 +115,16 @@ Grafana now supports connecting to Azure Monitor managed Prometheus using the [P
 1. Select **Save & test**
     :::image type="content" source="./media/prometheus-self-managed-grafana-azure-active-directory/configure-grafana.png" alt-text="A screenshot showing the  Grafana settings page for adding a data source.":::
    
+## Frequently asked questions
+
+This section provides answers to common questions.
+
+[!INCLUDE [prometheus-faq-i-am-missing-some-metrics](../includes/prometheus-faq-i-am-missing-some-metrics.md)]
+
+[!INCLUDE [prometheus-faq-i-am-missing-metrics-with-same-name-different-casing](../includes/prometheus-faq-i-am-missing-metrics-with-same-name-different-casing.md)]
+
+[!INCLUDE [prometheus-faq-i-see-gaps-in-metric-data](../includes/prometheus-faq-i-see-gaps-in-metric-data.md)]
+
 ## Next steps
 - [Configure Grafana using managed system identity](./prometheus-grafana.md).
 - [Collect Prometheus metrics for your AKS cluster](../essentials/prometheus-metrics-enable.md).
