@@ -70,7 +70,7 @@ Then you need to update the dependency array in the `package.json` to include so
 "@fluentui/react": "~8.98.3",
 ```
 
-Once you run these commands, you’re all set to start working on your new project. In this tutorial, we are modifying the files in the `src` directory.
+Once you add these packages to your `package.json`, you’re all set to start working on your new project. In this tutorial, we are modifying the files in the `src` directory.
 
 ## Initial app setup
 
