@@ -4,7 +4,7 @@ description: This guide gives an overview of the changes in the v2 API for the D
 services: healthcare-apis
 author: mmitrik
 ms.service: healthcare-apis
-ms.subservice: fhir
+ms.subservice: dicom
 ms.topic: reference
 ms.date: 10/13/2023
 ms.author: mmitrik
