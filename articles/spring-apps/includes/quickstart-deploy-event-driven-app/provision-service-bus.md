@@ -21,8 +21,6 @@ Use the following steps to create a Service Bus instance:
 
 1. On the **Service Bus** section, select **Create**.
 
-   :::image type="content" source="../../media/quickstart-deploy-event-driven-app/search-service-bus-service.png" alt-text="Screenshot of the Azure portal that shows the Marketplace search results with Service Bus highlighted." lightbox="../../media/quickstart-deploy-event-driven-app/search-service-bus-service.png":::
-
 1. Fill out the form on the **Basics** tab. Use the following table as a guide for completing the form.
 
    | Setting                       | Suggested value                     | Description                                                                                                                                                                 |
@@ -32,8 +30,6 @@ Use the following steps to create a Service Bus instance:
    | **Namespace name**            | *my-srvbus*                         | A unique name that identifies your Service Bus service.                                                                                                                     |
    | **Location**                  | The location closest to your users. | The location that is closest to your users.                                                                                                                                 |
    | **Hosting options and plans** | **Basic**                           | The pricing plan determines the resource and cost associated with your instance.                                                                                            |
-
-   :::image type="content" source="../../media/quickstart-deploy-event-driven-app/service-bus-creation.png" alt-text="Screenshot of the Azure portal showing the Basics tab of the Create namespace page for Service Bus creation." lightbox="../../media/quickstart-deploy-event-driven-app/service-bus-creation.png":::
 
 1. Select **Review and Create** to review the creation parameters. Then, select **Create** to finish creating the Service Bus instance.
 
