@@ -58,7 +58,7 @@ The following outlines a typical contact scheduling flow when using Launch Windo
    > [!NOTE]
    > [TLE updates](update-tle.md) for Launch Window Scheduling contacts are performed the same way as regular contacts. The TLE will lock five minutes before the start time of a Launch Window Schedule contact. The ground station antenna will use this TLE and move when it computes the satellite is ascending above the minimum elevation.
 
-## Next Steps
+## Next steps
 
 - [Schedule a contact](schedule-contact.md)
 - [Update the spacecraft TLE](update-TLE.md)
