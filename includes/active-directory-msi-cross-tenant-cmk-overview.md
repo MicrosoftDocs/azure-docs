@@ -23,14 +23,14 @@ The image below shows a data encryption at rest with federated identity in a cro
 
 In the example above, there are two Microsoft Entra tenants: an independent service provider's tenant (*Tenant 1*), and a customer's tenant (*Tenant 2*). *Tenant 1* hosts Azure platform services and *Tenant 2* hosts the customer's key vault.
 
-A multitenant application registration is created by the service provider in *Tenant 1*. A [federated identity credential](../articles/active-directory/develop/workload-identity-federation-create-trust.md) is created on this application using a user-assigned managed identity. Then, the name and application ID of the app is shared with the customer.
+A multi-tenant application registration is created by the service provider in *Tenant 1*. A [federated identity credential](../articles/active-directory/develop/workload-identity-federation-create-trust.md) is created on this application using a user-assigned managed identity. Then, the name and application ID of the app is shared with the customer.
 
 A user with the appropriate permissions installs the service provider's application in the customer tenant, *Tenant 2*. A user then grants the service principal associated with the installed application access to the customer's key vault. The customer also stores the encryption key, or customer-managed key, in the key vault. The customer shares the key location (the URL of the key) with the service provider.
 
 The service provider now has:
 
-- An application ID for a multitenant application installed in the customer's tenant, which has been granted access to the customer-managed key.
-- A managed identity configured as the credential on the multitenant application.
+- An application ID for a multi-tenant application installed in the customer's tenant, which has been granted access to the customer-managed key.
+- A managed identity configured as the credential on the multi-tenant application.
 - The location of the key in the customer's key vault.
 
 With these three parameters, the service provider provisions Azure resources in *Tenant 1* that can be encrypted with the customer-managed key in *Tenant 2*.
@@ -38,7 +38,7 @@ With these three parameters, the service provider provisions Azure resources in 
 Let's divide the above end-to-end solution into three phases:
 
 1. The service provider configures identities.
-2. The customer grants the service provider's multitenant app access to an encryption key in Azure Key Vault.
+2. The customer grants the service provider's multi-tenant app access to an encryption key in Azure Key Vault.
 3. The service provider encrypts data in an Azure resource using the CMK.
 
 Operations in Phase 1 would be a one-time setup for most service provider applications. Operations in Phases 2 and 3 would repeat for each customer.
@@ -49,7 +49,7 @@ Operations in Phase 1 would be a one-time setup for most service provider applic
 
 | Step | Description | Minimum role in Azure RBAC | Minimum role in Microsoft Entra RBAC |
 | -- | ----------------------------------- | -------------- | --------------|
-| 1. | Create a new multitenant Microsoft Entra application registration or start with an existing application registration. Note the application ID (client ID) of the application registration using [Azure portal](../articles/active-directory/develop/quickstart-register-app.md), [Microsoft Graph API](/graph/api/application-post-applications), [Azure PowerShell](/powershell/module/azuread/new-azureadapplication), or [Azure CLI](/cli/azure/ad/app#az_ad_app_create)| None | [Application Developer](../articles/active-directory/roles/permissions-reference.md#application-developer) |
+| 1. | Create a new multi-tenant Microsoft Entra application registration or start with an existing application registration. Note the application ID (client ID) of the application registration using [Azure portal](../articles/active-directory/develop/quickstart-register-app.md), [Microsoft Graph API](/graph/api/application-post-applications), [Azure PowerShell](/powershell/module/azuread/new-azureadapplication), or [Azure CLI](/cli/azure/ad/app#az_ad_app_create)| None | [Application Developer](../articles/active-directory/roles/permissions-reference.md#application-developer) |
 | 2. | Create a user-assigned managed identity (to be used as a Federated Identity Credential). <br> [Azure portal](../articles/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-azp&preserve-view=true) / [Azure CLI](../articles/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-azcli&preserve-view=true) / [Azure PowerShell](../articles/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-powershell&preserve-view=true)/ [Azure Resource Manager Templates](../articles/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-arm&preserve-view=true) | [Managed identity contributor](../articles/role-based-access-control/built-in-roles.md?preserve-view=true#managed-identity-contributor) | None |
 | 3. | Configure user-assigned managed identity as a *federated identity credential* on the application, so that it can impersonate the identity of the application. <br> [Graph API reference](https://aka.ms/fedcredentialapi)/ [Azure portal](../articles/active-directory/develop/workload-identity-federation-create-trust.md?pivots=identity-wif-apps-methods-azp)/ [Azure CLI](../articles/active-directory/develop/workload-identity-federation-create-trust.md?pivots=identity-wif-apps-methods-azcli)/ [Azure PowerShell](../articles/active-directory/develop/workload-identity-federation-create-trust.md?pivots=identity-wif-apps-methods-powershell) | None | Owner of the application |
 | 4. | Share the application name and application ID with the customer, so that they can install and authorize the application. | None | None|
@@ -57,7 +57,7 @@ Operations in Phase 1 would be a one-time setup for most service provider applic
 #### Considerations for service providers
 
 - Azure Resource Manager (ARM) templates aren't recommended for creating Microsoft Entra applications.
-- The same multitenant application can be used to access keys in any number of tenants, like *Tenant 2*, *Tenant 3*, *Tenant 4*, and so on. In each tenant, an independent instance of the application is created that has the same application ID but a different object ID. Each instance of this application is thus authorized independently. Consider how the application object used for this feature is used to partition your application across all customers. 
+- The same multi-tenant application can be used to access keys in any number of tenants, like *Tenant 2*, *Tenant 3*, *Tenant 4*, and so on. In each tenant, an independent instance of the application is created that has the same application ID but a different object ID. Each instance of this application is thus authorized independently. Consider how the application object used for this feature is used to partition your application across all customers. 
   - Application can have a maximum of 20 federated identity credentials, which requires a service provider to share federated identities among its customers. For more information about federated identities design considerations and restrictions, see [Configure an app to trust an external identity provider](../articles/active-directory/develop/workload-identity-federation-create-trust.md?pivots=identity-wif-apps-methods-azp#important-considerations-and-restrictions)
 - In rare scenarios, a service provider may use a single Application object per its customer, but that requires significant maintenance costs to manage applications at scale across all customers. 
 - In the service provider tenant, it isn't possible to automate the [Publisher Verification](../articles/active-directory/develop/publisher-verification-overview.md).
