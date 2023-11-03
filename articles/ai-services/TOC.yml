@@ -5,7 +5,7 @@
   items:
   - name: What is Azure AI Studio?
     href: ai-studio/what-is-ai-studio.md
-  - name: What are Azure AI services?
+  - name: Azure AI services
     href: what-are-ai-services.md
     displayName: applied, cognitive, form recognizer
   - name: Language support
@@ -33,6 +33,8 @@
     items:
     - name: Azure AI resources overview
       href: ai-studio/concepts/ai-resources.md
+    - name: Create and manage an Azure AI resource
+      href: ai-studio/how-to/create-azure-ai-resource.md
     - name: Create an Azure AI project
       href: ai-studio/how-to/create-projects.md
   - name: Data and connections
@@ -117,6 +119,12 @@
       items:
       - name: Role-based access control in Azure AI Studio
         href: ai-studio/concepts/rbac-ai-studio.md
+    - name: Network security
+      items:
+      - name: Configure managed network
+        href: ai-studio/configure-managed-network.md
+      - name: Configure private link
+        href: ai-studio/configure-private-link.md
     - name: Data protection & encryption
       items:
       - name: Rotate keys
