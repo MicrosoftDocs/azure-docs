@@ -40,6 +40,12 @@ Use the following table to identify and resolve issues when configuring the Azur
 | AZCM0105 | An error occurred while downloading the Microsoft Entra ID managed identify certificate | Delete the resource created in Azure and try again. |
 | AZCM0147-<br>AZCM0152 | An error occurred while installing Azcmagent on Windows | Review the error message in the output for more specific information. |
 | AZCM0127-<br>AZCM0146 | An error occurred while installing Azcmagent on Linux | Review the error message in the output for more specific information. |
+| AZCM0150 | Generic failure during installation | Submit a support ticket to get assistance. |
+| AZCM0153 | The platform of the system is not supported by the agent | Review the [prerequisites](prerequisites.md) for supported platforms |
+| AZCM0154 | The version of PowerShell installed on the system is too old | Upgrade to PowerShell 4 or later and try again. |
+| AZCM0155 | The installation script was not run with adminstrator privileges | Re-run the script as an administrator. |
+| AZCM0156 | Installation of the agent failed | Confirm that the machine is not running on Azure. Detailed errors may be found in the installation log at `%TEMP%\installationlog.txt`. |
+| AZCM0157 | Unable to download repo metadata for the Microsoft Linux software repository | Check if a firewall is blocking access to `packages.microsoft.com` and try agin. |
 
 ## Agent verbose log
 
