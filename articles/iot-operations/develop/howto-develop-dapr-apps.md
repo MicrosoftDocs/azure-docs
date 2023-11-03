@@ -143,8 +143,8 @@ Your application can authenticate to MQ using any of the [supported authenticati
     kubectl create configmap aio-mq-ca-cert-chain --from-file ca.pem=chain.pem
     ```
 
-> [!IMPORTANT]
-> The certificate chain (chain.pem above) is created when setting up the MQTT broker. See [configure TLS with manual certificate management](../manage-mqtt-connectivity/howto-configure-tls-manual) or [configure TLS with automatic certificate management](../manage-mqtt-connectivity/howto-configure-tls-auto).
+    > [!IMPORTANT]
+    > The certificate chain (chain.pem above) is created when setting up the MQTT broker. See [configure TLS with manual certificate management](../manage-mqtt-connectivity/howto-configure-tls-manual) or [configure TLS with automatic certificate management](../manage-mqtt-connectivity/howto-configure-tls-auto).
 
 ## Set up authorization policy between the workload and MQ
 
