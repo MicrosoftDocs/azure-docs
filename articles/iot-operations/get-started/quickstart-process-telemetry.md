@@ -116,7 +116,7 @@ To add the secret reference to your Kubernetes cluster, edit the **aio-default-s
 
 1. In `k9s` type `:` to open the command bar.
 
-1. In the command bar, type `secretproviderclass` and the press _Enter_. Then select the `aio-default-spc` resource.
+1. In the command bar, type `secretproviderclass` and then press _Enter_. Then select the `aio-default-spc` resource.
 
 1. Type `e` to edit the resource. The editor that opens is `vi`, use `i` to insert content and `:wq` to save and exit.
 
@@ -362,7 +362,7 @@ Create a Data Processor pipeline to process and enrich your data before it sends
 
     Because you don't provide any conditions, the message is enriched with all the reference data. You can use ID-based joins (`KeyMatch`) and timestamp-based joins (`PastNearest` and `FutureNearest`) to filter the enriched reference data based on the provided conditions.
 
-1. To transform the data, select **Transform** from **Pipeline Stages**. Configure the stage by using the values in the following table and then select **Apply**
+1. To transform the data, select **Transform** from **Pipeline Stages**. Configure the stage by using the values in the following table and then select **Apply**:
 
     | Parameter     | Value       |
     | ------------- | ----------- |
@@ -406,14 +406,14 @@ Create a Data Processor pipeline to process and enrich your data before it sends
 
     | Name | Type | Path |
     | ---- | ---- | ---- |
-    | Timestamp | timestamp | `.Timestamp` |
-    | AssetName | string | `.assetName` |
-    | Customer | string | `.Customer` |
-    | Batch | integer | `.Batch` |
-    | CurrentTemperature | float | `.CurrentTemperature` |
-    | LastKnownTemperature | float | `.LastKnownTemperature` |
-    | Pressure | float | `.Pressure` |
-    | IsSpare | boolean | `.IsSpare` |
+    | Timestamp | Timestamp | `.Timestamp` |
+    | AssetName | String | `.assetName` |
+    | Customer | String | `.Customer` |
+    | Batch | Integer | `.Batch` |
+    | CurrentTemperature | Float | `.CurrentTemperature` |
+    | LastKnownTemperature | Float | `.LastKnownTemperature` |
+    | Pressure | Float | `.Pressure` |
+    | IsSpare | Boolean | `.IsSpare` |
 
 1. Select the pipeline name, **\<pipeline-name\>**, and change it to _contextualized-data-pipeline_. Select **Apply**.
 
