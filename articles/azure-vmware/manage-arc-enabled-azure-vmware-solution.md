@@ -1,5 +1,5 @@
 ---
-title: Manage Arc-enabled Azure VMware private cloud (Preview)
+title: Manage Arc-enabled Azure VMware private cloud
 description: Learn how to manage your Arc-enabled Azure VMware private cloud.
 ms.topic: how-to 
 ms.service: azure-vmware
@@ -8,7 +8,7 @@ ms.custom: references_regions
 ---
 
 
-# Manage Arc-enabled Azure VMware private cloud (Preview)
+# Manage Arc-enabled Azure VMware private cloud
 
 ## Update Arc appliance credential
 
