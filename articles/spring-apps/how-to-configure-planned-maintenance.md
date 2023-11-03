@@ -16,7 +16,7 @@ ms.custom:
 
 **This article applies to:** ❌ Standard consumption and dedicated (Preview) ✔️ Basic/Standard ✔️ Enterprise
 
-Routine maintenance is performed to keep the Azure Spring Apps platform up-to-date and secure. This maintenance can include performance improvements, bug fixes, new features, or security updates. Maintenance can be performed on Azure Spring Apps itself or the underlying operating system. A breaking change or deprecation of functionality isn't a part of routine maintenance. Our service quality and uptime guarantees continue to apply during maintenance periods. Maintenance periods are mentioned to help customers get visibility into platform changes. With Planned Maintenance, it allows you to specify a fixed day of the week and fixed time window for maintenance.
+Routine maintenance is performed to keep the Azure Spring Apps platform up-to-date and secure. The maintenance, also called auto patching, can include security updates, bug fixes, new features, or performance improvements. Auto patching can be performed on components managed by Azure Spring Apps to support your Java applications, including JDK, APM, base OS image, managed middleware and runtime infrastructure. For the maintenance to take effect, your applications will be restarted within the maintenance window you specify, but our service quality and uptime guarantees continue to apply during maintenance windows. With planned maintenance, you can specify such maintenance window with a day of week and an 8-hour time window for maintenance, to minimize any risks that you may concern.
 
 ## Maintenance of Azure Spring Apps
 
@@ -55,6 +55,8 @@ az spring update -g $RG -n $NAME \
 
 Updating the configuration can take a few minutes. You should get a notification when the configuration is complete.
 
+>>> Note: If planned maintenance is not configured, the maintenance will happen at a time chosen by our service team, with the best effort to minimize business risks for most customers.
+
 ## Maintenance Notification
 
 There will be some notifications and messages sent before and during the maintenance. Following table describe the details:
@@ -76,9 +78,10 @@ Currently, Azure Spring Apps performs one regular planned maintenance to upgrade
 
 ### Rules
 
-- Maintenance should start from Monday to Sunday. If two clusters are in the same region, cluster A is set to Monday and cluster B is set to Sunday, then cluster A will be maintained earlier than cluster B.
-- Time window for the planned maintenance is 8 hours. E.g. customer sets the start time to 10:00, then maintenance job will be executed at any time between 10:00 - 18:00.
+- When you configure planned maintenance for multiple service instances in the same region, it is guaranteed that the maintenance events happen within the same week, in the order of Monday, Tuesday, ..., Sunday. For example, if cluster A is set to be maintained on Monday and cluster B Sunday, then cluster A will be maintained before cluster B, in the same week.
+- If you have two service instances span across a pair of [Azure paired regions](https://learn.microsoft.com/en-us/azure/reliability/cross-region-replication-azure#azure-paired-regions), it is guaranteed that the maintenance will happen in different weeks for such service instances, but there is no guarantee on which region will be maintained first. You may follow each maintenance announcement for the exact information.
+- Length of time window for the planned maintenance is fixed to 8 hours. For example, if the start time is set to 10:00, then the maintenance job will be executed at any time between 10:00 - 18:00. The service team will try its best to finish the maintenance within this time window, but it could be possible to finish after the end of such 8-hour windows.
 
 ### Limitations
 
-- Customers can't pin the version to prevent the maintenance job to be executed. If customer has any important event during maintenance window, please contact Azure Spring Apps CSS for help.
+- Maintenance job cannot be exempted regardless of how planned maintenance is configured or unconfigured. If you have special requests for maintenance time that cannot be met with this feature, let us know with a support ticket.
