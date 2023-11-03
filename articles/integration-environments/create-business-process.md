@@ -16,7 +16,7 @@ ms.date: 11/15/2023
 
 After you create an integration environment and an application group with existing Azure resources, you can add business context about these resources by visually defining one or more business processes. After you create these processes, you can add tracking for key business data by mapping business process stages to operations and data in Standard logic app workflows.
 
-For example, suppose you're the power company, and your customer service team has the following business process to fix power outages:
+For example, suppose you're the power company, and your customer service team has the following business process to res power outages:
 
 :::image type="content" source="media/business-process-stages-example.png" alt-text="{alt-text}" lightbox="business-process-stages-example.png":::
 
