@@ -195,7 +195,9 @@ A build task is triggered when an application is deployed from an Azure CLI comm
 
 ## Build History
 All Build Resources are showed in the `Builds`, shown as below picture. 
+
 :::image type="content" source="media/how-to-enterprise-build-service/build-table.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps Build Service page with 'Builds' highlighted." lightbox="media/how-to-enterprise-build-service/build-table.png":::
+
 * `Name`: the name of the build.
 * `Provisioning State`: the provision state of the build. The possible values are `Succeeded`, `Failed`, `Updating` and `Creating`. When the provisioning state is `Updating` or `Creating`, the build can't be updated. When the provision state is `Failed`, it means your latest source code build failed to generate a new build result.
 * `Resource Quota`: the resource quota in build pod of the build.
