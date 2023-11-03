@@ -34,7 +34,7 @@ Azure AI Studio supports developing in VS Code for the Web. In this scenario, VS
 
 ## The custom container folder structure
 
-Our prebuilt development environments are based on a docker container that has the Azure AI SDK generative packages, the Azure AI CLI, the Prompt flow SDK, and other tools. The environment is configured to run VS Code remotely inside of the container. The container is defined in a similar way to [this Dockerfile](https://github.com/Azure/aistudio-copilot-sample/blob/main/.devcontainer/Dockerfile), and is based on [Microsoft's Python 3.10 Development Container Image](https://mcr.microsoft.com/en-us/product/devcontainers/python/about). 
+Our prebuilt development environments are based on a docker container that has the Azure AI SDK generative packages, the Azure AI CLI, the Prompt flow SDK, and other tools. The environment is configured to run VS Code remotely inside of the container. The container is defined in a similar way to [this Dockerfile](https://github.com/Azure/aistudio-copilot-sample/blob/main/.devcontainer/Dockerfile), and is based on [Microsoft's Python 3.10 Development Container Image](https://mcr.microsoft.com/product/devcontainers/python/about). 
 
 Your file explorer is opened to the specific project directory you launched from in AI Studio. 
 
@@ -58,16 +58,16 @@ To get started with the AI SDK, we recommend the [aistudio-copilot-sample repo](
 1. Open a terminal
 1. Clone a sample repo into your project's `code` folder. You might be prompted to authenticate to GitHub
 
-```bash
-cd code
-git clone https://github.com/azure/aistudio-copilot-sample
-```
+    ```bash
+    cd code
+    git clone https://github.com/azure/aistudio-copilot-sample
+    ```
 
-3. If you have existing notebooks or code files, you can import `import azure.ai.generative` and use intellisense to browse capabilities included in that package
+1. If you have existing notebooks or code files, you can import `import azure.ai.generative` and use intellisense to browse capabilities included in that package
 
 ### The Azure AI CLI
 
-If you prefer to work interactively, the AI CLI has everything you need to build generative AI solutions.
+If you prefer to work interactively, the Azure AI CLI has everything you need to build generative AI solutions.
 
 1. Open a terminal to get started
 1. `ai help` guides you through CLI capabilities
@@ -75,12 +75,12 @@ If you prefer to work interactively, the AI CLI has everything you need to build
 
 ### Working with prompt flows
 
-You can use the Azure AI SDK and AI CLI to create, reference and work with the flows.
+You can use the Azure AI SDK and Azure AI CLI to create, reference and work with the flows.
 
 Prompt flows already created in the Azure AI Studio can be found at `shared\Users\{user-name}\promptflow`. You can also create new flows in your `code` or `shared` folder using the CLIs and SDKs.
 
-1. To reference an existing flow using the Azure AI CLI, use `ai flow invoke`
-1. To create a new flow using the Azure AI CLI, use `ai flow new`
+- To reference an existing flow using the Azure AI CLI, use `ai flow invoke`.
+- To create a new flow using the Azure AI CLI, use `ai flow new`.
 
 For prompt flow specific capabilities that aren't present in the AI SDK and CLI, you can work directly with the Prompt flow CLI or SDK, or the Prompt flow VS Code extension (all preinstalled in this environment). For more information, see [prompt flow capabilities](https://microsoft.github.io/promptflow/reference/index.html).
 
