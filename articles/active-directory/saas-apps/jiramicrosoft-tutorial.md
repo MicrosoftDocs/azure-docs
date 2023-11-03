@@ -58,6 +58,13 @@ To get started, you need the following items:
 > [!NOTE]
 > Please note that our JIRA Plugin also works on Ubuntu Version 16.04 and Linux.
 
+## Microsoft SSO Plugins Market Place Data center and Server Side Application Link
+
+* [Microsoft Azure Active Directory single sign-on for JIRA Data-Center Application](https://marketplace.atlassian.com/apps/1224430/microsoft-azure-active-directory-single-sign-on-for-jira?tab=overview&hosting=datacenter
+)
+
+* [Microsoft Azure Active Directory single sign-on for JIRA Server side Application](https://www.microsoft.com/en-us/download/details.aspx?id=56506)
+
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
