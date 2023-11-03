@@ -51,7 +51,7 @@ To migrate the tests from Network performance monitor to Connection monitor, fol
 - If Network performance monitor isn't enabled on the workspace, you'll see an error stating "No valid NPM config found". 
 - If no tests exist in the feature you chose in step 2, you'll see an error stating "Workspace selected doesn't have \<feature\> config".
 - If there are no valid tests, you'll see an error stating "Workspace selected does not have valid tests"
-- Your tests may contain agents that are no longer active, but may have been active in the past. You'll see an error stating "Few tests contain agents that are no longer active. These agents may be running in the past but are shut down/not running anymore. Enable agents and migrate to Connection monitor. Select continue to migrate the tests that do not contain agents that are not active."
+- Your tests might contain agents that are no longer active, but have been active in the past. You'll see an error stating "Few tests contain agents that are no longer active. These agents might be running in the past but are shut down/not running anymore. Enable agents and migrate to Connection monitor. Select continue to migrate the tests that do not contain agents that are not active."
 
 After the migration begins, the following changes take place: 
 - A new connection monitor resource is created.
