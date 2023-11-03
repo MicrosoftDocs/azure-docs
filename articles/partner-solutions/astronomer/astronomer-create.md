@@ -13,15 +13,15 @@ In this quickstart, you use the Azure portal and Marketplace to find and create 
 
 ## Prerequisites
 
-- An Azure account. If you don't have an active Azure subscription, [create a free account](https://azure.microsoft.com/free/). Make sure you're an Owner or a Contributor in the subscription.
+- An Azure account. If you don't have an active Azure subscription, [create a free account](https://azure.microsoft.com/free/). Make sure you are an Owner or a Contributor in the subscription.
 
 ## Create a new Astro resource
 
-In this section, you see how to create an instance of Apache Airflow on Astro.
+In this section, you see how to create an instance of Apache Airflow on Astro using Azure portal.
 
 ### Find the service
 
-1. Use the search in the [Azure portal](https://portal.azure.com) to find the **Apache Airflow on Astro - An Azure Native ISV Service application**.
+1. Use the search in the [Azure portal](https://portal.azure.com) to find the **Apache Airflow on Astro - An Azure Native ISV Service** application.
 2. Alternatively, go to Marketplace and search for **Apache Airflow on Astro - An Azure Native ISV Service**.
 3. Subscribe to the corresponding service.
 
@@ -39,7 +39,7 @@ In this section, you see how to create an instance of Apache Airflow on Astro.
     | **Resource group**     | Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group overview](/azure/azure-resource-manager/management/overview).|
     | **Resource Name**  | Put the name for the Astro organization you want to create. |
     | **Region** | Select the closest region to where you would like to deploy your resource. |
-    | **Astro Organization name** | Gets autofilled the same as the Resource Name, but edit if you need something different. |
+    | **Astro Organization name** | usually corresponds to the name of your company. |
     | **Workspace Name** | Name of the default workspace where you would like to group your Airflow deployments. |
     | **Pricing Plan**     | Choose the default Pay-As-You-Go option |
 
@@ -75,6 +75,8 @@ You can specify custom tags for the new Astro resource in Azure by adding custom
 1. Select **Overview** in the Resource menu to see information on the deployed resources.
 
     :::image type="content" source="media/astronomer-create/astronomer-overview-pane.png" alt-text="Screenshot of information on the Astronomer resource overview.":::
+
+1. Now click on the **SSO Url** to redirect to the newly created Astro organization.
 
 ## Next steps
 
