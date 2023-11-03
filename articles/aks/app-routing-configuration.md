@@ -254,7 +254,7 @@ Learn about monitoring the Ingress-nginx controller metrics included with the ap
 [az-aks-install-cli]: /cli/azure/aks#az-aks-install-cli
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [create-and-export-a-self-signed-ssl-certificate]: #create-and-export-a-self-signed-ssl-certificate
-[create-an-azure-dns-zone]: #create-a-public-azure-dns-zone
+[create-an-azure-dns-zone]: #create-a-global-azure-dns-zone
 [azure-dns-overview]: ../dns/dns-overview.md
 [az-keyvault-certificate-show]: /cli/azure/keyvault/certificate#az-keyvault-certificate-show
 [az-aks-enable-addons]: /cli/azure/aks/addon#az-aks-enable-addon

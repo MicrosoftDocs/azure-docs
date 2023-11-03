@@ -120,7 +120,7 @@ After migrating to the application routing add-on, learn how to [monitor Ingress
 
 <!-- INTERNAL LINKS -->
 [install-azure-cli]: /cli/azure/install-azure-cli
-[app-routing-dns-create]: ./app-routing-configuration.md#create-a-public-azure-dns-zone
+[app-routing-dns-create]: ./app-routing-configuration.md#create-a-global-azure-dns-zone
 [app-routing-dns-configure]: ./app-routing-configuration.md#configure-the-add-on-to-use-azure-dns-to-manage-dns-zones
 
 <!-- EXTERNAL LINKS -->
