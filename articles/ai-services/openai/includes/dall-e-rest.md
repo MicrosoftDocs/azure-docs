@@ -32,7 +32,7 @@ Use this guide to get started calling the Azure OpenAI Service image generation 
 - <a href="https://www.python.org/" target="_blank">Python 3.7.1 or later version</a>.
 - The following Python libraries installed: `os`, `requests`, `json`.
 - An Azure OpenAI resource created in the East US region. For more information, see [Create a resource and deploy a model with Azure OpenAI](../how-to/create-resource.md).
-- 
+
 ---
 
 > [!NOTE]
@@ -91,7 +91,7 @@ Create a new Python file named _quickstart.py_. Open the new file in your prefer
 
     The script makes a synchronous image generation API call.
 
-#### [DALL-E 2](#tab/dalle2)
+    #### [DALL-E 2](#tab/dalle2)
 
     ```python
     import requests
