@@ -82,18 +82,19 @@ These models can only be used with the Chat Completion API.
 
 GPT-4 version 0314 is the first version of the model released.  Version 0613 is the second version of the model and adds function calling support. Version TBD is the third version and adds support for visual recognition.
 
-See [model versions](../concepts/model-versions.md) to learn about how Azure OpenAI Service handles model version upgrades, and [working with models](../how-to/working-with-models.md) to learn how to view and configure the model version settings of your GPT-4 deployments.
-
-> [!NOTE]
-> Version `0314` of `gpt-4` and `gpt-4-32k` will be retired no earlier than July 5, 2024.  See [model updates](../how-to/working-with-models.md#model-updates) for model upgrade behavior.
 
 |  Model ID  | Base model Regions   | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to)  |
 |  --- |  --- | --- | --- | --- |
 | `gpt-4` (0314)     | East US, France Central  |  N/A                 | 8,192                | September 2021         |
 | `gpt-4-32k` (0314)  |  East US, France Central |  N/A                | 32,768               | September 2021         |
-| `gpt-4` (0613)     |  Australia East, Canada East, East US, East US 2, France Central, Japan East, Sweden Central, Switzerland North, UK South> |  N/A                | 8,192                | September 2021         |
+| `gpt-4` (0613)     |  Australia East, Canada East, East US, East US 2, France Central, Japan East, Sweden Central, Switzerland North, UK South |  N/A                | 8,192                | September 2021         |
 | `gpt-4-32k` (0613)  |  Australia East, Canada East, East US, East US 2, France Central, Japan East, Sweden Central, Switzerland North, UK South |  N/A                | 32,768               | September 2021         |
 | `gpt-4-v` (TBD)  | Switzerland North |  N/A                | 16384               | September 2021         |
+
+See [model versions](../concepts/model-versions.md) to learn about how Azure OpenAI Service handles model version upgrades, and [working with models](../how-to/working-with-models.md) to learn how to view and configure the model version settings of your GPT-4 deployments.
+
+> [!NOTE]
+> Version `0314` of `gpt-4` and `gpt-4-32k` will be retired no earlier than July 5, 2024.  See [model updates](../how-to/working-with-models.md#model-updates) for model upgrade behavior.
 
 > [!NOTE]
 > Regions where GPT-4 is listed as available have access to both the 8K and 32K versions of the model
