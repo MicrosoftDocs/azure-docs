@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 08/11/2022
+ms.date: 11/03/2023
 ms.custom: event-tier1-build-2022
 ---
 
@@ -44,11 +44,18 @@ Use the connection details below to connect compute services to Event Hubs. For 
 
 #### SpringBoot client type
 
-| Default environment variable name     | Description          | Sample value                                   |
-|---------------------------------------|----------------------|------------------------------------------------|
-| spring.cloud.azure.eventhub.namespace | Event Hubs namespace | `<Event-Hub-namespace>.servicebus.windows.net` |
-| spring.cloud.azure.eventhubs.namespace| Event Hubs namespace for Spring Cloud Azure version above 4.0 | `<Event-Hub-namespace>.servicebus.windows.net`|
-| spring.cloud.azure.eventhubs.credential.managed-identity-enabled | Whether to enable managed identity | `true`                                        |
+| Default environment variable name     | Description                                                   | Sample value                                   |
+|---------------------------------------|---------------------------------------------------------------|------------------------------------------------|
+| spring.cloud.azure.eventhub.namespace | Event Hubs namespace                                          | `<Event-Hub-namespace>.servicebus.windows.net` |
+| spring.cloud.azure.eventhubs.namespace| Event Hubs namespace for Spring Cloud Azure version above 4.0 | `<Event-Hub-namespace>.servicebus.windows.net` |
+| spring.cloud.azure.eventhubs.credential.managed-identity-enabled | Whether to enable managed identity | `true`                   |
+
+
+#### SpringBoot Kafka client type
+
+| Default environment variable name     | Description            | Sample value                                   |
+|---------------------------------------|------------------------|------------------------------------------------|
+| spring.kafka.bootstrap-servers        | Kafka bootstrap server | `<Event-Hub-namespace>.servicebus.windows.net` |
 
 #### Other client types
 
@@ -71,6 +78,15 @@ Refer to the steps and code below to connect to Azure Event Hubs using a system-
 | spring.cloud.azure.eventhubs.namespace| Event Hubs namespace for Spring Cloud Azure version above 4.0 | `<Event-Hub-namespace>.servicebus.windows.net`|
 | spring.cloud.azure.eventhubs.credential.client-id     | Your client ID for Spring Cloud Azure version above 4.0     | `<client-ID>`                   |
 | spring.cloud.azure.eventhubs.credential.managed-identity-enabled | Whether to enable managed identity               | `true`                          |
+
+
+#### SpringBoot Kafka client type
+
+| Default environment variable name     | Description            | Sample value                                   |
+|---------------------------------------|------------------------|------------------------------------------------|
+| spring.kafka.bootstrap-servers        | Kafka bootstrap server | `<Event-Hub-namespace>.servicebus.windows.net` |
+| spring.kafka.properties.azure.credential.managed-identity-enabled | Whether to enable managed identity | `true` |
+| spring.kafka.properties.azure.credential.client-id | Your client ID | `<client-ID>`                             |
 
 
 #### Other client types
@@ -96,6 +112,13 @@ Refer to the steps and code below to connect to Azure Event Hubs using a user-as
 > |-----------------------------------| ----------- | ------------ |
 > | spring.cloud.azure.storage.connection-string | Event Hubs connection string | `Endpoint=sb://servicelinkertesteventhub.servicebus.windows.net/;SharedAccessKeyName=<access-key-name>;SharedAccessKey=<access-key-value>` |
 > | spring.cloud.azure.eventhubs.connection-string| Event Hubs connection string for Spring Cloud Azure version above 4.0| `Endpoint=sb://servicelinkertesteventhub.servicebus.windows.net/;SharedAccessKeyName=<access-key-name>;SharedAccessKey=<access-key-value>` |
+
+#### SpringBoot Kafka client type
+
+> [!div class="mx-tdBreakAll"]
+> | Default environment variable name | Description | Sample value |
+> |-----------------------------------| ----------- | ------------ |
+> | spring.cloud.azure.eventhubs.connection-string| Event Hubs connection string| `Endpoint=sb://servicelinkertesteventhub.servicebus.windows.net/;SharedAccessKeyName=<access-key-name>;SharedAccessKey=<access-key-value>` |
 
 #### Other client types
 
@@ -124,6 +147,16 @@ Refer to the steps and code below to connect to Azure Event Hubs using a connect
 | spring.cloud.azure.eventhubs.credential.client-id     | Your client ID for Spring Cloud Azure version above 4.0     | `<client-ID>`                   |
 | spring.cloud.azure.eventhubs.credential.client-secret | Your client secret for Spring Cloud Azure version above 4.0 | `<client-secret>`               |  
 | spring.cloud.azure.eventhubs.profile.tenant-id        | Your tenant ID for Spring Cloud Azure version above 4.0     | `<tenant-id>`                   |
+
+#### SpringBoot Kafka client type
+
+| Default environment variable name     | Description            | Sample value                                   |
+|---------------------------------------|------------------------|------------------------------------------------|
+| spring.kafka.bootstrap-servers        | Kafka bootstrap server | `<Event-Hub-namespace>.servicebus.windows.net` |
+| spring.kafka.properties.azure.credential.client-id | Your client ID | `<client-ID>`                             |
+| spring.kafka.properties.azure.credential.client-secret | Your client secret | `<client-secret>`                 |
+| spring.kafka.properties.azure.profile.tenant-id | Your tenant ID            | `<tenant-id>`                     |
+
 
 #### Other client types
 
