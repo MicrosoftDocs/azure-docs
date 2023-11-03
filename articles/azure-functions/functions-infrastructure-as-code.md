@@ -1641,88 +1641,135 @@ Functions provides the following options for configuring your function app in Az
 | Site settings | `siteConfig` |
 | Application settings | `siteConfig.appSettings` collection |
 
-The following site settings are required on the `siteConfig` property:
-
+The following site settings are required on the `siteConfig` property:  
+:::zone pivot="dedicated-plan"  
 ### [Windows](#tab/windows)
 
-:::zone pivot="dedicated-plan"  
 + [`alwaysOn`](functions-app-settings.md#alwayson)
-::: zone-end
 + [`netFrameworkVersion`](functions-app-settings.md#netframeworkversion)<sup>*</sup>
 
 ### [Linux](#tab/linux)
 
-:::zone pivot="dedicated-plan"  
 + [`alwaysOn`](functions-app-settings.md#alwayson)
-::: zone-end  
 + [`linuxFxVersion`](functions-app-settings.md#linuxfxversion)
- 
 + [`netFrameworkVersion`](functions-app-settings.md#netframeworkversion)<sup>*</sup>
 
----
+---  
 
+::: zone-end  
+:::zone pivot="consumption-plan,premium-plan"  
+### [Windows](#tab/windows)
+
++ [`netFrameworkVersion`](functions-app-settings.md#netframeworkversion)<sup>*</sup>
+
+### [Linux](#tab/linux)
+
++ [`linuxFxVersion`](functions-app-settings.md#linuxfxversion)
++ [`netFrameworkVersion`](functions-app-settings.md#netframeworkversion)<sup>*</sup>
+
+---  
+
+::: zone-end  
+:::zone pivot="container-apps"  
++ [`linuxFxVersion`](functions-app-settings.md#linuxfxversion)
++ [`netFrameworkVersion`](functions-app-settings.md#netframeworkversion)<sup>*</sup>
+::: zone-end  
+:::zone pivot="container-apps,azure-arc"  
++ [`alwaysOn`](functions-app-settings.md#alwayson)
++ [`linuxFxVersion`](functions-app-settings.md#linuxfxversion)
++ [`netFrameworkVersion`](functions-app-settings.md#netframeworkversion)<sup>*</sup>
+::: zone-end  
 <sup>*</sup>Only required for .NET (C#) apps.
-
+:::zone pivot="consumption-plan,premium-plan,dedicated-plan" 
 The following application settings are required for a specific operating system and hosting option:
+::: zone-end  
+::: zone pivot="consumption-plan  
 
 ### [Windows](#tab/windows)
 
 + [`APPLICATIONINSIGHTS_CONNECTION_STRING`](functions-app-settings.md#applicationinsights_connection_string)
-
 + [`AzureWebJobsStorage`](functions-app-settings.md#azurewebjobsstorage)
-
 + [`FUNCTIONS_EXTENSION_VERSION`](functions-app-settings.md#functions_extension_version)
-
 + [`FUNCTIONS_WORKER_RUNTIME`](functions-app-settings.md#functions_worker_runtime)
-:::zone pivot="consumption-plan,premium-plan"  
 + [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring)
-
 + [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare)<sup>2</sup>
-::: zone-end
-:::zone pivot="consumption-plan,premium-plan,dedicated-plan"   
 + [`WEBSITE_RUN_FROM_PACKAGE`](functions-app-settings.md#website_run_from_package)
-
 + [`WEBSITE_NODE_DEFAULT_VERSION`](functions-app-settings.md#website_node_default_version)<sup>1</sup>
-::: zone-end    
-<sup>1</sup>Supported only for Node.js deployments. 
-:::zone pivot="consumption-plan,premium-plan"  
-<sup>2</sup>There are important considerations for using `WEBSITE_CONTENTSHARE` in an automated deployment. For more information, see the [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) reference.    
-::: zone-end  
 
 ### [Linux](#tab/linux)
 
 + [`APPLICATIONINSIGHTS_CONNECTION_STRING`](functions-app-settings.md#applicationinsights_connection_string)
-
 + [`AzureWebJobsStorage`](functions-app-settings.md#azurewebjobsstorage)
-
 + [`FUNCTIONS_EXTENSION_VERSION`](functions-app-settings.md#functions_extension_version)
-:::zone pivot="consumption-plan,premium-plan,dedicated-plan" 
-+ [`FUNCTIONS_WORKER_RUNTIME`](functions-app-settings.md#functions_worker_runtime)
-::: zone-end
-:::zone pivot="consumption-plan,premium-plan"  
++ [`FUNCTIONS_WORKER_RUNTIME`](functions-app-settings.md#functions_worker_runtime) 
 + [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring)
-
 + [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare)<sup>1</sup>
+
+<sup>1</sup>There are important considerations for using [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) in an automated deployment.  
+<sup>2</sup>Supported only for Node.js deployments.  
+
+<sup>1</sup>There are important considerations for using [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) in an automated deployment.   
 ::: zone-end  
-:::zone pivot="dedicated-plan,premium-plan"  
+:::zone pivot="premium-plan  
+### [Windows](#tab/windows)
+
++ [`APPLICATIONINSIGHTS_CONNECTION_STRING`](functions-app-settings.md#applicationinsights_connection_string)
++ [`AzureWebJobsStorage`](functions-app-settings.md#azurewebjobsstorage)
++ [`FUNCTIONS_EXTENSION_VERSION`](functions-app-settings.md#functions_extension_version)
++ [`FUNCTIONS_WORKER_RUNTIME`](functions-app-settings.md#functions_worker_runtime)
++ [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring)
++ [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare)<sup>1</sup>
 + [`WEBSITE_RUN_FROM_PACKAGE`](functions-app-settings.md#website_run_from_package)
-::: zone-end  
-:::zone pivot="dedicated-plan,premium-plan,azure-arc,container-apps"  
-These settings are only required when deploying from a private container registry:
++ [`WEBSITE_NODE_DEFAULT_VERSION`](functions-app-settings.md#website_node_default_version)<sup>2</sup>
 
-+ [`DOCKER_REGISTRY_SERVER_URL`](../app-service/reference-app-settings.md#custom-containers) 
+<sup>1</sup>There are important considerations for using [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) in an automated deployment.  
+<sup>2</sup>Supported only for Node.js deployments.  
 
-+ [`DOCKER_REGISTRY_SERVER_USERNAME`](../app-service/reference-app-settings.md#custom-containers) 
+### [Linux](#tab/linux)
 
-+ [`DOCKER_REGISTRY_SERVER_PASSWORD`](../app-service/reference-app-settings.md#custom-containers) 
-
-For container deployments, also set [`WEBSITES_ENABLE_APP_SERVICE_STORAGE`](../app-service/reference-app-settings.md#custom-containers) to `false`, since your app content is provided in the container itself. 
++ [`APPLICATIONINSIGHTS_CONNECTION_STRING`](functions-app-settings.md#applicationinsights_connection_string)
++ [`AzureWebJobsStorage`](functions-app-settings.md#azurewebjobsstorage)
++ [`FUNCTIONS_EXTENSION_VERSION`](functions-app-settings.md#functions_extension_version)
++ [`FUNCTIONS_WORKER_RUNTIME`](functions-app-settings.md#functions_worker_runtime) 
++ [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring)
++ [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare)<sup>1</sup>
++ [`WEBSITE_RUN_FROM_PACKAGE`](functions-app-settings.md#website_run_from_package)
+ 
+[!INCLUDE [functions-arm-linux-container](../../includes/functions-arm-linux-container.md)]
 ::: zone-end 
-:::zone pivot="consumption-plan,premium-plan"  
-<sup>1</sup>There are important considerations for using `WEBSITE_CONTENTSHARE` in an automated deployment. For more information, see the [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) reference.    
-::: zone-end  
+:::zone pivot="dedicated-plan  
+### [Windows](#tab/windows)
 
----
++ [`APPLICATIONINSIGHTS_CONNECTION_STRING`](functions-app-settings.md#applicationinsights_connection_string)
++ [`AzureWebJobsStorage`](functions-app-settings.md#azurewebjobsstorage)
++ [`FUNCTIONS_EXTENSION_VERSION`](functions-app-settings.md#functions_extension_version)
++ [`FUNCTIONS_WORKER_RUNTIME`](functions-app-settings.md#functions_worker_runtime)
++ [`WEBSITE_RUN_FROM_PACKAGE`](functions-app-settings.md#website_run_from_package)
++ [`WEBSITE_NODE_DEFAULT_VERSION`](functions-app-settings.md#website_node_default_version)<sup>1</sup>
+
+<sup>1</sup>Supported only for Node.js deployments.  
+
+### [Linux](#tab/linux)
+
++ [`APPLICATIONINSIGHTS_CONNECTION_STRING`](functions-app-settings.md#applicationinsights_connection_string)
++ [`AzureWebJobsStorage`](functions-app-settings.md#azurewebjobsstorage)
++ [`FUNCTIONS_EXTENSION_VERSION`](functions-app-settings.md#functions_extension_version)
++ [`FUNCTIONS_WORKER_RUNTIME`](functions-app-settings.md#functions_worker_runtime) 
++ [`WEBSITE_RUN_FROM_PACKAGE`](functions-app-settings.md#website_run_from_package)
+ 
+[!INCLUDE [functions-arm-linux-container](../../includes/functions-arm-linux-container.md)]
+
+--- 
+
+::: zone-end 
+:::zone pivot="container-app,azure-arc"  
+ 
++ [`APPLICATIONINSIGHTS_CONNECTION_STRING`](functions-app-settings.md#applicationinsights_connection_string)
++ [`AzureWebJobsStorage`](functions-app-settings.md#azurewebjobsstorage)
++ [`FUNCTIONS_EXTENSION_VERSION`](functions-app-settings.md#functions_extension_version)
+ 
+[!INCLUDE [functions-arm-linux-container](../../includes/functions-arm-linux-container.md)]
+::: zone-end 
 
 Keep these considerations in mind when working with application settings using Bicep files or ARM templates:
  
