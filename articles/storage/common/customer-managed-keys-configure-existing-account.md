@@ -7,7 +7,7 @@ author: normesta
 
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 06/07/2023
+ms.date: 11/03/2023
 ms.author: normesta
 ms.reviewer: ozgun
 ms.subservice: storage-common-concepts
