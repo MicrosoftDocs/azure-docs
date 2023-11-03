@@ -22,7 +22,9 @@ This article shows how to create an encryption scope. It also shows how to speci
 
 ## Create an encryption scope
 
-You can create an encryption scope that is protected with a Microsoft-managed key or with a customer-managed key that is stored in an Azure Key Vault or in an Azure Key Vault Managed Hardware Security Model (HSM). To create an encryption scope with a customer-managed key, you must first create a key vault or managed HSM and add the key you intend to use for the scope. The key vault or managed HSM must have purge protection enabled. The storage account and key vault can be in different regions.
+You can create an encryption scope that is protected with a Microsoft-managed key or with a customer-managed key that is stored in an Azure Key Vault or in an Azure Key Vault Managed Hardware Security Model (HSM). To create an encryption scope with a customer-managed key, you must first create a key vault or managed HSM and add the key you intend to use for the scope. The key vault or managed HSM must have purge protection enabled.
+
+The storage account and the key vault can be in the same tenant, or in different tenants. In either case, the storage account and key vault can be in different regions.
 
 An encryption scope is automatically enabled when you create it. After you create the encryption scope, you can specify it when you create a blob. You can also specify a default encryption scope when you create a container, which automatically applies to all blobs in the container.
 
@@ -100,7 +102,7 @@ New-AzRoleAssignment -ObjectId $storageAccount.Identity.PrincipalId `
 
 Next, call the [New-AzStorageEncryptionScope](/powershell/module/az.storage/new-azstorageencryptionscope) command with the `-KeyvaultEncryption` parameter, and specify the key URI. Including the key version on the key URI is optional. If you omit the key version, then the encryption scope will automatically use the most recent key version. If you include the key version, then you must update the key version manually to use a different version.
 
-The format of the key URI is similar to the following examples, and can be constructed from the [VaultUri](/dotnet/api/microsoft.azure.commands.keyvault.models.pskeyvault.vaulturi) property of the key vault:
+The format of the key URI is similar to the following examples, and can be constructed from the key vault's [VaultUri](/dotnet/api/microsoft.azure.commands.keyvault.models.pskeyvault.vaulturi) property and the key name:
 
 ```http
 # Without the key version
@@ -180,17 +182,20 @@ To configure customer-managed keys for use with an encryption scope, purge prote
 The following example shows how to configure an encryption scope with a system-assigned managed identity. Remember to replace the placeholder values in the example with your own values:
 
 ```azurecli
-az login
-az account set --subscription <subscription-id>
-
 az storage account update \
     --name <storage-account> \
     --resource-group <resource_group> \
     --assign-identity
 
-principalId=$(az storage account show --name $accountName \
-    --resource-group $rgName \
+principalId=$(az storage account show --name <storage-account> \
+    --resource-group <resource_group> \
     --query identity.principalId \
+    --output tsv)
+
+$kvResourceId=$(az keyvault show \
+    --resource-group <resource-group> \
+    --name <key-vault> \
+    --query id \
     --output tsv)
 
 az role assignment create --assignee-object-id $principalId \
@@ -200,7 +205,7 @@ az role assignment create --assignee-object-id $principalId \
 
 Next, call the [az storage account encryption-scope](/cli/azure/storage/account/encryption-scope#az-storage-account-encryption-scope-create) command with the `--key-uri` parameter, and specify the key URI. Including the key version on the key URI is optional. If you omit the key version, then the encryption scope will automatically use the most recent key version. If you include the key version, then you must update the key version manually to use a different version.
 
-The format of the key URI is similar to the following examples, and can be constructed from the [VaultUri](/dotnet/api/microsoft.azure.commands.keyvault.models.pskeyvault.vaulturi) property of the key vault:
+The format of the key URI is similar to the following examples, and can be constructed from the key vault's **vaultUri** property and the key name:
 
 ```http
 # Without the key version
@@ -218,7 +223,7 @@ Remember to replace the placeholder values in the example with your own values:
 az storage account encryption-scope create \
     --resource-group <resource-group> \
     --account-name <storage-account> \
-    --name <scope> \
+    --name <encryption-scope> \
     --key-source Microsoft.KeyVault \
     --key-uri <key-uri>
 ```
