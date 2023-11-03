@@ -35,15 +35,8 @@ This article tells you how to manage your customer-managed KEKs.
 
 You can change the key that you are using for Azure Elastic SAN encryption at any time.
 
-# [PowerShell](#tab/azure-powershell)
-
 To change the key with PowerShell, call [Update-AzElasticSanVolumeGroup](/powershell/module/az.elasticsan/update-azelasticsanvolumegroup) and provide the new key name and version. If the new key is in a different key vault, then you must also update the key vault URI.
 
-# [Azure CLI](#tab/azure-cli)
-
-To change the key with Azure CLI, call [az elastic-san volume-group update](/cli/azure/elastic-san/volume-group#az-elastic-san-volume-group-update) and provide the new key name and version. If the new key is in a different key vault, then you must also update the key vault URI.
-
----
 
 If the new key is in a different key vault, you must [grant the managed identity access to the key in the new vault](elastic-san-encryption-configure-customer-managed-keys-key-vault.md#choose-a-managed-identity-to-authorize-access-to-the-key-vault). If you opt for manual updating of the key version, you will also need to [update the key vault URI](elastic-san-encryption-configure-customer-managed-keys-key-vault.md#manual-key-version-rotation).
 
@@ -80,13 +73,9 @@ To temporarily revoke access to a Elastic SAN volume group that is using custome
 
 After the key has been disabled, clients can't call operations that read from or write to volumes in the volume group or their metadata.
 
-<!--- For information about which operations will fail, see [Revoke access to a Elastic SAN volume group that uses customer-managed keys](../articles/storage/common/customer-managed-keys-overview.md).
---->
 
 > [!CAUTION]
 > When you disable the key in the key vault, the data in your Azure Elastic SAN volume group remains encrypted, but it becomes inaccessible until you reenable the key.
-
-# [PowerShell](#tab/azure-powershell)
 
 To revoke a customer-managed key with PowerShell, call the [Update-AzKeyVaultKey](/powershell/module/az.keyvault/update-azkeyvaultkey) command, as shown in the following example. Remember to replace the placeholder values in brackets with your own values to define the variables, or use the variables defined in the previous examples.
 
@@ -103,35 +92,9 @@ Get-AzKeyVaultKey -Name $KeyName -VaultName $KvName
 Update-AzKeyVaultKey -VaultName $KvName -Name $KeyName -Enable $enabled
 ```
 
-# [Azure CLI](#tab/azure-cli)
-
-To revoke a customer-managed key with Azure CLI, call the [az keyvault key set-attributes](/cli/azure/keyvault/key#az-keyvault-key-set-attributes) command, as shown in the following example. Remember to replace the placeholder values with your own values to define the variables, or use the variables defined in the previous examples.
-
-```azurecli
-KvName="key-vault-name"
-KeyName="key-name"
-enabled="false"
-# "false" to disable the key / "true" to enable it:
-
-# Check the current state of the key (before and after enabling/disabling it)
-az keyvault key show \
-    --vault-name $KvName \
-    --name $KeyName
-
-# Disable (or enable) the key
-az keyvault key set-attributes \
-    --vault-name $KvName \
-    --name $KeyName \
-    --enabled $enabled
-```
-
----
-
 ## Switch back to platform-managed keys
 
-You can switch from customer-managed keys back to platform-managed keys at any time, using the Azure PowerShell module or the Azure CLI.
-
-# [PowerShell](#tab/azure-powershell)
+You can switch from customer-managed keys back to platform-managed keys at any time, using the Azure PowerShell module.
 
 To switch from customer-managed keys back to platform-managed keys with PowerShell, call [Update-AzElasticSanVolumeGroup](/powershell/module/az.elasticsan/update-azelasticsanvolumegroup) with the `-Encryption` option, as shown in the following example. Remember to replace the placeholder values with your own values and to use the variables defined in the previous examples.
 
@@ -139,19 +102,6 @@ To switch from customer-managed keys back to platform-managed keys with PowerShe
 Update-AzElasticSanVolumeGroup -ResourceGroupName "ResourceGroupName" -ElasticSanName "ElasticSanName" -Name "ElasticSanVolumeGroupName" -Encryption EncryptionAtRestWithPlatformKey 
 ```
 
-# [Azure CLI](#tab/azure-cli)
-
-To switch from customer-managed keys back to platform-managed keys with the Azure CLI, call [az elastic-san volume-group update](/cli/azure/storage/account#az-storage-account-update) and set the `--encryption` parameter to `EncryptionAtRestWithPlatformKey`, as shown in the following example. Replace all placeholder text with your own values, then run the command:
-
-```azurecli
-az elastic-san volume-group update \
-    --elastic-san-name <ElasticSanName> \
-    --name <ElasticSanVolumeGroupName> \
-    --resource-group <ResourceGroupName> \
-    --encryption EncryptionAtRestWithPlatformKey
-```
-
----
 
 ## See also
 

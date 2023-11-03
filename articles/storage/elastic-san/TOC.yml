@@ -44,8 +44,6 @@ items:
     items:
     - name: Configure customer-managed keys with Key Vault
       href: elastic-san-encryption-configure-customer-managed-keys-key-vault.md
-    - name: Configure customer-managed keys with HSM
-      href: elastic-san-encryption-configure-customer-managed-keys-hsm.md
     - name: Manage customer keys
       href: elastic-san-encryption-manage-customer-keys.md
 - name: Samples

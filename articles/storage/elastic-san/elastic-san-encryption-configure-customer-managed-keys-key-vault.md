@@ -9,7 +9,7 @@ ms.author: rogarana
 ms.service: azure-elastic-san-storage
 ms.topic: how-to
 ms.date: 11/06/2023
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-azurepowershell
 ---
 
 # Configure customer-managed keys for An Azure Elastic SAN using Azure Key Vault
@@ -27,9 +27,6 @@ To learn how to configure encryption with customer-managed keys stored in a mana
 ## Prerequisites
 
 To perform the operations described in this article, you must prepare your Azure account and the management tools you plan to use. Preparation includes installing the necessary modules, logging in to your account, and setting variables for PowerShell and the Azure CLI. The same set of variables are used throughout this article, so setting them now allows you to use the same ones in all of the samples.
-
-
-### [PowerShell](#tab/azure-powershell)
 
 To perform the operations described in this article using PowerShell:
 
@@ -64,40 +61,6 @@ $KeyName         = "KeyName"
 $ManagedUserName = "ManagedUserName"
 ```
 
-### [Azure CLI](#tab/azure-cli)
-
-To use the Azure CLI to configure Elastic SAN encryption:
-
-1. Install the [latest version](/cli/azure/install-azure-cli).
-1. Run `az extension add -n elastic-san` to install the extension for Elastic SAN.
-1. (Optional) if you already have the elastic-san extension installed, run `az extension update -n elastic-san` to install the latest.
-
-#### Create variables to be used in the CLI samples in this article
-
-Copy the sample code and replace all placeholder text with your own values. Use the same variables in all of the examples in this article:
-
-```azurecli
-# Define some variables.
-# The name of the resource group where the resources will be deployed.
-RgName="ResourceGroupName"
-# The name of the Elastic SAN that contains the volume group to be configured.
-EsanName="ElasticSanName"
-# The name of the Elastic SAN volume group to be configured.
-EsanVgName="ElasticSanVolumeGroupName"
-# The region where the new resources will be created.
-Location="Location"
-# The name of the Azure Key Vault that will contain the KEK.
-KvName="KeyVaultName"
-# The name of the Azure Key Vault key that is the KEK.
-KeyName="KeyName"
-# The name of the user-assigned managed identity, if applicable.
-ManagedUserName="ManagedUserName"
-# The User Principal Name (UPN) of the administrator (you) who will create the KEK in the vault.
-AdminUpn="AdminUpn"
-```
-
----
-
 ## Configure the key vault
 
 You can use a new or existing key vault to store customer-managed keys. The encrypted resource and the key vault may be in different regions or subscriptions in the same Microsoft Entra ID tenant. To learn more about Azure Key Vault, see [Azure Key Vault Overview](../../key-vault/general/overview.md) and [What is Azure Key Vault?](../../key-vault/general/basic-concepts.md).
@@ -111,8 +74,6 @@ There are 2 steps involved in preparing a key vault as a store for your volume g
 > [!div class="checklist"]
 > * Create a new key vault with soft delete and purge protection enabled, or enable purge protection for an existing one.
 > * Assign the role of Key Vault Crypto Officer to your account to be able to create a key in the vault.
-
-# [PowerShell](#tab/azure-powershell)
 
 The following example:
 
@@ -154,46 +115,11 @@ To learn how to enable purge protection on an existing key vault with PowerShell
 
 For more information on how to assign an RBAC role with PowerShell, see [Assign Azure roles using Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
-# [Azure CLI](#tab/azure-cli)
-
-To create a new key vault using Azure CLI, call [az keyvault create](/cli/azure/keyvault#az-keyvault-create). The following example creates a new key vault with soft delete and purge protection enabled. The key vault's permission model is set to use Azure RBAC. Remember to replace the placeholder values in brackets with your own values.
-
-```azurecli
-az keyvault create \
-    --name $KvName \
-    --resource-group $RgName \
-    --location $Location \
-    --enable-purge-protection \
-    --enable-rbac-authorization
-```
-
-To learn how to enable purge protection on an existing key vault with Azure CLI, see [Azure Key Vault recovery overview](../../key-vault/general/key-vault-recovery.md?tabs=azure-cli).
-
-After you have created the key vault, you'll need to assign the **Key Vault Crypto Officer** role to yourself. This role enables you to create a key in the key vault. The following example assigns this role to a user, scoped to the key vault:
-
-```azurecli
-KvResourceId=$(az keyvault show --resource-group $RgName \
-    --name $KvName \
-    --query id \
-    --output tsv)
-
-az role assignment create --assignee $AdminUpn \
-    --role "Key Vault Crypto Officer" \
-    --scope $KvResourceId \
-    --assignee-principal-type User
-```
-
-For more information on how to assign an RBAC role with Azure CLI, see [Assign Azure roles using Azure CLI](../../role-based-access-control/role-assignments-cli.md).
-
----
-
 ## Add a key
 
 Next, add a key to the key vault. Before you add the key, make sure that you have assigned to yourself the **Key Vault Crypto Officer** role.
 
 Azure Storage and Elastic SAN encryption support RSA and RSA-HSM keys of sizes 2048, 3072 and 4096. For more information about supported key types, see [About keys](../../key-vault/keys/about-keys.md).
-
-# [PowerShell](#tab/azure-powershell)
 
 Use these sample commands to add a key to the key vault with PowerShell. Use the same [variables you defined previously](#create-variables-to-be-used-in-the-powershell-samples-in-this-article) in this article.
 
@@ -211,18 +137,6 @@ $NewKeyArguments = @{
 # Add the key to the vault.
 $Key = Add-AzKeyVaultKey @NewKeyArguments
 ```
-
-# [Azure CLI](#tab/azure-cli)
-
-To add a key with Azure CLI, call [az keyvault key create](/cli/azure/keyvault/key#az-keyvault-key-create). Use the sample below and [the same variables you created previously in this article](#create-variables-to-be-used-in-the-cli-samples-in-this-article):
-
-```azurecli
-az keyvault key create \
-    --name $KeyName \
-    --vault-name $KvName
-```
-
----
 
 ## Choose a key rotation strategy
 
@@ -279,8 +193,6 @@ A user-assigned managed identity is a standalone Azure resource. To learn more a
 
 The user-assigned managed identity must have permissions to access the key in the key vault. Assign the **Key Vault Crypto Service Encryption User** role to the user-assigned managed identity with key vault scope to grant these permissions.
 
-### [PowerShell](#tab/azure-powershell)
-
 The following example shows how to:
 
 > [!div class="checklist"]
@@ -314,42 +226,6 @@ $CryptoUserRoleArguments = @{
 New-AzRoleAssignment @CryptoUserRoleArguments
 ```
 
-### [Azure CLI](#tab/azure-cli)
-
-The following example shows how to:
-
-> [!div class="checklist"]
-> * Create a new user-assigned managed identity.
-> * Wait for the creation of the user-assigned identity to complete.
-> * Get the `PrincipalId` from the new identity.
-> * Assign the required RBAC role to the new identity, scoped to the key vault.
-
-Use the same [variables you defined previously](#create-variables-to-be-used-in-the-powershell-samples-in-this-article) in this article.
-
-```azurecli
-# Create a new user-assigned managed identity.
-UserIdentity=$(az identity create \
-    --resource-group $RgName \
-    --name $ManagedUserName \
-    --location $Location)
-
-identityResourceId=$(az identity show --name $ManagedUserName \
-    --resource-group $RgName \
-    --query id \
-    --output tsv)
-
-PrincipalId=$(az identity show --name $ManagedUserName \
-    --resource-group $RgName \
-    --query principalId \
-    --output tsv)
-
-az role assignment create --assignee-object-id $PrincipalId \
-    --role "Key Vault Crypto Service Encryption User" \
-    --scope $KvResourceId \
-    --assignee-principal-type ServicePrincipal
-```
-
----
 
 ### Use a system-assigned managed identity to authorize access
 
@@ -358,8 +234,6 @@ A system-assigned managed identity is associated with an instance of an Azure se
 The system-assigned managed identity must have permissions to access the key in the key vault. Assign the **Key Vault Crypto Service Encryption User** role to the system-assigned managed identity with key vault scope to grant these permissions.
 
 When a volume group is created, a system-assigned identity is automatically created for it if the `-IdentityType "SystemAssigned"` parameter is specified with the `New-AzElasticSanVolumeGroup` command. The system-assigned identity is not available until after the volume group has been created. You must also assign the **Key Vault Crypto Service Encryption User** role to the identity before it can access the encryption key in the key vault. So, you cannot configure customer-managed keys to use a system-assigned identity during creation of a volume group. Only existing Elastic SAN volume groups can be configured to use a system-assigned identity to authorize access to the key vault. New volume groups must use a user-assigned identity, if customer-managed keys are to be configured during volume group creation.
-
-#### [PowerShell](#tab/azure-powershell)
 
 Use this sample code to assign the required RBAC role to the system-assigned managed identity, scoped to the key vault. Use the same [variables you defined previously](#create-variables-to-be-used-in-the-powershell-samples-in-this-article) in this article.
 
@@ -385,41 +259,9 @@ $CryptoUserRoleArguments = @{
 New-AzRoleAssignment @CryptoUserRoleArguments
 ```
 
-#### [Azure CLI](#tab/azure-cli)
-
-To authenticate access to the key vault with a system-assigned managed identity, first assign the system-assigned managed identity to the volume group by calling `az elastic-san volume-group update`. Use the sample below and [the same variables you created previously in this article](#create-variables-to-be-used-in-the-cli-samples-in-this-article):
-
-```azurecli
-az elastic-san volume-group update \
-    --name $EsanVgName \
-    --resource-group $RgName \
-    --identity
-```
-
-Next, assign to the system-assigned managed identity the required RBAC role, scoped to the key vault. Use the sample below and [the same variables you created previously in this article](#create-variables-to-be-used-in-the-cli-samples-in-this-article):
-
-```azurecli
-PrincipalId=$(az elastic-san volume-group show --name $EsanVgName \
-    --resource-group $RgName \
-    --query identity.principalId \
-    --output tsv)
-
-az role assignment create --assignee-object-id $PrincipalId \
-    --role "Key Vault Crypto Service Encryption User" \
-    --scope $KvResourceId
-```
-
----
-
 ## Configure customer-managed keys for a volume group
 
 Select the Azure PowerShell module or the Azure CLI tab for instructions on how to configure customer-managed encryption keys using your preferred management tool. Then select the tab that corresponds to whether you want to configure the settings during creation of a new volume group, or update the settings for an existing one. Each set of tabs includes instructions for how to configure customer-managed encryption keys for automatic and manual updating of the key version.
-
-### [PowerShell](#tab/azure-powershell)
-
-### [Azure CLI](#tab/azure-cli)
-
----
 
 ### [New volume group](#tab/new-vg/azure-powershell)
 
@@ -464,43 +306,6 @@ $NewVgArguments        = @{
 
 # Create the volume group.
 New-AzElasticSanVolumeGroup @NewVgArguments
-```
-
-### [New volume group](#tab/new-vg/azure-cli)
-
-Use the instructions below to configure customer-managed keys during creation of a new volume group using the Azure CLI.
-
-To configure customer-managed keys for an existing volume group with automatic updating of the key version with Azure CLI, install [Azure CLI version 2.4.0](/cli/azure/release-notes-azure-cli#april-21-2020) or later. For more information, see [Install the Azure CLI](/cli/azure/install-azure-cli).
-
-Next, call `az elastic-san volume-group update` to update the volume group's encryption settings. Include the `--encryption-key-source` parameter and set it to `Microsoft.Keyvault` to enable customer-managed keys for the account, and set `encryption-key-version` to an empty string to enable automatic updating of the key version. If the volume group was previously configured for customer-managed keys with a specific key version, then setting the key version to an empty string will enable automatic updating of the key version going forward. Use the sample below and [the same variables you created previously in this article](#create-variables-to-be-used-in-the-cli-samples-in-this-article):
-
-```azurecli
-KeyVaultUri=$(az keyvault show \
-    --name $KvName \
-    --resource-group $RgName \
-    --query properties.vaultUri \
-    --output tsv)
-
-# Use this form of the command with a user-assigned managed identity.
-az elastic-san volume-group update \
-    --name $EsanVgName \
-    --resource-group $RgName \
-    --identity-type SystemAssigned,UserAssigned \
-    --user-identity-id $identityResourceId \
-    --encryption-key-name $KeyName \
-    --encryption-key-version "" \
-    --encryption-key-source Microsoft.Keyvault \
-    --encryption-key-vault $KeyVaultUri \
-    --key-vault-user-identity-id $identityResourceId
-
-# Use this form of the command with a system-assigned managed identity.
-az elastic-san volume-group update \
-    --name $EsanVgName \
-    --resource-group $RgName \
-    --encryption-key-name $KeyName \
-    --encryption-key-version "" \
-    --encryption-key-source Microsoft.Keyvault \
-    --encryption-key-vault $KeyVaultUri
 ```
 
 ### [Existing volume group](#tab/existing-vg/azure-powershell)
@@ -590,52 +395,6 @@ $UpdateVgArguments        = @{
 Update-AzElasticSanVolumeGroup @UpdateVgArguments
 ```
 
-### [Existing volume group](#tab/existing-vg/azure-cli)
-
-Use the instructions below to configure customer-managed keys dfor an existing volume group using the Azure CLI.
-
-To configure customer-managed keys with manual updating of the key version, explicitly provide the key version when you configure encryption for the volume group. Call `az elastic-san volume-group update` to update the volume group's encryption settings, as shown in the following example. Include the `--encryption-key-source` parameter and set it to `Microsoft.Keyvault` to enable customer-managed keys for the account. Use the sample below and [the same variables you created previously in this article](#create-variables-to-be-used-in-the-cli-samples-in-this-article):
-
-Remember to replace the placeholder values in brackets with your own values.
-
-```azurecli
-KeyVaultUri=$(az keyvault show \
-    --name $KvName \
-    --resource-group $RgName \
-    --query properties.vaultUri \
-    --output tsv)
-
-KeyVersion=$(az keyvault key list-versions \
-    --name $KeyName \
-    --vault-name $KvName \
-    --query [-1].kid \
-    --output tsv | cut -d '/' -f 6)
-
-# Use this form of the command with a user-assigned managed identity
-az elastic-san volume-group update \
-    --name $EsanVgName \
-    --resource-group $RgName \
-    --identity-type SystemAssigned,UserAssigned \
-    --user-identity-id $identityResourceId \
-    --encryption-key-name $KeyName \
-    --encryption-key-version $KeyVersion \
-    --encryption-key-source Microsoft.Keyvault \
-    --encryption-key-vault $KeyVaultUri \
-    --key-vault-user-identity-id $identityResourceId
-
-# Use this form of the command with a system-assigned managed identity
-az elastic-san volume-group update \
-    --name $EsanVgName \
-    --resource-group $RgName \
-    --encryption-key-name $KeyName \
-    --encryption-key-version $KeyVersion \
-    --encryption-key-source Microsoft.Keyvault \
-    --encryption-key-vault $KeyVaultUri
-```
-
-When you manually update the key version, you'll need to update the volume group's encryption settings to use the new version. First, query for the key vault URI by calling [az keyvault show](/cli/azure/keyvault#az-keyvault-show), and for the key version by calling [az keyvault key list-versions](/cli/azure/keyvault/key#az-keyvault-key-list-versions). Then call `az elastic-san volume-group update` to update the volume group's encryption settings to use the new version of the key, as shown in the previous example.
-
----
 
 ## Next steps
 
