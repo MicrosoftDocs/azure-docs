@@ -112,7 +112,7 @@ Reserved CPU is dependent on node type and cluster configuration, which may caus
 Memory utilized by AKS includes the sum of two values.
 
 > [!IMPORTANT]
-> AKS 1.28 will introduce certain changes to memory reservations. These changes are detailed in the following section.
+> AKS 1.28 includes certain changes to memory reservations. These changes are detailed in the following section.
 
 **AKS 1.28 and later**
 
@@ -122,6 +122,8 @@ Memory utilized by AKS includes the sum of two values.
     **Examples**:
    * If the VM provides 8GB of memory and the node supports up to 30 pods, AKS reserves *20MB * 30 Max Pods + 50MB = 650MB* for kube-reserved. `Allocatable space = 8GB - 0.65GB (kube-reserved) - 0.1GB (eviction threshold) = 7.25GB or 90.625% allocatable.`
    * If the VM provides 4GB of memory and the node supports up to 70 pods, AKS reserves *25% * 4GB = 1000MB* for kube-reserved, as this is less than *20MB * 70 Max Pods + 50MB = 1450MB*.
+
+    For more information, see [Configure maximum pods per node in an AKS cluster](./azure-cni-overview.md#maximum-pods-per-node).
 
 **AKS versions prior to 1.28**
 
