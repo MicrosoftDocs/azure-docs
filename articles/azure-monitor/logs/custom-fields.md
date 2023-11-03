@@ -22,7 +22,7 @@ The **Custom Fields** feature of Azure Monitor allows you to extend existing rec
 
 For example, the sample record below has useful data buried in the event description. Extracting this data into a separate property makes it available for such actions as sorting and filtering.
 <!-- convertborder later -->
-:::image type="content" source="media/custom-fields/sample-extract.png" lightbox="media/custom-fields/sample-extract.png" alt-text="Sample extract" border="false":::
+:::image type="content" source="media/custom-fields/sample-extract.png" lightbox="media/custom-fields/sample-extract.png" alt-text="Screenshot of sample extract." border="false":::
 
 > [!NOTE]
 > In the Preview, you are limited to 500 custom fields in your workspace.  This limit will be expanded when this feature reaches general availability.
@@ -79,11 +79,11 @@ We then right-click on any record with event ID 7036 and select **Extract fields
 
 The **Field Extraction Wizard** opens with the **EventLog** and **EventID** fields selected in the **Main Example** column.  This indicates that the custom field will be defined for events from the System log with an event ID of 7036.  This is sufficient so we don’t need to select any other fields.
 <!-- convertborder later -->
-:::image type="content" source="media/custom-fields/main-example.png" lightbox="media/custom-fields/main-example.png" alt-text="Main example" border="false":::
+:::image type="content" source="media/custom-fields/main-example.png" lightbox="media/custom-fields/main-example.png" alt-text="Screenshot of main example." border="false":::
 
 We highlight the name of the service in the **RenderedDescription** property and use **Service** to identify the service name.  The custom field will be called **Service_CF**. The field type in this case is a string, so we can leave that unchanged.
 <!-- convertborder later -->
-:::image type="content" source="media/custom-fields/field-title.png" lightbox="media/custom-fields/field-title.png" alt-text="Field Title" border="false":::
+:::image type="content" source="media/custom-fields/field-title.png" lightbox="media/custom-fields/field-title.png" alt-text="Screenshot of Field Title." border="false":::
 
 We see that the service name is identified properly for some records but not for others.   The **Search Results** show that part of the name for the **WMI Performance Adapter** wasn’t selected.  The **Summary** shows that one record identified **Modules Installer** instead of **Windows Modules Installer**.  
 <!-- convertborder later -->
@@ -91,11 +91,11 @@ We see that the service name is identified properly for some records but not for
 
 We start with the **WMI Performance Adapter** record.  We click its edit icon and then **Modify this highlight**.  
 <!-- convertborder later -->
-:::image type="content" source="media/custom-fields/modify-highlight.png" lightbox="media/custom-fields/modify-highlight.png" alt-text="Modify highlight" border="false":::
+:::image type="content" source="media/custom-fields/modify-highlight.png" lightbox="media/custom-fields/modify-highlight.png" alt-text="Screenshot of modify highlight." border="false":::
 
 We increase the highlight to include the word **WMI** and then rerun the extract.  
 <!-- convertborder later -->
-:::image type="content" source="media/custom-fields/additional-example-01.png" lightbox="media/custom-fields/additional-example-01.png" alt-text="Additional example" border="false":::
+:::image type="content" source="media/custom-fields/additional-example-01.png" lightbox="media/custom-fields/additional-example-01.png" alt-text="Screenshot of additional example." border="false":::
 
 We can see that the entries for **WMI Performance Adapter** have been corrected, and Log Analytics also used that information to correct the records for **Windows Module Installer**.
 <!-- convertborder later -->
@@ -103,7 +103,7 @@ We can see that the entries for **WMI Performance Adapter** have been corrected,
 
 We can now run a query that verifies **Service_CF** is created but is not yet added to any records. That's because the custom field doesn't work against existing records so we need to wait for new records to be collected.
 <!-- convertborder later -->
-:::image type="content" source="media/custom-fields/initial-count.png" lightbox="media/custom-fields/initial-count.png" alt-text="Initial count" border="false":::
+:::image type="content" source="media/custom-fields/initial-count.png" lightbox="media/custom-fields/initial-count.png" alt-text="Screenshot of initial count." border="false":::
 
 After some time has passed so new events are collected, we can see that the **Service_CF** field is now being added to records that match our criteria.
 <!-- convertborder later -->
@@ -111,7 +111,7 @@ After some time has passed so new events are collected, we can see that the **Se
 
 We can now use the custom field like any other record property.  To illustrate this, we create a query that groups by the new **Service_CF** field to inspect which services are the most active.
 <!-- convertborder later -->
-:::image type="content" source="media/custom-fields/query-group.png" lightbox="media/custom-fields/query-group.png" alt-text="Group by query" border="false":::
+:::image type="content" source="media/custom-fields/query-group.png" lightbox="media/custom-fields/query-group.png" alt-text="Screenshot of group by query." border="false":::
 
 ## Next steps
 * Learn about [log queries](./log-query-overview.md) to build queries using custom fields for criteria.

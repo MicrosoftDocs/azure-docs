@@ -40,7 +40,7 @@ You can apply Customer-managed key configuration to a new cluster, or existing c
 > [!IMPORTANT]
 > Customer-managed key capability is regional. Your Azure Key Vault, cluster and linked workspaces must be in the same region, but they can be in different subscriptions.
 <!-- convertborder later -->
-:::image type="content" source="media/customer-managed-keys/cmk-overview.png" lightbox="media/customer-managed-keys/cmk-overview.png" alt-text="Customer-managed key overview" border="false":::
+:::image type="content" source="media/customer-managed-keys/cmk-overview.png" lightbox="media/customer-managed-keys/cmk-overview.png" alt-text="Screenshot of customer-managed key overview." border="false":::
 
 1. Key Vault
 2. Log Analytics cluster resource having managed identity with permissions to Key Vault—The identity is propagated to the underlay dedicated cluster storage
@@ -79,7 +79,7 @@ A [portfolio of Azure Key Management products](../../key-vault/managed-hsm/mhsm-
 
 Create or use an existing Azure Key Vault in the region that the cluster is planed, and generate or import a key to be used for logs encryption. The Azure Key Vault must be configured as recoverable, to protect your key and the access to your data in Azure Monitor. You can verify this configuration under properties in your Key Vault, both **Soft delete** and **Purge protection** should be enabled.
 <!-- convertborder later -->
-:::image type="content" source="media/customer-managed-keys/soft-purge-protection.png" lightbox="media/customer-managed-keys/soft-purge-protection.png" alt-text="Soft delete and purge protection settings" border="false":::
+:::image type="content" source="media/customer-managed-keys/soft-purge-protection.png" lightbox="media/customer-managed-keys/soft-purge-protection.png" alt-text="Screenshot of soft delete and purge protection settings." border="false":::
 
 These settings can be updated in Key Vault via CLI and PowerShell:
 
@@ -136,7 +136,7 @@ This step updates dedicated cluster storage with the key and version to use for 
 >- Key rotation can be automatic or require explicit key update, see [Key rotation](#key-rotation) to determine approach that is suitable for you before updating the key identifier details in cluster.
 >- Cluster update should not include both identity and key identifier details in the same operation. If you need to update both, the update should be in two consecutive operations.
 
-:::image type="content" source="media/customer-managed-keys/key-identifier-8bit.png" lightbox="media/customer-managed-keys/key-identifier-8bit.png" alt-text="Grant Key Vault permissions":::
+:::image type="content" source="media/customer-managed-keys/key-identifier-8bit.png" lightbox="media/customer-managed-keys/key-identifier-8bit.png" alt-text="Screenshot of Grant Key Vault permissions.":::
 
 Update KeyVaultProperties in cluster with key identifier details.
 
