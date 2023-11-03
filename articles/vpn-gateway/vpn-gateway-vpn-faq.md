@@ -39,7 +39,6 @@ The following cross-premises virtual network gateway connections are supported:
 * **Site-to-site:** VPN connection over IPsec (IKE v1 and IKE v2). This type of connection requires a VPN device or RRAS. For more information, see [Site-to-site](./tutorial-site-to-site-portal.md).
 * **Point-to-site:** VPN connection over SSTP (Secure Socket Tunneling Protocol) or IKE v2. This connection doesn't require a VPN device. For more information, see [Point-to-site](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
 * **VNet-to-VNet:** This type of connection is the same as a site-to-site configuration. VNet to VNet is a VPN connection over IPsec (IKE v1 and IKE v2). It doesn't require a VPN device. For more information, see [VNet-to-VNet](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
-* **Multi-Site:** This is a variation of a site-to-site configuration that allows you to connect multiple on-premises sites to a virtual network. For more information, see [Multi-Site](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md).
 * **ExpressRoute:** ExpressRoute is a private connection to Azure from your WAN, not a VPN connection over the public Internet. For more information, see the [ExpressRoute Technical Overview](../expressroute/expressroute-introduction.md) and the [ExpressRoute FAQ](../expressroute/expressroute-faqs.md).
 
 For more information about VPN Gateway connections, see [About VPN Gateway](vpn-gateway-about-vpngateways.md).
@@ -63,6 +62,10 @@ No.
 ### Is a VPN gateway a virtual network gateway?
 
 A VPN gateway is a type of virtual network gateway. A VPN gateway sends encrypted traffic between your virtual network and your on-premises location across a public connection. You can also use a VPN gateway to send traffic between virtual networks. When you create a VPN gateway, you use the -GatewayType value 'Vpn'. For more information, see [About VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md).
+
+### Can I create new virtual network gateways in the classic deployment model?
+
+No. The classic deployment model is a legacy deployment model. You can't create new classic virtual network gateways. Existing classic virtual network gateways are supported until August 31, 2024. To migrate to the Resource Manager deployment model, see [VPN Gateway classic to Resource Manager migration](vpn-gateway-classic-resource-manager-migration.md).
 
 ### Why can't I specify policy-based and route-based VPN types?
 
@@ -106,7 +109,7 @@ Azure Standard SKU public IP resources must use a static allocation method. Ther
 
 ### Can I request a static public IP address for my VPN gateway?
 
-We recommend that you use a Standard SKU public IP address for your VPN gateway. Standard SKU public IP address resources use a static allocation method. While we do support dynamic IP address assignment for certain gateway SKUs (gateway SKUs that don't have an *AZ* in the name), we recommend that you use a Standard SKU public IP address going forward for all virtual network gateways.
+We recommend that you use a Standard SKU public IP address for your VPN gateway. Standard SKU public IP address resources use a static allocation method. While we do support dynamic IP address assignment for certain gateway SKUs (gateway SKUs that don't have an *AZ* in the name), we recommend that you use a Standard SKU public IP address going forward for all virtual network gateways except gateways using the Basic gateway SKU. The Basic gateway SKU currently supports only Basic SKU public IP addresses. We'll soon be adding support for Standard SKU public IP addresses for Basic gateway SKUs.
 
 For non-zone-redundant and non-zonal gateways (gateway SKUs that do *not* have *AZ* in the name), dynamic IP address assignment is supported, but is being phased out. When you use a dynamic IP address, the IP address doesn't change after it has been assigned to your VPN gateway. The only time the VPN gateway IP address changes is when the gateway is deleted and then re-created. The VPN gateway public IP address doesn't change when you resize, reset, or complete other internal maintenance and upgrades of your VPN gateway.
 

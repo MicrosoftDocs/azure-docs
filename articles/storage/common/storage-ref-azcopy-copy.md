@@ -4,7 +4,7 @@ description: This article provides reference information for the azcopy copy com
 author: normesta
 ms.service: azure-storage
 ms.topic: reference
-ms.date: 11/08/2022
+ms.date: 10/31/2023
 ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.reviewer: zezha-msft
@@ -23,7 +23,10 @@ Copies source data to a destination location. The supported directions are:
 - local <-> Azure Files (Share/directory SAS authentication)
 - local <-> Azure Data Lake Storage Gen2 (SAS, OAuth, or SharedKey authentication)
 - Azure Blob (SAS or public) -> Azure Blob (SAS or OAuth authentication)
-- Azure Blob (SAS or OAuth authentication) -> Azure Blob (SAS or OAuth authentication) - See [Guidelines](./storage-use-azcopy-blobs-copy.md#guidelines).
+- Azure Data Lake Storage Gen2 (SAS or public) -> Azure Data Lake Storage Gen2 (SAS or OAuth authentication)
+- Azure Blob (SAS or OAuth authentication) <-> Azure Blob (SAS or OAuth authentication) - See [Guidelines](./storage-use-azcopy-blobs-copy.md#guidelines).
+- Azure Data Lake Storage Gen2 (SAS or OAuth authentication) <-> Azure Data Lake Storage Gen2 (SAS or OAuth authentication)
+- Azure Data Lake Storage Gen2 (SAS or OAuth authentication) <-> Azure Blob (SAS or OAuth authentication)
 - Azure Blob (SAS or public) -> Azure Files (SAS)
 - Azure Files (SAS) -> Azure Files (SAS)
 - Azure Files (SAS) -> Azure Blob (SAS or OAuth authentication)
@@ -330,7 +333,7 @@ preserve full properties, AzCopy needs to send one more request per object or fi
 
 `--output-type`    (string)    Format of the command's output. The choices include: text, json. The default value is 'text'. (default "text")
 
-`--trusted-microsoft-suffixes`    (string)    Specifies additional domain suffixes where Microsoft Entra login tokens may be sent.  The default is '*.core.windows.net;*.core.chinacloudapi.cn;*.core.cloudapi.de;*.core.usgovcloudapi.net;*.storage.azure.net'. Any listed here are added to the default. For security, you should only put Microsoft Azure domains here. Separate multiple entries with semi-colons.
+`--trusted-microsoft-suffixes`    (string)    Specifies additional domain suffixes where Microsoft Entra login tokens can be sent.  The default is '*.core.windows.net;*.core.chinacloudapi.cn;*.core.cloudapi.de;*.core.usgovcloudapi.net;*.storage.azure.net'. Any listed here are added to the default. For security, you should only put Microsoft Azure domains here. Separate multiple entries with semi-colons.
 
 ## See also
 
