@@ -28,10 +28,10 @@ Use this article to get started making your first calls to Azure OpenAI.
 To use the Azure OpenAI for text completions in the playground, follow these steps:
 
 1. Sign in to [Azure AI Studio](https://ai.azure.com) with credentials that have access to your Azure OpenAI resource. During or after the sign-in workflow, select the appropriate directory, Azure subscription, and Azure OpenAI resource. You should be on the Azure AI Studio **Home** page.
-1. From the Azure AI Studio **Home** page select **Build** > **Playground**.
+1. From the Azure AI Studio Home page, select **Build** > **Playground**.
 1. Select your deployment from the **Deployments** dropdown. If you don't make any changes, the **gpt-35-turbo** model is selected by default. 
 1. Select **Completions** from the **Mode** dropdown menu.
-1. Select **Generate product name ideas** from the **Examples** dropdown menu. The system prompt will be pre-populated with something resembling the following text:
+1. Select **Generate product name ideas** from the **Examples** dropdown menu. The system prompt is prepopulated with something resembling the following text:
 
     ```
     Generate product name ideas for a yet to be launched wearable health device that will allow users to monitor their health and wellness in real-time using AI and share their health metrics with their friends and family. The generated product name ideas should reflect the product's key features, have an international appeal, and evoke positive emotions.
@@ -44,9 +44,9 @@ To use the Azure OpenAI for text completions in the playground, follow these ste
     3. VitalTracker
     ```
 
-    :::image type="content" source="../media/quickstarts/playground-completions-generate-before.png" alt-text="Screenshot of the playground page of the Azure AI Studio with the Generate product name ideas dropdown selection visible." lightbox="../media/quickstarts/playground-completions-generate-before.png":::
+    :::image type="content" source="../media/quickstarts/playground-completions-generate-before.png" alt-text="Screenshot of the Azure AI Studio playground with the Generate product name ideas dropdown selection visible." lightbox="../media/quickstarts/playground-completions-generate-before.png":::
 
-1. Select `Generate`. Azure OpenAI will generate product name ideas based on . You should get a result that resembles the following:
+1. Select `Generate`. Azure OpenAI generates product name ideas based on. You should get a result that resembles the following list:
 
     ```
     Product names:
@@ -68,15 +68,15 @@ To use the Azure OpenAI for text completions in the playground, follow these ste
 
 ## Playground options
 
-You've now successfully generated product name ideas using Azure OpenAI. You can experiment with the configuration settings such as temperature and pre-response text to improve the performance of your task. You can read more about each parameter in the [Azure OpenAI REST API documentation](../../openai/reference.md).
+You've now successfully generated product name ideas using Azure OpenAI. You can experiment with the configuration settings such as temperature and preresponse text to improve the performance of your task. You can read more about each parameter in the [Azure OpenAI REST API documentation](../../openai/reference.md).
 
-- Selecting the **Generate** button will send the entered text to the completions API and stream the results back to the text box.
+- Selecting the **Generate** button sends the entered text to the completions API and stream the results back to the text box.
 - Select the **Undo** button to undo the prior generation call.
 - Select the **Regenerate** button to complete an undo and generation call together.
 
-Azure OpenAI also performs content moderation on the prompt inputs and generated outputs. The prompts or responses may be filtered if harmful content is detected. For more information, see the [content filter](../../openai/concepts/content-filter.md) article.
+Azure OpenAI also performs content moderation on the prompt inputs and generated outputs. The prompts or responses might be filtered if harmful content is detected. For more information, see the [content filter](../../openai/concepts/content-filter.md) article.
 
-In the playground you can also view python, json, C#, and curl code samples pre-filled according to your selected settings. Just select **View code** next to the examples dropdown. You can write an application to complete the same task with the OpenAI Python SDK, curl, or other REST API client.
+In the playground you can also view python, json, C#, and curl code samples prefilled according to your selected settings. Just select **View code** next to the examples dropdown. You can write an application to complete the same task with the OpenAI Python SDK, curl, or other REST API client.
 
 :::image type="content" source="../media/quickstarts/playground-completions-sample-python.png" alt-text="Screenshot of the playground page of the Azure AI Studio with python sample code in view." lightbox="../media/quickstarts/playground-completions-sample-python.png":::
 
