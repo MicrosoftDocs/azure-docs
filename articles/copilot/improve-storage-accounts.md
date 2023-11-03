@@ -37,7 +37,7 @@ When you're working with a storage account, you can ask "Does this storage accou
 
 You can also ask "How do I protect this storage account's data from data loss or theft?" After confirming you'd like Microsoft Copilot for Azure (preview) to run a data resiliency check, you'll see specific recommendations for protecting its data.
 
-:::image type="content" source="media/improve-storage-accounts/storage-account-data-resiliency.png" alt-text="Screenshot showing Microsoft Copilot for Azure (preview) providing suggestions to improve storage account data resiliency.":::
+:::image type="content" source="media/improve-storage-accounts/storage-account-data-resiliency.png" lightbox="media/improve-storage-accounts/storage-account-data-resiliency.png" alt-text="Screenshot showing Microsoft Copilot for Azure (preview) providing suggestions to improve storage account data resiliency.":::
 
 ## Next steps
 
