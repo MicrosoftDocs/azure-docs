@@ -17,7 +17,7 @@ Use this article to get started using the Azure OpenAI REST APIs to deploy and u
 - Access granted to Azure OpenAI in the desired Azure subscription. Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at https://aka.ms/oai/access. Open an issue on this repo to contact us if you have an issue. 
 - <a href="https://www.python.org/" target="_blank">Python 3.7.1 or later version</a>.
 - The following Python libraries: `os`, `requests`, `json`.
-- An Azure OpenAI Service resource with the GPT-4V models deployed. The resource must be in the `SwedenCentral` or  `SwitzerlandNorth` Azure region. For more information about model deployment, see [the resource deployment guide](/azure/ai-services/openai/how-to/create-resource). 
+- An Azure OpenAI Service resource with the GPT-4V models deployed. The resource must be in the `EastUS`, `SwitzerlandNorth`, `SwedenCentral`, `CentralUS`, `WestUS`, or `AustraliaEast` Azure region. For more information about model deployment, see [the resource deployment guide](/azure/ai-services/openai/how-to/create-resource). 
 
 ## Retrieve key and endpoint
 
@@ -32,47 +32,88 @@ Go to your resource in the Azure portal. On the navigation pane, select **Keys a
 
 :::image type="content" source="../media/quickstarts/endpoint.png" alt-text="Screenshot that shows the Keys and Endpoint page for an Azure OpenAI resource in the Azure portal." lightbox="../media/quickstarts/endpoint.png":::
 
+
+## tbd 
+
+Send a POST request to `https://{RESOURCE_NAME}.openai.azure.com/openai/deployments/{DEPLOYMENT_NAME}/chat/completions?api-version=2023-08-01-preview` where 
+
+- RESOURCE_NAME is the name of your Azure OpenAI resource 
+- DEPLOYMENT_NAME is the name of your gptv model deployment 
+
+Required headers: 
+- Content-Type: application/json 
+- api-key: {API_KEY} 
+
+Body: 
+
+This is a sample request body. The format is the same as the chat completions API for GPT-4, except that the message content may be an array containing strings and images. 
+
+
+```json
+{
+    "messages": [ 
+        {
+            "role": "system", 
+            "content": "You are a helpful assistant." 
+        },
+        {
+            "role": "user", 
+            "content": [ 
+                "Describe this picture:", { "image": "base64 encoded image" } 
+            ] 
+        }
+    ],
+    "max_tokens": 100, 
+    "stream": false 
+} 
+```
+
+
+```python
+# Packages required: 
+# requests 
+# azure-identity 
+import requests 
+import json 
+from azure.identity import DefaultAzureCredential 
+
+RESOURCE_NAME = "my-aoai-resource"      # Set this to the name of the Azure OpenAI resource 
+DEPLOYMENT_NAME = "my-gptv-deployment"  # Set this to the name of the gptv model deployment 
+API_KEY = "############"                # Set this to the API key for the Azure OpenAI resource 
+
+base_url = f"https://{RESOURCE_NAME}.openai.azure.com/openai/deployments/{DEPLOYMENT_NAME}" 
+headers = {   
+    "Content-Type": "application/json",   
+    "api-key": API_KEY 
+} 
+
+
+# Prepare endpoint, headers, and request body 
+endpoint = f"{base_url}/chat/completions?api-version=2023-08-01-preview" 
+data = { 
+    "messages": [ 
+        { "role": "system", "content": "You are a helpful assistant." }, # Content can be a string, OR 
+        { "role": "user", "content": [                                   # It can be an array containing strings and images. 
+            "Describe this picture:", 
+            { "image": "base64 encoded image" }                          # Images are represented like this. 
+        ] } 
+    ], 
+    "max_tokens": 100 
+}   
+
+# Make the API call   
+response = requests.post(endpoint, headers=headers, data=json.dumps(data))   
+
+print(f"Status Code: {response.status_code}")   
+print(response.text) 
+```
+
 ## Create a new Python application
 
 Create a new Python file named _quickstart.py_. Open the new file in your preferred editor or IDE.
 
 1. Replace the contents of _quickstart.py_ with the following code. Enter your endpoint URL and key in the appropriate fields. Change the value of `prompt` to your preferred text.
     
-    ```python
-    #Note: The openai-python library support for Azure OpenAI is in preview. 
-    
-    import os 
-    
-    import openai 
-    
-    openai.api_type = "azure" 
-    
-    openai.api_base = "https://gpt-visual-swn.openai.azure.com/" 
-    
-    openai.api_version = "2023-07-01-preview" 
-    
-    openai.api_key = os.getenv("OPENAI_API_KEY") 
-    
-    response = openai.ChatCompletion.create( 
-    
-      engine="gpt-visual", 
-    
-      messages = [{"role":"system","content":"You are a marketing writing assistant. You help come up with creative content ideas and content like marketing emails, blog posts, tweets, ad copy and product descriptions. You write in a friendly yet professional tone but can tailor your writing style that best works for a user-specified audience. If you do not know the answer to a question, respond by saying \"I do not know the answer to your question.\""},{"role":"user","content":"Describe this image"},{"role":"assistant","content":"This image depicts a beautiful autumn wreath made of colorful flowers and leaves, measuring 45cm in diameter. The wreath is accented with small pumpkins and berries, creating a warm and inviting feel. Perfect for adding a touch of fall charm to any space."},{"role":"user","content":"What should I highlight about this image in the fall sales flyers?"},{"role":"assistant","content":"In the fall sales flyers, you could highlight the wreath's seasonal charm and unique design, emphasizing the pumpkins and berries that add a festive touch. You could also mention its size and versatility, as it can be used to decorate any space in need of a touch of autumn cheer."}], 
-    
-      temperature=1, 
-    
-      max_tokens=459, 
-    
-      top_p=0.95, 
-    
-      frequency_penalty=0, 
-    
-      presence_penalty=0, 
-    
-      best_of=1, 
-    
-      stop=None) 
-    ```
 
 1. Run the application with the `python` command:
 
@@ -81,6 +122,9 @@ Create a new Python file named _quickstart.py_. Open the new file in your prefer
     ```
 
     The script makes an image generation API call and then loops until the generated image is ready.
+
+
+
 
 ## Output
 
