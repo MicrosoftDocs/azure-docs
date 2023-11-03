@@ -12,11 +12,11 @@ Learn what's new in the service. These items might be release notes, videos, blo
 
 ### New version of Service Retirement Workbook
 
-We released a new version of the Service Retirement Workbook in Advisor, which include three major changes. The Retirement Workbook now covers 40 services.
+We released a new version of the Service Retirement Workbook in Advisor, which includes three major changes. The Retirement Workbook now covers 40 services.
 
 * We onboarded 10 new services to the workbook.
 
-* We offboarded seven services that had completed their retirement lifecycle. 
+* We off boarded seven services that had completed their retirement lifecycle.
 
 * We implemented some improvements to enhance the user experience and navigation based on valuable feedback from our customers.
 
@@ -35,7 +35,7 @@ List of the newly onboarded services in workbook:
 | Azure Database for MariaDB | Entire service |
 | Azure Cache for Redis | Support for TLS 1.0 and 1.1 |
 
-List of services offboarded from Workbook:
+List of services off boarded from Workbook:
 
 | Service | Retiring Feature |
 |-----------------|-------------------|
@@ -47,14 +47,12 @@ List of services offboarded from Workbook:
 | Virtual Machines | ND-Series |
 | Virtual Machines | Azure Dedicated Host SKUs (Dsv3-Type1, Esv3-Type1, Dsv3-Type2, Esv3-Type2) |
 
-**UX improvements**
+#### UX improvements
 
 * Resource details grid - Based on customer feedback, we made an improvement in the visibility of the 'Resource Details' grid. Now, the resource details are readily available by default, whereas previously, they were only visible after selecting a service.
 * Resource link - We further enhanced the user experience for accessing resource details by updating the Resource link to open in a context pane, as opposed to the previous method where it opened in the same tab. This change streamlines navigation and provides a more
 
 To learn more, visit [Prepare migration of your workloads impacted by service retirement](/azure/advisor/advisor-how-to-plan-migration-workloads-service-retirement).
-
-## October 2023
 
 ### Service Health Alert Recommendations
 
@@ -108,12 +106,11 @@ Architecting for reliability and resiliency ensures that your workloads are avai
 
 * Mitigate risks after an outage.
 
-* To learn more, visit Optimize your resources for reliability. 
+* To learn more, visit Optimize your resources for reliability.
 
 To learn more, visit [Optimize your resources for reliability](https://aka.ms/advisor_improve_reliability).
 
-To assess the reliability of your workload using the tenets found in the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/), 
-reference the [Microsoft Azure Well-Architected Review](/assessments/?id=azure-architecture-review&mode=pre-assessment).
+To assess the reliability of your workload using the tenets found in the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/), reference the [Microsoft Azure Well-Architected Review](/assessments/?id=azure-architecture-review&mode=pre-assessment).
 
 ### Data in Azure Resource Graph is now available in Azure China and US Government clouds
 
@@ -129,7 +126,7 @@ To learn more, visit [Query for Advisor data in Resource Graph Explorer (Azure R
 
 ### Service retirement workbook
 
-It's important to be aware of the upcoming Azure service and feature retirements to understand their impact on your workloads and plan migration. The [Service Retirement workbook](https://portal.azure.com/#view/Microsoft_Azure_Expert/AdvisorMenuBlade/~/workbooks) provides a single centralized resource level view of service retirements and helps you assess impact, evaluate options, and plan migration. 
+It's important to be aware of the upcoming Azure service and feature retirements to understand their impact on your workloads and plan migration. The [Service Retirement workbook](https://portal.azure.com/#view/Microsoft_Azure_Expert/AdvisorMenuBlade/~/workbooks) provides a single centralized resource level view of service retirements and helps you assess impact, evaluate options, and plan migration.
 The workbook includes 35 services and features planned for retirement. You can view planned retirement dates, list and map of impacted resources and get information to make the necessary actions.
 
 To learn more, visit [Prepare migration of your workloads impacted by service retirements](advisor-how-to-plan-migration-workloads-service-retirement.md).
@@ -181,7 +178,7 @@ Optimize virtual machine (VM) or virtual machine scale set (VMSS) spend by resiz
 
 ### Advisor score across all Azure regions
 
-Azure Advisor score offers you a way to prioritize the most impactful Advisor recommendations to optimize your deployments using the Azure Well-Architected Framework. Advisor displays your category scores and your overall Advisor score as percentages. A score of 100% in any category means all your resources, assessed by Advisor, follow the best practices that Advisor recommends. On the other end of the spectrum, a score of 0% means that none of your resources, assessed by Advisor, follows Advisor recommendations. 
+Azure Advisor score offers you a way to prioritize the most impactful Advisor recommendations to optimize your deployments using the Azure Well-Architected Framework. Advisor displays your category scores and your overall Advisor score as percentages. A score of 100% in any category means all your resources, assessed by Advisor, follow the best practices that Advisor recommends. On the other end of the spectrum, a score of 0% means that none of your resources, assessed by Advisor, follows Advisor recommendations.
 
 Advisor Score now supports the ability to report on specific workloads using resource tag filters in addition to subscriptions. For example, you can now omit nonproduction resources from the score calculation. You can also track your progress over time to understand whether you're consistently maintaining healthy Azure deployments.
 
