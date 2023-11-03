@@ -35,7 +35,7 @@ While deploying synchronously you may receive errors related to connection timeo
 
 An alternative to using HTTP BASIC authentication for the zip deployment is to use a Microsoft Entra identity. Microsoft Entra identity may be needed if [HTTP BASIC authentication is disabled for the SCM site](../articles/app-service/deploy-configure-credentials.md#disable-basic-authentication).
 
-A valid Microsoft Entra access token for the the user or service principal performing the deployment will be required. An access token can be retrieved using the Azure CLI's `az account get-access-token` command.  The access token will be used in the Authentication header of the HTTP POST request.
+A valid Microsoft Entra access token for the user or service principal performing the deployment will be required. An access token can be retrieved using the Azure CLI's `az account get-access-token` command.  The access token will be used in the Authentication header of the HTTP POST request.
 
 ```bash
 curl -X POST \

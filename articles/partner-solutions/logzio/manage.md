@@ -102,7 +102,7 @@ To install the VM agent, use the following steps.
 1. To verify that the Logz.io agent was installed, select the VM and go to the **Extensions** window.
 
 > [!NOTE]
-> After the the VM agent is installed, if the VM is stopped, the **Logs to Logz** column will show **Not Sending** for that VM.
+> After the VM agent is installed, if the VM is stopped, the **Logs to Logz** column will show **Not Sending** for that VM.
 
 ### Uninstall VM agent
 

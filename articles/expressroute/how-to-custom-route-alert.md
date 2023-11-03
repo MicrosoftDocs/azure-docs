@@ -299,7 +299,7 @@ At the end of the workflow configuration, you can check the consistency of the r
 
 A logic app workflow accesses other apps, services, and the platform though connectors. The next step is to select a connector to access the Azure Automation account that was defined earlier.
 
-1. In **Logic Apps Designer**, below **Recurrence**, select **New step**. Under **Choose an action** and the the search box, select **All**.
+1. In **Logic Apps Designer**, below **Recurrence**, select **New step**. Under **Choose an action** and the search box, select **All**.
 2. In the search box, type **Azure Automation** and search. Select **Create job**. **Create job** will be used to fire the automation runbook that was created earlier.
 
    :::image type="content" source="./media/custom-route-alert-portal/create-job.png" alt-text="Create job":::
@@ -435,7 +435,7 @@ Logic Apps provides many email connectors. In this example, we add an Outlook co
 
    :::image type="content" source="./media/custom-route-alert-portal/office-365.png" alt-text="Sign in":::
 
-4. In the **Body** field, click **Add dynamic content**. From the Dynamic content panel, add the the variable **Emailbody**. Fill out the **Subject** and **To** fields.
+4. In the **Body** field, click **Add dynamic content**. From the Dynamic content panel, add the variable **Emailbody**. Fill out the **Subject** and **To** fields.
 
    :::image type="content" source="./media/custom-route-alert-portal/emailbody.png" alt-text="Body":::
 

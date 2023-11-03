@@ -119,7 +119,7 @@ set PGPASSWORD=<TOKEN value from the previous step>
 ```
 
 ```powerShell
-$env:PGPASSWORD='<TOKEN value from from the previous step>'
+$env:PGPASSWORD='<TOKEN value from the previous step>'
 ```
 
 Here's a Linux/macOS example:

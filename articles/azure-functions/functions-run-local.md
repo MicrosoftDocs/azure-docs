@@ -61,7 +61,7 @@ In the terminal window or from a command prompt, run the following command to cr
 func init MyProjFolder --worker-runtime dotnet-isolated 
 ```
 
-By default this command creates a project that runs in-process with the Functons host on the current [Long-Term Support (LTS) version of .NET Core]. You can use the `--target-framework` option to target a specific supported version of .NET, including .NET Framework. For for information, see the [`func init`](functions-core-tools-reference.md#func-init) reference.
+By default this command creates a project that runs in-process with the Functons host on the current [Long-Term Support (LTS) version of .NET Core]. You can use the `--target-framework` option to target a specific supported version of .NET, including .NET Framework. For more information, see the [`func init`](functions-core-tools-reference.md#func-init) reference.
 
 ### [In-process](#tab/in-process)
 

@@ -124,7 +124,7 @@ You can simulate alerts for both of the control plane, and workload alerts with 
 - Ensure the Defender for Containers plan is enabled.
 - Ensure the [Defender agent](defender-for-cloud-glossary.md#defender-agent) is installed.
 
-**To simulate a a Kubernetes workload security alert**:
+**To simulate a Kubernetes workload security alert**:
 
 1. Create a pod to run a test command on. This pod can be any of the existing pods in the cluster, or a new pod. You can create using this sample yaml configuration:
 

@@ -21,7 +21,7 @@ With Azure Active Directory B2C (Azure AD B2C) and solutions from software-vendo
 
 The following architecture diagram illustrates the verification and proofing flow.
 
-   ![Diagram of of the identity proofing flow, from registration to access approval.](./media/partner-gallery/third-party-identity-proofing.png)
+   ![Diagram of the identity proofing flow, from registration to access approval.](./media/partner-gallery/third-party-identity-proofing.png)
 
 1. User begins registration with a device.
 2. User enters information.

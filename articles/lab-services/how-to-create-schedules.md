@@ -20,7 +20,7 @@ Create a scheduled event for the lab so that VMs in the lab are automatically st
 > Before we get started, here's how schedules affect lab virtual machines:
 >
 >- Template virtual machine is not included in schedules.
->- Only assigned virtual machines are started. This means, if a machine is not claimed by an end user (student), the the machine will not start on the scheduled hours.
+>- Only assigned virtual machines are started. This means, if a machine is not claimed by an end user (student), the machine will not start on the scheduled hours.
 >- All virtual machines (whether claimed by a user or not) are stopped based on the lab schedule.
 
 1. Switch to the **Schedules** page, and select **Add scheduled event** on the toolbar.

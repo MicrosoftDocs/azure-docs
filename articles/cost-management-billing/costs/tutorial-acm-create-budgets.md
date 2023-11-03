@@ -195,7 +195,7 @@ The following example commands create a budget.
 
 Connect-AzAccount
 
-#Select a subscription to to monitor with a budget
+#Select a subscription to monitor with a budget
 
 select-AzSubscription -Subscription "Your Subscription"
 

@@ -75,7 +75,7 @@ Metric category|Metric name|Metric description|
    > [!IMPORTANT]
    > If you leave the MedTech service metrics page, the metrics settings for your MedTech service are lost and will have to be recreated. If you would like to save your MedTech service metrics for future viewing, you can pin them to an Azure portal dashboard as a tile. 
    >
-   > To learn how to to create an Azure portal dashboard and pin tiles, see [How to create an Azure portal dashboard and pin tiles](how-to-configure-metrics.md#how-to-create-an-azure-portal-dashboard-and-pin-tiles)
+   > To learn how to create an Azure portal dashboard and pin tiles, see [How to create an Azure portal dashboard and pin tiles](how-to-configure-metrics.md#how-to-create-an-azure-portal-dashboard-and-pin-tiles)
    
    > [!TIP]
    > To learn more about advanced metrics display and sharing options, see [Analyze metrics with Azure Monitor metrics explorer](../../azure-monitor/essentials/analyze-metrics.md).

@@ -229,7 +229,7 @@ Register the Azure Linux VM as a Desired State Configuration (DSC) node for the 
 
    These commands obtain the Automation account's primary access key and URL and concatenates it to the registration command. Ensure you remove any carriage returns from the output. This command will be used in a later step.
 
-1. Connect to your Azure Linux VM. If you used a password, you can use the syntax below. If you used a public-private key pair, see [SSH on Linux](./../virtual-machines/linux/mac-create-ssh-keys.md) for detailed steps. The other commands retrieve information about what packages can be installed, including what updates to currently installed packages packages are available, and installs Python.
+1. Connect to your Azure Linux VM. If you used a password, you can use the syntax below. If you used a public-private key pair, see [SSH on Linux](./../virtual-machines/linux/mac-create-ssh-keys.md) for detailed steps. The other commands retrieve information about what packages can be installed, including what updates to currently installed packages are available, and installs Python.
 
    ```cmd
    ssh user@IP
@@ -333,7 +333,7 @@ The output should look similar as shown below:
 
    :::image type="content" source="media/dsc-linux-powershell/get-azautomationdscnodereport-output.png" alt-text="Output from Get-AzAutomationDscNodeReport command.":::
 
-The first report may not be available immediately and may take up to 30 minutes after you enable a node. For more information about report data, see see [Using a DSC report server](/powershell/dsc/pull-server/reportserver).
+The first report may not be available immediately and may take up to 30 minutes after you enable a node. For more information about report data, see [Using a DSC report server](/powershell/dsc/pull-server/reportserver).
 
 ## Clean up resources
 

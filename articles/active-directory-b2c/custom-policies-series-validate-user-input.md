@@ -326,7 +326,7 @@ Use the following steps to validate password re-enter in your custom policy:
     ```xml
         <DisplayClaim ClaimTypeReferenceId="reenterPassword" Required="true"/>
     ```
-1. In your your `ContosoCustomPolicy.XML` file, locate the `UserInformationCollector` self-asserted technical profile, add *reenterPassword* claim as an output claim by using the following code:
+1. In your `ContosoCustomPolicy.XML` file, locate the `UserInformationCollector` self-asserted technical profile, add *reenterPassword* claim as an output claim by using the following code:
 
     ```xml
         <OutputClaim ClaimTypeReferenceId="reenterPassword"/>
