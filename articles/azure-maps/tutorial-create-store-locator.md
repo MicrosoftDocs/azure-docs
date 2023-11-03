@@ -75,7 +75,7 @@ This section lists the Azure Maps features that are demonstrated in the Contoso 
 
 The following screenshot shows the general layout of the Contoso Coffee store locator application. To view and interact with the live sample, see the [Simple Store Locator] sample application on the **Azure Maps Code Samples** site.
 
-:::image type="content" source="./media/tutorial-create-store-locator/store-locator-wireframe.png" lightbox="./media/tutorial-create-store-locator/store-locator-wireframe.png" alt-text="A screenshot the Contoso Coffee store locator Azure Maps sample application.":::
+:::image type="content" source="./media/tutorial-create-store-locator/store-locator-wireframe.png" lightbox="./media/tutorial-create-store-locator/store-locator-wireframe.png" alt-text="A screenshot showing the Contoso Coffee store locator Azure Maps sample application.":::
 
 To maximize the usefulness of this store locator, we include a responsive layout that adjusts when a user's screen width is smaller than 700 pixels wide. A responsive layout makes it easy to use the store locator on a small screen, like on a mobile device. Here's a screenshot showing a sample of the small-screen layout:  
 
