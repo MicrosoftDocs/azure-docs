@@ -49,25 +49,20 @@ You can view replication status on the source volume or the destination volume. 
 
 ## Set alert rules to monitor replication
 
-Follow the following steps to create [alert rules in Azure Monitor](../azure-monitor/alerts/alerts-overview.md) to help you monitor the status of cross-region replication:
+Ceate [alert rules in Azure Monitor](../azure-monitor/alerts/alerts-overview.md) to help you monitor the status of cross-region replication:
 
-1.	From Azure Monitor, select **Alerts**.
-2.	From the Alerts window, select the **Create** dropdown and select **Create new alert rule**.
-3.	From the Scope tab of the Create an Alert Rule page, select **Select scope**. The **Select a Resource** page appears.  
-4.	From the Resource tab, find the **Volumes** resource type.
-5.	From the Condition tab, select **Add condition**. From there, find a signal called “**is volume replication healthy**”.
-6.	There you'll see **Condition of the relationship, 1 or 0** and the **Configure Signal Logic** window is displayed.
-7.	To check if the replication is _unhealthy_: 
-    * Set **Operator** to `Less than`.
-    * Set **Aggregation type** to `Average`. 
-    * Set **Threshold** value to `1`.
-    * Set **Unit** to `Count`.
-8.	To check if the replication is _healthy_: 
-    * Set **Operator** to `Greater than or equal to`.
-    * Set **Aggregation** type to `Average`.
-    * Set **Threshold** value to `1`. 
-    * Set **Unit** to `Count`.
-9.	 Select **Review + create**. The alert rule is ready for use. 
+1. In Azure Monitor, select **Alerts**.
+2. From the **Alerts** window, select the **Create** dropdown then **Alert rule**.
+3. From the **Scope** tab of the **Create an Alert Rule** page, choose **Select scope**. The **Select a Resource** page appears.
+4. From the **Browse** tab, enter "Volumes" in the **Search to filter items...** field.
+5. Select the target volume you'd like to monitor and select **Apply**.
+6. From the **Condition** tab, use the **Signal name** dropdown to select **See all signals**. Identify the **Volume replication lag time** signal then select **Apply**.
+7. Confirm **Greater than** is selected for the **Operator** field.
+8. For the **Threshold** value field, enter the number of seconds equal to you replication schedule plus 20%. For example:
+    * If your replication schedule is 10 minutes, enter 720 (10 minutes * 60 seconds * 1.2). 
+    * If you replication schedule is hourly, enter 4,320 (60 minutes * 60 seconds * 1.2). 
+    * If your replication schedule is daily, enter 103,680 (24 hours * 60 minutes * 60 seconds * 1.2).
+9.	Select **Review + create**. The alert rule is ready for use.
 
 :::image type="content" source="../media/azure-netapp-files/alert-config-signal-logic.png" alt-text="Screenshot of the Azure interface that shows the configure signal logic step with a backdrop of the Create alert rule page." lightbox="../media/azure-netapp-files/alert-config-signal-logic.png":::
 
