@@ -137,7 +137,10 @@ Use the [Azure Monitor REST API](/rest/api/monitor/diagnosticsettings/createorup
 >[!NOTE]
 > This article contains references to a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
-By default, audit logging creates a record for every login attempt and CQL query. The result can be rather overwhelming and increase overhead. You can use the audit whitelist feature in Cassandra 3.11 to set what operations *don't* create an audit record. The audit whitelist feature is enabled by default in Cassandra 3.11. To learn how to configure your whitelist, see [Role-based whitelist management](https://github.com/Ericsson/ecaudit/blob/release/c2.2/doc/role_whitelist_management.md). 
+By default, audit logging creates a record for every login attempt and CQL query. The result can be rather overwhelming and increase overhead. 
+
+### Cassandra 3.11
+You can use the audit whitelist feature in Cassandra 3.11 to set what operations *don't* create an audit record. The audit whitelist feature is enabled by default in Cassandra 3.11. To learn how to configure your whitelist, see [Role-based whitelist management](https://github.com/Ericsson/ecaudit/blob/release/c2.2/doc/role_whitelist_management.md). 
 
 Examples:
 
@@ -165,6 +168,9 @@ Examples:
   ```
   cassandra@cqlsh> LIST ROLES;
   ```
+
+### Cassandra 4 and later
+TODO
 
 ## Next steps
 
