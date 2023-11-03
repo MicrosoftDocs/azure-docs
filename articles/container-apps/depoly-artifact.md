@@ -254,7 +254,7 @@ Copy the FQDN to a web browser.  From your web browser, go to the `/albums` endp
 
 If you're not going to continue to use this application, you can delete the Azure Container Apps instance and all the associated services by removing the resource group.
 
-Follow these steps in the Azure portal to remove the resources you created:
+Follow these steps to remove the resources you created:
 
 # [Bash](#tab/bash)
 
