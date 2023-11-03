@@ -23,7 +23,7 @@ Some prerequisites differ depending on the version (`stv2` or `stv1`) of the [co
 
 * **A network security group** attached to the subnet above. A network security group (NSG) is required to explicitly allow inbound connectivity, because the load balancer used internally by API Management is secure by default and rejects all inbound traffic. For specific configuration, see [Configure NSG rules](#configure-nsg-rules), later in this article.
 
-* For certain scenarios, enable [service endpoints](../articles/virtual-network/virtual-network-service-endpoints-overview.md) in the subnet to dependent services such as Azure Storage or Azure SQL. For more information, see [Force tunnel traffic to on-premises firewall using ExpressRoute or network virtual appliance](#force-tunnel-traffic-to-on-premises-firewall-using-expressroute-or-network-virtual-appliance), later in this article.
+* For certain scenarios, enable **service endpoints** in the subnet to dependent services such as Azure Storage or Azure SQL. For more information, see [Force tunnel traffic to on-premises firewall using ExpressRoute or network virtual appliance](#force-tunnel-traffic-to-on-premises-firewall-using-expressroute-or-network-virtual-appliance), later in this article.
 
 * **A Standard SKU [public IPv4 address](../articles/virtual-network/ip-services/public-ip-addresses.md#sku)**. The public IP address resource is required when setting up the virtual network for either external or internal access. With an internal virtual network, the public IP address is used only for management operations. Learn more about [IP addresses of API Management](../articles/api-management/api-management-howto-ip-addresses.md).
 
@@ -47,5 +47,5 @@ Some prerequisites differ depending on the version (`stv2` or `stv1`) of the [co
   * The subnet used to connect to the API Management instance must be dedicated to API Management. It can't contain other Azure resource types, or the deployment will fail.
   * The subnet used to connect to the API Management instance should not have any delegations enabled. The **Delegate subnet to a service** setting for the subnet should be set to *None*. 
 
-* For certain scenarios, enable [service endpoints](../articles/virtual-network/virtual-network-service-endpoints-overview.md) in the subnet to dependent services such as Azure Storage or Azure SQL. For more information, see [Force tunnel traffic to on-premises firewall using ExpressRoute or network virtual appliance](#force-tunnel-traffic-to-on-premises-firewall-using-expressroute-or-network-virtual-appliance), later in this article. 
+* For certain scenarios, enable **service endpoints** in the subnet to dependent services such as Azure Storage or Azure SQL. For more information, see [Force tunnel traffic to on-premises firewall using ExpressRoute or network virtual appliance](#force-tunnel-traffic-to-on-premises-firewall-using-expressroute-or-network-virtual-appliance), later in this article. 
 ---
