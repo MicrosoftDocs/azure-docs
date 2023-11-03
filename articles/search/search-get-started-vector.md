@@ -17,7 +17,7 @@ Get started with vector search in Azure AI Search using the **2023-11-01** REST 
 Search indexes can have vector fields in the fields collection. When querying the search index, you can build vector-only queries, or create hybrid queries that target vector fields *and* textual fields configured for filters, sorts, facets, and semantic ranking.
 
 > [!NOTE]
-> Looking for built-in data chunking and vectorization? Try [Get started with integrated vectorization (preview)](search-get-started-integrated-vectors.md) and the **Import and vectorize data** wizard in Azure portal.
+> Looking for built-in data chunking and vectorization? Try [Get started with integrated vectorization (preview)](search-get-started-portal-import-vectors.md) and the **Import and vectorize data** wizard in Azure portal.
 
 ## Prerequisites
 
@@ -34,7 +34,7 @@ Search indexes can have vector fields in the fields collection. When querying th
 + Optional. The Postman collection includes a **Generate Embedding** request that can generate vectors from text. The collection provides a ready-to-use vector, but if you want to replace it, provide an [Azure OpenAI](https://aka.ms/oai/access) endpoint with a deployment of **text-embedding-ada-002**. The step for generating a custom embedding is the only step that requires an Azure OpenAI endpoint, Azure OpenAI key, model deployment name, and API version in the collection variables.
 
 > [!NOTE]
-> This quickstart is for the generally available version of [vector search](vector-search-overview.md). If you want to try integrated vectorization, currently in public preview, try [this quickstart](search-get-started-integrated-vectors.md) instead.  
+> This quickstart is for the generally available version of [vector search](vector-search-overview.md). If you want to try integrated vectorization, currently in public preview, try [this quickstart](search-get-started-portal-import-vectors.md) instead.  
 
 ## About the sample data and queries
 

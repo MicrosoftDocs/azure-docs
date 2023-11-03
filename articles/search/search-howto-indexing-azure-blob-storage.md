@@ -95,7 +95,7 @@ Lastly, any metadata properties specific to the document format of the blobs you
 
 It's important to point out that you don't need to define fields for all of the above properties in your search index - just capture the properties you need for your application.
 
-Currently, indexing [blob index tags](../storage/blobs/storage-blob-index-how-to.md) is not supported by this indexer. 
+Currently, indexing [blob index tags](../storage/blobs/storage-blob-index-how-to.md) isn't supported by this indexer. 
 
 
 ## Define the data source
@@ -179,7 +179,7 @@ In a [search index](search-what-is-an-index.md), add fields to accept the conten
 
    + A custom metadata property that you add to blobs. This option requires that your blob upload process adds that metadata property to all blobs. Since the key is a required property, any blobs that are missing a value will fail to be indexed. If you use a custom metadata property as a key, avoid making changes to that property. Indexers will add duplicate documents for the same blob if the key property changes.
 
-   Metadata properties often include characters, such as `/` and `-`, that are invalid for document keys. Because the indexer has a "base64EncodeKeys" property (true by default), it automatically encodes the metadata property, with no configuration or field mapping required.
+   Metadata properties often include characters, such as `/` and `-`, which are invalid for document keys. Because the indexer has a "base64EncodeKeys" property (true by default), it automatically encodes the metadata property, with no configuration or field mapping required.
 
 1. Add a "content" field to store extracted text from each file through the blob's "content" property. You aren't required to use this name, but doing so lets you take advantage of implicit field mappings. 
 
@@ -230,7 +230,10 @@ Once the index and data source have been created, you're ready to create the ind
 
    + "allMetadata" specifies that standard blob properties and any [metadata for found content types](search-blob-metadata-properties.md) are extracted from the blob content and indexed.
 
-1. Under "configuration", set "parsingMode" if blobs should be mapped to [multiple search documents](search-howto-index-one-to-many-blobs.md), or if they consist of [plain text](search-howto-index-plaintext-blobs.md), [JSON documents](search-howto-index-json-blobs.md), or [CSV files](search-howto-index-csv-blobs.md).
+1. Under "configuration", set "parsingMode". The default parsing mode is one search document per blob. If blobs are plain text, you can get better performance by switching to [plain text](search-howto-index-plaintext-blobs.md) parsing. If you need more granular parsing that maps blobs to [multiple search documents](search-howto-index-one-to-many-blobs.md), specify a different mode. One-to-many parsing is supported for blobs consisting of:
+
+   + [JSON documents](search-howto-index-json-blobs.md)
+   + [CSV files](search-howto-index-csv-blobs.md)
 
 1. [Specify field mappings](search-indexer-field-mappings.md) if there are differences in field name or type, or if you need multiple versions of a source field in the search index.
 
