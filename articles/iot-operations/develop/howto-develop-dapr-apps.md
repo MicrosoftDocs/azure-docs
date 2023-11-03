@@ -59,13 +59,14 @@ To register MQ's pluggable Pub/sub and State Management components, create the c
 To create the yaml file, use the following component definitions:
 
 > [!div class="mx-tdBreakAll"]
-> | Component                     | Description                           |
-> | ----------------------------- | ------------------------------------- |
-> | `metadata.name` | The component name is important and is how [a Dapr application reaches the component](https://github.com/microsoft/e4k-playground/blob/0b9b8bc846c2567f840576ed5c6e17c469891877/samples/quickstart-sample/src/main.go#L42).  |
+> | Component | Description |
+> |-|-|
+> | `metadata.name` | The component name is important and is how [a Dapr application reaches the component](https://github.com/microsoft/e4k-playground/blob/0b9b8bc846c2567f840576ed5c6e17c469891877/samples/quickstart-sample/src/main.go#L42). |
 > | `spec.type` | [The type of the component](https://docs.dapr.io/operations/components/pluggable-components-registration/#define-the-component), which must be declared exactly as shown. It tells Dapr what kind of component (`pubsub` or `state`) it is and which Unix socket to use.  |
-> | `spec.metadata.url` | The URL tells the component where the local MQ endpoint is. The shown value `8883` is MQ's default MQTT port.    |
-> | `spec.tls` |  Define if TLS is used by the MQ MQTT broker. Defaults to `true`|
-> | `brokerAuthMethod` / `satTokenPath` | For [Kubernetes SAT authentication to MQ](../manage-mqtt-connectivity/howto-configure-authentication.md). This component is specific to this example. You could use another method like [X.509](../manage-mqtt-connectivity/howto-configure-tls-auto.md) |
+> | `spec.metadata.url` | The URL tells the component where the local MQ endpoint is. The shown value `8883` is MQ's default MQTT port. |
+> | `spec.metadata.satTokenPath` | TBD |
+> | `spec.metadata.tlsEnabled` |  Define if TLS is used by the MQTT broker. Defaults to `true` |
+> | `spec.metadata.caCertPath` | The certificate chain for validating the broker |
 
 1. Save the following yaml, which contains the component definitions, to a file named `components.yaml`:
 
@@ -76,17 +77,17 @@ To create the yaml file, use the following component definitions:
     metadata:
       name: aio-mq-pubsub
     spec:
-      type: pubsub.aio-mq-pubsub-pluggable # Do not change
+      type: pubsub.aio-mq-pubsub-pluggable # DO NOT CHANGE
       version: v1
       metadata:
       - name: url
         value: "aio-mq-dmqtt-frontend:8883"
       - name: satTokenPath
         value: "/var/run/secrets/tokens/mqtt-client-token"
-      - name: tls
-        value: "true"
-      - name: caTrustBundle
-        value: "/certs/aio-mq-ca-trust-bundle/ca.crt"
+      - name: tlsEnabled
+        value: true
+      - name: caCertPath
+        value: "/certs/aio-mq-ca-cert/ca.pem"
     ---
     # State Management component
     apiVersion: dapr.io/v1alpha1
@@ -94,17 +95,17 @@ To create the yaml file, use the following component definitions:
     metadata:
       name: aio-mq-statestore
     spec:
-      type: state.aio-mq-statestore-pluggable # Do not change
+      type: state.aio-mq-statestore-pluggable # DO NOT CHANGE
       version: v1
       metadata:
       - name: url
         value: "aio-mq-dmqtt-frontend:8883"
       - name: satTokenPath
         value: "/var/run/secrets/tokens/mqtt-client-token"
-      - name: tls
-        value: "true"          
-      - name: caTrustBundle
-        value: "/certs/aio-mq-ca-trust-bundle/ca.crt"
+      - name: tlsEnabled
+        value: true
+      - name: caCertPath
+        value: "/certs/aio-mq-ca-cert/ca.pem"
     ```
 
 1. Apply the component yaml to your cluster by running the following command:
@@ -135,6 +136,15 @@ Your application can authenticate to MQ using any of the [supported authenticati
     ```bash
     kubectl annotate serviceaccount mqtt-client-token aio-mq-broker-auth/group=dapr-workload
     ```
+
+1. Create a ConfigMap containing the CA cert chain used to valid the MQTT broker:
+
+    ```bash
+    kubectl create configmap aio-mq-ca-cert-chain --from-file ca.pem=chain.pem
+    ```
+
+> [!NOTE]
+> The certificate chain is created when setting up the MQTT broker. See [configure TLS with manual certificate management](../manage-mqtt-connectivity/howto-configure-tls-manual) or [configure TLS with automatic certificate management](../manage-mqtt-connectivity/howto-configure-tls-auto).
 
 ## Set up authorization policy between the workload and MQ
 
@@ -253,9 +263,12 @@ To start, you create a yaml file that uses the following component definitions:
         dapr.io/app-protocol: "http"  # Subscriber clients
     spec:
       serviceAccountName: aio-mq-client
+
       volumes:
         - name: dapr-unix-domain-socket
           emptyDir: {}
+
+        # SAT token used to authenticate between Dapr and the MQTT broker
         - name: mqtt-client-token
           projected:
             sources:
@@ -263,9 +276,12 @@ To start, you create a yaml file that uses the following component definitions:
                   path: mqtt-client-token
                   audience: aio-mq-dmqtt
                   expirationSeconds: 86400
-        - name: aio-mq-ca-trust-bundle
+
+        # Certificate chain for Dapr to validate the MQTT broker
+        - name: aio-mq-ca-cert-chain
           configMap:
-            name: aio-mq-ca-trust-bundle                  
+            name: aio-mq-ca-cert-chain
+
       containers:
         # Container for the dapr quickstart application 
         - name: dapr-workload
@@ -279,8 +295,8 @@ To start, you create a yaml file that uses the following component definitions:
               mountPath: /tmp/dapr-components-sockets
             - name: mqtt-client-token
               mountPath: /var/run/secrets/tokens
-            - name: aio-mq-ca-trust-bundle
-              mountPath: /certs/aio-mq-ca-trust-bundle/ca.crt
+            - name: aio-mq-ca-cert-chain
+              mountPath: /certs/aio-mq-ca-cert/
     
         # Container for the State Management component
         - name: aio-mq-statestore-pluggable
@@ -290,8 +306,8 @@ To start, you create a yaml file that uses the following component definitions:
               mountPath: /tmp/dapr-components-sockets
             - name: mqtt-client-token
               mountPath: /var/run/secrets/tokens
-            - name: aio-mq-ca-trust-bundle
-              mountPath: /certs/aio-mq-ca-trust-bundle/ca.crt
+            - name: aio-mq-ca-cert-chain
+              mountPath: /certs/aio-mq-ca-cert/
     ```
 
 2. Deploy the component by running the following command:
