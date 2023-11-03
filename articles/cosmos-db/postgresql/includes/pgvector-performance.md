@@ -63,7 +63,7 @@ In order to perform approximate nearest neighbor search you can create indexes o
 When possible, always load your data before indexing it. It's both faster to create the index this way and the resulting layout is more optimal.
 
 There are two supported index types:
-* [Inverted File with Flat Compression (IVVFlat)](#lists--probes-ivvflat)
+* [Inverted File with Flat Compression (IVVFlat)](#inverted-file-with-flat-compression-ivvflat)
 * [Hierarchical Navigable Small Worlds (HNSW)](#hierarchical-navigable-small-worlds-hnsw)
 
 The `IVFFlat` index has faster build times and uses less memory than `HNSW`, but has lower query performance (in terms of speed-recall tradeoff).
