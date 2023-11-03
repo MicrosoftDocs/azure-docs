@@ -169,7 +169,7 @@ SecurityEvent
 
 The preceding example generates the following output:
 
-:::image type="content" source="media/get-started-queries/project.png" lightbox="media/get-started-queries/project.png" alt-text="Screenshot that shows the query "project" results list.":::
+:::image type="content" source="media/get-started-queries/project.png" lightbox="media/get-started-queries/project.png" alt-text="Screenshot that shows the query 'project' results list.":::
 
 You can also use `project` to rename columns and define new ones. The next example uses `project` to do the following:
 
