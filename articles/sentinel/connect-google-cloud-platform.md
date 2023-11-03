@@ -36,7 +36,7 @@ Before you begin, verify that you have:
 You can set up the GCP environment in one of two ways:
 
 - [Create GCP resources via the Terraform API](#create-gcp-resources-via-the-terraform-api): Terraform provides an API for the Identity and Access Management (IAM) that creates the resources: The topic, a subscription for the topic, a workload identity pool, a workload identity provider, a service account, and a role.  
-- [Set up GCP environment manually](#) via the GCP console.
+- [Set up GCP environment manually](#set-up-the-gcp-environment-manually-via-the-gcp-portal) via the GCP console.
 
 ### Create GCP resources via the Terraform API
 

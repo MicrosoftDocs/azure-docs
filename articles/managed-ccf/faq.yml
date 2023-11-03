@@ -1,0 +1,67 @@
+### YamlMime:FAQ
+metadata:
+  title: Frequently asked questions - Azure Managed Confidential Consortium Framework 
+  description: Get answers to frequently asked questions about Azure Managed Confidential Consortium Framework
+  services: managed-ccf
+  author: msmbaldwin
+  tags: azure-resource-manager
+  
+  ms.service: managed-ccf
+  ms.topic: faq
+  ms.date: 09/15/2023
+  ms.author: mbaldwin
+title: Azure Managed CCF FAQ
+summary: This article answers frequently asked questions about Azure Managed Confidential Consortium Framework.
+
+sections:
+  - name: General
+    questions:
+      - question: |
+          Where can I learn about the Confidential Consortium Framework? 
+        answer: |
+          The [open-source Confidential Consortium Framework (CCF) website](https://ccf.dev) is a good place to learn about the technology, the benefits. In addition, check out [the CCF documentation](https://microsoft.github.io/CCF/main/overview/index.html) to begin building your CCF-aware applications that you can run on Azure Managed Confidential Consortium Framework. 
+          
+      - question: |
+          What can I do with the Azure Managed Confidential Consortium Framework? 
+        answer: |
+          You can build applications with governance controls on data that can benefit from confidential centralized computing. Imagine a network where multiple parties agree on the code that will be run for an application, each owns their data, and only shares data related summaries or selectively reveals part of the data when conditions are met. Transactions on the network remain auditable through a ledger. 
+          
+      - question: |
+          Is this similar to Distributed Ledger Technology?
+        answer: |
+          Distributed Ledger Technology(DLTs) and CCF technologies support similar use cases and scenarios, have similar concepts like merkle tree, ledger, fault tolerance etc., though differ in how trust is established. Particularly, CCF based technologies utilize centralized computation via hardware-based Trusted Execution Environments to establish trust in the network, thereby enhancing the governance controls experience on the network. For more information, please read our [Architecture documentation](https://microsoft.github.io/CCF/main/architecture) to learn about core concepts. 
+      
+      - question: |
+          I have an existing application that I can deploy into an Azure Confidential compute offering with minimal effort. What are the benefits of developing applications targeting Azure Managed CCF?
+        answer: |
+          Applications running on Managed CCF provide benefits of governance and traceability because they are run in a trusted execution environment and benefit from the following additional functionality provided by the Confidential Consortium Framework.
+
+            - High availability from running across a crash-fault tolerant network of nodes.
+            - Rules-based multi-party governance and disaster recovery.
+            - Auditability and rollback protection through the tamper-proof transaction ledger.
+            - Transferrable statements via transaction receipts.
+
+      - question: |
+          Can existing blockchain applications work with Azure Managed CCF?
+        answer: |
+          Yes, it can. A bridge application can be built and used to integrate a public chain to an application deployed on Azure Managed CCF.
+
+      - question: |
+          Does Azure Managed CCF support identity and access management(IAM) services like Microsoft Entra ID?
+        answer: |
+          Yes, it does. Refer to [JWT Authentication](https://microsoft.github.io/CCF/main/build_apps/auth/jwt.html) guide on the CCF documentation page to learn about configuring identity providers.
+      
+      - question: |
+          Are there CCF application samples that I could refer to? 
+        answer: |
+          Yes, there are a few published code samples [Decentralized RBAC, Data Reconciliation and Banking](https://github.com/microsoft/ccf-app-samples) in GitHub for reference. 
+
+      - question: |
+          Where do I begin? 
+        answer: |
+          You can use the instructions in the [Get started](get-started.md) guide to begin developing applications.
+      
+      - question: |
+          How much does it cost?
+        answer: |
+          Refer to the Azure pricing page [here](https://azure.microsoft.com/pricing).
