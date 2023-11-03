@@ -122,7 +122,7 @@ There are two permission models in Key Vault to grant access to your cluster and
       - System assigned managed identity - enter the cluster name or cluster principal ID 
       - User assigned managed identity - enter the identity name
 
-   [<img src="media/customer-managed-keys/grant-key-vault-permissions-8bit.png" alt="Screenshot of Grant Key Vault access policy permissions." title="Grant Key Vault access policy permissions" width="80%"/>](media/customer-managed-keys/grant-key-vault-permissions-8bit.png#lightbox)
+   :::image type="content" source="media/customer-managed-keys/grant-key-vault-permissions-8bit.png" lightbox="media/customer-managed-keys/grant-key-vault-permissions-8bit.png" alt-text="Screenshot of Grant Key Vault access policy permissions.":::
 
     The **Get** permission is required to verify that your Key Vault is configured as recoverable to protect your key and the access to your Azure Monitor data.
 
@@ -136,7 +136,7 @@ This step updates dedicated cluster storage with the key and version to use for 
 >- Key rotation can be automatic or require explicit key update, see [Key rotation](#key-rotation) to determine approach that is suitable for you before updating the key identifier details in cluster.
 >- Cluster update should not include both identity and key identifier details in the same operation. If you need to update both, the update should be in two consecutive operations.
 
-[:::image type="content" source="media/customer-managed-keys/key-identifier-8bit.png" lightbox="media/customer-managed-keys/key-identifier-8bit.png" alt-text="Grant Key Vault permissions":::
+:::image type="content" source="media/customer-managed-keys/key-identifier-8bit.png" lightbox="media/customer-managed-keys/key-identifier-8bit.png" alt-text="Grant Key Vault permissions":::
 
 Update KeyVaultProperties in cluster with key identifier details.
 
@@ -266,8 +266,8 @@ The query language used in Log Analytics is expressive and can contain sensitive
 ## Customer-managed key for Workbooks
 
 With the considerations mentioned for [Customer-managed key for saved queries and log alerts](#customer-managed-key-for-saved-queries-and-log-alerts), Azure Monitor enables you to store Workbook queries encrypted with your key in your own Storage Account, when selecting **Save content to an Azure Storage Account** in Workbook 'Save' operation.
-
-:::image type="content" source="media/customer-managed-keys/cmk-workbook.png" lightbox="media/customer-managed-keys/cmk-workbook.png" alt-text="Screenshot of Workbook save.":::
+<!-- convertborder later -->
+:::image type="content" source="media/customer-managed-keys/cmk-workbook.png" lightbox="media/customer-managed-keys/cmk-workbook.png" alt-text="Screenshot of Workbook save." border="false":::
 
 > [!NOTE]
 > Queries remain encrypted with Microsoft key ("MMK") in the following scenarios regardless Customer-managed key configuration: Azure dashboards, Azure Logic App, Azure Notebooks and Automation Runbooks.
