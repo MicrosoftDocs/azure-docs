@@ -52,8 +52,8 @@ To create a new default workflow:
 1. Go to https://github.com/marketplace/actions/42crunch-rest-api-static-security-testing?version=v3#full-workflow-example.
 1. Copy the full sample workflow and paste it in the workflow editor.
 
-> [!NOTE]
-> This workflow assumes you have GitHub Code Scanning enabled. Set the **upload-to-code-scanning** option to **false** if you don't.
+   > [!NOTE]
+   > This workflow assumes you have GitHub Code Scanning enabled. Set the **upload-to-code-scanning** option to **false** if you don't.
 
    :::image type="content" source="media/onboarding-guide-42crunch/workflow-editor.png" alt-text="Screenshot showing GitHub workflow editor." lightbox="media/onboarding-guide-42crunch/workflow-editor.png":::
 
