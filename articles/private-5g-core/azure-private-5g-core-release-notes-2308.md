@@ -5,7 +5,7 @@ author: paulcarter
 ms.author: paulcarter
 ms.service: private-5g-core
 ms.topic: release-notes
-ms.date: 09/21/2023
+ms.date: 11/01/2023
 ---
 
 # Azure Private 5G Core 2308 release notes
