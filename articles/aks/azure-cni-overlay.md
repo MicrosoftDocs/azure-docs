@@ -6,7 +6,7 @@ ms.author: allensu
 ms.subservice: aks-networking
 ms.topic: how-to
 ms.custom: references_regions, devx-track-azurecli
-ms.date: 10/25/2023
+ms.date: 11/03/2023
 ---
 
 # Configure Azure CNI Overlay networking in Azure Kubernetes Service (AKS)
@@ -218,6 +218,182 @@ az provider register --namespace Microsoft.ContainerService
       --network-plugin azure \
       --network-plugin-mode overlay \
       --ip-families ipv4,ipv6
+    ```
+
+## Create an example workload
+
+Once the cluster has been created, you can deploy your workloads. This article walks you through an example workload deployment of an NGINX web server.
+
+### Deploy an NGINX web server
+
+# [kubectl](#tab/kubectl)
+
+1. Create an NGINX web server using the `kubectl create deployment nginx` command.
+
+    ```bash-interactive
+    kubectl create deployment nginx --image=nginx:latest --replicas=3
+    ```
+
+2. View the pod resources using the `kubectl get pods` command.
+
+    ```bash-interactive
+    kubectl get pods -o custom-columns="NAME:.metadata.name,IPs:.status.podIPs[*].ip,NODE:.spec.nodeName,READY:.status.conditions[?(@.type=='Ready')].status"
+    ```
+
+    The output shows the pods have both IPv4 and IPv6 addresses. The pods don't show IP addresses until they're ready.
+
+    ```output
+    NAME                     IPs                                NODE                                READY
+    nginx-55649fd747-9cr7h   10.244.2.2,fd12:3456:789a:0:2::2   aks-nodepool1-14508455-vmss000002   True
+    nginx-55649fd747-p5lr9   10.244.0.7,fd12:3456:789a::7       aks-nodepool1-14508455-vmss000000   True
+    nginx-55649fd747-r2rqh   10.244.1.2,fd12:3456:789a:0:1::2   aks-nodepool1-14508455-vmss000001   True
+    ```
+
+# [YAML](#tab/yaml)
+
+1. Create an NGINX web server using the following YAML manifest.
+
+    ```yml
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      labels:
+        app: nginx
+      name: nginx
+    spec:
+      replicas: 3
+      selector:
+        matchLabels:
+          app: nginx
+      template:
+        metadata:
+          labels:
+            app: nginx
+        spec:
+          containers:
+          - image: nginx:latest
+            name: nginx
+    ```
+
+2. View the pod resources using the `kubectl get pods` command.
+
+    ```bash-interactive
+    kubectl get pods -o custom-columns="NAME:.metadata.name,IPs:.status.podIPs[*].ip,NODE:.spec.nodeName,READY:.status.conditions[?(@.type=='Ready')].status"
+    ```
+
+    The output shows the pods have both IPv4 and IPv6 addresses. The pods don't show IP addresses until they're ready.
+
+    ```output
+    NAME                     IPs                                NODE                                READY
+    nginx-55649fd747-9cr7h   10.244.2.2,fd12:3456:789a:0:2::2   aks-nodepool1-14508455-vmss000002   True
+    nginx-55649fd747-p5lr9   10.244.0.7,fd12:3456:789a::7       aks-nodepool1-14508455-vmss000000   True
+    nginx-55649fd747-r2rqh   10.244.1.2,fd12:3456:789a:0:1::2   aks-nodepool1-14508455-vmss000001   True
+    ```
+
+---
+
+## Expose the workload via a `LoadBalancer` type service
+
+> [!IMPORTANT]
+> There are currently **two limitations** pertaining to IPv6 services in AKS.
+>
+> 1. Azure Load Balancer sends health probes to IPv6 destinations from a link-local address. In Azure Linux node pools, this traffic can't be routed to a pod, so traffic flowing to IPv6 services deployed with `externalTrafficPolicy: Cluster` fail. IPv6 services must be deployed with `externalTrafficPolicy: Local`, which causes `kube-proxy` to respond to the probe on the node.
+> 2. Only the first IP address for a service will be provisioned to the load balancer, so a dual-stack service only receives a public IP for its first-listed IP family. To provide a dual-stack service for a single deployment, please create two services targeting the same selector, one for IPv4 and one for IPv6.
+
+# [kubectl](#tab/kubectl)
+
+1. Expose the NGINX deployment using the `kubectl expose deployment nginx` command.
+
+    ```bash-interactive
+    kubectl expose deployment nginx --name=nginx-ipv4 --port=80 --type=LoadBalancer'
+    kubectl expose deployment nginx --name=nginx-ipv6 --port=80 --type=LoadBalancer --overrides='{"spec":{"ipFamilies": ["IPv6"]}}'
+    ```
+
+    You receive an output that shows the services have been exposed.
+
+    ```output
+    service/nginx-ipv4 exposed
+    service/nginx-ipv6 exposed
+    ```
+
+2. Once the deployment is exposed and the `LoadBalancer` services are fully provisioned, get the IP addresses of the services using the `kubectl get services` command.
+
+    ```bash-interactive
+    kubectl get services
+    ```
+
+    ```output
+    NAME         TYPE           CLUSTER-IP               EXTERNAL-IP         PORT(S)        AGE
+    nginx-ipv4   LoadBalancer   10.0.88.78               20.46.24.24         80:30652/TCP   97s
+    nginx-ipv6   LoadBalancer   fd12:3456:789a:1::981a   2603:1030:8:5::2d   80:32002/TCP   63s
+    ```
+
+3. Verify functionality via a command-line web request from an IPv6 capable host. Azure Cloud Shell isn't IPv6 capable.
+
+    ```bash-interactive
+    SERVICE_IP=$(kubectl get services nginx-ipv6 -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
+    curl -s "http://[${SERVICE_IP}]" | head -n5
+    ```
+
+    ```html
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <title>Welcome to nginx!</title>
+    <style>
+    ```
+
+# [YAML](#tab/yaml)
+
+1. Expose the NGINX deployment using the following YAML manifest.
+
+    ```yml
+    ---
+    apiVersion: v1
+    kind: Service
+    metadata:
+      labels:
+        app: nginx
+      name: nginx-ipv4
+    spec:
+      externalTrafficPolicy: Cluster
+      ports:
+     - port: 80
+        protocol: TCP
+        targetPort: 80
+      selector:
+        app: nginx
+      type: LoadBalancer
+    ---
+    apiVersion: v1
+    kind: Service
+    metadata:
+      labels:
+        app: nginx
+      name: nginx-ipv6
+    spec:
+      externalTrafficPolicy: Cluster
+      ipFamilies:
+     - IPv6
+      ports:
+     - port: 80
+        protocol: TCP
+        targetPort: 80
+      selector:
+        app: nginx
+      type: LoadBalancer
+    ```
+
+2. Once the deployment is exposed and the `LoadBalancer` services are fully provisioned, get the IP addresses of the services using the `kubectl get services` command.
+
+    ```bash-interactive
+    kubectl get services
+    ```
+
+    ```output
+    NAME         TYPE           CLUSTER-IP               EXTERNAL-IP         PORT(S)        AGE
+    nginx-ipv4   LoadBalancer   10.0.88.78               20.46.24.24         80:30652/TCP   97s
+    nginx-ipv6   LoadBalancer   fd12:3456:789a:1::981a   2603:1030:8:5::2d   80:32002/TCP   63s
     ```
 
 ## Next steps
