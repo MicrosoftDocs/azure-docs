@@ -507,6 +507,8 @@
               items:
                 - name: Application routing add-on overview
                   href: app-routing.md
+                - name: Application routing add-on advanced configurations
+                  href: app-routing-configuration.md
                 - name: Monitor using Prometheus and Grafana
                   href: app-routing-nginx-prometheus.md
                 - name: Migrate from HTTP application routing to the application routing add-on
@@ -543,24 +545,25 @@
           items:
             - name: CSI storage drivers overview
               href: csi-storage-drivers.md
-            - name: Azure Container Storage 
-              href: ../storage/container-storage/container-storage-introduction.md
+           
             - name: Migrate from in-tree to CSI driver
               href: csi-migrate-in-tree-volumes.md
+        - name: Block storage
+          items:
+              - name: Provision Azure Disks storage
+                href: azure-csi-disk-storage-provision.md
+              - name: Azure Disks CSI driver
+                href: azure-disk-csi.md
+              - name: Use Azure Premium SSD v2 disks
+                href: use-premium-v2-disks.md
+              - name: Use Azure ultra disks
+                href: use-ultra-disks.md
+              - name: Bring your own keys for disks
+                href: azure-disk-customer-managed-keys.md
+              - name: Azure Container Storage 
+                href: ../storage/container-storage/container-storage-introduction.md
         - name: Shared file storage
           items:
-            - name: Block storage
-              items:
-                - name: Provision Azure Disks storage
-                  href: azure-csi-disk-storage-provision.md
-                - name: Azure Disks CSI driver
-                  href: azure-disk-csi.md
-                - name: Use Azure Premium SSD v2 disks
-                  href: use-premium-v2-disks.md
-                - name: Use Azure ultra disks
-                  href: use-ultra-disks.md
-                - name: Bring your own keys for disks
-                  href: azure-disk-customer-managed-keys.md
             - name: Azure Files storage
               items:
                 - name: Azure Files CSI driver
