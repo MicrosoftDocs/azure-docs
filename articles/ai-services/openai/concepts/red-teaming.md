@@ -124,7 +124,7 @@ A shared Excel spreadsheet is often the simplest method for collecting red teami
 
 ## After each round of testing
 
-**[Report data](https://hits.microsoft.com/Recommendation/4220595)**
+**Report data**
 
 Share a short report on a regular interval with key stakeholders that:
 
@@ -138,7 +138,7 @@ Share a short report on a regular interval with key stakeholders that:
 
 5. Provides any other relevant information.
 
-**[Differentiate between identification and measurement](https://hits.microsoft.com/Recommendation/4220596)**
+**Differentiate between identification and measurement**
 
 In the report, be sure to clarify that the role of RAI red teaming is to expose and raise understanding of risk surface and is not a replacement for systematic measurement and rigorous mitigation work. It is important that people do not interpret specific examples as a metric for the pervasiveness of that harm.
 
