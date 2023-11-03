@@ -31,7 +31,7 @@ Third party sites, like [explain.depesz.com](https://explain.depesz.com/) can be
 * [Did I use the same condition in the WHERE clause as in a partial index definition?](#partial-indexes)
 * [If I use partitioning, were not-needed partitions pruned?](#partitioning)
 
-If your vectors are normalized to length 1, like OpenAI embeddings. You should consider using cosine distance (`<=>`) for best performance.
+If your vectors are normalized to length 1, like OpenAI embeddings. You should consider using inner product (`<#>`) for best performance.
 
 ## Parallel execution
 
