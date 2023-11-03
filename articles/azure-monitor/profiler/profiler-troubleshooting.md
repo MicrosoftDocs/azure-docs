@@ -50,7 +50,7 @@ Search for trace messages and custom events sent by Profiler to your Application
 
 1. In your Application Insights resource, select **Search** from the top menu.
 
-   :::image type="content" source="./media/profiler-troubleshooting/search-trace-messages.png" alt-text="Screenshot that shows selecting the Search button from the Application Insights resource.":::
+   :::image type="content" source="./media/profiler-troubleshooting/search-trace-messages.png" lightbox="./media/profiler-troubleshooting/search-trace-messages.png" alt-text="Screenshot that shows selecting the Search button from the Application Insights resource.":::
 
 1. Use the following search string to find the relevant data:
 
@@ -58,7 +58,7 @@ Search for trace messages and custom events sent by Profiler to your Application
    stopprofiler OR startprofiler OR upload OR ServiceProfilerSample
    ```
 
-   :::image type="content" source="./media/profiler-troubleshooting/search-results.png" alt-text="Screenshot that shows the search results from aforementioned search string.":::
+   :::image type="content" source="./media/profiler-troubleshooting/search-results.png" lightbox="./media/profiler-troubleshooting/search-results.png" alt-text="Screenshot that shows the search results from aforementioned search string.":::
 
    The preceding search results include two examples of searches from two AI resources:
 
@@ -95,12 +95,12 @@ For Profiler to work properly, make sure:
 
       If **ApplicationInsightsProfiler3** doesn't show up, restart your App Service application.
 
-      :::image type="content" source="./media/profiler-troubleshooting/profiler-web-job.png" alt-text="Screenshot that shows the WebJobs pane, which displays the name, status, and last runtime of jobs.":::
+      :::image type="content" source="./media/profiler-troubleshooting/profiler-web-job.png" lightbox="./media/profiler-troubleshooting/profiler-web-job.png" alt-text="Screenshot that shows the WebJobs pane, which displays the name, status, and last runtime of jobs.":::
 
    1. To view the details of the WebJob, including the log, select the **ApplicationInsightsProfiler3** link.
      The **Continuous WebJob Details** pane opens.
 
-      :::image type="content" source="./media/profiler-troubleshooting/profiler-web-job-log.png" alt-text="Screenshot that shows the Continuous WebJob Details pane.":::
+      :::image type="content" source="./media/profiler-troubleshooting/profiler-web-job-log.png" lightbox="./media/profiler-troubleshooting/profiler-web-job-log.png" alt-text="Screenshot that shows the Continuous WebJob Details pane.":::
 
 If Profiler still isn't working for you, download the log and [submit an Azure support ticket](https://azure.microsoft.com/support/).
 
