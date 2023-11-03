@@ -6,7 +6,7 @@ author: duongau
 ms.service: frontdoor
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 02/07/2023
+ms.date: 10/31/2023
 ms.author: duau
 ms.custom: devx-track-azurepowershell
 #Customer intent: As a website owner, I want to add a custom domain to my Front Door configuration so that my users can use my custom domain to access my content.
@@ -203,4 +203,6 @@ You can change a domain between using an Azure Front Door-managed certificate an
 
 ## Next steps
 
-Learn about [caching with Azure Front Door Standard/Premium](../front-door-caching.md).
+* Learn about [caching with Azure Front Door Standard/Premium](../front-door-caching.md).
+* [Understand custom domains](../domain.md) on Azure Front Door.
+* Learn about [End-to-end TLS with Azure Front Door](../end-to-end-tls.md).
