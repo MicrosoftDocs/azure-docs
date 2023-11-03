@@ -66,7 +66,7 @@ To create the yaml file, use the following component definitions:
 > | `spec.metadata.url` | The URL tells the component where the local MQ endpoint is. The shown value `8883` is MQ's default MQTT port. |
 > | `spec.metadata.satTokenPath` | TBD |
 > | `spec.metadata.tlsEnabled` |  Define if TLS is used by the MQTT broker. Defaults to `true` |
-> | `spec.metadata.caCertPath` | The certificate chain for validating the broker |
+> | `spec.metadata.caCertPath` | The certificate chain path for validating the broker |
 
 1. Save the following yaml, which contains the component definitions, to a file named `components.yaml`:
 
@@ -137,14 +137,14 @@ Your application can authenticate to MQ using any of the [supported authenticati
     kubectl annotate serviceaccount mqtt-client-token aio-mq-broker-auth/group=dapr-workload
     ```
 
-1. Create a ConfigMap containing the CA cert chain used to valid the MQTT broker:
+1. Create a ConfigMap containing the CA certificate chain used to valid the MQTT broker:
 
     ```bash
     kubectl create configmap aio-mq-ca-cert-chain --from-file ca.pem=chain.pem
     ```
 
-> [!NOTE]
-> The certificate chain is created when setting up the MQTT broker. See [configure TLS with manual certificate management](../manage-mqtt-connectivity/howto-configure-tls-manual) or [configure TLS with automatic certificate management](../manage-mqtt-connectivity/howto-configure-tls-auto).
+> [!IMPORTANT]
+> The certificate chain (chain.pem above) is created when setting up the MQTT broker. See [configure TLS with manual certificate management](../manage-mqtt-connectivity/howto-configure-tls-manual) or [configure TLS with automatic certificate management](../manage-mqtt-connectivity/howto-configure-tls-auto).
 
 ## Set up authorization policy between the workload and MQ
 
