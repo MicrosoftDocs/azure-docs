@@ -9,16 +9,9 @@ ms.date: 11/13/2023
 
 # Manage your Astro integration through the portal
 
-Once your Astro resource is created in the Azure portal, you might need to get information about it or change it. Here's how you can manage your Astro resource.
-
-- [Single sign-on](#single-sign-on)
-- [Delete an Astro deployment](#delete-an-astro-deployment)
-
 ## Single sign-on
 
-To enable SSO, follow these steps:
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
+Single sign-on is already enabled when you created your Astro resrouce. To access Astro via SSO, follow these steps:
 
 1. Navigate to the Overview for your instance of the Astro resource. Select on the SSO Url.
 
@@ -34,7 +27,7 @@ To enable SSO, follow these steps:
 
 ## Delete an Astro deployment
 
-To delete an Astro resource:
+Once the Astro resource is deleted, all billing stops for that resource through Azure Marketplace. If you are done using your resource and would like to delete the same, follow these steps:
 
 1. From the Resource menu, select the Astro deployment you would like to delete.
 
@@ -50,7 +43,6 @@ To delete an Astro resource:
 
 1. Select **Delete**.
 
-After the account is deleted, all billing stops for that Astro resource through Azure Marketplace.
 
 ## Next steps
 
