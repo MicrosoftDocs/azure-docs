@@ -23,7 +23,6 @@ GPT-4V and Azure AI Vision offer advanced functionality including:
 
 Additional usage fees may apply for using GPT-4V with Azure AI Vision functionality.
 
-
 ## Prerequisites
 
 - An Azure subscription - <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>.
@@ -40,8 +39,6 @@ Here's a table of the supported regions for each chat type:
 | Basic image chat | Australia East, Switzerland North, Sweden Central, West US | N/A |
 | Enhanced image chat | Australia East, Switzerland North, Sweden Central, West US | Australia East, Switzerland North, Sweden Central, West US |
 | Enhanced video chat | Australia East, Switzerland North, Sweden Central, West US | East US |
-
-
 
 
 ## Start a chat session to analyze images or video
@@ -72,31 +69,22 @@ In this chat session, you instruct the assistant to aid in understanding images 
 
     :::image type="content" source="../media/quickstarts/playground/chat-car-accident-prompt.png" alt-text="Screenshot of the chat playground." lightbox="../media/quickstarts/playground/chat-car-accident-prompt.png":::
 
+1. The square icon replaces the right arrow icon. If you select the square icon, the assistant stops processing your request. For this quickstart, let the assistant finish its reply. Don't select the square icon.
+
+    :::image type="content" source="../media/quickstarts/playground/chat-car-accident-prompt-stop.png" alt-text="Screenshot of the chat playground." lightbox="../media/quickstarts/playground/chat-car-accident-prompt-stop.png":::
+
 1. The assistant should reply with a description of the image.
 
     :::image type="content" source="../media/quickstarts/playground/chat-car-accident-reply-license.png" alt-text="Screenshot of the chat playground." lightbox="../media/quickstarts/playground/chat-car-accident-reply-license.png":::
 
-1. Ask a follow up question related to the analysis of your image. Enter "What should I tell my insurance company" and then select the right arrow icon to send.
-
-    :::image type="content" source="../media/quickstarts/playground/chat-car-accident-follow-up-question.png" alt-text="Screenshot of the chat playground." lightbox="../media/quickstarts/playground/chat-car-accident-follow-up-question.png":::
-
+1. Ask a follow up question related to the analysis of your image. Enter "What should I highlight about this image to my insurance company" and then select the right arrow icon to send.
 1. You should receive a relevant response similar to what's shown here:
 
     :::image type="content" source="../media/quickstarts/playground/chat-car-accident-reply-insurance-long.png" alt-text="Screenshot of the chat playground." lightbox="../media/quickstarts/playground/chat-car-accident-reply-insurance-long.png":::
  
-
-
 # [Enhanced image analysis chat](#tab/enhanced-image-chat)
 
-Try an augmented vision chat session 
-
-In this chat session, you will try out the capabilities of the augmented vision model.  
-
-
-
- 
-
-In this chat session, you instruct the assistant to aid in understanding images that you input. 
+In this chat session, you instruct the assistant to aid in understanding images that you input. Try out the capabilities of the augmented vision model.  
 
 1. Sign in to [Azure AI Studio](https://aka.ms/aistudio).
 1. Select **Build** from the top menu and then select **Playground** from the collapsible left menu.
@@ -107,31 +95,30 @@ In this chat session, you instruct the assistant to aid in understanding images 
 1. In the **System message** text box on the **Assistant setup** pane, provide this prompt to guide the assistant: "You are an AI assistant that helps people find information." You can tailor the prompt the image or scenario that you are uploading. 
 1. Select **Apply changes** to save your changes, and when prompted to see if you want to update the system message, select **Continue**. 
 1. In the **Configuration** pane on the right side of the chat experience, turn on the option for **Vision** under **Enhancements**.
-1. In the chat session pane, select an image file and then select the right arrow icon to upload the image. 
 
-    :::image type="content" source="../media/quickstarts/playground/chat-car-accident.png" alt-text="Screenshot of the chat playground." lightbox="../media/quickstarts/playground/chat-car-accident.png":::
+    :::image type="content" source="../media/quickstarts/playground/chat-car-accident-enhanced-settings.png" alt-text="Screenshot of the chat playground." lightbox="../media/quickstarts/playground/chat-car-accident-enhanced-settings.png":::
+
+    > [!NOTE]
+    > You might need to select **Vision** enhancement button again to apply the changes.
+
+1. In the chat session pane, select an image file and then select the right arrow icon to upload the image. 
 
 1. Enter enter the following question: "Describe this image", and then select the right arrow icon to send.
 
-    :::image type="content" source="../media/quickstarts/playground/chat-car-accident-prompt.png" alt-text="Screenshot of the chat playground." lightbox="../media/quickstarts/playground/chat-car-accident-prompt.png":::
+    :::image type="content" source="../media/quickstarts/playground/chat-car-accident-prompt-enhanced.png" alt-text="Screenshot of the chat playground." lightbox="../media/quickstarts/playground/chat-car-accident-prompt-enhanced.png":::
+
+1. The square icon replaces the right arrow icon. If you select the square icon, the assistant stops processing your request. For this quickstart, let the assistant finish its reply. Don't select the square icon.
+
+    :::image type="content" source="../media/quickstarts/playground/chat-car-accident-prompt-stop.png" alt-text="Screenshot of the chat playground." lightbox="../media/quickstarts/playground/chat-car-accident-prompt-stop.png":::
 
 1. The assistant should reply with a description of the image.
-
-    :::image type="content" source="../media/quickstarts/playground/chat-car-accident-reply-license.png" alt-text="Screenshot of the chat playground." lightbox="../media/quickstarts/playground/chat-car-accident-reply-license.png":::
-
-1. Ask a follow up question related to the analysis of your image. Enter "What should I tell my insurance company" and then select the right arrow icon to send.
-
-    :::image type="content" source="../media/quickstarts/playground/chat-car-accident-follow-up-question.png" alt-text="Screenshot of the chat playground." lightbox="../media/quickstarts/playground/chat-car-accident-follow-up-question.png":::
-
+1. Ask a follow up question related to the analysis of your image. Enter "What should I highlight about this image to my insurance company" and then select the right arrow icon to send.
 1. You should receive a relevant response similar to what's shown here:
 
-    :::image type="content" source="../media/quickstarts/playground/chat-car-accident-reply-insurance-long.png" alt-text="Screenshot of the chat playground." lightbox="../media/quickstarts/playground/chat-car-accident-reply-insurance-long.png":::
- 
+    :::image type="content" source="../media/quickstarts/playground/chat-car-accident-follow-up-reply.png" alt-text="Screenshot of the chat playground." lightbox="../media/quickstarts/playground/chat-car-accident-follow-up-reply.png":::
  
 
 # [Video analysis chat](#tab/video-chat)
-
-## Try a chat session to analyze video 
 
 In this chat session, you will be instructing the assistant to aid in understanding videos that you input. 
 
@@ -139,37 +126,60 @@ In this chat session, you will be instructing the assistant to aid in understand
 1. Select **Build** from the top menu and then select **Playground** from the collapsible left menu.
 1. Make sure that **Chat** is selected from the **Mode** dropdown. Select your deployed GPT-4V model from the **Deployment** dropdown. Under the chat session text box, you should now see the option to select a file.
 
-    :::image type="content" source="../media/quickstarts/playground/chat-multi-modal-image-select.png" alt-text="Screenshot of the chat playground." lightbox="../media/quickstarts/playground/chat-multi-modal-image-select.png":::
+    :::image type="content" source="../media/quickstarts/playground/chat-multi-modal-video-select.png" alt-text="Screenshot of the chat playground." lightbox="../media/quickstarts/playground/chat-multi-modal-video-select.png":::
 
 1. In the **System message** text box on the **Assistant setup** pane, provide this prompt to guide the assistant: "You are a car insurance and accident expert. Extract detailed information about the car's make, model, damage extent, license plate, airbag deployment status, mileage, and any other observations" You can tailor the prompt for the video or scenario. 
 1. Select **Apply changes** to save your changes, and when prompted to see if you want to update the system message, select **Continue**. 
 1. In the **Configuration** pane on the right side of the chat experience, turn on the option for **Vision** under **Enhancements**.
+1. In the **Vision enhancements settings** dialog, select an Azure AI Vision resource and then select **Save**. 
+
+    :::image type="content" source="../media/quickstarts/playground/chat-car-accident-enhanced-settings.png" alt-text="Screenshot of the chat playground." lightbox="../media/quickstarts/playground/chat-car-accident-enhanced-settings.png":::
+
+    > [!NOTE]
+    > You might need to select **Vision** enhancement button again to apply the changes.
+
 1. In the chat session pane, select a video file and then select the right arrow icon to upload the video. 
 1. Enter enter the following question: "Provide details from this car accident video", and then select the right arrow icon to send.
 
-
     :::image type="content" source="../media/quickstarts/playground/chat-video-car-prompt.png" alt-text="Screenshot of the chat playground." lightbox="../media/quickstarts/playground/chat-video-car-prompt.png":::
+
+
+1. The square icon replaces the right arrow icon. If you select the square icon, the assistant stops processing your request. For this quickstart, let the assistant finish its reply. Don't select the square icon.
+
+    :::image type="content" source="../media/quickstarts/playground/chat-car-accident-prompt-stop.png" alt-text="Screenshot of the chat playground." lightbox="../media/quickstarts/playground/chat-car-accident-prompt-stop.png":::
 
 1. The assistant should reply with a description of the video.
 
-    :::image type="content" source="../media/quickstarts/playground/chat-video-car-accident.png" alt-text="Screenshot of the chat playground." lightbox="../media/quickstarts/playground/chat-video-car-accident.png":::
+    :::image type="content" source="../media/quickstarts/playground/chat-video-car-reply.png" alt-text="Screenshot of the chat playground." lightbox="../media/quickstarts/playground/chat-video-car-reply.png":::
 
-1. Ask a follow up question related to the analysis of your video. Enter "What should I highlight about this video to insurance company" and then select the right arrow icon to send.
+1. Ask a follow up question related to the analysis of your video. Enter "What should I highlight about this video to my insurance company" and then select the right arrow icon to send.
 
 
 1. You should receive a relevant response similar to what's shown here:
 
-    :::image type="content" source="../media/quickstarts/playground/chat-car-accident-reply-insurance-long.png" alt-text="Screenshot of the chat playground." lightbox="../media/quickstarts/playground/chat-car-accident-reply-insurance-long.png":::
+    :::image type="content" source="../media/quickstarts/playground/chat-car-video-reply-insurance.png" alt-text="Screenshot of the chat playground." lightbox="../media/quickstarts/playground/chat-car-video-reply-insurance.png":::
  
  
-
-
-
  ---
 
+
+At any point in the chat session, you can select the **Show raw JSON** option to see the conversation formatted as JSON. Heres' what it looks like at the beginning of the quickstart chat session:
+
+:::image type="content" source="../media/quickstarts/playground/chat-session-json.png" alt-text="Screenshot of the chat session with show raw json selected." lightbox="../media/quickstarts/playground/chat-session-json.png":::
+
+
+```json
+[
+	{
+		"role": "system",
+		"content": [
+			"You are an AI assistant that helps people find information."
+		]
+	},
+]
+```
+
 This has been a walkthrough of GPT-4V in the Azure AI Studio chat playground experience.  
-
-
 
 ## Next steps
 
