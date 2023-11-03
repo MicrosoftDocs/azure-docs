@@ -20,7 +20,7 @@ In the top level of your network layers usually level 4 of the ISA-95 network ar
 
 Currently, the steps only include setting up an [AKS Edge Essentials](/azure/aks/hybrid/aks-edge-overview) cluster.
 
-## Setting Up Kubernetes Cluster in Level 4
+## Set up Kubernetes cluster in Level 4
 
 The procedure of setting AKS Edge Essentials cluster is similar to [Prepare your Kubernetes cluster](../deploy/howto-prepare-cluster.md) with additional steps. You need to follow both documents to complete all the steps.
 
