@@ -156,7 +156,9 @@ Use the following command to enable Confidential Containers (preview) by creatin
 
 ## Configure container
 
-Before you configure access to the Azure Key Vault Managed HSM and secret, and deploy an application as a Confidential container, you need to complete the configuration of the workload identity. To configure the workload identity, perform the following steps described in the [Deploy and configure workload identity][deploy-and-configure-workload-identity] article:
+Before you configure access to the Azure Key Vault Managed HSM and secret, and deploy an application as a Confidential container, you need to complete the configuration of the workload identity.
+
+To configure the workload identity, perform the following steps described in the [Deploy and configure workload identity][deploy-and-configure-workload-identity] article:
 
 * Retrieve the OIDC Issuer URL
 * Create a managed identity
@@ -173,7 +175,7 @@ Before you configure access to the Azure Key Vault Managed HSM and secret, and d
     az keyvault set-policy --name "${KEYVAULT_NAME}" --secret-permissions get --spn "${USER_ASSIGNED_CLIENT_ID}"
     ```
 
-1. Configure the application to be deployed as a Confidential container (preview) by copying the following YAML file and save it as `myapplication.yml`. 
+1. Configure the application to be deployed as a Confidential container (preview) by copying the following YAML file and save it as `myapplication.yml`.
 
    >[!IMPORTANT]
    > While you can use your own deployment YAML manifest, it's important you review and understand the [considerations][confidential-containers-considerations] with this preview before proceeding.
