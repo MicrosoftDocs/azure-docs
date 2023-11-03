@@ -58,7 +58,7 @@ To set the default workspace retention:
 1. Select **Usage and estimated costs** in the left pane.
 1. Select **Data Retention** at the top of the page.
     
-    :::image type="content" source="media/manage-cost-storage/manage-cost-change-retention-01.png" alt-text="Screenshot that shows changing the workspace data retention setting.":::
+    :::image type="content" source="media/manage-cost-storage/manage-cost-change-retention-01.png" lightbox="media/manage-cost-storage/manage-cost-change-retention-01.png" alt-text="Screenshot that shows changing the workspace data retention setting.":::
 
 1. Move the slider to increase or decrease the number of days, and then select **OK**.
 
