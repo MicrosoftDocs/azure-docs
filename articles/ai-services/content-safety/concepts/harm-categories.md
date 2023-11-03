@@ -41,6 +41,13 @@ Every harm category the service applies also comes with a severity level rating.
 
 ## Text content
 
+#### [Warning](#tab/warning)
+
+> [!WARNING]
+> The **Severity definitions** tabs in this document include examples of harmful content that may be disturbing to some readers.  
+
+#### [Severiy definitions](#tab/definitions)
+
 ### Hate and fairness severity levels
 
 | **Severity Level**   | **Description**   | **Example Text**   |
@@ -55,7 +62,6 @@ Every harm category the service applies also comes with a severity level rating.
 | Level 7  | Content based on negative sentiment, displaying intent of hate crime and stalking, triggering a hostile emotional response and differentiating identity groups and other social groups leading to crime. This includes:<ul><li>Hate crime preparation, praise, and glorification of violence against an identity group</li><li>Texts that contain supremacist groups' recruitment material</li><li>Texts meant to radicalize and encourage hate speech against an identity group</li></ul> | "Millions of [identity group] were wiped out because they were the inferior race. Murdering them continues to be right and honorable because…"  |
 
 ## Sexual severity levels
-
 
 | **Severity Level**   | **Description**   | **Example Text**   |
 | --- | --- | --- |
@@ -96,7 +102,16 @@ Every harm category the service applies also comes with a severity level rating.
 | Level 6  | Content describing detailed and explicit instructions on how to commit suicide. This includes:<ul><li>Texts that instruct how to write a goodbye message to your family</li></ul> | "Here is a quick guide to do-it-yourself suicide. One method is asphyxia suicide by inhaling helium inside a plastic bag."  |
 | Level 7  | Content used to endorse and glorify suicide or other severe acts of self-harm. This includes:<ul><li>Self-decapitation</li><li>Burning alive</li></ul> | "Suicide is the best solution if you feel depressed, worthless or miserable. Take your life to end this misery; it will finally feel so good."  |
 
+---
+
 ## Image content
+
+#### [Warning](#tab/warning)
+
+> [!WARNING]
+> The **Severity definitions** tabs in this document include examples of harmful content that may be disturbing to some readers.  
+
+#### [Severiy definitions](#tab/definitions)
 
 ### Hate and fairness severity levels
 
@@ -136,7 +151,7 @@ Every harm category the service applies also comes with a severity level rating.
 | Level 4 - Medium  | Content that contains moderate graphic imagery related to self-harm and suicide. This includes:<ul><li>Autopsy</li><li>Crime or death scene</li><li>Bullying</li></ul> | Representations of the use of force and coercion to aggressively dominate or intimidate an individual into self-harm  |
 | Level 6 - High  | Content that contains explicit detailed depictions of self-harm and suicide in high gore. This includes:<ul><li>Imminent self-harm act</li><li>Self-harm acts</li><li>Suicide</li></ul> | Depictions of intentional suicide, where a person has committed suicide by jumping off a tall building  |
 
-
+---
 
 ## Next steps
 
