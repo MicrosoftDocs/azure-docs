@@ -33,9 +33,15 @@ Upon submitting your evaluation, you can locate the submitted evaluation run wit
 
 You can oversee your evaluation runs within the run list. With the flexibility to modify the columns using the column editor and implement filters, you can customize and create your own version of the run list. Additionally, you have the ability to swiftly review the aggregated evaluation metrics across the runs, enabling you to perform quick comparisons. 
 
+:::image type="content" source="../media/evaluations/view-results/evaluation-run-list.png" alt-text="Screenshot of the project details page within the create project dialog." lightbox="../media/evaluations/view-results/evaluation-run-list.png":::
+
 For a deeper understanding of how the evaluation metrics are derived, you can access a comprehensive explanation by clicking on the 'Understand more about metrics' option. This detailed resource provides valuable insights into the calculation and interpretation of the metrics used in the evaluation process. 
 
-You can choose a specific run, which will take you to the run detail page. Here, you can access comprehensive information, including variant details such as task type, prompt, temperature, and more. Furthermore, you can view the metrics associated with each data sample. The metrics scores charts provide a visual representation of how scores are distributed for each metric throughout your dataset. You can customize the success or failure criteria by adjusting the threshold to align with your specific standards. Please note that our default threshold is set at 4. 
+:::image type="content" source="../media/evaluations/view-results/understand-metrics-details.png" alt-text="Screenshot of the project details page within the create project dialog." lightbox="../media/evaluations/view-results/understand-metrics-details.png":::
+
+You can choose a specific run, which will take you to the run detail page. Here, you can access comprehensive information, including evaluation details such as task type, prompt, temperature, and more. Furthermore, you can view the metrics associated with each data sample. The metrics scores charts provide a visual representation of how scores are distributed for each metric throughout your dataset.  
+
+:::image type="content" source="../media/evaluations/view-results/evaluation-details.png" alt-text="Screenshot of the project details page within the create project dialog." lightbox="../media/evaluations/view-results/evaluation-details.png":::
 
 Within the metrics detail table, you can conduct a comprehensive examination of each individual data sample. Here, you have the ability to scrutinize both the generated output and its corresponding evaluation metric score. This level of detail enables you to make data-driven decisions and take specific actions to improve your model's performance. 
 
@@ -48,24 +54,51 @@ Some potential action items based on the evaluation metrics could include:
 
 The metrics detail table offers a wealth of data that can guide your model improvement efforts, from recognizing patterns to customizing your view for efficient analysis and refining your model based on identified issues. 
 
-If there is something wrong with the run, you can also debug your evaluation run with the log and trace we provided for each data sample.  
+Metrics results for conversation scenario:
+
+:::image type="content" source="../media/evaluations/view-results4-metrics-details-qa.png" alt-text="Screenshot of the project details page within the create project dialog." lightbox="../media/evaluations/view-results/4-metrics-details-qa.png":::
+
+Metrics results for question answering scenario:
+
+:::image type="content" source="../media/evaluations/view-results/metrics-details-rag.png" alt-text="Screenshot of the project details page within the create project dialog." lightbox="../media/evaluations/view-results/metrics-details-rag.png":::
+
+
+If there is something wrong with the run, you can also debug your evaluation run with the log and trace. 
+
+Here's the logs:
+
+:::image type="content" source="../media/evaluations/view-results/log.png" alt-text="Screenshot of the project details page within the create project dialog." lightbox="../media/evaluations/view-results/log.png"::
+
+Here's the trace:
+
+:::image type="content" source="../media/evaluations/view-results/trace.png" alt-text="Screenshot of the project details page within the create project dialog." lightbox="../media/evaluations/view-results/trace.png"::
+
+To learn more about how the evaluation results are produced, select the **View in flow** button to navigate to the flow page linked to the evaluation run.
+:
+
+:::image type="content" source="../media/evaluations/view-results/view-in-flow.png" alt-text="Screenshot of the project details page within the create project dialog." lightbox="../media/evaluations/view-results/view-in-flow.png"::
 
 ## Compare the evaluation results 
 
 To facilitate a comprehensive comparison between two or more runs, you have the option to select the desired runs and initiate the process by clicking either the 'Compare' button or, for a general detailed dashboard view, the 'Switch to dashboard view' button. This feature empowers you to analyze and contrast the performance and outcomes of multiple runs, allowing for more informed decision-making and targeted improvements. 
 
+:::image type="content" source="../media/evaluations/view-results/compare-button.png" alt-text="Screenshot of the project details page within the create project dialog." lightbox="../media/evaluations/view-results/compare-button.png":::
+
 In the dashboard view, you will have access to two valuable components: the metric distribution comparison chart and the comparison table. These tools enable you to perform a side-by-side analysis of the selected evaluation runs, allowing you to compare various aspects of each data sample with ease and precision.  
+
+:::image type="content" source="../media/evaluations/view-results/dashboard-view.png" alt-text="Screenshot of the project details page within the create project dialog." lightbox="../media/evaluations/view-results/dashboard-view.png":::
 
 Within the comparison table, you have the capability to establish a baseline for your comparison by simply hovering over the specific run you wish to use as the reference point and set as baseline. Moreover, by activating the 'Show delta' toggle, you can readily visualize the differences between the baseline run and the other runs for numerical values. Additionally, with the 'Show only difference' toggle enabled, the table will display only the rows that differ among the selected runs, aiding in the identification of distinct variations. 
 
-Using these comparison features, you can make an informed decision to select the best variant: 
+Using these comparison features, you can make an informed decision to select the best version: 
 
 - Baseline Comparison: By setting a baseline run, you can identify a reference point against which to compare the other runs. This allows you to see how each run deviates from your chosen standard. 
 - Numerical Value Assessment: Enabling the 'Show delta' option helps you understand the extent of the differences between the baseline and other runs. This is particularly useful for evaluating how various runs perform in terms of specific evaluation metrics. 
 - Difference Isolation: The 'Show only difference' feature streamlines your analysis by highlighting only the areas where there are discrepancies between runs. This can be instrumental in pinpointing where improvements or adjustments are needed.
 
-By leveraging these comparison tools effectively, you can identify which variant of your model or system performs the best in relation to your defined criteria and metrics, ultimately assisting you in selecting the most optimal option for your application. 
+By leveraging these comparison tools effectively, you can identify which version of your model or system performs the best in relation to your defined criteria and metrics, ultimately assisting you in selecting the most optimal option for your application. 
 
+:::image type="content" source="../media/evaluations/view-results/comparison-table.png" alt-text="Screenshot of the project details page within the create project dialog." lightbox="../media/evaluations/view-results/comparison-table.png":::
 
 ## Understand the built-in evaluation metrics   
 
