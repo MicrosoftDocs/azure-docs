@@ -4,7 +4,7 @@ description: Enable storage redundancy across multiple availability zones in Azu
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: how-to
-ms.date: 10/30/2023
+ms.date: 11/03/2023
 ms.author: kendownie
 ---
 
@@ -49,7 +49,7 @@ Follow these steps to create a multi-zone storage pool that uses Azure Disks. Fo
      name: azuredisk
      namespace: acstor
    spec:
-     zones: [""]
+     zones: ["1", "2", "3"]
      poolType:
        azureDisk: {}
      resources:
