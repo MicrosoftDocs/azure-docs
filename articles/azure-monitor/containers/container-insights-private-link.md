@@ -1,6 +1,6 @@
 ---
 title: Enable private link with Container insights
-description: Learn how to enable Container insights on an Azure Kubernetes Service (AKS) cluster.
+description: Learn how to enable private link on an Azure Kubernetes Service (AKS) cluster.
 ms.topic: conceptual
 ms.date: 10/18/2023
 ms.custom: ignite-2022, devx-track-azurecli

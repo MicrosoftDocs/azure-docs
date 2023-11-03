@@ -139,10 +139,10 @@ Replace and use the managed cluster resources in [Deploy an Azure Kubernetes Ser
 1.	Download Terraform template file depending on whether you want to enable Syslog collection.
 
     **Syslog**
-   - [https://aka.ms/enable-monitoring-msi-syslog-terraform](https://aka.ms/enable-monitoring-msi-syslog-terraform)
+    - [https://aka.ms/enable-monitoring-msi-syslog-terraform](https://aka.ms/enable-monitoring-msi-syslog-terraform)
 
     **No Syslog** 
-   - [https://aka.ms/enable-monitoring-msi-terraform](https://aka.ms/enable-monitoring-msi-terraform)
+    - [https://aka.ms/enable-monitoring-msi-terraform](https://aka.ms/enable-monitoring-msi-terraform)
 
 2.	Adjust the `azurerm_kubernetes_cluster` resource in *main.tf* based on what cluster settings you're going to have.
 3.	Update parameters in *variables.tf* to replace values in "<>"
