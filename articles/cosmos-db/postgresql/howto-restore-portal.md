@@ -26,9 +26,9 @@ cluster using backups. You can restore either to the earliest backup or to
 a custom restore point within your retention period.
 
 > [!NOTE]
-> While cluster backups are always stored for 35 days, you may need to 
+> While cluster backups are always stored for 35 days, you might need to 
 > open a support request to restore the cluster to a point that is earlier
-> than the latest failover time. Maintenance or compute / storage scaling use
+> than the latest failover time. Maintenance and compute / storage scaling operations use
 > failovers to minimize downtime during these operations.
 
 ## Select type of cluster backup
