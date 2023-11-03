@@ -63,6 +63,10 @@ No.
 
 A VPN gateway is a type of virtual network gateway. A VPN gateway sends encrypted traffic between your virtual network and your on-premises location across a public connection. You can also use a VPN gateway to send traffic between virtual networks. When you create a VPN gateway, you use the -GatewayType value 'Vpn'. For more information, see [About VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md).
 
+### Can I create new virtual network gateways in the classic deployment model?
+
+No. The classic deployment model is a legacy deployment model. You can't create new classic virtual network gateways. Existing classic virtual network gateways are supported until August 31, 2024. To migrate to the Resource Manager deployment model, see [VPN Gateway classic to Resource Manager migration](vpn-gateway-classic-resource-manager-migration.md).
+
 ### Why can't I specify policy-based and route-based VPN types?
 
 As of Oct 1, 2023, you no longer need to specify VPN type. All new VPN gateways will automatically be created as route-based gateways. If you already have a policy-based gateway, you don't need to upgrade your gateway to route-based.
@@ -105,7 +109,7 @@ Azure Standard SKU public IP resources must use a static allocation method. Ther
 
 ### Can I request a static public IP address for my VPN gateway?
 
-We recommend that you use a Standard SKU public IP address for your VPN gateway. Standard SKU public IP address resources use a static allocation method. While we do support dynamic IP address assignment for certain gateway SKUs (gateway SKUs that don't have an *AZ* in the name), we recommend that you use a Standard SKU public IP address going forward for all virtual network gateways.
+We recommend that you use a Standard SKU public IP address for your VPN gateway. Standard SKU public IP address resources use a static allocation method. While we do support dynamic IP address assignment for certain gateway SKUs (gateway SKUs that don't have an *AZ* in the name), we recommend that you use a Standard SKU public IP address going forward for all virtual network gateways except gateways using the Basic gateway SKU. The Basic gateway SKU currently supports only Basic SKU public IP addresses. We'll soon be adding support for Standard SKU public IP addresses for Basic gateway SKUs.
 
 For non-zone-redundant and non-zonal gateways (gateway SKUs that do *not* have *AZ* in the name), dynamic IP address assignment is supported, but is being phased out. When you use a dynamic IP address, the IP address doesn't change after it has been assigned to your VPN gateway. The only time the VPN gateway IP address changes is when the gateway is deleted and then re-created. The VPN gateway public IP address doesn't change when you resize, reset, or complete other internal maintenance and upgrades of your VPN gateway.
 
