@@ -3,7 +3,7 @@ title: Configure caching
 description: Learn how to configure caching in Trino
 ms.service: hdinsight-aks
 ms.topic: how-to 
-ms.date: 10/19/2023
+ms.date: 11/03/2023
 ---
 
 # Configure caching
@@ -12,7 +12,7 @@ ms.date: 10/19/2023
 
 Querying object storage using the Hive connector is a common use case for Trino. This process often involves sending large amounts of data. Objects are retrieved from HDFS or another supported object store by multiple workers and processed by those workers. Repeated queries with different parameters, or even different queries from different users, often access and transfer the same objects. 
 
-HDInsight on AKS has added **final result caching** capability for Trino, which provides the following benefits:
+HDInsight on AKS added **final result caching** capability for Trino, which provides the following benefits:
 
 * Reduce the load on object storage.
 * Improve the query performance.
@@ -63,6 +63,23 @@ Available configuration parameters are:
 >order by cust.name
 >limit 10;
 >```
+
+Final result caching produces **JMX metrics** which can be viewed using [Managed Prometheus and Grafana](../monitor-with-prometheus-grafana.md). The following metrics are available:
+
+|Metric|Description|
+|---|---|
+|`trino_cache_cachestats_requestcount`|Total number of queries going through cache layer. This number doesn't include queries executed with cache off.|
+|`trino_cache_cachestats_hitcount`|Number of cache hits i.e. number of queries when data was available and returned from the cache.|
+|`trino_cache_cachestats_misscount`|Number of cache misses i.e. number of queries when data wasn't available and had to be cached.|
+|`trino_cache_cachestats_hitrate`|Percentage representation of cache hits against total number of queries.|
+|`trino_cache_cachestats_totalevictedcount`|Number of cached queries evicted from the cache.|
+|`trino_cache_cachestats_totalbytesfromsource`|Number of bytes read from the source.|
+|`trino_cache_cachestats_totalbytesfromcache`|Number of bytes read from the cache.|
+|`trino_cache_cachestats_totalcachedbytes`|Total number of bytes cached.|
+|`trino_cache_cachestats_totalevictedbytes`|Total Number of bytes evicted.|
+|`trino_cache_cachestats_spaceused`|Current size of the cache.|
+|`trino_cache_cachestats_cachereadfailures`|Number of times when data can't be read from the cache due to any error.|
+|`trino_cache_cachestats_cachewritefailures`|Number of times when data can't be written into the cache due to any error.|
 
 ### Using Azure portal
 
