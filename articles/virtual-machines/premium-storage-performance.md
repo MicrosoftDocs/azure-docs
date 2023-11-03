@@ -55,13 +55,13 @@ In this section, we discuss the common performance indicators in the context of 
 
 IOPS is the number of requests that your application is sending to storage disks in one second. An input/output operation could be read or write, sequential, or random. Online transaction processing (OLTP) applications like an online retail website need to process many concurrent user requests immediately. The user requests are insert- and update-intensive database transactions, which the application must process quickly. For this reason, OLTP applications require very high IOPS.
 
-OLTP applications handle millions of small and random IO requests. If you have such an application, you must design the application infrastructure to optimize for IOPS. For more information on all the factors to consider to get high IOPS, see [Optimize application performance](#optimize-application-performance).
+OLTP applications handle millions of small and random I/O requests. If you have such an application, you must design the application infrastructure to optimize for IOPS. For more information on all the factors to consider to get high IOPS, see [Optimize application performance](#optimize-application-performance).
 
 When you attach a premium storage disk to your high-scale VM, Azure provisions for you a guaranteed number of IOPS according to the disk specification. For example, a P50 disk provisions 7,500 IOPS. Each high-scale VM size also has a specific IOPS limit that it can sustain. For example, a Standard GS5 VM has an 80,000 IOPS limit.
 
 ## Throughput
 
-Throughput, or bandwidth, is the amount of data that your application is sending to the storage disks in a specified interval. If your application is performing input/output operations with large IO unit sizes, it requires high throughput. Data warehouse applications tend to issue scan-intensive operations that access large portions of data at a time and commonly perform bulk operations. In other words, such applications require higher throughput. If you have such an application, you must design its infrastructure to optimize for throughput. In the next section, we discuss the factors you must tune to achieve this optimization.
+Throughput, or bandwidth, is the amount of data that your application is sending to the storage disks in a specified interval. If your application is performing input/output operations with large I/O unit sizes, it requires high throughput. Data warehouse applications tend to issue scan-intensive operations that access large portions of data at a time and commonly perform bulk operations. In other words, such applications require higher throughput. If you have such an application, you must design its infrastructure to optimize for throughput. In the next section, we discuss the factors you must tune to achieve this optimization.
 
 When you attach a premium storage disk to a high-scale VM, Azure provisions throughput according to that disk specification. For example, a P50 disk provisions 250 MB per second disk throughput. Each high-scale VM size also has a specific throughput limit that it can sustain. For example, Standard GS5 VM has a maximum throughput of 2,000 MB per second.
 
@@ -73,7 +73,7 @@ It's important to determine the optimal throughput and IOPS values that your app
 
 ## Latency
 
-Latency is the time it takes an application to receive a single request, send it to storage disks, and send the response to the client. Latency is a critical measure of an application's performance in addition to IOPS and throughput. The latency of a premium storage disk is the time it takes to retrieve the information for a request and communicate it back to your application. Premium Storage provides consistently low latencies. Premium Disks are designed to provide single-digit millisecond latencies for most IO operations. If you enable `ReadOnly` host caching on premium storage disks, you can get much lower read latency. For more information on disk caching, see [Disk caching](#disk-caching).
+Latency is the time it takes an application to receive a single request, send it to storage disks, and send the response to the client. Latency is a critical measure of an application's performance in addition to IOPS and throughput. The latency of a premium storage disk is the time it takes to retrieve the information for a request and communicate it back to your application. Premium Storage provides consistently low latencies. Premium Disks are designed to provide single-digit millisecond latencies for most I/O operations. If you enable `ReadOnly` host caching on premium storage disks, you can get much lower read latency. For more information on disk caching, see [Disk caching](#disk-caching).
 
 When you optimize your application to get higher IOPS and throughput, it affects the latency of your application. After you tune the application performance, always evaluate the latency of the application to avoid unexpected high latency behavior.
 
@@ -108,7 +108,7 @@ For example, the normal workload of an e-commerce website is the transactions it
 | % Write operations | | | |
 | % Random operations | | | |
 | % Sequential operations | | | |
-| IO request size | | | |
+| I/O request size | | | |
 | Average throughput | | | |
 | Maximum throughput | | | |
 | Minimum latency | | | |
@@ -137,8 +137,8 @@ On Linux, the `iostat` command generates a CPU and disk utilization report. The 
 | IOPS or transactions per second |Number of I/O requests issued to the storage disk per second |Disk reads/sec <br> Disk writes/sec |tps <br> r/s <br> w/s |
 | Disk reads and writes |% of read and write operations performed on the disk |% Disk read time <br> % Disk write time |r/s <br> w/s |
 | Throughput |Amount of data read from or written to the disk per second |Disk read bytes/sec <br> Disk write bytes/sec |kB_read/s <br> kB_wrtn/s |
-| Latency |Total time to complete a disk IO request |Average disk sec/read <br> Average disk sec/write |await <br> svctm |
-| IO size |The size of I/O request issues to the storage disks |Average disk bytes/read <br> Average disk bytes/write |avgrq-sz |
+| Latency |Total time to complete a disk I/O request |Average disk sec/read <br> Average disk sec/write |await <br> svctm |
+| I/O size |The size of I/O request issues to the storage disks |Average disk bytes/read <br> Average disk bytes/write |avgrq-sz |
 | Queue depth |Number of outstanding I/O requests waiting to be read from or written to the storage disk |Current disk queue length |avgqu-sz |
 | Maximum memory |Amount of memory required to run the application smoothly |% Committed bytes in use |Use vmstat |
 | Maximum CPU |Amount of CPU required to run the application smoothly |% Processor time |%util |
@@ -147,9 +147,9 @@ Learn more about [iostat](https://linux.die.net/man/1/iostat) and [PerfMon](/win
 
 ## Optimize application performance
 
-The main factors that influence performance of an application running on Premium Storage are the nature of IO requests, VM size, disk size, number of disks, disk caching, multithreading, and queue depth. You can control some of these factors with knobs provided by the system.
+The main factors that influence performance of an application running on Premium Storage are the nature of I/O requests, VM size, disk size, number of disks, disk caching, multithreading, and queue depth. You can control some of these factors with knobs provided by the system.
 
-Most applications might not give you an option to alter the IO size and queue depth directly. For example, if you're using SQL Server, you can't choose the IO size and queue depth. SQL Server chooses the optimal IO size and queue depth values to get the most performance. It's important to understand the effects of both types of factors on your application performance so that you can provision appropriate resources to meet performance needs.
+Most applications might not give you an option to alter the I/O size and queue depth directly. For example, if you're using SQL Server, you can't choose the I/O size and queue depth. SQL Server chooses the optimal I/O size and queue depth values to get the most performance. It's important to understand the effects of both types of factors on your application performance so that you can provision appropriate resources to meet performance needs.
 
 Throughout this section, refer to the application requirements checklist that you created to identify how much you need to optimize your application performance. Based on the checklist, you can determine which factors from this section you need to tune.
 
@@ -165,40 +165,40 @@ For more information on VM sizes and on the IOPS, throughput, and latency availa
 | --- | --- | --- | --- |
 | Example scenario |Enterprise OLTP application requiring very high transactions per second rate. |Enterprise Data warehousing application processing large amounts of data. |Near real-time applications requiring instant responses to user requests, like online gaming. |
 | Performance factors | &nbsp; | &nbsp; | &nbsp; |
-| IO size |Smaller IO size yields higher IOPS. |Larger IO size yields higher throughput. | &nbsp;|
+| I/O size |Smaller I/O size yields higher IOPS. |Larger I/O size yields higher throughput. | &nbsp;|
 | VM size |Use a VM size that offers IOPS greater than your application requirement. |Use a VM size with a throughput limit greater than your application requirement. |Use a VM size that offers scale limits greater than your application requirement. |
 | Disk size |Use a disk size that offers IOPS greater than your application requirement. |Use a disk size with a throughput limit greater than your application requirement. |Use a disk size that offers scale limits greater than your application requirement. |
 | VM and disk scale limits |IOPS limit of the VM size chosen should be greater than the total IOPS driven by the storage disks attached to it. |Throughput limit of the VM size chosen should be greater than the total throughput driven by the premium storage disks attached to it. |Scale limits of the VM size chosen must be greater than the total scale limits of the attached premium storage disks. |
 | Disk caching |Enable `ReadOnly` cache on premium storage disks with read-heavy operations to get higher read IOPS. | &nbsp; |Enable `ReadOnly` cache on premium storage disks with read-heavy operations to get very low read latencies. |
 | Disk striping |Use multiple disks and stripe them together to get a combined higher IOPS and throughput limit. The combined limit per VM should be higher than the combined limits of attached premium disks. | &nbsp; | &nbsp; |
-| Stripe size |Smaller stripe size for random small IO pattern seen in OLTP applications. For example, use a 64-KB stripe size for a SQL Server OLTP application. |Larger stripe size for sequential large IO pattern seen in data warehouse applications. For example, use a 256-KB stripe size for a SQL Server data warehouse application. | &nbsp; |
+| Stripe size |Smaller stripe size for random small I/O pattern seen in OLTP applications. For example, use a 64-KB stripe size for a SQL Server OLTP application. |Larger stripe size for sequential large I/O pattern seen in data warehouse applications. For example, use a 256-KB stripe size for a SQL Server data warehouse application. | &nbsp; |
 | Multithreading |Use multithreading to push a higher number of requests to Premium Storage to lead to higher IOPS and throughput. For example, on SQL Server, set a high MAXDOP value to allocate more CPUs to SQL Server. | &nbsp; | &nbsp; |
 | Queue depth |Larger queue depth yields higher IOPS. |Larger queue depth yields higher throughput. |Smaller queue depth yields lower latencies. |
 
-## Nature of IO requests
+## Nature of I/O requests
 
-An IO request is a unit of input/output operation that your application is performing. Identifying the nature of IO requests, random or sequential, read or write, small or large, helps you determine the performance requirements of your application. It's important to understand the nature of IO requests to make the right decisions when you design your application infrastructure. IOs must be distributed evenly to achieve the best performance possible.
+An I/O request is a unit of input/output operation that your application is performing. Identifying the nature of I/O requests, random or sequential, read or write, small or large, helps you determine the performance requirements of your application. It's important to understand the nature of I/O requests to make the right decisions when you design your application infrastructure. I/Os must be distributed evenly to achieve the best performance possible.
 
-IO size is one of the more important factors. The IO size is the size of the input/output operation request generated by your application. The IO size affects performance significantly, especially on the IOPS and bandwidth that the application can achieve. The following formula shows the relationship between IOPS, IO size, and bandwidth/throughput.
+I/O size is one of the more important factors. The I/O size is the size of the input/output operation request generated by your application. The I/O size affects performance significantly, especially on the IOPS and bandwidth that the application can achieve. The following formula shows the relationship between IOPS, I/O size, and bandwidth/throughput.
     ![A diagram that shows the equation I O P S times I O size equals throughput.](media/premium-storage-performance/image1.png)
 
-Some applications allow you to alter their IO size, while some applications don't. For example, SQL Server determines the optimal IO size itself and doesn't provide users with any knobs to change it. On the other hand, Oracle provides a parameter called [DB\_BLOCK\_SIZE](https://docs.oracle.com/cd/B19306_01/server.102/b14211/iodesign.htm#i28815), which you can use to configure the I/O request size of the database.
+Some applications allow you to alter their I/O size, while some applications don't. For example, SQL Server determines the optimal I/O size itself and doesn't provide users with any knobs to change it. On the other hand, Oracle provides a parameter called [DB\_BLOCK\_SIZE](https://docs.oracle.com/cd/B19306_01/server.102/b14211/iodesign.htm#i28815), which you can use to configure the I/O request size of the database.
 
-If you're using an application, which doesn't allow you to change the IO size, use the guidelines in this article to optimize the performance KPI that's most relevant to your application. For example:
+If you're using an application, which doesn't allow you to change the I/O size, use the guidelines in this article to optimize the performance KPI that's most relevant to your application. For example:
 
-* An OLTP application generates millions of small and random IO requests. To handle these types of IO requests, you must design your application infrastructure to get higher IOPS.
-* A data warehousing application generates large and sequential IO requests. To handle these types of IO requests, you must design your application infrastructure to get higher bandwidth or throughput.
+* An OLTP application generates millions of small and random I/O requests. To handle these types of I/O requests, you must design your application infrastructure to get higher IOPS.
+* A data warehousing application generates large and sequential I/O requests. To handle these types of I/O requests, you must design your application infrastructure to get higher bandwidth or throughput.
 
-If you're using an application that allows you to change the IO size, use this rule of thumb for the IO size in addition to other performance guidelines:
+If you're using an application that allows you to change the I/O size, use this rule of thumb for the I/O size in addition to other performance guidelines:
 
-* Smaller IO size to get higher IOPS. For example, 8 KB for an OLTP application.
-* Larger IO size to get higher bandwidth/throughput. For example, 1,024 KB for a data warehouse application.
+* Smaller I/O size to get higher IOPS. For example, 8 KB for an OLTP application.
+* Larger I/O size to get higher bandwidth/throughput. For example, 1,024 KB for a data warehouse application.
 
 Here's an example of how you can calculate the IOPS and throughput/bandwidth for your application.
 
-Consider an application that uses a P30 disk. The maximum IOPS and throughput/bandwidth a P30 disk can achieve is 5,000 IOPS and 200 MB per second, respectively. If your application requires the maximum IOPS from the P30 disk and you use a smaller IO size, like 8 KB, the resulting bandwidth you can get is 40 MB per second. If your application requires the maximum throughput/bandwidth from a P30 disk and you use a larger IO size, like 1,024 KB, the resulting IOPS is less, such as 200 IOPS.
+Consider an application that uses a P30 disk. The maximum IOPS and throughput/bandwidth a P30 disk can achieve is 5,000 IOPS and 200 MB per second, respectively. If your application requires the maximum IOPS from the P30 disk and you use a smaller I/O size, like 8 KB, the resulting bandwidth you can get is 40 MB per second. If your application requires the maximum throughput/bandwidth from a P30 disk and you use a larger I/O size, like 1,024 KB, the resulting IOPS is less, such as 200 IOPS.
 
-Tune the IO size so that it meets both your application's IOPS and throughput/bandwidth requirement. The following table summarizes the different IO sizes and their corresponding IOPS and throughput for a P30 disk.
+Tune the I/O size so that it meets both your application's IOPS and throughput/bandwidth requirement. The following table summarizes the different I/O sizes and their corresponding IOPS and throughput for a P30 disk.
 
 | Application requirement | I/O size | IOPS | Throughput/Bandwidth |
 | --- | --- | --- | --- |
@@ -212,7 +212,7 @@ To get IOPS and bandwidth higher than the maximum value of a single premium stor
 > [!NOTE]
 > As you increase either IOPS or throughput, the other also increases. Make sure you don't hit throughput or IOPS limits of the disk or VM when you increase either one.
 
-To witness the effects of IO size on application performance, you can run benchmarking tools on your VM and disks. Create multiple test runs and use different IO size for each run to see the effect. For more information, see the benchmarking articles at the end of this document.
+To witness the effects of I/O size on application performance, you can run benchmarking tools on your VM and disks. Create multiple test runs and use different I/O size for each run to see the effect. For more information, see the benchmarking articles at the end of this document.
 
 ## High-scale VM sizes
 
@@ -220,7 +220,7 @@ When you start designing an application, one of the first things to do is choose
 
 High-scale VMs are available in different sizes with a different number of CPU cores, memory, OS, and temporary disk size. Each VM size also has a maximum number of data disks that you can attach to the VM. The chosen VM size affects how much processing, memory, and storage capacity are available for your application. It also affects the compute and storage cost. For example, the following specifications are for the largest VM size in a DS series and a GS series.
 
-| VM size | CPU cores | Memory | VM disk sizes | Maximum data disks | Cache size | IOPS | Bandwidth cache IO limits |
+| VM size | CPU cores | Memory | VM disk sizes | Maximum data disks | Cache size | IOPS | Bandwidth cache I/O limits |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS14 |16 |112 GB |OS = 1,023 GB <br> Local SSD = 224 GB |32 |576 GB |50,000 IOPS <br> 512 MB per second |4,000 IOPS and 33 MB per second |
 | Standard_GS5 |32 |448 GB |OS = 1,023 GB <br> Local SSD = 896 GB |64 |4224 GB |80,000 IOPS <br> 2,000 MB per second |5,000 IOPS and 50 MB per second |
@@ -351,11 +351,11 @@ On Linux, use the MDADM utility to stripe disks together. For steps on how to st
 
 ### Stripe size
 
-An important configuration in disk striping is the stripe size. The stripe size or block size is the smallest chunk of data that an application can address on a striped volume. The stripe size you configure depends on the type of application and its request pattern. If you choose the wrong stripe size, it could lead to IO misalignment, which leads to degraded performance of your application.
+An important configuration in disk striping is the stripe size. The stripe size or block size is the smallest chunk of data that an application can address on a striped volume. The stripe size you configure depends on the type of application and its request pattern. If you choose the wrong stripe size, it could lead to I/O misalignment, which leads to degraded performance of your application.
 
-For example, if an IO request generated by your application is bigger than the disk stripe size, the storage system writes it across stripe unit boundaries on more than one disk. When it's time to access that data, it has to seek across more than one stripe unit to complete the request. The cumulative effect of such behavior can lead to substantial performance degradation. On the other hand, if the IO request size is smaller than the stripe size, and if it's random in nature, the IO requests might add up on the same disk, causing a bottleneck and ultimately degrading the IO performance.
+For example, if an I/O request generated by your application is bigger than the disk stripe size, the storage system writes it across stripe unit boundaries on more than one disk. When it's time to access that data, it has to seek across more than one stripe unit to complete the request. The cumulative effect of such behavior can lead to substantial performance degradation. On the other hand, if the I/O request size is smaller than the stripe size, and if it's random in nature, the I/O requests might add up on the same disk, causing a bottleneck and ultimately degrading the I/O performance.
 
-Depending on the type of workload your application is running, choose an appropriate stripe size. For random small IO requests, use a smaller stripe size. For large sequential IO requests, use a larger stripe size. Find out the stripe size recommendations for the application you'll be running on Premium Storage. For SQL Server, configure a stripe size of 64 KB for OLTP workloads and 256 KB for data warehousing workloads. For more information, see [Performance best practices for SQL Server on Azure VMs](/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist).
+Depending on the type of workload your application is running, choose an appropriate stripe size. For random small I/O requests, use a smaller stripe size. For large sequential I/O requests, use a larger stripe size. Find out the stripe size recommendations for the application you'll be running on Premium Storage. For SQL Server, configure a stripe size of 64 KB for OLTP workloads and 256 KB for data warehousing workloads. For more information, see [Performance best practices for SQL Server on Azure VMs](/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist).
 
 > [!NOTE]
 > You can stripe together a maximum of 32 premium storage disks on a DS series VM and 64 premium storage disks on a GS series VM.
@@ -364,7 +364,7 @@ Depending on the type of workload your application is running, choose an appropr
 
 Azure designed the Premium Storage platform to be massively parallel. For this reason, a multithreaded application achieves higher performance than a single-threaded application. A multithreaded application splits up its tasks across multiple threads and increases efficiency of its execution by utilizing the VM and disk resources to the maximum.
 
-For example, if your application is running on a single core VM using two threads, the CPU can switch between the two threads to achieve efficiency. While one thread is waiting on a disk IO to complete, the CPU can switch to the other thread. In this way, two threads can accomplish more than a single thread would. If the VM has more than one core, it further decreases running time because each core can run tasks in parallel.
+For example, if your application is running on a single core VM using two threads, the CPU can switch between the two threads to achieve efficiency. While one thread is waiting on a disk I/O to complete, the CPU can switch to the other thread. In this way, two threads can accomplish more than a single thread would. If the VM has more than one core, it further decreases running time because each core can run tasks in parallel.
 
 You might not be able to change the way an off-the-shelf application implements single threading or multithreading. For example, SQL Server is capable of handling multi-CPU and multi-core. However, SQL Server decides under what conditions it uses one or more threads to process a query. It can run queries and build indexes by using multithreading. For a query that involves joining large tables and sorting data before returning to the user, SQL Server likely uses multiple threads. A user can't control whether SQL Server runs a query by using a single thread or multiple threads.
 
@@ -376,7 +376,7 @@ Learn more about [degrees of parallelism](/previous-versions/sql/sql-server-2008
 
 ## Queue depth
 
-The queue depth or queue length or queue size is the number of pending IO requests in the system. The value of queue depth determines how many IO operations your application can line up, which the storage disks process. It affects all three application performance indicators discussed in this article: IOPS, throughput, and latency.
+The queue depth or queue length or queue size is the number of pending I/O requests in the system. The value of queue depth determines how many I/O operations your application can line up, which the storage disks process. It affects all three application performance indicators discussed in this article: IOPS, throughput, and latency.
 
 Queue depth and multithreading are closely related. The queue depth value indicates how much multithreading can be achieved by the application. If the queue depth is large, the application can run more operations concurrently, in other words, more multithreading. If the queue depth is small, even though the application is multithreaded, it won't have enough requests lined up for concurrent execution.
 
@@ -386,9 +386,9 @@ Some applications provide settings to influence the queue depth. For example, th
 
 ### High queue depth
 
-A high queue depth lines up more operations on the disk. The disk knows the next request in its queue ahead of time. So, the disk can schedule operations ahead of time and process them in an optimal sequence. Because the application is sending more requests to the disk, the disk can process more parallel IOs. Ultimately, the application can achieve higher IOPS. Because the application is processing more requests, the total throughput of the application also increases.
+A high queue depth lines up more operations on the disk. The disk knows the next request in its queue ahead of time. So, the disk can schedule operations ahead of time and process them in an optimal sequence. Because the application is sending more requests to the disk, the disk can process more parallel I/Os. Ultimately, the application can achieve higher IOPS. Because the application is processing more requests, the total throughput of the application also increases.
 
-Typically, an application can achieve maximum throughput with 8 to 16+ outstanding IOs per attached disk. If a queue depth is one, the application isn't pushing enough IOs to the system, and it processes a smaller amount in a given period. In other words, less throughput.
+Typically, an application can achieve maximum throughput with 8 to 16+ outstanding I/Os per attached disk. If a queue depth is one, the application isn't pushing enough I/Os to the system, and it processes a smaller amount in a given period. In other words, less throughput.
 
 For example, in SQL Server, setting the MAXDOP value for a query to `4` informs SQL Server that it can use up to four cores to run the query. SQL Server determines the best queue depth value and the number of cores for the query execution.
 
@@ -401,7 +401,7 @@ You shouldn't configure queue depth to any high value, but to an optimal value, 
 
 ### Queue depth for striped volume
 
-For a striped volume, maintain a high-enough queue depth so that every disk has a peak queue depth individually. For example, consider an application that pushes a queue depth of `2` and there are four disks in the stripe. The two IO requests go to two disks and the remaining two disks are idle. Therefore, configure the queue depth so that all the disks can be busy. The following formula shows how to determine the queue depth of striped volumes.
+For a striped volume, maintain a high-enough queue depth so that every disk has a peak queue depth individually. For example, consider an application that pushes a queue depth of `2` and there are four disks in the stripe. The two I/O requests go to two disks and the remaining two disks are idle. Therefore, configure the queue depth so that all the disks can be busy. The following formula shows how to determine the queue depth of striped volumes.
 ![A diagram that shows the equation Q D per disk times number of columns per volume equals Q D of striped volume.](media/premium-storage-performance/image7.png)
 
 ## Throttling
