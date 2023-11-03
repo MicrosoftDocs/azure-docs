@@ -5,7 +5,7 @@ author: snehasudhirG
 services: automation
 ms.subservice: change-inventory-management
 ms.topic: conceptual
-ms.date: 09/14/2023
+ms.date: 11/03/2023
 ms.author: sudhirsneha
 ---
 
@@ -63,7 +63,7 @@ Follow these steps to migrate using scripts.
 
 #### Migration guidance
 
-1. Install the script to run to conduct migrations.
+1. Install the script and run it to conduct migrations.
 1. Ensure that the new workspace resource ID is different to the one with which it's associated to in the Change Tracking and Inventory using the LA version.
 1. Migrate settings for the following data types:
     - Windows Services
@@ -113,6 +113,7 @@ To obtain the Log Analytics Workspace resource ID, follow these steps:
 ### [Using PowerShell script](#tab/limit-policy)
 
 1. For File Content changes-based settings, you have to migrate manually from LA version to AMA version of Change Tracking & Inventory. Follow the guidance listed in [Track file contents](manage-change-tracking.md#track-file-contents).
+1. Any VM with > 100 file/registry settings for migration via portal isn't supported now. 
 1. Alerts that you configure using the Log Analytics Workspace must be [manually configured](configure-alerts.md).
 
 ---
