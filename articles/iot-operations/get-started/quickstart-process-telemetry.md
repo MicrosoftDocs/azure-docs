@@ -189,7 +189,7 @@ The sample tags you added in the previous quickstart generate messages from your
 {
     "Timestamp": "2023-08-10T00:54:58.6572007Z", 
     "MessageType": "ua-deltaframe",
-    "Payload": {
+    "payload": {
       "temperature": {
         "SourceTimestamp": "2023-08-10T00:54:58.2543129Z",
         "Value": 7109
@@ -338,14 +338,14 @@ Create a Data Processor pipeline to process and enrich your data before it sends
 
     | Parameter         | Value |
     | ----------------- | ----- |
-    | Input path        | `.payload.Payload["temperature"]` |
-    | Output path       | `.payload.Payload.temperature_lkv` |
+    | Input path        | `.payload.payload["temperature"]` |
+    | Output path       | `.payload.payload.temperature_lkv` |
     | Expiration time    | `01h` |
 
     | Parameter         | Value |
     | ----------------- | ----- |
-    | Input path        | `.payload.Payload["Tag 10"]` |
-    | Output path       | `.payload.Payload.tag1_lkv` |
+    | Input path        | `.payload.payload["Tag 10"]` |
+    | Output path       | `.payload.payload.tag1_lkv` |
     | Expiration time    | `01h` |
 
     This stage enriches the incoming messages with the latest `temperature` and `Tag 10` values if they're missing. The tracked latest values are retained for 1 hour. If the tracked properties appear in the message, the tracked latest value is updated to ensure that the values are always up to date.
