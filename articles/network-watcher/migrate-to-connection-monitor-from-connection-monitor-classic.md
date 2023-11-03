@@ -60,11 +60,11 @@ After the migration begins, the following changes take place:
 
 ## Common errors encountered
 
-The following table list common errors that you may encounter during the migration:
+The following table list common errors that you might encounter during the migration:
 
 | Error | Reason |
 | ----- | ------ |
-| Following Connection monitors cannot be imported as one or more Subscription/Region combination don't have network watcher enabled. Enable network watcher and click refresh to import them. | This error occurs when you migrate tests from Connection monitor (classic) to Connection monitor and Network Watcher extension isn't enabled in one or more subscriptions and regions of Connection monitor (classic). You need to enable Network Watcher extension in all subscriptions and regions used in Connection monitor (classic). |
+| Following Connection monitors cannot be imported as one or more Subscription/Region combinations don't have network watcher enabled. Enable network watcher and click refresh to import them. | This error occurs when you migrate tests from Connection monitor (classic) to Connection monitor and Network Watcher extension isn't enabled in one or more subscriptions and regions of Connection monitor (classic). You need to enable Network Watcher extension in all subscriptions and regions used in Connection monitor (classic). |
 | Connection monitors having following tests cannot be imported as one or more Azure virtual machines don't have Network Watcher extension installed. Install Network Watcher extension and select refresh to import the tests. | This error occurs when you migrate tests from Connection monitor (classic) to Connection monitor and Network Watcher extension isn't installed in one or more Azure VMs of Connection monitor (classic). You need to install the Network Watcher extension in all Azure VMs of Connection monitor (classic), and then refresh before migrating again. |
 | No rows to display | This error occurs when you try to migrate subscriptions from Connection monitor (classic) to Connection monitor but no Connection monitor (classic) is created in the subscriptions. |
 
