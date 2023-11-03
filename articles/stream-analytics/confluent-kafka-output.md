@@ -124,7 +124,7 @@ For your Azure Stream Analytics job to access the certificate in your key vault 
 
    
 
-## Configure kafka input in your stream analytics job
+## Configure kafka output in your stream analytics job
 
 1. In your stream analytics job, select **Outputs** under **Job Topology**
 
@@ -142,9 +142,6 @@ For your Azure Stream Analytics job to access the certificate in your key vault 
 | Partition key                | Azure Stream Analytics assigns partitions using round partitioning. Keep blank if your input is not partitioned by a key |
 | Kafka event compression type | The compression type used for outgoing data streams, such as Gzip, Snappy, Lz4, Zstd, or None.                            | 
 
-
-## Authentication and encryption to confluent cloud using API key
-
 > [!IMPORTANT]
 > Confluent Cloud supports authentication using API Keys, OAuth, or SAML single sign-on (SSO). Azure Stream Analytics does not support authentication using OAuth or SAML single sign-on (SSO).
 > You can connect to confluent cloud using an API Key that has topic-level access via the SASL_SSL security protocol.
@@ -154,26 +151,23 @@ Use the following configuration:
 
 | Setting | Value |
  | --- | --- |
- | Username | Key/ Username from API Key |
- | Password | Secret/ Password from API key |
- | KeyVault | Name of Azure Key vault with Uploaded certificate |
- | Certificate | name of the certificate uploaded to KeyVault |
+ | Username | confluent cloud API Key |
+ | Password | confluent cloud API secret |
+ | Key vault name | Name of Azure Key vault with Uploaded certificate |
+ | Truststore certificates | name of the key vault secret that holds the ISRG Root X1 certificate |
 
 
-:::image type="content" source="./media/kafka/kafka-output.png" alt-text="Screenshot showing how to configure kafka input for a stream analytics job" lightbox="./media/kafka/kafka-output.png" :::
-
-
-## Save your configuration
+:::image type="content" source="./media/kafka/kafka-output.png" alt-text="Screenshot showing how to configure kafka output for a stream analytics job" lightbox="./media/kafka/kafka-output.png" :::
 
 Save your configuration. Your Azure Stream Analytics job will automatically validate using the configuration provided.
-A successful connection will show up in the portal if you stream analytics can connect to your kafka cluster.
+A successful test connection will show up in the portal if your stream analytics job can connect to your kafka cluster.
 
-:::image type="content" source="./media/kafka/kafka-output-test-connection.png" alt-text="Screenshot showing successful test connection confluent kafka input" lightbox="./media/kafka/kafka-output-test-connection.png" :::
+:::image type="content" source="./media/kafka/kafka-output-test-connection.png" alt-text="Screenshot showing successful test connection to confluent kafka output" lightbox="./media/kafka/kafka-output-test-connection.png" :::
    
 
 ### Limitations
  
-* When using SASL_SSL with Azure Key vault, the certificate must be PEM format. 
+* When using SASL_SSL with Azure Key vault, the certificate must be in PEM format. 
 * The minimum version of Kafka you can configure Azure Stream Analytics to connect to is version 0.10.
 * Azure Stream Analytics does not support authentication to confluent cloud using OAuth or SAML single sign-on (SSO). You must use API Key via the SASL_SSL protocol.
 * You must use Azure CLI to upload certificate as a secret to key vault. You cannot upload certificates with multiline secrets to key vault using the Azure portal.
