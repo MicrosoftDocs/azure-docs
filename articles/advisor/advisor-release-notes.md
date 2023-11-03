@@ -135,9 +135,9 @@ To learn more, visit [Prepare migration of your workloads impacted by service re
 
 ### Cost savings summary for multiple currencies
 
-Enterprise customers with subsidiaries in other countries often get cost recommendations nominated in multiple currencies. They now can use updated cost summary view to evaluate total amount of cost savings in different currencies.
+Enterprise customers with subsidiaries in other countries often get cost recommendations denominated in multiple currencies. They now can use updated cost summary view to evaluate total amount of cost savings in different currencies.
 
-To learn more, visit ???.
+To learn more, visit [Configure periodic summary for recommendations](/azure/advisor/advisor-recommendations-digest).
 
 ### Postpone/dismiss a recommendation for multiple resources
 
@@ -145,7 +145,7 @@ It can be difficult to prioritize recommendations for the workloads they care ab
 
 The new capability makes this process more efficient by enabling a single-click Postpone/dismiss operation for multiple resources.
 
-To learn more, visit ???.
+To learn more, visit [Dismissing and postponing recommendations](/azure/advisor/view-recommendations#dismissing-and-postponing-recommendations)
 
 ### VM/VMSS right-sizing recommendations with custom lookback period
 
@@ -163,7 +163,7 @@ It can be difficult to prioritize recommendations. When you multiply the number 
 
 We're making it easier by offering new filtering capabilities. Users can now filter recommendations by impact (priority), resource group and resource type.
 
-To learn more, visit ???.
+To learn more, visit [Review optimization opportunities by workload, environment or team](/azure/advisor/advisor-tag-filtering).
 
 ## November 2022
 
