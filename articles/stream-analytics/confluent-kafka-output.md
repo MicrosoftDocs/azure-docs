@@ -110,7 +110,7 @@ az keyvault secret set --vault-name mykeyvault --name confluentsecret --file C:\
 ## Grant the Stream Analytics job permissions to access the certificate in the key vault
 
 For your Azure Stream Analytics job to read the secret in your key vault, the job must have permission to access the key vault.
-Follow the guidance below to grant special permissions your job:
+Use the following steps to grant special permissions to your stream analytics job:
 
 1. In your key vault, select **Access control (IAM)**.
 
