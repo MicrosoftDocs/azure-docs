@@ -24,17 +24,17 @@ This page presents the latest feature, improvement, bug fix, and known issue rel
 
 |Source Direct|Target Direct|
 |:----|:----|
-|Chinese Simplified (`zh-hans`)|Korean (`ko-kr`)|
 |Chinese Simplified (`zh-hans`)|German (`de-de`)|
+|Chinese Simplified (`zh-hans`)|Korean (`ko-kr`)|
 |Dutch (`nl-nl`)|French (`fr-fr`)|
-|French (`fr-fr`)|Italian (`it-it`)|
 |French (`fr-fr`)|Dutch (`nl-nl`)|
 |French (`fr-fr`)|German (`de-de`)|
+|French (`fr-fr`)|Italian (`it-it`)|
+|German (`de-de`)|Chinese Simplified (`zh-hans`)|
 |German (`de-de`)|French (`fr-fr`)|
+|German (`de-de`)|Italian (`it-it`)|
 |German (`de-de`)|Portuguese Portugal (`pt-pt`)|
 |German (`de-de`)|Spanish (`es-es`)|
-|German (`de-de`)|Italian (`it-it`)|
-|German (`de-de`)|Chinese Simplified (`zh-hans`)|
 |Italian (`it-it`)|French (`fr-fr`)|
 |Italian (`it-it`)|German (`de-de`)|
 |Korean (`ko-kr`)|Chinese Simplified (`zh-hans`)|
