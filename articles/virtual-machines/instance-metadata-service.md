@@ -242,6 +242,7 @@ When you don't specify a version, you get an error with a list of the newest sup
 
 #### Supported API versions
 
+- 2023-07-01
 - 2021-12-13
 - 2021-11-15
 - 2021-11-01
@@ -416,6 +417,9 @@ The image reference object contains the following information about the OS image
 | `publisher` | Image publisher
 | `sku` | Image sku
 | `version` | Version of the platform or marketplace image
+| `communityGalleryImageId` | Resource ID when using a community image
+| `sharedGalleryImageId` | Resource ID when using a direct shared image
+| `exactVersion` | Version of the community or direct shared image
 
 The OS disk object contains the following information about the OS disk used by the VM:
 
