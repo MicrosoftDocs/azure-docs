@@ -102,7 +102,7 @@ sections:
       - question: |
           Which JDK versions are supported?
         answer: |
-          Container Apps supports four LTS JDK versions are supported: JDK 8, JDK 11, JDK 17 and JDK 21. 
+          Container Apps supports four LTS JDK versions: JDK 8, JDK 11, JDK 17 and JDK 21. 
           For source code build, the default version is JDK 17.
           For a JAR file build, the JDK version is read from the file location *META-INF\MANIFEST.MF* in the JAR, but uses the default JDK version 17 if the specified version isn't available.
       - question: |
