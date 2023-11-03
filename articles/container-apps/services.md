@@ -23,9 +23,11 @@ Services available as an add-on include:
 |---|---|
 | Kafka | `kafka` |
 | MariaDB | `mariadb` |
+| Milvus | `milvus` |
 | Open-source PostgreSQL | `postgres` |
 | Qdrant | `qdrant` |
 | Open-source Redis | `redis` |
+| Weaviate | `weaviate` |
 
 You can get most recent list of add-on services by running the following command:
 
