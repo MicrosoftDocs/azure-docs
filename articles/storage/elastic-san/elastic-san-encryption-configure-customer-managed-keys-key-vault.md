@@ -27,7 +27,7 @@ To learn how to configure encryption with customer-managed keys stored in a mana
 ## Prerequisites
 
 To perform the operations described in this article, you must prepare your Azure account and the management tools you plan to use. Preparation includes installing the necessary modules, logging in to your account, and setting variables for PowerShell and the Azure CLI. The same set of variables are used throughout this article, so setting them now allows you to use the same ones in all of the samples.
-md#elastic-san-volume-group-owner) role.
+
 
 ### [PowerShell](#tab/azure-powershell)
 
@@ -49,19 +49,19 @@ Copy the sample code and replace all placeholder text with your own values. Use 
 ```azurepowershell
 # Define some variables
 # The name of the resource group where the resources will be deployed.
-$RgName          = "<ResourceGroupName>"
+$RgName          = "ResourceGroupName"
 # The name of the Elastic SAN that contains the volume group to be configured.
-$EsanName        = "<ElasticSanName>"
+$EsanName        = "ElasticSanName"
 # The name of the Elastic SAN volume group to be configured.
-$EsanVgName      = "<ElasticSanVolumeGroupName>"
+$EsanVgName      = "ElasticSanVolumeGroupName"
 # The region where the new resources will be created.
-$Location        = "<Location>"
+$Location        = "Location"
 # The name of the Azure Key Vault that will contain the KEK.
-$KvName          = "<KeyVaultName>"
+$KvName          = "KeyVaultName"
 # The name of the Azure Key Vault key that is the KEK.
-$KeyName         = "<KeyName>"
+$KeyName         = "KeyName"
 # The name of the user-assigned managed identity, [if applicable](#choose-a-managed-identity-to-authorize-access-to-the-key-vault).
-$ManagedUserName = "<ManagedUserName>"
+$ManagedUserName = "ManagedUserName"
 ```
 
 ### [Azure CLI](#tab/azure-cli)
@@ -78,21 +78,21 @@ Copy the sample code and replace all placeholder text with your own values. Use 
 ```azurecli
 # Define some variables.
 # The name of the resource group where the resources will be deployed.
-RgName="<ResourceGroupName>"
+RgName="ResourceGroupName"
 # The name of the Elastic SAN that contains the volume group to be configured.
-EsanName="<ElasticSanName>"
+EsanName="ElasticSanName"
 # The name of the Elastic SAN volume group to be configured.
-EsanVgName="<ElasticSanVolumeGroupName>"
+EsanVgName="ElasticSanVolumeGroupName"
 # The region where the new resources will be created.
-Location="<Location>"
+Location="Location"
 # The name of the Azure Key Vault that will contain the KEK.
-KvName="<KeyVaultName>"
+KvName="KeyVaultName"
 # The name of the Azure Key Vault key that is the KEK.
-KeyName="<KeyName>"
-# The name of the user-assigned managed identity, [if applicable](#choose-a-managed-identity-to-authorize-access-to-the-key-vault).
-ManagedUserName="<ManagedUserName>"
+KeyName="KeyName"
+# The name of the user-assigned managed identity, if applicable.
+ManagedUserName="ManagedUserName"
 # The User Principal Name (UPN) of the administrator (you) who will create the KEK in the vault.
-AdminUpn="<AdminUpn>"
+AdminUpn="AdminUpn"
 ```
 
 ---

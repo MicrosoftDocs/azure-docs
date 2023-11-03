@@ -91,37 +91,37 @@ After the key has been disabled, clients can't call operations that read from or
 To revoke a customer-managed key with PowerShell, call the [Update-AzKeyVaultKey](/powershell/module/az.keyvault/update-azkeyvaultkey) command, as shown in the following example. Remember to replace the placeholder values in brackets with your own values to define the variables, or use the variables defined in the previous examples.
 
 ```azurepowershell
-$kvName  = "<key-vault-name>"
-$keyName = "<key-name>"
+$KvName  = "<key-vault-name>"
+$KeyName = "<key-name>"
 $enabled = $false
 # $false to disable the key / $true to enable it
 
 # Check the current state of the key (before and after enabling/disabling it)
-Get-AzKeyVaultKey -Name $keyName -VaultName $kvName
+Get-AzKeyVaultKey -Name $KeyName -VaultName $KvName
 
 # Disable (or enable) the key
-Update-AzKeyVaultKey -VaultName $kvName -Name $keyName -Enable $enabled
+Update-AzKeyVaultKey -VaultName $KvName -Name $KeyName -Enable $enabled
 ```
 
 # [Azure CLI](#tab/azure-cli)
 
-To revoke a customer-managed key with Azure CLI, call the [az keyvault key set-attributes](/cli/azure/keyvault/key#az-keyvault-key-set-attributes) command, as shown in the following example. Remember to replace the placeholder values in brackets with your own values to define the variables, or use the variables defined in the previous examples.
+To revoke a customer-managed key with Azure CLI, call the [az keyvault key set-attributes](/cli/azure/keyvault/key#az-keyvault-key-set-attributes) command, as shown in the following example. Remember to replace the placeholder values with your own values to define the variables, or use the variables defined in the previous examples.
 
 ```azurecli
-kvName="<key-vault-name>"
-keyName="<key-name>"
+KvName="key-vault-name"
+KeyName="key-name"
 enabled="false"
 # "false" to disable the key / "true" to enable it:
 
 # Check the current state of the key (before and after enabling/disabling it)
 az keyvault key show \
-    --vault-name $kvName \
-    --name $keyName
+    --vault-name $KvName \
+    --name $KeyName
 
 # Disable (or enable) the key
 az keyvault key set-attributes \
-    --vault-name $kvName \
-    --name $keyName \
+    --vault-name $KvName \
+    --name $KeyName \
     --enabled $enabled
 ```
 
@@ -133,10 +133,10 @@ You can switch from customer-managed keys back to platform-managed keys at any t
 
 # [PowerShell](#tab/azure-powershell)
 
-To switch from customer-managed keys back to platform-managed keys with PowerShell, call [Update-AzElasticSanVolumeGroup](/powershell/module/az.elasticsan/update-azelasticsanvolumegroup) with the `-Encryption` option, as shown in the following example. Remember to replace the placeholder values in brackets with your own values and to use the variables defined in the previous examples.
+To switch from customer-managed keys back to platform-managed keys with PowerShell, call [Update-AzElasticSanVolumeGroup](/powershell/module/az.elasticsan/update-azelasticsanvolumegroup) with the `-Encryption` option, as shown in the following example. Remember to replace the placeholder values with your own values and to use the variables defined in the previous examples.
 
 ```azurepowershell
-Update-AzElasticSanVolumeGroup -ResourceGroupName $rgname -ElasticSanName $esname -Name $vgname -Encryption EncryptionAtRestWithPlatformKey 
+Update-AzElasticSanVolumeGroup -ResourceGroupName "ResourceGroupName" -ElasticSanName "ElasticSanName" -Name "ElasticSanVolumeGroupName" -Encryption EncryptionAtRestWithPlatformKey 
 ```
 
 # [Azure CLI](#tab/azure-cli)
