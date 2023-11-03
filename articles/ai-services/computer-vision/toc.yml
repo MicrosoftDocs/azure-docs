@@ -290,6 +290,8 @@ items:
         href: /legal/cognitive-services/face/characteristics-and-limitations?context=/azure/ai-services/computer-vision/context/context
     - name: Integration and responsible use
       href: /legal/cognitive-services/face/guidance-integration-responsible-use?context=/azure/ai-services/computer-vision/context/context
+    - name: Code of conduct
+      href: /legal/cognitive-services/face/code-of-conduct?context=/azure/ai-services/computer-vision/context/context
     - name: Data privacy and security
       href: /legal/cognitive-services/face/data-privacy-security?context=/azure/ai-services/computer-vision/context/context
     - name: Limited Access features
