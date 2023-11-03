@@ -9,7 +9,30 @@ ms.topic: conceptual
 ms.date: 11/15/2023
 ---
 
-## Prebuilt model language detection and extraction
+# Prebuilt model language detection and extraction
+
+::: moniker range="doc-intel-4.0.0"
+[!INCLUDE [applies to v4.0](includes/applies-to-v40.md)]
+::: moniker-end
+
+::: moniker range="doc-intel-3.1.0"
+[!INCLUDE [applies to v3.1](includes/applies-to-v31.md)]
+::: moniker-end
+
+::: moniker range="doc-intel-3.0.0"
+[!INCLUDE [applies to v3.0](includes/applies-to-v30.md)]
+::: moniker-end
+
+::: moniker range="doc-intel-2.1.0"
+[!INCLUDE [applies to v2.1](includes/applies-to-v21.md)]
+::: moniker-end
+
+<!-- markdownlint-disable MD001 -->
+<!-- markdownlint-disable MD024 -->
+<!-- markdownlint-disable MD006 -->
+<!-- markdownlint-disable MD051 -->
+
+Azure AI Document Intelligence models provide multilingual document processing support. Our language support capabilities enable your users to communicate with your applications in natural ways and empower global outreach. Prebuilt models enable you to add intelligent domain-specific document processing to your apps and flows without having to train and build your own models. The following tables list the available language and locale support by model and feature:
 
 :::moniker range=">=doc-intel-3.1.0"
 ## [Business card](#tab/business-card)

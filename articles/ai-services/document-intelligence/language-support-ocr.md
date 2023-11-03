@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 11/15/2023
 ---
 
-# Language detection and extraction support
+# Document analysis model language detection and extraction support
 
 ::: moniker range="doc-intel-4.0.0"
 [!INCLUDE [applies to v4.0](includes/applies-to-v40.md)]
@@ -32,13 +32,11 @@ ms.date: 11/15/2023
 <!-- markdownlint-disable MD006 -->
 <!-- markdownlint-disable MD051 -->
 
-Azure AI Document Intelligence models support many languages. Our language support capabilities enable your users to communicate with your applications in natural ways and empower global outreach. The following tables list the available language and locale by model and feature:
-
-Document analysis models enable text extraction from forms and documents and return structured business-ready content ready for your organization's action, use, or progress. Here's a list of supported models:
+Azure AI Document Intelligence models provide multilingual document processing support. Our language support capabilities enable your users to communicate with your applications in natural ways and empower global outreach. Document analysis models enable text extraction from forms and documents and return structured business-ready content ready for your organization's action, use, or progress. The following tables list the available language and locale support by model and feature:
 
 ::: moniker range=">=doc-intel-3.0.0"
 
-* [**Read**](#read): The read model enables extraction and analysis of printed and handwritten text. This model is the underlying OCR engine for other Document Intelligence prebuilt models like layout, general document, invoice, receipt, identity (ID) document, health insurance card, tax documents and custom models. For more information, *see* [Read model overview](concept-read.md)
+* [**Read**](#read-model): The read model enables extraction and analysis of printed and handwritten text. This model is the underlying OCR engine for other Document Intelligence prebuilt models like layout, general document, invoice, receipt, identity (ID) document, health insurance card, tax documents and custom models. For more information, *see* [Read model overview](concept-read.md)
 ::: moniker-end
 
 ::: moniker range=">=doc-intel-2.1.0"
@@ -560,7 +558,7 @@ The following table lists read model language support for extracting and analyzi
   |Nepali|ne|
   |Niuean|niu|
   |Dutch|nl|
-  |Norwegian|no|
+  |Norwegian|no|G1326
   |Nogai|nog|
   |Occitan|oc|
   |Ossetian|os|
@@ -574,7 +572,7 @@ The following table lists read model language support for extracting and analyzi
   |Romansh|rm|
  :::column-end:::
    :::column span="":::
-      |Language| Code (optional) |
+  |Language| Code (optional) |
   |:-----|:----:|
   |Romanian|ro|
   |Russian|ru|
@@ -858,7 +856,7 @@ The following table lists layout model language support for extracting and analy
 
 ### [Layout: printed text](#tab/layout-print)
 
-:::moniker range=">=doc-intel-3.1.0":::
+:::moniker range=">=doc-intel-3.1.0"
 
 The following table lists layout model language support for extracting and analyzing **printed** text. </br>
 
@@ -1323,7 +1321,7 @@ The following table lists layout model language support for extracting and analy
   |Romansh|rm|
  :::column-end:::
    :::column span="":::
-      |Language| Code (optional) |
+  |Language| Code (optional) |
   |:-----|:----:|
   |Romanian|ro|
   |Russian|ru|
@@ -1415,7 +1413,6 @@ The following table lists layout model language support for extracting and analy
 ---
 
 ## General document
-
 
 :::moniker range="doc-intel-4.0.0"
 
