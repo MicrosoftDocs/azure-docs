@@ -308,6 +308,8 @@
         href: packet-capture-site-to-site-powershell.md
     - name: Advanced Monitoring for P2S VPN
       href: monitor-point-to-site-connections.md
+  - name: Configure customer-controlled gateway maintenance
+    href: customer-controlled-gateway-maintenance.md
 - name: Reference
   items:
   - name: Monitoring data
