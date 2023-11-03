@@ -47,21 +47,22 @@ This page presents the latest feature, improvement, bug fix, and known issue rel
 |Amharic (`am-et`)|English (`en-us`)|
 |Arabic (`ar-sa`)|English (`en-us`)|
 |Catalan (`ca-es`)|English (`en-us`)|
-|Chinese Traditional (zh-hant)|English (`en-us`)|
-|English (`en-us`)|Lingala (`ln`)|
-|English (`en-us`)|Shona (sn-latn-zw)|
-|English (`en-us`)|Estonian (`et-ee`)|
+|Chinese Traditional (`zh-hant`)|English (`en-us`)|
 |English (`en-us`)|Bulgarian (`bg-bg`)|
 |English (`en-us`)|Catalan (`ca-es`)|
-|English (`en-us`)|Romanian (`ro-ro`)|
+|English (`en-us`)|Chinese Traditional (`zh-hant`)|
+|English (`en-us`)|Dutch (`nl-nl`)|
+|English (`en-us`)|Estonian (`et-ee`)|
+|English (`en-us`)|Finnish (`fi-fi`)|
 |English (`en-us`)|Icelandic (`is-is`)|
-|English (`en-us`)|Slovenian (`sl-si`)|
 |English (`en-us`)|Kannada (`kn-in`)|
+|English (`en-us`)|Lingala (`ln`)|
 |English (`en-us`)|Marathi (`mr-in`)|
 |English (`en-us`)|Punjabi (`pa-in`)|
+|English (`en-us`)|Romanian (`ro-ro`)|
+|English (`en-us`)|Shona (`sn-latn-zw`)|
+|English (`en-us`)|Slovenian (`sl-si`)|
 |English (`en-us`)|Turkish (`tr-tr`)|
-|English (`en-us`)|Dutch (`nl-nl`)|
-|English (`en-us`)|Chinese Traditional (`zh-hant`)|
 |Finnish (`fi-fi`)|English (`en-us`)|
 |Hebrew (`he-il`)|English (`en-us`)|
 |Icelandic (`is-is`)|English (`en-us`)|
@@ -72,8 +73,9 @@ This page presents the latest feature, improvement, bug fix, and known issue rel
 |Romanian (`ro-ro`)|English (`en-us`)|
 |Shona (`sn-latn-zw`)|English (`en-us`)|
 |Slovak (`sk-sk`)|English (`en-us`)|
-|Sovenian (`sl-si`)|English (`en-us`)|
+|Slovenian (`sl-si`)|English (`en-us`)|
 |Ukranian (`uk-ua`)|English (`en-us`)|
+
 
 ## 2023-June release
 
