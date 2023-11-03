@@ -73,25 +73,25 @@ We recommend using the built-in vectorization support of Azure AI Studio. If thi
 
 ## How to use integrated vectorization
 
-For those who already have vectors in a search index and only need text-to-vector conversion at query time:
+For query-only vectorization:
 
-1. [Add a vectorizer](vector-search-how-to-configure-vectorizer.md) to the search index. Make sure it's the same vectorizer (embedding model) used to create embeddings in the index.
-1. Assign the vectorizer to the vector field.
+1. [Add a vectorizer](vector-search-how-to-configure-vectorizer.md#define-a-vectorizer) to an index. It should be the same embedding model used to generate vectors in the index.
+1. [Assign the vectorizer](vector-search-how-to-configure-vectorizer.md#assign-a-vector-profile-to-a-field) to the vector field.
 1. [Formulate a vector query](vector-search-how-to-query.md#query-with-integrated-vectorization-preview) that specifies the text string to vectorize.
 
-A more common scenario is to also require data chunking and vectorization during indexing:
+A more common scenario - data chunking and vectorization during indexing:
 
-1. Create a data source connection to a supported data source for indexer-based indexing.
-1. Create a skillset that calls [Text Split skill](cognitive-search-skill-textsplit.md) for chunking and [AzureOpenAIEmbeddingModel](cognitive-search-skill-azure-openai-embedding.md) or a custom skill to vectorize the chunks.
-1. Create an index that [specifies a vectorizer](vector-search-how-to-configure-vectorizer.md) for query time, and assign it to vector fields.
-1. Create an indexer to drive everything, from data retrieval, to skillset execution, through indexing.
+1. [Create a data source](search-howto-create-indexers.md#prepare-a-data-source) connection to a supported data source for indexer-based indexing.
+1. [Create a skillset](cognitive-search-defining-skillset.md) that calls [Text Split skill](cognitive-search-skill-textsplit.md) for chunking and [AzureOpenAIEmbeddingModel](cognitive-search-skill-azure-openai-embedding.md) or a custom skill to vectorize the chunks.
+1. [Create an index](search-how-to-create-search-index.md) that specifies a [vectorizer](vector-search-how-to-configure-vectorizer.md) for query time, and assign it to vector fields.
+1. [Create an indexer](search-howto-create-indexers.md) to drive everything, from data retrieval, to skillset execution, through indexing.
 
-Optionally, consider [creating secondary indexes](index-projections-concept-intro.md) for advanced scenarios where you want chunked content in one index, and non-chunked in another index. Chunked indexes (or secondary indexes) are useful for RAG apps.
+Optionally, [create secondary indexes](index-projections-concept-intro.md) for advanced scenarios where chunked content is in one index, and non-chunked in another index. Chunked indexes (or secondary indexes) are useful for RAG apps.
 
 > [!TIP]
-> Use the [**Import and vectorize data** wizard](search-get-started-portal-import-vectors.md) in the Azure portal to try out integrated vectorization before writing any code.
+> [**Import and vectorize data** wizard](search-get-started-portal-import-vectors.md) in the Azure portal let's you try out integrated vectorization before writing any code.
 >
-> Next, configure a Jupyter notebook to run the same workflow, cell by cell, to see how each step works.
+> Or, configure a Jupyter notebook to run the same workflow, cell by cell, to see how each step works.
 
 ## Limitations
 
