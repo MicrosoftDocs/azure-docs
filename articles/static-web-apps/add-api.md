@@ -53,8 +53,12 @@ You create an Azure Functions project for your static web app's API. By default,
     | Prompt | Value |
     | --- | --- |
     | Select a language | **JavaScript** |
+    | Select a programming model | **V3** |
     | Provide a function name | **message** |
 
+    > [!TIP]
+    > You can learn more about the differences between programming models in the [Azure Functions developer guide](/articles/azure-functions/functions-reference-node.md)
+    
     An Azure Functions project is generated with an HTTP triggered function. Your app now has a project structure similar to the following example.
 
     ```Files
@@ -222,7 +226,7 @@ To run your frontend app and API together locally, Azure Static Web Apps provide
 Ensure you have the necessary command line tools installed.
 
 ```bash
-npm install -g @azure/static-web-apps-cli
+npm install -D @azure/static-web-apps-cli
 ```
 
 ### Build frontend app
