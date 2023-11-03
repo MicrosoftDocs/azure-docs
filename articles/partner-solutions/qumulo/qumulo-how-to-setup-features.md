@@ -3,8 +3,7 @@ title: Azure Native Qumulo Scalable File Service feature setup
 description: Learn about features available with Azure Native Qumulo Scalable File Service offers you.
 
 ms.topic: conceptual
-ms.date: 07/25/2023
-#assign-reviewer: @flang-msft
+ms.date: 11/13/2003
 
 ---
 
@@ -39,6 +38,7 @@ Key links to get started:
 ## Authentication
 
 Azure Native Qumulo Scalable File Service enables you to connect to:
+
 - [Microsoft Entra ID](https://care.qumulo.com/hc/en-us/articles/115007276068-Join-your-Qumulo-Cluster-to-Active-Directory#in-this-article-0-0), or
 - [Active Directory Domain Services](https://care.qumulo.com/hc/en-us/articles/1500005254761-Qumulo-on-Azure-Connect-to-Azure-Active-Directory).
 
