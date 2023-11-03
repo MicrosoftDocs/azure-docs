@@ -2,7 +2,7 @@
 author: eric-urban
 ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 07/31/2023
+ms.date: 11/01/2023
 ms.author: eur
 ---
 
@@ -14,6 +14,36 @@ ms.author: eur
 ### Upcoming Plans for JavaScript SDK:
 
 * JS SDK is planning to move our compiled JS output target from ES5 to ES6 with the 1.33 release.
+
+### Speech SDK 1.33.0: October 2023 release
+
+#### Breaking change notice
+* New NuGet package added for Microsoft Audio Stack (MAS) is required to include in the applications which are using MAS in their package configuration files.
+
+#### New features
+* Added new NuGet package Microsoft.CognitiveServices.Speech.Extension.MAS.nupkg which provides improved echo cancellation performance when using Microsoft Audio Stack
+* Pronunciation Assessment: supported prosody and content evaluation, which could assess the spoken speech in terms of prosody, vocabulary, grammar as well as topic.
+
+#### Bug fixes
+* Fixed keyword recognition result offsets so that they correctly match the input audio stream since the beginning. The fix applies to both stand-alone keyword recognition and keyword-triggered speech recognition.
+* Fixed Synthesizer stopSpeaking does not return immediately SPXSpeechSynthesizer stopSpeaking() method cannot return immediately on iOS 17 · Issue #2081 · Azure-Samples/cognitive-services-speech-sdk (github.com)
+* Fixed Maccatalyst import issue on Swift module Support for mac catalyst with apple silicon. · Issue #1948 · Azure-Samples/cognitive-services-speech-sdk (github.com)
+* JS: AudioWorkletNode module loads now uses a trusted URL, with fallback for CDN browser includes.
+* JS: Packed lib files now targets ES6 JS, with support for ES5 JS removed.
+* JS: intermediate events for translation scenario targeting v2 endpoint are correctly handled 
+* JS: The language property for TranslationRecognitionEventArgs is now set for translation.hypothesis events.
+* Speech Synthesis: SynthesisCompleted event is guaranteed to be emit after all metadata events, so it could be used to indicate to the end of events. How to detect when visemes are received completely? · Issue #2093 · Azure-Samples/cognitive-services-speech-sdk (github.com)
+
+#### Samples
+* Added sample to demonstrate MULAW streaming using Python [add link to sample in GitHub]
+
+
+### Speech CLI 1.33.0: October 2023 release
+#### New features
+* Support word boundary events output when synthesizing speech.
+
+#### Bug fixes
+* none
 
 ### Speech SDK 1.32.1: September 2023 release    
 
