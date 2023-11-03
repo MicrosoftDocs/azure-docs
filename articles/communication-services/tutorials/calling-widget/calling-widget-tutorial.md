@@ -1,5 +1,5 @@
 ---
-title: Get Started with Azure Communication Services UI library calling to Teams Call Queue and Auto Attendant
+title: Get started with Azure Communication Services UI library calling to Teams Call Queue and Auto Attendant
 titleSuffix: An Azure Communication Services tutorial
 description: Learn how to create a Calling Widget widget experience with the Azure Communication Services CallComposite to facilitate calling a Teams Call Queue or Auto Attendant.
 author: dmceachern
@@ -13,15 +13,15 @@ ms.service: azure-communication-services
 ms.subservice: calling
 ---
 
-# Get Started with Azure Communication Services UI library calling to Teams Voice Apps
+# Get started with Azure Communication Services UI library calling to Teams Voice Apps
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 ![Home page of Calling Widget sample app](../media/calling-widget/sample-app-splash-widget-open.png)
 
-This project aims to guide developers to intiate a call from the ACS Calling Web SDK to Teams Call Queue and Auto Attendant using the Azure Communication UI Library.
+This project aims to guide developers to initiate a call from the ACS Calling Web SDK to Teams Call Queue and Auto Attendant using the Azure Communication UI Library.
 
-As per your requirements, you may need to offer your customers an easy way to reach out to you without any complex setup.
+As per your requirements, you might need to offer your customers an easy way to reach out to you without any complex setup.
 
 Calling to Teams Call Queue and Auto Attendant is a simple yet effective concept that facilitates instant interaction with customer support, financial advisor, and other customer-facing teams. The goal of this tutorial is to assist you in initiating interactions with your customers when they click a button on the web.
 
@@ -189,7 +189,7 @@ export default App;
 
 In this snippet we register two new icons `<Dismiss20Regular/>` and `<CallAdd20Regular>`. These new icons are used inside the widget component that we are creating in the next section.
 
-### Creating the Widget
+### Create the widget
 
 Now we need to make a widget that can show in three different modes:
 - Waiting: This widget state is how the component will be in before and after a call is made
@@ -375,7 +375,7 @@ export const CallingWidgetComponent = (
 };
 ```
 
-#### Styling the widget
+#### Style the widget
 
 We need to write some styles to make sure the widget looks appropriate and can hold our call composite. These styles should already be used in the widget if copying the snippet above.
 
@@ -492,7 +492,7 @@ export const callingWidgetInCallContainerStyles = (theme: Theme): IStackStyles =
 }
 ```
 
-### Running the app
+### Run the app
 
 Finally we can run the application to make our calls! Run the following commands to install our dependencies and run our app.
 
@@ -506,15 +506,15 @@ npm run start
 
 Once the app is running, you can see it on `http://localhost:3000` in your browser. You should see the following splash screen:
 
-![Screenshot of calling widget sample app home page widget closed](../media/calling-widget/sample-app-splash-widget-closed.png)
+![Screenshot of calling widget sample app home page widget closed.](../media/calling-widget/sample-app-splash-widget-closed.png)
 
 Then when you action the widget button, you should see a little menu:
 
-![Screenshot of calling widget sample app home page widget open](../media/calling-widget/sample-app-splash-widget-open.png)
+![Screenshot of calling widget sample app home page widget open.](../media/calling-widget/sample-app-splash-widget-open.png)
 
 after you fill out your name click start call and the call should begin. The widget should look like so after starting a call:
 
-![Screenshot of click to call sample app home page with calling experience embedded in widget](../media/calling-widget/calling-widget-embedded-start.png)
+![Screenshot of click to call sample app home page with calling experience embedded in widget.](../media/calling-widget/calling-widget-embedded-start.png)
 
 ## Next steps
 
