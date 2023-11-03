@@ -106,7 +106,7 @@ The preview is available on [npm][3.0.0-preview.10] and CDN.
 
 - Fixed an issue where accessibility-related duplicated DOM elements might result when `map.setServiceOptions` is called
 
-#### Installation (3.0.0-preview.9)ight
+#### Installation (3.0.0-preview.9)
 The preview is available on [npm][3.0.0-preview.9] and CDN.
 
 - **NPM:** Refer to the instructions at [azure-maps-control@3.0.0-preview.9][3.0.0-preview.9]
