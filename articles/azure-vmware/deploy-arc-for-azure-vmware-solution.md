@@ -143,7 +143,7 @@ Use the following steps to guide you through the process to onboard Azure Arc fo
     ```
 ---
 
-4. Additional Azure resources have been created in your resource group.
+4. More Azure resources are created in your resource group.
     - Resource bridge
     - Custom location
     - VMware vCenter
@@ -187,7 +187,7 @@ Once you connected your Azure VMware Solution private cloud to Azure, you can br
 
 ## Enable guest management and extension installation
 
-When the VMs are enabled to be managed from Azure, you need to enable guest management on the VMware VM before you can install an extension.
+Once the VMs are enabled to be managed from Azure, you need to enable guest management on the VMware VM before you can install an extension.
 
 ### Prerequisite
 
