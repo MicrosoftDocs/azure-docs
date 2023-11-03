@@ -814,6 +814,8 @@ The [Read model API](concept-read.md) supports language detection for the follow
 
 ---
 
+## Layout
+
 ### [Layout: handwritten text](#tab/layout-hand)
 
 ##### Model ID: **prebuilt-layout**
@@ -1425,6 +1427,8 @@ The following table lists layout model language support for extracting and analy
 :::moniker-end
 
 ---
+
+## General document
 
 :::moniker range="doc-intel-4.0.0"
 
