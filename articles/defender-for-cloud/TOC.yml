@@ -447,6 +447,12 @@
     - name: Common questions about Defender for APIs
       displayName: common questions, api, apis, faq, frequently asked questions
       href: faq-defender-for-apis.yml
+    - name: Partners
+      items:
+      - name: Partner applications
+        href: defender-partner-applications.md
+      - name: 42Crunch
+        href: onboarding-guide-42crunch.md
   - name: Defender for Servers
     displayName: hybrid, arc, Defender for Servers
     items:
