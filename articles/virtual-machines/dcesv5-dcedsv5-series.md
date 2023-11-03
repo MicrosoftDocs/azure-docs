@@ -48,7 +48,7 @@ This series supports Standard SSD, Standard HDD, and Premium SSD disk types. Bil
 - [Ephemeral OS Disks](ephemeral-os-disks.md) - DCedsv5 only
 - [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization)
 
-### DCesv5-series products
+### DCesv5-series specifications
 
 | Size | vCPU | RAM (GiB) | Temp storage (SSD) GiB | Max data disks | Max temp disk throughput IOPS/MBps | Max uncached disk throughput IOPS/MBps | Max burst uncached disk throughput: IOPS/MBps | Max NICs | Max Network Bandwidth (Mbps) |
 |:------:|:----:|:---------:|:------------------------:|:--------------:|:-------------------------------------:|:--------------------------------------:|:-----------------------------------------------:|:--------:|:-------------------------------------:|
@@ -69,18 +69,18 @@ The DCedsv5 offer a balance of memory to vCPU performance which will suit most p
 
 This series supports Standard SSD, Standard HDD, and Premium SSD disk types. Billing for disk storage and VMs is separate. To estimate your costs, use the [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/).
 
-### DCedsv5-series products
+### DCedsv5-series specifications
 
 | Size | vCPU | RAM (GiB) | Temp storage (SSD) GiB | Max data disks | Max temp disk throughput IOPS/MBps | Max uncached disk throughput IOPS/MBps | Max burst uncached disk throughput: IOPS/MBps | Max NICs | Max Network Bandwidth (Mbps) |
 |:------:|:----:|:---------:|:------------------------:|:--------------:|:-------------------------------------:|:--------------------------------------:|:-----------------------------------------------:|:--------:|:-------------------------------------:|
-| Standard_DC2eds_v5  	|2  	|8  	|47  	|4  	|9300/100  	|3750/80  	|Coming Soon  	|2  	|3000  	|
-| Standard_DC4eds_v5  	|4  	|16  	|105  	|8  	|19500/200  	|6400/140  	|Coming Soon  	|2  	|5000  	|
-| Standard_DC8eds_v5  	|8  	|32  	|227  	|16  	|38900/500  	|12800/300  	|Coming Soon    |4    |5000    |
-| Standard_DC16eds_v5  |16  |64  |463  |32  |76700/1000  |25600/600  |Coming Soon  |8  |10000 |
-| Standard_DC32eds_v5  |32  |128  |935  |32  |153200/2000  |51200/860  |Coming Soon  |8  |12500 |
-| Standard_DC48eds_v5  |48  |192  |1407  |32  |229700/3000  |76800/1320  |Coming Soon  |8  |15000 |
-| Standard_DC64eds_v5  |64  |256  |2823  |32  |306200/4000  |80000/1740  |Coming Soon  |8  |20000 |
-| Standard_DC96eds_v5  |96  |384  |2823  |32  |459200/4000  |80000/2600   	|Coming Soon   	|8   	|30000    |
+| Standard_DC2eds_v5  	|2  	|8  	|47  	|4  	|9300/100  	|3750/80  	| 10000/1200 | 2 | 3000 |
+| Standard_DC4eds_v5  	|4  	|16  	|105  	|8  	|19500/200  	|6400/140  	| 20000/1200 | 2 | 5000 |
+| Standard_DC8eds_v5  	|8  	|32  	|227  	|16  	|38900/500  	|12800/300  	| 20000/1200 | 4 | 5000 |
+| Standard_DC16eds_v5  |16  |64  |463  |32  |76700/1000  |25600/600  | 40000/1200 | 8 | 10000 |
+| Standard_DC32eds_v5  |32  |128  |935  |32  |153200/2000  |51200/860  |80000/2000  	|8  	|12500  	|
+| Standard_DC48eds_v5  |48  |192  |1407  |32  |229700/3000  |76800/1320  |80000/3000  	|8  	|15000  	|
+| Standard_DC64eds_v5  |64  |256  |2823  |32  |306200/4000  |80000/1740  |80000/3000  	|8  	|20000  	|
+| Standard_DC96eds_v5  |96  |384  |2823  |32  |459200/4000  |80000/2600   	|120000/4000   	|8   	|30000    |
 
 > [!NOTE]
 > To achieve these IOPs, use [Gen2 VMs](generation-2.md).
