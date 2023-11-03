@@ -12,8 +12,6 @@ author: JnHs
 
 Microsoft Copilot for Azure (preview) can help you  analyze, estimate and optimize cloud costs. Ask questions using natural language to get information and recommendations based on [Microsoft Cost Management](/azure/cost-management-billing/costs/overview-cost-management).
 
-With the cost management scenario in Copilot, users can better analyze, estimate and optimize their cloud costs. They can prompt copilot in natural language such as "Why did my cost spike on July 8th" or "Can you show me the subscriptions that costs the most" and get immediate response based on their usage, billing and cost data. 
-
 When you ask Microsoft Copilot for Azure (preview) questions about your costs, it automatically pulls context based on the last scope that you accessed using Cost Management. If the context isn't clear, you'll be prompted to select a scope or provide more context.
 
 [!INCLUDE [scenario-note](includes/scenario-note.md)]
