@@ -30,7 +30,7 @@ The number of selected resources has a limit of 200, regardless of the number of
 
 The portal will show data only for selected subscriptions on portal launch. To change what subscriptions are selected, go to the top right and select the notebook with a filter icon. This option will show the **Directory + subscriptions** tab.
 
-![Screenshot of the section to select the directory + subscription.](./media/storage-insights-overview/fqa3.png)
+:::image type="content" source="./media/storage-insights-overview/fqa3.png" lightbox="./media/storage-insights-overview/fqa3.png" alt-text="Screenshot of the section to select the directory + subscription.":::
 
 ## What is time range
 
@@ -48,20 +48,20 @@ The default time granularity is set to automatic, it currently can't be changed 
 
 By default the timespan/time range on your dashboard tile is set to 24 hours, to change this select the ellipses in the top right, select **Customize tile data**, check "override the dashboard time settings at the title level" box and then pick a timespan using the dropdown menu.  
 
-![Screenshot showing the ellipses and the Customize this data section in the right corner of the tile.](./media/storage-insights-overview/fqa-data-settings.png)
+:::image type="content" source="./media/storage-insights-overview/fqa-data-settings.png" lightbox="./media/storage-insights-overview/fqa-data-settings.png" alt-text="Screenshot showing the ellipses and the Customize this data section in the right corner of the tile.":::
 
-![Screenshot of the Configure tile settings, with the timespan dropdown to change the timespan/time range.](./media/storage-insights-overview/fqa-timespan.png)
+:::image type="content" source="./media/storage-insights-overview/fqa-timespan.png" lightbox="./media/storage-insights-overview/fqa-timespan.png" alt-text="Screenshot of the Configure tile settings, with the timespan dropdown to change the timespan/time range.":::
 
 ## How do I change the title of the workbook or a workbook step I pinned to a dashboard
 
 The title of the workbook or workbook step that is pinned to a dashboard retains the same name it had in the workbook. To change the title, you must save your own copy of the workbook. Then you'll be able to name the workbook before you press save.
 
-![Screenshot showing the save icon at the top of the workbook to save a copy of the workbook and to change the name.](./media/storage-insights-overview/fqa-change-workbook-name.png)
+:::image type="content" source="./media/storage-insights-overview/fqa-change-workbook-name.png" lightbox="./media/storage-insights-overview/fqa-change-workbook-name.png" alt-text="Screenshot showing the save icon at the top of the workbook to save a copy of the workbook and to change the name.":::
 
 To change the name of a step in your saved workbook, select edit under the step and then select the gear at the bottom of settings.
 
-![Screenshot of the edit icon at the bottom of a workbook.](./media/storage-insights-overview/fqa-edit.png)
-![Screenshot of the settings icon at the bottom of a workbook.](./media/storage-insights-overview/fqa-change-name.png)
+:::image type="content" source="./media/storage-insights-overview/fqa-edit.png" lightbox="./media/storage-insights-overview/fqa-edit.png" alt-text="Screenshot of the edit icon at the bottom of a workbook.":::
+:::image type="content" source="./media/storage-insights-overview/fqa-change-name.png" lightbox="./media/storage-insights-overview/fqa-change-name.png" alt-text="Screenshot of the settings icon at the bottom of a workbook.":::
 
 ## Next steps
 
