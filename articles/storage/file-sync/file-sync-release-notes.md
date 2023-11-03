@@ -5,7 +5,7 @@ services: storage
 author: wmgries
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 10/2/2023
+ms.date: 11/3/2023
 ms.author: wgries
 ---
 
