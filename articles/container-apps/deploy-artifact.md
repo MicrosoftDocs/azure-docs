@@ -14,7 +14,7 @@ ms.custom: ignite-2023
 
 This article demonstrates how to deploy a container app from a prebuilt artifact file.
 
-The following example deploys a Java application using a JAR file, which include a Java-specific manifest file.
+The following example deploys a Java application using a JAR file, which includes a Java-specific manifest file.
 
 In this quickstart, you create a backend web API service that returns a static collection of music albums.  After completing this quickstart, you can continue to [Tutorial: Communication between microservices in Azure Container Apps](communicate-between-microservices.md) to learn how to deploy a front end application that calls the API.
 
