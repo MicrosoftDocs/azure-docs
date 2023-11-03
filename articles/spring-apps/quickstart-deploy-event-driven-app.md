@@ -180,7 +180,7 @@ Use the following steps to confirm that the event-driven app works correctly. Yo
 > [Set up Azure Spring Apps CI/CD with GitHub Actions](./how-to-github-actions.md)
 
 > [!div class="nextstepaction"]
-> [Set up Azure Spring Apps CI/CD with Azure DevOps](./how-to-cicd.md)
+> [Automate application deployments to Azure Spring Apps](./how-to-cicd.md)
 
 > [!div class="nextstepaction"]
 > [Use managed identities for applications in Azure Spring Apps](./how-to-use-managed-identities.md)
@@ -191,14 +191,14 @@ Use the following steps to confirm that the event-driven app works correctly. Yo
 ::: zone pivot="sc-standard, sc-consumption-plan"
 
 > [!div class="nextstepaction"]
-> [Run microservice apps(Pet Clinic)](./quickstart-sample-app-introduction.md)
+> [Run microservice apps (Pet Clinic)](./quickstart-sample-app-introduction.md)
 
 ::: zone-end
 
 ::: zone pivot="sc-enterprise"
 
 > [!div class="nextstepaction"]
-> [Run polyglot apps on Enterprise plan(ACME Fitness Store)](./quickstart-sample-app-acme-fitness-store-introduction.md)
+> [Introduction to the Fitness Store sample app](./quickstart-sample-app-acme-fitness-store-introduction.md)
 
 ::: zone-end
 
