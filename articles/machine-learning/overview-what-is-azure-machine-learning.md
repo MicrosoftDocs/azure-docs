@@ -52,7 +52,7 @@ As you're refining the model and collaborating with others throughout the rest o
 
 ### Studio
 
-The [Machine Learning studio](https://ml.azure.com) offers multiple authoring experiences depending on the type of project and the level of your past ML experience, without having to install anything.
+[Machine Learning studio](https://ml.azure.com) offers multiple authoring experiences depending on the type of project and the level of your past ML experience, without having to install anything.
 
 * **Notebooks**: Write and run your own code in managed Jupyter Notebook servers that are directly integrated in the studio.
 * **Visualize run metrics**: Analyze and optimize your experiments with visualization.
@@ -131,7 +131,7 @@ For more information, see [Open-source integration with Azure Machine Learning](
 
 In a repetitive, time-consuming process, in classical ML, data scientists use prior experience and intuition to select the right data featurization and algorithm for training. Automated ML (AutoML) speeds this process. You can use it through the Machine Learning studio UI or the Python SDK.
 
-For more information, see [What is automated machine learning?](concept-automated-ml.md)
+For more information, see [What is automated machine learning?](concept-automated-ml.md).
 
 ### Hyperparameter optimization
 
@@ -165,7 +165,7 @@ To bring a model into production, it's deployed. The Machine Learning managed en
 
 *Batch scoring*, or *batch inferencing*, involves invoking an endpoint with a reference to data. The batch endpoint runs jobs asynchronously to process data in parallel on compute clusters and store the data for further analysis.
 
-*Real-time scoring*, or *online inferencing*, involves invoking an endpoint with one or more model deployments and receiving a response in near real time via HTTPs. Traffic can be split across multiple deployments, allowing for testing new model versions by diverting some amount of traffic initially and increasing after confidence in the new model is established.
+*Real-time scoring*, or *online inferencing*, involves invoking an endpoint with one or more model deployments and receiving a response in near real time via HTTPS. Traffic can be split across multiple deployments, allowing for testing new model versions by diverting some amount of traffic initially and increasing after confidence in the new model is established.
 
 For more information, see:
 
