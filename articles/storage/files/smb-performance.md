@@ -147,26 +147,16 @@ Metadata caching introduces a layer of cache to the Azure Files service to reduc
 
 ### Regional availability
 
-Currently the metadata caching preview is available in the following Azure regions.
+Currently the metadata caching preview is only available in the following Azure regions.
 
-| **Region** | **Region Pair** |
-|------------|-----------------|
-| East US 2 | Central US |
-| West US 2 | West Central US |
-| UK West | UK South |
-| France Central | France South |
-| Germany West Central | Germany North |
-| Japan West | Japan East |
-| Australia Southeast | Australia East |
-| Australia Central | Australia Central 2 |
-| Korea Central | Korea South |
-| Norway East | Norway West |
-| South Africa North | South Africa West |
-| Sweden Central | Sweden South |
-| UAE North | UAE Central |
-| China North 2 | China East 2 |
-| China North 3 | China East 3 |
-| East Asia | Southeast Asia |
+- Australia East
+- Brazil South East
+- France South
+- Germany West Central
+- Switzerland North
+- UAE Central
+- UAE North
+- US West Central
 
 ### Performance improvements with metadata caching
 
