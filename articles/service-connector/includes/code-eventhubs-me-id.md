@@ -95,7 +95,7 @@ Refer to [Spring Cloud Stream with Azure Event Hubs](/azure/developer/java/sprin
 
 
 ### [SpringBoot Kafka](#tab/kafka)
-Refer to [Use Spring Kafka with Azure Event Hubs for Kafka API](https://learn.microsoft.com/en-us/azure/developer/java/spring-framework/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub?tabs=passwordless) to set up your Spring application. The configuration properties above are set to Spring Apps by Service Connector.
+Refer to [Use Spring Kafka with Azure Event Hubs for Kafka API](/azure/developer/java/spring-framework/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub?tabs=passwordless) to set up your Spring application. The configuration properties above are set to Spring Apps by Service Connector.
 
 ### [Python](#tab/python)
 1. Install dependencies.
@@ -182,22 +182,22 @@ Refer to [Use Spring Kafka with Azure Event Hubs for Kafka API](https://learn.mi
     npm install @azure/event-hubs
     npm install @azure/identity
     ```
-1.Authenticate using `@azure/identity` and get the Azure Event Hubs namespace from the environment variables added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+1. Authenticate using `@azure/identity` and get the Azure Event Hubs namespace from the environment variables added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
 
     ```javascript
     const { EventHubProducerClient } = require("@azure/event-hubs");
     import { DefaultAzureCredential,ClientSecretCredential } from "@azure/identity";
-    
+
     // Uncomment the following lines according to the authentication type.
     // for system-assigned managed identity
     // const credential = new DefaultAzureCredential();
-    
+
     // for user-assigned managed identity
     // const clientId = process.env.AZURE_EVENTHUB_CLIENTID;
     // const credential = new DefaultAzureCredential({
     //     managedIdentityClientId: clientId
     // });
-    
+
     // for service principal
     // const tenantId = process.env.AZURE_EVENTHUB_TENANTID;
     // const clientId = process.env.AZURE_EVENTHUB_CLIENTID;

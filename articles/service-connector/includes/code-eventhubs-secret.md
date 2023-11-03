@@ -56,7 +56,7 @@ Refer to [Spring Cloud Stream with Azure Event Hubs](/azure/developer/java/sprin
 
 ### [SpringBoot Kafka](#tab/kafka)
 
-Refer to [Use Spring Kafka with Azure Event Hubs for Kafka API](https://learn.microsoft.com/en-us/azure/developer/java/spring-framework/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub?tabs=connection-string) to set up your Spring application. The configuration properties above are set to Spring Apps by Service Connector.
+Refer to [Use Spring Kafka with Azure Event Hubs for Kafka API](/azure/developer/java/spring-framework/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub?tabs=connection-string) to set up your Spring application. The configuration properties above are set to Spring Apps by Service Connector.
 
 ### [Python](#tab/python)
 1. Install dependency.
