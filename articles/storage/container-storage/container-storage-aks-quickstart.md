@@ -149,13 +149,13 @@ The deployment will take 10-15 minutes to complete.
 If you want to install Azure Container Storage on specific node pools, follow these instructions. The node pools must contain at least three Linux VMs each.
 
 1. Run the following command to view the list of available node pools. Replace `<resource-group-name>` and `<cluster-name>` with your own values.
-
-```azurecli-interactive
-az aks nodepool list --resource-group <resource-group-name> --cluster-name <cluster-name>
-```
-
-1. Run the following command to install Azure Container Storage on specific node pools. Replace `<cluster-name>` and `<resource-group-name>` with your own values. Replace `<storage-pool-type>` with `azureDisk`, `ephemeraldisk`, or `elasticSan`.
-
-```azurecli-interactive
-az aks update -n <cluster-name> -g <resource-group-name> --enable-azure-container-storage <storage-pool-type> --azure-container-storage-nodepools <comma separated values of nodepool names> 
-```
+   
+   ```azurecli-interactive
+   az aks nodepool list --resource-group <resource-group-name> --cluster-name <cluster-name>
+   ```
+   
+2. Run the following command to install Azure Container Storage on specific node pools. Replace `<cluster-name>` and `<resource-group-name>` with your own values. Replace `<storage-pool-type>` with `azureDisk`, `ephemeraldisk`, or `elasticSan`.
+   
+   ```azurecli-interactive
+   az aks update -n <cluster-name> -g <resource-group-name> --enable-azure-container-storage <storage-pool-type> --azure-container-storage-nodepools <comma separated values of nodepool names> 
+   ```
