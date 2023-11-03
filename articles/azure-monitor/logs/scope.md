@@ -18,7 +18,7 @@ The query scope defines the records that the query evaluates. This definition wi
 
 The scope is always displayed at the top left of the Log Analytics window. An icon indicates whether the scope is a Log Analytics workspace or an Application Insights application. No icon indicates another Azure resource.
 
-:::image type="content" source="media/scope/scope.png" lightbox="media/scope/scope.png" alt-text="Scope displayed in portal":::
+:::image type="content" source="media/scope/scope.png" lightbox="media/scope/scope.png" alt-text="Screenshot of scope displayed in portal.":::
 
 The method you use to start Log Analytics determines the scope, and in some cases you can change the scope by clicking on it. The following table lists the different types of scope used and different details for each.
 
@@ -53,11 +53,11 @@ Setting the scope to a resource or set of resources is a powerful feature of Log
 Log Analytics helps protect against excessive overhead from queries that span workspaces in multiple regions by issuing a warning or error when a certain number of regions are being used. 
 Your query receives a warning if the scope includes workspaces in 5 or more regions. it will still run, but it might take excessive time to complete.
 <!-- convertborder later -->
-:::image type="content" source="media/scope/query-warning.png" lightbox="media/scope/query-warning.png" alt-text="Query warning" border="false":::
+:::image type="content" source="media/scope/query-warning.png" lightbox="media/scope/query-warning.png" alt-text="Screenshot of query warning." border="false":::
 
 Your query will be blocked from running if the scope includes workspaces in 20 or more regions. In this case, you'll be prompted to reduce the number of workspace regions and attempt to run the query again. The dropdown will display all of the regions in the scope of the query, and you should reduce the number of regions before attempting to run the query again.
 <!-- convertborder later -->
-:::image type="content" source="media/scope/query-failed.png" lightbox="media/scope/query-failed.png" alt-text="Query failed" border="false":::
+:::image type="content" source="media/scope/query-failed.png" lightbox="media/scope/query-failed.png" alt-text="Screenshot of query failed." border="false":::
 
 
 ## Time range
@@ -66,21 +66,21 @@ The time range specifies the set of records that are evaluated for the query bas
 
 Set the time range by selecting it from the time picker at the top of the Log Analytics window.  You can select a predefined period or select **Custom** to specify a specific time range.
 <!-- convertborder later -->
-:::image type="content" source="media/scope/time-picker.png" lightbox="media/scope/time-picker.png" alt-text="Time picker" border="false":::
+:::image type="content" source="media/scope/time-picker.png" lightbox="media/scope/time-picker.png" alt-text="Screenshot of the time picker." border="false":::
 
 If you set a filter in the query that uses the standard time column as shown in the table above, the time picker changes to **Set in query**, and the time picker is disabled. In this case, it's most efficient to put the filter at the top of the query so that any subsequent processing only needs to work with the filtered records.
 <!-- convertborder later -->
-:::image type="content" source="media/scope/query-filtered.png" lightbox="media/scope/query-filtered.png" alt-text="Filtered query" border="false":::
+:::image type="content" source="media/scope/query-filtered.png" lightbox="media/scope/query-filtered.png" alt-text="Screenshot of filtered query." border="false":::
 
 If you use the [workspace](../logs/workspace-expression.md) or [app](../logs/app-expression.md) command to retrieve data from another workspace or classic application, the time picker might behave differently. If the scope is a Log Analytics workspace and you use **app**, or if the scope is a classic Application Insights application and you use **workspace**, then Log Analytics might not understand that the column used in the filter should determine the time filter.
 
 In the following example, the scope is set to a Log Analytics workspace.  The query uses **workspace** to retrieve data from another Log Analytics workspace. The time picker changes to **Set in query** because it sees a filter that uses the expected **TimeGenerated** column.
 <!-- convertborder later -->
-:::image type="content" source="media/scope/query-workspace.png" lightbox="media/scope/query-workspace.png" alt-text="Query with workspace" border="false":::
+:::image type="content" source="media/scope/query-workspace.png" lightbox="media/scope/query-workspace.png" alt-text="Screenshot of query with workspace." border="false":::
 
 If the query uses **app** to retrieve data from a classic Application Insights application though, Log Analytics doesn't recognize the **timestamp** column in the filter, and the time picker remains unchanged. In this case, both filters are applied. In the example, only records created in the last 24 hours are included in the query even though it specifies 7 days in the **where** clause.
 <!-- convertborder later -->
-:::image type="content" source="media/scope/query-app.png" lightbox="media/scope/query-app.png" alt-text="Query with app" border="false":::
+:::image type="content" source="media/scope/query-app.png" lightbox="media/scope/query-app.png" alt-text="Screenshot of query with app." border="false":::
 
 ## Next steps
 
