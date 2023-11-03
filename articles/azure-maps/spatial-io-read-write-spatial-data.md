@@ -30,9 +30,9 @@ These next sections outline all the different tools for reading and writing spat
 
 The `atlas.io.read` function is the main function used to read common spatial data formats such as KML, GPX, GeoRSS, GeoJSON, and CSV files with spatial data. This function can also read compressed versions of these formats, as a zip file or a KMZ file. The KMZ file format is a compressed version of KML that can also include assets such as images. Alternatively, the read function can take in a URL that points to a file in any of these formats. URLs should be hosted on a CORS enabled endpoint, or a proxy service should be provided in the read options. The proxy service is used to load resources on domains that aren't CORS enabled. The read function returns a promise to add the image icons to the map, and processes data asynchronously to minimize impact to the UI thread.
 
-When reading a compressed file, either as a zip or a KMZ, it's unzipped and scanned for the first valid file. For example, doc.kml, or a file with other valid extension, such as: .kml, .xml, geojson, .json, .csv, .tsv, or .txt. Then, images referenced in KML and GeoRSS files are preloaded to ensure they're accessible. Inaccessible image data may load an alternative fallback image or removed from the styles. Images extracted from KMZ files are converted to data URIs.
+When reading a compressed file, either as a zip or a KMZ, once unzipped it looks for the first valid file. For example, doc.kml, or a file with other valid extension, such as: .kml, .xml, geojson, .json, .csv, .tsv, or .txt. Then, images referenced in KML and GeoRSS files are preloaded to ensure they're accessible. Inaccessible image data can load an alternative fallback image or removed from the styles. Images extracted from KMZ files are converted to data URIs.
 
-The result from the read function is a `SpatialDataSet` object. This object extends the GeoJSON FeatureCollection class. It can easily be passed into a `DataSource` as-is to render its features on a map. The `SpatialDataSet` not only contains feature information, but it may also include KML ground overlays, processing metrics, and other details as outlined in the following table.
+The result from the read function is a `SpatialDataSet` object. This object extends the GeoJSON FeatureCollection class. It can easily be passed into a `DataSource` as-is to render its features on a map. The `SpatialDataSet` not only contains feature information, but it can also include KML ground overlays, processing metrics, and other details as outlined in the following table.
 
 | Property name | Type | Description |
 |---------------|------|-------------|
@@ -65,7 +65,7 @@ The [Load KML onto map] sample shows how to load KML or KMZ files onto the map. 
 > [!VIDEO //codepen.io/azuremaps/embed/XWbgwxX/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
 --------------------------------------------------->
 
-You may optionally provide a proxy service for accessing cross domain assets that may not have CORS enabled. The read function tries to access files on another domain using CORS first. After the first time it fails to access any resource on another domain using CORS it only requests more files if a proxy service has been provided. The read function appends the file URL to the end of the proxy URL provided. This snippet of code shows how to pass a proxy service into the read function:
+You can optionally provide a proxy service for accessing cross domain assets that don't have CORS enabled. The read function tries to access files on another domain using CORS first. The first time it fails to access any resource on another domain using CORS it only requests more files if a proxy service is provided. The read function appends the file URL to the end of the proxy URL provided. This snippet of code shows how to pass a proxy service into the read function:
 
 ```javascript
 //Read a file from a URL or pass in a raw data as a string.
@@ -166,7 +166,7 @@ The [Drag and drop spatial files onto map] sample allows you to drag and drop on
 > [!VIDEO //codepen.io/azuremaps/embed/zYGdGoO/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true]
 --------------------------------------------------->
 
-You may optionally provide a proxy service for accessing cross domain assets that may not have CORS enabled. This snippet of code shows you could incorporate a proxy service:
+You can optionally provide a proxy service for accessing cross domain assets that don't have CORS enabled. This snippet of code shows you could incorporate a proxy service:
 
 ```javascript
 atlas.io.read(data, {
@@ -206,7 +206,7 @@ The [Read and write Well Known Text] sample demonstrates how to read and write W
 
 ## Read and write GML
 
-GML is a spatial XML file specification that's often used as an extension to other XML specifications. GeoJSON data can be written as XML with GML tags using the `atlas.io.core.GmlWriter.write` function. The XML that contains GML can be read using the `atlas.io.core.GmlReader.read` function. The read function has two options:
+GML is a spatial XML file specification often used as an extension to other XML specifications. GeoJSON data can be written as XML with GML tags using the `atlas.io.core.GmlWriter.write` function. The XML that contains GML can be read using the `atlas.io.core.GmlReader.read` function. The read function has two options:
 
 - The `isAxisOrderLonLat` option - The axis order of coordinates "latitude, longitude" or "longitude, latitude" can vary between data sets, and it isn't always well defined. By default the GML reader reads the coordinate data as "latitude, longitude", but setting this option to `true` reads it as "longitude, latitude".
 - The `propertyTypes` option - This option is a key value lookup table where the key is the name of a property in the data set. The value is the object type to cast the value to when parsing. The supported type values are: `string`, `number`, `boolean`, and  `date`. If a property isn't in the lookup table or the type isn't defined, the property is parsed as a string.
