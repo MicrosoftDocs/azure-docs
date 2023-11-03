@@ -71,7 +71,7 @@ New-AzStorageEncryptionScope -ResourceGroupName $rgName `
 
 To create an encryption scope that is protected by customer-managed keys stored in a key vault or managed HSM that is in the same tenant as the storage account, first configure customer-managed keys for the storage account. You must assign a managed identity to the storage account that has permissions to access the key vault. The managed identity can be either a user-assigned managed identity or a system-assigned managed identity. To learn more about configuring customer-managed keys, see [Configure customer-managed keys in the same tenant for an existing storage account](../common/customer-managed-keys-configure-existing-account.md).
 
-To grant the managed identity permissions to access the key vault, assign the managed identity the **Key Vault Crypto Service Encryption User** role.
+To grant the managed identity permissions to access the key vault, assign the **Key Vault Crypto Service Encryption User** role the managed identity.
 
 To configure customer-managed keys for use with an encryption scope, purge protection must be enabled on the key vault or managed HSM. The key vault or managed HSM can be in a different region from the storage account.
 
@@ -173,7 +173,7 @@ az storage account encryption-scope create \
 
 To create an encryption scope that is protected by customer-managed keys stored in a key vault or managed HSM that is in the same tenant as the storage account, first configure customer-managed keys for the storage account. You must assign a managed identity to the storage account that has permissions to access the key vault. The managed identity can be either a user-assigned managed identity or a system-assigned managed identity. To learn more about configuring customer-managed keys, see [Configure customer-managed keys in the same tenant for an existing storage account](../common/customer-managed-keys-configure-existing-account.md).
 
-To grant the managed identity permissions to access the key vault, assign the managed identity the **Key Vault Crypto Service Encryption User** role.
+To grant the managed identity permissions to access the key vault, assign the **Key Vault Crypto Service Encryption User** role the managed identity.
 
 To configure customer-managed keys for use with an encryption scope, purge protection must be enabled on the key vault or managed HSM. The key vault or managed HSM can be in a different region from the storage account.
 
