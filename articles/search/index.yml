@@ -71,6 +71,10 @@ landingContent:
             url: /dotnet/api/overview/azure/search.documents-readme
           - text: Azure SDK for Python
             url: /python/api/overview/azure/search-documents-readme
+          - text: Azure SDK for Java
+            url: /java/api/overview/azure/search-documents-readme
+          - text: Azure SDK for JavaScript
+            url: /javascript/api/overview/azure/search-documents-readme
 
   # Card
   - title: Index data
