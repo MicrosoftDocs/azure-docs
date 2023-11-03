@@ -193,6 +193,19 @@ By using Tanzu Partner Buildpacks and CA Certificates Buildpack, the Azure Sprin
 
 A build task is triggered when an application is deployed from an Azure CLI command. Build logs are streamed in real time as part of the CLI command output. For information about using build logs to diagnose problems, see [Analyze logs and metrics with diagnostics settings](./diagnostic-services.md).
 
+## Build History
+All Build Resources are showed in the `Builds`, shown as below picture. 
+:::image type="content" source="media/how-to-enterprise-build-service/build-table.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps Build Service page with 'Builds' highlighted." lightbox="media/how-to-enterprise-build-service/build-table.png":::
+* `Name`: the name of the build.
+* `Provisioning State`: the provision state of the build. The possible values are `Succeeded`, `Failed`, `Updating` and `Creating`. When the provisioning state is `Updating` or `Creating`, the build can't be updated. When the provision state is `Failed`, it means your latest source code build failed to generate a new build result.
+* `Resource Quota`: the resource quota in build pod of the build.
+* `Builder`: the builder used in the build.
+* `Latest Build Result`: the latest build result image tag of the build.
+* `Latest Build Result Provisioning State`: the latest build result provisioning state of the build. The possible values are `Queuing`, `Building`, `Succeeded` and `Failed`.
+* `Latest Build Result Last Transition Time`: the last transition time for the latest build result of the build.
+* `Latest Build Result Last Transition Reason`: the last transition Reason for the latest build result of the build. The possible values are `CONFIG`, `STACK` and `BUILDPACK`. The `CONFIG` means the build result changed by builder updates or a new source code deploy operation. The `Stack` means the build result changed by stack upgrade. The `BUILDPACK` means the build result changed by buildpack upgrade.
+* `Latest Build Result Last Transition Status`: the last transition time for the latest build result of the build. The possible values are `True` or `False`.
+
 ## Next steps
 
 - [How to configure APM integration and CA certificates](how-to-enterprise-configure-apm-integration-and-ca-certificates.md)
