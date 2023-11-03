@@ -48,7 +48,7 @@ This series supports Standard SSD, Standard HDD, and Premium SSD disk types. Bil
 - [Ephemeral OS Disks](ephemeral-os-disks.md) - ECedsv5 only
 - [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization)
 
-### ECesv5-series products
+### ECesv5-series specifications
 
 | Size | vCPU | RAM (GiB) | Temp storage (SSD) GiB | Max data disks | Max temp disk throughput IOPS/MBps | Max uncached disk throughput IOPS/MBps | Max burst uncached disk throughput: IOPS/MBps | Max NICs | Max Network Bandwidth (Mbps) |
 |:------:|:----:|:---------:|:------------------------:|:--------------:|:-------------------------------------:|:--------------------------------------:|:-----------------------------------------------:|:--------:|:-------------------------------------:|
@@ -59,7 +59,7 @@ This series supports Standard SSD, Standard HDD, and Premium SSD disk types. Bil
 | Standard_EC32es_v5  	|32  	|256  	|RS*  	|32  	| N/A  	|51200/860  	|80000/2000  	|8  	|12500  	|
 | Standard_EC48es_v5  	|48  	|384  	|RS*  	|32  	| N/A  	|76800/1320  	|80000/3000  	|8  	|15000  	|
 | Standard_EC64es_v5  	|64  	|512  	|RS*  	|32  	| N/A  	|80000/1740  	|80000/3000  	|8  	|20000    |
-| Standard_EC128es_v5   	|128   	|768    |RS*   	    |32    | N/A   	    |80000/2600   	    |120000/4000   	    |8   	    |30000
+| Standard_EC128es_v5   	|128   	|768    |RS*   	    |32    | N/A   	    |80000/2600   	    |120000/4000   	    |8   	    |30000 |
 
 *RS: These VMs have support for remote storage only
 
@@ -72,19 +72,18 @@ This series supports Standard SSD, Standard HDD, and Premium SSD disk types. Bil
 > [!NOTE]
 > There are some [pricing differences based on your encryption settings](../confidential-computing/confidential-vm-overview.md#encryption-pricing-differences) for confidential VMs.
 
-### ECedsv5-series products
+### ECedsv5-series specifications
 
 | Size | vCPU | RAM (GiB) | Temp storage (SSD) GiB | Max data disks | Max temp disk throughput IOPS/MBps | Max uncached disk throughput IOPS/MBps | Max burst uncached disk throughput: IOPS/MBps | Max NICs | Max Network Bandwidth (Mbps) |
 |:------:|:----:|:---------:|:------------------------:|:--------------:|:-------------------------------------:|:--------------------------------------:|:-----------------------------------------------:|:--------:|:-------------------------------------:|
-| Standard_EC2eds_v5  	|2  	|16  	|47  	|4  	|9300/100  	|3750/80  	|Coming Soon  	|2  	|3000  	|
-| Standard_EC4eds_v5  	|4  	|32  	|105  	|8  	|19500/200  	|6400/140  	|Coming Soon  	|2  	|5000  	|
-| Standard_EC8eds_v5  	|8  	|64  	|227  	|16  	|38900/500  	|12800/300  	|Coming Soon    |4    |5000    |
-| Standard_EC16eds_v5  |16  |128  |463  |32  |76700/1000  |25600/600  |Coming Soon  |8  |10000 |
-| Standard_EC32eds_v5  |32  |256  |935  |32  |153200/2000  |51200/860  |Coming Soon  |8  |12500 |
-| Standard_EC48eds_v5  |48  |384  |1407  |32  |229700/3000  |76800/1320  |Coming Soon  |8  |15000 |
-| Standard_EC64eds_v5  |64  |512  |2823  |32  |306200/4000  |80000/1740  |Coming Soon  |8  |20000 |
-| Standard_EC128eds_v5   	|128 |768 |2832 |32 |459200/4000 |80000/2600 |Coming Soon |8 |30000|
-
+| Standard_EC2eds_v5  	|2  	|16  	|47  	|4  	|9300/100  	|3750/80  	| 10000/1200 | 2 | 3000 |
+| Standard_EC4eds_v5  	|4  	|32  	|105  	|8  	|19500/200  	|6400/140  	| 20000/1200 | 2 | 5000 |
+| Standard_EC8eds_v5  	|8  	|64  	|227  	|16  	|38900/500  	|12800/300  	| 20000/1200 | 4 | 5000 |
+| Standard_EC16eds_v5  |16  |128  |463  |32  |76700/1000  |25600/600  |40000/1200  	|8  	|10000  	|
+| Standard_EC32eds_v5  |32  |256  |935  |32  |153200/2000  |51200/860  |80000/2000  	|8  	|12500  	|
+| Standard_EC48eds_v5  |48  |384  |1407  |32  |229700/3000  |76800/1320  |80000/3000  	|8  	|15000  	|
+| Standard_EC64eds_v5  |64  |512  |2823  |32  |306200/4000  |80000/1740  |80000/3000  	|8  	|20000    |
+| Standard_EC128eds_v5   	|128 |768 |2832 |32 |459200/4000 |80000/2600 |120000/4000   	    |8   	    |30000 |
 > [!NOTE]
 > To achieve these IOPs, use [Gen2 VMs](generation-2.md).
 
