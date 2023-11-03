@@ -236,22 +236,20 @@ When connecting a machine or server with Azure Arc-enabled servers for the first
 
 1. From your browser, go to the [Azure portal](https://portal.azure.com).
 
-1. Navigate to **Servers -Azure Arc**.
+1. Navigate to **Machines - Azure Arc**.
 
-1. On the **Servers - Azure Arc** page, select **Add** at the upper left.
+1. On the **Machines - Azure Arc** page, select **Add/Create** at the upper left, and then select **Add a machine** from the drop-down menu.
 
 1. On the **Add servers with Azure Arc** page, select either the **Add a single server** or **Add multiple servers** depending on your deployment scenario, and then select **Generate script**.
 
 1. On the **Generate script** page, select the subscription and resource group where you want the machine to be managed within Azure. Select an Azure location where the machine metadata will be stored. This location can be the same or different, as the resource group's location.
 
-1. On the **Prerequisites** page, review the information and then select **Next: Resource details**.
+1. On the **Basics** page, provide the following:
 
-1. On the **Resource details** page, provide the following:
-
-    1. In the **Resource group** drop-down list, select the resource group the machine will be managed from.
+    1. Select the **Subsciption** and **Resource group** for the machine.
     1. In the **Region** drop-down list, select the Azure region to store the machine or server metadata.
     1. In the **Operating system** drop-down list, select the operating system that the script is configured to run on.
-    1. Under **Network Connectivity**, select **Private endpoint** and select the Azure Arc Private Link Scope created in Part 1 from the drop-down list.
+    1. Under **Connectivity method**, select **Private endpoint** and select the Azure Arc Private Link Scope created in Part 1 from the drop-down list.
 
        :::image type="content" source="./media/private-link-security/arc-enabled-servers-create-script.png" alt-text="Selecting Private Endpoint connectivity option" border="true":::
 
