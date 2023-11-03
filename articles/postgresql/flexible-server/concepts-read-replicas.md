@@ -145,7 +145,7 @@ Promotion of replicas can be done in two distinct manners:
 
 This action promotes the replica to serve as the primary server. Concurrently, the current primary will be demoted to the replica role, effectively swapping their roles.
 
-:::image type="content" source="./media/concepts-read-replica/promote-to-primary-server.png" alt-text="Promote to primary server":::
+:::image type="content" source="./media/concepts-read-replica/promote-to-primary-server.png" alt-text="Promote to primary server ":::
 
 **Promote to independent server and remove from replication** 
 
